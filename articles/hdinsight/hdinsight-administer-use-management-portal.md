@@ -1,230 +1,228 @@
 <properties
-    pageTitle="Manage Hadoop clusters in HDInsight using the Azure portal | Microsoft Azure"
-    description="Learn how to administer HDInsight Service. Create an HDInsight cluster, open the interactive JavaScript console, and open the Hadoop command console."
-    services="hdinsight"
-    documentationCenter=""
-    tags="azure-portal"
-    authors="mumian"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	pageTitle="Gestire cluster Hadoop in HDInsight tramite il portale di Azure | Microsoft Azure"
+	description="Informazioni su come amministrare il servizio HDInsight. Creare un cluster HDInsight, aprire la console interattiva JavaScript e aprire la console dei comandi di Hadoop."
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
+	authors="mumian"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
     ms.date="09/14/2016"
-    ms.author="jgao"/>
+	ms.author="jgao"/>
 
+# Gestire cluster Hadoop in HDInsight tramite il portale di Azure
 
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Manage Hadoop clusters in HDInsight by using the Azure portal
+[AZURE.INCLUDE [selettore](../../includes/hdinsight-portal-management-selector.md)]
 
-[AZURE.INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
+Tramite il [portale di Azure][azure-portal] è possibile creare cluster Hadoop in Azure HDInsight, modificare la password utente di Hadoop e abilitare RDP (Remote Desktop Protocol) per accedere alla console dei comandi di Hadoop nel cluster.
 
-Using the [Azure portal][azure-portal], you can create Hadoop clusters in Azure HDInsight, change Hadoop user password, and enable Remote Desktop Protocol (RDP) so you can access the Hadoop command console on the cluster.
+Le informazioni contenute in questo articolo si applicano solo ai cluster HDInsight basati su Windows. Per informazioni sulla gestione di cluster basati su Linux, fare clic sul selettore di schede in alto.
 
-The information in this article only applies to Window-based HDInsight clusters. For information on managing Linux-based clusters, click the tab selector above.
+Fare clic sul selettore di schede per informazioni sulla creazione di cluster Hadoop in HDInsight con altri strumenti.
 
-Click the tab selector for information on creating Hadoop clusters in HDInsight using other tools. 
+**Prerequisiti**
 
-**Prerequisites**
+Per eseguire le procedure descritte nell'articolo è necessario:
 
-Before you begin this article, you must have the following:
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Account di archiviazione di Azure**: cluster HDInsight usano un contenitore di archiviazione BLOB di Azure come file system predefinito. Per altre informazioni sull'esperienza lineare offerta dall'archivio BLOB con cluster HDInsight, vedere [Usare l'archivio BLOB di Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md). Per dettagli sulla creazione di un account di archiviazione di Azure, vedere [Come creare un account di archiviazione](../storage/storage-create-storage-account.md).
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- **Azure Storage account** - An HDInsight cluster uses an Azure Blob storage container as the default file system. For more information about how Azure Blob storage provides a seamless experience with HDInsight clusters, see [Use Azure Blob Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md). For details on creating an Azure Storage account, see [How to Create a Storage Account](../storage/storage-create-storage-account.md).
+##Aprire il portale
 
-##<a name="open-the-portal"></a>Open the Portal
+1. Accedere a [https://portal.azure.com](https://portal.azure.com).
+2. Dopo avere aperto il portale, è possibile:
 
-1. Sign in to [https://portal.azure.com](https://portal.azure.com).
-2. After you open the portal, you can:
+	- Scegliere **Nuovo** dal menu di sinistra per creare un nuovo cluster:
+	
+		![Pulsante Nuovo cluster HDInsight](./media/hdinsight-administer-use-management-portal/azure-portal-new-button.png)
+	- Scegliere **Cluster HDInsight** dal menu di sinistra.
+	
+		![Pulsante Cluster HDInsight del portale di Azure](./media/hdinsight-administer-use-management-portal/azure-portal-hdinsight-button.png)
 
-    - Click **New** from the left menu to create a new cluster:
+	Se **HDInsight** non è visualizzato nel menu di sinistra, fare clic su **Sfoglia**.
+
+	![Pulsante Sfoglia del portale di Azure](./media/hdinsight-administer-use-management-portal/azure-portal-browse-button.png)
+
+##Creare i cluster
+
+Per le istruzioni di creazione con il portale, vedere [Creare cluster HDInsight](hdinsight-provision-clusters.md#create-using-the-preview-portal).
+
+HDInsight è compatibile con una vasta gamma di componenti Hadoop. Per l'elenco dei componenti verificati e supportati, vedere [Versione di Hadoop inclusa in Azure HDInsight](hdinsight-component-versioning.md). Per personalizzare HDInsight, è possibile usare una delle opzioni seguenti:
+
+- Usare azioni script per eseguire script personalizzati in grado di personalizzare un cluster per modificare la configurazione del cluster o installare componenti personalizzati, ad esempio Giraph o Solr. Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante le azioni script](hdinsight-hadoop-customize-cluster.md).
+- Usare i parametri di personalizzazione del cluster in HDInsight .NET SDK o di Azure PowerShell durante la creazione del cluster. Le modifiche alla configurazione vengono quindi mantenute per tutta la durata del cluster e non vengono interessate dalla ricreazione delle immagini dei nodi del cluster che la piattaforma Azure esegue periodicamente per la manutenzione. Per altre informazioni sull'uso dei parametri di personalizzazione dei cluster, vedere [Creare cluster HDInsight](hdinsight-provision-clusters.md).
+- Nel cluster è possibile eseguire alcuni componenti Java nativi, come Mahout e Cascading, sotto forma di file JAR. Tali file JAR possono essere distribuiti nell'archivio BLOB di Azure e inviati ai cluster HDInsight usando i meccanismi di invio dei processi Hadoop. Per altre informazioni, vedere [Inviare processi Hadoop a livello di codice](hdinsight-submit-hadoop-jobs-programmatically.md).
+
+	>[AZURE.NOTE] In caso di problemi durante la distribuzione di file JAR in cluster HDInsight o la chiamata di file JAR in cluster HDInsight, contattare il [Supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).
+
+	> Cascading non è supportato da HDInsight, pertanto in caso di problemi non è possibile rivolgersi al Supporto Microsoft. Per gli elenchi dei componenti supportati, vedere [Novità delle versioni cluster incluse con HDInsight](hdinsight-component-versioning.md).
+
+L'installazione di software personalizzato nel cluster tramite Connessione Desktop remoto non è supportata. È consigliabile evitare di archiviare file nelle unità del nodo head in quanto andranno perse qualora fosse necessario ricreare i cluster. È consigliabile archiviare i file nell'archivio BLOB di Azure. L'archivio BLOB è persistente.
+
+##Elencare e visualizzare i cluster
+
+1. Accedere a [https://portal.azure.com](https://portal.azure.com).
+2. Scegliere **Cluster HDInsight** dal menu di sinistra.
+3. Fare clic sul nome del cluster. Se l'elenco di cluster è lungo, è possibile utilizzare il filtro nella parte superiore della pagina.
+4. Fare doppio clic su un cluster nell'elenco per visualizzare i dettagli.
+
+	**Menu e informazioni di base**:
+
+	![Informazioni di base sul cluster HDInsight del portale di Azure](./media/hdinsight-administer-use-management-portal/hdinsight-essentials.png)
+	
+	- Per personalizzare il menu fare clic con il pulsante destro del mouse su un punto qualsiasi del menu e scegliere **Personalizza**.
+	- **Impostazioni** e **Tutte le impostazioni**: visualizzano il pannello**Impostazioni** per il cluster, che consente di accedere a informazioni dettagliate sulla configurazione del cluster.
+	- **Dashboard**, **Dashboard cluster** e **URL: sono tutti modi per accedere al dashboard del cluster, ovvero Ambari Web per cluster basati su Linux. -**Secure Shell**: mostra le istruzioni per la connessione al cluster tramite la connessione Secure Shell (SSH).
+	- **Scala Cluster**: consente di modificare il numero di nodi del ruolo di lavoro per questo cluster.
+	- **Elimina**: elimina il cluster.
+	- **Avvio rapido (![icona cloud e thunderbolt = guida rapida](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: visualizza le informazioni che consentiranno di iniziare a usare HDInsight.
+	- **Utenti (![icona utenti](./media/hdinsight-administer-use-portal-linux/users.png))**: consente di impostare le autorizzazioni per _Gestione portale_ di questo cluster per altri utenti nella sottoscrizione Azure.
+	
+		> [AZURE.IMPORTANT] Questo influisce _solo_ sull'accesso e sulle autorizzazioni per tale cluster nel portale di Azure e non ha alcun effetto su chi può connettersi o inviare processi al cluster HDInsight.
+	- **Tag (![icona tag](./media/hdinsight-administer-use-portal-linux/tags.png))**: consente di impostare coppie chiave/valore per definire una tassonomia dei servizi cloud personalizzata. Ad esempio, è possibile creare una chiave denominata __progetto__ e usare un valore comune per tutti i servizi associati a un progetto specifico.
+	- **Visualizzazioni di Ambari**: collegamenti ad Ambari Web.
+	
+	> [AZURE.IMPORTANT] Per gestire i servizi forniti dal cluster HDInsight, è necessario utilizzare Ambari Web o l'API REST di Ambari. Per altre informazioni sull'uso di Ambari, vedere [Gestire i cluster HDInsight tramite Ambari](hdinsight-hadoop-manage-ambari.md).
+
+	**Utilizzo**:
+	
+	![Utilizzo dei cluster HDInsight del portale di Azure](./media/hdinsight-administer-use-management-portal/hdinsight-portal-cluster-usage.png)
+	
+5. Fare clic su **Impostazioni**.
+
+	![Utilizzo dei cluster HDInsight del portale di Azure](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
+
+	- **Proprietà**: visualizza le proprietà del cluster.
+	- **Identità AAD cluster**:
+	- **Chiavi di archiviazione di Azure**: visualizza l'account di archiviazione predefinito con la chiave. L'account di archiviazione viene configurato durante il processo di creazione dei cluster.
+	- **Account di accesso del cluster**: modifica il nome utente e la password HTTP del cluster.
+	- **Metastore esterni**: visualizza i metastore Hive e Oozie. I metastore possono essere configurati solo durante il processo di creazione dei cluster.
+	- **Ridimensiona cluster**: aumenta e diminuisce il numero di nodi di lavoro del cluster.
+	- **Desktop remoto**: abilita e disabilita l'accesso desktop remoto (RDP) e configura il nome utente RDP. Il nome utente RDP deve essere diverso dal nome utente HTTP.
+	- **Partner of Record**:
     
-        ![new HDInsight cluster button](./media/hdinsight-administer-use-management-portal/azure-portal-new-button.png)
-    - Click **HDInsight Clusters** from the left menu.
-    
-        ![Azure portal HDInsight cluster button](./media/hdinsight-administer-use-management-portal/azure-portal-hdinsight-button.png)
+    > [AZURE.NOTE] Si tratta di un elenco generico di impostazioni disponibili, non tutte saranno presenti per tutti i tipi di cluster.
 
-    If **HDInsight** doesn't appear in the left menu, click **Browse**. 
+6. Fare clic su **Proprietà**:
 
-    ![Azure portal Browse cluster button](./media/hdinsight-administer-use-management-portal/azure-portal-browse-button.png)
+	Le proprietà elencate sono le seguenti:
+	
+	- **Nome host**: nome del cluster.
+	- **URL cluster**.
+	- **Stato**: include Aborted, Accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, Running, Error, Deleting, Deleted, Timedout, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, ClusterCustomization
+	- **Area**: località di Azure. Per un elenco di località di Azure supportate, vedere l'elenco a discesa **Area** in [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+	- **Data di creazione**.
+	- **Sistema operativo**: **Windows** o **Linux**.
+	- **Tipo**: Hadoop, HBase, Storm, Spark.
+	- **Versione 1** Vedere [Versioni di HDInsight](hdinsight-component-versioning.md)
+	- **Sottoscrizione**: nome della sottoscrizione.
+	- **ID sottoscrizione**.
+	- **Origine dati primaria**. Account di archiviazione BLOB di Azure usato come file system Hadoop predefinito.
+	- **Piano tariffario nodi del ruolo di lavoro**.
+	- **Piano tariffario per il nodo head**.
 
-##<a name="create-clusters"></a>Create clusters
+##Eliminare cluster
 
-For the creation instructions using the Portal, see [Create HDInsight clusters](hdinsight-provision-clusters.md#create-using-the-preview-portal).
+L'eliminazione di un cluster non determinerà l'eliminazione dell'account di archiviazione predefinito o di qualsiasi account di archiviazione collegato. È possibile ricreare il cluster usando gli stessi account di archiviazione e gli stessi metastore.
 
-HDInsight works with a wide range of Hadoop components. For the list of the components that have been verified and supported, see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versioning.md). You can customize HDInsight by using one of the following options:
+1. Accedere al [Portale][azure-portal].
+2. Fare clic su **Esplora tutto** dal menu di sinistra, fare clic su **Cluster HDInsight** e quindi sul nome del cluster.
+3. Scegliere **Elimina** dal menu in alto e quindi seguire le istruzioni.
 
-- Use Script Action to run custom scripts that can customize a cluster to either change cluster configuration or install custom components such as Giraph or Solr. For more information, see [Customize HDInsight cluster using Script Action](hdinsight-hadoop-customize-cluster.md).
-- Use the cluster customization parameters in the HDInsight .NET SDK or Azure PowerShell during cluster creation. These configuration changes are then preserved through the lifetime of the cluster and are not affected by cluster node reimages that Azure platform periodically performs for maintenance. For more information on using the cluster customization parameters, see [Create HDInsight clusters](hdinsight-provision-clusters.md).
-- Some native Java components, like Mahout and Cascading, can be run on the cluster as JAR files. These JAR files can be distributed to Azure Blob storage, and submitted to HDInsight clusters through Hadoop job submission mechanisms. For more information, see [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md).
+Vedere anche [Sospendere/Arrestare i cluster](#pauseshut-down-clusters).
 
-    >[AZURE.NOTE] If you have issues deploying JAR files to HDInsight clusters or calling JAR files on HDInsight clusters, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
+##Ridimensionare i cluster
+La funzionalità di scalabilità del cluster consente di modificare il numero di nodi del ruolo di lavoro usati da un cluster in esecuzione in Azure HDInsight senza dover ricreare il cluster.
 
-    > Cascading is not supported by HDInsight, and is not eligible for Microsoft Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight?](hdinsight-component-versioning.md).
+>[AZURE.NOTE] Sono supportati solo i cluster con HDInsight versione 3.1.3 o successive. Se non si è certi della versione del cluster, è possibile controllare la pagina delle proprietà. Vedere [Elencare e visualizzare i cluster](hdinsight-adminster-use-management-portal.md#list-and-show-clusters).
 
-Installation of custom software on the cluster by using Remote Desktop Connection is not supported. You should avoid storing any files on the drives of the head node, as they will be lost if you need to re-create the clusters. We recommend storing files on Azure Blob storage. Blob storage is persistent.
-
-##<a name="list-and-show-clusters"></a>List and show clusters
-
-1. Sign in to [https://portal.azure.com](https://portal.azure.com).
-2. Click **HDInsight Clusters** from the left menu.
-3. Click the cluster name. If the cluster list is long, you can use filter on the top of the page.
-4. Double-click a cluster from the list to show the details.
-
-    **Menu and essentials**:
-
-    ![Azure portal HDInsight cluster essentials](./media/hdinsight-administer-use-management-portal/hdinsight-essentials.png)
-    
-    - To customize the menu, right-click anywhere on the menu, and then click **Customize**.
-    - **Settings** and **All Settings**: Displays the **Settings** blade for the cluster, which allows you to access detailed configuration information for the cluster.
-    - **Dashboard**, **Cluster Dashboard** and **URL: These are all ways to access the cluster dashboard, which is Ambari Web for Linux-based clusters. -**Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection.
-    - **Scale Cluster**: Allows you to change the number of worker nodes for this cluster.
-    - **Delete**: Deletes the cluster.
-    - **Quickstart (![cloud and thunderbolt icon = quickstart](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: Displays information that will help you get started using HDInsight.
-    - **Users (![users icon](./media/hdinsight-administer-use-portal-linux/users.png))**: Allows you to set permissions for _portal management_ of this cluster for other users on your Azure subscription.
-    
-        > [AZURE.IMPORTANT] This _only_ affects access and permissions to this cluster in the Azure portal, and has no effect on who can connect to or submit jobs to the HDInsight cluster.
-    - **Tags (![tag icon](./media/hdinsight-administer-use-portal-linux/tags.png))**: Tags allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named __project__, and then use a common value for all services associated with a specific project.
-    - **Ambari Views**: Links to Ambari Web.
-    
-    > [AZURE.IMPORTANT] To manage the services provided by the HDInsight cluster, you must use Ambari Web or the Ambari REST API. For more information on using Ambari, see [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md).
-
-    **Usage**:
-    
-    ![Azure portal hdinsight cluster usage](./media/hdinsight-administer-use-management-portal/hdinsight-portal-cluster-usage.png)
-    
-5. Click **Settings**.
-
-    ![Azure portal hdinsight cluster usage](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
-
-    - **Properties**: View the cluster properties.
-    - **Cluster AAD Identity**: 
-    - **Azure Storage Keys**: View the default storage account and its key. The storage account is configuration during the cluster creation process.
-    - **Cluster Login**: Change the cluster HTTP user name and password.
-    - **External Metastores**: View the Hive and Oozie metastores. The metastores can only be configured during the cluster creation process.
-    - **Scale Cluster**: Increase and decrease the number of cluster worker nodes.
-    - **Remote Desktop**: Enable and disable remote desktop (RDP) access, and configure the RDP username.  The RDP user name must be different from the HTTP user name.
-    - **Partner of Record**:
-    
-    > [AZURE.NOTE] This is a generic list of available settings; not all of them will be present for all cluster types.
-
-6. Click **Properties**:
-
-    The properties lists the following:
-    
-    - **Hostname**: Cluster name.
-    - **Cluster URL**.
-    - **Status**: Include Aborted, Accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, Running, Error, Deleting, Deleted, Timedout, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, ClusterCustomization
-    - **Region**: Azure location. For a list of supported Azure locations, see the **Region** dropdown list box on [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
-    - **Data created**.
-    - **Operating system**: Either **Windows** or **Linux**.
-    - **Type**: Hadoop, HBase, Storm, Spark. 
-    - **Version**. See [HDInsight versions](hdinsight-component-versioning.md)
-    - **Subscription**: Subscription name.
-    - **Subscription ID**.
-    - **Primary data source**. The Azure Blob storage account used as the default Hadoop file system.
-    - **Worker nodes pricing tier**.
-    - **Head node pricing tier**.
-
-##<a name="delete-clusters"></a>Delete clusters
-
-Delete a cluster will not delete the default storage account or any linked storage accounts. You can re-create the cluster by using the same storage accounts and the same metastores.
-
-1. Sign in to the [Portal][azure-portal].
-2. Click **Browse All** from the left menu, click **HDInsight Clusters**, click your cluster name.
-3. Click **Delete** from the top menu, and then follow the instructions.
-
-See also [Pause/shut down clusters](#pauseshut-down-clusters).
-
-##<a name="scale-clusters"></a>Scale clusters
-The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.
-
->[AZURE.NOTE] Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [List and show clusters](#list-and-show-clusters).
-
-The impact of changing the number of data nodes for each type of cluster supported by HDInsight:
+Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogni tipo di cluster supportato da HDInsight:
 
 - Hadoop
 
-    You can seamlessly increase the number of worker nodes in a Hadoop cluster that is running without impacting any pending or running jobs. New jobs can also be submitted while the operation is in progress. Failures in a scaling operation are gracefully handled so that the cluster is always left in a functional state.
+	È possibile aumentare facilmente il numero di nodi del ruolo di lavoro in un cluster Hadoop in esecuzione senza conseguenze per eventuali processi in sospeso o in esecuzione. È inoltre possibile inviare nuovi processi mentre è in corso l'operazione. Gli errori in un'operazione di scalabilità vengono gestiti in modo che il cluster rimanga sempre in uno stato funzionale.
 
-    When a Hadoop cluster is scaled down by reducing the number of data nodes, some of the services in the cluster are restarted. This causes all running and pending jobs to fail at the completion of the scaling operation. You can, however, resubmit the jobs once the operation is complete.
+	Quando un cluster Hadoop viene ridimensionato riducendo il numero di nodi dati, alcuni dei servizi del cluster vengono riavviati. In questo modo, tutti i processi in esecuzione e in attesa daranno esito negativo dopo il completamento dell'operazione di ridimensionamento. È tuttavia possibile inviare nuovamente i processi una volta completata l'operazione.
 
 - HBase
 
-    You can seamlessly add or remove nodes to your HBase cluster while it is running. Regional Servers are automatically balanced within a few minutes of completing the scaling operation. However, you can also manually balance the regional servers by logging into the headnode of cluster and running the following commands from a command prompt window:
+	È possibile aggiungere o rimuovere facilmente nodi nel cluster HBase mentre è in esecuzione. I server a livello di area vengono bilanciati automaticamente entro pochi minuti dal completamento dell'operazione di ridimensionamento. È tuttavia possibile anche bilanciare manualmente i server a livello di area accedendo al nodo head del cluster ed eseguendo i comandi seguenti da una finestra del prompt dei comandi:
 
-        >pushd %HBASE_HOME%\bin
-        >hbase shell
-        >balancer
+		>pushd %HBASE_HOME%\bin
+		>hbase shell
+		>balancer
 
-    For more information on using the HBase shell, see []
+	Per altre informazioni sull'uso della shell HBase, vedere
 - Storm
 
-    You can seamlessly add or remove data nodes to your Storm cluster while it is running. But after a successful completion of the scaling operation, you will need to rebalance the topology.
+	È possibile aggiungere o rimuovere facilmente nodi dati dal cluster Storm mentre è in esecuzione. Tuttavia, dopo il completamento dell'operazione di ridimensionamento, è necessario bilanciare nuovamente la topologia.
 
-    Rebalancing can be accomplished in two ways:
+	A tale scopo, è possibile scegliere tra due opzioni:
 
-    * Storm web UI
-    * Command-line interface (CLI) tool
+	* Interfaccia utente Web di Storm
+	* Interfaccia della riga di comando (CLI)
 
-    Please refer to the [Apache Storm documentation](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) for more details.
+	Per altre informazioni, fare riferimento alla [documentazione su Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
-    The Storm web UI is available on the HDInsight cluster:
+	L'interfaccia utente Web di Storm è disponibile nel cluster HDInsight:
 
-    ![HDInsight storm scale rebalance](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+	![hdinsight scala ribilanciamento di storm](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
 
-    Here is an example how to use the CLI command to rebalance the Storm topology:
+	Di seguito viene fornito un esempio d'uso del comando CLI per ribilanciare la topologia di Storm:
 
-        ## Reconfigure the topology "mytopology" to use 5 worker processes,
-        ## the spout "blue-spout" to use 3 executors, and
-        ## the bolt "yellow-bolt" to use 10 executors
+		## Reconfigure the topology "mytopology" to use 5 worker processes,
+		## the spout "blue-spout" to use 3 executors, and
+		## the bolt "yellow-bolt" to use 10 executors
 
-        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+		$ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 
-**To scale clusters**
+**Per ridimensionare i cluster**
 
-1. Sign in to the [Portal][azure-portal].
-2. Click **Browse All** from the left menu, click **HDInsight Clusters**, click your cluster name.
-3. Click **Settings** from the top menu, and then click **Scale Cluster**.
-4. Enter **Number of Worker nodes**. The limit on the number of cluster node varies among Azure subscriptions. You can contact billing support to increase the limit.  The cost information will reflect the changes you have made to the number of nodes.
+1. Accedere al [portale][azure-portal].
+2. Fare clic su **Esplora tutto** dal menu di sinistra, fare clic su **Cluster HDInsight** e quindi sul nome del cluster.
+3. Fare clic su **Impostazioni** dal menu in alto, quindi fare clic su **Ridimensiona cluster**.
+4. Immettere il **numero di nodi del ruolo di lavoro**. Il limite al numero dei nodi del cluster varia tra le diverse sottoscrizioni di Azure. Per aumentare il limite, contattare il team del supporto fatturazione. Le informazioni sui costi rifletteranno le modifiche apportate al numero di nodi.
 
-    ![HDInsight Hadoop HBase Storm Spark scale](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
+	![hdinsight scalabilità hadoop hbase storm spark](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
 
-##<a name="pause/shut-down-clusters"></a>Pause/shut down clusters
+##Sospendere/Arrestare i cluster
 
-Most of Hadoop jobs are batch jobs that are only ran occasionally. For most Hadoop clusters, there are large periods of time that the cluster is not being used for processing. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use.
-You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use.
+La maggior parte dei processi Hadoop sono processi batch che vengono eseguito solo occasionalmente. La maggior parte dei cluster Hadoop non viene usata per l'elaborazione per lunghi periodi di tempo. Con HDInsight, i dati vengono archiviati in Archiviazione di Azure ed è possibile eliminare tranquillamente un cluster quando non viene usato. Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, economicamente ha senso eliminare i cluster quando non vengono usati.
 
-There are many ways you can program the process:
+Questo processo può essere programmato in molti modi:
 
-- User Azure Data Factory. See [Azure HDInsight Linked Service](../data-factory/data-factory-compute-linked-services.md) and [Transform and analyze using Azure Data Factory](../data-factory/data-factory-data-transformation-activities.md) for on-demand and self-defined HDInsight linked services.
-- Use Azure PowerShell.  See [Analyze flight delay data](hdinsight-analyze-flight-delay-data.md).
-- Use Azure CLI. See [Manage HDInsight clusters using Azure CLI](hdinsight-administer-use-command-line.md).
-- Use HDInsight .NET SDK. See [Submit Hadoop jobs](hdinsight-submit-hadoop-jobs-programmatically.md).
+- Usare Data factory di Azure. Per i servizi collegati di HDInsight su richiesta e autodefiniti, vedere [Servizio collegato Azure HDInsight](../data-factory/data-factory-compute-linked-services.md) e [Trasformazione e analisi tramite Data factory di Azure](../data-factory/data-factory-data-transformation-activities.md).
+- Usare Azure PowerShell. Vedere [Analizzare i dati relativi ai ritardi dei voli](hdinsight-analyze-flight-delay-data.md).
+- Usare l'interfaccia della riga di comando di Azure. Vedere [Gestire cluster Hadoop in HDInsight tramite l'interfaccia della riga di comando di Azure](hdinsight-administer-use-command-line.md).
+- Usare HDInsight .NET SDK. Vedere [Inviare processi di Hadoop](hdinsight-submit-hadoop-jobs-programmatically.md).
 
-For the pricing information, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/). To delete a cluster from the Portal, see [Delete clusters](#delete-clusters)
+Per informazioni sui prezzi, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Per eliminare un cluster dal portale, vedere [Eliminare cluster](#delete-clusters)
 
-##<a name="change-cluster-username"></a>Change cluster username
+##Modificare il nome utente del cluster
 
-An HDInsight cluster can have two user accounts. The HDInsight cluster user account is created during the creation process. You can also create an RDP user account for accessing the cluster via RDP. See [Enable remote desktop](#connect-to-hdinsight-clusters-by-using-rdp).
+Per un cluster HDInsight possono esistere due account utente. L'account utente del cluster HDInsight viene creato durante il processo di creazione. È anche possibile creare un account utente RDP per accedere al cluster tramite RDP. Vedere la sezione relativa all'[abilitazione di Desktop remoto](#connect-to-hdinsight-clusters-by-using-rdp).
 
-**To change the HDInsight cluster user name and password**
+**Per modificare il nome utente e la password di un cluster HDInsight**
 
-1. Sign in to the [Portal][azure-portal].
-2. Click **Browse All** from the left menu, click **HDInsight Clusters**, click your cluster name.
-3. Click **Settings** from the top menu, and then click **Cluster Login**.
-4. If **Cluster login** has been enabled, you must click **Disable**, and then click **Enable** before you can change the username and password..
-4. Change the **Cluster Login Name** and/or the **Cluster Login Password**, and then click **Save**.
+1. Accedere al [Portale][azure-portal].
+2. Fare clic su **Esplora tutto** dal menu di sinistra, fare clic su **Cluster HDInsight** e quindi sul nome del cluster.
+3. Scegliere **Impostazioni** dal menu in alto, quindi fare clic su **Account di accesso del cluster**.
+4. Se **Account di accesso del cluster** è stato abilitato, è necessario fare clic su **Disabilita** e quindi su **Abilita** prima di poter modificare il nome utente e la password.
+4. Modificare i valori in **Nome utente dell'account di accesso del cluster** e/o **Password dell'account di accesso del cluster**, quindi fare clic su **Salva**.
 
-    ![HDInsight change cluster user username password http user](./media/hdinsight-administer-use-management-portal/hdinsight.portal.change.username.password.png)
+	![hdinsight modificare il nome utente e la password dell’utente http del cluster](./media/hdinsight-administer-use-management-portal/hdinsight.portal.change.username.password.png)
 
-##<a name="grant/revoke-access"></a>Grant/revoke access
+##Concedere/Revocare l'accesso
 
-HDInsight clusters have the following HTTP web services (all of these services have RESTful endpoints):
+Per i cluster HDInsight sono disponibili i servizi Web HTTP seguenti (tutti con endpoint RESTful):
 
 - ODBC
 - JDBC
@@ -232,161 +230,157 @@ HDInsight clusters have the following HTTP web services (all of these services h
 - Oozie
 - Templeton
 
-By default, these services are granted for access. You can revoke/grant the access from the Azure portal.
+Per impostazione predefinita, a questi servizi è concesso l'accesso. È possibile revocare/concedere l'accesso dal portale di Azure.
 
->[AZURE.NOTE] By granting/revoking the access, you will reset the cluster user name and password.
+>[AZURE.NOTE] La concessione/revoca dell'accesso implica la reimpostazione del nome utente e della password del cluster.
 
-**To grant/revoke HTTP web services access**
+**Per concedere/revocare l'accesso ai servizi Web HTTP**
 
-1. Sign in to the [Portal][azure-portal].
-2. Click **Browse All** from the left menu, click **HDInsight Clusters**, click your cluster name.
-3. Click **Settings** from the top menu, and then click **Cluster Login**.
-4. If **Cluster login** has been enabled, you must click **Disable**, and then click **Enable** before you can change the username and password..
-6. For **Cluster Login Username** and **Cluster Login Password**, enter the new user name and password (respectively) for the cluster.
-7. Click **SAVE**.
+1. Accedere al [Portale][azure-portal].
+2. Fare clic su **Esplora tutto** dal menu di sinistra, fare clic su **Cluster HDInsight** e quindi sul nome del cluster.
+3. Scegliere **Impostazioni** dal menu in alto, quindi fare clic su **Account di accesso del cluster**.
+4. Se **Account di accesso del cluster** è stato abilitato, è necessario fare clic su **Disabilita** e quindi su **Abilita** prima di poter modificare il nome utente e la password.
+6. Per **Nome utente dell'account di accesso del cluster** e **Password dell'account di accesso del cluster** immettere (rispettivamente) il nuovo nome utente e la nuova password per il cluster.
+7. Fare clic su **SAVE**.
 
-    ![HDInsight grand remove http web service access](./media/hdinsight-administer-use-management-portal/hdinsight.portal.change.username.password.png)
-
-
+	![hdinsight rimozione complessiva dell’accesso al servizio web http](./media/hdinsight-administer-use-management-portal/hdinsight.portal.change.username.password.png)
 
 
-##<a name="find-the-default-storage-account"></a>Find the default storage account
 
-Each HDInsight cluster has a default storage account. The default storage account and its keys for a cluster appears under **Settings**/**Properties**/**Azure Storage Keys**. See [List and show clusters](#list-and-show-clusters).
 
-    
-##<a name="find-the-resource-group"></a>Find the resource group 
+##Trovare l'account di archiviazione predefinito
 
-In the Azure Resource Manager mode, each HDInsight cluster is created with an Azure resource group. The Azure resource group that a cluster belongs to appears in:
+Ogni cluster HDInsight ha un account di archiviazione predefinito. L'account di archiviazione predefinito e le relative chiavi per un cluster vengono visualizzati in **Impostazioni**/**Proprietà**/**Chiavi di archiviazione di Azure**. Vedere [Elencare e visualizzare i cluster](#list-and-show-clusters).
 
-- The cluster list has a **Resource Group** column.
-- Cluster **Essential** tile.  
+	
+##Trovare il gruppo di risorse 
 
-See [List and show clusters](#list-and-show-clusters).
+In modalità Azure Resource Manager ogni cluster HDInsight viene creato con un gruppo di risorse di Azure. Il gruppo di risorse di Azure a cui appartiene un cluster viene visualizzato in:
+
+- Colonna **Gruppo di risorse** dell'elenco di cluster.
+- Riquadro **Informazioni di base** del cluster.
+
+Vedere [Elencare e visualizzare i cluster](#list-and-show-clusters).
    
-##<a name="open-hdinsight-query-console"></a>Open HDInsight Query console
+##Aprire la console query HDInsight
 
-The HDInsight Query console includes the following features:
+La console query HDInsight include le funzionalità seguenti:
 
-- **Getting started gallery**: To use the gallery , see [Learn Hadoop by using the Azure HDInsight Getting Started Gallery](hdinsight-learn-hadoop-use-sample-gallery.md).
-- **Hive Editor**: A GUI web interface for submitting Hive jobs.  See [Run Hive queries using the Query Console](hdinsight-hadoop-use-hive-query-console.md).
+- **Guida introduttiva**: per usare la raccolta, vedere [Informazioni su Hadoop tramite la raccolta di introduzione HDInsight di Azure](hdinsight-learn-hadoop-use-sample-gallery.md).
+- **Editor Hive**: interfaccia Web GUI per l'invio di processi Hive. Vedere [Eseguire query Hive usando Console query](hdinsight-hadoop-use-hive-query-console.md).
 
-    ![HDInsight portal hive editor](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
+	![hdinsight portale editor hive](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
 
-- **Job history**: Monitor Hadoop jobs.  
+- **Cronologia processo**: monitora i processi Hadoop.
 
-    ![HDInsight portal job history](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
+	![hdinsight portale cronologia processo](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
-    Click **Query Name** to show the details including Job properties, **Job Query**, and **Job Output. You can also download both the query and the output to your workstation.
+	Fare clic su **Nome query** per visualizzare i dettagli, incluse le proprietà del processo, **Query processo** e **Output processo. È anche possibile scaricare sia la query che l'output nella workstation.
 
-- **File Browser**: Browse the default storage account and the linked storage accounts.
+- **Browser file**: sfoglia l'account di archiviazione predefinito e gli account di archiviazione collegati.
 
-    ![HDInsight portal file browser browse](./media/hdinsight-administer-use-management-portal/hdinsight-file-browser.png)
+	![hdinsight portale browser file cercare](./media/hdinsight-administer-use-management-portal/hdinsight-file-browser.png)
 
-    On the screenshot, the **<Account>** type indicates the item is an Azure storage account.  Click the account name to browse the files.
-    
-- **Hadoop UI**.
+	Nello screenshot il tipo **<Account>** indica che l'elemento è un account di archiviazione di Azure. Fare clic sul nome account per cercare i file.
+	
+- **Interfaccia utente Hadoop**.
 
-    ![HDInsight portal Hadoop UI](./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-ui.png)
-    
-    From **Hadoop UI*, you can browse files, and check logs. 
+	![hdinsight portale interfaccia utente Hadoop](./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-ui.png)
+	
+	Dall'*interfaccia utente di Hadoop* è possibile cercare i file e controllare i log.
 
-- **Yarn UI**.
+- **Interfaccia utente Yarn**.
 
-    ![HDInsight portal YARN UI](./media/hdinsight-administer-use-management-portal/hdinsight-yarn-ui.png)
+	![hdinsight portale interfaccia utente YARN](./media/hdinsight-administer-use-management-portal/hdinsight-yarn-ui.png)
 
-##<a name="run-hive-queries"></a>Run Hive queries
+##Eseguire query Hive
 
-To ran Hive jobs from the Portal, click **Hive Editor** in the HDInsight Query console. See [Open HDInsight Query console](#open-hdinsight-query-console).
+Per eseguire i processi Hive dal portale, fare clic su **Editor Hive** nella console query HDInsight. Vedere [Aprire la console query HDInsight](#open-hdinsight-query-console).
 
-##<a name="monitor-jobs"></a>Monitor jobs
+##Monitorare i processi
 
-To monitor jobs from the Portal, click **Job History** in the HDInsight Query console. See [Open HDInsight Query console](#open-hdinsight-query-console).
+Per monitorare i processi dal portale, fare clic su **Cronologia processo** nella console query HDInsight. Vedere [Aprire la console query HDInsight](#open-hdinsight-query-console).
 
-##<a name="browse-files"></a>Browse files
+##Ricerca dei file
 
-To browse files stored in the default storage account and the linked storage accounts, click **File Browser** in the HDInsight Query console. See [Open HDInsight Query console](#open-hdinsight-query-console).
+Per sfogliare i file archiviati nell'account di archiviazione predefinito e negli account di archiviazione collegati, fare clic su **Browser file** nella console query HDInsight. Vedere [Aprire la console query HDInsight](#open-hdinsight-query-console).
 
-You can also use the **Browse the file system** utility from the **Hadoop UI** in the HDInsight console.  See [Open HDInsight Query console](#open-hdinsight-query-console).
-
-
-
-##<a name="monitor-cluster-usage"></a>Monitor cluster usage
-
-The __Usage__ section of the HDInsight cluster blade displays information about the number of cores available to your subscription for use with HDInsight, as well as the number of cores allocated to this cluster and how they are allocated for the nodes within this cluster. See [List and show clusters](#list-and-show-clusters).
-
-> [AZURE.IMPORTANT] To monitor the services provided by the HDInsight cluster, you must use Ambari Web or the Ambari REST API. For more information on using Ambari, see [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md)
+È anche possibile usare l'utilità **Browse the file system** dell'**interfaccia utente Hadoop** nella console HDInsight. Vedere [Aprire la console query HDInsight](#open-hdinsight-query-console).
 
 
-##<a name="open-hadoop-ui"></a>Open Hadoop UI
 
-To monitor the cluster, browse the file system, and check logs, click **Hadoop UI** in the HDInsight Query console. See [Open HDInsight Query console](#open-hdinsight-query-console).
+##Monitorare l'utilizzo del cluster
 
-##<a name="open-yarn-ui"></a>Open Yarn UI
+La sezione __Utilizzo__ del pannello relativo al cluster HDInsight contiene informazioni sul numero di core disponibili per la sottoscrizione da usare con HDInsight, il numero di core allocati al cluster e il modo in cui vengono allocati per i nodi nel cluster. Vedere [Elencare e visualizzare i cluster](#list-and-show-clusters).
 
-To use Yarn user interface, click **Yarn UI** in the HDInsight Query console. See [Open HDInsight Query console](#open-hdinsight-query-console).
-
-##<a name="connect-to-clusters-using-rdp"></a>Connect to clusters using RDP
-
-The credentials for the cluster that you provided at its creation give access to the services on the cluster, but not to the cluster itself through Remote Desktop. You can turn on Remote Desktop access when you provision a cluster or after a cluster is provisioned. For the instructions about enabling Remote Desktop at creation, see [Create HDInsight cluster](hdinsight-provision-clusters.md).
-
-**To enable Remote Desktop**
-
-1. Sign in to the [Portal][azure-portal].
-2. Click **Browse All** from the left menu, click **HDInsight Clusters**, click your cluster name.
-3. Click **Settings** from the top menu, and then click **Remote Desktop**.
-4. Enter **Expires On**, **Remote Desktop Username** and **Remote Desktop Password**, and then click **Enable**.
-
-    ![hdinsight enable disable configure remote desktop](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
-
-    The default values for Expires On is a week.
-> [AZURE.NOTE] You can also use the HDInsight .NET SDK to enable Remote Desktop on a cluster. Use the **EnableRdp** method on the HDInsight client object in the following manner: **client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Similarly, to disable Remote Desktop on the cluster, you can use **client.DisableRdp(clustername, location)**. For more information on these methods, see [HDInsight .NET SDK Reference](http://go.microsoft.com/fwlink/?LinkId=529017). This is applicable only for HDInsight clusters running on Windows.
-
-**To connect to a cluster by using RDP**
-
-1. Sign in to the [Portal][azure-portal].
-2. Click **Browse All** from the left menu, click **HDInsight Clusters**, click your cluster name.
-3. Click **Settings** from the top menu, and then click **Remote Desktop**.
-4. Click **Connect** and follow the instructions. If Connect is disable, you must enable it first. Make sure using the Remote Desktop user username and password.  You can't use the Cluster user credentials.
+> [AZURE.IMPORTANT] Per monitorare i servizi forniti dal cluster HDInsight, è necessario utilizzare Ambari Web o l'API REST di Ambari. Per altre informazioni sull'uso di Ambari, vedere [Gestire i cluster HDInsight tramite Ambari](hdinsight-hadoop-manage-ambari.md)
 
 
-##<a name="open-hadoop-command-line"></a>Open Hadoop command line
+##Aprire l'interfaccia utente di Hadoop
 
-To connect to the cluster by using Remote Desktop and use the Hadoop command line, you must first have enabled Remote Desktop access to the cluster as described in the previous section.
+Per monitorare il cluster, esplorare il file system e controllare i log, fare clic su **Interfaccia utente Hadoop** nella console query HDInsight. Vedere [Aprire la console query HDInsight](#open-hdinsight-query-console).
 
-**To open a Hadoop command line**
+##Aprire l'interfaccia utente di Yarn
 
-1. Connect to the cluster using Remote Desktop.
-8. From the desktop, double-click **Hadoop Command Line**.
+Per usare l'interfaccia utente di Yarn, fare clic su **Interfaccia utente di Yarn** nella console query HDInsight. Vedere [Aprire la console query HDInsight](#open-hdinsight-query-console).
 
-    ![HDI.HadoopCommandLine][image-hadoopcommandline]
+##Connettersi a cluster con RDP
 
-    For more information on Hadoop commands, see [Hadoop commands reference](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
+Le credenziali del cluster fornite durante la creazione consentono di accedere ai servizi nel cluster, ma non al cluster stesso tramite Desktop remoto. È possibile attivare l'accesso Desktop remoto durante o dopo il provisioning di un cluster. Per istruzioni sull'abilitazione di Desktop remoto al momento della creazione, vedere [Creazione del cluster HDInsight](hdinsight-provision-clusters.md).
 
-In the previous screenshot, the folder name has the Hadoop version number embedded. The version number can changed based on the version of the Hadoop components installed on the cluster. You can use Hadoop environment variables to refer to those folders. For example:
+**Per abilitare Desktop remoto**
 
-    cd %hadoop_home%
-    cd %hive_home%
-    cd %hbase_home%
-    cd %pig_home%
-    cd %sqoop_home%
-    cd %hcatalog_home%
-    
-##<a name="next-steps"></a>Next steps
-In this article, you have learned how to create an HDInsight cluster by using the Portal, and how to open the Hadoop command-line tool. To learn more, see the following articles:
+1. Accedere al [portale][azure-portal].
+2. Fare clic su **Esplora tutto** dal menu di sinistra, fare clic su **Cluster HDInsight** e quindi sul nome del cluster.
+3. Fare clic su **Impostazioni** dal menu principale, quindi fare clic su **Desktop remoto**.
+4. Immettere **Scadenza**, **Nome utente di Desktop remoto** e **Password di Desktop remoto**, quindi fare clic su **Abilita**.
 
-* [Administer HDInsight Using Azure PowerShell](hdinsight-administer-use-powershell.md)
-* [Administer HDInsight Using Azure CLI](hdinsight-administer-use-command-line.md)
-* [Create HDInsight clusters](hdinsight-provision-clusters.md)
-* [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md)
-* [Get Started with Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
-* [What version of Hadoop is in Azure HDInsight?](hdinsight-component-versioning.md)
+	![hdinsight attivare disattivare configurare desktop remoto](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
+
+	La Scadenza predefinita è una settimana.
+> [AZURE.NOTE] Per abilitare Desktop remoto in un cluster è anche possibile usare HDInsight .NET SDK. Usare il metodo **EnableRdp** sull'oggetto client HDInsight nel modo seguente: **client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Analogamente, per disabilitare Desktop remoto nel cluster è possibile usare **client.DisableRdp(clustername, location)**. Per altre informazioni su questi metodi, vedere [Documentazione di riferimento relativa a HDInsight .NET SDK](http://go.microsoft.com/fwlink/?LinkId=529017). È applicabile solo per i cluster HDInsight in esecuzione in Windows.
+
+**Per connettersi a un cluster tramite RDP**
+
+1. Accedere al [portale][azure-portal].
+2. Fare clic su **Esplora tutto** dal menu di sinistra, fare clic su **Cluster HDInsight** e quindi sul nome del cluster.
+3. Scegliere **Impostazioni** dal menu in alto, quindi fare clic su **Desktop remoto**.
+4. Fare clic su **Connetti** e seguire le istruzioni. Se Connetti è disabilitato, è necessario prima abilitarlo. Assicurarsi di utilizzare il nome utente e la password del Desktop remoto. Non è possibile utilizzare le credenziali dell'utente del Cluster.
+
+
+##Aprire la riga di comando di Hadoop.
+
+Per connettersi al cluster tramite Desktop remoto e usare la riga di comando di Hadoop, è prima necessario aver abilitato l'accesso Desktop remoto al cluster come descritto nella sezione precedente.
+
+**Per aprire la riga di comando di Hadoop**
+
+1. Connettersi al cluster tramite Desktop remoto.
+8. Dal desktop fare doppio clic su **Hadoop Command Line**.
+
+	![HDI.HadoopCommandLine][image-hadoopcommandline]
+
+	Per altre informazioni sui comandi Hadoop, vedere la [documentazione di riferimento sui comandi Hadoop](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
+
+Nella schermata precedente il numero di versione di Hadoop è incorporato nel nome della cartella. Il numero di versione cambia in base alla versione dei componenti Hadoop installati nel cluster. È possibile usare le variabili d'ambiente di Hadoop per fare riferimento a tali cartelle. ad esempio:
+
+	cd %hadoop_home%
+	cd %hive_home%
+	cd %hbase_home%
+	cd %pig_home%
+	cd %sqoop_home%
+	cd %hcatalog_home%
+	
+##Passaggi successivi
+In questo articolo è stato illustrato come creare un cluster HDInsight tramite il portale, e come aprire lo strumento da riga di comando di Hadoop. Per altre informazioni, vedere gli articoli seguenti:
+
+* [Amministrare HDInsight tramite Azure PowerShell](hdinsight-administer-use-powershell.md)
+* [Amministrare HDInsight tramite l’interfaccia della riga di comando di Azure](hdinsight-administer-use-command-line.md)
+* [Creare cluster HDInsight](hdinsight-provision-clusters.md)
+* [Inviare processi Hadoop a livello di codice](hdinsight-submit-hadoop-jobs-programmatically.md)
+* [Introduzione ad Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Versione di Hadoop inclusa in Azure HDInsight](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com
-[image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Hadoop command line"
+[image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Riga di comando di Hadoop"
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

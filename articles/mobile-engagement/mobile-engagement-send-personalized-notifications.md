@@ -1,71 +1,69 @@
 <properties 
-    pageTitle="Send personalized notification with Azure Mobile Engagement" 
-    description="How to send personalized notifications by including user profile information in the notifications like their names"        
-    services="mobile-engagement" 
-    documentationCenter="mobile" 
-    authors="piyushjo" 
-    manager="dwrede" 
-    editor="" />
+	pageTitle="Inviare notifiche personalizzate con Azure Mobile Engagement" 
+	description="Come inviare notifiche personalizzate includendo informazioni sul profilo utente come il nome nelle notifiche"		
+	services="mobile-engagement" 
+	documentationCenter="mobile" 
+	authors="piyushjo" 
+	manager="dwrede" 
+	editor="" />
 
 <tags 
-    ms.service="mobile-engagement" 
-    ms.workload="mobile" 
-    ms.tgt_pltfrm="all" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/19/2016" 
-    ms.author="piyushjo" />
+	ms.service="mobile-engagement" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="all" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/19/2016" 
+	ms.author="piyushjo" />
 
+#Personalizzare le notifiche includendo il nome utente
 
-#<a name="personalize-notifications-by-including-user-name"></a>Personalize notifications by including user name
+Per rendere le notifiche più interessanti per gli utenti dell'app, è possibile personalizzarle. Ad esempio, è possibile usare in modo selettivo i nomi degli utenti dell'app per indirizzare le notifiche e renderle più personali. È importante precisare che l'aggiunta dei nomi degli utenti alle notifiche è una strategia da adottare con moderazione, perché se abusata rischia di mettere a disagio gli utenti dell'app. È anche necessario assicurarsi di dare all'utente la possibilità di scegliere di fornire queste informazioni personali e il proprio consenso all'interno dell'app per dispositivi mobili prima di iniziare a usare questa strategia.
 
-In your quest to make notifications more appealing to your app users, you should consider personalizing them. One powerful approach comprises of selectively using the app users names to address the notifications to make them more personal. A word of caution here - you should approach adding user names to the notifications carefully because if you overuse this strategy then it could come across as creepy for some app users. You should also ensure that you are letting the user opt in to provide these personal details to you with full consent in the mobile app before starting to use this. 
+Con Azure Mobile Engagement è possibile personalizzare le notifiche seguendo la procedura illustrata di seguito, che descrive uno scenario in cui il nome utente viene incluso nelle notifiche. Viene usato il concetto di info app o tag i cui valori potrebbero essere passati dagli SDK integrati nell'app per dispositivi mobili per mezzo di API. Info app e Tag potrebbero essere usati:
 
-Technically, with Azure Mobile Engagement, you can accomplish personalizing the notifications by following the steps below in which we will use the scenario of including user name in the notifications. You will use the concept of App-Info or Tags whose values could either be passed by the SDKs integrated in the Mobile App or via APIs. These App-Infos or Tags could then be used:
+1. per indirizzare le notifiche a utenti specifici in base ai valori di info app o
+2. come segnaposto nelle notifiche, da sostituire con valori specifici per l'utente o il dispositivo durante l'invio di notifiche al dispositivo.
 
-1. for targeting notifications to specific users based on the values of the App-Info or 
-2. as placeholders in the notifications which will be replaced with values specific to the device/user while sending notifications to that device. 
+> [AZURE.IMPORTANT] Si noti che la velocità di invio delle notifiche risulterà ridotta a causa dell'elaborazione aggiuntiva necessaria per sostituire i valori di info app con le singole notifiche.
 
-> [AZURE.IMPORTANT] Note that the speed of sending notifications will see a reduction because of this additional processing of replacing app-info values with each notifications. 
+##Registrare info app nel portale di Mobile Engagement
 
-##<a name="register-app-info-in-the-mobile-engagement-portal"></a>Register App-Info in the Mobile Engagement Portal
+1) Registrare prima di tutto le info app o i tag nel portale di Azure. Passare a **Impostazioni** -> **Tag (info app)**.
 
-1) You start with registering App Info or Tags in the Azure portal. Go to **Settings** -> **Tag (App-Info)** for this.  
+![][1]
 
-![][1]  
-
-2) Click on **New tag (app-info)** and provide the name as *user_name* and the type as *string* and click **Submit**. 
+2) Fare clic su **Nuovo tag (info app)** e specificare il nome come *user\_name* e il tipo come *Stringa* e fare clic su **Invia**.
 
 ![][2]
 
-3) You will finally see this app-info registered like the following:
+3) Le info app registrate verranno visualizzate come segue:
 
 ![][3]
 
-##<a name="send-app-info-from-the-client-sdk"></a>Send App-Info from the client SDK
+##Inviare info app dall'SDK del client
 
-Here we are using the Windows Universal app example but equivalent methods exist for our other SDKs also. 
+Qui viene usato l'esempio di app universale di Windows ma esistono metodi equivalenti anche per altri SDK.
 
-Assuming you have a method in the mobile app where you get the profile information from the user like their names probably after authenticating them, you will call `SendAppInfo` method here and populate the value of the `user_name` app info that you registered earlier into the Mobile Engagement service backend. 
+Se è disponibile un metodo nell'app per dispositivi mobili che permette di ottenere informazioni sul profilo da parte dell'utente, ad esempio il nome dell'utente dopo la sua autenticazione, chiamare qui il metodo `SendAppInfo` e popolare il valore dell'info app `user_name` registrata in precedenza nel back-end del servizio Mobile Engagement.
 
     Dictionary<object, object> appInfo = new Dictionary<object, object>();
     appInfo.Add("user_name", str);
     EngagementAgent.Instance.SendAppInfo(appInfo); 
 
-##<a name="send-personalized-notifications"></a>Send personalized notifications
+##Inviare notifiche personalizzate
 
-Now you are all set to send notifications using this **user_name**. 
+A questo punto è possibile inviare notifiche usando questo **user\_name**.
 
-1) Go to Mobile Engagement Portal on the **Reach** tab to create a notification and you can use this placeholder in the following format anywhere in the notification title or the body. 
+1) Passare al portale di Mobile Engagement nella scheda **Copertura** per creare una notifica. È possibile usare questo segnaposto nel formato seguente in qualsiasi parte del titolo o nel corpo della notifica.
 
-![][4]  
+![][4]
 
-> [AZURE.NOTE] Any users for which the user_name app info is not set, will not get any notification. If you run the notification campaign in test mode and if you do not have app-info set then we will send '?' character to replace the placeholder. 
+> [AZURE.NOTE] Gli utenti per i quali l'info app user\_name non è impostata non riceveranno notifiche. Se si esegue una campagna di notifica in modalità di test, e se le informazioni sull’app non sono impostate, verrà inviato un carattere '?' per sostituire il segnaposto.
 
-2) When Mobile Engagement will select a device to send this notification then it will look at this app-info and replace the value in the placeholder.  
-For example, if we have set `str = "Scott"` for a user than the device registration will get associated with the app info of **user_name = SCOTT** for this user and this user will see an out of app push notification in the following format. 
+2) Quando Mobile Engagement seleziona un dispositivo per l'invio della notifica, esamina questa info app e sostituisce il valore del segnaposto. Se, ad esempio, è stato impostato `str = "Scott"` per un utente, la registrazione del dispositivo verrà associata all'info app **user\_name = SCOTT** per l'utente e questi visualizzerà una notifica push fuori dall'app nel formato seguente:
 
-![][5]  
+![][5]
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-send-personalized-notifications/app-info.png
@@ -74,9 +72,4 @@ For example, if we have set `str = "Scott"` for a user than the device registrat
 [4]: ./media/mobile-engagement-send-personalized-notifications/personal-notification.png
 [5]: ./media/mobile-engagement-send-personalized-notifications/notification.png
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

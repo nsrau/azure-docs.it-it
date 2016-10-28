@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Open ports to a VM using the Azure portal | Microsoft Azure"
-   description="Learn how to open a port / create an endpoint to your Windows VM using the resource manager deployment model in the Azure Portal"
+   pageTitle="Aprire porte a una VM tramite il portale di Azure | Microsoft Azure"
+   description="Informazioni su come aprire una porta o creare un endpoint alla VM Windows tramite il modello di distribuzione di Resource Manager nel portale di Azure"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
@@ -16,56 +16,51 @@
    ms.date="08/08/2016"
    ms.author="iainfou"/>
 
-
-# <a name="opening-ports-to-a-vm-in-azure-using-the-azure-portal"></a>Opening ports to a VM in Azure using the Azure Portal
+# Apertura di porte a una VM tramite il portale di Azure
 [AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
-## <a name="quick-commands"></a>Quick commands
-You can also [perform these steps using Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md).
+## Comandi rapidi
+È possibile [eseguire questi passaggi anche tramite Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md).
 
-First, create your Network Security Group. Select a resource group in the portal, click 'Add', then search for and select 'Network Security Group':
+Come prima operazione, creare il gruppo di sicurezza di rete. Selezionare un gruppo di risorse nel portale, fare clic su "Aggiungi", quindi cercare e selezionare "Gruppo di sicurezza di rete":
 
-![Add a Network Security Group](./media/virtual-machines-windows-nsg-quickstart-portal/add-nsg.png)
+![Aggiungere un gruppo di sicurezza di rete](./media/virtual-machines-windows-nsg-quickstart-portal/add-nsg.png)
 
-Enter a name for your Network Security Group and select a location:
+Immettere un nome per il gruppo di sicurezza di rete e selezionare un percorso:
 
-![Create a Network Security Group](./media/virtual-machines-windows-nsg-quickstart-portal/create-nsg.png)
+![Creare un gruppo di sicurezza di rete](./media/virtual-machines-windows-nsg-quickstart-portal/create-nsg.png)
 
-Select your new Network Security Group. You now create an inbound rule:
+Selezionare il nuovo gruppo di sicurezza di rete. È ora possibile creare una regola in entrata:
 
-![Add an inbound rule](./media/virtual-machines-windows-nsg-quickstart-portal/add-inbound-rule.png)
+![Aggiungere una regola in entrata](./media/virtual-machines-windows-nsg-quickstart-portal/add-inbound-rule.png)
 
-Provide a name for your new rule. Port 80 is already entered by default. This blade is where you would change the source, protocol, and destination when adding additional rules to your Network Security Group:
+Fornire un nome per la regola. La porta 80 è già inserita per impostazione predefinita. Questo pannello consente di modificare l'origine, il protocollo e la destinazione durante l'aggiunta di regole ulteriori al gruppo di sicurezza di rete:
 
-![Create an inbound rule](./media/virtual-machines-windows-nsg-quickstart-portal/create-inbound-rule.png)
+![Creare una regola in entrata](./media/virtual-machines-windows-nsg-quickstart-portal/create-inbound-rule.png)
 
-Your final step is to associate your Network Security Group with a subnet or a specific network interface. Let's associate the Network Security Group with a subnet:
+Il passaggio finale consiste nell'associare il gruppo di sicurezza di rete con una subnet o un'interfaccia di rete specifica. Per associare il gruppo di sicurezza di rete a una subnet:
 
-![Associate a Network Security Group with a subnet](./media/virtual-machines-windows-nsg-quickstart-portal/associate-subnet.png)
+![Associare un gruppo di sicurezza di rete con una subnet](./media/virtual-machines-windows-nsg-quickstart-portal/associate-subnet.png)
 
-Select your virtual network, and then select the appropriate subnet:
+Selezionare la rete virtuale, quindi selezionare la subnet appropriata:
 
-![Associating a Network Security Group with virtual networking](./media/virtual-machines-windows-nsg-quickstart-portal/select-vnet-subnet.png)
+![Associare un gruppo di sicurezza di rete con una rete virtuale](./media/virtual-machines-windows-nsg-quickstart-portal/select-vnet-subnet.png)
 
-You have now created a Network Security Group, created an inbound rule that allows traffic on port 80, and associated it with a subnet. Any VMs you connect to that subnet are reachable on port 80.
-
-
-## <a name="more-information-on-network-security-groups"></a>More information on Network Security Groups
-The quick commands here allow you to get up and running with traffic flowing to your VM. Network Security Groups provide many great features and granularity for controlling access to your resources. You can read more about [creating a Network Security Group and ACL rules here](../virtual-network/virtual-networks-create-nsg-arm-ps.md).
-
-You can define Network Security Groups and ACL rules as part of Azure Resource Manager templates. Read more about [creating Network Security Groups with templates](../virtual-network/virtual-networks-create-nsg-arm-template.md).
-
-If you need to use port-forwarding to map a unique external port to an internal port on your VM, use a load balancer and Network Address Translation (NAT) rules. For example, you may want to expose TCP port 8080 externally and have traffic directed to TCP port 80 on a VM. You can learn about [creating an Internet-facing load balancer](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
-
-## <a name="next-steps"></a>Next steps
-In this example, you created a simple rule to allow HTTP traffic. You can find information on creating more detailed environments in the following articles:
-
-- [Azure Resource Manager overview](../resource-group-overview.md)
-- [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)
-- [Azure Resource Manager Overview for Load Balancers](../load-balancer/load-balancer-arm.md)
+È stato creato un gruppo di sicurezza di rete, è stata creata una regola in entrata che consente il traffico sulla porta 80 ed è stata associata a una subnet. Tutte le VM che si connettono a questa subnet sono raggiungibili sulla porta 80.
 
 
+## Altre informazioni sui gruppi di sicurezza di rete
+I comandi rapidi seguenti consentono di rendere operativo il traffico verso la VM. I gruppi di sicurezza di rete offrono numerose funzionalità efficienti e la necessaria granularità per controllare l'accesso alle risorse. Per altre informazioni, leggere l'articolo sulla [creazione di un gruppo di sicurezza di rete e di regole dell'elenco di controllo di accesso qui](../virtual-network/virtual-networks-create-nsg-arm-ps.md).
 
-<!--HONumber=Oct16_HO2-->
+È possibile definire le regole dell'elenco di controllo di accesso e i gruppi di sicurezza di rete come parte dei modelli di Azure Resource Manager. Per altre informazioni, leggere l'articolo [Come creare NSG utilizzando un modello](../virtual-network/virtual-networks-create-nsg-arm-template.md).
 
+Se si deve usare il port forwarding per eseguire il mapping di una sola porta esterna verso una porta interna della VM, usare un servizio di bilanciamento del carico e le regole Network Address Translation (NAT). Ad esempio, si desidera esporre la porta TCP 8080 esternamente e che il traffico venga indirizzato sulla porta TCP 80 in una VM. Per altre informazioni, leggere l'articolo relativo alla [creazione di un servizio di bilanciamento del carico per Internet](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
+## Passaggi successivi
+In questo esempio viene creata una regola semplice per consentire il traffico HTTP. È possibile trovare informazioni sulla creazione di ambienti più dettagliati negli articoli seguenti:
+
+- [Panoramica di Gestione risorse di Azure](../resource-group-overview.md)
+- [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md)
+- [Panoramica di Azure Resource Manager per i servizi di bilanciamento del carico](../load-balancer/load-balancer-arm.md)
+
+<!---HONumber=AcomDC_0907_2016-->

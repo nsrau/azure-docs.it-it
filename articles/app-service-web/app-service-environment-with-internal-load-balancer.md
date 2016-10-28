@@ -1,163 +1,162 @@
 <properties
-    pageTitle="Creating and using an Internal Load Balancer with an App Service Environment | Microsoft Azure"
-    description="Creating and using an ASE with an ILB"
-    services="app-service"
-    documentationCenter=""
-    authors="ccompy"
-    manager="stefsch"
-    editor=""/>
+	pageTitle="Creazione e uso di un servizio di bilanciamento del carico interno con un ambiente del servizio app | Microsoft Azure"
+	description="Creazione e uso di un ambiente del servizio app con bilanciamento del carico interno"
+	services="app-service"
+	documentationCenter=""
+	authors="ccompy"
+	manager="stefsch"
+	editor=""/>
 
 <tags
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/12/2016"
-    ms.author="ccompy"/>
+	ms.service="app-service"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
+	ms.author="ccompy"/>
+
+# Uso di un servizio di bilanciamento del carico interno con un ambiente del servizio app #
+
+La funzionalità Ambiente del servizio app (ASE) è un'opzione di servizio Premium del servizio app di Azure che offre una funzionalità di configurazione avanzata che non è disponibile negli indicatori di multi-tenant. In breve, la funzionalità Ambiente del servizio app distribuisce il servizio app di Azure nella rete virtuale di Azure (VNet). Per informazioni approfondite delle funzionalità offerte dagli ambienti del servizio app, vedere [Informazioni sull'ambiente del servizio app][WhatisASE]. Se non si conoscono i vantaggi derivanti dall'uso di una rete virtuale, vedere [Domande frequenti sulla rete virtuale di Azure][virtualnetwork].
 
 
-# <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Using an Internal Load Balancer with an App Service Environment #
-
-The App Service Environments(ASE) feature is a Premium service option of Azure App Service that delivers an enhanced configuration capability that is not available in the multi-tenant stamps.  The ASE feature essentially deploys the Azure App Service in your Azure Virtual Network(VNet).  To gain a greater understanding of the capabilities offered by App Service Environments read the [What is an App Service Environment][WhatisASE] documentation.  If you don't know the benefits of operating in a VNet read the [Azure Virtual Network FAQ][virtualnetwork].  
+## Panoramica ##
 
 
-## <a name="overview"></a>Overview ##
+Un ambiente del servizio app può essere distribuito con un endpoint accessibile da Internet o con un indirizzo IP nella rete virtuale. Per impostare l'indirizzo IP su un indirizzo di rete virtuale, è necessario distribuire l'ambiente del servizio app con un bilanciamento del carico interno (ILB). Quando l'ambiente è configurato con un bilanciamento del carico interno, fornire:
+
+- il proprio dominio o sottodominio. Per maggiore semplicità, in questo documento si presuppone l'uso di un sottodominio, ma sono possibili entrambe le configurazioni.
+- il certificato usato per HTTPS
+- la gestione del DNS per il sottodominio.
 
 
-An ASE can be deployed with an internet accessible endpoint or with an IP address in your VNet.  In order to set the IP address to a VNet address you need to deploy your ASE with an Internal Load Balancer(ILB).  When your ASE is configured with an ILB you provide:
+È possibile eseguire operazioni come:
 
-- your own domain or subdomain.  To make it easy, this document assumes subdomain but you can configure it either way.  
-- the certificate used for HTTPS
-- DNS management for your subdomain.  
-
-
-In return, you can do things such as:
-
-- host intranet applications, like line of business applications, securely in the cloud which you access through a Site to Site or ExpressRoute VPN
-- host apps in the cloud that are not listed in public DNS servers
-- create internet isolated backend apps which your front end apps can securely integrate with
+- l'hosting di applicazioni intranet, ad esempio applicazioni line of business, in modo sicuro nel cloud a cui si accede tramite una VPN ExpressRoute o da sito a sito
+- l'hosting delle app nel cloud non presenti nei server DNS pubblici
+- creazione di applicazioni back-end isolate da Internet con cui le app front-end possono integrarsi in modo sicuro
 
 
-#### <a name="disabled-functionality"></a>Disabled functionality ####
+#### Funzionalità disabilitata ####
 
-There are some things that you cannot do when using an ILB ASE.  Those things include:
+Non è possibile eseguire alcune operazioni quando si usa un ambiente del servizio app con bilanciamento del carico interno. Alcuni esempi sono:
 
-- using IPSSL
-- assigning IP addresses to specific apps
-- buying and using a certificate with an app through the portal.  You can of course still obtain certificates directly with a Certificate Authority and use it with your apps, just not through the Azure portal.
+- uso di IPSSL
+- assegnazione di indirizzi IP ad app specifiche
+- acquisto e uso di un certificato con un'app tramite il portale. È ovviamente ancora possibile ottenere i certificati direttamente con un'autorità di certificazione e usarli con le app, ma non tramite il portale di Azure.
 
 
-## <a name="creating-an-ilb-ase"></a>Creating an ILB ASE ##
+## Creazione di un ambiente del servizio app con bilanciamento del carico interno ##
 
-Creating an ILB ASE is not much different from creating an ASE normally.  For a deeper discussion on creating an ASE read [How to Create an App Service Environment][HowtoCreateASE].  The process to create an ILB ASE is the same between creating a VNet during ASE creation or selecting a pre-existing VNet.  To create an ILB ASE: 
+La creazione di un ambiente del servizio app con bilanciamento del carico interno non è molto diversa dalla creazione di un ambiente del servizio app regolare. Per una trattazione più approfondita sulla creazione di un ambiente del servizio app, vedere [Come creare un ambiente del servizio app][HowtoCreateASE]. La procedura di creazione di un ambiente del servizio app con bilanciamento del carico interno è la stessa nella creazione di una rete virtuale durante la creazione dell'ambiente del servizio app o nella selezione di una rete virtuale già esistente. Per creare un ambiente del servizio app con bilanciamento del carico interno:
 
-1.  In the Azure portal select **New -> Web + Mobile -> App Service Environment**
-2.  Select your subscription
-3.  Select or create a resource group
-4.  Select or create a VNet
-5.  Select or create a subnet if selecting a VNet
-6.  Select **Virtual Network/Location -> VNet Configuration** and set the VIP Type to Internal
-7.  Provide subdomain name (this will be the subdomain used for apps created in this ASE)
-8.  Select Ok and then Create
+1.	Nel portale di Azure selezionare **Nuovo -> Web e dispositivi mobili -> Ambiente del servizio app**
+2.	Selezionare la propria sottoscrizione
+3.	Selezionare o creare un gruppo di risorse
+4.	Selezionare o creare una rete virtuale
+5.	Selezionare o creare una subnet se si seleziona una rete virtuale
+6.	Selezionare **Rete virtuale/Località** e impostare il tipo di indirizzo VIP per l'uso interno
+7.	Fornire un nome di sottodominio; questo sarà il sottodominio usato per le app create con questo ambiente del servizio app
+8.	Selezionare OK, quindi Crea
 
 
 ![][1]
 
 
-Within the Virtual Network blade there is a VNet Configuration option.  This lets you select between an External VIP or Internal VIP.  The default is External.  If you have it set to External then your ASE will use an internet accessible VIP.  If you select Internal, your ASE will be configured with an ILB on an IP address within your VNet.  
+Nel pannello della rete virtuale è disponibile un'opzione di configurazione di rete virtuale. È possibile scegliere tra un indirizzo VIP esterno o interno. L'opzione predefinita è Esterno. Con questa impostazione, l'ambiente del servizio app userà un indirizzo VIP accessibile da internet. Se si seleziona l'opzione Interno, l'ambiente del servizio app verrà configurato con un bilanciamento del carico interno su un indirizzo IP all'interno della rete virtuale.
 
 
-After selecting Internal, the ability to add more IP addresses to your ASE is removed and instead you need to provide the subdomain of the ASE.  In an ASE with an External VIP the name of the ASE is used in the subdomain for apps created in that ASE.  
-If your ASE was called ***contosotest*** and your app in that ASE was called ***mytest*** then the subdomain would be of the format ***contosotest.p.azurewebsites.net*** and the URL for that app would be ***mytest.contosotest.p.azurewebsites.net***.  
-If you set the VIP Type to Internal, your ASE name is not used in the subdomain for the ASE.  You specify the subdomain explicitly.  If your subdomain was ***contoso.corp.net*** and you made an app in that ASE named ***timereporting*** then the URL for that app would be ***timereporting.contoso.corp.net***.
+Dopo aver selezionato Interno, la possibilità di aggiungere più indirizzi IP dell'ambiente del servizio app viene rimossa ed è invece necessario fornire il sottodominio dell'ambiente del servizio app. In un ambiente del servizio app con un indirizzo VIP esterno viene usato il nome dell'ambiente nel sottodominio delle app create in questo ambiente. Se l'ambiente del servizio app è stato denominato ***contosotest*** e l'app in questo ambiente è stata denominata ***mytest***, il formato del sottodominio sarà ***contosotest.p.azurewebsites.net*** e l'URL per questa app sarà ***mytest.contosotest.p.azurewebsites.net***. Se si imposta il tipo di indirizzo VIP su Interno, il nome dell'ambiente del servizio app non viene usato nel sottodominio per l'ambiente. Specificare il sottodominio in modo esplicito. Se il sottodominio è ***contoso.corp.net*** ed è stata creta un'app in ambiente del servizio app denominata ***timereporting***, l'URL per questa app sarà ***timereporting.contoso.corp.net***.
 
 
-## <a name="apps-in-an-ilb-ase"></a>Apps in an ILB ASE ##
+## App in un ambiente del servizio app con bilanciamento del carico interno ##
 
-Creating an app in an ILB ASE is the same as creating an app in an ASE normally.  
+La creazione di un'app in un ambiente del servizio app con bilanciamento del carico interno è la stessa che in un ambiente del servizio app regolare.
 
-1. In the Azure portal select **New -> Web + Mobile -> Web** or **Mobile** or **API App**
-2. Enter name of app
-2. Select subscription
-3. Select or create resource group
-4. Select or create App Service Plan(ASP).  If creating a new ASP then select your ASE as the location and select the worker pool you want your ASP to be created in.  When you create the ASP you select your ASE as the location and the worker pool.  When you specify the name of the app you will see that the subdomain under your app name is replaced by the subdomain for your ASE.   
-5. Select Create.  You should select the **Pin to dashboard** checkbox if you want the app to show up on your dashboard.  
+1. Nel portale di Azure selezionare **Nuovo -> Web e dispositivi mobili -> Web** o **dispositivi mobili** oppure **App per le API**
+2. Immettere il nome dell'app
+2. Selezionare la sottoscrizione
+3. Selezionare o creare un gruppo di risorse
+4. Selezionare o creare un piano di servizio app (ASP). Se si crea un nuovo piano di servizio app, selezionare l'ambiente del servizio app come posizione e il pool di lavoro in cui si vuole creare l'ASP. Quando si crea l'ASP selezionare l'ambiente del servizio app come posizione e il pool di lavoro. Quando si specifica il nome dell'app, si noterà che il sottodominio sotto il nome dell'app verrà sostituito con il sottodominio dell'ambiente del servizio app.
+5. Selezionare Crea. Selezionare la casella di controllo **Aggiungi al dashboard** se si vuole che l'app venga visualizzata nel dashboard.
 
 ![][2]
 
 
-Under the app name the subdomain name gets updated to reflect the subdomain of your ASE.  
+Sotto il nome dell'app il nome del sottodominio viene aggiornato per riflettere il sottodominio dell'ambiente del servizio app.
 
 
-## <a name="post-ilb-ase-creation-validation"></a>Post ILB ASE creation validation ##
+## Convalida dopo la creazione dell'ambiente del servizio app con bilanciamento del carico interno ##
 
-An ILB ASE is slightly different than the non-ILB ASE.  As already noted you need to manage your own DNS and you also have to provide your own certificate for HTTPS connections.  
+Un ambiente del servizio app con bilanciamento del carico interno è leggermente diverso rispetto all'ambiente del servizio app senza bilanciamento del carico interno. Come già notato è necessario gestire il proprio DNS e fornire un proprio certificato per le connessioni HTTPS.
 
 
-After you create your ASE you will notice that the subdomain shows the subdomain you specified and there is a new item in the **Setting** menu called **ILB Certificate**.  Until you set a certificate for your ASE you will not be able to reach the apps in your ASE over HTTPS.  
+Dopo la creazione dell'ambiente del servizio app, si noterà che il sottodominio mostra il sottodominio specificato e che esiste un nuovo elemento nel menu **Impostazione** denominato **Certificato ILB**. Finché non si imposta un certificato per l'ambiente del servizio app non sarà possibile raggiungere le app nell'ambiente del servizio app tramite HTTPS.
 
 ![][3]
 
 
-If you are simply trying things out and don't know how to create a certificate, you can use the IIS MMC console application to create a self signed certificate.  Once it is created you can export it as a .pfx file and then upload it in the ILB Certificate UI. When you access a site secured with a self-signed certificate, your browser will give you a warning that the site you are accessing is not secure due to the inability to validate the certificate.  If you want to avoid that warning you need a properly signed certificate that matches your subdomain and has a chain of trust that is recognized by your browser.
+Se si sta semplicemente eseguendo alcune prove e non si conosce la procedura per creare un certificato, è possibile usare l'applicazione della console MMC di IIS per creare un certificato autofirmato. Dopo la creazione è possibile esportarlo come file PFX e caricarlo nell'interfaccia utente dei certificati ILB. Quando si accede a un sito protetto con un certificato autofirmato, il browser visualizzerà un avviso che il sito a cui si sta accedendo non è protetto poiché non è possibile convalidare il certificato. Per evitare che venga visualizzato l'avviso, è necessario un certificato firmato correttamente che corrisponda al sottodominio e che disponga di una catena di certificati riconosciuta dal browser.
 
 ![][6]
 
-If you want to test both HTTP and HTTPS access to your ASE:
+Se si vuole testare l'accesso HTTP e HTTPS per l'ambiente del servizio app:
 
-1.  Go to ASE UI after ASE is created **ASE -> Settings -> ILB Certificates**
-2.  Set ILB certificate by selecting certificate pfx file and provide password.  This step takes a little while to process and the message that a scaling operation is in progress will be shown.
-3.  Get the ILB address for your ASE (**ASE -> Properties -> Virtual IP Address**)
-4.  Create a web app in ASE after creation 
-5.  Create a VM if you don't have one in that VNET (Not in the same subnet as the ASE or things break)
-6.  Set DNS for your subdomain.  You can use a wildcard with your subdomain in your DNS or if you want to do some simple tests, edit the hosts file on your VM to set web app name to VIP IP address.  If your ASE had the subdomain name .ilbase.com and you made the web app mytestapp so that it would be addressed at mytestapp.ilbase.com then set that in your hosts file.  (On Windows the hosts file is at C:\Windows\System32\drivers\etc\ )
-7.  Use a browser on that VM and go to http://mytestapp.ilbase.com (or whatever your web app name is with your subdomain)
-8.  Use a browser on that VM and go to https://mytestapp.ilbase.com   You will have to accept the lack of security if using a self-signed certificate.  
+1.	Passare all'interfaccia utente dell'ambiente del servizio app dopo la creazione dell'ambiente **Ambiente del servizio app -> Impostazioni -> Certificati ILB**
+2.	Impostare il certificato ILB selezionando il file PFX e fornire la password. L'elaborazione di questo passaggio richiede tempo e verrà visualizzato il messaggio indicante un'operazione di ridimensionamento in corso.
+3.	Ottenere l'indirizzo ILB per l'ambiente del servizio app (**Ambiente del servizio app -> Proprietà -> Indirizzo IP virtuale**)
+4.	Creare un'app Web nell'ambiente del servizio app dopo la creazione
+5.	Creare una VM, se non è disponibile in questa rete virtuale; non crearla nella stessa subnet dell'ambiente del servizio app per evitare errori
+6.	Impostare il DNS per il sottodominio. È possibile usare un carattere jolly con il sottodominio nel DNS o se si vuole eseguire alcuni semplici test, modificare il file hosts nella VM per impostare il nome della app Web all'indirizzo IP VIP. Se il nome di sottodominio dell'ambiente del servizio app è ilbase.com e mytestapp app della app Web è stata creata in modo da essere indirizzata a mytestapp.ilbase.com, impostare questo valore nel file hosts. In Windows il file hosts si trova in C:\\Windows\\System32\\drivers\\etc\\
+7.	Usare un browser su questa VM e passare a http://mytestapp.ilbase.com o qualunque sia il nome dell'app web con il sottodominio
+8.	Usare un browser su questa VM e passare a https://mytestapp.ilbase.com; sarò necessario accettare la mancanza di sicurezza se si usa un certificato autofirmato.
 
 
-The IP address for your ILB is listed in your Properties as the Virtual IP Address
+L'indirizzo IP per il bilanciamento del carico interno è elencato nelle proprietà come indirizzo IP virtuale
 
 ![][4]
 
 
-## <a name="using-an-ilb-ase"></a>Using an ILB ASE ##
+## Uso di un ambiente del servizio app con bilanciamento del carico interno ##
 
-#### <a name="network-security-groups"></a>Network Security Groups ####
+#### Gruppi di sicurezza di rete ####
 
-An ILB ASE enables network isolation for your apps as the apps are not accessible or even known by the internet.  This is excellent for hosting intranet sites such as line of business applications.  When you need to restrict access even further you can still use Network Security Groups(NSGs) to control access at the network level. 
-
-
-If you wish to use NSGs to further restrict access then you need to make sure you do not break the communication that the ASE needs in order to operate.  Even though the HTTP/HTTPS access is only through the ILB used by the ASE the ASE still depends on resource outside of the VNet.  To see what network access is still required look at the information in the document on [Controlling Inbound Traffic to an App Service Environment][ControlInbound] and the document on [Network Configuration Details for App Service Environments with ExpressRoute][ExpressRoute].  
+Un ambiente del servizio app con bilanciamento del carico interno consente l'isolamento della rete per le app poiché le app non sono accessibili o persino note da Internet. Questa condizione è ideale per ospitare i siti intranet, ad esempio le applicazioni line of business. Quando è necessario limitare ulteriormente l'accesso, è possibile ancora usare i gruppi di sicurezza di rete (NSG) per controllare l'accesso a livello di rete.
 
 
-To configure your NSGs you need to know the IP address that is used by Azure to manage your ASE.  That IP address is also the outbound IP address from your ASE if it makes internet requests.  To find this IP address go to **Settings -> Properties** and find the **Outbound IP Address**.  
+Se si vuole usare i gruppi per limitare ulteriormente l'accesso, è necessario assicurarsi di non interrompere la comunicazione necessaria per il funzionamento dell'ambiente del servizio app. Anche se l'accesso HTTP/HTTPS avviene solo tramite il bilanciamento del carico interno usato dall'ambiente del servizio app, l'ambiente dipende ancora dalla risorsa all'esterno della rete virtuale. Per visualizzare il tipo di accesso rete eventualmente necessario, vedere le informazioni in [Controllo del traffico in ingresso a un ambiente del servizio app][ControlInbound] e in [Dettagli della configurazione di rete per gli ambienti del servizio app con ExpressRoute][ExpressRoute].
+
+
+Per configurare i gruppi NSG è necessario conoscere l'indirizzo IP usato da Azure per la gestione dell'ambiente del servizio app. Questo indirizzo IP è l'indirizzo IP in uscita dell'ambiente del servizio app se questo esegue richieste tramite internet. Per trovare questo indirizzo IP, passare a **Impostazioni -> Proprietà** e trovare **Indirizzo IP in uscita**.
 
 ![][5]
 
 
-#### <a name="general-ilb-ase-management"></a>General ILB ASE management ####
+#### Gestione generale dell'ambiente del servizio app con bilanciamento del carico interno ####
 
-Managing an ILB ASE is largely the same as managing an ASE normally.  You need to scale up your worker pools to host more ASP instances and scale up your Front End servers to handle increased amounts of HTTP/HTTPS traffic.  For general information on managing the configuration of an ASE, read the document on [Configuring an App Service Environment][ASEConfig].  
-
-
-The additional management items are certificate management and DNS management.  You need to obtain and upload the certificate used for HTTPS after ILB ASE creation and replace it before it expires.  Because Azure owns the base domain we can provide certificates for ASEs with an External VIP.  Since the subdomain used by an ILB ASE can be anything, you need to provide your own certificate for HTTPS. 
+La gestione di un ambiente del servizio app con bilanciamento del carico interno è sostanzialmente la stessa che in un ambiente del servizio app regolare. È necessario aumentare i pool di lavoro per ospitare più istanze ASP e aumentare i server front-end per gestire una maggiore quantità di traffico HTTP/HTTPS. Per informazioni generali sulla gestione della configurazione di un ambiente del servizio app, leggere il documento in [Configurazione di un ambiente del servizio app][ASEConfig].
 
 
-#### <a name="dns-configuration"></a>DNS Configuration ####
-
-When using an External VIP the DNS is managed by Azure.  Any app created in your ASE is automatically added to Azure DNS which is a public DNS.  In an ILB ASE you have to manage your own DNS.  For a given subdomain such as contoso.corp.net you need to create DNS A records that point to your ILB address for:
-
-    * 
-    *.scm ftp publish 
+Le attività di gestione aggiuntive sono la gestione dei certificati e la gestione del DNS. È necessario ottenere e caricare il certificato usato per HTTPS dopo la creazione dell'ambiente del servizio app con bilanciamento del carico interno e sostituirlo prima della scadenza. Poiché Azure possiede il dominio base possiamo fornire i certificati per gli ambienti del servizio app con un indirizzo VIP esterno. Poiché il sottodominio usato da un ambiente del servizio app con bilanciamento del carico interno può essere un qualsiasi elemento, è necessario fornire un certificato per HTTPS.
 
 
-## <a name="getting-started"></a>Getting started
-All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
+#### Configurazione del DNS ####
 
-To get started with App Service Environments, see [Introduction to App Service Environments][WhatisASE]
+Quando si usa un indirizzo VIP esterno, il DNS viene gestito da Azure. Qualsiasi app creata nell'ambiente del servizio app viene aggiunta automaticamente al DNS di Azure che è un DNS pubblico. In un ambiente del servizio app con bilanciamento del carico interno è necessario gestire il proprio DNS. Per un sottodominio specifico, ad esempio contoso.corp.net, è necessario creare record A DNS che puntano all'indirizzo del bilanciamento del carico interno per:
 
-For more information about the Azure App Service platform, see [Azure App Service][AzureAppService].
+	* 
+	*.scm 
+	ftp 
+	publish 
+
+
+## Introduzione
+Tutti gli articoli e le procedure sugli ambienti del servizio app sono disponibili nel [file LEGGIMI per gli ambienti di servizio dell'applicazione](../app-service/app-service-app-service-environments-readme.md).
+
+Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione all'ambiente del servizio app][WhatisASE].
+
+Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Servizio app di Azure][AzureAppService].
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -184,8 +183,4 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [vnetnsgs]: http://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [ASEConfig]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

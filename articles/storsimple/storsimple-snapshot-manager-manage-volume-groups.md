@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple Snapshot Manager volume groups | Microsoft Azure"
-   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to create and manage volume groups."
+   pageTitle="StorSimple Snapshot Manager gruppi di volume | Microsoft Azure"
+   description="Viene descritto come utilizzare lo snap-in MMC StorSimple Snapshot Manager per creare e gestire i gruppi di volumi."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,141 +15,136 @@
    ms.date="04/18/2016"
    ms.author="v-sharos" />
 
+# Usare StorSimple Snapshot Manager per creare e gestire gruppi di volumi
 
-# <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Use StorSimple Snapshot Manager to create and manage volume groups
+## Panoramica
 
-## <a name="overview"></a>Overview
+È possibile utilizzare il nodo **Gruppi di volumi** nel riquadro **Ambito** per assegnare i volumi a gruppi di volumi, visualizzare le informazioni relative a un gruppo di volumi, pianificare i backup e modificare i gruppi di volumi.
 
-You can use the **Volume Groups** node on the **Scope** pane to assign volumes to volume groups, view information about a volume group, schedule backups, and edit volume groups. 
-
-Volume groups are pools of related volumes used to ensure that backups are application-consistent. For more information, see [Volumes and volume groups](storsimple-what-is-snapshot-manager.md#volumes-and-volume-groups) and [Integration with Windows Volume Shadow Copy Service](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
+I gruppi di volumi sono pool di volumi correlati utilizzati per garantire che i backup siano coerenti con l'applicazione. Per ulteriori informazioni, vedere [Volumi e gruppi di volumi](storsimple-what-is-snapshot-manager.md#volumes-and-volume-groups) e [Integrazione con il servizio Copia Shadow del volume di Windows](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
 
 >[AZURE.IMPORTANT] 
 >
-> * All volumes in a volume group must come from a single cloud service provider.
+> * Tutti i volumi in un gruppo di volumi devono provenire da un singolo provider di servizi cloud.
 > 
-> * When you configure volume groups, do not mix cluster-shared volumes (CSVs) and non-CSVs in the same volume group. StorSimple Snapshot Manager does not support a mix of CSVs and non-CSVs in the same snapshot.
+> * Quando si configurano gruppi di volumi, non combinare volumi condivisi cluster (CSV) e volumi non condivisi cluster nello stesso gruppo di volumi. StorSimple Snapshot Manager non supporta una combinazione di volumi condivisi cluster e volumi non condivisi cluster nello stesso snapshot.
  
-![Volume groups node](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Volume_groups.png)
+![Nodo Gruppi di volumi](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Volume_groups.png)
 
-**Figure 1: StorSimple Snapshot Manager Volume Groups node** 
+**Figura 1: Nodo Gruppi di volumi di StorSimple Snapshot Manager**
 
-This tutorial explains how you can use StorSimple Snapshot Manager to:
+Questa esercitazione illustra come usare StorSimple Snapshot Manager per:
 
-- View information about your volume groups 
-- Create a volume group
-- Back up a volume group
-- Edit a volume group
-- Delete a volume group
+- Visualizzare le informazioni sui gruppi di volumi 
+- Creare un gruppo di volumi
+- Eseguire il backup di un gruppo di volumi
+- Modificare un gruppo di volumi
+- Eliminare un gruppo di volumi
 
-All of these actions are also available on the **Actions** pane.
+Tutte queste azioni sono disponibili anche nel riquadro **Azioni**.
  
-## <a name="view-volume-groups"></a>View volume groups
+## Visualizzazione dei gruppi di volumi
 
-If you click the **Volume Groups** node, the **Results** pane shows the following information about each volume group, depending on the column selections you make. (The columns in the **Results** pane are configurable. Right-click the **Volumes** node, select **View**, and then select **Add/Remove Columns**.)
+Se si fa clic sul nodo **Gruppi di volumi**, nel riquadro **Risultati** vengono mostrate le informazioni seguenti su ciascun gruppo di volumi, a seconda delle colonne selezionate. Le colonne nel riquadro **Risultati** sono configurabili. Fare clic con il pulsante destro del mouse sul nodo **Volumi**, scegliere **Visualizza** e quindi **Aggiungi/Rimuovi colonne**.
 
-Results column | Description 
+Colonna risultati | Descrizione 
 :--------------|:------------ 
-Name           | The **Name** column contains the name of the volume group.
-Application    | The **Applications** column shows the number of VSS writers currently installed and running on the Windows host.
-Selected       | The **Selected** column shows the number of volumes that are contained in the volume group. A zero (0) indicates that no application is associated with the volumes in the volume group.
-Imported       | The **Imported** column shows the number of imported volumes. When set to **True**, this column indicates that a volume group was imported from the Azure classic portal and was not created in StorSimple Snapshot Manager.
+Nome | La colonna **Nome** contiene il nome del gruppo di volumi.
+Applicazione | La colonna **Applicazioni** mostra il numero di writer del Servizio snapshot del volume attualmente installati e in esecuzione sull'host Windows.
+Selezionato | La colonna **Selezionati** mostra il numero di volumi contenuti nel gruppo di volumi. Zero (0) indica che nessuna applicazione è associata ai volumi nel gruppo di volumi.
+Importati | La colonna **Importati** mostra il numero di volumi importati. Se impostata su **True**, questa colonna indica che un gruppo di volumi è stato importato dal portale di Azure classico e non è stato creato in StorSimple Snapshot Manager.
  
->[AZURE.NOTE] StorSimple Snapshot Manager volume groups are also displayed on the **Backup Policies** tab in the Azure classic portal.
+>[AZURE.NOTE] I gruppi di volumi di StorSimple Snapshot Manager vengono inoltre visualizzati nella scheda **Criteri di backup** del portale di Azure classico.
  
-## <a name="create-a-volume-group"></a>Create a volume group
+## Creare un gruppo di volumi
 
-Use the following procedure to create a volume group.
+Utilizzare la procedura seguente per creare un gruppo di volumi.
 
-#### <a name="to-create-a-volume-group"></a>To create a volume group
+#### Per creare un gruppo di volumi
 
-1. Click the desktop icon to start StorSimple Snapshot Manager. 
+1. Fare clic sull’icona del desktop per avviare StorSimple Snapshot Manager. 
 
-2. In the **Scope** pane, right-click **Volume Groups**, and then click **Create Volume Group**. 
+2. Nel riquadro **Ambito** fare clic con il pulsante destro del mouse su **Gruppi di volumi**, quindi fare clic su **Crea gruppo di volumi**.
 
-    ![Create volume group](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Create_volume_group.png)
+    ![Creazione di un gruppo di volumi](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Create_volume_group.png)
  
-    The **Create a volume group** dialog box appears. 
+    Viene visualizzata la finestra di dialogo **Crea un gruppo di volumi**.
 
-    ![Create a volume group dialog](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_CreateVolumeGroup_dialog.png) 
+    ![Finestra di dialogo Crea un gruppo di volumi](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_CreateVolumeGroup_dialog.png)
 
-3.  Enter the following information: 
+3.  Immettere le seguenti informazioni:
 
-    1. In the **Name** box, type a unique name for the new volume group. 
+    1. Nella casella **Nome** digitare un nome univoco per il nuovo gruppo di volumi. 
 
-    2. In the **Applications** box, select applications associated with the volumes that you will be adding to the volume group. 
+    2. Nella casella **Applicazioni** selezionare le applicazioni associate ai volumi che verranno aggiunte al gruppo di volumi.
 
-        The **Applications** box lists only those applications that use StorSimple volumes and have VSS writers enabled for them. A VSS writer is enabled only if all the volumes that the writer is aware of are StorSimple volumes. If the Applications box is empty, then no applications that use Azure StorSimple volumes and have supported VSS writers are installed. (Currently, Azure StorSimple supports Microsoft Exchange and SQL Server.) For more information about VSS writers, see [Integration with Windows Volume Shadow Copy Service](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
+        Nella casella **Applicazioni** vengono elencate solo le applicazioni che usano volumi StorSimple e per le quali è abilitato il componente VSS writer. VSS writer è abilitato solo se tutti i volumi di cui è a conoscenza sono volumi StorSimple. Se la casella Applicazioni è vuota, non è stata installata alcuna applicazione che utilizza volumi StorSimple di Azure e che dispone di writer del Servizio snapshot del volume. (Attualmente, Azure StorSimple supporta Microsoft Exchange e SQL Server). Per altre informazioni sui writer del Servizio snapshot del volume, vedere [Integrazione con il servizio Copia Shadow del volume di Windows](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
 
-        If you select an application, all volumes associated with it are automatically selected. Conversely, if you select volumes associated with a specific application, the application is automatically selected in the **Applications** box. 
+        Se si seleziona un'applicazione, vengono selezionati automaticamente tutti i volumi associati ad essa. Viceversa, se si selezionano i volumi associati a un'applicazione specifica, l'applicazione viene automaticamente selezionata nella casella **Applicazioni**.
 
-    3. In the **Volumes** box, select StorSimple volumes to add to the volume group. 
+    3. Nella casella **Volumi** selezionare i volumi StorSimple da aggiungere al gruppo di volumi.
 
-      - You can include volumes with single or multiple partitions. (Multiple partition volumes can be dynamic disks or basic disks with multiple partitions.) A volume that contains multiple partitions is treated as a single unit. Consequently, if you add only one of the partitions to a volume group, all the other partitions are automatically added to that volume group at the same time. After you add a multiple partition volume to a volume group, the multiple partition volume continues to be treated as a single unit.
+      - È possibile includere volumi con una o più partizioni. (I volumi con più partizioni possono essere dischi dinamici o dischi di base con più partizioni.) Un volume che contiene più partizioni viene considerato come una singola unità. Di conseguenza, se si aggiunge solo una delle partizioni a un gruppo di volumi, tutte le altre partizioni vengono automaticamente aggiunte a tale gruppo contemporaneamente. Dopo aver aggiunto un volume con più partizioni a un gruppo di volumi, il volume con più partizioni continua a essere considerato come una singola unità.
 
-      - You can create empty volume groups by not assigning any volumes to them. 
+      - È possibile creare gruppi di volumi vuoti non assegnando alcun volume a essi.
 
-      - Do not mix cluster-shared volumes (CSVs) and non-CSVs in the same volume group. StorSimple Snapshot Manager does not support a mix of CSV volumes and non-CSV volumes in the same snapshot. 
+      - Non combinare volumi condivisi cluster (CSV) e volumi non condivisi cluster nello stesso gruppo di volumi. StorSimple Snapshot Manager non supporta una combinazione di volumi condivisi cluster e volumi non condivisi cluster nello stesso snapshot.
 
-4. Click **OK** to save the volume group.
+4. Fare clic su **OK** per salvare il gruppo di volumi.
 
-## <a name="back-up-a-volume-group"></a>Back up a volume group
+## Esecuzione del backup di un gruppo di volumi
 
-Use the following procedure to back up a volume group.
+Utilizzare la procedura seguente per eseguire il backup di un gruppo di volumi.
 
-#### <a name="to-back-up-a-volume-group"></a>To back up a volume group
+#### Per eseguire il backup di un gruppo di volumi
 
-1. Click the desktop icon to start StorSimple Snapshot Manager.
+1. Fare clic sull’icona del desktop per avviare StorSimple Snapshot Manager.
 
-2. In the **Scope** pane, expand the **Volume Groups** node, right-click a volume group name, and then click **Take Backup**. 
+2. Nel riquadro **Ambito** espandere il nodo **Gruppi di volumi**, fare clic con il pulsante destro del mouse sul nome di un gruppo di volumi, quindi fare clic su **Esegui backup**.
 
-    ![Back up volume group immediately](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Take_backup.png)
+    ![Esecuzione immediata del backup del gruppo di volumi](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Take_backup.png)
 
-3. In the **Take Backup** dialog box, select **Local Snapshot** or **Cloud Snapshot**, and then click **Create**. 
+3. Nella finestra di dialogo **Esegui backup** selezionare **Snapshot locale** o **Snapshot cloud**, quindi fare clic su **Crea**.
 
-    ![Take backup dialog](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_TakeBackup_dialog.png) 
+    ![Finestra di dialogo Esegui backup](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_TakeBackup_dialog.png)
 
-4. To confirm that the backup is running, expand the **Jobs** node, and then click **Running**. The backup should be listed.
+4. Per verificare che il backup sia in esecuzione, espandere il nodo **Processi**, quindi fare clic su **In esecuzione**. Il backup dovrebbe essere elencato.
 
-5. To view the completed snapshot, expand the **Backup Catalog** node, expand the volume group name, and then click **Local Snapshot** or **Cloud Snapshot**. The backup will be listed if it finished successfully. 
+5. Per visualizzare lo snapshot completato, espandere il nodo **Catalogo di backup**, espandere il nome del gruppo di volumi, quindi fare clic su**Snapshot locale** o **Snapshot cloud**. Il backup verrà elencato se è stato completato correttamente.
 
-## <a name="edit-a-volume-group"></a>Edit a volume group
+## Modifica di un gruppo di volumi
 
-Use the following procedure to edit a volume group.
+Utilizzare la procedura seguente per modificare un gruppo di volumi.
 
-#### <a name="to-edit-a-volume-group"></a>To edit a volume group
+#### Per modificare un gruppo di volumi
 
-1. Click the desktop icon to start StorSimple Snapshot Manager.
+1. Fare clic sull’icona del desktop per avviare StorSimple Snapshot Manager.
 
-2. In the **Scope** pane, expand the **Volume Groups** node, right-click a volume group name, and then click **Edit**. 
+2. Nel riquadro **Ambito** espandere il nodo **Gruppi di volumi**, fare clic con il pulsante destro del mouse sul nome di un gruppo di volumi, quindi fare clic su **Modifica**.
 
-3. The **Create a volume group **dialog box appears. You can change the **Name**, **Applications**, and **Volumes** entries. 
+3. Viene visualizzata la finestra di dialogo **Crea un gruppo di volumi**. È possibile modificare le voci **Nome**, **Applicazioni** e **Volumi**.
 
-4. Click **OK** to save your changes.
+4. Fare clic su **OK** per salvare le modifiche.
 
-## <a name="delete-a-volume-group"></a>Delete a volume group
+## Eliminazione di un gruppo di volumi
 
-Use the following procedure to delete a volume group. 
+Utilizzare la procedura seguente per eliminare un gruppo di volumi.
 
->[AZURE.WARNING] This also deletes all the backups associated with the volume group.
+>[AZURE.WARNING] Vengono eliminati anche tutti i backup associati al gruppo di volumi.
 
-#### <a name="to-delete-a-volume-group"></a>To delete a volume group
+#### Per eliminare un gruppo di volumi
 
-1. Click the desktop icon to start StorSimple Snapshot Manager. 
+1. Fare clic sull’icona del desktop per avviare StorSimple Snapshot Manager. 
 
-2. In the **Scope** pane, expand the **Volume Groups** node, right-click a volume group name, and then click **Delete**. 
+2. Nel riquadro **Ambito** espandere il nodo **Gruppi di volumi**, fare clic con il pulsante destro del mouse sul nome di un gruppo di volumi, quindi fare clic su **Elimina**.
 
-3. The **Delete Volume Group** dialog box appears. Type **Confirm** in the text box, and then click **OK**. 
+3. Viene visualizzata la finestra di dialogo **Elimina un gruppo di volumi**. Digitare **Conferma** nella casella di testo e quindi fare clic su **OK**.
 
-    The deleted volume group vanishes from the list in the **Results** pane and all backups that are associated with that volume group are deleted from the backup catalog.
+    Il gruppo di volumi eliminato non è più presente nell'elenco del riquadro **Risultati** e tutti i backup associati a tale gruppo vengono eliminati dal catalogo di backup.
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-- Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
-- Learn how to [use StorSimple Snapshot Manager to create and manage backup policies](storsimple-snapshot-manager-manage-backup-policies.md).
+- Informazioni su come [usare StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
+- Informazioni su come [usare StorSimple Snapshot Manager per creare e gestire criteri di backup](storsimple-snapshot-manager-manage-backup-policies.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0511_2016-->

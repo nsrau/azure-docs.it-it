@@ -1,351 +1,339 @@
 <properties 
-    pageTitle="How to implement faceted navigation in Azure Search | Microsoft Azure | search navigation categories" 
-    description="Add Faceted navigation to applications that integrate with Azure Search, a cloud hosted search service on Microsoft Azure." 
-    services="search" 
-    documentationCenter="" 
-    authors="HeidiSteen" 
-    manager="mblythe" 
-    editor=""/>
+	pageTitle="Come implementare l'esplorazione in base a facet in Ricerca di Azure | Microsoft Azure | categorie di esplorazione di ricerca" 
+	description="Aggiungere Esplorazione in base a facet alle applicazioni che si integrano con la Ricerca di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure." 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
 <tags 
-    ms.service="search" 
-    ms.devlang="rest-api" 
-    ms.workload="search" 
-    ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.date="08/08/2016" 
-    ms.author="heidist"/>
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="08/08/2016" 
+	ms.author="heidist"/>
 
+#Come implementare l'esplorazione in base a facet in Ricerca di Azure
 
-#<a name="how-to-implement-faceted-navigation-in-azure-search"></a>How to implement faceted navigation in Azure Search
+L'esplorazione in base a facet è un meccanismo di filtro che consente un'esplorazione drill-down mirata nelle applicazioni di ricerca. Sebbene il termine esplorazione in base a facet sia poco noto, si tratta quasi certamente di una modalità già usata in precedenza. Come illustrato nell'esempio seguente, l'esplorazione in base a facet non è rappresentata dalle categorie usate per filtrare i risultati.
 
-Faceted navigation is a filtering mechanism that provides self-directed drilldown navigation in search applications. While the term ‘faceted navigation’ might be unfamiliar, it’s almost a given that you have used one before. As the following example shows, faceted navigation is nothing more than the categories used to filter results.
-
-## <a name="what-it-looks-like"></a>What it looks like
+## Aspetto
 
  ![][1]
   
-Facets can help you find what you are looking for, while ensuring that you won’t get zero results. As a developer, facets let you expose the most useful search criteria for navigating your search corpus. In online retail applications, faceted navigation is often built over brands, departments (kid’s shoes), size, price, popularity, and ratings. 
+I facet consentono di trovare ciò che si sta cercando con una percentuale di successo accertata. Per gli sviluppatori i facet consentono di esporre i criteri di ricerca più utili per lo spostamento del corpo di ricerca. Nelle applicazioni di vendita online, l'esplorazione in base a facet si basa spesso sulle marche, sui reparti (scarpe per bambini), sulla taglia, sul prezzo, sulla popolarità e sulle classificazioni.
 
-Implementing faceted navigation differs across search technologies and can be very complex. In Azure Search, faceted navigation is built at query time, using attributed fields previously specified in your schema. In the queries that your application builds, a query must send *facet query parameters* in order to receive the available facet filter values for that document result set. To actually trim the document result set, the application must apply a `$filter` expression.
+L'implementazione dell'esplorazione in base a facet differisce fra le tecnologie di ricerca e può essere molto complessa. Nella Ricerca di Azure, l'esplorazione in base a facet viene creata in fase di query, usando campi con gli attributi specificati in precedenza nello schema. Le query compilate dall'applicazione devono consentire l'invio dei *parametri di query facet* per ricevere i valori di filtro facet disponibili per il set di risultati dei documenti. Per ridurre effettivamente il set di risultati dei risultati, l'applicazione deve applicare un'espressione `$filter`.
 
-In terms of application development, writing code that constructs queries constitutes the bulk of the work. Many of the application behaviors that you would want from faceted navigation is provided by the service, including built-in support for setting up ranges and getting counts for facet results. The service also includes sensible defaults that help you avoid unwieldy navigation structures. 
+In termini di sviluppo di applicazioni, la scrittura di codice che crea query costituisce la maggior parte del lavoro. Molti dei comportamenti dell'applicazione desiderata dall'esplorazione in base a facet viene fornita dal servizio, incluso il supporto incorporato per l'impostazione degli intervalli e il recupero dei conteggi relativi ai risultati del facet. Il servizio include anche valori predefiniti appropriati che consentono di evitare le strutture di spostamento ingombranti.
 
-This article contains the following sections:
+In questo articolo sono contenute le sezioni seguenti:
 
-- [How to build it](#howtobuildit)
-- [Build the presentation layer](#presentationlayer)
-- [Build the index](#buildindex)
-- [Check for data quality](#checkdata)
-- [Build the query](#buildquery)
-- [Tips on how to control faceted navigation](#tips)
-- [Faceted navigation based on range values](#rangefacets)
-- [Faceted navigation based on GeoPoints](#geofacets)
-- [Try it out](#tryitout)
+- [Come compilare la soluzione](#howtobuildit)
+- [Creare il livello di presentazione](#presentationlayer)
+- [Compilare l'indice](#buildindex)
+- [Controllo della qualità dei dati](#checkdata)
+- [Creare la query](#buildquery)
+- [Suggerimenti su come controllare l'esplorazione in base a facet](#tips)
+- [Esplorazione in base a facet basata sui valori di intervallo](#rangefacets)
+- [Esplorazione in base a facet basata su GeoPoint](#geofacets)
+- [Provare il servizio](#tryitout)
 
-##<a name="why-use-it"></a>Why use it
-The most effective search applications have multiple interaction models besides a Search box. Faceted navigation is an alternative entry point to search, offering a convenient alternative to typing complex search expressions by hand.
+##Perché usarlo
+Le applicazioni di ricerca più efficaci dispongono di più modelli di interazione oltre a una casella di ricerca. L'esplorazione in base a facet è un punto di partenza alternativo per la ricerca, che offre una valida alternativa all'immissione manuale di espressioni di ricerca complesse.
 
-##<a name="know-the-fundamentals"></a>Know the fundamentals
+##Conoscere i concetti fondamentali
 
-If you are new to search development, the best way to think of faceted navigation is that it shows the possibilities for self-directed search. It’s a type of drill-down search experience, based on predefined filters, used for quickly narrowing down search results through point-and-click actions. 
+Per gli utenti che si sono appena approcciati allo sviluppo di funzionalità di ricerca, il modo migliore per concepire l'esplorazione in base a facet è il fatto che mostra le possibilità di ricerca mirata. Si tratta di un tipo di esperienza di ricerca drill-down, basata su filtri predefiniti usati per limitare rapidamente i risultati di ricerca tramite semplici azioni in un solo clic.
 
-**Interaction Model**
+**Modello di interazione**
 
-The search experience for faceted navigation is iterative, so let’s start by understanding it as a sequence of queries that unfold in response to user actions.
+L'esperienza di ricerca dell'esplorazione in base a facet è iterativa. Pertanto, è opportuno iniziare con il concepirlo come una sequenza di query create in risposta ad azioni dell'utente.
 
-The starting point is an application page that provides faceted navigation, typically placed on the periphery. Faceted navigation is often a tree structure, with checkboxes for each value, or clickable text. 
+Il punto di partenza è una pagina dell'applicazione che consente un'esplorazione in base a facet, in genere sul perimetro. L'esplorazione in base a facet è spesso una struttura ad albero, con caselle di controllo per ogni valore o testo selezionabile.
 
-1.  A query sent to Azure Search specifies the faceted navigation structure via one or more facet query parameters. For instance, the query might include `facet=Rating`, perhaps with a `:values` or `:sort` option to further refine the presentation.
-2.  The presentation layer renders a search page that provides faceted navigation, using the facets specified on the request.
-3.  Given a faceted navigation structure that includes Rating, the user clicks "4" to indicate that only products with a rating of 4 or higher should be shown. 
-4.  In response, the application sends a query that includes `$filter=Rating ge 4` 
-5.  The presentation layer updates the page, showing a reduced result set, containing just those items that satisfy the new criteria (in this case, products rated 4 and up).
+1.	Una query inviata a Ricerca di Azure specifica la struttura dell'esplorazione in base a facet tramite uno o più parametri di query del facet. Ad esempio, la query potrebbe includere `facet=Rating`, ad esempio con l’opzione `:values` o `:sort` per specificare ulteriormente la presentazione.
+2.	Il livello di presentazione consente di eseguire il rendering di una pagina di ricerca che permette l'esplorazione in base ai facet specificati nella richiesta.
+3.	A fronte di una struttura di esplorazione in base a facet che include la classificazione, l'utente fa clic su "4" per indicare che devono essere visualizzati solo i prodotti con una valutazione pari a 4 stelle o superiore.
+4.	In risposta, l'applicazione invia una query che include `$filter=Rating ge 4`
+5.	Il livello di presentazione aggiorna la pagina con un set di risultati ridotto, contenente solo gli elementi che soddisfano i nuovi criteri (in questo caso, i prodotti valutati con 4 stelle e superiore).
 
-A facet is a query parameter, but do not confuse it with query input. It is never used as selection criteria in a query. Instead, think of facet query parameters as inputs to the navigation structure that comes back in the response. For each facet query parameter you provide, Azure Search will evaluate how many documents are in the partial results for each facet value.
+Il facet è un parametro di query, da non confondere con l'input della query. Non viene mai usato come criterio di selezione in una query. Al contrario, occorre concepire i parametri di query di un facet come input per la struttura di navigazione che viene restituita nella risposta. Per ogni parametro di query del facet fornito, Ricerca di Azure restituirà quanti documenti sono presenti nei risultati parziali per ogni valore del facet.
 
-Notice the `$filter` in step 4. This is an important aspect of faceted navigation. Although facets and filters are independent in the API, you will need both to deliver the experience you intend. 
+Si noti il `$filter` nel passaggio 4. Si tratta di un aspetto importante dell'esplorazione in base a facet. Sebbene facet e filtri siano indipendenti nell'API, saranno necessari entrambi per offrire l'esperienza desiderata.
 
-**Design Patterns**
+**Modelli di progettazione**
 
-In application code, the pattern is to use facet query parameters to return the faceted navigation structure along with facet results, plus a $filter expression that handles the click event. Think of the `$filter` expression as the code behind the actual trimming of search results returned to the presentation layer. Given a Colors facet, clicking the color Red is implemented through a `$filter` expression that selects only those items that have a color of red. 
+Nel codice dell'applicazione, il modello consiste nell'usare parametri di query di facet per restituire la struttura del sito di collaborazione con i risultati di facet, oltre a un'espressione $filter che gestisce l'evento di selezione. L'espressione `$filter` deve essere considerata come il codice alla base della riduzione effettiva dei risultati della ricerca restituiti al livello di presentazione. A fronte di un facet di colori, la selezione del colore rosso viene implementata tramite un'espressione `$filter` che consente di selezionare solo gli elementi di colore rosso.
 
-**Query Basics in Azure Search**
+**Nozioni fondamentali sulle query di Ricerca di Azure**
 
-In Azure Search, a request is specified through one or more query parameters (see [Search Documents](http://msdn.microsoft.com/library/azure/dn798927.aspx) for a description of each one). None of the query parameters are required, but you must have at least one in order for a query to be valid.
+In Ricerca di Azure una richiesta viene specificata tramite uno o più parametri di query (vedere [Eseguire ricerche nei documenti](http://msdn.microsoft.com/library/azure/dn798927.aspx) per una descrizione di ciascuno di essi). Nessuno dei parametri di query è obbligatorio, ma è necessario disporre di almeno di uno affinché una query sia valida.
 
-Precision, generally understood as the ability to filter out irrelevant hits, is achieved through one or both of these expressions:
+La precisione, in genere interpretata come la possibilità di filtrare i riscontri irrilevanti, avviene attraverso una o entrambe queste espressioni:
 
-- **search=**<br/>
-The value of this parameter constitutes the search expression. It might be a single piece of text, or a complex search expression that includes multiple terms and operators. On the server, a search expression is used for full-text search, querying searchable fields in the index for matching terms, returning results in rank order. If you set `search` to null, query execution is over the entire index (that is, `search=*`). In this case, other elements of the query, such as a `$filter` or scoring profile, will be the primary factors affecting which documents are returned `($filter`) and in what order (`scoringProfile` or `$orderb`y).
+- **search =**<br/> Il valore di questo parametro rappresenta l'espressione di ricerca. Potrebbe essere una singola parte di testo o un'espressione di ricerca complessa che include più termini e operatori. Nel server un'espressione di ricerca viene usata per la ricerca full-text, per l'esecuzione di query su campi disponibili per la ricerca nell'indice di termini corrispondenti, per la restituzione dei risultati in ordine di classificazione. Se si imposta `search` su null, l'esecuzione della query va oltre l'intero indice (ovvero, `search=*`). In questo caso, gli altri elementi della query, ad esempio un `$filter` o profilo di assegnazione del punteggio, saranno restituiti i fattori principali che influiscono sul tipo di documenti restituiti `($filter` e il relativo ordine (`scoringProfile` o `$orderb`y).
 
-- **$filter=**<br/>
-A filter is a powerful mechanism for limiting the size of search results based on the values of specific document attributes. A `$filter` is evaluated first, followed by faceting logic that generates the available values and corresponding counts for each value
+- **$filter =**<br/> Un filtro è un meccanismo potente per limitare le dimensioni dei risultati della ricerca in base ai valori degli attributi del documento specifico. Viene prima valutato un `$filter`, seguito dalla logica di facet che genera i valori disponibili e i conteggi corrispondenti per ciascun valore.
 
-Complex search expressions will decrease the performance of the query. Where possible, utilize well-constructed filter expressions to increase precision and improve query performance.
+Le espressioni di ricerca complesse comporteranno una riduzione delle prestazioni della query. Ove possibile, usare le espressioni di filtro ben strutturate per aumentare la precisione e migliorare le prestazioni delle query.
 
-To better understand how a filter adds more precision, compare a complex search expression to one that includes a filter expression:
+Per comprendere meglio in che modo un filtro aggiunge maggiore precisione, confrontare un'espressione di ricerca complessa che includa un'espressione di filtro:
 
 - `GET /indexes/hotel/docs?search=lodging budget +Seattle –motel +parking`
 
 - `GET /indexes/hotel/docs?search=lodging&$filter=City eq ‘Seattle’ and Parking and Type ne ‘motel’`
 
-Although both queries are valid, the second is superior if you’re looking for non-motels with parking in Seattle. The first query relies on those specific words being mentioned or not mentioned in string fields like Name, Description, and any other field containing searchable data. The second query looks for precise matches on structured data and is likely to be much more accurate.
+Anche se entrambe le query sono valide, il secondo è superiore se si sta cercando non motel con parcheggio in Seattle. La prima query si basa su tali parole specifiche non indicate nei campi stringa come nome, descrizione e qualsiasi altro campo contenente dati disponibili per la ricerca. La seconda query consente di cercare le corrispondenze precise sui dati strutturati e probabilmente più accurate.
 
-In applications that include faceted navigation, you will want to be sure that each user action over a faceted navigation structure is accompanied by a narrowing of search results, achieved through a filter expression.
+Nelle applicazioni che includono l'esplorazione in base a facet, sarà necessario assicurarsi che ogni azione dell'utente su una struttura di esplorazione in base a facet sia accompagnata da una restrizione dei risultati della ricerca, ottenuta tramite un'espressione di filtro.
 
 <a name="howtobuildit"></a>
-##<a name="how-to-build-it"></a>How to build it
+##Come compilare la soluzione
 
-Faceted navigation in Azure Search is implemented in your application code that builds the request, but relies on predefined elements in your schema.
+L'esplorazione in base a facet nella ricerca di Azure viene implementata nel codice dell'applicazione che crea la richiesta, ma si basa su elementi predefiniti dello schema.
 
-Predefined in your search index is the `Facetable [true|false]` index attribute, set on selected fields to enable or disable their use in a faceted navigation structure. Without `"Facetable" = true`, a field cannot be used in facet navigation.
+Predefinito nell'indice di ricerca è l'attributo dell'indice `Facetable [true|false]`, impostato in campi selezionati per abilitare o disabilitare l'uso in una struttura di esplorazione in base a facet. Senza `"Facetable" = true` un campo non può essere usato nell'esplorazione in base a facet.
 
-At query time, your application code creates a request that includes `facet=[string]`, a request parameter that provides the field to facet by. A query can have multiple facets, such as `&facet=color&facet=category&facet=rating`, each one separated by an ampersand (&) character.
+In fase di query, il codice dell'applicazione consente di creare una richiesta che include `facet=[string]`, un parametro di richiesta che fornisce i facet per il campo. Una query può avere più facet, ad esempio `&facet=color&facet=category&facet=rating`, ciascuno separato da un carattere e commerciale (&).
 
-Application code must also construct a `$filter` expression to handle the click events in faceted navigation. A `$filter` reduces the search results, using the facet value as filter criteria.
+Il codice dell'applicazione deve inoltre consentire la creazione di un'espressione `$filter` per gestire gli eventi di selezione nell'esplorazione in base a facet. `$filter` riduce i risultati della ricerca, usando il valore del facet come criteri di filtro.
 
-Azure Search returns the search results, per the term(s) entered by the user, along with updates to the faceted navigation structure. In Azure Search, faceted navigation is a single-level construction, with facet values, and counts of how many results are found for each one.
+Ricerca di Azure restituisce i risultati di ricerca, in base ai termini immessi dall'utente insieme agli aggiornamenti della struttura di esplorazione in base a facet. In Ricerca di Azure l'esplorazione in base a facet è una costruzione a livello singolo, con valori di facet, che calcola il numero di risultati trovati per ciascuno di essi.
 
-The presentation layer in your code provides the user experience. It should list the constituent parts of the faceted navigation, such as the label, values, check boxes, and the count. The Azure Search REST API is platform agnostic, so use whatever language and platform you want. The important thing is to include UI elements that support incremental refresh, with updated UI state as each additional facet is selected. 
+Il livello di presentazione del codice offre l'esperienza dell'utente. Dovrebbero essere indicate le parti costitutive dell'esplorazione in base a facet, ad esempio l'etichetta, i valori, le caselle di controllo e il conteggio. L'API REST di Ricerca di Azure è indipendente dalla piattaforma, quindi è possibile usare qualsiasi lingua e la piattaforma desiderata. L'aspetto importante consiste nell'includere gli elementi dell'interfaccia utente che supportano l'aggiornamento incrementale, con lo stato dell'interfaccia utente aggiornato man mano che vengono selezionate facet aggiuntive.
 
-In the following sections, we’ll take a closer look at how to build each part, starting with the presentation layer.
+Nelle sezioni seguenti verrà fornita un'analisi più approfondita su come creare ogni parte a partire dal livello di presentazione.
 
 <a name="presentationlayer"></a>
-##<a name="build-the-presentation-layer"></a>Build the presentation layer
+##Creare il livello di presentazione
 
-Working back from the presentation layer can help you uncover requirements that might be missed otherwise, and understand which capabilities are essential to the search experience.
+Partire dal livello di presentazione consente di scoprire i requisiti che è possibile non vengano individuati in caso contrario e di comprendere le funzionalità essenziali per l'esperienza di ricerca.
 
-In terms of faceted navigation, your web or application page displays the faceted navigation structure, detects user input on the page, and inserts the changed elements. 
+In termini di esplorazione in base a facet, la pagina Web o un'applicazione consente di visualizzare la struttura del sito di collaborazione, rileva l'input dell'utente nella pagina e inserisce gli elementi modificati.
 
-For web applications, AJAX is commonly used in the presentation layer because it allows you to refresh incremental changes. You could also use ASP.NET MVC or any other visualization platform that can connect to an Azure Search service over HTTP. The sample application referenced throughout this article -- **AdventureWorks Catalog** – happens to be an ASP.NET MVC application.
+Per le applicazioni Web, viene comunemente usata la tecnologia AJAX nel livello di presentazione, poiché consente di aggiornare le modifiche incrementali. È inoltre possibile usare ASP.NET MVC o qualsiasi altra piattaforma di visualizzazione che può connettersi a un servizio di Ricerca di Azure tramite HTTP. L'applicazione di esempio a cui fa riferimento in questo articolo, ovvero **AdventureWorks Catalog**, è un'applicazione MVC ASP.NET.
 
-The following example, taken from the **index.cshtml** file of the sample application, builds a dynamic HTML structure for displaying faceted navigation in your search results page. In the sample, faceted navigation is built into the search results page, and appears after the user has submitted a search term.
+Nell'esempio seguente, tratto dal file **index. cshtml** dell'applicazione di viene creata una struttura HTML dinamica per la visualizzazione dell’esplorazione in base a facet nella pagina dei risultati di ricerca. Nell'esempio l'esplorazione in base a facet è incorporata nella pagina dei risultati della ricerca e viene visualizzata quando l'utente immette un termine di ricerca.
 
-Notice that each facet has a label (Colors, Categories, Prices), a binding to a faceted field (color, categoryName, listPrice), and a `.count` parameter, used to return the number of items found for that facet result.
+Si noti che ogni facet contiene un'etichetta (colori, categorie, prezzi), un'associazione a un campo di collaborazione (colore, categoryName, listPrice) e un parametro `.count`, usati per restituire il numero di elementi trovati per tale risultato facet.
 
   ![][2]
  
 
-> [AZURE.TIP] When designing the search results page, remember to add a mechanism for clearing facets. If you use check boxes, users can easily intuit how to clear the filters. For other layouts, you might need a breadcrumb pattern or another creative approach. For example, in the AdventureWorks Catalog sample application, you can click the title, AdventureWorks Catalog, to reset the search page.
+> [AZURE.TIP] Quando si progetta la pagina di risultati di ricerca, ricordarsi di aggiungere un meccanismo per la cancellazione dei facet. Se si usano le caselle di controllo, gli utenti possono facilmente intuire come cancellare i filtri. Per altri layout potrebbe essere necessario un modello di navigazione o un altro approccio creativo. Ad esempio, nell'applicazione di esempio AdventureWorks Catalog, è possibile fare clic sul titolo AdventureWorks Catalog per reimpostare la pagina di ricerca.
 
 <a name="buildindex"></a>
-##<a name="build-the-index"></a>Build the index
+##Compilare l'indice
 
-Faceting is enabled on a field-by-field basis in the index, via this index attribute: `"Facetable": true`.  
-All field types that could possibly be used in faceted navigation are `Facetable` by default. Such field types include `Edm.String`, `Edm.DateTimeOffset`, and all the numeric field types (essentially, all field types are facetable except `Edm.GeographyPoint`, which can’t be used in faceted navigation). 
+L'esplorazione in base a facet viene abilitata per ogni campo singolarmente, tramite l'attributo di indice: `"Facetable": true`.  
+Tutti i tipi di campo che possono essere usati in esplorazione in base a facet sono `Facetable` per impostazione predefinita. Tali tipi di campo includono `Edm.String`, `Edm.DateTimeOffset` e tutti i tipi di campo numerico (ossia, tutti i tipi di campo consentono un'esplorazione in base a facet tranne `Edm.GeographyPoint`, che non può essere usato nell'esplorazione in base a facet).
 
-When building an index, a best practice for faceted navigation is to explicitly turn faceting off for fields that should never be used as a facet.  In particular, string fields for singleton values, such as an ID or product name, should be set to `"Facetable": false` to prevent their accidental (and ineffective) use in a faceted navigation.
+Durante la creazione di un indice, è consigliabile disattivare in modo esplicito l'esplorazione in base a facet per i campi che non devono mai essere usati come un facet. In particolare, i campi stringa per i valori singleton, ad esempio un nome di prodotto o ID, devono essere impostati su `"Facetable": false` per impedirne l'uso accidentale (e inefficace) nell'esplorazione in base a facet.
 
-Following is the schema for the AdventureWorks Catalog sample app (trimmed of some attributes to reduce overall size):
+Di seguito è riportato lo schema per l'applicazione di esempio AdventureWorks Catalog (senza alcuni attributi per ridurre le dimensioni complessive):
 
  ![][3]
  
-Note that `Facetable` is turned off for string fields that shouldn’t be used as facets, such as an ID or name. Turning faceting off where you don’t need it helps keep the size of the index small, and generally improves performance.
+Si noti che `Facetable` è disattivato per i campi stringa che non devono essere usati come facet, ad esempio un ID o un nome. La disattivazione dell'esplorazione in base a facet laddove non necessaria consente di mantenere ridotte le dimensioni dell'indice e in genere consente di migliorare le prestazioni.
 
-> [AZURE.TIP] As a best practice, include the full set of index attributes for each field. Although `Facetable` is on by default for almost all fields, purposely setting each attribute can help you think through the implications of each schema decision. 
+> [AZURE.TIP] Come procedura consigliata, includere il set completo di attributi dell'indice per ogni campo. Benché `Facetable` sia attivato per impostazione predefinita per quasi tutti i campi, l'impostazione intenzionale di ogni attributo consentono di valutare le implicazioni di ogni decisione di schema.
 
 <a name="checkdata"></a>
-##<a name="check-for-data-quality"></a>Check for Data Quality 
+##Controllo della qualità dei dati 
 
-When developing any data-centric application, preparing the data is often one of the bigger parts of the job. Search applications are no exception. The quality of your data has a direct bearing on whether the faceted navigation structure materializes as you expect it to, as well as its effectiveness in helping you construct filters that reduce the result set.
+Durante lo sviluppo di tutte le applicazioni incentrate sui dati, la preparazione dei dati è spesso una delle parti più importanti del processo. Le applicazioni di ricerca non fanno eccezione. La qualità dei dati ha un'incidenza diretta sulla possibilità che la struttura di esplorazione in base a facet si prospetti come previsto, nonché sull'efficacia del processo di creazione dei filtri che consentono di ridurre il set di risultati.
 
-In Azure Search, the search corpus is formed from documents that populate an index. Documents provide the values that are used to compute facets. If you want to facet by Brand or Price, each document should contain values for *BrandName* and *ProductPrice* that are valid, consistent, and productive as a filter option.
+In Ricerca di Azure, il corpo di ricerca è formato da documenti che popolano un indice. I documenti forniscono i valori usati per calcolare il facet. Se si desidera effettuare un'esplorazione in base a facet per marca o prezzo, ogni documento deve contenere i valori relativi a *BrandName* e *ProductPrice* che sono validi, coerenti e produttivi come opzione di filtro.
 
-A few reminders of what to scrub for are listed below:
+Di seguito sono elencati alcuni promemoria di ciò che è necessario eliminare:
 
-- For every field that you want to facet by, ask yourself whether it contains values that are suitable as filters in self-directed search. The values should be short, descriptive, and sufficiently distinctive to offer a clear choice between competing options.
-- Misspellings or nearly matching values. If you facet on Color, and field values include Orange and Ornage (a misspelling), a facet based on the Color field would pick up both.
-- Mixed case text can also wreak havoc in faceted navigation, with orange and Orange appearing as two different values. 
-- Single and plural versions of the same value can result in a separate facet for each.
+- Per ogni campo da usare per l'esplorazione in base a facet, è necessario stabilire se contiene valori adatti all'uso come filtri nella ricerca mirata. I valori devono essere brevi, descrittivi sufficientemente distintivi per offrire una scelta definita tra opzioni concorrenti.
+- Errori di ortografia o valori quasi corrispondenti. Se si effettua l'esplorazione in base a facet per Colore e i valori dei campi includono Arancione e Arncione (un errore di ortografia), un'esplorazione in base a facet in base al campo colore comporterebbe la selezione di entrambi.
+- Il testo con maiuscole e minuscole e può inoltre provocare danni all'esplorazione in base a facet con arancione e Arancione visualizzati come due valori diversi.
+- Le versioni singolari e plurali dello stesso valore possono comportare un facet separato.
 
-As you can imagine, diligence in preparing the data is an essential aspect of effective faceted navigation.
+Come si può immaginare, la scrupolosità di preparazione dei dati è un aspetto essenziale dell'esplorazione in base a facet.
 
 <a name="buildquery"></a>
-##<a name="build-the-query"></a>Build the query
+##Creare la query
 
-The code that you write for building queries should specify all parts of a valid query, including search expressions, facets, filters, scoring profiles– anything used to formulate a request. In this section, we’ll explore where facets fit into a query, and how filters are used with facets to deliver a reduced result set.
+Il codice creato per la creazione di query deve specificare tutte le parti di una query valida, tra cui espressioni di ricerca, i facet, i filtri, l'assegnazione dei punteggi dei profili, ovvero qualsiasi elemento che consente di formulare una richiesta. In questa sezione verrà illustrata la collocazione dei facet in una query e l'uso dei filtri con i facet per fornire un set di risultati ridotto.
 
-An example is often a good place to begin. The following example, taken from the **CatalogSearch.cs** file, builds a request that creates facet navigation based on Color, Category, and Price. 
+Un esempio è spesso un buon punto di inizio. Nell'esempio seguente, tratto dal file **CatalogSearch.cs**, viene creata una richiesta che permette l'esplorazione in base a facet basata su Colore, Categoria e Prezzo.
 
-Notice that facets are integral in this sample application. The search experience in AdventureWorks Catalog is designed around faceted navigation and filters. This is evident in the prominent placement of faceted navigation in the page. The sample application includes URI parameters for facets (color, category, prices) as properties on the Search method (as constructed in the sample application).
+Si noti che i facet sono parte integrante di questa applicazione di esempio. La funzionalità di ricerca nel AdventureWorks Catalog è progettata sulla base dei filtri e dell'esplorazione in base a facet. Ciò è evidente nel posizionamento principale dell'esplorazione in base a facet nella pagina. L'applicazione di esempio include i parametri URI per facet (colore, categoria, prezzi) come proprietà nel metodo di ricerca (in base a come è stato creato nell'applicazione di esempio).
 
   ![][4]
  
-A facet query parameter is set to a field and depending on the data type, can be further parameterized by comma-delimited list that includes `count:<integer>`, `sort:<>`, `intervals:<integer>`, and  `values:<list>`. A values list is supported for numeric data when setting up ranges. See [Search Documents (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) for usage details.
+Un parametro di query del facet è impostato su un campo e a seconda del tipo di dati usati, può essere ulteriormente dotato di parametri in un elenco delimitato da virgole che includa `count:<integer>`, `sort:<>`, `intervals:<integer>` e `values:<list>`. Durante l'impostazione di intervalli è supportato un elenco di valori per i dati numerici. Per informazioni dettagliate, vedere [Eseguire ricerche nei documenti (API di Ricerca di Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
 
-Along with facets, the request formulated by your application should also build filters to narrow down the set of candidate documents based on a facet value selection. For a bike store, faceted navigation provides clues to questions like "What colors, manufacturers, and types of bikes are available", while filtering answers questions like "Which exact bikes are red, mountain bikes, in this price range".
+Insieme ai facet, la richiesta formulata dall'applicazione deve anche permettere la creazione di filtri per limitare il set di documenti candidato in base alla selezione di un valore di facet. Per un archivio di biciclette, l'esplorazione in base a facet fornisce indicazioni per domande come "Quali tipi di biciclette, produttori e i colori sono disponibili", filtrando le risposte fornisce risposte a domande "Quali biciclette sono mountain bike, in questo intervallo di prezzi".
 
-When a user clicks "Red" to indicate that only Red products should be shown, the next query the application sends would include `$filter=Color eq ‘Red’`.
+Quando un utente fa clic su "Red" per indicare che devono essere visualizzati solo i prodotti rossi, la query successiva che l'applicazione invia includerebbe `$filter=Color eq ‘Red’`.
 
-## <a name="best-practices-for-faceted-navigation"></a>Best practices for faceted navigation
+## Procedure consigliate per l'esplorazione in base a facet
 
-The following list summarizes a few best practices.
+Nell'elenco seguente vengono riepilogate alcune procedure consigliate.
 
-- **Precision**<br/>
-Use filters. If you rely on just search expressions alone, stemming could cause a document to be returned that doesn’t have the precise facet value in any of its fields. 
+- **Precisione**<br/> Usare i filtri. Se si usano solo le espressioni di ricerca, lo stemming può comportare la restituzione di un documento che non dispone del valore di facet esatto in uno dei relativi campi.
 
-- **Target fields**<br/>
-In faceted drill down, you typically want to only include documents that have the facet value in a specific (faceted) field, not anywhere across all searchable fields. Adding a filter reinforces the target field by directing the service to search only in the faceted field for a matching value.
+- **Campi di destinazione**<br/> In un drill-down di un'esplorazione in base a facet, è possibile includere solo i documenti che contengono il valore del facet in un campo specifico (collaborazione), non in qualsiasi punto in tutti i campi disponibili per la ricerca. L'aggiunta di un filtro mette in evidenza il campo di destinazione indirizzando il servizio alla ricerca solo nel campo di esplorazione in base a facet per un valore corrispondente.
 
-- **Index efficiency**<br/>
-If your application uses faceted navigation exclusively (that is, no search box), you can mark the field as `searchable=false`, `facetable=true` to produce a more compact index. In addition, indexing occurs only on whole facet values, with no word-break or indexing of the component parts of a multi-word value.
+- **Efficienza dell'indice**<br/> Se l'applicazione usa esclusivamente l'esplorazione in base a facet (vale a dire nessuna casella di ricerca), è possibile contrassegnare il campo come `searchable=false`, `facetable=true` per produrre un indice più compatto. Inoltre, l'indicizzazione si verifica solo su valori di facet interi con nessuna interruzione parola o indicizzazione delle parti di un valore per più parole.
 
-- **Performance**<br/>
-Filters narrow down the set of candidate documents for search and exclude them from ranking. If you have a large set of documents, using a very selective facet drill down will often give you significantly better performance.
+- **Prestazioni**<br/> I filtri riducono il set di documenti candidati per la ricerca ed escluderli dalla classificazione. Se si dispone di un ampio set di documenti, l'uso di un drill-down di facet molto selettivo spesso consentirà un miglioramento significativo delle prestazioni.
 
 
-<a name="tips"></a> 
-##<a name="tips-on-how-to-control-faceted-navigation"></a>Tips on how to control faceted navigation
+<a name="tips"></a>
+##Suggerimenti su come controllare l'esplorazione in base a facet
 
-Below is a tip sheet with guidance on specific issues.
+Di seguito è un foglio di suggerimenti con informazioni aggiuntive sui problemi specifici.
 
-**Add labels for each field in facet navigation**
+**Aggiungere etichette per ogni campo nella navigazione facet**
 
-Labels are typically defined in the HTML or form (**index.cshtml** in the sample application). There is no API in Azure Search for facet navigation labels or any other kind of metadata.
+Le etichette vengono in genere definite nel codice HTML o nel modulo (**index.cshtml** nell'applicazione di esempio). Non esiste alcuna API in Ricerca di Azure per le etichette di navigazione facet o qualsiasi altro tipo di metadati.
 
-**Define which fields can be used as facet**
+**Definire quali campi possono essere usati come facet**
 
-Recall that the schema of the index determines which fields are available to use as a facet. Assuming a field is facetable, the query specifies which fields to facet by. The field by which you are faceting provides the values that appear below the label. 
+Tenere presente che lo schema dell'indice determina quali campi sono disponibili da usare come facet. Presupponendo che un campo consenta un'esplorazione in base a facet, la query specifica per quali campi eseguirla. Il campo per cui si eseguire l'esplorazione in base a facet fornisce i valori visualizzati sotto l'etichetta.
 
-The values that appear under each label are retrieved from the index. For example, if the facet field is *Color*, the values available for additional filtering will be the values for that field (Red, Black, and so forth).
+I valori visualizzati in ogni etichetta vengono recuperati dall'indice. Ad esempio, se il campo del facet è *Colore*, i valori disponibili per il filtro aggiuntivi saranno i valori per il campo (rosso, bianco e così via).
 
-For Numeric and DateTime values only, you can explicitly set values on the facet field (for example, `facet=Rating,values:1|2|3|4|5`). A values list is allowed for these field types to simplify the separation of facet results into contiguous ranges (either ranges based on numeric values or time periods). 
+Per valori numerici e data/ora solo, è possibile impostare in modo esplicito i valori nel campo facet (ad esempio, `facet=Rating,values:1|2|3|4|5`). È consentito un elenco di valori per questi tipi di campo semplificare la separazione dei risultati di facet in intervalli contigui (entrambi gli intervalli in base a valori numerici o periodi di tempo).
 
-**Trim facet results**
+**Riduzione dei risultati facet**
 
-Facet results are documents found in the search results that match a facet term. In the following example, in search results for *cloud computing*, 254 items also have *internal specification* as a content type. Items are not necessarily mutually exclusive. If an item meets the criteria of both filters, it is counted in each one. This is possible when faceting on `Collection(Edm.String)` fields, which are often used to implement document tagging.
+I risultati facet sono documenti trovati nei risultati della ricerca che corrispondono a un termine di facet. Nell'esempio seguente, nei risultati della ricerca per *il cloud computing*, i 254 elementi dispongono inoltre di una *specifica interna* come tipo di contenuto. Gli elementi non si escludono necessariamente a vicenda. Se un elemento soddisfa i criteri di entrambi i filtri, viene conteggiato in ognuno di essi. Ciò è possibile quando l'esplorazione in base a facet su campi `Collection(Edm.String)` che vengono spesso utilizzati per implementare l'aggiunta di tag nel documento.
 
-        Search term: "cloud computing"
-        Content type
-           Internal specification (254)
-           Video (10) 
+		Search term: "cloud computing"
+		Content type
+		   Internal specification (254)
+		   Video (10) 
 
-In general, if you find that facet results are persistently too large, we recommend that you add more filters, as explained in earlier sections, to give your application users more options for narrowing the search.
+In generale, se si ritiene che i risultati facet siano costantemente troppo elevati, è consigliabile che aggiungere ulteriori filtri, come illustrato nelle sezioni precedenti, offrire agli utenti di applicazioni più opzioni per restringere la ricerca.
 
-**Limit items in the facet navigation**
+**Limitare gli elementi nel riquadro di esplorazione in base a facet**
 
-For each faceted field in the navigation tree, there is a default limit of 10 values. This default makes sense for navigation structures because it keeps the values list to a manageable size. You can override the default by assigning a value to count.
+Per ogni campo di esplorazione in base a facet nella struttura di spostamento, esiste un limite predefinito di 10 valori. Questa impostazione predefinita risulta utile per le strutture di navigazione perché mantiene l'elenco di valori a un livello gestibile. È possibile sostituire il valore predefinito assegnando un valore per il conteggio.
 
-- `&facet=city,count:5` specifies that only the first 5 cities found in the top ranked results are returned as a facet result. Given a search term of “airport” and 32 matches, if the query specifies `&facet=city,count:5`, only the first five unique cities with the most documents in the search results are included in the facet results.
+- `&facet=city,count:5` specifica che solo le prime 5 città trovate nei risultati migliori vengono restituite come risultato facet. Dato un termine di ricerca di "aeroporto" e 32 corrispondenze, se la query specifica `&facet=city,count:5`, solo le prime cinque città univoche con il maggior numero di documenti nei risultati della ricerca vengono incluse nei risultati del facet.
 
-Notice the distinction between facet results and search results. Search results are all the documents that match the query. Facet results are the matches for each facet value. In the example, search results will include City names that are not in the facet classification list (5 in our example). Results that are filtered out through faceted navigation become visible to the user when he or she clears facets, or chooses other facets besides City. 
+Si noti la distinzione tra i risultati di facet e i risultati della ricerca. I risultati della ricerca sono tutti i documenti che corrispondono alla query. I risultati facet sono le corrispondenze per ogni valore del facet. Nell'esempio verranno restituiti i nomi di città non presenti nell'elenco di classificazione facet (5 nel nostro esempio). I risultati che vengono filtrati tramite l'esplorazione in base a facet diventano visibili all'utente quando egli cancella i facet o sceglie altri facet oltre a città.
 
-> [AZURE.NOTE] Discussing `count` when there is more than one type can be confusing. The following table offers a brief summary of how the term is used in Azure Search API, sample code, and documentation. 
+> [AZURE.NOTE] La discussione relativa a `count` quando ne esiste più di un tipo potrebbe portare a confusione. La tabella seguente offre un breve riepilogo di come viene usato il termine nell'API di Ricerca di Azure, nel codice di esempio e nella documentazione.
 
-- `@colorFacet.count`<br/>
-In presentation code, you should see a count parameter on the facet, used to display the number of facet results. In facet results, count indicates the number of documents that match on the facet term or range.
+- `@colorFacet.count`<br/> Nel codice di presentazione, si noterà un parametro di conteggio del facet usato per visualizzare il numero di risultati facet. Nei risultati facet, Conteggio indica il numero di documenti che corrispondono a un intervallo o termine facet.
 
-- `&facet=City,count:12`<br/>
-In a facet query, you can set count to a value.  The default is 10, but you can set it higher or lower. Setting `count:12` gets the top 12 matches in facet results by document count.
+- `&facet=City,count:12`<br/> In una query di facet, è possibile impostare il conteggio su un valore. Il valore predefinito è 10, ma è possibile impostarlo a un livello superiore o inferiore. L'impostazione `count:12` consente di recuperare le 12 corrispondenze principali nei risultati di facet per numero di documenti.
 
-- "`@odata.count`"<br/>
-In the query response, this value indicates the number of matching items in the search results. On average, it’s larger than the sum of all facet results combined, due to the presence of items that match the search term, but have no facet value matches.
+- "`@odata.count`"<br/> Nella risposta alla query, questo valore indica il numero di elementi corrispondenti nei risultati della ricerca. In media, è maggiore della somma di tutti i facet risultati combinati, a causa della presenza di elementi che corrispondono al termine di ricerca, ma senza corrispondenze di valore del facet.
 
 
-**Levels in faceted navigation** 
+**Livelli nell'esplorazione in base a facet**
 
-As noted, there is no direct support for nesting facets in a hierarchy. Out of the box, faceted navigation only supports one level of filters. However, workarounds do exist. You can encode a hierarchical facet structure in a `Collection(Edm.String)` with one entry point per hierarchy. Implementing this workaround is beyond the scope of this article, but you can read about collections in [OData by Example](http://msdn.microsoft.com/library/ff478141.aspx). 
+Come accennato, non esiste alcun supporto diretto per la nidificazione facet in una gerarchia. L'esplorazione in base a facet per impostazione predefinita supporta solo un livello di filtri. Tuttavia, esistono soluzioni alternative. È possibile codificare una struttura gerarchica facet in un `Collection(Edm.String)` con un punto di ingresso per singola gerarchia. L'implementazione di questa soluzione alternativa esula dall'ambito di questo articolo, ma è possibile ottenere maggiori informazioni sulle raccolte in [OData per singolo esempio](http://msdn.microsoft.com/library/ff478141.aspx).
 
-**Validate fields**
+**Convalidare i campi**
 
-If you build the list of facets dynamically based on untrusted user input, you should either validate that the names of the faceted fields are valid, or escape the names when building URLs using either `Uri.EscapeDataString()` in .NET, or the equivalent in your platform of choice.
+Se si compila l'elenco di facet dinamicamente in base a input dell'utente non attendibile, è necessario verificare che i nomi dei campi di collaborazione siano validi o escluderne i nomi durante la creazione di URL usando `Uri.EscapeDataString()` in .NET o l'equivalente nella piattaforma preferita.
 
-**Counts in facet results**
+**Conteggi nei risultati di facet**
 
-When adding a filter to a faceted query, you might want to retain the facet statement (for example, `facet=Rating&$filter=Rating ge 4`). Technically, facet=Rating isn’t needed, but keeping it returns the counts of facet values for ratings 4 and higher. For example, if a user clicks "4" and the query includes a filter for greater or equal to "4", counts are returned for each rating that is 4 and up.  
+Quando si aggiunge un filtro a una query di collaborazione, è possibile mantenere l'istruzione facet (ad esempio, `facet=Rating&$filter=Rating ge 4`). Tecnicamente, facet=Rating non è necessaria, ma mantenerla permette di restituire i conteggi dei valori di facet per le classificazioni a 4 stelle e superiori. Ad esempio, se un utente fa clic su "4" e la query include un filtro per maggiore o uguale a "4", i conteggi vengono restituiti per ciascuna valutazione uguale a 4 e superiore.
 
-**Sharding implications on facet counts**
+**Implicazioni di partizionamento orizzontale al conteggio di facet**
 
-Under certain circumstances, you might find that facet counts do not match the result sets (see [Faceted navigation in Azure Search (forum post)](https://social.msdn.microsoft.com/Forums/azure/06461173-ea26-4e6a-9545-fbbd7ee61c8f/faceting-on-azure-search?forum=azuresearch)).
+In determinate circostanze, si noterà che i conteggi facet non corrispondono ai set di risultati (vedere [navigazione collaborazione nella Ricerca di Azure (post di forum)](https://social.msdn.microsoft.com/Forums/azure/06461173-ea26-4e6a-9545-fbbd7ee61c8f/faceting-on-azure-search?forum=azuresearch)).
 
-Facet counts can be inaccurate due to the sharding architecture. Every search index has multiple shards, and each one reports the top N facets by document count, which is then combined into a single result. If some shards have a lot of matching values, while others have less, you may find that some facet values are missing or under-counted in the results.
+I conteggi di facet possono essere inesatti grazie all'architettura di partizionamento orizzontale. Ogni indice di ricerca include più partizioni e ciascuno di essi segnala i principali N facet per numero di documenti, che viene quindi combinato in un singolo risultato. Se alcune partizioni dispongono di diversi valori corrispondenti a differenza di altre, è probabile che alcuni valori di facet siano mancanti o non calcolati nei risultati.
 
-Although this behavior could change at any time, if you encounter this behavior today, you can work around it by artificially inflating the count:<number> to a very large number to enforce full reporting from each shard. If the value of count: is greater than or equal to the number of unique values in the field, you are guaranteed accurate results. However, when document counts are really high, there is a performance penalty, so used this option judiciously.
+Sebbene questo comportamento potrebbe cambiare in qualsiasi momento, se si verifica subito, è possibile risolverlo "gonfiando" artificialmente il conteggio:<numero> per un numero molto elevato di documenti e applicare il report completo di ogni partizione. Se il valore del conteggio è maggiore o uguale al numero di valori univoci nel campo, vengono garantiti risultati accurati. Tuttavia, quando i conteggi di documenti sono veramente elevati, si verifica una riduzione delle prestazioni. Si consiglia, pertanto, di usare questa opzione con cautela.
 
 <a name="rangefacets"></a>
-##<a name="facet-navigation-based-on-a-range-values"></a>Facet navigation based on a range values
+##Esplorazione in base a facet basata sui valori di intervallo
 
-Faceting over ranges is a common search application requirement. Ranges are supported for numeric data and DateTime values. You can read more about each approach in [Search Documents (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
+L'esplorazione in base a facet su intervalli è un requisito comune delle applicazioni di ricerca. Gli intervalli sono supportati per i dati numerici e i valori DateTime. Per ulteriori informazioni su ogni approccio in [Eseguire ricerche nei documenti (API di Ricerca di Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
 
-Azure Search simplifies range construction by providing two approaches for computing a range. For both approaches, Azure Search creates the appropriate ranges given the inputs you’ve provided. For instance, if you specify range values of 10|20|30, it will automatically create ranges of 0 -10, 10-20, 20-30. The sample application removes any intervals that are empty. 
+Ricerca di Azure semplifica la creazione degli intervalli fornendo due approcci per l'elaborazione di un intervallo. Per entrambi gli approcci Ricerca di Azure crea gli intervalli appropriati in base agli input resi disponibili. Ad esempio, se si specificano valori di intervallo di 10|20|30, verranno creati automaticamente gli intervalli 0 -10, 10-20, 20-30. L'applicazione di esempio consente di rimuovere qualsiasi intervallo vuoto.
 
-**Approach 1: Use the interval parameter**<br/>
-To set price facets in $10 increments, you would specify: `&facet=price,interval:10`
+**Approccio 1: usare il parametro intervallo**<br/> Per impostare i facet di prezzo in incrementi di 10 dollari, è necessario specificare: `&facet=price,interval:10`
 
 
-**Approach 2: Use a values list**<br/>
-For numeric data, you can use a values list.  Consider the facet range for listPrice, rendered as follows:
+**Approccio 2: usare un elenco di valori**<br/> Per dati numerici, è possibile usare un elenco di valori. Prendere in considerazione l'intervallo di facet per listPrice, sottoposto a rendering come segue:
 
   ![][5]
 
-The range is specified in the **CatalogSearch.cs** file using a values list:
+L'intervallo è specificato nel file **CatalogSearch.cs** in cui viene usato un elenco di valori:
 
     facet=listPrice,values:10|25|100|500|1000|2500
 
-Each range is built using 0 as a starting point, a value from the list as an endpoint, and then trimmed of the previous range to create discrete intervals. Azure Search will do this as part of faceted navigation. You do not have to write code for structuring each interval.
+Ogni intervallo viene compilato usando 0 come punto di partenza e un valore dall'elenco come endpoint e quindi privato dell'intervallo precedente per creare intervalli discreti. Ricerca di Azure eseguirà questa operazione nell'ambito dell'esplorazione in base facet. Non è necessario scrivere codice per la struttura di ogni intervallo.
 
-### <a name="build-a-filter-for-facet-ranges"></a>Build a filter for facet ranges ###
+### Creare un filtro per gli intervalli di facet ###
 
-To filter documents based on a range selected by the user, you can the `"ge"` and `"lt"` filter operators in a two-part expression that defines the endpoints of the range. For example, if the user chooses the range 10-25, the filter would be `$filter=listPrice ge 10 and listPrice lt 25`.
+Per filtrare i documenti in base a un intervallo selezionato dall'utente, è possibile usare gli operatori di filtro `"ge"` e `"lt"` in un'espressione di due parti che definisce gli endpoint dell'intervallo. Ad esempio, se l'utente sceglie l'intervallo 10-25, il filtro sarà `$filter=listPrice ge 10 and listPrice lt 25`.
 
-In the sample application, the filter expression uses **priceFrom** and **priceTo** parameters to set the endpoints. The **BuildFilter** method in **CatalogSearch.cs** contains the filter expression that gives you the documents within a range.
+Nell'applicazione di esempio nell'espressione di filtro vengono utilizzati i parametri **priceFrom** e **priceTo** per impostare gli endpoint. Il metodo **BuildFilter** in **CatalogSearch.cs** contiene l'espressione di filtro che fornisce i documenti all'interno di un intervallo.
 
   ![][6]
 
-<a name="geofacets"></a> 
-##<a name="filtered-navigation-based-on-geopoints"></a>Filtered navigation based on GeoPoints
+<a name="geofacets"></a>
+##Esplorazione in base a facet basata su GeoPoint
 
-It’s common to see filters that help you choose a store, restaurant, or destination based on its proximity to your current location. While this type of filter might look like faceted navigation, it’s actually just a filter. We mention it here for those of you who are specifically looking for implementation advice for that particular design problem.
+È comune vedere filtri che consentono di scegliere un negozio, un ristorante o una destinazione in base alla prossimità alla posizione corrente. Questo tipo di filtro potrebbe somigliare all'esplorazione in base a facet, ma è semplicemente un filtro. Viene menzionato per coloro che cercano in particolare consigli di implementazione per tale problema particolare di progettazione.
 
-There are two Geospatial functions in Azure Search, **geo.distance** and **geo.intersects**.
+Sono disponibili due funzioni geospaziali in Ricerca di Azure, **geo.distance** e **geo.intersects**.
 
-- The **geo.distance** function returns the distance in kilometers between two points, one being a field and one being a constant passed as part of the filter. 
+- La funzione **geo.distance** restituisce la distanza in chilometri tra due punti, uno è un campo e una è una costante passata come parte del filtro.
 
-- The **geo.intersects** function returns true if a given point is within a given polygon, where the point is a field and the polygon is specified as a constant list of coordinates passed as part of the filter.
+- La funzione **geo.intersects** restituisce true se un punto specificato si trova all'interno di un poligono specificato, dove il punto è un campo e il poligono è specificato come un elenco costante di coordinate passato come parte del filtro.
 
-You can find filter examples in [OData expression syntax (Azure Search)](http://msdn.microsoft.com/library/azure/dn798921.aspx).
+È possibile trovare alcuni esempi di filtri in [Sintassi dell'espressione di OData (Ricerca di Azure)](http://msdn.microsoft.com/library/azure/dn798921.aspx).
 
 <a name="tryitout"></a>
-##<a name="try-it-out"></a>Try it out
+##Provare il servizio
 
-Azure Search Adventure Works Demo on Codeplex contains the examples referenced in this article. As you work with search results, watch the URL for changes in query construction. This application happens to append facets to the URI as you select each one.
+La demo Adventure Works di Ricerca di Azure in Codeplex contiene gli esempi descritti nel presente articolo. Quando si lavora con i risultati, controllare l'URL per le modifiche nella costruzione delle query. Questa applicazione è casualmente incaricata all'accodamento i facet all'URI a ogni selezione.
 
-1.  Configure the sample application to use your service URL and api-key. 
+1.	Configurare l'applicazione di esempio per usare l'URL e la chiave api del servizio.
 
-    Notice the schema that is defined in the Program.cs file of the CatalogIndexer project. It specifies facetable fields for color, listPrice, size, weight, categoryName, and modelName.  Only a few of these (color, listPrice, categoryName) are actually implemented in faceted navigation.
+	Si noti lo schema definito nel file Program.cs del progetto CatalogIndexer. Specifica campi di esplorazione in base a facet per colore, listPrice, dimensioni, peso, categoryName e modelName. Solo alcuni di questi (colore, listPrice, categoryName) vengono effettivamente implementate nell'esplorazione in base a facet.
 
-3.  Run the application. 
+3.	Eseguire l'applicazione.
 
-    At first, just the Search box is visible. You can click the Search button right away to get all results, or type a search term.
+	Inizialmente, solo la casella di ricerca è visibile. È possibile fare clic sul pulsante di ricerca per ottenere tutti i risultati o digitare un termine di ricerca.
 
-    ![][7]
+	![][7]
  
-4.  Enter a search term, such as bike, and click **Search**. The query executes quickly.
+4.	Immettere un termine di ricerca, ad esempio bicicletta, quindi fare clic sul pulsante di **ricerca**. La query viene eseguita rapidamente.
  
-    A faceted navigation structure is also returned with the search results.  In the URL, facets for Colors, Categories, and Prices are null. In the search result page, the faceted navigation structure includes counts for each facet result.
+	Una struttura di esplorazione in base a facet viene inoltre restituita con i risultati della ricerca. Nell'URL i facet per i colori, le categorie e i prezzi sono null. Nella pagina dei risultati di ricerca la struttura di esplorazione in base a facet include conteggi per ogni risultato facet.
 
-     ![][8]
+	 ![][8]
  
-5.  Click a color, category, and price range. Facets are null on an initial search, but as they take on values, the search results are trimmed of items that no longer match. Notice that the URI picks up the changes to your query.
+5.	Fare clic su un colore, una categoria e una fascia di prezzo. I facet sono null in una ricerca iniziale, ma come assumono i valori, vengono eliminati i risultati della ricerca di elementi che non corrispondono. Si noti che l'URI visualizza le modifiche apportate alla query.
 
-    ![][9]
+	![][9]
  
-6.  To clear the faceted query so that you can try different query behaviors, click **AdventureWorks Catalog** at the top of the page.
+6.	Per cancellare la query di collaborazione in modo che sia possibile provare i comportamenti di query diversi, fare clic su **AdventureWorks Catalog** nella parte superiore della pagina.
 
-    ![][10]
+	![][10]
  
 <a name="nextstep"></a>
-##<a name="next-step"></a>Next Step
+##Passaggio successivo
 
-To test your knowledge, you can add a facet field for *modelName*. The index is already set up for this facet, so no changes to the index are required. But you will need to modify the HTML to include a new facet for Models, and add the facet field to the query constructor.
+Per verificare le proprie conoscenze, è possibile aggiungere un campo di facet per *modelName*. L'indice è già impostato per il facet, pertanto non è richiesta alcuna modifica all'indice. Sarà, tuttavia, necessario modificare il codice HTML in modo che includa un nuovo facet per i modelli e aggiungere il campo di facet per il costruttore di query.
 
-For more insights on design principles for faceted navigation, we recommend the following links:
+Per altre informazioni sui principi di progettazione per l'esplorazione in base a facet, è consigliabile usare i collegamenti seguenti:
 
-- [Designing for Faceted Search](http://www.uie.com/articles/faceted_search/)
-- [Design Patterns: Faceted Navigation](http://alistapart.com/article/design-patterns-faceted-navigation)
+- [Progettazione per la ricerca con esplorazione in base a facet](http://www.uie.com/articles/faceted_search/)
+- [Modelli di progettazione: esplorazione in base a facet](http://alistapart.com/article/design-patterns-faceted-navigation)
 
-You can also watch [Azure Search Deep Dive](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). At 45:25, there is a demo on how to implement facets.
+È anche possibile guardare gli [approfondimenti su Ricerca di Azure](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). Al minuto 45:25 è presente una dimostrazione su come implementare i facet.
 
 <!--Anchors-->
 [How to build it]: #howtobuildit
@@ -376,13 +364,10 @@ You can also watch [Azure Search Deep Dive](http://channel9.msdn.com/Events/Tech
 [Create your first application]: search-create-first-solution.md
 [OData expression syntax (Azure Search)]: http://msdn.microsoft.com/library/azure/dn798921.aspx
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
-[http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/ 
+[http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/
 [Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
 [Search Documents (Azure Search API)]: http://msdn.microsoft.com/library/azure/dn798927.aspx
 
  
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

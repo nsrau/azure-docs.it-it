@@ -1,35 +1,30 @@
 <properties
-    pageTitle="Deploy and manage VM with templates | Microsoft Azure"
-    description="Deploy and manage the most common configurations for Azure virtual machines using Resource Manager templates and Azure CLI."
-    services="virtual-machines-windows"
-    documentationCenter=""
-    authors="squillace"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+	pageTitle="Distribuire e gestire macchine Virtuali con i modelli | Microsoft Azure"
+	description="Distribuire e gestire le configurazioni più comuni per le macchine virtuali di Azure utilizzando i modelli di Gestione risorse e l'interfaccia della riga di comando di Azure."
+	services="virtual-machines-windows"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/23/2016"
-    ms.author="rasquill"/>
+	ms.service="virtual-machines-windows"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/23/2016"
+	ms.author="rasquill"/>
 
+# Distribuire e gestire le macchine virtuali usando modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure
 
-# <a name="deploy-and-manage-virtual-machines-by-using-azure-resource-manager-templates-and-the-azure-cli"></a>Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI
+> [AZURE.SELECTOR]		
+ - [PowerShell](virtual-machines-windows-ps-manage.md)
+ - [CLI](virtual-machines-windows-cli-deploy-templates.md)
 
-> [AZURE.SELECTOR]      
- - [PowerShell](virtual-machines-windows-ps-manage.md)      
- - [CLI](virtual-machines-windows-cli-deploy-templates.md)      
-
-</br> 
+</br>
 
 [AZURE.INCLUDE [virtual-machines-common-cli-deploy-templates](../../includes/virtual-machines-common-cli-deploy-templates.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

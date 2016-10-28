@@ -1,10 +1,8 @@
-Resource| Default limit
+Risorsa| Limite predefinito
 ---|---
-Profiles per subscription | 100 <sup>1</sup>
-Endpoints per profile| 200
+Profili per ogni sottoscrizione | 100 <sup>1</sup>
+Endpoint per ogni profilo| 200
 
-<sup>1</sup>Contact support in case you need to increase these limits.
+<sup>1</sup>Nel caso in cui sia necessario aumentare il valore limite, contattare il supporto.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Nov15_HO1-->

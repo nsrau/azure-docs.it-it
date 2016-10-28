@@ -1,6 +1,6 @@
 <properties
-pageTitle="Use the Office 365 Video connector in your Logic apps | Microsoft Azure"
-description="Get started using the Office 365 Video connector in your Microsoft Azure App service Logic apps"
+pageTitle="Usare il connettore Office 365 Video nelle app per la logica | Microsoft Azure"
+description="Introduzione all'uso del connettore Office 365 Video (connettore) nelle app per la logica del Servizio app di Microsoft Azure"
 services=""    
 documentationCenter=""     
 authors="msftman"    
@@ -17,206 +17,199 @@ ms.workload="na"
 ms.date="05/18/2016"
 ms.author="deonhe"/>
 
+# Introduzione al connettore Office 365 Video
+Connettersi a Office 365 Video per ottenere informazioni su un video di Office 365, recuperare un elenco di video e altro ancora. Il connettore Office 365 Video può essere usato da:
 
-# <a name="get-started-with-the-office365-video-connector"></a>Get started with the Office365 Video connector
-Connect to Office 365 Video to get information about an Office 365 video, get a list of videos, and more. The Office 365 Video connector can be used from:
+- App per la logica 
 
-- Logic apps 
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Questo connettore non è supportato da alcuna versione precedente dello schema.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. This connector is not supported on any previous schema versions.
+Con Office 365 Video è possibile:
 
-With Office 365 Video, you can:
+- Creare un flusso aziendale basato sui dati ottenuti da Office 365 Video. 
+- Usare azioni per controllare lo stato del portale video, recuperare l'elenco di tutti video in un canale e altro ancora. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, è possibile usare il connettore di ricerca di Bing per cercare video di Office 365 e quindi usare il connettore Office 365 Video per ottenere informazioni relative a un video specifico. Se il video soddisfa le esigenze, è possibile pubblicarlo su Facebook. 
 
-- Build your business flow based on the data you get from Office 365 Video. 
-- Use actions that check the video portal status, get a list of all video in a channel, and more. These actions get a response, and then make the output available for other actions. For example, you can use the Bing Search connector to search for Office 365 videos, and then use the Office 365 video connector to get information about that video. If the video meets your requirements, you can post this video on Facebook. 
+Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Trigger e azioni
 
-## <a name="triggers-and-actions"></a>Triggers and actions
+Nel connettore Office 365 Video sono disponibili le azioni seguenti. Non sono disponibili trigger.
 
-The Office 365 Video connector has the following actions available. There are no triggers.
-
-| Triggers | Actions|
+| Trigger | Azioni|
 | --- | --- |
-| None | <ul><li>Checks video portal status</li><li>Get all viewable Channels</li><li>Get playback url of the Azure Media Services manifest for a video</li><li>Get the bearer token to get access to decrypt the video</li><li>Gets information about a particular office365 video</li><li>Lists all the office365 videos present in a channel</li></ul>
+| Nessuno | <ul><li>Controlla stato portale video</li><li>Ottieni tutti i canali visualizzabili</li><li>Ottieni l'URL di riproduzione del manifesto di Servizi multimediali di Azure per un video</li><li>Ottieni il token di connessione per poter accedere a un video da decrittografare</li><li>Ottieni informazioni su un particolare video di Office 365</li><li>Elenca tutti i video di Office 365 presenti in un canale</li></ul>
 
-All connectors support data in JSON and XML formats. 
+Tutti i connettori supportano dati nei formati JSON e XML.
 
-## <a name="create-a-connection-to-office365-video-connector"></a>Create a connection to Office365 Video connector
-When you add this connector to your logic apps, you must sign-in to your Office 365 Video account and allow logic apps to connect to your account.
+## Creare una connessione al connettore Office 365 Video
+Quando si aggiunge questo connettore alle app per la logica, è necessario accedere all'account Office 365 Video e consentire alle app per la logica di connettersi all'account.
 
->[AZURE.INCLUDE [Steps to create a connection to Office 365 Video](../../includes/connectors-create-api-office365video.md)]
+>[AZURE.INCLUDE [Passaggi per la creazione di una connessione a Office 365 Video](../../includes/connectors-create-api-office365video.md)]
 
-After you create the connection, you enter the Office 365 video properties, like the tenant name or channel ID. The **REST API reference** in this topic describes these properties.
+Dopo aver creato la connessione, immettere le proprietà di Office 365 Video, ad esempio, il nome del tenant o l'ID canale. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
 
->[AZURE.TIP] You can use this same Office 365 Video connection in other logic apps.
+>[AZURE.TIP] È possibile usare la stessa connessione di Office 365 Video in altre app per la logica.
 
-## <a name="swagger-rest-api-reference"></a>Swagger REST API reference
-Applies to version: 1.0.
+## Riferimento all'API REST di Swagger
+Si applica alla versione 1.0.
 
-### <a name="checks-video-portal-status"></a>Checks video portal status 
-Checks the video portal status to see if video services are enabled.  
-```GET: /{tenant}/IsEnabled``` 
+### Controlla stato portale video 
+Controlla lo stato del portale video per vedere se i servizi video sono abilitati.```GET: /{tenant}/IsEnabled```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|tenant|string|yes|path|none|The tenant name for the directory the user is part of|
+|tenant|string|yes|path|nessuno|Il nome del tenant della directory di cui l'utente fa parte|
 
 
-#### <a name="response"></a>Response
+#### Response
 
-|Name|Description|
+|Nome|Descrizione|
 |---|---|
-|200|Operation was successful|
-|400|BadRequest|
-|401|Unauthorized|
-|404|Not Found|
+|200|Operazione riuscita|
+|400|RichiestaNonValida|
+|401|Non autorizzata|
+|404|Non trovato|
 |500|Internal Server Error|
-|default|Operation Failed.|
+|default|Operazione non riuscita.|
 
 
 
-### <a name="get-all-viewable-channels"></a>Get all viewable Channels 
-Gets all the channels the user has viewing access to.  
-```GET: /{tenant}/Channels``` 
+### Ottieni tutti i canali visualizzabili 
+Ottiene tutti i canali a cui l'utente ha accesso in visualizzazione. ```GET: /{tenant}/Channels```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|tenant|string|yes|path|none|The tenant name for the directory the user is part of|
+|tenant|string|yes|path|nessuno|Il nome del tenant della directory di cui l'utente fa parte|
 
 
-#### <a name="response"></a>Response
+#### Response
 
-|Name|Description|
+|Nome|Descrizione|
 |---|---|
-|200|Operation was successful|
-|400|BadRequest|
-|401|Unauthorized|
-|404|Not Found|
+|200|Operazione riuscita|
+|400|RichiestaNonValida|
+|401|Non autorizzata|
+|404|Non trovato|
 |500|Internal Server Error|
-|default|Operation Failed.|
+|default|Operazione non riuscita.|
 
 
 
 
-### <a name="lists-all-the-office365-videos-present-in-a-channel"></a>Lists all the office365 videos present in a channel 
-Lists all the office365 videos present in a channel.  
-```GET: /{tenant}/Channels/{channelId}/Videos``` 
+### Elenca tutti i video di Office 365 presenti in un canale 
+Elenca tutti i video di Office 365 presenti in un canale. ```GET: /{tenant}/Channels/{channelId}/Videos```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|tenant|string|yes|path|none|The tenant name for the directory the user is part of|
-|channelId|string|yes|path|none|The channel id from which videos need to be fetched|
+|tenant|string|yes|path|nessuno|Il nome del tenant della directory di cui l'utente fa parte|
+|channelId|string|yes|path|nessuno|L'ID canale da cui devono essere recuperati i video|
 
 
-#### <a name="response"></a>Response
+#### Response
 
-|Name|Description|
+|Nome|Descrizione|
 |---|---|
-|200|Operation was successful|
-|400|BadRequest|
-|401|Unauthorized|
-|404|Not Found|
+|200|Operazione riuscita|
+|400|RichiestaNonValida|
+|401|Non autorizzata|
+|404|Non trovato|
 |500|Internal Server Error|
-|default|Operation Failed.|
+|default|Operazione non riuscita.|
 
 
 
 
-### <a name="gets-information-about-a-particular-office365-video"></a>Gets information about a particular office365 video 
-Gets information about a particular office365 video.  
-```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}``` 
+### Recupera informazioni su un particolare video di Office 365 
+Ottiene informazioni su un particolare video di Office 365. ```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|tenant|string|yes|path|none|The tenant name for the directory the user is part of|
-|channelId|string|yes|path|none|The channel id|
-|videoId|string|yes|path|none|The video id|
+|tenant|string|yes|path|nessuno|Il nome del tenant della directory di cui l'utente fa parte|
+|channelId|string|yes|path|nessuno|L'ID del canale|
+|videoId|string|yes|path|nessuno|L'ID del video|
 
 
-#### <a name="response"></a>Response
+#### Response
 
-|Name|Description|
+|Nome|Descrizione|
 |---|---|
-|200|Operation was successful|
-|400|BadRequest|
-|401|Unauthorized|
-|404|Not Found|
+|200|Operazione riuscita|
+|400|RichiestaNonValida|
+|401|Non autorizzata|
+|404|Non trovato|
 |500|Internal Server Error|
-|default|Operation Failed.|
+|default|Operazione non riuscita.|
 
 
 
 
-### <a name="get-playback-url-of-the-azure-media-services-manifest-for-a-video"></a>Get playback url of the Azure Media Services manifest for a video 
-Get playback url of the Azure Media Services manifest for a video.  
-```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}/playbackurl``` 
+### Recupera l'URL di riproduzione del manifesto dei Servizi multimediali di Azure per un video 
+Ottiene l'URL di riproduzione del manifesto dei Servizi multimediali di Azure per un video. ```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}/playbackurl```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|tenant|string|yes|path|none|The tenant name for the directory the user is part of|
-|channelId|string|yes|path|none|The channel id|
-|videoId|string|yes|path|none|The video id|
-|streamingFormatType|string|yes|query|none|Streaming format type. 1 - Smooth Streaming or MPEG-DASH. 0 - HLS Streaming|
+|tenant|string|yes|path|nessuno|Il nome del tenant della directory di cui l'utente fa parte|
+|channelId|string|yes|path|nessuno|L'ID del canale|
+|videoId|string|yes|path|nessuno|L'ID del video|
+|streamingFormatType|string|yes|query|nessuno|Tipo di formato di streaming. 1 - Smooth Streaming o MPEG-DASH. 0 - Streaming HLS|
 
 
-#### <a name="response"></a>Response
+#### Response
 
-|Name|Description|
+|Nome|Descrizione|
 |---|---|
-|200|Operation was successful|
-|400|BadRequest|
-|401|Unauthorized|
-|404|Not Found|
+|200|Operazione riuscita|
+|400|RichiestaNonValida|
+|401|Non autorizzata|
+|404|Non trovato|
 |500|Internal Server Error|
-|default|Operation Failed.|
+|default|Operazione non riuscita.|
 
 
 
 
-### <a name="get-the-bearer-token-to-get-access-to-decrypt-the-video"></a>Get the bearer token to get access to decrypt the video 
-Get the bearer token to get access to decrypt the video.  
-```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}/token```
+### Recupera il token di connessione per poter accedere a un video da decrittografare 
+Ottiene il token di connessione per poter accedere a un video da decrittografare. ```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}/token```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|tenant|string|yes|path|none|The tenant name for the directory the user is part of|
-|channelId|string|yes|path|none|The channel id|
-|videoId|string|yes|path|none|The video id|
+|tenant|string|yes|path|nessuno|Il nome del tenant della directory di cui l'utente fa parte|
+|channelId|string|yes|path|nessuno|L'ID del canale|
+|videoId|string|yes|path|nessuno|L'ID del video|
 
 
-#### <a name="response"></a>Response
+#### Response
 
-|Name|Description|
+|Nome|Descrizione|
 |---|---|
-|200|Operation was successful|
-|400|BadRequest|
-|401|Unauthorized|
-|404|Not Found|
+|200|Operazione riuscita|
+|400|RichiestaNonValida|
+|401|Non autorizzata|
+|404|Non trovato|
 |500|Internal Server Error|
-|default|Operation Failed.|
+|default|Operazione non riuscita.|
 
 
-## <a name="object-definitions"></a>Object definitions
+## Definizioni degli oggetti
 
-#### <a name="channel:-channel-class"></a>Channel: Channel class
+#### Channel: classe del canale
 
-| Name | Data Type | Required|
+| Nome | Tipo di dati | Obbligatorio|
 |---|---|---|
-|Id|string|no|
-|Title|string|no|
-|Description|string|no|
+|ID|string|no|
+|Titolo|string|no|
+|Descrizione|string|no|
 
 
-#### <a name="video"></a>Video 
+#### Video 
 
-| Name | Data Type |Required|
+| Nome | Tipo di dati |Obbligatorio|
 |---|---|---|
-|Id|string|no|
-|Title|string|no|
-|Description|string|no|
+|ID|string|no|
+|Titolo|string|no|
+|Descrizione|string|no|
 |CreationDate|string|no|
-|Owner|string|no|
+|Proprietario|string|no|
 |ThumbnailUrl|string|no|
 |VideoUrl|string|no|
 |VideoDuration|integer|no|
@@ -224,11 +217,7 @@ Get the bearer token to get access to decrypt the video.
 |ViewCount|integer|no|
 
 
-## <a name="next-steps"></a>Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Passaggi successivi
+[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,42 +1,37 @@
 
 <properties
-    pageTitle="Troubleshooting dynamic membership for groups | Microsoft Azure"
-    description="Troubleshooting tips for dynamic membership for groups in Azure AD."
-    services="active-directory"
-    documentationCenter=""
-    authors="curtand"
-    manager="femila"
-    editor=""
-    />
+	pageTitle="Risoluzione dei problemi di appartenenza dinamica per i gruppi | Microsoft Azure"
+	description="Suggerimenti per la risoluzione dei problemi di appartenenza dinamica per i gruppi di Azure AD."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="femila"
+	editor=""
+	/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/10/2016"
-    ms.author="curtand"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/10/2016"
+	ms.author="curtand"/>
 
 
+# Risoluzione dei problemi di appartenenza dinamica per i gruppi
 
-# <a name="troubleshooting-dynamic-memberships-for-groups"></a>Troubleshooting dynamic memberships for groups
+**Ho configurato una regola in un gruppo ma le appartenenze nel gruppo non vengono aggiornate**<br/>Verificare che l'impostazione **Abilita gestione gruppi delegata** sia impostata su **Sì** nella scheda **Configura**. Questa impostazione verrà visualizzato solo se si è connessi come utente a cui è assegnata una licenza di Azure Active Directory Premium. Verificare i valori degli attributi utente della regola: sono presenti utenti che soddisfano la regola?
 
-**I configured a rule on a group but no memberships get updated in the group**<br/>Verify that the **Enable delegated group management** setting is set to **Yes** in the **Configure** tab. You will see this setting only if you are signed in as a user to whom an Azure Active Directory Premium license is assigned. Verify the values for user attributes on the rule: are there users that satisfy the rule?
+**Ho configurato una regola, ma i membri esistenti della regola sono stati rimossi**<br/>Si tratta di un comportamento previsto. I membri esistenti del gruppo vengono rimosse quando una regola viene abilitata o modificata. Gli utenti restituiti dalla valutazione della regola vengono aggiunti come membri al gruppo.
 
-**I configured a rule, but now the existing members of the rule are removed**<br/>This is expected behavior. Existing members of the group are removed when a rule is enabled or changed. The users returned from evaluation of the rule are added as members to the group.     
+**Quando aggiungo o modifico una regola non visualizzo immediatamente le modifiche all'appartenenza. Perché?**<br/>La valutazione dell'appartenenza dedicata viene eseguita periodicamente in un processo asincrono in background. La durata del processo è determinata dal numero di utenti nella directory e dalle dimensioni del gruppo creato in base alla regola. In genere, per le directory con un numero limitato di utenti le modifiche a livello di appartenenza al gruppo verranno visualizzate nell'arco di pochi minuti. L'inserimento dei dati per le directory con un numero elevato di utenti può richiedere intervalli maggiori o uguali a 30 minuti.
 
-**I don’t see membership changes instantly when I add or change a rule, why not?**<br/>Dedicated membership evaluation is done periodically in an asynchronous background process. How long the process takes is determined by the number of users in your directory and the size of the group created as a result of the rule. Typically, directories with small numbers of users will see the group membership changes in less than a few minutes. Directories with a large number of users can take 30 minutes or longer to populate.
+Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
-These articles provide additional information on Azure Active Directory.
+* [Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory](active-directory-manage-groups.md)
+* [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+* [Informazioni su Azure Active Directory](active-directory-whatis.md)
+* [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-* [What is Azure Active Directory?](active-directory-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

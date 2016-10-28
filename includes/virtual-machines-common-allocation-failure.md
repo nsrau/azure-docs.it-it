@@ -1,212 +1,202 @@
 
-If your Azure issue is not addressed in this article, visit the [Azure forums on MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get support** on the [Azure support](https://azure.microsoft.com/support/options/) site.
+Se il problema di Azure non viene risolto in questo articolo, visitare il [forum di Azure su MSDN e Overflow dello Stack](https://azure.microsoft.com/support/forums/). In questi forum o in @AzureSupport su Twitter, è possibile pubblicare il problema. È anche possibile inviare una richiesta di supporto tecnico di Azure selezionando **Ottieni supporto** nel sito del [supporto tecnico di Azure](https://azure.microsoft.com/support/options/).
 
-## <a name="general-troubleshooting-steps"></a>General troubleshooting steps
-### <a name="troubleshoot-common-allocation-failures-in-the-classic-deployment-model"></a>Troubleshoot common allocation failures in the classic deployment model
+## Passaggi per la risoluzione dei problemi generali
+### Risolvere i problemi relativi a errori comuni di allocazione nel modello di distribuzione classico
 
-These steps can help resolve many allocation failures in virtual machines:
+Questi passaggi possono facilitare la risoluzione di molti errori di allocazione nelle macchine virtuali:
 
-- Resize the VM to a different VM size.<br>
-    Click **Browse all** > **Virtual machines (classic)** > your virtual machine > **Settings** > **Size**. For detailed steps, see [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
+- Ridimensionare la macchina virtuale con una dimensione diversa della macchina virtuale.<br> Fare clic su **Esplora tutto** > **Macchine virtuali (classico)** > Macchina virtuale personale > **Impostazioni** > **Dimensioni**. Per i passaggi dettagliati, vedere l'articolo relativo al [Ridimensionamento della macchina virtuale](https://msdn.microsoft.com/library/dn168976.aspx).
 
-- Delete all VMs from the cloud service and re-create VMs.<br>
-    Click **Browse all** > **Virtual machines (classic)** > your virtual machine > **Delete**. Then, click **New** > **Compute** > [virtual machine image].
+- Eliminare tutte le VM dal servizio cloud e ricrearle.<br> Fare clic su **Esplora tutto** > **Macchine virtuali (classico)** > Macchina virtuale personale > **Elimina**. Quindi, fare clic su **Nuovo** > **Calcolo** > [immagine macchina virtuale].
 
-### <a name="troubleshoot-common-allocation-failures-in-the-azure-resource-manager-deployment-model"></a>Troubleshoot common allocation failures in the Azure Resource Manager deployment model
+### Risolvere i problemi relativi a errori comuni di allocazione nel modello di distribuzione di Gestione risorse di Azure
 
-These steps can help resolve many allocation failures in virtual machines:
+Questi passaggi possono facilitare la risoluzione di molti errori di allocazione nelle macchine virtuali:
 
-- Stop (deallocate) all VMs in the same availability set, then restart each one.<br>
-    To stop: Click **Resource groups** > your resource group > **Resources** > your availability set > **Virtual Machines** > your virtual machine > **Stop**.
+- Arrestare (deallocare) tutte le VM nello stesso set di disponibilità, quindi riavviarle tutte.<br> Per arrestare: fare clic su **Gruppi di risorse** > Gruppo di risorse personale > **Risorse** > Set di disponibilità personale > **Macchine virtuali** > Macchina virtuale personale > **Arresta**.
 
-    After all VMs stop, select the first VM and click **Start**.
+	Dopo l'arresto di tutte le VM, selezionare la prima e fare clic su **Avvia**.
 
-## <a name="background-information"></a>Background information
-### <a name="how-allocation-works"></a>How allocation works
-The servers in Azure datacenters are partitioned into clusters. Normally, an allocation request is attempted in multiple clusters, but it's possible that certain constraints from the allocation request force the Azure platform to attempt the request in only one cluster. In this article, we'll refer to this as "pinned to a cluster." Diagram 1 below illustrates the case of a normal allocation that is attempted in multiple clusters. Diagram 2 illustrates the case of an allocation that's pinned to Cluster 2 because that's where the existing Cloud Service CS_1 or availability set is hosted.
-![Allocation Diagram](./media/virtual-machines-common-allocation-failure/Allocation1.png)
+## Informazioni generali
+### Come funziona l'allocazione
+I server nei data center di Azure sono partizionati in cluster. In genere, viene eseguita una richiesta di allocazione in più cluster, ma è possibile che determinati vincoli nella richiesta di allocazione impongano alla piattaforma Azure di eseguire la richiesta in un solo cluster. In questo articolo, si fa riferimento a questa operazione con l'espressione "bloccata su un cluster". Il diagramma 1 riportato di seguito illustra il caso di un'allocazione normale tentata in più cluster. Il diagramma 2 illustra il caso di un'allocazione bloccata sul cluster 2 perché è lì che il servizio cloud CS\_1 esistente o il set di disponibilità esistente è ospitato. ![Diagramma di allocazione](./media/virtual-machines-common-allocation-failure/Allocation1.png)
 
-### <a name="why-allocation-failures-happen"></a>Why allocation failures happen
-When an allocation request is pinned to a cluster, there's a higher chance of failing to find free resources since the available resource pool is smaller. Furthermore, if your allocation request is pinned to a cluster but the type of resource you requested is not supported by that cluster, your request will fail even if the cluster has free resources. Diagram 3 below illustrates the case where a pinned allocation fails because the only candidate cluster does not have free resources. Diagram 4 illustrates the case where a pinned allocation fails because the only candidate cluster does not support the requested VM size, even though the cluster has free resources.
+### Perché si verificano gli errori di allocazione
+Quando una richiesta di allocazione è bloccata su un cluster, la probabilità di non riuscire a trovare risorse disponibili è più alta, perché il pool di risorse disponibili è più ridotto. Inoltre, se la richiesta di allocazione è bloccata su un cluster, ma il tipo di risorsa richiesto non è supportato da quel cluster, la richiesta non viene eseguita correttamente anche se nel cluster ci sono risorse disponibili. Il diagramma 3 seguente illustra un'allocazione bloccata non riuscita perché nel solo cluster candidato non ci sono risorse disponibili. Il diagramma 4 illustra un'allocazione bloccata non riuscita perché il solo cluster candidato non supporta le dimensioni della VM richieste, anche se nel cluster ci sono risorse disponibili.
 
-![Pinned Allocation Failure](./media/virtual-machines-common-allocation-failure/Allocation2.png)
+![Errore di allocazione bloccata](./media/virtual-machines-common-allocation-failure/Allocation2.png)
 
-## <a name="detailed-troubleshoot-steps-specific-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Detailed troubleshoot steps specific allocation failure scenarios in the classic deployment model
-Here are common allocation scenarios that cause an allocation request to be pinned. We'll dive into each scenario later in this article.
+## Risolvere i problemi relativi a scenari di errori di allocazione specifici nel modello di distribuzione classico
+Ecco gli scenari di allocazione comuni che causano una richiesta di allocazione da bloccare. Verrà esaminato ogni scenario più avanti in questo articolo.
 
-- Resize a VM or add VMs or role instances to an existing cloud service
-- Restart partially stopped (deallocated) VMs
-- Restart fully stopped (deallocated) VMs
-- Staging/production deployments (platform as a service only)
-- Affinity group (VM/service proximity)
-- Affinity-group-based virtual network
+- Ridimensionare una VM o aggiungere VM o istanze dei ruoli a un servizio cloud esistente
+- Riavviare VM arrestate (deallocate) parzialmente
+- Riavviare VM arrestate (deallocate) completamente
+- Distribuzioni di gestione temporanea o di produzione (solo Platform-as-a-Service)
+- Gruppo di affinità (prossimità di VM o servizio)
+- Rete virtuale basata su gruppi di affinità
 
-When you receive an allocation error, see if any of the scenarios described apply to your error. Use the allocation error returned by the Azure platform to identify the corresponding scenario. If your request is pinned, remove some of the pinning constraints to open your request to more clusters, thereby increasing the chance of allocation success.
+Quando si riceve un errore di allocazione, verificare se uno degli scenari descritti è pertinente con questo errore. Usare l'errore di allocazione restituito dalla piattaforma Azure per identificare lo scenario corrispondente. Se la richiesta è bloccata, rimuovere alcuni dei vincoli di blocco per aprire la richiesta a più cluster, aumentando quindi la possibilità di eseguire l'allocazione correttamente.
 
-In general, as long as the error does not indicate "the requested VM size is not supported," you can always retry at a later time, as enough resources may have been freed in the cluster to accommodate your request. If the problem is that the requested VM size is not supported, try a different VM size. Otherwise, the only option is to remove the pinning constraint.
+In generale, finché l'errore non indica che le dimensioni della VM richieste non sono supportate, è sempre possibile riprovare in un secondo momento perché nel cluster potrebbero liberarsi risorse sufficienti per soddisfare la richiesta. Se il problema è che la dimensione della VM richiesta non è supportata, provare con una dimensione diversa di VM. In caso contrario, l'unica opzione consiste nel rimuovere il vincolo di blocco.
 
-Two common failure scenarios are related to affinity groups. In the past, an affinity group was used to provide close proximity to VMs/service instances, or it was used to enable the creation of a virtual network. With the introduction of regional virtual networks, affinity groups are no longer required to create a virtual network. With the reduction of network latency in Azure infrastructure, the recommendation to use affinity groups for VM/service proximity has changed.
+Due scenari di errore comuni sono correlati ai gruppi di affinità. In passato, il gruppo di affinità veniva usato per fornire la prossimità alle istanze di VM o servizi o per abilitare la creazione della rete virtuale. Con l'introduzione delle reti virtuali dell'area, i gruppi di affinità non sono più necessari per creare una rete virtuale. Con la riduzione della latenza di rete nell'infrastruttura di Azure, l'indicazione che riguarda l'uso dei gruppi di affinità per la prossimità di VM o servizi è stata modificata.
 
-Diagram 5 below presents the taxonomy of the (pinned) allocation scenarios.
-![Pinned Allocation Taxonomy](./media/virtual-machines-common-allocation-failure/Allocation3.png)
+Il diagramma 5 seguente illustra la tassonomia degli scenari di allocazione (bloccata). ![Tassonomia di allocazione bloccata](./media/virtual-machines-common-allocation-failure/Allocation3.png)
 
-> [AZURE.NOTE] The error listed in each allocation scenario is a short form. Refer to the [Error string lookup](#Error string lookup) for detailed error strings.
+> [AZURE.NOTE] L'errore indicato in ogni scenario di allocazione è in forma breve. Per le stringhe di errore dettagliate, vedere la sezione [Ricerca della stringa di errore](#Error string lookup).
 
-## <a name="allocation-scenario:-resize-a-vm-or-add-vms-or-role-instances-to-an-existing-cloud-service"></a>Allocation scenario: Resize a VM or add VMs or role instances to an existing cloud service
-**Error**
+## Scenario di allocazione: ridimensionare una VM o aggiungere altre VM o istanze dei ruoli a un servizio cloud esistente
+**Errore**
 
-Upgrade_VMSizeNotSupported or GeneralError
+Upgrade\_VMSizeNotSupported o GeneralError
 
-**Cause of cluster pinning**
+**Causa del blocco su un cluster**
 
-A request to resize a VM or add a VM or a role instance to an existing cloud service has to be attempted at the original cluster that hosts the existing cloud service. Creating a new cloud service allows the Azure platform to find another cluster that has free resources or supports the VM size that you requested.
+La richiesta di ridimensionamento di una VM o di aggiunta di una VM o di un'istanza del ruolo a un servizio cloud esistente deve essere eseguita nel cluster originale che ospita il servizio cloud esistente. La creazione di un nuovo servizio cloud consente alla piattaforma Azure di trovare un altro cluster con risorse disponibili o che supporti le dimensioni della VM richieste.
 
-**Workaround**
+**Soluzione alternativa**
 
-If the error is Upgrade_VMSizeNotSupported*, try a different VM size. If using a different VM size is not an option, but if it's acceptable to use a different virtual IP address (VIP), create a new cloud service to host the new VM and add the new cloud service to the regional virtual network where the existing VMs are running. If your existing cloud service does not use a regional virtual network, you can still create a new virtual network for the new cloud service, and then connect your [existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+Se l'errore è Upgrade\_VMSizeNotSupported*, provare con dimensioni della VM diverse. Se l'uso di dimensioni della VM diverse non è possibile, ma è accettabile usare un indirizzo IP virtuale (indirizzo VIP) diverso, creare un nuovo servizio cloud per ospitare la nuova VM e aggiungere il nuovo servizio cloud alla rete virtuale dell'area in cui sono in esecuzione le VM esistenti. Se il servizio cloud esistente non usa una rete virtuale dell'area, è comunque possibile creare una nuova rete virtuale per il nuovo servizio cloud, quindi connettere la [rete virtuale esistente a quella nuova](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Altre informazioni sulle [reti virtuali a livello di area](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-If the error is GeneralError*, it's likely that the type of resource (such as a particular VM size) is supported by the cluster, but the cluster does not have free resources at the moment. Similar to the above scenario, add the desired compute resource through creating a new cloud service (note that the new cloud service has to use a different VIP) and use a regional virtual network to connect your cloud services.
+Se l'errore è GeneralError, è probabile che il tipo di risorsa (ad esempio, le dimensioni specifiche della VM) sia supportato dal cluster, che al momento non dispone di risorse disponibili. Analogamente allo scenario riportato sopra, aggiungere la risorsa di calcolo desiderata tramite la creazione di un nuovo servizio cloud (notare che il nuovo servizio cloud deve usare un indirizzo VIP diverso) e usare una rete virtuale dell'area per connettere i servizi cloud.
 
-## <a name="allocation-scenario:-restart-partially-stopped-(deallocated)-vms"></a>Allocation scenario: Restart partially stopped (deallocated) VMs
+## Scenario di allocazione: riavviare VM arrestate (deallocate) parzialmente
 
-**Error**
+**Errore**
 
 GeneralError*
 
-**Cause of cluster pinning**
+**Causa del blocco su un cluster**
 
-Partial deallocation means that you stopped (deallocated) one or more, but not all, VMs in a cloud service. When you stop (deallocate) a VM, the associated resources are released. Restarting that stopped (deallocated) VM is therefore a new allocation request. Restarting VMs in a partially deallocated cloud service is equivalent to adding VMs to an existing cloud service. The allocation request has to be attempted at the original cluster that hosts the existing cloud service. Creating a different cloud service allows the Azure platform to find another cluster that has free resource or supports the VM size that you requested.
+La deallocazione parziale significa che una o più macchine virtuali in un servizio cloud sono state arrestate (deallocate), ma non tutte. Quando si arresta (viene deallocata) una VM, vengono rilasciate le risorse associate. Il riavvio della VM arrestata (deallocata) è quindi una nuova richiesta di allocazione. Riavviare le VM in un servizio cloud parzialmente deallocato equivale ad aggiungere VM a un servizio cloud esistente. La richiesta di allocazione deve essere eseguita nel cluster originale che ospita il servizio cloud esistente. La creazione di un servizio cloud diverso consente alla piattaforma Azure di trovare un altro cluster con risorse disponibili o che supporti le dimensioni della VM richieste.
 
-**Workaround**
+**Soluzione alternativa**
 
-If it's acceptable to use a different VIP, delete the stopped (deallocated) VMs (but keep the associated disks) and add the VMs back through a different cloud service. Use a regional virtual network to connect your cloud services:
-- If your existing cloud service uses a regional virtual network, simply add the new cloud service to the same virtual network.
-- If your existing cloud service does not use a regional virtual network, create a new virtual network for the new cloud service, and then [connect your existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+Se è accettabile usare un indirizzo VIP diverso, eliminare le VM arrestate (deallocate), mantenendo però i dischi associati, quindi riaggiungere le VM tramite un servizio cloud diverso. Usare una rete virtuale dell'area per connettere i servizi cloud:
+- Se il servizio cloud esistente usa una rete virtuale dell'area, è sufficiente aggiungere il nuovo servizio cloud alla stessa rete virtuale.
+- Se il servizio cloud esistente non usa una rete virtuale dell'area, creare una nuova rete virtuale per il nuovo servizio cloud, quindi connettere la [rete virtuale esistente a quella nuova](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Altre informazioni sulle [reti virtuali a livello di area](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-## <a name="allocation-scenario:-restart-fully-stopped-(deallocated)-vms"></a>Allocation scenario: Restart fully stopped (deallocated) VMs
-**Error**
-
-GeneralError*
-
-**Cause of cluster pinning**
-
-Full deallocation means that you stopped (deallocated) all VMs from a cloud service. The allocation requests to restart these VMs have to be attempted at the original cluster that hosts the cloud service. Creating a new cloud service allows the Azure platform to find another cluster that has free resources or supports the VM size that you requested.
-
-**Workaround**
-
-If it's acceptable to use a different VIP, delete the original stopped (deallocated) VMs (but keep the associated disks) and delete the corresponding cloud service (the associated compute resources were already released when you stopped (deallocated) the VMs). Create a new cloud service to add the VMs back.
-
-## <a name="allocation-scenario:-staging/production-deployments-(platform-as-a-service-only)"></a>Allocation scenario: Staging/production deployments (platform as a service only)
-**Error**
-
-New_General* or New_VMSizeNotSupported*
-
-**Cause of cluster pinning**
-
-The staging deployment and the production deployment of a cloud service are hosted in the same cluster. When you add the second deployment, the corresponding allocation request will be attempted in the same cluster that hosts the first deployment.
-
-**Workaround**
-
-Delete the first deployment and the original cloud service and redeploy the cloud service. This action may land the first deployment in a cluster that has enough free resources to fit both deployments or in a cluster that supports the VM sizes that you requested.
-
-## <a name="allocation-scenario:-affinity-group-(vm/service-proximity)"></a>Allocation scenario: Affinity group (VM/service proximity)
-**Error**
-
-New_General* or New_VMSizeNotSupported*
-
-**Cause of cluster pinning**
-
-Any compute resource assigned to an affinity group is tied to one cluster. New compute resource requests in that affinity group are attempted in the same cluster where the existing resources are hosted. This is true whether the new resources are created through a new cloud service or through an existing cloud service.
-
-**Workaround**
-
-If an affinity group is not necessary, do not use an affinity group, or group your compute resources into multiple affinity groups.
-
-## <a name="allocation-scenario:-affinity-group-based-virtual-network"></a>Allocation scenario: Affinity-group-based virtual network
-**Error**
-
-New_General* or New_VMSizeNotSupported*
-
-**Cause of cluster pinning**
-
-Before regional virtual networks were introduced, you were required to associate a virtual network with an affinity group. As a result, compute resources placed into an affinity group are bound by the same constraints as described in the "Allocation scenario: Affinity group (VM/service proximity)" section above. The compute resources are tied to one cluster.
-
-**Workaround**
-
-If you do not need an affinity group, create a new regional virtual network for the new resources you're adding, and then [connect your existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
-
-Alternatively, you can [migrate your affinity-group-based virtual network to a regional virtual network](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), and then add the desired resources again.
-
-## <a name="detailed-troubleshooting-steps-specific-allocation-failure-scenarios-in-the-azure-resource-manager-deployment-model"></a>Detailed troubleshooting steps specific allocation failure scenarios in the Azure Resource Manager deployment model
-Here are common allocation scenarios that cause an allocation request to be pinned. We'll dive into each scenario later in this article.
-
-- Resize a VM or add VMs or role instances to an existing cloud service
-- Restart partially stopped (deallocated) VMs
-- Restart fully stopped (deallocated) VMs
-
-When you receive an allocation error, see if any of the scenarios described apply to your error. Use the allocation error returned by the Azure platform to identify the corresponding scenario. If your request is pinned to an existing cluster, remove some of the pinning constraints to open your request to more clusters, thereby increasing the chance of allocation success.
-
-In general, as long as the error does not indicate "the requested VM size is not supported," you can always retry at a later time, as enough resources may have been freed in the cluster to accommodate your request. If the problem is that the requested VM size is not supported, see below for workarounds.
-
-## <a name="allocation-scenario:-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Allocation scenario: Resize a VM or add VMs to an existing availability set
-**Error**
-
-Upgrade_VMSizeNotSupported* or GeneralError*
-
-**Cause of cluster pinning**
-
-A request to resize a VM or add a VM to an existing availability set has to be attempted at the original cluster that hosts the existing availability set. Creating a new availability set allows the Azure platform to find another cluster that has free resources or supports the VM size that you requested.
-
-**Workaround**
-
-If the error is Upgrade_VMSizeNotSupported*, try a different VM size. If using a different VM size is not an option, stop all VMs in the availability set. You can then change the size of the virtual machine that will allocate the VM to a cluster that supports the desired VM size.
-
-If the error is GeneralError*, it's likely that the type of resource (such as a particular VM size) is supported by the cluster, but the cluster does not have free resources at the moment. If the VM can be part of a different availability set, create a new VM in a different availability set (in the same region). This new VM can then be added to the same virtual network.  
-
-## <a name="allocation-scenario:-restart-partially-stopped-(deallocated)-vms"></a>Allocation scenario: Restart partially stopped (deallocated) VMs
-**Error**
+## Scenario di allocazione: riavviare VM arrestate (deallocate) completamente
+**Errore**
 
 GeneralError*
 
-**Cause of cluster pinning**
+**Causa del blocco su un cluster**
 
-Partial deallocation means that you stopped (deallocated) one or more, but not all, VMs in an availability set. When you stop (deallocate) a VM, the associated resources are released. Restarting that stopped (deallocated) VM is therefore a new allocation request. Restarting VMs in a partially deallocated availability set is equivalent to adding VMs to an existing availability set. The allocation request has to be attempted at the original cluster that hosts the existing availability set.
+La deallocazione completa significa che sono state arrestate (deallocate) tutte le VM da un servizio cloud. Le richieste di allocazione per il riavvio di queste VM devono essere eseguite nel cluster originale che ospita il servizio cloud. La creazione di un nuovo servizio cloud consente alla piattaforma Azure di trovare un altro cluster con risorse disponibili o che supporti le dimensioni della VM richieste.
 
-**Workaround**
+**Soluzione alternativa**
 
-Stop all VMs in the availability set before restarting the first one. This will ensure that a new allocation attempt is run and that a new cluster can be selected that has available capacity.
+Se è accettabile usare un indirizzo VIP diverso, eliminare le VM arrestate (deallocate) originali, mantenendo però i dischi associati, quindi eliminare il servizio cloud corrispondente. Le risorse di calcolo associate sono già state rilasciate al momento dell'arresto (deallocazione) delle VM. Creare un nuovo servizio cloud per riaggiungere le VM.
 
-## <a name="allocation-scenario:-restart-fully-stopped-(deallocated)"></a>Allocation scenario: Restart fully stopped (deallocated)
-**Error**
+## Scenario di allocazione: distribuzioni di gestione temporanea/produzione (solo Platform-as-a-Service)
+**Errore**
+
+New\_General* o New\_VMSizeNotSupported*
+
+**Causa del blocco su un cluster**
+
+Le distribuzione di gestione temporanea e di produzione di un servizio cloud sono ospitate nello stesso cluster. Quando si aggiunge la seconda distribuzione, la richiesta di allocazione corrispondente verrà eseguita nello stesso cluster che ospita la prima distribuzione.
+
+**Soluzione alternativa**
+
+Eliminare la prima distribuzione e il servizio cloud originale, quindi ridistribuire il servizio cloud. Questa azione potrebbe inserire la prima distribuzione in un cluster con risorse disponibili sufficienti per entrambe le distribuzioni o in un cluster che supporta le dimensioni della VM richieste.
+
+## Scenario di allocazione: gruppo di affinità (prossimità di VM o servizi)
+**Errore**
+
+New\_General* o New\_VMSizeNotSupported*
+
+**Causa del blocco su un cluster**
+
+Qualsiasi risorsa di calcolo assegnata a un gruppo di affinità è associata a un cluster. Le nuove richieste di risorse di calcolo in quel gruppo di affinità vengono eseguite nello stesso cluster in cui sono ospitate le risorse esistenti. Questo vale indipendentemente dal fatto che le nuove risorse vengano create tramite un servizio cloud nuovo o esistente.
+
+**Soluzione alternativa**
+
+Se un gruppo di affinità non è necessario, non usare un gruppo di affinità o raggruppare le risorse di calcolo in più gruppi di affinità.
+
+## Scenario di allocazione: rete virtuale basata su gruppi di affinità
+**Errore**
+
+New\_General* o New\_VMSizeNotSupported*
+
+**Causa del blocco su un cluster**
+
+Prima dell'introduzione delle reti virtuali dell'area, era necessario associare una rete virtuale a un gruppo di affinità. Di conseguenza, le risorse di calcolo inserite in un gruppo di affinità sono soggette agli stessi vincoli descritti nella sezione "Scenario di allocazione: gruppo di affinità (prossimità di VM o servizi)" riportata sopra. Le risorse di calcolo sono legate a un cluster.
+
+**Soluzione alternativa**
+
+Se il gruppo di affinità non è necessario, creare una nuova rete virtuale dell'area per le nuove risorse aggiunte, quindi [connettere la rete virtuale esistente a quella nuova](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Altre informazioni sulle [reti virtuali a livello di area](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+
+In alternativa, è possibile [eseguire la migrazione della rete virtuale basata su gruppi di affinità alla rete virtuale dell'area](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), quindi aggiungere di nuovo le risorse desiderate.
+
+## Procedura di risoluzione dei problemi dettagliata relativa a scenari con errori di allocazione nel modello di distribuzione Azure Resource Manager
+Ecco gli scenari di allocazione comuni che causano una richiesta di allocazione da bloccare. Verrà esaminato ogni scenario più avanti in questo articolo.
+
+- Ridimensionare una VM o aggiungere VM o istanze dei ruoli a un servizio cloud esistente
+- Riavviare VM arrestate (deallocate) parzialmente
+- Riavviare VM arrestate (deallocate) completamente
+
+Quando si riceve un errore di allocazione, verificare se uno degli scenari descritti è pertinente con questo errore. Usare l'errore di allocazione restituito dalla piattaforma Azure per identificare lo scenario corrispondente. Se la richiesta è bloccata su un cluster esistente, rimuovere alcuni dei vincoli di blocco per aprire la richiesta a più cluster, aumentando quindi la possibilità di eseguire l'allocazione correttamente.
+
+In generale, finché l'errore non indica che le dimensioni della VM richieste non sono supportate, è sempre possibile riprovare in un secondo momento perché nel cluster potrebbero liberarsi risorse sufficienti per soddisfare la richiesta. Se il problema consiste nel fatto che le dimensioni richieste per la VM non sono supportate, vedere di seguito le soluzioni alternative.
+
+## Scenario di allocazione: ridimensionare una VM o aggiungere VM a un set di disponibilità esistente
+**Errore**
+
+Upgrade\_VMSizeNotSupported* o GeneralError*
+
+**Causa del blocco su un cluster**
+
+La richiesta di ridimensionamento di una VM o di aggiunta di una VM a un set di disponibilità esistente deve essere eseguita nel cluster originale che ospita il set di disponibilità esistente. La creazione di un nuovo set di disponibilità consente alla piattaforma Azure di trovare un altro cluster con risorse disponibili o che supporti le dimensioni della VM richieste.
+
+**Soluzione alternativa**
+
+Se l'errore è Upgrade\_VMSizeNotSupported*, provare con dimensioni della VM diverse. Se non è possibile usare dimensioni della VM diverse, arrestare tutte le VM nel set di disponibilità. In questo modo, è possibile modificare le dimensioni della macchina virtuale che alloca la VM a un cluster che supporta le dimensioni della VM desiderate.
+
+Se l'errore è GeneralError, è probabile che il tipo di risorsa (ad esempio, le dimensioni specifiche della VM) sia supportato dal cluster, che al momento non dispone di risorse disponibili. Se la VM può far parte di un set di disponibilità diverso, creare una nuova VM in un altro set di disponibilità nella stessa area. La nuova VM può quindi essere aggiunta alla stessa rete virtuale.
+
+## Scenario di allocazione: riavviare VM arrestate (deallocate) parzialmente
+**Errore**
 
 GeneralError*
 
-**Cause of cluster pinning**
+**Causa del blocco su un cluster**
 
-Full deallocation means that you stopped (deallocated) all VMs in an availability set. The allocation request to restart these VMs will target all clusters that support the desired size.
+La deallocazione parziale significa che una o più VM in un set di disponibilità sono state arrestate (deallocate), ma non tutte. Quando si arresta (viene deallocata) una VM, vengono rilasciate le risorse associate. Il riavvio della VM arrestata (deallocata) è quindi una nuova richiesta di allocazione. Riavviare le VM in un set di disponibilità parzialmente deallocato equivale ad aggiungere VM a un set di disponibilità esistente. La richiesta di allocazione deve essere eseguita nel cluster originale che ospita il set di disponibilità esistente.
 
-**Workaround**
+**Soluzione alternativa**
 
-Select a new VM size to allocate. If this does not work, please try again later.
+Arrestare tutte le VM nel set di disponibilità prima di riavviare la prima. Questo garantisce che venga eseguito un nuovo tentativo di allocazione e che si possa selezionare un nuovo cluster con capacità disponibile.
 
-## <a name="error-string-lookup"></a>Error string lookup
-**New_VMSizeNotSupported***
+## Scenario di allocazione: riavviare in caso di arresto (deallocazione) completo
+**Errore**
 
-"The VM size (or combination of VM sizes) required by this deployment cannot be provisioned due to deployment request constraints. If possible, try relaxing constraints such as virtual network bindings, deploying to a hosted service with no other deployment in it and to a different affinity group or with no affinity group, or try deploying to a different region."
+GeneralError*
 
-**New_General***
+**Causa del blocco su un cluster**
 
-"Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an affinity group, or it targets a virtual network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
+La deallocazione completa significa che sono state arrestate (deallocate) tutte le VM in un set di disponibilità. La richiesta di allocazione per il riavvio di queste VM viene eseguita in tutti i cluster che supportano le dimensioni desiderate.
 
-**Upgrade_VMSizeNotSupported***
+**Soluzione alternativa**
 
-"Unable to upgrade the deployment. The requested VM size XXX may not be available in the resources supporting the existing deployment. Please try again later, try with a different VM size or smaller number of role instances, or create a deployment under an empty hosted service with a new affinity group or no affinity group binding."
+Selezionare una nuova dimensione di VM da allocare. Se non funziona, riprovare in seguito.
+
+## Ricerca della stringa di errore
+**New\_VMSizeNotSupported***
+
+"Impossibile eseguire il provisioning delle dimensioni della macchina virtuale (o della combinazione di dimensioni delle macchine virtuali) richieste da questa distribuzione, a causa di vincoli della richiesta di distribuzione. Se possibile, provare a rilasciare vincoli quali associazioni a reti virtuali, distribuzione a un servizio ospitato che non include alcun'altra distribuzione e a un gruppo di affinità diverso o senza alcun gruppo di affinità oppure provare a distribuire in un'area diversa".
+
+**New\_General***
+
+Allocazione non riuscita. Impossibile soddisfare i vincoli nella richiesta. La nuova distribuzione del servizio richiesta è vincolata a un gruppo di affinità, ha come destinazione una rete virtuale o è presente una distribuzione esistente in questo servizio ospitato. Una di queste condizioni vincola la nuova distribuzione a risorse Azure specifiche. Riprovare più tardi o provare a ridurre le dimensioni della macchina virtuale o il numero di istanze del ruolo. In alternativa, è possibile rimuovere i vincoli sopra indicati o tentare di distribuire in un'area diversa".
+
+**Upgrade\_VMSizeNotSupported***
+
+"Non è possibile eseguire l'aggiornamento della distribuzione. È possibile che la dimensione della macchina virtuale XXX richiesta non sia disponibile nella distribuzione esistente. Riprovare più tardi, provare con una dimensione della macchina virtuale diversa o con un numero minore di istanze del ruolo oppure creare una distribuzione in un servizio ospitato vuoto con un nuovo gruppo di affinità o senza associazione a un gruppo di affinità".
 
 **GeneralError***
 
-"The server encountered an internal error. Please retry the request." Or "Failed to produce an allocation for the service."
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+"Errore interno del server. Ritentare la richiesta" o "Non è stato possibile produrre un'allocazione per il servizio".

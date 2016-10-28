@@ -1,66 +1,65 @@
 <properties 
-    pageTitle="App Service API app triggers | Microsoft Azure" 
-    description="How to implement triggers in an API App in Azure App Service" 
-    services="logic-apps" 
-    documentationCenter=".net" 
-    authors="guangyang"
-    manager="wpickett" 
-    editor="jimbe"/>
+	pageTitle="Trigger delle app per le API del servizio app | Microsoft Azure" 
+	description="Come implementare i trigger in un'app per le API in Servizio app di Azure." 
+	services="logic-apps" 
+	documentationCenter=".net" 
+	authors="guangyang"
+	manager="wpickett" 
+	editor="jimbe"/>
 
 <tags 
-    ms.service="logic-apps" 
-    ms.workload="na" 
-    ms.tgt_pltfrm="dotnet" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/25/2016" 
-    ms.author="rachelap"/>
+	ms.service="logic-apps" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="dotnet" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2016" 
+	ms.author="rachelap"/>
+
+# Trigger delle app per le API del servizio app di Azure
+
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per le API.
 
 
-# <a name="azure-app-service-api-app-triggers"></a>Azure App Service API app triggers
+## Overview
 
->[AZURE.NOTE] This version of the article applies to API apps 2014-12-01-preview schema version.
+Questo articolo spiega come implementare i trigger delle app per le API e usarli da un'app per la logica.
 
+Tutti i frammenti di codice in questo argomento sono stati copiati dall'[esempio di codice di app per le API FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802).
 
-## <a name="overview"></a>Overview
+Per la corretta compilazione ed esecuzione del codice riportato in questo articolo, sarà inoltre necessario scaricare il pacchetto NuGet seguente: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
 
-This article explains how to implement API app triggers and consume them from a Logic app.
+## Cosa sono i trigger delle app per le API?
 
-All of the code snippets in this topic are copied from the [FileWatcher API App code sample](http://go.microsoft.com/fwlink/?LinkId=534802). 
+In genere, le app per le API generano eventi in modo che i client dell'app per le API possano eseguire l'azione appropriata in risposta all'evento. Il meccanismo basato sull'API REST che supporta questo scenario è definito come trigger dell'app per le API.
 
-Note that you'll need to download the following nuget package for the code in this article to build and run: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
+Si supponga, ad esempio, che il codice client usi l'[app per le API Twitter Connector](../app-service-logic/app-service-logic-connector-twitter.md) e che il codice debba eseguire un'azione in base ai nuovi tweet che contengono parole specifiche. In questo caso, è possibile configurare un trigger di polling o di push.
 
-## <a name="what-are-api-app-triggers?"></a>What are API app triggers?
+## Trigger di polling e trigger di push
 
-It's a common scenario for an API app to fire an event so that clients of the API app can take the appropriate action in response to the event. The REST API based mechanism that supports this scenario is called an API app trigger. 
+Attualmente sono supportati due tipi di trigger:
 
-For example, let's say your client code is using the [Twitter Connector API app](../app-service-logic/app-service-logic-connector-twitter.md) and your code needs to perform an action based on new tweets that contain specific words. In this case, you might set up a poll or push trigger to facilitate this need.
+- Trigger di polling: il client esegue il polling dell'app per le API per la notifica di un evento generato
+- Trigger di push: il client riceve una notifica dall'app per le API quando viene generato un evento
 
-## <a name="poll-trigger-versus-push-trigger"></a>Poll trigger versus push trigger
+### Trigger di polling
 
-Currently, two types of triggers are supported:
+Un trigger di polling viene implementato come un'API REST normale e prevede che i client, ad esempio un'app per la logica, ne eseguano il polling per ricevere la notifica. Mentre il client può mantenere il suo stato, il trigger di polling stesso è senza stato.
 
-- Poll trigger - Client polls the API app for notification of an event having been fired 
-- Push trigger - Client is notified by the API app when an event fires 
+Le informazioni seguenti relative ai pacchetti di richiesta e di risposta illustrano alcuni aspetti fondamentali del contratto del trigger di polling:
 
-### <a name="poll-trigger"></a>Poll trigger
-
-A poll trigger is implemented as a regular REST API and expects its clients (such as a Logic app) to poll it in order to get notification. While the client may maintain state, the poll trigger itself is stateless. 
-
-The following information regarding the request and response packets illustrate some key aspects of the poll trigger contract:
-
-- Request
-    - HTTP method: GET
-    - Parameters
-        - triggerState - This optional parameter allows clients to specify their state so that the poll trigger can properly decide whether to return notification or not based on the specified state.
-        - API-specific parameters
+- Richiesta
+    - Metodo HTTP: GET
+    - Parametri
+        - triggerState: questo parametro facoltativo consente ai client di specificare il proprio stato in modo che il trigger di polling possa decidere correttamente se restituire o meno una notifica in base allo stato specificato.
+        - Parametri specifici dell'API
 - Response
-    - Status code **200** - Request is valid and there is a notification from the trigger. The content of the notification will be the response body. A "Retry-After" header in the response indicates that additional notification data must be retrieved with a subsequent request call.
-    - Status code **202** - Request is valid, but there is no new notification from the trigger.
-    - Status code **4xx** - Request is not valid. The client should not retry the request.
-    - Status code **5xx** - Request has resulted in an internal server error and/or temporary issue. The client should retry the request.
+    - Codice di stato **200**: la richiesta è valida ed è presente una notifica dal trigger. Il contenuto della notifica si troverà nel corpo della risposta. Un'intestazione "Retry-After" nella risposta indica che è necessario recuperare i dati della notifica aggiuntivi con una chiamata di richiesta successiva.
+    - Codice di stato **202**: la richiesta è valida ma non sono presenti nuove notifiche dal trigger.
+    - Codice di stato **4xx**: la richiesta non è valida. Il client non deve ripetere la richiesta.
+    - Codice di stato **5xx**: durante la richiesta si è verificato un errore interno del server e/o un problema temporaneo. Il client deve ripetere la richiesta.
 
-The following code snippet is an example of how to implement a poll trigger.
+Il frammento di codice seguente descrive come implementare un trigger di polling.
 
     // Implement a poll trigger.
     [HttpGet]
@@ -91,35 +90,33 @@ The following code snippet is an example of how to implement a poll trigger.
         }
     }
 
-To test this poll trigger, follow these steps:
+Per testare il trigger di polling, seguire questa procedura:
 
-1. Deploy the API App with an authentication setting of **public anonymous**.
-2. Call the **touch** operation to touch a file. The following image shows a sample request via Postman.
-   ![Call Touch Operation via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
-3. Call the poll trigger with the **triggerState** parameter set to a time stamp prior to Step #2. The following image shows the sample request via Postman.
-   ![Call Poll Trigger via Postman](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.PNG)
+1. Distribuire l'app per le API impostando l'autenticazione sul livello di accesso **Pubblico (anonimo)**.
+2. Chiamare l'operazione **touch** per creare un file. L'immagine seguente illustra una richiesta di esempio tramite Postman. ![Chiamata dell'operazione Touch tramite Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
+3. Chiamare il trigger di polling con il parametro **triggerState** impostato su un timestamp prima di procedere al passaggio 2. L'immagine seguente illustra la richiesta di esempio tramite Postman. ![Chiamata del trigger di polling tramite Postman](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.PNG)
 
-### <a name="push-trigger"></a>Push trigger
+### Trigger di push
 
-A push trigger is implemented as a regular REST API that pushes notifications to clients who have registered to be notified when specific events fire.
+Un trigger di push viene implementato come un'API REST normale che esegue il push delle notifiche ai client registrati per ricevere una notifica quando vengono generati eventi specifici.
 
-The following information regarding the request and response packets illustrate some key aspects of the push trigger contract.
+Le informazioni seguenti relative ai pacchetti di richiesta e di risposta illustrano alcuni aspetti fondamentali del contratto del trigger di push:
 
-- Request
-    - HTTP method: PUT
-    - Parameters
-        - triggerId: required - Opaque string (such as a GUID) that represents the registration of a push trigger.
-        - callbackUrl: required - URL of the callback to invoke when the event fires. The invocation is a simple POST HTTP call.
-        - API-specific parameters
+- Richiesta
+    - Metodo HTTP: PUT
+    - Parametri
+        - triggerId: obbligatorio. Si tratta di una stringa opaca (ad esempio un GUID) che rappresenta la registrazione di un trigger di push.
+        - callbackUrl: obbligatorio. Si tratta dell'URL del callback da richiamare quando viene generato l'evento. La chiamata è una semplice chiamata HTTP POST.
+        - Parametri specifici dell'API
 - Response
-    - Status code **200** - Request to register client successful.
-    - Status code **4xx** - Request is not valid. The client should not retry the request.
-    - Status code **5xx** - Request has resulted in an internal server error and/or temporary issue. The client should retry the request.
+    - Codice di stato **200**: la richiesta di registrazione del client è riuscita.
+    - Codice di stato **4xx**: la richiesta non è valida. Il client non deve ripetere la richiesta.
+    - Codice di stato **5xx**: durante la richiesta si è verificato un errore interno del server e/o un problema temporaneo. Il client deve ripetere la richiesta.
 - Callback
-    - HTTP method: POST
-    - Request body: Notification content.
+    - Metodo HTTP: POST
+    - Corpo della richiesta: contenuto della notifica.
 
-The following code snippet is an example of how to implement a push trigger:
+Il frammento di codice seguente descrive come implementare un trigger di push:
 
     // Implement a push trigger.
     [HttpPut]
@@ -196,24 +193,21 @@ The following code snippet is an example of how to implement a push trigger:
         }
     }
 
-To test this poll trigger, follow these steps:
+Per testare il trigger di polling, seguire questa procedura:
 
-1. Deploy the API App with an authentication setting of **public anonymous**.
-2. Browse to [http://requestb.in/](http://requestb.in/) to create a RequestBin which will serve as your callback URL.
-3. Call the push trigger with a GUID as **triggerId** and the RequestBin URL as **callbackUrl**.
-   ![Call Push Trigger via Postman](./media/app-service-api-dotnet-triggers/callpushtriggerfrompostman.PNG)
-4. Call the **touch** operation to touch a file. The following image shows a sample request via Postman.
-   ![Call Touch Operation via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
-5. Check the RequestBin to confirm that the push trigger callback is invoked with property output.
-   ![Call Poll Trigger via Postman](./media/app-service-api-dotnet-triggers/pushtriggercallbackinrequestbin.PNG)
+1. Distribuire l'app per le API impostando l'autenticazione sul livello di accesso **Pubblico (anonimo)**.
+2. Passare a [http://requestb.in/](http://requestb.in/) per creare un oggetto RequestBin da usare come URL di callback.
+3. Chiamare il trigger di push con un GUID come **triggerId** e un URL RequestBin come **callbackUrl**. ![Chiamata del trigger di push tramite Postman](./media/app-service-api-dotnet-triggers/callpushtriggerfrompostman.PNG)
+4. Chiamare l'operazione **touch** per creare un file. L'immagine seguente illustra una richiesta di esempio tramite Postman. ![Chiamata dell'operazione Touch tramite Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
+5. Controllare l'oggetto RequestBin per assicurarsi che il callback del trigger di push venga richiamato con l'output delle proprietà. ![Chiamata del trigger di polling tramite Postman](./media/app-service-api-dotnet-triggers/pushtriggercallbackinrequestbin.PNG)
 
-### <a name="describe-triggers-in-api-definition"></a>Describe triggers in API definition
+### Descrivere i trigger nella definizione dell'API
 
-After implementing the triggers and deploying your API app to Azure, navigate to the **API Definition** blade in the Azure preview portal and you'll see that triggers are automatically recognized in the UI, which is driven by the Swagger 2.0 API definition of the API app.
+Dopo aver implementato i trigger e distribuito l'app per le API in Azure, passare al pannello **Definizione API** nel portale di anteprima di Azure. Si noterà che i trigger vengono riconosciuti automaticamente nell'interfaccia utente che è basata sulla definizione API Swagger 2.0 dell'app per le API.
 
-![API Definition Blade](./media/app-service-api-dotnet-triggers/apidefinitionblade.PNG)
+![Pannello Definizione API](./media/app-service-api-dotnet-triggers/apidefinitionblade.PNG)
 
-If you click the **Download Swagger** button and open the JSON file, you'll see results similar to the following:
+Se si fa clic sul pulsante **Scarica Swagger** e si apre il file JSON, verranno visualizzati risultati simili ai seguenti:
 
     "/api/files/poll/TouchedFiles": {
       "get": {
@@ -230,44 +224,44 @@ If you click the **Download Swagger** button and open the JSON file, you'll see 
       }
     }
 
-The extension property **x-ms-schedular-trigger** is how triggers are described in API definition, and is automatically added by the API app gateway when you request the API definition via the gateway if the request to one of the following criteria. (You can also add this property manually.)
+La proprietà **x-ms-schedular-trigger** rappresenta il modo in cui i trigger sono descritti nella definizione dell'API e viene aggiunta automaticamente dal gateway dell'app per le API quando si richiede la definizione dell'API tramite il gateway, se la richiesta soddisfa uno dei criteri seguenti. È anche possibile aggiungere questa proprietà manualmente.
 
-- Poll trigger
-    - If the HTTP method is **GET**.
-    - If the **operationId** property contains the string **trigger**.
-    - If the **parameters** property includes a parameter with a **name** property set to **triggerState**.
-- Push trigger
-    - If the HTTP method is **PUT**.
-    - If the **operationId** property contains the string **trigger**.
-    - If the **parameters** property includes a parameter with a **name** property set to **triggerId**.
+- Trigger di polling
+    - Se il metodo HTTP è **GET**.
+    - Se la proprietà **operationId** contiene la stringa **trigger**.
+    - Se la proprietà **parameters** include un parametro con una proprietà **name** impostata su **triggerState**.
+- Trigger di push
+    - Se il metodo HTTP è **PUT**.
+    - Se la proprietà **operationId** contiene la stringa **trigger**.
+    - Se la proprietà **parameters** include un parametro con una proprietà **name** impostata su **triggerId**.
 
-## <a name="use-api-app-triggers-in-logic-apps"></a>Use API app triggers in Logic apps
+## Usare i trigger di app per le API nelle app per la logica
 
-### <a name="list-and-configure-api-app-triggers-in-the-logic-apps-designer"></a>List and configure API app triggers in the Logic apps designer
+### Elencare e configurare i trigger di app per le API nella finestra di progettazione di app per la logica
 
-If you create a Logic app in the same resource group as the API app, you will be able to add it to the designer canvas simply by clicking it. The following images illustrate this:
+Se si crea un'app per la logica nello stesso gruppo di risorse dell'app per le API, sarà possibile aggiungerla all'area di disegno della finestra di progettazione, semplicemente facendo clic su di essa. Vedere le immagini seguenti per un esempio:
 
-![Triggers in Logic App Designer](./media/app-service-api-dotnet-triggers/triggersinlogicappdesigner.PNG)
+![Trigger nella finestra di progettazione di app per la logica](./media/app-service-api-dotnet-triggers/triggersinlogicappdesigner.PNG)
 
-![Configure Poll Trigger in Logic App Designer](./media/app-service-api-dotnet-triggers/configurepolltriggerinlogicappdesigner.PNG)
+![Configurazione del trigger di polling nella finestra di progettazione di app per la logica](./media/app-service-api-dotnet-triggers/configurepolltriggerinlogicappdesigner.PNG)
 
-![Configure Push Trigger in Logic App Designer](./media/app-service-api-dotnet-triggers/configurepushtriggerinlogicappdesigner.PNG)
+![Configurazione del trigger di push nella finestra di progettazione di app per la logica](./media/app-service-api-dotnet-triggers/configurepushtriggerinlogicappdesigner.PNG)
 
-## <a name="optimize-api-app-triggers-for-logic-apps"></a>Optimize API app triggers for Logic apps
+## Ottimizzare i trigger di app per le API per le app per la logica
 
-After you add triggers to an API app, there are a few things you can do to improve the experience when using the API app in a Logic app.
+Dopo aver aggiunto i trigger a un'app per le API, è possibile eseguire alcune operazioni per migliorare l'esperienza durante l'uso dell'app per le API in un'app per la logica.
 
-For instance, the **triggerState** parameter for poll triggers should be set to the following expression in the Logic app. This expression should evaluate the last invocation of the trigger from the Logic app, and return that value.  
+Ad esempio, impostare il parametro **triggerState** per i trigger di polling sull'espressione seguente nell'app per la logica. Questa espressione deve valutare l'ultima chiamata del trigger dall'app per la logica e restituire il relativo valore.
 
-    @coalesce(triggers()?.outputs?.body?['triggerState'], '')
+	@coalesce(triggers()?.outputs?.body?['triggerState'], '')
 
-NOTE: For an explanation of the functions used in the expression above, refer to the documentation on [Logic App Workflow Definition Language](https://msdn.microsoft.com/library/azure/dn948512.aspx).
+NOTA: per una spiegazione delle funzioni usate nell'espressione precedente, fare riferimento alla documentazione relativa al [linguaggio di definizione del flusso di lavoro delle app per la logica](https://msdn.microsoft.com/library/azure/dn948512.aspx).
 
-Logic app users would need to provide the expression above for the **triggerState** parameter while using the trigger. It is possible to have this value preset by the Logic app designer through the extension property **x-ms-scheduler-recommendation**.  The **x-ms-visibility** extension property can be set to a value of *internal* so that the parameter itself is not shown on the designer.  The following snippet illustrates that.
+Gli utenti dell'app per la logica dovranno specificare l'espressione precedente per il parametro **triggerState** durante l'utilizzo del trigger. Questo valore può essere impostato come predefinito dalla finestra di progettazione di app per la logica tramite la proprietà di estensione **x-ms-scheduler-recommendation**. È possibile impostare la proprietà di estensione **x-ms-visibility** sul valore *internal* in modo che il parametro stesso non venga visualizzato nella finestra di progettazione. Questo scenario è mostrato nel frammento di codice seguente.
 
     "/api/Messages/poll": {
       "get": {
-        "operationId": "Messages_NewMessageTrigger",
+	    "operationId": "Messages_NewMessageTrigger",
         "parameters": [
           {
             "name": "triggerState",
@@ -283,11 +277,11 @@ Logic app users would need to provide the expression above for the **triggerStat
       }
     }
 
-For push triggers, the **triggerId** parameter must uniquely identify the Logic app. A recommended best practice is to set this property to the name of the workflow by using the following expression:
+Per i trigger di push, il parametro **triggerId** deve identificare in modo univoco l'app per la logica. In base a una procedura consigliata, è opportuno impostare questa proprietà sul nome del flusso di lavoro tramite l'espressione seguente:
 
     @workflow().name
 
-Using the **x-ms-scheduler-recommendation** and **x-ms-visibility** extension properties in its API definiton, the API app can convey to the Logic app designer to automatically set this expression for the user.
+Grazie all'uso delle proprietà di estensione **x-ms-scheduler-recommendation** e **x-ms-visibility** nella propria definizione API, l'app per le API può indicare alla finestra di progettazione dell'app per la logica di impostare automaticamente questa espressione.
 
         "parameters":[  
           {  
@@ -300,13 +294,13 @@ Using the **x-ms-scheduler-recommendation** and **x-ms-visibility** extension pr
           },
 
 
-### <a name="add-extension-properties-in-api-defintion"></a>Add extension properties in API defintion
+### Aggiungere le proprietà di estensione nella definizione dell'API
 
-Additional metadata information - such as the extension properties **x-ms-scheduler-recommendation** and **x-ms-visibility** - can be added in the API defintion in one of two ways: static or dynamic.
+Per aggiungere ulteriori informazioni sui metadati, ad esempio le proprietà di estensione **x-ms-scheduler-recommendation** e **x-ms-visibility**, alla definizione dell'API sono disponibili due modi, uno statico e uno dinamico.
 
-For static metadata, you can directly edit the */metadata/apiDefinition.swagger.json* file in your project and add the properties manually.
+Per i metadati statici, è possibile modificare direttamente il file */metadata/apiDefinition.swagger.json* nel progetto e aggiungere manualmente le proprietà.
 
-For API apps using dynamic metadata, you can edit the SwaggerConfig.cs file to add an operation filter which can add these extensions.
+Per le app per le API che usano metadati dinamici, è possibile modificare il file SwaggerConfig.cs e aggiungervi un filtro per le operazioni in grado di aggiungere queste estensioni.
 
     GlobalConfiguration.Configuration 
         .EnableSwagger(c =>
@@ -317,7 +311,7 @@ For API apps using dynamic metadata, you can edit the SwaggerConfig.cs file to a
             }
 
 
-The following is an example of how this class can be implemented to facilitate the dynamic metadata scenario.
+Di seguito è riportato un esempio di come è possibile implementare questa classe per semplificare lo scenario relativo ai metadati dinamici.
 
     // Add extension properties on the triggerState parameter
     public class TriggerStateFilter : IOperationFilter
@@ -348,8 +342,4 @@ The following is an example of how this class can be implemented to facilitate t
     }
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

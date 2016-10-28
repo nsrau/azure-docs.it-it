@@ -1,32 +1,27 @@
 <properties 
-    pageTitle="Virtual Machines and Containers | Microsoft Azure" 
-    description="Describes Virtual Machines, Docker and Linux containers, and their usage in groups of each in Azure, including the benefits of each and scenarios in which each approach works very well." 
-    services="virtual-machines-linux" 
-    documentationCenter="virtual-machines" 
-    authors="squillace" 
-    manager="timlt"
-    tags="azure-resource-manager,azure-service-management" 
+	pageTitle="Macchine virtuali e contenitori | Microsoft Azure" 
+	description="Descrive le Macchine virtuali, i contenitori Docker e Linux e il relativo utilizzo in gruppi di ciascuno di essi in Azure, includendo i vantaggi di ciascuno e gli scenari in cui ciascun approccio funziona in maniera ottimale." 
+	services="virtual-machines-linux" 
+	documentationCenter="virtual-machines" 
+	authors="squillace" 
+	manager="timlt"
+	tags="azure-resource-manager,azure-service-management" 
 />
-    
+	
 
 <tags 
-    ms.service="virtual-machines-linux" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure" 
-    ms.date="08/23/2016" 
-    ms.author="rasquill" 
+	ms.service="virtual-machines-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure" 
+	ms.date="08/23/2016" 
+	ms.author="rasquill" 
 />
 
 
-
-# <a name="virtual-machines-and-containers-in-azure"></a>Virtual Machines and Containers in Azure
+# Macchine virtuali e contenitori in Azure
 
 [AZURE.INCLUDE [virtual-machines-common-and-containers](../../includes/virtual-machines-common-containers.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

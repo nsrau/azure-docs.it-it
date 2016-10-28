@@ -1,6 +1,3 @@
-If you do not already have a Traffic Manager profile, use the information in [Create a Traffic Manager profile using Quick Create](../articles/traffic-manager/traffic-manager-manage-profiles.md) to create one. Note the **.trafficmanager.net** domain name associated with your Traffic Manager profile, as this will be used later by later steps in this document.
+Se non si dispone già di un profilo di Gestione traffico, utilizzare le informazioni riportate in [Creare un profilo di Gestione traffico utilizzando Creazione rapida](../articles/traffic-manager/traffic-manager-manage-profiles.md) per crearne uno. Prendere nota del nome di dominio **.trafficmanager.net** associato al profilo di Gestione traffico, in quanto verrà utilizzato nei passaggi successivi di questo documento.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0413_2016-->

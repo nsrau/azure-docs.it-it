@@ -1,20 +1,20 @@
-## <a name="send-messages-to-event-hubs"></a>Send messages to Event Hubs
+## Inviare messaggi all'hub eventi
 
-The Java client library for Event Hubs is available for use in Maven projects from the [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22), and can be referenced using the following dependency declaration inside your Maven project file:    
+La libreria client Java per hub eventi è disponibile per l'utilizzo in progetti Maven dal [Repository centrale Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22) ed è possibile farvi riferimento utilizzando la seguente dichiarazione di dipendenza all'interno del file di progetto Maven:
 
 ``` XML
 <dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-eventhubs</artifactId>
-    <version>{VERSION}</version>
+	<groupId>com.microsoft.azure</groupId>
+	<artifactId>azure-eventhubs</artifactId>
+	<version>{VERSION}</version>
 </dependency>
 ```
  
-For different types of build environments, you can explicitly obtain the latest released JAR files from the [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22) or from [the release distribution point on GitHub](https://github.com/Azure/azure-event-hubs/releases).  
+Per diversi tipi di ambienti di compilazione, è possibile ottenere in modo esplicito i più recenti file JAR rilasciati dal [Repository centrale Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22) o dal [punto di distribuzione rilascio su GitHub](https://github.com/Azure/azure-event-hubs/releases).
 
-For a simple event publisher, import the *com.microsoft.azure.eventhubs* package for the Event Hubs client classes and the *com.microsoft.azure.servicebus* package for utility classes such as common exceptions that are shared with the Azure Service Bus messaging client. 
+Per un autore di eventi semplice, importare il pacchetto *com.microsoft.azure.eventhubs* per le classi di client di hub eventi e il pacchetto *com.microsoft.azure.servicebus* per le classi di utilità, ad esempio eccezioni comuni condivise con il client di messaggistica del bus di servizio di Azure.
 
-For the following sample, first create a new Maven project for a console/shell application in your favorite Java development environment. The class will be called ```Send```.     
+Per l'esempio seguente, creare prima un nuovo progetto Maven per un'applicazione console/shell nell'ambiente di sviluppo Java preferito. La classe verrà chiamata ```Send```.
 
 ``` Java
 
@@ -28,36 +28,33 @@ import com.microsoft.azure.servicebus.*;
 
 public class Send
 {
-    public static void main(String[] args) 
-            throws ServiceBusException, ExecutionException, InterruptedException, IOException
-    {
+	public static void main(String[] args) 
+			throws ServiceBusException, ExecutionException, InterruptedException, IOException
+	{
 ```
 
-Replace the namespace and Event Hub names with the values used when you created the Event Hub.
+Sostituire lo spazio dei nomi e i nomi di Hub eventi con i valori utilizzati durante la creazione dell'Hub eventi.
 
 ``` Java
-    final String namespaceName = "----ServiceBusNamespaceName-----";
-    final String eventHubName = "----EventHubName-----";
-    final String sasKeyName = "-----SharedAccessSignatureKeyName-----";
-    final String sasKey = "---SharedAccessSignatureKey----";
-    ConnectionStringBuilder connStr = new ConnectionStringBuilder(namespaceName, eventHubName, sasKeyName, sasKey);
+	final String namespaceName = "----ServiceBusNamespaceName-----";
+	final String eventHubName = "----EventHubName-----";
+	final String sasKeyName = "-----SharedAccessSignatureKeyName-----";
+	final String sasKey = "---SharedAccessSignatureKey----";
+	ConnectionStringBuilder connStr = new ConnectionStringBuilder(namespaceName, eventHubName, sasKeyName, sasKey);
 ```
 
-Then, create a singular event by turning a string into its UTF-8 byte encoding. We then create a new Event Hubs client instance from the connection string and send the message.   
+A questo punto creare un evento singolare trasformando una stringa nella rispettiva codifica UTF-8 byte. Creare infine una nuova istanza del client di hub eventi dalla stringa di connessione e inviare il messaggio.
 
 ``` Java 
-                
-    byte[] payloadBytes = "Test AMQP message from JMS".getBytes("UTF-8");
-    EventData sendEvent = new EventData(payloadBytes);
-    
-    EventHubClient ehClient = EventHubClient.createFromConnectionStringSync(connStr.toString());
-    ehClient.sendSync(sendEvent);
-    }
+				
+	byte[] payloadBytes = "Test AMQP message from JMS".getBytes("UTF-8");
+	EventData sendEvent = new EventData(payloadBytes);
+	
+	EventHubClient ehClient = EventHubClient.createFromConnectionStringSync(connStr.toString());
+	ehClient.sendSync(sendEvent);
+	}
 }
 
 ``` 
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

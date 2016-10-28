@@ -1,13 +1,10 @@
-The Azure Backup service has two types of vaults - the Backup vault and the Recovery Services vault. The Backup vault came first. Then the Recovery Services vault came along to support the expanded Resource Manager deployments. Microsoft recommends using Resource Manager deployments unless you specifically require a Classic deployment.
+Il servizio Backup di Azure presenta insiemi di credenziali di due tipi: l'insieme di credenziali per il backup e l'insieme di credenziali dei servizi di ripristino. L'insieme di credenziali per il backup è stato creato per primo. L'insieme di credenziali dei servizi di ripristino è stato creato in seguito per supportare le distribuzioni Resource Manager espanse. Se non è specificamente necessaria una distribuzione classica, è consigliabile usare distribuzioni Resource Manager.
 
-| **Deployment** | **Portal** | **Vault** |
+| **Distribuzione** | **Portale** | **Insieme di credenziali** |
 |-----------|------|-----|
-|Classic|[Classic](https://manage.windowsazure.com)|Backup|
-|Resource Manager|[Azure](https://portal.azure.com)|Recovery Services|
+|Classico|[Classico](https://manage.windowsazure.com)|Backup|
+|Gestione risorse|[Azzurro](https://portal.azure.com)|Servizi di ripristino|
 
-> [AZURE.NOTE] Backup vaults cannot protect Resource Manager-deployed solutions. However, you can use a Recovery Services vault to protect classically-deployed servers and VMs.  
+> [AZURE.NOTE] Le credenziali per il backup non consentono di proteggere le soluzioni distribuite con Resource Manager. Tuttavia, per proteggere le VM e i server distribuiti in modo tradizionale, è possibile utilizzare un insieme di credenziali dei servizi di ripristino.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

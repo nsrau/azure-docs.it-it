@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Compute, Network, and Storage providers | Microsoft Azure"
-   description="Conceptual overview of the Compute, Network, and Storage Resource Providers (CRP, NRP, and SRP) for Windows applications in Azure Resource Manager deployment model"
+   pageTitle="Provider di calcolo, rete e archiviazione | Microsoft Azure"
+   description="Panoramica concettuale sui provider di calcolo, rete e risorse di archiviazione (CRP, NRP e SRP) per applicazioni Windows nel modello di distribuzione Azure Resource Manager"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="tfitzmac"
@@ -17,15 +17,10 @@
    ms.date="08/19/2015"
    ms.author="tomfitz"/>
 
+# Provider di calcolo, rete e archiviazione di Azure per applicazioni Windows nel modello di distribuzione Azure Resource Manager
 
-# <a name="azure-compute,-network,-and-storage-providers-for-windows-applications-under-azure-resource-manager-deployment-model"></a>Azure Compute, Network, and Storage Providers for Windows applications under Azure Resource Manager deployment model
-
-The inclusion of compute, network, and storage capabilities with the Azure Resource Manager deployment model will fundamentally simplify the deployment and management of complex applications running on IaaS. Many applications require a combination of resources, including a Virtual Network, Storage Account, Virtual Machine, and a Network Interface. The Azure Resource Manager deployment model offers the ability to construct a JSON template to deploy and manage all these resources together as a single application.
+L'inclusione delle funzionalità di calcolo, rete e archiviazione nel modello di distribuzione Azure Resource Manager sostanzialmente consentirà di semplificare la distribuzione e la gestione di complesse applicazioni in esecuzione in IaaS. Molte applicazioni richiedono una combinazione di risorse, tra cui una rete virtuale, un account di archiviazione, una macchina virtuale e un'interfaccia di rete. Il modello di distribuzione Azure Resource Manager offre la possibilità di creare un modello JSON per distribuire e gestire tutte queste risorse insieme come un'unica applicazione.
 
 [AZURE.INCLUDE [virtual-machines-common-compare-deployment-models](../../includes/virtual-machines-common-compare-deployment-models.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

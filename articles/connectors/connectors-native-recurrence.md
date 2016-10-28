@@ -1,12 +1,12 @@
 <properties
-    pageTitle="Add the recurrence trigger in logic apps | Microsoft Azure"
-    description="Overview of the recurrence trigger, and how to use it with an Azure logic app."
-    services=""
-    documentationCenter=""
-    authors="jeffhollan"
-    manager="erikre"
-    editor=""
-    tags="connectors"/>
+	pageTitle="Aggiungere il trigger di ricorrenza nelle app per la logica | Microsoft Azure"
+	description="Panoramica dei trigger di ricorrenza e di come usarli con un'app per la logica di Azure."
+	services=""
+	documentationCenter=""
+	authors="jeffhollan"
+	manager="erikre"
+	editor=""
+	tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -15,55 +15,49 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="07/18/2016"
-   ms.author="jehollan"/>
+   ms.author="jehollan"/>  
 
+# Introduzione al trigger di ricorrenza
 
-# <a name="get-started-with-the-recurrence-trigger"></a>Get started with the recurrence trigger
+Usando il trigger di ricorrenza è possibile creare potenti flussi di lavoro nel cloud.
 
-By using the recurrence trigger, you can create powerful workflows in the cloud.
+Ad esempio, è possibile:
 
-For example, you can:
+- Pianificare un flusso di lavoro per eseguire una stored procedure SQL ogni giorno.
+- Inviare un messaggio di posta elettronica con il riepilogo di tutti i tweet dell'ultima settimana riguardanti un determinato hashtag.
 
-- Schedule a workflow to run a SQL stored procedure every day.
-- Email a summary of all tweets within the last week about a certain hashtag.
+Per informazioni su come iniziare a usare un trigger di ricorrenza in un'app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To get started using the recurrence trigger in a logic app, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Usare un trigger di ricorrenza
 
-## <a name="use-a-recurrence-trigger"></a>Use a recurrence trigger
+Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](connectors-overview.md).
 
-A trigger is an event that can be used to start the workflow that is defined in a logic app. [Learn more about triggers](connectors-overview.md).
+Ecco una sequenza di esempio di come configurare un trigger di ricorrenza in un'app per la logica:
 
-Here’s an example sequence of how to set up a recurrence trigger in a logic app:
+1. Aggiungere il trigger di **ricorrenza** come primo passaggio di un'app per la logica.
+2. Specificare i parametri per l'intervallo di ricorrenza.
 
-1. Add the **Recurrence** trigger as the first step in a logic app.
-2. Fill in the parameters for the recurrence interval.
+L'app per la logica avvia ora un'esecuzione dopo ogni intervallo di tempo.
 
-The logic app now starts a run after each interval of time.
+![Trigger HTTP](./media/connectors-native-recurrence/using-trigger.png)  
 
-![HTTP trigger](./media/connectors-native-recurrence/using-trigger.png)
+## Dettagli del trigger
 
-## <a name="trigger-details"></a>Trigger details
+Il trigger di ricorrenza ha le proprietà seguenti che è possibile configurare.
 
-The recurrence trigger has the following properties that you can configure.
+Attiva un'app per la logica dopo un intervallo di tempo specificato. Un asterisco (*) indica che è un campo obbligatorio.
 
-It fires a logic app after a specified time interval.
-A * means that it is a required field.
-
-|Display name|Property name|Description|
+|Nome visualizzato|Nome proprietà|Descrizione|
 |---|---|---|
-|Frequency*|frequency|The unit of time: `Second`, `Minute`, `Hour`, `Day`, or `Year`.|
-|Interval*|interval|The interval of the given frequency for the recurrence.|
-|Time Zone|timeZone|If a start time is provided without a UTC offset, this time zone will be used.|
-|Start time|startTime|The start time in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).|
-<br>
+|Frequenza*|frequency|L'unità di tempo: `Second`, `Minute`, `Hour`, `Day` o `Year`.|
+|Intervallo*|interval|Intervallo della frequenza specificata per la ricorrenza.|
+|Fuso orario|timeZone|Se viene fornito un valore startTime senza una differenza dall'ora UTC, verrà usato tale valore timeZone.|
+|Ora di inizio|startTime|Ora di inizio nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).|
+<br>  
 
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-Now, try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
+Provare ora a usare la piattaforma e [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l'[elenco di API](apis-list.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

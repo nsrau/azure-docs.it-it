@@ -1,59 +1,55 @@
 <properties
-    pageTitle="Reset the password for a user in Azure Active Directory preview | Microsoft Azure"
-    description="Explains how to reset the password for a user in Azure Active Directory"
-    services="active-directory"
-    documentationCenter=""
-    authors="curtand"
-    manager="femila"
-    editor=""/>
+	pageTitle="Reimpostare la password per un utente in anteprima di Azure Active Directory | Microsoft Azure"
+	description="Illustra come reimpostare la password per un utente in Azure Active Directory"
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/13/2016"
-    ms.author="curtand"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/12/2016"
+	ms.author="curtand"/>
 
-
-# <a name="reset-the-password-for-a-user-in-azure-active-directory-preview"></a>Reset the password for a user in Azure Active Directory preview
+# Reimpostare la password per un utente in anteprima di Azure Active Directory
 
 > [AZURE.SELECTOR]
-- [Azure portal](active-directory-users-reset-password-azure-portal.md)
-- [Azure classic portal](active-directory-create-users-reset-password.md)
+- [Portale di Azure](active-directory-users-reset-password-azure-portal.md)
+- [Portale di Azure classico](active-directory-create-users-reset-password.md)
 
+Questo articolo illustra come eliminare un utente da una directory in anteprima di Azure Active Directory (Azure AD). [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md) Per informazioni sull'aggiunta di nuovi utenti nell'organizzazione, vedere [Aggiungere nuovi utenti in Azure Active Directory](active-directory-users-create-azure-portal.md).
 
-## <a name="how-to-reset-the-password-for-a-user"></a>How to reset the password for a user
+## Reimpostare la password per un utente
 
-1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
+1.  Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
 
-2.  Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
+2.  Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi selezionare **Invio**.
 
-    ![Opening user management](./media/active-directory-users-reset-password-azure-portal/create-users-user-management.png)
+    ![Apertura di Gestione utenti](./media/active-directory-users-reset-password-azure-portal/create-users-user-management.png)
 
-3.  On the **Users and groups** blade, select **Users**.
+3.  Nel pannello **Utenti e gruppi** selezionare **Utenti**.
 
-    ![Opening the Users blade](./media/active-directory-users-reset-password-azure-portal/create-users-open-users-blade.png)
+    ![Apertura del pannello Utenti](./media/active-directory-users-reset-password-azure-portal/create-users-open-users-blade.png)
 
-4. On the **Users and groups - Users** blade, select a user from the list.
+4. Nel pannello **Utenti e gruppi - Utenti** selezionare un utente nell'elenco.
 
-5. On the blade for the selected user, select **Overview**, and then in the command bar, select **Reset password**.
+5. Nel pannello per l'utente selezionato, selezionare **Panoramica**, quindi nella barra dei comandi selezionare **Reimposta password**.
 
-    ![Selecting the Reset password command](./media/active-directory-users-reset-password-azure-portal/create-users-reset-password-command.png)
+    ![Selezione del comando Reimposta password](./media/active-directory-users-reset-password-azure-portal/create-users-reset-password-command.png)
 
-6. On the **Reset password** blade, select **Reset password**.
+6. Nel pannello **Reimposta password** selezionare **Reimposta password**.
 
-## <a name="what's-next"></a>What's next
+## Passaggi successivi
 
-- [Add a user](active-directory-users-create-azure-portal.md)
-- [Assign a user to a role in your Azure AD](active-directory-users-assign-role-azure-portal.md)
-- [Change a user's work information](active-directory-users-work-info-azure-portal.md)
-- [Manage user profiles](active-directory-users-profile-azure-portal.md)
-- [Delete a user in your Azure AD](active-directory-users-delete-user-azure-portal.md)
+- [Aggiungere un utente](active-directory-users-create-azure-portal.md)
+- [Assegnare un utente a un ruolo in Azure AD](active-directory-users-assign-role-azure-portal.md)
+- [Modificare le informazioni di lavoro di un utente](active-directory-users-work-info-azure-portal.md)
+- [Gestire i profili utente](active-directory-users-profile-azure-portal.md)
+- [Eliminare un utente in Azure AD](active-directory-users-delete-user-azure-portal.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

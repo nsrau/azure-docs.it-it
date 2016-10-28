@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Deploy multi NIC VMs using the Azure CLI in the classic deployment model | Microsoft Azure"
-   description="Learn how to deploy multi NIC VMs using the Azure CLI in the classic deployment model"
+   pageTitle="Distribuire più macchine virtuali con funzionalità multi-NIC mediante l’interfaccia della riga di comando di Azure nel modello di distribuzione classica | Microsoft Azure"
+   description="Informazioni su come distribuire più macchine virtuali con funzionalità Multi-NIC mediante l’interfaccia della riga di comando di Azure nel modello di distribuzione classica"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
-/>
+/>  
 <tags  
    ms.service="virtual-network"
    ms.devlang="na"
@@ -15,168 +15,163 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="jdial" />
+   ms.author="jdial" />  
 
-
-#<a name="deploy-multi-nic-vms-(classic)-using-the-azure-cli"></a>Deploy multi NIC VMs (classic) using the Azure CLI
+#Distribuire le macchine virtuali con funzionalità Multi-NIC (classiche) tramite l’interfaccia della riga di comando di Azure di Azure
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Learn how to [perform these steps using the Resource Manager model](virtual-network-deploy-multinic-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Informazioni su come [eseguire questa procedura con il modello di Resource Manager](virtual-network-deploy-multinic-arm-cli.md).
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Currently, you cannot have VMs with a single NIC and VMs with multiple NICs in the same cloud service. Therefore, you need to implement the back end servers in a different cloud service than and all other components in the scenario. The steps below use a cloud service named *IaaSStory* for the main resources, and *IaaSStory-BackEnd* for the back end servers.
+Attualmente, non è possibile avere macchine virtuali con una singola scheda di rete e macchine virtuali con più schede di rete nello stesso servizio cloud. Per questo motivo, è necessario implementare i server back-end in un servizio cloud diverso rispetto a tutti gli altri componenti dello scenario. La procedura seguente usa un servizio cloud denominato *IaaSStory* per la risorsa principale e *IaaSStory-BackEnd* per i server di back-end.
 
-## <a name="prerequisites"></a>Prerequisites
+## Prerequisiti
 
-Before you can deploy the back end servers, you need to deploy the main cloud service with all the necessary resources for this scenario. At minimum, you need to create a virtual network with a subnet for the backend. Visit [Create a virtual network by using the Azure CLI](virtual-networks-create-vnet-classic-cli.md) to learn how to deploy a virtual network.
+Prima di distribuire i server back-end, è necessario distribuire il servizio cloud principale con tutte le risorse necessarie per questo scenario. Come minimo, è necessario creare una rete virtuale con una subnet per il back-end. Visitare [Creare una rete virtuale tramite l’interfaccia della riga di comando di Azure](virtual-networks-create-vnet-classic-cli.md) per informazioni su come distribuire una rete virtuale.
 
 [AZURE.INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
-## <a name="deploy-the-back-end-vms"></a>Deploy the back end VMs
+## Distribuire le macchine virtuali di back-end
 
-The backend VMs depend on the creation of the resources listed below.
+Le macchine virtuali di back-end dipendono dalla creazione di risorse elencate di seguito.
 
-- **Storage account for data disks**. For better performance, the data disks on the database servers will use solid state drive (SSD) technology, which requires a premium storage account. Make sure the Azure location you deploy to support premium storage.
-- **NICs**. Each VM will have two NICs, one for database access, and one for management.
-- **Availability set**. All database servers will be added to a single availability set, to ensure at least one of the VMs is up and running during maintenance.
+- **Account di archiviazione per i dischi dati**. Per migliorare le prestazioni, i dischi dati sui server di database utilizzano la tecnologia SSD (Solid State Drive), che richiede un account di archiviazione premium. Verificare che la posizione di Azure distribuita supporti l'archiviazione premium.
+- **Schede di rete**. Ogni macchina virtuale ha due schede di rete, una per l'accesso al database e una per la gestione.
+- **Set di disponibilità**. Tutti i server di database vengono aggiunti a un singolo set di disponibilità, per garantire che almeno una delle macchine virtuali sia attiva e in esecuzione durante la manutenzione.
 
-### <a name="step-1---start-your-script"></a>Step 1 - Start your script
+### Passaggio 1 - avviare lo script
 
-You can download the full bash script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh). Follow the steps below to change the script to work in your environment.
+È possibile scaricare lo script di bash completo utilizzato [qui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh). Attenersi alla procedura seguente per modificare lo script da usare nell'ambiente.
 
-1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#Prerequisites).
+1. Modificare i valori delle variabili indicate di seguito in base al gruppo di risorse esistente distribuito in precedenza in [Prerequisiti](#Prerequisites).
 
-        location="useast2"
-        vnetName="WTestVNet"
-        backendSubnetName="BackEnd"
+		location="useast2"
+		vnetName="WTestVNet"
+		backendSubnetName="BackEnd"
 
-2. Change the values of the variables below based on the values you want to use for your backend deployment.
+2. Modificare i valori delle variabili indicate di seguito in base ai valori che si desidera usare per la distribuzione di back-end.
 
-        backendCSName="IaaSStory-Backend"
-        prmStorageAccountName="iaasstoryprmstorage"
-        image="0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1"
-        avSetName="ASDB"
-        vmSize="Standard_DS3"
-        diskSize=127
-        vmNamePrefix="DB"
-        osDiskName="osdiskdb"
-        dataDiskPrefix="db"
-        dataDiskName="datadisk"
-        ipAddressPrefix="192.168.2."
-        username='adminuser'
-        password='adminP@ssw0rd'
-        numberOfVMs=2
+		backendCSName="IaaSStory-Backend"
+		prmStorageAccountName="iaasstoryprmstorage"
+		image="0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1"
+		avSetName="ASDB"
+		vmSize="Standard_DS3"
+		diskSize=127
+		vmNamePrefix="DB"
+		osDiskName="osdiskdb"
+		dataDiskPrefix="db"
+		dataDiskName="datadisk"
+		ipAddressPrefix="192.168.2."
+		username='adminuser'
+		password='adminP@ssw0rd'
+		numberOfVMs=2
 
-### <a name="step-2---create-necessary-resources-for-your-vms"></a>Step 2 - Create necessary resources for your VMs
+### Passaggio 2 - creare le risorse necessarie per le macchine virtuali
 
-1. Create a new cloud service for all backend VMs. Notice the use of the `$backendCSName` variable for the resource group name, and `$location` for the Azure region.
+1. Creare un nuovo servizio cloud per tutte le macchine virtuali di back-end. Si noti l'utilizzo della `$backendCSName` variabile per il nome del gruppo di risorse e `$location` per l'area di Azure.
 
-        azure service create --serviceName $backendCSName \
-            --location $location
+		azure service create --serviceName $backendCSName \
+		    --location $location
 
-2. Create a premium storage account for the OS and data disks to be used by yours VMs.
+2. Creare un account di archiviazione premium per i dischi dati e del sistema operativo da usare mediante le macchine virtuali.
 
-        azure storage account create $prmStorageAccountName \
-            --location $location \
-            --type PLRS
+		azure storage account create $prmStorageAccountName \
+		    --location $location \
+		    --type PLRS
 
-### <a name="step-3---create-vms-with-multiple-nics"></a>Step 3 - Create VMs with multiple NICs
+### Passaggio 3 - creare macchine virtuali con più NIC
 
-1. Start a loop to create multiple VMs, based on the `numberOfVMs` variables.
+1. Avviare un ciclo per creare più macchine virtuali, in base alle `numberOfVMs` variabili.
 
-        for ((suffixNumber=1;suffixNumber<=numberOfVMs;suffixNumber++));
-        do
+		for ((suffixNumber=1;suffixNumber<=numberOfVMs;suffixNumber++));
+		do
 
-2. For each VM, specify the name and IP address of each of the two NICs.
+2. Per ogni macchina virtuale, specificare il nome e l’indirizzo IP di ciascuna delle due schede di rete.
 
-            nic1Name=$vmNamePrefix$suffixNumber-DA
-            x=$((suffixNumber+3))
-            ipAddress1=$ipAddressPrefix$x
+		    nic1Name=$vmNamePrefix$suffixNumber-DA
+		    x=$((suffixNumber+3))
+		    ipAddress1=$ipAddressPrefix$x
 
-            nic2Name=$vmNamePrefix$suffixNumber-RA
-            x=$((suffixNumber+53))
-            ipAddress2=$ipAddressPrefix$x
+		    nic2Name=$vmNamePrefix$suffixNumber-RA
+		    x=$((suffixNumber+53))
+		    ipAddress2=$ipAddressPrefix$x
 
-4. Create the VM. Notice the usage of the `--nic-config` parameter, containing a list of all NICs with name, subnet, and IP address.
+4. Creare la macchina virtuale Si noti l'utilizzo del parametro `--nic-config`, contenente un elenco di tutte le schede di rete con nome, subnet e indirizzo IP.
 
-            azure vm create $backendCSName $image $username $password \
-                --connect $backendCSName \
-                --vm-name $vmNamePrefix$suffixNumber \
-                --vm-size $vmSize \
-                --availability-set $avSetName \
-                --blob-url $prmStorageAccountName.blob.core.windows.net/vhds/$osDiskName$suffixNumber.vhd \
-                --virtual-network-name $vnetName \
-                --subnet-names $backendSubnetName \
-                --nic-config $nic1Name:$backendSubnetName:$ipAddress1::,$nic2Name:$backendSubnetName:$ipAddress2::
+		    azure vm create $backendCSName $image $username $password \
+		        --connect $backendCSName \
+		        --vm-name $vmNamePrefix$suffixNumber \
+		        --vm-size $vmSize \
+		        --availability-set $avSetName \
+		        --blob-url $prmStorageAccountName.blob.core.windows.net/vhds/$osDiskName$suffixNumber.vhd \
+		        --virtual-network-name $vnetName \
+		        --subnet-names $backendSubnetName \
+		        --nic-config $nic1Name:$backendSubnetName:$ipAddress1::,$nic2Name:$backendSubnetName:$ipAddress2::
 
-5. For each VM, create two data disks.
+5. Per ogni macchina virtuale, creare due dischi dati.
 
-            azure vm disk attach-new $vmNamePrefix$suffixNumber \
-                $diskSize \
-                vhds/$dataDiskPrefix$suffixNumber$dataDiskName-1.vhd
+		    azure vm disk attach-new $vmNamePrefix$suffixNumber \
+		        $diskSize \
+		        vhds/$dataDiskPrefix$suffixNumber$dataDiskName-1.vhd
 
-            azure vm disk attach-new $vmNamePrefix$suffixNumber \
-                $diskSize \
-                vhds/$dataDiskPrefix$suffixNumber$dataDiskName-2.vhd
-        done
+		    azure vm disk attach-new $vmNamePrefix$suffixNumber \
+		        $diskSize \
+		        vhds/$dataDiskPrefix$suffixNumber$dataDiskName-2.vhd
+		done
 
-### <a name="step-4---run-the-script"></a>Step 4 - Run the script
+### Passaggio 4 - eseguire lo script.
 
-Now that you downloaded and changed the script based on your needs, run the script to create the back end database VMs with multiple NICs.
+Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo script per creare macchine virtuali del database di back-end con più schede di rete.
 
-1. Save your script and run it from your **Bash** terminal. You will see the initial output, as shown below.
+1. Salvare lo script ed eseguirlo dal terminale **Bash**. Verrà visualizzato l'output iniziale, come illustrato di seguito.
 
-        info:    Executing command service create
-        info:    Creating cloud service
-        data:    Cloud service name IaaSStory-Backend
-        info:    service create command OK
-        info:    Executing command storage account create
-        info:    Creating storage account
-        info:    storage account create command OK
-        info:    Executing command vm create
-        info:    Looking up image 0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1
-        info:    Looking up virtual network
-        info:    Looking up cloud service
-        info:    Getting cloud service properties
-        info:    Looking up deployment
-        info:    Creating VM
+		info:    Executing command service create
+		info:    Creating cloud service
+		data:    Cloud service name IaaSStory-Backend
+		info:    service create command OK
+		info:    Executing command storage account create
+		info:    Creating storage account
+		info:    storage account create command OK
+		info:    Executing command vm create
+		info:    Looking up image 0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1
+		info:    Looking up virtual network
+		info:    Looking up cloud service
+		info:    Getting cloud service properties
+		info:    Looking up deployment
+		info:    Creating VM
 
-2. After a few minutes, the execution will end and you will see the rest of the output as shown below.
+2. Dopo alcuni minuti, l'esecuzione verrà terminata e il resto dell'output verrà visualizzato come mostrato di seguito.
 
-        info:    OK
-        info:    vm create command OK
-        info:    Executing command vm disk attach-new
-        info:    Getting virtual machines
-        info:    Adding Data-Disk
-        info:    vm disk attach-new command OK
-        info:    Executing command vm disk attach-new
-        info:    Getting virtual machines
-        info:    Adding Data-Disk
-        info:    vm disk attach-new command OK
-        info:    Executing command vm create
-        info:    Looking up image 0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1
-        info:    Looking up virtual network
-        info:    Looking up cloud service
-        info:    Getting cloud service properties
-        info:    Looking up deployment
-        info:    Creating VM
-        info:    OK
-        info:    vm create command OK
-        info:    Executing command vm disk attach-new
-        info:    Getting virtual machines
-        info:    Adding Data-Disk
-        info:    vm disk attach-new command OK
-        info:    Executing command vm disk attach-new
-        info:    Getting virtual machines
-        info:    Adding Data-Disk
-        info:    vm disk attach-new command OK
+		info:    OK
+		info:    vm create command OK
+		info:    Executing command vm disk attach-new
+		info:    Getting virtual machines
+		info:    Adding Data-Disk
+		info:    vm disk attach-new command OK
+		info:    Executing command vm disk attach-new
+		info:    Getting virtual machines
+		info:    Adding Data-Disk
+		info:    vm disk attach-new command OK
+		info:    Executing command vm create
+		info:    Looking up image 0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1
+		info:    Looking up virtual network
+		info:    Looking up cloud service
+		info:    Getting cloud service properties
+		info:    Looking up deployment
+		info:    Creating VM
+		info:    OK
+		info:    vm create command OK
+		info:    Executing command vm disk attach-new
+		info:    Getting virtual machines
+		info:    Adding Data-Disk
+		info:    vm disk attach-new command OK
+		info:    Executing command vm disk attach-new
+		info:    Getting virtual machines
+		info:    Adding Data-Disk
+		info:    vm disk attach-new command OK
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

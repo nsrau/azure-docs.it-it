@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Using OneDrive for Business and Azure RemoteApp | Microsoft Azure"
-   description="Using OneDrive for Business with Azure RemoteApp."
+   pageTitle="Uso di OneDrive for Business e Azure RemoteApp | Microsoft Azure"
+   description="Uso di OneDrive for Business con Azure RemoteApp."
    services="remoteapp"
    documentationCenter=""
    authors="pavithir"
@@ -16,17 +16,13 @@
    ms.date="08/15/2016"
    ms.author="elizapo"/>
 
-
-# <a name="onedrive-for-business-and-azure-remoteapp"></a>OneDrive for Business and Azure RemoteApp
+# OneDrive for Business e Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
-The OneDrive for Business sync agent is not supported with Azure RemoteApp.
+L'agente di sincronizzazione di OneDrive for Business non è supportato con Azure RemoteApp.
 
-You can include OneDrive for Business inside a collection for use with Office 365. 
+È possibile includere OneDrive for Business all'interno di una raccolta per l'uso con Office 365.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

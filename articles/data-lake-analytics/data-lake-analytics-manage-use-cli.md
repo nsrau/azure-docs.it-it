@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Manage Azure Data Lake Analytics using Azure Command-line Interface | Azure" 
-   description="Learn how to manage Data Lake Analytics accounts, data sources, jobs and users using Azure CLI" 
+   pageTitle="Gestire Azure Data Lake Analytics mediante l’interfaccia della riga di comando di Azure | Azure" 
+   description="Informazioni su come gestire gli account, le origini dati, i processi e gli utenti di Data Lake Analytics tramite l’interfaccia della riga di comando di Azure" 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
@@ -16,209 +16,202 @@
    ms.date="05/16/2016"
    ms.author="edmaca"/>
 
-
-# <a name="manage-azure-data-lake-analytics-using-azure-command-line-interface-(cli)"></a>Manage Azure Data Lake Analytics using Azure Command-line Interface (CLI)
+# Gestire Azure Data Lake Analytics mediante l’interfaccia della riga di comando (CLI) di Azure
 
 [AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure. To see management topic using other tools, click the tab select above.
+Informazioni su come gestire gli account, le origini dati, gli utenti e i processi di Azure Data Lake Analytics tramite Azure. Per visualizzare l'argomento relativo alla gestione tramite altri strumenti, fare clic sul selettore di scheda riportato sopra.
 
-**Prerequisites**
+**Prerequisiti**
 
-Before you begin this tutorial, you must have the following:
+Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-- **Azure CLI**. See [Install and configure Azure CLI](../xplat-cli-install.md).
-    - Download and install the **pre-release** [Azure CLI tools](https://github.com/MicrosoftBigData/AzureDataLake/releases) in order to complete this demo.
-- **Authentication**, using the following command:
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+- **Interfaccia della riga di comando di Azure**. Vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+	- Scaricare e installare gli [Strumenti di Azure CLI](https://github.com/MicrosoftBigData/AzureDataLake/releases) **pre-release** per completare questa demo.
+- **Autenticazione**, utilizzando il comando seguente:
 
-        azure login
-    For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](../xplat-cli-connect.md).
-- **Switch to the Azure Resource Manager mode**, using the following command:
+		azure login
+	Per altre informazioni sull'autenticazione con un account aziendale o dell'istituto di istruzione, vedere [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
+- **Passare alla modalità Gestione risorse di Azure**, usando il comando seguente:
 
-        azure config mode arm
+		azure config mode arm
 
-**To list the Data Lake Store and Data Lake Analytics commands:**
+**Per elencare i comandi Data Lake Store e Data Lake Analytics :**
 
-    azure datalake store
-    azure datalake analytics
-
-<!-- ################################ -->
-<!-- ################################ -->
-## <a name="manage-accounts"></a>Manage accounts
-
-Before running any Data Lake Analytics jobs, you must have a Data Lake Analytics account. Unlike Azure HDInsight, you don't pay for an Analytics account when it is not running a job.  You only pay for the time when it is running a job.  For more information, see [Azure Data Lake Analytics Overview](data-lake-analytics-overview.md).  
-
-###<a name="create-accounts"></a>Create accounts
-
-    azure datalake analytics account create "<Data Lake Analytics Account Name>" "<Azure Location>" "<Resource Group Name>" "<Default Data Lake Account Name>"
-
-
-###<a name="update-accounts"></a>Update accounts
-
-The following command updates the properties of an existing Data Lake Analytics Account
-    
-    azure datalake analytics account set "<Data Lake Analytics Account Name>"
-
-
-###<a name="list-accounts"></a>List accounts
-
-List Data Lake Analytics accounts 
-
-    azure datalake analytics account list
-
-List Data Lake Analytics accounts within a specific resource group
-
-    azure datalake analytics account list -g "<Azure Resource Group Name>"
-
-Get details of a specific Data Lake Analytics account
-
-    azure datalake analytics account show -g "<Azure Resource Group Name>" -n "<Data Lake Analytics Account Name>"
-
-###<a name="delete-data-lake-analytics-accounts"></a>Delete Data Lake Analytics accounts
-
-    azure datalake analytics account delete "<Data Lake Analytics Account Name>"
-
+	azure datalake store
+	azure datalake analytics
 
 <!-- ################################ -->
 <!-- ################################ -->
-## <a name="manage-account-data-sources"></a>Manage account data sources
+## Gestire account
 
-Data Lake Analytics currently supports the following data sources:
+Prima di eseguire qualsiasi processo di Analisi Data Lake, è necessario disporre di un account di Analisi Data Lake. A differenza di Azure HDInsight, un account di Analisi non è soggetto ad alcun pagamento fino a quando il processo non è in esecuzione. Il pagamento, infatti, viene richiesto solo per la durata di esecuzione di un processo. Per altre informazioni, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-- [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-- [Azure Storage](../storage/storage-introduction.md)
+###Creare account
 
-When you create an Analytics account, you must designate an Azure Data Lake Storage account to be the default storage account. The default ADL storage account is used to store job metadata and job audit logs. After you have created an Analytics account, you can add additional Data Lake Storage accounts and/or Azure Storage account. 
+  	azure datalake analytics account create "<Data Lake Analytics Account Name>" "<Azure Location>" "<Resource Group Name>" "<Default Data Lake Account Name>"
 
-### <a name="find-the-default-adl-storage-account"></a>Find the default ADL storage account
 
-    azure datalake analytics account show "<Data Lake Analytics Account Name>"
+###Aggiornare account
 
-The value is listed under properties:datalakeStoreAccount:name.
+Il seguente comando aggiorna le proprietà di un account Data Lake Analytics esistente
+  	
+	azure datalake analytics account set "<Data Lake Analytics Account Name>"
 
-### <a name="add-additional-azure-blob-storage-accounts"></a>Add additional Azure Blob storage accounts
 
-    azure datalake analytics account datasource add -n "<Data Lake Analytics Account Name>" -b "<Azure Blob Storage Account Short Name>" -k "<Azure Storage Account Key>"
+###Elencare gli account
 
->[AZURE.NOTE] Only Blob storage short names are supported.  Don't use FQDN, for example "myblob.blob.core.windows.net".
+Elencare gli account di Data Lake Analytics
 
-### <a name="add-additional-data-lake-store-accounts"></a>Add additional Data Lake Store accounts
+	azure datalake analytics account list
 
-    azure datalake analytics account datasource add -n "<Data Lake Analytics Account Name>" -l "<Data Lake Store Account Name>" [-d]
+Elencare gli account di Data Lake Analytics all'interno di un gruppo di risorse specifico
 
-[-d] is an optional switch to indicate whether the Data Lake being added is the default Data Lake account. 
+	azure datalake analytics account list -g "<Azure Resource Group Name>"
 
-### <a name="update-existing-data-source"></a>Update existing data source
+Ottenere i dettagli di un account specifico di Data Lake Analytics
 
-To set an existing Data Lake Store account to be the default:
+	azure datalake analytics account show -g "<Azure Resource Group Name>" -n "<Data Lake Analytics Account Name>"
 
-    azure datalake analytics account datasource set -n "<Data Lake Analytics Account Name>" -l "<Azure Data Lake Store Account Name>" -d
-      
-To update an existing Blob storage account key:
+###Eliminare gli account di Data Lake Analytics
 
-    azure datalake analytics account datasource set -n "<Data Lake Analytics Account Name>" -b "<Blob Storage Account Name>" -k "<New Blob Storage Account Key>"
+  	azure datalake analytics account delete "<Data Lake Analytics Account Name>"
 
-### <a name="list-data-sources:"></a>List data sources:
 
-    azure datalake analytics account show "<Data Lake Analytics Account Name>"
-    
-![Data Lake Analytics list data source](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
+<!-- ################################ -->
+<!-- ################################ -->
+## Gestire le origini dati degli account
 
-### <a name="delete-data-sources:"></a>Delete data sources:
+Analisi Data Lake supporta attualmente le seguenti origini dati:
 
-To delete a Data Lake Store account:
+- [Archivio Data Lake di Azure](../data-lake-store/data-lake-store-overview.md)
+- [Archiviazione di Azure](../storage/storage-introduction.md)
 
-    azure datalake analytics account datasource delete "<Data Lake Analytics Account Name>" "<Azure Data Lake Store Account Name>"
+Quando si crea un account di Analytics, è necessario impostare un account di archiviazione di Azure Data Lake come account di archiviazione predefinito. L'account di archiviazione ADL predefinito viene usato per archiviare i metadati dei processi e i log di controllo dei processi. Dopo aver creato un account di Analytics, è possibile aggiungere altri account di archiviazione di Data Lake e/o account di archiviazione di Azure.
 
-To delete a Blob storage account:
+### Cercare l'account di archiviazione ADL predefinito
 
-    azure datalake analytics account datasource delete "<Data Lake Analytics Account Name>" "<Blob Storage Account Name>"
+	azure datalake analytics account show "<Data Lake Analytics Account Name>"
 
-## <a name="manage-jobs"></a>Manage jobs
+Il valore è elencato in properties:datalakeStoreAccount:name.
 
-You must have a Data Lake Analytics account before you can create a job.  For more information, see [Manage Data Lake Analytics accounts](#manage-accounts).
+### Aggiungere altri account di archiviazione BLOB di Azure
 
-### <a name="list-jobs"></a>List jobs
+  	azure datalake analytics account datasource add -n "<Data Lake Analytics Account Name>" -b "<Azure Blob Storage Account Short Name>" -k "<Azure Storage Account Key>"
 
-    azure datalake analytics job list -n "<Data Lake Analytics Account Name>"
+>[AZURE.NOTE] Sono supportati solo nomi brevi di archiviazione BLOB. Non utilizzare FQDN, ad esempio "myblob.blob.core.windows.net".
 
-![Data Lake Analytics list data source](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-jobs.png)
+### Aggiungere altri account di Data Lake Store
 
-### <a name="get-job-details"></a>Get job details
+  	azure datalake analytics account datasource add -n "<Data Lake Analytics Account Name>" -l "<Data Lake Store Account Name>" [-d]
 
-    azure datalake analytics job show -n "<Data Lake Analytics Account Name>" -j "<Job ID>"
-    
-### <a name="submit-jobs"></a>Submit jobs
+[-d] è un parametro facoltativo per indicare se il Data Lake da aggiungere è l'account Data Lake predefinito.
 
-> [AZURE.NOTE] The default priority of a job is 1000, and the default degree of parallelism for a job is 1.
+### Aggiornare l'origine dati esistente
 
-    azure datalake analytics job create  "<Data Lake Analytics Account Name>" "<Job Name>" "<Script>"
+Per impostare un account Archivio Data Lake esistente come impostazione predefinita:
 
-### <a name="cancel-jobs"></a>Cancel jobs
+  	azure datalake analytics account datasource set -n "<Data Lake Analytics Account Name>" -l "<Azure Data Lake Store Account Name>" -d
+	  
+Per aggiornare una chiave di account di archiviazione BLOB esistente:
 
-Use the list command to find the job id, and then use cancel to cancel the job.
+  	azure datalake analytics account datasource set -n "<Data Lake Analytics Account Name>" -b "<Blob Storage Account Name>" -k "<New Blob Storage Account Key>"
 
-    azure datalake analytics job list -n "<Data Lake Analytics Account Name>"
-    azure datalake analytics job cancel "<Data Lake Analytics Account Name>" "<Job ID>"
+### Elencare le origini dati:
 
-## <a name="manage-catalog"></a>Manage catalog
+	azure datalake analytics account show "<Data Lake Analytics Account Name>"
+	
+![Origine dati dell'elenco Data Lake Analytics](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
 
-The U-SQL catalog is used to structure data and code so they can be shared by U-SQL scripts. The catalog enables the highest performance possible with data in Azure Data Lake. For more information, see [Use U-SQL catalog](data-lake-analytics-use-u-sql-catalog.md).
+### Eliminare origini dati:
+
+Per eliminare un account Archivio Data Lake:
+
+  	azure datalake analytics account datasource delete "<Data Lake Analytics Account Name>" "<Azure Data Lake Store Account Name>"
+
+Per eliminare un account di archiviazione BLOB:
+
+  	azure datalake analytics account datasource delete "<Data Lake Analytics Account Name>" "<Blob Storage Account Name>"
+
+## Gestire i processi
+
+È necessario disporre di un account di Data Lake Analytics prima di poter creare un processo. Per altre informazioni, vedere [Gestire gli account di Analisi Data Lake](#manage-accounts).
+
+### Elencare i processi
+
+  	azure datalake analytics job list -n "<Data Lake Analytics Account Name>"
+
+![Origine dati dell'elenco Data Lake Analytics](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-jobs.png)
+
+### Ottenere i dettagli dei processi
+
+  	azure datalake analytics job show -n "<Data Lake Analytics Account Name>" -j "<Job ID>"
+	
+### Inviare i processi
+
+> [AZURE.NOTE] La priorità predefinita di un processo è 1000 e il livello predefinito di parallelismo per un processo è 1.
+
+	azure datalake analytics job create  "<Data Lake Analytics Account Name>" "<Job Name>" "<Script>"
+
+### Annullare i processi
+
+Utilizzare il comando list per cercare l'id del processo e quindi utilizzare cancel per annullare il processo.
+
+  	azure datalake analytics job list -n "<Data Lake Analytics Account Name>"
+  	azure datalake analytics job cancel "<Data Lake Analytics Account Name>" "<Job ID>"
+
+## Gestire il catalogo
+
+Il catalogo di U-SQL viene usato per definire la struttura dei dati e del codice in modo da poterli condividere mediante U-SQL. Il catalogo consente di ottenere le migliori prestazioni possibili con i dati in Azure Data Lake. Per altre informazioni, vedere la pagina di [Usare il catalogo di U-SQL](data-lake-analytics-use-u-sql-catalog.md).
  
-###<a name="list-catalog-items"></a>List catalog items
+###Elencare gli elementi del catalogo
 
-    #List databases
-    azure datalake analytics catalog list -n "<Data Lake Analytics Account Name>" -t database
+	#List databases
+	azure datalake analytics catalog list -n "<Data Lake Analytics Account Name>" -t database
 
-    #List tables
-    azure datalake analytics catalog list -n "<Data Lake Analytics Account Name>" -t table
-    
-The types include database, schema, assembly, external data source, table, table valued function or table statistics.
+	#List tables
+	azure datalake analytics catalog list -n "<Data Lake Analytics Account Name>" -t table
+	
+I tipi includono database, schema, assembly, origine dati esterna, tabella, funzione con valori di tabella o statistiche tabelle.
 
-###<a name="create-catalog-secret"></a>Create catalog secret
+###Creare il segreto del catalogo
 
-    azure datalake analytics catalog secret create -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
+	azure datalake analytics catalog secret create -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
 
-### <a name="modify-catalog-secret"></a>Modify catalog secret
+### Modificare il segreto del catalogo
 
-    azure datalake analytics catalog secret set -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
+  	azure datalake analytics catalog secret set -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
 
-###<a name="delete-catalog-secret"></a>Delete catalog secret
+###Eliminare il segreto del catalogo
 
-    azure datalake analytics catalog secrete delete -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
+	azure datalake analytics catalog secrete delete -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
 
 <!-- ################################ -->
 <!-- ################################ -->
-## <a name="use-arm-groups"></a>Use ARM groups
+## Utilizzare i gruppi ARM
 
-Applications are typically made up of many components, for example a web app, database, database server, storage, and 3rd party services. Azure Resource Manager (ARM) enables you to work with the resources in your application as a group, referred to as an Azure Resource Group. You can deploy, update, monitor or delete all of the resources for your application in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging and production. You can clarify billing for your organization by viewing the rolled-up costs for the entire group. For more information, see [Azure Resource Manager Overview](../resource-group-overview.md). 
+Le applicazioni sono in genere costituite da molti componenti, ad esempio app Web, database, server di database, risorsa di archiviazione e servizi di terze parti. Gestione risorse di Azure (ARM) consente di usare le risorse dell'applicazione come gruppo, detto Gruppo di risorse di Azure. È quindi possibile distribuire, aggiornare, monitorare o eliminare tutte le risorse per l'applicazione con una singola operazione coordinata. È possibile descrivere le risorse del gruppo in un modello JSON per la distribuzione e quindi usare tale modello per ambienti diversi, ad esempio di testing, staging e produzione. È possibile chiarire la fatturazione per l'organizzazione visualizzando i costi per l'intero gruppo. Per altre informazioni, vedere [Panoramica di Gestione risorse di Azure](../resource-group-overview.md).
 
-A Data Lake Analytics service can include the following components:
+Un servizio di Analisi Data Lake può includere i componenti seguenti:
 
-- Azure Data Lake Analytics account
-- Required default Azure Data Lake Storage account
-- Additional Azure Data Lake Storage accounts
-- Additional Azure Storage accounts
+- Account di Azure Data Lake Analytics
+- Account di archiviazione predefinito obbligatorio di Azure Data Lake
+- Account di archiviazione aggiuntivi di Azure Data Lake
+- Account di archiviazione aggiuntivi di Azure
 
-You can create all these components under one ARM group to make them easier to manage.
+È possibile creare tutti questi componenti in un unico gruppo ARM per semplificarne la gestione.
 
-![Azure Data Lake Analytics account and storage](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
+![Analisi Data Lake di Azure - Account e archiviazione](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
 
-A Data Lake Analytics account and the dependent storage accounts must be placed in the same Azure data center.
-The ARM group however can be located in a different data center.  
-
-
-##<a name="see-also"></a>See also 
-
-- [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-- [Get started with Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)
-- [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md)
-- [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+Un account di Analisi Data Lake e gli account di archiviazione dipendenti devono trovarsi nello stesso data center di Azure, mentre il gruppo ARM può trovarsi anche in un data center diverso.
 
 
+##Vedere anche 
 
+- [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
+- [Introduzione a Analisi Data Lake tramite il portale di Azure](data-lake-analytics-get-started-portal.md)
+- [Gestire Analisi Data Lake di Azure tramite il portale di Azure](data-lake-analytics-manage-use-portal.md)
+- [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

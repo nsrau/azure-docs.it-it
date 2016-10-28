@@ -1,6 +1,6 @@
 <properties
    pageTitle="Microsoft Security Response Center | Microsoft Azure"
-   description="The article provides a curated list of Microsoft Security Response Center (MSRC) resources that can be used to obtain more information about MSRC practices and recommendations."
+   description="L'articolo fornisce un elenco completo di risorse di Microsoft Security Response Center (MSRC) che possono essere usate per ottenere altre informazioni sulle procedure e i suggerimenti di MSRC."
    services="security"
    documentationCenter="na"
    authors="TomShinder"
@@ -13,36 +13,31 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/18/2016"
+   ms.date="08/02/2016"
    ms.author="yurid"/>
 
+# Microsoft Security Response Center
 
-# <a name="microsoft-security-response-center"></a>Microsoft Security Response Center
+Microsoft Security Response Center (MSRC) è gestito da alcuni dei migliori esperti di sicurezza del mondo che identificano, monitorano, rispondono e risolvono eventi imprevisti di sicurezza e vulnerabilità locali e del cloud 24 ore su 24, ogni giorno dell'anno.
 
-The Microsoft Security Response Center (MSRC) is led by some of the world’s most experienced security experts. These experts identify, monitor, respond to and resolve security incidents and on-premises and cloud vulnerabilities around the clock, each day of the year.
+Oltre al lavoro ininterrotto svolto da MSRC in background, il team MSRC ha diverse risorse a disposizione degli utenti che possono così sapere come proteggere in modo più efficace gli asset e le distribuzioni di Azure.
 
-In addition to the continuous work the MSRC does in the background, the MSRC team has a number of resources available to you so that you can understand how to secure your Azure assets and deployments more effectively.
+## Blog MSRC
 
-## <a name="the-msrc-blog"></a>The MSRC Blog
-
-The [MSRC blog](https://blogs.technet.microsoft.com/msrc/) is the place to go to get the latest news on what the MSRC is doing to help protect you against cloud threats.
+Nel [blog MSRC](https://blogs.technet.microsoft.com/msrc/) sono disponibili le informazioni più recenti sulle attività di MSRC mirate a proteggere gli utenti dalle minacce al cloud.
  
-## <a name="white-papers"></a>White Papers
+## White paper
 
-The MSRC has published a number of [white papers](https://technet.microsoft.com/library/bb969102.aspx) that will help you understand what they do and how they do it. Some provide insights into how we secure the Microsoft cloud and include useful information on how you can employ the same security configurations.
+MSRC ha pubblicato diversi [white paper](https://technet.microsoft.com/library/bb969102.aspx) che ne illustrano le attività e le modalità. Alcuni forniscono informazioni dettagliate su come Microsoft protegge il cloud e includono utili informazioni su come è possibile adottare le stesse configurazioni di sicurezza.
  
-## <a name="security-researcher-engagement-and-bounty-programs"></a>Security Researcher Engagement and Bounty Programs
+## Collaborazione con i ricercatori nel campo della sicurezza e programmi Bounty
 
-The MSRC supports collaboration and relationships with security researchers globally to advance Microsoft product security.
+MSRC supporta collaborazioni e relazioni a livello globale con i ricercatori nel campo della sicurezza per migliorare la sicurezza dei prodotti Microsoft.
 
-Microsoft bounty programs pay researchers for novel exploitation techniques, defensive ideas that mitigate novel exploitations, and identification of critical vulnerabilities in Microsoft on-premises and cloud software.
+I programmi Bounty di Microsoft offrono compensi ai ricercatori per nuove tecniche di exploit, idee preventive che riducono i rischi dei nuovi exploit e identificazione di vulnerabilità critiche nel software Microsoft locale e cloud.
  
-Learn more about these programs at the [MSRC Bug Bounty](https://technet.microsoft.com/security/dn425036) page and the [MSRC blog](https://blogs.technet.microsoft.com/msrc/).
+Altre informazioni su questi programmi sono disponibili nella pagina [MSRC Bug Bounty](https://technet.microsoft.com/security/dn425036) e nel [blog MSRC](https://blogs.technet.microsoft.com/msrc/).
 
-To learn more about the MSRC, please visit the [MSRC home page](https://technet.microsoft.com/library/dn440717.aspx).
+Per altre informazioni su MSRC, visitare la [home page MSRC](https://technet.microsoft.com/library/dn440717.aspx).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

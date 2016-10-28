@@ -1,27 +1,22 @@
 
 
 
-## <a name="viewing-your-tags-in-the-usage-details"></a>Viewing your tags in the usage details
+## Visualizzazione dei tag nei dettagli dell'utilizzo
 
-Tags placed on Compute, Network, and Storage resources in the Resource Manager deployment model will be populated in your usage details in the [billing portal](https://account.windowsazure.com/).
+I tag applicati a risorse di calcolo, rete e archiviazione nel modello di distribuzione di Resource Manager verranno compilati nei dettagli di utilizzo nel [portale di fatturazione](https://account.windowsazure.com/).
 
-Click on **Download usage details** to view the usage details in your subscription.
+Fare clic su **Scarica dettagli dell'utilizzo** per visualizzare i dettagli di utilizzo nella sottoscrizione.
 
-![Usage details in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-usage-details.png)
+![Dettagli di utilizzo nel portale di Azure](./media/virtual-machines-common-tag-usage/azure-portal-tags-usage-details.png)
 
-Select your billing statement and the **Version 2** usage details:
+Selezionare l'estratto conto e i dettagli di utilizzo **Versione 2**:
 
-![Version 2 Preview Usage Details in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-version2-usage-details.png)
+![Dettagli sull'utilizzo di Version 2 Preview nel portale di Azure](./media/virtual-machines-common-tag-usage/azure-portal-version2-usage-details.png)
 
-From the usage details, you can see all of the tags in the **Tags** column:
+Dai dettagli di utilizzo, è possibile visualizzare tutti i tag nella colonna **tag**:
 
-![Tags column in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-column.png)
+![Colonna dei tag nel portale di Azure](./media/virtual-machines-common-tag-usage/azure-portal-tags-column.png)
 
-By analyzing these tags along with usage, organizations will be able to gain new insights into their consumption data.
-
-
-
-
-<!--HONumber=Oct16_HO2-->
+Analizzando i tag e il loro utilizzo, le organizzazioni saranno in grado di acquisire nuove informazioni nei dati relativi al consumo.
 
 

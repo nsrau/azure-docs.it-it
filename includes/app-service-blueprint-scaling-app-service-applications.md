@@ -1,20 +1,17 @@
-* [Scale Azure App Service](../articles/app-service-web/web-sites-scale.md)
-    * Understanding Redundancy and Reliability
-    * StateFULL vs StateLESS applications
-        * [Configuring your Stateless app](/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
+* [Scalabilità del Servizio app di Azure](../articles/app-service-web/web-sites-scale.md)
+	* Informazioni su ridondanza e affidabilità
+	* Applicazioni CON stato vs applicazioni SENZA stato
+		* [Configurazione dell'applicazione senza stato](/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
 
-* Load Testing apps in App Service   
+* Caricare app di test nel servizio app
 
-* App Service scaling best practices
-    * Port exhaustion and connection pooling
-    * [Leveraging Azure Storage from your App Service app](../articles/storage/storage-dotnet-how-to-use-blobs.md)
-    * [Leveraging Azure CDN from your App Service app](../articles/cdn/cdn-overview.md)
-    * [Leveraging Azure Redis Cache from your App Service app](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md)
+* Procedure consigliate di scalabilità del servizio app
+	* Esaurimento delle porte e pool di connessioni
+	* [Uso di Archiviazione di Azure dalla propria app del servizio app](../articles/storage/storage-dotnet-how-to-use-blobs.md)
+	* [Uso della rete CDN di Azure dalla propria app del servizio app](../articles/cdn/cdn-overview.md)
+	* [Uso di Cache Redis di Azure dalla propria app del servizio app](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md)
 
-* Geo distribution
-    * [Leveraging Traffic Manager to achive global scale](../articles/traffic-manager/traffic-manager-overview.md)
+* Distribuzione area geografica
+	* [Uso di Gestione traffico per acquisire scalabilità globale](../articles/traffic-manager/traffic-manager-overview.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0706_2016-->

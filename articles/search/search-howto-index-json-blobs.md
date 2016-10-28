@@ -1,6 +1,6 @@
 <properties
-pageTitle="Indexing JSON blobs with Azure Search blob indexer"
-description="Indexing JSON blobs with Azure Search blob indexer"
+pageTitle="Indicizzazione di BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure"
+description="Indicizzazione di BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure"
 services="search"
 documentationCenter=""
 authors="chaosrealm"
@@ -15,153 +15,149 @@ ms.tgt_pltfrm="na"
 ms.date="07/26/2016"
 ms.author="eugenesh" />
 
+# Indicizzazione di BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure 
 
-# <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexing JSON blobs with Azure Search blob indexer 
+In questo articolo viene illustrato come configurare un indicizzatore BLOB di Ricerca di Azure per estrarre il contenuto strutturato dai BLOB che contengono JSON.
 
-This article shows how to configure Azure Search blob indexer to extract structured content from blobs that contain JSON.
+## Scenari
 
-## <a name="scenarios"></a>Scenarios
+Per impostazione predefinita, l'[indicizzatore BLOB di Ricerca di Azure](search-howto-indexing-azure-blob-storage.md) analizza i BLOB di tipo JSON come blocco singolo di testo. È spesso possibile che si voglia preservare la struttura dei documenti JSON. Ad esempio, nel caso del documento JSON seguente:
 
-By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage.md) parses JSON blobs as a single chunk of text. Often, you want preserve the structure of your JSON documents. For example, given the JSON document 
+	{ 
+		"article" : {
+	 		"text" : "A hopefully useful article explaining how to parse JSON blobs",
+	        "datePublished" : "2016-04-13" 
+			"tags" : [ "search", "storage", "howto" ]    
+	    }
+	}
+
+È possibile che si voglia analizzarlo nel documento di Ricerca di Azure con i campi "text", "datePublished" e "tags".
+
+In alternativa, quando i BLOB contengono una **matrice di oggetti JSON**, è consigliabile che ogni elemento della matrice diventi un documento separato di Ricerca di Azure. Ad esempio, considerato un BLOB con questo JSON:
+
+	[
+		{ "id" : "1", "text" : "example 1" },
+		{ "id" : "2", "text" : "example 2" },
+		{ "id" : "3", "text" : "example 3" }
+	]
+
+è possibile popolare l'indice di Ricerca di Azure con 3 documenti separati, ognuno con i campi "id" e "text".
+
+> [AZURE.IMPORTANT] Questa funzionalità è attualmente disponibile in anteprima. È disponibile solo nell'API REST con la versione **2015-02-28-Preview**. Si ricordi che le API di anteprima servono per il test e la valutazione e non devono essere usate negli ambienti di produzione.
+
+## Configurazione dell'indicizzazione JSON
+
+Per indicizzare i BLOB di tipo JSON, impostare il parametro di configurazione `parsingMode` su `json` per indicizzare ogni BLOB come un singolo documento o su `jsonArray` se il BLOB contiene una matrice JSON:
+
+	{
+	  "name" : "my-json-indexer",
+	  ... other indexer properties
+	  "parameters" : { "configuration" : { "parsingMode" : "json" | "jsonArray" } }
+	}
+
+Se necessario, usare i **mapping dei campi** per recuperare le proprietà del documento JSON di origine usato per popolare l'indice di ricerca di destinazione. Questa procedura verrà descritta in dettaglio più avanti.
+
+> [AZURE.IMPORTANT] Quando si usa `json` o la modalità di analisi `jsonArray`, Ricerca di Azure presuppone che tutti i BLOB nell'origine dati siano di tipo JSON. Se è necessario supportare una combinazione di BLOB di tipo JSON e non JSON nella stessa origine dati, comunicare questa esigenza sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+
+## Uso dei mapping dei campi per creare documenti di ricerca 
+
+Ricerca di Azure non può attualmente indicizzare direttamente documenti JSON arbitrari, perché supporta solo tipi di dati primitivi, matrici di stringhe e punti GeoJSON. È tuttavia possibile usare i **mapping dei campi** per selezionare parti del documento JSON e "portarle" nei campi di livello superiore del documento di ricerca. Per informazioni sugli elementi fondamentali del mapping dei campi, vedere [I mapping dei campi dell'indicizzatore di Ricerca di Azure colmano le differenze tra le origini dati e gli indici di ricerca](search-indexer-field-mappings.md).
+
+Tornando all'esempio di documento JSON:
 
     { 
-        "article" : {
-            "text" : "A hopefully useful article explaining how to parse JSON blobs",
-            "datePublished" : "2016-04-13" 
-            "tags" : [ "search", "storage", "howto" ]    
-        }
-    }
+		"article" : {
+	 		"text" : "A hopefully useful article explaining how to parse JSON blobs",
+	        "datePublished" : "2016-04-13" 
+			"tags" : [ "search", "storage", "howto" ]    
+	    }
+	}
 
-you might want to parse it into an Azure Search document with "text", "datePublished", and "tags" fields.
+Si supponga che sia disponibile un indice di ricerca con i campi seguenti: `text` di tipo Edm.String, `date` di tipo Edm.DateTimeOffset e `tags` di tipo Collection(Edm.String). Per eseguire il mapping del file JSON per ottenere la forma desiderata, usare i mapping dei campi seguenti:
 
-Alternatively, when your blobs contain an **array of JSON objects**, you may want each element of the array to become a separate Azure Search document. For example, given a blob with this JSON:  
-
-    [
-        { "id" : "1", "text" : "example 1" },
-        { "id" : "2", "text" : "example 2" },
-        { "id" : "3", "text" : "example 3" }
-    ]
-
-you can populate your Azure Search index with 3 separate documents, each with "id" and "text" fields. 
-
-> [AZURE.IMPORTANT] This functionality is currently in preview. It is available only in the REST API using version **2015-02-28-Preview**. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments. 
-
-## <a name="setting-up-json-indexing"></a>Setting up JSON indexing
-
-To index JSON blobs, set the `parsingMode` configuration parameter to `json` (to index each blob as a single document) or `jsonArray` (if your blobs contain a JSON array): 
-
-    {
-      "name" : "my-json-indexer",
-      ... other indexer properties
-      "parameters" : { "configuration" : { "parsingMode" : "json" | "jsonArray" } }
-    }
-
-If needed, use **field mappings** to pick the properties of the source JSON document used to populate your target search index.  This is described in detail below. 
-
-> [AZURE.IMPORTANT] When you use `json` or `jsonArray` parsing mode, Azure Search assumes that all blobs in your data source will be JSON. If you need to support a mix of JSON and non-JSON blobs in the same data source, please let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
-
-## <a name="using-field-mappings-to-build-search-documents"></a>Using field mappings to build search documents 
-
-Currently, Azure Search cannot index arbitrary JSON documents directly, because it supports only primitive data types, string arrays, and GeoJSON points. However, you can use **field mappings** to pick parts of your JSON document and "lift" them into top-level fields of the search document. To learn about field mappings basics, see [Azure Search indexer field mappings bridge the differences between data sources and search indexes](search-indexer-field-mappings.md).
-
-Coming back to our example JSON document: 
-
-    { 
-        "article" : {
-            "text" : "A hopefully useful article explaining how to parse JSON blobs",
-            "datePublished" : "2016-04-13" 
-            "tags" : [ "search", "storage", "howto" ]    
-        }
-    }
-
-Let's say you have a search index with the following fields: `text` of type Edm.String, `date` of type Edm.DateTimeOffset, and `tags` of type Collection(Edm.String). To map your JSON into the desired shape, use the following field mappings: 
-
-    "fieldMappings" : [ 
+	"fieldMappings" : [ 
         { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
         { "sourceFieldName" : "/article/datePublished", "targetFieldName" : "date" },
         { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
-    ]
+  	]
 
-The source field names in the mappings are specified using the [JSON Pointer](http://tools.ietf.org/html/rfc6901) notation. You start with a forward slash to refer to the root of your JSON document, then drill into the desired property (at arbitrary level of nesting) by using forward slash-separated path. 
+I nomi dei campi di origine nei mapping vengono specificati mediante la notazione di tipo [Puntatore JSON](http://tools.ietf.org/html/rfc6901). Iniziare con una barra per fare riferimento alla radice del documento JSON, quindi passare alla proprietà desiderata, a un livello di annidamento arbitrario, usando un percorso separato da barre.
 
-You can also refer to individual array elements by using a zero-based index. For example, to pick the first element of the "tags" array from the above example, use a field mapping like this:
+È anche possibile fare riferimento a singoli elementi della matrice usando un indice a base zero. Ad esempio, per selezionare il primo elemento della matrice "tags" dall'esempio precedente, usare un mapping dei campi analogo al seguente:
 
-    { "sourceFieldName" : "/article/tags/0", "targetFieldName" : "firstTag" }
+	{ "sourceFieldName" : "/article/tags/0", "targetFieldName" : "firstTag" }
 
-> [AZURE.NOTE] If a source field name in a field mapping path refers to a property that doesn't exist in JSON, that mapping is skipped without an error. This is done so that we can support documents with a different schema (which is a common use case). Because there is no validation, you need to take care to avoid typos in your field mapping specification. 
+> [AZURE.NOTE] Se un nome del campo di origine in un percorso di mapping dei campi fa riferimento a una proprietà inesistente nel file JSON, il mapping verrà ignorato senza errori. Ciò consente di supportare documenti con schemi diversi, ovvero un caso di utilizzo comune. Poiché non è disponibile alcuna convalida, sarà necessario evitare accuratamente gli errori di ortografia nella specifica dei mapping dei campi.
 
-If your JSON documents only contain simple top-level properties, you may not need field mappings at all. For example, if your JSON looks like this, the top-level properties "text", "datePublished" and "tags" will directly map to the corresponding fields in the search index: 
+Se i documenti JSON contengono solo semplici proprietà di livello superiore, è possibile che i mapping dei campi non siano necessari. Ad esempio, se il file JSON ha un aspetto analogo al seguente, le proprietà "text", "datePublished" e "tags" di livello superiore verranno associate direttamente ai campi corrispondenti nell'indice di ricerca:
  
-    { 
-       "text" : "A hopefully useful article explaining how to parse JSON blobs",
-       "datePublished" : "2016-04-13" 
+	{ 
+	   "text" : "A hopefully useful article explaining how to parse JSON blobs",
+	   "datePublished" : "2016-04-13" 
        "tags" : [ "search", "storage", "howto" ]    
-    }
+ 	}
 
-## <a name="indexing-nested-json-arrays"></a>Indexing nested JSON arrays
+## Indicizzazione delle matrici JSON annidate
 
-What if you wish to index an array of JSON objects, but that array is nested somewhere within the document? You can pick which property contains the array using the `documentRoot` configuration property. For example, if your blobs look like this: 
+Se si vuole indicizzare una matrice di oggetti JSON, ma questa matrice è annidata in un punto qualsiasi all'interno del documento? È possibile scegliere la proprietà che contiene la matrice usando la proprietà di configurazione `documentRoot`. Ad esempio, se i BLOB sono simili a questo:
 
-    { 
-        "level1" : {
-            "level2" : [
-                { "id" : "1", "text" : "Use the documentRoot property" }, 
-                { "id" : "2", "text" : "to pluck the array you want to index" },
-                { "id" : "3", "text" : "even if it's nested inside the document" }  
-            ]
-        }
-    } 
+	{ 
+		"level1" : {
+			"level2" : [
+				{ "id" : "1", "text" : "Use the documentRoot property" }, 
+				{ "id" : "2", "text" : "to pluck the array you want to index" },
+				{ "id" : "3", "text" : "even if it's nested inside the document" }  
+			]
+		}
+	} 
 
-use this configuration to index the array contained in the "level2" property: 
+Usare questa configurazione per indicizzare la matrice contenuta nella proprietà "level2":
 
-    {
-        "name" : "my-json-array-indexer",
-        ... other indexer properties
-        "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
-    }
+	{
+		"name" : "my-json-array-indexer",
+		... other indexer properties
+		"parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
+	}
 
 
-## <a name="request-examples"></a>Request examples
+## Esempi di richiesta
 
-Putting this all together, here are the complete payloads examples. 
+Per concludere, ecco gli esempi completi dei payload.
 
-Datasource: 
+Origine dati:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
+	POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
 
-    {
-        "name" : "my-blob-datasource",
-        "type" : "azureblob",
-        "credentials" : { "connectionString" : "<my storage connection string>" },
-        "container" : { "name" : "my-container", "query" : "optional, my-folder" }
-    }   
+	{
+	    "name" : "my-blob-datasource",
+	    "type" : "azureblob",
+	    "credentials" : { "connectionString" : "<my storage connection string>" },
+	    "container" : { "name" : "my-container", "query" : "optional, my-folder" }
+	}   
 
-Indexer:
+Indicizzatore:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
+	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
 
-    {
-      "name" : "my-json-indexer",
-      "dataSourceName" : "my-blob-datasource",
-      "targetIndexName" : "my-target-index",
-      "schedule" : { "interval" : "PT2H" },
+	{
+	  "name" : "my-json-indexer",
+	  "dataSourceName" : "my-blob-datasource",
+	  "targetIndexName" : "my-target-index",
+	  "schedule" : { "interval" : "PT2H" },
       "parameters" : { "configuration" : { "useJsonParser" : true } }, 
       "fieldMappings" : [ 
         { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
         { "sourceFieldName" : "/article/datePublished", "targetFieldName" : "date" },
         { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
-      ]
-    }
+  	  ]
+	}
 
-## <a name="help-us-make-azure-search-better"></a>Help us make Azure Search better
+## Come contribuire al miglioramento di Ricerca di Azure
 
-If you have feature requests or ideas for improvements, please reach out to us on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
+Se si hanno domande sulle funzionalità o idee per apportare miglioramenti, contattare Microsoft sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

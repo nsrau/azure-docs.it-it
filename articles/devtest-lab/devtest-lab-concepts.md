@@ -1,83 +1,79 @@
 <properties
-    pageTitle="DevTest Labs concepts | Microsoft Azure"
-    description="Learn the basic concepts of DevTest Labs, and how it can make it easy to create, manage, and monitor Azure virtual machines"
-    services="devtest-lab,virtual-machines"
-    documentationCenter="na"
-    authors="tomarcher"
-    manager="douge"
-    editor=""/>
+	pageTitle="Concetti relativi a DevTest Labs | Microsoft Azure"
+	description="Informazioni sui concetti di base di DevTest Labs e su come possa semplificare la creazione, la gestione e il monitoraggio delle macchine virtuali di Azure"
+	services="devtest-lab,virtual-machines"
+	documentationCenter="na"
+	authors="tomarcher"
+	manager="douge"
+	editor=""/>
 
 <tags
-    ms.service="devtest-lab"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/25/2016"
-    ms.author="tarcher"/>
+	ms.service="devtest-lab"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2016"
+	ms.author="tarcher"/>
 
-
-#<a name="devtest-labs-concepts"></a>DevTest Labs concepts
+#Concetti di Lab di sviluppo e test
 
 > [AZURE.NOTE]
-> This article is part 3 of a 3 part series:
+Questo articolo è la parte 3 di una serie in 3 parti:
 > 
-> 1. [What is DevTest Labs?](devtest-lab-overview.md)
-> 1. [Why DevTest Labs?](devtest-lab-why.md)
-> 1. **[DevTest Labs concepts](devtest-lab-concepts.md)**
+> 1. [Che cosa sono i lab di sviluppo/test?](devtest-lab-overview.md)
+> 1. [Perché Lab di sviluppo e test?](devtest-lab-why.md)
+> 1. **[Concetti relativi a DevTest Labs](devtest-lab-concepts.md)**
 
-##<a name="overview"></a>Overview
+##Overview
 
-The following list contains key DevTest Labs concepts and definitions:
+L'elenco seguente contiene le definizioni e i concetti chiave di Lab di sviluppo e test:
 
-##<a name="artifacts"></a>Artifacts
-Artifacts are used to deploy and configure your application after a VM is provisioned. Artifacts can be:
+##Elementi
+Gli elementi vengono usati per distribuire e configurare l'applicazione dopo il provisioning di una macchina virtuale. Gli elementi possono essere:
 
-- Tools that you want to install on the VM - such as agents, Fiddler, and Visual Studio.
-- Actions that you want to run on the VM - such as cloning a repo.
-- Applications that you want to test.
+- Strumenti che si vuole installare nella VM, come agenti, Fiddler, Visual Studio.
+- Azioni che si desidera eseguire sulla macchina virtuale, ad esempio la clonazione di un archivio.
+- Applicazioni che si vuole testare.
 
-Artifacts are [Azure Resource Manager](../resource-group-overview.md) JSON files that contain instructions to perform deployment and apply configuration. 
+Gli elementi sono file JSON basati su [Azure Resource Manager](../resource-group-overview.md) che contengono istruzioni per eseguire la distribuzione e applicare la configurazione.
 
-##<a name="artifact-repositories"></a>Artifact repositories
-Artifact repositories are git repositories where artifacts are checked in. Same artifact repositories can be added to multiple labs in your organization enabling reuse and sharing.
+##Repository di elementi
+I repository di elementi sono repository git in cui vengono archiviati gli elementi. È possibile aggiungere gli stessi archivi elementi a più lab all'interno dell'organizzazione consentendone il riutilizzo e la condivisione.
 
-## <a name="base-images"></a>Base images
-Base images are VM images with all the tools and settings preinstalled and configured to quickly create a VM. You can provision a VM by picking an existing base and adding an artifact to install your test agent. You can then save the provisioned VM as a base so that the base can be used without having to reinstall the test agent for each provisioning of the VM.
+## Immagini di base
+Le immagini di base sono immagini di macchine virtuali con tutti gli strumenti e le impostazioni preinstallati e configurati per creare rapidamente una macchina virtuale. È possibile eseguire il provisioning di una macchina virtuale scegliendo una base esistente e aggiungendo un elemento per installare l'agente di test. È quindi possibile salvare la macchina virtuale di cui è stato effettuato il provisioning come base in modo che la base possa essere utilizzata senza la necessità di reinstallare l'agente di test per ogni processo di provisioning della macchina virtuale.
 
-##<a name="formulas"></a>Formulas 
-Formulas, in addition to base images, provide a mechanism for fast VM provisioning. A formula in DevTest Labs is a list of default property values used to create a lab VM. With formulas, VMs with the same set of properties - such as base image, VM size, virtual network, and artifacts - can be created without needing to specify those properties each time. When creating a VM from a formula, the default values can be used as-is or modified.
+##Formule 
+Le formule, oltre alle immagini di base, offrono un meccanismo per il provisioning rapido di VM. Una formula è un elenco di valori predefiniti di proprietà usati nei lab di sviluppo/test per creare macchine virtuali. Con le formule, è possibile creare VM con lo stesso insieme di proprietà (come l'immagine base, la dimensione della VM, la rete virtuale e gli elementi), senza il bisogno di specificare tali proprietà ogni volta. Quando si crea una VM da una formula, i valori predefiniti possono essere modificati o usati così come sono.
 
-##<a name="caps"></a>Caps
-Caps is a mechanism to minimize waste in your lab. For example, you can set a cap to restrict the number of VMs that can be created per user, or in a lab.
+##Limiti
+I limiti rappresentano un meccanismo per ridurre al minimo gli sprechi nel lab. Ad esempio, è possibile impostare un limite per limitare il numero di macchine virtuali che possono essere create per ogni utente o in un lab.
 
-##<a name="policies"></a>Policies
-Policies help in controlling cost in your lab. For example, you can create a policy to automatically shut down VMs based on a defined schedule.
+##Criteri
+I criteri consentono di controllare i costi nel lab. Ad esempio, è possibile creare un criterio per arrestare automaticamente le macchine virtuali in base a una pianificazione definita.
 
-##<a name="security-levels"></a>Security levels
-Security access is determined by Azure Role-Based Access Control (RBAC). To understand how access works, it helps to understand the differences between a permission, a role, and a scope as defined by RBAC. 
+##Livelli di sicurezza
+L'accesso sicuro è determinato dal controllo degli accessi in base al ruolo di Azure. Per comprendere il funzionamento dell'accesso, è utile conoscere le differenze tra un'autorizzazione, un ruolo e un ambito definiti dal Controllo degli accessi in base al ruolo.
 
-- Permission - A permission is a defined access to a specific action (e.g. read-access to all virtual machines). 
-- Role - A role is a set of permissions that can be grouped and assigned to a user. For example, the *subscription owner* role has access to all resources within a subscription. 
-- Scope - A scope is a level within the hierarchy of an Azure resource - such as a resource group, a single lab, or the entire subscription).
+- Autorizzazione: un'autorizzazione è un accesso definito a un'azione specifica, ad esempio un accesso in lettura a tutte le macchine virtuali.
+- Ruolo: un ruolo è un set di autorizzazioni che possono essere raggruppate e assegnate a un utente. Ad esempio, il ruolo *proprietario della sottoscrizione* ha accesso a tutte le risorse all'interno di una sottoscrizione.
+- Ambito: un ambito è un livello nella gerarchia della risorsa di Azure, ad esempio un gruppo di risorse, un singolo lab o un'intera sottoscrizione.
  
-Within the scope of DevTest Labs, there are two types of roles to define user permissions: lab owner and lab user.
+Nell'ambito di DevTest Labs, esistono due tipi di ruoli per definire le autorizzazioni utente: proprietario del lab e utente del lab.
 
-- Lab Owner - A lab owner has access to any resources within the lab. Therefore, a lab owner can modify policies, read and write any VMs, change the virtual network, and so on. 
-- Lab User - A lab user can view all lab resources, such as VMs, policies, and virtual networks, but cannot modify policies or any VMs created by other users. 
+- Proprietario del lab: un proprietario del lab ha accesso a tutte le risorse all'interno del lab. Un proprietario del lab può quindi modificare i criteri, leggere e scrivere nelle VM, modificare la rete virtuale e così via.
+- Utente del lab: può visualizzare tutte le risorse del lab, ad esempio VM, criteri e reti virtuali, ma non può modificare i criteri o le VM create da altri utenti.
 
 
-To see how to create custom roles in DevTest Labs, refer to the article, [Grant user permissions to specific lab policies](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
+Per informazioni sulla creazione di ruoli personalizzati in DevTest Labs, vedere [Concedere le autorizzazioni utente per specifici criteri di lab](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
 
-Since scopes are hierarchical, when a user has permissions at a certain scope, they are automatically granted those permissions at every lower-level scope encompassed. For instance, if a user is assigned to the role of subscription owner, then they have access to all resources in a subscription, which include all virtual machines, all virtual networks, and all labs. Therefore, a subscription owner automatically inherits the role of lab owner. However, the opposite is not true. A lab owner has access to a lab, which is a lower scope than the subscription level. Therefore, a lab owner will not be able to see virtual machines or virtual networks or any resources that are outside of the lab.
+Poiché gli ambiti sono gerarchici, quando un utente ha le autorizzazioni per un determinato ambito, gli vengono automaticamente concesse tali autorizzazioni per ogni ambito di livello inferiore incluso. Ad esempio, se un utente è assegnato al ruolo di proprietario della sottoscrizione, ha accesso a tutte le risorse in una sottoscrizione, che includono tutte le macchine virtuali, tutte le reti virtuali e tutti i lab. Il proprietario di una sottoscrizione eredita quindi automaticamente il ruolo di proprietario del lab, ma non il contrario. Il proprietario di un lab ha accesso a un lab, che è un ambito più basso del livello della sottoscrizione. Il proprietario di un lab quindi non potrà visualizzare le macchine virtuali, le reti virtuali o nessuna altra risorsa esterna al lab.
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-##<a name="next-steps"></a>Next steps
+##Passaggi successivi
 
-[Create a lab in DevTest Labs](devtest-lab-create-lab.md)
+[Creare un lab in Azure DevTest Labs](devtest-lab-create-lab.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

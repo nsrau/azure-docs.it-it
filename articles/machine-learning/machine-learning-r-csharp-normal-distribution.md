@@ -1,264 +1,263 @@
 <properties 
-    pageTitle="Normal Distribution Web Service Suite | Microsoft Azure" 
-    description="Normal Distribution Web Service Suite" 
-    services="machine-learning" 
-    documentationCenter="" 
-    authors="ireiter" 
-    manager="jhubbard" 
-    editor="cgronlun"/>
+	pageTitle="Normal Distribution Web Service Suite | Microsoft Azure" 
+	description="Normal Distribution Web Service Suite" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="ireiter" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
 <tags 
-    ms.service="machine-learning" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/04/2016" 
-    ms.author="ireiter"/> 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/04/2016" 
+	ms.author="ireiter"/>
+
+#Normal Distribution Suite
 
 
-#<a name="normal-distribution-suite"></a>Normal Distribution Suite
 
-
-
-The Normal Distribution Suite is a set of sample web services ([Generator]( https://datamarket.azure.com/dataset/aml_labs/ndg7), [Quantile Calculator]( https://datamarket.azure.com/dataset/aml_labs/ndq5), [Probability Calculator]( https://datamarket.azure.com/dataset/aml_labs/ndp5)) that help in generating and handling normal distributions. The services allow generating a normal distribution sequence of any length, calculating quantiles from a given probability, and calculating probability from a given quantile. Each of the services emits different outputs based on the selected service (see description below). The Normal Distribution Suite is based on the R functions qnorm, rnorm, and pnorm, which are included in R stats package.
+Normal Distribution Suite è un set di servizi Web di esempio ([Generator](https://datamarket.azure.com/dataset/aml_labs/ndg7), [Quantile Calculator](https://datamarket.azure.com/dataset/aml_labs/ndq5), [Probability Calculator](https://datamarket.azure.com/dataset/aml_labs/ndp5)) che include in particolare tre servizi che semplificano la generazione e la gestione delle distribuzioni normali. I servizi permettono la generazione di una sequenza di distribuzioni normali di qualsiasi lunghezza, calcolando i quantili rispetto alla probabilità specificata e calcolando la probabilità in base a un quantile specificato. Ogni servizio emette output diversi, in base al servizio selezionato, come illustrato più avanti. Normal Distribution Suite è basato sulle funzioni qnorm, rnorm e pnorm del codice R, incluse nel pacchetto statistico R.
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
->This web service could be consumed by users – potentially through a mobile app, through a website, or even on a local computer, for example. But the purpose of the web service is also to serve as an example of how Azure Machine Learning can be used to create web services on top of R code. With just a few lines of R code and clicks of a button within Azure Machine Learning Studio, an experiment can be created with R code and published as a web service. The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure setup by the author of the web service.  
+>Questo servizio Web può essere utilizzato dagli utenti: potenzialmente tramite un'app mobile, un sito Web o anche in un computer locale, ad esempio. Ma lo scopo del servizio Web è anche fornire un esempio di come è possibile utilizzare Azure Machine Learning per creare servizi Web in codice R. Con poche righe di codice R e la selezione di alcuni pulsanti in Azure Machine Learning Studio è possibile creare un esperimento con codice R e pubblicarlo come servizio Web. Il servizio Web può essere quindi pubblicato in Azure Marketplace e può essere usato da utenti e dispositivi in tutto il mondo, senza che l'autore del servizio Web debba configurare alcuna infrastruttura.
  
 
-##<a name="consumption-of-web-service"></a>Consumption of web service
-The Normal Distribution Suite includes the following 3 services.
+##Uso del servizio Web
+Normal Distribution Suite include i tre servizi seguenti:
 
-###<a name="normal-distribution-quantile-calculator"></a>Normal Distribution Quantile Calculator
-This service accepts 4 arguments of a normal distribution and calculates the associated quantile.
+###Normal Distribution Quantile Calculator:
+Questo servizio accetta quattro argomenti di una distribuzione normale e calcola il quantile associato.
 
-The input arguments are:
+Gli argomenti di input sono i seguenti:
 
-* p - A single probability of an event with normal distribution. 
-* Mean - The normal distribution mean.
-* SD - The normal distribution standard deviation. 
-* Side - L for the lower side of the distribution and U for the upper side of the distribution.
+* p: probabilità singola di un evento con distribuzione normale.
+* Mean: media della distribuzione normale.
+* SD: deviazione standard della distribuzione normale.
+* Side: L per la parte inferiore della distribuzione, U per la parte superiore della distribuzione.
 
-The output of the service is the calculated quantile that is associated with the given probability.
+L'output del servizio corrisponde al quantile calcolato associato alla probabilità specificata.
 
-###<a name="normal-distribution-probability-calculator"></a>Normal Distribution Probability Calculator
-This service accepts 4 arguments of a normal distribution and calculates the associated probability.
+###Normal Distribution Probability Calculator:
+Questo servizio accetta quattro argomenti di una distribuzione normale e calcola la probabilità associata.
 
-The input arguments are:
+Gli argomenti di input sono i seguenti:
 
-* q - A single quantile of an event with normal distribution. 
-* Mean - The normal distribution mean.
-* SD - The normal distribution standard deviation. 
-* Side - L for the lower side of the distribution and U for the upper side of the distribution.
+* q: singolo quantile di un evento con distribuzione normale.
+* Mean: media della distribuzione normale.
+* SD: deviazione standard della distribuzione normale.
+* Side: L per la parte inferiore della distribuzione, U per la parte superiore della distribuzione.
 
-The output of the service is the calculated probability that is associated with the given quantile.
+L'output del servizio corrisponde alla probabilità calcolata associata al quantile specificato.
 
-###<a name="normal-distribution-generator"></a>Normal Distribution Generator
-This service accepts 3 arguments of a normal distribution and generates a random sequence of numbers that are normally distributed. The following arguments should be provided to it within the request:
+###Normal Distribution Generator
+Questo servizio accetta tre argomenti di una distribuzione normale e genera una sequenza casuale di numeri distribuiti in modo normale. È necessario fornire gli argomenti seguenti nella richiesta:
 
-* n - The number of observations. 
-* mean - The normal distribution mean.
-* sd - The normal distribution standard deviation. 
+* n: numero di osservazioni.
+* Mean: media della distribuzione normale.
+* SD: deviazione standard della distribuzione normale.
 
-The output of the service is a sequence of length n with a normal distribution based on the mean and sd arguments.
+L'output del servizio corrisponde a una sequenza di lunghezza n con una distribuzione normale basata sugli argomenti mean e sd.
 
->This service, as hosted on the Azure Marketplace, is an OData service; these may be called through POST or GET methods. 
+>Questo servizio come ospitato in Azure Marketplace, è un servizio OData ed è possibile utilizzare i metodi POST o GET per effettuare le chiamate.
 
-There are multiple ways of consuming the service in an automated fashion (example apps are here: [Generator](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionGenerator.aspx), [Probability Calculator](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionProbabilityCalculator.aspx), [Quantile Calculator](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionQuantileCalculator.aspx)).
+Sono disponibili molte opzioni per l'uso del servizio in modalità automatica. Per app di esempio, vedere qui:[Generator](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionGenerator.aspx), [Probability Calculator](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionProbabilityCalculator.aspx), [Quantile Calculator](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionQuantileCalculator.aspx)).
 
-###<a name="starting-c#-code-for-web-service-consumption:"></a>Starting C# code for web service consumption:
+###Codice C# iniziale per l'uso del servizio Web:
 
-###<a name="normal-distribution-quantile-calculator"></a>Normal Distribution Quantile Calculator
-    public class Input
-    {
-            public string p;
-            public string mean;
-            public string sd;
-            public string side;
-    }
-    
+###Normal Distribution Quantile Calculator:
+	public class Input
+	{
+	        public string p;
+	        public string mean;
+	        public string sd;
+	        public string side;
+	}
+	
+	public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
+	{
+	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
+	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+	}
+	
+	void Main()
+	{
+	        var input = new Input() { p = TextBox1.Text, mean = TextBox2.Text, sd = TextBox3.Text, side = TextBox4.Text };
+	        var json = JsonConvert.SerializeObject(input);
+	        var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
+	        var httpClient = new HttpClient();
+	
+	        httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
+	        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+	
+	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
+	        var result = response.Result.Content;
+	    	var scoreResult = result.ReadAsStringAsync().Result;
+	}
+
+
+###Normal Distribution Probability Calculator:
+	public class Input
+	{
+	        public string q;
+	        public string mean;
+	        public string sd;
+	        public string side;
+	}
+	
     public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-    {
-            byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
-            return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-    }
-    
-    void Main()
-    {
-            var input = new Input() { p = TextBox1.Text, mean = TextBox2.Text, sd = TextBox3.Text, side = TextBox4.Text };
-            var json = JsonConvert.SerializeObject(input);
-            var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
-            var httpClient = new HttpClient();
-    
-            httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
-            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-    
-            var response = httpClient.PostAsync(acitionUri, new StringContent(json));
-            var result = response.Result.Content;
-            var scoreResult = result.ReadAsStringAsync().Result;
-    }
+	{
+	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
+	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+	}
+	
+	void Main()
+	{
+	        var input = new Input() { q = TextBox1.Text, mean = TextBox2.Text, sd = TextBox3.Text, side = TextBox4.Text };
+	        var json = JsonConvert.SerializeObject(input);
+	        var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
+	        var httpClient = new HttpClient();
+	
+	        httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
+	        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+	
+	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
+	        var result = response.Result.Content;
+		    var scoreResult = result.ReadAsStringAsync().Result;
+	}
 
-
-###<a name="normal-distribution-probability-calculator"></a>Normal Distribution Probability Calculator
-    public class Input
-    {
-            public string q;
-            public string mean;
-            public string sd;
-            public string side;
-    }
-    
+###Normal Distribution Generator
+	public class Input
+	{
+	        public string n;
+	        public string mean;
+	        public string sd;
+	}
+	
     public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-    {
-            byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
-            return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-    }
-    
-    void Main()
-    {
-            var input = new Input() { q = TextBox1.Text, mean = TextBox2.Text, sd = TextBox3.Text, side = TextBox4.Text };
-            var json = JsonConvert.SerializeObject(input);
-            var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
-            var httpClient = new HttpClient();
-    
-            httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
-            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-    
-            var response = httpClient.PostAsync(acitionUri, new StringContent(json));
-            var result = response.Result.Content;
-            var scoreResult = result.ReadAsStringAsync().Result;
-    }
-
-###<a name="normal-distribution-generator"></a>Normal Distribution Generator
-    public class Input
-    {
-            public string n;
-            public string mean;
-            public string sd;
-    }
-    
-    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-    {
-            byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
-            return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-    }
-    
-    void Main()
-    {
-            var input = new Input() { n = TextBox1.Text, mean = TextBox2.Text, sd = TextBox3.Text };
-            var json = JsonConvert.SerializeObject(input);
-            var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
-            var httpClient = new HttpClient();
-    
-            httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
-            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-    
-            var response = httpClient.PostAsync(acitionUri, new StringContent(json));
-            var result = response.Result.Content;
-            var scoreResult = result.ReadAsStringAsync().Result;
-    }
+	{
+	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
+	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+	}
+	
+	void Main()
+	{
+	        var input = new Input() { n = TextBox1.Text, mean = TextBox2.Text, sd = TextBox3.Text };
+	        var json = JsonConvert.SerializeObject(input);
+	        var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
+	        var httpClient = new HttpClient();
+	
+	        httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
+	        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+	
+	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
+	        var result = response.Result.Content;
+		    var scoreResult = result.ReadAsStringAsync().Result;
+	}
 
 
-##<a name="creation-of-web-service"></a>Creation of web service 
->This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](machine-learning-publish-a-machine-learning-web-service.md), please see [azure.com/ml](http://azure.com/ml). 
+##Creazione del servizio Web 
+>Questo servizio Web è stato creato tramite Azure Machine Learning. Per una versione di valutazione gratuita e per video introduttivi sulla creazione di esperimenti e sulla [pubblicazione di servizi Web](machine-learning-publish-a-machine-learning-web-service.md), vedere [azure.com/ml.](http://azure.com/ml)
 
-Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
+La schermata seguente mostra un esperimento per la creazione del servizio Web e codice di esempio per ogni modulo incluso nell'esperimento.
 
-###<a name="normal-distribution-quantile-calculator"></a>Normal Distribution Quantile Calculator
+###Normal Distribution Quantile Calculator:
 
-Experiment flow:
+Flusso dell'esperimento
 
-![Experiment flow][2]
+![Flusso dell'esperimento][2]
  
-    #Data schema with example data (replaced with data from web service)
-    data.set=data.frame(p=0.1,mean=0,sd=1,side='L');
-    maml.mapOutputPort("data.set"); #send data to output port
-    
-    # Map 1-based optional input ports to variables
-    dataset1 <- maml.mapInputPort(1) # class: data.frame
+	#Data schema with example data (replaced with data from web service)
+	data.set=data.frame(p=0.1,mean=0,sd=1,side='L');
+	maml.mapOutputPort("data.set"); #send data to output port
+	
+	# Map 1-based optional input ports to variables
+	dataset1 <- maml.mapInputPort(1) # class: data.frame
 
-    param = dataset1
-    if (param$p < 0 ) {
-    print('Bad input: p must be between 0 and 1')
-    param$p = 0
-    } else if (param$p > 1) {
-    print('Bad input: p must be between 0 and 1')
-    param$p = 1
-    }
-    q = qnorm(param$p,mean=param$mean,sd=param$sd)
+	param = dataset1
+	if (param$p < 0 ) {
+	print('Bad input: p must be between 0 and 1')
+	param$p = 0
+	} else if (param$p > 1) {
+	print('Bad input: p must be between 0 and 1')
+	param$p = 1
+	}
+	q = qnorm(param$p,mean=param$mean,sd=param$sd)
 
-    if (param$side == 'U'){
-    q = 2* param$mean - q
-    } else if (param$side =='L') {
-    q = q
-    } else {
-    print("Invalid side choice")
-    }
+	if (param$side == 'U'){
+	q = 2* param$mean - q
+	} else if (param$side =='L') {
+	q = q
+	} else {
+	print("Invalid side choice")
+	}
 
-    output = as.data.frame(q)
-    
-    # Select data.frame to be sent to the output Dataset port
-    maml.mapOutputPort("output");
-    
-###<a name="normal-distribution-probability-calculator"></a>Normal Distribution Probability Calculator
-Experiment flow:
+	output = as.data.frame(q)
+	
+	# Select data.frame to be sent to the output Dataset port
+	maml.mapOutputPort("output");
+	
+###Normal Distribution Probability Calculator:
+Flusso dell'esperimento
 
-![Experiment flow][3]
+![Flusso dell'esperimento][3]
  
-    #Data schema with example data (replaced with data from web service)
-    data.set=data.frame(q=-1,mean=0,sd=1,side='L');
-    maml.mapOutputPort("data.set"); #send data to output port
-    
-    # Map 1-based optional input ports to variables
-    dataset1 <- maml.mapInputPort(1) # class: data.frame
+ 	#Data schema with example data (replaced with data from web service)
+	data.set=data.frame(q=-1,mean=0,sd=1,side='L');
+	maml.mapOutputPort("data.set"); #send data to output port
+	
+	# Map 1-based optional input ports to variables
+	dataset1 <- maml.mapInputPort(1) # class: data.frame
 
-    param = dataset1
-    prob = pnorm(param$q,mean=param$mean,sd=param$sd)
+	param = dataset1
+	prob = pnorm(param$q,mean=param$mean,sd=param$sd)
 
-    if (param$side == 'U'){
-    prob = 1 - prob
-    } else if (param$side =='B') {
-    prob = ifelse(prob<=0.5,prob * 2, 1)
-    } else if (param$side =='L') {
-    prob = prob
-    } else {
-    print("Invalid side choice")
-    }
+	if (param$side == 'U'){
+	prob = 1 - prob
+	} else if (param$side =='B') {
+	prob = ifelse(prob<=0.5,prob * 2, 1)
+	} else if (param$side =='L') {
+	prob = prob
+	} else {
+	print("Invalid side choice")
+	}
 
-    output = as.data.frame(prob)
-    
-    # Select data.frame to be sent to the output Dataset port
-    maml.mapOutputPort("output");
-    
-###<a name="normal-distribution-generator"></a>Normal Distribution Generator
-Experiment flow:
+	output = as.data.frame(prob)
+	
+	# Select data.frame to be sent to the output Dataset port
+	maml.mapOutputPort("output");
+	
+###Normal Distribution Generator
+Flusso dell'esperimento
 
-![Experiment flow][4]
+![Flusso dell'esperimento][4]
 
-    #Data schema with example data (replaced with data from web service)
-    data.set=data.frame(n=50,mean=0,sd=1);
-    maml.mapOutputPort("data.set"); #send data to output port
-    
-    # Map 1-based optional input ports to variables
-    dataset1 <- maml.mapInputPort(1) # class: data.frame
+	#Data schema with example data (replaced with data from web service)
+	data.set=data.frame(n=50,mean=0,sd=1);
+	maml.mapOutputPort("data.set"); #send data to output port
+	
+	# Map 1-based optional input ports to variables
+	dataset1 <- maml.mapInputPort(1) # class: data.frame
 
-    param = dataset1
-    dist = rnorm(param$n,mean=param$mean,sd=param$sd)
+	param = dataset1
+	dist = rnorm(param$n,mean=param$mean,sd=param$sd)
 
-    output = as.data.frame(t(dist))
+	output = as.data.frame(t(dist))
 
-    # Select data.frame to be sent to the output Dataset port
-    maml.mapOutputPort("output");
+	# Select data.frame to be sent to the output Dataset port
+	maml.mapOutputPort("output");
 
-##<a name="limitations"></a>Limitations 
+##Limitazioni 
 
-These are very simple examples surrounding the normal distribution. As can be seen from the example code above, little error catching is implemented.
+Questi sono esempi molto semplici relativi alla distribuzione normale. Come si può notare dal codice di esempio precedente, è implementata un rilevamento limitato degli errori.
 
-##<a name="faq"></a>FAQ
-For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see [here](machine-learning-marketplace-faq.md).
+##Domande frequenti
+Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione in Azure Marketplace, vedere [qui](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-normal-distribution/normal-img1.png
 [2]: ./media/machine-learning-r-csharp-normal-distribution/normal-img2.png
@@ -266,8 +265,4 @@ For frequently asked questions on consumption of the web service or publishing t
 [4]: ./media/machine-learning-r-csharp-normal-distribution/normal-img4.png
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Modify local network gateway IP address prefixes and gateway IP | Microsoft Azure"
-   description="This article walks you through changing IP address prefixes for your local network gateway"
+   pageTitle="Modificare i prefissi degli indirizzi IP del gateway di rete locale e l'indirizzo IP del gateway | Microsoft Azure"
+   description="Questo articolo illustra in modo dettagliato la modifica dei prefissi degli indirizzi IP per il gateway di rete locale"
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
    manager="carmonm"
    editor=""
-   tags="azure-resource-manager"/>
+   tags="azure-resource-manager"/>  
 
 <tags
    ms.service="vpn-gateway"
@@ -17,30 +17,24 @@
    ms.date="08/08/2016"
    ms.author="cherylmc"/>
 
+# Modificare le impostazioni del gateway di rete locale usando PowerShell
 
-# <a name="modify-local-network-gateway-settings-using-powershell"></a>Modify local network gateway settings using PowerShell
+In alcuni casi le impostazioni per il valore AddressPrefix o GatewayIPAddress del gateway di rete locale subiscono modifiche. Le istruzioni seguenti sono utili per la modifica delle impostazioni del gateway di rete locale. È anche possibile modificare queste impostazioni nel portale di Azure.
 
-Sometimes the settings for your local network gateway AddressPrefix or GatewayIPAddress change. The instructions below will help you modify your local network gateway settings. You can also modify these settings in the Azure portal.
+## Prima di iniziare
+	
+È necessario installare la versione più recente dei cmdlet di PowerShell per Gestione risorse di Azure. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
-## <a name="before-you-begin"></a>Before you begin
-    
-You'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
-
-## <a name="to-modify-ip-address-prefixes"></a>To modify IP address prefixes
+## Per modificare i prefissi degli indirizzi IP
 
 [AZURE.INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
-## <a name="to-modify-the-gateway-ip-address"></a>To modify the gateway IP address
+## Per modificare l'indirizzo IP del gateway
 
 [AZURE.INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-You can verify your gateway connection. See [Verify a gateway connection](vpn-gateway-verify-connection-resource-manager.md).
+È possibile verificare la connessione al gateway. Vedere [Verificare una connessione al gateway](vpn-gateway-verify-connection-resource-manager.md).
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

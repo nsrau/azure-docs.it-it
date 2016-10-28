@@ -1,124 +1,120 @@
-<properties     
-    pageTitle="Azure Data Factory - Samples" 
-    description="Provides details about samples that ship with the Azure Data Factory service." 
-    services="data-factory" 
-    documentationCenter="" 
-    authors="spelluru" 
-    manager="jhubbard" 
-    editor="monicar"/>
+<properties 	
+	pageTitle="Azure Data Factory: esempi" 
+	description="Fornisce informazioni dettagliate sugli esempi inclusi nel servizio Azure Data Factory." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
 <tags 
-    ms.service="data-factory" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/08/2016" 
-    ms.author="spelluru"/>
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/08/2016" 
+	ms.author="spelluru"/>  
 
+# Azure Data Factory: esempi
 
-# <a name="azure-data-factory---samples"></a>Azure Data Factory - Samples
+## Esempi in GitHub
+Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-datafactory) include alcuni esempi che permettono di acquisire rapidamente familiarità con il servizio Azure Data Factory (o) modificare gli script e usarlo nella propria applicazione. La cartella Samples\\JSON include frammenti di codice JSON per scenari comuni.
 
-## <a name="samples-on-github"></a>Samples on GitHub
-The [GitHub Azure-DataFactory repository](https://github.com/azure/azure-datafactory) contains several samples that help you quickly ramp up with Azure Data Factory service (or) modify the scripts and use it in own application. The Samples\JSON folder contains JSON snippets for common scenarios.
-
-| Sample | Description |
+| Esempio | Descrizione |
 | :----- | :---------- | 
-| [ADF Walkthrough](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) | This sample provides an end-to-end walkthrough for processing log files using Azure Data Factory to turn data from log files into insights. <br/><br/>In this walkthrough, the Data Factory pipeline collects sample logs, processes and enriches the data from logs with reference data, and transforms the data to evaluate the effectiveness of a marketing campaign that was recently launched. |
-| [JSON samples](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON) | This sample provides JSON examples for common scenarios. | 
-| [Http Data Downloader Sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) | This sample showcases downloading of data from an HTTP endpoint to Azure Blob Storage using custom .NET activity. |
-| [Cross AppDomain Dot Net Activity Sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) | This sample allows you to author a custom .NET activity that is not constrained to assembly versions used by the ADF launcher (e.g., WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, etc.). |
-| [Run R script](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample) |  This sample includes the Data Factory custom activity that can be used to invoke RScript.exe. This sample works only with your own (not on-demand) HDInsight cluster that already has R Installed on it. |
-| [Invoke Spark jobs on HDInsight Hadoop cluster](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/Spark) | This sample shows how to use MapReduce activity to invoke a Spark program. The spark program just copies data from one Azure Blob container to another. |
-| [Twitter Analysis using Azure Machine Learning Batch Scoring Activity](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-AzureMLBatchScoringActivity) | This sample shows how to use AzureMLBatchScoringActivity to invoke an Azure Machine Learning model that performs twitter sentiment analysis, scoring, prediction etc. |
-| [Twitter Analysis using custom activity](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |  This sample shows how to use a custom .NET activity to invoke an Azure Machine Learning model that performs twitter sentiment analysis, scoring, prediction etc. |
-| [Parameterized Pipelines for Azure Machine Learning](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ParameterizedPipelinesForAzureML/) | The sample provides an end-to-end C# code to deploy N pipelines for scoring and retraining each with a different region parameter where the list of regions is coming from a parameters.txt file which is included with this sample. | 
-| [Reference Data Refresh for Azure Stream Analytics jobs](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs) |  This sample shows how to leverage Azure Data Factory and Azure Stream Analytics together to run the queries with reference data and setup the refresh for reference data on a schedule. |
-| [Hybrid Pipeline with On-premises Hortonworks Hadoop](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HybridPipelineWithOnPremisesHortonworksHadoop) | The sample uses an on-premises Hadoop cluster as a compute target for running jobs in Data Factory just like you would add other compute targets like an HDInsight based Hadoop cluster in cloud. |
-| [JSON Conversion Tool](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSONConversionTool) | This tool allows you to convert JSONs from version prior to 2015-07-01-preview to latest or 2015-07-01-preview (default). |  
-| [U-SQL sample input file](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/U-SQL%20Sample%20Input%20File) |  This is a sample file used by an U-SQL activity. | 
+| [Procedura dettagliata di Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) | Questo esempio fornisce una procedura dettagliata end-to-end per l'elaborazione dei file di log mediante Azure Data Factory allo scopo di trasformare i dati da file di log in informazioni. <br/><br/>In questa procedura dettagliata la pipeline di Data Factory raccoglie log di esempio, elabora e arricchisce i dati dei log con dati di riferimento e trasforma i dati per valutare l'efficacia di una campagna di marketing lanciata di recente. |
+| [Esempi JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON) | Questo esempio fornisce esempi JSON relativi a scenari comuni. | 
+| [Esempio relativo all'unità di download dei dati HTTP](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) | Questo esempio mostra il download di dati da un endpoint HTTP nell'archiviazione BLOB di Azure mediante un'attività .NET personalizzata. |
+| [Esempio di attività .NET di passaggio tra AppDomain](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) | Questo esempio consente di creare un'attività .NET personalizzata non vincolata alle versioni assembly usate dal servizio di avvio di Azure Data Factory (ad esempio WindowsAzure.Storage versione 4.3.0, Newtonsoft.Json versione 6.0.x e così via). |
+| [Esecuzione di script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample) | Questo esempio include l'attività personalizzata di Data Factory che può essere usata per richiamare RScript.exe. Questo esempio funziona soltanto con il cluster HDInsight dell'utente (non con quello su richiesta) in cui è già installato R. |
+| [Richiamare processi Spark in cluster Hadoop di HDInsight](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/Spark) | Questo esempio illustra come usare l'attività MapReduce per richiamare un programma Spark. Il programma Spark si limita a copiare i dati da un contenitore BLOB di Azure a un altro. |
+| [Analisi Twitter mediante un'attività batch di Azure Machine Learning per l'assegnazione dei punteggi](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-AzureMLBatchScoringActivity) | Questo esempio illustra come usare AzureMLBatchScoringActivity per richiamare un modello di Azure Machine Learning che esegue analisi del sentiment Twitter, assegnazione dei punteggi, stime e così via. |
+| [Analisi Twitter mediante un'attività personalizzata](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) | Questo esempio illustra come usare un'attività .NET personalizzata per richiamare un modello di Azure Machine Learning che esegue analisi del sentiment Twitter, assegnazione dei punteggi, stime e così via. |
+| [Pipeline con parametri per Azure Machine Learning](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ParameterizedPipelinesForAzureML/) | Questo esempio fornisce un codice C# end-to-end per la distribuzione di N pipeline per l'assegnazione dei punteggi e la ripetizione di ciascuno con un parametro di area differente. L'elenco delle aree proviene da un file parameters.txt incluso nell'esempio. | 
+| [Aggiornamento dei dati di riferimento per i processi di Analisi di flusso di Azure](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs) | Questo esempio illustra come sfruttare insieme le potenzialità di Azure Data Factory e Analisi di flusso di Azure per eseguire le query con dati di riferimento e configurare l'aggiornamento dei dati di riferimento in base a una pianificazione. |
+| [Pipeline ibrida con Hortonworks Hadoop locale](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HybridPipelineWithOnPremisesHortonworksHadoop) | Questo esempio usa un cluster Hadoop locale come computer di destinazione per l'esecuzione di processi in Data Factory in modo analogo all'aggiunta di altre destinazioni di calcolo quali un cluster Hadoop basato su HDInsight nel cloud. |
+| [Strumento di conversione JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSONConversionTool) | Questo strumento consente di convertire documenti JSON da una versione precedente a 2015-07-01-preview (impostazione predefinita) o a una versione successiva. |  
+| [File di input di esempio U-SQL](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/U-SQL%20Sample%20Input%20File) | Si tratta di un file di esempio usato da un'attività di U-SQL. | 
 
 
 
-## <a name="samples-in-azure-portal"></a>Samples in Azure Portal
-You can use the **Sample pipelines** tile on the home page of your data factory to deploy sample pipelines and their associated entities (datasets and linked services) into your data factory. 
+## Esempi nel portale di Azure
+È possibile usare il riquadro **Pipeline di esempio** nella home page della data factory per distribuire le pipeline di esempio e le entità associate (set di dati e servizi collegati) nella data factory.
 
-1. Create a new data factory or open an existing data factory. See [Getting started with Azure Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md#CreateDataFactory) for steps to create a data factory.
-2. In the **DATA FACTORY** blade for the data factory, click the **Sample pipelines** tile.
+1. Creare una nuova data factory o aprire una data factory esistente. Per informazioni su come creare una data factory, vedere [Introduzione a Data factory di Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md#CreateDataFactory).
+2. Nel pannello **DATA FACTORY** per la data factory, fare clic sul riquadro **Pipeline di esempio**.
 
-    ![Sample pipelines tile](./media/data-factory-samples/SamplePipelinesTile.png)
+	![Riquadro Pipeline di esempio](./media/data-factory-samples/SamplePipelinesTile.png)
 
-2. In the **Sample pipelines** blade, click the **sample** that you want to deploy. 
-    
-    ![Sample pipelines blade](./media/data-factory-samples/SampleTile.png)
+2. Nel pannello **Pipeline di esempio**, fare clic sull'**esempio** da distribuire.
+	
+	![Pannello Pipeline di esempio](./media/data-factory-samples/SampleTile.png)
 
-3. Specify configuration settings for the sample. For example, your Azure storage account name and account key, Azure SQL server name, database, User ID, and password, etc... 
+3. Specificare le impostazioni di configurazione per l'esempio, ad esempio il nome dell'account di archiviazione di Azure e la chiave dell'account, il nome del server di Azure SQL, il database, l'ID utente, la password e così via.
 
-    ![Sample blade](./media/data-factory-samples/SampleBlade.png)
+	![Pannello Esempio](./media/data-factory-samples/SampleBlade.png)
 
-4. After you are done with specifying the configuration settings, click **Create** to create/deploy the sample pipelines and linked services/tables used by the pipelines.
-5. You will see the status of deployment on the sample tile you clicked earlier on the **Sample pipelines** blade.
+4. Dopo avere specificato le impostazioni di configurazione, fare clic su **Crea** per creare/distribuire le pipeline di esempio e i servizi collegati o le tabelle usati dalle pipeline.
+5. Lo stato della distribuzione sarà visualizzato sul riquadro dell'esempio selezionato in precedenza nel pannello **Pipeline di esempio**.
 
-    ![Deployment status](./media/data-factory-samples/DeploymentStatus.png)
+	![Stato della distribuzione](./media/data-factory-samples/DeploymentStatus.png)
 
-6. When you see the **Deployment succeeded** message on the tile for the sample, close the **Sample pipelines** blade.  
-5. On **DATA FACTORY** blade, you will see that linked services, data sets, and pipelines are added to your data factory.  
+6. Quando viene visualizzato il messaggio **Distribuzione riuscita** nel riquadro relativo all'esempio, chiudere il pannello **Pipeline di esempio**.
+5. Nel pannello **DATA FACTORY** si potrà notare che i servizi collegati, i set di dati e le pipeline vengono aggiunti alla data factory.
 
-    ![Data Factory blade](./media/data-factory-samples/DataFactoryBladeAfter.png)
+	![Pannello Data factory](./media/data-factory-samples/DataFactoryBladeAfter.png)
    
-## <a name="samples-in-visual-studio"></a>Samples in Visual Studio
+## Esempi in Visual Studio
 
-### <a name="prerequisites"></a>Prerequisites
+### Prerequisiti
 
-You must have the following installed on your computer: 
+È necessario disporre dei seguenti prodotti installati nel computer in uso:
 
-- Visual Studio 2013 or Visual Studio 2015
-- Download Azure SDK for Visual Studio 2013 or Visual Studio 2015. Navigate to [Azure Download Page](https://azure.microsoft.com/downloads/) and click **VS 2013** or **VS 2015** in the **.NET** section.
-- Download the latest Azuer Data Factory plugin for Visual Studio : [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) or [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). If you are using Visual Studio 2013, you can also update the plugin by doing the following: On the menu, click **Tools** -> **Extensions and Updates** -> **Online** -> **Visual Studio Gallery** -> **Microsoft Azure Data Factory Tools for Visual Studio** -> **Update**.
+- Visual Studio 2013 o Visual Studio 2015
+- Download di Azure SDK per Visual Studio 2013 o Visual Studio 2015. Passare alla [pagina di download di Azure](https://azure.microsoft.com/downloads/) e fare clic su **VS 2013** o **VS 2015** nella sezione **.NET**.
+- Scaricare il plug-in Data Factory di Azure più recente per Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [2015 VS](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Se si usa Visual Studio 2013, è anche possibile aggiornare il plug-in nel modo seguente: nel menu fare clic su **Strumenti** -> **Estensioni e aggiornamenti** -> **Online** -> **Visual Studio Gallery** -> **Strumenti di Microsoft Azure Data Factory per Visual Studio** -> **Aggiorna**.
 
-### <a name="use-data-factory-templates"></a>Use Data Factory Templates
+### Usare Modelli di Data Factory
 
-1. Click **File** on the menu, point to **New**, and click **Project**. 
-2. In the **New Project** dialog box, do the following: 
-    1. Select **DataFactory** under **Templates**. 
-    2. Select **Data Factory Templates** in the right pane. 
-    3. Enter a **name** for the project. 
-    4. Select a **location** for the project. 
-    5. Click **OK**. 
+1. Fare clic su **File** nel menu, scegliere **New** (Nuovo) e quindi fare clic su **Project** (Progetto).
+2. Nella finestra di dialogo **New Project** (Nuovo progetto) seguire questa procedura:
+	1. Selezionare **DataFactory** in **Templates** (Modelli).
+	2. Selezionare **Data Factory Templates** (Modelli di Data Factory) nel riquadro di destra.
+	3. Immettere un **nome** per il progetto.
+	4. Selezionare una **località** per il progetto.
+	5. Fare clic su **OK**.
 
-    ![New project dialog box](./media/data-factory-samples/vs-new-project-adf-templates.png)
-6. In the **Data Factory Templates** dialog box, select the sample template from the **Use-Case Templates** section, and click **Next**. The following steps walk you through using the **Customer Profiling** template. Steps are similar for the other sample(s). 
+	![Finestra di dialogo Nuovo progetto](./media/data-factory-samples/vs-new-project-adf-templates.png)
+6. Nella finestra di dialogo **Data Factory Templates** (Modelli di Data Factory) selezionare il modello di esempio dalla sezione **Use-Case Templates** (Modelli di casi d'uso) e fare clic su **Avanti**. I passaggi seguenti forniscono istruzioni dettagliate per l'uso del modello **Customer Profiling** (Profiling cliente). I passaggi sono simili ad altri esempi.
 
-    ![Data Factory Templates dialog box](./media/data-factory-samples/vs-data-factory-templates-dialog.png) 
-7. In the **Data Factory Configuration** dialog, click **Next** on the **Data Factory Basics** page.
-8. On the **Configure data factory** page, do the following: 
-    1. select **Create New Data Factory** for the purpose of this walkthrough. You can also select **Use existing data factory**.
-    2. Enter a **name** for the data factory.
-    3. Select the **Azure subscription** in which you want the data factory to be created. 
-    4. Select the **resource group** for the data factory.
-    5. Select the **West US**, **East US** or **North Europe** for the **region**.
-    6. Click **Next**. 
-9. In the **Configure data stores** page, specify an existing **Azure SQL database** and **Azure storage account** (or) create new ones, and click Next. 
-10. In the **Configure compute** page, select defaults, and click **Next**. 
-11. In the **Summary** page, review all settings, and click **Next**. 
-12. In the **Deployment Status** page, wait until the deployment is finished, and click **Finish**.
-13. Right-click project in the Solution Explorer, and click **Publish**. 
-19. If you see **Sign in to your Microsoft account** dialog box, enter your credentials for the account that has Azure subscription, and click **sign in**.
-20. You should see the following dialog box:
+	![Finestra di dialogo Modelli di Data Factory](./media/data-factory-samples/vs-data-factory-templates-dialog.png)
+7. Nella finestra di dialogo **Data Factory Configuration** (Configurazione di Data Factory) fare clic su **Next** (Avanti) nella pagina **Data Factory Basics** (Informazioni di base di Data Factory).
+8. Nella pagina **Configure data factory** (Configura data factory) seguire questa procedura:
+	1. Selezionare **Create New Data Factory** (Crea nuova data factory) ai fini di questa procedura dettagliata. In alternativa, selezionare **Use existing data factory** (Usa data factory esistente).
+	2. Immettere un **nome** per la data factory.
+	3. Selezionare la **sottoscrizione di Azure** in cui creare la data factory.
+	4. Selezionare il **gruppo di risorse** per la data factory.
+	5. Selezionare **West US** (Stati Uniti occidentali), **East US** (Stati Uniti orientali) o **North Europe** (Europa settentrionale) per l'**area**.
+	6. Fare clic su **Next** (Avanti).
+9. Nella pagina **Configura archivi dati** specificare un **database SQL di Azure** e un **account di archiviazione di Azure** esistenti oppure crearne di nuovi, quindi scegliere Avanti.
+10. Nella pagina **Configure data stores** (Configura calcolo) selezionare le impostazioni predefinite e fare clic su **Next** (Avanti).
+11. Nella pagina **Summary** (Riepilogo) esaminare tutte le impostazioni e fare clic su **Next** (Avanti).
+12. Nella pagina **Deployment Status** (Stato distribuzione) attendere finché non viene completata la distribuzione e fare clic su **Finish** (Fine).
+13. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Pubblica**.
+19. Se viene visualizzato **Accedere al proprio account Microsoft** nella finestra di dialogo immettere le credenziali per l'account che dispone di sottoscrizione di Azure e fare clic su **accedi**.
+20. Verrà visualizzata la finestra di dialogo seguente:
 
-    ![Publish dialog box](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
+	![Finestra di dialogo Pubblica](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
 
-21. In the **Configure data factory** page, do the following: 
-    1. Confirm that **Use existing data factory** option.
-    2. Select the **data factory** you had select when using the template above. 
-    6. Click **Next** to switch to the **Publish Items** page. (Press **TAB** to move out of the Name field to if the **Next** button is disabled.) 
-23. In the **Publish Items** page, ensure that all the Data Factories entities are selected, and click **Next** to switch to the **Summary** page.     
-24. Review the summary and click **Next** to start the deployment process and view the **Deployment Status**.
-25. In the **Deployment Status** page, you should see the status of the deployment process. Click Finish after the deployment is done. 
+21. Nella pagina **Configure data factory** (Configura data factory) procedere come segue:
+	1. Confermare l'opzione **Use existing data factory** (Usa data factory esistente).
+	2. Selezionare la stessa **data factory** del modello precedente.
+	6. Fare clic su **Next** (Avanti) per passare alla pagina **Publish Items** (Pubblica elementi). Premere **TAB** per uscire dal campo Name (Nome) se il pulsante **Next** (Avanti) è disabilitato.
+23. Nella pagina **Publish Items** (Pubblica elementi) assicurarsi che tutte le data factory siano selezionate e fare clic su **Next** (Avanti) per passare alla pagina **Summary** (Riepilogo).
+24. Esaminare il riepilogo e fare clic su **Next** (Avanti) per avviare il processo di distribuzione e visualizzare **Deployment Status** (Stato della distribuzione).
+25. Nella pagina **Deployment Status** (Stato della distribuzione), è possibile visualizzare lo stato del processo di distribuzione. Fare clic su Finish (Fine) dopo il termine della distribuzione.
 
-See [Build your first data factory (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md) for details about using Visual Studio to author Data Factory entities and publishing them to Azure.          
+Per informazioni dettagliate sull'uso di Visual Studio per creare entità di Data Factory e pubblicarle in Azure, vedere [Creare la prima data factory di Azure con Microsoft Visual Studio](data-factory-build-your-first-pipeline-using-vs.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

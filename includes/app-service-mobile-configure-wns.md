@@ -1,13 +1,10 @@
 
-1. In the [Azure Portal]( https://azure.portal.com/), click **Browse** > **App Services**, then click your Mobile App backend > **All settings**, then under **Mobile** click **Push**.
+1. Nel [portale di Azure](https://azure.portal.com/), fare clic su **Sfoglia** > **Servizi app**, quindi individuare e fare clic sul back-end dell'App per dispositivi mobili > **Tutte le impostazioni**, quindi in **Dispositivi mobili** fare clic su **Push**.
 
-2. In Push notification services, click **Windows (WNS)**, enter the **Security key** (client secret) and **Package SID** that you obtained from the Live Services site, then click **Save**.
+2. In Servizio di notifica Push fare clic su **Windows (WNS)** immettere la **Chiave di sicurezza** (chiave privata client) e **SID di pacchetto** ottenuti dal sito di servizi Live, quindi fare clic su **Salva**.
 
-    ![Set the GCM API key in the portal](./media/app-service-mobile-configure-wns/mobile-push-wns-credentials.png)
+    ![Impostare la chiave API di GCM nel portale](./media/app-service-mobile-configure-wns/mobile-push-wns-credentials.png)
 
-Your Mobile App backend is now configured to use WNS to send push notifications to your Windows app using its notification hub.
+Il back-end dell'app per dispositivi mobili è ora configurato per usare WNS per inviare notifiche push a un'app di Windows tramite l'hub di notifica.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1203_2015-->

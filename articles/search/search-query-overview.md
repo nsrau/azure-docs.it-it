@@ -1,9 +1,9 @@
 <properties
-    pageTitle="Query your Azure Search Index | Microsoft Azure | Hosted cloud search service"
-    description="Build a search query in Azure search and use search parameters to filter and sort search results."
+    pageTitle="Eseguire query su un indice di Ricerca di Azure | Microsoft Azure | Servizio di ricerca cloud ospitato"
+    description="Compilare una query di ricerca in Ricerca di Azure e usare i parametri di ricerca per filtrare e ordinare i risultati della ricerca."
     services="search"
     documentationCenter=""
-    authors="ashmaka"
+	authors="ashmaka"
 />
 
 <tags
@@ -15,52 +15,47 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
-
-# <a name="query-your-azure-search-index"></a>Query your Azure Search index
+# Eseguire query su un indice di Ricerca di Azure
 > [AZURE.SELECTOR]
-- [Overview](search-query-overview.md)
-- [Portal](search-explorer.md)
+- [Panoramica](search-query-overview.md)
+- [Portale](search-explorer.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
-When submitting search requests to Azure Search, there are a number of parameters that can be specified alongside the actual words that are typed into the search box of your application. These query parameters allow you to achieve some deeper control of the full-text search experience.
+Quando si inviano richieste di ricerca in Ricerca di Azure, è possibile specificare una serie di parametri insieme alle parole effettive digitate nella casella di ricerca dell'applicazione. Questi parametri di query consentono di ottenere un controllo più approfondito dell'esperienza di ricerca full-text.
 
-Below is a list that briefly explains common uses of the query parameters in Azure Search. For full coverage of query parameters and their behavior, please see the detailed pages for the [REST API](https://msdn.microsoft.com/library/azure/dn798927.aspx) and [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.searchparameters_properties.aspx).
+Di seguito è riportato un elenco che illustra brevemente gli usi più comuni dei parametri di query in Ricerca di Azure. Per la copertura completa dei parametri di query e il relativo comportamento, vedere le pagine dettagliate per l'[API REST](https://msdn.microsoft.com/library/azure/dn798927.aspx) e [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.searchparameters_properties.aspx).
 
-## <a name="types-of-queries"></a>Types of queries
+## Tipi di query
 
-Azure Search offers many options to create extremely powerful queries. The two main types of query you will use are `search` and `filter`. A `search` query searches for one or more terms in all _searchable_ fields in your index, and works the way you would expect a search engine like Google or Bing to work. A `filter` query evaluates a boolean expression over all _filterable_ fields in an index. Unlike `search` queries, `filter` queries match the exact contents of a field, which means they are case-sensitive for string fields.
+Ricerca di Azure offre numerose opzioni per creare query estremamente avanzate. I due tipi di query principali che si useranno sono `search` e `filter`. Una query `search` cerca uno o più termini in tutti i campi _ricercabili_ dell'indice e funziona come un motore di ricerca, ad esempio Google o Bing. Una query `filter` valuta un'espressione booleana su tutti i campi _filtrabili_ di un indice. Diversamente dalle query `search`, le query `filter` ricercano la corrispondenza esatta con il contenuto di un campo, quindi supportano la distinzione tra lettere maiuscole e minuscole per i campi di tipo stringa.
 
-You can use searches and filters together or separately. If you use them together, the filter is applied first to the entire index, and then the search is performed on the results of the filter. Filters can therefore be a useful technique to improve query performance since they reduce the set of documents that the search query needs to process.
+È possibile usare le ricerche e i filtri insieme o separatamente. Se si usano insieme, prima viene applicato il filtro all'intero indice e quindi viene eseguita la ricerca sui risultati del filtro. I filtri quindi possono essere un'utile tecnica per migliorare le prestazioni delle query perché riducono il set di documenti che la query di ricerca deve elaborare.
 
-The syntax for filter expressions is a subset of the [OData filter language](https://msdn.microsoft.com/library/azure/dn798921.aspx). For search queries you can use either the [simplified syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx) or the [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx) which are discussed below.
+La sintassi per le espressioni di filtro è un subset del [linguaggio di filtro OData](https://msdn.microsoft.com/library/azure/dn798921.aspx). Per le query di ricerca è possibile usare la [sintassi semplificata](https://msdn.microsoft.com/library/azure/dn798920.aspx) o la [sintassi di query Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx), illustrate di seguito.
 
-### <a name="simple-query-syntax"></a>Simple query syntax
-The [simple query syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx) is the default query language used in Azure Search. The simple query syntax supports a number of common search operators including the AND, OR, NOT, phrase, suffix, and precedence operators.
+### Sintassi di query semplice
+La [sintassi di query semplice](https://msdn.microsoft.com/library/azure/dn798920.aspx) è il linguaggio di query predefinito usato in Ricerca di Azure. La sintassi di query semplice supporta un numero di operatori di ricerca comuni tra cui gli operatori AND, OR, NOT, frase, suffisso e di precedenza.
 
-### <a name="lucene-query-syntax"></a>Lucene query syntax
-The [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx) allows you to use the widely-adopted and expressive query language developed as part of [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
+### Sintassi di query Lucene
+La [sintassi di query Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) consente di usare il linguaggio di query espressivo e ampiamente diffuso sviluppato come parte di [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
-Using this query syntax allows you to easily achieve the following capabilities: [Field-scoped queries](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_fields), [fuzzy search](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_fuzzy), [proximity search](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_proximity), [term boosting](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_termboost), [regular expression search](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_regex), [wildcard search](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_wildcard), [syntax fundamentals](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_syntax), and [queries using boolean operators](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_boolean).
-
-
-
-## <a name="ordering-results"></a>Ordering results
-When receiving results for a search query, you can request that Azure Search serves the results ordered by values in a specific field. By default, Azure Search orders the search results based on the rank of each document's search score, which is derived from [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
-
-If you want Azure Search to return your results ordered by a value other than the search score, you can use the `orderby` search parameter. You can specify the value of the `orderby` parameter to include field names and calls to the [`geo.distance()` function](https://msdn.microsoft.com/library/azure/dn798921.aspx) for geospatial values. Each expression can be followed by `asc` to indicate that results are requested in ascending order, and `desc` to indicate that results are requested in descending order. The default ranking ascending order.
-
-## <a name="paging"></a>Paging
-Azure Search makes it easy to implement paging of search results. By using the `top` and `skip` parameters, you can smoothly issue search requests that allow you to receive the total set of search results in manageable, ordered subsets that easily enable good search UI practices. When receiving these smaller subsets of results, you can also receive the count of documents in the total set of search results.
-
-You can learn more about paging search results in the article [How to page search results in Azure Search](search-pagination-page-layout.md).
-
-
-## <a name="hit-highlighting"></a>Hit highlighting
-In Azure Search, emphasizing the exact portion of search results that match the search query is made easy by using the `highlight`, `highlightPreTag`, and `highlightPostTag` parameters. You can specify which _searchable_ fields should have their matched text emphasized as well as specifying the exact string tags to append to the start and end of the matched text that Azure Search returns.
+Usando questa sintassi di query è possibile ottenere facilmente le funzionalità seguenti: [query con ambito campo](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_fields), [ricerca fuzzy](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_fuzzy), [ricerca di prossimità](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_proximity), [aumento priorità dei termini](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_termboost), [ricerca di espressione regolare](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_regex), [ricerca con caratteri jolly](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_wildcard), [elementi fondamentali della sintassi](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_syntax) e [query con operatori booleani](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_boolean).
 
 
 
-<!--HONumber=Oct16_HO2-->
+## Ordinamento dei risultati
+Quando si ricevono i risultati di una query di ricerca, è possibile richiedere che Ricerca di Azure presenti i risultati ordinati in base ai valori di un campo specifico. Per impostazione predefinita, Ricerca di Azure ordina i risultati della ricerca in base alle priorità del punteggio di ricerca di ciascun documento, che deriva da [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
+
+Se si vuole che Ricerca di Azure restituisca i risultati ordinati in base a un valore diverso dal punteggio di ricerca, è possibile usare il parametro di ricerca `orderby`. È possibile specificare il valore del parametro `orderby` per includere i nomi dei campi e le chiamate alla funzione [`geo.distance()`](https://msdn.microsoft.com/library/azure/dn798921.aspx) per ottenere valori geospaziali. Ogni espressione può essere seguita da `asc` per indicare che i risultati vengono richiesti in ordine crescente e `desc` per indicare che i risultati vengono richiesti in ordine decrescente. Per impostazione predefinita, l'ordinamento è crescente.
+
+## Paging
+Ricerca di Azure rende più facile implementare il paging dei risultati della ricerca. Tramite i parametri `top` e `skip` è possibile eseguire in modo uniforme le richieste di ricerca che consentono di ricevere il set totale di risultati della ricerca in subset gestibili e ordinati in grado di abilitare facilmente ottime procedure di ricerca nell'interfaccia utente. Quando si ricevono questi subset di risultati più piccoli, è anche possibile ottenere il numero di documenti nel set di totale dei risultati della ricerca.
+
+Altre informazioni sul paging dei risultati della ricerca sono disponibili nell'articolo [Come impaginare i risultati della ricerca in Ricerca di Azure](search-pagination-page-layout.md).
 
 
+## Evidenziazione dei risultati
+In Ricerca di Azure è semplice mettere in evidenza la parte esatta dei risultati della ricerca che corrispondono alla query di ricerca usando i parametri `highlight`, `highlightPreTag` e `highlightPostTag`. È possibile specificare quali campi _ricercabili_ devono avere il testo corrispondente evidenziato e specificare anche i tag della stringa esatta da aggiungere all'inizio e alla fine del testo corrispondente restituito da Ricerca di Azure.
+
+<!---HONumber=AcomDC_0831_2016-->

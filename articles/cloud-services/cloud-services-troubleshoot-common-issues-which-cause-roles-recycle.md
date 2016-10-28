@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Common causes of Cloud Service roles recycling | Microsoft Azure"
-   description="A cloud service role that suddenly recycles can cause significant downtime. Here are some common issues that cause roles to be recycled, which may help you reduce downtime."
+   pageTitle="Cause comuni del riciclo dei ruoli del servizio cloud | Microsoft Azure"
+   description="Un ruolo del servizio cloud che viene riciclato improvvisamente può causare tempi di inattività significativi. Ecco alcuni problemi comuni che causano il riciclo dei ruoli, che possono essere utili per ridurre i tempi di inattività."
    services="cloud-services"
    documentationCenter=""
    authors="simonxjx"
@@ -16,69 +16,63 @@
    ms.date="09/02/2016"
    ms.author="v-six" />
 
+# Problemi comuni che comportano il riciclo dei ruoli
 
-# <a name="common-issues-that-cause-roles-to-recycle"></a>Common issues that cause roles to recycle
-
-This article discusses some of the common causes of deployment problems and provides troubleshooting tips to help you resolve these problems. An indication that a problem exists with an application is when the role instance fails to start, or it cycles between the initializing, busy, and stopping states.
+Questo articolo illustra alcune delle cause comuni dei problemi di distribuzione e fornisce suggerimenti per consentirne la risoluzione. La presenza di un problema con un'applicazione viene evidenziata se l'istanza del ruolo non si avvia o se lo stato passa ciclicamente da inizializzazione a occupato e arresto.
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="missing-runtime-dependencies"></a>Missing runtime dependencies
+## Dipendenze di runtime mancanti
 
-If a role in your application relies on any assembly that is not part of the .NET Framework or the Azure managed library, you must explicitly include that assembly in the application package. Keep in mind that other Microsoft frameworks are not available on Azure by default. If your role relies on such a framework, you must add those assemblies to the application package.
+Se un ruolo nell'applicazione si basa su un'assembly che non fa parte di .NET Framework o della libreria gestita di Azure, è necessario includere tale assembly in modo esplicito nel pacchetto dell'applicazione. Tenere presente che in Azure non sono disponibili per impostazione predefinita altri framework di Microsoft. Se il ruolo si basa su un framework di questo tipo, è necessario aggiungere tali assembly al pacchetto dell'applicazione.
 
-Before you build and package your application, verify the following:
+Prima di compilare e includere in un pacchetto l'applicazione, verificare quanto segue:
 
-- If using Visual studio, make sure the **Copy Local** property is set to **True** for each referenced assembly in your project that is not part of the Azure SDK or the .NET Framework.
+- Se si usa Visual Studio, assicurarsi che la proprietà **Copy Local** sia impostata su **True** per ogni assembly di riferimento nel progetto che non fa parte di Azure SDK o .NET Framework.
 
-- Make sure the web.config file does not reference any unused assemblies in the compilation element.
+- Verificare che il file web.config non faccia riferimento ad alcun assembly inutilizzato nell'elemento di compilazione.
 
-- The **Build Action** of every .cshtml file is set to **Content**. This ensures that the files will appear correctly in the package and enables other referenced files to appear in the package.
+- La proprietà **Build Action** di ciascun file con estensione cshtml è impostata su **Content**. Ciò garantisce che i file vengano visualizzati correttamente nel pacchetto e consente la visualizzazione anche di altri file di riferimento.
 
-## <a name="assembly-targets-wrong-platform"></a>Assembly targets wrong platform
+## Riferimento dell'assembly alla piattaforma errata
 
-Azure is a 64-bit environment. Therefore, .NET assemblies compiled for a 32-bit target won't work on Azure.
+Azure è un ambiente a 64 bit, pertanto gli assembly .NET compilati per una destinazione a 32 bit non funzioneranno in Azure.
 
-## <a name="role-throws-unhandled-exceptions-while-initializing-or-stopping"></a>Role throws unhandled exceptions while initializing or stopping
+## Generazione di eccezioni non gestite da parte del ruolo durante l'inizializzazione o l'arresto
 
-Any exceptions that are thrown by the methods of the [RoleEntryPoint] class, which includes the [OnStart], [OnStop], and [Run] methods, are unhandled exceptions. If an unhandled exception occurs in one of these methods, the role will recycle. If the role is recycling repeatedly, it may be throwing an unhandled exception each time it tries to start.
+Eventuali eccezioni generate dai metodi della classe [RoleEntryPoint], che include i metodi [OnStart], [OnStop] e [Run], sono eccezioni non gestite. Se si verifica un'eccezione non gestita in uno di questi metodi, il ruolo verrà riciclato. Se il ruolo viene riciclato più volte, è possibile che venga generata un'eccezione non gestita a ogni tentativo di avvio.
 
-## <a name="role-returns-from-run-method"></a>Role returns from Run method
+## Restituzioni del ruolo dal metodo Run
 
-The [Run] method is intended to run indefinitely. If your code overrides the [Run] method, it should sleep indefinitely. If the [Run] method returns, the role recycles.
+È previsto che il metodo [Run], venga eseguito in modo illimitato. Se tramite il codice viene eseguito l'override del metodo [Run], il codice deve essere sospeso per un periodo illimitato. Se tramite il metodo [Run] viene restituito un valore, il ruolo viene riciclato.
 
-## <a name="incorrect-diagnosticsconnectionstring-setting"></a>Incorrect DiagnosticsConnectionString setting
+## Impostazione di DiagnosticsConnectionString errata
 
-If application uses Azure Diagnostics, your service configuration file must specify the `DiagnosticsConnectionString` configuration setting. This setting should specify an HTTPS connection to your storage account in Azure.
+Se l'applicazione usa Diagnostica di Azure, il file cscfg deve specificare l'impostazione di configurazione `DiagnosticsConnectionString`. Questa impostazione deve specificare una connessione HTTPS all'account di archiviazione in Azure.
 
-To ensure that your `DiagnosticsConnectionString` setting is correct before you deploy your application package to Azure, verify the following:  
+Per assicurarsi che l'impostazione `DiagnosticsConnectionString` sia corretta, prima di distribuire il pacchetto dell'applicazione in Azure, verificare quanto segue:
 
-- The `DiagnosticsConnectionString` setting points to a valid storage account in Azure.  
-  By default, this setting points to the emulated storage account, so you must explicitly change this setting before you deploy your application package. If you do not change this setting, an exception is thrown when the role instance attempts to start the diagnostic monitor. This may cause the role instance to recycle indefinitely.
+- L'impostazione `DiagnosticsConnectionString` punti a un account di archiviazione valido in Azure. Per impostazione predefinita, questa impostazione punta all'account di archiviazione emulato, pertanto è necessario modificarla in modo esplicito prima di distribuire il pacchetto dell'applicazione. Se non si modifica questa impostazione, viene generata un'eccezione quando l'istanza del ruolo tenta di avviare il monitoraggio di diagnostica. Ciò potrebbe comportare il riciclo illimitato dell'istanza del ruolo.
 
-- The connection string is specified in the following [format](../storage/storage-configure-connection-string.md). (The protocol must be specified as HTTPS.) Replace *MyAccountName* with the name of your storage account, and *MyAccountKey* with your access key:    
+- La stringa di connessione viene specificata nel [formato](../storage/storage-configure-connection-string.md) seguente. Il protocollo deve essere specificato come HTTPS. Sostituire *MyAccountName* con il nome dell'account di archiviazione e *MyAccountKey* con la chiave di accesso dell'account:
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 
-  If you are developing your application by using Azure Tools for Microsoft Visual Studio, you can use the [property pages](https://msdn.microsoft.com/library/ee405486) to set this value.
+  Se l'applicazione viene sviluppata usando Strumenti di Azure per Microsoft Visual Studio, è possibile usare le [pagine delle proprietà](https://msdn.microsoft.com/library/ee405486) per impostare questo valore.
 
-## <a name="exported-certificate-does-not-include-private-key"></a>Exported certificate does not include private key
+## Chiave privata non inclusa nel certificato esportato
 
-To run a web role under SSL, you must ensure that your exported management certificate includes the private key. If you use the *Windows Certificate Manager* to export the certificate, be sure to select **Yes** for the **Export the private key** option. The certificate must be exported in the PFX format, which is the only format currently supported.
+Per eseguire un ruolo Web in SSL, è necessario assicurarsi che nel certificato di gestione esportato sia inclusa la chiave privata. Se si utilizza *Gestione certificati di Windows* per esportare il certificato, assicurarsi di selezionare **Sì** per l'opzione **Esporta la chiave privata**. Il certificato deve essere esportato nel formato con estensione PFX, l'unico attualmente supportato.
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-View more [troubleshooting articles](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) for cloud services.
+Altri [articoli sulla risoluzione dei problemi](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) per i servizi cloud.
 
-View more role recycling scenarios at [Kevin Williamson's blog series](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Per altri scenari di riciclo dei ruoli, vedere la [serie di blog di Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
 [RoleEntryPoint]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx
 [OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [Run]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

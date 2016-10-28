@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Test your VM offer for the Marketplace | Microsoft Azure"
-   description="Understand how to test your VM image for the Azure Marketplace."
+   pageTitle="Testare la propria offerta di macchine virtuali per il Marketplace | Microsoft Azure"
+   description="Informazioni su come testare l'immagine della macchina virtuale per Azure Marketplace."
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
@@ -16,48 +16,43 @@
    ms.date="08/01/2016"
    ms.author="hascipio" />
 
+# Testare la propria offerta di VM per Azure Marketplace nella gestione temporanea
 
-# <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>Test your VM offer for the Azure Marketplace in staging
+Per gestione temporanea si intende la distribuzione della SKU in un ambiente "sandbox" privato, in cui è possibile testarne e convalidarne le funzionalità prima di distribuirla nel Marketplace. La SKU viene visualizzata nella gestione temporanea esattamente come verrebbe mostrata a un cliente che l'ha distribuita. L'immagine della macchina virtuale deve essere certificata per il push nella gestione temporanea.
 
-Staging means deploying your SKU in a private “sandbox” where you can test and validate its functionality before deploying it to the Marketplace. The SKU appears in staging just as it would to a customer who has deployed it. Your VM image must be certified to be pushed to staging.
+## Passaggio 1: push dell'offerta nella gestione temporanea
 
-## <a name="step-1:-push-your-offer-to-staging"></a>Step 1: Push your offer to staging
+1. Nella scheda **Pubblica** fare clic su **Passa a gestione temporanea**.
 
-1. On the **Publish** tab, click **Push to Staging**.
+    ![disegno](media/marketplace-publishing-vm-image-test-in-staging/vm-image-push-to-staging.png)
 
-    ![drawing](media/marketplace-publishing-vm-image-test-in-staging/vm-image-push-to-staging.png)
+2. Se il portale di pubblicazione notifica eventuali errori, correggerli.
+3.	Nella finestra di dialogo **Chi può accedere all'offerta di gestione temporanea?** immettere l'elenco delle sottoscrizioni di Azure che verrà utilizzato per l'anteprima dell’offerta nel [portale di anteprima di Azure](https://portal.azure.com).
 
-2. If the Publishing Portal notifies you of any errors, correct them.
-3.  In the **Who can access your staged offer?** dialog box, enter the list of Azure subscriptions that you will use to preview your offer in the [Azure preview portal](https://portal.azure.com).
-
-    >[AZURE.NOTE] In case of Virtual Machines and Solution templates, please **do not** whitelist subscriptions of type CSP, DreamSpark or Azure in Open.
+    >[AZURE.NOTE] Per le macchine virtuali e i modelli di soluzioni, **non** aggiungere all'elenco degli elementi consentiti le sottoscrizioni di tipo CSP, DreamSpark o Azure in Open.
 
 
-    > In case of Virtual Machines, when you click on the button **PUSH TO STAGING**, the following steps are performed behind the scene. You will be able to view the progress of each step under the PUBLISH tab in the Publishing portal. You must check this page at regular interval (until the status shows STAGED) for any failure information which need correction from your end.
+    > Per le macchine virtuali, quando si fa clic sul pulsante **PASSA A GESTIONE TEMPORANEA**, dietro le quinte vengono eseguiti i passaggi seguenti. Sarà quindi possibile visualizzare lo stato di avanzamento di ogni passaggio nella scheda PUBBLICA nel portale di pubblicazione. È necessario controllare questa pagina regolarmente (fino a quando lo stato diventa ANTEPRIMA) per eventuali informazioni di errore che richiedono correzioni.
 
-    > - At first your staging request goes to the certification team who validate the vhd. However, if your request has got only marketing change, then the certification step is skipped.
-    > - Once the certification is complete, replication of the offer start across all the Azure datacenters. It generally takes 24-48hours for the replication to complete but may take up to a week depending on the size of the vhd. However, if your request has got only marketing change, then the replication is faster.
-    > - When the replication is complete, then the offer will be available in the [Azure portal](http:/portal.azure.com). At that time the status become STAGED in the Publishing portal. A staged offer is visible in the [Azure portal](http:/portal.azure.com) only using the email id(s) associated with the subscription with which the offer is staged.
+    > - Inizialmente la richiesta di gestione temporanea viene inviata al team di certificazione che convalida il VHD. Se invece la richiesta include solo modifiche commerciali, il passaggio di certificazione viene ignorato.
+    > - Una volta completata la certificazione, viene avviata la replica dell'offerta in tutti i data center di Azure. Il completamento della replica richiede in genere 24-48 ore ma potrebbe richiedere fino a una settimana a seconda della dimensione del VHD. Se invece la richiesta include solo modifiche commerciali, la replica è più veloce.
+    > - Una volta completata la replica, l'offerta sarà disponibile nel [portale di Azure](http:/portal.azure.com). A quel punto lo stato diventerà ANTEPRIMA nel portale di pubblicazione. Un'offerta in gestione temporanea è visibile nel [portale di Azure](http:/portal.azure.com) solo usando gli ID di posta elettronica associati con la sottoscrizione con cui l'offerta è gestita temporaneamente.
 
-4. Sign in to the [Azure preview portal](https://portal.azure.com) by using one of the Azure subscriptions listed in the previous step.
-5. Find your offer and validate your VM image points:
-  - Make sure that marketing content shows up correctly in the Marketplace.
-  - End-to-end deployment of the VM image.
+4. Accedere al [portale di anteprima di Azure](https://portal.azure.com) usando una delle sottoscrizioni di Azure elencate nel passaggio precedente.
+5. Individuare la propria offerta e convalidare i punti dell'immagine della macchina virtuale:
+  - Assicurarsi che il contenuto di marketing venga visualizzato correttamente nel Marketplace.
+  - Distribuzione end-to-end dell'immagine della VM.
 
       ![img-map-portal](media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg)
 
-> [AZURE.IMPORTANT] Your offer will remain in staging until you notify Microsoft via the Publishing Portal [**Publish** tab > click on the button **"Request Approval to Push to Production"**] that you are ready to push to production. This is an ideal time to have all members of your team check over everything in preparation for your offer going listed.
+> [AZURE.IMPORTANT] L'offerta resterà nella fase di gestione temporanea fino a quando non si notifica a Microsoft tramite il portale di pubblicazione [scheda **Pubblica** > **clic sul pulsante "Richiedi approvazione per push in produzione"**] che si è pronti per passare alla fase di produzione. A questo punto, è opportuno chiedere a tutti i membri del team di verificare tutti gli aspetti preliminari all'elencazione dell'offerta.
 
-> The staging platform is designed for testing the offer in a preview mode by the publisher. We strongly discourage using this platofrm for commerical purposes.
+> La piattaforma di gestione temporanea è progettata per il test dell'offerta in una modalità di anteprima da parte dell'autore. È fortemente sconsigliato l'uso di questa piattaforma a fini commerciali.
 
-## <a name="next-steps"></a>Next steps
-Now that your offer is "staged" and you have tested its functionality and marketing content, you can proceed to the final publishing phase, **Step 4**: [Deploying your offer to the Marketplace](marketplace-publishing-push-to-production.md).
+## Passaggi successivi
+Ora che l'offerta è in "gestione temporanea" e ne sono stati testati le funzionalità e i contenuti di marketing, è possibile procedere alla fase di pubblicazione finale, ovvero il **Passaggio 4**: [Distribuzione dell'offerta nel Marketplace](marketplace-publishing-push-to-production.md).
 
-## <a name="see-also"></a>See also
-- [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
+## Vedere anche
+- [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

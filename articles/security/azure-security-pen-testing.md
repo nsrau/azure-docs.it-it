@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Pen Testing | Microsoft Azure"
-   description="The article provides an overview of the penetration testing (pentest) process and how perform pentest against your apps running in Azure infrastructure."
+   pageTitle="Test di penetrazione | Microsoft Azure"
+   description="L'articolo offre una panoramica del processo del test di penetrazione e di come eseguire il test di penetrazione sulle app in esecuzione nell'infrastruttura di Azure."
    services="security"
    documentationCenter="na"
    authors="YuriDio"
    manager="swadhwa"
-   editor="TomSh"/>
+   editor="TomSh"/>  
 
 <tags
    ms.service="security"
@@ -13,37 +13,31 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/25/2016"
-   ms.author="yurid"/>
+   ms.date="08/09/2016"
+   ms.author="yurid"/>  
 
+# Test di penetrazione
 
-# <a name="pen-testing"></a>Pen Testing
+Uno dei maggiori vantaggi dell'uso di Microsoft Azure per il test e la distribuzione di applicazioni è che non è necessaria un'infrastruttura locale per sviluppare, testare e distribuire le applicazioni. I servizi della piattaforma Microsoft Azure gestiscono l'intera infrastruttura. Non è necessario richiedere, acquistare e installare il proprio hardware locale.
 
-One of the great things about using Microsoft Azure for application testing and deployment is that you don’t need to put together an on-premises infrastructure to develop, test and deploy your applications. All the infrastructure is taken care of by the Microsoft Azure platform services. You don’t have to worry about requisitioning, acquiring, and “racking and stacking” your own on-premises hardware.
+È tuttavia necessario continuare ad applicare la normale due diligence in materia di sicurezza. Una delle operazioni da eseguire è il test di penetrazione delle applicazioni distribuite in Azure.
 
-This is great – but you still need to make sure you perform your normal security due diligence. One of the things you need to do is penetration test the applications you deploy in Azure.
+Forse si è già a conoscenza del fatto che Microsoft esegue [il test di penetrazione dell'ambiente di Azure](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e), che consente di ottimizzare la piattaforma e di determinare le azioni mirate a migliorare i controlli di sicurezza, introdurre nuovi controlli di sicurezza e perfezionare i processi di sicurezza.
 
-You might already know that Microsoft performs [penetration testing of our Azure environment](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e). This helps us improve our platform and guides our actions in terms of improving security controls, introducing new security controls, and improving our security processes.
+Il test di penetrazione delle applicazioni non viene eseguito automaticamente, ma è ovvio che è auspicabile e necessario eseguirlo. Questo è positivo, perché quando si migliora la sicurezza delle applicazioni, l'intero ecosistema di Azure diventa più sicuro.
 
-We don’t pen test your application for you, but we do understand that you will want and need to perform pen testing on your own applications. That’s a good thing, because when you enhance the security of your applications, you help make the entire Azure ecosystem more secure.
+Quando si esegue il test di penetrazione delle applicazioni, potrebbe sembrare un attacco a Microsoft. I modelli di attacco vengono [continuamente monitorati](http://blogs.msdn.com/b/azuresecurity/archive/2015/07/05/best-practices-to-protect-your-azure-deployment-against-cloud-drive-by-attacks.aspx) e, se necessario, verrà avviato un processo di risposta agli eventi imprevisti, ma l'attivazione di una risposta agli eventi imprevisti in seguito a un test di penetrazione basato sulla due diligence dell'utente non è utile a nessuno.
 
-When you pen test your applications, it might look like an attack to us. We [continuously monitor](http://blogs.msdn.com/b/azuresecurity/archive/2015/07/05/best-practices-to-protect-your-azure-deployment-against-cloud-drive-by-attacks.aspx) for attack patterns and will initiate an incident response process if we need to. It doesn’t help you and it doesn’t help us if we trigger an incident response due to your own due diligence pen testing.
+Cosa fare?
 
-What to do?
+Quando si è pronti per eseguire il test di penetrazione delle applicazioni ospitate in Azure, comunicarlo a Microsoft. Sapendo che stanno per essere eseguiti test specifici, Microsoft eviterà di bloccare inavvertitamente gli utenti (ad esempio, bloccando l'indirizzo IP da cui si esegue il test), purché i test siano conformi ai termini e alle condizioni per i test di penetrazione di Azure. I test standard che è possibile eseguire includono:
 
-When you’re ready to pen test your Azure-hosted applications, you need to let us know. Once we know that you’re going to be performing specific tests, we won’t inadvertently shut you down (such as blocking the IP address that you’re testing from), as long as your tests conform to the Azure pen testing terms and conditions.
-Standard tests you can perform include:
+- Test sugli endpoint per scoprire le [prime 10 vulnerabilità OWASP (Open Web Application Security Project)](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
+- [Test con dati casuali](https://blogs.microsoft.com/cybertrust/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) degli endpoint
+- [Port scanning](https://en.wikipedia.org/wiki/Port_scanner) degli endpoint
 
-- Tests on your endpoints to uncover the [Open Web Application Security Project (OWASP) top 10 vulnerabilities](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
-- [Fuzz testing](https://blogs.microsoft.com/cybertrust/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) of your endpoints
-- [Port scanning](https://en.wikipedia.org/wiki/Port_scanner) of your endpoints
+Tra i tipi di test che non è possibile eseguire sono incluse tutte le tipologie di attacco [Denial of Service (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack), tra cui l'avvio di un attacco DoS vero e proprio o l'esecuzione di test correlati che possono determinare, dimostrare o simulare tutti i tipi di attacco DoS.
 
-One type of test that you can’t perform is any kind of [Denial of Service (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) attack. This includes initiating a DoS attack itself, or performing related tests that might determine, demonstrate or simulate any type of DoS attack.
+Si è pronti a iniziare il test di penetrazione delle applicazioni ospitate in Microsoft Azure? Se la risposta è sì, andare alla pagina [Panoramica del test di penetrazione](https://security-forms.azure.com/penetration-testing/terms) e fare clic sul pulsante per la creazione di una richiesta di test alla fine della pagina. Sono disponibili anche altre informazioni sui termini e sulle condizioni del test di penetrazione e utili collegamenti per poter segnalare i problemi di sicurezza correlati ad Azure o ad altri servizi Microsoft.
 
-Are you ready to get started with pen testing your applications hosted in Microsoft Azure? If so, then head on over to the [Penetration Test Overview](https://security-forms.azure.com/penetration-testing/terms) page (and click the Create a Testing Request button at the bottom of the page. You’ll also find more information on the pen testing terms and conditions and helpful links on how you can report security flaws related to Azure or any other Microsoft service.
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

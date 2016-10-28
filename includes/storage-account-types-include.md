@@ -1,32 +1,27 @@
-There are two types of storage accounts:
+Sono disponibili due tipi di account di archiviazione:
 
-### <a name="general-purpose-storage-accounts"></a>General-purpose Storage Accounts
+### Account di archiviazione di uso generico
 
-A general-purpose storage account gives you access to Azure Storage services such as Tables, Queues, Files, Blobs and Azure virtual machine disks under a single account. This type of storage account has two performance tiers:
+Un account di archiviazione di uso generico permette di accedere ai servizi di Archiviazione di Azure come tabelle, code, file, BLOB e dischi di macchina virtuale di Azure con un unico account. Questo tipo di account di archiviazione offre due livelli di prestazioni:
 
-- A standard storage performance tier which allows you to store Tables, Queues, Files, Blobs and Azure virtual machine disks.
-- A premium storage performance tier which currently only supports Azure virtual machine disks. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../articles/storage/storage-premium-storage.md) for an in-depth overview of Premium storage.
+- Un livello di prestazioni di archiviazione Standard che consente di archiviare tabelle, code, file, BLOB e dischi di macchina virtuale di Azure.
+- Un livello di prestazioni di archiviazione Premium che attualmente supporta solo dischi di macchina virtuale di Azure. Per una panoramica approfondita del servizio di archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/storage/storage-premium-storage.md).
 
-### <a name="blob-storage-accounts"></a>Blob Storage Accounts
+### Account di archiviazione BLOB
 
-A Blob storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.
+Gli account di archiviazione BLOB sono account di archiviazione specializzati per l'archiviazione dei dati non strutturati come BLOB (oggetti) in Archiviazione di Azure. Gli account di archiviazione BLOB sono simili agli account di archiviazione di uso generico esistenti e condividono tutte le straordinarie funzionalità di durabilità, disponibilità, scalabilità e prestazioni già usate, inclusa la coerenza API al 100% per i BLOB in blocchi e i BLOB di aggiunta. Per applicazioni che richiedono solo archivi BLOB in blocchi o BLOB di aggiunta, è consigliabile usare account di archiviazione BLOB.
 
-> [AZURE.NOTE] Blob storage accounts support only block and append blobs, and not page blobs.
+> [AZURE.NOTE] Gli account di archiviazione BLOB supportano solo i BLOB in blocchi e i BLOB di aggiunta, non i BLOB di pagine.
 
-Blob storage accounts expose the **Access Tier** attribute which can be specified during account creation and modified later as needed. There are two types of access tiers that can be specified based on your data access pattern:
+Gli account di archiviazione BLOB espongono l'attributo **Livello di accesso**, che può essere specificato durante la creazione di account e modificato successivamente in base alle esigenze. I livelli di accesso che possono essere specificati in base al modello di accesso ai dati sono di due tipi:
 
-- A **Hot** access tier which indicates that the objects in the storage account will be more frequently accessed. This allows you to store data at a lower access cost.
-- A **Cool** access tier which indicates that the objects in the storage account will be less frequently accessed. This allows you to store data at a lower data storage cost.
+- Livello di accesso **frequente**, che indica un accesso più frequente agli oggetti nell'account di archiviazione. Questo permette di archiviare i dati a un costo di accesso inferiore.
+- Livello di accesso **sporadico**, che indica un accesso meno frequente agli oggetti nell'account di archiviazione. Questo permette di archiviare i dati a un costo di archiviazione dati inferiore.
 
-If there is a change in the usage pattern of your data, you can also switch between these access tiers at any time. Changing the access tier may result in additional charges. Please see [Pricing and billing for Blob storage accounts](../articles/storage/storage-blob-storage-tiers.md#pricing-and-billing) for more details.
+Se il modello di utilizzo dei dati cambia, è anche possibile passare da uno di questi livelli di accesso all'altro in qualsiasi momento. La modifica del livello di accesso può comportare costi aggiuntivi. Per informazioni dettagliate, vedere [Prezzi e fatturazione per gli account di archiviazione BLOB](../articles/storage/storage-blob-storage-tiers.md#pricing-and-billing).
 
-For more details on Blob storage accounts, see [Azure Blob Storage: Cool and Hot tiers](../articles/storage/storage-blob-storage-tiers.md).
+Per informazioni dettagliate sugli account di archiviazione BLOB, vedere [Archivio BLOB di Azure: livelli Frequente e Sporadico](../articles/storage/storage-blob-storage-tiers.md).
 
-Before you can create a storage account, you must have an Azure subscription, which is a plan that gives you access to a variety of Azure services. You can get started with Azure with a [free account](https://azure.microsoft.com/pricing/free-trial/). Once you decide to purchase a subscription plan, you can choose from a variety of [purchase options](https://azure.microsoft.com/pricing/purchase-options/). If you’re an [MSDN subscriber](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), you get free monthly credits that you can use with Azure services, including Azure Storage. See [Azure Storage Pricing ](https://azure.microsoft.com/pricing/details/storage/) for information on volume pricing.
+Prima di creare un account di archiviazione, è necessario effettuare una sottoscrizione di Azure, ovvero a un piano per accedere ai diversi servizi di Azure. Per iniziare a usare Azure, è possibile usare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/). Se si decide di acquistare un piano di sottoscrizione, è possibile scegliere una delle numerose [opzioni di acquisto](https://azure.microsoft.com/pricing/purchase-options/). Gli utenti [iscritti a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ricevono crediti mensili gratuiti che possono essere usati con i servizi di Azure, incluso il servizio Archiviazione di Azure. Per informazioni sui prezzi in base al volume, vedere la pagina relativa ai [prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-To learn how to create a storage account, see [Create a storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account) for more details. You can create up to 100 uniquely named storage accounts with a single subscription. See [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) for details about storage account limits.
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+Per informazioni su come creare un account di archiviazione, vedere [Creare un account di archiviazione](../articles/storage/storage-create-storage-account.md#create-a-storage-account). È possibile creare un massimo di 100 account di archiviazione con denominazione univoca con una singola sottoscrizione. Per informazioni dettagliate sui limiti dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../articles/storage/storage-scalability-targets.md).

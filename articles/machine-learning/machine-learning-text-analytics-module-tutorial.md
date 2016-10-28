@@ -1,103 +1,98 @@
 <properties
-    pageTitle="Create text analytics models in Azure Machine Learning Studio | Microsoft Azure"
-    description="How to create text analytics models in Azure Machine Learning Studio using modules for text preprocessing, N-grams or feature hashing"
-    services="machine-learning"
-    documentationCenter=""
-    authors="rastala"
-    manager="jhubbard"
-    editor=""/>
+	pageTitle="Creare modelli di analisi del testo in Azure Machine Learning Studio | Microsoft Azure"
+	description="Come creare modelli di analisi del testo in Azure Machine Learning Studio usando moduli di pre-elaborazione del testo, estrazione degli n-grammi o hashing delle caratteristiche"
+	services="machine-learning"
+	documentationCenter=""
+	authors="rastala"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/06/2016"
-    ms.author="roastala" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/06/2016"
+	ms.author="roastala" />
 
 
+#Creare modelli di analisi del testo in Azure Machine Learning Studio
 
-#<a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Create text analytics models in Azure Machine Learning Studio
+È possibile usare Azure Machine Learning per creare modelli di analisi del testo e renderli operativi. Questi modelli consentono di risolvere, ad esempio, problemi di classificazione dei documenti o analisi di valutazione.
 
-You can use Azure Machine Learning to build and operationalize text analytics models. These models can help you solve, for example, document classification or sentiment analysis problems.
+In un esperimento di analisi del testo è necessario in genere:
 
-In a text analytics experiment, you would typically:
+ 1. Pulire e pre-elaborare i set di dati di testo
+ 2. Estrarre i vettori di caratteristiche numeriche dal testo pre-elaborato
+ 3. Addestrare il modello di classificazione o regressione
+ 4. Assegnare un punteggio e convalidare il modello
+ 5. Distribuire il modello in produzione
 
- 1. Clean and preprocess text dataset
- 2. Extract numeric feature vectors from pre-processed text
- 3. Train classification or regression model
- 4. Score and validate the model
- 5. Deploy the model to production
+In questa esercitazione si apprenderanno questi passaggi eseguendo un modello di analisi di valutazione mediante il set di dati di Amazon Book Reviews (vedere il documento di ricerca “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification” di John Blitzer, Mark Dredze e Fernando Pereira; Association of Computational Linguistics (ACL), 2007). Questo set di dati è costituito da punteggi di recensione (1-2 o 4-5) e testo in formato libero. L'obiettivo consiste nella stima del punteggio di recensione: basso (1-2) o alto (4-5).
 
-In this tutorial, you learn these steps as we walk through a sentiment analysis model using Amazon Book Reviews dataset (see this research paper “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification” by John Blitzer, Mark Dredze, and Fernando Pereira; Association of Computational Linguistics (ACL), 2007.) This dataset consists of review scores (1-2 or 4-5) and a free-form text. The goal is to predict the review score: low (1-2) or high (4-5).
+È possibile trovare gli esperimenti trattati in questa esercitazione nella raccolta Cortana Intelligence:
 
-You can find experiments covered in this tutorial at Cortana Intelligence Gallery:
+[Stimare le recensioni dei libri](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
 
-[Predict Book Reviews] (https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
+[Stimare le recensioni dei libri - Esperimento predittivo](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
 
-[Predict Book Reviews - Predictive Experiment] (https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
+## Passaggio 1: Pulire e pre-elaborare i set di dati di testo
 
-## <a name="step-1:-clean-and-preprocess-text-dataset"></a>Step 1: Clean and preprocess text dataset
+Iniziamo l'esperimento dividendo i punteggi di recensione nei bucket di categoria basso e alto per formulare il problema come classificazione a due classi. Si useranno i moduli [Edit Metadata](https://msdn.microsoft.com/library/azure/dn905986.aspx) e [Group Categorical Values](https://msdn.microsoft.com/library/azure/dn906014.aspx).
 
-We begin the experiment by dividing the review scores into categorical low and high buckets to formulate the problem as two-class classification. We use [Edit Metadata] (https://msdn.microsoft.com/library/azure/dn905986.aspx) and [Group Categorical Values] (https://msdn.microsoft.com/library/azure/dn906014.aspx) modules.
+![Creazione dell'etichetta](./media/machine-learning-text-analytics-module-tutorial/create-label.png)
 
-![Create Label](./media/machine-learning-text-analytics-module-tutorial/create-label.png)
+Quindi si pulirà il testo tramite il modulo [Preprocess Text](https://msdn.microsoft.com/library/azure/mt762915.aspx). La pulizia riduce il rumore nel set di dati, aiuta a trovare le funzioni più importanti e a migliorare l'accuratezza del modello finale. Vengono rimosse le parole non significative: parole comuni, come articoli e preposizioni, nonché numeri, caratteri speciali, caratteri duplicati, indirizzi di posta elettronica e URL. Si converte inoltre il testo in minuscolo, si lemmatizzano le parole e si individuano i delimitatori delle frasi che vengono poi indicati dal simbolo "|||" nel testo pre-elaborato.
 
-Then, we clean the text using [Preprocess Text] (https://msdn.microsoft.com/library/azure/mt762915.aspx) module. The cleaning reduces the noise in the dataset, help you find the most important features, and improve the accuracy of the final model. We remove stopwords - common words such as "the" or "a" - and numbers, special characters, duplicated characters, email addresses, and URLs. We also convert the text to lowercase, lemmatize the words, and detect sentence boundaries that are then indicated by "|||" symbol in pre-processed text.
+![Pre-elaborazione del testo](./media/machine-learning-text-analytics-module-tutorial/preprocess-text.png)
 
-![Preprocess Text](./media/machine-learning-text-analytics-module-tutorial/preprocess-text.png)
+Se si desidera usare un elenco di parole non significative personalizzato? È possibile passarlo come input facoltativo. È inoltre possibile usare un'espressione regolare con sintassi C# personalizzata per sostituire le sottostringhe e rimuovere parole da parte del discorso: nomi, verbi o aggettivi.
 
-What if you want to use a custom list of stopwords? You can pass it in as optional input. You can also use custom C# syntax regular expression to replace substrings, and remove words by part of speech: nouns, verbs, or adjectives.
+Dopo aver completato la pre-elaborazione, si suddividono i dati in set di addestramento e set di test.
 
-After the preprocessing is complete, we split the data into train and test sets.
+## Passaggio 2: Estrarre vettori di caratteristiche numeriche dal testo pre-elaborato
 
-## <a name="step-2:-extract-numeric-feature-vectors-from-pre-processed-text"></a>Step 2: Extract numeric feature vectors from pre-processed text
+Per compilare un modello per i dati di testo è necessario in genere convertire il testo in formato libero in vettori di caratteristiche numeriche. In questo esempio si usa il modulo [Extract N-Gram Features from Text](https://msdn.microsoft.com/library/azure/mt762916.aspx) per trasformare i dati di testo in tale formato. Il modulo accetta una colonna di parole separate da spazi e calcola un dizionario di parole, o n-grammi di parole, che vengono visualizzate nel set di dati. Quindi conta il numero di volte in cui ogni parola, o n-gramma, compare in ogni record e crea vettori di caratteristiche da questi conteggi. In questa esercitazione impostiamo la dimensione dell'n-gramma su 2 quindi i nostri vettori di caratteristiche includono singole parole e combinazioni di due parole consecutive.
 
-To build a model for text data, you typically have to convert free-form text into numeric feature vectors. In this example, we use [Extract N-Gram Features from Text] (https://msdn.microsoft.com/library/azure/mt762916.aspx) module to transform the text data to such format. This module takes a column of whitespace-separated words and computes a dictionary of words, or N-grams of words, that appear in your dataset. Then, it counts how many times each word, or N-gram, appears in each record, and creates feature vectors from those counts. In this tutorial, we set N-gram size to 2, so our feature vectors include single words and combinations of two subsequent words.
+![Estrazione degli n-grammi](./media/machine-learning-text-analytics-module-tutorial/extract-ngrams.png)
 
-![Extract N-grams](./media/machine-learning-text-analytics-module-tutorial/extract-ngrams.png)
+Ai conteggi di n-grammi si applica la ponderazione TF*IDF (frequenza del termine, frequenza inversa del documento). Questo approccio aggiunge il peso delle parole che compaiono frequentemente in un singolo record ma sono rare nell'intero set di dati. Altre opzioni sono la ponderazione binaria, TF e grafica.
 
-We apply TF*IDF (Term Frequency Inverse Document Frequency) weighting to N-gram counts. This approach adds weight of words that appear frequently in a single record but are rare across the entire dataset. Other options include binary, TF, and graph weighing.
+Funzioni di testo come queste sono spesso caratterizzate da alta dimensionalità. Ad esempio, se il corpo ha 100.000 parole univoche, lo spazio di funzioni avrà 100.000 dimensioni o più se vengono usati gli n-grammi. Il modulo Extract N-Gram Features offre un gruppo di opzioni per ridurre la dimensionalità. È possibile scegliere di escludere le parole che sono brevi o lunghe o troppo insolite o frequenti per avere un valore predittivo significativo. In questa esercitazione si escludono gli n-grammi che vengono visualizzati in meno di 5 record o in più dell'80% dei record.
 
-Such text features often have high dimensionality. For example, if your corpus has 100,000 unique words, your feature space would have 100,000 dimensions, or more if N-grams are used. The Extract N-Gram Features module gives you a set of options to reduce the dimensionality. You can choose to exclude words that are short or long, or too uncommon or too frequent to have significant predictive value. In this tutorial, we exclude N-grams that appear in fewer than 5 records or in more than 80% of records.
+Inoltre è possibile usare la selezione delle funzioni per selezionare solo le funzioni che sono maggiormente correlate con il target di stima. Si usa la selezione di funzioni chi quadro per selezionare 1000 funzioni. È possibile visualizzare il vocabolario di parole o n-grammi selezionati facendo clic sull'output giusto del modulo Extract N-Gram Features.
 
-Also, you can use feature selection to select only those features that are the most correlated with your prediction target. We use Chi-Squared feature selection to select 1000 features. You can view the vocabulary of selected words or N-grams by clicking the right output of Extract N-grams module.
+In alternativa all'uso al modulo Extract N-Gram Features è possibile usare il modulo Feature Hashing. Si noti tuttavia che [Feature Hashing](https://msdn.microsoft.com/library/azure/dn906018.aspx) non dispone di capacità integrate di selezione delle funzioni o di ponderazione TF*IDF.
 
-As an alternative approach to using Extract N-Gram Features, you can use Feature Hashing module. Note though that [Feature Hashing] (https://msdn.microsoft.com/library/azure/dn906018.aspx) does not have build-in feature selection capabilities, or TF*IDF weighing.
+## Passaggio 3: Addestrare il modello di classificazione o regressione
 
-## <a name="step-3:-train-classification-or-regression-model"></a>Step 3: Train classification or regression model
+Il testo è stato ora trasformato in colonne di caratteristiche numeriche. Il set di dati contiene ancora le colonne di stringhe dalle fasi precedenti, perciò usiamo Select Columns in Dataset per escluderle.
 
-Now the text has been transformed to numeric feature columns. The dataset still contains string columns from previous stages, so we use Select Columns in Dataset to exclude them.
+Usiamo poi [Two-Class Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) per stimare il target: punteggio di recensione alto o basso. A questo punto il problema di analisi del testo è stato trasformato in un normale problema di classificazione. È possibile usare gli strumenti disponibili in Azure Machine Learning per migliorare il modello. Ad esempio è possibile sperimentare diversi classificatori per scoprire l'accuratezza dei loro risultati o usare l'ottimizzazione con iperparametri per migliorare l'accuratezza.
 
-We then use [Two-Class Logistic Regression] (https://msdn.microsoft.com/library/azure/dn905994.aspx) to predict our target: high or low review score. At this point, the text analytics problem has been transformed into a regular classification problem. You can use the tools available in Azure Machine Learning to improve the model. For example, you can experiment with different classifiers to find out how accurate results they give, or use hyperparameter tuning to improve the accuracy.
+![Addestramento e assegnazione dei punteggi](./media/machine-learning-text-analytics-module-tutorial/scoring-text.png)
 
-![Train and Score](./media/machine-learning-text-analytics-module-tutorial/scoring-text.png)
+## Passaggio 4: Assegnare un punteggio e convalidare il modello
 
-## <a name="step-4:-score-and-validate-the-model"></a>Step 4: Score and validate the model
+Come si convalida il modello addestrato? Si assegna un punteggio rispetto al set di dati di test e si valuta l'accuratezza. Tuttavia, il modello ha appreso il vocabolario degli n-grammi e i loro pesi del set di dati di addestramento. Pertanto, sarà necessario usare quel vocabolario e quei pesi per l'estrazione delle funzioni dai dati di test, invece di creare il vocabolario di nuovo. Si aggiunge perciò il modulo Extract N-Gram Features al ramo di assegnazione del punteggio dell'esperimento, si connette il vocabolario di output dal ramo di addestramento e si imposta la modalità di vocabolario in sola lettura. Si disattiva inoltre il filtro di n-grammi per frequenza impostando il minimo su 1 istanza e il massimo su 100% e si disattiva la selezione delle funzioni.
 
-How would you validate the trained model? We score it against the test dataset and evaluate the accuracy. However, the model learned the vocabulary of N-grams and their weights from the training dataset. Therefore, we should use that vocabulary and those weights when extracting features from test data, as opposed to creating the vocabulary anew. Therefore, we add Extract N-Gram Features module to the scoring branch of the experiment, connect the output vocabulary from training branch, and set the vocabulary mode to read-only. We also disable the filtering of N-grams by frequency by setting the minimum to 1 instance and maximum to 100%, and turn off the feature selection.
+Dopo che la colonna di testo nei dati di test è stata trasformata in colonne di caratteristiche numeriche, si escludono le colonne stringa delle fasi precedenti come nel ramo di addestramento. Si usa poi il modulo Score Model per eseguire stime e il modulo Evaluate Model per valutare l'accuratezza.
 
-After the text column in test data has been transformed to numeric feature columns, we exclude the string columns from previous stages like in training branch. We then use Score Model module to make predictions and Evaluate Model module to evaluate the accuracy.
+## Passaggio 5: Distribuire il modello in produzione
 
-## <a name="step-5:-deploy-the-model-to-production"></a>Step 5: Deploy the model to production
+Il modello è quasi pronto per essere distribuito nell'ambiente di produzione. Se viene distribuito come servizio Web, accetta una stringa di testo in formato libero come input e restituisce una stima "alta" o "bassa". Usa il vocabolario di n-grammi appreso per trasformare il testo in funzioni e il modello di regressione logistica addestrato per effettuare una previsione da queste funzioni.
 
-The model is almost ready to be deployed to production. When deployed as web service, it takes free-form text string as input, and return a prediction "high" or "low." It uses the learned N-gram vocabulary to transform the text to features, and trained logistic regression model to make a prediction from those features. 
+Per configurare l'esperimento predittivo è innanzitutto necessario salvare il vocabolario di n-grammi come set di dati e il modello di regressione logistica addestrato del ramo di addestramento dell'esperimento. Quindi si salva l'esperimento usando "Salva con nome" per creare un grafico per l'esperimento predittivo. Si rimuove il modulo Split Data e il ramo di addestramento dall'esperimento. Quindi si collega il vocabolario di n-grammi e il modello salvati in precedenza rispettivamente ai moduli Extract N-Gram Features e Score Model. Si rimuove anche il modulo Evaluate Model.
 
-To set up the predictive experiment, we first save the N-gram vocabulary as dataset, and the trained logistic regression model from the training branch of the experiment. Then, we save the experiment using "Save As" to create an experiment graph for predictive experiment. We remove the Split Data module and the training branch from the experiment. We then connect the previously saved N-gram vocabulary and model to Extract N-Gram Features and Score Model modules, respectively. We also remove the Evaluate Model module.
+Si inseriscono le colonne selezionate nel modulo Select Columns in Dataset prima del modulo Preprocess Text per rimuovere la colonna di etichette e si deseleziona l'opzione "Aggiungi colonna punteggio al set di dati" nel modulo Score Model. In questo modo il servizio Web non richiede l'etichetta che tenta di prevedere e non riproduce le funzioni di input come risposta.
 
-We insert Select Columns in Dataset module before Preprocess Text module to remove the label column, and unselect "Append score column to dataset" option in Score Module. That way, the web service does not request the label it is trying to predict, and does not echo the input features in response.
+![Esperimento predittivo](./media/machine-learning-text-analytics-module-tutorial/predictive-text.png)
 
-![Predictive Experiment](./media/machine-learning-text-analytics-module-tutorial/predictive-text.png)
+Ora abbiamo un esperimento che può essere pubblicato come servizio Web e chiamato mediante le API di richiesta-risposta o di esecuzione in batch.
 
-Now we have an experiment that can be published as a web service and called using request-response or batch execution APIs.
+## Passaggi successivi
 
-## <a name="next-steps"></a>Next Steps
+Per informazioni sui moduli di analisi del testo, vedere la [documentazione su MSDN](https://msdn.microsoft.com/library/azure/dn905886.aspx).
 
-Learn about text analytics modules from [MSDN documentation] (https://msdn.microsoft.com/library/azure/dn905886.aspx).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

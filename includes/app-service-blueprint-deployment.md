@@ -1,13 +1,10 @@
-* [Deploying an app to Azure App Service](../articles/app-service-web/web-sites-deploy.md)
-* [Configuring source control and continuous integration](../articles/app-service-web/app-service-continuous-deployment.md)
-* [Staging deployments with deployment slots](../articles/app-service-web/web-sites-staged-publishing.md)
-* [Publishing and Role Based Access Control (RBAC)](https://azure.microsoft.com/blog/rbac-and-azure-websites-publishing/)
+* [Distribuzione di un'applicazione nel Servizio app di Azure](../articles/app-service-web/web-sites-deploy.md)
+* [Configurazione del controllo del codice sorgente e integrazione continua](../articles/app-service-web/app-service-continuous-deployment.md)
+* [Gestione delle distribuzioni in slot di distribuzione](../articles/app-service-web/web-sites-staged-publishing.md)
+* [Pubblicazione e controllo degli accessi in base al ruolo (RBAC)](https://azure.microsoft.com/blog/rbac-and-azure-websites-publishing/)
 
-## <a name="videos"></a>Videos
+## Video
 
-* [Automating the deployment workflow for release management](/documentation/videos/azurecon-2015-manage-code-changes-to-web-apps-using-the-devops-features-of-azure-app-service-and-visual-studio-release-management/)
+* [Automazione del flusso di lavoro di distribuzione per la gestione del rilascio](/documentation/videos/azurecon-2015-manage-code-changes-to-web-apps-using-the-devops-features-of-azure-app-service-and-visual-studio-release-management/)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

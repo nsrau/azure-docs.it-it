@@ -1,33 +1,28 @@
 <properties
-    pageTitle="Azure AD v2.0 Windows Universal App | Microsoft Azure"
-    description="How to build an Windows Universal app that signs users in with both personal Microsoft Account and work or school accounts."
-    services="active-directory"
-    documentationCenter=""
-    authors="dstrockis"
-    manager="mbaldwin"
-    editor=""/>
+	pageTitle="App universale Windows v2.0 di Azure AD | Microsoft Azure"
+	description="Come creare un'app universale di Windows che consente agli utenti di accedere con un account Microsoft personale, aziendale e dell'istituto di istruzione."
+	services="active-directory"
+	documentationCenter=""
+	authors="dstrockis"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.topic="article"
-    ms.tgt_pltfrm="mobile-windows-store"
-    ms.devlang="dotnet"
-    ms.date="02/20/2016"
-    ms.author="dastrock"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.topic="article"
+  	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.date="02/20/2016"
+	ms.author="dastrock"/>
 
-  
-# <a name="add-sign-in-to-a-windows-universal-app-using-the-v2.0-endpoint"></a>Add sign-in to a Windows Universal app using the v2.0 endpoint
-  The quick-start tutorial for Windows Universal apps isn't quite ready... Check back soon & look for updates from @AzureAD on Twitter.
+  # Aggiungere l'accesso a un'app universale di Windows usando l'endpoint v2.0 L'esercitazione introduttiva per app universali di Windows non è ancora pronta... Riprovare più tardi e cercare gli aggiornamenti da @AzureAD su Twitter.
 
 > [AZURE.NOTE]
-    Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
-    
-    ## Get security updates for our products
+	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint v2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+	
+	## Get security updates for our products
 
-We encourage you to get notifications of when security incidents occur by visiting [this page](https://technet.microsoft.com/security/dd252948) and subscribing to Security Advisory Alerts.
+È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0601_2016-->

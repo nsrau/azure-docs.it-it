@@ -1,250 +1,247 @@
 <properties
-    pageTitle="How to update your own password using Azure Active Directory| Microsoft Azure"
-    description="Learn that ways you can register for password reset, how to change your password, and how to reset your own password in case you ever forget it."
-    services="active-directory"
-    documentationCenter=""
-    authors="asteen"
-    manager="femila"
-    editor="curtand"/>
+	pageTitle="Come aggiornare la password con Azure Active Directory | Microsoft Azure"
+	description="Informazioni su come registrarsi per reimpostare o modificare la password e come reimpostarla in caso di password dimenticata."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/30/2016"
-    ms.author="asteen"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/30/2016"
+	ms.author="asteen"/>
 
+# Come aggiornare la password
+Questo articolo fornisce informazioni utili su come gestire la password dell'account aziendale o dell'istituto di istruzione. Di seguito viene illustrato come eseguire le operazioni più comuni, ad esempio modificare o reimpostare una password o registrarsi per la reimpostazione della password.
 
-# <a name="how-to-update-your-own-password"></a>How to update your own password
-If you are unsure how to manage your work or school account password, you've come to the right place!  Read below to learn how to perform common steps, like changing a password, resetting a password, or registering for password reset.
+* [**Mantenere l'accesso all'account**](#dont-lose-access-to-your-account)
+* [**Come modificare la password da Office 365**](#how-to-change-your-password-from-o365)
+* [**Come modificare la password dal pannello di accesso**](#how-to-change-your-password-from-the-access-panel)
+* [**Come reimpostare la password**](#how-to-reset-your-password)
+* [**Come sbloccare l'account**](#how-to-unlock-your-account)
+* [**Problemi frequenti e relative soluzioni**](#common-problems-and-their-solutions)
 
-* [**Don’t lose access to your account!**](#dont-lose-access-to-your-account)
-* [**How to change your password from Office 365**](#how-to-change-your-password-from-o365)
-* [**How to change your password from the access panel**](#how-to-change-your-password-from-the-access-panel)
-* [**How to reset your password**](#how-to-reset-your-password)
-* [**How to unlock your account**](#how-to-unlock-your-account)
-* [**Common problems and their solutions**](#common-problems-and-their-solutions)
-
-## <a name="don’t-lose-access-to-your-account!"></a>Don’t lose access to your account!
+## Mantenere l'accesso all'account
 
 > [AZURE.IMPORTANT]
-> **Why am I seeing this?** If you followed a link to get here, you're probably seeing this because your administrator requires you to register for password reset to gain access to your app. You might be asked for phone or email information, or to set up security questions.  Don’t worry – we won’t use this information to spam you, just to keep your account more secure. The steps presented here should help you to reach your goal.
+**Perché viene visualizzata questa pagina?** Se si è selezionato un collegamento, è probabile che questa pagina sia stata visualizzata perché l'amministratore richiede che venga eseguita la registrazione per la reimpostazione della password per ottenere l'accesso all'app. Potrebbero essere richieste informazioni relative al numero di telefono o all'indirizzo di posta elettronica oppure l'impostazione di domande di sicurezza. Queste informazioni non verranno usate per l'invio di posta indesiderata, ma solo per mantenere più sicuro l'account. La procedura qui illustrata consentirà di raggiungere l'obiettivo.
 
-The fastest way to register for password reset is to go to [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup).  
+Il modo più rapido per registrarsi per la reimpostazione della password è visitare la pagina [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup).
 
- 1. Navigate to [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup).
- 2. Enter your username and password.
- 3. Choose an option to register for by clicking **set it up now**.  In this case, I'll demonstrate registering my **authentication phone**.
+ 1. Passare a [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup).
+ 2. Immettere nome utente e password.
+ 3. Scegliere un'opzione per la registrazione facendo clic su **Imposta ora**. In questo caso viene illustrata la registrazione del **Telefono per l'autenticazione**.
 
     ![][011]
 
- 4. Select your country code from the dropdown and enter your **full phone number + area code**.
+ 4. Selezionare il codice paese nell'elenco a discesa e immettere il **numero di telefono esteso + indicativo di località**.
 
-    ![][012]
-    ![][013]
+    ![][012] ![][013]
 
- 5. Select one of the **text me** or **call me** options.  In this case, I'll select **text me**, which will send a 6 digit code to my phone.  Wait for the code to arrive on your phone.
+ 5. Selezionare una opzione tra **Invia messaggio di testo** e **Chiama**. In questo caso viene selezionato **Invia messaggio di testo**. In questo modo verrà inviato un codice di 6 cifre al numero di telefono indicato. Attendere la ricezione del codice sul telefono.
 
     ![][014]
 
- 6. Once the code arrives, enter it into the input box, and then click "verify."
- 7. When you see **thanks**, that's it! Now you can use what you registered for to reset your password at any time by going to [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).
+ 6. Immettere il codice ricevuto nella casella di input e fare clic su "Verifica".
+ 7. Quando viene visualizzato il messaggio **Grazie**, l'operazione è terminata. Ora è possibile usare i dati ottenuti con la registrazione per reimpostare la password in qualsiasi momento, visitando il sito [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).
 
     ![][015]
 
- >[AZURE.IMPORTANT] If your admin lets you register for more than one option, we highly recommend you also register a back-up option in case you lose your phone or access to your email.
+ >[AZURE.IMPORTANT] Se l'amministratore consente di registrarsi per più di una opzione, è consigliabile registrare anche un'opzione di backup nel caso in cui si perda il telefono o non sia possibile accedere alla posta elettronica.
 
-## <a name="how-to-change-your-password-from-o365"></a>How to change your password from O365
-Follow the steps below to change your work or school account password in Office 365.  If you have forgotten your password and want to reset it, follow the steps [here](#how-to-reset-your-password).
+## Come modificare la password da O365
+Seguire questa procedura per modificare la password dell'account aziendale o dell'istituto di istruzione in Office 365. Per reimpostare la password dimenticata, seguire la procedura riportata [qui](#how-to-reset-your-password).
 
- 1. Sign in to Office 365 with your work or school account.
- 2. Go to **Settings** > **Office 365 settings** > **Password** > **Change password**.
- 3. Type your old password, and then type a new password and confirm it.
- 4. Click **Save**.
+ 1. Accedere a Office 365 con l'account aziendale o dell'istituto di istruzione.
+ 2. Andare a **Impostazioni** > **Impostazioni di Office 365** > **Password** > **Cambia password**.
+ 3. Digitare la vecchia password, quindi digitare una nuova password e confermarla.
+ 4. Fare clic su **Save**.
 
-You can read more about this on the [Office 365 documentation center](https://support.office.com/article/Change-my-password-in-Office-365-for-business-d1efbaee-63a7-4c08-ab1d-71bf932bbb5d).
+Altre informazioni al riguardo sono disponibili nel [centro di documentazione di Office 365](https://support.office.com/article/Change-my-password-in-Office-365-for-business-d1efbaee-63a7-4c08-ab1d-71bf932bbb5d).
 
-## <a name="how-to-change-your-password-from-the-access-panel"></a>How to change your password from the access panel
-Follow the steps below to change your work or school account password from the [Access Panel](https://myapps.microsoft.com).  If you have forgotten your password and want to reset it, follow the steps [here](#how-to-reset-your-password).
+## Come modificare la password dal pannello di accesso
+Seguire questa procedura per modificare la password dell'account aziendale o dell'istituto di istruzione dal [pannello di accesso](https://myapps.microsoft.com). Per reimpostare la password dimenticata, seguire la procedura riportata [qui](#how-to-reset-your-password).
 
- 1. Sign into https://myapps.microsoft.com with your work or school account.
- 2. Click on the **profile** tab.
- 3. Click on the **change my password** tile on the right hand side of the screen.
- 4. Type your old password, and then type a new password and confirm it.
- 5. Click **Submit**.
+ 1. Accedere a https://myapps.microsoft.com con l'account aziendale o dell'istituto di istruzione.
+ 2. Fare clic sulla scheda **Profilo**.
+ 3. Fare clic sul riquadro di **modifica della password** sul lato destro dello schermo.
+ 4. Digitare la vecchia password, quindi digitare una nuova password e confermarla.
+ 5. Fare clic su **Submit**.
 
- Run into a problem changing your password?  Read about [common problems and their solutions](#common-problems-and-their-solutions).
+ In caso di problemi nella modifica della password, vedere la sezione [Problemi frequenti e relative soluzioni](#common-problems-and-their-solutions).
 
-## <a name="how-to-reset-your-password"></a>How to reset your password
+## Come reimpostare la password
 
 
-Follow the steps below to reset your work or school account password from any work or school account sign in screen.
+Seguire questa procedura per reimpostare la password dell'account aziendale o dell'istituto di istruzione da qualsiasi schermata di accesso dell'account.
 
->[AZURE.IMPORTANT] This feature is only available to you if your admin has turned it on. If it's not turned on, you'll see a message indicating your account is not enabled for this feature.  You can use the "contact your administrator" link in this case to get in touch with your admin to unlock your account.
+>[AZURE.IMPORTANT] Questa funzionalità è disponibile solo se abilitata dall'amministratore. Se l'account non è abilitato per questa funzionalità, viene visualizzato un messaggio di avviso. In questo caso, è possibile usare il collegamento "Contattare l'amministratore" per chiedere all'amministratore di sbloccare l'account.
 >
-> If your admin has enabled you for this feature, you'll first need to sign up before you can use it. You can do that here: http://aka.ms/ssprsetup.
+> Se l'amministratore ha abilitato l'utente per questa funzionalità, sarà prima necessario effettuare l'iscrizione per poterla usare. A questo scopo, accedere a: http://aka.ms/ssprsetup.
 
 
- 1. On the any work or school account sign-in page, click on one of the "can't access your account?" or "forgot your password?" links, or navigate to https://passwordreset.microsoftonline.com directly.
+ 1. In una qualsiasi pagina di accesso dell'account aziendale o dell'istituto di istruzione fare clic sul collegamento "Problemi di accesso all'account?" o "Password dimenticata?" oppure passare direttamente a https://passwordreset.microsoftonline.com.
 
     ![][001]
 
- 2. On the "who are you?" page, enter your work or school account ID and prove you aren't a robot by passing the CAPTCHA challenge.
+ 2. Nella pagina "Identificarsi" immettere l'ID dell'account aziendale o dell'istituto di istruzione e rispondere al test CAPTCHA.
 
     ![][002]
 
- 3. Click the "next" button.
- 4. Choose an option to reset your password.  Depending on how your admin has configured the system, you might see one or more of the following choices:
-     * **Email my alternate email** - sends an email with a 6 digit code to either your **alternate email** or **authentication email** (you choose).
-     * **Text my mobile phone** - texts your phone with a 6 digit code to either your **mobile phone** or **authentication email** (you choose).
-     * **Call my mobile phone** - calls your **mobile phone** or **authentication phone** (you choose) - press the *#* key to verify the call.
-     * **Call my office phone** - calls your **office phone** - press the *#* key to verify the call.
-     * **Answer my security questions** - displays your pre-registered security questions for you to answer.
+ 3. Fare clic sul pulsante "Avanti".
+ 4. Scegliere un'opzione per reimpostare la password. In base alla configurazione del sistema da parte dell'amministratore, viene visualizzata una o più delle opzioni seguenti:
+     * **Invia messaggio di posta elettronica all'indirizzo di posta elettronica alternativo dell'utente**: invia un messaggio di posta elettronica con un codice di 6 cifre all'**indirizzo di posta elettronica alternativo** o all'**indirizzo di posta elettronica per l'autenticazione** (scegliere l'opzione preferita).
+	 * **Invia SMS sul telefono cellulare**: invia un messaggio di testo con un codice di 6 cifre al **cellulare** dell'utente o all'**indirizzo di posta elettronica per l'autenticazione** (scegliere l'opzione preferita).
+	 * **Chiama cellulare utente**: chiama il **cellulare** dell'utente o il **telefono per l'autenticazione** (scegliere l'opzione preferita). Premere il tasto *#* per verificare la chiamata.
+	 * **Chiama telefono ufficio**: chiama il **telefono dell'ufficio** dell'utente. Premere il tasto *#* per verificare la chiamata.
+	 * **Rispondi alle domande di sicurezza**: consente di visualizzare le domande di sicurezza registrate in precedenza per poter rispondere.
 
     ![][003]
 
- 5. We'll use the "text my mobile phone" option as an example.  If you are using a phone based option, you'll need to verify your phone number before we'll send a text.  Enter your full phone number and then click **Next** to verify it's correct and send a text.
+ 5. Come esempio viene usata l'opzione "Invia SMS sul telefono cellulare". Se si usa un'opzione basata sul telefono, è necessario verificare il numero di telefono prima che sia possibile ricevere un SMS. Immettere il numero di telefono completo e quindi fare clic su **Avanti** per verificare che sia corretto e ricevere un SMS.
 
     ![][004]
 
- 6. When you receive the text, make sure you use the verification code in the message body, not the number the code was sent from.  It might take a few minutes to get the text, so grab a coffee!
+ 6. Dopo aver ricevuto il messaggio di testo, assicurarsi di usare il codice di verifica contenuto nel corpo del messaggio, non il numero da cui il codice è stato inviato. Potrebbero passare alcuni minuti prima di ricevere il messaggio di testo.
 
     ![][009]
 
- 8. Now, enter the code you just received on your phone into the input box on the page.
+ 8. A questo punto, immettere il codice ricevuto sul telefono nella casella di input della pagina.
 
     ![][005]
 
- 9. Your admin may require a second verification step, in which case repeat step 4 with a different option selected.
- 10. On the "choose a new password" screen, select a new password and confirm your choice, then click **Finish**.
+ 9. L'amministratore può richiedere un secondo passaggio di verifica. In tal caso, ripetere il passaggio 4 selezionando un'opzione diversa.
+ 10. Nella schermata "Scegliere una nuova password", selezionare una nuova password e confermarla, quindi fare clic su **Fine**.
 
-    ![][006]
-    ![][007]
+    ![][006] ![][007]
 
- 11. Once you see the success page, you are good to go!  You can now sign in with your new password.
+ 11. Quando viene visualizzata la pagina di notifica dell'esito positivo, l'operazione è terminata. Ora è possibile eseguire l'accesso con la nuova password.
 
     ![][008]
 
-Run into a problem resetting your password?  Read about [common problems and their solutions](#common-problems-and-their-solutions).
+In caso di problemi nella reimpostazione della password, vedere la sezione [Problemi frequenti e relative soluzioni](#common-problems-and-their-solutions).
 
-## <a name="how-to-unlock-your-account"></a>How to unlock your account
-Follow the steps below to unlock your local account from any work or school account sign in screen.  **Note: You will only be able to unlock your account if it has been locked on-premises.**
+## Come sbloccare l'account
+Seguire questa procedura per sbloccare l'account locale da qualsiasi schermata di accesso dell'account aziendale o dell'istituto di istruzione. **Nota: è possibile sbloccare l'account solo se è stato bloccato a livello locale.**
 
->[AZURE.IMPORTANT] This feature is only available to you if your admin has turned it on.  If it's not turned on, you'll see a message indicating your account is not enabled for this feature.  You can use the "contact your administrator" link in this case to get in touch with your admin to unlock your account.
+>[AZURE.IMPORTANT] Questa funzionalità è disponibile solo se abilitata dall'amministratore. Se l'account non è abilitato per questa funzionalità, viene visualizzato un messaggio di avviso. In questo caso, è possibile usare il collegamento "Contattare l'amministratore" per chiedere all'amministratore di sbloccare l'account.
 >
-> If your admin has enabled you for this feature, you'll first need to sign up before you can use it.  You can do that here: http://aka.ms/ssprsetup.
+> Se l'amministratore ha abilitato l'utente per questa funzionalità, sarà prima necessario effettuare l'iscrizione per poterla usare. A questo scopo, accedere a: http://aka.ms/ssprsetup.
 
 
- 1. On the any work or school account sign in page, click on one of the "can't access your account?" or "forgot your password?" links, or navigate to https://passwordreset.microsoftonline.com directly.
+ 1. In una qualsiasi pagina di accesso dell'account aziendale o dell'istituto di istruzione fare clic sul collegamento "Problemi di accesso all'account?" o "Password dimenticata?" oppure passare direttamente a https://passwordreset.microsoftonline.com.
 
     ![][001]
 
- 2. On the "who are you?" page, enter your work or school account ID and prove you aren't a robot by passing the CAPTCHA challenge.
+ 2. Nella pagina "Identificarsi" immettere l'ID dell'account aziendale o dell'istituto di istruzione e rispondere al test CAPTCHA.
 
     ![][002]
 
- 3. Click the "next" button.
- 4. Choose an option to unlock your account.  Depending on how your admin has configured the system, you might see one or more of the following choices:
-     * **Email my alternate email** - sends an email with a 6 digit code to either your **alternate email** or **authentication email** (you choose).
-     * **Text my mobile phone** - texts your phone with a 6 digit code to either your **mobile phone** or **authentication email** (you choose).
-     * **Call my mobile phone** - calls your **mobile phone** or **authentication phone** (you choose) - press the *#* key to verify the call.
-     * **Call my office phone** - calls your **office phone** - press the *#* key to verify the call.
-     * **Answer my security questions** - displays your pre-registered security questions for you to answer.
+ 3. Fare clic sul pulsante "Avanti".
+ 4. Scegliere un'opzione per sbloccare l'account. In base alla configurazione del sistema da parte dell'amministratore, viene visualizzata una o più delle opzioni seguenti:
+     * **Invia messaggio di posta elettronica all'indirizzo di posta elettronica alternativo dell'utente**: invia un messaggio di posta elettronica con un codice di 6 cifre all'**indirizzo di posta elettronica alternativo** o all'**indirizzo di posta elettronica per l'autenticazione** (scegliere l'opzione preferita).
+	 * **Invia SMS sul telefono cellulare**: invia un messaggio di testo con un codice di 6 cifre al **cellulare** dell'utente o all'**indirizzo di posta elettronica per l'autenticazione** (scegliere l'opzione preferita).
+	 * **Chiama cellulare utente**: chiama il **cellulare** dell'utente o il **telefono per l'autenticazione** (scegliere l'opzione preferita). Premere il tasto *#* per verificare la chiamata.
+	 * **Chiama telefono ufficio**: chiama il **telefono dell'ufficio** dell'utente. Premere il tasto *#* per verificare la chiamata.
+	 * **Rispondi alle domande di sicurezza**: consente di visualizzare le domande di sicurezza registrate in precedenza per poter rispondere.
 
     ![][003]
 
- 5. We'll use the "text my mobile phone" option as an example.  If you are using a phone based option, you'll need to verify your phone number before we'll send a text.  Enter your full phone number and then click **Next** to verify it's correct and send a text.
+ 5. Come esempio viene usata l'opzione "Invia SMS sul telefono cellulare". Se si usa un'opzione basata sul telefono, è necessario verificare il numero di telefono prima che sia possibile ricevere un SMS. Immettere il numero di telefono completo e quindi fare clic su **Avanti** per verificare che sia corretto e ricevere un SMS.
 
     ![][004]
 
- 6. When you receive the text, make sure you use the verification code in the message body, not the number the code was sent from.  It might take a few minutes to get the text, so grab a coffee!
+ 6. Dopo aver ricevuto il messaggio di testo, assicurarsi di usare il codice di verifica contenuto nel corpo del messaggio, non il numero da cui il codice è stato inviato. Potrebbero passare alcuni minuti prima di ricevere il messaggio di testo.
 
     ![][009]
 
- 8. Now, enter the code you just received on your phone into the input box on the page.
+ 8. A questo punto, immettere il codice ricevuto sul telefono nella casella di input della pagina.
 
     ![][005]
 
- 9. Your admin may require a second verification step, in which case you must repeat step 4 with a different option selected.
+ 9. L'amministratore può richiedere un secondo passaggio di verifica. In tal caso, è necessario ripetere il Passaggio 4 selezionando un'opzione diversa.
 
- 11. Once you see the success page, you are good to go!  Your on-premises account has been unlocked and you can now sign in once more.
+ 11. Quando viene visualizzata la pagina di notifica dell'esito positivo, l'operazione è terminata. L'account locale è stato sbloccato ed è nuovamente possibile eseguire l'accesso.
 
     ![][010]
 
- >[AZURE.IMPORTANT] Make sure you update all your devices to your newest password, as often times a rogue app with an old password (like your phone email client) can be the culprit behind why your account got locked out in the first place.
+ >[AZURE.IMPORTANT] Tenere sempre aggiornati tutti i dispositivi con la password più recente. Accade spesso, infatti, che la causa del problema sia un'app con una password vecchia (ad esempio il client di posta elettronica del telefono) che ha provocato il blocco dell'account.
 
-Run into a problem unlocking your account?  Read about [common problems and their solutions](#common-problems-and-their-solutions).
+In caso di problemi nello sblocco dell'account, vedere la sezione [Problemi frequenti e relative soluzioni](#common-problems-and-their-solutions).
 
-## <a name="common-problems-and-their-solutions"></a>Common problems and their solutions
-Here are some common error cases and their solutions:
+## Problemi frequenti e relative soluzioni
+Di seguito sono riportati alcuni degli errori più comuni e le relative soluzioni:
 
 <table>
           <tbody><tr>
             <td>
               <p>
-                <strong>Error Case</strong>
+                <strong>Scenario di errore</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>What error do you see?</strong>
+                <strong>Tipo di errore visualizzato</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>Solution</strong>
+                <strong>Soluzione</strong>
               </p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>I get a "please contact your admin" page after entering my user ID</p>
+              <p>Dopo aver immesso l'ID utente viene visualizzata una pagina "Contattare l'amministratore".</p>
             </td>
             <td>
-              <p>Please contact your admin <br><br>We've detected that your user account password is not managed by Microsoft. As a result, we are unable to automatically reset your password. <br><br>You will need to contact your admin or helpdesk for any further assistance. </p>
+              <p>Contattare l'amministratore <br><br>È stato rilevato che la password dell'account utente non è gestita da Microsoft. Di conseguenza, non può essere reimpostata automaticamente. <br><br>Per ulteriore assistenza, sarà necessario contattare l'amministratore o il supporto tecnico. </p>
             </td>
             <td>
-              <p>You are seeing this message because your administrator manages your password in your on-premises environment and does not allow you to reset your password from the <b>Can't access your account link</b>. <br><br> To reset your password, please contact your administrator directly for help, and let him or her know you want to reset your password from Office 365 so he or she can enable this feature for you.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>I get a "your account is not enabled for password reset" error after entering my user ID</p>
-            </td>
-            <td>
-              <p>Your account is not enabled for password reset<br><br>We're sorry, but your administrator has not set up your account for use with this service.<br><br> If you'd like, we can contact an administrator in your organization to reset your password for you.</p>
-            </td>
-            <td>
-              <p>You are seeing this message because your administrator has not enabled password reset for your organization from the <b>Can't access your account</b> link, or hasn't licensed you to use the feature. <br><br> To reset your password, click the <b>contact an administrator</b> link to send an email to your company's admin, and let him or her know you want to reset your password from Office 365 so he or she can enable this feature for you.</p>
+              <p>Questo messaggio viene visualizzato perché l'amministratore gestisce la password nell'ambiente locale e non consente di reimpostarla dal collegamento <b>Problemi di accesso all'account?</b>. <br><br> Per reimpostare la password, contattare l'amministratore direttamente per assistenza e richiedere che venga abilitata la funzionalità di reimpostazione della password da Office 365 per l'utente.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>I get a "we could not verify your account" error after entering my user ID</p>
+              <p>Dopo aver immesso l'ID utente viene visualizzato il messaggio di errore "Account non abilitato per la reimpostazione della password" </p>
             </td>
             <td>
-              <p>We could not verify your account<br><br>If you'd like, we can contact an administrator in your organization to reset your password for you. </p>
+              <p>Account non abilitato per la reimpostazione della password<br><br>L'amministratore non ha configurato l'account per l'utilizzo di questo servizio.<br><br> Se necessario, Microsoft può contattare un amministratore dell'organizzazione e richiedere la reimpostazione della password.</p>
             </td>
             <td>
-              <p>You are seeing this message because you are enabled for password reset, but you have not registered to use the service.  To register for password reset, go to http://aka.ms/ssprsetup after you have regained access to your account. <br><br> To reset your password, click the <b>contact an administrator</b> link to send an email to your company's admin.</p>
+              <p>Questo messaggio viene visualizzato perché l'amministratore non ha abilitato la reimpostazione della password per l'organizzazione dal collegamento <b>Problemi di accesso all'account?</b> o non consente all'utente di usare questa la funzionalità. <br><br> Per reimpostare la password, fare clic sul collegamento <b>contattare un amministratore</b> per inviare un messaggio di posta elettronica all'amministrazione della società e richiedere che venga abilitata la funzionalità di reimpostazione della password da Office 365 per l'utente.</p>
+            </td>
+          </tr>
+		  <tr>
+            <td>
+              <p>Dopo aver immesso l'ID utente viene visualizzato il messaggio di errore "Non è stato possibile verificare l'account".</p>
+            </td>
+            <td>
+              <p>Non è stato possibile verificare l'account<br><br>Se necessario, Microsoft può contattare un amministratore dell'organizzazione e richiedere la reimpostazione della password. </p>
+            </td>
+            <td>
+              <p>Questo messaggio viene visualizzato perché è abilitata la reimpostazione della password da parte dell'utente, ma non è stata eseguita la registrazione per usare il servizio. Per registrarsi per la reimpostazione della password, andare alla pagina http://aka.ms/ssprsetup dopo aver recuperato l'accesso al proprio account. <br><br> Per reimpostare la password, fare clic sul collegamento <b>contattare un amministratore</b> per inviare un messaggio di posta elettronica all'amministrazione della società.</p>
             </td>
           </tr>
         </tbody></table>
 
 
-## <a name="links-to-password-reset-documentation"></a>Links to password reset documentation
-Below are links to all of the Azure AD Password Reset documentation pages:
+## Collegamenti alla documentazione relativa alla reimpostazione della password
+Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-* [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
-* [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
-* [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
-* [**Best practices**](active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
-* [**Get insights**](active-directory-passwords-get-insights.md) - learn about our integrated reporting capabilities
-* [**FAQ**](active-directory-passwords-faq.md) - get answers to frequently asked questions
-* [**Troubleshooting**](active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
-* [**Learn more**](active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
+* [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
+* [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
+* [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione
+* [**Procedure consigliate**](active-directory-passwords-best-practices.md): informazioni su come distribuire rapidamente e gestire in modo efficace le password nell'organizzazione
+* [**Informazioni dettagliate**](active-directory-passwords-get-insights.md): informazioni sulle funzionalità di creazione report integrate
+* [**Domande frequenti**](active-directory-passwords-faq.md): risposte alle domande frequenti
+* [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md): informazioni su come risolvere rapidamente eventuali problemi con il servizio
+* [**Ulteriori informazioni**](active-directory-passwords-learn-more.md): approfondimenti sui dettagli tecnici del funzionamento del servizio
 
 
 
@@ -264,8 +261,4 @@ Below are links to all of the Azure AD Password Reset documentation pages:
 [014]: ./media/active-directory-passwords-update-your-own-password/014.jpg "Image_014.jpg"
 [015]: ./media/active-directory-passwords-update-your-own-password/015.jpg "Image_015.jpg"
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

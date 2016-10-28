@@ -1,57 +1,53 @@
 <properties
-    pageTitle="Why DevTest Labs? | Microsoft Azure"
-    description="Learn how DevTest Labs can make it easy to create, manage, and monitor Azure virtual machines"
-    services="devtest-lab,virtual-machines"
-    documentationCenter="na"
-    authors="tomarcher"
-    manager="douge"
-    editor=""/>
+	pageTitle="Perché DevTest Labs? | Microsoft Azure"
+	description="Informazioni su come Lab di sviluppo/test può rendere più semplice la creazione, la gestione e il monitoraggio delle macchine virtuali di Azure"
+	services="devtest-lab,virtual-machines"
+	documentationCenter="na"
+	authors="tomarcher"
+	manager="douge"
+	editor=""/>
 
 <tags
-    ms.service="devtest-lab"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/22/2016"
-    ms.author="tarcher"/>
+	ms.service="devtest-lab"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="tarcher"/>
 
-
-#<a name="why-devtest-labs?"></a>Why DevTest Labs?
+#Perché Lab di sviluppo e test?
 
 > [AZURE.NOTE]
-> This article is part 2 of a 3 part series:
+Questo articolo è la parte 2 di una serie in 3 parti:
 > 
-> 1. [What is DevTest Labs?](devtest-lab-overview.md)
-> 1. **[Why DevTest Labs?](devtest-lab-why.md)**
-> 1. [DevTest Labs concepts](devtest-lab-concepts.md)
+> 1. [Che cosa sono i lab di sviluppo/test?](devtest-lab-overview.md)
+> 1. **[Perché DevTest Labs?](devtest-lab-why.md)**
+> 1. [Concetti di Lab di sviluppo e test](devtest-lab-concepts.md)
 
-##<a name="overview"></a>Overview
-DevTest Labs provides the following benefits in creating, configuring, and managing developer and test environments in the cloud
+##Overview
+Lab di sviluppo e test offre i seguenti vantaggi nella creazione, configurazione e gestione di ambienti di sviluppo e test nel cloud
 
-##<a name="worry-free-self-service"></a>Worry-free self-service
+##Self-service di semplice uso
 
-DevTest Labs makes it easier to control costs by allowing you to set policies on your lab - such as number of virtual machines (VM) per user and number of VMs per lab. DevTest Labs also enables you to create policies to automatically shut down and start VMs.
+Lab di sviluppo e test rende più semplice controllare i costi consentendo di impostare criteri nel lab, come il numero di macchine virtuali (VM) per ogni utente e il numero di macchine virtuali per ogni lab. Lab di sviluppo e test consente inoltre di creare criteri per arrestare e avviare le macchine virtuali automaticamente.
 
-##<a name="quickly-get-to-ready-to-test"></a>Quickly get to ready-to-test
+##Ambienti di test subito pronti
 
-DevTest Labs enables you to create pre-provisioned environments with everything your team needs to start developing and testing applications. Simply claim the environments where the last good build of your application is installed and get working right away. Or, use containers for even faster and leaner environment creation.
+Lab di sviluppo e test consente di creare ambienti di pre-provisioning con tutto ciò che è necessario per il team affinché possa iniziare lo sviluppo e il test delle applicazioni. È sufficiente richiedere gli ambienti in cui è stata installata l'ultima compilazione valida dell'applicazione e iniziare subito a lavorare. Oppure utilizzare i contenitori per creare gli ambienti in modo ancora più veloce ed efficiente.
 
-##<a name="create-once,-use-everywhere"></a>Create once, use everywhere
+##Creazione di un'unica soluzione per scenari di diverso tipo
 
-Capture and share environment templates and artifacts within your team or organization - all in source control - to create developer and test environments easily.
+E’ possibile acquisire e condividere elementi e modelli di ambienti all'interno del team o dell'organizzazione, il tutto nel controllo del codice sorgente, per creare in modo facile ambienti di sviluppo e test.
 
-##<a name="integrates-with-your-existing-toolchain"></a>Integrates with your existing toolchain
+##Integrazione con la toolchain esistente
 
-Leverage pre-made plug-ins or our API to provision Dev/Test environments directly from your preferred continuous integration (CI) tool, integrated development environment (IDE), or automated release pipeline. You can also use our comprehensive command-line tool.
+E’ possibile sfruttare plug-in già pronti oppure l’API per effettuare il provisioning di ambienti di sviluppo/test direttamente dallo strumento di integrazione continua (CI), dall'ambiente di sviluppo integrato (IDE, Integrated Development Environment) o dalla pipeline di rilascio automatizzata. E’ anche possibile utilizzare il nostro strumento da riga di comando completo.
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-##<a name="next-steps"></a>Next steps
+##Passaggi successivi
 
-[DevTest Labs concepts](devtest-lab-concepts.md)
+[Concetti di Lab di sviluppo e test](devtest-lab-concepts.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

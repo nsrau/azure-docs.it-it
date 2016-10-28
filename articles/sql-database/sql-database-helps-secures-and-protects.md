@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure SQL Database Secures and Protects"
-   description="Learn how SQL Database helps secure and protect"
+   pageTitle="Il database SQL di Azure facilita la sicurezza e la protezione"
+   description="Informazioni sul modo in cui il database SQL facilita la sicurezza e la protezione"
    keywords=""
    services="sql-database"
    documentationCenter=""
@@ -17,50 +17,42 @@
    ms.date="09/13/2016"
    ms.author="carlrab"/>
    
+# Il database SQL di Azure facilita la sicurezza e la protezione
 
-# <a name="azure-sql-database-secures-and-protects"></a>Azure SQL Database Secures and Protects
+## Proteggere e salvaguardare i dati dell'applicazione
 
-## <a name="keep-your-app’s-data-safe-and-secure"></a>Keep your app’s data safe and secure
-
-Azure SQL Database supports millions of mission-critical databases in the cloud&mdash;where they all benefit from high availability, security, compliance, and high performance. From the smallest startup to the largest enterprise, data security is increasingly top of mind for all businesses, and SQL Database supports everyone.
+Il database SQL di Azure supporta milioni di database di importanza strategica nel cloud, che possono contare su tutti i vantaggi derivanti da elevata disponibilità, sicurezza, conformità e alte prestazioni. Dalle più piccole aziende di nuova formazione fino alle grandi imprese, la sicurezza dei dati rappresenta una priorità sempre più critica per qualsiasi realtà aziendale. E il database SQL supporta tutte le esigenze.
 
 ![helps-secures-and-protects](./media/sql-database-helps-secures-and-protects/sql-database-helps-secures-and-protects.png)
 
-## <a name="we’ve-got-your-back"></a>We’ve got your back
+## È disponibile il supporto.
 
-You can only hope you don't need to access yesterday's backups or recover from a disaster. But if you find yourself in this situation, SQL Database is there to help. With 99.99% availability, automatic backups, Point-in-Time Restore, built-in Geo-Replication, and failover options, you'll rest easy knowing your app is safe and sound.
+Ovviamente si spera sempre di non essere costretti ad accedere ai backup dei giorni precedenti o a recuperare i dati in seguito a una situazione di emergenza. Se però ci si ritrova in una situazione di questo tipo, il database SQL è di grande aiuto. Con un livello di disponibilità del 99,99%, backup automatici, ripristino temporizzato, replica geografica incorporata e opzioni di failover, si può contare su un ambiente in cui l'app è al sicuro e protetta.
 
-[Read the documentation](sql-database-business-continuity.md)
+[Leggere la documentazione](sql-database-business-continuity.md)
 
-## <a name="the-largest-compliance-portfolio"></a>The largest compliance portfolio
+## Il più ampio portfolio di conformità
 
-SQL Database has the largest compliance portfolio in the industry. So if you need HIPPA compliance or FERPA or even Singapore MTCS Level 3 don't worry&mdash;we got you covered.  
+Il database SQL ha il più vasto portfolio di conformità nel settore. Dalla conformità HIPPA a FERPA o persino Singapore MTC Level 3: c'è tutto ciò che serve.
 
-[Read the documentation](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
+[Leggere la documentazione](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
 
-## <a name="layers-of-protection"></a>Layers of protection
+## Livelli di protezione
 
-SQL Database provides multiple layers of data protection. Your data is protected by encrypting data while at rest, in motion or in use, authenticating only authorized users against the database or application, and limiting user access to the appropriate subset of the data. Additionally, SQL Database provides continuous monitoring and auditing of activities to help detect potential threats and provide a record of critical events in case of a breach. These features are balanced by the ability to quickly implement features and mitigate security risk without compromising developer productivity or a customer’s experience.
+Il database SQL offre più livelli di protezione dei dati. I dati vengono protetti con la crittografia quando sono inattivi, in movimento o in uso, autenticando solo gli utenti autorizzati per il database o l'applicazione e limitando l'accesso utente al subset di dati appropriato. Inoltre, il database SQL offre il monitoraggio e il controllo continuo delle attività allo scopo di rilevare potenziali minacce e fornire un record di eventi critici in caso di violazione. Queste funzionalità sono bilanciate dalla possibilità di implementare rapidamente le funzionalità e ridurre i rischi di sicurezza senza compromettere la produttività degli sviluppatori o l'esperienza del cliente.
 
-[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787593)
+[Leggere la documentazione](http://go.microsoft.com/fwlink/?LinkID=787593)
 
-Go to the homepage to see what else SQL Database has to offer.
-[Check it out](https://azure.microsoft.com/services/sql-database/) 
+Passare alla home page per vedere cos'altro può offrire il database SQL. [Fare clic qui per provare](https://azure.microsoft.com/services/sql-database/)
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-Get a [free Azure subscription](https://azure.microsoft.com/get-started/) and [create your first Azure SQL Database](sql-database-get-started.md).
+Ottenere una [sottoscrizione gratuita ad Azure](https://azure.microsoft.com/get-started/) e creare [il primo database SQL di Azure](sql-database-get-started.md).
 
-## <a name="additional-resources"></a>Additional resources
+## Risorse aggiuntive
 
-Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/services/sql-database/).
  
-Review the [technical overview of SQL Database](sql-database-technical-overview.md).  
+Consultare la [panoramica tecnica sul database SQL](sql-database-technical-overview.md).
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

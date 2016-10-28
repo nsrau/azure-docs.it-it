@@ -1,81 +1,79 @@
-The approach to Azure endpoints works a little differently between the Classic and Resource Manager deployment models. You now have the flexibility to create network filters that control the flow of traffic in and out of your VMs, allowing you to create complex networking environments beyond a simple endpoint as in the Classic deployment model. This article provides an overview of network security groups and how they differ from using Classic endpoints, creating these filtering rules, and sample deployment scenarios.
+Nei modelli di distribuzione classica e Resource Manager, l'approccio agli endpoint di Azure è leggermente diverso. È ora possibile creare filtri di rete che controllano il flusso del traffico in ingresso e in uscita dalle VM e consentono così di creare ambienti di rete complessi al di là di un semplice endpoint come nel modello di distribuzione classica. Questo articolo offre una panoramica dei gruppi di sicurezza di rete, delle differenze rispetto all'uso degli endpoint del modello di distribuzione classica, della creazione di regole di filtro e di scenari di distribuzione di esempio.
 
 
-## <a name="overview-of-resource-manager-deployments"></a>Overview of Resource Manager deployments
-Endpoints in the Classic deployment model are replaced by Network Security Groups and access control list (ACL) rules. Quick steps for implementing Network Security Group ACL rules are:
+## Panoramica delle distribuzioni Resource Manager
+Gli endpoint del modello di distribuzione classica sono sostituiti da gruppi di sicurezza di rete e regole dell'elenco di controllo di accesso (ACL). Le azioni rapide per implementare le regole ACL dei gruppi di sicurezza di rete sono le seguenti:
 
-- Create a Network Security Group
-- Define your Network Security Group ACL rules to allow or deny traffic
-- Assign your Network Security Group to a network interface or virtual network subnet
+- Creare un gruppo di sicurezza di rete
+- Definire le regole ACL del gruppo di sicurezza di rete per consentire o impedire il traffico
+- Assegnare il gruppo di sicurezza di rete a un'interfaccia di rete o una subnet di rete virtuale
 
-If you are wanting to also perform port-forwarding, you need to place a load balancer in front of your VM and use NAT rules. Quick steps for implementing a load balancer and NAT rules would be as follows:
+Se si vuole eseguire anche il port forwarding, è necessario inserire un servizio di bilanciamento del carico a monte della VM e usare regole NAT. Le azioni rapide per implementare un servizio di bilanciamento del carico e regole NAT saranno le seguenti:
 
-- Create a load balancer
-- Create a backend pool and add your VMs to the pool
-- Define your NAT rules for the required port forwarding
-- Assign your NAT rules to your VMs
-
-
-## <a name="network-security-group-overview"></a>Network Security Group overview
-Network Security Groups are a new feature that provides a layer of security for you to allow specific ports and subnets to access your VMs. You typically always have a Network Security Group providing this layer of security between your VMs and the outside world. Network Security Groups can be applied to a virtual network subnet or a specific network interface for a VM. Rather than creating endpoint ACL rules, you now create Network Security Group ACL rules. These ACL rules provide much greater control than simply creating an endpoint to forward a given port. You can [read more about Network Security Groups](../articles/virtual-network/virtual-networks-nsg.md).
-
-> [AZURE.TIP] You can assign Network Security Groups to multiple subnets or network interfaces. There is no 1:1 mapping, meaning that you can create a Network Security Group with a common set of ACL rules and apply to multiple subnets or network interfaces. Further, Network Security Group can be applied to resources across your subscription (based on [Role Based Access Controls](../articles/active-directory/role-based-access-control-what-is.md).
+- Creare un servizio di bilanciamento del carico
+- Creare un pool back-end e aggiungere le VM al pool
+- Definire le regole NAT per il port forwarding necessario
+- Assegnare le regole NAT alle VM
 
 
-## <a name="load-balancers-overview"></a>Load Balancers overview
-In the Classic deployment model, Azure would perform all the Network Address Translation (NAT) and port forwarding on a Cloud Service for you. When creating an endpoint, you would specify the external port to expose along with the internal port to direct traffic to. Network Security Groups by themselves do not perform this same NAT and port forwarding. 
+## Panoramica dei gruppi di sicurezza di rete
+I gruppi di sicurezza di rete sono una nuova funzionalità che offre un livello di sicurezza con cui è possibile consentire a porte e subnet specifiche l'accesso alle VM. In genere è sempre presente un gruppo di sicurezza di rete che fornisce questo livello di sicurezza tra le VM e il mondo esterno. I gruppi di sicurezza di rete possono essere applicati a una subnet di rete virtuale o a una specifica interfaccia di rete per una VM. Invece di creare regole ACL di endpoint, si creano le regole ACL dei gruppi di sicurezza di rete. Tali regole ACL garantiscono un controllo notevolmente superiore rispetto alla semplice creazione di un endpoint per il port forwarding di una determinata porta. [Altre informazioni sui gruppi di sicurezza di rete](../articles/virtual-network/virtual-networks-nsg.md).
 
-To allow you to create NAT rules for such port forwarding, create an Azure load balancer in your resource group. Again, the load balancer is granular enough to only apply to specific VMs if needed. The Azure load balancer NAT rules work alongside Network Security Group ACL rules to provide much more flexibility and control than was achievable using Cloud Service endpoints. You can read more about [load balancer overview](../articles/load-balancer/load-balancer-overview.md).
-
-
-## <a name="network-security-group-acl-rules"></a>Network Security Group ACL rules
-ACL rules let you define what traffic can flow in and out of your VM based on specific ports, port ranges, or protocols. Rules are assigned to individual VMs or to a subnet. The following screenshot is an example of ACL rules for a common webserver:
-
-![List of Network Security Group ACL rules](./media/virtual-machines-common-endpoints-in-resource-manager/example-acl-rules.png)
-
-ACL rules are applied based on a priority metric that you specify - the higher the value, the lower the priority. Every Network Security Group has three default rules that are designed to handle the flow of Azure networking traffic, with an explicit `DenyAllInbound` as the final rule. Default ACL rules are given a low priority to not interfere with rules you create.
+> [AZURE.TIP] I gruppi di sicurezza di rete possono essere assegnati a più subnet o interfacce di rete. Non esiste un mapping 1:1 ed è quindi possibile creare un gruppo di sicurezza di rete con un set comune di regole ACL e applicarlo a più subnet o interfacce di rete. Il gruppo di sicurezza di rete può anche essere applicato a risorse all'interno della sottoscrizione, con il [controllo degli accessi in base al ruolo](../articles/active-directory/role-based-access-control-what-is.md).
 
 
-## <a name="assigning-network-security-groups"></a>Assigning Network Security Groups
-You assign a Network Security Group to a subnet or a network interface. This approach allows you to be as granular as needed when applying your ACL rules to only a specific VM, or ensure a common set of ACL rules are applied to all VMs part of a subnet:
+## Panoramica dei servizi di bilanciamento del carico
+Nel modello di distribuzione classica, tutte le operazioni Network Address Translation (NAT) e di port forwarding in un servizio cloud vengono eseguite da Azure. Quando si crea un endpoint, si specifica la porta esterna da esporre con la porta interna a cui indirizzare il traffico. I gruppi di sicurezza di rete non eseguono autonomamente le stesse operazioni NAT e di port forwarding.
 
-![Apply NSGs to network interfaces or subnets](./media/virtual-machines-common-endpoints-in-resource-manager/apply-nsg-to-resources.png)
-
-The behavior of the Network Security Group doesn't change depending on being assigned to a subnet or a network interface. A common deployment scenario has the Network Security Group assigned to a subnet to ensure compliance of all VMs attached to that subnet. You can read more about [applying Network Security groups to resources](../virtual-nework/virtual-networks-nsg.md#associating-nsgs).
+Per consentire la creazione delle regole NAT per il port forwarding, creare un'istanza di Azure Load Balancer nel gruppo di risorse. Il livello di granularità del servizio di bilanciamento del carico è sufficiente a consentire l'applicazione solo a VM specifiche, se necessario. Le regole NAT di Azure Load Balancer vengono usate insieme alle regole ACL del gruppo di sicurezza di rete per offrire un livello di flessibilità e controllo nettamente superiore rispetto a quello ottenibile con gli endpoint del servizio cloud. [Altre informazioni di panoramica del servizio di bilanciamento del carico](../articles/load-balancer/load-balancer-overview.md).
 
 
-## <a name="default-behavior-of-network-security-groups"></a>Default behavior of Network Security Groups
-Depending on how and when you create your network security group, default rules may be created to permit RDP access on TCP port 3389. Linux VMs permit SSH access on TCP port 22. These automatic ACL rules are created under the following conditions:
+## Regole ACL dei gruppi di sicurezza di rete
+Le regole ACL permettono di definire il traffico consentito in ingresso e in uscita dalla VM in base a porte, intervalli di porte o protocolli specifici. Le regole vengono assegnate a singole macchine virtuali o a una subnet. Lo screenshot seguente contiene un esempio delle regole ACL per un server Web comune:
 
-- If you create a Windows VM through the portal and accept the default action to create a Network Security Group, an ACL rule to allow TCP port 3389 (RDP) is created.
-- If you create a Linux VM through the portal and accept the default action to create a Network Security Group, an ACL rule to allow TCP port 22 (SSH) is created.
+![Elenco di regole ACL di un gruppo di sicurezza di rete](./media/virtual-machines-common-endpoints-in-resource-manager/example-acl-rules.png)
 
-Under all other conditions, these default ACL rules are not created. You will be unable to connect to your VM without creating the appropriate ACL rules. This would include the following common actions:
-
-- Creating a Network Security Group through the portal as a separate action to creating the VM.
-- Creating a Network Security Group programmatically through PowerShell, Azure CLI, Rest APIs, etc.
-- Creating a VM and assigning it to an existing Network Security Group that does not already have the appropriate ACL rule defined.
-
-In all the preceding cases, you need to create ACL rules for your VM to allow the appropriate remote management connections.
+Le regole ACL vengono applicate in base a una metrica di priorità specificata dall'utente (più il valore è alto, minore è la priorità). Ogni gruppo di sicurezza di rete include tre regole predefinite progettate per gestire il flusso del traffico di rete di Azure, con una regola `DenyAllInbound` esplicita come regola finale. Alle regole ACL predefinite viene assegnata una priorità bassa in modo che non interferiscano con le regole create dall'utente.
 
 
-## <a name="default-behavior-of-a-vm-without-a-network-security-group"></a>Default behavior of a VM without a Network Security Group
-You can create a VM without creating a Network Security Group. In these situations, you can connect to your VM using RDP or SSH without creating any ACL rules. Similarly, if you installed a web service on port 80, that service is automatically accessible remotely. The VM has all ports open.
+## Assegnazione dei gruppi di sicurezza di rete
+Un gruppo di sicurezza di rete viene assegnato a una subnet o un'interfaccia di rete. Questo approccio consente di ottenere il livello di granularità necessario quando si applicano le regole ACL solo a una specifica VM oppure di assicurarsi che un set comune di regole ACL venga applicato a tutte le VM che fanno parte di una subnet:
 
-> [AZURE.NOTE] You still need to have a public IP address assigned to a VM in order for any remote connections. Not having a Network Security Group for the subnet or network interface doesn't expose the VM to any external traffic. The default action when creating a VM through the portal is to create a new public IP. For all other forms of creating a VM such as PowerShell, Azure CLI, or Resource Manager template, a public IP is not automatically created unless explicitly requested. The default action through the portal is also to create a Network Security Group, so you shouldn't end up in a situation with an exposed VM that has no network filtering in place.
+![Applicazione di gruppi di sicurezza di rete a interfacce di rete o subnet](./media/virtual-machines-common-endpoints-in-resource-manager/apply-nsg-to-resources.png)
 
-
-## <a name="understanding-load-balancers-and-nat-rules"></a>Understanding Load Balancers and NAT rules
-In the Classic deployment model, you could create endpoints that also performed port forwarding. When you create a VM in the Classic deployment model, ACL rules for RDP or SSH would be automatically created. They would not expose TCP port 3389 or TCP port 22 respectively to the outside world. Instead, a high-value TCP port would be exposed that maps to the appropriate internal port. You could also create your own ACL rules in a similar manner, such as expose a webserver on TCP port 4280 to the outside world. You can see these ACL rules and port mappings in the following screenshot from the Classic portal:
-
-![Port-forwarding with Classic endpoints](./media/virtual-machines-common-endpoints-in-resource-manager/classic-endpoints-port-forwarding.png)
-
-With Network Security Groups, that port-forwarding function is handled by a load balancer. You can read more about [load balancers in Azure](../articles/load-balancer/load-balancer-overview.md). An example of a load balancer with a NAT rule to perform port-forwarding of TCP port 4222 to the internal TCP port 22 a VM is shown in the following screenshot from the portal:
-
-![Load balancer NAT rules for port-forwarding](./media/virtual-machines-common-endpoints-in-resource-manager/load-balancer-nat-rules.png)
-
-> [AZURE.NOTE] When you implement a load balancer, you typically don't assign the VM itself a public IP address. Instead, the load balancer has a public IP address assigned to it. You still need to create your Network Security Group and ACL rules to define the flow of traffic in and out of your VM. The load balancer NAT rules are simply to define what ports are allowed through the load balancer and how they get distributed across the backend VMs. As such, you need to create a NAT rule for traffic to flow through the load balancer and then create a Network Security Group ACL rule to allow the traffic to actually reach the VM.
-
-<!--HONumber=Oct16_HO2-->
+Il comportamento di un gruppo di sicurezza di rete non cambia a seconda che venga assegnato a una subnet o a un'interfaccia di rete. Uno scenario di distribuzione comune prevede l'assegnazione del gruppo di sicurezza di rete a una subnet per garantire la conformità di tutte le VM collegate a tale subnet. [Altre informazioni sull'applicazione di gruppi di sicurezza di rete alle risorse](../virtual-nework/virtual-networks-nsg.md#associating-nsgs).
 
 
+## Comportamento predefinito dei gruppi di sicurezza di rete
+A seconda di come e quando si crea il gruppo di sicurezza di rete, possono essere create regole predefinite per consentire l'accesso RDP sulla porta TCP 3389. Le macchine virtuali Linux consentono l'accesso SSH sulla porta TCP 22. Queste regole ACL automatiche vengono create nelle condizioni seguenti:
+
+- Se si crea una VM Windows con il portale e si accetta l'azione predefinita per la creazione di un gruppo di sicurezza di rete, viene creata una regola ACL per consentire la porta TCP 3389 (RDP).
+- Se si crea una VM Linux con il portale e si accetta l'azione predefinita per la creazione di un gruppo di sicurezza di rete, viene creata una regola ACL per consentire la porta TCP 22 (SSH).
+
+In tutte le altre condizioni, queste regole ACL predefinite non vengono create. Non sarà possibile connettersi alla VM senza creare regole ACL appropriate. Ciò includerà le azioni comuni seguenti:
+
+- Creazione di un gruppo di sicurezza di rete con il portale come azione separata rispetto alla creazione della VM.
+- Creazione di un gruppo di sicurezza di rete a livello di codice con PowerShell, l'interfaccia della riga di comando di Azure, API REST e così via.
+- Creazione di una VM e relativa assegnazione a un gruppo di sicurezza di rete esistente per cui non è già definita la regola ACL appropriata.
+
+In tutti i casi indicati, è necessario creare regole ACL per la VM per consentire le connessioni di gestione remota appropriate.
+
+
+## Comportamento predefinito di una VM senza un gruppo di sicurezza di rete
+È possibile creare una VM senza creare un gruppo di sicurezza di rete. In queste situazioni, è possibile connettersi alla VM con RDP o SSH senza creare regole ACL. Analogamente, se è stato installato un servizio Web sulla porta 80, tale servizio è automaticamente accessibile in remoto. Tutte le porte della VM sono aperte.
+
+> [AZURE.NOTE] Per le connessioni remote, è comunque necessario un indirizzo IP pubblico assegnato a una VM. L'assenza di un gruppo di sicurezza di rete per la subnet o l'interfaccia di rete non espone la VM a tutto il traffico esterno. Quando si crea una VM con il portale, l'azione predefinita prevede la creazione di un nuovo IP pubblico. In tutte le altre forme di creazione di una VM, come PowerShell, l'interfaccia della riga di comando di Azure o un modello di Resource Manager, non viene creato automaticamente un IP pubblico se non esplicitamente richiesto. L'azione predefinita con il portale prevede anche la creazione di un gruppo di sicurezza di rete e non si dovrebbe quindi verificare la situazione di una VM esposta senza filtri di rete.
+
+
+## Informazioni su servizi di bilanciamento del carico e regole NAT
+Nel modello di distribuzione classica, è possibile creare endpoint che eseguono anche il port forwarding. Quando si crea una macchina virtuale nel modello di distribuzione classica, le regole ACL per RDP o SSH vengono create automaticamente. La porta TCP 3389 o la porta TCP 22 rispettivamente non vengono esposte all'esterno. Viene invece esposta una porta TCP di valore elevato con mapping alla porta interna appropriata. È anche possibile creare regole ACL personalizzate in modo analogo, ad esempio esporre un server Web al mondo esterno sulla porta TCP 4280. Lo screenshot seguente del portale classico illustra queste regole ACL e i mapping delle porte:
+
+![Port forwarding con endpoint del modello di distribuzione classica](./media/virtual-machines-common-endpoints-in-resource-manager/classic-endpoints-port-forwarding.png)
+
+Con i gruppi di sicurezza di rete, la funzione di port forwarding è gestita da un servizio di bilanciamento del carico. [Altre informazioni sui servizi di bilanciamento del carico in Azure](../articles/load-balancer/load-balancer-overview.md). Lo screenshot seguente del portale illustra un esempio di un servizio di bilanciamento del carico con una regola NAT per il port forwarding della porta TCP 4222 alla porta TCP 22 interna di una VM:
+
+![Regole NAT del servizio di bilanciamento del carico per il port forwarding](./media/virtual-machines-common-endpoints-in-resource-manager/load-balancer-nat-rules.png)  
+
+> [AZURE.NOTE] Quando si implementa un servizio di bilanciamento del carico, in genere non si assegna un indirizzo IP pubblico alla VM. Al servizio di bilanciamento del carico viene invece assegnato un indirizzo IP pubblico. È comunque necessario creare un gruppo di sicurezza di rete e regole ACL per definire il flusso del traffico in ingresso e in uscita dalla VM. Le regole NAT del servizio di bilanciamento del carico hanno semplicemente lo scopo di definire le porte consentite tramite il servizio di bilanciamento del carico e come vengono distribuite tra le VM back-end. Di conseguenza, è necessario creare una regola NAT per consentire il flusso del traffico attraverso il servizio di bilanciamento del carico e quindi una regola ACL del gruppo di sicurezza di rete per consentire al traffico di raggiungere effettivamente la VM.
+
+<!---HONumber=AcomDC_0810_2016-->

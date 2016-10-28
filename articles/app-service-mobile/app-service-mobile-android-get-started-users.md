@@ -1,59 +1,58 @@
 <properties
-    pageTitle="Add authentication on Android with Mobile Apps | Azure App Service"
-    description="Learn how to use Mobile Apps in Azure App Service to authenticate users of your Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft."
-    services="app-service\mobile"
-    documentationCenter="android"
-    authors="yuaxu"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Aggiungere l'autenticazione ad Android con App per dispositivi mobili | Servizio app di Azure"
+	description="Informazioni su come usare app per dispositivi mobili del servizio app di Azure per autenticare gli utenti dell'app Android tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft."
+	services="app-service\mobile"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="app-service-mobile"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-android"
-    ms.devlang="java"
-    ms.topic="article"
-    ms.date="10/01/2016"
-    ms.author="yuaxu"/>
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="07/18/2016"
+	ms.author="ricksal"/>
 
-
-# <a name="add-authentication-to-your-android-app"></a>Add authentication to your Android app
+# Aggiungere l'autenticazione all'app Android
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-## <a name="summary"></a>Summary
+## Riepilogo
 
-In this tutorial, you add authentication to the todolist quickstart project on Android using a supported identity provider. This tutorial is based on the [Get started with Mobile Apps] tutorial, which you must complete first.
+Questa esercitazione consente di aggiungere l'autenticazione al progetto introduttivo TodoList in Android tramite un provider di identità supportato. Questa esercitazione è basata sull'esercitazione relativa alla [creazione di un'app per dispositivi mobili], che deve essere completata per prima.
 
-##<a name="<a-name="register"></a>register-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>Register your app for authentication and configure the App Service
+##<a name="register"></a>Registrare l'app per l'autenticazione e configurare il servizio app
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-##<a name="<a-name="permissions"></a>restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restrict permissions to authenticated users
+##<a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-+ In Android Studio, open the project that you created when you completed the tutorial [Get started with Mobile Apps], then from the **Run** menu click **Run app** and verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
++ In Android Studio aprire il progetto creato dopo aver completato l'esercitazione relativa alla [creazione di un'app per dispositivi mobili], scegliere **Run app** dal menu **Run** e verificare che, dopo l'avvio dell'app, venga generata un'eccezione non gestita con codice di stato di 401 (non autorizzato).
 
-     This happens because the app attempts to access the backend as an unauthenticated user, but the _TodoItem_ table now requires authentication.
+	 L'eccezione non gestita viene generata perché l'app tenta di accedere al backend come utente non autenticato, mentre la tabella _TodoItem_ richiede ora l'autenticazione.
 
-Next, you will update the app to authenticate users before requesting resources from the Mobile App backend.
+A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di richiedere risorse al back-end dell'app per dispositivi mobili.
 
-## <a name="add-authentication-to-the-app"></a>Add authentication to the app
+## Aggiungere l'autenticazione all'app
 
 [AZURE.INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
 
-## <a name="<a-name="cache-tokens"></a>cache-authentication-tokens-on-the-client"></a><a name="cache-tokens"></a>Cache authentication tokens on the client
+## <a name="cache-tokens"></a>Memorizzare nella cache i token di autenticazione sul client
 
 [AZURE.INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
 
-##<a name="next-steps"></a>Next steps
+##Passaggi successivi
 
-Now that you completed this basic authentication tutorial, consider continuing on to one of the following tutorials:
+Dopo aver completato questa esercitazione sull'autenticazione di base, provare a continuare fino a una delle esercitazioni seguenti:
 
-+ [Add push notifications to your Android app](app-service-mobile-android-get-started-push.md) Learn how to add push notifications support to your app and configure your Mobile App backend to use Azure Notification Hubs to send push notifications.
++ [Aggiungere notifiche push all'app Android](app-service-mobile-android-get-started-push.md) Informazioni su come aggiungere il supporto per le notifiche push all'app e configurare il back-end dell'app per dispositivi mobili per l'utilizzo di Hub di notifica di Azure per l'invio di notifiche push.
 
-+ [Enable offline sync for your Android app](app-service-mobile-android-get-started-offline-data.md) Learn how to add offline support your app using an Mobile App backend. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
++ [Abilitare la sincronizzazione offline per l'app Android](app-service-mobile-android-get-started-offline-data.md) Informazioni su come aggiungere il supporto offline all'app tramite il back-end di un'app per dispositivi mobili. La sincronizzazione offline consente agli utenti finali di interagire con un'app, visualizzando, aggiungendo e modificando i dati, anche se non è disponibile una connessione di rete.
 
 
 
@@ -63,14 +62,10 @@ Now that you completed this basic authentication tutorial, consider continuing o
 [Add authentication to the app]: #add-authentication
 [Store authentication tokens on the client]: #cache-tokens
 [Refresh expired tokens]: #refresh-tokens
-[Next Steps]:#next-steps
+[Next Steps]: #next-steps
 
 
 <!-- URLs. -->
-[Get started with Mobile Apps]: app-service-mobile-android-get-started.md
+[creazione di un'app per dispositivi mobili]: app-service-mobile-android-get-started.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

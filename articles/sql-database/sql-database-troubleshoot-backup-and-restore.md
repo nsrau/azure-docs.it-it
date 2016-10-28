@@ -1,49 +1,45 @@
 <properties
-    pageTitle="Troubleshoot backup and restore with Azure SQL Database"
-    description="Learn how to recover a cloud database from errors and outages using backups and replicas in Azure SQL Database."
-    services="sql-database"
-    documentationCenter=""
-    authors="dalechen"
-    manager="felixwu"
-    editor=""/>
+	pageTitle="Risoluzione dei problemi di backup e ripristino con il database SQL di Azure"
+	description="Informazioni su come ripristinare un database cloud in seguito a errori e interruzioni tramite i backup e le repliche nel database SQL di Azure."
+	services="sql-database"
+	documentationCenter=""
+	authors="dalechen"
+	manager="felixwu"
+	editor=""/>
 
 <tags
-    ms.service="sql-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/31/2016"
-    ms.author="daleche"/>
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2016"
+	ms.author="daleche"/>
 
+# Ripristinare un database a un momento precedente, ripristinare un database eliminato o eseguire il ripristino in seguito a un'interruzione del data center
 
-# <a name="restore-a-database-to-a-previous-point-in-time,-restore-a-deleted-database,-or-recover-from-a-data-center-outage"></a>Restore a database to a previous point in time, restore a deleted database, or recover from a data center outage
+Database SQL mantiene le repliche del database, pertanto è possibile eseguire il ripristino in seguito a interruzioni ed errori dell'utente. Le opzioni disponibili dipendono dal livello di servizio del database e dalle opzioni scelte. Per informazioni dettagliate sulle considerazioni di progettazione, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
 
-SQL Database keeps replicas of your database so you can recover from outages and user error. Available options depend on the database service tier and options you choose. See the [Business Continuity Overview](sql-database-business-continuity.md) for details and design considerations.
+## Per ripristinare un database nello stato a un momento precedente
+1.	Nel [portale di Azure](https://azure.microsoft.com/) fare clic su **Database SQL**.
+2.	Selezionare il database dall'elenco e quindi fare clic su **Ripristina**.
+3.	Digitare un nuovo nome per il database, scegliere la data e l'ora da cui eseguire il ripristino e quindi fare clic su **Crea.**
+4.	Apportare le modifiche necessarie all'app per fare riferimento al nuovo database. Vedere la sezione sul [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-## <a name="to-restore-a-database-to-a-previous-point-in-time"></a>To restore a database to a previous point in time
-1.  In the [Azure Portal](https://azure.microsoft.com/), click **SQL databases**.
-2.  Select your database from the list and then click **Restore**.
-3.  Type a new name for the database, choose the date and time to restore from, and then click **Create.**
-4.  Make app adjustments as necessary to reference the new database. See [Recover a database to a point in time](sql-database-recovery-using-backups.md#point-in-time-restore).
+## Per ripristinare un database accidentalmente eliminato
+1.	Nel [portale di Azure](https://azure.microsoft.com/) fare clic su **SQL Server**.
+2.	Selezionare dall'elenco il server che ospitava il database.
+3.	Nel pannello del server scorrere verso il basso e fare clic su **Database eliminati**.
+4.	Selezionare il database da ripristinare e quindi fare clic su **Crea**.
+5.	Apportare le modifiche necessarie all'app per fare riferimento al nuovo database. Vedere la sezione sul [ripristino di un database eliminato](sql-database-recovery-using-backups.md#deleted-database-restore).
 
-## <a name="to-restore-an-accidentally-deleted-database"></a>To restore an accidentally deleted database
-1.  In the [Azure Portal](https://azure.microsoft.com/), click **SQL servers**.
-2.  Select the server that hosted the database from the list.
-3.  On the Server blade, scroll down and click **Deleted databases**.
-4.  Select the database to restore, and then click **Create**.
-5.  Make app adjustments as necessary to reference the new database. See [Recover a deleted database](sql-database-recovery-using-backups.md#deleted-database-restore).
+## Per eseguire il ripristino in seguito a un'interruzione del data center regionale
+Con i database Standard e Premium, se sono stati configurati database secondari con replica geografica, è possibile usarli per eseguire il ripristino. In questo modo è possibile ripristinare un database con una possibilità inferiore che si verifichi una perdita di dati. Per informazioni, vedere [Ripristinare un database SQL di Azure o eseguire il failover in un database secondario](sql-database-disaster-recovery.md).
 
-## <a name="to-recover-from-a-regional-datacenter-outage"></a>To recover from a regional datacenter outage
-With Standard and Premium databases, if you set up geo-replicated secondaries, you can recover using these secondaries. This gives you the ability to restore a database with a less potential for data loss. See [Recover an Azure SQL database using automated database backups](sql-database-disaster-recovery.md) for details.
+Azure offre inoltre backup di ogni database in un'area diversa (un backup con ridondanza geografica). È possibile creare un nuovo database da questi backup tramite il Ripristino geografico, ma è probabile che si verifichi una perdita di dati se ci si affida solo a questo metodo.
 
-Azure also provides backups of every database in a different region (a geo-redundant backup). You can create a new database from these backups, which is called Geo-restore, but it's likely that you'll experience data loss if you rely on this method alone.
+**Per ripristinare un database mediante il ripristino geografico:**
 
-**To recover a database using geo-restore:**
+- Nel [portale di Azure](https://azure.microsoft.com/) fare clic su **Nuovo**, quindi su **Dati e archiviazione**, **Database SQL** e quindi selezionare **Backup** come origine del database. Per informazioni dettagliate, vedere [Ripristinare un database SQL di Azure in seguito a un'interruzione del servizio](sql-database-disaster-recovery.md).
 
-- In the [Azure Portal](https://azure.microsoft.com/), click **New**, click **Data and Storage**, click **SQL Database**, and then select **Backup** as the database source. See [Recover an Azure SQL database from an outage](sql-database-disaster-recovery.md) for details.
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

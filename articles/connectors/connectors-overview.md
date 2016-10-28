@@ -1,12 +1,12 @@
 <properties
-    pageTitle="Overview of Logic Apps Connectors | Microsoft Azure"
-    description="Overview of connectors that can be used in a logic app"
-    services=""
-    documentationCenter="" 
-    authors="jeffhollan"
-    manager="erikre"
-    editor=""
-    tags="connectors"/>
+	pageTitle="Panoramica dei connettori per le app per la logica | Microsoft Azure"
+	description="Panoramica dei connettori utilizzabili in un'app per la logica"
+	services=""
+	documentationCenter="" 
+	authors="jeffhollan"
+	manager="erikre"
+	editor=""
+	tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -17,57 +17,53 @@
    ms.date="07/15/2016"
    ms.author="jehollan"/>
 
+# Uso dei connettori in un'app per la logica
 
-# <a name="using-connectors-in-a-logic-app"></a>Using connectors in a logic app
+I connettori consentono di accedere rapidamente a eventi, dati e azioni tra servizi, protocolli e piattaforme. L'elenco completo dei connettori supportati dalle app per la logica è [disponibile qui](apis-list.md). I connettori possono essere usati come trigger o azioni in un'app per la logica e possono richiedere una *connessione* configurata da usare (ad esempio l'autorizzazione di un account Twitter a effettuare l'accesso o a postare contenuti per conto del cliente).
 
-Connectors provide quick access to events, data, and actions across services, protocols, and platforms.  The full list of connectors that Logic Apps supports can [be found here](apis-list.md).  Connectors can be used as a trigger or an action in a logic app, and may require a configured *connection* to use (for example: authorizing a Twitter account to access or post on your behalf).
+## Nozioni di base
 
-## <a name="basics"></a>Basics
+I connettori sono servizi ospitati a cui è possibile accedere come parte di un'app per la logica per l'integrazione con altri servizi come Dynamics, Azure, Salesforce e [altri](apis-list.md). Sono distribuiti e gestiti da Microsoft, pertanto è possibile creare flussi di lavoro di integrazione che prevedono scalabilità, velocità e sicurezza. È possibile aggiungere un connettore a un'app per la logica cercando e selezionando un'azione o un trigger connettore in **Show Microsoft managed APIs** (Mostra API gestite da Microsoft).
 
-Connectors are hosted services you can access as part of a logic app to integrate with other services like Dynamics, Azure, Salesforce, [and more](apis-list.md).  They are deployed and managed by Microsoft, so you can build your integration workflows with scale, throughput, and security taken care of.  You can add a connector to a logic app by searching and selecting a connector action or trigger under **Show Microsoft managed APIs**.
+![Menu delle azioni per la selezione dei trigger][1]
 
-![Action menu for selecting trigger][1]
+Ogni azione o trigger connettore avrà il suo set di proprietà da configurare. [Per altre informazioni](apis-list.md) sull'azione è possibile fare clic sui pulsanti info o consultare la documentazione di riferimento.
 
-Each connector action or trigger will have its set of properties to configure.  You can click on the info buttons to learn more about action, or reference its documentation [to learn more](apis-list.md).
+Se si desidera eseguire l'integrazione con un servizio o un'API che non è ancora un connettore, è anche possibile estendere le app per la logica attraverso un [connettore personalizzato](../app-service-logic/app-service-logic-create-api-app.md) o semplicemente chiamare direttamente il servizio tramite un protocollo come HTTP.
 
-If you want to integrate with a service or API that isn't yet a connector, you can also extend logic apps through a [custom connector](../app-service-logic/app-service-logic-create-api-app.md) or just call directly to the service over a protocol like HTTP.
+## Trigger
 
-## <a name="triggers"></a>Triggers
-
-Some connectors have a trigger, which means an event from that connector will fire a logic app and pass in any data as part of the trigger.  A trigger is always the first step in a logic app.  Popular triggers include operations like:
+Alcuni connettori dispongono di un trigger, perciò un evento del connettore attiverà un'app per la logica e vi passerà dati come parte del trigger. Un trigger è sempre il primo passaggio in un'app per la logica. Trigger comuni includono operazioni quali:
  
- * Recurrence - run every hour
- * When an HTTP request is received
- * When an item is added to a queue
- * When an email is received
+ * Ricorrenza - da eseguire ogni ora
+ * Quando viene ricevuta una richiesta HTTP
+ * Quando un elemento viene aggiunto a una coda
+ * Quando viene ricevuto un messaggio di posta elettronica
  
-Some triggers will fire the instant an event happens through a notification to the logic app, and others will need a recurrence interval configured on how often the logic app will check the service for an event (up to every 15 seconds).  
+Alcuni trigger vengono attivati nell'istante in cui si verifica un evento mediante una notifica all'app per la logica mentre altri avranno bisogno di un intervallo di ricorrenza configurato che determini la frequenza con cui l'app per la logica controlla se si è verificato un evento nel servizio (al massimo ogni 15 secondi).
 
-Once an event is received, the logic app run will fire and the actions in the workflow will start.  You will also be able to access any data from the trigger throughout the workflow (for example the 'On a new tweet' trigger will pass the tweet into the run).
+Una volta ricevuto un evento, l'esecuzione dell'app per la logica viene attivata e le azioni nel flusso di lavoro si avviano. Sarà inoltre possibile accedere ai dati del trigger in tutto il flusso di lavoro: ad esempio il trigger "On a new tweet" ("In caso di nuovo tweet") passerà il tweet all'esecuzione.
 
-## <a name="actions"></a>Actions
+## Azioni
 
-Most connectors have one or many actions that can be executed as part of the workflow.  Actions are any steps that happen after the run has fired from a trigger.  To add an action click the **New Step** button and search for the connector you want to use.  Once selected (and after configuring any [connections](#connections) that may be required) you will see the action card you can configure.  You can select data from previous steps by clicking on any of the tokens for outputs, or enter in any other configuration as needed.
+Molti connettori dispongono di una o più azioni che possono essere eseguite come parte del flusso di lavoro. Le azioni sono operazioni che si verificano dopo l'attivazione dell'esecuzione generata da un trigger. Per aggiungere un'azione fare clic sul pulsante **Nuovo passaggio** e cercare il connettore che si desidera usare. Una volta selezionato (e dopo aver configurato le eventuali [connessioni](#connections) necessarie), verrà visualizzata la scheda azione che è possibile configurare. È possibile selezionare dati dai passaggi precedenti facendo clic sui token per gli output o immettere qualsiasi altra configurazione in base alle esigenze.
 
-![Configuring a connector action][2]
+![Configurazione di un'azione connettore][2]
 
-## <a name="connections"></a>Connections
+## Connessioni
 
-Most connectors require you to configure a *connection* before you can use the connector.  A *connection* is any login or connection configuration needed to access the connector.  For connectors that use OAuth, create a connection means signing into the service (like Office 365, Salesforce, or GitHub) where your access token can be encrypted and securely stored in an Azure secret store.  Other connectors (like FTP and SQL) require a connection that contains configuration like server address, username, and password.  These connection configuration details are also encrypted and securely stored.  Connections will be able to access the service for as long as the service allows.  For Azure Active Directory OAuth connections (like Office 365 and Dynamics) we can continue to refresh the access token indefinitely.  Other services may put limits on how long we can use a token without it being refreshed.  In general certain actions like changing a password will invalidate all access tokens.  
+Molti connettori richiedono che sia configurata una *connessione* prima di poter usare il connettore. Una *connessione* è qualsiasi configurazione di accesso o connessione necessaria per accedere al connettore. Per i connettori che usano OAuth, creare una connessione significa accedere al servizio (ad esempio Office 365, Salesforce o GitHub) in cui il token di accesso può essere crittografato e archiviato in modo sicuro in un archivio segreto di Azure. Altri connettori (come SQL e FTP) richiedono una connessione che contenga una configurazione come l'indirizzo del server, il nome utente e la password. Questi dettagli di configurazione della connessione vengono inoltre crittografati e archiviati in modo sicuro. Le connessioni potranno accedere al servizio fino a quando il servizio lo consente. Per le connessioni OAuth di Azure Active Directory (come Office 365 e Dynamics) è possibile continuare ad aggiornare il token di accesso indefinitamente. Altri servizi possono imporre limiti sul periodo di utilizzabilità di un token senza aggiornamento. In genere determinate azioni quali la modifica di una password invalideranno tutti i token di accesso.
 
-Connections can be viewed and managed in Azure by clicking **Browse** and selecting **API Connections**.  From the API Connections resource you can view, edit, update, or re-authorize any connections you have created.
+Le connessioni possono essere visualizzate e gestite in Azure facendo clic su **Sfoglia** e selezionando **API Connections** (Connessioni API). Dalla risorsa relativa alle connessioni API è possibile visualizzare, modificare, aggiornare o autorizzare nuovamente tutte le connessioni create.
 
-## <a name="next-steps"></a>Next Steps
+## Passaggi successivi
 
-- [Create your first logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
-- [Learn common uses and examples of logic apps](../app-service-logic/app-service-logic-examples-and-scenarios.md)
-- [Get started with enterprise integration triggers and actions](../app-service-logic/app-service-logic-enterprise-integration-overview.md)
+- [Creare la prima app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+- [Usi ed esempi comuni sulle app per la logica](../app-service-logic/app-service-logic-examples-and-scenarios.md)
+- [Introduzione ai trigger e alle azioni di integrazione aziendale](../app-service-logic/app-service-logic-enterprise-integration-overview.md)
 
 <!--Image References -->
 [1]: ./media/connectors-overview/addAction.png
 [2]: ./media/connectors-overview/configureAction.png
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

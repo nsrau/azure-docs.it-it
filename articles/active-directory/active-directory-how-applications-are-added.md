@@ -1,6 +1,6 @@
 <properties
-   pageTitle="How applications are added to Azure Active Directory."
-   description="This article describes how applications are added to an instance of Azure Active Directory."
+   pageTitle="Come vengono aggiunte le applicazioni in Azure Active Directory."
+   description="Questo articolo descrive il modo in cui le applicazioni vengono aggiunge a un'istanza di Azure Active Directory."
    services="active-directory"
    documentationCenter=""
    authors="shoatman"
@@ -16,143 +16,138 @@
       ms.date="02/09/2016"
       ms.author="shoatman"/>
 
+# Come vengono aggiunte le applicazioni in Azure AD e perché
 
-# <a name="how-and-why-applications-are-added-to-azure-ad"></a>How and why applications are added to Azure AD
+Uno degli aspetti più sconcertanti quando si visualizza un elenco di applicazioni nell'istanza di Azure Active Directory sta nel comprendere da dove provengono le applicazioni e perché si trovano nella directory. Questo articolo fornisce una panoramica generale del modo in cui le applicazioni sono rappresentate nella directory, oltre alle informazioni necessarie per comprendere perché un'applicazione è stata inclusa nella directory.
 
-One of the initially puzzling things when viewing a list of applications in your instance of Azure Active Directory is understanding where the applications came from and why they are there.  This article will provide a high level overview of how applications are represented in the directory and provide you with context that will assist you in understanding how an application came to be in your directory.
+## Quali sono i servizi che Azure AD offre alle applicazioni?
 
-## <a name="what-services-does-azure-ad-provide-to-applications?"></a>What services does Azure AD provide to applications?
+Le applicazioni vengono aggiunte in Azure AD in modo che sia possibile sfruttare uno o più servizi offerti. I servizi comprendono:
 
-Applications are added to Azure AD to leverage one or more of the services it provides.  Those services include:
+* Autenticazione e autorizzazione delle app
+* Autenticazione e autorizzazione degli utenti
+* Accesso Single Sign-On tramite federazione o password
+* Provisioning e sincronizzazione degli utenti
+* Controllo degli accessi in base al ruolo. È possibile usare la directory per definire i ruoli dell'applicazione per eseguire i controlli di autorizzazione in base ai ruoli in un'app.
+* Servizi di autorizzazione oAuth (usati da Office 365 e altre app Microsoft per autorizzare l'accesso ad API e risorse).
+* Proxy e pubblicazione dell'applicazione. È possibile pubblicare un'app in Internet da una rete privata
 
-* App authentication and authorization
-* User authentication & authorization
-* Single sign-on (SSO) using federation or password
-* User provisioning & synchronization
-* Role-based access control; Use the directory to define application roles to perform roles based authorization checks in an app.
-* oAuth authorization services (used by Office 365 and other Microsoft apps to authorize access to APIs/resources.)
-* Application publishing & proxy; Publish an app from a private network to the internet
+## In che modo sono rappresentate le applicazioni nella directory?
 
-## <a name="how-are-applications-represented-in-the-directory?"></a>How are applications represented in the directory?
+Le applicazioni sono rappresentate in Azure AD tramite 2 oggetti: un oggetto applicazione e un oggetto entità servizio. Esiste un oggetto applicazione, registrato in una directory "home"/"proprietario" o "pubblicazione" e uno o più oggetti entità servizio che rappresentano l'applicazione in ogni directory in cui opera.
 
-Applications are represented in the Azure AD using 2 objects: an application object and a service principal object.  There is one application object, registered in a "home"/"owner" or "publishing" directory and one or more service principal objects representing the application in every directory in which it acts.  
+L'oggetto applicazione descrive l'app ad Azure AD (servizio multitenant) e può includere gli elementi seguenti: (*Nota*: questo elenco potrebbe non essere completo)
 
-The application object describes the app to Azure AD (the multi-tenant service) and may include any of the following: (*Note*: This is not an exhaustive list.)
+* Nome, logo e autore
+* Segreti (chiavi simmetriche e/o asimmetriche usate per autenticare l'app)
+* Dipendenze API (oAuth)
+* API/risorse/ambiti pubblicati (oAuth)
+* Ruoli app (Controllo degli accessi in base al ruolo)
+* Metadati e configurazione Single Sign-On (SSO)
+* Metadati e configurazione del provisioning utenti
+* Metadati e configurazione proxy
 
-* Name, Logo & Publisher
-* Secrets (symmetric and/or asymmetric keys used to authenticate the app)
-* API dependencies (oAuth)
-* APIs/resources/scopes published (oAuth)
-* App roles (RBAC)
-* SSO metadata and configuration (SSO)
-* User provisioning metadata and configuration
-* Proxy metadata and configuration
+L'entità servizio è un record dell'applicazione in ogni directory in cui questa opera, inclusa la relativa home directory. L'entità servizio:
 
-The service principal is a record of the application in every directory, where the application acts including its home directory.  The service principal:
+* Fa riferimento a un oggetto applicazione tramite la proprietà ID app
+* Registra le assegnazioni del ruolo app al gruppo e all'utente locale
+* Registra le autorizzazioni di amministratore e utente locale concesse all'app
+    * Ad esempio, l'autorizzazione dell'app ad accedere all'indirizzo di posta elettronica di un utente specifico
+* Registra i criteri locali, inclusi i criteri di accesso condizionale
+* Registra le impostazioni locali alternative per un'app
+    * Regole di trasformazione delle attestazioni
+    * Mapping degli attributi (provisioning utenti)
+    * Ruoli app specifici del tenant (se l'app supporta i ruoli personalizzati)
+    * Nome/Logo
 
-* Refers back to an application object via the app id property
-* Records local user and group app-role assignments
-* Records local user and admin permissions granted to the app
-    * For example: permission for the app to access a particular users email
-* Records local policies including conditional access policy
-* Records local alternate local settings for an app
-    * Claims transformation rules
-    * Attribute mappings (User provisioning)
-    * Tenant specific app roles (if the app supports custom roles)
-    * Name/Logo
+### Diagramma degli oggetti applicazione e delle entità servizio tra le directory
 
-### <a name="a-diagram-of-application-objects-and-service-principals-across-directories"></a>A diagram of application objects and service principals across directories
+![Diagramma che illustra gli oggetti applicazione e le entità servizio presenti all'interno delle istanze di Azure AD.][apps_service_principals_directory]
 
-![A diagram illustrating how application objects and service principals existing with Azure AD instances.][apps_service_principals_directory]
+Come si può notare nel diagramma, Microsoft mantiene internamente due directory (a sinistra) usate per pubblicare le applicazioni.
 
-As you can see from the diagram above.  Microsoft maintains two directories internally (on the left) it uses to publish applications.
+* Una per le app Microsoft (directory di servizi Microsoft)
+* Una per le app di terze parti preintegrate (directory Raccolta app)
 
-* One for Microsoft Apps (Microsoft services directory)
-* One for pre-integrated 3rd Party Apps (App Gallery directory)
+Ai fornitori/editori di applicazioni che procedono all'integrazione con Azure AD è richiesto di avere una directory di pubblicazione (ad alcuni una directory SaaS).
 
-Application publishers/vendors who integrate with Azure AD are required to have a publishing directory.  (Some SAAS Directory).
+Applicazioni aggiunte dall'utente:
 
-Applications that you add yourself include:
+* App sviluppate dall'utente (integrate con AAD)
+* App connesse per l'accesso Single Sign-On
+* App pubblicate tramite il proxy di applicazione di Azure AD.
 
-* Apps you developed (integrated with AAD)
-* Apps you connected for single-sign-on
-* Apps you published using the Azure AD application proxy.
+### Note ed eccezioni
 
-### <a name="a-couple-of-notes-and-exceptions"></a>A couple of notes and exceptions
-
-* Not all service principals point back to application objects.  Huh? When Azure AD was originally built the services provided to applications were much more limited and the service principal was sufficient for establishing an app identity.  The original service principal was closer in shape to the Windows Server Active Directory service account.  For this reason it's still possible to create service principals using the Azure AD PowerShell without first creating an application object.  The Graph API requires an app object before creating a service principal.
-* Not all of the information described above is currently exposed programmatically.  The following are only available in the UI:
-    * Claims transformation rules
-    * Attribute mappings (User provisioning)
-* For more detailed information on the service principal and application objects please refer to the Azure AD Graph REST API reference documentation.  *Hint*: The Azure AD Graph API documentation is the closest thing to a schema reference for Azure AD that's currently available.  
-    * [Application](https://msdn.microsoft.com/library/azure/dn151677.aspx)
-    * [Service Principal](https://msdn.microsoft.com/library/azure/dn194452.aspx)
+* Non tutte le entità servizio fanno riferimento a oggetti applicazione. Questo perché al momento della creazione di Azure AD, i servizi forniti alle applicazioni erano molto più limitati e l'entità servizio era sufficiente per stabilire l'identità di un'app. L'entità servizio originale assomigliava più all'account del servizio di Windows Server Active Directory. Per questo motivo, è ancora possibile creare entità servizio usando Azure AD PowerShell senza dover prima creare un oggetto applicazione. L'API Graph richiede che venga creato un oggetto app prima di creare un'entità servizio.
+* Non tutte le informazioni riportate sopra sono al momento esposte a livello di codice. Le funzionalità seguenti sono disponibili solo nell'interfaccia utente:
+    * Regole di trasformazione delle attestazioni
+    * Mapping degli attributi (provisioning utenti)
+* Per informazioni dettagliate sugli oggetti applicazione ed entità servizio, vedere la documentazione di riferimento all'API REST di Azure AD Graph. *Suggerimento*: la documentazione di riferimento all'API Graph di Azure AD è quanto di più somigliante al riferimento a uno schema per Azure AD disponibile al momento.  
+    * [Applicazione](https://msdn.microsoft.com/library/azure/dn151677.aspx)
+    * [Entità servizio](https://msdn.microsoft.com/library/azure/dn194452.aspx)
 
 
-## <a name="how-are-apps-added-to-my-azure-ad-instance?"></a>How are apps added to my Azure AD instance?
-There are many ways an app can be added to Azure AD:
+## In che modo le app vengono aggiunte alla mia istanza di Azure AD?
+È possibile aggiungere un'app in Azure AD in diversi modi:
 
-* Add an app from the [Azure Active Directory App Gallery](https://azure.microsoft.com/updates/azure-active-directory-over-1000-apps/)
-* Sign up/into a 3rd Party App integrated with Azure Active Directory (For example: [Smartsheet](https://app.smartsheet.com/b/home) or [DocuSign](https://www.docusign.net/member/MemberLogin.aspx))
-    * During sign up/in users are asked to give permission to the app to access their profile and other permissions.  The first person to give consent causes a service principal representing the app to be added to the directory.
-* Sign up/into Microsoft online services like [Office 365](http://products.office.com/)
-    * When you subscribe to Office 365 or begin a trial one or more service principals are created in the directory representing the various services that are used to deliver all of the functionality associated with Office 365.
-    * Some Office 365 services like SharePoint create service principals on an on-going basis to allow secure communication between components including workflows.
-* Add an app you're developing in the Azure Management Portal see: https://msdn.microsoft.com/library/azure/dn132599.aspx
-* Add an app you're developing using Visual Studio see:
-    * [ASP.Net Authentication Methods](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions)
-    * [Connected Services](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
-* Add an app to use to use the [Azure AD Application Proxy](https://msdn.microsoft.com/library/azure/dn768219.aspx)
-* Connect an app for single sign on using SAML or Password SSO
-* Many others including various developer experiences in Azure and/in API explorer experiences across developer centers
+* Aggiungere un'app dalla [Raccolta app di Azure Active Directory](https://azure.microsoft.com/updates/azure-active-directory-over-1000-apps/)
+* Iscriversi o accedere a un'app di terze parti integrata in Azure Active Directory, ad esempio [Smartsheet](https://app.smartsheet.com/b/home) o [DocuSign](https://www.docusign.net/member/MemberLogin.aspx)
+    * Durante la procedura di iscrizione/accesso, agli utenti viene richiesto di concedere all'app l'autorizzazione ad accedere al proprio profilo e altri tipi di autorizzazioni. Quando viene dato il primo consenso, l'entità servizio che rappresenta l'app viene aggiunta alla directory.
+* Iscriversi o accedere ai Microsoft Online Services, ad esempio [Office 365](http://products.office.com/)
+    * Quando si effettua l'abbonamento a Office 365 o si richiede una versione di valutazione, vengono create una o più entità servizio nella directory che rappresenta i vari servizi usati per fornire tutte le funzionalità associate a Office 365.
+    * Alcuni servizi di Office 365, ad esempio SharePoint, creano entità servizio in modo continuativo per consentire la comunicazione sicura tra i componenti, inclusi i flussi di lavoro.
+* Aggiungere un'app in fase di sviluppo nel portale di gestione di Azure. Vedere https://msdn.microsoft.com/library/azure/dn132599.aspx
+* Aggiungere un'app in fase di sviluppo tramite Visual Studio. Vedere:
+    * [Metodi di autenticazione ASP.NET](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions)
+    * [Servizi connessi](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
+* Aggiungere un'app per l'uso del [proxy di applicazione di Azure AD](https://msdn.microsoft.com/library/azure/dn768219.aspx)
+* Connettere un'app per l'accesso Single Sign-On tramite SAML o SSO basato su password
+* Sono disponibili altri modi, incluse varie esperienze utente in Azure ed esperienze di esplorazione delle API nei centri per sviluppatori
 
-## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance?"></a>Who has permission to add applications to my Azure AD instance?
+## Chi è autorizzato ad aggiungere applicazioni alla mia istanza di Azure AD?
 
-Only global administrators can:
+Solo gli amministratori globali possono:
 
-* Add apps from the Azure AD app gallery (pre-integrated 3rd Party Apps)
-* Publish an app using the Azure AD Application Proxy
+* Aggiungere app dalla raccolta di app Azure AD (app di terze parti preintegrate)
+* Pubblicare un'app tramite il proxy di applicazione di Azure AD
 
-All users in your directory have rights to add applications that they are developing and discretion over which applications they share/give access to their organizational data.  *Remember user sign up/in to an app and granting permissions may result in a service principal being created.*
+Tutti gli utenti inclusi nella directory sono autorizzati ad aggiungere le applicazioni in fase di sviluppo con discrezionalità sulle applicazioni che condividono o che possono accedere ai dati aziendali. *Ricordare che l'iscrizione o l'accesso a un'app e la concessione delle autorizzazioni possono determinare la creazione di un'entità servizio.*
 
-This might initially sound concerning, but keep the following in mind:
+Anche se questo può inizialmente destare qualche preoccupazione, tenere presente quanto segue:
 
-* Apps have been able to leverage Windows Server Active Directory for user authentication for many years without requiring the application to be registered/recorded in the directory.  Now the organization will have improved visibility to exactly how many apps are using the directory and what for.
-* No need for admin driven app publishing/registration process.  With Active Directory Federation Services it was likely that an admin had to add an app as a relying party on behalf of developers.  Now developers can self-service.
-* Users signing in/up to apps using their organization accounts for business purposes is a good thing.  If they subsequently leave the organization they will lose access to their account in the application they were using.
-* Having a record of what data was shared with which application is a good thing.  Data is more transportable than ever and having a clear record of who shared what data with which applications is useful.
-* Apps who use Azure AD for oAuth decide exactly what permissions that users are able to grant to applications and which permissions require an admin to agree to.  It should go without saying that only admins can consent to larger scopes and more significant permissions.
-* Users adding and allowing apps to access their data are audited events so you can view the Audit Reports within the Azure Managment portal to determine how an app was added to the directory.
+* Le app hanno usato Windows Server Active Directory per autenticare gli utenti per anni senza richiedere la registrazione dell'applicazione nella directory. Ora le organizzazioni hanno maggiore visibilità sul numero esatto di applicazioni che usano la directory e per quale scopo.
+* Non serve un processo di registrazione/pubblicazione delle app basato su amministratore. Con Active Directory Federation Services gli amministratori dovevano aggiungere le app come relying party per conto degli sviluppatori. Ora gli sviluppatori possono eseguire queste operazioni in modo indipendente.
+* L'iscrizione o l'accesso alle app tramite un account aziendale è un fatto positivo a livello dell'azienda. Se l'utente lascia la società, perderà l'accesso al proprio account nelle applicazioni in uso.
+* È positivo anche il fatto di poter tenere sotto controllo quali dati sono stati condivisi e con quali applicazioni. I dati sono più trasportabili che mai ed è quindi utile sapere chi ha condiviso determinati dati e con quali applicazioni.
+* Le app che usano Azure AD per l'autenticazione oAuth stabiliscono quali sono le autorizzazioni che gli utenti possono concedere alle applicazioni e quali autorizzazioni richiedono il consenso da parte dell'amministratore. Non è necessario ricordare che solo gli amministratori possono dare il consenso per ambiti più ampi e autorizzazioni più significative.
+* Gli utenti che aggiungono app e consentono loro di accedere ai propri dati sono eventi controllati, pertanto è possibile visualizzare i report di controllo nel portale di gestione di Azure per determinare il modo in cui un'app è stata aggiunta alla directory.
 
-**Note:** *Microsoft itself has been operating using the default configuration for many months now.*
+**Nota:** *la stessa Microsoft ha usato la configurazione predefinita nel corso degli ultimi mesi.*
 
-With all of that said it is possible to prevent users in your directory from adding applications and from exercising discretion over what information they share with applications by modifying Directory configuration in the Azure Management portal.  The following configuration can be accessed within the Azure Management portal on your Directory's "Configure" tab.
+È comunque possibile impedire agli utenti della directory aggiungere applicazioni e prendere decisioni in merito alle informazioni da condividere con le applicazioni modificando la configurazione della directory nel portale di gestione di Azure. Per accedere alla configurazione seguente, passare al portale di gestione di Azure, quindi selezionare la scheda "Configura" della propria directory.
 
-![A screenshot of the UI for configuring integrated app settings][app_settings]
+![Schermata dell'interfaccia utente per la configurazione delle impostazioni delle app integrate][app_settings]
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-Learn more about how to add applications to Azure AD and how to configure services for apps.
+Altre informazioni su come aggiungere applicazioni in Azure AD e su come configurare i servizi per le app.
 
-* Developers: [Learn how to integrate an application with AAD](https://msdn.microsoft.com/library/azure/dn151122.aspx)
-* Developers: [Review sample code for apps integrated with Azure Active Directory on Github](https://github.com/AzureADSamples)
-* Developers and IT Pros: [Review the REST API documentation for the Azure Active Directory Graph API](https://msdn.microsoft.com/library/azure/hh974478.aspx)
-* IT Pros: [Learn how to use Azure Active Directory pre-integrated applications from the App Gallery](https://msdn.microsoft.com/library/azure/dn308590.aspx)
-* IT Pros: [Find tutorials for configuring specific pre-integrated apps](https://msdn.microsoft.com/library/azure/dn893637.aspx)
-* IT Pros: [Learn how to publish an app using the Azure Active Directory Application Proxy](https://msdn.microsoft.com/library/azure/dn768219.aspx)
+* Sviluppatori: [Informazioni su come integrare un'applicazione con AAD](https://msdn.microsoft.com/library/azure/dn151122.aspx)
+* Sviluppatori: [Esaminare il codice di esempio per le app integrate con Azure Active Directory in GitHub](https://github.com/AzureADSamples)
+* Sviluppatori e professionisti IT: [Esaminare la documentazione di riferimento all'API REST per l'API Graph di Azure Active Directory](https://msdn.microsoft.com/library/azure/hh974478.aspx)
+* Professionisti IT: [Informazioni su come usare le applicazioni preintegrate in Azure Active Directory dalla Raccolta app](https://msdn.microsoft.com/library/azure/dn308590.aspx)
+* Professionisti IT: [Esercitazioni per la configurazione di app preintegrate specifiche](https://msdn.microsoft.com/library/azure/dn893637.aspx)
+* Professionisti IT: [Informazioni su come pubblicare un'app tramite il proxy di applicazione di Azure Active Directory](https://msdn.microsoft.com/library/azure/dn768219.aspx)
 
-## <a name="see-also"></a>See also
+## Vedere anche
 
-- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
 <!--Image references-->
-[apps_service_principals_directory]:media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
-[app_settings]:media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
+[apps_service_principals_directory]: media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
+[app_settings]: media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0211_2016-->

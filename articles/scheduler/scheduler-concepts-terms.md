@@ -1,6 +1,6 @@
 <properties
- pageTitle="Scheduler concepts, terms, and entities | Microsoft Azure"
- description="Azure Scheduler concepts, terminology, and entity hierarchy, including jobs and job collections.  Shows a comprehensive example of a scheduled job."
+ pageTitle="Entità, termini e concetti dell'Utilità di pianificazione | Microsoft Azure"
+ description="Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure, inclusi processi e raccolte di processi. Fornisce un esempio completo di un processo pianificato."
  services="scheduler"
  documentationCenter=".NET"
  authors="derek1ee"
@@ -15,212 +15,203 @@
  ms.date="08/18/2016"
  ms.author="deli"/>
 
+# Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione
 
-# <a name="scheduler-concepts,-terminology,-+-entity-hierarchy"></a>Scheduler concepts, terminology, + entity hierarchy
+## Gerarchia di entità dell'Utilità di pianificazione
 
-## <a name="scheduler-entity-hierarchy"></a>Scheduler entity hierarchy
+Nella tabella seguente vengono descritte le risorse principali esposte o usate dall'API dell'Utilità di pianificazione:
 
-The following table describes the main resources exposed or used by the Scheduler API:
-
-|Resource | Description |
+|Risorsa | Descrizione |
 |---|---|
-|**Job collection**|A job collection contains a group of jobs and maintains settings, quotas, and throttles that are shared by jobs within the collection. A job collection is created by a subscription owner and groups jobs together based on usage or application boundaries. It’s constrained to one region. It also allows the enforcement of quotas to constrain the usage of all jobs in that collection. The quotas include MaxJobs and MaxRecurrence.|
-|**Job**|A job defines a single recurrent action, with simple or complex strategies for execution. Actions may include HTTP, storage queue, service bus queue, or service bus topic requests.|
-|**Job history**|A job history represents details for an execution of a job. It contains success vs. failure, as well as any response details.|
+|**Raccolta di processi**|Una raccolta di processi contiene un gruppo di processi e gestisce le impostazioni, le quote e le limitazioni condivise dai processi all'interno della raccolta. Le raccolte di processi vengono create dal proprietario della sottoscrizione e raggruppano i processi in base ai limiti di utilizzo o dell'applicazione. È vincolata a un'area. Consente inoltre di applicare quote per vincolare l'uso di tutti i processi in tale raccolta. Le quote includono MaxJobs e MaxRecurrence.|
+|**Processo**|Un processo definisce una singola azione ricorrente, con strategie semplici o complesse per l'esecuzione. Le azioni possono includere HTTP, coda di archiviazione, coda del bus di servizio o richieste di argomento del bus di servizio.|
+|**Cronologia processi**|Una cronologia processi rappresenta i dettagli per l'esecuzione di un processo. Contiene esito positivo o negativo, nonché i dettagli della risposta.|
 
-## <a name="scheduler-entity-management"></a>Scheduler entity management
+## Gestione di entità dell'utilità di pianificazione
 
-At a high level, the scheduler and the service management API expose the following operations on the resources:
+A un livello elevato, l'utilità di pianificazione e l'API di gestione servizio espongono le seguenti operazioni sulle risorse:
 
-|Capability|Description and URI address|
+|Funzionalità|Descrizione e indirizzo URI|
 |---|---|
-|**Job collection management**|GET, PUT, and DELETE support for creating and modifying job collections and the jobs contained therein. A job collection is a container for jobs and maps to quotas and shared settings. Examples of quotas, described later, are maximum number of jobs and smallest recurrence interval. <p>PUT and DELETE: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p><p>GET: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p>
-|**Job management**|GET, PUT, POST, PATCH, and DELETE support for creating and modifying jobs. All jobs must belong to a job collection that already exists, so there is no implicit creation. <p>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`</p>|
-|**Job history management**|GET support for fetching 60 days of job execution history, such as job elapsed time and job execution results. Adds query string parameter support for filtering based on state and status. <P>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`</p>|
+|**Gestione delle raccolte di processi**|Supporto di GET, PUT e DELETE per la creazione e la modifica di raccolte di processi e i processi in essi contenuti. Una raccolta di processi è un contenitore per i processi, e mappa quote e impostazioni condivise. Esempi di quote, descritti più avanti, sono il numero massimo di processi e l'intervallo minimo delle ricorrenze. <p>PUT e DELETE: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p><p>GET: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p>
+|**Gestione dei processi**|Supporto di GET, PUT, POST, PATCH e DELETE per la creazione e modifica di processi. Tutti i processi devono appartenere a una raccolta di processi che esiste già, e che non viene creata implicitamente. <p>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`</p>|
+|**Gestione della cronologia dei processi**|Supporto GET per il recupero di 60 giorni di cronologia di esecuzioni del processo, ad esempio il tempo di esecuzione del processo e i risultati dell'esecuzione del processo. Aggiunge il supporto del parametro della stringa di query per filtrare in base a stato e status. <P>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`</p>|
 
-## <a name="job-types"></a>Job types
-
-There are multiple types of jobs: HTTP jobs (including HTTPS jobs that support SSL), storage queue jobs, service bus queue jobs, and service bus topic jobs. HTTP jobs are ideal if you have an endpoint of an existing workload or service. You can use storage queue jobs to post messages to storage queues, so those jobs are ideal for workloads that use storage queues. Similarly, service bus jobs are ideal for workloads that use service bus queues and topics.
-
-## <a name="the-"job"-entity-in-detail"></a>The "job" entity in detail
-
-At a basic level, a scheduled job has several parts:
-
-- The action to perform when the job timer fires  
-
-- (Optional) The time to run the job  
-
-- (Optional) When and how often to repeat the job  
-
-- (Optional) An action to fire if the primary action fails  
+## Tipi di processo
+
+Sono disponibili più tipi di processi: processi HTTP, inclusi quelli che supportano SSL, processi della coda di archiviazione, processi della coda del bus di servizio e processi dell'argomento del bus di servizio. I processi HTTP sono ideali se si dispone di un endpoint di un carico di lavoro o di un servizio esistente. I processi sulle code di archiviazione consentono di inviare messaggi a code di archiviazione, per cui sono processi ideali per i carichi di lavoro che usano le code di archiviazione. Analogamente, i processi del bus di servizio sono ideali per carichi di lavoro che usano argomenti e code del bus di servizio.
+
+## L'entità "processo" in dettaglio
+
+A livello di base, un processo pianificato ha diverse parti:
+
+- L'azione da eseguire quando viene si attiva il timer del processo
+
+- (Facoltativo) Il tempo necessario per eseguire il processo
+
+- (Facoltativo) Quando e quanto spesso ripetere il processo
+
+- (Facoltativo) Un'azione da attivare in caso di esito negativo dell'azione primaria
 
-Internally, a scheduled job also contains system-provided data such as the next scheduled execution time.
+Internamente, un processo pianificato contiene inoltre dati forniti dal sistema, ad esempio il momento di esecuzione pianificata successivo.
 
-The following code provides a comprehensive example of a scheduled job. Details are provided in subsequent sections.
+Il codice seguente fornisce un esempio completo di un processo pianificato. I dettagli vengono forniti nelle sezioni a seguire.
 
-    {
-        "startTime": "2012-08-04T00:00Z",               // optional
-        "action":
-        {
-            "type": "http",
-            "retryPolicy": { "retryType":"none" },
-            "request":
-            {
-                "uri": "http://contoso.com/foo",        // required
-                "method": "PUT",                        // required
-                "body": "Posting from a timer",         // optional
-                "headers":                              // optional
+	{
+		"startTime": "2012-08-04T00:00Z",               // optional
+		"action":
+		{
+			"type": "http",
+			"retryPolicy": { "retryType":"none" },
+			"request":
+			{
+				"uri": "http://contoso.com/foo",        // required
+				"method": "PUT",                        // required
+				"body": "Posting from a timer",         // optional
+				"headers":                              // optional
 
-                {
-                    "Content-Type": "application/json"
-                },
-            },
-           "errorAction":
-           {
-               "type": "http",
-               "request":
-               {
-                   "uri": "http://contoso.com/notifyError",
-                   "method": "POST",
-               },
-           },
-        },
-        "recurrence":                                   // optional
-        {
-            "frequency": "week",                        // can be "year" "month" "day" "week" "minute"
-            "interval": 1,                              // optional, how often to fire (default to 1)
-            "schedule":                                 // optional (advanced scheduling specifics)
-            {
-                "weekDays": ["monday", "wednesday", "friday"],
-                "hours": [10, 22]
-            },
-            "count": 10,                                 // optional (default to recur infinitely)
-            "endTime": "2012-11-04",                     // optional (default to recur infinitely)
-        },
-        "state": "disabled",                           // enabled or disabled
-        "status":                                       // controlled by Scheduler service
-        {
-            "lastExecutionTime": "2007-03-01T13:00:00Z",
-            "nextExecutionTime": "2007-03-01T14:00:00Z ",
-            "executionCount": 3,
-                                                "failureCount": 0,
-                                                "faultedCount": 0
-        },
-    }
+				{
+					"Content-Type": "application/json"
+				},
+			},
+		   "errorAction":
+		   {
+			   "type": "http",
+			   "request":
+			   {
+				   "uri": "http://contoso.com/notifyError",
+				   "method": "POST",
+			   },
+		   },
+		},
+		"recurrence":                                   // optional
+		{
+			"frequency": "week",                        // can be "year" "month" "day" "week" "minute"
+			"interval": 1,                              // optional, how often to fire (default to 1)
+			"schedule":                                 // optional (advanced scheduling specifics)
+			{
+				"weekDays": ["monday", "wednesday", "friday"],
+				"hours": [10, 22]
+			},
+			"count": 10,                                 // optional (default to recur infinitely)
+			"endTime": "2012-11-04",                     // optional (default to recur infinitely)
+		},
+		"state": "disabled",                           // enabled or disabled
+		"status":                                       // controlled by Scheduler service
+		{
+			"lastExecutionTime": "2007-03-01T13:00:00Z",
+			"nextExecutionTime": "2007-03-01T14:00:00Z ",
+			"executionCount": 3,
+											    "failureCount": 0,
+												"faultedCount": 0
+		},
+	}
 
-As seen in the sample scheduled job above, a job definition has several parts:
+Come illustrato nell'utilità di pianificazione di esempio sopra riportato, la definizione di un processo ha diverse parti:
 
-- Start time (“startTime”)  
+- Ora di inizio ("startTime")
 
-- Action (“action”), which includes error action (“errorAction”)
+- Azione ("action"), che include l'azione in caso di errore ("errorAction")
 
-- Recurrence (“recurrence”)  
+- Ricorrenza ("recurrence")
 
-- State (“state”)  
+- Stato (“state”)
 
-- Status (“status”)  
+- Status (“status”)
 
-- Retry policy (“retryPolicy”)  
+- Criterio di ripetizione (“retryPolicy”)
 
-Let’s examine each of these in detail:
+Esaminiamo ciascuna in modo dettagliato:
 
-## <a name="starttime"></a>startTime
+## startTime
 
-The "startTime” is the start time and allows the caller to specify a time zone offset on the wire in [ISO-8601 format](http://en.wikipedia.org/wiki/ISO_8601).
+"startTime" è l'ora di inizio e consente al chiamante di specificare una differenza di fuso orario in transito in [formato ISO-8601](http://en.wikipedia.org/wiki/ISO_8601).
 
-## <a name="action-and-erroraction"></a>action and errorAction
+## action ed errorAction
 
-The “action” is the action invoked on each occurrence and describes a type of service invocation. The action is what will be executed on the provided schedule. Scheduler supports HTTP, storage queue, service bus topic, and service bus queue actions.
+"action" è l'azione richiamata a ogni occorrenza, e descrive un tipo di chiamata di servizio. L'azione è ciò che verrà eseguito nella pianificazione specificata. L'Utilità di pianificazione supporta azioni della coda del bus di servizio, dell'argomento del bus di servizio, della coda di archiviazione e HTTP.
 
-The action in the example above is an HTTP action. Below is an example of a storage queue action:
+L'azione nell'esempio precedente è un'azione HTTP. Di seguito è riportato un esempio di un'azione in coda di archiviazione:
 
-    {
-            "type": "storageQueue",
-            "queueMessage":
-            {
-                "storageAccount": "myStorageAccount",  // required
-                "queueName": "myqueue",                // required
-                "sasToken": "TOKEN",                   // required
-                "message":                             // required
-                    "My message body",
-            },
-    }
+	{
+			"type": "storageQueue",
+			"queueMessage":
+			{
+				"storageAccount": "myStorageAccount",  // required
+				"queueName": "myqueue",                // required
+				"sasToken": "TOKEN",                   // required
+				"message":                             // required
+					"My message body",
+			},
+	}
 
-Below is an example of a service bus topic action.
+Di seguito è riportato un esempio di azione dell'argomento del bus di servizio.
 
-  "action": { "type": "serviceBusTopic", "serviceBusTopicMessage": { "topicPath": "t1",  
-      "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, }
+  "action": { "type": "serviceBusTopic", "serviceBusTopicMessage": { "topicPath": "t1", "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, }
 
-Below is an example of a service bus queue action:
+Di seguito è riportato un esempio di azione di coda del bus di servizio.
 
 
-  "action": { "serviceBusQueueMessage": { "queueName": "q1",  
-      "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": {  
-        "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message",  
-      "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, "type": "serviceBusQueue" }
+  "action": { "serviceBusQueueMessage": { "queueName": "q1", "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, "type": "serviceBusQueue" }
 
-The “errorAction” is the error handler, the action invoked when the primary action fails. You can use this variable to call an error-handling endpoint or send a user notification. This can be used for reaching a secondary endpoint in the case that the primary is not available (e.g., in the case of a disaster at the endpoint’s site) or can be used for notifying an error handling endpoint. Just like the primary action, the error action can be simple or composite logic based on other actions. To learn how to create a SAS token, refer to [Create and Use a Shared Access Signature](https://msdn.microsoft.com/library/azure/jj721951.aspx).
+"errorAction" è il gestore degli errori, l'azione viene richiamata quando l'azione principale ha esito negativo. È possibile usare questa variabile per chiamare un endpoint di gestione degli errori o per inviare una notifica all'utente. Ciò può essere usato per raggiungere un endpoint secondario in caso quello primario non sia disponibile (ad esempio, in caso di emergenza nel sito dell'endpoint) o può essere usato per notificare un endpoint che si occupi di gestire gli errori. Proprio come l'azione principale, l'azione di errore può essere semplice o a logica composita basata su altre azioni. Per informazione su come creare un token SAS, fare riferimento a [Creare e utilizzare una firma di accesso condiviso](https://msdn.microsoft.com/library/azure/jj721951.aspx).
 
-## <a name="recurrence"></a>recurrence
+## ricorrenza
 
-Recurrence has several parts:
+La ricorrenza ha diverse parti:
 
-- Frequency: One of minute, hour, day, week, month, year  
+- Frequenza: Un valore tra minuto, ora, giorno, settimana, mese, anno
 
-- Interval: Interval at the given frequency for the recurrence  
+- Intervallo: Intervallo alla frequenza specificata per la ricorrenza
 
-- Prescribed schedule: Specify minutes, hours, weekdays, months, and monthdays of the recurrence  
+- Pianificazione prescritta: Specifica minuti, ore, giorni della settimana, mesi e giorni del mese della ricorrenza
 
-- Count: Count of occurrences  
+- Conteggio: Conteggio delle occorrenze
 
-- End time: No jobs will execute after the specified end time  
+- Ora di fine: Nessun processo verrà eseguito dopo l'ora di fine specificata
 
-A job is recurring if it has a recurring object specified in its JSON definition. If both count and endTime are specified, the completion rule that occurs first is honored.
+Un processo è ricorrente se dispone di un oggetto ricorrente specificato nella sua definizione JSON. Se sono specificati sia conteggio che l'ora di fine, viene applicata la regola di completamento che si verifica per primo.
 
-## <a name="state"></a>state
+## state
 
-The state of the job is one of four values: enabled, disabled, completed, or faulted. You can PUT or PATCH jobs so as to update them to the enabled or disabled state. If a job has been completed or faulted, that is a final state that cannot be updated (though the job can still be DELETED). An example of the state property is as follows:
+Lo stato del processo è uno di questi quattro valori: abilitato, disabilitato, completato o in errore. È possibile eseguire azioni PUT o PATCH sui processi per aggiornarli allo stato abilitato o disabilitato. Se un processo è stato completato o in errore, si trova in uno stato finale che non può essere aggiornato (anche se è comunque possibile eliminare il processo). Un esempio della proprietà stato è come segue:
 
 
-        "state": "disabled", // enabled, disabled, completed, or faulted
-Completed and faulted jobs are deleted after 60 days.
+    	"state": "disabled", // enabled, disabled, completed, or faulted
+I processi completati e con errori vengono eliminati dopo 60 giorni.
 
-## <a name="status"></a>status
+## status
 
-Once a Scheduler job has started, information will be returned about the current status of the job. This object is not settable by the user—it’s set by the system. However, it is included in the job object (rather than a separate linked resource) so that one can obtain the status of a job easily.
+Dopo l'avvio dell'Utilità di pianificazione, verranno restituite informazioni sullo stato corrente del processo. Questo oggetto non può essere impostato dall'utente: è impostato dal sistema. Tuttavia, è incluso nell'oggetto processo (anziché in una risorsa collegata separata) in modo da consentire di ottenere semplicemente lo stato di un processo.
 
-Job status includes the time of the previous execution (if any), the time of the next scheduled execution (for in-progress jobs), and the execution count of the job.
+Lo stato del processo include l'ora dell'esecuzione precedente (se presente), l'ora della successiva esecuzione pianificata (per i processi in corso) e il conteggio delle esecuzioni del processo.
 
-## <a name="retrypolicy"></a>retryPolicy
+## retryPolicy
 
-If a Scheduler job fails, it is possible to specify a retry policy to determine whether and how the action is retried. This is determined by the **retryType** object—it is set to **none** if there is no retry policy, as shown above. Set it to **fixed** if there is a retry policy.
+Se un'utilità di pianificazione non riesce, è possibile specificare un criterio di ripetizione per determinare se e come l'azione verrà ripetuta. Ciò è determinato dall'oggetto **retryType**: è impostato su **nessuno** se non esiste alcun criterio di ripetizione, come illustrato in precedenza. Impostato su **fisso** se esiste un criterio di ripetizione.
 
-To set a retry policy, two additional settings may be specified: a retry interval (**retryInterval**) and the number of retries (**retryCount**).
+Per impostare un criterio di ripetizione, è possibile specificare due impostazioni aggiuntive: un intervallo tra i tentativi (**retryInterval**) e il numero di tentativi (**retryCount**).
 
-The retry interval, specified with the **retryInterval** object, is the interval between retries. Its default value is 30 seconds, its minimum configurable value is 15 seconds, and its maximum value is 18 months. Jobs in Free job collections have a minimum configurable value of 1 hour.  It is defined in the ISO 8601 format. Similarly, the value of the number of retries is specified with the **retryCount** object; it is the number of times a retry is attempted. Its default value is 4, and its maximum value is 20\. Both **retryInterval** and **retryCount** are optional. They are given their default values if **retryType** is set to **fixed** and no values are specified explicitly.
+L'intervallo tra tentativi, specificato con l'oggetto **retryInterval**, è l'intervallo di tempo tra i tentativi. Il valore predefinito è 30 secondi, il valore minimo configurabile è 15 secondi e il valore massimo è 18 mesi. I processi inclusi nelle raccolte di processi del livello Gratuito hanno un valore minimo configurabile di 1 ora. Viene definito nel formato ISO 8601. Analogamente, il valore del numero di tentativi è specificato con l'oggetto **retryCount** e specifica quanti tentativi verranno eseguiti. Il valore predefinito è 4 e il valore massimo è 20. Sia **retryInterval** che **retryCount** sono facoltativi. A questi oggetti vengono assegnati i valori predefiniti se **retryType** è impostato su **fixed** e non sono specificati valori in modo esplicito.
 
-## <a name="see-also"></a>See also
+## Vedere anche
 
- [What is Scheduler?](scheduler-intro.md)
+ [Che cos'è l'Utilità di pianificazione?](scheduler-intro.md)
 
- [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
+ [Introduzione all'uso dell'Utilità di pianificazione nel portale di Azure](scheduler-get-started-portal.md)
 
- [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
+ [Piani e fatturazione nell'utilità di pianificazione di Azure](scheduler-plans-billing.md)
 
- [How to build complex schedules and advanced recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
+ [Come creare pianificazioni complesse e operazioni ricorrenti avanzate con l'Utilità di pianificazione di Azure](scheduler-advanced-complexity.md)
 
- [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
+ [Informazioni di riferimento sull'API REST dell'Utilità di pianificazione di Azure](https://msdn.microsoft.com/library/mt629143)
 
- [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
+ [Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione di Azure](scheduler-powershell-reference.md)
 
- [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
+ [Livelli elevati di disponibilità e affidabilità dell'Utilità di pianificazione di Azure](scheduler-high-availability-reliability.md)
 
- [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
+ [Limiti, valori predefiniti e codici di errore dell'Utilità di pianificazione di Azure](scheduler-limits-defaults-errors.md)
 
- [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
+ [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

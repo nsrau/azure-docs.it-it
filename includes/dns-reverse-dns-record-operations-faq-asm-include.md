@@ -1,23 +1,20 @@
-<BR> 
-## <a name="faq"></a>FAQ 
-### <a name="how-much-do-reverse-dns-records-cost?"></a>How much do reverse DNS records cost?
-They’re free!  There is no additional cost for reverse DNS records or queries.
-### <a name="will-my-reverse-dns-records-resolve-from-the-internet?"></a>Will my reverse DNS records resolve from the internet?
-Yes. Once you set the reverse DNS property for your Cloud Service, Azure manages all the DNS delegations and DNS zones required to ensure that reverse DNS record resolves for all internet users.
-### <a name="will-a-default-reverse-dns-record-be-created-for-my-cloud-services?"></a>Will a default reverse DNS record be created for my Cloud Services?
-No. Reverse DNS is an opt-in feature. No default reverse DNS records are created if you choose not to configure them.
-### <a name="what-is-the-format-for-the-fully-qualified-domain-name-(fqdn)?"></a>What is the format for the fully-qualified domain name (FQDN)?
-FQDNs are specified in forward order, and must be terminated by a dot (e.g., “app1.contoso.com.”).
-### <a name="what-happens-if-the-validation-checks-for-the-reverse-dns-i’ve-specified-fail?"></a>What happens if the validation checks for the reverse DNS I’ve specified fail?
-Where the validation for reverse DNS checks fail, the service management operation will fail. Please correct the reverse DNS value as required, and retry.
-### <a name="can-i-manage-reverse-dns-for-my-azure-website?"></a>Can I manage reverse DNS for my Azure Website?
-Reverse DNS is not supported for Azure Websites. Reverse DNS is supported for Azure PaaS roles and IaaS virtual machines.
-### <a name="can-i-configure-multiple-reverse-dns-records-for-my-cloud-service?"></a>Can I configure multiple reverse DNS records for my Cloud Service?
-No. Azure supports a single reverse DNS record for each Azure Cloud Service. Each Azure Cloud Service however can have their own reverse DNS record.
-### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services?"></a>Can I send emails to external domains from my Azure Compute services?
-No. As per [here](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/), Azure Compute services do not support sending emails to external domains.
+<BR>
+## Domande frequenti 
+### Quanto costano i record DNS inversi?
+Sono gratuiti! Non sono previsti costi aggiuntivi per i record DNS inversi o le query.
+### I record DNS inversi verranno risolti da Internet?
+Sì. Dopo aver impostato la proprietà DNS inverso per il servizio cloud, Azure gestisce tutte le deleghe DNS e le zone DNS richieste per assicurare che il DNS inverso si risolva per tutti gli utenti di Internet.
+### Verrà creato un record DNS inverso predefinito per i servizi Cloud?
+No. Il DNS inverso sarà una funzionalità che prevede il consenso esplicito. Se si sceglie di non configurare alcun record DNS inverso predefinito, non ne verrà creato alcuno.
+### Qual è il formato per il nome di dominio completo (FQDN)?
+I nomi di dominio completi sono specificati seguendo l’ordine in avanti e devono terminare con un punto (ad esempio, "app1.contoso.com.").
+### Cosa accade se i controlli di convalida per il DNS inverso specificati danno esito negativo?
+Se i controlli di convalida per il DNS inverso danno esito negativo, l'operazione di gestione del servizio non andrà a buon fine. Correggere il valore DNS inverso come richiesto e riprovare.
+### È possibile gestire il DNS inverso per il sito Web di Azure?
+Il DNS inverso non è supportato per i siti Web di Azure. Il DNS inverso è supportato per i ruoli PaaS e le macchine virtuali IaaS di Azure.
+### È possibile configurare più record DNS inversi per il servizio cloud?
+No. Azure supporta un singolo record DNS inverso per ogni servizio cloud di Azure. Ogni servizio cloud di Azure tuttavia può avere un proprio record DNS inverso.
+### È possibile inviare messaggi di posta elettronica a domini esterni dai servizi di calcolo di Azure?
+No. Come spiegato [qui](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/), i servizi di calcolo di Azure non supportano l'invio di messaggi di posta elettronica a domini esterni.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

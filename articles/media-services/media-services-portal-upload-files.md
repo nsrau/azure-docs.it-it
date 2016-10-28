@@ -1,67 +1,60 @@
 <properties
-    pageTitle=" Upload files into a Media Services account using the Azure portal | Microsoft Azure"
-    description="This tutorial walks you through the steps of uploading files into a Media Services account using the Azure portal"
-    services="media-services"
-    documentationCenter=""
-    authors="Juliako"
-    manager="erikre"
-    editor=""/>
+	pageTitle=" Caricare file in un account Servizi multimediali usando il portale di Azure | Microsoft Azure"
+	description="Questa esercitazione illustra la procedura di caricamento di file in un account Servizi multimediali con il portale di Azure."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/29/2016"
-    ms.author="juliako"/>
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/29/2016"
+	ms.author="juliako"/>
 
 
-
-# <a name="upload-files-into-a-media-services-account-using-the-azure-portal"></a>Upload files into a Media Services account using the Azure portal 
+# Caricare file in un account Servizi multimediali usando il portale di Azure 
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-portal-upload-files.md)
+- [Portale](media-services-portal-upload-files.md)
 - [.NET](media-services-dotnet-upload-files.md)
 - [REST](media-services-rest-upload-files.md)
 
-> [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-In Media Services, you upload your digital files into an asset. The Asset  can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.) Once the files are uploaded, your content is stored securely in the cloud for further processing and streaming.
+In Servizi multimediali è possibile caricare i file digitali in un asset. L'asset può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli codificati (e anche i metadati relativi a questi file). Dopo aver caricato i file, i contenuti vengono archiviati in modo sicuro nel cloud per altre operazioni di elaborazione e streaming.
  
-1. In the **Setting** window, click **Assets**.
+1. Nella finestra **Impostazione** fare clic su **Asset**.
 
-    ![Upload files](./media/media-services-portal-vod-get-started/media-services-upload.png)
+	![Caricare file](./media/media-services-portal-vod-get-started/media-services-upload.png)
 
-3. Click the **Upload** button.
+3. Fare clic sul pulsante **Upload**.
 
-    The **Upload a video asset** window appears.
+	Verrà visualizzata la finestra **Carica un asset video**.
 
-    >[AZURE.NOTE] There is no file size limitation.
-    
-4. Browse to the desired video on your computer, select it, and hit OK.  
+	>[AZURE.NOTE] Non esistono limiti alle dimensioni dei file.
+	
+4. Passare al video desiderato nel computer locale, selezionarlo e fare clic su OK.
 
-    The upload starts and you can see the progress under the file name.  
+	Il caricamento viene avviato ed è possibile visualizzare l'avanzamento sotto il nome del file.
 
-Once the upload completes, you will see the new asset listed in the **Assets** window. 
+Al termine del caricamento, il nuovo asset verrà visualizzato nella finestra **Asset**.
 
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-You can now encode your uploaded assets. For more information, see [Encode assets](media-services-portal-encode.md).
+Ora è possibile codificare gli asset caricati. Per altre informazioni, vedere [Encode assets](media-services-portal-encode.md) (Codificare gli asset).
 
-## <a name="media-services-learning-paths"></a>Media Services learning paths
+## Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="provide-feedback"></a>Provide feedback
+##Fornire commenti e suggerimenti
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

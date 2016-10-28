@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Add Azure Storage by using Connected Services in Visual Studio | Microsoft Azure"
-   description="Add Azure Storage to your app by using the Visual Studio Add Connected Services dialog box"
+   pageTitle="Aggiungere spazio di archiviazione di Azure mediante Servizi connessi in Visual Studio | Microsoft Azure"
+   description="Aggiungere archiviazione di Azure all'applicazione usando la finestra di dialogo Aggiungi servizi connessi di Visual Studio"
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,89 +15,83 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Aggiunta dell’archiviazione di Azure tramite Servizi connessi di Visual Studio
 
-# <a name="adding-azure-storage-by-using-visual-studio-connected-services"></a>Adding Azure storage by using Visual Studio Connected Services
+## Overview
 
-## <a name="overview"></a>Overview
+Con Visual Studio 2015, è possibile connettersi a qualsiasi servizio cloud in C#, servizio mobile back-end .NET, sito Web o servizio ASP.NET, servizio ASP.NET 5 o servizio di Processo Web di Azure in archiviazione di Azure tramite la finestra di dialogo **Aggiungi servizi connessi**. La funzionalità servizio connesso aggiunge tutti i riferimenti richiesti e il codice di connessione e modifica i file di configurazione in modo appropriato. La finestra di dialogo visualizza inoltre la documentazione che indica i passaggi successivi per avviare l'archiviazione BLOB, code e tabelle.
 
-With Visual Studio 2015, you can connect any C# cloud service, .NET backend mobile service, ASP.NET website or service, ASP.NET 5 service, or Azure WebJob service to Azure Storage by using the **Add Connected Services** dialog. The connected service functionality adds all the needed references and connection code, and modifies your configuration files appropriately. The dialog also takes you to documentation that tells you what the next steps are to start blob storage, queues, and tables.
+## Tipi di progetto supportati
 
-## <a name="supported-project-types"></a>Supported Project Types
+Per connettersi ad archiviazione di Azure nei seguenti tipi di progetto, è possibile usare la finestra di dialogo Servizi connessi.
 
-You can use the Connected Services dialog to connect to Azure Storage in the following project types.
+- Progetti Web ASP.NET
 
-- ASP.NET Web Projects
+- Progetti ASP.NET 5
 
-- ASP.NET 5 Projects
+- Progetti del ruolo Web del servizio cloud .NET e del ruolo di lavoro
 
-- .NET Cloud Service Web Role and Worker Role Projects
+- Progetti di servizi mobili .NET
 
-- .NET Mobile Services Projects
-
-- Azure WebJob Projects
+- Progetti di Processo Web di Azure
 
 
-## <a name="connect-to-azure-storage-using-the-connected-services-dialog"></a>Connect to Azure Storage using the Connected Services dialog
+## Connettersi ad archiviazione di Azure usando la finestra di dialogo Servizi connessi
 
-1. Make sure you have an Azure account. If you don't have an Azure account, you can sign up for a [free trial](http://go.microsoft.com/fwlink/?LinkId=518146). Once you have an Azure account, you can create storage accounts, create mobile services, and configure Azure Active Directory.
+1. È necessario disporre di un account Azure. Se non si ha un account Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita](http://go.microsoft.com/fwlink/?LinkId=518146). Dopo aver creato un account Azure, è possibile creare account di archiviazione, creare servizi mobili e configurare Azure Active Directory.
 
-1. Open your project in Visual Studio, open the context menu for the **References** node in Solution Explorer, and then choose **Add Connected Service**.
+1. Aprire il progetto in Visual Studio, aprire il menu di scelta rapida per il nodo **Riferimenti** in Esplora soluzioni, quindi scegliere **Aggiungi servizio connesso**.
 
-    ![Adding a connected service](./media/vs-azure-tools-connected-services-storage/IC796702.png)
+    ![Aggiunta di un servizio connesso](./media/vs-azure-tools-connected-services-storage/IC796702.png)
 
-1. In the **Add Connected Service** dialog box, choose **Azure Storage**, and then choose the **Configure** button. You may be prompted to log into Azure if you haven't already done so.
+1. Nella finestra di dialogo **Aggiungi servizio connesso** scegliere **Account di archiviazione di Azure**, quindi fare clic su **Configura**. Se non è già stato effettuato, potrebbe essere richiesto l'accesso ad Azure.
 
-    ![Add Connected Service dialog box - Storage](./media/vs-azure-tools-connected-services-storage/IC796703.png)
+    ![Finestra di dialogo Aggiungi servizio connesso - Archiviazione](./media/vs-azure-tools-connected-services-storage/IC796703.png)
 
-1. In the **Azure Storage** dialog box, select an existing storage account, and select **Add**.
+1. Nella finestra di dialogo **Archiviazione di Azure**, selezionare un account di archiviazione esistente, quindi **Aggiungi**.
 
-    If you need to create a new storage account, go to the next step. Otherwise, skip to step 6.
+    Se è necessario creare un nuovo account di archiviazione, andare al passaggio successivo. In caso contrario, andare direttamente al passaggio 6.
 
-    ![Azure Storage dialog box](./media/vs-azure-tools-connected-services-storage/IC796704.png)
+    ![Finestra di dialogo Archiviazione di Azure](./media/vs-azure-tools-connected-services-storage/IC796704.png)
 
-1. To create a new storage account: 
+1. Per creare un nuovo account di archiviazione:
 
-    1. Choose the **Create a New Storage Account** button at the bottom of the Azure Storage dialog box.
+    1. Scegliere il pulsante **Crea un nuovo Account di archiviazione** nella parte inferiore della finestra di dialogo Archiviazione di Azure.
 
-    1. Fill out the **Create Storage Account** dialog box and then choose the **Create** button.
+    1. Compilare la finestra di dialogo **Crea account di archiviazione**, quindi scegliere il pulsante **Crea**.
     
-        ![Azure Storage dialog box](./media/vs-azure-tools-connected-services-storage/create-storage-account.png)
+        ![Finestra di dialogo Archiviazione di Azure](./media/vs-azure-tools-connected-services-storage/create-storage-account.png)
 
-        When you're back in the **Azure Storage** dialog box, the new storage appears in the list.
+        Quando si torna nella finestra di dialogo **Archiviazione di Azure**, la nuova risorsa di archiviazione viene visualizzata nell'elenco.
 
-    1. Select the new storage in the list, and select **Add**.
+    1. Selezionare la nuova risorsa di archiviazione nell'elenco e selezionare **Aggiungi**.
 
-1. The  storage connected service appears under the Service References node of your WebJob project.
+1. Il servizio di archiviazione connesso viene visualizzato sotto il nodo Riferimenti servizio del progetto WebJob.
 
-    ![Azure storage in web jobs project](./media/vs-azure-tools-connected-services-storage/IC796705.png)
+    ![Archiviazione di Azure in progetti di tipo processo Web](./media/vs-azure-tools-connected-services-storage/IC796705.png)
 
-1. Review the Getting Started page that appears and find out how your project was modified. A Getting Started page appears in your browser whenever you add a connected service. You can review the suggested next steps and code examples, or switch to the What Happened page to see what references were added to your project, and how your code and configuration files were modified.
+1. Esaminare la pagina introduttiva visualizzata e controllare come è stato modificato il progetto. Ogni volta che si aggiunge un servizio connesso, nel browser verrà visualizzata una pagina introduttiva. È possibile esaminare i passaggi successivi e gli esempi di codice suggeriti o passare alla pagina Informazioni sull'evento per vedere quali riferimenti sono stati aggiunti al progetto e in che modo i file di configurazione e il codice sono stati modificati.
 
-## <a name="how-your-project-is-modified"></a>How your project is modified
+## Come viene modificato il progetto
 
-When you finish the dialog, Visual Studio adds references and modifies certain configuration files. The specific changes depend on the project type. 
+Una volta terminata la finestra di dialogo, Visual Studio aggiunge riferimenti e modifica di alcuni file di configurazione. Le modifiche specifiche dipendono dal tipo di progetto.
 
- - For ASP.NET projects, see [What happened – ASP.NET Projects](http://go.microsoft.com/fwlink/p/?LinkId=513126). 
- - For ASP.NET 5 projects, see [What happened – ASP.NET 5 Projects](http://go.microsoft.com/fwlink/p/?LinkId=513124). 
- - For cloud service projects (web roles and worker roles), see [What happened – Cloud Service projects](http://go.microsoft.com/fwlink/p/?LinkId=516965). 
- - For WebJob projects, see [What happened - WebJob projects](./storage/vs-storage-webjobs-what-happened.md).
+ - Per i progetti ASP.NET, vedere [Informazioni sull'evento – Progetti ASP.NET](http://go.microsoft.com/fwlink/p/?LinkId=513126).
+ - Per i progetti ASP.NET 5, vedere [Informazioni sull'evento – Progetti ASP.NET 5](http://go.microsoft.com/fwlink/p/?LinkId=513124).
+ - Per i progetti del servizio cloud (ruoli Web e ruoli di lavoro), vedere [Informazioni sull'evento – Progetti del servizio cloud](http://go.microsoft.com/fwlink/p/?LinkId=516965).
+ - Per i progetti di tipo processo Web, vedere [Risultati - Progetti di tipo processo Web](./storage/vs-storage-webjobs-what-happened.md).
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-1. Using the Getting Started code samples as a guide, create the type of storage that you want, and then start writing code to access your storage account!
+1. Usando gli esempi di codice introduttivi come guida, creare il tipo di risorsa di archiviazione desiderato, quindi iniziare a scrivere codice per accedere all'account di archiviazione.
 
-1. Ask questions and get help
-     - [MSDN Forum: Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+1. Domande e assistenza
+     - [Forum MSDN: Archiviazione di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 
-     - [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
+     - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
-     - [Storage at azure.microsoft.com](https://azure.microsoft.com/services/storage/)
+     - [Archiviazione in azure.microsoft.com](https://azure.microsoft.com/services/storage/)
 
-     - [Storage Documentation at azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
+     - [Documentazione di archiviazione in azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

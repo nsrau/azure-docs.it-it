@@ -1,50 +1,45 @@
 <properties
-    pageTitle="Azure Mobile Engagement iOS SDK Content"
-    description="Latest updates and procedures for iOS SDK for Azure Mobile Engagement"
-    services="mobile-engagement"
-    documentationCenter="mobile"
-    authors="MehrdadMzfr"
-    manager="dwrede"
-    editor="" />
+	pageTitle="Contenuto di Azure Mobile Engagement iOS SDK"
+	description="Ultimi aggiornamenti e procedure relativi a iOS SDK per Azure Mobile Engagement"
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="MehrdadMzfr"
+	manager="dwrede"
+	editor="" />
 
 <tags
-    ms.service="mobile-engagement"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-ios"
-    ms.devlang="objective-c"
-    ms.topic="article"
-    ms.date="08/19/2016"
-    ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/19/2016"
+	ms.author="piyushjo" />
 
+#Contenuto dell'SDK
 
-#<a name="sdk-content"></a>SDK Content
+Questo documento elenca e illustra il contenuto dell'archivio SDK.
 
-This document lists and describes the content of the SDK archive.
-
-##<a name="engagement-sdk"></a>Engagement SDK
+##Engagement SDK
 
 `EngagementSDK`
 
-> The core Engagement SDK containing headers, library and an additional class provided as a source code to enable/disable IDFA collection.
+> La parte essenziale di Engagement SDK contiene intestazioni, raccolte e una classe aggiuntiva fornite come codice sorgente per attivare/disattivare la raccolta dell'identificatore IDFA.
 
-##<a name="engagement-reach-sdk"></a>Engagement Reach SDK
+##Engagement Reach SDK
 
 `EngagementReach`
 
-> Engagement Reach SDK containing headers, library and associated resources.
+> Engagement Reach SDK contiene intestazioni, raccolte e risorse correlate.
 
-##<a name="additional-files"></a>Additional files
+##File aggiuntivi
 
-`doc/index.html` (in `doc` folder)
+`doc/index.html` (nella cartella `doc`)
 
-> Engagement SDK and Reach SDK Objective-C documentation.
+> Documentazione su Engagement SDK e Reach SDK per Objective-C.
 
-`src` folder
+Cartella `src`
 
-> Engagement view controllers and Reach SDK's source code (for power users who want to adapt Engagement classes to their needs).
+> Controller di visualizzazione di Engagement e codice sorgente di Reach SDK (per utenti esperti che desiderano adattare le classi Engagement alle proprie esigenze).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

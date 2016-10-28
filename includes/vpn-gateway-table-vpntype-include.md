@@ -1,27 +1,25 @@
-#### <a name="vpn-type---resource-manager-deployment-model"></a>VPN type - Resource Manager deployment model
+#### Tipo VPN - modello di distribuzione Resource Manager
 
-|      | **RouteBased**    | **PolicyBased** |
+| | **RouteBased** | **PolicyBased** |
 |-----------------------------------|-------------|------------------|
-| **Site-to-Site**                  | Supported   | Supported        |
-| **VNet-to-VNet**                  | Supported   | Not Supported    |
-| **Multi-Site**                    | Supported   | Not Supported    |
-| **S2S and ExpressRoute coexist**  | Supported   | Not Supported    |
-| **Point-to-Site**                 | Supported   | Not Supported    |
-| **Classic to Resource Manager**   | Supported   | Not Supported    |
+| **Da sito a sito** | Supportato | Supportato |
+| **Tra reti virtuali** | Supportato | Non supportato |
+| **Multisito** | Supportato | Non supportato |
+| **Coesistenza tra Da sito a sito ed ExpressRoute** | Supportato | Non supportato |
+| **Da punto a sito** | Supportato | Non supportato |
+| **Classico a Gestione risorse** | Supportato | Non supportato |
 
 
-#### <a name="vpn-type---classic-deployment-model"></a>VPN type - classic deployment model
+#### Tipo VPN - modello di distribuzione classica
 
 
-|       | **Dynamic**        | **Static**   |
+| | **Dinamico** | **Statico** |
 |---------------------------------------------|--------------|--------------|
-| **Site-to-Site**                            | Supported    | Supported      |
-| **VNet-to-VNet**                            | Supported    | Not Supported  |
-| **Multi-Site**                              | Supported    | Not Supported  |
-| **S2S and ExpressRoute coexist**            | Supported    | Not Supported  |
-| **Point-to-Site**                           | Supported    | Not Supported  |
-| **Classic to Resource Manager**             | Supported    | Not Supported  |
+| **Da sito a sito** | Supportato | Supportato |
+| **Tra reti virtuali** | Supportato | Non supportato |
+| **Multisito** | Supportato | Non supportato |
+| **Coesistenza tra Da sito a sito ed ExpressRoute** | Supportato | Non supportato |
+| **Da punto a sito** | Supportato | Non supportato |
+| **Classico a Gestione risorse** | Supportato | Non supportato |
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

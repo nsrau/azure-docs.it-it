@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Query across cloud databases with different schema | Microsoft Azure"
-    description="how to set up cross-database queries over vertical partitions"    
+    pageTitle="Eseguire query in database cloud con schemi diversi | Microsoft Azure"
+    description="Informazioni su come configurare le query tra database su partizioni verticali."    
     services="sql-database"
     documentationCenter=""  
     manager="jhubbard"
@@ -15,21 +15,20 @@
     ms.date="05/27/2016"
     ms.author="torsteng" />
 
+# Eseguire query in database cloud con schemi diversi (anteprima)
 
-# <a name="query-across-cloud-databases-with-different-schemas-(preview)"></a>Query across cloud databases with different schemas (preview)
+![Eseguire una query tra tabelle in vari database][1]
 
-![Query across tables in different databases][1]
+I database con partizionamento verticale usano set di tabelle diversi su database diversi. Lo schema risulta quindi diverso nei diversi database. Ad esempio, tutte le tabelle per l'inventario si trovano in un database, mentre le tabelle correlate alla contabilità si trovano in un altro database.
 
-Vertically-partitioned databases use different sets of tables on different databases. That means that the schema is different on different databases. For instance, all tables for inventory are on one database while all accounting-related tables are on a second database. 
+## Prerequisiti
 
-## <a name="prerequisites"></a>Prerequisites
+* L'utente deve disporre dell'autorizzazione ALTER ANY origine dei dati esterni. Questa autorizzazione è inclusa nell'autorizzazione ALTER DATABASE.
+* Per il riferimento all'origine dati sottostante sono necessarie autorizzazioni ALTER ANY EXTERNAL DATA SOURCE.
 
-* The user must possess ALTER ANY EXTERNAL DATA SOURCE permission. This permission is included with the ALTER DATABASE permission.
-* ALTER ANY EXTERNAL DATA SOURCE permissions are needed to refer to the underlying data source.
+## Panoramica
 
-## <a name="overview"></a>Overview
-
-**NOTE**:  Unlike with horizontal partitioning, these DDL statements do not depend on defining a data tier with a shard map through the elastic database client library.
+**NOTA**: a differenza del partizionamento orizzontale, queste istruzioni DDL non dipendono dalla definizione di un livello dati con una mappa partizioni tramite la libreria client del database elastico.
 
 1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
 2. [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
@@ -37,20 +36,20 @@ Vertically-partitioned databases use different sets of tables on different datab
 4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) 
 
 
-## <a name="create-database-scoped-master-key-and-credentials"></a>Create database scoped master key and credentials 
+## Creare la chiave master e le credenziali con ambito database 
 
-The credential is used by the elastic query to connect to your remote databases.  
+Le credenziali vengono usate dalla query elastica per connettersi ai database remoti.
 
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
     SECRET = '<password>'
     [;]
  
-**Note**    Ensure that the *<username>* does not include any *"@servername"* suffix. 
+**Nota** Assicurarsi che *<username>* non includa alcun suffisso *"@servername"*.
 
-## <a name="create-external-data-sources"></a>Create external data sources
+## Creare origini dati esterne
 
-Syntax:
+Sintassi:
 
     <External_Data_Source> ::=
     CREATE EXTERNAL DATA SOURCE <data_source_name> WITH 
@@ -60,135 +59,135 @@ Syntax:
                 CREDENTIAL = <credential_name> 
                 ) [;] 
 
-**Important**   The TYPE parameter must be set to **RDBMS**. 
+**Importante** Il parametro TYPE deve essere impostato su **RDBMS**.
 
-### <a name="example"></a>Example 
+### Esempio 
 
-The following example illustrates the use of the CREATE statement for external data sources. 
+Nell'esempio seguente viene illustrato l'utilizzo dell'istruzione CREATE per origini dati esterne.
 
-    CREATE EXTERNAL DATA SOURCE RemoteReferenceData 
-    WITH 
-    ( 
-        TYPE=RDBMS, 
-        LOCATION='myserver.database.windows.net', 
-        DATABASE_NAME='ReferenceData', 
-        CREDENTIAL= SqlUser 
-    ); 
+	CREATE EXTERNAL DATA SOURCE RemoteReferenceData 
+	WITH 
+	( 
+		TYPE=RDBMS, 
+		LOCATION='myserver.database.windows.net', 
+		DATABASE_NAME='ReferenceData', 
+		CREDENTIAL= SqlUser 
+	); 
  
-To retrieve the list of current external data sources: 
+Per recuperare l'elenco di origini dati esterne correnti:
 
     select * from sys.external_data_sources; 
 
-### <a name="external-tables"></a>External Tables 
+### Tabelle esterne 
 
-Syntax:
+Sintassi:
 
-    CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name . ] table_name  
+	CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name . ] table_name  
     ( { <column_definition> } [ ,...n ])     
-    { WITH ( <rdbms_external_table_options> ) } 
-    )[;] 
-    
-    <rdbms_external_table_options> ::= 
+	{ WITH ( <rdbms_external_table_options> ) } 
+	)[;] 
+	
+	<rdbms_external_table_options> ::= 
       DATA_SOURCE = <External_Data_Source>, 
       [ SCHEMA_NAME = N'nonescaped_schema_name',] 
       [ OBJECT_NAME = N'nonescaped_object_name',] 
 
-### <a name="example"></a>Example  
+### Esempio  
 
-    CREATE EXTERNAL TABLE [dbo].[customer]( 
-        [c_id] int NOT NULL, 
-        [c_firstname] nvarchar(256) NULL, 
-        [c_lastname] nvarchar(256) NOT NULL, 
-        [street] nvarchar(256) NOT NULL, 
-        [city] nvarchar(256) NOT NULL, 
-        [state] nvarchar(20) NULL, 
-        [country] nvarchar(50) NOT NULL, 
-    ) 
-    WITH 
-    ( 
-           DATA_SOURCE = RemoteReferenceData 
-    ); 
+	CREATE EXTERNAL TABLE [dbo].[customer]( 
+		[c_id] int NOT NULL, 
+		[c_firstname] nvarchar(256) NULL, 
+		[c_lastname] nvarchar(256) NOT NULL, 
+		[street] nvarchar(256) NOT NULL, 
+		[city] nvarchar(256) NOT NULL, 
+		[state] nvarchar(20) NULL, 
+		[country] nvarchar(50) NOT NULL, 
+	) 
+	WITH 
+	( 
+	       DATA_SOURCE = RemoteReferenceData 
+	); 
 
-The following example shows how to retrieve the list of external tables from the current database: 
+Nell'esempio seguente viene illustrato come recuperare l'elenco di tabelle esterni dal database corrente:
 
-    select * from sys.external_tables; 
+	select * from sys.external_tables; 
 
-### <a name="remarks"></a>Remarks
+### Osservazioni
 
-Elastic query extends the existing external table syntax to define external tables that use external data sources of type RDBMS. An external table definition for vertical partitioning covers the following aspects: 
+La query elastica estende la sintassi esistente della tabella esterna per definire le tabelle esterne che usano origini dati esterne di tipo RDBMS. Una definizione di tabella esterna per il partizionamento verticale comprende gli aspetti seguenti:
 
-* **Schema**: The external table DDL defines a schema that your queries can use. The schema provided in your external table definition needs to match the schema of the tables in the remote database where the actual data is stored. 
+* **Schema**: il DDL della tabella esterna definisce uno schema che può essere usato dalle query. Lo schema fornito nella definizione della tabella esterna deve corrispondere allo schema delle tabelle nel database remoto in cui sono archiviati i dati effettivi. 
 
-* **Remote database reference**: The external table DDL refers to an external data source. The external data source specifies the logical server name and database name of the remote database where the actual table data is stored. 
+* **Riferimento al database remoto**: il DDL della tabella esterna fa riferimento a un'origine dati esterna. L'origine dati esterna specifica il nome del server logico e il nome del database remoto in cui sono archiviati i dati effettivi della tabella.
 
-Using an external data source as outlined in the previous section, the syntax to create external tables is as follows: 
+Se si usa un'origine dati esterna, come illustrato nella sezione precedente, la sintassi per la creazione di tabelle esterne è la seguente:
 
-The DATA_SOURCE clause defines the external data source (i.e. the remote database in case of vertical partitioning) that is used for the external table.  
+La clausola DATA\_SOURCE definisce l'origine dati esterna, ovvero il database remoto nel caso del partizionamento verticale, usata per la tabella esterna.
 
-The SCHEMA_NAME and OBJECT_NAME clauses provide the ability to map the external table definition to a table in a different schema on the remote database, or to a table with a different name, respectively. This is useful if you want to define an external table to a catalog view or DMV on your remote database – or any other situation where the remote table name is already taken locally.  
+Le clausole SCHEMA\_NAME e OBJECT\_NAME consentono di mappare la definizione della tabella esterna a una tabella in uno schema diverso sul database remoto o a una tabella con un nome diverso, rispettivamente. Ciò risulta utile se si vuole definire una tabella esterna per una vista del catalogo o una DMV nel database remoto o in qualsiasi altra situazione in cui il nome della tabella remota è già usato a livello locale.
 
-The following DDL statement drops an existing external table definition from the local catalog. It does not impact the remote database. 
+L'istruzione DDL seguente elimina una definizione di tabella esterna esistente da un catalogo locale. Non ha alcun impatto sul database remoto.
 
-    DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
+	DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 
-**Permissions for CREATE/DROP EXTERNAL TABLE**: ALTER ANY EXTERNAL DATA SOURCE permissions are needed for external table DDL which is also needed to refer to the underlying data source.  
+**Autorizzazioni per CREATE/DROP EXTERNAL TABLE**: le autorizzazioni di tipo ALTER ANY EXTERNAL DATA SOURCE sono necessarie per il DDL di tabelle esterne, che è richiesto anche per fare riferimento all'origine dati sottostante.
 
-## <a name="security-considerations"></a>Security considerations
-Users with access to the external table automatically gain access to the underlying remote tables under the credential given in the external data source definition. You should carefully manage access to the external table in order to avoid undesired elevation of privileges through the credential of the external data source. Regular SQL permissions can be used to GRANT or REVOKE access to an external table just as though it were a regular table.  
-
-
-## <a name="example:-querying-vertically-partitioned-databases"></a>Example: querying vertically partitioned databases 
-
-The following query performs a three-way join between the two local tables for orders and order lines and the remote table for customers. This is an example of the reference data use case for elastic query: 
-
-    SELECT      
-     c_id as customer,
-     c_lastname as customer_name,
-     count(*) as cnt_orderline, 
-     max(ol_quantity) as max_quantity,
-     avg(ol_amount) as avg_amount,
-     min(ol_delivery_d) as min_deliv_date
-    FROM customer 
-    JOIN orders 
-    ON c_id = o_c_id
-    JOIN  order_line 
-    ON o_id = ol_o_id and o_c_id = ol_c_id
-    WHERE c_id = 100
+## Considerazioni relative alla sicurezza
+Gli utenti con accesso alla tabella esterna ottengono automaticamente l'accesso alle tabelle remote sottostanti con le credenziali specificate nella definizione dell'origine dati esterna. È necessario gestire con attenzione l'accesso alla tabella esterna, in modo da evitare l'elevazione indesiderata dei privilegi tramite le credenziali dell'origine dati esterna. È possibile usare le normali autorizzazioni SQL per CONCEDERE o REVOCARE l'accesso a una tabella esterna, come se fosse una tabella normale.
 
 
-## <a name="stored-procedure-for-remote-t-sql-execution:-sp\_execute_remote"></a>Stored procedure for remote T-SQL execution: sp\_execute_remote
+## Esempio: esecuzione di query su database partizionati verticalmente 
 
-Elastic query also introduces a stored procedure that provides direct access to the shards. The stored procedure is called [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) and can be used to execute remote stored procedures or T-SQL code on the remote databases. It takes the following parameters: 
+La query seguente esegue un join a tre vie tra le due tabelle locali per gli ordini e le righe di ordine e la tabella remota per i clienti. Ecco un esempio di caso di utilizzo dei dati di riferimento per la query elastica:
 
-* Data source name (nvarchar): The name of the external data source of type RDBMS. 
-* Query (nvarchar): The T-SQL query to be executed on each shard. 
-* Parameter declaration (nvarchar) - optional: String with data type definitions for the parameters used in the Query parameter (like sp_executesql). 
-* Parameter value list - optional: Comma-separated list of parameter values (like sp_executesql).
+	SELECT  	
+	 c_id as customer,
+	 c_lastname as customer_name,
+	 count(*) as cnt_orderline, 
+	 max(ol_quantity) as max_quantity,
+	 avg(ol_amount) as avg_amount,
+	 min(ol_delivery_d) as min_deliv_date
+	FROM customer 
+	JOIN orders 
+	ON c_id = o_c_id
+	JOIN  order_line 
+	ON o_id = ol_o_id and o_c_id = ol_c_id
+	WHERE c_id = 100
 
-The sp\_execute\_remote uses the external data source provided in the invocation parameters to execute the given T-SQL statement on the remote databases. It uses the credential of the external data source to connect to the shardmap manager database and the remote databases.  
 
-Example: 
+## Stored procedure per l'esecuzione remota di T-SQL: sp\_execute\_remote
 
-    EXEC sp_execute_remote
-        N'MyExtSrc',
-        N'select count(w_id) as foo from warehouse' 
+La query elastica introduce anche una stored procedure che fornisce l'accesso diretto alle partizioni. La stored procedure è denominata [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714) e può essere usata per eseguire stored procedure remote o codice T-SQL sui database remoti. È necessario specificare i seguenti parametri:
+
+* Nome dell'origine dati (nvarchar): il nome dell'origine dati esterna di tipo RDBMS. 
+* Query (nvarchar): la query T-SQL da eseguire in ogni partizione. 
+* Dichiarazione del parametro (nvarchar) - Facoltativo: stringa con definizioni del tipo di dati per i parametri usati nel parametro della query, ad esempio sp\_executesql. 
+* Elenco di valori dei parametri (facoltativo): elenco delimitato da virgole di valori dei parametri, ad esempio sp\_executesql.
+
+La stored procedure sp\_execute\_remote usa l'origine dati esterna specificata nei parametri di chiamata per eseguire l'istruzione T-SQL data nei database remoti. Usa le credenziali dell'origine dati esterna per connettersi al database di gestione shardmap e ai database remoti.
+
+Esempio:
+
+	EXEC sp_execute_remote
+		N'MyExtSrc',
+		N'select count(w_id) as foo from warehouse' 
 
 
   
-## <a name="connectivity-for-tools"></a>Connectivity for tools
+## Connettività per gli strumenti
 
-You can use regular SQL Server connection strings to connect your BI and data integration tools to databases on the SQL DB server that has elastic query enabled and external tables defined. Make sure that SQL Server is supported as a data source for your tool. Then refer to the elastic query database and its external tables just like any other SQL Server database that you would connect to with your tool. 
+È possibile usare le normali stringhe di connessione di SQL Server per connettere gli strumenti di Business Intelligence e di integrazione dei dati ai database nel server del database SQL per cui sono abilitate le query elastiche e sono state definite tabelle esterne. Assicurarsi che SQL Server sia supportato come origine dati per lo strumento. Fare quindi riferimento al database elastico sottoposto a query e alle relative tabelle esterne come se fosse un qualsiasi altro database di SQL Server a cui ci si può connettere con lo strumento.
 
-## <a name="best-practices"></a>Best practices 
+## Procedure consigliate 
  
-* Ensure that the elastic query endpoint database has been given access to the remote database by enabling access for Azure Services in its SQL DB firewall configuration. Also ensure that the credential provided in the external data source definition can successfully log into the remote database and has the permissions to access the remote table.  
+* Assicurarsi che il database di endpoint della query elastica disponga di accesso al database remoto mediante l'abilitazione dell'accesso per i servizi di Azure nella rispettiva configurazione del firewall del database SQL. Assicurarsi anche che le credenziali fornite nella definizione dell'origine dati esterna possano accedere correttamente al database remoto e abbiano le autorizzazioni necessarie per accedere alla tabella remota.  
 
-* Elastic query works best for queries where most of the computation can be done on the remote databases. You typically get the best query performance with selective filter predicates that can be evaluated on the remote databases or joins that can be performed completely on the remote database. Other query patterns may need to load large amounts of data from the remote database and may perform poorly. 
+* La query elastica funziona in modo ottimale per le query in cui la maggior parte dei calcoli può essere eseguita sui database remoti. In genere si ottengono le prestazioni migliori per le query tramite i predicati di filtro selettivo, che possono essere valutati sui database remoti, o mediante join che possono essere eseguiti completamente nel database remoto. Altri modelli di query potrebbero richiedere il caricamento di quantità elevate di dati dal database remoto e potrebbero offrire prestazioni ridotte.
 
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-To query horizontally partitioned databases (also known as sharded databases), see [Queries across sharded cloud databases (horizontally partitioned)](sql-database-elastic-query-horizontal-partitioning.md).
+Per eseguire query su database partizionati orizzontalmente vedere [Eseguire query in database cloud partizionati orizzontalmente](sql-database-elastic-query-horizontal-partitioning.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -199,8 +198,4 @@ To query horizontally partitioned databases (also known as sharded databases), s
 
 <!--anchors-->
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0601_2016-->

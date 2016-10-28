@@ -1,304 +1,297 @@
 <properties
-    pageTitle="Tutorial: Azure Active Directory integration with Ceridian Dayforce HCM | Microsoft Azure"
-    description="Learn how to configure single sign-on between Azure Active Directory and Ceridian Dayforce HCM."
-    services="active-directory"
-    documentationCenter=""
-    authors="jeevansd"
-    manager="femila"
-    editor=""/>
+	pageTitle="Esercitazione: Integrazione di Azure Active Directory con Ceridian Dayforce HCM | Microsoft Azure"
+	description="Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Ceridian Dayforce HCM."
+	services="active-directory"
+	documentationCenter=""
+	authors="jeevansd"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/01/2016"
-    ms.author="jeedes"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2016"
+	ms.author="jeedes"/>
 
 
+# Esercitazione: Integrazione di Azure Active Directory con Ceridian Dayforce HCM
 
-# <a name="tutorial:-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>Tutorial: Azure Active Directory integration with Ceridian Dayforce HCM
+Questa esercitazione descrive l'integrazione di Ceridian Dayforce HCM con Azure Active Directory (Azure AD). L'integrazione di Ceridian Dayforce HCM con Azure AD offre i vantaggi seguenti:
 
-The objective of this tutorial is to show you how to integrate Ceridian Dayforce HCM with Azure Active Directory (Azure AD).  
-Integrating Ceridian Dayforce HCM with Azure AD provides you with the following benefits:
-
-- You can control in Azure AD who has access to Ceridian Dayforce HCM
-- You can enable your users to automatically get signed-on to Ceridian Dayforce HCM (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure classic portal
+- È possibile controllare in Azure AD chi può accedere a Ceridian Dayforce HCM.
+- È possibile abilitare gli utenti per l'accesso automatico a Ceridian Dayforce HCM (Single Sign-On) con i propri account Azure AD.
+- È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## Prerequisiti
 
-To configure Azure AD integration with Ceridian Dayforce HCM, you need the following items:
+Per configurare l'integrazione di Azure AD con Ceridian Dayforce HCM, sono necessari gli elementi seguenti:
 
-- An Azure AD subscription
-- A Ceridian Dayforce HCM single-sign on enabled subscription
-
-
-> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
+- Sottoscrizione di Azure AD.
+- Sottoscrizione di Ceridian Dayforce HCM abilitata per l'accesso Single Sign-On
 
 
-To test the steps in this tutorial, you should follow these recommendations:
-
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
 
 
-## <a name="scenario-description"></a>Scenario description
-The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
-The scenario outlined in this tutorial consists of two main building blocks:
+A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
-1. Adding Ceridian Dayforce HCM from the gallery
-2. Configuring and testing Azure AD single sign-on
+- Non usare l'ambiente di produzione, a meno che non sia necessario.
+- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## <a name="adding-ceridian-dayforce-hcm-from-the-gallery"></a>Adding Ceridian Dayforce HCM from the gallery
-To configure the integration of Ceridian Dayforce HCM into Azure AD, you need to add Ceridian Dayforce HCM from the gallery to your list of managed SaaS apps.
+## Descrizione dello scenario
+L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
-**To add Ceridian Dayforce HCM from the gallery, perform the following steps:**
-
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
-
-    ![Active Directory][1]
-
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
-
-    ![Applications][2]
-
-4. Click **Add** at the bottom of the page.
-
-    ![Applications][3]
-
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
-
-    ![Applications][4]
-
-6. In the search box, type **Ceridian Dayforce HCM**.
-
-    ![Applications](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_01.png)
-
-7. In the results pane, select **Ceridian Dayforce HCM**, and then click **Complete** to add the application.
-
-    ![Applications](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_07.png)
+1. Aggiunta di Ceridian Dayforce HCM dalla raccolta
+2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
-The objective of this section is to show you how to configure and test Azure AD single sign-on with Ceridian Dayforce HCM based on a test user called "Britta Simon".
+## Aggiunta di Ceridian Dayforce HCM dalla raccolta
+Per configurare l'integrazione di Ceridian Dayforce HCM in Azure AD, è necessario aggiungere Ceridian Dayforce HCM dalla raccolta al proprio elenco di app SaaS gestite.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Ceridian Dayforce HCM to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Ceridian Dayforce HCM needs to be established.
+**Per aggiungere Ceridian Dayforce HCM dalla raccolta, seguire questa procedura:**
 
-To configure and test Azure AD single sign-on with Ceridian Dayforce HCM, you need to complete the following building blocks:
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a Ceridian Dayforce HCM test user](#creating-a-ceridian-dayforce-hcm-test-user)** - to have a counterpart of Britta Simon in Ceridian Dayforce HCM that is linked to the Azure AD representation of her.
-5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+	![Active Directory][1]
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD single sign-on
+2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Ceridian Dayforce HCM application.
+3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-Your Ceridian Dayforce HCM application expects the SAML assertions in a specific format. Please work with Dayforce HCM team first to identify the correct user identifier. Microsoft recommends using the **"name"** attribute as user identifier. You can manage the value of this attribute on the **"Atrribute"** dialog. The following screenshot shows an example for this. 
+	![Applicazioni][2]
 
-![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_02.png) 
+4. Fare clic su **Add** nella parte inferiore della pagina.
 
-**To configure Azure AD single sign-on with Ceridian Dayforce HCM, perform the following steps:**
+	![Applicazioni][3]
+
+5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+
+	![Applicazioni][4]
+
+6. Nella casella di ricerca digitare **Ceridian Dayforce HCM**.
+
+	![Applicazioni](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_01.png)
+
+7. Nel riquadro dei risultati selezionare **Ceridian Dayforce HCM**, quindi fare clic su **Completa** per aggiungere l'applicazione.
+
+	![Applicazioni](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_07.png)
+
+
+##  Configurazione e test dell'accesso Single Sign-On di Azure AD
+Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Ceridian Dayforce HCM con un utente test di nome "Britta Simon".
+
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Ceridian Dayforce HCM che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Ceridian Dayforce HCM.
+
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Ceridian Dayforce HCM, è necessario completare i blocchi predefiniti seguenti:
+
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
+2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Creazione di un utente test di Ceridian Dayforce HCM](#creating-a-ceridian-dayforce-hcm-test-user)**: per avere una controparte di Britta Simon in Ceridian Dayforce HCM collegata alla relativa rappresentazione in Azure AD.
+5. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
+
+### Configurazione dell'accesso Single Sign-On di Azure AD
+
+In questa sezione viene descritto come abilitare Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione Ceridian Dayforce HCM.
+
+L'applicazione Ceridian Dayforce HCM si aspetta che le asserzioni SAML abbiano un formato specifico. Collaborare prima di tutto con il team di Dayforce HCM per individuare l'identificatore utente corretto. Microsoft consiglia di utilizzare l'attributo **"name"** come identificatore utente. Il valore di questo attributo può essere gestito nella finestra di dialogo **"Attribute"**. La schermata seguente illustra un esempio relativo a questa operazione.
+
+![Configura accesso Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_02.png)
+
+**Per configurare Single Sign-On di Azure AD con Ceridian Dayforce HCM, seguire questa procedura:**
 
 
 
 
-1. In the Azure classic portal, on the **Ceridian Dayforce HCM** application integration page, in the menu on the top, click **Attributes**.
+1. Nella pagina di integrazione dell'applicazione **Ceridian Dayforce HCM** del portale di Azure classico fare clic su **Attributi** nel menu in alto.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_81.png) 
-
-
-1. In the attributes **saml token attributes** list, select the name attribute, and then click **Edit**.
-
-    ![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_06.png) 
+	![Configura accesso Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_81.png)
 
 
-1. On the **Edit User Attribute** dialog, perform the following steps:
+1. Nell'elenco degli **attributi del token saml** selezionare l'attributo di nome e quindi fare clic su **Modifica**.
+
+	![Configura accesso Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_06.png)
+
+
+1. Nella finestra di dialogo **Modifica attributo utente** seguire questa procedura:
  
-    a. From the **Attribute Value** list, select the user attribute you want to use for your implementation.  
-    For example, if you want to use the EmployeeID as unique user identifier and you have stored the attribute value in the ExtensionAttribute2, then select **user.extensionattribute2**. 
+    a. Nell'elenco **Valore attributo** selezionare l'attributo utente da utilizzare per l'implementazione. Ad esempio, se si desidera utilizzare il valore EmployeeID come identificatore utente univoco e il valore dell'attributo è stato archiviato in ExtensionAttribute2, selezionare **user.extensionattribute2**.
 
-    b. Click **Complete**.  
-    
-
+    b. Fare clic su **Completa**.
+	
 
 
-1. In the menu on the top, click **Quick Start**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_general_83.png)  
+1. Nel menu in alto fare clic su **Avvio rapido**.
 
+	![Configura accesso Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_general_83.png)
 
 
 
 
-1. In the Azure classic portal, on the **Ceridian Dayforce HCM** application integration page, click **Configure single sign-on**.
 
-    ![Configure Single Sign-On][6] 
+1. Nella pagina di integrazione dell'applicazione **Ceridian Dayforce HCM** del portale di Azure classico, fare clic su **Configura accesso Single Sign-On**.
 
-2. On the **How would you like users to sign on to Ceridian Dayforce HCM** page, select **Azure AD Single Sign-On**, and then click **Next**.
+	![Configura accesso Single Sign-On][6]
 
-    ![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_03.png) 
+2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Ceridian Dayforce HCM** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.
 
-3. On the **Configure App Settings** dialog page, perform the following steps:.
+	![Configura accesso Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_03.png)
 
-    ![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_04.png) 
+3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
+
+	![Configura accesso Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_04.png)
 
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Ceridian Dayforce HCM application. For production environments, use the following URL format: `https://sso.dayforcehcm.com/DayforcehcmNamespace`
+    a. Nella casella di testo **URL di accesso**, digitare l'URL utilizzato dagli utenti per accedere all'applicazione Ceridian Dayforce HCM. Per gli ambienti di produzione, utilizzare il formato di URL seguente: `https://sso.dayforcehcm.com/DayforcehcmNamespace`
 
-    For clarity, replace DayforcehcmNamespace with the namespace of your environment or your Company ID; for example: `https://sso.dayforcehcm.com/contoso`
-    
-    For test environments, use the following URL format: `https://ssotest.dayforcehcm.com/DayforcehcmNamespace` 
+	Per maggiore chiarezza, sostituire DayforcehcmNamespace con lo spazio dei nomi del proprio ambiente oppure l'ID aziendale; ad esempio: `https://sso.dayforcehcm.com/contoso`
+	
+	Per gli ambienti di testing, utilizzare il formato di URL seguente: `https://ssotest.dayforcehcm.com/DayforcehcmNamespace`
 
-    b. In the **Reply URL** textbox, type the URL used by Azure AD to post the response.  
-    For production environments, use: `https://ncpingfederate.dayforcehcm.com/sp/ACS.saml2`  
-    For test environments, use: `https://fs-test.dayforcehcm.com/sp/ACS.saml2`  
+	b. Nella casella di testo **URL di risposta** digitare l'URL utilizzato da Azure AD per inserire la risposta. Per gli ambienti di produzione, utilizzare: `https://ncpingfederate.dayforcehcm.com/sp/ACS.saml2` Per gli ambienti di test, utilizzare: `https://fs-test.dayforcehcm.com/sp/ACS.saml2`
    
 
-4. On the **Configure single sign-on at Ceridian Dayforce HCM** page, perform the following steps:
+4. Nella pagina **Configura accesso Single Sign-On in Ceridian Dayforce HCM** seguire questa procedura:
 
-    ![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_05.png) 
+	![Configura accesso Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_05.png)
 
-    a. Click **Download certificate**, and then save the file on your computer.
+    a. Fare clic su **Scarica certificato** e quindi salvare il file nel computer.
 
-    b. Click **Next**.
+    b. Fare clic su **Avanti**.
 
 
-5. To get SSO configured for your application, contact your Ceridian Dayforce HCM support team via email, and provide them with the following:
+5. Per ottenere l'accesso Single Sign-On configurato per l'applicazione, contattare il team di supporto Ceridian Dayforce HCM tramite posta elettronica e fornire i seguenti elementi:
 
-    - The downloaded certificate file
-    - The **Issuer URL**
-    - The **SAML SSO URL** 
-    - The **Single Sign Out Service URL** 
+    - File del certificato scaricato
+    - **URL dell'autorità di certificazione**
+    - **URL SAML SSO**
+    - **URL del servizio Single Sign-Out**
 
 
-6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
 
-    ![Azure AD Single Sign-On][10]
+	![Accesso Single Sign-On di Azure AD][10]
 
-7. On the **Single sign-on confirmation** page, click **Complete**.  
+7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
 
-    ![Azure AD Single Sign-On][11]
+	![Accesso Single Sign-On di Azure AD][11]
 
 
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure classic portal called Britta Simon.
+### Creazione di un utente test di Azure AD
+Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.
 
-![Create Azure AD User][20]
+![Creare un utente di Azure AD][20]
 
-**To create a test user in Azure AD, perform the following steps:**
+**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_09.png) 
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_09.png)
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. To display the list of users, in the menu on the top, click **Users**.
+3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_03.png) 
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_03.png)
 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_04.png) 
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_04.png)
 
-5. On the **Tell us about this user** dialog page, perform the following steps:
+5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_05.png) 
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_05.png)
 
-    a. As Type Of User, select New user in your organization.
+    a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
 
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
 
-    c. Click **Next**.
+    c. Fare clic su **Next**.
 
-6.  On the **User Profile** dialog page, perform the following steps:
+6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_06.png) 
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_06.png)
 
-    a. In the **First Name** textbox, type **Britta**.  
+    a. Nella casella di testo **Nome** digitare **Britta**.
 
-    b. In the **Last Name** textbox, type, **Simon**.
+    b. Nella casella di testo **Cognome** digitare **Simon**.
 
-    c. In the **Display Name** textbox, type **Britta Simon**.
+    c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
 
-    d. In the **Role** list, select **User**.
+    d. Nell'elenco **Ruolo**, selezionare **Utente**.
 
-    e. Click **Next**.
+    e. Fare clic su **Avanti**.
 
-7. On the **Get temporary password** dialog page, click **create**.
+7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_07.png) 
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_07.png)
 
-8. On the **Get temporary password** dialog page, perform the following steps:
+8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_08.png) 
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_08.png)
 
-    a. Write down the value of the **New Password**.
+    a. Prendere nota del valore visualizzato in **Nuova password**.
 
-    b. Click **Complete**.   
+    b. Fare clic su **Complete**.
 
 
 
-### <a name="creating-a-ceridian-dayforce-hcm-test-user"></a>Creating a Ceridian Dayforce HCM test user
+### Creazione di un utente di test Ceridian Dayforce HCM
 
-The objective of this section is to create a user called Britta Simon in Ceridian Dayforce HCM. 
+Questa sezione descrive come creare un utente chiamato Britta Simon in Ceridian Dayforce HCM.
 
-Please work with the Ceridian Dayforce HCM support team to get users added to your in the Ceridian Dayforce HCM application. 
+Collaborare con il team di supporto di Ceridian Dayforce HCM per far aggiungere utenti alla propria applicazione Ceridian Dayforce HCM.
 
 
 
 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
+### Assegnazione dell'utente test di Azure AD
 
-The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Ceridian Dayforce HCM.
+L'obiettivo di questa sezione consiste nell'abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Ceridian Dayforce HCM.
 
-![Assign User][200] 
+![Assegna utente][200]
 
-**To assign Britta Simon to Ceridian Dayforce HCM, perform the following steps:**
+**Per assegnare Britta Simon a Ceridian Dayforce HCM, seguire questa procedura:**
 
-1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
 
-    ![Assign User][201] 
+	![Assegna utente][201]
 
-2. In the applications list, select **Ceridian Dayforce HCM**.
+2. Nell'elenco delle applicazioni, selezionare **Ceridian Dayforce HCM**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_50.png) 
+	![Configura accesso Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_50.png)
 
-1. In the menu on the top, click **Users**.
+1. Scegliere **Utenti** dal menu in alto.
 
-    ![Assign User][203] 
+	![Assegna utente][203]
 
-1. In the Users list, select **Britta Simon**.
+1. Nell'elenco di utenti selezionare **Britta Simon**.
 
-2. In the toolbar on the bottom, click **Assign**.
+2. Fare clic su **Assegna** sulla barra degli strumenti in basso.
 
-    ![Assign User][205]
+	![Assegna utente][205]
 
 
 
-### <a name="testing-single-sign-on"></a>Testing single sign-on
+### Test dell'accesso Single Sign-On
 
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
-When you click the Ceridian Dayforce HCM tile in the Access Panel, you should get automatically signed-on to your Ceridian Dayforce HCM application.
+Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso. Quando si fa clic sul riquadro Ceridian Dayforce HCM nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Ceridian Dayforce HCM.
 
 
-## <a name="additional-resources"></a>Additional resources
+## Risorse aggiuntive
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -319,8 +312,4 @@ When you click the Ceridian Dayforce HCM tile in the Access Panel, you should ge
 [204]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_205.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

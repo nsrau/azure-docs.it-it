@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configure secure connections supported by the Service Fabric cluster | Microsoft Azure"
-   description="Learn how to use Visual Studio to configure secure connections that are supported by the Azure Service Fabric cluster."
+   pageTitle="Configurare connessioni protette supportate dal cluster di Infrastruttura di servizi | Microsoft Azure"
+   description="Scoprire come usare Visual Studio per configurare connessioni sicure supportate dal cluster di Service Fabric di Azure."
    services="service-fabric"
    documentationCenter="na"
    authors="cawaMS"
@@ -16,46 +16,45 @@
    ms.date="10/08/2015"
    ms.author="cawaMS" />
 
+# Configurare connessioni protette a un cluster Service Fabric da Visual Studio
 
-# <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Configure secure connections to a Service Fabric cluster from Visual Studio
+Scoprire come usare Visual Studio per accedere in modo sicuro a un cluster di Service Fabric di Azure con i criteri di controllo di accesso configurati.
 
-Learn how to use Visual Studio to securely access an Azure Service Fabric cluster with access control policies configured.
+## Tipi di connessione del cluster
 
-## <a name="cluster-connection-types"></a>Cluster connection types
+Due tipi di connessioni sono supportate dal cluster di Service Fabric di Azure: connessioni **non sicure** e connessioni sicure **basate sui certificati x509**. (Per i cluster di Infrastruttura di servizi ospitati in locale, le autenticazioni **Windows** e **dSTS** sono inoltre supportate.) È necessario configurare il tipo di connessione del cluster quando viene creato il cluster. Una volta creato, il tipo di connessione non può essere modificato.
 
-Two types of connections are supported by the Azure Service Fabric cluster: **non-secure** connections and **x509 certificate-based** secure connections. (For Service Fabric clusters hosted on-premises, **Windows** and **dSTS** authentications are also supported.) You have to configure the cluster connection type when the cluster is being created. Once it's created, the connection type can’t be changed.
+Gli strumenti di Service Fabric di Visual Studio supportano tutti i tipi di autenticazione per la connessione a un cluster per la pubblicazione. Vedere [Configurazione di cluster di infrastruttura di servizi dal portale di Azure](service-fabric-cluster-creation-via-portal.md) per istruzioni su come configurare un cluster Service Fabric sicuro.
 
-The Visual Studio Service Fabric tools support all authentication types for connecting to a cluster for publishing. See [Setting up a Service Fabric cluster from the Azure portal](service-fabric-cluster-creation-via-portal.md) for instructions on how to set up a secure Service Fabric cluster.
+## Configurare le connessioni del cluster in profili di pubblicazione
 
-## <a name="configure-cluster-connections-in-publish-profiles"></a>Configure cluster connections in publish profiles
+Se si pubblica un progetto di Service Fabric da Visual Studio, usare la finestra di dialogo**Publish Service Fabric Application** per scegliere un cluster di Service Fabric di Azure facendo clic sul pulsante **select** nella sezione **Connection endpoint**. È possibile accedere al proprio account Azure e quindi selezionare un cluster esistente sotto le proprie sottoscrizioni.
 
-If you publish a Service Fabric project from Visual Studio, use the **Publish Service Fabric Application** dialog box to choose an Azure Service Fabric cluster by clicking the **Select** button in **Connection endpoint** section. You can sign in to your Azure account and then select an existing cluster under your subscriptions.
+![La finestra di dialogo **Publish Service Fabric Application** viene usata per configurare una connessione di Service Fabric.][publishdialog]
 
-![The **Publish Service Fabric Application** dialog box is used to configure a Service Fabric connection.][publishdialog]
+La finestra di dialogo **Selezionare Cluster di Infrastruttura di servizi** consente di convalidare automaticamente la connessione del cluster. Se la convalida riesce, significa che il sistema ha i certificati corretti installati per la connessione al cluster in modo sicuro, o il cluster non è protetto. Gli errori di convalida possono essere causati da problemi di rete o se il sistema non è stato correttamente configurato per connettersi a un cluster sicuro.
 
-The **Select Service Fabric Cluster** dialog box automatically validates the cluster connection. If validation passes, it means that your system has the correct certificates installed to connect to the cluster securely, or your cluster is non-secure. Validation failures can be caused by network issues or by not having your system correctly configured to connect to a secure cluster.
+![Nella finestra di dialogo **Select Service Fabric Cluster** è possibile configurare una connessione di cluster Service Fabric esistente o creare e configurare una nuova connessione di cluster.][selectsfcluster]
 
-![In the **Select Service Fabric Cluster** dialog box, you can configure an existing Service Fabric cluster connection or create and configure a new cluster connection.][selectsfcluster]
+### Per connettersi a un cluster protetto
 
-### <a name="to-connect-to-a-secure-cluster"></a>To connect to a secure cluster
+1.	Assicurarsi che sia possibile accedere a uno dei certificati client attendibili per il cluster di destinazione. Il certificato viene condiviso in genere come un file di scambio di informazioni personali (.pfx). Vedere [Configurazione di cluster di infrastruttura di servizi dal portale di Azure](service-fabric-cluster-creation-via-portal.md) per informazioni su come configurare il server e garantire l'accesso a un client.
 
-1.  Make sure you can access one of the client certificates that the destination cluster trusts. The certificate is usually shared as a Personal Information Exchange (.pfx) file. See [Setting up a Service Fabric cluster from the Azure portal](service-fabric-cluster-creation-via-portal.md) for how to configure the server to grant access to a client.
+2.	Installare il certificato attendibile. A tale scopo, fare doppio clic sul file .pfx, o usare lo script di PowerShell Import-PfxCertificate per importare i certificati. Installare il certificato in **Cert:\\LocalMachine\\My**. È anche possibile accettare tutte le impostazioni predefinite durante l'importazione del certificato.
 
-2.  Install the trusted certificate. To do this, double-click the .pfx file, or use the PowerShell script Import-PfxCertificate to import the certificates. Install the certificate to **Cert:\LocalMachine\My**. It's OK to accept all default settings while importing the certificate.
+3.	Scegliere il comando **Pubblica...** nel menu di scelta rapida del progetto per aprire la finestra di dialogo **Pubblica l'applicazione di Azure** e quindi selezionare il cluster di destinazione. Lo strumento automaticamente risolve la connessione e salva i parametri di connessione protetta nel profilo di pubblicazione.
 
-3.  Choose the **Publish...** command on the shortcut menu of the project to open the **Publish Azure Application** dialog box and then select the target cluster. The tool automatically resolves the connection and saves the secure connection parameters in the publish profile.
+4.	[Facoltativo]: È possibile modificare il profilo di pubblicazione per specificare una connessione protetta del cluster.
 
-4.  [Optional]: You can edit the publish profile to specify a secure cluster connection.
+    Poiché si sta modificando manualmente il file XML del profilo di pubblicazione per specificare le informazioni del certificato, assicurarsi di prendere nota del nome di archivio del certificati, la posizione dell’archivio e l’identificazione personale del certificato. È necessario fornire questi valori per il nome dell'archivio del certificato e il percorso dell'archivio. Per altre informazioni, vedere [Procedura: Recuperare l'identificazione personale del certificato](https://msdn.microsoft.com/library/ms734695(v=vs.110).aspx).
 
-    Since you're manually editing the Publish Profile XML file to specify the certificate information, be sure to note the certificate store name, store location, and certificate thumbprint. You'll need to provide these values for the certificate's store name and store location. See [How to: Retrieve the Thumbprint of a Certificate](https://msdn.microsoft.com/library/ms734695(v=vs.110).aspx) for more information.
+    È possibile usare i parametri *ClusterConnectionParameters* per specificare i parametri di PowerShell da utilizzare quando ci si connette al cluster di Service Fabric. I parametri validi sono quelli che vengono accettati dal cmdlet Connect-ServiceFabricCluster. Per un elenco dei parametri disponibili, vedere [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
 
-    You can use the *ClusterConnectionParameters* parameters to specify the PowerShell parameters to use when connecting to the Service Fabric cluster. Valid parameters are any that are accepted by the Connect-ServiceFabricCluster cmdlet. See [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) for a list of available parameters.
-
-    If you’re publishing to a remote cluster, you need to specify the appropriate parameters for that specific cluster. The following is an example of connecting to a non-secure cluster:
+    Se si pubblica in un cluster remoto, è necessario specificare i parametri appropriati per tale cluster specifico. Di seguito è riportato un esempio per la connessione a un cluster non sicuro:
 
     `<ClusterConnectionParameters ConnectionEndpoint="mycluster.westus.cloudapp.azure.com:19000" />`
 
-    Here’s an example for connecting to an x509 certificate-based secure cluster:
+    Di seguito è riportato un esempio per la connessione a un cluster protetto basato sul certificato x509:
 
     ```
     <ClusterConnectionParameters
@@ -68,17 +67,13 @@ The **Select Service Fabric Cluster** dialog box automatically validates the clu
     StoreName="My" />
     ```
 
-5.  Edit any other necessary settings, such as upgrade parameters and Application Parameter file location, and then publish your application from the **Publish Service Fabric Application** dialog box in Visual Studio.
+5.	Modificare tutte le altre impostazioni necessarie, ad esempio i parametri di aggiornamento e la posizione del file del parametro dell'applicazione, quindi pubblicare l'applicazione dalla finestra di dialogo **Publish Service Fabric Application** in Visual Studio.
 
-## <a name="next-steps"></a>Next steps
-For more information about accessing Service Fabric clusters, see [Visualizing your cluster by using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+## Passaggi successivi
+Per ulteriori informazioni sull'accesso ai cluster di Infrastruttura di servizi, vedere l'articolo relativo a come [visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
 <!--Image references-->
-[publishdialog]:./media/service-fabric-visualstudio-configure-secure-connections/publishdialog.png
-[selectsfcluster]:./media/service-fabric-visualstudio-configure-secure-connections/selectsfcluster.png
+[publishdialog]: ./media/service-fabric-visualstudio-configure-secure-connections/publishdialog.png
+[selectsfcluster]: ./media/service-fabric-visualstudio-configure-secure-connections/selectsfcluster.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0114_2016-->

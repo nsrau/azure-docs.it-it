@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Deploy multi NIC VMs using PowerShell in the classic deployment model | Microsoft Azure"
-   description="Learn how to deploy multi NIC VMs using PowerShell in the classic deployment model"
+   pageTitle="Distribuire più macchine virtuali con funzionalità Multi-NIC mediante PowerShell nel modello di distribuzione classica | Microsoft Azure"
+   description="Informazioni su come distribuire più macchine virtuali con funzionalità Multi-NIC con PowerShell nel modello di distribuzione classica"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
-/>
+/>  
 <tags  
    ms.service="virtual-network"
    ms.devlang="na"
@@ -15,165 +15,160 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="jdial" />
+   ms.author="jdial" />  
 
-
-#<a name="deploy-multi-nic-vms-(classic)-using-powershell"></a>Deploy multi NIC VMs (classic) using PowerShell
+#Distribuire macchine virtuali con funzionalità Multi-NIC (classiche) tramite PowerShell
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Learn how to [perform these steps using the Resource Manager model](virtual-network-deploy-multinic-arm-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Informazioni su come [eseguire questa procedura con il modello di Resource Manager](virtual-network-deploy-multinic-arm-ps.md).
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Currently, you cannot have VMs with a single NIC and VMs with multiple NICs in the same cloud service. Therefore, you need to implement the back end servers in a different cloud service than and all other components in the scenario. The steps below use a cloud service named *IaaSStory* for the main resources, and *IaaSStory-BackEnd* for the back end servers.
+Attualmente, non è possibile avere macchine virtuali con una singola scheda di rete e macchine virtuali con più schede di rete nello stesso servizio cloud. Per questo motivo, è necessario implementare i server back-end in un servizio cloud diverso rispetto a tutti gli altri componenti dello scenario. La procedura seguente usa un servizio cloud denominato *IaaSStory* per la risorsa principale e *IaaSStory-BackEnd* per i server di back-end.
 
-## <a name="prerequisites"></a>Prerequisites
+## Prerequisiti
 
-Before you can deploy the back end servers, you need to deploy the main cloud service with all the necessary resources for this scenario. At minimum, you need to create a virtual network with a subnet for the backend. Visit [Create a virtual network by using PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md) to learn how to deploy a virtual network.
+Prima di distribuire i server back-end, è necessario distribuire il servizio cloud principale con tutte le risorse necessarie per questo scenario. Come minimo, è necessario creare una rete virtuale con una subnet per il back-end. Visitare [Creare una rete virtuale mediante PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md) per informazioni su come distribuire una rete virtuale.
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="deploy-the-back-end-vms"></a>Deploy the back end VMs
+## Distribuire le macchine virtuali di back-end
 
-The backend VMs depend on the creation of the resources listed below.
+Le macchine virtuali di back-end dipendono dalla creazione di risorse elencate di seguito.
 
-- **Backend subnet**. The database servers will be part of a separate subnet, to segregate traffic. The script below expects this subnet to exist in a vnet named *WTestVnet*.
-- **Storage account for data disks**. For better performance, the data disks on the database servers will use solid state drive (SSD) technology, which requires a premium storage account. Make sure the Azure location you deploy to support premium storage.
-- **Availability set**. All database servers will be added to a single availability set, to ensure at least one of the VMs is up and running during maintenance.
+- **Subnet Back-end**. I server del database formeranno parte di una subnet distinta, per separare il traffico. Lo script seguente prevede che questa subnet sia presente in una rete virtuale denominata *WTestVnet*.
+- **Account di archiviazione per dischi dati**. Per migliorare le prestazioni, i dischi dati sui server di database utilizzano la tecnologia SSD (Solid State Drive), che richiede un account di archiviazione premium. Verificare la posizione di Azure che viene distribuita per supportare l'archiviazione premium.
+- **Set di disponibilità**. Tutti i server di database vengono aggiunti a un singolo set di disponibilità, per garantire che almeno una delle macchine virtuali sia attiva e in esecuzione durante la manutenzione.
 
-### <a name="step-1---start-your-script"></a>Step 1 - Start your script
+### Passaggio 1 - avviare lo script
 
-You can download the full PowerShell script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1). Follow the steps below to change the script to work in your environment.
+È possibile scaricare lo script di PowerShell completo utilizzato [qui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1). Attenersi alla procedura seguente per modificare lo script da usare nell'ambiente.
 
-1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#Prerequisites).
+1. Modificare i valori delle variabili indicate di seguito in base al gruppo di risorse esistente distribuito in precedenza in [Prerequisiti](#Prerequisites).
 
-        $location              = "West US"
-        $vnetName              = "WTestVNet"
-        $backendSubnetName     = "BackEnd"
+		$location              = "West US"
+		$vnetName              = "WTestVNet"
+		$backendSubnetName     = "BackEnd"
 
-2. Change the values of the variables below based on the values you want to use for your backend deployment.
+2. Modificare i valori delle variabili indicate di seguito in base ai valori che si desidera usare per la distribuzione di back-end.
 
-        $backendCSName         = "IaaSStory-Backend"
-        $prmStorageAccountName = "iaasstoryprmstorage"
-        $avSetName             = "ASDB"
-        $vmSize                = "Standard_DS3"
-        $diskSize              = 127
-        $vmNamePrefix          = "DB"
-        $dataDiskSuffix        = "datadisk"
-        $ipAddressPrefix       = "192.168.2."
-        $numberOfVMs           = 2
+		$backendCSName         = "IaaSStory-Backend"
+		$prmStorageAccountName = "iaasstoryprmstorage"
+		$avSetName             = "ASDB"
+		$vmSize                = "Standard_DS3"
+		$diskSize              = 127
+		$vmNamePrefix          = "DB"
+		$dataDiskSuffix        = "datadisk"
+		$ipAddressPrefix       = "192.168.2."
+		$numberOfVMs           = 2
 
-### <a name="step-2---create-necessary-resources-for-your-vms"></a>Step 2 - Create necessary resources for your VMs
+### Passaggio 2 - creare le risorse necessarie per le macchine virtuali
 
-You need to create a new cloud service, and a storage account for the data disks for all VMs. You also need to specify an image, and a local administrator account for the VMs. To create these resources, execute the following steps.
+È necessario creare un nuovo servizio cloud e un account di archiviazione per i dischi di dati per tutte le macchine virtuali. È inoltre necessario specificare un'immagine e un account amministratore locale per le macchine virtuali. Per creare queste risorse, eseguire questi passaggi.
 
-1. Create a new cloud service.
+1. Creare un nuovo servizio cloud
 
-        New-AzureService -ServiceName $backendCSName -Location $location
+		New-AzureService -ServiceName $backendCSName -Location $location
 
-2. Create a new premium storage account.
+2. Creare un account di archiviazione premium
 
-        New-AzureStorageAccount -StorageAccountName $prmStorageAccountName `
-            -Location $location `
-            -Type Premium_LRS
+		New-AzureStorageAccount -StorageAccountName $prmStorageAccountName `
+		    -Location $location `
+		    -Type Premium_LRS
 
-3. Set the storage account created above as the current storage account for your subscription.
+3. Impostare l'account di archiviazione creato in precedenza come account di archiviazione corrente per la sottoscrizione.
 
-        $subscription = Get-AzureSubscription `
-            | where {$_.IsCurrent -eq $true}  
-        Set-AzureSubscription -SubscriptionName $subscription.SubscriptionName `
-            -CurrentStorageAccountName $prmStorageAccountName
+		$subscription = Get-AzureSubscription `
+		    | where {$_.IsCurrent -eq $true}  
+		Set-AzureSubscription -SubscriptionName $subscription.SubscriptionName `
+		    -CurrentStorageAccountName $prmStorageAccountName
 
-4. Select an image for the VM.
+4. Selezionare un'immagine per la macchina virtuale.
 
-        $image = Get-AzureVMImage `
-            | where{$_.ImageFamily -eq "SQL Server 2014 RTM Web on Windows Server 2012 R2"} `
-            | sort PublishedDate -Descending `
-            | select -ExpandProperty ImageName -First 1
+		$image = Get-AzureVMImage `
+		    | where{$_.ImageFamily -eq "SQL Server 2014 RTM Web on Windows Server 2012 R2"} `
+		    | sort PublishedDate -Descending `
+		    | select -ExpandProperty ImageName -First 1
 
-5. Set the local administrator account credentials.
+5. Impostare le credenziali dell'account amministratore locale
 
-        $cred = Get-Credential -Message "Enter username and password for local admin account"
+		$cred = Get-Credential -Message "Enter username and password for local admin account"
 
-### <a name="step-3---create-vms"></a>Step 3 - Create VMs
+### Passaggio 3 - creare delle macchine virtuali
 
-You need to use a loop to create as many VMs as you want, and create the necessary NICs and VMs within the loop. To create the NICs and VMs, execute the following steps.
+È necessario utilizzare un ciclo per creare tutte le macchine virtuali che si desidera e creare le schede di rete e le macchine virtuali necessarie all'interno del ciclo. Per creare le schede di rete e le macchine virtuali, eseguire questa procedura.
 
-1. Start a `for` loop to repeat the commands to create a VM and two NICs as many times as necessary, based on the value of the `$numberOfVMs` variable.
+1. Avviare un `for` ciclo per ripetere i comandi per la creazione di una macchina virtuale e di due schede di rete tutte le volte che lo si ritiene necessario, in base al valore della `$numberOfVMs` variabile.
 
-        for ($suffixNumber = 1; $suffixNumber -le $numberOfVMs; $suffixNumber++){
+		for ($suffixNumber = 1; $suffixNumber -le $numberOfVMs; $suffixNumber++){
 
-2. Create a `VMConfig` object specifying the image, size, and availability set for the VM.
+2. Creare un `VMConfig` oggetto che specifica l'immagine, le dimensioni e il set di disponibilità per la macchina virtuale.
 
-            $vmName = $vmNamePrefix + $suffixNumber
-            $vmConfig = New-AzureVMConfig -Name $vmName `
-                            -ImageName $image `
-                            -InstanceSize $vmSize `
-                            -AvailabilitySetName $avSetName  
+		    $vmName = $vmNamePrefix + $suffixNumber
+		    $vmConfig = New-AzureVMConfig -Name $vmName `
+		                    -ImageName $image `
+		                    -InstanceSize $vmSize `
+		                    -AvailabilitySetName $avSetName  
 
-3. Provision the VM as a Windows VM.
+3. Eseguire il provisioning della macchina virtuale come macchina virtuale di Windows.
 
-            Add-AzureProvisioningConfig -VM $vmConfig -Windows `
-                -AdminUsername $cred.UserName `
-                -Password $cred.Password
+		    Add-AzureProvisioningConfig -VM $vmConfig -Windows `
+		        -AdminUsername $cred.UserName `
+		        -Password $cred.Password
 
-4. Set the default NIC and assign it a static IP address.
+4. Impostare il valore predefinito NIC e assegnare un indirizzo IP statico.
 
-            Set-AzureSubnet -SubnetNames $backendSubnetName -VM $vmConfig
-            Set-AzureStaticVNetIP -IPAddress ($ipAddressPrefix+$suffixNumber+3) -VM $vmConfig
+		    Set-AzureSubnet -SubnetNames $backendSubnetName -VM $vmConfig
+		    Set-AzureStaticVNetIP -IPAddress ($ipAddressPrefix+$suffixNumber+3) -VM $vmConfig
 
-5. Add a second NIC for each VM.
+5. Aggiungere una seconda scheda di rete per ogni macchina virtuale.
 
-            Add-AzureNetworkInterfaceConfig -Name ("RemoteAccessNIC"+$suffixNumber) `
-                -SubnetName $backendSubnetName `
-                -StaticVNetIPAddress ($ipAddressPrefix+(53+$suffixNumber)) `
-                -VM $vmConfig
+		    Add-AzureNetworkInterfaceConfig -Name ("RemoteAccessNIC"+$suffixNumber) `
+		        -SubnetName $backendSubnetName `
+		        -StaticVNetIPAddress ($ipAddressPrefix+(53+$suffixNumber)) `
+		        -VM $vmConfig
 
-6. Create to data disks for each VM.
+6. Creare dischi di dati per ogni macchina virtuale.
 
-            $dataDisk1Name = $vmName + "-" + $dataDiskSuffix + "-1"    
-            Add-AzureDataDisk -CreateNew -VM $vmConfig `
-                -DiskSizeInGB $diskSize `
-                -DiskLabel $dataDisk1Name `
-                -LUN 0       
+		    $dataDisk1Name = $vmName + "-" + $dataDiskSuffix + "-1"    
+		    Add-AzureDataDisk -CreateNew -VM $vmConfig `
+		        -DiskSizeInGB $diskSize `
+		        -DiskLabel $dataDisk1Name `
+		        -LUN 0       
 
-            $dataDisk2Name = $vmName + "-" + $dataDiskSuffix + "-2"   
-            Add-AzureDataDisk -CreateNew -VM $vmConfig `
-                -DiskSizeInGB $diskSize `
-                -DiskLabel $dataDisk2Name `
-                -LUN 1
+		    $dataDisk2Name = $vmName + "-" + $dataDiskSuffix + "-2"   
+		    Add-AzureDataDisk -CreateNew -VM $vmConfig `
+		        -DiskSizeInGB $diskSize `
+		        -DiskLabel $dataDisk2Name `
+		        -LUN 1
 
-7. Create each VM, and end the loop.
+7. Creare ogni macchina virtuale e terminare il ciclo.
 
-            New-AzureVM -VM $vmConfig `
-                -ServiceName $backendCSName `
-                -Location $location `
-                -VNetName $vnetName
-        }
+		    New-AzureVM -VM $vmConfig `
+		        -ServiceName $backendCSName `
+		        -Location $location `
+		        -VNetName $vnetName
+		}
 
-### <a name="step-4---run-the-script"></a>Step 4 - Run the script
+### Passaggio 4 - eseguire lo script.
 
-Now that you downloaded and changed the script based on your needs, runt he script to create the back end database VMs with multiple NICs.
+Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo script per creare macchine virtuali del database di back-end con più schede di rete.
 
-1. Save your script and run it from the **PowerShell** command prompt, or **PowerShell ISE**. You will see the initial output, as shown below.
+1. Salvare lo script ed eseguirlo dal prompt dei comandi **PowerShell**, o **PowerShell ISE**. Verrà visualizzato l'output iniziale, come illustrato di seguito.
 
-        OperationDescription    OperationId                          OperationStatus
-        --------------------    -----------                          ---------------
-        New-AzureService        xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
-        New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
+		OperationDescription    OperationId                          OperationStatus
+		--------------------    -----------                          ---------------
+		New-AzureService        xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
+		New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
 
-        WARNING: No deployment found in service: 'IaaSStory-Backend'.
+		WARNING: No deployment found in service: 'IaaSStory-Backend'.
 
-2. Fill out the information needed in the credentials prompt and click **OK**. The output below will be displayed.
+2. Compilare le informazioni necessarie nella richiesta di credenziali e fare clic su **OK**. Verrà visualizzato l'output seguente.
 
-        New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
-        New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
+		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
+		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

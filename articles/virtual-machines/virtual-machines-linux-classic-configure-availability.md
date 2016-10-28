@@ -1,35 +1,31 @@
 <properties
-    pageTitle="Availability sets for classic Linux VMs | Microsoft Azure"
-    description="Configure an availability set for a new or existing Linux virtual machine in the classic deployment model using the Azure portal and Azure PowerShell."
-    services="virtual-machines-linux"
-    documentationCenter=""
-    authors="cynthn"
-    manager="timlt"
-    editor=""
-    tags="azure-service-management"/>
+	pageTitle="Set di disponibilità per macchine virtuali Linux classiche | Microsoft Azure"
+	description="Configurare un set di disponibilità per una macchina virtuale Linux nuova o esistente nel modello di distribuzione classica usando il portale di Azure e Azure PowerShell."
+	services="virtual-machines-linux"
+	documentationCenter=""
+	authors="cynthn"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/12/2016"
-    ms.author="cynthn"/>
+	ms.service="virtual-machines-linux"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
+	ms.author="cynthn"/>
 
+# Come configurare un set di disponibilità per le macchine virtuali Linux nel modello di distribuzione classica
 
-# <a name="how-to-configure-an-availability-set-for-linux-virtual-machines-in-the-classic-deployment-model"></a>How to configure an availability set for Linux virtual machines in the classic deployment model
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. You can also [configure availability sets](azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets) in Resource Manager deployments.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. È anche possibile [configurare i set di disponibilità](azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets) nelle distribuzioni Azure Resource Manager.
 
 [AZURE.INCLUDE [virtual-machines-common-classic-configure-availability](../../includes/virtual-machines-common-classic-configure-availability.md)]
 
 
-## <a name="next-steps"></a>Next steps 
+## Passaggi successivi 
 
-For additonal articles about classic deployments, see [Linux and open-source computing on Azure](virtual-machines-linux-opensource-links.md).
+Per altri articoli sulle distribuzioni classiche, vedere [Linux ed elaborazione open source in Azure](virtual-machines-linux-opensource-links.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!----HONumber=AcomDC_0713_2016-->

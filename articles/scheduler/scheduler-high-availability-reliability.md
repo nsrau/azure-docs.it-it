@@ -1,10 +1,10 @@
 <properties
- pageTitle="Scheduler High-Availability and Reliability"
- description="Scheduler High-Availability and Reliability"
+ pageTitle="Livelli elevati di disponibilità e affidabilità dell'Utilità di pianificazione"
+ description="Livelli elevati di disponibilità e affidabilità dell'Utilità di pianificazione"
  services="scheduler"
  documentationCenter=".NET"
- authors="derek1ee"
- manager="kevinlam1"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,81 +13,76 @@
  ms.devlang="dotnet"
  ms.topic="article"
  ms.date="08/16/2016"
- ms.author="deli"/>
+ ms.author="krisragh"/>
 
 
+# Livelli elevati di disponibilità e affidabilità dell'Utilità di pianificazione
 
-# <a name="scheduler-high-availability-and-reliability"></a>Scheduler High-Availability and Reliability
+## Livelli elevati di disponibilità dell'Utilità di pianificazione
 
-## <a name="azure-scheduler-high-availability"></a>Azure Scheduler High-Availability
+In quanto servizio core della piattaforma Azure, l’Utilità di pianificazione di Azure ha un’elevata disponibilità e funzionalità di distribuzione del servizio con ridondanza geografica e replica geografica internazionale del processo.
 
-As a core Azure platform service, Azure Scheduler is highly available and features both geo-redundant service deployment and geo-regional job replication.
+### Distribuzione del servizio con ridondanza geografica
 
-### <a name="geo-redundant-service-deployment"></a>Geo-redundant service deployment
+L’Utilità di pianificazione di Azure è disponibile tramite l'interfaccia utente in quasi ogni area geografica attualmente in Azure. L'elenco delle regioni in cui è disponibile l'Utilità di pianificazione di Azure è [disponibile qui](https://azure.microsoft.com/regions/#services). Se un data center in un'area servita non è disponibile, le funzionalità di failover dell'Utilità di pianificazione di Azure fanno sì che il servizio venga reso disponibile da un altro data center.
 
-Azure Scheduler is available via the UI in almost every geo region that's in Azure today. The list of regions that Azure Scheduler is available in is [listed here](https://azure.microsoft.com/regions/#services). If a data center in a hosted region is rendered unavailable, the failover capabilities of Azure Scheduler are such that the service is available from another data center.
+### Replica geografica internazionale dei processi
 
-### <a name="geo-regional-job-replication"></a>Geo-regional job replication
+Non solo l'Utilità di pianificazione di Azure è disponibile per le richieste di gestione, ma il proprio processo è anche replicato geograficamente. Quando si verifica un'interruzione di servizio in un'area, l’Utilità di pianificazione di Azure va in failover e assicura che il processo venga eseguito da un altro data center nell'area geografica associata.
 
-Not only is the Azure Scheduler front-end available for management requests, but your own job is also geo-replicated. When there’s an outage in one region, Azure Scheduler fails over and ensures that the job is run from another data center in the paired geographic region.
-
-For example, if you’ve created a job in South Central US, Azure Scheduler automatically replicates that job in North Central US. When there’s a failure in South Central US, Azure Scheduler ensures that the job is run from North Central US. 
+Ad esempio, se è stato creato un processo negli USA centro-meridionali, l’Utilità di pianificazione di Azure replica automaticamente tale processo negli USA centro-settentrionale. Quando si verifica un errore negli USA centro-meridionali, l’Utilità di pianificazione Azure garantisce che il processo venga eseguito dagli USA centro-settentrionali.
 
 ![][1]
 
-As a result, Azure Scheduler ensures that your data stays within the same broader geographic region in case of an Azure failure. As a result, you need not duplicate your job just to add high availability – Azure Scheduler automatically provides high-availability capabilities for your jobs.
+Di conseguenza, l’Utilità di pianificazione Azure garantisce che i dati rimangano nella stessa zona geografica di riferimento in caso di un problema in Azure. Di conseguenza, non è necessario duplicare i processi per ottenere una disponibilità elevata – l’Utilità di pianificazione di Azure fornisce automaticamente disponibilità elevata ai processi.
 
-## <a name="azure-scheduler-reliability"></a>Azure Scheduler Reliability
+## Affidabilità dell'Utilità di pianificazione di Azure
 
-Azure Scheduler guarantees its own high-availability and takes a different approach to user-created jobs. For example, your job may invoke an HTTP endpoint that’s unavailable. Azure Scheduler nonetheless tries to execute your job successfully, by giving you alternative options to deal with failure. Azure Scheduler does this in two ways:
+L’Utilità di pianificazione di Azure garantisce la propria disponibilità elevata e adotta un approccio diverso per i processi creati dall'utente. Ad esempio, il processo può richiamare un endpoint HTTP che non è disponibile. L’Utilità di pianificazione di Azure comunque tenta di eseguire correttamente il processo, mediante l'assegnazione di opzioni alternative per la gestione degli errore. L’Utilità di pianificazione di Azure fa ciò in due modi:
 
-### <a name="configurable-retry-policy-via-“retrypolicy”"></a>Configurable Retry Policy via “retryPolicy”
+### Criteri di tentativi ripetuti configurabili tramite "retryPolicy"
 
-Azure Scheduler allows you to configure a retry policy. By default, if a job fails, Scheduler tries the job again four more times, at 30-second intervals. You may re-configure this retry policy to be more aggressive (for example, ten times, at 30-second intervals) or looser (for example, two times, at daily intervals.)
+L’Utilità di pianificazione di Azure consente di configurare un criterio per i tentativi di ripetizione. Per impostazione predefinita, se un processo fallisce, l’Utilità di pianificazione tenterà di eseguire nuovamente il processo quattro volte, a intervalli di 30 secondi. È possibile ri-configurare questo criterio di ripetizione per essere più aggressivo (ad esempio, dieci volte a intervalli di 30 secondi) o più allentato (ad esempio, due volte, a distanza di un giorno l’una dall’altra).
 
-As an example of when this may help, you may create a job that runs once a week and invokes an HTTP endpoint. If the HTTP endpoint is down for a few hours when your job runs, you may not want to wait one more week for the job to run again since even the default retry policy will fail. In such cases, you may reconfigure the standard retry policy to retry every three hours (for example) instead of every 30 seconds.
+Come esempio di quando ciò può essere utile, è possibile creare un processo che viene eseguito una volta alla settimana e richiama un endpoint HTTP. Se l'endpoint HTTP è inattivo per alcune ore durante l’esecuzione del processo, si potrebbe non voler attendere un’ulteriore settimana per eseguire di nuovo il processo, dato che il criterio di ripetizione predefinito avrà esito negativo. In tali casi, si possono riconfigurare i criteri standard per i tentativi ripetuti per farli ripetere ogni tre ore (per esempio) invece che ogni 30 secondi.
 
-To learn how to configure a retry policy, refer to [retryPolicy](scheduler-concepts-terms.md#retrypolicy).
+Per informazioni su come configurare un criterio di ripetizione, fare riferimento a [retryPolicy](scheduler-concepts-terms.md#retrypolicy).
 
-### <a name="alternate-endpoint-configurability-via-“erroraction”"></a>Alternate Endpoint Configurability via “errorAction”
+### Configurabilità endpoint alternativo tramite "errorAction"
 
-If the target endpoint for your Azure Scheduler job remains unreachable, Azure Scheduler falls back to the alternate error-handling endpoint after following its retry policy. If an alternate error-handling endpoint is configured, Azure Scheduler invokes it. With an alternate endpoint, your own jobs are highly available in the face of failure.
+Se l'endpoint di destinazione per il proprio processo pianificato di Azure rimane non raggiungibile, l’Utilità di pianificazione Azure ricorre all'endpoint alternativo indicato nella gestione degli errori alternativo dopo aver seguito i criteri di ripetizione. Se è configurato un endpoint alternativo per la gestione degli errori, l’Utilità di pianificazione Azure lo richiama. Con un endpoint alternativo i propri processi sono a disponibilità elevata in caso di errore.
 
-As an example, in the diagram below, Azure Scheduler follows its retry policy to hit a New York web service. After the retries fail, it checks if there's an alternate. It then goes ahead and starts making requests to the alternate with the same retry policy.
+Ad esempio, nel diagramma riportato di seguito, l’Utilità di pianificazione Azure segue il criterio di ripetizione per connettersi a un servizio web di New York. Dopo che i tentativi hanno esito negativo, verifica se esiste un'alternativa. A seguire, comincia a effettuare richieste all’alternativa con lo stesso criterio di ripetizione.
 
 ![][2]
 
-Note that the same retry policy applies to both the original action and the alternate error action. It’s also possible to have the alternate error action’s action type be different from the main action’s action type. For example, while the main action may be invoking an HTTP endpoint, the error action may instead be a storage queue, service bus queue, or service bus topic action that does error-logging.
+Si noti che si applica lo stesso criterio di ripetizione dell'azione originale e all'azione alternativa in caso di errore. È inoltre possibile avere un’alternativa con un tipo di azione diverso da quella principale. Ad esempio, mentre l'azione principale può consistere nella chiamata di un endpoint HTTP, l'azione in caso di errore può essere invece un'azione della coda di archiviazione, della coda del bus di servizio o di un argomento del bus di servizio che esegue la registrazione degli errori.
 
-To learn how to configure an alternate endpoint, refer to [errorAction](scheduler-concepts-terms.md#action-and-erroraction).
+Per informazioni su come configurare un endpoint alternativo, fare riferimento a [errorAction](scheduler-concepts-terms.md#action-and-erroraction).
 
-## <a name="see-also"></a>See Also
+## Vedere anche
 
- [What is Scheduler?](scheduler-intro.md)
+ [Che cos'è l'Utilità di pianificazione?](scheduler-intro.md)
 
- [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
+ [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure](scheduler-concepts-terms.md)
 
- [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
+ [Introduzione all'uso dell'Utilità di pianificazione di Azure nel portale di Azure](scheduler-get-started-portal.md)
 
- [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
+ [Piani e fatturazione nell'utilità di pianificazione di Azure](scheduler-plans-billing.md)
 
- [How to build complex schedules and advanced recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
+ [Come creare pianificazioni complesse e operazioni ricorrenti avanzate con l'Utilità di pianificazione di Azure](scheduler-advanced-complexity.md)
 
- [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
+ [Informazioni di riferimento sull'API REST dell'Utilità di pianificazione di Azure](https://msdn.microsoft.com/library/mt629143)
 
- [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
+ [Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione di Azure](scheduler-powershell-reference.md)
 
- [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
+ [Limiti, valori predefiniti e codici di errore dell'Utilità di pianificazione di Azure](scheduler-limits-defaults-errors.md)
 
- [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
+ [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
 
 
 [1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,132 +1,122 @@
 <properties
-    pageTitle="Troubleshoot Azure virtual machine backup | Microsoft Azure"
-    description="Troubleshoot backup and restore of Azure virtual machines"
-    services="backup"
-    documentationCenter=""
-    authors="trinadhk"
-    manager="shreeshd"
-    editor=""/>
+	pageTitle="Risoluzione dei problemi del backup di una macchina virtuale di Azure | Microsoft Azure"
+	description="Risolvere i problemi relativi al backup e al ripristino delle macchine virtuali di Azure"
+	services="backup"
+	documentationCenter=""
+	authors="trinadhk"
+	manager="shreeshd"
+	editor=""/>
 
 <tags
-    ms.service="backup"
-    ms.workload="storage-backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/26/2016"
-    ms.author="trinadhk;jimpark;"/>
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2016"
+	ms.author="trinadhk;jimpark;"/>
 
 
-
-# <a name="troubleshoot-azure-virtual-machine-backup"></a>Troubleshoot Azure virtual machine backup
+# Risolvere i problemi relativi al backup delle macchine virtuali di Azure
 
 > [AZURE.SELECTOR]
-- [Recovery services vault](backup-azure-vms-troubleshoot.md)
-- [Backup vault](backup-azure-vms-troubleshoot-classic.md)
+- [Insieme di credenziali dei servizi di ripristino](backup-azure-vms-troubleshoot.md)
+- [Insieme di credenziali per il backup](backup-azure-vms-troubleshoot-classic.md)
 
-You can troubleshoot errors encountered while using Azure Backup with information listed in the table below.
+È possibile risolvere gli errori rilevati durante l'uso di Backup di Azure con le informazioni elencate nella tabella seguente.
 
-## <a name="discovery"></a>Discovery
+## Individuazione
 
-| Backup operation | Error details | Workaround |
+| Operazione di backup | Dettagli errore | Soluzione alternativa |
 | -------- | -------- | -------|
-| Discovery | Failed to discover new items - Microsoft Azure Backup encountered and internal error. Wait for a few minutes and then try the operation again. | Retry the discovery process after 15 minutes.
-| Discovery | Failed to discover new items – Another Discovery operation is already in progress. Please wait until the current Discovery operation has completed. | None |
+| Individuazione | Non è stato possibile individuare nuovi elementi. Si è verificato un errore interno del backup di Microsoft Azure. Attendere alcuni minuti e ripetere l'operazione. | Ripetere il processo di individuazione dopo 15 minuti.
+| Individuazione | Non è stato possibile individuare nuovi elementi. Un'altra operazione di individuazione è già in corso. Attendere fino al completamento dell'operazione di individuazione corrente. | None |
 
-## <a name="register"></a>Register
-| Backup operation | Error details | Workaround |
+## Registra
+| Operazione di backup | Dettagli errore | Soluzione alternativa |
 | -------- | -------- | -------|
-| Register | Number of data disks attached to the virtual machine exceeded the supported limit - Please detach some data disks on this virtual machine and retry the operation. Azure backup supports up to 16 data disks attached to an Azure virtual machine for backup | None |
-| Register | Microsoft Azure Backup encountered an internal error - Wait for a few minutes and then try the operation again. If the issue persists, contact Microsoft Support. | You can get this error due to one of the following unsupported configuration of VM on  Premium LRS. <br> Premium storage VMs can be backed up using recovery services vault. [Learn More](backup-introduction-to-azure-backup.md/#back-up-and-restore-premium-storage-vms) |
-| Register | Registration failed with Install Agent operation timeout | Check if the OS version of the virtual machine is supported. |
-| Register | Command execution failed - Another operation is in progress on this item. Please wait until the previous operation is completed | None |
-| Register | Virtual machines having virtual hard disks stored on Premium storage are not supported for backup | None |
-| Register | Virtual machine agent is not present on the virtual machine - Please install the required pre-requisite, VM agent and restart the operation. | [Read more](#vm-agent) about VM agent installation, and how to validate the VM agent installation. |
+| Registra | Il numero di dischi dati collegati alla macchina virtuale ha superato il limite supportato. Scollegare alcuni dischi dati in questa macchina virtuale e ripetere l'operazione. Il backup di Azure supporta un massimo di 16 dischi dati collegati a una macchina virtuale di Azure per il backup | None |
+| Registra | Microsoft Azure Backup ha rilevato un errore interno. Attendere qualche minuto prima di ripetere l'operazione. Se il problema persiste, contattare il supporto tecnico Microsoft. | È possibile che questo errore sia provocato da una delle configurazioni non supportate seguenti per le macchine virtuali con archiviazione con ridondanza locale Premium. <br> Il backup delle macchine virtuali di Archiviazione Premium può essere eseguito usando l'insieme di credenziali di Servizi di ripristino. [Altre informazioni](backup-introduction-to-azure-backup.md/#back-up-and-restore-premium-storage-vms) |
+| Registra | Registrazione non riuscita con timeout dell'operazione dell'agente di installazione | Controllare se la versione del sistema operativo della macchina virtuale è supportata. |
+| Registra | L'esecuzione del comando non è riuscita. In questo elemento è già in corso un'altra operazione. Attendere il completamento dell'operazione precedente. | None |
+| Registra | Le macchine virtuali con dischi rigidi virtuali archiviati nel servizio di archiviazione Premium non sono supportate per il backup | Nessuno |
+| Registra | L'agente di macchine virtuali non è presente nella macchina virtuale. Installare i prerequisiti necessari, l'agente della macchina virtuale e ripetere l'operazione. | [Altre informazioni](#vm-agent) sull'installazione dell'agente di VM e su come convalidare l'installazione dell'agente di VM. |
 
-## <a name="backup"></a>Backup
+## Backup
 
-| Backup operation | Error details | Workaround |
+| Operazione di backup | Dettagli errore | Soluzione alternativa |
 | -------- | -------- | -------|
-| Backup | Could not communicate with the VM agent for snapshot status. Snapshot VM sub task timed out. - Please see the troubleshooting guide on how to resolve this. | This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. Learn more about [debugging up VM snapshot issues](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md). <br> If the VM agent is not causing any issues, then restart the VM. At times an incorrect VM state can cause issues and restarting the VM resets this "bad state" |
-| Backup | Backup failed with an internal error - Please retry the operation in a few minutes. If the problem persists, contact Microsoft Support | Please check if there is a transient issue in accessing VM storage. Please check [Azure Status](https://azure.microsoft.com/en-us/status/) to see if there is any on-going issue related to compute/storage/network in the region. Please retry the backup post issue is mitigated. |
-| Backup | Could not perform the operation as VM no longer exists. | Backup cannot be performed as the VM configured for backup has been deleted. Please stop further backups by going to Protected items view, select protected item and click on Stop Protection. You can retain data by selecting Retain Backup data option. You can later resume protection for this virtual machine by clicking on configure protection from Registered Items view|
-| Backup | Failed to install the Azure Recovery Services extension on the selected item - VM Agent is a pre-requisite for Azure Recovery Services Extension. Please install the Azure VM agent and restart the registration operation | <ol> <li>Check if the VM agent has been installed correctly. <li>Ensure that the flag on the VM config is set correctly.</ol> [Read more](#validating-vm-agent-installation) about VM agent installation, and how to validate the VM agent installation. |
-| Backup | Command execution failed - Another operation is currently in progress on this item. Please wait until the previous operation is completed, and then retry | An existing backup or restore job for the VM is running, and a new job cannot be started while the existing job is running. |
-| Backup | Extension installation failed with the error "COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator | This usually means that the COM+ service is not running. Contact Microsoft support for help on fixing this issue. |
-| Backup | Snapshot operation failed with the VSS operation error "This drive is locked by BitLocker Drive Encryption. You must unlock this drive from Control Panel. | Turn off BitLocker for all drives on the VM and observe if the VSS issue is resolved |
-| Backup | Virtual machines having virtual hard disks stored on Premium storage are not supported for backup | None |
-| Backup | Azure Virtual Machine Not Found. | This happens when the primary VM is deleted but the backup policy continues to look for a VM to perform backup. To fix this error: <ol><li>Recreate the virtual machine with the same name and same resource group name [cloud service name], <br>(OR) <li> Disable protection for this VM so that subsequent backups will not get triggered. </ol> |
-| Backup | Virtual machine agent is not present on the virtual machine - Please install the required pre-requisite, VM agent and restart the operation. | [Read more](#vm-agent) about VM agent installation, and how to validate the VM agent installation. |
+| Backup | Non è stato possibile comunicare con l'agente di macchine virtuali per ottenere lo stato dello snapshot. Timeout della sottoattività della macchina virtuale snapshot. Per risolvere il problema, vedere la Guida alla risoluzione dei problemi. | Questo errore viene generato se si verifica un problema con l'agente di VM o se l'accesso di rete all'infrastruttura di Azure è bloccato in qualche modo. Vedere altre informazioni sul [debug dei problemi di snapshot della macchina virtuale](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md). <br>Se l'agente di macchine virtuali non causa alcun problema, riavviare la macchina virtuale. Talvolta, uno stato della macchina virtuale non corretto genera problemi che vengono corretti riavviando la macchina virtuale. |
+| Backup | Il backup non è riuscito e si è verificato un errore interno. Attendere qualche minuto prima di ripetere l'operazione. Se il problema persiste, contattare il supporto tecnico Microsoft. | Verificare se esiste un problema temporaneo durante l'accesso alla risorsa di archiviazione della macchina virtuale. Vedere [Stato di Azure](https://azure.microsoft.com/status/) per verificare se nell'area è presente un problema relativo a calcolo/archiviazione/rete. Riprovare il backup dopo aver risolto il problema. |
+| Backup | Non è stato possibile eseguire l'operazione perché la macchina virtuale non esiste più. | Il backup non può essere eseguito perché la macchina virtuale configurata per il backup è stata eliminata. Arrestare gli altri backup passando alla visualizzazione Elementi protetti, selezionare l'elemento protetto e fare clic su Arresta protezione. È possibile conservare i dati selezionando l'opzione Conserva i dati di backup. Sarà successivamente possibile riprendere la protezione per questa macchina virtuale facendo clic su Configura protezione dalla vista Elementi registrati|
+| Backup | Non è stato possibile installare l'estensione Servizi di ripristino di Azure nell'elemento selezionato. L'agente di VM è un prerequisito dell'estensione Servizi di ripristino di Azure. Installare l'agente di VM di Azure e riavviare l'operazione di registrazione. | <ol> <li>Controllare se l'agente di VM è stato installato correttamente. <li>Assicurarsi che il flag sul file di configurazione della VM sia impostato correttamente.</ol> [Altre informazioni](#validating-vm-agent-installation) sull'installazione dell'agente di VM e su come convalidare l'installazione dell'agente di VM. |
+| Backup | L'esecuzione del comando non è riuscita. In questo elemento è attualmente in corso un'altra operazione. Attendere il completamento dell'operazione precedente, quindi riprovare. | È in esecuzione un processo di backup o ripristino esistente per la VM e non è possibile avviare un nuovo processo mentre è in esecuzione il processo esistente. |
+| Backup | L'installazione dell'estensione non è riuscita con un errore che indica che il servizio COM+ non può comunicare con Microsoft Distributed Transaction Coordinator | Questo errore in genere indica che il servizio COM+ non è in esecuzione. Per informazioni su come correggere l'errore, contattare il supporto tecnico Microsoft. |
+| Backup | L'operazione di snapshot non è riuscita con un errore dell'operazione del Servizio Copia Shadow del volume che indica che l'unità è bloccata da Crittografia unità BitLocker. Sbloccare l'unità dal Pannello di controllo. | Disattivare BitLocker per tutte le unità della macchina virtuale e verificare se il problema relativo al Servizio Copia Shadow del volume è stato risolto |
+| Backup | Le macchine virtuali con dischi rigidi virtuali archiviati nel servizio di archiviazione Premium non sono supportate per il backup | None |
+| Backup | La macchina virtuale di Azure non è stata trovata. | Questo errore si verifica quando viene rilevata la macchina virtuale primaria ma i criteri di backup continuano a cercare una macchina virtuale per il backup. Per correggere l'errore: <ol><li>Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse [nome del servizio cloud] <br>(OPPURE) <li> Disabilitare la protezione per questa macchina virtuale in modo che non vengano attivati backup successivi. </ol> |
+| Backup | L'agente di macchine virtuali non è presente nella macchina virtuale. Installare i prerequisiti necessari, l'agente della macchina virtuale e ripetere l'operazione. | [Altre informazioni](#vm-agent) sull'installazione dell'agente di VM e su come convalidare l'installazione dell'agente di VM. |
 
-## <a name="jobs"></a>Jobs
-| Operation | Error details | Workaround |
+## Processi
+| Operazione | Dettagli errore | Soluzione alternativa |
 | -------- | -------- | -------|
-| Cancel job | Cancellation is not supported for this job type - Please wait until the job completes. | None |
-| Cancel job | The job is not in a cancelable state - Please wait until the job completes. <br>OR<br> The selected job is not in a cancelable state - Please wait for the job to complete.| In all likelihood, the job is almost completed; please wait until the job completes |
-| Cancel job | Cannot cancel the job because it is not in progress - Cancellation is only supported for jobs which are in progress. Please attempt cancel on an in progress job. | This happens due to a transitory state. Wait for a minute and retry the cancel operation |
-| Cancel job | Failed to cancel the Job - Please wait until job finishes. | None |
+| Annulla processo | L'annullamento non è supportato per questo tipo di processo. Attendere il completamento del processo. | None |
+| Annulla processo | Il processo non si trova in uno stato annullabile. Attendere il completamento del processo. <br>OPPURE<br> Il processo selezionato non si trova in uno stato annullabile. Attendere il completamento del processo.| È probabile che il processo sia quasi completato. Attendere il completamento del processo |
+| Annulla processo | Non è possibile annullare il processo perché non è in corso. L'annullamento è supportato solo per i processi in corso. Tentare l'annullamento solo per un processo in corso. | Questo errore è causato da uno stato temporaneo. Attendere un minuto e ripetere l'operazione di annullamento. |
+| Annulla processo | Non è stato possibile annullare il processo. Attendere il completamento del processo. | None |
 
 
-## <a name="restore"></a>Restore
-| Operation | Error details | Workaround |
+## Ripristino
+| Operazione | Dettagli errore | Soluzione alternativa |
 | -------- | -------- | -------|
-| Restore | Restore failed with Cloud Internal error | <ol><li>Cloud service to which you are trying to restore is configured with DNS settings. You can check <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"  Get-AzureDns -DnsSettings $deployment.DnsSettings<br>If there is Address configured, this means that DNS settings are configured.<br> <li>Cloud service to which to you are trying to restore is configured with ReservedIP and existing VMs in cloud service are in stopped state.<br>You can check a cloud service has reserved IP by using following powershell cmdlets:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>You are trying to restore a virtual machine with following special network configurations in to same cloud service. <br>- Virtual machines under load balancer configuration (Internal and external)<br>- Virtual machines with multiple Reserved IPs<br>- Virtual machines with multiple NICs<br>Please select a new cloud service in the UI or please refer to [restore considerations](./backup-azure-restore-vms.md/#restoring-vms-with-special-network-configurations) for VMs with special network configurations</ol> |
-| Restore | The selected DNS name is already taken - Please specify a different DNS name and try again. | The DNS name here refers to the cloud service name (usually ending with .cloudapp.net). This needs to be unique. If you encounter this error, you need to choose a different VM name during restore. <br><br> This error is shown only to users of the Azure portal. The restore operation through PowerShell succeeds because it only restores the disks and doesn't create the VM. The error will be faced when the VM is explicitly created by you after the disk restore operation. |
-| Restore | The specified virtual network configuration is not correct - Please specify a different virtual network configuration and try again. | None |
-| Restore | The specified cloud service is using a reserved IP, which doesn't match with the configuration of the virtual machine being restored - Please specify a different cloud service which is not using reserved IP, or choose another recovery point to restore from. | None |
-| Restore | Cloud service has reached limit on number of input end points - Retry the operation by specifying a different cloud service or by using an existing endpoint. | None |
-| Restore | Backup vault and target storage account are in two different regions - Ensure that the storage account specified in restore operation is in the same Azure region as the backup vault. | None |
-| Restore | Storage Account specified for the restore operation is not supported - Only Basic/Standard storage accounts with locally redundant or geo redundant replication settings are supported. Please select a supported storage account | None |
-| Restore | Type of Storage Account specified for restore operation is not online - Make sure that the storage account specified in restore operation is online | This might happen because of a transient error in Azure Storage or due to an outage. Please choose another storage account. |
-| Restore | Resource Group Quota has been reached - Please delete some resource groups from Azure portal or contact Azure support to increase the limits. | None |
-| Restore | Selected subnet does not exist - Please select a subnet which exists | None |
+| Ripristino | Ripristino non riuscito con errore interno del cloud | <ol><li>Il servizio cloud in cui si sta tentando di eseguire il ripristino è configurato con le impostazioni DNS. Verificare <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Se è presente un indirizzo configurato, le impostazioni DNS sono configurate.<br> <li>Il servizio cloud che si sta tentando di ripristinare è configurato con ReservedIP e le macchine virtuali che si trovano nel servizio cloud sono state arrestate.<br>È possibile verificare che un servizio cloud abbia un IP riservato tramite i cmdlet di PowerShell seguenti:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>Si sta tentando di ripristinare una macchina virtuale con le configurazioni di rete speciali seguenti nello stesso servizio cloud. <br>- Macchine virtuali nella configurazione del servizio di bilanciamento del carico (interno ed esterno)<br>- Macchine virtuali con più indirizzi IP riservati<br>- Macchine virtuali con più schede di rete<br>Selezionare un nuovo servizio cloud nell'interfaccia utente o vedere le [considerazioni di ripristino](./backup-azure-restore-vms.md/#restoring-vms-with-special-network-configurations) per macchine virtuali con configurazioni di rete speciali</ol> |
+| Ripristino | Il nome DNS selezionato è già in uso. Specificare un nome DNS diverso e riprovare. | Il nome DNS fa riferimento al nome del servizio cloud, che in genere termina con .cloudapp.net. Questo nome deve essere univoco. Se si verifica questo errore, è necessario scegliere un altro nome di macchina virtuale durante il ripristino. <br><br> Questo errore viene visualizzato solo dagli utenti del portale di Azure. L'operazione di ripristino tramite PowerShell riesce perché ripristina solo i dischi e non crea la macchina virtuale. L'errore viene restituito quando la macchina virtuale viene creata in modo esplicito dall'utente dopo l'operazione di ripristino dei dischi. |
+| Ripristino | La configurazione di rete virtuale specificata non è corretta. Specificare un'altra configurazione di rete virtuale e riprovare. | None |
+| Ripristino | Il servizio cloud specificato usa un indirizzo IP riservato che non corrisponde alla configurazione della macchina virtuale in fase di ripristino. Specificare un altro servizio cloud che non usa un indirizzo IP riservato o scegliere un altro punto di ripristino da cui eseguire l'operazione. | None |
+| Ripristino | Il servizio cloud ha raggiunto il limite consentito per il numero di endpoint di input. Ripetere l'operazione specificando un altro servizio cloud o usando un endpoint esistente. | None |
+| Ripristino | L'insieme di credenziali di backup e l'account di archiviazione di destinazione si trovano in due aree diverse. Assicurarsi che l'account di archiviazione specificato nell'operazione di ripristino si trovi nella stessa area di Azure dell'insieme di credenziali di backup. | None |
+| Ripristino | L'account di archiviazione specificato per l'operazione di ripristino non è supportato. Sono supportati solo gli account di archiviazione dei piani Basic/Standard con le impostazioni di replica con ridondanza locale o ridondanza geografica. Selezionare un account di archiviazione supportato | None |
+| Ripristino | Il tipo di account di archiviazione specificato per l'operazione di ripristino non è online. Assicurarsi che l'account di archiviazione specificato nell'operazione di ripristino sia online | Questo problema può essere provocato da un errore temporaneo nel servizio di archiviazione di Azure o da un'interruzione del servizio. Scegliere un altro account di archiviazione. |
+| Ripristino | È stata raggiunta la quota del gruppo di risorse. Eliminare alcuni gruppi di risorse dal portale di Azure o contattare il supporto tecnico di Azure per richiedere un aumento dei limiti. | None |
+| Ripristino | La subnet selezionata non esiste. Selezionare una subnet esistente | None |
 
 
-## <a name="policy"></a>Policy
-| Operation | Error details | Workaround |
+## Criterio
+| Operazione | Dettagli errore | Soluzione alternativa |
 | -------- | -------- | -------|
-| Create policy | Failed to create the policy - Please reduce the retention choices to continue with policy configuration. | None |
+| Crea criteri | Non è stato possibile creare i criteri. Per continuare con la configurazione dei criteri, ridurre le opzioni di conservazione. | None |
 
 
-## <a name="vm-agent"></a>VM Agent
+## Agente di macchine virtuali
 
-### <a name="setting-up-the-vm-agent"></a>Setting up the VM Agent
-Typically, the VM Agent is already present in VMs that are created from the Azure gallery. However, virtual machines that are migrated from on-premises datacenters would not have the VM Agent installed. For such VMs, the VM Agent needs to be installed explicitly. Read more about [installing the VM agent on an existing VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx).
+### Configurazione dell'agente di VM
+L'agente di VM è in genere già presente nelle VM create dalla raccolta di Azure. Nelle macchine virtuali di cui viene eseguita la migrazione da data center locali non è installato l'agente di VM. Per queste VM è necessario installare esplicitamente l'agente di VM. Altre informazioni sull'[installazione dell'agente di VM in una VM esistente](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx).
 
-For Windows VMs:
+Per VM di Windows:
 
-- Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You will need Administrator privileges to complete the installation.
-- [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed.
+- Scaricare e installare il file [MSI per l'agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione sono necessari privilegi di amministratore.
+- [Aggiornare le proprietà della VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) per indicare che l'agente è stato installato.
 
-For Linux VMs:
+Per le macchine virtuali Linux:
 
-- Install latest [Linux agent](https://github.com/Azure/WALinuxAgent) from github.
-- [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed.
-
-
-### <a name="updating-the-vm-agent"></a>Updating the VM Agent
-For Windows VMs:
-
-- Updating the VM Agent is as simple as reinstalling the [VM Agent binaries](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). However, you need to ensure that no backup operation is running while the VM Agent is being updated.
-
-For Linux VMs:
-
-- Follow the instructions on [Updating Linux VM Agent](../virtual-machines/virtual-machines-linux-update-agent.md).
+- Installare l'[agente Linux](https://github.com/Azure/WALinuxAgent) più recente da Github.
+- [Aggiornare le proprietà della VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) per indicare che l'agente è stato installato.
 
 
-### <a name="validating-vm-agent-installation"></a>Validating VM Agent installation
-How to check for the VM Agent version on Windows VMs:
+### Aggiornamento dell'agente di VM
+Per VM di Windows:
 
-1. Log on to the Azure virtual machine and navigate to the folder *C:\WindowsAzure\Packages*. You should find the WaAppAgent.exe file present.
-2. Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher
+- L'aggiornamento dell'agente di VM è semplice quanto la reinstallazione dei [file binari dell'agente di VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). È tuttavia necessario assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente di VM.
 
+Per le macchine virtuali Linux:
 
-
-
-
+- Seguire le istruzioni in [Come aggiornare l'agente Linux di Azure su una macchina virtuale per la versione più recente da GitHub](../virtual-machines/virtual-machines-linux-update-agent.md).
 
 
+### Convalida dell'installazione dell'agente di VM
+Come controllare la versione dell'agente di VM nelle macchine virtuali di Windows:
 
-<!--HONumber=Oct16_HO2-->
+1. Accedere alla macchina virtuale di Azure e passare alla cartella *C:\\WindowsAzure\\Packages*, che dovrebbe includere il file WaAppAgent.exe.
+2. Fare clic con il pulsante destro del mouse sul file, scegliere **Proprietà** e quindi selezionare la scheda **Dettagli**. Il campo Versione prodotto deve essere 2.6.1198.718 o superiore.
 
-
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,292 +1,291 @@
 <properties
-    pageTitle="Tutorial: Azure Active Directory integration with Wizergos Productivity Software  | Microsoft Azure"
-    description="Learn how to configure single sign-on between Azure Active Directory and Wizergos Productivity Software."
-    services="active-directory"
-    documentationCenter=""
-    authors="jeevansd"
-    manager="femila"
-    editor=""/>
+	pageTitle="Esercitazione: Integrazione di Azure Active Directory con Wizergos Productivity Software | Microsoft Azure"
+	description="Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Wizergos Productivity Software."
+	services="active-directory"
+	documentationCenter=""
+	authors="jeevansd"
+	manager="femila"
+	editor=""/> 
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/15/2016"
-    ms.author="jeedes"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/15/2016"
+	ms.author="jeedes"/> 
 
 
+# Esercitazione: Integrazione di Azure Active Directory con Wizergos Productivity Software 
 
-# <a name="tutorial:-azure-active-directory-integration-with-wizergos-productivity-software"></a>Tutorial: Azure Active Directory integration with Wizergos Productivity Software 
+Questa esercitazione descrive l'integrazione di Wizergos Productivity Software con Azure Active Directory (Azure AD).
 
-The objective of this tutorial is to show you how to integrate Wizergos Productivity Software  with Azure Active Directory (Azure AD).
+L'integrazione di Wizergos Productivity Software con Azure AD offre i vantaggi seguenti:
 
-Integrating Wizergos Productivity Software with Azure AD provides you with the following benefits:
+- È possibile controllare in Azure AD chi può accedere a Wizergos Productivity Software.
+- È possibile abilitare gli utenti per l'accesso automatico a Wizergos Productivity Software (Single Sign-On) con i propri account Azure AD.
+- È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
-- You can control in Azure AD who has access to Wizergos Productivity Software
-- You can enable your users to automatically get signed-on to Wizergos Productivity Software (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure classic portal
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+## Prerequisiti
 
-## <a name="prerequisites"></a>Prerequisites
+Per configurare l'integrazione di Azure AD con Wizergos Productivity Software, sono necessari gli elementi seguenti:
 
-To configure Azure AD integration with Wizergos Productivity Software, you need the following items:
-
-- An Azure AD subscription
-- A Wizergos Productivity Software single-sign on enabled subscription
-
-
-> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
+- Sottoscrizione di Azure AD.
+- Sottoscrizione di Wizergos Productivity Software abilitata per l'accesso Single Sign-On.
 
 
-To test the steps in this tutorial, you should follow these recommendations:
-
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
 
 
-## <a name="scenario-description"></a>Scenario description
-The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.
+A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
-The scenario outlined in this tutorial consists of two main building blocks:
-
-1. Adding Wizergos Productivity Software from the gallery
-2. Configuring and testing Azure AD single sign-on
+- Non usare l'ambiente di produzione, a meno che non sia necessario.
+- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## <a name="adding-wizergos-productivity-software-from-the-gallery"></a>Adding Wizergos Productivity Software from the gallery
-To configure the integration of Wizergos Productivity Software into Azure AD, you need to add Wizergos Productivity Software from the gallery to your list of managed SaaS apps.
+## Descrizione dello scenario
+L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-**To add Wizergos Productivity Software from the gallery, perform the following steps:**
+Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
-1. In the **Azure classic Portal**, on the left navigation pane, click **Active Directory**. 
+1. Aggiunta di Wizergos Productivity Software dalla raccolta
+2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
-    ![Active Directory][1]
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+## Aggiunta di Wizergos Productivity Software dalla raccolta
+Per configurare l'integrazione di Wizergos Productivity Software in Azure AD, è necessario aggiungere Wizergos Productivity Software dalla raccolta al proprio elenco di app SaaS gestite.
 
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
+**Per aggiungere Wizergos Productivity Software dalla raccolta, seguire questa procedura:**
+
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+
+	![Active Directory][1] 
+
+2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+
+3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
+	
+	![Applicazioni][2] 
+
+4. Fare clic su **Add** nella parte inferiore della pagina.
+	
+	![Applicazioni][3] 
+
+5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+
+	![Applicazioni][4] 
+
+6. Nella casella di ricerca digitare **Wizergos Productivity Software**.
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_01.png) 
+
+7. Nel riquadro dei risultati selezionare **Wizergos Productivity Software** e quindi fare clic su **Completa** per aggiungere l'applicazione.
+
+	![Selezione dell'app nella raccolta](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_001.png) 
+
+##  Configurazione e test dell'accesso Single Sign-On di Azure AD
+Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Wizergos Productivity Software con un utente test di nome "Britta Simon".
+
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Wizergos Productivity Software che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Wizergos Productivity Software.
+
+La relazione di collegamento viene stabilita assegnando il valore di **nome utente** in Azure AD come valore di **Username** (Nome utente) in Wizergos Productivity Software.
+
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Wizergos Productivity Software, è necessario completare i blocchi predefiniti seguenti:
+
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
+2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+3. **[Creazione di un utente test di Wizergos Productivity Software](#creating-a-wizergos-productivity-software-test-user)**: per avere una controparte di Britta Simon in Wizergos Productivity Software collegata alla relativa rappresentazione in Azure AD.
+4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
+
+### Configurazione dell'accesso Single Sign-On di Azure AD
+
+In questa sezione nel portale classico viene abilitato l'accesso Single Sign-On di Azure AD, che viene configurato nell'applicazione Wizergos Productivity Software.
+
+**Per configurare Single Sign-On di Azure AD con Wizergos Productivity Software, seguire questa procedura:**
+
+1. Nella pagina di integrazione dell'applicazione **Wizergos Productivity Software** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+	 
+	![Configura accesso Single Sign-On][6] 
+
+2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Wizergos Productivity Software** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.
     
-    ![Applications][2]
+	![Configura accesso Single Sign-On](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_03.png) 
 
-4. Click **Add** at the bottom of the page.
+3. Nella pagina della finestra di dialogo **Configurare le impostazioni dell'app**, se si desidera configurare l'applicazione in **modalità iniziata da IDP**,seguire la procedura seguente e fare clic su **Avanti**:
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_04.png) 
+
+	a. Nella casella di testo **Identificatore** digitare `https://www.wizergos.net`.
+
+    b. Nella casella di testo **URL di risposta** digitare: `https://www.wizergos.net/register_users/saml2/`
+
+	c. Fare clic su **Avanti**
+
+4. Se si vuole desidera l'applicazione in **SP initiated mode** (Modalità iniziata dal provider di servizi) nella finestra di dialogo **Configurare le impostazioni dell'app** fare clic su **"Mostra opzioni avanzate (facoltativo)"**, quindi digitare l'**URL di accesso** e fare clic su **Avanti**.
+
+	![Configura accesso Single Sign-On](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_05.png) 
+
+	a. Nella casella di testo **URL di accesso** digitare `https://www.wizergos.net`.
+
+	b. Fare clic su **Avanti**
+
+5. Nella pagina **Configura accesso Single Sign-On in Wizergos Productivity Software** seguire questa procedura e fare clic su **Avanti**:
+
+	![Configura accesso Single Sign-On](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_06.png) 
+
+    a. Fare clic su **Scarica certificato** e quindi salvare il file nel computer.
+
+    b. Fare clic su **Next**.
+
+6. In un'altra finestra del browser Web accedere al tenant Wizergos Productivity Software come amministratore.
+
+7. Dal menu hamburger, selezionare **Admin** (Amministratore).
+
+	![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_000.png) 
+
+8. Nella pagina Admin selezionare **AUTHENTICATION** (AUTENTICAZIONE) dal menu a sinistra e fare clic su **Azure AD**.
+
+	![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_002.png) 
+
+9. Seguire questa procedura nella sezione **AUTHENTICATION** (AUTENTICAZIONE).
+
+	![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_003.png) 
+
+	a. Aprire il certificato scaricato da Azure AD e copiare l'identificazione personale del certificato. Incollarla quindi nella casella di testo **Certificate ThumbPrint** (Identificazione personale del certificato).
+
+	![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_004.png) 
+
+	b. Nella casella di testo **Issuer URL** (URL autorità di certificazione) inserire il valore di **URL autorità di certificazione** dalla configurazione guidata dell'applicazione di Azure AD.
+
+	c. Nella casella di testo **Single Sign-On URL** (URL Single Sign-On) inserire il valore di **URL servizio Single Sign-On** dalla configurazione guidata dell'applicazione di Azure AD.
+
+	d. Nella casella di testo **Single Sign-On URL** ((URL Single Sign-Out)) inserire il valore di **URL servizio Single Sign-Out** dalla configurazione guidata dell'applicazione di Azure AD.
+
+	e. Fare clic sul pulsante **Salva**.
+
+	> [AZURE.NOTE] Si noti che l'identificazione personale del certificato non deve contenere spazi intermedi.
+
+7. Nel portale classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
     
-    ![Applications][3]
+	![Accesso Single Sign-On di Azure AD][10] 
 
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
-
-    ![Applications][4]
-
-6. In the search box, type **Wizergos Productivity Software**.
-
-    ![Creating an Azure AD test user](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_01.png)
-
-7. In the results panel, select **Wizergos Productivity Software**, and then click **Complete** to add the application.
-
-    ![Selecting the app in the gallery](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_001.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
-The objective of this section is to show you how to configure and test Azure AD single sign-on with Wizergos Productivity Software based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in Wizergos Productivity Software to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Wizergos Productivity Software needs to be established.
-
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Wizergos Productivity Software.
-
-To configure and test Azure AD single sign-on with BynWizergos Productivity Softwareder, you need to complete the following building blocks:
-
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Wizergos Productivity Software test user](#creating-a-wizergos-productivity-software-test-user)** - to have a counterpart of Britta Simon in Wizergos Productivity Software that is linked to the Azure AD representation of her.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
-
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD single sign-on
-
-In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your Wizergos Productivity Software application.
-
-**To configure Azure AD single sign-on with Wizergos Productivity Software, perform the following steps:**
-
-1. In the classic portal, on the **Wizergos Productivity Software** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
-     
-    ![Configure Single Sign-On][6] 
-
-2. On the **How would you like users to sign on to Wizergos Productivity Software** page, select **Azure AD Single Sign-On**, and then click **Next**.
+8. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
     
-    ![Configure Single Sign-On](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_03.png)
+	![Accesso Single Sign-On di Azure AD][11] 
 
-3. On the **Configure App Settings** dialog page, If you wish to configure the application in **IDP initiated mode**, perform the following steps and click **Next**:
 
-    ![Configure Single Sign-On](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_04.png)
 
-    a. In the **Identifier** textbox, type: `https://www.wizergos.net`
+### Creazione di un utente test di Azure AD
+Questa sezione descrive come creare un utente di test chiamato Britta Simon nel portale classico.
 
-    b. In the **Reply URL** textbox, type: `https://www.wizergos.net/register_users/saml2/`
+![Creare un utente di Azure AD][20] 
 
-    c. Click **Next**
+**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-4. If you wish to configure the application in **SP initiated mode** on the **Configure App Settings** dialog page, then click on the **“Show advanced settings (optional)”** and then enter the **Sign On URL** and click **Next**.
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_05.png)
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_09.png) 
 
-    a. In the **Sign On URL** textbox, type: `https://www.wizergos.net`
+2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-    b. Click **Next**
-
-5. On the **Configure single sign-on at Wizergos Productivity Software** page, perform the following steps and click **Next**:
-
-    ![Configure Single Sign-On](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_06.png)
-
-    a. Click **Download certificate**, and then save the file on your computer.
-
-    b. Click **Next**.
-
-6. In a different web browser window, sign-on to your Wizergos Productivity Software tenant as an administrator.
-
-7. From the hamburger menu, select **Admin**.
-
-    ![Configure Single Sign-On On App side](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_000.png)
-
-8. In Admin page on left hand menu select **AUTHENTICATION** and click on **Azure AD**.
-
-    ![Configure Single Sign-On On App side](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_002.png)
-
-9. Perform the following steps on **AUTHENTICATION** section.
-
-    ![Configure Single Sign-On On App side](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_003.png)
-
-    a. Open the downloaded certificate from Azure AD and copy the thumbprint of certificate. Then paste it to the textbox of **Certificate ThumbPrint**.
-
-    ![Configure Single Sign-On On App side](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_004.png)
-
-    b. In the **Issuer URL** textbox put the value of **Issuer URL** from Azure AD application configuration wizard.
-
-    c. In the **Signle Sign-On URL** textbox put the value of **Single Sign-on Service URL** from Azure AD application configuration wizard.
-
-    d. In the **Signle Sign-Out URL** textbox put the value of **Single Sign-out Service URL** from Azure AD application configuration wizard.
-
-    e. Click **Save** button.
-
-    > [AZURE.NOTE] Please note that the certificate fingerprint should not contain any spaces in-between.
-
-7. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
     
-    ![Azure AD Single Sign-On][10]
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_03.png) 
 
-8. On the **Single sign-on confirmation** page, click **Complete**.  
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
+
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_04.png) 
+
+5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
+
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_05.png)
+
+    a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
+
+    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
+
+    c. Fare clic su **Next**.
+
+6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
     
-    ![Azure AD Single Sign-On][11]
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_06.png) 
 
+    a. Nella casella di testo **Nome** digitare **Britta**.
 
+    b. Nella casella di testo **Cognome** digitare **Simon**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-The objective of this section is to create a test user in the classic portal called Britta Simon.
+    c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
 
-![Create Azure AD User][20]
+    d. Nell'elenco **Ruolo**, selezionare **Utente**.
 
-**To create a test user in Azure AD, perform the following steps:**
+    e. Fare clic su **Avanti**.
 
-1. In the **Azure classic Portal**, on the left navigation pane, click **Active Directory**.
-
-    ![Creating an Azure AD test user](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_09.png)
-
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-
-3. To display the list of users, in the menu on the top, click **Users**.
+7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
     
-    ![Creating an Azure AD test user](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_03.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_07.png) 
 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
-
-    ![Creating an Azure AD test user](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_04.png)
-
-5. On the **Tell us about this user** dialog page, perform the following steps:
-
-    ![Creating an Azure AD test user](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_05.png)
-
-    a. As Type Of User, select New user in your organization.
-
-    b. In the User Name **textbox**, type **BrittaSimon**.
-
-    c. Click **Next**.
-
-6.  On the **User Profile** dialog page, perform the following steps:
+8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
     
-    ![Creating an Azure AD test user](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_06.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_08.png) 
 
-    a. In the **First Name** textbox, type **Britta**.  
+    a. Prendere nota del valore visualizzato in **Nuova password**.
 
-    b. In the **Last Name** textbox, type, **Simon**.
+    b. Fare clic su **Complete**.
 
-    c. In the **Display Name** textbox, type **Britta Simon**.
 
-    d. In the **Role** list, select **User**.
 
-    e. Click **Next**.
+### Creazione di un utente di test Wizergos Productivity Software
 
-7. On the **Get temporary password** dialog page, click **create**.
+In questa sezione viene creato un utente chiamato Britta Simon in Wizergos Productivity Software. Per aggiungere utenti alla piattaforma di Wizergos Productivity Software, collaborare con il team di Wizergos Productivity Software tramite l'indirizzo [support@wizergos.com](emailTo:support@wizergos.com).
+
+
+### Assegnazione dell'utente test di Azure AD
+
+Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Wizergos Productivity Software.
+	
+   ![Assegna utente][200] 
+
+**Per assegnare Britta Simon a Wizergos Productivity Software, seguire questa procedura:**
+
+1. Per aprire la visualizzazione delle applicazioni nel portale classico, nella visualizzazione Directory fare clic su **Applicazioni** nel menu in alto.
     
-    ![Creating an Azure AD test user](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_07.png)
+	![Assegna utente][201] 
 
-8. On the **Get temporary password** dialog page, perform the following steps:
+2. Nell'elenco di applicazioni selezionare **Wizergos Productivity Software**.
     
-    ![Creating an Azure AD test user](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_08.png)
+	![Configura accesso Single Sign-On](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_50.png) 
 
-    a. Write down the value of the **New Password**.
-
-    b. Click **Complete**.   
-
-
-
-### <a name="creating-a-wizergos-productivity-software-test-user"></a>Creating a Wizergos Productivity Software test user
-
-In this section, you create a user called Britta Simon in Wizergos Productivity Software. Please work with Wizergos Productivity Software support team via [support@wizergos.com](emailTo:support@wizergos.com) to add the users in the Wizergos Productivity Software platform.
-
-
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
-
-The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Wizergos Productivity Software.
+1. Scegliere **Utenti** dal menu in alto.
     
-   ![Assign User][200]
+	![Assegna utente][203] 
 
-**To assign Britta Simon to Wizergos Productivity Software, perform the following steps:**
+1. Nell'elenco di utenti selezionare **Britta Simon**.
 
-1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+2. Fare clic su **Assegna** sulla barra degli strumenti in basso.
     
-    ![Assign User][201]
-
-2. In the applications list, select **Wizergos Productivity Software**.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_50.png)
-
-1. In the menu on the top, click **Users**.
-    
-    ![Assign User][203]
-
-1. In the Users list, select **Britta Simon**.
-
-2. In the toolbar on the bottom, click **Assign**.
-    
-    ![Assign User][205]
+	![Assegna utente][205] 
 
 
 
-### <a name="testing-single-sign-on"></a>Testing single sign-on
+### Test dell'accesso Single Sign-On
 
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
+Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
  
-When you click the Wizergos Productivity Software tile in the Access Panel, you should get automatically signed-on to your Wizergos Productivity Software application.
+Quando si fa clic sul riquadro Wizergos Productivity Software nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Wizergos Productivity Software.
 
 
-## <a name="additional-resources"></a>Additional resources
+## Risorse aggiuntive
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
 
 
-<!--Image references-->
+<!--Image references--> 
 
 [1]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_02.png
@@ -304,8 +303,4 @@ When you click the Wizergos Productivity Software tile in the Access Panel, you 
 [204]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_205.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

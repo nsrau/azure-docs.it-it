@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Install the DC/OS CLI | Microsoft Azure"
-   description="Install the DC/OS CLI."
+   pageTitle="Installare l'interfaccia della riga di comando del controller di dominio/sistema operativo | Microsoft Azure"
+   description="Installare l'interfaccia della riga di comando del controller di dominio/sistema operativo."
    services="container-service"
    documentationCenter=""
    authors="rgardler"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Containers, Micro-services, DC/OS, Azure"/>
+   keywords="Contenitori, Micro-Service, controller di dominio/sistema operativo, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -18,10 +18,9 @@
    ms.date="05/10/2016"
    ms.author="rogardle"/>
 
+>[AZURE.NOTE] Questa procedura è necessaria per l'uso di cluster ACS basati su controller di dominio/sistema operativo. Non è necessario eseguirla per i cluster ACS basati su Swarm.
 
->[AZURE.NOTE] This is for working with DC/OS-based ACS clusters. There is no need to do this for Swarm-based ACS clusters.
-
-First, [connect to your DC/OS-based ACS cluster](../articles/container-service/container-service-connect.md). Once you have done this, you can install the DC/OS CLI on your client machine with the commands below:
+È prima di tutto necessario [connettersi ai cluster ACS basati su controller di dominio/sistema operativo](../articles/container-service/container-service-connect.md). Dopo la connessione, è possibile installare l'interfaccia della riga di comando del controller di dominio/sistema operativo nel computer client con i comandi seguenti:
 
 ```bash
 sudo pip install virtualenv
@@ -31,23 +30,18 @@ chmod +x install-optout-dcos-cli.sh
 ./install-optout-dcos-cli.sh . http://localhost --add-path yes
 ```
 
-If you are using an old version of Python, you may notice some "InsecurePlatformWarnings". You can safely ignore these.
+Se si usa una versione precedente di Python, è possibile che vengano visualizzati avvisi di tipo "InsecurePlatformWarnings". È possibile ignorare questi avvisi.
 
-In order to get started without restarting your shell, run:
+Per iniziare senza riavviare la shell, eseguire:
 
 ```bash
 source ~/.bashrc
 ```
 
-This step will not be necessary when you start new shells.
+Questo passaggio non sarà necessario quando si avviano nuove shell.
 
-Now you can confirm that the CLI is installed:
+È ora possibile verificare che l'interfaccia della riga di comando sia stata installata:
 
 ```bash
 dcos --help
 ```
-
-
-<!--HONumber=Oct16_HO2-->
-
-

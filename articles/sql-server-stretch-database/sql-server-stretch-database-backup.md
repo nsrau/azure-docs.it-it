@@ -1,72 +1,67 @@
 <properties
-    pageTitle="Backup Stretch-enabled databases | Microsoft Azure"
-    description="Learn how to back up Stretch\-enabled databases."
-    services="sql-server-stretch-database"
-    documentationCenter=""
-    authors="douglaslMS"
-    manager=""
-    editor=""/>
+	pageTitle="Eseguire il backup di database con estensione abilitata | Microsoft Azure"
+	description="Informazioni su come eseguire il backup di database con estensione abilitata."
+	services="sql-server-stretch-database"
+	documentationCenter=""
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
-    ms.service="sql-server-stretch-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/14/2016"
-    ms.author="douglasl"/>
+	ms.service="sql-server-stretch-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/14/2016"
+	ms.author="douglasl"/>
 
+# Eseguire il backup di database con estensione abilitata
 
-# <a name="backup-stretch-enabled-databases"></a>Backup Stretch-enabled databases
+I backup del database consentono di recuperare da molti tipi di errori e guasti.
 
-Database backups help you to recover from many types of failures, errors, and disasters.  
+-   È necessario eseguire il backup dei database SQL Server abilitati per l'estensione.  
 
--   You have to back up your Stretch\-enabled SQL Server databases.  
+-   Microsoft Azure esegue automaticamente il backup dei dati remoti che Estensione database ha migrato da SQL Server in Azure.
 
--   Microsoft Azure automatically backs up the remote data that Stretch Database has migrated from SQL Server to Azure.  
+>    [AZURE.NOTE] Il backup è solo una parte di una soluzione completa di continuità aziendale e a disponibilità elevata. Per altre informazioni sulla disponibilità elevata, vedere [Soluzioni a disponibilità elevata (SQL Server)](https://msdn.microsoft.com/library/ms190202.aspx).
 
->    [AZURE.NOTE] Backup is only one part of a complete high availability and business continuity solution. For more info about high availability, see [High Availability Solutions](https://msdn.microsoft.com/library/ms190202.aspx).
+## Eseguire il backup dei dati di SQL Server  
 
-## <a name="back-up-your-sql-server-data"></a>Back up your SQL Server data  
+Per eseguire il backup di database SQL Server con estensione abilitata, è possibile continuare a usare i metodi di backup di SQL Server attualmente in uso. Per altre informazioni, vedere [Backup e ripristino di database SQL Server](https://msdn.microsoft.com/library/ms187048.aspx).
 
-To back up your Stretch\-enabled SQL Server databases, you can continue to use the SQL Server backup methods that you currently use. For more info, see [Back Up and Restore of SQL Server Databases](https://msdn.microsoft.com/library/ms187048.aspx).
+I backup di un database con estensione abilitata contengono solo dati locali e dati idonei alla migrazione in corrispondenza del punto nel tempo in cui viene eseguito il backup (i dati idonei sono dati non ancora migrati, ma che saranno migrati in Azure in base alle impostazioni di migrazione delle tabelle). Questo è chiamato backup **superficiale** e non include i dati già migrati in Azure.
 
-Backups of a Stretch-enabled SQL Server database contain only local data and data eligible for migration at the point in time when the backup runs. \(Eligible data is data that has not yet been migrated, but will be migrated to Azure based on the migration settings of the tables.\) This is known as a **shallow** backup and does not include the data already migrated to Azure.  
+## Eseguire il backup di dati di Azure remoti   
 
-## <a name="back-up-your-remote-azure-data"></a>Back up your remote Azure data   
+Microsoft Azure esegue automaticamente il backup dei dati remoti che Estensione database ha migrato da SQL Server in Azure.
 
-Microsoft Azure automatically backs up the remote data that Stretch Database has migrated from SQL Server to Azure.  
+### Azure riduce il rischio di perdita dei dati con il backup automatico  
+Il servizio Estensione database di SQL Server in Azure protegge i database remoti con snapshot di archiviazione automatici almeno ogni 8 ore. Mantiene ogni snapshot per 7 giorni per fornire un intervallo di possibili punti di ripristino.
 
-### <a name="azure-reduces-the-risk-of-data-loss-with-automatic-backup"></a>Azure reduces the risk of data loss with automatic backup  
-The SQL Server Stretch Database service on Azure protects your remote databases with automatic storage snapshots at least every 8 hours. It retains each snapshot for 7 days to provide you with a range of possible restore points.  
+### Azure riduce il rischio di perdita dei dati con la ridondanza in più aree geografiche  
+I backup dei database di Azure vengono archiviati in archiviazioni di Azure RA-GRS ridondanti in più aree geografiche e pertanto offrono la ridondanza geografica per impostazione predefinita. Con l'archiviazione con ridondanza geografica i dati vengono replicati in un'area secondaria a centinaia di chilometri di distanza dall'area primaria. Sia nelle aree primarie che in quelle secondarie i dati vengono replicati tre volte tra domini di errore e domini di aggiornamento separati. In questo modo viene garantita la durata dei dati anche in caso di una completa interruzione del servizio a livello locale o di una calamità che rende una delle aree di Azure non disponibile.
 
-### <a name="azure-reduces-the-risk-of-data-loss-with-geo\-redundancy"></a>Azure reduces the risk of data loss with geo\-redundancy  
-Azure database backups are stored on geo\-redundant Azure Storage (RA\-GRS) and are therefore geo\-redundant by default. Geo\-redundant storage replicates your data to a secondary region that is hundreds of miles away from the primary region. In both primary and secondary regions, your data is replicated three times each, across separate fault domains and upgrade domains. This ensures that your data is durable even in the case of a complete regional outage or disaster that renders one of the Azure regions unavailable.
+### <a name="stretchRPO"></a>Estensione database riduce il rischio di perdita dei dati di Azure conservando temporaneamente le righe migrate
+Dopo che Estensione database ha eseguito la migrazione delle righe idonee da SQL Server in Azure, conserva le righe nella tabella di gestione temporanea per un minimo di 8 ore. Se si ripristina un backup del database di Azure, Estensione database usa le righe salvate nella tabella di gestione temporanea per riconciliare i database SQL Server e di Azure.
 
-### <a name="<a-name="stretchrpo"></a>stretch-database-reduces-the-risk-of-data-loss-for-your-azure-data-by-retaining-migrated-rows-temporarily"></a><a name="stretchRPO"></a>Stretch Database reduces the risk of data loss for your Azure data by retaining migrated rows temporarily
-After Stretch Database migrates eligible rows from SQL Server to Azure, it retains those rows in the staging table for a minimum of 8 hours. If you restore a backup of your Azure database, Stretch Database uses the rows saved in the staging table to reconcile the SQL Server and the Azure databases.
+Dopo aver ripristinato un backup di dati di Azure, è necessario eseguire la stored procedure [sys.sp\_rda\_reauthorize\_db](https://msdn.microsoft.com/library/mt131016.aspx) per connettere il database SQL Server con estensione abilitata con il database di Azure remoto. Quando si esegue **sys.sp\_rda\_reauthorize\_db**, Estensione database riconosce automaticamente i database SQL Server e di Azure.
 
-After you restore a backup of your Azure data, you have to run the stored procedure [sys.sp_rda_reauthorize_db](https://msdn.microsoft.com/library/mt131016.aspx) to reconnect the Stretch\-enabled SQL Server database to the remote Azure database. When you run **sys.sp_rda_reauthorize_db**, Stretch Database automatically reconciles the SQL Server and the Azure databases.
+Per aumentare il numero di ore per cui i dati migrati sono conservati da Estensione database nella tabella di gestione temporanea, eseguire la stored procedure [sys.sp\_rda\_set\_rpo\_duration](https://msdn.microsoft.com/library/mt707766.aspx) e specificare un numero di ore maggiore di 8. Per decidere la quantità di dati da conservare, considerare i fattori seguenti:
+-   La frequenza dei backup automatici di Azure (almeno ogni 8 ore).
+-   Il tempo necessario dopo un problema per riconoscere il problema e decidere di ripristinare un backup.
+-   La durata dell'operazione di ripristino di Azure.
 
-To increase the number of hours of migrated data that Stretch Database retains temporarily in the staging table, run the stored procedure [sys.sp_rda_set_rpo_duration](https://msdn.microsoft.com/library/mt707766.aspx) and specify a number of hours greater than 8. To decide how much data to retain, consider the following factors:
--   The frequency of automatic Azure backups (at least every 8 hours).
--   The time required after a problem to recognize the problem and to decide to restore a backup.
--   The duration of the Azure restore operation.
+> [AZURE.NOTE] Aumentando la quantità di dati che Estensione database deve conservare temporaneamente nella tabella di gestione temporanea aumenta la quantità di spazio necessaria in SQL Server.
 
-> [AZURE.NOTE] Increasing the amount of data that Stretch Database retains temporarily in the staging table increases the amount of space required on the SQL Server.
+Per controllare il numero di ore per cui i dati sono conservati attualmente da Estensione database nella tabella di gestione temporanea, eseguire la stored procedure [sys.sp\_rda\_get\_rpo\_duration](https://msdn.microsoft.com/library/mt707767.aspx).
 
-To check the number of hours of data that Stretch Database currently retains temporarily in the staging table, run the stored procedure [sys.sp_rda_get_rpo_duration](https://msdn.microsoft.com/library/mt707767.aspx).
+## Vedere anche
 
-## <a name="see-also"></a>See also
+[Gestire e risolvere i problemi di Database Estensione](sql-server-stretch-database-manage.md)
 
-[Manage and troubleshoot Stretch Database](sql-server-stretch-database-manage.md)
+[sys.sp\_rda\_reauthorize\_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx)
 
-[sys.sp_rda_reauthorize_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx)
+[Backup e ripristino di database SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
 
-[Back Up and Restore of SQL Server Databases](https://msdn.microsoft.com/library/ms187048.aspx)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0615_2016-->

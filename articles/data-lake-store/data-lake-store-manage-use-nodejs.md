@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Get started with Azure Data Lake Stores using Azure SDK for Node.js | Microsoft Azure"
-   description="Learn how to use Node.js to work with Data Lake Store accounts and the file system." 
+   pageTitle="Gestire archivi Azure Data Lake mediante Azure SDK per Node.js | Microsoft Azure"
+   description="Informazioni su come gestire gli account Archivio Data Lake e il file system." 
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
@@ -13,47 +13,47 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="09/27/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
-
-# <a name="get-started-with-azure-data-lake-store-using-azure-sdk-for-node.js"></a>Get started with Azure Data Lake Store using Azure SDK for Node.js
+# Gestire Archivio Azure Data Lake utilizzando Azure SDK per Node.js
 
 > [AZURE.SELECTOR]
-- [Portal](data-lake-store-get-started-portal.md)
+- [Portale](data-lake-store-get-started-portal.md)
 - [PowerShell](data-lake-store-get-started-powershell.md)
 - [.NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Java SDK](data-lake-store-get-started-java-sdk.md)
-- [REST API](data-lake-store-get-started-rest-api.md)
-- [Azure CLI](data-lake-store-get-started-cli.md)
-- [Node.js](data-lake-store-manage-use-nodejs.md)
+- [SDK per Java](data-lake-store-get-started-java-sdk.md)
+- [API REST](data-lake-store-get-started-rest-api.md)
+- [Interfaccia della riga di comando di Azure](data-lake-store-get-started-cli.md)
+- [Node.JS](data-lake-store-manage-use-nodejs.md)
 
 
-Learn how to use the Azure SDK for Node.js to create an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Store, see [Overview of Data Lake Store](data-lake-store-overview.md). Currently, the SDK supports
+L’SDK di Azure per Node.js può essere usato per gestire account Archivio Azure Data Lake e anche operazioni del file system:
 
-  *  **Node.js version: 0.10.0 or higher**
-  *  **REST API version for Account: 2015-10-01-preview**
-  *  **REST API version for FileSystem: 2015-10-01-preview**
+Attualmente supporta:
 
-## <a name="prerequisites"></a>Prerequisites
+  *  **Versione di Node.js: 0.10.0 o successiva**
+  *  **Versione dell'API REST per l'account: 2015-10-01-preview**
+  *  **Versione dell'API REST per FileSystem: 2015-10-01-anteprima**
 
-Before you begin this article, you must have the following:
+##Prerequisiti
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+Per eseguire le procedure descritte nell'articolo è necessario:
 
-- **Create an Azure Active Directory Application**. You use the Azure AD application to authenticate the Data Lake Store application with Azure AD. There are different approaches to authenticate with Azure AD, which are **end-user authentication** or **service-to-service authentication**. For instructions and more information on how to authenticate, see [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="how-to-install"></a>How to Install
+## Funzionalità
+
+- Gestione account: creare, ottenere, elencare, aggiornare ed eliminare.
+- Gestione file system: creare, ottenere, caricare, aggiungere, scaricare, leggere, eliminare, elencare.
+
+## Come eseguire l'installazione
 
 ```bash
 npm install azure-arm-datalake-store
 ```
 
-## <a name="authenticate-using-azure-active-directory"></a>Authenticate using Azure Active Directory
-
-The snippets below show two separate ways of authenticating with Data Lake Store using Azure AD. For a detailed discussion on various methods to use for authentication with Data Lake Store, see [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
-
-The snippet below also requires inputs like Azure AD domain name, client ID for an Azure AD app, etc. All these details can be retrieved from an Azure AD application that you must created, the details of which are also included in link above.
+## Eseguire l'autenticazione con Azure Active Directory
 
  ```javascript
  var msrestAzure = require('ms-rest-azure');
@@ -63,7 +63,7 @@ The snippet below also requires inputs like Azure AD domain name, client ID for 
  var credentials = new msRestAzure.ApplicationTokenCredentials('your-client-id', 'your-domain', 'your-secret');
  ```
 
-## <a name="create-the-data-lake-store-clients"></a>Create the Data Lake Store Clients
+## Creare client di Analisi Data Lake
 
 ```javascript
 var adlsManagement = require("azure-arm-datalake-store");
@@ -71,7 +71,7 @@ var acccountClient = new adlsManagement.DataLakeStoreAccountClient(credentials, 
 var filesystemClient = new adlsManagement.DataLakeStoreFileSystemClient(credentials);
 ```
 
-## <a name="create-a-data-lake-store-account"></a>Create a Data Lake Store Account
+## Creare un account Archivio Data Lake
 
 ```javascript
 var util = require('util');
@@ -108,7 +108,7 @@ client.account.create(resourceGroupName, accountName, accountToCreate, function 
 });
 ```
 
-## <a name="create-a-file-with-content"></a>Create a file with content
+## Creare un file con contenuto
 ```javascript
 var util = require('util');
 var accountName = 'testadlsacct';
@@ -127,7 +127,7 @@ filesystemClient.fileSystem.listFileStatus(accountName, fileToCreate, options, f
 });
 ```
 
-## <a name="get-a-list-of-files-and-folders"></a>Get a list of files and folders
+## Ottenere un elenco di file e cartelle
 
 ```javascript
 var util = require('util');
@@ -142,13 +142,9 @@ filesystemClient.fileSystem.listFileStatus(accountName, pathToEnumerate, functio
 });
 ```
 
-## <a name="see-also"></a>See also
+## Vedere anche
 
-- [Microsoft Azure SDK for Node.js](https://github.com/azure/azure-sdk-for-node)
-- [Microsoft Azure SDK for Node.js - Data Lake Analytics Management](https://www.npmjs.com/package/azure-arm-datalake-analytics)
+- [Microsoft Azure SDK per Node.js](https://github.com/azure/azure-sdk-for-node)
+- [Microsoft Azure SDK per Node. js - Gestione di Analisi Data Lake](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,22 +1,16 @@
-#### <a name="prerequisites"></a>Prerequisites
-- An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-- A [Dynamics CRM Online](https://www.microsoft.com/en-us/dynamics/crm-free-trial-overview.aspx) account 
+#### Prerequisiti
+- Un account Azure, che è possibile [creare gratuitamente](https://azure.microsoft.com/free)
+- Un account [Dynamics CRM Online](https://www.microsoft.com/it-IT/dynamics/crm-free-trial-overview.aspx)
 
-Before using your Dynamics account in a logic app, authorize the logic app to connect to your CRM Online account. You can do this easily within your logic app on the Azure portal. 
+Prima di usare l'account Dynamics nell'app per la logica, autorizzare l'app per la logica a connettersi al proprio account CRM Online. È possibile eseguire questa operazione in modo facile dalla propria app per la logica nel portale di Azure.
 
-Authorize your logic app to connect to your CRM Online account using the following steps:
+Attenersi alla seguente procedura per autorizzare l'app per la logica a connettersi all'account CRM Online:
 
-1. Create a logic app. In the Logic Apps designer, select **Show Microsoft managed APIs** in the drop down list, and then enter "dynamics" in the search box. Select one of the triggers or actions:  
-  ![](./media/connectors-create-api-crmonline/dynamics-triggers.png)
-2. If you haven't previously created any connections to Dynamics, you are prompted to sign in using your Dynamics credentials:  
-  ![](./media/connectors-create-api-crmonline/dynamics-signin.png)
-3. Select **Sign in**, and enter your user name and password. Select **Sign in**. 
+1. Creare un'app per la logica. Nella finestra di progettazione dell'app per la logica selezionare **Mostra API gestite da Microsoft** nell'elenco a discesa, quindi immettere "dynamics" nella casella di ricerca. Selezionare un trigger o un'azione: ![](./media/connectors-create-api-crmonline/dynamics-triggers.png)
+2. Se non sono mai state create connessioni a Dynamics prima d'ora, verrà chiesto di effettuare l'accesso utilizzando le credenziali di Dynamics: ![](./media/connectors-create-api-crmonline/dynamics-signin.png)
+3. Fare clic su **Accedi**, quindi immettere il nome utente e la password. Fare clic su **Accedi**.
 
-    These credentials are used to authorize your logic app to connect to, and access the data in your Dynamics account. 
-4. Notice the connection has been created. Now, proceed with the other steps in your logic app:  
-  ![](./media/connectors-create-api-crmonline/dynamics-properties.png)
+	Queste credenziali vengono usate per autorizzare l'app per la logica a connettersi e ad accedere ai dati presenti nell'account Dynamics.
+4. La connessione è stata creata. A questo punto, procedere con gli altri passaggi nell'app per la logica: ![](./media/connectors-create-api-crmonline/dynamics-properties.png)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

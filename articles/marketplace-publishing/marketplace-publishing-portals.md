@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Overview of the various portals needed to create an offer for the Marketplace | Microsoft Azure"
-   description="Overview of the various portals needed to create an offer for the Marketplace"
+   pageTitle="Panoramica dei vari portali necessari per creare un'offerta per Marketplace | Microsoft Azure"
+   description="Panoramica dei vari portali necessari per creare un'offerta per Marketplace"
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
@@ -17,42 +17,37 @@
    ms.author="hascipio" />
 
 
-
-# <a name="portals-you-will-need"></a>Portals you will need
-Before you start the process of publishing an offer, let’s get you introduced to the various portals that you will need. Below is the short summary about the portals--Developer Center, Azure Publishing Portal, and Azure Portal--in the order that you will interact with them.                                                                            
-## <a name="developer-center"></a>Developer Center
+# Portali necessari
+Prima di iniziare il processo di pubblicazione di un’offerta, è necessario fornire alcune informazioni sui diversi portali che saranno necessari. Di seguito sono riepilogati i portali (centro per sviluppatori, portale di pubblicazione di Azure e portale di Azure) nell'ordine in cui si interagirà con loro.
+## Centro per sviluppatori
 [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
-### <a name="description"></a>Description
-Creating your Microsoft Developer Center account is a one-time task. Make sure that the company does not already have a Developer Center account before you attempt to create one. During the process, we collect bank account information, tax information, and company address information.
+### Descrizione
+La creazione dell'account del Centro per sviluppatori Microsoft è un'attività una-tantum. Assicurarsi che la società non possieda già un account per il Centro per sviluppatori prima di tentare di crearne uno. Durante il processo, Microsoft raccoglie le informazioni sul conto bancario, i dati fiscali e le informazioni sull'indirizzo dell'azienda.
 
-> [AZURE.NOTE] If you are publishing only free offers (or bring-your-own-license offers), we do not require tax and bank information.
+> [AZURE.NOTE] Se si intende pubblicare solo offerte gratuite (oppure offerte Bring Your Own License), le informazioni fiscali e bancarie non sono necessarie.
 
-### <a name="identity/account-used"></a>Identity/account used
-Ideally, this is a distribution list or a security group (e.g., azurepublishing@*partnercompany*.com). The distribution list or security group **must** be registered as a Microsoft account.
+### Identità/account usato
+Idealmente, questa è una lista di distribuzione o un gruppo di sicurezza (ad esempio azurepublishing@*partnercompany*.com). La lista di distribuzione o il gruppo di sicurezza **devono** essere registrati come un account Microsoft.
 
-> [AZURE.TIP] We recommend using a distribution list or a security group because it removes the dependency on any individual, although an individual account can be used as well.
+> [AZURE.TIP] È consigliabile usare una lista di distribuzione o un gruppo di sicurezza perché in questo modo si elimina la dipendenza da una singola persona. È comunque possibile usare anche un singolo account.
 
-## <a name="publishing-portal"></a>Publishing portal
+## Portale di pubblicazione
 [https://publish.windowsazure.com](https://publish.windowsazure.com)
 
-### <a name="description"></a>Description
-This is the portal that you use to work on the offer and to publish it (marketing, pricing, publishing, certification if applicable, etc.).
+### Descrizione
+Questo è il portale per lavorare sull'offerta e pubblicarla (marketing, prezzi, pubblicazione, eventuale certificazione e così via).
 
-### <a name="identity/account-used"></a>Identity/account used
-The above distribution list or security group must be used for the first time to sign in to the publishing portal. Later, other users can be added as co-admins. This is how it gets mapped to the Developer Center registration data.
+### Identità/account usato
+Il gruppo di protezione o l’elenco distribuzione precedente devono essere utilizzati per la prima volta che si accede al portale di pubblicazione. Successivamente, altri utenti possono essere aggiunti come coamministratori. In questo modo viene eseguita l'associazione ai dati di registrazione del Centro per sviluppatori.
 
-## <a name="azure-portal"></a>Azure Portal
+## Portale di Azure
 [https://portal.azure.com](https://portal.azure.com)
-### <a name="description"></a>Description
-This is the portal where you can view your staged and published offers in the Azure Marketplace (applicable for VMs, solution templates, and Azure Resource Manager-based developer services).
-### <a name="identity/account-used"></a>Identity/account used
-While you're staging an offer from the publishing portal, a subscription ID needs to be whitelisted. The same subscription (there is a user name and password associated with it) needs to be used for signing in to this portal to test the staged offer.
+### Descrizione
+Questo è il portale in cui è possibile visualizzare le proprie offerte in gestione temporanea e pubblicate in Azure Marketplace (applicabile per VM, modelli di soluzioni e servizi per gli sviluppatori basati su Gestione risorse di Azure)
+### Identità/account usato
+Durante la gestione temporanea dell'offerta dal portale di pubblicazione, deve essere consentito un ID di sottoscrizione. La stessa sottoscrizione (sono associati un nome utente e una password) deve essere usata durante l'accesso a questo portale per testare l'offerta in gestione temporanea.
 
-## <a name="see-also"></a>See also
-- [Getting started: How to publish an offer for the Azure Marketplace](marketplace-publishing-getting-started.md)
+## Vedere anche
+- [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

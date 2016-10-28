@@ -1,12 +1,10 @@
-## <a name="create-an-azure-storage-account"></a>Create an Azure storage account
+## Creare un account di archiviazione di Azure
 
-The easiest way to create your first Azure storage account is by using the [Azure Portal](https://portal.azure.com). To learn more, see [Create a storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account).
+Il modo più semplice per creare il primo account di archiviazione di Azure consiste nell'usare il [portale di Azure](https://portal.azure.com). Per altre informazioni, vedere [Creare un account di archiviazione](../articles/storage/storage-create-storage-account.md#create-a-storage-account).
 
-You can also create an Azure storage account by using [Azure PowerShell](../articles/storage/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/storage-azure-cli.md), or the [Storage Resource Provider Client Library for .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx).
+È anche possibile creare un account di archiviazione di Azure tramite [Azure PowerShell](../articles/storage/storage-powershell-guide-full.md), l'[interfaccia della riga di comando di Azure](../articles/storage/storage-azure-cli.md) o la [libreria client del provider di risorse di archiviazione per .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx).
 
-If you prefer not to create a storage account at this time, you can also use the Azure storage emulator to run and test your code in a local environment. For more information, see [Use the Azure Storage Emulator for Development and Testing](../articles/storage/storage-use-emulator.md).
+Se si preferisce non creare un account di archiviazione in questa fase, è anche possibile usare l'emulatore di archiviazione di Azure per eseguire e testare il codice in un ambiente locale. Per altre informazioni, vedere [Usare l'emulatore di archiviazione di Azure per sviluppo e test](../articles/storage/storage-use-emulator.md).
  
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0406_2016-->

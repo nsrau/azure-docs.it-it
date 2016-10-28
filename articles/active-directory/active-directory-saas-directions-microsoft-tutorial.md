@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with Directions on Microsoft | Microsoft Azure" 
-    description="Learn how to use Directions on Microsoft with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Directions on Microsoft | Microsoft Azure" 
+    description="Informazioni su come usare Directions on Microsoft con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,113 +11,105 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="09/29/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
+#Esercitazione: Integrazione di Azure Active Directory con Directions on Microsoft
 
-#<a name="tutorial:-azure-active-directory-integration-with-directions-on-microsoft"></a>Tutorial: Azure Active Directory integration with Directions on Microsoft
+Questa esercitazione descrive l'integrazione di Azure Active Directory e Directions on Microsoft. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
-The objective of this tutorial is to show the integration of Azure Active Directory and Directions on Microsoft.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+-   Sottoscrizione di Azure valida
+-   Sottoscrizione di Directions on Microsoft
 
--   A valid Azure subscription
--   A Directions on Microsoft subscription
+Se ancora non si ha una sottoscrizione federata di Directions on Microsoft, inviare una richiesta all'indirizzo "*service@DirectionsOnMicrosoft.com*".
 
-If you don’t have a federated Directions on Microsoft subscription yet, email a request to “*service@DirectionsOnMicrosoft.com*”.
+Al termine dell'esercitazione, gli utenti di Azure Active Directory assegnati a Directions on Microsoft potranno eseguire l'accesso Single Sign-On all'applicazione usando Single Sign-On.
 
-After completing this tutorial, the Azure Active Directory users you have assigned to Directions on Microsoft will be able to single sign into the application using single sign-on.
+Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
-The scenario outlined in this tutorial consists of the following building blocks:
-
-1.  Enabling the application integration for Directions on Microsoft
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+1.  Abilitazione dell'integrazione dell'applicazione per Directions on Microsoft
+2.  Configurazione dell'accesso Single Sign-On
+3.  Configurazione del provisioning utente
+4.  Assegnazione degli utenti
 
 ![Scenario](./media/active-directory-saas-directions-microsoft-tutorial/IC786877.png "Scenario")
-##<a name="enabling-the-application-integration-for-directions-on-microsoft"></a>Enabling the application integration for Directions on Microsoft
+##Abilitazione dell'integrazione dell'applicazione per Directions on Microsoft
 
-The objective of this section is to outline how to enable the application integration for Directions on Microsoft.
+Questa sezione descrive come abilitare l'integrazione dell'applicazione per Directions on Microsoft.
 
-###<a name="to-enable-the-application-integration-for-directions-on-microsoft,-perform-the-following-steps:"></a>To enable the application integration for Directions on Microsoft, perform the following steps:
+###Per abilitare l'integrazione dell'applicazione per Directions on Microsoft, seguire questa procedura:
 
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-directions-microsoft-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-    ![Applications](./media/active-directory-saas-directions-microsoft-tutorial/IC700994.png "Applications")
+    ![Applicazioni](./media/active-directory-saas-directions-microsoft-tutorial/IC700994.png "Applicazioni")
 
-4.  Click **Add** at the bottom of the page.
+4.  Fare clic su **Add** nella parte inferiore della pagina.
 
-    ![Add application](./media/active-directory-saas-directions-microsoft-tutorial/IC749321.png "Add application")
+    ![Aggiunta di un'applicazione](./media/active-directory-saas-directions-microsoft-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-directions-microsoft-tutorial/IC749322.png "Add an application from gallerry")
+    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-directions-microsoft-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
-6.  In the **search box**, type **Directions on Microsoft**.
+6.  Nella **casella di ricerca** digitare **Directions on Microsoft**.
 
-    ![Application Gallery](./media/active-directory-saas-directions-microsoft-tutorial/IC786878.png "Application Gallery")
+    ![Raccolta di applicazioni](./media/active-directory-saas-directions-microsoft-tutorial/IC786878.png "Raccolta di applicazioni")
 
-7.  In the results pane, select **Directions on Microsoft**, and then click **Complete** to add the application.
+7.  Nel riquadro dei risultati selezionare **Directions on Microsoft** e quindi fare clic su **Completa** per aggiungere l'applicazione.
 
     ![Scenario](./media/active-directory-saas-directions-microsoft-tutorial/IC793922.png "Scenario")
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Configurazione dell'accesso Single Sign-On
 
-The objective of this section is to outline how to enable users to authenticate to Directions on Microsoft with their account in Azure AD using federation based on the SAML protocol.
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Directions on Microsoft tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  In the Azure classic portal, on the **Directions on Microsoft** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  Nella pagina di integrazione dell'applicazione **Directions on Microsoft** nel portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Enable Single Sign-On](./media/active-directory-saas-directions-microsoft-tutorial/IC786879.png "Enable Single Sign-On")
+    ![Abilitazione dell'accesso Single Sign-On](./media/active-directory-saas-directions-microsoft-tutorial/IC786879.png "Abilitazione dell'accesso Single Sign-On")
 
-2.  On the **How would you like users to sign on to Directions on Microsoft** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a Directions on Microsoft** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
 
-    ![Microsoft Azure AD Singel Sign-On](./media/active-directory-saas-directions-microsoft-tutorial/IC786880.png "Microsoft Azure AD Singel Sign-On")
+    ![Single Sign-On di Microsoft Azure AD](./media/active-directory-saas-directions-microsoft-tutorial/IC786880.png "Single Sign-On di Microsoft Azure AD")
 
-3.  On the **Configure App URL** page, in the Sign On URL textbox, type **https://www.directionsonmicrosoft.com/user/login**, and then click **Next**.
+3.  Nella pagina **Configura URL app** digitare **https://www.directionsonmicrosoft.com/user/login** nella casella di testo URL di accesso e quindi fare clic su **Avanti**.
 
-    ![Configure App URL](./media/active-directory-saas-directions-microsoft-tutorial/IC786881.png "Configure App URL")
+    ![Configura URL app](./media/active-directory-saas-directions-microsoft-tutorial/IC786881.png "Configura URL app")
 
-4.  On the **Configure single sign-on at Directions on Microsoft** page, click **Download metadata**, and then save the metadata file locally on your computer.
+4.  Nella pagina **Configura accesso Single Sign-On in Directions on Microsoft** fare clic su **Download metadati** e quindi salvare il file di metadati localmente nel computer.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-directions-microsoft-tutorial/IC786882.png "Configure Single Sign-On")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-directions-microsoft-tutorial/IC786882.png "Configura accesso Single Sign-On")
 
-5.  Send the metadata file to the Directions on Microsoft support team (*service@DirectionsOnMicrosoft.com*). To enable the Directions on Microsoft support team to locate your federated site membership, include your company information in your email.
+5.  Inviare il file di metadati al team di supporto di Directions on Microsoft (*service@DirectionsOnMicrosoft.com*). Per consentire al team di supporto di Directions on Microsoft di trovare l'appartenenza al sito federato, includere nel messaggio di posta elettronica le informazioni relative alla società.
 
-    >[AZURE.NOTE] Single sign-on for Directions on Microsoft needs to be enabled by the Directions on Microsoft support team.
-You will receive a notification when single sign-on has been enabled.
+    >[AZURE.NOTE] L'accesso Single Sign-On per Directions on Microsoft deve essere abilitato dal team di supporto di Directions on Microsoft. Quando l'accesso Single Sign-On verrà abilitato, si riceverà una notifica.
 
-6.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+6.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-directions-microsoft-tutorial/IC786883.png "Configure Single Sign-On")
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-directions-microsoft-tutorial/IC786883.png "Configura accesso Single Sign-On")
+##Configurazione del provisioning utente
 
-There is no action item for you to configure user provisioning to Directions on Microsoft.  
-When an assigned user tries to log into Directions on Microsoft using the access panel, Directions on Microsoft checks whether the user exists. If there is no user account available yet, it is automatically created by Directions on Microsoft.
-##<a name="assigning-users"></a>Assigning users
+Non è richiesto alcun intervento dell'utente per configurare il provisioning degli utenti in Directions on Microsoft. Quando un utente assegnato prova ad accedere a Directions on Microsoft usando il pannello di accesso, Directions on Microsoft verifica se l'utente esiste. Se l'account utente non è presente, Directions on Microsoft lo crea automaticamente.
+##Assegnazione degli utenti
 
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
-###<a name="to-assign-users-to-directions-on-microsoft,-perform-the-following-steps:"></a>To assign users to Directions on Microsoft, perform the following steps:
+###Per assegnare gli utenti a Directions on Microsoft seguire questa procedura:
 
-1.  In the Azure classic portal, create a test account.
+1.  Nel portale di Azure classico creare un account di test.
 
-2.  On the **Directions on Microsoft **application integration page, click **Assign users**.
+2.  Nella pagina di integrazione dell'applicazione **Directions on Microsoft ** fare clic su **Assegna utenti**.
 
-    ![Assign users](./media/active-directory-saas-directions-microsoft-tutorial/IC786884.png "Assign users")
+    ![Assegna utenti](./media/active-directory-saas-directions-microsoft-tutorial/IC786884.png "Assegna utenti")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
-    ![Yes](./media/active-directory-saas-directions-microsoft-tutorial/IC767830.png "Yes")
+    ![Sì](./media/active-directory-saas-directions-microsoft-tutorial/IC767830.png "Sì")
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

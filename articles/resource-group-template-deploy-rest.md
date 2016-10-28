@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Deploy resources with REST API and template | Microsoft Azure"
-   description="Use Azure Resource Manager and Resource Manager REST API to deploy a resources to Azure. The resources are defined in a Resource Manager template."
+   pageTitle="Distribuire le risorse con il modello e l'API REST | Microsoft Azure"
+   description="Utilizzare Azure Resource Manager e l'API REST di Resource Manager per distribuire una risorsa in Azure. Le risorse sono definite in un modello di Resource Manager."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,29 +16,28 @@
    ms.date="07/11/2016"
    ms.author="tomfitz"/>
 
-
-# <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Deploy resources with Resource Manager templates and Resource Manager REST API
+# Distribuire le risorse con i modelli e l'API REST di Resource Manager
 
 > [AZURE.SELECTOR]
 - [PowerShell](resource-group-template-deploy.md)
-- [Azure CLI](resource-group-template-deploy-cli.md)
-- [Portal](resource-group-template-deploy-portal.md)
-- [REST API](resource-group-template-deploy-rest.md)
+- [Interfaccia della riga di comando di Azure](resource-group-template-deploy-cli.md)
+- [Portale](resource-group-template-deploy-portal.md)
+- [API REST](resource-group-template-deploy-rest.md)
 
-This article explains how to use the Resource Manager REST API with Resource Manager templates to deploy your resources to Azure.  
+In questo articolo viene illustrato come utilizzare l'API REST di Resource Manager con i modelli di Resource Manager per distribuire le risorse in Azure.
 
-> [AZURE.TIP] For help with debugging an error during deployment, see:
+> [AZURE.TIP] Per informazioni su come eseguire il debug di un errore durante la distribuzione, vedere:
 >
-> - [View deployment operations with REST API](resource-manager-troubleshoot-deployments-rest.md) to learn about getting information that helps you troubleshoot your error
-> - [Troubleshoot common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md) to learn how to resolve common deployment errors
+> - [Visualizzare le operazioni di distribuzione con l'API REST di Azure Resource Manager](resource-manager-troubleshoot-deployments-rest.md), per ottenere informazioni su come risolvere l'errore
+> - [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md) per informazioni sulla risoluzione degli errori di distribuzione più comuni
 
-Your template can be either a local file or an external file that is available through a URI. When your template resides in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
+Il modello può essere un file locale oppure un file esterno disponibile tramite un URI. Quando il modello si trova in un account di archiviazione, è possibile limitare l'accesso al modello e fornire un token di firma di accesso condiviso in fase di distribuzione.
 
 [AZURE.INCLUDE [resource-manager-deployments](../includes/resource-manager-deployments.md)]
 
-## <a name="deploy-with-the-rest-api"></a>Deploy with the REST API
-1. Set [common parameters and headers](https://msdn.microsoft.com/library/azure/8d088ecc-26eb-42e9-8acc-fe929ed33563#bk_common), including authentication tokens.
-2. If you do not have an existing resource group, create a resource group. Provide your subscription id, the name of the new resource group, and location that you need for your solution. For more information, see [Create a resource group](https://msdn.microsoft.com/library/azure/dn790525.aspx).
+## Distribuire con l'API REST
+1. Impostare [parametri e intestazioni comuni](https://msdn.microsoft.com/library/azure/8d088ecc-26eb-42e9-8acc-fe929ed33563#bk_common), tra cui i token di autenticazione.
+2. Se non è già disponibile un gruppo di risorse, crearne uno. Specificare l'ID sottoscrizione, il nome del nuovo gruppo di risorse e il percorso per la soluzione. Per ulteriori informazioni, vedere [Creare un gruppo di risorse](https://msdn.microsoft.com/library/azure/dn790525.aspx).
 
         PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2015-01-01
           <common headers>
@@ -49,9 +48,9 @@ Your template can be either a local file or an external file that is available t
             }
           }
    
-3. Validate your deployment before executing it by running the [Validate a template deployment](https://msdn.microsoft.com/library/azure/dn790547.aspx) operation. When testing the deployment, provide parameters exactly as you would when executing the deployment (shown in the next step).
+3. Convalidare la distribuzione prima dell'esecuzione eseguendo l'operazione [Convalidare la distribuzione di un modello](https://msdn.microsoft.com/library/azure/dn790547.aspx). Durante il test della distribuzione, specificare i parametri esattamente come quando si esegue la distribuzione (illustrata nel passaggio successivo).
 
-3. Create a deployment. Provide your subscription id, the name of the resource group to deploy, the name of the deployment, and a link to your template. For information about the template file, see [Parameter file](#parameter-file). For more information about the REST API to create a resource group, see [Create a template deployment](https://msdn.microsoft.com/library/azure/dn790564.aspx). Notice the **mode** is set to **Incremental**. To run a complete deployment, set **mode** to **Complete**. Be careful when using the complete mode as you can inadvertently delete resources that are not in your template.
+3. Creare una distribuzione. Fornire l'ID sottoscrizione, il nome del gruppo di risorse da distribuire, il nome della distribuzione e un collegamento al modello. Per informazioni sul file di modello, vedere [File di parametri](./#parameter-file). Per altre informazioni sull'API REST per creare un gruppo di risorse, vedere [Creare la distribuzione di un modello](https://msdn.microsoft.com/library/azure/dn790564.aspx). Si noti che la **modalità** è impostata su **Incremental**. Per eseguire una distribuzione completa, impostare **Mode** su **Complete**. Quando si utilizza la modalità di completamento, fare attenzione a non eliminare inavvertitamente le risorse non presenti nel modello.
     
         PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
           <common headers>
@@ -69,29 +68,25 @@ Your template can be either a local file or an external file that is available t
             }
           }
    
-      If you want to log response content, request content, or both, include **debugSetting** in the request.
+      Per registrare il contenuto della risposta, il contenuto della richiesta o entrambi, includere **debugSetting** nella richiesta.
 
         "debugSetting": {
           "detailLevel": "requestContent, responseContent"
         }
 
-      You can set up your storage account to use a shared access signature (SAS) token. For more information, see [Delegating Access with a Shared Access Signature](https://msdn.microsoft.com/library/ee395415.aspx).
+      È possibile impostare l'account di archiviazione per l'utilizzzo di un token di firma di accesso condiviso (SAS). Per altre informazioni, vedere [Delega dell'accesso con una firma di accesso condiviso](https://msdn.microsoft.com/library/ee395415.aspx).
 
-4. Get the status of the template deployment. For more information, see [Get information about a template deployment](https://msdn.microsoft.com/library/azure/dn790565.aspx).
+4. Ottenere lo stato della distribuzione del modello. Per altre informazioni, vedere [Ottenere informazioni sulla distribuzione di un modello](https://msdn.microsoft.com/library/azure/dn790565.aspx).
 
           GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
            <common headers>
 
 [AZURE.INCLUDE [resource-manager-parameter-file](../includes/resource-manager-parameter-file.md)]
 
-## <a name="next-steps"></a>Next steps
-- For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](virtual-machines/virtual-machines-windows-csharp-template.md).
-- To define parameters in template, see [Authoring templates](resource-group-authoring-templates.md#parameters).
-- For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](solution-dev-test-environments.md).
-- For details about using a KeyVault reference to pass secure values, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md).
+## Passaggi successivi
+- Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere [Distribuire una macchina virtuale di Azure con C# e un modello di Azure Resource Manager](virtual-machines/virtual-machines-windows-csharp-template.md).
+- Per definire i parametri nel modello, vedere [Creazione di modelli](resource-group-authoring-templates.md#parameters).
+- Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](solution-dev-test-environments.md).
+- Per informazioni dettagliate sull'uso di un riferimento KeyVault per passare valori protetti, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,67 +1,60 @@
 <properties
-    pageTitle=" Scale Media Processing using the Azure portal | Microsoft Azure"
-    description="This tutorial walks you through the steps of scaling Media Processing using the Azure portal."
-    services="media-services"
-    documentationCenter=""
-    authors="Juliako"
-    manager="erikre"
-    editor=""/>
+	pageTitle=" Ridimensionare l'elaborazione di contenuti mediante il portale di Azurel | Microsoft Azure"
+	description="Questa esercitazione descrive i passaggi per ridimensionare l'elaborazione multimediale mediante il portale di Azure."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/01/2016"
-    ms.author="juliako"/>
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2016"
+	ms.author="juliako"/>
 
-
-# <a name="change-the-reserved-unit-type"></a>Change the reserved unit type
+# Modificare il tipo di unità riservata
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
-- [Portal](media-services-portal-scale-media-processing.md)
+- [Portale](media-services-portal-scale-media-processing.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 - [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
-## <a name="overview"></a>Overview
+## Overview
 
->[AZURE.IMPORTANT] Make sure to review the [overview](media-services-scale-media-processing-overview.md) topic to get more information about scaling media processing topic.
+>[AZURE.IMPORTANT] Per altre informazioni sul ridimensionamento dell'elaborazione multimediale, vedere questo argomento di [panoramica](media-services-scale-media-processing-overview.md).
 
-## <a name="scale-media-processing"></a>Scale media processing
+## Ridimensionare l'elaborazione di contenuti multimediali
 
-To change the reserved unit type and the number of reserved units, do the following:
+Per modificare il tipo di unità riservata e il numero di unità riservate, effettuare le operazioni seguenti:
 
-1. Log in at the [Azure portal](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. In the **Settings** window, select **Media reserved units**.
+2. Nella finestra **Impostazioni** selezionare **Media Reserved Unit**.
 
-    To change the number of reserved units for the selected reserved unit type, use the **Media Served Units** slider.
+	Per cambiare il numero di unità riservate per il tipo selezionato, usare il dispositivo di scorrimento **Media Served Units**.
 
-    To change the **RESERVED UNIT TYPE**, press S1, S2, or S3.
+	Per cambiare il **TIPO DI UNITÀ RISERVATA**, scegliere S1, S2 o S3.
 
-    ![Processors page](./media/media-services-portal-scale-media-processing/media-services-scale-media-processing.png)
+	![Pagina relativa ai processori](./media/media-services-portal-scale-media-processing/media-services-scale-media-processing.png)
 
-3. Press the SAVE button to save your changes.
+3. Fare clic sul pulsante SAVE per salvare le modifiche apportate.
 
-    The new reserved units are allocated when you press SAVE.
+	Le nuove unità riservate vengono allocate quando si fa clic su SALVA.
 
-##<a name="next-steps"></a>Next steps
+##Passaggi successivi
 
-Review Media Services learning paths.
+Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="provide-feedback"></a>Provide feedback
+##Fornire commenti e suggerimenti
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

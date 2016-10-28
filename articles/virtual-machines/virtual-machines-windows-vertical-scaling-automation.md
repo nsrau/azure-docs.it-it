@@ -1,96 +1,91 @@
 <properties
-    pageTitle="Vertically scale Azure virtual machines with Azure Automation | Microsoft Azure"
-    description="How to vertically scale a Windows Virtual Machine in response to monitoring alerts with Azure Automation"
-    services="virtual-machines-windows"
-    documentationCenter=""
-    authors="singhkays"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+	pageTitle="Scalabilità verticale di macchine virtuali di Azure tramite Automazione di Azure | Microsoft Azure"
+	description="Come eseguire la scalabilità verticale di una macchina virtuale Windows in risposta agli avvisi di monitoraggio tramite Automazione di Azure"
+	services="virtual-machines-windows"
+	documentationCenter=""
+	authors="singhkays"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/29/2016"
-    ms.author="singhkay"/>
+	ms.service="virtual-machines-windows"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/29/2016"
+	ms.author="singhkay"/>
 
+# Scalabilità verticale di macchine virtuali di Azure tramite Automazione di Azure
 
-# <a name="vertically-scale-azure-virtual-machines-with-azure-automation"></a>Vertically scale Azure virtual machines with Azure Automation
+La scalabilità verticale è il processo di aumento o riduzione delle risorse di una macchina in risposta al carico di lavoro. In Azure tale operazione può essere eseguita modificando le dimensioni della macchina virtuale. Può essere utile negli scenari seguenti:
 
-Vertical scaling is the process of increasing or decreasing the resources of a machine in response to the workload. In Azure this can be accomplished by changing the size of the Virtual Machine. This can help in the following scenarios
+- Se la macchina virtuale non viene usata di frequente, è possibile diminuirne le dimensioni per ridurre i costi mensili
+- Se nella macchina virtuale si osserva un picco di carico, è possibile aumentarne le dimensioni per una maggiore capacità
 
-- If the Virtual Machine is not being used frequently, you can resize it down to a smaller size to reduce your monthly costs
-- If the Virtual Machine is seeing a peak load, it can be resized to a larger size to increase its capacity
+Per eseguire questa operazione, seguire questa procedura:
 
-The outline for the steps to accomplish this is as below
+1. Configurare Automazione di Azure per l'accesso alle macchine virtuali
+2. Importare i runbook di scalabilità verticale di Automazione di Azure nella sottoscrizione
+3. Aggiungere un webhook al runbook
+4. Aggiungere un avviso alla macchina virtuale
 
-1. Setup Azure Automation to access your Virtual Machines
-2. Import the Azure Automation Vertical Scale runbooks into your subscription
-3. Add a webhook to your runbook
-4. Add an alert to your Virtual Machine
+> [AZURE.NOTE] A causa delle dimensioni della prima macchina virtuale, le dimensioni a cui la macchina può essere ridimensionata possono essere limitate a seconda della disponibilità di altre dimensioni nel cluster in cui viene distribuita la macchina virtuale corrente. Nei runbook di automazione pubblicati usati in questo articolo viene considerato questo caso e la scalabilità viene applicata solo all'interno delle coppie di dimensioni delle macchine virtuali seguenti. Pertanto, una macchina virtuale Standard\_D1v2 non verrà improvvisamente ridimensionata verso l'alto a una Standard\_G5 o verso il basso a una Basic\_A0.
 
-> [AZURE.NOTE] Because of the size of the first Virtual Machine, the sizes it can be scaled to, may be limited due to the availability of the other sizes in the cluster current Virtual Machine is deployed in. In the published automation runbooks used in this article we take care of this case and only scale within the below VM size pairs. This means that a Standard_D1v2 Virtual Machine will not suddenly be scaled up to Standard_G5 or scaled down to Basic_A0.
-
->| VM sizes scaling pair |   |
+>| coppie di ridimensionamento di dimensioni delle macchine virtuali | |
 |---|---|
-|  Basic_A0 |  Basic_A4 |
-|  Standard_A0 | Standard_A4 |
-|  Standard_A5 | Standard_A7  |
-|  Standard_A8 | Standard_A9  |
-|  Standard_A10 |  Standard_A11 |
-|  Standard_D1 |  Standard_D4 |
-|  Standard_D11 | Standard_D14  |
-|  Standard_DS1 |  Standard_DS4 |
-|  Standard_DS11 | Standard_DS14  |
-|  Standard_D1v2 |  Standard_D5v2 |
-|  Standard_D11v2 |  Standard_D14v2 |
-|  Standard_G1 |  Standard_G5 |
-|  Standard_GS1 |  Standard_GS5 |
+| Basic\_A0 | Basic\_A4 |
+| Standard\_A0 | Standard\_A4 |
+| Standard\_A5 | Standard\_A7 |
+| Standard\_A8 | Standard\_A9 |
+| Standard\_A10 | Standard\_A11 |
+| Standard\_D1 | Standard\_D4 |
+| Standard\_D11 | Standard\_D14 |
+| Standard\_DS1 | Standard\_DS4 |
+| Standard\_DS11 | Standard\_DS14 |
+| Standard\_D1v2 | Standard\_D5v2 |
+| Standard\_D11v2 | Standard\_D14v2 |
+| Standard\_G1 | Standard\_G5 |
+| Standard\_GS1 | Standard\_GS5 |
 
-## <a name="setup-azure-automation-to-access-your-virtual-machines"></a>Setup Azure Automation to access your Virtual Machines
+## Configurare Automazione di Azure per l'accesso alle macchine virtuali
 
-The first thing you need to do is create an Azure Automation account that will host the runbooks used to scale a Virtual Machine. Recently the Automation service introduced the "Run As account" feature which makes setting up the Service Principal for automatically running the runbooks on the user's behalf very easy. You can read more about this in the article below:
+La prima operazione da eseguire è creare l'account di Automazione di Azure che ospiterà i runbook usati per ridimensionare una macchina virtuale. Il servizio Automazione ha introdotto di recente la funzionalità "Account RunAs", che semplifica molto l'impostazione dell'entità servizio per l'esecuzione automatica di runbook per conto dell'utente. Altre informazioni sono disponibili nell'articolo seguente.
 
-* [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md)
+* [Autenticare runbook con account RunAs di Azure](../automation/automation-sec-configure-azure-runas-account.md)
 
-## <a name="import-the-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Import the Azure Automation Vertical Scale runbooks into your subscription
+## Importare i runbook di scalabilità verticale di Automazione di Azure nella sottoscrizione
 
-The runbooks that are needed for Vertically Scaling your Virtual Machine are already published in the Azure Automation Runbook Gallery. You will need to import them into your subscription. You can learn how to import runbooks by reading the following article.
+I runbook necessari per la scalabilità verticale della macchina virtuale sono già stati pubblicati nella raccolta dei runbook di Automazione di Azure. Sarà necessario importarli nella sottoscrizione. Per informazioni sull'importazione dei runbook, vedere l'articolo seguente:
 
-* [Runbook and module galleries for Azure Automation](../automation/automation-runbook-gallery.md)
+* [Raccolte di runbook e moduli per l'automazione di Azure](../automation/automation-runbook-gallery.md)
 
-The runbooks that need to be imported are shown in the image below
+I runbook da importare sono visualizzati nell'immagine seguente:
 
-![Import runbooks](./media/virtual-machines-vertical-scaling-automation/scale-runbooks.png)
+![Importazione runbook](./media/virtual-machines-vertical-scaling-automation/scale-runbooks.png)
 
-## <a name="add-a-webhook-to-your-runbook"></a>Add a webhook to your runbook
+## Aggiungere un webhook al runbook
 
-Once you've imported the runbooks you'll need to add a webhook to the runbook so it can be triggered by an alert from a Virtual Machine. The details of creating a webhook for your Runbook can be read here
+Dopo aver importato i runbook, è necessario aggiungere un webhook al runbook in modo che possa essere attivato da un avviso da una macchina virtuale. Informazioni dettagliate sulla creazione di un webhook per il runbook sono disponibili nell'articolo seguente:
 
-* [Azure Automation webhooks](../automation/automation-webhooks.md)
+* [Webhook di Automazione di Azure](../automation/automation-webhooks.md)
 
-Make sure you copy the webhook before closing the webhook dialog as you will need this in the next section.
+Assicurarsi di copiare il webhook prima di chiudere la finestra di dialogo del webhook, in quanto sarà necessario nella sezione successiva.
 
-## <a name="add-an-alert-to-your-virtual-machine"></a>Add an alert to your Virtual Machine
+## Aggiungere un avviso alla macchina virtuale
 
-1. Select Virtual Machine settings
-2. Select "Alert rules"
-3. Select "Add alert"
-4. Select a metric to fire the alert on
-5. Select a condition, which when fulfilled will cause the alert to fire
-6. Select a threshold for the condition in Step 5. to be fulfilled
-7. Select a period over which the monitoring service will check for the condition and threshold in Steps 5 & 6
-8. Paste in the webhook you copied from the previous section.
+1. Selezionare le impostazioni della macchina virtuale
+2. Selezionare "Regole di avviso"
+3. Selezionare "Aggiungi avviso"
+4. Selezionare una metrica per attivare l'avviso
+5. Selezionare una condizione che, se soddisfatta, farà generare l'avviso
+6. Selezionare una soglia affinché la condizione nel passaggio 5 sia soddisfatta.
+7. Selezionare un periodo in cui il servizio di monitoraggio verificherà la condizione e la soglia dei passaggi 5 e 6
+8. Incollare il webhook copiato dalla sezione precedente
 
-![Add Alert to Virtual Machine 1](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-1.png)
+![Aggiunta di un avviso alla macchina virtuale 1](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-1.png)
 
-![Add Alert to Virtual Machine 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
+![Aggiunta di un avviso alla macchina virtuale 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

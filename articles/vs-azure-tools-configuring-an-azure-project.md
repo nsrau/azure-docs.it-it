@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configure an Azure Cloud Service Project with Visual Studio | Microsoft Azure"
-   description="Learn how to configure an Azure cloud service project in Visual Studio, depending on your requirements for that project."
+   pageTitle="Configurare un progetto di servizio cloud di Azure con Visual Studio | Microsoft Azure"
+   description="Informazioni su come configurare un progetto di servizio cloud di Azure in Visuali Studio, in base ai requisiti specifici per il progetto."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,55 +15,50 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Configurare un progetto di servizio cloud di Azure con Visual Studio
 
-# <a name="configure-an-azure-cloud-service-project-with-visual-studio"></a>Configure an Azure Cloud Service Project with Visual Studio
+È possibile configurare un progetto di servizio cloud di Azure, in base ai requisiti specifici per il progetto. È possibile impostare proprietà per il progetto per le categorie seguenti:
 
-You can configure an Azure cloud service project, depending on your requirements for that project. You can set properties for the project for the following categories:
+- **Pubblicare un servizio cloud in Azure**
 
-- **Publish a cloud service to Azure**
+  È possibile impostare una proprietà per assicurarsi che un servizio cloud esistente distribuito in Azure non venga eliminato inavvertitamente.
 
-  You can set a property to make sure that an existing cloud service deployed to Azure is not accidentally deleted.
+- **Eseguire o eseguire il debug di un servizio cloud nel computer locale**
 
-- **Run or debug a cloud service on the local computer**
+  È possibile selezionare una configurazione del servizio da usare e indicare se si desidera avviare l'emulatore di archiviazione di Azure.
 
-  You can select a service configuration to use and indicate whether you want to start the Azure storage emulator.
+- **Convalidare un pacchetto del servizio cloud quando viene creato**
 
-- **Validate a cloud service package when it is created**
+  È possibile decidere di trattare tutti gli avvisi come errori in modo da assicurarsi che il pacchetto del servizio cloud venga distribuito senza problemi. Ciò riduce i tempi di attesa nel caso si scopra che si è verificato un errore dopo la distribuzione.
 
-  You can decide to treat any warnings as errors so that you can make sure that the cloud service package will deploy without any issues. This reduces your wait time if you deploy and then discover that a failure occurred.
+Nella figura seguente viene illustrato come selezionare una configurazione da usare durante l'esecuzione o il debug del servizio cloud in locale. È possibile impostare tutte le proprietà di progetto necessarie da questa finestra, come illustrato nella figura.
 
-The following illustration shows how to select a configuration to use when you run or debug your cloud service locally. You can set any of the project properties that you require from this window, as shown in the illustration.
+![Configurare un progetto Microsoft Azure](./media/vs-azure-tools-configuring-an-azure-project/IC713462.png)
 
-![Configure a Microsoft Azure Project](./media/vs-azure-tools-configuring-an-azure-project/IC713462.png)
+## Per configurare un progetto di servizio cloud di Azure
 
-## <a name="to-configure-an-azure-cloud-service-project"></a>To configure an Azure cloud service project
+1. Per configurare un progetto di servizio cloud da **Esplora soluzioni**, aprire il menu di scelta rapida per il progetto di servizio cloud e quindi scegliere **Proprietà**.
 
-1. To configure a cloud service project from **Solution Explorer**, open the shortcut menu for the cloud service project and then choose **Properties**.
+  Una pagina con il nome del progetto di servizio cloud viene visualizzata nell'editor di Visual Studio.
 
-  A page with the name of the cloud service project appears in the Visual Studio editor.
+1. Scegliere la scheda **Sviluppo**.
 
-1. Choose the **Development** tab.
+1. Per assicurarsi di non eliminare inavvertitamente una distribuzione esistente in Azure, nell'elenco Chiedi conferma prima di eliminare una distribuzione esistente scegliere **True**.
 
-1. To make sure that you don't accidentally delete an existing deployment in Azure, in the prompt before deleting an existing deployment list, choose **True**.
+1. Per selezionare la configurazione del servizio che si desidera usare durante l'esecuzione o il debug del servizio cloud in locale, nell'elenco **Configurazione servizio** scegliere la configurazione del servizio.
 
-1. To select the service configuration that you want to use when you run or debug your cloud service locally, in the **Service configuration** list choose the service configuration.
+  >[AZURE.NOTE] Se si desidera creare una configurazione del servizio da usare, vedere Procedura: Gestire i profili e le configurazioni del servizio. Se si desidera modificare una configurazione del servizio per un ruolo, vedere [Procedura: Configurare i ruoli di un servizio cloud di Azure con Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
 
-  >[AZURE.NOTE] If you want to create a service configuration to use, see How to: Manage Service Configurations and Profiles. If you want to modify a service configuration for a role, see [How to configure the roles for an Azure cloud service with Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
+1. Per avviare l'emulatore di archiviazione di Azure durante l'esecuzione o il debug del servizio cloud in locale, in **Avvia l'emulatore di archiviazione di Microsoft Azure** scegliere **True**.
 
-1. To start the Azure storage emulator when you run or debug your cloud service locally, in the **Start Azure storage emulator**, choose **True**.
+1. Per assicurarsi che non sia possibile pubblicare se sono presenti errori di convalida del pacchetto, in **Considera gli avvisi come errori** scegliere **True**.
 
-1. To make sure that you cannot publish if there are package validation errors, in **Treat warnings as errors**, choose **True**.
+1. Per assicurarsi che il ruolo Web usi la stessa porta a ogni avvio in locale in IIS Express, in **Usa le porte del progetto Web** scegliere **True**. Per usare una porta specifica per un particolare progetto Web, aprire il menu di scelta rapida per il progetto Web, scegliere la scheda **Proprietà**, scegliere la scheda **Web** e modificare il numero di porta nell'impostazione **URL progetto** nella sezione **IIS Express**. Ad esempio, immettere `http://localhost:14020` come URL di progetto.
 
-1. To make sure that your web role uses the same port each time it starts locally in IIS Express, in **Use web project ports**, choose **True**. To use a specific port for a particular web project, open the shortcut menu for the web project, choose the **Properties** tab, choose the **Web** tab, and change the port number in the **Project Url** setting in the **IIS Express** section. For example, enter `http://localhost:14020` as the project URL.
+1. Per salvare le modifiche apportate alle proprietà del progetto di servizio cloud, scegliere il pulsante **Salva** sulla barra degli strumenti.
 
-1. To save any changes that you have made to the properties of the cloud service project, choose the **Save** button on the toolbar.
+## Passaggi successivi
 
-## <a name="next-steps"></a>Next steps
+Per altre informazioni su come configurare i progetti di servizio cloud in Visual Studio, vedere [Configurazione di un progetto Azure usando configurazioni del servizio multiple](vs-azure-tools-multiple-services-project-configurations.md).
 
-To learn more about how to configure Azure cloud service projects in Visual Studio, see [Configuring Your Azure project using multiple service configurations](vs-azure-tools-multiple-services-project-configurations.md).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

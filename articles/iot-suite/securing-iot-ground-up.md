@@ -1,6 +1,6 @@
 <properties
- pageTitle="Securing your Internet of Things from the ground up | Microsoft Azure"
- description="This article describes the built-in security features of the Microsoft Azure IoT Suite"
+ pageTitle="Proteggere Internet of Things fin dall'inizio | Microsoft Azure"
+ description="In questo articolo vengono descritte le funzionalità di protezione integrate in Azure IoT Suite di Microsoft"
  services=""
  suite="iot-suite"
  documentationCenter=""
@@ -17,31 +17,26 @@
  ms.date="08/16/2016"
  ms.author="yurid"/>
 
-
 [AZURE.INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-To learn more about securing your IoT solution, see:
+Per altre informazioni sulla protezione della soluzione IoT, vedere:
 
-- [IoT Security Best Practices][lnk-security-best-practices]
-- [IoT Security Architecture][lnk-security-architecture]
-- [Secure your IoT deployment][lnk-security-deployment]
+- [Procedure consigliate per la sicurezza IoT][lnk-security-best-practices]
+- [Architettura della sicurezza IoT][lnk-security-architecture]
+- [Proteggere la distribuzione di IoT][lnk-security-deployment]
 
 [lnk-security-best-practices]: iot-security-best-practices.md
 [lnk-security-architecture]: iot-security-architecture.md
 [lnk-security-deployment]: iot-suite-security-deployment.md
 
-You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
+È anche possibile esplorare alcune altre funzionalità delle soluzioni preconfigurate di IoT Suite:
 
-- [Predictive maintenance preconfigured solution overview][lnk-predictive-overview]
-- [Frequently asked questions for IoT Suite][lnk-faq]
+- [Panoramica della soluzione preconfigurata di manutenzione predittiva][lnk-predictive-overview]
+- [Domande frequenti su IoT Suite][lnk-faq]
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,129 +1,124 @@
 <properties
-    pageTitle="Advanced configuration for Azure Mobile Engagement Android SDK"
-    description="Describes the advanced configuration options including the Android Manifest with Azure Mobile Engagement Android SDK"
-    services="mobile-engagement"
-    documentationCenter="mobile"
-    authors="piyushjo"
-    manager="erikre"
-    editor="" />
+	pageTitle="Configurazione avanzata di Android SDK per Azure Mobile Engagement"
+	description="Descrive le opzioni di configurazione avanzate tra cui il manifesto Android con Android SDK per Azure Mobile Engagement"
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="erikre"
+	editor="" />
 
 <tags
-    ms.service="mobile-engagement"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-android"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="10/04/2016"
-    ms.author="piyushjo;ricksal" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/02/2016"
+	ms.author="piyushjo;ricksal" />
 
-
-# <a name="advanced-configuration-for-azure-mobile-engagement-android-sdk"></a>Advanced configuration for Azure Mobile Engagement Android SDK
+# Configurazione avanzata di Android SDK per Azure Mobile Engagement
 
 > [AZURE.SELECTOR]
-- [Universal Windows](mobile-engagement-windows-store-advanced-configuration.md)
+- [Windows universale](mobile-engagement-windows-store-advanced-configuration.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
 - [iOS](mobile-engagement-ios-integrate-engagement.md)
-- [Android](mobile-engagement-android-advanced-configuration.md)
+- [Android](mobile-engagement-android-logging.md)
 
-This procedure describes how to configure various configuration options for Azure Mobile Engagement Android apps.
+Questa procedura descrive come configurare le diverse opzioni di configurazione per le app Android di Azure Mobile Engagement.
 
-## <a name="prerequisites"></a>Prerequisites
+## Prerequisiti
 
-[AZURE.INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
+[AZURE.INCLUDE [Prerequisiti](../../includes/mobile-engagement-android-prereqs.md)]
 
-## <a name="permission-requirements"></a>Permission Requirements
-Some options require specific permissions, all of which are listed here for reference, and in-line in the specific feature. Add these permissions to the AndroidManifest.xml of your project immediately before or after the `<application>` tag.
+## Requisiti di autorizzazione
+Alcune opzioni richiedono autorizzazioni specifiche, ognuna delle quali viene elencata di seguito a titolo di riferimento e inline nella funzionalità specifica. Aggiungere queste autorizzazioni al file AndroidManifest.xml del progetto immediatamente prima o dopo il tag `<application>`.
 
-The permission code needs to look like the following, where you fill in the appropriate permission from the table that follows.
+Il codice di autorizzazione deve essere simile al seguente. L'autorizzazione appropriata viene compilata in base alla tabella seguente.
 
-    <uses-permission android:name="android.permission.[specific permission]"/>
+	<uses-permission android:name="android.permission.[specific permission]"/>
 
 
-| Permission | When used |
+| Autorizzazione | Quando si usa |
 | ---------- | --------- |
-| INTERNET | Required. For basic reporting |
-| ACCESS_NETWORK_STATE | Required. For basic reporting |
-| RECEIVE_BOOT_COMPLETED | Required. To show up the notifications center after device reboot |
-| WAKE_LOCK | Recommended. Enables collecting data when using WiFi or when screen is off |
-| VIBRATE | Optional. Enables vibration when notifications are received |
-| DOWNLOAD_WITHOUT_NOTIFICATION | Optional. Enables Android Big Picture Notification |
-| WRITE_EXTERNAL_STORAGE | Optional. Enables Android Big Picture Notification |
-| ACCESS_COARSE_LOCATION | Optional. Enables Real-time location reporting |
-| ACCESS_FINE_LOCATION | Optional. Enables GPS-based location reporting |
+| INTERNET | Obbligatorio. Per report di base |
+| ACCESS\_NETWORK\_STATE | Obbligatorio. Per report di base |
+| RECEIVE\_BOOT\_COMPLETED | Obbligatorio. Per visualizzare il centro notifiche dopo il riavvio del dispositivo |
+| WAKE\_LOCK | Consigliato. Abilita la raccolta dei dati quando si usa il WiFi o quando lo schermo è spento |
+| VIBRATE | Facoltativo. Abilita la vibrazione alla ricezione delle notifiche |
+| DOWNLOAD\_WITHOUT\_NOTIFICATION | Facoltativo. Abilita la notifica generale di Android |
+| WRITE\_EXTERNAL\_STORAGE | Facoltativo. Abilita la notifica generale di Android |
+| ACCESS\_COARSE\_LOCATION | Facoltativo. Abilita la segnalazione della posizione in tempo reale |
+| ACCESS\_FINE\_LOCATION | Facoltativo. Abilita la segnalazione della posizione basata su GPS |
 
-Starting with Android M, [some permissions are managed at run time](mobile-engagement-android-location-reporting.md#Android-M-Permissions).
+A partire da Android M, [alcune autorizzazioni vengono gestite in fase di esecuzione](mobile-engagement-android-location-reporting.md#Android-M-Permissions).
 
-If you are already using ``ACCESS_FINE_LOCATION``, then you don't need to also use ``ACCESS_COARSE_LOCATION``.
+Se si usa già ``ACCESS_FINE_LOCATION`` non è necessario usare anche ``ACCESS_COARSE_LOCATION``.
 
-## <a name="android-manifest-configuration-options"></a>Android Manifest configuration options
+## Opzioni di configurazione del file manifesto Android
 
-### <a name="crash-report"></a>Crash report
+### Segnalazione di arresto anomalo
 
-To disable crash reports, add this code between the `<application>` and `</application>` tags:
+Per disabilitare la segnalazione di arresti anomali del sistema, aggiungere questo codice tra i tag `<application>` e `</application>`:
 
-    <meta-data android:name="engagement:reportCrash" android:value="false"/>
+	<meta-data android:name="engagement:reportCrash" android:value="false"/>
 
-### <a name="burst-threshold"></a>Burst threshold
+### Soglia del burst
 
-By default, the Engagement service reports logs in real time. If your application report logs vary frequently, it is better to buffer the logs and to report them all at once on a regular time base (called "burst mode"). To do so, add this code between the `<application>` and `</application>` tags:
+Per impostazione predefinita, il servizio Engagement segnala i log in tempo reale. Se l'applicazione segnala i log molto spesso, è preferibile memorizzare i log nel buffer e segnalarli tutti insieme con cadenza regolare, la cosiddetta "modalità burst". A tale scopo, aggiungere questo codice tra i tag `<application>` e `</application>`:
 
-    <meta-data android:name="engagement:burstThreshold" android:value="{interval between too bursts (in milliseconds)}"/>
+	<meta-data android:name="engagement:burstThreshold" android:value="{interval between too bursts (in milliseconds)}"/>
 
-Burst mode slightly increases the battery life but has an impact on the Engagement Monitor: all sessions and jobs duration are rounded to the burst threshold (thus, sessions and jobs shorter than the burst threshold may not be visible). Your burst threshold should be no longer than 30000 (30s).
+La modalità burst aumenta lievemente la durata della batteria ma ha un impatto su Monitor di Engagement: la durata di tutte le sessioni e di tutti i processi viene arrotondata alla soglia di burst e, di conseguenza, le sessioni e i processi inferiori alla soglia di burst potrebbero non essere visibili. La soglia di burst non dovrebbe essere maggiore di 30000 (30 secondi).
 
-### <a name="session-timeout"></a>Session timeout
+### Timeout della sessione
 
- You can end an activity by pressing the **Home** or **Back** key, by setting the phone idle or by jumping into another application. By default, a session is ended ten seconds after the end of its last activity. This avoids a session split each time the user exits and returns to the application quickly, which can happen when the user picks up an image, checks a notification, etc. You may want to modify this parameter. To do so, add this code between the `<application>` and `</application>` tags:
+ È possibile terminare un'attività premendo il tasto **Home** o **Indietro**, impostando l'inattività del telefono o passando a un'altra applicazione. Per impostazione predefinita, una sessione viene terminata 10 secondi dopo la fine dell'ultima attività. Ciò avviene per evitare una divisione di sessione ogni volta che l'utente esce e rientra nell'applicazione rapidamente, come può accadere quando preleva un'immagine, controlla una notifica e così via. Questo parametro può essere modificato. A tale scopo, aggiungere questo codice tra i tag `<application>` e `</application>`:
 
-    <meta-data android:name="engagement:sessionTimeout" android:value="{session timeout (in milliseconds)}"/>
+	<meta-data android:name="engagement:sessionTimeout" android:value="{session timeout (in milliseconds)}"/>
 
-## <a name="disable-log-reporting"></a>Disable log reporting
+## Disabilitare la segnalazione di log
 
-### <a name="using-a-method-call"></a>Using a method call
+### Uso di una chiamata del metodo
 
-If you want Engagement to stop sending logs, you can call:
+Se si vuole che Engagement non invii più log, è possibile chiamare:
 
-    EngagementAgent.getInstance(context).setEnabled(false);
+	EngagementAgent.getInstance(context).setEnabled(false);
 
-This call is persistent: it uses a shared preferences file.
+Questa chiamata è persistente: usa un file di preferenze condivise.
 
-If Engagement is active when you call this function, it may take one minute for the service to stop. However it won't launch the service at all the next time you launch the application.
+Se Engagement è attivo quando si chiama questa funzione, l'arresto del servizio può richiedere 1 minuto. Al successivo avvio dell'applicazione, tuttavia, il servizio non verrà avviato.
 
-You can enable log reporting again by calling the same function with `true`.
+È possibile abilitare di nuovo la segnalazione di log chiamando la stessa funzione con `true`.
 
-### <a name="integration-in-your-own-`preferenceactivity`"></a>Integration in your own `PreferenceActivity`
+### Integrazione nella propria classe `PreferenceActivity`
 
-Instead of calling this function, you can also integrate this setting directly in your existing `PreferenceActivity`.
+Invece di chiamare questa funzione, è anche possibile integrare questa impostazione direttamente nella classe `PreferenceActivity` esistente.
 
-You can configure Engagement to use your preferences file (with the desired mode) in the `AndroidManifest.xml` file with `application meta-data`:
+È possibile configurare Engagement in modo da usare il file di preferenze (con la modalità desiderata) nel file `AndroidManifest.xml` con `application meta-data`:
 
--   The `engagement:agent:settings:name` key is used to define the name of the shared preferences file.
--   The `engagement:agent:settings:mode` key is used to define the mode of the shared preferences file. Use the same mode as in your `PreferenceActivity`. The mode must be passed as a number: if you are using a combination of constant flags in your code, check the total value.
+-   La chiave `engagement:agent:settings:name` viene usata per definire il nome del file di preferenze condivise.
+-   La chiave `engagement:agent:settings:mode` viene usata per definire la modalità del file di preferenze condivise. Usare la stessa modalità usata per `PreferenceActivity`. La modalità deve essere passata come numero: se si usa una combinazione di flag di costanti nel codice, controllare il valore totale.
 
-Engagement always uses the `engagement:key` boolean key within the preferences file for managing this setting.
+Engagement usa sempre la chiave booleana `engagement:key` all'interno del file di preferenze per la gestione di questa impostazione.
 
-The following example of `AndroidManifest.xml` shows the default values:
+L'esempio seguente di `AndroidManifest.xml` mostra i valori predefiniti:
 
-    <application>
-        [...]
-        <meta-data
-          android:name="engagement:agent:settings:name"
-          android:value="engagement.agent" />
-        <meta-data
-          android:name="engagement:agent:settings:mode"
-          android:value="0" />
+	<application>
+	    [...]
+	    <meta-data
+	      android:name="engagement:agent:settings:name"
+	      android:value="engagement.agent" />
+	    <meta-data
+	      android:name="engagement:agent:settings:mode"
+	      android:value="0" />
 
-Then you can add a `CheckBoxPreference` in your preference layout like the following one:
+Sarà quindi possibile aggiungere un elemento `CheckBoxPreference` nel layout delle preferenze simile a quello riportato di seguito:
 
-    <CheckBoxPreference
-      android:key="engagement:enabled"
-      android:defaultValue="true"
-      android:title="Use Engagement"
-      android:summaryOn="Engagement is enabled."
-      android:summaryOff="Engagement is disabled." />
+	<CheckBoxPreference
+	  android:key="engagement:enabled"
+	  android:defaultValue="true"
+	  android:title="Use Engagement"
+	  android:summaryOn="Engagement is enabled."
+	  android:summaryOff="Engagement is disabled." />
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

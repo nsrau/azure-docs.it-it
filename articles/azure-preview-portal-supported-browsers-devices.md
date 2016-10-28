@@ -1,40 +1,35 @@
 <properties
-    pageTitle="Supported browsers and devices"
-    description="Describes the browsers and devices on which the Azure portal will work." 
-    services=""
-    documentationCenter=""
-    authors="flanakin"
-    writer="flanakin"
-    manager="lwelicki"
-    editor=""/>
+	pageTitle="Browser e dispositivi supportati"
+	description="Descrive i browser e i dispositivi con cui funziona il Portale di Azure." 
+	services=""
+	documentationCenter=""
+	authors="flanakin"
+	writer="flanakin"
+	manager="lwelicki"
+	editor=""/>
 
 <tags
-    ms.service="multiple"
-    ms.workload="multiple"
-    ms.tgt_pltfrm="ibiza"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/23/2015"
-    ms.author="micflan"/>
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/23/2015"
+	ms.author="micflan"/>
 
+#Browser e dispositivi supportati
+Il portale di Microsoft Azure viene eseguito in tutti i moderni browser e dispositivi tablet e desktop.
 
-#<a name="supported-browsers-and-devices"></a>Supported browsers and devices
-The Microsoft Azure portal runs on all modern desktop and tablet devices and browsers.
+### Dispositivi supportati
+Il portale viene eseguito correttamente nei moderni PC, Mac e tablet. I telefoni cellulari non sono al momento supportati.
 
-### <a name="supported-devices"></a>Supported devices
-The portal will run great on modern PCs, Macs, and tablets. Mobile phones are not currently supported.
+### Browser supportati
+Sono supportate le versioni più recenti dei browser seguenti:
 
-### <a name="supported-browsers"></a>Supported browsers
-The latest versions of the following browsers are supported:
-
-- Edge (latest)
+- Edge (versione più recente)
 - Internet Explorer 11
-- Safari (latest, Mac only)
-- Chrome (latest)
-- Firefox (latest)
+- Safari (versione più recente, solo Mac)
+- Chrome (versione più recente)
+- Firefox (versione più recente)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0420_2016-->

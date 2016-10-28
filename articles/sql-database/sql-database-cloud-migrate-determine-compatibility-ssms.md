@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Use SQL Server Management Studio to Determine SQL Database compatibility before migration to Azure SQL Database | Microsoft Azure"
-   description="Microsoft Azure SQL Database, database migration, SQL Database compatibility, Export Data Tier Application Wizard"
+   pageTitle="Utilizzare SQL Server Management Studio per determinare la compatibilità del database SQL prima di eseguire la migrazione al database SQL di Azure | Microsoft Azure"
+   description="Database SQL di Microsoft Azure, migrazione del database, compatibilità database SQL, procedura guidata di esportazione dell’applicazione livello dati"
    services="sql-database"
    documentationCenter=""
    authors="CarlRabeler"
@@ -16,61 +16,55 @@
    ms.date="08/29/2016"
    ms.author="carlrab"/>
 
-
-# <a name="use-sql-server-management-studio-to-determine-sql-database-compatibility-before-migration-to-azure-sql-database"></a>Use SQL Server Management Studio to Determine SQL Database compatibility before migration to Azure SQL Database
+# Usare SQL Server Management Studio per determinare la compatibilità del database SQL prima di eseguire la migrazione al database SQL di Azure
 
 > [AZURE.SELECTOR]
 - [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
 - [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
 - [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
-- [Upgrade Advisor](http://www.microsoft.com/download/details.aspx?id=48119)
-- [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
+- [Preparazione aggiornamento](http://www.microsoft.com/download/details.aspx?id=48119)
+- [MIGRAZIONE GUIDATA DATABASE SQL DI AZURE](sql-database-cloud-migrate-fix-compatibility-issues.md)
  
-In this article you learn to determine if a SQL Server database is compatible to migrate to SQL Database using the Export Data Tier Application Wizard in SQL Server Management Studio.
+In questo articolo viene illustrato come determinare se un database del server SQL è compatibile per eseguire la migrazione al database SQL tramite la procedura guidata di esportazione dell’applicazione livello dati in SQL Server Management Studio.
 
-## <a name="using-sql-server-management-studio"></a>Using SQL Server Management Studio
+## Utilizzare SQL Server Management Studio
 
-1. Verify that you have the latest version of SQL Server Management Studio. New versions of Management Studio are updated monthly to remain in sync with updates to the Azure portal.
+1. Verificare di essere in possesso della versione più recente di SQL Server Management Studio. Le nuove versioni di Management Studio vengono aggiornate ogni mese per rimanere sincronizzate con gli aggiornamenti apportati al portale di Azure.
 
-     > [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+ 	 > [AZURE.IMPORTANT] È consigliabile usare sempre la versione più aggiornata di Management Studio per restare sincronizzati con gli aggiornamenti di Microsoft Azure e del database SQL. [Aggiornare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
-2. Open Management Studio and connect to your source database in Object Explorer.
-3. Right-click the source database in the Object Explorer, point to **Tasks**, and click **Export Data-Tier Application…**
+2. Aprire Management Studio e connettersi al database di origine in Esplora oggetti.
+3. Fare clic con il pulsante destro del mouse sul database di origine in Esplora oggetti, scegliere **Attività** e quindi fare clic su **Esporta l'applicazione livello dati**.
 
-    ![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS01.png)
+	![Esportare un'applicazione livello dati dal menu Attività](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS01.png)
 
-4. In the export wizard, click **Next**, and then on the **Settings** tab, configure the export to save the BACPAC file to either a local disk location or to an Azure blob. A BACPAC file is saved if you have no database compatibility issues. If there are compatibility issues, they are be displayed on the console.
+4. Nell'esportazione guidata, fare clic su **Avanti** e quindi nella scheda **Impostazioni** configurare l'esportazione per salvare il file BACPAC su un percorso disco locale o in un BLOB di Azure. Un file BACPAC viene salvato se non sono presenti problemi di compatibilità del database. Eventuali problemi di compatibilità vengono visualizzati nella console.
 
-    ![Export settings](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS02.png)
+	![Esportazione impostazioni](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS02.png)
 
-5. To skip exporting data, click the **Advanced tab** and clear the **Select All** checkbox. Our goal at this point is only to test for compatibility.
+5. Per evitare l'esportazione dei dati, fare clic sulla scheda **Avanzata** e deselezionare la casella di controllo **Seleziona tutto**. In questa fase l'obiettivo principale consiste nella verifica della compatibilità.
 
-    ![Export settings](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS03.png)
+	![Esportazione impostazioni](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS03.png)
 
-6. Click **Next** and then click **Finish**. Database compatibility issues, if any, appear after the wizard validates the schema.
+6. Fare clic su **Avanti** e quindi su **Fine**. Eventuali problemi di compatibilità vengono visualizzati dopo la convalida dello schema da parte della procedura guidata.
 
-    ![Export settings](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS04.png)
+	![Esportazione impostazioni](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS04.png)
 
-7. If no errors appear, your database is compatible and you are ready to migrate. If you have errors, you need to fix them. To see the errors, click **Error** for **Validating schema**. 
-    ![Export settings](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS05.png)
+7. Se non vengono visualizzati errori, il database sarà compatibile e sarà possibile iniziare la migrazione. È necessario risolvere eventuali errori. Per visualizzare gli errori, fare clic su **Errore** per **Convalida schema**. ![Impostazioni di esportazione](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS05.png)
 
-8.  If the *.BACPAC file is successfully generated, then your database is compatible with SQL Database, and you are ready to migrate.
+8.	Se il file *.BACPAC è stato generato, il database è compatibile con il database SQL ed è possibile eseguire la migrazione.
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-- [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
-- [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
-- [Fix database migration compatibility issues](sql-database-cloud-migrate.md#fix-database-migration-compatibility-issues)
-- [Migrate a compatible SQL Server database to SQL Database](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
+- [Scaricare la versione più recente di SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Scaricare SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Risolvere i problemi di compatibilità della migrazione del database](sql-database-cloud-migrate.md#fix-database-migration-compatibility-issues)
+- [Eseguire la migrazione di un database di SQL Server compatibile nel database SQL](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
 
-## <a name="additional-resources"></a>Additional resources
+## Risorse aggiuntive
 
-- [SQL Database V12](sql-database-v12-whats-new.md)
-- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
-- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
+- [Novità della versione 12 del database SQL](sql-database-v12-whats-new.md)
+- [Transact-SQL partially or unsupported functions (Funzionalità di Transact-SQL parzialmente supportate o non supportate)](sql-database-transact-sql-information.md)
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant (Eseguire la migrazione di database non SQL Server mediante SQL Server Migration Assistant)](http://blogs.msdn.com/b/ssma/)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

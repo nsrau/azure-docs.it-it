@@ -1,67 +1,62 @@
 <properties 
-    pageTitle="Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS"
-    description="This is the Azure Multi-factor authentication page that will assist in deploying Remote Desktop (RD) Gateway and Azure Multi-Factor Authentication Server using RADIUS."
-    services="multi-factor-authentication"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor="curtand"/>
+	pageTitle="Gateway Desktop remoto e server Azure Multi-Factor Authentication utilizzando RADIUS"
+	description="Questa è la pagina di Azure Multi-factor authentication che sarà utile per la distribuzione di Gateway Desktop remoto (RD) e Server Azure Multi-Factor Authentication tramite RADIUS."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor="curtand"/>
 
 <tags
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/15/2016"
-    ms.author="kgremban"/>
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/15/2016"
+	ms.author="kgremban"/>
 
+# Gateway Desktop remoto e server Azure Multi-Factor Authentication utilizzando RADIUS
 
-# <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS
+In molti casi, il Gateway Desktop remoto utilizza i criteri di rete locale per autenticare gli utenti. In questo documento viene descritto come inoltrare richieste RADIUS dal Gateway Desktop remoto (tramite criteri di rete locale) al Server Multi-Factor Authentication.
 
-In many cases, Remote Desktop Gateway uses the local NPS to authenticate users. This document describes how to route RADIUS request out from the Remote Desktop Gateway (through the local NPS) to the Multi-Factor Authentication Server.
-
-The Multi-Factor Authentication Server should be installed on a separate server, which will then proxy the RADIUS request back to the NPS on the Remote Desktop Gateway Server. After NPS validates the username and password, it will return a response to the Multi-Factor Authentication Server which performs the second factor of authentication before returning a result to the gateway.
-
-
-
-
-
-## <a name="configure-the-rd-gateway"></a>Configure the RD Gateway
-
-The RD Gateway must be configured to send RADIUS authentication to an Azure Multi-Factor Authentication Server. Once RD Gateway has been installed, configured and is working, go into the RD Gateway properties. Go to the RD CAP Store tab and change it to use a Central server running NPS instead of Local server running NPS. Add one or more Azure Multi-Factor Authentication Servers as RADIUS servers and specify a shared secret for each server.
+Il Server Multi-Factor Authentication deve essere installato su un server separato, che inoltrerà poi la richiesta RADIUS ai criteri di rete nel Server Gateway Desktop remoto. Dopo che i criteri di rete convalidano il nome utente e password, verrà restituita una risposta al Server Multi-Factor Authentication che eseguirà il secondo fattore di autenticazione prima di restituire un risultato al gateway.
 
 
 
 
 
-## <a name="configure-nps"></a>Configure NPS
+## Configurare il Gateway Desktop remoto
 
-The RD Gateway uses NPS to send the RADIUS request to Azure Multi-Factor Authentication. A timeout must be changed to prevent the RD Gateway from timing out before multi-factor authentication has completed. Use the following procedure to configure NPS.
+Il gateway Desktop remoto deve essere configurato per inviare l'autenticazione RADIUS a un Server Azure Multi-Factor Authentication. Una volta che il Gateway Desktop remoto è stato installato, configurato ed è funzionante, passare alle proprietà Gateway Desktop remoto. Passare alla scheda archivio connessioni desktop remoto e modificarla in modo da utilizzare un server centrale che esegue i criteri di rete, anziché il server locale che esegue i criteri di rete. Aggiungere uno o più server Azure Multi-Factor Authentication come server RADIUS e specificare un segreto condiviso per ogni server.
 
-1. In NPS, expand the RADIUS Clients and Server menu in the left column and click on Remote RADIUS Server Groups. Go into the properties of the TS GATEWAY SERVER GROUP. Edit the RADIUS Server(s) displayed and go to the Load Balancing tab. Change the “Number of seconds without response before request is considered dropped” and the “Number of seconds between requests when server is identified as unavailable” to 30-60 seconds. Click on the Authentication/Account tab and ensure that the RADIUS ports specified match the ports that the Multi-Factor Authentication Server will be listening on.
-2. NPS must also be configured to receive RADIUS authentications back from the Azure Multi-Factor Authentication Server. Click on RADIUS Clients in the left menu. Add the Azure Multi-Factor Authentication Server as a RADIUS client. Choose a Friendly name and specify a shared secret.
-3. Expand the Policies section in the left navigation and click on Connection Request Policies. It should contain a Connection Request Policy called TS GATEWAY AUTHORIZATION POLICY that was created when RD Gateway was configured. This policy forwards RADIUS requests to the Multi-Factor Authentication Server.
-4. Copy this policy to create a new one. In the new policy, add a condition that matches the Client Friendly Name with the Friendly name set in step 2 above for the Azure Multi-Factor Authentication Server RADIUS client. Change the Authentication Provider to Local Computer. This policy ensures that when a RADIUS request is received from the Azure Multi-Factor Authentication Server, the authentication occurs locally instead of sending a RADIUS request back to the Azure Multi-Factor Authentication Server which would result in a loop condition. To prevent the loop condition, this new policy must be ordered ABOVE the original policy that forwards to the Multi-Factor Authentication Server.
 
-## <a name="configure-azure-multi-factor-authentication"></a>Configure Azure Multi-Factor Authentication
+
+
+
+## Configurazione dei criteri di rete
+
+Il Gateway Desktop remoto utilizza criteri di rete per inviare richieste RADIUS a Azure Multi-Factor Authentication. Per impedire che il Gateway Desktop remoto scada prima che l’autenticazione a più fattori sia completata, è necessario modificare un timeout. Utilizzare la procedura seguente per configurare criteri di rete.
+
+1. In Criteri di rete, espandere il menu client e Server RADIUS nella colonna a sinistra e fare clic su gruppi di Server RADIUS remoti. Accedere alle proprietà del gruppo di TS GATEWAY SERVER. Modificare i server RADIUS visualizzati e passare alla scheda bilanciamento del carico. Modificare il "Numero di secondi senza risposta prima che la richiesta venga considerata come eliminata" e "Numero di secondi tra le richieste quando il server viene identificato come non disponibile" a 30-60 secondi. Fare clic sulla scheda Autenticazione/Accounting e assicurarsi che le porte RADIUS specificate corrispondano alle porte di attesa del Server Multi-Factor Authentication.
+2. I criteri di rete devono inoltre essere configurati per ricevere le autenticazioni RADIUS dal Server Azure Multi-Factor Authentication. Fare clic su client RADIUS nel menu a sinistra. Aggiungere il Server Azure Multi-Factor Authentication come client RADIUS. Scegliere un nome descrittivo e specificare un segreto condiviso.
+3. Espandere la sezione criteri nel riquadro di navigazione sinistro e fare clic su criteri richiesta di connessione. Deve contenere un criterio di richiesta di connessione denominata TS GATEWAY AUTHORIZATION POLICY, che è stata creata durante la configurazione di Gateway Desktop remoto. Questo criterio inoltra le richieste RADIUS al Server Multi-Factor Authentication.
+4. Copiare questo criterio per crearne uno nuovo. Nel nuovo criterio, aggiungere una condizione che abbini il nome descrittivo del Client con il nome descrittivo impostato nel precedente passaggio 2 per il client RADIUS del Server Azure Multi-Factor Authentication. Modificare il Provider di autenticazione nel computer locale. In questo modo quando viene ricevuta una richiesta RADIUS dal Server Azure Multi-Factor Authentication, l'autenticazione viene eseguita localmente anziché inviare una richiesta RADIUS al Server Azure Multi-Factor Authentication con la conseguenza di una condizione di ciclo. Per evitare la condizione di ciclo, il nuovo criterio deve essere inserito SOPRA il criterio originale che inoltra al Server Multi-Factor Authentication.
+
+## Configurazione di Azure Multi-Factor Authentication
 
 
 --------------------------------------------------------------------------------
 
 
 
-The Azure Multi-Factor Authentication Server is configured as a RADIUS proxy between RD Gateway and NPS.  It should be installed on a domain-joined server that is separate from the RD Gateway server. Use the following procedure to configure the Azure Multi-Factor Authentication Server.
+Il Server Azure Multi-Factor Authentication è configurato come proxy RADIUS tra Gateway Desktop remoto e criteri di rete. È necessario installarlo in un server di dominio che è separato dal server Gateway Desktop remoto. Utilizzare la procedura seguente per configurare il Server Azure Multi-Factor Authentication.
 
-1. Open the Azure Multi-Factor Authentication Server and click the RADIUS Authentication icon. Check the Enable RADIUS authentication checkbox.
-2. On the Clients tab, ensure the ports match what is configured in NPS and click the Add… button. Add the RD Gateway server IP address, application name (optional) and a shared secret. The shared secret will need to be the same on both the Azure Multi-Factor Authentication Server and RD Gateway.
-3. Click the Target tab and choose the RADIUS server(s) radio button.
-4. Click the Add… button. Enter the IP address, shared secret and ports of the NPS server. Unless using a central NPS, the RADIUS client and RADIUS target will be the same. The shared secret must match the one setup in the RADIUS client section of the NPS server.
+1. Aprire il Server Azure Multi-Factor Authentication e fare clic sull'icona autenticazione RADIUS. Selezionare la casella di controllo di autenticazione Abilitare RADIUS.
+2. Nella scheda client assicurarsi che le porte corrispondano a quelle configurate in Criteri di rete e fare clic sul pulsante Aggiungi. Aggiungere l'indirizzo IP del server Gateway Desktop remoto, il nome dell'applicazione (facoltativo) e un segreto condiviso. Il segreto condiviso dovrà essere lo stesso sul Server Azure Multi-Factor Authentication e sul Gateway Desktop remoto.
+3. Fare clic sulla scheda destinazione e scegliere il pulsante di opzione server RADIUS.
+4. Fare quindi clic su Add. Immettere l'indirizzo IP, il segreto condiviso e le porte del server dei criteri di rete. Se non si utilizzano dei criteri di rete centrali, il client RADIUS e la destinazione RADIUS saranno uguali. Il segreto condiviso deve corrispondere a quello impostato nella sezione client RADIUS del server dei criteri di rete.
 
-![Radius Authentication](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
+![Autenticazione RADIUS](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

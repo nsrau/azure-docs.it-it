@@ -1,249 +1,255 @@
 <properties
-    pageTitle="Azure AD Password Reset | Microsoft Azure"
-    description="Description of password management capabilities in Azure AD, including password reset, change, password management reporting, and writeback to your local on-premises Active Directory."
-    services="active-directory"
-    documentationCenter=""
-    authors="asteen"
-    manager="femila"
-    editor="curtand"/>
+	pageTitle="Reimpostazione della password di Azure AD | Microsoft Azure"
+	description="Descrizione delle funzionalità di gestione delle password in Azure AD, incluse la reimpostazione delle password, la modifica, il report di gestione delle password e il writeback in Active Directory locale."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/13/2016"
-    ms.author="asteen"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
+	ms.author="asteen"/>
 
 
+# Reimpostazione della password di Azure AD per utenti e amministratori
 
-# <a name="azure-ad-password-reset-for-it-administrators"></a>Azure AD Password Reset for IT Administrators
+  >[AZURE.IMPORTANT] Si desidera reimpostare la password di Azure o di O365? Se sì, [passare a questa sezione](#users-how-to-manage-your-own-password).
 
-  >[AZURE.IMPORTANT] Are you here because you want to reset your Azure or O365 password?  If so, please [skip to this section](#users-how-to-manage-your-own-password).
+Self-Service è stato a lungo un obiettivo chiave per i reparti IT di tutto il mondo come misura di riduzione dei costi e facile utilizzo. In effetti, nel mercato si sono diffusi prodotti che consentono di gestire gruppi locali, password o profili utente dal cloud o in locale. Azure AD si distingue da queste offerte fornendo alcune delle funzionalità self-service più efficaci e semplici da usare disponibili attualmente.
 
-Self-service has long been a key goal for IT departments across the world as a cost-reduction and labor-saving measure.  Indeed, the market is flooded with products that let you manage your on-premises groups, passwords, or user profiles from the cloud or on-premises. Azure AD sets itself apart from these offerings by providing some of the easiest to use and most powerful self-service capabilities available today.
+**Gestione delle password di Azure AD** è un insieme di funzionalità che consentono agli utenti di gestire le password da qualsiasi dispositivo, in qualsiasi momento, da qualsiasi posizione, pur rimanendo conforme ai criteri di sicurezza definiti.
 
-**Azure AD Password Management** is a set of capabilities that allow your users to manage any password from any device, at any time, from any location, while remaining in compliance with the security policies you define.
+##UTENTI: Come gestire la password personale
+Se si è un utente (non un amministratore) di un'azienda che accede alle risorse di lavoro usando Office 365 o account Microsoft, fare clic sui collegamenti seguenti per informazioni su come risolvere problemi comuni con la password.
 
-
-##<a name="admins:-learn-about-how-to-get-started-with-azure-ad-password-reset"></a>ADMINS: Learn about how to get started with Azure AD Password Reset
-If you're an admin who wants to enable Azure AD Password Reset, or just learn more about it, start with the links below to get to what you're interested in.
-
-| Topic |  |
+| Argomento | |
 | --------- | --------- |
-| Supported scenarios | [What is possible with Azure AD Password Reset?](#what-is-possible-with-azure-ad-password-reset) |
-| Why use it? | [Why use Azure AD Password Reset?](#why-use-azure-ad-password-reset) |
-| Pricing and availability | [Pricing and availability](#pricing-and-availability) |
-| Enable password reset  | [Enable password reset for your users](#enable-password-reset-for-your-users) |
-| Customize how it works | [Customize password reset behavior](#customize-password-reset-behavior) |
-| Roll it out to my users | [Configure your users to use password reset](#configure-your-users-to-use-password-reset) |
-| View reports  | [View password reset activity with integrated reports](#view-password-reset-activity-with-integrated-reports) |
-| Reset a user's password  | [Manage your users' passwords](#manage-your-users-passwords) |
-| Set my organization's password policies | [Set password policies](#set-password-policies) |
-| Troubleshoot a problem  | [Troubleshoot a problem](#troubleshoot-a-problem) |
-| FAQ | [Read a FAQ](#read-a-faq) |
-| Technical details | [Understand the technical details](#understand-the-technical-details) |
-| Newly released features | [Recent service updates](#recent-service-updates) |
-| Links to other documentation | [Links to password reset documentation](#links-to-password-reset-documentation) |
+| Eseguire la registrazione per la reimpostazione della password | [Come registrarsi per la reimpostazione della password](active-directory-passwords-update-your-own-password.md#how-to-register-for-password-reset) |
+| Modificare la password da O365 | [Come modificare la password da Office365](active-directory-passwords-update-your-own-password.md#how-to-change-your-password-from-o365) |
+| Modificare la password da myapps.microsoft.com | [Come modificare la password dal pannello di accesso](active-directory-passwords-update-your-own-password.md#how-to-change-your-password-from-the-access-panel) |
+| Reimpostare una password dimenticata | [Come reimpostare la password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password) |
+| Sbloccare un account a cui non si riesce ad accedere | [Come sbloccare il proprio account locale](active-directory-passwords-update-your-own-password.md#how-to-unlock-your-account) |
+| Risolvere un problema relativo a una reimpostazione di password non riuscita | [Problemi comuni e relative soluzioni](active-directory-passwords-update-your-own-password.md#common-problems-and-their-solutions) |
 
-### <a name="what-is-possible-with-azure-ad-password-reset?"></a>What is possible with Azure AD Password Reset?
-Here are some of the things you can do with Azure AD's password management capabilities.
+##AMMINISTRATORI: Informazioni sulle operazioni preliminari per la reimpostazione della password di AD Azure
+Se si è un amministratore che desidera abilitare la funzione di reimpostazione della password di Azure AD o semplicemente desidera maggiori informazioni, iniziare con i collegamenti seguenti per accedere agli argomenti di pertinenza.
 
-- **Self-service password change** allows end users or administrators to change their expired or non-expired passwords without calling an administrator or helpdesk for support.
-- **Self-service password reset** allows end users or administrators to reset their passwords automatically without calling an administrator or helpdesk for support. Self-service password reset requires Azure AD Premium or Basic. For more information, see Azure Active Directory Editions.
-- **Administrator-initiated password reset** allows an administrator to reset an end user’s or another administrator’s password from within the [Azure Management Portal](https://manage.windowsazure.com).
-- **Password management activity reports** give administrators insights into password reset and registration activity occurring in their organization.
-- **Password Writeback** allows management of on-premises passwords from the cloud so all of the above scenarios can be performed by, or on the behalf of, federated or password synchronized users. Password Writeback requires Azure AD Premium. For more information, see Getting started with Azure AD Premium.
-
-### <a name="why-use-azure-ad-password-reset?"></a>Why use Azure AD Password Reset?
-Here are some of the reasons you should use Azure AD's password management capabilities
-
-- **Reduce costs** - support-assisted password reset is typically 20% of organization's IT spend
-- **Improve user experiences** - users don't want to call helpdesk and spend an hour on the phone every time they forget their passwords
-- **Lower helpdesk volumes** - password management is the single largest helpdesk driver for most organizations
-- **Enable mobility** - users can reset their passwords from wherever they are
-
-### <a name="pricing-and-availability"></a>Pricing and availability
-Azure AD Password Reset is available in 3 tiers, depending on which subscription you have:
-
-- **Azure AD Free** - cloud-only administrators can reset their own passwords
-- **Azure AD Basic or any Paid O365 Subscription** - cloud-only users and cloud-only administrators can reset their own passwords
-- **Azure AD Premium** - any user or administrator, including cloud-only, federated, or password synced users, can reset their own passwords (requires [password writeback to be enabled](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords))
-
-For more information on Azure AD Premium or Basic pricing, visit the [Active Directory Pricing Details](https://azure.microsoft.com/pricing/details/active-directory/) page.
-
-##<a name="enable-password-reset-for-your-users"></a>Enable password reset for your users
-| Topic |  |
+| Argomento | |
 | --------- | --------- |
-| How do I enable password reset for cloud users? | [Enable users to reset their cloud Azure Active Directory passwords](active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords) |
-| How do I enable password reset and change for on-premises users? | [Enable users to reset or change their on-premises Active Directory passwords](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) |
-| How do I scope password reset to a specific set of users? | [Restrict password reset to specific users](active-directory-passwords-customize.md#restrict-access-to-password-reset) |
-| How do I test cloud password reset? | [Reset your Azure AD password as a user](active-directory-passwords-getting-started.md#step-3-reset-your-azure-ad-password-as-a-user) |
-| How do I test on-premises password reset? | [Reset your on-premises AD password as a user](active-directory-passwords-getting-started.md#step-5-reset-your-ad-password-as-a-user) |
-| How do I disable password reset at a later time? | [Setting: users enabled for password reset](active-directory-passwords-customize.md#users-enabled-for-password-reset) |
+| Scenari supportati | [Quali operazioni sono possibili con la funzione di reimpostazione della password di Azure AD?](#what-is-possible-with-azure-ad-password-reset) |
+| Perché usare questa funzione? | [Perché usare la funzione di reimpostazione della password di Azure AD?](#why-use-azure-ad-password-reset) |
+| Prezzi e disponibilità | [Prezzi e disponibilità](#pricing-and-availability) |
+| Abilitare la reimpostazione della password | [Abilitare la reimpostazione della password per gli utenti](#enable-password-reset-for-your-users) |
+| Personalizzare il funzionamento | [Personalizzare il comportamento della funzione di reimpostazione della password](#customize-password-reset-behavior) |
+| Distribuire la funzione agli utenti | [Configurare gli utenti per l'uso della funzione di reimpostazione della password](#configure-your-users-to-use-password-reset) |
+| Visualizzazione dei report | [Visualizzare le attività di reimpostazione della password con report integrati](#view-password-reset-activity-with-integrated-reports) |
+| Reimpostare la password di un utente | [Gestire le password utente personali](#manage-your-users-passwords) |
+| Impostare i criteri di gestione delle password aziendali | [Impostazione dei criteri di gestione delle password](#set-password-policies) |
+| Risolvere un problema | [Risolvere un problema](#troubleshoot-a-problem) |
+| Domande frequenti | [Leggere una domanda frequente](#read-a-faq) |
+| Dettagli tecnici | [Comprendere i dettagli tecnici](#understand-the-technical-details) |
+| Nuove funzioni | [Aggiornamenti recenti del servizio](#recent-service-updates) |
+| Collegamenti ad altra documentazione | [Collegamenti alla documentazione relativa alla reimpostazione della password](#links-to-password-reset-documentation) |
 
+### Quali operazioni sono possibili con la funzione di reimpostazione della password di Azure AD?
+Di seguito sono elencate alcune operazioni che è possibile eseguire con le funzionalità di gestione delle password di Azure AD.
 
-##<a name="customize-password-reset-behavior"></a>Customize password reset behavior
-| Topic |  |
+- La **modifica delle password self-service** consente agli utenti finali o agli amministratori di cambiare le password scadute o non scadute senza dover chiamare un amministratore o rivolgersi al Supporto tecnico.
+- La **reimpostazione delle password self-service** consente agli utenti finali o agli amministratori di reimpostare automaticamente le password senza dover chiamare un amministratore o rivolgersi al Supporto tecnico. La reimpostazione delle password self-service è disponibile solo in Azure AD Premium o Basic. Per altre informazioni, vedere Edizioni di Azure Active Directory.
+- La **reimpostazione delle password avviata dall'amministratore** consente a un amministratore di reimpostare la password di un utente finale o di un altro amministratore dal [portale di gestione di Azure](https://manage.windowsazure.com).
+- I **report sulle attività di gestione delle password** forniscono agli amministratori informazioni dettagliate sulle attività di reimpostazione delle password e di registrazione che si verificano all'interno dell'organizzazione.
+- Il **writeback delle password** permette di gestire le password locali dal cloud, in modo che tutti gli scenari descritti in precedenza possano essere eseguiti da o per conto di utenti federati o con sincronizzazione tramite password. Per il writeback delle password è necessaria una licenza di Azure AD Premium. Per altre informazioni, vedere Introduzione a Azure AD Premium.
+
+### Perché usare la funzione di reimpostazione della password di Azure AD?
+Di seguito sono elencati alcuni motivi per cui è consigliabile usare le funzionalità di gestione delle password di Azure AD.
+
+- **Ridurre i costi**: la reimpostazione delle password assistita dal supporto rappresenta in genere il 20% della spesa IT dell'organizzazione
+- **Migliorare le esperienze dell’utente**: gli utenti non vogliono chiamare il supporto tecnico e trascorrere un'ora al telefono ogni volta che dimenticano le proprie password
+- **Ridurre i volumi di supporto tecnico**: la gestione delle password è il singolo driver di supporto tecnico più grande per la maggior parte delle organizzazioni
+- **Consentire la mobilità**: gli utenti possono reimpostare le password da ovunque si trovino
+
+### Prezzi e disponibilità
+La funzione di reimpostazione della password di AD Azure è disponibile in 3 livelli, in base al tipo di sottoscrizione eseguita:
+
+- **Azure AD Free** - Gli amministratori di reti solo cloud possono reimpostare la password personale
+- **Azure AD Basic o una sottoscrizione di O365 a pagamento** - Gli amministratori e gli utenti di reti solo cloud possono reimpostare la password personale
+- **Azure AD Premium** - Qualsiasi utente o amministratore, inclusi gli utenti di reti solo cloud, federati o sincronizzati tramite password, può reimpostare la password personale (è necessario che sia [abilitata la funzione di writeback delle password](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords))
+
+Per altre informazioni sui prezzi di Azure AD Premium o Basic, visitare la pagina [Prezzi di Active Directory di Azure](https://azure.microsoft.com/pricing/details/active-directory/).
+
+##Abilitare la reimpostazione della password per gli utenti
+| Argomento | |
 | --------- | --------- |
-| How do I change what authentication methods are supported? | [Setting: authentication methods available to users](active-directory-passwords-customize.md#authentication-methods-available-to-users) |
-| How do I change number of authentication methods required? | [Setting: number of authentication methods required](active-directory-passwords-customize.md#number-of-authentication-methods-required) |
-| How do I set up custom security questions? | [Setting: custom security questions](active-directory-passwords-customize.md#custom-security-questions) |
-| How do I set up pre-canned localized security questions? | [Setting: knowledge-based security questions](active-directory-passwords-customize.md#knowledge-based-security-questions) |
-| How can I change how many security questions are required? | [Setting: number of security questions for registration or reset](active-directory-passwords-customize.md#number-of-questions-required-to-register) |
-| How can I customize how a user gets in touch with an admin? | [Setting: customize the "contact your administrator" link](active-directory-passwords-customize.md#customize-the-contact-your-administrator-link) |
-| How can I allow users to unlock AD accounts without resetting a password? | [Setting: enable users to unlock their AD accounts without resetting a password](active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password) |
-| How can I enable password reset notifications for users? | [Setting: notify users when their passwords have been reset](active-directory-passwords-customize.md#notify-users-and-admins-when-their-own-password-has-been-reset) |
-| How can I enable password reset notifications for admins? | [Setting: notify other admins when an admin reset their own password](active-directory-passwords-customize.md#notify-admins-when-other-admins-reset-their-own-passwords) |
-| How can I customize password reset look and feel? | [Setting: company name, branding, and logo ](active-directory-passwords-customize.md#password-management-look-and-feel) |
+| Come è possibile abilitare la reimpostazione della password per gli utenti cloud? | [Consentire agli utenti di reimpostare le password di Azure Active Directory nel cloud](active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords) |
+| Come è possibile abilitare la reimpostazione e la modifica delle password per gli utenti locali? | [Consentire agli utenti di reimpostare o modificare le password di Active Directory locale](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) |
+| Come è possibile limitare la reimpostazione della password a un gruppo specifico di utenti? | [Limitare la reimpostazione della password a utenti specifici](active-directory-passwords-customize.md#restrict-access-to-password-reset) |
+| Come è possibile testare la reimpostazione della password nel cloud? | [Reimpostare la password di Azure AD come utente](active-directory-passwords-getting-started.md#step-3-reset-your-azure-ad-password-as-a-user) |
+| Come è possibile testare la reimpostazione della password in locale? | [Reimpostare la password di Azure AD locale come utente](active-directory-passwords-getting-started.md#step-5-reset-your-ad-password-as-a-user) |
+| Come è possibile disabilitare la reimpostazione della password in un secondo momento? | [Impostazione: Utenti abilitati per la reimpostazione della password](active-directory-passwords-customize.md#users-enabled-for-password-reset) |
 
 
-##<a name="configure-your-users-to-use-password-reset"></a>Configure your users to use password reset
-| Topic |  |
+##Personalizzare il comportamento della funzione di reimpostazione della password
+| Argomento | |
 | --------- | --------- |
-| How do I know if an account is configured for password reset? | [What makes an account configured for password reset?](active-directory-passwords-best-practices.md#what-makes-an-account-configured) |
-| How do I get my users configured for password reset? | [Ways to populate password reset authentication data for your users](active-directory-passwords-best-practices.md#ways-to-populate-authentication-data) |
-| How do I manually upload data for my users? | [Uploading password reset data yourself](active-directory-passwords-best-practices.md#uploading-data-yourself) |
-| How do I use PowerShell to read or set data for my users? | [How to access password reset data for your users](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users) |
-| How can I synchronize password reset data from on-premises? | [What data is used by password reset](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) |
-| How can I use an email campaign to get my users to register for and use password reset? | [Email-based rollout of password reset](active-directory-passwords-best-practices.md#email-based-rollout) |
-| How can I force my users to register when signing in? | [Enforced registration-based rollout of password reset](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) |
-| How can I force my users to re-confirm their registered periodically? | [Setting: number of days before users must re-confirm their authentication data](active-directory-passwords-customize.md#number-of-days-before-users-must-confirm-their-contact-data) |
-| What are best practices around communicating password reset to end users? | [Creating your own password portal for your users to use](active-directory-passwords-best-practices.md#creating-your-own-password-portal) |
+| Come è possibile modificare i metodi di autenticazione supportati? | [Impostazione: Metodi di autenticazione disponibili per gli utenti](active-directory-passwords-customize.md#authentication-methods-available-to-users) |
+| Come è possibile modificare il numero di metodi di autenticazione necessari? | [Impostazione: Numero di metodi di autenticazione necessari](active-directory-passwords-customize.md#number-of-authentication-methods-required) |
+| Come è possibile configurare domande di sicurezza personalizzate? | [Impostazione: Domande di sicurezza personalizzate](active-directory-passwords-customize.md#custom-security-questions) |
+| Come è possibile configurare domande di sicurezza localizzate predefinite? | [Impostazione: Domande di sicurezza basate su informazioni note](active-directory-passwords-customize.md#knowledge-based-security-questions) |
+| Come è possibile modificare il numero di domande di sicurezza necessarie? | [Impostazione: Numero di domande necessarie per la registrazione (o la reimpostazione)](active-directory-passwords-customize.md#number-of-questions-required-to-register) |
+| Come è possibile personalizzare le modalità con cui un utente può entrare in contatto con un amministratore? | [Impostazione: Personalizzare il collegamento "Contattare l'amministratore?"](active-directory-passwords-customize.md#customize-the-contact-your-administrator-link) |
+| Come è possibile consentire agli utenti di sbloccare account di Active Directory senza reimpostare una password? | [Impostazione: Consenti agli utenti di sbloccare gli account senza reimpostare la password](active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password) |
+| Come è possibile abilitare le notifiche di reimpostazione della password per gli utenti? | [Impostazione: Notifica a utenti e amministratori quando è stata reimpostata la propria password](active-directory-passwords-customize.md#notify-users-and-admins-when-their-own-password-has-been-reset) |
+| Come è possibile abilitare le notifiche di reimpostazione della password per gli amministratori? | [Impostazione: Notifica agli amministratori quando altri amministratori reimpostano le proprie password](active-directory-passwords-customize.md#notify-admins-when-other-admins-reset-their-own-passwords) |
+| Come è possibile personalizzare la veste grafica della funzione di reimpostazione della password? | [Impostazione: Nome, marchio e logo dell'azienda](active-directory-passwords-customize.md#password-management-look-and-feel) |
 
 
-##<a name="view-password-reset-activity-with-integrated-reports"></a>View password reset activity with integrated reports
-| Topic |  |
+##Configurare gli utenti per l'uso della funzione di reimpostazione della password
+| Argomento | |
 | --------- | --------- |
-| Where do I go to see password reset reports? | [Overview of password management reports](active-directory-passwords-get-insights.md#overview-of-password-management-reports) |
-| Where can I see how users are using password reset in my organization? | [View password reset activity](active-directory-passwords-get-insights.md#view-password-reset-activity) |
-| Where can I see how many users are registering, and what they are registering for? | [View password reset registration activity](active-directory-passwords-get-insights.md#view-password-reset-registration-activity) |
-| How can I get password reset reports from an API? | [Creating an azure ad application to access the reporting API](active-directory-reporting-api-getting-started.md#creating-an-azure-ad-application-to-access-the-api) |
-| What kind of password reset reporting information is available through an API? | [Password reset and registration events available in the reporting API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview#SsprActivityEvent) |
+| Come è possibile sapere se un account è configurato per la reimpostazione della password? | [Cosa rende un account configurato per la reimpostazione della password?](active-directory-passwords-best-practices.md#what-makes-an-account-configured) |
+| Come è possibile rendere gli utenti configurati per la reimpostazione della password? | [Modi per popolare i dati di autenticazione degli utenti per la reimpostazione della password](active-directory-passwords-best-practices.md#ways-to-populate-authentication-data) |
+| Come è possibile caricare manualmente i dati per gli utenti? | [Caricamento manuale dei dati di reimpostazione della password](active-directory-passwords-best-practices.md#uploading-data-yourself) |
+| Come è possibile usare PowerShell per leggere o impostare dati per gli utenti? | [Come accedere ai dati di reimpostazione della password per gli utenti](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users) |
+| Come è possibile sincronizzare i dati di reimpostazione della password da una postazione locale? | [Dati usati per la reimpostazione della password](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) |
+| Come è possibile usare una campagna di posta elettronica per ottenere gli utenti da registrare e usufruire della funzione di reimpostazione della password? | [Implementazione della funzione di reimpostazione della password basata su posta elettronica](active-directory-passwords-best-practices.md#email-based-rollout) |
+| Come è possibile forzare gli utenti a registrarsi durante la procedura di accesso? | [Implementazione della funzione di reimpostazione della password basata sulla registrazione forzata](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) |
+| Come è possibile forzare gli utenti a riconfermare periodicamente la propria registrazione? | [Impostazione: Numero di giorni prima che agli utenti venga chiesto di riconfermare le informazioni di autenticazione](active-directory-passwords-customize.md#number-of-days-before-users-must-confirm-their-contact-data) |
+| Quali sono le procedure consigliate per comunicare la reimpostazione della password agli utenti finali? | [Creazione di un portale di reimpostazione della password per gli utenti](active-directory-passwords-best-practices.md#creating-your-own-password-portal) |
 
 
-##<a name="manage-your-users'-passwords"></a>Manage your users' passwords
-| Topic |  |
+##Visualizzare le attività di reimpostazione della password con report integrati
+| Argomento | |
 | --------- | --------- |
-| How do I reset a user's password from the O365 management portal? | [Reset a user's password in Office 365](https://support.office.com/article/Reset-a-user-s-password-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C) |
-| How do I reset a user's password using PowerShell? | [Reset a user's password with Set-MsolUserPassword](https://msdn.microsoft.com/library/azure/dn194140.aspx) |
+| Dove è possibile visualizzare i report di reimpostazione della password? | [Informazioni generali sui report di gestione delle password](active-directory-passwords-get-insights.md#overview-of-password-management-reports) |
+| Dove è possibile visualizzare in che modo gli utenti aziendali usano la funzione di reimpostazione della password? | [Visualizzare le attività di reimpostazione delle password nell'organizzazione](active-directory-passwords-get-insights.md#view-password-reset-activity) |
+| Dove è possibile visualizzare quanti utenti stanno effettuando la registrazione e a cosa si stanno registrando? | [Visualizzare le attività di registrazione per la reimpostazione delle password](active-directory-passwords-get-insights.md#view-password-reset-registration-activity) |
+| Come è possibile ottenere i report di reimpostazione della password da un'API? | [Creazione di un'applicazione in Azure AD per accedere all'API di generazione di report](active-directory-reporting-api-getting-started.md#creating-an-azure-ad-application-to-access-the-api) |
+| Che tipo di informazioni sulla generazione dei report di reimpostazione della password sono disponibili tramite un'API? | [Eventi di registrazione e reimpostazione della password disponibili nell'API per la generazione di report](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview#SsprActivityEvent) |
 
 
-##<a name="set-password-policies"></a>Set password policies
-| Topic |  |
+##Gestire le password utente personali
+| Argomento | |
 | --------- | --------- |
-| How do I set organization password expiration policy from Office 365? | [Set password expiration policy](https://support.office.com/article/Set-a-user-s-password-expiration-policy-0f54736f-eb22-414c-8273-498a0918678f) |
-| How do I set a specific user's passwords to never expire with PowerShell? | [Set individual user's password to never expire using PowerShell](https://support.office.com/article/Set-an-individual-user-s-password-to-never-expire-f493e3af-e1d8-4668-9211-230c245a0466) |
-| How do I find out whether a user's password is set to never expire using PowerShell | [Check individual user's password expiration status using PowerShell](https://support.office.com/article/Set-an-individual-user-s-password-to-never-expire-f493e3af-e1d8-4668-9211-230c245a0466#__toc378845827) |
+| Come è possibile reimpostare una password utente dal portale di gestione di O365? | [Reimpostare una password utente in Office 365](https://support.office.com/article/Reset-a-user-s-password-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C) |
+| Come è possibile reimpostare una password utente tramite PowerShell? | [Reimpostare una password utente con Set-MsolUserPassword](https://msdn.microsoft.com/library/azure/dn194140.aspx) |
 
 
-##<a name="troubleshoot-a-problem"></a>Troubleshoot a problem
-| Topic |  |
+##Impostazione dei criteri di gestione delle password
+| Argomento | |
 | --------- | --------- |
-| What information should I provide to support if I need help? | [Information to include when you need help](active-directory-passwords-troubleshoot.md#information-to-include-when-you-need-help) |
-| How can I fix a problem with password reset | [Troubleshoot the password reset portal](active-directory-passwords-troubleshoot.md#troubleshoot-the-password-reset-portal) |
-| How can I fix a problem with password writeback | [Troubleshoot password writeback](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
-| How can I fix a problem with password writeback connectivity | [Troubleshoot password writeback connectivity](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) |
-| How can I fix a problem with password reset configuration | [Troubleshoot password reset configuration in the azure management portal](active-directory-passwords-troubleshoot.md#troubleshoot-password-reset-configuration-in-the-azure-management-portal) |
-| How can I fix a problem with password reset reports | [Troubleshoot password management reports in the azure management portal](active-directory-passwords-troubleshoot.md#troubleshoot-password-management-reports-in-the-azure-management-portal) |
-| How can I fix a problem with password reset registration | [Troubleshoot the password reset registration portal](active-directory-passwords-troubleshoot.md#troubleshoot-the-password-reset-registration-portal) |
-| Password writeback event log error codes | [Password writeback event log error codes](active-directory-passwords-troubleshoot.md#password-writeback-event-log-error-codes) |
+| Come è possibile impostare i criteri di scadenza delle password aziendali da Office 365? | [Impostare i criteri di scadenza delle password](https://support.office.com/article/Set-a-user-s-password-expiration-policy-0f54736f-eb22-414c-8273-498a0918678f) |
+| Come è possibile usare PowerShell per impostare le password di un utente specifico in modo che non scadano mai? | [Impostare la password di un utente in modo che non scada mai tramite PowerShell](https://support.office.com/article/Set-an-individual-user-s-password-to-never-expire-f493e3af-e1d8-4668-9211-230c245a0466) |
+| Come è possibile scoprire se la password di un utente è stata impostata con PowerShell in modo da non scadere mai? | [Controllare lo stato di scadenza delle password di un utente usando PowerShell](https://support.office.com/article/Set-an-individual-user-s-password-to-never-expire-f493e3af-e1d8-4668-9211-230c245a0466#__toc378845827) |
 
 
-##<a name="read-a-faq"></a>Read a FAQ
-| Topic |  |
+##Risolvere un problema
+| Argomento | |
 | --------- | --------- |
-| I want to read a FAQ about password reset registration | [Password reset registration FAQ](active-directory-passwords-faq.md#password-reset-registration) |
-| I want to read a FAQ about password reset | [Password reset FAQ](active-directory-passwords-faq.md#password-reset) |
-| I want to read a FAQ about password reset reports | [Password management reports FAQ](active-directory-passwords-faq.md#password-management-reports) |
-| I want to read a FAQ about password writeback | [Password writeback FAQ](active-directory-passwords-faq.md#password-writeback) |
+| Quali informazioni è necessario fornire al personale di supporto per ottenere assistenza? | [Informazioni da includere quando è necessaria assistenza](active-directory-passwords-troubleshoot.md#information-to-include-when-you-need-help) |
+| Come è possibile risolvere un problema relativo alla reimpostazione della password? | [Risolvere i problemi relativi al portale di reimpostazione della password](active-directory-passwords-troubleshoot.md#troubleshoot-the-password-reset-portal) |
+| Come è possibile risolvere un problema relativo al writeback delle password? | [Risolvere un problema relativo al writeback delle password](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Come è possibile risolvere un problema relativo alla connettività di writeback delle password? | [Risolvere problemi relativi alla connettività di writeback delle password](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) |
+| Come è possibile risolvere un problema relativo alla configurazione della funzione di reimpostazione della password? | [Risolvere problemi relativi alla configurazione della funzione di reimpostazione della password nel portale di gestione di Azure](active-directory-passwords-troubleshoot.md#troubleshoot-password-reset-configuration-in-the-azure-management-portal) |
+| Come è possibile risolvere un problema relativo ai report di reimpostazione della password? | [Risolvere problemi relativi ai report di gestione delle password nel portale di gestione di Azure](active-directory-passwords-troubleshoot.md#troubleshoot-password-management-reports-in-the-azure-management-portal) |
+| Come è possibile risolvere un problema relativo alla registrazione per la reimpostazione della password? | [Risolvere i problemi relativi al portale di registrazione per la reimpostazione della password](active-directory-passwords-troubleshoot.md#troubleshoot-the-password-reset-registration-portal) |
+| Codici errore del registro eventi di writeback della password | [Codici errore del registro eventi di writeback della password](active-directory-passwords-troubleshoot.md#password-writeback-event-log-error-codes) |
 
 
-##<a name="understand-the-technical-details"></a>Understand the technical details
-
-| Topic |  |
+##Leggere una domanda frequente
+| Argomento | |
 | --------- | --------- |
-| I want to learn about what password writeback is | [Password writeback overview](active-directory-passwords-learn-more.md#password-writeback-overview) |
-| I want to learn about how password writeback works | [How does password writeback work?](active-directory-passwords-learn-more.md#how-password-writeback-works) |
-| I want to learn about what scenarios are supported by password writeback | [Scenarios supported for password writeback](active-directory-passwords-learn-more.md#scenarios-supported-for-password-writeback) |
-| I want to learn about how password writeback is secured | [Password writeback security model](active-directory-passwords-learn-more.md#password-writeback-security-model) |
-| I want to learn about how the password reset portal works | [How does the password reset portal work?](active-directory-passwords-learn-more.md#how-does-the-password-reset-portal-work) |
-| I want to learn about what data is used by password reset | [What data is used by password reset?](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) |
-
-## <a name="recent-service-updates"></a>Recent service updates
-
-####<a name="enforce-password-reset-registration-at-sign-in-to-office-365-apps---november-2015"></a>Enforce Password Reset Registration at Sign-In to Office 365 Apps - November 2015
-
-- Now, after enabling the [enforced registration](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) feature, your users will be required to register from anywhere they sign in with a work or school account.  This dramatically increases the speed at which many organizations can onboard to password reset.  With this new feature we've seen large organizations onboarding in as little as 2 weeks!
-
-####<a name="support-for-unlocking-active-directory-accounts-without-resetting-a-password---november-2015"></a>Support for Unlocking Active Directory Accounts without Resetting a Password - November 2015
-
-- Unlock only (without reset) is a huge helpdesk driver these days.  In fact, many organizations spend up to 70% of their password reset budget unlocking accounts!  To meet this demand, now with Azure AD Password reset, you can enable a feature to let your users unlock AD accounts separately from password reset.  Check out how to turn it on here: [Setting: enable users to unlock their AD accounts without resetting a password](active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password).
-
-####<a name="usability-updates-to-registration-page---october-2015"></a>Usability updates to Registration Page - October 2015
-
-- Now, when a user has data already registered, he or she can just click "looks good" to update the data without needing to re-send the email or phone call.
-
-####<a name="improved-reliability-of-password-writeback---september-2015"></a>Improved Reliability of Password Writeback - September 2015
-
-- As of the September release of Azure AD Connect, the password writeback agent will now more aggressively retry connections and additional, more robust, failover capabilities.
-
-####<a name="api-for-retrieving-password-reset-reporting-data---august-2015"></a>API for Retrieving Password Reset Reporting Data - August 2015
-
-- Now, the data behind the password reset reports can be retrieved directly from the [Azure AD Reports and Events API](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
-
-####<a name="support-for-azure-ad-password-reset-during-cloud-domain-join---august-2015"></a>Support for Azure AD Password Reset During Cloud Domain Join - August 2015
-
-- Now, any cloud user can reset his or her password right from the Windows 10 sign in screen during the cloud domain join onboarding experience.  Note, this is not yet exposed on the Windows 10 sign in screen.
-
-####<a name="enforce-password-reset-registration-at-sign-in-to-azure-and-federated-apps---july-2015"></a>Enforce Password Reset Registration at Sign-In to Azure and Federated Apps - July 2015
-
-- In addition to enforcing registration when signing into myapps.microsoft.com, we now support enforcing registration during sign ins to the Azure Management Portal and any of your federated single-sign on applications
-
-####<a name="security-question-localization-support---may-2015"></a>Security Question Localization Support - May 2015
-
-- Now, you have the option to select pre-defined security questions which are localized in the full O365 language set when configuring Security Questions for password reset.
-
-####<a name="account-unlock-support-during-password-reset---june-2015"></a>Account Unlock Support during Password Reset - June 2015
-
-- If you're using password writeback and you reset your password when your account is locked, we'll automatically unlock your Active Directory account!
-
-####<a name="branded-sspr-registration---april-2015"></a>Branded SSPR Registration - April 2015
-
-- The password reset registration page is now branded with your company logo!
-
-####<a name="security-questions---march-2015"></a>Security Questions - March 2015
-
-- We released security questions to GA!
-
-####<a name="account-unlock---march-2015"></a>Account Unlock - March 2015
-
-- Now users can unlock their accounts when password reset occurs
-
-## <a name="coming-soon"></a>Coming soon
-
-Below are some of the cool features we're working on right now!
-
-**Support for Reminding Users to Update their Registered Data During Sign-in** - Work in progress
-
-- Today, we support reminding users to update their registered data when accessing myapps.microsoft.com, but we're working on the ability to do so for all sign ins.
-
-## <a name="links-to-password-reset-documentation"></a>Links to password reset documentation
-Below are links to all of the Azure AD Password Reset documentation pages:
-
-* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
-* [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
-* [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
-* [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
-* [**Best practices**](active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
-* [**Get insights**](active-directory-passwords-get-insights.md) - learn about our integrated reporting capabilities
-* [**FAQ**](active-directory-passwords-faq.md) - get answers to frequently asked questions
-* [**Troubleshooting**](active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
-* [**Learn more**](active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
+| Leggere una domanda frequente sulla registrazione per la reimpostazione della password | [Domanda frequente sulla registrazione per la reimpostazione della password](active-directory-passwords-faq.md#password-reset-registration) |
+| Leggere una domanda frequente sulla reimpostazione della password | [Domanda frequente sulla reimpostazione della password](active-directory-passwords-faq.md#password-reset) |
+| Leggere una domanda frequente sui report di reimpostazione della password | [Domanda frequente sui report di gestione delle password](active-directory-passwords-faq.md#password-management-reports) |
+| Leggere una domanda frequente sul writeback delle password | [Domanda frequente sul writeback delle password](active-directory-passwords-faq.md#password-writeback) |
 
 
+##Comprendere i dettagli tecnici
 
-<!--HONumber=Oct16_HO2-->
+| Argomento | |
+| --------- | --------- |
+| Ottenere informazioni sul writeback delle password | [Panoramica del writeback delle password](active-directory-passwords-learn-more.md#password-writeback-overview) |
+| Ottenere informazioni sulle modalità di funzionamento del writeback delle password | [Come funziona il writeback delle password?](active-directory-passwords-learn-more.md#how-password-writeback-works) |
+| Ottenere informazioni sugli scenari supportati dal writeback delle password | [Scenari supportati per il writeback delle password](active-directory-passwords-learn-more.md#scenarios-supported-for-password-writeback) |
+| Ottenere informazioni sulle modalità di protezione del writeback delle password | [Modello di sicurezza del writeback della password](active-directory-passwords-learn-more.md#password-writeback-security-model) |
+| Ottenere informazioni sulla modalità di funzionamento del portale di reimpostazione delle password | [Funzionamento del portale di reimpostazione delle password](active-directory-passwords-learn-more.md#how-does-the-password-reset-portal-work) |
+| Ottenere informazioni sui dati usati dalla reimpostazione della password | [Dati usati per la reimpostazione della password](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) |
 
+## Aggiornamenti recenti del servizio
 
+####Implementare la registrazione per la reimpostazione della password all'accesso ad app di Office 365: novembre 2015
+
+- Dopo aver abilitato la funzione di [registrazione applicata](active-directory-passwords-customize.md#require-users-to-register-when-signing-in), agli utenti verrà ora richiesto di registrarsi da qualsiasi punto di accesso usando un account aziendale o dell'istituto di istruzione. In questo modo, le aziende velocizzano considerevolmente il processo di adozione della funzione di reimpostazione della password. Alcune aziende di grandi dimensioni, ad esempio, hanno adottato questa nuova funzionalità in due sole settimane.
+
+####Supporto per lo sblocco di account di Active Directory senza la reimpostazione della password: novembre 2015
+
+- Il semplice sblocco (senza reset) costituisce oggi un driver di supporto tecnico di grandi dimensioni. In molte aziende, infatti, fino al 70% del budget destinato alla reimpostazione della password viene impiegato per sbloccare gli account. Per risolvere questo problema, la funzione di reimpostazione della password di Azure AD consente ora di abilitare una funzionalità che offre agli utenti la possibilità di sbloccare gli account di Active Directory separatamente dalla reimpostazione della password. Per sapere come attivarla: [Impostazione: Consenti agli utenti di sbloccare gli account senza reimpostare la password](active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password)
+
+####Aggiornamenti a livello di usabilità della pagina di registrazione: ottobre 2015
+
+- Dopo che i dati di un utente sono stati registrati, sarà ora sufficiente fare clic su "esito positivo" per aggiornare i dati senza dover inviare nuovamente il messaggio di posta elettronica o effettuare una nuova telefonata.
+
+####Maggiore affidabilità del writeback delle password: settembre 2015
+
+- A partire dalla versione di settembre di Azure AD Connect, l'agente di writeback delle password effettuerà ripetuti tentativi di connessione e disporrà di funzionalità di failover aggiuntive e più affidabili.
+
+####API per il recupero dei dati di report sulla reimpostazione della password: agosto 2015
+
+- I dati relativi ai report sulla reimpostazione delle password possono ora essere recuperati direttamente dall'[API di Report ed eventi di Azure AD](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+
+####Supporto per la reimpostazione delle password di Azure AD durante l'aggiunta a un dominio cloud: agosto 2015
+
+- Qualsiasi utente cloud può ora reimpostare la password direttamente dalla schermata di accesso di Windows 10 durante l'esperienza di aggiunta a un dominio cloud. Si noti che questa funzionalità non è ancora esposta nella schermata di accesso di Windows 10.
+
+####Implementare la registrazione per la reimpostazione delle password all'accesso alle app di Azure e federate: luglio 2015
+
+- Oltre all'implementazione della registrazione all'accesso a myapps.microsoft.com, è ora supportata l'implementazione della registrazione durante l'accesso al portale di gestione di Azure e alle applicazioni federate Single Sign-On
+
+####Supporto per la localizzazione della domanda di sicurezza: maggio 2015
+
+- È ora possibile selezionare domande di sicurezza predefinite, localizzate nel set di lingue completo di O365 durante la configurazione delle domande di sicurezza per la reimpostazione delle password.
+
+####Supporto per lo sblocco dell'account durante la reimpostazione delle password: giugno 2015
+
+- Se si usa il writeback delle password e si reimposta la password quando l'account è bloccato, l'account di Active Directory verrà automaticamente sbloccato.
+
+####Registrazione SSPR personalizzata: aprile 2015
+
+- La pagina di registrazione per la reimpostazione delle password è ora personalizzata con il logo della società.
+
+####Domande di sicurezza: marzo 2015
+
+- Le domande di sicurezza sono state rilasciate e sono disponibili a livello generale.
+
+####Sblocco dell’account: marzo 2015
+
+- I nuovi utenti possono sbloccare i propri account quando si verifica la reimpostazione delle password
+
+## Presto disponibile
+
+Di seguito sono riportate alcune interessanti funzionalità in fase di elaborazione.
+
+**Supporto per i promemoria relativi all'aggiornamento dei dati registrati durante l'accesso**: in fase di elaborazione
+
+- Sono ora supportati i promemoria per gli utenti relativi all'aggiornamento dei dati registrati all'accesso a myapps.microsoft.com, ma la possibilità di estenderli a tutti gli accessi è ancora in fase di elaborazione.
+
+## Collegamenti alla documentazione relativa alla reimpostazione della password
+Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
+
+* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+* [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
+* [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
+* [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione
+* [**Procedure consigliate**](active-directory-passwords-best-practices.md): informazioni su come distribuire rapidamente e gestire in modo efficace le password nell'organizzazione
+* [**Informazioni dettagliate**](active-directory-passwords-get-insights.md): informazioni sulle funzionalità di creazione report integrate
+* [**Domande frequenti**](active-directory-passwords-faq.md): risposte alle domande frequenti
+* [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md): informazioni su come risolvere rapidamente eventuali problemi con il servizio
+* [**Ulteriori informazioni**](active-directory-passwords-learn-more.md): approfondimenti sui dettagli tecnici del funzionamento del servizio
+
+<!---HONumber=AcomDC_0727_2016-->

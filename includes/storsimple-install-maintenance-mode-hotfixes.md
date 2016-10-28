@@ -1,24 +1,21 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-install-maintenance-mode-hotfixes-via-windows-powershell-for-storsimple"></a>To install Maintenance mode hotfixes via Windows PowerShell for StorSimple
+#### Per installare gli aggiornamenti rapidi in modalità di manutenzione tramite Windows PowerShell per StorSimple
 
-> [AZURE.IMPORTANT] In Maintenance mode, you need to apply the hotfix first on one controller and then on the other controller.
+> [AZURE.IMPORTANT]In modalità di manutenzione, è necessario applicare l’aggiornamento rapido prima in un controller e quindi nell’altro controller.
 
-1. Place the device into Maintenance mode. See [Step 2: Enter Maintenance mode](storsimple-update-device.md#step2) for instructions on how to enter Maintenance mode.
+1. Attivare la modalità di manutenzione per il dispositivo. Per visualizzare istruzioni su come attivare la modalità di manutenzione, vedere [Passaggio 2: Attivare la modalità di manutenzione](storsimple-update-device.md#step2).
 
-2. To apply the hotfix, type:
+2. Per applicare l’aggiornamento rapido, digitare:
 
-     `Start-HcsHotfix` 
+     `Start-HcsHotfix`
 
-3. When prompted, supply the path to the network shared folder that contains the hotfix files.
+3. Quando richiesto, specificare il percorso della cartella condivisa di rete che contiene i file dell'aggiornamento rapido.
 
-4. You will be prompted for confirmation. Type **Y** to proceed with the hotfix installation.
+4. Verrà richiesto di confermare. Digitare **Y** per procedere con l'installazione dell'aggiornamento rapido.
 
-5. After you have applied the hotfix on one controller, log on to the other controller. Apply the hotfix as you did for the previous controller.
+5. Dopo aver applicato l'aggiornamento rapido in un controller, accedere all’altro controller. Applicare l'aggiornamento rapido come è stato fatto per il precedente controller.
 
-6. After the hotfixes are applied, exit Maintenance mode. See [Step 4: Exit Maintenance mode](storsimple-update-device.md#step4) for instructions.
+6. Dopo aver applicato gli aggiornamenti rapidi, uscire dalla modalità di manutenzione. Per istruzioni, vedere [Passaggio 4: Uscire dalla modalità di manutenzione](storsimple-update-device.md#step4).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

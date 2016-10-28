@@ -1,33 +1,30 @@
 <!--author=alkohli last changed: 12/15/15-->
 
-| Limit identifier | Limit | Comments |
+| Identificatore limite | Limite | Commenti |
 |----------------- | ------|--------- |
-| Maximum number of storage account credentials | 64 | |
-| Maximum number of volume containers | 64 | |
-| Maximum number of volumes | 255 | |
-| Maximum number of schedules per bandwidth template | 168 | A schedule for every hour, every day of the week (24*7). |
-| Maximum size of a tiered volume on physical devices | 64 TB for 8100 and 8600 | 8100 and 8600 are physical devices. |
-| Maximum size of a tiered volume on virtual devices in Azure | 30 TB for 8010 <br></br> 64 TB for 8020 | 8010 and 8020 are virtual devices in Azure that use Standard Storage and Premium Storage respectively. |
-| Maximum size of a locally pinned volume on physical devices | 9 TB for 8100 <br></br> 24 TB for 8600 | 8100 and 8600 are physical devices. |
-| Maximum number of iSCSI connections | 512 | |
-| Maximum number of iSCSI connections from initiators | 512 | |
-| Maximum number of access control records per device | 64 | |
-| Maximum number of volumes per backup policy | 24 | |
-| Maximum number of backups retained per backup policy | 64 | |
-| Maximum number of schedules per backup policy | 10 | |
-| Maximum number of snapshots of any type that can be retained per volume | 256 | This includes local snapshots and cloud snapshots. |
-| Maximum number of snapshots that can be present in any device | 10,000 | |
-| Maximum number of volumes that can be processed in parallel for backup, restore, or clone | 16 |<ul><li>If there are more than 16 volumes, they will be processed sequentially as processing slots become available.</li><li>New backups of a cloned or a restored tiered volume cannot occur until the operation is finished. However, for a local volume, backups are allowed after the volume is online.</li></ul>|
-| Restore and clone recover time for tiered volumes | < 2 minutes | <ul><li>The volume is made available within 2 minutes of restore or clone operation, regardless of the volume size.</li><li>The volume performance may initially be slower than normal as most of the data and metadata still resides in the cloud. Performance may increase as data flows from the cloud to the StorSimple device.</li><li>The total time to download metadata depends on the allocated volume size. Metadata is automatically brought into the device in the background at the rate of 5 minutes per TB of allocated volume data. This rate may be affected by Internet bandwidth to the cloud.</li><li>The restore or clone operation is complete when all the metadata is on the device.</li><li>Backup operations cannot be performed until the restore or clone operation is fully complete.|
-| Restore recover time for locally pinned volumes | < 2 minutes | <ul><li>The volume is made available within 2 minutes of the restore operation, regardless of the volume size.</li><li>The volume performance may initially be slower than normal as most of the data and metadata still resides in the cloud. Performance may increase as data flows from the cloud to the StorSimple device.</li><li>The total time to download metadata depends on the allocated volume size. Metadata is automatically brought into the device in the background at the rate of 5 minutes per TB of allocated volume data. This rate may be affected by Internet bandwidth to the cloud.</li><li>Unlike tiered volumes, in the case of locally pinned volumes, the volume data is also downloaded locally on the device. The restore operation is complete when all the volume data has been brought to the device.</li><li>The restore operations may be long and the total time to complete the restore will depend on the size of the provisioned local volume, your Internet bandwidth and the existing data on the device. Backup operations on the locally pinned volume are allowed while the restore operation is in progress.|
-| Thin-restore availability | Last failover | |
-| Maximum client read/write throughput (when served from the SSD tier)* | 920/720 MB/s with a single 10GbE network interface | Up to 2x with MPIO and two network interfaces. |
-| Maximum client read/write throughput (when served from the HDD tier)* | 120/250 MB/s |
-| Maximum client read/write throughput (when served from the cloud tier)* | 11/41 MB/s | Read throughput depends on clients generating and maintaining sufficient I/O queue depth. |
+| Numero massimo di credenziali dell'account di archiviazione | 64 | |
+| Numero massimo di contenitori di volumi | 64 | |
+| Numero massimo di volumi | 255 | |
+| Numero massimo di pianificazioni per ogni modello di larghezza di banda | 168 | Una pianificazione per ogni ora, ogni giorno della settimana (24*7). |
+| Dimensioni massime di un volume a livelli nei dispositivi fisici | 64 TB per 8100 e 8600 | 8100 e 8600 sono dispositivi fisici. |
+| Dimensioni massime di un volume a livelli su dispositivi virtuali di Azure | 30 TB per 8010 <br></br> 64 TB per 8020 | 8010 e 8020 sono dispositivi virtuali di Azure che usano rispettivamente archiviazione Standard e Premium. |
+| Dimensioni massime di un volume aggiunto in locale nei dispositivi fisici | 9 TB per 8100 <br></br> 24 TB per 8600 | 8100 e 8600 sono dispositivi fisici. |
+| Numero massimo di connessioni iSCSI | 512 | |
+| Numero massimo di connessioni iSCSI dagli iniziatori | 512 | |
+| Numero massimo di record di controllo di accesso per dispositivo | 64 | |
+| Numero massimo di volumi per criteri di backup | 24 | |
+| Numero massimo di backup mantenuti per criteri di backup | 64 | |
+| Numero massimo di pianificazioni per criteri di backup | 10 | |
+| Numero massimo di snapshot di qualsiasi tipo che è possibile mantenere per volume | 256 | Sono inclusi gli snapshot locali e quelli cloud. |
+| Numero massimo di snapshot che possono essere presenti in qualsiasi dispositivo | 10\.000 | |
+| Numero massimo di volumi che possono essere elaborati in parallelo per backup, ripristino o clonazione | 16 |<ul><li>Se sono presenti più di 16 volumi, verranno elaborati in sequenza man mano che gli slot di elaborazione diventano disponibili.</li><li>Non è possibile eseguire nuovi backup di un volume a livelli clonato o ripristinato fino a quando l'operazione non è completata. Tuttavia, per un volume locale, i backup sono consentiti dopo che il volume è online.</li></ul>|
+| Ripristino e clonazione del tempo di ripristino per volumi a livelli | < 2 minuti | <ul><li>Il volume viene reso disponibile entro 2 minuti dell'operazione di ripristino o clonazione, indipendentemente dalle dimensioni del volume.</li><li>È possibile che inizialmente le prestazioni del volume siano più lente del normale, poiché la maggior parte dei dati e dei metadati si trova ancora nel cloud. Le prestazioni possono migliorare con il flusso dei dati dal cloud al dispositivo StorSimple.</li><li>Il tempo totale necessario per scaricare i metadati dipende dalle dimensioni del volume allocato. I metadati vengono inseriti automaticamente nel dispositivo in background alla velocità di 5 minuti per TB di dati di volume allocato. La velocità può dipendere dalla larghezza di banda di Internet nel cloud.</li><li>L'operazione di ripristino o clonazione è completa quando tutti i metadati si trovano nel dispositivo.</li><li>Non è possibile eseguire le operazioni di backup fino a quando l'operazione di ripristino o clonazione non è stata completata.|
+| Ripristinare il tempo di ripristino per i volumi aggiunti in locale | < 2 minuti | <ul><li>Il volume viene reso disponibile entro 2 minuti dell'operazione di ripristino, indipendentemente dalle dimensioni del volume.</li><li>È possibile che inizialmente le prestazioni del volume siano più lente del normale, poiché la maggior parte dei dati e dei metadati si trova ancora nel cloud. Le prestazioni possono migliorare con il flusso dei dati dal cloud al dispositivo StorSimple.</li><li>Il tempo totale necessario per scaricare i metadati dipende dalle dimensioni del volume allocato. I metadati vengono inseriti automaticamente nel dispositivo in background alla velocità di 5 minuti per TB di dati di volume allocato. Questa velocità può dipendere dalla larghezza di banda Internet nel cloud.</li><li>A differenza dei volumi a livelli, in caso di volumi aggiunti in locale, i dati del volume vengono anche scaricati localmente nel dispositivo. L'operazione di ripristino è completa quando tutti i dati del volume sono stati portati al dispositivo.</li><li>Le operazioni di ripristino possono essere lunghe e il tempo totale necessario per completare il ripristino dipende dalle dimensioni del volume locale con provisioning, la larghezza di banda di Internet e i dati esistenti nel dispositivo. Sono consentite operazioni di backup nel volume aggiunto in locale mentre è in corso l'operazione di ripristino.|
+| Disponibilità del ripristino di tipo thin | Ultimo failover | |
+| Massima velocità effettiva in lettura/scrittura del client (quando servita dal livello SSD)* | 920/720 MB/s con una singola interfaccia di rete 10GbE | Fino a 2x con MPIO e due interfacce di rete. |
+| Massima velocità effettiva in lettura/scrittura del client (quando servita dal livello HDD)* | 120/250 MB/s |
+| Massima velocità effettiva in lettura/scrittura del client (quando servita dal livello Cloud)* | 11/41 MB/s | La velocità effettiva di lettura dipende dai client che generano e gestiscono una profondità della coda I/O sufficiente. |
 
-&#42; Maximum throughput per I/O type was measured with 100 percent read and 100 percent write scenarios. Actual throughput may be lower and depends on I/O mix and network conditions.
+&#42; La velocità effettiva massima per ciascun tipo di I/O è stata misurata con scenari di scrittura al 100% e scenari di lettura al 100%. La velocità effettiva potrebbe essere inferiore a seconda delle condizioni della rete e della combinazione I/O.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,59 +1,52 @@
 <properties
-    pageTitle="Working with Claims Aware Apps in Application Proxy"
-    description="Covers how to get up and running with Azure AD Application Proxy."
-    services="active-directory"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor=""/>
+	pageTitle="Uso di app in grado di riconoscere attestazioni nel proxy dell'applicazione"
+	description="Viene illustrato come iniziare a utilizzare il proxy dell'applicazione di AD Azure."
+	services="active-directory"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="06/22/2016"
-    ms.author="kgremban"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/22/2016"
+	ms.author="kgremban"/>
 
 
 
+# Uso di app in grado di riconoscere attestazioni nel proxy dell'applicazione
 
-# <a name="working-with-claims-aware-apps-in-application-proxy"></a>Working with claims aware apps in Application Proxy
+Le app in grado di riconoscere attestazioni eseguono un reindirizzamento al servizio token di sicurezza, che a sua volta richiede le credenziali dell'utente in cambio di un token prima di reindirizzare l'utente all'applicazione. Per abilitare il proxy dell'applicazione e poter gestire le operazioni di reindirizzamento, è necessario prima seguire questa procedura.
 
-Claims aware apps perform a redirection to the Security Token Service (STS), which in turn requests credentials from the user in exchange for a token before redirecting the user to the application. To enable Application Proxy to work with these redirects, the following steps need to be taken.
+## Prerequisiti
+Prima di eseguire la procedura, assicurarsi che il servizio token di sicurezza a cui reindirizza l'app basata sul riconoscimento delle attestazioni sia disponibile all'esterno della rete locale.
 
-## <a name="prerequisites"></a>Prerequisites
-Before performing this procedure, make sure that the STS the claims aware app redirects to is available outside of your on-premises network.
+## Configurazione del portale di Azure classico
 
-## <a name="azure-classic-portal-configuration"></a>Azure classic portal configuration
-
-1. Publish your application according to the instructions described in [Publish applications with Application Proxy](active-directory-application-proxy-publish.md).
-2. In the list of applications, select the claims aware app and click **Configure**.
-3. If you chose **Passthrough** as your **Preauthentication Method**, make sure to select **HTTPS** as your **External URL** scheme.
-4. If you chose **Azure Active Directory** as your **Preauthentication Method**, select **None** as your **Internal Authentication Method**.
-
-
-## <a name="adfs-configuration"></a>ADFS configuration
-
-1. Open ADFS Management.
-2. Go to **Relying Party Trusts**, right click on the app you are publishing with Application Proxy, and choose **Properties**.  
-  ![Relying Party Trusts right click on app name - screentshot](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)  
-3. On the **Endpoints** tab, under **Endpoint type**, select **WS-Federation**.
-4. Under **Trusted URL** enter the URL you entered in the Application Proxy under **External URL** and click **OK**.  
-  ![Add an Endpoint - set Trusted URL value - screenshot](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)  
-
-## <a name="see-also"></a>See also
-
-- [Publish applications with Application Proxy](active-directory-application-proxy-publish.md)
-- [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
-- [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
-- [Enable native client apps to interact with proxy applications](active-directory-application-proxy-native-client.md)
-
-For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
+1. Pubblicare l'applicazione seguendo le istruzioni contenute in [Pubblicare le applicazioni con il proxy di applicazione](active-directory-application-proxy-publish.md).
+2. Nell'elenco delle applicazioni selezionare l'app in grado di riconoscere attestazioni e fare clic su **Configura**.
+3. Se si sceglie **Passthrough** come **Metodo di autenticazione preliminare**, assicurarsi di selezionare **HTTPS** come schema di **URL esterno**.
+4. Se si sceglie **Azure Active Directory** come **Metodo di autenticazione preliminare**, assicurarsi di selezionare **Nessuno** come **Metodo di autenticazione interna**.
 
 
+## Configurazione di AD FS
 
-<!--HONumber=Oct16_HO2-->
+1. Aprire la console di gestione di AD FS.
+2. Passare a **Trust relying party**, fare clic con il pulsante destro del mouse sull'app da pubblicare con il proxy dell'applicazione e scegliere **Proprietà**.![Schermata: clic con il pulsante destro del mouse sul nome dell'app in Trust relying party](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)  
+3. Nella scheda **Endpoint** selezionare **WS-Federation** in **Tipo di endpoint**.
+4. In **URL attendibile** specificare l'URL immesso in **URL esterno** nel proxy dell'applicazione e fare clic su **OK**. ![Schermata: aggiunta di un endpoint e impostazione del valore per URL attendibile](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)  
 
+## Vedere anche
 
+- [Pubblicare le applicazioni con il proxy di applicazione](active-directory-application-proxy-publish.md)
+- [Abilitare l'accesso Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)
+- [Risolvere i problemi che si verificano con il proxy di applicazione](active-directory-application-proxy-troubleshoot.md)
+- [Abilitare le app client native per l'interazione con applicazioni proxy](active-directory-application-proxy-native-client.md)
+
+Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (Blog sul proxy di applicazione)
+
+<!---HONumber=AcomDC_0622_2016-->

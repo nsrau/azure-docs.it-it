@@ -1,11 +1,11 @@
 
 <properties 
-    pageTitle="How does Azure RemoteApp save user data and settings? | Microsoft Azure"
-    description="Learn how Azure RemoteApp saves user data using the user profile disk."
-    services="remoteapp"
-    documentationCenter="" 
-    authors="lizap" 
-    manager="mbaldwin" />
+    pageTitle="Azure RemoteApp come salva dati e impostazioni? | Microsoft Azure"
+	description="Informazioni su come Azure RemoteApp salva i dati dell'utente utilizzando il disco del profilo utente."
+	services="remoteapp"
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" />
 
 <tags 
     ms.service="remoteapp" 
@@ -16,151 +16,146 @@
     ms.date="08/15/2016" 
     ms.author="elizapo" />
 
-
-# <a name="how-does-azure-remoteapp-save-user-data-and-settings?"></a>How does Azure RemoteApp save user data and settings?
+# Azure RemoteApp come salva dati e impostazioni?
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
-Azure RemoteApp saves user identity and customizations across devices and sessions. This user data is stored in a per-user per-collection disk, known as a user profile disk (UPD). The disk follows the user and ensures the user has a consistent experience, regardless of where they sign in. saves 
+Azure RemoteApp salva identità utente e personalizzazioni nei dispositivi e nelle sessioni. Tali dati utente vengono archiviati in un disco per ogni raccolta per utente, noto come disco del profilo utente (UPD). Il disco segue l'utente e garantisce che l'utente disponga di un'esperienza coerente, indipendentemente da dove si registrano i salvataggi
 
-User profile disks are completely transparent to the user — users save documents to their Documents folder (on what appears to be a local drive) and change their app settings as usual. At the same time, all personal settings persist when connecting to Azure RemoteApp from any device. All the user sees is their data in the same place.
+I dischi dei profili utente sono completamente trasparenti all'utente - gli utenti salvano i documenti nella loro cartella documenti (su quello che sembra essere un'unità locale) e modificano le impostazioni della loro applicazione come di consueto. Allo stesso tempo, tutte le impostazioni personali vengono mantenute quando ci si connette a RemoteApp di Azure da qualsiasi dispositivo. L'utente vede è i propri dati nella stessa posizione.
 
-Each UPD has 50GB of persistent storage and contains both user data and application settings. 
+Ogni UPD dispone di 50GB di archiviazione permanente e contiene entrambe le impostazioni applicazione e dati utente.
 
-Read on for specifics on user profile data.
+Leggere le informazioni specifiche sui dati del profilo utente.
 
->[AZURE.NOTE] Need to disable the UPD? You can do that now - check out Pavithra's blog post, [Disable User Profile Disks (UPDs) in Azure RemoteApp](https://blogs.technet.microsoft.com/enterprisemobility/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp/), for details.
-
-
-## <a name="how-can-an-admin-get-to-the-data?"></a>How can an admin get to the data?
-
-If you need to access the data for one of your users (for disaster recovery or if the user leaves the company), contact Azure Support and provide the subscription information for the collection and the user identity. The Azure RemoteApp team will provide you a URL to the VHD. Download that VHD and retrieve any documents or files you need. Note that the VHD is 50GB, so it will take a bit to download it.
+>[AZURE.NOTE] È necessario disabilitare il disco del profilo utente? È ora possibile eseguire questa operazione: per informazioni dettagliate, consultare il post di blog di Pavithra relativo alla [disabilitazione dei dischi dei profili utente in Azure RemoteApp](https://blogs.technet.microsoft.com/enterprisemobility/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp/).
 
 
-## <a name="is-the-data-backed-up?"></a>Is the data backed up?
+## Come può un amministratore accedere ai dati?
 
-Yes, we save a backup of the user data per geographic location. The data is read-only and can be accessed in the same way as the regular data would be (contact Azure RemoteApp to get it), if the primary data center is down. The data is copied real-time to the backup location and we do not keep copies of different versions. So, on data corruption, we will not be able to restore it to a previously known good version but if the primary data center is down, you will be able to get user data from the other location.
-
-## <a name="how-do-users-see-the-upd-on-the-server-side?"></a>How do users see the UPD on the server side?
-
-Each user will have their own directory on the server that maps to their UPD: c:\Users\username.
-
-## <a name="what's-the-best-way-to-use-outlook-and-upd?"></a>What's the best way to use Outlook and UPD?
-
-Azure RemoteApp saves the Outlook state (mailboxes, PSTs) between sessions. To enable this, we need the PST to be stored in the user profile data (c:\users\<username>). This is the default location for the data, so as long as you do not change the location, the data will persist between sessions.
-
-We also recommend that you use "cached" mode in Outlook and use "server/online" mode for searching.
-
-Check out [this article](remoteapp-outlook.md) for more information on using Outlook and Azure RemoteApp.
-
-## <a name="what-about-redirection?"></a>What about redirection?
-You can configure Azure RemoteApp to let users access local devices by setting up [redirection](remoteapp-redirection.md). Local devices will then be able to access the data on the UPD.
-
-## <a name="can-i-use-my-upd-as-a-network-share?"></a>Can I use my UPD as a network share?
-No. UPDs cannot be used as a network share. A UPD is only available to the user when the user is actively connected to Azure RemoteApp.
-
-## <a name="if-i-delete-a-user-from-a-collection,-is-their-upd-deleted?"></a>If I delete a user from a collection, is their UPD deleted?
-
-No, when you delete a user, we do not automatically delete the UPD - instead, we store the data until you delete the collection. 90 days after you delete the collection, we delete all UPDs. 
-
-If you need to delete a UPD from a collection, contact Azure RemoteApp - we can delete UPD from our side.
-
-## <a name="can-i-access-my-users'-upds-(either-current-or-deleted-users)?"></a>Can I access my users' UPDs (either current or deleted users)?
-
-Yes, if you contact [Azure RemoteApp](mailto:remoteappforum@microsoft.com), we can set you up with a URL to access the data. You'll have about 10 hours to download any data or files from the UPD before the access expires.
-
-## <a name="are-upds-available-offline?"></a>Are UPDs available offline?
-
-Right now we do not provide offline access to UPDs, beyond the 10 hour access window described above. This means that we do not currently have a way to provide you with access for long enough to complete more complicated tasks, like running anti-virus software on the UPDs or accessing data for an audit.
-
-## <a name="do-registry-key-settings-persist?"></a>Do registry key settings persist?
-Yes, anything written to HKEY_Current_User is part of the UPD.
-
-## <a name="can-i-disable-upds-for-a-collection?"></a>Can I disable UPDs for a collection?
-
-Yes, you can ask Azure RemoteApp to disable UPDs for a subscription, but you cannot do that yourself. This means that UPDs will be disabled for all collections in the subscription.
-
-You might want to disable UPDs in any of the following situations: 
-
-- You need complete access and control of user data (for audit and review purposes such as financial institutions).
-- You have 3rd-party user profile management solutions on-premises and want to continue using them in your domain-joined Azure RemoteApp deployment. This would require the profile agent to be loaded into the gold image. 
-- You don’t need any local data storage or you have all data in the cloud or file share and would like to control saving of data locally using Azure RemoteApp.
-
-See  [Disable User Profile Disks (UPDs) in Azure RemoteApp](https://blogs.technet.microsoft.com/enterprisemobility/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp/) for more information.
-
-## <a name="can-i-restrict-users-from-saving-data-to-the-system-drive?"></a>Can I restrict users from saving data to the system drive?
-
-Yes, but you'll need to set that up in the template image before you create the collection. Use the following steps to block access to the system drive:
-
-1. Run **gpedit.msc** on the template image.
-2. Navigate to **User Configuration > Administrative Templates > Windows Components > Explorer**.
-3. Select the following options:
-    - **Hide these specified drives in My Computer**
-    - **Prevent access to drives from My Computer**
-
-## <a name="can-i-seed-upds?-i-want-to-put-some-data-in-the-upd-that's-available-the-first-time-the-user-signs-in."></a>Can I seed UPDs? I want to put some data in the UPD that's available the first time the user signs in.
-
-Yes, when you create the template image, you can add information to the default profile. That information is then added to the UPD.
-
-## <a name="can-i-change-the-size-of-the-upd-depending-on-how-much-data-i-want-to-store?"></a>Can I change the size of the UPD depending on how much data I want to store?
-
-No, all UPDs have 50 GB of storage. If you want to store different amounts of data, try the following:
-
-1. Disable UPDs for the collection.
-2. Set up a file share for users to access.
-3. Load the file share by using a startup script. See below for details on startup scripts in Azure RemoteApp.
-4. Direct users to save all data to the file share.
+Se è necessario accedere ai dati per uno degli utenti, per il ripristino di emergenza o se l'utente lascia la società, contattare il supporto tecnico di Azure e fornire le informazioni di sottoscrizione per la raccolta e l'identità dell'utente. Il team di Azure RemoteApp fornirà un URL per il disco rigido virtuale. Scaricare il disco rigido virtuale e recuperare i documenti o i file necessari. Si noti che il disco rigido virtuale è di 50GB, pertanto ci può volere del tempo per scaricarlo.
 
 
-## <a name="how-do-i-run-a-startup-script-in-azure-remoteapp?"></a>How do I run a startup script in Azure RemoteApp?
+## Si esegue il backup dei dati?
 
-If you want to run a startup script, start by creating a scheduled task in the template image you are going to use for the collection. (Do this *before* you run sysprep.) 
+Sì, si salva una copia di backup dei dati utente per ogni posizione geografica. I dati sono di sola lettura ed è possibile accedervi allo stesso modo dei dati normali (contattare RemoteApp di Azure per ottenerli), se il data center principale è attivo. I dati vengono copiati in tempo reale nel percorso di backup e non si mantengono copie delle diverse versioni. Pertanto, nel danneggiamento dei dati, non sarà possibile ripristinare una versione valida nota in precedenza ma se il data center principale non è attivo, sarà possibile ottenere dati utente da un altro percorso.
 
-![Create a system task](./media/remoteapp-upd/upd1.png)
+## Gli utenti come visualizzano il UPD sul lato server?
 
-![Create a system task that runs when a user logs on](./media/remoteapp-upd/upd2.png)
+Ogni utente dispone di proprie directory nel server associate al proprio UPD: c:\\Users\\username.
 
-On the **General** tab, be sure to change the **User Account** under Security to "BUILTIN\Users."
+## Qual’è il miglior modo di utilizzare Outlook e UPD?
 
-![Change the user account to a group](./media/remoteapp-upd/upd4.png)
+RemoteApp di Azure consente di salvare lo stato di Outlook (cassette postali, file PST) tra le sessioni. A tale scopo, è necessario che PST sia archiviato nei dati di profilo utente (c:\\users<nomeutente>). Questo è il percorso predefinito per i dati, quindi fino a quando non si modifica la posizione, i dati verranno mantenuti tra le sessioni.
 
-The scheduled task will launch your startup script, using the user's credentials. Schedule the task to run every a time a user logs on.
+È inoltre consigliabile utilizzare la modalità "cache" in Outlook e utilizzare la modalità "server/online" per la ricerca.
 
-![Set the trigger for the task as "At log on"](./media/remoteapp-upd/upd3.png)
+Per altre informazioni sull'uso di Outlook e Azure RemoteApp, consultare [questo articolo](remoteapp-outlook.md).
 
-You can also use [Group Policy-based startup scripts](https://technet.microsoft.com/library/cc779329%28v=ws.10%29.aspx). 
+## Come funziona il reindirizzamento?
+È possibile configurare Azure RemoteApp per consentire agli utenti di accedere ai dispositivi locali mediante il [reindirizzamento](remoteapp-redirection.md). I dispositivi locali saranno in grado di accedere ai dati sull’UPD.
 
-## <a name="what-about-placing-a-startup-script-in-the-start-menu?-would-that-work?"></a>What about placing a startup script in the Start menu? Would that work?
+## È possibile utilizzare l’UPD come condivisione di rete?
+No. UPDs non può essere utilizzato come una condivisione di rete. Un UPD è disponibile per l’utente solo quando l'utente è attivamente connesso a RemoteApp di Azure.
 
-In other words, can I create a .bat file that runs a config window script and save it to the c:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp folder, and then have that script run whenever a user starts a RemoteApp session?
+## Se si elimina un utente da una raccolta, viene eliminato anche il suo UPD?
 
-No, that's not supported with Azure RemoteApp, which uses RDSH, which also does not support startup scripts in the Start menu.
+No, quando si elimina un utente, non si elimina automaticamente l’UPD - memorizziamo i dati fino a quando non si elimina la raccolta. 90 giorni dopo l'eliminazione della raccolta, eliminiamo tutti gli UPD.
 
-## <a name="can-i-use-mstsc.exe-(the-remote-desktop-program)-to-configure-logon-scripts?"></a>Can I use mstsc.exe (the Remote Desktop program) to configure logon scripts?
+Se si desidera eliminare un UPD da una raccolta, contattare RemoteApp di Azure - possiamo eliminare l’UPD per conto degli utenti.
 
-Nope, not supported by Azure RemoteApp.
+## È possibile accedere agli UPD dei propri utenti (utenti correnti o eliminati)?
 
-## <a name="can-i-store-data-on-the-vm-locally?"></a>Can I store data on the VM locally?
+Sì, se si contatta [Azure RemoteApp](mailto:remoteappforum@microsoft.com), viene fornito un URL per l'accesso ai dati. Per scaricare i dati o file dal UPD prima della scadenza dell'accesso, si avranno a disposizione circa 10 ore.
 
-NO, data stored anywhere on the VM other than in the UPD will be lost. There is a high chance the user will not get the same VM the next time that they sign into Azure RemoteApp. We do not maintain user-VM persistence, so the user will not sign into the same VM, and the data will be lost. Additionally, when we update the collection, the existing VMs are replaced with a new set of VMs - that means any data stored on the VM itself is lost. The recommendation is to store data in the UPD, shared storage like Azure Files, a file server inside a VNET, or on the cloud using a cloud storage system like DropBox.
+## Gli UPD sono disponibili offline?
 
-## <a name="how-do-i-mount-an-azure-file-share-on-a-vm,-using-powershell?"></a>How do I mount an Azure File share on a VM, using PowerShell?
+Attualmente non viene fornito l'accesso offline agli UPD, oltre alle 10 ore di accesso descritte in precedenza. Ciò significa che non è attualmente disponibile un modo per fornire un accesso per lunghi tempi per poter completare le attività più complesse, come l’esecuzione di un software antivirus nei UPD o l'accesso ai dati per un controllo.
 
-You can use the Net-PSDrive cmdlet to mount the drive, as follows:
+## Vengono mantenute le impostazioni della chiave del Registro di sistema?
+Sì, qualsiasi elemento scritto in HKEY\_Current\_User fa parte del UPD.
 
-    New-PSDrive -Name <drive-name> -PSProvider FileSystem -Root \\<storage-account-name>.file.core.windows.net\<share-name> -Credential :<storage-account-name>
+## È possibile disattivare gli UPD per una raccolta?
+
+Sì, è possibile chiedere ad Azure RemoteApp di disabilitare gli UPD per una sottoscrizione, ma non è possibile eseguirla manualmente. Ciò significa che gli UPD verranno disabilitati per tutte le raccolte nella sottoscrizione.
+
+È consigliabile disabilitare i dischi del profilo utente in una delle situazioni seguenti:
+
+- È necessario disporre di accesso e controllo completi dei dati utente (a scopo di controllo e verifica, ad esempio negli istituti finanziari).
+- Si dispone di soluzioni locali di gestione del profilo utente di terze parti e si desidera continuare a usarle nella distribuzione di Azure RemoteApp aggiunta al dominio. Questa opzione richiede il caricamento dell'agente del profilo nell'immagine gold.
+- Non è necessaria una risorsa di archiviazione di dati locale oppure tutti i dati sono archiviati nel cloud o in una condivisione file e si vuole controllare il salvataggio dei dati in modalità locale tramite Azure RemoteApp.
+
+Per altre informazioni, vedere il post di blog relativo alla [disabilitazione dei dischi dei profili utente in Azure RemoteApp](https://blogs.technet.microsoft.com/enterprisemobility/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp/).
+
+## È possibile limitare gli utenti nel salvataggio dei dati nell'unità di sistema?
+
+Sì, ma è necessario impostarlo nell'immagine modello prima di creare la raccolta. Per bloccare l'accesso all'unità del sistema, attenersi alla procedura seguente:
+
+1. Eseguire **gpedit.msc** nell'immagine modello.
+2. Passare a **Configurazione utente > Modelli amministrativi > Componenti di Windows > Esplora**.
+3. Selezionare le opzioni seguenti:
+	- **Nascondi le unità specificate in risorse del Computer**
+	- **Impedire l'accesso alle unità dal Computer locale**
+
+## È possibile inizializzare gli UPD? Desidero inserire dei dati nell’UPD disponibile la prima volta che l'utente accede.
+
+Sì, quando si crea l'immagine modello, è possibile aggiungere informazioni al profilo predefinito. Tale informazione viene quindi aggiunta al UPD.
+
+## È possibile modificare le dimensioni dell’UPD a seconda della quantità di dati si desidera archiviare?
+
+No, tutti gli UPD hanno 50 GB di spazio di archiviazione. Se si desidera archiviare diverse quantità di dati, procedere come segue:
+
+1. Disabilitare gli UPD per la raccolta.
+2. Configurare una condivisione di file per gli utenti.
+3. Caricare la condivisione file utilizzando uno script di avvio. Per ulteriori informazioni sugli script di avvio in Azure RemoteApp, vedere di seguito.
+4. Indirizzare gli utenti al salvataggio di tutti i dati nella condivisione file.
 
 
-You can also save your credentials by running the following:
+## Come eseguire uno script di avvio in Azure RemoteApp
+
+Se si desidera eseguire uno script di avvio, iniziare creando un'attività pianificata nell'immagine modello che si intende utilizzare per la raccolta. (Eseguire tale operazione *prima* di eseguire sysprep.)
+
+![Creare un'attività di sistema](./media/remoteapp-upd/upd1.png)
+
+![Creare un'attività di sistema che viene eseguita quando un utente accede](./media/remoteapp-upd/upd2.png)
+
+Nella scheda **Generale**, assicurarsi di modificare l’**Account utente** in Sicurezza in "BUILTIN\\Users."
+
+![Modificare l'account utente in un gruppo](./media/remoteapp-upd/upd4.png)
+
+L'attività pianificata avvierà lo script di avvio, utilizzando le credenziali dell'utente. Pianificare l'attività affinché venga eseguita ogni volta che un utente accede.
+
+![Impostare il trigger per l'attività come "al momento dell'accesso"](./media/remoteapp-upd/upd3.png)
+
+È inoltre possibile usare [gli script di avvio basati su criteri di gruppo](https://technet.microsoft.com/library/cc779329%28v=ws.10%29.aspx).
+
+## Come funziona l'inserimento di uno script di avvio nel menu Start? Funziona?
+
+In altre parole, è possibile creare un file con estensione .bat che esegue uno script di configurazione, salvarlo nella cartella c:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp e eseguire quindi lo script ogni volta che un utente avvia una sessione di RemoteApp?
+
+No, tale opzione non è supportata da RemoteApp di Azure, che utilizza host sessione Desktop remoto che inoltre non supporta gli script di avvio nel menu Start.
+
+## È possibile utilizzare mstsc.exe (il programma Desktop remoto) per configurare gli script di accesso?
+
+No, tale opzione non è supportata da Azure RemoteApp.
+
+## È possibile archiviare dati sulla VM in locale?
+
+NO, i dati archiviati in un punto qualsiasi della VM diverso dall’UPD andranno persi. È molto probabile l'utente non riceva la stessa VM al successivo accesso ad Azure RemoteApp. Non viene mantenuta la persistenza utente-VM, pertanto l'utente non eseguirà l'accesso alla stessa VM e i dati andranno persi. Inoltre, quando si aggiorna la raccolta, le VM esistenti vengono sostituite con un nuovo set di VM, pertanto i dati archiviati sulla stessa VM andranno persi. È consigliabile archiviare i dati nell'UPD, in un servizio di archiviazione condivisa come File di Azure, in un file server all'interno di una rete virtuale o nel cloud con un sistema di archiviazione cloud come DropBox.
+
+## Come montare una condivisione di File di Azure in una VM, tramite PowerShell
+
+È possibile utilizzare il cmdlet di Net-PSDrive per montare l'unità, come indicato di seguito:
+
+    New-PSDrive -Name <drive-name> -PSProvider FileSystem -Root \<storage-account-name>.file.core.windows.net<share-name> -Credential :<storage-account-name>
+
+
+È inoltre possibile salvare le credenziali eseguendo le operazioni seguenti:
 
     cmdkey /add:<storage-account-name>.file.core.windows.net /user:<storage-account-name> /pass:<storage-account-key>
 
 
-That lets you skip the -Credential parameter in the New-PSDrive cmdlet.
+In questo modo è possibile ignorare il parametro - Credential nel cmdlet New-PSDrive.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

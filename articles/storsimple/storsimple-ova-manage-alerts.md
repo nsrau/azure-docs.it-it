@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="View and manage StorSimple Virtual Array alerts | Microsoft Azure"
-   description="Describes StorSimple Virtual Array alert conditions and severity, and how to use the StorSimple Manager service to manage alerts."
+   pageTitle="Visualizzare e gestire gli avvisi dell'array virtuale StorSimple | Microsoft Azure"
+   description="Vengono descritte le condizioni di avviso dell'array virtuale StorSimple e la loro gravità. Viene inoltre illustrato come usare il servizio StorSimple Manager per gestire gli avvisi."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,178 +15,171 @@
    ms.date="06/07/2016"
    ms.author="alkohli" />
 
+# Usare il servizio StorSimple Manager per visualizzare e gestire gli avvisi per l'array virtuale StorSimple
 
-# <a name="use-the-storsimple-manager-service-to-view-and-manage-alerts-for-the-storsimple-virtual-array"></a>Use the StorSimple Manager service to view and manage alerts for the StorSimple Virtual Array
+## Panoramica
 
-## <a name="overview"></a>Overview
+La scheda **Avvisi** del servizio StorSimple Manager fornisce un modo per esaminare e cancellare in tempo reale gli avvisi correlati all'array virtuale StorSimple. In questa scheda è possibile monitorare in modo centralizzato i problemi di integrità degli array virtuali StorSimple (noti anche come dispositivi virtuali locali StorSimple) e della soluzione Microsoft Azure StorSimple complessiva.
 
-The **Alerts** tab in the StorSimple Manager service provides a way for you to review and clear StorSimple Virtual Array–related alerts on a real-time basis. From this tab, you can centrally monitor the health issues of your StorSimple  Virtual Arrays (also known as StorSimple on-premises virtual devices) and the overall Microsoft Azure StorSimple solution.
+Questa esercitazione descrive come configurare le notifiche di avviso, le condizioni di avviso comuni e i livelli di gravità degli avvisi. Descrive inoltre come visualizzare e tenere traccia degli avvisi. Sono inoltre incluse le tabelle di riferimento rapido degli avvisi che consentono di individuare rapidamente uno specifico avviso e rispondere in modo appropriato.
 
-This tutorial describes how to configure alert notifications, common alert conditions, alert severity levels, and how to view and track alerts. Additionally, it includes alert quick reference tables, which enable you to quickly locate a specific alert and respond appropriately.
+![Pagina degli avvisi](./media/storsimple-ova-manage-alerts/alerts1.png)
 
-![Alerts page](./media/storsimple-ova-manage-alerts/alerts1.png)
+## Configurare le impostazioni degli avvisi
 
-## <a name="configure-alert-settings"></a>Configure alert settings
+È possibile scegliere se ricevere le notifiche delle condizioni di avviso tramite posta elettronica per ciascuno dei dispositivi virtuali StorSimple. È anche possibile identificare altri destinatari delle notifiche di avviso immettendo i relativi indirizzi di posta elettronica nella casella **Altri destinatari di posta elettronica**, separandoli con un punto e virgola.
 
-You can choose whether you want to be notified by email of alert conditions for each of your StorSimple virtual devices. Additionally, you can identify other alert notification recipients by entering their email addresses in the **Other email recipients** box, separated by semicolons.
+>[AZURE.NOTE] È possibile immettere un massimo di 20 indirizzi di posta elettronica per ogni dispositivo virtuale.
 
->[AZURE.NOTE] You can enter a maximum of 20 email addresses per virtual device.
+Dopo aver attivato la notifica di posta elettronica per un dispositivo virtuale, i membri dell'elenco delle notifiche riceveranno un messaggio di posta elettronica ogni volta che si verifica un avviso critico. I messaggi verranno inviati da *storsimple-alerts-noreply@mail.windowsazure.com* e conterranno una descrizione della condizione di avviso. I destinatari possono fare clic su **Annulla sottoscrizione** per essere rimossi dall'elenco delle notifiche di posta elettronica.
 
-After you enable email notification for a virtual device, members of the notification list will receive an email message each time a critical alert occurs. The messages will be sent from *storsimple-alerts-noreply@mail.windowsazure.com* and will describe the alert condition. Recipients can click **Unsubscribe** to remove themselves from the email notification list.
+#### Per abilitare la notifica di posta elettronica degli avvisi per un dispositivo virtuale
 
-#### <a name="to-enable-email-notification-of-alerts-for-a-virtual-device"></a>To enable email notification of alerts for a virtual device
+1. Passare a **Dispositivi** > **Configurazione** per il dispositivo virtuale. Passare alla sezione **Impostazione avvisi**.
 
-1. Go to **Devices** > **Configuration** for the virtual device. Go to the **Alert settings** section.
+    ![impostazioni degli avvisi](./media/storsimple-ova-manage-alerts/alerts2.png)
 
-    ![alert settings](./media/storsimple-ova-manage-alerts/alerts2.png)
+2. In **Impostazioni avvisi** impostare quanto segue:
 
-2. Under **Alert settings**, set the following:
+    1. Nel campo **Invia notifica di posta elettronica** selezionare **Sì**.
 
-    1. In the **Send email notification** field, select **YES**.
+    2. Nel campo **Invia messaggio di posta elettronica agli amministratori del servizio** selezionare **Sì** se si vuole che l'amministratore del servizio e tutti i co-amministratori ricevano le notifiche di avviso.
 
-    2. In the **Email service administrators** field, select **YES** if you wish to have the service administrator and all co-administrators receive the alert notifications.
+    3. Nel campo **Altri destinatari di posta elettronica** immettere gli indirizzi di posta elettronica di tutti gli altri destinatari che devono ricevere le notifiche di avviso. Immettere i nomi nel formato *someone@somewhere.com*. Utilizzare il punto e virgola per separare gli indirizzi di posta elettronica. È possibile configurare un massimo di 20 indirizzi di posta elettronica per ogni dispositivo virtuale.
 
-    3. In the **Other email recipients** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per virtual device. 
+        ![configurazione delle notifiche degli avvisi](./media/storsimple-ova-manage-alerts/alerts3.png)
 
-        ![alerts notification configuration](./media/storsimple-ova-manage-alerts/alerts3.png)
+3. Fare clic su **Salva** nella parte inferiore della pagina per salvare la configurazione.
 
-3. At the bottom of the page, click **Save** to save your configuration.
+4. Per inviare una notifica di posta elettronica di prova, fare clic sull'icona della freccia accanto a **Invia un messaggio di posta elettronica di prova**. Il servizio StorSimple Manager visualizza i messaggi di stato e inoltra la notifica di prova.
 
-4. To send a test email notification, click the arrow icon next to **Send test email**. The StorSimple Manager service will display status messages as it forwards the test notification. 
+5. Quando viene visualizzato il messaggio seguente, fare clic su **OK**.
 
-5. When the following message appears, click **OK**. 
+    ![Messaggio di posta elettronica di prova della notifica di avviso inviato](./media/storsimple-ova-manage-alerts/alerts4.png)
 
-    ![Alerts test notification email sent](./media/storsimple-ova-manage-alerts/alerts4.png)
+    >[AZURE.NOTE] Se il messaggio di notifica di prova non può essere inviato, il servizio StorSimple Manager visualizza un messaggio appropriato. Fare clic su **OK**, attendere alcuni minuti e provare a inviare nuovamente il messaggio di notifica di prova.
 
-    >[AZURE.NOTE] If the test notification message can't be sent, the StorSimple Manager service will display an appropriate message. Click **OK**, wait a few minutes, and then try to send your test notification message again. 
+    Il messaggio di notifica di prova sarà simile a quello visualizzato di seguito.
 
-    The test notification message will be similar to the following.
+    ![Messaggio di posta elettronica di avviso di prova](./media/storsimple-ova-manage-alerts/alerts5.png)
 
-    ![Alerts test email example](./media/storsimple-ova-manage-alerts/alerts5.png)
+## Condizioni di avviso comuni
 
-## <a name="common-alert-conditions"></a>Common alert conditions
+L'array virtuale StorSimple genera avvisi in risposta a una varietà di condizioni. Di seguito sono indicati i tipi più comuni delle condizioni di avviso:
 
-Your StorSimple Virtual Array generates alerts in response to a variety of conditions. The following are the most common types of alert conditions:
+- **Problemi di connettività**: questi avvisi vengono generati in caso di difficoltà di trasferimento dei dati. Possono verificarsi problemi di comunicazione durante il trasferimento dei dati da un account di archiviazione di Azure e viceversa oppure a causa della mancanza di connettività tra i dispositivi virtuali e il servizio StorSimple Manager. I problemi di comunicazione sono tra i più difficili da risolvere poiché sono presenti numerosi punti di errore. Verificare sempre che la connettività di rete e l'accesso a Internet siano disponibili prima di proseguire con la risoluzione dei problemi più avanzati. Per altre informazioni sulle impostazioni delle porte e del firewall, vedere [Requisiti di sistema dell'array virtuale StorSimple (anteprima)](storsimple-ova-system-requirements.md). Per informazioni sulla risoluzione dei problemi, vedere [Risoluzione dei problemi con il cmdlet Test-Connection](storsimple-troubleshoot-deployment.md).
 
-- **Connectivity issues** – These alerts occur when there is difficulty in transferring data. Communication issues can occur during transfer of data to and from the Azure storage account or due to lack of connectivity between the virtual devices and the StorSimple Manager service. Communication issues are some of the hardest to fix because there are so many points of failure. You should always first verify that network connectivity and Internet access are available before continuing on to more advanced troubleshooting. For information about ports and firewall settings, go to [StorSimple Virtual Array system requirements](storsimple-ova-system-requirements.md). For help with troubleshooting, go to [Troubleshoot with the Test-Connection cmdlet](storsimple-troubleshoot-deployment.md).
+- **Problemi di prestazioni**: questi avvisi vengono generati quando le prestazioni del sistema non sono ottimali, ad esempio in presenza di un forte carico.
 
-- **Performance issues** – These alerts are caused when your system isn’t performing optimally, such as when it is under a heavy load.
+Inoltre, possono essere generati avvisi relativi a sicurezza, aggiornamenti o errori di processi.
 
-In addition, you might see alerts related to security, updates, or job failures.
+## Livelli di gravità dell'avviso
 
-## <a name="alert-severity-levels"></a>Alert severity levels
+Gli avvisi possono avere diversi livelli di gravità, in base all'impatto determinato dalla situazione di avviso e alla necessità di una risposta all'avviso. I livelli di gravità sono:
 
-Alerts have different severity levels, depending on the impact that the alert situation will have and the need for a response to the alert. The severity levels are:
+- **Critico**: questo avviso viene generato in risposta a una condizione che influenza negativamente le prestazioni del sistema. È richiesta un'azione per garantire che il servizio StorSimple non venga interrotto.
 
-- **Critical** – This alert is in response to a condition that is affecting the successful performance of your system. Action is required to ensure that the StorSimple service is not interrupted.
+- **Avviso**: questa condizione potrebbe diventare critica se non viene risolta. È necessario analizzare la situazione ed eseguire qualsiasi azione necessaria per eliminare il problema.
 
-- **Warning** – This condition could become critical if not resolved. You should investigate the situation and take any action required to clear the issue.
+- **Informazioni**: questo avviso contiene informazioni che possono essere utili per la verifica e la gestione del sistema.
 
-- **Information** – This alert contains information that can be useful in tracking and managing your system.
+## Visualizzare e tenere traccia degli avvisi
 
-## <a name="view-and-track-alerts"></a>View and track alerts
+Il dashboard del servizio StorSimple Manager offre un rapido riepilogo del numero di avvisi dei dispositivi virtuali, organizzati per livello di gravità.
 
-The StorSimple Manager service dashboard provides you with a quick glance at the number of alerts on your virtual devices, arranged by severity level.
+![Dashboard degli avvisi](./media/storsimple-ova-manage-alerts/alerts6.png)
 
-![Alerts dashboard](./media/storsimple-ova-manage-alerts/alerts6.png)
+Scegliere il livello di gravità per aprire la scheda **Avvisi**. I risultati includono solo gli avvisi che corrispondono al livello di gravità scelto.
 
-Clicking the severity level opens the **Alerts** tab. The results include only the alerts that match that severity level.
+![Report avvisi in base al tipo di avviso](./media/storsimple-ova-manage-alerts/alerts7.png)
 
-![Alerts report scoped to alert type](./media/storsimple-ova-manage-alerts/alerts7.png)
+Fare clic su un avviso nell'elenco per visualizzare ulteriori dettagli sull'avviso, inclusi l'ora di segnalazione dell'ultimo avviso, il numero di occorrenze dell'avviso sul dispositivo e l'azione consigliata per risolvere l'avviso.
 
-Clicking an alert in the list provides you with additional details for the alert, including the last time the alert was reported, the number of occurrences of the alert on the device, and the recommended action to resolve the alert.
+Se è necessario inviare le informazioni al supporto tecnico Microsoft, è possibile copiare i dettagli dell'avviso in un file di testo. Dopo avere seguito i suggerimenti e risolto la condizione di avviso in locale, è necessario cancellare l'avviso selezionandolo nella scheda **Avvisi** e facendo clic su **Cancella**. Per cancellare più avvisi, fare clic su qualsiasi colonna ad eccezione di **Avviso**, selezionare tutti gli avvisi da cancellare e fare clic su **Cancella**. Si noti che alcuni avvisi vengono automaticamente cancellati quando il problema viene risolto oppure quando il sistema aggiorna l'avviso con nuove informazioni.
 
-You can copy the alert details to a text file if you need to send the information to Microsoft Support. After you have followed the recommendation and resolved the alert condition on-premises, you should clear the alert from by selecting the alert in the **Alerts** tab and clicking **Clear**. To clear multiple alerts, select each alert, click any column except the **Alert** column, and then click **Clear** after you have selected all the alerts to be cleared. Note that some alerts are automatically cleared when the issue is resolved or when the system updates the alert with new information.
+Quando si fa clic su **Cancella** si ha la possibilità di fornire commenti sull'avviso e i passaggi eseguiti per risolvere il problema.
 
-When you click **Clear**, you will have the opportunity to provide comments about the alert and the steps that you took to resolve the issue. 
+![commenti degli avvisi](./media/storsimple-ova-manage-alerts/clear-alert.png)
 
-![alert comments](./media/storsimple-ova-manage-alerts/clear-alert.png)
+Fare clic sull'icona con il segno di spunta ![icona del segno di spunta](./media/storsimple-ova-manage-alerts/check-icon.png) per salvare i commenti.
 
-Click the check icon ![check-icon](./media/storsimple-ova-manage-alerts/check-icon.png) to save your comments.
+Alcuni eventi verranno cancellati dal sistema se un altro evento viene attivato con nuove informazioni. In tal caso, viene inviato il messaggio seguente.
 
-Some events will be cleared by the system if another event is triggered with new information. In that case, you will see the following message.
+![Cancellare il messaggio di avviso](./media/storsimple-ova-manage-alerts/alerts8.png)
 
-![Clear alert message](./media/storsimple-ova-manage-alerts/alerts8.png)
+## Ordinare e rivedere gli avvisi
 
-## <a name="sort-and-review-alerts"></a>Sort and review alerts
+Nella scheda **Avvisi** può essere visualizzato un massimo di 250 avvisi. Se è stato superato il numero di avvisi, non tutti gli avvisi verranno inclusi nella visualizzazione predefinita. È possibile combinare i campi seguenti per personalizzare quali avvisi vengono visualizzati:
 
-The **Alerts** tab can display up to 250 alerts. If you have exceeded that number of alerts, not all alerts will be displayed in the default view. You can combine the following fields to customize which alerts are displayed:
+- **Stato**: è possibile visualizzare gli avvisi di tipo **Attivo** o **Deselezionato**. Gli avvisi attivi vengono ancora attivati nel sistema, mentre gli avvisi deselezionati sono stati cancellati manualmente da un amministratore o a livello di programmazione, in quanto la condizione di avviso è stata aggiornata dal sistema con nuove informazioni.
 
-- **Status** – You can display either **Active** or **Cleared** alerts. Active alerts are still being triggered on your system, while cleared alerts have been either manually cleared by an administrator or programmatically cleared because the system updated the alert condition with new information.
+- **Gravità**: è possibile visualizzare gli avvisi di tutti i livelli di gravità (critico, avviso, informazioni) o solo di una determinata gravità, ad esempio solo gli avvisi critici.
 
-- **Severity** – You can display alerts of all severity levels (critical, warning, information), or just a certain severity, such as only critical alerts.
+- **Origine**: è possibile visualizzare gli avvisi generati da tutte le origini. In alternativa, è possibile visualizzare soltanto quelli che provengono dal servizio oppure da uno o tutti i dispositivi virtuali.
 
-- **Source** – You can display alerts from all sources, or limit the alerts to those that come from either the service or one or all the virtual devices.
+- **Intervallo di tempo**: specificando le date e i timestamp in **Da** e **A**, è possibile esaminare gli avvisi generati durante il periodo di tempo specificato.
 
-- **Time range** – By specifying the **From** and **To** dates and time stamps, you can look at alerts during the time period that you are interested in.
+## Riferimento rapido degli avvisi
 
-## <a name="alerts-quick-reference"></a>Alerts quick reference
+Nelle tabelle seguenti sono elencati alcuni degli avvisi di Microsoft Azure StorSimple che potrebbero verificarsi, nonché consigli e informazioni aggiuntive eventualmente disponibili. Gli avvisi del dispositivo virtuale StorSimple rientrano in una delle seguenti categorie:
 
-The following tables list some of the Microsoft Azure StorSimple alerts that you might encounter, as well as additional information and recommendations where available. StorSimple virtual device alerts fall into one of the following categories:
+- [Avvisi di connettività cloud](#cloud-connectivity-alerts)
 
-- [Cloud connectivity alerts](#cloud-connectivity-alerts)
+- [Avvisi di configurazione](#configuration-alerts)
 
-- [Configuration alerts](#configuration-alerts)
+- [Avvisi di errore di processo](#job-failure-alerts)
 
-- [Job failure alerts](#job-failure-alerts)
+- [Avvisi di prestazioni](#performance-alerts)
 
-- [Performance alerts](#performance-alerts)
+- [Avvisi di sicurezza](#security-alerts)
 
-- [Security alerts](#security-alerts)
+- [Avvisi di aggiornamento](#update-alerts)
 
-- [Update alerts](#update-alerts)
+### Avvisi di connettività cloud
 
-### <a name="cloud-connectivity-alerts"></a>Cloud connectivity alerts
-
-|Alert text|Event|More information / recommended actions|
+|Testo dell'avviso|Evento|Ulteriori informazioni/Azioni consigliate|
 |:---|:---|:---|
-|Device *<device name>* is not connected to the cloud.|The named device cannot connect to the cloud. |Could not connect to the cloud. This could be due to one of the following:<ul><li>There may be a problem with the network settings on your device.</li><li>There may be a problem with the storage account credentials.</li></ul>For more information on troubleshooting connectivity issues, go to the [local web UI](storsimple-ova-web-ui-admin.md) of the device.|
+|Il dispositivo *<device name>* non è connesso al cloud.|Il dispositivo denominato non può connettersi al cloud. |Impossibile connettersi al cloud. L'inconveniente potrebbe essere causato da uno dei motivi seguenti:<ul><li>Può essere presente un problema con le impostazioni di rete sul dispositivo.</li><li>Può essere presente un problema con le credenziali dell'account di archiviazione.</li></ul>Per altre informazioni sulle risoluzione dei problemi di connettività, vedere l'[interfaccia utente Web locale](storsimple-ova-web-ui-admin.md) del dispositivo.|
 
 
-### <a name="configuration-alerts"></a>Configuration alerts
+### Avvisi di configurazione
 
-|Alert text|Event|More information / recommended actions|
+|Testo dell'avviso|Evento|Ulteriori informazioni/Azioni consigliate|
 |:---|:---|:---|
-|On-premises virtual device configuration unsupported.|Slow performance.|The current configuration may result in performance degradation. Ensure that your server meets the minimum configuration requirements. For more information, go to [StorSimple Virtual Array Requirements](storsimple-ova-system-requirements.md). 
-|You are running out of provisioned disk space on <*device name*>.|Disk space warning.|You are running low on provisioned disk space. To free up space, consider moving workloads to another volume or share or deleting data.
+|Configurazione del servizio virtuale locale non supportata.|Rallentamento delle prestazioni.|La configurazione corrente può influire negativamente sulle prestazioni. Assicurarsi che il server soddisfi i requisiti minimi di configurazione. Per altre informazioni, vedere [Requisiti di sistema dell'array virtuale StorSimple](storsimple-ova-system-requirements.md). 
+|Lo spazio su disco di cui è stato effettuato il provisioning in <*nome dispositivo*> è quasi esaurito.|Avviso relativo allo spazio su disco.|Sta per esaurirsi lo spazio su disco con provisioning. Per liberare spazio, provare a spostare i carichi di lavoro su un altro volume oppure a condividere o eliminare dei dati.
 
-### <a name="job-failure-alerts"></a>Job failure alerts
+### Avvisi di errore di processo
 
-|Alert text|Event|More information / recommended actions|
+|Testo dell'avviso|Evento|Ulteriori informazioni/Azioni consigliate|
 |:---|:---|:---|
-|Backup of <*device name*> couldn’t be completed.|Backup job failure.|Could not create a backup. Consider one of the following:<ul><li>Connectivity issues could be preventing the backup operation from successfully completing. Ensure that there are no connectivity issues. For more information on troubleshooting connectivity issues, go to the [local web UI](storsimple-ova-web-ui-admin.md) for your virtual device.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul> Resolve the issues, clear the alert and retry the operation.|
-|Restore of <*device name*> couldn’t be completed.|Restore job failure.|Could not restore from backup. Consider one of the following:<ul><li>Your backup list may not be valid. Refresh the list to verify it is still valid.</li><li>Connectivity issues could be preventing the restore operation from successfully completing. Ensure that there are no connectivity issues.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul>Resolve the issues, clear the alert and retry the restore operation.|
-|Clone of <*device name*> couldn’t be completed.|Clone job failure.|Could not create a clone. Consider one of the following:<ul><li>Your backup list may not be valid. Refresh the list to verify it is still valid.</li><li>Connectivity issues could be preventing the clone operation from successfully completing. Ensure that there are no connectivity issues.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul>Resolve the issues, clear the alert and retry the operation.|
+|Non è stato possibile completare il backup di <*nome dispositivo*>.|Il processo di backup non è riuscito.|Non è stato possibile creare un backup. Considerare uno degli aspetti seguenti:<ul><li>I problemi di connettività potrebbero impedire il completamento dell'operazione di backup. Assicurarsi che non siano presenti problemi di connettività. Per altre informazioni sulla risoluzione dei problemi di connettività, accedere all'[interfaccia utente Web locale](storsimple-ova-web-ui-admin.md) del dispositivo virtuale.</li><li>È stato raggiunto il limite di archiviazione disponibile. Provare a eliminare i backup che non sono più necessari per liberare spazio.</li></ul> Risolvere i problemi, cancellare l'avviso e ripetere l'operazione.|
+|Non è stato possibile completare il ripristino di <*nome dispositivo*>.|Il processo di ripristino non è riuscito.|Impossibile ripristinare dal backup. Considerare uno degli aspetti seguenti:<ul><li>L'elenco di backup potrebbe non essere valido. Aggiornare l'elenco per verificare che sia ancora valido.</li><li>I problemi di connettività potrebbero impedire il completamento dell'operazione di ripristino. Verificare che non siano presenti problemi di connettività.</li><li>È stato raggiunto il limite di archiviazione disponibile. Provare a eliminare i backup che non sono più necessari per liberare spazio.</li></ul>Risolvere i problemi, cancellare l'avviso e ripetere l'operazione di ripristino.|
+|Non è stato possibile completare la creazione del clone di <*nome dispositivo*>.|Il processo di clonazione non è riuscito.|Impossibile creare un clone. Considerare uno degli aspetti seguenti:<ul><li>L'elenco di backup potrebbe non essere valido. Aggiornare l'elenco per verificare che sia ancora valido.</li><li>I problemi di connettività potrebbero impedire il completamento dell'operazione di clonazione. Verificare che non siano presenti problemi di connettività.</li><li>È stato raggiunto il limite di archiviazione disponibile. Provare a eliminare i backup che non sono più necessari per liberare spazio.</li></ul>Risolvere i problemi, cancellare l'avviso e ripetere l'operazione.|
 
-### <a name="performance-alerts"></a>Performance alerts
+### Avvisi di prestazioni
 
-|Alert text|Event|More information / recommended actions|
+|Testo dell'avviso|Evento|Ulteriori informazioni/Azioni consigliate|
 |:---|:---|:---|
-|You are experiencing unexpected delays in data transfer.|Slow data transfer.|Throttling errors occur when you exceed the scalability targets of a storage service. The storage service does this to ensure that no single client or tenant can use the service at the expense of others. For more information on troubleshooting your Azure storage account, go to [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
-|You are running low on local reservation disk space on <*device name*>.|Slow response time.|10% of the total provisioned size for <*device name*> is reserved on the local device and you are now running low on the reserved space. The workload on <*device name*> is generating a higher rate of churn or you might have recently migrated a large amount of data. This may result in reduced performance. Consider one of the following actions to resolve this:<ul><li>Increase the cloud bandwidth to this device.</li><li>Reduce or move workloads to another volume or share.</li></ul>
+|Si stanno verificando ritardi imprevisti nel trasferimento dei dati.|Trasferimento dati lento.|Gli errori di limitazione si verificano quando si superano gli obiettivi di scalabilità di un servizio di archiviazione. In questo modo il servizio di archiviazione assicura che nessun client o tenant possa usare il servizio a spese di altri. Per altre informazioni sulla risoluzione dei problemi relativi all'account di archiviazione di Azure, vedere [Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
+|Lo spazio su disco riservato in locale in <*nome dispositivo*> è quasi esaurito.|Tempo di risposta lento.|Il 10% delle dimensioni totali di cui è stato effettuato il provisioning per <*nome dispositivo*> è riservato nel dispositivo locale e al momento lo spazio riservato è quasi esaurito. Il carico di lavoro in <*nome dispositivo*> sta generando un'elevata varianza o è possibile che di recente sia stata eseguita la migrazione di una grande quantità di dati causando una riduzione delle prestazioni. Questo può comportare una riduzione delle prestazioni. Per risolvere questo problema, provare a eseguire una delle azioni seguenti:<ul><li>Aumentare la larghezza di banda del cloud in questo dispositivo.</li><li>Ridurre o spostare i carichi di lavoro in un altro volume o in un'altra condivisione.</li></ul>
 
-### <a name="security-alerts"></a>Security alerts
+### Avvisi di sicurezza
 
-|Alert text|Event|More information / recommended actions|
+|Testo dell'avviso|Evento|Ulteriori informazioni/Azioni consigliate|
 |:---|:---|:---|
-|Password for <*device name*> will expire in <*number*> days.|Password warning.| Your password will expire in <number< days. Consider changing your password. For more information, go to [Change the StorSimple Virtual Array device administrator password](storsimple-ova-change-device-admin-password.md).
+|La password per <*nome dispositivo*> scadrà tra <*numero*> giorni.|Avviso relativo alla password.| La password scadrà tra <numero> giorni. Provare a modificare la password. Per altre informazioni, vedere [Modificare la password amministratore del dispositivo array virtuale StorSimple](storsimple-ova-change-device-admin-password.md).
 
-### <a name="update-alerts"></a>Update alerts
+### Avvisi di aggiornamento
 
-|Alert text|Event|More information / recommended actions|
+|Testo dell'avviso|Evento|Ulteriori informazioni/Azioni consigliate|
 |:---|:---|:---|
-|New updates are available for your device.|Updates to the StorSimple Virtual Array are available.|You can install new updates from the **Maintenance** page.|
-|Could not scan for new updates on <*device name*>.|Update failure. |An error occurred while installing new updates. You can manually install the updates. If the problem persists, contact [Microsoft Support](storsimple-contact-microsoft-support.md).|
+|Sono disponibili nuovi aggiornamenti per il dispositivo.|Sono disponibili aggiornamenti per l'array virtuale StorSimple.|È possibile installare i nuovi aggiornamenti dalla pagina **Manutenzione**.|
+|Non è stato possibile verificare la disponibilità di aggiornamenti in <*nome dispositivo*>.|Errore durante l'aggiornamento. |Errore durante l'installazione di nuovi aggiornamenti. È possibile installare manualmente gli aggiornamenti. Se il problema persiste, contattare il [supporto Microsoft](storsimple-contact-microsoft-support.md).|
 
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-- [Learn about the StorSimple Virtual Array](storsimple-ova-overview.md).
+- [Informazioni sull'array virtuale StorSimple](storsimple-ova-overview.md).
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0622_2016-->

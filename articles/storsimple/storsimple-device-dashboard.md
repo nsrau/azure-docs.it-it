@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Use the StorSimple Manager device dashboard | Microsoft Azure"
-   description="Describes the StorSimple Manager service device dashboard and how to use it to view storage metrics and connected initiators and find the serial number and IQN."
+   pageTitle="Utilizzare il dashboard del dispositivo StorSimple Manager | Microsoft Azure"
+   description="Descrive il dashboard del dispositivo del servizio StorSimple Manager e come utilizzarlo per visualizzare le metriche di archiviazione, gli iniziatori connessi e individuare il numero di serie del dispositivo e l’IQN."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,94 +15,89 @@
    ms.date="09/21/2016"
    ms.author="alkohli" />
 
+# Utilizzare il dashboard del dispositivo StorSimple Manager
 
-# <a name="use-the-storsimple-manager-device-dashboard"></a>Use the StorSimple Manager device dashboard
+## Overview
 
-## <a name="overview"></a>Overview
+Il dashboard del dispositivo StorSimple Manager offre una panoramica delle informazioni per un determinato dispositivo StorSimple, a differenza del dashboard del servizio che fornisce informazioni su tutti i dispositivi inclusi nella soluzione Microsoft Azure StorSimple.
 
-The StorSimple Manager device dashboard gives you an overview of information for a specific  StorSimple device, in contrast to the service dashboard, which gives you information about all of the devices included in your Microsoft Azure StorSimple solution.
+![Pagina dashboard del dispositivo](./media/storsimple-device-dashboard/StorSimple_DeviceDashbaord1M.png)
 
-![Device dashboard page](./media/storsimple-device-dashboard/StorSimple_DeviceDashbaord1M.png)
+La scheda dashboard contiene le informazioni seguenti:
 
-The dashboard contains the following information:
+- **Area del grafico**– è possibile visualizzare le metriche di archiviazione rilevanti nell'area del grafico nella parte superiore del dashboard. In questo grafico, è possibile visualizzare le metriche per l'archiviazione primaria totale (la quantità di dati scritti dall'host per il dispositivo) e l'archiviazione cloud totale utilizzata dal dispositivo in un periodo di tempo.
 
-- **Chart area** – You can see the relevant storage metrics in the chart area at the top of the dashboard. In this chart, you can view metrics for the total primary storage (the amount of data written by hosts to your device) and the total cloud storage consumed by your device over a period of time.
+     In questo contesto *archiviazione primaria* si riferisce alla quantità totale di dati scritti dall'host e può essere suddivisa in base al tipo di volume: *archiviazione primaria a livelli* include sia i dati archiviati in locale sia quelli archiviati a livelli nel cloud e *archiviazione primaria aggiunta in locale* include solo i dati archiviati in locale. L’ *Archiviazione cloud* d'altra parte, è una misura della quantità totale di dati archiviati nel cloud. Sono inclusi i backup e i dati a più livelli. Si noti che i dati archiviati nel cloud sono deduplicati e compressi, mentre l'archiviazione primaria indica la quantità di spazio di archiviazione utilizzato prima della loro deduplicazione e compressione.. (È possibile confrontare i due numeri per avere un'idea del tasso di compressione). Per entrambe le archiviazioni primarie e cloud, gli importi mostrati si baseranno sulla frequenza di rilevamento che si configura. Ad esempio, se si sceglie una frequenza di una settimana, il grafico mostrerà dati per ogni giorno della settimana precedente.
 
-     In this context, *primary storage* refers to the total amount of data written by the host, and can be broken down by volume type: *primary tiered storage* includes both locally stored data and data tiered to the cloud; *primary locally pinned storage* includes just data stored locally. *Cloud storage*, on the other hand, is a measurement of the total amount of data stored in the cloud. This includes tiered data and backups. Note that data stored in the cloud is deduplicated and compressed, whereas primary storage indicates the amount of storage used before the data is deduplicated and compressed. (You can compare these two numbers to get an idea of the compression rate.) For both primary and cloud storage, the amounts shown will be based on the tracking frequency you configure. For example, if you choose a one week frequency, then the chart will show data for each day in the previous week.
+	 È possibile configurare il grafico come segue:
 
-     You can configure the chart as follows:
+	 - Per visualizzare la quantità di spazio di archiviazione cloud utilizzato nel corso del tempo, selezionare l’opzione **ARCHIVIAZIONE CLOUD UTILIZZATA**. Per visualizzare l'archiviazione totale scritta dall'host, selezionare le opzioni relative ad **archiviazione primaria a livelli usata** e **archiviazione primaria aggiunta in locale usata**. Nella figura, entrambe le opzioni sono selezionate. Pertanto, il grafico mostra la quantità di archiviazione per l’archiviazione cloud e per l’archiviazione primaria. Si noti che l'archiviazione primaria usata prima di installare l'aggiornamento 2 è indicata dalla linea relativa ad **archiviazione primaria a livelli usata**.
+	 - Utilizzare il menu a discesa nell'angolo in alto a destra del grafico per specificare una scala temporale di 1 settimana, 1 mese, 3 mesi o 1 anno. Si noti che il grafico di primo livello viene aggiornato solo una volta al giorno e pertanto rifletterà i totali del giorno precedente.
 
-     - To see the amount of cloud storage consumed over time, select the **CLOUD STORAGE USED** option. To see the total storage that has been written by the host, select the **PRIMARY TIERED STORAGE USED** and **PRIMARY LOCALLY PINNED STORAGE USED** options. In the illustration, both options are selected; therefore, the chart shows storage amounts for both cloud and primary storage. Note that any primary storage used prior to installing Update 2 is represented by the **PRIMARY TIERED STORAGE USED** line.
-     - Use the drop-down menu in the top-right corner of the chart to specify a 1-week, 1-month, 3-month, or 1-year time period. Note that the top-level chart is refreshed only one time per day, and therefore will reflect the previous day's totals.
+     Per ulteriori informazioni, vedere [Utilizzo del servizio StorSimple Manager per monitorare il dispositivo StorSimple](storsimple-monitor-device.md).
 
-     For more information, see [Use the StorSimple Manager service to monitor your StorSimple device](storsimple-monitor-device.md).
-
-- **Usage overview** – In the **usage overview** area, you can see the amount of primary storage used, the amount of provisioned storage, and the maximum storage capacity for your device. By comparing these usage numbers to the maximum amount of storage that is available, you can see at a glance if you need to obtain additional storage. Note that this overview is updated every 15 minutes and, because of the difference in update frequency, may show different numbers than those shown in the chart area above, which is updated daily. For more information, see [Use the StorSimple Manager service to monitor your StorSimple device](storsimple-monitor-device.md).
-
-
-- **Alerts** – The **alerts** area contains an overview of the alerts for your device. Alerts are grouped by severity, and a count is provided of the number of alerts at each severity level. Clicking the alert severity opens a scoped view of the alerts tab to show you only the alerts of that severity level for this device.
-
-- **Jobs** – The **jobs** area shows you the outcome of recent job activity. This can assure you that the system is operating as expected, or it can let you know that you need to take corrective action. To see more information about recently completed jobs, click **Jobs succeeded in the last 24 hours**.
-
-- The **quick glance** area on the right of the dashboard provides useful information such as device model, serial number, status, description, and number of volumes.
-
-You can also configure failover and view connected initiators from the device dashboard.
-
-The common tasks that can be performed on this page are:
-
-- View connected initiators
-
-- Find the device serial number
-
-- Find the device target IQN
-
-## <a name="view-connected-initiators"></a>View connected initiators
-
-You can view the iSCSI initiators that are connected to your device by clicking the **View connected initiators** link provided in the **quick glance** area of your device dashboard. This page provides a tabular listing of the initiators that have successfully connected to your device. For each initiator, you can see:
-
-- The iSCSI Qualified Name (IQN) of the connected initiator.
-
-- The name of the access control record (ACR) that allows this connected initiator.
-
-- The IP address of the connected initiator.
-
-- The network interfaces that the initiator is connected to on your storage device. These can range from DATA 0 to DATA 5.
-
-- All the volumes that the connected initiator is allowed to access according to the current ACR configuration.
-
-If you see unexpected initiators in this list or do not see the expected ones, review your ACR configuration. A maximum of 512 initiators can connect to your device.
-
-## <a name="find-the-device-serial-number"></a>Find the device serial number
-
-You may need the device serial number when you configure Microsoft Multipath I/O (MPIO) on the device. Perform the following steps to find the device serial number.
-
-#### <a name="to-find-the-device-serial-number"></a>To find the device serial number
-
-1. Navigate to **Devices** > **Dashboard**.
-
-2. In the right pane of the dashboard, locate the **quick glance** area.
-
-3. Scroll down and locate the serial number.
-
-## <a name="find-the-device-target-iqn"></a>Find the device target IQN
-
-You may need the device target IQN when you configure the Challenge Handshake Authentication Protocol (CHAP) on your StorSimple device. Perform the following steps to find the device target IQN.
-
-### <a name="to-find-the-device-target-iqn"></a>To find the device target IQN
-
-1. Navigate to **Devices** > **Dashboard**.
-
-1. In the right pane of the dashboard, locate the **quick glance** area.
-
-1. Scroll down and locate the target IQN.
-
-## <a name="next-steps"></a>Next steps
-
-- Learn more about the [StorSimple Manager service dashboard](storsimple-service-dashboard.md).
-- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+- **Panoramica sull'utilizzo**-nell'area di **panoramica dell'utilizzo**, è possibile visualizzare la quantità di spazio di archiviazione primaria utilizzato, la quantità di archiviazione sottoposto a provisioning e la capacità di archiviazione massima per il dispositivo. Confrontando i numeri di utilizzo alla quantità massima di archiviazione disponibile, è possibile visualizzare immediatamente se è necessario ottenere memoria aggiuntiva. Si noti che questa panoramica viene aggiornata ogni 15 minuti, e a causa della differenza nella frequenza di aggiornamento, potrebbe mostrare numeri diversi da quelli visualizzati nell'area del grafico mostrato sopra, che viene aggiornato ogni giorno. Per ulteriori informazioni, vedere [Utilizzo del servizio StorSimple Manager per monitorare il dispositivo StorSimple](storsimple-monitor-device.md).
 
 
+- **Avvisi**-nell'area **avvisi** viene fornita una panoramica degli avvisi per il dispositivo. Gli avvisi sono raggruppati in base alla gravità e viene fornito un conteggio del numero di avvisi a ogni livello di gravità. Cliccando sulla gravità dell'avviso si apre una scheda avvisi che mostra solo gli avvisi di tale livello di gravità per il dispositivo.
 
-<!--HONumber=Oct16_HO2-->
+- **Processi**: l'area relativa ai **processi** mostra il risultato della recente attività di processo. Questo garantisce che il sistema funziona come previsto, o può far sapere all’utente se è necessario adottare misure correttive. Per ulteriori informazioni sui processi completati di recente, fare clic su**processi completati nelle ultime 24 ore**.
 
+- L’area**riepilogo rapido**a destra del dashboard fornisce informazioni utili come ad esempio il modello di dispositivo, il numero di serie, stato, descrizione e numero di volumi.
 
+È inoltre possibile configurare il failover e visualizzare gli iniziatori connessi dal dashboard del dispositivo.
+
+Le attività comuni che possono essere eseguite in questa pagina sono:
+
+- Visualizzare gli iniziatori connessi
+
+- Trovare il numero di serie del dispositivo
+
+- Trovare l’IQN di destinazione del dispositivo
+
+## Visualizzare gli iniziatori connessi
+
+È possibile visualizzare gli iniziatori iSCSI connessi al dispositivo facendo clic sul collegamento**Visualizza iniziatori connessi** fornito nell’area**riepilogo rapido**del dashboard del dispositivo. Questa pagina fornisce un elenco tabulare degli iniziatori connessi correttamente al dispositivo. Per ogni iniziatore, è possibile vedere:
+
+- iSCSI Qualified Name (IQN) dell'iniziatore connesso.
+
+- Il nome del record di controllo di accesso (ACR) che consente questo iniziatore connesso.
+
+- L'indirizzo IP dell'iniziatore connesso.
+
+- Le interfacce di rete a cui l'iniziatore è connesso nel dispositivo di archiviazione. Questi possono variare da DATA 0 a DATA 5.
+
+- Tutti i volumi che l'iniziatore connesso è autorizzato ad accedere in base alla configurazione ACR corrente.
+
+Se si visualizzano iniziatori imprevisti nell'elenco o non si visualizzano quelli previsti, verificare la configurazione ACR. Un massimo di 512 iniziatori può connettersi al dispositivo.
+
+## Trovare il numero di serie del dispositivo
+
+Il numero di serie del dispositivo potrebbe essere necessario quando si configura Microsoft Multipath i/o (MPIO) sul dispositivo. Eseguire i passaggi seguenti per trovare il numero di serie del dispositivo.
+
+#### Per trovare il numero di serie del dispositivo
+
+1. Passare a**Dispositivi**>**Dashboard**.
+
+2. Nel riquadro a destra del dashboard, individuare l’area**riepilogo rapido**.
+
+3. Scorrere verso il basso e individuare il numero di serie.
+
+## Trovare l’IQN di destinazione del dispositivo
+
+L’IQN di destinazione del dispositivo potrebbe essere necessario quando si configura il Challenge Handshake Authentication Protocol (CHAP) sul dispositivo StorSimple. Eseguire i passaggi seguenti per trovare l’IQN di destinazione del dispositivo.
+
+### Per trovare l’IQN di destinazione del dispositivo
+
+1. Passare a**Dispositivi**>**Dashboard**.
+
+1. Nel riquadro a destra del dashboard, individuare l’area**riepilogo rapido**.
+
+1. Scorrere verso il basso e individuare l’IQN di destinazione.
+
+## Passaggi successivi
+
+- Ulteriori informazioni sul [dashboard del servizio StorSimple Manager](storsimple-service-dashboard.md).
+- Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=AcomDC_0921_2016-->

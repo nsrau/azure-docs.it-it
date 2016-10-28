@@ -1,160 +1,155 @@
 <properties
-    pageTitle="Azure Functions Event Hub bindings | Microsoft Azure"
-    description="Understand how to use Azure Event Hub bindings in Azure Functions."
-    services="functions"
-    documentationCenter="na"
-    authors="wesmc7777"
-    manager="erikre"
-    editor=""
-    tags=""
-    keywords="azure functions, functions, event processing, dynamic compute, serverless architecture"/>
+	pageTitle="Associazioni di Hub eventi di Funzioni di Azure | Microsoft Azure"
+	description="Informazioni su come usare le associazioni di Hub eventi di Azure in Funzioni di Azure."
+	services="functions"
+	documentationCenter="na"
+	authors="wesmc7777"
+	manager="erikre"
+	editor=""
+	tags=""
+	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server"/> 
 
 <tags
-    ms.service="functions"
-    ms.devlang="multiple"
-    ms.topic="reference"
-    ms.tgt_pltfrm="multiple"
-    ms.workload="na"
-    ms.date="08/22/2016"
-    ms.author="wesmc"/>
+	ms.service="functions"
+	ms.devlang="multiple"
+	ms.topic="reference"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/22/2016"
+	ms.author="wesmc"/> 
 
-
-# <a name="azure-functions-event-hub-bindings"></a>Azure Functions Event Hub bindings
+# Associazioni di Hub eventi di Funzioni di Azure
 
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-This article explains how to configure and code [Azure Event Hub](../event-hubs/event-hubs-overview.md) bindings for Azure Functions. Azure functions supports trigger and output bindings for Azure Event Hubs.
+Questo articolo illustra come configurare e scrivere il codice di associazioni di [Hub eventi di Azure](../event-hubs/event-hubs-overview.md) per Funzioni di Azure. Funzioni di Azure supporta il trigger e le associazioni di output per Hub eventi di Azure.
 
-[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
+[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 
-## <a name="azure-event-hub-trigger-binding"></a>Azure Event Hub trigger binding
+## Associazione del trigger di Hub eventi di Azure
 
-An Azure Event Hub trigger can be used to respond to an event sent to an event hub event stream. You must have read access to the event hub to setup a trigger binding.
+Il trigger di Hub eventi di Azure può essere usato per rispondere a un evento inviato a un flusso di eventi di Hub eventi. Per configurare un'associazione del trigger è necessario avere accesso in lettura ad Hub eventi.
 
-#### <a name="function.json-for-event-hub-trigger-binding"></a>function.json for Event Hub trigger binding
+#### function.json per l'associazione del trigger di Hub eventi
 
-The *function.json* file for an Azure Event Hub trigger specifies the following properties:
+Il file *function.json* per un trigger di Hub eventi di Azure specifica le proprietà seguenti:
 
-- `type` : Must be set to *eventHubTrigger*.
-- `name` : The variable name used in function code for the event hub message. 
-- `direction` : Must be set to *in*. 
-- `path` : The name of the event hub.
-- `connection` : The name of an app setting that contains the connection string to the namespace that the event hub resides in. Copy this connection string by clicking the **Connection Information** button for the namespace, not the event hub itself.  This connection string must have at least read permissions to activate the trigger.
+- `type`: deve essere impostato su *eventHubTrigger*.
+- `name`: nome della variabile usato nel codice della funzione per il messaggio di Hub eventi.
+- `direction`: deve essere impostato su *in*.
+- `path`: nome di Hub eventi.
+- `connection`: nome di un'impostazione dell'app che contiene la stringa di connessione nello spazio dei nomi in cui si trova Hub eventi. Copiare questa stringa di connessione facendo clic sul pulsante **Informazioni di connessione** per lo spazio dei nomi, non per lo stesso Hub eventi. Per attivare il trigger, questa stringa di connessione deve disporre almeno delle autorizzazioni Read.
 
-        {
-          "bindings": [
-            {
-              "type": "eventHubTrigger",
-              "name": "myEventHubMessage",
-              "direction": "in",
-              "path": "MyEventHub",
-              "connection": "myEventHubReadConnectionString"
-            }
-          ],
-          "disabled": false
-        }
+		{
+		  "bindings": [
+		    {
+		      "type": "eventHubTrigger",
+		      "name": "myEventHubMessage",
+		      "direction": "in",
+		      "path": "MyEventHub",
+		      "connection": "myEventHubReadConnectionString"
+		    }
+		  ],
+		  "disabled": false
+		}
 
-#### <a name="azure-event-hub-trigger-c#-example"></a>Azure Event Hub trigger C# example
+#### Esempio C# del trigger di Hub eventi di Azure
  
-Using the example function.json above, the body of the event message will be logged using the C# function code below:
+Usando il file function.json di esempio riportato in alto, il corpo del messaggio dell'evento viene registrato usando il codice di funzione C# seguente:
  
-    using System;
-    
-    public static void Run(string myEventHubMessage, TraceWriter log)
-    {
-        log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
-    }
+	using System;
+	
+	public static void Run(string myEventHubMessage, TraceWriter log)
+	{
+	    log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
+	}
 
-#### <a name="azure-event-hub-trigger-f#-example"></a>Azure Event Hub trigger F# example
+#### Esempio F# del trigger di Hub eventi di Azure
 
-Using the example function.json above, the body of the event message will be logged using the F# function code below:
+Usando il file function.json di esempio riportato in precedenza, il corpo del messaggio dell'evento viene registrato usando il codice di funzione F# seguente:
 
-    let Run(myEventHubMessage: string, log: TraceWriter) =
-        log.Info(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
+	let Run(myEventHubMessage: string, log: TraceWriter) =
+	    log.Info(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
 
-#### <a name="azure-event-hub-trigger-node.js-example"></a>Azure Event Hub trigger Node.js example
+#### Esempio Node.js del trigger di Hub eventi di Azure
  
-Using the example function.json above, the body of the event message will be logged using the Node.js function code below:
+Usando il file function.json di esempio riportato in alto, il corpo del messaggio dell'evento viene registrato usando il codice di funzione Node.js seguente:
  
-    module.exports = function (context, myEventHubMessage) {
-        context.log('Node.js eventhub trigger function processed work item', myEventHubMessage);    
-        context.done();
-    };
+	module.exports = function (context, myEventHubMessage) {
+	    context.log('Node.js eventhub trigger function processed work item', myEventHubMessage);	
+	    context.done();
+	};
 
 
-## <a name="azure-event-hub-output-binding"></a>Azure Event Hub output binding
+## Associazione di output di Hub eventi di Azure
 
-An Azure Event Hub output binding is used to write events to an event hub event stream. You must have send permission to an event hub to write events to it. 
+L'associazione di output di Hub eventi di Azure viene usata per scrivere eventi in un flusso di eventi di Hub eventi. Per scrivervi eventi, è necessario disporre dell'autorizzazione Send verso un Hub eventi.
 
-#### <a name="function.json-for-event-hub-output-binding"></a>function.json for Event Hub output binding
+#### function.json per l'associazione di output di Hub eventi
 
-The *function.json* file for an Azure Event Hub output binding specifies the following properties:
+Il file *function.json* per un'associazione di output di Hub eventi di Azure specifica le proprietà seguenti:
 
-- `type` : Must be set to *eventHub*.
-- `name` : The variable name used in function code for the event hub message. 
-- `path` : The name of the event hub.
-- `connection` : The name of an app setting that contains the connection string to the namespace that the event hub resides in. Copy this connection string by clicking the **Connection Information** button for the namespace, not the event hub itself.  This connection string must have send permissions to send the message to the Event Hub stream.
-- `direction` : Must be set to *out*. 
+- `type`: deve essere impostato su *eventHub*.
+- `name`: nome della variabile usato nel codice della funzione per il messaggio di Hub eventi.
+- `path`: nome di Hub eventi.
+- `connection`: nome di un'impostazione dell'app che contiene la stringa di connessione nello spazio dei nomi in cui si trova Hub eventi. Copiare questa stringa di connessione facendo clic sul pulsante **Informazioni di connessione** per lo spazio dei nomi, non per lo stesso Hub eventi. Per inviare il messaggio al flusso di Hub eventi, questa stringa di connessione deve disporre di autorizzazioni Send.
+- `direction`: deve essere impostato su *out*.
 
-        {
-          "type": "eventHub",
-          "name": "outputEventHubMessage",
-          "path": "myeventhub",
-          "connection": "MyEventHubSend",
-          "direction": "out"
-        }
+	    {
+	      "type": "eventHub",
+	      "name": "outputEventHubMessage",
+	      "path": "myeventhub",
+	      "connection": "MyEventHubSend",
+	      "direction": "out"
+	    }
 
 
-#### <a name="azure-event-hub-c#-code-example-for-output-binding"></a>Azure Event Hub C# code example for output binding
+#### Esempio di codice C# di Hub eventi di Azure per l'associazione di output
  
-The following C# example function code demonstrates writing an event to an Event Hub event stream. This example represents the Event Hub output binding shown above applied to a C# timer trigger.  
+Il codice di funzione C# di esempio seguente illustra la scrittura di un evento in un flusso di eventi di Hub eventi. Questo esempio rappresenta l'applicazione a un trigger del timer C# dell'associazione di output di Hub eventi illustrata in precedenza.
  
-    using System;
-    
-    public static void Run(TimerInfo myTimer, out string outputEventHubMessage, TraceWriter log)
-    {
-        String msg = $"TimerTriggerCSharp1 executed at: {DateTime.Now}";
-    
-        log.Verbose(msg);   
-        
-        outputEventHubMessage = msg;
-    }
+	using System;
+	
+	public static void Run(TimerInfo myTimer, out string outputEventHubMessage, TraceWriter log)
+	{
+	    String msg = $"TimerTriggerCSharp1 executed at: {DateTime.Now}";
+	
+	    log.Verbose(msg);   
+	    
+	    outputEventHubMessage = msg;
+	}
 
-#### <a name="azure-event-hub-f#-code-example-for-output-binding"></a>Azure Event Hub F# code example for output binding
+#### Esempio di codice F# di Hub eventi di Azure per l'associazione di output
 
-The following F# example function code demonstrates writing an event to an Event Hub event stream. This example represents the Event Hub output binding shown above applied to a C# timer trigger.
+Il codice di funzione F# di esempio seguente illustra la scrittura di un evento in un flusso di eventi di Hub eventi. Questo esempio rappresenta l'applicazione a un trigger del timer C# dell'associazione di output di Hub eventi illustrata in precedenza.
 
-    let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWriter) =
-        let msg = sprintf "TimerTriggerFSharp1 executed at: %s" DateTime.Now.ToString()
-        log.Verbose(msg);
-        outputEventHubMessage <- msg;
+	let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWriter) =
+	    let msg = sprintf "TimerTriggerFSharp1 executed at: %s" DateTime.Now.ToString()
+	    log.Verbose(msg);
+	    outputEventHubMessage <- msg;
 
-#### <a name="azure-event-hub-node.js-code-example-for-output-binding"></a>Azure Event Hub Node.js code example for output binding
+#### Esempio di codice Node.js di Hub eventi di Azure per l'associazione di output
  
-The following Node.js example function code demonstrates writing a event to an Event Hub event stream. This example represents the Event Hub output binding shown above applied to a Node.js timer trigger.  
+Il codice di funzione Node.js di esempio seguente illustra la scrittura di un evento in un flusso di eventi di Hub eventi. Questo esempio rappresenta l'applicazione a un trigger del timer Node.js dell'associazione di output di Hub eventi illustrata in precedenza.
  
-    module.exports = function (context, myTimer) {
-        var timeStamp = new Date().toISOString();
-        
-        if(myTimer.isPastDue)
-        {
-            context.log('TimerTriggerNodeJS1 is running late!');
-        }
+	module.exports = function (context, myTimer) {
+	    var timeStamp = new Date().toISOString();
+	    
+	    if(myTimer.isPastDue)
+	    {
+	        context.log('TimerTriggerNodeJS1 is running late!');
+	    }
 
-        context.log('TimerTriggerNodeJS1 function ran!', timeStamp);   
-        
-        context.bindings.outputEventHubMessage = "TimerTriggerNodeJS1 ran at : " + timeStamp;
-    
-        context.done();
-    };
+	    context.log('TimerTriggerNodeJS1 function ran!', timeStamp);   
+	    
+	    context.bindings.outputEventHubMessage = "TimerTriggerNodeJS1 ran at : " + timeStamp;
+	
+	    context.done();
+	};
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-[AZURE.INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+[AZURE.INCLUDE [Passaggi successivi](../../includes/functions-bindings-next-steps.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,59 +1,58 @@
 <properties
-    pageTitle="Get Started with authentication for Mobile Apps in Xamarin iOS"
-    description="Learn how to use Mobile Apps to authenticate users of your Xamarin iOS app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft."
-    services="app-service\mobile"
-    documentationCenter="xamarin"
-    authors="adrianhall"
-    manager="dwrede"
-    editor=""/>
+	pageTitle="Introduzione all'autenticazione per app per dispositivi mobili in Xamarin iOS"
+	description="Informazioni su come usare le app per dispositivi mobili per autenticare gli utenti dell'app Xamarin iOS tramite vari provider di identità, tra cui AAD, Google, Facebook, Twitter e Microsoft."
+	services="app-service\mobile"
+	documentationCenter="xamarin"
+	authors="mattchenderson"
+	manager="dwrede"
+	editor=""/>
 
 <tags
-    ms.service="app-service-mobile"
-    ms.workload="na"
-    ms.tgt_pltfrm="mobile-xamarin-ios"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="10/01/2016"
-    ms.author="adrianha"/>
+	ms.service="app-service-mobile"
+	ms.workload="na"
+	ms.tgt_pltfrm="mobile-xamarin-ios"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/28/2016"
+	ms.author="mahender"/>
 
-
-# <a name="add-authentication-to-your-xamarin.ios-app"></a>Add authentication to your Xamarin.iOS app
+# Aggiungere l'autenticazione all'app per Xamarin.iOS
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-This topic shows you how to authenticate users of an App Service Mobile App from your client application. In this tutorial, you add authentication to the Xamarin.iOS quickstart project using an identity provider that is supported by App Service. After being successfully authenticated and authorized by your Mobile App, the user ID value is displayed and you will be able to access restricted table data.
+Questo argomento descrive come autenticare gli utenti di un'app mobile del servizio app dall'applicazione client. In questa esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva Xamarin.iOS tramite un provider di identità supportato dal servizio app. In seguito all'autenticazione e all'autorizzazione da parte dell'app per dispositivi mobili, viene visualizzato il valore dell'ID utente e si sarà in grado di accedere ai dati della tabella con restrizioni.
 
-You must first complete the tutorial [Create a Xamarin.iOS app]. If you do not use the downloaded quick start server project, you must add the authentication extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+È necessario completare prima l'esercitazione [Creare un'app per Xamarin iOS]. Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere il pacchetto di estensione di autenticazione al progetto. Per altre informazioni sui pacchetti di estensione server, vedere l'articolo relativo all'[utilizzo dell'SDK del server back-end .NET per app per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-##<a name="register-your-app-for-authentication-and-configure-app-services"></a>Register your app for authentication and configure App Services
+##Registrare l'app per l'autenticazione e configurare i servizi app
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-##<a name="restrict-permissions-to-authenticated-users"></a>Restrict permissions to authenticated users
+##Limitare le autorizzazioni agli utenti autenticati
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-&nbsp;&nbsp;4. In Visual Studio or Xamarin Studio, run the client project on a device or emulator. Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. The failure is logged to the console of the debugger. So in Visual Studio, you should see the failure in the output window.
+&nbsp;&nbsp;4. In Visual Studio o Xamarin Studio, eseguire il progetto client su un dispositivo o un emulatore. Verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (Non autorizzato). L'errore viene registrato nella console del debugger. In Visual Studio l'errore dovrebbe quindi essere visualizzato nella finestra di output.
 
-&nbsp;&nbsp;This unauthorized failure happens because the app attempts to access your Mobile App backend as an unauthenticated user. The *TodoItem* table now requires authentication.
+&nbsp;&nbsp;Questo errore non autorizzato viene generato perché l'app prova ad accedere al back-end dell'app per dispositivi mobili come utente non autenticato. La tabella *TodoItem* richiede ora l'autenticazione.
 
-Next, you will update the client app to request resources from the Mobile App backend with an authenticated user.
+Si aggiornerà quindi l'app client per richiedere le risorse dal back-end dell'app per dispositivi mobili con un utente autenticato.
 
-##<a name="add-authentication-to-the-app"></a>Add authentication to the app
+##Aggiungere l'autenticazione all'app
 
-In this section, you will modify the app to display a login screen before displaying data. When the app starts, it will not not connect to your App Service and will not display any data. After the first time that the user performs the refresh gesture, the login screen will appear; after successful login the list of todo items will be displayed.
+In questa sezione si procederà alla modifica dell'app in modo da visualizzare una schermata di accesso prima dei dati. All'avvio, l'app non si connetterà al servizio app e non sarà visualizzato alcun dato. Dopo la prima volta che l'utente esegue il movimento di aggiornamento verrà visualizzata la schermata di accesso. Dopo aver eseguito correttamente l'accesso, verrà visualizzato un elenco di elementi ToDo.
 
-1. In the client project, open the file **QSTodoService.cs** and add the following using statement and `MobileServiceUser` with accessor to the QSTodoService class:
+1. Nel progetto client, aprire il file **QSTodoService.cs** e aggiungere quanto segue tramite l'istruzione `MobileServiceUser` con la funzione di accesso alla classe QSTodoService:
 
-    ```
-        using UIKit;
-    ```
+	```
+		using UIKit;
+	```
 
-        // Logged in user
-        private MobileServiceUser user;
-        public MobileServiceUser User { get { return user; } }
+		// Logged in user
+		private MobileServiceUser user;
+		public MobileServiceUser User { get { return user; } }
 
-2. Add new method named **Authenticate** to **QSTodoService** with the following definition:
+2. Aggiungere un nuovo metodo denominato **Autentica** a **QSTodoService** con la definizione seguente:
 
 
         public async Task Authenticate(UIViewController view)
@@ -68,50 +67,46 @@ In this section, you will modify the app to display a login screen before displa
             }
         }
 
-    >[AZURE.NOTE] If you are using an identity provider other than a Facebook, change the value passed to **LoginAsync** above to one of the following: _MicrosoftAccount_, _Twitter_, _Google_, or _WindowsAzureActiveDirectory_.
+	>[AZURE.NOTE] Se si usa un provider di identità diverso da Google, sostituire il valore passato a **LoginAsync** riportato in precedenza con uno dei seguenti: _MicrosoftAccount_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
 
-3. Open **QSTodoListViewController.cs**. Modify the method definition of **ViewDidLoad** removing the call to **RefreshAsync()** near the end:
+3. Aprire **QSTodoListViewController.cs**. Modificare la definizione del metodo di **ViewDidLoad** rimuovendo la chiamata a **RefreshAsync()** verso la fine:
 
-        public override async void ViewDidLoad ()
-        {
-            base.ViewDidLoad ();
+		public override async void ViewDidLoad ()
+		{
+			base.ViewDidLoad ();
 
-            todoService = QSTodoService.DefaultService;
+			todoService = QSTodoService.DefaultService;
            await todoService.InitializeStoreAsync ();
 
            RefreshControl.ValueChanged += async (sender, e) => {
                 await RefreshAsync ();
            }
 
-            // Comment out the call to RefreshAsync
-            // await RefreshAsync ();
-        }
+			// Comment out the call to RefreshAsync
+			// await RefreshAsync ();
+		}
 
 
-4. Modify the method **RefreshAsync** to authenticate if the **User** property is null. Add the following code at the top of the method definition:
+4. Modificare il metodo **RefreshAsync** per autenticare e visualizzare una schermata di accesso se la proprietà **User** è Null. Aggiungere il codice seguente nella parte superiore della definizione del metodo:
 
-        // start of RefreshAsync method
-        if (todoService.User == null) {
-            await QSTodoService.DefaultService.Authenticate (this);
-            if (todoService.User == null) {
-                Console.WriteLine ("couldn't login!!");
-                return;
-            }
-        }
-        // rest of RefreshAsync method
+		// start of RefreshAsync method
+		if (todoService.User == null) {
+			await QSTodoService.DefaultService.Authenticate (this);
+			if (todoService.User == null) {
+				Console.WriteLine ("couldn't login!!");
+				return;
+			}
+		}
+		// rest of RefreshAsync method
 
-5. In Visual Studio or Xamarin Studio connected to your Xamarin Build Host on your Mac, run the client project targeting a device or emulator. Verify that the app displays no data.
+5. In Visual Studio o Xamarin Studio connesso all'host di compilazione Xamarin sul Mac eseguire il progetto client destinato a un dispositivo o un emulatore. Verificare che nell'app non siano visualizzati dati.
 
-    Perform the refresh gesture by pulling down the list of items, which will cause the login screen to appear. Once you have successfully entered valid credentials, the app will display the list of todo items, and you can make updates to the data.
+	Eseguire il movimento di aggiornamento spostando verso il basso l'elenco di elementi, in modo da visualizzare la schermata di accesso. Dopo aver correttamente immesso le credenziali valide, verrà visualizzato l'elenco di elementi ToDo e sarà possibile aggiornare i dati nell'app.
 
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Create a Xamarin.iOS app]: app-service-mobile-xamarin-ios-get-started.md
+[Creare un'app per Xamarin iOS]: app-service-mobile-xamarin-ios-get-started.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0706_2016-->

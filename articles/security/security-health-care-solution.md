@@ -1,6 +1,6 @@
 <properties
-   pageTitle="A practical guide to designing secure health care solutions in Azure | Microsoft Azure"
-   description=" This article helps you understand how to improve security for your health care solutions by using the Azure services and features that you configure. "
+   pageTitle="Guida pratica alla progettazione di soluzioni sicure per il settore sanitario in Azure | Microsoft Azure"
+   description=" Questo articolo spiega come migliorare la sicurezza delle soluzioni sanitarie con i servizi e le funzionalità di Azure. "
    services="security"
    documentationCenter="na"
    authors="TomShinder"
@@ -16,22 +16,16 @@
    ms.date="09/06/2016"
    ms.author="terrylan"/>
 
+# Guida pratica alla progettazione di soluzioni sicure per il settore sanitario in Azure
 
-# <a name="a-practical-guide-to-designing-secure-health-care-solutions-in-azure"></a>A practical guide to designing secure health care solutions in Azure
+Le startup, gli integratori di sistemi, i fornitori di software indipendenti (ISV) e le organizzazioni del settore sanitario che intendono passare ad Azure sono alla ricerca di una guida che le aiuti a integrare controlli di sicurezza che consentano di soddisfare gli obblighi di conformità.
 
-Health industry startups, system integrators (SIs), independent software vendors (ISVs), and healthcare organizations considering a move to Azure are looking for guidance that helps them incorporate security controls to meet their compliance obligations.
+[A Practical Guide to Designing Secure Health Care Solutions in Microsoft Azure](https://aka.ms/azureindustrysecurity) (Guida pratica alla progettazione di soluzioni sicure per il settore sanitario in Microsoft Azure) consente di comprendere come migliorare la sicurezza delle soluzioni usando i servizi di Azure e le funzionalità che è possibile configurare in base alle esigenze. Il contenuto è suddiviso in tre sezioni principali:
 
-[A Practical Guide to Designing Secure Health Care Solutions in Microsoft Azure](https://aka.ms/azureindustrysecurity) helps you understand how you can improve security for your solutions by using the Azure services and features that you can configure based on your requirements.
-The content is divided into three major sections:
+1. Considerazioni sull'uso delle tecnologie cloud, incluse informazioni su gestione dei rischi, responsabilità condivise, implementazione di un sistema di gestione della sicurezza delle informazioni, comprensione delle normative locali e del settore e applicazione di procedure operative standard.
+2. Principi di sicurezza fondamentali allineati a uno standard di gestione della sicurezza delle informazioni, come ISO 27001, e a processi di sviluppo standard, come Microsoft Security Development Lifecycle (SDL).
+3. Applicazione dei principi fondamentali a casi d'uso illustrando l'allineamento da una prospettiva di architetto di soluzioni, in cui i requisiti per le soluzioni sono allineati allo standard di gestione della sicurezza delle informazioni.
 
-1. Considerations guidance for using cloud technology, including risk management, shared responsibility, establishing an information security management system, understanding industry and local regulations, and establishing standard operating procedures.
-2. Key security principles that are both aligned to a standard information security management standard, such as ISO 27001, and standard development processes, such as Microsoft’s Security Development Lifecycle (SDL).
-3. Applying the key principles to use cases by demonstrating alignment from a solution architect perspective, where requirements for the solutions are aligned to the information security management standard.
+Microsoft confida che [A Practical Guide to Designing Secure Health Care Solutions](https://aka.ms/azureindustrysecurity) (Guida pratica alla progettazione di soluzioni sicure per il settore sanitario in Microsoft Azure) sia utile. In caso di domande o suggerimenti è possibile lasciare un commento in basso.
 
-We hope you find [A Practical Guide to Designing Secure Health Care Solutions](https://aka.ms/azureindustrysecurity) helpful and if you have any questions or suggestions, let us know by leaving a comment below.
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

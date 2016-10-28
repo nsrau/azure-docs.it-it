@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Operating Query Store in Azure SQL Database"
-   description="Learn how to operate the Query Store in Azure SQL Database"
+   pageTitle="Uso dell'archivio query nel database SQL di Azure"
+   description="Informazioni su come usare l'archivio query nel database SQL di Azure"
    keywords=""
    services="sql-database"
    documentationCenter=""
@@ -17,51 +17,46 @@
    ms.date="08/16/2016"
    ms.author="carlrab"/>
 
+# Uso dell'archivio query nel database SQL di Azure 
 
-# <a name="operating-the-query-store-in-azure-sql-database"></a>Operating the Query Store in Azure SQL Database 
+L'archivio query di Azure è una funzionalità di database completamente gestita che raccoglie e presenta informazioni cronologiche dettagliate su tutte le query in modo continuo. L'archivio query può essere concepito come un registratore dei dati di volo di un aeroplano che semplifica notevolmente la risoluzione dei problemi relativi alle prestazioni delle query sia per i clienti del cloud sia per i clienti locali. Questo articolo spiega alcuni aspetti specifici dell'uso dell'archivio query in Azure. Usando questi dati di query pre-raccolti, è possibile diagnosticare e risolvere velocemente i problemi di prestazioni e dedicare così più tempo alla propria attività.
 
-Query Store in Azure is a fully managed database feature that continuously collects and presents detailed historic information about all queries. You can think about Query Store as similar to an airplane's flight data recorder that significantly simplifies query performance troubleshooting both for cloud and on-premises customers. This article explains specific aspects of operating Query Store in Azure. Using this pre-collected query data, you can quickly diagnose and resolve performance problems and thus spend more time focusing on their business. 
+Archivio query è [disponibile a livello globale](https://azure.microsoft.com/updates/general-availability-azure-sql-database-query-store/) nel database SQL di Azure da novembre 2015. Archivio query è la base per le funzionalità di analisi delle prestazioni e ottimizzazione, come [Advisor per database SQL e il dashboard delle prestazioni](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). Al momento della pubblicazione di questo articolo, l'archivio query è in esecuzione in più di 200.000 database utente in Azure e raccoglie informazioni relative alle query da molti mesi senza interruzioni.
 
-Query Store has been [globally available](https://azure.microsoft.com/updates/general-availability-azure-sql-database-query-store/) in Azure SQL Database since November, 2015. Query Store is the foundation for performance analysis and tuning features, such as [SQL Database Advisor and Performance Dashboard](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). At the moment of publishing this article, Query Store is running in more than 200,000 user databases in Azure, collecting query-related information for several months, without interruption.
+> [AZURE.IMPORTANT] Microsoft sta per attivare l'archivio query per tutti i database SQL di Azure esistenti e nuovi.
 
-> [AZURE.IMPORTANT] Microsoft is in the process of activating Query Store for all Azure SQL databases (existing and new). 
+## Configurazione ottimale dell'archivio query
 
-## <a name="optimal-query-store-configuration"></a>Optimal Query Store Configuration
+Questa sezione descrive impostazioni di configurazione predefinite ottimali progettate per garantire un funzionamento affidabile dell'archivio query e delle funzionalità dipendenti, come indicato nell'articolo [Advisor per database SQL e dashboard delle prestazioni](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). La configurazione predefinita è ottimizzata per la raccolta di dati continua, ossia per un tempo minimo di OFF/READ\_ONLY.
 
-This section describes optimal configuration defaults that are designed to ensure reliable operation of the Query Store and dependent features, such as [SQL Database Advisor and Performance Dashboard](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). Default configuration is optimized for continuous data collection, that is minimal time spent in OFF/READ_ONLY states.
-
-| Configuration | Description | Default | Comment |
+| Configurazione | Descrizione | Default | Commento |
 | ------------- | ----------- | ------- | ------- |
-| MAX_STORAGE_SIZE_MB | Specifies the limit for the data space that Query Store can take inside z customer database | 100 | Enforced for new databases |
-| INTERVAL_LENGTH_MINUTES | Defines size of time window during which collected runtime statistics for query plans are aggregated and persisted. Every active query plan has at most one row for a period of time defined with this configuration | 60   | Enforced for new databases |
-| STALE_QUERY_THRESHOLD_DAYS | Time-based cleanup policy that controls the retention period of persisted runtime statistics and inactive queries | 30 | Enforced for new databases and databases with previous default (367) |
-| SIZE_BASED_CLEANUP_MODE | Specifies whether automatic data cleanup takes place when Query Store data size approaches the limit | AUTO | Enforced for all databases |
-| QUERY_CAPTURE_MODE | Specifies whether all queries or only a subset of queries are tracked | AUTO | Enforced for all databases |
-| FLUSH_INTERVAL_SECONDS | Specifies maximum period during which captured runtime statistics are kept in memory, before flushing to disk | 900 | Enforced for new databases |
+| MAX\_STORAGE\_SIZE\_MB | Specifica il limite per lo spazio dati che l'archivio query occupa all'interno del database del cliente z | 100 | Applicato per i nuovi database |
+| INTERVAL\_LENGTH\_MINUTES | Definisce la dimensione dell'intervallo di tempo durante il quale le statistiche di runtime raccolte per i piani di query vengono aggregate e rese persistenti. Tutti i piani di query attivi hanno al massimo una riga per un periodo di tempo definito con questa configurazione | 60 | Applicato per i nuovi database |
+| STALE\_QUERY\_THRESHOLD\_DAYS | Criterio di pulizia basato sul tempo che controlla il periodo di memorizzazione delle statistiche di runtime persistenti e delle query inattive | 30 | Applicato per i nuovi database e i database con un'impostazione predefinita precedente (367) |
+| SIZE\_BASED\_CLEANUP\_MODE | Specifica se la pulizia automatica dei dati viene eseguita quando la dimensione dati dell'archivio query si avvicina al limite | AUTO | Applicato per tutti i database |
+| QUERY\_CAPTURE\_MODE | Specifica se vengono monitorate tutte le query o solo un sottoinsieme di esse | AUTO | Applicato per tutti i database |
+| FLUSH\_INTERVAL\_SECONDS | Specifica il periodo massimo durante il quale le statistiche di runtime acquisite vengono mantenute in memoria prima di essere scaricate su disco | 900 | Applicato per i nuovi database |
 ||||||
 
-> [AZURE.IMPORTANT] These defaults are automatically applied in the final stage of Query Store activation in all Azure SQL databases (see preceding important note). After this light up, Azure SQL Database won’t be changing configuration values set by customers, unless they negatively impact primary workload or reliable operations of the Query Store.
+> [AZURE.IMPORTANT] I valori predefiniti indicati sopra vengono applicati automaticamente nella fase finale dell'attivazione dell'archivio query in tutti i database SQL di Azure (vedere la precedente nota importante). Dopo questa attivazione, il database SQL di Azure non modificherà i valori di configurazione impostati dai clienti, a meno che non abbiano un impatto negativo sul carico di lavoro primario o sull'affidabilità di funzionamento dell'archivio query.
 
-If you want to stay with your custom settings, use [ALTER DATABASE with Query Store options](https://msdn.microsoft.com/library/bb522682.aspx) to revert configuration to the previous state. Check out [Best Practices with the Query Store](https://msdn.microsoft.com/library/mt604821.aspx) in order to learn how top chose optimal configuration parameters.
+Se si desidera mantenere le impostazioni personalizzate, usare [ALTER DATABASE con le opzioni dell'archivio query](https://msdn.microsoft.com/library/bb522682.aspx) per riportare la configurazione allo stato precedente. Vedere [Procedure consigliate per l'archivio query](https://msdn.microsoft.com/library/mt604821.aspx) per informazioni su come scegliere i parametri di configurazione ottimali.
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-[SQL Database Performance Insight](sql-database-performance.md)
+[Informazioni dettagliate sulle prestazioni del database SQL](sql-database-performance.md)
 
-## <a name="additional-resources"></a>Additional resources
+## Risorse aggiuntive
 
-For more information check out the following articles:
+Per altre informazioni, vedere gli articoli dedicati ai seguenti argomenti:
 
-- [A flight data recorder for your database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
+- [Un registratore dei dati di volo per il database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database)
 
-- [Monitoring Performance By Using the Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
+- [Monitoraggio delle prestazioni mediante l'archivio query](https://msdn.microsoft.com/library/dn817826.aspx)
 
-- [Query Store Usage Scenarios](https://msdn.microsoft.com/library/mt614796.aspx)
+- [Scenari di utilizzo dell'archivio query](https://msdn.microsoft.com/library/mt614796.aspx)
 
-- [Monitoring Performance By Using the Query Store](https://msdn.microsoft.com/library/dn817826.aspx) 
+- [Monitoraggio delle prestazioni mediante l'archivio query](https://msdn.microsoft.com/library/dn817826.aspx)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,174 +1,173 @@
 <properties
-    pageTitle="Node.js web app using the Azure Table Service"
-    description="This tutorial teaches you how to use the Azure Table service to store data from a Node.js application which is hosted in Azure App Service Web Apps."
-    tags="azure-portal"
-    services="app-service\web, storage"
-    documentationCenter="nodejs"
-    authors="rmcmurray"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="App Web Node.js con il servizio tabelle di Azure"
+	description="Questa esercitazione illustra come usare il servizio tabelle di Azure per archiviare i dati da un'applicazione Node.js ospitata in app Web del servizio app di Azure."
+	tags="azure-portal"
+	services="app-service\web, storage"
+	documentationCenter="nodejs"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="nodejs"
-    ms.topic="article"
-    ms.date="08/11/2016"
-    ms.author="robmcm"/>
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="08/11/2016"
+	ms.author="robmcm"/>
 
+# App Web Node.js con il servizio tabelle di Azure
 
-# <a name="node.js-web-app-using-the-azure-table-service"></a>Node.js web app using the Azure Table Service
+## Panoramica
 
-## <a name="overview"></a>Overview
+In questa esercitazione viene illustrato come usare il servizio tabelle fornito da Gestione dati di Azure per archiviare e accedere ai dati da un'applicazione [node] ospitata nelle app Web del [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). In questa esercitazione si presuppone che l'utente abbia già utilizzato l'applicazione Node e [Git].
 
-This tutorial shows you how to use Table service provided by Azure Data Management to store and access data from a [node] application hosted in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps. This tutorial assumes that you have some prior experience using node and [Git].
+Si acquisiranno le nozioni seguenti:
 
-You will learn:
+* Usare npm (Node Package Manager) per installare i moduli di Node
 
-* How to use npm (node package manager) to install the node modules
+* Utilizzare il servizio tabelle di Azure
 
-* How to work with the Azure Table service
+* Come usare l'interfaccia della riga di comando di Azure per creare un'app Web.
 
-* How to use the Azure CLI to create a web app.
+In questa esercitazione verrà creata una semplice applicazione di "elenco attività" basata su Web che consente di creare, recuperare e completare le attività. Le attività vengono archiviate nel servizio tabelle.
 
-By following this tutorial, you will build a simple web-based "to-do list" application that allows creating, retrieving and completing tasks. The tasks are stored in the Table service.
+Di seguito è riportata l'applicazione completata:
 
-Here is the completed application:
+![Pagina Web con un elenco di attività vuoto][node-table-finished]
 
-![A web page displaying an empty tasklist][node-table-finished]
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+## Prerequisiti
 
-## <a name="prerequisites"></a>Prerequisites
+Prima di seguire le istruzioni di questo articolo, verificare che siano installati i seguenti elementi:
 
-Before following the instructions in this article, ensure that you have the following installed:
-
-* [node] version 0.10.24 or higher
+* [node] 0.10.24 o versione successiva
 
 * [Git]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-## <a name="create-a-storage-account"></a>Create a storage account
+## Creare un account di archiviazione
 
-Create an Azure storage account. The app will use this account to store the to-do items.
+Creare un account di archiviazione di Azure L'app utilizzerà questo account per archiviare gli elementi dell'elenco attività.
 
-1.  Log into the [Azure Portal](https://portal.azure.com/).
+1.  Accedere al [Portale di Azure](https://portal.azure.com/).
 
-2. Click the **New** icon on the bottom left of the portal, then click **Data + Storage** > **Storage**. Give the storage account a unique name and create a new [resource group](../resource-group-overview.md) for it.
+2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale, quindi fare clic su **Dati e archiviazione** > **Archiviazione**. Assegnare un nome univoco all'account di archiviazione e creare un nuovo [gruppo di risorse](../resource-group-overview.md) ad esso correlato.
 
-    ![New Button](./media/storage-nodejs-use-table-storage-web-site/configure-storage.png)
+  	![Pulsante Nuovo](./media/storage-nodejs-use-table-storage-web-site/configure-storage.png)
 
-    When the storage account has been created, the **Notifications** button will flash a green **SUCCESS** and the storage account's blade is open to show that it belongs to the new resource group you created.
+	Quando l'account di archiviazione viene creato, nel pulsante **Notifiche** lampeggia in verde il testo **OPERAZIONE RIUSCITA** e il pannello dell'account di archiviazione si apre per visualizzare che appartiene al nuovo gruppo di risorse creato.
 
-5. In the storage account's blade, click **Settings** > **Keys**. Copy the primary access key to the clipboard.
+5. Nel pannello dell'account di archiviazione fare clic su **Impostazioni** > **Chiavi**. Copiare la chiave di accesso primaria negli Appunti.
 
-    ![Access key][portal-storage-access-keys]
+    ![Chiave di accesso][portal-storage-access-keys]
 
 
-##<a name="install-modules-and-generate-scaffolding"></a>Install modules and generate scaffolding
+##Installazione dei moduli e generazione dello scaffolding
 
-In this section you will create a new Node application and use npm to add module packages. For this application you will use the [Express] and [Azure] modules. The Express module provides a Model View Controller framework for node, while the Azure modules provides connectivity to the Table service.
+In questa sezione verrà creata una nuova applicazione Node e verrà utilizzato npm per aggiungere pacchetti di modulo. Per questa applicazione verranno usati i moduli [Express] e [Azure]. Il modulo Express fornisce un modello di framework View Controller per Node, mentre i moduli Azure forniscono la connettività al servizio tabelle.
 
-### <a name="install-express-and-generate-scaffolding"></a>Install express and generate scaffolding
+### Installare Express e generare lo scaffolding
 
-1. From the command line, create a new directory named **tasklist** and switch to that directory.  
+1. Nella riga di comando creare una nuova directory denominata **elenco attività** e passare a tale directory.
 
-2. Enter the following command to install the Express module.
+2. Immettere il comando seguente per installare il modulo Express.
 
-        npm install express-generator@4.2.0 -g
+		npm install express-generator@4.2.0 -g
 
-    Depending on the operating system, you may need to put 'sudo' before the command:
+    A seconda del sistema operativo, potrebbe essere necessario inserire l'elevazione "sudo" prima del comando:
 
-        sudo npm install express-generator@4.2.0 -g
+		sudo npm install express-generator@4.2.0 -g
 
-    The output appears similar to the following example:
+    L'output appare simile all'esempio seguente:
 
-        express-generator@4.2.0 /usr/local/lib/node_modules/express-generator
-        ├── mkdirp@0.3.5
-        └── commander@1.3.2 (keypress@0.1.0)
+		express-generator@4.2.0 /usr/local/lib/node_modules/express-generator
+		├── mkdirp@0.3.5
+		└── commander@1.3.2 (keypress@0.1.0)
 
-    > [AZURE.NOTE] The '-g' parameter installs the module globally. That way, we can use **express** to generate web app scaffolding without having to type in additional path information.
+	> [AZURE.NOTE] Il parametro "-g" consente di installare il modulo a livello globale. In questo modo, è possibile usare **express** per generare lo scaffolding dell'app Web senza dover inserire informazioni aggiuntive sul percorso.
 
-4. To create the scaffolding for the application, enter the **express** command:
+4. Per creare lo scaffolding per l'applicazione, immettere il comando **express**:
 
         express
 
-    The output of this command appears similar to the following example:
+	L'output di questo comando appare simile al seguente esempio:
 
-           create : .
-           create : ./package.json
-           create : ./app.js
-           create : ./public
-           create : ./public/images
-           create : ./routes
-           create : ./routes/index.js
-           create : ./routes/users.js
-           create : ./public/stylesheets
-           create : ./public/stylesheets/style.css
-           create : ./views
-           create : ./views/index.jade
-           create : ./views/layout.jade
-           create : ./views/error.jade
-           create : ./public/javascripts
-           create : ./bin
-           create : ./bin/www
+		   create : .
+		   create : ./package.json
+		   create : ./app.js
+		   create : ./public
+		   create : ./public/images
+		   create : ./routes
+		   create : ./routes/index.js
+		   create : ./routes/users.js
+		   create : ./public/stylesheets
+		   create : ./public/stylesheets/style.css
+		   create : ./views
+		   create : ./views/index.jade
+		   create : ./views/layout.jade
+		   create : ./views/error.jade
+		   create : ./public/javascripts
+		   create : ./bin
+		   create : ./bin/www
 
-           install dependencies:
-             $ cd . && npm install
+		   install dependencies:
+		     $ cd . && npm install
 
-           run the app:
-             $ DEBUG=my-application ./bin/www
+		   run the app:
+		     $ DEBUG=my-application ./bin/www
 
-    You now have several new directories and files in the **tasklist** directory.
+	Nella directory **tasklist** sono ora disponibili diverse nuove directory e file.
 
-### <a name="install-additional-modules"></a>Install additional modules
+### Installare moduli aggiuntivi
 
-One of the files that **express** creates is **package.json**. This file contains a list of module dependencies. Later, when you deploy the application to App Service Web Apps, this file determines which modules need to be installed on Azure.
+Uno dei file creati da **express**è **package.json**. Questo file contiene un elenco di dipendenze del modulo. In seguito, quando si distribuirà l'applicazione nelle app Web del servizio app, questo file consentirà di determinare i moduli da installare in Azure.
 
-From the command-line, enter the following command to install the modules described in the **package.json** file. You may need to use 'sudo'.
+Nella riga di comando, per installare i moduli descritti nel file **package.json**, immettere il comando riportato di seguito. Potrebbe essere necessario utilizzare l'elevazione "sudo".
 
     npm install
 
-The output of this command appears similar to the following example:
+L'output di questo comando appare simile al seguente esempio:
 
-    debug@0.7.4 node_modules\debug
+	debug@0.7.4 node_modules\debug
 
-    cookie-parser@1.0.1 node_modules\cookie-parser
-    ├── cookie-signature@1.0.3
-    └── cookie@0.1.0
-
-    [...]
-
-
-Next, enter the following command to install the [azure], [node-uuid], [nconf] and [async] modules:
-
-    npm install azure-storage node-uuid async nconf --save
-
-The **--save** flag adds entries for these modules to the **package.json** file.
-
-The output of this command appears similar to the following example:
-
-    async@0.9.0 node_modules\async
-
-    node-uuid@1.4.1 node_modules\node-uuid
-
-    nconf@0.6.9 node_modules\nconf
-    ├── ini@1.2.1
-    ├── async@0.2.9
-    └── optimist@0.6.0 (wordwrap@0.0.2, minimist@0.0.10)
+	cookie-parser@1.0.1 node_modules\cookie-parser
+	├── cookie-signature@1.0.3
+	└── cookie@0.1.0
 
     [...]
 
 
-## <a name="create-the-application"></a>Create the application
+Successivamente, immettere il comando riportato di seguito per installare i moduli [azure], [node-uuid], [nconf] e [async]\:
 
-Now we're ready to build the application.
+	npm install azure-storage node-uuid async nconf --save
 
-### <a name="create-a-model"></a>Create a model
+Il flag **--save** consente di aggiungere voci per questi moduli al file **package.json**.
 
-A *model* is an object that represents the data in your application. For the application, the only model is a task object, which represents an item in the to-do list. Tasks will have the following fields:
+L'output di questo comando appare simile al seguente esempio:
+
+	async@0.9.0 node_modules\async
+
+	node-uuid@1.4.1 node_modules\node-uuid
+
+	nconf@0.6.9 node_modules\nconf
+	├── ini@1.2.1
+	├── async@0.2.9
+	└── optimist@0.6.0 (wordwrap@0.0.2, minimist@0.0.10)
+
+	[...]
+
+
+## Creazione dell'applicazione
+
+A questo punto, è possibile compilare l'applicazione.
+
+### Creare il modello
+
+Un *modello* è un oggetto che rappresenta i dati nell'applicazione. Per l'applicazione, l'unico modello è l'oggetto attività, che rappresenta un elemento nell'elenco attività. Le attività saranno dotate dei campi seguenti:
 
 - PartitionKey
 - RowKey
@@ -176,442 +175,443 @@ A *model* is an object that represents the data in your application. For the app
 - category (string)
 - completed (Boolean)
 
-**PartitionKey** and **RowKey** are used by the Table Service as table keys. For more information, see [Understanding the Table Service data model](https://msdn.microsoft.com/library/azure/dd179338.aspx).
+Il servizio tabelle usa **PartitionKey** e **RowKey** come chiavi delle tabelle. Per altre informazioni, vedere [Informazioni sul modello di dati del servizio tabelle](https://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 
-1. In the **tasklist** directory, create a new directory named **models**.
+1. Nella directory **tasklist** creare una nuova directory denominata **models**.
 
-2. In the **models** directory, create a new file named **task.js**. This file will contain the model for the tasks created by your application.
+2. Nella directory **models** creare un nuovo file denominato **task.js**. Questo file conterrà il modello per le attività create dall'applicazione.
 
-3. At the beginning of the **task.js** file, add the following code to reference required libraries:
+3. All'inizio del file **task.js**, aggiungere il codice seguente per fare riferimento alle librerie necessarie:
 
         var azure = require('azure-storage');
-        var uuid = require('node-uuid');
-        var entityGen = azure.TableUtilities.entityGenerator;
+  		var uuid = require('node-uuid');
+		var entityGen = azure.TableUtilities.entityGenerator;
 
-4. Add the following code to define and export the Task object. This object is responsible for connecting to the table.
+4. Aggiungere il codice seguente per definire ed esportare l'oggetto Task. Tale oggetto è responsabile per la connessione alla tabella.
 
-        module.exports = Task;
+  		module.exports = Task;
 
-        function Task(storageClient, tableName, partitionKey) {
-          this.storageClient = storageClient;
-          this.tableName = tableName;
-          this.partitionKey = partitionKey;
-          this.storageClient.createTableIfNotExists(tableName, function tableCreated(error) {
-            if(error) {
-              throw error;
-            }
-          });
-        };
+		function Task(storageClient, tableName, partitionKey) {
+		  this.storageClient = storageClient;
+		  this.tableName = tableName;
+		  this.partitionKey = partitionKey;
+		  this.storageClient.createTableIfNotExists(tableName, function tableCreated(error) {
+		    if(error) {
+		      throw error;
+		    }
+		  });
+		};
 
-5. Add the following code to define additional methods on the Task object, which allow interactions with data stored in the table:
+5. Aggiungere il codice seguente per definire metodi aggiuntivi nell'oggetto Task che consentano le interazioni con i dati archiviati nella tabella:
 
-        Task.prototype = {
-          find: function(query, callback) {
-            self = this;
-            self.storageClient.queryEntities(this.tableName, query, null, function entitiesQueried(error, result) {
-              if(error) {
-                callback(error);
-              } else {
-                callback(null, result.entries);
-              }
-            });
-          },
+		Task.prototype = {
+		  find: function(query, callback) {
+		    self = this;
+		    self.storageClient.queryEntities(this.tableName, query, null, function entitiesQueried(error, result) {
+		      if(error) {
+		        callback(error);
+		      } else {
+		        callback(null, result.entries);
+		      }
+		    });
+		  },
 
-          addItem: function(item, callback) {
-            self = this;
-            // use entityGenerator to set types
-            // NOTE: RowKey must be a string type, even though
+		  addItem: function(item, callback) {
+		    self = this;
+		    // use entityGenerator to set types
+			// NOTE: RowKey must be a string type, even though
             // it contains a GUID in this example.
-            var itemDescriptor = {
-              PartitionKey: entityGen.String(self.partitionKey),
-              RowKey: entityGen.String(uuid()),
-              name: entityGen.String(item.name),
-              category: entityGen.String(item.category),
-              completed: entityGen.Boolean(false)
-            };
-            self.storageClient.insertEntity(self.tableName, itemDescriptor, function entityInserted(error) {
-              if(error){  
-                callback(error);
-              }
-              callback(null);
-            });
-          },
+		    var itemDescriptor = {
+		      PartitionKey: entityGen.String(self.partitionKey),
+		      RowKey: entityGen.String(uuid()),
+		      name: entityGen.String(item.name),
+		      category: entityGen.String(item.category),
+		      completed: entityGen.Boolean(false)
+		    };
+		    self.storageClient.insertEntity(self.tableName, itemDescriptor, function entityInserted(error) {
+		      if(error){  
+		        callback(error);
+		      }
+		      callback(null);
+		    });
+		  },
 
-          updateItem: function(rKey, callback) {
-            self = this;
-            self.storageClient.retrieveEntity(self.tableName, self.partitionKey, rKey, function entityQueried(error, entity) {
-              if(error) {
-                callback(error);
-              }
-              entity.completed._ = true;
-              self.storageClient.updateEntity(self.tableName, entity, function entityUpdated(error) {
-                if(error) {
-                  callback(error);
-                }
-                callback(null);
-              });
-            });
-          }
-        }
+		  updateItem: function(rKey, callback) {
+		    self = this;
+		    self.storageClient.retrieveEntity(self.tableName, self.partitionKey, rKey, function entityQueried(error, entity) {
+		      if(error) {
+		        callback(error);
+		      }
+		      entity.completed._ = true;
+		      self.storageClient.updateEntity(self.tableName, entity, function entityUpdated(error) {
+		        if(error) {
+		          callback(error);
+		        }
+		        callback(null);
+		      });
+		    });
+		  }
+		}
 
-6. Save and close the **task.js** file.
+6. Salvare e chiudere il file **task.js**.
 
-### <a name="create-a-controller"></a>Create a controller
+### Creare un controller
 
-A *controller* handles HTTP requests and renders the HTML response.
+Un *controller* consente di gestire le richieste HTTP ed eseguire il rendering delle risposte HTML.
 
-1. In the **tasklist/routes** directory, create a new file named **tasklist.js** and open it in a text editor.
+1. Nella directory **tasklist/routes** creare un nuovo file denominato **tasklist.js** e aprirlo in un editor di testo.
 
-2. Add the following code to **tasklist.js**. This loads the azure and async modules, which are used by **tasklist.js**. This also defines the **TaskList** function, which is passed an instance of the **Task** object we defined earlier:
+2. Aggiungere il seguente codice al file **tasklist.js**. Ciò consente il caricamento dei moduli di Azure e di quelli asincroni, utilizzati da **tasklist.js**. Viene inoltre definita la funzione **TaskList**, che viene passata come un'istanza dell'oggetto **Task** definito in precedenza:
 
-        var azure = require('azure-storage');
-        var async = require('async');
+		var azure = require('azure-storage');
+		var async = require('async');
 
-        module.exports = TaskList;
+		module.exports = TaskList;
 
-3. Define a **TaskList** object.
+3. Definire un oggetto **TaskList**.
 
-        function TaskList(task) {
-          this.task = task;
-        }
-
-
-4. Add the following methods to **TaskList**:
-
-        TaskList.prototype = {
-          showTasks: function(req, res) {
-            self = this;
-            var query = new azure.TableQuery()
-              .where('completed eq ?', false);
-            self.task.find(query, function itemsFound(error, items) {
-              res.render('index',{title: 'My ToDo List ', tasks: items});
-            });
-          },
-
-          addTask: function(req,res) {
-            var self = this;
-            var item = req.body.item;
-            self.task.addItem(item, function itemAdded(error) {
-              if(error) {
-                throw error;
-              }
-              res.redirect('/');
-            });
-          },
-
-          completeTask: function(req,res) {
-            var self = this;
-            var completedTasks = Object.keys(req.body);
-            async.forEach(completedTasks, function taskIterator(completedTask, callback) {
-              self.task.updateItem(completedTask, function itemsUpdated(error) {
-                if(error){
-                  callback(error);
-                } else {
-                  callback(null);
-                }
-              });
-            }, function goHome(error){
-              if(error) {
-                throw error;
-              } else {
-               res.redirect('/');
-              }
-            });
-          }
-        }
+		function TaskList(task) {
+		  this.task = task;
+		}
 
 
-### <a name="modify-app.js"></a>Modify app.js
+4. Aggiungere i metodi seguenti a **TaskList**:
 
-1. From the **tasklist** directory, open the **app.js** file. This file was created earlier by running the **express** command.
+		TaskList.prototype = {
+		  showTasks: function(req, res) {
+		    self = this;
+		    var query = new azure.TableQuery()
+		      .where('completed eq ?', false);
+		    self.task.find(query, function itemsFound(error, items) {
+		      res.render('index',{title: 'My ToDo List ', tasks: items});
+		    });
+		  },
 
-2. At the beginning of the file, add the following to load the azure module, set the table name, partition key, and set the storage credentials used by this example:
+		  addTask: function(req,res) {
+		    var self = this;
+		    var item = req.body.item;
+		    self.task.addItem(item, function itemAdded(error) {
+		      if(error) {
+		        throw error;
+		      }
+		      res.redirect('/');
+		    });
+		  },
 
-        var azure = require('azure-storage');
-        var nconf = require('nconf');
-        nconf.env()
-             .file({ file: 'config.json', search: true });
-        var tableName = nconf.get("TABLE_NAME");
-        var partitionKey = nconf.get("PARTITION_KEY");
-        var accountName = nconf.get("STORAGE_NAME");
-        var accountKey = nconf.get("STORAGE_KEY");
-
-    > [AZURE.NOTE] nconf will load the configuration values from either environment variables or the **config.json** file, which we will create later.
-
-3. In the app.js file, scroll down to where you see the following line:
-
-        app.use('/', routes);
-        app.use('/users', users);
-
-    Replace the above lines with the code shown below. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is passed to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
-
-        var TaskList = require('./routes/tasklist');
-        var Task = require('./models/task');
-        var task = new Task(azure.createTableService(accountName, accountKey), tableName, partitionKey);
-        var taskList = new TaskList(task);
-
-        app.get('/', taskList.showTasks.bind(taskList));
-        app.post('/addtask', taskList.addTask.bind(taskList));
-        app.post('/completetask', taskList.completeTask.bind(taskList));
-
-4. Save the **app.js** file.
-
-### <a name="modify-the-index-view"></a>Modify the index view
-
-1. Open the **tasklist/views/index.jade** file in a text editor.
-
-2. Replace the entire contents of the file with the following code. This defines a view that displays existing tasks and includes a form for adding new tasks and marking existing ones as completed.
-
-        extends layout
-
-        block content
-          h1= title
-          br
-
-          form(action="/completetask", method="post")
-            table.table.table-striped.table-bordered
-              tr
-                td Name
-                td Category
-                td Date
-                td Complete
-              if (typeof tasks === "undefined")
-                tr
-                  td
-              else
-                each task in tasks
-                  tr
-                    td #{task.name._}
-                    td #{task.category._}
-                    - var day   = task.Timestamp._.getDate();
-                    - var month = task.Timestamp._.getMonth() + 1;
-                    - var year  = task.Timestamp._.getFullYear();
-                    td #{month + "/" + day + "/" + year}
-                    td
-                      input(type="checkbox", name="#{task.RowKey._}", value="#{!task.completed._}", checked=task.completed._)
-            button.btn(type="submit") Update tasks
-          hr
-          form.well(action="/addtask", method="post")
-            label Item Name:
-            input(name="item[name]", type="textbox")
-            label Item Category:
-            input(name="item[category]", type="textbox")
-            br
-            button.btn(type="submit") Add item
-
-3. Save and close **index.jade** file.
-
-### <a name="modify-the-global-layout"></a>Modify the global layout
-
-The **layout.jade** file in the **views** directory is a global template for other **.jade** files. In this step you will modify it to use [Twitter Bootstrap](https://github.com/twbs/bootstrap), which is a toolkit that makes it easy to design a nice looking web app.
-
-Download and extract the files for [Twitter Bootstrap](http://getbootstrap.com/). Copy the **bootstrap.min.css** file from the Bootstrap **css** folder into the **public/stylesheets** directory of your application.
-
-From the **views** folder, open **layout.jade** and replace the entire contents with the following:
-
-    doctype html
-    html
-      head
-        title= title
-        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
-        link(rel='stylesheet', href='/stylesheets/style.css')
-      body.app
-        nav.navbar.navbar-default
-          div.navbar-header
-          a.navbar-brand(href='/') My Tasks
-        block content
-
-### <a name="create-a-config-file"></a>Create a config file
-
-To run the app locally, we'll put Azure Storage credentials into a config file. Create a file named **config.json* *with the following JSON:
-
-    {
-        "STORAGE_NAME": "<storage account name>",
-        "STORAGE_KEY": "<storage access key>",
-        "PARTITION_KEY": "mytasks",
-        "TABLE_NAME": "tasks"
-    }
-
-Replace **storage account name** with the name of the storage account you created earlier, and replace **storage access key** with the primary access key for your storage account. For example:
-
-    {
-        "STORAGE_NAME": "nodejsappstorage",
-        "STORAGE_KEY": "KG0oDd..."
-        "PARTITION_KEY": "mytasks",
-        "TABLE_NAME": "tasks"
-    }
-
-Save this file *one directory level higher* than the **tasklist** directory, like this:
-
-    parent/
-      |-- config.json
-      |-- tasklist/
-
-The reason for doing this is to avoid checking the config file into source control, where it might become public. When we deploy the app to Azure, we will use environment variables instead of a config file.
+		  completeTask: function(req,res) {
+		    var self = this;
+		    var completedTasks = Object.keys(req.body);
+		    async.forEach(completedTasks, function taskIterator(completedTask, callback) {
+		      self.task.updateItem(completedTask, function itemsUpdated(error) {
+		        if(error){
+		          callback(error);
+		        } else {
+		          callback(null);
+		        }
+		      });
+		    }, function goHome(error){
+		      if(error) {
+		        throw error;
+		      } else {
+		       res.redirect('/');
+		      }
+		    });
+		  }
+		}
 
 
-## <a name="run-the-application-locally"></a>Run the application locally
+### Modificare il file app.js
 
-To test the application on your local machine, perform the following steps:
+1. Nella directory **tasklist** aprire il file **app.js**. Questo file è stato creato in precedenza eseguendo il comando **express**.
 
-1. From the command-line, change directories to the **tasklist** directory.
+2. Aggiungere quanto riportato di seguito all'inizio del file per caricare il modulo di Azure, impostare il nome della tabella, la chiave di partizione, e impostare le credenziali di archiviazione usate da questo esempio:
 
-2. Use the following command to launch the application locally:
+		var azure = require('azure-storage');
+		var nconf = require('nconf');
+		nconf.env()
+		     .file({ file: 'config.json', search: true });
+		var tableName = nconf.get("TABLE_NAME");
+		var partitionKey = nconf.get("PARTITION_KEY");
+		var accountName = nconf.get("STORAGE_NAME");
+		var accountKey = nconf.get("STORAGE_KEY");
+
+	> [AZURE.NOTE] nconf caricherà i valori di configurazione dalle variabili di ambiente oppure dal file **config.json**, che verrà creato più avanti.
+
+3. Nel file app.js scorrere verso il basso fino a individuare la riga seguente:
+
+		app.use('/', routes);
+		app.use('/users', users);
+
+	Sostituire le righe sopra con il codice seguente. Verrà in tal modo inizializzata un'istanza di <strong>Task</strong> con una connessione all'account di archiviazione. Questa viene quindi passata a <strong>TaskList</strong>, che la userà per la comunicazione con il servizio tabelle:
+
+		var TaskList = require('./routes/tasklist');
+		var Task = require('./models/task');
+		var task = new Task(azure.createTableService(accountName, accountKey), tableName, partitionKey);
+		var taskList = new TaskList(task);
+
+		app.get('/', taskList.showTasks.bind(taskList));
+		app.post('/addtask', taskList.addTask.bind(taskList));
+		app.post('/completetask', taskList.completeTask.bind(taskList));
+
+4. Salvare il file **app.js**.
+
+### Modificare la visualizzazione dell'indice
+
+1. Aprire il file **tasklist/views/index.jade** in un editor di testo.
+
+2. Sostituire l'intero contenuto del file con il codice seguente. Ciò consente di definire una visualizzazione delle attività esistenti e includere un modulo per aggiungere nuove attività e contrassegnare quelle esistenti come completate.
+
+		extends layout
+
+		block content
+		  h1= title
+		  br
+
+		  form(action="/completetask", method="post")
+		    table.table.table-striped.table-bordered
+		      tr
+		        td Name
+		        td Category
+		        td Date
+		        td Complete
+		      if (typeof tasks === "undefined")
+		        tr
+		          td
+		      else
+		        each task in tasks
+		          tr
+		            td #{task.name._}
+		            td #{task.category._}
+		            - var day   = task.Timestamp._.getDate();
+		            - var month = task.Timestamp._.getMonth() + 1;
+		            - var year  = task.Timestamp._.getFullYear();
+		            td #{month + "/" + day + "/" + year}
+		            td
+		              input(type="checkbox", name="#{task.RowKey._}", value="#{!task.completed._}", checked=task.completed._)
+		    button.btn(type="submit") Update tasks
+		  hr
+		  form.well(action="/addtask", method="post")
+		    label Item Name:
+		    input(name="item[name]", type="textbox")
+		    label Item Category:
+		    input(name="item[category]", type="textbox")
+		    br
+		    button.btn(type="submit") Add item
+
+3. Salvare e chiudere il file **index.jade**.
+
+### Modificare il layout globale
+
+Il file **layout.jade** nella directory **views** è un modello globale per altri file **.jade**. In questo passaggio verrà modificato in modo da utilizzare [Twitter Bootstrap](https://github.com/twbs/bootstrap), un toolkit che semplifica la progettazione di un'app Web di aspetto gradevole.
+
+Scaricare ed estrarre i file per [Twitter Bootstrap](http://getbootstrap.com/). Copiare il file **bootstrap.min.css** dalla cartella **css** di Bootstrap nella directory **public/stylesheets** dell'applicazione.
+
+Dalla cartella **views** aprire **layout.jade** e sostituire l'intero contenuto con quello seguente:
+
+	doctype html
+	html
+	  head
+	    title= title
+	    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+	    link(rel='stylesheet', href='/stylesheets/style.css')
+	  body.app
+	    nav.navbar.navbar-default
+	      div.navbar-header
+	      a.navbar-brand(href='/') My Tasks
+	    block content
+
+### Creare un file config
+
+Per eseguire l'app a livello locale, verranno inserite le credenziali di Archiviazione di Azure in un file config. Creare un file denominato **config.json* * con il contenuto JSON seguente:
+
+	{
+		"STORAGE_NAME": "<storage account name>",
+		"STORAGE_KEY": "<storage access key>",
+		"PARTITION_KEY": "mytasks",
+		"TABLE_NAME": "tasks"
+	}
+
+Sostituire **storage account name** con il nome dell'account di archiviazione creato in precedenza e sostituire **storage access key** con la chiave di accesso primaria per l'account di archiviazione. Ad esempio:
+
+	{
+	    "STORAGE_NAME": "nodejsappstorage",
+	    "STORAGE_KEY": "KG0oDd..."
+	    "PARTITION_KEY": "mytasks",
+	    "TABLE_NAME": "tasks"
+	}
+
+Salvare il file *al livello di directory superiore* rispetto alla directory **tasklist**, come mostrato di seguito:
+
+	parent/
+	  |-- config.json
+	  |-- tasklist/
+
+Tale operazione è necessaria per evitare di verificare il file config nel controllo del codice sorgente, in cui potrebbe diventare pubblico. Quando si distribuisce l'app in Azure, si usano le variabili di ambiente invece di un file config.
+
+
+## Eseguire l'applicazione in locale
+
+Per eseguire il test dell'applicazione nel computer locale, eseguire la procedura seguente:
+
+1. Dalla riga di comando passare alla directory **tasklist**.
+
+2. Usare il comando seguente per avviare l'applicazione in locale:
 
         npm start
 
-3. Open a web browser and navigate to http://127.0.0.1:3000.
+3. Aprire un Web browser e passare a http://127.0.0.1:3000.
 
-    A web page similar to the following example appears.
+	Verrà visualizzata una pagina Web simile all'esempio seguente.
 
-    ![A webpage displaying an empty tasklist][node-table-finished]
+	![Pagina Web con un elenco di attività vuoto][node-table-finished]
 
-4. To create a new to-do item, enter a name and category and click **Add Item**. 
+4. Per creare una nuova attività, immettere un nome e una categoria e fare clic su **Aggiungi elemento**.
 
-6. To mark a task as complete, check **Complete** and click **Update Tasks**.
+6. Per contrassegnare un'attività come completata, selezionare **Completa** e fare clic su **Aggiorna attività**.
 
-    ![An image of the new item in the list of tasks][node-table-list-items]
+	![Immagine del nuovo elemento nell'elenco delle attività][node-table-list-items]
 
-Even though the application is running locally, it is storing the data in the Azure Table service.
+Anche se l'applicazione è in esecuzione in locale, i dati vengono archiviati nel servizio tabelle di Azure.
 
-## <a name="deploy-your-application-to-azure"></a>Deploy your application to Azure
+## Distribuire l'applicazione in Azure
 
-The steps in this section use the Azure command-line tools to create a new web app in App Service, and then use Git to deploy your application. To perform these steps you must have an Azure subscription.
+Nei passaggi di questa sezione vengono usati gli strumenti da riga di comando di Azure per creare una nuova app Web nel servizio app e viene usato Git per distribuire l'applicazione. Per eseguire questi passaggi, è necessario disporre di una sottoscrizione di Azure.
 
-> [AZURE.NOTE] These steps can also be performed by using the [Azure Portal](https://portal.azure.com/). See [Build and deploy a Node.js web app in Azure App Service].
+> [AZURE.NOTE] È possibile eseguire queste procedure anche nel [Portale di Azure](https://portal.azure.com/). Vedere [Creazione e distribuzione di un'app Web Node.js nel Azure App Service].
 >
-> If this is the first web app you have created, you must use the Azure Portal to deploy this application.
+> Se questa è la prima app Web di Azure che si crea, per distribuire l'applicazione è necessario utilizzare il portale di Azure.
 
-To get started, install the [Azure CLI] by entering the following command from the command line:
+Per iniziare, installare l'[Interfaccia della riga di comando di Azure] immettendo il seguente comando nella riga di comando:
 
-    npm install azure-cli -g
+	npm install azure-cli -g
 
-### <a name="import-publishing-settings"></a>Import publishing settings
+### Importare le impostazioni di pubblicazione
 
-In this step, you will download a file containing information about your subscription.
+In questo passaggio verrà scaricato un file contenente informazioni sulla sottoscrizione.
 
-1. Enter the following command:
+1. Immettere il comando seguente:
 
-        azure account download
+		azure account download
 
-    This command launches a browser and navigates to the download page. If prompted, log in with the account associated with your Azure subscription.
+	Questo comando consente di avviare un browser e di passare alla pagina per il download. Se richiesto, accedere con l'account associato alla sottoscrizione di Azure.
 
-    <!-- ![The download page][download-publishing-settings] -->
+	<!-- ![The download page][download-publishing-settings] -->
 
-    The file download begins automatically; if it does not, you can click the link at the beginning of the page to manually download the file. Save the file and note the file path.
+	Il download del file inizia automaticamente. In caso contrario, è possibile fare clic sul collegamento all'inizio della pagina per scaricare manualmente il file. Salvare il file e prendere nota del percorso del file.
 
-2. Enter the following command to import the settings:
+2. Immettere il seguente comando per importare le impostazioni:
 
-        azure account import <path-to-file>
+		azure account import <path-to-file>
 
-    Specify the path and file name of the publishing settings file you downloaded in the previous step.
+	Specificare il percorso e il nome del file delle impostazioni di pubblicazione scaricato nel passaggio precedente.
 
-3. After the settings are imported, delete the publish settings file. It is no longer needed, and contains sensitive information regarding your Azure subscription.
+3. Una volta importate le impostazioni, eliminare il file di impostazioni di pubblicazione. Non è più necessario e contiene informazioni riservate relative alla sottoscrizione di Azure.
 
-### <a name="create-an-app-service-web-app"></a>Create an App Service web app
+### Creare un piano di servizio app
 
-1. From the command-line, change directories to the **tasklist** directory.
+1. Dalla riga di comando passare alla directory **tasklist**.
 
-2. Use the following command to create a new web app.
+2. Usare il comando seguente per creare una nuova app Web.
 
-        azure site create --git
+		azure site create --git
 
-    You will be prompted for the web app name and location. Provide a unique name and select the same geographical location as your Azure Storage account.
+	Verrà richiesto il nome e il percorso dell'app Web. Fornire un nome univoco e selezionare la stessa area geografica dell'account di Archiviazione di Azure.
 
-    The `--git` parameter creates a Git repository on Azure for this web app. It also initializes a Git repository in the current directory if none exists, and adds a [Git remote] named 'azure', which is used to publish the application to Azure. Finally, it creates a **web.config** file, which contains settings used by Azure to host node applications. If you omit the `--git` parameter but the directory contains a Git repository, the command will still create the 'azure' remote.
+	Il parametro `--git` consente di creare un archivio GIT per l'app Web in Azure. Inoltre consente di inizializzare un archivio GIT nella directory corrente, se non ne esiste nessuno, e di aggiungere un [GIT remoto] denominato "azure", usato per pubblicare l'applicazione in Azure. Infine, consente di creare un file **web.config** contenente le impostazioni usate da Azure per ospitare le applicazioni Node. Se il parametro `--git` viene omesso ma la directory contiene un archivio GIT, il comando consente di creare comunque l'archivio "azure".
 
-    Once this command has completed, you will see output similar to the following. Note that the line beginning with **Website created at** contains the URL for the web app.
+	Dopo il completamento di questo comando, verrà visualizzato un output simile al seguente. Si noti che la riga che inizia con **Website created at** contiene l'URL dell'app Web.
 
-        info:   Executing command site create
-        help:   Need a site name
-        Name: TableTasklist
-        info:   Using location southcentraluswebspace
-        info:   Executing `git init`
-        info:   Creating default .gitignore file
-        info:   Creating a new web site
-        info:   Created web site at  tabletasklist.azurewebsites.net
-        info:   Initializing repository
-        info:   Repository initialized
-        info:   Executing `git remote add azure https://username@tabletasklist.azurewebsites.net/TableTasklist.git`
-        info:   site create command OK
+		info:   Executing command site create
+		help:   Need a site name
+		Name: TableTasklist
+		info:   Using location southcentraluswebspace
+		info:   Executing `git init`
+		info:   Creating default .gitignore file
+		info:   Creating a new web site
+		info:   Created web site at  tabletasklist.azurewebsites.net
+		info:   Initializing repository
+		info:   Repository initialized
+		info:   Executing `git remote add azure https://username@tabletasklist.azurewebsites.net/TableTasklist.git`
+		info:   site create command OK
 
-    > [AZURE.NOTE] If this is the first App Service web app for your subscription, you will be instructed to use the Azure Portal to create the web app. For more information, see [Build and deploy a Node.js web app in Azure App Service].
+	> [AZURE.NOTE] Se si tratta della prima app Web del servizio app per la sottoscrizione, verrà indicato di usare il Portale di Azure per la creazione dell'app Web. Per ulteriori informazioni, vedere [compilare e distribuire un'applicazione web di Node. js in Azure App servizio].
 
-### <a name="set-environment-variables"></a>Set environment variables
+### Impostare le variabili di ambiente
 
-In this step, you will add environment variables to your web app configuration on Azure.
-From the command line, enter the following:
+In questo passaggio verranno aggiunte le variabili di ambiente per la configurazione dell'app Web in Azure. Nella riga di comando immettere quanto segue:
 
-    azure site appsetting add
-        STORAGE_NAME=<storage account name>;STORAGE_KEY=<storage access key>;PARTITION_KEY=mytasks;TABLE_NAME=tasks
-
-
-Replace **<storage account name>** with the name of the storage account you created earlier, and replace **<storage access key>** with the primary access key for your storage account. (Use the same values as the config.json file that you created earlier.)
-
-Alternatively, you can set environment variables in the [Azure Portal](https://portal.azure.com/):
-
-1.  Open the web app's blade by clicking **Browse** > **Web Apps** > your web app name.
-
-1.  In your web app's blade, click **All Settings** > **Application Settings**.
-
-    <!-- ![Top Menu](./media/storage-nodejs-use-table-storage-web-site/PollsCommonWebSiteTopMenu.png) -->
-
-1.  Scroll down to the **App settings** section and add the key/value pairs.
-
-    ![App Settings](./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png)
-
-1. Click **SAVE**.
+	azure site appsetting add
+		STORAGE_NAME=<storage account name>;STORAGE_KEY=<storage access key>;PARTITION_KEY=mytasks;TABLE_NAME=tasks
 
 
-### <a name="publish-the-application"></a>Publish the application
+Sostituire **<storage account name>** con il nome dell'account di archiviazione creato in precedenza e sostituire **<storage access key>** con la chiave di accesso primaria per l'account di archiviazione. Utilizzare gli stessi valori del file config.json creato in precedenza.
 
-To publish the app, commit the code files to Git and then push to azure/master.
+In alternativa, è possibile impostare le variabili di ambiente nel [Portale di Azure](https://portal.azure.com/):
 
-1. Set your deployment credentials.
+1.  Aprire il pannello dell'app Web facendo clic su **Sfoglia** > **App Web** > nome app Web.
 
-        azure site deployment user set <name> <password>
+1.  Nel pannello dell'app Web fare clic su **Tutte le impostazioni** > **Impostazioni dell'applicazione**.
 
-2. Add and commit your application files.
+  	<!-- ![Top Menu](./media/storage-nodejs-use-table-storage-web-site/PollsCommonWebSiteTopMenu.png) -->
 
-        git add .
-        git commit -m "adding files"
+1.  Scorrere verso il basso la sezione **Impostazioni app** e aggiungere le coppie chiave-valore.
 
-3. Push the commit to the App Service web app:
+  	![Impostazioni app](./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png)
 
-        git push azure master
-
-    Use **master** as the target branch. At the end of the deployment, you see a statement similar to the following example:
-
-        To https://username@tabletasklist.azurewebsites.net/TableTasklist.git
-         * [new branch]      master -> master
-
-4. Once the push operation has completed, browse to the web app URL returned previously by the `azure create site` command to view your application.
+1. Fare clic su **SAVE**.
 
 
-## <a name="next-steps"></a>Next steps
+### Pubblicare l'applicazione
 
-While the steps in this article describe using the Table Service to store information, you can also use [MongoDB](https://mlab.com/azure/). 
+Per pubblicare l'app, confermare i file di codice per GIT, quindi effettuare il push di azure/master.
 
-## <a name="additional-resources"></a>Additional resources
+1. Impostare le credenziali di distribuzione
 
-[Azure CLI]
+		azure site deployment user set <name> <password>
 
-## <a name="what's-changed"></a>What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+2. Aggiungere ed effettuare il commit dei file dell'applicazione.
+
+		git add .
+		git commit -m "adding files"
+
+3. Eseguire il push del commit per l'app Web del servizio app:
+
+		git push azure master
+
+	Usare **master** come diramazione di destinazione. Al termine della distribuzione, viene visualizzata un'istruzione simile al seguente esempio:
+
+		To https://username@tabletasklist.azurewebsites.net/TableTasklist.git
+ 		 * [new branch]      master -> master
+
+4. Al termine dell'operazione di push, passare all'URL dell'app Web restituito in precedenza dal comando `azure create site` per visualizzare l'applicazione.
+
+
+## Passaggi successivi
+
+Nei passaggi di questo articolo viene descritto come archiviare informazioni tramite il servizio tabelle. Tuttavia per tale attività è anche possibile usare MongoDB. Per altre informazioni, vedere [App Web Node.js con MongoDB]
+
+## Risorse aggiuntive
+
+[Interfaccia della riga di comando di Azure]
+
+## Modifiche apportate
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- URLs -->
 
-[Build and deploy a Node.js web app in Azure App Service]: web-sites-nodejs-develop-deploy-mac.md
+[Creazione e distribuzione di un'app Web Node.js nel Azure App Service]: web-sites-nodejs-develop-deploy-mac.md
+[compilare e distribuire un'applicazione web di Node. js in Azure App servizio]: web-sites-nodejs-develop-deploy-mac.md
 [Azure Developer Center]: /develop/nodejs/
 
 [node]: http://nodejs.org
 [Git]: http://git-scm.com
 [Express]: http://expressjs.com
 [for free]: http://windowsazure.com
-[Git remote]: http://git-scm.com/docs/git-remote
+[GIT remoto]: http://git-scm.com/docs/git-remote
 
-[Azure CLI]: ../xplat-cli-install.md
+[App Web Node.js con MongoDB]: web-sites-nodejs-store-data-mongodb.md
+[Interfaccia della riga di comando di Azure]: ../xplat-cli-install.md
 
 [azure]: https://github.com/Azure/azure-sdk-for-node
 [node-uuid]: https://www.npmjs.com/package/node-uuid
@@ -636,8 +636,4 @@ While the steps in this article describe using the Table Service to store inform
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

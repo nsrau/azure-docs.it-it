@@ -1,193 +1,192 @@
 <properties
-    pageTitle="Easy application installation and management in Azure Batch | Microsoft Azure"
-    description="Use the application packages feature of Azure Batch to easily manage multiple applications and versions for installation on Batch compute nodes."
-    services="batch"
-    documentationCenter=".net"
-    authors="mmacy"
-    manager="timlt"
-    editor="" />
+	pageTitle="Processi semplici di installazione e gestione dell'applicazione in Azure Batch | Microsoft Azure"
+	description="Usare la funzionalità dei pacchetti dell’applicazione di Azure Batch per gestire facilmente più applicazioni e versioni ed eseguire l'installazione su nodi di calcolo in Batch."
+	services="batch"
+	documentationCenter=".net"
+	authors="mmacy"
+	manager="timlt"
+	editor="" />
 
 <tags
-    ms.service="batch"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="big-compute"
-    ms.date="08/25/2016"
-    ms.author="marsma" />
+	ms.service="batch"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="big-compute"
+	ms.date="08/25/2016"
+	ms.author="marsma" />
 
+# Distribuzione delle applicazioni con i pacchetti dell’applicazione di Azure Batch.
 
-# <a name="application-deployment-with-azure-batch-application-packages"></a>Application deployment with Azure Batch application packages
+I pacchetti dell'applicazione sono una funzionalità di Azure Batch che consente di gestire e distribuire facilmente le applicazioni per le attività nei nodi di calcolo del pool. I pacchetti dell'applicazione consentono di caricare e gestire più versioni delle applicazioni eseguite dalle attività, inclusi i file di supporto. È quindi possibile di distribuire automaticamente una o più applicazioni nei nodi di calcolo del pool.
 
-The application packages feature of Azure Batch provides easy management of task applications and their deployment to the compute nodes in your pool. With application packages, you can upload and manage multiple versions of the applications your tasks run, including their supporting files. You can then automatically deploy one or more of these applications to the compute nodes in your pool.
+In questo articolo si apprenderà come caricare e gestire pacchetti dell'applicazione nel portale di Azure. Si apprenderà quindi come installarli nei nodi di calcolo di un pool usando la libreria [Batch .NET][api_net].
 
-In this article, you will learn how to upload and manage application packages in the Azure portal. You will then learn how to install them on a pool's compute nodes with the [Batch .NET][api_net] library.
+> [AZURE.NOTE] La funzionalità dei pacchetti dell’applicazione descritta di seguito sostituisce la funzionalità App Batch disponibile nelle versioni precedenti del servizio.
 
-> [AZURE.NOTE] The application packages feature described here supersedes the "Batch Apps" feature available in previous versions of the service.
+## Requisiti dei pacchetti dell'applicazione
 
-## <a name="application-package-requirements"></a>Application package requirements
+Per usare i pacchetti dell'applicazione è necessario [collegare un account di archiviazione di Azure](#link-a-storage-account) all'account Batch.
 
-You must [link an Azure Storage account](#link-a-storage-account) to your Batch account to use application packages.
+La funzionalità dei pacchetti dell'applicazione descritta in questo articolo è compatibile *solo* con i pool di Batch creati dopo il 10 marzo 2016. I pacchetti dell’applicazione non saranno distribuiti sui nodi di calcolo di pool creati prima di questa data.
 
-The application packages feature discussed in this article is compatible *only* with Batch pools that were created after 10 March 2016. Application packages will not be deployed to compute nodes in pools created before this date.
+Questa funzionalità è stata introdotta nella versione 2015-12-01.2.2 dell'[API Batch REST][api_rest] e nella versione 3.1.0 della libreria [Batch .NET][api_net] corrispondente. È consigliabile usare sempre la versione API più recente quando si usa Batch.
 
-This feature was introduced in [Batch REST API][api_rest] version 2015-12-01.2.2 and the corresponding [Batch .NET][api_net] library version 3.1.0. We recommend that you always use the latest API version when working with Batch.
+> [AZURE.IMPORTANT] Solo i pool *CloudServiceConfiguration* supportano attualmente pacchetti dell'applicazione. Non è possibile usare i pacchetti dell'applicazione in pool creati con immagini VirtualMachineConfiguration. Per altre informazioni sulle due diverse configurazioni, vedere la sezione [Configurazione macchina virtuale](batch-linux-nodes.md#virtual-machine-configuration) dell'articolo [Effettuare il provisioning di nodi di calcolo Linux nei pool di Azure Batch](batch-linux-nodes.md).
 
-> [AZURE.IMPORTANT] Currently, only *CloudServiceConfiguration* pools support application packages. You cannot use Application packages in pools created by using VirtualMachineConfiguration images. See the [Virtual machine configuration](batch-linux-nodes.md#virtual-machine-configuration) section of [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information about the two different configurations.
+## Informazioni sulle applicazioni e sui pacchetti dell’applicazione
 
-## <a name="about-applications-and-application-packages"></a>About applications and application packages
+Per *applicazione* in Azure Batch si intende un set di file binari con versione che possono essere scaricati automaticamente nei nodi di calcolo del pool. Un *pacchetto dell'applicazione* è invece un *set specifico* di tali file binari e rappresenta una *versione* specifica dell'applicazione.
 
-Within Azure Batch, an *application* refers to a set of versioned binaries that can be automatically downloaded to the compute nodes in your pool. An *application package* refers to a *specific set* of those binaries and represents a given *version* of the application.
+![Diagramma di alto livello di applicazioni e pacchetti applicazione][1]
 
-![High-level diagram of applications and application packages][1]
+### Applicazioni
 
-### <a name="applications"></a>Applications
+Un'applicazione in Batch contiene uno o più pacchetti dell'applicazione e specifica le opzioni di configurazione per l'applicazione. Un'applicazione può ad esempio specificare la versione predefinita del pacchetto dell'applicazione da installare nei nodi di calcolo e se i pacchetti possono essere aggiornati o eliminati.
 
-An application in Batch contains one or more application packages and specifies configuration options for the application. For example, an application can specify the default application package version to install on compute nodes and whether its packages can be updated or deleted.
+### Pacchetti dell'applicazione
 
-### <a name="application-packages"></a>Application packages
+Un pacchetto dell'applicazione è un file ZIP contenente i file binari e i file di supporto dell'applicazione necessari per l'esecuzione delle attività. Ogni pacchetto dell’applicazione rappresenta una versione specifica dell'applicazione.
 
-An application package is a .zip file that contains the application binaries and supporting files that are required for execution by your tasks. Each application package represents a specific version of the application.
+È possibile specificare i pacchetti dell'applicazione a livello di pool e di attività. È possibile specificare uno o più di questi pacchetti ed eventualmente una versione quando si crea un pool o un'attività.
 
-You can specify application packages at the pool and task level. You can specify one or more of these packages and (optionally) a version when you create a pool or task.
+* I **pacchetti dell'applicazione del pool** vengono distribuiti in *ogni* nodo del pool. Le applicazioni vengono distribuite quando un nodo viene aggiunto a un pool e quando viene riavviato o oppure la sua immagine viene ricreata.
 
-* **Pool application packages** are deployed to *every* node in the pool. Applications are deployed when a node joins a pool, and when it is rebooted or reimaged.
+    I pacchetti dell'applicazione del pool possono essere usati quando tutti i nodi in un pool eseguono le attività di un processo. È possibile specificare uno o più pacchetti dell'applicazione quando si crea un pool e aggiungere o aggiornare i pacchetti di un pool esistente. Se si aggiornano i pacchetti dell'applicazione di un pool esistente, è necessario riavviare i nodi per installare il nuovo pacchetto.
 
-    Pool application packages are appropriate when all nodes in a pool execute a job's tasks. You can specify one or more application packages when you create a pool, and you can add or update an existing pool's packages. If you update an existing pool's application packages, you must restart its nodes to install the new package.
+* I **pacchetti dell'applicazione per le attività** vengono distribuiti solo in un nodo di calcolo che dovrà eseguire un'attività, appena prima di eseguire la riga di comando dell'attività. Se il pacchetto dell'applicazione specificato con la versione corrispondente si trova già nel nodo, non verrà ridistribuito e verrà usato il pacchetto esistente.
 
-* **Task application packages** are deployed only to a compute node scheduled to run a task, just before running the task's command line. If the specified application package and version is already on the node, it is not redeployed and the existing package is used.
+    I pacchetti dell'applicazione per le attività sono utili in ambienti di pool condivisi, in cui diversi processi vengono eseguiti in un pool e il pool non viene eliminato quando viene completato un processo. Se il processo ha meno attività che nodi nel pool, i pacchetti dell'applicazione di attività possono ridurre il trasferimento dei dati, perché l'applicazione viene distribuita solo nei nodi che eseguono le attività.
 
-    Task application packages are useful in shared-pool environments, where different jobs are run on one pool, and the pool is not deleted when a job is completed. If your job has less tasks than nodes in the pool, task application packages can minimize data transfer since your application is deployed only to the nodes that run tasks.
+    Altri scenari che possono trarre vantaggio da pacchetti dell'applicazione per le attività sono processi che usano un'applicazione di dimensioni particolarmente elevate, ma solo per un numero ridotto di attività, ad esempio una fase di pre-elaborazione o un'attività di unione, in cui l'applicazione di pre-elaborazione o di unione è pesante.
 
-    Other scenarios that can benefit from task application packages are jobs that use a particularly large application, but for only a small number of tasks. For example, a pre-processing stage or a merge task, where the pre-processing or merge application is heavyweight.
+> [AZURE.IMPORTANT] Sono previste restrizioni al numero di applicazioni e di pacchetti dell’applicazione in un account Batch. Anche la dimensione massima del pacchetto dell’applicazione è limitata. Per informazioni dettagliate su questi limiti, vedere [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md).
 
-> [AZURE.IMPORTANT] There are restrictions on the number of applications and application packages within a Batch account, as well as the maximum application package size. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for details about these limits.
+### Vantaggi dei pacchetti dell'applicazione
 
-### <a name="benefits-of-application-packages"></a>Benefits of application packages
+Con i pacchetti dell'applicazione è possibile semplificare il codice nella soluzione Batch e ridurre il sovraccarico richiesto in termini di gestione delle applicazioni eseguite delle attività.
 
-Application packages can simplify the code in your Batch solution and lower the overhead required to manage the applications that your tasks run.
+Non è necessario che l'attività di avvio del pool specifichi un lungo elenco di singoli file di risorse per eseguire l'installazione nei nodi. Non è necessario gestire manualmente più versioni dei file dell'applicazione in Archiviazione di Azure o nei nodi. Per accedere ai file nell'account di archiviazione non è necessario generare un [URL di firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md). Batch interagisce in background con Archiviazione di Azure per archiviare e distribuire i pacchetti dell'applicazione nei nodi di calcolo.
 
-Your pool's start task doesn't have to specify a long list of individual resource files to install on the nodes. You don't have to manually manage multiple versions of your application files in Azure Storage, or on your nodes. And, you don't need to worry about generating [SAS URLs](../storage/storage-dotnet-shared-access-signature-part-1.md) to provide access to the files in your Storage account. Batch works in the background with Azure Storage to store application packages and deploy them to compute nodes.
+## Caricare e gestire le applicazioni
 
-## <a name="upload-and-manage-applications"></a>Upload and manage applications
+È possibile usare il [portale di Azure][portal] o la libreria di [.NET per Batch](batch-management-dotnet.md) per gestire i pacchetti dell'applicazione nell'account Batch. Nelle sezioni successive verrà prima di tutto collegato un account di archiviazione, quindi verrà descritta l'aggiunta di applicazioni e pacchetti e la loro gestione con il portale.
 
-You can use the [Azure portal][portal] or the [Batch Management .NET](batch-management-dotnet.md) library to manage the application packages in your Batch account. In the next few sections, we first link a Storage account, then discuss adding applications and packages and managing them with the portal.
+### Collegare un account di archiviazione
 
-### <a name="link-a-storage-account"></a>Link a Storage account
+Per usare i pacchetti dell'applicazione, è prima necessario collegare un account di archiviazione di Azure all'account Batch. Se non è stato ancora configurato un account di archiviazione per l'account Batch, il portale di Azure visualizza un avviso nel momento in cui si seleziona per la prima volta il riquadro **Applicazioni** nel pannello **Account Batch**.
 
-To use application packages, you must first link an Azure Storage account to your Batch account. If you have not yet configured a Storage account for your Batch account, the Azure portal will display a warning the first time you click the **Applications** tile in the **Batch account** blade.
+> [AZURE.IMPORTANT] Batch supporta attualmente *solo* account di archiviazione **per utilizzo generico**, come descritto nel passaggio 5 [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) dell'articolo [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md). Quando si collega un account di archiviazione di Azure all'account Batch, collegare *solo* un account di archiviazione **per utilizzo generico**.
 
-> [AZURE.IMPORTANT] Batch currently supports *only* the **General purpose** storage account type as described in step 5, [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account), in [About Azure storage accounts](../storage/storage-create-storage-account.md). When you link an Azure Storage account to your Batch account, link *only* a **General purpose** storage account.
+![Avviso. Nessun account di archiviazione configurato nel portale di Azure][9]
 
-![No storage account configured warning in Azure portal][9]
+Il servizio Batch usa l'account di archiviazione associato per archiviare e recuperare i pacchetti dell’applicazione. Dopo aver collegato i due account, Batch può distribuire automaticamente i pacchetti archiviati nell'account di archiviazione collegato nei nodi di calcolo. Selezionare **Impostazioni account di archiviazione** nel pannello **Avviso** e quindi fare clic su **Account di archiviazione** nel pannello **Account di archiviazione** per collegare un account di archiviazione a un account Batch.
 
-The Batch service uses the associated Storage account for the storage and retrieval of application packages. After you've linked the two accounts, Batch can automatically deploy the packages stored in the linked Storage account to your compute nodes. Click **Storage account settings** on the **Warning** blade, and then click **Storage Account** on the **Storage Account** blade to link a storage account to your Batch account.
+![Selezionare il pannello Account di archiviazione nel portale di Azure][10]
 
-![Choose storage account blade in Azure portal][10]
+È consigliabile creare un account di archiviazione da usare *specificamente* con l'account Batch e selezionarlo qui. Per informazioni dettagliate sulla creazione di un account di archiviazione, vedere "Creare un account di archiviazione" in [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md). Dopo aver creato un account di archiviazione, è possibile collegarlo all'account Batch tramite il pannello **Account di archiviazione**.
 
-We recommend that you create a storage account *specifically* for use with your Batch account, and select it here. For details about how to create a storage account, see "Create a storage account" in [About Azure storage accounts](../storage/storage-create-storage-account.md). After you've created a Storage account, you can then link it to your Batch account by using the **Storage Account** blade.
+> [AZURE.WARNING] Batch usa Archiviazione di Azure per archiviare i pacchetti dell'applicazione. L'[importo addebitato][storage_pricing] sarà quindi lo stesso calcolato per i dati dei BLOB in blocchi. Controllare la dimensione e il numero dei pacchetti dell’applicazione e rimuovere periodicamente i pacchetti obsoleti per ridurre al minimo il costo.
 
-> [AZURE.WARNING] Because Batch uses Azure Storage to store your application packages, you are [charged as normal][storage_pricing] for the block blob data. Be sure to consider the size and number of your application packages, and periodically remove deprecated packages to minimize cost.
+### Visualizzare le applicazioni correnti
 
-### <a name="view-current-applications"></a>View current applications
+Per visualizzare le applicazioni nell'account Batch, fare clic sul riquadro **Applicazioni** nel pannello **Account Batch**.
 
-To view the applications in your Batch account, click the **Applications** tile in the **Batch account** blade.
+![Riquadro Applicazioni][2]
 
-![Applications tile][2]
+Verrà aperto il pannello **Applicazioni**:
 
-This opens the **Applications** blade:
+![Elenco applicazioni][3]
 
-![List applications][3]
+Nel pannello **Applicazioni** vengono visualizzati l'ID di ogni applicazione nell'account e le proprietà seguenti:
 
-The **Applications** blade displays the ID of each application in your account and the following properties:
+* **Pacchetti**: il numero delle versioni associate a questa applicazione.
+* **Versione predefinita**: la versione che verrà installata se non si specifica una versione durante l'impostazione dell'applicazione per un pool. Questa impostazione è facoltativa.
+* **Consenti aggiornamenti**: il valore che specifica se sono consentiti aggiornamenti, eliminazioni e aggiunte per il pacchetto. Se l'opzione è impostata su **No**, gli aggiornamenti del pacchetto e le eliminazioni sono disabilitate per l'applicazione. È possibile aggiungere solo nuove versioni del pacchetto dell'applicazione. Il valore predefinito è **Sì**.
 
-* **Packages**--The number of versions associated with this application.
-* **Default version**--The version that will be installed if you do not specify a version when you set the application for a pool. This setting is optional.
-* **Allow updates**--The value that specifies whether package updates, deletions, and additions are allowed. If this is set to **No**, package updates and deletions are disabled for the application. Only new application package versions can be added. The default is **Yes**.
+### Visualizzare i dettagli dell'applicazione
 
-### <a name="view-application-details"></a>View application details
+Se si seleziona un'applicazione nel pannello **Applicazioni**, verrà visualizzato il pannello che include i dettagli dell'applicazione.
 
-Click an application in the **Applications** blade to open the blade that includes the details for that application.
+![Dettagli applicazione][4]
 
-![Application details][4]
+Nel pannello dei dettagli dell'applicazione, è possibile configurare le impostazioni seguenti per l'applicazione.
 
-In the application details blade, you can configure the following settings for your application.
+* **Consenti aggiornamenti**: specificare se i pacchetti dell'applicazione possono essere aggiornati o eliminati. Vedere "Aggiornare o eliminare un pacchetto dell'applicazione" più avanti in questo articolo.
+* **Versione predefinita**: specificare un pacchetto dell'applicazione predefinito da distribuire nei nodi di calcolo.
+* **Nome visualizzato**: si tratta di un nome descrittivo che la soluzione Batch può usare per visualizzare informazioni sull'applicazione, ad esempio nell'interfaccia utente di un servizio offerto ai clienti tramite Batch.
 
-* **Allow updates**--Specify whether its application packages can be updated or deleted. See "Update or Delete an application package" later in this article.
-* **Default version**--Specify a default application package to deploy to compute nodes.
-* **Display name**--Specify a "friendly" name that your Batch solution can use when it displays information about the application, such as in the UI of a service that you provide your customers through Batch.
+### Aggiungere un’applicazione nuova
 
-### <a name="add-a-new-application"></a>Add a new application
+Per creare un'applicazione nuova, aggiungere un pacchetto dell'applicazione usando un ID applicazione nuovo e univoco. Il primo pacchetto dell'applicazione aggiunto usando il nuovo ID applicazione creerà la nuova applicazione.
 
-To create a new application, add an application package and specify a new, unique application ID. The first application package that you add with the new application ID will also create the new application.
+Fare clic su **Aggiungi** nel pannello **Applicazioni** per aprire il pannello **Nuova applicazione**.
 
-Click **Add** on the **Applications** blade to open the **New application** blade.
+![Pannello Nuova applicazione nel portale di Azure][5]
 
-![New application blade in Azure portal][5]
+Il pannello **Nuova applicazione** contiene i campi seguenti per specificare le impostazioni della nuova applicazione e del pacchetto dell'applicazione.
 
-The **New application** blade provides the following fields to specify the settings of your new application and application package.
+**ID applicazione**
 
-**Application id**
+Questo campo specifica l'ID della nuova applicazione, che è soggetto alle regole standard di convalida dell'ID di Azure Batch:
 
-This field specifies the ID of your new application, which is subject to the standard Azure Batch ID validation rules:
+* Può contenere qualsiasi combinazione di caratteri alfanumerici, inclusi segni meno e caratteri di sottolineatura.
+* Non può contenere più di 64 caratteri.
+* Deve essere univoco nell’account Batch.
+* Mantiene ma non fa distinzione tra maiuscole e minuscole.
 
-* Can contain any combination of alphanumeric characters, including hyphens and underscores.
-* Cannot contain more than 64 characters.
-* Must be unique within the Batch account.
-* Is case preserving and case insensitive.
+**Versione**
 
-**Version**
+Specifica la versione del pacchetto dell'applicazione che si sta caricando. Le stringhe della versione sono soggette alle regole di convalida seguenti:
 
-Specifies the version of the application package you are uploading. Version strings are subject to the following validation rules:
+* Possono contenere qualsiasi combinazione di caratteri alfanumerici, inclusi segni meno, caratteri di sottolineatura e periodi.
+* Non possono contenere più di 64 caratteri.
+* Devono essere univoche nell’applicazione.
+* Mantengono ma non fanno distinzione tra maiuscole e minuscole.
 
-* Can contain any combination of alphanumeric characters, including hyphens, underscores, and periods.
-* Cannot contain more than 64 characters.
-* Must be unique within the application.
-* Case preserving, and case insensitive.
+**Pacchetto dell'applicazione**
 
-**Application package**
+Questo campo specifica il file ZIP contenente i file binari e i file di supporto dell'applicazione necessari per l'esecuzione dell'applicazione. Fare clic sulla casella **Selezionare un file** oppure sull'icona della cartella per cercare e selezionare un file ZIP contenente i file dell'applicazione.
 
-This field specifies the .zip file that contains the application binaries and supporting files that are required to execute the application. Click the **Select a file** box or the folder icon to browse to and select a .zip file that contains your application's files.
+Dopo aver selezionato un file, fare clic su **OK** per avviare il caricamento in Archiviazione di Azure. Al termine dell'operazione di caricamento, si riceverà una notifica e il pannello verrà chiuso. A seconda delle dimensioni del file che si sta caricando e della velocità della connessione di rete, l'operazione potrebbe richiedere alcuni minuti.
 
-After you've selected a file, click **OK** to begin the upload to Azure Storage. When the upload operation is complete, you will be notified and the blade will close. Depending on the size of the file that you are uploading and the speed of your network connection, this operation may take some time.
+> [AZURE.WARNING] Non chiudere il pannello **Nuova applicazione** prima che l'operazione di caricamento sia terminata, altrimenti il processo di caricamento sarà interrotto.
 
-> [AZURE.WARNING] Do not close the **New application** blade before the upload operation is complete. Doing so will stop the upload process.
+### Aggiungere un nuovo pacchetto dell’applicazione
 
-### <a name="add-a-new-application-package"></a>Add a new application package
+Per aggiungere una nuova versione del pacchetto dell'applicazione per un'applicazione esistente, selezionare un'applicazione nel pannello **Applicazioni**, fare clic su **Pacchetti** e quindi su **Aggiungi** per visualizzare il pannello **Aggiungi pacchetto**.
 
-To add a new application package version for an existing application, select an application in the **Applications** blade, click **Packages**, then click **Add** to open the **Add package** blade.
+![Pannello per aggiungere pacchetto dell’applicazione nel portale di Azure][8]
 
-![Add application package blade in Azure portal][8]
+Come si può notare, i campi corrispondono a quelli del pannello **Nuova applicazione**, ad eccezione della casella **ID applicazione** che è disabilitata. Come è stato fatto per la nuova applicazione, specificare la **versione** del nuovo pacchetto, scegliere il file ZIP del **pacchetto dell'applicazione** e quindi fare clic su **OK** per caricare il pacchetto.
 
-As you can see, the fields match those of the **New application** blade, but the **Application id** box is disabled. As you did for the new application, specify the **Version** for your new package, browse to your **Application package** .zip file, then click **OK** to upload the package.
+### Aggiornare o eliminare un pacchetto dell'applicazione
 
-### <a name="update-or-delete-an-application-package"></a>Update or delete an application package
+Per aggiornare o eliminare un pacchetto dell'applicazione esistente, aprire il pannello dei dettagli relativo all'applicazione, fare clic su **Pacchetti** per visualizzare il pannello **Pacchetti**, fare clic sui **puntini di sospensione** nella riga del pacchetto dell'applicazione che si vuole modificare e quindi selezionare l'azione da eseguire.
 
-To update or delete an existing application package, open the details blade for the application, click **Packages** to open the **Packages** blade, click the **ellipsis** in the row of the application package that you want to modify, and select the action that you want to perform.
-
-![Update or delete package in Azure portal][7]
+![Aggiornare o eliminare pacchetto nel portale di Azure][7]
 
 **Update**
 
-When you click **Update**, the *Update package* blade is displayed. This blade is similar to the *New application package* blade, however only the package selection field is enabled, allowing you to specify a new ZIP file to upload.
+Se si seleziona **Aggiorna**, verrà visualizzato il pannello *Aggiorna pacchetto*. Questo pannello è simile al pannello usato per creare un *nuovo pacchetto dell'applicazione*. In questo caso, però, è abilitato solo il campo di selezione del pacchetto, in cui è possibile specificare un nuovo file ZIP da caricare.
 
-![Update package blade in Azure portal][11]
+![Pannello Aggiorna pacchetto nel portale di Azure][11]
 
-**Delete**
+**Eliminazione**
 
-When you click **Delete**, you are asked to confirm the deletion of the package version, and Batch deletes the package from Azure Storage. If you delete the default version of an application, the **Default version** setting is removed for the application.
+Se si seleziona **Elimina**, verrà chiesto di confermare l'eliminazione della versione del pacchetto e Batch eliminerà il pacchetto da Archiviazione di Azure. Se si elimina la versione predefinita di un'applicazione, verrà rimossa l'impostazione **Versione predefinita** per l'applicazione.
 
-![Delete application ][12]
+![Eliminare applicazione][12]
 
-## <a name="install-applications-on-compute-nodes"></a>Install applications on compute nodes
+## Installare le applicazioni su nodi di calcolo
 
-Now that you've seen how to manage application packages with the Azure portal, we can discuss how to deploy them to compute nodes and run them with Batch tasks.
+Dopo aver visto come gestire i pacchetti dell'applicazione con il portale di Azure, verrà ora descritta la distribuzione dei pacchetti nei nodi di calcolo e la relativa esecuzione con attività di Batch.
 
-### <a name="install-pool-application-packages"></a>Install pool application packages
+### Installare pacchetti dell'applicazione nel pool
 
-To install an application package on all compute nodes in a pool, specify one or more application package *references* for the pool. The application packages that you specify for a pool are installed on each compute node when that node joins the pool, and when the node is rebooted or reimaged.
+Per installare un pacchetto dell'applicazione in tutti i nodi di calcolo di un pool, specificare uno o più *riferimenti* al pacchetto dell'applicazione per il pool. I pacchetti dell'applicazione specificati per un pool vengono installati su ciascun nodo di calcolo quando tale nodo viene aggiunto al pool e quando il nodo viene riavviato o ne viene ricreata l'immagine.
 
-In Batch .NET, specify one or more [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref] when you create a new pool, or for an existing pool. The [ApplicationPackageReference][net_pkgref] class specifies an application ID and version to install on a pool's compute nodes.
+In Batch .NET specificare uno o più [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref] quando si crea un nuovo pool, oppure aggiungerli al pool esistente. La classe [ApplicationPackageReference][net_pkgref] specifica un ID applicazione e la versione da installare nei nodi di calcolo di un pool.
 
 ```csharp
 // Create the unbound CloudPool
@@ -211,13 +210,13 @@ myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await myCloudPool.CommitAsync();
 ```
 
->[AZURE.IMPORTANT] If an application package deployment fails for any reason, the Batch service marks the node [unusable][net_nodestate], and no tasks will be scheduled for execution on that node. In this case, you should **restart** the node to reinitiate the package deployment. Restarting the node will also enable task scheduling again on the node.
+>[AZURE.IMPORTANT] Se una distribuzione del pacchetto dell'applicazione non riesce per qualsiasi motivo, il servizio Batch contrassegna il nodo come [inutilizzabile][net_nodestate] e nessuna attività verrà pianificata per l'esecuzione in tale nodo. In questo caso è necessario **riavviare** il nodo per reinizializzare la distribuzione del pacchetto. Il riavvio del nodo consentirà anche di pianificarne di nuovo le attività.
 
-### <a name="install-task-application-packages"></a>Install task application packages
+### Installare pacchetti dell'applicazione per le attività
 
-Similar to a pool, you specify application package *references* for a task. When a task is scheduled to run on a node, the package is downloaded and extracted just before the task's command line is executed. If a specified package and version is already installed on the node, the package is not downloaded and the existing package is used.
+Come per un pool, specificare i *riferimenti* del pacchetto dell'applicazione per un'attività. Quando un'attività è pianificata per l'esecuzione su un nodo, il pacchetto viene scaricato ed estratto appena prima dell'esecuzione della riga di comando dell'attività. Se un pacchetto specificato con la versione corrispondente è già installato nel nodo, non verrà scaricato e verrà usato il pacchetto esistente.
 
-To install a task application package, configure the task's [CloudTask][net_cloudtask].[ApplicationPackageReferences][net_cloudtask_pkgref] property:
+Per installare un pacchetto dell'applicazione per le attività, configurare la proprietà [CloudTask][net_cloudtask].[ApplicationPackageReferences][net_cloudtask_pkgref] dell'attività:
 
 ```csharp
 CloudTask task =
@@ -235,21 +234,21 @@ task.ApplicationPackageReferences = new List<ApplicationPackageReference>
 };
 ```
 
-## <a name="execute-the-installed-applications"></a>Execute the installed applications
+## Eseguire le applicazioni installate
 
-The packages that you've specified for a pool or task are downloaded and extracted to a named directory within the `AZ_BATCH_ROOT_DIR` of the node. Batch also creates an environment variable that contains the path to the named directory. Your task command lines use this environment variable when referencing the application on the node. The variable is in the following format:
+I pacchetti specificati per un pool o un'attività vengono scaricati ed estratti in una directory denominata all'interno del nodo `AZ_BATCH_ROOT_DIR`. Batch crea anche una variabile di ambiente che contiene il percorso della directory denominata. Le righe di comando dell'attività usano questa variabile di ambiente quando fanno riferimento all'applicazione nel nodo. La variabile è nel formato seguente:
 
 `AZ_BATCH_APP_PACKAGE_APPLICATIONID#version`
 
-`APPLICATIONID` and `version` are values that correspond to the application and package version you've specified for deployment. For example, if you specifed that version 2.7 of application *blender* should be installed, your task command lines would use this environment variable to access its files:
+`APPLICATIONID` e `version` sono valori che corrispondono all'applicazione e alla versione del pacchetto specificati per la distribuzione. Se ad esempio si specifica l'installazione della versione 2.7 dell'applicazione *blender*, le righe di comando dell'attività useranno questa variabile di ambiente per accedere ai file corrispondenti:
 
 `AZ_BATCH_APP_PACKAGE_BLENDER#2.7`
 
-If you specify a default version for an application, you can omit the version suffix. For example, if you set "2.7" as the default version for application *blender*, your tasks can reference the following environment variable and they will execute version 2.7:
+Se si specifica una versione predefinita per un'applicazione, è possibile omettere il suffisso della versione. Se ad esempio è stata specificata la versione predefinita "2.7" per l'applicazione *blender*, le attività possono fare riferimento alla variabile di ambiente seguente per eseguire la versione 2.7:
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 
-The following code snippet shows an example task command line that launches the default version of the *blender* application:
+Il frammento di codice seguente mostra una riga di comando dell'attività di esempio che consente di avviare la versione predefinita dell'applicazione *blender*:
 
 ```csharp
 string taskId = "blendertask01";
@@ -258,17 +257,17 @@ string commandLine =
 CloudTask blenderTask = new CloudTask(taskId, commandLine);
 ```
 
-> [AZURE.TIP] See [Environment settings for tasks](batch-api-basics.md#environment-settings-for-tasks) in the [Batch feature overview](batch-api-basics.md) for more information about compute node environment settings.
+> [AZURE.TIP] Per altre informazioni sulle impostazioni dell'ambiente dei nodi di calcolo, vedere [Impostazioni di ambiente per le attività](batch-api-basics.md#environment-settings-for-tasks) in [Panoramica delle funzionalità di Batch per sviluppatori](batch-api-basics.md).
 
-## <a name="update-a-pool's-application-packages"></a>Update a pool's application packages
+## Aggiornare i pacchetti dell’applicazione di un pool
 
-If an existing pool has already been configured with an application package, you can specify a new package for the pool. If you specify a new package reference for a pool, the following apply:
+Se un pool esistente è già stato configurato con un pacchetto dell’applicazione, è possibile specificare un nuovo pacchetto per il pool. Se si specifica un nuovo riferimento al pacchetto per un pool, si applica quanto segue:
 
-* All new nodes that join the pool and any existing node that is rebooted or reimaged will install the newly specified package.
-* Compute nodes that are already in the pool when you update the package references do not automatically install the new application package. These compute nodes must be rebooted or reimaged to receive the new package.
-* When a new package is deployed, the created environment variables reflect the new application package references.
+* Per tutti i nuovi nodi aggiunti al pool e tutti i nodi esistenti riavviati o per i quali viene ricreata l'immagine viene installato il pacchetto appena specificato.
+* I nodi di calcolo che si trovano già nel pool quando si aggiornano i riferimenti al pacchetto non installano automaticamente il nuovo pacchetto dell’applicazione. Questi nodi di calcolo devono essere riavviati o ne deve essere ricreata l'immagine per ricevere il nuovo pacchetto.
+* Quando viene distribuito un nuovo pacchetto, le variabili di ambiente create riflettono i riferimenti al nuovo pacchetto dell'applicazione.
 
-In this example, the existing pool has version 2.7 of the *blender* application configured as one of its [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref]. To update the pool's nodes with version 2.76b, specify a new [ApplicationPackageReference][net_pkgref] with the new version, and commit the change.
+In questo esempio il pool esistente ha la versione 2.7 dell'applicazione *blender* configurata come uno dei relativi [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref]. Per aggiornare i nodi del pool alla versione 2.76b, specificare un nuovo [ApplicationPackageReference][net_pkgref] con la nuova versione ed eseguire il commit della modifica.
 
 ```csharp
 string newVersion = "2.76b";
@@ -282,11 +281,11 @@ boundPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await boundPool.CommitAsync();
 ```
 
-Now that the new version has been configured, any *new* node that joins the pool will have version 2.76b deployed to it. To install 2.76b on the nodes that are *already* in the pool, reboot or reimage them. Note that rebooted nodes will retain the files from previous package deployments.
+Ora che è stata configurata la nuova versione, per qualsiasi *nuovo* nodo aggiunto al pool verrà distribuita la versione 2.76b. Per installare la versione 2.76b nei nodi *già* presenti nel pool, riavviarli o ricrearne l'immagine. Notare che i nodi riavviati manterranno i file delle distribuzioni precedenti del pacchetto.
 
-## <a name="list-the-applications-in-a-batch-account"></a>List the applications in a Batch account
+## Elencare le applicazioni in un account Batch
 
-You can list the applications and their packages in a Batch account by using the [ApplicationOperations][net_appops].[ListApplicationSummaries][net_appops_listappsummaries] method.
+È possibile elencare le applicazioni e i relativi pacchetti in un account Batch usando il metodo [ApplicationOperations][net_appops].[ListApplicationSummaries][net_appops_listappsummaries].
 
 ```csharp
 // List the applications and their application packages in the Batch account.
@@ -302,15 +301,15 @@ foreach (ApplicationSummary app in applications)
 }
 ```
 
-## <a name="wrap-up"></a>Wrap up
+## Eseguire il wrapping
 
-With application packages, you can help your customers select the applications for their jobs and specify the exact version to use when processing jobs with your Batch-enabled service. You might also provide the ability for your customers to upload and track their own applications in your service.
+Con i pacchetti dell'applicazione è possibile assistere i clienti nella scelta delle applicazioni per i loro processi e specificare la versione corretta da usare durante l'elaborazione dei processi con il servizio abilitato per Batch. I clienti possono inoltre caricare e monitorare le applicazioni usate nel servizio.
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-* The [Batch REST API][api_rest] also provides support to work with application packages. For example, see the [applicationPackageReferences][rest_add_pool_with_packages] element in [Add a pool to an account][rest_add_pool] for information about how to specify packages to install by using the REST API. See [Applications][rest_applications] for details about how to obtain application information by using the Batch REST API.
+* L'[API Batch REST][api_rest] fornisce anche il supporto per l'uso dei pacchetti dell'applicazione. Per informazioni su come specificare i pacchetti da installare con l'API REST, vedere ad esempio l'elemento [applicationPackageReferences][rest_add_pool_with_packages] in [Aggiungere un pool a un account][rest_add_pool]. Per dettagli su come ottenere informazioni sull'applicazione con l'API Batch REST, vedere [Applicazioni][rest_applications].
 
-* Learn how to programmatically [manage Azure Batch accounts and quotas with Batch Management .NET](batch-management-dotnet.md). The [Batch Management .NET][api_net_mgmt] library can enable account creation and deletion features for your Batch application or service.
+* È possibile scoprire come [gestire quote e account Azure Batch con la gestione .NET per Batch](batch-management-dotnet.md) a livello di codice. Con la libreria di [gestione .NET per Batch][api_net_mgmt] è possibile abilitare funzionalità di creazione ed eliminazione di account per l'applicazione o il servizio Batch.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
@@ -331,20 +330,16 @@ With application packages, you can help your customers select the applications f
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 [rest_add_pool_with_packages]: https://msdn.microsoft.com/library/azure/dn820174.aspx#bk_apkgreference
 
-[1]: ./media/batch-application-packages/app_pkg_01.png "Application packages high-level diagram"
-[2]: ./media/batch-application-packages/app_pkg_02.png "Applications tile in Azure portal"
-[3]: ./media/batch-application-packages/app_pkg_03.png "Applications blade in Azure portal"
-[4]: ./media/batch-application-packages/app_pkg_04.png "Application details blade in Azure portal"
-[5]: ./media/batch-application-packages/app_pkg_05.png "New application blade in Azure portal"
-[7]: ./media/batch-application-packages/app_pkg_07.png "Update or delete packages drop-down in Azure portal"
-[8]: ./media/batch-application-packages/app_pkg_08.png "New application package blade in Azure portal"
-[9]: ./media/batch-application-packages/app_pkg_09.png "No linked Storage account alert"
-[10]: ./media/batch-application-packages/app_pkg_10.png "Choose storage account blade in Azure portal"
-[11]: ./media/batch-application-packages/app_pkg_11.png "Update package blade in Azure portal"
-[12]: ./media/batch-application-packages/app_pkg_12.png "Delete package confirmation dialog in Azure portal"
+[1]: ./media/batch-application-packages/app_pkg_01.png "Diagramma di alto livello di pacchetti applicazione"
+[2]: ./media/batch-application-packages/app_pkg_02.png "Riquadro Applicazioni nel portale di Azure"
+[3]: ./media/batch-application-packages/app_pkg_03.png "Pannello Applicazioni nel portale di Azure"
+[4]: ./media/batch-application-packages/app_pkg_04.png "Pannello Dettagli applicazione nel portale di Azure"
+[5]: ./media/batch-application-packages/app_pkg_05.png "Pannello Nuova applicazione nel portale di Azure"
+[7]: ./media/batch-application-packages/app_pkg_07.png "Elenco a discesa per aggiornamento o eliminazione pacchetto nel portale di Azure"
+[8]: ./media/batch-application-packages/app_pkg_08.png "Pannello per nuovo pacchetto dell’applicazione nel portale di Azure"
+[9]: ./media/batch-application-packages/app_pkg_09.png "Avviso. Nessun account di archiviazione collegato"
+[10]: ./media/batch-application-packages/app_pkg_10.png "Selezionare il pannello Account di archiviazione nel portale di Azure"
+[11]: ./media/batch-application-packages/app_pkg_11.png "Pannello Aggiorna pacchetto nel portale di Azure"
+[12]: ./media/batch-application-packages/app_pkg_12.png "Finestra di conferma eliminazione pacchetto nel portale di Azure"
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

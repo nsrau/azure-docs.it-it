@@ -1,46 +1,44 @@
 <properties 
-    pageTitle="Using .NET SDK to access Azure Mobile Engagement Service APIs" 
-    description="Describes how to use the Mobile Engagement .NET SDK to access Azure Mobile Engagement Service APIs"        
-    services="mobile-engagement" 
-    documentationCenter="mobile" 
-    authors="piyushjo" 
-    manager="erikre" 
-    editor="" />
+	pageTitle="Usare .NET SDK per accedere alle API del servizio Azure Mobile Engagement" 
+	description="Descrive come usare Mobile Engagement .NET SDK per accedere alle API del servizio Azure Mobile Engagement"		
+	services="mobile-engagement" 
+	documentationCenter="mobile" 
+	authors="piyushjo" 
+	manager="erikre" 
+	editor="" />
 
 <tags 
-    ms.service="mobile-engagement" 
-    ms.workload="mobile" 
-    ms.tgt_pltfrm="mobile-multiple" 
-    ms.devlang="dotnet" 
-    ms.topic="article" 
-    ms.date="08/19/2016" 
-    ms.author="piyushjo" />
+	ms.service="mobile-engagement" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/19/2016" 
+	ms.author="piyushjo" />
 
+#Usare .NET SDK per accedere alle API del servizio Azure Mobile Engagement
 
-#<a name="using-.net-sdk-to-access-azure-mobile-engagement-service-apis"></a>Using .NET SDK to access Azure Mobile Engagement Service APIs
+Azure Mobile Engagement espone un set di API che consentono di gestire i dispositivi, le campagne Push e Reach e così via. Per interagire con queste API, viene fornito anche un [file Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json) che è possibile usare con gli strumenti per la generazione degli SDK per la lingua preferita. Per generare l'SDK dal file Swagger si consiglia di usare lo strumento [AutoRest](https://github.com/Azure/AutoRest).
 
-Azure Mobile Engagement exposes a set of APIs for you to manage Devices, Reach/Push campaigns etc. To interact with these APIs, we also provide you a [Swagger file](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json) that you can use with tools to generate SDKs for your preferred language. We recommend using the [AutoRest](https://github.com/Azure/AutoRest) tool to generate your SDK from our Swagger file. 
+In modo simile è stato creato un .NET SDK che consente di interagire con queste API tramite un wrapper C#. Non è necessario eseguire manualmente la negoziazione di token di autenticazione e l'aggiornamento.
 
-We have created a .NET SDK in a similar manner which allows you to interact with these APIs using a C# wrapper and you don't have to do the authentication token negotiation and refresh yourself.  
+In questo esempio viene eseguita la serie di passaggi necessari per usare .NET SDK:
 
-This sample goes through the set of steps to follow to use the .NET SDK:
+1. Prima di tutto è necessario configurare l'autenticazione per le API tramite Azure Active Directory, come descritto [qui](mobile-engagement-api-authentication.md#authentication). Al termine di questa procedura si dovrebbe disporre di **SubscriptionId**, **TenantId**, **ApplicationId** e **Secret** validi.
 
-1. First of all, you need to setup the authentication for your APIs using the Azure Active Directory as described [here](mobile-engagement-api-authentication.md#authentication). At the end of these steps, you should have a valid **SubscriptionId**, **TenantId**, **ApplicationId** and **Secret**. 
+2. Verrà usata una semplice app console Windows per illustrare l'uso di .NET SDK con lo scenario di creazione di una campagna di tipo annuncio. Aprire Visual Studio e creare un'**applicazione console**.
 
-2. We will use a simple Windows Console app to demonstrate working with the .NET SDK with the scenario of creating an Announcement campaign. So open up Visual Studio and create a **Console Application**.   
+3. È quindi necessario scaricare .NET SDK, disponibile come **Microsoft Azure Engagement Management Library** in NuGet Gallery [qui](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement/). Se si sta installando NuGet da Visual Studio, durante la ricerca del pacchetto è necessario assicurarsi di avere selezionato l'opzione **Includi versione preliminare**:
 
-3. Next you need to download the .NET SDK which is available as **Microsoft Azure Engagement Management Library** in the Nuget gallery [here](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement/).
-If you are installing the Nuget from Visual Studio, you need to ensure that you have check marked the **Include prerelease** option while searching for the package:
+	![][1]
 
-    ![][1]
+4. Nel file `Program.cs` aggiungere gli spazi dei nomi seguenti:
 
-4. In the `Program.cs` file, add the following namespaces:
+		using Microsoft.Rest.Azure.Authentication;
+		using Microsoft.Azure.Management.Engagement;
+		using Microsoft.Azure.Management.Engagement.Models;
 
-        using Microsoft.Rest.Azure.Authentication;
-        using Microsoft.Azure.Management.Engagement;
-        using Microsoft.Azure.Management.Engagement.Models;
-
-5. Next you need to define the following constants that we will use for authentication and interacting with the Mobile Engagement App in which you are creating the Announcement campaign:
+5. È quindi necessario definire le costanti seguenti, che verranno usate per l'autenticazione e l'interazione con l'app Mobile Engagement in cui si sta creando la campagna di tipo annuncio:
 
         // For authentication
         const string TENANT_ID = "<Your TenantId>";
@@ -49,7 +47,7 @@ If you are installing the Nuget from Visual Studio, you need to ensure that you 
         const string SUBSCRIPTION_ID = "<Your Subscription Id>";
 
         // This is the Azure Resource group concept for grouping together resources 
-        //  see here: https://azure.microsoft.com/en-us/documentation/articles/resource-group-portal/
+        //  see here: https://azure.microsoft.com/documentation/articles/resource-group-portal/
         const string RESOURCE_GROUP = "";
 
         // For Mobile Engagement operations
@@ -58,13 +56,13 @@ If you are installing the Nuget from Visual Studio, you need to ensure that you 
         // Application Resource Name - make sure you are using the one as specified in the Azure portal (NOT the App Name)
         const string APP_RESOURCE_NAME = "";
 
-6. Define the `EngagementManagementClient` variable which we will use to call the Mobile Engagement SDK methods:
+6. Definire la variabile `EngagementManagementClient` che useremo per chiamare i metodi di Mobile Engagement SDK:
 
-        static EngagementManagementClient engagementClient; 
+		static EngagementManagementClient engagementClient; 
 
-7. Add the following to your `Main` method:
+7. Aggiungere il codice seguente al metodo `Main`:
 
-        try
+		try
             {
                 // Initialize the Engagement SDK to call out APIs. 
                 InitEngagementClient().Wait();
@@ -78,7 +76,7 @@ If you are installing the Nuget from Visual Studio, you need to ensure that you 
                 throw ex;
             }
 
-8. Define the following method which takes care of initializing the `EngagementManagementClient` by first authenticating and then associating itself with the Mobile Engagement App in which you plan to create the Announcement campaign:
+8. Definire il metodo seguente, che esegue l'inizializzazione di `EngagementManagementClient`, prima autenticandosi e quindi associandosi all'app Mobile Engagement in cui si prevede di creare la campagna di tipo annuncio:
 
         private static async Task InitEngagementClient()
         {
@@ -93,14 +91,14 @@ If you are installing the Nuget from Visual Studio, you need to ensure that you 
             engagementClient.AppName = APP_RESOURCE_NAME;
         }
 
-    > [AZURE.IMPORTANT] Note that you need to use the **App Resource Name** as defined in the Azure management portal for the AppName parameter. 
+	> [AZURE.IMPORTANT] Si noti che è necessario usare il valore di **APP\_RESOURCE\_NAME** definito nel portale di gestione di Azure per il parametro AppName.
 
-9. Lastly, define the CreateCampaign method which will take care of using the previously initialized EngagementClient to create a simple **AnyTime** & **Notification-only** campaign with a title and message: 
+9. Definire infine il metodo CreateCampaign, che usa EngagementClient inizializzato in precedenza, per creare una semplice campagna **con recapito in qualsiasi momento** e **di sola notifica** con un titolo e un messaggio:
 
         private async static Task CreateCampaign()
         {
             //  Refer to the Announcement Campaign format from here - 
-            //      https://msdn.microsoft.com/en-us/library/azure/mt683751.aspx
+            //      https://msdn.microsoft.com/it-IT/library/azure/mt683751.aspx
             // Make sure you are passing all the non-optional parameters
             Campaign parameters = new Campaign(
                 name:"WelcomeCampaign",
@@ -110,22 +108,18 @@ If you are installing the Nuget from Visual Studio, you need to ensure that you 
                 deliveryTime:"any"
                 );
 
-            // Refer to the Campaign Kinds from here - https://msdn.microsoft.com/en-us/library/azure/mt683742.aspx
+            // Refer to the Campaign Kinds from here - https://msdn.microsoft.com/it-IT/library/azure/mt683742.aspx
             CampaignStateResult result = 
                 await engagementClient.Campaigns.CreateAsync(CampaignKinds.Announcements, parameters);
             Console.WriteLine("Campaign Id '{0}' was created successfully and it is in '{1}' state", result.Id, result.State);
         }
 
-10. Run the console app and you will see the following on successful creation of the campaign:
+10. Eseguire l'app console. Se la campagna viene creata correttamente, verrà visualizzato quanto segue:
 
-    **Campaign Id '159' was created successfully and it is in 'draft' state**
+	**Campaign Id '159' was created successfully and it is in 'draft' state**
 
 <!-- Images. -->
 
 [1]: ./media/mobile-engagement-dotnet-sdk-service-api/include-prerelease.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

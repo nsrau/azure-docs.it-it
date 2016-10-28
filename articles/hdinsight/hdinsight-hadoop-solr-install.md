@@ -1,194 +1,193 @@
 <properties
-    pageTitle="Use Script Action to install Solr on Hadoop cluster | Microsoft Azure"
-    description="Learn how to customize HDInsight cluster with Solr using Script Action."
-    services="hdinsight"
-    documentationCenter=""
-    authors="nitinme"
-    manager="jhubbard"
-    editor="cgronlun"
-    tags="azure-portal"/>
+	pageTitle="Usare l'azione script per installare Solr in cluster Hadoop| Microsoft Azure"
+	description="Informazioni su come personalizzare cluster HDInsight con Solr tramite le azioni script."
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="jhubbard"
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/05/2016"
-    ms.author="nitinme"/>
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/05/2016"
+	ms.author="nitinme"/>
 
+# Installare e usare Solr nei cluster Hadoop di HDInsight
 
-# <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Install and use Solr on HDInsight Hadoop clusters
-
-Learn how to customize Windows based HDInsight cluster with Solr using Script Action, and how to use Solr to search data. For information on using Solr with a Linux-based cluster, see [Install and use Solr on HDinsight Hadoop clusters (Linux)](hdinsight-hadoop-solr-install-linux.md).
+Informazioni su come personalizzare i cluster HDInsight basati su Windows con Solr usando Script azione e su come utilizzare Solr per cercare i dati. Per informazioni sull'uso di Solr con un cluster basato su Linux, vedere [Installare e usare Solr nei cluster Hadoop HDInsight (Linux)](hdinsight-hadoop-solr-install-linux.md).
  
-You can install Solr on any type of cluster (Hadoop, Storm, HBase, Spark) on Azure HDInsight by using *Script Action*. A sample script to install Solr on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1). 
+È possibile installare Solr in qualsiasi tipo di cluster (Hadoop, Storm, HBase, Spark) su Azure HDInsight usando *Script azione*. Uno script di esempio per l'installazione di Solr in un cluster HDInsight è disponibile in un BLOB di archiviazione di Azure di sola lettura all'indirizzo [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
-The sample script works only with HDInsight cluster version 3.1. For more information on HDInsight cluster versions, see [HDInsight cluster versions](hdinsight-component-versioning.md).
+Lo script di esempio funziona solo con cluster HDInsight versione 3.1. Per altre informazioni sulle versioni dei cluster HDInsight, vedere [Versioni cluster HDInsight](hdinsight-component-versioning.md).
 
-The sample script used in this topic creates a Windows-based Solr cluster with a specific configuration. If you want to configure the Solr cluster with different collections, shards, schemas, replicas, etc., you must modify the script and Solr binaries accordingly.
+Lo script di esempio usato in questo argomento crea un cluster Solr basato su Windows con una configurazione specifica. Per configurare il cluster Solr con raccolte, partizioni, schemi, repliche diverse e così via, sarà necessario modificare di conseguenza lo script e i file binari di Solr.
 
-**Related articles**
+**Articoli correlati**
 
-- [Install and use Solr on HDinsight Hadoop clusters (Linux)](hdinsight-hadoop-solr-install-linux.md)
-- [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md): general information on creating HDInsight clusters.
-- [Customize HDInsight cluster using Script Action][hdinsight-cluster-customize]: general information on customizing HDInsight clusters using Script Action.
-- [Develop Script Action scripts for HDInsight](hdinsight-hadoop-script-actions.md).
-
-
-## <a name="what-is-solr?"></a>What is Solr?
-
-<a href="http://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> is an enterprise search platform that enables powerful full-text search on data. While Hadoop enables storing and managing vast amounts of data, Apache Solr provides the search capabilities to quickly retrieve the data. 
-
-## <a name="install-solr-using-portal"></a>Install Solr using portal
-
-1. Start creating a cluster by using the **CUSTOM CREATE** option, as described at [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md#portal).
-2. On the **Script Actions** page of the wizard, click **add script action** to provide details about the script action, as shown below:
-
-    ![Use Script Action to customize a cluster](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "Use Script Action to customize a cluster")
-
-    <table border='1'>
-        <tr><th>Property</th><th>Value</th></tr>
-        <tr><td>Name</td>
-            <td>Specify a name for the script action. For example, <b>Install Solr</b>.</td></tr>
-        <tr><td>Script URI</td>
-            <td>Specify the Uniform Resource Identifier (URI) to the script that is invoked to customize the cluster. For example, <i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i></td></tr>
-        <tr><td>Node Type</td>
-            <td>Specify the nodes on which the customization script is run. You can choose <b>All nodes</b>, <b>Head nodes only</b>, or <b>Worker nodes only</b>.
-        <tr><td>Parameters</td>
-            <td>Specify the parameters, if required by the script. The script to install Solr does not require any parameters, so you can leave this blank.</td></tr>
-    </table>
-
-    You can add more than one script action to install multiple components on the cluster. After you have added the scripts, click the checkmark to start creating the cluster.
+- [Installare e usare Solr nei cluster Hadoop di HDInsight (Linux)](hdinsight-hadoop-solr-install-linux.md)
+- [Creare cluster Hadoop in HDInsight](hdinsight-provision-clusters.md): informazioni generali sulla creazione di cluster HDInsight.
+- [Personalizzare cluster HDInsight mediante Azione di script][hdinsight-cluster-customize]\: informazioni generali sulla personalizzazione di cluster HDInsight mediante Azione di script.
+- [Sviluppare script di Azione script per HDInsight](hdinsight-hadoop-script-actions.md).
 
 
-## <a name="use-solr"></a>Use Solr
+## Che cos'è Solr?
 
-You must start with indexing Solr with some data files. You can then use Solr to run search queries on the indexed data. Perform the following steps to use Solr in an HDInsight cluster:
+<a href="http://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> è una piattaforma di ricerca aziendale che permette di eseguire ricerche full-text avanzate sui dati. Mentre Hadoop consente di archiviare e gestire quantità elevate di dati, Apache Solr offre le funzionalità di ricerca necessarie per recuperare rapidamente i dati.
 
-1. **Use Remote Desktop Protocol (RDP) to remote into the HDInsight cluster with Solr installed**. From the Azure portal, enable Remote Desktop for the cluster you created with Solr installed, and then remote into the cluster. For instructions, see [Connect to HDInsight clusters using RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
+## Installare Solr utilizzando il portale
 
-2. **Index Solr by uploading data files**. When you index Solr, you put documents in it that you may need to search on. To index Solr, use RDP to remote into the cluster, navigate to the desktop, open the Hadoop command line, and navigate to **C:\apps\dist\solr-4.7.2\example\exampledocs**. Run the following command:
+1. Avviare la creazione di un cluster tramite l'opzione **CREAZIONE PERSONALIZZATA**, come descritto in [Creare cluster Hadoop in HDInsight](hdinsight-provision-clusters.md#portal).
+2. Nella pagina **Azioni script** della procedura guidata fare clic su **aggiungi azione script** per specificare i dettagli relativi all'azione script, come descritto di seguito:
 
-        java -jar post.jar solr.xml monitor.xml
+	![Usare l'azione script per personalizzare un cluster](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "Usare l'azione script per personalizzare un cluster")
 
-    You'll see the following output on the console:
+	<table border='1'>
+		<tr><th>Proprietà</th><th>Valore</th></tr>
+		<tr><td>Nome</td>
+			<td>Specificare un nome per l'azione script. Ad esempio, <b>Install Solr</b>.</td></tr>
+		<tr><td>URI script</td>
+			<td>Specificare l'URI (Uniform Resource Identifier) dello script da richiamare per personalizzare il cluster. Ad esempio, <i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i></td></tr>
+		<tr><td>Tipo di nodo</td>
+			<td>Specificare i nodi in cui viene eseguito lo script di personalizzazione. È possibile scegliere <b>Tutti i nodi</b>, <b>Solo nodi head</b> o <b>Solo nodi di lavoro</b>.
+		<tr><td>Parametri</td>
+			<td>Specificare i parametri, se richiesti dallo script. Lo script per installare Solr non richiede alcun parametro, di conseguenza è possibile lasciare vuoto questo campo.</td></tr>
+	</table>
 
-        POSTing file solr.xml
-        POSTing file monitor.xml
-        2 files indexed.
-        COMMITting Solr index changes to http://localhost:8983/solr/update..
-        Time spent: 0:00:01.624
-
-    The post.jar utility indexes Solr with two sample documents, **solr.xml** and **monitor.xml**. The post.jar utility and the sample documents are available with Solr installation.
-
-3. **Use the Solr dashboard to search within the indexed documents**. In the RDP session to the HDInsight cluster, open Internet Explorer, and launch the Solr dashboard at **http://headnodehost:8983/solr/#/**. From the left pane, from the **Core Selector** drop-down, select **collection1**, and within that, click **Query**. As an example, to select and return all the docs in Solr, provide the following values:
-
-    * In the **q** text box, enter **\*:**\*. This will return all the documents that are indexed in Solr. If you want to search for a specific string within the documents, you can enter that string here.
-    
-    * In the **wt** text box, select the output format. Default is **json**. Click **Execute Query**.
-
-    ![Use Script Action to customize a cluster](./media/hdinsight-hadoop-solr-install/hdi-solr-dashboard-query.png "Run a query on Solr dashboard")
-    
-    The output returns the two docs that we used for indexing Solr. The output resembles the following:
-
-            "response": {
-                "numFound": 2,
-                "start": 0,
-                "maxScore": 1,
-                "docs": [
-                  {
-                    "id": "SOLR1000",
-                    "name": "Solr, the Enterprise Search Server",
-                    "manu": "Apache Software Foundation",
-                    "cat": [
-                      "software",
-                      "search"
-                    ],
-                    "features": [
-                      "Advanced Full-Text Search Capabilities using Lucene",
-                      "Optimized for High Volume Web Traffic",
-                      "Standards Based Open Interfaces - XML and HTTP",
-                      "Comprehensive HTML Administration Interfaces",
-                      "Scalability - Efficient Replication to other Solr Search Servers",
-                      "Flexible and Adaptable with XML configuration and Schema",
-                      "Good unicode support: héllo (hello with an accent over the e)"
-                    ],
-                    "price": 0,
-                    "price_c": "0,USD",
-                    "popularity": 10,
-                    "inStock": true,
-                    "incubationdate_dt": "2006-01-17T00:00:00Z",
-                    "_version_": 1486960636996878300
-                  },
-                  {
-                    "id": "3007WFP",
-                    "name": "Dell Widescreen UltraSharp 3007WFP",
-                    "manu": "Dell, Inc.",
-                    "manu_id_s": "dell",
-                    "cat": [
-                      "electronics and computer1"
-                    ],
-                    "features": [
-                      "30\" TFT active matrix LCD, 2560 x 1600, .25mm dot pitch, 700:1 contrast"
-                    ],
-                    "includes": "USB cable",
-                    "weight": 401.6,
-                    "price": 2199,
-                    "price_c": "2199,USD",
-                    "popularity": 6,
-                    "inStock": true,
-                    "store": "43.17614,-90.57341",
-                    "_version_": 1486960637584081000
-                  }
-                ]
-              }
+	È possibile aggiungere altre azioni script per installare più componenti nel cluster. Dopo aver aggiunto gli script, fare clic sul segno di spunta per avviare la creazione del cluster.
 
 
-4. **Recommended: Back up the indexed data from Solr to Azure Blob storage associated with the HDInsight cluster**. As a good practice, you should back up the indexed data from the Solr cluster nodes onto Azure Blob storage. Perform the following steps to do so:
+## Utilizzare Solr
 
-    1. From the RDP session, open Internet Explorer, and point to the following URL:
+È prima di tutto necessario indicizzare Solr con alcuni file di dati. Sarà quindi possibile usare Solr per eseguire query di ricerca sui dati indicizzati. Eseguire la procedura seguente per usare Solr in un cluster HDInsight:
 
-            http://localhost:8983/solr/replication?command=backup
+1. **Usare RDP (Remote Desktop Protocol) per accedere in remoto al cluster HDInsight con Solr installato**. Dal portale di Azure abilitare il desktop remoto per il cluster creato con Solr installato, quindi accedere in remoto al cluster. Per istruzioni, vedere [Connettersi a cluster HDInsight tramite RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
 
-        You should see a response like this:
+2. **Indicizzare Solr mediante il caricamento di file di dati**. Quando si indicizza Solr, si inseriscono documenti su cui potrebbe essere necessario eseguire ricerche. Per indicizzare Solr, usare RDP per accedere in remoto al cluster, passare al desktop, aprire la riga di comando di Hadoop e quindi passare a **C:\\apps\\dist\\solr-4.7.2\\example\\exampledocs**. Eseguire il comando seguente:
 
-            <?xml version="1.0" encoding="UTF-8"?>
-            <response>
-              <lst name="responseHeader">
-                <int name="status">0</int>
-                <int name="QTime">9</int>
-              </lst>
-              <str name="status">OK</str>
-            </response>
+		java -jar post.jar solr.xml monitor.xml
 
-    2. In the remote session, navigate to {SOLR_HOME}\{Collection}\data. For the cluster created via the sample script, this should be **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**. At this location, you should see a snapshot folder created with a name similar to **snapshot.*timestamp***.
+	Nella console viene visualizzato il seguente risultato:
 
-    3. Zip the snapshot folder and upload it to Azure Blob storage. From the Hadoop command line, navigate to the location of the snapshot folder by using the following command:
+		POSTing file solr.xml
+		POSTing file monitor.xml
+		2 files indexed.
+		COMMITting Solr index changes to http://localhost:8983/solr/update..
+		Time spent: 0:00:01.624
 
-              hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
+	L'utilità post.jar indicizza Solr con due documenti di esempio, **solr.xml** e **monitor.xml**. L'utilità post.jar e i documenti di esempio sono disponibili con l'installazione di Solr.
 
-        This command copies the snapshot to /example/data/ under the container within the default Storage account associated with the cluster.
+3. **Usare il dashboard di Solr per eseguire ricerche nei documenti indicizzati**. Nella sessione RDP per il cluster HDInsight, aprire Internet Explorer, quindi avviare il dashboard di Solr all'indirizzo **http://headnodehost:8983/solr/#/**. Nel riquadro a sinistra selezionare **collection1** dal menu a discesa **Core Selector** e quindi fare clic su **Query**. Ad esempio, per selezionare e restituire tutti i documenti in Solr, specificare i valori seguenti:
 
-## <a name="install-solr-using-aure-powershell"></a>Install Solr using Aure PowerShell
+	* Nella casella di testo **q** immettere ***:***. Verranno restituiti tutti i documenti indicizzati in Solr. Per cercare una stringa specifica nei documenti, è possibile immettere qui la stringa.
+	
+	* Selezionare il formato di output nella casella di testo **wt**. Il valore predefinito è **json**. Fare clic su **Esegui query**.
 
-See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md#call_scripts_using_powershell).  The sample demonstrates how to install Spark using Azure PowerShell. You need to customize the script to use [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
+	![Usare l'azione script per personalizzare un cluster](./media/hdinsight-hadoop-solr-install/hdi-solr-dashboard-query.png "Eseguire una query sul dashboard Solr")
+	
+	L'output restituisce i due documenti usati per l'indicizzazione di Solr. L'output sarà simile al seguente:
 
-## <a name="install-solr-using-.net-sdk"></a>Install Solr using .NET SDK
+			"response": {
+			    "numFound": 2,
+			    "start": 0,
+			    "maxScore": 1,
+			    "docs": [
+			      {
+			        "id": "SOLR1000",
+			        "name": "Solr, the Enterprise Search Server",
+			        "manu": "Apache Software Foundation",
+			        "cat": [
+			          "software",
+			          "search"
+			        ],
+			        "features": [
+			          "Advanced Full-Text Search Capabilities using Lucene",
+			          "Optimized for High Volume Web Traffic",
+			          "Standards Based Open Interfaces - XML and HTTP",
+			          "Comprehensive HTML Administration Interfaces",
+			          "Scalability - Efficient Replication to other Solr Search Servers",
+			          "Flexible and Adaptable with XML configuration and Schema",
+			          "Good unicode support: héllo (hello with an accent over the e)"
+			        ],
+			        "price": 0,
+			        "price_c": "0,USD",
+			        "popularity": 10,
+			        "inStock": true,
+			        "incubationdate_dt": "2006-01-17T00:00:00Z",
+			        "_version_": 1486960636996878300
+			      },
+			      {
+			        "id": "3007WFP",
+			        "name": "Dell Widescreen UltraSharp 3007WFP",
+			        "manu": "Dell, Inc.",
+			        "manu_id_s": "dell",
+			        "cat": [
+			          "electronics and computer1"
+			        ],
+			        "features": [
+			          "30" TFT active matrix LCD, 2560 x 1600, .25mm dot pitch, 700:1 contrast"
+			        ],
+			        "includes": "USB cable",
+			        "weight": 401.6,
+			        "price": 2199,
+			        "price_c": "2199,USD",
+			        "popularity": 6,
+			        "inStock": true,
+			        "store": "43.17614,-90.57341",
+			        "_version_": 1486960637584081000
+			      }
+			    ]
+			  }
 
-See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md#call_scripts_using_azure_powershell). The sample demonstrates how to install Spark using the .NET SDK. You need to customize the script to use [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
+
+4. **Consigliato: backup dei dati indicizzati da Solr all'archivio BLOB di Azure associato al cluster HDInsight**. È consigliabile eseguire il backup dei dati indicizzati dai nodi del cluster Solr nell'archivio BLOB di Azure. Eseguire quindi la procedura seguente:
+
+	1. Aprire Internet Explorer dalla sessione RDP, quindi selezionare l'URL seguente:
+
+			http://localhost:8983/solr/replication?command=backup
+
+		Viene visualizzata una risposta simile alla seguente:
+
+			<?xml version="1.0" encoding="UTF-8"?>
+			<response>
+			  <lst name="responseHeader">
+			    <int name="status">0</int>
+			    <int name="QTime">9</int>
+			  </lst>
+			  <str name="status">OK</str>
+			</response>
+
+	2. Nella sessione remota passare a {SOLR\_HOME}{Collection}\\data. Per il cluster creato tramite lo script di esempio, sarà uguale a **C:\\apps\\dist\\solr-4.7.2\\example\\solr\\collection1\\data**. In questo percorso dovrebbe essere creata una cartella snapshot con nome simile a **snapshot.*timestamp***.
+
+	3. Comprimere la cartella snapshot e caricarla nell'archivio BLOB di Azure. Dalla riga di comando di Hadoop passare al percorso della cartella snapshot usando il comando seguente:
+
+			  hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
+
+		Questo comando copia lo snapshot in /example/data/ nel contenitore disponibile nell'account di archiviazione predefinito associato al cluster.
+
+## Installare Solr tramite Aure PowerShell
+
+Vedere [Personalizzare cluster HDInsight mediante Script azione](hdinsight-hadoop-customize-cluster.md#call_scripts_using_powershell). L'esempio illustra come installare Spark tramite Azure PowerShell. È necessario personalizzare lo script da usare [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
+
+## Installare Solr tramite .NET SDK
+
+Vedere [Personalizzare cluster HDInsight mediante Azione di script](hdinsight-hadoop-customize-cluster.md#call_scripts_using_azure_powershell). L'esempio illustra come installare Spark tramite .NET SDK. È necessario personalizzare lo script da usare [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
 
 
-## <a name="see-also"></a>See also
+## Vedere anche
 
-- [Install and use Solr on HDinsight Hadoop clusters (Linux)](hdinsight-hadoop-solr-install-linux.md)
-- [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md): general information on creating HDInsight clusters.
-- [Customize HDInsight cluster using Script Action][hdinsight-cluster-customize]: general information on customizing HDInsight clusters using Script Action.
-- [Develop Script Action scripts for HDInsight](hdinsight-hadoop-script-actions.md).
-- [Install and use Spark on HDInsight clusters][hdinsight-install-spark]: Script Action sample about installing Spark.
-- [Install R on HDInsight clusters][hdinsight-install-r]: Script Action sample about installing R.
-- [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md): Script Action sample about installing Giraph.
+- [Installare e usare Solr nei cluster Hadoop di HDInsight (Linux)](hdinsight-hadoop-solr-install-linux.md)
+- [Creare cluster Hadoop in HDInsight](hdinsight-provision-clusters.md): informazioni generali sulla creazione di cluster HDInsight.
+- [Personalizzare cluster HDInsight mediante Azione di script][hdinsight-cluster-customize]\: informazioni generali sulla personalizzazione di cluster HDInsight mediante Azione di script.
+- [Sviluppare script di Azione di script per HDInsight](hdinsight-hadoop-script-actions.md).
+- [Installare e usare Spark nei cluster HDInsight][hdinsight-install-spark]\: esempio di Azione di script sull'installazione di Spark.
+- [Installare R nei cluster HDInsight][hdinsight-install-r]\: esempio di Script azione sull'installazione di R.
+- [Installare e usare Spark nei cluster HDInsight](hdinsight-hadoop-giraph-install.md): esempio di Script azione sull'installazione di Giraph
 
 
 [powershell-install-configure]: powershell-install-configure.md
@@ -197,8 +196,4 @@ See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customiz
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

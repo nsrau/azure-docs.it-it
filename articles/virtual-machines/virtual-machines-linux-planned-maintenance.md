@@ -1,43 +1,38 @@
 <properties
-    pageTitle="Planned maintenance for Linux VMs | Microsoft Azure"
-    description="Understand what Azure planned maintenance is and how it affects your Linux virtual machines running in Azure"
-    services="virtual-machines-linux"
-    documentationCenter=""
-    authors="drewm"
-    manager="timlt"
-    editor=""
-    tags="azure-service-management,azure-resource-manager"/>
+	pageTitle="Manutenzione pianificata per macchine virtuali Linux | Microsoft Azure"
+	description="Informazioni sulla manutenzione pianificata di Azure e sul relativo impatto sulle macchine virtuali Linux eseguite in Azure."
+	services="virtual-machines-linux"
+	documentationCenter=""
+	authors="drewm"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="04/26/2016"
-    ms.author="drewm"/>
+	ms.service="virtual-machines-linux"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/26/2016"
+	ms.author="drewm"/>
 
+# Manutenzione pianificata per macchine virtuali Linux in Azure
 
-# <a name="planned-maintenance-for-linux-virtual-machines-in-azure"></a>Planned maintenance for Linux virtual machines in Azure
+Informazioni sulla manutenzione pianificata di Azure e su come può influire sulla disponibilità delle macchine virtuali Linux. Questo articolo è disponibile anche per le [macchine virtuali Windows](virtual-machines-windows-planned-maintenance.md).
 
-Understand what Azure planned maintenance is and how it can affect the availability of your Linux virtual machines. This article is also available for [Windows virtual machines](virtual-machines-windows-planned-maintenance.md). 
-
-This article provides a background as to the Azure planned maintenance process. If you are wanting to troubleshoot why your VM rebooted, you can [read this blog post detailing viewing VM reboot logs](https://azure.microsoft.com/blog/viewing-vm-reboot-logs/).
+Questo articolo offre informazioni di background relative al processo di manutenzione pianificata di Azure. Se si vogliono risolvere eventuali problemi di riavvio indesiderato delle macchine virtuali, è possibile [leggere il post di blog post che illustra in dettaglio i log di riavvio delle VM](https://azure.microsoft.com/blog/viewing-vm-reboot-logs/).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="why-azure-performs-planned-maintenance"></a>Why Azure performs planned maintenance
+## Perché Azure esegue la manutenzione pianificata
 
-Microsoft Azure periodically performs updates across the globe to improve the reliability, performance, and security of the host infrastructure that underlies virtual machines. Many of these updates are performed without any impact to your virtual machines or Cloud Services, including memory-preserving updates.
+Microsoft Azure esegue periodicamente aggiornamenti a livello globale per migliorare l'affidabilità, le prestazioni e la sicurezza dell'infrastruttura host sottostante alle macchine virtuali. Molti di questi aggiornamenti vengono eseguiti senza alcun impatto sulle macchine virtuali o sui servizi cloud, inclusi gli aggiornamenti con mantenimento della memoria.
 
-However, some updates do require a reboot to your virtual machines to apply the required updates to the infrastructure. The virtual machines are shut down while we patch the infrastructure, and then the virtual machines are restarted.
+Tuttavia, alcuni aggiornamenti richiedono un riavvio delle macchine virtuali per applicare gli aggiornamenti necessari all'infrastruttura. Le macchine virtuali vengono arrestate durante l'applicazione delle patch all'infrastruttura e quindi riavviate.
 
-Please note that there are two types of maintenance that can impact the availability of your virtual machines: planned and unplanned. This page describes how Microsoft Azure performs planned maintenance. For more information about unplanned maintenance, see [Understand planned versus unplanned maintenance](virtual-machines-linux-manage-availability.md).
+Esistono due tipi di manutenzione che possono influire sulla disponibilità delle macchine virtuali: pianificata e non pianificata. Questa pagina descrive come Microsoft Azure esegue la manutenzione pianificata. Per altre informazioni sulla manutenzione non pianificata, vedere la pagina relativa al [confronto tra manutenzione pianificata e non pianificata](virtual-machines-linux-manage-availability.md).
 
 [AZURE.INCLUDE [virtual-machines-common-planned-maintenance](../../includes/virtual-machines-common-planned-maintenance.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0525_2016-->

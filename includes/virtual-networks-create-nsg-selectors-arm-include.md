@@ -1,9 +1,7 @@
 > [AZURE.SELECTOR]
-- [Portal](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+- [Portale](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 - [PowerShell](../articles/virtual-network/virtual-networks-create-nsg-arm-ps.md)
-- [Azure CLI](../articles/virtual-network/virtual-networks-create-nsg-arm-cli.md)
-- [ARM template](../articles/virtual-network/virtual-networks-create-nsg-arm-template.md)
+- [Interfaccia della riga di comando di Azure](../articles/virtual-network/virtual-networks-create-nsg-arm-cli.md)
+- [Modello ARM](../articles/virtual-network/virtual-networks-create-nsg-arm-template.md)
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0323_2016-->

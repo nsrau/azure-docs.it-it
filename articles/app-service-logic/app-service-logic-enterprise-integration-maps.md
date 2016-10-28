@@ -1,80 +1,64 @@
 <properties 
-    pageTitle="Overview of maps Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
-    description="Learn how to use maps with the Enterprise Integration Pack and Logic apps" 
-    services="logic-apps" 
-    documentationCenter=".net,nodejs,java"
-    authors="msftman" 
-    manager="erikre" 
-    editor="cgronlun"/>
+	pageTitle="Panoramica delle mappe di Enterprise Integration Pack | Servizio app di Microsoft Azure | Microsoft Azure" 
+	description="Informazioni su come usare le mappe con Enterprise Integration Pack e le app per la logica" 
+	services="logic-apps" 
+	documentationCenter=".net,nodejs,java"
+	authors="msftman" 
+	manager="erikre" 
+	editor="cgronlun"/>
 
 <tags 
-    ms.service="logic-apps" 
-    ms.workload="integration" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="07/08/2016" 
-    ms.author="deonhe"/>
+	ms.service="logic-apps" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/08/2016" 
+	ms.author="deonhe"/>  
 
+# Informazioni sulle mappe ed Enterprise Integration Pack
 
-# <a name="learn-about-maps-and-the-enterprise-integration-pack"></a>Learn about maps and the Enterprise Integration Pack
+## Overview
+Enterprise Integration usa le mappe per trasformare i dati XML da un formato all'altro.
 
-## <a name="overview"></a>Overview
-Enterprise integration uses maps to transform XML data from one format to another format. 
+## Che cos'è una mappa?
+Una mappa è un documento XML che definisce il modo in cui i dati di un documento devono essere trasformati in un altro formato.
 
-## <a name="what-is-a-map?"></a>What is a map?
-A map is an XML document that defines which data in a document should be transformed into another format. 
+## Perché usare le mappe?
+Si supponga di ricevere regolarmente fatture o ordini B2B da un partner che usa il formato AAAMMGG per le date. In azienda però le date vengono archiviare nel formato MMGGAAA. È possibile usare una mappa per *trasformare* il formato di data AAAMMGG in MMGGAAA prima di archiviare i dettagli dell'ordine o della fattura nel database relativo.
 
-## <a name="why-use-maps?"></a>Why use maps?
-Let's assume you regularly receive B2B orders or invoices from a customers who uses the YYYMMDD format for dates. However, in your organization, you store dates in the MMDDYYY format. You can use a map to *transform* the YYYMMDD date format into the MMDDYYY before storing the order or invoice details in your customer activity database.
+## Come si crea una mappa?
+L'[Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack") per Visual Studio 2015 consente di creare progetti di integrazione di Biztalk. La creazione di un file di mappa di integrazione consente di mappare visivamente gli elementi tra due file di schema XML. Dopo aver compilato il progetto, viene prodotto un documento XSLT.
 
-## <a name="how-do-i-create-a-map?"></a>How do i create a map?
-The [Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about the enterprise integration pack") for Visual Studio 2015 allows Biztalk Integration projects to be created.  Creating an Integration Map file will allow you to visually map items between two XML schema files.  After building this project, an XSLT document is output.
+## Come caricare una mappa?
+Nel portale di Azure:
+1. Selezionare **Esplora** ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
+2. Immettere **integrazione** nella casella di ricerca del filtro e selezionare **Account di integrazione** dall'elenco dei risultati ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
+3. Selezionare l'**account di integrazione** a cui aggiungere la mappa ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
+4.  Selezionare il riquadro **Mappe** ![](./media/app-service-logic-enterprise-integration-maps/map-1.png)
+5. Selezionare il pulsante **Aggiungi** nel pannello Mappe che si apre ![](./media/app-service-logic-enterprise-integration-maps/map-2.png)
+6. Immettere il **nome** per la mappa, quindi selezionare l'icona della cartella sul lato destro della casella di testo **Mappa** per caricare il file dello schema. Dopo aver completato il processo di caricamento, selezionare il pulsante **OK**. ![](./media/app-service-logic-enterprise-integration-maps/map-3.png)
+7. La mappa viene aggiunta all'account di integrazione. Verrà visualizzata una notifica sullo schermo con l'avviso dell'esito positivo o negativo dell'aggiunta del file di mappa. Dopo aver ricevuto la notifica, selezionare il riquadro **Mappe** e verrà visualizzata la mappa appena aggiunta nel pannello Mappe: ![](./media/app-service-logic-enterprise-integration-maps/map-4.png)
 
-## <a name="how-to-upload-a-map?"></a>How to upload a map?
-From the Azure portal:  
-1. Select **Browse**  
-![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
-2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
- ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)  
-3. Select the **integration account** into which you will add the map  
-![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)  
-4.  Select the **Maps** tile  
-![](./media/app-service-logic-enterprise-integration-maps/map-1.png)  
-5. Select the **Add** button in the Maps blade that opens  
-![](./media/app-service-logic-enterprise-integration-maps/map-2.png)  
-6. Enter a **Name** for your map then, to upload the map file, select the folder icon on the right side of the **Map** text box. After the upload process is completed, select the **OK** button.  
-![](./media/app-service-logic-enterprise-integration-maps/map-3.png)  
-7. The map is now being added into your integration account. You will receive an onscreen notification that indicates the success or failure of adding the map file. After you receive the notification, select the **Maps** tile, you will then see your newly added map in the Maps blade:    
-![](./media/app-service-logic-enterprise-integration-maps/map-4.png)  
+## Come modificare una mappa?
+Per modificare una mappa, è necessario caricare un nuovo file di mappa con le modifiche desiderate. È anche possibile scaricare la mappa e poi modificarla.
 
-## <a name="how-to-edit-a-map?"></a>How to edit a map?
-To edit a map, you must upload a new map file with the changes you desire. You can first download the map and edit it. 
+Per caricare una nuova mappa che sostituisce una mappa esistente, seguire questi passaggi:
+1. Selezionare il riquadro **Mappe**
+2. Quando si apre il pannello Mappe selezionare la mappa da modificare
+3. Nel pannello **Mappe** selezionare il collegamento **Aggiorna** ![](./media/app-service-logic-enterprise-integration-maps/edit-1.png)
+4. Selezionare il file di mappa da caricare usando la finestra selettore file che si apre e poi selezionare **Apri** nel selettore file ![](./media/app-service-logic-enterprise-integration-maps/edit-2.png)
+5. Dopo il caricamento della mappa verrà visualizzato un popup di notifica.
 
-Follow these steps to upload a new map that replaces an existing map:  
-1. Select the **Maps** tile  
-2. Select the map you wish to edit when the Maps blade opens up  
-3. On the **Maps** blade, select the **Update** link  
-![](./media/app-service-logic-enterprise-integration-maps/edit-1.png)   
-4. Select the map file you wish to upload by using the file picker dialog that opens up then select **Open** in the file picker   
-![](./media/app-service-logic-enterprise-integration-maps/edit-2.png)   
-5. You will receive a notification popup after the map is uploaded.    
+## Come eliminare una mappa?
+1. Selezionare il riquadro **Mappe**
+2. Quando si apre il pannello Mappe selezionare la mappa da eliminare
+3. Selezionare il collegamento **Elimina** ![](./media/app-service-logic-enterprise-integration-maps/delete.png)
+4. Confermare che si intende eliminare la mappa. ![](./media/app-service-logic-enterprise-integration-maps/delete-confirmation-1.png)
 
-## <a name="how-to-delete-a-map?"></a>How to delete a map?
-1. Select the **Maps** tile  
-2. Select the map you wish to delete when the Maps blade opens up  
-3. Select the **Delete** link    
-![](./media/app-service-logic-enterprise-integration-maps/delete.png)   
-4. Confirm you that you really intend to delete the map.  
-![](./media/app-service-logic-enterprise-integration-maps/delete-confirmation-1.png)   
+## Passaggi successivi
+- [Altre informazioni su Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")
+- [Altre informazioni sui contratti](./app-service-logic-enterprise-integration-agreements.md "Informazioni sui contratti di Enterprise Integration")
+- [Altre informazioni sulle trasformazioni](./app-service-logic-enterprise-integration-transform.md "Informazioni sulle trasformazioni di Enterprise Integration")
 
-## <a name="next-steps"></a>Next Steps
-- [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
-- [Learn more about agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
-- [Learn more about transforms](./app-service-logic-enterprise-integration-transform.md "Learn about enterprise integration transforms")  
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

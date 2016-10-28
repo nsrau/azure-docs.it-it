@@ -1,46 +1,40 @@
 <a name="tellmevm"></a>
-## <a name="tell-me-about-virtual-machines"></a>Tell me about virtual machines
+## Informazioni sulle macchine virtuali
 
-Azure Virtual Machines lets you create and use virtual machines in the cloud. Providing what's known as *Infrastructure as a Service (IaaS)*, virtual machine technology can be used in variety of ways. Some examples are:
+La funzionalità Macchine virtuali di Azure consente di creare e usare macchine virtuali nel cloud. Offrendo il cosiddetto approccio *IaaS (infrastruttura distribuita come servizio)*, questa tecnologia può essere usata in diversi modi. Di seguito sono riportati alcuni esempi:
 
-- **Virtual machines (VMs) for development and test.** Development groups commonly use VMs because they offer a quick, easy way to create a computer with specific configurations required to code and test an application. Azure Virtual Machines provides a straightforward and economical way to create these VMs, use them, then delete them when they're no longer needed.
-- **Running applications in the cloud.** It makes economic sense to run some applications in the public cloud. One example is an application that has large spikes in demand. Although you could equip your own data center with enough hardware to handle peak demand, that hardware might be underutilized much of the time. Running this application on Azure lets you pay for extra VMs only when you need them and shut them down when you don't. Or, suppose you're a start-up that needs on-demand computing resources quickly and with no commitment. Once again, Azure can be the right choice.
-- **Extending your own datacenter into the public cloud.** When you use Azure Virtual Network, your organization can create a virtual network (VNET) that's an extension of your own on-premises network and add VMs to that VNET. This allows running applications such as [SharePoint](../articles/virtual-machines/virtual-machines-windows-sharepoint-farm.md), [SQL Server](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md) and others on an Azure VM. This approach might be easier to deploy or less expensive than running them in VMs your own datacenter.   
-- **Disaster recovery.** Rather than paying continuously for a backup datacenter that's rarely used, IaaS-based disaster recovery lets you pay for the computing resources you need only when you really need them.  For example, if your primary datacenter goes down, you can create VMs running on Azure to run essential applications, then shut them down when they're no longer needed.
+- **Macchine virtuali (VM) per lo sviluppo e il testing.** I gruppi di sviluppo in genere usano le macchine virtuali perché consentono di creare in modo semplice e rapido un computer con configurazioni specifiche necessarie per scrivere il codice e testare un'applicazione. Macchine virtuali di Azure fornisce un modo facile e conveniente per creare tali macchine virtuali, usarle ed eliminarle quando non sono più necessarie.
+- **Esecuzione di applicazioni nel cloud.** L'esecuzione nel cloud pubblico risulta economicamente vantaggiosa per alcune applicazioni, ad esempio per un'applicazione con picchi elevati a livello di domanda. Benché sia possibile dotare il proprio data center di hardware sufficiente a far fronte a questi picchi, è probabile che la maggior parte di tale hardware venga sottoutilizzato per molto tempo. L'esecuzione di un'applicazione di questo tipo in Azure consente di pagare le macchine virtuali aggiuntive solo quando sono necessarie e di arrestarle al termine del picco nella domanda. Oppure si immagini uno scenario in cui una start-up necessita di risorse di elaborazione su richiesta in modo rapido e senza impegno di acquisto. Anche in questo caso Azure può rappresentare la scelta giusta.
+- **Estensione del data center nel cloud pubblico.** Quando si usa Rete virtuale di Azure, l'organizzazione può creare una rete virtuale (VNET) come estensione della rete locale e aggiungervi macchine virtuali. Sarà quindi possibile eseguire applicazioni quali [SharePoint](../articles/virtual-machines/virtual-machines-windows-sharepoint-farm.md), [SQL Server](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md) e altre ancora in una macchina virtuale di Azure . Tale approccio potrebbe essere più semplice da distribuire o meno costoso rispetto all'esecuzione delle applicazioni nelle macchine virtuali del proprio data center.   
+- **Ripristino di emergenza.** Invece di effettuare pagamenti continui per un data center di backup usato raramente, il ripristino di emergenza basato su IaaS consente di pagare le risorse di elaborazione necessarie solo quando servono effettivamente. Ad esempio, se il funzionamento del data center primario si interrompe, è possibile creare macchine virtuali in Azure per eseguire le applicazioni essenziali, quindi chiuderle quando non sono più necessarie.
 
-Like other virtual machines, a VM in Azure has an operating system, storage and networking capabilities and can run a wide variety of applications. You can use an image provided by Azure or one of it's partners, or use your own. Examples include various versions, editions and configurations of:
+Come le altre macchine virtuali, una macchina virtuale di Azure dispone di un sistema operativo e di funzionalità di archiviazione e connessione di rete e può eseguire una vasta gamma di applicazioni. È possibile usare un'immagine fornita da Azure o da uno dei relativi partner oppure usare un'immagine personalizzata. Gli esempi includono diverse versioni, edizioni e configurazioni di:
  
-- Linux servers such as Suse, Ubuntu and CentOS
+- Server Linux quali Suse, Ubuntu e CentOS
 - Windows Server 
 - SQL Server
 - BizTalk Server 
 - SharePoint Server
 
-Virtual machines use virtual hard disks (VHDs) to store their operating system (OS) and data. VHDs are also used for the images you can choose from to install an OS. The following figure shows this, as well as two of the tools for creating and managing your VMs.
+Le macchine virtuali usano dischi rigidi virtuali (VHD) per archiviare il sistema operativo e i dati. Tali dischi vengono usati anche per le immagini che è possibile scegliere per installare un sistema operativo. La figura seguente illustra questi usi e due degli strumenti per la creazione e la gestione delle macchine virtuali.
 
-<a name="fig_createvms"></a>
-![vm_diagram](./media/virtual-machines-choose-me-content/diagram.png)
+<a name="fig_createvms"></a> ![vm\_diagram](./media/virtual-machines-choose-me-content/diagram.png)
 
-**Figure: Azure Virtual Machines provides Infrastructure as a Service.**
+**Figura: in Macchine virtuali di Azure è disponibile l'approccio IaaS (infrastruttura distribuita come servizio).**
 
-VMs can be managed using a browser-based portal, command-line tools with support for scripting, or directly through the REST API. Microsoft partners such as RightScale and ScaleXtreme also provide management services that rely on the REST API. 
+Le macchine virtuali possono essere gestite mediante un portale basato su browser, gli strumenti da riga di comando con il supporto per gli script o direttamente tramite l'API REST. Anche i partner Microsoft, ad esempio RightScale e ScaleXtreme, offrono servizi di gestione basati sull'API REST.
 
-Along with the OS, other configuration choices you have with VMs include:
+Oltre al sistema operativo, le altre scelte di configurazione disponibili con le macchine virtuali includono quanto segue:
 
-- The size, which determines factors such as how many disks you can attach and the processing power. Azure offers a wide variety of sizes to support many types of uses. For details, see [Sizes for Virtual Machines](../articles/virtual-machines/virtual-machines-linux-sizes.md).  
-- The Azure region where your new VM will be hosted, such as in the US, Europe, or Asia. 
-- VM extensions, which give your virtual machine additional capabilities, such as running anti-virus or using the Desired State Configuration feature of Windows PowerShell.
+- La dimensione, che determina fattori come il numero di dischi che è possibile collegare e la potenza di elaborazione. Azure offre una vasta gamma di dimensioni per supportare molti tipi di uso. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](../articles/virtual-machines/virtual-machines-linux-sizes.md).  
+- L'area di Azure in cui verrà ospitata la nuova macchina virtuale, ad esempio Stati Uniti, Europa o Asia. 
+- Le estensioni VM, che conferiscono alla macchina virtuale funzionalità aggiuntive, tra cui l'esecuzione di un antivirus o l'uso della funzionalità DSC (Desired State Configuration) di Windows PowerShell.
 
-Other benefits to consider for VMs include:
+Altri vantaggi da considerare per le macchine virtuali sono i seguenti:
 
-**Pay-as-you-go** -- Azure charges an hourly price based on the VM’s size and operating system. For partial hours, Azure charges only for the minutes of use. Storage is priced and charged separately. For details, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
+**Pagamento in base al consumo**. Azure addebita un costo orario in base alla dimensione e al sistema operativo della macchina virtuale. Per le ore parziali, Azure addebita il costo solo dei minuti usati. I costi di archiviazione vengono determinati e addebitati separatamente. Per informazioni dettagliate, vedere la pagina Web relativa ai [prezzi delle macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
-**Resiliency** -- Azure monitors the physical hardware that hosts each running VM. If a physical server running a VM fails, Azure notices this, moves the VM to new hardware and restarts the VM. This process is sometimes called service healing. Azure also protects a virtual machine's data, by keeping redundant copies of the VHDs in blob storage. 
+**Resilienza**. Azure effettua il monitoraggio dell'hardware fisico che ospita ogni macchina virtuale in esecuzione. Se si verifica un problema su un server fisico che esegue una macchina virtuale, Azure rileva il problema, sposta la macchina virtuale su nuovo hardware e quindi la riavvia. Questo processo a volte viene indicato come correzione del servizio. Azure inoltre protegge i dati di una macchina virtuale mantenendo copie ridondanti dei dischi rigidi virtuali nell'archivio BLOB.
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
 
 

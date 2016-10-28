@@ -1,135 +1,130 @@
 <properties
-    pageTitle="Install IIS on your first Windows VM | Microsoft Azure"
-    description="Experiment with your first Windows virtual machine by installing IIS and opening port 80 using the Azure portal."
-    keywords=""
-    services="virtual-machines-windows"
-    documentationCenter=""
-    authors="cynthn"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+	pageTitle="Installare IIS nella prima VM Windows | Microsoft Azure"
+	description="Sperimentare l'uso della prima macchina virtuale Windows tramite l'installazione di IIS e l'apertura della porta 80 con il portale di Azure."
+	keywords=""
+	services="virtual-machines-windows"
+	documentationCenter=""
+	authors="cynthn"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 <tags
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/06/2016"
-    ms.author="cynthn"/>
+	ms.service="virtual-machines-windows"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/06/2016"
+	ms.author="cynthn"/>
+
+# Sperimentare l'installazione di un ruolo in una VM Windows
+	
+Dopo aver creato e reso operativa la prima macchina virtuale (VM), è possibile dedicarsi all'installazione di software e servizi. Per questa esercitazione, verrà usato Server Manager nella VM Windows Server per installare IIS. Si creerà quindi un gruppo di sicurezza di rete tramite il portale di Azure per aprire la porta 80 al traffico IIS.
+
+Se non è ancora stata creata la prima macchina virtuale, tornare all'esercitazione [Creare la prima macchina virtuale Windows nel portale di Azure](virtual-machines-windows-hero-tutorial.md) prima di continuare con questa esercitazione.
+
+## Assicurarsi che la VM sia in esecuzione
+
+1. Aprire il [portale di Azure](https://portal.azure.com).
+2. Scegliere **Macchine virtuali** dal menu Hub. Selezionare la macchina virtuale dall'elenco.
+3. Se lo stato è **Arrestato (deallocato)**, fare clic sul pulsante **Avvia** nel pannello **Informazioni di base** della VM. Quando lo stato indica che la macchina virtuale è **In esecuzione**, è possibile passare al passaggio successivo.
+
+## Connettersi alla macchina virtuale ed eseguire l'accesso
+
+1.	Scegliere **Macchine virtuali** dal menu Hub. Selezionare la macchina virtuale dall'elenco.
+
+3. Nel pannello della macchina virtuale fare clic su **Connetti**. Verrà creato e scaricato un file Remote Desktop Protocol (file con estensione rdp), che è analogo a un collegamento per la connessione alla macchina virtuale. È consigliabile salvare il file sul desktop per semplificare l'accesso. **Aprire** questo file per connettersi alla macchina virtuale.
+
+	![Screenshot del portale di Azure che illustra come connettersi alla VM](./media/virtual-machines-windows-hero-tutorial/connect.png)
+
+4. Verrà visualizzato un avviso che indica che l'autore del file RDP è sconosciuto. Si tratta di una situazione normale. Nella finestra di Desktop remoto, fare clic su **Connetti** per continuare.
+
+	![Screenshot di un avviso relativo a un autore sconosciuto](./media/virtual-machines-windows-hero-tutorial/rdp-warn.png)
+
+5. Nella finestra Sicurezza di Windows immettere il nome utente e la password per l'account locale creato quando è stata creata la VM. Il nome utente viene immesso come *nomevm*&#92;*nomeutente*. Fare quindi clic su **OK**.
+
+	![Screenshot relativo all'immissione del nome della VM, del nome utente e della password](./media/virtual-machines-windows-hero-tutorial/credentials.png)
+ 	
+6.	Verrà visualizzato un avviso che indica che non è possibile verificare il certificato. Si tratta di una situazione normale. Fare clic su **Sì** per verificare l'identità della macchina virtuale e terminare la procedura di accesso.
+
+	![Screenshot che mostra un messaggio sulla verifica dell'identità della VM](./media/virtual-machines-windows-hero-tutorial/cert-warning.png)
 
 
-# <a name="experiment-with-installing-a-role-on-your-windows-vm"></a>Experiment with installing a role on your Windows VM
-    
-Once you have your first virtual machine (VM) up and running, you can move on to installing software and services. For this tutorial, we are going to use Server Manager on the Windows Server VM to install IIS. Then, we will create a Network Security Group (NSG) using the Azure portal to open port 80 to IIS traffic. 
-
-If you haven't already created your first VM, you should go back to [Create your first Windows virtual machine in the Azure portal](virtual-machines-windows-hero-tutorial.md) before continuing with this tutorial.
-
-## <a name="make-sure-the-vm-is-running"></a>Make sure the VM is running
-
-1. Open the [Azure portal](https://portal.azure.com).
-2. On the hub menu, click **Virtual Machines**. Select the virtual machine from the list.
-3. If the status is **Stopped (Deallocated)**, click the **Start** button on the **Essentials** blade of the VM. If the status is **Running**, you can move on to the next step.
-
-## <a name="connect-to-the-virtual-machine-and-sign-in"></a>Connect to the virtual machine and sign in
-
-1.  On the hub menu, click **Virtual Machines**. Select the virtual machine from the list.
-
-3. On the blade for the virtual machine, click **Connect**. This creates and downloads a Remote Desktop Protocol file (.rdp file) that is like a shortcut to connect to your machine. You might want to save the file to your desktop for easy access. **Open** this file to connect to your VM.
-
-    ![Screenshot of the Azure portal showing how to connect to your VM](./media/virtual-machines-windows-hero-tutorial/connect.png)
-
-4. You get a warning that the .rdp is from an unknown publisher. This is normal. In the Remote Desktop window, click **Connect** to continue.
-
-    ![Screenshot of a warning about an unknown publisher](./media/virtual-machines-windows-hero-tutorial/rdp-warn.png)
-
-5. In the Windows Security window, type the username and password for the local account that you created when you created the VM. The username is entered as *vmname*&#92;*username*, then click **OK**.
-
-    ![Screenshot of entering the VM name, user name, and password](./media/virtual-machines-windows-hero-tutorial/credentials.png)
-    
-6.  You get a warning that the certificate cannot be verified. This is normal. Click **Yes** to verify the identity of the virtual machine and finish logging on.
-
-    ![Screenshot showing a message abut verifying the identity of the VM](./media/virtual-machines-windows-hero-tutorial/cert-warning.png)
+In caso di problemi quando si cerca di eseguire la connessione, vedere [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure che esegue Windows](virtual-machines-windows-troubleshoot-rdp-connection.md).
 
 
-If you run in to trouble when you try to connect, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md).
+## Installare IIS nella macchina virtuale
 
+Dopo aver eseguito l'accesso alla macchina virtuale, verrà installato un ruolo del server che permette di fare ulteriori prove.
 
-## <a name="install-iis-on-your-vm"></a>Install IIS on your VM
+1. Aprire **Server Manager** se non è già aperto. Fare clic sul menu **Start** e quindi su **Server Manager**.
+2. In **Server Manager** selezionare **Server locale** nel riquadro a sinistra.
+3. Nel menu selezionare **Gestione** > **Aggiungi ruoli e funzionalità**.
+4. Nella pagina **Tipo di installazione** dell'Aggiunta guidata ruoli e funzionalità scegliere **Installazione basata su ruoli o basata su funzionalità** e quindi fare clic su **Avanti**.
 
-Now that you are logged in to the VM, we will install a server role so that you can experiment more.
+	![Screenshot che illustra la scheda Tipo di installazione dell'Aggiunta guidata ruoli e funzionalità](./media/virtual-machines-windows-hero-tutorial/role-wizard.png)
 
-1. Open **Server Manager** if it isn't already open. Click the **Start** menu, and then click **Server Manager**.
-2. In **Server Manager**, select **Local Server** from the left pane. 
-3. In the menu, select **Manage** > **Add Roles and Features**.
-4. In the Add Roles and Features Wizard, on the **Installation Type** page, choose **Role-based or feature-based installation**, and then click **Next**.
+5. Selezionare la macchina virtuale dal pool di server e fare clic su **Avanti**.
+6. Nella pagina **Ruoli server** selezionare **Server Web (IIS)**.
 
-    ![Screenshot showing the Add Roles and Features Wizard tab for Installation Type](./media/virtual-machines-windows-hero-tutorial/role-wizard.png)
+	![Screenshot che illustra la scheda Ruoli server dell'Aggiunta guidata ruoli e funzionalità](./media/virtual-machines-windows-hero-tutorial/add-iis.png)
 
-5. Select the VM from the server pool and click **Next**.
-6. On the **Server Roles** page, select **Web Server (IIS)**.
+7. Nella finestra popup sull'aggiunta di funzionalità necessarie per IIS accertarsi che sia selezionata l'opzione **Includi strumenti di gestione** e quindi fare clic su **Aggiungi funzionalità**. Quando si chiude la finestra popup, fare clic su **Avanti** nella procedura guidata.
 
-    ![Screenshot showing the Add Roles and Features Wizard tab for Server Roles](./media/virtual-machines-windows-hero-tutorial/add-iis.png)
+	![Screenshot che illustra la finestra popup per la conferma dell'aggiunta del ruolo IIS](./media/virtual-machines-windows-hero-tutorial/confirm-add-feature.png)
 
-7. In the pop-up about adding features needed for IIS, make sure that **Include management tools** is selected and then click **Add Features**. When the pop-up closes, click **Next** in the wizard.
-
-    ![Screenshot showing pop-up to confirm adding the IIS role](./media/virtual-machines-windows-hero-tutorial/confirm-add-feature.png)
-
-8. On the features page, click **Next**.
-9. On the **Web Server Role (IIS)** page, click **Next**. 
-10. On the **Role Services** page, click **Next**. 
-11. On the **Confirmation** page, click **Install**. 
-12. When the installation is complete, click **Close** on the wizard.
+8. Nella pagina delle funzionalità fare clic su **Avanti**.
+9. Nella pagina **Ruolo Server Web (IIS)** fare clic su **Avanti**.
+10. Nella pagina **Servizi ruolo** fare clic su **Avanti**.
+11. Nella pagina **Conferma** fare clic su **Avanti**.
+12. Al termine dell'installazione fare clic su **Chiudi** nella procedura guidata.
 
 
 
-## <a name="open-port-80"></a>Open port 80 
+## Aprire la porta 80 
 
-In order for your VM to accept inbound traffic over port 80, you need to add an inbound rule to the network security group. 
+Perché la macchina virtuale possa accettare il traffico in ingresso attraverso porta 80, è necessario aggiungere una regola in ingresso al gruppo di sicurezza di rete.
 
-1. Open the [Azure portal](https://portal.azure.com).
-2. In **Virtual machines** select the VM that you created.
-3. In the virtual machines settings, select **Network interfaces** and then select the existing network interface.
+1. Aprire il [portale di Azure](https://portal.azure.com).
+2. In **Macchine virtuali** selezionare la VM creata.
+3. Nelle impostazioni della macchina virtuale scegliere **Interfacce di rete** e quindi selezionare l'interfaccia di rete esistente.
 
-    ![Screenshot showing the virtual machine setting for the network interfaces](./media/virtual-machines-windows-hero-tutorial/network-interface.png)
+	![Screenshot che illustra l'impostazione della macchina virtuale per le interfacce di rete](./media/virtual-machines-windows-hero-tutorial/network-interface.png)
 
-4. In **Essentials** for the network interface, click the **Network security group**.
+4. Nel pannello **Informazioni di base** per l'interfaccia di rete fare clic sul **Gruppo di sicurezza di rete**.
 
-    ![Screenshot showing the Essentials section for the network interface](./media/virtual-machines-windows-hero-tutorial/select-nsg.png)
+	![Screenshot che illustra la sezione Informazioni di base per l'interfaccia di rete](./media/virtual-machines-windows-hero-tutorial/select-nsg.png)
 
-5. In the **Essentials** blade for the NSG, you should have one existing default inbound rule for **default-allow-rdp** which allows you to log in to the VM. You will add another inbound rule to allow IIS traffic. Click **Inbound security rule**.
+5. Nel pannello **Informazioni di base** per il gruppo di sicurezza di rete dovrebbe essere già presente una regola in ingresso predefinita per **default-allow-rdp**, che consente di accedere alla macchina virtuale. Aggiungere un'altra regola in ingresso per consentire il traffico IIS. Fare clic su **Regole di sicurezza in ingresso**.
 
-    ![Screenshot showing the Essentials section for the NSG](./media/virtual-machines-windows-hero-tutorial/inbound.png)
+	![Screenshot che illustra la sezione Informazioni di base per il gruppo di sicurezza di rete](./media/virtual-machines-windows-hero-tutorial/inbound.png)
 
-6. In **Inbound security rules**, click **Add**.
+6. In **Regole di sicurezza in ingresso** fare clic su **Aggiungi**.
 
-    ![Screenshot showing the button to add a security rule](./media/virtual-machines-windows-hero-tutorial/add-rule.png)
+	![Screenshot che mostra il pulsante per l'aggiunta di una regola di sicurezza](./media/virtual-machines-windows-hero-tutorial/add-rule.png)
 
-7. In **Inbound security rules**, click **Add**. Type **80** in the port range and make sure **Allow** is selected. When you are done, click **OK**.
+7. In **Regole di sicurezza in ingresso** fare clic su **Aggiungi**. Digitare **80** nell'intervallo di porte e assicurarsi che sia selezionata l'opzione **Consenti**. Al termine, fare clic su **OK**.
 
-    ![Screenshot showing the button to add a security rule](./media/virtual-machines-windows-hero-tutorial/port-80.png)
+	![Screenshot che mostra il pulsante per l'aggiunta di una regola di sicurezza](./media/virtual-machines-windows-hero-tutorial/port-80.png)
  
-For more information about NSGs, inbound and outbound rules, see [Allow external access to your VM using the Azure portal](virtual-machines-windows-nsg-quickstart-portal.md)
+Per altre informazioni sui gruppi di sicurezza di rete e le regole in ingresso e in uscita, vedere [Consentire l'accesso esterno alla VM mediante il portale di Azure](virtual-machines-windows-nsg-quickstart-portal.md).
  
-## <a name="connect-to-the-default-iis-website"></a>Connect to the default IIS website
+## Connettersi al sito Web IIS predefinito
 
-1. In the Azure portal, click **Virtual machines** and then select your VM.
-2. In the **Essentials** blade, copy your **Public IP address**.
+1. Nel portale di Azure fare clic su **Macchine virtuali** e quindi selezionare la macchina virtuale.
+2. Copiare l'**indirizzo IP pubblico** nel pannello **Informazioni di base**.
 
-    ![Screenshot showing where to find the public IP address of your VM](./media/virtual-machines-windows-hero-tutorial/ipaddress.png)
+	![Screenshot che illustra dove trovare l'indirizzo IP pubblico della VM](./media/virtual-machines-windows-hero-tutorial/ipaddress.png)
 
-2. Open a browser and in the address bar, type in your public IP address like this: http://<publicIPaddress> and click **Enter** to go to that address.
-3. Your browser should open the default IIS web page. It looks something like this:
+2. Aprire un browser e digitare l'indirizzo IP pubblico nella barra degli indirizzi come segue: http://<indirizzoIPpubblico>. Quindi premere **INVIO** per passare a tale indirizzo.
+3. Il browser deve aprire la pagina Web IIS predefinita. Verrà visualizzata una schermata simile alla seguente:
 
-    ![Screenshot showing what the default IIS page looks like in a browser](./media/virtual-machines-windows-hero-tutorial/iis-default.png)
+	![Screenshot che mostra l'aspetto della pagina IIS predefinita in un browser](./media/virtual-machines-windows-hero-tutorial/iis-default.png)
 
     
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-- You can also experiment with [attaching a data disk](virtual-machines-windows-attach-disk-portal.md) to your virtual machine. Data disks provide more storage for your virtual machine.
+- È anche possibile provare a [collegare un disco dati](virtual-machines-windows-attach-disk-portal.md) alla macchina virtuale. I dischi dati forniscono più risorse di archiviazione per la macchina virtuale.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

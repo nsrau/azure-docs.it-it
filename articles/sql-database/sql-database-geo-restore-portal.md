@@ -1,55 +1,50 @@
 <properties
-    pageTitle="Restore an Azure SQL Database from a geo-redundant backup (Azure Portal) | Microsoft Azure"
-    description="Geo-Restore an Azure SQL Database from a geo-redundant backup (Azure Portal)."
-    services="sql-database"
-    documentationCenter=""
-    authors="stevestein"
-    manager="jhubbard"
-    editor=""/>
+	pageTitle="Ripristinare un database SQL di Azure da un backup con ridondanza geografica (portale di Azure) | Microsoft Azure"
+	description="Eseguire il ripristino geografico di un database SQL di Azure da un backup con ridondanza geografica (portale di Azure)."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
-    ms.service="sql-database"
-    ms.devlang="NA"
-    ms.date="07/17/2016"
-    ms.author="sstein"
-    ms.workload="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"/>
+	ms.service="sql-database"
+	ms.devlang="NA"
+	ms.date="07/17/2016"
+	ms.author="sstein"
+	ms.workload="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"/>
 
 
-
-# <a name="geo-restore-an-azure-sql-database-from-a-geo-redundant-backup-using-the-azure-portal"></a>Geo-Restore an Azure SQL Database from a geo-redundant backup using the Azure Portal
+# Eseguire il ripristino geografico di un database SQL di Azure da un backup con ridondanza geografica tramite il portale di Azure
 
 
 > [AZURE.SELECTOR]
-- [Overview](sql-database-recovery-using-backups.md)
-- [Geo-Restore: PowerShell](sql-database-geo-restore-powershell.md)
+- [Panoramica](sql-database-recovery-using-backups.md)
+- [Ripristino geografico: PowerShell](sql-database-geo-restore-powershell.md)
 
-This article shows you how to restore your database into a new server using Geo-Restore using the Azure Portal.
+Questo articolo illustra come ripristinare un database in un nuovo server con il ripristino geografico tramite il portale di Azure.
 
-## <a name="select-the-database-to-restore"></a>Select the database to restore
+## Selezionare il database da ripristinare
 
-To restore a database in the Azure Portal do the following:
+Per ripristinare un database nel portale di Azure, seguire questa procedura:
 
-1.  Open the [Azure portal](https://portal.azure.com).
-2.  On the left side of the screen select **New** > **Data and Storage** > **SQL Database**.
-3.  Select **Backup** as the source and then select the geo-redundant backup you want to recover from.
+1.	Aprire il [portale di Azure](https://portal.azure.com).
+2.  Sul lato sinistro della schermata fare clic su **Nuovo** > **Dati e archiviazione** > **Database SQL**.
+3.  Selezionare **Backup** come origine, quindi selezionare il backup con ridondanza geografica da ripristinare.
 
-    ![Restore an Azure SQL database](./media/sql-database-geo-restore-portal/geo-restore.png)
+    ![Ripristinare un database SQL di Azure](./media/sql-database-geo-restore-portal/geo-restore.png)
 
-4.  Specify a database name, a server you want to restore the database into and then click Create:
-
-
-## <a name="next-steps"></a>Next steps
-
-- For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
-- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
-- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
-- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
-- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)
+4.  Specificare un nome di database, un server in cui si vuole ripristinare il database e quindi fare clic su Crea:
 
 
+## Passaggi successivi
 
-<!--HONumber=Oct16_HO2-->
+- Per la panoramica e gli scenari della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md)
+- Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md)
+- Per altre informazioni sull'uso dei backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md)
+- Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md)
+- Per altre informazioni sull'uso dei backup automatici per l'archiviazione, vedere [Copiare un database SQL di Azure](sql-database-copy.md)
 
-
+<!---HONumber=AcomDC_0727_2016-->

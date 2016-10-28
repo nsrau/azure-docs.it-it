@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Troubleshooting Docker Client Errors on Windows Using Visual Studio | Microsoft Azure"
-   description="Troubleshoot problems you encounter when using Visual Studio to create and deploy web apps to Docker on Windows by using Visual Studio."
+   pageTitle="Risoluzione dei problemi client Docker in Windows con Visual Studio | Microsoft Azure"
+   description="Risoluzione dei problemi che si verificano quando si usa Visual Studio per creare e distribuire app Web in Docker su Windows mediante Visual Studio."
    services="azure-container-service"
    documentationCenter="na"
    authors="mlearned"
@@ -15,42 +15,39 @@
    ms.date="06/08/2016"
    ms.author="allclark" />
 
+# Risoluzione dei problemi di sviluppo di Docker in Visual Studio
 
-# <a name="troubleshooting-visual-studio-docker-development"></a>Troubleshooting Visual Studio Docker Development
-
-When working with Visual Studio Tools for Docker Preview, you may encounter some problems due to the preview nature.
-The following are some common issues and resolutions.
+Quando si usa l'anteprima degli Strumenti di Visual Studio per Docker, si possono verificare alcuni problemi a causa della natura dell'anteprima. Di seguito vengono riportati alcuni problemi comuni e le soluzioni relative.
 
 
-## <a name="unable-to-validate-volume-mapping"></a>Unable to validate volume mapping
-Volume mapping is required to share the source code and binaries of your application with the app folder in the container.  Specific volume mappings are contained within the docker-compose.dev.debug.yml and docker-compose.dev.release.yml files. As files are changed on your host machine, the containers reflect these changes in a similar folder structure.
+## Non è possibile convalidare il mapping del volume
+Il mapping del volume è necessario per condividere il codice sorgente e i file binari dell'applicazione con la cartella dell'app nel contenitore. Mapping del volume specifici sono contenuti all'interno dei file docker-compose.dev.debug.yml e docker-compose.dev.release.yml. Dal momento che i file vengono modificati nel computer host, i contenitori riflettono queste modifiche in una struttura di cartelle simile.
 
-To enable volume mapping, open **Settings...** from the Docker For Windows "moby" tray icon and then select the **Shared Drives** tab.  Ensure that the drive letter which hosts your project as well as the drive letter where %USERPROFILE% resides are shared by checking them, and then clicking **Apply**.
+Per abilitare il mapping del volume, aprire **Settings** (Impostazioni) dall'icona con la balena di Docker per Windows nell'area di notifica e quindi selezionare la scheda **Shared Drives** (Unità condivise). Assicurarsi che la lettera dell'unità che ospita il progetto e la lettera dell'unità in cui si trova %USERPROFILE% siano condivise selezionandole e quindi facendo clic su **Apply** (Applica).
 
-To test if volume mapping is functioning, once the drive(s) have been shared, either Rebuild and F5 from within Visual Studio or try the following from a command prompt:
+Per verificare il corretto funzionamento del mapping del volume dopo aver condiviso le unità, selezionare Ricompila e premere F5 da Visual Studio oppure provare l'operazione seguente da un prompt dei comandi:
 
-*In a Windows command prompt*
+*In un prompt dei comandi di Windows*
 
-*[Note: This assumes your Users folder is located on the "C" drive and that it has been shared.  Update as necessary if you have shared a different drive]*
+*[Nota: presuppone che la cartella Utenti si trovi nell'unità "C" e che sia stata condivisa. Se è stata condivisa un'unità diversa, aggiornare in base alle esigenze]*
 ```
 docker run -it -v /c/Users/Public:/wormhole busybox
 ```
 
-*In the Linux container*
+*Nel contenitore Linux*
 
 ```
 / # ls
 ```
 
-You should see a directory listing from the Users/Public folder.
-If no files are displayed, and your /c/Users/Public folder isn't empty, volume mapping is not configured properly. 
+Verrà visualizzato un elenco di cartelle dalla directory Users/Public. Se non vengono visualizzati file e la cartella in /c/Users/Public non è vuota, il mapping del volume non è configurato correttamente.
 
 ```
 bin       etc       proc      sys       usr       wormhole
 dev       home      root      tmp       var
 ```
 
-Change into the wormhole directory to see the contents of the `/c/Users/Public` directory:
+Passare alla directory wormhole per visualizzare il contenuto della directory `/c/Users/Public`:
 
 ```
 / # cd wormhole/
@@ -61,25 +58,25 @@ Documents        Libraries        Pictures
 /wormhole #
 ```
 
-**Note:** *When working with Linux VMs, the container file system is case sensitive.*
+**Nota:** *quando si usano le macchine virtuali Linux, il file system del contenitore fa distinzione tra maiuscole e minuscole.*
 
-##<a name="build-:-"prepareforbuild"-task-failed-unexpectedly."></a>Build : "PrepareForBuild" task failed unexpectedly.
+##Compilazione: errore imprevisto dell'attività "PrepareForBuild".
 
-Microsoft.DotNet.Docker.CommandLine.ClientException: An error occurred trying to connect:
+Microsoft.DotNet.Docker.CommandLine.ClientException: si è verificato un errore nel tentativo di connessione:
 
-Verify the default docker host is running. Open a command prompt and execute:
+Verificare che l'host Docker predefinito sia in esecuzione. Aprire un prompt dei comandi ed eseguire questo comando:
 
 ```
 docker info
 ```
 
-If this returns an error then attempt to start the **Docker For Windows** desktop app.  If the desktop app is running then the **moby** icon in the tray should be visible. Right click on the tray icon and open **Settings**.  Click on the **Reset** tab and then **Restart Docker..**.
+Se viene restituito un errore, provare ad avviare l'applicazione desktop **Docker per Windows**. Se l'applicazione desktop è in esecuzione, l'icona della **balena** nell'area di notifica dovrebbe essere visibile. Fare clic con il pulsante destro del mouse sull'icona nell'area di notifica e scegliere **Settings** (Impostazioni). Fare clic sulla scheda **Reset** (Reimposta) e quindi su **Restart Docker** (Riavvia Docker).
 
-##<a name="manually-upgrading-from-version-0.31-to-0.40"></a>Manually upgrading from version 0.31 to 0.40
+##Aggiornamento manuale dalla versione 0.31 alla versione 0.40
 
 
-1. Backup the project
-1. Delete the following files in the project:
+1. Eseguire il backup del progetto
+1. Eliminare i file seguenti dal progetto:
 
     ```
       Dockerfile
@@ -92,7 +89,7 @@ If this returns an error then attempt to start the **Docker For Windows** deskto
       Properties\Docker.targets
     ```
 
-1. Close the Solution and remove the following lines from the .xproj file:
+1. Chiudere la soluzione e rimuovere le righe seguenti dal file con estensione xproj:
 
     ```
       <DockerToolsMinVersion>0.xx</DockerToolsMinVersion>
@@ -100,8 +97,8 @@ If this returns an error then attempt to start the **Docker For Windows** deskto
       <Import Project="Properties\Docker.targets" />
     ```
 
-1. Reopen the Solution
-1. Remove the following lines from the Properties\launchSettings.json file:
+1. Riaprire la soluzione
+1. Rimuovere le righe seguenti dal file Properties\\launchSettings.json:
 
     ```
       "Docker": {
@@ -110,7 +107,7 @@ If this returns an error then attempt to start the **Docker For Windows** deskto
       }
     ```
 
-1. Remove the following files related to Docker from project.json in the publishOptions:
+1. Rimuovere i file seguenti relativi a Docker da project.json in publishOptions:
 
     ```
     "publishOptions": {
@@ -125,25 +122,21 @@ If this returns an error then attempt to start the **Docker For Windows** deskto
     },
     ```
 
-1. Uninstall the previous version and install Docker Tools 0.40, and then **Add->Docker Support** again from the context menu for your ASP.Net Core Web or Console Application. This will add the new required Docker artifacts back to your project. 
+1. Disinstallare la versione precedente e installare Docker Tools 0.40, quindi selezionare di nuovo **Add->Docker Support** (Aggiungi->Supporto per Docker) dal menu di scelta rapida per l'applicazione console o Web ASP.Net Core. I nuovi elementi Docker richiesti verranno aggiunti nuovamente al progetto.
 
-## <a name="an-error-dialog-occurs-when-attempting-to-**add->docker-support**-or-debug-(f5)-an-asp.net-core-application-in-a-container"></a>An error dialog occurs when attempting to **Add->Docker Support** or Debug (F5) an ASP.NET Core Application in a container
+## Verrà visualizzata una finestra di dialogo di errore quando si seleziona **Add->Docker Support** o si prova a eseguire il debug (F5) per un'applicazione ASP.NET Core in un contenitore
 
-We have occasionally seen after uninstalling and installing extensions, Visual Studio's MEF (Managed Extensibility Framework) cache can become corrupt. When this occurs it can cause various error dialogs when adding Docker Support and/or attempting to run or Debug (F5) your ASP.NET Core Application. As a temporary workaround, execute the following steps to delete and regenerate the MEF cache.
+In alcuni casi si è osservato che la cache MEF (Managed Extensibility Framework) di Visual Studio può risultare danneggiata dopo la disinstallazione e l'installazione delle estensioni. In questo caso possono essere visualizzate diverse finestre di dialogo di errore quando si aggiunge il supporto per Docker e/o si prova a eseguire l'applicazione ASP.NET Core o il relativo debug (F5). Come soluzione temporanea, eseguire questa procedura per eliminare e rigenerare la cache MEF.
 
-1. Close all instances of Visual Studio
-1. Open %USERPROFILE%\AppData\Local\Microsoft\VisualStudio\14.0\
-1. Delete the following folders
+1. Chiudere tutte le istanze di Visual Studio
+1. Aprire %USERPROFILE%\\AppData\\Local\\Microsoft\\VisualStudio\\14.0\\
+1. Eliminare le cartelle seguenti
      ```
        ComponentModelCache
        Extensions
        MEFCacheBackup
     ```
-1. Open Visual Studio
-1. Attempt the scenario again 
+1. Aprire Visual Studio.
+1. Provare a eseguire di nuovo lo scenario
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

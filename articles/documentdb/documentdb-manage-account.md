@@ -1,95 +1,92 @@
 <properties
-    pageTitle="Manage a DocumentDB account via the Azure Portal | Microsoft Azure"
-    description="Learn how to manage your DocumentDB account via the Azure Portal. Find a guide on using the Azure Portal to view, copy, delete and access accounts."
-    keywords="Azure Portal, documentdb, azure, Microsoft azure"
-    services="documentdb"
-    documentationCenter=""
-    authors="kirillg"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	pageTitle="Gestire un account DocumentDB usando il portale di Azure | Microsoft Azure"
+	description="Informazioni su come gestire il proprio account DocumentDB tramite il portale di Azure. Trovare una guida sull'uso del portale di Azure per visualizzare, copiare, eliminare e accedere agli account."
+	keywords="Portale di Azure, documentdb, azure, Microsoft azure"
+	services="documentdb"
+	documentationCenter=""
+	authors="AndrewHoh"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/24/2016"
-    ms.author="kirillg"/>
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2016"
+	ms.author="anhoh"/>
+
+# Come gestire un account DocumentDB
+
+Informazioni su come impostare la coerenza globale, usare le chiavi ed eliminare un account DocumentDB nel portale di Azure.
+
+## <a id="consistency"></a>Gestire le impostazioni di coerenza di DocumentDB
+
+La scelta del livello di coerenza giusto dipende dalla semantica dell'applicazione. È consigliabile acquisire familiarità con i livelli di coerenza disponibili in DocumentDB leggendo [Utilizzo dei livelli di coerenza per ottimizzare la disponibilità e le prestazioni di DocumentDB][consistency]. DocumentDB offre garanzia su coerenza, disponibilità e prestazioni a ogni livello di coerenza disponibile per l'account di database. La configurazione dell'account di database con un forte livello di coerenza richiede che i dati vengano limitati a una singola area di Azure, senza disponibilità globale. D'altra parte, i livelli di coerenza ampi (obsolescenza associata, sessione o finale) consentono di associare tutte le aree di Azure desiderate con l'account di database. La semplice procedura seguente mostra come selezionare il livello di coerenza predefinito per l'account di database.
+
+### Per specificare la coerenza predefinita per un account DocumentDB
+
+1. Nel [portale di Azure](https://portal.azure.com/) accedere all'account DocumentDB.
+2. Nel pannello dell'account fare clic su **Coerenza predefinita**.
+3. Nel pannello **Coerenza predefinita** selezionare il nuovo livello di coerenza e fare clic su **Salva**. ![Sessione coerenza predefinita][5]
+
+## <a id="keys"></a>Visualizzare, copiare e rigenerare le chiavi di accesso
+Quando si crea un account DocumentDB, il servizio genera due chiavi di accesso principali che possono essere usate per l'autenticazione quando si accede all'account DocumentDB. Fornendo due chiavi di accesso, DocumentDB consente di rigenerare le chiavi senza interruzioni dell'account DocumentDB.
+
+Nel [portale di Azure](https://portal.azure.com/) accedere al pannello **Chiavi** dal menu delle risorse nel pannello **Account DocumentDB** per visualizzare, copiare e rigenerare le chiavi di accesso usate per accedere all'account DocumentDB.
+
+![Schermata del portale di Azure, pannello delle chiavi](./media/documentdb-manage-account/keys.png)
+
+> [AZURE.NOTE] Il pannello **Chiavi** include anche le stringhe di connessione primaria e secondaria che possono essere usate per connettersi al proprio account dall'[Utilità di migrazione dati](documentdb-import-data.md).
+
+In questo pannello sono anche disponibili chiavi di sola lettura. Lettura e query sono operazioni di sola lettura, a differenza di creazione, eliminazione e sostituzione.
+
+### Copiare una chiave di accesso nel portale di Azure
+
+Nel pannello **Keys** fare clic sul pulsante **Copy** a destra della chiave da copiare.
+
+![Visualizzare e copiare una chiave di accesso nel portale di Azure, pannello delle chiavi](./media/documentdb-manage-account/copykeys.png)
+
+### Per rigenerare le chiavi di accesso
+
+È consigliabile modificare periodicamente le chiavi di accesso all'account DocumentDB per mantenere più sicure le connessioni. Vengono assegnate due chiavi di accesso per consentire di mantenere le connessioni all'account DocumentDB con una delle due chiavi mentre si rigenera l'altra.
+
+> [AZURE.WARNING] La rigenerazione delle chiavi di accesso influisce su tutte le applicazioni che dipendono dalla chiave corrente. Per usare la nuova chiave è necessario aggiornare tutti i client che usano la chiave di accesso per accedere all'account DocumentDB.
+
+Se si dispone di applicazioni o servizi cloud che usano l'account DocumentDB e si rigenerano le chiavi, si perderanno le connessioni, a meno che non si registrino le chiavi. I passaggi seguenti illustrano il processo necessario per la registrazione delle chiavi.
+
+1. Aggiornare la chiave di accesso nel codice dell'applicazione in modo che faccia riferimento alla chiave di accesso secondaria dell'account DocumentDB.
+2. Rigenerare la chiave di accesso primaria per l'account DocumentDB. Nel [portale di Azure](https://portal.azure.com/) accedere all'account DocumentDB.
+3. Nel pannello **Account DocumentDB** fare clic su **Chiavi**.
+4. Nel pannello **Chiavi** fare clic sul comando per rigenerare e quindi su **OK** per confermare che si vuole generare una nuova chiave. ![Per rigenerare le chiavi di accesso](./media/documentdb-manage-account/regenerate-keys.png)
+
+5. Dopo aver verificato che la nuova chiave sia disponibile per l'utilizzo (circa 5 minuti dopo la rigenerazione), aggiornare la chiave di accesso nel codice dell'applicazione in modo che faccia riferimento alla nuova chiave di accesso primaria.
+6. Rigenerare la chiave di accesso secondaria.
+
+    ![Per rigenerare le chiavi di accesso](./media/documentdb-manage-account/regenerate-secondary-key.png)
 
 
-# <a name="how-to-manage-a-documentdb-account"></a>How to manage a DocumentDB account
+> [AZURE.NOTE] Potrebbero trascorrere diversi minuti prima che una chiave appena generata possa essere usata per accedere all'account DocumentDB.
 
-Learn how to set global consistency, work with keys, and delete a DocumentDB account in the Azure portal.
+## <a id="delete"></a> Eliminare un account DocumentDB
+Per rimuovere un account DocumentDB non più usato dal portale di Azure, usare il comando **Elimina account** nel pannello **Account DocumentDB**.
 
-## <a name="<a-id="consistency"></a>manage-documentdb-consistency-settings"></a><a id="consistency"></a>Manage DocumentDB consistency settings
-
-Selecting the right consistency level depends on the semantics of your application. You should familiarize yourself with the available consistency levels in DocumentDB by reading [Using consistency levels to maximize availability and performance in DocumentDB] [consistency]. DocumentDB provides consistency, availability, and performance guarantees, at every consistency level available for your database account. Configuring your database account with a consistency level of Strong requires that your data is confined to a single Azure region and not globally available. On the other hand, the relaxed consistency levels - bounded staleness, session or eventual enable you to associate any number of Azure regions with your database account. The following simple steps show you how to select the default consistency level for your database account. 
-
-### <a name="to-specify-the-default-consistency-for-a-documentdb-account"></a>To specify the default consistency for a DocumentDB account
-
-1. In the [Azure portal](https://portal.azure.com/), access your DocumentDB account.
-2. In the account blade, click **Default consistency**.
-3. In the **Default Consistency** blade, select the new consistency level and click **Save**.
-    ![Default consistency session][5]
-
-## <a name="<a-id="keys"></a>view,-copy,-and-regenerate-access-keys"></a><a id="keys"></a>View, copy, and regenerate access keys
-When you create a DocumentDB account, the service generates two master access keys that can be used for authentication when the DocumentDB account is accessed. By providing two access keys, DocumentDB enables you to regenerate the keys with no interruption to your DocumentDB account. 
-
-In the [Azure portal](https://portal.azure.com/), access the **Keys** blade from the resource menu on the **DocumentDB account** blade to view, copy, and regenerate the access keys that are used to access your DocumentDB account.
-
-![Azure Portal screenshot, Keys blade](./media/documentdb-manage-account/keys.png)
-
-> [AZURE.NOTE] The **Keys** blade also includes primary and secondary connection strings that can be used to connect to your account from the [Data Migration Tool](documentdb-import-data.md).
-
-Read-only keys are also available on this blade. Reads and queries are read-only operations, while creates, deletes, and replaces are not.
-
-### <a name="copy-an-access-key-in-the-azure-portal"></a>Copy an access key in the Azure Portal
-
-On the **Keys** blade, click the **Copy** button to the right of the key you wish to copy.
-
-![View and copy an access key in the Azure Portal, Keys blade](./media/documentdb-manage-account/copykeys.png)
-
-### <a name="regenerate-access-keys"></a>Regenerate access keys
-
-You should change the access keys to your DocumentDB account periodically to help keep your connections more secure. Two access keys are assigned to enable you to maintain connections to the DocumentDB account using one access key while you regenerate the other access key.
-
-> [AZURE.WARNING] Regenerating your access keys affects any applications that are dependent on the current key. All clients that use the access key to access the DocumentDB account must be updated to use the new key.
-
-If you have applications or cloud services using the DocumentDB account, you will lose the connections if you regenerate keys, unless you roll your keys. The following steps outline the process involved in rolling your keys.
-
-1. Update the access key in your application code to reference the secondary access key of the DocumentDB account.
-2. Regenerate the primary access key for your DocumentDB account. In the [Azure Portal](https://portal.azure.com/), access your DocumentDB account.
-3. In the **DocumentDB Account** blade, click **Keys**.
-4. On the **Keys** blade, click the regenerate button, then click **Ok** to confirm that you want to generate a new key.
-    ![Regenerate access keys](./media/documentdb-manage-account/regenerate-keys.png)
-
-5. Once you have verified that the new key is available for use (approximately 5 minutes after regeneration), update the access key in your application code to reference the new primary access key.
-6. Regenerate the secondary access key.
-
-    ![Regenerate access keys](./media/documentdb-manage-account/regenerate-secondary-key.png)
+![Come eliminare un account di DocumentDB nel portale di Azure](./media/documentdb-manage-account/deleteaccount.png)
 
 
-> [AZURE.NOTE] It can take several minutes before a newly generated key can be used to access your DocumentDB account.
+1. Nel [portale di Azure](https://portal.azure.com/) accedere all'account DocumentDB da eliminare.
+2. Nel pannello **Account DocumentDB** fare clic su **Altro** e quindi su **Elimina account**. In alternativa, fare clic con il pulsante destro del mouse sul nome del database e selezionare **Elimina account**.
+3. Nel pannello di conferma risultante digitare il nome dell'account DocumentDB per confermarne l'eliminazione.
+4. Fare clic sul pulsante **Elimina**.
 
-## <a name="<a-id="delete"></a>-delete-a-documentdb-account"></a><a id="delete"></a> Delete a DocumentDB account
-To remove a DocumentDB account from the Azure Portal that you are no longer using, use the **Delete Account** command on the **DocumentDB account** blade.
+![Come eliminare un account di DocumentDB nel portale di Azure](./media/documentdb-manage-account/delete-account-confirm.png)
 
-![How to delete a DocumentDB account in the Azure Portal](./media/documentdb-manage-account/deleteaccount.png)
+## <a id="next"></a>Passaggi successivi
 
+Informazioni su come [iniziare a usare l'account DocumentDB](http://go.microsoft.com/fwlink/p/?LinkId=402364).
 
-1. In the [Azure portal](https://portal.azure.com/), access the DocumentDB account you wish to delete.
-2. On the **DocumentDB account** blade, click **More**, and then click **Delete Account**. Or, right-click the name of the database, and click **Delete Account**.
-3. On the resulting confirmation blade, type the DocumentDB account name to confirm that you want to delete the account.
-4. Click the **Delete** button.
-
-![How to delete a DocumentDB account in the Azure Portal](./media/documentdb-manage-account/delete-account-confirm.png)
-
-## <a name="<a-id="next"></a>next-steps"></a><a id="next"></a>Next steps
-
-Learn how to [get started with your DocumentDB account](http://go.microsoft.com/fwlink/p/?LinkId=402364).
-
-To learn more about DocumentDB, see the Azure DocumentDB documentation on [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
+Per altre informazioni su DocumentDB, vedere la documentazione relativa ad Azure DocumentDB in [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
 
 
 <!--Image references-->
@@ -103,11 +100,7 @@ To learn more about DocumentDB, see the Azure DocumentDB documentation on [azure
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/en-us/regions/#services
-[offers]: https://azure.microsoft.com/en-us/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/regions/#services
+[offers]: https://azure.microsoft.com/pricing/details/documentdb/
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

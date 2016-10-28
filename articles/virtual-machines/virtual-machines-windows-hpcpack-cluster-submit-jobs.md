@@ -1,6 +1,6 @@
 <properties
- pageTitle="Submit jobs to an HPC Pack cluster in Azure | Microsoft Azure"
- description="Learn how to set up an on-premises computer to submit jobs to an HPC Pack cluster in Azure"
+ pageTitle="Inviare processi a un cluster HPC Pack in Azure | Microsoft Azure"
+ description="Informazioni su come configurare un computer locale per l'invio di processi a un cluster HPC Pack in Azure"
  services="virtual-machines-windows"
  documentationCenter=""
  authors="dlepow"
@@ -16,117 +16,116 @@ ms.service="virtual-machines-windows"
  ms.date="07/15/2016"
  ms.author="danlep"/>
 
-
-# <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>Submit HPC jobs from an on-premises computer to an HPC Pack cluster deployed in Azure
+# Inviare i processi HPC da un computer locale a un cluster HPC Pack distribuito in Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Configure an on-premises client computer running Windows to run HPC Pack job submission tools that communicate over HTTPS with an HPC Pack cluster in Azure. This provides a straightforward, flexible way for a variety of cluster users to submit jobs to a cloud-based HPC Pack cluster without needing to connect directly to the head node VM or access an Azure subscription to run job submission tools.
+Configurare un computer client locale che esegue Windows per l'esecuzione di strumenti di invio di processi di HPC Pack che comunicano tramite HTTPS con un cluster HPC Pack in Azure. Per molti utenti cluster questa procedura rappresenta un modo semplice e flessibile per inviare processi a un cluster HPC Pack basato sul cloud senza la necessità di connettersi direttamente alla VM del nodo head o di accedere a una sottoscrizione di Azure per eseguire strumenti di invio di processi.
 
-![Submit a job to a cluster in Azure][jobsubmit]
+![Invio di un processo a un cluster in Azure][jobsubmit]
 
-## <a name="prerequisites"></a>Prerequisites
+## Prerequisiti
 
-* **HPC Pack head node deployed in an Azure VM** - We recommend that you use automated tools such as an [Azure quickstart template](https://azure.microsoft.com/documentation/templates/) or an [Azure PowerShell script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) to deploy the head node and cluster. You will need the DNS name of the head node and the credentials of a cluster administrator to complete the steps in this article.
+* **Nodo head HPC Pack distribuito in una VM di Azure**: si consiglia l'uso di strumenti automatizzati, ad esempio un [modello di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/) o uno [script di Azure PowerShell](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) per distribuire il nodo head e il cluster. Per completare la procedura descritta in questo articolo, sono necessari il nome DNS del nodo head e le credenziali di un amministratore del cluster.
 
-* **Client computer** - You'll need a Windows or Windows Server client computer that can run HPC Pack client utilities (see [system requirements](https://technet.microsoft.com/library/dn535781.aspx)). If you only want to use the HPC Pack web portal or REST API to submit jobs, you can use any client computer of your choice.
+* **Computer client**: è necessario un computer client Windows o Windows server in grado di eseguire le utilità client di HPC Pack (vedere i [requisiti di sistema](https://technet.microsoft.com/library/dn535781.aspx)). Se si prevede di inviare i processi solo tramite il portale Web di HPC Pack o l'API REST, è possibile usare un computer client qualsiasi.
 
-* **HPC Pack installation media** - To install the HPC Pack client utilities, the free installation package for the latest version of HPC Pack (HPC Pack 2012 R2) is available from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=328024). Make sure that you download the same version of HPC Pack that is installed on the head node VM.
+* **Supporto di installazione di HPC Pack**: per installare il client di HPC Pack, è disponibile gratuitamente il pacchetto di installazione dell'ultima versione di HPC Pack (HPC Pack 2012 R2) è disponibile per il download nell'[Area download Microsoft](http://go.microsoft.com/fwlink/?LinkId=328024). Verificare di avere scaricato la stessa versione di HPC Pack installata nella VM del nodo head.
 
-## <a name="step-1:-install-and-configure-the-web-components-on-the-head-node"></a>Step 1: Install and configure the web components on the head node
+## Passaggio 1: installare e configurare i componenti Web nel nodo head
 
-To enable a REST interface to submit jobs to the cluster over HTTPS, install and configure the HPC Pack web components on the HPC Pack head node, if they are not already configured. You first install the web components by running the HpcWebComponents.msi installation file. Then, configure the components by running the HPC PowerShell script **Set-HPCWebComponents.ps1**.
+Per consentire a un'interfaccia REST di inviare processi al cluster tramite HTTPS, è necessario installare e configurare i componenti Web di HPC Pack nel nodo head HPC Pack. Installare innanzitutto i componenti Web eseguendo il file di installazione HpcWebComponents.msi. Configurare quindi i componenti eseguendo lo script di HPC PowerShell **Set-HPCWebComponents.ps1**.
 
-For detailed procedures, see [Install the Microsoft HPC Pack Web Components](http://technet.microsoft.com/library/hh314627.aspx).
+Per le procedure dettagliate, vedere [Installare i componenti Web di Microsoft HPC Pack](http://technet.microsoft.com/library/hh314627.aspx).
 
->[AZURE.TIP] Certain Azure quickstart templates for HPC Pack install and configure the web components automatically. If you use the [HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) to create the cluster, you can optionally install and configure the web web components as part of the deployment.
+>[AZURE.TIP] Alcuni modelli di avvio rapido di Azure per HPC Pack installano e configurano i componenti Web automaticamente. Se si usa lo [script di distribuzione IaaS di HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) per creare il cluster, è possibile scegliere di installare e configurare i componenti Web durante la distribuzione.
 
-**To install the web components**
+**Per installare i componenti Web**
 
-1. Connect to the head node VM by using the credentials of a cluster administrator.
+1. Connettersi alla macchina virtuale del nodo head usando le credenziali di amministratore del cluster.
 
-2. From the HPC Pack Setup folder, run HpcWebComponents.msi on the head node.
+2. Dalla cartella di installazione di HPC Pack, eseguire HpcWebComponents.msi nel nodo head.
 
-3. Follow the steps in the wizard to install the web components
+3. Seguire i passaggi della procedura guidata per installare i componenti Web
 
-**To configure the web components**
+**Per configurare i componenti Web**
 
-1. On the head node, start HPC PowerShell as an administrator.
+1. Nel nodo head avviare HPC PowerShell come amministratore.
 
-2. To change directory to the location of the configuration script, type the following command:
+2. Per spostarsi sul percorso dello script di configurazione, digitare il comando seguente:
 
     ```
     cd $env:CCP_HOME\bin
     ```
-3. To configure the REST interface and start the HPC Web Service, type the following command:
+3. Per configurare l'interfaccia REST e avviare il servizio Web HPC, digitare il comando seguente:
 
     ```
     .\Set-HPCWebComponents.ps1 –Service REST –enable
     ```
 
-4. When prompted to select a certificate, choose the certificate that corresponds to the public DNS name of the head node. For example, if you deploy the head node VM using the classic deployment model, the certificate name is of the form CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net. If you use the Resource Manager deployment model, the certificate name is of the form CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.cloudapp.azure.com.
+4. Quando viene richiesto di selezionare un certificato, scegliere il certificato corrispondente al nome DNS pubblico del nodo head. Ad esempio, se si distribuisce la VM del nodo head utilizzando il modello di distribuzione classica, il nome del certificato appare nel formato CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net. Se si usa un modello di distribuzione di Resource Manager, il nome del certificato appare nel formato CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.cloudapp.azure.
 
-    >[AZURE.NOTE] You need to select this certificate to submit jobs later to the head node from an on-premises computer. Don't select or configure a certificate that corresponds to the computer name of the head node in the Active Directory domain (for example, CN=*MyHPCHeadNode.HpcAzure.local*).
+    >[AZURE.NOTE] È necessario selezionare questo certificato per inviare processi al nodo head da un computer locale in un momento successivo. Non selezionare né configurare un certificato corrispondente al nome computer del nodo head nel dominio di Active Directory, ad esempio CN=*MyHPCHeadNode.HpcAzure.local*.
 
-5. To configure the web portal for job submission, type the following command:
+5. Per configurare il portale Web per l'invio di processi, digitare il comando seguente:
 
     ```
     .\Set-HPCWebComponents.ps1 –Service Portal -enable
     ```
-6. After the script completes, stop and restart the HPC Job Scheduler Service by typing the following:
+6. Al termine dello script, arrestare e riavviare il Servizio utilità di pianificazione processi HPC digitando i comandi seguenti:
 
     ```
     net stop hpcscheduler
     net start hpcscheduler
     ```
 
-## <a name="step-2:-install-the-hpc-pack-client-utilities-on-an-on-premises-computer"></a>Step 2: Install the HPC Pack client utilities on an on-premises computer
+## Passaggio 2: installare le utilità client di HPC Pack in un computer locale
 
-If you want to install the HPC Pack client utilities, download the HPC Pack setup files (full installation) from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=328024) to the client computer. When you begin the installation, choose the setup option for the HPC Pack client utilities.
+Se si vogliono scaricare le utilità client di HPC Pack (installazione completa) dall'[Area download Microsoft](http://go.microsoft.com/fwlink/?LinkId=328024) nel computer client. All'inizio della procedura di installazione, scegliere l'opzione di installazione per le utilità client di HPC Pack.
 
-To use the HPC Pack client tools to submit jobs to the head node VM, you'll also need to export a certificate from the head node and install it on the client computer. You'll need the certificate to be in .CER format.
+Per usare gli strumenti client di HPC Pack per inviare processi alla macchina virtuale del nodo head, è necessario esportare un certificato dal nodo head e installarlo nel computer client. Il certificato deve essere in formato CER.
 
-**To export the certificate from the head node**
+**Per esportare il certificato dal nodo head**
 
-1. On the head node, add the Certificates snap-in to a Microsoft Management Console for the Local Computer account. For steps to add the snap-in, see [Add the Certificates Snap-in to an MMC](https://technet.microsoft.com/library/cc754431.aspx).
+1. Nel nodo head aggiungere lo snap-in Certificati a Microsoft Management Console per l'account computer locale. Per la procedura che illustra come aggiungere lo snap-in, vedere [Aggiungere lo snap-in Certificati a MMC](https://technet.microsoft.com/library/cc754431.aspx).
 
-2. In the console tree, expand **Certificates – Local Computer** > **Personal**, and then click **Certificates**.
+2. Nell'albero della console espandere **Certificati - Computer locale** > **Personale** e quindi fare clic su **Certificati**.
 
-3. Locate the certificate that you configured for the HPC Pack web components in [Step 1: Install and configure the web components on the head node](#step-1:-install-and-configure-the-web-components-on-the-head-node) (for example, CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net).
+3. Individuare il certificato configurato per i componenti Web di HPC Pack in [Passaggio 1: Installare e configurare i componenti Web nel nodo head](#step-1:-install-and-configure-the-web-components-on-the-head-node), CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net.
 
-4. Right-click the certificate, click **All Tasks**, and then click **Export**.
+4. Fare clic con il pulsante destro del mouse sul certificato, scegliere **Tutte le attività** e quindi fare clic su **Esporta**.
 
-5. In the Certificate Export Wizard, click **Next**, and ensure that **No, do not export the private key** is selected.
+5. In Esportazione guidata certificati fare clic su **Avanti**, quindi assicurarsi che l'opzione **No, non esportare la chiave privata** sia selezionata.
 
-6. Follow the remaining steps of the wizard to export the certificate in DER encoded binary X.509 (.CER) format.
-
-
-**To import the certificate on the client computer**
+6. Seguire i passaggi rimanenti della procedura guidata per esportare il certificato nel formato binario codificato DER X.509 (.CER).
 
 
-1. Copy the certificate that you exported from the head node to a folder on the client computer.
-
-2. On the client computer, run certmgr.msc.
-
-3. In Certificate Manager, expand **Certificates – Current user** > **Trusted Root Certification Authorities**, right-click **Certificates**, click **All Tasks**, and then click **Import**.
-
-4. In the Certificate Import Wizard, click **Next** and follow the steps to import the certificate that you exported from the head node to the Trusted Root Certification Authorities store.
+**Per importare il certificato nel computer client**
 
 
+1. Copiare il certificato esportato dal nodo head in una cartella nel computer client.
 
->[AZURE.TIP] You might see a security warning, because the certification authority on the head node will not be recognized by the client computer. For testing purposes you can ignore this warning and complete the certificate import.
+2. Nel computer client eseguire certmgr.msc.
 
-## <a name="step-3:-run-test-jobs-on-the-cluster"></a>Step 3: Run test jobs on the cluster
+3. In Gestione certificati espandere **Certificati - Utente corrente** > **Autorità di certificazione radice attendibili**, fare clic con il pulsante destro del mouse su **Certificati**, scegliere **Tutte le attività** e quindi fare clic su **Importa**.
 
-To verify your configuration, try running jobs on the cluster in Azure from the on-premises computer. For example, you can use HPC Pack GUI tools or command-line commands to submit jobs to the cluster. You can also use a web-based portal to submit jobs.
-
-
-**To run job submission commands on the client computer**
+4. Nell'Importazione guidata certificati fare clic su **Avanti** e seguire i passaggi per importare il certificato esportato dal nodo head nell'archivio Autorità di certificazione radice disponibile nell'elenco locale.
 
 
-1. On a client computer where the HPC Pack client utilities are installed, start a Command Prompt.
 
-2. Type a sample command. For example, to list all jobs on the cluster, type a command similar to one of the following, depending on the full DNS name of the head node:
+>[AZURE.TIP] Potrebbe venire visualizzato un avviso di sicurezza perché l'autorità di certificazione nel nodo head non verrà riconosciuta dal computer client. A scopo di test è possibile ignorare questo avviso e completare l'importazione del certificato.
+
+## Passaggio 3: eseguire processi di prova sul cluster
+
+Per verificare la configurazione, provare a eseguire processi nel cluster in Azure usando il computer locale. È ad esempio possibile usare gli strumenti dell'interfaccia utente grafica o gli strumenti della riga di comando di HPC Pack per inviare i processi al cluster oppure un portale basato sul Web.
+
+
+**Per eseguire comandi di invio processi nel computer client**
+
+
+1. In un computer client con installate le utilità client HPC Pack avviare un prompt dei comandi.
+
+2. Digitare un comando di esempio. Ad esempio, per elencare tutti i processi nel cluster, digitare un comando simile a uno dei seguenti in base al nome DNS completo del nodo head:
 
     ```
     job list /scheduler:https://<HeadNodeDnsName>.cloudapp.net /all
@@ -134,62 +133,58 @@ To verify your configuration, try running jobs on the cluster in Azure from the 
     job list /scheduler:https://<HeadNodeDnsName>.<region>.cloudapp.azure.com /all
     ```
 
-    >[AZURE.TIP] Use the full DNS name of the head node, not the IP address, in the scheduler URL. If you specify the IP address, you’ll see an error similar to "The server certificate needs to either have a valid chain of trust or to be placed in the trusted root store".
+    >[AZURE.TIP] Nell'URL dell'Utilità di pianificazione usare il nome DNS completo del nodo head e non l'indirizzo IP. Se si specifica l'indirizzo IP, viene restituito un errore che indica che "è necessario che il certificato del server includa una catena di certificati valida o deve essere posizionato nell'archivio radice attendibile".
 
-3. When prompted, type the user name (in the form &lt;DomainName&gt;\\&lt;UserName&gt;) and password of the HPC cluster administrator or another cluster user that you configured. You can choose to store the credentials locally for more job operations.
+3. Quando richiesto, digitare il nome utente (nel formato &lt;DomainName&gt;\\&lt;UserName&gt;) e la password dell'amministratore del cluster HPC o di un altro utente cluster configurato. È possibile scegliere di archiviare le credenziali in locale per ulteriori operazioni di processo.
 
-    A list of jobs appears.
+    Verrà visualizzato un elenco di processi.
 
 
-**To use HPC Job Manager on the client computer**
+**Per usare HPC Job Manager nel computer client**
 
-1. If you didn't previously store domain credentials for a cluster user on the client computer when you submitted the job, you can add the credentials in Credential Manager.
+1. Se in precedenza le credenziali di dominio per un utente cluster non sono state archiviate nel computer client quando è stato inviato il processo, è possibile aggiungerle in Gestione credenziali.
 
-    a. In Control Panel on the client computer, start Credential Manager.
+    a. Nel Pannello di controllo del computer client avviare Gestione credenziali.
 
-    b. Click **Windows Credentials**, and then click **Add a generic credential**.
+    b. Fare clic su **Credenziali Windows** e quindi su **Aggiungi credenziali generiche**.
 
-    c. Specify the Internet address (for example, https://&lt;HeadNodeDnsName&gt;.cloudapp.net/HpcScheduler or https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com/HpcScheduler), and provide the user name (in the form &lt;DomainName&gt;\\&lt;UserName&gt;) and password of the HPC cluster administrator or another cluster user that you configured.
+    c. Specificare l'indirizzo Internet, ad esempio https://&lt;HeadNodeDnsName&gt;.cloudapp.net/HpcScheduler o https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com/HpcScheduler, quindi specificare il nome utente, nel formato &lt;NomeDominio&gt;\\&lt;NomeUtente&gt;, e la password dell'amministratore del cluster HPC o di un altro utente del cluster configurato.
 
-2. On the client computer, start HPC Job Manager.
+2. Nel computer client avviare Gestione processi HPC.
 
-3. In the **Select Head Node** dialog box, type the URL to the head node in Azure (for example, https://&lt;HeadNodeDnsName&gt;.cloudapp.net or https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com).
+3. Nella finestra di dialogo **Seleziona nodo head** digitare l'URL del nodo head in Azure, ad esempio https://&lt;HeadNodeDnsName&gt;.cloudapp.net o https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com.
 
-    HPC Job Manager opens and shows a list of jobs on the head node.
+    Verrà visualizzato il gestore dei processi HPC con un elenco dei processi sul nodo head.
 
-**To use the web portal running on the head node**
+**Per usare il portale Web in esecuzione nel nodo head**
 
-1. Start a web browser on the client computer, and type one of the following, depending on the full DNS name of the head node:
+1. Avviare un Web browser nel computer client e digitare uno dei seguenti indirizzi in base al nome DNS completo del nodo head:
 
     ```
     https://<HeadNodeDnsName>.cloudapp.net/HpcPortal
 
     https://<HeadNodeDnsName>.<region>.cloudapp.azure.com/HpcPortal
     ```
-2. In the security dialog box that appears, type the domain credentials of the HPC cluster administrator. (You can also add other cluster users in different roles. See [Managing Cluster Users](https://technet.microsoft.com/library/ff919335.aspx).)
+2. Nella finestra di dialogo di sicurezza che viene visualizzata digitare le credenziali di dominio dell'amministrazione cluster HPC. È anche possibile aggiungere altri utenti cluster in ruoli diversi. Vedere [Gestione degli utenti del cluster](https://technet.microsoft.com/library/ff919335.aspx).
 
-    The web portal opens to the job list view.
+    Verrà visualizzato l'elenco dei processi.
 
-3. To submit a sample job that returns the string “Hello World” from the cluster, click **New job** in the left-hand navigation.
+3. Per inviare un processo di esempio che restituisca la stringa "Hello World" dal cluster, fare clic su **Nuovo processo** nel riquadro di spostamento a sinistra.
 
-4. On the **New Job** page, under **From submission pages**, click **HelloWorld**. The job submission page appears.
+4. Nella sezione **Dalle pagine di invio** della pagina **Nuovo processo** fare clic su **HelloWorld**. Verrà visualizzata la pagina di invio processi.
 
-5. Click **Submit**. If prompted, provide the domain credentials of the HPC cluster administrator. The job is submitted and the job ID appears on the **My Jobs** page.
+5. Fare clic su **Submit**. Se richiesto, specificare le credenziali di dominio dell'amministratore cluster HPC. Il processo viene inviato e, nella pagina **Processi**, viene visualizzato l'ID del processo.
 
-6. To view the results of the job that you submitted, click the job ID, and then click **View Tasks** to view the command output (under **Output**).
+6. Per visualizzare i risultati del processo inviato, fare clic sull'ID del processo e scegliere **Visualizza attività** per visualizzare l'output del comando (in **Output**).
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-* You can also submit jobs to the Azure cluster with the [HPC Pack REST API](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
+* Per inviare processi al cluster Azure, è anche possibile usare l'[API REST HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
 
-* If you want to submit cluster jobs from a Linux client, see the Python sample in the [HPC Pack 2012 R2 SDK and Sample Code](https://www.microsoft.com/download/details.aspx?id=41633).
+* Per inviare processi cluster da un client Linux, vedere l'esempio Python in [HPC Pack 2012 R2 SDK e codice di esempio](https://www.microsoft.com/download/details.aspx?id=41633).
 
 
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-windows-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

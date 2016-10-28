@@ -1,248 +1,243 @@
 <properties 
-    pageTitle="How to perform live streaming using Azure Media Services to create multi-bitrate streams with the Azure portal | Microsoft Azure" 
-    description="This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream using the Azure portal." 
-    services="media-services" 
-    documentationCenter="" 
-    authors="anilmur" 
-    manager="erikre" 
-    editor=""/>
+	pageTitle="Come eseguire lo streaming live con Servizi multimediali di Azure per creare flussi a bitrate multipli con il portale di Azure | Microsoft Azure" 
+	description="Questa esercitazione illustra i passaggi per creare un canale che riceve un flusso live a velocità in bit singola e lo codifica in un flusso a più velocità in bit utilizzando il portale di Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="anilmur" 
+	manager="erikre" 
+	editor=""/>
 
 <tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article"
-    ms.date="09/06/2016"
-    ms.author="juliako;juliako"/>
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article"
+	ms.date="09/06/2016"
+	ms.author="juliako;juliako"/>
 
 
-
-#<a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>How to perform live streaming using Azure Media Services to create multi-bitrate streams with the Azure portal
+#Come eseguire lo streaming live con Servizi multimediali di Azure per creare flussi a bitrate multipli con il portale di Azure
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [Portale](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+- [API REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
-This tutorial walks you through the steps of creating a **Channel** that receives a single-bitrate live stream and encodes it to multi-bitrate stream.
+Questa esercitazione illustra i passaggi per creare un **canale** che riceve un flusso live a velocità in bit singola e lo codifica in un flusso a più velocità in bit.
 
->[AZURE.NOTE]For more conceptual information related to Channels that are enabled for live encoding, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
+>[AZURE.NOTE]Per altre informazioni concettuali sui canali correlati abilitati per la codifica live, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
 
-##<a name="common-live-streaming-scenario"></a>Common Live Streaming Scenario
+##Scenario comune di streaming live
 
-The following are general steps involved in creating common live streaming applications.
+Di seguito sono descritti i passaggi generali relativi alla creazione di applicazioni comuni di streaming live.
 
->[AZURE.NOTE] Currently, the max recommended duration of a live event is 8 hours. Please contact  amslived at Microsoft.com if you need to run a Channel for longer periods of time.
+>[AZURE.NOTE] Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per lunghi periodi di tempo, contattare amslived in Microsoft.com.
 
-1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS). For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
-    
-    This step could also be performed after you create your Channel.
+1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a velocità in bit singola in uno dei protocolli seguenti: RTMP, Smooth Streaming o RTP (MPEG-TS). Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](http://go.microsoft.com/fwlink/?LinkId=532824).
+	
+	Questa operazione può essere eseguita anche dopo la creazione del canale.
 
-1. Create and start a Channel. 
+1. Creare e avviare un canale.
 
-1. Retrieve the Channel ingest URL. 
+1. Recuperare l'URL di inserimento del canale.
 
-    The ingest URL is used by the live encoder to send the stream to the Channel.
-1. Retrieve the Channel preview URL. 
+	L'URL di inserimento viene usato dal codificatore live per inviare il flusso al canale.
+1. Recuperare l'URL di anteprima del canale.
 
-    Use this URL to verify that your channel is properly receiving the live stream.
+	Usare questo URL per verificare che il canale riceva correttamente il flusso live.
 
-3. Create an event/program (that will also create an asset). 
-1. Publish the event (that will create an  OnDemand locator for the associated asset).  
+3. Creare un evento o un programma, l'operazione creerà anche un asset.
+1. Pubblicare l'evento, l'operazione creerà un localizzatore OnDemand per l'asset associato.
 
-    Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
-1. Start the event when you are ready to start streaming and archiving.
-2. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
-1. Stop the event whenever you want to stop streaming and archiving the event.
-1. Delete the event (and optionally delete the asset).   
+	Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
+1. Avviare l'evento quando si è pronti ad avviare lo streaming e l'archiviazione.
+2. Facoltativamente, il codificatore live può ricevere il segnale per l'avvio di un annuncio. L'annuncio viene inserito nel flusso di output.
+1. Arrestare l'evento ogni volta che si vuole arrestare lo streaming e l'archiviazione dell'evento.
+1. Eliminare l'evento e, facoltativamente, l'asset.
 
-##<a name="in-this-tutorial"></a>In this tutorial
+##Contenuto dell'esercitazione:
 
-In this tutorial, the Azure portal is used to accomplish the following tasks: 
+In questa esercitazione il portale di Azure viene usato per eseguire le attività seguenti:
 
-2.  Configure streaming endpoints.
-3.  Create a channel that is enabled to perform live encoding.
-1.  Get the Ingest URL in order to supply it to live encoder. The live encoder will use this URL to ingest the stream into the Channel. .
-1.  Create an event/program (and an asset)
-1.  Publish the asset and get streaming URLs  
-1.  Play your content 
-2.  Cleaning up
+2.  Configurare gli endpoint di streaming
+3.  Creare un canale abilitato per eseguire la codifica live.
+1.  Ottenere l'URL di inserimento per fornirlo al codificatore live. Il codificatore live userà questo URL per inserire il flusso nel canale.
+1.  Creare un evento o un programma e un asset.
+1.  Pubblicare l'asset e ottenere gli URL di streaming.
+1.  Riprodurre i contenuti
+2.  + Cleaning up
 
-##<a name="prerequisites"></a>Prerequisites
-The following are required to complete the tutorial.
+##Prerequisiti
+Per completare l'esercitazione è necessario quanto segue.
 
-- To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
-- A Media Services account. To create a Media Services account, see [Create Account](media-services-portal-create-account.md).
-- A webcam and an encoder that can send a single bitrate live stream.
+- Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+- Account di Servizi multimediali. Per creare un account di Servizi multimediali, vedere l'argomento relativo alla [creazione di un account](media-services-create-account.md).
+- Una webcam e un codificatore in grado di inviare un flusso live a velocità in bit singola.
 
-##<a name="configure-streaming-endpoints"></a>Configure streaming endpoints 
+##Configurare gli endpoint di streaming 
 
-Media Services provides dynamic packaging which allows you to deliver your multi-bitrate MP4s in the following streaming formats: MPEG DASH, HLS, Smooth Streaming, or HDS, without you having to re-package into these streaming formats. With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client.
+Servizi multimediali include la funzionalità per la creazione dinamica dei pacchetti, che consente di distribuire file MP4 a più bitrate nei formati MPEG DASH, HLS, Smooth Streaming or HDS, senza dover ricreare i pacchetti con questi formati di streaming. Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un unico formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
 
-To take advantage of dynamic packaging, you need to get at least one streaming unit for the streaming endpoint from which you plan to delivery your content.  
+Per sfruttare i vantaggi della creazione dinamica dei pacchetti, è necessario ottenere almeno un'unità di streaming per l'endpoint di streaming da cui si prevede di distribuire il contenuto.
 
-To create and change the number of streaming reserved units, do the following:
+Per creare e modificare il numero di unità riservate di streaming, seguire questa procedura:
 
-1. Log in at the [Azure portal](https://portal.azure.com/).
-1. In the **Settings** window, click **Streaming endpoints**. 
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Nella finestra **Impostazioni** fare clic su **Endpoint di streaming**.
 
-2. Click on the default streaming endpoint. 
+2. Fare clic sull'endpoint di streaming predefinito.
 
-    The **DEFAULT STREAMING ENDPOINT DETAILS** window appears.
+	Verrà visualizzata la finestra **DETTAGLI ENDPOINT DI STREAMING PREDEFINITO**.
 
-3. To specify the number of streaming units, slide the **Streaming units** slider.
+3. Per specificare il numero di unità di streaming, usare il dispositivo di scorrimento di **Unità di streaming**.
 
-    ![Streaming units](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-streaming-units.png)
+	![Unità di streaming](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-streaming-units.png)
 
-4. Click the **Save** button to save your changes.
+4. Fare clic sul pulsante **Salva** per salvare le modifiche apportate.
 
-    >[AZURE.NOTE]The allocation of any new units can take up to 20 minutes to complete.
+	>[AZURE.NOTE]Il completamento dell'allocazione di nuove unità può richiedere fino a 20 minuti.
 
-##<a name="create-a-channel"></a>Create a CHANNEL
+##Creare un CANALE
 
-1. In the [Azure portal](https://portal.azure.com/), click Media Services and then click on the Media Services account name.
-2. Select **Live Streaming**.
-3. Select **Custom create**. This option will let you create a channel that is enabled for live encoding.
+1. Nel [portale di Azure](https://portal.azure.com/) fare clic su Servizi multimediali e quindi sul nome dell'account Servizi multimediali.
+2. Selezionare **Streaming live**.
+3. Selezionare **Creazione personalizzata**. Questa opzione permette di creare un canale abilitato per la codifica live.
 
-    ![Create a channel](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
-    
-4. Click on **Settings**.
-    
-    1.  Choose the **Live Encoding** channel type. This type specifies that you want to create a Channel that is enabled for live encoding. That means the incoming single bitrate stream is sent to the Channel and encoded into a multi-bitrate stream using specified live encoder settings. For more information, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md). Click OK.
-    2. Specify a channel's name.
-    3. Click OK at the bottom of the screen.
-    
-5. Select the **Ingest** tab.
+	![Creare un canale](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
+	
+4. Fare clic su **Impostazioni**.
+	
+	1.  Scegliere il tipo di canale **Codifica live**. Questo tipo specifica che si vuole creare un canale abilitato per la codifica live. Ciò significa che il flusso in ingresso a velocità in bit singola viene inviato al canale e codificato in un flusso a più velocità in bit usando le impostazioni del codificatore live specificato. Per altre informazioni, vedere [Streaming live con Servizi multimediali di Azure per creare flussi a bitrate multipli](media-services-manage-live-encoder-enabled-channels.md). Fare clic su OK.
+	2. Specificare il nome di un canale.
+	3. Fare clic su OK nella parte inferiore della schermata.
+	
+5. Selezionare la scheda **Inserisci**.
 
-    1. On this page, you can select a streaming protocol. For the **Live Encoding** channel type, valid protocol options are:
-        
-        - Single bitrate Fragmented MP4 (Smooth Streaming)
-        - Single bitrate RTMP
-        - RTP (MPEG-TS): MPEG-2 Transport Stream over RTP.
-        
-        For detailed explanation about each protocol, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
-    
-        You cannot change the protocol option while the Channel or its associated events/programs are running. If you require different protocols, you should create separate channels for each streaming protocol.  
+	1. In questa pagina è possibile selezionare un protocollo di streaming. Per il tipo di canale **Codifica live**, le opzioni del protocollo valide sono le seguenti:
+		
+		- MP4 frammentato (Smooth Streaming) a velocità in bit singola
+		- RTMP a velocità in bit singola
+		- RTP (MPEG-TS): MPEG-2 Transport Stream su RTP.
+		
+		Per una descrizione dettagliata di ogni protocollo, vedere [Streaming live con Servizi multimediali di Azure per creare flussi a bitrate multipli](media-services-manage-live-encoder-enabled-channels.md).
+	
+		Non è possibile modificare l'opzione relativa al protocollo durante l'esecuzione del canale o dei relativi eventi o programmi associati. Se sono necessari protocolli diversi, è necessario creare canali separati per ciascun protocollo di streaming.
 
-    2. You can apply IP restriction on the ingest. 
-    
-        You can define the IP addresses that are allowed to ingest a video to this channel. Allowed IP addresses can be specified as either a single IP address (e.g. '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (e.g. '10.0.0.1/22'), or an IP range using an IP address and a dotted decimal subnet mask (e.g. '10.0.0.1(255.255.252.0)').
+	2. È possibile applicare la restrizione IP all'inserimento.
+	
+		È possibile definire gli indirizzi IP autorizzati a inserire video in questo canale. Gli indirizzi IP consentiti possono essere specificati come un singolo indirizzo IP, ad esempio '10.0.0.1', come un intervallo IP usando un indirizzo IP e una subnet mask CIDR, ad esempio '10.0.0.1/22' o come un intervallo IP usando un indirizzo IP e una subnet mask decimale puntata, ad esempio '10.0.0.1(255.255.252.0)'.
 
-        If no IP addresses are specified and there is no rule definition then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.
+		Se non viene specificato alcun indirizzo IP e non è presente una definizione della regola, non sarà consentito alcun indirizzo IP. Per consentire qualsiasi indirizzo IP, creare una regola e impostare 0.0.0.0/0.
 
-6. On the **Preview** tab, apply IP restriction on the preview.
-7. On the **Encoding** tab, specify the encoding preset. 
+6. Nella scheda **Anteprima** applicare la restrizione IP sull'anteprima.
+7. Nella scheda **Codifica** specificare il set di impostazioni di codifica.
 
-    Currently, the only system preset you can select is **Default 720p**. To specify a custom preset, open a Microsoft support ticket. Then, enter the name of the preset created for you. 
+	Attualmente, l'unica impostazione predefinita di sistema che è possibile selezionare è **720p (valore predefinito)**. Per specificare un set di impostazioni personalizzato, aprire un ticket di supporto Microsoft. Quindi, immettere il nome del set di impostazioni creato automaticamente.
 
->[AZURE.NOTE] Currently, the Channel start can take up to 30 minutes. Channel reset can take up to 5 minutes.
+>[AZURE.NOTE] Attualmente, l'avvio del canale può richiedere più di 30 minuti. La reimpostazione del canale può richiedere fino a 5 minuti.
 
-Once you created the Channel, you can click on the channel and select **Settings** where you can view your channels configurations. 
+Dopo aver creato il canale è possibile farvi clic e passare a **Impostazioni**, dove vengono visualizzate le configurazioni dei canali.
 
-For more information, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
+Per altre informazioni, vedere [Streaming live con Servizi multimediali di Azure per creare flussi a bitrate multipli](media-services-manage-live-encoder-enabled-channels.md).
 
 
-##<a name="get-ingest-urls"></a>Get ingest URLs
+##Ottenere gli URL di inserimento
 
-Once the channel is created, you can get ingest URLs that you will provide to the live encoder. The encoder uses these URLs to input a live stream.
+Dopo avere creato il canale, è possibile ottenere gli URL di inserimento da fornire al codificatore live. Questi URL vengono usati dal codificatore per inserire un flusso live.
 
 ![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 
-##<a name="create-and-manage-events"></a>Create and manage events
+##Creare e gestire eventi
 
-###<a name="overview"></a>Overview
+###Overview
 
-A channel is associated with events/programs that enable you to control the publishing and storage of segments in a live stream. Channels manage events/programs. The Channel and Program relationship is very similar to traditional media where a channel has a constant stream of content and a program is scoped to some timed event on that channel.
+Un canale è associato a programmi o eventi che consentono di controllare la pubblicazione e l'archiviazione di segmenti in un flusso live. Eventi e programmi sono gestiti dai canali. La relazione tra queste due entità è molto simile a quella che intercorre tra di essi nei media tradizionali, in cui un canale è costituito da un flusso costante di contenuti, mentre un programma ha come ambito una serie di eventi programmati sul canale.
 
-You can specify the number of hours you want to retain the recorded content for the event by setting the **Archive Window** length. This value can be set from a minimum of 5 minutes to a maximum of 25 hours. Archive window length also dictates the maximum amount of time clients can seek back in time from the current live position. Events can run over the specified amount of time, but content that falls behind the window length is continuously discarded. This value of this property also determines how long the client manifests can grow.
+È possibile specificare il numero di ore per cui si vuole mantenere il contenuto registrato per l'evento impostando la durata dell'**Intervallo di archiviazione**. Il valore impostato può essere compreso tra 5 minuti e 25 ore. La lunghezza della finestra di archiviazione determina anche il limite di tempo per cui i client possono eseguire ricerche a ritroso nel tempo dalla posizione live corrente. Gli eventi possono essere eseguiti per l'intervallo di tempo specificato, ma il contenuto che supera la durata prevista viene scartato in modo continuo. Il valore della proprietà determina anche il tempo per cui i manifesti client possono crescere.
 
-Each event is associated with an Asset. To publish the event you must create an OnDemand locator for the associated asset. Having this locator will enable you to build a streaming URL that you can provide to your clients.
+Ogni evento è associato a un asset. Per pubblicare l'evento, è necessario creare un localizzatore OnDemand per l'asset associato. Con questo localizzatore sarà possibile creare un URL di streaming da fornire ai client.
 
-A channel supports up to three concurrently running events so you can create multiple archives of the same incoming stream. This allows you to publish and archive different parts of an event as needed. For example, your business requirement is to archive 6 hours of an event, but to broadcast only last 10 minutes. To accomplish this, you need to create two concurrently running event. One event is set to archive 6 hours of the event but the program is not published. The other event is set to archive for 10 minutes and this program is published.
+Un canale supporta fino a tre eventi in esecuzione simultanea, quindi consente di creare più archivi dello stesso flusso in ingresso. Questo consente di pubblicare e archiviare parti diverse di un evento a seconda delle necessità. Si consideri ad esempio uno scenario in cui un'azienda richiede l'archiviazione di sei ore di un evento e la trasmissione solo degli ultimi 10 minuti. A tale scopo, è necessario creare due eventi in esecuzione simultanea. Uno è impostato per l'archiviazione di sei ore dell'evento, ma il programma non viene pubblicato. L'altro è impostato per l'archiviazione di 10 minuti e il programma viene pubblicato.
 
-You should not reuse existing programs for new events. Instead, create and start a new program for each event.
+Non riutilizzare i programmi esistenti per nuovi eventi. Al contrario, creare e avviare un nuovo programma per ogni evento.
 
-Start an event/program when you are ready to start streaming and archiving. Stop the event whenever you want to stop streaming and archiving the event. 
+Avviare un programma o un evento quando si è pronti ad avviare lo streaming e l'archiviazione. Arrestare l'evento ogni volta che si vuole arrestare lo streaming e l'archiviazione dell'evento.
 
-To delete archived content, stop and delete the event and then delete the associated asset. An asset cannot be deleted if it is used by the event; the event must be deleted first. 
+Per eliminare il contenuto archiviato, arrestare ed eliminare l'evento e quindi eliminare l'asset associato. Non è possibile eliminare un asset che sia usato da un evento. Per eliminarlo è prima necessario eliminare l'evento.
 
-Even after you stop and delete the event, the users would be able to stream your archived content as a video on demand, for as long as you do not delete the asset.
+Anche dopo l'arresto e l'eliminazione dell'evento, gli utenti saranno in grado di riprodurre in streaming il contenuto archiviato sotto forma di video on demand, finché non si elimina l'asset.
 
-If you do want to retain the archived content, but not have it available for streaming, delete the streaming locator.
+Se si desidera mantenere il contenuto archiviato ma non averlo disponibile per lo streaming, eliminare il localizzatore di streaming.
 
-###<a name="create/start/stop-events"></a>Create/start/stop events
+###Creare, avviare o arrestare eventi
 
-Once you have the stream flowing into the Channel you can begin the streaming event by creating an Asset, Program, and Streaming Locator. This will archive the stream and make it available to viewers through the Streaming Endpoint. 
+Dopo l'avvio del flusso nel canale, è possibile iniziare l'evento di streaming creando un localizzatore di asset, programma e streaming. In questo modo il flusso viene archiviato e reso disponibile agli utenti tramite l'endpoint di streaming.
 
-There are two ways to start event: 
+Per avviare l'evento è possibile procedere in due modi:
 
-1. From the **Channel** page, press **Live Event** to add a new event.
+1. Nella pagina **Canale** fare clic su **Evento live** per aggiungere un nuovo evento.
 
-    Specify: event name, asset name, archive window, and encryption option.
-    
-    ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
-    
-    If you left **Publish this live event now** checked, the event the PUBLISHING URLs will get created.
-    
-    You can press **Start**, whenever you are ready to stream the event.
+	Specificare il nome dell'evento, il nome dell'asset, l'intervallo di archiviazione e l'opzione di crittografia.
+	
+	![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
+	
+	Se l'opzione **Pubblica subito questo evento live** è stata lasciata selezionata, verranno creati gli URL di pubblicazione dell'evento.
+	
+	Per avviare lo streaming dell'evento, fare clic su **Avvia**.
 
-    Once you start the event, you can press **Watch** to start playing the content.
+	Dopo aver avviato l'evento, è possibile fare clic su **Guarda** per avviare la riproduzione del contenuto.
 
-2. Alternatively, you can use a shortcut and press **Go Live** button on the **Channel** page. This will create a default Asset, Program, and Streaming Locator.
+2. In alternativa, è possibile usare un collegamento e fare clic su **Go Live** nella pagina **Canale**. In questo modo verrà creato un localizzatore predefinito di asset, programma e streaming.
 
-    The event is named **default** and the archive window is set to 8 hours.
+	L'evento è denominato **default** e l'intervallo di archiviazione è impostato su otto ore.
 
-You can watch the published event from the **Live event** page. 
+Per guardare l'evento pubblicato è possibile usare la pagina **Evento live**.
 
-If you click **Off Air**, it will stop all live events. 
+Facendo clic su **Sospendi trasmissione** vengono arrestati tutti gli eventi live.
 
 
-##<a name="watch-the-event"></a>Watch the event
+##Guardare l'evento
 
-To watch the event, click **Watch** in the Azure portal or copy the streaming URL and use a player of your choice. 
+Per guardare l'evento, fare clic su **Watch** (Guarda) nel portale di Azure o copiare l'URL di streaming e usare un lettore a propria scelta.
  
-![Created](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
+![Data di creazione](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
 
-Live event automatically converts events to on-demand content when stopped.
+Quando viene arrestato, l'evento live converte automaticamente gli eventi in contenuto su richiesta.
 
-##<a name="clean-up"></a>Clean up
+##Eseguire la pulizia
 
-If you are done streaming events and want to clean up the resources provisioned earlier, follow the following procedure.
+Se al termine dello streaming degli eventi si vuole eliminare le risorse di cui in precedenza è stato effettuato il provisioning, attenersi alla procedura seguente.
 
-- Stop pushing the stream from the encoder.
-- Stop the channel. Once the Channel is stopped, it will not incur any charges. When you need to start it again, it will have the same ingest URL so you won't need to reconfigure your encoder.
-- You can stop your Streaming Endpoint, unless you want to continue to provide the archive of your live event as an on-demand stream. If the channel is in stopped state, it will not incur any charges.
+- Interrompere il push del flusso dal codificatore.
+- Arrestare il canale. Una volta arrestato, il canale non subirà modifiche. Quando occorrerà riavviarlo, avrà lo stesso URL di inserimento, per cui non sarà necessario riconfigurare il codificatore.
+- È possibile arrestare l'endpoint di streaming, a meno che non si voglia continuare a fornire l'archivio dell'evento live come flusso su richiesta. Se il canale è arrestato, non subirà modifiche.
   
-##<a name="view-archived-content"></a>View archived content
+##Visualizzare il contenuto archiviato
 
-Even after you stop and delete the event, the users would be able to stream your archived content as a video on demand, for as long as you do not delete the asset. An asset cannot be deleted if it is used by an event; the event must be deleted first. 
+Anche dopo l'arresto e l'eliminazione dell'evento, gli utenti saranno in grado di riprodurre in streaming il contenuto archiviato sotto forma di video on demand, finché non si elimina l'asset. Un asset non può essere eliminato se è usato da un evento. Per farlo, eliminare prima l'evento.
 
-To manage your assets select **Setting** and click **Assets**.
+Per gestire gli asset, selezionare**Impostazione** e fare clic su **Asset**.
 
-![Assets](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
+![Asset](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
-##<a name="considerations"></a>Considerations
+##Considerazioni
 
-- Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft.com if you need to run a Channel for longer periods of time.
-- Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
+- Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per lunghi periodi di tempo, contattare amslived in Microsoft.com.
+- Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
 
 
-##<a name="next-step"></a>Next step
+##Passaggio successivo
 
-Review Media Services learning paths.
+Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="provide-feedback"></a>Provide feedback
+##Fornire commenti e suggerimenti
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

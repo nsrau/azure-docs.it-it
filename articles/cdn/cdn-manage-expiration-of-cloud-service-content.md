@@ -1,11 +1,11 @@
 <properties
- pageTitle="How to manage expiration of Azure Web Apps/Cloud Services, ASP.NET, and IIS content in Azure CDN | Microsoft Azure"
- description="Describes how to manage the expiration of cloud service content in Azure CDN"
+ pageTitle="Come gestire la scadenza del contenuto di App Web/Servizi cloud di Azure, ASP.NET e IIS nella rete CDN di Azure | Microsoft Azure"
+ description="Spiega come gestire la scadenza dei contenuti del servizio cloud nella rete CDN di Azure"
  services="cdn"
  documentationCenter=".NET"
  authors="camsoper"
  manager="erikre"
- editor=""/>
+ editor=""/> 
 <tags
  ms.service="cdn"
  ms.workload="media"
@@ -13,46 +13,45 @@
  ms.devlang="dotnet"
  ms.topic="article"
  ms.date="09/19/2016"
- ms.author="casoper"/>
+ ms.author="casoper"/> 
 
-
-# <a name="how-to-manage-expiration-of-azure-web-apps/cloud-services,-asp.net,-or-iis-content-in-azure-cdn"></a>How to manage expiration of Azure Web Apps/Cloud Services, ASP.NET, or IIS content in Azure CDN
+# Come gestire la scadenza del contenuto di App Web/Servizi cloud di Azure, ASP.NET o IIS nella rete CDN di Azure
 
 > [AZURE.SELECTOR]
-- [Azure Web Apps/Cloud Services, ASP.NET, or IIS](cdn-manage-expiration-of-cloud-service-content.md)
-- [Azure Storage blob service](cdn-manage-expiration-of-blob-content.md)
+- [App Web/Servizi cloud di Azure, ASP.NET o IIS](cdn-manage-expiration-of-cloud-service-content.md)
+- [Servizio BLOB del servizio di archiviazione di Azure](cdn-manage-expiration-of-blob-content.md)
 
-Files from any publicly accessible origin web server can be cached in Azure CDN until its time-to-live (TTL) elapses.  The TTL is determined by the [*Cache-Control* header](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) in the HTTP response from the origin server.  This article describes how to set `Cache-Control` headers for Azure Web Apps, Azure Cloud Services, ASP.NET applications, and Internet Information Services sites, all of which are configured similarly.
+I file provenienti da un server Web di origine accessibile pubblicamente possono essere memorizzati nella cache della rete CDN di Azure fino allo scadere della relativa durata (TTL). La durata (TTL) è determinata dall'[intestazione *Cache-Control*](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) nella risposta HTTP del server di origine. Questo articolo descrive come impostare le intestazioni `Cache-Control` per App Web di Azure, Servizi cloud di Azure, applicazioni ASP.NET e siti Internet Information Services, che hanno tutti una configurazione simile.
 
->[AZURE.TIP] You may choose to set no TTL on a file.  In this case, Azure CDN automatically applies a default TTL of seven days.
+>[AZURE.TIP] È possibile scegliere di non impostare alcuna durata (TTL) per un file. In tal caso, la rete CDN di Azure applica automaticamente una durata (TTL) predefinita di sette giorni.
 >
->For more information about how Azure CDN works to speed up access to files and other resources, see the [Azure CDN Overview](./cdn-overview.md).
+>Per altre informazioni sull'uso della rete CDN di Azure per velocizzare l'accesso a file e altre risorse, vedere la [panoramica della rete CDN di Azure](./cdn-overview.md).
 
-## <a name="setting-cache-control-headers-in-configuration"></a>Setting Cache-Control Headers in configuration
+## Impostazione delle intestazioni Cache-Control nella configurazione
 
-For static content, such as images and style sheets, you can control the update frequency by modifying the **applicationHost.config** or **web.config** files for your web application.  The **system.webServer\staticContent\clientCache** element in the configuration file will set the `Cache-Control` header for your content. For **web.config**, the configuration settings will affect everything in the folder and all subfolders, unless overridden at the subfolder level.  For example, you can set a default time-to-live at the root to have all static content cached for 3 days, but have a subfolder that has more variable content with a cache setting of 6 hours.  For **applicationHost.config**, all applications on the site will be affected, but can be overridden in **web.config** files in the applications.
+Per il contenuto statico, ad esempio immagini e fogli di stile, è possibile controllare la frequenza di aggiornamento modificando i file **applicationHost.config** o **web.config** per l'applicazione Web. L'elemento **system.webServer\\staticContent\\clientCache** nel file di configurazione imposterà l'intestazione `Cache-Control` per il contenuto. Per **web.config**, le impostazioni di configurazione influiranno su qualsiasi elemento presente nella cartella e in tutte le sottocartelle, a meno di non eseguirne l'override a livello di sottocartella. Ad esempio, è possibile impostare una durata (TTL) predefinita nella radice per memorizzare nella cache tutto il contenuto statico per tre giorni, ma impostare un valore di sei ore per una sottocartella che include contenuto più variabile. Per **applicationHost.config**, tutte le applicazioni nel sito saranno interessate, ma è possibile eseguirne l'overridde nei file **web.config** nelle applicazioni.
 
-The following XML shows and example of setting **clientCache** to specify a maximum age of 3 days:  
+L'esempio di codice XML seguente mostra l'impostazione di **clientCache** in modo da specificare una durata massima di tre giorni:
 
 ```xml
 <configuration>
-    <system.webServer>
-        <staticContent>
-            <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="3.00:00:00" />
-        </staticContent>
-    </system.webServer>
+	<system.webServer>
+		<staticContent>
+			<clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="3.00:00:00" />
+		</staticContent>
+	</system.webServer>
 </configuration>
 ```
 
-Specifying **UseMaxAge** adds a `Cache-Control: max-age=<nnn>` header to the response based on the value specified in the **CacheControlMaxAge** attribute. The format of the timespan is for the **cacheControlMaxAge** attribute is <days>.<hours>:<min>:<sec>. For more information on the **clientCache** node, see [Client Cache <clientCache>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
+Specificando **UseMaxAge**, si aggiunge un'intestazione `Cache-Control: max-age=<nnn>` alla risposta in base al valore specificato nell'attributo **CacheControlMaxAge**. Il formato dell'intervallo di tempo per l'attributo **cacheControlMaxAge** è <giorni>.<ore>:<min>:<sec>. Per altre informazioni sul nodo **clientCache** vedere la pagina [Client Cache <clientCache>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache) (Cache client <clientCache>).
 
-## <a name="setting-cache-control-headers-in-code"></a>Setting Cache-Control Headers in Code
+## Impostazione delle intestazioni Cache-Control nel codice
 
-For ASP.NET applications, you can set the CDN caching behavior programmatically by setting the **HttpResponse.Cache** property. For more information on the **HttpResponse.Cache** property, see [HttpResponse.Cache Property](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) and [HttpCachePolicy Class](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
+Per le applicazioni ASP.NET, è possibile impostare a livello di codice il comportamento di memorizzazione nella cache della rete CDN impostando la proprietà **HttpResponse.Cache**. Per altre informazioni sulla proprietà **HttpResponse.Cache**, vedere [Proprietà HttpResponse.Cache](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) e [Classe HttpCachePolicy](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).
 
-If you want to programmatically cache application content in ASP.NET, make sure that the content is marked as cacheable by setting HttpCacheability to *Public*. Also, ensure that a cache validator is set. The cache validator can be a Last Modified timestamp set by calling SetLastModified, or an etag value set by calling SetETag. Optionally, you can also specify a cache expiration time by calling SetExpires, or you can rely on the default cache heuristics described earlier in this document.  
+Se si vuole memorizzare nella cache il contenuto dell'applicazione a livello di codice in ASP.NET, assicurarsi che tale contenuto sia contrassegnato come inseribile nella cache impostando HttpCacheability su *Public*. Assicurarsi anche che sia impostato un validator della cache. Il validator della cache può essere un timestamp dell'ultima modifica impostato chiamando SetLastModified oppure un valore etag impostato chiamando SetETag. Facoltativamente, è anche possibile specificare una scadenza della cache chiamando SetExpires oppure affidarsi all'euristica predefinita della cache descritta prima in questo documento.
 
-For example, to cache content for one hour, add the following:  
+Ad esempio, per memorizzare nella cache il contenuto per un'ora, aggiungere il codice seguente:
 
 ```csharp
 // Set the caching parameters.
@@ -61,14 +60,10 @@ Response.Cache.SetCacheability(HttpCacheability.Public);
 Response.Cache.SetLastModified(DateTime.Now);
 ```
 
-## <a name="next-steps"></a>Next Steps
+## Passaggi successivi
 
-- [Read details about the **clientCache** element](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
-- [Read the documentation for the **HttpResponse.Cache** Property](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
-- [Read the documentation for the **HttpCachePolicy Class**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
+- [Vedere i dettagli sull'elemento **clientCache**](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
+- [Vedere la documentazione sulla proprietà **HttpResponse.Cache**](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx)
+- [Vedere la documentazione sulla **classe HttpCachePolicy**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

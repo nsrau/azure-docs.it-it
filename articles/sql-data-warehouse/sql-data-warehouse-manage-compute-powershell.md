@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Manage compute power in Azure SQL Data Warehouse (PowerShell) | Microsoft Azure"
-   description="PowerShell tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs."
+   pageTitle="Gestire la potenza di calcolo in Azure SQL Data Warehouse (PowerShell) | Microsoft Azure"
+   description="Attività di PowerShell per la gestione della potenza di calcolo. Ridimensionare le risorse di calcolo cambiando il numero di DWU. In alternativa, sospendere e riprendere le risorse di calcolo per ridurre i costi."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
@@ -16,40 +16,39 @@
    ms.date="06/13/2016"
    ms.author="barbkess;sonyama"/>
 
-
-# <a name="manage-compute-power-in-azure-sql-data-warehouse-(powershell)"></a>Manage compute power in Azure SQL Data Warehouse (PowerShell)
+# Gestire la potenza di calcolo in Azure SQL Data Warehouse (PowerShell)
 
 > [AZURE.SELECTOR]
-- [Overview](sql-data-warehouse-manage-compute-overview.md)
-- [Portal](sql-data-warehouse-manage-compute-portal.md)
+- [Panoramica](sql-data-warehouse-manage-compute-overview.md)
+- [Portale](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
 - [TSQL](sql-data-warehouse-manage-compute-tsql.md)
 
 
-Scale performance by scaling out compute resources and memory to meet the changing demands of your workload. Save costs by scaling back resources during non-peak times or pausing compute altogether. 
+Ridimensionare le prestazioni tramite la scalabilità orizzontale delle risorse di calcolo e della memoria per soddisfare le diverse esigenze del carico di lavoro. Risparmiare sui costi ridimensionando le risorse durante le ore non di punta o sospendendo completamente il calcolo.
 
-This collection of tasks uses the Azure portal to:
+Questa raccolta di attività usa il portale di Azure per:
 
-- Scale compute
-- Pause compute
-- Resume compute
+- Ridimensionare le risorse di calcolo
+- Sospendere le risorse di calcolo
+- Riavviare le risorse di calcolo
 
-To learn about this, see [Manage compute overview][].
+Per altre informazioni, vedere [Panoramica sulla gestione del calcolo][].
 
 
-## <a name="before-you-begin"></a>Before you begin
+## Prima di iniziare
 
-### <a name="install-the-latest-version-of-azure-powershell"></a>Install the latest version of Azure PowerShell
+### Installare la versione più recente di Azure PowerShell.
 
-> [AZURE.NOTE]  To use Azure PowerShell with SQL Data Warehouse, you need Azure PowerShell version 1.0.3 or greater.  To verify your current version run the command **Get-Module -ListAvailable -Name Azure**. You can install the latest version from [Microsoft Web Platform Installer][].  For more information, see [How to install and configure Azure PowerShell][].
+> [AZURE.NOTE]  Per usare Azure PowerShell con SQL Data Warehouse, è necessario installare Azure PowerShell 1.0.3 o versione successiva. Per verificare la versione corrente, eseguire il comando **Get-Module -ListAvailable -Name Azure**. È possibile installare la versione più recente da [Installazione guidata piattaforma Web][]. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell][].
 
-### <a name="get-started-with-azure-powershell-cmdlets"></a>Get started with Azure PowerShell cmdlets
+### Introduzione ai cmdlet di Azure PowerShell
 
-To get started:
+Attività iniziali
 
-1. Open Azure PowerShell. 
-2. At the PowerShell prompt, run these commands to sign in to the Azure Resource Manager and select your subscription.
+1. Aprire Azure PowerShell.
+2. Al prompt di PowerShell, eseguire questi comandi per accedere ad Azure Resource Manager e selezionare la sottoscrizione.
 
     ```PowerShell
     Login-AzureRmAccount
@@ -57,14 +56,13 @@ To get started:
     Select-AzureRmSubscription -SubscriptionName "MySubscription"
     ```
 
-<a name="scale-performance-bk"></a>
-<a name="scale-compute-bk"></a>
+<a name="scale-performance-bk"></a> <a name="scale-compute-bk"></a>
 
-## <a name="scale-compute-power"></a>Scale compute power
+## Ridimensionare la potenza di calcolo
 
-[AZURE.INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
+[AZURE.INCLUDE [Descrizione della scalatura di DWU di SQL Data Warehouse](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
-To change the DWUs, use the [Set-AzureRmSqlDatabase][] PowerShell cmdlet. The following example sets the service level objective to DW1000 for the database MySQLDW which is hosted on server MyServer. 
+Per modificare il numero di DWU usare il cmdlet PowerShell [Set-AzureRmSqlDatabase][]. L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000 per il database MySQLDW ospitato nel server MyServer.
 
 ```Powershell
 Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
@@ -72,19 +70,19 @@ Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -Requested
 
 <a name="pause-compute-bk"></a>
 
-## <a name="pause-compute"></a>Pause compute
+## Sospendere le risorse di calcolo
 
-[AZURE.INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
+[AZURE.INCLUDE [Descrizione della sospensione di SQL Data Warehouse](../../includes/sql-data-warehouse-pause-description.md)]
 
-To pause a database, use the [Suspend-AzureRmSqlDatabase][] cmdlet. The following example pauses a database named Database02 hosted on a server named Server01. The server is in an Azure resource group named ResourceGroup1. 
+Per sospendere l'esecuzione di un database, usare il cmdlet [Suspend-AzureRmSqlDatabase][]. L'esempio seguente sospende il database Database02 ospitato sul server Server01. Il server appartiene al gruppo di risorse di Azure ResourceGroup1.
 
-> [AZURE.NOTE] Note that if your server is foo.database.windows.net, use "foo" as the -ServerName in the PowerShell cmdlets.
+> [AZURE.NOTE] Se il server è foo.database.windows.net, usare "foo" come nome server nei cmdlet di PowerShell.
 
 ```Powershell
 Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
 –ServerName "Server01" –DatabaseName "Database02"
 ```
-A variation, this next example retrieves the database into the $database object. It then pipes the object to [Suspend-AzureRmSqlDatabase][]. The results are stored in the object resultDatabase. The final command shows the results.
+Come variazione, il database dell'esempio seguente viene recuperato nell'oggetto $database. Quindi l'oggetto viene inviato tramite pipe a [Suspend-AzureRmSqlDatabase][]. I risultati vengono archiviati nell'oggetto resultDatabase. Il comando finale mostra i risultati.
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
@@ -95,18 +93,18 @@ $resultDatabase
 
 <a name="resume-compute-bk"></a>
 
-## <a name="resume-compute"></a>Resume compute
+## Riavviare le risorse di calcolo
 
-[AZURE.INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
+[AZURE.INCLUDE [Descrizione della riattivazione di SQL Data Warehouse](../../includes/sql-data-warehouse-resume-description.md)]
 
-To start a database, use the [Resume-AzureRmSqlDatabase][] cmdlet. The following example starts a database named Database02 hosted on a server named Server01. The server is in an Azure resource group named ResourceGroup1. 
+Per avviare un database, usare il cmdlet [Resume-AzureRmSqlDatabase][]. L'esempio seguente avvia il database Database02 ospitato sul server Server01. Il server appartiene al gruppo di risorse di Azure ResourceGroup1.
 
 ```Powershell
 Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
 –ServerName "Server01" -DatabaseName "Database02"
 ```
 
-A variation, this next example retrieves the database into the $database object. It then pipes the object to [Resume-AzureRmSqlDatabase][] and stores the results in $resultDatabase. The final command shows the results.
+Come variazione, il database dell'esempio seguente viene recuperato nell'oggetto $database. Quindi l'oggetto viene inviato tramite pipe a [Resume-AzureRmSqlDatabase][] e i risultati vengono archiviati in $resultDatabase. Il comando finale mostra i risultati.
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
@@ -117,17 +115,17 @@ $resultDatabase
 
 <a name="next-steps-bk"></a>
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-For other management tasks, see [Management overview][].
+Per altre attività di gestione, vedere [Panoramica della gestione][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
-[Management overview]: ./sql-data-warehouse-overview-manage.md
-[How to install and configure Azure PowerShell]: ./powershell-install-configure.md
-[Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
+[Panoramica della gestione]: ./sql-data-warehouse-overview-manage.md
+[Come installare e configurare Azure PowerShell]: ./powershell-install-configure.md
+[Panoramica sulla gestione del calcolo]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 [Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
@@ -135,11 +133,7 @@ For other management tasks, see [Management overview][].
 [Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
 
 <!--Other Web references-->
-[Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
+[Installazione guidata piattaforma Web]: https://aka.ms/webpi-azps
 [Azure portal]: http://portal.azure.com/
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

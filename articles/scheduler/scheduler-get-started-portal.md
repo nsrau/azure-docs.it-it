@@ -1,6 +1,6 @@
 <properties
- pageTitle="Get started with Azure Scheduler in Azure portal | Microsoft Azure"
- description="Get started with Azure Scheduler in Azure portal"
+ pageTitle="Introduzione all'Utilità di pianificazione di Azure nel portale di Azure | Microsoft Azure"
+ description="Introduzione all'Utilità di pianificazione di Azure nel portale di Azure"
  services="scheduler"
  documentationCenter=".NET"
  authors="derek1ee"
@@ -15,145 +15,144 @@
  ms.date="08/10/2016"
  ms.author="deli"/>
 
+# Introduzione all'Utilità di pianificazione di Azure nel portale di Azure
 
-# <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Get started with Azure Scheduler in Azure portal
+L'Utilità di pianificazione di Azure permette di creare facilmente processi pianificati. In questa esercitazione si apprenderà come creare un processo. Si apprenderanno anche le funzionalità di monitoraggio e gestione dell'Utilità di pianificazione.
 
-It's easy to create scheduled jobs in Azure Scheduler. In this tutorial, you'll learn how to create a job. You'll also learn Scheduler's monitoring and management capabilities.
+## Creare un processo
 
-## <a name="create-a-job"></a>Create a job
+1.  Accedere al [portale di Azure](https://portal.azure.com/).
 
-1.  Sign in to [Azure portal](https://portal.azure.com/).  
-
-2.  Click **+New** > type _Scheduler_ in the search box >  select **Scheduler** in results > click **Create**.
+2.  Fare clic su **+Nuovo**, digitare _Utilità di pianificazione_ nella casella di ricerca, selezionare **Utilità di pianificazione** tra i risultati e quindi fare clic su **Crea**.
 
      ![][marketplace-create]
 
-3.  Let’s create a job that simply hits http://www.microsoft.com/ with a GET request. In the **Scheduler Job** screen, enter the following information:
+3.  Creiamo un processo che parte semplicemente http://www.microsoft.com/ con una richiesta GET. Nella schermata **Processo dell'Utilità di pianificazione** immettere le informazioni seguenti:
 
-    1.  **Name:** `getmicrosoft`  
+    1.  **Nome:** `getmicrosoft`
 
-    2.  **Subscription:** Your Azure subscription   
+    2.  **Sottoscrizione:** sottoscrizione di Azure
 
-    3.  **Job Collection:** Select an existing job collection, or click **Create New** > enter a name.
+    3.  **Raccolta processi:** selezionare una raccolta di processi esistente oppure fare clic su **Crea nuovo** e immettere un nome.
 
-4.  Next, in **Action Settings**, define the following values:
+4.  Successivamente, in **Impostazioni azione** definire i valori seguenti:
 
-    1.  **Action Type:** ` HTTP`  
+    1.  **Tipo di azione:** ` HTTP`
 
-    2.  **Method:** `GET`  
+    2.  **Metodo:** `GET`
 
-    3.  **URL:** ` http://www.microsoft.com`  
+    3.  **URL:** ` http://www.microsoft.com`
 
       ![][action-settings]
 
-5.  Finally, let's define a schedule. The job could be defined as a one-time job, but let’s pick a recurrence schedule:
+5.  Infine, definire una pianificazione. È possibile impostare il processo come unico, ma in questo esempio viene selezionata una pianificazione ricorrenza.
 
-    1. **Recurrence**: `Recurring`
+    1. **Ricorrenza**: `Recurring`
 
-    2. **Start**: Today's date
+    2. **Inizia**: data odierna
 
-    3. **Recur every**: `12 Hours`
+    3. **Ricorre ogni:** `12 Hours`
 
-    4. **End by**: Two days from today's date  
+    4. **Termina entro**: due giorni dalla data odierna
 
       ![][recurrence-schedule]
 
-6.  Click **Create**
+6.  Fare clic su **Crea**
 
-## <a name="manage-and-monitor-jobs"></a>Manage and monitor jobs
+## Gestire e monitorare i processi
 
-Once a job is created, it appears in the main Azure dashboard. Click the job and a new window opens with the following tabs:
+Un processo appena creato viene visualizzato nel dashboard principale di Azure. Fare clic sul processo per visualizzare una nuova finestra con le schede seguenti:
 
-1.  Properties  
+1.  Proprietà
 
-2.  Action Settings  
+2.  Impostazioni azione
 
-3.  Schedule  
+3.  Pianificazione
 
-4.  History
+4.  Cronologia
 
-5.  Users
+5.  Utenti
 
     ![][job-overview]
 
-### <a name="properties"></a>Properties
+### Proprietà
 
-These read-only properties describe the management metadata for the Scheduler job.
+Queste proprietà di sola lettura descrivono i metadati di gestione per il processo dell'Utilità di pianificazione.
 
    ![][job-properties]
 
 
-### <a name="action-settings"></a>Action settings
+### Impostazioni di azione
 
-Clicking on a job in the **Jobs** screen allows you to configure that job. This lets you configure advanced settings, if you didn't configure them in the quick-create wizard.
+Per configurare un processo, fare clic sul processo corrispondente nella schermata **Processi**. Questo permette di configurare le impostazioni avanzate, se non sono state configurate nella procedura guidata di creazione rapida.
 
-For all action types, you may change the retry policy and the error action.
+Per tutti i tipi di azione è possibile modificare i criteri per i tentativi e l'azione di errore.
 
-For HTTP and HTTPS job action types, you may change the method to any allowed HTTP verb. You may also add, delete, or change the headers and basic authentication information.
+Per le azioni di processo di tipo HTTP e HTTPS, è possibile modificare il metodo a qualsiasi verbo HTTP consentito. È inoltre possibile aggiungere, eliminare o modificare le intestazioni e le informazioni di autenticazione di base.
 
-For storage queue action types, you may change the storage account, queue name, SAS token, and body.
+Per le azioni di tipo coda di archiviazione, è possibile modificare l'account di archiviazione, il nome della coda, token SAS e corpo.
 
-For service bus action types, you may change the namespace, topic/queue path, authentication settings, transport type, message properties, and message body.
+Per i tipi di azione del bus di servizio è possibile modificare lo spazio dei nomi, il percorso della coda o dell'argomento, le impostazioni di autenticazione, il tipo di trasporto, le proprietà del messaggio e il corpo del messaggio.
 
    ![][job-action-settings]
 
-### <a name="schedule"></a>Schedule
+### Pianificazione
 
-This lets you reconfigure the schedule, if you'd like to change the schedule you created in the quick-create wizard.
+Permette di riconfigurare la pianificazione creata nella procedura guidata di creazione rapida.
 
-This is an opportunity to build [complex schedules and advanced recurrence in your job](scheduler-advanced-complexity.md)
+Offre la possibilità di creare [pianificazioni complesse e operazioni ricorrenti avanzate nel processo](scheduler-advanced-complexity.md)
 
-You may change the start date and time, recurrence schedule, and the end date and time (if the job is recurring.)
+È possibile modificare data e ora di inizio, la pianificazione di ricorrenza, e data e ora di fine (se il processo è ricorrente).
 
    ![][job-schedule]
 
 
-### <a name="history"></a>History
+### Cronologia
 
-The **History** tab displays selected metrics for every job execution in the system for the selected job. These metrics provide real-time values regarding the health of your Scheduler:
+La scheda **Cronologia** mostra le metriche selezionate per ogni esecuzione di processo nel sistema per il processo selezionato. Le metriche forniscono valori in tempo reale relativi all'integrità dell'Utilità di pianificazione:
 
-1.  Status  
+1.  Status
 
-2.  Details  
+2.  Dettagli
 
-3.  Retry attempts
+3.  Tentativi
 
-4.  Occurrence: 1st, 2nd, 3rd, etc.
+4.  Occorrenza: 1, 2, 3 e così via
 
-5.  Start time of execution  
+5.  Ora di inizio dell'esecuzione
 
-6.  End time of execution
+6.  Ora di fine dell'esecuzione
 
    ![][job-history]
 
-You can click on a run to view its **History Details**, including the whole response for every execution. This dialog box also allows you to copy the response to the clipboard.
+È possibile fare clic su un'esecuzione per visualizzarne i **Dettagli cronologia**, inclusa l'intera risposta per ogni esecuzione. La finestra di dialogo consente anche di copiare la risposta negli appunti.
 
    ![][job-history-details]
 
-### <a name="users"></a>Users
+### Utenti
 
-Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure Scheduler. To learn how to use the Users tab, refer to [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md)
+Il controllo degli accessi in base al ruolo di Azure consente una gestione degli accessi specifica per l'Utilità di pianificazione di Azure. Per informazioni sull'uso della scheda Utenti, vedere [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md)
 
 
-## <a name="see-also"></a>See also
+## Vedere anche
 
- [What is Scheduler?](scheduler-intro.md)
+ [Che cos'è l'Utilità di pianificazione?](scheduler-intro.md)
 
- [Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
+ [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione](scheduler-concepts-terms.md)
 
- [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
+ [Piani e fatturazione nell'utilità di pianificazione di Azure](scheduler-plans-billing.md)
 
- [How to build complex schedules and advanced recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
+ [Come creare pianificazioni complesse e operazioni ricorrenti avanzate con l'Utilità di pianificazione di Azure](scheduler-advanced-complexity.md)
 
- [Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
+ [Riferimento API REST dell'utilità di pianificazione](https://msdn.microsoft.com/library/mt629143)
 
- [Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
+ [Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione](scheduler-powershell-reference.md)
 
- [Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
+ [Livelli elevati di disponibilità e affidabilità dell'Utilità di pianificazione](scheduler-high-availability-reliability.md)
 
- [Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
+ [Limiti, valori predefiniti e codici di errore dell'Utilità di pianificazione](scheduler-limits-defaults-errors.md)
 
- [Scheduler outbound authentication](scheduler-outbound-authentication.md)
+ [Autenticazione in uscita dell'Utilità di pianificazione](scheduler-outbound-authentication.md)
 
 
 [marketplace-create]: ./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png
@@ -183,8 +182,4 @@ Azure Role-Based Access Control (RBAC) enables fine-grained access management fo
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

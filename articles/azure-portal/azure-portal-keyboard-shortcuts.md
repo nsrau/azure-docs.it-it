@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure portal keyboard shortcuts | Microsoft Azure"
-   description="This article will always be an up-to-date listing of the keyboard shortcuts that work throughout the Azure portal. Individual services might have their own specialized keyboard shortcuts."
+   pageTitle="Tasti di scelta rapida per il portale di Azure | Microsoft Azure"
+   description="Questo articolo includerà sempre un elenco aggiornato dei tasti di scelta rapida disponibili nel portale di Azure. È possibile che i singoli servizi abbiano tasti di scelta rapida specializzati."
    services="azure-portal"
    documentationCenter=""
    authors="flanakin"
@@ -16,39 +16,33 @@
    ms.date="02/07/2016"
    ms.author="micflan"/>
 
+# Tasti di scelta rapida per il portale di Azure
 
-# <a name="azure-portal-keyboard-shortcuts"></a>Azure portal keyboard shortcuts
+## Hub aperti
 
-## <a name="open-hubs"></a>Open hubs
-
-| Shortcut | Action |
+| Tasto di scelta rapida | Azione |
 |--------|----------|
-| N | Notifications |
-| / | Browse services |
-| A | Active sessions |
-| B | Billing |
-| C | Create |
+| N | Notifiche |
+| / | Esplorazione dei servizi |
+| A | Sessioni attive |
+| B | Fatturazione |
+| C | Creazione |
 
-## <a name="navigation"></a>Navigation
+## Navigazione
 
-| Shortcut | Action |
+| Tasto di scelta rapida | Azione |
 |--------|----------|
-| H | Azure Start dashboard |
-| F | First open blade |
-| J | Previous open blade |
-| K | Next open blade |
-| L | Last open blade |
-| - | Minimize blade or restore from maximized |
-| + | Maximize blade or restore from minimized |
-| # | Close current blade |
-| ¦ | Close all blades |
-| , | Move focus to command bar |
-| . | Move focus to navigation bar |
-| ? | View keyboard shortcuts |
+| H | Dashboard di avvio di Azure |
+| F | Primo pannello aperto |
+| J | Pannello precedente aperto |
+| K | Pannello successivo aperto |
+| L | Ultimo pannello aperto |
+| - | Riduzione a icona del pannello o ripristino da ingrandimento |
+| + | Ingrandimento pannello o ripristino da riduzione a icona |
+| # | Chiusura pannello corrente |
+| ¦ | Chiusura di tutti i pannelli |
+| , | Passaggio dello stato attivo sulla barra dei comandi |
+| . | Passaggio dello stato attivo sulla barra di spostamento |
+| ? | Visualizzazione dei tasti di scelta rapida |
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0504_2016-->

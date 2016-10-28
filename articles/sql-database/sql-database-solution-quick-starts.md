@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure SQL Database Solution Quick Starts | Microsoft Azure"
-   description="Learn about Azure SQL Database Solutions"
+   pageTitle="Avvio rapido: soluzioni del database SQL di Azure"
+   description="Informazioni sulle soluzioni del database SQL di Azure"
    services="sql-database"
    documentationCenter=""
    authors="CarlRabeler"
@@ -16,65 +16,59 @@
    ms.date="09/06/2016"
    ms.author="carlrab"/>
 
+# Avvio rapido: esplorare soluzioni del database SQL di Azure
 
-# <a name="explore-azure-sql-database-solution-quick-starts"></a>Explore Azure SQL Database Solution Quick Starts
+Questo articolo contiene informazioni di avvio rapido sulle soluzioni di database SQL di Azure. Queste guide di avvio rapido si trovano nel repository degli esempi di SQL Server su GitHub e illustrano l'utilizzo del database SQL in una soluzione completa basata su scenari reali. Per esercitazioni dettagliate passo per passo che illustrano l'uso di una particolare funzionalità del database SQL, vedere [Esplorare le esercitazioni sul database SQL di Azure](sql-database-explore-tutorials.md).
 
-This article contains an overview of the Azure SQL Database Solution Quick Starts. These Quick Starts are located in the GitHub SQL Server samples repository and demonstrate the use of SQL Database in a complete solution based on real-world scenarios. For simple step-by-step tutorials that demonstrate the use of a particular SQL Database feature, see [Explore Azure SQL Database tutorials](sql-database-explore-tutorials.md).
+## Eseguire la demo WingTipTickets e l'esercitazione pratica
 
-## <a name="try-the-wingtiptickets-demo-and-hands-on-lab"></a>Try the WingTipTickets demo and hands-on lab
-
-The [Azure SQL Database WingTipTickets](https://github.com/microsoft/wingtiptickets) demo and hands-on lab demonstrate an Azure SQL Database and Azure Search-based sample application that's used to sell concert tickets.
-
-
-## <a name="collect-and-monitor-resource-usage-data-across-multiple-pools"></a>Collect and monitor resource usage data across multiple pools
-
-[Solution Quick Start: Elastic Pool telemetry using PowerShell](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) provides a solution for collecting and monitoring SQL Database resource usage across multiple pools in a subscription. When you have a large number of databases in a subscription, it's cumbersome to monitor each elastic pool separately.
-
-To resolve this issue, you can combine SQL Database PowerShell cmdlets and T-SQL queries to collect resource usage data from multiple pools and their databases. This helps you monitor and analyze resource usage more efficiently.
-
-This Quick Start provides a set of PowerShell scripts and T-SQL queries along with documentation on what the solution does and how to implement it.
-
-## <a name="get-started-with-elastic-database-in-an-saas-scenario"></a>Get started with Elastic Database in an SaaS scenario
-
- [Solution Quick Start: Elastic Pool custom dashboard for SaaS](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) provides a solution for a Software-as-a-Solution (SaaS) scenario that leverages the Elastic Database feature of SQL Database to provide a cost-effective and scalable database backend for an SaaS application.
-
-In this solution, you will walk through the implementation of a web app. This web app lets you visualize the load that's created on an elastic database by a load generator that uses a custom dashboard that supplements the Azure portal.
-
-This Quick Start provides a load generator and monitoring web app along with the documentation about what the app does and how to use it.
-
-## <a name="create-an-azure-sql-database-by-using-code-first-development-and-the-entity-framework"></a>Create an Azure SQL database by using Code First development and the Entity Framework
-
-The video and sample in [Code First to a New Database](https://msdn.microsoft.com/data/jj193542.aspx) provides an introduction to Code First development that targets a new database. This scenario targets a database that doesn’t exist, but which will be created by Code First. Alternatively, the scenario creates an empty database to which Code First adds new tables.
-
-Code First enables you to define your model by using by C# or Visual Basic .NET classes. You can perform optional additional configuration by using attributes on your classes and properties or by using a fluent API.
-
-## <a name="integrate-elastic-database-tools-into-an-entity-framework-application"></a>Integrate Elastic Database tools into an Entity Framework application
-
-The [Elastic Database client library with Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) sample shows the changes that you need to make to an Entity Framework application to integrate it with [Elastic Database tools](sql-database-elastic-scale-get-started.md). The focus is on composing [shard map management](sql-database-elastic-scale-shard-map-management.md) and [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md) with the Entity Framework Code First approach.
-
-The [Code First to a new database sample for EF](http://msdn.microsoft.com/data/jj193542.aspx) serves as our running example throughout this sample. The sample code that accompanies this document is part of the Elastic Database tools set of samples in the Visual Studio code samples.
-
-## <a name="integrate-elastic-database-tools-with-row-level-security"></a>Integrate Elastic Database tools with row-level security
-
-[Multitenant applications with Elastic Database tools and row-level security](sql-database-elastic-tools-multi-tenant-row-level-security.md) shows the changes that you need to make to an Entity Framework application to integrate [Elastic Database tools](sql-database-elastic-scale-get-started.md) with [row-level security](https://msdn.microsoft.com/library/dn765131). This sample illustrates how to use these technologies together to build an application with a highly scalable data tier that supports multitenant shards.
-
-You do this by using ADO.NET SqlClient or Entity Framework. This sample extends the [Elastic Database client library with Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) by adding support for multitenant shard databases.
-It builds a simple console application for creating blogs and posts, with four tenants and two multitenant shard databases.
-
-## <a name="create-online-surveys-with-the-tailspin-surveys-application"></a>Create online surveys with the Tailspin Surveys application
-
-This [Tailspin Surveys sample application](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md) is a multitenant web application, called Surveys, that enables users to create online surveys. The sample addresses some key concerns about how to manage user identities in a multitenant application, including sign-up, authentication, authorization, and app roles.
-
-## <a name="learn-about-the-latest-security-features-of-sql-database-with-the-contoso-clinic-demo-application"></a>Learn about the latest security features of SQL Database with the Contoso Clinic Demo Application
-
-This [Contoso Clinic Demo application](https://github.com/Microsoft/azure-sql-security-sample) showcases the latest security features of SQL Database.
-
-## <a name="next-steps"></a>Next steps
-
-[Explore Azure SQL Database tutorials](sql-database-explore-tutorials.md)
+La demo e l'esercitazione pratica di [Azure SQL Database WingTipTickets](https://github.com/microsoft/wingtiptickets) illustrano un'applicazione di esempio basata su un database SQL di Azure e su Ricerca di Azure usata per la vendita di biglietti per un concerto.
 
 
+## Raccogliere e monitorare i dati sull'utilizzo delle risorse in più pool
 
-<!--HONumber=Oct16_HO2-->
+La [Guida introduttiva: Telemetria di pool elastici con PowerShell](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) offre una soluzione per la raccolta e il monitoraggio dell'utilizzo delle risorse del database SQL su più pool in una sottoscrizione. In presenza di un numero elevato di database in una sottoscrizione, è difficile monitorare separatamente i singoli pool elastici.
 
+Per risolvere il problema, è possibile combinare i cmdlet di PowerShell per database SQL e le query T-SQL per raccogliere dati sull'utilizzo delle risorse da più pool e i relativi database. Ciò consente di monitorare e analizzare in modo più efficiente l'utilizzo delle risorse.
 
+Questa Guida introduttiva fornisce un set di script di PowerShell e query T-SQL, oltre alla documentazione sul funzionamento della soluzione e su come implementarla.
+
+## Introduzione ai database elastici in uno scenario SaaS
+
+ La [Guida introduttiva: dashboard personalizzato di pool elastico per SaaS](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) offre una soluzione per uno scenario SaaS (Software-as-a-Solution) che utilizza la funzionalità di database elastico del database SQL per fornire un back-end di database economico e scalabile per un'applicazione SaaS.
+
+In questa soluzione viene illustrata in dettaglio l'implementazione di un'app Web. Questa app Web consente di visualizzare il carico creato in un database elastico da un generatore di carico che utilizza un dashboard personalizzato a integrazione del portale di Azure.
+
+Questa Guida introduttiva presenta un generatore di carico e un'app Web di monitoraggio, insieme alla documentazione sulle finalità dell'applicazione e su come utilizzarla.
+
+## Creare un database SQL di Azure tramite Entity Framework e sviluppo con Code First
+
+Nel video e nell'esempio su [Code First in un nuovo database](https://msdn.microsoft.com/data/jj193542.aspx) viene fornita un'introduzione allo sviluppo con Code First destinato alla creazione di un nuovo database. Questo scenario è destinato a un database che non esiste, ma che verrà creato da Code First. In alternativa, lo scenario crea un database vuoto a cui vengono aggiunte nuove tabelle con Code First.
+
+Code First consente di definire il modello utilizzando le classi C# o Visual Basic .NET. Facoltativamente, è possibile eseguire una configurazione aggiuntiva con gli attributi delle classi e proprietà o usando un'API Fluent.
+
+## Integrare strumenti di database elastici in un'applicazione Entity Framework
+
+L'esempio [Libreria client dei database elastici con Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) illustra le modifiche da apportare a un'applicazione Entity Framework per integrarla negli [strumenti di database elastici](sql-database-elastic-scale-get-started.md). Vengono descritti in particolare la [gestione delle mappe partizioni](sql-database-elastic-scale-shard-map-management.md) e il [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md) con l'approccio Code First di Entity Framework.
+
+[Code First per un nuovo database per Entity Framework](http://msdn.microsoft.com/data/jj193542.aspx) servirà da esempio per questo articolo. Il codice di esempio che accompagna questo documento fa parte del set di esempi sugli strumenti dei database elastici negli esempi di codice di Visual Studio.
+
+## Integrazione degli strumenti di database elastici con protezione a livello di riga
+
+[Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga](sql-database-elastic-tools-multi-tenant-row-level-security.md) illustra le modifiche da apportare a un'applicazione Entity Framework per integrare gli [strumenti di database elastici](sql-database-elastic-scale-get-started.md) con la [sicurezza a livello di riga](https://msdn.microsoft.com/library/dn765131). Questo esempio illustra come usare insieme queste tecnologie per compilare un'applicazione con un livello dati altamente scalabile che supporta partizioni multi-tenant.
+
+Questa operazione può essere eseguita con ADO.NET SqlClient o Entity Framework. Questo esempio estende la [Libreria client dei database elastici con Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) aggiungendo il supporto per i database con partizioni multi-tenant. Viene compilata una semplice applicazione console per la creazione di blog e post, con quattro tenant e due database con partizioni multi-tenant.
+
+## Creare sondaggi online con l'applicazione Tailspin Surveys
+
+L'[applicazione di esempio Tailspin Surveys](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md) è un'applicazione Web multi-tenant che consente agli utenti di creare sondaggi online. L'esempio illustra alcuni problemi comuni quando si gestiscono le identità utente in un'applicazione multi-tenant, tra cui iscrizione, autenticazione, autorizzazione e ruoli dell'app.
+
+## Scopri le ultime funzionalità di sicurezza dei database SQL nell'applicazione demo di Contoso
+
+L'[applicazione demo di Contoso](https://github.com/Microsoft/azure-sql-security-sample) illustra le ultime funzionalità di sicurezza dei database SQL.
+
+## Passaggi successivi
+
+[Esplorare le esercitazioni sul database SQL di Azure](sql-database-explore-tutorials.md)
+
+<!---HONumber=AcomDC_0907_2016-->

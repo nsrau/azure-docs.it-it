@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Use VS Code with Resource Manager templates | Microsoft Azure"
-   description="Shows how to set up Visual Studio Code to create Azure Resource Manager templates."
+   pageTitle="Usare Visual Studio COde con i modelli di Resource Manager | Microsoft Azure"
+   description="Viene illustrato come configurare Visual Studio Code per creare modelli di Azure Resource Manager."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="cmatskas"
@@ -16,129 +16,124 @@
    ms.date="09/26/2016"
    ms.author="chmatsk;tomfitz"/>
 
+# Utilizzo dei modelli di Azure Resource Manager nel codice di Visual Studio
 
-# <a name="working-with-azure-resource-manager-templates-in-visual-studio-code"></a>Working with Azure Resource Manager Templates in Visual Studio Code
+I modelli di Azure Resource Manager sono file JSON che descrivono una risorsa e le relative dipendenze. Questi file possono talvolta essere grandi e complessi, perciò è importante avere strumenti di supporto. Visual Studio Code è un nuovo editor di codice, leggero, open source e multipiattaforma. Supporta la creazione e la modifica dei modelli di Resource Manager tramite una [nuova estensione](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). Visual Studio Code viene eseguito ovunque e non richiede l'accesso a Internet, a meno che non si vogliano distribuire i modelli di Resource Manager.
 
-Azure Resource Manager templates are JSON files that describe a resource and related dependencies. These files can sometimes be large and complicated so tooling support is important. Visual Studio Code is a new, lightweight, open-source, cross-platform code editor. It supports creating and editing Resource Manager templates through a [new extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). VS Code runs everywhere and doesn't require Internet access unless you also want to deploy your Resource Manager templates.
+Se Visual Studio Code non è già disponibile, è possibile installarlo da [https://code.visualstudio.com/](https://code.visualstudio.com/).
 
-If you do not already have VS Code, you can install it at [https://code.visualstudio.com/](https://code.visualstudio.com/).
+## Installare l'estensione per Resource Manager
 
-## <a name="install-the-resource-manager-extension"></a>Install the Resource Manager extension
+Per utilizzare i modelli JSON in Visual Studio Code, è necessario installare un'estensione. I passaggi seguenti consentono di scaricare e installare il supporto linguistico per i modelli JSON di Resource Manager:
 
-To work with the JSON templates in VS Code, you need to install an extension. The following steps download and install the language support for Resource Manager JSON templates:
-
-1. Launch VS Code 
-2. Open Quick Open (Ctrl+P) 
-3. Run the following command: 
+1. Avviare Visual Studio Code
+2. Aprire Apertura rapida (CTRL+P)
+3. Eseguire il comando seguente:
 
         ext install azurerm-vscode-tools
 
-4. Restart VS Code when prompted to enable the extension. 
+4. Riavviare Visual Studio Code quando richiesto per abilitare l'estensione.
 
- Job done!
+ L'operazione è stata completata.
 
-## <a name="set-up-resource-manager-snippets"></a>Set up Resource Manager snippets
+## Configurare i frammenti di codice di Resource Manager
 
-The previous steps installed the tooling support, but now we need to configure VS Code to use JSON template snippets.
+Nei passaggi precedenti è stato installato il supporto degli strumenti, ma ora è necessario configurare Visual Studio Code per l'uso di frammenti di codice del modello JSON.
 
-1. Copy the contents of the file from the [azure-xplat-arm-tooling](https://raw.githubusercontent.com/Azure/azure-xplat-arm-tooling/master/VSCode/armsnippets.json) repository to your clipboard.
-2. Launch VS Code 
-3. In VS Code, you can open the JSON snippets file by either navigating to **File** -> **Preferences** -> **User Snippets** -> **JSON**, or by selecting **F1** and typing **preferences** until you can select **Preferences: Snippets**.
+1. Copiare il contenuto del file dal repository [azure-xplat-arm-tooling](https://raw.githubusercontent.com/Azure/azure-xplat-arm-tooling/master/VSCode/armsnippets.json) negli Appunti.
+2. Avviare Visual Studio Code
+3. In Visual Studio Code è possibile aprire il file di frammenti JSON passando a **File** -> **Preferences** (Preferenze) -> **User Snippets** (Frammenti utente) -> **JSON** oppure premendo **F1** e digitando **preferences** (preferenze) fino a quando non è possibile selezionare **Preferences: Snippets** (Preferenze: frammenti).
 
-    ![preference snippets](./media/resource-manager-vs-code/preferences-snippets.png)
+    ![frammenti di preferenze](./media/resource-manager-vs-code/preferences-snippets.png)
 
-    From the options, select **JSON**.
+    Nelle opzioni selezionare **JSON**.
 
-    ![select json](./media/resource-manager-vs-code/select-json.png)
+    ![selezionare json](./media/resource-manager-vs-code/select-json.png)
 
-4. Paste the contents of the file on step 1 into your user snippets file before the final "}" 
-5. Make sure the JSON looks OK and there are no squiggles anywhere. 
-6. Save and close the user snippets file.
+4. Incollare il contenuto del file nel passaggio 1 nel file di frammenti di codice utente prima della "}" finale.
+5. Assicurarsi che il codice JSON abbia un aspetto corretto e non siano presenti errori di ortografia.
+6. Salvare e chiudere il file di frammenti di codice utente.
 
-That's all that's needed to start using the Resource Manager snippets. Next, we'll put this setup to the test.
+È tutto ciò che serve per iniziare a usare i frammenti di codice di Resource Manager. Successivamente, verrà eseguito il test di questa configurazione.
 
-## <a name="work-with-template-in-vs-code"></a>Work with template in VS Code
+## Utilizzare il modello in Visual Studio Code
 
-The easiest way to start working with a template is to either grab one of the Quick Start Templates available on [Github](https://github.com/Azure/azure-quickstart-templates) or use one of your own. You can easily [export a template](resource-manager-export-template.md) for any of your resource groups through the portal. 
+Il modo più semplice per iniziare a utilizzare un modello consiste nello scegliere uno dei modelli di avvio rapido disponibili in [Github](https://github.com/Azure/azure-quickstart-templates) oppure usarne uno personalizzato. È possibile [esportare facilmente un modello ](resource-manager-export-template.md) per uno qualsiasi dei gruppi di risorse tramite il portale.
 
-1. If you exported a template from a resource group, open the extracted files in VS Code.
+1. Se è stato esportato un modello da un gruppo di risorse, aprire i file estratti in Visual Studio Code.
 
-    ![show files](./media/resource-manager-vs-code/show-files.png)
+    ![visualizzare i file](./media/resource-manager-vs-code/show-files.png)
 
-2. Open the template.json file so that you can edit it and add some additional resources. After the **"resources": [** press enter to start a new line. If you type **arm**, you'll be presented with a list of options. These options are the template snippets you installed. It should look like this: 
+2. Aprire il file template.json per poterlo modificare e aggiungere alcune risorse aggiuntive. Dopo **"resources": [** premere INVIO per iniziare una nuova riga. Se si digita **arm**, verrà visualizzato un elenco di opzioni. Queste opzioni sono i frammenti di codice del modello installato. L'aspetto dovrebbe risultare simile al seguente:
 
-    ![show snippets](./media/resource-manager-vs-code/type-snippets.png)
+    ![visualizzare frammenti di codice](./media/resource-manager-vs-code/type-snippets.png)
 
-3. Choose the snippet you wish. For this article, I am choosing **arm-ip** to create a new public IP address. Put a comma after the closing bracket "}" of the newly created resource to make sure your template syntax is valid.
+3. Scegliere il frammento desiderato. Per questo articolo si sceglierà **ip arm** per creare un nuovo indirizzo IP pubblico. Inserire una virgola dopo la parentesi di chiusura "}" della risorsa appena creata per assicurarsi che la sintassi del modello sia valida.
 
-     ![add comma](./media/resource-manager-vs-code/add-comma.png)
+     ![aggiungere una virgola](./media/resource-manager-vs-code/add-comma.png)
 
-4. VS Code has built-in IntelliSense. As you edit your templates, VS Code suggests available values. For example, to add a variables section to your template, add **""** (two double-quotes) and select **Ctrl+Space** between those quotes. You will be presented with options including **variables**.
+4. Visual Studio Code include IntelliSense. Quando si modificano i modelli, Visual Studio Code suggerisce i valori disponibili. Ad esempio, per aggiungere una sezione di variabili al modello, aggiungere **""** (due virgolette doppie) e premere **CTRL+BARRA SPAZIATRICE** tra le virgolette. Verranno visualizzata le opzioni che includono **variabili**.
 
-    ![add variables](./media/resource-manager-vs-code/add-variables.png)
+    ![aggiungere variabili](./media/resource-manager-vs-code/add-variables.png)
 
-5. IntelliSense can also suggest available values or functions. To set a property to a parameter value, create an expression with **"[]"** and **Ctrl+Space**. You can start typing the name of a function. Select **Tab** when you have found the function you want.
+5. IntelliSense può anche suggerire valori o funzioni disponibili. Per impostare una proprietà su un valore di parametro, creare un'espressione con **""** e **CTRL+BARRA SPAZIATRICE**. È possibile iniziare a digitare il nome di una funzione. Premere **TAB** quando è stata trovata la funzione desiderata.
 
-    ![add parameter](./media/resource-manager-vs-code/select-parameters.png)
+    ![aggiungere un parametro](./media/resource-manager-vs-code/select-parameters.png)
 
-6. Select **Ctrl+Space** again within the function to see a list of the available parameters within your template.
+6. Premere di nuovo **CTRL+BARRA SPAZIATRICE** all'interno della funzione per visualizzare un elenco di parametri disponibili all'interno del modello.
 
-    ![add parameter](./media/resource-manager-vs-code/select-avail-parameters.png)
+    ![aggiungere un parametro](./media/resource-manager-vs-code/select-avail-parameters.png)
 
-7. If you have any schema validation issues in your template, you'll see the familiar squiggles in the editor. You can view the list of errors and warnings by typing **Ctrl+Shift+M** or selecting the glyphs in the lower left status bar.
+7. In caso di problemi di convalida dello schema nel modello, nell'editor saranno visibili le familiari indicazioni del controllo ortografia. È possibile visualizzare l'elenco di errori e avvisi premendo **CTRL+MAIUSC+M** o selezionando i glifi sulla barra di stato in basso a sinistra.
 
     ![errors](./media/resource-manager-vs-code/errors.png)
 
-    Validation of your template can help you detect syntax problems; however, you may also see errors that you can ignore. In some cases, the editor is comparing your template against a schema that is not up-to-date and therefore reports an error even though you know it is correct. For example, suppose a function has recently been added to Resource Manager but the schema has not been updated. The editor reports an error despite the fact the function works correctly during deployment.
+    La convalida del modello consente di rilevare problemi di sintassi. Tuttavia, possono anche essere visualizzati errori che è possibile ignorare. In alcuni casi, l'editor confronta il modello rispetto a uno schema non aggiornato e quindi segnala un errore anche se è corretto. Si supponga, ad esempio, che una funzione sia stato aggiunto di recente a Resouce Manager, ma lo schema non è stato aggiornato. L'editor segnala un errore anche se la funzione, in effetti, funziona correttamente durante la distribuzione.
 
-    ![error message](./media/resource-manager-vs-code/unrecognized-function.png)
+    ![messaggio di errore](./media/resource-manager-vs-code/unrecognized-function.png)
 
-## <a name="deploy-your-new-resources"></a>Deploy your new resources
+## Distribuire le nuove risorse
 
-When your template is ready, you can deploy the new resources following the instructions below: 
+Quando il modello è pronto, è possibile distribuire le nuove risorse seguendo le istruzioni riportate di seguito:
 
-### <a name="windows"></a>Windows
+### Windows
 
-1. Open a PowerShell command prompt 
-2. To login type: 
+1. Aprire un prompt dei comandi di PowerShell
+2. Per accedere digitare:
 
         Login-AzureRmAccount 
 
-3. If you have multiple subscriptions, get a list of the subscriptions with:
+3. Se sono disponibili più sottoscrizioni, ottenere un elenco delle sottoscrizioni con:
 
         Get-AzureRmSubscription
 
-    And select the subscription to use.
+    Selezionare quindi la sottoscrizione da usare.
    
         Select-AzureRmSubscription -SubscriptionId <Subscription Id>
 
-4. Update the parameters in your parameters.json file
-5. Run the Deploy.ps1 to deploy your template on Azure
+4. Aggiornare i parametri nel file parameters.json
+5. Eseguire Deploy.ps1 per distribuire il modello in Azure
 
-### <a name="osx/linux"></a>OSX/Linux
+### OSX/Linux
 
-1. Open a terminal window 
-2. To login type:
+1. Aprire una finestra del terminale
+2. Per accedere digitare:
 
         azure login 
 
-3. If you have multiple subscriptions, select the right subscription with:
+3. Se sono disponibili più sottoscrizioni, selezionare la sottoscrizione appropriata con:
 
         azure account set <subscriptionNameOrId> 
 
-4. Update the parameters in the parameters.json file.
-5. To deploy the template, run:
+4. Aggiornare i parametri nel file parameters.json.
+5. Per distribuire il modello, eseguire:
 
         azure group deployment create -f <PathToTemplate> 
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-- To learn more about templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
-- To learn about template functions, see [Azure Resource Manager template functions](resource-group-template-functions.md).
-- For more examples of working with Visual Studio Code, see [Build cloud apps with Visual Studio Code](https://github.com/Microsoft/HealthClinic.biz/wiki/Build-cloud-apps-with-Visual-Studio-Code) from the [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). For more quickstarts from the HealthClinic.biz demo, see [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
+- Per altre informazioni sui modelli, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).
+- Per altre informazioni sulle funzioni del modello, vedere [Funzioni del modello di Azure Resource Manager](resource-group-template-functions.md).
+- Per altri esempi dell'uso di Visual Studio Code, vedere [Build cloud apps with Visual Studio Code](https://github.com/Microsoft/HealthClinic.biz/wiki/Build-cloud-apps-with-Visual-Studio-Code) (Compilare app per cloud con Visual Studio Code) della [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect. Per altre guide introduttive della demo HealthClinic.biz, vedere [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts) (Guide introduttive agli strumenti di sviluppo di Azure).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0928_2016-->

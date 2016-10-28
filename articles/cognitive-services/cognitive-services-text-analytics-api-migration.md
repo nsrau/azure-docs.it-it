@@ -1,84 +1,83 @@
 <properties
-    pageTitle="Upgrading to Version 2 of the Text Analytics API | Microsoft Azure"
-    description="Azure Machine Learning Text Analytics - Upgrade to Version 2"
-    services="cognitive-services"
-    documentationCenter=""
-    authors="onewth"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	pageTitle="Aggiornamento alla versione 2 dell'API di analisi del testo | Microsoft Azure"
+	description="Analisi del testo di Azure Machine Learning - Aggiornamento alla versione 2"
+	services="cognitive-services"
+	documentationCenter=""
+	authors="onewth"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
-    ms.service="cognitive-services"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/04/2016"
-    ms.author="onewth"/>
+	ms.service="cognitive-services"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/05/2016"
+	ms.author="onewth"/>
 
+# Aggiornamento alla versione 2 dell'API di analisi del testo #
 
-# <a name="upgrading-to-version-2-of-the-text-analytics-api"></a>Upgrading to Version 2 of the Text Analytics API #
+Questa guida illustra il processo di aggiornamento del codice dall'uso della [prima versione dell'API](../machine-learning/machine-learning-apps-text-analytics.md) all'uso della seconda versione.
 
-This guide will take you through the process of upgrading your code from using the [first version of the API](../machine-learning/machine-learning-apps-text-analytics.md) to using the second version. 
+Se non si ha familiarità con l'API, è possibile **[trovare altre informazioni sull'API qui](//go.microsoft.com/fwlink/?LinkID=759711)** o **[vedere la guida introduttiva](//go.microsoft.com/fwlink/?LinkID=760860)**. Per la documentazione tecnica, vedere la **[definizione dell'API](//go.microsoft.com/fwlink/?LinkID=759346)**.
 
-If you have not used the API and would like to learn more, you can **[learn more about the API here](//go.microsoft.com/fwlink/?LinkID=759711)** or **[follow the Quick Start Guide](//go.microsoft.com/fwlink/?LinkID=760860)**. For technical reference, refer to the **[API Definition](//go.microsoft.com/fwlink/?LinkID=759346)**.
+### Parte 1. Ottenere una nuova chiave ###
 
-### <a name="part-1.-get-a-new-key"></a>Part 1. Get a new key ###
+Prima di tutto sarà necessario ottenere una nuova chiave API dal **portale di Azure**:
 
-First, you will need to get a new API key from the **Azure Portal**:
+1. Accedere al servizio Analisi del testo da [Cortana Intelligence Gallery](//gallery.cortanaintelligence.com/MachineLearningAPI/Text-Analytics-2), dove sono disponibili anche collegamenti alla documentazione e a esempi di codice.
 
-1. Navigate to the Text Analytics service through the [Cortana Intelligence Gallery](//gallery.cortanaintelligence.com/MachineLearningAPI/Text-Analytics-2). Here, you will also find links to the documentation and code samples.
+1. Fare clic su **Sign Up**. Questo collegamento apre il portale di gestione di Azure, dove è possibile iscriversi al servizio.
 
-1. Click **Sign Up**. This link will take you to the Azure management portal, where you can sign up for the service.
+1. Selezionare un piano. È possibile selezionare il **livello gratuito per 5.000 transazioni al mese**. Essendo un piano gratuito, non verranno addebitati costi per l'uso del servizio. Sarà necessario accedere alla sottoscrizione di Azure.
 
-1. Select a plan. You may select the **free tier for 5,000 transactions/month**. As is a free plan, you will not be charged for using the service. You will need to login to your Azure subscription. 
+1. Dopo l'iscrizione ad Analisi del testo, verrà assegnata una **chiave API**. Copiare questa chiave, perché sarà necessaria quando si usano i servizi API.
 
-1. After you sign up for Text Analytics, you'll be given an **API Key**. Copy this key, as you'll need it when using the API services.
+### Parte 2. Aggiornare le intestazioni ###
 
-### <a name="part-2.-update-the-headers"></a>Part 2. Update the headers ###
+Aggiornare i valori di intestazione inviati, come illustrato di seguito. Si noti che la chiave dell'account non è più codificata.
 
-Update the submitted header values as shown below. Note that the account key is no longer encoded.
-
-**Version 1**
+**Versione 1**
 
     Authorization: Basic base64encode(<your Data Market account key>)
     Accept: application/json
 
-**Version 2**
+**Versione 2**
 
     Content-Type: application/json
     Accept: application/json
     Ocp-Apim-Subscription-Key: <your Azure Portal account key>
 
 
-### <a name="part-3.-update-the-base-url"></a>Part 3. Update the base URL ###
+### Parte 3. Aggiornare l'URL di base ###
 
-**Version 1**
+**Versione 1**
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/
 
-**Version 2**
+**Versione 2**
 
     https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/
 
-### <a name="part-4a.-update-the-formats-for-sentiment,-key-phrases-and-languages"></a>Part 4a. Update the formats for sentiment, key phrases and languages ###
+### Parte 4a. Aggiornare i formati per valutazione, frasi chiave e lingue ###
 
-#### <a name="endpoints"></a>Endpoints ####
+#### Endpoint ####
 
-GET endpoints have now been deprecated, so all input should be submitted as a POST request. Update the endpoints to the ones shown below.
+Gli endpoint GET ora sono deprecati, quindi tutto l'input deve essere inviato come richiesta POST. Aggiornare gli endpoint a quelli illustrati di seguito.
 
-| |Version 1 single endpoint|Version 1 batch endpoint|Version 2 endpoint|
+| |Endpoint singolo versione 1|Endpoint batch versione 1|Endpoint versione 2|
 |---|---|---|---|
-|Call type|GET|POST|POST|
-|Sentiment|```GetSentiment```|```GetSentimentBatch```|```sentiment```|
-|Key phrases|```GetKeyPhrases```|```GetKeyPhrasesBatch```|```keyPhrases```|
-|Languages|```GetLanguage```|```GetLanguageBatch```|```languages```|
+|Tipo di chiamata|GET|POST|POST|
+|Valutazione|```GetSentiment```|```GetSentimentBatch```|```sentiment```|
+|Frasi chiave|```GetKeyPhrases```|```GetKeyPhrasesBatch```|```keyPhrases```|
+|Lingue|```GetLanguage```|```GetLanguageBatch```|```languages```|
 
-#### <a name="input-formats"></a>Input formats ####
+#### Formati di input ####
 
-Note that only POST format is now accepted, so you should reformat any input which previously used the single document endpoints accordingly. Inputs are not case sensitive.
+Si noti che ora è accettato solo il formato POST, quindi è consigliabile riformattare di conseguenza gli input che prima usavano gli endpoint documento singoli. Gli input non fanno distinzione tra maiuscole/minuscole.
 
-**Version 1 (batch)**
+**Versione 1 (batch)**
 
     {
       "Inputs": [
@@ -89,7 +88,7 @@ Note that only POST format is now accepted, so you should reformat any input whi
       ]
     }
 
-**Version 2**
+**Versione 2**
 
     {
       "documents": [
@@ -100,9 +99,9 @@ Note that only POST format is now accepted, so you should reformat any input whi
       ]
     }
 
-#### <a name="output-from-sentiment"></a>Output from sentiment ####
+#### Output della valutazione ####
 
-**Version 1**
+**Versione 1**
 
     {
       "SentimentBatch":[{
@@ -115,7 +114,7 @@ Note that only POST format is now accepted, so you should reformat any input whi
       }]
     }
 
-**Version 2**
+**Versione 2**
 
     {
       "documents":[{
@@ -128,9 +127,9 @@ Note that only POST format is now accepted, so you should reformat any input whi
       }]
     }
 
-#### <a name="output-from-key-phrases"></a>Output from key phrases ####
+#### Output delle frasi chiave ####
 
-**Version 1**
+**Versione 1**
 
     {
       "KeyPhrasesBatch":[{
@@ -143,7 +142,7 @@ Note that only POST format is now accepted, so you should reformat any input whi
       }]
     }
 
-**Version 2**
+**Versione 2**
 
     {
       "documents":[{
@@ -156,10 +155,10 @@ Note that only POST format is now accepted, so you should reformat any input whi
       }]
     }
 
-#### <a name="output-from-languages"></a>Output from languages ####
+#### Output delle lingue ####
 
 
-**Version 1**
+**Versione 1**
 
     {
       "LanguageBatch":[{
@@ -176,7 +175,7 @@ Note that only POST format is now accepted, so you should reformat any input whi
       }]
     }
 
-**Version 2**
+**Versione 2**
 
     {
       "documents":[{
@@ -194,18 +193,18 @@ Note that only POST format is now accepted, so you should reformat any input whi
     }
 
 
-### <a name="part-4b.-update-the-formats-for-topics"></a>Part 4b. Update the formats for topics ###
+### Parte 4b. Aggiornare i formati per gli argomenti ###
 
-#### <a name="endpoints"></a>Endpoints ####
+#### Endpoint ####
 
-| |Version 1 endpoint | Version 2 endpoint|
+| |Endpoint versione 1 | Endpoint versione 2|
 |---|---|---|
-|Submit for topic detection (POST)|```StartTopicDetection```|```topics```|
-|Fetch topic results (GET)|```GetTopicDetectionResult?JobId=<jobId>```|```operations/<operationId>```|
+|Invio per rilevamento argomento (POST)|```StartTopicDetection```|```topics```|
+|Recupero risultati argomento (GET)|```GetTopicDetectionResult?JobId=<jobId>```|```operations/<operationId>```|
 
-#### <a name="input-formats"></a>Input formats ####
+#### Formati di input ####
 
-**Version 1**
+**Versione 1**
 
     {
       "StopWords": [
@@ -222,7 +221,7 @@ Note that only POST format is now accepted, so you should reformat any input whi
       ]
     }
 
-**Version 2**
+**Versione 2**
 
     {
       "stopWords": [
@@ -239,26 +238,26 @@ Note that only POST format is now accepted, so you should reformat any input whi
       ]
     }
 
-#### <a name="submission-results"></a>Submission results ####
+#### Risultati dell'invio ####
 
-**Version 1 (POST)**
+**Versione 1 (POST)**
 
-Previously, when the job finished, you would receive the following JSON output, where the jobId would be appended to a URL to fetch the output.
+Prima, al termine del processo, si riceveva l'output JSON seguente, in cui jobId veniva aggiunto a un URL per recuperare l'output.
 
     {
         "odata.metadata":"<url>",
         "JobId":"<JobId>"
     }
 
-**Version 2 (POST)**
+**Versione 2 (POST)**
 
-The response will now include a header value as follows, where `operation-location` is used as the endpoint to poll for the results:
+La risposta includerà ora un valore di intestazione nel codice seguente, dove `operation-location` viene usato come endpoint per il polling dei risultati:
 
     'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
 
-#### <a name="operation-results"></a>Operation results ####
+#### Operation results ####
 
-**Version 1 (GET)**
+**Versione 1 (GET)**
 
     {
       "TopicInfo" : [{
@@ -277,11 +276,11 @@ The response will now include a header value as follows, where `operation-locati
       }]
     }
 
-**Version 2 (GET)**
+**Versione 2 (GET)**
 
-As before, **periodically poll the output** (the suggested period is every minute) until the output is returned. 
+Come prima, **eseguire regolarmente il polling dell'output** (il periodo consigliato è ogni minuto) finché l'output non viene restituito.
 
-When the topics API has finished, a status reading `succeeded` will be returned. This will then include the output results in the format shown below:
+Al termine dell'esecuzione dell'API degli argomenti, verrà restituito lo stato `succeeded`. I risultati dell'output verranno quindi inclusi nel formato seguente:
 
     {
         "status": "succeeded",
@@ -305,12 +304,8 @@ When the topics API has finished, a status reading `succeeded` will be returned.
         }
     }
 
-### <a name="part-5.-test-it!"></a>Part 5. Test it! ###
+### Parte 5. Test ###
 
-You should now be good to go! Test your code with a small sample to ensure that you can successfully process your data.
+A questo punto si dovrebbe essere pronti. Testare il codice con un piccolo esempio per assicurarsi di riuscire a elaborare i dati.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

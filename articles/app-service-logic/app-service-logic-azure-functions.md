@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Using Azure Functions with Logic Apps | Microsoft Azure"
-   description="See how to use Azure Functions with Logic Apps"
+   pageTitle="Uso delle funzioni di Azure con le app per la logica | Microsoft Azure"
+   description="Informazioni sull'uso delle funzioni di Azure con le app per la logica"
    services="logic-apps,functions"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
@@ -16,20 +16,19 @@
    ms.date="09/01/2016"
    ms.author="jehollan"/>
 
+# Uso delle funzioni di Azure con le app per la logica
 
-# <a name="using-azure-functions-with-logic-apps"></a>Using Azure Functions with Logic Apps
+È possibile eseguire frammenti di codice personalizzati di C# o node.js usando le funzioni di Azure da un'app per la logica. Le [funzioni di Azure](../azure-functions/functions-overview.md) offrono funzionalità di calcolo indipendenti dal server in Microsoft Azure, utili per eseguire le attività seguenti:
 
-You can run custom snippets of C# or node.js by using Azure Functions from within a logic app.  [Azure Functions](../azure-functions/functions-overview.md) offers server-free computing in Microsoft Azure. This is useful for performing the following tasks:
+* Formattazione del valore di un'azione (ad esempio, conversione da DateTime a una stringa di data)
+* Esecuzione di calcoli all'interno di un flusso di lavoro
+* Estensione della funzionalità delle app per la logica con funzioni supportate in C# o node.js
 
-* Formatting the value of an action (for example, converting from DateTime to a date string)
-* Performing calculations within a workflow
-* Extending the functionality of Logic Apps with functions that are supported in C# or node.js
+## Creare una funzione per le app per la logica
 
-## <a name="create-a-function-for-logic-apps"></a>Create a function for Logic Apps
+È consigliabile creare una nuova funzione nel portale Funzioni di Azure usando i modelli **Generic Webhook - Node** (Webhook generico - Node) o **Generic Webhook - C#** (Webhook generico - C#). Verrà popolato automaticamente un modello che accetta `application/json` da un'app per la logica. Le funzioni che usano questi modelli vengono individuate automaticamente ed elencate nella finestra di progettazione delle app per la logica in **Funzioni di Azure nell'area**.
 
-We recommend that you create a new function in the Azure Functions portal by using the **Generic Webhook - Node** or **Generic Webhook - C#** templates. This auto-populates a template that accepts `application/json` from a logic app. Functions that use these templates are automatically discovered and listed in the Logic Apps designer under **Azure Functions in my region.**
-
-Webhook functions accept a request and pass it into the method via a `data` variable. You can access the properties of your payload by using dot notation like `data.foo`.  For example, a simple JavaScript function that converts a DateTime value into a date string looks like the following example:
+Le funzioni webhook accettano una richiesta e la passano al metodo tramite una variabile `data`. È possibile accedere alle proprietà del payload usando una notazione punto come `data.foo`. Ad esempio, una semplice funzione JavaScript che converte un valore DateTime in una stringa di dati ha un aspetto simile a quello dell'esempio seguente:
 
 ```
 function start(req, res){
@@ -40,29 +39,29 @@ function start(req, res){
 }
 ```
 
-## <a name="call-azure-functions-from-a-logic-app"></a>Call Azure Functions from a logic app
+## Chiamata di funzioni di Azure da un'app per la logica
 
-In the designer, if you click the **Actions** menu, you can select **Azure Functions in my Region**.  This lists the containers in your subscription and enables you to choose the function that you want to call.  
+Se nella finestra di progettazione si fa clic sul menu **Azioni**, è possibile selezionare **Funzioni di Azure nell'area**. Vengono elencati i contenitori della sottoscrizione ed è possibile scegliere la funzione da chiamare.
 
-After you select the function, you are prompted to specify an input payload object. This is the message that the logic app sends to the function, and it must be a JSON object. For example, if you want to pass in the **Last Modified** date from a Salesforce trigger, the function payload might look like this:
+Dopo la selezione della funzione, viene richiesto di specificare un oggetto payload di input. Questo è il messaggio inviato dall'app per la logica alla funzione e deve essere un oggetto JSON. Se ad esempio si vuole passare la data **Data ultima modifica** da un trigger Salesforce, il payload della funzione potrebbe avere un aspetto analogo al seguente:
 
-![Last modfied date][1]
+![Data dell'ultima modifica][1]
 
-## <a name="trigger-logic-apps-from-a-function"></a>Trigger logic apps from a function
+## Attivare app per la logica da una funzione
 
-It's also possible to trigger a logic app from within a function.  To do this, simply create a logic app with a manual trigger. For more information, see [Logic apps as callable endpoints](app-service-logic-http-endpoint.md).  Then, within your function, generate an HTTP POST to the manual trigger URL with the payload that you want to send to the logic app.
+È anche possibile attivare un'app per la logica dall'interno di una funzione. A tale scopo, è sufficiente creare un'app per la logica con un trigger manuale. Per altre informazioni, vedere [App per la logica come endpoint che è possibile chiamare](app-service-logic-http-endpoint.md). All'interno della funzione, generare un HTTP POST all'URL del trigger manuale con il payload che da inviare nell'app per la logica.
 
-### <a name="create-a-function-from-the-designer"></a>Create a function from the designer
+### Creazione di una funzione dalla finestra di progettazione
 
-You can also create a node.js webhook function from within the designer. First, select **Azure Functions in my Region,** and then choose a container for your function.  If you don't yet have a container, you need to create one from the [Azure Functions portal](https://functions.azure.com/signin). Then select **Create New**.  
+È anche possibile creare una funzione webhook node.js dall'interno della finestra di progettazione. Selezionare prima di tutto **Funzioni di Azure nell'area**, quindi scegliere un contenitore per la funzione. Se non è ancora disponibile un contenitore, è necessario crearne uno dal [portale delle funzioni di Azure](https://functions.azure.com/signin). Selezionare quindi **Crea nuovo**.
 
-To generate a template based on the data that you want to compute, specify the context object that you plan to pass into a function. This must be a JSON object. For example, if you pass in the file content from an FTP action, the context payload will look like this:
+Per generare un modello in base ai dati da elaborare, specificare l'oggetto di contesto che si prevede di passare a una funzione. Deve trattarsi di un oggetto JSON. Se, ad esempio, si passa il contenuto del file da un'azione FTP, il payload di contesto sarà simile al seguente:
 
-![Context payload][2]
+![Payload di contesto][2]
 
->[AZURE.NOTE] Because this object wasn't cast as a string, the content will be added directly to the JSON payload. However, it will error out if it is not a JSON token (that is, a string or a JSON object/array). To cast it as a string, simply add quotes as shown in the first illustration in this article.
+>[AZURE.NOTE] Poiché non è stato eseguito il cast per convertire questo oggetto in stringa, il contenuto viene aggiunto direttamente al payload JSON. Viene tuttavia generato un errore se non è un token JSON, ad esempio una stringa o un oggetto/matrice JSON. Per eseguire il cast come stringa, è sufficiente aggiungere le virgolette, come mostrato nella prima figura di questo articolo.
 
-The designer then generates a function template that you can create inline. Variables are pre-created based on the context that you plan to pass into the function.
+La finestra di progettazione genera quindi un modello di funzione che è possibile creare inline. Le variabili vengono create prima in base al contesto che si intende passare alla funzione.
 
 
 
@@ -71,8 +70,4 @@ The designer then generates a function template that you can create inline. Vari
 [1]: ./media/app-service-logic-azure-functions/callFunction.png
 [2]: ./media/app-service-logic-azure-functions/createFunction.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

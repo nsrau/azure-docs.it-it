@@ -1,107 +1,105 @@
 
 <properties
-    pageTitle="Using attributes to create advanced rules for group membership in Azure Active Directory preview | Microsoft Azure"
-    description="How to create advanced rules for dynamic group membership including supported expression rule operators and parameters."
-    services="active-directory"
-    documentationCenter=""
-    authors="curtand"
-    manager="femila"
-    editor=""/>
+	pageTitle="Utilizzo degli attributi per creare regole avanzate per l'appartenenza al gruppo in anteprima di Azure Active Directory | Microsoft Azure"
+	description="Procedura per creare regole avanzate per l'appartenenza dinamica ai gruppi, inclusi i parametri e gli operatori supportati per le regole delle espressioni."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/12/2016"
-    ms.author="curtand"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/12/2016"
+	ms.author="curtand"/>
 
 
+# Utilizzo degli attributi per creare regole avanzate per l'appartenenza al gruppo in anteprima di Azure Active Directory
 
-# <a name="using-attributes-to-create-advanced-rules-for-group-membership-in-azure-active-directory-preview"></a>Using attributes to create advanced rules for group membership in Azure Active Directory preview
+Il portale di Azure offre la possibilità di creare regole avanzate per consentire appartenenze dinamiche basate su attributi più complesse per i gruppi in anteprima di Azure Active Directory (Azure AD). [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md) Questo articolo descrive in dettaglio la sintassi e gli attributi delle regole per creare queste regole avanzate.
 
-The Azure portal provides you with the ability to create advanced rules to enable more complex attribute-based dynamic memberships for Azure Active Directory (Azure AD) preview groups. [What's in the preview?](active-directory-preview-explainer.md) This article details the rule attributes and syntax to create these advanced rules.
+## Per creare la regola avanzata
 
-## <a name="to-create-the-advanced-rule"></a>To create the advanced rule
+1.  Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
 
-1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
+2.  Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi selezionare **Invio**.
 
-2.  Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
+  ![Apertura di Gestione utenti](./media/active-directory-groups-dynamic-membership-azure-portal/search-user-management.png)
 
-  ![Opening user management](./media/active-directory-groups-dynamic-membership-azure-portal/search-user-management.png)
+3.  Nel pannello **Utenti e gruppi** selezionare **Tutti i gruppi**.
 
-3.  On the **Users and groups** blade, select **All groups**.
+  ![Apertura del pannello Gruppi](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
 
-  ![Opening the groups blade](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
+4. Nel pannello **Utenti e gruppi - Tutti i gruppi** selezionare il comando **Aggiungi**.
 
-4. On the **Users and groups - All groups** blade, select the **Add** command.
+  ![Aggiungere un nuovo gruppo](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
 
-  ![Add new group](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
+5. Nel pannello **Gruppo** immettere un nome e una descrizione per il nuovo gruppo. Selezionare un **Tipo di appartenenza** di **Dynamic User** (Utente dinamico) o **Dynamic Device** (Dispositivo dinamico), a seconda che si intenda creare una regola per gli utenti o per i dispositivi e quindi selezionare **Add dynamic query** (Aggiungi query dinamica). Per gli attributi usati per le regole di dispositivo, vedere [Uso degli attributi per creare regole per gli oggetti dispositivo](#using-attributes-to-create-rules-for-device-objects).
 
-5. On the **Group** blade, enter a name and description for the new group. Select a **Membership type** of either **Dynamic User** or **Dynamic Device**, depending on whether you want to create a rule for users or devices, and then select **Add dynamic query**. For the attributes used for device rules, see [Using attributes to create rules for device objects](#using-attributes-to-create-rules-for-device-objects).
+  ![Aggiungere una regola di appartenenza dinamica](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
 
-  ![Add dynamic membership rule](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
+6. Nel pannello **Dynamic membership rules** (Regole di appartenenza dinamiche) immettere la regola nella casella **Add dynamic membership advanced rule** (Aggiungi regola avanzata di appartenenza dinamica), premere Invio e quindi selezionare **Crea** nella parte inferiore del pannello.
 
-6. On the **Dynamic membership rules** blade, enter your rule into the **Add dynamic membership advanced rule** box, press Enter, and then select **Create** at the bottom of the blade.
+7. Selezionare **Crea** nel pannello **Gruppo** per creare il gruppo.
 
-7. Select **Create** on the **Group** blade to create the group.
+## Creazione del corpo di una regola avanzata
 
-## <a name="constructing-the-body-of-an-advanced-rule"></a>Constructing the body of an advanced rule
+La regola avanzata che è possibile creare per le appartenenze dinamiche ai gruppi è essenzialmente un'espressione binaria composta da tre parti che genera un risultato di tipo true o false. Di seguito sono elencate le tre parti:
 
-The advanced rule that you can create for the dynamic memberships for groups is essentially a binary expression that consists of three parts and results in a true or false outcome. The three parts are:
+- Parametro sinistro
+- Operatore binario
+- Costante destra
 
-- Left parameter
-- Binary operator
-- Right constant
+Una regola avanzata completa simile alla seguente: (parametroSinistro operatoreBinario "CostanteDestra"), dove le parentesi di apertura e chiusura sono obbligatorie per racchiudere l'intera espressione binaria, le virgolette doppie sono obbligatorie per la costante a destra e la sintassi del parametro a sinistra è utente.proprietà. Una regola avanzata può includere più espressioni binarie separate dagli operatori logici -and, -or e -not.
 
-A complete advanced rule looks similar to this: (leftParameter binaryOperator "RightConstant"), where the opening and closing parenthesis are required for the entire binary expression, double quotes are required for the right constant, and the syntax for the left parameter is user.property. An advanced rule can consist of more than one binary expressions separated by the -and, -or, and -not logical operators.
+Di seguito sono riportati alcuni esempi di regola avanzata con il formato corretto:
 
-The following are examples of a properly constructed advanced rule:
+- (user.department -eq "Vendite") -or (user.department -eq "Marketing")
+- (user.department -eq "Vendite") -and -not (user.jobTitle -contains "SDE")
 
-- (user.department -eq "Sales") -or (user.department -eq "Marketing")
-- (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
+Per l'elenco completo dei parametri supportati e degli operatori delle regole di espressione, vedere le sezioni riportate di seguito. Per gli attributi usati per le regole di dispositivo, vedere [Uso degli attributi per creare regole per gli oggetti dispositivo](#using-attributes-to-create-rules-for-device-objects).
 
-For the complete list of supported parameters and expression rule operators, see sections below. For the attributes used for device rules, see [Using attributes to create rules for device objects](#using-attributes-to-create-rules-for-device-objects).
-
-The total length of the body of your advanced rule cannot exceed 2048 characters.
+La lunghezza totale del corpo della regola avanzata non può superare i 2048 caratteri.
 
 > [AZURE.NOTE]
->String and regex operations are case insensitive. You can also perform Null checks, using $null as a constant, for example, user.department -eq $null.
-Strings containing quotes " should be escaped using 'character, for example, user.department -eq \`"Sales".
+Le operazioni di stringa ed espressione regolare non fanno distinzione tra maiuscole e minuscole. È inoltre possibile eseguire controlli Null usando $null come costante, ad esempio user.department -eq $null. Le stringhe contenenti le virgolette " devono essere precedute dal carattere di escape ', ad esempio user.department -eq `"Sales".
 
-## <a name="supported-expression-rule-operators"></a>Supported expression rule operators
-The following table lists all the supported expression rule operators and their syntax to be used in the body of the advanced rule:
+## Operatori delle regole di espressione supportati
+Nella tabella seguente sono elencati tutti gli operatori delle regole di espressione supportati e la relativa sintassi da usare nel corpo della regola avanzata:
 
-| Operator        | Syntax         |
+| Operatore | Sintassi |
 |-----------------|----------------|
-| Not Equals      | -ne            |
-| Equals          | -eq            |
-| Not Starts With | -notStartsWith |
-| Starts With     | -startsWith    |
-| Not Contains    | -notContains   |
-| Contains        | -contains      |
-| Not Match       | -notMatch      |
-| Match           | -match         |
+| Non uguale a | -ne |
+| Uguale a | -eq |
+| Non inizia con | -notStartsWith |
+| Inizia con | -startsWith |
+| Non contiene | -notContains |
+| Contiene | -contains |
+| Non corrispondente | -notMatch |
+| Corrispondente | -match |
 
 
-## <a name="query-error-remediation"></a>Query error remediation
-The following table lists potential errors and how to correct them if they occur
+## Correzione degli errori di query
+Nella tabella seguente sono elencati errori potenziali e indica come correggerli se si verificano
 
-| Query Parse Error     | Error Usage       | Corrected Usage             |
+| Errore di analisi della query | Uso errato | Uso corretto |
 |-----------------------|-------------------|-----------------------------|
-| Error: Attribute not supported.                                      | (user.invalidProperty -eq "Value")       | (user.department -eq "value")<br/>Property should match one from the [supported properties list](#supported-properties).                          |
-| Error: Operator is not supported on attribute.                       | (user.accountEnabled -contains true)                                                                               | (user.accountEnabled -eq true)<br/>Property is of type boolean. Use the supported operators (-eq or -ne) on boolean type from the above list.                                                                                                                                   |
-| Error: Query compilation error.                                      | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>Logical operator should match one from the supported properties list above.(user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Error in regular expression. |
-| Error: Binary expression is not in right format.                     | (user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales")                             | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>Query has multiple errors. Parenthesis not in right place.                                                                                                                            |
-| Error: Unknown error occurred during setting up dynamic memberships. | (user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain")                               | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>Query has multiple errors. Parenthesis not in right place.                                                                                                                            |
+| Errore: l'attributo non è supportato | (user.invalidProperty -eq "Valore") | (user.department -eq "valore")<br/>La proprietà deve corrispondere a una delle proprietà nell'[elenco di proprietà supportate](#supported-properties). |
+| Errore: l'operatore non è supportato sull'attributo. | (user.accountEnabled -contains true) | (user.accountEnabled -eq true)<br/>La proprietà è di tipo booleano. Usare gli operatori supportati (-eq o - ne) per il tipo boolean nell'elenco precedente. |
+| Errore: si è verificato un errore di compilazione della query. | (user.department -eq "Vendite") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Vendite") -and (user.department -eq "Marketing")<br/>L'operatore logico deve corrispondere a un operatore incluso nel precedente elenco di proprietà supportate. (user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$") Errore nell'espressione regolare. |
+| Errore: l'espressione binaria non ha il formato corretto | (user.department –eq "Vendite") (user.department -eq "Vendite")(user.department-eq"Vendite") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>La query include più errori. La parentesi non si trova nella posizione corretta. |
+| Errore: si è verificato un errore sconosciuto durante la configurazione delle appartenenze dinamiche. | (user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>La query include più errori. La parentesi non si trova nella posizione corretta. |
 
-## <a name="supported-properties"></a>Supported properties
-The following are all the user properties that you can use in your advanced rule:
+## Proprietà supportate
+Di seguito sono elencate tutte le proprietà utente che è possibile usare nelle regole avanzate:
 
-### <a name="properties-of-type-boolean"></a>Properties of type boolean
+### Proprietà di tipo boolean
 
-Allowed operators
+Operatori consentiti
 
 * -eq
 
@@ -109,14 +107,14 @@ Allowed operators
 * -ne
 
 
-| Properties     | Allowed values  | Usage                          |
+| Proprietà | Valori consentiti | Utilizzo |
 |----------------|-----------------|--------------------------------|
-| accountEnabled | true false      | user.accountEnabled -eq true)  |
+| accountEnabled | true false | user.accountEnabled -eq true) |
 | dirSyncEnabled | true false null | (user.dirSyncEnabled -eq true) |
 
-### <a name="properties-of-type-string"></a>Properties of type string
+### Proprietà di tipo stringa
 
-Allowed operators
+Operatori consentiti
 
 * -eq
 
@@ -141,104 +139,98 @@ Allowed operators
 
 * -notMatch
 
-| Properties                 | Allowed values                                                                                        | Usage                                                     |
+| Proprietà | Valori consentiti | Uso |
 |----------------------------|-------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
-| city                       | Any string value or $null                                                                           | (user.city -eq "value")                                   |
-| country                    | Any string value or $null                                                                            | (user.country -eq "value")                                |
-| department                 | Any string value or $null                                                                          | (user.department -eq "value")                             |
-| displayName                | Any string value                                                                                 | (user.displayName -eq "value")                            |
-| facsimileTelephoneNumber   | Any string value or $null                                                                           | (user.facsimileTelephoneNumber -eq "value")               |
-| givenName                  | Any string value or $null                                                                           | (user.givenName -eq "value")                              |
-| jobTitle                   | Any string value or $null                                                                           | (user.jobTitle -eq "value")                               |
-| mail                       | Any string value or $null (SMTP address of the user)                                                  | (user.mail -eq "value")                                   |
-| mailNickName               | Any string value (mail alias of the user)                                                            | (user.mailNickName -eq "value")                           |
-| mobile                     | Any string value or $null                                                                           | (user.mobile -eq "value")                                 |
-| objectId                   | GUID of the user object                                                                            | (user.objectId -eq "1111111-1111-1111-1111-111111111111") |
-| passwordPolicies           | None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |   (user.passwordPolicies -eq "DisableStrongPassword")                                                      |
-| physicalDeliveryOfficeName | Any string value or $null                                                                            | (user.physicalDeliveryOfficeName -eq "value")             |
-| postalCode                 | Any string value or $null                                                                            | (user.postalCode -eq "value")                             |
-| preferredLanguage          | ISO 639-1 code                                                                                        | (user.preferredLanguage -eq "en-US")                      |
-| sipProxyAddress            | Any string value or $null                                                                            | (user.sipProxyAddress -eq "value")                        |
-| state                      | Any string value or $null                                                                            | (user.state -eq "value")                                  |
-| streetAddress              | Any string value or $null                                                                            | (user.streetAddress -eq "value")                          |
-| surname                    | Any string value or $null                                                                            | (user.surname -eq "value")                                |
-| telephoneNumber            | Any string value or $null                                                                            | (user.telephoneNumber -eq "value")                        |
-| usageLocation              | Two lettered country code                                                                           | (user.usageLocation -eq "US")                             |
-| userPrincipalName          | Any string value                                                                                     | (user.userPrincipalName -eq "alias@domain")               |
-| userType                   | member guest $null                                                                                    | (user.userType -eq "Member")                              |
+| city | Qualsiasi valore stringa o $null | (user.city -eq "valore") |
+| country | Qualsiasi valore stringa o $null | (user.country -eq "valore") |
+| department | Qualsiasi valore stringa o $null | (user.department -eq "valore") |
+| displayName | Qualsiasi valore stringa. | (user.displayName -eq "valore") |
+| facsimileTelephoneNumber | Qualsiasi valore stringa o $null | (user.facsimileTelephoneNumber -eq "valore") |
+| givenName | Qualsiasi valore stringa o $null | (user.givenName -eq "valore") |
+| jobTitle | Qualsiasi valore stringa o $null | (user.jobTitle -eq "valore") |
+| mail | Qualsiasi valore stringa o $null (indirizzo SMTP dell'utente) | (user.mail -eq "valore") |
+| mailNickName | Qualsiasi valore stringa (alias di posta dell'utente) | (user.mailNickName -eq "valore") |
+| mobile | Qualsiasi valore stringa o $null | (user.mobile -eq "valore") |
+| objectId | GUID dell'oggetto utente | (user.objectId -eq "1111111-1111-1111-1111-111111111111") |
+| passwordPolicies | Nessuno DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword | (user.passwordPolicies -eq "DisableStrongPassword") |
+| physicalDeliveryOfficeName | Qualsiasi valore stringa o $null | (user.physicalDeliveryOfficeName -eq "valore") |
+| postalCode | Qualsiasi valore stringa o $null | (user.postalCode -eq "valore") |
+| preferredLanguage | Codice ISO 639-1 | (user.preferredLanguage -eq "it-IT") |
+| sipProxyAddress | Qualsiasi valore stringa o $null | (user.sipProxyAddress -eq "valore") |
+| state | Qualsiasi valore stringa o $null | (user.state -eq "valore") |
+| streetAddress | Qualsiasi valore stringa o $null | (user.streetAddress -eq "valore") |
+| surname | Qualsiasi valore stringa o $null | (user.surname -eq "valore") |
+| telephoneNumber | Qualsiasi valore stringa o $null | (user.telephoneNumber -eq "valore") |
+| usageLocation | Codice di paese di due lettere | (user.usageLocation -eq "US") |
+| userPrincipalName | Qualsiasi valore stringa. | (user.userPrincipalName -eq "alias@domain") |
+| userType | membro guest $null | (user.userType -eq "Membro") |
 
-### <a name="properties-of-type-string-collection"></a>Properties of type string collection
+### Proprietà di tipo insieme String
 
-Allowed operators
+Operatori consentiti
 
 * -contains
 
 
 * -notContains
 
-| Poperties      | Allowed values                        | Usage                                                |
+| Proprietà | Valori consentiti | Uso |
 |----------------|---------------------------------------|------------------------------------------------------|
-| otherMails     | Any string value                      | (user.otherMails -contains "alias@domain")           |
+| otherMails | Qualsiasi valore stringa. | (user.otherMails -contains "alias@domain") |
 | proxyAddresses | SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -contains "SMTP: alias@domain") |
 
-## <a name="extension-attributes-and-custom-attributes"></a>Extension attributes and custom attributes
-Extension attributes and custom attributes are supported in dynamic membership rules.
+## Attributi di estensione ed attributi personalizzati
+Gli attributi di estensione e gli attributi personalizzati sono supportati nelle regole di appartenenza dinamica.
 
-Extension attributes are synced from on premise Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15.
-An example of a rule that uses an extension attribute would be
+Gli attributi di estensione vengono sincronizzati dall'istanza locale di Window Server AD e hanno il formato "ExtensionAttributeX", dove X equivale a 1 - 15. Ecco un esempio di regola che usa un attributo di estensione:
 
 (user.extensionAttribute15 -eq "Marketing")
 
-Custom Attributes are synced from on premise Windows Server AD or from a connected SaaS application and the the format of "user.extension_[GUID]\__[Attribute]", where [GUID] is the unique identifier in AAD for the application that created the attribute in AAD and [Attribute] is the name of the attribute as it was created.
-An example of a rule that uses a custom attribute is
+Gli attributi personalizzati vengono sincronizzati dall'istanza locale di Windows Server AD o da un'applicazione SaaS collegata e hanno il formato "user.extension_[GUID]\__[Attributo]", dove [GUID] è l'identificatore univoco in AAD per l'applicazione che ha creato l'attributo in AAD e [Attributo] è il nome dell'attributo creato. Ecco un esempio di regola che usa un attributo personalizzato:
 
-user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
+user.extension\_c272a57b722d4eb29bfe327874ae79cb\_\_OfficeNumber
 
-The custom attribute name can be found in the directory by querying a user's attribute using Graph Explorer and searching for the attribute name.
+È possibile trovare il nome dell'attributo personalizzato nella directory eseguendo una query sull'attributo nell'utente con Esplora grafico e cercando il nome dell'attributo.
 
-## <a name="direct-reports-rule"></a>Direct Reports Rule
-You can now populate members in a group based on the manager attribute of a user.
+## Regola per i dipendenti diretti
+Ora è possibile popolare i membri di un gruppo in base all'attributo di manager di un utente.
 
-**To configure a group as a “Manager” group**
+**Per configurare un gruppo come gruppo "Manager"**
 
-1. Follow steps 1-5 in [To create the advanced rule](#to-create-the-advanced-rule), and select a **Membership type** of **Dynamic User**.
+1. Eseguire i passaggi da 1 a 5 in [Per creare la regola avanzata](#to-create-the-advanced-rule) e selezionare **Dynamic User** (Utente dinamico) come **Tipo di appartenenza**.
 
-2. On the **Dynamic membership rules** blade, enter the rule with the following syntax:
+2. Nel pannello **Dynamic membership rules** (Regole di appartenenza dinamica) immettere la regola con la sintassi seguente:
 
-    Direct Reports for *Direct Reports for {obectID_of_manager}*. An example of a valid rule for Direct Reports is
+	Dipendenti diretti per *Dipendenti diretti per {obectID\_of\_manager}*. Ecco un esempio di regola valida per dipendenti diretti:
 
-                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
+					Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
 
-    where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found in the Azure AD on the **Profile tab** of the user page for the user who is the manager.
+	dove "62e19b97-8b3d-4d4a-a106-4ce66896a863" è il parametro objectID del manager. L'ID oggetto è disponibile in Azure AD nella **scheda Profilo** della pagina utente dell'utente che rappresenta il manager.
 
-3. When saving this rule, all users that satisfy the rule will be joined as members of the group. It can take some minutes for the group to initially populate.
+3. Quando si salva questa regola, tutti gli utenti che soddisfano la regola verranno aggiunta come membri del gruppo. Possono essere necessari alcuni minuti per il popolamento iniziale del gruppo.
 
 
-## <a name="using-attributes-to-create-rules-for-device-objects"></a>Using attributes to create rules for device objects
+## Uso degli attributi per creare regole per gli oggetti dispositivo
 
-You can also create a rule that selects device objects for membership in a group. The following device attributes can be used:
+È anche possibile creare una regola che consenta di selezionare gli oggetti dispositivo per l'appartenenza a un gruppo. È possibile usare gli attributi del dispositivo seguenti:
 
-| Properties           | Allowed values                  | Usage                                                |
+| Proprietà | Valori consentiti | Uso |
 |----------------------|---------------------------------|------------------------------------------------------|
-| displayName          | any string value                | (device.displayName -eq "Rob Iphone”)                 |
-| deviceOSType         | any string value                | (device.deviceOSType -eq "IOS")                      |
-| deviceOSVersion      | any string value                | (device.OSVersion -eq "9.1")                         |
-| isDirSynced          | true false null                 | (device.isDirSynced -eq "true")                      |
-| isManaged            | true false null                 | (device.isManaged -eq "false")                       |
-| isCompliant          | true false null                 | (device.isCompliant -eq "true")                      |
+| displayName | Qualsiasi valore stringa | (device.displayName - eq "Iphone di Rob") |
+| deviceOSType | Qualsiasi valore stringa | (device.deviceOSType -eq "IOS") |
+| deviceOSVersion | Qualsiasi valore stringa | (device.OSVersion -eq "9.1") |
+| isDirSynced | true false null | (device.isDirSynced -eq "true") |
+| isManaged | true false null | (device.isManaged -eq "false") |
+| isCompliant | true false null | (device.isCompliant -eq "true") |
 
 
-## <a name="additional-information"></a>Additional information
-These articles provide additional information on groups in Azure Active Directory.
+## Informazioni aggiuntive
+Questi articoli forniscono informazioni aggiuntive sui gruppi in Azure Active Directory.
 
-* [See existing groups](active-directory-groups-view-azure-portal.md)
-* [Create a new group and adding members](active-directory-groups-create-azure-portal.md)
-* [Manage settings of a group](active-directory-groups-settings-azure-portal.md)
-* [Manage memberships of a group](active-directory-groups-membership-azure-portal.md)
-* [Manage dynamic rules for users in a group](active-directory-groups-dynamic-membership-azure-portal.md)
+* [Vedere i gruppi esistenti](active-directory-groups-view-azure-portal.md)
+* [Creare un nuovo gruppo e aggiunta di membri](active-directory-groups-create-azure-portal.md)
+* [Gestire le impostazioni di un gruppo](active-directory-groups-settings-azure-portal.md)
+* [Gestire le appartenenze di un gruppo](active-directory-groups-membership-azure-portal.md)
+* [Gestire le regole dinamiche per gli utenti in un gruppo](active-directory-groups-dynamic-membership-azure-portal.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

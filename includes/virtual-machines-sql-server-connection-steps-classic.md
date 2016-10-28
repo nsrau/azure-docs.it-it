@@ -1,37 +1,34 @@
-### <a name="determine-the-dns-name-of-the-virtual-machine"></a>Determine the DNS name of the virtual machine
+### Determinare il nome DNS della macchina virtuale
 
-To connect to the SQL Server Database Engine from another computer, you must know the Domain Name System (DNS) name of the virtual machine. (This is the name the internet uses to identify the virtual machine. You can use the IP address, but the IP address might change when Azure moves resources for redundancy or maintenance. The DNS name will be stable because it can be redirected to a new IP address.)  
+Per connettersi al motore di database di SQL Server da un altro computer, è necessario conoscere il nome DNS (Domain Name System) della macchina virtuale. (Si tratta del nome utilizzato da Internet per identificare la macchina virtuale. È possibile utilizzare l'indirizzo IP, ma questo indirizzo può cambiare se Azure sposta le risorse per la ridondanza o la manutenzione. Il nome DNS rimane stabile in quanto può essere reindirizzato a un nuovo indirizzo IP).
 
-1. In the Azure Portal (or from the previous step), select **Virtual machines (classic)**.
+1. Nel portale di Azure (o dal passaggio precedente) selezionare **Macchine virtuali (versione classica)**.
 
-2. Select your SQL VM.
+2. Selezionare la macchina virtuale di SQL.
 
-2. On the **Virtual machine** blade, copy the **DNS name** for the virtual machine.
+2. Nel pannello **Macchina virtuale**, copiare il **nome DNS** per la macchina virtuale.
 
-    ![DNS name](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
-
-
-### <a name="connect-to-the-database-engine-from-another-computer"></a>Connect to the Database Engine from another computer
-
-1. On a computer connected to the internet, open SQL Server Management Studio.
-
-2. In the **Connect to Server** or **Connect to Database Engine** dialog box, in the **Server name** box, enter the DNS name of the virtual machine (determined in the previous task) and a public endpoint port number in the format of *DNSName,portnumber* such as **mysqlvm.cloudapp.net,57500**.
-
-    ![Connect using SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
-
-    If you don't remember the public endpoint port number you previously created, you can find it in the **Endpoints** area of the **Virtual machine** blade.
-
-    ![Public Port](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
-
-3. In the **Authentication** box, select **SQL Server Authentication**.
-
-5. In the **Login** box, type the name of a login that you created in an earlier task.
-
-6. In the **Password** box, type the password of the login that you create in an earlier task.
-
-7. Click **Connect**.
+	![Nome DNS](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
 
 
-<!--HONumber=Oct16_HO2-->
+### Eseguire la connessione al motore di database da un altro computer
 
+1. In un computer connesso a Internet aprire SQL Server Management Studio.
 
+2. Nella finestra di dialogo **Connetti al server** o **Connetti al motore di database**, nella casella **Nome server** immettere il nome DNS della macchina virtuale (determinato nell'attività precedente) e un numero di porta di endpoint pubblica nel formato *NomeDNS,Numero porta*, ad esempio **mysqlvm.cloudapp.net,57500**.
+
+	![Connessione tramite SQL Server Management Studio](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
+
+	Se non si ricorda il numero di porta di endpoint pubblica creata in precedenza, è possibile trovarlo nell'area **Endpoint** del pannello **Macchina virtuale**.
+
+	![Public Port](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
+
+3. Nella casella **Autenticazione** selezionare **Autenticazione di SQL Server**.
+
+5. Nella casella **Account di accesso** digitare il nome di un account di accesso creato in una delle attività precedenti.
+
+6. Nella casella **Password** digitare la password dell'account di accesso creato in una delle attività precedenti.
+
+7. Fare clic su **Connect**.
+
+<!---HONumber=AcomDC_0629_2016-->

@@ -1,10 +1,10 @@
 <properties
-pageTitle="Learn how to use the SFTP connector in your logic apps | Microsoft Azure"
-description="Create logic apps with Azure App service. Connect to SFTP API to send and receive files. You can perform various operations such as create, update, get or delete files."
-services="logic-apps"   
-documentationCenter=".net,nodejs,java"  
-authors="msftman"   
-manager="erikre"    
+pageTitle="Informazioni su come usare il connettore SFTP nelle app per la logica | Microsoft Azure"
+description="Creare app per la logica con Servizio app di Azure. Connettersi all'API SFTP per inviare e ricevere file. È possibile eseguire varie operazioni come creare, aggiornare, recuperare o eliminare file."
+services="logic-apps"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
 editor=""
 tags="connectors" />
 
@@ -17,102 +17,133 @@ ms.workload="integration"
 ms.date="07/20/2016"
 ms.author="deonhe"/>
 
+# Introduzione al connettore SFTP
 
-# <a name="get-started-with-the-sftp-connector"></a>Get started with the SFTP connector
+Usare il connettore SFTP per accedere a un account SFTP al fine di inviare e ricevere file. È possibile eseguire varie operazioni come creare, aggiornare, recuperare o eliminare file.
 
-Use the SFTP connector to access an SFTP account to send and receive files. You can perform various operations such as create, update, get or delete files.  
+Per usare [qualsiasi connettore](./apis-list.md), è necessario innanzitutto creare un'app per la logica. Come prima operazione [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Connettersi a SFTP
 
-## <a name="connect-to-sftp"></a>Connect to SFTP
+Perché l'app per la logica possa accedere a qualsiasi servizio, è necessario creare una *connessione* al servizio. Una [connessione](./connectors-overview.md) fornisce la connettività tra un'app per la logica e un altro servizio.
 
-Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a logic app and another service.  
+### Creare una connessione a SFTP
 
-### <a name="create-a-connection-to-sftp"></a>Create a connection to SFTP
+>[AZURE.INCLUDE [Passaggi per la creazione di una connessione a SFTP](../../includes/connectors-create-api-sftp.md)]
 
->[AZURE.INCLUDE [Steps to create a connection to SFTP](../../includes/connectors-create-api-sftp.md)]
+## Usare un trigger SFTP
 
-## <a name="use-an-sftp-trigger"></a>Use an SFTP trigger
+Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+Questo esempio illustrerà come usare il trigger **SFTP - When a file is added or modified** (SFTP - Quando un file viene aggiunto o modificato) per avviare un flusso di lavoro dell'app logica quando viene aggiunto o modificato un file in un server SFTP. Nell'esempio si apprenderà inoltre come aggiungere una condizione che controlla il contenuto del file nuovo o modificato e prende la decisione di estrarre il file se il relativo contenuto indica che l'estrazione è necessaria per poter usare il contenuto. Infine si apprenderà come aggiungere un'azione per estrarre il contenuto di un file e inserire il contenuto estratto in una cartella sul server SFTP.
 
-In this example, I will show you how to use the **SFTP - When a file is added or modified** trigger to initiate a logic app workflow when a file is added to, or modified on, an SFTP server. In the example, you will also learn how to add a condition that checks the contents of the new or modified file and make a decision to extract the file if its contents indicate that it  should be extracted before using the contents. Finally, you will learn how to add an action to extract the contents of a file and place the extracted contents in a folder on the SFTP server. 
+In un esempio riguardante un'organizzazione si potrebbe usare questo trigger per monitorare una cartella SFTP per nuovi file di ordini dei clienti. È quindi possibile usare un'azione connettore SFTP, come **Get file content** (Ottieni contenuto di file) per recuperare il contenuto dell'ordine a scopo di elaborazione successiva e di archiviazione nel database degli ordini.
 
-In an enterprise example, you could use this trigger to monitor an SFTP folder for new files that represent orders from customers.  You could then use an SFTP connector action such as **Get file content** to get the contents of the order for further processing and storage in your orders database.
+>[AZURE.INCLUDE [Passaggi per creare un trigger SFTP](../../includes/connectors-create-api-sftp-trigger.md)]
 
->[AZURE.INCLUDE [Steps to create an SFTP trigger](../../includes/connectors-create-api-sftp-trigger.md)]
+## Aggiungere una condizione
 
-## <a name="add-a-condition"></a>Add a condition
+>[AZURE.INCLUDE [Passaggi per aggiungere una condizione](../../includes/connectors-create-api-sftp-condition.md)]
 
->[AZURE.INCLUDE [Steps to add a condition](../../includes/connectors-create-api-sftp-condition.md)]
+## Usare un'azione SFTP
 
-## <a name="use-an-sftp-action"></a>Use an SFTP action
+Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
-
->[AZURE.INCLUDE [Steps to create an SFTP action](../../includes/connectors-create-api-sftp-action.md)]
+>[AZURE.INCLUDE [Passaggi per creare un'azione SFTP](../../includes/connectors-create-api-sftp-action.md)]
 
 
-## <a name="technical-details"></a>Technical Details
+## Dettagli tecnici
 
-Here are the details about the triggers, actions and responses that this connection supports:
+Ecco i dettagli sui trigger, le azioni e le risposte che la connessione supporta:
 
-## <a name="sftp-triggers"></a>SFTP triggers
+## Trigger SFTP
 
-SFTP has the following trigger(s):  
+SFTP supporta i trigger seguenti:
 
-|Trigger | Description|
+|Trigger | Descrizione|
 |--- | ---|
-|[When a file is added or modified](connectors-create-api-sftp.md#when-a-file-is-added-or-modified)|This operation triggers a flow when a file is added or modified in a folder.|
+|[When a file is added or modified](connectors-create-api-sftp.md#when-a-file-is-added-or-modified) (Quando un file viene aggiunto o modificato)|Questa operazione attiva un flusso quando viene aggiunto o modificato un file in una cartella.|
 
 
-## <a name="sftp-actions"></a>SFTP actions
+## Azioni SFTP
 
-SFTP has the following actions:
+SFTP supporta le azioni seguenti:
 
 
-|Action|Description|
+|Azione|Descrizione|
 |--- | ---|
-|[Get file metadata](connectors-create-api-sftp.md#get-file-metadata)|This operation gets file metadata using the file id.|
-|[Update file](connectors-create-api-sftp.md#update-file)|This operation updates the file content.|
-|[Delete file](connectors-create-api-sftp.md#delete-file)|This operation deletes a file.|
-|[Get file metadata using path](connectors-create-api-sftp.md#get-file-metadata-using-path)|This operation gets file metadata using the file path.|
-|[Get file content using path](connectors-create-api-sftp.md#get-file-content-using-path)|This operation gets file contents using the file path.|
-|[Get file content](connectors-create-api-sftp.md#get-file-content)|This operation gets file contents using the file id.|
-|[Create file](connectors-create-api-sftp.md#create-file)|This operation uploads a file to an SFTP server.|
-|[Copy file](connectors-create-api-sftp.md#copy-file)|This operation copies a file to an SFTP server.|
-|[List files in folder](connectors-create-api-sftp.md#list-files-in-folder)|This operation gets files contained in a folder.|
-|[List files in root folder](connectors-create-api-sftp.md#list-files-in-root-folder)|This operation gets the files in the root folder.|
-|[Extract folder](connectors-create-api-sftp.md#extract-folder)|This operation extracts an archive file into a folder (example: .zip).|
-### <a name="action-details"></a>Action details
+|[Ottieni metadati file](connectors-create-api-sftp.md#get-file-metadata)|Questa operazione recupera i metadati del file tramite l'ID del file.|
+|[Aggiorna file](connectors-create-api-sftp.md#update-file)|Questa operazione aggiorna il contenuto del file.|
+|[Elimina file](connectors-create-api-sftp.md#delete-file)|Questa operazione elimina un file.|
+|[Recupera metadati di file tramite percorso](connectors-create-api-sftp.md#get-file-metadata-using-path)|Questa operazione recupera i metadati del file tramite il percorso del file.|
+|[Ottieni contenuto di file tramite percorso](connectors-create-api-sftp.md#get-file-content-using-path)|Questa operazione recupera il contenuto del file tramite il percorso del file.|
+|[Ottieni contenuto di file](connectors-create-api-sftp.md#get-file-content)|Questa operazione recupera il contenuto del file tramite l'ID del file.|
+|[Crea file](connectors-create-api-sftp.md#create-file)|Questa operazione carica un file su un server SFTP.|
+|[Copia file](connectors-create-api-sftp.md#copy-file)|Questa operazione copia un file su un server SFTP.|
+|[Elenca i file nella cartella](connectors-create-api-sftp.md#list-files-in-folder)|Questa operazione recupera i file contenuti in una cartella.|
+|[Elenca i file nella cartella radice](connectors-create-api-sftp.md#list-files-in-root-folder)|Questa operazione recupera i file nella cartella radice.|
+|[Estrai cartella](connectors-create-api-sftp.md#extract-folder)|Questa operazione estrae un file di archivio in una cartella, ad esempio ZIP.|
+### Informazioni dettagliate sulle azioni
 
-Here are the details for the actions and triggers for this connector, along with their responses:
-
-
-
-### <a name="get-file-metadata"></a>Get file metadata
-This operation gets file metadata using the file id. 
+Di seguito sono indicati i dettagli per le azioni e i trigger di questo connettore con le relative risposte:
 
 
-|Property Name| Display Name|Description|
+
+### Ottieni metadati file
+Questa operazione recupera i metadati del file tramite l'ID del file.
+
+
+|Nome proprietà| Nome visualizzato|Descrizione|
 | ---|---|---|
-|id*|File|Specify the file|
+|id*|File|Specifica il file|
 
-An * indicates that a property is required
+* indica che la proprietà è obbligatoria
 
-#### <a name="output-details"></a>Output Details
+#### Dettagli output
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Nome proprietà | Tipo di dati |
 |---|---|---|
-|Id|string|
-|Name|string|
+|ID|string|
+|Nome|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|Size|integer|
+|Dimensione|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|stringa|
+
+
+
+
+### Aggiorna file
+Questa operazione aggiorna il contenuto del file.
+
+
+|Nome proprietà| Nome visualizzato|Descrizione|
+| ---|---|---|
+|id*|File|Specifica il file|
+|body*|Contenuto del file|Contenuto del file da aggiornare|
+
+* indica che la proprietà è obbligatoria
+
+#### Dettagli output
+
+BlobMetadata
+
+
+| Nome proprietà | Tipo di dati |
+|---|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Dimensione|integer|
 |MediaType|string|
 |IsFolder|boolean|
 |ETag|string|
@@ -121,30 +152,42 @@ BlobMetadata
 
 
 
-### <a name="update-file"></a>Update file
-This operation updates the file content. 
+### Elimina file
+Questa operazione elimina un file.
 
 
-|Property Name| Display Name|Description|
+|Nome proprietà| Nome visualizzato|Descrizione|
 | ---|---|---|
-|id*|File|Specify the file|
-|body*|File content|Content of the file to update|
+|id*|File|Specifica il file|
 
-An * indicates that a property is required
+* indica che la proprietà è obbligatoria
 
-#### <a name="output-details"></a>Output Details
+
+
+
+### Recupera metadati di file tramite percorso
+Questa operazione recupera i metadati del file tramite il percorso del file.
+
+
+|Nome proprietà| Nome visualizzato|Descrizione|
+| ---|---|---|
+|path*|Percorso del file|Percorso univoco del file|
+
+* indica che la proprietà è obbligatoria
+
+#### Dettagli output
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Nome proprietà | Tipo di dati |
 |---|---|---|
-|Id|string|
-|Name|string|
+|ID|string|
+|Nome|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|Size|integer|
+|Dimensione|integer|
 |MediaType|string|
 |IsFolder|boolean|
 |ETag|string|
@@ -153,42 +196,57 @@ BlobMetadata
 
 
 
-### <a name="delete-file"></a>Delete file
-This operation deletes a file. 
+### Ottieni contenuto di file tramite percorso
+Questa operazione recupera il contenuto del file tramite il percorso del file.
 
 
-|Property Name| Display Name|Description|
+|Nome proprietà| Nome visualizzato|Descrizione|
 | ---|---|---|
-|id*|File|Specify the file|
+|path*|Percorso del file|Percorso univoco del file|
 
-An * indicates that a property is required
-
-
+* indica che la proprietà è obbligatoria
 
 
-### <a name="get-file-metadata-using-path"></a>Get file metadata using path
-This operation gets file metadata using the file path. 
 
 
-|Property Name| Display Name|Description|
+### Ottieni contenuto di file
+Questa operazione recupera il contenuto del file tramite l'ID del file.
+
+
+|Nome proprietà| Nome visualizzato|Descrizione|
 | ---|---|---|
-|path*|File path|Unique path of the file|
+|id*|File|Specifica il file|
 
-An * indicates that a property is required
+* indica che la proprietà è obbligatoria
 
-#### <a name="output-details"></a>Output Details
+
+
+
+### Crea file
+Questa operazione carica un file su un server SFTP.
+
+
+|Nome proprietà| Nome visualizzato|Descrizione|
+| ---|---|---|
+|folderPath*|Percorso della cartella|Percorso univoco della cartella|
+|name*|Nome file|Nome del file|
+|body*|Contenuto del file|Contenuto del file da creare|
+
+* indica che la proprietà è obbligatoria
+
+#### Dettagli output
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+|| Nome proprietà | Tipo di dati |
 |---|---|---|
-|Id|string|
-|Name|string|
+|ID|string|
+|Nome|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|Size|integer|
+|Dimensione|integer|
 |MediaType|string|
 |IsFolder|boolean|
 |ETag|string|
@@ -197,57 +255,31 @@ BlobMetadata
 
 
 
-### <a name="get-file-content-using-path"></a>Get file content using path
-This operation gets file contents using the file path. 
+### Copia file
+Questa operazione copia un file su un server SFTP.
 
 
-|Property Name| Display Name|Description|
+|Nome proprietà| Nome visualizzato|Descrizione|
 | ---|---|---|
-|path*|File path|Unique path of the file|
+|source*|Percorso file origine|Percorso del file di origine|
+|destination*|Percorso file di destinazione|Percorso del file di destinazione, incluso il nome del file|
+|overwrite|Sovrascrivere?|Sovrascrive il file di destinazione se è impostata su 'true'|
 
-An * indicates that a property is required
+* indica che la proprietà è obbligatoria
 
-
-
-
-### <a name="get-file-content"></a>Get file content
-This operation gets file contents using the file id. 
-
-
-|Property Name| Display Name|Description|
-| ---|---|---|
-|id*|File|Specify the file|
-
-An * indicates that a property is required
-
-
-
-
-### <a name="create-file"></a>Create file
-This operation uploads a file to an SFTP server. 
-
-
-|Property Name| Display Name|Description|
-| ---|---|---|
-|folderPath*|Folder path|Unique path of the folder|
-|name*|File name|Name of the file|
-|body*|File content|Content of the file to create|
-
-An * indicates that a property is required
-
-#### <a name="output-details"></a>Output Details
+#### Dettagli output
 
 BlobMetadata
 
 
-|| Property Name | Data Type |
+| Nome proprietà | Tipo di dati |
 |---|---|---|
-|Id|string|
-|Name|string|
+|ID|string|
+|Nome|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|Size|integer|
+|Dimensione|integer|
 |MediaType|string|
 |IsFolder|boolean|
 |ETag|string|
@@ -256,31 +288,44 @@ BlobMetadata
 
 
 
-### <a name="copy-file"></a>Copy file
-This operation copies a file to an SFTP server. 
+### When a file is added or modified (Quando un file viene aggiunto o modificato)
+Questa operazione attiva un flusso quando viene aggiunto o modificato un file in una cartella.
 
 
-|Property Name| Display Name|Description|
+|Nome proprietà| Nome visualizzato|Descrizione|
 | ---|---|---|
-|source*|Source file path|Path to the source file|
-|destination*|Destination file path|Path to the destination file, including file name|
-|overwrite|Overwrite?|Overwrites the destination file if set to 'true'|
+|folderId*|Cartella|Specifica una cartella|
 
-An * indicates that a property is required
+* indica che la proprietà è obbligatoria
 
-#### <a name="output-details"></a>Output Details
+
+
+
+### Elenca i file nella cartella
+Questa operazione recupera i file contenuti in una cartella.
+
+
+|Nome proprietà| Nome visualizzato|Descrizione|
+| ---|---|---|
+|id*|Cartella|Specifica la cartella|
+
+* indica che la proprietà è obbligatoria
+
+
+
+#### Dettagli output
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Nome proprietà | Tipo di dati |
 |---|---|---|
-|Id|string|
-|Name|string|
+|ID|string|
+|Nome|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|Size|integer|
+|Dimensione|integer|
 |MediaType|string|
 |IsFolder|boolean|
 |ETag|string|
@@ -289,44 +334,25 @@ BlobMetadata
 
 
 
-### <a name="when-a-file-is-added-or-modified"></a>When a file is added or modified
-This operation triggers a flow when a file is added or modified in a folder. 
+### Elenca i file nella cartella radice
+Questa operazione recupera i file nella cartella radice.
 
 
-|Property Name| Display Name|Description|
-| ---|---|---|
-|folderId*|Folder|Specify a folder|
+Non sono disponibili parametri per questa chiamata
 
-An * indicates that a property is required
-
-
-
-
-### <a name="list-files-in-folder"></a>List files in folder
-This operation gets files contained in a folder. 
-
-
-|Property Name| Display Name|Description|
-| ---|---|---|
-|id*|Folder|Specify the folder|
-
-An * indicates that a property is required
-
-
-
-#### <a name="output-details"></a>Output Details
+#### Dettagli output
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Nome proprietà | Tipo di dati |
 |---|---|---|
-|Id|string|
-|Name|string|
+|ID|string|
+|Nome|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|Size|integer|
+|Dimensione|integer|
 |MediaType|string|
 |IsFolder|boolean|
 |ETag|string|
@@ -335,60 +361,33 @@ BlobMetadata
 
 
 
-### <a name="list-files-in-root-folder"></a>List files in root folder
-This operation gets the files in the root folder. 
+### Estrai cartella
+Questa operazione estrae un file di archivio in una cartella, ad esempio ZIP.
 
 
-There are no parameters for this call
-
-#### <a name="output-details"></a>Output Details
-
-BlobMetadata
-
-
-| Property Name | Data Type |
-|---|---|---|
-|Id|string|
-|Name|string|
-|DisplayName|string|
-|Path|string|
-|LastModified|string|
-|Size|integer|
-|MediaType|string|
-|IsFolder|boolean|
-|ETag|string|
-|FileLocator|string|
-
-
-
-
-### <a name="extract-folder"></a>Extract folder
-This operation extracts an archive file into a folder (example: .zip). 
-
-
-|Property Name| Display Name|Description|
+|Nome proprietà| Nome visualizzato|Descrizione|
 | ---|---|---|
-|source*|Source archive file path|Path to the archive file|
-|destination*|Destination folder path|Path to the destination folder|
-|overwrite|Overwrite?|Overwrites the destination files if set to 'true'|
+|source*|Percorso del file di archivio di origine|Percorso del file di archivio|
+|destination*|Percorso cartella di destinazione|Percorso della cartella di destinazione|
+|overwrite|Sovrascrivere?|Sovrascrive i file di destinazione se è impostata su 'true'|
 
-An * indicates that a property is required
+* indica che la proprietà è obbligatoria
 
 
 
-#### <a name="output-details"></a>Output Details
+#### Dettagli output
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Nome proprietà | Tipo di dati |
 |---|---|---|
-|Id|string|
-|Name|string|
+|ID|string|
+|Nome|string|
 |DisplayName|string|
 |Path|string|
 |LastModified|string|
-|Size|integer|
+|Dimensione|integer|
 |MediaType|string|
 |IsFolder|boolean|
 |ETag|string|
@@ -396,20 +395,20 @@ BlobMetadata
 
 
 
-## <a name="http-responses"></a>HTTP responses
+## Risposte HTTP
 
-The actions and triggers above can return one or more of the following HTTP status codes: 
+Le azioni e i trigger riportati sopra possono restituire uno o più dei seguenti codici di stato HTTP:
 
-|Name|Description|
+|Nome|Descrizione|
 |---|---|
 |200|OK|
 |202|Accepted|
 |400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occurred.|
-|default|Operation Failed.|
+|401|Non autorizzata|
+|403|Accesso negato|
+|404|Non trovato|
+|500|Errore interno del server. Si è verificato un errore sconosciuto.|
+|default|Operazione non riuscita.|
 
 
 
@@ -417,10 +416,7 @@ The actions and triggers above can return one or more of the following HTTP stat
 
 
 
-## <a name="next-steps"></a>Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## Passaggi successivi
+[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!----HONumber=AcomDC_0803_2016-->

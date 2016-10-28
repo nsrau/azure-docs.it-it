@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configuring Diagnostics for Azure Cloud Services and Virtual Machines | Microsoft Azure"
-   description="Describes how to configure diagnostics information for debugging Azure cloude services and virtual machines (VMs) in Visual Studio."
+   pageTitle="Configurazione della diagnostica per i servizi cloud e le macchine virtuali di Azure | Microsoft Azure"
+   description="Illustra come configurare le informazioni di diagnostica per il debug di servizi cloud e delle macchine virtuali di Azure in Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,172 +15,171 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Configurazione della diagnostica per i servizi cloud e le macchine virtuali di Azure
 
-# <a name="configuring-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Configuring Diagnostics for Azure Cloud Services and Virtual Machines
+Per risolvere gli errori di un servizio cloud di Azure o di una macchina virtuale di Azure, è possibile configurare Diagnostica di Azure con maggiore semplicità tramite Visual Studio. Diagnostica di Azure acquisisce i dati di sistema e i dati di registrazione nelle macchine virtuali e nelle istanze di macchine virtuali che eseguono il servizio cloud e trasferisce i dati all'account di archiviazione scelto. Per altre informazioni sulla registrazione di diagnostica in Azure, vedere [Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure](./app-service-web/web-sites-enable-diagnostic-log.md).
 
-When you need to troubleshoot an Azure cloud service or Azure virtual machine, you can configure Azure diagnostics more easily by using Visual Studio. Azure diagnostics captures system data and logging data on the virtual machines and virtual machine instances that run your cloud service and transfers that data into a storage account of your choice. See [Enable diagnostics logging for web apps in Azure App Service](./app-service-web/web-sites-enable-diagnostic-log.md) for more information about diagnostics logging in Azure.
+Questo argomento illustra come abilitare e configurare la Diagnostica di Azure in Visual Studio, prima e dopo la distribuzione, oltre che nelle macchine virtuali di Azure. Illustra anche come selezionare i tipi di informazioni di diagnostica da raccogliere e come visualizzare le informazioni dopo la raccolta.
 
-This topic shows you how to enable and configure Azure diagnostics in Visual Studio, both before and after deployment, as well as in Azure virtual machines. It also shows you how to select the types of diagnostics information to collect and how to view the information after it's collected.
+È possibile configurare la Diagnostica di Azure nei modi seguenti:
 
-You can configure Azure Diagnostics in the following ways:
+- È possibile modificare le impostazioni di configurazione della diagnostica tramite la finestra di dialogo **Configurazione di diagnostica** in Visual Studio. Le impostazioni vengono salvate in un file denominato diagnostics.wadcfgx (diagnostics.wadcfg in Azure SDK 2.4 o versioni precedenti). In alternativa, è possibile modificare direttamente il file di configurazione. Se si aggiorna manualmente il file, le modifiche alla configurazione verranno applicate alla successiva distribuzione del servizio cloud in Azure alla successiva esecuzione del servizio nell'emulatore.
 
-- You can change diagnostics configuration settings through the **Diagnostics Configuration** dialog box in Visual Studio. The settings are saved in a file called diagnostics.wadcfgx (diagnostics.wadcfg in Azure SDK 2.4 or earlier). Alternatively, you can directly modify the configuration file. If you manually update the file, the configuration changes will take effect the next time you deploy the cloud service to Azure or run the service in the emulator.
+- Usare **Cloud Explorer** o **Esplora server** in Visual Studio per modificare le impostazioni di diagnostica per un servizio cloud o una macchina virtuale in esecuzione.
 
-- Use **Cloud Explorer** or **Server Explorer** in Visual Studio to change the diagnostics settings for a running cloud service or virtual machine.
+## Modifiche alla diagnostica di Azure 2.6
 
-## <a name="azure-2.6-diagnostics-changes"></a>Azure 2.6 diagnostics changes
+Sono state apportate le modifiche seguenti ai progetti Azure SDK 2.6 in Visual Studio. Queste modifiche sono applicabili anche alle versioni successive di Azure SDK.
 
-For Azure SDK 2.6 projects in Visual Studio, the following changes were made. (These changes also apply to later versions of Azure SDK.)
+- L'emulatore locale supporta ora la diagnostica. È quindi possibile raccogliere dati di diagnostica e assicurare che l'applicazione crei le tracce corrette durante lo sviluppo e il testing in Visual Studio. La stringa di connessione `UseDevelopmentStorage=true` abilita la raccolta di dati di diagnostica durante l'esecuzione del progetto servizio cloud in Visual Studio mediante l'emulatore di archiviazione di Azure. Tutti i dati di diagnostica vengono raccolti nell'account di archiviazione (archivio di sviluppo).
 
-- The local emulator now supports diagnostics. This means you can collect diagnostics data and ensure your application is creating the right traces while you're developing and testing in Visual Studio. The connection string `UseDevelopmentStorage=true` enables diagnostics data collection while you're running your cloud service project in Visual Studio by using the Azure storage emulator. All diagnostics data is collected in the (Development Storage) storage account.
+- La stringa di connessione dell'account di archiviazione di diagnostica (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) viene archiviata ancora una volta nel file di configurazione (.cscfg) del servizio. In Azure SDK 2.5 l'account di archiviazione di diagnostica viene specificato nel file diagnostics.wadcfgx.
 
-- The diagnostics storage account connection string (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) is stored once again in the service configuration (.cscfg) file. In Azure SDK 2.5 the diagnostics storage account was specified in the diagnostics.wadcfgx file.
+Il funzionamento della stringa di connessione presenta alcune differenze sostanziali tra Azure SDK 2.4 e versioni precedenti e Azure SDK 2.6 e versioni successive.
 
-There are some notable differences between how the connection string worked in Azure SDK 2.4 and earlier and how it works in Azure SDK 2.6 and later.
+- In Azure SDK 2.4 e versioni precedenti la stringa di connessione viene usata come runtime dal plug-in di diagnostica per ottenere le informazioni sull'account di archiviazione per il trasferimento dei log di diagnostica.
 
-- In Azure SDK 2.4 and earlier, the connection string was used as a runtime by the diagnostics plugin to get the storage account information for transferring diagnostics logs.
+- In Azure SDK 2.6 e versioni successive la stringa di connessione di diagnostica viene usata da Visual Studio per configurare l'estensione di diagnostica con le informazioni appropriate sull'account di archiviazione durante la pubblicazione. La stringa di connessione consente di definire diversi account di archiviazione per diverse configurazioni del servizio, che verranno usate da Visual Studio durante la pubblicazione. Poiché, tuttavia, il plug-in di diagnostica non è più disponibile (dopo Azure SDK 2.5), il solo file .cscfg non è in grado di abilitare l'estensione di diagnostica. È necessario abilitare l'estensione separatamente tramite strumenti quali Visual Studio o PowerShell.
 
-- In Azure SDK 2.6 and later, the diagnostics connection string is used by Visual Studio to configure the diagnostics extension with the appropriate storage account information during publishing. The connection string lets you define different storage accounts for different service configurations that Visual Studio will use when publishing. However, because the diagnostics plugin is no longer available (after Azure SDK 2.5), the .cscfg file by itself can't enable the Diagnostics Extension. You have to enable the extension separately through tools such as Visual Studio or PowerShell.
+- Per semplificare il processo di configurazione dell'estensione di diagnostica con PowerShell, l'output del pacchetto da Visual Studio contiene anche il codice XML di configurazione pubblica per l'estensione di diagnostica per ogni ruolo. Visual Studio usa la stringa di connessione di diagnostica per popolare le informazioni sull'account di archiviazione presenti nella configurazione pubblica. I file di configurazione pubblica vengono creati nella cartella Extensions e seguono il modello PaaSDiagnostics.&lt;RoleName>.PubConfig.xml. Eventuali distribuzioni basate su PowerShell possono usare questo modello per il mapping di ogni configurazione a un ruolo.
 
-- To simplify the process of configuring the diagnostics extension with PowerShell, the package output from Visual Studio also contains the public configuration XML for the diagnostics extension for each role. Visual Studio uses the diagnostics connection string to populate the storage account information present in the public configuration. The public config files are created in the Extensions folder and follow the pattern PaaSDiagnostics.&lt;RoleName>.PubConfig.xml. Any PowerShell based deployments can use this pattern to map each configuration to a Role.
+- La stringa di connessione nel file con estensione cscfg viene usata anche dal [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) per accedere ai dati di diagnostica, in modo da consentirne la visualizzazione nella scheda **Monitoraggio**. La stringa di connessione è necessaria per configurare il servizio, in modo da visualizzare i dati dettagliati del monitoraggio nel portale.
 
-- The connection string in the .cscfg file is also used by the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) to access the diagnostics data so it can appear in the **Monitoring** tab. The connection string is needed to configure the service to show verbose monitoring data in the portal.
+## Migrazione di progetti in Azure SDK 2.6 e versioni successive
 
-## <a name="migrating-projects-to-azure-sdk-2.6-and-later"></a>Migrating projects to Azure SDK 2.6 and later
+Quando si esegue la migrazione da Azure SDK 2.5 ad Azure SDK 2.6 o versioni successivi, eventuali account di archiviazione di diagnostica specificati nel file con estensione wadcfgx rimarranno in tale posizione. Per sfruttare la flessibilità di utilizzo di account di archiviazione diversi per configurazioni di archiviazione diverse, è necessario aggiungere manualmente la stringa di connessione al progetto. Se si sta eseguendo la migrazione di un progetto da Azure SDK 2.4 o versioni precedenti ad Azure SDK 2.6, le stringhe di connessione di diagnostica vengono mantenute. Occorre tuttavia notare le modifiche relative al modo in cui le stringhe di connessione vengono gestite in Azure SDK 2.6, come illustrato nella sezione precedente.
 
-When migrating from Azure SDK 2.5 to Azure SDK 2.6 or later, if you had a diagnostics storage account specified in the .wadcfgx file, then it will stay there. To take advantage of the flexibility of using different storage accounts for different storage configurations, you'll have to manually add the connection string to your project. If you're migrating a project from Azure SDK 2.4 or earlier to Azure SDK 2.6, then the diagnostics connection strings are preserved. However, please note the changes in how connection strings are treated in Azure SDK 2.6 as specified in the previous section.
+### Modalità di determinazione dell'account di archiviazione di diagnostica da parte di Visual Studio
 
-### <a name="how-visual-studio-determines-the-diagnostics-storage-account"></a>How Visual Studio determines the diagnostics storage account
+- Se nel file .cscfg viene specificata una stringa di connessione di diagnostica, Visual Studio la userà per configurare l'estensione di diagnostica durante la pubblicazione e durante la generazione dei file XML di configurazione pubblica nel corso della creazione dei pacchetti.
 
-- If a diagnostics connection string is specified in the .cscfg file, Visual Studio uses it to configure the diagnostics extension when publishing, and when generating the public configuration xml files during packaging.
+- Se nel file .cscfg non viene specificata alcuna stringa di connessione di diagnostica, Visual Studio userà di nuovo l'account di archiviazione specificato nel file con estensione wadcfgx per configurare l'estensione di diagnostica durante la pubblicazione e durante la generazione dei file XML di configurazione pubblica nel corso della creazione dei pacchetti.
 
-- If no diagnostics connection string is specified in the .cscfg file, then Visual Studio falls back to using the storage account specified in the .wadcfgx file to configure the diagnostics extension when publishing, and generating the public configuration xml files when packaging.
+- La stringa di connessione di diagnostica nel file .cscfg ha la priorità rispetto all'account di archiviazione specificato nel file con estensione wadcfgx. Se nel file .cscfg viene specificata una stringa di connessione di diagnostica, Visual Studio userà tale stringa e ignorerà l'account di archiviazione specificato nel file con estensione wadcfgx.
 
-- The diagnostics connection string in the .cscfg file takes precedence over the storage account in the .wadcfgx file. If a diagnostics connection string is specified in the .cscfg file, then Visual Studio uses that and ignores the storage account in .wadcfgx.
+### Funzione della casella di controllo "Aggiorna stringhe di connessione risorsa di archiviazione sviluppo…"
 
-### <a name="what-does-the-"update-development-storage-connection-strings…"-checkbox-do?"></a>What does the "Update development storage connection strings…" checkbox do?
+La casella di controllo **Aggiorna le stringhe di connessione dell'archivio di sviluppo per la diagnostica e la memorizzazione nella cache con le credenziali dell'account di archiviazione di Microsoft Azure quando si esegue la pubblicazione in Microsoft Azure** offre un modo semplice per aggiornare eventuali stringhe di connessione dell'account di archiviazione con l'account di archiviazione di Azure specificato durante la pubblicazione.
 
-The checkbox for **Update development storage connection strings for Diagnostics and Caching with Microsoft Azure storage account credentials when publishing to Microsoft Azure** gives you a convenient way to update any development storage account connection strings with the Azure storage account specified during publishing.
+Ad esempio, si supponga di selezionare questa casella di controllo e che la stringa di connessione di diagnostica specifichi `UseDevelopmentStorage=true`. Quando si pubblica il progetto in Azure, Visual Studio aggiornerà automaticamente la stringa di connessione di diagnostica con l'account di archiviazione specificato nella Pubblicazione guidata. Se, tuttavia, un account di archiviazione effettivo è stato specificato come stringa di connessione di diagnostica, verrà usato invece tale account.
 
-For example, suppose you select this checkbox and the diagnostics connection string specifies `UseDevelopmentStorage=true`. When you publish the project to Azure, Visual Studio will automatically update the diagnostics connection string with the storage account you specified in the Publish wizard. However, if a real storage account was specified as the diagnostics connection string, then that account is used instead.
+## Differenze della funzionalità di diagnostica tra Azure SDK 2.4 e versioni precedenti e Azure SDK 2.5 e versioni successive
 
-## <a name="diagnostics-functionality-differences-between-azure-sdk-2.4-and-earlier-and-azure-sdk-2.5-and-later"></a>Diagnostics functionality differences between Azure SDK 2.4 and earlier and Azure SDK 2.5 and later
+Se si aggiorna il progetto da Azure SDK 2.4 ad Azure SDK 2.5 o versioni successive, è consigliabile ricordare le differenze seguenti a livello di funzionalità di diagnostica.
 
-If you're upgrading your project from Azure SDK 2.4 to Azure SDK 2.5 or later, you should bear in mind the following diagnostics functionality differences.
+- **Le API di configurazione sono deprecate**: la configurazione a livello di codice della diagnostica è disponibile in Azure SDK 2.4 o versioni precedenti, ma è deprecata in Azure SDK 2.5 e versioni successive. Se la configurazione di diagnostica è attualmente definita nel codice, sarà necessario riconfigurare completamente tali impostazioni nel progetto sottoposto a migrazione, in modo da mantenere il funzionamento della diagnostica. Il file di configurazione della diagnostica per Azure SDK 2.4 è diagnostics.wadcfg, mentre è diagnostics.wadcfgx per Azure SDK 2.5 e versioni successive.
 
-- **Configuration APIs are deprecated** – Programmatic configuration of diagnostics is available in Azure SDK 2.4 or earlier versions, but is deprecated in Azure SDK 2.5 and later. If your diagnostics configuration is currently defined in code, you'll need to reconfigure those settings from scratch in the migrated project in order for diagnostics to keep working. The diagnostics configuration file for Azure SDK 2.4 is diagnostics.wadcfg, and diagnostics.wadcfgx for Azure SDK 2.5 and later.
+- **La diagnostica per le applicazioni del servizio cloud può essere configurata solo a livello di ruolo, non a livello di istanza.**
 
-- **Diagnostics for cloud service applications can only be configured at the role level, not at the instance level.**
+- **Ogni volta che si distribuisce l'app, le configurazioni di diagnostica vengono aggiornate**: ciò può provocare problemi di parità se si modifica la configurazione di diagnostica da Esplora server e quindi si ridistribuisce l'app.
 
-- **Every time you deploy your app, the diagnostics configuration is updated** – This can cause parity issues if you change your diagnostics configuration from Server Explorer and then redeploy your app.
+- **In Azure SDK 2.5 e versioni successive i dump di arresto anomalo del sistema sono configurati nel file di configurazione, non nel codice**: se i dump di arresto anomalo del sistema sono configurati nel codice, sarà necessario trasferire manualmente la configurazione dal codice al file di configurazione, perché i dump di arresto anomalo del sistema non vengono trasferiti durante la migrazione in Azure SDK 2.6.
 
-- **In Azure SDK 2.5 and later, crash dumps are configured in the diagnostics configuration file, not in code** – If you have crash dumps configured in code, you'll have to manually transfer the configuration from code to the configuration file, because the crash dumps aren't transferred during the migration to Azure SDK 2.6.
+## Abilitare la diagnostica nei progetti di servizi cloud prima della distribuzione
 
-## <a name="enable-diagnostics-in-cloud-service-projects-before-deploying-them"></a>Enable diagnostics in cloud service projects before deploying them
+In Visual Studio è possibile scegliere di raccogliere i dati di diagnostica per i ruoli eseguiti in Azure quando si esegue il servizio nell'emulatore prima di distribuirlo. Tutte le modifiche apportate alle impostazioni di diagnostica in Visual Studio vengono salvate nel file di configurazione diagnostics.wadcfgx. Queste impostazioni di configurazione specificano l'account di archiviazione in cui i dati di diagnostica vengono salvati quando si distribuisce il servizio cloud.
 
-In Visual Studio, you can choose to collect diagnostics data for roles that run in Azure, when you run the service in the emulator before deploying it. All changes to diagnostics settings in Visual Studio are saved in the diagnostics.wadcfgx configuration file. These configuration settings specify the storage account where diagnostics data is saved when you deploy your cloud service.
+### Per abilitare la diagnostica in Visual Studio prima della distribuzione
 
-### <a name="to-enable-diagnostics-in-visual-studio-before-deployment"></a>To enable diagnostics in Visual Studio before deployment
+1. Dal menu di scelta rapida per il ruolo desiderato scegliere **Proprietà**, quindi selezionare la scheda **Configurazione** nella finestra **Proprietà** del ruolo.
 
-1. On the shortcut menu for the role that interests you, choose **Properties**, and then choose the **Configuration** tab in the role’s **Properties** window.
+1. Nella sezione **Diagnostica** verificare che la casella di controllo **Abilita diagnostica** sia selezionata.
 
-1. In the **Diagnostics** section, make sure that the **Enable Diagnostics** check box is selected.
+    ![Accesso all'opzione Abilita diagnostica](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796660.png)
 
-    ![Accessing the Enable Diagnostics option](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796660.png)
+1. Scegliere il pulsante con i puntini di sospensione (…) per specificare l'account di archiviazione in cui si vogliono archiviare i dati di diagnostica. L'account di archiviazione scelto corrisponderà al percorso di archiviazione dei dati di diagnostica.
 
-1. Choose the ellipsis (…) button to specify the storage account where you want the diagnostics data to be stored. The storage account you choose will be the location where diagnostics data is stored.
+    ![Specificare l'account di archiviazione da usare](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796661.png)
 
-    ![Specify the storage account to use](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796661.png)
+1. Nella finestra di dialogo **Crea stringa di connessione a risorsa di archiviazione** specificare se ci si vuole connettere usando l'emulatore di archiviazione di Azure, una sottoscrizione di Azure o credenziali immesse manualmente.
 
-1. In the **Create Storage Connection String** dialog box, specify whether you want to connect using the Azure Storage Emulator, an Azure subscription, or manually entered credentials.
+    ![Finestra di dialogo Account di archiviazione](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796662.png)
 
-    ![Storage account dialog box](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796662.png)
+  - Se si sceglie l'opzione Emulatore di archiviazione di Microsoft Azure, la stringa di connessione sarò impostata su UseDevelopmentStorage=true.
 
-  - If you choose the Microsoft Azure Storage Emulator option, the connection string is set to UseDevelopmentStorage=true.
+  - Se si sceglie l'opzione relativa alla propria sottoscrizione, sarà possibile selezionare la sottoscrizione di Azure da usare e il nome dell'account. Per gestire le sottoscrizioni di Azure, è possibile usare il pulsante Manage Accounts (Gestisci account).
 
-  - If you choose the Your subscription option, you can choose the Azure subscription you want to use and the account name. You can choose the Manage Accounts button to manage your Azure subscriptions.
+  - Se si sceglie l'opzione Credenziali immesse manualmente, verrà richiesta l'immissione del nome e della chiave dell'account di Azure da usare.
 
-  - If you choose the Manually entered credentials option, you're prompted to enter the name and key of the Azure account you want to use.
+1. Scegliere il pulsante **Configura** per visualizzare la finestra di dialogo **Configurazione di diagnostica**. Ogni scheda, ad eccezione di **Generale** e **Directory log** rappresenta un'origine di dati di diagnostica che è possibile raccogliere. La scheda predefinita, **Generale**, offre le opzioni di raccolta di dati di diagnostica seguenti: **Solo errori**, **Tutte le informazioni** e **Personalizza piano**. L'opzione predefinita, **Solo errori**, richiede la quantità minima di spazio di archiviazione, perché non trasferisce messaggi di avviso o di traccia. L'opzione Tutte le informazioni trasferisce la quantità più elevata di informazioni ed è quindi l'opzione più costosa in termini di risorse di archiviazione.
 
-1. Choose the **Configure** button to view the **Diagnostics configuration** dialog box. Each tab (except for **General** and **Log Directories**) represents a diagnostic data source that you can collect. The default tab, **General**, offers you the following diagnostics data collection options: **Errors only**, **All information**, and **Custom plan**. The default option, **Errors only**, takes the least amount of storage because it doesn’t transfer warnings or tracing messages. The All information option transfers the most information and is, therefore, the most expensive option in terms of storage.
+    ![Abilitare la diagnostica e la configurazione di Azure](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758144.png)
 
-    ![Enable Azure diagnostics and configuration](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758144.png)
+1. Per questo esempio selezionare l'opzione **Personalizza piano**, in modo da personalizzare i dati raccolti.
 
-1. For this example, select the **Custom plan** option so you can customize the data collected.
+1. La casella **Quota disco in MB** specifica la quantità di spazio da allocare nell'account di archiviazione per i dati di diagnostica. Se si vuole, è possibile cambiare il valore predefinito.
 
-1. The **Disk Quota in MB** box specifies how much space you want to allocate in your storage account for diagnostics data. You can change the default value if you want.
+1. In ogni scheda dei dati di diagnostica da raccogliere selezionare la rispettiva casella di controllo **Abilita il trasferimento di <tipo di log>**. Ad esempio, per raccogliere i log applicazioni, selezionare la casella di controllo **Abilita il trasferimento di log applicazioni** nella scheda **Log applicazioni**. Specificare anche eventuali altre informazioni richieste da ogni tipo di dati di diagnostica. Per informazioni sulla configurazione di ogni scheda, vedere la sezione **Configurare le origini dati di diagnostica** più avanti in questo argomento.
 
-1. On each tab of diagnostics data you want to collect, select its **Enable Transfer of <log type>** check box. For example, if you want to collect application logs, select the **Enable transfer of Application Logs** check box on the **Application Logs** tab. Also, specify any other information required by each diagnostics data type. See the section **Configure diagnostics data sources** later in this topic for configuration information on each tab.
+1. Dopo l'abilitazione della raccolta di tutti i dati di diagnostica desiderati, fare clic su **OK**.
 
-1. After you’ve enabled collection of all the diagnostics data you want, choose the **OK** button.
+1. Eseguire il progetto di servizio cloud di Azure in Visual Studio come di consueto. Quando si usa l'applicazione, le informazioni di log abilitate vengono salvate nell'account di archiviazione di Azure specificato.
 
-1. Run your Azure cloud service project in Visual Studio as usual. As you use your application, the log information that you enabled is saved to the Azure storage account you specified.
+## Abilitare la diagnostica nelle macchine virtuali di Azure
 
-## <a name="enable-diagnostics-in-azure-virtual-machines"></a>Enable diagnostics in Azure virtual machines
+In Visual Studio è possibile scegliere di raccogliere i dati di diagnostica per le macchine virtuali di Azure.
 
-In Visual Studio, you can choose to collect diagnostics data for Azure virtual machines.
+### Per abilitare la diagnostica nelle macchine virtuali di Azure
 
-### <a name="to-enable-diagnostics-in-azure-virtual-machines"></a>To enable diagnostics in Azure virtual machines
+1. In **Esplora server** scegliere il nodo di Azure e quindi connettersi alla sottoscrizione di Azure, se non si è già connessi.
 
-1. In **Server Explorer**, choose the Azure node and then connect to your Azure subscription, if you're not already connected.
+1. Espandere il nodo **Macchine virtuali**. È possibile creare una nuova macchina virtuale o selezionare una macchina virtuale già esistente.
 
-1. Expand the **Virtual Machines** node. You can create a new virtual machine, or select one that's already there.
+1. Dal menu di scelta rapida per la macchina virtuale desiderata scegliere **Configura**. Verrà visualizzata la finestra di dialogo di configurazione della macchina virtuale.
 
-1. On the shortcut menu for the virtual machine that interests you, choose **Configure**. This shows the virtual machine configuration dialog box.
+    ![Configurazione di una macchina virtuale di Azure](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796663.png)
 
-    ![Configuring an Azure virtual machine](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796663.png)
+1. Se non è già installata, aggiungere l'estensione Microsoft Monitoring Agent Diagnostics. Questa estensione consente di raccogliere dati di diagnostica per la macchina virtuale di Azure. Nell'elenco Estensioni installate scegliere Microsoft Monitoring Agent Diagnostics dal menu a discesa Seleziona un'estensione disponibile.
 
-1. If it's not already installed, add the Microsoft Monitoring Agent Diagnostics extension. This extension lets you gather diagnostics data for the Azure virtual machine. In the Installed Extensions list, choose the Select an available extension drop-down menu and then choose Microsoft Monitoring Agent Diagnostics.
+    ![Installazione di un'estensione di macchina virtuale di Azure](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766024.png)
 
-    ![Installing an Azure virtual machine extension](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766024.png)
+    >[AZURE.NOTE] Sono disponibili altre estensioni di diagnostica per le macchine virtuali. Per altre informazioni, vedere Estensioni VM e funzionalità di Azure.
 
-    >[AZURE.NOTE] Other diagnostics extensions are available for your virtual machines. For more information, see Azure VM Extensions and Features.
+1. Scegliere il pulsante **Aggiungi** per aggiungere l'estensione e visualizzare la rispettiva finestra di dialogo **Configurazione di diagnostica**.
 
-1. Choose the **Add** button to add the extension and view its **Diagnostics configuration** dialog box.
+1. Fare clic su **Configura** per specificare un account di archiviazione e quindi fare clic su **OK**.
 
-1. Choose the **Configure** button to specify a storage account and then choose the **OK** button.
+    Ogni scheda, ad eccezione di **Generale** e **Directory log** rappresenta un'origine di dati di diagnostica che è possibile raccogliere.
 
-    Each tab (except for **General** and **Log Directories**) represents a diagnostic data source that you can collect.
+    ![Abilitare la diagnostica e la configurazione di Azure](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758144.png)
 
-    ![Enable Azure diagnostics and configuration](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758144.png)
+    La scheda predefinita, **Generale**, offre le opzioni di raccolta di dati di diagnostica seguenti: **Solo errori**, **Tutte le informazioni** e **Personalizza piano**. L'opzione predefinita, **Solo errori**, richiede la quantità minima di spazio di archiviazione, perché non trasferisce messaggi di avviso o di traccia. L'opzione **Tutte le informazioni** trasferisce la quantità più elevata di informazioni ed è quindi l'opzione più costosa in termini di risorse di archiviazione.
 
-    The default tab, **General**, offers you the following diagnostics data collection options: **Errors only**, **All information**, and **Custom plan**. The default option, **Errors only**, takes the least amount of storage because it doesn’t transfer warnings or tracing messages. The **All information** option transfers the most information and is, therefore, the most expensive option in terms of storage.
+1. Per questo esempio selezionare l'opzione **Personalizza piano**, in modo da personalizzare i dati raccolti.
 
-1. For this example, select the **Custom plan** option so you can customize the data collected.
+1. La casella **Quota disco in MB** specifica la quantità di spazio da allocare nell'account di archiviazione per i dati di diagnostica. Se si vuole, è possibile cambiare il valore predefinito.
 
-1. The **Disk Quota in MB** box specifies how much space you want to allocate in your storage account for diagnostics data. You can change the default value if you want.
+1. In ogni scheda dei dati di diagnostica da raccogliere selezionare la rispettiva casella di controllo **Abilita il trasferimento di <tipo di log>**.
 
-1. On each tab of diagnostics data you want to collect, select its **Enable Transfer of <log type>** check box.
+    Ad esempio, per raccogliere i log applicazioni, selezionare la casella di controllo **Abilita il trasferimento di log applicazioni** nella scheda **Log applicazioni**. Specificare anche eventuali altre informazioni richieste da ogni tipo di dati di diagnostica. Per informazioni sulla configurazione di ogni scheda, vedere la sezione **Configurare le origini dati di diagnostica** più avanti in questo argomento.
 
-    For example, if you want to collect application logs, select the **Enable transfer of Application Logs** check box on the **Application Logs** tab. Also, specify any other information required by each diagnostics data type. See the section **Configure diagnostics data sources** later in this topic for configuration information on each tab.
+1. Dopo l'abilitazione della raccolta di tutti i dati di diagnostica desiderati, fare clic su **OK**.
 
-1. After you’ve enabled collection of all the diagnostics data you want, choose the **OK** button.
+1. Salvare il progetto aggiornato.
 
-1. Save the updated project.
+    Nella finestra **Log attività di Microsoft Azure** verrà visualizzato un messaggio relativo al completamento dell'aggiornamento della macchina virtuale.
 
-    You'll see a message in the **Microsoft Azure Activity Log** window that the virtual machine has been updated.
+## Configurare le origini dati di diagnostica
 
-## <a name="configure-diagnostics-data-sources"></a>Configure diagnostics data sources
+Dopo l'abilitazione della raccolta di dati di diagnostica, è possibile scegliere esattamente le origini dati da raccogliere e le informazioni raccolte. L'elenco seguente include le schede della finestra di dialogo **Configurazione di diagnostica** e informazioni sul significato di ogni opzione di configurazione.
 
-After you enable diagnostics data collection, you can choose exactly what data sources you want to collect and what information is collected. The following is a list of tabs in the **Diagnostics configuration** dialog box and what each configuration option means.
+### Log applicazioni
 
-### <a name="application-logs"></a>Application logs
+I **Log applicazioni** includono informazioni di diagnostica prodotte da un'applicazione Web. Se, ad esempio, si vogliono acquisire log applicazioni, selezionare la casella di controllo **Abilita il trasferimento di log applicazioni**. È possibile aumentare o ridurre il numero di minuti per il trasferimento dei log applicazioni all'account di archiviazione cambiando il valore **Periodo di trasferimento (min)**. È anche possibile cambiare la quantità di informazioni acquisite nel log, impostando il valore Livello log. Ad esempio, è possibile scegliere **Dettagliato** per ottenere più informazioni oppure **Critico** per acquisire solo gli errori critici. Se è disponibile un provider di diagnostica specifico che genera log applicazioni, sarà possibile acquisirli aggiungendo il GUID alla casella **GUID provider**.
 
-**Application logs** contain diagnostics information produced by a web application. If you want to capture application logs, select the **Enable transfer of Application Logs** check box. You can increase or decrease the number of minutes when the application logs are transferred to your storage account by changing the **Transfer Period (min)** value. You can also change the amount of information captured in the log by setting the Log level value. For example, you can choose **Verbose** to get more information or choose **Critical** to capture only critical errors. If you have a specific diagnostics provider that emits application logs, you can capture them by adding the provider’s GUID to the **Provider GUID** box.
+  ![Log applicazioni](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758145.png)
 
-  ![Application Logs](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758145.png)
+  Per altre informazioni sui log applicazioni, vedere [Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure](./app-service-web/web-sites-enable-diagnostic-log.md).
 
-  See [Enable diagnostics logging for web apps in Azure App Service](./app-service-web/web-sites-enable-diagnostic-log.md) for more information about application logs.
+### Registri eventi di Windows
 
-### <a name="windows-event-logs"></a>Windows event logs
+Per acquisire log eventi di Windows, selezionare la casella di controllo **Abilita il trasferimento dei log eventi di Windows**. È possibile aumentare o ridurre il numero di minuti per il trasferimento dei log eventi all'account di archiviazione cambiando il valore **Periodo di trasferimento (min)**. Selezionare le caselle di controllo per i tipi di eventi da tracciare.
 
-If you want to capture Windows event logs, select the **Enable transfer of Windows Event Logs** check box. You can increase or decrease the number of minutes when the event logs are transferred to your storage account by changing the **Transfer Period (min)** value. Select the check boxes for the types of events that you want to track.
+  ![Log eventi](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796664.png)
 
-  ![Event Logs](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796664.png)
+Se si usa Azure SDK 2.6 o versioni successive e si vuole specificare un'origine dati personalizzata, immetterla nella casella di testo **<Nome origine dati>**, quindi scegliere il pulsante **Aggiungi** accanto alla casella. L'origine dati viene aggiunta al file diagnostics.cfcfg.
 
-If you're using Azure SDK 2.6 or later and want to specify a custom data source, enter it in the **<Data source name>** text box and then choose the **Add** button next to it. The data source is added to the diagnostics.cfcfg file.
-
-If you're using Azure SDK 2.5 and want to specify a custom data source, you can add it to the `WindowsEventLog` section of the diagnostics.wadcfgx file, such as in the following example.
+Se si usa Azure SDK 2.5 e si vuole specificare un'origine dati personalizzata, sarà possibile aggiungerla alla sezione `WindowsEventLog` del file diagnostics.wadcfgx, come illustrato nell'esempio seguente.
 
 ```
 <WindowsEventLog scheduledTransferPeriod="PT1M">
@@ -188,157 +187,157 @@ If you're using Azure SDK 2.5 and want to specify a custom data source, you can 
    <DataSource name="CustomDataSource!*" />
 </WindowsEventLog>
 ```
-### <a name="performance-counters"></a>Performance counters
+### Contatori delle prestazioni
 
-Performance counter information can help you locate system bottlenecks and fine-tune system and application performance. See [Create and Use Performance Counters in an Azure Application](https://msdn.microsoft.com/library/azure/hh411542.aspx) for more information. If you want to capture performance counters, select the **Enable transfer of Performance Counters** check box. You can increase or decrease the number of minutes when the event logs are transferred to your storage account by changing the **Transfer Period (min)** value. Select the check boxes for the performance counters that you want to track.
+Le informazioni sui contatori delle prestazioni possono semplificare l'individuazione dei colli di bottiglia e l'ottimizzazione delle prestazioni del sistema e delle applicazioni. Per altre informazioni, vedere [Creare e usare contatori di prestazioni in un'applicazione Azure](https://msdn.microsoft.com/library/azure/hh411542.aspx). Per acquisire contatori delle prestazioni, selezionare la casella di controllo **Abilita il trasferimento di contatori delle prestazioni**. È possibile aumentare o ridurre il numero di minuti per il trasferimento dei log eventi all'account di archiviazione modificando il valore **Periodo di trasferimento (min)**. Selezionare le caselle di controllo per i contatori delle prestazioni da tracciare.
 
-  ![Performance Counters](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758147.png)
+  ![Contatori delle prestazioni](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758147.png)
 
-To track a performance counter that isn’t listed, enter it by using the suggested syntax and then choose the **Add** button. The operating system on the virtual machine determines which performance counters you can track. For more information about syntax, see [Specifying a Counter Path](https://msdn.microsoft.com/library/windows/desktop/aa373193.aspx).
+Per tenere traccia di un contatore delle prestazioni non incluso nell'elenco, immetterlo usando la sintassi suggerita, quindi scegliere **Aggiungi**. Il sistema operativo della macchina virtuale determina i contatori delle prestazioni di cui è possibile tenere traccia. Per altre informazioni sulla sintassi, vedere [Specificare un percorso del contatore](https://msdn.microsoft.com/library/windows/desktop/aa373193.aspx).
 
-### <a name="infrastructure-logs"></a>Infrastructure logs
+### Log infrastruttura
 
-If you want to capture infrastructure logs, which contain information about the Azure diagnostic infrastructure, the RemoteAccess module, and the RemoteForwarder module, select the **Enable transfer of Infrastructure Logs** check box. You can increase or decrease the number of minutes when the logs are transferred to your storage account by changing the Transfer Period (min) value.
+Per acquisire log infrastruttura, che includono informazioni sull'infrastruttura di diagnostica di Azure, il modulo RemoteAccess e il modulo RemoteForwarder, selezionare la casella di controllo **Abilita il trasferimento dei log dell'infrastruttura di diagnostica**. È possibile aumentare o ridurre il numero di minuti per il trasferimento dei log all'account di archiviazione modificando il valore Periodo di trasferimento (min).
 
-  ![Diagnostics Infrastructure Logs](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758148.png)
+  ![Log dell'infrastruttura di diagnostica](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758148.png)
 
-  See [Collect Logging Data by Using Azure Diagnostics](https://msdn.microsoft.com/library/azure/gg433048.aspx) for more information.
+  Per altre informazioni, vedere [Raccogliere dati di registrazione usando Diagnostica Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx).
 
-### <a name="log-directories"></a>Log directories
+### Directory di log
 
-If you want to capture log directories, which contain data collected from log directories for Internet Information Services (IIS) requests, failed requests, or folders that you choose, select the **Enable transfer of Log Directories** check box. You can increase or decrease the number of minutes when the logs are transferred to your storage account by changing the **Transfer Period (min)** value.
+Per acquisire directory di log, che includono i dati raccolti dalle directory di log per richieste di Internet Information Services (IIS), richieste non riuscite o cartelle scelte, selezionare la casella di controllo **Abilita il trasferimento di directory di log**. È possibile aumentare o ridurre il numero di minuti per il trasferimento dei log all'account di archiviazione modificando il valore **Periodo di trasferimento (min)**.
 
-You can select the boxes of the logs you want to collect, such as **IIS Logs** and **Failed Request** Logs. Default storage container names are provided, but you can change the names if you want.
+È possibile selezionare le caselle dei log da raccogliere, ad esempio **Log IIS** e **Log delle richieste non riuscite**. Vengono forniti i nomi dei contenitori di archiviazione predefiniti, ma è possibile modificarli, se si vuole.
 
-Also, you can capture logs from any folder. Just specify the path in the **Log from Absolute Directory** section and then choose the **Add Directory** button. The logs will be captured to the specified containers.
+È anche possibile acquisire log da qualsiasi cartella. È sufficiente specificare il percorso nella sezione **Log da directory assoluta** e quindi scegliere **Aggiungi directory**. I log verranno acquisiti nei contenitori specificati.
 
-  ![Log Directories](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796665.png)
+  ![Directory di log](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796665.png)
 
-### <a name="etw-logs"></a>ETW logs
+### Log ETW
 
-If you use [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803(v=vs.85).aspx) (ETW) and want to capture ETW logs, select the **Enable transfer of ETW Logs** check box. You can increase or decrease the number of minutes when the logs are transferred to your storage account by changing the **Transfer Period (min)** value.
+Se si usa [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803(v=vs.85).aspx) (ETW) e si vogliono acquisire log ETW, selezionare la casella di controllo **Abilita il trasferimento di log ETW**. È possibile aumentare o ridurre il numero di minuti per il trasferimento dei log all'account di archiviazione modificando il valore **Periodo di trasferimento (min)**.
 
-The events are captured from event sources and event manifests that you specify. To specify an event source, enter a name in the **Event Sources** section and then choose the **Add Event Source** button. Similarly, you can specify an event manifest in the **Event Manifests** section and then choose the **Add Event Manifest** button.
+Gli eventi vengono acquisiti da origini eventi e manifesti evento specificati. Per specificare un'origine eventi, immettere un nome nella sezione **Origini evento**, quindi scegliere **Aggiungi origine evento**. È analogamente possibile specificare un manifesto evento nella sezione **Manifesti evento** e quindi scegliere **Aggiungi manifesto evento**.
 
-  ![ETW logs](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766025.png)
+  ![Log ETW](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766025.png)
 
-  The ETW framework is supported in ASP.NET through classes in the [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) namespace. The Microsoft.WindowsAzure.Diagnostics namespace, which inherits from and extends standard [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) classes, enables the use of [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) as a logging framework in the Azure environment. For more information, see [Take Control of Logging and Tracing in Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) and [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](./cloud-services/cloud-services-dotnet-diagnostics.md).
+  Il framework ETW è supportato in ASP.NET tramite le classi nello spazio dei nomi [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110). Lo spazio dei nomi Microsoft.WindowsAzure.Diagnostics, che eredita da ed estende le classi [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) standard, consente l'uso di [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) come framework di registrazione nell'ambiente Azure. Per altre informazioni, vedere [Controllare la registrazione e la traccia in Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) e [Abilitazione di Diagnostica in servizi cloud e macchine virtuali di Azure](./cloud-services/cloud-services-dotnet-diagnostics.md).
 
-### <a name="crash-dumps"></a>Crash dumps
+### Dump di arresto anomalo del sistema
 
-If you want to capture information about when a role instance crashes, select the **Enable transfer of Crash Dumps** check box. (Because ASP.NET handles most exceptions, this is generally useful only for worker roles.) You can increase or decrease the percentage of storage space devoted to the crash dumps by changing the **Directory Quota (%)** value. You can change the storage container where the crash dumps are stored, and you can select whether you want to capture a **Full** or **Mini** dump.
+Per acquisire informazioni sulle situazioni in cui si verifica un arresto anomalo di un'istanza del ruolo, selezionare la casella di controllo **Abilita il trasferimento di dump di arresto anomalo del sistema**. Poiché la maggior parte delle eccezioni è gestita da ASP.NET, questo è in genere utile solo per i ruoli di lavoro. È possibile aumentare o ridurre la percentuale di spazio di archiviazione dedicata ai dump di arresto anomalo del sistema modificando il valore **Quota directory (%)**. È possibile cambiare il contenitore di archiviazione in cui vengono archiviati i dump di arresto anomalo del sistema e stabilire se si vuole acquisire un dump **Completo** o **Ridotto**.
 
-The processes currently being tracked are listed. Select the check boxes for the processes that you want to capture. To add another process to the list, enter the process name and then choose the **Add Process** button.
+Vengono elencati i processi attualmente tracciati. Selezionare le caselle di controllo per i processi da acquisire. Per aggiungere un altro processo all'elenco, immettere il nome del processo e quindi scegliere **Aggiungi processo**.
 
-  ![Crash dumps](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766026.png)
+  ![Dump di arresto anomalo del sistema](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766026.png)
 
-  See [Take Control of Logging and Tracing in Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) and [Microsoft Azure Diagnostics Part 4: Custom Logging Components and Azure Diagnostics 1.3 Changes](http://justazure.com/microsoft-azure-diagnostics-part-4-custom-logging-components-azure-diagnostics-1-3-changes/) for more information.
+  Per altre informazioni, vedere [Controllare la registrazione e la traccia in Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) e [Diagnostica di Microsoft Azure - Parte 4: Personalizzare i componenti di registrazione e modifiche a Diagnostica di Azure 1.3](http://justazure.com/microsoft-azure-diagnostics-part-4-custom-logging-components-azure-diagnostics-1-3-changes/).
 
-## <a name="view-the-diagnostics-data"></a>View the diagnostics data
+## Visualizzare i dati di diagnostica
 
-After you’ve collected the diagnostics data for a cloud service or a virtual machine, you can view it.
+Dopo la raccolta dei dati di diagnostica per un servizio cloud o una macchina virtuale, sarà possibile visualizzarli.
 
-### <a name="to-view-cloud-service-diagnostics-data"></a>To view cloud service diagnostics data
+### Per visualizzare i dati di diagnostica del servizio cloud
 
-1. Deploy your cloud service as usual and then run it.
+1. Distribuire il servizio cloud come di consueto, quindi eseguirlo.
 
-1. You can view the diagnostics data in either a report that Visual Studio generates or tables in your storage account. To view the data in a report, open **Cloud Explorer** or **Server Explorer**, open the shortcut menu of the node for the role that interests you, and then choose **View Diagnostic Data**.
+1. È possibile visualizzare i dati di diagnostica in un report generato da Visual Studio o le tabelle dell'account di archiviazione. Per visualizzare i dati in un report, aprire **Cloud Explorer** o **Esplora server**, aprire il menu di scelta rapida del nodo per il ruolo desiderato, quindi scegliere **Visualizza dati di diagnostica**.
 
-    ![View Diagnostics Data](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC748912.png)
+    ![Visualizza dati di diagnostica](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC748912.png)
 
-    A report that shows the available data appears.
+    Verrà visualizzato un report che mostra i dati disponibili.
 
-    ![Microsoft Azure Diagnostics Report in Visual Studio](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796666.png)
+    ![Report Diagnostica di Microsoft Azure in Visual Studio](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796666.png)
 
-    If the most recent data doesn't appear, you might have to wait for the transfer period to elapse.
+    Se i dati più recenti non vengono visualizzati, potrebbe essere necessario attendere il termine del periodo di trasferimento.
 
-    Choose the **Refresh** link to immediately update the data, or choose an interval in the **Auto-Refresh** dropdown list box to have the data updated automatically. To export the error data, choose the **Export to CSV** button to create a comma-separated value file you can open in a spreadsheet.
+    Scegliere il collegamento **Aggiorna** per aggiornare immediatamente i dati oppure scegliere un intervallo dall'elenco a discesa **Aggiornamento automatico** per aggiornare automaticamente i dati. Per esportare i dati di errore, scegliere **Esporta in CSV** per creare un file con valori delimitati da virgole che può essere aperto in un foglio di calcolo.
 
-    In **Cloud Explorer** or **Server Explorer**, open the storage account that's associated with the deployment.
+    In **Cloud Explorer** o **Esplora server** aprire l'account di archiviazione associato alla distribuzione.
 
-1. Open the diagnostics tables in the table viewer, and then review the data that you collected. For IIS logs and custom logs, you can open a blob container. By reviewing the following table, you can find the table or blob container that contains the data that interests you. In addition to the data for that log file, the table entries contain EventTickCount, DeploymentId, Role, and RoleInstance to help you identify what virtual machine and role generated the data and when. 
+1. Aprire le tabelle di diagnostica nel visualizzatore di tabelle e quindi esaminare i dati raccolti. Per i log IIS e i log personalizzati sarà possibile aprire un contenitore BLOB. Esaminando la tabella seguente, sarà possibile trovare la tabella o il contenitore BLOB che include i dati desiderati. Oltre ai dati per tale file di log, le voci della tabella contengono EventTickCount, DeploymentId, Role e RoleInstance per semplificare l'identificazione della macchina virtuale e del ruolo che hanno generato i dati e quando.
 
-  	|Diagnostic data|Description|Location|
-  	|---|---|---|
-  	|Application Logs|Logs that your code generates by calling methods of the System.Diagnostics.Trace class.|WADLogsTable|
-  	|Event Logs|This data is from the Windows event logs on the virtual machines. Windows stores information in these logs, but applications and services also use them to report errors or log information.|WADWindowsEventLogsTable|
-  	|Performance Counters|You can collect data on any performance counter that’s available on the virtual machine. The operating system provides performance counters, which include many statistics such as memory usage and processor time.|WADPerformanceCountersTable|
-  	|Infrastructure Logs|These logs are generated from the diagnostics infrastructure itself.|WADDiagnosticInfrastructureLogsTable|
-  	|IIS Logs|These logs record web requests. If your cloud service gets a significant amount of traffic, these logs can be quite lengthy, so you should collect and store this data only when you need it.|You can find failed-request logs in the blob container under wad-iis-failedreqlogs under a path for that deployment, role, and instance. You can find complete logs under wad-iis-logfiles. Entries for each file are made in the WADDirectories table.|
-  	|Crash dumps|This information provides binary images of your cloud service’s process (typically a worker role).|wad-crush-dumps blob container|
-  	|Custom log files|Logs of data that you predefined.|You can specify in code the location of custom log files in your storage account. For example, you can specify a custom blob container.|
+    |Dati di diagnostica|Descrizione|Località|
+    |---|---|---|
+    |Log applicazioni|Log generati dal codice chiamando i metodi della classe System.Diagnostics.Trace.|WADLogsTable|
+    |Log eventi|Questi dati sono tratti dai log eventi di Windows nelle macchine virtuali. Windows archivia le informazioni in questi log, ma le applicazioni e i servizi li usano anche per segnalare errori o registrare informazioni.|WADWindowsEventLogsTable|
+    |Contatori delle prestazioni|È possibile raccogliere dati relativi a qualsiasi contatore delle prestazioni disponibile nella macchina virtuale. Il sistema operativo fornisce contatori delle prestazioni, che includono molte statistiche, ad esempio relative all'utilizzo della memoria e al tempo processore.|WADPerformanceCountersTable|
+    |Log infrastruttura|Questi log sono generati dall'infrastruttura di diagnostica stessa.|WADDiagnosticInfrastructureLogsTable|
+    |Log di IIS|Questi log registrano le richieste Web. Se il servizio cloud riceve una quantità significativa di traffico, questi log possono essere abbastanza lunghi. È quindi consigliabile raccogliere e archiviare questi dati solo quando necessario.|I log relativi alle richieste non riuscite sono disponibili nel contenitore BLOB in wad-iis-failedreqlogs in un percorso corrispondente a tale distribuzione, ruolo e istanza. I log completi sono disponibili in wad-iis-logfiles. Le voci per ogni file vengono inserite nella tabella WADDirectories.|
+    |Dump di arresto anomalo del sistema|Queste informazioni forniscono immagini binarie del processo del servizio cloud, in genere un ruolo di lavoro.|Contenitore BLOB wad-crush-dumps|
+    |File di log personalizzati|Registra i dati definiti dall'utente.|È possibile specificare nel codice il percorso dei file di log personalizzati nell'account di archiviazione. Ad esempio, è possibile specificare un contenitore BLOB personalizzato.|
 
-1. If data of any type is truncated, you can try increasing the buffer for that data type or shortening the interval between transfers of data from the virtual machine to your storage account.
+1. Se i dati di qualsiasi tipo vengono troncati, è possibile provare ad aumentare il buffer per tale tipo di dati o ridurre l'intervallo tra i trasferimenti di dati dalla macchina virtuale all'account di archiviazione.
 
-1. (optional) Purge data from the storage account occasionally to reduce overall storage costs.
+1. (Facoltativo) Ripulire occasionalmente i dati dall'account di archiviazione per ridurre i costi di archiviazione complessivi.
 
-1. When you do a full deployment, the diagnostics.cscfg file (.wadcfgx for Azure SDK 2.5) is updated in Azure, and your cloud service picks up any changes to your diagnostics configuration. If you, instead, update an existing deployment, the .cscfg file isn’t updated in Azure. You can still change diagnostics settings, though, by following the steps in the next section. For more information about performing a full deployment and updating an existing deployment, see [Publish Azure Application Wizard](vs-azure-tools-publish-azure-application-wizard.md).
+1. Quando si esegue una distribuzione completa, il file diagnostics.cscfg (con estensione wadcfgx per Azure SDK 2.5) viene aggiornato in Azure e il servizio cloud rileva eventuali modifiche apportate alla configurazione di diagnostica. Se, invece, si aggiorna una distribuzione esistente, il file .cscfg non verrà aggiornato in Azure. È comunque possibile modificare le impostazioni di diagnostica, tuttavia, eseguendo i passaggi illustrati nella sezione successiva. Per altre informazioni sull'esecuzione di una distribuzione completa e sull'aggiornamento di una distribuzione esistente, vedere [Procedura guidata Pubblica l'applicazione Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-### <a name="to-view-virtual-machine-diagnostics-data"></a>To view virtual machine diagnostics data
+### Per visualizzare i dati di diagnostica della macchina virtuale
 
-1. On the shortcut menu for the virtual machine, choose **View Diagnostics Data**.
+1. Dal menu di scelta rapida per la macchina virtuale scegliere **Visualizza dati di diagnostica**.
 
-    ![View diagnostics data in Azure virtual machine](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766027.png)
+    ![Visualizzare i dati di diagnostica nella macchina virtuale di Azure](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766027.png)
 
-    This opens the **Diagnostics summary** window.
+    Verrà visualizzata la finestra **Riepilogo diagnostica**.
 
-    ![Azure virtual machine diagnostics summary](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796667.png)  
+    ![Riepilogo di diagnostica della macchina virtuale di Azure](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796667.png)
 
-    If the most recent data doesn't appear, you might have to wait for the transfer period to elapse.
+    Se i dati più recenti non vengono visualizzati, potrebbe essere necessario attendere il termine del periodo di trasferimento.
 
-    Choose the **Refresh** link to immediately update the data, or choose an interval in the **Auto-Refresh** dropdown list box to have the data updated automatically. To export the error data, choose the **Export to CSV** button to create a comma-separated value file you can open in a spreadsheet.
+    Scegliere il collegamento **Aggiorna** per aggiornare immediatamente i dati oppure scegliere un intervallo dall'elenco a discesa **Aggiornamento automatico** per aggiornare automaticamente i dati. Per esportare i dati di errore, scegliere **Esporta in CSV** per creare un file con valori delimitati da virgole che può essere aperto in un foglio di calcolo.
 
-## <a name="configure-cloud-service-diagnostics-after-deployment"></a>Configure cloud service diagnostics after deployment
+## Configurare la diagnostica del servizio cloud dopo la distribuzione
 
-If you're investigating a problem with a cloud service that already running, you might want to collect data that you didn't specify before you originally deployed the role. In this case, you can start to collect that data by using the settings in Server Explorer. You can configure diagnostics for either a single instance or all the instances in a role, depending on whether you open the Diagnostics Configuration dialog box from the shortcut menu for the instance or the role. If you configure the role node, any changes apply to all instances. If you configure the instance node, any changes apply to that instance only.
+Se si sta esaminando un problema relativo a un servizio cloud già in esecuzione, è possibile che si voglia raccogliere dati non specificati prima della distribuzione originale del ruolo. In questo caso è possibile iniziare a raccogliere i dati usando le impostazioni in Esplora server. È possibile configurare la diagnostica per un'istanza singola o per tutte le istanze di un ruolo, in base all'apertura della finestra di dialogo Configurazione di diagnostica dal menu di scelta rapida per l'istanza o per il ruolo. Se si configura il nodo del ruolo, eventuali modifiche verranno applicate a tutte le istanze. Se si configura il nodo dell'istanza, eventuali modifiche verranno applicate solo a tale istanza.
 
-### <a name="to-configure-diagnostics-for-a-running-cloud-service"></a>To configure diagnostics for a running cloud service
+### Per configurare la diagnostica per un servizio cloud in esecuzione
 
-1. In Server Explorer, expand the **Cloud Services** node, and then expand nodes to locate the role or instance that you want to investigate or both.
+1. In Esplora server espandere il nodo **Servizi cloud**, quindi espandere i nodi per trovare il ruolo o l'istanza da esaminare o entrambi.
 
-    ![Configuring Diagnostics](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC748913.png)
+    ![Configurazione di Diagnostica](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC748913.png)
 
-1. On the shortcut menu for an instance node or a role node, choose **Update Diagnostics Settings**, and then choose the diagnostic settings that you want to collect.
+1. Dal menu di scelta rapida per un nodo di istanza o un nodo di ruolo scegliere **Aggiorna impostazioni diagnostica**, quindi scegliere le impostazioni di diagnostica da raccogliere.
 
-    For information about the configuration settings, see **Configure diagnostics data sources** in this topic. For information about how to view the diagnostics data, see **View the diagnostics data** in this topic.
+    Per informazioni sulle impostazioni di configurazione, vedere **Configurare le origini dati di diagnostica** in questo argomento. Per informazioni su come visualizzare i dati di diagnostica, vedere **Visualizzare i dati di diagnostica** in questo argomento.
 
-    If you change data collection in **Server Explorer**, these changes remain in effect until you fully redeploy your cloud service. If you use the default publish settings, the changes are not overwritten, since the default publish setting is to update the existing deployment, rather than do a full redeployment. To make sure the settings clear at deployment time, go to the **Advanced Settings** tab in the Publish wizard and clear the **Deployment update** checkbox. When you redeploy with that checkbox cleared, the settings revert to those in the .wadcfgx (or .wadcfg) file as set through the Properties editor for the role. If you update your deployment, Azure keeps the old settings.
+    Se si modifica la raccolta di dati in **Esplora server**, tali modifiche rimarranno validi fino a una nuova distribuzione completa del servizio cloud. Se si usano le impostazioni di pubblicazione predefinite, le modifiche non verranno sovrascritte, perché l'impostazione di pubblicazione predefinita prevede l'aggiornamento della distribuzione esistente, invece di eseguire una ridistribuzione completa. Per assicurare che le impostazioni vengano cancellate durante la distribuzione, passare alla scheda **Impostazioni avanzate** nella Pubblicazione guidata e deselezionare la casella di controllo **Aggiornamento distribuzione**. Quando si esegue la nuova distribuzione con tale casella di controllo deselezionata, verranno ripristinate le impostazioni del file con estensione wadcfgx (o wadcfg) definite tramite l'editor delle proprietà per il ruolo specifico. Se si aggiorna la distribuzione, Azure manterrà le impostazioni precedenti.
 
-## <a name="troubleshoot-azure-cloud-service-issues"></a>Troubleshoot Azure cloud service issues
+## Risolvere i problemi del servizio cloud di Azure
 
-If you experience problems with your cloud service projects, such as a role that gets stuck in a "busy" status, repeatedly recycles, or throws an internal server error, there are tools and techniques you can use to diagnose and fix these problems. For specific examples of common problems and solutions, as well as an overview of the concepts and tools used to diagnose and fix such errors, see [Azure PaaS Compute Diagnostics Data](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Se si verificano problemi con i progetti del servizio cloud, ad esempio un ruolo bloccato con stato "occupato", che viene riciclato ripetutamente o genera un errore di server interno, è possibile usare alcuni strumenti e tecniche per diagnosticare e risolvere questi problemi. Per esempi specifici di problemi comuni e soluzioni, oltre a una panoramica dei concetti e degli strumenti usati per diagnosticare e risolvere tali errori, vedere il post di blog relativo ai [Dati di diagnostica di calcolo delle soluzioni PaaS per Azure](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-## <a name="q-&-a"></a>Q & A
+## Domande e risposte
 
-**What is the buffer size, and how large should it be?**
+**Quali sono le dimensioni del buffer e quanto dovrebbe essere grande?**
 
-On each virtual machine instance, quotas limit how much diagnostic data can be stored on the local file system. In addition, you specify a buffer size for each type of diagnostic data that's available. This buffer size acts like an individual quota for that type of data. By checking the bottom of the dialog box, you can determine the overall quota and the amount of memory that remains. If you specify larger buffers or more types of data, you'll approach the overall quota. You can change the overall quota by modifying the diagnostics.wadcfg/.wadcfgx configuration file. The diagnostics data is stored on the same filesystem as your application’s data, so if your application uses a lot of disk space, you shouldn’t increase the overall diagnostics quota.
+In ogni istanza della macchina virtuale le quote limitano la quantità di dati di diagnostica che possono essere archiviati nel file system locale. È anche possibile specificare una dimensione del buffer per ogni tipo di dato di diagnostica disponibile. Tale dimensione del buffer funge da quota individuale per quel tipo di dati. Verificando la parte inferiore della finestra di dialogo, è possibile determinare la quota complessiva e la quantità di memoria rimanente. Se si specificano buffer più grandi o più tipi di dati, ci si avvicinerà alla quota complessiva. È possibile cambiare la quota complessiva, modificando il file di configurazione diagnostics.wadcfg/.wadcfgx. I dati di diagnostica vengono archiviati nello stesso file system usato per i dati dell'applicazione, quindi se l'applicazione usa una quantità elevata di spazio su disco, è consigliabile non aumentare la quota di diagnostica complessiva.
 
-**What is the transfer period, and how long should it be?**
+**che cos'è il periodo di trasferimento e quanto deve essere lungo?**
 
-The transfer period is the amount of time that elapses between data captures. After each transfer period, data is moved from the local filesystem on a virtual machine to tables in your storage account. If the amount of data that's collected exceeds the quota before the end of a transfer period, older data is discarded. You might want to decrease the transfer period if you're losing data because your data exceeds the buffer size or the overall quota.
+Il periodo di trasferimento corrisponde alla quantità di tempo trascorsa tra acquisizioni dei dati. Dopo ogni periodo di trasferimento, i dati vengono spostati dal file system locale su una macchina virtuale a tabelle nell'account di archiviazione. Se la quantità di dati raccolta supera la quota prima del termine di un periodo di trasferimento, i dati precedenti verranno eliminati. Se si perdono dati perché i dati superano la dimensione del buffer o la quota complessiva, è consigliabile ridurre il periodo di trasferimento.
 
-**What time zone are the time stamps in?**
+**Che fuso orario viene usato per i timestamp?**
 
-The time stamps are in the local time zone of the data center that hosts your cloud service. The following three timestamp columns in the log tables are used.
+I timestamp usano il fuso orario del data center che ospita il servizio cloud. Vengono usate le tre colonne di timestamp seguenti nelle tabelle di log.
 
-  - **PreciseTimeStamp** is the ETW timestamp of the event. That is, the time the event is logged from the client.
+  - **PreciseTimeStamp** è il timestamp ETW dell'evento, ovvero l'ora di registrazione dell'evento dal client.
 
-  - **TIMESTAMP** is PreciseTimeStamp rounded down to the upload frequency boundary. So, if your upload frequency is 5 minutes and the event time 00:17:12, TIMESTAMP will be 00:15:00.
+  - **TIMESTAMP** è PreciseTimeStamp arrotondato per difetto al limite di frequenza di caricamento. Se la frequenza di caricamento è pari a 5 minuti e l'ora dell'evento è 00:17:12, TIMESTAMP sarà quindi pari a 00:15:00.
 
-  - **Timestamp** is the timestamp at which the entity was created in the Azure table.
+  - **Timestamp** è il timestamp in corrispondenza del quale l'entità è stata creata nella tabella di Azure.
 
-**How do I manage costs when collecting diagnostic information?**
+**Come si gestiscono i costi durante la raccolta delle informazioni di diagnostica?**
 
-The default settings (**Log level** set to **Error** and **Transfer period** set to **1 minute**) are designed to minimize cost. Your compute costs will increase if you collect more diagnostic data or decrease the transfer period. Don’t collect more data than you need, and don’t forget to disable data collection when you no longer need it. You can always enable it again, even at runtime, as shown in the previous section.
+Le impostazioni predefinite (**Livello log** impostato su **Errore** e **Periodo di trasferimento** impostato su **1 minuto**) sono progettate per ridurre al minimo i costi. I costi calcolati aumenteranno se si raccolgono più dati di diagnostica o si ridice il periodo di trasferimento. Non raccogliere una quantità di dati superiore a quanto necessario e non dimenticare di disabilitare la raccolta di dati quando non è più necessaria. È sempre possibile abilitarla di nuovo, anche in fase di esecuzione, come illustrato nella sezione precedente.
 
-**How do I collect failed-request logs from IIS?**
+**Come si raccolgono log relativi alle richieste non riuscite da IIS?**
 
-By default, IIS doesn’t collect failed-request logs. You can configure IIS to collect them if you edit the web.config file for your web role.
+Per impostazione predefinita, IIS non raccoglie log relativi alle richieste non riuscite. È possibile configurare IIS in modo che li raccolga, se si modifica il file web.config per il ruolo Web.
 
-**I’m not getting trace information from RoleEntryPoint methods like OnStart. What’s wrong?**
+**Non si ottengono informazioni di traccia dai metodi RoleEntryPoint quali OnStart. Qual è il problema?**
 
-The methods of RoleEntryPoint are called in the context of WAIISHost.exe, not IIS. Therefore, the configuration information in web.config that normally enables tracing doesn’t apply. To resolve this issue, add a .config file to your web role project, and name the file to match the output assembly that contains the RoleEntryPoint code. In the default web role project, the name of the .config file would be WAIISHost.exe.config. Then add the following lines to this file:
+I metodi di RoleEntryPoint vengono chiamati nel contesto di WAIISHost.exe, non IIS. Le informazioni di configurazione nel file web.config che in genere abilitano la traccia non sono applicabili in questo caso. Per risolvere il problema, aggiungere un file con estensione config al progetto di ruolo Web e assegnare al file un nome corrispondente all'assembly di output contenente il codice RoleEntryPoint. Nel progetto di ruolo Web predefinito il nome del file con estensione config sarà WAIISHost.exe.config. Aggiungere quindi le righe seguenti al file:
 
 ```
 <system.diagnostics>
@@ -352,14 +351,10 @@ The methods of RoleEntryPoint are called in the context of WAIISHost.exe, not II
 </system.diagnostics>
 ```
 
-Now, in the **Properties** window, set the **Copy to Output Directory** property to **Copy always**.
+Nella finestra **Proprietà** impostare la proprietà **Copia nella directory di output** su **Copia sempre**.
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-To learn more about diagnostics logging in Azure, see [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](./cloud-services/cloud-services-dotnet-diagnostics.md) and [Enable diagnostics logging for web apps in Azure App Service](./app-service-web/web-sites-enable-diagnostic-log.md).
+Per altre informazioni sulle registrazioni di diagnostica in Azure, vedere [Abilitazione di Diagnostica in servizi cloud e macchine virtuali di Azure](./cloud-services/cloud-services-dotnet-diagnostics.md) e [Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure](./app-service-web/web-sites-enable-diagnostic-log.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

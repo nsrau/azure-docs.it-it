@@ -1,56 +1,51 @@
 <properties
-    pageTitle="Add or change work information for a user in Azure Active Directory preview | Microsoft Azure"
-    description="Explains how to add phone numbers, department names, and other work information for a user in Azure Active Directory"
-    services="active-directory"
-    documentationCenter=""
-    authors="curtand"
-    manager="femila"
-    editor=""/>
+	pageTitle="Aggiungere o modificare le informazioni di lavoro per un utente in anteprima di Azure Active Directory | Microsoft Azure"
+	description="Descrive come aggiungere numeri di telefono, nomi di reparto e altre informazioni sull'ufficio per un utente in Azure Active Directory"
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/12/2016"
-    ms.author="curtand"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/12/2016"
+	ms.author="curtand"/>
 
+# Aggiungere o modificare le informazioni di lavoro per un utente in anteprima di Azure Active Directory
 
-# <a name="add-or-change-work-information-for-a-user-in-azure-active-directory-preview"></a>Add or change work information for a user in Azure Active Directory preview
+Questo articolo illustra come aggiungere o modificare le informazioni di lavoro, ad esempio i numeri di telefono o il nome del reparto per un utente in anteprima di Azure Active Directory (Azure AD). [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md) Per informazioni sull'aggiunta di nuovi utenti nell'organizzazione, vedere [Aggiungere nuovi utenti in Azure Active Directory](active-directory-users-create-external-azure-portal.md).
 
-This article explains how to add or change work information such as phone numbers or a department name for a user in Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md) For information about adding new users in your organization, see [Add new users to Azure Active Directory](active-directory-users-create-external-azure-portal.md).
+## Come modificare le informazioni di lavoro
 
-## <a name="how-to-change-work-information"></a>How to change work information
+1.  Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
 
-1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
+2.  Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi selezionare **Invio**.
 
-2.  Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
+    ![Apertura di Gestione utenti](./media/active-directory-users-work-info-azure-portal/create-users-user-management.png)
 
-    ![Opening user management](./media/active-directory-users-work-info-azure-portal/create-users-user-management.png)
+3.  Nel pannello **Utenti e gruppi** selezionare **Utenti**.
 
-3.  On the **Users and groups** blade, select **Users**.
+    ![Apertura del pannello Utenti](./media/active-directory-users-work-info-azure-portal/create-users-open-users-blade.png)
 
-    ![Opening the Users blade](./media/active-directory-users-work-info-azure-portal/create-users-open-users-blade.png)
+4. Nel pannello **Utenti e gruppi - Utenti** selezionare un utente nell'elenco.
 
-4. On the **Users and groups - Users** blade, select a user from the list.
+5. Nel pannello per l'utente selezionato selezionare **Ufficio**.
 
-5. On the blade for the selected user, select **Work Info**.
+    ![Apertura delle informazioni di lavoro](./media/active-directory-users-work-info-azure-portal/active-directory-create-users-work-info.png)
 
-    ![Opening Work information](./media/active-directory-users-work-info-azure-portal/active-directory-create-users-work-info.png)
+6. Aggiungere o modificare le informazioni di lavoro e quindi nella barra dei comandi selezionare **Salva**.
 
-6. Add or change the work information, and then in the command bar select **Save**.
+## Passaggi successivi
 
-## <a name="what's-next"></a>What's next
+- [Aggiungere un utente](active-directory-users-create-azure-portal.md)
+- [Reimpostare la password di un utente nel nuovo portale di Azure](active-directory-users-reset-password-azure-portal.md)
+- [Assegnare un utente a un ruolo in Azure AD](active-directory-users-assign-role-azure-portal.md)
+- [Gestire i profili utente](active-directory-users-profile-azure-portal.md)
+- [Eliminare un utente in Azure AD](active-directory-users-delete-user-azure-portal.md)
 
-- [Add a user](active-directory-users-create-azure-portal.md)
-- [Reset a user's password in the new Azure portal](active-directory-users-reset-password-azure-portal.md)
-- [Assign a user to a role in your Azure AD](active-directory-users-assign-role-azure-portal.md)
-- [Manage user profiles](active-directory-users-profile-azure-portal.md)
-- [Delete a user in your Azure AD](active-directory-users-delete-user-azure-portal.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

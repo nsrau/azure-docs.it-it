@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with Innotas | Microsoft Azure"
-    description="Learn how to use Innotas with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Innotas | Microsoft Azure"
+    description="Informazioni su come usare Innotas con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,110 +11,103 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="09/29/2016" 
+    ms.date="07/09/2016" 
     ms.author="jeedes" />
 
-
-#<a name="tutorial:-azure-active-directory-integration-with-innotas"></a>Tutorial: Azure Active Directory integration with Innotas
+#Esercitazione: Integrazione di Azure Active Directory con Innotas
   
-The objective of this tutorial is to show the integration of Azure and Innotas.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+Questa esercitazione descrive l'integrazione di Azure e Innotas. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
--   A valid Azure subscription
--   A Innotas tenant
+-   Sottoscrizione di Azure valida
+-   Tenant di Innotas
   
-After completing this tutorial, the Azure AD users you have assigned to Innotas will be able to single sign into the application at your Innotas company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Innotas potranno accedere all'applicazione tramite il sito aziendale di Innotas (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
   
-The scenario outlined in this tutorial consists of the following building blocks:
+Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
-1.  Enabling the application integration for Innotas
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+1.  Abilitazione dell'integrazione dell'applicazione per Innotas
+2.  Configurazione dell'accesso Single Sign-On
+3.  Configurazione del provisioning utente
+4.  Assegnazione degli utenti
 
 ![Scenario](./media/active-directory-saas-innotas-tutorial/IC777331.png "Scenario")
-##<a name="enabling-the-application-integration-for-innotas"></a>Enabling the application integration for Innotas
+##Abilitazione dell'integrazione dell'applicazione per Innotas
   
-The objective of this section is to outline how to enable the application integration for Innotas.
+Questa sezione descrive come abilitare l'integrazione dell'applicazione per Innotas.
 
-###<a name="to-enable-the-application-integration-for-innotas,-perform-the-following-steps:"></a>To enable the application integration for Innotas, perform the following steps:
+###Per abilitare l'integrazione dell'applicazione per Innotas, seguire questa procedura:
 
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-innotas-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-    ![Applications](./media/active-directory-saas-innotas-tutorial/IC700994.png "Applications")
+    ![Applicazioni](./media/active-directory-saas-innotas-tutorial/IC700994.png "Applicazioni")
 
-4.  Click **Add** at the bottom of the page.
+4.  Fare clic su **Add** nella parte inferiore della pagina.
 
-    ![Add application](./media/active-directory-saas-innotas-tutorial/IC749321.png "Add application")
+    ![Aggiunta di un'applicazione](./media/active-directory-saas-innotas-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-innotas-tutorial/IC749322.png "Add an application from gallerry")
+    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-innotas-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
-6.  In the **search box**, type **Innotas**.
+6.  Nella **casella di ricerca** digitare **Innotas**.
 
-    ![Application gallery](./media/active-directory-saas-innotas-tutorial/IC777332.png "Application gallery")
+    ![Raccolta di applicazioni](./media/active-directory-saas-innotas-tutorial/IC777332.png "Raccolta di applicazioni")
 
-7.  In the results pane, select **Innotas**, and then click **Complete** to add the application.
+7.  Nel riquadro dei risultati selezionare **Innotas** e quindi fare clic su **Completa** per aggiungere l'applicazione.
 
     ![Innotas](./media/active-directory-saas-innotas-tutorial/IC777333.png "Innotas")
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Configurazione dell'accesso Single Sign-On
   
-The objective of this section is to outline how to enable users to authenticate to Innotas with their account in Azure AD using federation based on the SAML protocol.
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Innotas tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  In the Azure classic portal, on the **Innotas** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  Nella pagina di integrazione dell'applicazione **Innotas** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Configure single sign-on](./media/active-directory-saas-innotas-tutorial/IC777334.png "Configure single sign-on")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-innotas-tutorial/IC777334.png "Configura accesso Single Sign-On")
 
-2.  On the **How would you like users to sign on to Innotas** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a Innotas** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
 
-    ![Configure single sign-on](./media/active-directory-saas-innotas-tutorial/IC777335.png "Configure single sign-on")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-innotas-tutorial/IC777335.png "Configura accesso Single Sign-On")
 
-3.  On the **Configure App URL** page, in the **Innotas Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.Innotas.com*", and then click **Next**.
+3.  Nella casella di testo **URL accesso Innotas** della pagina **Configura URL app** digitare l'URL usando il modello seguente "*https://\<nome-tenant>.Innotas.com*" e quindi fare clic su **Avanti**.
 
-    ![Configure app URL](./media/active-directory-saas-innotas-tutorial/IC777336.png "Configure app URL")
+    ![Configura URL app](./media/active-directory-saas-innotas-tutorial/IC777336.png "Configura URL app")
 
-4.  On the **Configure single sign-on at Innotas** page, to download your metadata, click **Download metadata**, and then the data file locally as **c:\\InnotasMetaData.xml**.
+4.  Nella pagina **Configura accesso Single Sign-On in Innotas** fare clic su **Download metadati** per scaricare i metadati e salvare il file di dati localmente come **c:\\InnotasMetaData.xml**.
 
-    ![Configure single sign-on](./media/active-directory-saas-innotas-tutorial/IC777337.png "Configure single sign-on")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-innotas-tutorial/IC777337.png "Configura accesso Single Sign-On")
 
-5.  Forward that metadata file to Innotas support team. The support team needs configures single sign-on for you.
+5.  Inoltrare il file dei metadati al team di supporto di Innotas. La configurazione dell'accesso Single Sign-On deve essere eseguita dal team di supporto.
 
-6.  Select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+6.  Selezionare la conferma della configurazione Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Configure single sign-on](./media/active-directory-saas-innotas-tutorial/IC777338.png "Configure single sign-on")
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-innotas-tutorial/IC777338.png "Configura accesso Single Sign-On")
+##Configurazione del provisioning utente
   
-There is no action item for you to configure user provisioning to Innotas.  
-When an assigned user tries to log into Innotas using the access panel, Innotas checks whether the user exists.  
-If there is no user account available yet, it is automatically created by Innotas.
-##<a name="assigning-users"></a>Assigning users
+Non è necessaria alcuna attività di configurazione per il provisioning degli utenti in Innotas. Quando un utente assegnato prova ad accedere a Innotas usando il pannello di accesso, Innotas verifica se l'utente esiste. Se l'account utente non è presente, Innotas lo crea automaticamente.
+##Assegnazione degli utenti
   
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
-###<a name="to-assign-users-to-innotas,-perform-the-following-steps:"></a>To assign users to Innotas, perform the following steps:
+###Per assegnare gli utenti a Innotas seguire questa procedura:
 
-1.  In the Azure classic portal, create a test account.
+1.  Nel portale di Azure classico creare un account di test.
 
-2.  On the **Innotas **application integration page, click **Assign users**.
+2.  Nella pagina di integrazione dell'applicazione **Innotas** fare clic su **Assegna utenti**.
 
-    ![Assign users](./media/active-directory-saas-innotas-tutorial/IC777339.png "Assign users")
+    ![Assegna utenti](./media/active-directory-saas-innotas-tutorial/IC777339.png "Assegna utenti")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
-    ![Yes](./media/active-directory-saas-innotas-tutorial/IC767830.png "Yes")
+    ![Sì](./media/active-directory-saas-innotas-tutorial/IC767830.png "Sì")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,81 +1,79 @@
 <!--author=alkohli last changed: 12/01/15-->
 
 
-#### <a name="to-configure-and-register-the-device"></a>To configure and register the device
+#### Per configurare e registrare il dispositivo
 
-1. Access the Windows PowerShell interface on your StorSimple device serial console. See [Use PuTTY to connect to the device serial console](#use-putty-to-connect-to-the-device-serial-console) for instructions. **Be sure to follow the procedure exactly or you will not be able to access the console.**
+1. Accedere all'interfaccia di Windows PowerShell sulla console seriale del dispositivo StorSimple. Per istruzioni, vedere [Utilizzare PuTTY per connettersi alla console seriale del dispositivo](#use-putty-to-connect-to-the-device-serial-console). **Assicurarsi di seguire la procedura esattamente o non si sarà in grado di accedere alla console.**
 
-2. In the session that opens up, press Enter one time to get a command prompt. 
+2. Nella sessione che viene aperta, premere INVIO una volta per visualizzare un prompt dei comandi.
 
-3. You will be prompted to choose the language that you would like to set for your device. Specify the language, and then press Enter. 
+3. Verrà richiesto di scegliere la lingua che si desidera impostare per il dispositivo. Specificare la lingua, quindi premere INVIO.
 
-    ![StorSimple configure and register device 1](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice1-include.png)
+    ![StorSimple configurare e registrare il dispositivo 1](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice1-include.png)
 
-4. In the serial console menu that is presented, choose option 1 to log on with full access. 
+4. Nel menu della console seriale che viene visualizzato, scegliere l'opzione 1 per eseguire l’accesso completo.
 
-    ![StorSimple register device 2](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice2-include.png)
+    ![StorSimple registrare il dispositivo 2](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice2-include.png)
   
-     Complete steps 5-12 to configure the minimum required network settings for your device. **These configuration steps need to be performed on the active controller of the device.** The serial console menu indicates the controller state in the banner message. If you are not connected to the active controller, disconnect and then connect to the active controller.
+     Completare i passaggi da 5 a 12 per configurare le impostazioni di rete minime richieste per il dispositivo. **È necessario eseguire questa procedura sul controller attivo del dispositivo.** Nel messaggio dell’intestazione del menu della console seriale è indicato lo stato del controller. Se non si è connessi al controller attivo, disconnettersi e quindi connettersi al controller attivo.
 
-5. At the command prompt, type your password. The default device password is **Password1**.
+5. Al prompt dei comandi, digitare la password. La password predefinita è **Password1**.
 
-6. Type the following command:
+6. Digitare il seguente comando:
 
-     `Invoke-HcsSetupWizard` 
+     `Invoke-HcsSetupWizard`
 
-7. A setup wizard will appear to help you configure the network settings for the device. Supply the the following information: 
-   - IP address for the DATA 0 network interface
+7. Verrà visualizzata una procedura guidata per configurare le impostazioni di rete per il dispositivo. Fornire le informazioni seguenti:
+   - Indirizzo IP per l'interfaccia di rete DATA 0
    - Subnet mask
    - Gateway
-   - IP address for Primary DNS server
-   - IP address for Primary NTP server
+   - Indirizzo IP per il server DNS primario
+   - Indirizzo IP per il server NTP primario
    
-      > [AZURE.NOTE] You may have to wait for a few minutes for the subnet mask and the DNS settings to be applied. If you get a "The device is not ready." error message, check the physical network connection on the DATA 0 network interface of your active controller.
+      > [AZURE.NOTE] Potrebbe essere necessario attendere alcuni minuti affinché la subnet mask e le impostazioni DNS vengano applicate. Se viene visualizzato un messaggio di errore di dispositivo non pronto, controllare la connessione di rete fisica nell'interfaccia di rete DATA 0 del controller attivo.
 
-8. (Optional) configure your web proxy server. Although web proxy configuration is optional, **be aware that if you use a web proxy, you can only configure it here**. For more information, go to [Configure web proxy for your device](../articles/storsimple/storsimple-configure-web-proxy.md). If you run into any issues during this step, refer to troubleshooting guidance for [Errors during web proxy configuration](../articles/storsimple/storsimple-troubleshoot-deployment.md#errors-during-the-optional-web-proxy-settings).
+8. (Facoltativo) configurare il server proxy Web. Sebbene la configurazione del proxy Web sia facoltativa, **tenere presente che se si utilizza un proxy Web, è possibile configurarlo solo qui**. Per ulteriori informazioni, andare a [Configurare il proxy Web per il dispositivo](../articles/storsimple/storsimple-configure-web-proxy.md). Se si verificano problemi durante questo passaggio, fare riferimento alle linee guida per la risoluzione dei problemi di [Errori durante la configurazione del proxy web](../articles/storsimple/storsimple-troubleshoot-deployment.md#errors-during-the-optional-web-proxy-settings).
  
 
-      > [AZURE.NOTE] You can press Ctrl + C at any time to exit the setup wizard. Any settings that you applied before you issued this command will be retained.
+      > [AZURE.NOTE] È possibile premere Ctrl + C in qualsiasi momento per uscire dall'installazione guidata. Qualsiasi impostazione applicata prima di emettere questo comando verrà conservata.
 
-9. For security reasons, the device administrator password expires after the first session, and you will need to change it for subsequent sessions. When prompted, provide a device administrator password. A valid device administrator password must be between 8 and 15 characters. The password must contain a combination of lowercase characters, uppercase characters, numbers, and special characters.
+9. Per motivi di sicurezza la password di amministratore del dispositivo scade dopo la prima sessione e sarà necessario modificarla per le sessioni successive. Quando richiesto, fornire una password di amministratore del dispositivo. Una password di amministratore dispositivo valida deve avere una lunghezza compresa tra gli 8 e i 15 caratteri. La password deve contenere una combinazione di caratteri minuscoli, caratteri maiuscoli, numeri e caratteri speciali.
 
-10. The StorSimple Snapshot Manager password is also set here. You use this password when you authenticate a device with your Windows host running StorSimple Snapshot Manager. When prompted, provide a 14 to 15 character password. The password must contain a combination of three of the following: lowercase, uppercase, numeric, and special characters. 
+10. Anche la password di Gestione snapshot StorSimple viene impostata qui. È possibile utilizzare questa password quando si autentica un dispositivo con l'host Windows che esegue Gestione snapshot StorSimple. Quando richiesto, fornire una password con un numero di caratteri compreso tra 14 e 15. La password deve contenere una combinazione di tre dei seguenti tipi di caratteri: minuscole, maiuscole, numeri e caratteri speciali.
 
-    ![StorSimple register device 4](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice4-include.png)
+    ![StorSimple registrare il dispositivo 4](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice4-include.png)
 
-    You can reset the StorSimple Snapshot Manager password from the StorSimple Manager service interface. For detailed steps, go to [Change the StorSimple passwords using the StorSimple Manager serivce](../articles/storsimple/storsimple-change-passwords.md).
+    È possibile reimpostare la password di Gestione Snapshot StorSimple dall'interfaccia del servizio StorSimple Manager. Per passaggi dettagliati, vedere[Modificare le password StorSimple utilizzando il servizio Gestione StorSimple](../articles/storsimple/storsimple-change-passwords.md).
 
-    To troubleshoot any issues during this step, refer to troubleshooting guidance for [Errors related to passwords](../articles/storsimple/storsimple-troubleshoot-deployment.md#errors-related-to-device-administrator-and-storsimple-snapshot-manager-passwords).
+	Se si verificano problemi durante questo passaggio, fare riferimento alle linee guida per la risoluzione dei problemi di[Errori relativi alle password](../articles/storsimple/storsimple-troubleshoot-deployment.md#errors-related-to-device-administrator-and-storsimple-snapshot-manager-passwords).
 
-11. The final step in the setup wizard registers your device with the StorSimple Manager service. For this, you will need the service registration key that you obtained in step 2. After you supply the registration key, you may need to wait for 2-3 minutes before the device is registered.
+11. Il passaggio finale dell'installazione guidata registra il dispositivo con il servizio StorSimple Manager. A tale scopo, è necessario il codice di registrazione del servizio ottenuto nel passaggio 2. Dopo aver fornito il codice di registrazione, potrebbe essere necessario attendere 2-3 minuti prima che il dispositivo venga registrato.
 
-    To troubleshoot any possible device registration failures, refer to [Errors during device registration](../articles/storsimple/storsimple-troubleshoot-deployment.md#errors-during-device-registration). For detailed troubleshooting, you can also refer to [Step-by-step troubleshooting example](../articles/storsimple/storsimple-troubleshoot-deployment.md#step-by-step-storsimple-troubleshooting-example).
+	Per risolvere gli eventuali errori di registrazione dispositivo possibili, fare riferimento a[errori durante la registrazione del dispositivo](../articles/storsimple/storsimple-troubleshoot-deployment.md#errors-during-device-registration). Per la risoluzione dei problemi dettagliata, è inoltre possibile fare riferimento a[Esempio dettagliato di risoluzione dei problemi](../articles/storsimple/storsimple-troubleshoot-deployment.md#step-by-step-storsimple-troubleshooting-example).
 
-12. After the device is registered, a Service Data Encryption key will appear. Copy this key and save it in a safe location.
-    
-    > [AZURE.WARNING] This key will be required with the service registration key to register additional devices with the StorSimple Manager service. Refer to [StorSimple security](../articles/storsimple/storsimple-security.md) for more information about this key.
+12. Dopo la registrazione del dispositivo, verrà visualizzato un codice di crittografia dei dati di servizio. Copiare questo codice e salvarlo in un luogo sicuro.
+	
+	> [AZURE.WARNING] Il codice verrà richiesto con il codice di registrazione del servizio allo scopo di registrare altri dispositivi con il servizio StorSimple Manager. Per ulteriori informazioni sul codice, consultare [Sicurezza di StorSimple](../articles/storsimple/storsimple-security.md).
 
-     ![StorSimple register device 6](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice6-include.png)
+     ![StorSimple registrare il dispositivo 6](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice6-include.png)
 
-     To copy the text from the serial console window, simply select the text. You should then be able to paste it in the clipboard or any text editor. DO NOT use Ctrl + C to copy the service data encryption key. Using Ctrl + C will cause you to exit the setup wizard. As a result, the device administrator password and the StorSimple Snapshot Manager password will not be changed and the device will revert to the default passwords.
+     Per copiare il testo dalla finestra della console seriale, è sufficiente selezionarlo. È quindi possibile incollarlo negli Appunti o in qualsiasi editor di testo. NON usare CTRL+C per copiare la chiave DEK del servizio. Se si utilizza Ctrl + C l'installazione guidata verrà chiusa. Di conseguenza, la password di amministratore del dispositivo e la password di Gestione snapshot StorSimple non verranno modificate e verranno ripristinate le password predefinite del dispositivo.
 
-13. Exit the serial console.
+13. Uscire dalla console seriale.
 
-14. Return to the Azure classic portal, and complete the following steps:
-  1. Double-click your StorSimple Manager service to access the **Quick Start** page.
-  2. Click **View connected devices**.
-  3. On the **Devices** page, verify that the device has successfully connected to the service by looking up the status. The device status should be **Online**. If the device status is **Offline**, wait for a couple of minutes for the device to come online.
+14. Tornare al portale di Azure classico e completare la procedura seguente:
+  1. Fare doppio clic sul servizio StorSimple Manager per accedere alla pagina **Avvio rapido**.
+  2. Fare clic su **Visualizza dispositivi connessi**.
+  3. Nella pagina **Dispositivi**, verificare che il dispositivo sia connesso correttamente al servizio controllando lo stato. Lo stato del dispositivo deve essere **Online**. Se lo stato del dispositivo è **Offline**, attendere qualche minuto che il dispositivo torni in linea.
    
-    ![StorSimple Devices page](./media/storsimple-configure-and-register-device/HCS_DevicesPageM-include.png) 
+    ![Pagina Dispositivi StorSimple](./media/storsimple-configure-and-register-device/HCS_DevicesPageM-include.png)
   
-      > [AZURE.IMPORTANT] After the device is online, plug in the network cables that you had unplugged in the beginning of this step.
+      > [AZURE.IMPORTANT] Quando il dispositivo è online, collegare i cavi di rete che sono stati scollegati all'inizio di questo passaggio.
 
-After the device is successfully registered and doesn't come online, you can run the `Test-HcsmConnection -Verbose` to ensure that the network connectivity is healthy. For the detailed usage of this cmdlet, go to [cmdlet reference for Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx).
+Dopo che il dispositivo è registrato correttamente ma non è in linea, è possibile eseguire `Test-HcsmConnection -Verbose`per garantire che la connettività di rete sia integra. Per informazioni dettagliate sull'utilizzo di questo cmdlet, vedere[Riferimenti cmdlet per Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx).
 
-![Video available](./media/storsimple-configure-and-register-device/Video_icon.png) **Video available**
+![Video disponibile](./media/storsimple-configure-and-register-device/Video_icon.png) **Video disponibile**
 
-To watch a video that demonstrates how to configure and register your device through Windows PowerShell for StorSimple, click [here](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
+Per guardare un video che illustra come configurare e registrare il dispositivo tramite Windows PowerShell per StorSimple, fare clic [qui](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0224_2016-->

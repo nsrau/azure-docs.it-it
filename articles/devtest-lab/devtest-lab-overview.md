@@ -1,46 +1,41 @@
 <properties
-    pageTitle="What is DevTest Labs? | Microsoft Azure"
-    description="Learn how DevTest Labs can make it easy to create, manage, and monitor Azure virtual machines"
-    services="devtest-lab,virtual-machines"
-    documentationCenter="na"
-    authors="tomarcher"
-    manager="douge"
-    editor=""/>
+	pageTitle="Cos'è Lab di sviluppo/test? | Microsoft Azure"
+	description="Informazioni su come Lab di sviluppo/test può rendere più semplice la creazione, la gestione e il monitoraggio delle macchine virtuali di Azure"
+	services="devtest-lab,virtual-machines"
+	documentationCenter="na"
+	authors="tomarcher"
+	manager="douge"
+	editor=""/>
 
 <tags
-    ms.service="devtest-lab"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/25/2016"
-    ms.author="tarcher"/>
+	ms.service="devtest-lab"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2016"
+	ms.author="tarcher"/>
 
-
-#<a name="what-is-devtest-labs?"></a>What is DevTest Labs?
+#Che cosa sono i lab di sviluppo/test?
 
 > [AZURE.NOTE]
-> This article is part 1 of a 3 part series:
+Questo articolo è la parte 1 di una serie in 3 parti:
 > 
-> 1. **[What is DevTest Labs?](devtest-lab-overview.md)**
-> 1. [Why DevTest Labs?](devtest-lab-why.md)
-> 1. [DevTest Labs concepts](devtest-lab-concepts.md)
+> 1. **[Informazioni su DevTest Labs](devtest-lab-overview.md)**
+> 1. [Perché Lab di sviluppo e test?](devtest-lab-why.md)
+> 1. [Concetti di Lab di sviluppo e test](devtest-lab-concepts.md)
 
-##<a name="overview"></a>Overview
-Developers and testers are looking to solve the delays in creating and managing their environments by going to the cloud.  Azure solves the problem of environment delays and allows self-service within a new cost efficient structure.  However, developers and testers still need to spend considerable time configuring their self-served environments. Also, decision makers are uncertain about how to leverage the cloud to maximize their cost savings without adding too much process overhead.
+##Overview
+Gli sviluppatori e i tester stanno cercando di risolvere i ritardi nella creazione e nella gestione dei propri ambienti accedendo al cloud. Azure consente di risolvere il problema dei ritardi di ambiente e consente il self-service all'interno di una nuova struttura conveniente. Tuttavia, gli sviluppatori e i tester necessitano ancora di molto tempo per la configurazione dei propri ambienti autonomi. Inoltre, i decision maker sono incerti su come sfruttare il cloud per ottimizzare i risparmi senza aggiungere una quantità eccessiva di overhead del processo.
 
-Azure DevTest Labs is a service that helps developers and testers quickly create environments in Azure while minimizing waste and controlling cost. You can test the latest version of your application by quickly provisioning Windows and Linux environments using reusable templates and artifacts. Easily integrate your deployment pipeline with DevTest Labs to provision on-demand environments. Scale up your load testing by provisioning multiple test agents, and create pre-provisioned environments for training and demos.
+Lab di sviluppo e test di Azure è un servizio che consente agli sviluppatori e ai tester di creare rapidamente ambienti in Azure riducendo al minimo gli sprechi e i costi di controllo. È possibile provare la versione più recente dell'applicazione eseguendo rapidamente il provisioning di ambienti Windows e Linux tramite modelli ed elementi riutilizzabili. Consente di integrare facilmente la pipeline di distribuzione in lab di sviluppo e test per effettuare il provisioning di ambienti su richiesta. Aumentare i propri test di carico tramite il provisioning di più agenti di test e creare ambienti di pre-provisioning per training e demo.
 
 > [AZURE.VIDEO what-is-azure-devtest-labs]
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-##<a name="next-steps"></a>Next steps
+##Passaggi successivi
 
-[Why DevTest Labs?](devtest-lab-why.md)
+[Perché Lab di sviluppo e test?](devtest-lab-why.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

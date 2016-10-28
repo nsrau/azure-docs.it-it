@@ -1,119 +1,114 @@
 <properties 
-    pageTitle="Operating system functionality on Azure App Service" 
-    description="Learn about the OS functionality available to web apps, mobile app backends, and API apps on Azure App Service" 
-    services="app-service" 
-    documentationCenter="" 
-    authors="cephalin" 
-    manager="wpickett" 
-    editor="mollybos"/>
+	pageTitle="Funzionalità del sistema operativo in Servizio app di Azure" 
+	description="Informazioni sulle funzionalità del sistema operativo disponibili per app Web, back-end per app per dispositivi mobili e app per le API in Servizio app di Azure" 
+	services="app-service" 
+	documentationCenter="" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
 <tags 
-    ms.service="app-service" 
-    ms.workload="web" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="07/01/2016" 
-    ms.author="cephalin"/>
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/01/2016" 
+	ms.author="cephalin"/>
 
+# Funzionalità del sistema operativo in Servizio app di Azure #
 
-# <a name="operating-system-functionality-on-azure-app-service"></a>Operating system functionality on Azure App Service #
-
-This article describes the common baseline operating system functionality that is available to all apps running on [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). This functionality includes file, network, and registry access, and diagnostics logs and events. 
+Questo articolo descrive le funzionalità di base del sistema operativo disponibili in tutte le app in esecuzione in [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Queste funzionalità includono l'accesso a file, rete e registro, nonché log ed eventi di diagnostica.
 
 <a id="tiers"></a>
-## <a name="app-service-plan-tiers"></a>App Service plan tiers
+## Livelli del piano del servizio app di Azure
 
-App Service runs customer apps in a multi-tenant hosting environment. Apps deployed in the **Free** and **Shared** tiers run in worker processes on shared virtual machines, while apps deployed in the **Standard** and **Premium** tiers run on virtual machine(s) dedicated specifically for the apps associated with a single customer.
+Il servizio app esegue app di clienti in un ambiente host multi-tenant. Le app distribuite nei livelli **Gratuito** e **Condiviso** vengono eseguite in processi di lavoro su macchine virtuali condivise, mentre le app distribuite nei livelli **Standard** e **Premium** vengono eseguite su macchine virtuali dedicate in modo specifico per le app associate a un singolo cliente.
 
-Because App Service supports a seamless scaling experience between different tiers, the security configuration enforced for App Service apps remains the same. This ensures that apps don't suddenly behave differently, failing in unexpected ways, when App Service plan switches from one tier to another.
+Poiché il servizio app supporta una perfetta scalabilità tra i diversi livelli, la configurazione della sicurezza applicata per le app del servizio app è la stessa. Questo garantisce un comportamento sempre coerente delle app, senza eventi imprevisti, quando il piano del servizio app passa da un livello all'altro.
 
 <a id="developmentframeworks"></a>
-## <a name="development-frameworks"></a>Development frameworks
+## Framework di sviluppo
 
-App Service pricing tiers control the amount of compute resources (CPU, disk storage, memory, and network egress) available to apps. However, the breadth of framework functionality available to apps remains the same regardless of the scaling tiers.
+I piani tariffari del servizio app controllano la quantità di risorse di calcolo (CPU, archiviazione su disco, memoria e uscita di rete) disponibili per le app. Tuttavia, la gamma di funzionalità del framework disponibili per le app resta la stessa indipendentemente dai livelli di scalabilità.
 
-App Service supports a variety of development frameworks, including ASP.NET, classic ASP, node.js, PHP and Python - all of which run as extensions within IIS. In order to simplify and normalize security configuration, App Service apps typically run the various development frameworks with their default settings. One approach to configuring apps could have been to customize the API surface area and functionality for each individual development framework. App Service instead takes a more generic approach by enabling a common baseline of operating system functionality regardless of an app's development framework.
+Il servizio app supporta diversi framework di sviluppo, tra cui ASP.NET, ASP classico, Node.js, PHP e Python, tutti eseguibili come estensioni in IIS. Per semplificare e normalizzare la configurazione della sicurezza, le app del servizio app eseguono i vari framework di sviluppo con le relative impostazioni predefinite. Un approccio alla configurazione delle app avrebbe potuto comportare la personalizzazione delle funzionalità e della superficie di attacco delle API per ogni framework di sviluppo. Il servizio app invece usa un approccio più generico, abilitando una linea di base comune delle funzionalità del sistema operativo indipendentemente dal framework di sviluppo di un'app.
 
-The following sections summarize the general kinds of operating system functionality available to App Service apps.
+Le sezioni seguenti riepilogano i tipi generali di funzionalità del sistema operativo disponibili per le app del servizio app.
 
 <a id="FileAccess"></a>
-##<a name="file-access"></a>File access
+##Accesso ai file
 
-Various drives exist within App Service, including local drives and network drives.
+Nel servizio app sono presenti varie unità, tra cui unità locali e unità di rete.
 
 <a id="LocalDrives"></a>
-### <a name="local-drives"></a>Local drives
+### Unità locali
 
-At its core, App Service is a service running on top of the Azure PaaS (platform as a service) infrastructure. As a result, the local drives that are "attached" to a virtual machine are the same drive types available to any worker role running in Azure. This includes an operating system drive (the D:\ drive), an application drive that contains Azure Package cspkg files used exclusively by App Service (and inaccessible to customers), and a "user" drive (the C:\ drive), whose size varies depending on the size of the VM.
+Il servizio app è essenzialmente un servizio in esecuzione sull'infrastruttura PaaS (piattaforma distribuita come servizio) di Azure. Di conseguenza, le unità locali collegate a una macchina virtuale sono dello stesso tipo di quelle disponibili in qualsiasi ruolo di lavoro in esecuzione in Azure. Sono incluse un'unità del sistema operativo (l'unità D:\\), un'unità delle applicazioni contenente i file pacchetto di Azure (cspkg) usati esclusivamente dal servizio app (e non accessibili ai clienti) e un'unità "utente" (l'unità C:\\), la cui dimensione varia in base alla dimensione della VM.
 
 <a id="NetworkDrives"></a>
-### <a name="network-drives-(aka-unc-shares)"></a>Network drives (aka UNC shares)
+### Unità di rete (note anche come condivisioni UNC)
 
-One of the unique aspects of App Service that makes app deployment and maintenance straightforward is that all user content is stored on a set of UNC shares. This model maps very nicely to the common pattern of content storage used by on-premises web hosting environments that have multiple load-balanced servers. 
+Uno degli aspetti esclusivi del servizio app che rende immediata la distribuzione e la manutenzione delle app è rappresentato dal fatto che l'intero contenuto utente è archiviato in un set di condivisioni UNC. Questo modello corrisponde perfettamente al modello comune di archiviazione di contenuto usato dagli ambienti host Web locali che dispongono di più server con carico bilanciato.
 
-Within App Service, there are number of UNC shares created in each data center. A percentage of the user content for all customers in each data center is allocated to each UNC share. Furthermore, all of the file content for a single customer's subscription is always placed on the same UNC share. 
+Nel servizio app sono presenti numerose condivisioni UNC create in ogni data center. A ciascuna condivisione UNC è allocata una percentuale del contenuto utente per tutti i clienti di ciascun data center. Inoltre, l'intero contenuto dei file per una sottoscrizione di un singolo cliente è sempre posizionato nella stessa condivisione UNC.
 
-Note that due to how cloud services work, the specific virtual machine responsible for hosting a UNC share will change over time. It is guaranteed that UNC shares will be mounted by different virtual machines as they are brought up and down during the normal course of cloud operations. For this reason, apps should never make hard-coded assumptions that the machine information in a UNC file path will remain stable over time. Instead, they should use the convenient *faux* absolute path **D:\home\site** that App Service provides. This faux absolute path provides a portable, app-and-user-agnostic method for referring to one's own app. By using **D:\home\site**, one can transfer shared files from app to app without having to configure a new absolute path for each transfer.
+Tenere presente che per effetto della modalità di funzionamento dei servizi cloud, la macchina virtuale specifica che è responsabile dell'hosting di una condivisione UNC cambierà nel corso del tempo. Sicuramente le condivisioni UNC verranno montate da macchine virtuali diverse in quanto vengono avviate e arrestate durante la normale esecuzione delle operazioni cloud. Per questo motivo le app non devono mai essere hardcoded in base al presupposto che le informazioni sul computer in un percorso file UNC rimarranno stabili nel corso del tempo. Devono invece usare il pratico percorso assoluto *faux* **D:\\home\\site** offerto dal servizio app, che offre un metodo portatile, indipendente dall'app e dall'utente per fare riferimento alla propria app. Usando **D:\\home\\site** è possibile trasferire file condivisi da un'app all'altra senza dover configurare un nuovo percorso assoluto per ciascun trasferimento.
 
 <a id="TypesOfFileAccess"></a>
-### <a name="types-of-file-access-granted-to-an-app"></a>Types of file access granted to an app
+### Tipi di accesso ai file concessi a un'app
 
-Each customer's subscription has a reserved directory structure on a specific UNC share within a data center. A customer may have multiple apps created within a specific data center, so all of the directories belonging to a single customer subscription are created on the same UNC share. The share may include directories such as those for content, error and diagnostic logs, and earlier versions of the app created by source control. As expected, a customer's app directories are available for read and write access at runtime by the app's application code.
+La sottoscrizione di ciascun cliente presenta una struttura di directory riservata su una condivisione UNC specifica all'interno di un data center. Un cliente può disporre di più app create all'interno di un data center specifico, pertanto tutte le directory che appartengono alla sottoscrizione di un singolo cliente vengono create nella stessa condivisione UNC. La condivisione può includere directory come quelle relative a log di contenuto, di errori e di diagnostica e versioni precedenti dell'app create dal controllo del codice sorgente. Come previsto, le directory dell'app di un cliente sono disponibili per l'accesso in lettura e in scrittura in fase di esecuzione dal codice dell'applicazione di un'app.
 
-On the local drives attached to the virtual machine that runs an app, App Service reserves a chunk of space on the C:\ drive for app-specific temporary local storage. Although an app has full read/write access to its own temporary local storage, that storage really isn't intended to be used directly by the application code. Rather, the intent is to provide temporary file storage for IIS and web application frameworks. App Service also limits the amount of temporary local storage available to each app to prevent individual apps from consuming excessive amounts of local file storage.
+Il servizio app riserva una porzione di spazio dell'unità C:\\ per l'archiviazione locale temporanea specifica delle app nelle unità locali collegate alla macchina virtuale in cui è in esecuzione un'app. Sebbene un'app disponga di accesso completo in lettura/scrittura alla propria risorsa di archiviazione locale temporanea, tale risorsa non è in realtà destinata all'uso diretto da parte del codice dell'applicazione. L'obiettivo è invece quello di fornire una risorsa di archiviazione di file temporanea per IIS e per i framework applicazione Web. Il servizio app limita anche la quantità di risorse di archiviazione locale temporanea disponibili per ogni app, allo scopo di impedire un utilizzo eccessivo di tali risorse da parte delle singole app.
 
-Two examples of how App Service uses temporary local storage are the directory for temporary ASP.NET files and the directory for IIS compressed files. The ASP.NET compilation system uses the "Temporary ASP.NET Files" directory as a temporary compilation cache location. IIS uses the "IIS Temporary Compressed Files" directory to store compressed response output. Both of these types of file usage (as well as others) are remapped in App Service to per-app temporary local storage. This remapping ensures that functionality continues as expected.
+Due esempi del modo in cui il servizio app usa le risorse di archiviazione locale temporanea sono costituiti dalla directory per i file ASP.NET temporanei e dalla directory per i file IIS compressi. Il sistema di compilazione di ASP.NET usa la directory "Temporary ASP.NET Files" come posizione cache temporanea per la compilazione. IIS usa la directory "IIS Temporary Compressed Files" per archiviare l'output della risposta in formato compresso. Entrambi i tipi di utilizzo di file (nonché altri) sono rimappati nel servizio app a una risorsa di archiviazione locale temporanea per singola app. Il remapping garantisce una funzionalità conforme alle aspettative.
 
-Each app in App Service runs as a random unique low-privileged worker process identity called the "application pool identity", described further here: [http://www.iis.net/learn/manage/configuring-security/application-pool-identities](http://www.iis.net/learn/manage/configuring-security/application-pool-identities). Application code uses this identity for basic read-only access to the operating system drive (the D:\ drive). This means application code can list common directory structures and read common files on operating system drive. Although this might appear to be a somewhat broad level of access, the same directories and files are accessible when you provision a worker role in an Azure hosted service and read the drive contents. 
+Ogni app nel servizio app viene eseguita come identità esclusiva e casuale del processo di lavoro con privilegi limitati, definita come "identità del pool di applicazioni" e descritta più dettagliatamente all'indirizzo seguente: [http://www.iis.net/learn/manage/configuring-security/application-pool-identities](http://www.iis.net/learn/manage/configuring-security/application-pool-identities). Il codice dell'applicazione usa questa identità per l'accesso di base in sola lettura all'unità del sistema operativo (l'unità D:\\). Questo significa che il codice dell'applicazione può elencare strutture di directory comuni e file comuni in lettura nell'unità del sistema operativo. Sebbene questo livello di accesso possa sembrare piuttosto esteso, è possibile accedere alle stesse directory e agli stessi file quando si esegue il provisioning di un ruolo di lavoro in un servizio ospitato Azure e la lettura dei contenuti dell'unità.
 
 <a name="multipleinstances"></a>
-### <a name="file-access-across-multiple-instances"></a>File access across multiple instances
+### Accesso ai file tra più istanze
 
-The home directory contains an app's content, and application code can write to it. If an app runs on multiple instances, the home directory is shared among all instances so that all instances see the same directory. So, for example, if an app saves uploaded files to the home directory, those files are immediately available to all instances. 
+La home directory include il contenuto di un'app e il codice dell'applicazione può accedervi per la scrittura. Se un'app esegue più istanze, la home directory viene condivisa tra tutte le istanze e quindi tutte le istanze visualizzano la stessa directory. Se quindi un'app salva ad esempio i file caricati nella home directory, tali file sono immediatamente disponibili per tutte le istanze.
 
 <a id="NetworkAccess"></a>
-## <a name="network-access"></a>Network access
-Application code can use TCP/IP and UDP based protocols to make outbound network connections to Internet accessible endpoints that expose external services. Apps can use these same protocols to connect to services within Azure&#151;for example, by establishing HTTPS connections to SQL Database.
+## Accesso alla rete
+Il codice dell'applicazione può usare i protocolli basati su TCP/IP e UDP per effettuare connessioni di rete in uscita a endpoint accessibili tramite Internet che rendono visibili i servizi esterni. Le app possono usare gli stessi protocolli per connettersi ai servizi di Azure&#151; ad esempio stabilendo connessioni HTTPS al database SQL.
 
-There is also a limited capability for apps to establish one local loopback connection, and have an app listen on that local loopback socket. This feature exists primarily to enable apps that listen on local loopback sockets as part of their functionality. Note that each app sees a "private" loopback connection; app "A" cannot listen to a local loopback socket established by app "B".
+È anche presente una capacità limitata per le app di stabilire una connessione loopback locale e di disporre di un'app in ascolto su tale socket loopback locale. Questa funzionalità esiste principalmente per abilitare le app che includono tra le proprie funzionalità l'ascolto su socket di loopback locali. Si noti che ogni app visualizza una connessione di loopback "privata". L'app "A" non può essere in ascolto su un socket di loopback locale stabilito dall'app "B".
 
-Named pipes are also supported as an inter-process communication (IPC) mechanism between different processes that collectively run an app. For example, the IIS FastCGI module relies on named pipes to coordinate the individual processes that run PHP pages.
+Sono supportate anche le named pipe come meccanismo di comunicazione interprocesso (IPC) tra processi diversi che eseguono collettivamente un'app. Ad esempio, il modulo IIS FastCGI si basa su named pipe per coordinare i singoli processi che eseguono le pagine PHP.
 
 
 <a id="Code"></a>
-## <a name="code-execution,-processes-and-memory"></a>Code execution, processes and memory
-As noted earlier, apps run inside of low-privileged worker processes using a random application pool identity. Application code has access to the memory space associated with the worker process, as well as any child processes that may be spawned by CGI processes or other applications. However, one app cannot access the memory or data of another app even if it is on the same virtual machine.
+## Esecuzione del codice, processi e memoria
+Come indicato in precedenza, le app vengono eseguite all'interno di processi di lavoro con privilegi limitati che usano un'identità del pool di applicazioni casuale. Il codice dell'applicazione ha accesso allo spazio di memoria associato al processo di lavoro, nonché a eventuali processi figlio che possono essere generati da processi CGI o da altre applicazioni. Tuttavia, un'app non può accedere alla memoria o ai dati di un'altra app anche se si trova nella stessa macchina virtuale.
 
-Apps can run scripts or pages written with supported web development frameworks. App Service doesn't configure any web framework settings to more restricted modes. For example, ASP.NET apps running on App Service run in "full" trust as opposed to a more restricted trust mode. Web frameworks, including both classic ASP and ASP.NET, can call in-process COM components (but not out of process COM components) like ADO (ActiveX Data Objects) that are registered by default on the Windows operating system.
+Le app possono eseguire script o pagine scritte con framework di sviluppo Web supportati. Il servizio app non configura le impostazioni dei framework Web su modalità con maggiori restrizioni. Ad esempio, le app ASP.NET in esecuzione nel servizio app vengono eseguite in una modalità di attendibilità "completa" e non in una modalità di attendibilità con maggiori restrizioni. I framework Web, tra cui ASP classico e ASP.NET, possono chiamare componenti COM in-process (ma non componenti COM out-of-process) come gli oggetti ADO (ActiveX Data Objects) registrati per impostazione predefinita nel sistema operativo Windows.
 
-Apps can spawn and run arbitrary code. It is allowable for an app to do things like spawn a command shell or run a PowerShell script. However, even though arbitrary code and processes can be spawned from an app, executable programs and scripts are still restricted to the privileges granted to the parent application pool. For example, an app can spawn an executable that makes an outbound HTTP call, but that same executable cannot attempt to unbind the IP address of a virtual machine from its NIC. Making an outbound network call is allowed to low-privileged code, but attempting to reconfigure network settings on a virtual machine requires administrative privileges.
+Le app possono generare ed eseguire codice arbitrario. Un'app può eseguire attività come la generazione di una shell dei comandi o l'esecuzione di uno script PowerShell. Tuttavia, mentre il codice arbitrario e i processi possono essere generati da un'app, i programmi e gli script eseguibili sono ancora limitati ai privilegi concessi al pool di applicazioni padre. Ad esempio, un'app può generare un eseguibile che effettua una chiamata HTTP in uscita, ma lo stesso eseguibile non può tentare di dissociare l'indirizzo IP di una macchina virtuale dalla relativa NIC. L'esecuzione di una chiamata di rete in uscita è consentita al codice con privilegi limitati, ma il tentativo di riconfigurare le impostazioni di rete su una macchina virtuale richiede privilegi amministrativi.
 
 
 <a id="Diagnostics"></a>
-## <a name="diagnostics-logs-and-events"></a>Diagnostics logs and events
-Log information is another set of data that some apps attempt to access. The types of log information available to code running in App Service includes diagnostic and log information generated by an app that is also easily accessible to the app. 
+## Log ed eventi di diagnostica
+Le informazioni dei log costituiscono un altro set di dati al quale alcune app tentano di accedere. Le informazioni dei log disponibili per il codice in esecuzione nel servizio app includono informazioni di diagnostica e dei log generate da un'app che sono anche facilmente accessibili all'app.
 
-For example, W3C HTTP logs generated by an active app are available either on a log directory in the network share location created for the app, or available in blob storage if a customer has set up W3C logging to storage. The latter option enables large quantities of logs to be gathered without the risk of exceeding the file storage limits associated with a network share.
+Ad esempio, i log HTTP W3C generati da un'app attiva sono disponibili in una directory log nel percorso di condivisione di rete creato per l'app oppure in una risorsa di archiviazione BLOB nel caso in cui un cliente abbia impostato la registrazione W3C nella risorsa di archiviazione. Quest'ultima opzione consente di raccogliere elevate quantità di log senza il rischio di superare i limiti di archiviazione dei file associati a una condivisione di rete.
 
-In a similar vein, real-time diagnostics information from .NET apps can also be logged using the .NET tracing and diagnostics infrastructure, with options to write the trace information to either the app's network share, or alternatively to a blob storage location.
+Analogamente, le informazioni di diagnostica in tempo reale delle app .NET possono essere registrate usando l'infrastruttura delle funzionalità di traccia e diagnostica di .NET, con la possibilità di scrivere le informazioni di traccia nella condivisione di rete dell'app o, in alternativa, in un percorso di archiviazione BLOB.
 
-Areas of diagnostics logging and tracing that aren't available to apps are Windows ETW events and common Windows event logs (e.g. System, Application and Security event logs). Since ETW trace information can potentially be viewable machine-wide (with the right ACLs), read and write access to ETW events are blocked. Developers might notice that API calls to read and write ETW events and common Windows event logs appear to work, but that is because App Service is "faking" the calls so that they appear to succeed. In reality, the application code has no access to this event data.
+Le aree delle funzionalità di registrazione diagnostica e traccia che non sono disponibili per le app sono eventi Windows ETW e log eventi Windows comuni, ad esempio log eventi di sistema, di applicazioni e di sicurezza. Poiché le informazioni di traccia ETW sono potenzialmente visualizzabili a livello di intera macchina (con gli ACL appropriati), l'accesso in lettura e scrittura agli eventi ETW sono bloccati. Gli sviluppatori potrebbero notare chiamate API per la lettura e la scrittura di eventi ETW e di log eventi Windows comuni apparentemente funzionanti. Tuttavia, ciò accade perché il servizio app "simula" le chiamate in modo che risultino eseguite correttamente. In realtà, il codice dell'applicazione non è autorizzato ad accedere a questi dati di eventi.
 
 <a id="RegistryAccess"></a>
-## <a name="registry-access"></a>Registry access
-Apps have read-only access to much (though not all) of the registry of the virtual machine they are running on. In practice, this means registry keys that allow read-only access to the local Users group are accessible by apps. One area of the registry that is currently not supported for either read or write access is the HKEY\_CURRENT\_USER hive.
+## Accesso al Registro di sistema
+Le app hanno accesso in sola lettura alla maggior parte del Registro di sistema della macchina virtuale sulla quale sono in esecuzione. In pratica, questo significa che le chiavi del Registro di sistema che consentono l'accesso in sola lettura al gruppo di utenti locali sono accessibili tramite app. Un'area del registro che non è attualmente supportata per l'accesso in lettura o scrittura è l'hive HKEY\_CURRENT\_USER.
 
-Write-access to the registry is blocked, including access to any per-user registry keys. From the app's perspective, write access to the registry should never be relied upon in the Azure environment since apps can (and do) get migrated across different virtual machines. The only persistent writeable storage that can be depended on by an app is the per-app content directory structure stored on the App Service UNC shares. 
+L'accesso in scrittura al registro è bloccato, incluso l'accesso a qualsiasi chiave di registro per utente. Dal punto di vista dell'app, l'accesso in scrittura al Registro di sistema nell'ambiente Azure non deve mai essere considerato affidabile poiché le app sono soggette a migrazione tra macchine virtuali diverse. L'unica risorsa di archiviazione scrivibile permanente che può essere considerata affidabile da un'app è la struttura della directory dei contenuti per app archiviata nelle condivisioni UNC del servizio app.
 
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+>[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
  
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0706_2016-->

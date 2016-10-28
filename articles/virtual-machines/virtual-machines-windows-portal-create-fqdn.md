@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create FQDN for a VM in Azure portal | Microsoft Azure"
-   description="Learn how to create a Fully Qualified Domain Name or FQDN for a Resource Manager based virtual machine in the Azure portal."
+   pageTitle="Creare un nome di dominio completo (FQDN) per una VM nel portale di Azure | Microsoft Azure"
+   description="Informazioni su come creare un nome di dominio completo o FQDN per un Gestore risorse basato su macchina virtuale nel portale di Azure."
    services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
@@ -17,20 +17,16 @@
    ms.date="08/24/2016"
    ms.author="iainfou"/>
 
-
-# <a name="create-a-fully-qualified-domain-name-in-the-azure-portal"></a>Create a Fully Qualified Domain Name in the Azure portal
-When you create a virtual machine (VM) in the [Azure portal](https://portal.azure.com) using the Resource Manager deployment model, a public IP resource for the virtual machine is automatically created. You use this IP address to remotely access the VM. Although the portal does not create a [fully qualified domain name](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), or FQDN, by default, you can create one once the VM is created. This article demonstrates the steps to create a DNS name or FQDN.
+# Creare un nome di dominio completo nel portale di Azure.
+Quando si crea una macchina virtuale nel [portale di Azure](https://portal.azure.com) usando il modello di distribuzione Azure Resource Manager, il portale crea automaticamente una risorsa IP pubblica per la macchina virtuale. Usare questo indirizzo IP per accedere in remoto alla VM. Anche se, per impostazione predefinita, il portale non crea un [nome di dominio completo](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), o FQDN (Fully Qualified Domain Name), è possibile crearne uno dopo aver creato la VM. Questo articolo illustra i passaggi per creare un nome DNS o un FQDN.
 
 [AZURE.INCLUDE [virtual-machines-common-portal-create-fqdn](../../includes/virtual-machines-common-portal-create-fqdn.md)]
 
-You can now connect remotely to the VM using this DNS name such as for Remote Desktop Protocol (RDP).
+È ora possibile connettersi in modalità remota alla macchina virtuale usando questo nome DNS, ad esempio per Remote Desktop Protocol (RDP).
 
-## <a name="next-steps"></a>Next steps
-Now that your VM has a public IP and DNS name, you can deploy common application frameworks or services such as IIS, SQL, or SharePoint.
+## Passaggi successivi
+Quando la VM ha un indirizzo IP pubblico e un nome DNS, è possibile distribuire framework applicazioni o servizi comuni, ad esempio IIS, SQL o SharePoint.
 
-You can also read more about [using Resource Manager](../resource-group-overview.md) for tips on building your Azure deployments.
+Per suggerimenti sulla creazione di distribuzioni di Azure, vedere la pagina relativa all'[uso di Azure Resource Manager](../resource-group-overview.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

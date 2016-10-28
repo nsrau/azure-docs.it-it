@@ -1,61 +1,55 @@
 <properties
-    pageTitle="Configure Azure Marketplace image settings in Azure DevTest Labs | Microsoft Azure"
-    description="Configure which Azure Marketplace images can be used when creating a VM in Azure DevTest Labs"
-    services="devtest-lab,virtual-machines"
-    documentationCenter="na"
-    authors="tomarcher"
-    manager="douge"
-    editor=""/>
+	pageTitle="Configurare le impostazioni dell'immagine di Azure Marketplace in Azure DevTest Labs | Microsoft Azure"
+	description="Specificare le immagini di Azure Marketplace che possono essere usate per la creazione di una VM in Azure DevTest Labs"
+	services="devtest-lab,virtual-machines"
+	documentationCenter="na"
+	authors="tomarcher"
+	manager="douge"
+	editor=""/>
 
 <tags
-    ms.service="devtest-lab"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/06/2016"
-    ms.author="tarcher"/>
+	ms.service="devtest-lab"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/06/2016"
+	ms.author="tarcher"/>
 
+# Configurare le impostazioni dell'immagine di Azure Marketplace in Azure DevTest Labs
 
-# <a name="configure-azure-marketplace-image-settings-in-azure-devtest-labs"></a>Configure Azure Marketplace image settings in Azure DevTest Labs
+Lab di sviluppo/test supporta la creazione di VM basate su immagini di Azure Marketplace in base alla configurazione delle immagini di Azure Marketplace da usare nel lab. Questo articolo illustra come specificare eventuali immagini di Azure Marketplace da usare durante la creazione di VM in un lab.
 
-DevTest Labs supports creating VMs based on Azure Marketplace images depending on how you have configured Azure Marketplace images to be used in your lab. This article shows you how to specify which, if any, Azure Marketplace images can be used when creating VMs in a lab.
+## Selezionare le immagini di Azure Marketplace consentite per la creazione di una macchina virtuale
 
-## <a name="select-which-azure-marketplace-images-are-allowed-when-creating-a-vm"></a>Select which Azure Marketplace images are allowed when creating a VM
+1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Selezionare **Altri servizi** e quindi **DevTest Labs** dall'elenco.
 
-1. Select **More Services**, and then select **DevTest Labs** from the list.
+1. Nell'elenco dei lab selezionare il lab desiderato.
 
-1. From the list of labs, select the desired lab. 
+1. Nel pannello del lab selezionare **Configurazione**.
+	
+1. Nel pannello **Configurazione** del lab selezionare **Immagini di Azure Marketplace**.
 
-1. On the lab's blade, select **Configuration**.
-    
-1. On lab's **Configuration** blade, select **Marketplace images**
+1. Specificare se si desidera che tutte le immagini di Azure Marketplace qualificate siano disponibili per essere usate come base di una nuova macchina virtuale. Se si seleziona **Sì**, tutte le immagini di Azure Marketplace che soddisfano tutti i criteri seguenti saranno disponibili nel lab:
 
-1. Specify whether you want all the qualified Azure Marketplace images to be available for use as a base of a new VM. If you select **Yes**, then all the Azure Marketplace images that meet all the following criteria are allowed in the lab:
-
-    - The image creates a single VM, **and**
-    - The image uses Azure Resource Manager to provision VMs, **and**
-    - The image doesn't require purchasing an extra licensing plan
-    
-    If you want no images to be allowed, or you want to specify which images can be used, select **No**.
+	- L'immagine crea una singola macchina virtuale **e**
+	- L'immagine usa Azure Resource Manager per il provisioning delle macchine virtuali **e**
+	- L'immagine non richiede l'acquisto di un piano di licenze aggiuntivo
+	
+	Se non si desidera autorizzare alcuna immagine o si desidera specificare le immagini che possono essere usate, selezionare **No**.
  
-    ![Option to allow all Marketplace images to be used as base images for VMs](./media/devtest-lab-configure-marketplace-images/allow-all-marketplace-images.png)
+	![Opzione per consentire l'uso di tutte le immagini di Marketplace come immagini di base per le macchine virtuali](./media/devtest-lab-configure-marketplace-images/allow-all-marketplace-images.png)
  
-1. If you select **No** to the previous step, the **Allowed images/Select all** checkbox is enabled. You can use this option together with the search box to quickly select or deselect all the items displayed in the list.
-You can also select the Azure Marketplace images you want to allow for VM creation individually by checking each image's corresponding checkbox.
-Select nothing from the list if you don't want to allow any Azure Marketplace images to be used in the lab.
+1. Se si seleziona **No** nel passaggio precedente, la casella di controllo **Immagini consentite/Seleziona tutto** viene abilitata. È possibile usare questa opzione con la casella di ricerca per selezionare o deselezionare rapidamente tutti gli elementi visualizzati nell'elenco. È inoltre possibile selezionare le singole immagini di Azure Marketplace che si desidera rendere disponibili per la creazione di macchine virtuali selezionando la casella di controllo corrispondente all'immagine. Non selezionare alcuna voce nell'elenco se non si desidera rendere disponibile alcuna immagine di Azure Marketplace per l'uso nel lab.
 
-    ![You can specify which Azure Marketplace images can be used as base images for VMs](./media/devtest-lab-configure-marketplace-images/select-marketplace-images.png)
+	![È possibile specificare quali immagini di Azure Marketplace possono essere usate come immagini di base per le macchine virtuali](./media/devtest-lab-configure-marketplace-images/select-marketplace-images.png)
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-Once you have configured how Azure Marketplace images are allowed when creating a VM, the next step is to [add a VM to your lab](./devtest-lab-add-vm-with-artifacts.md).
+Dopo avere configurato le immagini di Azure Marketplace consentite per la creazione di una VM, il passaggio successivo consiste nell'[aggiungere una VM nel lab](./devtest-lab-add-vm-with-artifacts.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

@@ -1,7 +1,5 @@
-Your IaaS virtual machines (VMs) and PaaS role instances in a virtual network automatically receive a private IP address from a range that you specify, based on the subnet they are connected to. That address is retained by the VMs and role instances, until they are decommissioned. You decommission a VM or role instance by stopping it from PowerShell, the Azure CLI, or the Azure portal. In those cases, once the VM or role instance starts again, it will receive an available IP address from the Azure infrastructure, which might not be the same it previously had. If you shut down the VM or role instance from the guest operating system, it retains the IP address it had.  
+Le macchine virtuali IaaS e le istanze del ruolo PaaS in una rete virtuale ricevono automaticamente un indirizzo IP privato da un intervallo specificato, in base alla subnet a cui sono connessi. Tale indirizzo viene mantenuto per le macchine virtuali e le istanze del ruolo, fino a quando non vengono rimosse. Disabilitare un'istanza di macchina virtuale o un ruolo interrompendolo da PowerShell, CLI Azure o dal portale di Azure. In questi casi, una volta che l'istanza di macchina virtuale o del ruolo viene riavviata, riceverà un indirizzo IP disponibile dall'infrastruttura di Azure, che potrebbe non essere lo stesso che aveva in precedenza. Se si arresta la macchina virtuale o l’istanza del ruolo dal sistema operativo guest, esso mantiene comunque il suo indirizzo IP.
 
-In certain cases, you want a VM or role instance to have a static IP address, for example, if your VM is going to run DNS or will be a domain controller. You can do so by setting a static private IP address.
+In alcuni casi, si desidera che una macchina virtuale o istanza del ruolo disponga di un indirizzo IP statico, ad esempio, se la macchina virtuale eseguirà DNS o sarà un controller di dominio. È possibile farlo impostando un indirizzo IP statico privato.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

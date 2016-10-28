@@ -1,165 +1,154 @@
 <properties 
-    pageTitle="Use Azure portal to manage Azure resources | Microsoft Azure" 
-    description="Use Azure portal and Azure Resource Manage to manage your resources. Shows how to work with dashboards to monitor resources." 
-    services="azure-resource-manager,azure-portal" 
-    documentationCenter="" 
-    authors="tfitzmac" 
-    manager="timlt" 
-    editor="tysonn"/>
+	pageTitle="Uso del portale di Azure per gestire le risorse di Azure | Microsoft Azure" 
+	description="Utilizzare il portale di Azure e Azure Resource Manager per gestire le risorse. Illustra come usare i dashboard per monitorare le risorse." 
+	services="azure-resource-manager,azure-portal" 
+	documentationCenter="" 
+	authors="tfitzmac" 
+	manager="timlt" 
+	editor="tysonn"/>
 
 <tags 
-    ms.service="azure-resource-manager" 
-    ms.workload="multiple" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/12/2016" 
-    ms.author="tomfitz"/>
+	ms.service="azure-resource-manager" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/12/2016" 
+	ms.author="tomfitz"/>
 
-
-# <a name="manage-azure-resources-through-portal"></a>Manage Azure resources through portal
+# Gestire le risorse di Azure mediante il portale
 
 > [AZURE.SELECTOR]
 - [Azure PowerShell](../powershell-azure-resource-manager.md)
-- [Azure CLI](../xplat-cli-azure-resource-manager.md)
-- [Portal](resource-group-portal.md) 
-- [REST API](../resource-manager-rest-api.md)
+- [Interfaccia della riga di comando di Azure](../xplat-cli-azure-resource-manager.md)
+- [Portale](resource-group-portal.md)
+- [API REST](../resource-manager-rest-api.md)
 
-This topic shows how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](../resource-group-overview.md) to manage your Azure resources. To learn about deploying resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md).
+Questo argomento illustra come usare il [portale di Azure](https://portal.azure.com) con [Azure Resource Manager](../resource-group-overview.md) per gestire le risorse di Azure. Per informazioni sulla distribuzione delle risorse tramite il portale, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../resource-group-template-deploy-portal.md).
 
-Currently, not every service supports the portal or Resource Manager. For those services, you need to use the [classic portal](https://manage.windowsazure.com). For the status of each service, see [Azure portal availability chart](https://azure.microsoft.com/features/azure-portal/availability/).
+Non tutti i servizi attualmente supportano il portale o Gestione risorse. Per questi servizi sarà necessario usare il [portale classico](https://manage.windowsazure.com). Per lo stato di ogni servizio, vedere il [grafico della disponibilità del portale di Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
-## <a name="manage-resource-groups"></a>Manage resource groups
+## Gestire gruppi di risorse
 
-1. To see all the resource groups in your subscription, select **Resource groups**.
+1. Per visualizzare tutti i gruppi di risorse della sottoscrizione, selezionare **Gruppi di risorse**.
 
-    ![browse resource groups](./media/resource-group-portal/browse-groups.png)
+    ![esplorare i gruppi di risorse](./media/resource-group-portal/browse-groups.png)
 
-1. To create an empty resource group, select **Add**.
+1. Per creare un gruppo di risorse vuoto, selezionare **Aggiungi**.
 
-    ![add resource group](./media/resource-group-portal/add-resource-group.png)
+    ![aggiungere un gruppo di risorse](./media/resource-group-portal/add-resource-group.png)
 
-1. Provide a name and location for the new resource group. Select **Create**.
+1. Specificare il nome e il percorso del nuovo gruppo di risorse. Selezionare **Create**.
 
-    ![create resource group](./media/resource-group-portal/create-empty-group.png)
+    ![creare un gruppo di risorse](./media/resource-group-portal/create-empty-group.png)
 
-1. You may need to select **Refresh** to see the recently created resource group.
+1. Potrebbe essere necessario selezionare **Aggiorna** per visualizzare il gruppo di risorse creato di recente.
 
-    ![refresh resource group](./media/resource-group-portal/refresh-resource-groups.png)
+    ![aggiornare un gruppo di risorse](./media/resource-group-portal/refresh-resource-groups.png)
 
-1. To customize the information displayed for your resource groups, select **Columns**.
+1. Per personalizzare le informazioni visualizzate per i gruppi di risorse, selezionare **Colonne**.
 
-    ![customize columns](./media/resource-group-portal/select-columns.png)
+    ![personalizzare colonne](./media/resource-group-portal/select-columns.png)
 
-1. Select the columns to add, and then select **Update**.
+1. Selezionare le colonne da aggiungere, quindi selezionare **Aggiorna**.
 
-    ![add columns](./media/resource-group-portal/add-columns.png)
+    ![aggiungere colonne](./media/resource-group-portal/add-columns.png)
 
-1. To learn about deploying resources to your new resource group, see [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md).
+1. Per informazioni sulla distribuzione delle risorse nel nuovo gruppo di risorse, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../resource-group-template-deploy-portal.md).
 
-1. For quick access to a resource group, you can pin the blade to your dashboard.
+1. Per accedere rapidamente al gruppo di risorse, è possibile aggiungere il pannello al dashboard.
 
-    ![pin resource group](./media/resource-group-portal/pin-group.png)
+    ![aggiungere un gruppo di risorse](./media/resource-group-portal/pin-group.png)
 
-1. The dashboard displays the resource group and its resources. You can select either the resource groups or any of its resources to navigate to the item.
+1. Il dashboard visualizza il gruppo di risorse e le relative risorse. È possibile selezionare i gruppi di risorse o le relative risorse per passare all'elemento.
 
-    ![pin resource group](./media/resource-group-portal/show-resource-group-dashboard.png)
+    ![aggiungere un gruppo di risorse](./media/resource-group-portal/show-resource-group-dashboard.png)
 
-## <a name="tag-resources"></a>Tag resources
+## Aggiungere tag alle risorse
 
-You can apply tags to resource groups and resources to logically organize your assets. For information about working with tags, see [Using tags to organize your Azure resources](../resource-group-using-tags.md).
+È possibile applicare tag ai gruppi di risorse e alle risorse per organizzare logicamente gli asset. Per informazioni sull'uso dei tag, vedere [Uso dei tag per organizzare le risorse di Azure](../resource-group-using-tags.md).
 
 [AZURE.INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 
-## <a name="monitor-resources"></a>Monitor resources
+## Monitorare le risorse
 
-When you select a resource, the resource blade presents default graphs and tables for monitoring that resource type.
+Quando si seleziona una risorsa, il pannello della risorsa visualizza grafici e tabelle predefiniti per il monitoraggio di quel tipo di risorsa.
 
-1. Select a resource and notice the **Monitoring** section. It includes graphs that are relevant to the resource type. The following image shows the default monitoring data for a storage account.
+1. Selezionare una risorsa ed esaminare la sezione **Monitoraggio**, che include i grafici relativi al tipo di risorsa. L'immagine seguente illustra i dati di monitoraggio predefiniti per un account di archiviazione.
 
-    ![show monitoring](./media/resource-group-portal/show-monitoring.png)
+    ![visualizzare il monitoraggio](./media/resource-group-portal/show-monitoring.png)
 
-1. You can pin a section of the blade to your dashboard by selecting the ellipsis (...) above the section. You can also customize the size the section in the blade or remove it completely. The following image shows how to pin, customize, or remove the CPU and Memory section.
+1. È possibile aggiungere una sezione del pannello al dashboard selezionando i puntini di sospensione (...) sopra la sezione. È inoltre possibile personalizzare le dimensioni della sezione nel pannello o rimuoverla completamente. L'immagine seguente illustra come aggiungere, personalizzare o rimuovere la sezione relativa a CPU e memoria.
 
-    ![pin section](./media/resource-group-portal/pin-cpu-section.png)
+    ![sezione di aggiunta](./media/resource-group-portal/pin-cpu-section.png)
 
-1. After pinning the section to the dashboard, you will see the summary on the dashboard. And, selecting it immediately takes you to more details about the data.
+1. Dopo avere aggiunto la sezione al dashboard, ne verrà visualizzato il riepilogo. Selezionandola si potranno vedere altri dettagli sui dati.
 
-    ![view dashboard](./media/resource-group-portal/view-startboard.png)
+    ![visualizzare il dashboard](./media/resource-group-portal/view-startboard.png)
 
-1. To completely customize the data you monitor through the portal, navigate to your default dashboard, and select **New dashboard**.
+1. Per personalizzare completamente i dati monitorati dal portale, passare al dashboard predefinito e selezionare **Nuovo dashboard**.
 
     ![dashboard](./media/resource-group-portal/dashboard.png)
 
-1. Give your new dashboard a name and drag tiles onto the dashboard. The tiles are filtered by different options.
+1. Assegnare un nome al nuovo dashboard e trascinare i riquadri sul dashboard. I riquadri vengono filtrati in base a opzioni diverse.
 
     ![dashboard](./media/resource-group-portal/create-dashboard.png)
 
-     To learn about working with dashboards, see [Creating and sharing dashboards in the Azure portal](azure-portal-dashboards.md).
+     Per informazioni sull'uso dei dashboard, vedere [Creating and sharing dashboards in the Azure portal](azure-portal-dashboards.md) (Creazione e condivisione di dashboard nel portale di Azure).
 
-## <a name="manage-resources"></a>Manage resources
+## Gestire risorse
 
-In the blade for a resource, you see the options for managing the resource. The portal presents management options for that particular resource type. You see the management commands across the top of the resource blade and on the left side.
+Nel pannello di una risorsa sono visibili le opzioni per la gestione delle risorse. Il portale presenta le opzioni di gestione per quel particolare tipo di risorsa. I comandi per la gestione vengono visualizzati nella parte superiore del pannello della risorsa e sul lato sinistro.
 
-![manage resources](./media/resource-group-portal/manage-resources.png)
+![gestire risorse](./media/resource-group-portal/manage-resources.png)
 
-From these options, you can perform operations such as starting and stopping a virtual machine, or reconfiguring the properties of the virtual machine.
+Con queste opzioni, è possibile eseguire operazioni come l'avvio e l'arresto di una macchina virtuale o la riconfigurazione delle proprietà della macchina virtuale.
 
-## <a name="move-resources"></a>Move resources
+## Spostare le risorse
 
-If you need to move resources to another resource group or another subscription, see [Move resources to new resource group or subscription](../resource-group-move-resources.md).
+Per spostare una risorsa in un altro gruppo di risorse o in un'altra sottoscrizione, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../resource-group-move-resources.md).
 
-## <a name="lock-resources"></a>Lock resources
+## Bloccare le risorse
 
-You can lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. For more information, see [Lock resources with Azure Resource Manager](../resource-group-lock-resources.md).
+È possibile bloccare una sottoscrizione, una risorsa o un gruppo di risorse per impedire che altri utenti nell'organizzazione modifichino o eliminino accidentalmente risorse strategiche. Per altre informazioni, vedere [Bloccare le risorse con Gestione risorse di Azure](../resource-group-lock-resources.md).
 
 [AZURE.INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
-## <a name="view-your-subscription-and-costs"></a>View your subscription and costs
+## Visualizzare la sottoscrizione e i costi
 
-You can view information about your subscription and the rolled-up costs for all your resources. Select **Subscriptions** and the subscription you want to see. You might only have one subscription to select.
+È possibile visualizzare informazioni sulla sottoscrizione e un riepilogo dei costi per tutte le risorse. Selezionare **Sottoscrizioni** e quindi la sottoscrizione da visualizzare. Potrebbe essere disponibile una sola sottoscrizione da selezionare.
 
-![subscription](./media/resource-group-portal/select-subscription.png)
+![sottoscrizione](./media/resource-group-portal/select-subscription.png)
 
-Within the subscription blade, you see a burn rate.
+Nel pannello della sottoscrizione viene visualizzata la velocità.
 
-![burn rate](./media/resource-group-portal/burn-rate.png)
+![velocità](./media/resource-group-portal/burn-rate.png)
 
-And, a breakdown of costs by resource type.
+E una suddivisione dei costi in base al tipo di risorsa.
 
-![resource cost](./media/resource-group-portal/cost-by-resource.png)
+![costo delle risorse](./media/resource-group-portal/cost-by-resource.png)
 
-## <a name="export-template"></a>Export template
+## Esportare il modello
 
-After setting up your resource group, you may want to view the Resource Manager template for the resource group. Exporting the template offers two benefits:
+Dopo avere configurato il gruppo di risorse, è possibile che si voglia visualizzare il modello di Azure Resource Manager per il gruppo di risorse. L'esportazione del modello offre due vantaggi:
 
-1. You can easily automate future deployments of the solution because the template contains all the complete infrastructure.
+1. È possibile automatizzare le distribuzioni future della soluzione perché il modello contiene l'infrastruttura completa.
 
-2. You can become familiar with template syntax by looking at the JavaScript Object Notation (JSON) that represents your solution.
+2. È possibile acquisire familiarità con la sintassi del modello esaminando il codice JSON (JavaScript Object Notation) che rappresenta la soluzione.
 
-For step-by-step guidance, see [Export Azure Resource Manager template from existing resources](../resource-manager-export-template.md).
+Per istruzioni dettagliate, vedere [Esportare un modello di Azure Resource Manager da risorse esistenti](../resource-manager-export-template.md).
 
-## <a name="delete-resource-group-or-resources"></a>Delete resource group or resources
+## Eliminare risorse o gruppi di risorse
 
-Deleting a resource group deletes all the resources contained within it. You can also delete individual resources within a resource group. You want to exercise caution when you delete a resource group because there might be resources in other resource groups that are linked to it. Resource Manager does not delete linked resources, but they may not operate correctly without the expected resources.
+Se si elimina un gruppo di risorse, vengono eliminate tutte le risorse contenute in esso. È anche possibile eliminare singole risorse all'interno di un gruppo. Prestare attenzione quando si elimina un gruppo di risorse perché è possibile che altri gruppi di risorse includano risorse collegate ad esso. Resource Manager non elimina le risorse collegate, ma le risorse potrebbero non funzionare correttamente senza le risorse necessarie.
 
-![delete group](./media/resource-group-portal/delete-group.png)
+![eliminare un gruppo](./media/resource-group-portal/delete-group.png)
 
-## <a name="next-steps"></a>Next Steps
+## Passaggi successivi
 
-- To view audit logs, see [Audit operations with Resource Manager](../resource-group-audit.md).
-- To troubleshoot deployment errors, see [Troubleshooting resource group deployments with Azure portal](../resource-manager-troubleshoot-deployments-portal.md).
-- To deploy resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md).
-- To manage access to resources, see [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
+- Per visualizzare i log di controllo, vedere [Operazioni di controllo con Resource Manager](../resource-group-audit.md).
+- Per risolvere gli errori di distribuzione, vedere [Visualizzare le operazioni di distribuzione con il portale di Azure](../resource-manager-troubleshoot-deployments-portal.md).
+- Per la distribuzione di risorse tramite il portale, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../resource-group-template-deploy-portal.md).
+- Per gestire l'accesso alle risorse, vedere [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../active-directory/role-based-access-control-configure.md).
 
-
-
-
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Set security policies in Azure Security Center | Microsoft Azure"
-   description="This document helps you to configure security policies in Azure Security Center."
+   pageTitle="Impostare i criteri di sicurezza nel Centro sicurezza di Azure | Microsoft Azure"
+   description="Questo documento consente di configurare i criteri di sicurezza nel Centro sicurezza di Azure."
    services="security-center"
    documentationCenter="na"
    authors="YuriDio"
@@ -16,100 +16,95 @@
    ms.date="09/22/2016"
    ms.author="yurid"/>
 
+# Impostare i criteri di sicurezza nel Centro sicurezza di Azure
+Questo documento consente di configurare i criteri di sicurezza nel Centro sicurezza mostrando i passaggi necessari per eseguire questa attività.
 
-# <a name="set-security-policies-in-azure-security-center"></a>Set security policies in Azure Security Center
-This document helps you to configure security policies in Security Center by guiding you through the necessary steps to perform this task.
+## Informazioni sui criteri di sicurezza
+I criteri di sicurezza definiscono il set di controlli consigliati per le risorse all'interno della sottoscrizione o del gruppo di risorse specificato. Nel Centro sicurezza è possibile definire i criteri per le sottoscrizioni o i gruppi di risorse di Azure in base alle esigenze di sicurezza della società e al tipo di applicazioni o al livello di riservatezza dei dati di ogni sottoscrizione.
 
-## <a name="what-are-security-policies?"></a>What are security policies?
-A security policy defines the set of controls, which are recommended for resources within the specified subscription or resource group. In Security Center, you define policies for your Azure subscriptions or resource group according to your company security needs and the type of applications or sensitivity of the data in each subscription.
+Ad esempio, le risorse usate per lo sviluppo o il test possono avere requisiti di sicurezza diversi da quelli delle risorse usate per le applicazioni di produzione. In modo analogo, le applicazioni che usano dati regolamentati come le informazioni personali possono richiedere un maggiore livello di sicurezza. I criteri di protezione abilitati nel Centro sicurezza di Azure determinano i suggerimenti per la sicurezza e il monitoraggio per identificare le potenziali vulnerabilità e attenuare le minacce. Per altre informazioni su come determinare l'opzione più appropriata, vedere [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md).
 
-For example, resources that are used for development or test might have different security requirements from resources that are used for production applications. Likewise, applications that use regulated data like personally identifiable information might require a higher level of security. Security policies that are enabled in Azure Security Center drive security recommendations and monitoring to help you identify potential vulnerabilities and mitigate threats. Read [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) for more information about how to determine the option that is appropriate for you.
+## Impostare i criteri di sicurezza per le sottoscrizioni
 
-## <a name="set-security-policies-for-subscriptions"></a>Set security policies for subscriptions
+È possibile configurare criteri di sicurezza per ogni sottoscrizione o gruppo di risorse. Per modificare i criteri di sicurezza, è necessario essere proprietario o collaboratore di tale sottoscrizione. Accedere al portale di Azure e seguire questa procedura per configurare i criteri di sicurezza nel Centro sicurezza di Azure:
 
-You can configure security policies for each subscription or resource group. To modify a security policy, you must be an owner or contributor of that subscription. Sign in to the Azure portal and follow the succeeding steps to configure security polices in Security Center:
+1. Fare clic sul riquadro **Criteri** nel dashboard del Centro sicurezza.
 
-1. Click the **Policy** tile in the Security Center dashboard.
+2. Nel pannello **Criteri di sicurezza - Definire il criterio per ogni sottoscrizione o gruppo di risorse** visualizzato selezionare la sottoscrizione in cui abilitare i criteri di sicurezza. Se si preferisce abilitare i criteri di sicurezza per un gruppo di risorse invece che per l'intera sottoscrizione, scorrere fino alla sezione successiva dove viene descritto come configurare i criteri di sicurezza per i gruppi di risorse.
 
-2. In the **Security Policy - Define policy per subscription or resource group** blade that opens, select the subscription on which you want to enable the security policy. If you prefer to enable the security policy for a resource group instead of the entire subscription, scroll down to the next section that talks about how to set up security policies for resource groups.
+    ![Definizione dei criteri](./media/security-center-policies/security-center-policies-fig1-ga.png)
 
-    ![Defining policy](./media/security-center-policies/security-center-policies-fig1-ga.png)
+3. Il pannello **Criteri di sicurezza** per la sottoscrizione selezionata viene aperto con un set di opzioni simile a quelle illustrate nello screenshot seguente:
 
-3. The **Security policy** blade for the selected subscription opens with a set of options like the options in the following screenshot:
+    ![Abilitazione della raccolta dati](./media/security-center-policies/security-center-policies-fig2-ga.png)
 
-    ![Enabling data collection](./media/security-center-policies/security-center-policies-fig2-ga.png)
-
-    The available options in this blade are:
-    - **Prevention policy**: Use this option to configure policies per subscription or resource group.  
-    - **Email notification**: Use this option to configure an email notification that's sent on the first daily occurrence of an alert and for high severity alerts. Email preferences can be configured only for subscription policies. Read [Provide security contact details in Azure Security Center](security-center-provide-security-contact-details.md) for more information about how to configure an email notification.
-    - **Pricing tier**: Use this option to upgrade the pricing tier selection. See [Security Center page](https://azure.microsoft.com/pricing/details/security-center/) to learn more about pricing options.
+	Le opzioni disponibili in questo pannello sono:
+	- **Criteri di prevenzione**: usare questa opzione per configurare criteri per ogni sottoscrizione o gruppo di risorse.
+	- **Notifica di posta elettronica**: usare questa opzione per configurare una notifica di posta elettronica che viene inviata alla prima occorrenza giornaliera di un avviso e per gli avvisi di elevata gravità. Le preferenze di posta elettronica possono essere configurate solo per i criteri della sottoscrizione. Per altre informazioni su come configurare una notifica di posta elettronica, vedere [Specificare i dettagli dei contatti di sicurezza nel Centro sicurezza di Azure](security-center-provide-security-contact-details.md).
+	- **Piano tariffario**: usare questa opzione per aggiornare il piano tariffario selezionato. Per altre informazioni sui prezzi, vedere la [pagina del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
 
 
-4.  Make sure that **Collect data from virtual machines** options is **On**. This option enables automatic log collection for existing and new resources.
+4.  Verificare che l'opzione **Raccogli dati dalle macchine virtuali** sia **Sì**. Questa opzione abilita la raccolta automatica dei log per le risorse nuove ed esistenti.
 
-    >[AZURE.NOTE] We recommend that you turn on data collection for each of your subscriptions to ensure that security monitoring is available for all existing and new VMs. Enabling data collection installs the monitoring agent. If you don't want to turn on data collection now from this location, you can do it later from the **Health** and **Recommendations** views. You can also enable data collection for only the subscription or for select VMs. Refer to the [Azure Security Center FAQ](security-center-faq.md) to know more about the supported VMs.
+    >[AZURE.NOTE] È consigliabile attivare la raccolta dati per ogni sottoscrizione per assicurare che il monitoraggio della sicurezza sia disponibile per tutte le macchine virtuali esistenti e nuove. Abilitando la raccolta dati viene installato l'agente di monitoraggio. Se non si vuole abilitare subito la raccolta dati da questo percorso, è possibile farlo successivamente nelle visualizzazioni **Integrità** e **Raccomandazioni**. È anche possibile abilitare la raccolta dati solo per la sottoscrizione o per la macchina virtuale selezionata. Consultare le [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) per maggiori informazioni sulle macchine virtuali supportate.
 
-5. If your storage account is not configured yet, you might see a warning like the one in the following screenshot when you open **Security Policy**:
+5. Se l'account di archiviazione non è ancora configurato, può essere visualizzato un avviso simile a quello illustrato nello screenshot seguente quando si apre **Criteri di sicurezza**:
 
-    ![Storage selection](./media/security-center-policies/security-center-policies-fig2.png)
+    ![Selezione dell'archiviazione](./media/security-center-policies/security-center-policies-fig2.png)
 
-6. If you see this warning, click this option and select the region as shown in the following screenshot:
+6. Se viene visualizzato questo avviso, fare clic su questa opzione e selezionare l'area, come illustrato nello screenshot seguente:
 
-    ![Storage selection](./media/security-center-policies/security-center-policies-fig3-ga.png)
+    ![Selezione dell'archiviazione](./media/security-center-policies/security-center-policies-fig3-ga.png)
 
-7. For each region in which you have running virtual machines, choose the storage account where data that's collected from those virtual machines is stored. This makes it easy to keep data in the same geographic area for privacy and data sovereignty purposes. After you decide the region that you will use, select the region, and then select the storage account.
+7. Per ogni area in cui si hanno macchine virtuali in esecuzione, scegliere l'account di archiviazione in cui vengono archiviati i dati raccolti da tali macchine virtuali. Ciò semplifica la conservazione dei dati nella stessa area geografica per scopi di sovranità dei dati e di privacy. Dopo avere stabilito l'area da usare, selezionarla e quindi selezionare l'account di archiviazione.
 
-8. In the **Choose storage accounts** blade, click **OK**.
+8. Nel pannello **Scegliere gli account di archiviazione** fare clic su **OK**.
 
-    > [AZURE.NOTE] If you prefer, you can aggregate data in one central storage account for virtual machines that are in various regions. Refer to the [Azure Security Center FAQ](security-center-faq.md) for more information.
+    > [AZURE.NOTE] Se si preferisce, è possibile aggregare i dati in un account di archiviazione centrale per le macchine virtuali che si trovano in diverse aree. Per altre informazioni, vedere [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md).
 
-9. In the **Security Policy** blade, click **On** to enable the security recommendations that you want to use on this subscription. Click **Prevention policy** to see options like those in the following screenshot:
+9. Nel pannello **Criteri di sicurezza** fare clic su **Sì** per abilitare le raccomandazioni sulla sicurezza da usare per la sottoscrizione. Fare clic su **Criteri di prevenzione** per visualizzare opzioni simili a quelle illustrate nello screenshot seguente:
 
-    ![Selecting the security policies](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
+	![Selezione dei criteri di sicurezza](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
 
-Use the following table as a reference to understand each option:
+Usare la tabella seguente come riferimento per comprendere ogni opzione:
 
-| Policy | When state is on |
+| Criterio | Quando lo stato è Sì |
 |----- |-----|
-| System updates | Retrieves a daily list of available security and critical updates from Windows Update or Windows Server Update Services. The retrieved list depends on the service that's configured for that virtual machine and recommends that the missing updates be applied. For Linux systems, the policy uses the distro-provided package management system to determine packages that have available updates. It also checks for security and critical updates from [Azure Cloud Services](./cloud-services/cloud-services-how-to-configure.md) virtual machines. |
-| OS vulnerabilities | Analyzes operating system configurations daily to determine issues that could make the virtual machine vulnerable to attack. The policy also recommends configuration changes to address these vulnerabilities. See the [list of recommended baselines](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) for more information about the specific configurations that are being monitored. |
-| Endpoint protection | Recommends endpoint protection to be provisioned for all Windows virtual machines to help identify and remove viruses, spyware, and other malicious software.|
-| Disk encryption | Recommends enabling disk encryption in all virtual machines to enhance data protection at rest.
-| Network security groups | Recommends that [network security groups](../virtual-network/virtual-networks-nsg.md) be configured to control inbound and outbound traffic to VMs that have public endpoints. Network security groups that are configured for a subnet will be inherited by all virtual machine network interfaces unless otherwise specified. In addition to checking that a network security group has been configured, this policy assesses inbound security rules to identify rules that allow incoming traffic. |
-| Web application firewall | Recommends that a web application firewall be provisioned on virtual machines when either of the following is true:</br></br>[Instance-level public IP](../virtual-network/virtual-networks-instance-level-public-ip.md) (ILPIP) is used and the inbound security rules for the associated network security group are configured to allow access to port 80/443.</br></br>Load-balanced IP is used and the associated load balancing and inbound network address translation (NAT) rules are configured to allow access to port 80/443. (For more information, see [Azure Resource Manager support for Load Balancer](../load-balancer/load-balancer-arm.md). |
-| Next generation firewall | Extends network protections beyond network security groups, which are built into Azure. Security Center will discover deployments for which a next generation firewall is recommended and enable you to provision a virtual appliance. |
-| SQL auditing & Threat detection | Recommends that auditing of access to Azure Database be enabled for compliance and also advanced threat detection, for investigation purposes. |
-| SQL transparent data encryption | Recommends that encryption at rest be enabled for your Azure SQL Database, associated backups, and transaction log files. Even if your data is breached, it will not be readable. |
-| Vulnerability assessment | Recommends that you install a vulnerability assessment solution on your VM. |
+| Aggiornamenti del sistema | Recupera un elenco giornaliero degli aggiornamenti della sicurezza e critici da Windows Update o da Windows Server Update Services. L'elenco recuperato dipende dal servizio configurato per tale macchina virtuale e consiglia di applicare gli aggiornamenti mancanti. Per i sistemi Linux, il criterio usa il sistema di gestione pacchetti fornito dalla distribuzione per determinare per quali pacchetti sono disponibili aggiornamenti. Controlla anche la presenza di aggiornamenti critici e della sicurezza dalle macchine virtuali di [Servizi cloud di Azure](./cloud-services/cloud-services-how-to-configure.md). |
+| Vulnerabilità del sistema operativo | Analizza giornalmente le configurazioni del sistema operativo per determinare i problemi che potrebbero rendere vulnerabile agli attacchi la macchina virtuale. Il criterio consiglia anche le modifiche alla configurazione necessarie per risolvere queste vulnerabilità. Vedere l'[elenco delle baseline consigliate](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) per altre informazioni sulle configurazioni specifiche monitorate. |
+| Endpoint Protection | Suggerisce l'Endpoint Protection di cui eseguire il provisioning per tutte le macchine virtuali di Windows, per identificare e rimuovere virus, spyware e altro software dannoso.|
+| Crittografia del disco | Suggerisce di abilitare la crittografia dischi in tutte le macchine virtuali per migliorare la protezione dei dati inattivi.
+| Gruppi di sicurezza di rete | Consiglia di configurare [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) per controllare il traffico in ingresso e in uscita nelle VM che hanno endpoint pubblici. I gruppi di sicurezza di rete configurati per una subnet verranno ereditati da tutte le interfacce di rete della macchina virtuale se non diversamente specificato. Oltre a controllare che sia stato configurato un gruppo di sicurezza di rete, questo criterio valuta le regole di sicurezza in ingresso per identificare le regole che consentono il traffico in ingresso. |
+| Web application firewall | Consiglia di effettuare il provisioning di un Web application firewall nelle macchine virtuali quando una delle due affermazioni seguenti è vera:</br></br>Viene usato l'[IP pubblico a livello di istanza](../virtual-network/virtual-networks-instance-level-public-ip.md) e le regole di sicurezza per il gruppo di sicurezza di rete associato sono configurate per consentire l'accesso alla porta 80/443.</br></br>IP con carico bilanciato e le regole NAT (Network Address Translation) in ingresso e di bilanciamento del carico associate sono configurate per consentire l'accesso alla porta 80/443. Per altre informazioni, vedere [Supporto di Azure Resource Manager per il servizio di bilanciamento del carico](../load-balancer/load-balancer-arm.md). |
+| Firewall di nuova generazione | Estende le protezioni di rete oltre i gruppi di sicurezza di rete predefiniti di Azure. Il Centro sicurezza troverà le distribuzioni per cui è consigliabile un firewall di nuova generazione e consentirà di effettuare il provisioning di un'appliance virtuale. |
+| Servizio di controllo SQL e rilevamento delle minacce | Consiglia l'abilitazione del controllo dell'accesso al database di Azure per la conformità e il rilevamento avanzato delle minacce, per scopi di analisi. |
+| SQL Transparent Data Encryption | Consiglia l'abilitazione della crittografia dati inattivi per il database SQL di Azure, i backup associati e file di log delle transazioni. Anche se i dati vengono violati, non saranno leggibili. |
+| Valutazione della vulnerabilità | Consiglia di installare una soluzione di valutazione della vulnerabilità nella macchina virtuale. |
 
-After you configure all options, click **OK** in the **Security Policy** blade that has the recommendations, and then click **Save** in the **Security Policy** blade that  has the initial settings.
+Dopo avere configurato tutte le opzioni, fare clic su **OK** nel pannello **Criteri di sicurezza** contenente le raccomandazioni e quindi su **Salva** nel pannello **Criteri di sicurezza** contenente le impostazioni iniziali.
 
-## <a name="set-security-policies-for-resource-groups"></a>Set security policies for resource groups
+## Impostare i criteri di sicurezza per i gruppi di risorse
 
-If you prefer to configure your security policies per resource group, the steps are like those that you use to set up security policies for subscriptions. The main difference is that you will need to expand the subscription name and select the resource group for which you want to configure the unique security policy:
+Se si preferisce configurare i criteri di sicurezza per ogni gruppo di risorse, i passaggi sono simili a quelli usati per configurare i criteri di sicurezza per le sottoscrizioni. La differenza principale riguarda la necessità di espandere il nome della sottoscrizione e selezionare il gruppo di risorse per cui si vogliono configurare criteri di sicurezza univoci:
 
-![Resource group selection](./media/security-center-policies/security-center-policies-fig5-ga.png)
+![Selezione del gruppo di risorse](./media/security-center-policies/security-center-policies-fig5-ga.png)
 
-After you select the resource group, the **Security policy** blade opens. By default, the **Inheritance** option is enabled. This means that all security policies for this resource group are inherited from the subscription level. You can change this configuration in case you want a custom security policy for a resource group. If that's the case, you need to select **Unique** and make the changes under the **Prevention policy** option.
+Dopo aver selezionato il gruppo di risorse, viene aperto il pannello **Criteri di sicurezza**. Per impostazione predefinita, l'opzione **Ereditarietà** è abilitata, quindi tutti i criteri di sicurezza per questo gruppo di risorse vengono ereditati dal livello della sottoscrizione. Per impostare criteri di sicurezza personalizzati per un gruppo di risorse, è possibile modificare questa configurazione. In tal caso, è necessario selezionare **Univoco** e apportare le modifiche nell'opzione **Criteri di prevenzione**.
 
-![Security policy per resource group](./media/security-center-policies/security-center-policies-fig6-ga.png)
+![Criteri di sicurezza per ogni gruppo di risorse](./media/security-center-policies/security-center-policies-fig6-ga.png)
 
-> [AZURE.NOTE] In case of a conflict between subscription-level policy and resource group-level policy, the resource group-level policy takes precedence.
-
-
-## <a name="see-also"></a>See also
-
-In this document, you learned how to configure security policies in Azure Security Center. To learn more about Azure Security Center, see the following:
-
-- [Azure Security Center planning and operations guide](security-center-planning-and-operations-guide.md). Learn how to plan and understand the design considerations to adopt Azure Security Center.
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md). Learn how to manage and respond to security alerts.
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md). Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center FAQ](security-center-faq.md). Find frequently asked questions about using the service.
-- [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.
+> [AZURE.NOTE] In caso di conflitto tra i criteri definiti a livello di sottoscrizione e quelli a livello di gruppo di risorse, i criteri a livello di gruppo di risorse avranno la precedenza.
 
 
+## Vedere anche
 
-<!--HONumber=Oct16_HO2-->
+In questo documento è stato descritto come configurare i criteri di sicurezza nel Centro sicurezza di Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
 
+- [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md). Informazioni sulla pianificazione e considerazioni di progettazione per l'adozione del Centro sicurezza di Azure.
+- [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md). Informazioni su come monitorare l'integrità delle risorse di Azure.
+- [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md). Informazioni su come gestire e rispondere agli avvisi di sicurezza.
+- [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md). Informazioni su come monitorare lo stato integrità delle soluzioni dei partner.
+- [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md). Domande frequenti sull'uso del servizio.
+- [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/). Post di blog sulla sicurezza e sulla conformità di Azure.
 
+<!---HONumber=AcomDC_0928_2016-->

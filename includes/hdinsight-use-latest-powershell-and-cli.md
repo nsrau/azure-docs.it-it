@@ -1,10 +1,5 @@
-> [AZURE.IMPORTANT] Support for managing HDInsight resources using Azure Service Manager (ASM) through Azure PowerShell and the Azure CLI is __deprecated__, and will be removed by January 1, 2017. The steps in this document use the new Azure PowerShell cmdlets and Azure CLI commands that work with Azure Resource Manager (ARM).
+> [AZURE.IMPORTANT] Il supporto di Azure PowerShell e dell'interfaccia della riga di comando di Azure per la gestione delle risorse HDInsight con Azure Service Manager (ASM) è __deprecato__ e verrà rimosso dall'1 gennaio 2017. La procedura descritta in questo documento usa i nuovi cmdlet di Azure PowerShell e i nuovi comandi dell'interfaccia della riga di comando di Azure compatibili con Azure Resource Manager (ARM).
 >
-> Please follow the steps in the [Install and Configure Azure CLI](../articles/xplat-cli-install.md) and [Install and Configure Azure PowerShell](../articles/powershell-install-configure.md)  to install the latest version of Azure PowerShell and the Azure CLI. If you have existing scripts that need to be modified to use the new cmdlets or new CLI commands, see [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](../articles/hdinsight/hdinsight-hadoop-development-using-azure-resource-manager.md) for more information.
-
-
-
-
-<!--HONumber=Oct16_HO2-->
+> Per installare la versione più recente di Azure PowerShell e dell'interfaccia della riga di comando di Azure, seguire la procedura descritta nei documenti [Installare l'interfaccia della riga di comando di Azure](../articles/xplat-cli-install.md) o [Come installare e configurare Azure PowerShell](../articles/powershell-install-configure.md). Se sono presenti script che devono essere modificati per l'uso dei nuovi cmdlet o dei nuovi comandi dell'interfaccia della riga di comando, per altre informazioni vedere [Migrazione a strumenti di sviluppo basati su Azure Resource Manager per i cluster HDInsight](../articles/hdinsight/hdinsight-hadoop-development-using-azure-resource-manager.md).
 
 

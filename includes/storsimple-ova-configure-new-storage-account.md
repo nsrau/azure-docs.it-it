@@ -1,24 +1,21 @@
 <!--author=alkohli last changed: 01/28/16-->
 
-#### <a name="to-add-a-new-storage-account"></a>To add a new storage account 
+#### Per aggiungere un nuovo account di archiviazione 
 
-1. On the StorSimple Manager service landing page, select your service and double-click it. This will take you to the **Quick Start** page. Select the **Configure** page.
+1. Nella pagina di destinazione del servizio StorSimple Manager, selezionare il servizio e fare doppio clic su di esso. Verrà visualizzata la pagina **Avvio rapido**. Selezionare la pagina **Configura**.
 
-2. Click **Add/edit storage account**.
+2. Fare clic su **Aggiungi/modifica account di archiviazione**.
 
-3. In the **Add/Edit Storage Account** dialog box, do the following:
+3. Nella finestra di dialogo **Aggiungi/modifica account di archiviazione** effettuare le seguenti operazioni:
 
-  1. Click **Add new**.
-  2. Provide the name of your Azure storage account.
-  3. Supply the primary **Access Key** for your Azure storage account. To get this key, go to the Storage service, select your storage account and click **Manage account keys**. You can now copy the **primary access key**.
-  4. Select **Enable SSL Mode** to create a secure channel for network communication between your StorSimple device and the cloud. Clear the **Enable SSL Mode** check box only if you are operating within a private cloud.
-  5. Click the check icon ![check icon](./media/storsimple-ova-configure-new-storage-account/checkicon-include.png). You will be notified after the storage account is successfully created.
+  1. Fare clic su **Aggiungi nuovo**.
+  2. Specificare il nome dell'account di archiviazione di Azure.
+  3. Indicare la **chiave di accesso** primaria per l'account di archiviazione di Azure. Per ottenere questa chiave, passare al servizio di archiviazione, selezionare l'account di archiviazione e fare clic su **Gestisci chiavi di accesso**. È ora possibile copiare la **chiave di accesso primaria**.
+  4. Selezionare **Abilita modalità SSL** per creare un canale sicuro per la comunicazione di rete tra il dispositivo StorSimple e il cloud. Deselezionare la casella di controllo **Abilita modalità SSL** solo se si opera all'interno di un cloud privato.
+  5. Fare clic sull’icona del segno di spunta ![icona del segno di spunta](./media/storsimple-ova-configure-new-storage-account/checkicon-include.png). Quando la creazione dell’account di archiviazione sarà completata si riceverà una notifica.
 
-        ![Add storage account](./media/storsimple-ova-configure-new-storage-account/addnewstorageaccount-include.png)
+		![Add storage account](./media/storsimple-ova-configure-new-storage-account/addnewstorageaccount-include.png)
 
-4. The newly created storage account will be displayed on the **Configure** page under **Storage accounts**. 
+4. L'account di archiviazione appena creato verrà visualizzato nella pagina **Configura** in **Account di archiviazione**.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0204_2016-->

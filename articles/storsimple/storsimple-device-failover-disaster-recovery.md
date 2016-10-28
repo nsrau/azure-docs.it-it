@@ -1,11 +1,11 @@
 <properties 
-   pageTitle="StorSimple failover and disaster recovery | Microsoft Azure"
-   description="Learn how to fail over your StorSimple device to itself, another physical device, or a virtual device."
+   pageTitle="Failover e ripristino di emergenza per StorSimple | Microsoft Azure"
+   description="Informazioni su come eseguire il failover del dispositivo StorSimple su se stesso, su un altro dispositivo fisico o su un dispositivo virtuale."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carmonm"
-   editor="" />
+   editor="" /> 
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
@@ -13,215 +13,209 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/16/2016"
-   ms.author="alkohli" />
+   ms.author="alkohli" /> 
+
+# Failover e ripristino di emergenza per il dispositivo StorSimple
+
+## Panoramica
+
+Questa esercitazione descrive i passaggi necessari per eseguire il failover di un dispositivo StorSimple in caso di emergenza. Un failover consentirà di migrare i dati da un dispositivo di origine nel centro dati a un altro dispositivo fisico o virtuale che si trova nella stessa o in un’altra area geografica.
+
+Il ripristino di emergenza viene gestito tramite la funzionalità di failover del dispositivo e viene inizializzato nella pagina **Dispositivi**. In questa pagina sono riportati tutti i dispositivi StorSimple connessi al servizio StorSimple Manager. Per ogni dispositivo, vengono visualizzati nome descrittivo, stato, capacità fornita e massima, tipo e modello.
+
+![Pagina Dispositivi](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
+
+Le indicazioni fornite in questa esercitazione si applicano ai dispositivi fisici e virtuali StorSimple in tutte le versioni del software.
 
 
-# <a name="failover-and-disaster-recovery-for-your-storsimple-device"></a>Failover and disaster recovery for your StorSimple device
 
-## <a name="overview"></a>Overview
+## Ripristino di emergenza (DR) e failover del dispositivo
 
-This tutorial describes the steps required to fail over a StorSimple device in the event of a disaster. A failover will allow you to migrate your data from a source device in the datacenter to another physical or even a virtual device located in the same or a different geographical location. 
+In uno scenario di ripristino di emergenza, il dispositivo principale smette di funzionare. In questo caso, è possibile spostare i dati del cloud associati al dispositivo guasto in un altro dispositivo utilizzando il dispositivo principale come *origine* e specificando l’altro dispositivo come *destinazione*. È possibile selezionare uno o più contenitori di volumi per eseguire la migrazione al dispositivo di destinazione. Questo processo viene definito *failover*.
 
-Disaster recovery (DR) is orchestrated via the device failover feature and is initiated from the **Devices** page. This page tabulates all the StorSimple devices connected to your StorSimple Manager service. For each device, the friendly name, status, provisioned and maximum capacity, type and model are displayed.
+Durante il failover, i contenitori di volumi del dispositivo di origine cambiano proprietà e vengono trasferiti al dispositivo di destinazione. Una volta modificata la proprietà dei contenitori di volumi, questi vengono eliminati dal dispositivo di origine. Al termine dell'eliminazione, è possibile eseguire il failback del dispositivo di destinazione.
 
-![Devices page](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
+In genere, dopo un ripristino di emergenza, il backup più recente viene usato per ripristinare i dati nel dispositivo di destinazione. Tuttavia, se sono presenti più criteri di backup per lo stesso volume, viene scelto il criterio di backup con il maggior numero di volumi e per il ripristino dei dati nel dispositivo di destinazione viene usato il backup più recente per tale criterio.
 
-The guidance in this tutorial applies to StorSimple physical and virtual devices across all software versions.
+Ad esempio, si supponga che esistano due criteri di backup (uno predefinito e uno personalizzato) *criterioPredefinito*, *criterioPersonalizzato* con i dettagli seguenti:
 
+- *criterioPredefinito*: un solo volume, *vol1*, con esecuzione giornaliera a partire dalle 22.30.
+- *criterioPersonalizzato*: quattro volumi, *vol1*, *vol2*, *vol3*, *vol4*, con esecuzione giornaliera a partire dalle 22.00.
 
-
-## <a name="disaster-recovery-(dr)-and-device-failover"></a>Disaster recovery (DR) and device failover
-
-In a disaster recovery (DR) scenario, the primary device stops functioning. In this situation, you can move the cloud data associated with the failed device to another device by using the primary device as the *source* and specifying another device as the *target*. You can select one or more volume containers to migrate to the target device. This process is referred to as the *failover*. 
-
-During the failover, the volume containers from the source device change ownership and are transferred to the target device. Once the volume containers change ownership, these are deleted from the source device. After the deletion is complete, the target device can then be failed back.
-
-Typically following a DR, the most recent backup is used to restore the data to the target device. However, if there are multiple backup policies for the same volume, then the backup policy with the largest number of volumes gets picked and the most recent backup from that policy is used to restore the data on the target device.
-
-As an example, if there are two backup policies (one default and one custom) *defaultPol*, *customPol* with the following details:
-
-- *defaultPol* : One volume, *vol1*, runs daily starting at 10:30 PM.
-- *customPol* : Four volumes, *vol1*, *vol2*, *vol3*, *vol4*, runs daily starting at 10:00 PM.
-
-In this case, *customPol* will be used as it has more volumes and we prioritize for crash-consistency. The most recent backup from this policy is used to restore data.
+In questo caso verrà usato *criterioPersonalizzato* perché include più volumi e viene data priorità alla coerenza per arresto anomalo del sistema. Per il ripristino dei dati viene usato il backup più recente per questo criterio.
 
 
-## <a name="considerations-for-device-failover"></a>Considerations for device failover
+## Considerazioni per il failover del dispositivo
 
-In the event of a disaster, you may choose to fail over your StorSimple device:
+In caso di emergenza, è possibile eseguire il failover del dispositivo StorSimple:
 
-- To a physical device 
-- To itself
-- To a virtual device
+- In un dispositivo fisico
+- Nel dispositivo stesso
+- In un dispositivo virtuale
 
-For any device failover, keep in mind the following:
+Per qualsiasi tipo di failover del dispositivo, tenere presente quanto segue:
 
-- The prerequisites for DR are that all the volumes within the volume containers are offline and the volume containers have an associated cloud snapshot. 
-- The available target devices for DR are devices that have sufficient space to accommodate the selected volume containers. 
-- The devices that are connected to your service but do not meet the criteria of sufficient space will not be available as target devices.
-- Following a DR, for a limited duration, the data access performance can be affected significantly, as the device will need to access the data from the cloud and store it locally.
+- Per il ripristino di emergenza è necessario che tutti i volumi all'interno dei contenitori di volumi siano offline e che i contenitori di volumi siano associati a uno snapshot nel cloud.
+- I dispositivi di destinazione disponibili per il ripristino di emergenza sono dispositivi con spazio sufficiente ad accogliere i contenitori di volumi selezionati.
+- I dispositivi connessi al servizio che non soddisfano i criteri di spazio sufficiente non saranno disponibili come dispositivi di destinazione.
+- Dopo un ripristino di emergenza, per un intervallo di tempo limitato, le prestazioni di accesso ai dati possono essere influenzate in modo significativo, dal momento che il dispositivo dovrà accedere ai dati dal cloud e memorizzarli in locale.
 
-#### <a name="device-failover-across-software-versions"></a>Device failover across software versions
+#### Failover del dispositivo in tutte le versioni del software
 
-A StorSimple Manager service in a deployment may have multiple devices, both physical and virtual, all running different software versions. Depending upon the software version, the volume types on the devices may also be different. For instance, a device running Update 2 or higher would have locally pinned and tiered volumes (with archival being a subset of tiered). A pre-Update 2 device on the other hand may have tiered and archival volumes. 
+Un servizio StorSimple Manager in una distribuzione potrebbe avere più dispositivi, fisici e virtuali, che eseguono diverse versioni del software. In base alla versione del software, i tipi di volume nei dispositivi possono essere diversi. Ad esempio, un dispositivo che esegue l’Aggiornamento 2 o versione successiva avrebbe volumi aggiunti in locale e a livelli (con archiviazione in un sottoinsieme a livelli). Un dispositivo che esegue un pre-aggiornamento 2 d'altra parte può avere volumi di archiviazione a livelli.
 
-Use the following table to determine if you can fail over to another device running a different software version and the behavior of volume types during DR.
+Utilizzare la seguente tabella per determinare se è possibile eseguire il failover a un altro dispositivo che esegue una versione diversa del software e il comportamento dei tipi di volume durante il ripristino di emergenza.
 
-| Fail over from                                      | Allowed for physical device                                                                                                                                                      | Allowed for virtual device                            |
+| Failover da | Consentito per il dispositivo fisico | Consentito per il dispositivo virtuale |
 |----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
-| Update 2 to pre-Update 1 (Release, 0.1, 0.2, 0.3) | No                                                                                                                                                                               | No                                                    |
-| Update 2 to Update 1 (1, 1.1, 1.2)                 | Yes <br></br>If using locally pinned or tiered volumes or a mix of two, the volumes are always failed over as tiered.                  | Yes<br></br>If using locally pinned volumes, these are failed over as tiered. |
-| Update 2 to Update 2 (later version)                               | Yes<br></br>If using locally pinned or tiered volumes or a mix of two, the volumes are always failed over as the starting volume type; tiered as tiered and locally pinned as locally pinned. | Yes<br></br>If using locally pinned volumes, these are failed over as tiered. |
+| Aggiornamento 2 a pre-aggiornamento 1 (versione, 0.1, 0.2, 0.3) | No | No |
+| Aggiornamento 2 a Aggiornamento 1 (1, 1.1, 1.2) | Sì <br></br>se utilizza volumi aggiunti localmente o a livelli o una combinazione dei due, il failover dei volumi viene sempre eseguito come un volume a livelli. | Sì<br></br>se utilizza volumi aggiunti in locale, il failover viene eseguito come volume a livelli. |
+| Aggiornamento 2 a Aggiornamento 2 (versione successiva) | Sì<br></br>se utilizza volumi aggiunti in locale o a livelli o una combinazione dei due, il failover viene sempre eseguito come il tipo di volume iniziale: volume a livelli come volume a livelli e volume aggiunto localmente come volume aggiunto localmente. | Sì<br></br>se utilizza volumi aggiunti in locale, il failover viene eseguito come volume a livelli. |
 
 
-#### <a name="partial-failover-across-software-versions"></a>Partial failover across software versions
+#### Failover parziale in tutte le versioni del software
 
-Follow this guidance if you intend to perform a partial failover using a StorSimple source device running pre-Update 1 to a target running Update 1 or later. 
+Se si prevede di eseguire un failover parziale usando un dispositivo di origine StorSimple che esegue il pre-aggiornamento 1 in una destinazione che esegue Aggiornamento 1 o versione successiva, attenersi alle istruzioni che seguono.
 
 
-| Partial failover from                                      | Allowed for physical device                                                                                                                                                      | Allowed for virtual device                            |
+| Origine del failover parziale | Consentito per il dispositivo fisico | Consentito per il dispositivo virtuale |
 |----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
-|Pre-Update 1 (Release, 0.1, 0.2, 0.3) to Update 1 or later  | Yes, see below for the best practice tip.                                                                                                                                                                               | Yes, see below for the best practice tip.                                                    |
+|Da pre-aggiornamento 1 (versione 0.1, 0.2, 0.3) a Aggiornamento 1 o versione successiva | Sì, vedere la procedura consigliata di seguito. | Sì, vedere la procedura consigliata di seguito. |
 
 
->[AZURE.TIP] There was a cloud metadata and data format change in Update 1 and later versions. Hence, we do not recommend a partial failover from pre-Update 1 to Update 1 or later versions. If you need to perform a partial failover, we recommend that you first apply Update 1 or later on both the devices (source and target) and then proceed with the failover. 
+>[AZURE.TIP] In Aggiornamento 1 e versioni successive è stata eseguita una modifica ai metadati del cloud e al formato dati. Per questa ragione, non è consigliabile eseguire un failover parziale da pre-aggiornamento 1 a Aggiornamento 1 o versioni successive. Se è necessario eseguire un failover parziale, è consigliabile applicare prima Aggiornamento 1 o versioni successive in entrambi i dispositivi (origine e destinazione) e quindi procedere con il failover.
 
-## <a name="fail-over-to-another-physical-device"></a>Fail over to another physical device
+## Failover su un altro dispositivo fisico
 
-Perform the following steps to restore your device to a target physical device.
+Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo fisico di destinazione.
 
-1. Verify that the volume container you want to fail over has associated cloud snapshots.
+1. Verificare che il contenitore del volume di cui si desidera eseguire il failover sia associato alle snapshot cloud.
 
-1. On the **Devices** page, click the **Volume Containers** tab.
+1. Nella pagina **Dispositivi** fare clic sulla scheda **Contenitori di volumi**.
 
-1. Select a volume container that you would like to fail over to another device. Click the volume container to display the list of volumes within this container. Select a volume and click **Take Offline** to take the volume offline. Repeat this process for all the volumes in the volume container.
+1. Selezionare un contenitore di volumi di cui si desidera eseguire il failover a un altro dispositivo. Fare clic sul contenitore di volumi per visualizzare l'elenco dei volumi presenti nel contenitore. Selezionare un volume e fare clic su **Offline** per passare il volume offline. Ripetere questo processo per tutti i volumi nel contenitore di volumi.
 
-1. Repeat the previous step for all the volume containers you would like to fail over to another device.
+1. Ripetere il passaggio precedente per tutti i contenitori di volumi di cui si desidera eseguire il failover a un altro dispositivo.
 
-1. On the **Devices** page, click **Failover**.
+1. Nella pagina **Dispositivi**, fare clic su **Failover**.
 
-1. In the wizard that opens up, under **Choose volume container to fail over**:
+1. Nella procedura guidata visualizzata, in **Scegliere i contenitori dei volumi per il failover**:
 
-    1. In the list of volume containers, select the volume containers you would like to fail over.
-    **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
+	1. Nell'elenco dei contenitori di volumi, selezionare i contenitori di volumi di cui si desidera eseguire il failover. **Vengono visualizzati solo i contenitori di volumi con gli snapshot del cloud e i volumi offline associati.**
 
-    1. Under **Choose a target device** for the volumes in the selected containers, select a target device from the drop-down list of available devices. Only the devices that have the available capacity are displayed in the drop-down list.
+	1. In **Scegli un dispositivo di destinazione** per i volumi dei contenitori selezionati, selezionare un dispositivo di destinazione dall'elenco a discesa dei dispositivi disponibili. Solo i dispositivi dotati di capacità disponibile vengono visualizzati nell'elenco a discesa.
 
-    1. Finally, review all the failover settings under **Confirm failover**. Click the check icon ![Check icon](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
+	1. Infine, esaminare tutte le impostazioni di failover in **Conferma failover**. Fare clic sull'icona del segno di spunta ![Icona del segno di spunta](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
 
-1. A failover job is created that can be monitored via the **Jobs** page. If the volume container that you failed over has local volumes, then you will see individual restore jobs for each local volume (not for tiered volumes) in the container. These restore jobs may take quite some time to complete. It is likely that the failover job may complete earlier. Note that these volumes will have local guarantees only after the restore jobs are complete. After the failover is completed, go to the **Devices** page.                                            
+1. Viene creato un processo di failover che può essere monitorato tramite la pagina **Processi**. Se nel contenitore del volume di cui è stato eseguito il failover sono presenti volumi locali, i singoli processi di ripristino per ogni volume locale (non per i volumi a livelli) saranno visibili nel contenitore. Per il completamento di questi processi di ripristino può essere necessario molto tempo. È probabile che venga completato prima il processo di failover. Si noti che questi volumi presentano garanzie locali solo dopo il completamento dei processi di ripristino. Dopo aver completato il failover, andare alla pagina **Dispositivi**.
 
-    1. Select the device that was used as the target device for the failover process.
+	1. Selezionare il dispositivo utilizzato come dispositivo di destinazione per il processo di failover.
 
-    1. Go to the **Volume Containers** page. All the volume containers, along with the volumes from the old device, should be listed.
+	1. Andare alla pagina **Contenitori di volumi**. Dovrebbero essere elencati tutti i contenitori di volumi, insieme ai volumi del dispositivo precedente.
 
-## <a name="failover-using-a-single-device"></a>Failover using a single device
+## Failover con un solo dispositivo
 
-Perform the following steps if you only have a single device and need to perform a failover.
+Se si dispone di un solo dispositivo ed è necessario eseguire un failover, eseguire i passaggi seguenti.
 
-1. Take cloud snapshots of all the volumes in your device.
+1. Acquisire snapshot nel cloud di tutti i volumi nel dispositivo.
 
-1. Reset your device to factory defaults. Follow the detailed instructions in [how to reset a StorSimple device to factory default settings](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
+1. Ripristinare le impostazioni predefinite del dispositivo. Seguire le istruzioni dettagliate in [come ripristinare le impostazioni predefinite di un dispositivo StorSimple](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
-1. Configure your device and register it again with your StorSimple Manager service.
+1. Configurare il dispositivo e registrarlo nuovamente con il servizio StorSimple Manager.
 
-1. On the **Devices** page, the old device should show as **Offline**. The newly registered device should show as **Online**.
+1. Nella pagina **Dispositivi**, il dispositivo precedente dovrà essere visualizzato come **Offline**. Il dispositivo appena registrato deve essere visualizzato come **Online**.
 
-1. For the new device, complete the minimum configuration of the device first. 
-                                                
-    >[AZURE.IMPORTANT] **If the minimum configuration is not completed first, your DR will fail as a result of a bug in the current implementation. This behavior will be fixed in a later release.**
+1. Per il nuovo dispositivo, completare innanzitutto la configurazione minima del dispositivo.
+												
+	>[AZURE.IMPORTANT] **Se non viene prima completata la configurazione minima, il ripristino di emergenza avrà esito negativo a causa di un bug nell'implementazione corrente. Questo problema verrà risolto in una versione successiva.**
 
-1. Select the old device (status offline) and click **Failover**. In the wizard that is presented, fail over this device and specify the target device as the newly registered device. For detailed instructions, refer to [Fail over to another physical device](#fail-over-to-another-physical-device).
+1. Selezionare il dispositivo precedente (stato offline) e fare clic su **Failover**. Nella procedura guidata che viene visualizzata, eseguire il failover di questo dispositivo e specificare come dispositivo di destinazione il dispositivo appena registrato. Per istruzioni dettagliate, fare riferimento a [Failover su un altro dispositivo fisico](#fail-over-to-another-physical-device).
 
-1. A device restore job will be created that you can monitor from the **Jobs** page.
+1. Verrà creato un processo di ripristino del dispositivo che è possibile monitorare da **Processi**.
 
-1. After the job has successfully completed, access the new device and navigate to the **Volume Containers** page. All the volume containers from the old device should now be migrated to the new device.
+1. Al termine il processo, accedere al nuovo dispositivo e andare alla pagina **Contenitori di volumi**. Tutti i contenitori di volumi del dispositivo precedente dovrebbero essere stati migrati al nuovo dispositivo.
 
-## <a name="fail-over-to-a-storsimple-virtual-device"></a>Fail over to a StorSimple virtual device
+## Failover su un dispositivo virtuale StorSimple
 
-You must have a StorSimple virtual device created and configured prior to running this procedure. If running Update 2, consider using an 8020 virtual device for the DR that has 64 TB and uses Premium Storage. 
+Prima di eseguire questa procedura, è necessario disporre di un dispositivo StorSimple virtuale creato e configurato. Se esegue l'Aggiornamento 2, considerare l'utilizzo di un dispositivo virtuale 8020 per il ripristino di emergenza che dispone di 64 TB e utilizza l'archiviazione Premium.
  
-Perform the following steps to restore the device to a target StorSimple virtual device.
+Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo virtuale StorSimple di destinazione.
 
-1. Verify that the volume container you want to fail over has associated cloud snapshots.
+1. Verificare che il contenitore del volume di cui si desidera eseguire il failover sia associato alle snapshot cloud.
 
-1. On the **Devices** page, click the **Volume Containers** tab.
+1. Nella pagina **Dispositivi** fare clic sulla scheda **Contenitori di volumi**.
 
-1. Select a volume container that you would like to fail over to another device. Click the volume container to display the list of volumes within this container. Select a volume and click **Take Offline** to take the volume offline. Repeat this process for all the volumes in the volume container.
+1. Selezionare un contenitore di volumi di cui si desidera eseguire il failover a un altro dispositivo. Fare clic sul contenitore di volumi per visualizzare l'elenco dei volumi presenti nel contenitore. Selezionare un volume e fare clic su **Offline** per passare il volume offline. Ripetere questo processo per tutti i volumi nel contenitore di volumi.
 
-1. Repeat the previous step for all the volume containers you would like to fail over to another device.
+1. Ripetere il passaggio precedente per tutti i contenitori di volumi di cui si desidera eseguire il failover a un altro dispositivo.
 
-1. On the **Devices** page, click **Failover**.
+1. Nella pagina **Dispositivi**, fare clic su **Failover**.
 
-1. In the wizard that opens up, under **Choose volume container to failover**, complete the following:
-                                                    
-    a. In the list of volume containers, select the volume containers you would like to fail over.
+1. Nella procedura guidata visualizzata, sotto **Scegli contenitore di volumi per il failover**, completare le operazioni seguenti:
+													
+	a. Nell'elenco dei contenitori di volumi, selezionare i contenitori di volumi di cui si desidera eseguire il failover.
 
-    **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
+	**Vengono visualizzati solo i contenitori di volumi con gli snapshot del cloud e i volumi offline associati.**
 
-    b. Under **Choose a target device for the volumes in the selected containers**, select the StorSimple virtual device from the drop-down list of available devices. **Only the devices that have sufficient capacity are displayed in the drop-down list.**  
-    
+	b. In **Scegli un dispositivo di destinazione per i volumi dei contenitori selezionati**, selezionare un dispositivo virtuale dall'elenco a discesa dei dispositivi disponibili. **Solo i dispositivi dotati di capacità sufficiente vengono visualizzati nell'elenco a discesa.**
+	
 
-1. Finally, review all the failover settings under **Confirm failover**. Click the check icon ![Check icon](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
+1. Infine, esaminare tutte le impostazioni di failover in **Conferma failover**. Fare clic sull'icona del segno di spunta ![Icona del segno di spunta](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
 
-1. After the failover is completed, go to the **Devices** page.
-                                                    
-    a. Select the StorSimple virtual device that was used as the target device for the failover process.
-    
-    b. Go to the **Volume Containers** page. All the volume containers, along with the volumes from the old device should now be listed.
+1. Dopo aver completato il failover, andare alla pagina **Dispositivi**.
+													
+	a. Selezionare il dispositivo virtuale StorSimple utilizzato come dispositivo di destinazione per il processo di failover.
+	
+	b. Andare alla pagina **Contenitori di volumi**. Dovrebbero essere elencati tutti i contenitori di volumi, insieme ai volumi del dispositivo precedente.
 
-![Video available](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Video available**
+![Video disponibile](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Video disponibile**
 
-To watch a video that demonstrates how you can restore a failed over physical device to a virtual device in the cloud, click [here](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
-
-
-## <a name="failback"></a>Failback
-
-For Update 3 and later versions, StorSimple also supports failback. After the failover is complete, the following actions occur:
-
-- The volume containers that are failed over are cleaned from the source device.
-
-- A background job per volume container (failed over) is initiated on the source device. If you attempt to failback while the job is in progress, you will recieve a notification to that effect. You will need to wait until the job is complete to start the failback. 
-
-    The time to complete the deletion of volume containers is dependent on various factors such as amount of data, age of the data, number of backups, and the network bandwidth available for the operation. If you are planning test failovers/failbacks, we recommend that you test volume containers with less data (Gbs). In most cases, you can start the failback 24 hours after the failover is complete. 
+Per guardare un video che illustra come è possibile ripristinare un dispositivo fisico in cui si è verificato un errore in un dispositivo virtuale nel cloud, fare clic [qui](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
 
+## Failback
+
+Nell'aggiornamento 3 e versioni successive, StorSimple supporta anche il failback. Al completamento del processo di failover, si verifica quanto segue:
+
+- I contenitori di volumi oggetto di failover vengono eliminati dal dispositivo di origine.
+
+- Sul dispositivo di origine viene avviato un processo in background per ogni contenitore del volume (failover). Se si tenta di eseguire il failback mentre è in corso il processo, verrà visualizzata una notifica. Per avviare il failback, è necessario attendere il completamento del processo.
+
+	Il tempo necessario per completare l'eliminazione dei contenitori dei volumi dipende da vari fattori, ad esempio la quantità e la data dei dati, il numero di backup e la larghezza di banda disponibile per l'operazione. Se si prevede di effettuare failover/failback di test, si consiglia di testare i contenitori dei volumi con meno dati (GB). Nella maggior parte dei casi è possibile avviare il failback 24 ore dopo il completamento del failover.
 
 
-## <a name="frequently-asked-questions"></a>Frequently asked questions
-
-Q. **What happens if the DR fails or has partial success?**
-
-A. If the DR fails, we recommend that you try agian. The second time around, DR knows what all was done and when the process stalled the first time. The DR process starts from that point onwards. 
-
-Q. **Can I delete a device while the device failover is in progress?**
-
-A. You cannot delete a device while a DR is in progress. You can only delete your device after the DR is complete.
-
-Q.  **When does the garbage collection start on the source device so that the local data on source device is deleted?**
-
-A. Garbage collection will be enabled on the source device only after the device is completely cleaned up. The cleanup includes cleaning up objects that have failed over from the source device such as volumes, backup objects (not data), volume containers, and policies.
-
-Q. **What happens if the delete job associated with the volume containers in the source device fails?**
-
-A.  If the delete job fails, then you will need to manually trigger the deletion of the volume containers. In the **Devices** page, select your source device and click **Volume containers**. Select the volume containers that you failed over and in the bottom of the page, click **Delete**. Once you have deleted all the failed over volume containers on the source device, you can start the failback.
-
-## <a name="business-continuity-disaster-recovery-(bcdr)"></a>Business continuity disaster recovery (BCDR)
-
-A business continuity disaster recovery (BCDR) scenario occurs when the entire Azure datacenter stops functioning. This can affect your StorSimple Manager service and the associated StorSimple devices.
-
-If there are StorSimple devices that were registered just before a disaster occurred, then these StorSimple devices may need to undergo a factory reset. After the disaster, the StorSimple device will be shown as offline. The StorSimple device must be deleted from the portal, and a factory reset should be done, followed by a fresh registration.
 
 
-## <a name="next-steps"></a>Next steps
+## Domande frequenti
 
-- After you have performed a failover, you may need to [deactivate or delete your StorSimple device](storsimple-deactivate-and-delete-device.md).
+D: **Cosa accade se il ripristino di emergenza non riesce o viene eseguito solo parzialmente?**
 
-- For information about how to use the StorSimple Manager service, go to [Use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+A. Se il ripristino di emergenza non riesce, si consiglia di tentare nuovamente. La seconda volta, il ripristino di emergenza conosce le operazioni eseguite e il punto in cui il processo si è bloccato. Il processo viene quindi ripreso da quel punto in poi.
+
+D: **È possibile eliminare un dispositivo mentre è in corso il failover?**
+
+A. Non è possibile eliminare un dispositivo durante un ripristino di emergenza. Il dispositivo può essere eliminato solo al termine del processo.
+
+D: **Quando viene avviata l'operazione di Garbage Collection nel dispositivo di origine, in modo da eliminare i dati locali sul dispositivo di origine?**
+
+A. L'operazione di Garbage Collection sul dispositivo di origine verrà attivata solo una volta ripulito il dispositivo. La pulizia riguarda gli oggetti sottoposti a failover dal dispositivo di origine, come volumi, oggetti di backup (non dati), contenitori di volumi e criteri.
+
+D: **Cosa accade se il processo di eliminazione associato ai contenitori di volumi nel dispositivo di origine non riesce?**
+
+A. In caso di errori del processo di eliminazione, è necessario attivare l'eliminazione dei contenitori di volumi manualmente. Nella pagina dedicata ai **dispositivi** selezionare il dispositivo di origine e fare clic su **Contenitori dei volumi**. Selezionare i contenitori di volumi precedentemente sottoposti a failover e fare clic sul pulsante di **eliminazione** in fondo alla pagina. Dopo avere eliminato dal dispositivo di origine tutti i contenitori dei volumi sottoposti a failover, è possibile avviare il failback.
+
+## Ripristino di emergenza di continuità aziendale (BCDR)
+
+Uno scenario di ripristino di emergenza di continuità aziendale (BCDR) si verifica quando l'intero data center di Azure smette di funzionare. Può influire sul servizio StorSimple Manager e sui dispositivi StorSimple associati.
+
+Se sono presenti dispositivi StorSimple registrati prima del verificarsi di un problema grave, per questi dispositivi StorSimple potrebbe essere necessario eseguire una reimpostazione di fabbrica. Dopo l'emergenza, il dispositivo StorSimple verrà visualizzato come offline. Il dispositivo StorSimple deve essere eliminato dal portale e deve essere eseguita una reimpostazione di fabbrica, seguita da una registrazione aggiornata.
+
+
+## Passaggi successivi
+
+- Dopo aver eseguito un failover, può essere necessario [disattivare o eliminare il dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
+
+- Per informazioni sull’utilizzo del servizio StorSimple Manager, passare a[utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

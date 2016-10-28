@@ -1,252 +1,251 @@
 <properties
-    pageTitle="Preparing your environment to back up Resource Manager-deployed virtual machines | Microsoft Azure"
-    description="Make sure your environment is prepared for backing up virtual machines in Azure"
-    services="backup"
-    documentationCenter=""
-    authors="markgalioto"
-    manager="cfreeman"
-    editor=""
-    keywords="backups; backing up;"/>
+	pageTitle="Preparazione dell’ambiente per il backup di macchine virtuali distribuite con Resource Manager | Microsoft Azure"
+	description="Assicurarsi che l'ambiente sia pronto per il backup di macchine virtuali in Azure"
+	services="backup"
+	documentationCenter=""
+	authors="markgalioto"
+	manager="cfreeman"
+	editor=""
+	keywords="backup; eseguire il backup;"/>
 
 <tags
-    ms.service="backup"
-    ms.workload="storage-backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/21/2016"
-    ms.author="trinadhk; jimpark; markgal;"/>
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/21/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 
-
-# <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Prepare your environment to back up Resource Manager-deployed virtual machines
+# Preparare l’ambiente per il backup di macchine virtuali distribuite con Resource Manager
 
 > [AZURE.SELECTOR]
-- [Resource Manager model](backup-azure-arm-vms-prepare.md)
-- [Classic model](backup-azure-vms-prepare.md)
+- [Modello di Resource Manager](backup-azure-arm-vms-prepare.md)
+- [Modello classico](backup-azure-vms-prepare.md)
 
-This article provides the steps for preparing your environment to back up a Resource Manager-deployed virtual machine (VM). The steps shown in the procedures use the Azure portal.  
+Questo articolo illustra i passaggi per preparare un ambiente in cui eseguire il backup di una macchina virtuale (VM) distribuita con Resource Manager. I passaggi descritti nelle procedure usano il portale di Azure.
 
-The Azure Backup service has two types of vaults (back up vaults and recovery services vaults) for protecting your VMs. A backup vault protects VMs deployed using the Classic deployment model. A recovery services vault protects ** both Classic-deployed or Resource Manager-deployed VMs** . You must use a Recovery Services vault to protect a Resource Manager-deployed VM.
+Il servizio Backup di Azure offre due tipi di insiemi di credenziali (insieme di credenziali di backup e insiemi di credenziali dei servizi di ripristino) per proteggere le macchine virtuali. L'insieme di credenziali di backup protegge le macchine virtuali distribuite usando il modello di distribuzione classico. L'insieme di credenziali dei servizi di ripristino protegge **le macchine virtuali distribuite sia con il modello di distribuzione classica sia con il modello di distribuzione Resource Manager**. È necessario usare un insieme di credenziali dei servizi di ripristino per proteggere una macchina virtuale distribuita con Resource Manager.
 
->[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). See [Prepare your environment to back up Azure virtual machines](backup-azure-vms-prepare.md) for details on working with Classic deployment model VMs.
+>[AZURE.NOTE] Azure offre due modelli di distribuzione per creare e usare le risorse: [Resource Manager e distribuzione classica](../resource-manager-deployment-model.md). Per informazioni dettagliate sull'utilizzo delle macchine virtuali con il modello di distribuzione classica, vedere [Preparare l'ambiente per il backup di macchine virtuali di Azure](backup-azure-vms-prepare.md).
 
-Before you can protect or back up a Resource Manager-deployed virtual machine (VM), make sure these prerequisites exist:
+Prima di proteggere o eseguire il backup di una macchina virtuale (VM) di Resource Manager, verificare che siano disponibili i prerequisiti seguenti:
 
-- Create a recovery services vault (or identify an existing recovery services vault) *in the same location as your VM*.
-- Select a scenario, define the backup policy, and define items to protect.
-- Check the installation of VM Agent on virtual machine.
-- Check network connectivity
+- Creare un insieme di credenziali dei servizi di ripristino o identificarne uno esistente *nella stessa località della macchina virtuale*.
+- Selezionare uno scenario, definire i criteri di backup e specificare gli elementi da proteggere.
+- Verificare l'installazione dell'agente di macchine virtuali nella macchina virtuale.
+- Verificare la connettività della rete
 
-If you know these conditions already exist in your environment then proceed to the [Back up your VMs article](backup-azure-vms.md). If you need to set up, or check, any of these prerequisites, this article leads you through the steps to prepare that prerequisite.
+Se nell'ambiente esistono già queste condizioni, passare all'articolo [Eseguire il backup di macchine virtuali di Azure](backup-azure-vms.md). Se si vuole impostare o verificare qualsiasi prerequisito, questo articolo spiega la procedura di preparazione dei prerequisiti.
 
 
-## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Limitations when backing up and restoring a VM
+## Limitazioni durante il backup e il ripristino di una VM
 
-Before you prepare your environment, please understand the limitations.
+Prima di preparare l'ambiente, è importante capire le limitazioni.
 
-- Backing up virtual machines with more than 16 data disks is not supported.
-- Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
-- Backup of Linux virtual machines with Docker extension is not supported. 
-- Backup data doesn't include network mounted drives attached to VM. 
-- Replacing an existing virtual machine during restore is not supported. If you attempt to restore the VM when the VM exists, the restore operation fails.
-- Cross-region backup and restore is not supported.
-- You can back up virtual machines in all public regions of Azure (see the [checklist](https://azure.microsoft.com/regions/#services) of supported regions). If the region that you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
-- You can back up virtual machines only for select operating system versions:
-  - **Linux**: Azure Backup supports  [a list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) except Core OS Linux.  Other Bring-Your-Own-Linux distributions also might work as long as the VM agent is available on the virtual machine and support for Python exists.
-  - **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
-- Restoring a domain controller (DC) VM that is part of a multi-DC configuration is supported only through PowerShell. Read more about [restoring a multi-DC domain controller](backup-azure-restore-vms.md#restoring-domain-controller-vms).
-- Restoring virtual machines that have the following special network configurations is supported only through PowerShell. VMs created using the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
-  - Virtual machines under load balancer configuration (internal and external)
-  - Virtual machines with multiple reserved IP addresses
-  - Virtual machines with multiple network adapters
+- Il backup di macchine virtuali con più di 16 dischi dati non è supportato.
+- Il backup di macchine virtuali con un indirizzo IP riservato e nessun endpoint definito non è supportato.
+- Il backup delle macchine virtuali Linux con estensione Docker non è supportato.
+- I dati di backup non includono le unità di rete montate collegate alla macchina virtuale.
+- La sostituzione di una macchina virtuale esistente durante il ripristino non è supportata. Se si tenta di ripristinare una macchina virtuale che esiste, l'operazione di ripristino non viene eseguita.
+- L'operazione di backup e ripristino tra aree geografiche diverse non è supportata.
+- È possibile eseguire il backup di macchine virtuali in tutte le aree pubbliche di Azure. Vedere l'[elenco di controllo](https://azure.microsoft.com/regions/#services) delle aree supportate. Se l'area che si sta cercando non è attualmente supportata, tale area non verrà visualizzata nell'elenco a discesa durante la creazione dell'insieme di credenziali.
+- È possibile eseguire il backup di macchine virtuali solo per specifiche versioni dei sistemi operativi seguenti:
+  - **Linux**: Backup di Azure supporta [un elenco di distribuzioni approvate da Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md), ad eccezione di CoreOS Linux. È possibile usare altre distribuzioni Bring Your Own Linux, a condizione che l'agente di macchine virtuali sia disponibile nella macchina virtuale e sia configurato il supporto per Python.
+  - **Windows Server**: le versioni precedenti a Windows Server 2008 R2 non sono supportate.
+- Il ripristino di un controller di dominio di VM che fa parte di una configurazione con controller di dominio è supportato solo tramite PowerShell. Altre informazioni sul [ripristino di un controller di dominio con più controller di dominio](backup-azure-restore-vms.md#restoring-domain-controller-vms).
+- Il ripristino delle macchine virtuali che presentano le seguenti configurazioni di rete speciali è supportato solo tramite PowerShell. Le macchine virtuali create usando il flusso di lavoro di ripristino nell'interfaccia utente non avranno queste configurazioni di rete dopo l'operazione di ripristino. Per altre informazioni, vedere [Ripristino delle macchine virtuali con configurazioni di rete speciali](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
+  - Macchine virtuali con configurazione del servizio di bilanciamento del carico (interno ed esterno)
+  - Macchine virtuali con più indirizzi IP riservati
+  - Macchine virtuali con più schede di rete
 
-## <a name="create-a-recovery-services-vault-for-a-vm"></a>Create a recovery services vault for a VM
+## Creare l'insieme di credenziali dei servizi di ripristino per una macchina virtuale
 
-A recovery services vault is an entity that stores the backups and recovery points that have been created over time. The recovery services vault also contains the backup policies associated with the protected virtual machines.
+Un insieme di credenziali dei servizi di ripristino è un'entità che archivia i backup e i punti di ripristino che sono stati creati nel corso del tempo. L'insieme di credenziali dei servizi di ripristino si di ripristino contiene anche i criteri di backup associati alle macchine virtuali protette.
 
-To create a recovery services vault:
+Per creare un insieme di credenziali dei servizi di ripristino:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list will filter based on your input. Click **Recovery Services vault**.
+2. Scegliere **Esplora** dal menu Hub e digitare **Servizi di ripristino** nell'elenco di risorse. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Fare clic su **Insieme di credenziali dei servizi di ripristino**.
 
-    ![Create Recovery Services Vault step 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
+    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
-    The list of Recovery Services vaults is displayed.
+    Viene visualizzato l'elenco degli insiemi di credenziali dei servizi di ripristino.
 
-3. On the **Recovery Services vaults** menu, click **Add**.
+3. Scegliere **Aggiungi** dal menu **Insiemi di credenziali dei servizi di ripristino**.
 
-    ![Create Recovery Services Vault step 2](./media/backup-azure-vms-first-look-arm/rs-vault-menu.png)
+    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 2](./media/backup-azure-vms-first-look-arm/rs-vault-menu.png)
 
-    The Recovery Services vault blade opens, prompting you to provide a **Name**, **Subscription**, **Resource group**, and **Location**.
+    Si apre il pannello degli insiemi di credenziali dei servizi di ripristino in cui viene chiesto di specificare **Nome**, **Sottoscrizione**, **Gruppo di risorse** e **Località**.
 
-    ![Create Recovery Services vault step 5](./media/backup-azure-vms-first-look-arm/rs-vault-attributes.png)
+    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 5](./media/backup-azure-vms-first-look-arm/rs-vault-attributes.png)
 
-4. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
+4. Nel campo **Nome** digitare un nome descrittivo per identificare l'insieme di credenziali. Il nome deve essere univoco per la sottoscrizione di Azure. Digitare un nome che contenga tra i 2 e i 50 caratteri. Deve iniziare con una lettera e può contenere solo lettere, numeri e trattini.
 
-5. Click **Subscription** to see the available list of subscriptions. If you are not sure which subscription to use, use the default (or suggested) subscription. There will be multiple choices only if your organizational account is associated with multiple Azure subscriptions.
+5. Fare clic su **Sottoscrizione** per visualizzare l'elenco di sottoscrizioni disponibili. Se non si è certi di quale sottoscrizione usare, usare la sottoscrizione predefinita (o suggerita). Sono presenti scelte multiple solo se l'account dell'organizzazione è associato a più sottoscrizioni di Azure.
 
-6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a new Resource group. For complete information on Resource groups, see [Azure Resource Manager overview](../resource-group-overview.md)
+6. Fare clic su **Gruppo di risorse** per visualizzare l'elenco dei gruppi di risorse disponibili oppure fare clic su **Nuovo** per crearne uno nuovo. Per informazioni complete sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md)
 
-7. Click **Location** to select the geographic region for the vault. The vault **must** be in the same region as the virtual machines that you want to protect.
+7. Fare clic su **Località** per selezionare l'area geografica per l'insieme di credenziali. L'insieme di credenziali **deve** trovarsi nella stessa area geografica delle macchine virtuali che si vuole proteggere.
 
-    >[AZURE.IMPORTANT] If you are unsure of the location in which your VM exists, close out of the vault creation dialog, and go to the list of Virtual Machines in the portal. If you have virtual machines in multiple regions, you will need to create a Recovery Services vault in each region. Create the vault in the first location before going to the next location. There is no need to specify storage accounts to store the backup data--the Recovery Services vault and the Azure Backup service handle this automatically.
+    >[AZURE.IMPORTANT] Se si non è certi della località della macchina virtuale, chiudere la finestra di dialogo di creazione dell'insieme di credenziali e passare all'elenco di macchine virtuali nel portale. Se si hanno macchine virtuali in più aree, sarà necessario creare un insieme di credenziali dei servizi di ripristino backup in ogni area. Creare l'insieme di credenziali nella prima località prima di passare a quella successiva. Per archiviare i dati di backup, non è necessario specificare account di archiviazione perché l'insieme di credenziali dei servizi di ripristino e il servizio Backup di Azure gestiscono questa operazione in modo automatico.
 
-8. Click **Create**. It can take a while for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area in the portal. Once your vault is created, it appears in the list of Recovery Services vaults.
+8. Fare clic su **Crea**. La creazione dell'insieme di credenziali dei servizi di ripristino può richiedere alcuni minuti. Monitorare le notifiche di stato nell'area superiore destra del portale. L'insieme di credenziali, dopo essere stato creato, viene visualizzato negli insiemi di credenziali di Servizi di ripristino.
 
-    ![List of backup vaults](./media/backup-azure-vms-first-look-arm/rs-list-of-vaults.png)
+    ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-vms-first-look-arm/rs-list-of-vaults.png)
 
-    Now that you've created your vault, learn how to set the storage replication.
+    Ora che l'insieme di credenziali è stato creato, è possibile apprendere come impostare la replica di archiviazione.
 
-## <a name="set-storage-replication"></a>Set Storage Replication
+## Impostare la replica di archiviazione
 
-The storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, your vault has geo-redundant storage. Leave the option set to geo-redundant storage if this is your primary backup. Choose locally redundant storage if you want a cheaper option that isn't quite as durable. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in the [Azure Storage replication overview](../storage/storage-redundancy.md).
+L'opzione della replica di archiviazione consente di scegliere tra l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza locale. Per impostazione predefinita, l'insieme di credenziali prevede l'archiviazione con ridondanza geografica. Se si tratta del backup primario, lasciare l'opzione impostata sull'archiviazione con ridondanza geografica. Se si vuole un'opzione più economica ma non altrettanto permanente, scegliere l'archiviazione con ridondanza locale. Per altre informazioni sulle opzioni di archiviazione con [ridondanza geografica](../storage/storage-redundancy.md#geo-redundant-storage) e con [ridondanza locale](../storage/storage-redundancy.md#locally-redundant-storage), vedere la panoramica in [Replica di archiviazione di Azure](../storage/storage-redundancy.md).
 
-To edit the storage replication setting:
+Per modificare le impostazioni di replica di archiviazione:
 
-1. Select your vault to open the vault dashboard and the Settings blade. If the **Settings** blade doesn't open, click **All settings** in the vault dashboard.
+1. Selezionare l'insieme di credenziali per aprire il dashboard dell'insieme di credenziali e il pannello Impostazioni. Se il pannello **Impostazioni** non si apre, fare clic su **Tutte le impostazioni** nel dashboard dell'insieme di credenziali.
 
-2. On the **Settings** blade, click **Backup Infrastructure** > **Backup Configuration** to open the **Backup Configuration** blade. On the **Backup Configuration** blade, choose the storage replication option for your vault.
+2. Nel pannello **Impostazioni** fare clic su **Infrastruttura di backup** > **Configurazione backup** per aprire il pannello **Configurazione backup**. Nel pannello **Configurazione backup** scegliere l'opzione di replica di archiviazione per l'insieme di credenziali.
 
-    ![List of backup vaults](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
+    ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
-    After choosing the storage option for your vault, you are ready to associate the VM with the vault. To begin the association, you should discover and register the Azure virtual machines.
+    Dopo aver scelto l'opzione di archiviazione per l'insieme di credenziali, è possibile associare la macchina virtuale all'insieme di credenziali. Per iniziare l'associazione, è necessario trovare e registrare le macchine virtuali di Azure.
 
 
-## <a name="select-a-backup-goal,-set-policy-and-define-items-to-protect"></a>Select a backup goal, set policy and define items to protect
+## Selezionare un obiettivo di backup, impostare i criteri e definire gli elementi da proteggere
 
-Before registering a VM with a vault, run the discovery process to ensure that any new virtual machines that have been added to the subscription are identified. The process queries Azure for the list of virtual machines in the subscription, along with additional information like the cloud service name and the region. In the Azure portal, scenario refers to what you are going to put into the recovery services vault. Policy is the schedule for how often and when recovery points are taken. Policy also includes the retention range for the recovery points.
+Prima di registrare una macchina virtuale in un insieme di credenziali, eseguire il processo di individuazione per verificare che vengano identificate le eventuali nuove macchine virtuali aggiunte alla sottoscrizione. Il processo esegue una query su Azure per ottenere l'elenco delle macchine virtuali disponibili nella sottoscrizione, insieme ad altre informazioni come il nome del servizio cloud e l'area. Nel portale di Azure lo scenario fa riferimento a ciò che si inserirà nell'insieme di credenziali dei servizi di ripristino. I criteri determinano la pianificazione relativa alla frequenza e al momento in cui acquisiti i punti di ripristino. I criteri includono anche il periodo di mantenimento dati per i punti di ripristino.
 
-1. If you already have a Recovery Services vault open, proceed to step 2. If you do not have a Recovery Services vault open, but are in the Azure portal, on the Hub menu, click **Browse**.
+1. Se un insieme di credenziali dei servizi di ripristino è già aperto, procedere al passaggio 2. Se non è aperto alcun insieme di credenziali di Servizi di ripristino, ma ci si trova nel portale di Azure, scegliere **Sfoglia** dal menu Hub.
 
-  - In the list of resources, type **Recovery Services**.
-  - As you begin typing, the list will filter based on your input. When you see **Recovery Services vaults**, click it.
+  - Nell'elenco di risorse digitare **Servizi di ripristino**.
+  - Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Quando viene visualizzata l'opzione, fare clic su **Insiemi di credenziali dei servizi di ripristino**.
 
-    ![Create Recovery Services Vault step 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
+    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
-    The list of Recovery Services vaults appears.
-  - From the list of Recovery Services vaults, select a vault.
+    Viene visualizzato l'elenco di insiemi di credenziali dei servizi di ripristino.
+  - Nell'elenco di insiemi di credenziali dei servizi di ripristino selezionare un insieme di credenziali.
 
-    The selected vault dashboard opens.
+    Viene aperto il dashboard dell'insieme di credenziali selezionato.
 
-    ![Open vault blade](./media/backup-azure-vms-first-look-arm/vault-settings.png)
+    ![Pannello dell'insieme di credenziali aperto](./media/backup-azure-vms-first-look-arm/vault-settings.png)
 
-2. From the vault dashboard menu click **Backup** to open the Backup blade.
+2. Scegliere **Backup** dal menu del dashboard dell'insieme di credenziali per aprire il pannello Backup.
 
-    ![Open Backup blade](./media/backup-azure-vms-first-look-arm/backup-button.png)
+    ![Pannello Backup aperto](./media/backup-azure-vms-first-look-arm/backup-button.png)
 
-    When the blade opens, the Backup service searches for any new VMs in the subscription.
+    Quando si apre il pannello, il servizio Backup cerca le nuove macchine virtuali nella sottoscrizione.
 
-    ![Discover VMs](./media/backup-azure-vms-first-look-arm/discovering-new-vms.png)
+    ![Individuare le VM](./media/backup-azure-vms-first-look-arm/discovering-new-vms.png)
 
-3. On the Backup blade, click **Backup goal** to open the Backup Goal blade.
+3. Nel pannello Backup fare clic su **Obiettivo del backup** per aprire il pannello corrispondente.
 
-    ![Open Scenario blade](./media/backup-azure-vms-first-look-arm/select-backup-goal-one.png)
+    ![Pannello Scenario aperto](./media/backup-azure-vms-first-look-arm/select-backup-goal-one.png)
 
-4. On the Backup Goal blade, set **Where is your workload running** to Azure and  **What do you want to backup** to Virtual machine, then click **OK**.
+4. Nel pannello Obiettivo del backup impostare **Posizione di esecuzione del carico di lavoro** su Azure ed **Elementi di cui eseguire il backup** su Macchina virtuale, quindi fare clic su **OK**.
 
-    The Backup Goal blade closes and the Backup policy blade opens.
+    Il pannello Obiettivo di backup si chiude e viene visualizzato il pannello Criterio di backup.
 
-    ![Open Scenario blade](./media/backup-azure-vms-first-look-arm/select-backup-goal-two.png)
+    ![Pannello Scenario aperto](./media/backup-azure-vms-first-look-arm/select-backup-goal-two.png)
 
-5. On the Backup policy blade, select the backup policy you want to apply to the vault and click **OK**.
+5. Nel pannello Criterio di backup selezionare il criterio di backup che si vuole applicare all'insieme di credenziali e fare clic su **OK**.
 
-    ![Select backup policy](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
+    ![Selezionare il criterio di backup](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
 
-    The details of the default policy are listed in the details. If you want to create a new policy, select **Create New** from the drop-down menu. The drop-down menu also provides an option to switch the time when the snapshot is taken, to 7PM. For instructions on defining a backup policy, see [Defining a backup policy](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Once you click **OK**, the backup policy is associated with the vault.
+    I dettagli dei criteri predefiniti vengono elencati nei dettagli. Per creare un nuovo criterio, selezionare **Crea nuovo** dal menu a discesa. Il menu a discesa contiene anche un'opzione per impostare l'orario in cui lo snapshot viene acquisito sulle 19. Per istruzioni sulla definizione di un criterio di backup, vedere [Definizione di un criterio di backup](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Dopo aver fatto clic su **OK**, il criterio di backup viene associato all'insieme di credenziali.
 
-    Next choose the VMs to associate with the vault.
+    Scegliere quindi le VM da associare all'insieme di credenziali.
 
-6. Choose the virtual machines to associate with the specified policy and click **Select**.
+6. Scegliere le macchine virtuali da associare al criterio specificato e fare clic su **Seleziona**.
 
-    ![Select workload](./media/backup-azure-vms-first-look-arm/select-vms-to-backup-new.png)
+    ![Selezionare il carico di lavoro](./media/backup-azure-vms-first-look-arm/select-vms-to-backup-new.png)
 
-    If you do not see the desired VM, check that it exists in the same Azure location as the Recovery Services vault.
+    Se la VM desiderata non è visibile, controllare che esista nella stessa località di Azure dell'insieme di credenziali dei servizi di ripristino.
 
-7. Now that you have defined all settings for the vault, in the Backup blade click **Enable Backup** at the bottom of the page. This deploys the policy to the vault and the VMs.
+7. Dopo aver definito tutte le impostazioni per l'insieme di credenziali, nel pannello Backup fare clic su **Abilita backup** nella parte inferiore della pagina. Il criterio verrà distribuito nell'insieme di credenziali e nelle VM.
 
-    ![Enable Backup](./media/backup-azure-vms-first-look-arm/enable-backup-settings-new.png)
+    ![Abilitare il backup](./media/backup-azure-vms-first-look-arm/enable-backup-settings-new.png)
 
-The next phase in preparation is installing the VM Agent or making sure the VM Agent is installed.
+La fase successiva di preparazione è l'installazione dell'agente di macchine virtuali o la verifica che l'agente di macchine virtuali sia installato.
 
 
-## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Install the VM Agent on the virtual machine
+## Installare l'agente di macchine virtuali nella macchina virtuale
 
-The Azure VM Agent must be installed on the Azure virtual machine for the Backup extension to work. If your VM was created from the Azure gallery, then the VM Agent is already present on the virtual machine. This information is provided for the situations where you are *not* using a VM created from the Azure gallery - for example you migrated a VM from an on-premises datacenter. In such a case, the VM Agent needs to be installed in order to protect the virtual machine.
+Per il funzionamento dell'estensione di backup, l'agente di macchine virtuali deve essere installato nella macchina virtuale di Azure. Se la macchina virtuale è stata creata dalla raccolta di Azure, l'agente di macchine virtuali è già installato. Queste informazioni riguardano le situazioni in cui *non* si usa una macchina virtuale creata dalla raccolta di Azure, ad esempio una macchina virtuale di cui è stata eseguita la migrazione da un data center locale. In tal caso, è necessario installare l'agente di macchine virtuali per proteggerla.
 
-Learn about the [VM Agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) and [how to install the VM Agent](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md).
+Per altre informazioni, leggere gli articoli relativi all'[agente di macchine virtuali](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) e all'[installazione dell'agente di macchine virtuali](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md).
 
-If you have problems backing up the Azure VM, check that the Azure VM Agent is correctly installed on the virtual machine (see the table below). If you created a custom VM, [ensure that the **Install the VM Agent** check box is selected](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md) before the virtual machine is provisioned.
+In caso di problemi con il backup della macchina virtuale di Azure, assicurarsi che l'agente di macchine virtuali di Azure sia installato correttamente nella macchina virtuale. Vedere in proposito la tabella seguente. Se si è creata una macchina virtuale personalizzata, [assicurarsi che la casella di controllo **Installa l'agente di macchine virtuali** sia selezionata](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md) prima che ne venga effettuato il provisioning.
 
-The following table provides additional information about the VM Agent for Windows and Linux VMs.
+La tabella seguente fornisce informazioni aggiuntive sull'agente di macchine virtuali per macchine virtuali Windows e Linux.
 
-| **Operation** | **Windows** | **Linux** |
+| **Operazione** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Installing the VM Agent | <li>Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You will need Administrator privileges to complete the installation. <li>[Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. | <li> Install the latest [Linux agent](https://github.com/Azure/WALinuxAgent) from GitHub. You will need Administrator privileges to complete the installation. <li> [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. |
-| Updating the VM Agent | Updating the VM Agent is as simple as reinstalling the [VM Agent binaries](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Ensure that no backup operation is running while the VM agent is being updated. | Follow the instructions on [updating the Linux VM Agent ](../virtual-machines-linux-update-agent.md). <br>Ensure that no backup operation is running while the VM Agent is being updated. |
-| Validating the VM Agent installation | <li>Navigate to the *C:\WindowsAzure\Packages* folder in the Azure VM. <li>You should find the WaAppAgent.exe file present.<li> Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher. | N/A |
+| Installazione dell'agente di macchine virtuali | <li>Scaricare e installare il file [MSI per l'agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione sono necessari privilegi di amministratore. <li>[Aggiornare le proprietà della VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) per indicare che l'agente è stato installato. | <li> Installare l'[agente Linux](https://github.com/Azure/WALinuxAgent) più recente da GitHub. Per completare l'installazione sono necessari privilegi di amministratore. <li> [Aggiornare le proprietà della VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) per indicare che l'agente è stato installato. |
+| Aggiornamento dell'agente di VM | L'aggiornamento dell'agente di VM è semplice quanto la reinstallazione dei [file binari dell'agente di VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente di VM. | Seguire le istruzioni sull'[aggiornamento dell'agente di VM Linux](../virtual-machines-linux-update-agent.md). <br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente di VM. |
+| Convalida dell'installazione dell'agente di macchine virtuali | <li>Passare alla cartella *C:\\WindowsAzure\\Packages* nella macchina virtuale di Azure. <li>La cartella dovrebbe includere il file WaAppAgent.exe.<li> Fare clic con il pulsante destro del mouse sul file, passare a **Proprietà** e quindi scegliere la scheda **Dettagli**. Il campo Versione prodotto deve essere 2.6.1198.718 o superiore. | N/D |
 
 
-### <a name="backup-extension"></a>Backup extension
+### Estensione di backup
 
-Once the VM Agent is installed on the virtual machine, the Azure Backup service installs the backup extension to the VM Agent. The Azure Backup service seamlessly upgrades and patches the backup extension.
+Dopo aver installato l'agente di macchine virtuali nella macchina virtuale, il servizio Backup di Azure installa l'estensione di backup nell'agente di macchine virtuali. Il servizio Backup di Azure si aggiorna automaticamente e applica patch all'estensione di backup.
 
-The backup extension is installed by the Backup service whether or not the VM is running. A running VM provides the greatest chance of getting an application-consistent recovery point. However, the Azure Backup service continues to back up the VM even if it is turned off, and the extension could not be installed. This is known as Offline VM. In this case, the recovery point will be *crash consistent*.
+L'estensione di backup viene installata dal servizio Backup indipendentemente dal fatto che la macchina virtuale sia in esecuzione o meno. Una macchina virtuale in esecuzione consente di ottenere un punto di ripristino coerente con l'applicazione. Il servizio Backup di Azure continua tuttavia a eseguire il backup della macchina virtuale, anche se questa è spenta e non è stato possibile installare l'estensione. Questa situazione è detta macchina virtuale offline. In questo caso, il punto di ripristino sarà *coerente con l'arresto anomalo*.
 
 
-## <a name="network-connectivity"></a>Network connectivity
+## Connettività di rete
 
-In order to manage the VM snapshots, the backup extension needs connectivity to the Azure public IP addresses. Without the right Internet connectivity, the virtual machine's HTTP requests time out and the backup operation fails. If your deployment has access restrictions in place (through a network security group (NSG), for example), then choose one of these options for providing a clear path for backup traffic:
+Per gestire gli snapshot di una macchina virtuale, l'estensione di backup richiede la connettività agli indirizzi IP pubblici di Azure. Senza la connettività Internet appropriata, si verificherà il timeout delle richieste HTTP della macchina virtuale e l'operazione di backup non verrà eseguita. Se la distribuzione ha restrizioni di accesso, ad esempio, un gruppo di sicurezza di rete (NSG), scegliere una delle opzioni seguenti per specificare un percorso chiaro per il traffico di backup:
 
-- [Whitelist the Azure datacenter IP ranges](http://www.microsoft.com/en-us/download/details.aspx?id=41653) - see the article for instructions on how to whitelist the IP addresses.
-- Deploy an HTTP proxy server for routing traffic.
+- [Microsoft Azure Datacenter IP Ranges ](http://www.microsoft.com/it-IT/download/details.aspx?id=41653) (Intervalli di indirizzi IP dei data center di Azure): leggere l'articolo per istruzioni su come includere gli indirizzi IP nell'elenco degli elementi consentiti.
+- Distribuire un server proxy HTTP per eseguire il routing del traffico
 
-When deciding which option to use, the trade-offs are between manageability, granular control, and cost.
+Quando si decide quale opzione usare, i compromessi sono compresi tra facilità di gestione, controllo granulare e costo.
 
-|Option|Advantages|Disadvantages|
+|Opzione|Vantaggi|Svantaggi:|
 |------|----------|-------------|
-|Whitelist IP ranges| No additional costs.<br><br>For opening access in an NSG, use the <i>Set-AzureNetworkSecurityRule</i> cmdlet. | Complex to manage as the impacted IP ranges change over time.<br><br>Provides access to the whole of Azure, and not just Storage.|
-|HTTP proxy| Granular control in the proxy over the storage URLs allowed.<br>Single point of Internet access to VMs.<br>Not subject to Azure IP address changes.| Additional costs for running a VM with the proxy software.|
+|Aggiungere gli intervalli IP all'elenco elementi consentiti| Nessun costo aggiuntivo. <br><br>Per aprire l'accesso in un gruppo di sicurezza di rete, usare il cmdlet <i>Set-AzureNetworkSecurityRule</i>. | Complessità di gestione perché gli intervalli IP interessati variano nel tempo.<br><br>Offre l'accesso a tutto l'ambiente di Azure, non solo al servizio di Archiviazione.|
+|Proxy HTTP| È consentito il controllo granulare nel proxy sugli URL di archiviazione.<br>Singolo punto di accesso a Internet alle VM.<br>Non è soggetto alle modifiche degli indirizzi IP di Azure.| Costi aggiuntivi per l'esecuzione di una VM con il software proxy.|
 
-### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Whitelist the Azure datacenter IP ranges
+### Aggiungere gli intervalli IP dei data center di Azure all'elenco elementi consentiti.
 
-To whitelist the Azure datacenter IP ranges, please see the [Azure website](http://www.microsoft.com/en-us/download/details.aspx?id=41653) for details on the IP ranges, and instructions.
+Per aggiungere gli intervalli IP dei data center di Azure all'elenco degli elementi consentiti, vedere il [sito Web di Azure](http://www.microsoft.com/it-IT/download/details.aspx?id=41653) per informazioni dettagliate sugli intervalli IP e per istruzioni.
 
-### <a name="using-an-http-proxy-for-vm-backups"></a>Using an HTTP proxy for VM backups
-When backing up a VM, the backup extension on the VM sends the snapshot management commands to Azure Storage using an HTTPS API. Route the backup extension traffic through the HTTP proxy since it is the only component configured for access to the public Internet.
+### Uso di un proxy HTTP per i backup delle VM
+Quando si esegue il backup di una macchina virtuale, l'estensione di backup nella VM invia i comandi di gestione degli snapshot ad Archiviazione di Azure usando un'API HTTPS. Eseguire il routing del traffico di estensione del backup tramite il proxy HTTP perché è l'unico componente configurato per l'accesso a Internet pubblico.
 
->[AZURE.NOTE] There is no recommendation for the proxy software that should be used. Ensure that you pick a proxy that is compatible with the configuration steps below.
+>[AZURE.NOTE] Non esiste alcuna raccomandazione per il proxy da usare. Assicurarsi di scegliere un proxy compatibile con i passaggi di configurazione descritti di seguito.
 
-The example image below shows the three configuration steps necessary to use an HTTP proxy:
+L'immagine dell'esempio seguente visualizza i tre passaggi necessari per usare un proxy HTTP:
 
-- App VM routes all HTTP traffic bound for the public Internet through Proxy VM.
-- Proxy VM allows incoming traffic from VMs in the virtual network.
-- The Network Security Group (NSG) named NSF-lockdown needs a security rule allowing outbound Internet traffic from Proxy VM.
+- La VM dell'app esegue il routing del traffico HTTP diretto alla rete Internet pubblica attraverso la VM del proxy.
+- La VM del Proxy consente il traffico in entrata da macchine virtuali nella rete virtuale.
+- Il gruppo di sicurezza di rete (NSG) denominato blocco NSF ha bisogno di una regola di sicurezza che consenta il traffico Internet in uscita dalla VM Proxy.
 
-![NSG with HTTP proxy deployment diagram](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
+![Diagramma della distribuzione gruppo di sicurezza di rete con proxy HTTP](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
 
-To use an HTTP proxy to communicating to the public Internet, follow these steps:
+Per usare un proxy HTTP per la comunicazione con la rete Internet pubblica, attenersi alla procedura seguente:
 
-#### <a name="step-1.-configure-outgoing-network-connections"></a>Step 1. Configure outgoing network connections
+#### Passaggio 1. Configurare le connessioni di rete in uscita
 
-###### <a name="for-windows-machines"></a>For Windows machines
-This will setup proxy server configuration for Local System Account.
+###### Per macchine Windows
+Questa procedura consente di impostare la configurazione del server proxy per l'account del sistema locale.
 
-1. Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553)
-2. Run following command from elevated prompt,
+1. Scaricare [PsExec](https://technet.microsoft.com/sysinternals/bb897553)
+2. Eseguire il comando seguente dal prompt dei comandi con privilegi elevati,
 
      ```
      psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"
      ```
-     It will open internet explorer window.
-3. Go to Tools -> Internet Options -> Connections -> LAN settings.
-4. Verify proxy settings for System account. Set Proxy IP and port.
-5. Close Internet Explorer.
+     Si apre la finestra di Explorer.
+3. Scegliere Strumenti -> Opzioni Internet -> Connessioni -> Impostazioni LAN.
+4. Verificare le impostazioni del proxy per l'account di sistema. Impostare l'IP del Proxy e la porta.
+5. Chiudere Internet Explorer.
 
-This will set up a machine-wide proxy configuration, and will be used for any outgoing HTTP/HTTPS traffic.
+Questo comando esegue una configurazione proxy a livello di computer e verrà usato per tutto il traffico HTTP/HTTPS in uscita.
 
-If you have setup a proxy server on a current user account(not a Local System Account), use the following script to apply them to SYSTEMACCOUNT:
+Se è stato installato un server proxy in un account utente corrente (non in un account di sistema locale), usare lo script seguente per applicare le impostazioni a SYSTEMACCOUNT:
 
 ```
    $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
@@ -257,51 +256,51 @@ If you have setup a proxy server on a current user account(not a Local System Ac
    Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name Proxyserver -Value $obj.Proxyserver
 ```
 
->[AZURE.NOTE] If you observe "(407) Proxy Authentication Required" in proxy server log, check your authentication is setup correctly.
+>[AZURE.NOTE] Se si nota il messaggio "(407) Autenticazione proxy obbligatoria" nel log del server proxy, verificare che l'autenticazione sia impostata correttamente.
 
-######<a name="for-linux-machines"></a>For Linux machines
+######Per macchine Linux
 
-Add the following line to the ```/etc/environment``` file:
+Aggiungere la riga seguente al file ```/etc/environment```:
 
 ```
 http_proxy=http://<proxy IP>:<proxy port>
 ```
 
-Add the following lines to the ```/etc/waagent.conf``` file:
+Aggiungere le righe seguenti al file ```/etc/waagent.conf```:
 
 ```
 HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
 ```
 
-#### <a name="step-2.-allow-incoming-connections-on-the-proxy-server:"></a>Step 2. Allow incoming connections on the proxy server:
+#### Passaggio 2. Consentire le connessioni in entrata nel server proxy:
 
-1. On the proxy server, open Windows Firewall. The easiest way to access the firewall is to search for Windows Firewall with Advanced Security.
+1. Aprire Windows Firewall nel server proxy. Il modo più semplice per accedere al firewall consiste nel cercare Windows Firewall con Sicurezza avanzata.
 
-    ![Open the Firewall](./media/backup-azure-vms-prepare/firewall-01.png)
+    ![Aprire il firewall](./media/backup-azure-vms-prepare/firewall-01.png)
 
-2. In the Windows Firewall dialog, right-click  **Inbound Rules** and click **New Rule...**.
+2. Nella finestra di dialogo Windows Firewall fare clic con il pulsante destro del mouse su **Regole in ingresso** e scegliere **Nuova regola**.
 
-    ![Create a new rule](./media/backup-azure-vms-prepare/firewall-02.png)
+    ![Creare una nuova regola](./media/backup-azure-vms-prepare/firewall-02.png)
 
-3. In the **New Inbound Rule Wizard**, choose the **Custom** option for the **Rule Type** and click **Next**.
-4. On the page to select the **Program**, choose **All Programs** and click **Next**.
+3. In **Creazione guidata nuova regola connessioni in entrata** scegliere l'opzione **Personalizzata** per **Tipo di regola** e fare clic su **Avanti**.
+4. Nella schermata di selezione del **Programma** scegliere **Tutti i programmi** e fare clic su **Avanti**.
 
-5. On the **Protocol and Ports** page, enter the following information and click **Next**:
+5. Nella pagina **Protocollo e porte** specificare le informazioni seguenti e fare clic su **Avanti**:
 
-    ![Create a new rule](./media/backup-azure-vms-prepare/firewall-03.png)
+    ![Creare una nuova regola](./media/backup-azure-vms-prepare/firewall-03.png)
 
-    - for *Protocol type* choose *TCP*
-    - for *Local port* choose *Specific Ports*, in the field below specify the ```<Proxy Port>``` that has been configured.
-    - for *Remote port* select *All Ports*
+    - Nel campo *Tipo di protocollo* scegliere *TCP*.
+    - Nel campo *Porta locale* scegliere *Porte specifiche* e nel campo sottostante specificare la ```<Proxy Port>``` configurata.
+    - Nel campo *Porta remota* selezionare *Tutte le porte*.
 
-    For the rest of the wizard, click all the way to the end and give this rule a name.
+    Completare la procedura guidata facendo clic su Avanti fino al termine e assegnare un nome a questa regola.
 
-#### <a name="step-3.-add-an-exception-rule-to-the-nsg:"></a>Step 3. Add an exception rule to the NSG:
+#### Passaggio 3. Aggiungere una regola di eccezione al gruppo di sicurezza di rete (NSG):
 
-In an Azure PowerShell command prompt, enter the following command:
+In un prompt dei comandi di Azure PowerShell digitare il comando seguente:
 
-The following command adds an exception to the NSG. This exception allows TCP traffic from any port on 10.0.0.5 to any Internet address on port 80 (HTTP) or 443 (HTTPS). If you require a specific port in the public Internet, be sure to add that port to the ```-DestinationPortRange``` as well.
+Il comando aggiunge un'eccezione per il gruppo di sicurezza di rete (NSG). Questa eccezione consente il traffico TCP da qualsiasi porta da 10.0.0.5 a qualsiasi indirizzo Internet sulla porta 80 (HTTP) o 443 (HTTPS). Se è necessario usare una porta specifica nell'area Internet pubblica, assicurarsi di aggiungerla anche a ```-DestinationPortRange```.
 
 ```
 Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
@@ -309,23 +308,19 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 ```
 
 
-*These steps use specific names and values for this example. Please use the names and values for your deployment when entering, or cutting and pasting details into your code.*
+*Questi passaggi includono nomi e valori di esempio. Usare nomi e valori appropriati alla distribuzione specifica quando si aggiungono, tagliano e incollano i dettagli nel codice.*
 
 
-Now that you know you have network connectivity, you are ready to back up your VM. See [Back up Resource Manager-deployed VMs](backup-azure-arm-vms.md).
+Dopo aver stabilito la connettività di rete, è possibile eseguire il backup di una macchina virtuale. Vedere [Eseguire il backup di macchine virtuali distribuite con il modello di distribuzione Resource Manager](backup-azure-arm-vms.md).
 
-## <a name="questions?"></a>Questions?
-If you have questions, or if there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).
+## Domande?
+In caso di domande o se si vuole che venga inclusa una funzionalità, è possibile [inviare commenti e suggerimenti](http://aka.ms/azurebackup_feedback).
 
-## <a name="next-steps"></a>Next steps
-Now that you have prepared your environment for backing up your VM, your next logical step is to create a backup. The planning article provides more detailed information about backing up VMs.
+## Passaggi successivi
+Ora che è stato preparato l'ambiente per il backup della VM, il passaggio logico successivo consiste nel creare un backup. L'articolo sulla pianificazione offre informazioni più dettagliate sul backup delle VM.
 
-- [Back up virtual machines](backup-azure-vms.md)
-- [Plan your VM backup infrastructure](backup-azure-vms-introduction.md)
-- [Manage virtual machine backups](backup-azure-manage-vms.md)
+- [Eseguire il backup di macchine virtuali](backup-azure-vms.md)
+- [Pianificare l'infrastruttura di backup delle VM](backup-azure-vms-introduction.md)
+- [Gestire backup di macchine virtuali](backup-azure-manage-vms.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

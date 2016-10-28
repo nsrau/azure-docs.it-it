@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Add the Box connector to your Logic Apps | Microsoft Azure"
-    description="Overview of the Box connector with REST API parameters"
+    pageTitle="Aggiungere il connettore Box alle app per la logica | Microsoft Azure"
+    description="Panoramica del connettore Box con i parametri dell'API REST"
     services=""
     documentationCenter="" 
     authors="MandiOhlinger"
@@ -17,262 +17,246 @@
    ms.date="08/18/2016"
    ms.author="mandia"/>
 
+# Introduzione al connettore Box
+Connettersi a Box per creare ed eliminare file e così via.
 
-# <a name="get-started-with-the-box-connector"></a>Get started with the Box connector
-Connect to Box and create files, delete files, and more. 
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
+Con Box è possibile:
 
-With Box, you can:
+- Creare il flusso aziendale in base ai dati ottenuti da Box.
+- Usare i trigger quando un file viene creato o aggiornato.
+- Usare le azioni per copiare un file, eliminarlo e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, quando un file viene modificato in Box, è possibile usare il file e la posta elettronica tramite Office 365.
 
-- Build your business flow based on the data you get from Box. 
-- Use triggers when a file is created or updated.
-- Use actions that copy a file, delete a file, and more. These actions get a response, and then make the output available for other actions. For example, when a file is changed on Box, you can take that file and email it using Office 365.
+Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Trigger e azioni
+Box include i trigger e le azioni seguenti.
 
-## <a name="triggers-and-actions"></a>Triggers and actions
-Box includes the following trigger and actions.
-
-| Triggers | Actions|
+| Trigger | Azioni|
 | --- | --- |
-|<ul><li>When a file is created</li><li>When a file is modified</li></ul> | <ul><li>Create file</li><li>When a file is created</li><li>Copy file</li><li>Delete file</li><li>Extract archive to folder</li><li>Get file content using id</li><li>Get file content using path</li><li>Get file metadata using id</li><li>Get file metadata using path</li><li>Update file</li><li>When a file is modified</li></ul>
+|<ul><li>Quando viene creato un file</li><li>Quando viene modificato un file</li></ul> | <ul><li>Crea file</li><li>Quando viene creato un file</li><li>Copia file</li><li>Elimina file</li><li>Estrai archivio nella cartella</li><li>Ottieni contenuto file in base all'ID</li><li>Ottieni contenuto file in base al percorso</li><li>Ottieni metadati file in base all'ID</li><li>Ottieni metadati file in base al percorso</li><li>Aggiorna file</li><li>Quando viene modificato un file</li></ul>
 
-All connectors support data in JSON and XML formats.
+Tutti i connettori supportano dati nei formati JSON e XML.
 
-## <a name="create-a-connection-to-box"></a>Create a connection to Box
-When you add this connector to your logic apps, you must authorize logic apps to connect to your Box.
+## Creare una connessione a Box
+Quando si aggiunge questo connettore alle app per la logica, è necessario autorizzare le app per la logica per la connessione a Box.
 
->[AZURE.INCLUDE [Steps to create a connection to box](../../includes/connectors-create-api-box.md)]
+>[AZURE.INCLUDE [Passaggi per la creazione di una connessione a Box](../../includes/connectors-create-api-box.md)]
 
-After you create the connection, you enter the Box properties. The **REST API reference** in this topic describes these properties.
+Dopo aver creato la connessione, immettere le proprietà di Box. Il **riferimento all'API REST** in questo articolo descrive tali proprietà.
 
->[AZURE.TIP] You can use this same Box connection in other logic apps.
+>[AZURE.TIP] È possibile usare la stessa connessione di Box in altre app per la logica.
 
-## <a name="swagger-rest-api-reference"></a>Swagger REST API reference
-Applies to version: 1.0.
+## Riferimento all'API REST di Swagger
+Si applica alla versione 1.0.
 
-### <a name="create-file"></a>Create file
-Uploads a file to Box.  
-```POST: /datasets/default/files```
+### Crea file
+Carica un file in Box. ```POST: /datasets/default/files```
 
-| Name|Data Type|Required|Located In|Default Value|Description|
+| Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
-|folderPath|string|Yes|query|None |Folder path to upload the file to Box|
-|name|string|Yes|query|None |Name of the file to create in Box|
-|body|string(binary) |Yes|body|None |Content of the file to upload to Box|
+|folderPath|stringa|Sì|query|None |Percorso della cartella per caricare il file in Box|
+|name|stringa|Sì|query|None |Nome del file da creare in Box|
+|body|string(binary) |Sì|body|None |Contenuto del file da creare in Box|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Response
+|Nome|Descrizione|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|default|Operazione non riuscita.|
 
 
-### <a name="when-a-file-is-created"></a>When a file is created
-Triggers a flow when a new file is created in a Box folder.  
-```GET: /datasets/default/triggers/onnewfile```
+### Quando un file viene creato
+Attiva un flusso quando viene creato un nuovo file in una cartella di Box. ```GET: /datasets/default/triggers/onnewfile```
 
-| Name|Data Type|Required|Located In|Default Value|Description|
+| Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|folderId|string|Yes|query|None |Unique identifier of the folder in Box|
+|folderId|stringa|Sì|query|None |Identificatore univoco della cartella in Box.|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Response
+|Name|Descrizione|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|default|Operazione non riuscita.|
 
 
-### <a name="copy-file"></a>Copy file
-Copies a file to Box.  
-```POST: /datasets/default/copyFile```
+### Copia file
+Copia un file in Box. ```POST: /datasets/default/copyFile```
 
-| Name|Data Type|Required|Located In|Default Value|Description|
+| Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|source|string|Yes|query|None |Url to source file|
-|destination|string|Yes|query| None|Destination file path in Box, including target filename|
-|overwrite|boolean|No|query| None|Overwrites the destination file if set to 'true'|
+|una sezione source|string|Sì|query|None |URL del file di origine|
+|destination|stringa|Sì|query| None|Percorso file di destinazione in Box, incluso nome file di destinazione|
+|overwrite|boolean|No|query| None|Sovrascrive il file di destinazione se è impostata su 'true'|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Response
+|Name|Descrizione|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|default|Operazione non riuscita.|
 
 
-### <a name="delete-file"></a>Delete file
-Deletes a file from Box.  
-```DELETE: /datasets/default/files/{id}```
+### Elimina file
+Elimina un file da Box. ```DELETE: /datasets/default/files/{id}```
 
 
-| Name|Data Type|Required|Located In|Default Value|Description|
+| Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|id|string|Yes|path|None |Unique identifier of the file to delete from Box|
+|id|stringa|Sì|path|None |Identificatore univoco del file da eliminare da Box|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Response
+|Nome|Descrizione|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|default|Operazione non riuscita.|
 
 
-### <a name="extract-archive-to-folder"></a>Extract archive to folder
-Extracts an archive file into a folder in Box (example: .zip).  
-```POST: /datasets/default/extractFolderV2```
+### Estrai archivio in una cartella
+Estrae un file di archivio in una cartella di Box, ad esempio un file ZIP. ```POST: /datasets/default/extractFolderV2```
 
-| Name|Data Type|Required|Located In|Default Value|Description|
+| Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|source|string|Yes|query| |Path to the archive file|
-|destination|string|Yes|query| |Path in Box to extract the archive contents|
-|overwrite|boolean|No|query| |Overwrites the destination files if set to 'true'|
+|una sezione source|stringa|Sì|query| |Percorso del file di archivio|
+|destination|stringa|Sì|query| |Percorso in Box in cui estrarre il contenuto dell'archivio|
+|overwrite|boolean|No|query| |Sovrascrive i file di destinazione se è impostata su 'true'|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Response
+|Name|Descrizione|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|default|Operazione non riuscita.|
 
 
-### <a name="get-file-content-using-id"></a>Get file content using id
-Retrieves file contents from Box using id.  
-```GET: /datasets/default/files/{id}/content```
+### Ottieni contenuto di file tramite ID
+Recupera il contenuto di file da Box in base all'ID. ```GET: /datasets/default/files/{id}/content```
 
-| Name|Data Type|Required|Located In|Default Value|Description|
+| Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
-|id|string|Yes|path|None |Unique identifier of the file in Box|
+|id|string|Sì|path|None |Identificatore univoco del file in Box|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Response
+|Nome|Descrizione|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|default|Operazione non riuscita.|
 
 
-### <a name="get-file-content-using-path"></a>Get file content using path
-Retrieves file contents from Box using path.  
-```GET: /datasets/default/GetFileContentByPath```
+### Ottieni contenuto di file tramite percorso
+Recupera il contenuto di file da Box in base al percorso. ```GET: /datasets/default/GetFileContentByPath```
 
-| Name|Data Type|Required|Located In|Default Value|Description|
+| Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|path|string|Yes|query|None |Unique path to the file in Box|
+|path|stringa|Sì|query|None |Percorso univoco del file in Box|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Response
+|Nome|Descrizione|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|default|Operazione non riuscita.|
 
 
-### <a name="get-file-metadata-using-id"></a>Get file metadata using id
-Retrieves file metadata from Box using file id.  
-```GET: /datasets/default/files/{id}```
+### Recupera metadati di file tramite ID
+Recupera i metadati di file da Box in base all'ID file. ```GET: /datasets/default/files/{id}```
 
-| Name|Data Type|Required|Located In|Default Value|Description|
+| Name|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
-|id|string|Yes|path| None|Unique identifier of the file in Box|
+|id|string|Sì|path| None|Identificatore univoco del file in Box|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Response
+|Name|Descrizione|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|default|Operazione non riuscita.|
 
 
-### <a name="get-file-metadata-using-path"></a>Get file metadata using path
-Retrieves file metadata from Box using path.  
-```GET: /datasets/default/GetFileByPath```
+### Ottieni metadati di file tramite percorso
+Recupera i metadati di file da Box in base al percorso. ```GET: /datasets/default/GetFileByPath```
 
-| Name|Data Type|Required|Located In|Default Value|Description|
+| Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|path|string|Yes|query|None |Unique path to the file in Box|
+|path|stringa|Sì|query|None |Percorso univoco del file in Box|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Response
+|Nome|Descrizione|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|default|Operazione non riuscita.|
 
 
-### <a name="update-file"></a>Update file
-Updates a file in Box.  
-```PUT: /datasets/default/files/{id}```
+### Aggiorna file
+Aggiorna un file in Box. ```PUT: /datasets/default/files/{id}```
 
-| Name|Data Type|Required|Located In|Default Value|Description|
+| Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|id|string|Yes|path| None|Unique identifier of the file to update in Box|
-|body|string(binary) |Yes|body|None |Content of the file to update in Box|
+|id|stringa|Sì|path| None|Identificatore univoco del file da aggiornare in Box|
+|body|string(binary) |Sì|body|None |Contenuto del file da aggiornare in Box|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Response
+|Nome|Descrizione|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|default|Operazione non riuscita.|
 
 
-### <a name="when-a-file-is-modified"></a>When a file is modified
-Triggers a flow when a file is modified in a Box folder.  
-```GET: /datasets/default/triggers/onupdatedfile```
+### Quando un file viene modificato
+Attiva un flusso quando viene modificato un file in una cartella di Box. ```GET: /datasets/default/triggers/onupdatedfile```
 
-| Name|Data Type|Required|Located In|Default Value|Description|
+| Name|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|folderId|string|Yes|query|None |Unique identifier of the folder in Box|
+|folderId|stringa|Sì|query|None |Identificatore univoco della cartella in Box.|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Response
+|Nome|Descrizione|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|default|Operazione non riuscita.|
 
 
-## <a name="object-definitions"></a>Object definitions
+## Definizioni oggetti
 
-#### <a name="datasetsmetadata"></a>DataSetsMetadata
+#### DataSetsMetadata
 
-|Property Name | Data Type | Required|
+|Nome proprietà | Tipo di dati | Obbligatorio|
 |---|---|---|
-|tabular|not defined|no|
-|blob|not defined|no|
+|tabular|non definito|no|
+|BLOB|non definito|no|
 
-#### <a name="tabulardatasetsmetadata"></a>TabularDataSetsMetadata
+#### TabularDataSetsMetadata
 
-|Property Name | Data Type |Required|
+|Nome proprietà | Tipo di dati |Obbligatorio|
 |---|---|---|
-|source|string|no|
+|una sezione source|stringa|no|
+|displayName|stringa|no|
+|urlEncoding|stringa|no|
+|tableDisplayName|stringa|no|
+|tablePluralName|stringa|no|
+
+#### BlobDataSetsMetadata
+
+|Nome proprietà | Tipo di dati |Obbligatorio|
+|---|---|---|
+|una sezione source|stringa|no|
 |displayName|string|no|
-|urlEncoding|string|no|
-|tableDisplayName|string|no|
-|tablePluralName|string|no|
+|urlEncoding|stringa|no|
 
-#### <a name="blobdatasetsmetadata"></a>BlobDataSetsMetadata
+#### BlobMetadata
 
-|Property Name | Data Type |Required|
+|Nome proprietà | Tipo di dati |Obbligatorio|
 |---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-
-#### <a name="blobmetadata"></a>BlobMetadata
-
-|Property Name | Data Type |Required|
-|---|---|---|
-|Id|string|no|
-|Name|string|no|
-|DisplayName|string|no|
+|ID|string|no|
+|Nome|stringa|no|
+|DisplayName|stringa|no|
 |Path|string|no|
-|LastModified|string|no|
-|Size|integer|no|
-|MediaType|string|no|
+|LastModified|stringa|no|
+|Dimensione|integer|no|
+|MediaType|stringa|no|
 |IsFolder|boolean|no|
-|ETag|string|no|
-|FileLocator|string|no|
+|ETag|stringa|no|
+|FileLocator|stringa|no|
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

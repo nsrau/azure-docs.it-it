@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Capacity planning for Service Fabric apps | Microsoft Azure"
-   description="Describes how to identify the number of compute nodes required for a Service Fabric application"
+   pageTitle="Pianificazione della capacità per le app di Service Fabric | Microsoft Azure"
+   description="Descrive come identificare il numero di nodi di calcolo necessari per un'applicazione dell'infrastruttura di servizi"
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
    manager="markfuss"
-   editor=""/>
+   editor=""/> 
 
 <tags
    ms.service="service-fabric"
@@ -14,28 +14,27 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/14/2016"
-   ms.author="subramar"/>
+   ms.author="subramar"/> 
 
 
+# Pianificazione della capacità per le applicazioni Service Fabric
 
-# <a name="capacity-planning-for-service-fabric-applications"></a>Capacity planning for Service Fabric applications
 
+Questo documento illustra come stimare la quantità di risorse (CPU, RAM e spazio di archiviazione su disco) necessaria per eseguire le applicazioni di Azure Service Fabric. I requisiti delle risorse tendono a cambiare nel tempo. In genere sono necessarie poche risorse durante lo sviluppo e il test del servizio e un numero maggiore nella fase di produzione e di aumento della popolarità dell'applicazione. Quando si progetta un'applicazione, occorre prendere in considerazione i requisiti di lungo termine e adottare subito i provvedimenti necessari affinché il servizio possa essere ridimensionato per soddisfare le richieste elevate dei clienti.
 
-This document teaches you how to estimate the amount of resources (CPUs, RAM, disk storage) you need to run your Azure Service Fabric applications. It is common for your resource requirements to change over time. You typically require few resources as you develop/test your service, and then require more resources as you go into production and your application grows in popularity. When you design your application, think through the long-term requirements and make choices that allow your service to scale to meet high customer demand.
+ Quando si crea un cluster di Service Fabric si definiscono i tipi di macchine virtuali (VM) che costituiscono il cluster. Ogni VM è dotata di una quantità limitata di risorse sotto forma di CPU (core e velocità), larghezza di banda di rete, RAM e spazio di archiviazione su disco. Con la crescita del servizio nel tempo, è possibile aggiornare le VM affinché offrano un numero maggiore di risorse e/o aggiungere VM al cluster. Per farlo è necessario progettare il servizio in modo che possa sfruttare i vantaggi offerti dall'aggiunta di nuove VM al cluster in modo dinamico.
 
- When you create a Service Fabric cluster, you decide what kinds of virtual machines (VMs) make up the cluster. Each VM comes with a limited amount of resources in the form of CPUs (cores and speed), network bandwidth, RAM, and disk storage. As your service grows over time, you can upgrade to VMs that offer greater resources and/or add more VMs to your cluster. To do the latter, you must architect your service initially so it can take advantage of new VMs that get dynamically added to the cluster.
+Alcuni servizi gestiscono pochi dati o addirittura nessun dato nelle VM. La pianificazione della capacità per questi servizi deve pertanto riguardare principalmente le prestazioni, ovvero è necessario scegliere le CPU appropriate (memorie centrali e velocità) per le VM. È consigliabile valutare anche la larghezza di banda della rete, compresa la frequenza con cui si verificano trasferimenti di rete nonché la quantità dei dati trasferiti. Se il servizio deve mantenere un buon livello di prestazioni con l'aumento dell'utilizzo, è possibile aggiungere altre VM al cluster e bilanciare il carico delle richieste di rete in tutte le VM.
 
-Some services manage little to no data on the VMs themselves. Therefore, capacity planning for these services should focus primarily on performance, which means selecting the appropriate CPUs (cores and speed) of the VMs. In addition, you should consider network bandwidth, including how frequently network transfers are occurring and how much data is being transferred. If your service needs to perform well as service usage increases, you can add more VMs to the cluster and load balance the network requests across all the VMs.
+Per i servizi che gestiscono una grande quantità di dati nelle VM la pianificazione della capacità deve concentrarsi soprattutto sulla dimensione. È necessario pertanto valutare attentamente la capacità della RAM e dello spazio di archiviazione su disco della VM. Per il codice dell'applicazione il sistema di gestione della memoria virtuale di Windows rende lo spazio di archiviazione su disco analogo alla RAM. Inoltre il runtime di Service Fabric fornisce il paging intelligente mantenendo in memoria solo i dati attivi e spostando sul disco i dati inattivi. Le applicazioni possono così usare più memoria di quella fisicamente disponibile nella VM. Una maggiore disponibilità di RAM consente di aumentare le prestazioni, in quanto la VM può sfruttare più spazio di archiviazione su disco nella RAM. La VM selezionata deve disporre di un disco sufficiente per archiviare i dati desiderati nella VM. Allo stesso modo la VM deve disporre di RAM sufficiente per fornire le prestazioni desiderate. Se i dati del servizio aumentano nel tempo, è possibile aggiungere altre VM al cluster e partizionare i dati in tutte le VM.
 
-For services that manage large amounts of data on the VMs, capacity planning should focus primarily on size. Thus, you should carefully consider the capacity of the VM's RAM and disk storage. The virtual memory management system in Windows makes disk space look like RAM to application code. In addition, the Service Fabric runtime provides smart paging keeping only hot data in memory and moving the cold data to disk. Applications can thus use more memory than is physically available on the VM. Having more RAM simply increases performance, since the VM can keep more disk storage in RAM. The VM you select should have a disk large enough to store the data that you want on the VM. Similarly, the VM should have enough RAM to provide you with the performance you desire. If your service's data grows over time, you can add more VMs to the cluster and partition the data across all the VMs.
+## Determinare il numero di nodi necessari
 
-## <a name="determine-how-many-nodes-you-need"></a>Determine how many nodes you need
+Il servizio di partizionamento consente di aumentare i dati del servizio. Per altre informazioni sul partizionamento, vedere l'articolo sul [partizionamento di Service Fabric](service-fabric-concepts-partitioning.md). Ogni partizione deve essere contenuta in una singola VM, ma è possibile posizionare più partizioni (di piccole dimensioni) in una singola VM. La presenza di un maggior numero di partizioni piccole offre maggiore flessibilità rispetto alla presenza di poche partizioni grandi. Lo svantaggio è rappresentato dal fatto che la presenza di numerose partizioni aumenta il sovraccarico di Service Fabric impedendo l'esecuzione di operazioni transazionali tra le partizioni. È inoltre disponibile un maggiore traffico di rete potenziale, se il codice del servizio deve accedere spesso a porzioni di dati che si trovano in partizioni diverse. Quando si progetta il servizio, è opportuno valutare attentamente questi vantaggi e svantaggi per adottare un'efficace strategia di partizionamento.
 
-Partitioning your service allows you to scale out your service's data. For more information on partitioning, see [Partitioning Service Fabric](service-fabric-concepts-partitioning.md). Each partition must fit within a single VM, but multiple (small) partitions can be placed on a single VM. So, having more small partitions gives you greater flexibility than having a few larger partitions. The trade-off is that having lots of partitions increases Service Fabric overhead and you cannot perform transacted operations across partitions. There is also more potential network traffic if your service code frequently needs to access pieces of data that live in different partitions. When designing your service, you should carefully consider these pros and cons to arrive at an effective partitioning strategy.
+Si supponga che l'applicazione abbia un singolo servizio con stato con una dimensione di archiviazione che si prevede raggiunga i GB della dimensione del database in un anno. Si è disposti ad aggiungere altre applicazioni e partizioni, man mano che le dimensioni aumenteranno dopo tale anno. Il fattore di replica, che determina il numero di repliche per il servizio, influisce sul DB\_Size totale. Il DB\_Size totale in tutte le repliche è il fattore di replica moltiplicato per DB\_Size. Node\_Size rappresenta lo spazio di archiviazione su disco o RAM per ogni nodo che si vuole usare per il servizio. Per prestazioni ottimali il valore DB\_Size deve essere contenuto nella memoria in tutto il cluster ed è necessario scegliere un Node\_Size simile alla RAM della VM. Impostare un Node\_Size maggiore della capacità di RAM, significa fare affidamento sul paging fornito dal runtime di Service Fabric. Di conseguenza le prestazioni potrebbero non essere ottimali se tutti i dati vengono considerati attivi (perché in questro caso verrebbe eseguito un paging dei dati in/out). È però più conveniente per molti servizi in cui solo una frazione dei dati è attiva.
 
-Let's assume your application has a single stateful service that has a store size that you expect to grow to DB_Size GB in a year. You are willing to add more applications (and partitions) as you experience growth beyond that year.  The replication factor (RF), which determines the number of replicas for your service impacts the total DB_Size. The total DB_Size across all replicas is the Replication Factor multiplied by DB_Size.  Node_Size represents the disk space/RAM per node you want to use for your service. For best performance, the DB_Size should fit into memory across the cluster, and a Node_Size that is around the RAM of the VM should be chosen. By allocating a Node_Size that is larger than the RAM capacity, you are relying on the paging provided by the Service Fabric runtime. Thus, your performance may not be optimal if your entire data is considered to be hot (since then the data is paged in/out). However, for many services where only a fraction of the data is hot, it is more cost-effective.
-
-The number of nodes required for maximum performance can be computed as follows:
+Il numero di nodi necessari per ottenere le massime prestazioni può essere calcolato come segue:
 
 ```
 Number of Nodes = (DB_Size * RF)/Node_Size
@@ -43,41 +42,37 @@ Number of Nodes = (DB_Size * RF)/Node_Size
 ```
 
 
-## <a name="account-for-growth"></a>Account for growth
+## Account per l'espansione
 
-You may want to compute the number of nodes based on the DB_Size that you expect your service to grow to, in addition to the DB_Size that you began with. Then, grow the number of nodes as your service grows so that you are not over-provisioning the number of nodes. But the number of partitions should be based on the number of nodes that are needed when you're running your service at maximum growth.
+Si consiglia di calcolare il numero dei nodi in base al DB\_Size che si prevede di raggiungere e al DB\_Size da cui si parte. Aumentare quindi il numero di nodi man mano che il servizio cresce, in modo da evitare l'overprovisioning del numero di nodi. Il numero di partizioni si deve tuttavia basare sul numero di nodi necessari quando si esegue il servizio al livello massimo di espansione.
 
-It is good to have some extra machines available at any time so that you can handle any unexpected spikes or failure (for example, if a few VMs go down).  While the extra capacity should be determined by using your expected spikes, a starting point is to reserve a few extra VMs (5-10 percent extra).
+È buona norma disporre di alcune macchine aggiuntive in ogni momento, in modo da poter gestire eventuali picchi imprevisti o errori (ad esempio se alcune VM subiscono un arresto anomalo). La capacità extra deve essere determinata sulla base dei picchi previsti, ma un buon punto di partenza è riservare alcune VM aggiuntive (5-10%).
 
-The preceding assumes a single stateful service. If you have more than one stateful service, you have to add the DB_Size associated with the other services into the equation. Alternatively, you can compute the number of nodes separately for each stateful service.  Your service may have replicas or partitions that aren't balanced. Keep in mind that partitions may also have more data than others. For more information on partitioning, see [partitioning article on best practices](service-fabric-concepts-partitioning.md). However, the preceding equation is partition and replica agnostic, because Service Fabric ensures that the replicas are spread out among the nodes in an optimized manner.
-
-
-## <a name="use-a-spreadsheet-for-cost-calculation"></a>Use a spreadsheet for cost calculation
-
-Now let's put some real numbers in the formula. An [example spreadsheet](https://servicefabricsdkstorage.blob.core.windows.net/publicrelease/SF%20VM%20Cost%20calculator-NEW.xlsx) shows how to plan the capacity for an application that contains three types of data objects. For each object, we approximate its size and how many objects we expect to have. We also select how many replicas we want of each object type. The spreadsheet calculates the total amount of memory to be stored in the cluster.
-
-Then we enter a VM size and monthly cost. Based on the VM size, the spreadsheet tells you the minimum number of partitions you must use to split your data to physically fit on the nodes. You may desire a larger number of partitions to accommodate your application's specific computation and network traffic needs. The spreadsheet shows the number of partitions that are managing the user profile objects has increased from one to six.
-
-Now, based on all this information, the spreadsheet shows that you could physically get all the data with the desired partitions and replicas on a 26-node cluster. However, this cluster would be densely packed, so you may want some additional nodes to accommodate node failures and upgrades. The spreadsheet also shows that having more than 57 nodes provides no additional value because you would have empty nodes. Again, you may want to go above 57 nodes anyway to accommodate node failures and upgrades. You can tweak the spreadsheet to match your application's specific needs.   
-
-![Spreadsheet for cost calculation][Image1]
+Quanto detto sopra presuppone l'esistenza di un singolo servizio con stato. Se si dispone di più di un servizio con stato, è necessario aggiungere all'equazione i DB\_Size associati con gli altri servizi. In alternativa è possibile calcolare il numero di nodi separatamente per ogni servizio con stato. Il servizio può includere repliche o partizioni non bilanciate. Si tenga presente che alcune partizioni potrebbero includere più dati di altre. Per altre informazioni sul partizionamento, vedere l'[articolo sulle procedure consigliate relative al partizionamento](service-fabric-concepts-partitioning.md). L'equazione sopra non tiene conto tuttavia delle partizioni e delle repliche, poiché Service Fabric garantisce che le repliche siano distribuite tra i nodi in modalità ottimizzata.
 
 
+## Usare un foglio di calcolo per il calcolo dei costi
 
-## <a name="next-steps"></a>Next steps
+È ora opportuno inserire alcuni dati reali nella formula. Un [foglio di calcolo di esempio](https://servicefabricsdkstorage.blob.core.windows.net/publicrelease/SF%20VM%20Cost%20calculator-NEW.xlsx) illustra come pianificare la capacità di un'applicazione contenente tre tipi di oggetti dati. Per ogni oggetto sono stati definiti in modo approssimativo la dimensione e il numero di oggetti che dovrebbe contenere. Viene anche definito il numero di repliche per ogni tipo di oggetto. Il foglio di calcolo consente di calcolare la quantità totale di memoria da archiviare nel cluster.
 
-Check out [Partitioning Service Fabric services][10] to learn more about partitioning your service.
+Viene quindi immessa una dimensione di VM e il costo mensile. In base alla dimensione della VM, il foglio di calcolo indica il numero minimo di partizioni da usare per suddividere i dati affinché possano fisicamente adattarsi ai nodi. È possibile che si desideri un numero maggiore di partizioni per soddisfare le esigenze di calcolo specifiche dell'applicazione e del traffico di rete. Il foglio di calcolo illustra che il numero di partizioni che gestiscono gli oggetti del profilo utente è aumentato da 1 a 6.
+
+A questo punto, in base a tali informazioni, il foglio di calcolo mostra che è possibile contenere tutti i dati con le partizioni e le repliche desiderate in un cluster a 26 nodi. Tale cluster risulta tuttavia compresso e possono essere necessari alcuni nodi aggiuntivi per gestire gli aggiornamenti e gli errori del nodo. Il foglio di calcolo mostra inoltre che la disponibilità di più di 57 nodi non offre alcun valore aggiuntivo in quanto alcuni nodi possono rimanere vuoti. Anche in questo caso, può essere comunque necessario superare i 57 nodi per gestire gli aggiornamenti e gli errori del nodo. È possibile apportare modifiche al foglio di calcolo in modo che corrisponda alle esigenze specifiche dell'applicazione.
+
+![Foglio di calcolo per il calcolo dei costi][Image1]
 
 
 
-<!--Image references-->
+## Passaggi successivi
+
+Per altre informazioni sul partizionamento del servizio, consultare [Partizionamento dei servizi Service Fabric][10].
+
+
+
+<!--Image references--> 
 [Image1]: ./media/SF-Cost.png
 
-<!--Link references--In actual articles, you only need a single period before the slash-->
+<!--Link references--In actual articles, you only need a single period before the slash--> 
 [10]: service-fabric-concepts-partitioning.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

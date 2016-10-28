@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure SQL Database Scales on the Fly"
-   description="Learn how SQL Database scales on the fly"
+   pageTitle="Scalabilità immediata del database SQL di Azure"
+   description="Informazioni sulla scalabilità immediata del database SQL"
    keywords=""
    services="sql-database"
    documentationCenter=""
@@ -14,50 +14,44 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="10/13/2016"
+   ms.date="07/19/2016"
    ms.author="carlrab"/>
 
+# Scalabilità immediata del database SQL di Azure
 
-# <a name="azure-sql-database-scales-on-the-fly"></a>Azure SQL Database Scales on the fly
+## Quando l'app passa da pochi clienti a un pubblico decisamente più vasto, il database SQL di Azure offre scalabilità immediata con un tempo di inattività dell'app minimo.
 
-## <a name="when-your-app-grows-from-a-small-number-of-customers-to-just-about-everyone,-azure-sql-database-can-scale-on-the-fly-with-minimal-app-downtime"></a>When your app grows from a small number of customers to just about everyone, Azure SQL Database can scale on the fly with minimal app downtime
-
-One of the advantages of running SQL Database on Microsoft Azure is being able to scale performance up or down, and on the fly to quickly adapt to changing workload demands. SQL Database offers a broad spectrum of performance levels to meet the specific needs of your application. And each level guarantees performance, so your app users have a predictable performance experience.
+Uno dei vantaggi dell'esecuzione del database SQL in Microsoft Azure è la possibilità di aumentare o ridurre le prestazioni e di adattarsi rapidamente alle variazioni della domanda del carico di lavoro. Il database SQL offre una vasta gamma di livelli di prestazioni per soddisfare le esigenze specifiche dell'applicazione. In più, ogni livello garantisce le prestazioni, in modo che l'esperienza dell'app per gli utenti offra prestazioni prevedibili.
 
 ![scale-on-the-fly](./media/sql-database-scale-on-the-fly/sql-database-scale-on-the-fly.png)
 
-## <a name="when-your-app-is-an-overnight-success"></a>When your app is an overnight success
-SQL Database makes it easy to scale at a moment's notice. So if your app becomes an overnight success, it's just one click to accommodate the new performance needs. Plus, with minimal downtime, you won't have to worry about your app taking a hit when the time comes to scale up or down.
+## Quando l'app ottiene un successo immediato
+Il database SQL semplifica la scalabilità con pochissimo preavviso, quindi se l'app ottiene un successo immediato basta un clic per soddisfare le nuove esigenze in termini di prestazioni. In più, con tempi di inattività minimi, non sarà necessario preoccuparsi delle conseguenze per l'app quando giunge il momento di aumentare o ridurre la quantità di risorse.
 
-[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787569)
+[Leggere la documentazione](http://go.microsoft.com/fwlink/?LinkID=787569)
 
-## <a name="within-your-budget"></a>Within your budget  
+## Nel budget previsto  
 
-The last thing you should think about when you're trying to create an app is how much your database is going to cost you. That's why SQL Database has a pay-what-you-need plan. With Basic, Standard, and Premium performance options, you can decide which performance option will fit your budget. And, if your app takes off, you can scale up at anytime.
+L'ultima cosa da considerare quando si prova a creare un'applicazione è il costo del database: ecco perché il database SQL offre un piano di pagamento in base alle proprie necessità. Sta all'utente decidere quale tra le opzioni di prestazioni Basic, Standard e Premium si adatterà al proprio budget. Infine, se l'app riscuote successo, sarà sempre possibile aumentare le risorse.
 
-[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787570)
+[Leggere la documentazione](http://go.microsoft.com/fwlink/?LinkID=787570)
 
-## <a name="get-the-fastest-performance"></a>Get the fastest performance
+## Ottenere prestazioni ottimali
 
-SQL Database includes cutting edge in-memory technology to execute extremely fast transactions and perform real-time analytical queries at the same time. Built-in advisors help developers migrate to in-memory tables, indexes, or store procedures. As a result, end users can experience up to 30x faster transaction processing and 100x faster query processing.  
+Il database SQL include tecnologie in memoria all'avanguardia per eseguire contemporaneamente transazioni estremamente veloci e query analitiche in tempo reale. Gli advisor predefiniti aiutano gli sviluppatori a eseguire la migrazione a tabelle, indici o stored procedure in memoria. Di conseguenza, gli utenti finali possono usufruire di prestazioni di elaborazione delle transazioni 30 volte più rapide e di elaborazione delle query 100 volte più rapide.
 
-[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787580)
+[Leggere la documentazione](http://go.microsoft.com/fwlink/?LinkID=787580)
 
-Go to the homepage to see what else SQL Database has to offer.
-[Check it out](https://azure.microsoft.com/services/sql-database/) 
+Passare alla home page per vedere cos'altro può offrire il database SQL. [Fare clic qui per provare](https://azure.microsoft.com/services/sql-database/)
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-Get a [free Azure subscription](https://azure.microsoft.com/get-started/) and [create your first Azure SQL Database](sql-database-get-started.md).
+Creare una [sottoscrizione gratuita ad Azure](https://azure.microsoft.com/get-started/) e [il primo database SQL di Azure](sql-database-get-started.md).
 
-## <a name="additional-resources"></a>Additional resources
+## Risorse aggiuntive
 
-Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/services/sql-database/).
  
-Review the [technical overview of SQL Database](sql-database-technical-overview.md).
+Consultare la [panoramica tecnica sul database SQL](sql-database-technical-overview.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

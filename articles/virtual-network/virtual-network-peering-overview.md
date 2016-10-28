@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Azure virtual network peering | Microsoft Azure"
-   description="Learn about VNet peering in Azure."
+   pageTitle="Peering reti virtuali di Azure | Microsoft Azure"
+   description="Informazioni sul peering reti virtuali in Azure."
    services="virtual-network"
    documentationCenter="na"
    authors="NarayanAnnamalai"
@@ -16,81 +16,76 @@
    ms.date="07/28/2016"
    ms.author="narayan" />
 
+# Peering reti virtuali
 
-# <a name="vnet-peering"></a>VNet peering
+Peering reti virtuale è un meccanismo che connette due reti virtuali nella stessa area tramite la rete backbone di Azure. Una volta eseguito il peering, le due reti virtuali appaiono come una sola per qualsiasi scopo di connettività. Continuano a essere gestite come risorse separate, ma le macchine virtuali in queste reti virtuali possono comunicare direttamente tra di esse usando gli indirizzi IP privati.
 
-VNet peering is a mechanism that connects two virtual networks in the same region through the Azure backbone network. Once peered, the two virtual networks appear as one for all connectivity purposes. They are still managed as separate resources, but virtual machines in these virtual networks can communicate with each other directly by using private IP addresses.
+Il traffico tra le macchine virtuali nelle reti virtuali con peering viene instradato tramite l'infrastruttura di Azure, in modo analogo al traffico instradato tra le macchine virtuali nella stessa rete virtuale. Ecco alcuni dei vantaggi offerti dall'uso del peering reti virtuali:
 
-The traffic between virtual machines in the peered virtual networks is routed through the Azure infrastructure much like traffic is routed between VMs in the same virtual network. Some of the benefits of using VNet peering include:
+- Connessione a bassa latenza e larghezza di banda elevata tra le risorse in reti virtuali diverse.
+- Possibilità di usare le risorse, ad esempio le appliance di rete virtuale, e i gateway VPN come punti di transito in rete virtuale con peering.
+- Possibilità di connettere una rete virtuale che usa il modello di distribuzione Azure Resource Manager in una rete virtuale che usa il modello di distribuzione classica e di abilitare la connettività completa tra le risorse in queste reti virtuali.
 
-- A low-latency, high-bandwidth connection between resources in different virtual networks.
-- The ability to use resources such as network appliances and VPN gateways as transit points in a peered VNet.
-- The ability to connect a virtual network that uses the Azure Resource Manager model to a virtual network that uses the classic deployment model and enable full connectivity between resources in these virtual networks.
+Requisiti e aspetti principali del peering reti virtuali:
 
-Requirements and key aspects of VNet peering:
-
-- The two virtual networks that are peered should be in the same Azure region.
-- The virtual networks that are peered should have non-overlapping IP address spaces.
-- VNet peering is between two virtual networks, and there is no derived transitive relationship. For example, if virtual network A is peered with virtual network B, and if virtual network B is peered with virtual network C, it does not translate to virtual network A being peered with virtual network C.
-- Peering can be established between virtual networks in two different subscriptions as long a privileged user of both subscriptions authorizes the peering and the subscriptions are associated to the same Active Directory tenant. 
-- A virtual network that uses the Resource Manager deployment model can be peered with another virtual network that uses this model, or with a virtual network that uses the classic deployment model. However, virtual networks that use the classic deployment model can't be peered to each other.
-- Though the communication between virtual machines in peered virtual networks has no additional bandwidth restrictions, bandwidth cap based on VM size still applies.
-
-
-![Basic VNet peering](./media/virtual-networks-peering-overview/figure01.png)
-
-## <a name="connectivity"></a>Connectivity
-After two virtual networks are peered, a virtual machine (web/worker role) in the virtual network can directly connect with other virtual machines in the peered virtual network. These two networks have full IP-level connectivity.
-
-The network latency for a round trip between two virtual machines in peered virtual networks is the same as for a round trip within a local virtual network. The network throughput is based on the bandwidth that's allowed for the virtual machine proportionate to its size. There isn't any additional restriction on bandwidth.
-
-The traffic between the virtual machines in peered virtual networks is routed directly through the Azure back-end infrastructure and not through a gateway.
-
-Virtual machines in a virtual network can access the internal load-balanced (ILB) endpoints in the peered virtual network. Network security groups (NSGs) can be applied in either virtual network to block access to other virtual networks or subnets if desired.
-
-When users configure peering, they can either open or close the NSG rules between the virtual networks. If the user chooses to open full connectivity between peered virtual networks (which is the default option), they can then use NSGs on specific subnets or virtual machines to block or deny specific access.
-
-Azure-provided internal DNS name resolution for virtual machines doesn't work across peered virtual networks. Virtual machines have internal DNS names that are resolvable only within the local virtual network. However, users can configure virtual machines that are running in peered virtual networks as DNS servers for a virtual network.
-
-## <a name="service-chaining"></a>Service chaining
-Users can configure user-defined route tables that point to virtual machines in peered virtual networks as the "next hop" IP address, as shown in the diagram later in this article. This enables users to achieve service chaining, through which they can direct traffic from one virtual network to a virtual appliance that's running in a peered virtual network through user-defined route tables.
-
-Users can also effectively build hub-and-spoke type environments where the hub can host infrastructure components such as a network virtual appliance. All the spoke virtual networks can then peer with it, as well as a subset of traffic to appliances that are running in the hub virtual network. In short, VNet peering enables the next hop IP address on the ‘User defined route table’ to be the IP address of a virtual machine in the peered virtual network.
-
-## <a name="gateways-and-on-premises-connectivity"></a>Gateways and on-premises connectivity
-Each virtual network, regardless of whether it is peered with another virtual network, can still have its own gateway and use it to connect to on-premises. Users can also configure [VNet-to-VNet connections](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) by using gateways, even though the virtual networks are peered.
-
-When both options for virtual network interconnectivity are configured, the traffic between the virtual networks flows through the peering configuration (that is, through the Azure backbone).
-
-When virtual networks are peered, users can also configure the gateway in the peered virtual network as a transit point to on-premises. In this case, the virtual network that is using a remote gateway cannot have its own gateway. One virtual network can have only one gateway. It can either be a local gateway or a remote gateway (in the peered virtual network), as shown in the following picture.
-
-Gateway transit is not supported in the peering relationship between virtual networks using the Resource Manager model and those using the classic deployment model. Both virtual networks in the peering relationship need to use the Resource Manager deployment model for a gateway transit to work.
-
-When the virtual networks that are sharing a single Azure ExpressRoute connection are peered, the traffic between them goes through the peering relationship (that is, through the Azure backbone network). Users can still use local gateways in each virtual network to connect to the on-premises circuit. Alternatively, they can use a shared gateway and configure transit for on-premises connectivity.
-
-![VNet peering transit](./media/virtual-networks-peering-overview/figure02.png)
-
-## <a name="provisioning"></a>Provisioning
-VNet peering is a privileged operation. It’s a separate function under the VirtualNetworks namespace. A user can be given specific rights to authorize peering. A user who has read-write access to the virtual network inherits these rights automatically.
-
-A user who is either an admin or a privileged user of the peering ability can initiate a peering operation on another VNet. If there is a matching request for peering on the other side, and if other requirements are met, the peering will be established.
-
-Refer to the articles in the "Next steps" section to learn more about how to establish VNet peering between two virtual networks.
-
-## <a name="limits"></a>Limits
-There are limits on the number of peerings that are allowed for a single virtual network. Refer to [Azure networking limits](../azure-subscription-service-limits.md#networking-limits) for more information.
-
-## <a name="pricing"></a>Pricing
-VNet peering will be free of charge during the review period. After it is released, there will be a nominal charge on ingress and egress traffic that utilizes the peering. For more information, refer to the [pricing page](https://azure.microsoft.com/pricing/details/virtual-network).
+- Le due reti virtuali con peering devono trovarsi nella stessa area di Azure.
+- Le reti virtuali con peering non devono avere spazi di indirizzi IP sovrapposti.
+- Il peering reti virtuali viene eseguito tra due reti virtuali senza alcuna relazione transitiva derivata. Ad esempio, se per la rete virtuale A è stato eseguito il peering con la rete virtuale B e se per quest'ultima è stato eseguito il peering con la rete virtuale C, non viene stabilito automaticamente il peering tra la rete virtuale A e la rete virtuale C.
+- Il peering può essere stabilito tra reti virtuali in due diverse sottoscrizioni, a condizione che un utente con privilegi di entrambe le sottoscrizioni autorizzi il peering e che le sottoscrizioni siano associate allo stesso tenant di Active Directory.
+- È possibile eseguire il peering di una rete virtuale che usa il modello di distribuzione Resource Manager con un'altra rete virtuale che usa questo modello o con una rete virtuale che usa il modello di distribuzione classica. Non è tuttavia possibile eseguire il peering tra reti virtuali che usano il modello di distribuzione classica.
+- Anche se la comunicazione tra le macchine virtuali nelle reti virtuali con peering non presenta restrizioni in termini di larghezza di banda aggiuntiva, viene comunque applicato il limite di larghezza di banda in base alle dimensioni della macchina virtuale.
 
 
-## <a name="next-steps"></a>Next steps
-- [Set up peering between virtual networks](virtual-networks-create-vnetpeering-arm-portal.md).
-- Learn about [NSGs](virtual-networks-nsg.md).
-- Learn about [user-defined routes and IP forwarding](virtual-networks-udr-overview.md).
+![Peering reti virtuali di base](./media/virtual-networks-peering-overview/figure01.png)
+
+## Connettività
+Dopo avere eseguito il peering tra due reti virtuali, una macchina virtuale (con ruolo di lavoro o Web) nella rete virtuale può connettersi direttamente ad altre macchine virtuali nella rete virtuale con peering ed entrambe le reti avranno la connettività completa a livello IP.
+
+La latenza di rete per il round trip tra due macchine virtuali in reti virtuali con peering è identica a quella di un round trip all'interno di una rete virtuale locale. La velocità effettiva della rete si basa sulla larghezza di banda consentita per la macchina virtuale proporzionalmente alle relative dimensioni, senza altre restrizioni alla larghezza di banda consentita.
+
+Il traffico tra le macchine virtuali nelle reti virtuali con peering viene instradato direttamente tramite l'infrastruttura di back-end di Azure, non tramite un gateway.
+
+Le macchine virtuali in una rete virtuale possono accedere agli endpoint con carico bilanciato interno (ILB) nella rete virtuale con peering. È possibile applicare gruppi di sicurezza di rete a una delle reti virtuali per bloccare l'accesso all'altra rete virtuale o subnet, se necessario.
+
+Quando gli utenti configurano il peering, possono scegliere di aprire o chiudere le regole del gruppo di sicurezza di rete tra le reti virtuali. Se l'utente sceglie di aprire la connettività completa tra le reti virtuali con peering (che corrisponde all'opzione predefinita), può usare i gruppi di sicurezza di rete in subnet o macchine virtuali specifiche per bloccare o negare l'accesso in modo specifico.
+
+La risoluzione dei nomi DNS interni fornita da Azure per le macchine virtuali non funziona tra le reti virtuali con peering. Le macchine virtuali hanno nomi DNS interni che possono essere risolti solo all'interno della rete virtuale locale. Gli utenti possono tuttavia configurare le macchine virtuali in esecuzione in reti virtuali con peering come server DNS per una rete virtuale.
+
+## Concatenamento dei servizi
+Gli utenti possono configurare tabelle di route definite dall'utente che puntano alle macchine virtuali nelle reti virtuali con peering come indirizzo IP dell'hop successivo, come illustrato nel diagramma più avanti in questo articolo. Ciò consente agli utenti di ottenere il concatenamento dei servizi mediante il quale possono indirizzare il traffico da una rete virtuale a un'appliance virtuale in esecuzione in una rete virtuale con peering, usando le tabelle di route definite dall'utente.
+
+Gli utenti possono anche creare in modo efficace ambienti di tipo hub e spoke in cui l'hub può ospitare componenti dell'infrastruttura, come le appliance di rete virtuale, e tutte le reti virtuali spoke possono eseguire il peering con tali componenti, nonché un subset del traffico alle appliance in esecuzione nella rete virtuale dell'hub. In breve, il peering reti virtuali consente di usare l'indirizzo IP dell'hop successivo nella "tabella di route definita dall'utente" come indirizzo IP di una macchina virtuale, nella rete virtuale con peering.
+
+## Gateway e connettività locale
+Ogni rete virtuale, che ne sia stato eseguito o meno il peering con un'altra rete virtuale, può comunque avere un proprio gateway e usarlo per la connessione locale. Gli utenti possono anche configurare [connessioni da rete virtuale a rete virtuale](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) tramite gateway, anche se è stato eseguito il peering delle reti virtuali.
+
+Quando vengono configurate entrambe le opzioni per la connettività tra reti virtuali, il flusso di traffico tra di esse seguirà la configurazione del peering, ovvero tramite il backbone di Azure.
+
+Quando è stato eseguito il peering delle reti virtuali, gli utenti possono anche configurare il gateway nella rete virtuale con peering come punto di transito all'ambiente locale. In questo caso, la rete virtuale che usa un gateway remoto non può avere un proprio gateway. Una rete virtuale può avere un solo gateway, che può essere locale o remoto (nella rete virtuale con peering), come illustrato nell'immagine seguente.
+
+Il transito gateway non è supportato nella relazione di peering tra reti virtuali che usano il modello di distribuzione Resource Manager e quelle che usano il modello di distribuzione classica. Per il funzionamento del transito gateway, è necessario che entrambe le reti virtuali nella relazione di peering usino il modello di distribuzione Resource Manager.
+
+Quando viene eseguito il peering di reti virtuali che condividono una singola connessione Azure ExpressRoute, il traffico tra di esse passa attraverso la relazione di peering, ovvero tramite la rete backbone di Azure. Gli utenti possono continuare a usare i gateway locali in ogni rete virtuale per connettersi al circuito locale oppure usare un gateway condiviso e configurare il transito per la connettività locale.
+
+![Peering reti virtuali con transito](./media/virtual-networks-peering-overview/figure02.png)
+
+## Provisioning
+Il peering reti virtuali è un'operazione con privilegi. È una funzione separata nello spazio dei nomi VirtualNetworks. È possibile assegnare a un utente diritti specifici per autorizzare il peering. Un utente con accesso in lettura e scrittura alla rete virtuale eredita questi diritti automaticamente.
+
+Un utente amministratore o con privilegi per la funzionalità di peering può avviare un'operazione di peering in un'altra rete virtuale. Se è presente una richiesta di peering corrispondente sull'altro lato e vengono soddisfatti altri requisiti, il peering verrà stabilito.
+
+Per altre informazioni su come stabilire il peering reti virtuali tra due reti virtuali, vedere gli articoli nella sezione "Passaggi successivi".
+
+## Limiti
+Esistono limiti al numero di peering consentiti per una singola rete virtuale. Per altre informazioni, vedere [Limiti relativi alla rete di Azure](../azure-subscription-service-limits.md#networking-limits).
+
+## Prezzi
+Il peering reti virtuali è disponibile gratuitamente durante il periodo di verifica. Dopo il rilascio, al traffico in ingresso e in uscita che usa il peering verrà applicata una tariffa nominale. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/virtual-network).
 
 
+## Passaggi successivi
+- [Creare un peering reti virtuali usando il portale di Azure](virtual-networks-create-vnetpeering-arm-portal.md).
+- Informazioni sui [gruppi di sicurezza di rete](virtual-networks-nsg.md).
+- Informazioni su [route definite dall'utente e inoltro IP](virtual-networks-udr-overview.md).
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0928_2016-->

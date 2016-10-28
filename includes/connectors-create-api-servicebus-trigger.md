@@ -1,17 +1,14 @@
-Here's how to use the **Service Bus - When a message is received in a queue** trigger to initiate a logic app workflow when a new item is sent to a Service Bus queue.  
+Ecco come usare il trigger **Bus di servizio - Quando un messaggio viene ricevuto in una coda** per attivare un flusso di lavoro di app per la logica quando un nuovo elemento viene inviato a una coda del bus di servizio.
 
->[AZURE.NOTE]You will be prompted to sign in with your Service Bus connection string if you have not already created a connection to Service Bus.  
+>[AZURE.NOTE] Verrà richiesto di accedere con la stringa di connessione del bus di servizio, se non è già stata creata una connessione al bus di servizio.
 
-1. In the search box on the logic apps designer, enter **service bus**. Then select the **Service Bus - When a message is received in a queue** trigger.  
-![Service Bus trigger image 1](./media/connectors-create-api-servicebus/trigger-1.png)   
-- The **When a message is received in a queue** dialog box is displayed.  
-![Service Bus trigger image 2](./media/connectors-create-api-servicebus/trigger-2.png)   
-- Enter the name of the Service Bus queue you would like the trigger to monitor.   
-![Service Bus trigger image 3](./media/connectors-create-api-servicebus/trigger-3.png)   
+1. Nella casella di ricerca della finestra di progettazione per le app per la logica immettere **bus di servizio**. Selezionare quindi il trigger **Bus di servizio - Quando un messaggio viene ricevuto in una coda**. 
+![Immagine del trigger di bus di servizio 1](./media/connectors-create-api-servicebus/trigger-1.png)   
+- Viene visualizzata la finestra di dialogo **Quando un messaggio viene ricevuto in una coda**.
+![Immagine del trigger di bus di servizio 2](./media/connectors-create-api-servicebus/trigger-2.png)   
+- Immettere il nome della coda del bus di servizio da monitorare attraverso il trigger.  
+![Immagine del trigger di bus di servizio 3](./media/connectors-create-api-servicebus/trigger-3.png)   
 
-At this point, your logic app has been configured with a trigger. When a new item is received in the queue you selected, the trigger will begin a run of the other triggers and actions in the workflow.    
+A questo punto l'app per la logica è stata configurata con un trigger. Quando viene ricevuto un nuovo elemento nella coda selezionata, il trigger avvierà un'esecuzione degli altri trigger e delle altre azioni nel flusso di lavoro.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

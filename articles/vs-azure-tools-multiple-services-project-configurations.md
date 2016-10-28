@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configuring your Azure project using multiple service configurations | Microsoft Azure"
-   description="Learn how to configure an Azure cloud service project by changing the ServiceDefinition.csdef and ServiceConfiguration.cscfg files."
+   pageTitle="Configurazione del progetto Azure tramite più configurazioni del servizio | Microsoft Azure"
+   description="Informazioni su come configurare un progetto di servizio cloud di Azure modificando i file ServiceDefinition.csdef e ServiceConfiguration.cscfg"
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,104 +15,99 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Configurazione del progetto Azure tramite più configurazioni del servizio
 
-# <a name="configuring-your-azure-project-using-multiple-service-configurations"></a>Configuring Your Azure Project Using Multiple Service Configurations
+Un progetto di servizio cloud di Azure include due file di configurazione: ServiceDefinition.csdef e ServiceConfiguration.cscfg. Questi file sono inclusi nel pacchetto dell'applicazione di servizio cloud di Azure e vengono distribuiti in Azure.
 
-An Azure cloud service project includes two configuration files: ServiceDefinition.csdef and ServiceConfiguration.cscfg. These files are packaged with your Azure cloud service application and deployed to Azure.
+- Il file **ServiceDefinition.csdef** contiene i metadati necessari all'ambiente Azure per i requisiti dell'applicazione del servizio cloud, inclusi i ruoli contenuti. Questo file include anche le impostazioni di configurazione applicabili a tutte le istanze, che possono essere lette in fase di esecuzione mediante l'API di runtime dell'hosting di servizi di Azure. Questo file non può essere aggiornato mentre il servizio è in esecuzione in Azure.
 
-- The **ServiceDefinition.csdef** file contains the metadata that is required by the Azure environment for the requirements of your cloud service application, including what roles it contains. This file also contains configuration settings that apply to all instances. These configuration settings can be read at runtime using the Azure Service Hosting Runtime API. This file cannot be updated while your service is running in Azure.
+- Il file **ServiceConfiguration.cscfg** stabilisce i valori per le impostazioni di configurazione definite nel file di definizione del servizio e specifica il numero di istanze da eseguire per ogni ruolo. Questo file può essere aggiornato mentre il servizio cloud è in esecuzione in Azure.
 
-- The **ServiceConfiguration.cscfg** file sets values for the configuration settings defined in the service definition file and specifies the number of instances to run for each role. This file can be updated while your cloud service is running in Azure.
+Gli strumenti di Azure per Microsoft Visual Studio forniscono le pagine delle proprietà da usare per stabilire le impostazioni di configurazione archiviate in questi file. Per accedere alle pagine delle proprietà, fare doppio clic sul riferimento al ruolo sotto il progetto di servizio cloud di Azure in Esplora soluzioni o fare clic con il pulsante destro del mouse sul riferimento al ruolo e scegliere **Proprietà**, come mostrato nella figura seguente.
 
-The Azure Tools for Microsoft Visual Studio provide property pages that you can use to set configuration settings stored in these files. To access the property pages, double-click the role reference underneath the Azure cloud service project in Solution Explorer, or right-click the role reference and choose **Properties**, as shown in the following figure.
+![VS\_Solution\_Explorer\_Roles\_Properties](./media/vs-azure-tools-multiple-services-project-configurations/IC784076.png)
 
-![VS_Solution_Explorer_Roles_Properties](./media/vs-azure-tools-multiple-services-project-configurations/IC784076.png)
+Per informazioni sugli schemi sottostanti per i file di definizione e di configurazione del servizio, vedere [Guida di riferimento agli schemi](https://msdn.microsoft.com/library/azure/dd179398.aspx). Per ulteriori informazioni sulla configurazione del servizio, vedere [Come configurare i servizi cloud](./cloud-services/cloud-services-how-to-configure.md).
 
-For information about the underlying schemas for the service definition and service configuration files, see the [Schema Reference](https://msdn.microsoft.com/library/azure/dd179398.aspx). For more information about service configuration, see [How to Configure Cloud Services](./cloud-services/cloud-services-how-to-configure.md).
+## Configurazione delle proprietà del ruolo
 
-## <a name="configuring-role-properties"></a>Configuring role properties
+Sebbene le pagine delle proprietà per un ruolo di lavoro e un ruolo Web siano simili, esistono alcune differenze descritte nelle sezioni seguenti.
 
-The property pages for a web role and a worker role are similar, although there are a few differences, pointed out in the following sections.
+Dalla pagina **Caching** è possibile configurare i servizi di caching di Azure.
 
-From the **Caching** page, you can configure the Azure caching services.
+### Pagina Configurazione
 
-### <a name="configuration-page"></a>Configuration page
+Nella pagina **Configurazione** è possibile impostare queste proprietà:
 
-On the **Configuration** page, you can set these properties:
+**Istanze**
 
-**Instances**
+Impostare la proprietà **Conteggio istanze** sul numero di istanze che il servizio deve eseguire per questo ruolo.
 
-Set the **Instance** count property to the number of instances the service should run for this role.
+Impostare la proprietà **Dimensioni macchina virtuale** su **Molto piccola**, **Piccola**, **Media**, **Grande** o **Molto grande**. Per altre informazioni, vedere [Dimensioni dei servizi cloud](./cloud-services/cloud-services-sizes-specs.md).
 
-Set the **VM size** property to **Extra Small**, **Small**, **Medium**, **Large**, or **Extra Large**.  For more information, see [Sizes for Cloud Services](./cloud-services/cloud-services-sizes-specs.md).
+**Azione di avvio** (solo ruolo Web)
 
-**Startup Action** (Web Role Only)
+Impostare questa proprietà per specificare che in Visual Studio deve essere avviato un Web browser per gli endpoint HTTP o HTTPS o entrambi quando si inizia il debug.
 
-Set this property to specify that Visual Studio should launch a web browser for either the HTTP endpoints or the HTTPS endpoints, or both when you start debugging.
+L'opzione Endpoint HTTPS è disponibile solo se è già stato definito un endpoint HTTPS per il ruolo. È possibile definire un endpoint HTTPS nella pagina delle proprietà **Endpoint**.
 
-The HTTPS endpoint option is available only if you have already defined an HTTPS endpoint for your role. You can define an HTTPS endpoint on the **Endpoints** property page.
+Se è già stato aggiunto un endpoint HTTPS, l'opzione Endpoint HTTPS è abilitata per impostazione predefinita e Visual Studio avvierà un browser per questo endpoint quando si inizia il debug, in aggiunta a un browser per l'endpoint HTTP. Ciò presuppone che siano abilitate entrambe le opzioni di avvio.
 
-If you have already added an HTTPS endpoint, the HTTPS endpoint option is enabled by default, and Visual Studio will launch a browser for this endpoint when you start debugging, in addition to a browser for your HTTP endpoint. This assumes that both startup options are enabled.
+**Diagnostica**
 
-**Diagnostics**
+Per impostazione predefinita, la diagnostica è abilitata per il ruolo Web. Il progetto di servizio cloud di Azure e l'account di archiviazione sono impostati per usare l'emulatore di archiviazione locale. Quando si è pronti a effettuare la distribuzione in Azure, è possibile selezionare il pulsante del generatore (**…**) per aggiornare l’account di archiviazione in modo da utilizzare l’archiviazione di Azure nel cloud. È possibile trasferire i dati di diagnostica nell'account di archiviazione a richiesta o a intervalli pianificati automaticamente. Per altre informazioni sulla diagnostica di Azure, vedere [Abilitazione della diagnostica nei servizi cloud e nelle macchine virtuali di Azure](./cloud-services/cloud-services-dotnet-diagnostics.md).
 
-By default, diagnostics is enabled for the Web role. The Azure cloud service project and storage account are set to use the local storage emulator. When you are ready to deploy to Azure, you can select the builder button (**…**) to update the storage account to use Azure storage in the cloud. You can transfer the diagnostics data to the storage account on demand or at automatically scheduled intervals. For more information about Azure diagnostics, see [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](./cloud-services/cloud-services-dotnet-diagnostics.md).
+## Pagina Impostazioni
 
-## <a name="settings-page"></a>Settings page
+Nella pagina **Impostazioni** è possibile aggiungere le impostazioni di configurazione per il servizio. Tali impostazioni sono coppie nome/valore. Il codice che è in esecuzione nel ruolo può leggere i valori delle impostazioni di configurazione in fase di esecuzione usando le classi fornite dalla [Libreria gestita di Azure](http://go.microsoft.com/fwlink?LinkID=171026). In particolare, il metodo [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx) restituisce il valore di un'impostazione di configurazione denominata in fase di esecuzione.
 
-On the **Settings** page, you can add configuration settings for your service. Configuration settings are name-value pairs. Code running in the role can read the values of your configuration settings at runtime using classes provided by the [Azure Managed Library](http://go.microsoft.com/fwlink?LinkID=171026). Specifically, the [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx) method returns the value of a named configuration setting at runtime.
+### Configurazione di una stringa di connessione in un account di archiviazione
 
-### <a name="configuring-a-connection-string-to-a-storage-account"></a>Configuring a connection string to a storage account
+Una stringa di connessione è un'impostazione di configurazione che fornisce informazioni di connessione e autenticazione per l'emulatore di archiviazione o per un account di archiviazione di Azure. Quando il codice deve accedere ai dati dei servizi di archiviazione di Azure, ovvero i dati BLOB, della coda o della tabella, dal codice in esecuzione in un ruolo, sarà necessario definire una stringa di connessione per l'account di archiviazione.
 
-A connection string is a configuration setting that provides connection and authentication information for the storage emulator or for an Azure storage account. Whenever your code must access Azure storage services data – that is, blob, queue, or table data – from code running in a role, you will have to define a connection string for that storage account.
+Una stringa di connessione che punta a un account di archiviazione di Azure deve essere in un formato definito. Per informazioni sulla creazione di stringhe di connessione, vedere [Configurazione delle stringhe di connessione di Archiviazione di Azure](./storage/storage-configure-connection-string.md).
 
-A connection string that points to an Azure storage account must use a defined format. For information about how to create connection strings, see [Configure Azure Storage Connection Strings](./storage/storage-configure-connection-string.md).
+Quando si è pronti a testare il servizio rispetto ai servizi di archiviazione di Azure o a distribuire il servizio cloud in Azure, è possibile modificare il valore di qualsiasi stringa di connessione in modo che punti all'account di archiviazione di Azure. Selezionare (**…**), quindi **Immettere le credenziali dell'account di archiviazione**. Immettere le informazioni sull'account, inclusi il nome e la chiave dell'account. Nella finestra di dialogo **Stringa di connessione a account di archiviazione** è possibile indicare anche se si vogliono usare gli endpoint HTTPS predefiniti (opzione predefinita), gli endpoint HTTP predefiniti o gli endpoint personalizzati. Se si è registrato un nome di dominio personalizzato per il servizio, è possibile scegliere di usare endpoint personalizzati, come descritto in [Configurare un nome di dominio personalizzato per i dati BLOB in un account di archiviazione di Azure](./storage/storage-custom-domain-name.md).
 
-When you are ready to test your service against the Azure storage services, or when you are ready to deploy your cloud service to Azure, you can change the value of any connection strings to point to your Azure storage account. Select (**…**), select **Enter storage account credentials**. Enter your account information that includes your account name and account key. In the **Storage Account Connection String** dialog box, you can also indicate whether you want to use the default HTTPS endpoints (the default option), the default HTTP endpoints, or custom endpoints. You might decide to use custom endpoints if you have registered a custom domain name for your service, as described in [Configure a custom domain name for blob data in an Azure storage account](./storage/storage-custom-domain-name.md).
+>[AZURE.IMPORTANT] È necessario modificare le stringhe di connessione affinché puntino a un account di archiviazione di Azure prima di distribuire il servizio. Se non si esegue questa operazione, il ruolo potrebbe non essere avviato oppure potrebbe non passare per gli stati di inizializzazione, occupato e arresto.
 
->[AZURE.IMPORTANT] You must modify your connection strings to point to an Azure storage account before you deploy your service. Failing to do this may cause your role not to start, or to cycle through the initializing, busy, and stopping states.
+## Pagina Endpoint
 
-## <a name="endpoints-page"></a>Endpoints page
+Un ruolo di lavoro può disporre di qualsiasi numero di endpoint HTTP, HTTPS o TCP. Gli endpoint possono essere endpoint di input, disponibili a client esterni, o endpoint interni, disponibili ad altri ruoli in esecuzione nel servizio.
 
-A worker role can have any number of HTTP, HTTPS, or TCP endpoints. Endpoints can be input endpoints, which are available to external clients, or internal endpoints, which are available to other roles that are running in the service.
+- Per rendere un endpoint HTTP disponibile a client esterni e Web browser, cambiare il tipo di endpoint in input e specificare un nome e un numero di porta pubblico.
 
-- To make an HTTP endpoint available to external clients and Web browsers, change the endpoint type to input, and specify a name and a public port number.
+- Per rendere un endpoint HTTPS disponibile a client esterni e Web browser, cambiare il tipo di endpoint in **input** e specificare un nome, un numero di porta pubblico e un nome di certificato di gestione.
 
-- To make an HTTPS endpoint available to external clients and Web browsers, change the endpoint type to **input**, and specify a name, a public port number, and a management certificate name.
+    Si noti che prima di poter specificare un certificato di gestione, è necessario definire il certificato nella pagina delle proprietà **Certificati**.
 
-    Note that before you can specify a management certificate, you must define the certificate on the **Certificates** property page.
+- Per rendere un endpoint disponibile per l'accesso interno da parte di altri ruoli nel servizio cloud, cambiare il tipo di endpoint in interno e specificare un nome e le possibili porte private per questo endpoint.
 
-- To make an endpoint available for internal access by other roles in the cloud service, change the endpoint type to internal, and specify a name and possible private ports for this endpoint.
+## Pagina Archiviazione locale
 
-## <a name="local-storage-page"></a>Local storage page
+È possibile usare la pagina delle proprietà **Archiviazione locale** per riservare una o più risorse di archiviazione locali per un ruolo. Una risorsa di archiviazione locale è una directory riservata nel file system della macchina virtuale di Azure in cui è eseguita un'istanza di un ruolo.
 
-You can use the **Local Storage** property page to reserve one or more local storage resources for a role. A local storage resource is a reserved directory in the file system of the Azure virtual machine in which an instance of a role is running.
+## Pagina Certificati
 
-## <a name="certificates-page"></a>Certificates page
+Nella pagina **Certificati** è possibile associare certificati al ruolo. I certificati che si aggiungono possono essere usati per configurare gli endpoint HTTPS nella pagina delle proprietà **Endpoint**.
 
-On the **Certificates** page, you can associate certificates with your role. The certificates that you add can be used to configure your HTTPS endpoints on the **Endpoints** property page.
+La pagina delle proprietà **Certificati** consente di aggiungere informazioni sui certificati alla configurazione del servizio. Si noti che i certificati non sono inclusi nel servizio. È necessario caricarli separatamente in Azure usando il [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-The **Certificates** property page adds information about your certificates to your service configuration. Note that your certificates are not packaged with your service; you must upload your certificates separately to Azure through the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+Per associare un certificato al ruolo, fornire un nome per il certificato. Questo nome sarà usato per fare riferimento al certificato quando si configura un endpoint HTTPS nella pagina delle proprietà **Endpoint**. Specificare quindi se l'archivio certificati è **Computer locale** o **Utente corrente** e il nome dell'archivio. Infine, immettere l'identificazione personale del certificato. Se il certificato si trova nell'archivio Utente corrente\\Personale, è possibile immettere l'identificazione personale del certificato selezionandolo da un elenco popolato. Se si trova in qualsiasi altro percorso, immettere manualmente il valore dell'identificazione personale.
 
-To associate a certificate with your role, provide a name for the certificate. You use this name to refer to the certificate when you configure an HTTPS endpoint on the **Endpoints** property page. Next, specify whether the certificate store is **Local Machine** or **Current User** and the name of the store. Finally, enter the certificate's thumbprint. If the certificate is in the Current User\Personal (My) store, you can enter the certificate's thumbprint by selecting the certificate from a populated list. If it resides in any other location, enter the thumbprint value by hand.
+Quando si aggiunge un certificato dall'archivio certificati, qualsiasi certificato intermedio viene aggiunto automaticamente alle impostazioni di configurazione. Anche questi certificati intermedi devono essere caricati in Azure al fine di configurare correttamente il servizio per SSL.
 
-When you add a certificate from the certificate store, any intermediate certificates are automatically added to the configuration settings for you. These intermediate certificates must also be uploaded to Azure in order to correctly configure your service for SSL.
+Qualsiasi certificato di gestione associato al servizio si applica al servizio solo quando è in esecuzione nel cloud. Quando il servizio è in esecuzione nell'ambiente di sviluppo locale, viene usato un certificato standard gestito dall'emulatore di calcolo.
 
-Any management certificates that you associate with your service apply to your service only when it is running in the cloud. When your service is running in the local development environment, it uses a standard certificate that is managed by the compute emulator.
+## Configurazione del progetto di servizio cloud di Azure
 
-## <a name="configuring-the-azure-cloud-service-project"></a>Configuring the Azure cloud service project
+Per configurare le impostazioni di un intero progetto di servizio cloud di Azure, aprire prima di tutto il menu di scelta rapida del nodo del progetto e scegliere Proprietà per aprire le pagine delle proprietà. La tabella seguente mostra le pagine delle proprietà.
 
-To configure settings that apply to an entire Azure cloud service project, you first open the shortcut menu for that project node, and then you choose Properties to open its property pages. The following table shows those property pages.
-
-|Property Page|Description|
+|Pagina Proprietà|Descrizione|
 |---|---|
-|Application|From this page, you can display information about the version of Azure Tools that this cloud service project uses, and you can upgrade to the current version of the tools.|
-|Build Events|From this page, you can set pre-build and post-build events.|
-|Development|From this page, you can specify build configuration instructions and the conditions under which any post-build events are run.|
-|Web|From this page, you can configure settings that relate to the web server.|
+|Applicazione|In questa pagina sono visualizzate le informazioni sulla versione di Strumenti di Azure usata da questo progetto di servizio cloud. È inoltre possibile eseguire l'aggiornamento alla versione corrente degli strumenti.|
+|Eventi di compilazione|In questa pagina è possibile impostare gli eventi di pre-compilazione e di post-compilazione.|
+|Sviluppo|In questa pagina è possibile specificare le istruzioni per la configurazione della compilazione e le condizioni in cui sono eseguiti gli eventi di post-compilazione.|
+|Web|In questa pagina è possibile configurare le impostazioni che sono correlate al server Web.|
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

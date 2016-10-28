@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Introduction to Microsoft Azure log integration | Microsoft Azure"
-   description="Learn about Azure log integration, its key capabilities, and how it works."
+   pageTitle="Introduzione all'integrazione dei log di Microsoft Azure | Microsoft Azure"
+   description="Informazioni sull'integrazione dei log di Azure, le funzionalità principali e il funzionamento."
    services="security"
    documentationCenter="na"
    authors="TomShinder"
    manager="MBaldwin"
-   editor="TerryLanfear"/>
+   editor="TerryLanfear"/> 
 
 <tags
    ms.service="security"
@@ -14,48 +14,43 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2016"
-   ms.author="TomSh"/>
+   ms.author="TomSh"/> 
 
+# Introduzione all'integrazione dei log di Microsoft Azure (Anteprima)
 
-# <a name="introduction-to-microsoft-azure-log-integration-(preview)"></a>Introduction to Microsoft Azure log integration (Preview)
+Informazioni sull'integrazione dei log di Azure, le funzionalità principali e il funzionamento.
 
-Learn about Azure log integration, its key capabilities, and how it works.
+## Overview
 
-## <a name="overview"></a>Overview
+I servizi PaaS (Platform as a Service, piattaforma distribuita come servizio) e IaaS (Infrastructure as a Service, infrastruttura distribuita come servizio) ospitati in Azure generano una grande quantità di dati nei log di sicurezza. Questi log contengono dati importanti che possono fornire informazioni utili e approfondite sulle violazioni dei criteri, le minacce interne ed esterne, i problemi di conformità alle normative e le anomalie della rete, dell'host e dell'attività dell'utente.
 
-Platform as a Service (PaaS) and Infrastructure as a Service (IaaS) hosted in Azure generate a large amount of data in security logs. These logs contain vital information that can provide intelligence and powerful insights into policy violations, internal and external threats, regulatory compliance issues, and anomalies in network, host, and user activity.
+L'integrazione dei log di Azure consente di integrare log non elaborati delle risorse di Azure nei sistemi di gestione di informazioni ed eventi di sicurezza locali. L'integrazione dei log di Azure raccoglie i dati della Diagnostica di Azure dalle macchine virtuali Windows *(WAD)* e anche i dati diagnostici dalle soluzioni dei partner come Web Application Firewall (WAF). Questa integrazione fornisce un dashboard unificato per tutti gli asset, locali o su cloud, consentendo di aggregare, correlare, analizzare e inviare avvisi per gli eventi di sicurezza.
 
-Azure log integration enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems. Azure log integration collects Azure Diagnostics from your Windows *(WAD)* virtual machines, as well as diagnostics from partner solutions such as a Web Application Firewall (WAF). This integration provides a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events.
+![Integrazione dei log di Azure][1] 
 
-![Azure log integration][1]
+## Quali log è possibile integrare?
 
-## <a name="what-logs-can-i-integrate?"></a>What logs can I integrate?
+Azure produce registrazioni complete per ogni servizio di Azure. I log sono classificati in due tipi principali:
 
-Azure produces extensive logging for every Azure service. These logs are categorized by two main types:
+- **Log di gestione/controllo**, che offrono visibilità sulle operazioni CREATE, UPDATE e DELETE di Azure Resource Manager. I log di controllo di Azure sono un esempio di questo tipo di log.
+- **Log del piano dati**, che offrono visibilità sugli eventi generati come parte dell'uso di una risorsa di Azure. Esempi di questi tipi di log sono rappresentati dal registro di sistema di Windows, dai log di sicurezza e delle applicazioni di una macchina virtuale.
 
-- **Control/management logs**, which give visibility into the Azure Resource Manager CREATE, UPDATE, and DELETE operations. Azure Audit Logs is an example of this type of log.
-- **Data plane logs**, which give visibility into the events raised as part of the usage of an Azure resource. Examples of this type of log are the Windows event System, Security, and Application logs in a virtual machine.
+L'integrazione dei log di Azure supporta attualmente l'integrazione dei log di controllo di Azure, dei log delle macchine virtuali e degli avvisi del Centro sicurezza di Azure.
 
-Azure log integration currently supports integration of Azure Audit Logs, virtual machine logs, and Azure Security Center alerts.
+In caso di domande sull'integrazione dei log di Azure, inviare un messaggio di posta elettronica all'indirizzo [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
 
-If you have questions about Azure Log Integration, please send an email to [AzSIEMteam@microsoft.com] (mailto:AzSIEMteam@microsoft.com)
+## Passaggi successivi
 
-## <a name="next-steps"></a>Next steps
+In questo documento è stata presentata l'integrazione dei log di Azure. Per altre informazioni sull'integrazione dei log di Azure e sui tipi di log supportati, vedere gli argomenti seguenti:
 
-In this document, you were introduced to Azure log integration. To learn more about Azure log integration and the types of logs supported, see the following:
+- [Integrazione dei log di Microsoft Azure per i log di Azure (Anteprima)](https://www.microsoft.com/download/details.aspx?id=53324) – Area download per informazioni dettagliate, requisiti di sistema e istruzioni di installazione sull'integrazione dei log di Azure.
+- [Introduzione all'integrazione dei log di Azure](security-azure-log-integration-get-started.md) - Questa esercitazione illustra come installare l'integrazione dei log di Azure e integrare i log dall'archiviazione di Azure, i log di controllo di Azure e gli avvisi del Centro sicurezza.
+- [Passaggi per la configurazione dei partner](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) – Questo post di blog mostra come configurare l'integrazione dei log di Azure per lavorare con le soluzioni partner Splunk, HP ArcSight e IBM QRadar.
+- [Domande frequenti sull'integrazione dei log di Azure](security-azure-log-integration-faq.md) - Queste domande frequenti riguardano l'integrazione dei log di Azure.
+- [Integrazione degli avvisi del Centro sicurezza con l'integrazione dei log di Azure](../security-center/security-center-integrating-alerts-with-log-integration.md) - Questo documento mostra come sincronizzare gli avvisi del Centro sicurezza di Azure, insieme agli eventi di sicurezza delle macchine virtuali raccolti da Diagnostica di Azure e dai log di controllo di Azure, con la propria soluzione SIEM o di analisi dei log.
+- [Nuove funzionalità per Diagnostica di Azure e i log di controllo di Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) - Questo post di blog presenta i log di controllo di Azure e altre funzionalità che consentono di ottenere informazioni dettagliate sulle operazioni delle risorse di Azure.
 
-- [Microsoft Azure Log Integration for Azure logs (Preview)](https://www.microsoft.com/download/details.aspx?id=53324) – Download Center for details, system requirements, and install instructions on Azure log integration.
-- [Get started with Azure log integration](security-azure-log-integration-get-started.md) - This tutorial walks you through installation of Azure log integration and integrating logs from Azure storage, Azure Audit Logs, and Security Center alerts.
-- [Partner configuration steps](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) – This blog post shows you how to configure Azure log integration to work with partner solutions Splunk, HP ArcSight, and IBM QRadar.
-- [Azure log Integration frequently asked questions (FAQ)](security-azure-log-integration-faq.md) - This FAQ answers questions about Azure log integration.
-- [Integrating Security Center alerts with Azure log Integration](../security-center/security-center-integrating-alerts-with-log-integration.md) – This document shows you how to sync Security Center alerts, along with virtual machine security events collected by Azure Diagnostics and Azure Audit Logs, with your log analytics or SIEM solution.
-- [New features for Azure diagnostics and Azure Audit Logs](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) – This blog post introduces you to Azure Audit Logs and other features that help you gain insights into the operations of your Azure resources.
-
-<!--Image references-->
+<!--Image references--> 
 [1]: ./media/security-azure-log-integration-overview/azure-log-integration.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

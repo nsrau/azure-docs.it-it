@@ -1,6 +1,6 @@
 <properties
-   pageTitle="View deployment operations with PowerShell | Microsoft Azure"
-   description="Describes how to use the Azure PowerShell to detect issues from Resource Manager deployment."
+   pageTitle="Visualizzare le operazioni di distribuzione con PowerShell | Microsoft Azure"
+   description="Questo articolo descrive come usare Azure PowerShell per rilevare i problemi relativi alla distribuzione di Resource Manager."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
    tags="top-support-issue"
@@ -17,28 +17,27 @@
    ms.date="06/14/2016"
    ms.author="tomfitz"/>
 
-
-# <a name="view-deployment-operations-with-azure-powershell"></a>View deployment operations with Azure PowerShell
+# Visualizzare le operazioni di distribuzione con Azure PowerShell
 
 > [AZURE.SELECTOR]
-- [Portal](resource-manager-troubleshoot-deployments-portal.md)
+- [Portale](resource-manager-troubleshoot-deployments-portal.md)
 - [PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
-- [Azure CLI](resource-manager-troubleshoot-deployments-cli.md)
-- [REST API](resource-manager-troubleshoot-deployments-rest.md)
+- [Interfaccia della riga di comando di Azure](resource-manager-troubleshoot-deployments-cli.md)
+- [API REST](resource-manager-troubleshoot-deployments-rest.md)
 
-You can view the operations for a deployment through the Azure PowerShell. You may be most interested in viewing the operations when you have received an error during deployment so this article focuses on viewing operations that have failed. PowerShell provides cmdlets that enable you to easily find the errors and determine potential fixes.
+È possibile visualizzare le operazioni per una distribuzione tramite Azure PowerShell. È possibile che si sia più interessati a visualizzare le operazioni quando si riceve un errore durante la distribuzione, quindi questo articolo è incentrato sulla visualizzazione delle operazioni non riuscite. PowerShell fornisce cmdlet che consentono di trovare facilmente gli errori e determinare le potenziali correzioni.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
-You can avoid some errors by validating your template and infrastructure prior to deployment. You can also log additional request and response information during deployment that may be helpful later for troubleshooting. To learn about validating, and logging request and response information, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
+È possibile evitare alcuni errori convalidando il modello e l'infrastruttura prima della distribuzione. Durante la distribuzione è inoltre possibile registrare ulteriori informazioni su richieste e risposte potenzialmente utili per la risoluzione di eventuali problemi successivi. Per ulteriori informazioni sulla convalida e su come registrare informazioni di richiesta e risposta, vedere come [distribuire un gruppo di risorse con il modello di Azure Resource Manager](resource-group-template-deploy.md).
 
-## <a name="use-deployment-operations-to-troubleshoot"></a>Use deployment operations to troubleshoot
+## Usare le operazioni di distribuzione per risolvere i problemi
 
-1. To get the overall status of a deployment, use the **Get-AzureRmResourceGroupDeployment** command. You can filter the results for only those deployments that have failed.
+1. Per ottenere lo stato complessivo di una distribuzione, usare il comando **Get-AzureRmResourceGroupDeployment**. È possibile filtrare i risultati per visualizzare solo le distribuzioni con esito negativo.
 
         Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
         
-    Which returns the failed deployments in the following format:
+    Il comando restituisce le distribuzioni con esito negativo nel formato seguente:
         
         DeploymentName          : Microsoft.Template
         ResourceGroupName       : ExampleGroup
@@ -66,11 +65,11 @@ You can avoid some errors by validating your template and infrastructure prior t
         Outputs                 :
         DeploymentDebugLogLevel :
 
-2. Each deployment is usually made up of multiple operations, with each operation representing a step in the deployment process. To discover what went wrong with a deployment, you usually need to see details about the deployment operations. You can see the status of the operations with **Get-AzureRmResourceGroupDeploymentOperation**.
+2. Ciascuna distribuzione in genere è costituita da più operazioni, ognuna delle quali rappresenta un passaggio del processo di distribuzione. Per individuare eventuali problemi, solitamente è necessario visualizzare i dettagli relativi alle operazioni di distribuzione. Per visualizzare lo stato delle operazioni, usare il comando **Get-AzureRmResourceGroupDeploymentOperation**.
 
         Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName Microsoft.Template
         
-    Which returns multiple operations with each one in the following format:
+    Che restituisce più operazioni, ognuna nel formato seguente:
         
         Id             : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/A3EB2DA598E0A780
         OperationId    : A3EB2DA598E0A780
@@ -80,11 +79,11 @@ You can avoid some errors by validating your template and infrastructure prior t
         PropertiesText : {duration:PT23.0227078S, provisioningOperation:Create, provisioningState:Succeeded,
                          serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
 
-3. To get more details about failed operations, retrieve the properties for operations with **Failed** state.
+3. Per ottenere altre informazioni sulle operazioni non riuscite, recuperare le proprietà per le operazioni con stato **Non riuscita**.
 
         (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
         
-    Which returns all of the failed operations with each one in the following format:
+    Che restituisce tutte le operazioni non riuscite, ognuna nel formato seguente:
         
         provisioningOperation : Create
         provisioningState     : Failed
@@ -98,42 +97,41 @@ You can avoid some errors by validating your template and infrastructure prior t
                                 Microsoft.Network/publicIPAddresses/myPublicIP;
                                 resourceType=Microsoft.Network/publicIPAddresses; resourceName=myPublicIP}
 
-    Note the tracking ID for the operation. You will use that in the next step to focus on a particular operation.
+    Prendere nota dell'ID di traccia dell'operazione. Verrà usato nel passaggio successivo per concentrarsi su un'operazione particolare.
 
-4. To get the status message of a particular failed operation, use the following command:
+4. Per ottenere il messaggio di stato di un'operazione non riuscita particolare, usare il comando seguente:
 
         ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
         
-    Which returns:
+    Che restituisce:
         
         code           message                                                                        details
         ----           -------                                                                        -------
         DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
 
-## <a name="use-audit-logs-to-troubleshoot"></a>Use audit logs to troubleshoot
+## Usare i log di controllo per risolvere i problemi
 
 [AZURE.INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
 
-To see errors for a deployment, use the following steps:
+Per visualizzare gli errori per una distribuzione, seguire questa procedura:
 
-1. To retrieve log entries, run the **Get-AzureRmLog** command. You can use the **ResourceGroup** and **Status** parameters to return only events that failed for a single resource group. If you do not specify a start and end time, entries for the last hour are returned.
-For example, to retrieve the failed operations for the past hour run:
+1. Per recuperare le voci di log, eseguire il comando **Get-AzureRmLog**. È possibile usare i parametri **ResourceGroup** e **Status** per restituire solo gli eventi non riusciti per un singolo gruppo di risorse. Se non si specifica un'ora di inizio e fine, vengono restituite le voci per l'ultima ora. Ad esempio, per recuperare le operazioni non riuscite per l'ultima ora, eseguire:
 
         Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
 
-    You can specify a particular timespan. In the next example, we'll look for failed actions for the last day. 
+    È possibile specificare un determinato intervallo di tempo. Nell'esempio successivo si cercheranno le azioni non riuscite del giorno precedente.
 
         Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-1) -Status Failed
       
-    Or, you can set an exact start and end time for failed actions:
+    In alternativa, è possibile impostare un'ora di inizio e di fine specifica per le azioni con esito negativo:
 
         Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00 -Status Failed
 
-2. If this command returns too many entries and properties, you can focus your auditing efforts by retrieving the **Properties** property. We'll also include the **DetailedOutput** parameter to see the error messages.
+2. Se questo comando restituisce troppe voci e proprietà, è possibile concentrare le attività di controllo recuperando la proprietà **Properties**. Per vedere i messaggi di errore, si includerà anche il parametro **DetailedOutput**.
 
         (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-1) -DetailedOutput).Properties
         
-    Which returns properties of the log entries in the following format:
+    Il comando restituisce le proprietà delle voci del log nel formato seguente:
         
         Content
         -------
@@ -141,11 +139,11 @@ For example, to retrieve the failed operations for the past hour run:
         {[statusCode, BadRequest], [statusMessage, {"error":{"code":"DnsRecordInUse","message":"DNS record dns.westus.clouda...
         {[statusCode, BadRequest], [serviceRequestId, a426f689-5d5a-448d-a2f0-9784d14c900a], [statusMessage, {"error":{"code...
 
-3. Based on these results, let's focus on the second element. You can further refine the results by looking at the status message for that entry.
+3. In base a questi risultati, si passerà all'osservazione del secondo elemento. È possibile limitare i risultati esaminando il messaggio di stato per una voce.
 
         ((Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput -StartTime (Get-Date).AddDays(-1)).Properties[1].Content["statusMessage"] | ConvertFrom-Json).error
         
-    Which returns:
+    Che restituisce:
         
         code           message                                                                        details
         ----           -------                                                                        -------
@@ -153,15 +151,10 @@ For example, to retrieve the failed operations for the past hour run:
 
 
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-- For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
-- To learn about using the audit logs to monitor other types of actions, see [Audit operations with Resource Manager](resource-group-audit.md).
-- To validate your deployment prior to executing it, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
+- Per informazioni sulla risoluzione di errori di distribuzione specifici, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
+- Per informazioni sull'uso dei log di controllo per monitorare altri tipi di azioni, vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
+- Per convalidare la distribuzione prima di eseguirla vedere [Distribuire le risorse con i modelli di Azure Resource Manager](resource-group-template-deploy.md).
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0622_2016-->

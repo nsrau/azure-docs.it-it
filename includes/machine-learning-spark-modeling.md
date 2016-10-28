@@ -1,10 +1,8 @@
 > [AZURE.SELECTOR]
-- [Overview & Setup](../articles/machine-learning-data-science-spark-overview.md)
-- [Data Exploration and Modeling](../articles/machine-learning/machine-learning-data-science-spark-data-exploration-modeling.md)
-- [Scoring & Consumption](../articles/machine-learning/machine-learning-data-science-spark-model-consumption.md)
-- [Advanced Modeling](../articles/machine-learning/machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
-- [Data Science with Scala](../articles/machine-learning/machine-learning-data-science-process-scala-walkthrough.md)
+- [Panoramica e configurazione](../articles/machine-learning-data-science-spark-overview.md)
+- [Esplorazione e modellazione dei dati](../articles/machine-learning/machine-learning-data-science-spark-data-exploration-modeling.md)
+- [Assegnazione dei punteggi e consumo](../articles/machine-learning/machine-learning-data-science-spark-model-consumption.md)
+- [Modellazione avanzata](../articles/machine-learning/machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
+- [Analisi scientifica dei dati con Scala](../articles/machine-learning/machine-learning-data-science-process-scala-walkthrough.md)
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

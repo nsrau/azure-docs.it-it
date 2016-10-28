@@ -1,6 +1,6 @@
 <properties
-pageTitle="How to delete an HDInsight cluster | Azure"
-description="Information on the various ways that you can delete an HDInsight cluster."
+pageTitle="Come eliminare un cluster HDInsight | Azure"
+description="Informazioni sui vari modi per eliminare un cluster HDInsight."
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
@@ -16,41 +16,36 @@ ms.workload="big-data"
 ms.date="08/09/2016"
 ms.author="larryfr"/>
 
+#Come eliminare un cluster HDInsight
 
-#<a name="how-to-delete-an-hdinsight-cluster"></a>How to delete an HDInsight cluster
+La fatturazione del cluster HDInsight è calcolata al minuto, inizia dopo che il cluster è stato creato e termina quando il cluster viene eliminato, perciò è sempre opportuno eliminare un cluster quando non lo si usa più. In questo documento si apprenderà come eliminare un cluster tramite il portale di Azure, Azure PowerShell e l’interfaccia della riga di comando di Azure.
 
-HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted and is pro-rated per minute, so you should always delete your cluster when it is no longer in use. In this document, you will learn how to delete a cluster using the Azure Portal, Azure PowerShell, and the Azure CLI.
+> [AZURE.IMPORTANT] L'eliminazione di un cluster HDInsight non comporta l'eliminazione degli account di archiviazione di Azure associati al cluster. Ciò consente di mantenere e riutilizzare i dati archiviati dal cluster.
 
-> [AZURE.IMPORTANT] Deleting an HDInsight cluster does not delete the Azure Storage account(s) associated with the cluster. This allows you to preserve and reuse any data stored by the cluster.
+##Portale di Azure
 
-##<a name="azure-portal"></a>Azure Portal
+1. Eseguire l’accesso al [portale di Azure](https://portal.azure.com) e selezionare il cluster HDInsight. Se il cluster HDInsight non è stato bloccato sul dashboard, è possibile cercarlo per nome usando il campo Cerca (icona della lente di ingrandimento) sul lato destro della barra di spostamento.
 
-1. Login to the [Azure portal](https://portal.azure.com) and select your HDInsight cluster. If your HDInsight cluster is not pinned to the dashboard, you can search for it by name using the search field (magnifying glass icon,) on the right side of the navigation bar.
+    ![ricerca nel portale](./media/hdinsight-delete-cluster/navbar.png)
 
-    ![portal search](./media/hdinsight-delete-cluster/navbar.png)
+2. Dopo che il pannello si è aperto, selezionare l’icona __Elimina__. Quando richiesto, selezionare __Sì__ per eliminare il cluster.
 
-2. Once the blade opens for the cluster, select the __Delete__ icon. When prompted, select __Yes__ to delete the cluster.
+    ![icona di eliminazione](./media/hdinsight-delete-cluster/deletecluster.png)
 
-    ![delete icon](./media/hdinsight-delete-cluster/deletecluster.png)
+##Azure PowerShell
 
-##<a name="azure-powershell"></a>Azure PowerShell
-
-From a PowerShell prompt, use the following command to delete the cluster:
+Da un prompt di PowerShell, usare il comando seguente per eliminare il cluster:
 
     Remove-AzureRmHDInsightCluster -ClusterName CLUSTERNAME
 
-Replace __CLUSTERNAME__ with the name of your HDInsight cluster.
+Sostituire __CLUSTERNAME__ con il nome del cluster HDInsight.
 
-##<a name="azure-cli"></a>Azure CLI
+##Interfaccia della riga di comando di Azure
 
-From a prompt, use the following to delete the cluster:
+Da un prompt, usare il comando seguente per eliminare il cluster:
 
     azure hdinsight cluster delete CLUSTERNAME
     
-Replace __CLUSTERNAME__ with the name of your HDInsight cluster.
+Sostituire __CLUSTERNAME__ con il nome del cluster HDInsight.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

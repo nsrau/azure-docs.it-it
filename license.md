@@ -1,11 +1,7 @@
-Copyright (c) Microsoft Corporation.  Distributed under the following terms:
+﻿Copyright (c) Microsoft Corporation.  Distribuito ai sensi delle seguenti condizioni:
  
-1. Microsoft and any contributors to this project each grants you a license, under its respective copyrights, to the Microsoft Azure Documentation under the [Creative Commons Attribution 3.0 United States License](http://creativecommons.org/licenses/by/3.0/us/legalcode).  In addition, with respect to any sample code contained in the documentation, Microsoft and any such contributors grants you an additional license, under its respective intellectual property rights, to use the code to develop or design your software for Microsoft Azure.
+1. Microsoft e i collaboratori a questo progetto concedono singolarmente al licenziatario una licenza, in conformità ai rispettivi copyright, relativamente alla Documentazione di Microsoft Azure ai sensi della [Licenza Creative Commons - Attribuzione 3.0 Stati Uniti](http://creativecommons.org/licenses/by/3.0/us/legalcode).  Inoltre, relativamente a un qualsiasi codice campione contenuto nella documentazione, Microsoft e i suddetti collaboratori concedono al licenziatario una licenza aggiuntiva, ai sensi dei rispettivi diritti di proprietà intellettuale, di utilizzare il codice per sviluppare o progettare il proprio software per Microsoft Azure.
  
-2.  Microsoft, Windows, Microsoft Azure and/or other Microsoft products and services referenced in the documentation may be either trademarks or registered trademarks of Microsoft in the United States and/or other countries. This license does not grant you rights to use any names, logos, or trademarks. For Microsoft’s general trademark guidelines, go to [http://go.microsoft.com/fwlink/?LinkID=254653](http://go.microsoft.com/fwlink/?LinkID=254653).
+2.  Microsoft, Windows, Microsoft Azure e/o altri prodotti e servizi Microsoft cui si fa riferimento nella documentazione possono essere marchi o marchi registrati di Microsoft negli Stati Uniti e/o in altri paesi. La presente licenza non concede al licenziatario il diritto di utilizzare alcun nome, logo o marchio. Per consultare le linee guida generali relative ai marchi Microsoft, il licenziatario potrà visitare l’indirizzo [http://go.microsoft.com/fwlink/?LinkID=254653](http://go.microsoft.com/fwlink/?LinkID=254653).
  
-3.  Microsoft and any contributors reserves all others rights, whether under copyrights, patents, or trademarks, or by implication, estoppel or otherwise.
-
-<!--HONumber=Oct16_HO2-->
-
-
+3.  Microsoft e i collaboratori si riservano tutti gli altri diritti, concessi sia ai sensi di copyright, brevetti o marchi che tacitamente, per preclusione o per qualsivoglia altro motivo.

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Common FabricClient exceptions thrown | Microsoft Azure"
-   description="Describes the common exceptions and errors which can be thrown by the FabricClient APIs while performing application and cluster management operations."
+   pageTitle="Eccezioni FabricClient comuni | Microsoft Azure"
+   description="Vengono descritti errori ed eccezioni comuni che possono essere generati dalle API FabricClient durante l'esecuzione di operazioni di gestione di applicazioni e cluster."
    services="service-fabric"
    documentationCenter=".net"
    authors="rwike77"
@@ -16,37 +16,32 @@
    ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
+# Errori ed eccezioni comuni quando si usano le API FabricClient
+Le API [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) consentono agli amministratori di cluster e applicazioni di eseguire attività amministrative su applicazioni, servizi o cluster Service Fabric. Ad esempio, la distribuzione, l'aggiornamento e la rimozione di applicazioni, il controllo dell'integrità di un cluster o il test di un servizio. Gli sviluppatori di applicazioni e gli amministratori di cluster possono usare le API FabricClient per sviluppare strumenti per la gestione del cluster e delle applicazioni Service Fabric.
 
-# <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>Common exceptions and errors when working with the FabricClient APIs
-The [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) APIs enable cluster and application administrators to perform administrative tasks on a Service Fabric application, service, or cluster. For example, application deployment, upgrade, and removal, checking the health a cluster, or testing a service. Application developers and cluster administrators can use the FabricClient APIs to develop tools for managing the Service Fabric cluster and applications.
+Esistono molti tipi diversi di operazioni che possono essere eseguite tramite FabricClient. Ogni metodo può generare eccezioni per errori dovuti a input non corretti, errori di runtime o problemi temporanei dell'infrastruttura. Per individuare le eccezioni generate da un metodo specifico, vedere la documentazione di riferimento delle API. Esistono alcune eccezioni, tuttavia, che possono essere generate da diverse API [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). Nella tabella seguente vengono elencate le eccezioni comuni alle API FabricClient.
 
-There are many different types of operations which can be performed using FabricClient.  Each method can throw exceptions for errors due to incorrect input, runtime errors, or transient infrastructure issues.  See the API reference documentation to find which exceptions are thrown by a specific method. There are some exceptions, however, which can be thrown by many different [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) APIs. The following table lists the exceptions that are common across the FabricClient APIs.
-
-|Exception| Thrown when|
+|Eccezione| Generata quando|
 |---------|:-----------|
-|[System.Fabric.FabricObjectClosedException](https://msdn.microsoft.com/library/system.fabric.fabricobjectclosedexception.aspx)|The [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) object is in a closed state. Dispose of the [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) object you are using and instantiate a new [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) object. |
-|[System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx)|The operation timed out. [OperationTimedOut](https://msdn.microsoft.com/library/system.fabric.fabricerrorcode.aspx) is returned when the operation takes more than MaxOperationTimeout to complete.|
-|[System.UnauthorizedAccessException](https://msdn.microsoft.com/en-us/library/system.unauthorizedaccessexception.aspx)|The access check for the operation failed. E_ACCESSDENIED is returned.|
-|[System.Fabric.FabricException](https://msdn.microsoft.com/library/system.fabric.fabricexception.aspx)|A runtime error occurred while performing the operation. Any of the FabricClient methods can potentially throw [FabricException](https://msdn.microsoft.com/library/system.fabric.fabricexception.aspx), the [ErrorCode](https://msdn.microsoft.com/library/system.fabric.fabricexception.errorcode.aspx) property indicates the exact cause of the exception. Error codes are defined in the [FabricErrorCode](https://msdn.microsoft.com/library/system.fabric.fabricerrorcode.aspx) enumeration.|
-|[System.Fabric.FabricTransientException](https://msdn.microsoft.com/library/system.fabric.fabrictransientexception.aspx)|The operation failed due to a transient error condition of some kind. For example, an operation may fail because a quorum of replicas is temporarily not reachable. Transient exceptions correspond to failed operations that can be retried.|
+|[System.Fabric.FabricObjectClosedException](https://msdn.microsoft.com/library/system.fabric.fabricobjectclosedexception.aspx)|L'oggetto [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) si trova in uno stato chiuso. Eliminare l'oggetto [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) che si sta usando e creare un'istanza di un nuovo oggetto [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). |
+|[System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx)|L'operazione ha raggiunto il timeout. [OperationTimedOut](https://msdn.microsoft.com/library/system.fabric.fabricerrorcode.aspx) viene restituito quando per il completamento dell'operazione occorre più tempo di quello stabilito in MaxOperationTimeout.|
+|[System.UnauthorizedAccessException](https://msdn.microsoft.com/it-IT/library/system.unauthorizedaccessexception.aspx)|Il controllo di accesso per l'operazione non è riuscito. Viene restituito E\_ACCESSDENIED.|
+|[System.Fabric.FabricException](https://msdn.microsoft.com/library/system.fabric.fabricexception.aspx)|Si è verificato un errore di runtime durante l'operazione. Tutti i metodi FabricClient possono potenzialmente generare un'eccezione [FabricException](https://msdn.microsoft.com/library/system.fabric.fabricexception.aspx); la proprietà [ErrorCode](https://msdn.microsoft.com/library/system.fabric.fabricexception.errorcode.aspx) indica la causa esatta dell'eccezione. I codici di errore sono definiti nell'enumerazione [FabricErrorCode](https://msdn.microsoft.com/library/system.fabric.fabricerrorcode.aspx).|
+|[System.Fabric.FabricTransientException](https://msdn.microsoft.com/library/system.fabric.fabrictransientexception.aspx)|L'operazione non è riuscita a causa di una condizione di errore temporanea. Ad esempio, un'operazione potrebbe non riuscire perché un quorum di repliche non è temporaneamente raggiungibile. Le eccezioni temporanee corrispondono alle operazioni non riuscite che è possibile ritentare.|
 
-Some common [FabricErrorCode](https://msdn.microsoft.com/library/system.fabric.fabricerrorcode.aspx) errors that can be returned in a [FabricException](https://msdn.microsoft.com/library/system.fabric.fabricexception.aspx):
+Alcuni errori [FabricErrorCode](https://msdn.microsoft.com/library/system.fabric.fabricerrorcode.aspx) comuni che possono essere restituiti in un'eccezione [FabricException](https://msdn.microsoft.com/library/system.fabric.fabricexception.aspx):
 
-|Error| Condition|
+|Tipi di errore| Condizione|
 |---------|:-----------|
-|CommunicationError|A communication error caused the operation to fail, retry the operation.|
-|InvalidCredentialType|The credential type is invalid.|
-|InvalidX509FindType|The X509FindType is invalid.|
-|InvalidX509StoreLocation|The X509 store location is invalid.|
-|InvalidX509StoreName|The X509 store name is invalid.|
-|InvalidX509Thumbprint|The X509 certificate thumbprint string is invalid.|
-|InvalidProtectionLevel|The protection level is invalid.|
-|InvalidX509Store|The X509 certificate store cannot be opened.|
-|InvalidSubjectName|The subject name is invalid.|
-|InvalidAllowedCommonNameList|The format of common name list string is invalid. It should be a comma-separated list.|
+|CommunicationError|L'operazione non è riuscita a causa di un errore di comunicazione, ripetere l'operazione.|
+|InvalidCredentialType|Il tipo di credenziale non è valido.|
+|InvalidX509FindType|Il tipo X509FindType non è valido.|
+|InvalidX509StoreLocation|Il percorso dell'archivio X509 non è valido.|
+|InvalidX509StoreName|Il nome dell'archivio X509 non è valido.|
+|InvalidX509Thumbprint|La stringa di identificazione personale del certificato X509 non è valida.|
+|InvalidProtectionLevel|Il livello di protezione non è valido.|
+|InvalidX509Store|Non è possibile aprire l'archivio certificati X509.|
+|InvalidSubjectName|Il nome soggetto non è valido.|
+|InvalidAllowedCommonNameList|Il formato della stringa dell'elenco nomi comuni non è valido. Deve essere un elenco delimitato da virgole.|
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

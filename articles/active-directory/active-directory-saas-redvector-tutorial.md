@@ -1,249 +1,247 @@
 <properties
-    pageTitle="Tutorial: Azure Active Directory integration with RedVector | Microsoft Azure"
-    description="Learn how to configure single sign-on between Azure Active Directory and RedVector."
-    services="active-directory"
-    documentationCenter=""
-    authors="jeevansd"
-    manager="femila"
-    editor=""/>
+	pageTitle="Esercitazione: Integrazione di Azure Active Directory con RedVector | Microsoft Azure"
+	description="Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e RedVector."
+	services="active-directory"
+	documentationCenter=""
+	authors="jeevansd"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/11/2016"
-    ms.author="jeedes"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2016"
+	ms.author="jeedes"/>
 
 
+# Esercitazione: Integrazione di Azure Active Directory con RedVector
 
-# <a name="tutorial:-azure-active-directory-integration-with-redvector"></a>Tutorial: Azure Active Directory integration with RedVector
+Questa esercitazione descrive come integrare RedVector con Azure Active Directory (Azure AD).
 
-In this tutorial, you learn how to integrate RedVector with Azure Active Directory (Azure AD).
+L'integrazione di RedVector con Azure AD offre i vantaggi seguenti:
 
-Integrating RedVector with Azure AD provides you with the following benefits:
+- È possibile controllare in Azure AD chi può accedere a RedVector
+- È possibile abilitare gli utenti per l'accesso automatico a RedVector (Single Sign-On) con i propri account Azure AD
+- È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
-- You can control in Azure AD who has access to RedVector
-- You can enable your users to automatically get signed-on to RedVector (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure classic portal
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+## Prerequisiti
 
-## <a name="prerequisites"></a>Prerequisites
+Per configurare l'integrazione di Azure AD con RedVector, sono necessari gli elementi seguenti:
 
-To configure Azure AD integration with RedVector, you need the following items:
+- Sottoscrizione di Azure AD.
+- Sottoscrizione di **RedVector** abilitata per l'accesso Single Sign-On
 
-- An Azure AD subscription
-- A **RedVector** single-sign on enabled subscription
 
+> [AZURE.NOTE] Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
 
-> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
+A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
-To test the steps in this tutorial, you should follow these recommendations:
+- Non usare l'ambiente di produzione, a meno che non sia necessario.
+- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
+## Descrizione dello scenario
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
-## <a name="scenario-description"></a>Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. The scenario outlined in this tutorial consists of two main building blocks:
+1. Aggiunta di RedVector dalla raccolta
+2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
-1. Adding RedVector from the gallery
-2. Configuring and testing Azure AD single sign-on
 
+## Aggiunta di RedVector dalla raccolta
+Per configurare l'integrazione di RedVector in Azure AD, è necessario aggiungerla dalla raccolta al proprio elenco di app SaaS gestite.
 
-## <a name="adding-redvector-from-the-gallery"></a>Adding RedVector from the gallery
-To configure the integration of RedVector into Azure AD, you need to add RedVector from the gallery to your list of managed SaaS apps.
+**Per aggiungere RedVector dalla raccolta, seguire questa procedura:**
 
-**To add RedVector from the gallery, perform the following steps:**
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
+	![Active Directory][1]
 
-    ![Active Directory][1]
+2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
+	![Applicazioni][2]
 
-    ![Applications][2]
+4. Fare clic su **Add** nella parte inferiore della pagina.
 
-4. Click **Add** at the bottom of the page.
+	![Applicazioni][3]
 
-    ![Applications][3]
+5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+	![Applicazioni][4]
 
-    ![Applications][4]
+6. Nella casella di ricerca digitare **RedVector**.
 
-6. In the search box, type **RedVector**.
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-redvector-tutorial/tutorial_redvector_01.png)
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-redvector-tutorial/tutorial_redvector_01.png)
+7. Nel riquadro dei risultati selezionare **RedVector** e quindi fare clic su **Completa** per aggiungere l'applicazione.
 
-7. In the results pane, select **RedVector**, and then click **Complete** to add the application.
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-redvector-tutorial/tutorial_redvector_02.png)
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-redvector-tutorial/tutorial_redvector_02.png)
+##  Configurazione e test dell'accesso Single Sign-On di Azure AD
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con RedVector con un utente test di nome "Britta Simon".
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with RedVector based on a test user called "Britta Simon".
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di RedVector che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in RedVector. La relazione di collegamento viene stabilita assegnando al valore di **nome utente** in Azure AD lo stesso valore di **Username** in RedVector.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in RedVector is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in RedVector needs to be established.
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in RedVector.
+Per configurare e testare l'accesso Single Sign-On di Azure AD con RedVector, è necessario completare i blocchi predefiniti seguenti:
 
-To configure and test Azure AD single sign-on with RedVector, you need to complete the following building blocks:
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
+2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Creazione di un utente test di RedVector](#creating-a-RedVector-test-user)** - per avere una controparte di Britta Simon in RedVector collegata alla relativa rappresentazione in Azure AD.
+5. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a RedVector test user](#creating-a-RedVector-test-user)** - to have a counterpart of Britta Simon in RedVector that is linked to the Azure AD representation of her.
-5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+### Configurazione dell'accesso Single Sign-On di Azure AD
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD single sign-on
+Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione RedVector.
 
-The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your RedVector application.
 
+**Per configurare l'accesso Single Sign-On di Azure AD con RedVector, seguire questa procedura:**
 
-**To configure Azure AD single sign-on with RedVector, perform the following steps:**
+1. Nel menu in alto fare clic su **Avvio rapido**.
 
-1. In the menu on the top, click **Quick Start**.
+	![Configura accesso Single Sign-On][6]
 
-    ![Configure Single Sign-On][6]
+2. Nella pagina di integrazione dell'applicazione **RedVector** del portale di Azure classico, fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
-2. In the classic portal, on the **RedVector** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+	![Configura accesso Single Sign-On][7]
 
-    ![Configure Single Sign-On][7] 
+3. Nella pagina **Stabilire come si desidera che gli utenti accedano a RedVector**, selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.
+ 	
+	![Configura accesso Single Sign-On](./media/active-directory-saas-redvector-tutorial/tutorial_redvector_06.png)
 
-3. On the **How would you like users to sign on to RedVector** page, select **Azure AD Single Sign-On**, and then click **Next**.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-redvector-tutorial/tutorial_redvector_06.png)
+4. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
 
-4. On the **Configure App Settings** dialog page, perform the following steps: 
+	![Configura accesso Single Sign-On](./media/active-directory-saas-redvector-tutorial/tutorial_redvector_07.png)
 
-    ![Configure Single Sign-On](./media/active-directory-saas-redvector-tutorial/tutorial_redvector_07.png)
 
+    a. Nella casella di testo URL accesso digitare un URL corrispondente al modello seguente: `https://sso2.redvector.com/adfs/<Companyname>`. Potrebbe essere necessario contattare il supporto di Redvector all'indirizzo <sso@redvector.com> per ottenere i valori corretti per l'ambiente.
 
-    a. In the Sign On URL text box, type a URL using the following pattern: `https://sso2.redvector.com/adfs/<Companyname>`. You may have to contact Redvector support at <sso@redvector.com> to get the correct values for your environment.
+	b. Fare clic su **Next**.
 
-    b. Click **Next**.
+5. Nella pagina **Configura accesso Single Sign-On in RedVector** fare clic su **Download certificato** e quindi salvare il file nel computer. Copiare il valore di URL servizio Single Sign-On. È necessario condividere queste informazioni con il supporto di RedVector per ottenere la configurazione di SSO.
 
-5. On the **Configure single sign-on at RedVector** page, Click **Download certificate**, and then save the file on your computer. Also, copy the single sign-on service URL value. You will need to share this information with RedVector support to get SSO configured.
+	![Configura accesso Single Sign-On](./media/active-directory-saas-redvector-tutorial/tutorial_redvector_08.png)
 
-    ![Configure Single Sign-On](./media/active-directory-saas-redvector-tutorial/tutorial_redvector_08.png)
+6. Per ottenere l'accesso Single Sign-On configurato per l'applicazione, contattare il team di supporto RedVector all'indirizzo <sso@redvector.com>. Il canale appropriato fornirà l'aiuto richiesto per configurare l'accesso SSO. Nel messaggio di posta elettronica fornire le informazioni seguenti:
 
-6. To get SSO configured for your application, contact RedVector support team at <sso@redvector.com>. They will assist with the proper channel to configure SSO. In the email, provide them the following: 
+	- Certificato scaricato
+	- **URL SSO SAML**
 
-    - The downloaded certificate
-    - The **SAML SSO URL**
+7. Nel portale di Azure classico selezionare la conferma della configurazione e quindi fare clic su **Avanti**.
+	
+	![Accesso Single Sign-On di Azure AD][10]
 
-7. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
-    
-    ![Azure AD Single Sign-On][10]
+8. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
+  	
+	![Accesso Single Sign-On di Azure AD][11]
 
-8. On the **Single sign-on confirmation** page, click **Complete**.  
-    
-    ![Azure AD Single Sign-On][11]
+### Creazione di un utente test di Azure AD
+In questa sezione viene creato un utente test chiamato Britta Simon nel portale classico.
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-In this section, you create a test user in the classic portal called Britta Simon.
+![Creare un utente di Azure AD][20]
 
-![Create Azure AD User][20]
+**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-**To create a test user in Azure AD, perform the following steps:**
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+	
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-redvector-tutorial/create_aaduser_09.png)
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
-    
-    ![Creating an Azure AD test user](./media/active-directory-saas-redvector-tutorial/create_aaduser_09.png) 
+2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
+	
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-redvector-tutorial/create_aaduser_03.png)
 
-3. To display the list of users, in the menu on the top, click **Users**.
-    
-    ![Creating an Azure AD test user](./media/active-directory-saas-redvector-tutorial/create_aaduser_03.png) 
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-redvector-tutorial/create_aaduser_04.png)
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-redvector-tutorial/create_aaduser_04.png) 
-
-5. On the **Tell us about this user** dialog page, perform the following steps:
+5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
  
-    ![Creating an Azure AD test user](./media/active-directory-saas-redvector-tutorial/create_aaduser_05.png) 
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-redvector-tutorial/create_aaduser_05.png)
 
-    a. As Type Of User, select New user in your organization.
+    a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
 
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
 
-    c. Click **Next**.
+    c. Fare clic su **Next**.
 
-6.  On the **User Profile** dialog page, perform the following steps:
+6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-redvector-tutorial/create_aaduser_06.png) 
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-redvector-tutorial/create_aaduser_06.png)
 
-    a. In the **First Name** textbox, type **Britta**.  
+    a. Nella casella di testo **Nome** digitare **Britta**.
 
-    b. In the **Last Name** textbox, type, **Simon**.
+    b. Nella casella di testo **Cognome** digitare **Simon**.
 
-    c. In the **Display Name** textbox, type **Britta Simon**.
+    c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
 
-    d. In the **Role** list, select **User**.
+    d. Nell'elenco **Ruolo**, selezionare **Utente**.
 
-    e. Click **Next**.
+    e. Fare clic su **Avanti**.
 
-7. On the **Get temporary password** dialog page, click **create**.
+7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-redvector-tutorial/create_aaduser_07.png) 
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-redvector-tutorial/create_aaduser_07.png)
 
-8. On the **Get temporary password** dialog page, perform the following steps:
+8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-redvector-tutorial/create_aaduser_08.png) 
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-redvector-tutorial/create_aaduser_08.png)
 
-    a. Write down the value of the **New Password**.
+    a. Prendere nota del valore visualizzato in **Nuova password**.
 
-    b. Click **Complete**.   
-
-
-
-### <a name="creating-a-redvector-test-user"></a>Creating a RedVector test user
-
-In this section, you create a user called Britta Simon in RedVector. If you don't know how to add Britta Simon in RedVector, please work with RedVector support team to add the test user and enable SSO. Contact them at <sso@redvector.com>.
-
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to RedVector.
-
-![Assign User][200] 
-
-**To assign Britta Simon to RedVector, perform the following steps:**
-
-1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
-
-    ![Assign User][201] 
-
-2. In the applications list, select **RedVector**.
-
-    ![Configure Single Sign-On](./media/active-directory-saas-redvector-tutorial/tutorial_redvector_09.png) 
-
-1. In the menu on the top, click **Users**.
-
-    ![Assign User][203] 
-
-1. In the All Users list, select **Britta Simon**.
-
-2. In the toolbar on the bottom, click **Assign**.
-
-    ![Assign User][205]
+    b. Fare clic su **Completa**.
 
 
-### <a name="testing-single-sign-on"></a>Testing single sign-on
 
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
+### Creazione di un utente test RedVector
 
-When you click the RedVector tile in the Access Panel, you should get automatically signed-on to your RedVector application.
+In questa sezione viene creato un utente chiamato Britta Simon in RedVector. Se non si sa come aggiungere Britta Simon in RedVector, rivolgersi al team di supporto di RedVector per aggiungere l'utente test e abilitare SSO. A tale scopo, scrivere a <sso@redvector.com>.
 
-## <a name="additional-resources"></a>Additional resources
+### Assegnazione dell'utente test di Azure AD
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a RedVector.
+
+![Assegna utente][200]
+
+**Per assegnare Britta Simon a RedVector, seguire questa procedura:**
+
+1. Per aprire la visualizzazione delle applicazioni nel portale classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
+
+	![Assegna utente][201]
+
+2. Nell'elenco di applicazioni, selezionare **RedVector**.
+
+	![Configura accesso Single Sign-On](./media/active-directory-saas-redvector-tutorial/tutorial_redvector_09.png)
+
+1. Scegliere **Utenti** dal menu in alto.
+
+	![Assegna utente][203]
+
+1. Nell'elenco Tutti gli utenti selezionare **Britta Simon**.
+
+2. Fare clic su **Assegna** sulla barra degli strumenti in basso.
+
+	![Assegna utente][205]
+
+
+### Test dell'accesso Single Sign-On
+
+Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+
+Quando si fa clic sul riquadro RedVector nel pannello di accesso, verrà eseguito automaticamente l'accesso all'applicazione RedVector.
+
+## Risorse aggiuntive
+
+* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
 
 
@@ -257,7 +255,7 @@ When you click the RedVector tile in the Access Panel, you should get automatica
 
 [5]: ./media/active-directory-saas-redvector-tutorial/tutorial_general_05.png
 [6]: ./media/active-directory-saas-redvector-tutorial/tutorial_general_06.png
-[7]:  ./media/active-directory-saas-redvector-tutorial/tutorial_general_050.png
+[7]: ./media/active-directory-saas-redvector-tutorial/tutorial_general_050.png
 [10]: ./media/active-directory-saas-redvector-tutorial/tutorial_general_060.png
 [11]: ./media/active-directory-saas-redvector-tutorial/tutorial_general_070.png
 [20]: ./media/active-directory-saas-redvector-tutorial/tutorial_general_100.png
@@ -268,8 +266,4 @@ When you click the RedVector tile in the Access Panel, you should get automatica
 [204]: ./media/active-directory-saas-redvector-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-redvector-tutorial/tutorial_general_205.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,40 +1,39 @@
 <properties 
-    pageTitle="PowerShell script to create an Application Insights resource" 
-    description="Automate creation of Application Insights resources." 
-    services="application-insights" 
+	pageTitle="Script di PowerShell per creare una risorsa di Application Insights" 
+	description="Consente di automatizzare la creazione di risorse di Application Insights." 
+	services="application-insights" 
     documentationCenter="windows"
-    authors="alancameronwills" 
-    manager="douge"/>
+	authors="alancameronwills" 
+	manager="douge"/>
 
 <tags 
-    ms.service="application-insights" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="02/19/2016" 
-    ms.author="awills"/>
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/19/2016" 
+	ms.author="awills"/>
 
+#  Script di PowerShell per creare una risorsa di Application Insights
 
-#  <a name="powershell-script-to-create-an-application-insights-resource"></a>PowerShell script to create an Application Insights resource
+*Application Insights è disponibile in anteprima.*
 
-*Application Insights is in preview.*
+Se si vuole monitorare una nuova applicazione oppure una nuova versione di un'applicazione con [Application Insights per Visual Studio](https://azure.microsoft.com/services/application-insights/), è possibile configurare una nuova risorsa in Microsoft Azure. Questa risorsa verrà usata per analizzare e visualizzare i dati di telemetria provenienti dall'app.
 
-When you want to monitor a new application - or a new version of an application - with [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/), you set up a new resource in Microsoft Azure. This resource is where the telemetry data from your app is analyzed and displayed. 
+Per automatizzare la creazione di una nuova risorsa con PowerShell.
 
-You can automate the creation of a new resource by using PowerShell.
+Se, ad esempio, si intende sviluppare un'app per dispositivi mobili, è probabile che, in un dato momento, i clienti usino diverse versioni pubblicate dell'app. Se però si vuole evitare di combinare i risultati di telemetria delle diverse versioni, è possibile fare in modo che il processo di compilazione crei una nuova risorsa per ogni compilazione.
 
-For example, if you are developing a mobile device app, it's likely that, at any time, there will be several published versions of your app in use by your customers. You don't want to get the telemetry results from different versions mixed up. So you get your build process to create a new resource for each build.
+## Script per creare una risorsa di Application Insights
 
-## <a name="script-to-create-an-application-insights-resource"></a>Script to create an Application Insights resource
-
-See the relevant cmdlet specs:
+Vedere le specifiche dei cmdlet:
 
 * [New-AzureRmResource](https://msdn.microsoft.com/library/mt652510.aspx)
 * [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt678995.aspx)
 
 
-*PowerShell Script*  
+*Script di PowerShell*
 
 ```PowerShell
 
@@ -92,29 +91,26 @@ Write-Host "IKey = " $resource.Properties.InstrumentationKey
 
 ```
 
-## <a name="what-to-do-with-the-ikey"></a>What to do with the iKey
+## Cosa fare con l'iKey
 
-Each resource is identified by its instrumentation key (iKey). The iKey is an output of the resource creation script. Your build script should provide the iKey to the Application Insights SDK embedded in your app.
+Per identificare le singole risorse, viene usata una chiave di strumentazione (iKey), ovvero l'output dello script di creazione della risorsa. Lo script di compilazione deve fornire l'iKey all'istanza di Application Insights SDK incorporata nell'app.
 
-There are two ways to make the iKey available to the SDK:
+È possibile fornire l'iKey all'SDK in due modi diversi:
   
 * In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md): 
  * `<instrumentationkey>`*ikey*`</instrumentationkey>`
-* Or in [initialization code](app-insights-api-custom-events-metrics.md): 
+* Oppure nel [codice di inizializzazione](app-insights-api-custom-events-metrics.md): 
  * `Microsoft.ApplicationInsights.Extensibility.
     TelemetryConfiguration.Active.InstrumentationKey = "`*iKey*`";`
 
 
 
-## <a name="see-also"></a>See also
+## Vedere anche
 
-* [Create Application Insights and web test resources from templates](app-insights-powershell.md)
-* [Set up monitoring of Azure diagnostics with PowerShell](app-insights-powershell-azure-diagnostics.md) 
-* [Set alerts by using PowerShell](app-insights-powershell-alerts.md)
+* [Creare risorse Application Insights e test web da modelli](app-insights-powershell.md)
+* [Impostare il monitoraggio di diagnostica Azure con PowerShell](app-insights-powershell-azure-diagnostics.md) 
+* [Impostare avvisi tramite PowerShell](app-insights-powershell-alerts.md)
 
  
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0224_2016-->

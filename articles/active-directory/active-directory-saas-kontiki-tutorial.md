@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with Kontiki | Microsoft Azure" 
-    description="Learn how to use Kontiki with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Kontiki | Microsoft Azure" 
+    description="Informazioni su come usare Kontiki con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,112 +11,105 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="09/29/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
-
-#<a name="tutorial:-azure-active-directory-integration-with-kontiki"></a>Tutorial: Azure Active Directory integration with Kontiki
+#Esercitazione: Integrazione di Azure Active Directory con Kontiki
   
-The objective of this tutorial is to show the integration of Azure and Kontiki.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+Questa esercitazione descrive l'integrazione di Azure e Kontiki. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
--   A valid Azure subscription
--   A Kontiki single sign-on enabled subscription
+-   Sottoscrizione di Azure valida
+-   Sottoscrizione di Kontiki abilitata per l'accesso Single Sign-On
   
-After completing this tutorial, the Azure AD users you have assigned to Kontiki will be able to single sign into the application at your Kontiki company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Kontiki potranno accedere all'applicazione tramite il sito aziendale di Kontiki (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
   
-The scenario outlined in this tutorial consists of the following building blocks:
+Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
-1.  Enabling the application integration for Kontiki
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+1.  Abilitazione dell'integrazione dell'applicazione per Kontiki
+2.  Configurazione dell'accesso Single Sign-On
+3.  Configurazione del provisioning utente
+4.  Assegnazione degli utenti
 
 ![Scenario](./media/active-directory-saas-kontiki-tutorial/IC790235.png "Scenario")
-##<a name="enabling-the-application-integration-for-kontiki"></a>Enabling the application integration for Kontiki
+##Abilitazione dell'integrazione dell'applicazione per Kontiki
   
-The objective of this section is to outline how to enable the application integration for Kontiki.
+Questa sezione descrive come abilitare l'integrazione dell'applicazione per Kontiki.
 
-###<a name="to-enable-the-application-integration-for-kontiki,-perform-the-following-steps:"></a>To enable the application integration for Kontiki, perform the following steps:
+###Per abilitare l'integrazione dell'applicazione per Kontiki, seguire questa procedura:
 
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-kontiki-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-    ![Applications](./media/active-directory-saas-kontiki-tutorial/IC700994.png "Applications")
+    ![Applicazioni](./media/active-directory-saas-kontiki-tutorial/IC700994.png "Applicazioni")
 
-4.  Click **Add** at the bottom of the page.
+4.  Fare clic su **Add** nella parte inferiore della pagina.
 
-    ![Add application](./media/active-directory-saas-kontiki-tutorial/IC749321.png "Add application")
+    ![Aggiunta di un'applicazione](./media/active-directory-saas-kontiki-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-kontiki-tutorial/IC749322.png "Add an application from gallerry")
+    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-kontiki-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
-6.  In the **search box**, type **Kontiki**.
+6.  Nella **casella di ricerca** digitare **Kontiki**.
 
-    ![Application Gallery](./media/active-directory-saas-kontiki-tutorial/IC790236.png "Application Gallery")
+    ![Raccolta di applicazioni](./media/active-directory-saas-kontiki-tutorial/IC790236.png "Raccolta di applicazioni")
 
-7.  In the results pane, select **Kontiki**, and then click **Complete** to add the application.
+7.  Nel riquadro dei risultati selezionare **Kontiki** e quindi fare clic su **Completa** per aggiungere l'applicazione.
 
     ![Kontiki](./media/active-directory-saas-kontiki-tutorial/IC790237.png "Kontiki")
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Configurazione dell'accesso Single Sign-On
   
-The objective of this section is to outline how to enable users to authenticate to Kontiki with their account in Azure AD using federation based on the SAML protocol.
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Kontiki tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  In the Azure classic portal, on the **Kontiki** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  Nella pagina di integrazione dell'applicazione **Kontiki** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Configure Single SignOn](./media/active-directory-saas-kontiki-tutorial/IC790238.png "Configure Single SignOn")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-kontiki-tutorial/IC790238.png "Configura accesso Single Sign-On")
 
-2.  On the **How would you like users to sign on to Kontiki** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a Kontiki** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
 
-    ![Configure Single SignOn](./media/active-directory-saas-kontiki-tutorial/IC790239.png "Configure Single SignOn")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-kontiki-tutorial/IC790239.png "Configura accesso Single Sign-On")
 
-3.  On the **Configure App URL** page, in the **Kontiki Sign On URL** textbox, type the URL used by your users to sign on to Kontiki (e.g.: “*https://company.mc.eval.kontiki.com/*"), and then click **Next**.
+3.  Nella casella di testo **Kontiki Sign On URL** (URL di accesso Kontiki) della pagina **Configura URL app** digitare l'URL usato dagli utenti per accedere a Kontiki, ad esempio "*https://company.mc.eval.kontiki.com/*", e quindi fare clic su **Avanti**.
 
-    ![Configure App URL](./media/active-directory-saas-kontiki-tutorial/IC790240.png "Configure App URL")
+    ![Configura URL app](./media/active-directory-saas-kontiki-tutorial/IC790240.png "Configura URL app")
 
-4.  On the **Configure single sign-on at Kontiki** page, click **Download metadata**, and then save the metadata file on your computer.
+4.  Nella pagina **Configura accesso Single Sign-On in Kontiki** fare clic su **Download metadati** e quindi salvare il file di metadati nel computer.
 
-    ![Configure Single SignOn](./media/active-directory-saas-kontiki-tutorial/IC790241.png "Configure Single SignOn")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-kontiki-tutorial/IC790241.png "Configura accesso Single Sign-On")
 
-5.  Send the metadatafile to the Kontiki support team.
+5.  Inviare il file di metadati al team di supporto di Kontiki.
 
-    >[AZURE.NOTE] The single sign-on configuration has to be performed by the Kontiki support team. You will get a notification as soon as the configuration has been completed.
+    >[AZURE.NOTE] La configurazione dell'accesso Single Sign-On deve essere eseguita dal team di supporto di Kontiki. Al termine della configurazione, viene ricevuta una notifica.
 
-6.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+6.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Configure Single SignOn](./media/active-directory-saas-kontiki-tutorial/IC790242.png "Configure Single SignOn")
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-kontiki-tutorial/IC790242.png "Configura accesso Single Sign-On")
+##Configurazione del provisioning utente
   
-There is no action item for you to configure user provisioning to Kontiki.  
-When an assigned user tries to log into Kontiki using the access panel, Kontiki checks whether the user exists.  
-If there is no user account available yet, it is automatically created by Kontiki.
-##<a name="assigning-users"></a>Assigning users
+Non è necessaria alcuna attività di configurazione per il provisioning degli utenti in Kontiki. Quando un utente assegnato prova ad accedere a Kontiki usando il pannello di accesso, Kontiki verifica se l'utente esiste. Se l'account utente non è presente, Kontiki lo crea automaticamente.
+##Assegnazione degli utenti
   
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
-###<a name="to-assign-users-to-kontiki,-perform-the-following-steps:"></a>To assign users to Kontiki, perform the following steps:
+###Per assegnare gli utenti a Kontiki, seguire questa procedura:
 
-1.  In the Azure classic portal, create a test account.
+1.  Nel portale di Azure classico creare un account di test.
 
-2.  On the **Kontiki **application integration page, click **Assign users**.
+2.  Nella pagina di integrazione dell'applicazione **Kontiki** fare clic su **Assegna utenti**.
 
-    ![Assign Users](./media/active-directory-saas-kontiki-tutorial/IC790243.png "Assign Users")
+    ![Assegna utenti](./media/active-directory-saas-kontiki-tutorial/IC790243.png "Assegna utenti")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
-    ![Yes](./media/active-directory-saas-kontiki-tutorial/IC767830.png "Yes")
+    ![Sì](./media/active-directory-saas-kontiki-tutorial/IC767830.png "Sì")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

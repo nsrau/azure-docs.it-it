@@ -1,132 +1,126 @@
 <properties
-    pageTitle="Install Hadoop applications on HDInsight | Microsoft Azure"
-    description="Learn how to install HDInsight applications on HDInsight applications."
-    services="hdinsight"
-    documentationCenter=""
-    authors="mumian"
-    manager="jhubbard"
-    editor="cgronlun"
-    tags="azure-portal"/>
+   	pageTitle="Installare applicazioni Hadoop in HDInsight | Microsoft Azure"
+   	description="Informazioni su come installare applicazioni HDInsight in applicazioni HDInsight."
+   	services="hdinsight"
+   	documentationCenter=""
+   	authors="mumian"
+   	manager="jhubbard"
+   	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
-    ms.service="hdinsight"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-data"
-    ms.date="09/14/2016"
-    ms.author="jgao"/>
+   	ms.service="hdinsight"
+   	ms.devlang="na"
+   	ms.topic="hero-article"
+   	ms.tgt_pltfrm="na"
+   	ms.workload="big-data"
+   	ms.date="09/14/2016"
+   	ms.author="jgao"/>
 
+# Installare applicazioni HDInsight
 
-# <a name="install-hdinsight-applications"></a>Install HDInsight applications
+Un'applicazione HDInsight è un'applicazione che gli utenti possono installare in un cluster HDInsight basato su Linux. Queste applicazioni possono essere sviluppate da Microsoft, da fornitori di software indipendenti (ISV) o dall'utente. In questo articolo si apprenderà come installare un'applicazione pubblicata. Per installare un'applicazione personalizzata, vedere [Installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md).
 
-An HDInsight application is an application that users can install on a Linux-based HDInsight cluster. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. In this article, you will learn how to install a published application. For installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md). 
+Attualmente è disponibile un'applicazione pubblicata:
 
-Currently there is one published application:
+- **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) offre agli analisti un modo interattivo per rilevare, analizzare e visualizzare i risultati nei Big Data. Consente di effettuare il pull di altre origini dati con facilità per individuare nuove relazioni e ottenere rapidamente le risposte necessarie.
 
-- **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) offers analysts an interactive way to discover, analyze, and visualize the results on Big Data. Pull in additional data sources easily to discover new relationships and get the answers you need quickly.
+>[AZURE.NOTE] Datameer è attualmente supportata solo nei cluster Azure HDInsight versione 3.2.
 
->[AZURE.NOTE] Datameer is currently only supported in Azure HDInsight version 3.2 clusters.
+Nelle istruzioni illustrate in questo articolo si usa il portale di Azure. È anche possibile esportare il modello di Azure Resource Manager dal portale oppure ottenere una copia del modello di Resource Manager dai fornitori e usare l'interfaccia della riga di comando di Azure e Azure PowerShell per distribuire il modello. Vedere [Creare cluster Hadoop basati su Linux in HDInsight tramite modelli ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-The instructions provided in this article use Azure portal. You can also export the Azure Resource Manager template from the portal or obtain a copy of the Resource Manager template from vendors, and use Azure PowerShell and Azure CLI to deploy the template.  See [Create Linux-based Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+## Prerequisiti
 
-## <a name="prerequisites"></a>Prerequisites
+Per installare applicazioni HDInsight in un cluster HDInsight esistente, è necessario un cluster HDInsight. Per crearne uno, vedere [Creare cluster](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). È anche possibile installare applicazioni HDInsight quando si crea un cluster HDInsight.
 
-If you want to install HDInsight applications on an existing HDInsight cluster, you must have an HDInsight cluster. To create one, see [Create clusters](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). You can also install HDInsight applications when you create an HDInsight cluster.
+## Installare applicazioni in cluster esistenti
 
-## <a name="install-applications-to-existing-clusters"></a>Install applications to existing clusters
+La procedura seguente illustra come installare applicazioni HDInsight in un cluster HDInsight esistente.
 
-The following procedure shows you how to install HDInsight applications to an existing HDInsight cluster.
+**Per installare un'applicazione HDInsight**
 
-**To install an HDInsight application**
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Fare clic su **Cluster HDInsight** nel menu a sinistra. Se non è visualizzato, fare clic su **Esplora** e quindi su **Cluster HDInsight**.
+3. Fare clic su un cluster HDInsight. Se non ci sono cluster disponibili, è necessario crearne uno. Vedere [Creare cluster](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
+4. Nel pannello **Impostazioni** fare clic su **Applicazioni** nella categoria **Generale**. Il pannello **App installate** elenca tutte le applicazioni installate.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Click **HDInsight Clusters** in the left menu.  If you don't see it, click **Browse**, and then click **HDInsight Clusters**.
-3. Click an HDInsight cluster.  If you don't have one, you must create one first.  see [Create clusters](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
-4. From the **Settings** blade, click **Applications** under the **General** category. The **Installed Apps** blade lists all the installed applications. 
+    ![menu del portale applicazioni hdinsight](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 
-    ![hdinsight applications portal menu](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
+5. Fare clic su **Aggiungi** nel menu del pannello.
 
-5. Click **Add** from the blade menu. 
+    ![app installate in applicazioni hdinsight](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
 
-    ![hdinsight applications installed apps](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
+	Verrà visualizzato un elenco delle applicazioni HDInsight esistenti.
 
-    You shall see a list of existing HDInsight applications.
+	![applicazioni disponibili in applicazioni hdinsight](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
 
-    ![hdinsight applications available applications](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
+6. Fare clic su una delle applicazioni, accettare le condizioni legali e quindi fare clic su **Seleziona**.
 
-6. Click one of the applications, accept the legal terms, and then click **Select**.
+È possibile vedere lo stato di installazione dell'applicazione dalle notifiche del portale facendo clic sull'icona a forma di campana nella parte superiore del portale. Dopo l'installazione dell'applicazione, questa verrà visualizzata nel pannello App installate.
 
-You can see the installation status from the portal notifications (click the bell icon on the top of the portal). After the application is installed, the application will appear on the Installed Apps blade.
+## Installare applicazioni durante la creazione del cluster
 
-## <a name="install-applications-during-cluster-creation"></a>Install applications during cluster creation
+È possibile installare applicazioni HDInsight quando si crea un cluster. Durante il processo, le applicazioni HDInsight vengono installate dopo la creazione del cluster e mentre è nello stato in corso di esecuzione. La procedura seguente illustra come installare applicazioni HDInsight mentre si crea un cluster.
 
-You have the option to install HDInsight applications when you create a cluster. During the process, HDInsight applications are installed after the cluster is created and is in the running state. The following procedure shows you how to install HDInsight applications when you create a cluster.
+**Per installare un'applicazione HDInsight**
 
-**To install an HDInsight application**
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Fare clic su **NUOVO**, su **Dati e analisi** e quindi su **HDInsight**.
+3. Immettere il **Nome cluster**: deve essere un nome univoco globale.
+4. Fare clic su **Sottoscrizione** per selezionare la sottoscrizione di Azure utilizzata per il cluster.
+5. Fare clic su **Selezionare il tipo di cluster** e quindi selezionare:
 
-1. Sign in to the [Azure  portal](https://portal.azure.com).
-2. Click **NEW**, Click **Data + Analytics**, and then click **HDInsight**.
-3. Enter **Cluster Name**: This name must be globally unique.
-4. Click **Subscription** to select the Azure subscription that will be used for the cluster.
-5. Click **Select cluster Type**, and then select:
+    - **Tipo di cluster**: in caso di dubbi su questa opzione, scegliere **Hadoop**. È il tipo di cluster più diffuso.
+    - **Sistema operativo**: selezionare **Linux**.
+    - **Versione**: utilizzare la versione predefinita, in caso di dubbi. Per altre informazioni, vedere [Versioni del cluster HDInsight](hdinsight-component-versioning.md).
+    - **Livello del cluster**: HDInsight di Azure fornisce offerte cloud per i Big Data in due categorie: livello Standard e livello Premium. Per altre informazioni, vedere [Livelli di cluster](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
+6. Fare clic su **Applicazioni**, fare clic su una delle applicazioni pubblicate e quindi su **Seleziona**.
+6. Fare clic su **Credenziali** e quindi immettere una password per l'utente amministratore. È anche necessario immettere un valore nel campo **Nome utente SSH** e un valore in **PASSWORD** o **CHIAVE PUBBLICA**, che verranno usati per autenticare l'utente SSH. Si consiglia di utilizzare una chiave pubblica. Fare clic su **Seleziona** nella parte inferiore per salvare la configurazione delle credenziali.
+8. Fare clic su **Origine dati**, selezionare uno degli account di archiviazione esistenti oppure crearne uno nuovo da usare come account di archiviazione predefinito per il cluster.
+9. Fare clic su **Gruppo di risorse** per selezionare un gruppo di risorse esistente o fare clic su **Nuovo** per crearne uno nuovo.
 
-    - **Cluster Type**: If you don't know what to choose, select **Hadoop**. It is the most popular cluster type.
-    - **Operating System**: Select **Linux**.
-    - **Version**: Use the default version if you don't know what to choose. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
-    - **Cluster Tier**: Azure HDInsight provides the big data cloud offerings in two categories: Standard tier and Premium tier. For more information, see [Cluster tiers](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
-6. Click **Applications**, click one of the published applications, and then click **Select**.
-6. Click **Credentials** and then enter a password for the admin user. You must also enter an **SSH Username** and either a **PASSWORD** or **PUBLIC KEY**, which will be used to authenticate the SSH user. Using a public key is the recommended approach. Click **Select** at the bottom to save the credentials configuration.
-8. Click **Data Source**, select one of the existing storage account or create a new storage account to be used as the default storage account for the cluster.
-9. Click **Resource Group** to select an existing resource group, or click **New** to create a new resource group
+10. Nel pannello **Nuovo cluster HDInsight** assicurarsi che l'opzione **Aggiungi a Schermata iniziale** sia selezionata e quindi fare clic su **Crea**.
 
-10. On the **New HDInsight Cluster** blade, ensure that **Pin to Startboard** is selected, and then click **Create**. 
+## Elencare le app HDInsight installate e le proprietà
 
-## <a name="list-installed-hdinsight-apps-and-properties"></a>List installed HDInsight apps and properties
+Il portale include un elenco delle applicazioni HDInsight installate per un cluster e le proprietà di ognuna.
 
-The portal shows a list of the installed HDInsight applications for a cluster, and the properties of each installed application.
+**Per elencare le applicazioni HDInsight e visualizzare le proprietà**
 
-**To list HDInsight application and display properties**
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Fare clic su **Cluster HDInsight** nel menu a sinistra. Se non è visualizzato, fare clic su **Esplora** e quindi su **Cluster HDInsight**.
+3. Fare clic su un cluster HDInsight.
+4. Nel pannello **Impostazioni** fare clic su **Applicazioni** nella categoria **Generale**. Il pannello App installate elenca tutte le applicazioni installate.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Click **HDInsight Clusters** in the left menu.  If you don't see it, click **Browse**, and then click **HDInsight Clusters**.
-3. Click an HDInsight cluster.
-4. From the **Settings** blade, click **Applications** under the **General** category. The Installed Apps blade lists all the installed applications. 
+	![app installate in applicazioni hdinsight](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 
-    ![hdinsight applications installed apps](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
+5. Fare clic su una delle applicazioni installate per visualizzare la proprietà. Il pannello delle proprietà elenca:
 
-5. Click one of the installed applications to show the property. The property blade lists:
+    - Nome dell'app: nome all'applicazione.
+    - Stato: stato dell'applicazione.
+    - Pagina Web: URL dell'applicazione Web distribuita all'eventuale nodo perimetrale. Le credenziali sono le stesse usate per le credenziali utente HTTP configurate per il cluster.
+    - Endpoint HTTP: le credenziali sono le stesse usate per le credenziali utente HTTP configurate per il cluster.
+    - Endpoint SSH: è possibile usare [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al nodo perimetrale. Le credenziali SSH sono le stesse usate per le credenziali utente SSH configurate per il cluster.
 
-    - App name: application name.
-    - Status: application status. 
-    - Webpage: The URL of the web application that you have deployed to the edge node if there is any. The credential is the same as the HTTP user credentials that you have configured for the cluster.
-    - HTTP endpoint: The credential is the same as the HTTP user credentials that you have configured for the cluster. 
-    - SSH endpoint: You can use [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) to connect to the edge node. The SSH credentials are the same as the SSH user credentials that you have configured for the cluster.
+6. Per eliminare un'applicazione, fare clic con il pulsante destro del mouse sull'applicazione e quindi scegliere **Elimina** dal menu di scelta rapida.
 
-6. To delete a application, right-click the application, and then click **Delete** from the context menu.
+## Connettersi al nodo perimetrale
 
-## <a name="connect-to-the-edge-node"></a>Connect to the edge node
+È possibile connettersi al nodo perimetrale tramite HTTP e SSH. Le informazioni sull'endpoint sono disponibili nel [portale](#list-installed-hdinsight-apps-and-properties). Per altre informazioni sull'uso di SSH, vedere [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-You can connect to the edge node using HTTP and SSH. The endpoint information can be found from the [portal](#list-installed-hdinsight-apps-and-properties). For more information on using SSH, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md). 
+Le credenziali dell'endpoint HTTP sono le credenziali utente HTTP configurate per il cluster HDInsight. Le credenziali dell'endpoint SSH sono le credenziali SSH configurate per il cluster HDInsight.
 
-The HTTP endpoint credentials are the HTTP user credentials that you have configured for the HDInsight cluster; the SSH endpoint credentials are the SSH credentials that you have configured for the HDInsight cluster.
+## Risoluzione dei problemi
 
-## <a name="troubleshoot"></a>Troubleshoot
+Vedere [Risolvere i problemi di installazione](hdinsight-apps-install-custom-applications.md#troubleshoot-the-installation).
 
-See [Troubleshoot the installation](hdinsight-apps-install-custom-applications.md#troubleshoot-the-installation).
+## Passaggi successivi
 
-## <a name="next-steps"></a>Next steps
+- [Installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md): informazioni su come distribuire in HDInsight un'applicazione HDInsight non pubblicata.
+- [Pubblicare applicazioni HDInsight](hdinsight-apps-publish-applications.md): informazioni su come pubblicare applicazioni HDInsight personalizzate in Azure Marketplace.
+- [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx) (MSDN: Installare un'applicazione HDInsight): informazioni su come definire le applicazioni HDInsight.
+- [Personalizzare cluster HDInsight basati su Linux tramite Azioni script](hdinsight-hadoop-customize-cluster-linux.md): informazioni su come usare Azioni script per installare applicazioni aggiuntive.
+- [Creare cluster Hadoop basati su Linux in HDInsight tramite modelli ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md): informazioni su come chiamare i modelli di Azure Resource Manager per creare cluster HDInsight.
+- [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md) (Usare nodi perimetrali vuoti in HDInsight): informazioni su come usare un nodo perimetrale vuoto per l'accesso a cluster HDInsight, il test di applicazioni HDInsight e l'hosting di applicazioni HDInsight.
 
-- [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md): learn how to deploy an un-published HDInsight application to HDInsight.
-- [Publish HDInsight applications](hdinsight-apps-publish-applications.md): Learn how to publish your custom HDInsight applications to Azure Marketplace.
-- [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx): Learn how to define HDInsight applications.
-- [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md): learn how to use Script Action to install additional applications.
-- [Create Linux-based Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md): learn how to call Resource Manager templates to create HDInsight clusters.
-- [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md): learn how to use an empty edge node for accessing HDInsight cluster, testing HDInsight applications, and hosting HDInsight applications.
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

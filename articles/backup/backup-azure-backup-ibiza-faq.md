@@ -1,51 +1,46 @@
 <properties
-   pageTitle="Recovery Services vault FAQ | Microsoft Azure"
-   description="This version of the FAQ supports the Public Preview release of the Azure Backup service. Answers to frequently asked questions about the backup agent, backup and retention, recovery, security and other common questions about the Azure Backup solution."
+   pageTitle="Insieme di credenziali di Servizi di ripristino: domande frequenti | Microsoft Azure"
+   description="Questa versione delle domande frequenti supporta la versione di anteprima pubblica del servizio Backup di Azure. Risposte alle domande frequenti su agente di backup, backup e conservazione, ripristino, sicurezza e altre domande frequenti sulla soluzione Backup di Azure."
    services="backup"
    documentationCenter=""
    authors="markgalioto"
    manager="jwhit"
    editor=""
-   keywords="backup solution; backup service"/>
+   keywords="soluzione di backup; servizio di backup"/>
 
 <tags
    ms.service="backup"
    ms.workload="storage-backup-recovery"
-     ms.tgt_pltfrm="na"
-     ms.devlang="na"
-     ms.topic="get-started-article"
-     ms.date="08/21/2016"
-     ms.author="trinadhk; markgal; jimpark;"/>
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="get-started-article"
+	 ms.date="08/21/2016"
+	 ms.author="trinadhk; markgal; jimpark;"/>
 
-
-# <a name="recovery-services-vault---faq"></a>Recovery Services vault - FAQ
+# Insieme di credenziali di Servizi di ripristino: domande frequenti
 
 > [AZURE.SELECTOR]
-- [Backup FAQ for classic mode](backup-azure-backup-faq.md)
-- [Backup FAQ for Resource Manager mode](backup-azure-backup-ibiza-faq.md)
+- [Domande frequenti su Backup per la modalità classica](backup-azure-backup-faq.md)
+- [Domande frequenti su Backup per la modalità Azure Resource Manager](backup-azure-backup-ibiza-faq.md)
 
-This article provides information specific to Recovery Services vault and it supplements the [Azure Backup FAQ](backup-azure-backup-faq.md). The Azure Backup FAQ provides the full set of questions and answers about the Azure Backup service.  
+In questo articolo fornisce informazioni specifiche per l'insieme di credenziali di Servizi di ripristino e integra [Servizio Backup di Azure: Domande frequenti](backup-azure-backup-faq.md). L'articolo Domande frequenti su Backup di Azure include tutte le domande e le risposte relative al servizio Backup di Azure.
 
-You can ask questions about Azure Backup in the Disqus section of this article or a related article. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+È possibile formulare le domande su Backup di Azure nella sezione Disqus di questo articolo o di un articolo correlato. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
-## <a name="recovery-services-vaults-are-resource-manager-based.-are-backup-vaults-(classic-mode)-still-supported?-<br/>"></a>Recovery Services vaults are Resource Manager based. Are Backup vaults (classic mode) still supported? <br/>
-Yes, Backup vaults are still supported. Create Backup vaults in the [Classic portal](https://manage.windowsazure.com). Create Recovery Services vaults in the [Azure portal](https://portal.azure.com). However we strongly recommend you to create recovery services vault as all future enhancements will be available only in Recovery Services vault. 
+## Gli insiemi di credenziali di Servizi di ripristino sono basati su Resource Manager. Gli insiemi di credenziali di Backup (modalità classica) sono ancora supportati? <br/>
+Sì, gli insiemi di credenziali di Backup sono ancora supportati. Creare gli insiemi di credenziali per il backup nel [portale classico](https://manage.windowsazure.com). Creare insiemi di credenziali di Servizi di ripristino nel [portale di Azure](https://portal.azure.com). Tuttavia, è consigliabile creare un insieme di credenziali di Servizi di ripristino perché tutti gli miglioramenti futuri saranno disponibili solo nell'insieme di credenziali di Servizi di ripristino.
 
-## <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault?-<br/>"></a>Can I migrate a Backup vault to a Recovery Services vault? <br/>
-Unfortunately no, at this time you can't migrate the contents of a Backup vault to a Recovery Services vault. We are working on adding this functionality, but it is not available as part of Public Preview.
+## È possibile eseguire la migrazione di un insieme di credenziali per il backup in un insieme di credenziali di Servizi di ripristino? <br/>
+Purtroppo no, al momento non è possibile eseguire la migrazione del contenuto di un insieme di credenziali di Backup in un insieme di credenziali di Servizi di ripristino. Questa funzionalità verrà presto aggiunta, ma non è disponibile nell'anteprima pubblica.
 
-## <a name="do-recovery-services-vaults-support-classic-vms-or-resource-manager-based-vms?-<br/>"></a>Do Recovery Services vaults support classic VMs or Resource Manager based VMs? <br/>
-Recovery Services vaults support both models.  You can back up a VM created in the Classic portal (which are classic mode VMs), or a VM created in the Azure portal (which are Resource Manager based) to a Recovery Services vault.
+## Gli insiemi di credenziali di Servizi di ripristino supportano le macchine virtuali in modalità classica o quelle basate su Resource Manager? <br/>
+Gli insiemi di credenziali di Servizi di ripristino supportano entrambi modelli. È possibile eseguire il backup di una macchina virtuale creata nel portale classico (VM in modalità classica) oppure nel portale di Azure (basata su Azure Resource Manager) in un insieme di credenziali di Servizi di ripristino.
 
-## <a name="i-have-backed-up-my-classic-vms-in-backup-vault.-now-i-want-to-migrate-my-vms-from-classic-mode-to-resource-manager-mode.-how-can-i-backup-them-in-recovery-services-vault?"></a>I have backed up my classic VMs in backup vault. Now I want to migrate my VMs from classic mode to Resource Manager mode.  How Can I backup them in recovery services vault?
-Backups of classic VMs in backup vault won't migrate automatically to recovery services vault when you migrate the VMs from classic to Resource Manager mode. Please follow these steps for migration of VM backups:
+## È stato eseguito il backup delle macchine virtuali in modalità classica nell'insieme di credenziali per il backup. Si vuole eseguire la migrazione delle macchine virtuali dalla modalità classica alla modalità Resource Manager. Come è possibile eseguirne il backup nell'insieme di credenziali di Servizi di ripristino?
+Per i backup di macchine virtuali in modalità classica nell'insieme di credenziali per il backup non viene eseguita automaticamente la migrazione nell'insieme di credenziali di Servizi di ripristino nel caso di migrazione delle macchine virtuali dalla modalità classica alla modalità Resource Manager. Per la migrazione di backup di macchine virtuali, seguire questa procedura:
 
-1. In backup vault, go to **Protected Items** tab and select the VM. Click on [Stop Protection](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Leave *Delete associated backup data* option **unchecked**. 
-2. Migrate the virtual machine from classic mode to Resource Manager mode. Make sure that storage and network corresponding to virtual machine are also migrated to Resource Manager mode. 
-3. Create a recovery services vault and configure backup on the migrated virtual machine using **Backup** action on top of vault dashboard. Learn More on how to [enable backup in recovery services vault](backup-azure-vms-first-look-arm.md)
+1. Nell'insieme di credenziali per il backup passare alla scheda **Elementi protetti** e selezionare la macchina virtuale. Fare clic su [Arresta protezione](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Lasciare *deselezionata* l'opzione **Elimina i dati di backup associati**.
+2. Eseguire la migrazione della macchina virtuale dalla modalità classica alla modalità Resource Manager. Assicurarsi di eseguire la migrazione alla modalità Resource Manager anche della risorsa di archiviazione e della rete corrispondenti alla macchina virtuale.
+3. Creare un insieme di credenziali di Servizi di ripristino e configurare il backup della macchina virtuale di cui è stata eseguita la migrazione usando l'azione **Backup** nella parte superiore del dashboard dell'insieme di credenziali. Altre informazioni su come [abilitare il backup nell'insieme di credenziali di Servizi di ripristino](backup-azure-vms-first-look-arm.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0928_2016-->

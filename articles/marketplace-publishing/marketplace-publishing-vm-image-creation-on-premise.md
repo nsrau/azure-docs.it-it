@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creating an on-premises virtual machine image for the Azure Marketplace | Microsoft Azure"
-   description="Understand and execute the steps to create an on-premises VM image and deploy to the Azure Marketplace for others to purchase."
+   pageTitle="Creazione di un'immagine di macchina virtuale in locale per Azure Marketplace | Microsoft Azure"
+   description="Comprendere ed eseguire i passaggi per creare un'immagine di VM in locale e distribuire in Azure Marketplace per l'acquisto da parte di altri utenti."
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
@@ -16,132 +16,127 @@
   ms.date="04/29/2016"
   ms.author="hascipio; v-divte"/>
 
+# Sviluppare l'immagine di una macchina virtuale in locale per Azure Marketplace
+Si consiglia di sviluppare i dischi rigidi virtuali (VHD, Virtual Hard Disk) di Azure direttamente nel cloud utilizzando Remote Desktop Protocol. Tuttavia, se necessario, è possibile scaricare un VHD e svilupparlo utilizzando l'infrastruttura locale.
 
-# <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Develop an on-premises virtual machine image for the Azure Marketplace
-We strongly recommend that you develop Azure virtual hard disks (VHDs) directly in the cloud by using Remote Desktop Protocol. However, if you must, it is possible to download a VHD and develop it by using on-premises infrastructure.  
+Per lo sviluppo locale, è necessario scaricare il VHD del sistema operativo della macchina virtuale creata. Questi passaggi avverrebbero come parte del passaggio 3.3 precedente.
 
-For on-premises development, you must download the operating system VHD of the created VM. These steps would take place as part of step 3.3, above.  
+## Scaricare un'immagine di VHD
+### Individuare l'URL BLOB
+Per scaricare il VHD, individuare innanzitutto l'URL BLOB per il disco del sistema operativo.
 
-## <a name="download-a-vhd-image"></a>Download a VHD image
-### <a name="locate-a-blob-url"></a>Locate a blob URL
-In order to download the VHD, first locate the blob URL for the operating system disk.
+Individuare l'URL BLOB dal nuovo [portale di Microsoft Azure](https://portal.azure.com):
 
-Locate the blob URL from the new [Microsoft Azure portal](https://portal.azure.com):
+1.	Passare a **Sfoglia** > **VM** e selezionare la macchina virtuale distribuita.
+2.	In **Configura** selezionare il riquadro **Dischi** aprendo il pannello Dischi.
 
-1.  Go to **Browse** > **VMs**, and then select the deployed VM.
-2.  Under **Configure**, select the **Disks** tile, which opens the Disks blade.
+  ![disegno](media/marketplace-publishing-vm-image-creation-on-premise/img01.png)
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img01.png)
+3.	Selezionare il **disco del sistema operativo**. Verrà aperto un altro pannello che visualizza le proprietà del disco, compresa la posizione del VHD.
+4.	Copiare questo URL blob.
 
-3.  Select the **OS Disk**, which opens another blade that displays disk properties, including the VHD location.
-4.  Copy this blob URL.
+  ![disegno](media/marketplace-publishing-vm-image-creation-on-premise/img02.png)
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img02.png)
+5.	A questo punto, eliminare la macchina virtuale distribuita senza eliminare i dischi di backup. È inoltre possibile arrestare la macchina virtuale, anziché eliminarla. Non scaricare il VHD del sistema operativo quando la macchina virtuale è in esecuzione.
 
-5.  Now, delete the deployed VM without deleting the backing disks. You can also stop the VM instead of deleting it. Do not download the operating system VHD when the VM is running.
+  ![disegno](media/marketplace-publishing-vm-image-creation-on-premise/img03.png)
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img03.png)
+### Scaricare il VHD
+Quando si conosce l'URL BLOB, è possibile scaricare il VHD utilizzando il [portale di Azure](http://manage.windowsazure.com/) o PowerShell.
 
-### <a name="download-a-vhd"></a>Download a VHD
-After you know the blob URL, you can download the VHD by using the [Azure portal](http://manage.windowsazure.com/) or PowerShell.  
-> [AZURE.NOTE] At the time of this guide’s creation, the functionality to download a VHD is not yet present in the new Microsoft Azure portal.  
+> [AZURE.NOTE] Al momento della creazione della guida, la funzionalità per scaricare un VHD non è ancora presente nel nuovo portale di Microsoft Azure.
 
-**Download the operating system VHD via the current [Azure portal](http://manage.windowsazure.com/)**
+**Scaricare il VHD del sistema operativo tramite il [portale di Azure](http://manage.windowsazure.com/) corrente**
 
-1.  Sign in to the Azure portal if you have not done so already.
-2.  Click the **Storage** tab.
-3.  Select the storage account within which the VHD is stored.
+1.	Accedere al portale di Azure, se questa operazione non è già stata eseguita.
+2.	Fare clic sulla scheda **Archiviazione**.
+3.	Selezionare l'account di archiviazione in cui è archiviato il VHD.
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img04.png)
+  ![disegno](media/marketplace-publishing-vm-image-creation-on-premise/img04.png)
 
-4.  This displays storage account properties. Select the **Containers** tab.
+4.	Questo visualizza le proprietà dell'account di archiviazione. Selezionare la scheda **Contenitori**.
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img05.png)
+  ![disegno](media/marketplace-publishing-vm-image-creation-on-premise/img05.png)
 
-5.  Select the container in which the VHD is stored. By default, when created from the portal, the VHD is stored in a vhds container.
+5.	Selezionare il contenitore in cui è archiviato il VHD. Per impostazione predefinita, quando creato dal portale, il VHD viene archiviato in un contenitore di VHD.
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img06.png)
+  ![disegno](media/marketplace-publishing-vm-image-creation-on-premise/img06.png)
 
-6.  Select the correct operating system VHD by comparing the URL to the one you saved.
-7.  Click **Download**.
+6.	Selezionare il VHD del sistema operativo corretto confrontando l'URL con quello salvato.
+7.	Fare clic su **Download**.
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img07.png)
+  ![disegno](media/marketplace-publishing-vm-image-creation-on-premise/img07.png)
 
-### <a name="download-a-vhd-by-using-powershell"></a>Download a VHD by using PowerShell
-In addition to using the Azure portal, you can use the [Save-AzureVhd](http://msdn.microsoft.com/library/dn495297.aspx) cmdlet to download the operating system VHD.
+### Scaricare il VHD mediante PowerShell
+Oltre al portale di Azure, è possibile usare il cmdlet [Save-AzureVhd](http://msdn.microsoft.com/library/dn495297.aspx) per scaricare il VHD del sistema operativo.
 
         Save-AzureVhd –Source <storageURIOfVhd> `
         -LocalFilePath <diskLocationOnWorkstation> `
         -StorageKey <keyForStorageAccount>
-For example, Save-AzureVhd -Source “https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\baseimagevm.vhd” -StorageKey <String>
+Ad esempio, Save-AzureVhd -Source “https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd” -LocalFilePath “C:\\Users\\Administrator\\Desktop\\baseimagevm.vhd” -StorageKey <String>
 
-> [AZURE.NOTE] **Save-AzureVhd** also has a **NumberOfThreads** option that can be used to increase parallelism to make the best use of available bandwidth for the download.
+> [AZURE.NOTE] **Save-AzureVhd** dispone inoltre dell'opzione **NumberOfThreads**, che può essere utilizzata per aumentare il parallelismo per un utilizzo ottimale della larghezza di banda disponibile per il download.
 
-## <a name="upload-vhds-to-an-azure-storage-account"></a>Upload VHDs to an Azure storage account
-If you prepared your VHDs on-premises, you need to upload them into a storage account in Azure. This step takes place after creating your VHD on-premises but before obtaining certification for your VM image.
+## Caricare VHD in un account di archiviazione di Azure
+Se i VHD sono stati preparati in locale, è necessario caricarli in un account di archiviazione in Azure. Questo passaggio avviene dopo la creazione del VHD locale, ma prima di ottenere una certificazione per l'immagine della macchina virtuale.
 
-### <a name="create-a-storage-account-and-container"></a>Create a storage account and container
-We recommend that VHDs be uploaded into a storage account in a region in the United States. All VHDs for a single SKU should be placed in a single container within a single storage account.
+### Creare un account di archiviazione e un contenitore
+Si consiglia di caricare i VHD in un account di archiviazione in un'area negli Stati Uniti. Tutti i VHD per un unico codice SKU devono essere posizionati in un singolo contenitore all'interno di un singolo account di archiviazione.
 
-To create a storage account, you can use the [Microsoft Azure portal](https://portal.azure.com/), PowerShell, or the Linux command-line tool.  
+Per creare un account di archiviazione è possibile utilizzare il [portale di Microsoft Azure](https://portal.azure.com/), PowerShell o lo strumento da riga di comando per Linux.
 
-**Create a storage account from the Microsoft Azure portal**
+**Creare un account di archiviazione dal portale di Microsoft Azure**
 
-1.  Click **New**.
-2.  Select **Storage**.
-3.  Fill in the storage account name, and then select a location.
+1.	Fare clic su **New**.
+2.	Selezionare **Archiviazione**.
+3.	Immettere il nome dell’account di archiviazione e quindi selezionare il percorso.
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img08.png)
+  ![disegno](media/marketplace-publishing-vm-image-creation-on-premise/img08.png)
 
-4.  Click **Create**.
-5.  The blade for the created storage account should be open. If not, select **Browse** > **Storage Accounts**. On the Storage account blade, select the storage account created.
-6.  Select **Containers**.
+4.	Fare clic su **Crea**.
+5.	Il pannello dell'account di archiviazione creato deve essere aperto. In caso contrario, selezionare **Sfoglia** > **Account di archiviazione**. Nel pannello Account di archiviazione selezionare l'account di archiviazione creato.
+6.	Selezionare **Contenitori**.
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img09.png) 
+  ![disegno](media/marketplace-publishing-vm-image-creation-on-premise/img09.png)
 
-7.  On the Containers blade, select **Add**, and then enter a container name and the container permissions. Select **Private** for container permissions.
+7.	Nel pannello Contenitori selezionare **Aggiungi** e quindi immettere un nome e le autorizzazioni per il contenitore. Selezionare **Privato** per le autorizzazioni del contenitore.
 
-> [AZURE.TIP] We recommend that you create one container per SKU that you are planning to publish.
+> [AZURE.TIP] Si consiglia di creare un contenitore per ogni SKU che si intende pubblicare.
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img10.png)
+  ![disegno](media/marketplace-publishing-vm-image-creation-on-premise/img10.png)
 
-### <a name="create-a-storage-account-by-using-powershell"></a>Create a storage account by using PowerShell
-Using PowerShell, create a storage account by using the [New-AzureStorageAccount](http://msdn.microsoft.com/library/dn495115.aspx) cmdlet.
+### Creare un account di archiviazione tramite PowerShell
+Usando PowerShell, creare un account di archiviazione con il cmdlet [New-AzureStorageAccount](http://msdn.microsoft.com/library/dn495115.aspx).
 
         New-AzureStorageAccount -StorageAccountName “mystorageaccount” -Location “West US”
 
-Then you can create a container within that storage account by using the [NewAzureStorageContainer](http://msdn.microsoft.com/library/dn495291.aspx) cmdlet.
+Sarà quindi possibile creare un contenitore in tale account di archiviazione usando il cmdlet [NewAzureStorageContainer](http://msdn.microsoft.com/library/dn495291.aspx).
 
         New-AzureStorageContainer -Name “containername” -Permission “Off”
 
-> [AZURE.NOTE] Those commands assume that the current storage account context has already been set in PowerShell.   Refer to [Setting up Azure PowerShell](marketplace-publishing-powershell-setup.md) for more details on PowerShell setup.
- 
-### <a name="create-a-storage-account-by-using-the-command-line-tool-for-mac-and-linux"></a>Create a storage account by using the command-line tool for Mac and Linux
-From [Linux command-line tool](../virtual-machines/virtual-machines-linux-cli-manage.md), create a storage account as follows.
+> [AZURE.NOTE] Tali comandi presuppongono che il contesto dell’account di archiviazione corrente sia già stato impostato in PowerShell. Per ulteriori dettagli sulla configurazione di PowerShell fare riferimento a [Configurazione di Azure PowerShell](marketplace-publishing-powershell-setup.md).
+### Creare un account di archiviazione con lo strumento da riga di comando per Mac e Linux
+Dallo [strumento da riga di comando per Linux](../virtual-machines/virtual-machines-linux-cli-manage.md) creare un account di archiviazione come segue.
 
         azure storage account create mystorageaccount --location "West US"
 
-Create a container as follows.
+Creare un contenitore come segue.
 
         azure storage container create containername --account-name mystorageaccount --accountkey <accountKey>
 
-## <a name="upload-a-vhd"></a>Upload a VHD
-After the storage account and container are created, you can upload your prepared VHDs. You can use PowerShell, the Linux command-line tool, or other Azure Storage management tools.
+## Caricare il VHD
+Dopo aver creato l'account di archiviazione e il contenitore, è possibile caricare i VHD preparati. È possibile usare PowerShell, lo strumento da riga di comando per Linux o altri strumenti di gestione di Archiviazione di Azure.
 
-### <a name="upload-a-vhd-via-powershell"></a>Upload a VHD via PowerShell
-Use the [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) cmdlet.
+### Caricare un VHD tramite PowerShell
+Usare il cmdlet [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx).
 
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 
-### <a name="upload-a-vhd-by-using-the-command-line-tool-for-mac-and-linux"></a>Upload a VHD by using the command-line tool for Mac and Linux
-With the [Linux command-line tool](../virtual-machines/command-line-tools/), use the following: azure vm image create <image name> --location <Location of the data center> --OS Linux <LocationOfLocalVHD>
+### Caricare un VHD utilizzando lo strumento da riga di comando per Mac e Linux
+Con lo [strumento da riga di comando per Linux](../virtual-machines/command-line-tools/), usare il comando indicato di seguito: azure vm image create <image name> --location <Location of the data center> --OS Linux <LocationOfLocalVHD>
 
-## <a name="see-also"></a>See also
-- [Creating a virtual machine image for the Marketplace](marketplace-publishing-vm-image-creation.md)
-- [Setting up Azure PowerShell](marketplace-publishing-powershell-setup.md)
+## Vedere anche
+- [Creazione di un'immagine di macchina virtuale per Marketplace](marketplace-publishing-vm-image-creation.md)
+- [Configurazione di Azure PowerShell](marketplace-publishing-powershell-setup.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0615_2016-->

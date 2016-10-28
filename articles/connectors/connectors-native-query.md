@@ -1,12 +1,12 @@
 <properties
-    pageTitle="Add the query action in logic apps | Microsoft Azure"
-    description="Overview of the query action for performing actions like filter array."
-    services=""
-    documentationCenter=""
-    authors="jeffhollan"
-    manager="erikre"
-    editor=""
-    tags="connectors"/>
+	pageTitle="Aggiungere l'azione di query alle app per la logica | Microsoft Azure"
+	description="Panoramica dell'azione di query per l'esecuzione di azioni come Filtra matrice."
+	services=""
+	documentationCenter=""
+	authors="jeffhollan"
+	manager="erikre"
+	editor=""
+	tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -17,74 +17,68 @@
    ms.date="07/20/2016"
    ms.author="jehollan"/>
 
+# Introduzione all'azione di query
 
-# <a name="get-started-with-the-query-action"></a>Get started with the query action
+Con l'azione di query è possibile usare batch e matrici per poter eseguire flussi di lavoro per:
 
-By using the query action, you can work with batches and arrays to accomplish workflows to:
+- Creare un'attività per tutti i record ad alta priorità di un database.
+- Salvare tutti gli allegati PDF per i messaggi di posta elettronica in un BLOB di Azure.
 
-- Create a task for all high-priority records from a database.
-- Save all PDF attachments for emails into an Azure blob.
+Per iniziare a usare l'azione di query in un'app per la logica, vedere [Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To get started using the query action in a logic app, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Usare l'azione di query
 
-## <a name="use-the-query-action"></a>Use the query action
+Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](connectors-overview.md).
 
-An action is an operation that is carried out by the workflow that is defined in a logic app. [Learn more about actions](connectors-overview.md).  
+L'azione di query ha attualmente un'operazione, denominata Filtra matrice, esposta nella finestra di progettazione. Questa consente di interrogare una matrice e restituire un set di risultati filtrati.
 
-The query action currently has one operation, called the filter array, that is exposed in the designer. This allows you to query an array and return a set of filtered results.
+Ecco come è possibile aggiungerla in un'app per la logica:
 
-Here's how you can add it in a logic app:
+1. Fare clic sul pulsante **Nuovo passaggio**.
+2. Scegliere **Aggiungi un'azione**.
+3. Nella casella di ricerca azione digitare **Filtro** per elencare l'azione **Filtra matrice**.
 
-1. Select the **New Step** button.
-2. Choose **Add an action**.
-3. In the action search box, type **filter** to list the **Filter array** action.
+	![Selezionare l'azione di query](./media/connectors-native-query/using-action-1.png)
 
-    ![Select the query action](./media/connectors-native-query/using-action-1.png)
+4. Selezionare una matrice da filtrare. Lo screenshot seguente illustra la matrice di risultati ottenuta da una ricerca in Twitter.
+5. Creare una condizione da valutare per ogni elemento. Lo screenshot seguente filtra i tweet degli utenti con più di 100 follower.
 
-4. Select an array to filter. (The following screenshot shows the array of results from a Twitter search.)
-5. Create a condition to evaluate on each item. (The following screenshot filters tweets from users who have more than 100 followers.)
+	![Completare l'azione di query](./media/connectors-native-query/using-action-2.png)
 
-    ![Complete the query action](./media/connectors-native-query/using-action-2.png)
+	L'azione genera una nuova matrice che contiene solo i risultati che soddisfano i requisiti del filtro.
+6. Fare clic sull'angolo in alto a sinistra della barra degli strumenti per salvare e pubblicare (attivare) l'app per la logica.
 
-    The action will output a new array that contains only results that met the filter requirements.
-6. Click the upper-left corner of the toolbar to save, and your logic app will both save and publish (activate).
+## Azione di query
 
-## <a name="query-action"></a>Query action
+Ecco i dettagli per l'azione supportata da questo connettore. Il connettore supporta una sola azione possibile.
 
-Here are the details for the action that this connector supports. The connector has one possible action.
-
-|Action|Description|
+|Azione|Descrizione|
 |---|---|
-|Filter array|Evaluates a condition for each item in an array and returns the results|
+|Filtra matrice|Valuta una condizione per ogni elemento in una matrice e restituisce i risultati|
 
-## <a name="action-details"></a>Action details
+## Informazioni dettagliate sulle azioni
 
-The query action comes with one possible action. The following tables describe the required and optional input fields for the action and the corresponding output details that are associated with using the action.
+L'azione di query supporta un'azione possibile. La tabella seguente descrive i campi di input obbligatori e facoltativi per l'azione e i dettagli di output corrispondenti associati all'uso dell'azione.
 
-### <a name="filter-array"></a>Filter array
-The following are input fields for the action, which makes an HTTP outbound request.
-A * means that it is a required field.
+### Filtra matrice
+Di seguito sono riportati campi di input per l'azione, che esegue una richiesta HTTP in uscita. Un asterisco (*) indica che è un campo obbligatorio.
 
-|Display name|Property name|Description|
+|Nome visualizzato|Nome proprietà|Descrizione|
 |---|---|---|
-|From*|from|The array to filter|
-|Condition*|where|The condition to evaluate for each item|
+|Da*|from|La matrice da filtrare|
+|Condizione*|dove|La condizione da valutare per ogni elemento|
 <br>
 
-### <a name="output-details"></a>Output details
+### Dettagli dell'output
 
-The following are output details for the HTTP response.
+Di seguito sono riportati i dettagli di output per la risposta HTTP.
 
-|Property name|Data type|Description|
+|Nome proprietà|Tipo di dati|Description|
 |---|---|---|
-|Filtered array|array|An array that contains an object for each filtered result|
+|Matrice filtrata|array|Matrice che contiene un oggetto per ogni risultato filtrato|
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-Now, try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
+Provare ora a usare la piattaforma e [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l'[elenco di API](apis-list.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

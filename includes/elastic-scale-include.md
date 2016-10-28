@@ -1,8 +1,5 @@
-## <a name="additional-resources"></a>Additional resources
+## Risorse aggiuntive
 
-Not using elastic database tools yet? Check out our [Getting Started Guide](../articles/sql-database/sql-database-elastic-scale-get-started.md) and [Documentation Map](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/).  For questions, please reach out to us on the [SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) and for feature requests, please add them to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
+Se non si usano gli strumenti di database elastici, è possibile consultare la [Guida introduttiva](../articles/sql-database/sql-database-elastic-scale-get-started.md) e la [Mappa documento](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). Per domande è possibile visitare il [forum sul database SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) mentre è possibile inserire le richieste di nuove funzionalità nel [forum dei commenti e suggerimenti sul database SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0615_2016-->

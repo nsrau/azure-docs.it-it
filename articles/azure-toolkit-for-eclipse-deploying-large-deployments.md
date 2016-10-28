@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Deploying Large Deployments"
-    description="Learn how to deploy large deployments using the Azure Toolkit for Eclipse."
+    pageTitle="Distribuire distribuzioni di grandi dimensioni"
+    description="Informazioni su come distribuire le distribuzioni di grandi dimensioni usando il Toolkit di Azure per Eclipse."
     services=""
     documentationCenter="java"
     authors="rmcmurray"
@@ -16,49 +16,43 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
-
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn268601.aspx -->
 
-# <a name="deploying-large-deployments"></a>Deploying Large Deployments #
+# Distribuire distribuzioni di grandi dimensioni #
 
-If your deployment is too large to be contained in the default approot folder, you can use a local storage resource as the deployment root folder for your JDK and application server.
+Se la distribuzione è troppo grande per essere contenuta nella cartella approot predefinita, è possibile usare una risorsa di archiviazione locale come la cartella radice di distribuzione per il JDK e il server dell’applicazione.
 
-## <a name="to-use-a-local-storage-resource-as-the-deployment-root-folder-for-large-deployments"></a>To use a local storage resource as the deployment root folder for large deployments ##
+## Per utilizzare una risorsa di archiviazione locale come la cartella radice di distribuzione per distribuzioni di grandi dimensioni ##
 
-1. Create a new local storage resource. The name of the resource does not matter. Storage resources are defined at the role level. The quickest way to access the local storage configuration dialog, from which you could create a new local storage resource, is by using the following steps: Right-click the role in the **Project Explorer** view (expand your Azure project node if you don't see the role), click **Azure**, and then click **Local Storage**. Within the **Local Storage** dialog, click **Add** to create a new local storage resource.
-1. Set the desired size to at least 2048 MB (anything less may cause the same file size problems as you would encounter in the approot).
-1. Ensure that **Clean the contents when the role instance is recycled** is checked; this will help prevent the deployment's startup logic from running into conflicts with pre-existing files in the resource when the role instance is recycled.
-1. Ensure that the **Environment variable storing the resource's directory path after deployment** value is set to the string **DEPLOYROOT**. Your local storage resource dialog will look similar to the following.
-    ![][ic667943]
+1. Creare una nuova una risorsa di archiviazione locale Il nome della risorsa non è rilevante. Le risorse di archiviazione sono definite a livello di ruolo. Il modo più rapido per avere accesso alla finestra di dialogo di configurazione dell’archiviazione locale, da cui è possibile creare una nuova risorsa di archiviazione locale, è quello di accedere utilizzando la procedura seguente: fare clic con il tasto destro sul ruolo nella visualizzazione **Project Explorer** (espandere il nodo del progetto di Azure se non viene visualizzato il ruolo), fare clic su **Azure**, quindi fare clic su **Archiviazione locale**. Nella finestra di dialogo **Archiviazione locale**, fare clic su **Aggiungi** per creare una nuova risorsa di archiviazione locale.
+1. Impostare le dimensioni desiderate ad almeno 2048 MB (qualunque valore inferiore potrebbe causare gli stessi problemi di dimensioni del file che si riscontrerebbero nella cartella approot).
+1. Assicurarsi di selezionare **Pulire i contenuti quando l'istanza del ruolo viene riciclata**; ciò impedirà alla logica di avvio della distribuzione di imbattersi in conflitti con i file esistenti nella risorsa quando l'istanza del ruolo viene riciclata.
+1. Assicurarsi che il valore **Variabile di ambiente che archivia il percorso della directory della risorsa dopo la distribuzione** sia impostato sulla stringa **DEPLOYROOT**. La finestra di dialogo della risorsa di archiviazione locale sarà simile a quella seguente. ![][ic667943]
 
-Alternatively, if you use **DEPLOYROOT** as the *name* of your local resource and you do not change the automatically-generated environment variable name (which will be set to **DEPLOYROOT_PATH** in that case), that would work for your application as well.
+In alternativa, se si utilizza **DEPLOYROOT** come *nome* della risorsa locale e non si modifica il nome della variabile di ambiente generata automaticamente (che verrà impostato su **DEPLOYROOT\_PATH** in questo caso), anche questo nome andrà bene per l’applicazione.
 
-Additional information about creating a local storage resource can be found at [Local storage properties][].
+Altre informazioni sulla creazione di una risorsa di archiviazione locale sono reperibili in [Proprietà dell’archiviazione locale][].
 
-## <a name="see-also"></a>See Also ##
+## Vedere anche ##
 
-[Azure Toolkit for Eclipse][]
+[Toolkit di Azure per Eclipse][]
 
-[Creating a Hello World Application for Azure in Eclipse][]
+[Creazione di un'applicazione Hello World per Azure in Eclipse][]
 
-[Installing the Azure Toolkit for Eclipse][] 
+[Installare il Toolkit di Azure per Eclipse.][]
 
-For more information about using Azure with Java, see the [Azure Java Developer Center][].
+Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure][].
 
 <!-- URL List -->
 
-[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Local storage properties]: http://go.microsoft.com/fwlink/?LinkID=699525#local_storage_properties
+[Centro per sviluppatori Java di Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Toolkit di Azure per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Creazione di un'applicazione Hello World per Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installare il Toolkit di Azure per Eclipse.]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Proprietà dell’archiviazione locale]: http://go.microsoft.com/fwlink/?LinkID=699525#local_storage_properties
 
 <!-- IMG List -->
 
 [ic667943]: ./media/azure-toolkit-for-eclipse-deploying-large-deployments/ic667943.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

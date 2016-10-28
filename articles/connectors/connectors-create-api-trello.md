@@ -1,10 +1,10 @@
 <properties
 pageTitle="Trello | Microsoft Azure"
-description="Create Logic apps with Azure App service. Trello gives you perspective over all your projects, at work and at home.  It is an easy, free, flexible, and visual way to manage your projects and organize anything.  Connect to Trello to manage your boards, lists and cards"
-services="logic-apps"   
-documentationCenter=".net,nodejs,java"  
-authors="msftman"   
-manager="erikre"    
+description="Creare app per la logica in Servizio app di Azure. Trello offre una panoramica di tutti i progetti, al lavoro e a casa. È un modo semplice, gratuito, flessibile per gestire visivamente i progetti e organizzare qualsiasi cosa. Connettersi a Trello per gestire bacheche, elenchi e schede"
+services="logic-apps"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
 editor=""
 tags="connectors" />
 
@@ -17,436 +17,435 @@ ms.workload="integration"
 ms.date="08/18/2016"
 ms.author="deonhe"/>
 
+# Introduzione al connettore Trello
 
-# <a name="get-started-with-the-trello-connector"></a>Get started with the Trello connector
+Trello offre una panoramica di tutti i progetti, al lavoro e a casa. È un modo semplice, gratuito, flessibile per gestire visivamente i progetti e organizzare qualsiasi cosa. Connettersi a Trello per gestire bacheche, elenchi e schede.
 
-Trello gives you perspective over all your projects, at work and at home.  It is an easy, free, flexible, and visual way to manage your projects and organize anything.  Connect to Trello to manage your boards, lists and cards.
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
+Per iniziare subito a creare un'app per la logica, vedere [Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Trigger e azioni
 
-## <a name="triggers-and-actions"></a>Triggers and actions
+Il connettore Trello può essere usato come azione e include trigger. Tutti i connettori supportano dati nei formati JSON e XML.
 
-The Trello connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
+ Nel connettore Trello sono disponibili le azioni e/o i trigger seguenti:
 
- The Trello connector has the following action(s) and/or trigger(s) available:
+### Azioni di Trello
+È possibile eseguire queste azioni:
 
-### <a name="trello-actions"></a>Trello actions
-You can take these action(s):
-
-|Action|Description|
+|Azione|Descrizione|
 |--- | ---|
-|[ListCards](connectors-create-api-trello.md#listcards)|List cards in board|
-|[GetCard](connectors-create-api-trello.md#getcard)|Get card by id|
-|[UpdateCard](connectors-create-api-trello.md#updatecard)|Update card|
-|[DeleteCard](connectors-create-api-trello.md#deletecard)|Delete card|
-|[CreateCard](connectors-create-api-trello.md#createcard)|Creates a new card in your trello account|
-|[ListBoards](connectors-create-api-trello.md#listboards)|List boards|
-|[GetBoard](connectors-create-api-trello.md#getboard)|Gets board by Id|
-|[ListLists](connectors-create-api-trello.md#listlists)|List card lists in board|
-|[GetList](connectors-create-api-trello.md#getlist)|Gets list by Id|
-### <a name="trello-triggers"></a>Trello triggers
-You can listen for these event(s):
+|[ListCards](connectors-create-api-trello.md#listcards)|Elenca le schede nella bacheca|
+|[GetCard](connectors-create-api-trello.md#getcard)|Ottiene la scheda in base all'ID|
+|[UpdateCard](connectors-create-api-trello.md#updatecard)|Aggiorna la scheda|
+|[DeleteCard](connectors-create-api-trello.md#deletecard)|Elimina la scheda|
+|[CreateCard](connectors-create-api-trello.md#createcard)|Crea una nuova scheda nell'account Trello|
+|[ListBoards](connectors-create-api-trello.md#listboards)|Elenca le bacheche|
+|[GetBoard](connectors-create-api-trello.md#getboard)|Ottiene la bacheca in base all'ID|
+|[ListLists](connectors-create-api-trello.md#listlists)|Elenca gli elenchi di schede nella bacheca|
+|[GetList](connectors-create-api-trello.md#getlist)|Ottiene l'elenco in base all'ID|
+### Trigger di Trello
+È possibile ascoltare questi eventi:
 
-|Trigger | Description|
+|Trigger | Descrizione|
 |--- | ---|
-|When a new card is added to a board|Triggers a flow when a new card is added to a board|
-|When a new card is added to a list|Triggers a flow when a new card is added to a list|
+|Quando una nuova scheda viene aggiunta a una bacheca|Attiva un flusso quando una scheda viene aggiunta una bacheca|
+|Quando una nuova scheda viene aggiunta a un elenco|Attiva un flusso quando una scheda viene aggiunta a un elenco|
 
 
-## <a name="create-a-connection-to-trello"></a>Create a connection to Trello
-To create Logic apps with Trello, you must first create a **connection** then provide the details for the following properties: 
+## Creare una connessione a Trello
+Per creare app per la logica con Trello, è prima necessario creare una **connessione** e quindi fornire i dettagli per le proprietà seguenti:
 
-|Property| Required|Description|
+|Proprietà| Obbligatorio|Descrizione|
 | ---|---|---|
-|Token|Yes|Provide Trello Credentials|
-After you create the connection, you can use it to execute the actions and listen for the triggers described in this article. 
+|Token|Sì|Fornire le credenziali di Trello|
+Dopo aver creato la connessione, è possibile usarla per eseguire le azioni e restare in ascolto dei trigger descritti in questo articolo.
 
->[AZURE.INCLUDE [Steps to create a connection to Trello](../../includes/connectors-create-api-trello.md)]
+>[AZURE.INCLUDE [Passaggi per creare una connessione a Trello](../../includes/connectors-create-api-trello.md)]
 
->[AZURE.TIP] You can use this connection in other logic apps.
+>[AZURE.TIP] È possibile usare questa connessione in altre app per la logica.
 
-## <a name="reference-for-trello"></a>Reference for Trello
-Applies to version: 1.0
+## Riferimento per Trello
+Si applica alla versione 1.0
 
-## <a name="onnewcardinboard"></a>OnNewCardInBoard
-When a new card is added to a board: Triggers a flow when a new card is added to a board 
+## OnNewCardInBoard
+Quando una nuova scheda viene aggiunta a una bacheca: attiva un flusso quando una nuova scheda viene aggiunta una bacheca
 
-```GET: /trigger/boards/{board_id}/cards``` 
+```GET: /trigger/boards/{board_id}/cards```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|board_id|string|yes|path|none|Unique id of the board to fetch cards in|
+|board\_id|stringa|yes|path|nessuno|ID univoco della bacheca in cui recuperare le schede|
 
-#### <a name="response"></a>Response
+#### Response
 
-|Name|Description|
+|Name|Descrizione|
 |---|---|
 |200|OK|
 |400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed|
+|401|Non autorizzata|
+|403|Accesso negato|
+|404|Non trovato|
+|500|Errore interno del server. Si è verificato un errore sconosciuto|
+|default|Operazione non riuscita|
 
 
-## <a name="onnewcardinlist"></a>OnNewCardInList
-When a new card is added to a list: Triggers a flow when a new card is added to a list 
+## OnNewCardInList
+Quando una nuova scheda viene aggiunta a un elenco: attiva un flusso quando una scheda viene aggiunta a un elenco
 
-```GET: /trigger/lists/{list_id}/cards``` 
+```GET: /trigger/lists/{list_id}/cards```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|board_id|string|yes|query|none|Unique id of the board to fetch cards in|
-|list_id|string|yes|path|none|Unique id of the list to fetch cards in|
+|board\_id|string|yes|query|nessuno|ID univoco della bacheca in cui recuperare le schede|
+|list\_id|stringa|yes|path|nessuno|ID univoco dell'elenco in cui recuperare le schede|
 
-#### <a name="response"></a>Response
+#### Response
 
-|Name|Description|
+|Name|Descrizione|
 |---|---|
 |200|OK|
 |400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed|
+|401|Non autorizzata|
+|403|Accesso negato|
+|404|Non trovato|
+|500|Errore interno del server. Si è verificato un errore sconosciuto|
+|default|Operazione non riuscita|
 
 
-## <a name="listcards"></a>ListCards
-List cards in board: List cards in board 
+## ListCards
+Elenca le schede nella bacheca: elenca le schede nella bacheca
 
-```GET: /boards/{board_id}/cards``` 
+```GET: /boards/{board_id}/cards```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|board_id|string|yes|path|none|Id of the board to fetch all the cards|
-|actions|string|no|query|none|List the actions to return. Specify 'all' or a comma seperated list of valid values|
-|attachments|boolean|no|query|none|Show attachments|
-|attachment_fields|string|no|query|none|List the attachment fields to return. Specify 'all' or a comma seperated list of valid values|
-|stickers|boolean|no|query|none|Show stickers|
-|members|boolean|no|query|none|Show members|
-|memeber_fields|string|no|query|none|List the member fields to return. Specify 'all' or a comma seperated list of valid values|
-|CheckItemStates|boolean|no|query|none|Return the card states|
-|Checklists|string|no|query|none|Show checklists|
-|limit|integer|no|query|none|The max number of results to return, between 1 and 1000|
-|since|string|no|query|none|Fetch all cards after this date|
-|before|string|no|query|none|Fetch all cards before this date|
-|filter|string|no|query|none|Filter the response|
-|fields|string|no|query|none|List the card fields to return. Specify 'all' or a comma seperated list of valid values|
+|board\_id|stringa|yes|path|nessuno|ID della bacheca in cui recuperare tutte le schede|
+|actions|stringa|no|query|nessuno|Elenca le azioni da restituire. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|attachments|boolean|no|query|nessuno|Visualizza gli allegati|
+|attachment\_fields|stringa|no|query|nessuno|Elenca i campi degli allegati da restituire. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|stickers|boolean|no|query|nessuno|Visualizza le etichette|
+|Membri di|boolean|no|query|nessuno|Visualizza i membri|
+|memeber\_fields|string|no|query|nessuno|Elenca i campi dei membri da restituire. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|CheckItemStates|boolean|no|query|nessuno|Restituisce gli stati delle schede|
+|Checklists|stringa|no|query|nessuno|Visualizza gli elenchi di controllo|
+|limit|integer|no|query|nessuno|Numero massimo di risultati da restituire, compreso tra 1 e 1000|
+|since|stringa|no|query|nessuno|Recupera tutte le schede dopo questa data|
+|prima di|stringa|no|query|nessuno|Recupera tutte le schede prima di questa data|
+|filter|string|no|query|nessuno|Filtra la risposta|
+|fields|string|no|query|nessuno|Elenca i campi delle schede da restituire. Specificare "all" o un elenco con valori validi delimitati da virgole.|
 
-#### <a name="response"></a>Response
+#### Response
 
-|Name|Description|
+|Nome|Descrizione|
 |---|---|
 |200|OK|
 |400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed|
+|401|Non autorizzata|
+|403|Accesso negato|
+|404|Non trovato|
+|500|Errore interno del server. Si è verificato un errore sconosciuto|
+|default|Operazione non riuscita|
 
 
-## <a name="getcard"></a>GetCard
-Get card by id: Get card by id 
+## GetCard
+Ottiene la scheda in base all'ID: ottiene la scheda in base all'ID
 
-```GET: /cards/{card_id}``` 
+```GET: /cards/{card_id}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|board_id|string|yes|query|none|Id of the board to fetch cards in|
-|card_id|string|yes|path|none|Id of the card to fetch|
-|actions|string|no|query|none|List the actions to return. Specify 'all' or a comma seperated list of valid values|
-|actions_entities|boolean|no|query|none|Return action entities|
-|actions_display|boolean|no|query|none|Return action displays|
-|actions_limit|integer|no|query|none|Max number of actions to return|
-|action_fields|string|no|query|none|List of action fields to return for each action. Specify 'all' or a comma seperated list of valid values|
-|action_memberCreator_fields|string|no|query|none|List of action member creator fields to return. Specify 'all' or a comma seperated list of valid values|
-|attachments|boolean|no|query|none|Return attachments|
-|attachement_fields|string|no|query|none|List of attachment fields to return for each attachment. Specify 'all' or a comma seperated list of valid values|
-|members|boolean|no|query|none|Return members|
-|member_fields|string|no|query|none|List of member fields to return for each member. Specify 'all' or a comma seperated list of valid values|
-|membersVoted|boolean|no|query|none|Return voted members|
-|memberVoted_fields|string|no|query|none|List of voted member fields to return for each voted member. Specify 'all' or a comma seperated list of valid values|
-|checkItemStates|boolean|no|query|none|Return card states|
-|checkItemState_fields|string|no|query|none|List of state fields to return for each of the card item state. Specify 'all' or a comma seperated list of valid values|
-|checklists|string|no|query|none|Return checklists|
-|checklist_fields|string|no|query|none|List of checklist fields to return for each checklist. Specify 'all' or a comma seperated list of valid values|
-|board|boolean|no|query|none|Return the board which the card belongs to|
-|board_fields|string|no|query|none|List the board fields to return. Specify 'all' or a comma seperated list of valid values|
-|list|boolean|no|query|none|Return the list which the card belongs to|
-|list_fields|string|no|query|none|List the list fields to return. Specify 'all' or a comma seperated list of valid values|
-|stickers|boolean|no|query|none|Return stickers|
-|sticker_fields|string|no|query|none|List the sticker fields to return for each sticker. Specify 'all' or a comma seperated list of valid values|
-|fields|string|no|query|none|List the card fields to return. Specify 'all' or a comma seperated list of valid values|
+|board\_id|string|yes|query|nessuno|ID della bacheca in cui recuperare le schede|
+|card\_id|stringa|yes|path|nessuno|ID della scheda da recuperare|
+|actions|string|no|query|nessuno|Elenca le azioni da restituire. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|actions\_entities|boolean|no|query|nessuno|Restituisce le entità delle azioni|
+|actions\_display|boolean|no|query|nessuno|Restituisce le visualizzazioni delle azioni|
+|actions\_limit|integer|no|query|nessuno|Numero massimo di azioni da restituire|
+|action\_fields|stringa|no|query|nessuno|Elenco di campi dell'azione da restituire per ogni azione. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|action\_memberCreator\_fields|stringa|no|query|nessuno|Elenca i campi dell'autore membro dell'azione da restituire. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|attachments|boolean|no|query|nessuno|Restituisce gli allegati|
+|attachement\_fields|stringa|no|query|nessuno|Elenca i campi dell'allegato da restituire per ogni allegato. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|Membri di|boolean|no|query|nessuno|Restituisce i membri|
+|member\_fields|string|no|query|nessuno|Elenca i campi dell'azione da restituire per ogni membro. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|membersVoted|boolean|no|query|nessuno|Restituisce i membri votati|
+|memberVoted\_fields|stringa|no|query|nessuno|Elenco dei campi membri votati da restituire per ogni membro votato. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|checkItemStates|boolean|no|query|nessuno|Restituisce gli stati delle schede|
+|checkItemState\_fields|stringa|no|query|nessuno|Elenco di campi di stato da restituire per ogni stato degli elementi della scheda. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|checklists|string|no|query|nessuno|Restituire gli elenchi di controllo|
+|checklist\_fields|stringa|no|query|nessuno|Elenco di campi di elenco di controllo da restituire per ogni elenco di controllo. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|board|boolean|no|query|nessuno|Restituisce la bacheca a cui appartiene la scheda|
+|board\_fields|string|no|query|nessuno|Elenca i campi della bacheca da restituire. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|list|boolean|no|query|nessuno|Restituisce l'elenco a cui appartiene la scheda|
+|list\_fields|stringa|no|query|nessuno|Elenca i campi dell'elenco da restituire. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|stickers|boolean|no|query|nessuno|Restituisce le etichette|
+|sticker\_fields|stringa|no|query|nessuno|Elenca i campi dell'etichetta da restituire per ogni etichetta. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|fields|stringa|no|query|nessuno|Elenca i campi delle schede da restituire. Specificare "all" o un elenco con valori validi delimitati da virgole.|
 
-#### <a name="response"></a>Response
+#### Response
 
-|Name|Description|
+|Nome|Descrizione|
 |---|---|
 |200|OK|
 |400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed|
+|401|Non autorizzata|
+|403|Accesso negato|
+|404|Non trovato|
+|500|Errore interno del server. Si è verificato un errore sconosciuto|
+|default|Operazione non riuscita|
 
 
-## <a name="updatecard"></a>UpdateCard
-Update card: Update card 
+## UpdateCard
+Aggiorna la scheda: aggiorna la scheda
 
-```PUT: /cards/{card_id}``` 
+```PUT: /cards/{card_id}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
-|board_id|string|yes|query|none|Id of the board to fetch cards from|
-|card_id|string|yes|path|none|Id of the card to update|
-|updateCard| |yes|body|none|Updated card values|
+|board\_id|stringa|yes|query|nessuno|ID della bacheca da cui recuperare le schede|
+|card\_id|stringa|yes|path|nessuno|ID della scheda da aggiornare|
+|updateCard| |sì|body|nessuno|Valori aggiornati della scheda|
 
-#### <a name="response"></a>Response
+#### Response
 
-|Name|Description|
+|Name|Descrizione|
 |---|---|
 |200|OK|
 |400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed|
+|401|Non autorizzata|
+|403|Accesso negato|
+|404|Non trovato|
+|500|Errore interno del server. Si è verificato un errore sconosciuto|
+|default|Operazione non riuscita|
 
 
-## <a name="deletecard"></a>DeleteCard
-Delete card: Delete card 
+## DeleteCard
+Elimina la scheda: elimina la scheda
 
-```DELETE: /cards/{card_id}``` 
+```DELETE: /cards/{card_id}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|board_id|string|yes|query|none|Id of the board to fetch cards from|
-|card_id|string|yes|path|none|Id of the card to delete|
+|board\_id|stringa|yes|query|nessuno|ID della bacheca da cui recuperare le schede|
+|card\_id|stringa|yes|path|nessuno|ID della scheda da eliminare|
 
-#### <a name="response"></a>Response
+#### Response
 
-|Name|Description|
+|Nome|Descrizione|
 |---|---|
 |200|OK|
 |400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed|
+|401|Non autorizzata|
+|403|Accesso negato|
+|404|Non trovato|
+|500|Errore interno del server. Si è verificato un errore sconosciuto|
+|default|Operazione non riuscita|
 
 
-## <a name="createcard"></a>CreateCard
-Create card: Creates a new card in your trello account 
+## CreateCard
+Crea una scheda: crea una nuova scheda nell'account Trello
 
-```POST: /cards``` 
+```POST: /cards```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|board_id|string|yes|query|none|Unique id of the board to create cards in|
-|newCard| |yes|body|none|New card to add to the trello board|
+|board\_id|stringa|yes|query|nessuno|ID univoco della bacheca in cui creare le schede|
+|newCard| |sì|body|nessuno|Nuova scheda da aggiungere alla bacheca di Trello|
 
-#### <a name="response"></a>Response
+#### Response
 
-|Name|Description|
+|Name|Descrizione|
 |---|---|
 |200|OK|
 |400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed|
+|401|Non autorizzata|
+|403|Accesso negato|
+|404|Non trovato|
+|500|Errore interno del server. Si è verificato un errore sconosciuto|
+|default|Operazione non riuscita|
 
 
-## <a name="listboards"></a>ListBoards
-List boards: List boards 
+## ListBoards
+Elenca le bacheche: elenca le bacheche
 
-```GET: /member/me/boards``` 
+```GET: /member/me/boards```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|filter|string|no|query|none|List filters to apply to board results. Specify 'all' or a comma seperated list of valid values|
-|fields|string|no|query|none|List the board fields to return. Specify 'all' or a comma seperated list of valid values|
-|actions|string|no|query|none|List the action fields to return. Specify 'all' or a comma seperated list of valid values|
-|actions_entities|boolean|no|query|none|Return action entities|
-|actions_limit|integer|no|query|none|Max number of actions to return|
-|actions_format|string|no|query|none|Specify the format of the actions to return|
-|actions_since|string|no|query|none|Return actions after the specified date|
-|action_fields|string|no|query|none|List the fields of the action to return. Specify 'all' or a comma seperated list of valid values|
-|memberships|string|no|query|none|Specify membership information to return. Specify 'all' or a comma seperated list of valid values|
-|organization|boolean|no|query|none|Specify to return organization information|
-|organization_fields|string|no|query|none|List the organization fields to return. Specify 'all' or a comma seperated list of valid values|
-|lists|string|no|query|none|Specify whether to return lists which belong to the board|
+|filter|stringa|no|query|nessuno|Elenca i filtri da applicare ai risultati della bacheca. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|fields|stringa|no|query|nessuno|Elenca i campi della bacheca da restituire. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|actions|stringa|no|query|nessuno|Elenca i campi delle azioni da restituire. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|actions\_entities|boolean|no|query|nessuno|Restituisce le entità delle azioni|
+|actions\_limit|integer|no|query|nessuno|Numero massimo di azioni da restituire|
+|actions\_format|string|no|query|nessuno|Specifica il formato delle azioni da restituire|
+|actions\_since|stringa|no|query|nessuno|Restituisce le azioni dopo la data specificata|
+|action\_fields|stringa|no|query|nessuno|Elenca i campi dell'azione da restituire. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|memberships|stringa|no|query|nessuno|Specifica le informazioni di appartenenza da restituire. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|Organizzazione|boolean|no|query|nessuno|Specifica di restituire informazioni sull'organizzazione|
+|organization\_fields|string|no|query|nessuno|Elenca i campi dell'organizzazione da restituire. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|lists|stringa|no|query|nessuno|Specifica se restituire elenchi che appartengono alla bacheca|
 
-#### <a name="response"></a>Response
+#### Response
 
-|Name|Description|
+|Name|Descrizione|
 |---|---|
 |200|OK|
 |400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed|
+|401|Non autorizzata|
+|403|Accesso negato|
+|404|Non trovato|
+|500|Errore interno del server. Si è verificato un errore sconosciuto|
+|default|Operazione non riuscita|
 
 
-## <a name="getboard"></a>GetBoard
-Gets board by Id: Gets board by Id 
+## GetBoard
+Ottiene la bacheca in base all'ID: ottiene la bacheca in base all'ID
 
-```GET: /boards/{board_id}``` 
+```GET: /boards/{board_id}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|board_id|string|yes|path|none|Unique id of the board to get|
-|actions|string|no|query|none|List the actions to return. Specify 'all' or a comma seperated list of valid values|
-|action_entities|boolean|no|query|none|Specify whether to return action entities|
-|actions_display|boolean|no|query|none|Specify whether to return actions display|
-|actions_format|string|no|query|none|Specify the format of the actions to return|
-|actions_since|string|no|query|none|Only return the actions after this date|
-|actions_limit|integer|no|query|none|Max number of actions to return|
-|action_fields|string|no|query|none|List the fields to return with each field. Specify 'all' or a comma seperated list of valid values|
-|action_memeber|boolean|no|query|none|Specify whether to return action members|
-|action_member_fields|string|no|query|none|List the member fields to return with each action member. Specify 'all' or a comma seperated list of valid values|
-|action_memberCreator|boolean|no|query|none|Specify whether to return action member creator|
-|action_memberCreator_fields|string|no|query|none|List the action member creator fields to return. Specify 'all' or a comma seperated list of valid values|
-|cards|string|no|query|none|Specify the cards to return|
-|card_fields|string|no|query|none|List the fields to return for each card. Specify 'all' or a comma seperated list of valid values|
-|card_attachments|boolean|yes|query|none|Specify whether to return attachments on cards|
-|card_attachment_fields|string|no|query|none|List the attachment fields to return for each attachment. Specify 'all' or a comma seperated list of valid values|
-|card_checklists|string|no|query|none|Specify the checklists to return for each card|
-|card_stickers|boolean|no|query|none|Specify whether to return card stickers|
-|boardStarts|string|no|query|none|Specify the board stars to return|
-|labels|string|no|query|none|Specify the labels to return|
-|label_fields|string|no|query|none|List the label fields to return for each label. Specify 'all' or a comma seperated list of valid values|
-|labels_limits|integer|no|query|none|Max number of labels to return|
-|lists|string|no|query|none|Specify the lists to return|
-|list_fields|string|no|query|none|List the list fields to return for each list. Specify 'all' or a comma seperated list of valid values|
-|memberships|string|no|query|none|List the memberships to return. Specify 'all' or a comma seperated list of valid values|
-|memberships_member|boolean|no|query|none|Specify whether to return membership members|
-|memberships_member_fields|string|no|query|none|List the member fields to return for each membership member. Specify 'all' or a comma seperated list of valid values|
-|members|string|no|query|none|List the members to return|
-|member_fields|string|no|query|none|List the member fields to return for each member. Specify 'all' or a comma seperated list of valid values|
-|membersInvited|string|no|query|none|Specify the invited members to return|
-|membersInvited_fields|string|no|query|none|List the fields to return for each. Specify 'all' or a comma seperated list of valid values|
-|checklists|string|no|query|none|Specify the checklists to return|
-|checklist_fields|string|no|query|none|List the checklist fields to return for each checklist. Specify 'all' or a comma seperated list of valid values|
-|organization|boolean|no|query|none|Specify whether to return the organization information|
-|organization_fields|string|no|query|none|List the organization fields to return for each organization. Specify 'all' or a comma seperated list of valid values|
-|organization_memberships|string|no|query|none|List the organization memberships to return. Specify 'all' or a comma seperated list of valid values|
-|myPerfs|boolean|no|query|none|Specify whether to return my perfs|
-|fields|string|no|query|none|List the fields to return. Specify 'all' or a comma seperated list of valid values|
+|board\_id|stringa|yes|path|nessuno|ID univoco della bacheca da recuperare|
+|actions|string|no|query|nessuno|Elenca le azioni da restituire. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|action\_entities|boolean|no|query|nessuno|Specifica se restituire le entità dell'azione|
+|actions\_display|boolean|no|query|nessuno|Specifica se visualizzare le entità dell'azione|
+|actions\_format|stringa|no|query|nessuno|Specifica il formato delle azioni da restituire|
+|actions\_since|stringa|no|query|nessuno|Restituisce solo le azioni dopo questa data|
+|actions\_limit|integer|no|query|nessuno|Numero massimo di azioni da restituire|
+|action\_fields|stringa|no|query|nessuno|Elenca i campi da restituire con ogni campo. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|action\_memeber|boolean|no|query|nessuno|Specifica se restituire i membri dell'azione|
+|action\_member\_fields|stringa|no|query|nessuno|Elenca i campi dei membri da restituire con ogni membro dell'azione. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|action\_memberCreator|boolean|no|query|nessuno|Specifica se restituire l'autore membro dell'azione|
+|action\_memberCreator\_fields|string|no|query|nessuno|Elenca i campi dell'autore membro dell'azione da restituire. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|cards|string|no|query|nessuno|Specifica le schede da restituire|
+|card\_fields|stringa|no|query|nessuno|Elenca i campi da restituire per ogni scheda. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|card\_attachments|boolean|sì|query|nessuno|Specifica se restituire gli allegati nelle schede|
+|card\_attachment\_fields|string|no|query|nessuno|Elenca i campi dell'allegato da restituire per ogni allegato. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|card\_checklists|stringa|no|query|nessuno|Specifica gli elenchi di controllo da restituire per ogni scheda|
+|card\_stickers|boolean|no|query|nessuno|Specifica se restituire le etichette dell'azione|
+|boardStarts|stringa|no|query|nessuno|Specifica gli avvii della bacheca da restituire|
+|Etichette|stringa|no|query|nessuno|Specifica le etichette da restituire|
+|label\_fields|stringa|no|query|nessuno|Elenca i campi delle etichette da restituire per ogni scheda. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|labels\_limits|integer|no|query|nessuno|Numero massimo di etichette da restituire|
+|lists|stringa|no|query|nessuno|Specifica gli elenchi da restituire|
+|list\_fields|string|no|query|nessuno|Elenca i campi degli elenchi da restituire per ogni elenco. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|memberships|stringa|no|query|nessuno|Elenca le appartenenze da restituire. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|memberships\_member|boolean|no|query|nessuno|Specifica se restituire i membri delle appartenenze|
+|memberships\_member\_fields|stringa|no|query|nessuno|Elenca i campi dei membri da restituire per ogni membro dell'appartenenza. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|Membri di|stringa|no|query|nessuno|Elenca i membri da restituire.|
+|member\_fields|string|no|query|nessuno|Elenca i campi dei membri da restituire per ogni membro. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|membersInvited|string|no|query|nessuno|Specifica i membri invitati da restituire|
+|membersInvited\_fields|stringa|no|query|nessuno|Elenca i campi da restituire per ognuno. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|checklists|stringa|no|query|nessuno|Specifica gli elenchi di controllo da restituire|
+|checklist\_fields|stringa|no|query|nessuno|Elenca i campi di elenco di controllo da restituire per ogni elenco di controllo. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|Organizzazione|boolean|no|query|nessuno|Specifica se restituire le informazioni sull'organizzazione|
+|organization\_fields|stringa|no|query|nessuno|Elenca i campi dell'organizzazione da restituire per ogni organizzazione. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|organization\_memberships|stringa|no|query|nessuno|Elenca le appartenenze dell'organizzazione da restituire. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|myPerfs|boolean|no|query|nessuno|Specifica se restituire le prestazioni|
+|fields|stringa|no|query|nessuno|Elenca i campi da restituire. Specificare "all" o un elenco con valori validi delimitati da virgole.|
 
-#### <a name="response"></a>Response
+#### Response
 
-|Name|Description|
+|Nome|Descrizione|
 |---|---|
 |200|OK|
 |400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed|
+|401|Non autorizzata|
+|403|Accesso negato|
+|404|Non trovato|
+|500|Errore interno del server. Si è verificato un errore sconosciuto|
+|default|Operazione non riuscita|
 
 
-## <a name="listlists"></a>ListLists
-List card lists in board: List card lists in board 
+## ListLists
+Elenca gli elenchi di schede nella bacheca: elenca gli elenchi di schede nella bacheca
 
-```GET: /boards/{board_id}/lists``` 
+```GET: /boards/{board_id}/lists```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|board_id|string|yes|path|none|Unique id of the board to fetch lists|
-|cards|string|no|query|none|Specify the cards to return|
-|card_fields|string|no|query|none|List the card fields to return from. Specify 'all' or a comma seperated list of valid values|
-|filter|string|no|query|none|Specify the filter property for lists|
-|fields|string|no|query|none|List the fields to return. Specify 'all' or a comma seperated list of valid values|
+|board\_id|stringa|yes|path|nessuno|ID univoco della bacheca in cui recuperare gli elenchi|
+|cards|stringa|no|query|nessuno|Specifica le schede da restituire|
+|card\_fields|string|no|query|nessuno|Elenca i campi delle schede da restituire informazioni. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|filter|stringa|no|query|nessuno|Specificare la proprietà di filtro per gli elenchi|
+|fields|string|no|query|nessuno|Elenca i campi da restituire. Specificare "all" o un elenco con valori validi delimitati da virgole.|
 
-#### <a name="response"></a>Response
+#### Response
 
-|Name|Description|
+|Nome|Descrizione|
 |---|---|
 |200|OK|
 |400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed|
+|401|Non autorizzata|
+|403|Accesso negato|
+|404|Non trovato|
+|500|Errore interno del server. Si è verificato un errore sconosciuto|
+|default|Operazione non riuscita|
 
 
-## <a name="getlist"></a>GetList
-Gets list by Id: Gets list by Id 
+## GetList
+Ottiene l'elenco in base all'ID: ottiene l'elenco in base all'ID
 
-```GET: /lists/{list_id}``` 
+```GET: /lists/{list_id}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|board_id|string|yes|query|none|Unique id of the board to fetch the lists from|
-|list_id|string|yes|path|none|Unique id of the list to fetch|
-|cards|string|no|query|none|Specify the cards to return|
-|card_fields|string|no|query|none|List the card fields to return for each card. Specify 'all' or a comma seperated list of valid values|
-|board|boolean|no|query|none|Specify whether to return board information|
-|board_fields|string|no|query|none|List the board fields to return. Specify 'all' or a comma seperated list of valid values|
-|fields|string|no|query|none|List the list fields to return. Specify 'all' or a comma seperated list of valid values|
+|board\_id|stringa|yes|query|nessuno|ID univoco della bacheca da cui recuperare gli elenchi|
+|list\_id|string|yes|path|nessuno|ID univoco dell'elenco da recuperare|
+|cards|string|no|query|nessuno|Specifica le schede da restituire|
+|card\_fields|stringa|no|query|nessuno|Elenca i campi delle schede da restituire per ogni scheda. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|board|boolean|no|query|nessuno|Specifica se restituire informazioni sulla bacheca|
+|board\_fields|stringa|no|query|nessuno|Elenca i campi della bacheca da restituire. Specificare "all" o un elenco con valori validi delimitati da virgole.|
+|fields|stringa|no|query|nessuno|Elenca i campi dell'elenco da restituire. Specificare "all" o un elenco con valori validi delimitati da virgole.|
 
-#### <a name="response"></a>Response
+#### Response
 
-|Name|Description|
+|Nome|Descrizione|
 |---|---|
 |200|OK|
 |400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed|
+|401|Non autorizzata|
+|403|Accesso negato|
+|404|Non trovato|
+|500|Errore interno del server. Si è verificato un errore sconosciuto|
+|default|Operazione non riuscita|
 
 
-## <a name="object-definitions"></a>Object definitions 
+## Definizioni oggetti 
 
-### <a name="card"></a>Card
+### Card
 
 
-| Property Name | Data Type | Required |
+| Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|id|string|No |
+|id|stringa|No |
 |checkItemStates|array|No |
 |closed|boolean|No |
 |dateLastActivity|string|No |
-|desc|string|No |
-|idBoard|string|No |
+|desc|stringa|No |
+|idBoard|stringa|No |
 |idList|string|No |
 |idMembersVoted|array|No |
 |idShort|integer|No |
-|idAttachmentCover|string|No |
+|idAttachmentCover|stringa|No |
 |manualCoverAttachment|boolean|No |
 |idLabels|array|No |
 |name|string|No |
 |pos|integer|No |
-|shortLink|string|No |
-|badges|not defined|No |
-|due|string|No |
+|shortLink|stringa|No |
+|badges|non definito|No |
+|due|stringa|No |
 |email|string|No |
-|shortUrl|string|No |
+|shortUrl|stringa|No |
 |subscribed|boolean|No |
-|url|string|No |
+|URL|stringa|No |
 
 
 
-### <a name="badges"></a>Badges
+### Badges
 
 
-| Property Name | Data Type | Required |
+| Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
 |Votes|integer|No |
 |ViewingMemberVoted|boolean|No |
@@ -454,49 +453,49 @@ Gets list by Id: Gets list by Id
 |Fogbugz|string|No |
 |CheckItems|integer|No |
 |CheckItemsChecked|integer|No |
-|Comments|integer|No |
+|Commenti|integer|No |
 |Attachments|integer|No |
 |Description|boolean|No |
 |Due|string|No |
 
 
 
-### <a name="object"></a>Object
+### Oggetto
 
 
-| Property Name | Data Type | Required |
+| Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
 
 
 
-### <a name="createcard"></a>CreateCard
+### CreateCard
 
 
-| Property Name | Data Type | Required |
+| Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|idList|string|Yes |
-|name|string|Yes |
+|idList|stringa|Sì |
+|name|stringa|Sì |
 |desc|string|No |
-|pos|string|No |
-|idMembers|string|No |
+|pos|stringa|No |
+|idMembers|stringa|No |
 |idLabels|string|No |
 |urlSource|string|No |
-|fileSource|string|No |
+|fileSource|stringa|No |
 |idCardSource|string|No |
-|keepFromSource|string|No |
+|keepFromSource|stringa|No |
 
 
 
-### <a name="updatecard"></a>UpdateCard
+### UpdateCard
 
 
-| Property Name | Data Type | Required |
+| Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
 |name|string|No |
 |desc|string|No |
 |closed|boolean|No |
-|idMembers|string|No |
-|idAttachmentCover|string|No |
+|idMembers|stringa|No |
+|idAttachmentCover|stringa|No |
 |idList|string|No |
 |idBoard|string|No |
 |pos|string|No |
@@ -505,55 +504,55 @@ Gets list by Id: Gets list by Id
 
 
 
-### <a name="board"></a>Board
+### Board
 
 
-| Property Name | Data Type | Required |
+| Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
 |id|string|No |
 |closed|boolean|No |
-|dateLastActivity|string|No |
-|dateLastView|string|No |
-|desc|string|No |
-|idOrganization|string|No |
+|dateLastActivity|stringa|No |
+|dateLastView|stringa|No |
+|desc|stringa|No |
+|idOrganization|stringa|No |
 |invitations|array|No |
 |invited|boolean|No |
-|labelNames|not defined|No |
+|labelNames|non definito|No |
 |memberships|array|No |
 |name|string|No |
 |pinned|boolean|No |
 |powerUps|array|No |
-|perfs|not defined|No |
+|perfs|non definito|No |
 |shortLink|string|No |
-|shortUrl|string|No |
+|shortUrl|stringa|No |
 |starred|string|No |
 |subscribed|string|No |
-|url|string|No |
+|URL|stringa|No |
 
 
 
-### <a name="label"></a>Label
+### Etichetta
 
 
-| Property Name | Data Type | Required |
+| Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|green|string|No |
-|yellow|string|No |
-|orange|string|No |
+|green|stringa|No |
+|yellow|stringa|No |
+|orange|stringa|No |
 |red|string|No |
 |purple|string|No |
-|blue|string|No |
+|blue|stringa|No |
 |sky|string|No |
 |lime|string|No |
-|pink|string|No |
-|black|string|No |
+|pink|stringa|No |
+|black|stringa|No |
 
 
 
-### <a name="membership"></a>Membership
+### Appartenenza
 
 
-| Property Name | Data Type | Required |
+| Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
 |id|string|No |
 |idMember|string|No |
@@ -562,24 +561,24 @@ Gets list by Id: Gets list by Id
 
 
 
-### <a name="perfs"></a>Perfs
+### Perfs
 
 
-| Property Name | Data Type | Required |
+| Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
 |permissionLevel|string|No |
-|voting|string|No |
-|comments|string|No |
-|invitations|string|No |
+|voting|stringa|No |
+|commenti|stringa|No |
+|invitations|stringa|No |
 |selfJoin|boolean|No |
 |cardCovers|boolean|No |
 |calendarFeedEnabled|boolean|No |
-|background|string|No |
+|background|stringa|No |
 |backgroundColor|string|No |
 |backgroundImage|string|No |
 |backgroundImageScaled|string|No |
 |backgroundTile|boolean|No |
-|backgroundBrightness|string|No |
+|backgroundBrightness|stringa|No |
 |canBePublic|boolean|No |
 |canBeOrg|boolean|No |
 |canBePrivate|boolean|No |
@@ -587,25 +586,22 @@ Gets list by Id: Gets list by Id
 
 
 
-### <a name="list"></a>List
+### Elenco
 
 
-| Property Name | Data Type | Required |
+| Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|id|string|No |
-|name|string|No |
+|id|stringa|No |
+|name|stringa|No |
 |closed|boolean|No |
-|idBoard|string|No |
+|idBoard|stringa|No |
 |pos|number|No |
 |subscribed|boolean|No |
 |cards|array|No |
-|board|not defined|No |
+|board|non definito|No |
 
 
-## <a name="next-steps"></a>Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## Passaggi successivi
+[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

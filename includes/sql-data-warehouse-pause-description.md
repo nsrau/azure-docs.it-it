@@ -10,15 +10,13 @@ articles/sql-data-warehouse/sql-data-warehouse-manage-scale-out-tasks-powershell
 articles/sql-data-warehouse/sql-data-warehouse-manage-scale-out-tasks-rest-api.md
 
 -->
-To save costs, you can pause and resume compute resources on-demand. For example, if you won't be using the database during the night and on weekends, you can pause it during those times, and resume it during the day. You won't be charged for DWUs while the database is paused.
+Per ridurre i costi, è possibile sospendere e riprendere le risorse di calcolo su richiesta. Ad esempio, se non si usa il database durante la notte e nei fine settimana, è possibile sospenderlo in questi intervalli di tempo e riprenderne l'esecuzione durante il giorno. Mentre il database è sospeso, non verranno addebitate DWU.
 
-When you pause a database:
+Quando si sospende un database:
 
-- Compute and memory resources are returned to the pool of available resources in the data center
-- DWU costs are zero for the duration of the pause.
-- Data storage is not affected and your data stays intact. 
-- SQL Data Warehouse cancels all running or queued operations.
+- Le risorse di calcolo e memoria vengono restituite al pool di risorse disponibili nel data center.
+- I costi delle DWU sono pari a zero per la durata della pausa.
+- L'archivio dati non è interessato e i dati rimangano invariati. 
+- SQL Data Warehouse annulla tutte le operazioni in esecuzione o in coda.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0427_2016-->

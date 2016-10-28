@@ -1,72 +1,66 @@
 <properties 
-    pageTitle="LDAP Authentication and Azure Multi-Factor Authentication Server"
-    description="This is the Azure Multi-factor authentication page that will assist in deploying LDAP Authentication and Azure Multi-Factor Authentication Server."
-    services="multi-factor-authentication"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor="curtand"/>
+	pageTitle="Autenticazione LDAP e server Azure Multi-Factor Authentication"
+	description="Questa è la pagina di Azure Multi-Factor Authentication contenente le informazioni utili per distribuire l'autenticazione LDAP e il server Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor="curtand"/>
 
 <tags
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/04/2016"
-    ms.author="kgremban"/>
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
+
+# Autenticazione LDAP e server Azure Multi-Factor Authentication
 
 
-# <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>LDAP Authentication and Azure Multi-Factor Authentication Server
+Per impostazione predefinita, il server Azure Multi-Factor Authentication è configurato per importare o sincronizzare utenti da Active Directory, ma può essere configurato anche per il binding con altre directory LDAP, ad esempio con una directory ADAM o un controller di dominio di Active Directory specifico. Una volta configurato per la connessione a una directory tramite LDAP, il server Azure Multi-Factor Authentication può essere configurato come proxy LDAP per l'esecuzione di autenticazioni. Consente inoltre di usare il binding LDAP come una destinazione RADIUS per la preautenticazione degli utenti durante l'uso dell'autenticazione IIS o per l'autenticazione primaria nel portale utenti Azure Multi-Factor Authentication.
 
-
-By default, the Azure Multi-Factor Authentication Server is configured to import or synchronize users from Active Directory. However, it can be configured to bind to different LDAP directories, such as an ADAM directory, or specific Active Directory domain controller. When configured to connect to a directory via LDAP, the Azure Multi-Factor Authentication Server can be configured to act as an LDAP proxy to perform authentications. It also allows for the use of LDAP bind as a RADIUS target, for pre-authentication of users when using IIS Authentication, or for primary authentication in the Azure Multi-Factor Authentication User Portal.
-
-When using Azure Multi-Factor Authentication as an LDAP proxy, the Azure Multi-Factor Authentication Server is inserted between the LDAP client (e.g. VPN appliance, application) and the LDAP directory server in order to add multi-factor authentication. For Azure Multi-Factor Authentication to function, the Azure Multi-Factor Authentication Server must be configured to communicate with both the client servers and the LDAP directory. In this configuration, the Azure Multi-Factor Authentication Server accepts LDAP requests from client servers and applications and forwards them to the target LDAP directory server to validate the primary credentials. If the response from the LDAP directory shows that they primary credentials are valid, Azure Multi-Factor Authentication performs second-factor authentication and sends a response back to the LDAP client. The entire authentication will succeed only if both the authentication to the LDAP server and the multi-factor authentication succeed.
-
-
+Quando Azure Multi-Factor Authentication viene usato come proxy LDAP, il server Azure Multi-Factor Authentication viene inserito tra il client LDAP (ad esempio, il dispositivo e l'applicazione VPN) e il server della directory LDAP per l'aggiunta di Multi-Factor Authentication. Per il funzionamento di Azure Multi-Factor Authentication, è necessario che il server Azure Multi-Factor Authentication sia configurato in modo da comunicare sia con i server client sia con la directory LDAP. In questo tipo di configurazione le richieste LDAP provenienti dalle applicazioni e dai server client vengono accettate dal server Azure Multi-Factor Authentication e inoltrate alla directory LDAP di destinazione per convalidare le credenziali primarie. Se nella risposta proveniente dalla directory LDAP è indicato che le credenziali primarie sono valide, Azure Multi-Factor Authentication esegue l'autenticazione basata sul secondo fattore e restituisce una risposta al client LDAP. L'intera autenticazione verrà completata solo se avranno esito positivo sia l'autenticazione al server LDAP sia quella a più fattori.
 
 
 
-## <a name="ldap-authentication-configuration"></a>LDAP Authentication Configuration
 
 
-To configure LDAP authentication, install the Azure Multi-Factor Authentication Server on a Windows server. Use the following procedure:
-
-1. Within the Azure Multi-Factor Authentication Server click the LDAP Authentication icon in the left menu.
-2. Check the Enable LDAP Authentication checkbox.![LDAP Authentication](./media/multi-factor-authentication-get-started-server-ldap/ldap2.png)
-3. On the Clients tab change the TCP port and SSL port if the Azure Multi-Factor Authentication LDAP service should bind to non-standard ports to listen for LDAP requests from the clients that will be configured.
-4. If you plan to use LDAPS from the client to the Azure Multi-Factor Authentication Server, an SSL certificate must be installed on the server that the Server is running on. Click the Browse… button next to the SSL certificate box and select the installed certificate that will be used for the secure connection.
-5. Click Add… button.
-6. In the Add LDAP Client dialog box, enter the IP address of the appliance, server or application that will authenticate to the Server and an Application name (optional). The Application name appears in Azure Multi-Factor Authentication reports and may be displayed within SMS or Mobile App authentication messages.
-7. Check the Require Azure Multi-Factor Authentication user match box if all users have been or will be imported into the Server and subject to mutli-factor authentication. If a significant number of users have not yet been imported into the Server and/or will be exempt from mutli-factor authentication, leave the box unchecked. See the help file for additional information on this feature.
-8. You may repeat steps 5 through 7 to add additional LDAP clients.
-9. When the Azure Multi-Factor Authentication is configured to receive LDAP authentications, it must proxy those authentications to the LDAP directory. Therefore, the Target tab only displays a single, grayed out option to use an LDAP target. To configure the LDAP directory connection, click the Directory Integration icon.
-10. On the Settings tab, select the Use specific LDAP configuration radio button.
-11. Click the Edit… button.
-12. In the Edit LDAP Configuration dialog box, populate the fields with the information required to connect to the LDAP directory. Descriptions of the fields are included in the table below. Note: This information is also included in the Azure Multi-Factor Authentication Server help file.![Directory Integration](./media/multi-factor-authentication-get-started-server-ldap/ldap.png)
-13. Test the LDAP connection by clicking the Test button.
-14. If the LDAP connection test was successful, click the OK button.
-15. Click the Filters tab. The Server is pre-configured to load containers, security groups and users from Active Directory. If binding to a different LDAP directory, you will likely need to edit the filters displayed. Click the Help link for more information on filters.
-16. Click Attributes tab. The Server is pre-configured to map attributes from Active Directory.
-17. If binding to a different LDAP directory or to change the pre-configured attribute mappings, click the Edit… button.
-18. In the Edit Attributes dialog box, modify the LDAP attribute mappings for your directory. Attribute names can be typed in or selected by clicking the … button next to each field.
-19. Click the Help link for more information on attributes.
-20. Click the OK button.
-21. Click the Company Settings icon and select the Username Resolution tab.
-22.If connecting to Active Directory from a domain-joined server, you should be able to leave the Use Windows security identifiers (SIDs) for matching usernames radio button selected. Otherwise, select the Use LDAP unique identifier attribute for matching usernames radio button. When selected, the Azure Multi-Factor Authentication Server will attempt to resolve each username to a unique identifier in the LDAP directory. An LDAP search will be performed on the Username attributes defined in the Directory Integration -> Attributes tab. When a user authenticates, the username will be resolved to the unique identifier in the LDAP directory and the unique identifier will be used for matching the user in the Azure Multi-Factor Authentication data file. This allows for case-insensitive comparisons, as well as long and short username formats This completes the Azure Multi-Factor Authentication Server configuration. The Server is now listening on the configured ports for LDAP access requests from the configured clients, and set to proxy those requests to the LDAP directory for authentication.
+## Configurazione dell'autenticazione LDAP
 
 
-## <a name="ldap-client-configuration"></a>LDAP Client Configuration
+Per configurare l'autenticazione LDAP, è necessario installare il server Azure Multi-Factor Authentication in un server Windows. Utilizzare la procedura seguente:
 
-To configure the LDAP client, use the guidelines:
+1. Sul server Azure Multi-Factor Authentication fare clic sull'icona Autenticazione LDAP nel menu a sinistra.
+2. Selezionare la casella di controllo Abilita autenticazione LDAP.![Autenticazione LDAP](./media/multi-factor-authentication-get-started-server-ldap/ldap2.png)
+3. Nella scheda Client modificare le porte TCP e SSL se il servizio LDAP di Azure Multi-Factor Authentication deve essere associato a porte non standard per ricevere richieste LDAP dai client che verranno configurati.
+4. Se si prevede di usare LDAPS dal client al server Azure Multi-Factor Authentication, è necessario installare un certificato SSL nel server su cui è in esecuzione il server Windows. Fare clic su Sfoglia accanto alla casella Certificato SSL e selezionare il certificato installato che verrà usato per la connessione protetta.
+5. Fare clic sul pulsante Aggiungi.
+6. Nella finestra di dialogo Aggiungi client LDAP immettere l'indirizzo IP del dispositivo, del server o dell'applicazione che eseguirà l'autenticazione al server e il nome di un'applicazione (facoltativo). Il nome dell'applicazione viene visualizzato nei report di Azure multi-Factor Authentication e potrebbe essere visualizzato all'interno di messaggi di autenticazione dell'App Mobile o SMS.
+7. Se tutti gli utenti sono già stati o verranno importati nel server e saranno soggetti all'autenticazione a più fattori, selezionare la casella di controllo Richiedi corrispondenza utente di Multi-Factor Authentication. Se invece rimangono ancora molti utenti da importare nel server e/o molti utenti esenti dall'autenticazione a più fattori, lasciare deselezionata la casella. Vedere il file della Guida per ulteriori informazioni su questa funzionalità.
+8. È possibile ripetere i passaggi dal 5 al 7 per aggiungere altri client LDAP.
+9. Quando Azure Multi-Factor Authentication è configurato per ricevere autenticazioni LDAP, deve usare un proxy per le autenticazioni alla directory LDAP. Di conseguenza, nella scheda Destinazione viene visualizzata un'unica opzione non selezionabile per l'uso di una destinazione LDAP. Per configurare la connessione della directory LDAP, fare clic sull'icona relativa all'integrazione della directory.
+10. Nella scheda Impostazioni selezionare il pulsante di opzione Usa specifico configurazione LDAP.
+11. Fare clic sul pulsante Modifica.
+12. Nella finestra di dialogo Modifica configurazione LDAP compilare i campi con le informazioni necessarie per connettersi alla directory LDAP. Nella tabella seguente sono incluse le descrizioni dei campi. Nota: queste informazioni sono incluse anche nel file della Guida del server Azure Multi-Factor Authentication.![Integrazione di directory](./media/multi-factor-authentication-get-started-server-ldap/ldap.png)
+13. Verificare la connessione LDAP facendo clic sul pulsante Test.
+14. Se il test della connessione LDAP ha esito positivo, fare clic sul pulsante OK.
+15. Fare clic sulla scheda Filtri. Il server è preconfigurato per il caricamento di contenitori, gruppi di sicurezza e utenti da Active Directory. Se viene eseguito il binding a un'altra directory LDAP, è probabilmente necessario modificare i filtri visualizzati. Fare clic sul collegamento Guida per altre informazioni sui filtri.
+16. Fare clic sulla scheda Attributi. Il server è preconfigurato per il mapping degli attributi da Active Directory.
+17. Se viene eseguito il binding a un'altra directory LDAP o vengono modificati i mapping degli attributi preconfigurati, fare clic sul pulsante Modifica.
+18. Nella finestra di dialogo Modifica attributi apportare modifiche ai mapping degli attributi LDAP per la directory. I nomi degli attributi possono essere digitati o selezionati facendo clic sul pulsante con i puntini di sospensione (...) accanto a ogni campo.
+19. Fare clic sul collegamento Guida per altre informazioni sugli attributi.
+20. Fare clic sul pulsante OK.
+21. Fare clic sull'icona Impostazioni società e selezionare la scheda Risoluzione nome utente. 22. Se si esegue la connessione ad Active Directory da un server di dominio, dovrebbe essere possibile lasciare selezionato il pulsante di opzione Usa identificatori di sicurezza (SID) Windows per la corrispondenza dei nomi utente. In caso contrario, selezionare il pulsante di opzione Usa attributo dell'identificatore univoco LDAP per la corrispondenza dei nomi utente. Quando questa opzione è selezionata, il server Azure Multi-Factor Authentication proverà a risolvere ogni nome utente con un identificatore univoco della directory LDAP. Verrà eseguita una ricerca LDAP negli attributi dei nomi utente definiti nella scheda Integrazione directory -> Attributi. Quando un utente esegue l'autenticazione, il nome utente viene risolto nell'identificatore univoco nella directory LDAP, che viene usato per stabilire la corrispondenza dell'utente con il file di dati di Azure Multi-Factor Authentication. In questo modo è possibile eseguire confronti senza distinzione tra maiuscole e minuscole e usare formati lunghi e corti per i nomi utente. A questo punto la configurazione del server Azure Multi-Factor Authentication risulta completata. Il server è ora in ascolto sulle porte configurate per le richieste di accesso LDAP provenienti dai client configurati ed è impostato per l'uso di un proxy per le richieste di autenticazione alla directory LDAP.
 
-- Configure your appliance, server or application to authenticate via LDAP to the Azure Multi-Factor Authentication Server as though it were your LDAP directory. You should use the same settings that you would normally use to connect directly to your LDAP directory, except for the server name or IP address which will be that of the Azure Multi-Factor Authentication Server.
-- Configure the LDAP timeout to 30-60 seconds so that there is time to validate the user’s credentials with the LDAP directory, perform the second-factor authentication, receive their response and then respond to the LDAP access request.
-- If using LDAPS, the appliance or server making the LDAP queries must trust the SSL certificate installed on the Azure Multi-Factor Authentication Server.
 
+## Configurazione del client LDAP
 
+Per configurare il client LDAP, seguire queste linee guida:
 
-<!--HONumber=Oct16_HO2-->
+- Configurare il dispositivo, il server o l'applicazione per l'autenticazione tramite LDAP al server Azure Multi-Factor Authentication come per la directory LDAP. Si consiglia di usare le stesse impostazioni normalmente definite per connettersi direttamente alla directory LDAP, fatta eccezione per il nome o l'indirizzo IP del server, che deve corrispondere a quello del server Azure Multi-Factor Authentication.
+- Impostare il timeout di LDAP su un valore compreso tra 30 e 60 secondi in modo da rendere disponibile una quantità di tempo sufficiente per convalidare le credenziali dell'utente con la directory LDAP, eseguire l'autenticazione basata su un secondo fattore, ricevere la risposta e quindi rispondere alla richiesta di accesso LDAP.
+- Se si usa LDAPS, il dispositivo o il server che esegue le query LDAP deve considerare attendibile il certificato SSL installato nel server Azure Multi-Factor Authentication.
 
-
+<!---HONumber=AcomDC_0921_2016-->

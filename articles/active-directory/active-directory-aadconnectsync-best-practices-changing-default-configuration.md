@@ -1,74 +1,67 @@
 <properties
-    pageTitle="Azure AD Connect sync: Best practices for changing the default configuration | Microsoft Azure"
-    description="Provides best practices for changing the default configuration of Azure AD Connect sync."
-    services="active-directory"
-    documentationCenter=""
-    authors="andkjell"
-    manager="femila"
-    editor=""/>
+	pageTitle="Servizio di sincronizzazione Azure AD Connect: procedure consigliate per modificare la configurazione predefinita | Microsoft Azure"
+	description="Fornisce le procedure consigliate per modificare la configurazione predefinita del servizio di sincronizzazione Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="andkjell"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/22/2016"
-    ms.author="markvi;andkjell"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="markvi;andkjell"/>
 
 
+# Servizio di sincronizzazione Azure AD Connect: procedure consigliate per modificare la configurazione predefinita
+Questo argomento descrive le modifiche supportate e non supportate del servizio di sincronizzazione Azure AD Connect.
 
-# <a name="azure-ad-connect-sync:-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect sync: Best practices for changing the default configuration
-The purpose of this topic is to describe supported and unsupported changes to Azure AD Connect sync.
+La configurazione creata da Azure AD Connect funziona "così com'è" per la maggior parte degli ambienti che sincronizzano l'istanza di Active Directory locale con Azure AD. In alcuni casi, tuttavia, è necessario applicare alcune modifiche a una configurazione per soddisfare un'esigenza o un requisito specifico.
 
-The configuration created by Azure AD Connect works “as is” for most environments that synchronize on-premises Active Directory with Azure AD. However, in some cases, it is necessary to apply some changes to a configuration to satisfy a particular need or requirement.
+## Modifiche apportate all'account del servizio
+Il servizio di sincronizzazione Azure AD Connect viene eseguito tramite un account del servizio creato dall'installazione guidata. L'account del servizio contiene le chiavi di crittografia per il database usato dal servizio di sincronizzazione. Viene creato con una password con una lunghezza di 127 caratteri e la password è impostata per non scadere mai.
 
-## <a name="changes-to-the-service-account"></a>Changes to the service account
-Azure AD Connect sync is running under a service account created by the installation wizard. This service account holds the encryption keys to the database used by sync. It is created with a 127 characters long password and the password is set to not expire.
+- La modifica o la reimpostazione della password dell'account del servizio **non è supportata**. Questa operazione comporta l'eliminazione delle chiavi di crittografia impedendo così l'avvio del servizio e il relativo accesso al database.
 
-- It is **unsupported** to change or reset the password of the service account. Doing so destroys the encryption keys and the service is not able to access the database and is not able to start.
+## Modifiche apportate all'utilità di pianificazione
+A partire dalle versioni rilasciate con la build 1.1 (febbraio 2016), è possibile configurare l'[utilità di pianificazione](active-directory-aadconnectsync-feature-scheduler.md) per ottenere un ciclo di sincronizzazione diverso dai 30 minuti predefiniti.
 
-## <a name="changes-to-the-scheduler"></a>Changes to the scheduler
-Starting with the releases from build 1.1 (February 2016) you can configure the [scheduler](active-directory-aadconnectsync-feature-scheduler.md) to have a different sync cycle than the default 30 minutes.
+## Modifiche apportate alle regole di sincronizzazione
+L'installazione guidata fornisce una configurazione valida per gli scenari più comuni. Nel caso in cui sia necessario apportare modifiche alla configurazione, seguire queste regole per disporre ancora di una configurazione supportata.
 
-## <a name="changes-to-synchronization-rules"></a>Changes to Synchronization Rules
-The installation wizard provides a configuration that is supposed to work for the most common scenarios. In case you need to make changes to the configuration, then you must follow these rules to still have a supported configuration.
+- È possibile [modificare i flussi degli attributi](active-directory-aadconnectsync-change-the-configuration.md#other-common-attribute-flow-changes) se quelli diretti e predefiniti non sono adatti alla propria organizzazione.
+- Per [non trasmettere un attributo](active-directory-aadconnectsync-change-the-configuration.md#do-not-flow-an-attribute) e rimuovere i valori degli attributi esistenti in Azure AD, è necessario creare una regola per questo scenario.
+- [Disabilitare una regola di sincronizzazione indesiderata](#disable-an-unwanted-sync-rule) invece di eliminarla. Una regola eliminata viene ricreata durante un aggiornamento.
+- Per [modificare una regola predefinita](#change-an-out-of-box-rule), creare una copia della regola originale e disabilitare quella predefinita. L'editor delle regole di sincronizzazione visualizza istruzioni e fornisce informazioni.
+- Esportare le regole di sincronizzazione personalizzate usando l'Editor regole di sincronizzazione. L'editor fornisce uno script di PowerShell che è possibile usare per ricrearle facilmente in uno scenario di ripristino di emergenza.
 
-- You can [change attribute flows](active-directory-aadconnectsync-change-the-configuration.md#other-common-attribute-flow-changes) if the default direct attribute flows are not suitable for your organization.
-- If you want to [not flow an attribute](active-directory-aadconnectsync-change-the-configuration.md#do-not-flow-an-attribute) and remove any existing attribute values in Azure AD, then you need to create a rule for this scenario.
-- [Disable an unwanted Sync Rule](#disable-an-unwanted-sync-rule) rather than deleting it. A deleted rule is recreated during an upgrade.
-- To [change an out-of-box rule](#change-an-out-of-box-rule), you should make a copy of the original rule and disable the out-of-box rule. The Sync Rule Editor prompts and helps you.
-- Export your custom synchronization rules using the Synchronization Rules Editor. The editor provides you with a PowerShell script you can use to easily recreate them in a disaster recovery scenario.
+>[AZURE.WARNING] Le regole di sincronizzazione predefinite hanno un'identificazione personale associata. Se si apporta una modifica a queste regole, l'identificazione personale non sarà più corrispondente. È possibile che si verifichino problemi quando in futuro si proverà ad applicare una nuova versione di Azure AD Connect. Apportare modifiche solo nel modo descritto in questo articolo.
 
->[AZURE.WARNING] The out-of-box sync rules have a thumbprint. If you make a change to these rules, the thumbprint is no longer matching. You might have problems in the future when you try to apply a new release of Azure AD Connect. Only make changes the way it is described in this article.
+### Disabilitare una regola di sincronizzazione indesiderata
+Non eliminare una regola di sincronizzazione predefinita. Verrà ricreata durante l'aggiornamento successivo.
 
-### <a name="disable-an-unwanted-sync-rule"></a>Disable an unwanted Sync Rule
-Do not delete an out-of-box sync rule. It is recreated during next upgrade.
+In alcuni casi l'installazione guidata ha generato una configurazione che non funziona per la topologia dell'utente. Ad esempio, se è disponibile una topologia di foresta di account o di risorse, ma lo schema nella foresta di account è stato esteso con lo schema di Exchange, per le foresta di account e per quella di risorse vengono quindi create regole per Exchange. In questo caso è necessario disabilitare la regola di sincronizzazione per Exchange.
 
-In some cases, the installation wizard has produced a configuration that is not working for your topology. For example, if you have an account-resource forest topology but you have extended the schema in the account forest with the Exchange schema, then rules for Exchange are created for the account forest and the resource forest. In this case, you need to disable the Sync Rule for Exchange.
+![Regola di sincronizzazione disabilitata](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/exchangedisabledrule.png)
 
-![Disabled sync rule](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/exchangedisabledrule.png)
+Nella figura precedente l'installazione guidata ha rilevato un vecchio schema di Exchange 2003 nella foresta di account. Questa estensione dello schema è stata aggiunta prima dell'introduzione della foresta di risorse nell'ambiente di Fabrikam. Per assicurarsi che non vengano sincronizzati gli attributi dall'implementazione di Exchange precedente, la regola di sincronizzazione deve essere disabilitata come illustrato.
 
-In the picture above, the installation wizard has found an old Exchange 2003 schema in the account forest. This schema extension was added before the resource forest was introduced in Fabrikam's environment. To ensure no attributes from the old Exchange implementation are synchronized, the sync rule should be disabled as shown.
+### Modificare una regola predefinita
+Se è necessario apportare modifiche a una regola predefinita, effettuarne una copia e disabilitare la regola originale. Quindi apportare le modifiche alla regola clonata. L'editor delle regole di sincronizzazione facilita l'esecuzione di questa procedura. Quando si apre una regola predefinita, viene visualizzata questa finestra di dialogo: ![Avviso regola predefinita](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/warningoutofboxrule.png)
 
-### <a name="change-an-out-of-box-rule"></a>Change an out-of-box rule
-If you need to make changes to an out-of-box rule, then you should make a copy of the out-of-box rule and disable the original rule. Then make the changes to the cloned rule. The Sync Rule Editor is helping you with those steps. When you open an out-of-box rule, you are presented with this dialog box:  
-![Warning out of box rule](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/warningoutofboxrule.png)
+Selezionare **Sì** per creare una copia della regola. Viene quindi aperta la regola clonata. ![Regola clonata](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/clonedrule.png)
 
-Select **Yes** to create a copy of the rule. The cloned rule is then opened.  
-![Cloned rule](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/clonedrule.png)
+In questa regola clonata, apportare le modifiche necessarie all'ambito, al join e alle trasformazioni.
 
-On this cloned rule, make any necessary changes to scope, join, and transformations.
+## Passaggi successivi
 
-## <a name="next-steps"></a>Next steps
+**Argomenti generali**
 
-**Overview topics**
+- [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](active-directory-aadconnectsync-whatis.md)
+- [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
-- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

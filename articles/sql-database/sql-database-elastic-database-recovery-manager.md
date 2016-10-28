@@ -1,154 +1,153 @@
 <properties 
-    pageTitle="Using Recovery Manager to fix shard map problems | Microsoft Azure" 
-    description="Use the RecoveryManager class to solve problems with shard maps" 
-    services="sql-database" 
-    documentationCenter=""  
-    manager="jhubbard"
-    authors="ddove"/>
+	pageTitle="Uso di Gestione ripristino per risolvere i problemi della mappe partizioni | Microsoft Azure" 
+	description="Usare la classe RecoveryManager per risolvere i problemi relativi alle mappe partizioni." 
+	services="sql-database" 
+	documentationCenter=""  
+	manager="jhubbard"
+	authors="ddove"/>
 
 <tags 
-    ms.service="sql-database" 
-    ms.workload="sql-database" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="05/05/2016" 
-    ms.author="ddove"/>
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="05/05/2016" 
+	ms.author="ddove"/>
+
+# Uso della classe RecoveryManager per correggere i problemi delle mappe partizioni
+
+La classe [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) consente alle applicazioni ADO.NET di rilevare e correggere facilmente le eventuali incoerenze tra la mappa globale partizioni e la mappa locale partizioni in un ambiente di database partizionato.
+
+La mappa globale partizioni e la mappa locale partizioni tengono traccia del mapping di ogni database in un ambiente partizionato. Si verifica a volte un'interruzione tra la mappa globale partizioni e la mappa locale partizioni. In tal caso usare la classe RecoveryManager per rilevare e correggere l'interruzione.
+
+La classe RecoveryManager fa parte della [Libreria client dei database elastici](sql-database-elastic-database-client-library.md).
 
 
-# <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Using the RecoveryManager class to fix shard map problems
-
-The [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) class provides ADO.Net applications the ability to easily  detect and correct any inconsistencies between the global shard map (GSM) and the local shard map (LSM) in a sharded database enviroment. 
-
-The GSM and LSM track the mapping of each database in a sharded environment. Occasionally, a break occurs between the GSM and the LSM. In that case, use the RecoveryManager class to detect and repair the break.
-
-The RecoveryManager class is part of the [Elastic Database client library](sql-database-elastic-database-client-library.md). 
+![Mappa partizioni][1]
 
 
-![Shard map][1]
+Per le definizioni dei termini, vedere il [Glossario degli strumenti di database elastici](sql-database-elastic-scale-glossary.md). Per informazioni su come usare **ShardMapManager** per gestire dati in una soluzione partizionata, vedere [Gestione mappe partizioni](sql-database-elastic-scale-shard-map-management.md).
 
 
-For term definitions, see [Elastic Database tools glossary](sql-database-elastic-scale-glossary.md). To understand how the **ShardMapManager** is used to manage data in a sharded solution, see [Shard map management](sql-database-elastic-scale-shard-map-management.md).
+## Perché usare Gestione ripristino
 
+In un ambiente di database partizionato c'è un unico tenant per database e ci sono molti database per server. Nell'ambiente possono anche esserci molti server. Ogni database è mappato nella mappa partizioni, quindi le chiamate possono essere instradate correttamente al server e al database appropriati. I database vengono rilevati in base a una **chiave di partizionamento orizzontale** e a ogni partizione viene assegnato un **intervallo di valori di chiave**. Ad esempio, una chiave di partizionamento orizzontale può rappresentare i nomi dei clienti da "D" a "F." Il mapping di tutte le partizioni (ovvero i database) e i relativi intervalli di mapping sono inclusi nella **mappa globale partizioni**. Ogni database include anche una mappa degli intervalli presenti nella partizione, ovvero la **mappa locale partizioni**. Quando un'app si connette a una partizione, il mapping viene memorizzato nella cache insieme all'app per consentire un recupero rapido. La mappa locale partizioni si usa per convalidare i dati memorizzati nella cache.
 
-## <a name="why-use-the-recovery-manager?"></a>Why use the recovery manager?
+La mappa globale e locale delle partizioni potrebbero perdere la sincronizzazione per i motivi seguenti:
 
-In a sharded database environment, there is one tenant per database, and many databases per server. There can also be many servers in the environment. Each database is mapped in the shard map, so calls can be routed to the correct server and database. Databases are tracked according to a **sharding key**, and each shard is assigned a **range of key values**. For example, a sharding key may represent the customer names from "D" to "F." The mapping of all shards (aka databases) and their mapping ranges are contained in the **global shard map (GSM)**. Each database also contains a map of the ranges contained on the shard—this is known as the **local shard map (LSM)**. When an app connects to a shard, the mapping is cached with the app for quick retrieval. The LSM is used to validate cached data. 
+1. L'eliminazione di una partizione con un intervallo che si ritiene non più usato o la ridenominazione della partizione. Eliminazione dei risultati di una partizione in un **mapping di partizione orfana**. Analogamente, anche un database rinominato può causare un mapping di partizione orfana. A seconda della finalità della modifica, potrebbe essere necessario rimuovere la partizione o aggiornarne il percorso. Per ripristinare un database eliminato, vedere [Ripristinare un database a un momento precedente, ripristinare un database eliminato o eseguire il ripristino in seguito a un'interruzione del data center](sql-database-troubleshoot-backup-and-restore.md).
+2. Si verifica un evento di failover geografico. Per continuare, è necessario aggiornare il nome del server e il nome del database dello strumento di gestione della mappa partizioni all'interno dell'applicazione e quindi aggiornare i dettagli del mapping di partizione per tutte le partizioni nella mappa partizioni. In caso di failover geografico, è necessario che la logica di ripristino sia automatizzata nel flusso di lavoro di failover. L'automazione delle azioni di ripristino rende possibile la gestibilità senza problemi dei database abilitati per la replica geografica, evitando interventi manuali.
+3. Una partizione o un database ShardMapManager viene ripristinato a una condizione precedente.
 
-The GSM and LSM may become out of sync for the following reasons:
+Per altre informazioni sugli strumenti di database elastici per i database SQL di Azure, la replica geografica e il ripristino, vedere:
 
-1. The deletion of a shard whose range is believed to no longer be in use, or renaming of a shard. Deleting a shard results in an **orphaned shard mapping**. Similary, a renamed database can cause an orphaned shard mapping. Depending on the intent of the change, the shard may need to be removed or the shard location needs to be updated. To recover a deleted database, see [Restore a database to a previous point in time, restore a deleted database, or recover from a data center outage](sql-database-troubleshoot-backup-and-restore.md).
-2. A geo-failover event occurs. To continue, one must update the server name, and database name of shard map manager in the application and then update the shard mapping details for any and all shards in a shard map. In case of a geo-failover, such recovery logic should be automated within the failover workflow. Automating recovery actions enables a frictionless manageability for geo-enabled databases and avoids manual human actions.
-3. Either a shard or the ShardMapManager database is restored to an earlier point-in time.
+* [Panoramica: Continuità aziendale del cloud e ripristino di emergenza del database con database SQL](sql-database-business-continuity.md)
+* [Iniziare a utilizzare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md)
+* [Gestione di mappe partizioni](sql-database-elastic-scale-shard-map-management.md)
 
-For more information about Azure SQL Database Elastic Database tools, Geo-Replication and Restore, please see the following: 
+## Ripristino di RecoveryManager da un oggetto ShardMapManager 
 
-* [Overview: Cloud business continuity and database disaster recovery with SQL Database](sql-database-business-continuity.md) 
-* [Get started with elastic database tools](sql-database-elastic-scale-get-started.md)  
-* [ShardMap Management](sql-database-elastic-scale-shard-map-management.md)
+Il primo passaggio consiste nel creare un'istanza di RecoveryManager. Il [metodo GetRecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager.aspx) restituisce la funzionalità di Gestione ripristino per l'istanza corrente di [ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx). Per risolvere eventuali incoerenze in una mappa partizioni, è necessario ripristinare prima di tutto RecoveryManager per una mappa partizioni specifica.
 
-## <a name="retrieving-recoverymanager-from-a-shardmapmanager"></a>Retrieving RecoveryManager from a ShardMapManager 
-
-The first step is to create a RecoveryManager instance. The [GetRecoveryManager method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager.aspx) returns the recovery manager for the current [ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) instance. In order to address any inconsistencies in the shard map, you must first retrieve the RecoveryManager for the particular shard map. 
-
-    ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString,  
+	ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString,  
              ShardMapManagerLoadPolicy.Lazy);
              RecoveryManager rm = smm.GetRecoveryManager(); 
 
-In this example, the RecoveryManager is initialized from the ShardMapManager. The ShardMapManager containing a ShardMap is also already initialized. 
+In questo esempio RecoveryManager viene inizializzato da ShardMapManager. Anche ShardMapManager che contiene un oggetto ShardMap è già inizializzato.
 
-Since this application code manipulates the shard map itself, the credentials used in the factory method (in the above example, smmConnectionString) should be credentials that have read-write permissions on the GSM database referenced by the connection string. These credentials are typically different from credentials used to open connections for data-dependent routing. For more information, see [Using credentials in the elastic database client](sql-database-elastic-scale-manage-credentials.md).
+Poiché questo codice dell'applicazione manipola la mappa partizioni stessa, le credenziali usate nel metodo factory, nell'esempio precedente smmConnectionString, devono essere credenziali con autorizzazioni di lettura/scrittura per il database GSM a cui si fa riferimento nella stringa di connessione. Queste credenziali sono in genere diverse da quelle usate per aprire connessioni per il routing dipendente dai dati. Per ulteriori informazioni, vedere [Gestione delle credenziali nella libreria client dei database elastici](sql-database-elastic-scale-manage-credentials.md).
 
-## <a name="removing-a-shard-from-the-shardmap-after-a-shard-is-deleted"></a>Removing a shard from the ShardMap after a shard is deleted
+## Rimozione di una partizione da ShardMap dopo l'eliminazione di una partizione
 
-The [DetachShard method](https://msdn.microsoft.com/library/azure/dn842083.aspx) detaches the given shard from the shard map and deletes mappings associated with the shard.  
+Il [metodo DetachShard](https://msdn.microsoft.com/library/azure/dn842083.aspx) scollega la partizione specificata dalla mappa partizioni ed elimina i mapping associati alla partizione.
 
-* The location parameter is the shard location, specifically server name and database name, of the shard being detached. 
-* The shardMapName parameter is the shard map name. This is only required when multiple shard maps are managed by the same shard map manager. Optional. 
+* Il parametro location corrisponde al percorso della partizione, cioè il nome del server e il nome del database, della partizione che viene scollegata.
+* Il parametro shardMapName è il nome della mappa partizioni. È richiesto solo quando più mappe partizioni sono gestite dallo stesso gestore delle mappe partizioni. Facoltativo.
 
-**Important**:  Use this technique only if you are certain that the range for the updated mapping is empty. The methods above do not check data for the range being moved, so it is best to include checks in your code.
+**Importante**: usare questa tecnica solo se si è certi che l'intervallo per il mapping aggiornato sia vuoto. Poiché i metodi descritti precedentemente non controllano i dati dell'intervallo da spostare, è consigliabile includere i controlli nel codice.
 
-This example removes shards from the shard map. 
+Questo esempio rimuove le partizioni dalla mappa partizioni.
 
-    rm.DetachShard(s.Location, customerMap); 
+	rm.DetachShard(s.Location, customerMap); 
 
-The map the shard location in the GSM  prior to the deletion of the shard. Because the shard was deleted, it is assumed this was intentional, and the sharding key range is no longer in use. If this is not the case, you can execute point-in time restore. to recover the shard from an earlier point-in-time. (In that case, review the section below to detect shard inconsistencies.) To recover, see [Restore a database to a previous point in time, restore a deleted database, or recover from a data center outage](sql-database-troubleshoot-backup-and-restore.md).
+Quindi effettua il mapping del percorso della partizione nella mappa globale partizioni precedente all'eliminazione della partizione. Poiché la partizione è stata eliminata, si presuppone che questa operazione sia stata intenzionale che l'intervallo di chiavi di partizionamento orizzontale non venga più usato. In caso contrario, è possibile eseguire il ripristino temporizzato per ripristinare la partizione da una condizione precedente. In questo caso, vedere la sezione seguente per rilevare le incoerenze della partizione. Per eseguire il ripristino, vedere [Ripristinare un database a un momento precedente, ripristinare un database eliminato o eseguire il ripristino in seguito a un'interruzione del data center](sql-database-troubleshoot-backup-and-restore.md).
 
-Since it is assumed the database deletion was intentional, the final administrative cleanup action is to delete the entry to the shard in the shard map manager. This prevents the application from inadvertently writing information to a range which is not expected.
+Presupponendo che l'eliminazione del database sia stata intenzionale, l'azione di pulizia amministrativa finale consiste nell'eliminare la voce relativa alla partizione nel gestore delle mappe partizioni. In questo modo si impedisce all'applicazione di scrivere inavvertitamente informazioni in un intervallo non previsto.
 
-## <a name="to-detect-mapping-differences"></a>To detect mapping differences 
+## Per rilevare le differenze nei mapping 
 
-The [DetectMappingDifferences method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences.aspx) selects and returns one of the shard maps (either local or global) as the source of truth and reconciles mappings on both shard maps (GSM and LSM).
+Il [metodo DetectMappingDifferences](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences.aspx) seleziona e restituisce una della mappe partizioni, locale o globale, come origine di dati reali e riconcilia i mapping in entrambi i tipi di mappa partizioni, globale e locale.
 
-    rm.DetectMappingDifferences(location, shardMapName);
+	rm.DetectMappingDifferences(location, shardMapName);
 
-* The *location* specifies the server name and database name. 
-* The *shardMapName* parameter is the shard map name. This is only required if multiple shard maps are managed by the same shard map manager. Optional. 
+* Il *percorso* specifica il nome del server e il nome del database.
+* Il parametro *shardMapName* è il nome della mappa partizioni. È richiesto solo se più mappe partizioni sono gestite dallo stesso gestore delle mappe partizioni. Facoltativo.
 
-## <a name="to-resolve-mapping-differences"></a>To resolve mapping differences
+## Per risolvere le differenze nei mapping
 
-The [ResolveMappingDifferences method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) selects one of the shard maps (either local or global) as the source of truth and reconciles mappings on both shard maps (GSM and LSM).
+Il [metodo ResolveMappingDifferences](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) seleziona una delle mappe partizioni, locale o globale, come origine di dati reali e riconcilia i mapping in entrambi i tipi di mappa partizioni, globale e locale.
 
-    ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution.KeepShardMapping);
+	ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution.KeepShardMapping);
    
-* The *RecoveryToken* parameter enumerates the differences in the mappings between the GSM and the LSM for the specific shard. 
+* Il parametro *RecoveryToken* enumera le differenze nei mapping tra la mappa globale di partizioni e la mappa locale di partizioni per la partizione specifica.
 
-* The [MappingDifferenceResolution enumeration](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution.aspx) is used to indicate the method for resolving the difference between the shard mappings. 
-* **MappingDifferenceResolution.KeepShardMapping** is recommended in the event that the LSM contains the accurate mapping and therefore the mapping in the shard should be used. This is typically the case in the event of a failover: the shard now resides on a new server. Since the shard must first be removed from the GSM (using the RecoveryManager.DetachShard method), a mapping no longer exists on the GSM. Therefore, the the LSM must be used to re-establish the shard mapping.
+* L'[enumerazione MappingDifferenceResolution](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution.aspx) viene usata per indicare il metodo per risolvere la differenza tra i mapping di partizione.
+* È consigliabile usare **MappingDifferenceResolution.KeepShardMapping** qualora la mappa locale partizioni contenga il mapping corretto e quindi si dovrà usare il mapping presente nella partizione. Questo si verifica in genere nel caso di un failover, dove la partizione ora risiede in un nuovo server. Poiché la partizione deve essere prima rimossa dalla mappa globale partizioni, tramite il metodo RecoveryManager.DetachShard, non esiste più un mapping nella mappa globale partizioni. Per ristabilire il mapping della partizione è quindi necessario usare la mappa locale partizioni.
 
-## <a name="attach-a-shard-to-the-shardmap-after-a-shard-is-restored"></a>Attach a shard to the ShardMap after a shard is restored 
+## Collegare una partizione a ShardMap dopo il ripristino di una partizione 
 
-The [AttachShard method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard.aspx) attaches the given shard to the shard map. It then detects any shard map inconsistencies and updates the mappings to match the shard at the point of the shard restoration. It is assumed that the database is also renamed to reflect the original database name (prior to when the shard was restored), since the point-in time restoration defaults to a new database appended with the timestamp. 
+Il [metodo AttachShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard.aspx) collega la partizione specificata alla mappa partizioni. Rileva quindi eventuali incoerenze nella mappa partizioni e aggiorna i mapping in modo che la partizione corrisponda al punto di ripristino della partizione. Si presuppone che venga rinominato anche il database per riflettere il nome del database originale, precedente al ripristino della partizione, perché per impostazione predefinita il ripristino temporizzato usa un nuovo database a cui aggiunge il timestamp.
 
-    rm.AttachShard(location, shardMapName) 
+	rm.AttachShard(location, shardMapName) 
 
-* The *location* parameter is the server name and database name, of the shard being attached. 
+* Il parametro *location* corrisponde al nome del server e al nome del database della partizione che viene collegata.
 
-* The *shardMapName* parameter is the shard map name. This is only required when multiple shard maps are managed by the same shard map manager. Optional. 
+* Il parametro *shardMapName* è il nome della mappa partizioni. È richiesto solo quando più mappe partizioni sono gestite dallo stesso gestore delle mappe partizioni. Facoltativo.
 
-This example adds a shard to the shard map which has been recently restored from an earlier point-in time. Since the shard (namely the mapping for the shard in the LSM) has been restored, it is potentially inconsistent with the shard entry in the GSM. Outside of this example code, the shard was restored and renamed to the original name of the database. Since it was restored, it is assumed the mapping in the LSM is the trusted mapping. 
+Questo esempio aggiunge una partizione alla mappa partizioni ripristinata di recente da una condizione precedente. Poiché la partizione, ovvero il mapping per la partizione nella mappa locale partizioni, è stata ripristinata, è potenzialmente incoerenze con la voce della partizione nella mappa globale partizioni. Esternamente a questo codice di esempio, la partizione è stata ripristinata e rinominata con il nome originale del database. Essendo stata ripristinata, si presuppone che il mapping nella mappa locale partizioni sia quello attendibile.
 
-    rm.AttachShard(s.Location, customerMap); 
-    var gs = rm.DetectMappingDifferences(s.Location); 
-      foreach (RecoveryToken g in gs) 
-       { 
-       rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
-       } 
+	rm.AttachShard(s.Location, customerMap); 
+	var gs = rm.DetectMappingDifferences(s.Location); 
+	  foreach (RecoveryToken g in gs) 
+	   { 
+	   rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
+	   } 
 
-## <a name="updating-shard-locations-after-a-geo-failover-(restore)-of-the-shards"></a>Updating shard locations after a geo-failover (restore) of the shards
+## Aggiornamento dei percorsi della partizioni dopo un failover geografico, o ripristino, delle partizioni
 
-In the event of a geo-failover, the secondary database is made write accessible and becomes the new primary database. The name of the server, and potentially the database (depending on your configuration), may be different from the original primary. Therefore the mapping entries for the shard in the GSM and LSM must be fixed. Similarly, if the database is restored to a different name or location, or to an earlier point in time, this might cause inconsistencies in the shard maps. The Shard Map Manager handles the distribution of open connections to the correct database. Distribution is based on the data in the shard map and the value of the sharding key that is the target of the application’s request. After a geo-failover, this information must be updated with the accurate server name, database name and shard mapping of the recovered database. 
+Nel caso di failover geografico, il database secondario è reso accessibile in scrittura e diventa il database primario. Il nome del server, e potenzialmente il database a seconda della configurazione, può essere diverso da quello primario originale. È quindi necessario correggere le voci dei mapping per la partizione nella mappa globale partizioni e nella mappa locale partizioni. In modo analogo, se il database viene ripristinato con un nome e un percorso diversi, oppure a una condizione precedente, potrebbero verificarsi incoerenze nelle mappe partizioni. Il gestore delle mappe partizioni controlla la distribuzione delle connessioni aperte ai database corretti. La distribuzione si basa sui dati contenuti nella mappa partizioni e sul valore della chiave di partizionamento orizzontale di destinazione della richiesta dell'applicazione. Dopo un failover geografico queste informazioni devono essere aggiornate con il nome del server, il nome del database e il mapping di partizione corretti del database ripristinato.
 
-## <a name="best-practices"></a>Best practices
+## Procedure consigliate
 
-Geo-failover and recovery are operations typically managed by a cloud administrator of the application intentionally utilizing one of Azure SQL Databases business continuity features. Business continuity planning requires processes, procedures, and measures to ensure that business operations can continue without interruption. The methods available as part of the RecoveryManager class should be used within this work flow to ensure the GSM and LSM are kept up-to-date based on the recovery action taken. There are 5 basic steps to properly ensuring the GSM and LSM reflect the accurate information after a failover event. The application code to execute these steps can be integrated into existing tools and workflow. 
+Il failover geografico e il ripristino sono operazioni che di solito sono gestite da un amministratore del cloud dell'applicazione usando intenzionalmente una delle funzionalità di continuità aziendale dei database SQL di Azure. La pianificazione della continuità aziendale richiede la definizione di processi, procedure e misure che garantiscano la continuità delle operazioni aziendali senza interruzioni. In questo flusso di lavoro è necessario usare i metodi disponibili come parte della classe RecoveryManager per assicurare che la mappa globale partizioni e la mappa locale partizioni siano mantenute aggiornate con l'azione di ripristino eseguita. Per assicurare che la mappa globale partizioni e la mappa locale partizioni riflettano le informazioni corrette dopo un evento di failover, occorre eseguire 5 passaggi. Il codice dell'applicazione per eseguire questi passaggi può essere integrato negli strumenti e nel flusso di lavoro esistenti.
 
-1. Retrieve the RecoveryManager from the ShardMapManager. 
-2. Detach the old shard from the shard map.
-3. Attach the new shard to the shard map, including the new shard location.
-4. Detect inconsistencies in the mapping between the GSM and LSM. 
-5. Resolve differences between the GSM and the LSM, trusting the LSM. 
+1. Recuperare Gestione ripristino da ShardMapManager.
+2. Scollegare la partizione precedente dalla mappa partizioni.
+3. Collegare la nuova partizione alla mappa partizioni, includendo il percorso della nuova partizione.
+4. Rilevare le incoerenze nel mapping tra la mappa globale partizioni e la mappa locale partizioni.
+5. Risolvere le differenze tra la mappa globale partizioni e la mappa locale partizioni, considerando attendibile la mappa locale partizioni.
 
-This example performs the following steps:
-1. Removes shards from the Shard Map which reflect shard locations prior to the failover event.
-2. Attaches shards to the Shard Map reflecting the new shard locations (the parameter "Configuration.SecondaryServer" is the new server name but the same database name).
-3. Retrieves the recovery tokens by detecting mapping differences between the GSM and the LSM for each shard. 
-4. Resolves the inconsistencies by trusting the mapping from the LSM of each shard. 
+L'esempio segue questa procedura:
+1. Rimuove le partizioni dalla mappa partizioni che riflette i percorsi precedenti all'evento di failover.
+2. Collega le partizioni alla mappa partizioni riflettendo i nuovi percorsi delle partizioni. Il parametro "Configuration.SecondaryServer" è il nuovo nome del server, ma lo stesso nome del database.
+3. Recupera i token di ripristino rilevando le differenze dei mapping tra la mappa globale partizioni e la mappa locale partizioni per ogni partizione.
+4. Risolve le incoerenze considerando attendibile il mapping dalla mappa locale partizioni di ogni partizione.
 
-    var shards = smm.GetShards();  foreach (shard s in shards)  {   if (s.Location.Server == Configuration.PrimaryServer)       {        ShardLocation slNew = new ShardLocation(Configuration.SecondaryServer, s.Location.Database); 
-        
-          rm.DetachShard(s.Location); 
-        
-          rm.AttachShard(slNew); 
-        
-          var gs = rm.DetectMappingDifferences(slNew); 
-    
-          foreach (RecoveryToken g in gs) 
-            { 
-               rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
-            } 
-        } 
-    } 
+	var shards = smm.GetShards(); foreach (shard s in shards) { if (s.Location.Server == Configuration.PrimaryServer) { ShardLocation slNew = new ShardLocation(Configuration.SecondaryServer, s.Location.Database);
+		
+		  rm.DetachShard(s.Location); 
+		
+		  rm.AttachShard(slNew); 
+		
+		  var gs = rm.DetectMappingDifferences(slNew); 
+	
+		  foreach (RecoveryToken g in gs) 
+			{ 
+			   rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
+			} 
+		} 
+	}
 
 
 
@@ -159,8 +158,4 @@ This example performs the following steps:
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

@@ -1,12 +1,9 @@
-The following tasks will be done in this scenario:
+In questo scenario verranno eseguite le seguenti attività:
 
-* Create a load balancer that receives network traffic on port 80 and send load-balanced traffic to virtual machines "web1" and "web2"
-* Create NAT rules for remote desktop access/SSH for virtual machines behind the load balancer
-* Create health probes
+* Creare un servizio di bilanciamento del carico che riceve il traffico di rete sulla porta 80 e invia il traffico con carico bilanciato alle macchine virtuali "web1" e "web2"
+* Creare regole NAT per l'accesso desktop remoto/SSH per le macchine virtuali dietro il servizio di bilanciamento del carico
+* Creare probe di integrità
 
-![Load balancer scenario](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
+![Scenario del bilanciamento del carico](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configure multiple NICs on a Windows VM | Microsoft Azure"
-   description="Learn how to create a VM with multiple NICs attached to it using Azure PowerShell or Resource Manager templates."
+   pageTitle="Configurare più schede di rete in una macchina virtuale di Windows | Microsoft Azure"
+   description="Informazioni su come creare una macchina virtuale con più schede di rete collegate utilizzando i modelli di Azure Resource Manager o PowerShell."
    services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
@@ -16,30 +16,29 @@
    ms.date="08/04/2016"
    ms.author="iainfou"/>
 
+# Creazione di una macchina virtuale con più schede di rete
+È possibile creare una macchina virtuale (VM) in Azure con più interfacce di rete virtuale (NIC) collegate. Uno scenario comune è quello di avere subnet diverse per la connettività front-end e back-end, oppure disporre di una rete dedicata a una soluzione di monitoraggio o di backup. In questo articolo vengono presentati i comandi rapidi per creare una macchina virtuale con più schede di rete collegate. Per informazioni dettagliate, incluse quelle sulla creazione di più schede di rete all'interno degli script di PowerShell, consultare la sezione dedicata alla [distribuzione di macchine virtuali con più schede di rete](../virtual-network/virtual-network-deploy-multinic-arm-ps.md). Le differenti [dimensioni della macchina virtuale](virtual-machines-windows-sizes.md) supportano un numero variabile di schede di rete, pertanto scegliere le dimensioni della macchina virtuale di conseguenza.
 
-# <a name="creating-a-vm-with-multiple-nics"></a>Creating a VM with multiple NICs
-You can create a virtual machine (VM) in Azure that has multiple virtual network interfaces (NICs) attached to it. A common scenario would be to have different subnets for front-end and back-end connectivity, or a network dedicated to a monitoring or backup solution. This article provides quick commands to create a VM with multiple NICs attached to it. For detailed information, including how to create multiple NICs within your own PowerShell scripts, read more about [deploying multi-NIC VMs](../virtual-network/virtual-network-deploy-multinic-arm-ps.md). Different [VM sizes](virtual-machines-windows-sizes.md) support a varying number of NICs, so size your VM accordingly.
+>[AZURE.WARNING] È necessario collegare più schede di rete quando si crea una VM, poiché non è possibile aggiungere le schede di rete a una macchina virtuale esistente. È possibile [creare una nuova macchina virtuale basata sui dischi virtuali originali](virtual-machines-windows-specialized-image.md) e creare più schede di rete mentre si distribuisce la macchina virtuale.
 
->[AZURE.WARNING] You must attach multiple NICs when you create a VM - you cannot add NICs to an existing VM. You can [create a new VM based on the original virtual disk(s)](virtual-machines-windows-vhd-copy.md) and create multiple NICs as you deploy the VM.
+## Creare le risorse principali
+Verificare di aver prima [installato e configurato la versione più recente di Azure PowerShell](../powershell-install-configure.md).
 
-## <a name="create-core-resources"></a>Create core resources
-Make sure that you have the [latest Azure PowerShell installed and configured](../powershell-install-configure.md).
-
-First, create a resource group:
+Creare prima un gruppo di risorse:
 
 ```powershell
 New-AzureRmResourceGroup -Name TestRG -Location WestUS
 ```
 
-Create a storage account to hold your VMs:
+Creare un account di archiviazione in cui salvare le VM:
 
 ```powershell
 $storageAcc = New-AzureRmStorageAccount -Name teststorage `
     -ResourceGroupName TestRG -Kind Storage -SkuName Premium_LRS -Location WestUS
 ```
 
-## <a name="create-virtual-network-and-subnets"></a>Create virtual network and subnets
-Define two virtual network subnets - one for front-end traffic and one for back-end traffic. Create your virtual network with these subnets:
+## Creare la rete virtuale e le subnet
+Definire due subnet per la rete virtuale: una per il traffico front-end e l'altra per il traffico di back-end. Creare la rete virtuale con queste subnet:
 
 ```powershell
 $frontEndSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "FrontEnd" `
@@ -54,8 +53,8 @@ $vnet = New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
 ```
 
 
-## <a name="create-multiple-nics"></a>Create multiple NICs
-Create two NICs, attaching one NIC to the front-end subnet and one NIC to the back-end subnet:
+## Creare più schede di rete
+Creare due schede di rete, collegarne una alla subnet di front-end e l'altra alla subnet di back-end:
 
 ```powershell
 $frontEnd = $vnet.Subnets|?{$_.Name -eq 'FrontEnd'}
@@ -67,11 +66,11 @@ $NIC2 = New-AzureRmNetworkInterface -Name NIC2 -ResourceGroupName TestRG `
         -Location WestUS -SubnetId $BackEnd.Id
 ```
 
-Typically you would also create a [network security group](../virtual-network/virtual-networks-nsg.md) or [load balancer](../load-balancer/load-balancer-overview.md) to help manage and distribute traffic across your VMs. The [more detailed multi-NIC VM](../virtual-network/virtual-network-deploy-multinic-arm-ps.md) article guides you through creating a Network Security Group and assigning NICs.
+In genere è necessario creare anche un [gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) o un [servizio di bilanciamento del carico](../load-balancer/load-balancer-overview.md) per gestire e distribuire il traffico tra le macchine virtuali. L'articolo dettagliato sulla [macchina virtuale con più schede di rete](../virtual-network/virtual-network-deploy-multinic-arm-ps.md) offre una guida alla creazione di un gruppo di sicurezza di rete e all'assegnazione delle schede di rete.
 
 
-## <a name="create-the-virtual-machine"></a>Create the virtual machine
-Now start to build your VM configuration. Each VM size has a limit for the total number of NICs that you can add to a VM. Read more about [Windows VM sizes](virtual-machines-windows-sizes.md). The following example uses a VM size that supports up to two NICs (`Standard_DS2_v2`):
+## Creare la macchina virtuale
+Ora è possibile iniziare con la configurazione della macchina virtuale. Ad ogni dimensione della macchina virtuale corrisponde un limite del numero totale di schede di rete che è possibile aggiungere. Ulteriori informazioni sulle [dimensioni delle macchine Virtuali di Windows](virtual-machines-windows-sizes.md). Nell'esempio seguente viene utilizzata una dimensione della macchina virtuale che supporta fino a due schede di rete (`Standard_DS2_v2`):
 
 ```powershell
 $cred = Get-Credential
@@ -84,14 +83,14 @@ $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName MicrosoftWindo
     -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
 ```
 
-Attach the two NICs you previously created:
+Collegare le due schede di rete create in precedenza:
 
 ```powershell
 $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $NIC1.Id -Primary
 $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $NIC2.Id
 ```
 
-Configure the storage and virtual disk for your new VM:
+Configurare l'archiviazione e il disco virtuale per la nuova macchina virtuale:
 
 ```powershell
 $blobPath = "vhds/WindowsVMosDisk.vhd"
@@ -101,14 +100,14 @@ $vmConfig = Set-AzureRmVMOSDisk -VM $vmConfig -Name $diskName -VhdUri $osDiskUri
     -CreateOption fromImage
 ```
 
-Finally, create a VM:
+Infine, creare una macchina virtuale:
 
 ```powershell
 New-AzureRmVM -VM $vmConfig -ResourceGroupName TestRG -Location WestUS
 ```
 
-## <a name="creating-multiple-nics-using-resource-manager-templates"></a>Creating multiple NICs using Resource Manager templates
-Azure Resource Manager templates use declarative JSON files to define your environment. You can read an [overview of Azure Resource Manager](../resource-group-overview.md). Resource Manager templates provide a way to create multiple instances of a resource during deployment, such as creating multiple NICs. You use *copy* to specify the number of instances to create:
+## Creazione di più schede di rete utilizzando i modelli di Resource Manager
+I modelli di Azure Resource Manager utilizzano i file JSON dichiarativi per definire l'ambiente. È possibile consultare una [panoramica di Azure Resource Manager](../resource-group-overview.md). I modelli di Resource Manager offrono un modo di creare più istanze di una risorsa durante la distribuzione, come ad esempio la creazione di più schede di rete. Utilizzare *Copia* per specificare il numero di istanze da creare:
 
 ```bash
 "copy": {
@@ -117,22 +116,19 @@ Azure Resource Manager templates use declarative JSON files to define your envir
 }
 ```
 
-Read more about [creating multiple instances using *copy*](../resource-group-create-multiple.md). 
+Ulteriori informazioni sulla [creazione di più istanze utilizzando *Copia*](../resource-group-create-multiple.md).
 
-You can also use a `copyIndex()` to then append a number to a resource name, which allows you to create `NIC1`, `NIC2`, etc. The following shows an example of appending the index value:
+È inoltre possibile utilizzare un `copyIndex()` per poi aggiungere un numero al nome di una risorsa, che consente di creare `NIC1`, `NIC2`, e così via. Di seguito viene riportato un esempio di aggiunta del valore di indice:
 
 ```bash
 "name": "[concat('NIC-', copyIndex())]", 
 ```
 
-You can read a complete example of [creating multiple NICs using Resource Manager templates](../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+È possibile consultare un esempio completo di [creazione di più schede di rete utilizzando i modelli di Resource Manager](../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
-## <a name="next-steps"></a>Next steps
-Make sure to review [Windows VM sizes](virtual-machines-windows-sizes.md) when trying to creating a VM with multiple NICs. Pay attention to the maximum number of NICs each VM size supports. 
+## Passaggi successivi
+Assicurarsi di consultare [Dimensioni delle macchine virtuali di Windows](virtual-machines-windows-sizes.md) durante il tentativo di creazione di una macchina virtuale con più schede di rete. Prestare attenzione al numero massimo di schede di rete supportato per ogni dimensione della macchina virtuale.
 
-Remember that you cannot add additional NICs to an existing VM, you must create all the NICs when you deploy the VM. Take care when planning your deployments to make sure that you have all the required network connectivity from the outset.
+Tenere presente che non è possibile aggiungere altre schede di rete a una macchina virtuale esistente. È necessario creare tutte le schede di rete quando si distribuisce la macchina virtuale. Prestare attenzione quando si pianificano le distribuzioni per assicurarsi di avere la connettività di rete necessaria fin dall'inizio.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

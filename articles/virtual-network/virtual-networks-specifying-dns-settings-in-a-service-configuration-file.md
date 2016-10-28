@@ -1,11 +1,11 @@
 <properties 
-   pageTitle="Specifying DNS Settings in a service configuration file | Microsoft Azure"
-   description="specifying custom DNS settings using service configuration file for virtual network"
+   pageTitle="Specifica le impostazioni DNS in un File di configurazione del servizio | Microsoft Azure"
+   description="Specificare le impostazioni DNS personalizzate utilizzando il file di configurazione del servizio per la rete virtuale"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
    manager="carmonm"
-   editor="tysonn" />
+   editor="tysonn" />  
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
@@ -13,16 +13,15 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/24/2016"
-   ms.author="jdial" />
+   ms.author="jdial" />  
 
+# Specifica le impostazioni DNS in un File di configurazione del servizio
 
-# <a name="specifying-dns-settings-in-a-service-configuration-file"></a>Specifying DNS Settings in a Service Configuration File
+## Elemento DNS
 
-## <a name="dns-elements"></a>DNS elements
+Un file di configurazione del servizio può contenere un elemento DnsServers con un elenco di indirizzi IPv4 per i server Domain Name System (DNS) che verrà utilizzato dal servizio. Le impostazioni nel file di configurazione del servizio hanno la precedenza sulle impostazioni nel file di configurazione di rete. Per altre informazioni, vedere [Schema di configurazione dei servizi di Azure (con estensione .cscfg)](https://msdn.microsoft.com/library/azure/ee758710.aspx).
 
-A service configuration file may contain a DnsServers element with a list of IPv4 addresses for the Domain Name System (DNS) servers that the service will use. Settings in the service configuration file take precedence over settings in the network configuration file. For more information, see [Azure Service Configuration Schema (.cscfg File)](https://msdn.microsoft.com/library/azure/ee758710.aspx).
-
-**NetworkConfiguration element**
+**Elemento NetworkConfiguration**
 
       <DnsServers>
         <DnsServer name="ID1" IPAddress="IPAddress1" />
@@ -30,21 +29,16 @@ A service configuration file may contain a DnsServers element with a list of IPv
         <DnsServer name="ID3" IPAddress="IPAddress3" />
       </DnsServers>
 
->[AZURE.WARNING] The **name** attribute in the **DnsServer** element is used only as a reference name. It does not represent the host name for the DNS server. Each **DnsServer** attribute value must be unique across the entire Microsoft Azure subscription.
+>[AZURE.WARNING] Il**nome**dell’attributo nell’elemento **DnsServer**viene utilizzato solo come nome di riferimento. Non rappresenta il nome host per il server DNS. Ogni valore dell’attributo**DnsServer**deve essere univoco nell'intera sottoscrizione Microsoft Azure
 
-## <a name="see-also"></a>See Also
+## Vedere anche
 
-[Azure Service Configuration Schema (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710)
+[Schema di configurazione dei servizi di Azure (file .cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710)
 
-[Azure Virtual Network Configuration Schema](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Attività di configurazione di Rete virtuale di Azure](http://go.microsoft.com/fwlink/?LinkId=248093)
 
-[Configure a Virtual Network Using Network Configuration Files](http://go.microsoft.com/fwlink/?LinkId=248094)
+[Configurare una rete virtuale usando un file di configurazione di rete](http://go.microsoft.com/fwlink/?LinkId=248094)
 
-[About Virtual Network settings in the Management Portal](http://go.microsoft.com/fwlink/?LinkId=248092)
+[Informazioni sulle impostazioni della rete virtuale nel portale di gestione](http://go.microsoft.com/fwlink/?LinkId=248092)
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

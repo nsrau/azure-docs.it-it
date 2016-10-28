@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Get started with Azure Batch CLI | Microsoft Azure"
-   description="Get a quick introduction to the Batch commands in Azure CLI for managing Azure Batch service resources"
+   pageTitle="Introduzione all'interfaccia della riga di comando di Azure Batch | Microsoft Azure"
+   description="Introduzione rapida ai comandi per Batch nell'interfaccia della riga di comando di Azure per la gestione delle risorse del servizio Azure Batch"
    services="batch"
    documentationCenter=""
    authors="mmacy"
@@ -16,266 +16,262 @@
    ms.date="09/30/2016"
    ms.author="marsma"/>
 
+# Introduzione all'interfaccia della riga di comando di Azure Batch
 
-# <a name="get-started-with-azure-batch-cli"></a>Get started with Azure Batch CLI
+L'interfaccia della riga di comando multipiattaforma di Azure consente di gestire gli account Batch e risorse come pool, processi e attività in shell dei comandi Linux, Mac e Windows. Con l'interfaccia della riga di comando di Azure è possibile eseguire molte delle attività eseguite con le API Batch, il portale di Azure e i cmdlet di PowerShell per Batch e creare i relativi script.
 
-The cross-platform Azure Command-Line Interface (Azure CLI) enables you to manage your Batch accounts and resources such as pools, jobs, and tasks in Linux, Mac, and Windows command shells. With the Azure CLI, you can perform and script many of the same tasks you carry out with the Batch APIs, Azure portal, and Batch PowerShell cmdlets.
+Questo articolo si basa sulla versione 0.10.5 dell'interfaccia della riga di comando di Azure.
 
-This article is based on Azure CLI version 0.10.5.
+## Prerequisiti
 
-## <a name="prerequisites"></a>Prerequisites
+* [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md)
 
-* [Install the Azure CLI](../xplat-cli-install.md)
+* [Connettere l'interfaccia della riga di comando di Azure alla sottoscrizione di Azure](../xplat-cli-connect.md)
 
-* [Connect the Azure CLI to your Azure subscription](../xplat-cli-connect.md)
+* Passare alla **modalità Resource Manager**: `azure config mode arm`
 
-* Switch to **Resource Manager mode**: `azure config mode arm`
+>[AZURE.TIP] È consigliabile aggiornare frequentemente l'installazione dell'interfaccia della riga di comando di Azure per sfruttare i vantaggi degli aggiornamenti e dei miglioramenti del servizio.
 
->[AZURE.TIP] We recommend that you update your Azure CLI installation frequently to take advantage of service updates and enhancements.
+## Guida per i comandi
 
-## <a name="command-help"></a>Command help
+È possibile visualizzare il testo della Guida per ogni comando dell'interfaccia della riga di comando di Azure aggiungendo `-h` come unica opzione dopo il comando. Ad esempio:
 
-You can display help text for every command in the Azure CLI by appending `-h` as the only option after the command. For example:
+* Per visualizzare la Guida per il comando `azure`, immettere `azure -h`
+* Per ottenere un elenco di tutti i comandi per Batch nell'interfaccia della riga di comando, usare `azure batch -h`
+* Per visualizzare la Guida in merito alla creazione di un account Batch, immettere `azure batch account create -h`
 
-* To get help for the `azure` command, enter: `azure -h`
-* To get a list of all Batch commands in the CLI, use: `azure batch -h`
-* To get help on creating a Batch account, enter: `azure batch account create -h`
+In caso di dubbi, usare l'opzione della riga di comando `-h` per visualizzare la Guida per qualsiasi comando dell'interfaccia della riga di comando di Azure.
 
-When in doubt, use the `-h` command-line option to get help on any Azure CLI command.
+## Creare un account Batch
 
-## <a name="create-a-batch-account"></a>Create a Batch account
-
-Usage:
+Utilizzo:
 
     azure batch account create [options] <name>
 
-Example:
+Esempio:
 
-    azure batch account create --location "West US"  --resource-group "resgroup001" "batchaccount001"
+	azure batch account create --location "West US"  --resource-group "resgroup001" "batchaccount001"
 
-Creates a new Batch account with the specified parameters. You must specify at least a location, resource group, and account name. If you don't already have a resource group, create one by running `azure group create`, and specify one of the Azure regions (such as "West US") for the `--location` option. For example:
+Crea un nuovo account Batch con i parametri specificati. È necessario specificare almeno una località, un gruppo di risorse e un nome di account. Se non si ha già un gruppo di risorse, crearne uno eseguendo `azure group create` e specificare una delle aree di Azure (ad esempio, "West US") per l'opzione `--location`. Ad esempio:
 
-    azure group create --name "resgroup001" --location "West US"
+	azure group create --name "resgroup001" --location "West US"
 
-> [AZURE.NOTE] The Batch account name must be unique within the Azure region the account is created. It may contain only lowercase alphanumeric characters, and must be 3-24 characters in length. You can't use special characters like `-` or `_` in Batch account names.
+> [AZURE.NOTE] Il nome dell'account Batch deve essere univoco nell'area di Azure in cui viene creato l'account. Può contenere solo caratteri alfanumerici minuscoli e deve avere una lunghezza compresa tra 3 e 24 caratteri. Nei nomi degli account Batch non possono essere usati caratteri speciali come `-` o `_`.
 
-### <a name="linked-storage-account-(autostorage)"></a>Linked storage account (autostorage)
+### Account di archiviazione collegato (archiviazione automatica)
 
-You can (optionally) link a **General purpose** Storage account to your Batch account when you create it. The [application packages](batch-application-packages.md) feature of Batch uses blob storage in a linked General purpose Storage account, as does the [Batch File Conventions .NET](batch-task-output.md) library. These optional features assist you in deploying the applications your Batch tasks run, and persisting the data they produce.
+Facoltativamente, è possibile collegare un account di archiviazione **Utilizzo generico** all'account Batch quando questo viene creato. La funzionalità [Pacchetti dell'applicazione](batch-application-packages.md) di Batch usa l'archivio BLOB in un account di archiviazione per utilizzo generico collegato, proprio come la libreria [.NET Batch File Conventions](batch-task-output.md). Queste funzionalità facoltative facilitano la distribuzione delle applicazioni eseguite dalle attività di Batch e il salvataggio permanente dei dati prodotti.
 
-To link an existing Azure Storage account to a new Batch account when you create it, specify the `--autostorage-account-id` option. This option requires the fully qualified resource ID of the storage account.
+Per collegare un account di archiviazione di Azure esistente a un nuovo account Batch durante la creazione, specificare l'opzione `--autostorage-account-id`. Questa opzione richiede l'ID risorsa completo dell'account di archiviazione.
 
-First, show your storage account's details:
+Per prima cosa, visualizzare i dettagli dell'account di archiviazione:
 
     azure storage account show --resource-group "resgroup001" "storageaccount001"
 
-Then use the **Url** value for the `--autostorage-account-id` option. The Url value starts with "/subscriptions/" and contains your subscription ID and resource path to the Storage account:
+Usare quindi il valore **Url** per l'opzione `--autostorage-account-id`. Il valore Url inizia con "/subscriptions/" e contiene l'ID sottoscrizione e il percorso della risorsa dell'account di archiviazione:
 
     azure batch account create --location "West US"  --resource-group "resgroup001" --autostorage-account-id "/subscriptions/8ffffff8-4444-4444-bfbf-8ffffff84444/resourceGroups/resgroup001/providers/Microsoft.Storage/storageAccounts/storageaccount001" "batchaccount001"
 
-## <a name="delete-a-batch-account"></a>Delete a Batch account
+## Eliminare un account Batch
 
-Usage:
+Utilizzo:
 
     azure batch account delete [options] <name>
 
-Example:
+Esempio:
 
-    azure batch account delete --resource-group "resgroup001" "batchaccount001"
+	azure batch account delete --resource-group "resgroup001" "batchaccount001"
 
-Deletes the specified Batch account. When prompted, confirm you want to remove the account (account removal can take some time to complete).
+Elimina l'account Batch specificato. Quando richiesto, confermare che si vuole rimuovere l'account. Il completamento della rimozione dell'account può richiedere tempo.
 
-## <a name="manage-account-access-keys"></a>Manage account access keys
+## Gestire le chiavi di accesso dell'account
 
-You need an access key to [create and modify resources](#create-and-modify-batch-resources) in your Batch account.
+Per [creare e modificare risorse](#create-and-modify-batch-resources) nell'account Batch è necessaria una chiave di accesso.
 
-### <a name="list-access-keys"></a>List access keys
+### Elencare le chiavi di accesso
 
-Usage:
+Utilizzo:
 
-    azure batch account keys list [options] <name>
+	azure batch account keys list [options] <name>
 
-Example:
+Esempio:
 
-    azure batch account keys list --resource-group "resgroup001" "batchaccount001"
+	azure batch account keys list --resource-group "resgroup001" "batchaccount001"
 
-Lists the account keys for the given Batch account.
+Elenca le chiavi per l'account Batch specificato.
 
-### <a name="generate-a-new-access-key"></a>Generate a new access key
+### Generare una nuova chiave di accesso
 
-Usage:
+Utilizzo:
 
     azure batch account keys renew [options] --<primary|secondary> <name>
 
-Example:
+Esempio:
 
-    azure batch account keys renew --resource-group "resgroup001" --primary "batchaccount001"
+	azure batch account keys renew --resource-group "resgroup001" --primary "batchaccount001"
 
-Regenerates the specified account key for the given Batch account.
+Rigenera la chiave specificata per l'account Batch specificato.
 
-## <a name="create-and-modify-batch-resources"></a>Create and modify Batch resources
+## Creare e modificare le risorse Batch
 
-You can use the Azure CLI to create, read, update, and delete (CRUD) Batch resources like pools, compute nodes, jobs, and tasks. These CRUD operations require your Batch account name, access key, and endpoint. You can specify these with the `-a`, `-k`, and `-u` options, or set [environment variables](#credential-environment-variables) which the CLI uses automatically (if populated).
+È possibile usare l'interfaccia della riga di comando di Azure per creare, leggere, aggiornare ed eliminare risorse di Batch come pool, nodi di calcolo, processi e attività. Per queste operazioni CRUD (Create, Read, Update, Delete) sono necessari il nome, la chiave di accesso e l'endpoint dell'account Batch. È possibile specificare questi parametri con le opzioni `-a`, `-k` e `-u` oppure impostare [variabili di ambiente](#credential-environment-variables) che, se popolate, verranno usate automaticamente dall'interfaccia della riga di comando.
 
-### <a name="credential-environment-variables"></a>Credential environment variables
+### Variabili di ambiente per le credenziali
 
-You can set `AZURE_BATCH_ACCOUNT`, `AZURE_BATCH_ACCESS_KEY`, and `AZURE_BATCH_ENDPOINT` environment variables instead of specifying `-a`, `-k`, and `-u` options on the command line for every command you execute. The Batch CLI uses these variables (if set) so that you can omit the `-a`, `-k`, and `-u` options. The remainder of this article assumes use of these environment variables.
+Anziché specificare le opzioni `-a`, `-k` e `-u` nella riga di comando per ogni comando eseguito, è possibile impostare le variabili di ambiente `AZURE_BATCH_ACCOUNT`, `AZURE_BATCH_ACCESS_KEY` e `AZURE_BATCH_ENDPOINT`. L'interfaccia della riga di comando di Batch usa queste variabili (se impostate) consentendo così di omettere le opzioni `-a`, `-k` e `-u`. Il resto di questo articolo presuppone che vengano usate queste variabili di ambiente.
 
->[AZURE.TIP] List your keys with `azure batch account keys list`, and display the account's endpoint with `azure batch account show`.
+>[AZURE.TIP] Elencare le chiavi con `azure batch account keys list` e visualizzare l'endpoint dell'account con `azure batch account show`.
 
-### <a name="json-files"></a>JSON files
+### File JSON
 
-When you create Batch resources like pools and jobs, you can specify a JSON file containing the new resource's configuration instead of passing its parameters as command-line options. For example:
+Quando si creano risorse di Batch come pool e processi, è possibile specificare un file JSON contenente la configurazione della nuova risorsa anziché passarne i parametri come opzioni della riga di comando. Ad esempio:
 
 `azure batch pool create my_batch_pool.json`
 
-While you can perform many resource creation operations using only command-line options, some features require a JSON-formatted file containing the resource details. For example, you must use a JSON file if you want to specify resource files for a start task.
+Nonostante molte operazioni di creazione di risorse possano essere eseguite usando solo opzioni della riga di comando, alcune funzionalità richiedono un file in formato JSON contenente i dettagli delle risorse. È necessario usare un file JSON, ad esempio, se si vogliono specificare file di risorse per un'attività di avvio.
 
-To find the JSON required to create a resource, refer to the [Batch REST API reference][rest_api] documentation on MSDN. Each "Add *resource type*" topic contains example JSON for creating the resource, which you can use as templates for your JSON files. For example, JSON for pool creation can be found in [Add a pool to an account][rest_add_pool].
+Il codice JSON necessario per creare una risorsa è disponibile nella documentazione di [riferimento sulle API Batch REST][rest_api] su MSDN. Ogni argomento "Aggiungere *tipo di risorsa*" contiene codice JSON di esempio per creare la risorsa, che può essere usato come modello per i propri file JSON. Il codice JSON per la creazione di un pool, ad esempio, è disponibile in [Aggiungere un pool a un account][rest_add_pool].
 
->[AZURE.NOTE] If you specify a JSON file when you create a resource, all other parameters that you specify on the command line for that resource are ignored.
+>[AZURE.NOTE] Se si specifica un file JSON durante la creazione di una risorsa, tutti gli altri parametri specificati nella riga di comando per la risorsa verranno ignorati.
 
-## <a name="create-a-pool"></a>Create a pool
+## Creare un pool
 
-Usage:
+Utilizzo:
 
     azure batch pool create [options] [json-file]
 
-Example (Virtual Machine Configuration):
+Esempio (Configurazione macchina virtuale):
 
     azure batch pool create --id "pool001" --target-dedicated 1 --vm-size "STANDARD_A1" --image-publisher "Canonical" --image-offer "UbuntuServer" --image-sku "14.04.2-LTS" --node-agent-id "batch.node.ubuntu 14.04"
 
-Example (Cloud Services Configuration):
+Esempio (Configurazione servizi cloud):
 
-    azure batch pool create --id "pool002" --target-dedicated 1 --vm-size "small" --os-family "4"
+	azure batch pool create --id "pool002" --target-dedicated 1 --vm-size "small" --os-family "4"
 
-Creates a pool of compute nodes in the Batch service.
+Crea un pool di nodi di calcolo nel servizio Batch.
 
-As mentioned in the [Batch feature overview](batch-api-basics.md#pool), you have two options when you select an operating system for the nodes in your pool: **Virtual Machine Configuration** and **Cloud Services Configuration**. Use the `--image-*` options to create Virtual Machine Configuration pools, and `--os-family` to create Cloud Services Configuration pools. You can't specify both `--os-family` and `--image-*` options.
+Come indicato nella [panoramica delle funzionalità di Batch](batch-api-basics.md#pool), quando si seleziona un sistema operativo per i nodi del pool sono disponibili due opzioni: **Configurazione macchina virtuale** e **Cloud Services Configuration** (Configurazione servizi cloud). Usare le opzioni `--image-*` per creare pool Configurazione macchina virtuale e `--os-family` per creare pool Cloud Services Configuration (Configurazione servizi cloud). Non è possibile specificare sia l'opzione `--os-family` che l'opzione `--image-*`.
 
-You can specify pool [application packages](batch-application-packages.md) and the command line for a [start task](batch-api-basics.md#start-task). To specify resource files for the start task, however, you must instead use a [JSON file](#json-files).
+È possibile specificare i [pacchetti dell'applicazione](batch-application-packages.md) del pool e la riga di comando per un'[attività di avvio](batch-api-basics.md#start-task). Per specificare file di risorse per l'attività di avvio, tuttavia, è necessario usare invece un [file JSON](#json-files).
 
-Delete a pool with:
+Per eliminare un pool:
 
     azure batch pool delete [pool-id]
 
->[AZURE.TIP] Check the [list of virtual machine images](batch-linux-nodes.md#list-of-virtual-machine-images) for values appropriate for the `--image-*` options.
+>[AZURE.TIP] Per informazioni sui valori appropriati per le opzioni `--image-*`, vedere [Elenco di immagini di macchine virtuali](batch-linux-nodes.md#list-of-virtual-machine-images).
 
-## <a name="create-a-job"></a>Create a job
+## Creare un processo
 
-Usage:
+Utilizzo:
 
     azure batch job create [options] [json-file]
 
-Example:
+Esempio:
 
     azure batch job create --id "job001" --pool-id "pool001"
 
-Adds a job to the Batch account and specifies the pool on which its tasks execute.
+Aggiunge un processo all'account Batch e specifica il pool in cui verranno eseguite le relative attività.
 
-Delete a job with:
+Per eliminare un processo:
 
     azure batch job delete [job-id]
 
-## <a name="list-pools,-jobs,-tasks,-and-other-resources"></a>List pools, jobs, tasks, and other resources
+## Elencare pool, processi, attività e altre risorse
 
-Each Batch resource type supports a `list` command that queries your Batch account and lists resources of that type. For example, you can list the pools in your account and the tasks in a job:
+Ogni tipo di risorsa di Batch supporta un comando `list` che esegue query sull'account Batch ed elenca le risorse di tale tipo. È ad esempio possibile elencare i pool dell'account e le attività di un processo:
 
     azure batch pool list
     azure batch task list --job-id "job001"
 
-### <a name="listing-resources-efficiently"></a>Listing resources efficiently
+### Creazione più efficiente degli elenchi di risorse
 
-For faster querying, you can specify **select**, **filter**, and **expand** clause options for `list` operations. Use these options to limit the amount of data returned by the Batch service. Because all filtering occurs server-side, only the data you are interested in crosses the wire. Use these clauses to save bandwidth (and therefore time) when you perform list operations.
+Per velocizzare l'esecuzione di query, è possibile specificare opzioni per le clausole **select**, **filter** ed **expand** nelle operazioni `list`. Usare queste opzioni per limitare la quantità di dati restituita dal servizio Batch. Dato che tutte le operazioni di filtro vengono eseguite sul lato server, vengono trasmessi in rete solo i dati a cui si è interessati. Queste clausole consentono di risparmiare larghezza di banda (e quindi tempo) quando si eseguono operazioni di tipo elenco.
 
-For example, this will return only pools whose ids start with "renderTask":
+Il comando seguente, ad esempio, restituirà solo i pool i cui ID iniziano con "renderTask":
 
     azure batch task list --job-id "job001" --filter-clause "startswith(id, 'renderTask')"
 
-The Batch CLI supports all three clauses supported by the Batch service:
+L'interfaccia della riga di comando di Batch supporta tutte e tre le clausole supportate dal servizio Batch:
 
-* `--select-clause [select-clause]`  Return a subset of properties for each entity
-* `--filter-clause [filter-clause]`  Return only entities that match the specified OData expression
-* `--expand-clause [expand-clause]`  Obtain the entity information in a single underlying REST call. The expand clause supports only the `stats` property at this time.
+* `--select-clause [select-clause]` restituisce un sottoinsieme di proprietà per ogni entità.
+* `--filter-clause [filter-clause]` restituisce solo le entità corrispondenti all'espressione OData specificata.
+* `--expand-clause [expand-clause]` ottiene le informazioni sulle entità in una singola chiamata REST sottostante. La clausola expand supporta attualmente solo la proprietà `stats`.
 
-For details on the three clauses and performing list queries with them, see [Query the Azure Batch service efficiently](batch-efficient-list-queries.md).
+Per informazioni dettagliate sulle tre clausole e sull'esecuzione di query di tipo elenco con tali clausole, vedere [Eseguire query sul servizio Azure Batch in modo efficiente](batch-efficient-list-queries.md).
 
-## <a name="application-package-management"></a>Application package management
+## Gestione dei pacchetti dell'applicazione
 
-Application packages provide a simplified way to deploy applications to the compute nodes in your pools. With the Azure CLI, you can upload application packages, manage package versions, and delete packages.
+I pacchetti dell'applicazione semplificano la distribuzione di applicazioni nei nodi di calcolo dei pool. Con l'interfaccia della riga di comando di Azure, è possibile caricare i pacchetti dell'applicazione, gestirne le versioni ed eliminarli.
 
-To create a new application and add a package version:
+Per creare una nuova applicazione e aggiungere una versione del pacchetto, eseguire questi comandi.
 
-**Create** an application:
+**Creare** un'applicazione:
 
     azure batch application create "resgroup001" "batchaccount001" "MyTaskApplication"
 
-**Add** an application package:
+**Aggiungere** un pacchetto dell'applicazione:
 
     azure batch application package create "resgroup001" "batchaccount001" "MyTaskApplication" "1.10-beta3" package001.zip
 
-**Activate** the package:
+**Attivare** il pacchetto:
 
     azure batch application package activate "resgroup001" "batchaccount001" "MyTaskApplication" "1.10-beta3" zip
 
-Set the **default version** for the application:
+Impostare la **versione predefinita** per l'applicazione:
 
     azure batch application set "resgroup001" "batchaccount001" "MyTaskApplication" --default-version "1.10-beta3"
 
-### <a name="deploy-an-application-package"></a>Deploy an application package
+### Distribuire un pacchetto dell'applicazione
 
-You can specify one or more application packages for deployment when you create a new pool. When you specify a package at pool creation time, it is deployed to each node as the node joins pool. Packages are also deployed when a node is rebooted or reimaged.
+Quando si crea un nuovo pool, è possibile specificare uno o più pacchetti dell'applicazione da distribuire. Quando si specifica un pacchetto al momento della creazione del pool, il pacchetto viene distribuito in ogni nodo quando questo viene aggiunto al pool. I pacchetti vengono distribuiti anche quando un nodo viene riavviato o ne viene ricreata l'immagine.
 
-Specify the `--app-package-ref` option when creating a pool to deploy an application package to the pool's nodes as they join the pool. The `--app-package-ref` option accepts a semicolon-delimited list of application ids to deploy to the compute nodes.
+Specificare l'opzione `--app-package-ref` quando si crea un pool per distribuire un pacchetto dell'applicazione nei nodi del pool quando vengono aggiunti al pool. L'opzione `--app-package-ref` accetta un elenco di ID applicazione delimitati da punto e virgola da distribuire nei nodi di calcolo.
 
     azure batch pool create --pool-id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
 
-When you create a pool by using command-line options, you cannot currently specify *which* application package version to deploy to the compute nodes, for example "1.10-beta3". Therefore, you must first specify a default version for the application with `azure batch application set [options] --default-version <version-id>` before you create the pool (see previous section). You can, however, specify a package version for the pool if you use a [JSON file](#json-files) instead of command line options when you create the pool.
+Quando si crea un pool usando le opzioni della riga di comando, non è attualmente possibile specificare *quale* versione del pacchetto dell'applicazione distribuire nei nodi di calcolo, ad esempio "1.10-beta3". Quindi è necessario specificare una versione predefinita per l'applicazione con `azure batch application set [options] --default-version <version-id>` prima di creare il pool. Vedere la sezione precedente. È tuttavia possibile specificare una versione del pacchetto per il pool se per la creazione del pool si usa un [file JSON](#json-files) invece di usare le opzioni della riga di comando.
 
-You can find more information on application packages in [Application deployment with Azure Batch application packages](batch-application-packages.md).
+Per altre informazioni sui pacchetti dell'applicazione, vedere [Distribuzione delle applicazioni con i pacchetti dell'applicazione di Azure Batch](batch-application-packages.md).
 
->[AZURE.IMPORTANT] You must [link an Azure Storage account](#linked-storage-account-autostorage) to your Batch account to use application packages.
+>[AZURE.IMPORTANT] Per usare i pacchetti dell'applicazione è necessario [collegare un account di archiviazione di Azure](#linked-storage-account-autostorage) all'account Batch.
 
-### <a name="update-a-pool's-application-packages"></a>Update a pool's application packages
+### Aggiornare i pacchetti dell’applicazione di un pool
 
-To update the applications assigned to an existing pool, issue the `azure batch pool set` command with the `--app-package-ref` option:
+Per aggiornare le applicazioni assegnate a un pool esistente, eseguire il comando `azure batch pool set` con l'opzione `--app-package-ref`:
 
     azure batch pool set --pool-id "pool001" --app-package-ref "MyTaskApplication2"
 
-To deploy the new application package to compute nodes already in an existing pool, you must restart or reimage those nodes:
+Per distribuire il nuovo pacchetto dell'applicazione nei nodi di calcolo già presenti in un pool esistente, è necessario riavviare o ricreare l'immagine di tali nodi:
 
     azure batch node reboot --pool-id "pool001" --node-id "tvm-3105992504_1-20160930t164509z"
 
->[AZURE.TIP] You can obtain a list of the nodes in a pool, along with their node ids, with `azure batch node list`.
+>[AZURE.TIP] È possibile ottenere un elenco dei nodi in un pool, con gli ID nodo, con `azure batch node list`.
 
-Keep in mind that you must already have configured the application with a default version prior to deployment (`azure batch application set [options] --default-version <version-id>`).
+Ricordare che è necessario avere già configurato l'applicazione con una versione predefinita prima della distribuzione (`azure batch application set [options] --default-version <version-id>`).
 
-## <a name="troubleshooting-tips"></a>Troubleshooting tips
+## Suggerimenti per la risoluzione dei problemi
 
-This section is intended to provide you with resources to use when troubleshooting Azure CLI issues. It won't necessarily solve all problems, but it may help you narrow down the cause and point you to help resources.
+Questa sezione ha lo scopo di indicare le risorse da usare per risolvere i problemi relativi all'interfaccia della riga di comando di Azure. Nonostante non garantisca la risoluzione di tutti i problemi, può essere utile per restringere le cause e individuare le risorse di assistenza.
 
-* Use `-h` to get **help text** for any CLI command
+* Usare `-h` per visualizzare il **testo della Guida** per qualsiasi comando dell'interfaccia della riga di comando.
 
-* Use `-v` and `-vv` to display **verbose** command output; `-vv` is "extra" verbose and displays the actual REST requests and responses. These switches are handy for displaying full error output.
+* Usare `-v` e `-vv` per visualizzare l'output **dettagliato** del comando. `-vv` restituisce un output "molto" dettagliato e visualizza le richieste e le risposte REST effettive. Queste opzioni sono utili per visualizzare l'output completo degli errori.
 
-* You can view **command output as JSON** with the `--json` option. For example, `azure batch pool show "pool001" --json` displays pool001's properties in JSON format. You can then copy and modify this output to use in a `--json-file` (see [JSON files](#json-files) earlier in this article).
+* È possibile visualizzare l'**output del comando in formato JSON** con l'opzione `--json`. Ad esempio, `azure batch pool show "pool001" --json` visualizza le proprietà di pool001 in formato JSON. È quindi possibile copiare e modificare tale output per l'uso in un `--json-file` (vedere [File JSON](#json-files) più indietro in questo articolo).
 
-* The [Batch forum on MSDN][batch_forum] is a great help resource, and is monitored closely by Batch team members. Be sure to post your questions there if you run into issues or would like help with a specific operation.
+* Il [forum di Batch su MSDN][batch_forum], attentamente monitorato dal team di Batch, è un'eccellente risorsa di assistenza. Se si riscontrano problemi o si vuole assistenza per un'operazione specifica, pubblicare le proprie domande nel forum.
 
-* Not every Batch resource operation is currently supported by the Azure CLI. For example, you can't currently specify an application package *version* for a pool, only the package ID. In such cases, you may need to supply a `--json-file` for your command instead of using command-line options. Be sure to stay up-to-date with the latest CLI version to pick up future enhancements.
+* Non tutte le operazioni sulle risorse di Batch sono attualmente supportate dall'interfaccia della riga di comando di Azure. Non è attualmente possibile, ad esempio, specificare una *versione* del pacchetto dell'applicazione per un pool. Si può specificare solo l'ID pacchetto. In tali casi, può essere necessario specificare un `--json-file` per il comando anziché usare opzioni della riga di comando. Assicurarsi di usare la versione più recente dell'interfaccia della riga di comando per usufruire dei futuri miglioramenti.
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-*  See [Application deployment with Azure Batch application packages](batch-application-packages.md) to find out how to use this feature to manage and deploy the applications you execute on Batch compute nodes.
+*  Per informazioni su come usare questa funzionalità per gestire e distribuire le applicazioni eseguite nei nodi di calcolo di Batch, vedere [Distribuzione delle applicazioni con i pacchetti dell'applicazione di Azure Batch](batch-application-packages.md).
 
-* See [Query the Batch service efficiently](batch-efficient-list-queries.md) for more about reducing the number of items and the type of information that is returned for queries to Batch.
+* Per altre informazioni sulla riduzione del numero di elementi e del tipo di informazioni restituiti per le query su Batch, vedere [Eseguire query sul servizio Azure Batch in modo efficiente](batch-efficient-list-queries.md).
 
-[batch_forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
+[batch_forum]: https://social.msdn.microsoft.com/forums/azure/it-IT/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

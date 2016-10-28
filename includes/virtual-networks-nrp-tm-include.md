@@ -1,28 +1,28 @@
-## <a name="traffic-manager-profile"></a>Traffic Manager Profile
+## Profilo di Gestione traffico
 
-Traffic manager and its child endpoint resource enable DNS routing to endpoints in Azure and outside of Azure. Such traffic distribution is governed by routing  policy methods. Traffic manager also allows endpoint health to be monitored, and traffic diverted appropriately based on the health of an endpoint. 
+Gestione traffico e la relativa risorsa endpoint figlio consentono il routing DNS agli endpoint all'interno e all'esterno di Azure. Questa distribuzione del traffico è regolata dai metodi dei criteri di routing. Gestione traffico consente anche il monitoraggio dell'integrità dell'endpoint e la corretta deviazione del traffico in base all'integrità di un endpoint.
 
-| Property | Description |
+| Proprietà | Descrizione |
 |---|---|
-|**trafficRoutingMethod**| possible values are *Performance*, *Weighted*, and *Priority* | 
-| **dnsConfig** | FQDN for the profile | 
-| **Protocol** | monitoring protocol, possible values are *HTTP* and *HTTPS*|
-| **Port** | monitoring port |  
-| **Path** | monitoring path |
-| **Endpoints** |  container for endpoint resources | 
+|**trafficRoutingMethod**| i valori possibili sono *Prestazioni*, *Valore ponderato* e *Priorità* | 
+| **dnsConfig** | FQDN per il profilo | 
+| **Protocollo** | protocollo di monitoraggio, i valori possibili sono *HTTP* e *HTTPS*|
+| **Porta** | porta di monitoraggio |  
+| **Percorso** | percorso di monitoraggio |
+| **Endpoint** | contenitore per le risorse endpoint | 
 
-### <a name="endpoint"></a>Endpoint 
+### Endpoint 
 
-An endpoint is a child resource of a Traffic Manager Profile. It represents a service or web endpoint to which user traffic is distributed based on the configured policy in the Traffic Manager Profile resource. 
+Un endpoint è una risorsa figlio di un profilo di Gestione traffico. Rappresenta un endpoint di servizio o Web al quale viene distribuito il traffico in base ai criteri configurati nella risorsa del profilo di Gestione traffico.
 
-| Property | Description | 
+| Proprietà | Descrizione | 
 |---|---| 
-| **Type** |  the type of the endpoint, possible values are *Azure End point*, *External Endpoint*, and  *Nested Endpoint* | 
-| **targetResourceId** |  public IP address of a service or web endpoint. This can be an Azure or external endpoint. | 
-| **Weight** | endpoint weight used in traffic management. | 
-| **Priority** | priority of the endpoint, used to define a failover action |
+| **Tipo** | il tipo di endpoint. I valori possibili sono *Endpoint di Azure*, *Endpoint esterno* ed *Endpoint annidato*. | 
+| **targetResourceId** | indirizzo IP pubblico di un endpoint di servizio o Web. Può trattarsi di un endpoint di Azure o esterno. | 
+| **Peso** | peso dell'endpoint usato nella gestione del traffico. | 
+| **Priorità** | priorità dell'endpoint, usata per definire un'azione di failover |
 
-Sample of Traffic Manager in Json format: 
+Esempio di Gestione traffico in formato Json:
 
 
         {
@@ -80,11 +80,8 @@ Sample of Traffic Manager in Json format:
         }
 
  
-## <a name="additional-resources"></a>Additional resources
+## Risorse aggiuntive
 
-Read [REST API documentation for Traffic Manager](https://msdn.microsoft.com/library/azure/mt163664.aspx) for more information.
+Per ulteriori informazioni, leggere la [documentazione dell'API REST per Gestione traffico](https://msdn.microsoft.com/library/azure/mt163664.aspx).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1223_2015-->

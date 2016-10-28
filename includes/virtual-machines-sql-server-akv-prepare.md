@@ -1,38 +1,33 @@
-## <a name="prepare-for-akv-integration"></a>Prepare for AKV Integration
-To use Azure Key Vault Integration to configure your SQL Server VM, there are several prerequisites: 
+## Preparare l'integrazione di AKV
+Per usare l'integrazione dell'insieme di credenziali delle chiavi di Azure per configurare la macchina virtuale di SQL Server, sono necessari diversi prerequisiti:
 
-1.  [Install Azure Powershell](#install-azure-powershell)
-2.  [Create an Azure Active Directory](#create-an-azure-active-directory)
-3.  [Create a key vault](#create-a-key-vault)
+1.	[Installare Azure PowerShell](#install-azure-powershell)
+2.	[Creare un'istanza di Azure Active Directory](#create-an-azure-active-directory)
+3.	[Creare un insieme di credenziali delle chiavi](#create-a-key-vault)
 
-The following sections describe these prerequisites and the information you need to collect to later run the PowerShell cmdlets.
+Le sezioni seguenti descrivono tali prerequisiti e le informazioni da raccogliere per eseguire i cmdlet di PowerShell in un secondo momento.
 
-### <a name="install-azure-powershell"></a>Install Azure PowerShell
-Make sure you have installed the latest Azure PowerShell SDK. For more information, see [How to install and configure Azure PowerShell](../articles/powershell-install-configure.md).
+### Installare Azure PowerShell
+Assicurarsi che sia installata la versione più recente di Azure PowerShell SDK. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](../articles/powershell-install-configure.md).
 
-### <a name="create-an-azure-active-directory"></a>Create an Azure Active Directory
-First, you need to have an [Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) (AAD) in your subscription. Among many benefits, this allows you to grant permission to your key vault for certain users and applications.
+### Creare un'istanza di Azure Active Directory
+Innanzitutto, è necessario che un'istanza di [Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) (AAD) sia presente nella sottoscrizione. AAD offre numerosi vantaggi, ad esempio, consente di concedere l'autorizzazione all'insieme di credenziali delle chiavi per determinati utenti e applicazioni.
 
-Next, register an application with AAD. This will give you a Service Principal account that has access to your key vault which your VM will need. In the Azure Key Vault article, you can find these steps in the [Register an application with Azure Active Directory](../articles/key-vault/key-vault-get-started.md#register) section, or you can see the steps with screen shots in the **Get an identity for the application section** of [this blog post](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Before completing these steps, note that you need to collect the following information during this registration that is needed later when you enable Azure Key Vault Integration on your SQL VM.
+Successivamente, registrare un'applicazione con AAD. In questo modo, è disponibile per l'utente un account dell'entità servizio con accesso all'insieme di credenziali delle chiavi necessario per la macchina virtuale. Nell'articolo Insieme di credenziali delle chiavi di Azure, è possibile trovare questi passaggi nella sezione [Registrare un'applicazione con Azure Active Directory](../articles/key-vault/key-vault-get-started.md#register). In alternativa, è possibile vedere i passaggi nelle schermate della sezione **Ottenere un'identità per l'applicazione** di [questo post di blog](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Prima di completare questi passaggi, si noti che è necessario raccogliere le informazioni seguenti durante la registrazione, utili in seguito quando si abilita l'integrazione dell'insieme di credenziali delle chiavi di Azure nella macchina virtuale di SQL.
 
-- After the application is added, find the **CLIENT ID**  on the **CONFIGURE** tab. 
-    ![Azure Active Directory Client ID](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
-    
-    The client ID is assigned later to the **$spName** (Service Principal name) parameter in the PowerShell script to enable Azure Key Vault Integration. 
-- Also, during these steps when you create your key, copy the secret for your key as is shown in the following screenshot. This key secret is assigned later to the **$spSecret** (Service Principal secret) parameter in the PowerShell script.  
-    ![Azure Active Directory Secret](./media/virtual-machines-sql-server-akv-prepare/aad-sp-secret.png)
-- You must authorize this new client ID to have the following access permissions: **encrypt**, **decrypt**, **wrapKey**, **unwrapKey**, **sign**, and **verify**. This is done with the [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx) cmdlet. For more information see [Authorize the application to use the key or secret](../articles/key-vault/key-vault-get-started.md#authorize).
+- Dopo aver aggiunto l'applicazione, trovare l'**ID CLIENT** nella scheda **CONFIGURA**. ![ID client di Azure Active Directory](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
+	
+	L'ID client viene assegnato successivamente al parametro **$spName** (nome entità servizio) nello script di PowerShell, per abilitare l'integrazione dell'insieme di credenziali delle chiavi di Azure. 
+- Inoltre, durante questa procedura quando si crea la chiave, copiare il segreto della chiave come illustrato nella schermata seguente. Tale segreto della chiave viene assegnato successivamente al parametro **$spSecret** (segreto entità servizio) nello script di PowerShell. ![Segreto di Azure Active Directory](./media/virtual-machines-sql-server-akv-prepare/aad-sp-secret.png)
+- È necessario autorizzare questo nuovo ID client per disporre delle autorizzazioni di accesso seguenti: **encrypt**, **decrypt**, **wrapKey**, **unwrapKey**, **sign** e **verify**. Questa operazione viene eseguita con il cmdlet [Set-AzureKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx). Per altre informazioni, vedere [Autorizzare l'applicazione a usare la chiave o il segreto](../articles/key-vault/key-vault-get-started.md#authorize).
 
-### <a name="create-a-key-vault"></a>Create a key vault
-In order to use Azure Key Vault to store the keys you will use for encryption in your VM, you need access to a key vault. If you have not already set up your key vault, create one by following the steps in the [Getting Started with Azure Key Vault](../articles/key-vault/key-vault-get-started.md) topic. Before completing these steps, note that there is some information you need to collect during this set up that is needed later when you enable Azure Key Vault Integration on your SQL VM.
+### Creare un insieme di credenziali delle chiavi
+Per usare l'insieme di credenziali delle chiavi di Azure per archiviare le chiavi da usare per la crittografia nella macchina virtuale, è necessario accedere a un insieme di credenziali delle chiavi. Se l'insieme di credenziali delle chiavi non è ancora stato configurato, crearne uno seguendo i passaggi nell'argomento [Introduzione all'insieme di credenziali delle chiavi di Azure](../articles/key-vault/key-vault-get-started.md). Prima di completare questi passaggi, si noti che è necessario raccogliere alcune informazioni durante l'impostazione, utili in seguito quando si abilita l'integrazione dell'insieme di credenziali delle chiavi di Azure nella macchina virtuale di SQL.
 
-When you get to the Create a key vault step, note the returned **vaultUri** property, which is the key vault URL. In the example provided in that step, shown below, the key vault name is ContosoKeyVault, therefore the key vault URL would be https://contosokeyvault.vault.azure.net/.
+Al passaggio Creare un insieme di credenziali delle chiavi, si noti la proprietà **vaultUri** restituita, ovvero l'URL dell'insieme di credenziali delle chiavi. Nell'esempio fornito in questo passaggio, riportato di seguito, il nome dell'insieme di credenziali delle chiavi è ContosoKeyVault, pertanto l'URL dell'insieme di credenziali delle chiavi è https://contosokeyvault.vault.azure.net/.
 
-    New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
+	New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
 
-The key vault URL is assigned later to the **$akvURL** parameter in the PowerShell script to enable Azure Key Vault Integration.
+L'URL dell'insieme di credenziali delle chiavi viene assegnato successivamente al parametro **$akvURL** nello script di PowerShell, per abilitare l'integrazione dell'insieme di credenziali delle chiavi di Azure.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1223_2015-->

@@ -1,22 +1,20 @@
 > [AZURE.SELECTOR]
 - [C#](../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md)
 - [Java](../articles/iot-hub/iot-hub-java-java-getstarted.md)
-- [Node.js](../articles/iot-hub/iot-hub-node-node-getstarted.md)
+- [Node.JS](../articles/iot-hub/iot-hub-node-node-getstarted.md)
 
-## <a name="introduction"></a>Introduction
+## Introduzione
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of Internet of Things (IoT) devices and a solution back end. One of the biggest challenges that IoT projects face is how to reliably and securely connect devices to the solution back end. To address this challenge, IoT Hub:
+L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT (Internet delle cose) e un back-end della soluzione. Una delle maggiori difficoltà con i progetti IoT consiste nel connettere in modo affidabile e sicuro i dispositivi al back-end della soluzione. Per affrontare questa sfida, l'hub IoT:
 
-- Offers reliable device-to-cloud and cloud-to-device hyper-scale messaging.
-- Enables secure communications using per-device security credentials and access control.
-- Includes device libraries for the most popular languages and platforms.
+- Offre messaggistica affidabile da dispositivo a cloud e da cloud a dispositivo su vasta scala.
+- Rende possibili comunicazioni sicure mediante le credenziali di sicurezza per i singoli dispositivi e il controllo di accesso.
+- Comprende librerie di dispositivi per i linguaggi e le piattaforme più diffusi.
 
-This tutorial shows you how to:
+Questa esercitazione illustra come:
 
-- Use the Azure portal to create an IoT hub.
-- Create a device identity in your IoT hub.
-- Create a simulated device that sends telemetry to your cloud back end, and receives commands from your cloud back end.
+- Usare il portale di Azure per creare un hub IoT.
+- Creare un'identità del dispositivo nell'hub IoT.
+- Creare un dispositivo simulato che invia dati di telemetria al back-end cloud e riceve i comandi dal back-end cloud.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0622_2016-->

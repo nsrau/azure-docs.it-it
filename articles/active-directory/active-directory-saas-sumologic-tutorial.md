@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with SumoLogic | Microsoft Azure" 
-    description="Learn how to use SumoLogic with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con SumoLogic| Microsoft Azure" 
+    description="Informazioni su come usare SumoLogic con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -14,165 +14,157 @@
     ms.date="09/11/2016" 
     ms.author="jeedes" />
 
-
-#<a name="tutorial:-azure-active-directory-integration-with-sumologic"></a>Tutorial: Azure Active Directory Integration with SumoLogic
+#Esercitazione: Integrazione di Azure Active Directory con SumoLogic
   
-The objective of this tutorial is to show the integration of Azure and SumoLogic.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+In questa esercitazione viene descritta l'integrazione di Azure e SumoLogic. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
--   A valid Azure subscription
--   A SumoLogic tenant
+-   Sottoscrizione di Azure valida
+-   Tenant SumoLogic
   
-After completing this tutorial, the Azure AD users you have assigned to SumoLogicwill be able to single sign into the application at your SumoLogic company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Al termine dell'esercitazione, gli utenti di Azure AD assegnati a SumoLogic potranno accedere all'applicazione tramite il sito aziendale di SumoLogic (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
   
-The scenario outlined in this tutorial consists of the following building blocks:
+Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
-1.  Enabling the application integration for SumoLogic
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+1.  Abilitazione dell'integrazione dell'applicazione SumoLogic
+2.  Configurazione dell'accesso Single Sign-On
+3.  Configurazione del provisioning utente
+4.  Assegnazione degli utenti
 
 ![Scenario](./media/active-directory-saas-sumologic-tutorial/IC778549.png "Scenario")
 
-##<a name="enabling-the-application-integration-for-sumologic"></a>Enabling the application integration for SumoLogic
+##Abilitazione dell'integrazione dell'applicazione SumoLogic
   
-The objective of this section is to outline how to enable the application integration for SumoLogic.
+In questa sezione viene descritto come abilitare l'integrazione dell'applicazione per SumoLogic.
 
-###<a name="to-enable-the-application-integration-for-sumologic,-perform-the-following-steps:"></a>To enable the application integration for SumoLogic, perform the following steps:
+###Per abilitare l'integrazione dell'applicazione per SumoLogic, eseguire la procedura seguente:
 
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-sumologic-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-    ![Applications](./media/active-directory-saas-sumologic-tutorial/IC700994.png "Applications")
+    ![Applicazioni](./media/active-directory-saas-sumologic-tutorial/IC700994.png "Applicazioni")
 
-4.  Click **Add** at the bottom of the page.
+4.  Fare clic su **Add** nella parte inferiore della pagina.
 
-    ![Add application](./media/active-directory-saas-sumologic-tutorial/IC749321.png "Add application")
+    ![Aggiunta di un'applicazione](./media/active-directory-saas-sumologic-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-sumologic-tutorial/IC749322.png "Add an application from gallerry")
+    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-sumologic-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
-6.  In the **search box**, type **sumologic**.
+6.  Nella **casella di ricerca**, digitare **sumologic**.
 
-    ![Application gallery](./media/active-directory-saas-sumologic-tutorial/IC778550.png "Application gallery")
+    ![Raccolta di applicazioni](./media/active-directory-saas-sumologic-tutorial/IC778550.png "Raccolta di applicazioni")
 
-7.  In the results pane, select **SumoLogic**, and then click **Complete** to add the application.
+7.  Nel riquadro dei risultati selezionare **SumoLogic**, quindi fare clic su **Completa** per aggiungere l'applicazione.
 
     ![SumoLogic](./media/active-directory-saas-sumologic-tutorial/IC778551.png "SumoLogic")
 
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Configurazione dell'accesso Single Sign-On
   
-The objective of this section is to outline how to enable users to authenticate to SumoLogic with their account in Azure AD using federation based on the SAML protocol.  
-As part of this procedure, you are required to upload a base-64 encoded certificate to your SumoLogictenant.  
-If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a SumoLogic tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di caricare un file di certificato codificato in base 64 sul proprio tenant SumoLogic. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  In the Azure classic portal, on the **SumoLogic** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  Nella pagina di integrazione dell'applicazione **SumoLogic** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Configure single sign-on](./media/active-directory-saas-sumologic-tutorial/IC778552.png "Configure single sign-on")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-sumologic-tutorial/IC778552.png "Configura accesso Single Sign-On")
 
-2.  On the **How would you like users to sign on to SumoLogic** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a SumoLogic** selezionare **Single Sign-On di Microsoft Azure AD**, quindi fare clic su **Avanti**.
 
-    ![Configure single sign-on](./media/active-directory-saas-sumologic-tutorial/IC778553.png "Configure single sign-on")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-sumologic-tutorial/IC778553.png "Configura accesso Single Sign-On")
 
-3.  On the **Configure App URL** page, in the **SumoLogic Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.SumoLogic.com*", and then click **Next**.
+3.  Nella pagina **Configura URL app** digitare l'URL nella casella di testo **URL accesso SumoLogic** usando il modello seguente "*https://\<tenant-name>.SumoLogice.com*", quindi fare clic su **Avanti**.
 
-    ![Configure aoo URL](./media/active-directory-saas-sumologic-tutorial/IC778554.png "Configure aoo URL")
+    ![Configura URL aoo](./media/active-directory-saas-sumologic-tutorial/IC778554.png "Configura URL aoo")
 
-4.  On the **Configure single sign-on at SumoLogic** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
+4.  Nella pagina **Configura accesso Single Sign-On in SumoLogic** per scaricare il file del certificato, fare clic su **Download certificato**, quindi salvare il certificato nel computer.
 
-    ![Configure single sign-on](./media/active-directory-saas-sumologic-tutorial/IC778555.png "Configure single sign-on")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-sumologic-tutorial/IC778555.png "Configura accesso Single Sign-On")
 
-5.  In a different web browser window, log into your SumoLogic company site as an administrator.
+5.  In un'altra finestra del browser Web accedere al sito aziendale di SumoLogic come amministratore.
 
-6.  Go to **Manage \> Security**.
+6.  Passare a **Manage > Security**.
 
     ![Manage](./media/active-directory-saas-sumologic-tutorial/IC778556.png "Manage")
 
-7.  Click **SAML**.
+7.  Fare clic su **SAML**.
 
-    ![Global security settings](./media/active-directory-saas-sumologic-tutorial/IC778557.png "Global security settings")
+    ![Impostazioni di sicurezza globale](./media/active-directory-saas-sumologic-tutorial/IC778557.png "Impostazioni di sicurezza globale")
 
-8.  From the **Select a configuration or create a new one** list, select **Azure AD**, and then click **Configure**.
+8.  Dall’elenco **Select a configuration or create a new one**, selezionare **Azure AD**, quindi fare clic su **Configure**.
 
-    ![Configure SAML 2.0](./media/active-directory-saas-sumologic-tutorial/IC778558.png "Configure SAML 2.0")
+    ![Configura SAML 2.0](./media/active-directory-saas-sumologic-tutorial/IC778558.png "Configura SAML 2.0")
 
-9.  On the **Configure SAML 2.0** dialog, perform the following steps:
+9.  Nella finestra di dialogo **Configura SAML 2.0**, eseguire la procedura seguente:
 
-    ![Configure SAML 2.0](./media/active-directory-saas-sumologic-tutorial/IC778559.png "Configure SAML 2.0")
+    ![Configura SAML 2.0](./media/active-directory-saas-sumologic-tutorial/IC778559.png "Configura SAML 2.0")
 
-    1.  In the **Configuration Name** textbox, type **Azure AD**.
-    2.  Select **Debug Mode**.
-    3.  In the Azure classic portal, on the **Configure single sign-on at SumoLogic** dialogue page, copy the **Issuer URL** value, and then paste it into the **Issuer** textbox.
-    4.  In the Azure classic portal, on the **Configure single sign-on at SumoLogic** dialogue page, copy the **Authentication Request URL** value, and then paste it into the **Authn Request URL** textbox.
-    5.  Create a **Base-64 encoded** file from your downloaded certificate.  
+    1.  Nella casella di testo **Configuration Name**, digitare **Azure AD**.
+    2.  Selezionare **Debug Mode**.
+    3.  Nella finestra di dialogo **Configura accesso Single Sign-On in SumoLogic** del portale di Azure classico copiare il valore di **URL autorità di certificazione** e incollarlo nella casella di testo **Issuer** (Autorità di certificazione).
+    4.  Nella finestra di dialogo **Configura accesso Single Sign-On in SumoLogic** del portale di Azure classico copiare il valore di **URL richiesta di autenticazione** e incollarlo nella casella di testo **Authn Request URL** (URL richiesta di autenticazione).
+    5.  Creare un file **con codifica Base 64** dal certificato scaricato.
 
-        >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
-    6.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste the entire Certificate into **X.509 Certificate** textbox.
-    7.  As **Email Attribute**, select **Use SAML subject**.
-    8.  Select **SP initiated Login Configuration**.
-    9.  In the **Login Path** textbox, type **Azure**.
-    10. Click **Save**.
+    6.  Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollare l’intero certificato nella casella di testo **Certificate X.509**.
+    7.  Per **Email Attribute**, selezionare **Use SAML subject**.
+    8.  Selezionare **SP initiated Login Configuration**.
+    9.  Nella casella di testo **Login Path** digitare **Azure**.
+    10. Fare clic su **Save**.
 
-10. In the Azure classic portal, on the **Configure single sign-on at SumoLogic** dialogue page, select the single sign-on configuration confirmation, and then click **Complete**.
+10. Nella finestra di dialogo **Configura accesso Single Sign-On in SumoLogic** del portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa**.
 
-    ![Configure single sign-on](./media/active-directory-saas-sumologic-tutorial/IC778560.png "Configure single sign-on")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-sumologic-tutorial/IC778560.png "Configura accesso Single Sign-On")
 
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+##Configurazione del provisioning utente
   
-In order to enable Azure AD users to log into SumoLogic, they must be provisioned to SumoLogic.  
-In the case of SumoLogic, provisioning is a manual task.
+Per consentire agli utenti di Azure AD di accedere a SumoLogic, è necessario eseguirne il provisioning in SumoLogic. Nel caso di SumoLogic, il provisioning è un'attività manuale.
 
-###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
+###Per eseguire il provisioning di un account utente, eseguire la procedura seguente:
 
-1.  Log in to your **SumoLogic** tenant.
+1.  Accedere al tenant **SumoLogic**.
 
-2.  Go to **Manage \> Users**.
+2.  Passare a **Manage > Users**.
 
-    ![Users](./media/active-directory-saas-sumologic-tutorial/IC778561.png "Users")
+    ![Utenti](./media/active-directory-saas-sumologic-tutorial/IC778561.png "Utenti")
 
-3.  Click **Add**.
+3.  Fare clic su **Aggiungi**.
 
-    ![Users](./media/active-directory-saas-sumologic-tutorial/IC778562.png "Users")
+    ![Utenti](./media/active-directory-saas-sumologic-tutorial/IC778562.png "Utenti")
 
-4.  On the **New User** dialog, perform the following steps:
+4.  Nella finestra di dialogo **New User**, eseguire la procedura seguente:
 
     ![New User](./media/active-directory-saas-sumologic-tutorial/IC778563.png "New User")
 
-    1.  Type the related information of the Azure AD account you want to provision into the **First Name**, **Last Name** and **Email** textboxes.
-    2.  Select a role.
-    3.  As **Status**, select **Active**.
-    4.  Click **Save**.
+    1.  Digitare le informazioni correlate dell’account Azure AD di cui si desidera effettuare il provisioning nelle caselle di testo **Nome**, **Cognome** ed **E-mail**.
+    2.  Selezionare un ruolo.
+    3.  Per **Status** selezionare **Active**.
+    4.  Fare clic su **Save**.
 
->[AZURE.NOTE] You can use any other SumoLogic user account creation tools or APIs provided by SumoLogic to provision AAD user accounts.
+>[AZURE.NOTE] È possibile usare qualsiasi altro strumento di creazione di account utente SumoLogic o qualsiasi API fornita da SumoLogic per eseguire il provisioning degli account utente di Azure AD.
 
-##<a name="assigning-users"></a>Assigning users
+##Assegnazione degli utenti
   
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
-###<a name="to-assign-users-to-sumologic,-perform-the-following-steps:"></a>To assign users to SumoLogic, perform the following steps:
+###Per assegnare gli utenti a SumoLogic, eseguire la procedura seguente:
 
-1.  In the Azure classic portal, create a test account.
+1.  Nel portale di Azure classico creare un account di test.
 
-2.  On the **SumoLogic** application integration page, click **Assign users**.
+2.  Nella pagina di integrazione dell’applicazione **SumoLogic** fare clic su **Assegna utenti**.
 
-    ![Assign users](./media/active-directory-saas-sumologic-tutorial/IC778564.png "Assign users")
+    ![Assegna utenti](./media/active-directory-saas-sumologic-tutorial/IC778564.png "Assegna utenti")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
-    ![Yes](./media/active-directory-saas-sumologic-tutorial/IC767830.png "Yes")
+    ![Sì](./media/active-directory-saas-sumologic-tutorial/IC767830.png "Sì")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

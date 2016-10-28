@@ -1,51 +1,45 @@
 <properties
-    pageTitle="App Registration Portal Help Topics | Microsoft Azure"
-    description="A description of various features in the Microsoft app registration portal."
-    services="active-directory"
-    documentationCenter=""
-    authors="dstrockis"
-    manager="mbaldwin"
-    editor=""/>
+	pageTitle="Guida del portale di registrazione delle app | Microsoft Azure"
+	description="Descrizione delle varie funzionalità disponibili nel portale di registrazione delle app di Microsoft."
+	services="active-directory"
+	documentationCenter=""
+	authors="dstrockis"
+	manager="mbaldwin"
+	editor=""/> 
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/16/2016"
-    ms.author="dastrock"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/16/2016"
+	ms.author="dastrock"/> 
 
+# Riferimento alla registrazione delle app
+Questo documento fornisce il contesto e le descrizioni di varie funzionalità disponibili nel portale di registrazione delle app di Microsoft [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com).
 
-# <a name="app-registration-reference"></a>App registration reference
-This document provides context and descriptions of various features found in the Microsoft App Registration Portal [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com).
+## Applicazioni personali
+Questo elenco include tutte le applicazioni registrate per l'uso con l'endpoint Azure AD 2.0. Queste applicazioni permettono di eseguire l'accesso con account Microsoft personali e account aziendali o dell'istituto d'istruzione di Azure Active Directory. Per altre informazioni sull'endpoint Azure AD 2.0, vedere la [panoramica della versione 2.0](active-directory-appmodel-v2-overview.md). Queste applicazioni possono essere usate anche per l'integrazione con l'endpoint di autenticazione dell'account Microsoft, `https://login.live.com`.
 
-## <a name="my-applications"></a>My Applications
-This list contains all of your applications registered for use with the Azure AD v2.0 endpoint.  These applications have the ability to sign in users with both personal accounts from Microsoft account and work/school accounts from Azure Active Directory.  To learn more about the Azure AD v2.0 endpoint, see our [v2.0 overview](active-directory-appmodel-v2-overview.md).  These applications can also be used to integrate with the Microsoft account authentication endpoint, `https://login.live.com`.
+## Applicazioni Live SDK
+Questo elenco include tutte le applicazioni registrate per l'uso solo con l'account Microsoft. Non sono abilitate per l'uso con Azure Active Directory. Qui è possibile trovare tutte le applicazioni registrate in precedenza con il portale per sviluppatori di account Microsoft, all'indirizzo `https://account.live.com/developers/applications`. Tutte le funzioni eseguite in precedenza in `https://account.live.com/developers/applications` ora possono essere eseguite nel nuovo portale, `https://apps.dev.microsoft.com`. Per altre domande relative alle applicazioni dell'account Microsoft, è possibile contattare Microsoft.
 
-## <a name="live-sdk-applications"></a>Live SDK Applications
-This list contains all of your applications registered for use solely with Microsoft account.  They are not enabled for use with Azure Active Directory whatsoever.  This is where you will find any applications that had previously been registered with the MSA developer portal at `https://account.live.com/developers/applications`.  All functions that you previously performed at `https://account.live.com/developers/applications` can now be performed in this new portal, `https://apps.dev.microsoft.com`.  If you have any further questions about your Microsoft account applications, please contact us.
+## Segreti applicazione
+I segreti applicazione sono credenziali che consentono all'applicazione di eseguire [l'autenticazione client](http://tools.ietf.org/html/rfc6749#section-2.3) in modo affidabile con Azure AD. In OAuth e OpenID Connect il segreto applicazione è noto come `client_secret`. Nel protocollo della versione 2.0, qualsiasi applicazione che riceve un token di sicurezza in una posizione con indirizzo Web, usando uno schema `https`, deve fare uso di un segreto applicazione per identificarsi in Azure AD al momento del riscatto del token di sicurezza. Per evitare l'archiviazione di segreti in ambienti non protetti, i client nativi che ricevono i token in un dispositivo non possono usare un segreto applicazione per eseguire l'autenticazione client.
 
-## <a name="application-secrets"></a>Application Secrets
-Application secrets are credentials that allow your application to perform reliable [client authentication](http://tools.ietf.org/html/rfc6749#section-2.3) with Azure AD.  In OAuth & OpenID Connect, an application secrets is commonly referred to as a `client_secret`.  In the v2.0 protocol, any application that receives a security token at a web addressable location (using an `https` scheme) must use an application secret to identify itself to Azure AD upon redemption of that security token.  Furthermore, any native client that recieves tokens on a device will be forbidden from using an application secret to perform client authentication, to discourage the storage of secrets in insecure environments.
+Ogni app può contenere due segreti applicazione validi in qualsiasi momento. Mantenendo due segreti è possibile eseguire periodicamente un rollover della chiave nell'intero ambiente dell'applicazione. Dopo aver eseguito la migrazione dell'intera applicazione in un nuovo segreto, è possibile eliminare quello precedente ed effettuare il provisioning di un nuovo segreto.
 
-Each app can contain two valid application secrets at any given point in time.  By maintaining two secrets, you have the ablilty to perform periodic key rollover across your application's entire environment.  Once you have migrated the entirety of your application to a new secret, you may delete the old secret and provision a new one.
+A questo punto, nel portale di registrazione delle app sono consentiti solo due tipi di segreti applicazione. Scegliendo **Genera nuova password** nell'archivio dati corrispondente viene generato e archiviato un segreto condiviso, che è possibile usare nell'applicazione. Scegliendo **Genera nuova coppia di chiavi** viene creata una nuova coppia di chiavi pubblica/privata che può essere scaricata e usata per l'autenticazione client in Azure AD.
 
-At this time, only two types of application secrets are permitted in the app registration portal.  Choosing **Generate New Password** will generate and store a shared secret in the respective data store, which you can use in your application.  Choosing **Generate New Key Pair** will create a new public/private key pair that can be downloaded and used for client authentication to Azure AD.
+## Profilo
+La sezione relativa al profilo del portale di registrazione delle app può essere usata per personalizzare la pagina di accesso dell'applicazione. Attualmente è possibile modificare il logo dell'applicazione della pagina di accesso, l'URL delle condizioni del servizio e l'informativa sulla privacy. Il logo deve essere un'immagine trasparente da 48 x 48 o 50 x 50 pixel in un file GIF, PNG o JPEG di dimensioni non superiori a 15 KB. Provare a modificare i valori e a visualizzare la pagina di accesso risultante.
 
-## <a name="profile"></a>Profile
-The profile section of the app registration portal can be used to customize the sign in page for your application.  At this time you can alter the sign in page's application logo, terms of service URL, and privacy statement.  The logo must be a transparent 48 x 48 or 50 x 50 pixel image in a GIF, PNG or JPEG file that is 15 KB or smaller.  Try changing the values and viewing the resulting sign in page!
+## Supporto Live SDK
+Quando si abilita il supporto Live SDK, per qualsiasi segreto applicazione creato viene eseguito il provisioning sia in Azure AD che negli archivi dati dell'account Microsoft. In questo modo l'applicazione potrà integrarsi direttamente con il servizio di account Microsoft (login.live.com). Se si vuole compilare un'app usando direttamente l'account Microsoft, anziché l'endpoint di Azure AD 2.0, assicurarsi che il supporto Live SDK sia abilitato.
 
-## <a name="live-sdk-support"></a>Live SDK Support
-When you enable "Live SDK Support", any application secrets you create will be provisioned into both the Azure AD and Microsoft Account data stores.  This will allow your application to integrate directly with the Microsoft Account service (login.live.com).  If you wish to build an app using Microsoft Account directly (as opposed to using the Azure AD v2.0 endpoint), you should make sure that Live SDK Support is enabled.
+Disabilitando il supporto Live SDK il segreto applicazione viene scritto unicamente nell'archivio dati di Azure AD. L'archivio dati di Azure AD incorpora normative di livello aziendale che permettono di soddisfare determinati standard, ad esempio la conformità FISMA. Se si abilita il supporto Live SDK, l'applicazione potrebbe non essere conforme in base ad alcuni di questi standard.
 
-Disabling Live SDK support will ensure that the application secret is only written into the Azure AD data store.  The Azure AD data store incorporates enterprise-grade regulations that allow it to meet certain standards, such as FISMA compliance.  If you enable Live SDK support, your application may not achieve compliance with some of these standards.
+Se si intende usare solo l'endpoint di Azure AD 2.0, è possibile disabilitare il supporto Live SDK.
 
-If you only ever plan to use the Azure AD v2.0 endpoint, you can safely disable Live SDK support.
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

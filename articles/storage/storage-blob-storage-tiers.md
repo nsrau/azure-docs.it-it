@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Azure cool storage for blobs | Microsoft Azure"
-    description="Storage tiers for Azure Blob storage offer cost-efficient storage for object data based on access patterns. The cool storage tier is optimized for data that is accessed less frequently."
+    pageTitle="Archiviazione ad accesso sporadico di Azure per i BLOB | Microsoft Azure"
+    description="I livelli di archiviazione per l'archivio BLOB di Azure offrono un'archiviazione economicamente conveniente per dati oggetto in base ai modelli di accesso. Il livello di archiviazione ad accesso sporadico di Azure è ottimizzato per i dati a cui si accede con minore frequenza."
     services="storage"
     documentationCenter=""
     authors="michaelhauss"
@@ -17,345 +17,327 @@
     ms.author="mihauss;robinsh"/>
 
 
+# Archivio BLOB di Azure: livelli di archiviazione ad accesso frequente e sporadico
 
-# <a name="azure-blob-storage:-hot-and-cool-storage-tiers"></a>Azure Blob Storage: Hot and cool storage tiers
+## Overview
 
-## <a name="overview"></a>Overview
+L'Archiviazione di Azure offre due livelli di archiviazione per l'archivio BLOB (archivio di oggetti), per consentire di archiviare i dati nel modo economicamente più conveniente in base alla modalità d'uso. Il **livello di archiviazione ad accesso frequente** di Azure è ottimizzato per l'archiviazione di dati a cui si accede di frequente. Il **livello di archiviazione ad accesso sporadico** di Azure è ottimizzato per l'archiviazione di dati a cui si accede di raramente e di lunga durata. I dati nel livello di archiviazione ad accesso sporadico possono tollerare una disponibilità leggermente più bassa, ma richiedono ugualmente una durabilità elevata e caratteristiche di velocità effettiva e tempo di accesso simili a quelle dei dati ad accesso frequente. Per i dati ad accesso sporadico, contratti di servizio con una disponibilità leggermente più bassa e costi di accesso più elevati sono compromessi accettabili in cambio di costi di archiviazione molto più bassi.
 
-Azure Storage now offers two storage tiers for Blob storage (object storage), so that you can store your data most cost-effectively depending on how you use it. The Azure **hot storage tier** is optimized for storing data that is accessed frequently. The Azure **cool storage tier** is optimized for storing data that is infrequently accessed and long-lived. Data in the cool storage tier can tolerate a slightly lower availability, but still requires high durability and similar time to access and throughput characteristics as hot data. For cool data, slightly lower availability SLA and higher access costs are acceptable trade-offs for much lower storage costs.
+La quantità di dati archiviati nel cloud è attualmente in crescita esponenziale. Per gestire i costi per le esigenze di archiviazione crescenti, può essere utile organizzare i dati in base ad attributi quali la frequenza di accesso e il periodo di conservazione pianificato. I dati archiviati nel cloud possono essere piuttosto diversi dal punto di vista della generazione, dell'elaborazione e dell'accesso nel corso del tempo. Alcuni dati presentano accessi attivi e modifiche continue nel corso della rispettiva durata. Alcuni dati presentano un accesso molto frequente nelle fasi iniziali e l'accesso si riduce drasticamente con il passare del tempo. Alcuni dati rimangono inattivi sul cloud e gli utenti vi accedono raramente, se non mai, dopo l'archiviazione.
 
-Today, data stored in the cloud is growing at an exponential pace. To manage costs for your expanding storage needs, it's helpful to organize your data based on attributes like frequency of access and planned retention period. Data stored in the cloud can be quite different in terms of how it is generated, processed, and accessed over its lifetime. Some data is actively accessed and modified throughout its lifetime. Some data is accessed very frequently early in its lifetime, with access dropping drastically as the data ages. Some data remains idle in the cloud and is rarely, if ever, accessed once stored.
+Tutti questi scenari di accesso ai dati descritti sopra usufruiscono di un livello differenziato di archiviazione ottimizzato per un particolare modello di accesso. Con l'introduzione dei livelli di archiviazione ad accesso frequente e sporadico, l'archivio BLOB di Azure soddisfa l'esigenza di avere livelli di archiviazione differenziati con modelli di determinazione prezzi distinti.
 
-Each of these data access scenarios described above benefits from a differentiated tier of storage that is optimized for a particular access pattern. With the introduction of hot and cool storage tiers, Azure Blob storage now addresses this need for differentiated storage tiers with separate pricing models.
+## Account di archiviazione BLOB
 
-## <a name="blob-storage-accounts"></a>Blob storage accounts
+Gli **account di archiviazione BLOB** sono account di archiviazione specializzati per l'archiviazione dei dati non strutturati come BLOB (oggetti) in Archiviazione di Azure. Con gli account di archiviazione BLOB ora è possibile scegliere tra i livelli di archiviazione ad accesso frequente e sporadico per archiviare sia i dati ad accesso sporadico a cui si accede meno spesso a un costo di archiviazione inferiore, sia i dati ad accesso frequente a cui si accede più spesso a costi di accesso inferiori. Gli account di archiviazione BLOB sono simili agli account di archiviazione di uso generico esistenti e condividono tutte le straordinarie funzionalità di durabilità, disponibilità, scalabilità e prestazioni già usate, inclusa la coerenza API al 100% per i BLOB in blocchi e i BLOB di aggiunta.
 
-**Blob storage accounts** are specialized storage accounts for storing your unstructured data as blobs (objects) in Azure Storage. With Blob storage accounts, you can now choose between hot and cool storage tiers to store your less frequently accessed cool data at a lower storage cost, and store more frequently accessed hot data at a lower access cost. Blob storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today, including 100% API consistency for block blobs and append blobs.
+> [AZURE.NOTE] Gli account di archiviazione BLOB supportano solo i BLOB in blocchi e i BLOB di aggiunta, non i BLOB di pagine.
 
-> [AZURE.NOTE] Blob storage accounts support only block and append blobs, and not page blobs.
+Gli account di archiviazione BLOB espongono l'attributo **Livello di accesso**, che consente di specificare il livello di accesso come **Frequente** o **Sporadico** a seconda dei dati archiviati nell'account. Se il modello di utilizzo dei dati cambia, è anche possibile passare da uno di questi livelli di archiviazione a un altro in qualsiasi momento.
 
-Blob storage accounts expose the **Access Tier** attribute, which allow you to specify the storage tier as **Hot** or **Cool** depending on the data stored in the account. If there is a change in the usage pattern of your data, you can also switch between these storage tiers at any time.
+> [AZURE.NOTE] La modifica del livello di archiviazione può comportare costi aggiuntivi. Per altri dettagli, vedere la sezione [Prezzi e fatturazione](storage-blob-storage-tiers.md#pricing-and-billing).
 
-> [AZURE.NOTE] Changing the storage tier may result in additional charges. Please see the [Pricing and Billing](storage-blob-storage-tiers.md#pricing-and-billing) section for more details.
+Gli scenari di utilizzo di esempio per il livello di archiviazione ad accesso frequente includono:
 
-Example usage scenarios for the hot storage tier include:
+- Dati di uso attivo e o di cui è previsto l'accesso (lettura o scrittura) di frequente.
+- Dati di gestione temporanea per l'elaborazione e l'eventuale migrazione al livello di archiviazione ad accesso sporadico.
 
-- Data that is in active use or expected to be accessed (read from and written to) frequently.
-- Data that is staged for processing and eventual migration to the cool storage tier.
+Gli scenari di utilizzo di esempio per il livello di archiviazione ad accesso sporadico includono:
 
-Example usage scenarios for the cool storage tier include:
+- Set di dati di backup, archiviazione e ripristino di emergenza.
+- Contenuto multimediale meno recente ormai visualizzato non spesso, ma che deve essere immediatamente disponibile quando vi si accede.
+- Set di dati di grandi dimensioni che devono essere archiviati a costi contenuti mentre altri dati vengono raccolti per un'elaborazione futura, *ad esempio*, archiviazione a lungo termine di dati scientifici, dati di telemetria non elaborati provenienti da una struttura di produzione.
+- Dati originali (non elaborati) che devono essere conservati, anche dopo che sono stati elaborati in un formato utilizzabile finale, *ad esempio*, file multimediali non elaborati dopo la transcodifica in altri formati.
+- Dati di conformità e di archiviazione che devono essere archiviati per un lungo periodo e a cui non si accede quasi mai, *ad esempio*, filmati di videocamere di sicurezza, vecchie radiografie/risonanze magnetiche per le organizzazioni sanitarie, registrazioni audio e trascrizioni di chiamate di clienti per i servizi finanziari.
 
-- Backup, archival and disaster recovery datasets.
-- Older media content not viewed frequently anymore but is expected to be available immediately when accessed.
-- Large data sets that need to be stored cost effectively while more data is being gathered for future processing. (*e.g.*, long-term storage of scientific data, raw telemetry data from a manufacturing facility)
-- Original (raw) data that must be preserved, even after it has been processed into final usable form. (*e.g.*, Raw media files after transcoding into other formats)
-- Compliance and archival data that needs to be stored for a long time and is hardly ever accessed. (*e.g.*, Security camera footage, old X-Rays/MRIs for healthcare organizations, audio recordings and transcripts of customer calls for financial services)
+Per informazioni sugli account di archiviazione, vedere [Informazioni sugli account di archiviazione di Azure](storage-create-storage-account.md).
 
-See [About Azure storage accounts](storage-create-storage-account.md) for more information on storage accounts.
+Per le applicazioni che richiedono solo l'archivio BLOB in blocchi o di aggiunta, è consigliabile usare gli account di archiviazione BLOB, per sfruttare il modello di determinazione prezzi differenziato dell'archiviazione a livelli. Questo tuttavia potrebbe non essere possibile in determinate circostanze in cui è meglio usare gli account di archiviazione di uso generico, ad esempio:
 
-For applications requiring only block or append blob storage, we recommend using Blob storage accounts, to take advantage of the differentiated pricing model of tiered storage. However, we understand that this might not be possible under certain circumstances where using general-purpose storage accounts would be the way to go, such as:
+- È necessario usare tabelle, code o file e si vuole archiviare i BLOB nello stesso account di archiviazione. Si noti che l'unico vantaggio tecnico derivante dall'archiviarli nello stesso account è quello di avere le stesse chiavi condivise.
+- È ancora necessario usare il modello di distribuzione classica. Gli account di archiviazione BLOB sono disponibili solo con il modello di distribuzione Azure Resource Manager.
+- È necessario usare BLOB di pagine. Gli account di archiviazione BLOB non supportano i BLOB di pagine. A meno che non vi siano esigenze specifiche per usare i BLOB di pagine, è consigliabile usare i BLOB in blocchi.
+- Si usa una versione dell'[API REST dei servizi di archiviazione](https://msdn.microsoft.com/library/azure/dd894041.aspx) precedente alla 2014-02-14 o una libreria client con una versione precedente alla 4.x e non è possibile aggiornare l'applicazione.
 
-- You need to use tables, queues, or files and want your blobs stored in the same storage account. Note that there is no technical advantage to storing these in the same account other than having the same shared keys.
-- You still need to use the Classic deployment model. Blob storage accounts are only available via the Azure Resource Manager deployment model.
-- You need to use page blobs. Blob storage accounts do not support page blobs. We generally recommend using block blobs unless you have a specific need for page blobs.
-- You use a version of the [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) that is earlier than 2014-02-14 or a client library with a version lower than 4.x, and cannot upgrade your application.
+> [AZURE.NOTE] Gli account di archiviazione BLOB sono attualmente supportati nella maggior parte delle aree di Azure, a cui se ne aggiungeranno altre in futuro. L'elenco aggiornato delle aree disponibili è riportato nella pagina [Servizi di Azure in base all'area](https://azure.microsoft.com/regions/#services).
 
-> [AZURE.NOTE] Blob storage accounts are currently supported in a majority of Azure regions with more to follow. You can find the updated list of available regions on the [Azure Services by Region](https://azure.microsoft.com/regions/#services) page.
+## Confronto tra i livelli di archiviazione
 
-## <a name="comparison-between-the-storage-tiers"></a>Comparison between the storage tiers
-
-The following table highlights the comparison between the two storage tiers:
+La tabella seguente evidenzia il confronto tra i due livelli di archiviazione:
 
 <table border="1" cellspacing="0" cellpadding="0" style="border: 1px solid #000000;">
-<col width="250">
-<col width="250">
-<col width="250">
+<col width="250"> <col width="250"> <col width="250">
 <tbody>
 <tr>
     <td><strong><center></center></strong></td>
-    <td><strong><center>Hot storage tier</center></strong></td>
-    <td><strong><center>Cool storage tier</center></strong></td
+    <td><strong><center>Livello di archiviazione ad accesso frequente</center></strong></td>
+    <td><strong><center>Livello di archiviazione ad accesso sporadico</center></strong>&lt;/td
 </tr>
 <tr>
-    <td><strong><center>Availability</center></strong></td>
-    <td><center>99.9%</center></td>
+    <td><strong><center>Disponibilità</center></strong></td>
+    <td><center>99,9%</center></td>
     <td><center>99%</center></td>
 </tr>
 <tr>
-    <td><strong><center>Availability<br>(RA-GRS reads)</center></strong></td>
-    <td><center>99.99%</center></td>
-    <td><center>99.9%</center></td>
+    <td><strong><center>Disponibilità<br>(letture RA-GRS)</center></strong></td>
+    <td><center>99,99%</center></td>
+    <td><center>99,9%</center></td>
 </tr>
 <tr>
-    <td><strong><center>Usage charges</center></strong></td>
-    <td><center>Higher storage costs<br>Lower access and transaction costs</center></td>
-    <td><center>Lower storage costs<br>Higher access and transaction costs</center></td>
+    <td><strong><center>Addebiti per utilizzo</center></strong></td>
+    <td><center>Costi di archiviazione più elevati<br>Costi di accesso e transazione più bassi</center></td>
+    <td><center>Costi di archiviazione più bassi<br>Costi di accesso e transazione più elevati</center></td>
 </tr>
 <tr>
-    <td><strong><center>Minimum object size<center></strong></td>
-    <td colspan="2"><center>N/A</center></td>
+    <td><strong><center>Dimensioni minime oggetti<center></strong></td>
+    <td colspan="2"><center>N/D</center></td>
 </tr>
 <tr>
-    <td><strong><center>Minimum storage duration<center></strong></td>
-    <td colspan="2"><center>N/A</center></td>
+    <td><strong><center>Durata archiviazione minima<center></strong></td>
+    <td colspan="2"><center>N/D</center></td>
 </tr>
 <tr>
-    <td><strong><center>Latency<br>(Time to first byte)<center></strong></td>
-    <td colspan="2"><center>milliseconds</center></td>
+    <td><strong><center>Latenza<br>(tempo per il primo byte)<center></strong></td>
+    <td colspan="2"><center>millisecondi</center></td>
 </tr>
 <tr>
-    <td><strong><center>Scalability and performance targets<center></strong></td>
-    <td colspan="2"><center>Same as general-purpose storage accounts</center></td>
+    <td><strong><center>Obiettivi di scalabilità e prestazioni<center></strong></td>
+    <td colspan="2"><center>Uguali a quelli degli account di archiviazione di uso generico</center></td>
 </tr>
 </tbody>
 </table>
 
-> [AZURE.NOTE] Blob storage accounts support the same performance and scalability targets as general-purpose storage accounts. See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for more information.
+> [AZURE.NOTE] Gli account di archiviazione BLOB supportano gli stessi obiettivi di prestazioni e scalabilità degli account di archiviazione di uso generico. Per ulteriori informazioni, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md).
 
-## <a name="pricing-and-billing"></a>Pricing and Billing
+## Prezzi e fatturazione
 
-Blob storage accounts use a new pricing model for blob storage based on the storage tier. When using a Blob storage account, the following billing considerations apply:
+Gli account di archiviazione BLOB usano un nuovo modello di determinazione prezzi per l'archivio BLOB basato sul livello di archiviazione. Quando si usa un account di archiviazione BLOB, tenere conto delle considerazioni seguenti relative alla fatturazione:
 
-- **Storage costs**: In addition to the amount of data stored, the cost of storing data varies depending on the storage tier. The per-gigabyte cost is lower for the cool storage tier than for the hot storage tier.
-- **Data access costs**: For data in the cool storage tier, you will be charged a per-gigabyte data access charge for reads and writes.
-- **Transaction costs**: There is a per-transaction charge for both tiers. However, the per-transaction cost for the cool storage tier is higher than that for the hot storage tier.
-- **Geo-Replication data transfer costs**: This only applies to accounts with geo-replication configured, including GRS and RA-GRS. Geo-replication data transfer incurs a per-gigabyte charge.
-- **Outbound data transfer costs**: Outbound data transfers (data that is transferred out of an Azure region) incur billing for bandwidth usage on a per-gigabyte basis, consistent with general-purpose storage accounts.
-- **Changing the storage tier**: Changing the storage tier from cool to hot will incur a charge equal to reading all the data existing in the storage account for every transition. On the other hand, changing the storage tier from hot to cool will be free of cost.
+- **Costi di archiviazione**: oltre alla quantità di dati archiviati, il costo di archiviazione dei dati varia a seconda del livello di archiviazione. Il costo per gigabyte è più basso per il livello di archiviazione ad accesso sporadico rispetto a quello per il livello di archiviazione ad accesso frequente.
+- **Costi di accesso ai dati**: per i dati nel livello di archiviazione ad accesso sporadico viene addebitato un importo per l'accesso ai dati per gigabyte per le operazioni di lettura e scrittura.
+- **Costi di transazione**: è previsto un addebito per ogni transazione per entrambi i livelli. Il costo per transazione per il livello di archiviazione ad accesso sporadico è tuttavia più elevato rispetto a quello per il livello di archiviazione ad accesso frequente.
+- **Costi di trasferimento dati con la replica geografica**: si applicano solo agli account per cui è configurata la replica geografica, incluse l'archiviazione con ridondanza geografica e RA-GRS. Il trasferimento dati con la replica geografica comporta un addebito per gigabyte.
+- **Costi di trasferimento dati in uscita**: i trasferimenti dati in uscita (dati che vengono trasferiti al di fuori di un'area di Azure) vengono fatturati in base all'utilizzo di larghezza di banda per singolo gigabyte, come per gli account di archiviazione di uso generico.
+- **Modifica del livello di archiviazione**: la modifica del livello di archiviazione da sporadico a frequente comporta un addebito corrispondente a quello per la lettura di tutti i dati esistenti nell'account di archiviazione per ogni transizione. Invece il passaggio del livello di archiviazione da frequente a sporadico è gratuito.
 
-> [AZURE.NOTE] In order to allow users to try out the new storage tiers and validate functionality post launch, the charge for changing the storage tier from cool to hot will be waived off until June 30th 2016. Starting July 1st 2016, the charge will be applied to all transitions from cool to hot. For more details on the pricing model for Blob storage accounts see, [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page. For more details on the outbound data transfer charges see, [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) page.
+> [AZURE.NOTE] Per consentire agli utenti di provare i nuovi livelli di archiviazione e convalidare la funzionalità dopo l'avvio, l'addebito per il passaggio del livello di accesso da non frequente a frequente non verrà effettuato fino al 30 giugno 2016. A partire dal 1ª luglio 2016, l'addebito verrà applicato a tutte le transizioni da Non frequente a Frequente. Per altri dettagli sul modello di determinazione prezzi per gli account di archiviazione BLOB, vedere la pagina [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/). Per altri dettagli sugli addebiti per i trasferimenti dati in uscita, vedere la pagina [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-## <a name="quick-start"></a>Quick Start
+## Avvio rapido
 
-In this section we will demonstrate the following scenarios using the Azure portal:
+Questa sezione presenta gli scenari seguenti usando il portale di Azure:
 
-- How to create a Blob storage account.
-- How to manage a Blob storage account.
+- Come creare un account di archiviazione BLOB.
+- Come gestire un account di archiviazione BLOB.
 
-### <a name="using-the-azure-portal"></a>Using the Azure portal
+### Uso del portale di Azure
 
-#### <a name="create-a-blob-storage-account-using-the-azure-portal"></a>Create a Blob storage account using the Azure portal
+#### Creare un account di archiviazione BLOB usando il portale di Azure
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. On the Hub menu, select **New** > **Data + Storage** > **Storage account**.
+2. Nel menu Hub selezionare **Nuovo** > **Dati e archiviazione** > **Account di archiviazione**.
 
-3. Enter a name for your storage account.
+3. Immettere un nome per l'account di archiviazione.
 
-    This name must be globally unique; it is used as part of the URL used to access the objects in the storage account.  
+	Questo nome deve essere globalmente univoco. Viene usato come parte dell'URL usato per accedere agli oggetti nell'account di archiviazione.
 
-4. Select **Resource Manager** as the deployment model.
+4. Selezionare **Resource Manager** come modello di distribuzione.
 
-    Tiered storage can only be used with Resource Manager storage accounts; this is the recommended deployment model for new resources. For more information, check out the [Azure Resource Manager overview](../resource-group-overview.md).  
+	L'archiviazione a livelli può essere usata solo con gli account di archiviazione di Resource Manager, che è il modello di distribuzione consigliato per le nuove risorse. Per altre informazioni, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md).
 
-5. In the Account Kind dropdown list, select **Blob Storage**.
+5. Nell'elenco a discesa Tipologia account selezionare **Archivio BLOB**.
 
-    This is where you select the type of storage account. Tiered storage is not available in general-purpose storage; it is only available in the Blob storage type account.    
+	Qui è possibile selezionare il tipo di account di archiviazione. L'archiviazione a livelli non è disponibile nell'archiviazione per utilizzo generico, ma solo nel tipo di account di archiviazione BLOB.
 
-    Note that when you select this, the performance tier is set to Standard. Tiered storage is not available with the Premium performance tier.
+	Si noti che, quando si seleziona questa opzione, il livello di prestazioni viene impostato su Standard. L'archiviazione a livelli non è disponibile con il livello di prestazioni Premium.
 
-6. Select the replication option for the storage account: **LRS**, **GRS**, or **RA-GRS**. The default is **RA-GRS**.
+6. Selezionare l'opzione di replica per l'account di archiviazione: **Archiviazione con ridondanza locale**, **Archiviazione con ridondanza geografica** o **Archiviazione con ridondanza geografica e accesso in lettura**. L'opzione predefinita è **Archiviazione con ridondanza geografica e accesso in lettura**.
 
-    LRS = locally redundant storage; GRS = geo-redundant storage (2 regions); RA-GRS is read-access geo-redundant storage (2 regions with read access to the second).
+	Archiviazione con ridondanza locale, archiviazione con ridondanza geografica (2 aree), archiviazione con ridondanza geografica e accesso in lettura (2 aree con accesso in lettura alla seconda).
 
-    For more details on Azure Storage replication options, check out [Azure Storage replication](storage-redundancy.md).
+	Per altre informazioni sulle opzioni di replica di Archiviazione di Azure, vedere [Replica di Archiviazione di Azure](storage-redundancy.md).
 
-7. Select the right storage tier for your needs: Set the **Access tier** to either **Cool** or **Hot**. The default is **Hot**.
+7. Selezionare il livello di archiviazione corretto per le proprie esigenze: impostare **Livello di accesso** su **Non frequente** o **Frequente**. Il livello predefinito è **Frequente**.
 
-8. Select the subscription in which you want to create the new storage account.
+8. Selezionare la sottoscrizione in cui creare il nuovo account di archiviazione.
 
-9. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Azure Resource Manager overview](../resource-group-overview.md).
+9. Specificare un nuovo gruppo di risorse o selezionarne uno esistente. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md).
 
-10. Select the region for your storage account.
+10. Selezionare l'area per l'account di archiviazione.
 
-11. Click **Create** to create the storage account.
+11. Fare clic su **Crea** per creare l'account di archiviazione.
 
-#### <a name="change-the-storage-tier-of-a-blob-storage-account-using-the-azure-portal"></a>Change the storage tier of a Blob storage account using the Azure portal
+#### Modificare il livello di archiviazione di un account di archiviazione BLOB usando il portale di Azure
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. To navigate to your storage account, select All Resources, then select your storage account.
+2. Per passare all'account di archiviazione, selezionare Tutte le risorse, quindi selezionare l'account di archiviazione.
 
-3. In the Settings blade, click **Configuration** to view and/or change the account configuration.
+3. Nel pannello Impostazioni fare clic su **Configurazione** per visualizzare e/o modificare la configurazione dell'account.
 
-4. Select the right storage tier for your needs: Set the **Access tier** to either **Cool** or **Hot**.
+4. Selezionare il livello di archiviazione corretto per le proprie esigenze: impostare **Livello di accesso** su **Non frequente** o **Frequente**.
 
-5. Click Save at the top of the blade.
+5. Fare clic su Salva nella parte superiore del pannello.
 
-> [AZURE.NOTE] Changing the storage tier may result in additional charges. Please see the [Pricing and Billing](storage-blob-storage-tiers.md#pricing-and-billing) section for more details.
+> [AZURE.NOTE] La modifica del livello di archiviazione può comportare costi aggiuntivi. Per altri dettagli, vedere la sezione [Prezzi e fatturazione](storage-blob-storage-tiers.md#pricing-and-billing).
 
-## <a name="evaluating-and-migrating-to-blob-storage-accounts"></a>Evaluating and migrating to Blob storage accounts
+## Valutazione e migrazione agli account di archiviazione BLOB
 
-The purpose of this section is to help users to make a smooth transition to using Blob storage accounts. There are two user scenarios:
+Questa sezione descrive come eseguire una transizione senza problemi all'uso di account di archiviazione BLOB. Esistono due scenari utente:
 
-- You have an existing general-purpose storage account and want to evaluate a change to a Blob storage account with the right storage tier.
-- You have decided to use a Blob storage account or already have one and want to evaluate whether you should use the hot or cool storage tier.
+- È disponibile un account di archiviazione per utilizzo generico esistente e si vuole valutare una modifica per passare a un account di archiviazione BLOB con il livello di archiviazione corretto.
+- Si è deciso di usare un account di archiviazione BLOB o ne già disponibile uno e si vuole valutare se è opportuno usare il livello di archiviazione ad accesso frequente o sporadico.
 
-In both cases, the first order of business is to estimate the cost of storing and accessing your data stored in a Blob storage account and compare that against your current costs.
+In entrambi i casi la prima cosa da fare è stimare il costo di archiviazione e accesso ai dati archiviati in un account di archiviazione BLOB e confrontarlo con i costi attuali.
 
-### <a name="evaluating-blob-storage-account-tiers"></a>Evaluating Blob storage account tiers
+### Valutazione dei livelli di account di archiviazione BLOB
 
-In order to estimate the cost of storing and accessing data stored in a Blob storage account, you will need to evaluate your existing usage pattern or approximate your expected usage pattern. In general, you will want to know:
+Per stimare il costo di archiviazione e accesso ai dati archiviati in un account di archiviazione BLOB, è necessario valutare il modello di utilizzo esistente o simulare il modello di utilizzo previsto. In genere, è consigliabile conoscere:
 
-- Your storage consumption - How much data is being stored and how does this change on a monthly basis?
-- Your storage access pattern - How much data is being read from and written to the account (including new data)? How many transactions are used for data access, and what kinds of transactions are they?
+- Utilizzo dell'archiviazione: quanti dati vengono archiviati e come cambia questo valore ogni mese?
+- Modelli di accesso alle risorse di archiviazione: quanti dati vengono letti e scritti nell'account, inclusi quelli nuovi? Quante transazioni vengono usate per accedere ai dati e che di che tipi di transazioni si tratta?
 
-#### <a name="monitoring-existing-storage-accounts"></a>Monitoring existing storage accounts
+#### Monitoraggio degli account di archiviazione esistenti
 
-To monitor your existing storage accounts and gather this data, you can make use of Azure Storage Analytics which performs logging and provides metrics data for a storage account.
-Storage Analytics can store metrics that include aggregated transaction statistics and capacity data about requests to the Blob storage service for both general-purpose storage accounts as well as Blob storage accounts.
-This data is stored in well-known tables in the same storage account.
+Per monitorare gli account di archiviazione esistenti e raccoglierne i dati, si può usare Analisi archiviazione di Azure che esegue la registrazione e fornisce dati di metrica per un account di archiviazione. Analisi archiviazione può archiviare metriche che includono statistiche sulle transazioni aggregate e dati sulla capacità relativi alle richieste al servizio di archiviazione BLOB, sia per gli account di archiviazione per utilizzo generico che per gli account di archiviazione BLOB. I dati vengono archiviati in tabelle note nello stesso account di archiviazione.
 
-For more details, please see [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx) and [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx)
+Per altre informazioni, vedere [Informazioni sulla metrica di Analisi archiviazione](https://msdn.microsoft.com/library/azure/hh343258.aspx) e [Schema di tabella della metrica di Analisi archiviazione](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
-> [AZURE.NOTE] Blob storage accounts expose the table service endpoint only for storing and accessing the metrics data for that account.
+> [AZURE.NOTE] Gli account di archiviazione BLOB espongono l'endpoint di servizio tabelle solo per l'archiviazione e l'accesso ai dati di metrica per tale account.
 
-To monitor the storage consumption for the Blob storage service, you will need to enable the capacity metrics.
-With this enabled, capacity data is recorded daily for a storage account’s Blob service, and recorded as a table entry that is written to the *$MetricsCapacityBlob* table within the same storage account.
+Per monitorare l'utilizzo della risorsa di archiviazione per il servizio di archiviazione BLOB, è necessario abilitare la metrica della capacità. Con questa impostazione attivata i dati sulla capacità vengono registrati ogni giorno per il servizio BLOB di un account di archiviazione e registrati come una voce di tabella che viene scritta nella tabella *$MetricsCapacityBlob* nello stesso account di archiviazione.
 
-To monitor the data access pattern for the Blob storage service, you will need to enable the hourly transaction metrics at an API level.
-With this enabled, per API transactions are aggregated every hour, and recorded as a table entry that is written to the *$MetricsHourPrimaryTransactionsBlob* table within the same storage account. The *$MetricsHourSecondaryTransactionsBlob* table records the transactions to the secondary endpoint in case of RA-GRS storage accounts.
+Per monitorare il modello di accesso ai dati per il servizio di archiviazione BLOB, è necessario abilitare la metrica oraria delle transazioni a livello di API. Con questa impostazione attivata le transazioni vengono aggregate ogni ora per ogni API e registrate come una voce della tabella che viene scritta nella tabella *$MetricsHourPrimaryTransactionsBlob* nello stesso account di archiviazione. La tabella *$MetricsHourSecondaryTransactionsBlob* registra le transazioni nell'endpoint secondario nel caso di account di archiviazione con ridondanza geografica e accesso in lettura.
 
-> [AZURE.NOTE] In case you have a general-purpose storage account in which you have stored page blobs and virtual machine disks alongside block and append blob data, this estimation process is not applicable. This is because you will have no way of distinguishing capacity and transaction metrics based on the type of blob for only block and append blobs which can be migrated to a Blob storage account.
+> [AZURE.NOTE] Se è disponibile un account di archiviazione per utilizzo generico in cui sono archiviati sia BLOB di pagine e dischi di macchina virtuale insieme a dati di BLOB in blocchi e di aggiunta, questo processo di stima non è applicabile. Questo avviene perché non si avrà alcun modo per distinguere la metrica della capacità da quella delle transazioni in base al tipo di BLOB solo per i BLOB in blocchi e quelli di aggiunta di cui può essere eseguita la migrazione a un account di archiviazione BLOB.
 
-To get a good approximation of you data consumption and access pattern, we recommend you choose a retention period for the metrics that is representative of your regular usage, and extrapolate.
-One option is to retain the metrics data for 7 days and collect the data every week, for analysis at the end of the month.
-Another option is to retain the metrics data for the last 30 days and collect and analyze the data at the end of the 30 day period.
+Per ottenere una buona approssimazione del modello di accesso e di utilizzo dei dati, è consigliabile scegliere un periodo di conservazione della metrica che rappresenti l'utilizzo regolare ed estrapolarne i dati. Una possibilità consiste nel mantenere i dati di metrica per 7 giorni e raccoglierli ogni settimana per l'analisi alla fine del mese. Un'altra possibilità è conservare i dati di metrica per gli ultimi 30 giorni e raccogliere e analizzare i dati alla fine del periodo di 30 giorni.
 
-For details on enabling, collecting and viewing metrics data, please see, [Enabling Azure Storage metrics and viewing metrics data](storage-enable-and-view-metrics.md).
+Per informazioni dettagliate sull'abilitazione, la raccolta e la visualizzazione dei dati di metrica, vedere, [Abilitazione della metrica di archiviazione di Azure e visualizzazione dei dati di metrica](storage-enable-and-view-metrics.md).
 
-> [AZURE.NOTE] Storing, accessing and downloading analytics data is also charged just like regular user data.
+> [AZURE.NOTE] Anche l'archiviazione, l'accesso e il download dei dati di analisi vengono addebitati come lo sono i dati utente normali.
 
-#### <a name="utilizing-usage-metrics-to-estimate-costs"></a>Utilizing usage metrics to estimate costs
+#### Uso della metrica di utilizzo per stimare i costi
 
-##### <a name="storage-costs"></a>Storage costs
+##### Costi di archiviazione
 
-The latest entry in the capacity metrics table *$MetricsCapacityBlob* with the row key *'data'* shows the storage capacity consumed by user data.
-The latest entry in the capacity metrics table *$MetricsCapacityBlob* with the row key *'analytics'* shows the storage capacity consumed by the analytics logs.
+L'ultima voce nella tabella della metrica della capacità *$MetricsCapacityBlob* con la chiave di riga *'data'* mostra la capacità di archiviazione utilizzata dai dati utente. L'ultima voce nella tabella della metrica della capacità *$MetricsCapacityBlob* con la chiave di riga *'analytics'* mostra la capacità di archiviazione utilizzata dai log di analisi.
 
-This total capacity consumed by both user data and analytics logs (if enabled) can then be used to estimate the cost of storing data in the storage account.
-The same method can also be used for estimating storage costs for block and append blobs in general-purpose storage accounts.
+Questa capacità totale utilizzata sia dai dati utente che dai log di analisi, se abilitati, può quindi essere usata per stimare i costi di archiviazione dei dati nell'account di archiviazione. Lo stesso metodo può essere usato anche per la stima dei costi di archiviazione per i BLOB in blocchi e di aggiunta negli account di archiviazione per utilizzo generico.
 
-##### <a name="transaction-costs"></a>Transaction costs
+##### Costi di transazione
 
-The sum of *'TotalBillableRequests'*, across all entries for an API in the transaction metrics table indicates the total number of transactions for that particular API. *e.g.*, the total number of *'GetBlob'* transactions in a given period can be calculated by the sum of total billable requests for all entries with the row key *'user;GetBlob'*.
+La somma di *'TotalBillableRequests'* in tutte le voci relative a un'API nella tabella della metrica delle transazioni indica il numero totale di transazioni per quell'API specifica. *Ad esempio*, il numero totale di transazioni *'GetBlob'* in un dato periodo può essere calcolato dalla somma delle richieste fatturabili totali per tutte le voci con la chiave di riga *'user;GetBlob'*.
 
-In order to estimate transaction costs for Blob storage accounts, you will need to break down the transactions into three groups since they are priced differently.
+Per stimare i costi delle transazioni per gli account di archiviazione BLOB, è necessario suddividere le transazioni in tre gruppi, perché i prezzi vengono determinati in modo diverso.
 
-- Write transactions such as *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'*, and *'CopyBlob'*.
-- Delete transactions such as *'DeleteBlob'* and *'DeleteContainer'*.
-- All other transactions.
+- Transazioni di scrittura, ad esempio *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'* e *'CopyBlob'*.
+- Transazioni di eliminazione, ad esempio *'DeleteBlob'* e *'DeleteContainer'*.
+- Tutte le altre transazioni.
 
-In order to estimate transaction costs for general-purpose storage accounts, you need to aggregate all transactions irrespective of the operation/API.
+Per stimare i costi delle transazioni per gli account di archiviazione per utilizzo generico, è necessario aggregare tutte le transazioni indipendentemente dall'operazione o dall'API.
 
-##### <a name="data-access-and-geo-replication-data-transfer-costs"></a>Data access and geo-replication data transfer costs
+##### Costi di trasferimento dati con replica geografica e di accesso ai dati
 
-While storage analytics does not provide the amount of data read from and written to a storage account, it can be roughly estimated by looking at the transaction metrics table.
-The sum of *'TotalIngress'* across all entries for an API in the transaction metrics table indicates the total amount of ingress data in bytes for that particular API.
-Similarly the sum of *'TotalEgress'* indicates the total amount of egress data, in bytes.
+Mentre l'analisi dell'archiviazione non fornisce la quantità di dati in lettura e scrittura in un account di archiviazione, è possibile effettuare una stima approssimativa esaminando la tabella della metrica delle transazioni. La somma di *'TotalIngress'* in tutte le voci relative a un'API nella tabella della metrica delle transazione indica la quantità totale di dati in ingresso, espressa in byte, per quell'API specifica. In modo analogo,, la somma di *'TotalEgress'* indica la quantità totale di dati in uscita, in byte.
 
-In order to estimate the data access costs for Blob storage accounts, you will need to break down the transactions into two groups.
+Per stimare i costi di accesso ai dati per gli account di archiviazione BLOB, è necessario suddividere le transazioni in due gruppi.
 
-- The amount of data retrieved from the storage account can be estimated by looking at the sum of *'TotalEgress'* for primarily the *'GetBlob'* and *'CopyBlob'* operations.
-- The amount of data written to the storage account can be estimated by looking at the sum of *'TotalIngress'* for primarily the *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* and *'AppendBlock'* operations.
+- La quantità di dati recuperata dall'account di archiviazione può essere stimata esaminando la somma di *'TotalEgress'* principalmente per le operazioni *'GetBlob'* e *'CopyBlob'*.
+- La quantità di dati scritta nell'account di archiviazione può essere stimata esaminando la somma di *'TotalIngress'* principalmente per le operazioni *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* e *'AppendBlock'*.
 
-The cost of geo-replication data transfer for Blob storage accounts can also be calculated by using the estimate for the amount of data written in case of a GRS or RA-GRS storage account.
+I costi di trasferimento dati con replica geografica per gli account di archiviazione BLOB possono anche essere calcolati usando la stima per la quantità di dati scritti nel caso di un account di archiviazione con ridondanza geografica o con ridondanza geografica e accesso in lettura.
 
-> [AZURE.NOTE] For a more detailed example about calculating the costs for using the hot or cool storage tier, please take a look at the FAQ titled *'What are Hot and Cool access tiers and how should I determine which one to use?'* in the [Azure Storage Pricing Page](https://azure.microsoft.com/pricing/details/storage/).
+> [AZURE.NOTE] Per un esempio più dettagliato relativo al calcolo dei costi per l'uso del livello di archiviazione ad accesso frequente o sporadico, vedere la domanda frequente *'Che cosa sono i livelli di accesso frequente e accesso sporadico e come si determina quale usare?'* nella [pagina Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-### <a name="migrating-existing-data"></a>Migrating existing data
+### Migrazione di dati esistenti
 
-A Blob storage account is specialized for storing only block and append blobs. Existing general-purpose storage accounts, which allow you to store tables, queues, files and disks, as well as blobs, cannot be converted to Blob storage accounts. To use the storage tiers, you will need to create new Blob storage accounts and migrate your existing data into the newly created accounts.
-You can use the following methods to migrate existing data into Blob storage accounts from on-premise storage devices, from third-party cloud storage providers, or from your existing general-purpose storage accounts in Azure:
+Un account di archiviazione BLOB serve per archiviare solo BLOB in blocchi e BLOB di aggiunta. Gli account di archiviazione per utilizzo generico esistenti, che consentono di archiviare tabelle, code, file e dischi oltre ai BLOB, non possono essere convertiti in account di archiviazione BLOB. Per usare i livelli di archiviazione, sarà necessario creare nuovi account di archiviazione BLOB ed eseguire la migrazione dei dati esistenti negli account appena creati. È possibile usare i metodi seguenti per eseguire la migrazione dei dati esistenti agli account di archiviazione BLOB da dispositivi di archiviazione locali, da provider di archiviazione cloud di terze parti o dagli account di archiviazione di uso generico esistenti in Azure:
 
-#### <a name="azcopy"></a>AzCopy
+#### AzCopy
 
-AzCopy is a Windows command-line utility designed for high-performance copying of data to and from Azure Storage. You can use AzCopy to copy data into your Blob storage account from your existing general-purpose storage accounts, or to upload data from your on-premises storage devices into your Blob storage account.
+AzCopy è un'utilità da riga di comando Windows progettata per offrire prestazioni elevate di copia dei dati da e verso Archiviazione di Azure. È possibile usare AzCopy per copiare i dati nell'account di archiviazione BLOB dagli account di archiviazione di uso generico esistenti o per caricare i dati da dispositivi di archiviazione locali all'account di archiviazione BLOB.
 
-For more details, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
+Per altre dettagli, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md).
 
-#### <a name="data-movement-library"></a>Data Movement Library
+#### Libreria di spostamento dei dati
 
-Azure Storage data movement library for .NET is based on the core data movement framework that powers AzCopy. The library is designed for high-performance, reliable and easy data transfer operations similar to AzCopy. This allows you to take full benefits of the features provided by AzCopy in your application natively without having to deal with running and monitoring external instances of AzCopy.
+La libreria di spostamento dei dati di Archiviazione di Azure per .NET si basa sul framework di spostamento dei dati principali alla base di AzCopy. La libreria è progettata per operazioni di trasferimenti dati a prestazioni elevate, affidabili e semplici simili a quelle di AzCopy. In questo modo è possibile sfruttare pienamente i vantaggi delle funzionalità fornite da AzCopy nell'applicazione in modo nativo senza dover eseguire e monitorare istanze esterne di AzCopy.
 
-For more details, see [Azure Storage Data Movement Library for .Net](https://github.com/Azure/azure-storage-net-data-movement)
+Per altri dettagli, vedere la pagina relativa alla [Azure Storage Data Movement Library for .Net](https://github.com/Azure/azure-storage-net-data-movement) (Libreria di spostamento dei dati di Archiviazione di Azure per .NET).
 
-#### <a name="rest-api-or-client-library"></a>REST API or Client Library
+#### API REST o libreria client
 
-You can create a custom application to migrate your data into a Blob storage account using one of the Azure client libraries or the Azure storage services REST API. Azure Storage provides rich client libraries for multiple languages and platforms like .NET, Java, C++, Node.JS, PHP, Ruby, and Python. The client libraries offer advanced capabilities such as retry logic, logging, and parallel uploads. You can also develop directly against the REST API, which can be called by any language that makes HTTP/HTTPS requests.
+È possibile creare un'applicazione personalizzata per eseguire la migrazione dei dati all'account di archiviazione BLOB usando una delle librerie client di Azure o l'API REST dei servizi di archiviazione di Azure. Archiviazione di Azure fornisce librerie client avanzate per più linguaggi e piattaforme, ad esempio .NET, Java, C++, Node.js, PHP, Ruby e Python. Le librerie client offrono funzionalità avanzate, ad esempio la logica di ripetizione dei tentativi, la registrazione e i caricamenti paralleli. È possibile sviluppare usando direttamente l'API REST, che può essere chiamata da qualsiasi linguaggio in grado di eseguire richieste HTTP/HTTPS.
 
-For more details, see [Get Started with Azure Blob storage](storage-dotnet-how-to-use-blobs.md).
+Per altri dettagli, vedere [Introduzione all'archivio BLOB di Azure con .NET](storage-dotnet-how-to-use-blobs.md).
 
-> [AZURE.NOTE] Blobs encrypted using client-side encryption store encryption-related metadata stored with the blob. It is absolutely critical that any copy mechanism should ensure that the blob metadata, and especially the encryption-related metadata, is preserved. If you copy the blobs without this metadata, the blob content will not be retrievable again. For more details regarding encryption-related metadata, see [Azure Storage client side encryption](storage-client-side-encryption.md).
+> [AZURE.NOTE] I BLOB crittografati mediante la crittografia lato client archiviano i metadati correlati alla crittografia archiviati con il BLOB. È assolutamente essenziale che qualsiasi meccanismo di copia assicuri che i metadati dei BLOB e, in particolare modo, i metadati correlati alla crittografia vengano conservati. Se si copiano i BLOB senza metadati, il contenuto dei BLOB non sarà più recuperabile. Per informazioni dettagliate sui metadati correlati alla crittografia, vedere [Crittografia lato client e insieme di credenziali delle chiavi di Azure per Archiviazione di Microsoft Azure](storage-client-side-encryption.md).
 
-## <a name="faqs"></a>FAQs
+## Domande frequenti
 
-1. **Are existing storage accounts still available?**
+1. **Gli account di archiviazione esistenti sono ancora disponibili?**
 
-    Yes, existing storage accounts are still available and are unchanged in pricing or functionality.  They do not have the ability to choose an storage tier and will not have tiering capabilities in the future.
+    Sì, gli account di archiviazione esistenti sono ancora disponibili e non hanno subito variazioni di prezzo o di funzionalità. Non consentono di scegliere un livello di archiviazione e in futuro non avranno funzionalità di suddivisione in livelli.
 
-2. **Why and when should I start using Blob storage accounts?**
+2. **Perché e quando iniziare a usare gli account di archiviazione BLOB?**
 
-    Blob storage accounts are specialized for storing blobs and allow us to introduce new blob-centric features. Going forward, Blob storage accounts are the recommended way for storing blobs, as future capabilities such as hierarchical storage and tiering will be introduced based on this account type. However, it is up to you when you would like to migrate based on your business requirements.
+    Gli account di archiviazione BLOB sono specializzati per l'archiviazione dei BLOB e consentono di introdurre nuove funzionalità incentrate sui BLOB. È consigliabile usare gli account di archiviazione BLOB per archiviare i BLOB perché in futuro verranno introdotte funzionalità, ad esempio l'archiviazione gerarchica e la suddivisione in livelli, basate su questo tipo di account. La scelta del momento per eseguire la migrazione dipende tuttavia dai requisiti aziendali dell'utente.
 
-3. **Can I convert my existing storage account to a Blob storage account?**
+3. **Si può convertire un account di archiviazione esistente in un account di archiviazione BLOB?**
 
-    No. Blob storage account is a different kind of storage account and you will need to create it new and migrate your data as explained above.
+    No. L'account di archiviazione BLOB è un tipo diverso di account di archiviazione e sarà necessario crearne uno nuovo ed eseguire la migrazione dei dati come illustrato sopra.
 
-4. **Can I store objects in both storage tiers in the same account?**
+4. **Si possono archiviare oggetti in entrambi i livelli di archiviazione nello stesso account?**
 
-    The *'Access Tier'* attribute which indicates the storage tier is set at an account level and applies to all objects in that account. You cannot set the access tier attribute at an object level.
+    L'attributo *'Access Tier'*, che indica il livello di archiviazione, viene impostato a livello di account e si applica a tutti gli oggetti in tale account. Non è possibile impostare l'attributo del livello di accesso a livello di oggetto.
 
-5. **Can I change the storage tier of my Blob storage account?**
+5. **Si può modificare il livello di archiviazione nell'account di archiviazione BLOB?**
 
-    Yes. You will be able to change the storage tier by setting the *'Access Tier'* attribute on the storage account. Changing the storage tier will apply to all objects stored in the account. Change the storage tier from hot to cool will not incur any charges, while changing from cool to hot will incur a per GB cost for reading all the data in the account.
+    Sì. Sarà possibile modificare il livello di archiviazione impostando l'attributo *'Access Tier'* nell'account di archiviazione. La modifica del livello di archiviazione si applicherà a tutti gli oggetti archiviati nell'account. La modifica del livello di archiviazione da frequente a sporadico non comporta alcun addebito, mentre la modifica da sporadico a frequente comporta un costo per GB per la lettura di tutti i dati nell'account.
 
-6. **How frequently can I change the storage tier of my Blob storage account?**
+6. **Con quale frequenza si può modificare il livello di archiviazione nell'account di archiviazione BLOB?**
 
-    While we do not enforce a limitation on how frequently the storage tier can be changed, please be aware that changing the storage tier from cool to hot will incur significant charges. We do not recommend changing the storage tier frequently.
+    Anche se non esistono limiti alla frequenza con cui è possibile modificare il livello di archiviazione, tenere presente che la modifica del livello di archiviazione da sporadico a frequente comporta addebiti elevati. Non è consigliabile modificare frequentemente il livello di archiviazione.
 
-7. **Will the blobs in the cool storage tier behave differently than the ones in the hot storage tier?**
+7. **I BLOB nel livello di archiviazione ad accesso sporadico si comporteranno in modo diverso rispetto a quelli del livello di archiviazione ad accesso frequente?**
 
-    Blobs in the hot storage tier have the same latency as blobs in general-purpose storage accounts. Blobs in the cool storage tier have a similar latency (in milliseconds) as blobs in general-purpose storage accounts.
+    I BLOB nel livello di archiviazione ad accesso frequente hanno la stessa latenza dei BLOB negli account di archiviazione per utilizzo generico. I BLOB nel livello di archiviazione ad accesso sporadico hanno una latenza simile, in millisecondi, a quella dei BLOB negli account di archiviazione per utilizzo generico.
 
-    Blobs in the cool storage tier will have a slightly lower availability service level (SLA) than the blobs stored in the hot storage tier. For more details, see [SLA for storage](https://azure.microsoft.com/support/legal/sla/storage).
+    I BLOB nel livello di archiviazione ad accesso sporadico avranno una Contratto di servizio con disponibilità leggermente inferiore rispetto a quello dei BLOB nel livello di archiviazione ad accesso frequente. Per informazioni dettagliate, vedere [Contratto di Servizio per Archiviazione](https://azure.microsoft.com/support/legal/sla/storage).
 
-8. **Can I store page blobs and virtual machine disks in Blob storage accounts?**
+8. **È possibile archiviare i BLOB di pagine e i dischi delle macchine virtuali negli account di archiviazione BLOB?**
 
-    Blob storage accounts support only block and append blobs, and not page blobs. Azure virtual machine disks are backed by page blobs and as a result Blob storage accounts cannot be used to store virtual machine disks. However it is possible to store backups of the virtual machine disks as block blobs in a Blob storage account.
+    Gli account di archiviazione BLOB supportano solo i BLOB in blocchi e i BLOB di aggiunta, non i BLOB di pagine. Il backup dei dischi delle macchine virtuali di Azure viene eseguito dai BLOB di pagine. Non sarà quindi possibile usare gli account di archiviazione BLOB per archiviare i dischi delle macchine virtuali. È tuttavia possibile archiviare i backup dei dischi delle macchine virtuali come BLOB in blocchi in un account di archiviazione BLOB.
 
-9. **Will I need to change my existing applications to use Blob storage accounts?**
+9. **Sarà necessario modificare le applicazioni esistenti per usare gli account di archiviazione BLOB?**
 
-    Blob storage accounts are 100% API consistent with general-purpose storage accounts for block and append blobs. As long as your application is using block blobs or append blobs, and you are using the 2014-02-14 version of the [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) or greater then your application should just work. If you are using an older version of the protocol, then you will need to update your application to use the new version so as to work seamlessly with both types of storage accounts. In general, we always recommend using the latest version regardless of which storage account type you use.
+    Gli account di archiviazione BLOB offrono una coerenza API al 100% con gli account di archiviazione di uso generico per i BLOB in blocchi e i BLOB di aggiunta. Se l'applicazione usa BLOB in blocchi o di aggiunta e si usa la versione 2014-02-14 o successiva dell'[API REST dei servizi di archiviazione](https://msdn.microsoft.com/library/azure/dd894041.aspx), l'applicazione dovrebbe funzionare correttamente. Se si usa una versione meno recente del protocollo, sarà necessario aggiornare l'applicazione per poter usare la nuova versione e lavorare quindi facilmente con entrambi i tipi di account di archiviazione. In generale, è sempre consigliabile usare la versione più recente indipendentemente dal tipo di account di archiviazione usato.
 
-10. **Will there be a change in user experience?**
+10. **L'esperienza utente sarà diversa?**
 
-    Blob storage accounts are very similar to a general-purpose storage accounts for storing block and append blobs, and support all the key features of Azure Storage, including high durability and availability, scalability, performance, and security. Other than the features and restrictions specific to Blob storage accounts and its storage tiers that have been called out above, everything else remains the same.
+    Gli account di archiviazione BLOB sono molto simili agli account di archiviazione di uso generico per l'archiviazione di BLOB in blocchi o i BLOB di aggiunta e supportano tutte le funzionalità essenziali di Archiviazione di Azure, incluse durabilità e disponibilità elevate, scalabilità, prestazioni e sicurezza. Fatta eccezione per le funzionalità e le restrizioni specifiche degli account di archiviazione BLOB e per i livelli di archiviazione illustrati sopra, tutto il resto rimane invariato.
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-### <a name="evaluate-blob-storage-accounts"></a>Evaluate Blob storage accounts
+### Valutare gli account di archiviazione BLOB
 
-[Check availability of Blob storage accounts by region](https://azure.microsoft.com/regions/#services)
+[Verificare la disponibilità degli account di archiviazione BLOB in base all'area](https://azure.microsoft.com/regions/#services)
 
-[Evaluate usage of your current storage accounts by enabling Azure Storage metrics](storage-enable-and-view-metrics.md)
+[Valutare l'utilizzo degli account di archiviazione attuali abilitando le metriche di Archiviazione di Azure](storage-enable-and-view-metrics.md)
 
-[Check Blob storage pricing by region](https://azure.microsoft.com/pricing/details/storage/)
+[Verificare i prezzi di Archiviazione di Azure per i BLOB in base all'area](https://azure.microsoft.com/pricing/details/storage/)
 
-[Check data transfers pricing](https://azure.microsoft.com/pricing/details/data-transfers/)
+[Verificare i prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/)
 
-### <a name="start-using-blob-storage-accounts"></a>Start using Blob storage accounts
+### Iniziare a usare gli account di archiviazione BLOB
 
-[Get Started with Azure Blob storage](storage-dotnet-how-to-use-blobs.md)
+[Introduzione all'archivio BLOB di Azure](storage-dotnet-how-to-use-blobs.md)
 
-[Moving data to and from Azure Storage](storage-moving-data.md)
+[Spostamento dei dati da e verso Archiviazione di Azure](storage-moving-data.md)
 
-[Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)
+[Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 
-[Browse and explore your storage accounts](http://storageexplorer.com/)
+[Visualizzare ed esplorare gli account di archiviazione](http://storageexplorer.com/)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

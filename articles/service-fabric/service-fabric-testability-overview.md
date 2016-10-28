@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Fault Analysis Service overview | Microsoft Azure"
-   description="This article describes the Fault Analysis Service in Service Fabric for inducing faults and running test scenarios against your services."
+   pageTitle="Panoramica del servizio di analisi degli errori | Microsoft Azure"
+   description="Questo articolo descrive il servizio di analisi degli errori di Service Fabric per provocare errori ed eseguire scenari di test sui servizi dell'utente."
    services="service-fabric"
    documentationCenter=".net"
    authors="rishirsinha"
@@ -16,113 +16,108 @@
    ms.date="04/06/2016"
    ms.author="rsinha"/>
 
+# Introduzione al servizio di analisi degli errori
 
-# <a name="introduction-to-the-fault-analysis-service"></a>Introduction to the Fault Analysis Service
+Il servizio di analisi degli errori è progettato per testare servizi basati su Microsoft Azure Service Fabric. Con il servizio di analisi degli errori è possibile causare errori significativi ed eseguire scenari di test completi delle applicazioni. Tali errori e scenari verificano e convalidano i numerosi stati e le transizioni sperimentate da un servizio per la relativa durata, il tutto in modo controllato, sicuro e coerente.
 
-The Fault Analysis Service is designed for testing services that are built on Microsoft Azure Service Fabric. With the Fault Analysis Service you can induce meaningful faults and run complete test scenarios against your applications. These faults and scenarios exercise and validate the numerous states and transitions that a service will experience throughout its lifetime, all in a controlled, safe, and consistent manner.
+Le azioni sono i singoli errori destinati a un servizio a scopo di test. Uno sviluppatore di servizi può utilizzarle come blocchi predefiniti per scrivere scenari complicati. Ad esempio:
 
-Actions are the individual faults targeting a service for testing it. A service developer can use these as building blocks to write complicated scenarios. For example:
+  * Riavviare un nodo per simulare un qualsiasi numero di situazioni in cui un computer o una VM viene riavviata.
 
-  * Restart a node to simulate any number of situations where a machine or VM is rebooted.
+  * Spostare una replica del servizio con stato per simulare il bilanciamento del carico, il failover o l’aggiornamento dell'applicazione.
 
-  * Move a replica of your stateful service to simulate load balancing, failover, or application upgrade.
+  * Richiamare la perdita del quorum in un servizio con stato per creare una situazione in cui le operazioni di scrittura non possono continuare perché il numero delle repliche di "backup" o "secondarie" non è sufficiente per accettare nuovi dati.
 
-  * Invoke quorum loss on a stateful service to create a situation where write operations can't proceed because there aren't enough "back-up" or "secondary" replicas to accept new data.
+  * Richiamare la perdita di dati in un servizio con stato per creare una situazione in cui tutto lo stato in memoria sia completamente cancellato.
 
-  * Invoke data loss on a stateful service to create a situation where all in-memory state is completely wiped out.
+Gli scenari sono operazioni complesse costituite da una o più azioni. Il servizio di analisi degli errori offre due scenari completi incorporati:
 
-Scenarios are complex operations composed of one or more actions. The Fault Analysis Service provides two built-in complete scenarios:
+  * Scenario di caos
+  * Scenario di failover
 
-  * Chaos Scenario
-  * Failover Scenario
+## Test come servizio
 
-## <a name="testing-as-a-service"></a>Testing as a service
+Il servizio di analisi degli errori è un servizio di sistema di Service Fabric che viene avviato automaticamente con un cluster di Service Fabric. Questo servizio fa da host per l'inserimento di errori, l'esecuzione degli scenari di test e l'analisi dell'integrità.
 
-The Fault Analysis Service is a Service Fabric system service that is automatically started with a Service Fabric cluster. This is service acts as the host for fault injection, test scenario execution, and health analysis. 
+![Servizio di analisi degli errori][0]
 
-![Fault Analysis Service][0]
+Quando viene avviato uno scenario di test o un'azione di errore, viene inviato al servizio di analisi degli errori un comando per eseguire tale scenario o azione. Il servizio di analisi degli errori è con stato, quindi è in grado di eseguire errori e scenari e convalidare i risultati in modo affidabile. Ad esempio, uno scenario di test a esecuzione prolungata può essere eseguito in modo affidabile dal servizio di analisi degli errori. E poiché i test vengono eseguiti all'interno del cluster, il servizio può esaminare lo stato del cluster e i servizi per offrire informazioni più dettagliate sugli errori.
 
-When a fault action or test scenario is initiated, a command is sent to the Fault Analysis Service to run the fault action or test scenario. The Fault Analysis Service is stateful so that it can reliable run faults and scenarios and validate results. For example, a long-running test scenario can be reliably executed by the Fault Analysis Service. And because tests are being executed inside the cluster, the service can examine the state of the cluster and your services to provide more in-depth information about failures.
+## Test dei sistemi distribuiti
 
-## <a name="testing-distributed-systems"></a>Testing distributed systems
+Infrastruttura di servizi rende molto più semplice il processo di scrittura e gestione delle applicazioni scalabili distribuite. Allo stesso modo, il servizio di analisi degli errori semplifica il test di un'applicazione distribuita. Esistono tre problemi principali che devono essere risolti durante il test:
 
-Service Fabric makes the job of writing and managing distributed scalable applications significantly easier. The Fault Analysis Service makes testing a distributed application similarly easier. There are three main issues that need to be solved while testing:
+1. La simulazione e la generazione di errori che potrebbero verificarsi negli scenari reali: uno degli aspetti importanti di Service Fabric è che consente alle applicazioni distribuite di correggere vari errori. Tuttavia, per verificare che l'applicazione sia in grado di correggere questi errori, è necessario un meccanismo per simulare e generare questi errori reali in un ambiente di test controllato.
 
-1. Simulating/generating failures that might occur in real-world scenarios: One of the important aspects of Service Fabric is that it enables distributed applications to recover from various failures. However, to test that the application is able to recover from these failures, we need a mechanism to simulate/generate these real-world failures in a controlled test environment.
+2. La capacità di generare errori correlati: gli errori di base nel sistema, ad esempio gli errori di rete e gli errori dei computer, sono facili da riprodurre singolarmente. Generare un numero significativo di scenari che possono verificarsi nel mondo reale in seguito alle interazioni di questi singoli errori non è semplice.
 
-2. The ability to generate correlated failures: Basic failures in the system, such as network failures and machine failures, are easy to produce individually. Generating a significant number of scenarios that can happen in the real world as a result of the interactions of these individual failures is non-trivial.
+3. L'esperienza unificata tra vari livelli di sviluppo e distribuzione: esistono molti sistemi di fault injection che consentono di generare diversi tipi di errori. Tuttavia, quando si passa da uno scenario di sviluppo in un ambiente di piccole dimensioni all'esecuzione degli stessi test in ambienti di test di grandi dimensioni per usarli nella produzione, l'esperienza è insoddisfacente.
 
-3. Unified experience across various levels of development and deployment: There are many fault injection systems that can do various types of failures. However, the experience in all of these is poor when moving from one-box developer scenarios, to running the same tests in large test environments, to using them for tests in production.
-
-While there are many mechanisms to solve these problems, a system that does the same with required guarantees--all the way from a one-box developer environment, to test in production clusters--is missing. The Fault Analysis Service helps the application developers concentrate on testing their business logic. The Fault Analysis Service provides all the capabilities needed to test the interaction of the service with the underlying distributed system.
-
+Sebbene esistano numerosi meccanismi per risolvere questi problemi, manca ancora un sistema in grado di eseguire le stesse operazioni con le garanzie richieste, direttamente da un ambiente di sviluppo di piccole dimensioni ai test nei cluster di produzione. Il servizio di analisi degli errori consente agli sviluppatori di applicazioni di concentrarsi sul test della logica di business. Il servizio di analisi degli errori offre tutte le funzionalità necessarie per testare l'interazione del servizio con il sistema distribuito sottostante.
 
 
-### <a name="simulating/generating-real-world-failure-scenarios"></a>Simulating/generating real-world failure scenarios
 
-To test the robustness of a distributed system against failures, we need a mechanism to generate failures. While in theory, generating a failure like a node down seems easy, it starts hitting the same set of consistency problems that Service Fabric is trying to solve. As an example, if we want to shut down a node, the required workflow is the following:
+### Simulazione e generazione di scenari di errore reali
 
-1. From the client, issue a shutdown node request.
+Per verificare l'affidabilità di un sistema distribuito in caso di errori, è necessario un meccanismo per generare errori. Sebbene dal punto di vista teorico generare un errore come un nodo inattivo sembri semplice, comporta gli stessi problemi di coerenza che si tenta di risolvere con Service Fabric. Se ad esempio si vuole arrestare un nodo, il flusso di lavoro richiesto è il seguente:
 
-2. Send the request to the right node.
+1. Eseguire dal client una richiesta di arresto del nodo.
 
-    a. If the node is not found, it should fail.
+2. Inviare la richiesta al nodo giusto.
 
-    b. If the node is found, it should return only if the node is shut down.
+    a. Se il nodo non viene trovato, la richiesta ha esito negativo.
 
-To verify the failure from a test perspective, the test needs to know that when this failure is induced, the failure actually happens. The guarantee that Service Fabric provides is that either the node will go down or was already down when the command reached the node. In either case the test should be able to correctly reason about the state and succeed or fail correctly in its validation. A system implemented outside of Service Fabric to do the same set of failures could hit many network, hardware, and software issues, which would prevent it from providing the preceding guarantees. In the presence of the issues stated before, Service Fabric will reconfigure the cluster state to work around the issues, and hence the Fault Analysis Service will still be able to give the right set of guarantees.
+    b. Se il nodo viene trovato, la richiesta viene restituita solo se il nodo è stato arrestato.
 
-### <a name="generating-required-events-and-scenarios"></a>Generating required events and scenarios
+Per verificare l'errore dalla prospettiva del test è necessario sapere che, quando viene provocato, l'errore si verifica effettivamente. La garanzia offerta da Service Fabric consiste nel fatto che il nodo sarà disattivato oppure lo era già quando il comando lo ha raggiunto. In entrambi i casi il test deve essere in grado di verificare lo stato e procedere con l'esatta convalida (riuscito o non riuscito). Un sistema implementato all'esterno di Service Fabric per eseguire lo stesso set di errori potrebbe implicare numerosi problemi di rete, hardware e software che impedirebbero al sistema stesso di offrire le garanzie indicate in precedenza. In presenza dei problemi elencati, Service Fabric esegue la riconfigurazione dello stato del cluster per risolvere i problemi, pertanto il servizio di analisi degli errori continua a essere in grado di offrire le garanzie corrette.
 
-While simulating a real-world failure consistently is tough to start with, the ability to generate correlated failures is even tougher. For example, a data loss happens in a stateful persisted service when the following things happen:
+### Generazione degli eventi e degli scenari richiesti
 
-1. Only a write quorum of the replicas are caught up on replication. All the secondary replicas lag behind the primary.
+Se è difficile iniziare a simulare un errore reale in modo coerente, essere in grado di generare errori correlati è ancora più complesso. Ad esempio, in un servizio persistente con stato si verifica una perdita di dati quando si verificano i seguenti eventi:
 
-2. The write quorum goes down because of the replicas going down (due to a code package or node going down).
+1. Nella replica viene rilevato solo un quorum di scrittura delle repliche. Tutte le repliche secondarie restano dietro quelle primarie.
 
-3. The write quorum cannot come back up because the data for the replicas is lost (due to disk corruption or machine reimaging).
+2. Il quorum di scrittura si interrompe in quanto le repliche si arrestano a causa dell'arresto di un pacchetto di codice o di un nodo.
 
-These correlated failures do happen in the real world, but not as frequently as individual failures. The ability to test for these scenarios before they happen in production is critical. Even more important is the ability to simulate these scenarios with production workloads in controlled circumstances (in the middle of the day with all engineers on deck). That is much better than having it happen for the first time in production at 2:00 A.M.
+3. Il quorum di scrittura non può tornare attivo perché i dati per le repliche sono stati persi a causa di un danno del disco o della ricreazione dell'immagine del computer.
 
-### <a name="unified-experience-across-different-environments"></a>Unified experience across different environments
+Questi errori correlati si verificano effettivamente nel mondo reale, anche se non con la stessa frequenza dei singoli errori. La possibilità di testare questi scenari prima che si verifichino nell'ambiente di produzione è fondamentale. Ancora più importante è la possibilità di simulare questi scenari con carichi di lavoro di produzione in circostanze controllate, ad esempio durante la giornata con tutti gli ingegneri al lavoro, il che è di gran lunga preferibile al rischio che lo scenario si verifichi per la prima volta nell'ambiente di produzione alle 2:00.
 
-The practice traditionally has been to create three different sets of experiences, one for the development environment, one for tests, and one for production. The model was:
+### Esperienza unificata tra ambienti diversi
 
-1. In the development environment, produce state transitions that allow unit tests of individual methods.
+Di solito, la pratica consisteva nel creare tre set di esperienze diversi, uno per l'ambiente di sviluppo, uno per i test e uno per la produzione. Il modello era quello indicato di seguito:
 
-2. In the test environment, produce failures to allow end-to-end tests that exercise various failure scenarios.
+1. Nell'ambiente di sviluppo generare transizioni di stato che consentissero unit test dei singoli metodi.
 
-3. Keep the production environment pristine to prevent any non-natural failures and to ensure that there is extremely quick human response to failure.
+2. Nell'ambiente di test riprodurre errori per consentire ai test end-to-end di fare pratica con scenari di errore diversi.
 
-In Service Fabric, through the Fault Analysis Service, we are proposing to turn this around and use the same methodology from developer environment to production. There are two ways to achieve this:
+3. Mantenere l'ambiente di produzione originario per impedire qualsiasi errore non naturale e garantire una risposta umana estremamente rapida all'errore.
 
-1. To induce controlled failures, use the Fault Analysis Service APIs from a one-box environment all the way to production clusters.
+In Service Fabric il servizio di analisi degli errori consente di capovolgere tutto questo e di usare la stessa metodologia dall'ambiente di sviluppo alla produzione. A questo scopo è possibile procedere in due modi:
 
-2. To give the cluster a fever that causes automatic induction of failures, use the Fault Analysis Service to generate automatic failures. Controlling the rate of failures through configuration enables the same service to be tested differently in different environments.
+1. Per indurre errori controllati, usare le API del servizio di analisi degli errori da un ambiente di piccole dimensioni fino ai cluster di produzione.
 
-With Service Fabric, though the scale of failures would be different in the different environments, the actual mechanisms would be identical. This allows for a much quicker code-to-deployment pipeline and the ability to test the services under real-world loads.
+2. Per fare in modo che il cluster induca errori automaticamente, usare il servizio di analisi degli errori per generare errori automatici. Il controllo della frequenza degli errori tramite la configurazione consente al servizio stesso di essere sottoposto a test in modo diverso in ambienti differenti.
 
-## <a name="using-the-fault-analysis-service"></a>Using the Fault Analysis Service
+Con Service Fabric, sebbene la scala degli errori sarà diversa in ambienti differenti, il meccanismo effettivo sarà identico. Ciò consente l'uso di un codice molto più rapido per la pipeline di distribuzione e la possibilità di testare i servizi con carichi di lavoro reali.
+
+## Uso del servizio di analisi degli errori
 
 **C#**
 
-Fault Analysis Service features are in the System.Fabric namespace in the Microsoft.ServiceFabric NuGet package. To use the Fault Analysis Service features, include the nuget package as a reference in your project.
+Le funzionalità del servizio di analisi degli errori si trovano nello spazio dei nomi System.Fabric nel pacchetto NuGet Microsoft.ServiceFabric. Per usare le funzionalità del servizio di analisi degli errori, includere il pacchetto NuGet come riferimento nel progetto.
 
 **PowerShell**
 
-To use PowerShell, you must install the Service Fabric SDK. After the SDK is installed, the ServiceFabric PowerShell module is auto loaded for you to use.
+Per usare PowerShell, è necessario installare Service Fabric SDK. Dopo avere installato l'SDK, viene caricato automaticamente il modulo ServiceFabric di PowerShell.
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-To create truly cloud-scale services, it is critical to ensure, both before and after deployment, that services can withstand real world failures. In the services world today, the ability to innovate quickly and move code to production quickly is very important. The Fault Analysis Service helps service developers to do precisely that.
+Per creare servizi effettivamente a livello di cloud, è fondamentale assicurarsi, prima e dopo la distribuzione, che i servizi siano in grado di resistere agli errori reali. Con i servizi attuali, la possibilità di innovare rapidamente e spostare velocemente il codice nella produzione è molto importante. Il servizio di analisi degli errori consente agli sviluppatori dei servizi di ottenere esattamente questo risultato.
 
-Begin testing your applications and services using the built-in [test scenarios](service-fabric-testability-scenarios.md), or author your own test scenarios using the [fault actions](service-fabric-testability-actions.md) provided by the Fault Analysis Service.
+A questo punto è possibile iniziare a testare le applicazioni e i servizi con gli [scenari di test](service-fabric-testability-scenarios.md) incorporati, o creare i propri scenari di test tramite le [azioni di errore](service-fabric-testability-actions.md) offerte dal servizio di analisi degli errori.
 
 <!--Image references-->
 [0]: ./media/service-fabric-testability-overview/faultanalysisservice.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

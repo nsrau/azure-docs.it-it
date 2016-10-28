@@ -1,13 +1,13 @@
 <properties
-   pageTitle="How to scale Azure Functions | Microsoft Azure"
-   description="Understand how Azure Functions scale to meet the needs of your event-driven workloads."
+   pageTitle="Scalabilità di Funzioni di Azure | Microsoft Azure"
+   description="Comprendere le modalità di scalabilità di Funzioni di Azure per soddisfare le esigenze dei carichi di lavoro basati su eventi."
    services="functions"
    documentationCenter="na"
    authors="dariagrigoriu"
    manager="erikre"
    editor=""
    tags=""
-   keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture"/>
+   keywords="Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server"/>
 
 <tags
    ms.service="functions"
@@ -18,40 +18,33 @@
    ms.date="08/03/2016"
    ms.author="dariagrigoriu"/>
 
+# Scalabilità di Funzioni di Azure
 
-# <a name="how-to-scale-azure-functions"></a>How to scale Azure Functions
+## Introduzione
 
-## <a name="introduction"></a>Introduction
+Uno dei vantaggi di Funzioni di Azure è che le risorse di calcolo vengono usate solo quando necessario. Ciò significa che non è necessario pagare per macchine virtuali inattive o riservare capacità per eventuali necessità future. Al contrario, la piattaforma alloca potenza di calcolo quando il codice è in esecuzione, aumentandola se necessario per gestire il carico e riducendola quando il codice non è in esecuzione.
 
-An advantage of Azure Functions is that compute resources are only consumed when needed. This means that you don’t pay for idle VMs or have to reserve capacity for when you might need it. Instead, the platform allocates compute power when your code is running, scales up as necessary to handle load, and then scales down when code is not running.
+Il meccanismo che consente questa nuova funzionalità è il piano di servizio Dynamic.
 
-The mechanism for this new capability is the Dynamic Service plan.  
+Questo articolo offre informazioni generali sul funzionamento del piano di servizio Dynamic e sulla scalabilità della piattaforma su richiesta per l'esecuzione di codice.
 
-This article provides an overview of how the Dynamic Service plan works and how the platform scales on demand to run your code.
+Se non si ha familiarità con Funzioni di Azure, vedere l'articolo [Panoramica di Funzioni di Azure](functions-overview.md) per comprenderne meglio le funzioni.
 
-If you are not yet familiar with Azure Functions, make sure to check the [Azure Functions overview](functions-overview.md) article to better understand its capabilities.
+## Configurare Funzioni di Azure
 
-## <a name="configure-azure-functions"></a>Configure Azure Functions
+Esistono due impostazioni principali correlate alla scalabilità:
 
-Two main settings are related to scaling:
+* Il [piano di servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) o il piano di servizio Dynamic
+* Le dimensioni della memoria per l'ambiente di esecuzione
 
-* [Azure App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) or Dynamic Service plan
-* Memory size for the execution environment
+Il costo di una funzione varia a seconda del piano di servizio selezionato. Con i piani di servizio Dynamic, il costo è in funzione del tempo di esecuzione, delle dimensioni della memoria e del numero di esecuzioni. I costi maturano solo quando il codice è effettivamente in esecuzione.
 
-The cost of a function changes depending on the service plan that you select. With a Dynamic Service plan, cost is a function of execution time, memory size, and number of executions. Charges accrue only when your code is actually running.
+Un piano di servizio app ospita le funzioni in VM esistenti che possono essere usate anche per eseguire altro codice. Oltre al pagamento mensile per queste VM, non vengono addebitati altri costi per l'esecuzione delle funzioni sulle macchine stesse.
 
-An App Service plan hosts your functions on existing VMs, which might also be used to run other code. After you pay for these VMs each month, there is no extra charge for execution functions on them.
+## Scegliere un piano di servizio
 
-## <a name="choose-a-service-plan"></a>Choose a service plan
+Quando si creano funzioni è possibile scegliere di eseguirle nel piano di servizio Dynamic o in un [piano di servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Nel piano di servizio app, le funzioni vengono eseguite su una macchina virtuale dedicata, allo stesso modo delle app Web per SKU Basic, Standard o Premium. Questa macchina virtuale dedicata viene allocata alle app e alle funzioni ed è sempre disponibile indipendentemente dall'effettiva esecuzione del codice. È una buona opzione in caso di VM esistenti sottoutilizzate che eseguono già altro codice o se si prevede di eseguire funzioni in modo continuativo o quasi. Una macchina virtuale separa il costo per tempo di esecuzione e dimensioni della memoria. È quindi possibile limitare il costo di molte funzioni a esecuzione prolungata al costo di una o più macchine virtuali sulle quali vengono eseguite.
 
-When you create functions, you can select to run them on a Dynamic Service plan or an [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-In the App Service plan, your functions will run on a dedicated VM, just like web apps work today for Basic, Standard, or Premium SKUs.
-This dedicated VM is allocated to your apps and functions and is always available whether code is being actively executed or not. This is a good option if you have existing, under-utilized VMs that are already running other code or if you expect to run functions continuously or almost continuously. A VM decouples cost from both runtime and memory size. As a result, you can limit the cost of many long-running functions to the cost of the one or more VMs that they run on.
+[AZURE.INCLUDE [Piano di servizio Dynamic](../../includes/functions-dynamic-service-plan.md)]
 
-[AZURE.INCLUDE [Dynamic Service plan](../../includes/functions-dynamic-service-plan.md)]
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

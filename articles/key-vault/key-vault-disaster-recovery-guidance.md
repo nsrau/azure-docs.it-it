@@ -1,37 +1,36 @@
 <properties
-    pageTitle="What to do in the event of an Azure service disruption that impacts Azure Key Vault | Microsoft Azure"
-    description="Learn what to do in the event of an Azure service disruption that impacts Azure Key Vault."
-    services="key-vault"
-    documentationCenter=""
-    authors="adamglick"
-    manager="mbaldwin"
-    editor=""/>
+	pageTitle="Operazioni da eseguire in caso di interruzione di un servizio Azure con impatto sull'insieme di credenziali delle chiavi di Azure | Microsoft Azure"
+	description="Informazioni sulle operazioni da eseguire in caso di un'interruzione del servizio Azure con impatto sull'insieme di credenziali delle chiavi di Azure."
+	services="key-vault"
+	documentationCenter=""
+	authors="adamglick"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
-    ms.service="key-vault"
-    ms.workload="key-vault"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/26/2016"
-    ms.author="sumedhb;aglick"/>
+	ms.service="key-vault"
+	ms.workload="key-vault"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2016"
+	ms.author="sumedhb;aglick"/>
 
 
+# Disponibilità e ridondanza dell'insieme di credenziali delle chiavi di Azure
 
-# <a name="azure-key-vault-availability-and-redundancy"></a>Azure Key Vault availability and redundancy
+L'insieme di credenziali delle chiavi di Azure dispone di più livelli di ridondanza, per garantire che le chiavi e i segreti rimangano disponibili per l'applicazione anche quando si verificano errori di singoli componenti del servizio.
 
-Azure Key Vault features multiple layers of redundancy to make sure that your keys and secrets remain available to your application even if individual components of the service fail.
+I contenuti dell'insieme di credenziali delle chiavi vengono replicati sia all'interno dell'area sia in un'area secondaria distante almeno 240 chilometri, ma all'interno della stessa area geografica. Questo garantisce un'elevata durabilità delle chiavi e dei segreti.
 
-The contents of your key vault are replicated within the region as well as to a secondary region at least 150 miles away but within the same geography. This maintains high durability of your keys and secrets.
+Se si verificano errori di singoli componenti del servizio dell'insieme di credenziali delle chiavi, per gestire la richiesta subentrano componenti alternativi all'interno dell'area in modo che non si verifichi alcuna riduzione delle prestazioni delle funzionalità. A tale scopo, non è necessario alcun intervento in quanto l'azione verrà eseguita automaticamente e in modo trasparente per l'utente.
 
-If individual components within the Key Vault service fail, alternate components within the region step in to serve your request to make sure that there is no degradation of functionality. You do not need to take any action to trigger this. It will happen automatically and will be transparent to you.
+Nella rara eventualità che l'intera area di Azure risulti non disponibile, le richieste eseguite all'insieme di credenziali delle chiavi di tale area vengono indirizzate automaticamente a un'area secondaria ("failover"). Quando l'area primaria diventa di nuovo disponibile, le richieste vengono reindirizzate a tale area ("failback"). Anche in questo caso non è richiesta alcuna azione, poiché questa operazione viene eseguita in modo automatico.
 
-In the rare event that an entire Azure region is unavailable, the requests that you make of Azure Key Vault in that region are automatically routed (“failed over”) to a secondary region. When the primary region is available again, requests are routed back (“failed back”) to the primary region. Again, you do not need to take any action because this will happen automatically.
+Esistono alcune limitazioni che è necessario tenere presenti:
 
-There are a few caveats that you should be aware of:
-
-* In the event of a region fail-over, it may take a few minutes for the service to fail over. Requests that are made during this time may fail until the fail-over completes.
-* After a fail-over is complete, your key vault is in ___read-only___ mode. Requests that are supported in this mode are:
+* Nel caso del failover di un'area, il failover del servizio può richiedere alcuni minuti. È possibile che le richieste eseguite durante questo periodo abbiano esito negativo fino al completamento del failover.
+* Dopo il completamento del failover, l'insieme di credenziali delle chiavi è in modalità di ___sola lettura___. Le richieste supportate in questa modalità sono le seguenti:
  * list key vaults
  * get properties of key vaults
  * list secrets
@@ -45,10 +44,6 @@ There are a few caveats that you should be aware of:
  * verify
  * sign
  * backup
-* After a failover is failed back, all request types (i.e. read ___and___ write requests) are available.
+* Dopo il failback di un failover, tutti i tipi di richiesta, ad esempio le richieste di lettura ___e___ scrittura, risultano disponibili.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

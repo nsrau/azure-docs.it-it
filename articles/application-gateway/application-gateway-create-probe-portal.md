@@ -1,93 +1,90 @@
 <properties
-   pageTitle="Create a custom probe for an application gateway by using the portal | Microsoft Azure"
-   description="Learn how to create a custom probe for Application Gateway by using the portal"
+   pageTitle="Creare un probe personalizzato per un gateway applicazione con il portale | Microsoft Azure"
+   description="Informazioni su come creare un probe personalizzato per un gateway applicazione usando il portale"
    services="application-gateway"
    documentationCenter="na"
    authors="georgewallace"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
-/>
+/>  
 <tags  
    ms.service="application-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/24/2016"
+   ms.date="08/09/2016"
    ms.author="gwallace" />
 
-
-# <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Create a custom probe for Application Gateway by using the portal
+# Creare un probe personalizzato per un gateway applicazione con il portale
 
 > [AZURE.SELECTOR]
-- [Azure portal](application-gateway-create-probe-portal.md)
-- [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
-- [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
+- [Portale di Azure](application-gateway-create-probe-portal.md)
+- [PowerShell per Azure Resource Manager](application-gateway-create-probe-ps.md)
+- [PowerShell per Azure classico](application-gateway-create-probe-classic-ps.md)
 
-<BR>
+<BR>  
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
-## <a name="scenario"></a>Scenario
+## Scenario
 
-The following scenario goes through creating a custom health probe in an existing application gateway.
-The scenario assumes that you have already followed the steps to [Create an Application Gateway](application-gateway-create-gateway-portal.md).
+Lo scenario seguente illustra la creazione di un probe di integrità personalizzato in un gateway applicazione esistente. Lo scenario presuppone che sia già stata seguita la procedura per [creare un gateway applicazione](application-gateway-create-gateway-portal.md).
 
-## <a name="<a-name="createprobe"></a>create-the-probe"></a><a name="createprobe"></a>Create the probe
+## <a name="createprobe"></a>Creare il probe
 
-Probes are configured in a two-step process through the portal. The first step is to create the probe, next you add the probe to the backend http settings of the application gateway.
+I probe vengono configurati con un processo in due passaggi nel portale. Il primo passaggio consiste nel creare il probe, quindi si aggiunge il probe alle impostazioni HTTP back-end del gateway applicazione.
 
-### <a name="step-1"></a>Step 1
+### Passaggio 1
 
-Navigate to http://portal.azure.com and select an existing application gateway.
+Passare a http://portal.azure.com e selezionare un gateway applicazione esistente.
 
-![Application Gateway overview][1]
+![Panoramica del gateway applicazione][1]  
 
-### <a name="step-2"></a>Step 2
+### Passaggio 2
 
-Click **Probes** and click the **Add** button to add a new probe.
+Fare clic su **Probe** e quindi sul pulsante **Aggiungi** per aggiungere un nuovo probe.
 
-![Add Probe blade with information filled out][2]
+![Pannello Aggiungi probe con informazioni inserite][2]  
 
-### <a name="step-3"></a>Step 3
+### Passaggio 3
 
-Fill out the required information for the probe and when complete click **OK**.
+Inserire le informazioni necessarie per il probe e al termine fare clic su **OK**.
 
-- **Name** - This is a friendly name to the probe that is accessible in the portal.
-- **Host** - This is the host name that is used for the probe.
-- **Path** - The remainder of the full url for the custom probe.
-- **Interval (secs)** - How often the probe is run to check for health.
-- **Timeout (secs)** - The amount of time the probe waits before timing out.
-- **Unhealthy threshold** - Number of failed attempts to be considered unhealthy.
+- **Nome**: nome descrittivo del probe accessibile nel portale.
+- **Host**: nome host usato per il probe.
+- **Percorso**: parte restante dell'URL completo per il probe personalizzato.
+- **Intervallo (sec)**: frequenza con cui il probe viene eseguito per controllare l'integrità.
+- **Timeout (sec)**: durata dell'attesa prima che si verifichi il timeout del probe.
+- **Soglia di non integrità**: numero di tentativi non riusciti da considerare come uno stato di non integrità.
 
-> [AZURE.IMPORTANT] the host name is not the server name. This is the name of the virtual host running on the application server. The probe is sent to http://(host name):(port from httpsetting)/urlPath
+> [AZURE.IMPORTANT] Il nome host non è il nome del server. È il nome dell'host virtuale in esecuzione nel server applicazioni. Il probe viene inviato a http://(host nome):(porta da impostazioni HTTP)/percorsoURL
 
-![probe configuration settings][3]
+![Impostazioni di configurazione del probe][3]  
 
-## <a name="add-probe-to-the-gateway"></a>Add probe to the gateway
+## Aggiungere il probe al gateway
 
-Now that the probe has been created, it is time to add it to the gateway. Probe settings are set on the backend http settings of the application gateway.
+Ora che il probe è stato creato, deve essere aggiunto al gateway. Le impostazioni del probe vengono definite nelle impostazioni HTTP back-end del gateway applicazione.
 
-### <a name="step-1"></a>Step 1
+### Passaggio 1
 
-Click the **HTTP settings** of the application gateway, and then click the current backend http settings in the window to bring up the configuration blade.
+Fare clic su **Impostazioni HTTP** nel gateway applicazione e quindi sulle impostazioni HTTP back-end correnti nella finestra per visualizzare il pannello di configurazione.
 
-![https settings window][4]
+![Finestra delle impostazioni HTTP][4]  
 
-### <a name="step-2"></a>Step 2
+### Passaggio 2
 
-On the **appGatewayBackEndHttp** settings blade, click **Use custom probe** and choose the probe created in the [Create the probe](#createprobe) section.
-When complete, click **OK** and the settings are applied.
+Nel pannello delle impostazioni **appGatewayBackEndHttp** fare clic su **Usa probe personalizzato** e scegliere il probe creato nella sezione [Creare il probe](#createprobe). Al termine, fare clic su **OK** per applicare le impostazioni.
 
-![appgatewaybackend settings blade][5]
+![Pannello delle impostazioni appGatewayBackEndHttp][5]  
 
-The default probe checks the default access to the web application. Now that a custom probe has been created, the application gateway uses the custom path defined to monitor health for the backend selected. Based on the criteria that was defined, the application gateway checks the file specified in the probe. If the call to host:Port/path does not return an Http 200 OK status response, the server is taken out of rotation, after the unhealthy threshold is reached. Probing continues on the unhealthy instance to determine when it becomes healthy again. Once the instance is added back to healthy server pool traffic begins flowing to it again and probing to the instance continues at user specified interval as normal.
+Il probe predefinito controlla l'accesso predefinito all'applicazione Web. Ora che è stato creato un probe personalizzato, il gateway applicazione usa il percorso personalizzato definito per monitorare l'integrità per il back-end selezionato. In base ai criteri definiti, il gateway applicazione controlla il file specificato nel probe. Se la chiamata a host:Porta/percorso non restituisce una risposta di stato HTTP 200 OK, dopo che è stata raggiunta la soglia di non integrità il server viene escluso dalla rotazione. Il probe continua a essere eseguito sull'istanza non integra per determinare quando risulterà di nuovo integra. Quando l'istanza viene nuovamente aggiunta al pool di server integri, il flusso del traffico verso l'istanza riprenderà e il relativo probe verrà eseguito all'intervallo normale specificato dall'utente.
 
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-To learn how to configure SSL Offloading with Azure Application Gateway see [Configure SSL Offload](application-gateway-ssl-portal.md)
+Per informazioni su come configurare l'offload SSL con un gateway applicazione di Azure, vedere [Configurare un gateway applicazione per l'offload SSL con il portale](application-gateway-ssl-portal.md)
 
 [1]: ./media/application-gateway-create-probe-portal/figure1.png
 [2]: ./media/application-gateway-create-probe-portal/figure2.png
@@ -95,7 +92,4 @@ To learn how to configure SSL Offloading with Azure Application Gateway see [Con
 [4]: ./media/application-gateway-create-probe-portal/figure4.png
 [5]: ./media/application-gateway-create-probe-portal/figure5.png
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

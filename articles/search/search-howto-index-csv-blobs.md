@@ -1,6 +1,6 @@
 <properties
-pageTitle="Indexing CSV blobs with Azure Search blob indexer | Microsoft Azure"
-description="Learn how to index CSV blobs with Azure Search"
+pageTitle="Indicizzazione di BLOB CSV con l'indicizzatore di BLOB di Ricerca di Azure | Microsoft Azure"
+description="Informazioni su come indicizzare BLOB CSV con Ricerca di Azure"
 services="search"
 documentationCenter=""
 authors="chaosrealm"
@@ -15,77 +15,72 @@ ms.tgt_pltfrm="na"
 ms.date="07/12/2016"
 ms.author="eugenesh" />
 
+# Indicizzazione di BLOB CSV con l'indicizzatore di BLOB di Ricerca di Azure 
 
-# <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indexing CSV blobs with Azure Search blob indexer 
+Per impostazione predefinita, l'[indicizzatore di BLOB di Ricerca di Azure](search-howto-indexing-azure-blob-storage.md) analizza i BLOB di testo delimitato come blocco singolo di testo. Nel caso dei BLOB che contengono dati, tuttavia, è spesso consigliabile gestire ogni riga del BLOB come documento separato. Nel caso del testo delimitato da virgole seguente, ad esempio:
 
-By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage.md) parses delimited text blobs as a single chunk of text. However, with blobs containing CSV data, you often want to treat each line in the blob as a separate document. For example, given the following delimited text: 
+	id, datePublished, tags
+	1, 2016-01-12, "azure-search,azure,cloud" 
+	2, 2016-07-07, "cloud,mobile" 
 
-    id, datePublished, tags
-    1, 2016-01-12, "azure-search,azure,cloud" 
-    2, 2016-07-07, "cloud,mobile" 
+È consigliabile analizzarlo in due documenti, ognuno dei quali contiene campi "id", "datePublished" e "tags".
 
-you might want to parse it into 2 documents, each containing "id", "datePublished", and "tags" fields.
+In questo articolo verrà illustrato come analizzare i BLOB CSV con un indicizzatore di BLOB di Ricerca di Azure.
 
-In this article you will learn how to parse CSV blobs with an Azure Search blob indexer. 
+> [AZURE.IMPORTANT] Questa funzionalità è attualmente disponibile in anteprima. È disponibile solo nell'API REST con la versione **2015-02-28-Preview**. Si ricordi che le API di anteprima servono per il test e la valutazione e non devono essere usate negli ambienti di produzione.
 
-> [AZURE.IMPORTANT] This functionality is currently in preview. It is available only in the REST API using version **2015-02-28-Preview**. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments. 
+## Configurazione dell'indicizzazione di CSV
 
-## <a name="setting-up-csv-indexing"></a>Setting up CSV indexing
+Per indicizzare BLOB CSV, creare o aggiornare la definizione di un indicizzatore con la modalità di analisi `delimitedText`:
 
-To index CSV blobs, create or update an indexer definition with the `delimitedText` parsing mode:  
+	{
+	  "name" : "my-csv-indexer",
+	  ... other indexer properties
+	  "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "firstLineContainsHeaders" : true } }
+	}
 
-    {
-      "name" : "my-csv-indexer",
-      ... other indexer properties
-      "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "firstLineContainsHeaders" : true } }
-    }
+Per altre informazioni sull'API di creazione di un indicizzatore, vedere [Creare un indicizzatore](search-api-indexers-2015-02-28-preview.md#create-indexer).
 
-For more details on the Create Indexer API, check out [Create Indexer](search-api-indexers-2015-02-28-preview.md#create-indexer).
+`firstLineContainsHeaders` indica che la prima riga (non vuota) di ogni BLOB contiene un'intestazione. Se i BLOB non contengono una riga di intestazione iniziale, è necessario specificare le intestazioni nella configurazione dell'indicizzatore:
 
-`firstLineContainsHeaders` indicates that the first (non-blank) line of each blob contains headers.
-If blobs don't contain an initial header line, the headers should be specified in the indexer configuration: 
+	"parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-    "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
+È attualmente supportata solo la codifica UTF-8. È inoltre supportato solo il carattere di virgola `','` come delimitatore. Se si necessita di supporto per altre codifiche o altri delimitatori, inviare commenti nel [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
-Currently, only the UTF-8 encoding is supported. Also, only the comma `','` character is supported as the delimiter. If you need support for other encodings or delimiters, please let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
+> [AZURE.IMPORTANT] Quando si usa la modalità di analisi di testo delimitato, Ricerca di Azure presuppone che tutti i BLOB nell'origine dati siano di tipo CSV. Se è necessario supportare una combinazione di BLOB di tipo CSV e non CSV nella stessa origine dati, comunicare questa esigenza sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
-> [AZURE.IMPORTANT] When you use the delimited text parsing mode, Azure Search assumes that all blobs in your data source will be CSV. If you need to support a mix of CSV and non-CSV blobs in the same data source, please let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
+## Esempi di richiesta
 
-## <a name="request-examples"></a>Request examples
+Per concludere, ecco gli esempi completi del payload.
 
-Putting this all together, here are the complete payload examples. 
+Origine dati:
 
-Datasource: 
+	POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
 
-    POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
+	{
+	    "name" : "my-blob-datasource",
+	    "type" : "azureblob",
+	    "credentials" : { "connectionString" : "<my storage connection string>" },
+	    "container" : { "name" : "my-container", "query" : "<optional, my-folder>" }
+	}   
 
-    {
-        "name" : "my-blob-datasource",
-        "type" : "azureblob",
-        "credentials" : { "connectionString" : "<my storage connection string>" },
-        "container" : { "name" : "my-container", "query" : "<optional, my-folder>" }
-    }   
+Indicizzatore:
 
-Indexer:
+	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
 
-    POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-      "name" : "my-csv-indexer",
-      "dataSourceName" : "my-blob-datasource",
-      "targetIndexName" : "my-target-index",
+	{
+	  "name" : "my-csv-indexer",
+	  "dataSourceName" : "my-blob-datasource",
+	  "targetIndexName" : "my-target-index",
       "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } }
-    }
+	}
 
-## <a name="help-us-make-azure-search-better"></a>Help us make Azure Search better
+## Come contribuire al miglioramento di Ricerca di Azure
 
-If you have feature requests or ideas for improvements, please reach out to us on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
+Se si hanno domande sulle funzionalità o idee per apportare miglioramenti, contattare Microsoft sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

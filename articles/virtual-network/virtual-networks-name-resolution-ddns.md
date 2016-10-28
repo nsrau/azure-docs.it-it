@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Using Dynamic DNS to register hostnames"
-   description="This page gives details on how to set up Dynamic DNS to register hostnames in your own DNS servers."
+   pageTitle="Uso di DNS dinamico per registrare i nomi host"
+   description="Questa pagina offre informazioni dettagliate su come configurare DNS dinamico per registrare i nomi host nei propri server DNS."
    services="dns"
    documentationCenter="na"
    authors="GarethBradshawMSFT"
@@ -15,24 +15,23 @@
    ms.date="08/31/2016"
    ms.author="sewhee" />
 
+# Uso di DNS dinamico per registrare i nomi host nel proprio server DNS
 
-# <a name="using-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Using Dynamic DNS to register hostnames in your own DNS server
+[Azure offre la risoluzione dei nomi](virtual-networks-name-resolution-for-vms-and-role-instances.md) per le macchine virtuali e le istanze del ruolo. Tuttavia, quando la risoluzione dei nomi offerta da Azure non è sufficiente, è possibile usare i propri server DNS. In questo modo è possibile personalizzare la soluzione DNS in base alle esigenze specifiche. Ad esempio, può essere necessario accedere a risorse locali tramite il controller di dominio Active Directory.
 
-[Azure provides name resolution](virtual-networks-name-resolution-for-vms-and-role-instances.md) for virtual machines (VMs) and role instances. However, when your name resolution needs go beyond those provided by Azure, you can provide your own DNS servers. This gives you the power to tailor your DNS solution to suit your own specific needs. For example, you may need to access on-premises resources via your Active Directory domain controller.
+Quando i server DNS personalizzati vengono ospitati come VM di Azure è possibile inoltrare le query di nome host per la stessa rete virtuale in Azure per risolvere i nomi host. Se non si desidera usare questa route, è possibile registrare i nomi host delle VM nel server DNS tramite DNS dinamico. Poiché Azure non è in grado (ad esempio, non offre le credenziali) di creare direttamente i record nei server DNS, è spesso necessario ricorrere a soluzioni alternative. Di seguito sono riportati alcuni scenari comuni con alternative.
 
-When your custom DNS servers are hosted as Azure VMs you can forward hostname queries for the same vnet to Azure to resolve hostnames. If you do not wish to use this route, you can register your VM hostnames in your DNS server using Dynamic DNS.  Azure doesn't have the ability (e.g. credentials) to directly create records in your DNS servers, so alternative arrangements are often needed. Here are some common scenarios with alternatives.
+## Client Windows
 
-## <a name="windows-clients"></a>Windows clients
+I client Windows non di dominio cercano di eseguire aggiornamenti DNS dinamici non protetti (DDNS) all'avvio o alla modifica dell'indirizzo IP. Il nome DNS è il nome host unito al suffisso DNS primario. Azure lascia vuoto il suffisso DNS primario, ma può essere impostato nella VM tramite l'[interfaccia utente](https://technet.microsoft.com/library/cc794784.aspx) o [con l'automazione](https://social.technet.microsoft.com/forums/windowsserver/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix).
 
-Non-domain-joined Windows clients attempt unsecured Dynamic DNS (DDNS) updates when they boot or when their IP address changes. The DNS name is the hostname plus the primary DNS suffix. Azure leaves the primary DNS suffix blank, but you can set this in the VM, via the [UI](https://technet.microsoft.com/library/cc794784.aspx) or [by using automation](https://social.technet.microsoft.com/forums/windowsserver/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix).
+I client Windows appartenenti a un dominio registrano i relativi indirizzi IP con il controller di dominio usando DNS dinamico protetto. Il processo appartenente a un dominio imposta il suffisso DNS primario nel client e crea e gestisce la relazione di trust.
 
-Domain-joined Windows clients register their IP addresses with the domain controller by using secure Dynamic DNS. The domain-join process sets the primary DNS suffix on the client and creates and maintains the trust relationship.
+## Client Linux
 
-## <a name="linux-clients"></a>Linux clients
+I client Linux solitamente non si registrano con il server DNS all'avvio, presuppongono che il server DHCP esegua l'operazione. I server DHCP di Azure non sono in grado o non dispongono delle credenziali per registrare i record nel server DNS. È possibile usare uno strumento denominato *nsupdate*, incluso nel pacchetto di binding, per inviare gli aggiornamenti del DNS dinamico. Poiché il protocollo DNS dinamico è standardizzato, è possibile usare *nsupdate* anche quando non si usa il pacchetto Bind sul server DNS.
 
-Linux clients generally don't register themselves with the DNS server on startup, they assume the DHCP server does it. Azure's DHCP servers do not have the ability or credentials to register records in your DNS server.  You can use a tool called *nsupdate*, which is included in the Bind package, to send Dynamic DNS updates. Because the Dynamic DNS protocol is standardized, you can use *nsupdate* even when you're not using Bind on the DNS server.
-
-You can use the hooks that are provided by the DHCP client to create and maintain the hostname entry in the DNS server. During the DHCP cycle, the client executes the scripts in */etc/dhcp/dhclient-exit-hooks.d/*. This can be used to register the new IP address by using *nsupdate*. For example:
+È possibile usare gli hook messi a disposizione dal client DHCP per creare e gestire il nome host nel server DNS. Durante il ciclo DHCP, il client esegue gli script in */etc/dhcp/dhclient-exit-hooks.d/*. Questo può essere usato per registrare il nuovo indirizzo IP tramite *nsupdate*. Ad esempio:
 
         #!/bin/sh
         requireddomain=mydomain.local
@@ -59,17 +58,12 @@ You can use the hooks that are provided by the DHCP client to create and maintai
         #done
         exit 0;
 
-You can also use the *nsupdate* command to perform secure Dynamic DNS updates. For example, when you're using a Bind DNS server, a public-private key pair is [generated](http://linux.yyz.us/nsupdate/).  The DNS server is [configured](http://linux.yyz.us/dns/ddns-server.html) with the public part of the key so that it can verify the signature on the request. You must use the *-k* option to provide the key-pair to *nsupdate* in order for the Dynamic DNS update request to be signed.
+È anche possibile usare il comando *nsupdate* per eseguire gli aggiornamenti dinamici protetti DNS. Ad esempio, quando si usa un server DNS con Bind, viene [generata](http://linux.yyz.us/nsupdate/) una coppia di chiavi pubblica/privata. Il server DNS è [configurato](http://linux.yyz.us/dns/ddns-server.html) con la parte pubblica della chiave, che consente di verificare la firma della richiesta. È necessario usare l'opzione *-k* per indicare la coppia di chiavi a *nsupdate*, in modo da firmare la richiesta di aggiornamento DNS dinamico.
 
-When you're using a Windows DNS server, you can use Kerberos authentication with the *-g* parameter in *nsupdate* (not available in the Windows version of *nsupdate*). To do this, use *kinit* to load the credentials (e.g. from a [keytab file](http://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html)). Then *nsupdate -g* will pick up the credentials from the cache.
+Quando si usa un server DNS Windows, è possibile usare l'autenticazione Kerberos con il parametro *-g* in *nsupdate* (non disponibile nella versione Windows di *nsupdate*). A tale scopo, usare *kinit* per caricare le credenziali (ad esempio, da un [file keytab](http://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html)). Quindi, *nsupdate -g* acquisirà le credenziali dalla cache.
 
-If needed, you can add a DNS search suffix to your VMs. The DNS suffix is specified in the */etc/resolv.conf* file. Most Linux distros automatically manage the content of this file, so usually you can't edit it. However, you can override the suffix by using the DHCP client's *supersede* command. To do this, in */etc/dhcp/dhclient.conf*, add:
+Se necessario, aggiungere un suffisso di ricerca DNS alle VM. Il suffisso DNS è specificato nel file */etc/resolv.conf*. La maggior parte delle distribuzioni Linux gestiscono automaticamente il contenuto di questo file, quindi solitamente non può essere modificato. Tuttavia, è possibile ignorare il suffisso usando il comando *supersede* del client DHCP. A tale scopo, in */etc/dhcp/dhclient.conf* aggiungere:
 
         supersede domain-name <required-dns-suffix>;
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

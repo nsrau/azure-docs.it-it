@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Manage the directory for your Office 365 subscription in Azure | Microsoft Azure"
-   description="Managing an Office 365 subscription directory using Azure Active Directory and the Azure classic portal"
+   pageTitle="Gestire la directory per la sottoscrizione di Office 365 in Azure | Microsoft Azure"
+   description="Informazioni su come gestire la directory di una sottoscrizione di Office 365 con Azure Active Directory e il portale di Azure classico"
    services="active-directory"
    documentationCenter=""
    authors="curtand"
@@ -16,54 +16,49 @@
    ms.date="08/23/2016"
    ms.author="curtand"/>
 
+# Gestire la directory per la sottoscrizione di Office 365 in Azure
 
-# <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>Manage the directory for your Office 365 subscription in Azure
+Questo articolo descrive come gestire una directory creata per una sottoscrizione di Office 365 con il portale di Azure classico. Per accedere al portale di Azure classico, è necessario essere l'amministratore del servizio o un coamministratore di una sottoscrizione di Azure. Se non si ha ancora una sottoscrizione di Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita di 30 giorni](https://azure.microsoft.com/trial/get-started-active-directory/) e distribuire la prima soluzione cloud in meno di 5 minuti, usando questo collegamento. Usare l'account aziendale o dell'istituto di istruzione usato per accedere a Office 365.
 
-This article describes how to manage a directory that was created for an Office 365 subscription, using the Azure classic portal. You must be either the Service Administrator or a co-administrator of an Azure subscription to sign in to the Azure classic portal. If you don’t yet have an Azure subscription, you can sign up for a [free 30-day trial](https://azure.microsoft.com/trial/get-started-active-directory/) today and deploy your first cloud solution in under 5 minutes, using this link. Be sure to use the work or school account that you use to sign in to Office 365.
+Dopo aver completato la sottoscrizione di Azure, è possibile accedere al portale di Azure classico e accedere ai relativi servizi. Fare clic sull'estensione Active Directory per gestire la stessa directory usata per autenticare gli utenti di Office 365.
 
-After you complete the Azure subscription, you can sign in to the Azure classic portal and access Azure services. Click the Active Directory extension to manage the same directory that authenticates your Office 365 users.
+Se si ha già una sottoscrizione di Azure, il processo per gestire una directory aggiuntiva è piuttosto semplice. Ad esempio, è possibile che Michael Smith abbia una sottoscrizione di Office 365 per Contoso.com e anche una sottoscrizione di Azure che ha ottenuto usando l'account Microsoft msmith@hotmail.com. In questo caso Michael gestisce due directory.
 
-If you do already have an Azure subscription, the process to manage an additional directory is also straightforward. For example, Michael Smith might have an Office 365 subscription for Contoso.com. He also has an Azure subscription that he signed up for by using his Microsoft account, msmith@hotmail.com. In this case, he manages two directories.
-
-  Subscription |  Office 365  |  Azure
+ Subscription | Office 365 | Azure
   -------------- | ------------- | -------------------------------
-  Display name |  Contoso  |     Default Azure Active Directory (Azure AD) directory
-  Domain name  |  contoso.com  | msmithhotmail.onmicrosoft.com
+ Nome visualizzato | Contoso | Directory di Azure Active Directory (Azure AD) predefinita
+ Nome di dominio | contoso.com | msmithhotmail.onmicrosoft.com
 
-He wants to manage the user identities in the Contoso directory while he is signed in to Azure using his Microsoft account, so that he can enable Azure AD features such as multifactor authentication. The following diagram may help to illustrate the process.
+Michael vuole gestire le identità utente nella directory Contoso mentre è connesso ad Azure con il suo account Microsoft per poter abilitare le funzionalità di Azure AD, come l'autenticazione a più fattori. Il diagramma seguente illustra meglio il processo.
 
-![Diagram to manage two independent directories](./media/active-directory-manage-o365-subscription/AAD_O365_03.png)
+![Diagramma per gestire due directory indipendenti](./media/active-directory-manage-o365-subscription/AAD_O365_03.png)
 
-In this case, the two directories are independent of each other.
+In questo caso, le due directory sono indipendenti tra loro.
 
-## <a name="to-manage-two-independent-directories"></a>To manage two independent directories
-In order for Michael Smith to manage both directories while he is signed in to Azure as msmith@hotmail.com, he must complete the following steps:
+## Per gestire due directory indipendenti
+Per poter gestire entrambe le directory mentre è connesso ad Azure come msmith@hotmail.com, Michael Smith deve seguire questa procedura:
 
 > [AZURE.NOTE]
-> These steps can be completed only when a user is signed in with a Microsoft account. If the user is signed in with a work or school account, the option to **Use existing directory** isn't available. A work or school account can be authenticated only by its home directory (that is, the directory where the work or school account is stored, and that the business or school owns).
+Questa procedura può essere eseguita solo se l'utente ha eseguito l'accesso con un account Microsoft. Se l'utente ha eseguito l'accesso con un account aziendale o dell'istituto di istruzione, l'opzione **Utilizza directory esistente** non è disponibile. Un account aziendale o dell'istituto di istruzione può essere autenticato solo dalla relativa home directory, ovvero dalla directory in cui tale account è archiviato, di proprietà dell'azienda o dell'istituto di istruzione.
 
-1.  Sign in to the [Azure classic portal](https://manage.windowsazure.com) as msmith@hotmail.com.
-2.  Click **New** > **App services** > **Active Directory** > **Directory** > **Custom Create**.
-3.  Click Use existing directory and select the **I am ready to be signed out now** checkbox.
-4.  Sign in to the Azure classic portal as global admin of Contoso.onmicrosoft.com (for example, msmith@contoso.com).
-5.  When prompted to **Use the Contoso directory with Azure?**, click **Continue**.
-6.  Click **Sign out now**.
-7.  Sign in to the Azure classic portal as msmith@hotmail.com. The Contoso directory and the Default directory appear in the Active Directory extension.
+1.	Accedere al [portale di Azure classico ](https://manage.windowsazure.com) come msmith@hotmail.com.
+2.	Fare clic su **Nuovo** > **Servizi app** > **Active Directory** > **Directory** > **Creazione personalizzata**.
+3.	Fare clic su Utilizza directory esistente e selezionare la casella di controllo **È possibile uscire ora**.
+4.	Accedere al portale di Azure classico come amministratore globale di Contoso.onmicrosoft.com, ad esempio msmith@contoso.com.
+5.	Quando viene visualizzata la richiesta **Usare la directory Contoso con Azure?**, fare clic su **Continua**.
+6.	Fare clic su **Esci ora**.
+7.	Accedere al portale di Azure classico come msmith@hotmail.com. Entrambe le directory, quella Contoso e quella predefinita, verranno visualizzate nell'estensione Active Directory.
 
-After completing these steps, msmith@hotmail.com is a global administrator in the Contoso directory.
+Dopo aver completato questa procedura, msmith@hotmail.com è diventato amministratore globale della directory Contoso.
 
-## <a name="to-administer-resources-as-the-global-admin"></a>To administer resources as the global admin
-Now let’s suppose that Jane Doe needs administer websites and database resources that are associated with the Azure subscription for msmith@hotmail.com. Before she can do that, Michael Smith needs to complete these additional steps:
+## Per amministrare le risorse come amministratore globale
+Si supponga ora che Jane Doe debba amministrare le risorse di database e di siti Web associate alla sottoscrizione di Azure per msmith@hotmail.com. Prima di poterlo fare, Michael Smith deve effettuare questi passaggi aggiuntivi:
 
-1.  Sign in to the [Azure classic portal](https://manage.windowsazure.com) using the Service Administrator account for the Azure subscription (in this example, msmith@hotmail.com).
-2.  Transfer the subscription to the Contoso directory: click **Settings** > **Subscriptions** > select the subscription > **Edit Directory** > select **Contoso (Contoso.com)**. As part of the transfer, any work or school accounts that are co-administrators of the subscription are removed.
-3.  Add Jane Doe as co-administrator of the subscription: click **Settings** > **Administrators** > select the subscription > **Add** > type **JohnDoe@Contoso.com**.
+1.	Accedere al [portale di Azure classico](https://manage.windowsazure.com) con l'account amministratore del servizio per la sottoscrizione di Azure, in questo esempio msmith@hotmail.com.
+2.	Trasferire la sottoscrizione alla directory Contoso: fare clic su **Impostazioni** > **Sottoscrizioni** > selezionare la sottoscrizione > **Modifica directory** > selezionare **Contoso (Contoso.com)**. Durante il trasferimento, gli eventuali account aziendali o dell'istituto di istruzione di coamministratori della sottoscrizione verranno rimossi.
+3.	Aggiungere Jane Doe come coamministratore della sottoscrizione: fare clic su **Impostazioni** > **Amministratori** > selezionare la sottoscrizione > **Aggiungi** > digitare **JohnDoe@Contoso.com**.
 
-## <a name="next-steps"></a>Next steps
-For more information about the relationship between subscriptions and directories, see [How a subscription is associated with a directory](active-directory-how-subscriptions-associated-directory.md).
+## Passaggi successivi
+Per altre informazioni sulla relazione tra sottoscrizioni e directory, vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

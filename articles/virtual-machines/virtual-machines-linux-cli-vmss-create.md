@@ -1,55 +1,49 @@
 <properties
-    pageTitle="What are VM scale sets? | Microsoft Azure"
-    description="Learn about VM scale sets."
-    keywords="linux virtual machine,virtual machine scale sets" 
-    services="virtual-machines-linux"
-    documentationCenter=""
-    authors="gatneil"
-    manager="madhana"
-    editor="tysonn"
-    tags="azure-resource-manager" />
+	pageTitle="Che cosa sono i set di scalabilità delle macchine virtuali? | Microsoft Azure"
+	description="Informazioni sui set di scalabilità delle macchine virtuali."
+	keywords="macchina virtuale linux,set di scalabilità macchine virtuali" 
+	services="virtual-machines-linux"
+	documentationCenter=""
+	authors="gatneil"
+	manager="madhana"
+	editor="tysonn"
+	tags="azure-resource-manager" />
 
 <tags
-    ms.service="virtual-machine-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/24/2016"
-    ms.author="gatneil"/>
+	ms.service="virtual-machine-linux"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/24/2016"
+	ms.author="gatneil"/>
 
+# Che cosa sono i set di scalabilità delle macchine virtuali?
 
-# <a name="what-are-virtual-machine-scale-sets?"></a>What are virtual machine scale sets?
+I set di scalabilità di macchine virtuali consentono di gestire più VM come un unico set. A livello generale, i set di scalabilità presentano i vantaggi e gli svantaggi seguenti:
 
-Virtual Machine Scale Sets allow you to manage multiple VMs as a set. At a high level, scale sets have the following pros and cons:
+Vantaggi:
 
-Pros:
+1. Disponibilità elevata. Ogni set di scalabilità inserisce le relative macchine virtuali in un set di disponibilità con 5 domini di errore (FD) e 5 domini di aggiornamento (UD) per garantire la disponibilità. Per altre informazioni su domini di errore e domini di aggiornamento, vedere [Gestire la disponibilità delle macchine virtuali Linux](./virtual-machines-linux-manage-availability.md). 
+2. Facile integrazione con il servizio di bilanciamento del carico di Azure e il gateway app.
+3. Facile integrazione con la scalabilità automatica di Azure.
+4. Distribuzione, gestione e pulizia semplificate delle VM.
+5. Supporto delle versioni comuni di Windows e Linux e di immagini personalizzate.
 
-1. High availability. Each scale set puts its VMs into an Availability Set with 5 Fault Domains (FDs) and 5 Update Domains (UDs) to ensure availability (for more information on FDs and UDs, see [VM availability](./virtual-machines-linux-manage-availability.md)). 
-2. Easy integration with Azure Load Balancer and App Gateway.
-3. Easy integration with Azure Autoscale.
-4. Simplified deployment, management, and clean up of VMs.
-5. Support common Windows and Linux flavors, as well as custom images.
+Svantaggi:
 
-Cons:
+1. Impossibile collegare dischi dati a istanze di VM in un set di scalabilità. Di contro, è necessario utilizzare l'archiviazione BLOB, file di Azure, tabelle di Azure o un'altra soluzione di archiviazione.
 
-1. Cannot attach data disks to VM instances in a scale set. Instead, must use Blob Storage, Azure Files, Azure Tables, or other storage solution.
-
-## <a name="quick-create-using-azure-cli"></a>Quick-create using Azure CLI
+## Creazione rapida tramite l'interfaccia della riga di comando di Azure
 
 [AZURE.INCLUDE [cli-vmss-quick-create](../../includes/virtual-machines-linux-cli-vmss-quick-create-include.md)]
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-For general information, check out the [main landing page for scale sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
+Per informazioni generali, vedere la [pagina di destinazione principale per i set di scalabilità](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 
-For more documentation, check out the [main documentation page for scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).
+Per altra documentazione, vedere la [pagina della documentazione principale per i set di scalabilità](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).
 
-For example Resource Manager templates using scale sets, search for "vmss" in the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates).
+Ad esempio, per i modelli di Resource Manager con set di scalabilità, cercare "vmss" nel [repository di GitHub dei modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates).
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0413_2016-->

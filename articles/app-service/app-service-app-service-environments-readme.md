@@ -1,52 +1,51 @@
 <properties 
-    pageTitle="App Service Environment | Microsoft Azure" 
-    description="What is an Azure App Service Environment? An introduction to App Service Environment." 
-    keywords="azure app service environment, virtual network, secure networking"
-    services="app-service" 
-    documentationCenter="" 
-    authors="stefsch" 
-    manager="wpickett" 
-    editor=""/>
+	pageTitle="Ambiente del servizio app | Microsoft Azure" 
+	description="Che cos'è un ambiente del servizio app di Azure? Introduzione all'ambiente del servizio app." 
+	keywords="ambiente del servizio app di azure, rete virtuale, rete protetta"
+	services="app-service" 
+	documentationCenter="" 
+	authors="yochay" 
+	manager="wpickett" 
+	editor=""/>
 
 <tags 
-    ms.service="app-service" 
-    ms.workload="na" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/04/2016" 
-    ms.author="stefsch"/>
+	ms.service="app-service" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/15/2016" 
+	ms.author="stefsch"/>
 
+# Documentazione relativa agli ambienti del servizio app
 
-# <a name="app-service-environment-documentation"></a>App Service Environment Documentation
+Un ambiente App di servizio è un’opzione di piano di servizio [Premium][PremiumTier] del servizio dell’App di Azure che fornisce un ambiente completamente isolato e dedicato all'esecuzione in modo sicuro delle app di servizio di Azure a livello di scalabilità elevata, tra cui [App Web][WebApps], [App per dispositivi mobili][MobileApps], e [App API][APIApps].
 
-An App Service Environment is a [Premium][PremiumTier] service plan option of Azure App Service that provides a fully isolated and dedicated environment for securely running Azure App Service apps at high scale, including [Web Apps][WebApps], [Mobile Apps][MobileApps], and [API Apps][APIApps].  
+Gli ambienti di servizi di app sono ideali per i carichi di lavoro dell'applicazione che richiedono:
 
-App Service Environments are ideal for application workloads requiring:
+- Scalabilità molto elevata
+- Isolamento e accesso alla rete protetto
 
-- Very high scale
-- Isolation and secure network access
+I clienti possono creare più ambienti di servizi di applicazione in una singola area di Azure, nonché in più aree di Azure. Questo rende gli Ambienti di servizio dell’App ideali per i livelli dell’applicazione con scalabilità orizzontale senza stato, nel supportare i carichi di lavoro elevati RPS.
 
-Customers can create multiple App Service Environments within a single Azure region, as well as across multiple Azure regions.  This makes App Service Environments ideal for horizontally scaling state-less application tiers in support of high RPS workloads.
+Gli ambienti di servizio dell’App sono isolati per eseguire solo le applicazioni di un singolo cliente e sono sempre distribuiti in una rete virtuale. I clienti hanno il controllo con granularità fine del traffico di rete in ingresso e in uscita dell'applicazione tramite [gruppi di sicurezza di rete][NetworkSecurityGroups]. Le applicazioni possono anche stabilire connessioni protette ad alta velocità su reti virtuali con risorse aziendali locali.
 
-App Service Environments are isolated to running only a single customer's applications, and are always deployed into a virtual network.  Customers have fine-grained control over both inbound and outbound application network traffic using [network security groups][NetworkSecurityGroups].  Applications can also establish high-speed secure connections over virtual networks to on-premises corporate resources.
+Spesso le app devono accedere a risorse aziendali, ad esempio database e servizi Web interni. Le applicazioni in esecuzione in ambienti del servizio app possono accedere alle risorse raggiungibili tramite connessioni VPN [da sito a sito][SiteToSite] e [Azure ExpressRoute][ExpressRoute].
 
-Apps frequently need to access corporate resources such as internal databases and web services.  Apps running on App Service Environments can access resources reachable via [Site-to-Site][SiteToSite] VPN and [Azure ExpressRoute][ExpressRoute] connections.
+* [Che cos'è un ambiente del servizio app?](../app-service-web/app-service-app-service-environment-intro.md)
+* [Creazione di un ambiente del servizio app](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
+* [Creazione di app in un ambiente del servizio app](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
+* [Creazione e uso di un servizio di bilanciamento del carico interno con ambienti del servizio App](../app-service-web/app-service-environment-with-internal-load-balancer.md)
+* [Configurazione di un ambiente del servizio app](../app-service-web/app-service-web-configure-an-app-service-environment.md)
+* [Scalabilità di app in un ambiente del servizio app](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
+* [Sicurezza di rete e architettura](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)
 
-* [What is an App Service Environment?](../app-service-web/app-service-app-service-environment-intro.md)
-* [Creating an App Service Environment](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
-* [Creating Apps in an App Service Environment](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
-* [Creating and Using an Internal Load Balancer with App Service Environments](../app-service-web/app-service-environment-with-internal-load-balancer.md)
-* [Configuring an App Service Environment](../app-service-web/app-service-web-configure-an-app-service-environment.md) 
-* [Scaling Apps in an App Service Environment](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
-* [Network Security and Architecture](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)
-
-## <a name="how-to's"></a>How To's
+## Procedure
 
 [AZURE.INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
 
 
-## <a name="videos"></a>Videos
+## Video
 [AZURE.VIDEO azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps]
 
 [AZURE.VIDEO microsoft-ignite-2015-running-enterprise-web-and-mobile-apps-on-azure-app-service]
@@ -61,8 +60,4 @@ Apps frequently need to access corporate resources such as internal databases an
 [SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

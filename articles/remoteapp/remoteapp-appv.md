@@ -1,8 +1,8 @@
 <properties
-    pageTitle="Using App-V apps with Azure RemoteApp| Microsoft Azure"
-    description="Learn how to use App-V apps in Azure RemoteApp."
+    pageTitle="Uso delle app App-V con Azure RemoteApp| Microsoft Azure"
+    description="Informazioni sull'uso delle app App-V in Azure RemoteApp."
     services="remoteapp"
-    documentationCenter=""
+	documentationCenter=""
     authors="ericorman"
     manager="mbaldwin" />
 
@@ -17,31 +17,26 @@
 
 
 
-
-# <a name="using-app-v-apps-in-azure-remoteapp"></a>Using App-V apps in Azure RemoteApp
+# Uso delle app App-V in Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
-You can use App-V applications in a Azure RemoteApp hybrid collection, which requires domain join.
+È possibile usare le applicazioni App-V in una raccolta ibrida di Azure RemoteApp, che richiede l'aggiunta al dominio.
 
-Before you get started, make sure to install the App-V 5.1 client with the latest updates. You will need to create a [custom image](remoteapp-create-custom-image.md) that includes the App-V client.  
+Prima di iniziare, assicurarsi di installare il client App-V 5.1 con gli aggiornamenti più recenti. Sarà necessario creare un'[immagine personalizzata](remoteapp-create-custom-image.md) che include il client App-V.
 
-It’s easy to use your existing App-V infrastructure with Azure RemoteApp. Since a hybrid collection is deployed into an Azure VNET that has access to your domain controller and the VMs are domain joined, you can leverage your existing App-v infrastructure and deployment methods to easyily host App-V application in Azure RemoteApp. Here are some considerations that you should be aware of based on the type of App-V deployment you currently have:
+L'uso dell'infrastruttura App-V esistente con Azure RemoteApp è una procedura semplice. Poiché in una rete virtuale di Azure viene distribuita una raccolta ibrida con accesso al controller di dominio e le macchine virtuali vengono aggiunte al dominio, è possibile sfruttare i vantaggi offerti dai metodi di distribuzione e dall'infrastruttura App-V esistenti per ospitare facilmente l'applicazione App-V in Azure RemoteApp. Di seguito sono riportate alcune considerazioni da tenere presenti in base al tipo di distribuzione di App-V di cui si dispone:
 
-| Configuration options |                       | Positive                                                               | Negative                                                                                              |
+| Opzioni di configurazione | | Positive | Negative |
 |-----------------------|-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
-| Delivery method       | Streaming (on-demand) | App is always the latest and fresh                                     | First time latency                                                                                    |
-|                       | Mounted               | Fastest; app is already present on the VM                              | Bloat - takes up image space (127 GB limit)                                                           |
-| App location storage  | Shared content        | App runs in memory of Azure RemoteApp instance                         | Eats memory and good connection to streaming (file) server where the app resides                      |
-|                       | Disk (Cached)         | Fast execution. App not dependent on availability of Content Source | Bloat - takes up image space (127 GB limit)                                                           |
-| Targeting             | User                  | Requires full standalone App-V infrastructure                          |                                                                                                       |
-|                       | Global (machine)      |  Pre-publish or target using Publishing server                         |  Need to update your Azure image if you want to update the app (huge). Takes up some space on image. |
+| Metodo di distribuzione | Streaming (su richiesta) | App sempre aggiornata | Prima latenza |
+| | Montato | Più rapido. App già presente nella macchina virtuale | Bloat: occupa lo spazio dell'immagine (limite di 127 GB) |
+| Archiviazione percorso app | Contenuto condiviso | App eseguita nella memoria dell'istanza di Azure RemoteApp | Usa la memoria e una buona connessione al server (file) di streaming in cui si trova l'app |
+| | Disco (memorizzato nella cache) | Esecuzione rapida. Applicazione non dipende dalla disponibilità dell'origine del contenuto | Bloat: occupa lo spazio dell'immagine (limite di 127 GB) |
+| Destinazione | Utente | Richiede un'infrastruttura App-V autonoma completa | |
+| | Globale (computer) | Prepubblicazione o destinazione mediante server di pubblicazione | Se si desidera aggiornare l'app (di grandi dimensioni), è necessario aggiornare l'immagine di Azure. Occupa spazio nell'immagine. |
 
- After you create your custom image and your hybrid collection, publish your application, assign users and enjoy your existing App-V applications hosted in Azure RemoteApp delivered to any device anywhere.
+ Dopo aver creato l'immagine personalizzata e la raccolta ibrida, è possibile pubblicare l'applicazione, assegnare gli utenti e usare le applicazioni App-V esistenti ospitate in Azure RemoteApp distribuite a qualsiasi dispositivo e in qualsiasi luogo.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

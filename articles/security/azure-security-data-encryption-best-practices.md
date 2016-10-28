@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Data Security and Encryption Best Practices | Microsoft Azure"
-   description="This article provides a set of best practices for data security and encryption using built in Azure capabilities."
+   pageTitle="Procedure consigliate per la sicurezza dei dati e la crittografia | Microsoft Azure"
+   description="Questo articolo presenta una serie di procedure consigliate per la sicurezza dei dati e la crittografia usando le funzionalità integrate di Azure."
    services="security"
    documentationCenter="na"
    authors="YuriDio"
@@ -16,156 +16,151 @@
    ms.date="08/16/2016"
    ms.author="yuridio"/>
 
+#Procedure consigliate per la sicurezza dei dati e la crittografia in Azure
 
-#<a name="azure-data-security-and-encryption-best-practices"></a>Azure Data Security and Encryption Best Practices
+Uno degli aspetti fondamentali della protezione dei dati nel cloud consiste nel tenere conto dei possibili stati in cui possono trovarsi i dati e dei controlli disponibili per tale stato. Per quanto concerne le procedure consigliate per la sicurezza dei dati e la crittografia in Azure, le raccomandazioni riguarderanno gli stati dei dati seguenti:
 
-One of the keys to data protection in the cloud is accounting for the possible states in which your data may occur, and what controls are available for that state. For the purpose of Azure data security and encryption best practices the recommendations will be around the following data’s states:
+- Inattivi: sono inclusi tutti gli oggetti, i contenitori e i tipi di archiviazione di informazioni esistenti in forma statica nei supporti fisici, siano essi dischi magnetici o dischi ottici.
 
-- At-rest: This includes all information storage objects, containers, and types that exist statically on physical media, be it magnetic or optical disk.
+- In transito: quando i dati vengono trasferiti dati tra componenti, posizioni o programmi, ad esempio sulla rete, attraverso un bus di servizio (da locale a cloud e viceversa, incluse le connessioni ibride come ExpressRoute) oppure durante un processo di input/output, sono considerati in movimento.
 
-- In-Transit: When data is being transferred between components, locations or programs, such as over the network, across a service bus (from on-premises to cloud and vice-versa, including hybrid connections such as ExpressRoute), or during an input/output process, it is thought of as being in-motion.
+In questo articolo verrà illustrato un insieme di procedure consigliate per la crittografia e la sicurezza dei dati di Azure, derivate dalla nostra esperienza con la sicurezza dei dati e la crittografia in Azure e dalle esperienze di altri clienti.
 
-In this article we will discuss a collection of Azure data security and encryption best practices. These best practices are derived from our experience with Azure data security and encryption and the experiences of customers like yourself.
+Per ogni procedura consigliata verrà illustrato:
 
-For each best practice, we’ll explain:
+- Qual è la procedura consigliata
+- Il motivo per cui si vuole abilitare tale procedura consigliata
+- Quale potrebbe essere il risultato se non fosse possibile abilitare la procedura consigliata
+- Alternative possibili alla procedura consigliata
+- Come imparare ad abilitare la procedura consigliata
 
-- What the best practice is
-- Why you want to enable that best practice
-- What might be the result if you fail to enable the best practice
-- Possible alternatives to the best practice
-- How you can learn to enable the best practice
+Il presente articolo sulle procedure consigliate per la sicurezza dei dati e la crittografia in Azure si basa su un parere condiviso, nonché sulle capacità e sui set di funzionalità della piattaforma Azure esistenti al momento della scrittura. Le opinioni e le tecnologie cambiano nel tempo e questo articolo verrà aggiornato regolarmente per riflettere tali modifiche.
 
-This Azure Data Security and Encryption Best Practices article is based on a consensus opinion, and Azure platform capabilities and feature sets, as they exist at the time this article was written. Opinions and technologies change over time and this article will be updated on a regular basis to reflect those changes.
+Le procedure consigliate per la sicurezza dei dati e la crittografia in Azure illustrate in questo articolo includono:
 
-Azure data security and encryption best practices discussed in this article include:
+- Applicare l'autenticazione a più fattori
+- Usare il controllo degli accessi in base al ruolo
+- Crittografare le macchine virtuali di Azure
+- Usare i moduli di protezione hardware
+- Gestire con workstation sicure
+- Abilitare la crittografia dei dati SQL
+- Proteggere i dati in transito
+- Applicare la crittografia dei dati a livello di file
 
-- Enforce multi-factor authentication
-- Use role based access control (RBAC)
-- Encrypt Azure virtual machines
-- Use hardware security models
-- Manage with Secure Workstations
-- Enable SQL data encryption
-- Protect data in transit
-- Enforce file level data encryption
 
+## Applicare l'autenticazione a più fattori
 
-## <a name="enforce-multi-factor-authentication"></a>Enforce Multi-factor Authentication
+Il primo passo per accedere ai dati e controllarli in Microsoft Azure consiste nell'autenticare l'utente. [Azure Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md) è un metodo per verificare l'identità dell'utente usando un metodo diverso rispetto alla semplice combinazione di nome utente e password. Questo metodo di autenticazione contribuisce a salvaguardare l'accesso a dati e applicazioni rispondendo alla richiesta degli utenti di poter usare un processo di accesso semplice.
 
-The first step in data access and control in Microsoft Azure is to authenticate the user. [Azure Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md) is a method of verifying user’s identity by using another method than just a username and password. This authentication method helps safeguard access to data and applications while meeting user demand for a simple sign-in process.
+Quando si abilita Azure MFA per gli utenti, si aggiunge un secondo livello di sicurezza agli accessi e alle transazioni degli utenti. In questo caso, una transazione potrebbe accedere a un documento che si trova in un file server o in SharePoint Online. Grazie a Azure MFA, i reparti IT possono anche ridurre la probabilità di accesso ai dati dell'organizzazione usando credenziali compromesse.
 
-By enabling Azure MFA for your users, you are adding a second layer of security to user sign-ins and transactions. In this case, a transaction might be accessing a document located in a file server or in your SharePoint Online. Azure MFA also helps IT to reduce the likelihood that a compromised credential will have access to organization’s data.
+Ad esempio, se Azure MFA viene applicato per gli utenti e configurato per l'uso di una telefonata o di un messaggio di testo come verifica, qualora le credenziali dell'utente fossero compromesse un autore di attacchi non riuscirebbe ad accedere alle risorse, non avendo accesso al telefono dell'utente. Le organizzazioni che non aggiungono questo livello supplementare di protezione dell'identità sono più vulnerabili agli attacchi con furto di credenziali, con conseguente rischio di compromissione dei dati.
 
-For example: if you enforce Azure MFA for your users and configure it to use a phone call or text message as verification, if the user’s credential is compromised, the attacker won’t be able to access any resource since he will not have access to user’s phone. Organizations that do not add this extra layer of identity protection are more susceptible for credential theft attack, which may lead to data compromise.
+In alternativa, le organizzazioni che vogliono mantenere il controllo di autenticazione in locale possono usare il [server Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-server.md), detto anche MFA locale. Questo metodo consentirà comunque di applicare l'autenticazione a più fattori, mantenendo il server MFA in locale.
 
-One alternative for organizations that want to keep the authentication control on-premises is to use [Azure Multi-Factor Authentication Server](../multi-factor-authentication/multi-factor-authentication-get-started-server.md), also called MFA on-premises. By using this method you will still be able to enforce multi-factor authentication, while keeping the MFA server on-premises.
+Per altre informazioni su Azure MFA, vedere l'articolo [Introduzione ad Azure Multi-Factor Authentication nel cloud](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 
-For more information on Azure MFA, please read the article [Getting started with Azure Multi-Factor Authentication in the cloud](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+## Usare il controllo degli accessi in base al ruolo
+Limitare l'accesso in base al [principio di necessità](https://en.wikipedia.org/wiki/Need_to_know) e al [principio di privilegio minimo](https://en.wikipedia.org/wiki/Principle_of_least_privilege) in materia di sicurezza. Questo è fondamentale per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati. Il controllo degli accessi in base al ruolo di Azure consente di assegnare autorizzazioni a utenti, gruppi e applicazioni in un determinato ambito. L'ambito di un'assegnazione di ruolo può essere una sottoscrizione, un gruppo di risorse o una singola risorsa.
 
-## <a name="use-role-based-access-control-(rbac)"></a>Use Role Based Access Control (RBAC)
-Restrict access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles. This is imperative for organizations that want to enforce security policies for data access. Azure Role-Based Access Control (RBAC) can be used to assign permissions to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource.
+Si possono sfruttare i [ruoli predefiniti del controllo degli accessi in base al ruolo](../active-directory/role-based-access-built-in-roles.md) in Azure per assegnare privilegi agli utenti. Si consiglia di usare *Collaboratore Account di archiviazione* per gli operatori cloud che devono gestire gli account di archiviazione e il ruolo *Collaboratore Account di archiviazione classico* per gestire gli account di archiviazione classici. Per quanto riguarda gli operatori di cloud che hanno necessità di gestire le macchine virtuali e l'account di archiviazione, è consigliabile aggiungerli al ruolo *Collaboratore Macchina virtuale*.
 
-You can leverage [built-in RBAC roles](../active-directory/role-based-access-built-in-roles.md) in Azure to assign privileges to users. Consider using *Storage Account Contributor* for cloud operators that need to manage storage accounts and *Classic Storage Account Contributor* role to manage classic storage accounts. For cloud operators that needs to manage VMs and storage account, consider adding them to *Virtual Machine Contributor* role.
+Le organizzazioni che non applicano il controllo di accesso ai dati con funzionalità come Controllo degli accessi in base al ruolo potrebbero concedere più privilegi del necessario ai propri utenti. Questo può comportare la compromissione dei dati perché ad alcuni utenti potrebbe essere concesso un accesso ai dati di cui non dovrebbero disporre.
 
-Organizations that do not enforce data access control by leveraging capabilities such as RBAC may be giving more privileges than necessary for their users. This can lead to data compromise by having some users having access to data that they shouldn’t have in the first place.
+Per altre informazioni sul controllo degli accessi in base al ruolo di Azure, vedere l'articolo [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md).
 
-You can learn more about Azure RBAC by reading the article [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md).
+## Crittografare le macchine virtuali di Azure
+Per molte organizzazioni, [la crittografia dei dati inattivi](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) è un passaggio obbligatorio per assicurare la privacy dei dati, la conformità e la sovranità dei dati. Crittografia dischi di Azure consente agli amministratori IT di crittografare i dischi delle macchine virtuali IaaS Windows e Linux. Crittografia dischi di Azure si basa sulla funzionalità BitLocker standard di settore disponibile in Windows e sulla funzionalità DM-Crypt di Linux per offrire la crittografia del volume per i dischi dei dati e del sistema operativo.
 
-## <a name="encrypt-azure-virtual-machines"></a>Encrypt Azure Virtual Machines
-For many organizations, [data encryption at rest](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is a mandatory step towards data privacy, compliance and data sovereignty. Azure Disk Encryption enables IT administrators to encrypt Windows and Linux IaaS Virtual Machine (VM) disks. Azure Disk Encryption leverages the industry standard BitLocker feature of Windows and the DM-Crypt feature of Linux to provide volume encryption for the OS and the data disks.
+Crittografia dischi di Azure contribuisce alla protezione dei dati e al rispetto degli impegni dell'organizzazione a livello di sicurezza e conformità. La crittografia permette anche alle organizzazioni di ridurre i rischi correlati all'accesso non autorizzato ai dati. È anche consigliabile crittografare le unità prima di scrivervi dati sensibili.
 
-You can leverage Azure Disk Encryption to help protect and safeguard your data to meet your organizational security and compliance requirements. Organizations should also consider using encryption to help mitigate risks related to unauthorized data access. It is also recommended that you encrypt drives prior to writing sensitive data to them.
+Assicurarsi di crittografare il volume di avvio e i volumi dei dati della macchina virtuale per proteggere i dati inattivi nell'account di archiviazione di Azure. Proteggere le chiavi di crittografia e i segreti sfruttando l'[insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-whatis.md).
 
-Make sure to encrypt your VM’s data volumes and boot volume in order to protect data at rest in your Azure storage account. Safeguard the encryption keys and secrets by leveraging [Azure Key Vault](../key-vault/key-vault-whatis.md).
+Per le istanze di Windows Server locali, prendere in considerazione le seguenti procedure consigliate per la crittografia:
 
-For your on-premises Windows Servers, consider the following encryption best practices:
+- Usare [BitLocker](https://technet.microsoft.com/library/dn306081.aspx) per la crittografia dei dati
+- Archiviare le informazioni di ripristino in Servizi di dominio Active Directory.
+- Se si teme che le chiavi di BitLocker siano state compromesse, è consigliabile formattare l'unità per rimuovere tutte le istanze dei metadati di BitLocker dall'unità oppure decrittografare e crittografare nuovamente l'intera unità.
 
-- Use [BitLocker](https://technet.microsoft.com/library/dn306081.aspx) for data encryption
-- Store recovery information in AD DS.
-- If there is any concern that BitLocker keys have been compromised, we recommend that you either format the drive to remove all instances of the BitLocker metadata from the drive or that you decrypt and encrypt the entire drive again.
+Le organizzazioni che non applicano la crittografia dei dati hanno maggiori probabilità di esposizione a problemi di integrità dei dati, ad esempio il furto di dati da parte di utenti non autorizzati o malintenzionati e l'accesso non autorizzato a dati non crittografati con account compromessi. Oltre a questi rischi, le aziende che sono tenute a rispettare normative di settore devono dimostrare di operare in modo conforme e di implementare i controlli di sicurezza appropriati per aumentare la sicurezza dei dati.
 
-Organizations that do not enforce data encryption are more likely to be exposed to data integrity issues, such as malicious or rogue users stealing data and compromised accounts gaining unauthorized access to data in clear format. Besides these risks, companies that have to comply with industry regulations, must prove that they are diligent and are using the correct security controls to enhance data security.
+Per altre informazioni su Crittografia dischi di Azure, leggere l'articolo [Crittografia dischi di Azure per le macchine virtuali IaaS Windows e Linux](azure-security-disk-encryption.md).
 
-You can learn more about Azure Disk Encryption by reading the article [Azure Disk Encryption for Windows and Linux IaaS VMs](azure-security-disk-encryption.md).
+## Usare i moduli di protezione hardware
 
-## <a name="use-hardware-security-modules"></a>Use Hardware Security Modules
+Le soluzioni di crittografia di settore usano le chiavi private per crittografare i dati. È quindi fondamentale che queste chiavi vengano archiviate in modo sicuro. La gestione delle chiavi diventa parte integrante della protezione dei dati perché verrà impiegata per archiviare le chiavi private usate per crittografare i dati.
 
-Industry encryption solutions use secret keys to encrypt data. Therefore, it is critical that these keys are safely stored. Key management becomes an integral part of data protection, since it will be leveraged to store secret keys that are used to encrypt data.
+Crittografia dischi di Azure usa l'[insieme di credenziali delle chiavi di Azure](https://azure.microsoft.com/services/key-vault/) per facilitare il controllo e la gestione delle chiavi di crittografia dei dischi e dei segreti nella sottoscrizione dell'insieme di credenziali delle chiavi, assicurando al tempo stesso che tutti i dati nei dischi delle macchine virtuali siano crittografati quando inattivi nell'archiviazione di Azure. È opportuno usare l'insieme di credenziali delle chiavi di Azure per controllare le chiavi e l'utilizzo di criteri.
 
-Azure disk encryption uses [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) to help you control and manage disk encryption keys and secrets in your key vault subscription, while ensuring that all data in the virtual machine disks are encrypted at rest in your Azure storage. You should use Azure Key Vault to audit keys and policy usage.
+Esistono molti rischi correlati alla mancanza di controlli di sicurezza appropriati per proteggere le chiavi private usate per crittografare i dati. Se utenti malintenzionati hanno accesso alle chiavi private possono decrittografare i dati e potrebbero accedere a informazioni riservate.
 
-There are many inherent risks related to not having appropriate security controls in place to protect the secret keys that were used to encrypt your data. If attackers have access to the secret keys, they will be able to decrypt the data and potentially have access to confidential information.
+Per saperne di più sulle raccomandazioni generali per la gestione dei certificati in Azure, leggere l'articolo relativo alle [procedure consigliate e sconsigliate per la gestione dei certificati in Azure](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/).
 
-You can learn more about general recommendations for certificate management in Azure by reading the article [Certificate Management in Azure: Do’s and Don’ts](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/).
+Per altre informazioni sull'insieme di credenziali delle chiavi di Azure, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-get-started.md).
 
-For more information about Azure Key Vault, read [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md).
+## Gestire con workstation sicure
 
-## <a name="manage-with-secure-workstations"></a>Manage with Secure Workstations
+La maggior parte degli attacchi prende di mira l'utente finale, per cui l'endpoint diventa uno dei principali punti di attacco. Se un utente malintenzionato compromette l'endpoint, può usare le credenziali dell'utente per accedere ai dati dell'organizzazione. Nella maggior parte dei casi, gli attacchi agli endpoint sfruttano il fatto che gli utenti finali sono amministratori delle workstation locali.
 
-Since the vast majority of the attacks target the end user, the endpoint becomes one of the primary points of attack. If an attacker compromises the endpoint, he can leverage the user’s credentials to gain access to organization’s data. Most endpoint attacks are able to take advantage of the fact that end users are administrators in their local workstations.
+È possibile ridurre questi rischi usando una workstation di gestione sicura. Si consiglia di usare una [workstation di accesso con privilegi (PAW)](https://technet.microsoft.com/library/mt634654.aspx) per ridurre la superficie di attacco nella workstation. Queste workstation di gestione sicure consentono di limitare alcuni di questi attacchi e contribuiscono a proteggere i dati. Assicurarsi di usare il sistema PAW per proteggere e bloccare la workstation. Si tratta di un passaggio importante per applicare garanzie di sicurezza di alto livello per la protezione di account, attività e dati sensibili.
 
-You can reduce these risks by using a secure management workstation. We recommend that you use a [Privileged Access Workstations (PAW)](https://technet.microsoft.com/library/mt634654.aspx) to reduce the attack surface in workstations. These secure management workstations can help you mitigate some of these attacks help ensure your data is safer. Make sure to use PAW to harden and lock down your workstation. This is an important step to provide high security assurances for sensitive accounts, tasks and data protection.
+L'assenza di protezione degli endpoint potrebbe mettere a rischio i dati, quindi è importante applicare criteri di sicurezza in tutti i dispositivi che consentono di utilizzare i dati, indipendentemente dal fatto che i dati si trovino nel cloud o in locale.
 
-Lack of endpoint protection may put your data at risk, make sure to enforce security policies across all devices that are used to consume data, regardless of the data location (cloud or on-premises).
+Per altre informazioni sulle workstation di accesso con privilegi, leggere l'articolo sulla [protezione dell'accesso con privilegi](https://technet.microsoft.com/library/mt631194.aspx).
 
-You can learn more about privileged access workstation by reading the article [Securing Privileged Access](https://technet.microsoft.com/library/mt631194.aspx).
+## Abilitare la crittografia dei dati SQL
 
-## <a name="enable-sql-data-encryption"></a>Enable SQL data encryption
+La funzionalità [Transparent Data Encryption (TDE) del database SQL di Azure](https://msdn.microsoft.com/library/dn948096.aspx) consente di proteggersi da attività dannose eseguendo in tempo reale la crittografia e la decrittografia dei database, dei backup associati e dei file di log delle transazioni inattivi, senza dover apportare modifiche all'applicazione. TDE esegue la crittografia dell'archiviazione di un intero database usando una chiave simmetrica detta "chiave di crittografia del database".
 
-[Azure SQL Database transparent data encryption](https://msdn.microsoft.com/library/dn948096.aspx) (TDE) helps protect against the threat of malicious activity by performing real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application.  TDE encrypts the storage of an entire database by using a symmetric key called the database encryption key.
+Anche quando l'intera risorsa di archiviazione è crittografata, è molto importante crittografare anche il database stesso. Si tratta di un'implementazione della strategia di difesa approfondita per la protezione dati. Se si usa il [database SQL di Azure](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) e si vuole proteggere dati riservati, ad esempio il numero della carta di credito o il codice fiscale, è possibile crittografare i database con la crittografia AES a 256 bit con convalida FIPS 140-2, che soddisfa i requisiti di molti standard di settore come HIPAA e PCI.
 
-Even when the entire storage is encrypted, it is very important to also encrypt your database itself. This is an implementation of the defense in depth approach for data protection. If you are using [Azure SQL Database](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) and wish to protect sensitive data such as credit card or social security numbers, you can encrypt databases with FIPS 140-2 validated 256 bit AES encryption which meets the requirements of many industry standards (e.g., HIPAA, PCI).
+È importante comprendere che i file correlati all'[estensione del pool di buffer](https://msdn.microsoft.com/library/dn133176.aspx) non vengono crittografati quando un database è crittografato con TDE. È necessario usare gli strumenti di crittografia a livello di file system come BitLocker o [Encrypting File System](https://technet.microsoft.com/library/cc700811.aspx) (EFS) per i file correlati all'estensione del pool di buffer.
 
-It’s important to understand that files related to [buffer pool extension](https://msdn.microsoft.com/library/dn133176.aspx) (BPE) are not encrypted when a database is encrypted using TDE. You must use file system level encryption tools like BitLocker or the [Encrypting File System](https://technet.microsoft.com/library/cc700811.aspx) (EFS) for BPE related files.
+Dato che un utente autorizzato, ad esempio un amministratore della sicurezza o un amministratore di database, può accedere ai dati anche se il database è crittografato con TDE, è consigliabile seguire anche le raccomandazioni seguenti:
 
-Since an authorized user such as a security administrator or a database administrator can access the data even if the database is encrypted with TDE, you should also follow the recommendations below:
+- Autenticazione di SQL a livello di database
+- Autenticazione di Azure AD con i ruoli di Controllo degli accessi in base al ruolo
+- Gli utenti e le applicazioni dovrebbero usare account separati per l'autenticazione. In questo modo è possibile limitare le autorizzazioni concesse a utenti e applicazioni e ridurre i rischi di attività dannose
+- Implementare la sicurezza a livello di database usando i ruoli predefiniti del database, ad esempio db\_datareader o db\_datawriter, oppure creare ruoli personalizzati per l'applicazione per concedere autorizzazioni esplicite su determinati oggetti di database
 
-- SQL authentication at the database level
-- Azure AD authentication using RBAC roles
-- Users and applications should use separate accounts to authenticate. This way you can limit the permissions granted to users and applications and reduce the risks of malicious activity
-- Implement database-level security by using fixed database roles (such as db_datareader or db_datawriter), or you can create custom roles for your application to grant explicit permissions to selected database objects
+Le organizzazioni che non usano la crittografia a livello di database potrebbero essere più esposte ad attacchi che potrebbero compromettere i dati presenti nel database SQL.
 
-Organizations that are not using database level encryption may be more susceptible for attacks that may compromise data located in SQL databases.
+Per altre informazioni sulla crittografia TDE di SQL, leggere l'articolo [Transparent Data Encryption con il database SQL di Azure](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx).
 
-You can learn more about SQL TDE encryption by reading the article [Transparent Data Encryption with Azure SQL Database](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx).
+## Proteggere i dati in transito
 
-## <a name="protect-data-in-transit"></a>Protect data in transit
+La protezione dei dati in transito deve essere una parte essenziale della strategia di protezione dati. Visto che i dati transiteranno in modo bidirezionale tra molte posizioni, in generale si raccomanda di usare sempre i protocolli SSL/TLS per lo scambio di dati tra posizioni diverse. In alcuni casi è consigliabile isolare l'intero canale di comunicazione tra l'infrastruttura locale e cloud con una rete privata virtuale (VPN).
 
-Protecting data in transit should be essential part of your data protection strategy. Since data will be moving back and forth from many locations, the general recommendation is that you always use SSL/TLS protocols to exchange data across different locations. In some circumstances, you may want to isolate the entire communication channel between your on-premises and cloud infrastructure by using a virtual private network (VPN).
+Per lo spostamento dei dati tra l'infrastruttura locale e Azure, è opportuno considerare le misure di protezione appropriate, ad esempio HTTPS o VPN.
 
-For data moving between your on-premises infrastructure and Azure, you should consider appropriate safeguards such as HTTPS or VPN.
+Per le organizzazioni che hanno bisogno di proteggere l'accesso ad Azure da più workstation locali, usare una [VPN da sito a sito di Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
-For organizations that need to secure access from multiple workstations located on-premises to Azure, use [Azure site-to-site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md).
+Per le organizzazioni che hanno bisogno di proteggere l'accesso ad Azure da una workstation locale, usare una [VPN da punto a sito](../vpn-gateway/vpn-gateway-point-to-site-create.md).
 
-For organizations that need to secure access from one workstation located on-premises to Azure, use [Point-to-Site VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md).
+Set di dati più grandi possono essere spostati su un collegamento WAN ad alta velocità dedicato, ad esempio [ExpressRoute](https://azure.microsoft.com/services/expressroute/). Se si decide di usare ExpressRoute, è possibile anche crittografare i dati a livello di applicazione usando [SSL/TLS](https://support.microsoft.com/kb/257591) o altri protocolli per una maggiore protezione.
 
-Larger data sets can be moved over a dedicated high-speed WAN link such as [ExpressRoute](https://azure.microsoft.com/services/expressroute/). If you choose to use ExpressRoute, you can also encrypt the data at the application-level using [SSL/TLS](https://support.microsoft.com/kb/257591) or other protocols for added protection.
+Se si interagisce con Archiviazione di Azure tramite il portale di Azure, tutte le transazioni hanno luogo tramite HTTPS. È possibile usare anche l'[API REST di archiviazione](https://msdn.microsoft.com/library/azure/dd179355.aspx) su HTTPS per interagire con [Archiviazione di Azure](https://azure.microsoft.com/services/storage/) e il [database SQL di Azure](https://azure.microsoft.com/services/sql-database/).
 
-If you are interacting with Azure Storage through the Azure Portal, all transactions occur via HTTPS. [Storage REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) over HTTPS can also be used to interact with [Azure Storage](https://azure.microsoft.com/services/storage/) and [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
+Le organizzazioni che non riescono a proteggere i dati in transito sono più vulnerabili agli attacchi di tipo [man-in-the-middle](https://technet.microsoft.com/library/gg195821.aspx), [eavesdropping](https://technet.microsoft.com/library/gg195641.aspx) e hijack della sessione. Questi attacchi possono essere il primo passo per ottenere l'accesso ai dati riservati.
 
-Organizations that fail to protect data in transit are more susceptible for [man-in-the-middle attacks](https://technet.microsoft.com/library/gg195821.aspx), [eavesdropping](https://technet.microsoft.com/library/gg195641.aspx) and session hijacking. These attacks can be the first step in gaining access to confidential data.
+Per altre informazioni sull'opzione VPN di Azure, vedere l'articolo [Pianificazione e progettazione per il gateway VPN](../vpn-gateway/vpn-gateway-plan-design.md).
 
-You can learn more about Azure VPN option by reading the article [Planning and design for VPN Gateway](../vpn-gateway/vpn-gateway-plan-design.md).
+## Applicare la crittografia dei dati a livello di file
 
-## <a name="enforce-file-level-data-encryption"></a>Enforce file level data encryption
+Un altro livello di protezione che può incrementare la sicurezza per i dati consiste nel crittografare il file stesso, indipendentemente da dove si trova.
 
-Another layer of protection that can increase the level of security for your data is encrypting the file itself, regardless of the file location.
+[Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) usa criteri di crittografia, identità e autorizzazione per proteggere i file e la posta elettronica. Azure RMS opera su più dispositivi, tra cui telefoni, tablet e PC, applicando una protezione all'interno e all'esterno dell'organizzazione. Questa funzionalità è resa possibile dal fatto che Azure RMS aggiunge un livello di protezione che rimane insieme ai dati, anche quando fuoriescono dai confini dell'organizzazione.
 
-[Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) uses encryption, identity, and authorization policies to help secure your files and email. Azure RMS works across multiple devices — phones, tablets, and PCs by protecting both within your organization and outside your organization. This capability is possible because Azure RMS adds a level of protection that remains with the data, even when it leaves your organization’s boundaries.
+Quando si usa Azure RMS per proteggere i file, si usa una crittografia standard di settore con pieno supporto di [FIPS 140-2](http://csrc.nist.gov/groups/STM/cmvp/standards.html). Quando si usa Azure RMS per proteggere i dati, la protezione rimane associata al file anche se questo viene copiato in una risorsa di archiviazione che non è sotto il controllo dell'IT, ad esempio un servizio di archiviazione cloud. Lo stesso accade per i file condivisi tramite posta elettronica: il file viene protetto come allegato di un messaggio di posta elettronica, con istruzioni su come aprire l'allegato protetto.
 
-When you use Azure RMS to protect your files, you are using industry-standard cryptography with full support of [FIPS 140-2](http://csrc.nist.gov/groups/STM/cmvp/standards.html). When you leverage Azure RMS for data protection, you have the assurance that the protection stays with the file, even if it is copied to storage that is not under the control of IT, such as a cloud storage service. The same occurs for files shared via e-mail, the file is protected as an attachment to an email message, with instructions how to open the protected attachment.
+Quando si pianifica l'adozione di Azure RMS, si consiglia quanto segue:
 
-When planning for Azure RMS adoption we recommend the following:
+- Installare l'[app RMS sharing](https://technet.microsoft.com/library/dn339006.aspx). Questa app si integra con le applicazioni Office installando un componente aggiuntivo di Office che offre agli utenti un modo semplice per proteggere direttamente i file.
+- Configurare le applicazioni e i servizi per supportare Azure RMS
+- Creare [modelli personalizzati](https://technet.microsoft.com/library/dn642472.aspx) che rispecchiano i requisiti aziendali, ad esempio un modello per i dati riservati da applicare in tutti i messaggi di posta elettronica correlati a informazioni riservate.
 
-- Install the [RMS sharing app](https://technet.microsoft.com/library/dn339006.aspx). This app integrates with Office applications by installing an Office add-in so that users can easily protect files directly.
-- Configure applications and services to support Azure RMS
-- Create [custom templates](https://technet.microsoft.com/library/dn642472.aspx) that reflect your business requirements. For example: a template for top secret data that should be applied in all top secret related emails.
+Le organizzazioni che sono carenti a livello di [classificazione dei dati](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) e protezione dei dati potrebbero essere più soggette alla perdita di dati. In assenza di un'adeguata protezione per i file, le organizzazioni non riusciranno a ottenere informazioni di business dettagliate, monitorare i possibili abusi e impedire l'accesso non autorizzato ai file.
 
-Organizations that are weak on [data classification](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) and file protection may be more susceptible to data leakage. Without proper file protection, organizations won’t be able to obtain business insights, monitor for abuse and prevent malicious access to files.
+Per altre informazioni su Azure RMS, leggere l'articolo [Introduzione a Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx).
 
-You can learn more about Azure RMS by reading the article [Getting Started with Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

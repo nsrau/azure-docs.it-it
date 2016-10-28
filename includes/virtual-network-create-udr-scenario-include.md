@@ -1,19 +1,16 @@
-## <a name="scenario"></a>Scenario
+## Scenario
 
-To better illustrate how to create UDRs, this document will use the scenario below.
+Per illustrare meglio come creare un UDR, in questo documento verrà utilizzato lo scenario seguente.
 
-![IMAGE DESCRIPTION](./media/virtual-network-create-udr-scenario-include/figure1.png)
+![DESCRIZIONE DELL’IMMAGINE](./media/virtual-network-create-udr-scenario-include/figure1.png)
 
-In this scenario you will create one UDR for the *Front end subnet* and another UDR for the *Back end subnet* , as described below: 
+In questo scenario si creerà un UDR per il *subnet di Front end* e UDR un altro UDR per il *subnet di Back end* , come descritto di seguito:
 
-- **UDR-FrontEnd**. The front end UDR will be applied to the *FrontEnd* subnet, and contain one route:  
-    - **RouteToBackend**. This route will send all traffic to the back end subnet to the **FW1** virtual machine.
-- **UDR-BackEnd**. The back end UDR will be applied to the *BackEnd* subnet, and contain one route: 
-    - **RouteToFrontend**. This route will send all traffic to the front end subnet to the **FW1** virtual machine.
+- **UDR-FrontEnd**. Il front-end UDR verrà applicato per il subnet *front-end*, e contiene una route:	
+	- **RouteToBackend**. Questa route invia tutto il traffico nella subnet di back-end per la macchina virtuale **FW1**.
+- **Back-end di UDR**. Il back-end UDR verrà applicato per il subnet *back-end*, e contiene una route:	
+	- **RouteToFrontend**. Questa route invia tutto il traffico nella subnet di front-end per la macchina virtuale **FW1**.
 
-The combination of these routes will ensure that all traffic destined from one subnet to another will be routed to the **FW1** virtual machine, which is being used as a virtual appliance. You also need to turn on IP forwarding for that VM, to ensure it can receive traffic destined to other VMs.
+La combinazione di queste route garantisce che tutto il traffico destinato da una subnet a un’altra venga indirizzato alla macchina virtuale **FW1**, che viene utilizzato come un dispositivo virtuale. È inoltre necessario attivare l'inoltro IP per tale macchina virtuale, per garantire che possa ricevere il traffico destinato ad altre macchine virtuali.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

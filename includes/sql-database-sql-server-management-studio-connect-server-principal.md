@@ -1,52 +1,44 @@
 
 
-## <a name="connect-to-azure-sql-database-using-sql-server-authentication"></a>Connect to Azure SQL Database using SQL Server Authentication
+## Connettersi a un database SQL di Azure con l'autenticazione SQL Server
 
-The following steps show how to connect to an Azure SQL server and database with SSMS. If you don't have a server and database, see [Create a SQL database in minutes](../articles/sql-database/sql-database-get-started.md) to create one.
+I passaggi seguenti illustrano come connettersi a un server e a un database SQL di Azure con SSMS. Se il server e il database non sono presenti, vedere [Esercitazione sul database SQL: Creare un database SQL in pochi minuti usando il portale di Azure](../articles/sql-database/sql-database-get-started.md) per crearli.
 
 
-1. Start SSMS by typing **Microsoft SQL Server Management Studio** in the Windows search box, and then click the desktop app.
+1. Per avviare SSMS digitare **Microsoft SQL Server Management Studio** nella casella di ricerca di Windows e quindi fare clic sull'app desktop.
 
-2. In the **Connect to Server** window, enter the following information (if SSMS is already running, click **Connect > Database Engine** to open the **Connect to Server** window):
+2. Nella finestra **Connetti al server** immettere le informazioni seguenti. Se SSMS è già in esecuzione, fare clic su **Connetti > Motore di database** per aprire la finestra **Connetti al server**:
 
- - **Server type**: The default is database engine; do not change this value.
- - **Server name**: Enter the fully qualified name of your Azure SQL Database server in the following format: *&lt;servername>*.**database.windows.net**
- - **Authentication type**: This article shows you how to connect using **SQL Server Authentication**. For details on connecting with Azure Active Directory, see [Connect using Active Directory integrated authentication](../articles/sql-database/sql-database-aad-authentication.md#connect-using-active-directory-integrated-authentication), [Connect using Active Directory password authentication](../articles/sql-database/sql-database-aad-authentication.md#connect-using-active-directory-password-authentication), and [Connect using Active Directory Universal Authentication](../articles/sql-database/sql-database-ssms-mfa-authentication.md).
- - **User name**: Enter the name of a user with access to a database on the server (for example, the *server admin* you set up when creating the server). 
- - **Password**: Enter the password for the specified user (for example, the *password* you set up when creating the server).
+ - **Tipo di server**: il valore predefinito è il motore di database. Non modificarlo.
+ - **Nome server**: immettere il nome completo del server di database SQL di Azure nel formato seguente: *&lt;nomeserver>*.**database.windows.net**
+ - **Tipo di autenticazione**: questo articolo illustra come connettersi usando l'**autenticazione SQL Server**. Per dettagli sulla connessione con Azure Active Directory, vedere [Connettesi usando l'autenticazione integrata di Active Directory](../articles/sql-database/sql-database-aad-authentication.md#connect-using-active-directory-integrated-authentication), [Connettersi usando l'autenticazione della password di Active Directory](../articles/sql-database/sql-database-aad-authentication.md#connect-using-active-directory-password-authentication) e [Connessione tramite l'autenticazione universale con SSMS](../articles/sql-database/sql-database-ssms-mfa-authentication.md).
+ - **Nome utente**: immettere il nome di un utente con accesso a un database nel server, ad esempio l'*amministratore del server* configurato durante la creazione del server.
+ - **Password**: immettere la password per l'utente specificato, ad esempio la *password* impostata durante la creazione del server.
    
-       ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-server-principal/connect.png)
+       ![SQL Server Management Studio: Connettersi a un server di database SQL](./media/sql-database-sql-server-management-studio-connect-server-principal/connect.png)
 
-3. Click **Connect**.
+3. Fare clic su **Connect**.
  
-4. By default, new servers have no defined [firewall rules](../articles/sql-database/sql-database-firewall-configure.md) so clients are initially blocked from connecting. If your server does not yet have a firewall rule that allows your specific IP address to connect, SSMS prompts to create a server-level firewall rule for you.
+4. Per impostazione predefinita, i nuovi server non hanno [regole del firewall](../articles/sql-database/sql-database-firewall-configure.md) definite, quindi i client non possono inizialmente connettersi. Se il server non ha ancora una regola del firewall per consentire all'indirizzo IP di connettersi, SSMS chiederà di creare una regola del firewall a livello di server.
 
-    Click **Sign in** and create a server-level firewall rule. You must be an Azure administrator to create a server-level firewall rule.
+    Fare clic su **Accedi** e creare la regola del firewall a livello di server. È necessario essere un amministratore di Azure per creare una regola del firewall a livello di server.
  
-       ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-server-principal/newfirewallrule.png)
+       ![SQL Server Management Studio: Connettersi a un server di database SQL](./media/sql-database-sql-server-management-studio-connect-server-principal/newfirewallrule.png)
  
 
-5. After successfully connecting to your Azure SQL database, **Object Explorer** opens and you can now access your database to [perform administrative tasks or query data](../articles/sql-database/sql-database-manage-azure-ssms.md).
+5. Dopo aver stabilito la connessione al database SQL di Azure, si aprirà **Esplora oggetti** e sarà possibile accedere al database per [eseguire attività amministrative o query sui dati](../articles/sql-database/sql-database-manage-azure-ssms.md).
  
-     ![new server-level firewall](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-5.png)
+     ![Nuovo firewall a livello di server](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-5.png)
  
      
-## <a name="troubleshoot-connection-failures"></a>Troubleshoot connection failures
+## Risolvere i problemi relativi agli errori di connessione
 
-The most common reasons for connection failures are mistakes in the server name, and network connectivity issues. Remember, <*servername*> is the name of the server, not the database, and you need to provide the fully qualified server name: `<servername>.database.windows.net`
+Le cause più comuni degli errori di connessione sono errori nel nome del server e problemi di connettività di rete. Tenere presente che <*nomeserver*> è il nome del server, non del database e che è necessario specificare il nome server completo: `<servername>.database.windows.net`
 
-Also, verify the user name and password do not contain any typos or extra spaces (user names are not case-sensitive, but passwords are). 
+Verificare anche che il nome utente e la password non contengano eventuali errori di digitazione o spazi aggiuntivi. I nomi utente non fanno distinzione tra maiuscole e minuscole, mentre le password sì.
 
-You can also explicitly set the protocol and port number with the server name like the following: `tcp:servername.database.windows.net,1433`
+È anche possibile impostare esplicitamente il protocollo e il numero di porta con il nome server come segue: `tcp:servername.database.windows.net,1433`
 
-Network connectivity issues can also cause connection errors and timeouts. Simply retrying to connect (when you know that the server name, credentials, and firewall rules are correct) can lead to success.
+Anche i problemi di connettività di rete possono causare errori di connessione e timeout. Il problema può essere a volte risolto semplicemente provando di nuovo a connettersi dopo aver verificato che nome server, credenziali e regole del firewall siano corretti.
 
-For details and more about connectivity issues, see [Troubleshoot, diagnose, and prevent SQL connection errors and transient errors for SQL Database](../articles/sql-database/sql-database-connectivity-issues.md).
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

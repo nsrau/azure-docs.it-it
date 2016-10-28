@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple Snapshot Manager backup policies | Microsoft Azure"
-   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to create and manage the backup policies that control scheduled backups."
+   pageTitle="Gestione snapshot StorSimple criteri di backup | Microsoft Azure"
+   description="Viene descritto come utilizzare lo snap-in MMC di Gestione snapshot StorSimple per creare e gestire i criteri di backup che consentono di controllare i backup pianificati."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,114 +15,109 @@
    ms.date="05/12/2016"
    ms.author="v-sharos" />
 
+# Utilizzo di Gestione snapshot StorSimple per creare e gestire i criteri di backup
 
-# <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Use StorSimple Snapshot Manager to create and manage backup policies
+## Panoramica
 
-## <a name="overview"></a>Overview
+Un criterio di backup consente di creare una pianificazione di backup dei dati del volume in locale o nel cloud. Quando si crea un criterio di backup, è inoltre possibile specificare un criterio di conservazione. (È possibile conservare un massimo di 64 snapshot). Per altre informazioni sui criteri di backup, vedere [Tipi di backup](storsimple-what-is-snapshot-manager.md#backup-type) nell'articolo relativo a [StorSimple serie 8000: una soluzione cloud ibrida](storsimple-overview.md).
 
-A backup policy creates a schedule for backing up volume data locally or in the cloud. When you create a backup policy, you can also specify a retention policy. (You can retain a maximum of 64 snapshots.) For more information about backup policies, see [Backup types](storsimple-what-is-snapshot-manager.md#backup-type) in [StorSimple 8000 series: a hybrid cloud solution](storsimple-overview.md).
+In questa esercitazione viene illustrato come:
 
-This tutorial explains how to:
+- Creare un criterio di backup 
+- Modifica di un criterio di backup 
+- Eliminare un criterio di backup 
 
-- Create a backup policy 
-- Edit a backup policy 
-- Delete a backup policy 
+## Creare un criterio di backup
 
-## <a name="create-a-backup-policy"></a>Create a backup policy
+Utilizzare la procedura seguente per creare un nuovo criterio di backup.
 
-Use the following procedure to create a new backup policy.
+#### Per creare un criterio di backup
 
-#### <a name="to-create-a-backup-policy"></a>To create a backup policy
+1. Fare clic sull’icona del desktop per avviare StorSimple Snapshot Manager.
 
-1. Click the desktop icon to start StorSimple Snapshot Manager.
+2. Nel riquadro **Ambito**, fare clic con il pulsante destro del mouse su **Criteri di backup**, quindi fare clic su **Crea criteri di backup**.
 
-2. In the **Scope** pane, right-click **Backup Policies**, and click **Create Backup Policy**.
+    ![Creare un criterio di backup](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_BU_policy.png)
 
-    ![Create a backup policy](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_BU_policy.png)
+    Viene visualizzata la finestra di dialogo **Crea un criterio**.
 
-    The **Create a Policy** dialog box appears. 
+    ![Creazione di un criterio - scheda Generale](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_general.png)
 
-    ![Create a Policy - General tab](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_general.png)
+3. Nella scheda **Generale**, completare le informazioni seguenti:
 
-3. On the **General** tab, complete the following information:
+   1. Nella casella di testo **Nome**, digitare un nome per il criterio.
 
-   1. In the **Name** text box, type a name for the policy.
+   2. Nella casella di testo **Gruppo di volumi** digitare il nome del gruppo di volumi associati ai criteri.
 
-   2. In the **Volume group** text box, type the name of the volume group associated with the policy.
+   3. Selezionare **Snapshot locale** o **Snapshot cloud**.
 
-   3. Select either **Local Snapshot** or **Cloud Snapshot**.
+   4. Selezionare il numero di snapshot da conservare. Se si seleziona **Tutti**, verranno conservati 64 snapshot (il massimo).
 
-   4. Select the number of snapshots to retain. If you select **All**, 64 snapshots will be retained (the maximum). 
+4. Fare clic sulla scheda **Pianificazione**.
 
-4. Click the **Schedule** tab.
+    ![Creazione un criterio - scheda Pianificazione](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_schedule.png)
 
-    ![Create a Policy - Schedule tab](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_schedule.png)
+5. Nella scheda **Pianificazione**, completare le informazioni seguenti:
 
-5. On the **Schedule** tab, complete the following information: 
+   1. Fare clic sulla casella di controllo **Abilita** per pianificare il backup successivo.
 
-   1. Click the **Enable** check box to schedule the next backup.
+   2. In **Impostazioni**, selezionare **Una sola volta**, **Giornaliera**, **Settimanale** o **Mensile**.
 
-   2. Under **Settings**, select **One time**, **Daily**, **Weekly**, or **Monthly**. 
+   3. Nella casella di controllo **Avvio**, fare clic sull'icona del calendario e selezionare una data di avvio.
 
-   3. In the **Start** text box, click the calendar icon and select a start date.
+   4. In **Impostazioni avanzate**, è possibile impostare pianificazioni ripetute facoltative e una data di fine.
 
-   4. Under **Advanced Settings**, you can set optional repeat schedules and an end date.
+   5. Fare clic su **OK**.
 
-   5. Click **OK**.
+Dopo aver creato un criterio di backup, nel riquadro **Risultati** vengono visualizzate le informazioni seguenti:
 
-After you create a backup policy, the following information appears in the **Results** pane:
+- **Nome**: il nome del criterio di backup.
 
-- **Name** – the name of backup policy.
+- **Tipo**: snapshot locale o cloud.
 
-- **Type** – local snapshot or cloud snapshot.
+- **Gruppo di volumi**: il gruppo di volumi associato al criterio.
 
-- **Volume Group** – the volume group associated with the policy.
+- **Conservazione**: il numero di snapshot conservati (il massimo è 64).
 
-- **Retention** – the number of snapshots retained; the maximum is 64.
+- **Creato**: la data in cui è stato creato questo criterio.
 
-- **Created** – the date that this policy was created.
+- **Abilitato**: se il criterio è attualmente attivo (**True** indica che è attivo, **False** indica che non è attivo).
 
-- **Enabled** – whether the policy is currently in effect: **True** indicates that it is in effect; **False** indicates that it is not in effect. 
+## Modifica di un criterio di backup
 
-## <a name="edit-a-backup-policy"></a>Edit a backup policy
+Utilizzare la procedura seguente per modificare un criterio di backup esistente.
 
-Use the following procedure to edit an existing backup policy.
+#### Per modificare un criterio di backup
 
-#### <a name="to-edit-a-backup-policy"></a>To edit a backup policy
+1. Fare clic sull’icona del desktop per avviare StorSimple Snapshot Manager. 
 
-1. Click the desktop icon to start StorSimple Snapshot Manager. 
+2. Nel riquadro **Ambito**, fare clic sul nodo **Criteri di backup**. Nel riquadro **Risultati** vengono visualizzati tutti i criteri di backup.
 
-2. In the **Scope** pane, click the **Backup Policies** node. All the backup policies appear in the **Results** pane. 
+3. Fare clic con il pulsante destro del mouse sul criterio che si desidera modificare, quindi fare clic su **Modifica**.
 
-3. Right-click the policy that you want to edit, and then click **Edit**. 
+    ![Modifica di un criterio di backup](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Edit_BU_policy.png)
 
-    ![Edit a backup policy](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Edit_BU_policy.png) 
+4. Quando viene visualizzata la finestra **Crea un criterio**, apportare le modifiche, quindi fare clic su **OK**.
 
-4. When the **Create a Policy** window appears, enter your changes, and then click **OK**. 
+## Eliminare un criterio di backup
 
-## <a name="delete-a-backup-policy"></a>Delete a backup policy
+Utilizzare la procedura seguente per eliminare un criterio di backup.
 
-Use the following procedure to delete a backup policy.
+#### Per eliminare un criterio di backup
 
-#### <a name="to-delete-a-backup-policy"></a>To delete a backup policy
+1. Fare clic sull’icona del desktop per avviare StorSimple Snapshot Manager. 
 
-1. Click the desktop icon to start StorSimple Snapshot Manager. 
+2. Nel riquadro **Ambito**, fare clic sul nodo **Criteri di backup**. Nel riquadro **Risultati** vengono visualizzati tutti i criteri di backup.
 
-2. In the **Scope** pane, click the **Backup Policies** node. All the backup policies appear in the **Results** pane. 
+3. Fare clic con il pulsante destro del mouse sui criteri di backup da eliminare e quindi fare clic su **Elimina**.
 
-3. Right-click the backup policy that you want to delete, and then click **Delete**.
+4. Quando viene visualizzato il messaggio di conferma, fare clic su **Sì**.
 
-4. When the confirmation message appears, click **Yes**.
+    ![Eliminazione della conferma dei criteri di backup](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)
 
-    ![Delete backup policy confirmation](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)
+## Passaggi successivi
 
-## <a name="next-steps"></a>Next steps
+- Informazioni su come [Usare Gestione Snapshot StorSimple per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
+- Informazioni su come [utilizzare Gestione snapshot StorSimple per visualizzare e gestire i processi di backup](storsimple-snapshot-manager-manage-backup-jobs.md).
 
-- Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
-- Learn how to [use StorSimple Snapshot Manager to view and manage backup jobs](storsimple-snapshot-manager-manage-backup-jobs.md).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0518_2016-->

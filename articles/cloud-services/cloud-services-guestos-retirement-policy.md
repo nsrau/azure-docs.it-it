@@ -1,9 +1,9 @@
 <properties 
-   pageTitle="Supportability and retirement policy guide for Azure Guest OS | Microsoft Azure" 
-   description="Provides information about what Microsoft will support as regards to the Azure Guest OS used by Cloud Services." 
+   pageTitle="Guida al supporto e ai criteri di ritiro per il sistema operativo guest di Azure | Microsoft Azure" 
+   description="Fornisce informazioni sul supporto che verrà fornito da Microsoft riguardo al sistema operativo guest di Azure usato da Servizi cloud." 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="raiye" 
+   authors="yuemlu" 
    manager="timlt" 
    editor=""/>
 
@@ -13,86 +13,81 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="10/24/2016"
-   ms.author="raiye"/>
+   ms.date="04/19/2016"
+   ms.author="yuemlu"/>
+
+# Criteri relativi al supporto e al ritiro del sistema operativo guest di Azure
+Le informazioni di questa pagina si riferiscono al sistema operativo guest di Azure ([sistema operativo guest](cloud-services-guestos-update-matrix.md)) per i ruoli di lavoro e Web di Servizi cloud (PaaS). Non si applica alle macchine virtuali (IaaS).
+
+Microsoft ha pubblicato i [criteri di supporto per il sistema operativo guest](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq). Questa pagina contiene informazioni dettagliate sul modo in cui i criteri sono implementati.
+
+I criteri sono i seguenti:
+
+1. Microsoft supporterà **almeno le ultime due famiglie del sistema operativo guest**. Quando una famiglia viene ritirata, i clienti hanno a disposizione 12 mesi dalla data ufficiale di ritiro per eseguire l'aggiornamento a una famiglia di sistemi operativi guest supportata più recente.
+2. Microsoft supporterà **almeno le ultime due versioni delle famiglie del sistema operativo guest supportate**. 
+3. Microsoft supporterà **almeno le ultime due versioni di Azure SDK**. Quando una versione di SDK viene ritirata, i clienti avranno 12 mesi dalla data di ritiro ufficiale per eseguire l'aggiornamento a una versione più recente. 
+
+Talvolta è possibile che siano supportati più di due rilasci o famiglie. Le informazioni di supporto ufficiale del sistema operativo guest saranno visualizzate nella [matrice di compatibilità di SDK e delle versioni del sistema operativo guest di Azure](cloud-services-guestos-update-matrix.md).
 
 
-# <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure Guest OS supportability and retirement policy
-The information on this page relates to the Azure Guest operating system ([Guest OS](cloud-services-guestos-update-matrix.md)) for Cloud Services worker and web roles (PaaS). It does not apply to Virtual Machines (IaaS). 
-
-Microsoft has a published [support policy for the Guest OS](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq). The page you are reading now describes how the policy is implemented.
-
-The policy is 
-
-1. Microsoft will support **at least the latest two families of the Guest OS**. When a family is retired, customers have 12 months from the official retirement date to update to a newer supported Guest OS family.
-2. Microsoft will support the **at least the latest two versions of the supported Guest OS families**. 
-3. Microsoft will support the at **least the latest two versions of the Azure SDK**. When a version of the SDK is retired, customers will have 12 months from the official retirement date to update to a newer version. 
-
-At times more than two families or releases may be supported. Official Guest OS support information will appear on the [Azure Guest OS Releases and SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
+## Ritiro di una famiglia o una versione del sistema operativo guest 
 
 
-## <a name="when-a-guest-os-family-or-version-is-retired"></a>When a Guest OS family or version is retired 
+Una nuova **famiglia** di sistemi operativi guest viene introdotta a un certo punto dopo il rilascio di una nuova versione ufficiale del sistema operativo Windows Server. Ogni volta che viene introdotta una nuova famiglia di sistemi operativi guest, Microsoft ritirerà la famiglia precedente.
+
+Nuove **versioni** del sistema operativo guest vengono rilasciate quasi ogni mese per incorporare gli ultimi aggiornamenti di MSRC. A causa degli aggiornamenti regolari mensili, una versione del sistema operativo guest viene in genere disabilitata 60 giorni dopo il relativo rilascio. In questo modo sono disponibili per l'uso almeno due versioni del sistema operativo guest per ogni famiglia.
+
+### Procedura di ritiro della famiglia di sistemi operativi guest 
 
 
-A new Guest OS **family** is introduced sometime after the release of a new official version of the Windows Server operating system. Whenever a new Guest OS family is introduced, Microsoft will retire the oldest Guest OS family. 
+Una volta annunciato il ritiro, i clienti hanno a disposizione un periodo di transizione di 12 mesi prima che la famiglia precedente venga ufficialmente rimossa dal servizio. Questo periodo di transizione può essere esteso a discrezione di Microsoft. Gli aggiornamenti vengono pubblicati nella [matrice di compatibilità di SDK e delle versioni del sistema operativo guest di Azure](cloud-services-guestos-update-matrix.md).
 
-New Guest OS **versions** are introduced about every month to incorporate the latest MSRC updates. Because of the regular monthly updates, a Guest OS version is normally disabled 60 days after its release. This keeps at least two Guest OS versions for each family available for use. 
+Dopo 6 mesi dall'inizio del periodo di transizione comincerà un processo di ritiro graduale. In questo periodo di tempo:
 
-### <a name="process-during-a-guest-os-family-retirement"></a>Process during a Guest OS family retirement 
+1. Microsoft informerà i clienti del ritiro. 
+2. La versione più recente di Azure SDK non supporterà la famiglia di sistemi operativi guest ritirata.
+3. Non sarà possibile eseguire nuove distribuzioni e ridistribuzioni di servizi cloud per la famiglia ritirata
 
-
-Once the retirement is announced, customers have a 12 month "transition" period before the older family is officially removed from service. This transition time may be extended at the discretion of Microsoft. Updates will be posted on the [Azure Guest OS Releases and SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
-
-A gradual retirement process will begin 6 months into the transition period. During this time:
-
-1. Microsoft will notify customers of the retirement. 
-2. The newer version of the Azure SDK won’t support the retired Guest OS family.
-3. New deployments and redeployments of Cloud Services will not be allowed on the retired family
-
-Microsoft will continue to introduce new Guest OS version incorporating the latest MSRC updates until the last day of the transition period, known as the "expiration date". At that time, the any Cloud Services still running will be unsupported under the Azure SLA. Microsoft has the discretion to force upgrade, delete or stop those services after that date.
-
-
-
-### <a name="process-during-a-guest-os-version-retirement"></a>Process during a Guest OS Version retirement 
-If customers set their Guest OS to automatically update, they never have to worry about dealing with Guest OS versions. They will always be using the latest Guest OS version.
-
-Guest OS Versions are released every month. Because of the rate of regular releases, each version has a fixed lifespan.
-
-At 60 days into the lifespan a version is "*disabled*". "Disabled" means that the version is removed from the Azure classic portal. It also can no longer be set from the CSCFG configuration file. Existing deployments are left running, but new deployments and code and configuration updates to existing deployments will not be allowed. 
-
-At a later time, the Guest OS version "*expires*" and any installations still running that version are force upgraded and set to automatically update the Guest OS in the future. Expiration is done in batches so the period of time from disablement to expiration can vary. 
-
-These periods may be made longer at Microsoft's discretion to ease customer transitions. Any changes will be communicated on the [Azure Guest OS Releases and SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
+Microsoft continuerà a rilasciare la nuova versione del sistema operativo guest che incorpora gli ultimi aggiornamenti di MSRC fino all'ultimo giorno del periodo di transizione, noto come "data di scadenza". A quel punto, tutti i servizi cloud ancora in esecuzione non saranno supportati in base al contratto di servizio di Azure. Trascorsa tale data, Microsoft potrà forzare l'aggiornamento, l'eliminazione o l'interruzione dei servizi.
 
 
 
-### <a name="notifications-during-retirement"></a>Notifications during retirement 
+### Processo durante il ritiro della versione del sistema operativo guest 
+Se i clienti hanno impostato l'aggiornamento automatico del sistema operativo guest in uso, non è necessario preoccuparsi delle versioni del sistema operativo. Viene usata sempre la versione più recente del sistema operativo guest.
 
-* **Family retirement** <br>Microsoft will use blog posts and Azure classic portal notification. Customers who are still using a retired Guest OS family will be notified through direct communication (email, portal messages, phone call) to assigned service administrators. All changes will be posted to this page and the RSS feed listed at the beginning of this page. 
+Le versioni del sistema operativo guest vengono rilasciate ogni mese. A causa della frequenza dei rilasci regolari, ogni versione ha una durata fissa.
+
+Allo scadere del periodo di 60 giorni una versione viene "*disabilitata*". "Disabilitata" significa che la versione viene rimossa dal portale di Azure classico. Inoltre non può più essere impostata dal file di configurazione CSCFG. Le distribuzioni esistenti vengono mantenute in esecuzione, ma non è consentito eseguire nuove distribuzioni e aggiornamenti di configurazione e di codice alle distribuzioni esistenti.
+
+In un momento successivo, la versione del sistema operativo guest "*scade*", e viene forzato l'aggiornamento delle installazioni che ancora eseguono la versione in questione e viene impostato l'aggiornamento automatico del sistema operativo Guest per il futuro. La scadenza è un processo graduale, per cui il periodo che intercorre tra la disabilitazione e la scadenza può variare.
+
+Questi periodi possono essere resi più lunghi a discrezione di Microsoft per facilitare le transizioni del cliente. Le modifiche vengono comunicate nella [matrice di compatibilità di SDK e delle versioni del sistema operativo guest di Azure](cloud-services-guestos-update-matrix.md).
 
 
-* **Version Retirement** <br>All changes will be posted to this page and the RSS feed listed at the beginning of this page, including the release, disabled and expiration dates. Services admins will receive emails if they have deployments running on a disabled Guest OS version or family. The timing of these emails can vary. Generally they are at least a month before disablement, though this timing is not an official SLA. 
+
+### Notifiche durante il ritiro 
+
+* **Ritiro della famiglia** <br>Microsoft userà i post di blog e la notifica tramite il portale di Azure classico. Gli utenti che usano ancora una famiglia di sistemi operativi guest ritirata verranno informati tramite una comunicazione diretta (e-mail, messaggi sul portale, telefonata) agli amministratori del servizio assegnato. Tutte le modifiche verranno inserite in questa pagina e il feed RSS verrà elencato all'inizio di questa pagina. 
 
 
-## <a name="frequently-asked-questions"></a>Frequently asked questions
+* **Ritiro della versione** <br>Tutte le modifiche verranno inserite in questa pagina e il feed RSS verrà elencato all'inizio di questa pagina, inclusa la data di rilascio, disabilitazione e scadenza. Se sono presenti distribuzioni in esecuzione su una versione o famiglia di sistemi operativi guest disabilitata, verranno inviati appositi messaggi e-mail agli amministratori dei servizi. La tempistica di questi messaggi può variare. In genere vengono inviati almeno un mese prima della disabilitazione, anche se questo non rappresenta un impegno contrattuale di servizio.
 
-**How can I mitigate the impacts of migration?**
 
-You should use latest Guest OS family for designing your Cloud Services. 
+## Domande frequenti
 
-1. Start planning your migration to a newer family early. 
-2. Set up temporary test deployments to test your Cloud Service running on the new family. 
-3. Set your Guest OS version to **Automatic** (osVersion=* in the [.cscfg](cloud-services-model-and-package.md#cscfg) file) so the migration to new Guest OS versions occurs automatically.
+**In che modo è possibile ridurre gli effetti della migrazione?**
 
-**What if my web application requires deeper integration with the OS?**
+Per progettare i Servizi cloud è consigliabile usare la famiglia di sistemi operativi guest più recente.
 
-If your web application architecture requires deeper dependency on the underlying operating system, use platform supported capabilities such as [startup tasks](cloud-services-startup-tasks.md) or other extensibility mechanisms which may exist in the future. Alternatively, you can also use [Azure Virtual Machines](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – Infrastructure as a Service), where you are responsible for maintaining the underlying operating system.
+1. Iniziare prima a pianificare la migrazione a una famiglia più recente. 
+2. Configurare distribuzioni di prova temporanee per testare il servizio cloud in esecuzione nella nuova famiglia. 
+3. Impostare la versione del sistema operativo guest su **Automatica** (osVersion=* nel file con estensione [cscfg](cloud-services-model-and-package.md#cscfg)) in modo che la migrazione alle nuove versioni del sistema operativo guest venga eseguita automaticamente.
+
+**Che cosa accade se per l'applicazione Web è necessaria una maggiore integrazione con il sistema operativo?**
+
+Se per l'architettura dell'applicazione Web è richiesta una dipendenza maggiore dal sistema operativo sottostante, usare le funzionalità supportate della piattaforma, ad esempio le [attività di avvio](cloud-services-startup-tasks.md) o altri meccanismi di estendibilità eventualmente disponibili in futuro. In alternativa, è anche possibile usare [Macchine virtuali di Azure](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS, Infrastructure as a Service), in cui si è responsabili della manutenzione del sistema operativo sottostante.
  
-## <a name="next-steps"></a>Next steps
-Review the latest [Guest OS releases](cloud-services-guestos-update-matrix.md).
+## Passaggi successivi
+Esaminare le [versioni del sistema operativo guest](cloud-services-guestos-update-matrix.md) più recenti.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0427_2016-->

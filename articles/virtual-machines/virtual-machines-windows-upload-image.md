@@ -1,147 +1,257 @@
 <properties
-    pageTitle="Upload a Windows VHD for Resource Manager | Microsoft Azure"
-    description="Learn to upload a Windows virtual machine VHD from on-premises to Azure, using the Resource Manager deployment model. You can upload a VHD from either a generalized or a specialized VM."
-    services="virtual-machines-windows"
-    documentationCenter=""
-    authors="cynthn"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-resource-manager"/>
+	pageTitle="Caricare un disco rigido virtuale Windows per Gestione risorse | Microsoft Azure"
+	description="Informazioni su come caricare un'immagine di macchina virtuale Windows da usare con il modello di distribuzione Resource Manager."
+	services="virtual-machines-windows"
+	documentationCenter=""
+	authors="cynthn"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
 <tags
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/10/2016"
-    ms.author="cynthn"/>
+	ms.service="virtual-machines-windows"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/02/2016"
+	ms.author="cynthn"/>
+
+# Caricare l'immagine di una VM Windows in Azure per distribuzioni di Resource Manager
 
 
-# <a name="upload-a-windows-vhd-from-an-on-premises-vm-to-azure"></a>Upload a Windows VHD from an on-premises VM to Azure 
+In questo articolo viene illustrato come creare e caricare un'immagine di disco rigido virtuale (VHD) di Windows per creare VM rapidamente. Per informazioni dettagliate sui dischi e sui dischi rigidi virtuali in Azure, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](virtual-machines-linux-about-disks-vhds.md).
 
 
-This article shows you how to create and upload a Windows virtual hard disk (VHD) to be used in creating an Azure Vm. You can upload a VHD from either a generalized VM or a specialized VM. 
+## Prerequisiti
 
-For more details about disks and VHDs in Azure, see [About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md).
+Questo articolo presuppone che l'utente abbia:
 
+- **Una sottoscrizione di Azure**: se non si ha una sottoscrizione, [aprire un account di Azure gratuito](/pricing/free-trial/?WT.mc_id=A261C142F) e [attivare i vantaggi per i titolari di sottoscrizioni MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
-## <a name="prepare-the-vm"></a>Prepare the VM 
+- **Azure PowerShell versione 1.4 o successiva**: se la soluzione non è già installata, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
-You can upload both generalized and specialized VHDs to Azure. Each type requires that you prepare the VM before starting.
+- **Una macchina virtuale che esegue Windows**: sono disponibili numerosi strumenti per la creazione di macchine virtuali in locale. Vedere ad esempio [Installare Hyper-V e creare una macchina virtuale](http://technet.microsoft.com/library/hh846766.aspx). Per informazioni sui sistemi operativi Windows supportati in Azure, vedere l'articolo sul [supporto di software server Microsoft per le macchine virtuali di Microsoft Azure](https://support.microsoft.com/kb/2721672).
 
-- **Generalized VHD** - a generalized VHD has had all of your personal account information removed using Sysprep. If you intend to use the VHD as an image to create new VMs from, you should:
-    - [Prepare a Windows VHD to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md). 
-    - [Generalize the virtual machine using Sysprep](virtual-machines-windows-generalize-vhd.md). 
-
-- **Specialized VHD** - a specialized VHD maintains the user accounts, applications and other state data from your original VM. If you intend to use the VHD as-is to create a new VM, ensure the following steps are completed. 
-    - [Prepare a Windows VHD to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md). **Do not** generalize the VM using Sysprep.
-    - Remove any guest virtualization tools and agents that are installed on the VM (i.e. VMware tools).
-    - Ensure the VM is configured to pull its IP address and DNS settings via DHCP. This ensures that the server obtains an IP address within the VNet when it starts up. 
-
-## <a name="log-in-to-azure"></a>Log in to Azure
-
-If you don't already have PowerShell version 1.4 or above installed, read [How to install and configure Azure PowerShell](../powershell-install-configure.md).
-
-1. Open Azure PowerShell and sign in to your Azure account. A pop-up window opens for you to enter your Azure account credentials.
-
-    ```powershell
-    Login-AzureRmAccount
-    ```
+- Assicurarsi che i ruoli server in esecuzione sulla macchina supportino Sysprep. Per ulteriori informazioni, vedere [Supporto Sysprep per i ruoli server](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Eseguire il backup della VM prima di eseguire Sysprep.
 
 
-2. Get the subscription IDs for your available subscriptions.
+## Verificare che il formato di file della VM sia corretto
 
-    ```powershell
-    Get-AzureRmSubscription
-    ```
+In Azure è possibile utilizzare solo [macchine virtuali di prima generazione](http://blogs.technet.com/b/ausoemteam/archive/2015/04/21/deciding-when-to-use-generation-1-or-generation-2-virtual-machines-with-hyper-v.aspx) con formato di file VHD. Il disco rigido virtuale deve avere dimensione fissa e corrispondere a un numero intero di megabyte, ovvero un numero divisibile per 8. La dimensione massima consentita per il disco rigido virtuale è 1023 GB.
 
-3. Set the correct subscription using the subscription ID. Replace `<subscriptionID>` with the ID of the correct subscription.
+- Se si ha un'immagine di VM Windows in formato VHDX, convertirla in formato VHD con uno dei metodi seguenti:
 
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
-    ```
+	- Hyper-V: aprire Hyper-V e selezionare il computer locale a sinistra. Nel menu superiore fare quindi clic su **Azione** > **Modifica disco**. Spostarsi tra le schermate facendo clic su **Avanti** e immettendo le opzioni seguenti: *Percorso del file VHDX* > **Converti** > **VHD** > **A dimensione fissa** > *Percorso del nuovo file VHD*. Fare clic su **Fine** per chiudere.
 
-## <a name="get-the-storage-account"></a>Get the storage account
+	- [Cmdlet di PowerShell Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx): leggere il post di blog relativo alla [conversione dei formati di file Hyper-V VHDX in VHD](https://blogs.technet.microsoft.com/cbernier/2013/08/29/converting-hyper-v-vhdx-to-vhd-file-formats-for-use-in-windows-azure/) per altre informazioni.
 
-You need a storage account in Azure to store the uploaded VM image. You can either use an existing storage account or create a new one. 
+- Se si ha un'immagine di VM Windows in [formato di file VMDK](https://en.wikipedia.org/wiki/VMDK), convertirla in formato VHD usando [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). Per altre informazioni, leggere l'argomento del blog relativo a [come convertire un file VMDK VMWare in un file VHD Hyper-V](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx).
 
-To show the available storage accounts, type:
 
-```powershell
-Get-AzureRmStorageAccount
-```
+## Preparare il disco rigido virtuale per il caricamento
 
-If you want to use an existing storage account, proceed to the [Upload the VM image](#upload-the-vm-vhd-to-your-storage-account) section.
+Questa sezione illustra come generalizzare la macchina virtuale di Windows. Sysprep rimuove anche tutte le informazioni sull'account personale. Per altre informazioni su Sysprep, vedere [Come usare Sysprep: Introduzione](http://technet.microsoft.com/library/bb457073.aspx).
 
-If you need to create a storage account, follow these steps:
+1. Accedere alla macchina virtuale Windows.
 
-1. You need the name of the resource group where the storage account should be created. To find out all the resource groups that are in your subscription, type:
+2. Aprire la finestra del prompt dei comandi come amministratore. Impostare la directory su **%windir%\\system32\\sysprep**, quindi eseguire `sysprep.exe`.
 
-    ```powershell
-    Get-AzureRmResourceGroup
-    ```
+3. Nella finestra di dialogo **Utilità preparazione sistema** seguire questa procedura:
 
-To create a resource group named **myResourceGroup** in the **West US** region, type:
+	1. In **Azione pulizia sistema** selezionare **Passare alla Configurazione guidata** e verificare che la casella di controllo **Generalizza** sia selezionata.
 
-    ```powershell
-    New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
-    ```
+	2. In **Opzioni di arresto del sistema** selezionare **Arresta il sistema**.
 
-2. Create a storage account named **mystorageaccount** in this resource group by using the [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet:
+	3. Fare clic su **OK**.
 
-    ```powershell
-    New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" -SkuName "Standard_LRS" -Kind "Storage"
-    ```
+	![Avvio di Sysprep](./media/virtual-machines-windows-upload-image/sysprepgeneral.png)
+
+</br>
+
+
+## Accedere ad Azure
+
+1. Aprire Azure PowerShell e accedere al proprio account di Azure.
+
+		Login-AzureRmAccount
+
+	Verrà visualizzata una finestra popup in cui immettere le credenziali dell'account Azure.
+
+2. Ottenere l'ID di sottoscrizione per le sottoscrizioni disponibili.
+
+		Get-AzureRmSubscription
+
+3. Impostare la sottoscrizione corretta utilizzandone l'ID.
+
+		Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
+
+	
+## Ottenere l'account di archiviazione
+
+Per ospitare l'immagine della VM caricata, è necessario un account di archiviazione di Azure. È possibile usare un account di archiviazione esistente o crearne uno nuovo.
+
+Mostra gli account di archiviazione disponibili.
+
+		Get-AzureRmStorageAccount
+
+Se si vuole usare un account di archiviazione esistente, passare alla sezione [Caricare l'immagine della VM](#upload-the-vm-image-to-your-storage-account).
+
+Se si vuole creare un account di archiviazione, seguire questa procedura:
+
+1. Assicurarsi di avere un gruppo di risorse per l'account di archiviazione. Trovare tutti i gruppi di risorse inclusi nella sottoscrizione usando il comando seguente:
+
+		Get-AzureRmResourceGroup
+
+2. Per creare un gruppo di risorse, usare il comando seguente:
+
+		New-AzureRmResourceGroup -Name <resourceGroupName> -Location <location>
+
+3. Creare un account di archiviazione in questo gruppo di risorse con il cmdlet [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx).
+
+		New-AzureRmStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Location "<location>" -SkuName "<skuName>" -Kind "Storage"
+			
+I valori validi -SkuName validi sono:
+
+- **Standard\_LRS**: archiviazione con ridondanza locale.
+- **Standard\_ZRS**: archiviazione con ridondanza della zona.
+- **Standard\_GRS**: archiviazione con ridondanza geografica.
+- **Standard\_RAGRS**: archiviazione con ridondanza geografica e accesso in lettura.
+- **Premium\_LRS**: archiviazione con ridondanza locale Premium.
+
+
+
+## Caricare l'immagine della VM nell'account di archiviazione
+
+Utilizzare il cmdlet [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) per caricare l'immagine in un contenitore nell'account di archiviazione:
+
+		$rgName = "<resourceGroupName>"
+		$urlOfUploadedImageVhd = "<storageAccount>/<blobContainer>/<targetVHDName>.vhd"
+		Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd -LocalFilePath <localPathOfVHDFile>
+
+Dove:
+
+- **storageAccount** è il nome dell'account di archiviazione dell'immagine.
+
+- **blobContainer** è il contenitore BLOB in cui si desidera archiviare l'immagine. Se non esiste ancora un contenitore BLOB con questo nome, ne viene creato uno automaticamente.
+
+- **targetVHDName** è il nome che si desidera utilizzare per il file VHD caricato.
+
+- **localPathOfVHDFile** è il percorso completo e il nome del file VHD nel computer locale.
+
+
+Se l'operazione riesce, si ottiene una risposta simile alla seguente:
+
+		C:\> Add-AzureRmVhd -ResourceGroupName testUpldRG -Destination https://testupldstore2.blob.core.windows.net/testblobs/WinServer12.vhd -LocalFilePath "C:\temp\WinServer12.vhd"
+		MD5 hash is being calculated for the file C:\temp\WinServer12.vhd.
+		MD5 hash calculation is completed.
+		Elapsed time for the operation: 00:03:35
+		Creating new page blob of size 53687091712...
+		Elapsed time for upload: 01:12:49
+
+		LocalFilePath           DestinationUri
+		-------------           --------------
+		C:\temp\WinServer12.vhd https://testupldstore2.blob.core.windows.net/testblobs/WinServer12.vhd
+
+L'esecuzione del comando potrebbe richiedere del tempo, a seconda della connessione di rete e delle dimensioni del file VHD.
+
+
+
+
+## Crea rete virtuale
+
+Creare la rete virtuale e la subnet della [rete virtuale](../virtual-network/virtual-networks-overview.md).
+
+1. Sostituire il valore delle variabili con le informazioni personalizzate. Specificare il prefisso dell'indirizzo della subnet nel formato CIDR. Creare le variabili e la subnet.
+
+    	$rgName = "<resourceGroup>"
+		$location = "<location>"
+        $subnetName = "<subNetName>"
+        $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix <0.0.0.0/0>
+        
+2. Sostituire il valore di **$vnetName** con il nome della rete virtuale. Specificare il prefisso dell'indirizzo della rete virtuale nel formato CIDR. Creare la variabile e la rete virtuale con la subnet.
+
+        $vnetName = "<vnetName>"
+        $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix <0.0.0.0/0> -Subnet $singleSubnet
+        
             
-    Valid values for -SkuName are:
+## Creare un indirizzo IP pubblico e un'interfaccia di rete
 
-    - **Standard_LRS** - Locally redundant storage. 
-    - **Standard_ZRS** - Zone redundant storage.
-    - **Standard_GRS** - Geo redundant storage. 
-    - **Standard_RAGRS** - Read access geo redundant storage. 
-    - **Premium_LRS** - Premium locally redundant storage. 
+Per abilitare la comunicazione con la macchina virtuale nella rete virtuale, sono necessari un [indirizzo IP pubblico](../virtual-network/virtual-network-ip-addresses-overview-arm.md) e un'interfaccia di rete.
+
+1. Sostituire il valore di **$ipName** con un nome per l'indirizzo IP pubblico. Creare la variabile e l'indirizzo IP pubblico.
+
+        $ipName = "<ipName>"
+        $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
+        
+2. Sostituire il valore di **$nicName** con un nome per l'interfaccia di rete. Creare la variabile e l'interfaccia di rete.
+
+        $nicName = "<nicName>"
+        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+
+		
+
+## Creare la VM
+
+Lo script di PowerShell seguente illustra come impostare le configurazioni della macchina virtuale e usare l'immagine della VM caricata come origine per la nuova installazione.
+
+>[AZURE.NOTE] La VM deve trovarsi nello stesso account di archiviazione del file VHD caricato.
+
+</br>
+
+	
+	
+	#Create variables
+	# Enter a new user name and password to use as the local administrator account for the remotely accessing the VM
+	$cred = Get-Credential
+	
+	# Name of the storage account where the VHD file is and where the OS disk will be created
+	$storageAccName = "<storageAccountName>"
+	
+	# Name of the virtual machine
+	$vmName = "<vmName>"
+	
+	# Size of the virtual machine. See the VM sizes documentation for more information: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/
+	$vmSize = "<vmSize>"
+	
+	# Computer name for the VM
+	$computerName = "<computerName>"
+	
+	# Name of the disk that holds the OS
+	$osDiskName = "<osDiskName>"
+
+	#Get the storage account where the uploaded image is stored
+	$storageAcc = Get-AzureRmStorageAccount -ResourceGroupName $rgName -AccountName $storageAccName
+
+	#Set the VM name and size
+	#Use "Get-Help New-AzureRmVMConfig" to know the available options for -VMsize
+	$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
+
+	#Set the Windows operating system configuration and add the NIC
+	$vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+
+	$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
+
+	#Create the OS disk URI
+	$osDiskUri = '{0}vhds/{1}-{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
+
+	#Configure the OS disk to be created from the image (-CreateOption fromImage), and give the URL of the uploaded image VHD for the -SourceImageUri parameter
+	#You set this variable when you uploaded the VHD
+	$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri $urlOfUploadedImageVhd -Windows
+
+	#Create the new VM
+	New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
 
 
 
-## <a name="upload-the-vhd-to-your-storage-account"></a>Upload the VHD to your storage account
+Al termine, la VM appena creata verrà visualizzata nel [portale di Azure](https://portal.azure.com) in **Sfoglia** > **Macchine virtuali** oppure usando i comandi di PowerShell seguenti:
 
-Use the [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdlet to upload the image to a container in your storage account. This example uploads the file **myVHD.vhd** from `"C:\Users\Public\Documents\Virtual hard disks\"` to a storage account named **mystorageaccount** in the **myResourceGroup** resource group. The file will be placed into the container named **mycontainer** and the new file name will be **myUploadedVHD.vhd**.
-
-```powershell
-$rgName = "myResourceGroup"
-$urlOfUploadedImageVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
-```
+	$vmList = Get-AzureRmVM -ResourceGroupName $rgName
+	$vmList.Name
 
 
-If successful, you get a response that looks similar to this:
+## Passaggi successivi
 
-```
-  C:\> Add-AzureRmVhd -ResourceGroupName myResourceGroup -Destination https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
-  MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
-  MD5 hash calculation is completed.
-  Elapsed time for the operation: 00:03:35
-  Creating new page blob of size 53687091712...
-  Elapsed time for upload: 01:12:49
+Per gestire la nuova macchina virtuale con Azure PowerShell, vedere l'articolo relativo a come [gestire macchine virtuali con Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md).
 
-  LocalFilePath           DestinationUri
-  -------------           --------------
-  C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
-```
-
-Depending on your network connection and the size of your VHD file, this command may take a while to complete
-
-
-## <a name="next-steps"></a>Next steps
-
-- [Create a VM in Azure from a generalized VHD](virtual-machines-windows-create-vm-generalized.md)
-- [Create a VM in Azure from a specialized VHD](virtual-machines-windows-create-vm-specialized.md) by attaching it as an OS disk when you create a new VM.
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

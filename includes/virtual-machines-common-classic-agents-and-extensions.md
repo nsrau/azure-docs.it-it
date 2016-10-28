@@ -2,48 +2,45 @@
 
 
 
-VM extensions can help you:
+Con le estensioni VM è possibile:
 
--   Modify security and identity features, such as resetting account values and using antimalware
--   Start, stop, or configure monitoring and diagnostics
--   Reset or install connectivity features, such as RDP and SSH
--   Diagnose, monitor, and manage your VMs
+-   Modificare le funzionalità di sicurezza e identità, ad esempio la reimpostazione dei valori dell'account e l'uso di soluzioni antimalware.
+-   Avviare, arrestare o configurare il monitoraggio e la diagnostica.
+-   Reimpostare o installare funzionalità di connettività, ad esempio RDP e SSH.
+-   Eseguire la diagnosi, il monitoraggio e la gestione delle macchine virtuali.
 
-There are many other features as well; new VM Extension features are released regularly. This article describes the Azure VM Agents for Windows and Linux, and how they support VM Extension functionality. For a listing of VM Extensions by feature category, see [Azure VM Extensions and Features](../articles/virtual-machines/virtual-machines-windows-extensions-features.md).
+Sono disponibili anche molte altre funzionalità. Periodicamente vengono rilasciate nuove funzionalità delle estensioni VM. Questo articolo fornisce una descrizione degli agenti VM di Azure per Windows e Linux e illustra come tali agenti supportano le estensioni VM. Per un elenco di estensioni VM raggruppate per categoria di funzionalità, vedere [Estensioni VM e funzionalità di Azure](../articles/virtual-machines/virtual-machines-windows-extensions-features.md).
 
-##<a name="azure-vm-agents-for-windows-and-linux"></a>Azure VM Agents for Windows and Linux
+##Agenti VM di Azure per Windows e Linux
 
-The Azure Virtual Machines Agent (VM Agent) is a secured, light-weight process that installs, configures, and removes VM extensions on instances of Azure Virtual Machines from the Image Gallery and on custom VM instances if they have the VM Agent installed. The VM Agent acts as the secure local control service for your Azure VM. The extensions that the agent loads provide specific features to increase your productivity using the instance.
+L'agente VM è un processo protetto, con requisiti di risorse limitati, che installa, configura e rimuove estensioni VM su istanze di macchine virtuali di Azure dalla Raccolta immagini e su istanze di macchine virtuali personalizzate in cui è installato l'agente VM. L'agente VM svolge la funzione di servizio di controllo locale sicuro per la macchina virtuale di Azure. Le estensioni caricate dall'agente offrono funzionalità specifiche che consentono di aumentare la produttività.
 
-There are two Azure VM Agents, one for Windows VMs and one for Linux VMs. By default, the VM Agent is automatically installed when you create a VM from the Image Gallery, but you can also install the VM Agent after the instance is created or install it in a custom VM image that you then upload yourself.
+Esistono due agenti VM di Azure, rispettivamente per le macchine virtuali Windows e Linux. Per impostazione predefinita, l'agente VM viene installato automaticamente al momento della creazione di una VM dalla Raccolta immagini, ma è possibile anche installare l'agente VM dopo la creazione dell'istanza oppure in un'immagine di VM personalizzata da caricare manualmente.
 
->[AZURE.IMPORTANT] These VM Agents are very light-weight, services that enable secured administration of virtual machine instances. There might be cases in which you do not want the VM Agent. If so, be sure to create VMs that do not have the VM Agent installed. Although the VM Agent can be removed physically, the behavior of any VM Extensions on the instance is undefined. As a result, removing the VM Agent once it is installed is not supported at this time.
+>[AZURE.IMPORTANT] Gli agenti VM sono servizi con requisiti di risorse limitati che consentono l'amministrazione protetta delle istanze di macchine virtuali. Se non si vuole usare l'agente VM, assicurarsi di creare macchine virtuali in cui l'agente VM non è installato. Anche se l'agente VM può essere rimosso fisicamente, il comportamento delle estensioni VM nell'istanza non è definito. Di conseguenza, la rimozione dell'agente VM dopo l'installazione non è al momento supportata.
 
-The VM Agent is enabled in the following situations:
+L'agente VM è abilitato nelle seguenti situazioni:
 
--   When you create an instance of a VM by using the **Quick Create** method in the Azure classic portal, or by using the **Custom Create** method in the Azure classic portal and making sure that the **Install the VM Agent** checkbox is selected (as shown in the image below). For more information, see [How to Create a Custom Virtual Machine](../articles/virtual-machines/virtual-machines-windows-classic-createportal.md).
+-   Quando si crea un'istanza di una macchina virtuale usando il metodo **Creazione rapida** o **Creazione personalizzata** nel portale di Azure classico, con la casella di controllo **Installa l'agente di macchine virtuali** selezionata, come illustrato nell'immagine seguente. Per altre informazioni, vedere [Come creare una macchina virtuale personalizzata](../articles/virtual-machines/virtual-machines-windows-classic-createportal.md).
 
-    ![VM Agent Checkbox](./media/virtual-machines-common-classic-agents-and-extensions/IC719409.png)
+    ![Casella di controllo dell'agente VM](./media/virtual-machines-common-classic-agents-and-extensions/IC719409.png)
 
--   When you create an instance of a VM by using the [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx) or the [New-AzureQuickVM](https://msdn.microsoft.com/library/azure/dn495183.aspx) cmdlet. You can create a VM without the VM Agent installed by adding the **–DisableGuestAgent** parameter to the [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx) cmdlet.
+-   Quando si crea un'istanza di una macchina virtuale con il cmdlet [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx) o [New-AzureQuickVM](https://msdn.microsoft.com/library/azure/dn495183.aspx). È possibile creare una macchina virtuale senza l'agente VM installato aggiungendo il parametro **–DisableGuestAgent** al cmdlet [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx).
 
--   By manually downloading and installing the VM Agent (either the Windows or Linux version) on an existing VM instance and then setting the **ProvisionGuestAgent** value to **true** using PowerShell or a REST call. (If you do not set this value after manually installing the VM Agent, the addition of the VM Agent is not detected properly.) The following code example shows how to do this using PowerShell where the `$svc` and `$name` arguments have already been determined.
+-   Quando si scarica e installa manualmente l'agente VM (versione per Windows o Linux) in un'istanza di macchina virtuale esistente e quindi si imposta il valore di **ProvisionGuestAgent** su **true** tramite PowerShell o una chiamata REST. Se questo valore non viene impostato dopo l'installazione manuale dell'agente VM, l'aggiunta dell'agente VM non viene rilevata correttamente. Il seguente codice di esempio illustra come eseguire questa operazione tramite PowerShell. In questo caso, gli argomenti `$svc` e `$name` sono già stati determinati.
 
         $vm = Get-AzureVM –ServiceName $svc –Name $name
         $vm.VM.ProvisionGuestAgent = $TRUE
         Update-AzureVM –Name $name –VM $vm.VM –ServiceName $svc
 
--   By creating a VM image that has the VM Agent installed prior to uploading it to Azure. For a Windows VM, download the [Windows VM Agent .msi file](http://go.microsoft.com/fwlink/?LinkID=394789) and install the VM Agent. For a Linux VM, you will install it from the GitHub repository located at <https://github.com/Azure/WALinuxAgent>. For more information on how to install the VM Agent on Linux, see the [Azure Linux VM Agent User Guide](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md).
+-   Quando si crea un'immagine di macchina virtuale con l'agente VM installato prima del caricamento in Azure. Per una macchina virtuale Windows, scaricare il [file con estensione .msi dell'agente VM di Windows](http://go.microsoft.com/fwlink/?LinkID=394789) e installare l'agente VM. Per una VM Linux, il componente verrà installato dall'archivio GitHub all'indirizzo <https://github.com/Azure/WALinuxAgent>. Per altre informazioni sull'installazione dell'agente VM in Linux, vedere [Guida per l'utente dell'agente VM Linux di Azure](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md).
 
->[AZURE.NOTE]In PaaS, the VM Agent is called **WindowsAzureGuestAgent**, and is always available on Web and Worker Role VMs. (For more information, see [Azure Role Architecture](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx).) The VM Agent for Role VMs can now add extensions to the cloud service VMs in the same way that it does for persistent Virtual Machines. The biggest difference between VM Extensions on role VMs and persistent VMs is that with role VMs, extensions are added to the cloud service first and then to the deployments within that cloud service.
+>[AZURE.NOTE]Nelle soluzioni PaaS l'agente di macchine virtuali è denominato **WindowsAzureGuestAgent** ed è sempre disponibile nelle macchine virtuali con ruoli Web e di lavoro. Per altre informazioni, vedere il post di blog relativo all'[architettura dei ruoli di Azure](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx). L'agente VM per le macchine virtuali del ruolo può ora aggiungere estensioni alle macchine virtuali del servizio cloud in modo analogo alle macchine virtuali persistenti. La differenza principale tra le estensioni VM su macchine virtuali del ruolo e quelle su macchine virtuali persistenti è data dal fatto che nel primo caso le estensioni vengono aggiunte prima al servizio cloud e dopo le distribuzioni all'interno di tale servizio.
 
->Use the [Get-AzureServiceAvailableExtension](https://msdn.microsoft.com/library/azure/dn722498.aspx) cmdlet to list all available role VM extensions.
+>Usare il cmdlet [Get-AzureServiceAvailableExtension](https://msdn.microsoft.com/library/azure/dn722498.aspx) per elencare tutte le estensioni VM del ruolo disponibili.
 
-##<a name="find,-add,-update,-and-remove-vm-extensions"></a>Find, Add, Update, and Remove VM Extensions  
+##Trovare, aggiungere, aggiornare e rimuovere estensioni VM  
 
-For details on these tasks, see [Add, Find, Update, and Remove Azure VM Extensions](../articles/virtual-machines/virtual-machines-windows-classic-manage-extensions.md).
+Per informazioni dettagliate sulle attività, vedere [Aggiungere, trovare, aggiornare e rimuovere estensioni VM di Azure](../articles/virtual-machines/virtual-machines-windows-classic-manage-extensions.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0427_2016-->

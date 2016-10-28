@@ -1,25 +1,19 @@
 
 <!--author=alkohli last changed: 9/11/15-->
 
-#### <a name="to-add-a-storsimple-backup-policy"></a>To add a StorSimple backup policy
+#### Per aggiungere un criterio di backup per StorSimple
 
-1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
+1. Nella pagina **Guida introduttiva** del dispositivo, fare clic sulla scheda **Criteri di backup**. Verrà visualizzata la pagina **Criteri di backup**.
 
-2. At the bottom of the page, click **Add**.
+2. Nella parte inferiore della pagina fare clic su **Aggiungi**.
 
-3. In the **Add Backup Policy** dialog box, do the following:
+3. Nella finestra di dialogo **Aggiunta del criterio di backup** eseguire le operazioni seguenti:
 
-    1. Specify a backup policy name that contains between 3 and 150 characters.
-    2. Assign one or more volumes to this backup policy. If you are using other cloud service providers, based on your first selection, the drop-down list will show volumes belonging to only that cloud service provider. This will allow you to group volumes belonging to a single cloud service provider for taking a snapshot.
-    3. Click the check icon ![check icon](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) to save the policy.
+    1. Specificare un nome per il criterio di backup che contenga tra i 3 e i 150 caratteri.
+    2. Assegnare uno o più volumi a questo criterio di backup. Se si utilizzano altri provider di servizi cloud, in base alla prima selezione, nell'elenco a discesa verranno visualizzati i volumi appartenenti solo a tale provider di servizi cloud. In questo modo sarà possibile raggruppare i volumi appartenenti a un singolo provider di servizi cloud solo per l'esecuzione di uno snapshot.
+    3. Fare clic sull’icona del segno del spunta ![icona del segno di spunta](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) per salvare il criterio.
 
-The newly added policy will be displayed in the tabular view on the **Backup Policies** page.
+Il criterio appena aggiunto verrà visualizzato nella visualizzazione tabulare nella pagina **Criteri di backup**.
  
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

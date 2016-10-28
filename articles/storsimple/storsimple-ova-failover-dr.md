@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Disaster recovery and device failover for your StorSimple Virtual Array"
-   description="Learn more about how to failover your StorSimple Virtual Array."
+   pageTitle="Ripristino di emergenza e failover del dispositivo per StorSimple Virtual Array"
+   description="Scoprire di più su come eseguire il failover di StorSimple Virtual Array."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -16,169 +16,163 @@
    ms.date="06/07/2016"
    ms.author="alkohli"/>
 
+# Ripristino di emergenza e failover del dispositivo per StorSimple Virtual Array
 
-# <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array"></a>Disaster recovery and device failover for your StorSimple Virtual Array
 
+## Panoramica
 
-## <a name="overview"></a>Overview
+Questo articolo illustra il ripristino di emergenza per Microsoft Azure StorSimple Virtual Array (anche noto come dispositivo virtuale locale StorSimple) inclusi i passaggi dettagliati necessari per eseguire il failover in un altro dispositivo virtuale in caso di emergenza. Un failover consente di migrare i dati da un dispositivo di *origine* nel data center a un altro dispositivo di *destinazione* situato nella stessa posizione geografica o in una diversa. Il failover del dispositivo interessa tutto il dispositivo. Durante il failover, la proprietà dei dati del cloud passa dal dispositivo di origine al dispositivo di destinazione.
 
-This article describes the disaster recovery for your Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device) including the detailed steps required to fail over to another virtual device in the event of a disaster. A failover allows you to migrate your data from a *source* device in the datacenter to another *target* device located in the same or a different geographical location. The device failover is for the entire device. During failover, the cloud data for the source device changes ownership to that of the target device.
-
-Device failover is orchestrated via the disaster recovery (DR) feature and is initiated from the **Devices** page. This page tabulates all the StorSimple devices connected to your StorSimple Manager service. For each device, the friendly name, status, provisioned and maximum capacity, type, and model are displayed.
+Il failover del dispositivo viene gestito tramite la funzionalità di ripristino di emergenza e viene inizializzato nella pagina **Dispositivi**. In questa pagina sono riportati tutti i dispositivi StorSimple connessi al servizio StorSimple Manager. Per ogni dispositivo, vengono visualizzati il nome descrittivo, lo stato, la capacità sottoposta a provisioning e massima, il tipo e il modello.
 
 ![](./media/storsimple-ova-failover-dr/image15.png)
 
-This article is applicable to StorSimple Virtual Arrays only. To fail over an 8000 series device, go to [Failover and Disaster Recovery of your StorSimple device](storsimple-device-failover-disaster-recovery.md).
+Il contenuto di questo articolo si applica solo a StorSimple Virtual Array. Per eseguire il failover di un dispositivo serie 8000, andare a [Failover e ripristino di emergenza per il dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md).
 
 
-## <a name="what-is-disaster-recovery?"></a>What is disaster recovery?
+## Che cos'è il ripristino di emergenza?
 
-In a disaster recovery (DR) scenario, the primary device stops functioning. In this situation, you can move the cloud data associated with the failed device to another device by using the primary device as the *source* and specifying another device as the *target*. This process is referred to as the *failover*. During failover, all the volumes or the shares from the source device change ownership and are transferred to the target device. No filtering of the data is allowed.
+In uno scenario di ripristino di emergenza, il dispositivo principale smette di funzionare. In questo caso, è possibile spostare i dati del cloud associati al dispositivo guasto in un altro dispositivo utilizzando il dispositivo principale come *origine* e specificando l’altro dispositivo come *destinazione*. Questo processo viene definito *failover*. Durante il failover, tutti i volumi e le condivisioni del dispositivo di origine cambiano proprietà e vengono trasferiti al dispositivo di destinazione. Non è consentito filtrare i dati.
 
-DR is modeled as a full device restore using the heat map–based tiering and tracking. A heat map is defined by assigning a heat value to the data based on read and write patterns. This heat map then tiers the lowest heat data chunks to the cloud first while keeping the high heat (most used) data chunks in the local tier. During a DR, the heat map is used to restore and rehydrate the data from the cloud. The device fetches all the volumes/shares in the last recent backup (as determined internally) and performs a restore from that backup. The entire DR process is orchestrated by the device.
-
-
-## <a name="prerequisites-for-device-failover"></a>Prerequisites for device failover
+Il ripristino di emergenza è progettato come un ripristino completo del dispositivo tramite la suddivisione in livelli e il rilevamento basati su mappa termica. Una mappa termica viene definita assegnando un valore termico ai dati in base a modelli di lettura e scrittura. Questa mappa termica suddivide in livelli i blocchi di dati con valore termico più basso prima nel cloud, mantenendo i blocchi di dati con valore termico più alto (più usati) a livello locale. Durante un ripristino di emergenza, la mappa termica viene usata per ripristinare e riattivare i dati dal cloud. Il dispositivo recupera tutti i volumi o le condivisioni dal backup più recente (come determinato internamente) ed esegue un ripristino a partire da quel backup. L'intero processo di ripristino di emergenza viene gestito dal dispositivo.
 
 
-### <a name="prerequisites"></a>Prerequisites
+## Prerequisiti per il failover del dispositivo
 
-For any device failover, the following prerequisites should be satisfied:
 
-- The source device needs to be in a **Deactivated** state.
+### Prerequisiti
 
-- The target device needs to show up as **Active** in the Azure classic portal. You will need to provision a target virtual device of the same or higher capacity. You should then use the local web UI to configure and successfully register the virtual device.
+Per qualsiasi failover del dispositivo, devono essere soddisfatti i prerequisiti seguenti:
 
-    > [AZURE.IMPORTANT] Do not attempt to configure the registered virtual device through the service by clicking **complete device setup**. No device configuration should be performed through the service.
+- Il dispositivo di origine deve essere in stato **Disattivato**.
 
-- The source and target device have to be the same type. You can only fail over a virtual device configured as a file server to another file server. The same is true for an iSCSI server.
+- Il dispositivo di destinazione deve essere visualizzato come **Attivo** nel portale di Azure classico. È necessario eseguire il provisioning di un dispositivo virtuale di destinazione della stessa capacità o superiore. È quindi necessario usare l'interfaccia utente Web locale per configurare e registrare correttamente il dispositivo virtuale.
 
-- For a file server DR, we recommend that you join the target device to the same domain as that of the source so that the share permissions are automatically resolved. Only the failover to a target device in the same domain is supported in this release.
+	> [AZURE.IMPORTANT] Non si deve tentare di configurare il dispositivo virtuale registrato tramite il servizio facendo clic su **Completare la configurazione del dispositivo**. Non si deve eseguire nessuna configurazione del dispositivo tramite questo servizio.
 
-### <a name="other-considerations"></a>Other considerations
+- Il dispositivo di origine e quello di destinazione devono essere dello stesso tipo. Il failover di un dispositivo virtuale configurato come file server può essere eseguito solo su un altro file server. Lo stesso vale per un server iSCSI.
 
-- We recommend that you take all the volumes or shares on the source device offline.
+- Per il ripristino di emergenza di un file server, si consiglia di aggiungere il dispositivo di destinazione allo stesso dominio del dispositivo di origine in modo da risolvere automaticamente le autorizzazioni di condivisione. In questa versione è supportato solo il failover su un dispositivo di destinazione nello stesso dominio.
 
-- If it is a planned failover, we recommend that you take a backup of the device and then proceed with the failover to minimize data loss. If it is an unplanned failover, the most recent backup will be used to restore the device.
+### Altre considerazioni
 
-- The available target devices for DR are devices that have the same or larger capacity compared to the source device. The devices that are connected to your service but do not meet the criteria of sufficient space will not be available as target devices.
+- Si consiglia di portare offline tutti i volumi o tutte le condivisioni nel dispositivo di origine.
 
-### <a name="dr-prechecks"></a>DR prechecks
+- Se si tratta di un failover pianificato, si consiglia di eseguire un backup del dispositivo, quindi di procedere con il failover per ridurre al minimo la perdita dei dati. Se si tratta di un failover non pianificato, si usa il backup più recente per ripristinare il dispositivo.
 
-Before the DR begins, prechecks are performed on the device. These checks help ensure that no errors will occur when DR commences. The prechecks include:
+- I dispositivi di destinazione disponibili per il ripristino di emergenza sono dispositivi dotati di capacità uguale o superiore rispetto al dispositivo di origine. I dispositivi connessi al servizio che non soddisfano i criteri di spazio sufficiente non saranno disponibili come dispositivi di destinazione.
 
-- Validating the storage account
+### Verifiche preliminari per il ripristino di emergenza
 
-- Checking the cloud connectivity to Azure
+Prima di iniziare il ripristino di emergenza, vengono eseguite delle verifiche preliminari sul dispositivo. Queste verifiche favoriscono l'assenza di errori nel momento in cui si avvia il ripristino di emergenza. Le verifiche preliminari includono:
 
-- Checking available space on the target device
+- Convalida dell'account di archiviazione
 
-- Checking if an iSCSI server source device has valid ACR names, IQN (not exceeding 220 characters in length), and CHAP password (12 and 16 characters in length) associated with the volumes
+- Controllo della connettività del cloud in Azure
 
-If any of the above prechecks fail, you cannot proceed with the DR. You need to resolve those issues and then retry DR.
+- Controllo dello spazio disponibile nel dispositivo di destinazione
 
-After the DR is successfully completed, the ownership of the cloud data on the source device is transferred to the target device. The source device is then no longer available in the portal. Access to all the volumes/shares on the source device is blocked and the target device becomes active.
+- Verifica della validità di nomi relativi a record di controllo di accesso, di IQN (lunghezza non superiore a 220 caratteri) e di password CHAP (lunghezza di 12 e 16 caratteri) associati ai volumi di un dispositivo di origine del server iSCSI
 
-> [AZURE.IMPORTANT]
-> 
-> Though the device is no longer available, the virtual machine that you provisioned on the host system is still consuming resources. Once the DR is successfully complete, you can delete this virtual machine from your host system.
+Se una qualsiasi delle verifiche preliminari riportate sopra non va a buon fine, non è possibile procedere con il ripristino di emergenza. È necessario risolvere questi problemi prima di riprovare il ripristino di emergenza.
 
-## <a name="fail-over-to-a-virtual-array"></a>Fail over to a virtual array
-
-We recommend that you have another StorSimple Virtual Array provisioned, configured via the local web UI, and registered with the StorSimple Manager service prior to running this procedure.
-
+Se il ripristino di emergenza è stato completato correttamente, la proprietà dei dati cloud sul dispositivo di origine viene trasferita al dispositivo di destinazione. Il dispositivo di origine non è quindi più disponibile nel portale. L'accesso a tutti i volumi o tutte le condivisioni sul dispositivo di origine è bloccato e il dispositivo di destinazione diventa attivo.
 
 > [AZURE.IMPORTANT]
 > 
-> - You are not allowed to fail over from a StorSimple 8000 series device to a 1200 virtual device.
-> - You can fail over from a Federal Information Processing Standard (FIPS) enabled virtual device deployed in Government portal to a virtual device in Azure classic portal. The reverse is also true.
+> Anche se il dispositivo non è più disponibile, la macchina virtuale sottoposta a provisioning nel sistema host usa ancora risorse. Se il ripristino di emergenza è stato completato correttamente, è possibile eliminare questa macchina virtuale dal sistema host.
 
-Perform the following steps to restore the device to a target StorSimple virtual device.
+## Eseguire il failover su un array virtuale
 
-1. Take volumes/shares offline on the host. Refer to the operating system–specific instructions on the host to take the volumes/shares offline. If not already offline, you will need to take all the volumes/shares offline on the device by going to **Devices > Shares** (or **Device > Volumes**). Select a share/volume and click **Take offline** on the bottom of the page. When prompted for confirmation, click **Yes**. Repeat this process for all the shares/volumes on the device.
-
-2. On the **Devices** page, select the source device for failover and click **Deactivate**. 
-    ![](./media/storsimple-ova-failover-dr/image16.png)
-
-3. You will be prompted for confirmation. Device deactivation is a permanent process that cannot be undone. You will also be reminded to take your shares/volumes offline on the host.
-
-    ![](./media/storsimple-ova-failover-dr/image18.png)
-
-3. Upon confirmation, the deactivation will start. After the deactivation is successfully completed, you will be notified.
-
-    ![](./media/storsimple-ova-failover-dr/image19.png)
-
-4. On the **Devices** page, the device state will now change to **Deactivated**.
-
-    ![](./media/storsimple-ova-failover-dr/image20.png)
-
-5. Select the deactivated device and at the bottom of the page, click **Failover**.
-
-6. In the Confirm failover wizard that opens up, do the following:
-
-    1. From the dropdown list of available devices, choose a **Target device.** Only the devices that have sufficient capacity are displayed in the dropdown list.
-
-    2. Review the details associated with the source device such as device name, total capacity, and the names of the shares that will be failed over.
-
-        ![](./media/storsimple-ova-failover-dr/image21.png)
-
-7. Check **I agree that failover is a permanent operation and once the failover is successfully completed, the source device will be deleted**.
-
-8. Click the check icon ![](./media/storsimple-ova-failover-dr/image1.png).
+Si consiglia di sottoporre a provisioning un array virtuale StorSimple aggiuntivo, configurato tramite l'interfaccia utente Web locale e registrato con il servizio StorSimple Manager prima di eseguire questa procedura.
 
 
-9. A failover job will be initiated and you will be notified. Click **View job** to monitor the failover.
+> [AZURE.IMPORTANT]
+> 
+> - Non è consentito eseguire il failover da un dispositivo StorSimple serie 8000 a un dispositivo virtuale 1200.
+> - È possibile eseguire il failover da un dispositivo virtuale abilitato FIPS (Federal informazioni Processing Standard) distribuito nel portale per enti pubblici a un dispositivo virtuale nel portale di Azure classico. È anche vero il contrario.
 
-    ![](./media/storsimple-ova-failover-dr/image22.png)
+Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo virtuale StorSimple di destinazione.
 
-10. In the **Jobs** page, you will see a failover job created for the source device. This job performs the DR prechecks.
+1. Portare i volumi o le condivisioni offline nell'host. Vedere le istruzioni specifiche del sistema operativo sull'host per portare offline i volumi o le condivisioni. Se non ancora offline, è necessario portare offline tutti i volumi o tutte le condivisioni nel dispositivo selezionando **Dispositivi > Condivisioni** (o **Dispositivo > Volumi**). Selezionare una condivisione o un volume e fare clic su **Porta offline** nella parte inferiore della pagina. Alla richiesta di conferma fare clic su **Sì**. Ripetere questo processo per tutte le condivisioni o per tutti i volumi nel dispositivo.
 
-    ![](./media/storsimple-ova-failover-dr/image23.png)
+2. Nella pagina **Dispositivi**, selezionare il dispositivo di origine per il failover e fare clic su **Disattiva**. ![](./media/storsimple-ova-failover-dr/image16.png)
 
-    After the DR prechecks are successful, the failover job will spawn restore jobs for each share/volume that exists on your source device.
+3. Verrà richiesto di confermare. La disattivazione del dispositivo è un processo permanente che non può essere annullato. Viene inoltre ricordato di portare offline le condivisioni o i volumi nell'host.
 
-    ![](./media/storsimple-ova-failover-dr/image24.png)
+	![](./media/storsimple-ova-failover-dr/image18.png)
 
-11. After the failover is completed, go to the **Devices** page.
+3. Dopo la conferma, viene avviata la disattivazione. Se la disattivazione è stata completata correttamente, se ne riceve notifica.
 
-    a. Select the StorSimple virtual device that was used as the target device for the failover process.
+	![](./media/storsimple-ova-failover-dr/image19.png)
 
-    b. Go to **Shares** page (or **Volumes** if iSCSI server). All the shares (volumes) from the old device should now be listed.
-    
-    ![](./media/storsimple-ova-failover-dr/image25.png)
+4. Nella pagina **Dispositivi**, lo stato del dispositivo viene modificato in **Disattivato**.
 
-![](./media/storsimple-ova-failover-dr/video_icon.png) **Video available**
+	![](./media/storsimple-ova-failover-dr/image20.png)
 
-This video demonstrates how you can fail over a StorSimple on-premises virtual device to another virtual device.
+5. Selezionare il dispositivo disattivato e, nella parte inferiore della pagina, fare clic su **Failover**.
+
+6. Nella procedura guidata di conferma failover che viene visualizzata, procedere nel modo seguente:
+
+    1. Nell'elenco a discesa dei dispositivi disponibili, scegliere un **Dispositivo di destinazione.** Solo i dispositivi dotati di capacità sufficiente vengono visualizzati nell'elenco a discesa.
+
+    2. Esaminare i dettagli associati al dispositivo di origine, ad esempio il nome del dispositivo, la capacità totale e i nomi delle condivisioni da sottoporre a failover.
+
+		![](./media/storsimple-ova-failover-dr/image21.png)
+
+7. Selezionare **Accetto che il failover è un'operazione definitiva e che al termine del failover il dispositivo di origine verrà eliminato**.
+
+8. Fare clic sull’icona del segno di spunta ![](./media/storsimple-ova-failover-dr/image1.png).
+
+
+9. Viene avviato un processo di failover e se ne riceve notifica. Fare clic su **Visualizza processo** per monitorare il failover.
+
+	![](./media/storsimple-ova-failover-dr/image22.png)
+
+10. Nella pagina **Processi**, viene visualizzato un processo di failover creato per il dispositivo di origine. Questo processo esegue le verifiche preliminari per il ripristino di emergenza.
+
+	![](./media/storsimple-ova-failover-dr/image23.png)
+
+ 	Se le verifiche preliminari per il ripristino di emergenza hanno esito positivo, il processo di failover distribuisce i processi di ripristino per ogni condivisione o volume presente nel dispositivo di origine.
+
+	![](./media/storsimple-ova-failover-dr/image24.png)
+
+11. Dopo aver completato il failover, andare alla pagina **Dispositivi**.
+
+	a. Selezionare il dispositivo virtuale StorSimple utilizzato come dispositivo di destinazione per il processo di failover.
+
+	b. Andare alla pagina **Condivisioni** (o **Volumi** se si tratta di server iSCSI). Tutte le condivisioni (volumi) del dispositivo precedente ora devono essere elencate.
+ 	
+	![](./media/storsimple-ova-failover-dr/image25.png)
+
+![](./media/storsimple-ova-failover-dr/video_icon.png) **Video disponibile**
+
+Questo video mostra come è possibile eseguire il failover di un dispositivo virtuale locale StorSimple su un altro dispositivo virtuale.
 
 > [AZURE.VIDEO storsimple-virtual-array-disaster-recovery]
 
-## <a name="business-continuity-disaster-recovery-(bcdr)"></a>Business continuity disaster recovery (BCDR)
+## Ripristino di emergenza di continuità aziendale (BCDR)
 
-A business continuity disaster recovery (BCDR) scenario occurs when the entire Azure datacenter stops functioning. This can affect your StorSimple Manager service and the associated StorSimple devices.
+Uno scenario di ripristino di emergenza di continuità aziendale (BCDR) si verifica quando l'intero data center di Azure smette di funzionare. Può influire sul servizio StorSimple Manager e sui dispositivi StorSimple associati.
 
-If there are StorSimple devices that were registered just before a disaster occurred, then these StorSimple devices may need to be deleted. After the disaster, you can recreate and configure those devices.
+Se sono presenti dispositivi StorSimple registrati prima del verificarsi di un'emergenza, questi dispositivi StorSimple rischiano di dover essere eliminati. Dopo l'emergenza, è possibile ricreare e configurare i dispositivi.
 
-## <a name="errors-during-dr"></a>Errors during DR
+## Errori durante il ripristino di emergenza
 
-**Cloud connectivity outage during DR**
+**Interruzione della connettività cloud durante il ripristino di emergenza**
 
-If the cloud connectivity is disrupted after DR has started and before the device restore is complete, the DR will fail and you will be notified. The target device that was used for DR is then marked as *unusable.* The same target device cannot be then used for future DRs.
+Se la connettività cloud viene interrotta dopo l'avvio del ripristino di emergenza e prima del completamento del ripristino del dispositivo, il ripristino di emergenza non va a buon fine e se ne riceve notifica. Il dispositivo di destinazione usato per il ripristino di emergenza viene quindi contrassegnato come *Inutilizzabile.* Lo stesso dispositivo di destinazione non può essere quindi usato per ripristini di emergenza futuri.
 
-**No compatible target devices**
+**Nessun dispositivo di destinazione compatibile**
 
-If the available target devices do not have sufficient space, you will see an error to the effect that there are no compatible target devices.
+Se i dispositivi di destinazione disponibili non dispongono di spazio sufficiente, viene visualizzato un errore relativo all'assenza di dispositivi di destinazione compatibili.
 
-**Precheck failures**
+**Errori nelle verifiche preliminari**
 
-If one of the prechecks is not satisfied, then you will see precheck failures.
+Se non viene soddisfatta una delle verifiche preliminari, vengono visualizzati degli errori relativi alle verifiche preliminari.
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-Learn more about how to [administer your StorSimple Virtual Array using the local web UI](storsimple-ova-web-ui-admin.md).
+Informazioni su come [Usare l'interfaccia utente Web per amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0622_2016-->

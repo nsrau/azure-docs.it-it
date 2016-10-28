@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Linked templates with Resource Manager | Microsoft Azure"
-   description="Describes how to use linked templates in an Azure Resource Manager template to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs."
+   pageTitle="Modelli collegati con Resource Manager | Microsoft Azure"
+   description="Descrive come usare i modelli collegati in un modello di Azure Resource Manager per creare una soluzione basata su un modello modulare. Mostra come passare i valori dei parametri, specificare un file di parametri e gli URL creati in modo dinamico."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,16 +16,15 @@
    ms.date="09/02/2016"
    ms.author="tomfitz"/>
 
+# Uso di modelli collegati con Azure Resource Manager
 
-# <a name="using-linked-templates-with-azure-resource-manager"></a>Using linked templates with Azure Resource Manager
+Dall'interno di un modello di Azure Resource Manager è possibile collegarsi a un altro modello che consente di scomporre la distribuzione in un set di modelli di destinazione specifici. In modo analogo alla scomposizione di un'applicazione in diverse classi di codice, la scomposizione offre vantaggi in termini di testing, riuso e leggibilità.
 
-From within one Azure Resource Manager template, you can link to another template, which enables you to decompose your deployment into a set of targeted, purpose-specific templates. As with decomposing an application into several code classes, decomposition provides benefits in terms of testing, reuse, and readability.  
+È possibile passare parametri da un modello principale a un modello collegato. Tali parametri possono venire associati direttamente ai parametri e alle variabili esposti dal modello chiamante. Il modello collegato può inoltre passare una variabile di output al modello di origine, consentendo un scambio bidirezionale di dati tra modelli.
 
-You can pass parameters from a main template to a linked template, and those parameters can directly map to parameters or variables exposed by the calling template. The linked template can also pass an output variable back to the source template, enabling a two-way data exchange between templates.
+## Collegamento a un modello
 
-## <a name="linking-to-a-template"></a>Linking to a template
-
-You create a link between two templates by adding a deployment resource within the main template that points to the linked template. You set the **templateLink** property to the URI of the linked template. You can provide parameter values for the linked template either by specifying the values directly in your template or by linking to a parameter file. The following example uses the **parameters** property to specify a parameter value directly.
+Per creare un collegamento tra due modelli, aggiungere una risorsa di distribuzione all'interno del modello principale che punta al modello collegato. Impostare la proprietà **templateLink** sull'URI del modello collegato. È possibile fornire i valori dei parametri per il modello nidificato specificando i valori direttamente nel modello o mediante il collegamento a un file di parametri. Nel seguente esempio viene utilizzata la proprietà **parameters** per specificare direttamente un valore di parametro.
 
     "resources": [ 
       { 
@@ -45,16 +44,16 @@ You create a link between two templates by adding a deployment resource within t
       } 
     ] 
 
-The Resource Manager service must be able to access the linked template. You cannot specify a local file or a file that is only available on your local network for the linked template. You can only provide a URI value that includes either **http** or **https**. One option is to place your linked template in a storage account, and use the URI for that item, such as shown in the following example.
+Il servizio Resource Manager deve poter accedere al modello collegato. Non è possibile specificare un file locale o un file che sia disponibile unicamente nella rete locale per il modello collegato. È possibile fornire solo un valore URI che includa **http** o **https**. È possibile scegliere di inserire il modello collegato in un account di archiviazione e usare l'URI per tale elemento, come illustrato nell'esempio seguente.
 
     "templateLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
         "contentVersion": "1.0.0.0",
     }
 
-Although the linked template must be externally available, it does not need to be generally available to the public. You can add your template to a private storage account that is accessible to only the storage account owner. Then, you create a shared access signature (SAS) token to enable access during deployment. You add that SAS token to the URI for the linked template. For steps on setting up a template in a storage account and generating a SAS token, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md) or [Deploy resources with Resource Manager templates and Azure CLI](resource-group-template-deploy-cli.md). 
+Anche se il modello collegato deve essere disponibile esternamente, non è necessario che sia pubblicamente disponibile. È possibile aggiungere il modello a un account di archiviazione privato accessibile solo al proprietario dell'account di archiviazione. Creare quindi un token di firma di accesso condiviso per consentire l'accesso durante la distribuzione. Aggiungere il token con firma di accesso condiviso all'URI del modello collegato. Per conoscere la procedura per la configurazione di un modello in un account di archiviazione e per la generazione di un token con firma di accesso condiviso, consultare [Distribuire le risorse con i modelli di Resource Manager e Azure PowerShell](resource-group-template-deploy.md) o [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](resource-group-template-deploy-cli.md).
 
-The following example shows a parent template that links to another template. The linked template is accessed with a SAS token that is passed in as a parameter.
+Nell'esempio seguente viene illustrato un modello padre che si collega a un altro modello. È possibile accedere al modello collegato con un token di firma di accesso condiviso passato come parametro.
 
     "parameters": {
         "sasToken": { "type": "securestring" }
@@ -74,11 +73,11 @@ The following example shows a parent template that links to another template. Th
         }
     ],
 
-Even though the token is passed in as a secure string, the URI of the linked template, including the SAS token, is logged in the deployment operations for that resource group. To limit exposure, set an expiration for the token.
+Anche se il token viene passato come stringa sicura, l'URI del modello collegato, incluso il token di firma di accesso condiviso, è registrato nelle operazioni di distribuzione per il gruppo di risorse in questione. Per limitare l'esposizione, impostare una scadenza per il token.
 
-## <a name="linking-to-a-parameter-file"></a>Linking to a parameter file
+## Collegamento a un file di parametri
 
-The next example uses the **parametersLink** property to link to a parameter file.
+Nell'esempio successivo viene utilizzata la proprietà **parametersLink** per il collegamento a un file di parametri.
 
     "resources": [ 
       { 
@@ -99,13 +98,13 @@ The next example uses the **parametersLink** property to link to a parameter fil
       } 
     ] 
 
-The URI value for the linked parameter file cannot be a local file, and must include either **http** or **https**. The parameter file can also be limited to access through a SAS token.
+Il valore URI per il file di parametro collegato non può essere un file locale e deve includere o **http** o **https**. È anche possibile limitare l'accesso al file dei parametri solo tramite un token di firma di accesso condiviso.
 
-## <a name="using-variables-to-link-templates"></a>Using variables to link templates
+## Uso di variabili per collegare i modelli
 
-The previous examples showed hard-coded URL values for the template links. This approach might work for a simple template but it does not work well when working with a large set of modular templates. Instead, you can create a static variable that stores a base URL for the main template and then dynamically create URLs for the linked templates from that base URL. The benefit of this approach is you can easily move or fork the template because you only need to change the static variable in the main template. The main template passes the correct URIs throughout the decomposed template.
+Negli esempi precedenti sono illustrati i valori di URL hard-coded per i collegamenti del modello. Questo approccio potrebbe funzionare per un modello semplice ma non funziona correttamente in caso di uso di un ampio set di modelli modulari. In alternativa, è possibile creare una variabile statica contenente un URL di base per il modello principale e quindi creare dinamicamente gli URL per i modelli collegati da tale URL di base. Il vantaggio di questo approccio è rappresentato dal fatto che risulta più semplice spostare o scomporre il modello perché è sufficiente modificare la variabile statica nel modello principale. Il modello principale passa gli URI corretti a tutto il modello scomposto.
 
-The following example shows how to use a base URL to create two URLs for linked templates (**sharedTemplateUrl** and **vmTemplate**). 
+Nell'esempio seguente viene illustrato come usare un URL di base per creare due URL per i modelli collegati (**sharedTemplateUrl** e **vmTemplate**).
 
     "variables": {
         "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
@@ -126,17 +125,17 @@ The following example shows how to use a base URL to create two URLs for linked 
         }
     }
 
-You can also use [deployment()](resource-group-template-functions.md#deployment) to get the base URL for the current template, and use that to get the URL for other templates in the same location. This approach is useful if your template location changes (maybe due to versioning) or you want to avoid hard coding URLs in the template file. 
+È inoltre possibile usare [deployment ()](resource-group-template-functions.md#deployment) per ottenere l'URL di base per il modello corrente e usarlo per ottenere l'URL per altri modelli nello stesso percorso. Questo approccio è utile se la posizione del modello cambia, ad esempio a causa del controllo delle versioni, o si vuole evitare la codifica di URL nel file del modello.
 
     "variables": {
         "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
     }
 
-## <a name="conditionally-linking-to-templates"></a>Conditionally linking to templates
+## Collegamento condizionale a modelli
 
-You can link to different templates by passing in a parameter value that is used to construct the URI of the linked template. This approach works well when you need to specify during deployment which linked template to use. For example, you can specify one template to use for an existing storage account, and another template to use for a new storage account.
+È possibile collegarsi a diversi modelli passando un valore parametro che viene usato per costruire l'URI del modello collegato. Questo approccio funziona bene quando è necessario specificare durante la distribuzione il modello collegato da usare. Ad esempio, è possibile specificare un modello da usare per un account di archiviazione esistente e un altro modello da usare per un nuovo account di archiviazione.
 
-The following example shows a parameter for a storage account name, and a parameter to specify whether the storage account is new or existing.
+L'esempio seguente mostra un parametro per un nome di account di archiviazione e un parametro per specificare se l'account di archiviazione è nuovo o esistente.
 
     "parameters": {
         "storageAccountName": {
@@ -151,13 +150,13 @@ The following example shows a parameter for a storage account name, and a parame
         }
     },
 
-You create a variable for the template URI that includes the value of the new or existing parameter.
+Si crea una variabile per l'URI del modello che include il valore del parametro nuovo o esistente.
 
     "variables": {
         "templatelink": "[concat('https://raw.githubusercontent.com/exampleuser/templates/master/',parameters('newOrExisting'),'StorageAccount.json')]"
     },
 
-You provide that variable value for the deployment resource.
+Specificare il valore della variabile per la risorsa di distribuzione.
 
     "resources": [
         {
@@ -179,9 +178,9 @@ You provide that variable value for the deployment resource.
         }
     ],
 
-The URI resolves to a template named either **existingStorageAccount.json** or **newStorageAccount.json**. Create templates for those URIs.
+L'URI viene risolto in un modello denominato **existingStorageAccount.json** o **newStorageAccount.json**. Creare i modelli per tali URI.
 
-The following example shows the **existingStorageAccount.json** template.
+L'esempio seguente mostra il modello **existingStorageAccount.json**.
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -201,7 +200,7 @@ The following example shows the **existingStorageAccount.json** template.
       }
     }
 
-The next example shows the **newStorageAccount.json** template. Notice that like the existing storage account template the storage account object is returned in the outputs. The master template works with either linked template.
+L'esempio seguente mostra il modello **newStorageAccount.json**. Si noti che, oltre al modello di account di archiviazione esistente, negli output viene restituito l'oggetto account di archiviazione. Il modello master funziona con entrambi i modelli collegati.
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -233,11 +232,11 @@ The next example shows the **newStorageAccount.json** template. Notice that like
       }
     }
 
-## <a name="complete-example"></a>Complete example
+## Esempio completo
 
-The following example templates show a simplified arrangement of linked templates to illustrate several of the concepts in this article. It assumes the templates have been added to the same container in a storage account with public access turned off. The linked template passes a value back to the main template in the **outputs** section.
+I seguenti modelli di esempio mostrano una disposizione semplificata di modelli collegati, allo scopo di illustrare alcuni dei concetti in questo articolo. supponendo che i modelli siano stati aggiunti nello stesso contenitore in un account di archiviazione con accesso pubblico disattivato. Il modello collegato restituisce un valore al modello principale nella sezione **outputs**.
 
-The **parent.json** file consists of:
+Il file **parent.json** è costituito da:
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -267,42 +266,38 @@ The **parent.json** file consists of:
       }
     }
 
-The **helloworld.json** file consists of:
+Il file **helloworld.json** è costituito da:
 
     {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {},
-      "variables": {},
-      "resources": [],
-      "outputs": {
-        "result": {
-            "value": "Hello World",
-            "type" : "string"
-        }
-      }
+	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	  "contentVersion": "1.0.0.0",
+	  "parameters": {},
+	  "variables": {},
+	  "resources": [],
+	  "outputs": {
+		"result": {
+			"value": "Hello World",
+			"type" : "string"
+		}
+	  }
     }
     
-In PowerShell, you get a token for the container and deploy the templates with:
+Nella PowerShell, ottenere un token per il contenitore e distribuire i modelli con:
 
     Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
     $token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
     New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ("https://storagecontosotemplates.blob.core.windows.net/templates/parent.json" + $token) -containerSasToken $token
 
-In Azure CLI, you get a token for the container and deploy the templates with the following code. Currently, you must provide a name for the deployment when using a template URI that includes a SAS token.  
+Nell'interfaccia della riga di comando di Azure, ottenere un token per il contenitore e distribuire i modelli con il seguente codice. Attualmente, è necessario specificare un nome da assegnare alla distribuzione quando si utilizza l'URI di un modello che include un token con firma di accesso condiviso.
 
     expiretime=$(date -I'minutes' --date "+30 minutes")  
     azure storage container sas create --container templates --permissions r --expiry $expiretime --json | jq ".sas" -r
     azure group deployment create -g ExampleGroup --template-uri "https://storagecontosotemplates.blob.core.windows.net/templates/parent.json?{token}" -n tokendeploy  
 
-You are prompted to provide the SAS token as a parameter. You need to preface the token with **?**.
+Viene richiesto di fornire il token di firma di accesso condiviso come parametro. È necessario che il token sia preceduto da **?**.
 
-## <a name="next-steps"></a>Next steps
-- To learn about the defining the deployment order for your resources, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md)
-- To learn how to define one resource but create many instances of it, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)
+## Passaggi successivi
+- Per informazioni sulla definizione dell'ordine di distribuzione per le risorse, vedere [Definizione delle dipendenze nei modelli di Azure Resource Manager](resource-group-define-dependencies.md)
+- Per informazioni su come definire una sola risorsa e crearne molte istanze, vedere [Creare più istanze di risorse in Azure Resource Manager](resource-group-create-multiple.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

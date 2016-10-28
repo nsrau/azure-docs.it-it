@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Manage access control records in StorSimple | Microsoft Azure"
-   description="Describes how to use access control records (ACRs) to determine which hosts can connect to a volume on the StorSimple device."
+   pageTitle="Gestire i record di controllo di accesso in StorSimple | Microsoft Azure"
+   description="In questo articolo vengono descritti i record di controllo di accesso (ACR) che consentono di specificare quali host possono connettersi a un volume nel dispositivo StorSimple."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,89 +15,84 @@
    ms.date="08/18/2016"
    ms.author="alkohli" />
 
+# Utilizzare il servizio StorSimple Manager per gestire li record di controllo di accesso
 
-# <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Use the StorSimple Manager service to manage access control records
+## Overview
 
-## <a name="overview"></a>Overview
+I record di controllo di accesso (ACR) consentono di specificare quali host possono connettersi a un volume nel dispositivo StorSimple. I record di controllo di accesso vengono impostati su un volume specifico e contengono i nomi completi iSCSI (IQN) degli host. Quando un host prova a connettersi a un volume, il dispositivo controlla il record di controllo di accesso associato a tale volume per l'IQN e, se esiste una corrispondenza, viene stabilita la connessione. Nella sezione dei record di controllo di accesso nella pagina **Configura** vengono visualizzati tutti i record di controllo di accesso insieme agli IQN degli host.
 
-Access control records (ACRs) allow you to specify which hosts can connect to a volume on the StorSimple device. ACRs are set to a specific volume and contain the iSCSI Qualified Names (IQNs) of the hosts. When a host tries to connect to a volume, the device checks the ACR associated with that volume for the IQN name and if there is a match, then the connection is established. The access control records section on the **Configure** page displays all the access control records with the corresponding IQNs of the hosts.
+In questa esercitazione vengono illustrate le seguenti attività comuni correlate ai record di controllo di accesso:
 
-This tutorial explains the following common ACR-related tasks:
-
-- Add an access control record 
-- Edit an access control record 
-- Delete an access control record 
+- Aggiungere un record di controllo di accesso
+- Modificare un record di controllo di accesso
+- Eliminare un record di controllo di accesso
 
 > [AZURE.IMPORTANT] 
 > 
-> - When assigning an ACR to a volume, take care that the volume is not concurrently accessed by more than one non-clustered host because this could corrupt the volume. 
-> - When deleting an ACR from a volume, make sure that the corresponding host is not accessing the volume because the deletion could result in a read-write disruption.
+> - Quando si assegna un record di controllo di accesso a un volume, fare attenzione che nel volume non abbiano effettuato l'accesso più di un host non cluster perché ciò potrebbe danneggiare il volume.
+> - Quando si elimina un record di controllo di accesso da un volume, assicurarsi che l'host corrispondente non acceda al volume perché l'eliminazione potrebbe comportare un'interruzione di lettura/scrittura.
 
-## <a name="add-an-access-control-record"></a>Add an access control record
+## Aggiungere un record di controllo di accesso
 
-You use the StorSimple Manager service **Configure** page to add ACRs. Typically, you will associate one ACR with one volume.
+Si utilizza la pagina **Configura** del servizio StorSimple Manager per aggiungere record di controllo di accesso. In genere, un record di controllo di accesso verrà associato a un volume.
 
-Perform the following steps to add an ACR.
+Attenersi alla seguente procedura per aggiungere un record di controllo di accesso.
 
-#### <a name="to-add-an-access-control-record"></a>To add an access control record
+#### Per aggiungere un record di controllo di accesso
 
-1. On the service landing page, select your service, double-click the service name, and then click the **Configure** tab.
+1. Nella pagina di destinazione del servizio, selezionare il servizio, fare doppio clic sul nome del servizio, quindi fare clic sulla scheda **Configura**.
 
-2. In the tabular listing under **Access control records**, supply a **Name** for your ACR.
+2. Nell'elenco tabulare in **Record di controllo di accesso**, fornire un **nome** per il record di controllo di accesso.
 
-3. Provide the IQN name of your Windows host under **iSCSI Initiator Name**. To get the IQN of your Windows Server host, do the following:
+3. In **Nome iniziatore iSCSI**, fornire l'IQN dell'host di Windows. Per ottenere l'IQN dell'host di Windows Server, eseguire le operazioni seguenti:
 
-   - Start the Microsoft iSCSI initiator on your Windows host.
-   - In the **iSCSI Initiator Properties** window, on the **Configuration** tab, select and copy the string from the **Initiator Name** field.
-   - Paste this string in the **iSCSI Initiator Name** field on the ACRs table in the Azure classic portal.
+   - Avviare l'iniziatore iSCSI di Microsoft sull’host di Windows.
+   - Nella finestra **Proprietà iniziatore iSCSI**, nella scheda **Configurazione**, selezionare e copiare la stringa dal campo **Nome iniziatore**.
+   - Incollare la stringa nel campo **Nome iniziatore iSCSI** nella tabella dei record di controllo di accesso nel portale di Azure classico.
 
-4. Click **Save** to save the newly created ACR. The tabular listing will be updated to reflect this addition.
+4. Fare clic su **Salva** per salvare il record di controllo di accesso appena creato. L'elenco tabulare verrà aggiornato per riflettere questa aggiunta.
 
-## <a name="edit-an-access-control-record"></a>Edit an access control record
+## Modificare un record di controllo di accesso
 
-You use the **Configure** page in the Azure classic portal to edit ACRs. 
+Per modificare record di controllo di accesso, utilizzare la pagina **Configura** nel portale di Azure classico.
 
-> [AZURE.NOTE] You can modify only those ACRs that are currently not in use. To edit an ACR associated with a volume that is currently in use, you must first take the volume offline.
+> [AZURE.NOTE] È possibile modificare solo i record di controllo di acceso che non sono attualmente in uso. Per modificare un record di controllo di accesso associato a un volume attualmente in uso, è innanzitutto necessario rendere il volume offline.
 
-Perform the following steps to edit an ACR.
+Seguire questa procedura per modificare un record di controllo di accesso.
 
-#### <a name="to-edit-an-access-control-record"></a>To edit an access control record
+#### Per modificare un record di controllo di accesso
 
-1. On the service landing page, select your service, double-click the service name, and then click the **Configure** tab.
+1. Nella pagina di destinazione del servizio, selezionare il servizio, fare doppio clic sul nome del servizio, quindi fare clic sulla scheda **Configura**.
 
-2. In the tabular listing of the access control records, hover over the ACR that you wish to modify.
+2. Nell'elenco tabulare dei record di controllo di accesso, passare il mouse sul record di controllo di accesso che si desidera modificare.
 
-3. Supply a new name and/or IQN for the ACR.
+3. Fornire un nuovo nome e/o l'IQN del record di controllo di accesso.
 
-4. Click **Save** to save the modified ACR. The tabular listing will be updated to reflect this change.
+4. Fare clic su **Salva** per salvare il record di controllo di accesso modificato. L'elenco tabulare verrà aggiornato per riflettere questa modifica.
 
-## <a name="delete-an-access-control-record"></a>Delete an access control record
+## Eliminare un record di controllo di accesso
 
-You use the **Configure** page in the Azure classic portal to delete ACRs. 
+Per eliminare record di controllo di accesso, utilizzare la pagina **Configura** nel portale di Azure classico.
 
-> [AZURE.NOTE] You can delete only those ACRs that are currently not in use. To delete an ACR associated with a volume that is currently in use, you must first take the volume offline.
+> [AZURE.NOTE] È possibile eliminare solo i record di controllo di acceso che non sono attualmente in uso. Per eliminare un record di controllo di accesso associato a un volume attualmente in uso, è innanzitutto necessario rendere il volume offline.
 
-Perform the following steps to delete an access control record.
+Attenersi alla procedura seguente per eliminare un record di controllo di accesso.
 
-#### <a name="to-delete-an-access-control-record"></a>To delete an access control record
+#### Per eliminare un record di controllo di accesso
 
-1. On the service landing page, select your service, double-click the service name, and then click the **Configure** tab.
+1. Nella pagina di destinazione del servizio, selezionare il servizio, fare doppio clic sul nome del servizio, quindi fare clic sulla scheda **Configura**.
 
-2. In the tabular listing of the access control records (ACRs), hover over the ACR that you wish to delete.
+2. Nell'elenco tabulare dei record di controllo di accesso, passare il mouse sul record di controllo di accesso che si desidera eliminare.
 
-3. A delete icon (**x**) will appear in the extreme right column for the ACR that you select. Click the **x** icon to delete the ACR.
+3. Nella colonna all'estrema destra del record di controllo di accesso selezionato, verrà visualizzata un'icona di eliminazione (**x**). Fare clic sull'icona **x** per eliminare il record di controllo di accesso.
 
-4. When prompted for confirmation, click **YES** to continue with the deletion. The tabular listing will be updated to reflect the deletion.
+4. Quando viene richiesta la conferma, fare clic su **SÌ** per continuare con l'eliminazione. L'elenco tabulare verrà aggiornato per riflettere l'eliminazione.
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-- Learn more about [managing StorSimple volumes](storsimple-manage-volumes.md).
+- Ulteriori informazioni sulla [gestione di volumi StorSimple](storsimple-manage-volumes.md).
 
-- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+- Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

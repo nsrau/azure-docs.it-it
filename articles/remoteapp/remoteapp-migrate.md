@@ -1,7 +1,7 @@
 
 <properties
-    pageTitle="Migrate user data from Azure RemoteApp | Microsoft Azure"
-    description="Learn how to migrate your user data in and out of Azure RemoteApp."
+    pageTitle="Migrare i dati utente da Azure RemoteApp | Microsoft Azure"
+    description="Informazioni su come migrare i dati utente in entrata e in uscita da Azure RemoteApp."
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -18,48 +18,44 @@
 
 
 
-
-# <a name="how-to-migrate-data-into-and-out-of-azure-remoteapp"></a>How to migrate data into and out of Azure RemoteApp
+# Come eseguire la migrazione di dati in entrata e in uscita da Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
-You can use many different tools and methods to transfer [user data](remoteapp-upd.md) into and out of Azure RemoteApp. Here are a few methods:
+È possibile usare numerosi metodi e strumenti diversi per trasferire i [dati utente](remoteapp-upd.md) in entrata e in uscita da Azure RemoteApp. Ecco alcuni metodi:
 
-- Copy and paste using clipboard sharing
-- Copy files and data to a file server
-- Copy files to OneDrive for Business through a browser
-- Copy files using redirection
-
->[AZURE.NOTE] 
-> You cannot enable the OneDrive for Business or Consumer sync agents - they [are not supported](remoteapp-onedrive.md) in Azure RemoteApp.
-
-## <a name="use-copy-and-paste-in-file-explorer"></a>Use copy and paste in File Explorer
-
-Copy and paste using the clipboard is enabled in RemoteApp deployments [by default](remoteapp-redirection.md). This lets users copy files between their local PC and RemoteApp apps. Often, through the normal course of using apps in RemoteApp, users have saved files to their UPDs - moving that data out of RemoteApp is easy:
-
-1. [Publish File Explorer as an app](remoteapp-publish.md) in a RemoteApp collection. (Note that this is an administrative task.)
-2. Direct your users to launch the File Explorer app you published and to use that to copy and paste files both into their UPD and out of it.
-
-## <a name="upload-files-and-data-to-a-file-server-by-using-standard-network-file-copy"></a>Upload files and data to a file server by using standard network file copy
-
-Often organizations use file servers to store general data. If you know the server name or location, your users can browse the local network for the server and then copy their files there, much like they did above. Again you'll want to publish File Explorer to RemoteApp and then share it with your users.
+- Copiare e incollare i dati usando la condivisione degli Appunti
+- Copiare i file e i dati in un file server
+- Copiare i file in OneDrive for Business tramite un browser
+- Copiare i file mediante il reindirizzamento
 
 >[AZURE.NOTE] 
-> The file server must be on the routable network that RemoteApp was deployed into.
+Non è possibile abilitare gli agenti di sincronizzazione di OneDrive for Business/Consumer poiché [non sono supportati](remoteapp-onedrive.md) in Azure RemoteApp.
 
-## <a name="copy-files-to-onedrive-for-business"></a>Copy files to OneDrive for Business
-Although you cannot enable the OneDrive for Business sync agent in RemoteApp, you can still copy files from your UPD to OneDrive for Business through a browser. 
+## Usare l'operazione di copia e incolla in Esplora file
 
-1. Publish File Explorer to RemoteApp and then tell users to access the files through that app. 
-2. It's easiest to transfer files if they are compressed, so users should create a .zip file that contains all of the files to move to OneDrive for Business.
-3. Ask users to go to the Office 365 portal, and then go to OneDrive and upload the .zip file.
+[Per impostazione predefinita](remoteapp-redirection.md) l'operazione di copia e incolla mediante gli Appunti è abilitata nelle distribuzioni di RemoteApp. Gli utenti possono quindi copiare i file tra le app RemoteApp e del PC locale. Spesso, usando in modo usuale le app in RemoteApp, gli utenti hanno salvato i file negli UPD e lo spostamento di dati all'esterno di RemoteApp è semplice:
 
-## <a name="copy-files-by-using-drive-redirection"></a>Copy files by using drive redirection
+1. [Pubblicare Esplora file come app](remoteapp-publish.md) in una raccolta RemoteApp. Si noti che questa è un'attività amministrativa.
+2. Indicare agli utenti di avviare l'app Esplora file pubblicata e usarla per copiare e incollare i file da e verso il proprio UPD.
 
-If you have enabled [drive redirection](remoteapp-redirection.md), you have already created a mapped drive for your users. In this case, they can zip their files on the redirected drive and then save them to their local PC.
+## Caricare i file e i dati in un file server tramite la copia di file di rete standard
 
+Spesso le organizzazioni usano file server per archiviare i dati generali. Se si conosce il nome del server o il relativo percorso, gli utenti possono esplorare la rete locale per il server e quindi copiare i file, proprio come avveniva in precedenza. Di nuovo, è possibile pubblicare Esplora file su RemoteApp e quindi condividerla con gli utenti.
 
-<!--HONumber=Oct16_HO2-->
+>[AZURE.NOTE] 
+Il file server deve trovarsi sulla rete instradabile in cui è stata distribuita RemoteApp.
 
+## Copiare i file in OneDrive for Business
+Anche se non è possibile abilitare l'agente di sincronizzazione OneDrive for Business in RemoteApp, è tuttavia possibile copiare file dall'UPD su OneDrive for Business tramite un browser.
 
+1. Pubblicare Esplora file su RemoteApp e chiedere agli utenti di accedere ai file tramite questa app.
+2. È più semplice trasferire file in modalità compressa, pertanto gli utenti devono creare un file con estensione zip che contiene tutti i file da spostare in OneDrive for Business.
+3. Chiedere agli utenti di accedere al portale di Office 365, quindi passare a OneDrive e caricare il file con estensione zip.
+
+## Copiare i file usando il reindirizzamento delle unità
+
+Se è stato abilitato il [reindirizzamento delle unità](remoteapp-redirection.md), è già stata creata un'unità mappata per gli utenti. In questo caso, è possibile comprimere i file sull'unità reindirizzata e salvarli nel PC locale.
+
+<!---HONumber=AcomDC_0817_2016-->

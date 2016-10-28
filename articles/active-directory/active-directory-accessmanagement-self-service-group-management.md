@@ -1,65 +1,58 @@
 <properties
-    pageTitle="Setting up Azure Active Directory for self service application access management| Microsoft Azure"
-    description="Self-service group management enables users to create and manage security groups or Office 365 groups in Azure Active Directory and offers users the possibility to request security group or Office 365 group memberships"
-    services="active-directory"
-    documentationCenter=""
+	pageTitle="Configurazione di Azure Active Directory per la gestione self-service dell'accesso alle applicazioni | Microsoft Azure"
+	description="La gestione self-service dei gruppi consente agli utenti di creare e gestire i gruppi di sicurezza o gruppi di Office 365 in Azure Active Directory, nonché di richiedere l'appartenenza a tali gruppi."
+	services="active-directory"
+	documentationCenter=""
   authors="curtand"
-    manager="femila"
-    editor=""
-    />
+	manager="femila"
+	editor=""
+	/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/10/2016"
-    ms.author="curtand"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/10/2016"
+	ms.author="curtand"/>
 
+# Configurazione di Azure Active Directory per la gestione self-service dei gruppi
 
-# <a name="setting-up-azure-active-directory-for-self-service-group-management"></a>Setting up Azure Active Directory for self-service group management
+La gestione self-service dei gruppi consente agli utenti di creare e gestire gruppi di sicurezza o gruppi di Office 365 in Azure Active Directory (Azure AD). Gli utenti possono anche richiedere l'appartenenza a gruppi di sicurezza o gruppi di Office 365, che il proprietario del gruppo può quindi approvare o rifiutare. In questo modo, il controllo giornaliero dell'appartenenza al gruppo può essere delegato a persone che ne conoscono il contesto aziendale. Le funzionalità di gestione self-service dei gruppi sono disponibili solo per i gruppi di sicurezza e i gruppi di Office 365, ma non per i gruppi di protezione abilitati alla posta o le liste di distribuzione.
 
-Self-service group management enables users to create and manage security groups or Office 365 groups in Azure Active Directory (Azure AD). Users can also request security group or Office 365 group memberships, and then the owner of the group can approve or deny membership. In this way, day-to-day control of group membership can be delegated to people who understand the business context for that membership. Self-service group management features are available only for security groups and Office 365 groups, but not for mail-enabled security groups or distribution lists.
+La gestione self-service dei gruppi comprende attualmente due scenari principali, ovvero gestione delegata e gestione self-service.
 
-Self-service group management currently comprises two essential scenarios: delegated group management and self-service group management.
+- **Gestione delegata dei gruppi**: un esempio è costituito da un amministratore che gestisce l'accesso a un'applicazione SaaS usata dall'azienda. In questo caso la gestione dei diritti di accesso diventa più onerosa e pertanto l'amministratore chiede al titolare dell'organizzazione di creare un nuovo gruppo. L'amministratore assegna l'accesso per l'applicazione al nuovo gruppo e aggiunge al gruppo tutte le persone che accedono già all'applicazione. Il titolare dell'organizzazione può quindi aggiungere altri utenti, per i quali il provisioning nell'applicazione viene effettuato automaticamente. Il titolare dell'organizzazione non deve attendere che l'amministratore gestisca l'accesso degli utenti. Se l'amministratore concede la stessa autorizzazione a un manager di un diverso gruppo aziendale, anche tale persona può gestire l'accesso dei propri utenti. Né il titolare dell'organizzazione né il manager possono visualizzare o gestire gli utenti dell'altro. L'amministratore può comunque visualizzare tutti gli utenti che hanno accesso all'applicazione e, se necessario, revocare i diritti di accesso.
 
-- **Delegated group management**
-    An example is an administrator who is managing access to a SaaS application that the company is using. Managing these access rights is becoming cumbersome, so this administrator asks the business owner to create a new group. The administrator assigns access for the application to the new group, and adds to the group all people already accessing to the application. The business owner then can add more users, and those users are automatically provisioned to the application. The business owner doesn't need to wait for the administrator to manage access for users. If the administrator grants the same permission to a manager in a different business group, then that person can also manage access for their own users. Neither the business owner nor the manager can view or manage each other’s users. The administrator can still see all users who have access to the application and block access rights if needed.
+- **Gestione self-service dei gruppi**: un esempio di questo scenario è costituito da due utenti che hanno entrambi siti di SharePoint Online configurati in modo indipendente e che vogliono concedere al team dell'altro l'accesso al proprio sito. A questo scopo, possono creare un gruppo in Azure AD che può essere selezionato da ognuno in SharePoint Online per consentire l'accesso al proprio sito. Se un utente desidera accedere, effettua la richiesta dal pannello di accesso e dopo aver ottenuto l'approvazione potrà accedere automaticamente a entrambi i siti di SharePoint Online. Se successivamente uno degli utenti decide che tutte le persone che accedono al sito devono poter accedere anche a una determinata applicazione SaaS, l'amministratore dell'applicazione SaaS può aggiungere i diritti di accesso per l'applicazione al sito di SharePoint Online. A questo punto, tutte le richieste approvate garantiranno l'accesso ai due siti di SharePoint Online e anche all'applicazione SaaS.
 
-- **Self-service group management**
-    An example of this scenario is two users who both have SharePoint Online sites that they set up independently. They want to give each other’s teams access to their sites. To accomplish this, they can create one group in Azure AD, and in SharePoint Online each of them selects that group to provide access to their sites. When someone wants access, they request it from the Access Panel, and after approval they get access to both SharePoint Online sites automatically. Later, one of them decides that all people accessing the site should also get access to a particular SaaS application. The administrator of the SaaS application can add access rights for the  application to the SharePoint Online site. From then on, any requests that get approved gives access to the two SharePoint Online sites and also to this SaaS application.
+## Rendere un gruppo disponibile per la modalità self-service per gli utenti finali
 
-## <a name="making-a-group-available-for-end-user-self-service"></a>Making a group available for end user self-service
+1. Nel [portale di Azure classico](https://manage.windowsazure.com) aprire la directory di Azure AD.
 
-1. In the [Azure classic portal](https://manage.windowsazure.com), open your Azure AD directory.
+2. Nella scheda **Configura** impostare **Gestione gruppi delegata** su Abilitata.
 
-2. On the **Configure** tab, set **Delegated group management** to Enabled.
+3. Impostare **Gli utenti possono creare gruppi di sicurezza** o **Gli utenti possono creare gruppi di Office** su Abilitato.
 
-3. Set **Users can create security groups** or **Users can create Office groups** to Enabled.
+Quando l'opzione **Gli utenti possono creare gruppi di sicurezza** è abilitata, tutti gli utenti nella directory possono creare nuovi gruppi di sicurezza e aggiungere membri a tali gruppi. Questi nuovi gruppi saranno visibili anche nel pannello di accesso per tutti gli altri utenti. Se consentito dall'impostazione dei criteri per il gruppo, gli altri utenti potranno creare richieste di partecipazione a questi gruppi. Se l'opzione **Gli utenti possono creare gruppi di sicurezza** è disabilitata, gli utenti non possono creare gruppi né modificare i gruppi esistenti di cui sono proprietari. Possono tuttavia gestire l'appartenenza a tali gruppi e approvare le richieste di partecipazione provenienti da altri utenti.
 
-When **Users can create security groups** is enabled, all users in your directory are allowed to create new security groups and add members to these groups. These new groups would also show up in the Access Panel for all other users. If the policy setting on the group allows it, other users can create requests to join these groups. If **Users can create security groups** is disabled, users can't create groups and can't change existing groups for which they are an owner. However, they can still manage the memberships of those groups and approve requests from other users to join their groups.
+È anche possibile usare **Utenti che possono usare la modalità self-service per i gruppi di sicurezza** per ottenere un controllo di accesso con granularità più fine sulla gestione self-service dei gruppi per gli utenti. Quando l'opzione **Gli utenti possono creare i gruppi** è abilitata, tutti gli utenti nella directory possono creare nuovi gruppi e aggiungervi membri. Impostando anche **Utenti che possono usare la modalità self-service per i gruppi di sicurezza** su Alcuni, si limita la gestione dei gruppi a un gruppo limitato di utenti. Quando questa opzione è impostata su Alcuni, perché possano creare nuovi gruppi e aggiungervi membri gli utenti devono prima essere aggiunti al gruppo SSGMSecurityGroupsUsers. Impostare **Utenti che possono usare la modalità self-service per i gruppi di sicurezza** su Tutti per consentire a tutti gli utenti nella directory di creare nuovi gruppi.
 
-You can also use **Users who can use self-service for security groups** to achieve a more fine-grained access control over self-service group management for your users. When **Users can create groups** is enabled, all users in your directory are allowed to create new groups and add members to these groups. By also setting **Users who can use self-service for security groups** to Some, you are restricting group management to only a limited group of users. When this switch is set to Some, you must add users to the group SSGMSecurityGroupsUsers before they can create new groups and add members to them. By setting **Users who can use self-service for security groups** to All, you enable all users in your directory to create new groups.
+È anche possibile usare la casella **Gruppi che possono usare la modalità self-service per i gruppi di sicurezza** per specificare un nome personalizzato di un gruppo i cui membri potranno usare la modalità self-service.
 
-You can also use the **Group that can use self-service for security groups** box to specify a custom name for a group whose members can use self-service.
+## Informazioni aggiuntive
 
-## <a name="additional-information"></a>Additional information
+Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
-These articles provide additional information on Azure Active Directory.
+* [Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory](active-directory-manage-groups.md)
 
-* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
+* [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md) (Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo)
 
-* [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md)
+* [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+* [Informazioni su Azure Active Directory](active-directory-whatis.md)
 
-* [What is Azure Active Directory?](active-directory-whatis.md)
+* [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

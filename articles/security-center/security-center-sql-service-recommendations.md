@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Protecting Azure SQL service in Azure Security Center  | Microsoft Azure"
-   description="This document addresses recommendations in Azure Security Center that help you protect Azure SQL service and stay in compliance with security policies."
+   pageTitle="Protezione del servizio SQL di Azure nel Centro sicurezza di Azure | Microsoft Azure"
+   description="Questo documento illustra le raccomandazioni presenti nel Centro sicurezza di Azure che facilitano la protezione del servizio SQL di Azure e garantiscano la conformità ai criteri di sicurezza."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
    manager="MBaldwin"
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="security-center"
@@ -14,39 +14,34 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/04/2016"
-   ms.author="terrylan"/>
+   ms.author="terrylan"/>  
 
+# Protezione del servizio SQL di Azure nel Centro sicurezza di Azure
 
-# <a name="protecting-azure-sql-service-in-azure-security-center"></a>Protecting Azure SQL service in Azure Security Center
+Il Centro sicurezza di Azure analizza lo stato di sicurezza delle risorse di Azure. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari. Le raccomandazioni sono applicabili ai tipi di risorse di Azure, ovvero macchine virtuali, risorse di rete, SQL e applicazioni.
 
-Azure Security Center analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls.  Recommendations apply to Azure resource types: virtual machines (VMs), networking, SQL, and applications.
+Questo articolo illustra le raccomandazioni applicabili al servizio SQL di Azure. Le raccomandazioni sul servizio SQL di Azure sono incentrate sull'abilitazione dei controlli per i server e i database SQL di Azure e sull'abilitazione della crittografia per i database SQL. Usare la tabella seguente come riferimento per conoscere le raccomandazioni disponibili per il servizio SQL e gli effetti che producono se si decide di metterle in pratica.
 
-This article addresses recommendations that apply to Azure SQL service.  Azure SQL service recommendations center around enabling auditing for Azure SQL servers and databases and enabling encryption for SQL databases.  Use the table below as a reference to help you understand the available SQL service recommendations and what each one will do if you apply it.
+## Consigli disponibili sul servizio SQL
 
-## <a name="available-sql-service-recommendations"></a>Available SQL service recommendations
-
-|Recommendation|Description|
+|Raccomandazione|Descrizione|
 |-----|-----|
-|[Enable server SQL Auditing](security-center-enable-auditing-on-sql-servers.md)|Recommends that you turn on auditing for Azure SQL servers (Azure SQL service only; doesn't include SQL running on your virtual machines).|
-|[Enable database SQL Auditing](security-center-enable-auditing-on-sql-databases.md)|Recommends that you turn on auditing for Azure SQL databases (Azure SQL service only; doesn't include SQL running on your virtual machines).|
-|[Enable Transparent Data Encryption on SQL databases](security-center-enable-transparent-data-encryption.md)|Recommends that you enable encryption for SQL databases (Azure SQL service only).|
+|[Abilitare il servizio di controllo SQL per i server](security-center-enable-auditing-on-sql-servers.md)|Suggerisce di attivare il controllo per i server SQL di Azure. Solo il servizio SQL di Azure, non SQL in esecuzione nelle macchine virtuali.|
+|[Abilitare il servizio di controllo SQL per i database](security-center-enable-auditing-on-sql-databases.md)|Suggerisce di attivare il controllo per i database SQL di Azure. Solo il servizio SQL di Azure, non SQL in esecuzione nelle macchine virtuali.|
+|[Abilitare Transparent Data Encryption sui database SQL](security-center-enable-transparent-data-encryption.md)|Consiglia di abilitare la crittografia per i database SQL (solo il servizio di SQL Azure).|
 
-## <a name="see-also"></a>See also
+## Vedere anche
 
-To learn more about recommendations that apply to other Azure resource types, see the following:
+Per altre informazioni sulle raccomandazioni applicabili ad altri tipi di risorse di Azure, vedere gli argomenti seguenti:
 
-- [Protecting your virtual machines in Azure Security Center](security-center-virtual-machine-recommendations.md)
-- [Protecting your applications in Azure Security Center](security-center-application-recommendations.md)
-- [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
+- [Protezione delle macchine virtuali nel Centro sicurezza di Azure](security-center-virtual-machine-recommendations.md)
+- [Protecting your applications in Azure Security Center](security-center-application-recommendations.md) (Protezione delle applicazioni nel Centro sicurezza di Azure)
+- [Protezione della rete nel Centro sicurezza di Azure](security-center-network-recommendations.md)
 
-To learn more about Security Center, see the following:
+Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
-- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
-- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
+- [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
+- [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
+- [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

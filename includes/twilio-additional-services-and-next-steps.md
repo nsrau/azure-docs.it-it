@@ -1,14 +1,14 @@
-## <a name="<a-name="additionalservices"></a>how-to:-use-additional-twilio-services"></a><a name="AdditionalServices"></a>How to: Use additional Twilio services
-In addition to the examples shown here, Twilio offers web-based APIs that you can use to leverage additional Twilio functionality from your Azure application. For full details, see the [Twilio API documentation] [twilio_api_documentation].
+## <a name="AdditionalServices"></a>Procedura: Utilizzare servizi Twilio aggiuntivi
+Oltre agli esempi illustrati in questa pagina, Twilio offre API basate su Web che è possibile utilizzare per sfruttare altre funzionalità di Twilio dall'applicazione Azure. Per informazioni dettagliate, vedere la [documentazione sull'API Twilio][twilio_api_documentation].
 
-## <a name="<a-name="nextsteps"></a>next-steps"></a><a name="NextSteps"></a>Next steps
-Now that you've learned the basics of the Twilio service, follow these links to learn more:
+## <a name="NextSteps"></a>Passaggi successivi
+Dopo aver appreso le nozioni di base sul servizio Twilio, utilizzare i collegamenti seguenti per ulteriori informazioni:
 
-* [Twilio Security Guidelines] [twilio_security_guidelines]
-* [Twilio HowTos and Example Code] [twilio_howtos]
-* [Twilio Quickstart Tutorials][twilio_quickstarts] 
-* [Twilio on GitHub] [twilio_on_github]
-* [Talk to Twilio Support] [twilio_support]
+* [Linee guida sulla sicurezza di Twilio][twilio_security_guidelines]
+* [Procedure e codice di esempio di Twilio][twilio_howtos]
+* [Esercitazioni con guide rapide su Twilio][twilio_quickstarts] 
+* [Twilio su GitHub][twilio_on_github]
+* [Contattare il supporto di Twilio][twilio_support]
 
 [twilio_api_documentation]: http://www.twilio.com/api
 [twilio_security_guidelines]: http://www.twilio.com/docs/security
@@ -17,9 +17,4 @@ Now that you've learned the basics of the Twilio service, follow these links to 
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0413_2016-->

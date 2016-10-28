@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Security Management in Azure | Microsoft Azure"
-   description=" This article discusses steps for enhancing remote management security while administering Microsoft Azure environments, including cloud services, Virtual Machines and custom applications."
+   pageTitle="Gestione della sicurezza in Azure | Microsoft Azure"
+   description=" Questo articolo illustra i passaggi per il miglioramento della gestione remota della sicurezza durante l'amministrazione degli ambienti di Microsoft Azure, inclusi Servizi cloud, Macchine virtuali e applicazioni personalizzate."
    services="security"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -16,231 +16,230 @@
    ms.date="08/25/2016"
    ms.author="terrylan"/>
 
+# Gestione della sicurezza in Azure
 
-# <a name="security-management-in-azure"></a>Security management in Azure
+I sottoscrittori di Azure possono gestire i propri ambienti cloud da più dispositivi, tra cui workstation di gestione, PC per sviluppatori e dispositivi di utenti finali con privilegi elevati con autorizzazioni specifiche per le attività. In alcuni casi le funzioni amministrative vengono eseguite tramite console basate sul Web, ad esempio il [portale di Azure](https://azure.microsoft.com/features/azure-portal/). In altri casi è possibile che vengano usate connessioni dirette ad Azure da sistemi locali su reti private virtuali (VPN), Servizi terminal, protocolli applicativi client oppure, a livello di codice, l'API Gestione dei servizi di Azure (SMAPI). Gli endpoint client possono essere inoltre aggiunti a un dominio o isolati e non gestiti, ad esempio tablet o smartphone.
 
-Azure subscribers may manage their cloud environments from multiple devices, including management workstations, developer PCs, and even privileged end-user devices that have task-specific permissions. In some cases, administrative functions are performed through web-based consoles such as the [Azure portal](https://azure.microsoft.com/features/azure-portal/). In other cases, there may be direct connections to Azure from on-premises systems over Virtual Private Networks (VPNs), Terminal Services, client application protocols, or (programmatically) the Azure Service Management API (SMAPI). Additionally, client endpoints can be either domain joined or isolated and unmanaged, such as tablets or smartphones.
-
-Although multiple access and management capabilities provide a rich set of options, this variability can add significant risk to a cloud deployment. It can be difficult to manage, track, and audit administrative actions. This variability may also introduce security threats through unregulated access to client endpoints that are used for managing cloud services. Using general or personal workstations for developing and managing infrastructure opens unpredictable threat vectors such as web browsing (for example, watering hole attacks) or email (for example, social engineering and phishing).
+Anche se le funzionalità multiple di accesso e gestione offrono una vasta gamma di opzioni, questa variabilità può aggiungere rischi significativi a una distribuzione cloud, complicando la gestione, la verifica e il controllo delle azioni amministrative. Questa variabilità potrebbe introdurre anche minacce alla sicurezza tramite accesso non regolamentato agli endpoint client usati per la gestione dei servizi cloud. L'uso di workstation generiche o personali per lo sviluppo e la gestione dell'infrastruttura genera vettori di minaccia imprevedibili, come l'esplorazione del Web (ad esempio attacchi di tipo watering hole) o la posta elettronica (ad esempio "ingegneria sociale" e phishing).
 
 ![][1]
 
-The potential for attacks increases in this type of environment because it is challenging to construct security policies and mechanisms to appropriately manage access to Azure interfaces (such as SMAPI) from widely varied endpoints.
+Il rischio di attacco aumenta in questo tipo di ambiente perché risulta difficile creare criteri e meccanismi di sicurezza per la gestione appropriata dell'accesso alle interfacce di Azure, ad esempio SMAPI, da endpoint molto diversi.
 
-### <a name="remote-management-threats"></a>Remote management threats
+### Minacce relative alla gestione remota
 
-Attackers often attempt to gain privileged access by compromising account credentials (for example, through password brute forcing, phishing, and credential harvesting), or by tricking users into running harmful code (for example, from harmful websites with drive-by downloads or from harmful email attachments). In a remotely managed cloud environment, account breaches can lead to an increased risk due to anywhere, anytime access.
+Gli utenti malintenzionati provano spesso a ottenere l'accesso con privilegi mediante la compromissione delle credenziali dell'account, ad esempio tramite attacchi di forza bruta alle password, phishing e recupero di credenziali, oppure inducendo gli utenti a eseguire codice dannoso, ad esempio da siti Web dannosi con download inconsapevoli o da allegati dannosi in messaggi di posta elettronica. In un ambiente cloud con gestione remota le violazioni degli account possono comportare un aumento del rischio a causa dell'accesso da qualsiasi posizione e in qualsiasi momento.
 
-Even with tight controls on primary administrator accounts, lower-level user accounts can be used to exploit weaknesses in one’s security strategy. Lack of appropriate security training can also lead to breaches through accidental disclosure or exposure of account information.
+Anche se sono disponibili controlli rigorosi sugli account amministratore principali, gli account degli utenti a livelli inferiori possono essere usati per sfruttare i punti deboli della strategia di sicurezza. Anche una formazione insufficiente a livello di sicurezza può provocare violazioni tramite diffusione o esposizione accidentale delle informazioni sull'account.
 
-When a user workstation is also used for administrative tasks, it can be compromised at many different points. Whether a user is browsing the web, using 3rd-party and open-source tools, or opening a harmful document file that contains a trojan.
+Quando la workstation utente viene usata anche per attività amministrative, è possibile che venga compromessa in molti punti diversi, ad esempio quando un utente esplora il Web, usa strumenti open source o di terze parti oppure apre un documento dannoso contenente un trojan.
 
-In general, most targeted attacks that result in data breaches can be traced to browser exploits, plug-ins (such as Flash, PDF, Java), and spear phishing (email) on desktop machines. These machines may have administrative-level or service-level permissions to access live servers or network devices for operations when used for development or management of other assets.
+In genere, la maggior parte degli attacchi specifici che generano violazioni dei dati può essere ricondotta a exploit del browser, plug-in (ad esempio Flash, PDF, Java) e spear phishing (posta elettronica) nei computer desktop. È possibile che questi computer abbiano autorizzazioni a livello amministrativo o di servizio per l'accesso a server attivi o a dispositivi di rete per operazioni in caso di uso per la distribuzione o la gestione di altre risorse.
 
-### <a name="operational-security-fundamentals"></a>Operational security fundamentals
+### Concetti fondamentali sulla sicurezza operativa
 
-For more secure management and operations, you can minimize a client’s attack surface by reducing the number of possible entry points. This can be done through security principles: “separation of duties” and “segregation of environments.”
+Per ottenere una gestione e operazioni più sicure, è possibile ridurre al minimo la superficie di attacco di un client riducendo il numero di punti di ingresso possibili. Per ottenere questo risultato, è possibile usare le entità di sicurezza di tipo "separazione di compiti" e "separazione di ambienti".
 
-Isolate sensitive functions from one another to decrease the likelihood that a mistake at one level will lead to a breach in another. Examples:
+L'isolamento delle diverse funzioni riservate consente di ridurre la probabilità che un errore a un livello provochi una violazione in un altro. Esempi:
 
-- Administrative tasks should not be combined with activities that might lead to a compromise (for example, malware in an administrator’s email that then infects an infrastructure server).
-- A workstation used for high-sensitivity operations should not be the same system used for high-risk purposes such as browsing the Internet.
+- Le attività amministrative non devono quindi essere combinate con attività che potrebbero generare compromissioni, ad esempio malware in un messaggio di posta elettronica dell'amministratore che infetta un server di infrastruttura.
+- Una workstation usata per operazioni con riservatezza elevata non deve essere lo stesso sistema usato per finalità ad alto rischio, ad esempio l'esplorazione su Internet.
 
-Reduce the system’s attack surface by removing unnecessary software. Example:
+Ridurre la superficie di attacco di un sistema tramite la rimozione di software non necessario. Esempio:
 
-- Standard administrative, support, or development workstation should not require installation of an email client or other productivity applications if the device’s main purpose is to manage cloud services.
+- Una workstation standard per l'amministrazione, il supporto o la distribuzione non necessita dell'installazione di un client di posta elettronica o di altre applicazioni per la produttività se la finalità principale del dispositivo consiste nella gestione dei servizi cloud.
 
-Client systems that have administrator access to infrastructure components should be subjected to the strictest possible policy to reduce security risks. Examples:
+Ai sistemi client con accesso di amministratore ai componenti dell'infrastruttura è consigliabile applicare i criteri più rigorosi possibile per ridurre i rischi alla sicurezza. Esempi:
 
-- Security policies can include Group Policy settings that deny open Internet access from the device and use of a restrictive firewall configuration.
-- Use Internet Protocol security (IPsec) VPNs if direct access is needed.
-- Configure separate management and development Active Directory domains.
-- Isolate and filter management workstation network traffic.
-- Use antimalware software.
-- Implement multi-factor authentication to reduce the risk of stolen credentials.
+- I criteri di sicurezza possono includere le impostazioni di Criteri di gruppo che negano l'accesso aperto a Internet dal dispositivo e l'uso di una configurazione restrittiva per il firewall.
+- Usare VPN IPsec (Internet Protocol Security) se l'accesso diretto è necessario.
+- Configurare domini di Active Directory separati per la gestione e lo sviluppo.
+- Isolare e filtrare il traffico di rete della workstation di gestione.
+- Usare software antimalware.
+- Implementare l'autenticazione a più fattori per ridurre il rischio di furto delle credenziali.
 
-Consolidating access resources and eliminating unmanaged endpoints also simplifies management tasks.
+Il consolidamento delle risorse di accesso e l'eliminazione degli endpoint non gestiti consentono anche di semplificare le attività di gestione.
 
 
-### <a name="providing-security-for-azure-remote-management"></a>Providing security for Azure remote management
+### Sicurezza per la gestione remota di Azure
 
-Azure provides security mechanisms to aid administrators who manage Azure cloud services and virtual machines. These mechanisms include:
+Azure offre meccanismi di sicurezza utili per gli amministratori che gestiscono servizi cloud e macchine virtuali di Azure, ad esempio:
 
-- Authentication and [role-based access control](../active-directory/role-based-access-control-configure.md).
-- Monitoring, logging, and auditing.
-- Certificates and encrypted communications.
-- A web management portal.
-- Network packet filtering.
+- Autenticazione e [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md).
+- Monitoraggio, registrazione e controllo.
+- Certificati e comunicazioni crittografate.
+- Portale di gestione Web.
+- Filtri dei pacchetti di rete.
 
-In combination with client-side security configuration and datacenter deployment of a management gateway, it is possible to restrict and monitor administrator access to cloud applications and data.
+Oltre alla configurazione della sicurezza lato client e alla distribuzione a data center di un gateway di gestione, è possibile limitare e monitorare l'accesso amministrativo alle applicazioni e ai dati sul cloud.
 
-> [AZURE.NOTE] Certain recommendations in this article may result in increased data, network, or compute resource usage, and may increase your license or subscription costs.
+> [AZURE.NOTE] Alcune indicazioni incluse in questo articolo potrebbero comportare un maggiore utilizzo delle risorse di dati, rete o calcolo e un aumento dei costi di licenza o di sottoscrizione.
 
-## <a name="hardened-workstation-for-management"></a>Hardened workstation for management
+## Workstation con protezione avanzata per la gestione
 
-The goal of hardening a workstation is to eliminate all but the most critical functions required for it to operate, making the potential attack surface as small as possible. System hardening includes minimizing the number of installed services and applications, limiting application execution, restricting network access to only what is needed, and always keeping the system up to date. Furthermore, using a hardened workstation for management segregates administrative tools and activities from other end-user tasks.
+L'obiettivo dell'applicazione della protezione avanzata a una workstation consiste nell'eliminare tutte le funzioni, tranne quelle assolutamente essenziali, necessarie per il funzionamento, riducendo al massimo la potenziale superficie di attacco. L'applicazione della protezione avanzata al sistema include la riduzione al minimo del numero di applicazioni e servizi installati, la limitazione dell'esecuzione delle applicazioni, la limitazione dell'accesso di rete solo agli elementi necessari e l'aggiornamento continuo del sistema. L'uso di una workstation con protezione avanzata per la gestione consente anche di separare gli strumenti amministrativi da altre attività dell'utente finale.
 
-Within an on-premises enterprise environment, you can limit the attack surface of your physical infrastructure through dedicated management networks, server rooms that have card access, and workstations that run on protected areas of the network. In a cloud or hybrid IT model, being diligent about secure management services can be more complex because of the lack of physical access to IT resources. Implementing protection solutions requires careful software configuration, security-focused processes, and comprehensive policies.
+In un ambiente aziendale locale è possibile limitare la superficie di attacco dell'infrastruttura fisica tramite reti di gestione dedicate, locali server con accesso controllato da schede e workstation in esecuzione in aree protette della rete. In un modello IT cloud o ibrido l'uso appropriato dei servizi di gestione sicuri può risultare più complesso a causa dell'assenza di accesso fisico alle risorse IT. L'implementazione delle soluzioni di protezione richiede una configurazione attenta del software, processi incentrati sulla sicurezza e criteri completi.
 
-Using a least-privilege minimized software footprint in a locked-down workstation for cloud management—as well as for application development—can reduce the risk of security incidents by standardizing the remote management and development environments. A hardened workstation configuration can help prevent the compromise of accounts that are used to manage critical cloud resources by closing many common avenues used by malware and exploits. Specifically, you can use [Windows AppLocker](http://technet.microsoft.com/library/dd759117.aspx) and Hyper-V technology to control and isolate client system behavior and mitigate threats, including email or Internet browsing.
+L'uso di un footprint software ridotto al minimo con privilegi minimi in una workstation bloccata per la gestione cloud, oltre che per lo sviluppo di applicazioni, può ridurre il rischio di incidenti relativi alla sicurezza mediante la standardizzazione degli ambienti di gestione remota e di sviluppo. Una configurazione della workstation con protezione avanzata può consentire di evitare la compromissione degli account usati per gestire risorse cloud essenziali, chiudendo molti percorsi comuni usati da malware ed exploit. In particolare, è possibile usare [Windows AppLocker](http://technet.microsoft.com/library/dd759117.aspx) e la tecnologia Hyper-V per controllare e isolare il comportamento del sistema client e ridurre al minimo le minacce, incluse quelle relative a posta elettronica o esplorazione su Internet.
 
-On a hardened workstation, the administrator runs a standard user account (which blocks administrative-level execution) and associated applications are controlled by an allow list. The basic elements of a hardened workstation are as follows:
+In una workstation con protezione avanzata l'amministratore esegue un account utente standard, che blocca l'esecuzione a livello amministrativo, e le applicazioni associate sono controllate da un elenco di applicazioni consentite. Ecco gli elementi di base di una workstation con protezione avanzata:
 
-- Active scanning and patching. Deploy antimalware software, perform regular vulnerability scans, and update all workstations by using the latest security update in a timely fashion.
-- Limited functionality. Uninstall any applications that are not needed and disable unnecessary (startup) services.
-- Network hardening. Use Windows Firewall rules to allow only valid IP addresses, ports, and URLs related to Azure management. Ensure that inbound remote connections to the workstation are also blocked.
-- Execution restriction. Allow only a set of predefined executable files that are needed for management to run (referred to as “default-deny”). By default, users should be denied permission to run any program unless it is explicitly defined in the allow list.
-- Least privilege. Management workstation users should not have any administrative privileges on the local machine itself. This way, they cannot change the system configuration or the system files, either intentionally or unintentionally.
+- Analisi attiva e applicazione di patch. È possibile distribuire software antimalware, eseguire analisi di vulnerabilità regolari e aggiornare tutte le workstation usando gli aggiornamenti più recenti per la sicurezza in modo tempestivo.
+- Funzionalità limitata. È possibile disinstallare le applicazioni non necessarie e disabilitare i servizi non necessari (avvio).
+- Protezione avanzata della rete. È possibile usare le regole di Windows Firewall per consentire solo gli indirizzi IP, le porte e gli URL validi correlati alla gestione di Azure. Assicurarsi che le connessioni remote in arrivo alla workstation siano bloccate.
+- Restrizione dell'esecuzione. È possibile consentire solo un set di file eseguibili predefiniti necessari per l'esecuzione della gestione. Questo approccio è definito "rifiuto predefinito". Per impostazione predefinita, gli utenti non devono essere autorizzati a eseguire alcun programma, a meno che non sia definito esplicitamente nell'elenco Consenti.
+- Privilegi minimi. Gli utenti delle workstation di gestione non devono avere privilegi amministrativi nel computer locale stesso. In questo modo non potranno modificare la configurazione del sistema o i file di sistema, in modo intenzionale o accidentale.
 
-You can enforce all of this by using [Group Policy Objects](https://www.microsoft.com/download/details.aspx?id=2612) (GPOs) in Active Directory Domain Services (AD DS) and applying them through your (local) management domain to all management accounts.
+È possibile applicare queste restrizioni usando [Oggetti Criteri di gruppo](https://www.microsoft.com/download/details.aspx?id=2612) in Servizi di dominio Active Directory e applicandoli nel dominio di gestione (locale) a tutti gli account di gestione.
 
-### <a name="managing-services,-applications,-and-data"></a>Managing services, applications, and data
+### Gestione di servizi, applicazioni e dati
 
-Azure cloud services configuration is performed through either the Azure portal or SMAPI, via the Windows PowerShell command-line interface or a custom-built application that takes advantage of these RESTful interfaces. Services using these mechanisms include Azure Active Directory (Azure AD), Azure Storage, Azure Websites, and Azure Virtual Network, and others.
+La configurazione dei servizi cloud di Azure viene eseguita mediante il portale di Azure o SMAPI, tramite l'interfaccia da riga di comando di Windows PowerShell o un'applicazione personalizzata che sfrutta queste interfacce RESTful. I servizi che usano questi meccanismi includono Azure Active Directory (Azure AD), Archiviazione di Azure, Siti Web di Azure, Rete virtuale di Azure e altri ancora.
 
-Virtual Machine–deployed applications provide their own client tools and interfaces as needed, such as the Microsoft Management Console (MMC), an enterprise management console (such as Microsoft System Center or Windows Intune), or another management application—Microsoft SQL Server Management Studio, for example. These tools typically reside in an enterprise environment or client network. They may depend on specific network protocols, such as Remote Desktop Protocol (RDP), that require direct, stateful connections. Some may have web-enabled interfaces that should not be openly published or accessible via the Internet.
+Le applicazioni distribuite in macchine virtuali forniscono strumenti e interfacce client specifiche in base alla necessità, ad esempio Microsoft Management Console (MMC), una console di gestione aziendale, ad esempio Microsoft System Center o Windows Intune, oppure un'altra applicazione di gestione, ad esempio Microsoft SQL Server Management Studio. Questi strumenti si trovano in genere in un ambiente aziendale o in una rete client. Possono dipendere da protocolli di rete specifici, ad esempio Remote Desktop Protocol (RDP), che richiedono connessioni dirette e con stato. Alcuni strumenti possono avere interfacce abilitate per il Web, che non devono essere pubblicate apertamente o accessibili tramite Internet.
 
-You can restrict access to infrastructure and platform services management in Azure by using [multi-factor authentication](../multi-factor-authentication/multi-factor-authentication.md), [X.509 management certificates](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/), and firewall rules. The Azure portal and SMAPI require Transport Layer Security (TLS). However, services and applications that you deploy into Azure require you to take protection measures that are appropriate based on your application. These mechanisms can frequently be enabled more easily through a standardized hardened workstation configuration.
+È possibile limitare l'accesso alla gestione dell'infrastruttura e dei servizi della piattaforma in Azure usando l'[autenticazione a più fattori](../multi-factor-authentication/multi-factor-authentication.md), i [certificati di gestione X.509](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) e le regole del firewall. Il portale di Azure e SMAPI richiedono il protocollo TLS (Transport Layer Security). I servizi e le applicazioni distribuiti in Azure richiedono tuttavia misure di protezione appropriate in base all'applicazione. Questi meccanismi possono essere spesso abilitati con maggiore facilità tramite una configurazione di workstation con protezione avanzata standardizzata.
 
-### <a name="management-gateway"></a>Management gateway
+### Gateway di gestione
 
-To centralize all administrative access and simplify monitoring and logging, you can deploy a dedicated [Remote Desktop Gateway](https://technet.microsoft.com/library/dd560672) (RD Gateway) server in your on-premises network, connected to your Azure environment.
+Per centralizzare tutto l'accesso amministrativo e semplificare il monitoraggio e la registrazione, è possibile distribuire un server [Gateway Desktop remoto ](https://technet.microsoft.com/library/dd560672) dedicato nella rete locale, connesso all'ambiente Azure.
 
-A Remote Desktop Gateway is a policy-based RDP proxy service that enforces security requirements. Implementing RD Gateway together with Windows Server Network Access Protection (NAP) helps ensure that only clients that meet specific security health criteria established by Active Directory Domain Services (AD DS) Group Policy objects (GPOs) can connect. In addition:
+Un Gateway Desktop remoto è un servizio proxy RDP basato su criteri che applica i requisiti relativi alla sicurezza. L'implementazione di un Gateway Desktop remoto insieme a Protezione accesso alla rete di Windows Server consentono di assicurare che solo i client che soddisfano criteri di integrità specifici definiti dagli oggetti Criteri di gruppo di Servizi di dominio Active Directory riescano a connettersi. Eseguire anche queste operazioni:
 
-- Provision an [Azure management certificate](http://msdn.microsoft.com/library/azure/gg551722.aspx) on the RD Gateway so that it is the only host allowed to access the Azure management portal.
-- Join the RD Gateway to the same [management domain](http://technet.microsoft.com/library/bb727085.aspx) as the administrator workstations. This is necessary when you are using a site-to-site IPsec VPN or ExpressRoute within a domain that has a one-way trust to Azure AD, or if you are federating credentials between your on-premises AD DS instance and Azure AD.
-- Configure a [client connection authorization policy](http://technet.microsoft.com/library/cc753324.aspx) to let the RD Gateway verify that the client machine name is valid (domain joined) and allowed to access the Azure management portal.
-- Use IPsec for [Azure VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) to further protect management traffic from eavesdropping and token theft, or consider an isolated Internet link via [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
-- Enable multi-factor authentication (via [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)) or smart-card authentication for administrators who log on through RD Gateway.
-- Configure source [IP address restrictions](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) or [Network Security Groups](../virtual-network/virtual-networks-nsg.md) in Azure to minimize the number of permitted management endpoints.
+- Effettuare il provisioning di un [certificato di gestione di Azure](http://msdn.microsoft.com/library/azure/gg551722.aspx) sul Gateway Desktop remoto in modo che sia l'unico host autorizzato ad accedere al portale di gestione di Azure.
+- Aggiungere il Gateway Desktop remoto allo stesso [dominio di gestione](http://technet.microsoft.com/library/bb727085.aspx) delle workstation dell'amministratore. Questa operazione è necessaria quando si usa una VPN IPsec da sito a sito o ExpressRoute in un dominio con un trust unidirezionale verso Azure AD oppure se si esegue la federazione di credenziali tra l'istanza locale di Servizi di dominio Active Directory e Azure AD.
+- Configurare un [criterio di autorizzazione di connessione client](http://technet.microsoft.com/library/cc753324.aspx) per consentire al Gateway Desktop remoto di verificare che il nome del computer client sia valido (aggiunto al dominio) e che sia autorizzato ad accedere al portale di gestione di Azure.
+- Usare IPsec per la [VPN di Azure](https://azure.microsoft.com/documentation/services/vpn-gateway/) per una maggiore protezione del traffico di gestione da intercettazioni e furto di token oppure prendere in considerazione un collegamento Internet isolato tramite [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
+- Abilitare l'autenticazione a più fattori, tramite [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md), oppure l'autenticazione tramite smart card per gli amministratori che accedono tramite il Gateway Desktop remoto.
+- Configurare [restrizioni per l'indirizzo IP](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) di origine o [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) in Azure per ridurre al minimo il numero di endpoint di gestione consentiti.
 
-## <a name="security-guidelines"></a>Security guidelines
+## Linee guida sulla sicurezza
 
-In general, helping to secure administrator workstations for use with the cloud is very similar to the practices used for any workstation on-premises—for example, minimized build and restrictive permissions. Some unique aspects of cloud management are more akin to remote or out-of-band enterprise management. These include the use and auditing of credentials, security-enhanced remote access, and threat detection and response.
+In genere, la configurazione della sicurezza delle workstation dell'amministratore per l'uso con il cloud è molto simile alle procedure usate per qualsiasi workstation locale, ad esempio compilazione ridotta al minimo e autorizzazioni restrittive. Alcuni aspetti unici della gestione cloud sono più simili alla gestione remota o alla gestione aziendale fuori banda, ad esempio l'uso e il controllo delle credenziali, l'accesso remoto con sicurezza avanzata e il rilevamento e la risposta alle minacce.
 
-### <a name="authentication"></a>Authentication
+### Autenticazione
 
-You can use Azure logon restrictions to constrain source IP addresses for accessing administrative tools and audit access requests. To help Azure identify management clients (workstations and/or applications), you can configure both SMAPI (via customer-developed tools such as Windows PowerShell cmdlets) and the Azure management portal to require client-side management certificates to be installed, in addition to SSL certificates. We also recommend that administrator access require multi-factor authentication.
+È possibile usare le restrizioni di accesso di Azure per impedire agli indirizzi IP di origine di accedere agli strumenti amministrativi e controllare le richieste di accesso. Per semplificare l'identificazione da parte di Azure dei client di gestione (workstation e/o applicazioni), è possibile configurare SMAPI, tramite strumenti sviluppati dai clienti come i cmdlet di Windows PowerShell, e il portale di gestione di Azure per richiedere l'installazione di certificati di gestione lato client, oltre ai certificati SSL. È anche consigliabile che l'accesso amministratore richieda l'autenticazione a più fattori.
 
-Some applications or services that you deploy into Azure may have their own authentication mechanisms for both end-user and administrator access, whereas others take full advantage of Azure AD. Depending on whether you are federating credentials via Active Directory Federation Services (AD FS), using directory synchronization or maintaining user accounts solely in the cloud, using [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (part of Azure AD Premium) helps you manage identity lifecycles between the resources.
+Alcune applicazioni o alcuni servizi distribuiti in Azure possono avere meccanismi di autenticazione specifici per l'accesso degli utenti finali e degli amministratori, mentre altri sfruttano tutte le funzionalità di Azure AD. Indipendentemente dalla federazione di credenziali tramite Active Directory Federation Services (AD FS), dall'uso della sincronizzazione delle directory o dalla gestione degli account utente esclusivamente sul cloud, l'uso di [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx), incluso in Azure AD Premium, semplifica la gestione dei cicli di vita delle identità tra le risorse.
 
-### <a name="connectivity"></a>Connectivity
+### Connettività
 
-Several mechanisms are available to help secure client connections to your Azure virtual networks. Two of these mechanisms, [site-to-site VPN](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) and [point-to-site VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md) (P2S), enable the use of industry standard IPsec (S2S) or the [Secure Socket Tunneling Protocol](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (SSTP) (P2S) for encryption and tunneling. When Azure is connecting to public-facing Azure services management such as the Azure management portal, Azure requires Hypertext Transfer Protocol Secure (HTTPS).
+Sono disponibili alcuni meccanismi per semplificare la protezione delle connessioni client nelle reti virtuali di Azure. Due di questi meccanismi, [VPN da sito a sito](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) e [VPN da punto a sito](../vpn-gateway/vpn-gateway-point-to-site-create.md) (P2S), consentono l'uso del protocollo IPsec standard di settore (S2S) o del protocollo [SSTP (Secure Socket Tunneling Protocol)](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (P2S) per la crittografia e il tunneling. Quando si connette alla gestione di servizi di Azure per il pubblico, ad esempio il portale di gestione di Azure, Azure richiede il protocollo HTTPS (Hypertext Transfer Protocol Secure).
 
-A stand-alone hardened workstation that does not connect to Azure through an RD Gateway should use the SSTP-based point-to-site VPN to create the initial connection to the Azure Virtual Network, and then establish RDP connection to individual virtual machines from with the VPN tunnel.
+Una workstation autonoma con protezione avanzata che non si connette ad Azure tramite un Gateway Desktop remoto deve usare la VPN da punto a sito basata su SSTP per creare la connessione iniziale alla rete virtuale di Azure e quindi deve stabilire una connessione RDP alle singole macchine virtuali dal tunnel VPN.
 
-### <a name="management-auditing-vs.-policy-enforcement"></a>Management auditing vs. policy enforcement
+### Confronto tra il controllo della gestione e l'applicazione dei criteri
 
-Typically, there are two approaches for helping to secure management processes: auditing and policy enforcement. Doing both will provide comprehensive controls, but may not be possible in all situations. In addition, each approach has different levels of risk, cost, and effort associated with managing security, particularly as it relates to the level of trust placed in both individuals and system architectures.
+In genere sono disponibili due approcci per semplificare la protezione dei processi di gestione, ovvero il controllo e l'applicazione dei criteri. L'uso di entrambi gli approcci offrirà controlli completi, ma potrebbe non essere consentito in tutte le situazioni. Ogni approccio presenta inoltre livelli di rischio, costi e impegno diversi associati alla gestione della sicurezza, in particolare per quanto riguarda il livello di attendibilità attribuito ai singoli utenti e alle architetture di sistema.
 
-Monitoring, logging, and auditing provide a basis for tracking and understanding administrative activities, but it may not always be feasible to audit all actions in complete detail due to the amount of data generated. Auditing the effectiveness of the management policies is a best practice, however.
+Il monitoraggio, la registrazione e il controllo forniscono una base per la verifica e la comprensione delle attività amministrative, ma è possibile che non si riesca a controllare tutte le azioni in modo dettagliato a causa della quantità di dati generata. Il controllo dell'efficacia dei criteri di gestione è tuttavia una procedura consigliata.
 
-Policy enforcement that includes strict access controls puts programmatic mechanisms in place that can govern administrator actions, and it helps ensure that all possible protection measures are being used. Logging provides proof of enforcement, in addition to a record of who did what, from where, and when. Logging also enables you to audit and crosscheck information about how administrators follow policies, and it provides evidence of activities
+L'applicazione di criteri che include controlli di accesso rigorosi implementa meccanismi a livello di codice che consentono di regolamentare le azioni amministrative e di assicurare che vengano usate tutte le misure di protezione possibili. La registrazione fornisce la dimostrazione dell'applicazione, oltre a un record di quali operazioni sono state eseguite, da chi, da dove e quando. La registrazione consente anche di controllare e verificare le informazioni sul rispetto dei criteri da parte degli amministratori e fornisce la dimostrazione delle attività.
 
-## <a name="client-configuration"></a>Client configuration
+## Configurazione del client
 
-We recommend three primary configurations for a hardened workstation. The biggest differentiators between them are cost, usability, and accessibility, while maintaining a similar security profile across all options. The following table provides a short analysis of the benefits and risks to each. (Note that “corporate PC” refers to a standard desktop PC configuration that would be deployed for all domain users, regardless of roles.)
+Sono consigliabili tre configurazioni primarie per una workstation con protezione avanzata. Le tre configurazioni presentano differenze a livello di costo, usabilità e accessibilità, pur mantenendo un profilo di sicurezza simile in tutte le opzioni. La tabella seguente fornisce una breve analisi dei vantaggi e dei rischi di ogni configurazione. Si noti che con "computer aziendale" si indica una configurazione di computer desktop standard da distribuire a tutti gli utenti del dominio, indipendentemente dai ruoli.
 
-| Configuration | Benefits | Cons |
+| Configurazione | Vantaggi | Svantaggi |
 | ----- | ----- | ----- |
-| Stand-alone hardened workstation | Tightly controlled workstation | higher cost for dedicated desktops
-| | Reduced risk of application exploits | Increased management effort |
-| | Clear separation of duties | |
-| Corporate PC as virtual machine | Reduced hardware costs | |
-| | Segregation of role and applications | |
-| Windows to go with BitLocker drive encryption | Compatibility with most PCs | Asset tracking |
-| | Cost-effectiveness and portability | |
-| | Isolated management environment | |
+| Workstation autonoma con protezione avanzata | Workstation con controllo rigoroso | Costo più elevato per i desktop dedicati
+| | Rischio ridotto di exploit dell'applicazione | Maggiore impegno di gestione |
+| | Separazione netta dei compiti | |
+| Computer aziendale come macchina virtuale | Costi hardware ridotti | |
+| | Separazione di ruolo e applicazioni | |
+| Windows da usare con la crittografia di unità BitLocker | Compatibilità con la maggior parte dei computer | Verifica delle risorse |
+| | Convenienza economica e portabilità | |
+| | Ambiente di gestione isolato | |
 
-It is important that the hardened workstation is the host and not the guest, with nothing between the host operating system and the hardware. Following the “clean source principle” (also known as “secure origin”) means that the host should be the most hardened. Otherwise, the hardened workstation (guest) is subject to attacks on the system on which it is hosted.
+È importante che la workstation con protezione avanzata sia l'host e non il guest e che non siano presenti elementi tra il sistema operativo host e l'hardware. Il rispetto del "principio dell'origine pulita", definito anche "origine sicura", comporta l'applicazione della protezione più avanzata sull'host. In caso contrario, la workstation con protezione avanzata (guest) è soggetta ad attacchi sul sistema in cui è ospitata.
 
-You can further segregate administrative functions through dedicated system images for each hardened workstation that have only the tools and permissions needed for managing select Azure and cloud applications, with specific local AD DS GPOs for the necessary tasks.
+È possibile separare ulteriormente le funzioni amministrative tramite immagini di sistema dedicate per ogni workstation con protezione avanzata che ha solo gli strumenti e le autorizzazioni necessarie per la gestione di applicazioni Azure e cloud selezionate, con oggetti Criteri di gruppo locali specifici di Servizi di dominio Active Directory per le attività necessarie.
 
-For IT environments that have no on-premises infrastructure (for example, no access to a local AD DS instance for GPOs because all servers are in the cloud), a service such as [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx) can simplify deploying and maintaining workstation configurations.
+Per gli ambienti IT privi di infrastruttura locale, ad esempio senza accesso all'istanza locale di Servizi di dominio Active Directory per gli oggetti Criteri di gruppo perché tutti i server sono sul cloud, un servizio come [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx) può semplificare la distribuzione e la gestione delle configurazioni delle workstation.
 
-### <a name="stand-alone-hardened-workstation-for-management"></a>Stand-alone hardened workstation for management
+### Workstation autonoma con protezione avanzata per la gestione
 
-With a stand-alone hardened workstation, administrators have a PC or laptop that they use for administrative tasks and another, separate PC or laptop for non-administrative tasks. A workstation dedicated to managing your Azure services does not need other applications installed. Additionally, using workstations that support a [Trusted Platform Module](https://technet.microsoft.com/library/cc766159) (TPM) or similar hardware-level cryptography technology aids in device authentication and prevention of certain attacks. TPM can also support full volume protection of the system drive by using [BitLocker Drive Encryption](https://technet.microsoft.com/library/cc732774.aspx).
+Con una workstation autonoma con protezione avanzata gli amministratori hanno un computer o un computer portatile che può essere usato per attività amministrative e un altro computer o computer portatile separato per le attività non amministrative. Una workstation dedicata alla gestione dei servizi di Azure non necessita dell'installazione di altre applicazioni. L'uso di workstation che supportano un [Trusted Platform Module](https://technet.microsoft.com/library/cc766159) (TPM) o una tecnologia analoga per la crittografia a livello hardware semplifica l'autenticazione dei dispositivi e contribuisce a evitare determinati attacchi. Il modulo TPM può supportare anche la protezione dell'intero volume dell'unità di sistema mediante la [Crittografia unità BitLocker](https://technet.microsoft.com/library/cc732774.aspx).
 
-In the stand-alone hardened workstation scenario (shown below), the local instance of Windows Firewall (or a non-Microsoft client firewall) is configured to block inbound connections, such as RDP. The administrator can log on to the hardened workstation and start an RDP session that connects to Azure after establishing a VPN connect with an Azure Virtual Network, but cannot log on to a corporate PC and use RDP to connect to the hardened workstation itself.
+Nello scenario con workstation autonoma con protezione avanzata, illustrato di seguito, l'istanza locale di Windows Firewall o di un firewall client non Microsoft viene configurata in modo da bloccare le connessioni in arrivo, ad esempio RDP. L'amministratore può accedere alla workstation con protezione avanzata e avviare una sessione RDP che si connette ad Azure dopo avere stabilito una connessione VPN con la rete virtuale di Azure, ma non può accedere a un computer aziendale e usare RDP per connettersi alla workstation con protezione avanzata stessa.
 
 ![][2]
 
-### <a name="corporate-pc-as-virtual-machine"></a>Corporate PC as virtual machine
+### Computer aziendale come macchina virtuale
 
-In cases where a separate stand-alone hardened workstation is cost prohibitive or inconvenient, the hardened workstation can host a virtual machine to perform non-administrative tasks.
+Nei casi in cui una workstation autonoma con protezione avanzata separata risulta troppo costosa o poco pratica, la workstation con protezione avanzata può ospitare una macchina virtuale per l'esecuzione di attività non amministrative.
 
 ![][3]
 
-To avoid several security risks that can arise from using one workstation for systems management and other daily work tasks, you can deploy a Windows Hyper-V virtual machine to the hardened workstation. This virtual machine can be used as the corporate PC. The corporate PC environment can remain isolated from the Host, which reduces its attack surface and removes the user’s daily activities (such as email) from coexisting with sensitive administrative tasks.
+Per evitare alcuni rischi relativi alla sicurezza che possono derivare dall'uso di una workstation per la gestione dei sistemi e per altre attività lavorative quotidiane, è possibile distribuire una macchina virtuale Hyper-V Windows per la workstation con protezione avanzata. Questa macchina virtuale può essere usata come computer aziendale. L'ambiente del computer aziendale può rimanere isolato dall'host, in modo da ridurne la superficie di attacco e rimuovere le attività quotidiane dell'utente, ad esempio la posta elettronica, per evitare la coesistenza con attività amministrative riservate.
 
-The corporate PC virtual machine runs in a protected space and provides user applications. The host remains a “clean source” and enforces strict network policies in the root operating system (for example, blocking RDP access from the virtual machine).
+La macchina virtuale del computer aziendale è in esecuzione in uno spazio protetto e fornisce applicazioni utente. L'host rimane una "origine pulita" e applica criteri di rete rigorosi nel sistema operativo radice, ad esempio il blocco dell'accesso RDP dalla macchina virtuale.
 
-### <a name="windows-to-go"></a>Windows To Go
+### Windows To Go
 
-Another alternative to requiring a stand-alone hardened workstation is to use a [Windows To Go](https://technet.microsoft.com/library/hh831833.aspx) drive, a feature that supports a client-side USB-boot capability. Windows To Go enables users to boot a compatible PC to an isolated system image running from an encrypted USB flash drive. It provides additional controls for remote-administration endpoints because the image can be fully managed by a corporate IT group, with strict security policies, a minimal OS build, and TPM support.
+Un'alternativa all'uso di una workstation autonoma con protezione avanzata è costituita dall'uso di un'unità [Windows To Go](https://technet.microsoft.com/library/hh831833.aspx), una funzionalità che supporta l'avvio USB lato client. Windows To Go consente agli utenti di avviare un computer compatibile in un'immagine di sistema isolata in esecuzione da un'unità flash USB crittografata. Fornisce controlli aggiuntivi per endpoint di amministrazione remota, perché l'immagine può essere completamente gestita da un gruppo IT aziendale, con criteri di sicurezza rigorosi, una build minima del sistema operativo e supporto per TPM.
 
-In the figure below, the portable image is a domain-joined system that is preconfigured to connect only to Azure, requires multi-factor authentication, and blocks all non-management traffic. If a user boots the same PC to the standard corporate image and tries accessing RD Gateway for Azure management tools, the session will be blocked. Windows To Go becomes the root-level operating system, and no additional layers are required (host operating system, hypervisor, virtual machine) that may be more vulnerable to outside attacks.
+Nella figura seguente l'immagine portatile è un sistema aggiunto a un dominio preconfigurato per connettersi solo ad Azure, che richiede l'autenticazione a più fattori e blocca tutto il traffico non di gestione. Se un utente riavvia lo stesso computer nell'immagine aziendale standard e prova ad accedere al Gateway Desktop remoto per gli strumenti di gestione di Azure, la sessione verrà bloccata. Windows To Go diventa il sistema operativo a livello di radice e non sono necessari altri livelli, ovvero sistema operativo, hypervisor, macchina virtuale, che potrebbero essere più vulnerabili agli attacchi esterni.
 
 ![][4]
 
-It is important to note that USB flash drives are more easily lost than an average desktop PC. Use of BitLocker to encrypt the entire volume, together with a strong password, will make it less likely that an attacker can use the drive image for harmful purposes. Additionally, if the USB flash drive is lost, revoking and [issuing a new management certificate](https://technet.microsoft.com/library/hh831574.aspx) along with a quick password reset can reduce exposure. Administrative audit logs reside within Azure, not on the client, further reducing potential data loss.
+È importante notare che le unità flash USB possono essere perse più facilmente rispetto a un computer desktop medio. L'uso di BitLocker per crittografare l'intero volume, insieme a una password complessa, ridurrà la probabilità dell'uso dell'immagine dell'unità da parte di un utente malintenzionato per finalità dannose. Se inoltre si perde l'unità flash USB, la revoca e il [rilascio di un nuovo certificato di gestione](https://technet.microsoft.com/library/hh831574.aspx) insieme a una rapida reimpostazione della password possono ridurre l'esposizione. I log di controllo amministrativi si trovano in Azure, non sul client, per ridurre ulteriormente la perdita potenziale di dati.
 
-## <a name="best-practices"></a>Best practices
+## Procedure consigliate
 
-Consider the following additional guidelines when you are managing applications and data in Azure.
+Prendere in considerazione le linee guida aggiuntive seguenti quando si gestiscono le applicazioni e i dati in Azure.
 
-### <a name="dos-and-don'ts"></a>Dos and don'ts
+### Procedure rischiose e procedure consigliate
 
-Don't assume that because a workstation has been locked down that other common security requirements do not need to be met. The potential risk is higher because of elevated access levels that administrator accounts generally possess. Examples of risks and their alternate safe practices are shown in the table below.
+Occorre non presupporre che il blocco di una workstation renda superflui gli altri requisiti comuni per la sicurezza. Il rischio potenziale risulta maggiore a causa dei livelli di accesso con privilegi elevati associati in genere agli account di amministratore. La tabella seguente illustra esempi di rischi e le procedure consigliate alternative.
 
-| Don't | Do |
+| Procedura rischiosa | Procedura consigliata |
 | ----- | ----- |
-| Don't email credentials for administrator access or other secrets (for example, SSL or management certificates) | Maintain confidentiality by delivering account names and passwords by voice (but not storing them in voice mail), perform a remote installation of client/server certificates (via an encrypted session), download from a protected network share, or distribute by hand via removable media. |
-| | Proactively manage your management certificate life cycles. |
-| Don't store account passwords unencrypted or un-hashed in application storage (such as in spreadsheets, SharePoint sites, or file shares). | Establish security management principles and system hardening policies, and apply them to your development environment. |
-| | Use [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751) certificate pinning rules to ensure proper access to Azure SSL/TLS sites. |
-| Don't share accounts and passwords between administrators, or reuse passwords across multiple user accounts or services, particularly those for social media or other nonadministrative activities. | Create a dedicated Microsoft account to manage your Azure subscription—an account that is not used for personal email. |
-| Don't email configuration files. | Configuration files and profiles should be installed from a trusted source (for example, an encrypted USB flash drive), not from a mechanism that can be easily compromised, such as email. |
-| Don't use weak or simple logon passwords. | Enforce strong password policies, expiration cycles (changeon-first-use), console timeouts, and automatic account lockouts. Use a client password management system with multi-factor authentication for password vault access. |
-| Don't expose management ports to the Internet. | Lock down Azure ports and IP addresses to restrict management access. For more information, see the [Azure Network Security] (http://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx) white paper. |
-| | Use firewalls, VPNs, and NAP for all management connections. |
+| Non inviare tramite posta elettronica le credenziali per l'accesso amministratore o altri segreti, ad esempio SSL o certificati di gestione. | Mantenere la riservatezza comunicando a voce i nomi e le password degli account, ma non memorizzandoli nella posta vocale, eseguire un'installazione remota di certificati client/server (tramite una sessione crittografata), eseguire il download da una condivisione di rete crittografata oppure eseguire la distribuzione manuale tramite un supporto rimovibile. |
+| | Gestire in modo proattivo i cicli di vita del certificati di gestione. |
+| Non memorizzare le password dell'account senza crittografarle o senza hash nella risorsa di archiviazione dell'applicazione, ad esempio in fogli di calcolo, siti di SharePoint o condivisioni di rete. | Definire principi di gestione della sicurezza e criteri di protezione avanzata del sistema e applicarli all'ambiente di sviluppo. |
+| | Usare le regole di associazione del certificato di [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751) per assicurare un accesso appropriato ai siti SSL/TLS di Azure. |
+| Non condividere account e password tra gli amministratori o riutilizzare le password tra più account utente o servizi, in particolare quelli destinati a social media o ad altre attività non amministrative. | Creare un account Microsoft dedicato per gestire la sottoscrizione di Azure, ovvero un account non usato per la posta elettronica personale. |
+| Non inviare file di configurazione tramite posta elettronica. | I file e i profili di configurazione devono essere installati da un'origine attendibile, ad esempio un'unità flash USB crittografata, non da un meccanismo che può essere compromesso facilmente, ad esempio la posta elettronica. |
+| Non usare password di accesso vulnerabili o semplici. | Applicare criteri per password complesse, cicli di scadenza (changeon-first-use), timeout della console e blocchi automatici degli account. Usare un sistema di gestione delle password client con autenticazione a più fattori per l'accesso all'insieme di credenziali delle password. |
+| Non esporre le porte di gestione su Internet. | Bloccare le porte e gli indirizzi IP di Azure per limitare l'accesso di gestione. Per altre informazioni, vedere il white paper sulla [sicurezza di rete in Azure](http://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx). |
+| | Usare firewall, VPN e Protezione accesso alla rete per tutte le connessioni di gestione. |
 
-## <a name="azure-operations"></a>Azure operations
+## Operazioni di Azure
 
-Within Microsoft’s operation of Azure, operations engineers and support personnel who access Azure’s production systems use [hardened workstation PCs with VMs](#stand-alone-hardened-workstation-for-management) provisioned on them for internal corporate network access and applications (such as e-mail, intranet, etc.). All management workstation computers have TPMs, the host boot drive is encrypted with BitLocker, and they are joined to a special organizational unit (OU) in Microsoft’s primary corporate domain.
+Nell'ambito della gestione Microsoft di Azure, i responsabili del funzionamento e il personale di supporto che accedono ai sistemi di produzione di Azure usano [computer workstation con protezione avanzata con VM](#stand-alone-hardened-workstation-for-management) sottoposti a provisioning per l'accesso di rete aziendale interno e per le applicazioni, ad esempio posta elettronica, Intranet e così via. Tutti i computer workstation di gestione hanno TPM, l'unità di avvio host è crittografata con BitLocker e i computer sono aggiunti a un'unità organizzativa speciale nel dominio aziendale primario di Microsoft.
 
-System hardening is enforced through Group Policy, with centralized software updating. For auditing and analysis, event logs (such as security and AppLocker) are collected from management workstations and saved to a central location.
+La protezione avanzata del sistema viene applicata tramite Criteri di gruppo, con aggiornamento software centralizzato. Per finalità di controllo e analisi, i log eventi, ad esempio relativi alla sicurezza e AppLocker, vengono raccolti dalle workstation di gestione e vengono salvati in una posizione centrale.
 
-In addition, dedicated jump-boxes on Microsoft’s network that require two-factor authentication are used to connect to Azure’s production network.
+Nella rete Microsoft vengono anche usati server jumpbox che richiedono l'autenticazione a due fattori per la connessione alla rete di produzione di Azure.
 
-## <a name="azure-security-checklist"></a>Azure security checklist
+## Elenco di controllo di sicurezza di Azure
 
-Minimizing the number of tasks that administrators can perform on a hardened workstation will help minimize the attack surface in your development and management environment. Use the following technologies to help protect your hardened workstation:
+La riduzione al minimo del numero di attività che gli amministratori possono eseguire in una workstation con protezione avanzata consente di ridurre al minimo la superficie di attacco nell'ambiente di sviluppo e di gestione. Usare le tecnologie seguenti per semplificare la protezione della workstation con protezione avanzata:
 
-- IE hardening. The Internet Explorer browser (or any web browser, for that matter) is a key entry point for harmful code due to its extensive interactions with external servers. Review your client policies and enforce running in protected mode, disabling add-ons, disabling file downloads, and using [Microsoft SmartScreen](https://technet.microsoft.com/library/jj618329.aspx) filtering. Ensure that security warnings are displayed. Take advantage of Internet zones and create a list of trusted sites for which you have configured reasonable hardening. Block all other sites and in-browser code, such as ActiveX and Java.
-- Standard user. Running as a standard user brings a number of benefits, the biggest of which is that stealing administrator credentials via malware becomes more difficult. In addition, a standard user account does not have elevated privileges on the root operating system, and many configuration options and APIs are locked out by default.
-- AppLocker. You can use [AppLocker](http://technet.microsoft.com/library/ee619725.aspx) to restrict the programs and scripts that users can run. You can run AppLocker in audit or enforcement mode. By default, AppLocker has an allow rule that enables users who have an admin token to run all code on the client. This rule exists to prevent administrators from locking themselves out, and it applies only to elevated tokens. See also Code Integrity as part of Windows Server [core security](http://technet.microsoft.com/library/dd348705.aspx).
-- Code signing. Code signing all tools and scripts used by administrators provides a manageable mechanism for deploying application lockdown policies. Hashes do not scale with rapid changes to the code, and file paths do not provide a high level of security. You should combine AppLocker rules with a PowerShell [execution policy](http://technet.microsoft.com/library/ee176961.aspx) that only allows specific signed code and scripts to be [executed](http://technet.microsoft.com/library/hh849812.aspx).
-- Group Policy. Create a global administrative policy that is applied to any domain workstation that is used for management (and block access from all others), as well as to user accounts authenticated on those workstations.
-- Security-enhanced provisioning. Safeguard your baseline hardened workstation image to help protect against tampering. Use security measures like encryption and isolation to store images, virtual machines, and scripts, and restrict access (perhaps use an auditable check-in/check-out process).
-- Patching. Maintain a consistent build (or have separate images for development, operations, and other administrative tasks), scan for changes and malware routinely, keep the build up to date, and only activate machines when they are needed.
-- Encryption. Make sure that management workstations have a TPM to more securely enable [Encrypting File System](https://technet.microsoft.com/library/cc700811.aspx) (EFS) and BitLocker. If you are using Windows To Go, use only encrypted USB keys together with BitLocker.
-- Governance. Use AD DS GPOs to control all of the administrators’ Windows interfaces, such as file sharing. Include management workstations in auditing, monitoring, and logging processes. Track all administrator and developer access and usage.
+- Protezione avanzata di Internet Explorer. Il browser Internet Explorer o un Web browser qualsiasi è un punto di ingresso essenziale per codice dannoso a causa delle interazioni estese con i server esterni. Verificare i criteri client e applicare l'esecuzione in modalità protetta, disabilitando i componenti aggiuntivi, disabilitando i download di file e usando i filtri [Microsoft SmartScreen](https://technet.microsoft.com/library/jj618329.aspx). Verificare che gli avvisi di sicurezza vengano visualizzati. Sfruttare i vantaggi delle aree Internet e creare un elenco di siti attendibili per cui è stata configurata una protezione avanzata ragionevole. Bloccare tutti i siti e il codice nel browser, ad esempio ActiveX e Java.
+- Utente standard. L'esecuzione come utente standard offre alcuni vantaggi, il più importante dei quali consiste nel rendere più difficile il furto delle credenziali dell'amministratore tramite malware. Un account utente standard, inoltre, non ha privilegi elevati sul sistema operativo radice e molte opzioni di configurazioni e API sono bloccate per impostazione predefinita.
+- AppLocker. È possibile usare [AppLocker](http://technet.microsoft.com/library/ee619725.aspx) per limitare i programmi e gli script che possono essere eseguiti dagli utenti. È possibile eseguire AppLocker in modalità di controllo o di imposizione. Per impostazione predefinita, AppLocker include una regola di autorizzazione che consente agli utenti con token di amministratore di eseguire tutto il codice sul client. Questa regola è stata creata per impedire agli amministratori di bloccare se stessi ed è applicabile solo ai token con privilegi elevati. Vedere anche l'integrità del codice come parte della [sicurezza di base](http://technet.microsoft.com/library/dd348705.aspx) di Windows Server.
+- Firma del codice. La firma del codice per tutti gli strumenti e gli script usati dagli amministratori offre un meccanismo gestibile per la distribuzione di criteri di blocco dell'applicazione. Gli hash non vengono ridimensionati con le modifiche rapide al codice e i percorsi dei file non forniscono una sicurezza di livello elevato. È consigliabile combinare le regole di AppLocker con un [criterio di esecuzione](http://technet.microsoft.com/library/ee176961.aspx) di PowerShell che consente l'[esecuzione](http://technet.microsoft.com/library/hh849812.aspx) solo di codice firmato e script specifici.
+- Criteri di gruppo. Creare criteri amministrativi globali applicati a qualsiasi workstation di dominio usata per la gestione (e bloccare l'accesso da tutte le altre), oltre che agli account utente autenticati su queste workstation.
+- Provisioning con miglioramento della sicurezza. Proteggere l'immagine della workstation con protezione avanzata baseline per semplificare la protezione da manomissioni. Usare misure di sicurezza quali la crittografia e l'isolamento per archiviare immagini, macchine virtuali e script e limitare l'accesso, usando ad esempio un processo di archiviazione/estrazione controllabile.
+- Applicazione di patch. Mantenere una build coerente o avere a disposizione immagini separate per attività di sviluppo, operative e altre attività amministrative, ricercare regolarmente modifiche e malware, mantenere aggiornata la build a oggi e attivare i computer solo quando sono necessari.
+- Crittografia. Assicurarsi che le workstation di gestione abbiano un TPM per abilitare in modo più sicuro [Encrypting File System](https://technet.microsoft.com/library/cc700811.aspx) (EFS) e BitLocker. Se si usa Windows To Go, usare solo chiavi USB crittografate insieme a BitLocker.
+- Governance. Usare gli oggetti Criteri di gruppo di Servizi di dominio Active Directory per controllare tutte le interfacce amministrative di Windows, ad esempio la condivisione di file. Includere le workstation di gestione nei processi di controllo, monitoraggio e registrazione. Tenere traccia di tutti gli accessi e gli utilizzi di amministratori e sviluppatori.
 
-## <a name="summary"></a>Summary
+## Riepilogo
 
-Using a hardened workstation configuration for administering your Azure cloud services, Virtual Machines, and applications can help you avoid numerous risks and threats that can come from remotely managing critical IT infrastructure. Both Azure and Windows provide mechanisms that you can employ to help protect and control communications, authentication, and client behavior.
+L'uso di una configurazione di workstation con protezione avanzata per l'amministrazione dei servizi cloud di Azure, delle macchine virtuali e delle applicazione può contribuire a evitare numerosi rischi e minacce derivanti dalla gestione remota dell'infrastruttura IT essenziale. Azure e Windows offrono meccanismi utili per semplificare la protezione e il controllo di comunicazioni, autenticazione e comportamento del client.
 
-## <a name="next-steps"></a>Next steps
-The following resources are available to provide more general information about Azure and related Microsoft services, in addition to specific items referenced in this paper:
+## Passaggi successivi
+Le risorse seguenti sono disponibili per fornire altre informazioni generali su Azure e sui servizi Microsoft correlati, oltre a elementi specifici a cui si fa riferimento in questo articolo:
 
-- [Securing Privileged Access](https://technet.microsoft.com/library/mt631194.aspx) – get the technical details for designing and building a secure administrative workstation for Azure management
-- [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Security/AzureSecurity) - learn about Azure platform capabilities that protect the Azure fabric and the workloads that run on Azure
-- [Microsoft Security Response Center](http://www.microsoft.com/security/msrc/default.aspx) -- where Microsoft security vulnerabilities, including issues with Azure, can be reported or via email to [secure@microsoft.com](mailto:secure@microsoft.com)
-- [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) – keep up to date on the latest in Azure Security
+- [Protezione dell'accesso con privilegi](https://technet.microsoft.com/library/mt631194.aspx): dettagli tecnici per la progettazione e la creazione di una workstation amministrativa sicura per la gestione di Azure.
+- [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Security/AzureSecurity): informazioni sulle funzionalità della piattaforma Azure che proteggono l'infrastruttura e i carichi di lavoro di Azure in esecuzione su Azure.
+- [Microsoft Security Response Center](http://www.microsoft.com/security/msrc/default.aspx): consente di segnalare le vulnerabilità della sicurezza di Microsoft, inclusi i problemi relativi ad Azure, tramite posta elettronica all'indirizzo [secure@microsoft.com](mailto:secure@microsoft.com).
+- [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): informazioni aggiornate sulla sicurezza in Azure.
 
 <!--Image references-->
 [1]: ./media/azure-security-management/typical-management-network-topology.png
@@ -248,8 +247,4 @@ The following resources are available to provide more general information about 
 [3]: ./media/azure-security-management/hardened-workstation-enabled-with-hyper-v.png
 [4]: ./media/azure-security-management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

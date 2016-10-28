@@ -1,11 +1,9 @@
-## <a name="peering-vnets-in-the-same-subscription"></a>Peering VNets in the same subscription
+## Reti virtuali con peering nella stessa sottoscrizione
 
-In this scenario you will create a peering between two VNets named **VNet1** and **VNet2** belonging to the same subscription. 
+In questo scenario si creerà un peering tra due reti virtuali denominate **VNet1** e **VNet2** appartenenti alla stessa sottoscrizione.
 
-![Basic scenario](./media/virtual-networks-create-vnetpeering-scenario-basic-include/figure01.PNG)
+![Scenario di base](./media/virtual-networks-create-vnetpeering-scenario-basic-include/figure01.PNG)
 
-VNet peering will allow full connectivity between the entire address space of peered virtual networks.    
+Il peering reti virtuali consente la connettività completa tra l'intero spazio indirizzi delle reti virtuali di cui è stato eseguito il peering.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

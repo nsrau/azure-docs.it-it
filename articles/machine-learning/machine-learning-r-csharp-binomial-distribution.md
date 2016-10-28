@@ -1,199 +1,196 @@
 <properties 
-    pageTitle="Binomial Distribution Suite | Microsoft Azure" 
-    description="Binomial Distribution Suite" 
-    services="machine-learning" 
-    documentationCenter="" 
-    authors="ireiter" 
-    manager="jhubbard" 
-    editor="cgronlun"/>
+	pageTitle="Binomial Distribution Suite | Azure" 
+	description="Binomial Distribution Suite" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="ireiter" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
 <tags 
-    ms.service="machine-learning" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/04/2016" 
-    ms.author="ireiter"/> 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/04/2016" 
+	ms.author="ireiter"/>
+
+
+#Binomial Distribution Suite
 
 
 
-#<a name="binomial-distribution-suite"></a>Binomial Distribution Suite
 
-
-
-
-The Binomial Distribution Suite is a set of sample web services ([Binomial Generator](https://datamarket.azure.com/dataset/aml_labs/bdg5), [Probability Calculator]( https://datamarket.azure.com/dataset/aml_labs/bdp4), [Quantile Calculator]( https://datamarket.azure.com/dataset/aml_labs/bdq5)) that help in generating and dealing with binomial distributions. The services allow generating a binomial distribution sequence of any length, calculating quantiles out of given probability and calculating probability from a given quantile. Each of the services emits different outputs based on the selected service (see description below). The Binomial Distribution Suite is based on the R functions qbinom, rbinom, and pbinom, which are included in the R stats package. 
+Binomial Distribution Suite è un insieme di servizi Web di esempio ([Binomial Generator](https://datamarket.azure.com/dataset/aml_labs/bdg5), [Probability Calculator](https://datamarket.azure.com/dataset/aml_labs/bdp4), [Quantile Calculator](https://datamarket.azure.com/dataset/aml_labs/bdq5)) che include in particolare tre servizi che semplificano la generazione e la gestione delle distribuzioni binomiali. I servizi permettono la generazione di una sequenza di distribuzioni binomiali di qualsiasi lunghezza, calcolando i quantili rispetto alla probabilità specificata e calcolando la probabilità in base a un quantile specificato. Ogni servizio emette output diversi, in base al servizio selezionato, come illustrato più avanti. Binomial Distribution Suite è basato sulle funzioni qbinom, rbinom e pbinom del codice R, incluse nel pacchetto statistico R.
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
->These web services could be consumed by users – potentially directly on the marketplace, through a mobile app, through a website, or even on a local computer, for example. But the purpose of the web service is also to serve as an example of how Azure Machine Learning can be used to create web services on top of R code. With just a few lines of R code and clicks of a button within Azure Machine Learning Studio, an experiment can be created with R code and published as a web service. The web service can then be published to the Azure Marketplace and consumed by users and devices across the world – no infrastructure setup by the author of the web service is required.
+>Questi servizi Web possono essere utilizzato dagli utenti: potenzialmente tramite un'app mobile, un sito Web o anche in un computer locale, ad esempio. Ma lo scopo del servizio Web è anche un esempio di come è possibile utilizzare Azure Machine Learning per creare servizi Web in codice R. Con poche righe di codice R e la selezione di alcuni pulsanti in Azure Machine Learning Studio è possibile creare un esperimento con codice R e pubblicarlo come servizio Web. Il servizio Web può essere quindi pubblicato in Azure Marketplace e può essere usato da utenti e dispositivi in tutto il mondo, senza che l'autore del sito Web debba configurare alcuna infrastruttura.
 
-##<a name="consumption-of-web-service"></a>Consumption of web service
-The Binomial Distribution Suite includes the following 3 services.
+##Uso del servizio Web
+Binomial Distribution Suite include i tre servizi seguenti:
 
-###<a name="binomial-distribution-quantile-calculator"></a>Binomial Distribution Quantile Calculator
-This service accepts 4 arguments of a normal distribution and calculates the associated quantile.
-The input arguments are:
+###Binomial Distribution Quantile Calculator
+Questo servizio accetta quattro argomenti di una distribuzione normale e calcola il quantile associato. Gli argomenti di input sono i seguenti:
 
-- p - A single aggregated probability of multiple trials.  
-- size - The number of trials.
-- prob - The probability of success in a trial.
-- Side - L for the lower side of the distribution, U for the upper side of the distribution. 
+- p: probabilità aggregata singola di più prove.
+- size: numero di prove.
+- prob: probabilità di successo in una prova.
+- Side: L per la parte inferiore della distribuzione, U per la parte superiore della distribuzione.
 
-The output of the service is the calculated quantile that is associated with the given probability.
+L'output del servizio corrisponde al quantile calcolato associato alla probabilità specificata.
 
-###<a name="binomial-distribution-probability-calculator"></a>Binomial Distribution Probability Calculator
-This service accepts 4 arguments of a binomial distribution and calculates the associated probability.
-The input arguments are:
+###Binomial Distribution Probability Calculator
+Questo servizio accetta quattro argomenti di una distribuzione binomiale e calcola la probabilità associata. Gli argomenti di input sono i seguenti:
 
-- q - A single quantile of an event with binomial distribution. 
-- size - The number of trials.
-- prob - The probability of success in a trial.
-- side - L for the lower side of the distribution, U for the upper side of the distribution, or E that is equal to a single number of successes.
+- q: singolo quantile di un evento con distribuzione binomiale.
+- size: numero di prove.
+- prob: probabilità di successo in una prova.
+- side: L per la parte inferiore della distribuzione, U per la parte superiore della distribuzione oppure E che equivale a un numero singolo di successi.
 
-The output of the service is the calculated probability that is associated with the given quantile.
+L'output del servizio corrisponde alla probabilità calcolata associata al quantile specificato.
 
-###<a name="binomial-distribution-generator"></a>Binomial Distribution Generator
-This service accepts 3 arguments of a binomial distribution and generates a random sequence of numbers that are binomially distributed. The following arguments should be provided to it within the request:
+###Binomial Distribution Generator
+Questo servizio accetta tre argomenti di una distribuzione binomiale e genera una sequenza casuale di numeri distribuiti in modo binomiale. È necessario fornire gli argomenti seguenti nella richiesta:
 
-- n - Number of observations. 
-- size - Number of trials.
-- prob - Probability of success.
+- n: numero di osservazioni.
+- size: numero di prove.
+- prob: probabilità di successo.
 
-The output of the service is a sequence of length n with a binomial distribution based on the size and prob arguments.
+L'output del servizio corrisponde a una sequenza di lunghezza n con una distribuzione binomiale basata sugli argomenti size e prob.
 
->This service, as hosted on the Azure Marketplace, is an OData service; these may be called through POST or GET methods. 
+>Questo servizio come ospitato in Azure Marketplace, è un servizio OData ed è possibile utilizzare i metodi POST o GET per effettuare le chiamate.
 
-There are multiple ways of consuming the service in an automated fashion (example apps are here: [Generator](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionGenerator.aspx), [Probability Calculator](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionProbabilityCalculator.aspx), [Quantile Calculator](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionQuantileCalculator)). 
+Sono disponibili molte opzioni per l'uso del servizio in modalità automatica. Per app di esempio, vedere qui:[Generator](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionGenerator.aspx), [Probability Calculator](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionProbabilityCalculator.aspx), [Quantile Calculator](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionQuantileCalculator)).
 
-###<a name="starting-c#-code-for-web-service-consumption:"></a>Starting C# code for web service consumption:
+###Codice C# iniziale per l'uso del servizio Web:
 
-###<a name="binomial-distribution-quantile-calculator"></a>Binomial Distribution Quantile Calculator
-    public class Input
-    {
-            public string p;
-            public string size;
-            public string prob;
-            public string side;
-    }
-    
+###Binomial Distribution Quantile Calculator
+	public class Input
+	{
+	        public string p;
+	        public string size;
+	        public string prob;
+	        public string side;
+	}
+	
     public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-    {
-            byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
-            return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-    }
-    
+	{
+	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
+	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+	}
+	
     void main()
-    {
-            var input = new Input() { p = TextBox1.Text, size = TextBox2.Text, prob = TextBox3.Text, side = TextBox4.Text };
-            var json = JsonConvert.SerializeObject(input);
-            var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
-            var httpClient = new HttpClient();
-    
-            httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
-            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-    
-            var response = httpClient.PostAsync(acitionUri, new StringContent(json));
-            var result = response.Result.Content;
-            var scoreResult = result.ReadAsStringAsync().Result;
-    }
+	{
+	        var input = new Input() { p = TextBox1.Text, size = TextBox2.Text, prob = TextBox3.Text, side = TextBox4.Text };
+	        var json = JsonConvert.SerializeObject(input);
+	        var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
+	        var httpClient = new HttpClient();
+	
+	        httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
+	        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+	
+	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
+	        var result = response.Result.Content;
+		    var scoreResult = result.ReadAsStringAsync().Result;
+	}
 
-###<a name="binomial-distribution-probability-calculator"></a>Binomial Distribution Probability Calculator
-    public class Input
-    {
-            public string q;
-            public string size;
-            public string prob;
-            public string side;
-    }
-    
+###Binomial Distribution Probability Calculator
+	public class Input
+	{
+	        public string q;
+	        public string size;
+	        public string prob;
+	        public string side;
+	}
+	
     public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-    {
-            byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
-            return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-    }
-    
-    void Main()
-    {
-            var input = new Input() { q = TextBox1.Text, size = TextBox2.Text, prob = TextBox3.Text, side = TextBox4.Text };
-            var json = JsonConvert.SerializeObject(input);
-            var acitionUri = " PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
-            var httpClient = new HttpClient();
-    
-            httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
-            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-    
-            var response = httpClient.PostAsync(acitionUri, new StringContent(json));
-            var result = response.Result.Content;
-            var scoreResult = result.ReadAsStringAsync().Result;
-    }
+	{
+	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
+	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+	}
+	
+	void Main()
+	{
+	        var input = new Input() { q = TextBox1.Text, size = TextBox2.Text, prob = TextBox3.Text, side = TextBox4.Text };
+	        var json = JsonConvert.SerializeObject(input);
+	        var acitionUri = " PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
+	        var httpClient = new HttpClient();
+	
+	        httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
+	        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+	
+	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
+	        var result = response.Result.Content;
+		    var scoreResult = result.ReadAsStringAsync().Result;
+	}
 
 
-###<a name="binomial-distribution-generator"></a>Binomial Distribution Generator
-    public class Input
-    {
-            public string n;
-            public string size;
-            public string p;
-    }
-    
+###Binomial Distribution Generator
+	public class Input
+	{
+	        public string n;
+	        public string size;
+	        public string p;
+	}
+	
     public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-    {
-            byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
-            return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-    }
-    
-    void Main()
-    {
-            var input = new Input() { n = TextBox1.Text, size = TextBox2.Text, p = TextBox3.Text };
-            var json = JsonConvert.SerializeObject(input);
-            var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
-            var httpClient = new HttpClient();
-    
-            httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
-            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-    
-            var response = httpClient.PostAsync(acitionUri, new StringContent(json));
-            var result = response.Result.Content;
-            var scoreResult = result.ReadAsStringAsync().Result;
-    }
+	{
+	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
+	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+	}
+	
+	void Main()
+	{
+	        var input = new Input() { n = TextBox1.Text, size = TextBox2.Text, p = TextBox3.Text };
+	        var json = JsonConvert.SerializeObject(input);
+	        var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
+	        var httpClient = new HttpClient();
+	
+	        httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
+	        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+	
+	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
+	        var result = response.Result.Content;
+		    var scoreResult = result.ReadAsStringAsync().Result;
+	}
 
 
 
 
 
-##<a name="creation-of-web-service"></a>Creation of web service 
+##Creazione del servizio Web 
 
->This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](machine-learning-publish-a-machine-learning-web-service.md), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
+>Questo servizio Web è stato creato tramite Azure Machine Learning. Per una versione di valutazione gratuita e per video introduttivi sulla creazione di esperimenti e sulla [pubblicazione di servizi Web](machine-learning-publish-a-machine-learning-web-service.md), vedere [azure.com/ml.](http://azure.com/ml) La schermata seguente mostra un esperimento per la creazione del servizio Web e codice di esempio per ogni modulo incluso nell'esperimento.
 
-###<a name="binomial-distribution-quantile-calculator"></a>Binomial Distribution Quantile Calculator
+###Binomial Distribution Quantile Calculator
 
-![Create workspace][4]
+![Creare un'area di lavoro][4]
 
-####<a name="module-1:"></a>Module 1:
+####Modulo 1:
     #data schema with example data (replaced with data from web service)
     data.set=data.frame(p=0.1,size=10,prob=.5,side='L');
     maml.mapOutputPort("data.set"); #send data to output port
-####<a name="module-2:"></a>Module 2:
+####Modulo 2:
 
     dataset1 <- maml.mapInputPort(1) # class: data.frame
     param = dataset1
     if (param$p < 0 ) {
-    print('Bad input: p must be between 0 and 1')
-    param$p = 0
+	print('Bad input: p must be between 0 and 1')
+	param$p = 0
     } else if (param$p > 1) {
-    print('Bad input: p must be between 0 and 1')
-    param$p = 1
+	print('Bad input: p must be between 0 and 1')
+	param$p = 1
     }
 
     if (param$prob < 0 ) {
-    print('Bad input: prob must be between 0 and 1')
-    param$prob = 0
+	print('Bad input: prob must be between 0 and 1')
+	param$prob = 0
     } else if (param$prob > 1) {
-    print('Bad input: prob must be between 0 and 1')
-    param$prob = 1
+	print('Bad input: prob must be between 0 and 1')
+	param$prob = 1
     }
 
     quantile = qbinom(param$p,size=param$size,prob=param$prob)
@@ -201,33 +198,33 @@ There are multiple ways of consuming the service in an automated fashion (exampl
     quantile
 
     if (param$side == 'U'){
-    quantile = qbinom(param$p,size=param$size,prob=param$prob,lower.tail = F)
-    band=subset(df,x>quantile)
+	quantile = qbinom(param$p,size=param$size,prob=param$prob,lower.tail = F)
+	band=subset(df,x>quantile)
     } else if (param$side =='L') {
-    quantile = qbinom(param$p,size=param$size,prob=param$prob,lower.tail = T)
-    band=subset(df,x<=quantile)
+	quantile = qbinom(param$p,size=param$size,prob=param$prob,lower.tail = T)
+	band=subset(df,x<=quantile)
     } else {
-    print("Invalid side choice")
+	print("Invalid side choice")
     }
 
     output = as.data.frame(quantile)
     
-    # Select data.frame to be sent to the output Dataset port
+	# Select data.frame to be sent to the output Dataset port
     maml.mapOutputPort("output");
 
 
-###<a name="binomial-distribution-probability-calculator"></a>Binomial Distribution Probability Calculator
+###Binomial Distribution Probability Calculator
 
-![Create workspace][5]
+![Creare un'area di lavoro][5]
 
-####<a name="module-1:"></a>Module 1:
+####Modulo 1:
 
     #data schema with example data (replaced with data from web service)
     data.set=data.frame(q=5,size=10,prob=.5,side='L');
     maml.mapOutputPort("data.set"); #send data to output port
 
 
-####<a name="module-2:"></a>Module 2:
+####Modulo 2:
     dataset1 <- maml.mapInputPort(1) # class: data.frame
     param = dataset1
     prob = pbinom(param$q,size=param$size,prob=param$prob)
@@ -236,48 +233,48 @@ There are multiple ways of consuming the service in an automated fashion (exampl
     prob
 
     if (param$side == 'U'){
-    prob = 1 - prob
-    band=subset(df,x>param$q)
+	prob = 1 - prob
+	band=subset(df,x>param$q)
     } else if (param$side =='E') {
-    prob = prob.eq
-    band=subset(df,x==param$q)
+	prob = prob.eq
+	band=subset(df,x==param$q)
     } else if (param$side =='L') {
-    prob = prob
-    band=subset(df,x<=param$q)
+	prob = prob
+	band=subset(df,x<=param$q)
     } else {
-    print("Invalid side choice")
+	print("Invalid side choice")
     }
 
     output = as.data.frame(prob)
     
-    # Select data.frame to be sent to the output Dataset port
+	# Select data.frame to be sent to the output Dataset port
     maml.mapOutputPort("output");
 
-###<a name="binomial-distribution-generator"></a>Binomial Distribution Generator
+###Binomial Distribution Generator
 
-![Create workspace][6]
+![Creare un'area di lavoro][6]
 
-####<a name="module-1:"></a>Module 1:
+####Modulo 1:
 
     #data schema with example data (replaced with data from web service)
     data.set=data.frame(n=50,size=10,p=.5);
     maml.mapOutputPort("data.set"); #send data to output port
 
-####<a name="module-2:"></a>Module 2:
+####Modulo 2:
     dataset1 <- maml.mapInputPort(1) # class: data.frame
     param = dataset1
     dist = rbinom(param$n,param$size,param$p)
 
     output = as.data.frame(t(dist))
     
-    # Select data.frame to be sent to the output Dataset port
+	# Select data.frame to be sent to the output Dataset port
     maml.mapOutputPort("output");
 
-##<a name="limitations"></a>Limitations 
-These are very simple examples surrounding the binomial distribution. As can be seen from the example code above, little error catching is implemented.
+##Limitazioni 
+Questi sono esempi molto semplici relativi alla distribuzione binomiale. Come si può notare dal codice di esempio precedente, è implementata un rilevamento limitato degli errori.
 
-##<a name="faq"></a>FAQ
-For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see [here](machine-learning-marketplace-faq.md).
+##Domande frequenti
+Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione in Azure Marketplace, [vedere qui](machine-learning-marketplace-faq.md).
 
 
 [1]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_1.png
@@ -293,8 +290,4 @@ For frequently asked questions on consumption of the web service or publishing t
 [6]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_6.png
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

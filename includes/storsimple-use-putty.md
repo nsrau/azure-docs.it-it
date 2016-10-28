@@ -1,35 +1,33 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-connect-through-the-serial-console"></a>To connect through the serial console
+#### Per connettersi tramite console seriale
 
-1. Connect your serial cable to the device (directly or through a USB-serial adapter).
+1. Collegare il cavo seriale al dispositivo (direttamente o tramite un adattatore seriale USB).
 
-2. Open the **Control Panel**, and then open the **Device Manager**.
+2. Aprire il **Pannello di controllo**, quindi aprire **Gestione dispositivi**.
 
-3. Identify the COM port as shown in the following illustration.
+3. Identificare la porta COM, come illustrato nella figura seguente.
 
-     ![Connecting through serial console](./media/storsimple-use-putty/HCS_ConnectingDeviceS-include.png)
+     ![Connessione tramite console seriale](./media/storsimple-use-putty/HCS_ConnectingDeviceS-include.png)
 
-4. Start PuTTY. 
+4. Avviare PuTTY.
 
-5. In the right pane, change the **Connection type** to **Serial**.
+5. Nel riquadro destro, modificare **Tipo di connessione** su **Seriale**.
 
-6. In the right pane, type the appropriate COM port. Make sure that the serial configuration parameters are set as follows:
-  - Speed: 115,200
-  - Data bits: 8
-  - Stop bits: 1
-  - Parity: None
-  - Flow control: None
+6. Nel riquadro di destra, digitare la porta COM appropriata. Assicurarsi che i parametri di configurazione seriale siano impostati come indicato di seguito:
+  - Velocità: 115.200
+  - Bit di dati: 8
+  - Bit di stop: 1
+  - Parità: nessuno
+  - Controllo di flusso: nessuno
 
-    These settings are shown in the following illustration.
+    Queste impostazioni sono mostrate nella figura seguente.
 
-     ![PuTTY settings](./media/storsimple-use-putty/HCS_PuttyConfig-include.png) 
+     ![Impostazioni puTTY](./media/storsimple-use-putty/HCS_PuttyConfig-include.png)
 
-    > [AZURE.NOTE] If the default flow control setting does not work, try setting the flow control to XON/XOFF.
+    > [AZURE.NOTE]Se l'impostazione del controllo di flusso predefinito non funziona, provare a impostare il controllo di flusso su XON/XOFF.
 
-7. Click **Open** to start a serial session.
+7. Fare clic su **Apri** per avviare una sessione seriale.
  
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

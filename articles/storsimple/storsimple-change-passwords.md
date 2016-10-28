@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Change your StorSimple passwords | Microsoft Azure" 
-   description="Describes how to use the StorSimple Manager service to change your StorSimple Snapshot Manager and device administrator passwords." 
+   pageTitle="Modificare le password di StorSimple | Microsoft Azure" 
+   description="Descrive come utilizzare il servizio StorSimple Manager per modificare le password di StorSimple Snapshot Manager e di amministratore del dispositivo." 
    services="storsimple" 
    documentationCenter="NA" 
    authors="alkohli" 
@@ -16,62 +16,57 @@
    ms.date="08/17/2016"
    ms.author="alkohli"/>
 
+# Utilizzare il servizio StorSimple Manager per modificare la password di StorSimple
 
-# <a name="use-the-storsimple-manager-service-to-change-your-storsimple-passwords"></a>Use the StorSimple Manager service to change your StorSimple passwords
+## Overview 
 
-## <a name="overview"></a>Overview 
+La pagina **Configura**del portale di Azure classico contiene tutti i parametri del dispositivo che è possibile riconfigurare in un dispositivo StorSimple gestito da un servizio StorSimple Manager. In questa esercitazione viene illustrato come utilizzare la pagina**Configura** per modificare la password dell’amministratore del dispositivo o la password di StorSimple Snapshot Manager.
 
-The Azure classic portal **Configure** page contains all the device parameters that you can reconfigure on a StorSimple device that is managed by a StorSimple Manager service. This tutorial explains how you can use the **Configure** page to change your device administrator or StorSimple Snapshot Manager password.
+## Configurare la password dell’amministratore del dispositivo
 
-## <a name="change-the-device-administrator-password"></a>Change the device administrator password
+Quando si utilizza l'interfaccia di Windows PowerShell per accedere al dispositivo StorSimple, è necessario immettere una password amministratore del dispositivo. Quando il primo dispositivo StorSimple è registrato con un servizio, la password predefinita per questa interfaccia è*Password1*. Per la protezione dei dati, è necessario modificare la password al termine del processo di registrazione. Non è possibile uscire dal processo di registrazione senza modificare la password. Per altre informazioni, vedere [Passaggio 3: Configurare e registrare il dispositivo tramite Windows PowerShell per StorSimple](storsimple-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
-When you use Windows PowerShell interface to access the StorSimple device, you are required to enter a device administrator password. When the first StorSimple device is registered with a service, the default password for this interface is *Password1*. For the security of your data, you are required to change this password at the end of the registration process. You cannot exit from the registration process without changing this password. For more information, see [Step 3: Configure and register the device through Windows PowerShell for StorSimple](storsimple-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+La password impostata la prima volta durante la registrazione attraverso l'interfaccia di Windows PowerShell può quindi essere modificata tramite il portale di Azure classico. Eseguire i passaggi seguenti per modificare la password di amministratore del dispositivo.
 
-The password that was first set through the Windows PowerShell interface during registration can then be changed via the Azure classic portal. Perform the following steps to change the device administrator password.
+#### Per configurare la password dell’amministratore del dispositivo
 
-#### <a name="to-change-the-device-administrator-password"></a>To change the device administrator password
+1. Nel portale classico, fare clic su**Dispositivi**>**Configura** per il dispositivo.
 
-1. In the classic portal, click **Devices** > **Configure** for your device.
+2. Scorrere verso il basso fino alla sezione **Password amministratore del dispositivo** Specificare una password amministratore contenente dagli 8 ai 15 caratteri. La password deve contenere una combinazione di 3 o più lettere maiuscole, minuscole, numeri e caratteri speciali.
 
-2. Scroll down to the **Device Administrator Password** section. Provide an administrator password that contains from 8 to 15 characters. The password must be a combination of 3 or more of uppercase, lowercase, numeric, and special characters.
+3. Confermare la password.
 
-3. Confirm the password.
+4. Fare clic su **Save** nella parte inferiore della pagina.
 
-4. Click **Save** at the bottom of the page.
+A questo punto, la password amministratore del dispositivo dovrebbe essere aggiornata. È possibile utilizzare la password modificata per accedere all'interfaccia di Windows PowerShell.
 
-The device administrator password should now be updated. You can use this modified password to access the Windows PowerShell interface.
+## Configurare la password di StorSimple Snapshot Manager
 
-## <a name="change-the-storsimple-snapshot-manager-password"></a>Change the StorSimple Snapshot Manager password
+Il software di Gestione snapshot StorSimple si trova nell'host di Windows e consente agli amministratori di gestire i backup del dispositivo StorSimple sotto forma di snapshot locali e cloud.
 
-StorSimple Snapshot Manager software resides on your Windows host and allows administrators to manage backups of your StorSimple device in the form of local and cloud snapshots.
+Quando si configura un dispositivo in StorSimple Snapshot Manager, verrà richiesto di specificare l'indirizzo IP del dispositivo e la password per autenticare il dispositivo di archiviazione. Questa password viene configurata dapprima utilizzando l'interfaccia di Windows PowerShell. Per altre informazioni, vedere [Passaggio 3: Configurare e registrare il dispositivo tramite Windows PowerShell per StorSimple](storsimple-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
-When configuring a device in StorSimple Snapshot Manager, you will be prompted to provide the device IP address and password to authenticate your storage device. This password is first configured through the Windows PowerShell interface. For more information, see [Step 3: Configure and register the device through Windows PowerShell for StorSimple](storsimple-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+La password impostata la prima volta durante la registrazione attraverso l'interfaccia di Windows PowerShell può quindi essere modificata tramite il portale classico. Eseguire i passaggi seguenti per modificare la password di StorSimple Snapshot Manager.
 
-The password that was first set through the Windows PowerShell interface during registration can then be changed via the classic portal. Perform the following steps to change the StorSimple Snapshot Manager password.
+#### Per configurare la password di StorSimple Snapshot Manager
 
-#### <a name="to-change-the-storsimple-snapshot-manager-password"></a>To change the StorSimple Snapshot Manager password
+1. Nel portale classico, fare clic su**Dispositivi**>**Configura** per il dispositivo.
 
-1. In the classic portal, click **Devices** > **Configure** for your device.
+2. Scorrere verso il basso fino alla sezione **StorSimple Snapshot Manager**. Immettere una password composta da 14 o 15 caratteri. Assicurarsi che la password contenga una combinazione di 3 o più lettere maiuscole, minuscole, numeri e caratteri speciali.
 
-2. Scroll down to the **StorSimple Snapshot Manager** section. Enter a password that is 14 or 15 characters. Make sure that the password contains a combination of 3 or more of uppercase, lowercase, numeric, and special characters.
+3. Confermare la password.
 
-3. Confirm the password.
+4. Fare clic su **Save** nella parte inferiore della pagina.
 
-4. Click **Save** at the bottom of the page.
-
-The StorSimple Snapshot Manager password should now be updated.
+La password di StorSimple Snapshot Manager ora deve essere aggiornata.
  
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-- Learn more about [StorSimple security](storsimple-security.md).
+- Ulteriori informazioni sulla [sicurezza di StorSimple](storsimple-security.md).
 
-- Learn more about [modifying your device configuration](storsimple-modify-device-config.md).
+- [Ulteriori informazioni su come modificare la configurazione del dispositivo](storsimple-modify-device-config.md).
 
-- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+- Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

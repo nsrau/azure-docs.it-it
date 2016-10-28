@@ -1,57 +1,51 @@
 <properties
-    pageTitle="Comparing custom images and formulas in DevTest Labs | Microsoft Azure"
-    description="Learn about the differences between custom images and formulas as VM bases so you can decide which one best suits your environment."
-    services="devtest-lab,virtual-machines"
-    documentationCenter="na"
-    authors="tomarcher"
-    manager="douge"
-    editor=""/>
+	pageTitle="Confronto tra immagini personalizzate e formule nei lab di sviluppo/test | Microsoft Azure"
+	description="Conoscere le differenze tra le immagini personalizzate e le formule come basi per le macchine virtuali consente di decidere quale soluzione è più adatta per il proprio ambiente."
+	services="devtest-lab,virtual-machines"
+	documentationCenter="na"
+	authors="tomarcher"
+	manager="douge"
+	editor=""/>
 
 <tags
-    ms.service="devtest-lab"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/25/2016"
-    ms.author="tarcher"/>
+	ms.service="devtest-lab"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2016"
+	ms.author="tarcher"/>
 
+# Confronto tra immagini personalizzate e formule nei lab di sviluppo/test
 
-# <a name="comparing-custom-images-and-formulas-in-devtest-labs"></a>Comparing custom images and formulas in DevTest Labs
-
-## <a name="overview"></a>Overview
-Both [custom images](./devtest-lab-create-template.md) and [formulas](./devtest-lab-manage-formulas.md) can be used as bases for [created new VMs](./devtest-lab-add-vm-with-artifacts.md). However, the key distinction between custom images and formulas is that a custom image is simply an image based on a VHD, while a formula is an image based on a VHD *in addition to* preconfigured settings - such as VM Size, virtual network and subnet, artifacts, and so on. These preconfigured settings are set up with default values that can be overridden at the time of VM creation. This article explains some of the advantages (pros) and disadvantages (cons) to using custom images versus using formulas.
+## Overview
+Sia le [immagini personalizzate](./devtest-lab-create-template.md) che le [formule](./devtest-lab-manage-formulas.md) possono essere usate come basi per [creare nuove macchine virtuali](./devtest-lab-add-vm-with-artifacts.md). La differenza principale tra le immagini personalizzate e le formule è che un'immagine personalizzata è semplicemente un'immagine basata su un disco rigido virtuale, mentre una formula è un'immagine basata su un disco rigido virtuale *con in più* impostazioni preconfigurate, ad esempio dimensioni della macchina virtuale, rete virtuale e subnet, elementi e così via. Le impostazioni preconfigurate vengono specificate con valori predefiniti che possono essere sostituiti al momento della creazione della macchina virtuale. Questo articolo illustra alcuni dei vantaggi e degli svantaggi relativi all'uso delle immagini personalizzate e delle formule.
  
-## <a name="custom-image-pros-and-cons"></a>Custom image pros and cons
-Custom images provide a a static, immutable way to create VMs from a desired environment. 
+## Vantaggi e svantaggi delle immagini personalizzate
+Le immagini personalizzate offrono un modo statico e non modificabile per creare macchine virtuali da un ambiente di propria scelta.
 
-**Pros**
-- VM provisioning from a custom image is fast as nothing changes after the VM is spun up from the image. In other words, there are no settings to apply as the custom image is simply an image without settings. 
-- VMs created from a single custom image are identical.
+**Vantaggi**
+- Il provisioning della macchina virtuale da un'immagine personalizzata è veloce poiché non vengono apportate modifiche dopo che la macchina virtuale viene attivata dall'immagine. In altre parole, non vi sono impostazioni da applicare poiché l'immagine personalizzata è semplicemente un'immagine senza impostazioni.
+- Le macchine virtuali create da un'unica immagine personalizzata sono identiche.
 
-**Cons**
-- If you need to update some aspect of the custom image, the image must be recreated.  
+**Svantaggi**
+- Se è necessario aggiornare alcuni aspetti dell'immagine personalizzata, si dovrà ricreare l'immagine.
 
-## <a name="formula-pros-and-cons"></a>Formula pros and cons
-Formulas provide a dynamic way to create VMs from the desired configuration/settings.
+## Vantaggi e svantaggi delle formule
+Le formule offrono un modo dinamico per creare macchine virtuali in base a una configurazione o alle impostazioni desiderate.
 
-**Pros**
-- Changes in the environment can be captured on the fly via artifacts. For example, if you want a VM installed with the latest bits from your release pipeline or enlist the latest code from your repository, you can simply specify an artifact that deploys the latest bits or enlists the latest code in the formula together with a target base image. Whenever this formula is used to create VMs, the latest bits/code are deployed/enlisted to the VM. 
-- Formulas can define default settings that custom images cannot provide - such as VM sizes and virtual network settings. 
-- The settings saved in a formula are shown as default values, but can be modified when the VM is created. 
+**Vantaggi**
+- È possibile acquisire in tempo reale le modifiche apportate nell'ambiente in tempo reale usando gli elementi. Ad esempio, per installare una macchina virtuale con i bit più recenti della pipeline di rilascio o integrare il codice più recente dal repository, è possibile specificare semplicemente un elemento che consenta di distribuire i bit più recenti o integri il codice più recente nella formula insieme a un'immagine di base di destinazione. Ogni volta che la formula viene usata per creare macchine virtuali, il codice o i bit più recenti vengono integrati o distribuiti alla macchina virtuale.
+- A differenza delle immagini personalizzate, le formule possono definire impostazioni predefinite come le dimensioni delle macchine virtuali e le impostazioni della rete virtuale.
+- Le impostazioni salvate in una formula vengono visualizzate come valori predefiniti, ma possono essere modificate quando viene creata la macchina virtuale.
 
-**Cons**
-- Creating a VM from a formula can take more time than creating a VM from a custom image.
+**Svantaggi**
+- La creazione di una macchina virtuale da una formula può richiedere più tempo rispetto alla creazione da un'immagine personalizzata.
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="related-blog-posts"></a>Related blog posts
+## Post di blog correlati
 
-- [Custom images or formulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Custom images or formulas? (Immagini personalizzate o formule?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

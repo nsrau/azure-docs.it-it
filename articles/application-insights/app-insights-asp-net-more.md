@@ -1,96 +1,95 @@
 <properties 
-    pageTitle="Get more out of Application Insights | Microsoft Azure" 
-    description="After getting started with Application Insights, here's a summary of the features you can explore." 
-    services="application-insights" 
+	pageTitle="Sfruttare al meglio le funzionalità di Application Insights | Microsoft Azure" 
+	description="Dopo l'introduzione a Application Insights, ecco un riepilogo delle funzionalità che è possibile esplorare." 
+	services="application-insights" 
     documentationCenter=".net"
-    authors="alancameronwills" 
-    manager="douge"/>
+	authors="alancameronwills" 
+	manager="douge"/>
 
 <tags 
-    ms.service="application-insights" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/30/2016" 
-    ms.author="awills"/>
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/30/2016" 
+	ms.author="awills"/>
+
+# Altri dati di telemetria da Application Insights
+
+Dopo aver [aggiunto Application Insights al codice ASP.NET](app-insights-asp-net.md), è possibile eseguire alcune operazioni per ottenere altri dati di telemetria.
+
+## App in esecuzione nel server IIS
+
+Se l'app è ospitata in server IIS sotto il proprio controllo, installare Application Insights Status Monitor nei server. Se è già installato, non è necessario eseguire alcuna operazione.
+
+1. In ogni server Web IIS accedere con le credenziali di amministratore.
+2. Scaricare e installare il [programma di installazione di Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
+3. Nell'Installazione guidata accedere a Microsoft Azure.
+
+Non è necessario eseguire altre operazioni, ma è possibile verificare che per l'app sia abilitato il monitoraggio.
+
+![Estensione in Azure](./media/app-insights-asp-net-more/025.png)
+
+È possibile usare Status Monitor per [abilitare il monitoraggio in fase di esecuzione](app-insights-monitor-performance-live-website-now.md) anche se le app non sono state instrumentate in Visual Studio.
+
+### Vantaggi
+
+Se nei computer server è installato Status Monitor, si ottengono alcuni dati di telemetria aggiuntivi:
+
+* Telemetria delle dipendenze (chiamate SQL e chiamate REST effettuate dall'app) per le app .NET 4.5. Per le versioni successive di .NET, per la telemetria delle dipendenze non è necessario Status Monitor.
+* Analisi dello stack delle eccezioni più dettagliate.
+* Contatori delle prestazioni. In Application Insights, tali contatori vengono visualizzati nel pannello Server.
+
+![Estensione in Azure](./media/app-insights-asp-net-more/070.png)
+
+Per aumentare o ridurre il numero di contatori visualizzati, [modificare i grafici](app-insights-metrics-explorer.md). Se il contatore delle prestazioni desiderato non è incluso nel set disponibile, è possibile [aggiungerlo al set raccolto dal modulo dei contatori delle prestazioni](app-insights-web-monitor-performance.md#system-performance-counters).
+
+## App Web di Azure
+
+Se l'app viene eseguita come app Web di Azure, passare al pannello di controllo di Azure per l'app o la VM e aggiungere l'estensione Application Insights. In **Strumenti** aprire **Monitoraggio delle prestazioni** e configurare **Application Insights**. Quando viene richiesto, scegliere la risorsa di Application Insights già creata.
+
+![Estensione in Azure](./media/app-insights-asp-net-more/05-extend.png)
+
+### Vantaggi
+
+* Analisi dello stack delle eccezioni più dettagliate.
+* Telemetria delle dipendenze (chiamate SQL e chiamate REST effettuate dall'app) per le app .NET 4.5. Per le versioni successive di .NET, per la telemetria delle dipendenze non è necessaria l'estensione.
+
+![Estensione in Azure](./media/app-insights-asp-net-more/080.png)
+
+È possibile usare questo metodo per [abilitare il monitoraggio delle prestazioni in fase di esecuzione](app-insights-monitor-performance-live-website-now.md) anche se le app non sono state instrumentate in Visual Studio.
+
+## Monitoraggio sul lato client
+
+È stato installato l'SDK che invia i dati di telemetria dal lato server (back-end) dell'applicazione. Ora è possibile aggiungere il monitoraggio sul lato client, che fornisce dati su utenti, sessioni, visualizzazioni di pagina ed eventuali eccezioni o arresti anomali verificatisi nel browser. Sarà anche possibile scrivere codice personalizzato per tenere traccia del modi in cui gli utenti interagiscono con l'app, a un livello di dettaglio che include i clic e le sequenze di tasto.
+
+Per ottenere dati di telemetria dai browser client, aggiungere il frammento JavaScript di Application Insights a ogni pagina Web.
+
+1. In Azure aprire la risorsa di Application Insights per l'app.
+2. Aprire Avvio rapido e quindi il monitoraggio dell'applicazione lato client e copiare il frammento.
+3. Incollarlo in modo che risulti incluso nell'intestazione di ogni pagina Web. In genere si ottiene questo risultato incollando il frammento nella pagina di layout master.
+
+![Estensione in Azure](./media/app-insights-asp-net-more/100.png)
+
+Si noti che il codice contiene la chiave di strumentazione che identifica la risorsa dell'applicazione.
+
+### Vantaggi
+
+* Possibilità di scrivere codice JavaScript per inviare [dati di telemetria personalizzati dalle pagine Web](app-insights-api-custom-events-metrics.md), ad esempio per tenere traccia dei clic sui pulsanti.
+* In [Analisi](app-insights-analytics.md), dati in `pageViews` e dati AJAX in `dependencies`.
+* [Dati sull'utilizzo e sulle prestazioni dei client](app-insights-javascript.md) nel pannello Browser.
+
+![Estensione in Azure](./media/app-insights-asp-net-more/090.png)
 
 
-# <a name="more-telemetry-from-application-insights"></a>More telemetry from Application Insights
-
-After you have [added Application Insights to your ASP.NET code](app-insights-asp-net.md), there are a few things you can do to get even more telemetry. 
-
-## <a name="if-your-app-runs-on-your-iis-server-..."></a>If your app runs on your IIS server ...
-
-If your app is hosted on IIS servers in your control, install the Application Insights Status Monitor on the servers. If it's already installed, you don't need to do anything.
-
-1. On each IIS web server, sign in with administrator credentials.
-2. Download and run the [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648).
-3. In the installation wizard, sign in to Microsoft Azure.
-
-You don't need to do anything else, but you can confirm that monitoring is enabled for your app.
-
-![Extend in Azure](./media/app-insights-asp-net-more/025.png)
-
-(You can also use Status Monitor to [enable monitoring at runtime](app-insights-monitor-performance-live-website-now.md), even if you didn't instrument your apps in Visual Studio.)
-
-### <a name="what-do-you-get?"></a>What do you get?
-
-If Status Monitor is installed on your server machines, you get some additional telemetry:
-
-* Dependency telemetry (SQL calls and REST calls made by your app) for .NET 4.5 apps. (For later versions of .NET, Status Monitor is not required for dependency telemetry.) 
-* Exception stack traces show more detail.
-* Performance counters. In Application Insights, these counters appear in the Servers blade. 
-
-![Extend in Azure](./media/app-insights-asp-net-more/070.png)
-
-To see more or fewer counters, [edit the charts](app-insights-metrics-explorer.md). If the performance counter you want isn't in the available set, you can [add it to the set collected by the performance counter module](app-insights-web-monitor-performance.md#system-performance-counters).
-
-## <a name="if-it's-an-azure-web-app-..."></a>If it's an Azure web app ...
-
-If your app runs as an Azure web app, go to the Azure control panel for the app or VM, and add the Application Insights extension. In **Tools**, open **Performance monitoring** and configure **Application Insights**. When prompted, choose the Application Insights resource you already created.
-
-![Extend in Azure](./media/app-insights-asp-net-more/05-extend.png)
-
-### <a name="what-do-you-get?"></a>What do you get?
-
-* Exception stack traces show more detail.
-* Dependency telemetry (SQL calls and REST calls made by your app) for .NET 4.5 apps. (For later versions of .NET, the extension is not required for dependency telemetry.) 
-
-![Extend in Azure](./media/app-insights-asp-net-more/080.png)
-
-(You can also use this method to [enable performance monitoring at runtime](app-insights-monitor-performance-live-website-now.md), even if you didn't instrument your app in Visual Studio.)
-
-## <a name="client-side-monitoring"></a>Client-side monitoring
-
-You've installed the SDK that sends telemetry data from the server (back end) of your application. Now you can add client-side monitoring. This provides you with data on users, sessions, page views, and any exceptions or crashes that occur in the browser. You'll also be able to write your own code to track how your users work with your app, right down to the detailed level of clicks and keystrokes.
-
-Add the Application Insights JavaScript snippet to each web page, to get telemetry from client browsers.
-
-1. In Azure, open the Application Insights resource for your app.
-2. Open Quick Start, Monitor Client Side, and copy the snippet.
-3. Paste it so that it appears in the head of each web page - typically you can do this by pasting into the master layout page.
-
-![Extend in Azure](./media/app-insights-asp-net-more/100.png)
-
-Notice that the code contains the instrumentation key that identifies your application resource.
-
-### <a name="what-do-you-get?"></a>What do you get?
-
-* You can write JavaScript to send [custom telemetry from your web pages](app-insights-api-custom-events-metrics.md), for example to track button clicks.
-* In [Analytics](app-insights-analytics.md), data in `pageViews` and AJAX data in `dependencies`. 
-* [Client performance and usage data](app-insights-javascript.md) in the Browsers blade.
-
-![Extend in Azure](./media/app-insights-asp-net-more/090.png)
-
-
-[Learn more about web page tracking.](app-insights-web-track-usage.md)
+[Altre informazioni sul rilevamento delle pagine Web.](app-insights-web-track-usage.md)
 
 
 
-## <a name="track-application-version"></a>Track Application version
+## Rilevare la versione dell’applicazione
 
-Make sure `buildinfo.config` is generated by your MSBuild process. In your .csproj file, add:  
+Assicurarsi che `buildinfo.config` sia generato dal processo di MSBuild. Nel file con estensione csproj, aggiungere:
 
 ```XML
 
@@ -99,54 +98,51 @@ Make sure `buildinfo.config` is generated by your MSBuild process. In your .cspr
     </PropertyGroup> 
 ```
 
-When it has the build info, the Application Insights web module automatically adds **Application version** as a property to every item of telemetry. That allows you to filter by version when performing [diagnostic searches](app-insights-diagnostic-search.md) or when [exploring metrics](app-insights-metrics-explorer.md). 
+Quando sono disponibili le informazioni di compilazione, il modulo Web di Application Insights aggiunge automaticamente la **versione dell'applicazione** come proprietà a ogni elemento di telemetria. Questo consente di filtrare in base alla versione quando si eseguono [ricerche diagnostiche](app-insights-diagnostic-search.md) o quando si [esplorano le metriche](app-insights-metrics-explorer.md).
 
-However, notice that the build version number is generated only by MS Build, not by the developer build in Visual Studio.
-
-
-## <a name="availability-web-tests"></a>Availability web tests
-
-Send your web app HTTP requests at regular intervals from around the world. We alert you if the response is slow or unreliable.
-
-In the Application Insights resource for your app, click the Availability tile to add, edit, and view web tests.
-
-You can add multiple tests running at multiple locations.
-
-![Extend in Azure](./media/app-insights-asp-net-more/110.png)
-
-[Learn more](app-insights-monitor-web-app-availability.md)
-
-## <a name="custom-telemetry-and-logging"></a>Custom telemetry and logging
-
-The Application Insights packages that you added to your code provide an API that you can call from your application.
-
-* [Generate your own events and metrics](app-insights-api-custom-events-metrics.md), for example to count business events or monitor performance.
-* [Capture log traces](app-insights-asp-net-trace-logs.md) from Log4Net, NLog, or System.Diagnostics.Trace.
-* [Filter, modify, or augment](app-insights-api-filtering-sampling.md) the standard telemetry sent from your app by writing Telemetry Processors. 
+Si noti tuttavia che il numero di versione di build viene generato solo da Build MS, non dallo sviluppatore di build in Visual Studio.
 
 
-## <a name="powerful-analysis-and-presentation"></a>Powerful analysis and presentation
+## Test Web di disponibilità
 
-There are plenty of ways to explore your data. If you've recently started with Application Insights, check out these articles:
+Inviare richieste HTTP dell'app Web a intervalli regolari da tutto il mondo. Se la risposta è lenta o non affidabile, l'utente riceve un avviso.
+
+Nella risorsa di Application Insights per l'app fare clic sul riquadro Disponibilità per aggiungere, modificare e visualizzare test Web.
+
+È possibile aggiungere più test eseguiti in più località.
+
+![Estensione in Azure](./media/app-insights-asp-net-more/110.png)
+
+[Altre informazioni](app-insights-monitor-web-app-availability.md)
+
+## Telemetria personalizzata e registrazione
+
+I pacchetti di Application Insights aggiunti al codice forniscono un'API che può essere chiamata dall'applicazione.
+
+* [Generare metriche ed eventi personalizzati](app-insights-api-custom-events-metrics.md), ad esempio per conteggiare eventi aziendali o monitorare le prestazioni.
+* [Acquisire le tracce di log](app-insights-asp-net-trace-logs.md) da Log4Net, NLog o System.Diagnostics.Trace.
+* [Filtrare, modificare o aumentare](app-insights-api-filtering-sampling.md) i dati di telemetria standard inviati dall'app scrivendo processori di telemetria.
+
+
+## Analisi e presentazione efficienti
+
+È possibile esaminare i dati in numerosi modi. Se si è iniziato da poco a usare Application Insights, vedere gli articoli seguenti:
 
 ||
 |---|---
-|[**Diagnostic search for instance data**](app-insights-visual-studio.md)<br/>Search and filter events such as requests, exceptions, dependency calls, log traces, and page views. In Visual Studio, go to code from stack traces.|![Visual studio](./media/app-insights-asp-net/61.png)
-|[**Metrics Explorer for aggregated data**](app-insights-metrics-explorer.md)<br/>Explore, filter, and segment aggregated data such as rates of requests, failures, and exceptions; response times, page load times.|![Visual studio](./media/app-insights-asp-net-more/060.png)
-|[**Dashboards**](app-insights-dashboards.md#dashboards)<br/>Mash up data from multiple resources and share with others. Great for multi-component applications, and for continuous display in the team room.  |![Dashboards sample](./media/app-insights-asp-net/62.png)
-|[**Live Metrics Stream**](app-insights-metrics-explorer.md#live-metrics-stream)<br/>When you deploy a new build, watch these near-real-time performance indicators to make sure everything works as expected.|![Analytics sample](./media/app-insights-asp-net-more/050.png)
-|[**Analytics**](app-insights-analytics.md)<br/>Answer tough questions about your app's performance and usage by using this powerful query language.|![Analytics sample](./media/app-insights-asp-net-more/010.png)
-|[**Automatic and manual alerts**](app-insights-alerts.md)<br/>Automatic alerts adapt to your app's normal patterns of telemetry and trigger when there's something outside the usual pattern. You can also set alerts on particular levels of custom or standard metrics.|![Alert sample](./media/app-insights-asp-net-more/020.png)
+|[**Uso di Application Insights in Visual Studio**](app-insights-visual-studio.md)<br/>Cercare e filtrare eventi come richieste, eccezioni, chiamate a dipendenze, tracce di log e visualizzazioni di pagina. In Visual Studio, passare al codice dall'analisi dello stack.|![Visual Studio](./media/app-insights-asp-net/61.png)
+|[**Esaminare le metriche in Application Insights**](app-insights-metrics-explorer.md)<br/>Esaminare, filtrare e segmentare dati aggregati come frequenza delle richieste, errori, eccezioni, tempi di risposta e tempi di caricamento delle pagine.|![Visual Studio](./media/app-insights-asp-net-more/060.png)
+|[**Dashboard**](app-insights-dashboards.md#dashboards)<br/>Combinare dati di più risorse e condividerli con altri utenti. Ideale per le applicazioni multi-componente e per la visualizzazione continua negli spazi del team. |![Esempio di dashboard](./media/app-insights-asp-net/62.png)
+|[**Flusso metriche attive**](app-insights-metrics-explorer.md#live-metrics-stream)<br/>Quando si distribuisce una nuova build, controllare questi indicatori delle prestazioni in tempo quasi reale per verificare che tutto funzioni come previsto.|![Esempio di analisi](./media/app-insights-asp-net-more/050.png)
+|[**Analisi in Application Insights**](app-insights-analytics.md)<br/>Questo avanzato linguaggio di query consente di trovare risposta a domande approfondite sull'utilizzo e sulle prestazioni dell'app.|![Esempio di analisi](./media/app-insights-asp-net-more/010.png)
+|[**Impostare gli avvisi in Application Insights**](app-insights-alerts.md)<br/>Gli avvisi automatici si adattano ai modelli normali di telemetria dell'app e si attivano quando i dati si discostano dal modello consueto. È anche possibile impostare avvisi su livelli particolari delle metriche standard o personalizzate.|![Esempio di avviso](./media/app-insights-asp-net-more/020.png)
 
-## <a name="data-management"></a>Data management
+## Gestione dati
 
 |||
 |---|---|
-|[**Continuous Export**](app-insights-export-telemetry.md)<br/>Copy all your telemetry into storage so that you can analyze it your own way.|
-|**Data access API**<br/>Coming soon.|
-|[**Sampling**](app-insights-sampling.md)<br/>Reduces the data rate and helps you stay within the limit of your pricing tier.|![Sampling tile](./media/app-insights-asp-net-more/030.png)
+|[**Esportare i dati di telemetria da Application Insights**](app-insights-export-telemetry.md)<br/>Copiare tutti i dati di telemetria in una risorsa di archiviazione per poterli analizzare nel modo preferito.|
+|**API di accesso ai dati**<br/>Presto disponibile.|
+|[**Campionamento in Application Insights**](app-insights-sampling.md)<br/>Riduce la frequenza di dati e consente di rimanere entro il limite del proprio piano tariffario.|![Riquadro del campionamento](./media/app-insights-asp-net-more/030.png)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

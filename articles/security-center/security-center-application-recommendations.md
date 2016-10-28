@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Protecting your applications in Azure Security Center  | Microsoft Azure"
-   description="This document addresses recommendations in Azure Security Center that help you protect your Azure applications and stay in compliance with security policies."
+   pageTitle="Protezione delle applicazioni nel Centro sicurezza di Azure | Microsoft Azure"
+   description="Questo documento illustra le raccomandazioni presenti nel Centro sicurezza di Azure che facilitano la protezione delle applicazioni Azure e garantiscono la conformità ai criteri di sicurezza."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -14,38 +14,33 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/04/2016"
-   ms.author="terrylan"/>
+   ms.author="terrylan"/>  
 
+# Protezione delle applicazioni nel Centro sicurezza di Azure
 
-# <a name="protecting-your-applications-in-azure-security-center"></a>Protecting your applications in Azure Security Center
+Il Centro sicurezza di Azure analizza lo stato di sicurezza delle risorse di Azure. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari. Le raccomandazioni sono applicabili ai tipi di risorse di Azure, ovvero macchine virtuali, risorse di rete, SQL e applicazioni.
 
-Azure Security Center analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls.  Recommendations apply to Azure resource types: virtual machines (VMs), networking, SQL, and applications.
+Questo articolo illustra le raccomandazioni relative alle applicazioni. Le raccomandazioni relative alle applicazioni sono incentrate sulla distribuzione di un web application firewall. Usare la tabella seguente come riferimento per conoscere le raccomandazioni disponibili per le applicazioni e gli effetti che producono se si decide di metterle in pratica.
 
-This article addresses recommendations that apply to applications.  Application recommendations center around deployment of a web application firewall.  Use the table below as a reference to help you understand the available application recommendations and what each one will do if you apply it.
+## Raccomandazioni disponibili sulle applicazioni
 
-## <a name="available-application-recommendations"></a>Available application recommendations
-
-|Recommendation|Description|
+|Raccomandazione|Descrizione|
 |-----|-----|
-|[Add a web application firewall](security-center-add-web-application-firewall.md)|Recommends that you deploy a web application firewall (WAF) for web endpoints. You can protect multiple web applications in Security Center by adding these applications to your existing WAF deployments. WAF appliances (created using the Resource Manager deployment model) need to be deployed to a separate virtual network. WAF appliances (created using the classic deployment model) are restricted to using a network security group. This support will be extended to a fully customized deployment of a WAF appliance (classic) in the future.|
-|[Finalize application protection](security-center-add-web-application-firewall.md#finalize-application-protection)|To complete the configuration of a WAF, traffic must be rerouted to the WAF appliance. Following this recommendation will complete the necessary setup changes.|
+|[Aggiungere un Web Application Firewall](security-center-add-web-application-firewall.md)|Suggerisce di distribuire un Web application firewall (WAF) per gli endpoint Web. Per proteggere più applicazioni Web in Centro sicurezza, è possibile aggiungerle alle distribuzioni WAF esistenti. Le appliance WAF (create con il modello di distribuzione di Resource Manager) devono essere distribuite in una rete virtuale separata. Le appliance WAF (create con il modello di distribuzione classica) sono limitate all'uso di un gruppo di sicurezza di rete. In futuro tale supporto verrà esteso a una distribuzione completamente personalizzata di un'appliance WAF (versione classica).|
+|[Finalizza la protezione dell'applicazione](security-center-add-web-application-firewall.md#finalize-application-protection)|Per completare la configurazione di un Web Application Firewall, il traffico deve essere reindirizzato al dispositivo WAF. Seguendo questa raccomandazione si completeranno le modifiche di configurazione necessarie.|
 
-## <a name="see-also"></a>See also
+## Vedere anche
 
-To learn more about recommendations that apply to other Azure resource types, see the following:
+Per altre informazioni sulle raccomandazioni applicabili ad altri tipi di risorse di Azure, vedere gli argomenti seguenti:
 
-- [Protecting your virtual machines in Azure Security Center](security-center-virtual-machine-recommendations.md)
-- [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
-- [Protecting your Azure SQL service in Azure Security Center](security-center-sql-service-recommendations.md)
+- [Protezione delle macchine virtuali nel Centro sicurezza di Azure](security-center-virtual-machine-recommendations.md)
+- [Protezione della rete nel Centro sicurezza di Azure](security-center-network-recommendations.md)
+- [Protezione del servizio SQL di Azure nel Centro sicurezza di Azure](security-center-sql-service-recommendations.md)
 
-To learn more about Security Center, see the following:
+Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
-- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
-- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
+- [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
+- [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
+- [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,10 +1,10 @@
-<properties
-   pageTitle="Overview of Azure DNS | Microsoft Azure"
-   description="Overview of Azure DNS hosting services on Microsoft Azure. Host your domain on Microsoft Azure."
-   services="dns"
-   documentationCenter="na"
-   authors="sdwheeler"
-   manager="carmonm"
+<properties 
+   pageTitle="Panoramica del servizio DNS di Azure | Microsoft Azure" 
+   description="Panoramica dei servizi di hosting DNS di Azure in Microsoft Azure. Ospitare il dominio in Microsoft Azure." 
+   services="dns" 
+   documentationCenter="na" 
+   authors="cherylmc" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -12,35 +12,30 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
+   ms.workload="infrastructure-services" 
    ms.date="08/16/2016"
-   ms.author="sewhee"/>
+   ms.author="cherylmc"/>
+
+# Panoramica di DNS di Azure
 
 
-# <a name="azure-dns-overview"></a>Azure DNS Overview
+Il nome DNS (Domain Name System) è responsabile della conversione (o risoluzione) del nome di un sito Web o del servizio nel relativo indirizzo IP. DNS di Azure è un servizio di hosting per i domini DNS, che fornisce la risoluzione dei nomi usando l'infrastruttura di Microsoft Azure. Ospitando i domini in Azure, è possibile gestire i record DNS usando le stesse credenziali, API, strumenti e fatturazione come per gli altri servizi Azure.
 
 
-The Domain Name System, or DNS, is responsible for translating (or resolving) a website or service name to its IP address. Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
+I domini DNS nel servizio DNS di Azure sono ospitati nella rete globale di Azure dei server dei nomi DNS. Usiamo le reti Anycast, in modo che ogni query DNS riceva una risposta dal server DNS disponibile più vicino. Ciò consente di accelerare le prestazioni e ottenere la disponibilità elevata per il dominio.
+
+Il servizio DNS di Azure si basa su Gestione risorse di Azure. Si avvale quindi dei vantaggi offerti dalle funzionalità di Azure Resource Manager, ad esempio il controllo degli accessi in base al ruolo, i log di controllo e il blocco delle risorse. I domini e i record possono essere gestiti tramite il portale di Azure, i cmdlet di Azure PowerShell e l'interfaccia della riga di comando di Azure. Le applicazioni che richiedono la gestione automatica di DNS possono essere integrate con il servizio tramite l'API REST e gli SDK.
+
+DNS di Azure attualmente non supporta l'acquisto dei nomi di dominio. Se si desidera acquistare domini, è necessario usare un registrar di nomi di dominio di terze parti. Il registrar in genere addebiterà un prezzo annuo irrisorio. I domini possono quindi essere ospitati in DNS di Azure per la gestione dei record DNS. Per informazioni dettagliate, vedere [Delegare un dominio a DNS di Azure](dns-domain-delegation.md).
 
 
-DNS domains in Azure DNS are hosted on Azure’s global network of DNS name servers. We use Anycast networking so that each DNS query is answered by the closest available DNS server. This provides both fast performance and high availability for your domain.
+## Passaggi successivi
 
-The Azure DNS service is based on Azure Resource Manager (ARM). As such, it benefits from ARM features such as role-based access control, audit logs, and resource locking. Your domains and records can be managed via the Azure portal, Azure PowerShell cmdlets, and the cross-platform Azure CLI. Applications requiring automatic DNS management can integrate with the service via the REST API and SDKs.
-
-Azure DNS does not currently support purchasing of domain names. If you want to purchase domains, you'll need to use a third-party domain name registrar. The registrar will typically charge a small annual fee. The domains can then be hosted in Azure DNS for management of DNS records. See [Delegate a Domain to Azure DNS](dns-domain-delegation.md) for details.
-
-
-## <a name="next-steps"></a>Next steps
-
-[Create a DNS zone](dns-getstarted-create-dnszone-portal.md)
-
-
+[Creare una zona DNS](dns-getstarted-create-dnszone-portal.md)
 
 
 
 
+ 
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

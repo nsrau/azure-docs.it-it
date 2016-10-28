@@ -1,88 +1,83 @@
 <properties
-    pageTitle="Trace the flow in a Cloud Services Application with Azure Diagnostics | Microsoft Azure"
-    description="Add tracing messages to an Azure application to help debugging, measuring performance, monitoring, traffic analysis, and more."
-    services="cloud-services"
-    documentationCenter=".net"
-    authors="rboucher"
-    manager="jwhit"
-    editor=""/>
+	pageTitle="Tracciare il flusso in un'applicazione di Servizi cloud con Diagnostica di Azure | Microsoft Azure"
+	description="Aggiungere messaggi di traccia a un'applicazione Azure per consentire operazioni di debug, misurazione delle prestazioni, monitoraggio, analisi del traffico e molto altro."
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="rboucher"
+	manager="jwhit"
+	editor=""/>
 
 <tags
-    ms.service="cloud-services"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="02/20/2016"
-    ms.author="robb"/>
+	ms.service="cloud-services"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="02/20/2016"
+	ms.author="robb"/>
 
 
 
+# Tracciare il flusso in un'applicazione di Servizi cloud con Diagnostica di Azure
 
-# <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Trace the flow of a Cloud Services application with Azure Diagnostics
-
-Tracing is a way for you to monitor the execution of your application while it is running. You can use the [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx), [System.Diagnostics.Debug](https://msdn.microsoft.com/library/system.diagnostics.debug.aspx), and [System.Diagnostics.TraceSource](https://msdn.microsoft.com/library/system.diagnostics.tracesource.aspx) classes to record information about errors and application execution in logs, text files, or other devices for later analysis. For more information about tracing, see [Tracing and Instrumenting Applications](https://msdn.microsoft.com/library/zs6s4h68.aspx).
-
-
-## <a name="use-trace-statements-and-trace-switches"></a>Use trace statements and trace switches
-
-Implement tracing in your Cloud Services application by adding the [DiagnosticMonitorTraceListener](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.diagnostics.diagnosticmonitortracelistener.aspx) to the application configuration and making calls to System.Diagnostics.Trace or System.Diagnostics.Debug in your application code. Use the configuration file *app.config* for worker roles and the *web.config* for web roles. When you create a new hosted service using a Visual Studio template, Azure Diagnostics is automatically added to the project and the DiagnosticMonitorTraceListener is added to the appropriate configuration file for the roles that you add.
-
-For information on placing trace statements, see [How to: Add Trace Statements to Application Code](https://msdn.microsoft.com/library/zd83saa2.aspx).
-
-By placing [Trace Switches](https://msdn.microsoft.com/library/3at424ac.aspx) in your code, you can control whether tracing occurs and how extensive it is. This lets you monitor the status of your application in a production environment. This is especially important in a business application that uses multiple components running on multiple computers. For more information, see [How to: Configure Trace Switches](https://msdn.microsoft.com/library/t06xyy08.aspx).
-
-## <a name="configure-the-trace-listener-in-an-azure-application"></a>Configure the trace listener in an Azure application
-
-Trace, Debug and TraceSource, require you set up "listeners" to collect and record the messages that are sent. Listeners collect, store, and route tracing messages. They direct the tracing output to an appropriate target, such as a log, window, or text file. Azure Diagnostics uses the [DiagnosticMonitorTraceListener](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.diagnostics.diagnosticmonitortracelistener.aspx) class.
-
-Before you complete the following procedure, you must initialize the Azure diagnostic monitor. To do this, see [Enabling Diagnostics in Microsoft Azure](cloud-services-dotnet-diagnostics.md).
-
-Note that if you use the templates that are provided by Visual Studio, the configuration of the listener is added automatically for you.
+Tracciare è una delle azioni a cui è possibile ricorrere per monitorare l'esecuzione di un'applicazione mentre è attiva. È possibile usare le classi [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx), [System.Diagnostics.Debug](https://msdn.microsoft.com/library/system.diagnostics.debug.aspx) e [System.Diagnostics.TraceSource](https://msdn.microsoft.com/library/system.diagnostics.tracesource.aspx) per registrare informazioni sull'esecuzione dell'applicazione ed eventuali errori in file di log, file di testo o altri dispositivi per un'analisi successiva. Per altre informazioni sulle funzionalità di traccia, vedere l'articolo sulle modalità per [tracciare e instrumentare applicazioni](https://msdn.microsoft.com/library/zs6s4h68.aspx).
 
 
-### <a name="add-a-trace-listener"></a>Add a trace listener
+## Usare istruzioni e opzioni di traccia
 
-1. Open the web.config or app.config file for your role.
-2. Add the following code to the file. Change the Version attribute to use the version number of the assembly you are referencing. The assembly version does not necessarily change with each Azure SDK release unless there are updates to it.
+Per implementare funzionalità di traccia in un'applicazione di Servizi cloud, è possibile aggiungere [DiagnosticMonitorTraceListener](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.diagnostics.diagnosticmonitortracelistener.aspx) alla configurazione dell'applicazione ed effettuare chiamate a System.Diagnostics.Trace o System.Diagnostics.Debug nel codice dell'applicazione. Usare il file di configurazione *app. config* per i ruoli di lavoro e *web.config* per i ruoli Web. Quando si crea un nuovo servizio ospitato usando un modello di Visual Studio, Diagnostica di Azure viene automaticamente aggiunto al progetto e DiagnosticMonitorTraceListener viene aggiunto al file di configurazione appropriato per i ruoli aggiunti.
 
-    ```
-    <system.diagnostics>
-        <trace>
-            <listeners>
-                <add type="Microsoft.WindowsAzure.Diagnostics.DiagnosticMonitorTraceListener,
-                  Microsoft.WindowsAzure.Diagnostics,
-                  Version=2.8.0.0,
-                  Culture=neutral,
-                  PublicKeyToken=31bf3856ad364e35"
-                  name="AzureDiagnostics">
-                  <filter type="" />
-                </add>
-            </listeners>
-        </trace>
-    </system.diagnostics>
-    ```
-    >[AZURE.IMPORTANT] Make sure you have a project reference to the Microsoft.WindowsAzure.Diagnostics assembly. Update the version number in the xml above to match the version of the referenced Microsoft.WindowsAzure.Diagnostics assembly.
+Per informazioni sull'inserimento di istruzioni di traccia, vedere la [procedura per aggiungere istruzioni di traccia al codice di un'applicazione](https://msdn.microsoft.com/library/zd83saa2.aspx).
 
-3. Save the config file.
+Inserendo [opzioni di traccia](https://msdn.microsoft.com/library/3at424ac.aspx) nel codice, è possibile controllare se la traccia viene eseguita e con quale copertura. In questo modo, è possibile monitorare lo stato dell'applicazione in un ambiente di produzione. Questo aspetto è particolarmente importante in un'applicazione aziendale che usa più componenti in esecuzione su più computer. Per altre informazioni, vedere la [procedura per configurare opzioni di traccia](https://msdn.microsoft.com/library/t06xyy08.aspx).
 
-For more information about listeners, see [Trace Listeners](https://msdn.microsoft.com/library/4y5y10s7.aspx).
+## Configurare il listener di traccia in un'applicazione Azure
 
-After you complete the steps to add the listener, you can add trace statements to your code.
+Quando si usano le classi Traccia, Debug e TraceSource, è necessario impostare dei "listener" per raccogliere e registrare i messaggi inviati. I listener raccolgono, archiviano e indirizzano i messaggi di traccia, quindi indirizzano l'output di traccia su una destinazione appropriata, ad esempio un log, una finestra o un file di testo. Diagnostica di Azure usa la classe [DiagnosticMonitorTraceListener](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.diagnostics.diagnosticmonitortracelistener.aspx).
+
+Prima di completare la procedura seguente, è necessario inizializzare il monitor di diagnostica di Azure. A tale scopo, vedere [Abilitazione di Diagnostica in Microsoft Azure](cloud-services-dotnet-diagnostics.md).
+
+Se si usano i modelli disponibili in Visual Studio, la configurazione del listener viene aggiunta automaticamente.
 
 
-### <a name="to-add-trace-statement-to-your-code"></a>To add trace statement to your code
+### Aggiungere un listener di traccia
 
-1. Open a source file for your application. For example, the <RoleName>.cs file for the worker role or web role.
-2. Add the following using statement if it has not already been added:
-    ```
-        using System.Diagnostics;
-    ```
-3. Add Trace statements where you want to capture information about the state of your application. You can use a variety of methods to format the output of the Trace statement. For more information, see [How to: Add Trace Statements to Application Code](https://msdn.microsoft.com/library/zd83saa2.aspx).
-4. Save the source file.
+1. Aprire il file web.config o app.config, in base al ruolo selezionato.
+2. Aggiungere il codice seguente al file. Modificare l'attributo Version impostando il numero di versione dell'assembly a cui si fa riferimento. La versione dell'assembly non cambia necessariamente con ogni versione di Azure SDK a meno che non vengano resi disponibili aggiornamenti.
+
+	```
+	<system.diagnostics>
+		<trace>
+			<listeners>
+				<add type="Microsoft.WindowsAzure.Diagnostics.DiagnosticMonitorTraceListener,
+		          Microsoft.WindowsAzure.Diagnostics,
+		          Version=2.8.0.0,
+		          Culture=neutral,
+		          PublicKeyToken=31bf3856ad364e35"
+		          name="AzureDiagnostics">
+			  	  <filter type="" />
+				</add>
+			</listeners>
+		</trace>
+	</system.diagnostics>
+	```
+	>[AZURE.IMPORTANT] Accertarsi di avere un riferimento progetto all'assembly Microsoft.WindowsAzure.Diagnostics. Aggiornare il numero di versione nel file xml precedente in base alla versione dell'assembly di riferimento Microsoft.WindowsAzure.Diagnostics.
+
+3. Salvare il file di configurazione.
+
+Per altre informazioni sui listener, vedere l'articolo sui [listener di traccia](https://msdn.microsoft.com/library/4y5y10s7.aspx).
+
+Dopo aver completato i passaggi necessari per aggiungere il listener, è possibile aggiungere istruzioni di traccia al codice.
 
 
+### Per aggiungere un'istruzione di traccia al codice
 
-<!--HONumber=Oct16_HO2-->
+1. Aprire un file di origine per l'applicazione, ad esempio il file <RoleName>.cs per il ruolo di lavoro o il ruolo Web.
+2. Aggiungere l'istruzione using seguente, se non è già presente:
+	```
+	    using System.Diagnostics;
+	```
+3. Aggiungere istruzioni di traccia nei punti in cui si desidera acquisire informazioni sullo stato dell'applicazione. È possibile usare vari metodi per formattare l'output dell'istruzione di traccia. Per altre informazioni, vedere la [procedura per aggiungere istruzioni di traccia al codice dell'applicazione](https://msdn.microsoft.com/library/zd83saa2.aspx).
+4. Salvare il file di origine.
 
-
+<!---HONumber=AcomDC_0302_2016-->

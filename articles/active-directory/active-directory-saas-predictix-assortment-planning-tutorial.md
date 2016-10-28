@@ -1,257 +1,256 @@
 <properties
-    pageTitle="Tutorial: Azure Active Directory integration with Predictix Assortment Planning | Microsoft Azure"
-    description="Learn how to configure single sign-on between Azure Active Directory and Predictix Assortment Planning."
-    services="active-directory"
-    documentationCenter=""
-    authors="jeevansd"
-    manager="femila"
-    editor=""/>
+	pageTitle="Esercitazione: Integrazione di Azure Active Directory con Predictix Assortment Planning | Microsoft Azure"
+	description="Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Predictix Assortment Planning."
+	services="active-directory"
+	documentationCenter=""
+	authors="jeevansd"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/14/2016"
-    ms.author="jeedes"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/26/2016"
+	ms.author="jeedes"/>
 
 
+# Esercitazione: Integrazione di Azure Active Directory con Predictix Assortment Planning
 
-# <a name="tutorial:-azure-active-directory-integration-with-predictix-assortment-planning"></a>Tutorial: Azure Active Directory integration with Predictix Assortment Planning
+Questa esercitazione descrive come integrare Predictix Assortment Planning con Azure Active Directory (Azure AD).
 
-In this tutorial, you learn how to integrate Predictix Assortment Planning with Azure Active Directory (Azure AD).
+L'integrazione di Predictix Assortment Planning con Azure AD offre i vantaggi seguenti:
 
-Integrating Predictix Assortment Planning with Azure AD provides you with the following benefits:
+- È possibile controllare in Azure AD chi può accedere a Predictix Assortment Planning
+- È possibile abilitare gli utenti perché possano accedere automaticamente, ossia tramite accesso Single Sign-On, a Predictix Assortment Planning con i propri account Azure AD
+- È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
-- You can control in Azure AD who has access to Predictix Assortment Planning
-- You can enable your users to automatically get signed-on to Predictix Assortment Planning (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure classic portal
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+## Prerequisiti
 
-## <a name="prerequisites"></a>Prerequisites
+Per configurare l'integrazione di Azure AD con Predictix Assortment Planning, sono necessari gli elementi seguenti:
 
-To configure Azure AD integration with Predictix Assortment Planning, you need the following items:
-
-- An Azure AD subscription
-- A Predictix Assortment Planning single-sign on enabled subscription
-
-
-> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
+- Sottoscrizione di Azure AD.
+- Sottoscrizione di Predictix Assortment Planning abilitata per l'accesso Single Sign-On
 
 
-To test the steps in this tutorial, you should follow these recommendations:
-
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
 
 
-## <a name="scenario-description"></a>Scenario Description
-In this tutorial, you test Microsoft Azure AD Single Sign-On in a test environment.
+A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
-The scenario outlined in this tutorial consists of two main building blocks:
-
-1. Adding Predictix Assortment Planning from the gallery
-2. Configuring and testing Microsoft Azure AD Single Sign-On
+- Non usare l'ambiente di produzione, a meno che non sia necessario.
+- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## <a name="adding-predictix-assortment-planning-from-the-gallery"></a>Adding Predictix Assortment Planning from the gallery
-To configure the integration of Predictix Assortment Planning into Azure AD, you need to add Predictix Assortment Planning from the gallery to your list of managed SaaS apps.
+## Descrizione dello scenario
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Microsoft Azure AD in un ambiente di test.
 
-**To add Predictix Assortment Planning from the gallery, perform the following steps:**
+Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
-
-    ![Active Directory][1]
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
-
-    ![Applications][2]
-
-4. Click **Add** at the bottom of the page.
-
-    ![Applications][3]
-
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
-
-    ![Applications][4]
-
-6. In the search box, type **Predictix Assortment Planning**.
-
-    ![Creating an Azure AD test user](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_01.png)
-
-7. In the results pane, select **Predictix Assortment Planning**, and then click **Complete** to add the application.
-
-    ![Creating an Azure AD test user](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_02.png)
+1. Aggiunta di Predictix Assortment Planning dalla raccolta
+2. Configurazione e test dell'accesso Single Sign-On di Microsoft Azure AD
 
 
-##  <a name="configuring-and-testing-microsoft-azure-ad-single-sign-on"></a>Configuring and testing Microsoft Azure AD Single Sign-On
-In this section, you configure and test Microsoft Azure AD Single Sign-On with Predictix Assortment Planning based on a test user called "Britta Simon".
+## Aggiunta di Predictix Assortment Planning dalla raccolta
+Per configurare l'integrazione di Predictix Assortment Planning in Azure AD, è necessario aggiungere Predictix Assortment Planning dalla raccolta al proprio elenco di app SaaS gestite.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Predictix Assortment Planning is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Predictix Assortment Planning needs to be established.
+**Per aggiungere Predictix Assortment Planning dalla raccolta, seguire questa procedura:**
 
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Predictix Assortment Planning.
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-To configure and test Microsoft Azure AD Single Sign-On with Predictix Assortment Planning, you need to complete the following building blocks:
+	![Active Directory][1]
+2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-1. **[Configuring Microsoft Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Microsoft Azure AD Single Sign-On with Britta Simon.
-3. **[Creating a Predictix Assortment Planning test user](#creating-a-predictix-price-reporting-test-user)** - to have a counterpart of Britta Simon in Predictix Assortment Planning that is linked to the Azure AD representation of her.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Microsoft Azure AD Single Sign-On.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-### <a name="configuring-microsoft-azure-ad-single-sign-on"></a>Configuring Microsoft Azure AD Single Sign-On
+	![Applicazioni][2]
 
-In this section, you enable Microsoft Azure AD Single Sign-On in the classic portal and configure single sign-on in your Predictix Assortment Planning application.
+4. Fare clic su **Add** nella parte inferiore della pagina.
+
+	![Applicazioni][3]
+
+5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+
+	![Applicazioni][4]
+
+6. Nella casella di ricerca digitare **Predictix Assortment Planning**.
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_01.png)
+
+7. Nel riquadro dei risultati selezionare **Predictix Assortment Planning** e quindi fare clic su **Completa** per aggiungere l'applicazione.
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_02.png)
 
 
-**To configure Microsoft Azure AD Single Sign-On with Predictix Assortment Planning, perform the following steps:**
+##  Configurazione e test dell'accesso Single Sign-On di Microsoft Azure AD
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Microsoft Azure AD con Predictix Assortment Planning usando un utente test di nome "Britta Simon".
 
-1. In the classic portal, on the **Predictix Assortment Planning** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
-     
-    ![Configure Single Sign-On][6] 
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Predictix Assortment Planning che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Predictix Assortment Planning.
 
-2. On the **How would you like users to sign on to Predictix Assortment Planning** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+La relazione di collegamento viene stabilita assegnando al valore di **nome utente** in Azure AD lo stesso valore di **Username** (nome utente) in Predictix Assortment Planning.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_03.png) 
+Per configurare e testare l'accesso Single Sign-On di Microsoft Azure AD con Predictix Assortment Planning, è necessario completare i blocchi predefiniti seguenti:
 
-3. On the **Configure App Settings** dialog page, perform the following steps:
+1. **[Configurazione dell'accesso Single Sign-On di Microsoft Azure AD](#configuring-azure-ad-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
+2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Microsoft Azure AD con l'utente Britta Simon.
+3. **[Creazione di un utente test di Predictix Assortment Planning](#creating-a-predictix-price-reporting-test-user)**: per avere una controparte di Britta Simon in Predictix Assortment Planning che sia collegata alla relativa rappresentazione in Azure AD.
+4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Microsoft Azure AD.
+5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_04.png) 
+### Configurazione di Single Sign-On di Microsoft Azure AD
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Predictix Assortment Planning application using the following pattern: **https://\<company name-pricing\>.ap.predictix.com/sso/request**.
-    
-    b. click **Next**
+In questa sezione viene abilitato l'accesso Single Sign-On di Microsoft Azure AD nel portale classico e viene configurato l'accesso Single Sign-On nell'applicazione Predictix Assortment Planning.
+
+
+**Per configurare l'accesso Single Sign-On di Microsoft Azure AD con Predictix Assortment Planning, seguire questa procedura:**
+
+1. Nella pagina di integrazione dell'applicazione **Predictix Assortment Planning** del portale classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+	 
+	![Configura accesso Single Sign-On][6]
+
+2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Predictix Assortment Planning** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
+
+	![Configura accesso Single Sign-On](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_03.png)
+
+3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
+
+	![Configura accesso Single Sign-On](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_04.png)
+
+    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione Predictix Assortment Planning usando il modello seguente: **https://\<nome società-prezzi>.predictix.com/sso/request**.
+	
+	b. Fare clic su **Avanti**.
  
-4. On the **Configure single sign-on at Predictix Assortment Planning** page, perform the following steps:
+4. Nella pagina **Configura accesso Single Sign-On in Predictix Assortment Planning** seguire questa procedura:
 
-    ![Configure Single Sign-On](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_05.png)
+	![Configura accesso Single Sign-On](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_05.png)
 
-    a. Click **Download certificate**, and then save the file on your computer.
+    a. Fare clic su **Scarica certificato** e quindi salvare il file nel computer.
 
-    b. Click **Next**.
+    b. Fare clic su **Next**.
 
 
-5. To get SSO configured for your application, contact Predictix Assortment Planning support team and provide them with the following:
+5. Per ottenere l'accesso Single Sign-On configurato per l'applicazione, contattare il team di supporto tecnico di Predictix Assortment Planning e comunicare gli elementi seguenti:
 
-    • The downloaded certificate
+	• Certificato scaricato
 
-    • The **Entity ID**
+	• **ID entità**
 
-    • The **SAML SSO URL**
+	• **URL SSO SAML**
 
-    • The **Single Sign Out Service URL**
+	• **URL del servizio Single Sign-Out**
 
-6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
-    
-    ![Azure AD Single Sign-On][10]
+6. Nel portale classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
+	
+	![Accesso Single Sign-On di Azure AD][10]
 
-7. On the **Single sign-on confirmation** page, click **Complete**.  
+7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
  
-    ![Azure AD Single Sign-On][11]
+	![Accesso Single Sign-On di Azure AD][11]
 
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-In this section, you create a test user in the classic portal called Britta Simon.
+### Creazione di un utente test di Azure AD
+In questa sezione viene creato un utente test chiamato Britta Simon nel portale classico.
 
 
-![Create Azure AD User][20]
+![Creare un utente di Azure AD][20]
 
-**To create a test user in Azure AD, perform the following steps:**
+**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_09.png) 
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_09.png)
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. To display the list of users, in the menu on the top, click **Users**.
+3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_03.png) 
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_03.png)
 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_04.png) 
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_04.png)
 
-5. On the **Tell us about this user** dialog page, perform the following steps:  ![Creating an Azure AD test user](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_05.png) 
+5. Nella pagina **Informazioni sull'utente** seguire questa procedura: ![Creazione di un utente test di Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_05.png)
 
-    a. As Type Of User, select New user in your organization.
+    a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
 
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
 
-    c. Click **Next**.
+    c. Fare clic su **Next**.
 
-6.  On the **User Profile** dialog page, perform the following steps: ![Creating an Azure AD test user](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_06.png) 
+6.  Nella pagina **Profilo utente** seguire questa procedura: ![Creazione di un utente test di Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_06.png)
 
-    a. In the **First Name** textbox, type **Britta**.  
+    a. Nella casella di testo **Nome** digitare **Britta**.
 
-    b. In the **Last Name** textbox, type, **Simon**.
+    b. Nella casella di testo **Cognome** digitare **Simon**.
 
-    c. In the **Display Name** textbox, type **Britta Simon**.
+    c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
 
-    d. In the **Role** list, select **User**.
+    d. Nell'elenco **Ruolo**, selezionare **Utente**.
 
-    e. Click **Next**.
+    e. Fare clic su **Avanti**.
 
-7. On the **Get temporary password** dialog page, click **create**.
+7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_07.png) 
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_07.png)
 
-8. On the **Get temporary password** dialog page, perform the following steps:
+8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_08.png) 
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_08.png)
 
-    a. Write down the value of the **New Password**.
+    a. Prendere nota del valore visualizzato in **Nuova password**.
 
-    b. Click **Complete**.   
-
-
-
-### <a name="creating-an-predictix-assortment-planning-test-user"></a>Creating an Predictix Assortment Planning test user
-
-In this section, you create a user called Britta Simon in Predictix Assortment Planning. Please work with Predictix Assortment Planning support team to add the users in the Predictix Assortment Planning platform.
+    b. Fare clic su **Complete**.
 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Predictix Assortment Planning.
+### Creazione di un utente test di Predictix Assortment Planning
 
-![Assign User][200] 
-
-**To assign Britta Simon to Predictix Assortment Planning, perform the following steps:**
-
-1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
-
-    ![Assign User][201] 
-
-2. In the applications list, select **Predictix Assortment Planning**.
-
-    ![Configure Single Sign-On](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_50.png) 
-
-3. In the menu on the top, click **Users**.
-
-    ![Assign User][203]
-
-4. In the Users list, select **Britta Simon**.
-
-5. In the toolbar on the bottom, click **Assign**.
-
-    ![Assign User][205]
+In questa sezione viene creato un utente di nome Britta Simon in Predictix Assortment Planning. Per aggiungere gli utenti nella piattaforma di Predictix Assortment Planning, contattare il team di supporto tecnico di Predictix Assortment Planning.
 
 
-### <a name="testing-single-sign-on"></a>Testing Single Sign-On
+### Assegnazione dell'utente test di Azure AD
 
-In this section, you test your Microsoft Azure AD Single Sign-On configuration using the Access Panel.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure, concedendole così accesso a Predictix Assortment Planning.
 
-When you click the Predictix Assortment Planning tile in the Access Panel, you should get automatically signed-on to your Predictix Assortment Planning application.
+![Assegna utente][200]
+
+**Per assegnare Britta Simon a Predictix Assortment Planning, seguire questa procedura:**
+
+1. Per aprire la visualizzazione delle applicazioni nel portale classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
+
+	![Assegna utente][201]
+
+2. Nell'elenco delle applicazioni selezionare **Predictix Assortment Planning**.
+
+	![Configura accesso Single Sign-On](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_50.png)
+
+3. Scegliere **Utenti** dal menu in alto.
+
+	![Assegna utente][203]
+
+4. Nell'elenco di utenti selezionare **Britta Simon**.
+
+5. Fare clic su **Assegna** sulla barra degli strumenti in basso.
+
+	![Assegna utente][205]
 
 
-## <a name="additional-resources"></a>Additional Resources
+### Test dell'accesso Single Sign-On
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Microsoft Azure AD usando il pannello di accesso.
+
+Quando si fa clic sul riquadro Predictix Assortment Planning nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Predictix Assortment Planning.
+
+
+## Risorse aggiuntive
+
+* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -272,8 +271,4 @@ When you click the Predictix Assortment Planning tile in the Access Panel, you s
 [204]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_205.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure Mobile Engagement User Interface - Dashboard" 
-   description="Learn how to view and manage charts of data about your application using Azure Mobile Engagement" 
+   pageTitle="Interfaccia utente di Azure Mobile Engagement - Dashboard" 
+   description="Informazioni su come visualizzare e gestire i grafici dei dati relativi all'applicazione usando Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -16,21 +16,20 @@
    ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
+# Come visualizzare e gestire i grafici dei dati relativi all'applicazione
+La sezione Dashboard dell'interfaccia utente consente ai clienti di creare grafici personalizzati. In questo modo, potranno sfruttare al meglio il tempo fornendo informazioni precise, invece di cercarle nella sezione delle analisi. Nel dashboard vengono visualizzate le tendenze dell'applicazione e il conteggio degli utenti attivi, suddivisi in base alle differenti versioni dell'applicazione e per un determinato periodo di tempo (ora, giorno, settimana, mese, personalizzato). Le tendenze visualizzate sono basate sugli ultimi 7 giorni.
 
-# <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>How to view and manage charts of data about your application
-The Dashboard section of the UI allows customers to create customized charts to maximize their time by providing the exact information they want instead of searching for it in the analytics section. A dashboard shows the trends of your application and the Active User Counts for the different versions of your application during a given time (hour/day/week/month/customized). The trends shown are based on the last 7 days.
+### Vedere anche
+-  [Guida alla risoluzione dei problemi - Analytics][Link 21]
 
-### <a name="see-also"></a>See also
--  [Troubleshooting Guide - Analytics][Link 21]
-
-## <a name="dashboard"></a>Dashboard
-- You can add charts to an empty dashboard by choosing the "Send to dashboard" action from the gear menu of any chart in the Analytics section of the UI that you'd like to see on a dashboard.
+## Dashboard
+- È possibile aggiungere grafici a un dashboard vuoto selezionando l'azione "Invia a dashboard" dal menu ingranaggio di qualsiasi grafico presente nella sezione Analisi dell'interfaccia utente che si desidera visualizzare nel dashboard
  
-## <a name="+-(add-a-dashboard)"></a>+ (Add a Dashboard)
-- You can use the "+" ribbon menu item to create a new dashboard that will show on the ribbon menu.
+## + (Aggiungi un dashboard)
+- È possibile utilizzare l'elemento "+" del menu della barra multifunzione per creare un nuovo dashboard da visualizzare nel menu della barra multifunzione.
  
-## <a name="gear-menu"></a>Gear Menu
-- You can use the gear menu of a dashboard to Delete, Rename, Share, or Schedule (E-mail Reception) of your dashboard. You can use the Schedule option to define the schedule at which you would like to receive your custom dashboard by email. You can schedule to receive it daily, weekly, or monthly. You can choose the time of the day, and the day of the week, or day of the month when you would like to receive the e-mail. Your e-mail address and time zone are based on the settings you have configured in the My Account section of the UI.
+## Menu ingranaggio
+- È possibile utilizzare il menu ingranaggio di un dashboard per eliminare, rinominare, condividere o pianificare (ricezione e-mail) gli elementi del dashboard. È possibile utilizzare l'opzione Pianifica per definire la pianificazione in base alla quale si desidera ricevere il dashboard personalizzato tramite posta elettronica. È possibile pianificare di riceverlo ogni giorno, ogni settimana oppure ogni mese. È possibile scegliere l'ora del giorno, il giorno della settimana o il giorno del mese in cui si desidera ricevere il messaggio e-mail. L'indirizzo e-mail e il fuso orario si basano sulle impostazioni configurate nella sezione Account personale dell'interfaccia utente.
  
  ![dashboard1][34]
 
@@ -130,8 +129,4 @@ The Dashboard section of the UI allows customers to create customized charts to 
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

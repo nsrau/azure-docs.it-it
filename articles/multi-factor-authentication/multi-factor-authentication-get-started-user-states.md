@@ -1,85 +1,66 @@
 <properties 
-    pageTitle="Microsoft Azure Multi-Factor Authentication User States"
-    description="Learn about user states in Azure MFA."
-    services="multi-factor-authentication"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor="curtand"/>
+	pageTitle="Stati utente in Microsoft Azure Multi-Factor Authentication"
+	description="Informazioni sugli stati utente in Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor="curtand"/> 
 
 <tags
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/04/2016"
-    ms.author="kgremban"/>
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
+# Stati utente in Azure Multi-Factor Authentication
 
-# <a name="user-states-in-azure-multi-factor-authentication"></a>User States in Azure Multi-Factor Authentication
+Gli account utente in modalità Multi-Factor Authentication di Azure presentano i seguenti tre stati distinti:
 
-User accounts in Azure Multi-Factor Authentication have the following three distinct states:
-
-State | Description |Non-browser apps affected| Notes
+Stato | Descrizione |App interessate non basate su browser| Note
 :-------------: | :-------------: |:-------------: |:-------------: |
-Disabled | The default state for a new user not enrolled in multi-factor authentication.|No|The user is not using multi-factor authentication.
-Enabled |The user has been enrolled in multi-factor authentication.|No.  They continue to work until the registration process is completed.|The user is enabled but has not completed the registration process. They will be prompted to complete the process at next sign-in.
-Enforced|The user has been enrolled and has completed the registration process for using multi-factor authentication.|Yes.  Apps require app passwords. | The user may or may not have completed registration. If they have completed the registration process, then they are using multi-factor authentication. Otherwise, the user will be prompted to complete the process at next sign-in.
+Disabled | Lo stato predefinito per un nuovo utente non registrato alla modalità Multi-Factor Authentication.|No|L'utente attualmente non usa la modalità Multi-Factor Authentication.
+Enabled |L'utente è stato registrato alla modalità Multi-Factor Authentication.|No. Continuano a funzionare fino al completamento della registrazione.|L'utente è abilitato ma non ha completato la procedura di registrazione. All'utente verrà chiesto di completare la procedura all'accesso successivo.
+Enforced|L'utente è stato registrato e ha completato la procedura di registrazione per l'utilizzo della modalità Multi-Factor Authentication.|Sì. Le app richiedono password per le app. | È possibile che l'utente abbia o non abbia completato la registrazione. Se la procedura di registrazione è stata completata, l'utente userà la modalità Multi-Factor Authentication. In caso contrario, all'utente verrà chiesto di completare la procedura all'accesso successivo.
 
-## <a name="changing-a-user-state"></a>Changing a user state
-A users state changes depending on whether or not it has been setup for MFA and whether the user has completed the process.  When you turn MFA on for a user, the users state will change from disabled to enabled.  Once the user, whose state has been changed to enabled, signs in and completes the process, their state will change to enforced.  
+## Modifica dello stato utente
+Lo stato utente cambia a seconda di due fattori: la configurazione per la MFA e il completamento del processo da parte dell'utente. Quando si attiva la MFA per un utente, lo stato degli utenti cambia da disabilitato ad abilitato. Dopo che l'utente abilitato esegue l'accesso e completa il processo, lo stato si imposterà su Applicato.
 
-### <a name="to-view-a-user's-state"></a>To view a user's state
+### Per visualizzare lo stato di un utente
 --------------------------------------------------------------------------------
-1.  Sign in to the **Azure classic portal** as an Administrator.
-2.  On the left, click **Active Directory**.
-3.  Under, **Directory** click on the directory for the user you wish to enable.
-![Click Directory](./media/multi-factor-authentication-get-started-cloud/directory1.png)
-4.  At the top, click **Users**.
-5.  At the bottom of the page, click **Manage Multi-Factor Auth**.
-![Click Directory](./media/multi-factor-authentication-get-started-cloud/manage1.png)
-6.  This will open a new browser tab.  You will be able to view the users state.
-![Click Directory](./media/multi-factor-authentication-get-started-user-states/userstate1.png)
+1.  Accedere al **portale di Azure classico** come amministratore.
+2.  A sinistra fare clic su **Active Directory**.
+3.  In **Directory** fare clic sulla directory relativa all'utente che si desidera attivare. ![Fare clic su Directory](./media/multi-factor-authentication-get-started-cloud/directory1.png)
+4.  Nella parte superiore fare clic su **Utenti**.
+5.  Nella parte inferiore della pagina fare clic su **Gestisci Multi-Factor Auth**. ![Fare clic su Directory](./media/multi-factor-authentication-get-started-cloud/manage1.png)
+6.  Verrà aperta una nuova scheda del browser. Sarà possibile visualizzare lo stato degli utenti. ![Fare clic su Directory](./media/multi-factor-authentication-get-started-user-states/userstate1.png)
 
-###<a name="to-change-the-state-from-disabled-to-enabled"></a>To change the state from disabled to enabled
-1.  Sign in to the **Azure classic portal** as an Administrator.
-2.  On the left, click **Active Directory**.
-3.  Under, **Directory** click on the directory for the user you wish to enable.
-![Click Directory](./media/multi-factor-authentication-get-started-cloud/directory1.png)
-4.  At the top, click **Users**.
-5.  At the bottom of the page, click **Manage Multi-Factor Auth**.
-![Click Directory](./media/multi-factor-authentication-get-started-cloud/manage1.png)
-6.  This will open a new browser tab.  Find the user that you wish to enable for multi-factor authentication. You may need to change the view at the top. Ensure that the status is **disabled.**
-![Enable user](./media/multi-factor-authentication-get-started-cloud/enable1.png)
-7.  Place a **check** in the box next to their name.
-7.  On the right, click **Enable**.
-![Enable user](./media/multi-factor-authentication-get-started-cloud/user1.png)
-8.  Click **enable multi-factor auth**.
-![Enable user](./media/multi-factor-authentication-get-started-cloud/enable2.png)
-9.  You should notice the user's state has changed from **disabled** to **enabled**.
-![Enable Users](./media/multi-factor-authentication-get-started-cloud/user.png)
-10.  After you have enabled your users, it is recommended that you notify them via email.  It should also inform them how they can use their non-browser apps to avoid being locked out.
+###Per modificare lo stato da disabilitato ad abilitato
+1.  Accedere al **portale di Azure classico** come amministratore.
+2.  A sinistra fare clic su **Active Directory**.
+3.  In **Directory** fare clic sulla directory relativa all'utente che si desidera attivare. ![Fare clic su Directory](./media/multi-factor-authentication-get-started-cloud/directory1.png)
+4.  Nella parte superiore fare clic su **Utenti**.
+5.  Nella parte inferiore della pagina fare clic su **Gestisci Multi-Factor Auth**. ![Fare clic su Directory](./media/multi-factor-authentication-get-started-cloud/manage1.png)
+6.  Verrà aperta una nuova scheda del browser. Trovare l'utente che si desidera abilitare alla modalità Multi-Factor Authentication Potrebbe essere necessario modificare la visualizzazione nella parte superiore. Assicurarsi che lo stato sia **Disattivato.** ![Attivare l'utente](./media/multi-factor-authentication-get-started-cloud/enable1.png)
+7.  **Selezionare** la casella accanto al nome.
+7.  A destra fare clic su **Abilita**. ![Attivare l'utente](./media/multi-factor-authentication-get-started-cloud/user1.png)
+8.  Fare clic su **Abilita Multi-Factor Auth**. ![Attivare l'utente](./media/multi-factor-authentication-get-started-cloud/enable2.png)
+9.  Si noterà che lo stato dell'utente è cambiato da **Disattivato** in **Attivato**. ![Attivare gli utenti](./media/multi-factor-authentication-get-started-cloud/user.png)
+10.  Dopo avere abilitato gli utenti, è consigliabile inviare una notifica tramite posta elettronica. È anche opportuno informarli su come possono usare le app non basate su browser per evitare di essere bloccati.
 
-### <a name="to-change-the-state-from-enabled/enforced-to-disabled"></a>To change the state from enabled/enforced to disabled
-1.  Sign in to the **Azure classic portal** as an Administrator.
-2.  On the left, click **Active Directory**.
-3.  Under, **Directory** click on the directory for the user you wish to enable.
-![Click Directory](./media/multi-factor-authentication-get-started-cloud/directory1.png)
-4.  At the top, click **Users**.
-5.  At the bottom of the page, click **Manage Multi-Factor Auth**.
-![Click Directory](./media/multi-factor-authentication-get-started-cloud/manage1.png)
-6.  This will open a new browser tab.  Find the user that you wish to disable. You may need to change the view at the top. Ensure that the status is either **enabled** or **enforced.**
-7.  Place a **check** in the box next to their name.
-7.  On the right, click **Disable**.
-![Disable user](./media/multi-factor-authentication-get-started-user-states/userstate2.png)
-8.  You will be prompted to confirm this.  Click **Yes**.
-![Disable user](./media/multi-factor-authentication-get-started-user-states/userstate3.png)
-9.  You should then see that it was successful.  Click **close.**
-![Disable user](./media/multi-factor-authentication-get-started-user-states/userstate4.png)
+### Per modificare lo stato da abilitato/applicato a disabilitato
+1.  Accedere al **portale di Azure classico** come amministratore.
+2.  A sinistra fare clic su **Active Directory**.
+3.  In **Directory** fare clic sulla directory relativa all'utente che si desidera attivare. ![Fare clic su Directory](./media/multi-factor-authentication-get-started-cloud/directory1.png)
+4.  Nella parte superiore fare clic su **Utenti**.
+5.  Nella parte inferiore della pagina fare clic su **Gestisci Multi-Factor Auth**. ![Fare clic su Directory](./media/multi-factor-authentication-get-started-cloud/manage1.png)
+6.  Verrà aperta una nuova scheda del browser. Cercare l'utente che si desidera disabilitare. Potrebbe essere necessario modificare la visualizzazione nella parte superiore. Assicurarsi che lo stato sia **Abilitato** o **Applicato**.
+7.  **Selezionare** la casella accanto al nome.
+7.  A destra fare clic su **Disattiva**. ![Disabilitare l'utente](./media/multi-factor-authentication-get-started-user-states/userstate2.png)
+8.  Verrà richiesta conferma. Fare clic su **Sì**. ![Disabilitare l'utente](./media/multi-factor-authentication-get-started-user-states/userstate3.png)
+9.  A questo punto l'operazione dovrebbe essere completa. Fare clic su **Chiudi.** ![Disabilitare l'utente](./media/multi-factor-authentication-get-started-user-states/userstate4.png)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

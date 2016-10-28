@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Automation DSC Continuous Deployment with Chocolatey | Microsoft Azure"
-   description="DevOps continuous deployment using Azure Automation DSC and Chocolatey package manager.  Example with full JSON ARM template and PowerShell source."
+   pageTitle="Distribuzione continua di Automation DSC per Azure con Chocolatey | Microsoft Azure"
+   description="Distribuzione continua in DevOps con Gestione pacchetti di Automation DSC per Azure e Chocolatey. Esempio con modello ARM JSON completo e codice sorgente di PowerShell."
    services="automation"
    documentationCenter=""
    authors="sebastus"
@@ -16,89 +16,88 @@
    ms.date="08/08/2016"
    ms.author="golive"/>
 
+# Esempio di utilizzo: Distribuzione continua in macchine virtuali tramite Automation DSC e Chocolatey
 
-# <a name="usage-example:-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Usage Example: Continuous deployment to Virtual Machines using Automation DSC and Chocolatey
+In un ambiente DevOps sono disponibili molti strumenti utili in diversi punti della pipeline di integrazione continua. Automation DSC (Desired State Configuration) per Azure è una nuova aggiunta alle opzioni disponibili per i team DevOps. Questo articolo illustra come configurare la distribuzione continua per un computer Windows. La tecnica può essere facilmente estesa per includere nel ruolo, ad esempio un sito Web, tutti i computer Windows necessari, estendendola quindi anche ad altri ruoli.
 
-In a DevOps world there are many tools to assist with various points in the Continuous Integration pipeline.  Azure Automation Desired State Configuration (DSC) is a welcome new addition to the options that DevOps teams can employ.  This article demonstrates setting up Continuous Deployment (CD) for a Windows computer.  You can easily extend the technique to include as many Windows computers as necessary in the role (a web site, for example), and from there to additional roles as well.
+![Distribuzione continua con VM IaaS](./media/automation-dsc-cd-chocolatey/cdforiaasvm.png)
 
-![Continuous Deployment for IaaS VMs](./media/automation-dsc-cd-chocolatey/cdforiaasvm.png)
+## A livello generale
 
-## <a name="at-a-high-level"></a>At a high level
+Gli aspetti da considerare sono molteplici, ma possono comunque essere suddivisi in due processi principali:
 
-There is quite a bit going on here, but fortunately it can be broken into two main processes: 
+  - Scrittura di codice e relativo test, quindi creazione e pubblicazione dei pacchetti di installazione per le versioni principale e secondaria del sistema.
+  - Creazione e gestione delle VM che installeranno ed eseguiranno il codice nei pacchetti.
 
-  - Writing code and testing it, then creating and publishing installation packages for major and minor versions of the system. 
-  - Creating and managing VMs that will install and execute the code in the packages.  
+Dopo l'implementazione di entrambi questi processi di base, si potrà aggiornare automaticamente e in modo rapido il pacchetto in esecuzione in qualsiasi VM specifica, man mano che vengono create e distribuite nuove versioni.
 
-Once both of these core processes are in place, it’s a short step to automatically update the package running on any particular VM as new versions are created and deployed.
+## Panoramica dei componenti
 
-## <a name="component-overview"></a>Component overview
+Gli strumenti di gestione dei pacchetti, ad esempio [apt-get](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool), sono ben noti nell'ambiente Linux, ma non lo sono altrettanto nell'ambiente Windows. [Chocolatey](https://chocolatey.org/) è uno di questi e il [blog](http://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx) di Scott Hanselman sull'argomento costituisce un'introduzione molto interessante. In breve, Chocolatey consente di installare pacchetti da un repository di pacchetti centrale in un sistema Windows usando la riga di comando. È possibile creare e gestire un repository personalizzato e Chocolatey può installare pacchetti da tutti i repository designati dall'utente.
 
-Package managers such as [apt-get](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) are pretty well known in the Linux world, but not so much in the Windows world.  [Chocolatey](https://chocolatey.org/) is such a thing, and Scott Hanselman’s [blog](http://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx) on the topic is a great intro.  In a nutshell, Chocolatey allows you to install packages from a central repository of packages into a Windows system using the command line.  You can create and manage your own repository, and Chocolatey can install packages from any number of repositories that you designate.
+DSC (Desired State Configuration) ([panoramica](https://technet.microsoft.com/library/dn249912.aspx)) è uno strumento di PowerShell che consente di dichiarare la configurazione che si desidera applicare a un computer. Si può ad esempio dichiarare di voler installare Chocolatey o IIS, di voler aprire la porta 80 e di voler installare la versione 1.0.0 del proprio sito Web. Gestione configurazione locale per DSC implementa tale configurazione. Un server di pull DSC mantiene un repository di configurazioni per i computer dell'utente. Gestione configurazione locale in ogni computer controlla periodicamente se la configurazione esistente corrisponde a quella archiviata. Può segnalare lo stato o provare a riallineare il computer con la configurazione archiviata. È possibile modificare la configurazione archiviata nel server di pull per fare in modo che il computer o un set di computer venga allineato con la configurazione modificata.
 
-Desired State Configuration (DSC) ([overview](https://technet.microsoft.com/library/dn249912.aspx)) is a PowerShell tool that allows you to declare the configuration that you want for a machine.  For example, you can say, “I want Chocolatey installed, I want IIS installed, I want port 80 opened, I want version 1.0.0 of my website installed.”  The DSC Local Configuration Manager (LCM) implements that configuration. A DSC Pull Server holds a repository of configurations for your machines. The LCM on each machine checks in periodically to see if its configuration matches the stored configuration. It can either report status or attempt to bring the machine back into alignment with the stored configuration. You can edit the stored configuration on the pull server to cause a machine or set of machines to come into alignment with the changed configuration.
+Automazione di Azure è un servizio gestito di Microsoft Azure che consente di automatizzare diverse attività tramite runbook, nodi, credenziali, risorse e asset, ad esempio pianificazioni e variabili globali. Automation DSC per Azure estende questa funzionalità di automazione includendo strumenti DSC di PowerShell. Ecco un'interessante [panoramica](automation-dsc-overview.md).
 
-Azure Automation is a managed service in Microsoft Azure that allows you to automate various tasks using runbooks, nodes, credentials, resources and assets such as schedules and global variables. Azure Automation DSC extends this automation capability to include PowerShell DSC tools.  Here’s a great [overview](automation-dsc-overview.md).
+Una risorsa DSC è un modulo di codice con funzionalità specifiche, ad esempio per la gestione della rete, di Active Directory o SQL Server. La risorsa DSC di Chocolatey riconosce in che modo accedere, tra gli altri, a un server NuGet, scaricare pacchetti, installare pacchetti e così via. In [PowerShell Gallery](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title) sono disponibili numerose altre risorse DSC. Questi moduli vengono installati dall'utente nel server di pull di Automation DSC per Azure, per poter essere usati nelle configurazioni personalizzate.
 
-A DSC Resource is a module of code that has specific capabilities, such as managing networking, Active Directory, or SQL Server.  The Chocolatey DSC Resource knows how to access a NuGet Server (among others), download packages, install packages, and so on.  There are many other DSC Resources in the [PowerShell Gallery](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title).  These modules are installed into your Azure Automation DSC Pull Server (by you) so they can be used by your configurations.
+I modelli ARM forniscono un modo dichiarativo per la generazione dell'infrastruttura, ad esempio reti, subnet, routing e sicurezza di rete, servizi di bilanciamento del carico, NIC, VM e così via. Ecco un [articolo](../resource-manager-deployment-model.md) che confronta il modello di distribuzione ARM, ovvero dichiarativo, con il modello di distribuzione di Gestione servizi di Azure (classico), o imperativo. È disponibile anche un altro [articolo](../virtual-machines/virtual-machines-windows-compare-deployment-models.md) relativo ai provider di risorse di base, come calcolo, archiviazione e rete.
 
-ARM templates provide a declarative way of generating your infrastructure - things like networks, subnets, network security and routing, load balancers, NICs, VMs, and so on.  Here’s an [article](../resource-manager-deployment-model.md) that compares the ARM deployment model (declarative) with the Azure Service Management (ASM, or classic) deployment model (imperative).  And another [article](../virtual-machines/virtual-machines-windows-compare-deployment-models.md) about the core resource providers, compute, storage and network.
+Una funzionalità chiave di un modello ARM è la capacità di installare un'estensione VM nella macchina virtuale durante il provisioning. Un'estensione VM include funzionalità specifiche, come l'esecuzione di uno script personalizzato, l'installazione di software antivirus o l'esecuzione di uno script di configurazione DSC. Sono disponibili molti altri tipi di estensioni VM.
 
-One key feature of an ARM template is its ability to install a VM extension into the VM as it’s provisioned.  A VM extension has specific capabilities such as running a custom script, installing anti-virus software, or running a DSC configuration script.  There are many other types of VM extensions.
+## Descrizione rapida del diagramma
 
-## <a name="quick-trip-around-the-diagram"></a>Quick trip around the diagram
+A partire dall'alto, si scrive il codice, si compila e si eseguono i test e quindi si crea un pacchetto di installazione. Chocolatey può gestire diversi tipi di pacchetti di installazione, ad esempio MSI, MSU, ZIP. Se le funzionalità native di Chocolatey non sono del tutto soddisfacenti, si può sempre ricorrere alle potenzialità complete di PowerShell per eseguire l'installazione effettiva. Inserire il pacchetto in una posizione raggiungibile, come un repository di pacchetti. Questo esempio di utilizzo usa una cartella pubblica in un account di archiviazione BLOB di Azure, ma può trovarsi anche in un'altra posizione. Chocolatey funziona in modalità nativa con i server NuGet e alcuni altri per la gestione dei metadati dei pacchetti. [Questo articolo](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) descrive le opzioni. Questo esempio di utilizzo usa NuGet. Nuspec sono i metadati relativi ai pacchetti. I Nuspec vengono "compilati" in NuPkg e archiviati in un server NuGet. Quando la configurazione richiede un pacchetto in base al nome e fa riferimento a un server NuGet, la risorsa DSC di Chocolatey, che ora si trova nella VM, estrae il pacchetto e lo installa automaticamente. È anche possibile richiedere una versione specifica di un pacchetto.
 
-Starting at the top, you write your code, build and test, then create an installation package.  Chocolatey can handle various types of installation packages, such as MSI, MSU, ZIP.  And you have the full power of PowerShell to do the actual installation if Chocolatey’s native capabilities aren’t quite up to it.  Put the package into someplace reachable – a package repository.  This usage example uses a public folder in an Azure blob storage account, but it can be anywhere.  Chocolatey works natively with NuGet servers and a few others for management of package metadata.  [This article](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) describes the options.  This usage example uses NuGet.  A Nuspec is metadata about your packages.  The Nuspec’s are “compiled” into NuPkg’s and stored in a NuGet server.  When your configuration requests a package by name, and references a NuGet server, the Chocolatey DSC Resource (now on the VM) grabs the package and installs it for you.  You can also request a specific version of a package.
+Nella parte in basso dell'immagine è presente un modello di Gestione risorse di Azure. In questo esempio di utilizzo, l'estensione VM registra la macchina virtuale con il server di pull di Automation DSC per Azure come nodo. La configurazione viene archiviata nel server di pull. In realtà viene archiviata due volte, cioè una volta come testo normale e una volta compilata come file MOF, un'indicazione per coloro che hanno familiarità con questi elementi. Nel portale il file MOF è una "configurazione di nodi", invece di una semplice "configurazione". Poiché l'artefatto è associato a un nodo, quest'ultimo riconoscerà la propria configurazione. I dettagli che seguono illustrano come assegnare la configurazione di nodi al nodo.
 
-In the bottom left portion of the picture, there is an Azure Resource Manager (ARM) template.  In this usage example, the VM extension registers the VM with the Azure Automation DSC Pull Server (that is, a pull server) as a Node.  The configuration is stored in the pull server.  Actually, it’s stored twice: once as plain text and once compiled as an MOF file (for those that know about such things.)  In the portal, the MOF is a “node configuration” (as opposed to simply “configuration”).  It’s the artifact that’s associated with a Node so the node will know its configuration.  Details below show how to assign the node configuration to the node.
+È probabile che ci si stia già occupando della sezione iniziale o la maggior parte di essa. La creazione del Nuspec, la relativa compilazione e archiviazione in un server NuGet non è un'operazione impegnativa e si stanno già gestendo le VM. L'esecuzione del passaggio successivo della distribuzione continua richiede la configurazione del server di pull (una volta), la registrazione dei nodi con il server (una volta) e la creazione e archiviazione della configurazione nel server (inizialmente). In seguito, man mano che i pacchetti vengono aggiornati e distribuiti nel repository, aggiornare la configurazione e la configurazione di nodi nel server di pull, ripetendola se necessario.
 
-Presumably you’re already doing the bit at the top, or most of it.  Creating the nuspec, compiling and storing it in a NuGet server is a small thing.  And you’re already managing VMs.  Taking the next step to continuous deployment requires setting up the pull server (once), registering your nodes with it (once), and creating and storing the configuration there (initially).  Then as packages are upgraded and deployed to the repository, refresh the Configuration and Node Configuration in the pull server (repeat as needed).
-
-If you’re not starting with an ARM template, that’s also OK.  There are PowerShell cmdlets designed to help you register your VMs with the pull server and all of the rest. For more details, see this article: [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md)
+Il procedimento funziona anche se non si inizia con un modello ARM. Sono disponibili cmdlet di PowerShell progettati per facilitare la registrazione delle VM con il server di pull e tutto il resto. Per altre informazioni dettagliate, vedere l'articolo [Caricamento di computer per la gestione con Automation DSC per Azure](automation-dsc-onboarding.md)
 
 
-## <a name="step-1:-setting-up-the-pull-server-and-automation-account"></a>Step 1: Setting up the pull server and automation account
+## Passaggio 1: Configurazione del server di pull e dell'account di automazione
 
-At an authenticated (Add-AzureRmAccount) PowerShell command line:  (can take a few minutes while the pull server is set up)
+Da una riga di comando di PowerShell (Add-AzureRmAccount) autenticata (la configurazione del server di pull può richiedere alcuni minuti):
 
     New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
     New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
 
-You can put your automation account into any of the following regions (aka location):  East US 2, South Central US, US Gov Virginia, West Europe, Southeast Asia, Japan East, Central India and Australia Southeast.
+È possibile inserire l'account di automazione in una qualsiasi delle aree seguenti (dette anche località): Stati Uniti orientali 2, Stati Uniti centro-meridionali, US Gov Virginia, Europa occidentale, Asia sud-orientale, Giappone orientale, India centrale e Australia sud-orientale.
 
-## <a name="step-2:-vm-extension-tweaks-to-the-arm-template"></a>Step 2: VM extension tweaks to the ARM template
+## Passaggio 2: Modifiche dell'estensione VM nel modello ARM
 
-Details for VM registration (using the PowerShell DSC VM extension) provided in this [Azure Quickstart Template](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver).  This step registers your new VM with the pull server in the list of DSC Nodes.  Part of this registration is specifying the node configuration to be applied to the node.  This node configuration doesn't have to exist yet in the pull server, so it's OK that Step 4 is where this is done for the first time.  But here in Step 2 you do need to have decided the name of the node and the name of the configuration.  In this usage example, the node is 'isvbox' and the configuration is 'ISVBoxConfig'.  So the node configuration name (to be specified in DeploymentTemplate.json) is 'ISVBoxConfig.isvbox'.  
+I dettagli per la registrazione della VM, usando l'estensione VM di PowerShell DSC, sono disponibili in questo [modello di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver). Questo passaggio registra la nuova VM con il server di pull nell'elenco di nodi DSC. Parte di tale registrazione consiste nella specifica della configurazione da applicare ai nodi. Questa configurazione di nodi non deve essere già presente nel server di pull e questa operazione può quindi essere eseguita per la prima volta nel passaggio 4. In questo passaggio 2 è tuttavia necessario definire il nome del nodo e della configurazione. In questo esempio di utilizzo, il nodo è 'isvbox' e la configurazione è 'ISVBoxConfig'. Pertanto il nome della configurazione di nodi da specificare in DeploymentTemplate.json è 'ISVBoxConfig.isvbox'.
 
-## <a name="step-3:-adding-required-dsc-resources-to-the-pull-server"></a>Step 3: Adding required DSC resources to the pull server
+## Passaggio 3: Aggiunta delle risorse DSC necessarie al server di pull
 
-The PowerShell Gallery is instrumented to install DSC resources into your Azure Automation account.  Navigate to the resource you want and click the “Deploy to Azure Automation” button.
+PowerShell Gallery è instrumentata per l'installazione delle risorse DSC nell'account di Automazione di Azure. Passare alla risorsa desiderata e fare clic sul pulsante "Deploy to Azure Automation".
 
-![PowerShell Gallery example](./media/automation-dsc-cd-chocolatey/xNetworking.PNG)
+![Esempio di PowerShell Gallery](./media/automation-dsc-cd-chocolatey/xNetworking.PNG)
 
-Another technique recently added to the Azure Portal allows you to pull in new modules or update existing modules. Click through the Automation Account resource, the Assets tile, and finally the Modules tile.  The Browse Gallery icon allows you to see the list of modules in the gallery, drill down into details and ultimately import into your Automation Account. This is a great way to keep your modules up to date from time to time. And, the import feature checks dependencies with other modules to ensure nothing gets out of sync.
+Un'altra tecnica aggiunta di recente al portale di Azure consente di inserire nuovi moduli o aggiornare quelli esistenti. Fare clic sulla risorsa Account di automazione, sul riquadro Asset e infine sul riquadro Moduli. L'icona Esplora raccolta consente di visualizzare l'elenco dei moduli nella raccolta, eseguire il drill-down dei dettagli e infine di eseguire l'importazione in Account di automazione. Questo è un ottimo modo per mantenere aggiornati i moduli periodicamente. La funzionalità di importazione verifica le dipendenze con altri moduli per garantire che rimangano sincronizzati.
 
-Or, there’s the manual approach.  The folder structure of a PowerShell Integration Module for a Windows computer is a little different from the folder structure expected by the Azure Automation.  This requires a little tweaking on your part.  But it’s not hard, and it’s done only once per resource (unless you want to upgrade it in future.)  For more information on authoring PowerShell Integration Modules, see this article: [Authoring Integration Modules for Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
+In alternativa, è disponibile l'approccio manuale. La struttura di cartelle di un modulo di integrazione di PowerShell per un computer Windows è leggermente diversa da quella prevista da Automation DSC per Azure, perciò richiede alcune modifiche da parte dell'utente. Non è un'operazione difficile e viene eseguita una sola volta per risorsa, a meno che non si voglia aggiornarla in futuro. Per altre informazioni sulla creazione di moduli di integrazione di PowerShell, vedere l'articolo relativo alla [creazione di moduli di integrazione per Automazione di Azure](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
--   Install the module that you need on your workstation, as follows:
-    -   Install [Windows Management Framework, v5](http://aka.ms/wmf5latest) (not needed for Windows 10)
-    -   `Install-Module –Name MODULE-NAME`    <—grabs the module from the PowerShell Gallery 
--   Copy the module folder from `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` to a temp folder 
--   Delete samples and documentation from the main folder 
--   Zip the main folder, naming the ZIP file exactly the same as the folder 
--   Put the ZIP file into a reachable HTTP location, such as blob storage in an Azure Storage Account.
--   Run this PowerShell:
+-   Installare il modulo necessario nella workstation, come indicato di seguito:
+    -   Installare [Windows Management Framework versione 5](http://aka.ms/wmf5latest) (non necessario per Windows 10).
+    -   `Install-Module –Name MODULE-NAME` <—estrae il modulo da PowerShell Gallery.
+-   Copiare la cartella del modulo da `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` in una cartella temporanea.
+-   Eliminare esempi e documentazione dalla cartella principale.
+-   Comprimere la cartella principale e denominare il file ZIP esattamente come la cartella.
+-   Inserire il file ZIP in una posizione HTTP raggiungibile, ad esempio l'archivio BLOB in un account di archiviazione di Azure.
+-   Eseguire questo comando di PowerShell:
 
         New-AzureRmAutomationModule `
             -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
             -Name MODULE-NAME –ContentLink "https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip"
         
 
-The included example performs these steps for cChoco and xNetworking. See the [Notes](#notes) for special handling for cChoco.
+L'esempio incluso esegue questi passaggi per cChoco e xNetworking. Per informazioni sulla gestione specifica di cChoco, vedere le [note](#notes).
 
-## <a name="step-4:-adding-the-node-configuration-to-the-pull-server"></a>Step 4: Adding the node configuration to the pull server
+## Passaggio 4: Aggiunta della configurazione di nodi al server di pull
 
-There’s nothing special about the first time you import your configuration into the pull server and compile.  All subsequent import/compiles of the same configuration look exactly the same.  Each time you update your package and need to push it out to production you do this step after ensuring the configuration file is correct – including the new version of your package.  Here’s the configuration file and PowerShell:
+Non è necessario eseguire operazioni speciali la prima volta che si importa la configurazione nel server di pull e si procede alla compilazione. Tutte le importazioni/compilazioni successive della stessa configurazione avranno esattamente lo stesso aspetto. Ogni volta che si aggiorna il pacchetto ed è necessario effettuarne il push all'ambiente di produzione, si eseguirà questo passaggio dopo avere verificato che il file di configurazione è corretto, inclusa la nuova versione del pacchetto. Ecco il file di configurazione e PowerShell:
 
 ISVBoxConfig.ps1:
 
@@ -162,34 +161,30 @@ New-ConfigurationScript.ps1:
         -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
         -Id $compilationJobId
 
-These steps result in a new node configuration named “ISVBoxConfig.isvbox” being placed on the pull server.  The node configuration name is built as “configurationName.nodeName”.
+Questi passaggi generano una nuova configurazione di nodi denominata "ISVBoxConfig.isvbox" che viene posizionata nel server di pull. Il nome della configurazione di nodi viene compilato come "configurationName.nodeName".
 
-## <a name="step-5:-creating-and-maintaining-package-metadata"></a>Step 5: Creating and maintaining package metadata
+## Passaggio 5: Creazione e gestione dei metadati del pacchetto
 
-For each package that you put into the package repository, you need a nuspec that describes it.  That nuspec must be compiled and stored in your NuGet server. This process is described [here](http://docs.nuget.org/create/creating-and-publishing-a-package).  You can use MyGet.org as a NuGet server.  They sell this service, but have a starter SKU that’s free.  At NuGet.org you’ll find instructions on installing your own NuGet server for your private packages.
+Per ogni pacchetto inserito nel repository di pacchetti, è necessario un Nuspec che lo descriva. Questo Nuspec deve essere compilato e archiviato nel server NuGet. Questo processo è descritto [qui](http://docs.nuget.org/create/creating-and-publishing-a-package). È possibile usare MyGet.org come server NuGet. Il servizio è a pagamento, ma viene offerto gratuitamente uno SKU di avvio. In NuGet.org sono disponibili istruzioni sull'installazione di un server NuGet personalizzato per i pacchetti privati.
 
-## <a name="step-6:-tying-it-all-together"></a>Step 6: Tying it all together
+## Passaggio 6: Verifica di tutti gli elementi
 
-Each time a version passes QA and is approved for deployment, the package is created, nuspec and nupkg updated and deployed to the NuGet server.  In addition, the configuration (Step 4 above) must be updated to agree with the new version number.  It must be sent to the pull server and compiled.  From that point on, it's up to the VMs that depend on that configuration to pull the update and install it.  Each of these updates are simple - just a line or two of PowerShell.  In the case of Visual Studio Team Services, some of them are encapsulated in build tasks that can be chained together in a build.  This [article](https://www.visualstudio.com/en-us/docs/alm-devops-feature-index#continuous-delivery) provides more details.  This [GitHub repo](https://github.com/Microsoft/vso-agent-tasks) details the various available build tasks.
+Ogni volta che una versione passa il controllo di qualità e viene approvata per la distribuzione, viene creato il pacchetto e Nuspec e Nupkg vengono aggiornati e distribuiti nel server NuGet. Inoltre, la configurazione illustrata nel passaggio 4 deve essere aggiornata, per essere conforme al nuovo numero di versione, e deve essere inviata al server di pull per la compilazione. A questo punto, le macchine virtuali che dipendono da tale configurazione devono effettuare l'aggiornamento e installarlo. Questi aggiornamenti sono semplici: solo una o due righe di PowerShell. Nel caso di Visual Studio Team Services, alcuni aggiornamenti vengono incapsulati in attività di compilazione che possono essere concatenate in una compilazione. Per altre informazioni dettagliate, vedere questo [articolo](https://www.visualstudio.com/it-IT/docs/alm-devops-feature-index#continuous-delivery). Questo [repository GitHub](https://github.com/Microsoft/vso-agent-tasks) descrive le varie attività di compilazione disponibili.
 
-## <a name="notes"></a>Notes
+## Note
 
-This usage example starts with a VM from a generic Windows Server 2012 R2 image from the Azure gallery.  You can start from any stored image and then tweak from there with the DSC configuration.  However, changing configuration that is baked into an image is much harder than dynamically updating the configuration using DSC.
+Questo esempio di uso inizia con una VM da un'immagine generica di Windows 2012 R2 disponibile nella raccolta di Azure. È possibile iniziare da qualsiasi immagine archiviata e usarla come base per modificare la configurazione DSC. La modifica della configurazione basata su un'immagine è tuttavia molto più complessa rispetto all'aggiornamento dinamico della configurazione mediante DSC.
 
-You don’t have to use an ARM template and the VM extension to use this technique with your VMs.  And your VMs don’t have to be on Azure to be under CD management.  All that’s necessary is that Chocolatey be installed and the LCM configured on the VM so it knows where the pull server is.  
+Non è necessario usare un modello ARM e l'estensione VM per usare questa tecnica con le proprie VM. Inoltre, le VM non devono trovarsi necessariamente in Azure per la gestione della distribuzione continua. È solo necessario che Chocolatey sia installato e che Gestione configurazione locale sia configurato nella VM perché riconosca la posizione del server di pull.
 
-Of course, when you update a package on a VM that’s in production, you need to take that VM out of rotation while the update is installed.  How you do this varies widely.  For example, with a VM behind an Azure Load Balancer, you can add a Custom Probe.  While updating the VM, have the probe endpoint return a 400.  The tweak necessary to cause this change can be inside your configuration, as can the tweak to switch it back to returning a 200 once the update is complete.
+Naturalmente, quando si aggiorna un pacchetto in una VM in produzione, è necessario escluderla dalla rotazione mentre viene installato l'aggiornamento. La procedura per eseguire questa operazione varia ampiamente. Ad esempio, per una VM con bilanciamento del carico di Azure è possibile aggiungere un probe personalizzato. Durante l'aggiornamento della VM, l'endpoint del probe dovrà restituire un messaggio 400. La modifica necessaria per ottenere questo cambiamento può essere eseguita nella configurazione, così come può esserlo la modifica per ripristinare la restituzione di un messaggio 200 una volta completato l'aggiornamento.
 
-Full source for this usage example is in [this Visual Studio project](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) on GitHub.
+Il codice sorgente completo per questo esempio di utilizzo si trova in [questo progetto di Visual Studio](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) su GitHub.
 
-##<a name="related-articles##"></a>Related Articles##
+##Articoli correlati##
 
-- [Azure Automation DSC Overview] (automation-dsc-overview.md)
-- [Azure Automation DSC cmdlets] (https://msdn.microsoft.com/library/mt244122.aspx)
-- [Onboarding machines for management by Azure Automation DSC] (automation-dsc-onboarding.md)
+- [Panoramica della piattaforma DSC di Automazione di Azure](automation-dsc-overview.md)
+- [Cmdlet di Automation DSC per Azure](https://msdn.microsoft.com/library/mt244122.aspx)
+- [Caricamento di computer per la gestione con Automation DSC per Azure](automation-dsc-onboarding.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,35 +1,32 @@
-Azure will determine that your application uses Python **if both of these conditions are true**:
+Per stabilire se l'applicazione usa Python, Azure verifica se **entrambe le condizioni seguenti sono soddisfatte**:
 
-- requirements.txt file in the root folder
-- any .py file in the root folder OR a runtime.txt that specifies python
+- Presenza del file requirements.txt nella cartella radice
+- Presenza di un qualsiasi file .py nella cartella radice OPPURE di un file runtime.txt in cui viene specificato python
 
-When that's the case, it will use a Python specific deployment script, which performs the standard synchronization of files, as well as additional Python operations such as:
+In tale circostanza, userà uno script di distribuzione specifico di Python che eseguirà la sincronizzazione standard dei file, oltre ad operazioni aggiuntive di Python, tra cui:
 
-- Automatic management of virtual environment
-- Installation of packages listed in requirements.txt using pip
-- Creation of the appropriate web.config based on the selected Python version.
-- Collect static files for Django applications
+- Gestione automatica dell'ambiente virtuale
+- Installazione dei pacchetti elencati in requirements.txt tramite pip
+- Creazione del file web.config appropriato sulla base della versione di Python selezionata
+- Raccolta di file statici per le applicazioni Django
 
-You can control certain aspects of the default deployment steps without having to customize the script.
+È possibile controllare determinati aspetti della procedura di distribuzione predefinita senza dover personalizzare lo script.
 
-If you want to skip all Python specific deployment steps, you can create this empty file:
+Per ignorare tutti i passaggi della distribuzione specifici di Python, è possibile creare questo file vuoto:
 
     \.skipPythonDeployment
 
-For more control over deployment, you can override the default deployment script by creating the following files:
+Per un maggiore controllo sulla distribuzione, è possibile eseguire l'override dello script di distribuzione predefinito creando i file seguenti:
 
     \.deployment
     \deploy.cmd
 
-You can use the [Azure command-line interface][] to create the files.  Use this command from your project folder:
+Per creare i file, è possibile usare l'[interfaccia della riga di comando di Azure][]. Usare questo comando dalla cartella del progetto:
 
     azure site deploymentscript --python
 
-When these files don't exist, Azure creates a temporary deployment script and runs it.  It is identical to the one you create with the command above.
+Se questi file non esistono, Azure creerà uno script di distribuzione temporaneo e lo eseguirà. Tale file è identico a quello creato con il comando precedente.
 
-[Azure command-line interface]: http://azure.microsoft.com/downloads/
+[interfaccia della riga di comando di Azure]: http://azure.microsoft.com/downloads/
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="View and manage StorSimple jobs | Microsoft Azure"
-   description="Describes the StorSimple Manager service Jobs page and how to use it to track recent, current, and scheduled backup jobs."
+   pageTitle="Consente di visualizzare e gestire i processi di StorSimple | Microsoft Azure"
+   description="Descrive la pagina relativa ai processi del servizio StorSimple Manager e come utilizzarlo per tenere traccia dei processi di backup recenti, correnti e pianificati."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,88 +15,82 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
-
-# <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-jobs-(update-2)"></a>Use the StorSimple Manager service to view and manage StorSimple jobs (Update 2)
+# Utilizzare il servizio StorSimple Manager per visualizzare e gestire i processi di StorSimple (aggiornamento 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
 
-## <a name="overview"></a>Overview
+## Overview
 
-The **Jobs** page provides a single central portal for viewing and managing jobs that were started on devices connected to your StorSimple Manager service. You can view scheduled, running, completed, canceled, and failed jobs for multiple devices. Results are presented in a tabular format. 
+La pagina**processi**fornisce un unico portale centralizzato per la visualizzazione e la gestione di processi avviati sui dispositivi connessi al servizio StorSimple Manager. È possibile visualizzare i processi pianificati, in esecuzione, completati, annullati e non riusciti per più dispositivi. I risultati vengono presentati in un formato tabulare.
 
-![Jobs page](./media/storsimple-manage-jobs-u2/jobs.png)
+![Pagina dei processi](./media/storsimple-manage-jobs-u2/jobs.png)
 
-You can quickly find the jobs you are interested in by filtering on fields such as:
+È possibile trovare rapidamente i processi desiderati filtrando i campi, ad esempio:
 
-- **Status** – Jobs can be running, completed, canceled, failed, canceling, or completed with errors.
-- **From and To** – Jobs can be filtered based on the date and time range.
-- **Type** – The job type can be backup, manual backup, restore, clone, device failover, create locally pinned volume, modify volume, update, support package, or virtual device provisioning.
+- **Stato**: i processi possono essere in esecuzione, completati, annullati, non riusciti, in fase di annullamento o completati con errori.
+- **Da e a**: i processi possono essere filtrati in base all'intervallo di data e ora.
+- **Tipo** – il tipo di processo può essere backup, backup manuale, ripristino, clonazione, failover del dispositivo, creazione di un volume aggiunto in locale, modifica del volume, aggiornamento, pacchetto di supporto o provisioning del dispositivo virtuale.
 
-- **Devices** – Jobs are initiated on a certain device connected to your service.
-The filtered jobs are then tabulated on the basis of the following attributes:
+- **Dispositivi**: i processi vengono avviati in un determinato dispositivo connesso al servizio. I processi filtrati vengono quindi elaborati in base ai seguenti attributi:
 
-    - **Type** – backup, manual backup, restore, clone, device failover, create locally pinned volume, modify volume, update, support package, or virtual device provisioning.
+    - **Tipo** : backup, backup manuale, ripristino, clonazione, failover del dispositivo, creazione di un volume aggiunto in locale, modifica del volume, aggiornamento, pacchetto di supporto o provisioning del dispositivo virtuale.
 
-    - **Status** – running, completed, canceled, failed, canceling, or completed with errors.
+    - **Stato**: in esecuzione, completati, annullati, non riusciti, in fase di annullamento o completati con errori.
 
-    - **Entity** – The jobs can be associated with a volume, a backup policy, or a device. For example, a clone job is associated with a volume, whereas a scheduled backup job is associated with a backup policy. A device job is created as a result of a disaster recovery (DR) or a restore operation.
+    - **Entità**: i processi possono essere associati a un volume, un criterio di backup o un dispositivo. Ad esempio, un processo di clonazione è associato a un volume, mentre un processo di backup pianificato è associato a un criterio di backup. Viene creato un processo di dispositivo a causa di un ripristino di emergenza (DR) o di un'operazione di ripristino.
 
-    - **Device** – The name of the device on which the job was started.
+    - **Dispositivo**: il nome del dispositivo su cui è stato avviato il processo.
 
-    - **Started on** – The time when the job was started.
+    - **Avviato alle**: l'ora di inizio del processo.
 
-    - **Progress** – The percentage completion of a running job. For a completed job, this should always be 100%.
+    - **Stato di avanzamento**: la percentuale di completamento di un processo in esecuzione. Per un processo completato deve sempre essere 100%.
 
-The list of jobs is refreshed every 30 seconds.
+L'elenco dei processi viene aggiornato ogni 30 secondi.
 
-You can perform the following job-related actions on this page:
+In questa pagina è possibile eseguire le seguenti azioni relative ai processi:
 
-- View job details
+- Visualizza i dettagli dei processi
 
-- Cancel a job
+- Annullare un processo
 
-## <a name="view-job-details"></a>View job details
+## Visualizza i dettagli dei processi
 
-Perform the following steps to view the details of any job.
+Eseguire la procedura seguente per visualizzare i dettagli di qualsiasi processo.
 
-#### <a name="to-view-job-details"></a>To view job details
+#### Per visualizzare i dettagli dei processi
 
-1. On the **Jobs** page, display the job(s) you are interested in by running a query with appropriate filters. You can search for completed, running, or canceled jobs.
+1. Nella pagina**Processi**, visualizzare i processi desiderati eseguendo una query con filtri appropriati. È possibile cercare processi completati, in esecuzione o annullati.
 
-2. Select a job.
+2. Selezionare un processo.
 
-3. At the bottom of the page, click **Details**.
+3. Nella parte inferiore della pagina, fare clic su **Dettagli**.
 
-4. In the **Backup Job Details** dialog box, you can view the status, details, time statistics, and data statistics.
+4. Nella finestra di dialogo **Dettagli del processo di Backup** è possibile visualizzare la stato, i dettagli, le statistiche temporali e le statistiche sui dati.
  
-    ![Job details page](./media/storsimple-manage-jobs-u2/JobDetails.png)
+    ![Pagina dettagli del processo](./media/storsimple-manage-jobs-u2/JobDetails.png)
 
-## <a name="cancel-a-job"></a>Cancel a job
+## Annullare un processo
 
-Perform the following steps to cancel a running job.
+Eseguire la procedura seguente per annullare un processo in esecuzione.
 
->[AZURE.NOTE] Some jobs, such as modifying a volume to change the volume type or expanding a volume, cannot be canceled.
+>[AZURE.NOTE] Alcuni processi, ad esempio la modifica di un volume per cambiare il tipo di volume o espandere un volume, non possono essere annullati.
 
-### <a name="to-cancel-a-job"></a>To cancel a job
+### Per annullare un processo
 
-1. On the **Jobs** page, display the running job(s) that you want to cancel by running a query with appropriate filters.
+1. Nella pagina **Processi**, visualizzare i processi in esecuzione che si desidera annullare eseguendo una query con filtri appropriati.
 
-1. Select the job.
+1. Selezionare il processo.
 
-1. At the bottom of the page, click **Cancel**.
+1. Nella parte inferiore della pagina fare clic su **Annulla**.
 
-1. When prompted for confirmation, click **Yes**.
+1. Alla richiesta di conferma fare clic su **Sì**.
 
-This job is now canceled.
+Questo processo ora viene annullato.
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-- Learn how to [manage your StorSimple backup policies](storsimple-manage-backup-policies.md).
+- Informazioni su come [gestire i criteri di backup di StorSimple](storsimple-manage-backup-policies.md).
 
-- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+- Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,58 +1,53 @@
 <properties
-    pageTitle="Remove a user or group assignment from an enterprise app in Azure Active Directory preview | Microsoft Azure"
-    description="How to remove the access assignment of a user or group from an enterprise app in Azure Active Directory"
-    services="active-directory"
-    documentationCenter=""
-    authors="curtand"
-    manager="femila"
-    editor=""/>
+	pageTitle="Rimuovere l'assegnazione di un utente o gruppo da un'app aziendale in anteprima di Azure Active Directory | Microsoft Azure"
+	description="Come rimuovere l'assegnazione di accesso di un utente o gruppo da un'app aziendale in anteprima di Azure Active Directory"
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/30/2016"
-    ms.author="curtand"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/12/2016"
+	ms.author="curtand"/>
 
 
+# Rimuovere l'assegnazione di un utente o un gruppo da un'app aziendale in anteprima di Azure Active Directory
 
-# <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory-preview"></a>Remove a user or group assignment from an enterprise app in Azure Active Directory preview
+Rimuovere l'assegnazione di accesso di un utente o un gruppo a una delle applicazioni aziendali in anteprima di Azure Active Directory (Azure AD) è un'operazione semplice. [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md) È necessario disporre delle autorizzazioni appropriate per gestire l'app aziendale. Nell'anteprima corrente è necessario essere amministratore globale della directory.
 
-It's easy to remove a user or a group from being assigned access to one of your enterprise applications in Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md) You must have the appropriate permissions to manage the enterprise app. In the current preview, you must be global admin for the directory.
+## Come è possibile rimuovere l'assegnazione di un utente o un gruppo?
 
-## <a name="how-do-i-remove-a-user-or-group-assignment?"></a>How do I remove a user or group assignment?
+1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
+2. Selezionare **Altri servizi**, immettere **Azure Active Directory** nella casella di testo e quindi selezionare **Invio**.
 
-2. Select **More services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
+3. Nel pannello **Azure Active Directory - *nomedirectory***, vale a dire il pannello Azure AD per la directory che si sta gestendo, selezionare **Applicazioni aziendali**.
 
-3. On the **Azure Active Directory - *directoryname*** blade (that is, the Azure AD blade for the directory you are managing), select **Enterprise applications**.
+	![Apertura di app aziendali](./media/active-directory-coreapps-remove-assignment-user-azure-portal/open-enterprise-apps.png)
 
-    ![Opening Enterprise apps](./media/active-directory-coreapps-remove-assignment-user-azure-portal/open-enterprise-apps.png)
+4. Nel pannello **Applicazioni aziendali** selezionare **All applications** (Tutte le applicazioni). Verrà visualizzato un elenco di app che è possibile gestire.
 
-4. On the **Enterprise applications** blade, select **All applications**. You'll see a list of the apps you can manage.
+5. Nel pannello **Applicazioni aziendali - All applications** (Tutte le applicazioni) selezionare un'app.
 
-5. On the **Enterprise applications - All applications** blade, select an app.
+6. Nel pannello ***nomeapp***, vale a dire il pannello con il nome dell'app selezionata nel titolo, selezionare **Utenti e gruppi**.
 
-6. On the ***appname*** blade (that is, the blade with the name of the selected app in the title), select **Users & Groups**.
+	![Selezione di utenti o gruppi](./media/active-directory-coreapps-remove-assignment-user-azure-portal/remove-app-users.png)
 
-    ![Selecting users or groups](./media/active-directory-coreapps-remove-assignment-user-azure-portal/remove-app-users.png)
+7. Nel pannello ***nomeapp*** **-User & Group Assignment** (Assegnazione utente e gruppo) selezionare uno o più utenti o gruppi, quindi selezionare il comando **Rimuovi**. Confermare la decisione al prompt dei comandi.
 
-7. On the ***appname*** **- User & Group Assignment** blade, select one of more users or groups and then select the **Remove** command. Confirm your decision at the prompt.
+	![Selezione del comando Rimuovi](./media/active-directory-coreapps-remove-assignment-user-azure-portal/remove-users.png)
 
-    ![Selecting the Remove command](./media/active-directory-coreapps-remove-assignment-user-azure-portal/remove-users.png)
+## Passaggi successivi
 
-## <a name="next-steps"></a>Next steps
+- [Visualizzare tutti i gruppi personali](active-directory-groups-view-azure-portal.md)
+- [Assegnare un utente o gruppo a un'app aziendale](active-directory-coreapps-assign-user-azure-portal.md)
+- [Disabilitare l'accesso degli utenti per un'app aziendale](active-directory-coreapps-disable-app-azure-portal.md)
+- [Modificare il nome o il logo di un'app aziendale](active-directory-coreapps-change-app-logo-azure-portal.md)
 
-- [See all of my groups](active-directory-groups-view-azure-portal.md)
-- [Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
-- [Disable user sign-ins for an enterprise app](active-directory-coreapps-disable-app-azure-portal.md)
-- [Change the name or logo of an enterprise app](active-directory-coreapps-change-app-logo-user-azure-portal.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

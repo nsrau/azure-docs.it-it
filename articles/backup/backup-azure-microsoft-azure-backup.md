@@ -1,12 +1,12 @@
 <properties
-  pageTitle="Preparing your environment to back up workloads using Azure Backup Server | Microsoft Azure"
-  description="Prepare your environment to use Azure Backup Server to protect or back up workloads."
+  pageTitle="Preparazione dell'ambiente per eseguire il backup dei carichi di lavoro con il server di Backup di Azure | Microsoft Azure"
+  description="Assicurarsi che l'ambiente sia preparato correttamente per eseguire il backup dei carichi di lavoro con il server di Backup di Azure."
   services="backup"
   documentationCenter=""
   authors="PVRK"
   manager="shivamg"
   editor=""
-  keywords="azure backup server; protect workloads; back up workloads"/>
+  keywords="server di backup di azure; insieme di credenziali di backup"/>
 
 <tags
   ms.service="backup"
@@ -14,275 +14,267 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="09/27/2016"
+  ms.date="07/20/2016"
   ms.author="jimpark;trinadhk;pullabhk;markgal"/>
 
-
-# <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Preparing to back up workloads using Azure Backup Server
+# Preparazione del backup dei carichi di lavoro con il server di Backup di Azure
 
 > [AZURE.SELECTOR]
-- [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
+- [Server di backup di Azure](backup-azure-microsoft-azure-backup.md)
 - [SCDPM](backup-azure-dpm-introduction.md)
-- [Azure Backup Server (Classic)](backup-azure-microsoft-azure-backup-classic.md)
-- [SCDPM (Classic)](backup-azure-dpm-introduction-classic.md)
+- [Server di Backup di Azure (classico)](backup-azure-microsoft-azure-backup-classic.md)
+- [SCDPM (classico)](backup-azure-dpm-introduction-classic.md)
 
-This article explains how to prepare your environment to back up workloads using Azure Backup Server. With Azure Backup Server, you can protect application workloads such as Hyper-V VMs, Microsoft SQL Server, SharePoint Server, Microsoft Exchange and Windows clients from a single console. You can also protect information as a server (IaaS) workloads such as VMs in Azure.
+Questo articolo illustra la preparazione dell'ambiente per eseguire il backup dei carichi di lavoro con il server di Backup di Azure. Con il server di Backup di Azure è possibile proteggere i carichi di lavoro dell'applicazione, ad esempio macchine virtuali Hyper-V, Microsoft SQL Server, SharePoint Server, Microsoft Exchange e i client di Windows, da una singola console. In Azure è possibile proteggere anche carichi di lavoro IaaS, ad esempio VM.
 
-> [AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
+> [AZURE.NOTE] Azure offre due modelli di distribuzione per creare e usare le risorse: [Resource Manager e distribuzione classica](../resource-manager-deployment-model.md). Questo articolo include informazioni e procedure per il ripristino di VM distribuite con il modello Resource Manager.
 
-Azure Backup Server inherits much of the workload backup functionality from Data Protection Manager (DPM). This article links to DPM documentation to explain some of the shared functionality. Though Azure Backup Server shares much of the same functionality as DPM. Azure Backup Server does not back up to tape, nor does it integrate with System Center.
+Il server di Backup di Azure eredita molte funzionalità per il backup dei carichi di lavoro da Data Protection Manager (DPM). Questo articolo contiene collegamenti alla documentazione di DPM in cui vengono illustrate alcune delle funzionalità condivise. Nonostante il server di Backup di Azure condivida molte funzionalità di DPM, non offre il backup su nastro né l'integrazione con System Center.
 
-## <a name="1.-choose-an-installation-platform"></a>1. Choose an installation platform
+## 1\. Scegliere una piattaforma di installazione
 
-The first step towards getting the Azure Backup Server up and running is to set up a Windows Server. Your server can be in Azure or on-premises.
+Per rendere operativo il server di Backup di Azure, è prima di tutto necessario installare un server Windows, in Azure o in locale.
 
-### <a name="using-a-server-in-azure"></a>Using a server in Azure
+### Uso di un server in Azure
 
-When choosing a server for running Azure Backup Server, it is recommended you start with a gallery image of Windows Server 2012 R2 Datacenter. The article, [Create your first Windows virtual machine in the Azure portal](..\virtual-machines\virtual-machines-windows-hero-tutorial.md), provides a tutorial for getting started with the recommended virtual machine in Azure, even if you've never used Azure before. The recommended minimum requirements for the server virtual machine (VM) should be: A2 Standard with 2 cores and 3.5 GB RAM.
+Quando si sceglie un server per eseguire il server di Backup di Azure, è consigliabile usare come punto di partenza un'immagine della raccolta di Windows Server 2012 R2 Datacenter. L'articolo [Creare la prima macchina virtuale Windows nel portale di Azure](..\virtual-machines\virtual-machines-windows-hero-tutorial.md) offre un'esercitazione per implementare la macchina virtuale consigliata in Azure anche se si usa Azure per la prima volta. I requisiti minimi consigliati per la macchina virtuale (VM) server sono A2 Standard, 2 core e 3,5 GB di RAM.
 
-Protecting workloads with Azure Backup Server has many nuances. The article, [Install DPM as an Azure virtual machine](https://technet.microsoft.com/library/jj852163.aspx), helps explain these nuances. Please read this article completely before deploying the machine.
+La protezione dei carichi di lavoro con il server di Backup di Azure è piuttosto complessa. L'articolo [Installare DPM come una macchina virtuale di Azure](https://technet.microsoft.com/library/jj852163.aspx) ne illustra i diversi aspetti. Leggere completamente questo articolo prima di distribuire la macchina.
 
-### <a name="using-an-on-premises-server"></a>Using an on-premises server
+### Uso di un server locale
 
-If you do not want to run the base server in Azure, you can run the server on a Hyper-V VM, a VMware VM, or a physical host. The recommended minimum requirements for the server hardware are 2 cores and 4 GB RAM. The supported operating systems are listed in the following table.
+Se non si vuole eseguire il server di base in Azure, è possibile eseguire il server in una VM Hyper-V o VMware oppure in un host fisico. I requisiti minimi consigliati per l'hardware del server sono 2 core e 4 GB di RAM. Nella tabella seguente sono elencati i sistemi operativi supportati.
 
-| Operating System        | Platform           | SKU  |
+| Sistema operativo | Piattaforma | SKU |
 | :------------- |-------------| :-----|
-|Windows Server 2012 R2 and latest SPs| 64 bit| Standard, Datacenter, Foundation|
-|Windows Server 2012 and latest SPs|    64 bit| Datacenter, Foundation, Standard|
-|Windows Storage Server 2012 R2 and latest SPs  |64 bit|    Standard, Workgroup|
-|Windows Storage Server 2012 and latest SPs |64 bit |Standard, Workgroup|
+|Windows Server 2012 R2 e più recenti SPs|	64 bit|	Standard, Datacenter, Foundation|
+|Windows Server 2012 e versioni più recenti di SP|	64 bit|	Datacenter, Foundation, Standard|
+|Windows Storage Server 2012 R2 e versioni più recenti di SP |64 bit|	Standard, Workgroup|
+|Windows Storage Server 2012 e versioni più recenti di SP |64 bit |Standard, Workgroup|
 
 
-You can deduplicate the DPM storage using Windows Server Deduplication. Learn more about how [DPM and deduplication](https://technet.microsoft.com/library/dn891438.aspx) work together when deployed in Hyper-V VMs.
+È possibile deduplicare la risorsa di archiviazione DPM usando la deduplicazione di Windows Server. Vedere altre informazioni sulla combinazione di [DPM e deduplicazione](https://technet.microsoft.com/library/dn891438.aspx) in caso di distribuzione in VM Hyper-V.
 
-> [AZURE.NOTE]  You cannot install Azure Backup Server on a machine running as a domain controller.
+> [AZURE.NOTE]  Il server di Backup di Azure non può essere installato in un computer in esecuzione come controller di dominio.
 
-You must join Azure Backup Server to a domain. If you plan to move the server to a different domain, it is recommended that you join the server to the new domain before installing Azure Backup Server. Moving an existing Azure Backup Server machine to a new domain after deployment is *not supported*.
+Se si prevede di aggiungere il server a un dominio in futuro, è consigliabile eseguire l'attività di aggiunta al dominio prima dell'installazione del server di Backup di Azure. Lo spostamento di un server di Backup di Azure esistente in un nuovo dominio dopo la distribuzione *non è supportato*.
 
-## <a name="2.-recovery-services-vault"></a>2. Recovery Services vault
+## 2\. Insieme di credenziali dei servizi di ripristino
 
-Whether you send backup data to Azure or keep it locally, the software needs to be connected to Azure. To be more specific, the Azure Backup Server machine needs to be registered with a recovery services vault.
+Indipendentemente dal fatto che i dati di backup vengano inviati ad Azure o vengano archiviati in locale, il software deve essere connesso ad Azure. In particolare, il computer del server di Backup di Azure deve essere registrato in un insieme di credenziali dei servizi di ripristino.
 
-To create a recovery services vault:
+Per creare un insieme di credenziali dei servizi di ripristino:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list will filter based on your input. Click **Recovery Services vault**.
+2. Nel menu dell'hub fare clic su **Esplora** e digitare **servizi di ripristino** nell'elenco di risorse. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Fare clic su **Insiemi di credenziali dei servizi di ripristino**.
 
-    ![Create Recovery Services Vault step 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) <br/>
+    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) <br/>
 
-    The list of Recovery Services vaults is displayed.
+    Viene visualizzato l'elenco degli insiemi di credenziali dei servizi di ripristino.
 
-3. On the **Recovery Services vaults** menu, click **Add**.
+3. Scegliere **Aggiungi** dal menu **Insiemi di credenziali dei servizi di ripristino**.
 
-    ![Create Recovery Services Vault step 2](./media/backup-azure-microsoft-azure-backup/rs-vault-menu.png)
+    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 2](./media/backup-azure-microsoft-azure-backup/rs-vault-menu.png)
 
-    The Recovery Services vault blade opens, prompting you to provide a **Name**, **Subscription**, **Resource group**, and **Location**.
+    Verrà visualizzato il pannello dell'insieme di credenziali dei servizi di ripristino in cui viene richiesto di specificare **Nome**, **Sottoscrizione**, **Gruppo di risorse** e **Località**.
 
-    ![Create Recovery Services vault step 5](./media/backup-azure-microsoft-azure-backup/rs-vault-attributes.png)
+    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 5](./media/backup-azure-microsoft-azure-backup/rs-vault-attributes.png)
 
-4. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
+4. Nel campo **Nome** immettere un nome descrittivo per identificare l'insieme di credenziali. Il nome deve essere univoco per la sottoscrizione di Azure. Digitare un nome che contenga tra i 2 e i 50 caratteri. Deve iniziare con una lettera e può contenere solo lettere, numeri e trattini.
 
-5. Click **Subscription** to see the available list of subscriptions. If you are not sure which subscription to use, use the default (or suggested) subscription. There will be multiple choices only if your organizational account is associated with multiple Azure subscriptions.
+5. Fare clic su **Sottoscrizione** per visualizzare l'elenco delle sottoscrizioni disponibili. Se non si è certi di quale sottoscrizione usare, usare la sottoscrizione predefinita (o suggerita). Sono presenti scelte multiple solo se l'account dell'organizzazione è associato a più sottoscrizioni di Azure.
 
-6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a new Resource group. For complete information on Resource groups, see [Azure Resource Manager overview](../resource-group-overview.md)
+6. Fare clic su **Gruppo di risorse** per visualizzare l'elenco dei gruppi di risorse disponibili oppure fare clic su **Nuovo** per crearne uno. Per informazioni complete sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md).
 
-7. Click **Location** to select the geographic region for the vault.
+7. Fare clic su **Località** per selezionare l'area geografica per l'insieme di credenziali.
 
-8. Click **Create**. It can take a while for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area in the portal.
-Once your vault is created, it opens in the portal.
+8. Fare clic su **Create**. La creazione dell'insieme di credenziali dei servizi di ripristino può richiedere alcuni minuti. Monitorare le notifiche di stato nell'area superiore destra del portale. Una volta creato, l'insieme di credenziali viene aperto nel portale.
 
-### <a name="set-storage-replication"></a>Set Storage Replication
+### Impostare la replica di archiviazione
 
-The storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, your vault has geo-redundant storage. Leave the option set to geo-redundant storage if this is your primary backup. Choose locally redundant storage if you want a cheaper option that isn't quite as durable. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in the [Azure Storage replication overview](../storage/storage-redundancy.md).
+L'opzione della replica di archiviazione consente di scegliere tra l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza locale. Per impostazione predefinita, l'insieme di credenziali prevede l'archiviazione con ridondanza geografica. Se si tratta del backup primario, lasciare l'opzione impostata sull'archiviazione con ridondanza geografica. Se si vuole un'opzione più economica ma non altrettanto permanente, scegliere l'archiviazione con ridondanza locale. Per altre informazioni sulle opzioni di archiviazione con [ridondanza geografica](../storage/storage-redundancy.md#geo-redundant-storage) e con [ridondanza locale](../storage/storage-redundancy.md#locally-redundant-storage), vedere la panoramica [Replica di archiviazione di Azure](../storage/storage-redundancy.md).
 
-To edit the storage replication setting:
+Per modificare le impostazioni di replica di archiviazione:
 
-1. Select your vault to open the vault dashboard and the Settings blade. If the **Settings** blade doesn't open, click **All settings** in the vault dashboard.
+1. Selezionare l'insieme di credenziali per aprire il dashboard dell'insieme di credenziali e il pannello Impostazioni. Se il pannello **Impostazioni** non viene visualizzato, fare clic su **Tutte le impostazioni** nel dashboard dell'insieme di credenziali.
 
-2. On the **Settings** blade, click **Backup Infrastructure** > **Backup Configuration** to open the **Backup Configuration** blade. On the **Backup Configuration** blade, choose the storage replication option for your vault.
+2. Nel pannello **Impostazioni** fare clic su **Infrastruttura di backup** > **Configurazione backup** per aprire il pannello **Configurazione backup**. Nel pannello **Configurazione backup** scegliere l'opzione di replica di archiviazione per l'insieme di credenziali.
 
-    ![List of backup vaults](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
+    ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
-    After choosing the storage option for your vault, you are ready to associate the VM with the vault. To begin the association, you should discover and register the Azure virtual machines.
+    Dopo aver scelto l'opzione di archiviazione per l'insieme di credenziali, è possibile associare la macchina virtuale all'insieme di credenziali. Per iniziare l'associazione, è necessario trovare e registrare le macchine virtuali di Azure.
 
-## <a name="3.-software-package"></a>3. Software package
+## 3\. Pacchetto software
 
-### <a name="downloading-the-software-package"></a>Downloading the software package
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+### Download del pacchetto software
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. If you already have a Recovery Services vault open, proceed to step 3. If you do not have a Recovery Services vault open, but are in the Azure portal, on the Hub menu, click **Browse**.
+2. Se è già aperto un insieme di credenziali dei servizi di ripristino, procedere al passaggio 3. Se non è aperto alcun insieme di credenziali dei servizi di ripristino ma si è nel portale di Azure, nel menu dell'hub fare clic su **Esplora**.
 
-    - In the list of resources, type **Recovery Services**.
-    - As you begin typing, the list will filter based on your input. When you see **Recovery Services vaults**, click it.
+    - Nell'elenco di risorse digitare **servizi di ripristino**.
+    - Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Quando viene visualizzato, fare clic su **Insiemi di credenziali dei servizi di ripristino**.
 
-    ![Create Recovery Services Vault step 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
+    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
 
-    The list of Recovery Services vaults appears.
+    Viene visualizzato l'elenco di insiemi di credenziali dei servizi di ripristino.
 
-    - From the list of Recovery Services vaults, select a vault.
+    - Nell'elenco di insiemi di credenziali dei servizi di ripristino selezionare un insieme di credenziali.
 
-    The selected vault dashboard opens.
+    Viene aperto il dashboard dell'insieme di credenziali selezionato.
 
-    ![Open vault blade](./media/backup-azure-microsoft-azure-backup/vault-dashboard.png)
+    ![Pannello dell'insieme di credenziali aperto](./media/backup-azure-microsoft-azure-backup/vault-dashboard.png)
 
-3. Settings blade opens up by default. If it is closed, click on **Settings** to open the settings blade.
+3. Per impostazione predefinita si apre il pannello Impostazioni. Se non viene visualizzato, fare clic su **Impostazioni** per aprire il pannello delle impostazioni.
 
-    ![Open vault blade](./media/backup-azure-microsoft-azure-backup/vault-setting.png)
+    ![Pannello dell'insieme di credenziali aperto](./media/backup-azure-microsoft-azure-backup/vault-setting.png)
 
-4. Click on **Backup** in **Getting Started** to open the Getting Started wizard.
+4. Fare clic su **Backup** in **Attività iniziali** per aprire la relativa procedura guidata.
 
-    ![Backup getting started](./media/backup-azure-microsoft-azure-backup/getting-started-backup.png)
+    ![Attività iniziali di backup](./media/backup-azure-microsoft-azure-backup/getting-started-backup.png)
 
-5. In the Getting Started that opens, Backup Goals screen will be auto-selected.
-    ![Backup-goals-default-opened](./media/backup-azure-microsoft-azure-backup/getting-started.png)
+5. Nelle attività iniziali visualizzate viene automaticamente selezionata la schermata Obiettivo del backup. ![Backup-obiettivi-predefinito-aperto](./media/backup-azure-microsoft-azure-backup/getting-started.png)
 
-    In the **Backup goals** section, select *on-premises* for *where is your workload running*.
+    Nella sezione **Obiettivo del backup** selezionare *Locale* in *Posizione di esecuzione del carico di lavoro*.
 
-    ![on-premises and workloads as goals](./media/backup-azure-microsoft-azure-backup/backup-goals-azure-backup-server.png)
+    ![locale e carichi di lavoro come obiettivi](./media/backup-azure-microsoft-azure-backup/backup-goals-azure-backup-server.png)
 
-6. Select the workloads you want to protect using Azure Backup Server in *what workloads you want to protect* and click on **OK**.
+6. Selezionare i *carichi di lavoro da proteggere* con il server di Backup di Azure nell'apposita sezione e fare clic su **OK**.
 
-    > [AZURE.NOTE] If you are planning to protect just files and folders, then we recommend using Azure Backup agent. If you are planning to protect more workloads than just files and folders or in future if you are planning to expand the protection needs, select all those workloads.
+    > [AZURE.NOTE] Se si prevede di proteggere solo file e cartelle, è consigliabile usare un agente di Backup di Azure. Se si prevede di proteggere più carichi di lavoro oltre a file e cartelle oppure se si vuole in futuro espandere i requisiti di protezione, selezionare tutti i carichi di lavoro.
 
-    This will change the Getting Started wizard to prepare infrastructure for protecting workloads from on-premises to Azure.
+    Questa scelta modifica Attività iniziali guidate per preparare l'infrastruttura di protezione dei carichi di lavoro da locale in Azure.
 
-    ![Getting Started wizard change](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
+    ![Attività iniziali guidate modifica](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
 
-7. In the **Prepare infrastructure** blade that opens, click the **Download** links for Install Azure Backup Server and Download vault credentials. You use the vault credentials during registration of Azure Backup Server to the recovery services vault. The links take you to the Download Center where the software package can be downloaded.
+7. Nel pannello **Preparare l'infrastruttura** visualizzato fare clic sui collegamenti **Scarica** per Installa il server di Backup di Microsoft Azure e Scaricare le credenziali dell'insieme di credenziali. Tali credenziali vengono usate durante la registrazione del server di Backup di Azure nell'insieme di credenziali dei servizi di ripristino. I collegamenti consentono di accedere alla pagina dell'Area download da cui è possibile scaricare il pacchetto software.
 
-    ![Prepare infrastructure for Azure Backup Server](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
+    ![Preparare l'infrastruttura per il Server di Backup di Azure](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
 
-8. Select all the files and click **Next**. Download all the files coming in from the Microsoft Azure Backup download page, and place all the files in the same folder.
+8. Selezionare tutti i file e fare clic su **Avanti**. Scaricare tutti i file provenienti dalla pagina di download di Backup di Microsoft Azure e salvarli nella stessa cartella.
 
-    ![Download center 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
+    ![Area download 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
-    Since the download size of all the files together is > 3G, on a 10Mbps download link it may take up to 60 minutes for the download to complete.
+    Poiché le dimensioni di download di tutti questi file è pari a > 3 GB, per il download completo potrebbero essere necessari fino a 60 minuti su un collegamento di download a 10 Mbps.
 
 
-### <a name="extracting-the-software-package"></a>Extracting the software package
+### Estrazione del pacchetto software
 
-After you've downloaded all the files, click **MicrosoftAzureBackupInstaller.exe**. This will start the **Microsoft Azure Backup Setup Wizard** to extract the setup files to a location specified by you. Continue through the wizard and click on the **Extract** button to begin the extraction process.
+Dopo aver scaricato tutti i file, fare clic su **MicrosoftAzureBackupInstaller.exe**. Verrà avviata l'installazione guidata **Backup di Microsoft Azure** per estrarre i file di installazione in un percorso specificato dall'utente. Continuare la procedura guidata e fare clic sul pulsante **Estrai** per avviare il processo di estrazione.
 
-> [AZURE.WARNING] At least 4GB of free space is required to extract the setup files.
+> [AZURE.WARNING] Per estrarre i file di installazione sono necessari almeno 4 GB di spazio libero.
 
 
-![Microsoft Azure Backup Setup Wizard](./media/backup-azure-microsoft-azure-backup/extract/03.png)
+![Installazione guidata di Backup di Microsoft Azure](./media/backup-azure-microsoft-azure-backup/extract/03.png)
 
-Once the extraction process complete, check the box to launch the freshly extracted *setup.exe* to begin installing Microsoft Azure Backup Server and click on the **Finish** button.
+Al termine del processo di estrazione, selezionare la casella per avviare il file *setup.exe* appena estratto e iniziare l'installazione del server di Backup di Microsoft Azure e quindi fare clic sul pulsante **Fine**.
 
-### <a name="installing-the-software-package"></a>Installing the software package
+### Installazione del pacchetto software
 
-1. Click **Microsoft Azure Backup** to launch the setup wizard.
+1. Fare clic su **Backup di Microsoft Azure** per avviare l'installazione guidata.
 
-    ![Microsoft Azure Backup Setup Wizard](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
+    ![Installazione guidata di Backup di Microsoft Azure](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
 
-2. On the Welcome screen click the **Next** button. This takes you to the *Prerequisite Checks* section. On this screen, click on the **Check** button to determine if the hardware and software prerequisites for Azure Backup Server have been met. If all of the prerequisites are have been met successfully, you will see a message indicating that the machine meets the requirements. Click on the **Next** button.
+2. Nella schermata iniziale fare clic sul pulsante **Avanti**. Verrà visualizzata la sezione *Prerequisite Checks* (Controlli dei prerequisiti). In questa schermata fare clic sul pulsante **Controlla** per determinare se i prerequisiti hardware e software per il server di Backup di Azure sono stati soddisfatti. Se tutti i prerequisiti sono stati soddisfatti, verrà visualizzato un messaggio che indica che il computer soddisfa i requisiti. Fare clic sul pulsante **Avanti**.
 
-    ![Azure Backup Server - Welcome and Prerequisites check](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
+    ![Server di backup di Azure - Pagina iniziale e controllo dei prerequisiti](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 
-3. Microsoft Azure Backup Server requires SQL Server Standard, and the Azure Backup Server installation package comes bundled with the appropriate SQL Server binaries needed. When starting with a new Azure Backup Server installation, you should pick the option **Install new Instance of SQL Server with this Setup** and click the **Check and Install** button. Once the prerequisites are successfully installed, click **Next**.
+3. Il server di Backup di Microsoft Azure richiede SQL Server Standard e il pacchetto di installazione del server di Backup di Azure include i file binari appropriati di SQL Server necessari. Quando si avvia una nuova installazione del server di Backup di Azure, è consigliabile selezionare l'opzione **Install new Instance of SQL Server with this Setup** (Installa una nuova istanza di SQL Server con questa installazione) e quindi fare clic sul pulsante **Check and Install** (Controlla e installa). Una volta che i prerequisiti vengono installati correttamente, fare clic su **Avanti**.
 
-    ![Azure Backup Server - SQL check](./media/backup-azure-microsoft-azure-backup/sql/01.png)
+    ![Server di backup di Azure - Controllo SQL](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
-    If a failure occurs with a recommendation to restart the machine, do so and click **Check Again**.
+    Se si verifica un errore con l'indicazione di riavviare il computer, eseguire questa operazione e fare clic su **Controlla di nuovo**.
 
-    > [AZURE.NOTE] Azure Backup Server will not work with a remote SQL Server instance. The instance being used by Azure Backup Server needs to be local.
+    > [AZURE.NOTE] Il server di Backup di Azure non funzionerà con un'istanza remota di SQL Server. L'istanza usata dal server di Backup di Azure deve essere locale.
 
-4. Provide a location for the installation of Microsoft Azure Backup server files and click **Next**.
+4. Specificare un percorso di installazione dei file del server di Backup di Microsoft Azure e fare clic su **Avanti**.
 
-    ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/space-screen.png)
+    ![PreReq2 di Backup di Microsoft Azure](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
-    The scratch location is a requirement for back up to Azure. Ensure the scratch location is at least 5% of the data planned to be backed up to the cloud. For disk protection, separate disks need to be configured once the installation completes. For more information regarding storage pools, see [Configure storage pools and disk storage](https://technet.microsoft.com/library/hh758075.aspx).
+    La disponibilità di uno spazio di lavoro è un requisito per il backup in Azure. Verificare che lo spazio di lavoro sia almeno il 5% dei dati pianificati per il backup nel cloud. Per la protezione disco, è necessario configurare dischi separati una volta completata l'installazione. Per altre informazioni sui pool di archiviazione, vedere [Configurare i pool di archiviazione e l'archiviazione su disco](https://technet.microsoft.com/library/hh758075.aspx).
 
-5. Provide a strong password for restricted local user accounts and click **Next**.
+5. Fornire una password complessa per gli account utente locali con restrizioni e fare clic su **Avanti**.
 
-    ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/security-screen.png)
+    ![PreReq2 di Backup di Microsoft Azure](./media/backup-azure-microsoft-azure-backup/security-screen.png)
 
-6. Select whether you want to use *Microsoft Update* to check for updates and click **Next**.
+6. Selezionare se si vuole usare *Microsoft Update* per cercare gli aggiornamenti e fare clic su **Avanti**.
 
-    >[AZURE.NOTE] We recommend having Windows Update redirect to Microsoft Update, which offers security and important updates for Windows and other products like Microsoft Azure Backup Server.
+    >[AZURE.NOTE] È consigliabile impostare Windows Update per il reindirizzamento a Microsoft Update, che offre sicurezza e importanti aggiornamenti per Windows e altri prodotti come il server di Backup di Microsoft Azure.
 
-    ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
+    ![PreReq2 di Backup di Microsoft Azure](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
 
-7. Review the *Summary of Settings* and click **Install**.
+7. Esaminare *Riepilogo impostazioni* e fare clic su **Installa**.
 
-    ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
+    ![PreReq2 di Backup di Microsoft Azure](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
 
-8. The installation happens in phases. In the first phase the Microsoft Azure Recovery Services Agent is installed on the server. The wizard also checks for Internet connectivity. If Internet connectivity is available you can proceed with installation, if not, you need to provide proxy details to connect to the Internet.
+8. L'installazione avviene a fasi. Nella prima fase viene eseguita l'installazione dell'Agente servizi di ripristino di Microsoft Azure sul server. La procedura guidata verifica anche la connettività Internet. Se la connettività Internet è disponibile, si può procedere con l'installazione, in caso contrario è necessario fornire i dettagli relativi al proxy per connettersi a Internet.
 
-    The next step is to configure the Microsoft Azure Recovery Services Agent. As a part of the configuration, you will have to provide your vault credentials to register the machine to the recovery services vault. You will also provide a passphrase to encrypt/decrypt the data sent between Azure and your premises. You can automatically generate a passphrase or provide your own minimum 16-character passphrase. Continue with the wizard until the agent has been configured.
+    Il passaggio successivo consiste nel configurare l'Agente servizi di ripristino di Microsoft Azure. Come parte della configurazione, è necessario specificare le credenziali dell'insieme di credenziali per registrare il computer nell'insieme di credenziali dei servizi di ripristino. Sarà anche necessario specificare una passphrase per crittografare/decrittografare i dati inviati tra Azure e l'istanza locale. È possibile generare automaticamente una passphrase o fornire una passphrase personalizzata con un minimo di 16 caratteri. Continuare la procedura guidata per completare la configurazione dell'agente.
 
-    ![Azure Backup Serer PreReq2](./media/backup-azure-microsoft-azure-backup/mars/04.png)
+    ![PreReq2 del server di backup di Azure](./media/backup-azure-microsoft-azure-backup/mars/04.png)
 
-9. Once registration of the Microsoft Azure Backup server successfully completes, the overall setup wizard proceeds to the installation and configuration of SQL Server and the Azure Backup Server components. Once the SQL Server component installation completes, the Azure Backup Server components are installed.
+9. Al termine della registrazione del server di Backup di Microsoft Azure, l'installazione guidata generale passa all'installazione e alla configurazione dei componenti di SQL Server e del server di Backup di Azure. Al termine dell'installazione dei componenti di SQL Server, vengono installati i componenti del server di Backup di Azure.
 
-    ![Azure Backup Server](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
+    ![Server di backup di Azure](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
 
 
-When the installation step has completed, the product's desktop icons will have been created as well. Just double-click the icon to launch the product.
+Al termine della fase di installazione, verranno create anche le icone sul desktop per il prodotto. È sufficiente fare doppio clic sull'icona per avviare il prodotto.
 
-### <a name="add-backup-storage"></a>Add backup storage
+### Aggiungere risorse di archiviazione di backup
 
-The first backup copy is kept on storage attached to the Azure Backup Server machine. For more information about adding disks, see [Configure storage pools and disk storage](https://technet.microsoft.com/library/hh758075.aspx).
+La prima copia di backup viene salvata in una risorsa di archiviazione collegata al computer del server di Backup di Azure. Per altre informazioni sull'aggiunta di dischi, vedere [Configurare i pool di archiviazione e l'archiviazione su disco](https://technet.microsoft.com/library/hh758075.aspx).
 
-> [AZURE.NOTE] You need to add backup storage even if you plan to send data to Azure. In the current architecture of Azure Backup Server, the Azure Backup vault holds the *second* copy of the data while the local storage holds the first (and mandatory) backup copy.
+> [AZURE.NOTE] È necessario aggiungere una risorsa di archiviazione di backup anche se si prevede di inviare i dati ad Azure. Nell'architettura attuale del server di Backup di Azure, l'insieme di credenziali di Backup di Azure contiene la *seconda* copia dei dati, mentre la risorsa di archiviazione locale contiene la prima (obbligatoria) copia di backup.
 
-## <a name="4.-network-connectivity"></a>4. Network connectivity
+## 4\. Connettività di rete
 
-Azure Backup Server requires connectivity to the Azure Backup service for the product to work successfully. To validate whether the machine has the connectivity to Azure, use the ```Get-DPMCloudConnection``` cmdlet in the Azure Backup Server PowerShell console. If the output of the cmdlet is TRUE then connectivity exists, else there is no connectivity.
+Per il corretto funzionamento del prodotto, il server di Backup di Azure richiede la connettività al servizio Backup di Azure. Per convalidare la connettività del computer ad Azure, usare il cmdlet ```Get-DPMCloudConnection``` nella console di PowerShell del server di Backup di Azure. C'è connettività solo se l'output di cmdlet è TRUE.
 
-At the same time, the Azure subscription needs to be in a healthy state. To find out the state of your subscription and to manage it, log in to the [subscription portal]( https://account.windowsazure.com/Subscriptions).
+Allo stesso tempo, è necessario che la sottoscrizione di Azure sia in uno stato integro. Per verificare lo stato della sottoscrizione e gestirla, accedere al [portale delle sottoscrizioni](https://account.windowsazure.com/Subscriptions).
 
-Once you know the state of the Azure connectivity and of the Azure subscription, you can use the table below to find out the impact on the backup/restore functionality offered.
+Dopo avere verificato lo stato della connettività di Azure e della sottoscrizione di Azure, è possibile usare la tabella seguente per scoprire l'impatto della funzionalità di backup/ripristino offerta.
 
-| Connectivity State | Azure Subscription | Backup to Azure| Backup to disk | Restore from Azure | Restore from disk |
+| Stato di connettività | Sottoscrizione di Azure | Backup in Azure| Backup su disco | Ripristino da Azure | Ripristino da disco |
 | -------- | ------- | --------------------- | ------------------- | --------------------------- | ----------------------- |
-| Connected | Active | Allowed | Allowed | Allowed | Allowed |
-| Connected | Expired | Stopped | Stopped | Allowed | Allowed |
-| Connected | Deprovisioned | Stopped | Stopped | Stopped and Azure recovery points deleted | Stopped |
-| Lost connectivity > 15 days | Active | Stopped | Stopped | Allowed | Allowed |
-| Lost connectivity > 15 days | Expired | Stopped | Stopped | Allowed | Allowed |
-| Lost connectivity > 15 days | Deprovisioned | Stopped | Stopped |  Stopped and Azure recovery points deleted | Stopped |
+| Connesso | Attivo | Consentito | Consentito | Consentito | Consentito |
+| Connesso | Scaduto | Arrestato | Arrestato | Consentito | Consentito |
+| Connesso | Deprovisioning eseguito | Arrestato | Arrestato | Arrestato e punti di ripristino di Azure eliminati | Arrestato |
+| Connettività persa > 15 giorni | Attivo | Arrestato | Arrestato | Consentito | Consentito |
+| Connettività persa > 15 giorni | Scaduto | Arrestato | Arrestato | Consentito | Consentito |
+| Connettività persa > 15 giorni | Deprovisioning eseguito | Arrestato | Arrestato | Arrestato e punti di ripristino di Azure eliminati | Arrestato |
 
-### <a name="recovering-from-loss-of-connectivity"></a>Recovering from loss of connectivity
-If you have a firewall or a proxy that is preventing access to Azure, you need to whitelist the following domain addresses in the firewall/proxy profile:
+### Recupero dalla perdita di connettività
+Se è presente un firewall o un proxy che impedisce l'accesso ad Azure, sarà necessario aggiungere all'elenco elementi consentiti gli indirizzi di dominio seguenti nel profilo del firewall/proxy:
 
 - www.msftncsi.com
-- \*.Microsoft.com
-- \*.WindowsAzure.com
-- \*.microsoftonline.com
-- \*.windows.net
+- *.Microsoft.com
+- windowsazure.com
+- *.microsoftonline.com
+- *.windows.net
 
-Once connectivity to Azure has been restored to the Azure Backup Server machine, the operations that can be performed are determined by the Azure subscription state. The table above has details about the operations allowed once the machine is "Connected".
+Dopo il ripristino della connettività ad Azure nel computer del server di Backup di Azure, le operazioni che possono essere eseguite sono determinate dallo stato della sottoscrizione di Azure. La tabella precedente include dettagli sulle operazioni consentite quando il computer è "Connesso".
 
-### <a name="handling-subscription-states"></a>Handling subscription states
+### Gestione degli stati della sottoscrizione
 
-It is possible to take an Azure subscription from an *Expired* or *Deprovisioned* state to the *Active* state. However this has some implications on the product behavior while the state is not *Active*:
+È possibile modificare lo stato di una sottoscrizione di Azure da *Scaduta* o *Deprovisioning eseguito* ad *Attiva*. Ciò influisce però sul comportamento del prodotto quando lo stato è diverso da *Attiva*:
 
-- A *Deprovisioned* subscription loses functionality for the period that it is deprovisioned. On turning *Active*, the product functionality of backup/restore is revived. The backup data on the local disk also can be retrieved if it was kept with a sufficiently large retention period. However, the backup data in Azure is irretrievably lost once the subscription enters the *Deprovisioned* state.
-- An *Expired* subscription only loses functionality for until it has been made *Active* again. Any backups scheduled for the period that the subscription was *Expired* will not run.
-
-
-## <a name="troubleshooting"></a>Troubleshooting
-
-If Microsoft Azure Backup server fails with errors during the setup phase (or backup or restore), refer to this [error codes document](https://support.microsoft.com/kb/3041338)  for more information.
-You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.md)
+- Una sottoscrizione con stato *Deprovisioning eseguito* perde funzionalità per il periodo in cui è sottoposta a deprovisioning. Dopo l'impostazione su *Attiva*, la funzionalità di backup/ripristino del prodotto viene riattivata. I dati di backup nel disco locale possono essere recuperati anche se sono stati memorizzati con un periodo di conservazione sufficientemente elevato. I dati di backup in Azure, invece, vengono persi definitivamente al passaggio della sottoscrizione allo stato *Deprovisioning eseguito*.
+- Una sottoscrizione *Scaduta* perde funzionalità solo fino a quando non viene resa di nuovo *Attiva*. Eventuali backup pianificati per il periodo in cui la sottoscrizione è *Scaduta* non verranno eseguiti.
 
 
-## <a name="next-steps"></a>Next steps
+## Risoluzione dei problemi
 
-You can get detailed information about [preparing your environment for DPM](https://technet.microsoft.com/library/hh758176.aspx) on the Microsoft TechNet site. It also contains information about supported configurations on which Azure Backup Server can be deployed and used.
-
-You can use these articles to gain a deeper understanding of workload protection using Microsoft Azure Backup server.
-
-- [SQL Server backup](backup-azure-backup-sql.md)
-- [SharePoint server backup](backup-azure-backup-sharepoint.md)
-- [Alternate server backup](backup-azure-alternate-dpm-server.md)
+In caso di errori del server di Backup di Microsoft Azure durante la fase di installazione, o di backup o ripristino, vedere questo [documento sui codici di errore](https://support.microsoft.com/kb/3041338) per altre informazioni. È anche possibile vedere [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)
 
 
+## Passaggi successivi
 
-<!--HONumber=Oct16_HO2-->
+Per informazioni dettagliate sulla [preparazione dell'ambiente per DPM](https://technet.microsoft.com/library/hh758176.aspx), vedere il sito Web Microsoft TechNet. Contiene anche informazioni sulle configurazioni supportate in cui è possibile distribuire e usare il server di Backup di Azure.
 
+È possibile usare questi articoli per acquisire una comprensione più profonda della protezione dei carichi di lavoro tramite il server di Backup di Microsoft Azure.
 
+- [Backup di SQL Server](backup-azure-backup-sql.md)
+- [Backup di SharePoint Server](backup-azure-backup-sharepoint.md)
+- [Backup del server alternativo](backup-azure-alternate-dpm-server.md)
+
+<!---HONumber=AcomDC_0803_2016-->

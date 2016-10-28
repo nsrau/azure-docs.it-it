@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Pulling public data into Azure Event Hubs | Microsoft Azure"
-    description="Overview of the Event Hubs import from web sample"
+    pageTitle="Pull di dati pubblici in Hub eventi di Azure | Microsoft Azure"
+    description="Panoramica dell'importazione di hub eventi da un esempio Web"
     services="event-hubs"
     documentationCenter="na"
     authors="spyrossak"
@@ -16,42 +16,35 @@
     ms.date="08/25/2016"
     ms.author="spyros;sethm" />
 
+# Pull di dati pubblici in Hub eventi di Azure
 
-# <a name="pulling-public-data-into-azure-event-hubs"></a>Pulling public data into Azure Event Hubs
+In scenari tipici di Internet delle cose (IoT) sono presenti dispositivi per i quali è possibile programmare un push dei dati in Azure, a un hub eventi di Azure o a un hub IoT. Questi hub sono punti di ingresso in Azure per l'archiviazione, l'analisi e la visualizzazione tramite i numerosi strumenti disponibili in Microsoft Azure. Entrambi gli hub richiedono tuttavia che venga eseguito il push dei dati, formattati come JSON e protetti in modi specifici. Questo porta alla domanda seguente. Come si deve procedere se si vuole importare dati da origini pubbliche o private in cui i dati sono esposti come servizio Web o feed generico, ma non si è in grado di modificare la modalità di pubblicazione dei dati? Si consideri il meteo, il traffico o le quotazioni azionarie: non è possibile chiedere a enti quali NOAA (National Oceanic and Atmospheric Administration), WSDOT (Washington State Department of Transportation) o NASDAQ (National Association of Securities Dealers Automated Quotation) di configurare un'operazione push all'hub eventi. Per risolvere questo problema, è stato scritto e reso open source un piccolo esempio di cloud, modificabile e distribuibile, che eseguirà il pull dei dati da un'origine di questo tipo e ne eseguirà il push all'hub eventi. A quel punto sarà possibile eseguire le operazioni desiderate, ovviamente soggette alle condizioni di licenza del produttore. L'applicazione è disponibile [qui](https://azure.microsoft.com/documentation/samples/event-hubs-dotnet-importfromweb/).
 
-In typical Internet of Things (IoT) scenarios, you have devices that you can program to push data to Azure, either to an Azure Event Hub or an IoT hub. Both of those hubs are entry points into Azure for storing, analyzing, and visualizing with a myriad of tools made available on Microsoft Azure. However, they both require that you push data to them, formatted as JSON and secured in specific ways. This brings up the following question. What do you do if you want to bring in data from either public or private sources where the data is exposed as a web service or feed of some sort, but you do not have the ability to change how the data is published? Consider the weather, or traffic, or stock quotes - you can't tell NOAA, or WSDOT, or NASDAQ to configure a push to your Event Hub. To solve this problem, we've written and open-sourced a small cloud sample that you can modify and deploy that will pull the data from some such source and push it to your Event Hub. From there, you can do whatever you want with it, subject, of course, to the license terms from the producer. You can find the application [here](https://azure.microsoft.com/documentation/samples/event-hubs-dotnet-importfromweb/).
+Si noti che il codice in questo esempio illustra solo come eseguire il pull dei dati da feed Web tipici e come scriverli in un hub eventi di Azure. L'applicazione NON è stata progettata come applicazione di produzione e non sono stati eseguiti tentativi di renderla adatta all'uso in tale ambiente. Si tratta solo ed esclusivamente di un esempio destinato agli sviluppatori. L'esistenza di questo esempio NON corrisponde inoltre all'indicazione che è necessario eseguire il **pull** dei dati in Azure anziché il **push**. Prima di stabilire un'architettura end-to-end, è consigliabile esaminare sicurezza, prestazioni, funzionalità e fattori di costo.
 
-Note that the code in this sample only shows how to pull data from typical web feeds, and how to write to an Azure Event Hub. This is NOT intended to be a production application, and no attempts have been made to make it suitable for use in such an environment - it is strictfly a DIY, developer-focused example only. Furthermore, the existence of this sample is NOT tantamount to a recommendation that you should **pull** data into Azure rather than **push** it. You should review security, performance, functionality, and cost factors before settling on an end-to-end architecture.
+## Struttura dell'applicazione
 
-## <a name="application-structure"></a>Application structure
+L'applicazione è scritta in C# e la [descrizione d'esempio](https://azure.microsoft.com/documentation/samples/event-hubs-dotnet-importfromweb/) contiene tutte le informazioni necessarie per modificarla, compilarla e pubblicarla. Le sezioni seguenti contengono una panoramica generale delle funzionalità dell'applicazione.
 
-The application is written in C#, and the [sample description](https://azure.microsoft.com/documentation/samples/event-hubs-dotnet-importfromweb/) contains all the information you need to modify, build, and publish the application. The following sections provide a high-level overview of what the application does.
+Si presuppone che si abbia accesso a un feed di dati. È ad esempio possibile eseguire il pull dei dati relativi al traffico dal WSDOT o dei dati meteorologici dalla NOAA per visualizzare i report personalizzati o per combinare i dati con altri dati nell'applicazione. Sarà inoltre necessario avere configurato un hub eventi di Azure e conoscere la stringa di connessione necessaria per accedervi.
 
-We start with the assumption that you have access to a data feed. For example, you might want to pull in the traffic data from the Washington State Department of Transportation, or the weather data from NOAA, either to display custom reports or to combine that data with other data in your application. You'll also need to have set up an Azure Event Hub, and know the connection string needed to access it.
+Quando la soluzione GenericWebToEH si avvia, legge un file di configurazione (App.config) per ottenere una serie di elementi:
 
-When the GenericWebToEH solution starts up, it reads a configuration file (App.config) to get a number of things:
+1. L'URL o un elenco di URL per il sito che pubblica i dati. In teoria si tratta di un sito che pubblica i dati in formato JSON, come quelli a cui fa riferimento WSDOT [qui](http://www.wsdot.wa.gov/Traffic/api/).
+2. Le credenziali per l'URL, se necessario. Molte origini pubbliche non richiedono le credenziali oppure è possibile inserirle nella stringa dell'URL. Per altre origini, le credenziali devono essere specificate separatamente. Si noti che è possibile specificare solo un set di credenziali in questa applicazione, che quindi funzionerà solo se si specifica un singolo URL e non un elenco di URL.
+3. La stringa di connessione e il nome dell'hub eventi nello spazio dei nomi di Hub eventi in cui si effettuerà il push dei dati. Queste informazioni sono disponibili nel portale di Azure.
+4. Un intervallo di sospensione, in millisecondi, per l'intervallo di polling del sito di dati pubblici. L'impostazione di questa opzione richiede una certa cautela. Se si esegue il polling troppo raramente, si potrebbero perdere dati. D'altra parte, se si esegue il polling troppo frequentemente, si possono ottenere molti dati ripetitivi o si può persino essere bloccati come robot dannosi. Considerare la frequenza di aggiornamento dell'origine dati: i dati relativi al meteo o al traffico possono essere aggiornati ogni 15 minuti, ma le quotazioni azionarie devono essere aggiornate ogni pochi secondi, in base alla provenienza dei dati.
+5. Un flag per indicare all'applicazione se i dati in entrata sono in formato JSON o XML. Poiché è necessario eseguire il push dei dati a un hub eventi, l'applicazione include un modulo per convertire il formato XML in JSON prima dell'invio.
 
-1. The URL, or a list of URLs, for the site publishing the data. Ideally, this is a site that publishes data in JSON, such as those referenced by WSDOT [here](http://www.wsdot.wa.gov/Traffic/api/). 
-2. Credentials for the URL, if needed. Many public sources do not need credentials, or you can put the credentials in the URL string. Others require that you supply separately. (Note that you can only specify one set of credentials in this application, so it will only work if you specify only one URL, not a list of URLs.)
-3. The connection string and the name of the Event Hub in that Event Hubs namespace, to which you will push the data. You can find this information in the Azure portal.
-4. A sleep interval, in milliseconds, for the interval between polling the public data site. Setting this requires some thought. If you poll too infrequently, you may miss data; on the other hand, if you poll too frequently, you may get a lot of repetitive data, or worse yet, you may be blocked as a nefarious bot. Consider how often the data source is updated - weather or traffic data may be refreshed every 15 minutes, but stock quotes maybe every few seconds, depending upon where you get them. 
-5. A flag to tell the application whether the data is coming in as JSON or XML. Since you need to push the data to an Event Hub, the application has a module to convert XML into JSON before sending.
+Dopo aver letto il file di configurazione, l'applicazione viene eseguita in un ciclo infinito: accede al sito Web pubblico, converte i dati se necessario, li scrive nell'hub eventi e quindi attende l'intervallo di sospensione prima di ricominciare. In particolare:
 
-After reading the configuration file, the application goes into a loop - accessing the public web site, converting the data if necessary, writing it to your Event Hub, and then waiting for the sleep interval before doing it all over again. Specifically:
+  * Lettura del sito Web pubblico. Per la ricezione di dati pronti per l'invio, l'istanza della classe RawXMLWithHeaderToJsonReader è usata da Azure/GenericWebToEH/ApiReaders/RawXMLWithHeaderToJsonReader.cs, che legge il flusso di origine nel metodo GetData() e quindi lo suddivide in parti più piccole (ad esempio in record) tramite GetXmlFromOriginalText. Questo metodo leggerà il formato XML nonché il formato JSON corretto o una matrice JSON. Viene avviata l'elaborazione usando la configurazione MergeToXML da App.config (predefinito=vuoto).
+  * I dati di ricezione e invio vengono implementati in un ciclo infinito nel metodo Process() in Program.cs. Dopo la ricezione dei risultati di output da GetData(), il metodo accoda valori separati nell'hub eventi.
 
-  * Reading the public website. For receiving ready-to-send data the instance of RawXMLWithHeaderToJsonReader class is used from Azure/GenericWebToEH/ApiReaders/RawXMLWithHeaderToJsonReader.cs. It reads source stream in the GetData() method, and then splits it to smaller pieces (i.e. records) using GetXmlFromOriginalText. 
-  This method will read XML as well as well-formed JSON or JSON array. Then processing is started using MergeToXML configuration from App.config (default=empty).
-  * The receiving and sending data is implemented as a loop in the Process() method in Program.cs. 
-  After receiving output results from GetData(), the method enqueues separated values to the Event Hub.
+## Passaggi successivi
 
-## <a name="next-steps"></a>Next Steps
+Per distribuire la soluzione, clonare o scaricare l'applicazione [GenericWebToEH](https://azure.microsoft.com/documentation/samples/event-hubs-dotnet-importfromweb/), modificare il file App.config, compilarlo e infine pubblicarlo. Dopo aver pubblicato l'applicazione, è possibile visualizzarla in esecuzione nel portale di Azure classico in Servizi Cloud e modificare alcune delle impostazioni di configurazione, ad esempio la destinazione dell'hub eventi e l'intervallo di sospensione, nella scheda **Configura**.
 
-To deploy the solution, clone or download the [GenericWebToEH](https://azure.microsoft.com/documentation/samples/event-hubs-dotnet-importfromweb/) application, edit the App.config file, build it, and finally publish it. Once you have published the application, you can see it running in the Azure classic portal under Cloud Services, and you can change some of the configuration settings (such as the Event Hub target and the sleep interval) in the **Configure** tab.
+Vedere altri esempi relativi a Hub eventi nella [raccolta di esempi di Azure](https://azure.microsoft.com/documentation/samples/?service=event-hubs) e su [MSDN](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5).
 
-See more Event Hubs samples in the [Azure samples gallery](https://azure.microsoft.com/documentation/samples/?service=event-hubs) and on [MSDN](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

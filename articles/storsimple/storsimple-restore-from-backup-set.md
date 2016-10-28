@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Restore a StorSimple volume from backup | Microsoft Azure"
-   description="Explains how to use the StorSimple Manager service Backup Catalog page to restore a StorSimple volume from a backup set."
+   pageTitle="Ripristinare un volume StorSimple dal backup | Microsoft Azure"
+   description="Viene illustrato come utilizzare la pagina del catalogo di backup del servizio StorSimple Manager per ripristinare un volume StorSimple da un set di backup."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,83 +15,78 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
-
-# <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restore a StorSimple volume from a backup set
+# Ripristinare un volume StorSimple da un set di backup
 
 [AZURE.INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
 
-## <a name="overview"></a>Overview
+## Overview
 
-The **Backup Catalog** page displays all the backup sets that are created when manual or automated backups are taken. You can use this page to list all the backups for a backup policy or a volume, select or delete backups, or use a backup to restore or clone a volume.
+Nella pagina **Catalogo di backup** vengono visualizzati tutti i set di backup creati quando si eseguono backup manuali o automatizzati. È possibile utilizzare questa pagina per elencare tutti i backup per un criterio di backup o un volume, selezionare o eliminare i backup o utilizzare un backup per ripristinare o clonare un volume.
 
- ![Backup Catalog page](./media/storsimple-restore-from-backup-set/HCS_BackupCatalog.png)
+ ![Pagina catalogo di backup](./media/storsimple-restore-from-backup-set/HCS_BackupCatalog.png)
 
-This tutorial explains how to use the **Backup Catalog** page to restore a volume on your device from a backup set.
+Questa esercitazione illustra come usare la pagina **Catalogo backup** per ripristinare un volume sul dispositivo da un set di backup.
 
-## <a name="how-to-use-the-backup-catalog"></a>How to use the backup catalog 
+## Come utilizzare il catalogo di backup 
 
-The **Backup Catalog** page provides a query that helps you to narrow your backup set selection. You can filter the backup sets that are retrieved based on the following parameters:
+La pagina **Catalogo di backup** fornisce una query che consente di limitare la selezione del set di backup. È possibile filtrare i set di backup che vengono recuperati in base ai parametri seguenti:
 
-- **Device** – The device on which the backup set was created.
-- **Backup policy** or **volume** – The backup policy or volume associated with this backup set.
-- **From** and **To** – The date and time range when the backup set was created.
+- **Dispositivo**: il dispositivo in cui è stato creato il set di backup.
+- **Criterio di backup** o **Volume**: il criterio di backup o volume associato a questo set di backup.
+- **Da** e **A**: intervallo di data e ora di creazione del set di backup.
 
-The filtered backup sets are then tabulated based on the following attributes:
+I set di backup filtrati vengono quindi catalogati in base ai seguenti attributi:
 
-- **Name** – The name of the backup policy or volume associated with the backup set.
-- **Size** – The actual size of the backup set.
-- **Created on** – The date and time when the backups were created. 
-- **Type** – Backup sets can be local snapshots or cloud snapshots. A local snapshot is a backup of all your volume data stored locally on the device, whereas a cloud snapshot refers to the backup of volume data residing in the cloud. Local snapshots provide faster access, whereas cloud snapshots are chosen for data resiliency.
-- **Initiated by** – The backups can be initiated automatically according to a schedule or manually by a user. (You can use a backup policy to schedule backups. Alternatively, you can use the **Take backup** option to take an interactive backup.)
+- **Nome**: nome del criterio di backup o volume associato al set di backup.
+- **Dimensioni**: dimensione effettiva del set di backup.
+- **Creato il**: data e ora di creazione dei backup.
+- **Tipo**: i set di backup possono essere snapshot in locale o del cloud. Uno snapshot locale è un backup di tutti i dati di volume archiviati localmente sul dispositivo, mentre uno snapshot del cloud si riferisce al backup dei dati di volume che risiedono nel cloud. Gli snapshot in locale forniscono un accesso più rapido, mentre gli snapshot del cloud vengono scelti per la resilienza dei dati.
+- **Avviato da**: i backup possono essere avviati automaticamente in base a una pianificazione o manualmente dall'utente. Per pianificare i backup, è possibile utilizzare un criterio di backup. In alternativa, è possibile utilizzare l’opzione **Esegui backup** per eseguire un backup interattivo.
 
-## <a name="how-to-restore-your-storsimple-volume-from-a-backup"></a>How to restore your StorSimple volume from a backup
+## Come ripristinare il volume di StorSimple da un backup
 
-You can use the **Backup Catalog** page to restore your StorSimple volume from a specific backup. 
+È possibile usare la pagina **Catalogo di backup** per ripristinare il volume StorSimple da un backup specifico.
 
-> [AZURE.WARNING] Restoring from a backup will replace the existing volumes from the backup. This may cause the loss of any data that was written after the backup was taken.
+> [AZURE.WARNING] Il ripristino da un backup sostituisce i volumi esistenti dal backup. Ciò può comportare la perdita dei dati scritti dopo l'esecuzione del backup.
 
-Before you initiate a restore on a volume, ensure that the volume is offline. You will need to take the volume offline on the host first and then the device. Follow the steps in [Take a volume offline](storsimple-manage-volumes.md#take-a-volume-offline). Perform the following steps to restore a volume from a backup set.
+Prima di avviare un ripristino su un volume, assicurarsi che il volume sia offline. È necessario portare offline il volume prima nell'host e poi sul dispositivo. Seguire la procedura illustrata in [Portare un volume offline](storsimple-manage-volumes.md#take-a-volume-offline). Eseguire i passaggi seguenti per ripristinare un volume da un set di backup.
 
-### <a name="to-restore-from-a-backup-set"></a>To restore from a backup set
+### Per effettuare il ripristino da un set di backup
 
-1. On the StorSimple Manager service page, click the **Backup catalog** tab.
+1. Nella pagina del servizio StorSimple Manager, fare clic sulla scheda **Catalogo di backup**.
 
-    ![Backup catalog](./media/storsimple-restore-from-backup-set/HCS_Restore.png)
+    ![Catalogo di backup](./media/storsimple-restore-from-backup-set/HCS_Restore.png)
 
-2. Select a backup set as follows:
-  1. Select the appropriate device.
-  2. In the drop-down list, choose the volume or backup policy for the backup that you wish to select.
-  3. Specify the time range.
-  4. Click the check icon ![check icon](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png) to execute this query.
+2. Procedura di selezione di un set di backup:
+  1. Selezionare un dispositivo appropriato.
+  2. Nell'elenco a discesa, scegliere il volume o il criterio di backup per il backup che si desidera selezionare.
+  3. Specificare l'intervallo di tempo.
+  4. Fare clic sull'icona del segno di spunta ![icona del segno di spunta](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png) per eseguire la query.
  
-    The backups associated with the selected volume or backup policy should appear in the list of backup sets.
+    I backup associati al volume selezionato o al criterio di backup dovrebbero essere visualizzati nell'elenco dei set di backup.
 
-3. Expand the backup set to view the associated volumes. These volumes must be taken offline on the host and device before you can restore them. Follow the steps in [Take a volume offline](storsimple-manage-volumes.md#take-a-volume-offline).
+3. Espandere il set di backup per visualizzare i volumi associati. Questi volumi devono essere disconnessi nell'host e nel dispositivo prima di poterli ripristinare. Seguire la procedura illustrata in [Portare un volume offline](storsimple-manage-volumes.md#take-a-volume-offline).
 
-    >  [AZURE.IMPORTANT] Make sure that you have taken the volumes offline on the host first, before you take the volumes offline on the device. If you do not take the volumes offline on the host, it could potentially lead to data corruption.
+    >  [AZURE.IMPORTANT] Assicurarsi, in primo luogo, di aver disattivato tutti i volumi sull'host, prima di disattivarli sul dispositivo. Se non si eseguono i volumi offline nell'host, si potrebbe verificare un danneggiamento dei dati.
 
-4. Select a backup set. Click **Restore** at the bottom of the page.
+4. Selezionare un set di backup. Fare clic su **Ripristina** nella parte inferiore della pagina.
 
-6. You will be prompted for confirmation. 
+6. Verrà richiesto di confermare.
 
-    ![Confirmation page](./media/storsimple-restore-from-backup-set/HCS_ConfirmRestore.png)
+    ![Pagina di conferma](./media/storsimple-restore-from-backup-set/HCS_ConfirmRestore.png)
 
-7. Review the restore information and click the check icon ![check icon](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png). This will initiate a restore job that you can view by accessing the **Jobs** page. 
+7. Esaminare le informazioni di ripristino e fare clic sull'icona di segno di spunta![icona del segno di spunta](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png). In questo modo viene avviato un processo di ripristino che è possibile visualizzare accedendo alla pagina **Processi**.
 
-8. After the restore is complete, you can verify that the contents of your volumes are replaced by volumes from the backup.
+8. Dopo aver completato il ripristino, è possibile verificare che i contenuti dei volumi siano sostituiti dai volumi dal backup.
 
-![Video available](./media/storsimple-restore-from-backup-set/Video_icon.png) **Video available**
+![Video disponibile](./media/storsimple-restore-from-backup-set/Video_icon.png) **Video disponibile**
 
-To watch a video that demonstrates how you can use the clone and restore features in StorSimple to recover deleted files, click [here](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+Per guardare un video che illustra come è possibile utilizzare le funzionalità di copia e ripristino di StorSimple per ripristinare file eliminati, fare clic [qui](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-- Learn how to [Manage StorSimple volumes](storsimple-manage-volumes.md).
+- Informazioni su come [gestire i volumi StorSimple](storsimple-manage-volumes.md).
 
-- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+- Informazioni su come [usare il servizio StorSimple Manager per gestire il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

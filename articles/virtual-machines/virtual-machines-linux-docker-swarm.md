@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Getting Started using docker with swarm on Azure"
-   description="Describes how to create a group of VMs with the Docker VM Extension and use swarm to create a Docker cluster."
+   pageTitle="Introduzione all'uso di docker con swarm in Azure"
+   description="Viene descritto come creare un gruppo di macchine virtuali con l'estensione della VM Docker e usare swarm per creare un cluster Docker."
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
    authors="squillace"
@@ -17,26 +17,25 @@
    ms.date="01/04/2016"
    ms.author="rasquill"/>
 
-
-# <a name="how-to-use-docker-with-swarm"></a>How to use docker with swarm
+# Come usare docker con swarm
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
-This topic shows a very simple way to use [docker](https://www.docker.com/) with [swarm](https://github.com/docker/swarm) to create a swarm-managed cluster on Azure. It creates four virtual machines in Azure, one to act as the swarm manager, and three as part of the cluster of docker hosts. When you are finished, you can use swarm to see the cluster and then begin to use docker on it. In addition, the Azure CLI calls in this topic use the service management (asm) mode. 
+In questo argomento viene descritto un modo molto semplice di utilizzare [Docker](https://www.docker.com/) con [Swarm](https://github.com/docker/swarm) per creare un cluster gestito da Swarm in Azure. Vengono create quattro macchine virtuali in Azure, una da usare come gestore di swarm e tre come parte del cluster di host docker. Al termine dell'operazione, sarà possibile usare swarm per visualizzare il cluster e quindi iniziare a usare docker con swarm. Inoltre, le chiamate dell’interfaccia della riga di comando di Azure in questo argomento utilizzano la modalità di gestione servizi (asm).
 
-> [AZURE.NOTE] This topic uses docker with swarm and the Azure CLI *without* using **docker-machine** in order to show how the different tools work together but remain independent. **docker-machine** has **--swarm** switches that enable you to use **docker-machine** to directly add nodes to a swarm. For an example, see the [docker-machine](https://github.com/docker/machine) documentation. If you missed **docker-machine** running against Azure VMs, see [How to use docker-machine with Azure](virtual-machines-linux-docker-machine.md).
+> [AZURE.NOTE] Questo argomento usa Docker con Swarm e l'interfaccia della riga di comando di Azure *senza* usare **Docker Machine** per illustrare come i diversi strumenti interagiscano pur restando indipendenti. **Docker Machine** offre inoltre opzioni **--swarm**, che consentono di usare **Docker Machine** per aggiungere direttamente i nodi a uno Swarm. Per un esempio, vedere la documentazione di [Docker Machine](https://github.com/docker/machine). Per informazioni sull’esecuzione di **Docker Machine** con Macchine virtuali di Azure, vedere [Come usare Docker Machine in Azure](virtual-machines-linux-docker-machine.md).
 
-## <a name="create-docker-hosts-with-azure-virtual-machines"></a>Create docker hosts with Azure Virtual Machines
+## Creare host docker con macchine virtuali di Azure
 
-This topic creates four VMs, but you can use any number you want. Call the following with *&lt;password&gt;* replaced by the password you have chosen.
+In questo argomento vengono create quattro macchine virtuali, ma è possibile usare il numero di macchine virtuali desiderato. Chiamare il comando seguente sostituendo *&lt;password&gt;* con la password scelta.
 
     azure vm docker create swarm-master -l "East US" -e 22 $imagename ops <password>
     azure vm docker create swarm-node-1 -l "East US" -e 22 $imagename ops <password>
     azure vm docker create swarm-node-2 -l "East US" -e 22 $imagename ops <password>
     azure vm docker create swarm-node-3 -l "East US" -e 22 $imagename ops <password>
 
-When you're done you should be able to use **azure vm list** to see your Azure VMs:
+Al termine dell'operazione, sarà possibile usare **azure vm list** per visualizzare le macchine virtuali di Azure:
 
     $ azure vm list | grep "swarm-[mn]"
     data:    swarm-master     ReadyRole           East US       swarm-master.cloudapp.net                               100.78.186.65
@@ -44,9 +43,9 @@ When you're done you should be able to use **azure vm list** to see your Azure V
     data:    swarm-node-2     ReadyRole           East US       swarm-node-2.cloudapp.net                               100.72.18.47  
     data:    swarm-node-3     ReadyRole           East US       swarm-node-3.cloudapp.net                               100.78.24.68  
 
-## <a name="installing-swarm-on-the-swarm-master-vm"></a>Installing swarm on the swarm master VM
+## Installazione di swarm sulla macchina virtuale swarm master
 
-This topic uses the [container model of installation from the docker swarm documentation](https://github.com/docker/swarm#1---docker-image) -- but you could also SSH to the **swarm-master**. In this model, **swarm** is downloaded as a docker container running swarm. Below, we perform this step *remotely from our laptop by using docker* to connect to the **swarm-master** VM and tell it to use the cluster id creation command, **swarm create**. The cluster id is how **swarm** discovers the members of the swarm group. (You can also clone the repository and build it yourself, which will give you full control and enable debugging.)
+In questo argomento viene utilizzato il [modello contenitore dell’installazione presente nella documentazione di Swarm](https://github.com/docker/swarm#1---docker-image), ma è possibile usare anche SSH su **swarm-master**. In questo modello, **Swarm** viene scaricato come contenitore Docker su cui è in esecuzione Swarm. Di seguito, questo passaggio viene eseguito *in remoto dal laptop usando Docker* per collegarsi alla macchina virtuale **swarm-master**. Viene quindi indicato alla macchina virtuale di usare il comando di creazione dell'ID cluster, vale a dire **swarm create**. L'ID cluster indica come **Swarm** individua i membri del gruppo di Swarm. (È anche possibile clonare il repository e compilarlo autonomamente, il che consente di avere un controllo completo e di attivare il debug).
 
     $ docker --tls -H tcp://swarm-master.cloudapp.net:2376 run --rm swarm create
     Unable to find image 'swarm:latest' locally
@@ -62,11 +61,11 @@ This topic uses the [container model of installation from the docker swarm docum
     Status: Downloaded newer image for swarm:latest
     36731c17189fd8f450c395db8437befd
 
-That last line is the cluster id; copy it somewhere because you will use it again when you join the node VMs to the swarm master to create the "swarm". In this example, the cluster id is **36731c17189fd8f450c395db8437befd**.
+L'ultima riga è l'ID cluster; si consiglia di copiarla in quanto verrà usata nuovamente quando le macchine virtuali del nodo vengono collegate allo swarm master per creare lo "swarm". In questo esempio, l'ID cluster è **36731c17189fd8f450c395db8437befd**.
 
-> [AZURE.NOTE] Just to be clear, we are using our local docker installation to connect to the **swarm-master** VM in Azure and instruction **swarm-master** to download, install, and run the **create** command, which returns our cluster id that we use for discovery purposes later.
+> [AZURE.NOTE] Per maggiore chiarezza, viene usata l'installazione di Docker locale per collegarsi alla macchina virtuale **swarm-master** in Azure e indicare a **swarm-master** di scaricare, installare ed eseguire il comando **create**. Tale comando restituisce l'ID cluster che verrà usato successivamente per scopi di individuazione.
 <!-- -->
-> To confirm this, run `docker -H tcp://`*&lt;hostname&gt;* ` images` to list the container processes on the **swarm-master** machine and on another node for comparison (because we ran the previous swarm command with the **--rm** switch, the container was removed after it finished, so using **docker ps -a** won't return anything).:
+> Per verificare ciò, eseguire `docker -H tcp://`**&lt;nomehost&gt;** ` images` per visualizzare i processi del contenitore nel computer **swarm-master** e in un altro nodo a scopo di confronto. Il comando Swarm precedente è stato eseguito con l'opzione **--rm** e il contenitore è stato rimosso dopo l'operazione, perciò usando **docker ps -a** non viene restituito alcun risultato:
 
 
         $ docker --tls -H tcp://swarm-master.cloudapp.net:2376 images
@@ -76,11 +75,11 @@ That last line is the cluster id; copy it somewhere because you will use it agai
         REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
         $
 <P />
-> If you're familiar with **docker**, you'll know that the other nodes have no entries because no images have been downloaded and run yet.
+> Se si ha familiarità con **Docker**, si è a conoscenza che gli altri nodi non presentano alcuna voce perché non è stata ancora scaricata ed eseguita alcuna immagine.
 
-## <a name="join-the-node-vms-to-our-docker-cluster"></a>Join the node VMs to our docker cluster
+## Collegare le macchine virtuali del nodo al cluster docker
 
-For each node, list the endpoint information using the Azure CLI. Below we do that for the **swarm-node-1** docker host in order to obtain the node's docker port.
+Per ciascun nodo, visualizzare le informazioni sull'endpoint usando l’interfaccia della riga di comando di Azure. Di seguito, questa operazione viene eseguita per l'host Docker **swarm-node-1** al fine di ottenere la parte Docker del nodo.
 
     $ azure vm endpoint list swarm-node-1
     info:    Executing command vm endpoint list
@@ -92,7 +91,7 @@ For each node, list the endpoint information using the Azure CLI. Below we do th
     info:    vm endpoint list command OK
 
 
-Using **docker** and the `-H` option to point the docker client at your node VM, join that node to the swarm you are creating by passing the cluster id and the node's docker port (the latter using **--addr**):
+Usando **Docker** e l'opzione `-H` per puntare il client Docker alla macchina virtuale del nodo, collegare questo nodo allo Swarm che viene creato passando l'ID cluster e la porta Docker del nodo (l'ultima, usando **--addr**):
 
     $ docker --tls -H tcp://swarm-node-1.cloudapp.net:2376 run -d swarm join --addr=138.91.112.194:2376 token://36731c17189fd8f450c395db8437befd
     Unable to find image 'swarm:latest' locally
@@ -108,20 +107,20 @@ Using **docker** and the `-H` option to point the docker client at your node VM,
     Status: Downloaded newer image for swarm:latest
     bbf88f61300bf876c6202d4cf886874b363cd7e2899345ac34dc8ab10c7ae924
 
-That looks good. To confirm that **swarm** is running on **swarm-node-1** we type:
+Il risultato è ottimo. Per verificare che **Swarm** sia in esecuzione su **swarm-node-1**, digitare:
 
     $ docker --tls -H tcp://swarm-node-1.cloudapp.net:2376 ps -a
         CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS               NAMES
         bbf88f61300b        swarm:latest        "/swarm join --addr=   13 seconds ago      Up 12 seconds       2375/tcp            angry_mclean
 
-Repeat for all the other nodes in the cluster. In our case, we do that for **swarm-node-2** and **swarm-node-3**.
+Ripetere la procedura per tutti gli altri nodi nel cluster. In questo caso, l'operazione viene eseguita per **swarm-node-2** e **swarm-node-3**.
 
-## <a name="begin-managing-the-swarm-cluster"></a>Begin managing the swarm cluster
+## Iniziare a gestire il cluster swarm,
 
     $ docker --tls -H tcp://swarm-master.cloudapp.net:2376 run -d -p 2375:2375 swarm manage token://36731c17189fd8f450c395db8437befd
     d7e87c2c147ade438cb4b663bda0ee20981d4818770958f5d317d6aebdcaedd5
 
-and then you can list out your nodes in your cluster:
+sarà quindi possibile visualizzare i nodi presenti nel cluster:
 
     ralph@local:~$ docker --tls -H tcp://swarm-master.cloudapp.net:2376 run --rm swarm list token://73f8bc512e94195210fad6e9cd58986f
     54.149.104.203:2375
@@ -129,17 +128,13 @@ and then you can list out your nodes in your cluster:
     92.222.76.190:2375
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-Go run things on your swarm. To look for inspiration, see [https://github.com/docker/swarm/](https://github.com/docker/swarm/), or perhaps a [video](https://www.youtube.com/watch?v=EC25ARhZ5bI).
+Iniziare a eseguire operazioni sullo swarm. Per trarre ispirazione, vedere [https://github.com/docker/swarm/](https://github.com/docker/swarm/) o un [video](https://www.youtube.com/watch?v=EC25ARhZ5bI).
 
 <!-- links -->
 
 [docker-machine-azure]: virtual-machines-linux-docker-machine.md
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

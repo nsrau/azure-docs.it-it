@@ -1,286 +1,285 @@
 <properties 
-    pageTitle="How to save and configure your API Management service configuration using Git" 
-    description="Learn how to save and configure your API Management service configuration using Git." 
-    services="api-management" 
-    documentationCenter="" 
-    authors="steved0x" 
-    manager="erikre" 
-    editor=""/>
+	pageTitle="Come salvare e configurare la configurazione del servizio Gestione API tramite Git" 
+	description="Informazioni su come salvare e configurare la configurazione del servizio Gestione API tramite Git" 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="erikre" 
+	editor=""/>
 
 <tags 
-    ms.service="api-management" 
-    ms.workload="mobile" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/25/2016" 
-    ms.author="sdanie"/>
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/09/2016" 
+	ms.author="sdanie"/>  
 
 
+# Come salvare e configurare la configurazione del servizio Gestione API tramite Git
 
-# <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>How to save and configure your API Management service configuration using Git
+>[AZURE.IMPORTANT] La configurazione di Git per Gestione API è attualmente disponibile in anteprima. Completata dal punto di vista funzionale, questa funzionalità è disponibile in anteprima perché ancora in attesa di commenti e suggerimenti. Poiché è possibile che vengano apportate modifiche sostanziali basate sui suggerimenti dei clienti, si consiglia di non dipendere dall'uso di questa funzionalità negli ambienti di produzione. Per eventuali commenti o domande, scrivere all'indirizzo `apimgmt@microsoft.com`.
 
->[AZURE.IMPORTANT] Git configuration for API Management is currently in preview. It is functionally complete, but is in preview because we are actively seeking feedback on this feature. It is possible that we may make a breaking change in response to customer feedback, so we recommend not depending on the feature for use in production environments. If you have any feedback or questions, please let us know at `apimgmt@microsoft.com`.
+Ogni istanza del servizio Gestione API gestisce un database di configurazione che contiene informazioni sulla configurazione e i metadati dell'istanza del servizio. Per apportare modifiche all'istanza del servizio è possibile modificare un'impostazione nel portale di pubblicazione, usare un cmdlet di PowerShell o eseguire una chiamata all'API REST. Oltre a questi metodi, è possibile gestire la configurazione dell'istanza del servizio tramite Git. Ciò consente scenari di gestione del servizio diversi, ad esempio:
 
-Each API Management service instance maintains a configuration database that contains information about the configuration and metadata for the service instance. Changes can be made to the service instance by changing a setting in the publisher portal, using a PowerShell cmdlet, or making a REST API call. In addition to these methods, you can also manage your service instance configuration using Git, enabling service management scenarios such as:
+-	Controllo delle versioni della configurazione: downolad e archiviazione di versioni diverse della configurazione del servizio
+-	Modifiche in blocco alla configurazione: esecuzione di modifiche in più punti della configurazione del servizio all'interno del repository locale e integrazione delle modifiche nel server con un'unica operazione
+-	Serie di strumenti e flussi di lavoro Git familiari: possibilità di usare gli strumenti e i flussi di lavoro Git con cui si ha familiarità
 
--   Configuration versioning - download and store different versions of your service configuration
--   Bulk configuration changes - make changes to multiple parts of your service configuration in your local repository and integrate the changes back to the server with a single operation
--   Familiar Git toolchain and workflow - use the Git tooling and workflows that you are already familiar with
+Il diagramma seguente offre una panoramica dei diversi modi in cui è possibile configurare un'istanza del servizio Gestione API.
 
-The following diagram shows an overview of the different ways to configure your API Management service instance.
+![Configurare Git][api-management-git-configure]
 
-![Git configure][api-management-git-configure]
+Quando si apportano modifiche al servizio tramite il portale di pubblicazione, i cmdlet di PowerShell o l'API REST, la gestione del database di configurazione del servizio avviene tramite l'endpoint `https://{name}.management.azure-api.net`, come mostrato nella parte destra del diagramma. Il lato sinistro del diagramma illustra come gestire la configurazione del servizio tramite Git e il repository Git per il servizio, disponibile all'indirizzo `https://{name}.scm.azure-api.net`.
 
-When you make changes to your service using the publisher portal, PowerShell cmdlets, or the REST API, you are managing your service configuration database using the `https://{name}.management.azure-api.net` endpoint, as shown on the right side of the diagram. The left side of the diagram illustrates how you can manage your service configuration using Git and Git repository for your service located at `https://{name}.scm.azure-api.net`.
+I passaggi seguenti offrono una panoramica della gestione dell'istanza del servizio Gestione API tramite Git.
 
-The following steps provide an overview of managing your API Management service instance using Git.
+1.	Abilitare l'accesso a Git nel servizio
+2.	Salvare il database di configurazione del servizio nel repository Git
+3.	Clonare il repository Git nel computer locale
+4.	Estrarre il repository più recente nel computer locale ed eseguire il commit e il push delle modifiche nel repository
+5.	Distribuire le modifiche dal repository nel database di configurazione del servizio
 
-1.  Enable Git access in your service
-2.  Save your service configuration database to your Git repository
-3.  Clone the Git repo to your local machine
-4.  Pull the latest repo down to your local machine, and commit and push changes back to your repo
-5.  Deploy the changes from your repo into your service configuration database
+Questo articolo descrive come abilitare e usare Git per gestire la configurazione del servizio e costituisce un riferimento per i file e le cartelle nel repository Git.
 
-This article describes how to enable and use Git to manage your service configuration and provides a reference for the files and folders in the Git repository.
+## Per abilitare l'accesso a Git
 
-## <a name="to-enable-git-access"></a>To enable Git access
+È possibile visualizzare rapidamente lo stato della configurazione di Git visualizzando l'icona Git nell'angolo superiore destro del portale di pubblicazione. Nell'esempio l'accesso a Git non è ancora stato abilitato.
 
-You can quickly view the status of your Git configuration by viewing the Git icon in the upper-right corner of the publisher portal. In this example, Git access has not yet been enabled.
+![Stato Git][api-management-git-icon-enable]
 
-![Git status][api-management-git-icon-enable]
+Per visualizzare e configurare le impostazioni di configurazione di Git, è possibile fare clic sull'icona Git o fare clic sul menu **Security** e passare alla scheda **Configuration repository**.
 
-To view and configure your Git configuration settings, you can either click the Git icon, or click the **Security** menu and navigate to the **Configuration repository** tab.
+![Abilitare GIT][api-management-enable-git]
 
-![Enable GIT][api-management-enable-git]
+Per abilitare l'accesso a Git, selezionare la casella di controllo **Enable Git access**.
 
-To enable Git access, check the **Enable Git access** checkbox.
+Dopo qualche istante la modifica viene salvata e viene visualizzato un messaggio di conferma. Si noti che l'icona Git appare colorata per indicare che l'accesso Git è abilitato, mentre il messaggio di stato ora indica che sono presenti modifiche non salvate nel repository. Questo avviene perché il database di configurazione del servizio Gestione API non è ancora stato salvato nel repository.
 
-After a moment the change is saved and a confirmation message is displayed. Note that Git icon has changed to color to indicate that Git access is enabled and the status message now indicates that there are unsaved changes to the repository. This is because the API Management service configuration database has not yet been saved to the repository.
+![GIT abilitato][api-management-git-enabled]
 
-![Git enabled][api-management-git-enabled]
+>[AZURE.IMPORTANT] Eventuali segreti non definiti come proprietà verranno archiviati nel repository e rimarranno nella cronologia di questo finché non si disabilita e riabilita l'accesso a Git. Le proprietà rappresentano un luogo sicuro per gestire i valori stringa costanti, segreti inclusi, attraverso tutte le configurazioni e tutti i criteri per le API. Non è quindi necessario archiviarli direttamente nelle istruzioni dei criteri. Per altre informazioni, vedere [Come usare le proprietà nei criteri di Gestione API di Azure](api-management-howto-properties.md).
 
->[AZURE.IMPORTANT] Any secrets that are not defined as properties will be stored in the repository and will remain in its history until you disable and re-enable Git access. Properties provide a secure place to manage constant string values, including secrets, across all API configuration and policies, so you don't have to store them directly in your policy statements. For more information, see [How to use properties in Azure API Management policies](api-management-howto-properties.md).
+Per informazioni sull'abilitazione o la disabilitazione dell'accesso a Git mediante l'API REST, vedere la [pagina relativa a questo argomento](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
 
-For information on enabling or disabling Git access using the REST API, see [Enable or disable Git access using the REST API](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
+## Per salvare la configurazione del servizio nel repository Git
 
-## <a name="to-save-the-service-configuration-to-the-git-repository"></a>To save the service configuration to the Git repository
+Il primo passaggio prima della clonazione del repository corrisponde al salvataggio dello stato corrente della configurazione del servizio nel repository. Fare clic su **Save configuration to repository**.
 
-The first step before cloning the repository is to save the current state of the service configuration to the repository. Click **Save configuration to repository**.
+![Salvare la configurazione][api-management-save-configuration]
 
-![Save configuration][api-management-save-configuration]
+Apportare le modifiche desiderate nella schermata di conferma e fare clic su **Ok** per salvare.
 
-Make any desired changes on the confirmation screen and click **Ok** to save.
+![Salvare la configurazione][api-management-save-configuration-confirm]
 
-![Save configuration][api-management-save-configuration-confirm]
+Dopo qualche secondo la configurazione viene salvata e viene visualizzato lo stato della configurazione del repository, con la data e l'ora dell'ultima modifica alla configurazione e l'ultima sincronizzazione tra la configurazione del servizio e il repository.
 
-After a few moments the configuration is saved, and the configuration status of the repository is displayed, including the date and time of the last configuration change and the last synchronization between the service configuration and the repository.
+![Stato della configurazione][api-management-configuration-status]
 
-![Configuration status][api-management-configuration-status]
+Dopo che la configurazione è stata salvata nel repository, può essere clonata.
 
-Once the configuration is saved to the repository, it can be cloned.
+Per informazioni sull'esecuzione di questa operazione tramite l'API REST, vedere la [pagina relativa all'esecuzione del commit di uno snapshot della configurazione tramite l'API REST](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot).
 
-For information on performing this operation using the REST API, see [Commit configuration snapshot using the REST API](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot).
+## Per clonare il repository nel computer locale
 
-## <a name="to-clone-the-repository-to-your-local-machine"></a>To clone the repository to your local machine
+Per clonare un repository, sono necessari l'URL del repository, un nome utente e una password. Il nome utente e l'URL sono visualizzati nella parte superiore della scheda **Configuration repository**.
 
-To clone a repository, you need the URL to your repository, a user name, and a password. The user name and URL are displayed near the top of the **Configuration repository** tab.
+![Clonare in Git][api-management-configuration-git-clone]
 
-![Git clone][api-management-configuration-git-clone]
+La password viene generata nella parte inferiore della scheda **Configuration repository**.
 
-The password is generated at the bottom of the **Configuration repository** tab.
+![Generare password][api-management-generate-password]
 
-![Generate password][api-management-generate-password]
-
-To generate a password, first ensure that the **Expiry** is set to the desired expiration date and time, and then click **Generate Token**.
+Per generare una password, verificare innanzitutto che il campo **Expiry** sia impostato sulla data e sull'ora di scadenza desiderate, quindi fare clic su **Generate Token**.
 
 ![Password][api-management-password]
 
->[AZURE.IMPORTANT] Make a note of this password. Once you leave this page the password will not be displayed again.
+>[AZURE.IMPORTANT] Prendere nota della password. Una volta chiusa questa pagina, la password non verrà più visualizzata.
 
-The following examples use the Git Bash tool from [Git for Windows](http://www.git-scm.com/downloads) but you can use any Git tool that you are familiar with.
+Gli esempi seguenti usano lo strumento Git Bash di [Git per Windows](http://www.git-scm.com/downloads) ma è possibile usare qualsiasi strumento Git con cui si abbia familiarità.
 
-Open your Git tool in the desired folder and run the following command to clone the git repository to your local machine, using the command provided by the publisher portal.
+Aprire lo strumento Git nella cartella desiderata ed eseguire il comando seguente per clonare il repository Git nel computer locale, usando il comando fornito dal portale di pubblicazione.
 
-    git clone https://bugbashdev4.scm.azure-api.net/ 
+	git clone https://bugbashdev4.scm.azure-api.net/ 
 
-Provide the user name and password when prompted.
+Quando richiesto,specificare il nome utente e la password.
 
-If you receive any errors, try modifying your `git clone` command to include the user name and password, as shown in the following example.
+Se si ricevono errori, provare a modificare il comando `git clone` includendo il nome utente e password, come illustrato nell'esempio seguente.
 
-    git clone https://username:password@bugbashdev4.scm.azure-api.net/
+	git clone https://username:password@bugbashdev4.scm.azure-api.net/
 
-If this provides an error, try URL encoding the password portion of the command. One quick way to do this is to open Visual Studio, and issue the following command in the **Immediate Window**. To open the **Immediate Window**, open any solution or project in Visual Studio (or create a new empty console application), and choose **Windows**, **Immediate** from the **Debug** menu.
+Se viene generato un errore, provare a codificare con URL la parte della password del comando. Un metodo rapido per eseguire questa operazione consiste nell'aprire Visual Studio, eseguendo il comando seguente nella **finestra di controllo immediato**. Per aprire la **finestra di controllo immediato**, aprire una soluzione o un progetto qualsiasi in Visual Studio (o creare una nuova applicazione console vuota) e scegliere **Finestre**, **Controllo immediato** dal menu **Debug**.
 
-    ?System.NetWebUtility.UrlEncode("password from publisher portal")
+	?System.NetWebUtility.UrlEncode("password from publisher portal")
 
-Use the encoded password along with your user name and repository location to construct the git command.
+Per creare il comando git, usare la password codificata con il nome utente e il percorso del repository.
 
-    git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+	git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 
-Once the repository is cloned you can view and work with it in your local file system. For more information, see [File and folder structure reference of local Git repository](#file-and-folder-structure-reference-of-local-git-repository).
+Una volta clonato il repository, è possibile visualizzarlo e usarlo nel file system locale. Per altre informazioni, vedere [Informazioni di riferimento sulla struttura di file e cartelle del repository Git locale](#file-and-folder-structure-reference-of-local-git-repository).
 
-## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>To update your local repository with the most current service instance configuration
+## Per aggiornare il repository locale con la configurazione dell'istanza del servizio più recente
 
-If you make changes to your API Management service instance in the publisher portal or using the REST API, you must save these changes to the repository before you can update your local repository with the latest changes. To do this, click **Save configuration to repository** on the **Configuration repository** tab in the publisher portal, and then issue the following command in your local repository.
+Se si apportano modifiche all'istanza del servizio Gestione API nel portale di pubblicazione o tramite l'API REST, è necessario salvare le modifiche nel repository prima di aggiornare il repository locale con le modifiche più recenti. A tale scopo, fare clic su **Save configuration to repository** nella scheda **Configuration repository** del portale di pubblicazione e quindi eseguire il comando seguente nel repository locale.
 
-    git pull
+	git pull
 
-Before running `git pull` ensure that you are in the folder for your local repository. If you have just completed the `git clone` command, then you must change the directory to your repo by running a command like the following.
+Prima di eseguire `git pull` assicurarsi di trovarsi nella cartella del repository locale. Se è appena stato eseguito il comando `git clone`, è necessario modificare la directory con quella del repository tramite un comando simile al seguente.
 
-    cd bugbashdev4.scm.azure-api.net/
+	cd bugbashdev4.scm.azure-api.net/
 
-## <a name="to-push-changes-from-your-local-repo-to-the-server-repo"></a>To push changes from your local repo to the server repo
+## Per eseguire il push delle modifiche dal repository locale al repository del server
 
-To push changes from your local repository to the server repository, you must commit your changes and then push them to the server repository. To commit your changes, open your Git command tool, switch to the directory of your local repository, and issue the following commands.
+Per eseguire il push delle modifiche dal repository locale al repository del server, è prima necessario eseguire il commit delle modifiche stesse. Per eseguire il commit delle modifiche, aprire lo strumento dei comandi Git, passare alla directory del repository locale ed eseguire i comandi seguenti.
 
-    git add --all
-    git commit -m "Description of your changes"
+	git add --all
+	git commit -m "Description of your changes"
 
-To push all of the commits to the server, run the following command.
+Per eseguire il push di tutti i commit nel server, eseguire il comando seguente.
 
-    git push
+	git push
 
-## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>To deploy any service configuration changes to the API Management service instance
+## Per distribuire le modifiche alla configurazione del servizio all'istanza del servizio Gestione API
 
-Once your local changes are committed and pushed to the server repository, you can deploy them to your API Management service instance.
+Dopo il commit e il push delle modifiche locali nel repository del server, è possibile distribuire le modifiche all'istanza del servizio Gestione API.
 
-![Deploy][api-management-configuration-deploy]
+![Distribuisci][api-management-configuration-deploy]
 
-For information on performing this operation using the REST API, see [Deploy Git changes to configuration database using the REST API](https://msdn.microsoft.com/library/dn781420.aspx#DeployChanges).
+Per informazioni sull'esecuzione di questa operazione tramite l'API REST, vedere la [pagina relativa alla distribuzione delle modifiche al database di configurazione tramite l'API REST](https://msdn.microsoft.com/library/dn781420.aspx#DeployChanges).
 
-## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>File and folder structure reference of local Git repository
+## Informazioni di riferimento sulla struttura di file e cartelle del repository Git locale
 
-The files and folders in the local git repository contain the configuration information about the service instance.
+I file e cartelle nel repository Git locale contengono le informazioni di configurazione dell'istanza del servizio.
 
-| Item                       | Description                                                                                |
+| Item | Descrizione |
 |-------------------------   |--------------------------------------------------------------------------------------------|
-| root api-management folder | Contains top-level configuration for the service instance                                  |
-| apis folder                | Contains the configuration for the apis in the service instance                            |
-| groups folder              | Contains the configuration for the groups in the service instance                          |
-| policies folder            | Contains the policies in the service instance                                              |
-| portalStyles folder        | Contains the configuration for the developer portal customizations in the service instance |
-| products folder            | Contains the configuration for the products in the service instance                        |
-| templates folder           | Contains the configuration for the email templates in the service instance                 |
+| Cartella api-management radice | Contiene la configurazione di livello superiore per l'istanza del servizio |
+| Cartella apis | Contiene la configurazione per le API nell'istanza del servizio |
+| Cartella groups | Contiene la configurazione per i gruppi nell'istanza del servizio |
+| Cartella policies | Contiene i criteri dell'istanza del servizio |
+| Cartella portalStyles | Contiene la configurazione delle personalizzazioni del portale per sviluppatori nell'istanza del servizio |
+| Cartella products | Contiene la configurazione per i prodotti nell'istanza del servizio |
+| Cartella templates | Contiene la configurazione per i modelli nell'istanza del servizio |
 
-Each folder can contain one or more files, and in some cases one or more folders, for example a folder for each API, product, or group. The files within each folder are specific for the entity type described by the folder name.
+Ogni cartella può contenere uno o più file e in alcuni casi una o più cartelle, ad esempio una cartella per ogni API, prodotto o gruppo. I file all'interno di ogni cartella sono specifici per il tipo di entità descritto dal nome della cartella.
 
-| File type | Purpose                                                                |
+| Tipo file | Scopo |
 |-----------|------------------------------------------------------------------------|
-| json      | Configuration information about the respective entity                  |
-| html      | Descriptions about the entity, often displayed in the developer portal |
-| xml       | Policy statements                                                      |
-| css       | Style sheets for developer portal customization                        |
+| json | Informazioni di configurazione dell'entità corrispondente |
+| html | Descrizioni delle entità, spesso visualizzate nel portale per sviluppatori |
+| xml | Policy statements |
+| css | Fogli di stile per la personalizzazione del portale per sviluppatori |
 
-These files can be created, deleted, edited, and managed on your local file system, and the changes deployed back to the your API Management service instance.
+Questi file possono essere creati, eliminati, modificati e gestiti nel file system locale e le modifiche possono essere ridistribuite nell'istanza del servizio Gestione API.
 
->[AZURE.NOTE] The following entities are not contained in the Git repository and cannot be configured using Git.
+>[AZURE.NOTE] Le entità seguenti non sono contenute nel repository Git e non possono essere configurate tramite Git.
 >
->-    Users
->-    Subscriptions
->-    Properties
->-    Developer portal entities other than styles
+>-    Utenti
+>-    Sottoscrizioni
+>-    Proprietà
+>-    Entità del portale per sviluppatori diverse dagli stili
 
-### <a name="root-api-management-folder"></a>Root api-management folder
+### Cartella api-management radice
 
-The root `api-management` folder contains a `configuration.json` file that contains top-level information about the service instance in the following format.
+La cartella `api-management` radice contiene un file `configuration.json` che a sua volta contiene informazioni di livello superiore relative all'istanza del servizio nel formato seguente.
 
-    {
-      "settings": {
-        "RegistrationEnabled": "True",
-        "UserRegistrationTerms": null,
-        "UserRegistrationTermsEnabled": "False",
-        "UserRegistrationTermsConsentRequired": "False",
-        "DelegationEnabled": "False",
-        "DelegationUrl": "",
-        "DelegatedSubscriptionEnabled": "False",
-        "DelegationValidationKey": ""
-      },
-      "$ref-policy": "api-management/policies/global.xml"
-    }
+	{
+	  "settings": {
+	    "RegistrationEnabled": "True",
+	    "UserRegistrationTerms": null,
+	    "UserRegistrationTermsEnabled": "False",
+	    "UserRegistrationTermsConsentRequired": "False",
+	    "DelegationEnabled": "False",
+	    "DelegationUrl": "",
+	    "DelegatedSubscriptionEnabled": "False",
+	    "DelegationValidationKey": ""
+	  },
+	  "$ref-policy": "api-management/policies/global.xml"
+	}
 
-The first four settings (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled`, and `UserRegistrationTermsConsentRequired`) map to the following settings on the **Identities** tab in the **Security** section.
+Le prime quattro impostazioni (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled` e `UserRegistrationTermsConsentRequired`) eseguono il mapping alle seguenti impostazioni nella scheda **Identities** della sezione **Security**.
 
-| Identity setting                     | Maps to                                               |
+| Impostazione | Mapping a |
 |--------------------------------------|-------------------------------------------------------|
-| RegistrationEnabled                  | **Redirect anonymous users to sign-in page** checkbox |
-| UserRegistrationTerms                | **Terms of use on user signup** textbox               |
-| UserRegistrationTermsEnabled         | **Show terms of use on signup page** checkbox         |
-| UserRegistrationTermsConsentRequired | **Require consent** checkbox                          |
+| RegistrationEnabled | Casella di controllo **Redirect anonymous users to** |
+| UserRegistrationTerms | Casella di testo **Terms of use on user signup** |
+| UserRegistrationTermsEnabled | Casella di controllo **Show terms of use on signup page** |
+| UserRegistrationTermsConsentRequired | Casella di controllo **Richiedi consenso** |
 
-![Identity settings][api-management-identity-settings]
+![Impostazioni di identità][api-management-identity-settings]
 
-The next four settings (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled`, and `DelegationValidationKey`) map to the following settings on the **Delegation** tab in the **Security** section.
+Le quattro impostazioni successive (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled` e `DelegationValidationKey`) eseguono il mapping alle seguenti impostazioni nella scheda **Delegation** della sezione **Security**.
 
-| Delegation setting           | Maps to                                    |
+| Impostazione | Mapping a |
 |------------------------------|--------------------------------------------|
-| DelegationEnabled            | **Delegate sign-in & sign-up** checkbox    |
-| DelegationUrl                | **Delegation endpoint URL** textbox        |
-| DelegatedSubscriptionEnabled | **Delegate product subscription** checkbox |
-| DelegationValidationKey      | **Delegate Validation Key** textbox        |
+| DelegationEnabled | Casella di controllo **Delegate sign-in & sign-up** |
+| DelegationUrl | Casella di testo **Delegation endpoint URL** |
+| DelegatedSubscriptionEnabled | Casella di controllo **Delegate product subscription** |
+| DelegationValidationKey | Casella di testo **Delegate Validation Key** |
 
-![Delegation settings][api-management-delegation-settings]
+![Impostazioni di delega][api-management-delegation-settings]
 
-The final setting, `$ref-policy`, maps to the global policy statements file for the service instance.
+L'impostazione finale, `$ref-policy`, esegue il mapping al file di istruzioni dei criteri globali per l'istanza del servizio.
 
-### <a name="apis-folder"></a>apis folder
+### Cartella apis
 
-The `apis` folder contains a folder for each API in the service instance which contains the following items.
+La cartella `apis` contiene, per ogni API nell'istanza del servizio, una cartella contenente a sua volta gli elementi seguenti.
 
--   `apis\<api name>\configuration.json` - this is the configuration for the API and contains information about the backend service URL and the operations. This is the same information that would be returned if you were to call [Get a specific API](https://msdn.microsoft.com/library/azure/dn781423.aspx#GetAPI) with `export=true` in `application/json` format.
--   `apis\<api name>\api.description.html` - this is the description of the API and corresponds to the `description` property of the [API entity](https://msdn.microsoft.com/library/azure/dn781423.aspx#EntityProperties).
--   `apis\<api name>\operations\` - this folder contains `<operation name>.description.html` files that map to the operations in the API. Each file contains the description of a single operation in the API which maps to the `description` property of the [operation entity](https://msdn.microsoft.com/library/azure/dn781423.aspx#OperationProperties) in the REST API.
+-	`apis<api name>\configuration.json`: configurazione dell'API. Contiene informazioni relative all'URL del servizio back-end e alle operazioni. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario [ottenere un'API specifica](https://msdn.microsoft.com/library/azure/dn781423.aspx#GetAPI) con `export=true` nel formato `application/json`.
+-	`apis<api name>\api.description.html`: descrizione dell'API. Corrisponde alla proprietà `description` dell'[entità relativa all'API](https://msdn.microsoft.com/library/azure/dn781423.aspx#EntityProperties).
+-	`apis<api name>\operations`: questa cartella contiene file `<operation name>.description.html` che eseguono il mapping alle operazioni nell'API. Ogni file contiene la descrizione di una singola operazione dell'API che esegue il mapping alla proprietà `description` dell'[entità relativa all'operazione](https://msdn.microsoft.com/library/azure/dn781423.aspx#OperationProperties) nell'API REST.
 
-### <a name="groups-folder"></a>groups folder
+### Cartella groups
 
-The `groups` folder contains a folder for each group defined in the service instance.
+La cartella `groups` contiene una cartella per ogni gruppo definito nell'istanza del servizio.
 
--   `groups\<group name>\configuration.json` - this is the configuration for the group. This is the same information that would be returned if you were to call the [Get a specific group](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup) operation.
--   `groups\<group name>\description.html` - this is the description of the group and corresponds to the `description` property of the [group entity](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
+-	`groups<group name>\configuration.json`: configurazione del gruppo. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario chiamare l'operazione per [ottenere un gruppo specifico](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup).
+-	`groups<group name>\description.html`: descrizione del gruppo. Corrisponde alla proprietà `description` dell'[entità relativa al gruppo](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
 
-### <a name="policies-folder"></a>policies folder
+### Cartella policies
 
-The `policies` folder contains the policy statements for your service instance.
+La cartella `policies` contiene le istruzioni dei criteri per l'istanza del servizio.
 
--   `policies\global.xml` - contains policies defined at global scope for your service instance.
--   `policies\apis\<api name>\` - if you have any policies defined at API scope, they are contained in this folder.
--   `policies\apis\<api name>\<operation name>\` folder - if you have any policies defined at operation scope, they are contained in this folder in `<operation name>.xml` files that map to the policy statements for each operation.
--   `policies\products\` - if you have any policies defined at product scope, they are contained in this folder, which contains `<product name>.xml` files that map to the policy statements for each product.
+-	`policies\global.xml`: contiene i criteri definiti in ambito globale per l'istanza del servizio.
+-	`policies\apis<api name>`: se si dispone di criteri definiti in corrispondenza dell'ambito delle API, tali criteri sono contenuti in questa cartella.
+-	Cartella `policies\apis<api name><operation name>`: se si dispone di criteri definiti in corrispondenza dell'ambito delle operazioni, tali criteri sono contenuti in questa cartella all'interno di file `<operation name>.xml` che eseguono il mapping alle istruzioni di criteri per ogni operazione.
+-	`policies\products`: se si dispone di criteri definiti in corrispondenza dell'ambito dei prodotti, tali criteri sono contenuti in questa cartella, contenente file `<product name>.xml` che eseguono il mapping alle istruzioni di criteri per ogni prodotto.
 
-### <a name="portalstyles-folder"></a>portalStyles folder
+### Cartella portalStyles
 
-The `portalStyles` folder contains configuration and style sheets for developer portal customizations for the service instance.
+La cartella `portalStyles` contiene la configurazione e i fogli di stile delle personalizzazioni del portale per sviluppatori per l'istanza del servizio.
 
--   `portalStyles\configuration.json` - contains the names of the style sheets used by the developer portal
--   `portalStyles\<style name>.css` - each `<style name>.css` file contains styles for the developer portal (`Preview.css` and `Production.css` by default).
+-	`portalStyles\configuration.json`: contiene i nomi dei fogli di stile usati dal portale per sviluppatori
+-	`portalStyles<style name>.css`: ogni file `<style name>.css` contiene stili per il portale per sviluppatori (per impostazione predefinita, `Preview.css` e `Production.css`).
 
-### <a name="products-folder"></a>products folder
+### Cartella products
 
-The `products` folder contains a folder for each product defined in the service instance.
+La cartella `products` contiene una cartella per ogni prodotto definito nell'istanza del servizio.
 
--   `products\<product name>\configuration.json` - this is the configuration for the product. This is the same information that would be returned if you were to call the [Get a specific product](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct) operation.
--   `products\<product name>\product.description.html` - this is the description of the product and corresponds to the `description` property of the [product entity](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product) in the REST API.
+-	`products<product name>\configuration.json`: configurazione del prodotto. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario chiamare l'operazione per [ottenere un prodotto specifico](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct).
+-	`products<product name>\product.description.html`: descrizione del prodotto. Corrisponde alla proprietà `description` dell'[entità relativa al prodotto](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product) nell'API REST.
 
-### <a name="templates"></a>templates
+### Modelli
 
-The `templates` folder contains configuration for the [email templates](api-management-howto-configure-notifications.md) of the service instance.
+La cartella `templates` contiene la configurazione per i [modelli di posta elettronica](api-management-howto-configure-notifications.md) dell'istanza del servizio.
 
--   `<template name>\configuration.json` - this is the configuration for the email template.
--   `<template name>\body.html` - this is the body of the email template.
+-	`<template name>\configuration.json`: configurazione del modello di posta elettronica.
+-	`<template name>\body.html`: corpo del modello di posta elettronica.
 
-## <a name="next-steps"></a>Next steps
+## Passaggi successivi
 
-For information on other ways to manage your service instance, see:
+Per informazioni su altri metodi di gestione dell'istanza del servizio, vedere:
 
--   Manage your service instance using the following PowerShell cmdlets
-    -   [Service deployment PowerShell cmdlet reference](https://msdn.microsoft.com/library/azure/mt619282.aspx)
-    -   [Service management PowerShell cmdlet reference](https://msdn.microsoft.com/library/azure/mt613507.aspx)
--   Manage your service instance in the publisher portal
-    -   [Manage your first API](api-management-get-started.md)
--   Manage your service instance using the REST API
-    -   [API Management REST API reference](https://msdn.microsoft.com/library/azure/dn776326.aspx)
+-	Gestire l'istanza del servizio con i cmdlet di PowerShell seguenti
+	-	[Informazioni di riferimento sui cmdlet di PowerShell per la distribuzione dei servizi](https://msdn.microsoft.com/library/azure/mt619282.aspx)
+	-	[Informazioni di riferimento sui cmdlet di PowerShell per la gestione dei servizi](https://msdn.microsoft.com/library/azure/mt613507.aspx)
+-	Gestire l'istanza del servizio nel portale di pubblicazione
+	-	[Gestire la prima API](api-management-get-started.md)
+-	Gestire l'istanza del servizio tramite l'API REST
+	-	[Informazioni di riferimento sull'API REST di Gestione API](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 
-## <a name="watch-a-video-overview"></a>Watch a video overview
+## Guardare un video introduttivo
 
 > [AZURE.VIDEO configuration-over-git]
 
@@ -298,12 +297,4 @@ For information on other ways to manage your service instance, see:
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
 [api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
 
-
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->
