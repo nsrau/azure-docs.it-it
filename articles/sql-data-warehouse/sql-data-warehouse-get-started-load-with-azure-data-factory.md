@@ -44,7 +44,7 @@ Prima di iniziare questa esercitazione, è necessario avere le risorse seguenti.
 
    + **BLOB del servizio di archiviazione di Azure**: questa esercitazione usa il BLOB del servizio di archiviazione di Azure come origine dati per la pipeline di Azure Data Factory e quindi è necessario che ne sia disponibile uno per archiviare i dati di esempio. Se non ne è già disponibile uno, vedere [Creare un account di archiviazione][].
 
-   + **SQL Data Warehouse**: questa esercitazione sposta i dati da un BLOB del servizio di archiviazione di Azure a SQL Data Warehouse ed è quindi necessario avere un data warehouse online caricato con i dati di esempio AdventureWorksDW. Se non si ha un data warehouse, vedere le informazioni su come [effettuarne il provisioning][Creare un SQL Data Warehouse]. Se si ha un data warehouse ma non ne è stato effettuato il provisioning con i dati di esempio, è possibile [caricarli manualmente][Caricare i dati di esempio in SQL Data Warehouse].
+   + **SQL Data Warehouse**: questa esercitazione sposta i dati da un BLOB del servizio di archiviazione di Azure a SQL Data Warehouse ed è quindi necessario avere un data warehouse online caricato con i dati di esempio AdventureWorksDW. Se non si ha un data warehouse, vedere le informazioni su come [effettuarne il provisioning](Creare un SQL Data Warehouse). Se si ha un data warehouse ma non ne è stato effettuato il provisioning con i dati di esempio, è possibile [caricarli manualmente](Caricare i dati di esempio in SQL Data Warehouse).
 
    + **Azure Data Factory**: Azure Data Factory completa il caricamento effettivo ed è quindi necessario avere una data factory da poter usare per creare la pipeline per lo spostamento dei dati. Se non si ha una data factory, per informazioni su come crearne una vedere il primo passaggio dell'esercitazione di [introduzione ad Azure Data Factory (editor di Data Factory)][].
 
@@ -150,7 +150,7 @@ Dopo avere creato i servizi collegati, sarà necessario definire i set di dati, 
 
 ## <a name="step-3:-create-and-run-your-pipeline"></a>Passaggio 3: Creare ed eseguire la pipeline
 
-Viene infine configurata ed eseguita la pipeline in Azure Data Factory.  Questa operazione completa lo spostamento effettivo dei dati.  Per una panoramica completa delle operazioni che è possibile completare con SQL Data Warehouse e Azure Data Factory, vedere [qui][Spostare dati da e verso Azure SQL Data Warehouse con Azure Data Factory].
+Viene infine configurata ed eseguita la pipeline in Azure Data Factory.  Questa operazione completa lo spostamento effettivo dei dati.  Per una panoramica completa delle operazioni che è possibile completare con SQL Data Warehouse e Azure Data Factory, vedere [qui](Spostare dati da e verso Azure SQL Data Warehouse con Azure Data Factory).
 
 Nella sezione "Creare e distribuire" fare clic su "Più comandi" e quindi su "Nuova pipeline".  Dopo la creazione della pipeline, è possibile usare il codice seguente per trasferire i dati al data warehouse:
 
