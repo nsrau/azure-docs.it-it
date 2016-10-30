@@ -13,27 +13,28 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/20/2016"
+    ms.date="10/10/2016"
     ms.author="markusvi"/>
 
 
-# Informazioni sull'accesso alle risorse in Azure
+
+# <a name="understanding-resource-access-in-azure"></a>Informazioni sull'accesso alle risorse in Azure
 
 
 > [AZURE.NOTE] Questo argomento illustra i concetti relativi all'uso di amministratori della sottoscrizione per controllare l'accesso alle risorse nel portale di Azure completo. In alternativa, il portale di anteprima di Azure fornisce la funzionalità di [controllo degli accessi in base al ruolo](role-based-access-control-configure.md) che permette di gestire le risorse di Azure con maggiore precisione.
 
 Nel mese di ottobre 2013 il portale di Azure classico e le API Gestione dei servizi sono stati integrati con Azure Active Directory per creare i presupposti per migliorare l'esperienza utente per la gestione dell'accesso alle risorse di Azure. Azure Active Directory offre già potenti funzionalità per la gestione degli utenti, per la sincronizzazione della directory locale, per l'autenticazione a più fattori e il controllo di accesso alle applicazioni. Naturalmente, queste funzionalità dovrebbero essere rese disponibili per la gestione delle risorse di Azure a livello generale.
 
-La fatturazione costituisce il punto di partenza per il controllo di accesso in Azure. Il proprietario di un account Azure, a cui si accede tramite il [Centro account di Azure](https://account.windowsazure.com/subscriptions), è l'amministratore account. Le sottoscrizioni sono un contenitore per la fatturazione, ma fungono anche da limite di sicurezza. Ogni sottoscrizione ha un amministratore del servizio che può aggiungere, rimuovere, modificare le risorse di Azure incluse nella sottoscrizione specifica tramite il [portale di Azure classico](https://manage.windowsazure.com/). L'amministratore dei servizi predefinito di una nuova sottoscrizione è l'amministratore dell'account, che, a sua volta, può assegnare il ruolo di amministratore dei servizi a un altro utente nel Centro account di Azure.
+La fatturazione costituisce il punto di partenza per il controllo di accesso in Azure. Il proprietario di un account Azure, a cui si accede tramite il [Centro account di Azure](https://account.windowsazure.com/subscriptions), è l'amministratore account. Le sottoscrizioni sono contenitori per la fatturazione, ma vengono usate anche come limiti per la sicurezza: ogni sottoscrizione ha un Amministratore del servizio (SA) che può aggiungere, rimuovere e modificare le risorse di Azure nella sottoscrizione tramite il [portale di Azure classico](https://manage.windowsazure.com/). L'Amministratore del servizio predefinito di una nuova sottoscrizione è l'Amministratore dell'account, ma quest'ultimo può modificare l'Amministratore del servizio nel Centro account di Azure.
 
 <br><br>![Account Azure][1]
 
-Le sottoscrizioni sono anche associate a una directory. Una directory definisce un set di utenti. Possono essere utenti dell'azienda o dell'istituto di istruzione che ha creato la directory o utenti esterni, ovvero utenti con un account Microsoft. Le sottoscrizioni sono accessibili da un sottoinsieme di utenti della directory alla quale sono stati assegnati come amministratore dei servizi o coamministratore. Fanno eccezione, per motivi che risalgono al passato, gli account Microsoft (in precedenza Windows Live ID), i quali possono essere assegnati come amministratore dei servizi o coamministratore senza essere presenti nella directory.
+Le sottoscrizioni dispongono anche di un'associazione a una directory. Una directory definisce un set di utenti. Possono essere utenti dell'azienda o dell'istituto di istruzione che ha creato la directory o utenti esterni, ovvero utenti con un account Microsoft. Le sottoscrizioni sono accessibili da un sottogruppo di questi utenti della directory che sono stati nominati Amministratori del servizio (SA) o Co-amministratori (CA); l'unica eccezione è che, per motivi di compatibilità, gli account Microsoft (precedentemente Windows Live ID) possono essere nominati SA o CA senza essere presenti nella directory.
 
 <br><br>![Controllo di accesso in Azure][2]
 
 
-Le funzionalità disponibili nel portale di Azure classico consentono agli amministratori del servizio che hanno eseguito l'accesso con un account Microsoft di modificare la directory a cui è associata la sottoscrizione tramite il comando **Modifica directory** nella sezione **Impostazioni** della pagina **Sottoscrizioni**. Si noti che questa operazione può influire sul controllo di accesso di quella sottoscrizione.
+La funzionalità all'interno del portale di Azure classico consente agli amministratori che hanno eseguito l'accesso con un Account Microsoft di modificare la directory a cui è associata una sottoscrizione tramite il comando **Modifica directory** nella pagina **Sottoscrizioni** in **Impostazioni**. Si noti che questa operazione può influire sul controllo di accesso di quella sottoscrizione.
 
 
 
@@ -54,15 +55,15 @@ Nel caso più semplice un'organizzazione, ad esempio Contoso, imporrà la fattur
 
 Gli utenti con sottoscrizioni in più directory possono cambiare il contesto corrente del portale di Azure classico con il filtro della sottoscrizione. Questo comporta un accesso separato a una directory diversa, operazione che viene eseguita automaticamente tramite l'accesso Single Sign-On.
 
-Operazioni quali lo spostamento di risorse tra sottoscrizioni possono risultare più difficoltose a causa della visualizzazione a directory singola delle sottoscrizioni. Per procedere al trasferimento di risorse, potrebbe essere necessario usare prima il comando **Modifica directory** nella sezione **Impostazioni** della pagina Sottoscrizioni per associare le sottoscrizioni alla stessa directory.
+Operazioni quali lo spostamento di risorse tra sottoscrizioni possono risultare più difficoltose a causa della visualizzazione a directory singola delle sottoscrizioni. Per eseguire il trasferimento di risorse, potrebbe essere necessario usare prima il comando **Modifica directory** nella pagina Sottoscrizioni di **Impostazioni** per associare le sottoscrizioni alla stessa directory.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni su come cambiare gli amministratori per una sottoscrizione di Azure, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](../billing-add-change-azure-subscription-administrator.md).
+- Per altre informazioni su come cambiare gli amministratori per una sottoscrizione di Azure, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](../billing-add-change-azure-subscription-administrator.md)
 
 - Per altre informazioni sul modo in cui Azure Active Directory è correlato alla sottoscrizione di Azure, vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 
-- Per altre informazioni su come assegnare i ruoli in Azure AD, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles.md).
+- Per altre informazioni su come assegnare i ruoli in Azure AD, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles.md)
 
 
 
@@ -72,4 +73,8 @@ Operazioni quali lo spostamento di risorse tra sottoscrizioni possono risultare 
 [3]: ./media/active-directory-understanding-resource-access/IC707933.png
 [4]: ./media/active-directory-understanding-resource-access/IC707934.png
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

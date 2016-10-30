@@ -16,7 +16,8 @@ ms.service="virtual-machines-windows"
  ms.date="07/15/2016"
  ms.author="danlep"/>
 
-# Aggiungere nodi "burst" su richiesta in un cluster HPC Pack in Azure
+
+# <a name="add-on-demand-"burst"-nodes-to-an-hpc-pack-cluster-in-azure"></a>Aggiungere nodi "burst" su richiesta in un cluster HPC Pack in Azure
 
 
 
@@ -30,9 +31,9 @@ I passaggi descritti in questo articolo consentono di aggiungere rapidamente nod
 
 Per considerazioni sull'uso di dimensioni di istanza a elevato utilizzo di calcolo per i nodi burst, vedere [Informazioni sulle macchine virtuali serie H e serie A a elevato utilizzo di calcolo](virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-* **Distribuzione di un nodo head HPC Pack in una VM Azure**: è possibile utilizzare una VM del nodo head autonoma oppure una che fa parte di un cluster più esteso. Per creare un nodo head autonomo, vedere l'argomento su come [distribuire un nodo head HPC Pack in una VM Azure](virtual-machines-windows-hpcpack-cluster-headnode.md). Per conoscere le opzioni di distribuzione di un cluster HPC Pack, vedere [Opzioni per creare e gestire un cluster high performance computing (HPC) Windows in Azure con Microsoft HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md).
+* **Distribuzione di un nodo head HPC Pack in una VM Azure** : è possibile utilizzare una VM del nodo head autonoma oppure una che fa parte di un cluster più esteso. Per creare un nodo head autonomo, vedere l'argomento su come [distribuire un nodo head HPC Pack in una VM Azure](virtual-machines-windows-hpcpack-cluster-headnode.md). Per conoscere le opzioni di distribuzione di un cluster HPC Pack, vedere [Opzioni per creare e gestire un cluster high performance computing (HPC) Windows in Azure con Microsoft HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md).
 
     >[AZURE.TIP] Se si usa lo [script di distribuzione IaaS di HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) per creare il cluster in Azure, è possibile includere i nodi burst di Azure nella distribuzione automatizzata. Vedere gli esempi nell'articolo.
 
@@ -40,14 +41,14 @@ Per considerazioni sull'uso di dimensioni di istanza a elevato utilizzo di calco
 
 * **Quota di core** - Potrebbe essere necessario aumentare la quota di core, soprattutto se si sceglie di distribuire più nodi di Azure con dimensioni multicore. Per aumentare una quota, è possibile [aprire una richiesta di assistenza clienti online](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) senza alcun addebito.
 
-## Passaggio 1: Creare un servizio cloud e un account di archiviazione per i nodi di Azure
+## <a name="step-1:-create-a-cloud-service-and-a-storage-account-for-the-azure-nodes"></a>Passaggio 1: Creare un servizio cloud e un account di archiviazione per i nodi di Azure
 
 Usare il Portale di Azure classico o strumenti equivalenti per configurare gli elementi seguenti, necessari per la distribuzione dei nodi di Azure:
 
 * Un nuovo servizio cloud di Azure
 * Un nuovo account di archiviazione di Azure
 
->[AZURE.NOTE] Non riusare un servizio cloud esistente nella sottoscrizione.
+>[AZURE.NOTE] Non riusare un servizio cloud esistente nella sottoscrizione. 
 
 **Considerazioni**
 
@@ -58,15 +59,15 @@ Usare il Portale di Azure classico o strumenti equivalenti per configurare gli e
 
 
 
-## Passaggio 2: Configurare un certificato di gestione di Azure
+## <a name="step-2:-configure-an-azure-management-certificate"></a>Passaggio 2: Configurare un certificato di gestione di Azure
 
 Per aggiungere nodi di Azure come risorse di calcolo, è necessario disporre di un certificato di gestione nel nodo head e caricare un certificato corrispondente nella sottoscrizione di Azure usata per la distribuzione.
 
-Per questo scenario, è possibile scegliere il **certificato di gestione di Azure HPC predefinito** installato e configurato automaticamente da HPC Pack nel nodo head. Questo certificato è utile a scopo di test e per distribuzioni con modello di verifica. Per usare questo certificato, caricare il file C:\\Programmi\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer dalla macchina virtuale del nodo head alla sottoscrizione. Per importare il certificato nel [portale di Azure classico](https://manage.windowsazure.com), fare clic su **Impostazioni** > **Certificati di gestione**.
+Per questo scenario, è possibile scegliere il **certificato di gestione di Azure HPC predefinito** installato e configurato automaticamente da HPC Pack nel nodo head. Questo certificato è utile a scopo di test e per distribuzioni con modello di verifica. Per usare questo certificato, caricare il file C:\Programmi\Microsoft HPC Pack 2012\Bin\hpccert.cer dalla macchina virtuale del nodo head alla sottoscrizione. Per caricare il certificato nel [portale di Azure classico](https://manage.windowsazure.com), fare clic su **Impostazioni** > **Certificati di gestione**.
 
 Per altre opzioni per configurare il certificato di gestione, vedere gli [scenari per configurare il certificato di gestione di Azure per distribuzioni di potenziamento di Azure](http://technet.microsoft.com/library/gg481759.aspx).
 
-## Passaggio 3: Distribuire nodi di Azure nel cluster
+## <a name="step-3:-deploy-azure-nodes-to-the-cluster"></a>Passaggio 3: Distribuire nodi di Azure nel cluster
 
 
 
@@ -82,11 +83,15 @@ Dopo aver aggiunto e avviato i nodi, questi saranno pronti per l'uso per l'esecu
 
 Se si verificano problemi durante la distribuzione di nodi di Azure, vedere [Risoluzione dei problemi delle distribuzioni di nodi di Azure con Microsoft HPC Pack](http://technet.microsoft.com/library/jj159097.aspx).
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 * Se si vogliono aumentare o ridurre automaticamente le risorse di calcolo di Azure in base al carico di lavoro del cluster, vedere [Aumentare e ridurre automaticamente le risorse di calcolo di Azure in un cluster HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-windows-classic-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

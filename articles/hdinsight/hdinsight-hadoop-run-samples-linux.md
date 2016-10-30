@@ -1,36 +1,37 @@
 <properties
-	pageTitle="Eseguire gli esempi di MapReduce Hadoop in HDInsight basati su Linux | Microsoft Azure"
-	description="Introduzione all'uso di esempi MapReduce con HDInsight basato su Linux. Usare SSH per connettersi al cluster, quindi usare il comando di Hadoop per eseguire i processi di esempio."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="jhubbard"
-	editor="cgronlun"
+    pageTitle="Eseguire gli esempi di MapReduce Hadoop in HDInsight basati su Linux | Microsoft Azure"
+    description="Introduzione all'uso di esempi MapReduce con HDInsight basato su Linux. Usare SSH per connettersi al cluster, quindi usare il comando di Hadoop per eseguire i processi di esempio."
+    services="hdinsight"
+    documentationCenter=""
+    authors="Blackmist"
+    manager="jhubbard"
+    editor="cgronlun"
     tags="azure-portal"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/27/2016"
-	ms.author="larryfr"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/27/2016"
+    ms.author="larryfr"/>
 
 
 
 
-#Eseguire gli esempi di Hadoop in HDInsight
+
+#<a name="run-the-hadoop-samples-in-hdinsight"></a>Eseguire gli esempi di Hadoop in HDInsight
 
 [AZURE.INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
 I cluster HDInsight basati su Linux forniscono una serie di esempi MapReduce che è possibile usare per acquisire familiarità con l'esecuzione di processi Hadoop MapReduce. Questo documento descrive gli esempi disponibili e illustra l'esecuzione di alcuni di essi.
 
-##Prerequisiti
+##<a name="prerequisites"></a>Prerequisiti
 
 - **Sottoscrizione di Azure**: vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
 
-- **Un cluster HDInsight basato su Linux**: vedere [ Introduzione all'uso di Hadoop con Hive in HDInsight in Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
+- **Un cluster HDInsight basato su Linux**: vedere [Introduzione all'uso di Hadoop con Hive in HDInsight in Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
 - **Un client SSH**: per informazioni sull'uso di SSH con HDInsight, vedere gli articoli seguenti:
 
@@ -38,7 +39,7 @@ I cluster HDInsight basati su Linux forniscono una serie di esempi MapReduce che
 
     - [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-## Esempi ##
+## <a name="the-samples"></a>Esempi ##
 
 **Percorso**: gli esempi sono disponibili nel cluster HDInsight in **/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar**
 
@@ -69,9 +70,9 @@ I cluster HDInsight basati su Linux forniscono una serie di esempi MapReduce che
 
 **Codice sorgente**: il codice sorgente per questi esempi è incluso nel cluster HDInsight in **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples**
 
-> [AZURE.NOTE] Nel percorso, `2.2.4.9-1` è la versione di Hortonworks Data Platform per il cluster HDInsight e può cambiare quando si aggiorna HDInsight.
+> [AZURE.NOTE]  `2.2.4.9-1` è la versione di Hortonworks Data Platform per il cluster HDInsight e può cambiare quando si aggiorna HDInsight.
 
-## Come eseguire gli esempi ##
+## <a name="how-to-run-the-samples"></a>Come eseguire gli esempi ##
 
 1. Connettersi a HDInsight con il protocollo SSH come descritto negli articoli seguenti:
 
@@ -85,7 +86,7 @@ I cluster HDInsight basati su Linux forniscono una serie di esempi MapReduce che
 
     Ciò consente di generare l'elenco degli esempi presenti nella sezione precedente di questo documento.
 
-3. Usare il comando seguente per ottenere informazioni della guida su un esempio specifico. In questo caso, l'esempio **wordcount**:
+3. Usare il comando seguente per ottenere informazioni della guida su un esempio specifico. In questo caso, l'esempio **wordcount** :
 
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount
 
@@ -97,11 +98,11 @@ I cluster HDInsight basati su Linux forniscono una serie di esempi MapReduce che
 
 4. Usare il comando seguente per contare tutte le parole nei Codici di Leonardo da Vinci, forniti come dati di esempio con il cluster:
 
-    	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
 
     L'input per questo processo viene letto da **wasbs:///example/data/gutenberg/davinci.txt**.
 
-    L'output per questo esempio verrà archiviato in **wasbs:///example/data/davinciwordcount**.
+    L'output per questo esempio viene archiviato in **wasbs:///example/data/davinciwordcount**.
 
     > [AZURE.NOTE] Come indicato nelle informazioni della guida per l'esempio wordcount, è anche possibile specificare più file di input. Ad esempio, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` eseguirebbe il conteggio delle parole in davinci.txt e in ulysses.txt.
 
@@ -120,7 +121,7 @@ I cluster HDInsight basati su Linux forniscono una serie di esempi MapReduce che
 
     Ogni riga rappresenta una parola e quante volte ricorre nei dati di input.
 
-## Sudoku
+## <a name="sudoku"></a>sudoku
 
 L'esempio Sudoku include istruzioni di utilizzo alquanto inutili, ovvero "includere un puzzle nella riga di comando".
 
@@ -144,7 +145,7 @@ Esiste un modo certo per creare un puzzle Sudoku in base al quale non è possibi
     ? ? ? ? ? ? 2 ? ?
     ? ? ? ? 4 5 ? 7 8
 
-> [AZURE.NOTE] La parte `2.2.4.9-1` del percorso può variare quando il cluster HDInsight viene aggiornato.
+> [AZURE.NOTE]  `2.2.4.9-1` del percorso può variare quando il cluster HDInsight viene aggiornato.
 
 Per eseguire questo esempio di Sudoku, usare il comando seguente:
 
@@ -162,7 +163,7 @@ Il risultato dovrebbe essere simile al seguente:
     1 8 5 7 3 9 2 6 4
     2 6 3 1 4 5 9 7 8
 
-## Pi greco (π)
+## <a name="pi-(π)"></a>Pi greco (π)
 
 Per calcolare il valore di Pi greco, l'esempio usa un metodo statistico simile al metodo Monte Carlo. I punti posizionati in modo casuale all'interno di un quadrato unitario rientrano anche in un cerchio incluso in tale quadrato con una probabilità uguale all'area del cerchio, Pi greco/4. Il valore di Pi greco può essere stimato in base a valore di 4R, dove R indica il rapporto tra il numero di punti che si trovano all’interno del cerchio e il numero totale di punti che si trovano all’interno del quadrato. La precisione del calcolo è direttamente proporzionale al numero di punti utilizzati.
 
@@ -176,17 +177,17 @@ Usare il comando seguente per eseguire l'esempio. Usa 16 mappe con 10.000.000 di
 
 Il valore restituito dovrebbe essere simile a **3,14159155000000000000**. A scopo di riferimento, le prime 10 cifre decimali del pi greco sono 3,1415926535.
 
-##Greysort da 10 GB
+##<a name="10gb-greysort"></a>Greysort da 10 GB
 
 GraySort è un ordinamento benchmark che usa come metrica la velocità di ordinamento (TB/minuto) ottenuta durante l'ordinamento di quantità di dati molto elevate, in genere almeno 100 TB.
 
-In questo esempio vengono usati solo 10 GB di dati, in modo da consentire un'esecuzione relativamente rapida. Vengono usate le applicazioni MapReduce sviluppate da Owen O'Malley e Arun Murthy, vincitrici del benchmark annuale di ordinamento generico di terabyte ("daytona") nel 2009 con una velocità pari a 0,578 TB/min (100 TB in 173 minuti). Per ulteriori informazioni su questo e su altri benchmark di ordinamento, vedere il sito [Sortbenchmark](http://sortbenchmark.org/).
+In questo esempio vengono usati solo 10 GB di dati, in modo da consentire un'esecuzione relativamente rapida. Vengono usate le applicazioni MapReduce sviluppate da Owen O'Malley e Arun Murthy, vincitrici del benchmark annuale di ordinamento generico di terabyte ("daytona") nel 2009 con una velocità pari a 0,578 TB/min (100 TB in 173 minuti). Per ulteriori informazioni su questo e su altri benchmark di ordinamento, vedere il sito [Sortbenchmark](http://sortbenchmark.org/) .
 
 In questo esempio vengono utilizzati tre set di programmi MapReduce:
 
 - **TeraGen**: programma MapReduce che genera righe di dati da ordinare.
 
-- **TeraSort** esegue il campionamento dei dati di input e usa MapReduce per organizzare i dati in un ordine totale.
+- **TeraSort**esegue il campionamento dei dati di input e usa MapReduce per organizzare i dati in un ordine totale.
 
     TeraSort è un ordinamento standard di funzioni MapReduce, ad eccezione di un partitioner personalizzato che usa un elenco ordinato di N-1 chiavi sottoposte a campionamento che definiscono l'intervallo di chiavi per ogni riduzione. In particolare, tutte le chiavi corrispondenti al criterio sample[i-1]<= chiave < sample[i] vengono inviate alla funzione reduce i. Ciò garantisce che tutti gli output di reduce i siano inferiori all'output della funzione reduce i+1.
 
@@ -200,25 +201,25 @@ Usare i passaggi seguenti per generare dati, ordinarli e quindi convalidare l'ou
 
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
 
-	`-Dmapred.map.tasks` indica ad Hadoop quante attività di mapping usare per questo processo. I due parametri finali indicano al processo di creare 10 GB di dati e di archiviarli in **wasbs:///example/data/10GB-sort-input**.
+    `-Dmapred.map.tasks` indica ad Hadoop quante attività di mapping usare per questo processo. I due parametri finali indicano al processo di creare 10 GB di dati e di archiviarli in **wasbs:///example/data/10GB-sort-input**.
 
 2. Eseguire il comando seguente per ordinare i dati:
 
-		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-input /example/data/10GB-sort-output
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-input /example/data/10GB-sort-output
 
-	`-Dmapred.reduce.tasks` indica ad Hadoop quante attività di riduzione usare per questo processo. I due parametri finali sono solo i percorsi di input e output per i dati.
+    `-Dmapred.reduce.tasks` indica ad Hadoop quante attività di riduzione usare per questo processo. I due parametri finali sono solo i percorsi di input e output per i dati.
 
 3. Per convalidare i dati generati dall'ordinamento, usare il comando seguente:
 
-		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-output /example/data/10GB-sort-validate
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-output /example/data/10GB-sort-validate
 
-##Passaggi successivi ##
+##<a name="next-steps"></a>Passaggi successivi ##
 
 In questo articolo si è appreso come eseguire gli esempi inclusi nei cluster HDInsight basati su Linux. Per le esercitazioni sull'uso di Pig, Hive e MapReduce con HDInsight, vedere gli argomenti seguenti:
 
 * [Usare Pig con Hadoop in HDInsight][hdinsight-use-pig]
 * [Usare Hive con Hadoop in HDInsight][hdinsight-use-hive]
-* [Usare MapReduce con Hadoop in HDInsight][hdinsight-use-mapreduce]
+* [Usare MapReduce in Hadoop su HDInsight] [hdinsight-use-mapreduce]
 
 
 
@@ -236,4 +237,8 @@ In questo articolo si è appreso come eseguire gli esempi inclusi nei cluster HD
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

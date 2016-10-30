@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Scrittura di espressioni per il mapping degli attributi in Azure Active Directory | Microsoft Azure"
-	description="Informazioni su come usare i mapping di espressioni per trasformare i valori degli attributi in un formato accettabile durante il provisioning automatizzato di oggetti SaaS in Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="femila"
-	editor=""/>
+    pageTitle="Scrittura di espressioni per il mapping degli attributi in Azure Active Directory | Microsoft Azure"
+    description="Informazioni su come usare i mapping di espressioni per trasformare i valori degli attributi in un formato accettabile durante il provisioning automatizzato di oggetti SaaS in Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/19/2016"
-	ms.author="markusvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/10/2016"
+    ms.author="markusvi"/>
 
 
-# Scrittura di espressioni per il mapping degli attributi in Azure Active Directory
+
+# <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Scrittura di espressioni per il mapping degli attributi in Azure Active Directory
 
 Quando si configura il provisioning in un'applicazione SaaS, come mapping degli attributi è possibile specificare il mapping di espressioni. Per questo tipo di mapping è necessario scrivere un'espressione analoga a uno script, che permette di trasformare i dati utente in formati più idonei all'applicazione SaaS.
 
@@ -25,14 +26,15 @@ Quando si configura il provisioning in un'applicazione SaaS, come mapping degli 
 
 
 
-## Panoramica della sintassi
+## <a name="syntax-overview"></a>Panoramica della sintassi
 
 La sintassi per le espressioni per i mapping degli attributi è simile a quella delle funzioni di Visual Basic for Applications (VBA).
 
-- L'intera espressione deve essere definita in termini di funzioni, che sono costituite da un nome seguito da argomenti racchiusi tra parentesi: <br> *NomeFunzione(<<argomento 1>>,<<argomento N>>)*
+- L'intera espressione deve essere definita in termini di funzioni, che sono costituite da un nome seguito da argomenti racchiusi tra parentesi:  <br>
+*NomeFunzione(<<argomento 1>>,<<argument N>>)*
 
 
-- È possibile annidare le funzioni in altre funzioni. Ad esempio: <br> *FunzioneUno(FunzioneDue(<<argomento1>>))*
+- È possibile annidare le funzioni in altre funzioni. Ad esempio: <br> *FunzioneUno(FunzioneDue(<<argument1>>))*
 
 
 - È possibile passare tre tipi diversi di argomenti nelle funzioni:
@@ -41,14 +43,14 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
    2. Costanti di stringa, che devono essere racchiuse tra virgolette doppie. Ad esempio: "Stati Uniti"
 
-   3. Altre funzioni. Ad esempio: FunzioneUno(<<argomento1>>, FunzioneDue(<<argomento2>>))
+   3. Altre funzioni. Ad esempio: FunzioneUno(<<argument1>>, FunzioneDue(<<argument2>>))
 
 
-- Eventuali barre rovesciate ( \\ ) o virgolette ( " ) da inserire nella costante di stringa dovranno essere precedute dal simbolo di barra rovesciata ( \\ ) come carattere di escape. Ad esempio: "Nome società: "Contoso""
+- Eventuali barre rovesciate ( \ ) o virgolette ( " ) da inserire nella costante di stringa dovranno essere precedute dal simbolo di barra rovesciata ( \ ) come carattere di escape. Ad esempio: "Nome società: \"Contoso\""
 
 
 
-## Elenco di funzioni
+## <a name="list-of-functions"></a>Elenco di funzioni
 
 [Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
 
@@ -57,13 +59,13 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 
 ----------
-### Append
+### <a name="append"></a>Append
 
-**Funzione:**<br> Append(source, suffix)
+**Funzione:**<br>  Append(source, suffix)
 
-**Descrizione:**<br> Accetta un valore di stringa di origine e aggiunge un suffisso alla fine del valore.
+**Descrizione:**<br>  Accetta un valore di stringa di origine e aggiunge un suffisso alla fine del valore.
  
-**Parametri:**<br>
+**Parametri:**<br> 
 
 |Nome| Obbligatorio/Ripetuto | Tipo | Note |
 |--- | ---                 | ---  | ---   |
@@ -72,13 +74,13 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 
 ----------
-### FormatDateTime
+### <a name="formatdatetime"></a>FormatDateTime
 
-**Funzione:**<br> FormatDateTime(source, inputFormat, outputFormat)
+**Funzione:**<br>  FormatDateTime(source, inputFormat, outputFormat)
 
-**Descrizione:**<br> Accetta una stringa data in un formato e la converte in un formato diverso.
+**Descrizione:**<br>  Accetta una stringa data in un formato e la converte in un formato diverso.
  
-**Parametri:**<br>
+**Parametri:**<br> 
 
 |Nome| Obbligatorio/Ripetuto | Tipo | Note |
 |--- | ---                 | ---  | ---   |
@@ -89,16 +91,16 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 
 ----------
-### Join
+### <a name="join"></a>Join
 
-**Funzione:**<br> Join(separator, source1, source2, …)
+**Funzione:**<br>  Join(separator, source1, source2, …)
 
 **Descrizione:**<br> Join() è simile ad Append(), ma può combinare più valori di stringa **source** in un singola stringa e ogni valore sarà separato da una stringa **separator**.
 
 Se uno dei valori di origine è un attributo con più valori, verranno aggiunti tutti i valori dell'attributo, separati dal valore separatore.
 
  
-**Parametri:**<br>
+**Parametri:**<br> 
 
 |Nome| Obbligatorio/Ripetuto | Tipo | Note |
 |--- | ---                 | ---  | ---   |
@@ -108,14 +110,14 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 
 ----------
-### Mid
+### <a name="mid"></a>Mid
 
-**Funzione:**<br> Mid(source, start, length)
+**Funzione:**<br>  Mid(source, start, length)
 
-**Descrizione:**<br> Restituisce una sottostringa del valore source. Una sottostringa è una stringa che contiene solo alcuni caratteri della stringa di origine.
+**Descrizione:**<br>  Restituisce una sottostringa del valore source. Una sottostringa è una stringa che contiene solo alcuni caratteri della stringa di origine.
 
 
-**Parametri:**<br>
+**Parametri:**<br> 
 
 |Nome| Obbligatorio/Ripetuto | Tipo | Note |
 |--- | ---                 | ---  | ---   |
@@ -127,14 +129,14 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 
 ----------
-### Not
+### <a name="not"></a>not
 
-**Funzione:**<br> Not(source)
+**Funzione:**<br>  Not(source)
 
 **Descrizione:**<br> Inverte il valore booleano di **source**. Se il valore di **source** è "*True*", restituisce "*False*". In caso contrario, restituisce "*True*".
 
 
-**Parametri:**<br>
+**Parametri:**<br> 
 
 |Nome| Obbligatorio/Ripetuto | Tipo | Note |
 |--- | ---                 | ---  | ---   |
@@ -143,39 +145,40 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 
 ----------
-### Replace
+### <a name="replace"></a>Replace
 
-**Funzione:**<br> ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
+**Funzione:**<br>  ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
-**Descrizione:**<br> Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seconda dei parametri forniti:
+**Descrizione:**<br>
+ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seconda dei parametri forniti:
 
 - Se vengono forniti **oldValue** e **replacementValue**:
 
-   - Sostituisce tutte le occorrenze di oldValue in source con replacementValue.
+   - Sostituisce tutte le occorrenze di oldValue in source con replacementValue
 
 - Se vengono forniti **oldValue** e **template**:
 
-   - Sostituisce tutte le occorrenze di **oldValue** in **template** con il valore **source**.
+   - Sostituisce tutte le occorrenze di **oldValue** in **template** con il valore **source**
 
-- Se vengono forniti **oldValueRegexPattern**, **oldValueRegexGroupName** e **replacementValue**:
+- Se vengono forniti **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementValue**:
 
    - Sostituisce tutti i valori corrispondenti a oldValueRegexPattern nella stringa source con replacementValue.
 
-- Se vengono forniti **oldValueRegexPattern**, **oldValueRegexGroupName** e **replacementPropertyName**:
+- Se vengono forniti **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementPropertyName**:
 
-   - Se è presente un valore per **source**, verrà restituito **source**.
+   - Se è presente un valore per **source**, verrà restituito **source**
 
    - Se non sono presenti valori per **source**, verranno usati **oldValueRegexPattern** e **oldValueRegexGroupName** per estrarre il valore di sostituzione dalla proprietà con **replacementPropertyName**. Il valore di sostituzione viene restituito come risultato.
 
 
-**Parametri:**<br>
+**Parametri:**<br> 
 
 |Nome| Obbligatorio/Ripetuto | Tipo | Note |
 |--- | ---                 | ---  | ---   |
 | **source** | Obbligatorio | String | In genere è il nome dell'attributo dell'oggetto di origine. |
 | **oldValue** | Facoltativo | String | Valore da sostituire in **source** o **template**. |
 | **regexPattern** | Facoltativo | String | Criterio di espressione regolare per il valore da sostituire in **source**. Se invece si usa replacementPropertyName, corrisponde al modello usato per estrarre il valore dalla proprietà di sostituzione. |
-| **regexGroupName** | Facoltativo | String | Nome del gruppo in **regexPattern**. Solo se viene usato replacementPropertyName, il valore di questo gruppo verrà estratto come replacementValue dalla proprietà di sostituzione. |
+| **regexGroupName** | Facoltativo | String | Nome del gruppo in **regexPattern**. Solo se si usa replacementPropertyName, il valore di questo gruppo verrà estratto come replacementValue dalla proprietà di sostituzione. |
 | **replacementValue** | Facoltativo | String | Nuovo valore con cui sostituire il precedente. |
 | **replacementAttributeName** | Facoltativo | String | Nome dell'attributo da usare per il valore di sostituzione, se non sono presenti valori per source. |
 | **template** | Facoltativo | String | Se viene fornito il valore **template**, il valore **oldValue** verrà cercato in template e sostituito con il valore source. |
@@ -183,46 +186,48 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 
 ----------
-### StripSpaces
+### <a name="stripspaces"></a>StripSpaces
 
-**Funzione:**<br> StripSpaces(source)
+**Funzione:**<br>  StripSpaces(source)
 
-**Descrizione:**<br> Rimuove tutti i caratteri di spazio (" ") dalla stringa di origine.
+**Descrizione:**<br>  Rimuove tutti i caratteri di spazio (" ") dalla stringa di origine.
 
-**Parametri:**<br>
+**Parametri:**<br> 
 
 |Nome| Obbligatorio/Ripetuto | Tipo | Note |
 |--- | ---                 | ---  | ---   |
-| **source** | Obbligatorio | String | Valore del parametro **source** da aggiornare. |
+| **source** | Obbligatorio | String | **source** da aggiornare. |
 
 
 
 ----------
-### Switch
+### <a name="switch"></a>Switch
 
-**Funzione:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
+**Funzione:**<br>  Switch(source, defaultValue, key1, value1, key2, value2, …)
 
-**Descrizione:**<br> Quando il valore **source** corrisponde a **key**, verrà restituito un parametro **value** per tale oggetto **key**. Se il valore del parametro **source** non corrisponde ad alcuna chiave, verrà restituito **defaultValue**. I parametri **key** e **value** devono essere sempre accoppiati. Le funzioni prevedono sempre un numero pari di parametri.
+**Descrizione:**<br> Quando il valore **source** corrisponde a **key**, verrà restituito un parametro **value** per tale oggetto **key**. Se il valore del parametro **source** non corrisponde ad alcuna chiave, verrà restituito **defaultValue**.  I parametri **key** e **value** devono essere sempre accoppiati. Le funzioni prevedono sempre un numero pari di parametri.
 
-**Parametri:**<br>
+**Parametri:**<br> 
 
 |Nome| Obbligatorio/Ripetuto | Tipo | Note |
 |--- | ---                 | ---  | ---   |
-| **source** | Obbligatorio | String | Valore del parametro **source** da aggiornare. |
+| **source** | Obbligatorio | String | **Source** da aggiornare. |
 | **defaultValue** | Facoltativo | String | Valore predefinito da usare se l'origine non corrisponde ad alcuna chiave. Può essere una stringa vuota (""). |
 | **key** | Obbligatorio | String | Parametro **key** con cui confrontare il valore di **source**. |
 | **value** | Obbligatorio | String | Valore di sostituzione per il valore **source** corrispondente al parametro key. |
 
 
 
-## esempi
+## <a name="examples"></a>esempi
 
-### Rimuovere un nome di dominio noto
+### <a name="strip-known-domain-name"></a>Rimuovere un nome di dominio noto
 
-Occorre rimuovere un nome di dominio noto dall'indirizzo di posta elettronica di un utente per ottenere il nome utente. <br> Ad esempio, se il dominio è "contoso.com", è possibile usare l'espressione seguente:
+Occorre rimuovere un nome di dominio noto dall'indirizzo di posta elettronica di un utente per ottenere il nome utente. <br>
+ Ad esempio, se il dominio è "contoso.com", è possibile usare l'espressione seguente:
 
 
-**Espressione:** <br> `Replace([mail], "@contoso.com", , ,"", ,)`
+**Espressione:** <br>
+`Replace([mail], "@contoso.com", , ,"", ,)`
 
 **Input/output di esempio:** <br>
 
@@ -231,14 +236,15 @@ Occorre rimuovere un nome di dominio noto dall'indirizzo di posta elettronica di
 - **OUTPUT**: "john.doe"
 
 
-### Aggiungere un suffisso costante al nome utente
+### <a name="append-constant-suffix-to-user-name"></a>Aggiungere un suffisso costante al nome utente
 
 Se si usa un ambiente sandbox Salesforce, potrebbe essere necessario aggiungere un suffisso a tutti i nomi utente prima di sincronizzarli.
 
 
 
 
-**Espressione:** <br> `Append([userPrincipalName], ".test"))`
+**Espressione:** <br>
+`Append([userPrincipalName], ".test"))`
 
 **Input/output di esempio:** <br>
 
@@ -251,12 +257,13 @@ Se si usa un ambiente sandbox Salesforce, potrebbe essere necessario aggiungere 
 
 
 
-### Generare un alias utente concatenando parti del nome e del cognome
+### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Generare un alias utente concatenando parti del nome e del cognome
 
 Occorre generare un alias utente contenente le prime tre lettere del nome e le prime cinque lettere del cognome dell'utente.
 
 
-**Espressione:** <br> `Append(Mid([givenName], 1, 3), Mid([surname], 1, 5))`
+**Espressione:** <br>
+`Append(Mid([givenName], 1, 3), Mid([surname], 1, 5))`
 
 **Input/output di esempio:** <br>
 
@@ -269,9 +276,10 @@ Occorre generare un alias utente contenente le prime tre lettere del nome e le p
 
 
 
-### Eseguire l'output della data come stringa in un formato specifico
+### <a name="output-date-as-a-string-in-a-certain-format"></a>Eseguire l'output della data come stringa in un formato specifico
 
-Occorre inviare date a un'applicazione SaaS in un formato specifico, <br> Ad esempio, formattare le date per ServiceNow.
+Occorre inviare date a un'applicazione SaaS in un formato specifico, <br>
+Ad esempio, formattare le date per ServiceNow.
 
 
 
@@ -289,9 +297,10 @@ Occorre inviare date a un'applicazione SaaS in un formato specifico, <br> Ad ese
 
 
 
-### Sostituire un valore in base a un set di opzioni predefinito
+### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Sostituire un valore in base a un set di opzioni predefinito
 
-È necessario definire il fuso orario dell'utente in base al codice di stato archiviato in Azure AD. <br> Se il codice di stato non corrisponde ad alcuna opzione predefinita, usare il valore predefinito "Australia/Sydney".
+È necessario definire il fuso orario dell'utente in base al codice di stato archiviato in Azure AD. <br>
+ Se il codice di stato non corrisponde ad alcuna opzione predefinita, usare il valore predefinito "Australia/Sydney".
 
 
 **Espressione:** <br>
@@ -305,7 +314,7 @@ Occorre inviare date a un'applicazione SaaS in un formato specifico, <br> Ad ese
 - **OUTPUT**: "Australia/Brisbane"
 
 
-##Articoli correlati
+##<a name="related-articles"></a>Articoli correlati
 
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 - [Automatizzare il provisioning e il deprovisioning utenti in app SaaS](active-directory-saas-app-provisioning.md)
@@ -315,4 +324,8 @@ Occorre inviare date a un'applicazione SaaS in un formato specifico, <br> Ad ese
 - [Notifiche relative al provisioning dell'account](active-directory-saas-account-provisioning-notifications.md)
 - [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

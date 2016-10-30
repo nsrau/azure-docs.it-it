@@ -1,43 +1,80 @@
 <properties 
-	pageTitle="Creazione di endpoint di servizio Web in Machine Learning | Microsoft Azure" 
-	description="Creazione di endpoint del servizio Web in Azure Machine Learning" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="hiteshmadan" 
-	manager="padou" 
-	editor="cgronlun"/>
+    pageTitle="Creazione di endpoint del servizio Web in Machine Learning | Microsoft Azure" 
+    description="Creazione di endpoint del servizio Web in Azure Machine Learning" 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="hiteshmadan" 
+    manager="padou" 
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd" 
-	ms.date="07/06/2016"
-	ms.author="himad"/>
+    ms.service="machine-learning"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="tbd" 
+    ms.date="10/04/2016"
+    ms.author="himad"/>
 
 
-# Creazione di endpoint
+
+# <a name="creating-endpoints"></a>Creazione di endpoint
 
 >[AZURE.NOTE] Questo argomento descrive le tecniche applicabili a un servizio Web classico.
 
-Azure Machine Learning consente di creare più endpoint per un servizio Web distribuito. Ogni endpoint è singolarmente indirizzato, limitato e gestito, indipendentemente da altri endpoint del servizio Web. Esistono un URL e una chiave di autorizzazione univoci per ogni endpoint.
+Quando si creano servizi Web da vendere ai propri clienti, è necessario fornire dei modelli con training per ogni cliente che sono ancora collegati all'esperimento da cui è stato creato il servizio Web. Inoltre, qualsiasi aggiornamento all'esperimento deve essere applicato in maniera selettiva a un endpoint, senza sovrascrivere le personalizzazioni.
 
-Ciò consente di creare servizi Web da vendere ai propri clienti. Ogni endpoint può essere personalizzato singolarmente con specifici modelli sottoposti a training mentre sono ancora collegati all'esperimento con cui si è creato il servizio Web. Inoltre, gli aggiornamenti al test possono essere applicati in modo selettivo a un endpoint, senza sovrascrivere le personalizzazioni.
+Per farlo, Azure Machine Learning consente di creare più endpoint per un servizio Web distribuito. Ciascun endpoint nel servizio Web viene indirizzato, limitato e gestito in maniera indipendente. Ciascun endpoint rappresnta un URL univoco e una chiave di autorizzazione che è possibile distribuire ai clienti.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Processo di creazione degli endpoint
-- Aprire [http://manage.windowsazure.com](http://manage.windowsazure.com), fare clic su **Machine Learning** nella colonna a sinistra. Fare clic sull'area di lavoro con il servizio Web a cui si è interessati. ![Passare all'area di lavoro](./media/machine-learning-create-endpoint/figure-1.png)
+## <a name="adding-endpoints-to-a-web-service"></a>Aggiunta di endpoint a un servizio Web
 
-- Fare clic sulla scheda **Web Services**. ![Passare ai servizi Web](./media/machine-learning-create-endpoint/figure-2.png)
+Esistono tre modi per aggiungere un endpoint a un servizio Web.
 
-- Fare clic sul servizio Web a cui si è interessati per visualizzare l'elenco degli endpoint disponibili. ![Passare all'endpoint](./media/machine-learning-create-endpoint/figure-3.png)
+* A livello di codice
+* Mediante il portale dei servizi Web di Azure Machine Learning
+* Mediante il portale di Azure classico
 
-- Fare clic sul pulsante **Add Endpoint** nella parte inferiore. Inserire un nome e una descrizione, assicurarsi che non siano presenti altri endpoint con lo stesso nome nel servizio Web. Lasciare il livello di limitazione con il valore predefinito, a meno di avere esigenze particolari. Per altre informazioni sulle limitazioni, vedere [Ridimensionamento degli endpoint dell'API](machine-learning-scaling-endpoints.md). ![Creare un endpoint](./media/machine-learning-create-endpoint/figure-4.png)
-
-Dopo aver creato l'endpoint, è possibile utilizzarlo tramite le API sincrone, le API batch e i fogli di lavoro di Excel. Oltre ad aggiungere gli endpoint tramite questa interfaccia, è possibile utilizzare anche le API di gestione Endpoint a livello di codice aggiungere gli endpoint. Per altre informazioni su come usare i servizi Web di Machine Learning, vedere [Come utilizzare un servizio Web di Azure Machine Learning pubblicato](machine-learning-consume-web-services.md).
+Dopo aver creato l'endpoint, è possibile utilizzarlo tramite le API sincrone, le API batch e i fogli di lavoro di Excel. Oltre ad aggiungere gli endpoint tramite questa interfaccia, è possibile utilizzare anche le API di gestione Endpoint a livello di codice aggiungere gli endpoint. 
  
- Si noti che NON È POSSIBILE eliminare l'endpoint predefinito, da Visual Studio o da qui, se vi sono stati aggiunti endpoint. Verrà generato un errore. Fare clic su Salva.
+ >[AZURE.NOTE] Se sono stati aggiunti altri endpoint al servizio Web, non è possibile eliminare l'endpoint predefinito.
 
-<!---HONumber=AcomDC_0720_2016-->
+## <a name="adding-an-endpoint-programmatically"></a>Aggiunta di un endpoint a livello di codice
+
+È possibile aggiungere un endpoint al servizio Web a livello di codice mediante il codice di esempio [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
+
+## <a name="adding-an-endpoint-using-the-azure-machine-learning-web-services-portal"></a>Aggiunta di un endpoint mediante il portale dei servizi Web di Azure Machine Learning
+
+1. In Machine Learning Studio fare clic su Web Services (Servizi Web) nella colonna di spostamento a sinistra.
+2. Nella parte inferiore del dashboard dei servizi Web, fare clic su **Gestisci endpoint**. Nel portale dei servizi Web di Azure Machine Learning viene visualizzata la pagina dedicata agli endpoint del servizio Web.
+3. Fare clic su **New**.
+4. Immettere un nome e una descrizione per il nuovo endpoint. I nomi degli endpoint devono contenere al massimo 24 caratteri alfanumerici (con lettere minuscole). Selezionare il livello di registrazione e indicare se i dati di esempio sono abilitati. Per altre informazioni sulla registrazione, vedere [Abilitare la registrazione per i servizi Web di Machine Learning](machine-learning-Web-services-logging.md).
+
+## <a name="adding-an-endpoint-using-the-azure-classic-portal"></a>Aggiunta di un endpoint usando il portale di Azure classico
+
+
+1. Accedere al [portale di Azure classico](http://manage.windowsazure.com), fare clic su **Machine Learning** nella colonna sinistra. Fare clic sull'area di lavoro che contiene il servizio Web a cui si è interessati.
+
+    ![Passare all'area di lavoro](./media/machine-learning-create-endpoint/figure-1.png)
+
+2. Fare clic su **Servizi Web**.
+
+    ![Passare ai servizi Web](./media/machine-learning-create-endpoint/figure-2.png)
+
+3. Fare clic sul servizio Web a cui si è interessati per visualizzare l'elenco degli endpoint disponibili.
+
+    ![Passare all'endpoint](./media/machine-learning-create-endpoint/figure-3.png)
+
+4. Nella parte inferiore della pagina fare clic su **Aggiungi endpoint**. Inserire un nome e una descrizione, assicurarsi che non siano presenti altri endpoint con lo stesso nome nel servizio Web. Lasciare il livello di limitazione con il valore predefinito, a meno di avere esigenze particolari. Per altre informazioni sulle limitazioni, vedere [Ridimensionamento degli endpoint dell'API](machine-learning-scaling-Webservice.md).
+
+    ![Creare un endpoint](./media/machine-learning-create-endpoint/figure-4.png)
+
+## <a name="next-steps"></a>Passaggi successivi
+
+[Come usare un servizio Web di Azure Machine Learning pubblicato](machine-learning-consume-Web-services.md). 
+
+
+<!--HONumber=Oct16_HO2-->
+
+

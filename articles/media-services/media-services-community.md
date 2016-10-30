@@ -1,26 +1,27 @@
 <properties
-	pageTitle="Panoramica sulla community di Servizi multimediali di Azure | Microsoft Azure"
-	description="La pagina della community di Servizi multimediali di Azure illustra i diversi modi in cui è possibile ottenere aggiornamenti su Servizi multimediali di Azure, visualizzare nuovi video e podcast, porre domande e inviare commenti e suggerimenti. "
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Panoramica sulla community di Servizi multimediali di Azure | Microsoft Azure"
+    description="La pagina della community di Servizi multimediali di Azure illustra i diversi modi in cui è possibile ottenere aggiornamenti su Servizi multimediali di Azure, visualizzare nuovi video e podcast, porre domande e inviare commenti e suggerimenti. "
+    services="media-services"
+    documentationCenter=""
+    authors="juliako"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/26/2016"  
-	ms.author="juliako"/>
+    ms.service="media-services"
+    ms.workload="media"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="09/26/2016"  
+    ms.author="juliako"/>
 
-# Community di Servizi multimediali di Azure  
 
-La pagina della community di Servizi multimediali di Azure illustra i diversi modi in cui è possibile ottenere aggiornamenti su Servizi multimediali di Azure, visualizzare nuovi video e podcast, porre domande e inviare commenti e suggerimenti.
+# <a name="azure-media-services-community"></a>Community di Servizi multimediali di Azure  
 
-##Video e podcast
+La pagina della community di Servizi multimediali di Azure illustra i diversi modi in cui è possibile ottenere aggiornamenti su Servizi multimediali di Azure, visualizzare nuovi video e podcast, porre domande e inviare commenti e suggerimenti.   
+
+##<a name="videos-and-podcasts"></a>Video e podcast
 
 Episodio|Relatore|Data
 ---|---|---
@@ -30,27 +31,27 @@ Episodio|Relatore|Data
 [Azure Media Indexer crea automaticamente trascrizioni per i file multimediali](https://azure.microsoft.com/documentation/videos/azure-media-indexer-autoatically-creates-transcripts-for-your-media-with-adarsh-solanki/)|Adarsh Solanki|09/07/2015
 [Microsoft Hyperlapse in Servizi multimediali di Azure con Adarsh Solanki](https://azure.microsoft.com/documentation/videos/microsoft-hyperlapse-in-azure-media-services-with-adarsh-solanki/)|Adarsh Solanki|07/10/2015
 
-##Inviare commenti e suggerimenti
+##<a name="provide-feedback-and-make-suggestions"></a>Inviare commenti e suggerimenti
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-##Discussione
+##<a name="discussion"></a>Discussione
 
-###Twitter
+###<a name="twitter"></a>Twitter
 
-Usare il nome utente Twitter [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) per ottenere informazioni sulle ultime novità e sugli aggiornamenti per Servizi multimediali di Azure su Twitter. È possibile usare il nome utente Twitter [@AzureSupport](https://twitter.com/azuresupport) per richiedere supporto su Twitter.
+Usare il nome utente Twitter [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) per ottenere informazioni sulle ultime novità e sugli aggiornamenti per Servizi multimediali di Azure su Twitter. È possibile usare il nome utente Twitter [@AzureSupport](https://twitter.com/azuresupport) per richiedere supporto su Twitter.  
  
-### Forum online
+### <a name="online-forums"></a>Forum online
 
 I forum seguenti possono essere usati per porre domande sui prodotti e sulle funzionalità correnti.
 
 MSDN è attualmente il forum primario su Servizi multimediali di Azure.
 
-[![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices)
+[![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
-[![StackOverflow](./media/media-services-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-media-services)
+[![StackOverflow](./media/media-services-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-media-services) 
 
-## Contattare il team
+## <a name="contact-the-team"></a>Contattare il team
 
 L'indirizzo di posta elettronica principale per Servizi multimediali di Azure è: **mediaservices@microsoft.com**.
 
@@ -63,4 +64,8 @@ Azure Media Player|ampinfo@microsoft.com
 Azure Media Explorer|amse@microsoft.com
 Progettazione flussi di lavoro|mepd@microsoft.com
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

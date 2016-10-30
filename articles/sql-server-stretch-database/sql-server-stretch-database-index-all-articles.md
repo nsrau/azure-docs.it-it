@@ -1,30 +1,31 @@
 <properties
-	pageTitle="Tutti gli argomenti per il servizio Estensione database di SQL Server | Microsoft Azure"
-	description="Tabella di tutti gli argomenti per il servizio di Azure denominato Estensione database di SQL Server presenti in http://azure.microsoft.com/documentation/articles/, titolo e descrizione."
-	services="sql-server-stretch-database"
-	documentationCenter=""
-	authors="DouglasL"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="Tutti gli argomenti per il servizio Estensione database di SQL Server | Microsoft Azure"
+    description="Tabella di tutti gli argomenti per il servizio di Azure denominato Estensione database di SQL Server presenti in http://azure.microsoft.com/documentation/articles/, titolo e descrizione."
+    services="sql-server-stretch-database"
+    documentationCenter=""
+    authors="DouglasL"
+    manager="jhubbard"
+    editor="MightyPen"/>
 
 <tags
-	ms.service="sql-server-stretch-database"
-	ms.workload="sql-server-stretch-database"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/21/2016"
-	ms.author="DouglasL"/>
+    ms.service="sql-server-stretch-database"
+    ms.workload="sql-server-stretch-database"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/05/2016"
+    ms.author="DouglasL"/>
 
 
-# Tutti gli argomenti per il servizio Estensione database di SQL Server di Azure
+
+# <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Tutti gli argomenti per il servizio Estensione database di SQL Server di Azure
 
 In questo argomento vengono elencati tutti gli argomenti che si applicano direttamente al servizio **Estensione database di SQL Server** di Azure. È possibile cercare la pagina Web per le parole chiave utilizzando **Ctrl+F**, per trovare gli argomenti di interesse corrente.
 
 
 
 
-## Introduzione
+## <a name="get-started"></a>Introduzione
 
 | &nbsp; | Titolo | Descrizione |
 | --: | :-- | :-- |
@@ -35,7 +36,7 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 
 
 
-## Abilita
+## <a name="enable"></a>Abilita
 
 | &nbsp; | Titolo | Descrizione |
 | --: | :-- | :-- |
@@ -45,7 +46,7 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 
 
 
-## Manage
+## <a name="manage"></a>Manage
 
 | &nbsp; | Titolo | Descrizione |
 | --: | :-- | :-- |
@@ -56,7 +57,7 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 
 
 
-## Sicurezza
+## <a name="security"></a>Sicurezza
 
 | &nbsp; | Titolo | Descrizione |
 | --: | :-- | :-- |
@@ -65,11 +66,16 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 
 
 
-## Backup e ripristino
+## <a name="backup-and-recovery"></a>Backup e ripristino
 
 | &nbsp; | Titolo | Descrizione |
 | --: | :-- | :-- |
-| 14 | [Eseguire il backup di database con estensione abilitata](sql-server-stretch-database-backup.md) | Informazioni su come eseguire il backup di database con estensione abilitata. |
-| 15 | [Ripristinare database con estensione abilitata](sql-server-stretch-database-restore.md) | Informazioni su come eseguire il ripristino di database con estensione abilitata. |
+| 14 | [Eseguire il backup di database con estensione abilitata](sql-server-stretch-database-backup.md) | Informazioni su come eseguire il backup di database\-con estensione abilitata. |
+| 15 | [Ripristinare database con estensione abilitata](sql-server-stretch-database-restore.md) | Informazioni su come eseguire il ripristino di database\-con estensione abilitata. |
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

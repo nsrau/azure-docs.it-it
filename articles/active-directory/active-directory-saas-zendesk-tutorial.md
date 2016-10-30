@@ -14,9 +14,11 @@
     ms.date="09/09/2016" 
     ms.author="jeedes" />
 
-#Esercitazione: Integrazione di Azure Active Directory con Zendesk
+
+#<a name="tutorial:-azure-active-directory-integration-with-zendesk"></a>Esercitazione: Integrazione di Azure Active Directory con Zendesk
   
-Questa esercitazione descrive l'integrazione di Azure e Zendesk. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+Questa esercitazione descrive l'integrazione di Azure e Zendesk.  
+Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Tenant di Zendesk
@@ -32,13 +34,13 @@ Lo scenario descritto in questa esercitazione include i blocchi predefiniti segu
 
 ![Scenario](./media/active-directory-saas-zendesk-tutorial/IC773083.png "Scenario")
 
-##Abilitazione dell'integrazione dell'applicazione Zendesk
+##<a name="enabling-the-application-integration-for-zendesk"></a>Abilitazione dell'integrazione dell'applicazione Zendesk
   
 Questa sezione descrive come abilitare l'integrazione dell'applicazione per Zendesk.
 
-###Per abilitare l'integrazione dell'applicazione per Zendesk, seguire questa procedura:
+###<a name="to-enable-the-application-integration-for-zendesk,-perform-the-following-steps:"></a>Per abilitare l'integrazione dell'applicazione per Zendesk, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1.  Nel portale di gestione di Azure fare clic su **Active Directory**nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-zendesk-tutorial/IC700993.png "Active Directory")
 
@@ -46,29 +48,31 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Zend
 
 3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-    ![Applicazioni](./media/active-directory-saas-zendesk-tutorial/IC700994.png "Applicazioni")
+    ![Applications](./media/active-directory-saas-zendesk-tutorial/IC700994.png "Applications")
 
 4.  Fare clic su **Add** nella parte inferiore della pagina.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-zendesk-tutorial/IC749321.png "Aggiunta di un'applicazione")
+    ![Aggiungi applicazione](./media/active-directory-saas-zendesk-tutorial/IC749321.png "Add application")
 
 5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
-    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-zendesk-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
+    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-zendesk-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  Nella **casella di ricerca** digitare **Zendesk**.
 
-    ![Raccolta di applicazioni](./media/active-directory-saas-zendesk-tutorial/IC773084.png "Raccolta di applicazioni")
+    ![Raccolta di applicazioni](./media/active-directory-saas-zendesk-tutorial/IC773084.png "Application Gallery")
 
 7.  Nel riquadro dei risultati selezionare **Zendesk** e quindi fare clic su **Completa** per aggiungere l'applicazione.
 
     ![Zendesk](./media/active-directory-saas-zendesk-tutorial/IC773085.png "Zendesk")
 
-##Configurazione dell'accesso Single Sign-On
+##<a name="configuring-single-sign-on"></a>Configurazione dell'accesso Single Sign-On
   
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Zendesk tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per Zendesk richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere [Procedura: recuperare l'identificazione personale di un certificato](http://youtu.be/YKQF266SAxI).
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Zendesk tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.  
+La configurazione dell'accesso Single Sign-On per Zendesk richiede di recuperare un valore di identificazione personale da un certificato.  
+Se non si ha familiarità con questa procedura, vedere [Procedura: recuperare l'identificazione personale di un certificato](http://youtu.be/YKQF266SAxI).
 
-###Per configurare l'accesso Single Sign-On, seguire questa procedura:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
 1.  Nella pagina di integrazione dell'applicazione **Zendesk** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
@@ -76,21 +80,21 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a Zendesk** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-zendesk-tutorial/IC773087.png "Configura accesso Single Sign-On")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-zendesk-tutorial/IC773087.png "Configure single sign-on")
 
 3.  Nella pagina **Configura URL app** seguire questa procedura:
 
-    ![Configura URL app](./media/active-directory-saas-zendesk-tutorial/IC773088.png "Configura URL app")
+    ![Configura URL app](./media/active-directory-saas-zendesk-tutorial/IC773088.png "Configure app URL")
   
-	a. Nella casella di testo **URL di accesso Zendesk** digitare l'URL usando il modello seguente: `https://<tenant-name>.zendesk.com`
+    a. Nella casella di testo **URL di accesso Zendesk** digitare l'URL usando il modello seguente: `https://<tenant-name>.zendesk.com`
 
-	b. Fare clic su **Next**.
+    b. Fare clic su **Avanti**.
 
 
 
 4.  Nella pagina **Configura accesso Single Sign-On in Zendesk** fare clic su **Download certificato** per scaricare il file del certificato e quindi salvarlo nel computer locale.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-zendesk-tutorial/IC777534.png "Configura accesso Single Sign-On")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-zendesk-tutorial/IC777534.png "Configure single sign-on")
 
 5.  In un'altra finestra del Web browser accedere al sito aziendale di Zendesk come amministratore.
 
@@ -98,7 +102,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 7.  Nel riquadro di spostamento sinistro fare clic su **Impostazioni** e quindi su **Sicurezza**.
 
-    ![Sicurezza](./media/active-directory-saas-zendesk-tutorial/IC773089.png "Sicurezza")
+    ![Sicurezza](./media/active-directory-saas-zendesk-tutorial/IC773089.png "Security")
 
 8.  Nella pagina **Sicurezza** fare clic sulla scheda **Amministratore e Agenti**.
 
@@ -108,27 +112,28 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 11. Nella finestra di dialogo **Configura accesso Single Sign-On in Zendesk** del portale di Azure AD copiare il valore di **URL di disconnessione remota** e quindi incollarlo nella casella di testo **Remote Logout URL**.
 
-    ![Single Sign-On](./media/active-directory-saas-zendesk-tutorial/IC773090.png "Single sign-on")
+    ![Single sign-on](./media/active-directory-saas-zendesk-tutorial/IC773090.png "Single sign-on")
 
-12. Copiare il valore **Identificazione personale** dal certificato esportato e quindi incollarlo nella casella di testo **Certificate Fingerprint**.
+12. Copiare il valore **Identificazione personale** dal certificato esportato e quindi incollarlo nella casella di testo **Impronta digitale del certificato**.
 
-	>[AZURE.TIP] Per informazioni dettagliate, vedere [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI)
+    >[AZURE.TIP] Per informazioni dettagliate, vedere [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI)
 
 13. Fare clic su **Save**.
 
-14. Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+14. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-zendesk-tutorial/IC773093.png "Configura accesso Single Sign-On")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-zendesk-tutorial/IC773093.png "Configure single sign-on")
 
-##Configurazione del provisioning utente
+##<a name="configuring-user-provisioning"></a>Configurazione del provisioning utente
   
-Per consentire agli utenti di Azure AD di accedere a **Zendesk**, è necessario eseguirne il provisioning in **Zendesk**. Nel caso di **Zendesk**, il provisioning è un'attività manuale.
+Per consentire agli utenti di Azure AD di accedere a **Zendesk**, è necessario eseguirne il provisioning in **Zendesk**.  
+Nel caso di **Zendesk**, il provisioning è un'attività manuale.
 
-###Per eseguire il provisioning di un account utente in Zendesk, seguire questa procedura:
+###<a name="to-provision-a-user-account-to-zendesk,-perform-the-following-steps:"></a>Per eseguire il provisioning di un account utente in Zendesk, seguire questa procedura:
 
-1.  Accedere al tenant di **Zendesk**.
+1.  Accedere al tenant di **Zendesk** .
 
-2.  Selezionare la scheda **Customer List**.
+2.  Selezionare la scheda **Customer List** .
 
 3.  Selezionare la scheda **User** e fare clic su **Add**.
 
@@ -140,22 +145,26 @@ Per consentire agli utenti di Azure AD di accedere a **Zendesk**, è necessario 
 
 >[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Zendesk per eseguire il provisioning degli account utente Azure AD.
 
-##Assegnazione degli utenti
+##<a name="assigning-users"></a>Assegnazione degli utenti
   
 Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
-###Per assegnare gli utenti a Zendesk, seguire questa procedura:
+###<a name="to-assign-users-to-zendesk,-perform-the-following-steps:"></a>Per assegnare gli utenti a Zendesk, seguire questa procedura:
 
 1.  Nel portale di Azure AD creare un account di test.
 
 2.  Nella pagina di integrazione dell'applicazione **Zendesk** fare clic su **Assegna utenti**.
 
-    ![Assegna utenti](./media/active-directory-saas-zendesk-tutorial/IC773094.png "Assegna utenti")
+    ![Assegna utenti](./media/active-directory-saas-zendesk-tutorial/IC773094.png "Assign users")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente di test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
-    ![Sì](./media/active-directory-saas-zendesk-tutorial/IC767830.png "Sì")
+    ![Sì](./media/active-directory-saas-zendesk-tutorial/IC767830.png "Yes")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

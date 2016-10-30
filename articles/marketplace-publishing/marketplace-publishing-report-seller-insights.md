@@ -16,7 +16,8 @@
    ms.date="02/05/2016"
    ms.author="v-jeana; hascipio"/>
 
-# Descrizione del report sulle informazioni dettagliate del venditore
+
+# <a name="understand-your-seller-insights-report"></a>Descrizione del report sulle informazioni dettagliate del venditore
 
 **Quali sono le informazioni dettagliate del venditore?**
 
@@ -26,13 +27,13 @@ Tutti gli editori di servizi per gli sviluppatori di fatturazione basata sull'ut
 
 - **Messaggio di benvenuto:** i nuovi editori ricevono un messaggio di benvenuto che comunica la cadenza mensile dei report sulle informazioni dettagliate del venditore.
 
-- **Report mensili sulle vendite:** se l'offerta genera utilizzo, si riceve un secondo messaggio di posta elettronica contenente i report e istruzioni su come accedere alla password.
+- **Report mensili sulle vendite:** se l'offerta genera utilizzo, si riceve un secondo messaggio di posta elettronica contenente i report e istruzioni su come accedere alla password:
 
     - Se lo SKU di servizi per gli sviluppatori di fatturazione basata sull'utilizzo o su VM genera utilizzo, il report mensile contiene informazioni dettagliate su ordini, utilizzo, mercati e clienti per le offerte non-BYOL (Bring Your Own License).
     - I report sono protetti da una password nota solo all'utente e a Microsoft, per salvaguardare i dati dei clienti.
     - Se nessuna delle offerte ha generato utilizzo durante il mese, Microsoft non invia alcun report.
 
-## Descrizione del report sulle informazioni dettagliate del venditore
+## <a name="understand-your-seller-insights-report"></a>Descrizione del report sulle informazioni dettagliate del venditore
 
 
 **Ordini per SKU e tipo di licenza: scheda Ordini Marketplace**
@@ -85,27 +86,31 @@ Queste schede forniscono i dati dettagliati utilizzati per generare il rapporto.
 
 Leggere attentamente le dichiarazioni di non responsabilità legali. In caso di domande o commenti e suggerimenti, fare clic sul collegamento nella parte inferiore delle dichiarazioni di non responsabilità per essere instradati alla pagina del supporto Marketplace.
 
-## Richiedere un promemoria della password
+## <a name="request-a-password-reminder"></a>Richiedere un promemoria della password
 
-Passare a https://publish.windowsazure.com/ e accedere con le credenziali dell'account Microsoft. ![passwordreminder][7]
+Passare a https://publish.windowsazure.com/ e accedere con le credenziali dell'account Microsoft.
+![passwordreminder][7]
 
-Selezionare la scheda **Editori**. ![selectpublisherstab][8]
+Selezionare la scheda **Editori** .
+![selectpublisherstab][8]
 
 
 Trovare l'ID editore nell'URL:
-- Usare questo ID come password per aprire il file di Excel delle informazioni dettagliate del venditore. Questa password sarà valida fino a nuova comunicazione.
-- È consigliabile usare Microsoft Office 2013 con Windows per aprire la cartella di lavoro. Sono stati segnalati problemi relativi all'uso di Microsoft Office per Mac.
+- Usare questo ID come password per aprire il file di Excel delle informazioni dettagliate del venditore.
+Questa password sarà valida fino a nuova comunicazione.
+- È consigliabile usare Microsoft Office 2013 con Windows per aprire la cartella di lavoro.  Sono stati segnalati problemi relativi all'uso di Microsoft Office per Mac.
 
 ![publisherid][9]
 
 
-## Passaggi successivi  
+## <a name="next-steps"></a>Passaggi successivi  
 In caso di domande relative ai report e alle informazioni dettagliate, contattare il team di supporto.
 
 1. Passare alle pagine di supporto all'indirizzo https://publish.windowsazure.com/.
 2. Nella casella **Tipo di problema** selezionare **Report e informazioni dettagliate**.
 3. Nella casella **Categoria** selezionare **Domande relative ai report**.
-4. Fare clic su **Avvia richiesta**. ![sellerinsightsquestions][10]
+4. Fare clic su **Avvio richiesta**.
+  ![sellerinsightsquestions][10]
 
 
 
@@ -120,4 +125,8 @@ In caso di domande relative ai report e alle informazioni dettagliate, contattar
 [9]: ./media/marketplace-publishing-report-seller-insights/publisherid.png
 [10]: ./media/marketplace-publishing-report-seller-insights/sellerinsightsquestions.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

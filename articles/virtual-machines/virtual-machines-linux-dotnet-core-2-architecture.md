@@ -17,13 +17,14 @@
    ms.date="09/21/2016"
    ms.author="nepeters"/>
 
-# Architettura delle applicazioni con i modelli di Azure Resource Manager
 
-Quando si sviluppa una distribuzione di Azure Resource Manager, i requisiti di calcolo devono essere mappati ai servizi e alle risorse di Azure. Se un'applicazione è costituita da diversi endpoint HTTP, da un database e da un servizio di caching dei dati, le risorse di Azure che ospitano ognuno di questi componenti devono essere razionalizzate. Nel caso specifico, l'applicazione Music Store di esempio include un'applicazione Web, ospitata in una macchina virtuale, e un database SQL, ospitato in un database SQL di Azure.
+# <a name="application-architecture-with-azure-resource-manager-templates"></a>Architettura delle applicazioni con i modelli di Azure Resource Manager
 
-Questo documento descrive in che modo sono configurate le risorse di calcolo dell'applicazione Music Store nel modello di esempio di Azure Resource Manager. Tutte le dipendenze e le configurazioni univoche sono evidenziate. Per ottenere risultati ottimali, pre-distribuire un'istanza della soluzione alla propria sottoscrizione di Azure ed esercitarsi con il modello di Azure Resource Manager. Il modello completo è disponibile in [Music Store Deployment on Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux) (Distribuzione di Music Store in Ubuntu).
+Quando si sviluppa una distribuzione di Azure Resource Manager, i requisiti di calcolo devono essere mappati ai servizi e alle risorse di Azure. Se un'applicazione è costituita da diversi endpoint HTTP, da un database e da un servizio di caching dei dati, le risorse di Azure che ospitano ognuno di questi componenti devono essere razionalizzate. Nel caso specifico, l'applicazione Music Store di esempio include un'applicazione Web, ospitata in una macchina virtuale, e un database SQL, ospitato in un database SQL di Azure. 
 
-## Macchina virtuale
+Questo documento descrive in che modo sono configurate le risorse di calcolo dell'applicazione Music Store nel modello di esempio di Azure Resource Manager. Tutte le dipendenze e le configurazioni univoche sono evidenziate. Per ottenere risultati ottimali, pre-distribuire un'istanza della soluzione alla propria sottoscrizione di Azure ed esercitarsi con il modello di Azure Resource Manager. Il modello completo è disponibile in [Music Store Deployment on Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)(Distribuzione di Music Store in Ubuntu).
+
+## <a name="virtual-machine"></a>Macchina virtuale
 
 L'applicazione Music Store include un'applicazione Web in cui i clienti possono cercare e acquistare musica. Esistono vari servizi di Azure che possono ospitare applicazioni Web. In questo esempio viene usata una macchina virtuale. Con il modello Music Store di esempio, viene distribuita una macchina virtuale, viene installato un server Web e viene installato e configurato il sito Web di Music Store. Ai fini di questo articolo, viene illustrata solo la distribuzione della macchina virtuale. La configurazione del server Web e dell'applicazione è descritta in un articolo successivo.
 
@@ -61,9 +62,9 @@ Dopo la distribuzione, le proprietà della macchina virtuale possono essere visu
 
 ![Macchina virtuale](./media/virtual-machines-linux-dotnet-core/vm.png)
 
-## Account di archiviazione
+## <a name="storage-account"></a>Account di archiviazione
 
-Gli account di archiviazione presentano molte funzionalità e opzioni di archiviazione. Per il contesto delle macchine virtuali di Azure, un account di archiviazione contiene le unità disco rigido virtuali della macchina virtuale e altri dischi dati. L'esempio Music Store include un solo account di archiviazione per contenere l'unità disco rigido virtuale di ogni macchina virtuale nella distribuzione.
+Gli account di archiviazione presentano molte funzionalità e opzioni di archiviazione. Per il contesto delle macchine virtuali di Azure, un account di archiviazione contiene le unità disco rigido virtuali della macchina virtuale e altri dischi dati. L'esempio Music Store include un solo account di archiviazione per contenere l'unità disco rigido virtuale di ogni macchina virtuale nella distribuzione. 
 
 Fare clic su questo collegamento per vedere l'esempio JSON incluso nel modello di Resource Manager: [Account di archiviazione](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L109).
 
@@ -83,7 +84,7 @@ Fare clic su questo collegamento per vedere l'esempio JSON incluso nel modello d
 },
 ```
 
-Un account di archiviazione è associato a una macchina virtuale all'interno della dichiarazione del modello di Resource Manager per la macchina virtuale.
+Un account di archiviazione è associato a una macchina virtuale all'interno della dichiarazione del modello di Resource Manager per la macchina virtuale. 
 
 Fare clic su questo collegamento per vedere l'esempio JSON incluso nel modello di Resource Manager: [Associazione della macchina virtuale con l'account di archiviazione](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L341).
 
@@ -102,15 +103,15 @@ Dopo la distribuzione, l'account di archiviazione può essere visualizzato nel p
 
 ![Account di archiviazione](./media/virtual-machines-linux-dotnet-core/storacct.png)
 
-Facendo clic sul contenitore BLOB dell'account di archiviazione, è possibile visualizzare il file del driver del disco rigido virtuale per ogni macchina virtuale distribuita con il modello.
+Facendo clic sul contenitore BLOB dell'account di archiviazione, è possibile visualizzare il file dell'unità disco rigido virtuale per ogni macchina virtuale distribuita con il modello.
 
 ![Unità disco rigido virtuali](./media/virtual-machines-linux-dotnet-core/vhd.png)
 
 Per altre informazioni su Archiviazione di Azure, vedere [Documentazione su Archiviazione](https://azure.microsoft.com/documentation/services/storage/).
 
-## Rete virtuale
+## <a name="virtual-network"></a>Rete virtuale
 
-Se una macchina virtuale richiede una connessione di rete interna, ad esempio per avere la possibilità di comunicare con altre macchine virtuali e risorse di Azure, è necessario configurare una rete virtuale di Azure. Una rete virtuale non rende accessibile la macchina virtuale attraverso Internet. La connettività pubblica richiede un indirizzo IP pubblico, come descritto più avanti in questa serie.
+Se una macchina virtuale richiede una connessione di rete interna, ad esempio per avere la possibilità di comunicare con altre macchine virtuali e risorse di Azure, è necessario configurare una rete virtuale di Azure.  Una rete virtuale non rende accessibile la macchina virtuale attraverso Internet. La connettività pubblica richiede un indirizzo IP pubblico, come descritto più avanti in questa serie.
 
 Fare clic su questo collegamento per vedere l'esempio JSON incluso nel modello di Resource Manager: [Rete virtuale e subnet](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L136).
 
@@ -151,9 +152,9 @@ Nel portale di Azure la rete virtuale ha un aspetto simile all'immagine seguente
 
 ![Rete virtuale](./media/virtual-machines-linux-dotnet-core/vnet.png)
 
-## Interfaccia di rete
+## <a name="network-interface"></a>Interfaccia di rete
 
- Un'interfaccia di rete connette una macchina virtuale a una rete virtuale, in particolare a una subnet definita nella rete virtuale.
+ Un'interfaccia di rete connette una macchina virtuale a una rete virtuale, in particolare a una subnet definita nella rete virtuale. 
  
  Fare clic su questo collegamento per vedere l'esempio JSON incluso nel modello di Resource Manager: [Interfaccia di rete](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L166).
  
@@ -202,7 +203,7 @@ Nel portale di Azure la rete virtuale ha un aspetto simile all'immagine seguente
 }
 ```
 
-Ogni risorsa di macchina virtuale include un profilo di rete, in cui l'interfaccia di rete è associata alla macchina virtuale.
+Ogni risorsa di macchina virtuale include un profilo di rete, in cui l'interfaccia di rete è associata alla macchina virtuale.  
 
 Fare clic su questo collegamento per vedere l'esempio JSON incluso nel modello di Resource Manager: [Profilo di rete della macchina virtuale](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L350).
 
@@ -223,13 +224,13 @@ Nel portale di Azure l'interfaccia di rete ha un aspetto simile all'immagine seg
 
 Per altre informazioni sulle reti virtuali di Azure, vedere [Documentazione su Rete virtuale](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-## Database SQL di Azure
+## <a name="azure-sql-database"></a>Database SQL di Azure
 
 Oltre a una macchina virtuale che ospita il sito Web di Music Store, viene distribuito un database SQL di Azure per ospitare il database di Music Store. L'uso di un database SQL di Azure è vantaggioso perché consente di evitare di usare un secondo set di macchine virtuali, integrando scalabilità e disponibilità nel servizio.
 
-È possibile aggiungere un database SQL di Azure a un modello usando la procedura guidata Aggiungi nuova risorsa di Visual Studio o inserendo una risorsa JSON valida nel modello. La risorsa di SQL Server include un nome utente e una password a cui sono concessi diritti amministrativi sull'istanza di SQL. Viene inoltre aggiunta una risorsa di firewall SQL. Per impostazione predefinita, le applicazioni ospitate in Azure sono in grado di connettersi all'istanza di SQL. Per consentire a un'applicazione esterna come SQL Server Management Studio di connettersi all'istanza di SQL, il firewall deve essere configurato. Ai fini della demo di Music Store, è sufficiente accettare la configurazione predefinita.
+È possibile aggiungere un database SQL di Azure a un modello usando la procedura guidata Aggiungi nuova risorsa di Visual Studio o inserendo una risorsa JSON valida nel modello. La risorsa di SQL Server include un nome utente e una password a cui sono concessi diritti amministrativi sull'istanza di SQL. Viene inoltre aggiunta una risorsa di firewall SQL. Per impostazione predefinita, le applicazioni ospitate in Azure sono in grado di connettersi all'istanza di SQL. Per consentire a un'applicazione esterna come SQL Server Management Studio di connettersi all'istanza di SQL, il firewall deve essere configurato. Ai fini della demo di Music Store, è sufficiente accettare la configurazione predefinita. 
 
-Fare clic su questo collegamento per vedere l'esempio JSON incluso nel modello di Resource Manager: [Database SQL di Azure](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L401.
+Fare clic sul collegamento per vedere l'esempio JSON all'interno del modello di Resource Manager - [Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L401.
 
 
 ```none
@@ -271,10 +272,14 @@ Di seguito è illustrato il database MusicStore di SQL Server come visualizzato 
 
 Per altre informazioni sulla distribuzione del database SQL di Azure, vedere [Documentazione su Database SQL](https://azure.microsoft.com/documentation/services/sql-database/).
 
-## Passaggio successivo
+## <a name="next-step"></a>Passaggio successivo
 
 <hr>
 
 [Passaggio 2: Accesso e sicurezza nei modelli di Azure Resource Manager](./virtual-machines-linux-dotnet-core-3-access-security.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

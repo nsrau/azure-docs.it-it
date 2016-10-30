@@ -14,9 +14,10 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="08/17/2016"
-   ms.author="andkjell"/>
+   ms.author="billmath"/>
 
-# Cronologia di rilascio delle versioni dei connettori
+
+# <a name="connector-version-release-history"></a>Cronologia di rilascio delle versioni dei connettori
 I connettori per Forefront Identity Manager (FIM) e Microsoft Identity Manager (MIM) vengono aggiornati frequentemente.
 
 >[AZURE.NOTE]
@@ -27,16 +28,17 @@ L'argomento include l'elenco di tutte le versioni dei connettori rilasciate.
 Collegamenti correlati:
 
 - [Scaricare i connettori più recenti](http://go.microsoft.com/fwlink/?LinkId=717495)
-- Documentazione di riferimento sul [connettore LDAP generico](active-directory-aadconnectsync-connector-genericldap.md)
-- Documentazione di riferimento sul [connettore SQL generico](active-directory-aadconnectsync-connector-genericsql.md)
-- Documentazione di riferimento sul [connettore per Servizi Web](http://go.microsoft.com/fwlink/?LinkID=226245)
-- Documentazione di riferimento sul [connettore PowerShell](active-directory-aadconnectsync-connector-powershell.md)
-- Documentazione di riferimento sul [connettore Lotus Domino](active-directory-aadconnectsync-connector-domino.md)
+- [connettore LDAP generico](active-directory-aadconnectsync-connector-genericldap.md) 
+- [connettore SQL generico](active-directory-aadconnectsync-connector-genericsql.md) 
+- [connettore per Servizi Web](http://go.microsoft.com/fwlink/?LinkID=226245) 
+- [connettore PowerShell](active-directory-aadconnectsync-connector-powershell.md) 
+- [connettore Lotus Domino](active-directory-aadconnectsync-connector-domino.md) 
 
-## 1\.1.117.0
+## <a name="1.1.117.0"></a>1.1.117.0
 Data di rilascio: marzo 2016
 
-**Nuovo connettore** Versione iniziale del [connettore SQL generico](active-directory-aadconnectsync-connector-genericsql.md).
+**Nuovo connettore**  
+Versione iniziale del [connettore SQL generico](active-directory-aadconnectsync-connector-genericsql.md).
 
 **Nuove funzionalità:**
 
@@ -61,7 +63,7 @@ Data di rilascio: marzo 2016
     - Le esportazioni che aggiungevano e rimuovevano membri da un gruppo esportavano solo i membri aggiunti.
     - Se un documento di Notes non è valido (l'attributo isValid è impostato su false), l'operazione del connettore non riesce.
 
-## Versioni precedenti
+## <a name="older-releases"></a>Versioni precedenti
 Prima di marzo 2016, i connettori venivano rilasciati come argomenti relativi al supporto.
 
 **Generic LDAP**
@@ -85,13 +87,17 @@ Prima di marzo 2016, i connettori venivano rilasciati come argomenti relativi al
 - [KB3096533](https://support.microsoft.com/kb/3096533) - 1.0.0597, settembre 2015
 - [KB3044895](https://support.microsoft.com/kb/3044895) - 1.0.0549, marzo 2015
 - [KB2977286](https://support.microsoft.com/kb/2977286) - 5.3.0712, agosto 2014
-- [KB2932635](https://support.microsoft.com/kb/2932635) - 5.3.1003, febbraio 2014
+- [KB2932635](https://support.microsoft.com/kb/2932635) - 5.3.1003, febbraio 2014  
 - [KB2899874](https://support.microsoft.com/kb/2899874) - 5.3.0721, ottobre 2013
 - [KB2875551](https://support.microsoft.com/kb/2875551) - 5.3.0534, agosto 2013
 
-## Passaggi successivi
-Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+## <a name="next-steps"></a>Passaggi successivi
+Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

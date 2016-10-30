@@ -17,7 +17,8 @@
    ms.date="09/25/2016"
    ms.author="vturecek"/>
 
-# Creare un cluster di Service Fabric in Azure tramite Azure Resource Manager
+
+# <a name="create-a-service-fabric-cluster-in-azure-using-azure-resource-manager"></a>Creare un cluster di Service Fabric in Azure tramite Azure Resource Manager
 
 > [AZURE.SELECTOR]
 - [Gestione risorse di Azure](service-fabric-cluster-creation-via-arm.md)
@@ -33,7 +34,7 @@ Un cluster protetto è un cluster che impedisce l'accesso non autorizzato alle o
 
 I concetti sono gli stessi per la creazione di cluster protetti, sia Linux che Windows. Per altre informazioni e script helper per la creazione di cluster Linux protetti, vedere [Creare cluster protetti in Linux](#secure-linux-clusters)
 
-## Accedere ad Azure
+## <a name="log-in-to-azure"></a>Accedere ad Azure
 Questa guida usa [Azure PowerShell][azure-powershell]. Quando si avvia una nuova sessione di PowerShell, accedere al proprio account Azure e selezionare la sottoscrizione prima di eseguire i comandi di Azure.
 
 Accedere all'account Azure:
@@ -49,7 +50,7 @@ Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
 
-## Configurare l'insieme di credenziali delle chiavi
+## <a name="set-up-key-vault"></a>Configurare l'insieme di credenziali delle chiavi
 
 Questa sezione illustra la creazione di un insieme di credenziali delle chiavi per un cluster di Service Fabric in Azure e per le applicazioni di Service Fabric. Per una guida completa sull'insieme di credenziali delle chiavi, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure][key-vault-get-started].
 
@@ -59,52 +60,52 @@ Nel diagramma seguente viene illustrata la relazione tra l'insieme di credenzial
 
 ![Installazione del certificato][cluster-security-cert-installation]
 
-### Creare un gruppo di risorse
+### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
 Il primo passaggio consiste nel creare un gruppo di risorse specifico per l'insieme di credenziali delle chiavi. È consigliabile inserire l'insieme di credenziali delle chiavi in un proprio gruppo di risorse. In questo modo è possibile rimuovere i gruppi di risorse di calcolo e di archiviazione, incluso il gruppo di risorse con il cluster di Service Fabric, senza perdere le chiavi e i segreti. Il gruppo di risorse che contiene l'insieme di credenziali delle chiavi deve essere situato nella stessa area del cluster che lo usa.
 
 ```powershell
 
-	New-AzureRmResourceGroup -Name mycluster-keyvault -Location 'West US'
-	WARNING: The output object type of this cmdlet is going to be modified in a future release.
-	
-	ResourceGroupName : mycluster-keyvault
-	Location          : westus
-	ProvisioningState : Succeeded
-	Tags              :
-	ResourceId        : /subscriptions/<guid>/resourceGroups/mycluster-keyvault
+    New-AzureRmResourceGroup -Name mycluster-keyvault -Location 'West US'
+    WARNING: The output object type of this cmdlet is going to be modified in a future release.
+    
+    ResourceGroupName : mycluster-keyvault
+    Location          : westus
+    ProvisioningState : Succeeded
+    Tags              :
+    ResourceId        : /subscriptions/<guid>/resourceGroups/mycluster-keyvault
 
 ```
 
-### Creare un insieme di credenziali delle chiavi 
+### <a name="create-key-vault"></a>Creare un insieme di credenziali delle chiavi 
 
 Creare un insieme di credenziali delle chiavi nel nuovo gruppo di risorse. L'insieme di credenziali delle chiavi **deve essere abilitato per la distribuzione** per consentire al provider di risorse di Service Fabric di ottenere i certificati e installarli nei nodi del cluster:
 
 ```powershell
 
-	New-AzureRmKeyVault -VaultName 'myvault' -ResourceGroupName 'mycluster-keyvault' -Location 'West US' -EnabledForDeployment
-	
-	
-	Vault Name                       : myvault
-	Resource Group Name              : mycluster-keyvault
-	Location                         : West US
-	Resource ID                      : /subscriptions/<guid>/resourceGroups/mycluster-keyvault/providers/Microsoft.KeyVault/vaults/myvault
-	Vault URI                        : https://myvault.vault.azure.net
-	Tenant ID                        : <guid>
-	SKU                              : Standard
-	Enabled For Deployment?          : False
-	Enabled For Template Deployment? : False
-	Enabled For Disk Encryption?     : False
-	Access Policies                  :
-	                                   Tenant ID                :    <guid>
-	                                   Object ID                :    <guid>
-	                                   Application ID           :
-	                                   Display Name             :    
-	                                   Permissions to Keys      :    get, create, delete, list, update, import, backup, restore
-	                                   Permissions to Secrets   :    all
-	
-	
-	Tags                             :
+    New-AzureRmKeyVault -VaultName 'myvault' -ResourceGroupName 'mycluster-keyvault' -Location 'West US' -EnabledForDeployment
+    
+    
+    Vault Name                       : myvault
+    Resource Group Name              : mycluster-keyvault
+    Location                         : West US
+    Resource ID                      : /subscriptions/<guid>/resourceGroups/mycluster-keyvault/providers/Microsoft.KeyVault/vaults/myvault
+    Vault URI                        : https://myvault.vault.azure.net
+    Tenant ID                        : <guid>
+    SKU                              : Standard
+    Enabled For Deployment?          : False
+    Enabled For Template Deployment? : False
+    Enabled For Disk Encryption?     : False
+    Access Policies                  :
+                                       Tenant ID                :    <guid>
+                                       Object ID                :    <guid>
+                                       Application ID           :
+                                       Display Name             :    
+                                       Permissions to Keys      :    get, create, delete, list, update, import, backup, restore
+                                       Permissions to Secrets   :    all
+    
+    
+    Tags                             :
 ```
 
 Se si dispone già di un insieme di credenziali delle chiavi, è possibile abilitarlo per la distribuzione tramite l'interfaccia della riga di comando di Azure:
@@ -117,12 +118,12 @@ Se si dispone già di un insieme di credenziali delle chiavi, è possibile abili
 > azure keyvault set-policy --vault-name "your vault name" --enabled-for-deployment true
 ```
 
-
-## Aggiungere i certificati all'insieme di credenziali delle chiavi
+<a id="add-certificate-to-key-vault"></a>
+## <a name="add-certificates-to-key-vault"></a>Aggiungere i certificati all'insieme di credenziali delle chiavi
 
 I certificati vengono usati in Service Fabric per fornire l'autenticazione e la crittografia e proteggere i vari aspetti di un cluster e delle sue applicazioni. Per altre informazioni sull'uso dei certificati in Service Fabric, vedere [Scenari di sicurezza di un cluster di Service Fabric][service-fabric-cluster-security].
 
-### Cluster e certificato del server (obbligatorio) 
+### <a name="cluster-and-server-certificate-(required)"></a>Cluster e certificato del server (obbligatorio) 
 
 Questo certificato è richiesto per proteggere un cluster e impedirne accessi non autorizzati. Il certificato fornisce protezione del cluster in due modi:
  
@@ -133,22 +134,22 @@ A tale scopo, il certificato deve soddisfare i requisiti seguenti:
 
  - Il certificato deve includere una chiave privata.
  - Il certificato deve essere stato creato per lo scambio di chiave, esportabile in un file con estensione pfx (Personal Information Exchange).
- - Il nome del soggetto del certificato deve corrispondere al dominio usato per accedere al cluster Service Fabric. Questa corrispondenza è necessaria per fornire SSL per gli endpoint di gestione HTTPS del cluster e Service Fabric Explorer. Non è possibile ottenere un certificato SSL da un'Autorità di certificazione (CA) per il dominio `.cloudapp.azure.com`. È necessario acquistare un nome di dominio personalizzato per il cluster. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato usato per il cluster.
+ - Il nome del soggetto del certificato deve corrispondere al dominio usato per accedere al cluster Service Fabric. Questa corrispondenza è necessaria per fornire SSL per gli endpoint di gestione HTTPS del cluster e Service Fabric Explorer. Non è possibile ottenere un certificato SSL da un'Autorità di certificazione (CA) per il dominio `.cloudapp.azure.com` . È necessario acquistare un nome di dominio personalizzato per il cluster. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato usato per il cluster.
 
-### Certificati delle applicazioni (facoltativo)
+### <a name="application-certificates-(optional)"></a>Certificati delle applicazioni (facoltativo)
 
 Per motivi di sicurezza dell'applicazione, è possibile installare nel cluster numerosi certificati aggiuntivi. Prima di creare il cluster, considerare gli scenari di protezione delle applicazioni che richiedono l'installazione di un certificato sui nodi, ad esempio:
 
  - Crittografia e decrittografia dei valori di configurazione dell'applicazione
- - Crittografia dei dati tra i nodi durante la replica
+ - Crittografia dei dati tra i nodi durante la replica 
 
-### Formattazione dei certificati per l'uso di provider di risorse di Azure
+### <a name="formatting-certificates-for-azure-resource-provider-use"></a>Formattazione dei certificati per l'uso di provider di risorse di Azure
 
 I file di chiave privata (con estensione pfx) possono essere aggiunti e usati direttamente tramite l'insieme di credenziali delle chiavi. Tuttavia, il provider di risorse di Azure richiede l'archiviazione delle chiavi in un particolare formato JSON che include il file con estensione pfx come stringa con codifica Base64 e la password della chiave privata. Per soddisfare questi requisiti, le chiavi devono essere inserite in una stringa JSON e quindi archiviate come *segreti* nell'insieme di credenziali delle chiavi.
 
 Per semplificare questo processo, è [disponibile su GitHub][service-fabric-rp-helpers] un modulo di PowerShell. Per usare il modulo, seguire questa procedura:
 
-  1. Scaricare l'intero contenuto del repository in una directory locale.
+  1. Scaricare l'intero contenuto del repository in una directory locale. 
   2. Importare il modulo nella finestra di PowerShell:
 
   ```powershell
@@ -159,15 +160,15 @@ Il comando `Invoke-AddCertToKeyVault` in questo modulo di PowerShell formatta in
 
 ```powershell
  Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName mycluster-keyvault -Location "West US" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
-	
-	Switching context to SubscriptionId <guid>
-	Ensuring ResourceGroup mycluster-keyvault in West US
-	WARNING: The output object type of this cmdlet is going to be modified in a future release.
-	Using existing valut myvault in West US
-	Reading pfx file from C:\path\to\key.pfx
-	Writing secret to myvault in vault myvault
-	
-	
+    
+    Switching context to SubscriptionId <guid>
+    Ensuring ResourceGroup mycluster-keyvault in West US
+    WARNING: The output object type of this cmdlet is going to be modified in a future release.
+    Using existing valut myvault in West US
+    Reading pfx file from C:\path\to\key.pfx
+    Writing secret to myvault in vault myvault
+    
+    
 Name  : CertificateThumbprint
 Value : <value>
 
@@ -186,7 +187,7 @@ Le stringhe precedenti costituiscono tutti i prerequisiti dell'insieme di creden
      - Certificato di autenticazione del server del cluster
      - Certificati delle applicazioni
 
-## Configurare Azure Active Directory per l'autenticazione client
+## <a name="set-up-azure-active-directory-for-client-authentication"></a>Configurare Azure Active Directory per l'autenticazione client
 
 AAD consente alle organizzazioni, note come tenant, di gestire l'accesso degli utenti alle applicazioni, che si dividono in applicazioni con un'interfaccia utente di accesso basata sul Web e applicazioni con un'esperienza client nativa. In questo documento si presuppone che sia già stato creato un tenant. In caso contrario, vedere prima di tutto [Come ottenere un tenant di Azure Active Directory][active-directory-howto-tenant].
 
@@ -196,13 +197,13 @@ Per semplificare alcuni dei passaggi richiesti per la configurazione di AAD con 
 
 >[AZURE.NOTE] Questi passaggi devono essere eseguiti *prima* di creare il cluster. Nei casi in cui gli script prevedono endpoint e nomi dei cluster è quindi necessario usare i valori pianificati anziché valori già creati.
 
-1. [Scaricare gli script][sf-aad-ps-script-download] sul computer.
+1. [Scaricare gli script][sf-aad-ps-script-download] nel computer.
 
 2. Fare clic con il pulsante destro del mouse sul file ZIP, scegliere **Proprietà** e quindi selezionare la casella di controllo **Annulla blocco** e Applica.
 
 3. Estrarre il file con estensione zip.
 
-4. Eseguire `SetupApplications.ps1`, indicando i parametri TenantId, ClusterName e WebApplicationReplyUrl. ad esempio:
+4. Eseguire `SetupApplications.ps1`, indicando i parametri TenantId, ClusterName e WebApplicationReplyUrl. Ad esempio:
 
     ```powershell
     .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
@@ -233,21 +234,21 @@ Per semplificare alcuni dei passaggi richiesti per la configurazione di AAD con 
 },
 ```
 
-## Creare un modello di Cluster Resource Manager di Service Fabric
+## <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Creare un modello di Cluster Resource Manager di Service Fabric
 
 In questa sezione, l'output dei comandi di PowerShell precedenti verrà usato in un modello di Resource Manager per cluster di Service Fabric.
 
-In [Raccolta di modelli di avvio rapido di Azure su GitHub][azure-quickstart-templates] sono disponibili alcuni modelli di Gestione risorse di esempio. Questi modelli possono essere usati come punto di partenza per il modello del cluster.
+In [Raccolta di modelli di avvio rapido di Azure su GitHub][azure-quickstart-templates] sono disponibili alcuni modelli di Resource Manager di esempio. Questi modelli possono essere usati come punto di partenza per il modello del cluster. 
 
-### Creare il modello di Azure Resource Manager
+### <a name="create-the-resource-manager-template"></a>Creare il modello di Azure Resource Manager
 
 Questa guida usa il modello di esempio di un [cluster protetto a 5 nodi][service-fabric-secure-cluster-5-node-1-nodetype-wad] e i parametri del modello. Scaricare `azuredeploy.json` e `azuredeploy.parameters.json` sul computer e aprire entrambi i file in un editor di testo.
 
-### Aggiungere certificati
+### <a name="add-certificates"></a>Aggiungere certificati
 
 I certificati vengono aggiunti a un modello di Cluster Resource Manager facendo riferimento all'insieme di credenziali delle chiavi che contiene le chiavi del certificato. È consigliabile inserire questi valori dell'insieme di credenziali delle chiavi in un file di parametri del modello di Resource Manager in modo che il file del modello di Resource Manager resti riutilizzabile e privo di valori specifici di una distribuzione.
 
-#### Aggiungere tutti i certificati per osProfile del set di scalabilità di macchine virtuali
+#### <a name="add-all-certificates-to-the-vmss-osprofile"></a>Aggiungere tutti i certificati per osProfile del set di scalabilità di macchine virtuali
 
 Ogni certificato da installare nel cluster deve essere configurato nella sezione osProfile della risorsa del set di scalabilità di macchine virtuali (Microsoft.Compute/virtualMachineScaleSets). Ciò indica al provider di risorse di installare il certificato nelle macchine virtuali, includendo il certificato del cluster, nonché eventuali certificati di sicurezza dell'applicazione che si intende usare per le applicazioni:
 
@@ -283,11 +284,11 @@ Ogni certificato da installare nel cluster deve essere configurato nella sezione
 }
 ```
 
-#### Configurare il certificato del cluster di Service Fabric
+#### <a name="configure-service-fabric-cluster-certificate"></a>Configurare il certificato del cluster di Service Fabric
 
 Il certificato di autenticazione del cluster deve anche essere configurato nella risorsa del cluster di Service Fabric (Microsoft.ServiceFabric/clusters) e nell'estensione di Service Fabric per il set di scalabilità di macchine virtuali nella risorsa del set di scalabilità di macchine virtuali. Questo consente al provider di risorse di Service Fabric di configurarlo per l'uso dell'autenticazione del cluster e del server per gli endpoint di gestione.
 
-##### Risorsa del set di scalabilità di macchine virtuali:
+##### <a name="vmss-resource:"></a>Risorsa del set di scalabilità di macchine virtuali:
 
 ```json
 {
@@ -320,7 +321,7 @@ Il certificato di autenticazione del cluster deve anche essere configurato nella
 }
 ```
 
-##### Risorsa di Service Fabric:
+##### <a name="service-fabric-resource:"></a>Risorsa di Service Fabric:
 
 ```json
 {
@@ -341,7 +342,7 @@ Il certificato di autenticazione del cluster deve anche essere configurato nella
 }
 ```
 
-### Inserire la configurazione AAD
+### <a name="insert-aad-config"></a>Inserire la configurazione AAD
 
 La configurazione di AAD creata in precedenza può essere inserita direttamente nel modello di Resource Manager. Tuttavia è consigliabile prima estrarre i valori nei parametri in un file dei parametri per mantenere il modello di Resource Manager riutilizzabile e privo dei valori specifici di una distribuzione.
 
@@ -367,7 +368,7 @@ La configurazione di AAD creata in precedenza può essere inserita direttamente 
 }
 ```
 
-### <a "configure-arm" ></a>Configurare i parametri del modello di Resource Manager
+### <a name="<a-"configure-arm"-></a>configure-resource-manager-template-parameters"></a><a "configure-arm" ></a>Configurare i parametri del modello di Resource Manager
 
 Infine, usare i valori di output dei comandi PowerShell ADD e dell'insieme di credenziali delle chiavi per compilare il file dei parametri:
 
@@ -414,23 +415,23 @@ A questo punto, dovrebbe essere visualizzata l'impostazione seguente:
     - Insieme di credenziali di chiave
     - Certificato di autenticazione del server del cluster
     - Certificato di crittografia dei dati
- - Tenant di Azure Active Directory
+ - Tenant di Azure Active Directory 
     - Applicazione AAD per la gestione basata su Web e Service Fabric Explorer
     - Applicazione AAD per la gestione dei client nativi
-    - Utenti con ruoli assegnati
+    - Utenti con ruoli assegnati 
  - Modello di Cluster Resource Manager di Service Fabric
     - Certificati configurati tramite l'insieme di credenziali delle chiavi
-    - Azure Active Directory configurato
+    - Azure Active Directory configurato 
 
 Il diagramma seguente illustra i punti in cui la configurazione dell'insieme di credenziali delle chiavi e dell'AAD rientra nel modello di Resource Manager.
 
 ![Mappa di dipendenza di Resource Manager][cluster-security-arm-dependency-map]
 
-## Creare il cluster
+## <a name="create-the-cluster"></a>Creare il cluster
 
-A questo punto si è pronti per creare il cluster tramite la [distribuzione ARM][resource-group-template-deploy].
+A questo punto si è pronti per creare il cluster usando la [distribuzione ARM][resource-group-template-deploy].
 
-#### Eseguirne il test
+#### <a name="test-it"></a>Eseguirne il test
 
 Usare il comando PowerShell seguente per testare il modello di Resource Manager con un file di parametri:
 
@@ -438,7 +439,7 @@ Usare il comando PowerShell seguente per testare il modello di Resource Manager 
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
-#### Distribuirlo
+#### <a name="deploy-it"></a>Distribuirlo
 
 Se viene superato il test del modello di Resource Manager, usare il comando PowerShell seguente per distribuire il modello di Resource Manager con un file di parametri:
 
@@ -447,7 +448,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templat
 ```
 
 <a name="assign-roles"></a>
-## Assegnare utenti ai ruoli
+## <a name="assign-users-to-roles"></a>Assegnare utenti ai ruoli
 
 Dopo aver creato le applicazioni per rappresentare il cluster, è necessario assegnare gli utenti ai ruoli supportati da Service Fabric: sola lettura e amministratore. Questa operazione può essere eseguita nel [portale di Azure classico][azure-classic-portal].
 
@@ -464,8 +465,8 @@ Dopo aver creato le applicazioni per rappresentare il cluster, è necessario ass
 
 >[AZURE.NOTE] Per altre informazioni sui ruoli in Service Fabric, vedere [Controllo degli accessi in base al ruolo per i client di Service Fabric](service-fabric-cluster-security-roles.md).
 
- <a name="secure-linux-cluster"></a>
-##  Creare cluster protetti in Linux
+ <a name="secure-linux-cluster"></a> 
+##  <a name="create-secure-clusters-on-linux"></a>Creare cluster protetti in Linux
 
 Per facilitare il processo, è stato creato uno script helper disponibile [qui](http://github.com/ChackDan/Service-Fabric/tree/master/Scripts/CertUpload4Linux). Per usare questo script helper, si presuppone che sia già installata l'interfaccia della riga di comando di Azure CLI e che si trovi nel percorso dell'utente. Verificare che lo script abbia le autorizzazioni necessarie per l'esecuzione eseguendo `chmod +x cert_helper.py` al termine del download. Il primo passaggio consiste nell'accedere al proprio account Azure usando il comando `azure login` nell'interfaccia della riga di comando. Dopo aver eseguito l'accesso all'account Azure, usare l'helper con il certificato firmato di una CA, come illustrato dai comandi seguenti:
 
@@ -476,9 +477,9 @@ The -ifile parameter can take a .pfx or a .pem file as input, with the certifica
 The parameter -h prints out the help text.
 ```
 
-Questo comando restituisce come output le tre stringhe seguenti:
+Questo comando restituisce come output le tre stringhe seguenti: 
 
-1. Una stringa SourceVaultID, che è l'ID del nuovo gruppo di risorse dell'insieme di credenziali delle chiavi creato.
+1. Una stringa SourceVaultID, che è l'ID del nuovo gruppo di risorse dell'insieme di credenziali delle chiavi creato. 
 
 2. Una stringa CertificateUrl per l'accesso al certificato.
 
@@ -498,7 +499,7 @@ CertificateUrl: https://myvault.vault.azure.net/secrets/mycert/00000000000000000
 CertificateThumbprint: 0xfffffffffffffffffffffffffffffffffffffffff
 ```
 
- Il nome del soggetto del certificato deve corrispondere al dominio usato per accedere al cluster Service Fabric. È necessario fornire il SSL per gli endpoint di gestione HTTPS del cluster e Service Fabric Explorer. Non è possibile ottenere un certificato SSL da un'Autorità di certificazione (CA) per il dominio `.cloudapp.azure.com`. È necessario acquistare un nome di dominio personalizzato per il cluster. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato usato per il cluster.
+ Il nome del soggetto del certificato deve corrispondere al dominio usato per accedere al cluster Service Fabric. È necessario fornire il SSL per gli endpoint di gestione HTTPS del cluster e Service Fabric Explorer. Non è possibile ottenere un certificato SSL da un'Autorità di certificazione (CA) per il dominio `.cloudapp.azure.com` . È necessario acquistare un nome di dominio personalizzato per il cluster. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato usato per il cluster.
 
 Queste voci sono necessarie per creare un cluster di Service Fabric protetto (senza AAD) come descritto in [Configurare i parametri del modello di Resource Manager](#configure-arm). È possibile connettersi al cluster protetto seguendo le istruzioni per [autenticare l'accesso client a un cluster](service-fabric-connect-to-secure-cluster.md). I cluster di anteprima Linux non supportano l'autenticazione di AAD. È possibile assegnare ruoli amministratore e client come descritto nella sezione [Assegnare utenti ai ruoli](#assign-roles). Quando si specificano ruoli amministratore e client per un cluster di anteprima Linux, per l'autenticazione è necessario fornire identificazioni personali del certificato anziché il nome del soggetto, perché in questa versione di anteprima non viene eseguita alcuna convalida della catena o revoca.
 
@@ -509,33 +510,100 @@ Per usare un certificato autofirmato a scopo di test, è possibile usare lo stes
 ./cert_helper.py ss -rgname "mykvrg" -sub "fffffff-ffff-ffff-ffff-ffffffffffff" -kv "mykevname"   -sname "mycert" -l "East US" -p "selftest" -subj "mytest.eastus.cloudapp.net" 
 ```
 
-Questo comando restituisce le stesse tre stringhe, SourceVault, CertificateUrl e CertificateThumbprint, usate per creare un cluster Linux protetto, nonché la posizione in cui è stato inserito il certificato autofirmato. Per connettersi al cluster sarà necessario il certificato autofirmato. È possibile connettersi al cluster protetto seguendo le istruzioni per [autenticare l'accesso client a un cluster](service-fabric-connect-to-secure-cluster.md). Il nome del soggetto del certificato deve corrispondere al dominio usato per accedere al cluster Service Fabric. È necessario fornire il SSL per gli endpoint di gestione HTTPS del cluster e Service Fabric Explorer. Non è possibile ottenere un certificato SSL da un'Autorità di certificazione (CA) per il dominio `.cloudapp.azure.com`. È necessario acquistare un nome di dominio personalizzato per il cluster. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato usato per il cluster.
+Questo comando restituisce le stesse tre stringhe, SourceVault, CertificateUrl e CertificateThumbprint, usate per creare un cluster Linux protetto, nonché la posizione in cui è stato inserito il certificato autofirmato. Per connettersi al cluster sarà necessario il certificato autofirmato.  È possibile connettersi al cluster protetto seguendo le istruzioni per [autenticare l'accesso client a un cluster](service-fabric-connect-to-secure-cluster.md). Il nome del soggetto del certificato deve corrispondere al dominio usato per accedere al cluster Service Fabric. È necessario fornire il SSL per gli endpoint di gestione HTTPS del cluster e Service Fabric Explorer. Non è possibile ottenere un certificato SSL da un'Autorità di certificazione (CA) per il dominio `.cloudapp.azure.com` . È necessario acquistare un nome di dominio personalizzato per il cluster. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato usato per il cluster.
 
 I parametri forniti dallo script helper possono essere immessi nel portale come descritto nella sezione [Creare un cluster nel portale di Azure](service-fabric-cluster-creation-via-portal.md#create-cluster-portal).
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 A questo punto, è stato creato un cluster con Azure Active Directory che fornisce l'autenticazione per la gestione. Successivamente, [connettersi al cluster](service-fabric-connect-to-secure-cluster.md) e scoprire come [gestire i segreti delle applicazioni](service-fabric-application-secret-management.md).
 
+## <a name="troubleshoot-setting-up-azure-active-directory-for-client-authentication"></a>Risoluzione dei problemi di configurazione di Azure Active Directory per l'autenticazione client
+
+Se si verifica un problema durante la configurazione di Azure Active Directory per l'autenticazione client, consultare i suggerimenti riportati di seguito per verificare se è possibile risolverlo.
+
+### <a name="service-fabric-explorer-prompts-for-selecting-certificate"></a>Service Fabric Explorer richiede la selezione di un certificato
+
+#### <a name="problem"></a>Problema
+
+Dopo che è stato eseguito correttamente l'accesso nella pagina di accesso di AAD in Service Fabric Explorer, il browser ritorna alla home page ma richiede una finestra di dialogo per la selezione di un certificato.
+
+![Finestra di dialogo di selezione certificato in SFX][sfx-select-certificate-dialog]
+
+#### <a name="reason"></a>Motivo
+
+All'utente non è stato assegnato un ruolo nell'applicazione cluster AAD. Di conseguenza, l'autenticazione di AAD non riesce nel cluster Service Fabric. Service Fabric Explorer ritorna all'autenticazione del certificato.
+
+#### <a name="solution"></a>Soluzione
+
+Seguire le istruzioni di installazione di AAD e assegnare i ruoli utente. È anche consigliabile che l'opzione "Assegnazione utente obbligatoria per l'accesso all'app" venga attivata insieme a `SetupApplications.ps1`.
+
+### <a name="connect-with-powershell-fails-with-error:-the-specified-credentials-are-invalid"></a>La connessione a PowerShell non riesce e un messaggio indica che le credenziali specificate non sono valide
+
+#### <a name="problem"></a>Problema
+
+Quando si usa PowerShell per connettersi al cluster con la modalità di protezione "AzureActiveDirectory", eseguito l'accesso nella pagina di accesso di AAD, la connessione ha esito negativo e appare un messaggio di errore che indica che le credenziali specificate non sono valide.
+
+#### <a name="solution"></a>Soluzione
+
+Come sopra.
+
+### <a name="service-fabric-explorer-signing-in-return-failure:-aadsts50011"></a>L'accesso a Service Fabric Explorer restituisce l'errore AADSTS50011
+
+#### <a name="problem"></a>Problema
+
+Eseguito l'accesso nella pagina di accesso di AAD in Service Fabric Explorer, la pagina restituisce l'errore di accesso AADSTS50011, che indica che l'&lt;url&gt; dell'indirizzo di risposta non corrisponde agli indirizzi configurati per l'applicazione: &lt;guid&gt;. 
+
+![Indirizzo di risposta di SFX non corrispondente][sfx-reply-address-not-match]
+
+#### <a name="reason"></a>Motivo
+
+L'applicazione cluster(web) che rappresenta Service Fabric Explorer tenta di eseguire l'autenticazione per AAD e come parte della richiesta indica l'URL di reindirizzamento restituito. L'URL non è presente nell'elenco degli URL di risposta dell'applicazione AAD.
+
+#### <a name="solution"></a>Soluzione
+
+Aggiungere l'URL di Service Fabric Explorer all'elenco degli URL di risposta nella scheda di configurazione dell'applicazione cluster(web) o sostituire una delle voci dell'elenco. Salvare.
+
+![URL di risposta dell'applicazione Web][web-application-reply-url]
+
+### <a name="can-i-reuse-the-same-aad-tenant-for-multiple-clusters?"></a>È possibile usare di nuovo lo stesso tenant di AAD per più cluster?
+
+#### <a name="answer"></a>Risposta
+
+Sì. Ricordarsi però di aggiungere l'URL di Service Fabric Explorer all'applicazione cluster(web) altrimenti Service Fabric Explorer non funzionerà.
+
+### <a name="why-do-i-still-need-server-certificate-while-aad-enabled?"></a>Perché è ancora necessario il certificato del server se AAD è abilitato?
+
+#### <a name="answer"></a>Risposta
+
+FabricClient e FabricGateway eseguono l'autenticazione reciproca. In caso di autenticazione di AAD, l'integrazione di AAD consente di assegnare l'identità del client al server e il certificato del server viene usato per verificare l'identità del server. Per altre informazioni su come funzionano i certificati in Service Fabric, vedere [Certificati X.509 e Service Fabric][x509-certificates-and-service-fabric]
+
 <!-- Links -->
-[azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
-[key-vault-get-started]: ../key-vault/key-vault-get-started.md
-[aad-graph-api-docs]: https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
+[azure-powershell]:https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[key-vault-get-started]:../key-vault/key-vault-get-started.md
+[aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
 [azure-classic-portal]: https://manage.windowsazure.com
 [service-fabric-rp-helpers]: https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]: ../active-directory/active-directory-howto-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md
 [service-fabric-manage-application-in-visual-studio]: service-fabric-manage-application-in-visual-studio.md
-[sf-aad-ps-script-download]: http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
+[sf-aad-ps-script-download]:http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
 [azure-quickstart-templates]: https://github.com/Azure/azure-quickstart-templates
 [service-fabric-secure-cluster-5-node-1-nodetype-wad]: https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype-wad/
 [resource-group-template-deploy]: https://azure.microsoft.com/documentation/articles/resource-group-template-deploy/
+[x509-certificates-and-service-fabric]: service-fabric-cluster-security.md#x509-certificates-and-service-fabric
 
 <!-- Images -->
 [cluster-security-arm-dependency-map]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-arm-dependency-map.png
 [cluster-security-cert-installation]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-cert-installation.png
 [assign-users-to-roles-button]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-button.png
 [assign-users-to-roles-dialog]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles.png
+[sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-via-arm/sfx-select-certificate-dialog.png
+[sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-via-arm/sfx-reply-address-not-match.png
+[web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

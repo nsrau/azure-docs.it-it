@@ -1,22 +1,23 @@
 <properties
-	pageTitle="Funzionalità e configurazione del Servizio di sincronizzazione Azure AD Connect | Microsoft Azure"
-	description="Descrive le funzionalità sul lato del servizio per il Servizio di sincronizzazione Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+    pageTitle="Funzionalità e configurazione del Servizio di sincronizzazione Azure AD Connect | Microsoft Azure"
+    description="Descrive le funzionalità sul lato del servizio per il Servizio di sincronizzazione Azure AD Connect."
+    services="active-directory"
+    documentationCenter=""
+    authors="andkjell"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/22/2016"
-	ms.author="andkjell;markvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/22/2016"
+    ms.author="andkjell;markvi"/>
 
-# Funzionalità del servizio di sincronizzazione Azure AD Connect
+
+# <a name="azure-ad-connect-sync-service-features"></a>Funzionalità del servizio di sincronizzazione Azure AD Connect
 
 La funzionalità di sincronizzazione di Azure AD Connect include due componenti:
 
@@ -27,7 +28,8 @@ Questo argomento illustra l'utilizzo delle funzionalità del **Servizio di sincr
 
 Queste impostazioni sono configurate tramite il [Modulo di Microsoft Azure Active Directory per Windows PowerShell](http://aka.ms/aadposh). Scaricarlo e installarlo separatamente da Azure AD Connect. I cmdlet documentati in questo argomento sono stati introdotti nella [versione di marzo 2016 (build 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Se i cmdlet documentati in questo argomento non sono disponibili o non producono lo stesso risultato, assicurarsi di eseguire la versione più recente.
 
-Per visualizzare la configurazione nella directory di Azure AD, eseguire `Get-MsolDirSyncFeatures`. ![Risultato di Get-MsolDirSyncFeatures](./media/active-directory-aadconnectsyncservice-features/getmsoldirsyncfeatures.png)
+Per visualizzare la configurazione nella directory di Azure AD, eseguire `Get-MsolDirSyncFeatures`.  
+![Risultato di Get-MsolDirSyncFeatures](./media/active-directory-aadconnectsyncservice-features/getmsoldirsyncfeatures.png)
 
 Molte di queste impostazioni possono essere modificate solo da Azure AD Connect.
 
@@ -53,49 +55,53 @@ PasswordSync | [Implementazione della sincronizzazione password con il servizio 
 UnifiedGroupWriteback | [Anteprima: Writeback dei gruppi](active-directory-aadconnect-feature-preview.md#group-writeback)
 UserWriteback | Attualmente non è supportata.
 
-## Resilienza degli attributi duplicati
+## <a name="duplicate-attribute-resiliency"></a>Duplicate attribute resiliency
 Invece di causare un errore di provisioning degli oggetti con UPN o proxyAddress duplicati, l'attributo duplicato viene "messo in quarantena" e viene assegnato un valore temporaneo. Una volta risolto il conflitto, l'UPN temporaneo viene modificato automaticamente con il valore appropriato. Questo comportamento può essere abilitato per UPN e proxyAddress separatamente. Per altre informazioni, vedere [Sincronizzazione delle identità e resilienza degli attributi duplicati](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).
 
-## Corrispondenza flessibile di userPrincipalName
-Quando questa funzionalità è abilitata, la corrispondenza flessibile viene abilitata per l'UPN, oltre all'[indirizzo SMTP primario](https://support.microsoft.com/kb/2641663) che è sempre abilitato. La corrispondenza flessibile viene usata per associare gli utenti del cloud esistente in Azure AD con gli utenti locali.
+## <a name="userprincipalname-soft-match"></a>Corrispondenza flessibile di userPrincipalName
+Quando questa funzionalità è abilitata, la corrispondenza flessibile viene abilitata per l'UPN, oltre all' [indirizzo SMTP primario](https://support.microsoft.com/kb/2641663)che è sempre abilitato. La corrispondenza flessibile viene usata per associare gli utenti del cloud esistente in Azure AD con gli utenti locali.
 
 Questa funzionalità è utile se gli account AD account locali devono corrispondere agli account esistenti creati nel cloud e non si usa Exchange Online. In questo scenario non esiste in genere un motivo per impostare l'attributo SMTP nel cloud.
 
-Questa funzionalità è attivata per impostazione predefinita per le nuove directory di Azure AD . Per vedere se la funzionalità è abilitata per l'utente corrente, eseguire:
+Questa funzionalità è attivata per impostazione predefinita per le nuove directory di Azure AD . Per vedere se la funzionalità è abilitata per l'utente corrente, eseguire:  
 ```
 Get-MsolDirSyncFeatures -Feature EnableSoftMatchOnUpn
 ```
 
-Se questa funzionalità non è abilitata per la directory di Azure AD in uso, è possibile abilitarla eseguendo:
+Se questa funzionalità non è abilitata per la directory di Azure AD in uso, è possibile abilitarla eseguendo:  
 ```
 Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 ```
 
-## Sincronizzare gli aggiornamenti di userPrincipalName
+## <a name="synchronize-userprincipalname-updates"></a>Sincronizzare gli aggiornamenti di userPrincipalName
 In genere, gli aggiornamenti dell'attributo UserPrincipalName usando il servizio di sincronizzazione locale vengono bloccati, a meno che siano rispettate entrambe le condizioni seguenti:
 
 - L'utente è gestito (non federato).
 - All'utente non è stata assegnata una licenza.
 
-Per alte informazioni, vedere[I nomi utente in Office 365, Azure o Intune non corrispondono agli ID di accesso o alternativi dell'UPN locale](https://support.microsoft.com/kb/2523192).
+Per alte informazioni, vedere [I nomi utente in Office 365, Azure o Intune non corrispondono agli ID di accesso o alternativi dell'UPN locale](https://support.microsoft.com/kb/2523192).
 
 L'abilitazione di questa funzionalità consente al motore di sincronizzazione di aggiornare l'attributo userPrincipalName quando viene modificato a livello locale e si usa la sincronizzazione password. Se si usa la federazione, questa funzionalità non è supportata.
 
-Questa funzionalità è attivata per impostazione predefinita per le nuove directory di Azure AD . Per vedere se la funzionalità è abilitata per l'utente corrente, eseguire:
+Questa funzionalità è attivata per impostazione predefinita per le nuove directory di Azure AD . Per vedere se la funzionalità è abilitata per l'utente corrente, eseguire:  
 ```
 Get-MsolDirSyncFeatures -Feature SynchronizeUpnForManagedUsers
 ```
 
-Se questa funzionalità non è abilitata per la directory di Azure AD in uso, è possibile abilitarla eseguendo:
+Se questa funzionalità non è abilitata per la directory di Azure AD in uso, è possibile abilitarla eseguendo:  
 ```
 Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 ```
 
-Dopo aver abilitato questa funzionalità, i valori di userPrincipalName esistenti rimarranno invariati. Alla successiva modifica dell'attributo userPrincipalName locale, la normale sincronizzazione differenziale degli utenti aggiornerà l'UPN.
+Dopo aver abilitato questa funzionalità, i valori di userPrincipalName esistenti rimarranno invariati. Alla successiva modifica dell'attributo userPrincipalName locale, la normale sincronizzazione differenziale degli utenti aggiornerà l'UPN.  
 
-## Vedere anche
+## <a name="see-also"></a>Vedere anche
 
 - [Servizio di sincronizzazione Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 - [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
