@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Guida per sviluppatori: controllare l'accesso all'hub IoT | Microsoft Azure"
-	description="Guida per sviluppatori dell'hub IoT di Azure: come controllare l'accesso all'hub IoT e gestire la sicurezza."
-	services="iot-hub"
-	documentationCenter=".net"
-	authors="dominicbetts"
-	manager="timlt"
-	editor=""/>
+ pageTitle="Guida per sviluppatori: controllare l'accesso all'hub IoT | Microsoft Azure"
+ description="Guida per sviluppatori dell'hub IoT di Azure: come controllare l'accesso all'hub IoT e gestire la sicurezza."
+ services="iot-hub"
+ documentationCenter=".net"
+ authors="dominicbetts"
+ manager="timlt"
+ editor=""/>
 
 <tags
-	ms.service="iot-hub"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/30/2016" 
-	ms.author="dobett"/>
+ ms.service="iot-hub"
+ ms.devlang="multiple"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="na"
+ ms.date="09/30/2016" 
+ ms.author="dobett"/>
 
 
 # <a name="control-access-to-iot-hub"></a>Controllare l'accesso all'hub IoT
@@ -388,7 +388,7 @@ Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida p
 In questa esercitazione si è appreso come controllare l'accesso all'hub IoT. Altri argomenti di interesse reperibili nella Guida per sviluppatori:
 
 - [Use device twins to synchronize state and configurations][lnk-devguide-device-twins] (Usare dispositivi gemelli per sincronizzare lo stato e le configurazioni)
-- [Invoke a direct method on a device](lnk-methods) \(Richiamare un metodo diretto su un dispositivo)
+- [Invoke a direct method on a device][lnk-methods] (Richiamare un metodo diretto su un dispositivo)
 - [Schedule jobs on multiple devices][lnk-devguide-jobs] (Pianificare processi in più dispositivi)
 
 Per provare alcuni dei concetti descritti in questo articolo, possono essere utili le esercitazioni sull'hub IoT seguenti:

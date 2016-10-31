@@ -1,21 +1,22 @@
 <properties
-	pageTitle="Abilitare l'accesso remoto per le distribuzioni di Azure in Eclipse"
-	description="Informazioni su come abilitare l’accesso remoto per le distribuzioni Azure usando il Toolkit di Azure per Eclipse."
-	services=""
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor=""/>
+    pageTitle="Abilitare l'accesso remoto per le distribuzioni di Azure in Eclipse"
+    description="Informazioni su come abilitare l’accesso remoto per le distribuzioni Azure usando il Toolkit di Azure per Eclipse."
+    services=""
+    documentationCenter="java"
+    authors="rmcmurray"
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="multiple"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/11/2016" 
-	ms.author="robmcm"/>
+    ms.service="multiple"
+    ms.workload="na"
+    ms.tgt_pltfrm="multiple"
+    ms.devlang="Java"
+    ms.topic="article"
+    ms.date="08/11/2016" 
+    ms.author="robmcm"/>
 
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690951.aspx -->
 
 # Abilitare l'accesso remoto per le distribuzioni di Azure in Eclipse
 
@@ -134,4 +135,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [ic719494]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic719494.png
 [ic659273]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic659273.png
 
-<!----HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0817_2016-->

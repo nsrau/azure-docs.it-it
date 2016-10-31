@@ -16,12 +16,13 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
 
-# Proprietà del ruolo di Azure
+# Proprietà del ruolo di Azure #
 
 In Azure Toolkit for Eclipse è possibile specificare diverse impostazioni di configurazione per il ruolo di Azure.
 
-## Configurazione delle proprietà del ruolo di Azure
+## Configurazione delle proprietà del ruolo di Azure ##
 
 La configurazione delle proprietà del ruolo di Azure viene eseguita tramite le finestre di dialogo delle proprietà per il ruolo di lavoro. Aprire il menu di scelta rapida per il ruolo nel riquadro Project Explorer di Eclipse e selezionare il sottomenu **Azure**. Se il ruolo non viene visualizzato in Eclipse Project Explorer, espandere il progetto di Azure in Project Explorer.
 
@@ -44,7 +45,7 @@ Per i ruoli di Azure sono disponibili le pagine delle proprietà seguenti.
 * [Proprietà di offload SSL](#ssl_offloading_properties)
 	
 <a name="virtual_machine_properties"></a>
-### Proprietà della macchina virtuale
+### Proprietà della macchina virtuale ###
 
 Aprire il menu di scelta rapida del ruolo nel riquadro Project Explorer di Eclipse, fare clic su **Azure** e quindi su **Properties**. In questa finestra di dialogo è possibile modificare le dimensioni della macchina virtuale e il numero di istanze, come illustrato nell'immagine seguente.
 
@@ -53,7 +54,7 @@ Aprire il menu di scelta rapida del ruolo nel riquadro Project Explorer di Eclip
 >[AZURE.NOTE] Solo Windows: quando si imposta il numero di istanze su un valore maggiore di 1 e si configura un server applicazioni, il toolkit consentirà l'esecuzione di una sola istanza del ruolo nell'emulatore, indipendentemente da questa impostazione. In questo modo si evitano conflitti di binding delle porte tra le diverse istanze del server (ad esempio, tutte le istanze che provano a eseguire il binding alla porta 8080) quando vengono eseguite nello stesso computer. L'impostazione del numero di istanze specificata viene mantenuta, ma diventa effettiva solo in caso di distribuzione nel cloud.
 
 <a name="caching_properties"></a>
-### Proprietà di memorizzazione nella cache
+### Proprietà di memorizzazione nella cache ###
 
 Aprire il menu di scelta rapida relativo al ruolo nel riquadro Project Explorer di Eclipse, scegliere **Azure** e quindi **Caching**. In questa finestra di dialogo è possibile abilitare cache denominate con risorse condivise e compatibili con Memcache, che consentono di velocizzare le applicazioni Web.
 
@@ -89,7 +90,7 @@ Per eliminare una cache, selezionarla e fare clic sul pulsante **Remove** nella 
 Per altre informazioni sull'uso della funzionalità di memorizzazione nella cache, vedere [Come usare la memorizzazione nella cache con risorse condivise][].
 
 <a name="certificates_properties"></a>
-### Proprietà dei certificati
+### Proprietà dei certificati ###
 
 Aprire il menu di scelta rapida relativo al ruolo nel riquadro Project Explorer di Eclipse, scegliere **Azure** e quindi **Certificates**.
 
@@ -100,7 +101,7 @@ In questa finestra di dialogo è possibile aggiungere o rimuovere i certificati 
 Quando si distribuisce il progetto in Azure tramite la pubblicazione guidata, verrà richiesto di puntare ai file PFX (Personal Information Exchange) corrispondenti a questi certificati, insieme alle relative password, per poterli caricare automaticamente nel servizio di Azure, ma solo se non sono già stati caricati in precedenza.
 
 <a name="components_properties"></a>
-### Proprietà dei componenti
+### Proprietà dei componenti ###
 
 Aprire il menu di scelta rapida relativo al ruolo nel riquadro Project Explorer di Eclipse, scegliere **Azure** e quindi **Components**. In questa finestra di dialogo è possibile aggiungere, modificare o rimuovere i componenti del ruolo e modificare l'ordine in cui vengono elaborati.
 
@@ -160,7 +161,7 @@ I componenti vengono elaborati nell'ordine elencato. Usare i pulsanti **Move Up*
 >[AZURE.NOTE] La funzionalità di configurazione del server si basa anche sui componenti. Questi componenti non possono essere rimossi o modificati senza rimuovere la configurazione del server corrispondente. Quando si prova ad apportare modifiche a tali componenti, verrà visualizzato un avviso a questo proposito.
 
 <a name="debugging_properties"></a>
-### Proprietà di debug
+### Proprietà di debug ###
 
 Aprire il menu di scelta rapida relativo al ruolo nel riquadro Project Explorer di Eclipse, scegliere **Azure** e quindi **Debugging**. In questa finestra di dialogo è possibile abilitare o disabilitare il debug remoto e creare configurazioni di debug, come illustrato nell'immagine seguente.
 
@@ -169,7 +170,7 @@ Aprire il menu di scelta rapida relativo al ruolo nel riquadro Project Explorer 
 Per informazioni correlate, vedere[ Debug delle applicazione Azure in Eclipse][].
 
 <a name="endpoints_properties"></a>
-### Proprietà di endpoint
+### Proprietà di endpoint ###
 
 Aprire il menu di scelta rapida relativo al ruolo nel riquadro Project Explorer di Eclipse, scegliere **Azure** e quindi **Endpoints**. In questa finestra di dialogo è possibile creare un endpoint e modificare o rimuovere un endpoint, come illustrato nell'immagine seguente.
 
@@ -200,7 +201,7 @@ Per eliminare un endpoint, selezionarlo e fare clic sul pulsante **Remove** nell
 Per configurare correttamente alcune funzionalità, ad esempio, Caching, Remote Debugging, Session Affinity o SSL offloading, abilitate dall'utente in un ruolo, il toolkit è in grado di configurare automaticamente endpoint speciali che verranno elencati insieme a quelli definiti dall'utente. Il toolkit impedisce all'utente di modificare o eliminare gli endpoint generati automaticamente finché è abilitata la funzionalità associata.
 
 <a name="environment_variables_properties"></a>
-### Proprietà di variabili di ambiente
+### Proprietà di variabili di ambiente ###
 
 Aprire il menu di scelta rapida relativo al ruolo nel riquadro Project Explorer di Eclipse, scegliere **Azure** e quindi **Environment Variables**. In questa finestra di dialogo è possibile creare una variabile di ambiente e modificare o rimuovere una variabile di ambiente, come illustrato nell'immagine seguente.
 
@@ -232,7 +233,7 @@ Per eliminare una variabile di ambiente, selezionarla e fare clic sul pulsante *
 Per configurare correttamente alcune funzionalità (ad esempio, Server Configuration, Remote Debugging o Local Storage) abilitate dall'utente in un ruolo, il toolkit è in grado di configurare automaticamente variabili di ambiente speciali che verranno elencate insieme a quelle definite dall'utente. Il toolkit impedisce all'utente di modificare o eliminare le variabili di ambiente generate automaticamente finché è abilitata la funzionalità associata.
 
 <a name="session_affinity_properties"></a>
-### Proprietà di bilanciamento del carico/affinità di sessione (dette anche "sessioni permanenti")
+### Proprietà di bilanciamento del carico/affinità di sessione (dette anche "sessioni permanenti") ###
 
 Aprire il menu di scelta rapida relativo al ruolo nel riquadro Project Explorer di Eclipse, scegliere **Azure** e quindi **Load Balancing**. In questa finestra di dialogo è possibile abilitare o disabilitare l'affinità di sessione, come illustrato nell'immagine seguente.
 
@@ -241,7 +242,7 @@ Aprire il menu di scelta rapida relativo al ruolo nel riquadro Project Explorer 
 Per informazioni correlate, vedere [Affinità di sessione][]. Si noti anche il comportamento di questa funzionalità nel contesto di offload SSL, come descritto in [Offload SSL][].
 
 <a name="local_storage_properties"></a>
-### Proprietà di archiviazione locale
+### Proprietà di archiviazione locale ###
 
 Aprire il menu di scelta rapida relativo al ruolo nel riquadro Project Explorer di Eclipse, scegliere **Azure** e quindi **Local Storage**. In questa finestra di dialogo è possibile creare, modificare o rimuovere lo spazio di archiviazione locale temporaneo per la macchina virtuale che esegue l'applicazione. È possibile impostare valori specifici per le dimensioni dello spazio di archiviazione locale e specificare se il contenuto viene mantenuto quando il ruolo viene riciclato, come illustrato nella figura seguente.
 
@@ -258,11 +259,11 @@ Per modificare la risorsa di archiviazione locale, selezionarla e fare clic sul 
 Per eliminare una risorsa di archiviazione locale, selezionarla e fare clic sul pulsante **Remove** nella pagina delle proprietà **Local Storage**, quindi fare clic su **Yes** per confermare l'eliminazione.
 
 <a name="server_configuration_properties"></a>
-### Proprietà di configurazione del server
+### Proprietà di configurazione del server ###
 
 Aprire il menu di scelta rapida relativo al ruolo nel riquadro Project Explorer di Eclipse, scegliere **Azure** e quindi **Server Configuration**. In questa finestra di dialogo è possibile aggiungere, rimuovere e modificare JDK e il server applicazioni Java usato nella distribuzione e aggiungere o rimuovere le applicazioni, ad esempio file WAR, JAR o EAR, usate nella distribuzione.
 
-### Configurazione di JDK
+### Configurazione di JDK ###
 
 Questa finestra di dialogo consente di specificare il pacchetto JDK da usare per la distribuzione. Se si usa Eclipse in Windows, è possibile specificare il pacchetto JDK da usare in locale durante l'esecuzione nell'emulatore di Azure e scegliere di distribuire tale installazione locale in Azure. Nei sistemi operativi non Windows non è applicabile l'impostazione JDK dell'emulatore e non è possibile distribuire il pacchetto JDK installato localmente perché non è compatibile con Windows. Tuttavia, indipendentemente dal sistema operativo in uso, è possibile scegliere tra i pacchetti JDK di terze parti per la distribuzione in Azure o selezionare il proprio pacchetto JDK compatibile con Windows da un percorso di download alternativo.
 
@@ -299,7 +300,7 @@ Se si usa l'opzione **Deploy a JDK from a custom download** :
 
 È tutto. A questo punto, quando si compila per il cloud, si noterà che le dimensioni del pacchetto saranno più ridotte, il processo di compilazione richiederà in genere meno tempo e anche la pubblicazione nel cloud della distribuzione stessa richiederà meno tempo. Si noti che l'opzione **Deploy my local JDK (auto-upload to cloud storage)** o **Deploy a JDK from a custom download** è effettiva solo quando l'applicazione viene distribuita nel cloud. Queste opzioni non hanno alcun effetto sull'esperienza dell'emulatore di calcolo. La versione locale dei componenti verrà comunque usata durante la distribuzione nell'emulatore di calcolo.
 
-### Configurazione del server
+### Configurazione del server ###
 
 Di seguito è riportato un esempio di come è possibile specificare un server applicazioni.
 
@@ -342,7 +343,7 @@ Selezionare un percorso di installazione del server in questo computer nella cas
 
 Se nessuna delle opzioni precedenti è applicabile, l'impostazione del server locale è facoltativa.
 
-### Configurazione di applicazioni
+### Configurazione di applicazioni ###
 
 Di seguito è riportato un esempio di come è possibile specificare un'applicazione.
 
@@ -352,7 +353,7 @@ Fare clic su **Add** per aggiungere un'altra applicazione o su **Remove** per ri
 
 A partire dalla versione di aprile 2014, le applicazioni vengono caricate automaticamente nello stesso account di archiviazione (nel contenitore **eclipsedeploy**) selezionato per la distribuzione. La logica di avvio della distribuzione include un passaggio che prevede prima di tutto il download di tali applicazioni dall'account di archiviazione. Questo significa che si possono aggiornare le applicazioni nella distribuzione senza dover ricompilare e ridistribuire l'intero pacchetto. A questo scopo caricare manualmente le versioni più recenti dell'applicazione direttamente in tale account di archiviazione, ad esempio tramite il portale di Azure, e sostituire i file WAR originariamente caricati dal toolkit. Iniziare quindi semplicemente a riciclare tutte le istanze del ruolo usando di nuovo il portale di gestione di Azure oppure tramite le utilità della riga di comando. L'attivazione del riciclo del ruolo direttamente dal toolkit per Eclipse non è attualmente supportata.
 
-### Note sulla configurazione del server
+### Note sulla configurazione del server ###
 
 Le modifiche apportate nella pagina delle proprietà **Server configuration** vengono riflesse negli elementi `<component>` del file package.xml.
 
@@ -373,7 +374,7 @@ Per disabilitare la verifica del download, ad esempio se si ritiene che rallenti
 Se è stata selezionata l'opzione **Automatically upload...**, nella finestra della console verranno visualizzati messaggi di compilazione che indicano lo stato di avanzamento del caricamento ogni 5 secondi, ogni volta che è necessaria un'operazione di caricamento.
 
 <a name="ssl_offloading_properties"></a>
-### Proprietà di offload SSL
+### Proprietà di offload SSL ###
 
 Aprire il menu di scelta rapida relativo al ruolo nel riquadro Project Explorer di Eclipse, scegliere **Azure** e quindi **SSL Offloading**.
 
@@ -381,7 +382,7 @@ Aprire il menu di scelta rapida relativo al ruolo nel riquadro Project Explorer 
 
 In questa finestra di dialogo è possibile abilitare l'offload SSL, che consente di abilitare facilmente il supporto del protocollo HTTPS ( Hypertext Transfer Protocol Secure) nella distribuzione Java in Azure, senza dover configurare SSL nel server applicazioni Java. Per altre informazioni, vedere l'articolo relativo all'[offload SSL][] e l'articolo su [come usare l'offload SSL][].
 
-## Vedere anche 
+## Vedere anche ##
 
 [Toolkit di Azure per Eclipse][]
 

@@ -1,22 +1,24 @@
 <properties
-	pageTitle="Creare un servizio cloud Hello World per Azure in Eclipse"
-	description="Informazioni su come creare una semplice applicazione Hello World usando Azure Toolkit per Eclipse."
-	services=""
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor=""/>
+    pageTitle="Creare un servizio cloud Hello World per Azure in Eclipse"
+    description="Informazioni su come creare una semplice applicazione Hello World usando Azure Toolkit per Eclipse."
+    services=""
+    documentationCenter="java"
+    authors="rmcmurray"
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="multiple"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/11/2016" 
-	ms.author="robmcm"/>
+    ms.service="multiple"
+    ms.workload="na"
+    ms.tgt_pltfrm="multiple"
+    ms.devlang="Java"
+    ms.topic="article"
+    ms.date="08/11/2016" 
+    ms.author="robmcm"/>
 
-# Creare un servizio cloud Hello World per Azure in Eclipse
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690944.aspx -->
+
+# Creare un servizio cloud Hello World per Azure in Eclipse #
 
 La procedura seguente illustra come creare e distribuire un'applicazione JSP di base in Azure usando Azure Toolkit per Eclipse. Per semplicità è riportato un esempio JSP, ma è possibile adottare una procedura molto simile anche per un servlet Java, per quanto riguarda la distribuzione di Azure.
 
@@ -24,7 +26,7 @@ L'applicazione sarà simile alla seguente:
 
 ![][ic600360]
 
-## Prerequisiti
+## Prerequisiti ##
 
 * Java Developer Kit (JDK) versione 1.7 o successiva.
 * IDE Eclipse per sviluppatori Java EE, Indigo o versione successiva. È possibile scaricare il pacchetto all'indirizzo <http://www.eclipse.org/downloads/>.
@@ -32,7 +34,7 @@ L'applicazione sarà simile alla seguente:
 * Sottoscrizione di Azure, che può essere acquistata all'indirizzo <http://azure.microsoft.com/pricing/purchase-options/>.
 * Azure Toolkit per Eclipse. Per altre informazioni, vedere [Installazione di Azure Toolkit per Eclipse][].
 
-## Creare un'applicazione Hello World JSP
+## Creare un'applicazione Hello World JSP ##
 
 Creare innanzitutto un progetto Java.
 
@@ -53,7 +55,7 @@ Creare innanzitutto un progetto Java.
 ```
 * Salvare index.jsp.
 
-## Per distribuire l'applicazione in Azure in modo semplice e rapido
+## Per distribuire l'applicazione in Azure in modo semplice e rapido ##
 
 Quando un'applicazione Web Java è pronta per il test, è possibile usare la scorciatoia seguente per provarla direttamente nel cloud di Azure.
 
@@ -97,7 +99,7 @@ Anche se questa procedura dettagliata è stata studiata per una distribuzione ne
 
 >[AZURE.WARNING] A questo punto l'applicazione Azure è stata distribuita nel cloud. Prima di continuare, tuttavia, tenere presente che per un'applicazione distribuita, anche se non in esecuzione, verrà accumulato tempo fatturabile per la sottoscrizione. È quindi estremamente importante eliminare le distribuzioni indesiderate dalla sottoscrizione di Azure.
 
-## Informazioni sui progetti di distribuzione di Azure
+## Informazioni sui progetti di distribuzione di Azure ##
 
 Per distribuire una o più applicazioni Java in Azure, è necessario un progetto di distribuzione di Azure. Questo svolge il ruolo di "pacchetto" in cui le applicazioni devono essere racchiuse per essere pubblicate in Azure.
 
@@ -122,7 +124,7 @@ Per modificare il pacchetto JDK, il server applicazioni o l'elenco di applicazio
 
 Indipendentemente dal fatto che la procedura di configurazione server sia stata avviata con la modifica di un progetto di distribuzione di Azure esistente, come illustrato sopra, o con la creazione di un nuovo progetto da zero, verrà visualizzato lo stesso tipo di finestre di dialogo che consentono di configurare il pacchetto JDK, i componenti server e delle applicazioni. Per altre informazioni su come modificare le impostazioni nelle finestre di dialogo, ad esempio per modificare il pacchetto JDK, il server applicazioni e aggiungere o rimuovere applicazioni in una distribuzione, vedere l'articolo relativo alle [proprietà di configurazione server][].
 
-## Solo Windows: per distribuire l'applicazione nell'emulatore di calcolo
+## Solo Windows: per distribuire l'applicazione nell'emulatore di calcolo ##
 
 >[AZURE.NOTE] L'emulatore di Azure è disponibile solo per Windows. Ignorare questa sezione se si usa un sistema operativo diverso da Windows.
 
@@ -147,7 +149,7 @@ Se si è creato un nuovo progetto di distribuzione di Azure seguendo la procedur
 
 Quando si è pronti per arrestare l'esecuzione dell'applicazione nell'emulatore di calcolo, nella barra degli strumenti di Eclipse fare clic sul pulsante **Reset Azure Emulator**, ![][ic710880].
 
-## Per eliminare la distribuzione
+## Per eliminare la distribuzione ##
 
 Per eliminare la distribuzione in Azure Toolkit per Eclipse, assicurarsi che Project Explorer di Eclipse sia la finestra attiva e che sia selezionato **MyHelloWorld\_onAzure** quindi fare clic sul pulsante **Unpublish** ![][ic710883] nella barra degli strumenti di Eclipse. È possibile effettuare la stessa operazione facendo clic con il pulsante destro del mouse su **MyHelloWorld\_onAzure** in Project Explorer di Eclipse, facendo clic su **Azure** e quindi su **Undeploy from Azure Cloud**. Verrà visualizzata la finestra di dialogo **Unpublish Azure Project**.
 
@@ -157,7 +159,7 @@ Selezionare la sottoscrizione, il servizio cloud contenente la distribuzione e l
 
 In alternativa all'uso del toolkit per eliminare la distribuzione, è possibile usare la sezione **Servizi cloud** del portale di gestione di Azure: passare alla distribuzione desiderata, selezionarla e fare clic sul pulsante **Elimina**. In questo modo la distribuzione viene arrestata e quindi eliminata. Se si desidera semplicemente arrestare la distribuzione e non eliminarla, fare clic sul pulsante **Interrompi** invece che sul pulsante **Elimina**. In questo caso però, come già indicato, se non si elimina la distribuzione si accumuleranno le spese fatturabili anche se la distribuzione viene arrestata.
 
-## Vedere anche
+## Vedere anche ##
 
 [Toolkit di Azure per Eclipse][]
 
