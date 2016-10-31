@@ -1,20 +1,20 @@
 <properties
- pageTitle="Guida per gli sviluppatori: metodi diretti | Microsoft Azure"
- description="Guida per gli sviluppatori dell'hub IoT di Azure: usare metodi diretti per richiamare il codice nei dispositivi"
- services="iot-hub"
- documentationCenter=".net"
- authors="nberdy"
- manager="timlt"
- editor=""/>
+	pageTitle="Guida per gli sviluppatori: metodi diretti | Microsoft Azure"
+	description="Guida per gli sviluppatori dell'hub IoT di Azure: usare metodi diretti per richiamare il codice nei dispositivi"
+	services="iot-hub"
+	documentationCenter=".net"
+	authors="nberdy"
+	manager="timlt"
+	editor=""/>
 
 <tags
- ms.service="iot-hub"
- ms.devlang="multiple"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="09/30/2016" 
- ms.author="nberdy"/>
+	ms.service="iot-hub"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/30/2016" 
+	ms.author="nberdy"/>
 
 
 # <a name="invoke-a-direct-method-on-a-device-(preview)"></a>Richiamare un metodo diretto in un dispositivo (anteprima)
@@ -25,7 +25,7 @@ L'hub IoT offre la possibilità di richiamare metodi nei dispositivi dal cloud. 
 
 Un metodo è paragonabile a una chiamata di procedura remota che raggiunge direttamente il dispositivo. Dal cloud è possibile chiamare solo i metodi che sono stati implementati in un dispositivo. Se il cloud prova a richiamare un metodo in un dispositivo in cui tale metodo non è definito, la chiamata al metodo ha esito negativo.
 
-Ogni metodo del dispositivo è destinato a un unico dispositivo. I [processi][file lnk-devguide-jobs] permettono di richiamare i metodi in più dispositivi e di inserire in coda la chiamata al metodo per i dispositivi disconnessi.
+Ogni metodo del dispositivo è destinato a un unico dispositivo. I [processi](file lnk-devguide-jobs) permettono di richiamare i metodi in più dispositivi e di inserire in coda la chiamata al metodo per i dispositivi disconnessi.
 
 Chiunque abbia autorizzazioni di **connessione servizio** per l'hub IoT può richiamare un metodo in un dispositivo.
 

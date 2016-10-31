@@ -17,11 +17,9 @@
     ms.author="robmcm;asirveda;martinsawicki"/>
 
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->
+# Novità di Azure Toolkit for Eclipse
 
-# <a name="what's-new-in-the-azure-toolkit-for-eclipse"></a>Novità di Azure Toolkit for Eclipse
-
-## <a name="azure-toolkit-for-eclipse-releases"></a>Versioni di Azure Toolkit for Eclipse
+## Versioni di Azure Toolkit for Eclipse
 
 Questo articolo include informazioni sulle diverse versioni e sugli aggiornamenti più recenti di Azure Toolkit for Eclipse.
 
@@ -384,6 +382,6 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

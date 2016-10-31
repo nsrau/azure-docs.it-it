@@ -1,21 +1,21 @@
 <properties
-   pageTitle="Autenticazione in Azure SQL Data Warehouse | Microsoft Azure"
-   description="Autenticazione di Azure Active Directory (AAD) e SQL Server in Azure SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter=""
-   authors="byham"
-   manager="barbkess"
-   editor=""
-   tags=""/>
+	pageTitle="Autenticazione in Azure SQL Data Warehouse | Microsoft Azure"
+	description="Autenticazione di Azure Active Directory (AAD) e SQL Server in Azure SQL Data Warehouse."
+	services="sql-data-warehouse"
+	documentationCenter=""
+	authors="byham"
+	manager="barbkess"
+	editor=""
+	tags=""/>
 
 <tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="data-management"
-   ms.date="09/24/2016"
-   ms.author="rickbyh;barbkess;sonyama"/>
+	ms.service="sql-data-warehouse"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-management"
+	ms.date="09/24/2016"
+	ms.author="rickbyh;barbkess;sonyama"/>
 
 
 # <a name="authentication-to-azure-sql-data-warehouse"></a>Autenticazione in Azure SQL Data Warehouse
@@ -48,7 +48,7 @@ Per impostazione predefinita la connessione si collega al database *master* e no
 
 ## <a name="azure-active-directory-(aad)-authentication"></a>Autenticazione di Azure Active Directory (AAD)
 
-[Azure Active Directory][L'autenticazione di Azure Active Directory] è un meccanismo di connessione a SQL Data Warehouse di Microsoft Azure tramite le identità di Azure Active Directory (Azure AD). Con l'autenticazione di Azure Active Directory è possibile gestire in una posizione centrale le identità degli utenti del database e altri servizi Microsoft. La gestione centrale degli ID consente di gestire gli utenti di SQL Data Warehouse in un'unica posizione e semplifica la gestione delle autorizzazioni. 
+[L'autenticazione di Azure Active Directory](Azure Active Directory) è un meccanismo di connessione a SQL Data Warehouse di Microsoft Azure tramite le identità di Azure Active Directory (Azure AD). Con l'autenticazione di Azure Active Directory è possibile gestire in una posizione centrale le identità degli utenti del database e altri servizi Microsoft. La gestione centrale degli ID consente di gestire gli utenti di SQL Data Warehouse in un'unica posizione e semplifica la gestione delle autorizzazioni. 
 
 ### <a name="benefits"></a>Vantaggi
 

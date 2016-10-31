@@ -1,30 +1,29 @@
 <properties
-    pageTitle="Visualizzare il contenuto Javadoc in Eclipse per il pacchetto di librerie di Azure per Java"
-    description="Come visualizzare il contenuto Javadoc per le librerie di Azure in Eclipse."
-    services=""
-    documentationCenter="java"
-    authors="rmcmurray"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="Visualizzare il contenuto Javadoc in Eclipse per il pacchetto di librerie di Azure per Java"
+	description="Come visualizzare il contenuto Javadoc per le librerie di Azure in Eclipse."
+	services=""
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="08/11/2016" 
-    ms.author="robmcm"/>
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="multiple"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/11/2016" 
+	ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh698319.aspx -->
 
-# Visualizzare il contenuto Javadoc in Eclipse per il pacchetto di librerie di Azure per Java #
+# Visualizzare il contenuto Javadoc in Eclipse per il pacchetto di librerie di Azure per Java
 
 Il contenuto Javadoc per le librerie di Azure per Java può essere visualizzato nell'ambiente Eclipse associando il contenuto Javadoc per le librerie di Azure per Java. La procedura seguente mostra come usare questa funzionalità in Eclipse.
 
 Questa procedura presuppone che la libreria di Azure per Java sia già stata aggiunta al percorso di compilazione.
 
-## Visualizzare il contenuto Javadoc in Eclipse per le librerie di Azure per Java ##
+## Visualizzare il contenuto Javadoc in Eclipse per le librerie di Azure per Java
 
 * In Project Explorer di Eclipse, nella sezione del progetto **Librerie a cui si fa riferimento**, aprire il menu di scelta rapida per la libreria di Azure per Java JAR. Ad esempio, **microsoft-windowsazure-api-0.1.0.jar** (il numero della versione può essere diverso, a seconda della versione installata).
 * Fare clic su **Proprietà**.
@@ -39,7 +38,7 @@ Una volta associato alla libreria, il contenuto Javadoc deve essere visualizzato
 
 ![][ic553488]
 
-## Vedere anche ##
+## Vedere anche
 
 [Toolkit di Azure per Eclipse][]
 

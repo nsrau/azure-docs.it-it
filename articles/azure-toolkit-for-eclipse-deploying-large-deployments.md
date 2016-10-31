@@ -1,28 +1,28 @@
 <properties
-    pageTitle="Distribuire distribuzioni di grandi dimensioni"
-    description="Informazioni su come distribuire le distribuzioni di grandi dimensioni usando il Toolkit di Azure per Eclipse."
-    services=""
-    documentationCenter="java"
-    authors="rmcmurray"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="Distribuire distribuzioni di grandi dimensioni"
+	description="Informazioni su come distribuire le distribuzioni di grandi dimensioni usando il Toolkit di Azure per Eclipse."
+	services=""
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="08/11/2016" 
-    ms.author="robmcm"/>
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="multiple"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/11/2016" 
+	ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn268601.aspx -->
 
-# Distribuire distribuzioni di grandi dimensioni #
+
+# Distribuire distribuzioni di grandi dimensioni
 
 Se la distribuzione è troppo grande per essere contenuta nella cartella approot predefinita, è possibile usare una risorsa di archiviazione locale come la cartella radice di distribuzione per il JDK e il server dell’applicazione.
 
-## Per utilizzare una risorsa di archiviazione locale come la cartella radice di distribuzione per distribuzioni di grandi dimensioni ##
+## Per utilizzare una risorsa di archiviazione locale come la cartella radice di distribuzione per distribuzioni di grandi dimensioni
 
 1. Creare una nuova una risorsa di archiviazione locale Il nome della risorsa non è rilevante. Le risorse di archiviazione sono definite a livello di ruolo. Il modo più rapido per avere accesso alla finestra di dialogo di configurazione dell’archiviazione locale, da cui è possibile creare una nuova risorsa di archiviazione locale, è quello di accedere utilizzando la procedura seguente: fare clic con il tasto destro sul ruolo nella visualizzazione **Project Explorer** (espandere il nodo del progetto di Azure se non viene visualizzato il ruolo), fare clic su **Azure**, quindi fare clic su **Archiviazione locale**. Nella finestra di dialogo **Archiviazione locale**, fare clic su **Aggiungi** per creare una nuova risorsa di archiviazione locale.
 1. Impostare le dimensioni desiderate ad almeno 2048 MB (qualunque valore inferiore potrebbe causare gli stessi problemi di dimensioni del file che si riscontrerebbero nella cartella approot).
@@ -33,7 +33,7 @@ In alternativa, se si utilizza **DEPLOYROOT** come *nome* della risorsa locale e
 
 Altre informazioni sulla creazione di una risorsa di archiviazione locale sono reperibili in [Proprietà dell’archiviazione locale][].
 
-## Vedere anche ##
+## Vedere anche
 
 [Toolkit di Azure per Eclipse][]
 

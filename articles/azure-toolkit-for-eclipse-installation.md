@@ -16,9 +16,8 @@
 	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
 
-# Installare il Toolkit di Azure per Eclipse.
+# Installare il Toolkit di Azure per Eclipse
 
 Il Toolkit di Azure per Eclipse offre modelli e funzionalità che permettono di creare, sviluppare, testare e distribuire con facilità applicazioni di Azure tramite l'ambiente di sviluppo Eclipse. Azure Toolkit for Eclipse è un progetto Open Source, il cui codice sorgente è disponibile con la licenza MIT dal sito del progetto in GitHub all'indirizzo seguente:
 
@@ -109,4 +108,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [05]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-05.png
 [06]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-06.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!-----HONumber=AcomDC_0817_2016-->

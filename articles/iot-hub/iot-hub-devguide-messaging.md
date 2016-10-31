@@ -1,20 +1,20 @@
 <properties
- pageTitle="Guida per gli sviluppatori: messaggistica | Microsoft Azure"
- description="Guida per gli sviluppatori dell'hub IoT di Azure: messaggistica da dispositivo a cloud e da cloud a dispositivo"
- services="iot-hub"
- documentationCenter=".net"
- authors="dominicbetts"
- manager="timlt"
- editor=""/>
+	pageTitle="Guida per gli sviluppatori: messaggistica | Microsoft Azure"
+	description="Guida per gli sviluppatori dell'hub IoT di Azure: messaggistica da dispositivo a cloud e da cloud a dispositivo"
+	services="iot-hub"
+	documentationCenter=".net"
+	authors="dominicbetts"
+	manager="timlt"
+	editor=""/>
 
 <tags
- ms.service="iot-hub"
- ms.devlang="multiple"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="09/30/2016" 
- ms.author="dobett"/>
+	ms.service="iot-hub"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/30/2016" 
+	ms.author="dobett"/>
 
 
 # <a name="send-and-receive-messages-with-iot-hub"></a>Inviare e ricevere messaggi con l'hub IoT
@@ -324,7 +324,7 @@ Ora che si è appreso come inviare e ricevere messaggi con l'hub IoT, è possibi
 - [Manage device identities in IoT Hub][lnk-devguide-identities] (Gestire le identità dei dispositivi nell'hub IoT)
 - [Controllare l'accesso all'hub IoT][lnk-devguide-security]
 - [Use device twins to synchronize state and configurations][lnk-devguide-device-twins] (Usare dispositivi gemelli per sincronizzare lo stato e le configurazioni)
-- [Invoke a direct method on a device][lnk-methods] (Richiamare un metodo diretto su un dispositivo)
+- [Invoke a direct method on a device](lnk-methods) \(Richiamare un metodo diretto su un dispositivo)
 - [Schedule jobs on multiple devices][lnk-devguide-jobs] (Pianificare processi in più dispositivi)
 
 Per provare alcuni dei concetti descritti in questo articolo, possono essere utili le esercitazioni sull'hub IoT seguenti:

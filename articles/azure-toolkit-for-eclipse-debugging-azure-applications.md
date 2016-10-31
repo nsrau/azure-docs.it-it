@@ -1,24 +1,23 @@
 <properties
-    pageTitle="Debug delle applicazioni Azure in Eclipse"
-    description="Informazioni sul debug delle applicazione Azure mediante Azure Toolkit per Eclipse."
-    services=""
-    documentationCenter="java"
-    authors="rmcmurray"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="Debug delle applicazioni Azure in Eclipse"
+	description="Informazioni sul debug delle applicazione Azure mediante Azure Toolkit per Eclipse."
+	services=""
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="08/11/2016" 
-    ms.author="robmcm"/>
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="multiple"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/11/2016" 
+	ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690949.aspx -->
 
-# Debug delle applicazioni Azure in Eclipse #
+# Debug delle applicazioni Azure in Eclipse
 
 Azure Toolkit per Eclipse consente di eseguire il debug delle applicazioni, indipendentemente dal fatto che siano in esecuzione in Azure o nell'emulatore di calcolo se si usa Windows come sistema operativo. La figura seguente mostra la finestra di dialogo delle proprietà **Debugging** usata per abilitare il debug remoto:
 
@@ -28,7 +27,7 @@ In questa esercitazione si presuppone che sia già stata creata correttamente un
 
 Come punto di partenza per questo argomento verrà usata l'applicazione creata nell'esercitazione relativa all'[uso della libreria di runtime del servizio Azure in JSP][]. Se non è stato ancora fatto, creare l'applicazione prima di continuare.
 
-## Per eseguire il debug dell'applicazione durante l'esecuzione in Azure ##
+## Per eseguire il debug dell'applicazione durante l'esecuzione in Azure
 
 >[AZURE.WARNING] Il supporto attuale del toolkit per il debug remoto Java è destinato principalmente alle distribuzioni in esecuzione nell'emulatore di calcolo di Azure. Poiché la connessione di debug non è sicura, è consigliabile non abilitare il debug remoto in distribuzioni di produzione. Se è necessario eseguire il debug di un'applicazione in esecuzione sul cloud di Azure, usare una distribuzione di gestione temporanea. Occorre tuttavia ricordare che l'accesso non autorizzato alla sessione di debug è possibile se altri utenti conoscono l'indirizzo IP della distribuzione cloud, anche se si tratta di una distribuzione di gestione temporanea.
 
@@ -61,7 +60,7 @@ Come punto di partenza per questo argomento verrà usata l'applicazione creata n
 
 >[AZURE.NOTE] Se si tenta di avviare una connessione di debug remoto in una distribuzione in cui sono in esecuzione più istanze del ruolo, non sarà possibile controllare l'istanza a cui il debugger verrà connesso inizialmente, poiché il bilanciamento del carico di Azure sceglierà un'istanza in modo casuale. Dopo la connessione all'istanza, si continuerà a eseguire il debug della stessa istanza. Si noti anche che in caso di un periodo di inattività superiore a 4 minuti (ad esempio in caso di arresto in corrispondenza di un punto di interruzione per troppo tempo) è possibile che Azure chiuda la connessione.
 
-## Debug di un'istanza del ruolo specifica in una distribuzione a più istanze ##
+## Debug di un'istanza del ruolo specifica in una distribuzione a più istanze
 
 Quando la distribuzione è in esecuzione nel cloud, è probabile che sia eseguita in più istanze di calcolo o del ruolo. Questo permette di sfruttare la garanzia di disponibilità di Azure per il 99,95% del tempo e di scalare orizzontalmente l'applicazione.
 
@@ -75,7 +74,7 @@ Dopo la distribuzione dell'applicazione con questo endpoint dell'istanza, Azure 
 
 Quando si conosce il numero di porta pubblica assegnato all'istanza, sarà possibile farvi riferimento nella configurazione di debug in Eclipse, aggiungendolo alla fine del nome host del servizio. Questo permetterà al debugger di Eclipse di connettersi a tale istanza specifica e non alle altre istanze.
 
-## Solo Windows: per eseguire il debug dell'applicazione durante l'esecuzione nell'emulatore di calcolo ##
+## Solo Windows: per eseguire il debug dell'applicazione durante l'esecuzione nell'emulatore di calcolo
 
 >[AZURE.NOTE] L'emulatore di Azure è disponibile solo per Windows. Ignorare questa sezione se si usa un sistema operativo diverso da Windows.
 
@@ -107,12 +106,12 @@ Quando si conosce il numero di porta pubblica assegnato all'istanza, sarà possi
 
 Questa sezione ha illustrato come eseguire il debug nell'emulatore di calcolo. La sezione successiva illustra come eseguire il debug di un'applicazione distribuita in Azure.
 
-## Note sul debug ##
+## Note sul debug
 
 * Dopo il debug, è possibile passare dal **Debug** a **Java** tramite il menu di Eclipse, facendo clic su **Window**, **Open Perspective** e selezionando la prospettiva da usare.
 * Per abilitare il debug remoto in GlassFish, non usare la funzionalità di configurazione del debug remoto di Azure Toolkit per Eclipse, ma configurare GlassFish manualmente. A causa del modo in cui GlassFish gestisce le opzioni Java predefinite nelle variabili di ambiente, la funzionalità di configurazione del debug remoto del toolkit non funziona correttamente con GlassFish. Se la funzionalità di configurazione del debug remoto del toolkit è abilitata, potrebbe impedire l'avvio di GlassFish.
 
-## Vedere anche ##
+## Vedere anche
 
 [Toolkit di Azure per Eclipse][]
 

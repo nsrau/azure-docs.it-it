@@ -1,20 +1,20 @@
 <properties
-    pageTitle="Come usare l'archiviazione tabelle da PHP | Microsoft Azure"
-    description="Informazioni su come usare il Servizio tabelle da PHP per creare ed eliminare una tabella e per inserire, eliminare ed eseguire query su tabelle."
-    services="storage"
-    documentationCenter="php"
-    authors="tamram"
-    manager="carmonm"
-    editor="tysonn"/>
+	pageTitle="Come usare l'archiviazione tabelle da PHP | Microsoft Azure"
+	description="Informazioni su come usare il Servizio tabelle da PHP per creare ed eliminare una tabella e per inserire, eliminare ed eseguire query su tabelle."
+	services="storage"
+	documentationCenter="php"
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="php"
-    ms.topic="article"
-    ms.date="10/18/2016"
-    ms.author="tamram"/>
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="php"
+	ms.topic="article"
+	ms.date="10/18/2016"
+	ms.author="tamram"/>
 
 
 
@@ -221,7 +221,7 @@ Il metodo **TableRestProxy->getEntity** consente di recuperare una singola entit
 
 ## <a name="retrieve-all-entities-in-a-partition"></a>Recuperare tutte le entità di una partizione
 
-Le query di entità vengono create usando filtri (per altre informazioni, vedere [Query di tabelle ed entità][filtri]). Per recuperare tutte le entità in una partizione usare il filtro "PartitionKey eq *partition_name*". Nell'esempio seguente viene illustrato come recuperare tutte le entità nella partizione `tasksSeattle` passando un filtro al metodo **queryEntities** .
+Le query di entità vengono create usando filtri (per altre informazioni, vedere [Query di tabelle ed entità](filtri). Per recuperare tutte le entità in una partizione usare il filtro "PartitionKey eq *partition_name*". Nell'esempio seguente viene illustrato come recuperare tutte le entità nella partizione `tasksSeattle` passando un filtro al metodo **queryEntities** .
 
     require_once 'vendor/autoload.php';
 
@@ -253,7 +253,7 @@ Le query di entità vengono create usando filtri (per altre informazioni, vedere
 
 ## <a name="retrieve-a-subset-of-entities-in-a-partition"></a>Recuperare un subset di entità in una partizione
 
-Lo stesso modello applicato nell'esempio precedente può essere usato per recuperare un subset di entità in una partizione. Il subset di entità recuperato sarà determinato dal filtro utilizzato (per altre informazioni, vedere [Query di tabelle ed entità][filtri]). L'esempio seguente illustra come usare un filtro per recuperare tutte le entità con un valore `Location` specifico e un valore `DueDate` minore di una data specificata.
+Lo stesso modello applicato nell'esempio precedente può essere usato per recuperare un subset di entità in una partizione. Il subset di entità recuperato sarà determinato dal filtro utilizzato (per altre informazioni, vedere [Query di tabelle ed entità](filtri). L'esempio seguente illustra come usare un filtro per recuperare tutte le entità con un valore `Location` specifico e un valore `DueDate` minore di una data specificata.
 
     require_once 'vendor/autoload.php';
 

@@ -1,24 +1,24 @@
 <properties
-    pageTitle="Endpoint del servizio di Azure"
-    description="Descrive le impostazioni dell’Endpoint del servizio di Azure nel Toolkit di Azure per Eclipse."
-    services=""
-    documentationCenter="java"
-    authors="rmcmurray"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="Endpoint del servizio di Azure"
+	description="Descrive le impostazioni dell’Endpoint del servizio di Azure nel Toolkit di Azure per Eclipse."
+	services=""
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="08/11/2016" 
-    ms.author="robmcm"/>
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="multiple"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/11/2016" 
+	ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn268600.aspx -->
 
-# Endpoint del servizio di Azure #
+
+# Endpoint del servizio di Azure
 
 Gli endpoint del servizio di Azure determinano se l'applicazione è distribuita e gestita dalla piattaforma Azure globale, da Azure gestito da 21Vianet in Cina o da una piattaforma Azure privata. La finestra di dialogo **Endpoint del servizio** consente di specificare quali endpoint del servizio si desidera usare. Per aprire la finestra di dialogo **Endpoint del servizio**, in Eclipse, fare clic su **Finestra**, fare clic su **Preferenze**, espandere **Azure**, quindi fare clic su **Endpoint del servizio**. L'impostazione del campo **Set attivo** determina quali endpoint del servizio di Azure verranno usati per i progetti di Azure nell'area di lavoro corrente.
 
@@ -26,7 +26,7 @@ Di seguito viene mostrata la finestra di dialogo **Endpoint del servizio** .
 
 ![][ic719493]
 
-## Per impostare gli endpoint del servizio ##
+## Per impostare gli endpoint del servizio
 
 Nella finestra di dialogo **Endpoint del servizio**, eseguire una delle seguenti operazioni:
 
@@ -41,7 +41,7 @@ Nella finestra di dialogo **Endpoint del servizio**, eseguire una delle seguenti
     6. Dall'elenco a discesa **Set attivo** selezionare il set attivo creato e fare clic su **OK**.
     7. Dopo aver creato l’elemento `preferenceset` della piattaforma Azure privata, è possibile modificare i valori assegnati ad essa facendo clic sul pulsante **Modifica** nella finestra di dialogo **Endpoint dei servizi**. È inoltre possibile creare più elementi `preferenceset` della piattaforma Azure privata, se lo si desidera.
 
-## Vedere anche ##
+## Vedere anche
 
 [Toolkit di Azure per Eclipse][]
 
@@ -62,4 +62,4 @@ Per altre informazioni su come usare Azure con Java, visitare il [Centro per svi
 
 [ic719493]: ./media/azure-toolkit-for-eclipse-azure-service-endpoints/ic719493.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!-----HONumber=AcomDC_0817_2016-->
