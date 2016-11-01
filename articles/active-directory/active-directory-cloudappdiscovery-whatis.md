@@ -4,7 +4,7 @@
     services="active-directory"
     keywords="cloud app discovery, gestione delle applicazioni"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 

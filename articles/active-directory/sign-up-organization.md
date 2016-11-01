@@ -3,7 +3,7 @@
     description="Informazioni sull'uso di un account di lavoro o di scuola per sfruttare gli account utente, i criteri e le impostazioni esistenti o le distribuzioni del server locali già configurate e migliorare l'efficienza tra l'infrastruttura di identità locale aziendale e Azure AD."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 

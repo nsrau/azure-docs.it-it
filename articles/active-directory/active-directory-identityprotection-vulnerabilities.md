@@ -4,7 +4,7 @@
     services="active-directory"
     keywords="azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -27,7 +27,7 @@ Le vulnerabilità sono punti deboli in un ambiente che possono essere sfruttati 
 
 Le sezioni seguenti presentano una panoramica delle vulnerabilità segnalate da Identity Protection.
 
-## <a name="multi-factor-authentication-registration-not-configured"></a>Registrazione per l'autenticazione a più fattori non configurata 
+## <a name="multifactor-authentication-registration-not-configured"></a>Registrazione per l'autenticazione a più fattori non configurata 
 
 Questa vulnerabilità consente di controllare la distribuzione di Azure Multi-Factor Authentication all'interno dell'organizzazione. 
 

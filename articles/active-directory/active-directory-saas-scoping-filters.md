@@ -3,7 +3,7 @@
     description="Informazioni su come usare i filtri per la definizione dell'ambito per evitare che venga eseguito il provisioning degli oggetti inclusi nelle app che supportano il provisioning automatico degli utenti se un oggetto non soddisfa i requisiti aziendali."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -18,7 +18,7 @@
 
 
 
-# <a name="attribute-based-app-provisioning-with-scoping-filters"></a>Provisioning dell'app basato su attributi con filtri per la definizione dell'ambito
+# <a name="attributebased-app-provisioning-with-scoping-filters"></a>Provisioning dell'app basato su attributi con filtri per la definizione dell'ambito
 
 Questa sezione spiega come usare i filtri per la definizione dell'ambito per definire regole basate su attributi per determinare gli utenti per i quali verrà eseguito il provisioning nell'applicazione.
 

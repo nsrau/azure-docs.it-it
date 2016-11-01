@@ -3,7 +3,7 @@
     description="Questo argomento illustra le considerazioni sulla sicurezza e sulla privacy correlate a Cloud App Discovery."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -147,7 +147,7 @@ Il nostro obiettivo consiste nell'offrire agli amministratori gli strumenti nece
 Cloud App Discovery Endpoint Agent raccoglie solo le informazioni indicate nella sezione **Dati raccolti dall'agente** precedente.
 
 
-### <a name="intercepting-data-from-encrypted-connections-(deep-inspection)"></a>Intercettazione dei dati da connessioni crittografate (Ispezione approfondita)
+### <a name="intercepting-data-from-encrypted-connections-deep-inspection"></a>Intercettazione dei dati da connessioni crittografate (Ispezione approfondita)
 Come accennato in precedenza, gli amministratori possono configurare l'agente in modo che effettui il monitoraggio dei dati da connessioni crittografate ('Ispezione approfondita'). Il protocollo TLS ([Transport Layer Security](https://msdn.microsoft.com/library/windows/desktop/aa380516%28v=vs.85%29.aspx)) è uno dei protocolli Internet utilizzati più di frequente. La crittografia delle comunicazioni tramite protocollo TLS, consente ai clienti di stabilire un canale di comunicazione sicuro e privato con un server Web. Il protocollo TLS fornisce la protezione essenziale per passare le credenziali di autenticazione e impedire la divulgazione di informazioni riservate.
 
 Anche se il canale crittografato protetto end-to-end offerto da TLS consente di tutelare la sicurezza e la privacy, questo protocollo viene spesso usato per scopi dannosi o non autorizzati. È per questo motivo che in realtà TLS viene spesso definito come il "protocollo universale di bypass del firewall". Il problema dipende dal fatto che la maggior parte dei firewall non è in grado di esaminare le comunicazioni TLS perché i dati a livello di applicazione sono crittografati con SSL. Gli autori di attacchi che conoscono questa limitazione sfruttano quindi il protocollo TLS per recapitare payload dannosi agli utenti nella certezza che persino i firewall a livello di applicazione più intelligenti non riconoscono TLS e devono semplicemente inoltrare le comunicazioni TLS tra host. Spesso gli utenti finali sfruttano il protocollo TLS per ignorare i controlli di accesso applicati da firewall e server proxy aziendali, usandolo per connettersi a proxy pubblici e per il tunneling tramite il firewall di protocolli non TLS che altrimenti verrebbero bloccati da appositi criteri.

@@ -3,7 +3,7 @@
     description="Informazioni su come usare i vari tipi di pannello di accesso (Web browser, app per Android e app per iPhone e iPad) per accedere alle app SaaS assegnate all'utente."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -150,13 +150,13 @@ Se un'organizzazione usa applicazioni di Office 365 e l'utente ha le relative li
 
 Quando fa clic sul riquadro di un'applicazione di Office 365, l'utente viene reindirizzato a tale applicazione e l'accesso viene eseguito automaticamente.
 
-### <a name="microsoft-and-third-party-applications-configured-with-federation-based-sso"></a>Applicazioni Microsoft e di terze parti configurate con il servizio Single Sign-On basato su federazione
+### <a name="microsoft-and-thirdparty-applications-configured-with-federationbased-sso"></a>Applicazioni Microsoft e di terze parti configurate con il servizio Single Sign-On basato su federazione
 
 Queste sono applicazioni aggiunte dall'amministratore nella sezione Active Directory del portale di gestione di Azure con la modalità Single Sign-On impostata su*Single Sign-On di Microsoft Azure AD*. Un utente visualizzerà queste applicazioni solo se gli è stato esplicitamente concesso l'accesso dall'amministratore.
 
 Quando fa clic sul riquadro di una di queste applicazioni, l'utente viene reindirizzato a tale applicazione e l'accesso viene eseguito automaticamente.
 
-### <a name="password-based-sso-without-identity-provisioning"></a>Single Sign-On basato su password senza provisioning delle identità
+### <a name="passwordbased-sso-without-identity-provisioning"></a>Single Sign-On basato su password senza provisioning delle identità
 
 Queste sono applicazioni aggiunte dall'amministratore nella sezione Active Directory del portale di gestione di Azure con la modalità Single Sign-On impostata su*Password-based Single Sign-On*(Single Sign-On basato su password). <br>  Tutti gli utenti della directory visualizzeranno tutte le applicazioni che sono state configurate in questa modalità.
 
@@ -166,7 +166,7 @@ La volta successiva in cui l'utente fa clic sul riquadro dell'applicazione, l'ac
 
 Se le credenziali dell'utente sono cambiate nell'applicazione di terze parti di destinazione, l'utente deve aggiornare anche le credenziali archiviate in Azure AD. Per aggiornare le credenziali, un utente deve fare clic sull'icona nell'angolo inferiore destro del riquadro dell'applicazione e selezionare l'opzione di aggiornamento delle credenziali per immettere di nuovo il nome utente e la password per l'applicazione.
 
-### <a name="password-based-sso-with-identity-provisioning"></a>Single Sign-On basato su password con provisioning delle identità
+### <a name="passwordbased-sso-with-identity-provisioning"></a>Single Sign-On basato su password con provisioning delle identità
 
 Queste sono applicazioni aggiunte dall'amministratore nella sezione Active Directory del portale di gestione di Azure con la modalità Single Sign-On impostata su*Password-based Single Sign-On*(Single Sign-On basato su password) e il provisioning delle identità.
 

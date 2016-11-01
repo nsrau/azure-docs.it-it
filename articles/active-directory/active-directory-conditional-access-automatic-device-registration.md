@@ -3,7 +3,7 @@
     description="L'amministratore IT può scegliere di registrare con Azure Active Directory (Azure AD) i dispositivi Windows aggiunti a un dominio in modo automatico e invisibile all'utente."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -17,7 +17,7 @@
     ms.author="markvi"/>
 
 
-# <a name="automatic-device-registration-with-azure-active-directory-for-windows-domain-joined-devices"></a>Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows aggiunti a un dominio
+# <a name="automatic-device-registration-with-azure-active-directory-for-windows-domainjoined-devices"></a>Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows aggiunti a un dominio
 
 L'amministratore IT può scegliere di registrare in modo automatico e invisibile all'utente i dispositivi Windows aggiunti a un dominio con Azure Active Directory (Azure AD). Questa operazione può risultare utile se sono stati configurati criteri di accesso condizionale basati sul dispositivo per applicazioni di Office 365 o applicazioni gestite in locale da AD FS. Per altre informazioni sugli scenari di registrazione dei dispositivi, vedere [Panoramica di Registrazione dispositivo di Azure Active Directory](active-directory-conditional-access-device-registration-overview.md).
 
@@ -82,7 +82,7 @@ Ad esempio, se nell'organizzazione si usano due suffissi UPN denominati @contoso
 | enterpriseregistration.contoso.com        | CNAME | enterpriseregistration.windows.net |
 | enterpriseregistration.region.contoso.com | CNAME | enterpriseregistration.windows.net |
 
-##<a name="configure-automatic-device-registration-for-windows-7-and-windows-8.1-domain-joined-devices"></a>Configurare la registrazione automatica per i dispositivi Windows 7 e Windows 8.1 aggiunti a un dominio
+##<a name="configure-automatic-device-registration-for-windows-7-and-windows-81-domain-joined-devices"></a>Configurare la registrazione automatica per i dispositivi Windows 7 e Windows 8.1 aggiunti a un dominio
 
 Configurare la registrazione automatica per i dispositivi Windows 7 e Windows 8.1 aggiunti a un dominio usando i collegamenti seguenti. Assicurarsi di aver completato i prerequisiti precedenti prima di continuare.
 

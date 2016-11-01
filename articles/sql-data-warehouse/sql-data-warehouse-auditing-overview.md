@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter=""
    authors="ronortloff"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="09/24/2016" 
-   ms.author="rortloff;barbkess;sonyama"/>
+   ms.date="10/31/2016" 
+   ms.author="rortloff;barbkess"/>
 
 
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Servizio di controllo di Azure SQL Data Warehouse
@@ -31,7 +31,7 @@ Gli strumenti di controllo abilitano e facilitano il rispetto degli standard di 
 + [Configurare il controllo per il database]
 + [Analizzare i log di controllo e i report]
 
-##<a name="<a-id="subheading-1"></a>azure-sql-data-warehouse-database-auditing-basics"></a><a id="subheading-1"></a>Nozioni di base sul controllo del database di SQL Data Warehouse
+##<a name="a-idsubheading1aazure-sql-data-warehouse-database-auditing-basics"></a><a id="subheading-1"></a>Nozioni di base sul controllo del database di SQL Data Warehouse
 
 
 Il controllo del database SQL Data Warehouse consente di:
@@ -61,7 +61,7 @@ Un criterio di controllo può essere definito per un database specifico o come c
 Prima di impostare il controllo verificare che si stia utilizzando un ["Client di livello inferiore"](sql-data-warehouse-auditing-downlevel-clients.md).
 
 
-##<a name="<a-id="subheading-2"></a>set-up-auditing-for-your-database"></a><a id="subheading-2"></a>Configurare il controllo per il database
+##<a name="a-idsubheading2aset-up-auditing-for-your-database"></a><a id="subheading-2"></a>Configurare il controllo per il database
 
 1. Avviare il <a href="https://portal.azure.com" target="_blank">portale di Azure</a>.
 
@@ -92,7 +92,7 @@ Prima di impostare il controllo verificare che si stia utilizzando un ["Client d
 9. Fare clic su **OK**.
 
 
-##<a name="<a-id="subheading-3">analyze-audit-logs-and-reports</a>"></a><a id="subheading-3">Analizzare i log di controllo e i report</a>
+##<a name="a-idsubheading3analyze-audit-logs-and-reportsa"></a><a id="subheading-3">Analizzare i log di controllo e i report</a>
 
 I log di controllo vengono aggregati in una raccolta di tabelle di archiviazione con il prefisso **SQLDBAuditLogs** nell'account di archiviazione di Azure scelto durante l'installazione. È possibile visualizzare i file di log con uno strumento come <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Esplora archivi di Azure</a>.
 
@@ -105,11 +105,11 @@ Per istruzioni dettagliate sull'uso del modello di report, scaricare il document
 ![][5]
 
 
-##<a name="<a-id="subheading-4">practices-for-usage-in-production</a>"></a><a id="subheading-4">Procedure per l'uso in produzione</a>
+##<a name="a-idsubheading4practices-for-usage-in-productiona"></a><a id="subheading-4">Procedure per l'uso in produzione</a>
 La descrizione in questa sezione fa riferimento alle schermate precedenti. È possibile usare il <a href="https://portal.azure.com" target="_blank">portale di Azure</a> o il <a href= "https://manage.windowsazure.com/" target="_bank">portale di Azure classico</a>.
 
 
-##<a name="<a-id="subheading-5"></a>storage-key-regeneration"></a><a id="subheading-5"></a>Rigenerazione delle chiavi di archiviazione
+##<a name="a-idsubheading5astorage-key-regeneration"></a><a id="subheading-5"></a>Rigenerazione delle chiavi di archiviazione
 
 Durante la produzione è probabile che si aggiornino periodicamente le chiavi di archiviazione. Quando si aggiornano le chiavi, è necessario salvare nuovamente il criterio. Il processo è il seguente:
 
@@ -122,7 +122,7 @@ Durante la produzione è probabile che si aggiornino periodicamente le chiavi di
 
 4. Tornare all'interfaccia utente di archiviazione e **rigenerare** la *Chiave di accesso secondaria* (in preparazione al successivo ciclo di aggiornamento delle chiavi).
 
-##<a name="<a-id="subheading-6"></a>automation"></a><a id="subheading-6"></a>Automazione
+##<a name="a-idsubheading6aautomation"></a><a id="subheading-6"></a>Automazione
 Sono disponibili numerosi cmdlet di PowerShell che è possibile usare per configurare il controllo nel database SQL di Azure. Per accedere ai cmdlet di controllo, è necessario che PowerShell sia in esecuzione in modalità Gestione risorse di Azure.
 
 > [AZURE.NOTE] Il modulo [Gestione risorse di Azure](https://msdn.microsoft.com/library/dn654592.aspx) è al momento in fase di anteprima. Potrebbe non fornire le stesse funzionalità di gestione del modulo di Azure.

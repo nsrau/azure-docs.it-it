@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Distribuzione di tabelle in SQL Data Warehouse | Microsoft Azure"
-   description="Introduzione alla distribuzione di tabelle in SQL Data Warehouse di Azure."
+   pageTitle="Distributing tables in SQL Data Warehouse | Microsoft Azure"
+   description="Getting started with distributing tables in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -13,55 +13,56 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/30/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="jrj;barbkess"/>
 
-# Distribuzione di tabelle in SQL Data Warehouse
+
+# <a name="distributing-tables-in-sql-data-warehouse"></a>Distributing tables in SQL Data Warehouse
 
 > [AZURE.SELECTOR]
-- [Panoramica][]
-- [Tipi di dati][]
-- [Distribuzione][]
+- [Overview][]
+- [Data Types][]
+- [Distribute][]
 - [Index][]
 - [Partition][]
-- [Statistiche][]
-- [Temporanee][]
+- [Statistics][]
+- [Temporary][]
 
-SQL Data Warehouse è un sistema di database distribuito a elaborazione parallela massiva. Suddividendo i dati e le funzionalità di elaborazione tra più nodi, SQL Data Warehouse offre grande scalabilità, ben oltre qualsiasi sistema singolo. La distribuzione dei dati all'interno di SQL Data Warehouse è tra i fattori principali che permettono di ottenere prestazioni ottimali. Per ottenere prestazioni ottimali è importante ridurre al minimo lo spostamento dei dati e, per fare ciò, è importante scegliere la giusta strategia di distribuzione.
+SQL Data Warehouse is a massively parallel processing (MPP) distributed database system.  By dividing data and processing capability across multiple nodes, SQL Data Warehouse can offer huge scalability - far beyond any single system.  Deciding how to distribute your data within your SQL Data Warehouse is one of the most important factors to achieving optimal performance.   The key to optimal performance is minimizing data movement and in turn the key to minimizing data movement is selecting the right distribution strategy.
 
-## Comprendere lo spostamento dei dati
+## <a name="understanding-data-movement"></a>Understanding data movement
 
-In un sistema MPP i dati di ogni tabella sono suddivisi in più database sottostanti. Le query maggiormente ottimizzate in un sistema MPP possono semplicemente essere passate per l'esecuzione sui singoli database distribuiti, senza alcuna interazione con gli altri database. Ad esempio, si supponga di avere un database con dati di vendita che contiene due tabelle, per vendite e clienti. Se si ha una query che deve creare un join tra la tabella delle vendite con quella dei clienti e si dividono entrambe le tabelle per numero di cliente, inserendo ogni cliente in un database distinto, tutte le query che uniscono vendite e clienti possono essere risolte all'interno di ogni database senza scambio di informazioni con gli altri database. Al contrario, se si dividono i dati di vendita per numero d'ordine e i dati dei clienti per numero di cliente, qualsiasi database specificato non avrà i dati corrispondenti per ogni cliente e quindi se vogliono unire i dati di vendita con quelli dei clienti, sarà necessario ottenere i dati per ogni cliente dagli altri database. Nel secondo esempio lo spostamento dei dati si renderà necessario per spostare i dati dei cliente nei dati di vendita, in modo da consentire l'unione delle due tabelle.
+In an MPP system, the data from each table is divided across several underlying databases.  The most optimized queries on an MPP system can simply be passed through to execute on the individual distributed databases with no interaction between the other databases.  For example, let's say you have a database with sales data which contains two tables, sales and customers.  If you have a query that needs to join your sales table to your customer table and you divide both your sales and customer tables up by customer number, putting each customer in a separate database, any queries which join sales and customer can be solved within each database with no knowledge of the other databases.  In contrast, if you divided your sales data by order number and your customer data by customer number, then any given database will not have the corresponding data for each customer and thus if you wanted to join your sales data to your customer data, you would need to get the data for each customer from the other databases.  In this second example, data movement would need to occur to move the customer data to the sales data, so that the two tables can be joined.  
 
-Lo spostamento dei dati non è sempre una procedura negativa, talvolta è necessaria per risolvere una query. Quando tuttavia è possibile evitare questo passaggio supplementare, la query verrà naturalmente eseguita più velocemente. In genere lo spostamento dei dati si verifica quando le tabelle vengono unite in join o vengono eseguite aggregazioni. Spesso è necessario eseguire entrambe le operazioni, quindi anche se si può procedere all'ottimizzazione per uno scenario, ad esempio un join, lo spostamento dei dati è comunque necessario per facilitare la risoluzione per l'altro scenario, ad esempio un'aggregazione. Il trucco è scoprire quale delle due soluzioni è meno impegnativa. Nella maggior parte dei casi, la distribuzione di tabelle dei fatti di grandi dimensioni in una colonna di join comune è il metodo più efficace per ridurre al minimo lo spostamento dei dati. La distribuzione dei dati nelle colonne di join è un metodo molto più comune per ridurre lo spostamento dei dati rispetto alla distribuzione di dati nelle colonne coinvolte in un'aggregazione.
+Data movement isn't always a bad thing, sometimes it's necessary to solve a query.  But when this extra step can be avoided, naturally your query will run faster.  Data Movement most commonly arises when tables are joined or aggregations are performed.  Often you need to do both, so while you may be able to optimize for one scenario, like a join, you still need data movement to help you solve for the other scenario, like an aggregation.  The trick is figuring out which is less work.  In most cases, distributing large fact tables on a commonly joined column is the most effective method for reducing the most data movement.  Distributing data on join columns is a much more common method to reduce data movement than distributing data on columns involved in an aggregation.
 
-## Selezionare il metodo di distribuzione
+## <a name="select-distribution-method"></a>Select distribution method
 
-Operando in background, SQL Data Warehouse divide i dati in 60 database. Un singolo database è detto **distribuzione**. Quando i dati vengono caricati nelle singole tabelle, SQL Data Warehouse deve sapere come dividerli nelle 60 distribuzioni.
+Behind the scenes, SQL Data Warehouse divides your data into 60 databases.  Each individual database is referred to as a **distribution**.  When data is loaded into each table, SQL Data Warehouse has to know how to divide your data across these 60 distributions.  
 
-Il metodo di distribuzione viene definito a livello di tabella e attualmente sono disponibili due opzioni:
+The distribution method is defined at the table level and currently there are two choices:
 
-1. **Round robin**, che distribuisce i dati in modo uniforme ma casuale.
-2. **Distribuzione hash**, che distribuisce i dati in base ai valori hash di una singola colonna.
+1. **Round robin** which distribute data evenly but randomly.
+2. **Hash Distributed** which distributes data based on hashing values from a single column
 
-Per impostazione predefinita, quando non si definisce un metodo di distribuzione dei dati, per la tabella viene usato il metodo di distribuzione **round robin**. Tuttavia, man mano che l'implementazione si fa più sofisticata, è consigliabile usare tabelle con **distribuzione hash** per ridurre al minimo lo spostamento dei dati, ottimizzando così le prestazioni delle query.
+By default, when you do not define a data distribution method, your table will be distributed using the **round robin** distribution method.  However, as you become more sophisticated in your implementation, you will want to consider using **hash distributed** tables to minimize data movement which will in turn optimize query performance.
 
-### Tabelle round robin
+### <a name="round-robin-tables"></a>Round Robin Tables
 
-Il metodo round robin per la distribuzione dei dati è molto semplice da usare. Man mano che i dati vengono caricati, ogni riga viene semplicemente inviata alla distribuzione successiva. Questo metodo distribuisce sempre i dati in modo casuale e molto uniforme in tutte le distribuzioni. In altre parole, durante il processo round robin che inserisce i dati non viene eseguita alcuna operazione di ordinamento. Per questo motivo, una distribuzione round robin viene a volte definita hash causale. In una tabella con distribuzione round robin non è necessario comprendere i dati. Per questo motivo le tabelle round robin sono spesso un'ottima scelta come destinazioni di caricamento.
+Using the Round Robin method of distributing data is very much how it sounds.  As your data is loaded, each row is simply sent to the next distribution.  This method of distributing the data will always randomly distribute the data very evenly across all of the distributions.  That is, there is no sorting done during the round robin process which places your data.  A round robin distribution is sometimes called a random hash for this reason.  With a round-robin distributed table there is no need to understand the data.  For this reason, Round-Robin tables often make good loading targets.
 
-Per impostazione predefinita, se non viene scelto un metodo di distribuzione, viene usato il metodo di distribuzione round robin. Tuttavia, se è vero che le tabelle round robin sono facili da usare, perché i dati vengono distribuiti in modo casuale nel sistema, è anche vero che il sistema non può garantire la posizione di ogni riga nella distribuzione. Di conseguenza, a volte il sistema deve richiamare un'operazione di spostamento dei dati per organizzare meglio i dati e poter risolvere una query. Questo passaggio aggiuntivo può rallentare le query.
+By default, if no distribution method is chosen, the round robin distribution method will be used.  However, while round robin tables are easy to use, because data is randomly distributed across the system it means that the system can't guarantee which distribution each row is on.  As a result, the system sometimes needs to invoke a data movement operation to better organize your data before it can resolve a query.  This extra step can slow down your queries.
 
-Si consideri l'uso della distribuzione round robin della tabella negli scenari seguenti:
+Consider using Round Robin distribution for your table in the following scenarios:
 
-- Quando si inizia come punto di partenza semplice.
-- Se non è presente una chiave di join ovvia.
-- Se non è presente una colonna candidata ottimale per la distribuzione hash della tabella.
-- Se la tabella non condivide una chiave di join comune con altre tabelle.
-- Se il join è meno significativo di altri join nella query.
-- Quando si tratta di una tabella di staging temporaneo.
+- When getting started as a simple starting point
+- If there is no obvious joining key
+- If there is not good candidate column for hash distributing the table
+- If the table does not share a common join key with other tables
+- If the join is less significant than other joins in the query
+- When the table is a temporary staging table
 
-Entrambi gli esempi seguenti creano una tabella round robin:
+Both of these examples will create a Round Robin Table:
 
 ```SQL
 -- Round Robin created by default
@@ -95,13 +96,13 @@ WITH
 ;
 ```
 
-> [AZURE.NOTE] Anche se la tabella round robin è il tipo predefinito, la procedura consigliata è essere espliciti nella DDL in modo che le intenzioni del layout di tabella siano chiare.
+> [AZURE.NOTE] While round robin is the default table type being explicit in your DDL is considered a best practice so that the intentions of your table layout are clear to others.
 
-### Tabelle con distribuzione hash
+### <a name="hash-distributed-tables"></a>Hash Distributed Tables
 
-L'uso di un algoritmo di **distribuzione hash** per distribuire le tabelle permette di migliorare le prestazioni in molti scenari riducendo lo spostamento dei dati in fase di query. Le tabelle con distribuzione hash vengono suddivise tra i database distribuiti usando un algoritmo di hash in una singola colonna selezionata dall'utente. La colonna di distribuzione determina il modo in cui i dati vengono divisi tra i database distribuiti. La funzione hash usa la colonna di distribuzione per assegnare righe alle distribuzioni. L'algoritmo di hash e la distribuzione risultante sono deterministici. Vale a dire che per lo stesso valore con lo stesso tipo di dati viene sempre eseguito l'hash alla stessa distribuzione.
+Using a **Hash distributed** algorithm to distribute your tables can improve performance for many scenarios by reducing data movement at query time.  Hash distributed tables are tables which are divided between the distributed databases using a hashing algorithm on a single column which you select.  The distribution column is what determines how the data is divided across your distributed databases.  The hash function uses the distribution column to assign rows to distributions.  The hashing algorithm and resulting distribution is deterministic.  That is the same value with the same data type will always has to the same distribution.    
 
-Questo esempio permette di creare una tabella distribuita:
+This example will create a table distributed on id:
 
 ```SQL
 CREATE TABLE [dbo].[FactInternetSales]
@@ -121,69 +122,69 @@ WITH
 ;
 ```
 
-## Selezionare la colonna di distribuzione
+## <a name="select-distribution-column"></a>Select distribution column
 
-Per eseguire la **distribuzione hash** di una tabella, è necessario selezionare una singola colonna di distribuzione. Quando si seleziona una colonna di distribuzione occorre prendere in considerazione tre fattori importanti.
+When you choose to **hash distribute** a table, you will need to select a single distribution column.  When selecting a distribution column, there are three major factors to consider.  
 
-Selezionare una singola colonna:
+Select a single column which will:
 
-1. da non aggiornare,
-2. per distribuire i dati in modo uniforme, evitando asimmetrie,
-3. per ridurre al minimo lo spostamento dei dati.
+1. Not be updated
+2. Distribute data evenly, avoiding data skew
+3. Minimize data movement
 
-### Selezionare una colonna di distribuzione da non aggiornare
+### <a name="select-distribution-column-which-will-not-be-updated"></a>Select distribution column which will not be updated
 
-Le colonne di distribuzione non sono aggiornabili. Occorre quindi selezionare una colonna con valori statici. Se una colonna deve essere aggiornata, in generale non è un buon candidato per la distribuzione. Nel caso in cui sia necessario aggiornare una colonna di distribuzione, è possibile procedere prima di tutto eliminando la riga e poi inserendone una nuova.
+Distribution columns are not updatable, therefore, select a column with static values.  If a column will need to be updated, it is generally not a good distribution candidate.  If there is a case where you must update a distribution column, this can be done by first deleting the row and then inserting a new row.
 
-### Selezionare una colonna di distribuzione per distribuire i dati in modo uniforme
+### <a name="select-distribution-column-which-will-distribute-data-evenly"></a>Select distribution column which will distribute data evenly
 
-Dal momento che le prestazioni di un sistema distribuito equivalgono a quelle della distribuzione più lenta, è importante dividere il carico di lavoro in modo uniforme tra le distribuzioni per ottenere un'esecuzione bilanciata in tutto il sistema. Il modo in cui il carico lavoro viene diviso in un sistema distribuito dipende da dove si trovano i dati per ogni distribuzione. Per questo motivo è molto importante selezionare la colonna di distribuzione appropriata per distribuire i dati, in modo che ogni distribuzione abbia lo stesso carico di lavoro e impieghi lo stesso tempo a completarlo. Quando lavoro è diviso equamente nel sistema, i dati vengono bilanciati tra le distribuzioni. Quando i dati non sono bilanciati in modo uniforme, si parla di **differenze di dati**.
+Since a distributed system performs only as fast as its slowest distribution, it is important to divide the work evenly across the distributions in order to achieve balanced execution across the system.  The way the work is divided on a distributed system is based on where the data for each distribution lives.  This makes it very important to select the right distribution column for distributing the data so that each distribution has equal work and will take the same time to complete its portion of the work.  When work is well divided across the system, the data is balanced across the distributions.  When data is not evenly balanced, we call this **data skew**.  
 
-Per dividere i dati in modo uniforme ed evitare asimmetrie dei dati, selezionare la colonna di distribuzione tenendo presente quanto segue:
+To divide data evenly and avoid data skew, consider the following when selecting your distribution column:
 
-1. Selezionare una colonna che contiene un numero significativo di valori distinct.
-2. Evitare di distribuire dati in colonne con pochi valori distinti.
-3. Evitare di distribuire dati in colonne con una frequenza elevata di valori Null.
-4. Evitare di distribuire i dati in colonne data.
+1. Select a column which contains a significant number of distinct values.
+2. Avoid distributing data on columns with a few distinct values. 
+3. Avoid distributing data on columns with a high frequency of nulls.
+4. Avoid distributing data on date columns.
 
-Dato che per ogni valore viene eseguito l'hash in 1 delle 60 distribuzioni, per ottenere una distribuzione uniforme è consigliabile selezionare una colonna altamente univoca che contenga più di 60 valori univoci. Per illustrare questo concetto, si consideri il caso di una colonna contenente solo 40 valori univoci. Se la colonna è stata selezionata come chiave di distribuzione, i dati per la tabella potrebbero essere ricevuti su 40 distribuzioni al massimo, lasciando 20 distribuzioni senza dati o elaborazioni da eseguire. Al contrario, le altre 40 distribuzioni avrebbero un carico di lavoro maggiore rispetto a una distribuzione uniforme su 60 distribuzioni. Questo scenario è un esempio di differenza di dati.
+Since each value is hashed to 1 of 60 distributions, to achieve even distribution you will want to select a column that is highly unique and contains more than 60 unique values.  To illustrate, consider a case where a column only has 40 unique values.  If this column was selected as the distribution key, the data for that table would land on 40 distributions at most, leaving 20 distributions with no data and no processing to do.  Conversely, the other 40 distributions would have more work to do that if the data was evenly spread over 60 distributions.  This scenario is an example of data skew.
 
-Nel sistema MPP, ogni passaggio della query che tutte le distribuzioni completino la loro parte di lavoro. Se una distribuzione svolge più lavoro rispetto alle altre, allora le risorse delle altre distribuzioni vengono essenzialmente sprecate nell'attesa della distribuzione occupata. Quando si lavoro non viene distribuito uniformemente tra tutte le distribuzioni, si parla di **differenza di elaborazioni**. La differenza di elaborazioni causa un rallentamento delle query rispetto a quando un carico di lavoro può essere distribuito uniformemente in tutte le distribuzioni. La differenza di dati porta alla differenza di elaborazioni.
+In MPP system, each query step waits for all distributions to complete their share of the work.  If one distribution is doing more work than the others, then the resource of the other distributions are essentially wasted just waiting on the busy distribution.  When work is not evenly spread across all distributions, we call this **processing skew**.  Processing skew will cause queries to run slower than if the workload can be evenly spread across the distributions.  Data skew will lead to processing skew.
 
-Evitare di distribuire su una colonna con un elevato numero di valori Null, poiché questi verranno ricevuti nella stessa distribuzione. Anche la distribuzione in una colonna di data può causare una differenza di elaborazioni, perché tutti i dati per una determinata data verranno ricevuti nella stessa distribuzione. Se più utenti eseguono query che applicano tutte un filtro alla stessa data, solo 1 delle 60 distribuzioni svolgerà tutto il lavoro, dal momento che una determinata data sarà solo in una distribuzione. In questo scenario le query verranno probabilmente eseguite 60 volte più lentamente rispetto a quando i dati vengono distribuiti uniformemente in tutte le distribuzioni.
+Avoid distributing on highly nullable column as the null values will all land on the same distribution. Distributing on a date column can also cause processing skew because all data for a given date will land on the same distribution. If several users are executing queries all filtering on the same date, then only 1 of the 60 distributions will be doing all of the work since a given date will only be on one distribution. In this scenario, the queries will likely run 60 times slower than if the data were equally spread over all of the distributions. 
 
-Quando non sono disponibili colonne candidate, è consigliabile usare il metodo di distribuzione round robin.
+When no good candidate columns exist, then consider using round robin as the distribution method.
 
-### Selezionare una colonna di distribuzione per ridurre al minimo lo spostamento dei dati
+### <a name="select-distribution-column-which-will-minimize-data-movement"></a>Select distribution column which will minimize data movement
 
-Ridurre al minimo lo spostamento dei dati selezionando la colonna di distribuzione appropriata è una delle strategie principali per l'ottimizzazione delle prestazioni di SQL Data Warehouse. In genere lo spostamento dei dati si verifica quando le tabelle vengono unite in join o vengono eseguite aggregazioni. Tutte le colonne usate nelle clausole `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` e `HAVING` sono candidate **ottimali** per la distribuzione hash.
+Minimizing data movement by selecting the right distribution column is one of the most important strategies for optimizing performance of your SQL Data Warehouse.  Data Movement most commonly arises when tables are joined or aggregations are performed.  Columns used in `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` and `HAVING` clauses all make for **good** hash distribution candidates. 
 
-D'altro canto, le colonne nella clausola `WHERE` **non** sono candidate ottimali come colonne hash, perché limitano le distribuzioni che fanno parte della query, causando una differenza di elaborazioni. Un buon esempio di una colonna che su si potrebbe essere tentati di distribuire, ma che spesso può causare una differenza di elaborazioni è una colonna di data.
+On the other hand, columns in the `WHERE` clause do **not** make for good hash column candidates because they limit which distributions participate in the query, causing processing skew.  A good example of a column which might be tempting to distribute on, but often can cause this processing skew is a date column.
 
-In generale, se sono disponibili due tabelle dei fatti di grandi dimensioni, spesso coinvolte in un join, le prestazioni migliori si otterranno con la distribuzione di entrambe le tabelle in una delle colonne di join. Se è presente una tabella che non è mai stata unita a un'altra tabella dei fatti di grandi dimensioni, esaminare le colonne che sono spesso nella clausola `GROUP BY`.
+Generally speaking, if you have two large fact tables frequently involved in a join, you will gain the most performance by distributing both tables on one of the join columns.  If you have a table that is never joined to another large fact table, then look to columns that are frequently in the `GROUP BY` clause.
 
-Esistono alcuni criteri fondamentali che devono essere soddisfatti per evitare lo spostamento dei dati durante un join:
+There are a few key criteria which must be met to avoid data movement during a join:
 
-1. È necessario eseguire la distribuzione hash delle tabelle coinvolte nel join in **una** delle colonne che fanno parte del join.
-2. I tipi di dati delle colonne di join nelle due tabelle devono corrispondere.
-3. Le colonne devono essere unite con un operatore Uguale.
-4. Il tipo di join può non essere `CROSS JOIN`.
+1. The tables involved in the join must be hash distributed on **one** of the columns participating in the join.
+2. The data types of the join columns must match between both tables.
+3. The columns must be joined with an equals operator.
+4. The join type may not be a `CROSS JOIN`.
 
 
-## Risoluzione dei problemi relativi alle asimmetrie dei dati
+## <a name="troubleshooting-data-skew"></a>Troubleshooting data skew
 
-Quando i dati di una tabella sono distribuiti mediante il metodo di distribuzione hash, alcune distribuzioni presenteranno molti più dati di altre. Un'asimmetria dei dati eccessiva può compromettere le prestazioni delle query, perché per il risultato finale di una query distribuita è necessario aspettare che termini la distribuzione con il tempo di esecuzione più lungo. A seconda del grado di differenza dati potrebbe essere necessario risolvere il problema.
+When table data is distributed using the hash distribution method there is a chance that some distributions will be skewed to have disproportionately more data than others. Excessive data skew can impact query performance because the final result of a distributed query must wait for the longest running distribution to finish. Depending on the degree of the data skew you might need to address it.
 
-### Identificazione dell'asimmetria dei dati
+### <a name="identifying-skew"></a>Identifying skew
 
-Un modo semplice per identificare una differenza nelle tabelle consiste nell'uso di `DBCC PDW_SHOWSPACEUSED`. Questo è un metodo molto semplice e rapido per vedere il numero di righe della tabella archiviate in ognuna delle 60 distribuzioni del database. Tenere presente che per ottenere prestazioni più bilanciate, le righe nella tabella distribuita vanno suddivise in modo uniforme in tutte le distribuzioni.
+A simple way to identify a table as skewed is to use `DBCC PDW_SHOWSPACEUSED`.  This is a very quick and simple way to see the number of table rows that are stored in each of the 60 distributions of your database.  Remember that for the most balanced performance, the rows in your distributed table should be spread evenly across all the distributions.
 
 ```sql
 -- Find data skew for a distributed table
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-Se tuttavia si esegue una query sulle viste a gestione dinamica di Azure SQL Data Warehouse (DMV) è possibile ottenere un'analisi più dettagliata. Per iniziare, creare la vista [dbo.vTableSizes][] usando il codice SQL fornito nell'articolo [Panoramica delle tabelle][Overview]. Dopo aver creato la vista, eseguire questa query per identificare le tabelle con un'asimmetria dei dati superiore al 10%.
+However, if you query the Azure SQL Data Warehouse dynamic management views (DMV) you can perform a more detailed analysis.  To start, create the view [dbo.vTableSizes][] view using the SQL from [Table Overview][Overview] article.  Once the view is created, run this query to identify which tables have more than 10% data skew.
 
 ```sql
 select *
@@ -195,22 +196,22 @@ where two_part_name in
     where row_count > 0
     group by two_part_name
     having min(row_count * 1.000)/max(row_count * 1.000) > .10
-	)
+    )
 order by two_part_name, row_count
 ;
 ```
 
-### Risoluzione delle asimmetrie di distribuzione
+### <a name="resolving-data-skew"></a>Resolving data skew
 
-Non tutte le asimmetrie sono sufficienti a giustificare una correzione. In alcuni casi, le prestazioni di una tabella in alcune query possono compensare il danno causato dalla distribuzione asimmetrica. Per decidere se sia necessario risolvere la differenza dati di una tabella, è necessario conoscere nel modo più completo possibile i volumi di dati e le query del carico di lavoro. Per esaminare l'impatto della differenza sulle prestazioni delle query e, in particolare, sul tempo di completamento delle query nelle singole distribuzioni, è possibile seguire la procedura riportata nell'articolo [Monitoraggio delle query][].
+Not all skew is enough to warrant a fix.  In some cases, the performance of a table in some queries can outweigh the harm of data skew.  To decide if you should resolve data skew in a table, you should understand as much as possible about the data volumes and queries in your workload.   One way to look at the impact of skew is to use the steps in the [Query Monitoring][] article to monitor the impact of skew on query performance and specifically the impact to how long queries take to complete on the individual distributions.
 
-La distribuzione è essenzialmente l'individuazione del giusto equilibrio fra la minimizzazione della differenza dati e la minimizzazione dello spostamento dei dati. Questi obiettivi possono essere contrastanti e talvolta può essere necessario tollerare una determinata differenza dati per poter ridurre lo spostamento dei dati. Ad esempio, quando la colonna di distribuzione corrisponde con un'elevata frequenza alla colonna condivisa di join e aggregazioni, si ridurrà al minimo lo spostamento dei dati. Il vantaggio di uno spostamento dei dati minimo potrebbe essere quello di compensare l'impatto negativo della differenza dati.
+Distributing data is a matter of finding the right balance between minimizing data skew and minimizing data movement. These can be opposing goals, and sometimes you will want to keep data skew in order to reduce data movement. For example, when the distribution column is frequently the shared column in joins and aggregations, you will be minimizing data movement. The benefit of having the minimal data movement might outweigh the impact of having data skew. 
 
-Il modo più comune per risolvere la differenza dati è ricreare la tabella con una colonna di distribuzione diversa. Dato che non è possibile modificare la colonna di distribuzione in una tabella esistente, per modificare la distribuzione di una tabella occorre crearla nuovamente con [CTAS][]. Di seguito sono riportati due esempi di risoluzione di distribuzioni asimmetriche dei dati:
+The typical way to resolve data skew is to re-create the table with a different distribution column. Since there is no way to change the distribution column on an existing table, the way to change the distribution of a table it to recreate it with a [CTAS][].  Here are two examples of how resolve data skew:
 
-### Esempio 1: Ricreare la tabella con una nuova colonna di distribuzione
+### <a name="example-1-recreate-the-table-with-a-new-distribution-column"></a>Example 1: Re-create the table with a new distribution column
 
-Questo esempio usa [CTAS][] per ricreare una tabella con una colonna di distribuzione hash diversa.
+This example uses [CTAS][] to re-create a table with a different hash distribution column. 
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_CustomerKey] 
@@ -248,9 +249,9 @@ RENAME OBJECT [dbo].[FactInternetSales] TO [FactInternetSales_ProductKey];
 RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 ```
 
-### Esempio 2: Ricreare la tabella usando la distribuzione round robin
+### <a name="example-2-recreate-the-table-using-round-robin-distribution"></a>Example 2: Re-create the table using round robin distribution
 
-Questo esempio usa [CTAS][] per ricreare una tabella con una distribuzione round robin anziché una distribuzione hash. Questa modifica produce una distribuzione uniforme dei dati ma aumenta lo spostamento dei dati.
+This example uses [CTAS][] to re-create a table with round robin instead of a hash distribution. This change will produce even data distribution at the cost of increased data movement. 
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_ROUND_ROBIN] 
@@ -288,29 +289,25 @@ RENAME OBJECT [dbo].[FactInternetSales] TO [FactInternetSales_HASH];
 RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 ```
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-Per altre informazioni sulla progettazione di tabelle, vedere gli articoli relativi a [distribuzione][], [indice][], [partizione][], [tipi di dati][], [statistiche][] e [tabelle temporanee][Temporary].
+To learn more about table design, see the [Distribute][], [Index][], [Partition][], [Data Types][], [Statistics][] and [Temporary Tables][Temporary] articles.
 
-Per una panoramica delle procedure consigliate, vedere [Procedure consigliate per SQL Data Warehouse][].
+For an overview of best practices, see [SQL Data Warehouse Best Practices][].
 
 
 <!--Image references-->
 
 <!--Article references-->
 [Overview]: ./sql-data-warehouse-tables-overview.md
-[Panoramica]: ./sql-data-warehouse-tables-overview.md
-[Tipi di dati]: ./sql-data-warehouse-tables-data-types.md
-[Distribuzione]: ./sql-data-warehouse-tables-distribute.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
 [Index]: ./sql-data-warehouse-tables-index.md
-[indice]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
-[partizione]: ./sql-data-warehouse-tables-partition.md
-[Statistiche]: ./sql-data-warehouse-tables-statistics.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
-[Temporanee]: ./sql-data-warehouse-tables-temporary.md
-[Procedure consigliate per SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
-[Monitoraggio delle query]: ./sql-data-warehouse-manage-monitor.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
+[Query Monitoring]: ./sql-data-warehouse-manage-monitor.md
 [dbo.vTableSizes]: ./sql-data-warehouse-tables-overview.md#querying-table-sizes
 
 <!--MSDN references-->
@@ -318,4 +315,8 @@ Per una panoramica delle procedure consigliate, vedere [Procedure consigliate pe
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

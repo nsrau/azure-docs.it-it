@@ -4,7 +4,7 @@
     services="active-directory, virtual-network"
     keywords="macchina virtuale active directory, installazione di una foresta active directory, video su azure active directory  "
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     tags=""/>
 
@@ -34,7 +34,7 @@ Altri argomenti di interesse:
 In questo scenario gli utenti esterni devono accedere alle applicazioni eseguite nei server aggiunti al dominio. Le macchine virtuali che eseguono i server applicazioni e le macchine virtuali che eseguono i controller di dominio sono installate nel proprio servizio cloud in una rete virtuale di Azure. Sono anche incluse in un set di disponibilità per una migliore tolleranza di errore.
 
 ![Foresta Active Directory in una macchina virtuale in Rete virtuale di Azure ][1] 7
-## <a name="how-does-this-differ-from-on-premises?"></a>Differenze rispetto all'installazione locale
+## <a name="how-does-this-differ-from-onpremises"></a>Differenze rispetto all'installazione locale
 
 Non esistono molte differenze tra l'installazione locale di un controller di dominio e l'installazione in Azure. Le differenze principali sono elencate nella tabella seguente.
 

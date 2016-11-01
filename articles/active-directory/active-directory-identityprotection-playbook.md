@@ -4,7 +4,7 @@
     services="active-directory"
     keywords="azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -37,7 +37,7 @@ Questa sezione riporta i passaggi per la simulazione dei seguenti tipi di eventi
 Non è possibile simulare altri eventi di rischio in modo sicuro.
 
 
-### <a name="sign-ins-from-anonymous-ip-addresses"></a>Accessi da indirizzi IP anonimi
+### <a name="signins-from-anonymous-ip-addresses"></a>Accessi da indirizzi IP anonimi
 
 Questo tipo di evento di rischio identifica gli utenti che hanno eseguito l'accesso da un indirizzo IP riconosciuto come un indirizzo IP proxy anonimo. Questi proxy vengono usati da persone che vogliono nascondere l'indirizzo IP del dispositivo e possono essere usati per attacchi dannosi.
 
@@ -50,7 +50,7 @@ Questo tipo di evento di rischio identifica gli utenti che hanno eseguito l'acce
 L’accesso verrà visualizzato nel dashboard Identity Protection entro 5 minuti. 
 
 
-###<a name="sign-ins-from-unfamiliar-locations"></a>Accessi da posizioni non note
+###<a name="signins-from-unfamiliar-locations"></a>Accessi da posizioni non note
 
 L'evento di rischio per gli accessi da posizioni non note è un meccanismo di valutazione dell'accesso in tempo reale che prende in considerazione le posizioni di accesso precedenti, come l'indirizzo IP, la latitudine, la longitudine e l'ASN, per determinare posizioni nuove o non note. Il sistema archivia gli indirizzi IP, la latitudine, la longitudine e gli ASN usati in precedenza da un utente e li considera posizioni "note". Una posizione di accesso viene considerata non nota se non corrisponde a nessuna delle posizioni note esistenti.
 
@@ -138,7 +138,7 @@ Le vulnerabilità sono punti deboli in un ambiente Azure AD che possono essere s
 <br>
 
  
-##<a name="sign-in-risk"></a>Rischio di accesso
+##<a name="signin-risk"></a>Rischio di accesso
 
  
 **Per testare un rischio di accesso, seguire questa procedura:**

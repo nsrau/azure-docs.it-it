@@ -34,9 +34,9 @@ Quando si crea un campo personalizzato, è necessario specificare a Log Analytic
 
 Le sezioni seguenti illustrano la procedura per la creazione di un campo personalizzato.  Alla fine di questo articolo è disponibile una procedura dettagliata per l'estrazione di un campione.
 
-> [!NOTE] Il campo personalizzato viene popolato man mano che record corrispondenti ai criteri specificati vengono aggiunti all'archivio dati di OMS. Verrà quindi visualizzato solo nei record raccolti dopo la sua creazione.  Il campo personalizzato non viene aggiunto ai record già presenti nell'archivio al momento della creazione.
+>[AZURE.NOTE] Il campo personalizzato viene popolato man mano che record corrispondenti ai criteri specificati vengono aggiunti all'archivio dati di OMS. Verrà quindi visualizzato solo nei record raccolti dopo la sua creazione.  Il campo personalizzato non viene aggiunto ai record già presenti nell'archivio al momento della creazione.
 
-### <a name="step-1-–-identify-records-that-will-have-the-custom-field"></a>Passaggio 1: Identificare i record che conterranno il campo personalizzato
+### <a name="step-1-identify-records-that-will-have-the-custom-field"></a>Passaggio 1: Identificare i record che conterranno il campo personalizzato
 Il primo passaggio consiste nell'identificare i record che conterranno il campo personalizzato.  Iniziare con una [ricerca nei log standard](log-analytics-log-searches.md) e quindi selezionare un record che faccia da modello di apprendimento per Log Analytics.  Quando si specifica l'intenzione di estrarre i dati in un campo personalizzato, viene aperta l' **estrazione guidata campi** che permette di convalidare e affinare i criteri.
 
 2. Passare alla **ricerca log** e usare una [query per recuperare i record](log-analytics-log-searches.md) che conterranno il campo personalizzato.
@@ -45,7 +45,7 @@ Il primo passaggio consiste nell'identificare i record che conterranno il campo 
 4. Viene aperta l'**estrazione guidata campi** e il record selezionato viene visualizzato nella colonna **Esempio principale**.  Viene definito il campo personalizzato per i record con gli stessi valori delle proprietà selezionate.  
 5. Se la selezione non corrisponde esattamente al previsto, selezionare campi aggiuntivi per limitare i criteri.  Per modificare i valori dei campi per i criteri, è necessario annullare e selezionare un altro record corrispondente ai criteri scelti.
 
-### <a name="step-2---perform-initial-extract."></a>Passaggio 2: Eseguire l'estrazione iniziale
+### <a name="step-2-perform-initial-extract"></a>Passaggio 2: Eseguire l'estrazione iniziale
 Dopo aver identificato i record che conterranno il campo personalizzato, occorre identificare i dati da estrarre.  Log Analytics usa queste informazioni per identificare schemi analoghi in record simili.  Nel passaggio successivo sarà possibile convalidare i risultati e fornire altri dettagli che Log Analytics potrà usare nell'analisi.
 
 1. Nel record di esempio evidenziare il testo con cui popolare il campo personalizzato.  Verrà visualizzata una finestra di dialogo in cui specificare un nome per il campo ed eseguire l'estrazione iniziale.  I caratteri **\_CF** vengono aggiunti automaticamente.
@@ -53,7 +53,7 @@ Dopo aver identificato i record che conterranno il campo personalizzato, occorre
 3. Le sezioni **Riepilogo** e **Risultati della ricerca** visualizzano i risultati dell'estrazione e consentono di verificarne l'accuratezza.  **Summary** visualizza i criteri usati per identificare i record e un conteggio per ciascuno dei valori di dati identificati.  **Search Results** contiene un elenco dettagliato dei record corrispondenti ai criteri.
 
 
-### <a name="step-3-–-verify-accuracy-of-the-extract-and-create-custom-field"></a>Passaggio 3: Verificare l'accuratezza dell'estrazione e creare il campo personalizzato
+### <a name="step-3-verify-accuracy-of-the-extract-and-create-custom-field"></a>Passaggio 3: Verificare l'accuratezza dell'estrazione e creare il campo personalizzato
 
 Dopo aver eseguito l'estrazione iniziale, Log Analytics ne visualizza i risultati in base ai dati già raccolti.  Se i risultati sono accurati è possibile creare direttamente il campo personalizzato.  In caso contrario, è possibile limitare i risultati per permettere a Log Analytics di migliorare la logica.
 
@@ -138,6 +138,7 @@ Ora il campo personalizzato può essere usato come le altre proprietà del recor
 
 - Per informazioni su come creare query usando i campi personalizzati come criteri, vedere l'articolo relativo alle [ricerche nei log](log-analytics-log-searches.md) .
 - Monitorare i [file di log personalizzati](log-analytics-data-sources-custom-logs.md) analizzati usando campi personalizzati.
+
 
 
 <!--HONumber=Oct16_HO2-->

@@ -3,7 +3,7 @@
     description="Illustra il significato di tenant di Azure AD e come gestire Azure con Azure Active Directory"
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     writer="markvi"
     manager="femila"
     editor=""/>
@@ -20,7 +20,7 @@
 
 # <a name="administer-your-azure-ad-directory"></a>Amministrare la directory di Azure AD
 
-## <a name="what-is-an-azure-ad-tenant?"></a>Che cos'è un tenant di Azure AD?
+## <a name="what-is-an-azure-ad-tenant"></a>Che cos'è un tenant di Azure AD?
 
 Nell'area di lavoro fisica, il termine tenant può essere definito come un gruppo o un'azienda che occupa un edificio. Un'organizzazione, ad esempio, può essere proprietaria di uno spazio adibito a ufficio in un edificio. L'edificio può trovarsi in una strada dove sono presenti numerose altre organizzazioni. L'organizzazione verrebbe considerata un tenant di tale edificio. L'edificio è un asset dell'organizzazione che fornisce sicurezza e offre l'opportunità di lavorare in un ambiente protetto. È inoltre separato dalle altre aziende nella stessa strada. Ciò garantisce che l'organizzazione e le sue risorse siano isolate dalle altre organizzazioni.
 
@@ -30,7 +30,7 @@ Ogni directory di Azure AD è distinta e separata dalle altre directory di Azure
 
 ![Gestire Azure Active Directory][1]
 
-## <a name="how-can-i-get-an-azure-ad-directory?"></a>Come è possibile ottenere una directory di Azure AD?
+## <a name="how-can-i-get-an-azure-ad-directory"></a>Come è possibile ottenere una directory di Azure AD?
 
 Azure AD fornisce le principali funzionalità di gestione delle identità e di directory alla base della maggior parte dei servizi cloud Microsoft, tra cui:
 
@@ -66,7 +66,7 @@ Se non si dispone ancora di una sottoscrizione a un servizio cloud Microsoft, us
 - [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
 - [Microsoft Intune](https://account.manage.microsoft.com/Signup/MainSignUp.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&ali=1)
 
-### <a name="manage-an-azure-provisioned-default-directory"></a>Gestire una directory predefinita di cui Azure ha eseguito il provisioning
+### <a name="manage-an-azureprovisioned-default-directory"></a>Gestire una directory predefinita di cui Azure ha eseguito il provisioning
 
 Attualmente viene creata automaticamente una directory quando si esegue l'iscrizione ad Azure e la sottoscrizione viene associata a tale directory. Tuttavia, se l'iscrizione ad Azure è stata effettuata prima di ottobre 2013, non è stata creata automaticamente alcuna directory. In questo caso, Azure potrebbe aver "recuperato le informazioni" per l'account effettuando, per tale account, il provisioning di una directory predefinita. La sottoscrizione è stata quindi associata a tale directory predefinita.
 
@@ -95,7 +95,7 @@ Questi portali degli account e i cmdlet di PowerShell per Azure AD associati usa
 Quando si apporta una modifica ai dati dell'organizzazione usando uno dei portali (o cmdlet) dopo avere effettuato l'accesso nel contesto di uno di questi servizi, la modifica viene visualizzata anche negli altri portali all'accesso successivo nel contesto di tale servizio perché i dati sono condivisi tra i servizi cloud Microsoft sottoscritti.
 Se, ad esempio, è stata usata l'interfaccia di amministrazione di Office 365 per impedire a un utente di effettuare l'accesso, tale azione impedirà l'accesso dell'utente a qualsiasi altro servizio attualmente sottoscritto dall'organizzazione. Se si recupera lo stesso account utente nel contesto del portale degli account di Microsoft Intune, sarà possibile vedere che l'utente è bloccato.
 
-## <a name="how-can-i-add-and-manage-multiple-directories?"></a>Come è possibile aggiungere e gestire più directory?
+## <a name="how-can-i-add-and-manage-multiple-directories"></a>Come è possibile aggiungere e gestire più directory?
 
 È possibile aggiungere una directory di Azure AD nel portale di gestione di Azure. Selezionare l'estensione **Active Directory** a sinistra e fare clic su **Aggiungi**.
 
@@ -115,7 +115,7 @@ Se, ad esempio, è stata usata l'interfaccia di amministrazione di Office 365 pe
 
 Si noti, inoltre, che a differenza di altre risorse di Azure, le proprie directory non sono risorse figlio di una sottoscrizione di Azure. Se pertanto si annulla o si lascia scadere la propria sottoscrizione di Azure, sarà comunque possibile accedere ai dati delle directory mediante Azure AD PowerShell, l'API Graph di Azure o altre interfacce come l'interfaccia di amministrazione di Office 365. È anche possibile associare un'altra sottoscrizione alla directory.
 
-## <a name="how-can-i-delete-an-azure-ad-directory?"></a>Come è possibile eliminare una directory di Azure AD?
+## <a name="how-can-i-delete-an-azure-ad-directory"></a>Come è possibile eliminare una directory di Azure AD?
 Un amministratore globale può eliminare una directory di Azure AD dal portale. Quando una directory viene eliminata, vengono eliminate anche tutte le risorse in essa contenute. Prima di procedere all'eliminazione, è quindi opportuno verificare che la directory non sia più necessaria.
 
 > [AZURE.NOTE]

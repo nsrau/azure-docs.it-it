@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/10/2016"
-   ms.author="cakarst;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="cakarst;barbkess"/>
 
 
 
@@ -45,11 +45,11 @@ Per eseguire questa esercitazione, sono necessari:
     ![Strumenti di archiviazione di Azure](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
 
-## <a name="step-1:-add-sample-data-to-azure-blob-storage"></a>Passaggio 1: Aggiungere dati di esempio all'archivio BLOB di Azure
+## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>Passaggio 1: Aggiungere dati di esempio all'archivio BLOB di Azure
 
 Per caricare dati, è necessario inserire dati di esempio in un archivio BLOB di Azure. In questo passaggio un BLOB di Archiviazione di Azure viene popolato con dati di esempio. In seguito verrà usato PolyBase per caricare i dati esempio nel database di SQL Data Warehouse.
 
-### <a name="a.-prepare-a-sample-text-file"></a>A. Preparare un file di testo di esempio
+### <a name="a-prepare-a-sample-text-file"></a>A. Preparare un file di testo di esempio
 
 Per preparare un file di testo di esempio:
 
@@ -70,7 +70,7 @@ Per preparare un file di testo di esempio:
 20150101,1,3
 ```
 
-### <a name="b.-find-your-blob-service-endpoint"></a>B. Individuare l'endpoint di servizio BLOB
+### <a name="b-find-your-blob-service-endpoint"></a>B. Individuare l'endpoint di servizio BLOB
 
 Per individuare l'endpoint di servizio BLOB:
 
@@ -84,7 +84,7 @@ Per individuare l'endpoint di servizio BLOB:
 
     ![Endpoint di servizio BLOB](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
-### <a name="c.-find-your-azure-storage-key"></a>C. Individuare la chiave di archiviazione di Azure
+### <a name="c-find-your-azure-storage-key"></a>C. Individuare la chiave di archiviazione di Azure
 
 Per individuare la chiave di archiviazione di Azure:
 
@@ -95,7 +95,7 @@ Per individuare la chiave di archiviazione di Azure:
 
     ![Copia della chiave di archiviazione di Azure](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
-### <a name="d.-copy-the-sample-file-to-azure-blob-storage"></a>D. Copiare il file di esempio nell'archivio BLOB di Azure
+### <a name="d-copy-the-sample-file-to-azure-blob-storage"></a>D. Copiare il file di esempio nell'archivio BLOB di Azure
 
 Per copiare i dati nell'archivio BLOB di Azure:
 
@@ -113,7 +113,7 @@ Per copiare i dati nell'archivio BLOB di Azure:
 
 Vedere anche [Introduzione all'utilità della riga di comando AzCopy][].
 
-### <a name="e.-explore-your-blob-storage-container"></a>E. Esplorare il contenitore di archiviazione BLOB
+### <a name="e-explore-your-blob-storage-container"></a>E. Esplorare il contenitore di archiviazione BLOB
 
 Per visualizzare il file caricato nell'archivio BLOB:
 
@@ -126,7 +126,7 @@ Per visualizzare il file caricato nell'archivio BLOB:
     ![Visualizzazione del BLOB di archiviazione di Azure](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
 
-## <a name="step-2:-create-an-external-table-for-the-sample-data"></a>Passaggio 2: Creare una tabella esterna per i dati di esempio
+## <a name="step-2-create-an-external-table-for-the-sample-data"></a>Passaggio 2: Creare una tabella esterna per i dati di esempio
 
 In questa sezione viene creata una tabella esterna che definisce i dati di esempio.
 
@@ -216,7 +216,7 @@ In Esplora oggetti di SQL Server in Visual Studio è possibile visualizzare il f
 
 ![Visualizzazione della tabella esterna](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## <a name="step-3:-load-data-into-sql-data-warehouse"></a>Passaggio 3: Caricare i dati in SQL Data Warehouse
+## <a name="step-3-load-data-into-sql-data-warehouse"></a>Passaggio 3: Caricare i dati in SQL Data Warehouse
 
 Dopo la creazione della tabella esterna, è possibile caricare i dati in una nuova tabella o inserirli in una tabella esistente.
 
@@ -236,7 +236,7 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-## <a name="step-4:-create-statistics-on-your-newly-loaded-data"></a>Passaggio 4: Creare statistiche sui dati appena caricati
+## <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Passaggio 4: Creare statistiche sui dati appena caricati
 
 SQL Data Warehouse non crea automaticamente o aggiorna automaticamente le statistiche. Per ottenere prestazioni elevate per le query, è quindi importante creare statistiche su ogni colonna di ogni tabella dopo il primo carico. È anche importante aggiornare le statistiche dopo modifiche sostanziali dei dati.
 
