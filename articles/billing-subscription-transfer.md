@@ -53,9 +53,9 @@ Ora è possibile eseguire facilmente queste operazioni nel Centro account di Mic
 
 6.  Il destinatario dovrà fare clic sul collegamento e seguire le istruzioni, inclusa l'immissione delle informazioni sul pagamento.
 
-    ![Prima pagina Web del trasferimento della sottoscrizione](./media/billing-subscription-transfer/image4.png)
+    ![Prima pagina Web del trasferimento della sottoscrizione](./media/billing-subscription-transfer/image4.PNG)
 
-    ![Seconda pagina Web del trasferimento della sottoscrizione](./media/billing-subscription-transfer/image5.png)
+    ![Seconda pagina Web del trasferimento della sottoscrizione](./media/billing-subscription-transfer/image5.PNG)
 
 7. Completamento della procedura La sottoscrizione è stata trasferita.
 
@@ -135,6 +135,6 @@ Ora è possibile eseguire facilmente queste operazioni nel Centro account di Mic
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 
