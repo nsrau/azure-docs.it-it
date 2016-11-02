@@ -1,112 +1,117 @@
 <properties
-	pageTitle="Attività per preparare i dati per operazioni avanzate con Machine Learning | Microsoft Azure"
-	description="Pre-elaborare ed eliminare i dati per prepararli per Machine Learning."
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="jhubbard"
-	editor="cgronlun" /> 
+    pageTitle="Tasks to prepare data for enhanced machine learning | Microsoft Azure"
+    description="Pre-process and clean data to prepare it for machine learning."
+    services="machine-learning"
+    documentationCenter=""
+    authors="bradsev"
+    manager="jhubbard"
+    editor="cgronlun" />
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/19/2016" 
-	ms.author="bradsev" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/01/2016" 
+    ms.author="bradsev" />
 
 
-# Attività per preparare i dati per operazioni avanzate con Machine Learning
 
-La pre-elaborazione e la pulizia dei dati rappresentano attività importanti che in genere devono essere eseguite prima di poter usare un set di dati in modo efficace per Machine Learning. I dati non elaborati sono fastidiosi, non affidabili e potrebbero non contenere alcuni valori. Utilizzare tali dati per la modellazione può produrre risultati fuorvianti. Queste attività fanno parte del Processo di analisi scientifica dei dati per i team (TDSP) e generalmente seguono un'analisi iniziale di un set di dati usato per individuare e pianificare la pre-elaborazione necessaria. Per altre istruzioni su TDSP, vedere i passaggi descritti nell'articolo relativo al [Processo di analisi scientifica dei dati per i team](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+# <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Tasks to prepare data for enhanced machine learning
 
-Le attività di pre-elaborazione e pulizia, ad esempio l'attività di esplorazione dei dati, possono essere eseguite in un'ampia gamma di ambienti, ad esempio SQL, Hive o Azure Machine Learning Studio, e con vari strumenti e linguaggi, ad esempio R o Python, a seconda della posizione in cui sono memorizzati i dati e della modalità di formattazione. Poiché TDSP è iterativo per natura, queste attività possono essere eseguite in vari passaggi nel flusso di lavoro del processo.
+Pre-processing and cleaning data are important tasks that typically must be conducted before dataset can be used effectively for machine learning. Raw data is often noisy and unreliable, and may be missing values. Using such data for modeling can produce misleading results. These tasks are part of the Team Data Science Process (TDSP) and typically follow an initial exploration of a dataset used to discover and plan the pre-processing required. For more detailed instructions on the TDSP process, see the steps outlined in the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-Questo articolo presenta alcuni concetti e attività di elaborazione dei dati che possono essere effettuati prima dell'inserimento dei dati in Azure Machine Learning.
+Pre-processing and cleaning tasks, like the data exploration task, can be carried out in a wide variety of environments, such as SQL or Hive or Azure Machine Learning Studio, and with various tools and languages, such as R or Python, depending where your data is stored and how it is formatted. Since TDSP is iterative in nature, these tasks can take place at various steps in the  workflow of the process.
 
-Per un esempio di esplorazione e pre-elaborazione dei dati eseguita all'interno di Azure Machine Learning Studio, vedere il video relativo alla [pre-elaborazione dei dati in Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
+This article introduces various data processing concepts and tasks that can be undertaken either before or after ingesting data into Azure Machine Learning.
+
+For an example of data exploration and pre-processing done inside Azure Machine Learning studio, see the [Pre-processing data in Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) video.
 
 
-## Perché pre-elaborare e pulire i dati?
+## <a name="why-preprocess-and-clean-data"></a>Why pre-process and clean data?
 
-I dati reali vengono raccolti da diverse origini e processi e possono contenere irregolarità o dati danneggiati in grado di compromettere la qualità del set di dati. Di seguito sono riportati i tipici problemi relativi alla qualità di dati che si verificano:
+Real world data is gathered from various sources and processes and it may contain irregularities or corrupt data compromising the quality of the dataset. The typical data quality issues that arise are:
 
-* **Dati incompleti**: nei dati mancano attributi o non sono presenti valori.
-* **Dati fastidiosi**: i dati contengono record o outlier errati.
-* **Dati incoerenti**: i dati contengono record in conflitto o discrepanze.
+* **Incomplete**: Data lacks attributes or containing missing values.
+* **Noisy**: Data contains erroneous records or outliers.
+* **Inconsistent**: Data contains conflicting records or discrepancies.
 
-La qualità dei dati è un prerequisito per modelli predittivi di qualità. Per evitare "spazzatura in entrata e in uscita" e migliorare la qualità dei dati e quindi le prestazioni del modello, è fondamentale condurre un'analisi dell'integrità dei dati per individuare tempestivamente problemi relativi ai dati e prendere decisioni in merito alle fasi di elaborazione e pulizia dei dati corrispondenti.
+Quality data is a prerequisite for quality predictive models. To avoid "garbage in, garbage out" and improve data quality and therefore model performance, it is imperative to conduct a data health screen to spot data issues early and decide on the corresponding data processing and cleaning steps.
 
-## Quali sono le tipiche analisi dell'integrità dei dati che vengono impiegate?
+## <a name="what-are-some-typical-data-health-screens-that-are-employed"></a>What are some typical data health screens that are employed?
 
-È possibile controllare la qualità generale dei dati controllando:
+We can check the general quality of data by checking:
 
-* Il numero di **record**.
-* Il numero di **attributi** (o **funzionalità**).
-* I **tipi di dati** di attributi (nominali, ordinali o continui).
-* Il numero di **valori mancanti**.
-* La **formulazione** dei dati.
-	* Se i dati sono in formato TSV o CSV, verificare che i separatori di colonne e righe separino correttamente colonne e righe.
-	* Se i dati sono in formato HTML o XML, verificare che i dati siano formulati correttamente in base ai rispettivi standard.
-	* L'analisi potrebbe inoltre essere necessaria per estrarre informazioni strutturate da dati non strutturati o semistrutturati.
-* **Record di dati incoerenti**. Verificare l'intervallo di valori consentiti. Ad esempio, se i dati contengono la media dello studente, controllare se il GPA è compreso nell'intervallo designato, ad esempio 0~4.
+* The number of **records**.
+* The number of **attributes** (or **features**).
+* The attribute **data types** (nominal, ordinal, or continuous).
+* The number of **missing values**.
+* **Well-formedness** of the data.
+    * If the data is in TSV or CSV, check that the column separators and line separators always correctly separate columns and lines.
+    * If the data is in HTML or XML format, check whether the data is well formed based on their respective standards.
+    * Parsing may also be necessary in order to extract structured information from semi-structured or unstructured data.
+* **Inconsistent data records**. Check the range of values are allowed. e.g. If the data contains student GPA, check if the GPA is in the designated range, say 0~4.
 
-Quando si verificano problemi con i dati, sono necessari **passaggi di elaborazione** che spesso comportano la pulizia dei valori mancanti, la normalizzazione dei dati, la discretizzazione, l'elaborazione di testo per rimuovere e/o sostituire i caratteri incorporati che possono influire sull'allineamento dei dati, tipi di dati misti nei campi comuni e altro.
+When you find issues with data, **processing steps** are necessary which often involves cleaning missing values, data normalization, discretization, text processing to remove and/or replace embedded characters which may affect data alignment, mixed data types in common fields, and others.
 
-**Azure Machine Learning utilizza dati tabulari in formato corretto**. Se i dati sono già in formato tabulare, la pre-elaborazione dei dati può essere eseguita direttamente con Azure Machine Learning in Machine Learning Studio. Se i dati non sono in formato tabulare, bensì in XML, l'analisi potrebbe essere necessaria per convertire i dati in formato tabulare.
+**Azure Machine Learning consumes well-formed tabular data**.  If the data is already in tabular form, data pre-processing can be performed directly with Azure Machine Learning in the Machine Learning Studio.  If data is not in tabular form, say it is in XML, parsing may be required in order to convert the data to tabular form.  
 
-## Quali sono alcune delle principali attività di pre-elaborazione dei dati?
+## <a name="what-are-some-of-the-major-tasks-in-data-preprocessing"></a>What are some of the major tasks in data pre-processing?
 
-* **Pulizia dei dati**: compilare o inserire i valori mancanti, individuare e rimuovere dati e outlier fastidiosi.
-* **Trasformazione dei dati**: normalizzare i dati per ridurne dimensioni e disturbo.
-* **Riduzione dei dati**: esempi di record di dati o attributi per una gestione dei dati semplificata.
-* **Discretizzazione dei dati**: convertire gli attributi continui in attributi categorici per facilitare l'uso di alcuni metodi di machine learning.
-* **Pulizia del testo**: rimuovere i caratteri incorporati che potrebbero causare problemi di allineamento dei dati, ad esempio, schede incorporate in un file di dati separato da tabulazioni, nuove righe incorporate che potrebbero interrompere record ecc.
+* **Data cleaning**:  Fill in or missing values, detect and remove noisy data and outliers.
+* **Data transformation**:  Normalize data to reduce dimensions and noise.
+* **Data reduction**:  Sample data records or attributes for easier data handling.
+* **Data discretization**:  Convert continuous attributes to categorical attributes for ease of use with certain machine learning methods.
+* **Text cleaning**: remove embedded characters which may cause data misalignment, for e.g., embedded tabs in a tab-separated data file, embedded new lines which may break records, etc.
 
-Nelle sezioni seguenti vengono riportati alcuni dei passaggi di elaborazione dei dati.
+The sections below detail some of these data processing steps.
 
-## Come trattare i valori mancanti?
+## <a name="how-to-deal-with-missing-values"></a>How to deal with missing values?
 
-Per gestire i valori mancanti, è consigliabile innanzitutto identificare il motivo per cui mancano dei valori per una gestione più efficiente del problema. I metodi di gestione dei valori mancanti tipici sono:
+To deal with missing values, it is best to first identify the reason for the missing values to better handle the problem. Typical missing value handling methods are:
 
-* **Eliminazione**: rimuovere i record con valori mancanti
-* **Sostituzione fittizia**: sostituire un valore mancante con un valore fittizio, ad esempio, _unknown_ per valori categorici o 0 per valori numerici.
-* **Sostituzione con media**: se i dati mancanti sono numerici, sostituirli con la media.
-* **Sostituzione con elementi frequenti**: se i dati mancanti sono categorici, sostituirli con gli elementi più frequenti
-* **Sostituzione con regressione**: usare il metodo della regressione per sostituire i valori mancanti con valori regrediti.
+* **Deletion**: Remove records with missing values
+* **Dummy substitution**: Replace missing values with a dummy value: e.g, _unknown_ for categorical or 0 for numerical values.
+* **Mean substitution**: If the missing data is numerical, replace the missing values with the mean.
+* **Frequent substitution**: If the missing data is categorical, replace the missing values with the most frequent item
+* **Regression substitution**: Use a regression method to replace missing values with regressed values.  
 
-## Come normalizzare i dati?
+## <a name="how-to-normalize-data"></a>How to normalize data?
 
-La normalizzazione dei dati fa rientrare i valori numerici in un intervallo specifico. I metodi di normalizzazione dei dati più comuni includono:
+Data normalization re-scales numerical values to a specified range. Popular data normalization methods include:
 
-* **Normalizzazione Min-Max**: consente di trasformare i dati in un intervallo in modo lineare, ad esempio compreso tra 0 e 1, dove il valore min corrisponde a 0 e il valore massimo a 1.
-* **Normalizzazione Z-score**: consente di ridurre i dati in base alla media e alla deviazione standard. Si divide la differenza tra dati e media per la deviazione standard.
-* **Scalabilità decimale**: consente di ridurre i dati spostando il punto decimale del valore dell'attributo.
+* **Min-Max Normalization**: Linearly transform the data to a range, say between 0 and 1, where the min value is scaled to 0 and max value to 1.
+* **Z-score Normalization**: Scale data based on mean and standard deviation: divide the difference between the data and the mean by the standard deviation.
+* **Decimal scaling**: Scale the data by moving the decimal point of the attribute value.  
 
-## Come eseguire la discretizzazione dei dati?
+## <a name="how-to-discretize-data"></a>How to discretize data?
 
-I dati possono essere discretizzati convertendo i valori continui in attributi o intervalli nominali. Ciò può essere fatto nei seguenti modi:
+Data can be discretized by converting continuous values to nominal attributes or intervals. Some ways of doing this are:
 
-* **Creazione di contenitori di uguale ampiezza**: si divide l'intervallo di tutti i possibili valori di un attributo in N gruppi della stessa dimensione a cui si assegnano i valori che rientrano in un contenitore con il numero di contenitore.
-* **Creazione di contenitori di uguale altezza**: si divide l'intervallo di tutti i possibili valori di un attributo in N gruppi, ciascuno contenente lo stesso numero di istanze, quindi si assegnano i valori che rientrano in un contenitore con il numero di contenitore.
+* **Equal-Width Binning**: Divide the range of all possible values of an attribute into N groups of the same size, and assign the values that fall in a bin with the bin number.
+* **Equal-Height Binning**: Divide the range of all possible values of an attribute into N groups, each containing the same number of instances, then assign the values that fall in a bin with the bin number.  
 
-## Come ridurre i dati?
+## <a name="how-to-reduce-data"></a>How to reduce data?
 
-Esistono vari metodi per ridurre le dimensioni dei dati e renderne più semplice la gestione. A seconda della dimensione e del dominio dei dati, è possibile utilizzare i seguenti metodi:
+There are various methods to reduce data size for easier data handling. Depending on data size and the domain, the following methods can be applied:
 
-* **Campionamento record**: i record di dati vengono campionati e viene scelto solo un sottoinsieme rappresentativo.
-* **Campionamento attributi**: selezionare solo un sottoinsieme degli attributi più importanti dai dati.
-* **Aggregazione**: i dati vengono divisi in gruppi e per ogni gruppo vengono memorizzati i numeri. Ad esempio, i numeri dei ricavi giornalieri di una catena di ristoranti negli ultimi 20 anni possono essere aggregati in ricavi mensili per ridurre le dimensioni dei dati.
+* **Record Sampling**: Sample the data records and only choose the representative subset from the data.
+* **Attribute Sampling**: Select only a subset of the most important attributes from the data.  
+* **Aggregation**: Divide the data into groups and store the numbers for each group. For example, the daily revenue numbers of a restaurant chain over the past 20 years can be aggregated to monthly revenue to reduce the size of the data.  
 
-## Come pulire i dati di testo?
+## <a name="how-to-clean-text-data"></a>How to clean text data?
 
-**I campi di testo nei dati tabulari** possono includere caratteri che influiscono sull'allineamento delle colonne e/o sui limiti dei record. Ad esempio, le schede incorporate in un file separato da tabulazioni possono causare il disallineamento delle colonne e i caratteri di nuove righe incorporate possono interrompere le righe del record. La gestione della codifica del testo non corretta durante la scrittura/lettura del testo comporta la perdita di informazioni, l'introduzione involontaria di caratteri non leggibili, ad esempio, valori null e potrebbe inoltre influenzare l'analisi del testo. Potrebbero essere necessarie un'attenta analisi e la modifica per pulire i campi di testo e consentire il corretto allineamento e/o estrarre i dati strutturati da dati di testo non strutturati o semistrutturati.
+**Text fields in tabular data** may include characters which affect columns alignment and/or record boundaries. For e.g., embedded tabs in a tab-separated file cause column misalignment, and embedded new line characters break record lines. Improper text encoding handling while writing/reading text leads to information loss, inadvertent introduction of unreadable characters, e.g., nulls, and may also affect text parsing. Careful parsing and editing may be required in order to clean text fields for proper alignment and/or to extract structured data from unstructured or semi-structured text data.
 
-L'**esplorazione dei dati** offre una visualizzazione anticipata dei dati. Durante questa fase è possibile individuare una serie di problemi ed è possibile utilizzare metodi idonei per risolverli. È importante porre domande, come ad esempio, qual è l'origine del problema e come il problema potrebbe presentarsi. Ciò consente inoltre di stabilire i passaggi di elaborazione dei dati che devono essere intrapresi per risolvere tali problemi. Il tipo di informazioni che si intende derivare dai dati può inoltre essere utilizzato per classificare lo sforzo di elaborazione dei dati.
+**Data exploration** offers an early view into the data. A number of data issues can be uncovered during this step and  corresponding methods can be applied to address those issues.  It is important to ask questions such as what is the source of the issue and how the issue may have been introduced. This also helps you decide on the data processing steps that need to be taken to resolve them. The kind of insights one intends to derive from the data can also be used to prioritize the data processing effort.
 
-## Riferimenti
+## <a name="references"></a>References
 
 >*Data Mining: Concepts and Techniques*, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber, and Jian Pei
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

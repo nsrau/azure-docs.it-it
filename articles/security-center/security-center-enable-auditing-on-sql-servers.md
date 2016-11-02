@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Abilitare il controllo dei server SQL nel Centro sicurezza di Azure | Microsoft Azure"
-   description="In questo documento è illustrato come implementare la raccomandazione **Abilitare il controllo dei server SQL** del Centro sicurezza di Azure."
+   pageTitle="Enable auditing on SQL servers in Azure Security Center | Microsoft Azure"
+   description="This document shows you how to implement the Azure Security Center recommendation **Enable auditing on SQL servers**."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,49 +13,57 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/29/2016"
+   ms.date="11/01/2016"
    ms.author="terrylan"/>
 
-# Abilitare il controllo dei server SQL nel Centro sicurezza di Azure
 
-Il Centro sicurezza di Azure consiglia di attivare il controllo per tutti i database nei server SQL di Azure, se non è già abilitato. Il controllo consente di agevolare la conformità alle normative, comprendere le attività del database e ottenere informazioni su eventuali discrepanze e anomalie che potrebbero indicare problemi aziendali o sospette violazioni della sicurezza.
+# <a name="enable-auditing-on-sql-servers-in-azure-security-center"></a>Enable auditing on SQL servers in Azure Security Center
 
-Dopo aver attivato il controllo è possibile configurare le impostazioni di rilevamento delle minacce e gli indirizzi di posta elettronica per ricevere gli avvisi di sicurezza. La funzionalità di rilevamento delle minacce individua le attività di database che indicano la presenza di potenziali minacce alla sicurezza nel database. Essa consente di rilevare e rispondere a potenziali rischi appena si verificano.
+Azure Security Center will recommend that you turn on auditing for all databases on your Azure SQL servers if auditing is not already enabled. Auditing can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
 
-Questa indicazione si applica esclusivamente al servizio SQL di Azure e non include i server SQL in esecuzione sulle macchine virtuali all'interno dei servizi di infrastruttura di Azure (Azure IaaS).
+Once you’ve turned on auditing you can configure Threat Detection settings and emails to receive security alerts. Threat Detection detects anomalous database activities indicating potential security threats to the database. This enables you to detect and respond to potential threats as they occur.
 
-> [AZURE.NOTE] Il documento introduce il servizio usando una distribuzione di esempio. Questa non è una guida dettagliata.
+This recommendation applies to the Azure SQL service only; it doesn’t include SQL Server running on your virtual machines in Azure Infrastructure Services (Azure IaaS).
 
-## Implementare la raccomandazione
+> [AZURE.NOTE] This document introduces the service by using an example deployment.  This is not a step-by-step guide.
 
-1. Nel pannello **Raccomandazioni** selezionare **Abilita il controllo sui server SQL**. Verrà visualizzato il pannello **Abilita il controllo sui server SQL**. ![Abilitare il controllo sui server SQL][1]
+## <a name="implement-the-recommendation"></a>Implement the recommendation
 
-2. Selezionare un server SQL su cui abilitare il controllo. Verrà visualizzato il pannello **Impostazioni del servizio di controllo**. ![Impostazioni del servizio di controllo][2]
-3. Nel pannello **Impostazioni del servizio di controllo** selezionare **ON** in **Controllo**. ![Attivare le impostazioni del servizio di controllo][3]
+1. In the **Recommendations** blade, select **Enable Auditing on SQL servers**.  This opens the **Enable Auditing on SQL servers** blade.
+![Enable auditing on SQL servers][1]
 
-4. Seguire la procedura in [Introduzione al controllo del database SQL](../sql-database/sql-database-auditing-get-started.md) per configurare l'archiviazione in cui verranno archiviati i log di controllo. L'account di archiviazione della sottoscrizione per la raccolta dei dati è l'account di archiviazione predefinito.
+2. Select a SQL server to enable auditing on. This opens the **Auditing Settings** blade.
+![Auditing settings][2]
+3. On the **Auditing Settings** blade, select **ON** under **Auditing**.
+![Turn on auditing settings][3]
 
-5. Seguire i passaggi in [Introduzione individuazione Database SQL](../sql-database/sql-database-threat-detection-get-started.md) per attivare e configurare il rilevamento di minacce e per configurare l'elenco dei messaggi di posta elettronica che riceveranno gli avvisi di sicurezza al rilevamento di anomalie dell'attività.
+4. Follow the steps in [Get started with SQL database auditing](../sql-database/sql-database-auditing-get-started.md) to configure storage where your audit logs will be stored. The subscription's storage account for data collection is the default storage account.
 
-## Vedere anche
+5. Follow the steps in [Get started with SQL Database Threat Detection](../sql-database/sql-database-threat-detection-get-started.md) to turn on and configure Threat Detection and to configure the list of emails that will receive security alerts upon detection of anomalous activities.
 
-Questo documento illustra come implementare la raccomandazione "Abilita il controllo sui server SQL" del Centro sicurezza. Per altre informazioni su come proteggere il database SQL, vedere gli argomenti seguenti:
+## <a name="see-also"></a>See also
 
-- [Protezione del Database SQL](../sql-database/sql-database-security.md)
+This article showed you how to implement the Security Center recommendation "Enable auditing on SQL servers." To learn more about securing your SQL database, see the following:
 
-Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
+- [Securing your SQL Database](../sql-database/sql-database-security.md)
 
-- [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
-- [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): informazioni sul modo in cui le raccomandazioni semplificano la protezione delle risorse di Azure.
-- [Monitoraggio dello stato della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
-- [Come gestire e rispondere agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
-- [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare lo stato integrità delle soluzioni dei partner.
-- [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
-- [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): informazioni e notizie aggiornate sulla sicurezza di Azure.
+To learn more about Security Center, see the following:
+
+- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
+- [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
+- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
+- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Get the latest Azure security news and information.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-auditing-on-sql-server/enable-auditing-on-sql-servers.png
-[2]: ./media/security-center-enable-auditing-on-sql-server/enable-auditing.png
+[2]:./media/security-center-enable-auditing-on-sql-server/enable-auditing.png
 [3]: ./media/security-center-enable-auditing-on-sql-server/auditing-settings-blade.png
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

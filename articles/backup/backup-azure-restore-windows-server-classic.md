@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Ripristinare i dati in Windows Server o in un client di Windows da Azure con il modello di distribuzione classica | Microsoft Azure"
-   description="Informazioni su come eseguire operazioni di ripristino da un computer che esegue Windows Server o un client Windows."
+   pageTitle="Restore data to a Windows Server or Windows Client from Azure using the classic deployment model | Microsoft Azure"
+   description="Learn how to restore from a Windows Server or Windows Client."
    services="backup"
    documentationCenter=""
    authors="saurabhsensharma"
@@ -10,117 +10,122 @@
 <tags
    ms.service="backup"
    ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="08/02/2016"
-	 ms.author="trinadhk; jimpark; markgal;"/>
+     ms.tgt_pltfrm="na"
+     ms.devlang="na"
+     ms.topic="article"
+     ms.date="11/01/2016"
+     ms.author="trinadhk; jimpark; markgal;"/>
 
-# Ripristinare file in un computer di Windows Server o in un client di Windows con il modello di distribuzione classica
+
+# <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-the-classic-deployment-model"></a>Restore files to a Windows server or Windows client machine using the classic deployment model
 
 > [AZURE.SELECTOR]
-- [Portale classico](backup-azure-restore-windows-server-classic.md)
-- [Portale di Azure](backup-azure-restore-windows-server.md)
+- [Classic portal](backup-azure-restore-windows-server-classic.md)
+- [Azure portal](backup-azure-restore-windows-server.md)
 
-In questo articolo viene illustrata la procedura necessaria per eseguire due tipi di operazioni di ripristino:
+This article covers the steps required to perform two types of restore operations:
 
-- Ripristinare i dati nello stesso computer in cui sono stati eseguiti i backup.
-- Ripristinare i dati in un altro computer.
+- Restore data to the same machine from which the backups were taken.
+- Restore data to any other machine.
 
-In entrambi i casi, i dati vengono recuperati dall'insieme di credenziali di Backup di Azure.
+In both cases, the data is retrieved from the Azure Backup vault.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-## Recuperare i dati nello stesso computer
-Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello stesso computer in cui è stato eseguito il backup, la seguente procedura permette di recuperarlo.
+## <a name="recover-data-to-the-same-machine"></a>Recover data to the same machine
+If you accidentally deleted a file and wish to restore it to the same machine (from which the backup is taken), the following steps will help you recover the data.
 
-1. Aprire lo snap-in di **Backup di Microsoft Azure**.
-2. Fare clic su **Ripristina dati** per avviare il flusso di lavoro.
+1. Open the **Microsoft Azure Backup** snap in.
+2. Click **Recover Data** to initiate the workflow.
 
-    ![Ripristino dei dati](./media/backup-azure-restore-windows-server-classic/recover.png)
+    ![Recover Data](./media/backup-azure-restore-windows-server-classic/recover.png)
 
-3. Selezionare l'opzione **Questo server (*nomecomputer*)**, se si è deciso di ripristinare il file di backup nello stesso computer.
+3. Select the **This server (*yourmachinename*)** option to restore the backed up file on the same machine.
 
-    ![Nello stesso computer](./media/backup-azure-restore-windows-server-classic/samemachine.png)
+    ![Same machine](./media/backup-azure-restore-windows-server-classic/samemachine.png)
 
-4. È possibile scegliere di selezionare **Sfoglia elenco file** o **Cerca file**.
+4. Choose to **Browse for files** or **Search for files**.
 
-    Se si intende ripristinare uno o più file con un percorso noto, lasciare l'opzione predefinita. Se non si è certi della struttura di cartelle, ma si vuole cercare un file, selezionare l'opzione **Cerca file**. Ai fini di questa sezione, si procede con l'opzione predefinita.
+    Leave the default option if you plan to restore one or more files whose path is known. If you are not sure about the folder structure but would like to search for a file, pick the **Search for files** option. For the purpose of this section, we will proceed with the default option.
 
-    ![Ricerca dei file](./media/backup-azure-restore-windows-server-classic/browseandsearch.png)
+    ![Browse files](./media/backup-azure-restore-windows-server-classic/browseandsearch.png)
 
-5. Nella schermata successiva selezionare il volume da cui si vuole ripristinare il file.
+5. Select the volume from which you wish to restore the file.
 
-    È possibile ripristinare da qualsiasi data. Le date visualizzate in **grassetto** nel controllo calendario indicano la disponibilità di un punto di ripristino. Dopo aver selezionato una data, in base alla pianificazione del backup (e alla riuscita di un'operazione di backup), è possibile selezionare un orario dall'elenco a discesa **Ora**.
+    You can restore from any point in time. Dates which appear in **bold** in the calendar control indicate the availability of a restore point. Once a date is selected, based on your backup schedule (and the success of a backup operation), you can select a point in time from the **Time** drop down.
 
-    ![Volume e dati](./media/backup-azure-restore-windows-server-classic/volanddate.png)
+    ![Volume and Date](./media/backup-azure-restore-windows-server-classic/volanddate.png)
 
-6. Selezionare gli elementi da ripristinare. È possibile selezionare più cartelle e file per il ripristino.
+6. Select the items to recover. You can multi-select folders/files you wish to restore.
 
-    ![Selezione dei file](./media/backup-azure-restore-windows-server-classic/selectfiles.png)
+    ![Select files](./media/backup-azure-restore-windows-server-classic/selectfiles.png)
 
-7. Specificare i parametri di ripristino.
+7. Specify the recovery parameters.
 
-    ![Opzioni di ripristino](./media/backup-azure-restore-windows-server-classic/recoveroptions.png)
+    ![Recovery options](./media/backup-azure-restore-windows-server-classic/recoveroptions.png)
 
-  - È possibile scegliere di ripristinare i file nel percorso originale (in cui il file o la cartella verrà sovrascritta) o in un altro percorso nello stesso computer.
-  - Se il file o la cartella da ripristinare esiste nel percorso di destinazione, è possibile creare copie (due versioni dello stesso file), sovrascrivere i file nel percorso di destinazione oppure ignorare il ripristino dei file esistenti nel database di destinazione.
-  - È consigliabile lasciare l'opzione predefinita che prevede il ripristino degli elenchi di controllo di accesso sui file che vengono recuperati.
+  - You have an option of restoring to the original location (in which the file/folder would be overwritten) or to another location in the same machine.
+  - If the file/folder you wish to restore exists in the target location, you can create copies (two versions of the same file), overwrite the files in the target location, or skip the recovery of the files which exist in the target.
+  - It is highly recommended that you leave the default option of restoring the ACLs on the files which are being recovered.
 
-8. Una volta forniti i dati di input, fare clic su **Avanti**. Il flusso di lavoro di ripristino, che consente di ripristinare i file in questo computer, verrà avviato.
+8. Once these inputs are provided, click **Next**. The recovery workflow, which restores the files to this machine, will begin.
 
-## Recuperare i dati in un altro computer
-Se l'intero server viene perso, è comunque possibile recuperare dati da Backup di Azure in un computer diverso. I passaggi seguenti illustrano il flusso di lavoro.
+## <a name="recover-to-an-alternate-machine"></a>Recover to an alternate machine
+If your entire server is lost, you can still recover data from Azure Backup to a different machine. The following steps illustrate the workflow.  
 
-Include la terminologia utilizzata in questi passaggi:
+The terminology used in these steps includes:
 
-- *Computer di origine*: il computer di origine da cui è stato eseguito il backup e che non è attualmente disponibile.
-- *Computer di destinazione*: il computer in cui i dati vengono ripristinati.
-- *Insieme di credenziali di esempio*: l'insieme di credenziali di Backup in cui il *computer di origine* e il *computer di destinazione* sono registrati. <br/>
+- *Source machine* – The original machine from which the backup was taken and which is currently unavailable.
+- *Target machine* – The machine to which the data is being recovered.
+- *Sample vault* – The Backup vault to which the *Source machine* and *Target machine* are registered. <br/>
 
-> [AZURE.NOTE] I backup eseguiti da un determinato computer non possono essere ripristinati in un computer che esegue una versione precedente del sistema operativo. Ad esempio, se i backup vengono eseguiti da un computer che esegue Windows 7, è possibile ripristinare i dati in un computer con Windows 8 o versione successiva. Tuttavia non è possibile eseguire l'operazione inversa.
+> [AZURE.NOTE] Backups taken from a machine cannot be restored on a machine which is running an earlier version of the operating system. For example, if backups are taken from a Windows 7 machine, it can be restored on a Windows 8 or above machine. However, the vice-versa does not hold true.
 
-1. Aprire lo snap-in di **Backup di Microsoft Azure** nel *Computer di destinazione*.
-2. Assicurarsi che il *Computer di destinazione* e il *Computer di origine* siano registrati nello stesso insieme di credenziali di Backup.
-3. Fare clic su **Ripristina dati** per avviare il flusso di lavoro.
+1. Open the **Microsoft Azure Backup** snap in on the *Target machine*.
+2. Ensure that the *Target machine* and the *Source machine* are registered to the same backup vault.
+3. Click **Recover Data** to initiate the workflow.
 
-    ![Ripristino dei dati](./media/backup-azure-restore-windows-server-classic/recover.png)
+    ![Recover Data](./media/backup-azure-restore-windows-server-classic/recover.png)
 
-4. Selezionare **Un altro server**
+4. Select **Another server**
 
-    ![In un altro server](./media/backup-azure-restore-windows-server-classic/anotherserver.png)
+    ![Another Server](./media/backup-azure-restore-windows-server-classic/anotherserver.png)
 
-5. Specificare il file dell'insieme di credenziali che corrisponde all'*Insieme di credenziali di esempio*. Se il file dell'insieme di credenziali non è valido (o è scaduto), scaricarne uno nuovo dall'*Insieme di credenziali di esempio* nel portale classico di Azure. Dopo aver specificato il file delle credenziali dell'insieme di credenziali, in quest'ultimo viene visualizzato l'insieme di credenziali di backup.
+5. Provide the vault credential file that corresponds to the *Sample vault*. If the vault credential file is invalid (or expired) download a new vault credential file from the *Sample vault* in the Azure classic portal. Once the vault credential file is provided, the backup vault against the vault credential file is displayed.
 
-6. Selezionare il *computer di origine* dall'elenco dei computer visualizzati.
+6. Select the *Source machine* from the list of displayed machines.
 
-    ![Elenco di computer](./media/backup-azure-restore-windows-server-classic/machinelist.png)
+    ![List of machines](./media/backup-azure-restore-windows-server-classic/machinelist.png)
 
-7. Selezionare come in precedenza l'opzione **Cerca file** o **Sfoglia elenco file**. Ai fini di questa sezione, si userà l'opzione **Cerca file**.
+7. Select either the **Search for files** or **Browse for files** option. For the purpose of this section, we will use the **Search for files** option.
 
     ![Search](./media/backup-azure-restore-windows-server-classic/search.png)
 
-8. Nella schermata successiva selezionare la data e il volume. Cercare il nome delle cartelle e dei file da ripristinare.
+8. Select the volume and date in the next screen. Search for the folder/file name you want to restore.
 
-    ![Ricerca di elementi](./media/backup-azure-restore-windows-server-classic/searchitems.png)
+    ![Search items](./media/backup-azure-restore-windows-server-classic/searchitems.png)
 
-9. Selezionare il percorso in cui devono essere ripristinati i file.
+9. Select the location where the files need to be restored.
 
-    ![Percorso di ripristino](./media/backup-azure-restore-windows-server-classic/restorelocation.png)
+    ![Restore location](./media/backup-azure-restore-windows-server-classic/restorelocation.png)
 
-10. Specificare la passphrase di crittografia fornita durante la registrazione del *computer di origine* all'*insieme di credenziali di esempio*.
+10. Provide the encryption passphrase that was provided during *Source machine’s* registration to *Sample vault*.
 
-    ![Crittografia](./media/backup-azure-restore-windows-server-classic/encryption.png)
+    ![Encryption](./media/backup-azure-restore-windows-server-classic/encryption.png)
 
-11. Dopo aver specificato i dati di input, fare clic sul pulsante **Ripristina** che attiva le operazioni di ripristino dei file di backup nella destinazione specificata.
+11. Once the input is provided, click **Recover**, which triggers the restore of the backed up files to the destination provided.
 
-## Passaggi successivi
-- [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)
-- Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+## <a name="next-steps"></a>Next steps
+- [Azure Backup FAQ](backup-azure-backup-faq.md)
+- Visit the [Azure Backup Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-## Altre informazioni
-- [Panoramica di Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=222425)
-- [Eseguire il backup di macchine virtuali di Azure](backup-azure-vms-introduction.md)
-- [Eseguire il backup dei carichi di lavoro di Microsoft](backup-azure-dpm-introduction.md)
+## <a name="learn-more"></a>Learn more
+- [Azure Backup Overview](http://go.microsoft.com/fwlink/p/?LinkId=222425)
+- [Backup Azure virtual machines](backup-azure-vms-introduction.md)
+- [Backup up Microsoft workloads](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

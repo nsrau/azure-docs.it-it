@@ -1,72 +1,77 @@
 <properties
-	pageTitle="Impostare i criteri di scadenza della password in Active Directory di Azure | Microsoft Azure"
-	description="Informazioni su come controllare i criteri di scadenza e modificare la password utente scaduta singolarmente o in blocco per le password di Azure Active directory"
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/> 
+    pageTitle="Set password expiration policies in Azure Active Directory | Microsoft Azure"
+    description="Learn how to check expiration policies and change user password expiration either singly or in bulk for Azure Active directory passwords"
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/12/2016"
-	ms.author="curtand"/> 
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/01/2016"
+    ms.author="curtand"/>
 
 
-# Impostare i criteri di scadenza della password in Azure Active Directory
 
-> [AZURE.IMPORTANT] **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+# <a name="set-password-expiration-policies-in-azure-active-directory"></a>Set password expiration policies in Azure Active Directory
 
-In qualità di amministratore generale per un servizio cloud Microsoft, è possibile utilizzare il modulo della directory di Microsoft Azure Active per Windows PowerShell per impostare delle password utente che non scadano. È inoltre possibile utilizzare cmdlet Windows PowerShell per rimuovere la configurazione senza scadenza, o per vedere quali password utente vengono impostate senza scadenza. Questo articolo riporta informazioni di guida sui servizi cloud, quali Microsoft Intune e Office 365, che si basano su Microsoft Azure Active Directory per i servizi di identità e directory.
+> [AZURE.IMPORTANT] **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
 
-  > [AZURE.NOTE] Solo le password degli account utente che non sono sincronizzate tramite sincronizzazione della directory possono essere configurate senza scadenza. Per altre informazioni sulla sincronizzazione della directory, vedere l'elenco di argomenti in [Roadmap sulla sincronizzazione delle directory](https://msdn.microsoft.com/library/azure/hh967642.aspx).
+As a global administrator for a Microsoft cloud service, you can use the Microsoft Azure Active Directory Module for Windows PowerShell to set up user passwords not to expire. You can also use Windows PowerShell cmdlets to remove the never-expires configuration, or to see which user passwords are set up not to expire. This article provides help for cloud services, such as Microsoft Intune and Office 365, which rely on Microsoft Azure Active Directory for identity and directory services.
 
-Per utilizzare i cmdlet di Windows PowerShell, è innanzitutto necessario installarli.
+  > [AZURE.NOTE] Only passwords for user accounts that are not synchronized through directory synchronization can be configured not to expire. For more information about directory synchronization, see the list of topics in [Directory synchronization roadmap](https://msdn.microsoft.com/library/azure/hh967642.aspx).
 
-## Come procedere
+To use Windows PowerShell cmdlets, you first must install them.
 
-- [Come controllare i criteri di scadenza per una password](#how-to-check-expiration-policy-for-a-password)
+## <a name="what-do-you-want-to-do"></a>What do you want to do?
 
-- [Impostare una scadenza della password](#set-a-password-to-expire)
+- [How to check expiration policy for a password](#how-to-check-expiration-policy-for-a-password)
 
-- [Impostare una password senza scadenza](#set-a-password-to-never-expire)
+- [Set a password to expire](#set-a-password-to-expire)
 
-## Come controllare i criteri di scadenza per una password
+- [Set a password so that it will not expire](#set-a-password-to-never-expire)
 
-1.  Connettersi a Windows PowerShell utilizzando le credenziali aziendali di amministratore.
+## <a name="how-to-check-expiration-policy-for-a-password"></a>How to check expiration policy for a password
 
-2.  Eseguire una di queste operazioni:
+1.  Connect to Windows PowerShell using your company administrator credentials.
 
-	- Per vedere se la password di un singolo utente è impostata per non scadere mai, eseguire il cmdlet seguente usando il nome principale utente (UPN) (ad esempio, aprilr@contoso.onmicrosoft.com) o l'ID utente dell'utente che si desidera controllare: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
+2.  Do one of the following:
 
-	- Per visualizzare l'impostazione "Nessuna scadenza per la Password" per tutti gli utenti, eseguire il cmdlet seguente: `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
+    - To see whether a single user’s password is set to never expire, run the following cmdlet by using the user principal name (UPN) (for example, aprilr@contoso.onmicrosoft.com) or the user ID of the user you want to check: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
 
-## Impostare una scadenza della password
+    - To see the "Password never expires" setting for all users, run the following cmdlet: `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
 
-1.  Connettersi a Windows PowerShell utilizzando le credenziali aziendali di amministratore.
+## <a name="set-a-password-to-expire"></a>Set a password to expire
 
-2.  Eseguire una di queste operazioni:
+1.  Connect to Windows PowerShell using your company administrator credentials.
 
-	- Per impostare la password di un utente in modo che la password scada, eseguire il cmdlet seguente usando il nome principale utente (UPN) o l'ID utente dell'utente: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
+2.  Do one of the following:
 
-	- Per impostare le password di tutti gli utenti dell'organizzazione in modo che scadano, utilizzare il cmdlet seguente: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
+    - To set the password of one user so that the password will expire, run the following cmdlet by using the user principal name (UPN) or the user ID of the user: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
 
-## Impostare una password senza scadenza
+    - To set the passwords of all users in the organization so that they will expire, use the following cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
 
-1. Connettersi a Windows PowerShell utilizzando le credenziali aziendali di amministratore.
+## <a name="set-a-password-to-never-expire"></a>Set a password to never expire
 
-2.  Eseguire una di queste operazioni:
+1. Connect to Windows PowerShell using your company administrator credentials.
 
-	- Per impostare la password di un utente senza scadenza, eseguire il cmdlet seguente usando il nome principale utente (UPN) o l'ID utente dell'utente: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
+2.  Do one of the following:
 
-	- Per impostare le password degli utenti in un'organizzazione in modo che non scadano mai, eseguire il cmdlet seguente: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
+    - To set the password of one user to never expire, run the following cmdlet by using the user principal name (UPN) or the user ID of the user: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
 
-## Passaggi successivi
+    - To set the passwords of all the users in an organization to never expire, run the following cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
-* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0921_2016-->
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+
