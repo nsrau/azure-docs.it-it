@@ -16,29 +16,32 @@
     ms.date="09/28/2016"
     ms.author="dhanyahk;markvi"/>
 
-# Esempi dell'API di creazione report di Azure Active Directory
 
-Questo argomento fa parte di una raccolta di argomenti sull'API di creazione report di Azure Active Directory. La creazione di report di Azure Active Directory fornisce un'API che consente di accedere ai dati di controllo tramite codice o strumenti correlati. L'obiettivo di questo argomento è fornire codice di esempio per l'**API di controllo**.
+# <a name="azure-active-directory-reporting-audit-api-samples"></a>Esempi dell'API di creazione report di Azure Active Directory
+
+Questo argomento fa parte di una raccolta di argomenti sull'API di creazione report di Azure Active Directory.  
+La creazione di report di Azure Active Directory fornisce un'API che consente di accedere ai dati di controllo tramite codice o strumenti correlati.
+L'obiettivo di questo argomento è fornire codice di esempio per l' **API di controllo**.
 
 Vedere:
 
-- Per altre informazioni sul concetto, vedere [Log di controllo](active-directory-reporting-azure-portal.md#audit-logs).
+- [Log di controllo](active-directory-reporting-azure-portal.md#audit-logs) .
 
-- Per altre informazioni sull'API di creazione report, vedere [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md).
+- [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md) .
 
 Per domande, problemi o suggerimenti, contattare la [Guida per la creazione di report AAD](mailto:aadreportinghelp@microsoft.com).
 
 
-## Prerequisiti
-Prima di poter usare gli esempi contenuti in questo argomento, è necessario completare i [prerequisiti di accesso all'API di creazione report di Azure AD](active-directory-reporting-api-prerequisites.md).
+## <a name="prerequisites"></a>Prerequisiti
+Prima di poter usare gli esempi contenuti in questo argomento, è necessario completare i [prerequisiti di accesso all'API di creazione report di Azure AD](active-directory-reporting-api-prerequisites.md).  
   
 
-## Problema noto
+## <a name="known-issue"></a>Problema noto
 
-L'autenticazione dell'applicazione non funziona se il tenant si trova nell'area dell'Unione Europea. Per l'accesso all'API di controllo come soluzione alternativa fino a quando non si risolve il problema, usare l'autenticazione degli utenti.
+L'autenticazione dell'applicazione non funziona se il tenant si trova nell'area dell'Unione Europea. Per l'accesso all'API di controllo come soluzione alternativa fino a quando non si risolve il problema, usare l'autenticazione degli utenti. 
 
 
-## Script di PowerShell
+## <a name="powershell-script"></a>Script di PowerShell
     # This script will require registration of a Web Application in Azure Active Directory (see https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)
 
     # Constants
@@ -83,13 +86,13 @@ L'autenticazione dell'applicazione non funziona se il tenant si trova nell'area 
     $x = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 
 
-### Esecuzione dello script di PowerShell
+### <a name="executing-the-powershell-script"></a>Esecuzione dello script di PowerShell
 Una volta modificato lo script, eseguirlo e verificare che vengano restituiti i dati corretti dal report Log di controllo.
 
 Lo script restituisce l'output del report di controllo in formato JSON. Crea anche un file `audit.json` con lo stesso output. È possibile provare a modificare lo script per restituire i dati di altri report e rimuovere i commenti per i formati di output non necessari.
 
 
-## Script Bash
+## <a name="bash-script"></a>Script Bash
 
     #!/bin/bash
 
@@ -118,58 +121,62 @@ Lo script restituisce l'output del report di controllo in formato JSON. Crea anc
 
     echo $REPORT | ./jq-win64.exe -r '.value' | ./jq-win64.exe -r ".[]"
 
-## Script Python
+## <a name="python-script"></a>Script Python
 
-	# Author: Michael McLaughlin (michmcla@microsoft.com)
-	# Date: January 20, 2016
-	# This requires the Python Requests module: http://docs.python-requests.org
+    # Author: Michael McLaughlin (michmcla@microsoft.com)
+    # Date: January 20, 2016
+    # This requires the Python Requests module: http://docs.python-requests.org
 
-	import requests
-	import datetime
-	import sys
+    import requests
+    import datetime
+    import sys
 
-	client_id = 'your-application-client-id-here'
-	client_secret = 'your-application-client-secret-here'
-	login_url = 'https://login.windows.net/'
-	tenant_domain = 'your-directory-name-here.onmicrosoft.com'
+    client_id = 'your-application-client-id-here'
+    client_secret = 'your-application-client-secret-here'
+    login_url = 'https://login.windows.net/'
+    tenant_domain = 'your-directory-name-here.onmicrosoft.com'
 
-	# Get an OAuth access token
-	bodyvals = {'client_id': client_id,
-	            'client_secret': client_secret,
-	            'grant_type': 'client_credentials'}
+    # Get an OAuth access token
+    bodyvals = {'client_id': client_id,
+                'client_secret': client_secret,
+                'grant_type': 'client_credentials'}
 
-	request_url = login_url + tenant_domain + '/oauth2/token?api-version=1.0'
-	token_response = requests.post(request_url, data=bodyvals)
+    request_url = login_url + tenant_domain + '/oauth2/token?api-version=1.0'
+    token_response = requests.post(request_url, data=bodyvals)
 
-	access_token = token_response.json().get('access_token')
-	token_type = token_response.json().get('token_type')
+    access_token = token_response.json().get('access_token')
+    token_type = token_response.json().get('token_type')
 
-	if access_token is None or token_type is None:
-	    print "ERROR: Couldn't get access token"
-	    sys.exit(1)
+    if access_token is None or token_type is None:
+        print "ERROR: Couldn't get access token"
+        sys.exit(1)
 
-	# Use the access token to make the API request
-	yesterday = datetime.date.strftime(datetime.date.today() - datetime.timedelta(days=1), '%Y-%m-%d')
+    # Use the access token to make the API request
+    yesterday = datetime.date.strftime(datetime.date.today() - datetime.timedelta(days=1), '%Y-%m-%d')
 
-	header_params = {'Authorization': token_type + ' ' + access_token}
-	request_string = 'https://graph.windows.net/' + tenant_domain + 'activities/audit?api-version=beta&$filter=eventTime%20gt%20' + yesterday   
-	response = requests.get(request_string, headers = header_params)
+    header_params = {'Authorization': token_type + ' ' + access_token}
+    request_string = 'https://graph.windows.net/' + tenant_domain + 'activities/audit?api-version=beta&$filter=eventTime%20gt%20' + yesterday   
+    response = requests.get(request_string, headers = header_params)
 
-	if response.status_code is 200:
-	    print response.content
-	else:
-	    print 'ERROR: API request failed'
-
-
+    if response.status_code is 200:
+        print response.content
+    else:
+        print 'ERROR: API request failed'
 
 
 
-## Passaggi successivi
 
-- Si desidera personalizzare gli esempi contenuti in questo argomento? Vedere le [informazioni di riferimento sull'API di controllo Azure Active Directory](active-directory-reporting-api-audit-reference.md).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Si desidera personalizzare gli esempi contenuti in questo argomento? Vedere le [informazioni di riferimento sull'API di controllo Azure Active Directory](active-directory-reporting-api-audit-reference.md). 
 
 - Se si desidera visualizzare una panoramica completa sull'uso dell'API di creazione report di Azure Active Directory, vedere [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md).
 
-- Per altre informazioni sulla creazione di report di Azure Active Directory, vedere [Guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).
+- Per altre informazioni sulla creazione di report di Azure Active Directory, vedere [Guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).  
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

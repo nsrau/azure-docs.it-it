@@ -1,30 +1,31 @@
 <properties 
-	pageTitle="Come creare un processore multimediale | Microsoft Azure" 
-	description="Informazioni su come creare un componente del processore di contenuti multimediali per codificare, decodificare, convertire il formato, crittografare o decrittografare contenuti multimediali per Servizi multimediali di Azure. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="Come creare un processore multimediale | Microsoft Azure" 
+    description="Informazioni su come creare un componente del processore di contenuti multimediali per codificare, decodificare, convertire il formato, crittografare o decrittografare contenuti multimediali per Servizi multimediali di Azure. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/26/2016" 
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/26/2016" 
+    ms.author="juliako"/>
 
 
-#Procedura: Ottenere un'istanza del processore di contenuti multimediali
+
+#<a name="how-to:-get-a-media-processor-instance"></a>Procedura: Ottenere un'istanza del processore di contenuti multimediali
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-get-media-processor.md)
 - [REST](media-services-rest-get-media-processor.md)
 
 
-##Overview
+##<a name="overview"></a>Overview
 
 In Servizi multimediali un processore di contenuti multimediali è un componente che gestisce un'attività di elaborazione specifica, ad esempio la codifica, la conversione del formato, la crittografia o la decrittografia di contenuti multimediali. Un processore multimediale viene generalmente creato durante la creazione di un'attività per la codifica, la crittografia o la conversione di formato di contenuto multimediale.
 
@@ -41,32 +42,38 @@ Storage Decryption| Ammortizzato|
 Azure Media Packager|Ammortizzato|
 Azure Media Encryptor|Ammortizzato|
 
-##Ottenere un processore di contenuti multimediali
+##<a name="get-media-processor"></a>Ottenere un processore di contenuti multimediali
 
-Il seguente metodo illustra come ottenere un'istanza del processore di contenuti multimediali. Nell'esempio si suppone che si usi una variabile a livello di modulo denominata **\_context** per fare riferimento al contesto del server descritto nella sezione [How to: Connect to Media Services Programmatically](media-services-dotnet-connect-programmatically.md) (Procedura: Connettersi a Servizi multimediali a livello di codice).
+Il seguente metodo illustra come ottenere un'istanza del processore di contenuti multimediali. Nell'esempio si suppone che si usi una variabile a livello di modulo denominata **_context** per fare riferimento al contesto del server descritto nella sezione [How to: Connect to Media Services Programmatically](media-services-dotnet-connect-programmatically.md) (Procedura: Connettersi a Servizi multimediali a livello di codice).
 
-	private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-	{
-		var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-		ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-		
-		if (processor == null)
-		throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-		
-		return processor;
-	}
+    private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+    {
+        var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+        
+        if (processor == null)
+        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+        
+        return processor;
+    }
 
 
-##Percorsi di apprendimento di Servizi multimediali
+##<a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Fornire commenti e suggerimenti
+##<a name="provide-feedback"></a>Fornire commenti e suggerimenti
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-##Passaggi successivi
+##<a name="next-steps"></a>Passaggi successivi
 
 Dopo avere ottenuto un'istanza del processore di contenuti multimediali, passare all'argomento [Come codificare un asset](media-services-dotnet-encode-with-media-encoder-standard.md) che illustra come usare Media Encoder Standard per codificare un asset.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

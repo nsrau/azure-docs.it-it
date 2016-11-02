@@ -1,62 +1,67 @@
 <properties
-	pageTitle="Monitoraggio e risoluzione dei problemi di migrazione dei dati (Database Estensione) | Microsoft Azure"
-	description="Informazioni su come monitorare lo stato della migrazione dei dati."
-	services="sql-server-stretch-database"
-	documentationCenter=""
-	authors="douglaslMS"
-	manager=""
-	editor=""/>
+    pageTitle="Monitor and troubleshoot data migration (Stretch Database) | Microsoft Azure"
+    description="Learn how to monitor the status of data migration."
+    services="sql-server-stretch-database"
+    documentationCenter=""
+    authors="douglaslMS"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="sql-server-stretch-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="douglasl"/>
+    ms.service="sql-server-stretch-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="06/14/2016"
+    ms.author="douglasl"/>
 
-# Monitoraggio e risoluzione dei problemi di migrazione dei dati (Database Estensione)
 
-Per monitorare la migrazione dei dati in Monitoraggio Database Estensione selezionare **Attività | Estensione | Monitoraggio** per un database in SQL Server Management Studio.
+# <a name="monitor-and-troubleshoot-data-migration-(stretch-database)"></a>Monitor and troubleshoot data migration (Stretch Database)
 
-## Controllare lo stato della migrazione dei dati in Monitoraggio Database Estensione
-Selezionare **Attività | Estensione | Monitoraggio** per un database in SQL Server Management Studio per aprire Monitoraggio Database Estensione e monitorare la migrazione dei dati.
+To monitor data migration in Stretch Database Monitor, select **Tasks | Stretch | Monitor** for a database in SQL Server Management Studio .
 
--   La parte superiore della finestra di monitoraggio visualizza informazioni generali sul database di SQL Server abilitato per l'estensione SQL e sul database di Azure remoto.
+## <a name="check-the-status-of-data-migration-in-the-stretch-database-monitor"></a>Check the status of data migration in the Stretch Database Monitor
+Select **Tasks | Stretch | Monitor** for a database in SQL Server Management Studio to open Stretch Database Monitor and monitor data migration.
 
--   Nella parte inferiore della finestra è visualizzato lo stato della migrazione dei dati per ogni tabella del database abilitata per l'estensione.
+-   The top portion of the monitor displays general information about both the Stretch\-enabled SQL Server database and the remote Azure database.
 
-![Monitoraggio Database Estensione][StretchMonitorImage1]
+-   The bottom portion of the monitor displays the status of data migration for each Stretch\-enabled table in the database.
 
-## <a name="Migration"></a>Controllare lo stato della migrazione dei dati in una vista a gestione dinamica
-Aprire la vista a gestione dinamica **sys.dm\_db\_rda\_migration\_status** per visualizzare il numero di batch e righe di dati migrati. Per altre informazioni, vedere [sys.dm\_db\_rda\_migration\_status (Transact-SQL)](https://msdn.microsoft.com/library/dn935017.aspx).
+![Stretch Database Monitor][StretchMonitorImage1]
 
-## <a name="Firewall"></a>Risoluzione dei problemi di migrazione dei dati
+## <a name="<a-name="migration"></a>check-the-status-of-data-migration-in-a-dynamic-management-view"></a><a name="Migration"></a>Check the status of data migration in a dynamic management view
+Open the dynamic management view **sys.dm\_db\_rda\_migration\_status** to see how many batches and rows of data have been migrated. For more info, see [sys.dm_db_rda_migration_status (Transact-SQL)](https://msdn.microsoft.com/library/dn935017.aspx).
 
-**Le righe della tabella con estensione abilitata non vengono migrate in Azure. Come mai?**
+## <a name="<a-name="firewall"></a>troubleshoot-data-migration"></a><a name="Firewall"></a>Troubleshoot data migration
 
-Esistono diversi problemi che possono influire sulla migrazione. Verificare quanto segue.
+**Rows from my Stretch-enabled table are not being migrated to Azure. What’s the problem?**
 
--   Verificare la connettività di rete per il computer SQL Server.
+There are several problems that can affect migration. Check the following things.
 
--   Verificare che il firewall di Azure non stia bloccando la connessione di SQL Server all'endpoint remoto.
+-   Check network connectivity for the SQL Server computer.
 
--   Nella vista a gestione dinamica **sys.dm\_db\_rda\_migration\_status** verificare lo stato dell'ultimo batch. Se si è verificato un errore, controllare i valori error\_number, error\_state e error\_severity per il batch.
+-   Check that the Azure firewall is not blocking your SQL Server from connecting to the remote endpoint.
 
-    -   Per altre informazioni, vedere [sys.dm\_db\_rda\_migration\_status (Transact-SQL)](https://msdn.microsoft.com/library/dn935017.aspx).
+-   Check the dynamic management view **sys.dm\_db\_rda\_migration\_status** for the status of the latest batch. If an error has occurred, check the error\_number, error\_state, and error\_severity values for the batch.
 
-    -   Per altre informazioni sul contenuto di un messaggio di errore di SQL Server, vedere [sys.messages (Transact-SQL)](https://msdn.microsoft.com/library/ms187382.aspx).
+    -   For more info about the view, see [sys.dm_db_rda_migration_status (Transact-SQL)](https://msdn.microsoft.com/library/dn935017.aspx).
 
-**Il firewall di Azure blocca le connessioni dal server locale.**
+    -   For more info about the content of a SQL Server error message, see [sys.messages (Transact-SQL)](https://msdn.microsoft.com/library/ms187382.aspx).
 
-Potrebbe essere necessario aggiungere una regola nelle impostazioni del firewall di Azure per il server Azure per consentire a SQL Server di comunicare con il server Azure remoto.
+**The Azure firewall is blocking connections from my local server.**
 
-## Vedere anche
+You may have to add a rule in the Azure firewall settings of the Azure server to let SQL Server communicate with the remote Azure server.
 
-[Gestire e risolvere i problemi di Database Estensione](sql-server-stretch-database-manage.md)
+## <a name="see-also"></a>See Also
+
+[Manage and troubleshoot Stretch Database](sql-server-stretch-database-manage.md)
 
 <!--Image references-->
 [StretchMonitorImage1]: ./media/sql-server-stretch-database-monitor/StretchDBMonitor.png
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

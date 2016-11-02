@@ -1,29 +1,30 @@
 <properties
-	pageTitle="Azure AD Connect e federazione | Microsoft Azure"
-	description="Questa pagina è il punto centrale per tutta la documentazione correlata alle operazioni di AD FS tramite Azure AD Connect"
-	services="active-directory"
-	documentationCenter=""
-	authors="anandyadavmsft"
-	manager="femila"
-	editor=""/>
+    pageTitle="Azure AD Connect e federazione | Microsoft Azure"
+    description="Questa pagina è il punto centrale per tutta la documentazione correlata alle operazioni di AD FS tramite Azure AD Connect"
+    services="active-directory"
+    documentationCenter=""
+    authors="anandyadavmsft"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/14/2016"
-	ms.author="anandy"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/14/2016"
+    ms.author="anandy"/>
 
 
-# Azure AD Connect e federazione
+
+# <a name="azure-ad-connect-and-federation"></a>Azure AD Connect e federazione
 
 Azure AD Connect permette di configurare la federazione con l'istanza di AD FS locale e Azure AD. Grazie all'accesso federato, gli utenti possono accedere ai servizi basati su Azure AD con le proprie password locali e, se usano la rete aziendale, senza dover immettere di nuovo le password. L’opzione di federazione con ADFS consente di distribuire un ADFS nuovo o di specificarne uno esistente nella farm Windows Server 2012 R2.
 
 Questo argomento è il punto centrale per le informazioni sulle funzionalità relative alla federazione per Azure AD Connect e contiene un elenco di collegamenti ad altri argomenti correlati. Per i collegamenti relativi ad Azure AD Connect, vedere Integrazione delle identità locali con Azure Active Directory.
 
-## Azure AD Connect - Argomenti sulla federazione
+## <a name="azure-ad-connect---federation-topics"></a>Azure AD Connect - Argomenti sulla federazione
 
 | Argomento | Contenuti e destinatari |
 |:------|:-----------|
@@ -43,9 +44,14 @@ Questo argomento è il punto centrale per le informazioni sulle funzionalità re
 | [Modificare le regole attestazioni per AD FS](active-directory-aadconnect-federation-management.md#modifying-ad-fs-claim-rules) | Modifica/aggiunta di regole attestazioni AD FS corrispondenti alla configurazione della sincronizzazione di Azure AD Connect |
 
 
-## Risorse aggiuntive
+## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 * [Distribuzione di AD FS in Azure](active-directory-aadconnect-azure-adfs.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

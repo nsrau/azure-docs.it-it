@@ -1,28 +1,29 @@
 <properties
-	pageTitle="Creare snapshot di sola lettura di BLOB | Microsoft Azure"
-	description="Scoprire come creare snapshot di un BLOB per eseguire il backup dei dati BLOB in un determinato momento. Comprendere come vengono fatturati gli snapshot e come utilizzarli per ridurre i costi di capacità."
-	services="storage"
-	documentationCenter=""
-	authors="tamram"
-	manager="carmonm"
-	editor="tysonn"/>
+    pageTitle="Creare snapshot di sola lettura di BLOB | Microsoft Azure"
+    description="Scoprire come creare snapshot di un BLOB per eseguire il backup dei dati BLOB in un determinato momento. Comprendere come vengono fatturati gli snapshot e come utilizzarli per ridurre i costi di capacità."
+    services="storage"
+    documentationCenter=""
+    authors="tamram"
+    manager="carmonm"
+    editor="tysonn"/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="jwillis;tamram"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/18/2016"
+    ms.author="tamram"/>
 
-# Creare uno snapshot del BLOB
 
-## Overview
+# <a name="create-a-blob-snapshot"></a>Creare uno snapshot del BLOB
+
+## <a name="overview"></a>Overview
 
 Uno snapshot è una versione di sola lettura di un BLOB eseguito in un determinato momento. Gli snapshot sono utili per il backup dei BLOB. Dopo aver creato uno snapshot, è possibile leggerlo, copiarlo o eliminarlo, ma non modificarlo.
 
-Uno snapshot di un BLOB è identico al relativo BLOB di base, ad eccezione del fatto che all'URI del BLOB viene aggiunto un valore **DateTime** per indicare data e ora di acquisizione dello snapshot. Ad esempio, se un URI del BLOB di pagine è `http://storagesample.core.blob.windows.net/mydrives/myvhd`, l'URI dello snapshot è simile a `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`.
+Uno snapshot di un BLOB è identico al relativo BLOB di base, ad eccezione del fatto che all'URI del BLOB viene aggiunto un valore **DateTime** per indicare data e ora di acquisizione dello snapshot. Ad esempio, se un URI del BLOB di pagine è `http://storagesample.core.blob.windows.net/mydrives/myvhd`, l'URI dello snapshot è simile a `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`. 
 
 > [AZURE.NOTE] Tutti gli snapshot condividono l'URI del BLOB di base. L'unica distinzione tra il BLOB di base e lo snapshot è il valore **DateTime** aggiunto.
 
@@ -32,7 +33,7 @@ Quando si crea uno snapshot di un BLOB, le proprietà di sistema del BLOB vengon
 
 Eventuali lease associati al BLOB di base non vengono copiati nello snapshot. Non è possibile acquisire un lease in uno snapshot.
 
-## Creare uno snapshot
+## <a name="create-a-snapshot"></a>Creare uno snapshot
 
 L'esempio di codice seguente mostra come creare uno snapshot in .NET. Questo esempio specifica metadati separati per lo snapshot al momento della creazione.
 
@@ -68,7 +69,7 @@ L'esempio di codice seguente mostra come creare uno snapshot in .NET. Questo ese
     }
  
 
-## Copiare gli snapshot
+## <a name="copy-snapshots"></a>Copiare gli snapshot
 
 Le operazioni di copia che interessano BLOB e snapshot si attengono alle seguenti regole:
 
@@ -80,19 +81,19 @@ Le operazioni di copia che interessano BLOB e snapshot si attengono alle seguent
 
 - Quando si crea uno snapshot di un BLOB in blocchi, anche l'elenco di blocchi di cui è stato eseguito il commit del BLOB viene copiato nello snapshot. Eventuali blocchi di cui non è stato eseguito il commit non vengono copiati.
 
-## Specificare una condizione di accesso
+## <a name="specify-an-access-condition"></a>Specificare una condizione di accesso
 
-È possibile specificare una condizione di accesso in modo da creare lo snapshot solo se viene soddisfatta tale condizione. Per specificare una condizione di accesso, usare la proprietà **AccessCondition**. Se la condizione specificata non viene soddisfatta, lo snapshot non viene creato e il servizio BLOB restituisce il codice di stato HTTPStatusCode.PreconditionFailed.
+È possibile specificare una condizione di accesso in modo da creare lo snapshot solo se viene soddisfatta tale condizione. Per specificare una condizione di accesso, usare la proprietà **AccessCondition** . Se la condizione specificata non viene soddisfatta, lo snapshot non viene creato e il servizio BLOB restituisce il codice di stato HTTPStatusCode.PreconditionFailed.
 
-## Eliminare gli snapshot
+## <a name="delete-snapshots"></a>Eliminare gli snapshot
 
 Non è possibile eliminare un BLOB contenente snapshot a meno che non vengano eliminati anche gli snapshot. È possibile eliminare uno snapshot singolarmente o specificare di eliminare tutti gli snapshot quando si elimina il BLOB di origine. Se si tenta di eliminare un BLOB per il quale esistono ancora degli snapshot, viene restituito un errore.
 
 L'esempio di codice seguente mostra come eliminare un BLOB e i relativi snapshot in .NET, dove `blockBlob` è una variabile di tipo **CloudBlockBlob**:
 
-	await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
+    await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
 
-## Snapshot con archiviazione Premium di Azure
+## <a name="snapshots-with-azure-premium-storage"></a>Snapshot con archiviazione Premium di Azure
 
 Per usare snapshot con Archiviazione Premium è necessario attenersi alle regole seguenti:
 
@@ -104,7 +105,7 @@ Per usare snapshot con Archiviazione Premium è necessario attenersi alle regole
 
 - Per leggere uno snapshot, è possibile usare l'operazione Copy BLOB per copiare uno snapshot in un altro BLOB di pagine nell'account. Il BLOB di destinazione per l'operazione di copia non deve contenere snapshot. Se il BLOB di destinazione contiene degli snapshot, l'operazione Copy BLOB restituisce il codice errore 409 (**SnapshotsPresent**).
 
-## Restituire l'URI assoluto a uno snapshot
+## <a name="return-the-absolute-uri-to-a-snapshot"></a>Restituire l'URI assoluto a uno snapshot
 
 Questo esempio di codice C# consente di creare uno snapshot e scrive l'URI assoluto per la posizione primaria.
 
@@ -126,11 +127,11 @@ Questo esempio di codice C# consente di creare uno snapshot e scrive l'URI assol
     CloudBlockBlob blobSnapshot = blob.CreateSnapshot();
     Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 
-## Informazioni sull'incremento dei costi dovuto agli snapshot
+## <a name="understand-how-snapshots-accrue-charges"></a>Informazioni sull'incremento dei costi dovuto agli snapshot
 
 La creazione di uno snapshot, una copia di sola lettura di un BLOB, può dar luogo a costi di archiviazione dei dati aggiuntivi sul conto. Nel progettare l'applicazione, è importante essere a conoscenza di come i costi possono aumentare, in modo da poter ridurre al minimo i costi inutili.
 
-### Considerazioni importanti sulla fatturazione
+### <a name="important-billing-considerations"></a>Considerazioni importanti sulla fatturazione
 
 Nell'elenco seguente sono inclusi i punti principali da considerare quando si crea uno snapshot.
 
@@ -146,10 +147,10 @@ Nell'elenco seguente sono inclusi i punti principali da considerare quando si cr
 
 > - Eliminare e ricreare gli snapshot associati a un BLOB ogni volta che si aggiorna il BLOB, persino se l'aggiornamento viene eseguito con dati identici, a meno che la progettazione dell'applicazione non richieda di mantenerli. Eliminando e ricreando gli snapshot del BLOB è possibile essere sicuri che il BLOB e gli snapshot non differiscano.
 
-> - Se si stanno gestendo gli snapshot di un BLOB, evitare di chiamare **UploadFile**, **UploadText**, **UploadStream** o **UploadByteArray** per aggiornare il BLOB. Questi metodi sostituiscono tutti i blocchi nel BLOB, quindi il BLOB di base e gli snapshot differiscono in modo significativo. Aggiornare, invece, il minor numero possibile di blocchi usando i metodi **PutBlock** e **PutBlockList**.
+> - Se si stanno gestendo gli snapshot di un BLOB, evitare di chiamare **UploadFile**, **UploadText**, **UploadStream** o **UploadByteArray** per aggiornare il BLOB. Questi metodi sostituiscono tutti i blocchi nel BLOB, quindi il BLOB di base e gli snapshot differiscono in modo significativo. Aggiornare invece il minor numero possibile di blocchi usando i metodi **PutBlock** e **PutBlockList**.
 
 
-### Scenari di fatturazione degli snapshot
+### <a name="snapshot-billing-scenarios"></a>Scenari di fatturazione degli snapshot
 
 
 Gli scenari seguenti dimostrano in che modo aumentano i costi per un BLOB in blocchi e i relativi snapshot.
@@ -170,8 +171,12 @@ Nello Scenario 4, il BLOB di base è stato completamente aggiornato e non contie
 
 ![Risorse di archiviazione di Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
-Per altri esempi di uso dell'archiviazione BLOB, vedere [Esempi di codice per Azure](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). È possibile scaricare un'applicazione di esempio ed eseguirla oppure esaminare il codice in GitHub.
+Per altri esempi di uso dell'archiviazione BLOB, vedere [Esempi di codice per Azure](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). È possibile scaricare un'applicazione di esempio ed eseguirla oppure esaminare il codice in GitHub. 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

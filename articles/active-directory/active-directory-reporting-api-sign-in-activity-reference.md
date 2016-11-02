@@ -16,21 +16,24 @@
     ms.date="09/25/2016"
     ms.author="dhanyahk;markvi"/>
 
-# Riferimento API del report sull'attività di accesso di Azure Active Directory
+
+# <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Riferimento API del report sull'attività di accesso di Azure Active Directory
 
 
-Questo argomento fa parte di una raccolta di argomenti sull'API di creazione report di Azure Active Directory. La creazione di report di Azure Active Directory fornisce un'API che consente di accedere ai dati del report sull'attività di accesso tramite codice o strumenti correlati. L'obiettivo di questo argomento è fornire informazioni di riferimento sull'**API del report sull'attività di accesso**.
+Questo argomento fa parte di una raccolta di argomenti sull'API di creazione report di Azure Active Directory.  
+La creazione di report di Azure Active Directory fornisce un'API che consente di accedere ai dati del report sull'attività di accesso tramite codice o strumenti correlati.
+L'obiettivo di questo argomento è fornire informazioni di riferimento sull' **API del report sull'attività di accesso**.
 
 Vedere:
 
-- Per altre informazioni, vedere [Attività di accesso](active-directory-reporting-azure-portal.md#sign-in-activities).
-- Per altre informazioni sull'API di creazione report, vedere [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md).
+- [Attività di accesso](active-directory-reporting-azure-portal.md#sign-in-activities) .
+- [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md) .
 
 Per domande, problemi o suggerimenti, contattare la [Guida per la creazione di report AAD](mailto:aadreportinghelp@microsoft.com).
 
 
 
-## Chi può accedere ai dati dell'API?
+## <a name="who-can-access-the-api-data?"></a>Chi può accedere ai dati dell'API?
 
 - Gli utenti con ruolo di amministratore della sicurezza o con autorizzazioni di lettura per la sicurezza
 
@@ -40,61 +43,63 @@ Per domande, problemi o suggerimenti, contattare la [Guida per la creazione di r
 
 
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per accedere a questo report tramite l'API di creazione report, è necessario:
 
-- Disporre di [Azure Active Directory Premium, edizione P1 o P2](active-directory-editions.md).
+- Disporre di [Azure Active Directory Premium, edizione P1 o P2](active-directory-editions.md)
 
-- Aver completato i [prerequisiti di accesso all'API di creazione report di Azure AD](active-directory-reporting-api-prerequisites.md).
+- Aver completato i [prerequisiti di accesso all'API di creazione report di Azure AD](active-directory-reporting-api-prerequisites.md). 
 
 
-##Accesso all'API
+##<a name="accessing-the-api"></a>Accesso all'API
 
-È possibile accedere a questa API tramite [Graph Explorer](https://graphexplorer2.cloudapp.net) o a livello di codice, ad esempio usando PowerShell. Al fine di consentire a Per PowerShell di interpretare correttamente la sintassi del filtro OData usata nelle chiamate REST di Graph di AAD, è necessario fare uso dell'apice inverso, ovvero l'accento grave, per eseguire l'"escape" del carattere $. L'apice inverso viene usato come [carattere di escape di PowerShell](https://technet.microsoft.com/library/hh847755.aspx) e consente a PowerShell di eseguire un'interpretazione letterale del carattere $, che evita la confusione con il nome di una variabile di PowerShell (ad esempio: $filter).
+È possibile accedere a questa API tramite [Graph Explorer](https://graphexplorer2.cloudapp.net) o a livello di codice, ad esempio usando PowerShell. Al fine di consentire a Per PowerShell di interpretare correttamente la sintassi del filtro OData usata nelle chiamate REST di Graph di AAD, è necessario fare uso dell'apice inverso, ovvero l'accento grave, per eseguire l'"escape" del carattere $. L'apice inverso viene usato come [carattere di escape di PowerShell](https://technet.microsoft.com/library/hh847755.aspx)e consente a PowerShell di eseguire un'interpretazione letterale del carattere $, che evita la confusione con il nome di una variabile di PowerShell (ad esempio: $filter).
 
 Questo argomento si concentra su Graph Explorer. Per un esempio di PowerShell, vedere questo [script di PowerShell](active-directory-reporting-api-sign-in-activity-samples.md#powershell-script).
 
 
-## Endpoint API
+## <a name="api-endpoint"></a>Endpoint API
 
-È possibile accedere a questa API tramite l'URI di base seguente:
-	
-	https://graph.windows.net/contoso.com/activities/signinEvents?api-version=beta  
-
-
-
-A causa del volume di dati, questa API presenta un limite di un milione di record restituiti.
-
-Questa chiamata restituisce i dati in batch. Ogni batch contiene un massimo di 1000 record. Per ottenere il batch successivo di record, usare il link Avanti. Ottenere le informazioni sullo [skiptoken](https://msdn.microsoft.com/library/dd942121.aspx) dal primo set di record restituiti. Il token skip si trova alla fine del set di risultati.
-
-	https://graph.windows.net/$tenantdomain/activities/signinEvents?api-version=beta&%24skiptoken=-1339686058
-
-
-## Filtri supportati
-
-È possibile restringere il numero di record restituiti da una chiamata API usando un filtro. Per i dati relativi all'API di accesso sono supportati i filtri seguenti:
-
-- **$top=<numero di record da restituire>**: per limitare il numero di record restituiti. Si tratta di un'operazione impegnativa. Non è consigliabile usare questo filtro se si desidera restituire migliaia di oggetti.
-- **$filter=<istruzione per il filtro>**: per specificare il tipo di record da restituire, sulla base dei campi filtro supportati.
+È possibile accedere a questa API tramite l'URI di base seguente:  
+    
+    https://graph.windows.net/contoso.com/activities/signinEvents?api-version=beta  
 
 
 
-## Operatori e campi dei filtri supportati
+A causa del volume di dati, questa API presenta un limite di un milione di record restituiti. 
+
+Questa chiamata restituisce i dati in batch. Ogni batch contiene un massimo di 1000 record.  
+Per ottenere il batch successivo di record, usare il link Avanti. Ottenere le informazioni sullo [skiptoken](https://msdn.microsoft.com/library/dd942121.aspx) dal primo set di record restituiti. Il token skip si trova alla fine del set di risultati.  
+
+    https://graph.windows.net/$tenantdomain/activities/signinEvents?api-version=beta&%24skiptoken=-1339686058
+
+
+## <a name="supported-filters"></a>Filtri supportati
+
+È possibile restringere il numero di record restituiti da una chiamata API usando un filtro.  
+Per i dati relativi all'API di accesso sono supportati i filtri seguenti:
+
+- **$top=\<numero di record da restituire\>**: per limitare il numero di record restituiti. Si tratta di un'operazione impegnativa. Non è consigliabile usare questo filtro se si desidera restituire migliaia di oggetti.  
+- **$filter=\<istruzione per il filtro\>**: per specificare il tipo di record da restituire, sulla base dei campi filtro supportati
+
+
+
+## <a name="supported-filter-fields-and-operators"></a>Operatori e campi dei filtri supportati
 
 Per specificare il tipo di record da restituire, è possibile compilare un'istruzione per il filtro che può contenere uno o una combinazione dei campi filtro seguenti:
 
-- [signinDateTime](#signindatetime): definisce una data o un intervallo di date
+- [signinDateTime](#signindatetime) : definisce una data o un intervallo di date
 
-- [userId](#userid): definisce uno specifico utente in base all'ID dell'utente
+- [userId](#userid) : definisce uno specifico utente in base all'ID dell'utente
 
-- [userPrincipalName](#userprincipalname): definisce uno specifico utente in base al nome dell'entità utente (UPN)
+- [userPrincipalName](#userprincipalname) : definisce uno specifico utente in base al nome dell'entità utente (UPN)
 
-- [appId](#appid): definisce una specifica applicazione in base all'ID dell'app
+- [appId](#appid) : definisce una specifica applicazione in base all'ID dell'app
 
-- [appDisplayName](#appdisplayname): definisce una specifica app in base al nome visualizzato dell'app
+- [appDisplayName](#appdisplayname) : definisce una specifica app in base al nome visualizzato dell'app
 
-- [loginStatus](#loginStatus): definisce lo stato dell'accesso (esito positivo/esito negativo)
+- [loginStatus](#loginStatus) : definisce lo stato dell'accesso (esito positivo/esito negativo)
 
 
 > [AZURE.NOTE] Quando si usa Graph Explorer, è necessario distinguere tra lettere maiuscole e minuscole per ogni lettera nei campi del filtro.
@@ -102,12 +107,12 @@ Per specificare il tipo di record da restituire, è possibile compilare un'istru
 
 Per restringere l'ambito dei dati restituiti, è possibile creare combinazioni dei filtri supportati e dei campi dei filtri. Ad esempio, l'istruzione seguente restituisce i primi 10 record tra il 1° luglio 2016 e il 6 luglio 2016:
 
-	https://graph.windows.net/contoso.com/activities/signinEvents?api-version=beta&$top=10&$filter=signinDateTime+ge+2016-07-01T17:05:21Z+and+signinDateTime+le+2016-07-07T00:00:00Z
+    https://graph.windows.net/contoso.com/activities/signinEvents?api-version=beta&$top=10&$filter=signinDateTime+ge+2016-07-01T17:05:21Z+and+signinDateTime+le+2016-07-07T00:00:00Z
 
 
 ----------
 
-### signinDateTime
+### <a name="signindatetime"></a>signinDateTime
 
 **Operatori supportati**: eq, ge, le, gt, lt
 
@@ -115,29 +120,29 @@ Per restringere l'ambito dei dati restituiti, è possibile creare combinazioni d
 
 Uso di una data specifica
 
-	$filter=signinDateTime+eq+2016-04-25T23:59:00Z	
+    $filter=signinDateTime+eq+2016-04-25T23:59:00Z  
 
 
 
-Uso di un intervallo di date
+Uso di un intervallo di date    
 
-	$filter=signinDateTime+ge+2016-07-01T17:05:21Z+and+signinDateTime+le+2016-07-07T17:05:21Z
+    $filter=signinDateTime+ge+2016-07-01T17:05:21Z+and+signinDateTime+le+2016-07-07T17:05:21Z
 
 
 **Note**:
 
-Il parametro datetime deve presentarsi nel formato UTC
+Il parametro datetime deve presentarsi nel formato UTC 
 
 
 ----------
 
-### userId
+### <a name="userid"></a>userId
 
 **Operatori supportati**: eq
 
 **Esempio**:
 
-	$filter=userId+eq+’00000000-0000-0000-0000-000000000000’
+    $filter=userId+eq+’00000000-0000-0000-0000-000000000000’
 
 **Note**:
 
@@ -147,13 +152,13 @@ Il valore di userId è un valore stringa
 
 ----------
 
-### userPrincipalName
+### <a name="userprincipalname"></a>userPrincipalName
 
 **Operatori supportati**: eq
 
 **Esempio**:
 
-	$filter=userPrincipalName+eq+'audrey.oliver@wingtiptoysonline.com' 
+    $filter=userPrincipalName+eq+'audrey.oliver@wingtiptoysonline.com' 
 
 
 **Note**:
@@ -162,13 +167,13 @@ Il valore di userPrincipalName è un valore stringa
 
 ----------
 
-### appId
+### <a name="appid"></a>appId
 
 **Operatori supportati**: eq
 
 **Esempio**:
 
-	$filter=appId+eq+’00000000-0000-0000-0000-000000000000’
+    $filter=appId+eq+’00000000-0000-0000-0000-000000000000’
 
 
 
@@ -179,13 +184,13 @@ Il valore di appId è un valore stringa
 ----------
 
 
-### appDisplayName
+### <a name="appdisplayname"></a>appDisplayName
 
 **Operatori supportati**: eq
 
 **Esempio**:
 
-	$filter=appDisplayName+eq+'Azure+Portal' 
+    $filter=appDisplayName+eq+'Azure+Portal' 
 
 
 **Note**:
@@ -194,13 +199,13 @@ Il valore di appDisplayName è un valore stringa
 
 ----------
 
-### loginStatus
+### <a name="loginstatus"></a>loginStatus
 
 **Operatori supportati**: eq
 
 **Esempio**:
 
-	$filter=loginStatus+eq+'1'  
+    $filter=loginStatus+eq+'1'  
 
 
 **Note**:
@@ -211,10 +216,13 @@ Sono disponibili due opzioni per loginStatus: 0 - esito positivo, 1 - esito nega
 
 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 - Si desidera vedere esempi sulle attività di accesso filtrate? Consultare la pagina [Esempi dell'API del report sull'attività di accesso di Azure Active Directory](active-directory-reporting-api-sign-in-activity-samples.md).
 
 - Si desiderano altre informazioni sull'API di creazione report di Azure AD? Vedere [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

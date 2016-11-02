@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter=""
    authors="ronortloff"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,10 +13,11 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="09/24/2016" 
-   ms.author="rortloff;barbkess;sonyama"/>
+   ms.date="10/31/2016" 
+   ms.author="rortloff;barbkess"/>
 
-# SQL Data Warehouse - Supporto client di livello inferiore per controllo e maschera dati dinamica
+
+# <a name="sql-data-warehouse-downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>SQL Data Warehouse - Supporto client di livello inferiore per controllo e maschera dati dinamica
 
 [Controllo](sql-data-warehouse-auditing-overview.md) funziona con i client SQL che supportano il reindirizzamento TDS.
 
@@ -35,6 +36,10 @@ Un elenco parziale di "client di livello inferiore" include:
 - JDBC (mentre JDBC supporta TDS 7.4, la funzionalità di reindirizzamento TDS non è del tutto supportata)
 - Tedious (per Node.JS)
 
-**Nota:** la modifica del nome di dominio completo del server citata in precedenza può risultare utile per applicare un criterio di controllo a livello di server SQL senza la necessità di una procedura di configurazione in ogni database (attenuazione temporanea).
+**Nota:** la modifica del nome di dominio completo del server citata in precedenza può risultare utile per applicare un criterio di controllo a livello di server SQL senza la necessità di una procedura di configurazione in ogni database (attenuazione temporanea).     
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

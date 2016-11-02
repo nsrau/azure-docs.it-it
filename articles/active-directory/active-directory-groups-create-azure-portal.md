@@ -1,27 +1,33 @@
 <properties
-	pageTitle="Creare un gruppo in anteprima di Azure Active Directory | Microsoft Azure"
-	description="Come creare un gruppo in Azure Active Directory e aggiungere utenti (membri) al gruppo"
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="Creare un gruppo in anteprima di Azure Active Directory | Microsoft Azure"
+    description="Come creare un gruppo in Azure Active Directory e aggiungere utenti (membri) al gruppo"
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/29/2016"
+    ms.author="curtand"/>
 
 
-# Creare un nuovo gruppo in anteprima di Azure Active Directory
 
-Questo articolo illustra come creare e popolare un nuovo gruppo in anteprima di Azure Active Directory (Azure AD). [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md) Usare un gruppo per eseguire attività di gestione come l'assegnazione di licenze o autorizzazioni per diversi utenti o dispositivi contemporaneamente.
+# <a name="create-a-new-group-in-azure-active-directory-preview"></a>Creare un nuovo gruppo in anteprima di Azure Active Directory
 
-## Come si crea un gruppo?
+> [AZURE.SELECTOR]
+- [Portale di Azure](active-directory-groups-create-azure-portal.md)
+- [Portale di Azure classico](active-directory-accessmanagement-manage-groups.md)
+- [PowerShell](active-directory-accessmanagement-groups-v2-cmdlets.md)
+
+Questo articolo illustra come creare e popolare un nuovo gruppo in anteprima di Azure Active Directory (Azure AD). [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md)  Usare un gruppo per eseguire attività di gestione come l'assegnazione di licenze o autorizzazioni per diversi utenti o dispositivi contemporaneamente.
+
+## <a name="how-do-i-create-a-group?"></a>Come si crea un gruppo?
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
 
@@ -45,14 +51,14 @@ Questo articolo illustra come creare e popolare un nuovo gruppo in anteprima di 
 
 5. Nel pannello **Membri** selezionare uno o più utenti o dispositivi da aggiungere al gruppo e fare clic sul pulsante **Seleziona** nella parte inferiore del pannello per aggiungerli al gruppo. La visualizzazione nella casella **Utente** viene filtrata in base alla corrispondenza con l'immissione di una parte di un nome utente o di dispositivo. I caratteri jolly non sono consentiti nella casella.
 
-6. Dopo avere aggiunto i membri al gruppo, selezionare **Crea** nel pannello **Gruppo**.
+6. Dopo avere aggiunto i membri al gruppo, selezionare **Crea** nel pannello **Gruppo**.    
 
   ![Creare una conferma del gruppo](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
 
 
 
 
-## Informazioni aggiuntive
+## <a name="additional-information"></a>Informazioni aggiuntive
 
 Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
@@ -62,4 +68,8 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 * [Gestire le appartenenze di un gruppo](active-directory-groups-membership-azure-portal.md)
 * [Gestire le regole dinamiche per gli utenti in un gruppo](active-directory-groups-dynamic-membership-azure-portal.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

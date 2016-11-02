@@ -3,8 +3,8 @@
    description="Scenari comuni di Microsoft Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="mgblythe"
-   manager="mblythe"
+   authors="guyinacube"
+   manager="erikre"
    editor=""
    tags=""/>
 <tags
@@ -13,12 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/05/2016"
-   ms.author="mblythe"/>
+   ms.date="10/04/2016"
+   ms.author="asaxton"/>
 
-# Scenari comuni di Power BI Embedded
 
-**Microsoft Power BI Embedded** è incentrato sulle principali funzionalità disponibili dell'API Power BI, considerata parte di un servizio di Azure per lo sviluppo delle applicazioni. Sarà possibile imparare inoltre a eseguire il provisioning, sviluppare e distribuire il contenuto di Power BI e le risorse necessarie a livello di codice. Per altre informazioni, vedere [Introduzione a Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
+# <a name="common-power-bi-embedded-scenarios"></a>Scenari comuni di Power BI Embedded
+
+**Microsoft Power BI Embedded** è incentrato sulle principali funzionalità disponibili dell'API Power BI, considerata parte di un servizio di Azure per lo sviluppo delle applicazioni.  Sarà possibile imparare inoltre a eseguire il provisioning, sviluppare e distribuire il contenuto di Power BI e le risorse necessarie a livello di codice. Per altre informazioni, vedere [Introduzione a Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
 
 Di seguito alcuni scenari per usare **Power BI Embedded** nelle proprie applicazioni.
 
@@ -26,9 +27,13 @@ Di seguito alcuni scenari per usare **Power BI Embedded** nelle proprie applicaz
 - I fornitori di software indipendenti e i clienti che compilano applicazioni rivolte ai clienti possono usare il servizio **Power BI Embedded** e Power BI SDK per incorporare report interattivi. Per altre informazioni, vedere [Introduzione a Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
 - Gli sviluppatori possono usare framework di visualizzazione di Power BI per creare visualizzazioni personalizzate che possono integrare nell'app. Vedere [Estendi Power BI con oggetti visivi personalizzati](https://powerbi.microsoft.com/custom-visuals/).
 
-### Vedere anche
+### <a name="see-also"></a>Vedere anche
 
 - [Introduzione a Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 - [Esempio introduttivo](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

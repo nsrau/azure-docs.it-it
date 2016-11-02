@@ -1,105 +1,115 @@
 <properties
-	pageTitle="Informazioni sugli addebiti di Azure Marketplace | Microsoft Azure"
-	description="Descrive gli addebiti relativi agli ordini del Marketplace."
-	services=""
-	documentationCenter=""
-	authors="JiangChen79"
-	manager="felixwu"
-	editor=""
-	tags="billing"
-	/>
+    pageTitle="Informazioni sugli addebiti per i servizi esterni | Microsoft Azure"
+    description="Informazioni sulla fatturazione di servizi esterni, noti in precedenza come Marketplace, in Azure."
+    services=""
+    documentationCenter=""
+    authors="adpick"
+    manager="felixwu"
+    editor=""
+    tags="billing"
+    />
 
 <tags
-	ms.service="billing"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="cjiang"/>
+    ms.service="billing"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/12/2016"
+    ms.author="adpick"/>
 
-# Informazioni sugli addebiti di Azure Marketplace
-Questo articolo offre una panoramica utile per comprendere gli addebiti relativi agli ordini del Marketplace. Un aspetto da tenere presente quando si esamina la fattura sono i diversi tipi di prezzo (Solo Base, Solo Utilizzo e Base + Utilizzo). Si noti che ogni ordine del Marketplace inserito avrà il proprio ciclo di fatturazione mensile. Questi argomenti verranno approfonditi più avanti.
 
-> [AZURE.NOTE] Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+# <a name="understand-your-azure-external-service-charges"></a>Informazioni sugli addebiti per i servizi esterni
 
-## Esaminare la fattura del Marketplace
-Una volta effettuato l'accesso al [portale degli account di Azure](https://account.windowsazure.com/subscriptions/), è possibile esaminare e scaricare le fatture correnti e precedenti.
+Questo articolo illustra la fatturazione di servizi esterni in Azure. I servizi esterni venivano definiti ordini di Marketplace. I servizi esterni vengono resi disponibili da fornitori di servizi indipendenti, ma sono integrati perfettamente nell'ecosistema di Azure. È possibile passare agli argomenti seguenti:
 
-Per visualizzare o scaricare la fattura:
+- Identificare i servizi esterni
+- Comprendere in che modo la fatturazione è diversa rispetto alle altre risorse di Azure
+- Visualizzare e tenere traccia di tutti i costi accumulati in base all'uso di servizi esterni
+- Gestire gli ordini di servizi esterni e il metodo di pagamento corrispondente
 
-1. Accedere al portale degli account di Azure usando l'ID organizzazione.
-2. Fare clic su **Marketplace**. Viene visualizzato un elenco completo di tutti gli ordini del Marketplace inseriti dall'account Azure. Si noterà che gli ordini sono raggruppati per nome e ID delle sottoscrizioni di Azure padre.
+## <a name="what-are-azure-external-services?"></a>Cosa sono i servizi esterni di Azure?
 
-	![Ordini del Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
+I servizi esterni erano denominati Azure Marketplace. Si tratta in genere di servizi pubblicati da terze parti disponibili per Azure. Ad esempio, ClearDB e SendGrid sono servizi esterni che è possibile acquistare in Azure, ma che non vengono pubblicati da Microsoft.
 
-3. Facendo clic su uno degli ordini visualizzati, si aprirà la panoramica di riepilogo di tale ordine per il ciclo di fatturazione corrente. Una descrizione dei diversi modelli tariffari è disponibile nelle [Domande frequenti su Azure Marketplace](https://azure.microsoft.com/marketplace/faq/).
+### <a name="identify-external-services"></a>Identificare i servizi esterni
 
-	![Riepilogo degli ordini](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
+Durante il provisioning di un nuovo servizio esterno o di una nuova risorsa, viene visualizzato un avviso:
 
-La visualizzazione di riepilogo contiene le informazioni seguenti per ogni ordine:
-- Prezzo
-- Ciclo di fatturazione
-- Data di acquisto
-- Sottoscrizione padre associata
-- Valuta di fatturazione
+![Avviso di acquisto di Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
 
-Si noti che sono state apportate alcune modifiche alla visualizzazione di queste informazioni. Prima il costo dell'ordine era visualizzato con le imposte incluse. È stato apportato un aggiornamento per visualizzare il prezzo che può includere o meno le imposte, a seconda del paese in cui ci si trova. Anche la posizione del prezzo è stata spostata da destra al centro. Per tenere traccia della sottoscrizione di Azure a cui questi addebiti sono associati, sul lato destro sono stati aggiunti anche il nome e l'ID della sottoscrizione di Azure, oltre all'opzione **Modifica il metodo di pagamento**.
+>[AZURE.NOTE] I servizi esterni vengono pubblicati da società non Microsoft, ma talvolta anche i prodotti Microsoft sono classificati come servizi esterni.
 
-## Aggiornare il metodo di pagamento e la gestione degli ordini
-La pagina di riepilogo include le azioni utente, che consentono di aggiornare il modello di pagamento e le funzioni di gestione degli ordini:
+### <a name="external-services-are-billed-separately"></a>I servizi esterni vengono fatturati separatamente
 
-> [AZURE.NOTE] Se si usa l'ID organizzazione per modificare le informazioni personali, sarà necessario inviare un ticket al supporto.
+I servizi esterni vengono gestiti come ordini singoli all'interno della sottoscrizione di Azure. Il periodo di fatturazione per ogni servizio è impostato al momento dell'acquisto del servizio. Non deve essere confuso con il periodo di fatturazione della sottoscrizione in cui è stato eseguito l'acquisto. Si ricevono anche fatture separate e l'addebito sulla carta di credito viene applicato separatamente.
 
-Per aggiornare il metodo di pagamento, fare clic sul collegamento **Modifica il metodo di pagamento** sul lato destro della pagina.
+### <a name="each-external-service-has-a-different-billing-model"></a>Per ogni servizio esterno è previsto un modello di fatturazione diverso
 
-![Riepilogo degli ordini](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
+Alcuni servizi vengono fatturati con pagamento in base al consumo, mentre altri prevedono un modello di pagamento su base mensile. Per i servizi esterni di Azure è necessaria una carta di credito e non è possibile pagare tramite fattura.
 
-Si accederà a un altro portale dove sarà possibile apportare modifiche al metodo di pagamento preferito.
+### <a name="you-can't-use-monthly-free-credits-for-external-services"></a>Non è possibile usare i crediti gratuiti mensili per i servizi esterni
 
-Per modificare il metodo di pagamento, seguire questa procedura:
+Se si usa una sottoscrizione di Azure che include [crediti gratuiti](https://azure.microsoft.com/pricing/spending-limits/), questi non possono essere applicati ai pagamenti per i servizi esterni. Usare una carta di credito per acquistare servizi esterni.
 
-1. Fare clic su **Change how you pay** (Modifica la modalità di pagamento).
+## <a name="view-external-service-spending-and-history"></a>Visualizzare la spesa e la cronologia dei servizi esterni
 
-	![Sottoscrizioni](./media/billing-understand-your-azure-marketplace-charges/subscriptions.jpg)
+È possibile visualizzare un elenco di servizi esterni inclusi in ogni sottoscrizione all'interno del [portale di Azure](https://portal.azure.com/): 
 
-2. Selezionare il metodo di pagamento che si vuole modificare. L'opzione **Pay with** (Paga con) consente di selezionare la carta di credito. L'opzione **Add a new way to pay** (Aggiungi una nuova modalità di pagamento) consente di aggiungere una nuova carta di credito.
+1. Accedere al [portale di Azure](https://portal.azure.com/) e [passare al pannello **Fatturazione**](https://portal.azure.com/?flight=1#blade/Microsoft_Azure_Billing/BillingBlade).
 
-	![Modificare il metodo di pagamento](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
+    ![Selezionare Fatturazione nel menu Hub](./media/billing-understand-your-azure-marketplace-charges/billing-button.png) 
+  
+2. Nella sezione **Costi della sottoscrizione** selezionare la sottoscrizione da visualizzare. 
+   
+    ![Selezionare una sottoscrizione nel pannello Fatturazione](./media/billing-understand-your-azure-marketplace-charges/select-sub.png)
 
-## Gestione degli ordini
-Nella pagina di riepilogo è presente un collegamento **Gestisci ordine**. Questo collegamento consente di accedere al portale in cui è possibile visualizzare tutti gli ordini del Marketplace, le informazioni sull'integrità del servizio e richiedere assistenza.
+3. Fare clic su **Servizi esterni**.
 
-![di Microsoft Azure](./media/billing-understand-your-azure-marketplace-charges/portal.jpg)
+    ![Fare clic su Servizi esterni nel pannello Sottoscrizione](./media/billing-understand-your-azure-marketplace-charges/external-service-blade.png)
 
-Per richiedere assistenza, fare clic sul riquadro **Guida e supporto**. Verrà visualizzata la pagina **Guida e supporto** seguente dove è possibile eseguire queste operazioni:
-- Aprire una nuova richiesta di supporto.
-- Gestire le richieste di supporto esistenti.
-- Verificare l'integrità delle risorse.
+4. Vengono visualizzati gli ordini di servizi esterni, il nome del publisher, il livello di servizio acquistato, il nome assegnato alla risorsa e lo stato corrente dell'ordine. Selezionare un servizio esterno per visualizzare le fatture precedenti.
 
-![Richiedere supporto](./media/billing-understand-your-azure-marketplace-charges/request-support.jpg)
+    ![Selezionare un servizio esterno](./media/billing-understand-your-azure-marketplace-charges/external-service-blade2.png)
 
-## Cronologia di fatturazione
-Una nuova funzionalità della pagina di riepilogo è la possibilità di visualizzare le offerte basate sull'utilizzo, ad esempio sulle macchine virtuali. Ora è possibile scaricare l'utilizzo in base al ciclo di fatturazione sia per i periodi correnti che per quelli chiusi. Per visualizzare l'utilizzo, fare clic sul collegamento **Scarica utilizzo** per il periodo da visualizzare.
+5. A questo punto è possibile visualizzare gli importi di fatture precedenti, inclusa la ripartizione fiscale.
 
-Per visualizzare gli addebiti effettivi, fare clic su **Visualizza addebiti**. Si verrà reindirizzati a un altro portale in cui sarà possibile visualizzare tutti gli addebiti imposte incluse. Se si usa un ID organizzazione, il pulsante **Visualizza addebiti** non sarà abilitato e sarà necessario inviare un ticket di supporto per richiedere un riepilogo degli addebiti.
+    ![Visualizzare la cronologia di fatturazione dei servizi esterni](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png)
 
-![Cronologia di fatturazione](./media/billing-understand-your-azure-marketplace-charges/billing-history.png)
+## <a name="manage-payment-methods-for-external-service-orders"></a>Gestire i metodi di pagamento per gli ordini di servizi esterni
 
-Per visualizzare gli addebiti effettivi, seguire questa procedura:
+Aggiornare i metodi di pagamento per gli ordini di servizi esterni da [Centro account](https://account.windowsazure.com/).
 
-1. Fare clic su **Visualizza addebiti** nella pagina **CRONOLOGIA DI FATTURAZIONE**.
+> [AZURE.NOTE] Se la sottoscrizione è stata acquistata con un account aziendale o dell'istituto di istruzione, è necessario [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per apportare modifiche al metodo di pagamento.
 
-	Verrà aperta una nuova scheda che visualizza la [cronologia degli ordini](https://account.microsoft.com/billing/orders#/).
+1. Accedere al [Centro account](https://account.windowsazure.com/) e [passare alla scheda **Marketplace**](https://account.windowsazure.com/Store)
 
-    Si noti che, se si cerca di accedere all'utilizzo non elaborato nel portale di gestione dell'account e della fatturazione, sarà necessario contattare il supporto facendo clic sul relativo collegamento nella parte inferiore della pagina.
+    ![Selezionare Marketplace nel Centro account](./media/billing-understand-your-azure-marketplace-charges/select-marketplace.png)
 
-	![Cronologia degli ordini](./media/billing-understand-your-azure-marketplace-charges/order-history.jpg)
+2. Selezionare il servizio esterno da gestire
 
-2. Identificare l'ordine da esaminare e fare clic su **Dettagli** per visualizzare un'analisi degli addebiti che includerà il subtotale, le imposte e gli addebiti totali.
+    ![Selezionare il servizio esterno da gestire](./media/billing-understand-your-azure-marketplace-charges/select-ext-service.png)
 
-	![Dettagli ordine](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
+3. Sul lato destro della pagina fare clic su **Modifica il metodo di pagamento**. Questo collegamento consente di accedere a un portale diverso per gestire il metodo di pagamento.
+    
+    ![Riepilogo degli ordini](./media/billing-understand-your-azure-marketplace-charges/change-payment.PNG)
 
-> [AZURE.NOTE] Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+4. Fare clic su **Modifica informazioni** e seguire le istruzioni per aggiornare le informazioni di pagamento.
 
-<!---HONumber=AcomDC_0928_2016-->
+    ![Selezionare Modifica informazioni](./media/billing-understand-your-azure-marketplace-charges/edit-info.png)
+    
+## <a name="cancel-an-external-service-order"></a>Annullare un ordine di servizio esterno
+
+Se si desidera annullare l'ordine di servizio esterno, è necessario eliminare la risorsa nel [portale di Azure](https://portal.azure.com).
+
+![Eliminare una risorsa](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
+
+## <a name="need-help?-contact-support."></a>Richiesta di assistenza Contattare il supporto tecnico.
+
+Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

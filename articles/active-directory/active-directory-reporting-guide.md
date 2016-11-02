@@ -13,11 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/27/2016"
+   ms.date="09/30/2016"
    ms.author="femila"/>
 
 
-# Guida alla creazione di report in Azure Active Directory
+
+# <a name="azure-active-directory-reporting-guide"></a>Guida alla creazione di report in Azure Active Directory
+
+> [AZURE.SELECTOR]
+- [Portale di Azure](active-directory-reporting-azure-portal.md)
+- [Portale di Azure classico](active-directory-reporting-guide.md)
 
  - [Report di Azure Active Directory: anteprima](active-directory-reporting-azure-portal.md)
  - [Introduzione all'API di creazione report di Azure AD](active-directory-reporting-api-getting-started.md)
@@ -29,4 +34,8 @@
  - [Evento "Attore Sconosciuto" per il report di Azure Active Directory](active-directory-reporting-unknown-actor.md)
  - [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

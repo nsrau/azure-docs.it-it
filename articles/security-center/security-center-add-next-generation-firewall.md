@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Aggiungere un firewall di nuova generazione nel Centro sicurezza di Azure | Microsoft Azure"
-   description="Questo argomento illustra come implementare le raccomandazioni **Aggiungi un firewall di nuova generazione** e **Route traffice through NGFW only** (Indirizza il traffico solo tramite il firewall di nuova generazione) del Centro sicurezza di Azure."
+   pageTitle="Add a next generation firewall in Azure Security Center | Microsoft Azure"
+   description="This document shows you how to implement the Azure Security Center recommendations **Add a Next Generation Firewall** and **Route traffice through NGFW only**."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,55 +13,66 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/26/2016"
+   ms.date="10/26/2016"
    ms.author="terrylan"/>
 
-# Aggiungere un firewall di nuova generazione in Centro sicurezza di Azure
 
-È possibile che il Centro sicurezza di Azure consigli di aggiungere un firewall di nuova generazione di un partner Microsoft per aumentare la protezione delle applicazioni Web. In questo documento è riportato un esempio di come eseguire questa operazione.
+# <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Add a Next Generation Firewall in Azure Security Center
 
-> [AZURE.NOTE] Il documento introduce il servizio usando una distribuzione di esempio. Questa non è una guida dettagliata.
+Azure Security Center may recommend that you add a next generation firewall (NGFW) from a Microsoft partner in order to increase your security protections. This document walks you through an example of how to do this.
 
-## Implementare la raccomandazione
+> [AZURE.NOTE] This document introduces the service by using an example deployment.  This is not a step-by-step guide.
 
-1. Nel pannello **Raccomandazioni** selezionare **Aggiungi un firewall di nuova generazione**. ![Aggiungi un firewall di nuova generazione][1]
+## <a name="implement-the-recommendation"></a>Implement the recommendation
 
-2. Nel pannello **Aggiungi un firewall di nuova generazione** selezionare un endpoint. ![Selezionare un endpoint][2]
+1. In the **Recommendations** blade, select **Add a Next Generation Firewall**.
+![Add a Next Generation Firewall][1]
 
-3. Viene visualizzato un secondo pannello **Aggiungi un firewall di nuova generazione**. È possibile scegliere di usare una soluzione esistente eventualmente disponibile o di crearne una nuova. In questo esempio non sono disponibili soluzioni esistenti ed è necessario creare un firewall di nuova generazione.![Creare un firewall di nuova generazione][3]
+2. In the **Add a Next Generation Firewall** blade, select an endpoint.
+![Select an endpoint][2]
 
-4. Per creare un nuovo firewall di nuova generazione, selezionare una soluzione dall'elenco di partner integrati. In questo esempio si selezionerà **Check Point**. ![Selezionare un firewall di nuova generazione][4]
+3. A second **Add a Next Generation Firewall** blade opens. You can choose to use an existing solution if available or you can create a new one. In this example there are no existing solutions available so we'll create a new NGFW.
+![Create new Next Generation Firewall][3]
 
-5. Viene visualizzato il pannello **Check Point**, dove sono disponibili informazioni sulla soluzione del partner. Selezionare **Crea** nel pannello informativo. ![Pannello di informazioni sul firewall][5]
+4. To create a new NGFW, select a solution from the list of integrated partners. In this example we will select **Check Point**.
+![Select Next Generation Firewall solution][4]
 
-6. Viene visualizzato il pannello **Crea macchina virtuale**. Qui è possibile immettere le informazioni necessarie per creare una macchina virtuale (VM) che eseguirà il firewall di nuova generazione. Seguire i passaggi e fornire le informazioni necessarie sul firewall di nuova generazione. Selezionare OK per applicare.![Creare la macchina virtuale per eseguire il firewall di nuova generazione][6]
+5. The **Check Point** blade opens providing you information about the partner solution. Select **Create** in the information blade.
+![Firewall information blade][5]
 
-## Route traffic through NGFW only (Indirizza il traffico solo tramite il firewall di nuova generazione)
+6. The **Create virtual machine** blade opens. Here you can enter information required to spin up a virtual machine (VM) that will run the NGFW. Follow the steps and provide the NGFW information required. Select OK to apply.
+![Create virtual machine to run NGFW][6]
 
-Tornare al pannello **Raccomandazioni**. Dopo l'aggiunta di un firewall di nuova generazione tramite il Centro sicurezza PC, è stata generata la nuova voce **Route traffic through NGFW only** (Indirizza il traffico solo tramite il firewall di nuova generazione). Questa raccomandazione viene creata solo se il firewall di nuova generazione è installato tramite il Centro sicurezza PC. Se si dispone di endpoint con connessione Internet, il Centro sicurezza PC consiglierà di configurare le regole dei gruppi di sicurezza di rete che forzano il traffico in ingresso alla macchina virtuale tramite il firewall di nuova generazione.
+## <a name="route-traffic-through-ngfw-only"></a>Route traffic through NGFW only
 
-1. Nel pannello **Raccomandazioni** selezionare **Route traffic through NGFW only** (Indirizza il traffico solo tramite il firewall di nuova generazione). ![Route traffic through NGFW only (Indirizza il traffico solo tramite il firewall di nuova generazione)][7]
+Return to the **Recommendations** blade. A new entry was generated after you added a NGFW via Security Center, called **Route traffic through NGFW only**. This recommendation is created only if you installed your NGFW through Security Center. If you have Internet-facing endpoints, Security Center will recommend that you configure Network Security Group rules that force inbound traffic to your VM through your NGFW.
 
-2. Verrà visualizzato il pannello **Route traffic through NGFW only** (Indirizza il traffico solo tramite il firewall di nuova generazione) in cui sono elencate le macchine virtuali su cui è possibile instradare il traffico. Selezionare una VM dall'elenco. ![Selezionare una macchina virtuale][8]
+1. In the **Recommendations blade**, select **Route traffic through NGFW only**.
+![Route traffic through NGFW only][7]
 
-3. Viene visualizzato un pannello per la VM selezionata con le regole in ingresso correlate. Una descrizione fornisce altre informazioni sui possibili passaggi successivi. Selezionare **Modifica le regole in ingresso** per procedere con la modifica di una regola in ingresso. L'aspettativa è che **Source** (Origine) non sia impostato su **Any** (Qualsiasi) per gli endpoint con connessione Internet collegati con il firewall di nuova generazione. Per altre informazioni sulle proprietà della regola in ingresso, vedere [Regole NSG](../virtual-network/virtual-networks-nsg.md#nsg-rules). ![Configurare le regole per limitare l'accesso][9] ![Modificare la regola in ingresso][10]
+2. This opens the blade **Route traffic through NGFW only** which lists VMs that you can route traffic to. Select a VM from the list.
+![Select a VM][8]
 
-## Vedere anche
+3. A blade for the selected VM opens, displaying related inbound rules. A description provides you with more information on possible next steps. Select **Edit inbound rules** to proceed with editing an inbound rule. The expectation is that **Source** is not set to **Any** for the Internet-facing endpoints linked with the NGFW. To learn more about the properties of the inbound rule, see [NSG rules](../virtual-network/virtual-networks-nsg.md#nsg-rules).
+![Configure rules to limit access][9]
+![Edit inbound rule][10]
 
-Questo documento illustra come implementare la raccomandazione "Aggiungi un firewall di nuova generazione" del Centro sicurezza. Per ulteriori informazioni sui firewall di nuova generazione e la soluzione del partner Check Point, vedere gli argomenti seguenti:
+## <a name="see-also"></a>See also
 
-- [Firewall di nuova generazione](https://en.wikipedia.org/wiki/Next-Generation_Firewall)
+This document showed you how to implement the Security Center recommendation "Add a Next Generation Firewall." To learn more about NGFWs and the Check Point partner solution, see the following:
+
+- [Next-Generation Firewall](https://en.wikipedia.org/wiki/Next-Generation_Firewall)
 - [Check Point vSEC](https://azure.microsoft.com/marketplace/partners/checkpoint/check-point-r77-10/)
 
-Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
+To learn more about Security Center, see the following:
 
-- [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza.
-- [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): informazioni sul modo in cui le raccomandazioni facilitano la protezione delle risorse di Azure.
-- [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
-- [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
-- [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare lo stato di integrità delle soluzioni dei partner.
-- [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
-- [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure.
+- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies.
+- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
+- [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
+- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
+- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Find blog posts about Azure security and compliance.
 
 <!--Image references-->
 [1]: ./media/security-center-add-next-gen-firewall/add-next-gen-firewall.png
@@ -75,4 +86,8 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 [9]: ./media/security-center-add-next-gen-firewall/configure-rules-to-limit-access.png
 [10]: ./media/security-center-add-next-gen-firewall/edit-inbound-rule.png
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

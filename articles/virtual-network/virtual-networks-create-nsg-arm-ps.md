@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Come creare gruppi di sicurezza di rete in Azure Resource Manager mediante PowerShell| Microsoft Azure"
    description="Informazioni su come creare e distribuire gruppi di sicurezza di rete in Azure Resource Manager mediante PowerShell"
    services="virtual-network"
@@ -7,17 +7,18 @@
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
-/>  
-<tags 
+/>
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/23/2016"
-   ms.author="jdial" />  
+   ms.author="jdial" />
 
-# Come creare gruppi di sicurezza di rete in Gestione risorse mediante PowerShell
+
+# <a name="how-to-create-nsgs-in-resource-manager-by-using-powershell"></a>Come creare gruppi di sicurezza di rete in Gestione risorse mediante PowerShell
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
@@ -29,145 +30,145 @@
 
 I comandi di esempio PowerShell riportati di seguito prevedono un ambiente semplice già creato in base allo scenario precedente. Se si desidera eseguire i comandi così come sono visualizzati in questo documento, creare innanzitutto l'ambiente di test distribuendo [questo modello](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), fare clic su **Distribuisci in Azure**, sostituire i valori di parametro predefiniti, se necessario e seguire le istruzioni nel portale.
 
-## Come creare il gruppo di sicurezza di rete per la subnet front-end
+## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Come creare il gruppo di sicurezza di rete per la subnet front-end
 Per creare un gruppo di sicurezza di rete denominato *NSG-FrontEnd* in base allo scenario precedente, seguire la procedura riportata di seguito:
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
 1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
 
-3. Creare una regola di sicurezza che consente l'accesso alla porta 3389 da Internet.
+2. Creare una regola di sicurezza che consente l'accesso alla porta 3389 da Internet.
 
-		$rule1 = New-AzureRmNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP" `
-		    -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 `
-		    -SourceAddressPrefix Internet -SourcePortRange * `
-		    -DestinationAddressPrefix * -DestinationPortRange 3389
+        $rule1 = New-AzureRmNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP"
+            -Access Allow -Protocol Tcp -Direction Inbound -Priority 100
+            -SourceAddressPrefix Internet -SourcePortRange *
+            -DestinationAddressPrefix * -DestinationPortRange 3389
 
-4. Creare una regola di sicurezza che consente l'accesso da Internet alla porta 80.
+3. Creare una regola di sicurezza che consente l'accesso da Internet alla porta 80.
 
-		$rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP" `
-		    -Access Allow -Protocol Tcp -Direction Inbound -Priority 101 `
-		    -SourceAddressPrefix Internet -SourcePortRange * `
-		    -DestinationAddressPrefix * -DestinationPortRange 80
+        $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP"
+            -Access Allow -Protocol Tcp -Direction Inbound -Priority 101
+            -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix *
+            -DestinationPortRange 80
 
-5. Aggiungere le regole create in precedenza a un nuovo gruppo di sicurezza di rete denominato **NSG-FrontEnd**.
+4. Aggiungere le regole create in precedenza a un nuovo gruppo di sicurezza di rete denominato **NSG-FrontEnd**.
 
-		$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus -Name "NSG-FrontEnd" `
-			-SecurityRules $rule1,$rule2
+        $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus
+        -Name "NSG-FrontEnd" -SecurityRules $rule1,$rule2
 
-6. Controllare le regole create nel NSG.
+5. Controllare le regole create nel NSG.
 
-		$nsg
+        $nsg
 
-	L'output che mostra solo le regole di sicurezza:
+    L'output che mostra solo le regole di sicurezza:
 
-		SecurityRules        : [
-		                         {
-		                           "Name": "rdp-rule",
-		                           "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
-		                           "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/rdp-rule",
-		                           "Description": "Allow RDP",
-		                           "Protocol": "Tcp",
-		                           "SourcePortRange": "*",
-		                           "DestinationPortRange": "3389",
-		                           "SourceAddressPrefix": "Internet",
-		                           "DestinationAddressPrefix": "*",
-		                           "Access": "Allow",
-		                           "Priority": 100,
-		                           "Direction": "Inbound",
-		                           "ProvisioningState": "Succeeded"
-		                         },
-		                         {
-		                           "Name": "web-rule",
-		                           "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
-		                           "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/web-rule",
-		                           "Description": "Allow HTTP",
-		                           "Protocol": "Tcp",
-		                           "SourcePortRange": "*",
-		                           "DestinationPortRange": "80",
-		                           "SourceAddressPrefix": "Internet",
-		                           "DestinationAddressPrefix": "*",
-		                           "Access": "Allow",
-		                           "Priority": 101,
-		                           "Direction": "Inbound",
-		                           "ProvisioningState": "Succeeded"
-		                         }
-		                       ]
+        SecurityRules        : [
+                                 {
+                                   "Name": "rdp-rule",
+                                   "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+                                   "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/rdp-rule",
+                                   "Description": "Allow RDP",
+                                   "Protocol": "Tcp",
+                                   "SourcePortRange": "*",
+                                   "DestinationPortRange": "3389",
+                                   "SourceAddressPrefix": "Internet",
+                                   "DestinationAddressPrefix": "*",
+                                   "Access": "Allow",
+                                   "Priority": 100,
+                                   "Direction": "Inbound",
+                                   "ProvisioningState": "Succeeded"
+                                 },
+                                 {
+                                   "Name": "web-rule",
+                                   "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+                                   "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/web-rule",
+                                   "Description": "Allow HTTP",
+                                   "Protocol": "Tcp",
+                                   "SourcePortRange": "*",
+                                   "DestinationPortRange": "80",
+                                   "SourceAddressPrefix": "Internet",
+                                   "DestinationAddressPrefix": "*",
+                                   "Access": "Allow",
+                                   "Priority": 101,
+                                   "Direction": "Inbound",
+                                   "ProvisioningState": "Succeeded"
+                                 }
+                               ]
 
-6. Associare il gruppo di sicurezza di rete creato in precedenza per la subnet *front-end*.
+6. Associare il gruppo di sicurezza di rete creato in precedenza per la subnet *front-end* .
 
-		$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
-		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
-			-AddressPrefix 192.168.1.0/24 -NetworkSecurityGroup $nsg
+                    $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+                    Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd
+                        -AddressPrefix 192.168.1.0/24 -NetworkSecurityGroup $nsg
 
-	Output che mostra solo le impostazioni della subnet *FrontEnd*, notare il valore per la proprietà **NetworkSecurityGroup**:
+                Output showing only the *FrontEnd* subnet settings, notice the value for the **NetworkSecurityGroup** property:
 
-		Subnets           : [
-		                      {
-		                        "Name": "FrontEnd",
-		                        "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
-		                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
-		                        "AddressPrefix": "192.168.1.0/24",
-		                        "IpConfigurations": [
-		                          {
-		                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNICWeb2/ipConfigurations/ipconfig1"
-		                          },
-		                          {
-		                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1/ipConfigurations/ipconfig1"
-		                          }
-		                        ],
-		                        "NetworkSecurityGroup": {
-		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
-		                        },
-		                        "RouteTable": null,
-		                        "ProvisioningState": "Succeeded"
-		                      }
+                    Subnets           : [
+                                          {
+                                            "Name": "FrontEnd",
+                                            "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+                                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+                                            "AddressPrefix": "192.168.1.0/24",
+                                            "IpConfigurations": [
+                                              {
+                                                "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNICWeb2/ipConfigurations/ipconfig1"
+                                              },
+                                              {
+                                                "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1/ipConfigurations/ipconfig1"
+                                              }
+                                            ],
+                                            "NetworkSecurityGroup": {
+                                              "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
+                                            },
+                                            "RouteTable": null,
+                                            "ProvisioningState": "Succeeded"
+                                          }
 
->[AZURE.WARNING] L'output per il comando precedente mostra il contenuto per l'oggetto di configurazione della rete virtuale, che esiste solo nei computer in cui si esegue PowerShell. È necessario eseguire il cmdlet `Set-AzureRmVirtualNetwork` per salvare queste impostazioni in Azure.
+    >[AZURE.WARNING] L'output per il comando precedente mostra il contenuto per l'oggetto di configurazione della rete virtuale, che esiste solo nei computer in cui si esegue PowerShell. È necessario eseguire il cmdlet `Set-AzureRmVirtualNetwork` per salvare queste impostazioni in Azure.
 
 7. Salvare le nuove impostazioni di rete virtuale in Azure.
 
-		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+        Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-	L'output che mostra solo la parte NSG:
+    L'output che mostra solo la parte NSG:
 
-		"NetworkSecurityGroup": {
-		  "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
-		}
+        "NetworkSecurityGroup": {
+          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
+        }
 
-## Come creare il gruppo di sicurezza di rete per la subnet back-end
+## <a name="how-to-create-the-nsg-for-the-back-end-subnet"></a>Come creare il gruppo di sicurezza di rete per la subnet back-end
 Per creare un gruppo di sicurezza di rete denominato *NSG-BackEnd* in base allo scenario precedente, seguire questa procedura:
 
 1. Creare una regola di sicurezza che consente l'accesso dalla subnet front-end per la porta 1433 (porta predefinita utilizzata da SQL Server).
 
-		$rule1 = New-AzureRmNetworkSecurityRuleConfig -Name frontend-rule -Description "Allow FE subnet" `
-		    -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 `
-		    -SourceAddressPrefix 192.168.1.0/24 -SourcePortRange * `
-		    -DestinationAddressPrefix * -DestinationPortRange 1433
+        $rule1 = New-AzureRmNetworkSecurityRuleConfig -Name frontend-rule -Description "Allow FE subnet"
+            -Access Allow -Protocol Tcp -Direction Inbound -Priority 100
+            -SourceAddressPrefix 192.168.1.0/24 -SourcePortRange *
+            -DestinationAddressPrefix * -DestinationPortRange 1433
 
-4. Creare una regola di sicurezza che blocca l'accesso a Internet.
+2. Creare una regola di sicurezza che blocca l'accesso a Internet.
 
-		$rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule -Description "Block Internet" `
-		    -Access Deny -Protocol * -Direction Outbound -Priority 200 `
-		    -SourceAddressPrefix * -SourcePortRange * `
-		    -DestinationAddressPrefix Internet -DestinationPortRange *
+        $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule -Description "Block Internet"
+            -Access Deny -Protocol * -Direction Outbound -Priority 200
+            -SourceAddressPrefix * -SourcePortRange *
+            -DestinationAddressPrefix Internet -DestinationPortRange *
 
-5. Aggiungere le regole create in precedenza a un nuovo gruppo di sicurezza di rete denominato **NSG-BackEnd**.
+3. Aggiungere le regole create in precedenza a un nuovo gruppo di sicurezza di rete denominato **NSG-BackEnd**.
 
-		$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus -Name "NSG-BackEnd" `
-			-SecurityRules $rule1,$rule2
+        $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus -Name "NSG-BackEnd"
+            -SecurityRules $rule1,$rule2
 
-6. Associare il gruppo di sicurezza di rete creato in precedenza per la subnet *BackEnd*.
+4. Associare il gruppo di sicurezza di rete creato in precedenza per la subnet *BackEnd* .
 
-		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
-			-AddressPrefix 192.168.2.0/24 -NetworkSecurityGroup $nsg
+        Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd
+            -AddressPrefix 192.168.2.0/24 -NetworkSecurityGroup $nsg
 
-	Output che mostra solo le impostazioni della subnet *BackEnd*, notare il valore per la proprietà **NetworkSecurityGroup**:
+    Output che mostra solo le impostazioni della subnet *BackEnd* , notare il valore per la proprietà **NetworkSecurityGroup** :
 
-		Subnets           : [
+        Subnets           : [
                       {
                         "Name": "BackEnd",
-                        "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+                        "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
                         "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
                         "AddressPrefix": "192.168.2.0/24",
                         "IpConfigurations": [...],
@@ -178,8 +179,21 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-BackEnd* in base allo 
                         "ProvisioningState": "Succeeded"
                       }
 
-7. Salvare le nuove impostazioni di rete virtuale in Azure.
+5. Salvare le nuove impostazioni di rete virtuale in Azure.
 
-		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+        Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-<!---HONumber=AcomDC_0810_2016-->
+
+## <a name="how-to-remove-an-nsg"></a>Come rimuovere un gruppo di sicurezza di rete
+
+Per eliminare un gruppo di sicurezza di rete esistente, denominato *NSG-Frontend* in questo caso, attenersi a questa procedura:
+
+Eseguire il comando **Remove- AzureRmNetworkSecurityGroup** illustrato di seguito e assicurarsi di includere il gruppo di risorse in cui si trova il gruppo di sicurezza di rete.
+
+            Remove-AzureRmNetworkSecurityGroup -Name "NSG-FrontEnd" -ResourceGroupName "TestRG"
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

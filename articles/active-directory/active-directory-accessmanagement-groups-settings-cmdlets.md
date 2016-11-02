@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo | Microsoft Azure"
-	description="Come gestire le impostazioni per i gruppi con i cmdlet di Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo | Microsoft Azure"
+    description="Come gestire le impostazioni per i gruppi con i cmdlet di Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/22/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/22/2016"
+    ms.author="curtand"/>
 
 
-# Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo
+
+# <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo
 
 Nella directory è possibile configurare le seguenti impostazioni per i gruppi unificati:
 
@@ -31,92 +32,92 @@ Queste impostazioni vengono configurate utilizzando gli oggetti Settings e Setti
 
 Il modulo contenente i cmdlet utilizzati per queste operazioni può essere scaricato dal [sito Microsoft Connect](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).
 
-## Creare le impostazioni a livello di directory
+## <a name="create-settings-at-the-directory-level"></a>Creare le impostazioni a livello di directory
 
 I seguenti passaggi permettono di creare le impostazioni a livello di directory, che si applicheranno a tutti i gruppi di Office presenti nella directory stessa.
 
 1. Se non si conosce il modello di impostazioni da utilizzare, questo cmdlet restituisce l'elenco dei modelli di impostazioni:
 
-	`Get-MsolAllSettingTemplate`
+    `Get-MsolAllSettingTemplate`
 
-	![Elenco dei modelli di impostazioni](./media/active-directory-accessmanagement-groups-settings-cmdlets/list-of-templates.png)
+    ![Elenco dei modelli di impostazioni](./media/active-directory-accessmanagement-groups-settings-cmdlets/list-of-templates.png)
 
 2. Per aggiungere un URL alle linee guida sull'utilizzo, è necessario innanzitutto ottenere l'oggetto SettingsTemplate che definisce il valore di URL delle linee guida sull'utilizzo, vale a dire il modello Group.Unified:
 
-	`$template = Get-MsolSettingTemplate –TemplateId 62375ab9-6b52-47ed-826b-58e47e0e304b`
+    `$template = Get-MsolSettingTemplate –TemplateId 62375ab9-6b52-47ed-826b-58e47e0e304b`
 
 3. Successivamente, creare un nuovo oggetto impostazioni sulla base del modello:
 
-	`$setting = $template.CreateSettingsObject()`
+    `$setting = $template.CreateSettingsObject()`
 
 4. Aggiornare quindi il valore delle linee guida sull'utilizzo:
 
-	`$setting["UsageGuidelinesUrl"] = "<https://guideline.com>"`
+    `$setting["UsageGuidelinesUrl"] = "<https://guideline.com>"`
 
 5. Infine, applicare le impostazioni:
 
-	`New-MsolSettings –SettingsObject $setting`
+    `New-MsolSettings –SettingsObject $setting`
 
-	![Aggiungere l'URL delle linee guida sull'utilizzo](./media/active-directory-accessmanagement-groups-settings-cmdlets/add-usage-guideline-url.png)
+    ![Aggiungere l'URL delle linee guida sull'utilizzo](./media/active-directory-accessmanagement-groups-settings-cmdlets/add-usage-guideline-url.png)
 
 Di seguito sono riportate le impostazioni definite in SettingsTemplate di Group.Unified.
 
- **Impostazione** | **Descrizione**                                                                                             
+ **Impostazione**                          | **Descrizione**                                                                                             
 --------------------------------------|-----------------------------------------------
- <ul><li>ClassificationList<li>Tipo: stringa<li>Predefinito: "" | Un elenco delimitato da virgole dei valori di classificazione validi che è possibile applicare ai gruppi unificati.                
- <ul><li>EnableGroupCreation<li>Tipo: booleano<li>Predefinito: True | La bandierina che indica se sia consentito creare il gruppo unificato nella directory.                               
- <ul><li>GroupCreationAllowedGroupId<li>Tipo: stringa<li>Predefinito: "" | GUID del gruppo di sicurezza autorizzato a creare gruppi unificati anche quando EnableGroupCreation = = false.
- <ul><li>UsageGuidelinesUrl<li>Tipo: stringa<li>Predefinito: "" | Collegamento alle linee guida sull'utilizzo dei gruppi.                                                                       
+ <ul><li>ClassificationList<li>Tipo: String<li>Predefinito: ""                  | Un elenco delimitato da virgole dei valori di classificazione validi che è possibile applicare ai gruppi unificati.                
+ <ul><li>EnableGroupCreation<li>Tipo: Boolean<li> Valore predefinito: True              | La bandierina che indica se sia consentito creare il gruppo unificato nella directory.                               
+ <ul><li>GroupCreationAllowedGroupId<li>Tipo: String<li>Predefinito: ""         | GUID del gruppo di sicurezza autorizzato a creare gruppi unificati anche quando EnableGroupCreation = = false.
+ <ul><li>UsageGuidelinesUrl<li>Tipo: String<li>Predefinito: ""                  | Collegamento alle linee guida sull'utilizzo dei gruppi.                                                                       
 
-## Leggere le impostazioni a livello di directory
+## <a name="read-settings-at-the-directory-level"></a>Leggere le impostazioni a livello di directory
 
 Quelli che seguono sono i passaggi necessari per leggere le impostazioni a livello di directory, che si applicano a tutti i gruppi di Office presenti nella directory.
 
 1. Leggere tutte le impostazioni della directory esistenti:
 
-	`Get-MsolAllSettings`
+    `Get-MsolAllSettings`
 
 2. Leggere tutte le impostazioni di un determinato gruppo:
 
-	`Get-MsolAllSettings -TargetType Groups -TargetObjectId <groupObjectId>`
+    `Get-MsolAllSettings -TargetType Groups -TargetObjectId <groupObjectId>`
 
 3. Leggere impostazioni della directory specifiche utilizzando il GUID SettingId:
 
-	`Get-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
+    `Get-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
 
-	![GUID dell'ID delle impostazioni](./media/active-directory-accessmanagement-groups-settings-cmdlets/settings-id-guid.png)
+    ![GUID dell'ID delle impostazioni](./media/active-directory-accessmanagement-groups-settings-cmdlets/settings-id-guid.png)
 
-## Aggiornare le impostazioni a livello di directory
+## <a name="update-settings-at-the-directory-level"></a>Aggiornare le impostazioni a livello di directory
 
 Quelli che seguono sono i passaggi necessari per aggiornare le impostazioni a livello di directory, che si applicano a tutti i gruppi di Office presenti nella directory.
 
 1. Ottenere l'oggetto relativo alle impostazioni esistenti:
 
-	`$setting = Get-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
+    `$setting = Get-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
 
 2. Ottenere il valore che si desidera da aggiornare:
 
-	`$value = $Setting.GetSettingsValue()`
+    `$value = $Setting.GetSettingsValue()`
 
 3. Aggiornare il valore:
 
-	`$value["AllowToAddGuests"] = "false"`
+    `$value["AllowToAddGuests"] = "false"`
 
 4. Aggiornare l'impostazione:
 
-	`Set-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c –SettingsValue $value`
+    `Set-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c –SettingsValue $value`
 
-## Rimuovere le impostazioni a livello di directory
+## <a name="remove-settings-at-the-directory-level"></a>Rimuovere le impostazioni a livello di directory
 
 Questo passaggio consente di rimuovere le impostazioni a livello di directory, che si applicano a tutti i gruppi di Office presenti nella directory.
 
-	`Remove-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
+    `Remove-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
 
-## Riferimento alla sintassi cmdlet
+## <a name="cmdlet-syntax-reference"></a>Riferimento alla sintassi cmdlet
 
 Per ulteriore documentazione sulla PowerShell di Azure Active Directory, consultare [Cmdlet di Azure Active Directory](http://go.microsoft.com/fwlink/p/?LinkId=808260).
 
-## Riferimento all'oggetto SettingsTemplate (oggetto Group.Unified SettingsTemplate)
+## <a name="settingstemplate-object-reference-(group.unified-settingstemplate-object)"></a>Riferimento all'oggetto SettingsTemplate (oggetto Group.Unified SettingsTemplate)
 
 - "name": "EnableGroupCreation", "type": "System.Boolean", "defaultValue": "true", "description": "Un flag booleano che indica se è attivata la funzionalità per la creazione di gruppi unificati."
 
@@ -126,14 +127,14 @@ Per ulteriore documentazione sulla PowerShell di Azure Active Directory, consult
 
 - "name": "UsageGuidelinesUrl", "type": "System.String", "defaultValue": "", "description": "Collegamento alle linee guida sull'utilizzo dei gruppi."
 
-name | type | defaultValue | description
+name | type | defaultValue | Descrizione
 ----------  | ----------  | ---------  | ----------
-"EnableGroupCreation" | "Boolean" | "true" | "Flag booleano che indica se è attivata la funzionalità per la creazione di gruppi unificati."
-"GroupCreationAllowedGroupId" | "GUID" | "" | "GUID del gruppo di sicurezza incluso nella whitelist per creare gruppi unificati."
-"ClassificationList" | "System. String" | "" | "Elenco delimitato da virgole dei valori di classificazione validi applicabili ai gruppi unificati."
-"UsageGuidelinesUrl" | "System. String" | "" | "Collegamento alle linee guida sull'utilizzo dei gruppi."
+"EnableGroupCreation"  | "Boolean"  | "true"  | "Flag booleano che indica se è attivata la funzionalità per la creazione di gruppi unificati."
+"GroupCreationAllowedGroupId"  | "GUID"  | ""  | "GUID del gruppo di sicurezza incluso nella whitelist per creare gruppi unificati."
+"ClassificationList"  | "System. String"  | ""  | "Elenco delimitato da virgole dei valori di classificazione validi applicabili ai gruppi unificati."
+"UsageGuidelinesUrl"  | "System. String"  | ""  | "Collegamento alle linee guida sull'utilizzo dei gruppi."
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 Per ulteriore documentazione sulla PowerShell di Azure Active Directory, consultare [Cmdlet di Azure Active Directory](http://go.microsoft.com/fwlink/p/?LinkId=808260).
 
@@ -143,4 +144,8 @@ Ulteriori istruzioni del responsabile del programma Microsoft Rob de Jong sono d
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

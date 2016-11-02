@@ -1,186 +1,191 @@
 <properties
-	pageTitle="Novità della versione 12 del database SQL | Microsoft Azure"
-	description="Descrive i motivi per cui i sistemi aziendali che usano il database SQL di Azure nel cloud otterranno vantaggi dall'aggiornamento alla versione 12."
-	services="sql-database"
-	documentationCenter=""
-	authors="MightyPen"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="What's new in SQL Database V12 | Microsoft Azure"
+    description="Describes why business systems that are using Azure SQL Database in the cloud will benefit by upgrading to version V12 now."
+    services="sql-database"
+    documentationCenter=""
+    authors="MightyPen"
+    manager="jhubbard"
+    editor=""/>
 
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/15/2016"
-	ms.author="genemi"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/31/2016"
+    ms.author="genemi"/>
 
 
-# Novità della versione 12 del database SQL
+
+# <a name="whats-new-in-sql-database-v12"></a>What's new in SQL Database V12
 
 
-Questo argomento descrive i molti vantaggi offerti dalla versione 12 del database SQL di Azure rispetto alla versione 11.
+This topic describes the many advantages that the new V12 version of Azure SQL Database has over version V11.
 
 
-Altre funzionalità continueranno a essere aggiunte alla versione 12. È quindi consigliabile visitare la pagina Web Aggiornamenti del servizio di Azure e usare i filtri disponibili:
+We continue to add features to V12. So we encourage you to visit our Service Updates webpage for Azure, and to use its filters:
 
 
-- Filtrato per [servizio Database SQL](https://azure.microsoft.com/updates/?service=sql-database).
-- Filtrato per Disponibilità generale[annunci](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) per le funzionalità del database SQL.
+- Filtered to the [SQL Database service](https://azure.microsoft.com/updates/?service=sql-database).
+- Filtered to General Availability [(GA) announcements](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) for SQL Database features.
 
 
-Le informazioni più recenti sui limiti delle risorse per il Database SQL sono documentate in:<br/>[limiti delle risorse di Database SQL Azure](sql-database-resource-limits.md).
+The latest information about resource limits for SQL Database is documented at:<br/>[Azure SQL Database Resource Limits](sql-database-resource-limits.md).
 
 
-## Miglioramento della compatibilità delle applicazioni con SQL Server
+## <a name="increased-application-compatibility-with-sql-server"></a>Increased application compatibility with SQL Server
 
 
-Migliorare la compatibilità con Microsoft SQL Server 2014 e gestirla man mano che vengono rilasciate nuove versioni di SQL Server era tra gli obiettivi chiave della versione 12 del database SQL. Tra le altre aree, la versione 12 raggiunge la parità con SQL Server nell'importante ambito della programmabilità. Ad esempio:
+A key goal for SQL Database V12 was to improve the compatibility with Microsoft SQL Server 2014, and to maintain the compatibility as new versions of SQL Server are released. Among other areas, V12 achieves parity with SQL Server in the important area of programmability. For example:
 
-- [Supporto JSON incorporato](https://msdn.microsoft.com/library/dn921897.aspx)
+- [Built-in JSON support](https://msdn.microsoft.com/library/dn921897.aspx)
 
-- [Funzioni finestra](http://msdn.microsoft.com/library/ms189798.aspx) con [OVER](http://msdn.microsoft.com/library/ms189461.aspx)
+- [Window functions](http://msdn.microsoft.com/library/ms189798.aspx), with [OVER](http://msdn.microsoft.com/library/ms189461.aspx)
 
-- [Indici XML](http://msdn.microsoft.com/library/bb934097.aspx) e [indici XML selettivi](http://msdn.microsoft.com/library/jj670104.aspx)
+- [XML indexes](http://msdn.microsoft.com/library/bb934097.aspx) and [selective XML indexes](http://msdn.microsoft.com/library/jj670104.aspx)
 
-- [Rilevamento modifiche](http://msdn.microsoft.com/library/bb933875.aspx)
+- [Change tracking](http://msdn.microsoft.com/library/bb933875.aspx)
 
 - [SELECT...INTO](http://msdn.microsoft.com/library/ms188029.aspx)
 
-- [Ricerca full-text](http://msdn.microsoft.com/library/ms142571.aspx)
+- [Full-text search](http://msdn.microsoft.com/library/ms142571.aspx)
 
 - [ALTER DATABASE SCOPED CONFIGURATION (Transact-SQL)](http://msdn.microsoft.com/library/mt629158.aspx)
 
-Per informazioni sul piccolo set di funzionalità non ancora supportate nel database SQL, fare clic [qui](sql-database-transact-sql-information.md).
+See [here](sql-database-transact-sql-information.md) for the small set of features not yet supported in SQL Database.
 
 
-### Livello di compatibilità 130
+### <a name="compatibility-level-130"></a>Compatibility level 130
 
 
-> [AZURE.IMPORTANT] A partire da **giugno 2016**, i *nuovi* database creati con la versione 12 del database SQL di Azure hanno un livello di compatibilità che parte da 130, corrispondente a Microsoft SQL Server 2016 GA.
+> [AZURE.IMPORTANT] Starting in **June 2016**, *newly* created databases on Azure SQL Database V12 have their compatibility level start at 130, which matches Microsoft SQL Server 2016 GA.
 > 
-> Se si preferisce, è possibile anche usare `ALTER DATABASE YourDatabase SET COMPATIBILITY_LEVEL = 120`.
+> You can use `ALTER DATABASE YourDatabase SET COMPATIBILITY_LEVEL = 120` if you prefer.
 > 
-> Per i database creati prima di giugno 2016 il livello di compatibilità non cambia in seguito a questa modifica del valore predefinito. Questo vale anche per i database aggiornati dalla versione 11 alla versione 12.
+> Databases created before June 2016 do not have their compatibility level changed by this change of default. Nor is the level of a database changed by upgrading it from V11 to V12.
 
 
 
-Per una spiegazione di come confrontare la versione più recente con il livello di compatibilità precedente delle query più importanti, vedere:
+For an explanation of how you can compare your most important queries between the latest versus previous compatibility level, see:
 
-- [Miglioramento delle prestazioni delle query con il livello di compatibilità 130 nel database SQL di Azure](sql-database-compatibility-level-query-performance-130.md)
-
-
-
-## Più prestazioni Premium, nuovi livelli di prestazioni
+- [Improved Query Performance with Compatibility Level 130 in Azure SQL Database](sql-database-compatibility-level-query-performance-130.md)
 
 
-Nella versione 12, le unità di prestazioni di database espresse in DTU (Database Transaction Unit) allocate a tutti i livelli di prestazioni sono state aumentate del 25% senza costi aggiuntivi. Con le nuove funzionalità, come quelle elencate di seguito, si possono ottenere miglioramenti delle prestazioni ancora maggiori:
+
+## <a name="more-premium-performance-new-performance-levels"></a>More premium performance, new performance levels
 
 
-- Supporto per gli [indici columnstore](http://msdn.microsoft.com/library/gg492153.aspx) in memoria.
-- [Partizionamento delle tabelle per riga](http://msdn.microsoft.com/library/ms187802.aspx) con miglioramenti correlati a [TRUNCATE TABLE](http://msdn.microsoft.com/library/ms177570.aspx).
-- La disponibilità di viste a gestione dinamica [(DMV)](http://msdn.microsoft.com/library/ms188754.aspx) consente di monitorare e ottimizzare le prestazioni.
+In V12, we increased the Database Transaction Units (DTUs) allocated to all Premium performance levels by 25% at no additional cost. Even greater performance gains can be achieved with new features like:
 
 
-### Prestazioni affidabili
+- Support for in-memory [columnstore indexes](http://msdn.microsoft.com/library/gg492153.aspx).
+- [Table partitioning by rows](http://msdn.microsoft.com/library/ms187802.aspx) with related enhancements to [TRUNCATE TABLE](http://msdn.microsoft.com/library/ms177570.aspx).
+- The availability of dynamic management views [(DMVs)](http://msdn.microsoft.com/library/ms188754.aspx) to help monitor and tune performance.
 
 
-Se il programma client si connette a SQL Database V12 mentre il client viene eseguito in una macchina virtuale (VM) di Azure, è necessario aprire i seguenti intervalli di porta nella macchina virtuale:
+### <a name="reliable-performance"></a>Reliable performance
+
+
+If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open the following port ranges on the VM:
 
 - 11000-11999
 - 14000-14999
 
 
-Fare clic [qui](sql-database-develop-direct-route-ports-adonet-v12.md) per ulteriori informazioni sulle porte per il Database SQL V12. Le porte sono necessarie per il miglioramento delle prestazioni in SQL Database V12.
+Click [here](sql-database-develop-direct-route-ports-adonet-v12.md) for details about the ports for SQL Database V12. The ports are needed by performance enhancements in SQL Database V12.
 
 
-## Migliore supporto per i fornitori di soluzioni cloud SaaS
+## <a name="better-support-for-cloud-saas-vendors"></a>Better support for cloud SaaS vendors
 
 
-Solo nella versione 12 sono stati rilasciati il nuovo livello di prestazioni Standard S3 e l'anteprima pubblica dei [pool di database elastici](sql-database-elastic-pool.md). Pool di database elastici è una soluzione ideata per i fornitori di soluzioni cloud SaaS. Con i pool di database elastici è possibile:
+Only in V12, we released the new Standard performance level S3 and the public preview of [elastic database pools](sql-database-elastic-pool.md). Elastic database pools is a solution designed for cloud SaaS vendors.  With elastic database pools, you can:
 
 
-- Condividere DTU tra i database per ridurre i costi per un numero elevato di database.
-- Eseguire [processi di database elastici](sql-database-elastic-jobs-overview.md) per la gestione di database su vasta scala.
+- Share DTUs among databases to reduce costs for large numbers of databases.
+- Execute [elastic database jobs](sql-database-elastic-jobs-overview.md) to manage databases at scale.
 
 
-## Miglioramenti della sicurezza
+## <a name="security-enhancements"></a>Security enhancements
 
 
-La sicurezza è della massima importanza per chiunque gestisca la propria attività aziendale nel cloud. Le funzionalità di sicurezza più recenti rilasciate nella versione 12 includono:
+Security is a primary concern for anyone who runs their business in the cloud. The latest security features released in V12 include:
 
 
-- [Sicurezza a livello di riga](http://msdn.microsoft.com/library/dn765131.aspx)
-- [Maschera dati dinamica](sql-database-dynamic-data-masking-get-started.md)
-- [Database indipendenti](http://msdn.microsoft.com/library/ff929188.aspx)
-- [Ruoli applicazione](http://msdn.microsoft.com/library/ms190998.aspx) gestiti con GRANT, DENY, REVOKE
-- [Crittografia dati trasparente](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx)
-- [Connettersi al Database SQL utilizzando l’autenticazione di Azure Active Directory](sql-database-aad-authentication.md)
- - Il Database SQL supporta ora l'autenticazione di Azure Active Directory, un meccanismo di connessione al Database SQL utilizzando le identità in Azure Active Directory (Azure AD). Con l'autenticazione di Azure Active Directory è possibile gestire in una posizione centrale le identità degli utenti del database e altri servizi Microsoft.
-- [Sempre crittografati](https://msdn.microsoft.com/library/mt163865.aspx) (in anteprima) rende la crittografia trasparente alle applicazioni e consente ai client di crittografare dati riservati all'interno delle applicazioni client senza condividere le chiavi di crittografia con il database SQL.
+- [Row-level security](http://msdn.microsoft.com/library/dn765131.aspx) (RLS)
+- [Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md)
+- [Contained databases](http://msdn.microsoft.com/library/ff929188.aspx)
+- [Application roles](http://msdn.microsoft.com/library/ms190998.aspx) managed with GRANT, DENY, REVOKE
+- [Transparent Data Encryption](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) (TDE)
+- [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md)
+ - SQL Database now supports Azure Active Directory authentication, a mechanism of connecting to SQL Database by using identities in Azure Active Directory (Azure AD). With Azure Active Directory authentication you can centrally manage the identities of database users and other Microsoft services in one central location.
+- [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) (in preview) makes encryption transparent to applications and allows clients to encrypt sensitive data inside client applications without sharing the encryption keys with SQL Database.
 
 
-## Aumento della continuità aziendale quando è necessario il ripristino
+## <a name="increased-business-continuity-when-recovery-is-needed"></a>Increased business continuity when recovery is needed
 
 
-La versione 12 offre obiettivi del punto di ripristino (RPO) e tempi di recupero stimato (ERT):
+V12 offers improved recovery point objectives (RPOs) and estimated recovery times (ERTs):
 
 
-| Funzionalità per la continuità aziendale | Versione precedente | Versione 12 |
+| Business continuity feature | Earlier version | V12 |
 | :-- | :-- | :-- |
-| Ripristino geografico | • RPO < 24 ore.<br/>• ERT < 12 ore. | • RPO < 1 ora.<br/>• ERT < 12 ore. |
-| Replica geografica attiva | • RPO < 5 minuti.<br/>• ERT < 1 ora. | • RPO < 5 secondi.<br/>• ERT < 30 secondi. |
+| Geo-restore | • RPO < 24 hours.<br/>• ERT <  12 hours. | • RPO < 1 hour.<br/>• ERT < 12 hours. |
+| Active Geo-Replication | • RPO < 5 minutes.<br/>• ERT < 1 hour. | • RPO < 5 seconds.<br/>• ERT < 30 seconds. |
 
 
-Per altre informazioni, vedere [Continuità aziendale del database SQL](sql-database-business-continuity.md).
+See [SQL Database business continuity](sql-database-business-continuity.md) for more information.
 
 
-## Altri motivi per eseguire subito l'aggiornamento
+## <a name="more-reasons-to-upgrade-now"></a>More reasons to upgrade now
 
 
-Ci sono molti altri buoni motivi per i quali i clienti dovrebbero eseguire l'aggiornamento dalla versione 11 alla versione 12 del database SQL di Azure:
+There are many good reasons why customers should upgrade now to Azure SQL Database V12 from V11:
 
 
-- La versione 12 del database SQL include un lungo elenco di funzionalità oltre a quelle della versione 11.
-- Alla versione 12 continuano a essere aggiunte nuove funzionalità, mentre non ne verranno aggiunte alla versione 11.
-- La maggior parte delle nuove funzionalità viene rilasciata nella versione 12 del database SQL prima di esserlo per Microsoft SQL Server.
+- SQL Database V12 has a long list of features beyond the features of V11.
+- We continue to add new features to V12, but no new features will be added to V11.
+- Most new features are released on SQL Database V12 before they are being released for Microsoft SQL Server.
 
 
-## Se si sta già usando la versione 12
+## <a name="are-you-using-v12-already"></a>Are you using V12 already?
 
 
-Per verificare in modo semplice se è in esecuzione un database o un server logico in una versione precedente del servizio Database SQL, eseguire le operazioni seguenti:
+One easy way to see if you have a database or logical server running on an earlier version of the SQL Database service is to do the following:
 
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Fare clic su **Sfoglia**.
-3. Fare clic su **SQL Server**.
-4. L'icona accanto al server o al database è significativa:
- - ![Icona del server versione 12](./media/sql-database-v12-whats-new/v12_icon.png) **Server logico versione 12**
- - ![Icona del server di versioni precedenti](./media/sql-database-v12-whats-new/earlier_icon.png) **Versione precedente del server logico**
+1. Go to the [Azure Portal](https://portal.azure.com/).
+2. Click **Browse**.
+3. Click **SQL Servers**.
+4. The icon next to your server or database tells the story:
+ - ![Icon for a v12 server](./media/sql-database-v12-whats-new/v12_icon.png) **V12 logical server**
+ - ![Icon for earlier version server](./media/sql-database-v12-whats-new/earlier_icon.png) **Earlier version logical server**
 
 
-Un altra tecnica per verificare la versione consiste nell'eseguire l'istruzione `SELECT @@version;` nel database e visualizzare risultati simili ai seguenti:
+Another technique to ascertain the version is to run the `SELECT @@version;` statement in your database, and view the results similar to:
 
 
-- **12**.0.2000.10 &nbsp; *(versione 12)*
-- **11**.0.9228.18 &nbsp; *(versione 11)*
+- **12**.0.2000.10 &nbsp; *(version V12)*
+- **11**.0.9228.18 &nbsp; *(version V11)*
 
 
-Un database versione 12 può essere ospitato solo in un server logico della versione 12. Un server versione 12 può ospitare solo database della versione 12.
+A V12 database can be hosted only on a V12 logical server. And a V12 server can host only V12 databases.
 
 
-Se ancora non si usa la versione 12, è possibile aggiornare il server logico seguendo i passaggi descritti nell'articolo relativo all'[aggiornamento sul posto alla versione 12 del database SQL](sql-database-v12-plan-prepare-upgrade.md).
+If you are not yet running on V12, you can upgrade your logical server by following the steps in [Upgrade to SQL Database V12 in place](sql-database-v12-plan-prepare-upgrade.md).
 
 
-## <a name="V12AzureSqlDbPreviewGaTable"></a>Aree generali di disponibilità
+## <a name="a-namev12azuresqldbpreviewgatablea-general-availability-regions"></a><a name="V12AzureSqlDbPreviewGaTable"></a> General Availability regions
 
 
-- Dal 31 luglio 2015, tutte le aree sono state promosse a Disponibilità generale (GA).
-- La versione 12 è stata rilasciata a dicembre 2014, ma solo con lo stato di Anteprima.
+- By July 31, 2015, all regions had been promoted to General Availability (GA).
+- V12 was released in December 2014, but only at the status of Preview.
 
-[Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

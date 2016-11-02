@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Esercitazione: Integrazione di Azure Active Directory con Anaplan | Microsoft Azure"
-	description="Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Anaplan."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="femila"
-	editor=""/>
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Anaplan | Microsoft Azure"
+    description="Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Anaplan."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/19/2016"
-	ms.author="jeedes"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/10/2016"
+    ms.author="jeedes"/>
 
 
-# Esercitazione: Integrazione di Azure Active Directory con Anaplan
+
+# <a name="tutorial:-azure-active-directory-integration-with-anaplan"></a>Esercitazione: Integrazione di Azure Active Directory con Anaplan
 
 Questa esercitazione descrive l'integrazione di Anaplan con Azure Active Directory (Azure AD).
 
@@ -29,7 +30,7 @@ L'integrazione di Anaplan con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Anaplan, sono necessari gli elementi seguenti:
 
@@ -46,7 +47,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## Descrizione dello scenario
+## <a name="scenario-description"></a>Descrizione dello scenario
 L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test.
 
 Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
@@ -55,38 +56,38 @@ Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti 
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 
-## Aggiunta di Anaplan dalla raccolta
+## <a name="adding-anaplan-from-the-gallery"></a>Aggiunta di Anaplan dalla raccolta
 Per configurare l'integrazione di Anaplan in Azure AD, è necessario aggiungere Anaplan dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Anaplan dalla raccolta, seguire questa procedura:**
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Active Directory][1]
+    ![Active Directory][1]
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
-	
-	![Applicazioni][2]
+    
+    ![Applications][2]
 
 4. Fare clic su **Add** nella parte inferiore della pagina.
 
-	![Applicazioni][3]
+    ![Applicazioni][3]
 
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
-	![Applicazioni][4]
+    ![Applicazioni][4]
 
 6. Nella casella di ricerca digitare **Anaplan**.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-anaplan-tutorial/tutorial_anaplan_01.png)
-7. Nel riquadro dei risultati, selezionare **Anaplan** e quindi fare clic su **Completa** per aggiungere l'applicazione.
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-anaplan-tutorial/tutorial_anaplan_01.png)
+7. Nel riquadro dei risultati selezionare **Anaplan** e quindi fare clic su **Completa** per aggiungere l'applicazione.
 
-	![Selezione dell'app nella raccolta](./media/active-directory-saas-anaplan-tutorial/tutorial_anaplan_001.png)
+    ![Selezione dell'app nella raccolta](./media/active-directory-saas-anaplan-tutorial/tutorial_anaplan_001.png)
 
 
-##  Configurazione e test dell'accesso Single Sign-On di Azure AD
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Anaplan in base a un utente test di nome "Britta Simon".
 
 Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Anaplan che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Anaplan.
@@ -95,58 +96,58 @@ La relazione di collegamento viene stabilita assegnando il valore di **nome uten
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Anaplan, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
-2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente test di Anaplan](#creating-a-anaplan-test-user)**: per avere una controparte di Britta Simon in Anaplan collegata alla relativa rappresentazione in Azure AD.
-4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+3. **[Creazione di un utente test di Anaplan](#creating-a-anaplan-test-user)** : per avere una controparte di Britta Simon in Anaplan collegata alla relativa rappresentazione in Azure AD.
+4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
-### Configurazione dell'accesso Single Sign-On di Azure AD
+### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure classico e viene configurato l'accesso Single Sign-On nell'applicazione Anaplan.
 
 **Per configurare l'accesso Single Sign-On di Azure AD con Anaplan, seguire questa procedura:**
 
 1. Nella pagina di integrazione dell'applicazione **Anaplan** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
-	 
-	![Configura accesso Single Sign-On][6]
+     
+    ![Configura accesso Single Sign-On][6] 
 
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano ad Anaplan** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-anaplan-tutorial/tutorial_anaplan_03.png)
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-anaplan-tutorial/tutorial_anaplan_03.png) 
 
 3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura e fare clic su **Avanti**:
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-anaplan-tutorial/tutorial_anaplan_04.png)
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-anaplan-tutorial/tutorial_anaplan_04.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://sdp.anaplan.com/frontdoor/saml/<tenant name>`
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente:  `https://sdp.anaplan.com/frontdoor/saml/<tenant name>`
 
-	b. Fare clic su **Avanti**
+    b. Fare clic su **Avanti**
 
 
-	> [AZURE.NOTE] Il valore dell'URL di accesso in questa esercitazione è solo un segnaposto. Per ottenere il valore effettivo per l'ambiente, contattare il team di supporto di Anaplan.
+    > [AZURE.NOTE] Il valore dell'URL di accesso in questa esercitazione è solo un segnaposto. Per ottenere il valore effettivo per l'ambiente, contattare il team di supporto di Anaplan.
 
 
 4. Nella pagina **Configura accesso Single Sign-On in Anaplan** seguire questa procedura e fare clic su **Avanti**:
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-anaplan-tutorial/tutorial_anaplan_05.png)
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-anaplan-tutorial/tutorial_anaplan_05.png)
 
-    a. Fare clic su **Scarica metadati** e quindi salvare il file nel computer.
+    a. Fare clic su **Scarica metadati**e quindi salvare il file nel computer.
 
     b. Fare clic su **Avanti**.
 
 
 
 
-5. Per ottenere SSO configurato per l'applicazione, contattare il team di supporto di Anaplan all'indirizzo [support@anaplan.com](mailto:support@anaplan.com) e fornire gli elementi seguenti:
+5. Per ottenere SSO configurato per l'applicazione, contattare il team di supporto di Anaplan all'indirizzo [support@anaplan.com](mailto:support@anaplan.com) e fornire gli elementi seguenti:
 
     - Il file dei metadati scaricato
 
-    - L'**ID entità**
+    - L' **ID entità**
 
-    - L'**URL SSO SAML**
+    - L' **URL SSO SAML** 
 
-    - L'**URL del servizio Single Sign-Out**
+    - L' **URL del servizio Single Sign-Out**
 
 
 
@@ -154,38 +155,38 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 6. Nel portale di Azure classico selezionare la conferma della configurazione e fare clic su **Avanti**.
 
-	![Accesso Single Sign-On di Azure AD][10]
+    ![Single Sign-On di Microsoft Azure AD][10]
 
-7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
+7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.  
 
-	![Accesso Single Sign-On di Azure AD][11]
+    ![Single Sign-On di Microsoft Azure AD][11]
 
 
 
-### Creazione di un utente test di Azure AD
+### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente di test chiamato Britta Simon nel portale classico.
-	
+    
 ![Creare un utente di Azure AD][20]
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-anaplan-tutorial/create_aaduser_09.png)
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-anaplan-tutorial/create_aaduser_09.png)
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
-	
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-anaplan-tutorial/create_aaduser_03.png)
+3. Per visualizzare l'elenco di utenti, fare clic su **Utenti**nel menu in alto.
+    
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-anaplan-tutorial/create_aaduser_03.png)
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** sulla barra degli strumenti in basso.
-	
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-anaplan-tutorial/create_aaduser_04.png)
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
+    
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-anaplan-tutorial/create_aaduser_04.png)
 
 5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-anaplan-tutorial/create_aaduser_05.png)
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-anaplan-tutorial/create_aaduser_05.png)
 
     a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
 
@@ -194,74 +195,74 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
     c. Fare clic su **Avanti**.
 
 6.  Nella pagina **Profilo utente** seguire questa procedura:
-	
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-anaplan-tutorial/create_aaduser_06.png)
+    
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-anaplan-tutorial/create_aaduser_06.png)
 
-    a. Nella casella di testo **Nome** digitare **Britta**.
+    a. Nella casella di testo **Nome** digitare **Britta**.  
 
     b. Nella casella di testo **Cognome** digitare **Simon**.
 
     c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
 
-    d. Nell'elenco **Ruolo**, selezionare **Utente**.
+    d. Nell'elenco **Ruolo** selezionare **Utente**.
 
     e. Fare clic su **Avanti**.
 
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
-	
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-anaplan-tutorial/create_aaduser_07.png)
+    
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-anaplan-tutorial/create_aaduser_07.png)
 
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
-	
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-anaplan-tutorial/create_aaduser_08.png)
+    
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-anaplan-tutorial/create_aaduser_08.png)
 
     a. Prendere nota del valore visualizzato in **Nuova password**.
 
-    b. Fare clic su **Complete**.
+    b. Fare clic su **Complete**.   
 
 
 
-### Creazione di un utente test di Anaplan
+### <a name="creating-a-anaplan-test-user"></a>Creazione di un utente test di Anaplan
 
-In questa sezione viene creato un utente di nome Britta Simon in Anaplan. Collaborare con il team di supporto di Anaplan, all'indirizzo <mailto:support@anaplan.com>, per aggiungere utenti alla piattaforma Anaplan.
+In questa sezione viene creato un utente di nome Britta Simon in Anaplan. Rivolgersi al team di supporto di Anaplan, all'indirizzo <mailto:support@anaplan.com>, per aggiungere utenti alla piattaforma Anaplan.
 
 
-### Assegnazione dell'utente test di Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 
 Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Anaplan.
-	
+    
 ![Assegna utente][200]
 
 **Per assegnare Britta Simon ad Anaplan, seguire questa procedura:**
 
 1. Per aprire la visualizzazione delle applicazioni nel portale classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
 
-	![Assegna utente][201]
+    ![Assegna utente][201]
 
 2. Nell'elenco delle applicazioni selezionare **Anaplan**.
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-anaplan-tutorial/tutorial_anaplan_50.png)
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-anaplan-tutorial/tutorial_anaplan_50.png)
 
-3. Scegliere **Utenti** dal menu in alto.
-	
-	![Assegna utente][203]
+3. Scegliere **Utenti**dal menu in alto.
+    
+    ![Assegna utente][203]
 
 4. Nell'elenco di utenti selezionare **Britta Simon**.
 
-5. Fare clic su **Assegna** sulla barra degli strumenti in basso.
+5. Fare clic su **Assegna**sulla barra degli strumenti in basso.
 
-	![Assegna utente][205]
+    ![Assegna utente][205]
 
 
 
-### Test dell'accesso Single Sign-On
+### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
 
 Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Anaplan nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Anaplan.
 
 
-## Risorse aggiuntive
+## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
@@ -286,4 +287,8 @@ Quando si fa clic sul riquadro Anaplan nel pannello di accesso, si dovrebbe acce
 [204]: ./media/active-directory-saas-anaplan-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-anaplan-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

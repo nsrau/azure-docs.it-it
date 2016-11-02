@@ -1,27 +1,28 @@
 
 <properties
-	pageTitle="Gestire le risorse con l'interfaccia della riga di comando di Azure | Microsoft Azure"
-	description="Usare l'interfaccia della riga di comando di Azure per gestire le risorse e i gruppi di Azure"
-	editor=""
-	manager="timlt"
-	documentationCenter=""
-	authors="dlepow"
-	services="azure-resource-manager"/>
+    pageTitle="Gestire le risorse con l'interfaccia della riga di comando di Azure | Microsoft Azure"
+    description="Usare l'interfaccia della riga di comando di Azure per gestire le risorse e i gruppi di Azure"
+    editor=""
+    manager="timlt"
+    documentationCenter=""
+    authors="dlepow"
+    services="azure-resource-manager"/>
 
 <tags
-	ms.service="azure-resource-manager"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/22/2016"
-	ms.author="danlep"/>
+    ms.service="azure-resource-manager"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="vm-multiple"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/22/2016"
+    ms.author="danlep"/>
 
-# Usare l'interfaccia della riga di comando di Azure per gestire risorse e gruppi di risorse
+
+# <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>Usare l'interfaccia della riga di comando di Azure per gestire risorse e gruppi di risorse
 
 
 > [AZURE.SELECTOR]
-- [Portale](azure-portal/resource-group-portal.md)
+- [Portale](azure-portal/resource-group-portal.md) 
 - [Interfaccia della riga di comando di Azure](xplat-cli-azure-resource-manager.md)
 - [Azure PowerShell](powershell-azure-resource-manager.md)
 - [API REST](resource-manager-rest-api.md)
@@ -33,23 +34,23 @@ L'interfaccia della riga di comando di Azure è uno degli strumenti che è possi
 
 
 
-## Ottenere le risorse e i gruppi di risorse
+## <a name="get-resource-groups-and-resources"></a>Ottenere le risorse e i gruppi di risorse
 
-### Gruppi di risorse
+### <a name="resource-groups"></a>Gruppi di risorse
 
 Per ottenere un elenco di tutti i gruppi di risorse della sottoscrizione e delle rispettive posizioni, eseguire questo comando.
 
     azure group list
     
 
-### Risorse
+### <a name="resources"></a>Risorse
  Per elencare tutte le risorse in un gruppo, ad esempio quello con il nome *testRG*, usare il comando seguente.
 
-	azure resource list testRG
+    azure resource list testRG
 
-Per visualizzare una singola risorsa nel gruppo, ad esempio una VM denominata *MyUbuntuVM*, usare un comando come il seguente.
+Per visualizzare una singola risorsa nel gruppo, ad esempio una macchina virtuale denominata *MyUbuntuVM*, usare un comando come il seguente.
 
-	azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
+    azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
     
 Notare il parametro **Microsoft.Compute/virtualMachines**. Questo parametro indica il tipo di risorsa per il quale si stanno richiedendo informazioni.
     
@@ -57,104 +58,36 @@ Notare il parametro **Microsoft.Compute/virtualMachines**. Questo parametro indi
 
 Quando si visualizzano i dettagli su una risorsa, è spesso utile utilizzare il parametro`--json`. Questo parametro rende l'output più leggibile perché alcuni valori sono strutture annidate o raccolte. L'esempio seguente illustra come restituire i risultati del comando **show** come un documento JSON.
 
-	azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15" --json
+    azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15" --json
 
->[AZURE.NOTE] Se necessario, salvare i dati JSON nel file usando il carattere &gt; per indirizzare l'output a un file. ad esempio:
+>[AZURE.NOTE] Se necessario, salvare i dati JSON nel file usando il carattere &gt; per indirizzare l'output a un file. Ad esempio:
 >
 > `azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15" --json > myfile.json`
 
-### Tag
+### <a name="tags"></a>Tag
 
-Per organizzare le risorse, aggiungere [tag](resource-group-using-tags.md) alle risorse e ai gruppi di risorse. Per visualizzare i tag già applicati, è sufficiente recuperare un gruppo di risorse e le relative risorse con **azure group show**.
+[AZURE.INCLUDE [resource-manager-tag-resources-cli](../includes/resource-manager-tag-resources-cli.md)]
 
-    azure group show -n tag-demo-group
-    
-Questo comando restituisce i metadati relativi al gruppo di risorse, inclusi gli eventuali tag applicati.
-    
-    info:    Executing command group show
-    + Listing resource groups
-    + Listing resources for the group
-    data:    Id:                  /subscriptions/{guid}/resourceGroups/tag-demo-group
-    data:    Name:                tag-demo-group
-    data:    Location:            westus
-    data:    Provisioning State:  Succeeded
-    data:    Tags: Dept=Finance;Environment=Production
-    data:    Resources:
-    data:
-    data:      Id      : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
-    data:      Name    : tfsqlserver
-    data:      Type    : servers
-    data:      Location: eastus2
-    data:      Tags    : Dept=Finance;Environment=Production
-    ...
-
-Per ottenere i tag solo per il gruppo di risorse, usare un'utilità JSON come [jq](http://stedolan.github.io/jq/download/).
-
-    azure group show -n tag-demo-group --json | jq ".tags"
-    
-Questo comando restituisce i tag per tale gruppo di risorse.
-    
-    {
-      "Dept": "Finance",
-      "Environment": "Production" 
-    }
-
-Visualizzare i tag per una particolare risorsa usando **azure resource show**.
-
-    azure resource show -g tag-demo-group -n tfsqlserver -r Microsoft.Sql/servers -o 2014-04-01-preview --json | jq ".tags"
-    
-Questo comando restituisce quanto segue.
-    
-    {
-      "Dept": "Finance",
-      "Environment": "Production"
-    }
-    
-Recuperare tutte le risorse con un particolare tag usando un comando come il seguente.
-
-    azure resource list --json | jq ".[] | select(.tags.Dept == "Finance") | .name"
-    
-Questo comando restituisce i nomi delle risorse con tale tag.
-    
-    "tfsqlserver"
-    "tfsqlserver/tfsqldata"
-
-I tag vengono aggiornati nel loro complesso, quindi se si aggiunge un tag a una risorsa a cui è già stato aggiunto un tag, è necessario recuperare i tag esistenti che si vuole mantenere. Per impostare i valori dei tag per un gruppo di risorse, usare **azure group set** e fornire tutti i tag per il gruppo di risorse.
-
-    azure group set -n tag-demo-group -t Dept=Finance;Environment=Production;Project=Upgrade
-    
-Viene restituito un riepilogo del gruppo di risorse con i nuovi tag.
-    
-    info:    Executing command group set
-    ...
-    data:    Name:                tag-demo-group
-    data:    Location:            westus
-    data:    Provisioning State:  Succeeded
-    data:    Tags: Dept=Finance;Environment=Production;Project=Upgrade
-    ...
-    
-È possibile elencare i tag esistenti nella sottoscrizione con **azure tag list** e aggiungere un tag con **azure tag create**. Per rimuovere un tag dalla tassonomia della sottoscrizione, rimuovere prima di tutto il tag dalle eventuali risorse con cui viene usato, quindi rimuoverlo con **azure tag delete**.
-
-## Gestire risorse
+## <a name="manage-resources"></a>Gestire risorse
 
 
 Per aggiungere una risorsa, ad esempio un account di archiviazione, a un gruppo di risorse, eseguire un comando simile a:
 
-    azure resource create testRG MyStorageAccount "Microsoft.Storage/storageAccounts" "westus" -o "2015-06-15" -p "{"accountType": "Standard_LRS"}"
+    azure resource create testRG MyStorageAccount "Microsoft.Storage/storageAccounts" "westus" -o "2015-06-15" -p "{\"accountType\": \"Standard_LRS\"}"
     
 Oltre a specificare la versione dell'API della risorsa con il parametro **-o**, usare il parametro **-p** per passare una stringa in formato JSON con le proprietà obbligatorie o aggiuntive.
     
     
 Per eliminare una risorsa esistente, ad esempio una macchina virtuale, usare un comando simile al seguente.
 
-	azure resource delete testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
+    azure resource delete testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
 
-Per spostare le risorse esistenti in un gruppo di risorse o una sottoscrizione diversa, usare il comando **azure resource move**. Il seguente esempio illustra come spostare una cache Redis in un nuovo gruppo di risorse. Nel parametro **-i**, fornire un elenco delimitato da virgole di id di risorsa da spostare.
+Per spostare le risorse esistenti in un gruppo di risorse o una sottoscrizione diversa, usare il comando **azure resource move** . Il seguente esempio illustra come spostare una cache Redis in un nuovo gruppo di risorse. Nel parametro **-i** , fornire un elenco delimitato da virgole di id di risorsa da spostare.
 
 
     azure resource move -i "/subscriptions/{guid}/resourceGroups/OldRG/providers/Microsoft.Cache/Redis/examplecache" -d "NewRG"
 
-## Controllare l'accesso alle risorse
+## <a name="control-access-to-resources"></a>Controllare l'accesso alle risorse
 
 È possibile usare l'interfaccia della riga di comando di Azure per creare e gestire i criteri per controllare l'accesso alle risorse di Azure. Per informazioni sulle definizioni dei criteri e sull'assegnazione di criteri alle risorse, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
 
@@ -178,14 +111,9 @@ Eseguire quindi il comando **policy definition create**:
     
 Questo comando ha un output simile al seguente.
 
-    + Creating policy definition MyPolicy
-    data:    PolicyName:             MyPolicy
-    data:    PolicyDefinitionId:     /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/MyPolicy
+    + Creating policy definition MyPolicy data:    PolicyName:             MyPolicy data:    PolicyDefinitionId:     /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/MyPolicy
 
-    data:    PolicyType:             Custom
-    data:    DisplayName:            undefined
-    data:    Description:            undefined
-    data:    PolicyRule:             field=location, in=[westus, northcentralus], effect=deny
+    data:    PolicyType:             Custom data:    DisplayName:            undefined data:    Description:            undefined data:    PolicyRule:             field=location, in=[westus, northcentralus], effect=deny
 
  Per assegnare un criterio nell'ambito desiderato, usare il valore di **PolicyDefinitionId** restituito dal comando precedente. Nell'esempio seguente, questo ambito è la sottoscrizione, ma è possibile impostare come ambito gruppi di risorse o singole risorse:
 
@@ -196,7 +124,7 @@ Questo comando ha un output simile al seguente.
 Analogamente, è possibile ottenere, modificare o rimuovere le assegnazioni dei criteri usando i comandi **policy assignment show**, **policy assignment set** e **policy assignment delete**.
 
 
-## Esportare un gruppo di risorse come modello
+## <a name="export-a-resource-group-as-a-template"></a>Esportare un gruppo di risorse come modello
 
 È possibile visualizzare il modello di Resource Manager per un gruppo di risorse esistente. L'esportazione del modello offre due vantaggi:
 
@@ -222,9 +150,15 @@ Usando l'interfaccia della riga di comando di Azure, è possibile esportare un m
 
 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 * Per ottenere i dettagli delle operazioni di distribuzione e risolvere i problemi relativi agli errori di distribuzione con l'interfaccia della riga di comando di Azure, vedere [Visualizzare le operazioni di distribuzione con l'interfaccia della riga di comando di Azure](resource-manager-troubleshoot-deployments-cli.md).
 * Per usare l'interfaccia della riga di comando per configurare un'applicazione o uno script per accedere alle risorse, vedere [Usare l'interfaccia della riga di comando di Azure per creare un'entità servizio per accedere alle risorse](resource-group-authenticate-service-principal-cli.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,32 +1,33 @@
 <properties 
-	pageTitle="Come usare gli argomenti del bus di servizio con Python | Microsoft Azure" 
-	description="Informazioni su come usare gli argomenti e le sottoscrizioni del bus di servizio da Python." 
-	services="service-bus-messaging" 
-	documentationCenter="python" 
-	authors="sethmanheim" 
-	manager="timlt" 
-	editor=""/>
+    pageTitle="Come usare gli argomenti del bus di servizio con Python | Microsoft Azure" 
+    description="Informazioni su come usare gli argomenti e le sottoscrizioni del bus di servizio da Python." 
+    services="service-bus" 
+    documentationCenter="python" 
+    authors="sethmanheim" 
+    manager="timlt" 
+    editor=""/>
 
 <tags 
-	ms.service="service-bus-messaging" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="05/06/2016" 
-	ms.author="sethm"/>
+    ms.service="service-bus" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="python" 
+    ms.topic="article" 
+    ms.date="10/04/2016" 
+    ms.author="sethm"/>
 
-# Come usare gli argomenti e le sottoscrizioni del bus di servizio
+
+# <a name="how-to-use-service-bus-topics-and-subscriptions"></a>Come usare gli argomenti e le sottoscrizioni del bus di servizio
 
 [AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Questo articolo descrive come usare gli argomenti e le sottoscrizioni del bus di servizio. Gli esempi sono scritti in Python e utilizzano il [pacchetto Python di Azure][]. Gli scenari presentati includono **creazione di argomenti e sottoscrizioni**, **creazione di filtri per le sottoscrizioni**, **invio di messaggi a un argomento**, **ricezione di messaggi da una sottoscrizione** ed **eliminazione di argomenti e sottoscrizioni**. Per altre informazioni sugli argomenti e sulle sottoscrizioni, vedere la sezione [Passaggi successivi](#next-steps).
+Questo articolo descrive come usare gli argomenti e le sottoscrizioni del bus di servizio. Gli esempi sono scritti in Python e usano il [pacchetto di Azure per Python][]. Gli scenari presentati includono **la creazione di argomenti e sottoscrizioni**, **la creazione di filtri per le sottoscrizioni**, **l’invio di messaggi a un argomento**, **la ricezione di messaggi da una sottoscrizione** e **l’eliminazione di argomenti e sottoscrizioni**. Per altre informazioni sugli argomenti e sulle sottoscrizioni, vedere la sezione [Passaggi successivi](#next-steps).
 
 [AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
-**Nota:** se è necessario installare Python o il [pacchetto Python di Azure][], vedere la [guida all'installazione di Python](../python-how-to-install.md).
+**Nota:** se è necessario installare Python o il [pacchetto di Azure per Python][], vedere la [guida all'installazione di Python](../python-how-to-install.md).
 
-## Creare un argomento
+## <a name="create-a-topic"></a>Creare un argomento
 
 L'oggetto **ServiceBusService** consente di usare gli argomenti. Aggiungere il seguente codice vicino all'inizio del file Python da cui si desidera accedere al bus di servizio a livello di codice:
 
@@ -38,18 +39,18 @@ Il codice seguente consente di creare un oggetto **ServiceBusService**. Sostitui
 
 ```
 bus_service = ServiceBusService(
-	service_namespace='mynamespace',
-	shared_access_key_name='sharedaccesskeyname',
-	shared_access_key_value='sharedaccesskey')
+    service_namespace='mynamespace',
+    shared_access_key_name='sharedaccesskeyname',
+    shared_access_key_value='sharedaccesskey')
 ```
 
-È possibile ottenere i valori per il nome e il valore della chiave di firma di accesso condiviso dalla finestra **Informazioni di connessione** del [portale di Azure classico][].
+È possibile ottenere i valori per il nome e il valore della chiave di firma di accesso condiviso dal [portale di Azure][].
 
 ```
 bus_service.create_topic('mytopic')
 ```
 
-**create\_topic** supporta anche opzioni aggiuntive che consentono di eseguire l'override delle impostazioni degli argomenti predefinite, ad esempio la durata dei messaggi o la dimensione massima dell'argomento. L'esempio seguente illustra come impostare la dimensione massima dell'argomento su 5 GB e un valore della durata di 1 minuto:
+**create\_topic** supporta anche opzioni aggiuntive che consentono di eseguire l'override delle impostazioni degli argomenti predefinite, ad esempio la durata TTL dei messaggi o la dimensione massima dell'argomento. L'esempio seguente illustra come impostare la dimensione massima dell'argomento su 5 GB e un valore della durata di 1 minuto:
 
 ```
 topic_options = Topic()
@@ -59,31 +60,31 @@ topic_options.default_message_time_to_live = 'PT1M'
 bus_service.create_topic('mytopic', topic_options)
 ```
 
-## Creare sottoscrizioni
+## <a name="create-subscriptions"></a>Creare sottoscrizioni
 
-È possibile creare sottoscrizioni di argomenti con l'oggetto **ServiceBusService**. Le sottoscrizioni sono denominate e possono includere un filtro facoltativo che limita il set di messaggi recapitati alla coda virtuale della sottoscrizione.
+È possibile creare sottoscrizioni ad argomenti anche con l'oggetto **ServiceBusService**. Le sottoscrizioni sono denominate e possono includere un filtro facoltativo che limita il set di messaggi recapitati alla coda virtuale della sottoscrizione.
 
 > [AZURE.NOTE] Le sottoscrizioni sono persistenti e continueranno a esistere fintanto che esse o l'argomento che hanno sottoscritto non viene eliminato.
 
-### Creare una sottoscrizione con il filtro (MatchAll) predefinito
+### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>Creare una sottoscrizione con il filtro (MatchAll) predefinito
 
-Il filtro predefinito **MatchAll** viene usato se non vengono specificati altri filtri durante la creazione di una nuova sottoscrizione. Quando si usa il filtro **MatchAll**, tutti i messaggi pubblicati nell'argomento vengono inseriti nella coda virtuale della sottoscrizione. Nell'esempio seguente viene creata una sottoscrizione denominata 'AllMessages' e viene utilizzato il filtro predefinito **MatchAll**.
+Il filtro predefinito **MatchAll** viene usato se non vengono specificati altri filtri durante la creazione di una nuova sottoscrizione. Quando si usa il filtro **MatchAll**, tutti i messaggi pubblicati nell'argomento vengono inseriti nella coda virtuale della sottoscrizione. Nell'esempio seguente viene creata una sottoscrizione denominata "AllMessages" e viene usato il filtro predefinito **MatchAll**.
 
 ```
 bus_service.create_subscription('mytopic', 'AllMessages')
 ```
 
-### Creare sottoscrizioni con i filtri
+### <a name="create-subscriptions-with-filters"></a>Creare sottoscrizioni con i filtri
 
 È anche possibile definire i filtri che consentono di specificare quali messaggi inviati a un argomento devono essere presenti in una specifica sottoscrizione dell'argomento.
 
-Il tipo di filtro più flessibile tra quelli supportati dalle sottoscrizioni è **SqlFilter**, che implementa un sottoinsieme di SQL92. I filtri SQL agiscono sulle proprietà dei messaggi pubblicati nell'argomento. Per altre informazioni sulle espressioni che possono essere usate con un filtro SQL, vedere la sintassi [SqlFilter.SqlExpression][].
+Il tipo di filtro più flessibile tra quelli supportati dalle sottoscrizioni è **SqlFilter**, che implementa un subset di SQL92. I filtri SQL agiscono sulle proprietà dei messaggi pubblicati nell'argomento. Per altre informazioni sulle espressioni che possono essere usate con un filtro SQL, vedere la sintassi [SqlFilter.SqlExpression][].
 
 È possibile aggiungere filtri a una sottoscrizione usando il metodo **create\_rule** dell'oggetto **ServiceBusService**. Questo metodo consente di aggiungere nuovi filtri a una sottoscrizione esistente.
 
 > [AZURE.NOTE] Poiché il filtro predefinito viene applicato automaticamente a tutte le nuove sottoscrizioni, è necessario prima di tutto rimuovere il filtro predefinito, altrimenti **MatchAll** eseguirà l'override di qualsiasi altro filtro specificato. È possibile rimuovere la regola predefinita tramite il metodo **delete\_rule** dell'oggetto **ServiceBusService**.
 
-L'esempio seguente crea una sottoscrizione denominata `HighMessages` con un filtro **SqlFilter** che seleziona solo i messaggi in cui il valore della proprietà **messagenumber** personalizzata è maggiore di 3:
+L'esempio seguente crea una sottoscrizione denominata `HighMessages` con un filtro **SqlFilter** che seleziona solo i messaggi in cui il valore della proprietà personalizzata**messagenumber** è maggiore di 3:
 
 ```
 bus_service.create_subscription('mytopic', 'HighMessages')
@@ -109,36 +110,36 @@ bus_service.create_rule('mytopic', 'LowMessages', 'LowMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'LowMessages', DEFAULT_RULE_NAME)
 ```
 
-Quando un messaggio viene inviato a `mytopic`, viene sempre recapitato ai ricevitori con una sottoscrizione dell'argomento denominata **AllMessages** e viene recapitato selettivamente ai ricevitori con sottoscrizioni dell'argomento denominate **HighMessages** e **LowMessages**, a seconda del contenuto del messaggio.
+Di conseguenza, quando un messaggio viene inviato a `mytopic`, viene sempre recapitato ai ricevitori aderenti alla sottoscrizione dell'argomento **AllMessages** e viene recapitato selettivamente ai ricevitori aderenti alle sottoscrizioni dell'argomento **HighMessages** e **LowMessages**, a seconda del contenuto del messaggio.
 
-## Inviare messaggi a un argomento
+## <a name="send-messages-to-a-topic"></a>Inviare messaggi a un argomento
 
 Per inviare un messaggio a un argomento del bus di servizio, l'applicazione deve usare il metodo **send\_topic\_message** dell'oggetto **ServiceBusService**.
 
-Il seguente esempio illustra come inviare cinque messaggi di test a `mytopic`. Si noti come il valore della proprietà **messagenumber** di ogni messaggio varia nell'iterazione del ciclo, determinando le sottoscrizioni che lo riceveranno:
+Il seguente esempio illustra come inviare cinque messaggi di test a `mytopic`. Si noti che il valore della proprietà **messagenumber** di ogni messaggio varia nell'iterazione del ciclo, determinando le sottoscrizioni che lo riceveranno:
 
 ```
 for i in range(5):
-	msg = Message('Msg {0}'.format(i).encode('utf-8'), custom_properties={'messagenumber':i})
-	bus_service.send_topic_message('mytopic', msg)
+    msg = Message('Msg {0}'.format(i).encode('utf-8'), custom_properties={'messagenumber':i})
+    bus_service.send_topic_message('mytopic', msg)
 ```
 
 Gli argomenti del bus di servizio supportano messaggi di dimensioni massime pari a 256 KB nel [livello Standard](service-bus-premium-messaging.md) e pari a 1 MB nel [livello Premium](service-bus-premium-messaging.md). Le dimensioni massime dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non possono superare 64 KB. Non esiste alcun limite al numero di messaggi mantenuti in un argomento, mentre è prevista una limitazione alla dimensione totale dei messaggi di un argomento. Questa dimensione dell'argomento viene definita al momento della creazione, con un limite massimo di 5 GB. Per altre informazioni sulle quote, vedere [Quote del bus di servizio][].
 
-## Ricevere messaggi da una sottoscrizione
+## <a name="receive-messages-from-a-subscription"></a>Ricevere messaggi da una sottoscrizione
 
-I messaggi vengono ricevuti da una sottoscrizione usando il metodo **receive\_subscription\_message** sull'oggetto **ServiceBusService**:
+I messaggi vengono ricevuti da una sottoscrizione usando il metodo **receive\_subscription\_message** per l'oggetto **ServiceBusService**:
 
 ```
 msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
 print(msg.body)
 ```
 
-I messaggi vengono eliminati dalla sottoscrizione non appena vengono letti, quando il parametro **peek\_lock** è impostato su **False**. È possibile leggere (visualizzare) e bloccare il messaggio senza eliminarlo dalla coda impostando il parametro **peek\_lock** su **True**.
+I messaggi vengono eliminati dalla sottoscrizione non appena vengono letti, quando il parametro **peek\_lock** è impostato su **False**. È possibile leggere e bloccare il messaggio senza eliminarlo dalla coda impostando il parametro **peek\_lock** su **True**.
 
 Il comportamento di lettura ed eliminazione del messaggio nell'ambito dell'operazione di ricezione costituisce il modello più semplice ed è adatto per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo meccanismo, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come utilizzato, quando l'applicazione viene riavviata e inizia a utilizzare nuovamente i messaggi, il messaggio utilizzato prima dell'arresto anomalo risulterà perso.
 
-Se il parametro **peek\_lock** è impostato su **True**, l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio, o averlo archiviato in modo affidabile per una successiva elaborazione, esegue la seconda fase del processo di ricezione chiamando il metodo **delete** sull'oggetto **Message**. Il metodo **delete** contrassegna il messaggio come utilizzato e lo rimuove dalla sottoscrizione.
+Se il parametro **peek\_lock** è impostato su **True**, l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio, o averlo archiviato in modo affidabile per una successiva elaborazione, l’applicazione esegue la seconda fase del processo di ricezione chiamando il metodo **delete** per l'oggetto **Message**. Il metodo **delete** contrassegna il messaggio come usato e lo rimuove dalla sottoscrizione.
 
 ```
 msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
@@ -147,17 +148,17 @@ print(msg.body)
 msg.delete()
 ```
 
-## Come gestire arresti anomali e messaggi illeggibili dell'applicazione
+## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Come gestire arresti anomali e messaggi illeggibili dell'applicazione
 
-Il bus di servizio fornisce funzionalità per il ripristino gestito automaticamente in caso di errori nell'applicazione o di problemi di elaborazione di un messaggio. Se un'applicazione ricevitore non è in grado di elaborare il messaggio per un qualsiasi motivo, può chiamare il metodo **unlock** sull'oggetto **Message**. In questo modo, il bus di servizio sbloccherà il messaggio nella sottoscrizione rendendolo nuovamente disponibile per la ricezione da parte della stessa applicazione consumer o da un'altra.
+Il bus di servizio fornisce funzionalità per il ripristino gestito automaticamente in caso di errori nell'applicazione o di problemi di elaborazione di un messaggio. Se un'applicazione ricevitore non è in grado di elaborare il messaggio per un qualsiasi motivo, può chiamare il metodo **unlock** per l'oggetto **Message**. In questo modo, il bus di servizio sbloccherà il messaggio nella sottoscrizione rendendolo nuovamente disponibile per la ricezione da parte della stessa applicazione consumer o da un'altra.
 
 Al messaggio bloccato nella sottoscrizione è anche associato un timeout. Se l'applicazione non riesce a elaborare il messaggio prima della scadenza del timeout, ad esempio a causa di un arresto anomalo, il bus di servizio sbloccherà automaticamente il messaggio rendendolo nuovamente disponibile per la ricezione.
 
-In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima della chiamata al metodo **delete**, il messaggio verrà nuovamente recapitato all'applicazione al riavvio. Questo processo di elaborazione viene spesso definito di tipo **At-Least-Once**, per indicare che ogni messaggio verrà elaborato almeno una volta ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. A tale scopo viene spesso utilizzata la proprietà **MessageId** del messaggio, che rimane costante in tutti i tentativi di recapito.
+In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima della chiamata del metodo **delete**, il messaggio verrà nuovamente recapitato all'applicazione al riavvio. Questo processo di elaborazione viene spesso definito di tipo **At-Least-Once**, per indicare che ogni messaggio verrà elaborato almeno una volta ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. A tale scopo viene spesso usata la proprietà **MessageId** del messaggio, che rimane costante in tutti i tentativi di recapito.
 
-## Eliminare argomenti e sottoscrizioni
+## <a name="delete-topics-and-subscriptions"></a>Eliminare argomenti e sottoscrizioni
 
-Gli argomenti e le sottoscrizioni sono persistenti e devono essere eliminati in modo esplicito tramite il [portale di Azure classico][] o a livello di codice. L'esempio seguente illustra come eliminare l'argomento denominato `mytopic`:
+Gli argomenti e le sottoscrizioni sono persistenti e devono essere eliminati in modo esplicito tramite il [portale di Azure][] o a livello di codice. L'esempio seguente illustra come eliminare l'argomento denominato `mytopic`:
 
 ```
 bus_service.delete_topic('mytopic')
@@ -169,17 +170,21 @@ Se si elimina un argomento, vengono eliminate anche tutte le sottoscrizioni regi
 bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di servizio, usare i seguenti collegamenti per altre informazioni.
 
--   Vedere [Code, argomenti e sottoscrizioni][].
+-   Vedere [Code, argomenti e sottoscrizioni del bus di servizio][].
 -   Informazioni di riferimento per [SqlFilter.SqlExpression][].
 
-[portale di Azure classico]: http://manage.windowsazure.com
-[pacchetto Python di Azure]: https://pypi.python.org/pypi/azure
-[Code, argomenti e sottoscrizioni]: service-bus-queues-topics-subscriptions.md
+[portale di Azure]: https://portal.azure.com
+[Pacchetto di Azure per Python]: https://pypi.python.org/pypi/azure  
+[Code, argomenti e sottoscrizioni del bus di servizio]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-[Quote del bus di servizio]: service-bus-quotas.md
+[Quote del bus di servizio]: service-bus-quotas.md 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

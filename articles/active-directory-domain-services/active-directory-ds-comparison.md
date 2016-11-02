@@ -1,22 +1,23 @@
 <properties
-	pageTitle="Servizi di dominio AD Azure: Confrontare Servizi di dominio Azure AD con controller di dominio fai da te | Microsoft Azure"
-	description="Confronto tra Servizi di dominio Azure AD e controller di dominio fai da te"
-	services="active-directory-ds"
-	documentationCenter=""
-	authors="mahesh-unnikrishnan"
-	manager="stevenpo"
-	editor="curtand"/>
+    pageTitle="Servizi di dominio AD Azure: Confrontare Servizi di dominio Azure AD con controller di dominio fai da te | Microsoft Azure"
+    description="Confronto tra Servizi di dominio Azure AD e controller di dominio fai da te"
+    services="active-directory-ds"
+    documentationCenter=""
+    authors="mahesh-unnikrishnan"
+    manager="stevenpo"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory-ds"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/23/2016"
-	ms.author="maheshu"/>
+    ms.service="active-directory-ds"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/01/2016"
+    ms.author="maheshu"/>
 
-# Come decidere Servizi di dominio Azure AD è adatto alle esigenze del caso di utilizzo
+
+# <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Come decidere Servizi di dominio Azure AD è adatto alle esigenze del caso di utilizzo
 Servizi di dominio Azure AD consente di distribuire i carichi di lavoro nei servizi di infrastruttura di Azure senza preoccuparsi di mantenere l'infrastruttura di identità. Questo servizio gestito è diverso da una tipica distribuzione di Windows Server Active Directory che viene distribuita e amministrata in modo autonomo. Il servizio è progettato in modo da semplificare la distribuzione, automatizzare il monitoraggio dell'integrità e la correzione e semplificare l'infrastruttura di identità per il cloud. Il servizio è in continua evoluzione per l'aggiunta del supporto di scenari di distribuzione comuni.
 
 Per decidere se usare Servizi di dominio Azure AD o fare un passo avanti e iniziare a gestire una propria infrastruttura di Active Directory (fai da te) in Azure:
@@ -28,70 +29,71 @@ Per decidere se usare Servizi di dominio Azure AD o fare un passo avanti e inizi
 - Infine [confrontare Servizi di dominio AZURE AD con un'opzione AD fai da te](active-directory-ds-comparison.md#compare-azure-ad-domain-services-to-diy-ad-domain-in-azure).
 
 
-## Confrontare Servizi di dominio Azure AD con un dominio AD fai da te in Azure
+## <a name="compare-azure-ad-domain-services-to-diy-ad-domain-in-azure"></a>Confrontare Servizi di dominio Azure AD con un dominio AD fai da te in Azure
 La tabella seguente riporta informazioni utili per scegliere se usare Servizi di dominio Azure AD o gestire una propria infrastruttura di AD in Azure.
 
-|Funzionalità|Servizi di dominio Azure Active Directory|AD "fai da te" in VM di Azure|
+|**Funzionalità**|**Servizi di dominio Azure Active Directory**|**AD "fai da te" in VM di Azure**|
 |---|:---:|:---:|
-|[**Servizi gestiti**](active-directory-ds-comparison.md#managed-service)|Sì|No|
-|[**Distribuzioni sicure**](active-directory-ds-comparison.md#secure-deployments)|Sì|L'amministratore deve proteggere la distribuzione.|
-|[**Server DNS**](active-directory-ds-comparison.md#dns-server)|Sì (servizio gestito)|Sì|
-|[**Privilegi amministrativi per il dominio o per l'organizzazione**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges)|No|Sì|
-|[**Aggiunta a un dominio**](active-directory-ds-comparison.md#domain-join)|Sì|Sì|
-|[**Autenticazione di dominio tramite NTLM e Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos)|Sì|Sì|
-|[**Struttura personalizzata per le unità organizzative**](active-directory-ds-comparison.md#custom-ou-structure)|Sì|Sì|
-|[**Estensioni dello schema**](active-directory-ds-comparison.md#schema-extensions)|No|Sì|
-|[**Relazioni di trust di dominio/foresta di AD**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts)|No|Sì|
-|[**Lettura LDAP**](active-directory-ds-comparison.md#ldap-read)|Sì|Sì|
-|[**LDAP sicuro (LDAPS)**](active-directory-ds-comparison.md#secure-ldap)|Sì|Sì|
-|[**Scrittura LDAP**](active-directory-ds-comparison.md#ldap-write)|No|Sì|
-|[**Criteri di gruppo**](active-directory-ds-comparison.md#group-policy)|Semplice|Completa|
-|[**Distribuzioni geograficamente sparse**](active-directory-ds-comparison.md#geo-dispersed-deployments)|No|Sì|
+|[**Servizi gestiti**](active-directory-ds-comparison.md#managed-service)|**&#x2713;**|**&#x2715;**|
+|[**Distribuzioni sicure**](active-directory-ds-comparison.md#secure-deployments)|**&#x2713;**|L'amministratore deve proteggere la distribuzione.|
+|[**Server DNS**](active-directory-ds-comparison.md#dns-server)|**&#x2713;** (servizio gestito)|**&#x2713;**|
+|[**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges)|**&#x2715;**|**&#x2713;**|
+|[**Aggiunta a un dominio**](active-directory-ds-comparison.md#domain-join)|**&#x2713;**|**&#x2713;**|
+|[**Autenticazione di dominio tramite NTLM e Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos)|**&#x2713;**|**&#x2713;**|
+|[**Struttura personalizzata per le unità organizzative**](active-directory-ds-comparison.md#custom-ou-structure)|**&#x2713;**|**&#x2713;**|
+|[**Estensioni dello schema**](active-directory-ds-comparison.md#schema-extensions)|**&#x2715;**|**&#x2713;**|
+|[**Relazioni di trust di dominio/foresta di AD**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts)|**&#x2715;**|**&#x2713;**|
+|[**LDAP read**](active-directory-ds-comparison.md#ldap-read)|**&#x2713;**|**&#x2713;**|
+|[**LDAP sicuro (LDAPS)**](active-directory-ds-comparison.md#secure-ldap)|**&#x2713;**|**&#x2713;**|
+|[**LDAP write**](active-directory-ds-comparison.md#ldap-write)|**&#x2715;**|**&#x2713;**|
+|[**Group Policy**](active-directory-ds-comparison.md#group-policy)|Semplice|Completa|
+|[**Distribuzione in diverse aree geografiche**](active-directory-ds-comparison.md#geo-dispersed-deployments)|**&#x2715;**|**&#x2713;**|
 
-#### Servizi gestiti
+
+#### <a name="managed-service"></a>Servizi gestiti
 Servizi di dominio Azure AD è gestito da Microsoft. Non è necessario preoccuparsi di patch, aggiornamenti, monitoraggio, backup e di garantire la disponibilità del dominio. Queste attività di gestione sono disponibili come servizio di Microsoft Azure per i domini gestiti.
 
-#### Distribuzioni sicure
+#### <a name="secure-deployments"></a>Distribuzioni sicure
 Il dominio gestito è bloccato in modo sicuro in base alle procedure consigliate di Microsoft per le distribuzioni di AD. Queste procedure consigliate derivano dell'esperienza nella progettazione e nel supporto delle distribuzioni di Active Directory maturata in vari decenni dal team del prodotto AD. Per le distribuzioni fai da te è necessario eseguire passaggi di distribuzione specifici per bloccare/proteggere la distribuzione.
 
-#### Server DNS
+#### <a name="dns-server"></a>Server DNS
 Un dominio gestito da Servizi di dominio Azure AD include servizi DNS gestiti. I membri del gruppo "AAD DC Administrators" possono gestire il DNS sul dominio gestito. Ai membri di questo gruppo sono concessi privilegi di amministrazione DNS completi per il dominio gestito. La gestione del DNS può essere eseguita mediante la console di amministrazione DNS inclusa nel pacchetto degli Strumenti di amministrazione remota del server.
 
-#### Privilegi amministrativi per il dominio o per l'organizzazione
+#### <a name="domain-or-enterprise-administrator-privileges"></a>Privilegi amministrativi per il dominio o per l'organizzazione
 Questi privilegi elevati non sono disponibili in un dominio gestito di Servizi di dominio Azure AD. Le applicazioni che richiedono l'installazione/esecuzione di questi privilegi elevati non possono essere eseguite nei domini gestiti. Un sottoinsieme più piccolo di privilegi amministrativi è disponibile per i membri del gruppo di amministrazione delegato chiamato "AAD DC Administrators". Tali privilegi comprendono privilegi per configurare il server DNS, configurare i criteri di gruppo, ottenere privilegi amministrativi sui computer appartenenti a un dominio e così via.
 
-#### Aggiunta a un dominio
+#### <a name="domain-join"></a>Aggiunta a un dominio
 È possibile aggiungere macchine virtuali al dominio gestito analogamente a come si aggiungono computer a un dominio AD.
 
-#### Autenticazione di dominio tramite NTLM e Kerberos
+#### <a name="domain-authentication-using-ntlm-and-kerberos"></a>Autenticazione di dominio tramite NTLM e Kerberos
 Con Servizi di dominio Azure AD è possibile usare le credenziali aziendali per l'autenticazione con il dominio gestito. Le credenziali vengono mantenute sincronizzate con il tenant di Azure AD. Per i tenant sincronizzati, Azure AD Connect garantisce che le modifiche apportate alle credenziali in locale siano sincronizzate con Azure AD. Con una configurazione di dominio fai da te, potrebbe essere necessario impostare una relazione di trust di dominio con una foresta di account locali per l'autenticazione degli utenti con le proprie credenziali aziendali. In alternativa potrebbe essere necessario impostare la replica di AD per assicurarsi che le password utente siano sincronizzate con le macchine virtuali controller di dominio di Azure.
 
-#### Struttura personalizzata per le unità organizzative
+#### <a name="custom-ou-structure"></a>Struttura personalizzata per le unità organizzative
 I membri del gruppo "AAD DC Administrators" possono creare unità organizzative nel dominio gestito.
 
-#### Estensioni dello schema
+#### <a name="schema-extensions"></a>Estensioni dello schema
 Non è possibile estendere lo schema di base di un dominio gestito di Servizi di dominio Azure AD. Di conseguenza le applicazioni che fanno affidamento sulle estensioni allo schema di AD (ad esempio nuovi attributi nell'oggetto utente) non possono essere elevate e spostate su domini di Servizi di dominio Azure AD.
 
-#### Relazioni di trust di dominio o foresta di AD
+#### <a name="ad-domain-or-forest-trusts"></a>Relazioni di trust di dominio o foresta di AD
 Non è possibile configurare i domini gestiti per impostare relazioni di trust (in ingresso/in uscita) con altri domini. Pertanto, negli scenari come le distribuzioni di foreste di risorse o nei casi in cui non si desidera sincronizzare le password in Azure AD non è possibile usare Servizi di dominio Azure AD.
 
-#### Lettura LDAP
+#### <a name="ldap-read"></a>Lettura LDAP
 Il dominio gestito supporta i carichi di lavoro di lettura LDAP. Pertanto è possibile distribuire applicazioni che eseguono operazioni di lettura LDAP nel dominio gestito.
 
-#### LDAP sicuro
+#### <a name="secure-ldap"></a>LDAP sicuro
 È possibile configurare Servizi di dominio Azure AD in modo da fornire l'accesso LDAP sicuro al dominio gestito anche su Internet.
 
-#### Scrittura LDAP
+#### <a name="ldap-write"></a>Scrittura LDAP
 Il dominio gestito è di sola lettura per gli oggetti utente. Di conseguenza, le applicazioni che eseguono operazioni di scrittura LDAP su attributi dell'oggetto utente non funzionano in un dominio gestito. Inoltre, le password utente non possono essere modificate dall'interno del dominio gestito. Un altro esempio sarebbe la modifica dell'appartenenza ai gruppi o degli attributi di gruppo all'interno del dominio gestito, che non è consentita. Tuttavia, le modifiche agli attributi o alle password utente apportate in Azure AD (tramite PowerShell o il portale di Azure) o in AD locale vengono sincronizzate con il dominio gestito di Servizi di dominio Azure AD.
 
-#### Criteri di gruppo
+#### <a name="group-policy"></a>Criteri di gruppo
 Costrutti di criteri di gruppo sofisticati non sono supportati nel domino gestito di Servizi di dominio Azure AD. Ad esempio, non è possibile creare e distribuire oggetti Criteri di gruppo separati per ogni unità organizzativa del dominio o usare filtri WMI per indirizzare i criteri di gruppo. Esiste un oggetto Criteri di gruppo integrato per il contenitore "AADDC Computers" e uno per il contenitore "AADDC Users", che possono essere personalizzati per la configurazione dei criteri di gruppo.
 
-#### Distribuzioni geograficamente sparse
+#### <a name="geo-dispersed-deployments"></a>Distribuzioni geograficamente sparse
 I domini gestiti di Servizi di dominio Azure AD sono disponibili in una singola rete virtuale in Azure. Per scenari che richiedono controller di dominio disponibili in più aree di Azure in tutto il mondo, l'impostazione di controller di dominio in VM IaaS di Azure potrebbe essere l'alternativa migliore.
 
 
-## Opzioni di distribuzione AD "fai da te"
+## <a name="'do-it-yourself'-(diy)-ad-deployment-options"></a>Opzioni di distribuzione AD "fai da te"
 Possono esistere situazioni di distribuzione in cui sono necessarie alcune delle funzionalità offerte da un'installazione Active Directory di Windows Server. In questi casi è possibile prendere in considerazione una delle seguenti opzioni fai da te:
 
 - **Dominio cloud autonomo:** è possibile configurare un "dominio cloud" autonomo usando macchine virtuali Azure che sono state configurate come controller di dominio. Questa infrastruttura non si integra con l'ambiente Active Directory locale. Questa opzione richiede un insieme diverso di "credenziali del cloud" per l'accesso e l'amministrazione delle VM nel cloud.
@@ -105,11 +107,15 @@ Possono esistere situazioni di distribuzione in cui sono necessarie alcune delle
 Microsoft ha pubblicato alcune [linee guida per la distribuzione di Active Directory di Windows Server nelle macchine virtuali Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx) come aiuto per l'installazione.
 
 
-## Contenuti correlati
+## <a name="related-content"></a>Contenuti correlati
 - [Funzionalità - Servizi di dominio Azure AD](active-directory-ds-features.md)
 
 - [Scenari di distribuzione - Servizi di dominio Azure AD](active-directory-ds-scenarios.md)
 
 - [Linee guida per la distribuzione di Active Directory di Windows Server in macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

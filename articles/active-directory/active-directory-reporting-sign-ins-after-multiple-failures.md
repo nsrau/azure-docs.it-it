@@ -1,22 +1,23 @@
 <properties
-	pageTitle="Accessi dopo più errori"
-	description="Un report indica gli utenti che hanno eseguito correttamente l'accesso dopo più tentativi di accesso consecutivi non riusciti."
-	services="active-directory"
-	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="femila"
-	editor=""/>
+    pageTitle="Accessi dopo più errori"
+    description="Un report indica gli utenti che hanno eseguito correttamente l'accesso dopo più tentativi di accesso consecutivi non riusciti."
+    services="active-directory"
+    documentationCenter=""
+    authors="SSalahAhmed"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/04/2016"
-	ms.author="saah;kenhoff"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="03/04/2016"
+    ms.author="saah;kenhoff"/>
 
-# Accessi dopo più errori
+
+# <a name="sign-ins-after-multiple-failures"></a>Accessi dopo più errori
 Questo report indica gli utenti che hanno eseguito correttamente l'accesso dopo più tentativi di accesso consecutivi non riusciti. Le possibili cause includono:
 
 - L'utente ha dimenticato la password</li><li>L’utente è vittima di un attacco di forza bruta per l’individuazione della password riuscito
@@ -28,4 +29,8 @@ I risultati di questo report mostreranno il numero di tentativi di accesso conse
 
 ![Accessi dopo più errori](./media/active-directory-reporting-sign-ins-after-multiple-failures/signInsAfterMultipleFailures.PNG)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

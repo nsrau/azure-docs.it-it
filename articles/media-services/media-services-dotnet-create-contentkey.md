@@ -1,31 +1,32 @@
 <properties 
-	pageTitle="Creare entità ContentKey mediante .NET" 
-	description="Informazioni su come creare chiavi simmetriche che forniscono l'accesso sicuro agli asset." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="Creare entità ContentKey mediante .NET" 
+    description="Informazioni su come creare chiavi simmetriche che forniscono l'accesso sicuro agli asset." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="Juliako" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/26/2016"
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/26/2016"
+    ms.author="juliako"/>
 
 
-#Creare entità ContentKey mediante .NET
+
+#<a name="create-contentkeys-with-.net"></a>Creare entità ContentKey mediante .NET
 
 > [AZURE.SELECTOR]
 - [REST](media-services-rest-create-contentkey.md)
 - [.NET](media-services-dotnet-create-contentkey.md)
 
-Servizi multimediali consente di creare asset crittografati e distribuirli. Un'entità **ContentKey** consente l'accesso sicuro alle entità **Asset**.
+Servizi multimediali consente di creare asset crittografati e distribuirli. Un'entità **ContentKey** consente l'accesso sicuro alle entità **Asset**. 
 
-Quando si crea un nuovo asset (ad esempio, prima di [caricare file](media-services-dotnet-upload-files.md)), è possibile specificare le seguenti opzioni di crittografia: **StorageEncrypted**, **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**.
+Quando si crea un nuovo asset, ad esempio prima di [caricare file](media-services-dotnet-upload-files.md), è possibile specificare le seguenti opzioni di crittografia: **StorageEncrypted**, **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. 
 
 Quando si distribuiscono asset ai client, è possibile [configurarli per la crittografia dinamica](media-services-dotnet-configure-asset-delivery-policy.md) con una delle due seguenti opzioni: **DynamicEnvelopeEncryption** o **DynamicCommonEncryption**.
 
@@ -33,9 +34,9 @@ Gli asset crittografati devono essere associati alle entità **ContentKey**. Que
 
 >[AZURE.NOTE] Quando si crea un nuovo asset **StorageEncrypted** mediante Media Services .NET SDK, l'entità **ContentKey** viene creata automaticamente e collegata all'asset.
 
-##ContentKeyType
+##<a name="contentkeytype"></a>ContentKeyType
 
-Uno dei valori che è necessario impostare quando si crea una chiave simmetrica è quello relativo al tipo. È possibile scegliere uno dei seguenti valori.
+Uno dei valori che è necessario impostare quando si crea una chiave simmetrica è quello relativo al tipo. È possibile scegliere uno dei seguenti valori. 
 
     public enum ContentKeyType
     {
@@ -61,7 +62,7 @@ Uno dei valori che è necessario impostare quando si crea una chiave simmetrica 
         EnvelopeEncryption = 4
     }
 
-##<a id="envelope_contentkey"></a>Creare un'entità ContentKey di tipo envelope
+##<a name="<a-id="envelope_contentkey"></a>create-envelope-type-contentkey"></a><a id="envelope_contentkey"></a>Creare un'entità ContentKey di tipo envelope
 
 Il seguente frammento di codice crea una chiave simmetrica con tipo di crittografia envelope. Associa quindi la chiave all'asset specificato.
 
@@ -95,11 +96,11 @@ Il seguente frammento di codice crea una chiave simmetrica con tipo di crittogra
 
 chiamare
 
-	IContentKey key = CreateEnvelopeTypeContentKey(encryptedsset);
+    IContentKey key = CreateEnvelopeTypeContentKey(encryptedsset);
 
 
 
-##<a id="common_contentkey"></a>Creare un'entità ContentKey di tipo common    
+##<a name="<a-id="common_contentkey"></a>create-common-type-contentkey"></a><a id="common_contentkey"></a>Creare un'entità ContentKey di tipo common    
 
 Il seguente frammento di codice crea una chiave simmetrica con tipo di crittografia common. Associa quindi la chiave all'asset specificato.
 
@@ -135,15 +136,19 @@ Il seguente frammento di codice crea una chiave simmetrica con tipo di crittogra
     }
 chiamare
 
-	IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
+    IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
 
 
-##Percorsi di apprendimento di Servizi multimediali
+##<a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Fornire commenti e suggerimenti
+##<a name="provide-feedback"></a>Fornire commenti e suggerimenti
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

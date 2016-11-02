@@ -17,7 +17,8 @@
   ms.date="09/27/2016" 
   ms.author="ahmetb" />
 
-# Distribuzione del registro Docker privato in Azure
+
+# <a name="deploying-your-own-private-docker-registry-on-azure"></a>Distribuzione del registro Docker privato in Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -31,31 +32,33 @@ Questo documento presuppone che:
 2. Si disponga di un server con il motore Docker installato. (No? [Esegui rapidamente l'installazione in Azure.](https://azure.microsoft.com/documentation/templates/docker-simple-on-ubuntu/))
 
 
-## Che cos'è un registro Docker privato?
+## <a name="what-is-a-private-docker-registry?"></a>Che cos'è un registro Docker privato?
 
-Per poter distribuire applicazioni di contenitori nel cloud, è necessario costruire un'immagine di contenitore Docker e archiviarla da qualche parte in modo che possa essere usata anche da altri utenti.
+Per poter distribuire applicazioni di contenitori nel cloud, è necessario costruire un'immagine di contenitore Docker e archiviarla da qualche parte in modo che possa essere usata anche da altri utenti. 
 
-Mentre la creazione di un'immagine di contenitore e la relativa distribuzione nel cloud sono operazioni piuttosto semplici, archiviare l'immagine generata in modo affidabile può essere più difficile. Per questo motivo, Docker offre un servizio centralizzato denominato [Docker Hub][docker-hub] per l'archiviazione di immagini di contenitore nel cloud e consente di creare in qualsiasi momento nuovi contenitori con queste immagini.
+Mentre la creazione di un'immagine di contenitore e la relativa distribuzione nel cloud sono operazioni piuttosto semplici, archiviare l'immagine generata in modo affidabile può essere più difficile. Per questo motivo, Docker offre un servizio centralizzato denominato [Docker Hub][docker-hub] per l'archiviazione di immagini contenitore nel cloud e consente di creare in qualsiasi momento contenitori con queste immagini.
 
-Sebbene [Docker Hub][docker-hub] sia un servizio a pagamento per l'archiviazione di immagini di contenitori di applicazioni private, Docker rispetta le esigenze degli sviluppatori e offre un set di strumenti open-source per archiviare le immagini in un registro Docker privato, protetto da firewall o in locale, senza raggiungere la rete Internet pubblica. È possibile quindi sfruttare la semplicità di protezione dell'archiviazione BLOB di Azure per creare e usare in Azure un registro Docker privato, da gestire in modo autonomo.
+[Docker Hub][docker-hub] è un servizio a pagamento per l'archiviazione di immagini contenitore di applicazioni private. Docker va comunque incontro alle esigenze degli sviluppatori offrendo un set di strumenti open source per archiviare le immagini in un registro Docker privato protetto da firewall o in locale, senza raggiungere la rete Internet pubblica.
+È possibile quindi sfruttare la semplicità di protezione dell'archiviazione BLOB di Azure per creare e usare in Azure un registro Docker privato, da gestire in modo autonomo.
 
-## Perché ospitare un registro Docker in Azure?
+## <a name="why-should-you-host-a-docker-registry-on-azure?"></a>Perché ospitare un registro Docker in Azure?
 
 L'hosting dell'istanza del registro Docker in Microsoft Azure e la memorizzazione di immagini nell'archiviazione BLOB di Azure offrono alcuni vantaggi:
 
-**Sicurezza:** le immagini Docker non abbandonano mai i data center di Azure in modo che non debbano attraversare la rete Internet pubblica, proprio come se si usasse Docker Hub.
+**Sicurezza:** le immagini Docker non abbandonano mai i data center di Azure. In questo modo non devono attraversare la rete Internet pubblica, come se si usasse Docker Hub.
   
 **Prestazioni:** le immagini Docker vengono archiviate nello stesso data center o nella stessa area geografica delle proprie applicazioni. Le immagini, in questo modo, vengono spostate in modo più veloce e affidabile rispetto a Docker Hub.
 
 **Affidabilità:** usando l'archiviazione BLOB di Microsoft Azure si hanno a disposizione molte proprietà di archiviazione, tra cui disponibilità elevata, ridondanza, archiviazione Premium (unità SSD) e così via.
 
-## Configurazione del registro Docker per usare l'archiviazione BLOB di Azure
+## <a name="configuring-docker-registry-to-use-azure-blob-storage"></a>Configurazione del registro Docker per usare l'archiviazione BLOB di Azure
 
 (Si consiglia di leggere la [documentazione relativa a Docker Registry 2.0][registry-docs] prima di continuare.)
 
-È possibile [configurare][registry-config] il registro Docker in due modi diversi. È possibile:
+È possibile [configurare][registry-config] il registro Docker in due modi diversi.
+È possibile:
 
-1. Usare un file `config.yml`. In questo caso, è necessario creare un'immagine Docker distinta basata sull'immagine `registry`.
+1. Usare un file `config.yml` . In questo caso, è necessario creare un'immagine Docker distinta basata sull'immagine `registry`.
 2. Sostituire il file di configurazione predefinito tramite variabili di ambiente: consente di eseguire le operazioni senza creare e mantenere un'immagine Docker separata.
 
 Per semplicità, questo argomento segue l'opzione 2 usando variabili di ambiente.
@@ -90,9 +93,9 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 >
 > Leggere la [documentazione relativa alla configurazione del registro Docker][registry-config] per informazioni su come proteggere l'istanza del registro e le immagini.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato il registro, è possibile iniziare a usarlo. Iniziare con i documenti [registry-docs] del Docker.
+Dopo aver configurato il registro, è possibile iniziare a usarlo. Iniziare con i documenti [registry-docs]del Docker. 
 
 [docker-hub]: https://hub.docker.com/
 [registry]: https://github.com/docker/distribution
@@ -100,4 +103,8 @@ Dopo aver configurato il registro, è possibile iniziare a usarlo. Iniziare con 
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

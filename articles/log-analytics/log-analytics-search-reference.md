@@ -1,29 +1,30 @@
 <properties
-	pageTitle="Guida di riferimento alla ricerca in Log Analytics | Microsoft Azure"
-	description="La Guida di riferimento alla ricerca in Log Analytics descrive il linguaggio di ricerca e fornisce le opzioni della sintassi di query generale che è possibile usare quando si cercano dati e si filtrano espressioni per restringere la ricerca."
-	services="log-analytics"
-	documentationCenter=""
-	authors="bandersmsft"
-	manager="jwhit"
-	editor=""/>
+    pageTitle="Guida di riferimento alla ricerca in Log Analytics | Microsoft Azure"
+    description="La Guida di riferimento alla ricerca in Log Analytics descrive il linguaggio di ricerca e fornisce le opzioni della sintassi di query generale che è possibile usare quando si cercano dati e si filtrano espressioni per restringere la ricerca."
+    services="log-analytics"
+    documentationCenter=""
+    authors="bandersmsft"
+    manager="jwhit"
+    editor=""/>
 
 <tags
-	ms.service="log-analytics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/28/2016"
-	ms.author="banders"/>
+    ms.service="log-analytics"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/11/2016"
+    ms.author="banders"/>
 
 
-# Guida di riferimento alla ricerca in Log Analytics
 
-Nella sezione di riferimento seguente relativa al linguaggio di ricerca vengono descritte le opzioni della sintassi di query generale che è possibile usare quando si ricercano dati e si filtrano espressioni per restringere la ricerca. Vengono inoltre descritti i comandi che è possibile usare per intervenire sui dati recuperati.
+# <a name="log-analytics-search-reference"></a>Guida di riferimento alla ricerca in Log Analytics
+
+La sezione di riferimento seguente relativa al linguaggio di ricerca descrive le opzioni della sintassi di query generale che è possibile usare quando si ricercano dati e si filtrano espressioni per restringere la ricerca. Vengono inoltre descritti i comandi che è possibile usare per intervenire sui dati recuperati.
 
 È possibile ottenere informazioni sui campi restituiti nelle ricerche e sui facet che consentono di analizzare categorie di dati simili nella [sezione Riferimenti al campo Ricerca e ai facet](#search-field-and-facet-reference).
 
-## Sintassi di query generale
+## <a name="general-query-syntax"></a>Sintassi di query generale
 
 Sintassi:
 
@@ -33,7 +34,7 @@ filterExpression | command1 | command2 …
 
 L'espressione di filtro (`filterExpression`) definisce la condizione "where" per la query. I comandi si applicano ai risultati restituiti dalla query. Più comandi devono essere separati dal carattere di barra verticale (|).
 
-### Esempi di sintassi generale
+### <a name="general-syntax-examples"></a>Esempi di sintassi generale
 
 Esempi:
 
@@ -59,11 +60,11 @@ Questa query restituisce risultati che contengono le parole *system* ed *error*.
 
 >[AZURE.IMPORTANT] Tutti i nomi dei campi e i valori dei campi di tipo stringa e testo fanno distinzione tra maiuscole e minuscole.
 
-## Espressione di filtro
+## <a name="filter-expression"></a>Espressione di filtro
 
 Nelle sottosezioni seguenti vengono illustrate le espressioni di filtro.
 
-### Valori letterali stringa
+### <a name="string-literals"></a>Valori letterali stringa
 
 Un valore letterale stringa è qualsiasi stringa non riconosciuta dal parser come una parola chiave o come un tipo di dati predefiniti (ad esempio, un numero o una data).
 
@@ -81,7 +82,7 @@ Questa query cerca i risultati che contengono occorrenze di tutte le cinque paro
 
 Restituisce solo i risultati con corrispondenze esatte per "Windows Server".
 
-### Numeri
+### <a name="numbers"></a>Numeri
 
 Il parser supporta la sintassi di numeri interi decimali e a virgola mobile per i campi numerici.
 
@@ -95,11 +96,11 @@ Type:Perf 0.5
 HTTP 500
 ```
 
-### Data/ora
+### <a name="date/time"></a>Data/ora
 
 Tutti i dati nel sistema presentano una proprietà *TimeGenerated* che rappresenta la data e ora originali del record. Alcuni tipi di dati possono inoltre avere più campi di data e ora, ad esempio *LastModified*.
 
-Il selettore di grafico e ora della sequenza temporale in Log Analytics mostra una distribuzione dei risultati nel tempo (secondo la query corrente in esecuzione), in base al campo *TimeGenerated*. I campi di data e ora hanno un formato di stringa specifico che può essere usato nelle query per limitare la query a un determinato intervallo di tempo. È inoltre possibile usare la sintassi per fare riferimento a intervalli di tempo relativi (ad esempio, "tra 3 giorni fa e 2 ore fa").
+Il selettore di grafico e ora della sequenza temporale in Log Analytics mostra una distribuzione dei risultati nel tempo (secondo la query corrente in esecuzione), in base al campo *TimeGenerated* . I campi di data e ora hanno un formato di stringa specifico che può essere usato nelle query per limitare la query a un determinato intervallo di tempo. È inoltre possibile usare la sintassi per fare riferimento a intervalli di tempo relativi (ad esempio, "tra 3 giorni fa e 2 ore fa").
 
 Sintassi:
 
@@ -143,7 +144,7 @@ Anche in questo caso, è improbabile che vengano restituiti risultati, in quanto
 
 Questi esempi sono blocchi predefiniti da usare per le date relative e assolute. Nelle tre sezioni successive verrà illustrato come usare tali blocchi in filtri più avanzati con esempi che usano intervalli di date relative.
 
-### Operatori matematici di data/ora
+### <a name="date/time-math"></a>Operatori matematici di data/ora
 
 Usare gli operatori matematici di data/ora per eseguire l'offset o arrotondare il valore di data/ora usando semplici calcoli di data/ora.
 
@@ -183,7 +184,7 @@ SECOND, SECONDS|Viene arrotondata al secondo corrente o viene eseguito l'offset 
 MILLISECOND, MILLISECONDS, MILLI, MILLIS|Viene arrotondata al millisecondo corrente o viene eseguito l'offset in base al numero di millisecondi specificato.
 
 
-### Facet di campo
+### <a name="field-facets"></a>Facet di campo
 
 Usando i facet di campo, è possibile specificare la condizione di ricerca per campi specifici e i relativi valori esatti, anziché scrivere query di "testo libero" per diversi termini dell'indice. Questa sintassi è già stata usata in vari esempi nei paragrafi precedenti. Vengono ora forniti esempi più complessi.
 
@@ -257,7 +258,7 @@ TimeGenerated:[NOW..NOW+1DAY]
 SampleValue:[0..2]
 ```
 
-### Operatori logici
+### <a name="logical-operators"></a>Operatori logici
 
 I linguaggi di query supportano gli operatori logici (*AND*, *OR* e *NOT*) e i relativi alias di tipo C, rispettivamente (*&&*, *||* e *!*). È possibile usare le parentesi per raggruppare questi operatori.
 
@@ -280,7 +281,7 @@ Espressione di filtro|Equivalente a
 system error|system AND error
 system "Windows Server" OR Severity:1|system AND ("Windows Server" OR Severity:1)
 
-### Utilizzo dei caratteri jolly
+### <a name="wildcarding"></a>Utilizzo dei caratteri jolly
 
 Il linguaggio di query supporta l'uso del carattere (*\*) per rappresentare uno o più caratteri per un valore in una query.
 
@@ -292,79 +293,76 @@ Esempi:
 Type=Event Computer=*SQL*
 ```
 
->[AZURE.NOTE] I caratteri jolly attualmente non possono essere usati tra virgolette. Il messaggio `"*This text*"` considererà (\*) usato come carattere letterale (\*).
-
-## Comandi:
+>[AZURE.NOTE] I caratteri jolly attualmente non possono essere usati tra virgolette. Il messaggio `"*This text*"` considererà (\*) come carattere letterale (\*).
+## <a name="commands"></a>Comandi:
 
 I comandi si applicano ai risultati restituiti dalla query. Usare il carattere di barra verticale (|) per applicare un comando ai risultati recuperati. Più comandi devono essere separati dal carattere di barra verticale (|).
 
 >[AZURE.NOTE] I nomi dei comandi possono essere scritti in lettere maiuscole o minuscole, a differenza dei nomi dei campi e dei dati.
 
-### Ordina
+### <a name="sort"></a>Ordina
 
 Sintassi:
 
-	sort field1 asc|desc, field2 asc|desc, …
+    sort field1 asc|desc, field2 asc|desc, …
 
-Ordina i risultati in base a determinati campi. I prefissi asc/desc sono facoltativi. Se vengono omessi, viene usato l'ordinamento *asc*. Se una query non usa il comando *Sort* in modo esplicito, Sort **TimeGenerated** desc è il comportamento predefinito e verranno sempre restituiti prima i risultati più recenti.
+Ordina i risultati in base a determinati campi. I prefissi asc/desc sono facoltativi. Se vengono omessi, viene usato l'ordinamento *asc* . Se una query non usa il comando *Sort* in modo esplicito, Sort **TimeGenerated** desc è il comportamento predefinito e verranno sempre restituiti prima i risultati più recenti.
 
-### Top/Limit
+### <a name="top/limit"></a>Top/Limit
 
 Sintassi:
 
-	top number
+    top number
 
 
-	limit number
+    limit number
 Limita la risposta ai primi N risultati.
 
 Esempio:
 
-	Type:Alert errors detected | top 10
+    Type:Alert errors detected | top 10
 
 Restituisce i primi 10 risultati corrispondenti.
 
-### Skip
+### <a name="skip"></a>Skip
 
 Sintassi:
 
-	skip number
+    skip number
 
 Ignora il numero di risultati elencati.
 
 Esempio:
 
-	Type:Alert errors detected | top 10 | skip 200
+    Type:Alert errors detected | top 10 | skip 200
 
 Restituisce i primi 10 risultati corrispondenti a partire dal risultato 200.
 
-### Selezionare
+### <a name="select"></a>Selezionare
 
 Sintassi:
 
-	select field1, field2, ...
+    select field1, field2, ...
 
 Limita i risultati ai campi selezionati.
 
 Esempio:
 
-	Type:Alert errors detected | select Name, Severity
+    Type:Alert errors detected | select Name, Severity
 
 Limita i campi dei risultati restituiti a *Name* e *Severity*.
 
-### Measure
+### <a name="measure"></a>Measure
 
-Il comando *measure* viene usato per applicare funzioni statistiche ai risultati della ricerca non elaborati. Questo comando è molto utile per ottenere visualizzazioni di tipo *group-by* dei dati. Quando si usa il comando *measure*, la ricerca di Log Analytics visualizza una tabella con risultati aggregati.
+Il comando *measure* viene usato per applicare funzioni statistiche ai risultati della ricerca non elaborati. Questo comando è molto utile per ottenere visualizzazioni di tipo *group-by* dei dati. Quando si usa il comando *measure* , la ricerca di Log Analytics visualizza una tabella con risultati aggregati.
 
 Sintassi:
 
-	 measure aggregateFunction([aggregatedField]) [as fieldAlias] by groupField [interval interval]
+    measure aggregateFunction1([aggregatedField]) [as fieldAlias1] [, aggregateFunction2([aggregatedField2]) [as fieldAlias2] [, ...]] by groupField1 [, groupField2 [, groupField3]]  [interval interval]
+    
 
-	 measure aggregateFunction1([aggregatedField]) [as fieldAlias1] , aggregateFunction2([aggregatedField]) [as fieldAlias2] by groupField [interval interval]
+    measure aggregateFunction1([aggregatedField]) [as fieldAlias1] [, aggregateFunction2([aggregatedField2]) [as fieldAlias2] [, ...]]  interval interval
 
-	 measure aggregateFunction([aggregatedField])  interval interval
-
-	 measure aggregateFunction1([aggregatedField]), aggregateFunction2([aggregatedField]), ...  interval interval
 
 
 Aggrega i risultati per *groupField* e calcola i valori di misura aggregati tramite l'oggetto *aggregatedField*.
@@ -376,18 +374,18 @@ Aggrega i risultati per *groupField* e calcola i valori di misura aggregati tram
 |*aggregatedField*|Campo da aggregare. Questo campo è facoltativo per la funzione di aggregazione COUNT, ma deve essere un campo numerico esistente per SUM, MAX, MIN, AVG STDDEV o PERCENTILE## oppure PCT## (## è un numero compreso tra 1 e 99).|
 |*fieldAlias*|Alias (facoltativo) per il valore aggregato calcolato. Se non viene specificato, il nome del campo sarà AggregatedValue.|
 |*groupField*|Nome del campo in base al quale viene raggruppato il set di risultati.|
-|*Interval*|Intervallo di tempo nel formato: **nnnNAME**, dove nnn è il numero intero positivo. **NAME** è il nome dell'intervallo. I nomi di intervallo supportati includono (con distinzione tra maiuscole e minuscole): MILLISECOND[S] SECOND[S] MINUTE[S] HOUR[S] DAY[S] MONTH[S] YEAR[S]|
+|*Interval*|Intervallo di tempo nel formato:**nnnNAME** , dove nnn è il numero intero positivo. **NAME** è il nome dell'intervallo. I nomi di intervallo supportati includono (con distinzione tra maiuscole e minuscole): MILLISECOND[S] SECOND[S] MINUTE[S] HOUR[S] DAY[S] MONTH[S] YEAR[S]|
 
 
-L'opzione intervallo può essere usata solo nei campi del gruppo data/ora (ad esempio *TimeGenerated* e *TimeCreated*). Questo non viene applicato dal servizio, ma attualmente un campo senza data/ora passato al back-end causa un errore di runtime. Quando viene implementata la convalida dello schema, l'API del servizio rifiuta le query che usano campi senza data/ora per l'aggregazione di intervalli. L'implementazione corrente di *Measure* supporta il raggruppamento di intervalli per qualsiasi funzione di aggregazione.
+L'opzione intervallo può essere usata solo nei campi del gruppo data/ora (ad esempio *TimeGenerated* e *TimeCreated*. Questo non viene applicato dal servizio, ma attualmente un campo senza data/ora passato al back-end causa un errore di runtime. Quando viene implementata la convalida dello schema, l'API del servizio rifiuta le query che usano campi senza data/ora per l'aggregazione di intervalli. L'implementazione corrente di *Measure* supporta il raggruppamento di intervalli per qualsiasi funzione di aggregazione.
 
-Se la clausola BY viene omessa, ma viene specificato un intervallo (come una seconda sintassi), per impostazione predefinita viene usato il campo *TimeGenerated*.
+Se la clausola BY viene omessa, ma viene specificato un intervallo (come una seconda sintassi), per impostazione predefinita viene usato il campo *TimeGenerated* .
 
 Esempi:
 
 **Esempio 1**
 
-	Type:Alert | measure count() as Count by ObjectId
+    Type:Alert | measure count() as Count by ObjectId
 
 *Spiegazione*
 
@@ -395,7 +393,7 @@ Raggruppa gli avvisi per *ObjectID* e calcola il numero di avvisi per ogni grupp
 
 **Esempio 2**
 
-	Type:Alert | measure count() interval 1HOUR
+    Type:Alert | measure count() interval 1HOUR
 
 *Spiegazione*
 
@@ -403,7 +401,7 @@ Raggruppa gli avvisi per intervalli di 1 ora tramite il campo *TimeGenerated* e 
 
 **Esempio 3**
 
-	Type:Alert | measure count() as AlertsPerHour interval 1HOUR
+    Type:Alert | measure count() as AlertsPerHour interval 1HOUR
 
 *Spiegazione*
 
@@ -411,7 +409,7 @@ Uguale all'esempio precedente, ma con un alias del campo aggregato (*AlertsPerHo
 
 **Esempio 4**
 
-	* | measure count() by TimeCreated interval 5DAYS
+    * | measure count() by TimeCreated interval 5DAYS
 
 *Spiegazione*
 
@@ -419,7 +417,7 @@ Raggruppa i risultati per intervalli di 5 giorni tramite il campo *TimeCreated* 
 
 **Esempio 5**
 
-	Type:Alert | measure max(Severity) by WorkflowName
+    Type:Alert | measure max(Severity) by WorkflowName
 
 *Spiegazione*
 
@@ -427,15 +425,15 @@ Raggruppa gli avvisi in base al nome del carico di lavoro e restituisce il valor
 
 **Esempio 6**
 
-	Type:Alert | measure min(Severity) by WorkflowName
+    Type:Alert | measure min(Severity) by WorkflowName
 
 *Spiegazione*
 
-Uguale all'esempio precedente, ma con la funzione di aggregazione *Min*.
+Uguale all'esempio precedente, ma con la funzione di aggregazione *Min* .
 
 **Esempio 7**
 
-	Type:Perf | measure avg(CounterValue) by Computer
+    Type:Perf | measure avg(CounterValue) by Computer
 
 *Spiegazione*
 
@@ -443,7 +441,7 @@ Raggruppa le prestazioni per computer e calcola la media (avg).
 
 **Esempio 8**
 
-	Type:Perf | measure sum(CounterValue) by Computer
+    Type:Perf | measure sum(CounterValue) by Computer
 
 *Spiegazione*
 
@@ -451,7 +449,7 @@ Uguale all'esempio precedente, ma usa *Sum*.
 
 **Esempio 9**
 
-	Type:Perf | measure stddev(CounterValue) by Computer
+    Type:Perf | measure stddev(CounterValue) by Computer
 
 *Spiegazione*
 
@@ -459,7 +457,7 @@ Uguale all'esempio precedente, ma usa *STDDEV*.
 
 **Esempio 10**
 
-	Type:Perf | measure percentile70(CounterValue) by Computer
+    Type:Perf | measure percentile70(CounterValue) by Computer
 
 *Spiegazione*
 
@@ -467,37 +465,45 @@ Uguale all'esempio precedente, ma usa *PERCENTILE70*.
 
 **Esempio 11**
 
-	Type:Perf | measure pct70(CounterValue) by Computer
+    Type:Perf | measure pct70(CounterValue) by Computer
 
 *Spiegazione*
 
-Uguale all'esempio precedente, ma usa *PCT70*. Si noti che *PCT##* è solo un alias per la funzione *PERCENTILE##*.
+Uguale all'esempio precedente, ma usa *PCT70*. Notare che *PCT##* è solo un alias per la funzione *PERCENTILE##*.
 
 **Esempio 12**
 
-	Type:Alert | measure count() as Count by WorkflowName | sort Count desc | top 5
+    Type:Perf | measure avg(CounterValue) by Computer, CounterName
+
+*Spiegazione*
+
+Raggruppa le prestazioni prima in base al computer e poi per Nome conteggio, quindi calcola la media (avg).
+
+**Esempio 13**
+
+    Type:Alert | measure count() as Count by WorkflowName | sort Count desc | top 5
 
 *Spiegazione*
 
 Ottiene i primi cinque flussi di lavoro con il numero massimo di avvisi.
 
-**Esempio 13**
+**Esempio 14**
 
-	* | measure countdistinct(Computer) by Type
+    * | measure countdistinct(Computer) per tipo
 
 *Spiegazione*
 
 Conta il numero di computer univoci che creano report per ogni tipo.
 
-**Esempio 14**
+**Esempio 15**
 
-	* | measure countdistinct(Computer) Interval 1HOUR
+    * | measure countdistinct(Computer) Interval 1HOUR
 
 *Spiegazione*
 
 Conta il numero di computer univoci che creano report per ogni ora.
 
-**Esempio 15**
+**Esempio 16**
 
 ```
 Type:Perf CounterName=”% Processor Time” InstanceName=”_Total” | measure avg(CounterValue) by Computer Interval 1HOUR
@@ -507,15 +513,15 @@ Type:Perf CounterName=”% Processor Time” InstanceName=”_Total” | measure
 
 Raggruppa la % tempo processore per computer e restituisce la media per ogni ora.
 
-**Esempio 16**
+**Esempio 17**
 
-	Type:W3CIISLog | measure max(TimeTaken) by csMethod Interval 5MINUTES
+    Type:W3CIISLog | measure max(TimeTaken) by csMethod Interval 5MINUTES
 
 *Spiegazione*
 
 Raggruppa W3CIISLog per metodo e restituisce il valore massimo ogni 5 minuti.
 
-**Esempio 17**
+**Esempio 18**
 
 ```
 Type:Perf CounterName=”% Processor Time” InstanceName=”_Total”  | measure min(CounterValue) as MIN, avg(CounterValue) as AVG, percentile75(CounterValue) as PCT75, max(CounterValue) as MAX by Computer Interval 1HOUR
@@ -525,7 +531,18 @@ Type:Perf CounterName=”% Processor Time” InstanceName=”_Total”  | measur
 
 Raggruppa la % tempo processore per computer e restituisce il valore minimo, la media, il 75° percentile e il valore massimo ogni ora.
 
-### Where
+**Esempio 19**
+
+```
+Type:Perf CounterName=”% Processor Time”  | measure min(CounterValue) as MIN, avg(CounterValue) as AVG, percentile75(CounterValue) as PCT75, max(CounterValue) as MAX by Computer, InstanceName Interval 1HOUR
+```
+
+*Spiegazione*
+
+Raggruppa la % tempo processore prima per computer e poi per il nome dell'istanza, quindi restituisce ogni ora il valore minimo, la media, il 75° percentile e il valore massimo
+
+
+### <a name="where"></a>Where
 
 Sintassi:
 
@@ -533,15 +550,15 @@ Sintassi:
 **where** AggregatedValue>20
 ```
 
-Può essere utilizzato solo dopo un comando *Measure* per filtrare ulteriormente i risultati aggregati prodotti dalla funzione di aggregazione *Measure*.
+Può essere usato solo dopo un comando *Measure* per filtrare ulteriormente i risultati aggregati prodotti dalla funzione di aggregazione *Measure*.
 
 Esempi:
 
-	Type:Perf CounterName:"% Total Run Time" | Measure max(CounterValue) as MAXCPU by Computer
+    Type:Perf CounterName:"% Total Run Time" | Measure max(CounterValue) as MAXCPU by Computer
 
-	Type:Perf CounterName:"% Total Run Time" | Measure max(CounterValue) by Computer | where (AggregatedValue>50 and AggregatedValue<90)
+    Type:Perf CounterName:"% Total Run Time" | Measure max(CounterValue) by Computer | where (AggregatedValue>50 and AggregatedValue<90)
 
-### IN
+### <a name="in"></a>IN
 
 Sintassi:
 
@@ -563,82 +580,101 @@ La query finale che trova *tutti gli eventi di Windows per i computer attualment
 Type=Event Computer IN {Type:Update Classification="Security Updates"  UpdateState=needed TimeGenerated>NOW-25HOURS | measure count() by Computer}
 ```
 
-### Dedup
+### <a name="dedup"></a>Dedup
 
 **Sintassi**
 
-	Dedup FieldName
+    Dedup FieldName
 
 **Descrizione** Restituisce il primo documento trovato per ogni valore univoco del campo specificato.
 
 **Esempio**
 
-	Type=Event | sort TimeGenerated DESC | Dedup EventID
+    Type=Event | sort TimeGenerated DESC | Dedup EventID
 
-L'esempio precedente restituisce un evento (l'ultimo dopo avere usato DESC in TimeGenerated) per ogni EventID.
+L'esempio precedente restituisce un evento (l'ultimo dopo avere usato DESC in TimeGenerated) per ogni EventID
 
 
-### Extend
+### <a name="extend"></a>Extend
 
 **Descrizione** Consente di creare campi di runtime nelle query
 
 **Esempio 1**
 
-	Type=SQLAssessmentRecommendation | Extend product(RecommendationScore, RecommendationWeight) AS RecommendationWeightedScore
+    Type=SQLAssessmentRecommendation | Extend product(RecommendationScore, RecommendationWeight) AS RecommendationWeightedScore
 Visualizza il punteggio delle raccomandazioni ponderato per le raccomandazioni di SQL Assessment.
 
 **Esempio 2**
 
-	Type=Perf CounterName="Private Bytes" | EXTEND div(CounterValue,1024) AS KBs | Select CounterValue,Computer,KBs
+    Type=Perf CounterName="Private Bytes" | EXTEND div(CounterValue,1024) AS KBs | Select CounterValue,Computer,KBs
 Visualizza il valore del contatore in KB invece che in byte.
 
 **Esempio 3**
 
-	Type=WireData | EXTEND scale(TotalBytes,0,100) AS ScaledTotalBytes | Select ScaledTotalBytes,TotalBytes | SORT TotalBytes DESC
+    Type=WireData | EXTEND scale(TotalBytes,0,100) AS ScaledTotalBytes | Select ScaledTotalBytes,TotalBytes | SORT TotalBytes DESC
 Ridimensiona il valore TotalBytes di WireData in modo che tutti i risultati siano compresi tra 0 e 100.
 
 **Esempio 4**
 
 ```
 Type=Perf CounterName="% Processor Time" | EXTEND if(map(CounterValue,0,50,0,1),"HIGH","LOW") as UTILIZATION
-Contrassegna i valori del contatore prestazioni inferiori al 50% come LOW e gli altri come HIGH.
+Tag Perf Counter Values less than 50% las LOW and others as HIGH
 ```
 
 **Funzioni supportate**
 
 
-| Funzione | Descrizione | Esempi di sintassi|  
+| Funzione | Descrizione | Esempi di sintassi |
 |---------|---------|---------|
-| abs | Restituisce il valore assoluto del valore o della funzione specificata.| `abs(x)` <br> `abs(-5)` |
-| e | Restituisce un valore true se e solo se tutti gli operandi restituiscono true. | `and(not(exists(**popularity**)),exists(**price**))` |
-| def | def è l'abbreviazione di default. Restituisce il valore del campo "field" o, se il campo non esiste, restituisce il valore predefinito specificato e restituisce il primo valore in cui `exists()==true`. | `div(1,y)` <br> `div(sum(x,100),max(y,1))` |
-| div | `div(x,y)` divide x per y. | `div(1,y),div(sum(x,100),max(y,1))` |
-| dist | Restituisce la distanza tra due vettori (punti) in uno spazio a n dimensioni. Accetta la potenza e due o più istanze di ValueSource e calcola le distanze tra i due vettori. Ogni ValueSource deve essere un numero. Il numero di istanze di ValueSource passate deve essere pari e il metodo presuppone che la prima metà rappresenti il primo vettore e che la seconda metà rappresenti il secondo vettore. | `dist(2, x, y, 0, 0)`: calcola la distanza euclidea tra (0,0) e (x,y) per ogni documento. <br> `dist(1, x, y, 0, 0)`: calcola la distanza di Manhattan (geometria del taxi) tra (0,0) e (x,y) per ogni documento. <br> `dist(2,,x,y,z,0,0,0)`: distanza euclidea tra (0,0,0) e (x,y,z) per ogni documento.<br>`dist(1,x,y,z,e,f,g)`: distanza di Manhattan tra (x,y,z) e (e,f,g), dove ogni lettera è un nome di campo.</p> |
-| exists | Restituisce TRUE se esiste un membro del campo. | `exists(author)` - restituisce TRUE per i documenti con un valore nel campo "author".<br>`exists(query(price:5.00))` - restituisce TRUE se "price" corrisponde a "5.00". |
-| hsin | La distanza dell'emisenoverso calcola la distanza tra due punti su una sfera quando ci si sposta lungo la sfera. I valori devono essere in radianti. hsin accetta anche un argomento booleano per specificare se la funzione deve convertire l'output in radianti. | `hsin(2, true, x, y, 0, 0)` |
-| if | Abilita le query funzione condizionali. In `if(test,value1,value2)`: test è o fa riferimento a un valore o a un'espressione logica che restituisce un valore logico (TRUE o FALSE).  `value1` è il valore che viene restituito dalla funzione se test restituisce TRUE. `value2` è il valore che viene restituito dalla funzione se test restituisce FALSE. Un'espressione può essere una funzione che restituisce valori booleani o anche una funzione che restituisce valori numerici, nel qual caso il valore 0 verrà interpretato come false, oppure stringhe, nel qual caso una stringa vuota viene interpretata come false. | `if(termfreq(cat,'electronics'),popularity,42)`: questa funzione controlla ogni documento per verificare se contiene il termine "electronics" nel campo cat. In questo caso, viene restituito il valore del campo popularity. In caso contrario, viene restituito il valore 42. |
+| abs | Restituisce il valore assoluto del valore o della funzione specificata. | `abs(x)` <br> `abs(-5)` |
+| acos | Restituisce l'arcocoseno di un valore o una funzione | `acos(x)` |
+| e | Restituisce un valore true se e solo se tutti gli operandi restituiscono true. | `and(not(exists(popularity)),exists(price))` |
+| asin | Restituisce l'arcoseno di un valore o una funzione | `asin(x)` |
+| atan | Restituisce l'arco tangente di un valore o una funzione | `atan(x)` |
+| atan2 |  Restituisce l'angolo risultante dalla conversione delle coordinate rettangolari x, y in coordinate polari | `atan2(x,y)` |
+| cbrt | Radice cubica |  `cbrt(x)` | 
+| ceil | Arrotonda per eccesso a un numero intero | `ceil(x)`  <br> `ceil(5.6)`: restituisce il valore 6 |
+| cos | Restituisce il coseno di un angolo | `cos(x)` |
+| cosh | Restituisce il coseno iperbolico di un angolo | `cosh(x)` |
+| def | def è l'abbreviazione di default. Restituisce il valore del campo "field" o, se il campo non esiste, restituisce il valore predefinito specificato e restituisce il primo valore in cui `exists()==true`. | `def(rating,5)`: questa funzione def() restituisce la classificazione o, se non specificata nel documento, restituisce il valore 5 <br> `def(myfield, 1.0)`: equivalente a `if(exists(myfield),myfield,1.0)` |
+| deg | Converte i radianti in gradi |  `deg(x)` | 
+| div | `div(x,y)` divide x per y. | `div(1,y)` <br> `div(sum(x,100),max(y,1))` |
+| dist | Restituisce la distanza tra due vettori (punti) in uno spazio a n dimensioni. Accetta la potenza e due o più istanze di ValueSource e calcola le distanze tra i due vettori. Ogni ValueSource deve essere un numero. Il numero di istanze di ValueSource passate deve essere pari e il metodo presuppone che la prima metà rappresenti il primo vettore e che la seconda metà rappresenti il secondo vettore.  | `dist(2, x, y, 0, 0)` : calcola la distanza euclidea tra (0,0) e (x,y) per ogni documento. <br> `dist(1, x, y, 0, 0)` : calcola la distanza di Manhattan (geometria del taxi) tra (0,0) e (x,y) per ogni documento. <br> `dist(2,,x,y,z,0,0,0)`: distanza euclidea tra (0,0,0) e (x,y,z) per ogni documento.<br>`dist(1,x,y,z,e,f,g)` : distanza di Manhattan tra (x,y,z) e (e,f,g), dove ogni lettera è un nome di campo. |
+| exists | Restituisce TRUE se esiste un membro del campo. | `exists(author)`: restituisce TRUE per i documenti con un valore nel campo "author".<br>`exists(query(price:5.00))`: restituisce TRUE se "price" corrisponde a "5.00". |
+| exp | Restituisce il numero di Eulero elevato alla potenza x | `exp(x)` |
+| floor | Arrotonda per difetto a un numero intero | `floor(x)`  <br> `floor(5.6)`: restituisce il valore 5 |
+| hypo | Restituisce sqrt(sum(pow(x,2),pow(y,2))) senza underflow o overflow intermedi | `hypo(x,y)`  <br> ` |
+| if | Abilita le query funzione condizionali. In `if(test,value1,value2)` : test è o fa riferimento a un valore o a un'espressione logica che restituisce un valore logico (TRUE o FALSE).  `value1` è il valore che viene restituito dalla funzione se test restituisce TRUE. `value2` è il valore che viene restituito dalla funzione se test restituisce FALSE. Un'espressione può essere una funzione che restituisce valori booleani o anche una funzione che restituisce valori numerici, nel qual caso il valore 0 verrà interpretato come false, oppure stringhe, nel qual caso una stringa vuota viene interpretata come false. | `if(termfreq(cat,'electronics'),popularity,42)`: questa funzione controlla ogni documento per verificare se contiene il termine "electronics" nel campo cat. In questo caso, viene restituito il valore del campo popularity. In caso contrario, viene restituito il valore 42. |
 | linear | Implementa `m*x+c` dove m e c sono costanti e x è una funzione arbitraria. È equivalente a `sum(product(m,x),c)`, ma è un po' più efficiente perché viene implementata come funzione singola. | `linear(x,m,c) linear(x,2,4)` restituisce `2*x+4` |
+| ln| Restituisce il log naturale della funzione specificata. |  `ln(x)` | 
 | log | Restituisce il logaritmo in base 10 della funzione specificata. | `log(x)   log(sum(x,100))` |
-| map | Esegue il mapping dei valori di una funzione di input x compresa tra min e max inclusi alla destinazione specificata. Gli argomenti min e max devono essere costanti. Gli argomenti target e default possono essere costanti o funzioni. Se il valore di x non è compreso tra min e max, viene restituito il valore di x oppure viene restituito un valore predefinito se viene specificato come quinto argomento. | `map(x,min,max,target) map(x,0,0,1)`: cambia i valori 0 in 1. Può essere utile per gestire i valori 0 predefiniti.<br> `map(x,min,max,target,default)    map(x,0,100,1,-1)`: cambia i valori compresi tra 0 e 100 in 1 e tutti gli altri valori in -1.<br>  `map(x,0,100,sum(x,599),docfreq(text,solr))`: cambia i valori compresi tra 0 e 100 in x+599 e tutti gli altri valori nella frequenza del termine "solr" nel campo text. |
-| max | Restituisce il valore numerico massimo di più funzioni o costanti annidate che vengono specificate come argomenti: `max(x,y,...)`. La funzione max può essere utile anche per ridurre il valore di un'altra funzione o campo fino a una costante specificata. Usare la sintassi `field(myfield,max)` per selezionare il valore massimo di un singolo campo multivalore. | `max(myfield,myotherfield,0)` |
-| min | Restituisce il valore numerico minimo di più funzioni o costanti annidate che vengono specificate come argomenti: `min(x,y,...)`. La funzione min può essere utile anche per fornire un "limite superiore" per una funzione usando una costante. Usare la sintassi `field(myfield,min)` per selezionare il valore minimo di un singolo campo multivalore. | `min(myfield,myotherfield,0)` |
-| ms | Restituisce i millisecondi di differenza tra gli argomenti. Le date sono relative al periodo temporale Unix o POSIX, mezzanotte, 1 gennaio 1970 UTC. Gli argomenti possono essere il nome di un TrieDateField indicizzato o l'operatore matematico di data basato su una data costante oppure su NOW. `ms()`: equivalente a `ms(NOW)`, numero di millisecondi trascorsi dal periodo. `ms(a)`: restituisce il numero di millisecondi trascorsi dal periodo rappresentato dall'argomento. `ms(a,b)`: restituisce il numero di millisecondi in cui b esiste prima di a (ovvero, `a - b`) | `ms(NOW/DAY)`<br>`ms(2000-01-01T00:00:00Z)`<br>`ms(mydatefield)`<br>`ms(NOW,mydatefield)`<br>`ms(mydatefield,2000-01-01T00:00:00Z)`<br>`ms(datefield1,datefield2)` |
+| map | Esegue il mapping dei valori di una funzione di input x compresa tra min e max inclusi alla destinazione specificata. Gli argomenti min e max devono essere costanti. Gli argomenti target e default possono essere costanti o funzioni. Se il valore di x non è compreso tra min e max, viene restituito il valore di x oppure viene restituito un valore predefinito se viene specificato come quinto argomento. |  `map(x,min,max,target) map(x,0,0,1)` : sostituisce i valori 0 con 1. Può essere utile per gestire i valori 0 predefiniti.<br> `map(x,min,max,target,default)    map(x,0,100,1,-1)`: modifica su 1 qualsiasi valore compreso tra 0 e 100 e tutti gli altri valori diventano -1.<br>  `map(x,0,100,sum(x,599),docfreq(text,solr))` : cambia i valori compresi tra 0 e 100 in x+599 e tutti gli altri valori nella frequenza del termine "solr" nel campo text. |
+| max | Restituisce il valore numerico massimo di più funzioni o costanti annidate che vengono specificate come argomenti: `max(x,y,...)`. La funzione max può essere utile anche per ridurre il valore di un'altra funzione o campo fino a una costante specificata.  Usare la sintassi `field(myfield,max)` per selezionare il valore massimo di un singolo campo multivalore.  | `max(myfield,myotherfield,0)` |
+| Min | Restituisce il valore numerico minimo di più funzioni o costanti annidate che vengono specificate come argomenti: `min(x,y,...)`. La funzione min può essere utile anche per fornire un "limite superiore" per una funzione usando una costante. Usare la sintassi `field(myfield,min)` per selezionare il valore minimo di un singolo campo multivalore. | `min(myfield,myotherfield,0)` |
+| mod | Calcola il modulo della funzione x per la funzione y. |`mod(1,x)` <br> `mod(sum(x,100), max(y,1))`   | 
+| ms | Restituisce i millisecondi di differenza tra gli argomenti. Le date sono relative al periodo temporale Unix o POSIX, mezzanotte, 1 gennaio 1970 UTC. Gli argomenti possono essere il nome di un TrieDateField indicizzato o l'operatore matematico di data basato su una data costante oppure su NOW. `ms()` equivale a `ms(NOW)`, numero di millisecondi dopo il periodo. `ms(a)` restituisce il numero di millisecondi trascorsi dal periodo rappresentato dall'argomento. `ms(a,b)` restituisce il numero di millisecondi che ci mette b per verificarsi prima di a, ovvero `a - b`.| `ms(NOW/DAY)`<br>`ms(2000-01-01T00:00:00Z)`<br>`ms(mydatefield)`<br>`ms(NOW,mydatefield)`<br>`ms(mydatefield,2000-01-01T00:00:00Z)`<br>`ms(datefield1,datefield2)` |
 | not | Valore negativo logico della funzione di cui è stato eseguito il wrapping. | `not(exists(author))`: TRUE solo quando `exists(author)` è false. |
-| oppure | Disgiunzione logica. | `or(value1,value2)`: TRUE se value1 o value2 è true. |
-| pow | Genera la base specificata per la potenza specificata. `pow(x,y)` Genera x per la potenza di y. | `pow(x,y)`<br>`pow(x,log(y))`<br>`pow(x,0.5)`: è uguale a sqrt |
+| oppure | Disgiunzione logica. | `or(value1,value2)` : TRUE se value1 o value2 è true. |
+| pow | Genera la base specificata per la potenza specificata. `pow(x,y)` genera x per la potenza di y. |  `pow(x,y)`<br>`pow(x,log(y))`<br>`pow(x,0.5)` : è lo stesso di sqrt. |
 | product | Restituisce il prodotto di più valori o funzioni, che vengono specificate in un elenco con valori delimitati da virgole. `mul(...)` può essere usato anche come alias per questa funzione. | `product(x,y,...)`<br>`product(x,2)`<br>`product(x,y)`<br>`mul(x,y)` |
 | recip | Esegue una funzione reciproca con `recip(x,m,a,b)` che implementa `a/(m*x+b)` dove m, a, b sono constanti e x è una funzione arbitrariamente complessa. Quando a e b sono uguali e x>=0, questa funzione ha un valore massimo di 1 che diminuisce quando x aumenta. Se i valori di a e b aumentano insieme, l'intera funzione viene spostata in una parte meno piatta della curva. Queste proprietà possono rendere questa funzione ideale per il boosting dei documenti più recenti quando x è `rord(datefield)`. | `recip(myfield,m,a,b)`<br>`recip(rord(creationDate),1,1000,1000)` |
-| scala | Ridimensiona i valori della funzione x in modo che siano compresi tra i valori minTarget e maxTarget specificati inclusi. L'implementazione corrente attraversa tutti i valori della funzione per ottenere quello minimo e quello massimo, per poter selezionare la scala corretta. L'implementazione corrente non può distinguere quando i documenti sono stati eliminati o i documenti privi di valori. In questi casi, usa i valori 0,0. Ciò significa che, se i valori di norma sono maggiori di 0,0, è possibile usare 0,0 come valore minimo da cui eseguire il mapping. In questi casi, una funzione `map()` appropriata può essere usata come soluzione alternativa per sostituire 0,0 con un valore compreso nell'intervallo reale, come illustrato qui: `scale(map(x,0,0,5),1,2)` | `scale(x,minTarget,maxTarget)`<br>`scale(x,1,2)`: ridimensiona i valori di x in modo che tutti i valori siano compresi tra 1 e 2 inclusi. |
-| sqedist | La distanza euclidea quadratica calcola la norma 2 (distanza euclidea), ma non accetta la radice quadrata, evitando così un'operazione piuttosto dispendiosa. Spesso le applicazioni che gestiscono la distanza euclidea non hanno bisogno della distanza effettiva, ma possono usare il quadrato della distanza. Il numero di istanze di ValueSource passate deve essere pari e il metodo presuppone che la prima metà rappresenti il primo vettore e che la seconda metà rappresenti il secondo vettore. | `sqedist(x_td, y_td, 0, 0)` |
+| rad | Converte i gradi in radianti | `rad(x)` |
+| rint| Arrotonda al numero intero più prossimo | `rint(x)`  <br> `rint(5.6)`: restituisce il valore 6 |
+| sin | Restituisce il seno di un angolo | `sin(x)` |
+| sinh | Restituisce il seno iperbolico di un angolo | `sinh(x)` |
+| scala | Ridimensiona i valori della funzione x in modo che siano compresi tra i valori minTarget e maxTarget specificati inclusi. L'implementazione corrente attraversa tutti i valori della funzione per ottenere quello minimo e quello massimo, per poter selezionare la scala corretta. L'implementazione corrente non può distinguere quando i documenti sono stati eliminati o i documenti privi di valori. In questi casi, usa i valori 0,0. Ciò significa che, se i valori di norma sono maggiori di 0,0, è possibile usare 0,0 come valore minimo da cui eseguire il mapping. In questi casi, una funzione `map()` appropriata può essere usata come soluzione alternativa per sostituire 0,0 con un valore compreso nell'intervallo reale, come illustrato qui: `scale(map(x,0,0,5),1,2)` | `scale(x,minTarget,maxTarget)`<br>`scale(x,1,2)` : ridimensiona i valori di x in modo che tutti i valori siano compresi tra 1 e 2 inclusi. | 
 | sqrt | Restituisce la radice quadrata del valore o della funzione specificata. | `sqrt(x)`<br>`sqrt(100)`<br>`sqrt(sum(x,100))` |
-| strdist | Calcola la distanza tra due stringhe. Usa l'interfaccia StringDistance del controllo ortografico di Lucene e supporta tutte le implementazioni disponibili in tale pacchetto, oltre a consentire alle applicazioni di collegarsi tramite le funzionalità di caricamento delle risorse di Solr. strdist accetta `(string1, string2, misura della distanza)`. I valori possibili per la misura della distanza sono: jw: Jaro-Winkler edit: distanza di Levenshtein o di edit ngram: il valore NGramDistance, se specificato, può facoltativamente passare anche la dimensione dell'n-gramma. Il valore predefinito è 2. FQN: nome di classe completo per un'implementazione dell'interfaccia StringDistance. Deve avere un costruttore no-arg. | `strdist("SOLR",id,edit)` |
+| strdist | Calcola la distanza tra due stringhe. Usa l'interfaccia StringDistance del controllo ortografico di Lucene e supporta tutte le implementazioni disponibili in tale pacchetto, oltre a consentire alle applicazioni di collegarsi tramite le funzionalità di caricamento delle risorse di Solr. strdist accetta `(string1, string2, distance measure)`. I valori possibili per la misura della distanza sono:  <br>jw: Jaro-Winkler<br>modifcare: Levenstein oppure Modifica distanza<br>ngram: il valore NGramDistance, se specificato, può facoltativamente passare anche la dimensione dell'n-gramma. Il valore predefinito è 2.<br>FQN: nome di classe completo per un'implementazione dell'interfaccia StringDistance. Deve avere un costruttore no-arg.|`strdist("SOLR",id,edit)` |
 | sub | Restituisce x-y da `sub(x,y)`. | `sub(myfield,myfield2)`<br>`sub(100,sqrt(myfield))` |
-| sum | Restituisce la somma di più valori o funzioni, che vengono specificate in un elenco con valori delimitati da virgole. `add(...)` può essere usato come alias per questa funzione. | `sum(x,y,...)`<br>`sum(x,1)`<br>`sum(x,y)`<br>`sum(sqrt(x),log(y),z,0.5)`<br>`add(x,y)` |
-| xor | l'altro, ma non entrambi. | `xor(field1,field2)`: restituisce TRUE se field1 o field2 è true, FALSE se entrambi sono true. |
+| Sum | Restituisce la somma di più valori o funzioni, che vengono specificate in un elenco con valori delimitati da virgole. `add(...)` può essere usato come alias per questa funzione. | `sum(x,y,...)`<br>`sum(x,1)`<br>`sum(x,y)`<br>`sum(sqrt(x),log(y),z,0.5)`<br>`add(x,y)`|
+|termfreq | Restituisce il numero di volte in cui il termine appare nel campo del documento. | termfreq(text,'memory')|
+| tan | Restituisce la tangente di un angolo | `tan(x)` |
+| tanh | Restituisce la tangente iperbolica di un angolo | `tanh(x)` |
 
 
 
-## Riferimenti al campo Ricerca e ai facet
+
+## <a name="search-field-and-facet-reference"></a>Riferimenti al campo Ricerca e ai facet
 
 Quando si usa Ricerca log per trovare i dati, i risultati visualizzano vari campi e facet. Tuttavia, alcune delle informazioni visualizzate potrebbero non essere molto descrittive. È possibile usare le informazioni seguenti per comprendere i risultati.
 
@@ -672,11 +708,11 @@ Quando si usa Ricerca log per trovare i dati, i risultati visualizzano vari camp
 |UpdateTitle|RequiredUpdate|Nome dell'aggiornamento trovato non installato|
 |PublishDate|RequiredUpdate|Quando è stato pubblicato l'aggiornamento su Microsoft Update?|
 |Server|RequiredUpdate|Nome del computer a cui appartengono i dati (uguale a "Computer")|
-|Prodotto|RequiredUpdate|Prodotto a cui si applica l'aggiornamento|
+|product|RequiredUpdate|Prodotto a cui si applica l'aggiornamento|
 |UpdateClassification|RequiredUpdate|Tipo di aggiornamento (rollup aggiornamento, service pack e così via)|
 |KBID|RequiredUpdate|ID articolo della KB che descrive la procedura consigliata o l'aggiornamento|
 |WorkflowName|ConfigurationAlert|Nome della regola o del monitoraggio che ha generato l'avviso|
-|Gravità|ConfigurationAlert|Gravità dell'avviso|
+|Severity|ConfigurationAlert|Gravità dell'avviso|
 |Priorità|ConfigurationAlert|Priorità dell'avviso|
 |IsMonitorAlert|ConfigurationAlert|Questo avviso viene generato da un monitoraggio (true) o da una regola (false)?|
 |AlertParameters|ConfigurationAlert|XML con i parametri dell'avviso di Log Analytics|
@@ -691,7 +727,7 @@ Quando si usa Ricerca log per trovare i dati, i risultati visualizzano vari camp
 |WindowsUpdateAgentVersion|UpdateAgent|Numero di versione dell'agente di Microsoft Update|
 |WSUSServer|UpdateAgent|A quale server WSUS è destinato questo agente di aggiornamento?|
 |OSVersion|UpdateAgent|Versione del sistema operativo su cui è in esecuzione questo agente di aggiornamento|
-|Nome|Recommendation, ConfigurationObjectProperty|Nome/titolo della raccomandazione o nome della proprietà di Valutazione configurazione di Log Analytics|
+|NAME|Recommendation, ConfigurationObjectProperty|Nome/titolo della raccomandazione o nome della proprietà di Valutazione configurazione di Log Analytics|
 |Valore|ConfigurationObjectProperty|Valore di una proprietà di Valutazione configurazione di Log Analytics|
 |KBLink|Raccomandazione|URL all'articolo della KB che descrive la procedura consigliata o l'aggiornamento|
 |RecommendationStatus|Raccomandazione|Le raccomandazioni sono tra i pochi tipi i cui record vengono 'aggiornati', non solo aggiunti all'indice di ricerca. Questo stato cambia se la raccomandazione è attiva/aperta o se Log Analytics rileva che è stata risolta.|
@@ -700,10 +736,10 @@ Quando si usa Ricerca log per trovare i dati, i risultati visualizzano vari camp
 |EventData|Evento|XML con l'intera sezione 'data' di un evento di Windows (come illustrato nel Visualizzatore eventi)|
 |Source|Evento|Origine del registro eventi che ha generato l'evento|
 |EventCategory|Evento|Categoria dell'evento, direttamente dal registro eventi di Windows|
-|UserName|Evento|Nome utente dell'evento di Windows (in genere, NT AUTHORITY\\LOCALSYSTEM)|
+|UserName|Evento|Nome utente dell'evento di Windows (in genere, NT AUTHORITY\LOCALSYSTEM)|
 |SampleValue|PerfHourly|Valore medio per l'aggregazione oraria di un contatore delle prestazioni|
 |Min|PerfHourly|Valore minimo nell'intervallo orario di un'aggregazione oraria del contatore delle prestazioni|
-|Max|PerfHourly|Valore massimo nell'intervallo orario di un'aggregazione oraria del contatore delle prestazioni|
+|max|PerfHourly|Valore massimo nell'intervallo orario di un'aggregazione oraria del contatore delle prestazioni|
 |Percentile95|PerfHourly|Valore del 95° percentile nell'intervallo orario di un'aggregazione oraria del contatore delle prestazioni|
 |SampleCount|PerfHourly|Il numero di campioni di contatori delle prestazioni "non elaborati" usati per produrre questo record di aggregazione oraria|
 |Threat|ProtectionStatus|Nome del malware rilevato|
@@ -751,10 +787,14 @@ Quando si usa Ricerca log per trovare i dati, i risultati visualizzano vari camp
 |Precedente|ConfigurationChange|Stato precedente del software (Installato/Non installato/versione precedente)|
 |Current|ConfigurationChange|Ultimo stato del software (Installato/Non installato/versione corrente)|
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle ricerche nei log:
 
 - Acquisire familiarità con le [ricerche nei log](log-analytics-log-searches.md) per visualizzare le informazioni dettagliate raccolte dalle soluzioni.
 - Usare [Campi personalizzati in Log Analytics](log-analytics-custom-fields.md) per estendere le ricerche nei log.
 
-<!----HONumber=AcomDC_0504_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

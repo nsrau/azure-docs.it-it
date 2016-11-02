@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Gestire server e insiemi di credenziali di Backup di Azure con il modello di distribuzione classica | Microsoft Azure"
-	description="Utilizzare questa esercitazione per imparare a gestire server e insieme di credenziali di Backup di Azure."
-	services="backup"
-	documentationCenter=""
-	authors="markgalioto"
-	manager="jwhit"
-	editor="tysonn"/>
+    pageTitle="Gestire server e insiemi di credenziali di Backup di Azure con il modello di distribuzione classica | Microsoft Azure"
+    description="Utilizzare questa esercitazione per imparare a gestire server e insieme di credenziali di Backup di Azure."
+    services="backup"
+    documentationCenter=""
+    authors="markgalioto"
+    manager="jwhit"
+    editor="tysonn"/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/27/2016"
-	ms.author="jimpark;markgal"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/27/2016"
+    ms.author="jimpark;markgal"/>
 
 
-# Gestire server e insiemi di credenziali di Backup di Azure con il modello di distribuzione classica
+
+# <a name="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model"></a>Gestire server e insiemi di credenziali di Backup di Azure con il modello di distribuzione classica
 
 > [AZURE.SELECTOR]
 - [Gestione risorse](backup-azure-manage-windows-server.md)
@@ -27,7 +28,7 @@ In questo articolo è disponibile una panoramica delle attività di gestione dei
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modello di distribuzione di Gestione risorse
 
-## Attività del portale di gestione
+## <a name="management-portal-tasks"></a>Attività del portale di gestione
 1. Accedere al [portale di gestione](https://manage.windowsazure.com).
 
 2. Fare clic su **Servizi di ripristino**, quindi fare clic sul nome dell'insieme di credenziali per il backup per visualizzare la relativa pagina Avvio rapido.
@@ -38,7 +39,7 @@ Selezionando le opzioni nella parte superiore della pagina avvio rapido, è poss
 
 ![Gestire le schede](./media/backup-azure-manage-windows-server-classic/qs-page.png)
 
-### Dashboard
+### <a name="dashboard"></a>Dashboard
 Fare clic su **Dashboard** per visualizzare la panoramica sull'utilizzo del server. La **panoramica sull'utilizzo** include:
 
 - Il numero di istanze di Windows Server registrate nel cloud
@@ -48,12 +49,12 @@ Fare clic su **Dashboard** per visualizzare la panoramica sull'utilizzo del serv
 
 Nella parte inferiore del dashboard è possibile eseguire le operazioni seguenti:
 
-- **Gestisci certificato**: se è stato usato un certificato per registrare il server, usare questa azione per aggiornare il certificato. Se si usano le credenziali di insieme, non usare la funzionalità **Gestisci certificato**.
-- **Elimina**: elimina l'insieme di credenziali di backup corrente. Se un insieme di credenziali per il backup non è più in uso, è possibile eliminarlo per liberare spazio di archiviazione. L'opzione di eliminazione viene abilitata solo dopo l'eliminazione di tutti i server registrati dall'insieme di credenziali.
+- **Gestisci certificato** : se è stato usato un certificato per registrare il server, usare questa azione per aggiornare il certificato. Se si usano le credenziali di insieme, non usare la funzionalità **Gestisci certificato**.
+- **Elimina** : elimina l'insieme di credenziali di backup corrente. Se un insieme di credenziali per il backup non è più in uso, è possibile eliminarlo per liberare spazio di archiviazione. **Elimina** eliminazione viene abilitata solo dopo l'eliminazione di tutti i server registrati dall'insieme di credenziali.
 
 ![Eseguire un backup delle attività del dashboard](./media/backup-azure-manage-windows-server-classic/dashboard-tasks.png)
 
-## Elementi registrati
+## <a name="registered-items"></a>Elementi registrati
 Fare clic su **Elementi registrati** per visualizzare i nomi dei server registrati nell'insieme di credenziali.
 
 ![Elementi registrati](./media/backup-azure-manage-windows-server-classic/registered-items.png)
@@ -67,12 +68,12 @@ Da questo punto è possibile eseguire le attività seguenti:
 
     ![Attività di Elementi registrati](./media/backup-azure-manage-windows-server-classic/registered-items-tasks.png)
 
-## Elementi protetti
+## <a name="protected-items"></a>Elementi protetti
 Fare clic su **Elementi protetti** per visualizzare gli elementi di cui è stato eseguito il backup dai server.
 
 ![Elementi protetti](./media/backup-azure-manage-windows-server-classic/protected-items.png)
 
-## Configurare
+## <a name="configure"></a>Configurare
 
 Nella scheda **Configura** è possibile selezionare l'opzione di ridondanza di archiviazione appropriata. È consigliabile selezionare l'opzione per la ridondanza dell'archiviazione subito dopo la creazione di un insieme di credenziali e prima che i computer vengano registrati nell'insieme di credenziali.
 
@@ -82,9 +83,9 @@ Nella scheda **Configura** è possibile selezionare l'opzione di ridondanza di a
 
 Per altre informazioni sulla [ridondanza di archiviazione](../storage/storage-redundancy.md), vedere questo articolo.
 
-## Attività dell'agente Backup di Microsoft Azure
+## <a name="microsoft-azure-backup-agent-tasks"></a>Attività dell'agente Backup di Microsoft Azure
 
-### Console
+### <a name="console"></a>Console
 
 Aprire l'**agente di Backup di Microsoft Azure**. Per trovarlo, cercare nel computer *Backup di Microsoft Azure*.
 
@@ -101,7 +102,7 @@ Dalle **Azioni** disponibili a destra della console dell'agente di backup è pos
 
 >[AZURE.NOTE] Per **ripristinare i dati**, vedere [Ripristinare file da un computer che esegue Windows Server o un client Windows](backup-azure-restore-windows-server.md).
 
-### Modificare un backup esistente
+### <a name="modify-an-existing-backup"></a>Modificare un backup esistente
 
 1. Nell'agente di Backup di Microsoft Azure fare clic su **Pianifica backup**.
 
@@ -113,11 +114,11 @@ Dalle **Azioni** disponibili a destra della console dell'agente di backup è pos
 
 3. Per aggiungere o modificare elementi, nella schermata **Seleziona elementi per backup** fare clic su **Aggiungi elementi**.
 
-    In questa pagina della procedura guidata è anche possibile specificare le **Impostazioni di esclusione**. Per escludere file o tipi di file, leggere la procedura per l'aggiunta di [impostazioni di esclusione](#exclusion-settings).
+    In questa pagina della procedura guidata è anche possibile specificare le **Impostazioni di esclusione** . Per escludere file o tipi di file, leggere la procedura per l'aggiunta di [impostazioni di esclusione](#exclusion-settings).
 
 4. Selezionare i file e le cartelle di cui si vuole eseguire il backup e fare clic su **OK**.
 
-    ![Aggiungere elementi](./media/backup-azure-manage-windows-server-classic/add-items-modify.png)
+    ![Aggiungi elementi](./media/backup-azure-manage-windows-server-classic/add-items-modify.png)
 
 5. Specificare la **pianificazione del backup** e fare clic su **Avanti**.
 
@@ -137,24 +138,24 @@ Dalle **Azioni** disponibili a destra della console dell'agente di backup è pos
 
     Dopo aver modificato la protezione, è possibile verificare che i backup vengano attivati correttamente passando alla scheda **Processi** e assicurandosi che le modifiche siano presenti nei processi di backup.
 
-### Abilitare la limitazione della larghezza di banda della rete  
-L'agente Backup di Azure offre la scheda Limitazione larghezza di banda rete che consente di controllare la modalità d'uso della larghezza di banda della rete durante il trasferimento dei dati. Questo controllo può essere utile se è necessario eseguire il backup dei dati durante l'orario di lavoro, ma senza che il processo di backup interferisca con il resto del traffico Internet. La limitazione del trasferimento dati si applica alle attività di backup e ripristino.
+### <a name="enable-network-throttling"></a>Abilitare la limitazione della larghezza di banda della rete  
+L'agente Backup di Azure offre la scheda Limitazione larghezza di banda rete che consente di controllare la modalità d'uso della larghezza di banda della rete durante il trasferimento dei dati. Questo controllo può essere utile se è necessario eseguire il backup dei dati durante l'orario di lavoro, ma senza che il processo di backup interferisca con il resto del traffico Internet. La limitazione del trasferimento dati si applica alle attività di backup e ripristino.  
 
 Per abilitare la limitazione della larghezza di banda della rete:
 
 1. Nell'**agente di Backup** fare clic su **Modifica proprietà**.
 
-2. Selezionare la casella di controllo **Abilita la limitazione all'utilizzo della larghezza di banda Internet per le operazioni di backup**.
+2. Selezionare la casella di controllo **Abilita la limitazione all'utilizzo della larghezza di banda Internet per le operazioni di backup** .
 
     ![Limitazione della larghezza di banda della rete](./media/backup-azure-manage-windows-server-classic/throttling-dialog.png)
 
 3. Dopo aver abilitato la limitazione, specificare la larghezza di banda consentita per il trasferimento dei dati di backup durante le **Ore lavorative** e le **Ore non lavorative**.
 
-    I valori della larghezza di banda partono da 512 kilobyte al secondo (Kbps) e possono arrivare fino a 1023 megabyte al secondo (Mbps). È anche possibile definire l'inizio e la fine per **Ore lavorative** e i giorni della settimana da considerare come giorni lavorativi. Le ore al di fuori delle ore lavorative specificate sono considerate non lavorative.
+    I valori della larghezza di banda partono da 512 kilobyte al secondo (Kbps) e possono arrivare fino a 1023 megabyte al secondo (Mbps). È anche possibile definire l'inizio e la fine per **Ore lavorative**e i giorni della settimana da considerare come giorni lavorativi. Le ore al di fuori delle ore lavorative specificate sono considerate non lavorative.
 
 4. Fare clic su **OK**.
 
-## Impostazioni di esclusione
+## <a name="exclusion-settings"></a>Impostazioni di esclusione
 
 1. Aprire l'**agente di Backup di Microsoft Azure**. Per trovarlo, cercare nel computer *Backup di Microsoft Azure*.
 
@@ -180,7 +181,7 @@ Per abilitare la limitazione della larghezza di banda della rete:
 
     ![Selezionare una posizione per l'esclusione](./media/backup-azure-manage-windows-server-classic/exclusion-location.png)
 
-7. Aggiungere l'estensione di file nel campo **Tipo file**.
+7. Aggiungere l'estensione di file nel campo **Tipo file** .
 
     ![Escludere per tipo di file](./media/backup-azure-manage-windows-server-classic/exclude-file-type.png)
 
@@ -198,9 +199,13 @@ Per abilitare la limitazione della larghezza di banda della rete:
 
     ![Conferma dell'esclusione](./media/backup-azure-manage-windows-server-classic/finish-exclusions.png)
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 - [Ripristino di Windows Server o Windows Client da Azure](backup-azure-restore-windows-server.md)
 - Per altre informazioni sul servizio Backup di Azure, vedere [Panoramica di Backup di Azure](backup-introduction-to-azure-backup.md)
-- Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+- Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

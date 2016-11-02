@@ -1,27 +1,28 @@
 <properties
-	pageTitle="Provider di cache di output ASP.NET della Cache"
-	description="Informazioni su come memorizzare nella cache l'output della pagina ASP.NET mediante Cache Redis di Azure"
-	services="redis-cache"
-	documentationCenter="na"
-	authors="steved0x"
-	manager="douge"
-	editor="tysonn" />
+    pageTitle="Provider di cache di output ASP.NET della Cache"
+    description="Informazioni su come memorizzare nella cache l'output della pagina ASP.NET mediante Cache Redis di Azure"
+    services="redis-cache"
+    documentationCenter="na"
+    authors="steved0x"
+    manager="douge"
+    editor="tysonn" />
 <tags
-	ms.service="cache"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="cache-redis"
-	ms.workload="tbd"
-	ms.date="09/27/2016"
-	ms.author="sdanie" />
+    ms.service="cache"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="cache-redis"
+    ms.workload="tbd"
+    ms.date="09/27/2016"
+    ms.author="sdanie" />
 
-# Provider di cache di output ASP.NET per la Cache Redis di Azure
+
+# <a name="asp.net-output-cache-provider-for-azure-redis-cache"></a>Provider di cache di output ASP.NET per la Cache Redis di Azure
 
 Il provider di cache Redis di output è un meccanismo di memorizzazione out-of-process per i dati della cache di output. Tali dati sono specificamente utilizzati per le risposte HTTP complete (memorizzazione nella cache di output delle pagine). Il provider viene inserito nel nuovo punto di estendibilità del provider di cache di output che è stato introdotto in ASP.NET 4.
 
 Per usare il provider di cache Redis di output, configurare prima di tutto la cache, quindi configurare l'applicazione ASP.NET usando il pacchetto NuGet del provider di cache Redis di output. Questo argomento offre indicazioni sulla configurazione dell'applicazione per l'uso del provider di cache Redis di output. Per altre informazioni sulla creazione e sulla configurazione di un'istanza della Cache Redis di Azure, vedere [Creare una cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-## Archiviare l'output della pagina ASP.NET nella cache
+## <a name="store-asp.net-page-output-in-the-cache"></a>Archiviare l'output della pagina ASP.NET nella cache
 
 Per configurare un'applicazione client in Visual Studio con il pacchetto NuGet del provider di cache Redis di output, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**.
 
@@ -59,15 +60,15 @@ La sezione commentata fornisce un esempio degli attributi e delle impostazioni d
 
 Configurare gli attributi con i valori del pannello Cache nel portale di Microsoft Azure e configurare gli altri valori come desiderato. Per istruzioni sull'accesso alle proprietà della cache, vedere [Configurare le impostazioni di Cache Redis di Azure](cache-configure.md#configure-redis-cache-settings).
 
--	**host**: specificare l'endpoint della cache.
--	**port**: usare la porta non SSL o la porta SSL, in base alle impostazioni SSL.
--	**accessKey**: usare la chiave primaria o secondaria per la cache.
--	**ssl**: true per proteggere le comunicazioni cache/client con SSL; in caso contrario, false. Assicurarsi di specificare la porta corretta.
-	-	Per le nuove cache la porta senza SSL è disabilitata per impostazione predefinita. Specificare true per questa impostazione per usare la porta SSL. Per altre informazioni sull'abilitazione della porta senza SSL, vedere la sezione [Porte di accesso](cache-configure.md#access-ports) nell'argomento [Configurare una cache](cache-configure.md).
--	**databaseId**: specifica il database da usare per i dati di output della cache. Se non è specificato alcun valore, verrà usato il valore predefinito 0.
--	**applicationName**: le chiavi vengono archiviate in Redis come <AppName>\_<SessionId>\_Data. Ciò consente a più applicazioni di condividere la stessa chiave. Questo parametro è facoltativo e se non lo si specifica, verrà usato un valore predefinito.
--	**connectionTimeoutInMilliseconds**: questa impostazione consente di eseguire l'override dell'impostazione connectTimeout nel client StackExchange.Redis. Se non viene specificato alcun valore, verrà usata l'impostazione di connectTimeout predefinita pari a 5000. Per altre informazioni, vedere [Modello di configurazione StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
--	**operationTimeoutInMilliseconds**: questa impostazione consente di eseguire l'override dell'impostazione syncTimeout nel client StackExchange.Redis. Se non viene specificato alcun valore, verrà usata l'impostazione di syncTimeout predefinita pari a 1000. Per altre informazioni, vedere [Modello di configurazione StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
+-   **host** : specificare l'endpoint della cache.
+-   **port** : usare la porta non SSL o la porta SSL, in base alle impostazioni SSL.
+-   **accessKey** : usare la chiave primaria o secondaria per la cache.
+-   **ssl** :  true per proteggere le comunicazioni cache/client con SSL; in caso contrario, false. Assicurarsi di specificare la porta corretta.
+    -   Per le nuove cache la porta senza SSL è disabilitata per impostazione predefinita. Specificare true per questa impostazione per usare la porta SSL. Per altre informazioni sull'abilitazione della porta senza SSL, vedere la sezione [Porte di accesso](cache-configure.md#access-ports) nell'argomento [Configurare una cache](cache-configure.md).
+-   **databaseId** : specifica il database da usare per i dati di output della cache. Se non è specificato alcun valore, verrà usato il valore predefinito 0.
+-   **applicationName**: le chiavi vengono archiviate in Redis <AppName>_<SessionId>_Data. Ciò consente a più applicazioni di condividere la stessa chiave. Questo parametro è facoltativo e se non lo si specifica, verrà usato un valore predefinito.
+-   **connectionTimeoutInMilliseconds** : questa impostazione consente di eseguire l'override dell'impostazione connectTimeout nel client StackExchange.Redis. Se non viene specificato alcun valore, verrà usata l'impostazione di connectTimeout predefinita pari a 5000. Per altre informazioni, vedere [Modello di configurazione StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
+-   **operationTimeoutInMilliseconds** : questa impostazione consente di eseguire l'override dell'impostazione syncTimeout nel client StackExchange.Redis. Se non viene specificato alcun valore, verrà usata l'impostazione di syncTimeout predefinita pari a 1000. Per altre informazioni, vedere [Modello di configurazione StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
 
 Aggiungere una direttiva OutputCache a ogni pagina per cui si desidera memorizzare l'output nella cache.
 
@@ -77,8 +78,12 @@ In questo esempio, i dati delle pagine rimarranno memorizzati nella cache per 60
 
 Dopo l'esecuzione di questi passaggi, l'applicazione è configurata per l'uso del provider di cache di output Redis.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 Vedere [Provider di stato della sessione ASP.NET per Cache Redis di Azure](cache-aspnet-session-state-provider.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

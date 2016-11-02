@@ -16,11 +16,12 @@ ms.workload="big-data"
 ms.date="09/27/2016"
 ms.author="larryfr"/>
 
-#Utilizzare una UDF Java con Hive in HDInsight
+
+#<a name="use-a-java-udf-with-hive-in-hdinsight"></a>Utilizzare una UDF Java con Hive in HDInsight
 
 Hive è la soluzione ideale per usare i dati in HDInsight, ma in alcuni casi è necessario un linguaggio più generico. Hive consente di creare funzioni definite dall'utente (UDF) mediante l’uso di una vasta gamma di linguaggi di programmazione. Il presente documento illustra come usare una funzione definita dall'utente Java da Hive.
 
-## Requisiti
+## <a name="requirements"></a>Requisiti
 
 * Una sottoscrizione di Azure.
 
@@ -34,9 +35,9 @@ Hive è la soluzione ideale per usare i dati in HDInsight, ma in alcuni casi è 
 
 * Un editor di testo o ambiente IDE Java
 
-    > [AZURE.IMPORTANT] Se si usa un server HDInsight basato su Linux e i file Python vengono creati in un client Windows, è necessario usare un editor che usa LF come terminazione di riga. Se non si è certi se l'editor usa LF o CRLF, vedere la sezione [Risoluzione dei problemi](#troubleshooting), che include passaggi per la rimozione del carattere CR mediante le utilità nel cluster HDInsight.
+    > [AZURE.IMPORTANT] Se si usa un server HDInsight basato su Linux e i file Python vengono creati in un client Windows, è necessario usare un editor che usa LF come terminazione di riga. Se non si è certi se l'editor usa LF o CRLF, vedere la sezione [Risoluzione dei problemi](#troubleshooting) , che include passaggi per la rimozione del carattere CR mediante le utilità nel cluster HDInsight.
 
-## Creare una UDF di esempio
+## <a name="create-an-example-udf"></a>Creare una UDF di esempio
 
 1. Da una riga di comando seguire questa procedura per creare un nuovo progetto Maven.
 
@@ -65,7 +66,7 @@ Hive è la soluzione ideale per usare i dati in HDInsight, ma in alcuni casi è 
             </dependency>
         </dependencies>
 
-    Queste voci specificano la versione di Hadoop e Hive inclusa con i cluster HDInsight 3.3 e 3.4. È possibile trovare informazioni sulle versioni di Hadoop e Hive fornite con HDInsight dal documento relativo al [controllo delle versioni dei componenti di HDInsight](hdinsight-component-versioning.md).
+    Queste voci specificano la versione di Hadoop e Hive inclusa con i cluster HDInsight 3.3 e 3.4. È possibile trovare informazioni sulle versioni di Hadoop e Hive fornite con HDInsight dal documento relativo al [controllo delle versioni dei componenti di HDInsight](hdinsight-component-versioning.md) .
 
     Aggiungere una sezione `<build>` prima della riga `</project>` alla fine del file. Questa sezione deve contenere quanto segue:
 
@@ -152,7 +153,7 @@ Hive è la soluzione ideale per usare i dati in HDInsight, ma in alcuni casi è 
 
     Ciò implementa una funzione definita dall'utente che accetta un valore stringa e restituisce una versione in lettere minuscole della stringa.
 
-## Compilare e installare la UDF
+## <a name="build-and-install-the-udf"></a>Compilare e installare la UDF
 
 1. Eseguire il comando seguente per compilare la UDF e inserirla nel pacchetto:
 
@@ -166,7 +167,7 @@ Hive è la soluzione ideale per usare i dati in HDInsight, ma in alcuni casi è 
 
     Sostituire __myuser__ con l'account utente SSH del cluster. Sostituire __mycluster__ con il nome del cluster. Se l'account SSH è protetto da una password, questa dovrà essere immessa. Se è stata usato un certificato, può essere necessario usare il parametro `-i` per specificare il file della chiave privata.
 
-3. Connettersi al cluster tramite SSH.
+3. Connettersi al cluster tramite SSH. 
 
         ssh myuser@mycluster-ssh.azurehdinsight.net
 
@@ -180,7 +181,7 @@ Hive è la soluzione ideale per usare i dati in HDInsight, ma in alcuni casi è 
 
         hdfs dfs -put ExampleUDF-1.0-SNAPSHOT.jar /example/jars
 
-## Utilizzare la UDF da Hive
+## <a name="use-the-udf-from-hive"></a>Utilizzare la UDF da Hive
 
 1. Per avviare il client Beeline, dalla sessione SSH usare il comando seguente.
 
@@ -188,7 +189,7 @@ Hive è la soluzione ideale per usare i dati in HDInsight, ma in alcuni casi è 
 
     Questo comando presuppone che sia stato utilizzato il valore predefinito di __admin__ per l'account di accesso del cluster.
 
-2. Una volta arrivati al prompt `jdbc:hive2://localhost:10001/>`, immettere il comando seguente per aggiungere la UDF a Hive ed esporla come una funzione.
+2. Una volta arrivati al prompt `jdbc:hive2://localhost:10001/>` , immettere il comando seguente per aggiungere la UDF a Hive ed esporla come una funzione.
 
         ADD JAR wasbs:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
         CREATE TEMPORARY FUNCTION tolower as 'com.microsoft.examples.ExampleUDF';
@@ -214,10 +215,14 @@ Hive è la soluzione ideale per usare i dati in HDInsight, ma in alcuni casi è 
         | android  |
         +----------+--+
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 Per apprendere altri modi di utilizzare Hive, vedere [Utilizzare Hive con HDInsight](hdinsight-use-hive.md).
 
 Per ulteriori informazioni sulle UDF di Hive, vedere la sezione [Operatori e funzioni definite dall’utente di Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) del wiki di Hive all’indirizzo apache.org.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

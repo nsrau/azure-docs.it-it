@@ -1,115 +1,116 @@
 <properties 
-	pageTitle="Spostare dati da archivi dati ODBC | Azure Data Factory" 
-	description="Informazioni su come spostare dati da archivi dati ODBC con Azure Data Factory." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="linda33wj" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Spostare dati da archivi dati ODBC | Azure Data Factory" 
+    description="Informazioni su come spostare dati da archivi dati ODBC con Azure Data Factory." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="linda33wj" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/12/2016" 
-	ms.author="jingwang"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/12/2016" 
+    ms.author="jingwang"/>
 
-# Spostare dati da archivi dati ODBC con Azure Data Factory
-Questo articolo illustra come usare l'attività di copia in una data factory di Azure per spostare dati da un archivio dati ODBC locale a un altro archivio dati. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
+
+# <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Spostare dati da archivi dati ODBC con Azure Data Factory
+Questo articolo illustra come usare l'attività di copia in una data factory di Azure per spostare dati da un archivio dati ODBC locale a un altro archivio dati. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) , che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
 
 Data factory supporta attualmente solo lo spostamento di dati dall'archivio dati ODBC locale ad altri archivi dati. Non supporta lo spostamento dei dati da altri archivi dati verso un archivio dati ODBC locale.
 
 
-## Abilitazione della connettività
-Il servizio Data Factory supporta la connessione a origini ODBC locali tramite il Gateway di gestione dati. Vedere l'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md) per informazioni sul Gateway di gestione dati e per istruzioni dettagliate sulla configurazione del gateway. Usare il gateway per connettersi a un archivio dati ODBC anche se è ospitato in una macchina virtuale IaaS di Azure.
+## <a name="enabling-connectivity"></a>Abilitazione della connettività
+Il servizio Data Factory supporta la connessione a origini ODBC locali tramite il Gateway di gestione dati. Vedere l'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md) per informazioni sul Gateway di gestione dati e per istruzioni dettagliate sulla configurazione del gateway. Usare il gateway per connettersi a un archivio dati ODBC anche se è ospitato in una macchina virtuale IaaS di Azure. 
 
-È possibile installare il gateway nello stesso computer locale o macchina virtuale di Azure come archivio dati ODBC. Tuttavia, è consigliabile installare il gateway in un computer/macchina virtuale Iaas di Azure separati per evitare conflitti tra le risorse e ottenere prestazioni migliori. Quando si installa il gateway in un computer separato, questo deve poter accedere al computer l'archivio dati ODBC.
+È possibile installare il gateway nello stesso computer locale o macchina virtuale di Azure come archivio dati ODBC. Tuttavia, è consigliabile installare il gateway in un computer/macchina virtuale Iaas di Azure separati per evitare conflitti tra le risorse e ottenere prestazioni migliori. Quando si installa il gateway in un computer separato, questo deve poter accedere al computer l'archivio dati ODBC. 
 
-Oltre a Gateway di gestione dati, è necessario installare anche il driver ODBC per l'archivio dati nel computer del gateway.
+Oltre a Gateway di gestione dati, è necessario installare anche il driver ODBC per l'archivio dati nel computer del gateway. 
 
-> [AZURE.NOTE] Per suggerimenti sulla risoluzione di problemi correlati alla connessione o al gateway, vedere [Risoluzione dei problemi del gateway](data-factory-data-management-gateway.md#troubleshoot-gateway-issues).
+> [AZURE.NOTE] Per suggerimenti sulla risoluzione di problemi correlati alla connessione o al gateway, vedere [Risoluzione dei problemi del gateway](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) . 
 
-## Copia di dati guidata
-Il modo più semplice di creare una pipeline che copia i dati da un'origine ODBC consiste nell'usare la procedura Copia di dati guidata. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+## <a name="copy-data-wizard"></a>Copia di dati guidata
+Il modo più semplice di creare una pipeline che copia i dati da un'origine ODBC consiste nell'usare la procedura Copia di dati guidata. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati. 
 
 Gli esempi seguenti forniscono le definizioni JSON di esempio da usare per creare una pipeline con il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustrano come copiare dati da un'origine ODBC in un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Azure Data Factory.
 
 
-## Esempio: Copiare dati da un archivio dati ODBC al BLOB di Azure
+## <a name="sample:-copy-data-from-odbc-data-store-to-azure-blob"></a>Esempio: Copiare dati da un archivio dati ODBC al BLOB di Azure
 
-Questo esempio illustra come copiare dati da un archivio dati ODBC all'archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Azure Data Factory.
+Questo esempio illustra come copiare dati da un archivio dati ODBC all'archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Azure Data Factory.  
  
 L'esempio include le entità di Data Factory seguenti:
 
-1.	Un servizio collegato di tipo [OnPremisesOdbc](#odbc-linked-service-properties).
-2.	Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
-3.	Un [set di dati](data-factory-create-datasets.md) di input di tipo [RelationalTable](#odbc-dataset-type-properties).
-4.	Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4.	Una [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [RelationalSource](#odbc-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+1.  Un servizio collegato di tipo [OnPremisesOdbc](#odbc-linked-service-properties).
+2.  Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.  Un [set di dati](data-factory-create-datasets.md) di input di tipo [RelationalTable](#odbc-dataset-type-properties).
+4.  Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.  Una [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [RelationalSource](#odbc-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
-L'esempio copia i dati dai risultati della query in un archivio dati ODBC a un BLOB ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
+L'esempio copia i dati dai risultati della query in un archivio dati ODBC a un BLOB ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi. 
 
-Come primo passaggio, impostare il gateway di gestione dati. Le istruzioni sono disponibili nell'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md).
+Come primo passaggio, impostare il gateway di gestione dati. Le istruzioni sono disponibili nell'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md) . 
 
-**Servizio collegato ODBC**: questo esempio usa l'autenticazione di base. Per i diversi tipi di autenticazione disponibili, vedere la sezione [Servizio collegato ODBC](#odbc-linked-service-properties).
+**Servizio collegato ODBC** : questo esempio usa l'autenticazione di base. Per i diversi tipi di autenticazione disponibili, vedere la sezione [Servizio collegato ODBC](#odbc-linked-service-properties) . 
 
-	{
-	    "name": "OnPremOdbcLinkedService",
-	    "properties":
-	    {
-	        "type": "OnPremisesOdbc",
-	        "typeProperties":
-	        {
-	            "authenticationType": "Basic",
-	            "connectionString": "Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;",
-	            "userName": "username",
-	            "password": "password",
-	            "gatewayName": "mygateway"
-	        }
-	    }
-	}
+    {
+        "name": "OnPremOdbcLinkedService",
+        "properties":
+        {
+            "type": "OnPremisesOdbc",
+            "typeProperties":
+            {
+                "authenticationType": "Basic",
+                "connectionString": "Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;",
+                "userName": "username",
+                "password": "password",
+                "gatewayName": "mygateway"
+            }
+        }
+    }
 
 **Servizio collegato Archiviazione di Azure**
 
-	{
-	  "name": "AzureStorageLinkedService",
-	  "properties": {
-	    "type": "AzureStorage",
-	    "typeProperties": {
-	      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-	    }
-	  }
-	}
+    {
+      "name": "AzureStorageLinkedService",
+      "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+        }
+      }
+    }
 
 **Set di dati di input ODBC**
 
 L'esempio presuppone che sia stata creata una tabella "MyTable" in un archivio dati ODBC e che contenga una colonna denominata "timestampcolumn" per i dati di una serie temporale.
 
 Impostando "external" su "true" si comunica al servizio Data Factory che il set di dati è esterno alla data factory e non è prodotto da un'attività al suo interno.
-	
-	{
-	    "name": "ODBCDataSet",
-	    "properties": {
-	        "published": false,
-	        "type": "RelationalTable",
-	        "linkedServiceName": "OnPremOdbcLinkedService",
-	        "typeProperties": {},
-	        "availability": {
-	            "frequency": "Hour",
-	            "interval": 1
-	        },
-			"external": true,
-	        "policy": {
-	            "externalData": {
-	                "retryInterval": "00:01:00",
-	                "retryTimeout": "00:10:00",
-	                "maximumRetry": 3
-	            }
-	        }
-	    }
-	}
+    
+    {
+        "name": "ODBCDataSet",
+        "properties": {
+            "published": false,
+            "type": "RelationalTable",
+            "linkedServiceName": "OnPremOdbcLinkedService",
+            "typeProperties": {},
+            "availability": {
+                "frequency": "Hour",
+                "interval": 1
+            },
+            "external": true,
+            "policy": {
+                "externalData": {
+                    "retryInterval": "00:01:00",
+                    "retryTimeout": "00:10:00",
+                    "maximumRetry": 3
+                }
+            }
+        }
+    }
 
 
 
@@ -117,113 +118,113 @@ Impostando "external" su "true" si comunica al servizio Data Factory che il set 
 
 I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella per il BLOB viene valutato dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, giorno e ora dell'ora di inizio.
 
-	{
-	    "name": "AzureBlobOdbcDataSet",
-	    "properties": {
-	        "type": "AzureBlob",
-	        "linkedServiceName": "AzureStorageLinkedService",
-	        "typeProperties": {
-	            "folderPath": "mycontainer/odbc/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-	            "format": {
-	                "type": "TextFormat",
-	                "rowDelimiter": "\n",
-	                "columnDelimiter": "\t"
-	            },
-	            "partitionedBy": [
-	                {
-	                    "name": "Year",
-	                    "value": {
-	                        "type": "DateTime",
-	                        "date": "SliceStart",
-	                        "format": "yyyy"
-	                    }
-	                },
-	                {
-	                    "name": "Month",
-	                    "value": {
-	                        "type": "DateTime",
-	                        "date": "SliceStart",
-	                        "format": "MM"
-	                    }
-	                },
-	                {
-	                    "name": "Day",
-	                    "value": {
-	                        "type": "DateTime",
-	                        "date": "SliceStart",
-	                        "format": "dd"
-	                    }
-	                },
-	                {
-	                    "name": "Hour",
-	                    "value": {
-	                        "type": "DateTime",
-	                        "date": "SliceStart",
-	                        "format": "HH"
-	                    }
-	                }
-	            ]
-	        },
-	        "availability": {
-	            "frequency": "Hour",
-	            "interval": 1
-	        }
-	    }
-	}
+    {
+        "name": "AzureBlobOdbcDataSet",
+        "properties": {
+            "type": "AzureBlob",
+            "linkedServiceName": "AzureStorageLinkedService",
+            "typeProperties": {
+                "folderPath": "mycontainer/odbc/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+                "format": {
+                    "type": "TextFormat",
+                    "rowDelimiter": "\n",
+                    "columnDelimiter": "\t"
+                },
+                "partitionedBy": [
+                    {
+                        "name": "Year",
+                        "value": {
+                            "type": "DateTime",
+                            "date": "SliceStart",
+                            "format": "yyyy"
+                        }
+                    },
+                    {
+                        "name": "Month",
+                        "value": {
+                            "type": "DateTime",
+                            "date": "SliceStart",
+                            "format": "MM"
+                        }
+                    },
+                    {
+                        "name": "Day",
+                        "value": {
+                            "type": "DateTime",
+                            "date": "SliceStart",
+                            "format": "dd"
+                        }
+                    },
+                    {
+                        "name": "Hour",
+                        "value": {
+                            "type": "DateTime",
+                            "date": "SliceStart",
+                            "format": "HH"
+                        }
+                    }
+                ]
+            },
+            "availability": {
+                "frequency": "Hour",
+                "interval": 1
+            }
+        }
+    }
 
 
 
 **Pipeline con attività di copia**
 
 La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **RelationalSource** e il tipo di **sink** è impostato su **BlobSink**. La query SQL specificata per la proprietà **query** consente di selezionare i dati da copiare nell'ultima ora.
-	
-	{
-	    "name": "CopyODBCToBlob",
-	    "properties": {
-	        "description": "pipeline for copy activity",
-	        "activities": [
-	            {
-	                "type": "Copy",
-	                "typeProperties": {
-	                    "source": {
-	                        "type": "RelationalSource",
-	                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)"
-	                    },
-	                    "sink": {
-	                        "type": "BlobSink",
-	                        "writeBatchSize": 0,
-	                        "writeBatchTimeout": "00:00:00"
-	                    }
-	                },
-	                "inputs": [
-	                    {
-	                        "name": "OdbcDataSet"
-	                    }
-	                ],
-	                "outputs": [
-	                    {
-	                        "name": "AzureBlobOdbcDataSet"
-	                    }
-	                ],
-	                "policy": {
-	                    "timeout": "01:00:00",
-	                    "concurrency": 1
-	                },
-	                "scheduler": {
-	                    "frequency": "Hour",
-	                    "interval": 1
-	                },
-	                "name": "OdbcToBlob"
-	            }
-	        ],
-	        "start": "2014-06-01T18:00:00Z",
-	        "end": "2014-06-01T19:00:00Z"
-	    }
-	}
+    
+    {
+        "name": "CopyODBCToBlob",
+        "properties": {
+            "description": "pipeline for copy activity",
+            "activities": [
+                {
+                    "type": "Copy",
+                    "typeProperties": {
+                        "source": {
+                            "type": "RelationalSource",
+                            "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)"
+                        },
+                        "sink": {
+                            "type": "BlobSink",
+                            "writeBatchSize": 0,
+                            "writeBatchTimeout": "00:00:00"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "OdbcDataSet"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "AzureBlobOdbcDataSet"
+                        }
+                    ],
+                    "policy": {
+                        "timeout": "01:00:00",
+                        "concurrency": 1
+                    },
+                    "scheduler": {
+                        "frequency": "Hour",
+                        "interval": 1
+                    },
+                    "name": "OdbcToBlob"
+                }
+            ],
+            "start": "2014-06-01T18:00:00Z",
+            "end": "2014-06-01T19:00:00Z"
+        }
+    }
 
 
 
-## Proprietà del servizio collegato ODBC
+## <a name="odbc-linked-service-properties"></a>Proprietà del servizio collegato ODBC
 
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato ODBC.
 
@@ -238,80 +239,80 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | gatewayName | Nome del gateway che il servizio Data Factory deve usare per connettersi all'archivio dati ODBC. | Sì |
 
 
-Per informazioni dettagliate sull'impostazione delle credenziali per un archivio dati ODBC locale, vedere la sezione [Impostare le credenziali e la sicurezza](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security).
+Per informazioni dettagliate sull'impostazione delle credenziali per un archivio dati ODBC locale, vedere la sezione [Impostare le credenziali e la sicurezza](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) .
 
-### Uso dell'autenticazione di base
+### <a name="using-basic-authentication"></a>Uso dell'autenticazione di base
 
-	{
-	    "name": "odbc",
-	    "properties":
-	    {
-	        "type": "OnPremisesOdbc",
-	        "typeProperties":
-	        {
-	            "authenticationType": "Basic",
-	            "connectionString": "Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;",
-	            "userName": "username",
-	            "password": "password",
-	            "gatewayName": "mygateway"
-	        }
-	    }
-	}
+    {
+        "name": "odbc",
+        "properties":
+        {
+            "type": "OnPremisesOdbc",
+            "typeProperties":
+            {
+                "authenticationType": "Basic",
+                "connectionString": "Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;",
+                "userName": "username",
+                "password": "password",
+                "gatewayName": "mygateway"
+            }
+        }
+    }
 
-### Uso dell'autenticazione di base con credenziali crittografate
-È possibile crittografare le credenziali usando il cmdlet [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx), in Azure PowerShell versione 1.0, oppure [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx), in Azure PowerShell versione 0.9 o precedente.
+### <a name="using-basic-authentication-with-encrypted-credentials"></a>Uso dell'autenticazione di base con credenziali crittografate
+È possibile crittografare le credenziali usando il cmdlet [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx), in Azure PowerShell versione 1.0, oppure [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx), in Azure PowerShell versione 0.9 o precedente.  
 
-	{
-	    "name": "odbc",
-	    "properties":
-	    {
-	        "type": "OnPremisesOdbc",
-	        "typeProperties":
-	        {
-	            "authenticationType": "Basic",
-	            "connectionString": "Driver={SQL Server};Server=myserver.database.windows.net; Database=TestDatabase;;EncryptedCredential=eyJDb25uZWN0...........................",
-	            "gatewayName": "mygateway"
-	        }
-	    }
-	}
-
-
-### Uso dell'autenticazione anonima
-
-	{
-	    "name": "odbc",
-	    "properties":
-	    {
-	        "type": "OnPremisesOdbc",
-	        "typeProperties":
-	        {
-	            "authenticationType": "Anonymous",
-	            "connectionString": "Driver={SQL Server};Server={servername}.database.windows.net; Database=TestDatabase;",
-	            "credential": "UID={uid};PWD={pwd}",
-	            "gatewayName": "mygateway"
-	        }
-	    }
-	}
+    {
+        "name": "odbc",
+        "properties":
+        {
+            "type": "OnPremisesOdbc",
+            "typeProperties":
+            {
+                "authenticationType": "Basic",
+                "connectionString": "Driver={SQL Server};Server=myserver.database.windows.net; Database=TestDatabase;;EncryptedCredential=eyJDb25uZWN0...........................",
+                "gatewayName": "mygateway"
+            }
+        }
+    }
 
 
+### <a name="using-anonymous-authentication"></a>Uso dell'autenticazione anonima
 
-## Proprietà del tipo di set di dati ODBC
+    {
+        "name": "odbc",
+        "properties":
+        {
+            "type": "OnPremisesOdbc",
+            "typeProperties":
+            {
+                "authenticationType": "Anonymous",
+                "connectionString": "Driver={SQL Server};Server={servername}.database.windows.net; Database=TestDatabase;",
+                "credential": "UID={uid};PWD={pwd}",
+                "gatewayName": "mygateway"
+            }
+        }
+    }
+
+
+
+## <a name="odbc-dataset-type-properties"></a>Proprietà del tipo di set di dati ODBC
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
 
-La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **RelationalTable**, che include il set di dati ODBC, presenta le proprietà seguenti
+La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **RelationalTable** , che include il set di dati ODBC, presenta le proprietà seguenti
 
 | Proprietà | Descrizione | Obbligatorio |
 | -------- | ----------- | -------- |
 | tableName | Nome della tabella nell'archivio dati ODBC. | Sì | 
 
-## Proprietà del tipo di attività di copia ODBC
+## <a name="odbc-copy-activity-type-properties"></a>Proprietà del tipo di attività di copia ODBC
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e criteri.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, fare riferimento all'articolo [Creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e criteri. 
 
 D'altra parte, le proprietà disponibili nella sezione **typeProperties** dell'attività variano in base al tipo di attività. Per l'attività di copia variano in base ai tipi di origine e sink.
 
-Nell'attività di copia con origine di tipo **RelationalSource**, incluso ODBC, sono disponibili le proprietà seguenti nella sezione typeProperties:
+Nell'attività di copia con origine di tipo **RelationalSource** , incluso ODBC, sono disponibili le proprietà seguenti nella sezione typeProperties:
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
@@ -319,59 +320,64 @@ Nell'attività di copia con origine di tipo **RelationalSource**, incluso ODBC, 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-### Mapping dei tipi per ODBC
+### <a name="type-mapping-for-odbc"></a>Mapping dei tipi per ODBC
 
-Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), l'attività di copia esegue conversioni di tipi automatiche da tipi di origine a tipi di sink con l'approccio seguente in due passaggi:
+Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) , l'attività di copia esegue conversioni di tipi automatiche da tipi di origine a tipi di sink con l'approccio seguente in due passaggi:
 
 1. Conversione dai tipi di origine nativi al tipo .NET
 2. Conversione dal tipo .NET al tipo di sink nativo
 
-Quando si spostano dati da archivi dati ODBC, viene eseguito il mapping dei tipi di dati ODBC ai tipi .NET, come riportato nell'argomento [Mapping dei tipi di dati ODBC](https://msdn.microsoft.com/library/cc668763.aspx).
+Quando si spostano dati da archivi dati ODBC, viene eseguito il mapping dei tipi di dati ODBC ai tipi .NET, come riportato nell'argomento [Mapping dei tipi di dati ODBC](https://msdn.microsoft.com/library/cc668763.aspx) .
 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-## Archivio GE Historian
-Creare un servizio collegato ODBC per collegare un archivio dati [GE Proficy Historian (ora GE Historian)](http://www.geautomation.com/products/proficy-historian) a un'istanza di Azure Data Factory, come illustrato nell'esempio seguente:
+## <a name="ge-historian-store"></a>Archivio GE Historian
+Creare un servizio collegato ODBC per collegare un archivio dati [GE Proficy Historian (ora GE Historian)](http://www.geautomation.com/products/proficy-historian) a un'istanza di Azure Data Factory, come illustrato nell'esempio seguente: 
 
-	{
-	    "name": "HistorianLinkedService",
-	    "properties":
-	    {
-	        "type": "OnPremisesOdbc",
-	        "typeProperties":
-	        {
-			    "connectionString": "DSN=<name of the GE Historian store>",
-			    "gatewayName": "<gateway name>",
-			    "authenticationType": "Basic",
-			    "userName": "<user name>",
-			    "password": "<password>"
-	        }
-	    }
-	}
+    {
+        "name": "HistorianLinkedService",
+        "properties":
+        {
+            "type": "OnPremisesOdbc",
+            "typeProperties":
+            {
+                "connectionString": "DSN=<name of the GE Historian store>",
+                "gatewayName": "<gateway name>",
+                "authenticationType": "Basic",
+                "userName": "<user name>",
+                "password": "<password>"
+            }
+        }
+    }
 
-Installare il Gateway di gestione dati in un computer locale e registrare il gateway con il portale. Il gateway installato nel computer locale usa il driver ODBC per GE Historian per la connessione all'archivio dati GE Historian. Installare quindi il driver se non è già installato nel computer del gateway. Per i dettagli, vedere [Abilitazione della connettività](#enabling-connectivity).
+Installare il Gateway di gestione dati in un computer locale e registrare il gateway con il portale. Il gateway installato nel computer locale usa il driver ODBC per GE Historian per la connessione all'archivio dati GE Historian. Installare quindi il driver se non è già installato nel computer del gateway. Per i dettagli, vedere [Abilitazione della connettività](#enabling-connectivity) .
 
-Prima di usare l'archivio GE Historian in una soluzione Data Factory, verificare se il gateway è in grado di connettersi all'archivio dati usando le istruzioni indicate nella sezione successiva.
+Prima di usare l'archivio GE Historian in una soluzione Data Factory, verificare se il gateway è in grado di connettersi all'archivio dati usando le istruzioni indicate nella sezione successiva. 
 
-Leggere l'articolo dall'inizio per una panoramica dettagliata dell'uso degli archivi dati ODBC come archivi dati di origine in un'operazione di copia.
+Leggere l'articolo dall'inizio per una panoramica dettagliata dell'uso degli archivi dati ODBC come archivi dati di origine in un'operazione di copia.  
 
-## Risoluzione dei problemi di connettività
-Per risolvere i problemi di connessione, usare la scheda **Diagnostica** di **Gestione configurazione di Gateway di gestione dati**.
+## <a name="troubleshoot-connectivity-issues"></a>Risoluzione dei problemi di connettività
+Per risolvere i problemi di connessione, usare la scheda **Diagnostica** di **Gestione configurazione di Gateway di gestione dati**. 
 
-1. Avviare **Gestione configurazione di Gateway di gestione dati**. È possibile eseguire direttamente "C:\\Programmi\\Microsoft Data Management Gateway\\1.0\\Shared\\ConfigManager.exe" o eseguire una ricerca di **Gateway** per trovare un collegamento all'applicazione **Gateway di gestione dati di Microsoft** come mostrato nell'immagine seguente.
+1. Avviare **Gestione configurazione di Gateway di gestione dati**. È possibile eseguire direttamente "C:\Programmi\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe" o eseguire una ricerca di **Gateway** per trovare un collegamento all'applicazione **Gateway di gestione dati di Microsoft**, come mostrato nell'immagine seguente. 
 
-	![Ricerca nel gateway](./media/data-factory-odbc-connector/search-gateway.png)
-2. Passare alla scheda **Diagnostica**.
+    ![Ricerca nel gateway](./media/data-factory-odbc-connector/search-gateway.png)
+2. Passare alla scheda **Diagnostica** .
 
-	![Diagnostica del gateway](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)
-3. Selezionare il **tipo** di archivio dati (servizio collegato).
-4. Specificare l'**autenticazione** e immettere le **credenziali** o la **stringa di connessione** usati per la connessione all'archivio dati.
-5. Fare clic su **Test connessione** per testare la connessione all'archivio dati.
+    ![Diagnostica del gateway](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png) 
+3. Selezionare il **tipo** di dati archiviati (servizio collegato). 
+4. Specificare l'**autenticazione** e immettere le **credenziali** o la **stringa di connessione** usati per la connessione all'archivio dati. 
+5. Fare clic su **Test connessione** per testare la connessione all'archivio dati. 
 
-## Ottimizzazione delle prestazioni  
+## <a name="performance-and-tuning"></a>Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

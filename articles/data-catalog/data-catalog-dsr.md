@@ -3,10 +3,10 @@
    description="Specifica delle origini dati attualmente supportate."
    services="data-catalog"
    documentationCenter=""
-   authors="trhabe"
+   authors="steelanddata"
    manager="jstrauss"
    editor=""
-   tags=""/> 
+   tags=""/>
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
@@ -14,14 +14,15 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="09/15/2016"
-   ms.author="trhabe"/> 
-
-# Origini dati supportate da Catalogo dati di Azure
-
-Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API pubblica, uno strumento di registrazione di tipo ClickOnce o immettendo manualmente le informazioni direttamente nel portale Web di Catalogo dati. La griglia seguente fornisce un riepilogo di tutte le origini supportate oggi dal catalogo e delle relative funzionalità di pubblicazione. Sono anche elencati gli strumenti dati esterni che ogni origine può avviare dall'interno del portale. La seconda griglia nell'articolo specifica in modo più tecnico le proprietà di connessione delle singole origini dati.
+   ms.author="maroche"/>
 
 
-## Elenco di origini dati supportate
+# <a name="azure-data-catalog-supported-data-sources"></a>Origini dati supportate da Catalogo dati di Azure
+
+Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API pubblica, uno strumento di registrazione di tipo ClickOnce o immettendo manualmente le informazioni direttamente nel portale Web di Catalogo dati. La griglia seguente fornisce un riepilogo di tutte le origini supportate oggi dal catalogo e delle relative funzionalità di pubblicazione.  Sono anche elencati gli strumenti dati esterni che ogni origine può avviare dall'interno del portale. La seconda griglia nell'articolo specifica in modo più tecnico le proprietà di connessione delle singole origini dati.
+
+
+## <a name="list-of-supported-data-sources"></a>Elenco di origini dati supportate
 
 <table>
 
@@ -37,7 +38,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>Directory di archivio Azure Data Lake</td>
       <td>✓</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓</td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
@@ -46,7 +47,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>File di archivio Azure Data Lake</td>
       <td>✓</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓</td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
@@ -55,7 +56,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>BLOB di Archiviazione di Azure</td>
       <td>✓</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓</td>
       <td><font size=2>PowerBI</font></td>
       <td><font size=2></font></td>
@@ -64,7 +65,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>Directory di archiviazione di Azure</td>
       <td>✓</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓</td>
       <td><font size=2>PowerBI</font></td>
       <td><font size=2></font></td>
@@ -73,7 +74,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>Tabella di archiviazione di Azure</td>
       <td>✓</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓</td>
       <td>
         <font size="2"></font>
@@ -86,7 +87,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>Directory HDFS</td>
       <td>✓</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓</td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
@@ -95,7 +96,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>File HDFS</td>
       <td>✓</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓</td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
@@ -104,7 +105,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>Tabella Hive</td>
       <td>✓</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓</td>
       <td><font size=2>Excel</font></td>
       <td><font size=2></font></td>
@@ -113,7 +114,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>Vista di Hive</td>
       <td>✓</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓</td>
       <td><font size=2>Excel</font></td>
       <td><font size=2></font></td>
@@ -122,7 +123,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>Tabella MySQL</td>
       <td>✓</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓</td>
       <td><font size=2>Excel, Power BI</font></td>
       <td><font size=2></font></td>
@@ -131,7 +132,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>Vista MySQL</td>
       <td>✓</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓</td>
       <td><font size=2>Excel, Power BI</font></td>
       <td><font size=2></font></td>
@@ -140,7 +141,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>Tabella di Database Oracle</td>
       <td>✓</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓</td>
       <td><font size=2>Excel, Power BI</font></td>
       <td><font size=2></font></td>
@@ -149,7 +150,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>Vista di Database Oracle</td>
       <td>✓</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓</td>
       <td><font size=2>Excel, Power BI</font></td>
       <td><font size=2></font></td>
@@ -167,7 +168,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>Tabella di SQL Data Warehouse</td>
       <td>✓</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓</td>
       <td><font size=2>Excel, PowerBI, SQL Server Data Tools</font></td>
       <td><font size=2></font></td>
@@ -176,7 +177,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>Vista di SQL Data Warehouse</td>
       <td>✓</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓</td>
       <td><font size=2>Excel, PowerBI, SQL Server Data Tools</font></td>
       <td><font size=2></font></td>
@@ -185,7 +186,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>Dimensione di SQL Server Analysis Services</td>
       <td>✓</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓</td>
       <td><font size=2>Excel, Power BI</font></td>
       <td><font size=2></font></td>
@@ -194,7 +195,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>KPI di SQL Server Analysis Services</td>
       <td>✓</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓</td>
       <td><font size=2>Excel, Power BI</font></td>
       <td><font size=2></font></td>
@@ -203,7 +204,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>Misura di SQL Server Analysis Services</td>
       <td>✓</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓</td>
       <td><font size=2>Excel, Power BI</font></td>
       <td><font size=2></font></td>
@@ -212,7 +213,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>Tabella di SQL Server Analysis Services</td>
       <td>✓</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓</td>
       <td><font size=2>Excel, Power BI</font></td>
       <td><font size=2></font></td>
@@ -221,7 +222,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>Report di SQL Server Reporting Services</td>
       <td>✓</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓</td>
       <td><font size=2>Browser</font></td>
       <td><font size=2>Solo server in modalità nativa. Modalità SharePoint non supportata.</font></td>
@@ -230,7 +231,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>Tabella di SQL Server</td>
       <td>✓</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓</td>
       <td><font size=2>Excel, PowerBI, SQL Server Data Tools</font></td>
       <td><font size=2></font></td>
@@ -239,7 +240,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>Visualizzazione SQL Server</td>
       <td>✓</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓</td>
       <td><font size=2>Excel, PowerBI, SQL Server Data Tools</font></td>
       <td><font size=2></font></td>
@@ -248,7 +249,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>Tabella Teradata</td>
       <td>✓</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓</td>
       <td><font size=2>Excel</font></td>
       <td><font size=2></font></td>
@@ -257,7 +258,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>Visualizzazione Teradata</td>
       <td>✓</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓</td>
       <td><font size=2>Excel</font></td>
       <td><font size=2></font></td>
@@ -266,7 +267,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>Vista di SAP Hana</td>
       <td>✓</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓</td>
       <td><font size=2>PowerBI</font></td>
       <td><font size=2>Solo visualizzazioni calcolo e visualizzazioni analitiche. Visualizzazioni attributi non supportate.</font></td>
@@ -412,13 +413,14 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
 Per il supporto di altre origini, inviare una richiesta di funzionalità tramite il [forum di Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 
-<br> <br>
-## Specifica di riferimento per l'origine dati
+<br>
+<br>
+## <a name="data-source-reference-specification"></a>Specifica di riferimento per l'origine dati
 > [AZURE.NOTE] Nella colonna "Struttura DSL" della tabella seguente vengono elencate solo le proprietà di connessione per il contenitore delle proprietà "address" usate in Azure Data Catalog. Il contenitore delle proprietà "address" può in realtà contenere altre proprietà di connessione dell'origine dati che Azure Data Catalog mantiene ma non usa.
 <table>
     <tr>
        <td><b>Tipo di origine</b></td>
-       <td><b>Tipo di asset</b></td>
+       <td><b>Tipo di risorsa</b></td>
        <td><b>Tipi di oggetto</b></td>
        <td><b>Struttura DSL<b></td>
     </tr>
@@ -427,10 +429,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Contenitore</td>
       <td>Data Lake</td>
       <td>
-        <font size=2> protocollo: webhdfs
-            <br>autenticazione: {basic, oauth}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+        <font size=2> protocollo: webhdfs <br>autenticazione: {basic, oauth} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -438,10 +437,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Tabella</td>
       <td>Directory, file</td>
       <td>
-        <font size=2> protocollo: webhdfs
-            <br>autenticazione: {basic, oauth}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+        <font size=2> protocollo: webhdfs <br>autenticazione: {basic, oauth} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -449,12 +445,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Contenitore</td>
       <td>Contenitore</td>
       <td>
-        <font size=2> protocollo: azure-blobs
-            <br>autenticazione: {azure-access-key}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; domain
-            <br>&#160;&#160;&#160;&#160;&#160; account
-            <br>&#160;&#160;&#160;&#160;&#160; container </font>
+        <font size=2> protocollo: azure-blobs <br>autenticazione: {azure-access-key} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dominio <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; contenitore </font>
       </td>
     </tr>
     <tr>
@@ -462,13 +453,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Tabella</td>
       <td>BLOB, directory</td>
       <td>
-        <font size=2> protocollo: azure-blobs
-            <br>autenticazione: {azure-access-key}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; domain
-            <br>&#160;&#160;&#160;&#160;&#160; account
-            <br>&#160;&#160;&#160;&#160;&#160; container
-            <br>&#160;&#160;&#160;&#160;&#160; name </font>
+        <font size=2> protocollo: azure-blobs <br>autenticazione: {azure-access-key} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dominio <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; contenitore <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nome </font>
       </td>
     </tr>
     <tr>
@@ -476,11 +461,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Contenitore</td>
       <td>Contenitore</td>
       <td>
-        <font size=2> protocollo: azure-tables
-            <br>autenticazione: {azure-access-key}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; domain
-            <br>&#160;&#160;&#160;&#160;&#160; account </font>
+        <font size=2> protocollo: azure-tables <br>autenticazione: {azure-access-key} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dominio <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account </font>
       </td>
     </tr>
     <tr>
@@ -488,12 +469,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Tabella</td>
       <td>Tabella</td>
       <td>
-        <font size=2> protocollo: azure-tables
-            <br>autenticazione: {azure-access-key}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; domain
-            <br>&#160;&#160;&#160;&#160;&#160; account
-            <br>&#160;&#160;&#160;&#160;&#160; name </font>
+        <font size=2> protocollo: azure-tables <br>autenticazione: {azure-access-key} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dominio <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nome </font>
       </td>
     </tr>
     <tr>
@@ -501,10 +477,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Contenitore</td>
       <td>Cluster virtuale</td>
       <td>
-        <font size=2> protocollo: cosmos
-            <br>autenticazione: {basic, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+        <font size=2> protocollo: cosmos <br>autenticazione: {basic, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -512,10 +485,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Tabella</td>
       <td>Flusso, set di flussi, vista</td>
       <td>
-        <font size=2> protocollo: cosmos
-            <br>autenticazione: {basic, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+        <font size=2> protocollo: cosmos <br>autenticazione: {basic, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -523,10 +493,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Contenitore</td>
       <td>Sito</td>
       <td>
-        <font size=2> protocollo: http
-            <br>autenticazione: {none, basic, windows, oauth}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+        <font size=2> protocollo: http <br>autenticazione: {none, basic, windows, oauth} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -534,10 +501,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Report</td>
       <td>Report, dashboard</td>
       <td>
-        <font size=2> protocollo: http
-            <br>autenticazione: {none, basic, windows, oauth}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+        <font size=2> protocollo: http <br>autenticazione: {none, basic, windows, oauth} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -545,11 +509,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Contenitore</td>
       <td>Database</td>
       <td>
-        <font size=2> protocollo: db2
-            <br>autenticazione: {basic, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database </font>
+        <font size=2> protocollo: db2 <br>autenticazione: {basic, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
       </td>
     </tr>
     <tr>
@@ -557,13 +517,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Tabella</td>
       <td>Tabella, vista</td>
       <td>
-        <font size=2> protocollo: db2
-            <br>autenticazione: {basic, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; object
-            <br>&#160;&#160;&#160;&#160;&#160; schema </font>
+        <font size=2> protocollo: db2 <br>autenticazione: {basic, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oggetto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema </font>
       </td>
     </tr>
     <tr>
@@ -571,10 +525,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Tabella</td>
       <td>File</td>
       <td>
-        <font size=2> protocollo: file
-            <br>autenticazione: {none, basic, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; path </font>
+        <font size=2> protocollo: file <br>autenticazione: {none, basic, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; percorso </font>
       </td>
     </tr>
     <tr>
@@ -582,10 +533,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Tabella</td>
       <td>Directory, file</td>
       <td>
-        <font size=2> protocollo: ftp
-            <br>autenticazione: {none, basic, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+        <font size=2> protocollo: ftp <br>autenticazione: {none, basic, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -593,10 +541,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Contenitore</td>
       <td>HDInsight</td>
       <td>
-        <font size=2> protocollo: webhdfs
-            <br>autenticazione: {basic, oauth}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+        <font size=2> protocollo: webhdfs <br>autenticazione: {basic, oauth} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -604,10 +549,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Tabella</td>
       <td>Directory, file</td>
       <td>
-        <font size=2> protocollo: webhdfs
-            <br>autenticazione: {basic, oauth}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+        <font size=2> protocollo: webhdfs <br>autenticazione: {basic, oauth} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -615,13 +557,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Contenitore</td>
       <td>Database</td>
       <td>
-        <font size=2> protocollo: hive
-            <br>autenticazione: {hdinsight, basic, username, none}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>connectionProperties:
-            <br>&#160;&#160;&#160;&#160;&#160; serverProtocol: {hive2} </font>
+        <font size=2> protocollo: hive <br>autenticazione: {hdinsight, basic, username, none} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>connectionProperties: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
       </td>
     </tr>
     <tr>
@@ -629,14 +565,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Tabella</td>
       <td>Tabella, vista</td>
       <td>
-        <font size=2> protocollo: hive
-            <br>autenticazione: {hdinsight, basic, username, none}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; object
-            <br>connectionProperties:
-            <br>&#160;&#160;&#160;&#160;&#160; serverProtocol: {hive2} </font>
+        <font size=2> protocollo: hive <br>autenticazione: {hdinsight, basic, username, none} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oggetto <br>connectionProperties: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
       </td>
     </tr>
     <tr>
@@ -644,10 +573,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Contenitore</td>
       <td>Sito</td>
       <td>
-        <font size=2> protocollo: http
-            <br>autenticazione: {none, basic, windows, oauth}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+        <font size=2> protocollo: http <br>autenticazione: {none, basic, windows, oauth} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -655,10 +581,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Report</td>
       <td>Report, dashboard</td>
       <td>
-        <font size=2> protocollo: http
-            <br>autenticazione: {none, basic, windows, oauth}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+        <font size=2> protocollo: http <br>autenticazione: {none, basic, windows, oauth} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -666,10 +589,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Tabella</td>
       <td>Endpoint, file</td>
       <td>
-        <font size=2> protocollo: http
-            <br>autenticazione: {none, basic, windows, oauth}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+        <font size=2> protocollo: http <br>autenticazione: {none, basic, windows, oauth} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -677,11 +597,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Contenitore</td>
       <td>Database</td>
       <td>
-        <font size=2> protocollo: mysql
-            <br>autenticazione: {protocol, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database </font>
+        <font size=2> protocollo: mysql <br>autenticazione: {protocol, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
       </td>
     </tr>
     <tr>
@@ -689,12 +605,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Tabella</td>
       <td>Tabella, vista</td>
       <td>
-        <font size=2> protocollo: mysql
-            <br>autenticazione: {protocol, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; object </font>
+        <font size=2> protocollo: mysql <br>autenticazione: {protocol, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oggetto </font>
       </td>
     </tr>
     <tr>
@@ -702,10 +613,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Contenitore</td>
       <td>Contenitore di entità</td>
       <td>
-        <font size=2> protocollo: odata
-            <br>autenticazione: {none, basic, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+        <font size=2> protocollo: odata <br>autenticazione: {none, basic, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -713,11 +621,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Tabella</td>
       <td>Set di entità, funzione</td>
       <td>
-        <font size=2> protocollo: odata
-            <br>autenticazione: {none, basic, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; URL
-            <br>&#160;&#160;&#160;&#160;&#160; resource </font>
+        <font size=2> protocollo: odata <br>autenticazione: {none, basic, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; risorsa </font>
       </td>
     </tr>
     <tr>
@@ -725,11 +629,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Contenitore</td>
       <td>Database</td>
       <td>
-        <font size=2> protocollo: oracle
-            <br>autenticazione: {protocol, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database </font>
+        <font size=2> protocollo: oracle <br>autenticazione: {protocol, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
       </td>
     </tr>
     <tr>
@@ -737,13 +637,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Tabella</td>
       <td>Tabella, vista</td>
       <td>
-        <font size=2> protocollo: oracle
-            <br>autenticazione: {protocol, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; schema
-            <br>&#160;&#160;&#160;&#160;&#160; object </font>
+        <font size=2> protocollo: oracle <br>autenticazione: {protocol, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oggetto </font>
       </td>
     </tr>
     <tr>
@@ -751,11 +645,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Contenitore</td>
       <td>Database</td>
       <td>
-        <font size=2> protocollo: postgresql
-            <br>autenticazione: {basic, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database </font>
+        <font size=2> protocollo: postgresql <br>autenticazione: {basic, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
       </td>
     </tr>
     <tr>
@@ -763,13 +653,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Tabella</td>
       <td>Tabella, vista</td>
       <td>
-        <font size=2> protocollo: postgresql
-            <br>autenticazione: {basic, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; schema
-            <br>&#160;&#160;&#160;&#160;&#160; object </font>
+        <font size=2> protocollo: postgresql <br>autenticazione: {basic, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oggetto </font>
       </td>
     </tr>
     <tr>
@@ -777,10 +661,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Contenitore</td>
       <td>Sito</td>
       <td>
-        <font size=2> protocollo: http
-            <br>autenticazione: {none, basic, windows, oauth}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+        <font size=2> protocollo: http <br>autenticazione: {none, basic, windows, oauth} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -788,21 +669,15 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Report</td>
       <td>Report, dashboard</td>
       <td>
-        <font size=2> protocollo: http
-            <br>autenticazione: {none, basic, windows, oauth}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+        <font size=2> protocollo: http <br>autenticazione: {none, basic, windows, oauth} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
       <td>Power Query</td>
       <td>Table</td>
       <td>Data Mashup</td>
-      <td>
-        Protocollo <font size=2>: power-query
-            <br>autenticazione: {oauth}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+      <td>Protocollo 
+        <font size=2>: power-query <br>autenticazione: {oauth} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -810,12 +685,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Tabella</td>
       <td>Object</td>
       <td>
-        <font size=2> protocollo: salesforce-com
-            <br>autenticazione: {basic, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; loginServer
-            <br>&#160;&#160;&#160;&#160;&#160; class
-            <br>&#160;&#160;&#160;&#160;&#160; itemName </font>
+        <font size=2> protocollo: salesforce-com <br>autenticazione: {basic, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loginServer <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; classe <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; itemName </font>
       </td>
     </tr>
     <tr>
@@ -823,10 +693,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Contenitore</td>
       <td>Server</td>
       <td>
-        <font size=2> protocollo: sap-hana-sql
-            <br>autenticazione: {protocol, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server </font>
+        <font size=2> protocollo: sap-hana-sql <br>autenticazione: {protocol, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server </font>
       </td>
     </tr>
     <tr>
@@ -834,12 +701,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Tabella</td>
       <td>Visualizza</td>
       <td>
-        <font size=2> protocollo: sap-hana-sql
-            <br>autenticazione: {protocol, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; schema
-            <br>&#160;&#160;&#160;&#160;&#160; object </font>
+        <font size=2> protocollo: sap-hana-sql <br>autenticazione: {protocol, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oggetto </font>
       </td>
     </tr>
     <tr>
@@ -847,10 +709,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Tabella</td>
       <td>Elenco</td>
       <td>
-        <font size=2> protocollo: sharepoint-list
-            <br>autenticazione: {basic, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+        <font size=2> protocollo: sharepoint-list <br>autenticazione: {basic, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -858,13 +717,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Comando</td>
       <td>Stored Procedure</td>
       <td>
-        <font size=2> protocollo: tds
-            <br>autenticazione: {protocol, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; schema
-            <br>&#160;&#160;&#160;&#160;&#160; object </font>
+        <font size=2> protocollo: tds <br>autenticazione: {protocol, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oggetto </font>
       </td>
     </tr>
     <tr>
@@ -872,13 +725,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>TableValuedFunction</td>
       <td>Funzione con valori di tabella</td>
       <td>
-        <font size=2> protocollo: tds
-            <br>autenticazione: {protocol, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; schema
-            <br>&#160;&#160;&#160;&#160;&#160; object </font>
+        <font size=2> protocollo: tds <br>autenticazione: {protocol, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oggetto </font>
       </td>
     </tr>
     <tr>
@@ -886,11 +733,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Contenitore</td>
       <td>Database</td>
       <td>
-        <font size=2> protocollo: tds
-          <br>autenticazione: {protocol, windows}
-          <br>indirizzo:
-          <br>&#160;&#160;&#160;&#160;&#160; server
-          <br>&#160;&#160;&#160;&#160;&#160; database </font>
+        <font size=2> protocollo: tds <br>autenticazione: {protocol, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
       </td>
     </tr>
     <tr>
@@ -898,13 +741,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Tabella</td>
       <td>Tabella, vista</td>
       <td>
-        <font size=2> protocollo: tds
-            <br>autenticazione: {protocol, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; schema
-            <br>&#160;&#160;&#160;&#160;&#160; object </font>
+        <font size=2> protocollo: tds <br>autenticazione: {protocol, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oggetto </font>
       </td>
     </tr>
     <tr>
@@ -912,13 +749,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Comando</td>
       <td>Stored Procedure</td>
       <td>
-        <font size=2> protocollo: tds
-            <br>autenticazione: {protocol, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; schema
-            <br>&#160;&#160;&#160;&#160;&#160; object </font>
+        <font size=2> protocollo: tds <br>autenticazione: {protocol, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oggetto </font>
       </td>
     </tr>
     <tr>
@@ -926,13 +757,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>TableValuedFunction</td>
       <td>Funzione con valori di tabella</td>
       <td>
-        <font size=2> protocollo: tds
-            <br>autenticazione: {protocol, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; schema
-            <br>&#160;&#160;&#160;&#160;&#160; object </font>
+        <font size=2> protocollo: tds <br>autenticazione: {protocol, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oggetto </font>
       </td>
     </tr>
     <tr>
@@ -940,11 +765,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Contenitore</td>
       <td>Database</td>
       <td>
-        <font size=2> protocollo: tds
-            <br>autenticazione: {protocol, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database </font>
+        <font size=2> protocollo: tds <br>autenticazione: {protocol, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
       </td>
     </tr>
     <tr>
@@ -952,13 +773,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Table</td>
       <td>Tabella, vista</td>
       <td>
-        <font size=2> protocollo: tds
-            <br>autenticazione: {protocol, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; schema
-            <br>&#160;&#160;&#160;&#160;&#160; object </font>
+        <font size=2> protocollo: tds <br>autenticazione: {protocol, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oggetto </font>
       </td>
     </tr>
     <tr>
@@ -966,12 +781,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Contenitore</td>
       <td>Modello</td>
       <td>
-        <font size=2> protocollo: analysis-services
-            <br>autenticazione: {windows, basic, anonymous, none}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; modello </font>
+        <font size=2> protocollo: analysis-services <br>autenticazione: {windows, basic, anonymous, none} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modello </font>
       </td>
     </tr>
     <tr>
@@ -979,14 +789,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>KPI</td>
       <td>KPI</td>
       <td>
-        <font size=2> protocollo: analysis-services
-            <br>autenticazione: {windows, basic, anonymous, none}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; model
-            <br>&#160;&#160;&#160;&#160;&#160; object
-            <br>&#160;&#160;&#160;&#160;&#160; objectType: {KPI} </font>
+        <font size=2> protocollo: analysis-services <br>autenticazione: {windows, basic, anonymous, none} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modello <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oggetto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
       </td>
     </tr>
     <tr>
@@ -994,14 +797,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Measure</td>
       <td>Measure</td>
       <td>
-        <font size=2> protocollo: analysis-services
-            <br>autenticazione: {windows, basic, anonymous, none}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; model
-            <br>&#160;&#160;&#160;&#160;&#160; object
-            <br>&#160;&#160;&#160;&#160;&#160; objectType: {Measure} </font>
+        <font size=2> protocollo: analysis-services <br>autenticazione: {windows, basic, anonymous, none} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modello <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oggetto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Measure} </font>
       </td>
     </tr>
     <tr>
@@ -1009,14 +805,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Tabella</td>
       <td>Dimensione</td>
       <td>
-        <font size=2> protocollo: analysis-services
-            <br>autenticazione: {windows, basic, anonymous, none}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; model
-            <br>&#160;&#160;&#160;&#160;&#160; object
-            <br>&#160;&#160;&#160;&#160;&#160; objectType: {Dimension} </font>
+        <font size=2> protocollo: analysis-services <br>autenticazione: {windows, basic, anonymous, none} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modello <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oggetto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Dimension} </font>
       </td>
     </tr>
     <tr>
@@ -1024,12 +813,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Contenitore</td>
       <td>Modello</td>
       <td>
-        <font size=2> protocollo: analysis-services
-            <br>autenticazione: {windows, basic, anonymous, none}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; modello </font>
+        <font size=2> protocollo: analysis-services <br>autenticazione: {windows, basic, anonymous, none} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modello </font>
       </td>
     </tr>
     <tr>
@@ -1037,14 +821,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>KPI</td>
       <td>KPI</td>
       <td>
-        <font size=2> protocollo: analysis-services
-            <br>autenticazione: {windows, basic, anonymous, none}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; model
-            <br>&#160;&#160;&#160;&#160;&#160; object
-            <br>&#160;&#160;&#160;&#160;&#160; objectType: {KPI} </font>
+        <font size=2> protocollo: analysis-services <br>autenticazione: {windows, basic, anonymous, none} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modello <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oggetto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
       </td>
     </tr>
     <tr>
@@ -1052,14 +829,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Measure</td>
       <td>Measure</td>
       <td>
-        <font size=2> protocollo: analysis-services
-            <br>autenticazione: {windows, basic, anonymous, none}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; model
-            <br>&#160;&#160;&#160;&#160;&#160; object
-            <br>&#160;&#160;&#160;&#160;&#160; objectType: {Measure} </font>
+        <font size=2> protocollo: analysis-services <br>autenticazione: {windows, basic, anonymous, none} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modello <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oggetto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Measure} </font>
       </td>
     </tr>
     <tr>
@@ -1067,14 +837,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Tabella</td>
       <td>Tabella</td>
       <td>
-        <font size=2> protocollo: analysis-services
-            <br>autenticazione: {windows, basic, anonymous, none}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; model
-            <br>&#160;&#160;&#160;&#160;&#160; object
-            <br>&#160;&#160;&#160;&#160;&#160; objectType: {Table} </font>
+        <font size=2> protocollo: analysis-services <br>autenticazione: {windows, basic, anonymous, none} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modello <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oggetto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Table} </font>
       </td>
     </tr>
     <tr>
@@ -1082,11 +845,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Contenitore</td>
       <td>Server</td>
       <td>
-        <font size=2> protocollo: reporting-services
-            <br>autenticazione: {windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; versione: {ReportingService2010} </font>
+        <font size=2> protocollo: reporting-services <br>autenticazione: {windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; versione: {ReportingService2010} </font>
       </td>
     </tr>
     <tr>
@@ -1094,12 +853,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Report</td>
       <td>Report</td>
       <td>
-        <font size=2> protocollo: reporting-services
-            <br>autenticazione: {windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; path
-            <br>&#160;&#160;&#160;&#160;&#160; versione: {ReportingService2010} </font>
+        <font size=2> protocollo: reporting-services <br>autenticazione: {windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; percorso <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; versione: {ReportingService2010} </font>
       </td>
     </tr>
     <tr>
@@ -1107,11 +861,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Contenitore</td>
       <td>Database</td>
       <td>
-        <font size=2> protocollo: teradata
-            <br>autenticazione: {protocol, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database </font>
+        <font size=2> protocollo: teradata <br>autenticazione: {protocol, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
       </td>
     </tr>
     <tr>
@@ -1119,12 +869,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Tabella</td>
       <td>Tabella, vista</td>
       <td>
-        <font size=2> protocollo: teradata
-            <br>autenticazione: {protocol, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; object </font>
+        <font size=2> protocollo: teradata <br>autenticazione: {protocol, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oggetto </font>
       </td>
     </tr>
     <tr>
@@ -1132,12 +877,7 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Contenitore</td>
       <td>Modello</td>
       <td>
-        <font size="2"> protocollo: mssql mds
-          <br>autenticazione: {windows}
-          <br>indirizzo:
-          <br>&#160;&#160;&#160;&#160;&#160; URL
-          <br>&#160;&#160;&#160;&#160;&#160; model
-          <br>&#160;&#160;&#160;&#160;&#160; versione </font>
+        <font size="2"> protocollo: mssql mds <br>autenticazione: {windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modello <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; versione </font>
       </td>
     </tr>
     <tr>
@@ -1145,25 +885,21 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Tabella</td>
       <td>Entità</td>
       <td>
-        <font size="2"> protocollo: mssql mds
-          <br>autenticazione: {windows}
-          <br>indirizzo:
-          <br>&#160;&#160;&#160;&#160;&#160; URL
-          <br>&#160;&#160;&#160;&#160;&#160; model
-          <br>&#160;&#160;&#160;&#160;&#160; version
-          <br>&#160;&#160;&#160;&#160;&#160; entità </font>
+        <font size="2"> protocollo: mssql mds <br>autenticazione: {windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modello <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; versione <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; entità </font>
       </td>
     </tr>
     <tr>
       <td>Altro, nessuno dei precedenti</td>
-      <td>*</td>
-      <td>*</td>
+      <td>\*</td>
+      <td>\*</td>
       <td>
-        <font size=2> protocollo: generic-asset
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; assetId </font>
+        <font size=2> protocollo: generic-asset <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assetId </font>
       </td>
     </tr>
 </table>
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

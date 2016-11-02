@@ -1,22 +1,23 @@
 <properties
-	pageTitle="Reimpostare la password per un utente in Azure Active Directory | Microsoft Azure"
-	description="Viene illustrato come un amministratore deve reimpostare una password utente in Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="Reimpostare la password per un utente in Azure Active Directory | Microsoft Azure"
+    description="Viene illustrato come un amministratore deve reimpostare una password utente in Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/23/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/23/2016"
+    ms.author="curtand"/>
 
-# Reimpostare la password per un utente
+
+# <a name="reset-the-password-for-a-user"></a>Reimpostare la password per un utente
 
 > [AZURE.SELECTOR]
 - [Portale di Azure](active-directory-users-reset-password-azure-portal.md)
@@ -32,11 +33,15 @@ Che si stia rispondendo a una richiesta utente di reimpostazione della password 
 
 
 
-## Passaggi successivi
+## <a name="what's-next"></a>Passaggi successivi
 
 - [Aggiungere o modificare utenti in Azure Active Directory](active-directory-create-users.md)
 - [Amministrazione di Azure AD](active-directory-administer.md)
 - [Gestire password in Azure AD](active-directory-manage-passwords.md)
 - [Gestire gruppi in Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

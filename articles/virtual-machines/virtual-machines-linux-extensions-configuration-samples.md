@@ -17,7 +17,8 @@
    ms.date="09/13/2016"
    ms.author="kundanap"/>
 
-# Esempi di configurazione dell’estensione delle macchine virtuali di Linux.
+
+# <a name="linux-vm-extension-configuration-samples"></a>Esempi di configurazione dell’estensione delle macchine virtuali di Linux.
 
 > [AZURE.SELECTOR]
 - [PowerShell - Modello](virtual-machines-windows-extensions-configuration-samples.md)
@@ -33,7 +34,7 @@ Per ulteriori informazioni sulla creazione di modelli di estensione fare clic qu
 
 In questo articolo vengono elencati i valori di configurazione previsti per alcune delle estensioni di Linux.
 
-## Frammento di modello di esempio per le estensioni di macchina virtuale.
+## <a name="sample-template-snippet-for-vm-extensions."></a>Frammento di modello di esempio per le estensioni di macchina virtuale.
 Il frammento di modello per la distribuzione di estensioni appare come segue:
 
       {
@@ -54,7 +55,7 @@ Il frammento di modello per la distribuzione di estensioni appare come segue:
       }
       }
 
-## Frammento di modello di esempio per le estensioni VM con set di scalabilità di VM.
+## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets."></a>Frammento di modello di esempio per le estensioni VM con set di scalabilità di VM.
 
           {
            "type":"Microsoft.Compute/virtualMachineScaleSets",
@@ -80,7 +81,7 @@ Prima di distribuire l'estensione, controllare la versione più recente dell'est
 
 Il resto dell'articolo fornisce configurazioni di esempio per le estensioni di macchina virtuale di Linux.
 
-### Agente di macchine virtuali CloudLink Secure
+### <a name="cloudlink-securevm-agent"></a>Agente di macchine virtuali CloudLink Secure
           {
             "publisher": "CloudLinkEMC.SecureVM",
             "type": "CloudLinkSecureVMLinuxAgent",
@@ -90,7 +91,7 @@ Il resto dell'articolo fornisce configurazioni di esempio per le estensioni di m
             }
           }
 
-### Estensione CustomScript per Linux.
+### <a name="customscript-extension-for-linux."></a>Estensione CustomScript per Linux.
     {
         "publisher": " Microsoft.Azure.Extensions",
         "type": "CustomScript",
@@ -105,7 +106,7 @@ Il resto dell'articolo fornisce configurazioni di esempio per le estensioni di m
     }
 
 
-### Agente Datadog
+### <a name="datadog-agent"></a>Agente Datadog
         {
           "publisher": "Datadog.Agent",
           "type": "DatadogLinuxAgent",
@@ -115,7 +116,7 @@ Il resto dell'articolo fornisce configurazioni di esempio per le estensioni di m
           }
         }
 
-### Agente Chef
+### <a name="chef-agent"></a>Agente Chef
         {
           "publisher": "Chef.Bootstrap.WindowsAzure",
           "type": "CentosChefClient|LinuxChefClient",
@@ -127,7 +128,7 @@ Il resto dell'articolo fornisce configurazioni di esempio per le estensioni di m
           }
         }
 
-### Estensione accesso alle macchine virtuali (Reimpostazione della Password)
+### <a name="vm-access-extension-(password-reset)"></a>Estensione accesso alle macchine virtuali (Reimpostazione della Password)
 Per lo schema aggiornato consultare la [Documentazione VMAccessForLinux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
 
         {
@@ -143,7 +144,7 @@ Per lo schema aggiornato consultare la [Documentazione VMAccessForLinux](https:/
           }
         }
 
-### Applicazione di patch del SO
+### <a name="os-patching"></a>Applicazione di patch del SO
 Per lo schema aggiornato consultare la [Documentazione OSPatching](https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching)
 
         {
@@ -168,7 +169,7 @@ Per lo schema aggiornato consultare la [Documentazione OSPatching](https://githu
         }
         }
 
-### Estensione Docker
+### <a name="docker-extension"></a>Estensione Docker
 Per lo schema aggiornato consultare la [Documentazione Estensione Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema)
 
         {
@@ -217,4 +218,8 @@ Di seguito è riportato un modello di macchina virtuale completo per la creazion
 
 [Estensione di script personalizzato in una macchina virtuale Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

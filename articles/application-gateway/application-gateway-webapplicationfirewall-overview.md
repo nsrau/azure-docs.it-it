@@ -9,15 +9,17 @@
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/26/2016"
    ms.author="amsriva"/>
 
-# Firewall applicazione Web del gateway applicazione (anteprima)
 
-Le applicazioni Web sono sempre più vittime di attacchi che sfruttano le più comuni vulnerabilità note. Per citarne alcuni, tra i più comuni troviamo gli attacchi SQL injection e gli attacchi di scripting intersito. Impedire questo tipo di attacchi nel codice dell'applicazione può risultare un'operazione complessa e potrebbe richiedere una manutenzione rigorosa, l'applicazione di patch e il monitoraggio a più livelli della topologia dell'applicazione. La protezione centralizzata dagli attacchi Web rende molto più semplice la gestione della sicurezza e offre all'applicazione migliori garanzie contro le minacce di intrusioni. Una soluzione WAF è anche in grado di reagire più velocemente a una minaccia alla sicurezza tramite l'applicazione di patch su una vulnerabilità nota che si trova in una posizione centrale e mette in sicurezza ogni singola applicazione Web.
+# <a name="application-gateway-web-application-firewall-(preview)"></a>Firewall applicazione Web del gateway applicazione (anteprima)
+
+Le applicazioni Web sono sempre più vittime di attacchi che sfruttano le più comuni vulnerabilità note. Per citarne alcuni, tra i più comuni troviamo gli attacchi SQL injection e gli attacchi di scripting intersito.
+Impedire questo tipo di attacchi nel codice dell'applicazione può risultare un'operazione complessa e potrebbe richiedere una manutenzione rigorosa, l'applicazione di patch e il monitoraggio a più livelli della topologia dell'applicazione. La protezione centralizzata dagli attacchi Web rende molto più semplice la gestione della sicurezza e offre all'applicazione migliori garanzie contro le minacce di intrusioni. Una soluzione WAF è anche in grado di reagire più velocemente a una minaccia alla sicurezza tramite l'applicazione di patch su una vulnerabilità nota che si trova in una posizione centrale e mette in sicurezza ogni singola applicazione Web.
 
 ![imageURLroute](./media/application-gateway-webapplicationfirewall-overview/WAF1.png)
 
@@ -30,7 +32,7 @@ La configurazione del WAF nel gateway applicazione offre i vantaggi seguenti:
 - Monitoraggio dell'applicazione Web contro gli attacchi tramite report in tempo reale generati dai log del WAF del gateway applicazione.
 - Alcuni controlli di conformità richiedono che tutti gli endpoint comunicanti con Internet siano protetti da una soluzione WAF. Grazie al gateway applicazione con WAF abilitato è possibile soddisfare questi requisiti di conformità.
 
-## Overview
+## <a name="overview"></a>Overview
 
 Il WAF del gateway applicazione è disponibile in un nuovo SKU (SKU WAF) e preconfigurato con ModSecurity e OWASP Core Rule Set per offrire protezione di base dalle 10 più comuni vulnerabilità OWASP del Web.
 
@@ -43,14 +45,14 @@ Il WAF del gateway applicazione è disponibile in un nuovo SKU (SKU WAF) e preco
 - Prevenzione contro robot, crawler e scanner
 - Rilevamento di comuni errori di configurazione dell'applicazione (ad esempio Apache, IIS e così via)
 
-## Modalità del WAF
+## <a name="waf-modes"></a>Modalità del WAF
 
 Il WAF del gateway applicazione può essere configurato per l'esecuzione nelle due modalità seguenti:
 
-- **Modalità di rilevamento**: quando configurato per l'esecuzione in modalità di rilevamento, il WAF del gateway applicazione monitora e registra tutti gli avvisi sulle minacce in un file di log. È necessario verificare che la registrazione diagnostica per il gateway applicazione venga attivata dalla sezione Diagnostica. Verificare anche che il log del WAF sia selezionato e attivato.
-- **Modalità di prevenzione**: quando configurato per l'esecuzione in modalità di prevenzione, il gateway applicazione blocca attivamente le intrusioni e gli attacchi rilevati tramite le regole. L'autore dell'attacco riceve un'eccezione di accesso non autorizzato 403 e la connessione viene terminata. La modalità di prevenzione continua a registrare gli attacchi nei registri del WAF.
+- **Modalità di rilevamento** : quando configurato per l'esecuzione in modalità di rilevamento, il WAF del gateway applicazione monitora e registra tutti gli avvisi sulle minacce in un file di log. È necessario verificare che la registrazione diagnostica per il gateway applicazione venga attivata dalla sezione Diagnostica. Verificare anche che il log del WAF sia selezionato e attivato.
+- **Modalità di prevenzione** : quando configurato per l'esecuzione in modalità di prevenzione, il gateway applicazione blocca attivamente le intrusioni e gli attacchi rilevati tramite le regole. L'autore dell'attacco riceve un'eccezione di accesso non autorizzato 403 e la connessione viene terminata. La modalità di prevenzione continua a registrare gli attacchi nei registri del WAF.
 
-## Report del WAF del gateway applicazione
+## <a name="application-gateway-waf-reports"></a>Report del WAF del gateway applicazione
 
 Il WAF del gateway applicazione fornisce rapporti dettagliati su ogni minaccia rilevata. La registrazione è integrata con i log di diagnostica di Azure e gli avvisi vengono registrati in formato json.
 
@@ -74,12 +76,16 @@ Il WAF del gateway applicazione fornisce rapporti dettagliati su ogni minaccia r
             "details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
     }
 
-## Prezzi dello SKU WAF del gateway applicazione
+## <a name="application-gateway-waf-sku-pricing"></a>Prezzi dello SKU WAF del gateway applicazione
 
 Durante l'anteprima, non sono previsti costi aggiuntivi per l'uso del WAF del gateway applicazione. L'utente riceverà l'addebito per le tariffe dello SKU Basic esistenti. Gli addebiti per lo SKU del WAF verranno comunicati in fase di distribuzione a livello globale. I clienti che hanno scelto di distribuire il gateway applicazione nello SKU WAF inizieranno a ricevere il relativo addebito dei costi solo dopo l'annuncio di distribuzione a livello globale.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver appreso maggiori informazioni sulle funzionalità del firewall applicazione Web, visitare [How to configure Web Application Firewall on Application Gateway](application-gateway-web-application-firewall-portal.md) (Come configurare il firewall applicazione Web sul gateway applicazione).
+Dopo aver appreso maggiori informazioni sulle funzionalità del firewall applicazione Web, visitare [How to configure Web Application Firewall on Application Gateway](application-gateway-web-application-firewall-portal.md)(Come configurare il firewall applicazione Web sul gateway applicazione).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
