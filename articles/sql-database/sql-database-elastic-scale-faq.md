@@ -1,64 +1,59 @@
 <properties 
-    pageTitle="Azure SQL Elastic Scale FAQ | Microsoft Azure" 
-    description="Frequently Asked Questions about Azure SQL Database Elastic Scale." 
-    services="sql-database" 
-    documentationCenter="" 
-    manager="jhubbard" 
-    authors="ddove" 
-    editor=""/>
+	pageTitle="Domande frequenti su Scalabilità elastica del database SQL di Azure | Microsoft Azure" 
+	description="Domande frequenti sulla scalabilità elastica del database SQL di Azure." 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="jhubbard" 
+	authors="ddove" 
+	editor=""/>
 
 <tags 
-    ms.service="sql-database" 
-    ms.workload="sql-database" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/24/2016" 
-    ms.author="ddove"/>
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="05/03/2016" 
+	ms.author="ddove"/>
 
+# Domande frequenti sugli strumenti di database elastici 
 
-# <a name="elastic-database-tools-faq"></a>Elastic database tools FAQ 
+#### In presenza di un tenant singolo per partizione senza chiave di partizionamento orizzontale, in che modo è possibile popolare la chiave di partizionamento orizzontale per le informazioni sullo schema?
 
-#### <a name="if-i-have-a-singletenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>If I have a single-tenant per shard and no sharding key, how do I populate the sharding key for the schema info?
+L'oggetto di informazioni sullo schema viene usato solo in scenari di divisione e unione. Se un'applicazione è intrinsecamente single-tenant, non richiede lo strumento di divisione e unione e quindi non è necessario popolare l'oggetto di informazioni sullo schema.
 
-The schema info object is only used to split merge scenarios. If an application is inherently single-tenant, then it does not require the Split Merge tool and thus there is no need to populate the schema info object.
+#### Quando è stato eseguito il provisioning di un database e si dispone già di un Gestore mappe partizioni, come è possibile registrare il nuovo database come partizione?
 
-#### <a name="ive-provisioned-a-database-and-i-already-have-a-shard-map-manager-how-do-i-register-this-new-database-as-a-shard"></a>I’ve provisioned a database and I already have a Shard Map Manager, how do I register this new database as a shard?
+Vedere **[Aggiungere una partizione a un'applicazione usando la libreria client del database elastico](sql-database-elastic-scale-add-a-shard.md)**.
 
-Please see **[Adding a shard to an application using the elastic database client library](sql-database-elastic-scale-add-a-shard.md)**. 
+#### Quanto costano gli strumenti di database elastici?
 
-#### <a name="how-much-do-elastic-database-tools-cost"></a>How much do elastic database tools cost?
+L'uso della libreria di database elastico è gratuito. È previsto un costo solo per i database SQL di Azure che vengono usati per le partizioni e il Gestore mappe partizioni, nonché per i ruoli di lavoro/Web di cui viene eseguito il provisioning per lo strumento di divisione e unione.
 
-Using the elastic database client library does not incur any costs. Costs accrue only for the Azure SQL databases that you use for shards and the Shard Map Manager, as well as the web/worker roles you provision for the Split Merge tool.
+#### Perché le credenziali personali non funzionano quando si aggiunge una partizione da un server diverso?
+Non usare credenziali in formato "ID utente=nomeutente@nomeserver", ma usare semplicemente "ID utente = nomeutente". Verificare inoltre che il “nome utente” di accesso disponga di autorizzazioni sulla partizione.
 
-#### <a name="why-are-my-credentials-not-working-when-i-add-a-shard-from-a-different-server"></a>Why are my credentials not working when I add a shard from a different server?
-Do not use credentials in the form of “User ID=username@servername”, instead simply use “User ID = username”.  Also, be sure that the “username” login has permissions on the shard.
+#### È necessario creare un Gestore mappe partizioni e popolare le partizioni ogni volta che si avviano le applicazioni?
 
-#### <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>Do I need to create a Shard Map Manager and populate shards every time I start my applications?
+No. La creazione del Gestore mappe partizioni, ad esempio **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**, è un'operazione che si esegue una volta sola. L'applicazione deve usare la chiamata **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** al momento dell'avvio dell'applicazione. È supportata una sola chiamata di questo tipo per dominio di applicazione.
 
-No—the creation of the Shard Map Manager (for example, **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) is a one-time operation.  Your application should use the call **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** at application start-up time.  There should only one such call per application domain.
+#### In che modo è possibile ottenere risposte alle domande sugli strumenti di database elastici? 
 
-#### <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>I have questions about using elastic database tools, how do I get them answered? 
+È possibile partecipare al [forum su Database SQL di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
 
-Please reach out to us on the [Azure SQL Database forum](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
+#### Quando si ottiene una connessione di database usando una chiave di partizionamento orizzontale, è possibile eseguire query sui dati per altre chiavi di partizionamento orizzontale sulla stessa partizione. Si tratta di un comportamento previsto da progettazione?
 
-#### <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard-is-this-by-design"></a>When I get a database connection using a sharding key, I can still query data for other sharding keys on the same shard.  Is this by design?
+Le API di Scalabilità elastica offrono una connessione al database corretto per la propria chiave di partizionamento orizzontale, ma non forniscono filtri per le chiavi di partizionamento orizzontale. Aggiungere la clausola **WHERE** alla query per limitare l'ambito alla chiave di partizionamento orizzontale fornita, se necessario.
 
-The Elastic Scale APIs give you a connection to the correct database for your sharding key, but do not provide sharding key filtering.  Add **WHERE** clauses to your query to restrict the scope to the provided sharding key, if necessary.
+#### È possibile usare un'edizione del database di Azure diversa per ogni partizione nel set di partizioni?
 
-#### <a name="can-i-use-a-different-azure-database-edition-for-each-shard-in-my-shard-set"></a>Can I use a different Azure Database edition for each shard in my shard set?
+Sì, una partizione è un database a sé, per cui è possibile che una partizione sia un'edizione Premium mentre un'altra è un'edizione Standard. Inoltre, l'edizione della partizione può essere aumentata o ridotta più volte durante il ciclo di vita della partizione.
 
-Yes, a shard is an individual database, and thus one shard could be a Premium edition while another be a Standard edition. Further, the edition of a shard can scale up or down multiple times during the lifetime of the shard.
+#### Lo strumento di divisione e unione esegue il provisioning di un database o lo elimina durante un'operazione di divisione o unione? 
 
-#### <a name="does-the-split-merge-tool-provision-or-delete-a-database-during-a-split-or-merge-operation"></a>Does the Split Merge tool provision (or delete) a database during a split or merge operation? 
-
-No. For **split** operations, the target database must exist with the appropriate schema and be registered with the Shard Map Manager.  For **merge** operations, you must delete the shard from the shard map manager and then delete the database.
+No. Per le operazioni di **divisione** è necessario che il database di destinazione sia dotato dello schema appropriato e sia registrato nel Gestore mappe partizioni. Per le operazioni di **unione** è necessario eliminare la partizione dal Gestore mappe partizioni e quindi eliminare il database.
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0601_2016-->

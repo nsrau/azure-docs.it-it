@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/01/2016"
+    ms.date="06/27/2016"
     ms.author="billmath"/>
 
 
@@ -167,13 +167,13 @@ L'autenticazione ha avuto esito positivo. Impossibile recuperare le informazioni
 ### <a name="retrievedomains"></a>Recupero domini
 L'autenticazione ha avuto esito positivo. Impossibile recuperare le informazioni sul dominio da Azure AD.
 
-## <a name="troubleshooting-steps-for-previous-releases"></a>Procedure di risoluzione dei problemi per le versioni precedenti.
+## <a name="troubleshooting-steps-for-previous-releases."></a>Procedure di risoluzione dei problemi per le versioni precedenti.
 L'Assistente per l'accesso è stato ritirato a partire dalle versioni con numero di build 1.1.105.0, rilasciata nel mese di febbraio 2016. Questa sezione e la configurazione non dovrebbero essere più necessarie, ma vengono conservate come riferimento.
 
 Per consentire il funzionamento dell'Assistente per l'accesso, è necessario configurare winhttp Questa operazione può essere eseguita con [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity).  
 ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
 
-### <a name="the-signin-assistant-has-not-been-correctly-configured"></a>L'Assistente per l'accesso non è stato configurato correttamente
+### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>L'Assistente per l'accesso non è stato configurato correttamente
 Questo errore viene visualizzato quando l'Assistente per l'accesso non riesce a raggiungere il proxy o il proxy non consente la richiesta.
 ![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
 

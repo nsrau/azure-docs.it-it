@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Resolve endpoint protection health alerts in Azure Security Center| Microsoft Azure"
-   description="This document shows you how to implement the Azure Security Center recommendation **Resolve Endpoint Protection health alerts**."
+   pageTitle="Risolvere gli avvisi sull'integrità della protezione degli endpoint nel Centro sicurezza di Azure | Microsoft Azure"
+   description="Questo documento illustra come implementare la raccomandazione **Risolvi gli avvisi sull'integrità di Endpoint Protection** del Centro sicurezza di Azure."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,39 +13,34 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/01/2016"
+   ms.date="07/29/2016"
    ms.author="terrylan"/>
 
+# Risolvere gli avvisi sull'integrità della protezione degli endpoint nel Centro sicurezza di Azure
 
-# <a name="resolve-endpoint-protection-health-alerts-in-azure-security-center"></a>Resolve endpoint protection health alerts in Azure Security Center
+Il Centro sicurezza di Azure consiglia di risolvere gli avvisi sull'integrità della protezione degli endpoint rilevati. Il Centro sicurezza consente di vedere quali macchine virtuali (VM) presentano errori di protezione degli endpoint e il numero di errori.
 
-Azure Security Center will recommend that you resolve detected endpoint protection health alerts.  Security Center enables you to see which virtual machines (VMs) have endpoint protection failures and how many failures.
+> [AZURE.NOTE] Il documento introduce il servizio usando una distribuzione di esempio. Questa non è una guida dettagliata.
 
-> [AZURE.NOTE] This document introduces the service by using an example deployment. This is not a step-by-step guide.
+## Implementare la raccomandazione
 
-## <a name="implement-the-recommendation"></a>Implement the recommendation
+1. Nel pannello **Raccomandazioni** selezionare **Risolvi gli avvisi sull'integrità di Endpoint Protection**. ![Risolvi gli avvisi sull'integrità di Endpoint Protection][1]
 
-1. In the **Recommendations blade**, select **Resolve Endpoint Protection health alerts**.
-![Resolve endpoint protection health alerts][1]
+2. Verrà visualizzato il pannello **Errore di Endpoint Protection** che elenca le VM con errori e il numero di errori per ogni VM. Selezionare una VM dall'elenco. ![Errore di Endpoint Protection][2]
 
-2. This opens the blade **Endpoint Protection failure** which lists VMs with failures and the number of failures for each VM. Select a VM from the list.
-![Endpoint protection failure][2]
+3. Verrà visualizzato il pannello **Elenco degli errori** per la VM selezionata, in cui sono elencati gli errori. Selezionare un errore nell'elenco per ulteriori informazioni. Verrà visualizzato un pannello con informazioni sull'errore selezionato. ![Elenco degli errori][3] ![Evento di errore][4]
 
-3. A **Failures List** blade opens for the selected VM, displaying a list of failures. Select a failure from the list to learn more. This opens a blade with information about the selected failure.
-![Failures list][3]
-  ![Failure event][4]
+## Vedere anche
 
-## <a name="see-also"></a>See also
+Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
-To learn more about Security Center, see the following:
-
-- [Setting security policies in Azure Security Center](security-center-policies.md)--Learn how to configure security policies for your Azure subscriptions and resource groups.
-- [Managing security recommendations in Azure Security Center](security-center-recommendations.md)--Learn how recommendations help you protect your Azure resources.
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)--Learn how to manage and respond to security alerts.
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
-- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/)--Get the latest Azure security news and information.
+- [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
+- [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): informazioni sul modo in cui le raccomandazioni semplificano la protezione delle risorse di Azure.
+- [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
+- [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
+- [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare lo stato integrità delle soluzioni dei partner.
+- [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
+- [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): informazioni e notizie aggiornate sulla sicurezza di Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-resolve-endpoint-protection/resolve-endpoint-protection.png
@@ -53,8 +48,4 @@ To learn more about Security Center, see the following:
 [3]: ./media/security-center-resolve-endpoint-protection/failure-list.png
 [4]: ./media/security-center-resolve-endpoint-protection/failure-event.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->
