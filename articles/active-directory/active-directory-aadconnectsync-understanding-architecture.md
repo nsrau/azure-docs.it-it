@@ -14,15 +14,16 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="08/31/2016"
-   ms.author="andkjell"/>
+   ms.author="billmath"/>
 
-# Servizio di sincronizzazione Azure AD Connect: informazioni sull'architettura
+
+# <a name="azure-ad-connect-sync:-understanding-the-architecture"></a>Servizio di sincronizzazione Azure AD Connect: informazioni sull'architettura
 Questo argomento illustra l'architettura di base per il servizio di sincronizzazione Azure AD Connect. Sotto diversi aspetti è simile ai predecessori MIIS 2003, ILM 2007 e FIM 2010. Il servizio di sincronizzazione Azure AD Connect è l'evoluzione di queste tecnologie. Se si ha familiarità con qualcuna delle tecnologie precedenti, anche il contenuto di questo argomento risulterà familiare. Se invece non si ha esperienza con la sincronizzazione, è consigliabile leggere questo argomento. Non è tuttavia indispensabile conoscere in dettaglio questo argomento per apportare personalizzazioni al servizio di sincronizzazione Azure AD Connect (chiamato qui motore di sincronizzazione).
 
-## Architettura
+## <a name="architecture"></a>Architettura
 Il motore di sincronizzazione crea una visualizzazione integrata degli oggetti archiviati in più origini dati connesse e gestisce le informazioni sull'identità presenti in tali origini dati. Questa visualizzazione integrata viene determinata dalle informazioni sull'identità recuperate da origini dati connesse e da un set di regole che determinano come elaborare le informazioni.
 
-### Origini dati connesse e connettori
+### <a name="connected-data-sources-and-connectors"></a>Origini dati connesse e connettori
 Il motore di sincronizzazione elabora le informazioni sull'identità provenienti da repository dati diversi, ad esempio Active Directory o un database SQL Server. Ogni repository che organizza i dati in formato database e che fornisce metodi standard di accesso ai dati è una potenziale origine dati candidata per il motore di sincronizzazione. I repository dati sincronizzati dal motore di sincronizzazione sono chiamati **origini dati connesse** o **directory connesse** (CD, Connected Directory).
 
 Il motore di sincronizzazione incapsula l'interazione con un'origine dati connessa in un modulo chiamato **connettore**. Ogni tipo di origine dati connessa ha un connettore specifico. Il connettore converte un'operazione obbligatoria nel formato leggibile dall'origine dati connessa.
@@ -39,7 +40,7 @@ Per esportare gli oggetti in un'origine dati connessa, l'elenco di inclusione de
 
 Se l'origine dati connessa usa componenti strutturali, ad esempio partizioni o contenitori per organizzare gli oggetti, è possibile limitare le aree nell'origine dati connessa usate per una determinata soluzione.
 
-### Struttura interna dello spazio dei nomi del motore di sincronizzazione
+### <a name="internal-structure-of-the-sync-engine-namespace"></a>Struttura interna dello spazio dei nomi del motore di sincronizzazione
 L'intero spazio dei nomi del motore di sincronizzazione è costituito da due spazi dei nomi in cui vengono archiviate le informazioni sull'identità. I due spazi dei nomi sono:
 
 - Spazio connettore (CS, Connector Space)
@@ -57,10 +58,10 @@ La figura seguente illustra lo spazio dei nomi dello spazio connettore e lo spaz
 
 ![Architettura 2](./media/active-directory-aadconnectsync-understanding-architecture/arch2.png)
 
-## Oggetti identità del motore di sincronizzazione
+## <a name="sync-engine-identity-objects"></a>Oggetti identità del motore di sincronizzazione
 Gli oggetti nel motore di sincronizzazione sono rappresentazioni degli oggetti nell'origine dati connessa o della visualizzazione integrata di tali oggetti offerta dal motore di sincronizzazione. Ogni oggetto del motore di sincronizzazione deve avere un identificatore univoco globale (GUID). I GUID garantiscono l'integrità dei dati ed esprimono le relazioni tra gli oggetti.
 
-### Oggetti dello spazio connettore
+### <a name="connector-space-objects"></a>Oggetti dello spazio connettore
 Quando il motore di sincronizzazione comunica con un'origine dati connessa, legge le informazioni sull'identità nell'origine dati connessa e usa tali informazioni per creare una rappresentazione dell'oggetto identità nello spazio connettore. Non è possibile creare o eliminare tali oggetti singolarmente. È tuttavia possibile eliminare manualmente tutti gli oggetti in uno spazio connettore.
 
 Tutti gli oggetti nello spazio connettore hanno due attributi:
@@ -79,7 +80,7 @@ Un oggetto spazio connettore può essere:
 - Un oggetto di staging
 - Un segnaposto
 
-### Oggetti di staging
+### <a name="staging-objects"></a>Oggetti di staging
 Un oggetto di staging rappresenta un'istanza dei tipi di oggetto designati dall'origine dati connessa. Oltre al GUID e al nome distinto, un oggetto di staging ha sempre un valore che indica il tipo di oggetto.
 
 Gli oggetti di staging importati hanno sempre un valore per l'attributo di ancoraggio. I nuovi oggetti di staging di cui è stato effettuato il provisioning e di cui è in corso la creazione nell'origine dati connessa non hanno un valore per l'attributo di ancoraggio.
@@ -100,21 +101,21 @@ La figura seguente illustra come viene creato un oggetto di esportazione usando 
 
 Il motore di sincronizzazione conferma l'esportazione dell'oggetto reimportando l'oggetto dall'origine dati connessa. Gli oggetti di esportazione diventano oggetti di importazione quando il motore di sincronizzazione li riceve durante l'importazione successiva da tale origine dati connessa.
 
-### Segnaposto
+### <a name="placeholders"></a>Segnaposto
 Il motore di sincronizzazione usa uno spazio dei nomi flat per archiviare gli oggetti. Tuttavia, alcune origini dati connesse, ad esempio Active Directory, usano uno spazio dei nomi gerarchico. Per trasformare le informazioni da uno spazio dei nomi piatto in uno spazio dei nomi gerarchico, il motore di sincronizzazione usa i segnaposto per mantenere la gerarchia.
 
 Ogni segnaposto rappresenta un componente (ad esempio, un'unità organizzativa) del nome gerarchico di un oggetto che non è stato importato nel motore di sincronizzazione, ma è necessario per costruire il nome gerarchico. Riempiono i vuoti creati dai riferimenti nell'origine dati connessa agli oggetti che non sono oggetti di staging nello spazio connettore.
 
 Il motore di sincronizzazione usa i segnaposto anche per archiviare gli oggetti di riferimento che non sono ancora stati importati. Se, ad esempio, la sincronizzazione è configurata per includere l'attributo manager per l'oggetto *Abbie Spencer* e il valore ricevuto è un oggetto che non è ancora stato importato, come *CN=Lee Sperry,CN=Users,DC=fabrikam,DC=com*, le informazioni sul manager vengono archiviate come segnaposto nello spazio connettore. Se in seguito l'oggetto manager viene importato, l'oggetto segnaposto viene sovrascritto dall'oggetto di staging che rappresenta il manager.
 
-### Oggetti del metaverse
+### <a name="metaverse-objects"></a>Oggetti del metaverse
 Un oggetto del metaverse contiene la visualizzazione aggregata offerta dal motore di sincronizzazione degli oggetti di staging nello spazio connettore. Il motore di sincronizzazione crea gli oggetti del metaverse usando le informazioni negli oggetti di importazione. Più oggetti dello spazio connettore possono essere collegati a un solo oggetto del metaverse, ma un oggetto dello spazio connettore non può essere collegato a più di un oggetto del metaverse.
 
 Gli oggetti del metaverse non possono essere creati o eliminati manualmente. Il motore di sincronizzazione elimina automaticamente gli oggetti del metaverse senza un collegamento ad alcun oggetto nello spazio connettore.
 
 Per eseguire il mapping degli oggetti in un'origine dati connessa a un tipo di oggetto corrispondente nel metaverse, il motore di sincronizzazione fornisce uno schema estendibile con un set predefinito di tipi di oggetto e di attributi associati. È possibile creare nuovi tipi di oggetto e attributi per gli oggetti del metaverse. Gli attributi possono essere a valore singolo o multivalore e i tipi di attributo possono essere stringhe, riferimenti, numeri e valori booleani.
 
-### Relazioni tra oggetti di staging e oggetti del metaverse
+### <a name="relationships-between-staging-objects-and-metaverse-objects"></a>Relazioni tra oggetti di staging e oggetti del metaverse
 Nello spazio dei nomi del motore di sincronizzazione il flusso di dati è abilitato dalla relazione di collegamento tra oggetti di staging e oggetti del metaverse. Un oggetto di staging collegato a un oggetto del metaverse è chiamato **oggetto unito** (o **oggetto connettore**). Un oggetto di staging non collegato a un oggetto del metaverse è chiamato **oggetto separato** (o **oggetto sezionatore**). Si preferisce usare i termini unito e separato per non creare confusione con i connettori responsabili dell'importazione e dell'esportazione dei dati da una directory connessa.
 
 I segnaposto non sono mai collegati a un oggetto del metaverse
@@ -135,7 +136,7 @@ Usando gli oggetti separati è possibile archiviare le informazioni sull'identit
 
 Un oggetto di importazione viene creato come oggetto separato. Un oggetto di esportazione deve essere un oggetto unito. La logica di sistema applica questa regola ed elimina ogni oggetto di esportazione che non sia un oggetto unito.
 
-## Processo di gestione delle identità del motore di sincronizzazione
+## <a name="sync-engine-identity-management-process"></a>Processo di gestione delle identità del motore di sincronizzazione
 Il processo di gestione delle identità controlla come vengono aggiornate le informazioni sull'identità tra origini dati connesse diverse. La gestione delle identità viene eseguita in tre processi:
 
 - Importazione
@@ -152,7 +153,7 @@ La figura seguente illustra dove avviene ogni processo mentre le informazioni su
 
 ![Architettura 6](./media/active-directory-aadconnectsync-understanding-architecture/arch6.png)
 
-### Processo di importazione
+### <a name="import-process"></a>Processo di importazione
 Durante il processo di importazione, il motore di sincronizzazione valuta gli aggiornamenti alle informazioni sull'identità. Il motore di sincronizzazione confronta le informazioni sull'identità ricevute dall'origine dati connessa con le informazioni sull'identità di un oggetto di staging e determina se l'oggetto di staging richiede aggiornamenti. Se l'oggetto di staging deve essere aggiornato con nuovi dati, viene contrassegnato come pending import.
 
 Inserendo temporaneamente gli oggetti di staging nello spazio connettore prima della sincronizzazione, il motore di sincronizzazione può elaborare solo le informazioni sull'identità modificate. Questo processo offre i vantaggi seguenti:
@@ -180,7 +181,7 @@ Gli oggetti di staging con dati aggiornati vengono contrassegnati come pending i
 
 Impostando lo stato di importazione in sospeso di un oggetto di staging, è possibile ridurre considerevolmente la quantità di dati elaborati durante la sincronizzazione perché in questo modo il sistema può elaborare solo gli oggetti con dati aggiornati.
 
-### Processo di sincronizzazione
+### <a name="synchronization-process"></a>Processo di sincronizzazione
 La sincronizzazione è costituita da due processi correlati:
 
 - Sincronizzazione in ingresso, quando il contenuto del metaverse viene aggiornato usando i dati nello spazio connettore.
@@ -196,7 +197,7 @@ La sincronizzazione in ingresso crea nel metaverse la visualizzazione integrata 
 
 La sincronizzazione in ingresso include i processi seguenti:
 
-- **Provisioning** (chiamato anche **proiezione** se è importante distinguere questo processo dal provisioning della sincronizzazione in uscita). Il motore di sincronizzazione crea un nuovo oggetto del metaverse basato su un oggetto di staging e li collega. Il provisioning è un'operazione a livello di oggetto.
+- **Provision** (chiamato anche **proiezione** se è importante distinguere questo processo dal provisioning della sincronizzazione in uscita). Il motore di sincronizzazione crea un nuovo oggetto del metaverse basato su un oggetto di staging e li collega. Il provisioning è un'operazione a livello di oggetto.
 - **Join**. Il motore di sincronizzazione collega un oggetto di staging a un oggetto del metaverse esistente. Un join è un'operazione a livello di oggetto.
 - **Importazione del flusso degli attributi**. Il motore di sincronizzazione aggiorna i valori degli attributi, chiamati flusso degli attributi, dell'oggetto nel metaverse. L'importazione del flusso degli attributi è un'operazione a livello di attributo che richiede un collegamento tra un oggetto di staging e un oggetto del metaverse.
 
@@ -236,7 +237,7 @@ Durante il deprovisioning, l'eliminazione di un oggetto di esportazione non comp
 
 L'esportazione del flusso degli attributi viene eseguita anche durante il processo di sincronizzazione in uscita, analogamente a come l'importazione del flusso degli attributi viene eseguita durante la sincronizzazione in ingresso. L'esportazione del flusso dagli attributi viene eseguita solo tra gli oggetti del metaverse e di esportazione uniti.
 
-### Processo di esportazione
+### <a name="export-process"></a>Processo di esportazione
 Durante il processo di esportazione, il motore di sincronizzazione esamina tutti gli oggetti di esportazione contrassegnati come pending export nello spazio connettore e quindi invia gli aggiornamenti all'origine dati connessa.
 
 Il motore di sincronizzazione può determinare la riuscita di un'operazione di esportazione, ma non riesce a determinare che il processo di gestione delle identità è stato completato. Gli oggetti nell'origine dati connessa possono sempre essere modificati da altri processi. Poiché il motore di sincronizzazione non ha una connessione persistente all'origine dati connessa, non è sufficiente fare ipotesi sulle proprietà di un oggetto nell'origine dati connessa basandosi solo su una notifica di esportazione riuscita.
@@ -249,9 +250,13 @@ Il motore di sincronizzazione archivia le informazioni sullo stato dell'importaz
 
 Il motore di sincronizzazione, ad esempio, se esporta l'attributo C, che ha valore 5, in un'origine dati connessa, archivia C=5 nella memoria degli stati di esportazione. Ogni ulteriore esportazione eseguita su questo oggetto comporta un tentativo di esportare di nuovo C=5 nell'origine dati connessa perché il motore di sincronizzazione presuppone che questo valore non sia stato applicato in modo persistente all'oggetto (a meno che di recente non sia stato importato un valore diverso dall'origine dati connessa). La memoria di esportazione viene cancellata quando C=5 viene ricevuto durante un'operazione di importazione eseguita sull'oggetto.
 
-## Passaggi successivi
-Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+## <a name="next-steps"></a>Passaggi successivi
+Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -7,6 +7,7 @@
     manager="carmonm"
     editor=""
     tags="azure-resource-manager"
+    keywords="ipv6, azure load balancer, dual stack, ip pubblico, ipv6 nativo, mobili, iot"
 />
 <tags
     ms.service="load-balancer"
@@ -18,16 +19,17 @@
     ms.author="sewhee"
 />
 
-# Distribuire una soluzione di bilanciamento del carico con connessione Internet con IPv6 usando un modello
+
+# <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Distribuire una soluzione di bilanciamento del carico con connessione Internet con IPv6 usando un modello
 
 > [AZURE.SELECTOR]
-- [PowerShell](load-balancer-ipv6-internet-ps.md)
-- [Interfaccia della riga di comando di Azure](load-balancer-ipv6-internet-cli.md)
-- [Modello](load-balancer-ipv6-internet-template.md)
+- [PowerShell](./load-balancer-ipv6-internet-ps.md)
+- [Interfaccia della riga di comando di Azure](./load-balancer-ipv6-internet-cli.md)
+- [Modello](./load-balancer-ipv6-internet-template.md)
 
 Azure Load Balancer è un servizio di bilanciamento del carico di livello 4 (TCP, UDP). Il servizio di bilanciamento del carico offre disponibilità elevata distribuendo il traffico in ingresso tra istanze del servizio integre in servizi cloud o macchine virtuali in un set di bilanciamento del carico . Azure Load Balancer può anche presentare tali servizi su più porte, più indirizzi IP o entrambi.
 
-## Scenario di distribuzione di esempio
+## <a name="example-deployment-scenario"></a>Scenario di distribuzione di esempio
 
 Il diagramma seguente illustra la soluzione di bilanciamento del carico distribuita usando il modello di esempio descritto in questo articolo.
 
@@ -41,9 +43,9 @@ In questo scenario si creeranno le seguenti risorse di Azure:
 - un set di disponibilità contenente le due macchine virtuali
 - due macchine virtuali (VM)
 
-## Distribuzione del modello tramite il portale di Azure
+## <a name="deploying-the-template-using-the-azure-portal"></a>Distribuzione del modello tramite il portale di Azure
 
-Questo articolo fa riferimento a un modello pubblicato nella raccolta [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/). È possibile scaricare il modello dalla raccolta o avviare la distribuzione in Azure direttamente dalla raccolta. Questo articolo presuppone che il modello sia stato scaricato nel computer locale.
+Questo articolo fa riferimento a un modello pubblicato nella raccolta [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/201-load-balancer-ipv6-create/). È possibile scaricare il modello dalla raccolta o avviare la distribuzione in Azure direttamente dalla raccolta. Questo articolo presuppone che il modello sia stato scaricato nel computer locale.
 
 1. Aprire il portale di Azure e accedere con un account che abbia le autorizzazioni per la creazione di macchine virtuali e risorse di rete all'interno di una sottoscrizione di Azure. A meno che non si usino le risorse esistenti, l'account richiede le autorizzazioni per la creazione di un gruppo di risorse e un account di archiviazione.
 
@@ -65,7 +67,7 @@ Questo articolo fa riferimento a un modello pubblicato nella raccolta [Modelli d
 
     ![lb-ipv6-portal-step5](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
 
-6. Fare clic su "Modifica parametri". Nel pannello Parametri specificare i valori nella sezione dei parametri del modello, quindi fare clic su "Salva" per chiudere il pannello Parametri. Nel pannello Distribuzione personalizzata selezionare la sottoscrizione e un gruppo di risorse esistente oppure crearne uno. Se si crea un gruppo di risorse è necessario specificarne la posizione. Fare clic su **Note legali** e quindi su **Acquisto**. Azure avvierà la distribuzione delle risorse. Occorreranno alcuni minuti per la distribuzione di tutte le risorse.
+6. Fare clic su "Modifica parametri". Nel pannello Parametri specificare i valori nella sezione dei parametri del modello, quindi fare clic su "Salva" per chiudere il pannello Parametri. Nel pannello Distribuzione personalizzata selezionare la sottoscrizione e un gruppo di risorse esistente oppure crearne uno. Se si crea un gruppo di risorse è necessario specificarne la posizione. Fare clic su **Note legali**, quindi su **Acquisto**. Azure avvierà la distribuzione delle risorse. Occorreranno alcuni minuti per la distribuzione di tutte le risorse.
 
     ![lb-ipv6-portal-step6](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
 
@@ -85,7 +87,7 @@ Questo articolo fa riferimento a un modello pubblicato nella raccolta [Modelli d
 
     ![lb-ipv6-portal-step9](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
 
-## Convalidare la connettività
+## <a name="validate-connectivity"></a>Convalidare la connettività
 
 Dopo aver distribuito il modello correttamente, è possibile convalidare la connettività con le attività seguenti:
 
@@ -97,7 +99,7 @@ Dopo aver distribuito il modello correttamente, è possibile convalidare la conn
 >[AZURE.NOTE]
 ICMP per IPv4 e IPv6 è bloccato nella rete di Azure. Di conseguenza, gli strumenti ICMP come il ping hanno sempre esito negativo. Per testare la connettività usare un'alternativa TCP, ad esempio TCPing o il cmdlet Test-NetConnection di PowerShell. Si noti che gli indirizzi IP nel diagramma sono esempi di possibili valori. Poiché gli indirizzi IPv6 vengono assegnati dinamicamente, gli indirizzi ricevuti saranno diversi e potranno variare a seconda dell'area geografica. È anche comune che l'indirizzo IPv6 pubblico nel servizio di bilanciamento del carico inizi con un prefisso diverso da quello degli indirizzi IPv6 privati nel pool di back-end.
 
-## Parametri e variabili del modello
+## <a name="template-parameters-and-variables"></a>Parametri e variabili del modello
 
 Un modello di Azure Resource Manager contiene più variabili e parametri che è possibile personalizzare per le proprie esigenze. Le variabili vengono usate per valori fissi che non devono essere modificati dagli utenti. I parametri vengono usati per i valori che devono essere specificati dagli utenti quando si distribuisce il modello. Il modello di esempio è configurato per lo scenario descritto in questo articolo. Può essere personalizzato in base alle esigenze dell'ambiente.
 
@@ -128,4 +130,8 @@ Il modello di esempio usato in questo articolo include le variabili e i parametr
 
 Le altre variabili nel modello contengono valori derivati assegnati quando Azure crea le risorse. Non modificare queste variabili.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

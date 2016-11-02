@@ -8,15 +8,16 @@
    editor=""/>
 
 <tags
-   	ms.service="machine-learning"
-   	ms.workload="data-services"
-   	ms.tgt_pltfrm="na"
-   	ms.devlang="na"
-   	ms.topic="article"
-   	ms.date="09/22/2016"
-   	ms.author="v-donglo"/>
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/04/2016"
+    ms.author="v-donglo"/>
 
-# Distribuire un nuovo servizio Web
+
+# <a name="deploy-a-new-web-service"></a>Distribuire un nuovo servizio Web
 
 Microsoft Azure Machine Learning offre ora servizi Web basati su [Azure Resource Manager](../resource-group-overview.md) consentendo nuove opzioni del piano di fatturazione e la distribuzione del servizio Web in più aree.
 
@@ -33,36 +34,37 @@ L'immagine seguente illustra il flusso di lavoro.
 
 ![Flusso di lavoro per la distribuzione di un servizio Web][1]
  
-## Distribuire il servizio Web da Studio 
+## <a name="deploy-web-service-from-studio"></a>Distribuire il servizio Web da Studio 
 
-Per distribuire un esperimento come nuovo servizio Web. Accedere a Machine Learning Studio e creare un nuovo servizio Web predittivo.
+Per distribuire un esperimento come nuovo servizio Web. Accedere a Machine Learning Studio e creare un nuovo servizio Web predittivo. 
 
 **Nota**: se un esperimento è già stato distribuito come servizio Web classico non è possibile distribuirlo come un nuovo servizio Web.
  
-Fare clic su **Run** (Esegui) nella parte inferiore dell'esperimento di disegno e quindi fare clic su **Deploy Web Service** (Distribuisci servizio Web) e **Deploy Web Service [New]** (Distribuisci servizio Web) [New]. Verrà aperta la pagina di distribuzione del portale di gestione dei servizi Web di Machine Learning.
+Fare clic su **Run** (Esegui) nella parte inferiore dell'area di disegno dell'esperimento e quindi fare clic su **Deploy Web Service** (Distribuisci servizio Web) e su **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]). Verrà aperta la pagina di distribuzione del portale di gestione dei servizi Web di Machine Learning.
 
-## Pagina Deploy Experiment (Sperimentazione distribuzione) di Machine Learning Web Service Manager
-Nella pagina Deploy Experiment (Sperimentazione distribuzione) immettere un nome per il servizio Web. Selezionare un piano tariffario. Se è disponibile un piano tariffario, è possibile selezionarlo; in caso contrario è necessario creare un nuovo piano tariffario per il servizio.
+## <a name="machine-learning-web-service-manager-deploy-experiment-page"></a>Pagina Deploy Experiment (Sperimentazione distribuzione) di Machine Learning Web Service Manager
+Nella pagina Deploy Experiment (Sperimentazione distribuzione) immettere un nome per il servizio Web.
+Selezionare un piano tariffario. Se è disponibile un piano tariffario, è possibile selezionarlo; in caso contrario è necessario creare un nuovo piano tariffario per il servizio. 
 
-1.	Nell'elenco a discesa **Price Plan** (Piano tariffario) selezionare un piano esistente o l'opzione **Select new plan** (Seleziona nuovo piano).
-2.	In **Plan Name** (Nome piano) digitare un nome che identifica il piano di fatturazione.
-3.	Selezionare uno dei **livelli del piano mensile**. Si noti che per impostazione predefinita i livelli di piano vengono impostati sui piani per l'area predefinita e il servizio Web viene distribuito in tale area.
+1.  Nell'elenco a discesa **Price Plan** (Piano tariffario) selezionare un piano esistente o l'opzione **Select new plan** (Seleziona nuovo piano).
+2.  In **Plan Name**(Nome piano) digitare un nome che identifica il piano di fatturazione.
+3.  Selezionare uno dei **livelli del piano mensile**. Si noti che per impostazione predefinita i livelli di piano vengono impostati sui piani per l'area predefinita e il servizio Web viene distribuito in tale area.
 
 Fare clic su **Distribuisci** e verrà visualizzata la pagina Avvio rapido per il servizio Web.
 
-## Pagina Avvio rapido
-La pagina Avvio rapido del servizio Web offre indicazioni e accesso alle attività più comuni eseguite dopo la creazione di un nuovo servizio Web. Da qui è possibile accedere facilmente alle pagine **Test** e **Consume** (Uso).
+## <a name="quickstart-page"></a>Pagina Avvio rapido
+La pagina Avvio rapido del servizio Web offre indicazioni e accesso alle attività più comuni eseguite dopo la creazione di un nuovo servizio Web. Da qui è possibile accedere facilmente alle pagine di **test** e di **consumo**.
 
-## Test del servizio Web
+## <a name="testing-your-web-service"></a>Test del servizio Web
 
-Dalla pagina Avvio rapido fare clic su Test web service (Test servizio Web) nelle attività comuni.
+Dalla pagina Avvio rapido fare clic su Test web service (Test servizio Web) nelle attività comuni.   
 
 Per eseguire il test del servizio Web come servizio di richiesta-risposta (RRS):
 
 * Fare clic su **Test** nella barra dei menu.
-* Fare clic su **Request-Response** (Richiesta-risposta).
+* Fare clic su **Request-Response**(Richiesta-risposta).
 * Immettere i valori appropriati per le colonne di input dell'esperimento.
-* Fare clic su Test **Request-Response** (Test Richiesta-risposta).
+* Fare clic su Test **Request-Response**(Test Richiesta-risposta).
 
 I risultati verranno visualizzati sul lato destro della pagina.
 
@@ -73,9 +75,9 @@ Per testare un servizio di esecuzione batch (BES), si userà un file CSV:
 * Sotto l'input fare clic su Sfoglia e passare al file di dati di esempio.
 * Fare clic su **Test**.
 
-Lo stato del test viene visualizzato in **Test Batch Jobs** (Test Processi batch).
+Lo stato del test viene visualizzato in **Test Batch Jobs**(Test Processi batch).
 
-## Uso del servizio Web
+## <a name="consuming-your-web-service"></a>Uso del servizio Web
 
 Quando viene pubblicato come servizio Web, gli esperimenti Azure Machine Learning forniscono un'API REST che può essere utilizzata da un'ampia gamma di dispositivi e piattaforme. Infatti, la semplice API REST accetta e risponde con messaggi in formato JSON. Il portale di Azure Machine Learning fornisce il codice che può essere utilizzato per chiamare il servizio Web in R, c# e Python.
  
@@ -87,7 +89,7 @@ Nella pagina relativa all'uso è possibile trovare:
 
 Per altre informazioni sull'uso dei servizi Web, vedere [Come usare un servizio Web di Azure Machine Learning distribuito da un esperimento di Machine Learning](machine-learning-consume-web-services.md).
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sull'utilizzo dei servizi Web, vedere:
 
@@ -101,4 +103,8 @@ Per altre informazioni sull'utilizzo dei servizi Web, vedere:
 
 <!--links-->
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

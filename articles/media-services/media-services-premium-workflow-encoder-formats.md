@@ -1,42 +1,43 @@
 <properties 
-	pageTitle="Codec e formati del flusso di lavoro Premium del codificatore multimediale | Microsoft Azure" 
-	description="Questo argomento offre una panoramica dei codec e dei formati del flusso di lavoro Premium del codificatore multimediale" 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="erik43" 
-	editor=""/>
+    pageTitle="Codec e formati del flusso di lavoro Premium del codificatore multimediale | Microsoft Azure" 
+    description="Questo argomento offre una panoramica dei codec e dei formati del flusso di lavoro Premium del codificatore multimediale" 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako" 
+    manager="erik43" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/26/2016"    
-	ms.author="juliako;anilmur"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/26/2016"    
+    ms.author="juliako;anilmur"/>
 
-#Codec e formati del flusso di lavoro Premium del codificatore multimediale
+
+#<a name="media-encoder-premium-workflow-formats-and-codecs"></a>Codec e formati del flusso di lavoro Premium del codificatore multimediale
 
 
 >[AZURE.NOTE]Per domande relative al codificatore Premium, inviare mepd tramite un messaggio di posta elettronica a Microsoft.com.
 >
->Il processore di contenuti multimediali del flusso di lavoro Premium del codificatore multimediale descritto in questo argomento non è disponibile in Cina.
+>Il processore di contenuti multimediali del flusso di lavoro Premium del codificatore multimediale descritto in questo argomento non è disponibile in Cina. 
 
-Questo documento include un elenco dei codec e dei formati di file di input e output supportati nella versione di anteprima pubblica del codificatore per il **flusso di lavoro Premium del codificatore multimediale**.
+Questo documento include un elenco dei codec e dei formati di file di input e output supportati nella versione di anteprima pubblica del codificatore per il **flusso di lavoro Premium del codificatore multimediale** .
 
 [Codec e formati di input del flusso di lavoro Premium del codificatore multimediale](#input_formats)
 
 [Codec e formati di output del flusso di lavoro Premium del codificatore multimediale](#output_formats)
 
-Il **flusso di lavoro Premium del codificatore multimediale** supporta i sottotitoli codificati descritti in [questa](#closed_captioning) sezione.
+**flusso di lavoro Premium del codificatore multimediale** supporta i sottotitoli codificati descritti in [questa](#closed_captioning) sezione. 
 
 
-##<a id="input_formats"></a>Codec e formati di input del flusso di lavoro Premium del codificatore multimediale
+##<a name="<a-id="input_formats"></a>media-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>Codec e formati di input del flusso di lavoro Premium del codificatore multimediale
 
 La seguente sezione include l'elenco dei codec e dei formati di file supportati come input da questo processore di contenuti multimediali.
 
-###Contenitore di input/formati di file
+###<a name="input-container/file-formats"></a>Contenitore di input/formati di file
 
 - Adobe® Flash® F4V
 - MXF/SMPTE 377M
@@ -47,7 +48,7 @@ La seguente sezione include l'elenco dei codec e dei formati di file supportati 
 - Windows Media/ASF
 - AVI (non compresso 8 bit/10 bit)
 
-###Codec video di input
+###<a name="input-video-codecs"></a>Codec video di input
 
 - AVC 8 bit/10 bit, fino a 4:2:2, incluso AVCIntra
 - Avid DNxHD (in MXF)
@@ -57,7 +58,7 @@ La seguente sezione include l'elenco dei codec e dei formati di file supportati 
 - MPEG-1
 - Windows Media Video/VC-1
 
-###Codec audio di input
+###<a name="input-audio-codecs"></a>Codec audio di input
 
 - AES (SMPTE 331M e 302M, AES3-2003)
 - Dolby® E
@@ -68,11 +69,11 @@ La seguente sezione include l'elenco dei codec e dei formati di file supportati 
 - Windows Media Audio
 - WAV/PCM
  
-##<a id="output_format"></a>Codec e formati di output del flusso di lavoro Premium del codificatore multimediale
+##<a name="<a-id="output_format"></a>media-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>Codec e formati di output del flusso di lavoro Premium del codificatore multimediale
 
 La seguente sezione include l'elenco dei codec e dei formati di file supportati come output da questo processore di contenuti multimediali.
 
-###Contenitore di output/formati di file
+###<a name="output-container/file-formats"></a>Contenitore di output/formati di file
 
 - Adobe® Flash® F4V
 - MXF (OP1a, XDCAM e AS02)
@@ -82,10 +83,10 @@ La seguente sezione include l'elenco dei codec e dei formati di file supportati 
 - Windows Media/ASF
 - AVI (non compresso 8 bit/10 bit)
 - Formato di file Smooth Streaming (PIFF 1.3)
-- MPEG-TS
+- MPEG-TS 
 
 
-###Codec video di output
+###<a name="output-video-codecs"></a>Codec video di output
 
 - AVC (H.264; 8 bit; fino a High Profile, Level 5.2; 4K Ultra HD; AVC Intra)
 - Avid DNxHD (in MXF)
@@ -95,7 +96,7 @@ La seguente sezione include l'elenco dei codec e dei formati di file supportati 
 - Windows Media Video/VC-1
 - Creazione anteprime JPEG
 
-###Codec audio di output
+###<a name="output-audio-codecs"></a>Codec audio di output
 
 - AES (SMPTE 331M e 302M, AES3-2003)
 - Dolby® Digital (AC3)
@@ -105,7 +106,7 @@ La seguente sezione include l'elenco dei codec e dei formati di file supportati 
 - MP3 (MPEG-1 Audio Layer 3)
 - Windows Media Audio
 
-##<a id="closed_captioning"></a>Supporto per sottotitoli codificati
+##<a name="<a-id="closed_captioning"></a>support-for-closed-captioning"></a><a id="closed_captioning"></a>Supporto per sottotitoli codificati
 
 In ingresso, il **flusso di lavoro Premium del codificatore multimediale** supporta:
 
@@ -125,17 +126,21 @@ In uscita, sono disponibili le seguenti opzioni:
 
 Nota: non tutti i formati di output precedenti sono supportati per il recapito tramite streaming in Servizi multimediali di Azure.
 
-##Problemi noti
+##<a name="known-issues"></a>Problemi noti
 
-Se il video di input non contiene i sottotitoli codificati, l'asset di output conterrà comunque un file TTML vuoto.
+Se il video di input non contiene i sottotitoli codificati, l'asset di output conterrà comunque un file TTML vuoto. 
 
 
-##Percorsi di apprendimento di Servizi multimediali
+##<a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Fornire commenti e suggerimenti
+##<a name="provide-feedback"></a>Fornire commenti e suggerimenti
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

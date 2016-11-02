@@ -14,12 +14,13 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="06/27/2016"
-   ms.author="andkjell;billmath"/>
+   ms.author="billmath"/>
 
-# Altre informazioni sulle funzionalità in anteprima
+
+# <a name="more-details-about-features-in-preview"></a>Altre informazioni sulle funzionalità in anteprima
 Questo argomento descrive come usare le funzionalità attualmente in anteprima.
 
-## Writeback dei gruppi
+## <a name="group-writeback"></a>Writeback dei gruppi
 L'opzione per il writeback dei gruppi nelle funzionalità facoltative consentirà il writeback dei **gruppi di Office 365** in una foresta in cui è installato Exchange. Si tratta di un gruppo che viene sempre gestito nel cloud. Se Exchange è disponibile in locale, è possibile eseguire il writeback di questi gruppi in locale in modo che gli utenti con una cassetta postale di Exchange locale possano inviare e ricevere messaggi di posta elettronica da questi gruppi.
 
 Altre informazioni sui gruppi di Office 365 e su come usarli sono disponibili [qui](http://aka.ms/O365g).
@@ -35,12 +36,16 @@ Questo gruppo verrà rappresentato come gruppo di distribuzione in AD DS locale.
 
 >[AZURE.NOTE] Per il writeback dei gruppi è necessaria una sottoscrizione di Azure AD Premium.
 
-## Writeback degli utenti
+## <a name="user-writeback"></a>Writeback degli utenti
 > [AZURE.IMPORTANT] La funzionalità di anteprima di writeback degli utenti è stata rimossa nell'aggiornamento di agosto 2015 di Azure AD Connect. Se questa funzionalità è stata abilitata, è necessario disabilitarla.
 
-## Passaggi successivi
-Continuare l'[Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
+## <a name="next-steps"></a>Passaggi successivi
+Continuare l'[Installazione personalizzata di Azure AD Connect](./aad-connect/active-directory-aadconnect-get-started-custom.md).
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

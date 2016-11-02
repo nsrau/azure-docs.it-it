@@ -1,46 +1,47 @@
 <properties
-	pageTitle="Usare l'archiviazione di Azure nelle app di Windows Store | Microsoft Azure"
-	description="Scoprire come creare un'applicazione di Windows Store che usa l'archiviazione BLOB, code, tabelle o file di Azure."
-	services="storage"
-	documentationCenter=""
-	authors="tamram"
-	manager="carmonm"
-	editor="tysonn"/>
+    pageTitle="Usare l'archiviazione di Azure nelle app di Windows Store | Microsoft Azure"
+    description="Scoprire come creare un'applicazione di Windows Store che usa l'archiviazione BLOB, code, tabelle o file di Azure."
+    services="storage"
+    documentationCenter=""
+    authors="tamram"
+    manager="carmonm"
+    editor="tysonn"/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="mobile-windows-store"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="micurd;tamram"/>
-	
-# Come usare l'archiviazione di Azure nelle app di Windows Store
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="mobile-windows-store"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="10/18/2016"
+    ms.author="tamram"/>
+    
 
-## Overview
+# <a name="how-to-use-azure-storage-in-windows-store-apps"></a>Come usare l'archiviazione di Azure nelle app di Windows Store
+
+## <a name="overview"></a>Overview
 
 In questa guida viene illustrato come iniziare a sviluppare un'applicazione Windows Store che utilizzi l'archiviazione di Azure.
 
-## Download degli strumenti richiesti
+## <a name="download-required-tools"></a>Download degli strumenti richiesti
 
-- [Visual Studio](https://www.visualstudio.com/it-IT/visual-studio-homepage-vs.aspx) semplifica le operazioni di compilazione, debug, localizzazione, creazione di pacchetti e distribuzione delle app di Windows Store. È richiesto Visual Studio 2012 o versione successiva.
+- [Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) semplifica le operazioni di compilazione, debug, localizzazione, creazione di pacchetti e distribuzione delle app di Windows Store. È richiesto Visual Studio 2012 o versione successiva.
 - La [libreria client di archiviazione di Azure](https://www.nuget.org/packages/WindowsAzure.Storage) fornisce una libreria di classi per Windows Runtime per l'uso di Archiviazione di Azure.
-- Gli [strumenti di WCF Data Services per app di Windows Store](http://www.microsoft.com/download/details.aspx?id=30714) ampliano l'esperienza della finestra di dialogo Aggiungi riferimento al servizio con il supporto OData lato client per le app di Windows Store in Visual Studio.
+- [strumenti di WCF Data Services per app di Windows Store](http://www.microsoft.com/download/details.aspx?id=30714) ampliano l'esperienza della finestra di dialogo Aggiungi riferimento al servizio con il supporto OData lato client per le app di Windows Store in Visual Studio.
 
-## Sviluppo di applicazioni
+## <a name="develop-apps"></a>Sviluppo di applicazioni
 
-### Preparazione
+### <a name="getting-ready"></a>Preparazione
 
 Creare un nuovo progetto di app di Windows Store in Visual Studio 2012 o versione successiva:
 
 ![store-apps-storage-vs-project][store-apps-storage-vs-project]
 
-Di seguito, aggiungere un riferimento alla libreria client di archiviazione di Azure facendo clic con il pulsante destro del mouse su **References**, quindi scegliendo **Add Reference** e passando alla libreria client di archiviazione per Windows Runtime scaricata:
+Quindi aggiungere un riferimento alla libreria client di archiviazione di Azure facendo clic con il pulsante destro del mouse su **Riferimenti**, quindi scegliendo **Aggiungi riferimento** e passando alla libreria client di archiviazione per Windows Runtime scaricata:
 
 ![store-apps-storage-choose-library][store-apps-storage-choose-library]
 
-### Usare la libreria con BLOB e i servizi di accodamento
+### <a name="using-the-library-with-the-blob-and-queue-services"></a>Usare la libreria con BLOB e i servizi di accodamento
 
 A questo punto l'app è pronta per chiamare i servizi BLOB e di accodamento di Azure. Aggiungere le seguenti istruzioni **using** in modo che sia possibile fare direttamente riferimento ai tipi di archiviazione di Azure:
 
@@ -59,7 +60,7 @@ Questo codice presuppone che si abbiano due variabili di stringa, *accountName* 
 
 Compilare ed eseguire l'applicazione. Fare clic sul pulsante per controllare prima se esiste un contenitore denominato *container1* nel proprio account e crearlo se non esiste.
 
-### Utilizzare la libreria con il servizio tabelle
+### <a name="using-the-library-with-the-table-service"></a>Utilizzare la libreria con il servizio tabelle
 
 I tipi utilizzati per comunicare con il servizio tabelle di Azure dipendono dalla libreria di Servizi dati WCF per le app di Windows Store. Di seguito, aggiungere un riferimento alle librerie WCF richieste usando la Console di Gestione pacchetti:
 
@@ -89,4 +90,8 @@ Questo codice verifica se esiste una tabella denominata *table1* nell'account, c
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

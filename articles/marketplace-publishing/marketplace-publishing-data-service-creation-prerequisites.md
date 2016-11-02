@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Prerequisiti tecnici per la creazione di un servizio dati per il Marketplace | Microsoft Azure"
-   description="Informazioni sui requisiti per la creazione di un’offerta del servizio dati da distribuire e vendere in Azure Marketplace"
+   pageTitle="Technical Pre-requisites for creating a Data Service for the Marketplace | Microsoft Azure"
+   description="Understand the requirements for creating a Data Service to deploy and sell on the Azure Marketplace"
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
-   manager=""
+   manager="hascipio"
    editor=""/>
 
 <tags
@@ -16,57 +16,62 @@
    ms.date="08/26/2016"
    ms.author="hascipio; avikova" />
 
-# Prerequisiti tecnici per la creazione di un’offerta del servizio dati per Azure Marketplace
 
->[AZURE.IMPORTANT] **In questo momento non stiamo più caricando nuovi editori di servizi dati. I nuovi servizi dati non saranno approvati per l'elencazione.** Se si dispone di un'applicazione aziendale SaaS che si vuole pubblicare in AppSource, è possibile trovare altre informazioni [qui](https://appsource.microsoft.com/partners). Se si dispone di un'applicazione IaaS o di un servizio per gli sviluppatori che si desidera pubblicare in Azure Marketplace, è possibile trovare altre informazioni [qui](https://azure.microsoft.com/marketplace/programs/certified/).
+# <a name="technical-pre-requisites-for-creating-a-data-service-offer-for-the-azure-marketplace"></a>Technical Pre-requisites for creating a Data Service offer for the Azure Marketplace
 
-Leggere attentamente le informazioni sul processo prima di iniziare e comprendere dove e perché viene eseguito ogni passaggio. Per quanto possibile, è necessario preparare le informazioni sulla società e altri dati, scaricare gli strumenti necessari e/o creare i componenti tecnici prima di iniziare il processo di creazione dell'offerta.
+>[AZURE.IMPORTANT] **At this time we are no longer onboarding any new Data Service publishers. New dataservices will not get approved for listing.** If you have a SaaS business application you would like to publish on AppSource you can find more information [here](https://appsource.microsoft.com/partners). If you have an IaaS applications or developer service you would like to publish on Azure Marketplace you can find more information [here](https://azure.microsoft.com/marketplace/programs/certified/).
 
-È necessario disporre dei seguenti elementi prima di iniziare il processo:
+Read the process thoroughly before beginning and understand where and why each step is performed. As much as possible, you should prepare your company information and other data, download necessary tools, and/or create technical components before beginning the offer creation process.
 
-## Prendere una decisione sulla tecnologia che verrà utilizzata per pubblicare l'offerta del servizio dati
+You should have the following items ready before beginning the process:
 
-Un autore può scegliere tra più tecnologie per la pubblicazione del servizio dati in Azure Marketplace. Le principali tecnologie supportate sono descritte di seguito. Indipendentemente dalla tecnologia utilizzata per pubblicare il servizio dati, l'utente finale utilizza i dati tramite il **feed OData** esposto dal servizio di Azure Marketplace. Informazioni dettagliate sul servizio OData sono disponibili nella [http://www.odata.org/](http://www.odata.org/)
+## <a name="make-a-decision-on-what-technology-will-be-used-to-publish-your-data-service-offer"></a>Make a decision on what technology will be used to publish your Data Service offer
 
-## SQL Azure Database
+A Publisher can decide between multiple technologies when publishing Data Service in Azure Marketplace. The main technologies that are supported described below. Regardless what technology is used to publish the Data Service, the end-user consumes the data through the **OData feed** exposed by Azure Marketplace Service. Full information about OData service you can find on [http://www.odata.org/](http://www.odata.org/)
 
-Fare in modo che i set di dati siano disponibili in SQL Azure è responsabilità dell’autore. È necessario eseguire la sottoscrizione ad Azure, effettuare il provisioning di dimensioni appropriate del database e caricare i dati nel database di SQL Azure. L’autore è inoltre responsabile del mantenimento dei dati aggiornati. Ulteriori informazioni sulla sottoscrizione ai servizi di Azure è disponibile all’indirizzo [https://azure.microsoft.com/services/sql-database/](https://azure.microsoft.com/services/sql-database/)
+## <a name="sql-azure-database"></a>SQL Azure Database
 
-
-Quando si spostano i dati in SQL Azure, Azure Marketplace può esporre le tabelle e le viste. L’autore può specificare quali tabelle/viste e colonne vengono esposte all'utente finale. Il provider di contenuti inoltre può specificare ulteriormente per quali colonne è possibile eseguire query da parte dell'utente finale e quali vengono restituite solo nel payload. Questo offre un elevato livello di flessibilità sui dati nel database che devono essere esposti. Le colonne per cui è possibile eseguire una query devono essere supportate da uno o più indici di database.
-
-## Servizio Web basato su REST
-
-Protocolli supportati: **solo HTTPS**
-
-I servizi basati su REST esistenti possono essere esposti tramite Azure Marketplace. Poiché il set di dati è sempre esposto all'utente finale come feed OData, il servizio di Azure Marketplace deve essere in grado di eseguire il mapping del servizio in un servizio basato su OData. A tale scopo gli endpoint basati su REST devono esporre tutti i parametri come parametri HTTP.
-
-Il payload deve essere in un forma che possa essere mappata in una risposta ATOM. Pertanto la risposta dai servizi devono essere in formato XML e può contenere solo un elemento ripetuto che contiene i valori del payload (ad esempio, il set di record). Il servizio di Azure Marketplace esegue il mapping del nodo ripetuto per il nodo di ingresso in ATOM e dei valori del payload in nodi di proprietà all'interno del nodo di ingresso.
-
-Le informazioni di autorizzazione (ad esempio API chiave, token di autenticazione, ecc.) devono essere fornite come parametro HTTP o nell'intestazione HTTP (coppia chiave-valore): è supportata anche l'autenticazione di base. È necessario specificare una chiave valida e tutte le richieste tramite Azure Marketplace vengono effettuate tramite tale chiave. Il monitoraggio degli utenti e la fatturazione avvengono a livello di Azure Marketplace.
-
-Gli errori restituiti dal servizio devono essere mappati in codici di stato HTTP. Nel caso in cui il servizio restituisca un elemento XML che contiene l'errore, questi verranno mappati dal servizio di Azure Marketplace in codici di stato HTTP.
-
-## Servizi Web basati su SOAP
-
-Protocollo: **solo HTTPS**
-
-I requisiti sono che gli stessi della sezione del servizio basata su REST. L'unica differenza è che i parametri possono essere forniti anche in un corpo XML che viene inviato al servizio dell’autore con ogni richiesta effettuata tramite Azure Marketplace. Ciò significa che i parametri HTTP forniti dall'utente al front-end sono convertiti in elementi XML di un documento XML che viene pubblicato con la richiesta al servizio Web del provider di contenuti.
-
-## Servizi Web basati su OData
-
-Protocollo: **solo HTTPS**
-
-I dati possono essere esposti come servizio OData in Azure Marketplace. Il sistema passa attraverso il servizio e sostituisce la radice del servizio con la radice del servizio Azure Marketplace per garantire che tutte le chiamate successive passino attraverso Azure Marketplace.
-
-I servizi OData non devono passare solo in un database back-end. OData supporta qualsiasi tipo di archiviazione o logica di business per supportare il servizio.
+Having dataset ready in SQL Azure is Publisher’s responsibility. You’ll need to subscribe to Azure, provision appropriate size of Database and upload your Data into SQL Azure DB. Publisher is also responsible to keep his/her data always up-to-date. More information about subscribing to Azure Services you can find on [https://azure.microsoft.com/services/sql-database/](https://azure.microsoft.com/services/sql-database/)
 
 
-## Passaggi successivi
-Dopo avere esaminato i prerequisiti e aver completato le attività necessarie, ora è possibile procedere alla creazione dell'offerta del servizio dati, come illustrato in dettaglio nella [Guida alla pubblicazione di un servizio dati](marketplace-publishing-data-service-creation.md).
+When moving the data into SQL Azure, the Azure Marketplace can expose tables and views. The Publisher can specify which tables/views and columns are exposed to the end-user. Further the content provider can also specify which columns can be queried by the end-user and which ones are only returned in the payload. This gives a high level of flexibility about which data in the database should be exposed. Columns that can be queried need to be backed by one or more database indices.
 
-Se si desidera rivedere il processo generale e i rispettivi articoli per ognuna delle fasi di pubblicazione, consultare l'articolo [Guida introduttiva: come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md).
+## <a name="rest-based-web-service"></a>REST based web service
 
-[link-acct]: marketplace-publishing-accounts-creation-registration.md
+Supported protocol: **HTTPS only**
 
-<!---HONumber=AcomDC_0831_2016-->
+Existing REST based services can be exposed through the Azure Marketplace. Because the dataset is always exposed to the end-user as an OData feed, the Azure Marketplace service needs to be able to map the service to a OData based service. To do so the REST based endpoints need to expose all parameters as HTTP parameters.
+
+The payload needs to be in a form that can be mapped into an ATOM response. Hence the response from the services needs to be in XML format and can only contain one repeating element that contains the payload values (like record set). The Azure Marketplace service will map the repeating node to the entry node in ATOM and the payload values into property nodes within the entry node.
+
+Authorization information (such as API key, authentication token, etc.) needs to be provided as an HTTP parameter or in the HTTP header (key value pair) – basic authentication is also supported. A valid key needs to be provided and all requests through Azure Marketplace are being made through that key. User monitoring and billing happens at the Azure Marketplace layer.
+
+Errors returned by the service need to be mapped into HTTP status codes. In case the service returns a XML that contains the error these are going to be mapped by the Azure Marketplace service to HTTP status codes.
+
+## <a name="soap-based-web-services"></a>SOAP based web services
+
+Protocol: **HTTPS only**
+
+The requirements are the same as in the REST based service section. The only difference is that parameters can also be provided in an XML body that’s being posted to the Publisher’s service with every request made through Azure Marketplace. This means that HTTP parameters the user provides at the front-end are being translated into XML elements of an XML document that’s being posted with the request to the content provider’s web service.
+
+## <a name="odata-based-web-services"></a>OData based web services
+
+Protocol: **HTTPS only**
+
+Data can be exposed as an OData service to Azure Marketplace. The system is going to pass the service through and replaces the root of the service with the Azure Marketplace service root – to ensure all subsequent calls go through Azure Marketplace.
+
+OData services don’t only need to go against a database in the backend. OData supports any kind of storage or business logic to drive the service.
+
+
+## <a name="next-steps"></a>Next Steps
+Now that you reviewed the pre-requisites and completed the necessary tasks, you can move forward with the creating your Data Service offer as detailed in the [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md).
+
+Or, if you would like to review the overall process and the respective articles for each of the publishing phases, please visit the article [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md).
+
+[link-acct]:marketplace-publishing-accounts-creation-registration.md
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

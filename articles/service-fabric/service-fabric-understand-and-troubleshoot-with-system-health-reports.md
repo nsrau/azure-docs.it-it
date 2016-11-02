@@ -16,9 +16,10 @@
    ms.date="09/28/2016"
    ms.author="oanapl"/>
 
-# Usare i report sull'integrità del sistema per la risoluzione dei problemi
 
-I componenti di Azure Service Fabric forniscono report predefiniti su tutte le entità del cluster. L'[archivio integrità](service-fabric-health-introduction.md#health-store) crea ed elimina le entità in base ai report di sistema. Le organizza anche in una gerarchia che acquisisce le interazioni delle entità.
+# <a name="use-system-health-reports-to-troubleshoot"></a>Usare i report sull'integrità del sistema per la risoluzione dei problemi
+
+I componenti di Azure Service Fabric forniscono report predefiniti su tutte le entità del cluster. L' [archivio integrità](service-fabric-health-introduction.md#health-store) crea ed elimina le entità in base ai report di sistema. Le organizza anche in una gerarchia che acquisisce le interazioni delle entità.
 
 > [AZURE.NOTE] Per comprendere i concetti correlati all'integrità, vedere altre informazioni sul [modello di integrità di Service Fabric](service-fabric-health-introduction.md).
 
@@ -26,26 +27,27 @@ I report sull'integrità del sistema forniscono la visibilità delle funzionalit
 
 > [AZURE.NOTE] I report sull'integrità dei watchdog sono visibili solo *dopo* che i componenti di sistemala hanno creato un'entità. Quando si elimina un'entità, l'archivio integrità elimina automaticamente tutti i report sull'integrità ad essa associati. Lo stesso vale quando si crea una nuova istanza dell'entità, ad esempio, viene creata una nuova istanza di replica del servizio. Tutti i report associati all'istanza precedente vengono eliminati e rimossi dall'archivio.
 
-I report sui componenti di sistema vengono identificati dall'origine, che inizia con il prefisso "**System**". I watchdog non possono usare lo stesso prefisso per le proprie origini, perché i report con parametri non validi vengono rifiutati. Si osserveranno alcuni report di sistema per capire da quali eventi vengono attivati e come risolvere gli eventuali problemi che rappresentano.
+I report sui componenti di sistema vengono identificati dall'origine, che inizia con il prefisso "**System.**" . I watchdog non possono usare lo stesso prefisso per le proprie origini, perché i report con parametri non validi vengono rifiutati.
+Si osserveranno alcuni report di sistema per capire da quali eventi vengono attivati e come risolvere gli eventuali problemi che rappresentano.
 
 > [AZURE.NOTE] Service Fabric continua ad aggiungere report sulle condizioni di interesse che possono migliorare la visibilità degli eventi che si verificano nel cluster o nell'applicazione.
 
-## Report sull'integrità del sistema cluster
+## <a name="cluster-system-health-reports"></a>Report sull'integrità del sistema cluster
 L'entità di integrità del cluster viene creata automaticamente nell'archivio integrità. Se tutto funziona correttamente, non è disponibile un report di sistema.
 
-### Perdita di nodi vicini
+### <a name="neighborhood-loss"></a>Perdita di nodi vicini
 **System.Federation** segnala un errore quando rileva una perdita di nodi vicini. Il report è relativo a singoli nodi e l'ID del nodo è incluso nel nome della proprietà. Se si verifica la perdita di un nodo vicino nell'intero anello di Service Fabric, in genere è possibile prevedere due eventi (entrambi i lati del gap effettuano la segnalazione). In caso di perdita di più nodi vicini, si verificano più eventi.
 
 Il report specifica il timeout di lease globale come durata (TTL). Il report viene inviato di nuovo ogni metà della durata TTL finché la condizione rimane attiva. Quando scade, l'evento viene rimosso automaticamente. Il comportamento di rimozione alla scadenza garantisce la corretta eliminazione del report dall'archivio integrità anche quando il nodo da cui è stato creato è inattivo.
 
 - **SourceId**: System.Federation
-- **Proprietà**: inizia con **Neighborhood** e include informazioni sul nodo.
-- **Passaggi successivi**: analizzare il motivo della perdita del nodo vicino. Ad esempio, controllare la comunicazione tra i nodi del cluster.
+- **Proprietà**: inizia con **Neighborhood** e include informazioni sul nodo
+- **Passaggi successivi**: analizzare il motivo della perdita del nodo vicino, ad esempio controllare la comunicazione tra i nodi del cluster.
 
-## Report sull'integrità del sistema di nodi
+## <a name="node-system-health-reports"></a>Report sull'integrità del sistema di nodi
 **System.FM**, che rappresenta il servizio Gestione failover, è l'autorità che gestisce le informazioni sui nodi del cluster. Ogni nodo deve avere un report generato da System.FM che mostra il relativo stato. Le entità nodo vengono rimosse quando viene rimosso lo stato del nodo (vedere [RemoveNodeStateAsync](https://msdn.microsoft.com/library/azure/mt161348.aspx)).
 
-### Nodo attivo/inattivo
+### <a name="node-up/down"></a>Nodo attivo/inattivo
 System.FM restituisce OK quando il nodo viene aggiunto all'anello, ovvero è operativo. Segnala un errore quando il nodo non fa più parte dell'anello, ovvero è inattivo perché è in corso un aggiornamento o semplicemente perché si è verificato un errore. La gerarchia di integrità creata dall'archivio integrità agisce sulle entità distribuite in correlazione con i report sui nodi di System.FM. Considera il nodo un elemento padre virtuale di tutte le entità distribuite. Le entità distribuite in tale nodo vengono esposte tramite query se il nodo è segnalato come attivo da System.FM, con la stessa istanza associata alle entità. Quando System.FM segnala che il nodo è inattivo o riavviato (nuova istanza), l'archivio integrità elimina automaticamente le entità distribuite eventualmente esistenti solo nel nodo inattivo o nell'istanza precedente del nodo.
 
 - **SourceId**: System.FM
@@ -75,31 +77,31 @@ HealthEvents          :
 ```
 
 
-### Scadenza dei certificati
-**System.FabricNode** segnala una condizione di avviso quando si avvicina la scadenza dei certificati usati dal nodo. Ogni nodo ha tre certificati: **Certificate\_cluster**, **Certificate\_server** e **Certificate\_default\_client**. Quando mancano almeno due settimane alla scadenza, lo stato di integrità del report è OK. Quando la scadenza è entro due settimane, il tipo di report è un avviso. Il valore TTL di questi eventi è infinito e vengono rimossi quando un nodo esce dal cluster.
+### <a name="certificate-expiration"></a>Scadenza dei certificati
+**System.FabricNode** segnala una condizione di avviso quando si avvicina la scadenza dei certificati usati dal nodo. Ogni nodo ha tre certificati: **Certificate_cluster**, **Certificate_server** e **Certificate_default_client**. Quando mancano almeno due settimane alla scadenza, lo stato di integrità del report è OK. Quando la scadenza è entro due settimane, il tipo di report è un avviso. Il valore TTL di questi eventi è infinito e vengono rimossi quando un nodo esce dal cluster.
 
 - **SourceId**: System.FabricNode
-- **Proprietà**: inizia con **Certificate** e contiene altre informazioni sul tipo di certificato.
+- **Proprietà**: inizia con **Certificate** e contiene altre informazioni sul tipo di certificato
 - **Passaggi successivi**: aggiornare i certificati se sono prossimi alla scadenza.
 
-### Violazione della capacità di carico
+### <a name="load-capacity-violation"></a>Violazione della capacità di carico
 Il servizio di bilanciamento del carico di Service Fabric segnala una condizione di avviso se rileva una violazione della capacità del nodo.
 
  - **SourceId**: System.PLB
- - **Proprietà**: inizia con **Capacity**.
+ - **Proprietà**: inizia con **Capacity**
  - **Passaggi successivi**: controllare la metrica fornita e visualizzare la capacità corrente nel nodo.
 
-## Report sull'integrità del sistema di applicazioni
+## <a name="application-system-health-reports"></a>Report sull'integrità del sistema di applicazioni
 **System.CM**, che rappresenta il servizio Cluster Manager, è l'autorità che gestisce le informazioni sull'applicazione.
 
-### Stato
+### <a name="state"></a>Stato
 System.CM restituisce OK quando l'applicazione viene creata o aggiornata. Informa l'archivio integrità quando l'applicazione viene eliminata, in modo che possa essere rimossa dall'archivio.
 
 - **SourceId**: System.CM
 - **Proprietà**: State
 - **Passaggi successivi**: se l'applicazione è stata creata, deve includere il report sull'integrità di Cluster Manager. In caso contrario, controllare lo stato dell'applicazione eseguendo una query, ad esempio con il cmdlet **Get-ServiceFabricApplication -ApplicationName *applicationName*** di PowerShell.
 
-L'esempio seguente illustra l'evento State nell'applicazione **fabric:/WordCount**:
+L'esempio seguente illustra l'evento State nell'applicazione **fabric:/WordCount** :
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesFilter None -DeployedApplicationsFilter None
@@ -122,10 +124,10 @@ HealthEvents                    :
                                   Transitions           : ->Ok = 4/24/2015 6:12:51 PM
 ```
 
-## Report sull'integrità del sistema di servizi
+## <a name="service-system-health-reports"></a>Report sull'integrità del sistema di servizi
 **System.FM**, che rappresenta il servizio Gestione failover, è l'autorità che gestisce le informazioni sui servizi.
 
-### Stato
+### <a name="state"></a>Stato
 System.FM restituisce OK quando il servizio viene creato. Elimina l'entità dall'archivio integrità quando il servizio viene eliminato.
 
 - **SourceId**: System.FM
@@ -156,7 +158,7 @@ HealthEvents          :
                         Transitions           : ->Ok = 4/24/2015 6:13:01 PM
 ```
 
-### Violazione di repliche non collocate
+### <a name="unplaced-replicas-violation"></a>Violazione di repliche non collocate
 **System.PLB** segnala una condizione di avviso se non riesce a trovare una posizione per una o più repliche del servizio. Il report viene rimosso alla scadenza.
 
 - **SourceId**: System.FM
@@ -232,10 +234,10 @@ HealthEvents          :
                         Transitions           : Error->Warning = 3/22/2016 7:57:48 PM, LastOk = 1/1/0001 12:00:00 AM
 ```
 
-## Report sull'integrità del sistema di partizioni
+## <a name="partition-system-health-reports"></a>Report sull'integrità del sistema di partizioni
 **System.FM**, che rappresenta il servizio Gestione failover, è l'autorità che gestisce le informazioni sulle partizioni del servizio.
 
-### Stato
+### <a name="state"></a>Stato
 System.FM restituisce OK quando la partizione viene creata ed è integra. Elimina l'entità dall'archivio integrità quando la partizione viene eliminata.
 
 Se il numero di repliche della partizione è inferiore al minimo, viene segnalata una condizione di errore. Se il numero di repliche della partizione non è inferiore al minimo, ma è al di sotto del numero di repliche di destinazione, viene segnalata una condizione di avviso. Se la partizione è in una condizione di perdita del quorum, System.FM segnala un errore.
@@ -310,16 +312,16 @@ PS C:\> @(Get-ServiceFabricNode).Count
 5
 ```
 
-### Violazione del vincolo di replica
+### <a name="replica-constraint-violation"></a>Violazione del vincolo di replica
 **System.PLB** segnala una condizione di avviso se rileva una violazione del vincolo di replica e non può posizionare repliche della partizione.
 
 - **SourceId**: System.PLB
 - **Proprietà**: inizia con **ReplicaConstraintViolation**
 
-## Report sull'integrità del sistema di repliche
+## <a name="replica-system-health-reports"></a>Report sull'integrità del sistema di repliche
 **System.RA**, che rappresenta il componente agente di riconfigurazione, è l'autorità per lo stato della replica.
 
-### Stato
+### <a name="state"></a>Stato
 **System.RA** restituisce OK quando viene creata la replica.
 
 - **SourceId**: System.RA
@@ -346,7 +348,7 @@ HealthEvents          :
                         Transitions           : ->Ok = 4/24/2015 6:13:02 PM
 ```
 
-### Stato aperto della replica
+### <a name="replica-open-status"></a>Stato aperto della replica
 La descrizione di questo report sull'integrità include l'ora (UTC) in cui è iniziata l'esecuzione della chiamata API.
 
 **System.RA** segnala una condizione di avviso se l'apertura della replica richiede più tempo del periodo configurato (impostazione predefinita: 30 minuti). Se l'API influisce sulla disponibilità del servizio, il report viene eseguito molto più rapidamente. L'intervallo di tempo è configurabile, con valore predefinito di 30 secondi. Il tempo misurato include il tempo impiegato per l'apertura del replicatore e del servizio. Se l'apertura viene completata, la proprietà restituisce OK.
@@ -355,7 +357,7 @@ La descrizione di questo report sull'integrità include l'ora (UTC) in cui è in
 - **Proprietà**: **ReplicaOpenStatus**
 - **Passaggi successivi**: se lo stato di integrità non è OK, verificare per quale motivo l'apertura della replica richiede più tempo del previsto.
 
-### Chiamata API del servizio lenta
+### <a name="slow-service-api-call"></a>Chiamata API del servizio lenta
 **System.RAP** e **System.Replicator** segnalano una condizione di avviso se una chiamata al codice del servizio utente richiede più tempo di quello configurato. L'avviso viene cancellato al completamento della chiamata.
 
 - **SourceId**: System.RAP o System.Replicator
@@ -465,13 +467,13 @@ Eventi di diagnostica di Visual Studio 2015: errore RunAsync in **fabric:/HelloW
 [1]: ./media/service-fabric-understand-and-troubleshoot-with-system-health-reports/servicefabric-health-vs-runasync-exception.png
 
 
-### Coda di replica piena
+### <a name="replication-queue-full"></a>Coda di replica piena
 **System.Replicator** segnala una condizione di avviso se la coda di replica è piena. Nel server primario ciò accade di solito perché una o più repliche secondarie sono lente nel riconoscere le operazioni. Nel server secondario ciò si verifica di solito quando il servizio è lento nell'applicare le operazioni. La condizione di avviso viene cancellata quando la coda non è più piena.
 
 - **SourceId**: System.Replicator
 - **Proprietà**: **PrimaryReplicationQueueStatus** o **SecondaryReplicationQueueStatus**, a seconda del ruolo della replica
 
-### Operazioni di Naming lente
+### <a name="slow-naming-operations"></a>Operazioni di Naming lente
 
 **System.NamingService** segnala lo stato di integrità per la replica primaria quando un'operazione di Naming richiede più tempo di quanto sia accettabile. Esempi di operazioni di Naming sono [CreateServiceAsync](https://msdn.microsoft.com/library/azure/mt124028.aspx) e [DeleteServiceAsync](https://msdn.microsoft.com/library/azure/mt124029.aspx). Altri metodi sono disponibili in FabricClient, ad esempio nell'ambito dei [metodi di gestione dei servizi](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.aspx) o dei [metodi di gestione delle proprietà](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.propertymanagementclient.aspx).
 
@@ -480,7 +482,7 @@ Eventi di diagnostica di Visual Studio 2015: errore RunAsync in **fabric:/HelloW
 Quando un'operazione di Naming richiede più tempo del previsto, viene contrassegnata con un report di tipo avviso nella *replica primaria della partizione del servizio Naming che gestisce l'operazione*. Se l'operazione viene completata, l'avviso viene cancellato. Se l'operazione viene completata con un errore, il report sull'integrità include i relativi dettagli.
 
 - **SourceId**: System.NamingService
-- **Property**: inizia con il prefisso **Duration\_** e identifica l'operazione lenta e il nome di Service Fabric su cui viene applicata. Se l'operazione di creazione servizio per il nome fabric:/MyApp/MyService richiede troppo tempo, ad esempio, la proprietà è Duration\_AOCreateService.fabric:/MyApp/MyService. AO punta al ruolo della partizione di Naming per il nome e l'operazione.
+- **Proprietà**: inizia con il prefisso **Duration_** e identifica l'operazione lenta e il nome di Service Fabric su cui viene applicata. Se l'operazione di creazione servizio per il nome fabric:/MyApp/MyService richiede troppo tempo, ad esempio, la proprietà è Duration_AOCreateService.fabric:/MyApp/MyService. AO punta al ruolo della partizione di Naming per il nome e l'operazione.
 - **Passaggi successivi**: controllare i motivi per cui l'operazione di Naming non è riuscita. A ogni operazione può corrispondere una causa radice diversa. L'eliminazione di un servizio, ad esempio, può bloccarsi in un nodo perché l'host applicazione continua ad arrestarsi in modo anomalo nel nodo a causa di un bug utente nel codice del servizio.
 
 L'esempio seguente illustra un'operazione di creazione servizio. L'operazione ha richiesto un tempo superiore alla durata configurata. AO riprova e invia l'attività a NO. NO completa l'ultima operazione con Timeout. In questo caso, la stessa replica è primaria per entrambi i ruoli AO e NO.
@@ -530,10 +532,10 @@ HealthEvents          :
                         Transitions           : Error->Warning = 4/29/2016 8:39:38 PM, LastOk = 1/1/0001 12:00:00 AM
 ```
 
-## Report sull'integrità del sistema DeployedApplication
+## <a name="deployedapplication-system-health-reports"></a>Report sull'integrità del sistema DeployedApplication
 **System.Hosting** è l'autorità per le entità distribuite.
 
-### Activation
+### <a name="activation"></a>Activation
 System.Hosting restituisce OK quando un'applicazione viene attivata correttamente nel nodo. In caso contrario, restituisce un errore.
 
 - **SourceId**: System.Hosting
@@ -567,30 +569,30 @@ HealthEvents                       :
                                      Transitions           : ->Ok = 4/24/2015 6:13:03 PM
 ```
 
-### Scaricare
+### <a name="download"></a>Scaricare
 **System.Hosting** segnala un errore se il download del pacchetto dell'applicazione non è riuscito.
 
 - **SourceId**: System.Hosting
 - **Proprietà**: **Download:*VersioneRollout***
 - **Passaggi successivi**: ricercare la causa del download non riuscito nel nodo.
 
-## Report sull'integrità del sistema DeployedServicePackage
+## <a name="deployedservicepackage-system-health-reports"></a>Report sull'integrità del sistema DeployedServicePackage
 **System.Hosting** è l'autorità per le entità distribuite.
 
-### Attivazione del pacchetto di servizi
+### <a name="service-package-activation"></a>Attivazione del pacchetto di servizi
 System.Hosting restituisce OK se l'attivazione del pacchetto di servizi nel nodo è riuscita. In caso contrario, restituisce un errore.
 
 - **SourceId**: System.Hosting
 - **Proprietà**: Activation
 - **Passaggi successivi**: analizzare i motivi per cui l'attivazione non è riuscita.
 
-### Attivazione del pacchetto di codice
+### <a name="code-package-activation"></a>Attivazione del pacchetto di codice
 **System.Hosting** restituisce OK per ogni pacchetto di codice se l'attivazione è riuscita. In caso contrario, restituisce l'avviso configurato. Se l'attivazione di **CodePackage** non riesce o termina con un errore superiore alla soglia configurata per **CodePackageHealthErrorThreshold**, viene restituito un errore. Se un pacchetto servizio contiene più pacchetti di codice, viene generato un report sull'attivazione per ognuno.
 
 - **SourceId**: System.Hosting
 - **Proprietà**: usa il prefisso **CodePackageActivation** e contiene il nome del pacchetto di codice e il punto di ingresso come **CodePackageActivation:*NomePacchettoCodice*:*SetupEntryPoint/EntryPoint***, ad esempio **CodePackageActivation:Code:SetupEntryPoint**
 
-### Registrazione del tipo di servizio
+### <a name="service-type-registration"></a>Registrazione del tipo di servizio
 **System.Hosting** restituisce OK se il tipo di servizio è stato registrato correttamente. Viene restituito un errore se la registrazione non è stata eseguita in tempo, secondo quanto configurato con **ServiceTypeRegistrationTimeout**. L'annullamento della registrazione del tipo di servizio nel nodo è causato dalla chiusura del runtime. Hosting genera un avviso.
 
 - **SourceId**: System.Hosting
@@ -644,21 +646,21 @@ HealthEvents          :
                         Transitions           : ->Ok = 4/24/2015 6:13:03 PM
 ```
 
-### Scaricare
+### <a name="download"></a>Scaricare
 **System.Hosting** segnala un errore se il download del pacchetto del servizio non è riuscito.
 
 - **SourceId**: System.Hosting
 - **Proprietà**: **Download:*VersioneRollout***
 - **Passaggi successivi**: ricercare la causa del download non riuscito nel nodo.
 
-### Convalida dell’aggiornamento
+### <a name="upgrade-validation"></a>Convalida dell’aggiornamento
 **System.Hosting** segnala un errore se la convalida durante l'aggiornamento non è riuscita oppure se non è riuscito l'aggiornamento nel nodo.
 
 - **SourceId**: System.Hosting
 - **Proprietà**: usa il prefisso **FabricUpgradeValidation** e contiene la versione dell'aggiornamento
 - **Descrizione**: punta all'errore che si è verificato
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 [Come visualizzare i report sull'integrità di Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
 [Creare report e verificare l'integrità dei servizi](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
@@ -667,4 +669,8 @@ HealthEvents          :
 
 [Aggiornamento di un'applicazione di infrastruttura di servizi](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

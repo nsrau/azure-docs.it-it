@@ -1,27 +1,28 @@
 <properties
-	pageTitle="Domande frequenti su Azure AD Connect Health"
-	description="Di seguito sono elencate le domande frequenti e le relative risposte su Azure AD Connect Health. In questa sezione sono contenute le domande sull'uso del servizio, inclusi il modello di fatturazione, le funzionalità, le limitazioni e il supporto."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="femila"
-	editor="curtand"/>
+    pageTitle="Domande frequenti su Azure AD Connect Health"
+    description="Di seguito sono elencate le domande frequenti e le relative risposte su Azure AD Connect Health. In questa sezione sono contenute le domande sull'uso del servizio, inclusi il modello di fatturazione, le funzionalità, le limitazioni e il supporto."
+    services="active-directory"
+    documentationCenter=""
+    authors="billmath"
+    manager="femila"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/14/2016"
-	ms.author="vakarand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/14/2016"
+    ms.author="vakarand"/>
 
 
-# Domande frequenti su Azure AD Connect Health
+
+# <a name="azure-ad-connect-health-frequently-asked-questions-(faq)"></a>Domande frequenti su Azure AD Connect Health
 
 Di seguito sono elencate le domande frequenti e le relative risposte su Azure AD Connect Health. In questa sezione sono contenute le domande sull'uso del servizio, inclusi il modello di fatturazione, le funzionalità, le limitazioni e il supporto.
 
-## Domande generali
+## <a name="general-questions"></a>Domande generali
 
 
 
@@ -29,7 +30,7 @@ Di seguito sono elencate le domande frequenti e le relative risposte su Azure AD
 
 È possibile spostarsi tra directory di Azure AD diverse selezionando il nome dell'utente connesso nell'angolo in alto a destra e scegliendo l'account appropriato. Se l'account non è incluso nell'elenco, disconnettersi e quindi usare le credenziali di amministratore globale della directory con Azure Active Directory Premium abilitato per l'accesso.
 
-## Domande sull'installazione
+## <a name="installation-questions"></a>Domande sull'installazione
 
 
 
@@ -53,16 +54,19 @@ I numeri indicati di seguito sono approssimativi.
 
 **D: È necessario riavviare i server durante l'installazione degli agenti di Azure AD Connect Health?**
 
-No, per l'installazione degli agenti non è necessario il riavvio del server. Tuttavia, l'installazione di alcuni passaggi preliminari necessari può richiedere un riavvio del server.
+No. Per l'installazione degli agenti non è necessario il riavvio del server. Tuttavia, l'installazione di alcuni passaggi preliminari necessari può richiedere un riavvio del server.
 
 Ad esempio, in Windows Server 2008 R2 l'installazione di .Net 4.5 Framework richiede un riavvio del server.
 
 
 **Q: Il servizio Azure AD Connect Health funziona tramite un proxy HTTP pass-through?**
 
-Sì. Per le operazioni in corso è possibile configurare l'agente di Health per l'inoltro delle richieste HTTP in uscita tramite un proxy HTTP. Per altre informazioni, vedere [Configurare gli agenti di Azure AD Connect Health per l'uso del proxy HTTP](active-directory-aadconnect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy).
+Sì.  Per le operazioni in corso è possibile configurare l'agente di Health per l'inoltro delle richieste HTTP in uscita tramite un proxy HTTP. Per altre informazioni, vedere [Configurare gli agenti di Azure AD Connect Health per l'uso del proxy HTTP](active-directory-aadconnect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy) .
 
-Se è necessario configurare un proxy durante la registrazione dell'agente, occorre modificare le impostazioni del proxy di Internet Explorer. <br> Aprire Internet Explorer -> Impostazioni -> Opzioni Internet -> Connessioni -> Impostazioni LAN.<br> Selezionare Utilizza un server proxy per le connessioni LAN.<br> Selezionare Avanzate SE sono presenti porte proxy diverse per HTTP e HTTPS/Protetto.<br>
+Se è necessario configurare un proxy durante la registrazione dell'agente, occorre modificare le impostazioni del proxy di Internet Explorer. <br>
+Aprire Internet Explorer -> Impostazioni -> Opzioni Internet -> Connessioni -> Impostazioni LAN.<br>
+Selezionare Utilizza un server proxy per le connessioni LAN.<br>
+Selezionare Avanzate SE sono presenti porte proxy diverse per HTTP e HTTPS/Protetto.<br>
 
 
 **D: I servizi di Azure AD Connect Health supportano l'autenticazione di base durante la connessione a proxy HTTP?**
@@ -72,13 +76,13 @@ No. Non è attualmente supportato alcun meccanismo per specificare in modo arbit
 
 **D: Quali versioni di Servizi di dominio Active Directory sono supportate da Azure AD Connect Health per Servizi di dominio Active Directory?**
 
-Il monitoraggio di Servizi di dominio Active Directory è supportato durante l'installazione nelle versioni del sistema operativo seguenti:
+Il monitoraggio di Servizi di dominio Active Directory è supportato durante l'installazione nelle versioni del sistema operativo seguenti: 
 
 - Windows Server 2008 R2
 - Windows Server 2012
 - Windows Server 2012 R2
 
-## Domande sulle operazioni
+## <a name="operations-questions"></a>Domande sulle operazioni
 
 
 
@@ -102,16 +106,21 @@ Gli avvisi di Azure AD Connect Health vengono risolti se si verifica una condizi
 
 **D: Perché vengono visualizzati due server con lo stesso nome nel portale di Azure AD Connect Health?**
 
-Quando si rimuove un agente da un server, il server non viene rimosso automaticamente dal portale di Azure AD Connect. Se è stato quindi rimosso manualmente un agente da un server o se è stato rimosso il server stesso, sarà necessario eliminare manualmente la voce relativa al server dal portale di Azure AD Connect Health. Per altre informazioni, vedere [Eliminare un server o un'istanza del servizio](active-directory-aadconnect-health-operations.md#delete-a-server-or-service-instance). Se è stata inoltre creata una nuova immagine di un server o se è stato creato un nuovo server con gli stessi dettagli, ad esempio il nome del computer, ma non è stato rimosso il server dal portale di Azure AD Connect Health e quindi è stato installato l'agente sul nuovo server, è possibile che siano ora visualizzate due voci per il server. In questo caso è consigliabile eliminare manualmente la voce appartenente al server precedente. I dati associati a questa voce saranno in genere obsoleti.
+Quando si rimuove un agente da un server, il server non viene rimosso automaticamente dal portale di Azure AD Connect.  Se è stato quindi rimosso manualmente un agente da un server o se è stato rimosso il server stesso, sarà necessario eliminare manualmente la voce relativa al server dal portale di Azure AD Connect Health.  Per altre informazioni, vedere [Eliminare un server o un'istanza del servizio](active-directory-aadconnect-health-operations.md#delete-a-server-or-service-instance).
+Se è stata inoltre creata una nuova immagine di un server o se è stato creato un nuovo server con gli stessi dettagli, ad esempio il nome del computer, ma non è stato rimosso il server dal portale di Azure AD Connect Health e quindi è stato installato l'agente sul nuovo server, è possibile che siano ora visualizzate due voci per il server.  In questo caso è consigliabile eliminare manualmente la voce appartenente al server precedente.  I dati associati a questa voce saranno in genere obsoleti.
 
-## Collegamenti correlati
+## <a name="related-links"></a>Collegamenti correlati
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Installazione dell'agente di Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Operazioni di Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 * [Uso di Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
 * [Uso di Azure AD Connect Health per la sincronizzazione](active-directory-aadconnect-health-sync.md)
-* [Uso di Azure AD Connect Health con Servizi di dominio Active Directory](active-directory-aadconnect-health-adds.md)
+* [Uso di Azure AD Connect Health con Servizi di dominio Active Directory](active-directory-aadconnect-health-adds.md) 
 * [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

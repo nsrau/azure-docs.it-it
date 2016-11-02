@@ -17,13 +17,14 @@
   ms.date="09/09/2016"
   ms.author="cjiang"/>
 
-# Risolvere i problemi della distribuzione Resource Manager con la creazione di una nuova macchina virtuale Windows in Azure
+
+# <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-windows-virtual-machine-in-azure"></a>Risolvere i problemi della distribuzione Resource Manager con la creazione di una nuova macchina virtuale Windows in Azure
 
 [AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## Raccogliere log di controllo
+## <a name="collect-audit-logs"></a>Raccogliere log di controllo
 
 Per avviare la risoluzione dei problemi, raccogliere i log di controllo per identificare l'errore associato al problema. I collegamenti seguenti contengono informazioni dettagliate sul processo da seguire.
 
@@ -55,9 +56,9 @@ Per risolvere entrambi questi errori, usare [Add-AzureRMVhd per caricare il disc
 
 **Risoluzione**
 
-Per risolvere entrambi questi errori, eliminare l'immagine corrente dal portale e [acquisirla di nuovo dai dischi rigidi virtuali correnti](virtual-machines-windows-capture-image.md) con la stessa impostazione usata per il sistema operativo (generalizzato/specializzato).
+Per risolvere entrambi questi errori, eliminare l'immagine corrente dal portale e [acquisirla di nuovo dai dischi rigidi virtuali correnti](virtual-machines-windows-vhd-copy.md) con la stessa impostazione usata per il sistema operativo (generalizzato/specializzato).
 
-## Problema: Immagine personalizzata/della raccolta/del marketplace; errore di allocazione
+## <a name="issue:-custom/gallery/marketplace-image;-allocation-failure"></a>Problema: Immagine personalizzata/della raccolta/del marketplace; errore di allocazione
 Questo errore si verifica nelle situazioni in cui la nuova richiesta di VM viene aggiunta a un cluster che non può supportare le dimensioni della VM richieste oppure non ha spazio disponibile sufficiente per soddisfare la richiesta.
 
 **Causa 1:** il cluster non supporta le dimensioni della VM richieste.
@@ -66,7 +67,8 @@ Questo errore si verifica nelle situazioni in cui la nuova richiesta di VM viene
 
 - Ripetere la richiesta usando una VM di dimensioni inferiori.
 - Se le dimensioni della VM richieste non possono essere modificate:
-  - Arrestare tutte le VM nel set di disponibilità. Fare clic su **Gruppi di risorse** > *gruppo di risorse personale* > **Risorse** > *set di disponibilità personale* > **Macchine virtuali** > *macchina virtuale personale* > **Arresta**.
+  - Arrestare tutte le VM nel set di disponibilità.
+  Fare clic su **Gruppi di risorse** > *gruppo di risorse personale* > **Risorse** > *set di disponibilità personale* > **Macchine virtuali** > *macchina virtuale personale* > **Arresta**.
   - Dopo l'arresto di tutte le VM, creare la nuova VM con le dimensioni desiderate.
   - Avviare prima di tutto la nuova VM e quindi selezionare le VM arrestate e fare clic su **Avvia**.
 
@@ -79,7 +81,11 @@ Questo errore si verifica nelle situazioni in cui la nuova richiesta di VM viene
   - Creare una nuova VM in un altro set di disponibilità nella stessa area.
   - Aggiungere la nuova VM alla stessa rete virtuale.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Se si incontrano problemi quando si avvia una VM Windows arrestata o si ridimensiona una VM Windows esistente in Azure, vedere l'articolo su come [risolvere i problemi della distribuzione di Resource Manager con il riavvio o il ridimensionamento di una macchina virtuale Windows esistente in Azure](virtual-machines-windows-restart-resize-error-troubleshooting.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

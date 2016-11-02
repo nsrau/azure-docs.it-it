@@ -6,6 +6,7 @@
     authors="sdwheeler"
     manager="carmonm"
     editor=""
+    keywords="ipv6, azure load balancer, dual stack, ip pubblico, ipv6 nativo, mobili, iot"
 />
 <tags
     ms.service="load-balancer"
@@ -17,7 +18,8 @@
     ms.author="sewhee"
 />
 
-# Panoramica di IPv6 per Azure Load Balancer
+
+# <a name="overview-of-ipv6-for-azure-load-balancer"></a>Panoramica di IPv6 per Azure Load Balancer
 
 I servizi di bilanciamento del carico con connessione Internet possono essere distribuiti con un indirizzo IPv6. Oltre alla connettività IPv4, sono abilitate le funzionalità seguenti:
 
@@ -30,7 +32,7 @@ L'immagine seguente illustra la funzionalità IPv6 per Azure Load Balancer.
 
 Dopo la distribuzione, un client Internet abilitato per IPv4 o IPv6 può comunicare con gli indirizzi (o nomi host) IPv4 o IPv6 pubblici dell'istanza di Azure Load Balancer con connessione Internet. Il servizio di bilanciamento del carico instrada i pacchetti IPv6 agli indirizzi IPv6 privati delle macchine virtuali tramite NAT (Network Address Translation). Il client Internet IPv6 non può comunicare direttamente con l'indirizzo IPv6 delle macchine virtuali.
 
-## Funzionalità
+## <a name="features"></a>Funzionalità
 
 Il supporto IPv6 nativo per le macchine virtuali distribuite tramite Azure Resource Manager offre:
 
@@ -39,14 +41,14 @@ Il supporto IPv6 nativo per le macchine virtuali distribuite tramite Azure Resou
 3. Connessioni IPv6 native in ingresso e in uscita
 4. I protocolli supportati, ad esempio TCP, UDP e HTTP(S), consentono un'ampia gamma di architetture di servizi
 
-## Vantaggi
+## <a name="benefits"></a>Vantaggi
 
 Questa funzionalità offre i vantaggi principali seguenti:
 
 * Soddisfare le normative che dettano che le nuove applicazioni siano accessibili solo ai client IPv6
 * Consentire agli sviluppatori di app per dispositivi mobili e Internet delle cose (IOT) di usare macchine virtuali di Azure dual stack (IPv4+IPv6) per soddisfare le esigenze dei mercati mobile e IOT in espansione
 
-## Dettagli e limitazioni
+## <a name="details-and-limitations"></a>Dettagli e limitazioni
 
 Dettagli
 
@@ -68,12 +70,17 @@ Limitazioni
 * L'endpoint IPv6 nella macchina virtuale non viene esposto direttamente a Internet. Si trova dietro un servizio di bilanciamento del carico. Solo le porte specificate nelle regole del servizio di bilanciamento del carico sono accessibili tramite IPv6.
 * La modifica del parametro IdleTimeout per IPv6 **non è attualmente supportata**. Il valore predefinito è quattro minuti.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni su come distribuire un servizio di bilanciamento del carico con IPv6.
 
+* [Disponibilità di IPv6 per area](https://go.microsoft.com/fwlink/?linkid=828357)
 * [Distribuire un servizio di bilanciamento del carico con IPv6 usando un modello](load-balancer-ipv6-internet-template.md)
 * [Distribuire un servizio di bilanciamento del carico con IPv6 usando Azure PowerShell](load-balancer-ipv6-internet-ps.md)
 * [Distribuire un servizio di bilanciamento del carico con IPv6 usando l'interfaccia della riga di comando di Azure](load-balancer-ipv6-internet-cli.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

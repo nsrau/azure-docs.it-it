@@ -1,55 +1,56 @@
 <properties
-	pageTitle="Configurare l'accesso LDAP sicuro (LDAPS) in Servizi di dominio Azure AD | Microsoft Azure"
-	description="Configurare l'accesso LDAP sicuro (LDAPS) per un dominio gestito di Servizi di dominio Azure AD"
-	services="active-directory-ds"
-	documentationCenter=""
-	authors="mahesh-unnikrishnan"
-	manager="stevenpo"
-	editor="curtand"/>
+    pageTitle="Configurare l'accesso LDAP sicuro (LDAPS) in Servizi di dominio Azure AD | Microsoft Azure"
+    description="Configurare l'accesso LDAP sicuro (LDAPS) per un dominio gestito di Servizi di dominio Azure AD"
+    services="active-directory-ds"
+    documentationCenter=""
+    authors="mahesh-unnikrishnan"
+    manager="stevenpo"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory-ds"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/21/2016"
-	ms.author="maheshu"/>
+    ms.service="active-directory-ds"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/21/2016"
+    ms.author="maheshu"/>
 
-# Configurare l'accesso LDAP sicuro (LDAPS) per un dominio gestito di Servizi di dominio Azure AD
+
+# <a name="configure-secure-ldap-(ldaps)-for-an-azure-ad-domain-services-managed-domain"></a>Configurare l'accesso LDAP sicuro (LDAPS) per un dominio gestito di Servizi di dominio Azure AD
 Questo articolo illustra come abilitare l'accesso LDAPS (Secure Lightweight Directory Access Protocol) per il dominio gestito di Servizi di dominio Azure AD. L'accesso LDAP sicuro è noto anche come LDAP (Lightweight Directory Access Protocol) su SSL (Secure Sockets Layer) / TLS (Transport Layer Security).
 
-## Prima di iniziare
+## <a name="before-you-begin"></a>Prima di iniziare
 Per eseguire le attività elencate in questo articolo sono necessari gli elementi seguenti:
 
-1. Una **sottoscrizione di Azure** valida.
+1. Una **sottoscrizione di Azure**valida.
 
 2. Una **directory di Azure AD** sincronizzata con una directory locale o con una directory solo cloud.
 
-3. I **Servizi di dominio Azure AD** devono essere abilitati per la directory di Azure AD. Se non è stato fatto, eseguire tutte le attività descritte nella [guida introduttiva](./active-directory-ds-getting-started.md).
+3. **Servizi di dominio Azure AD** devono essere abilitati per la directory di Azure AD. Se non è stato fatto, eseguire tutte le attività descritte nella [guida introduttiva](./active-directory-ds-getting-started.md).
 
 4. Un **certificato da usare per abilitare l'accesso LDAP sicuro**.
-    - È **consigliabile** ottenere un certificato dalla CA dell'organizzazione o da un'autorità di certificazione pubblica. Questa opzione di configurazione è più sicura.
-	- In alternativa, è anche possibile scegliere di [creare un certificato autofirmato](#task-1---obtain-a-certificate-for-secure-ldap), come illustrato più avanti in questo articolo.
+    - **consigliabile** ottenere un certificato dalla CA dell'organizzazione o da un'autorità di certificazione pubblica. Questa opzione di configurazione è più sicura.
+    - In alternativa, è anche possibile scegliere di [creare un certificato autofirmato](#task-1---obtain-a-certificate-for-secure-ldap) , come illustrato più avanti in questo articolo.
 
 <br>
 
-### Requisiti per il certificato LDAP sicuro
+### <a name="requirements-for-the-secure-ldap-certificate"></a>Requisiti per il certificato LDAP sicuro
 Acquisire un certificato valido in base alle linee guida riportate di seguito prima di abilitare l'accesso LDAP sicuro. Se si prova ad abilitare l'accesso LDAP sicuro per il dominio gestito con un certificato non valido o non corretto, si verificano errori.
 
-1. **Autorità emittente attendibile**: il certificato deve essere emesso da un'autorità ritenuta attendibile dai computer che devono connettersi al dominio tramite accesso LDAP sicuro. Può trattarsi dell'autorità di certificazione dell'organizzazione o di un'autorità di certificazione pubblica ritenuta attendibile da tali computer.
+1. **Autorità emittente attendibile** : il certificato deve essere emesso da un'autorità ritenuta attendibile dai computer che devono connettersi al dominio tramite accesso LDAP sicuro. Può trattarsi dell'autorità di certificazione dell'organizzazione o di un'autorità di certificazione pubblica ritenuta attendibile da tali computer.
 
-2. **Durata**: il certificato deve essere valido almeno per i 3-6 mesi successivi. L'accesso LDAP sicuro al dominio gestito viene interrotto allo scadere del certificato.
+2. **Durata** : il certificato deve essere valido almeno per i 3-6 mesi successivi. L'accesso LDAP sicuro al dominio gestito viene interrotto allo scadere del certificato.
 
-3. **Nome soggetto**: il nome del soggetto nel certificato deve includere un carattere jolly per il dominio gestito. Ad esempio, se il dominio è denominato "contoso100.com", il nome del soggetto nel certificato deve essere "*.contoso100.com". Impostare il nome DNS (nome soggetto alternativo) su questo nome con caratteri jolly.
+3. **Nome soggetto** : il nome del soggetto nel certificato deve includere un carattere jolly per il dominio gestito. Ad esempio, se il dominio è denominato "contoso100.com", il nome del soggetto nel certificato deve essere "*.contoso100.com". Impostare il nome DNS (nome soggetto alternativo) su questo nome con caratteri jolly.
 
-3. **Utilizzo chiavi**: il certificato deve essere configurato per l'uso nelle firme digitali e nella crittografia a chiave.
+3. **Utilizzo chiavi** : il certificato deve essere configurato per l'uso nelle firme digitali e nella crittografia a chiave.
 
-4. **Scopo del certificato**: il certificato deve essere valido per l'autenticazione server SSL.
+4. **Scopo del certificato** : il certificato deve essere valido per l'autenticazione server SSL.
 
 <br>
 
-## Attività 1: Ottenere un certificato per l'accesso LDAP sicuro
+## <a name="task-1---obtain-a-certificate-for-secure-ldap"></a>Attività 1: Ottenere un certificato per l'accesso LDAP sicuro
 La prima attività consiste nell'ottenere un certificato da usare per l'accesso LDAP sicuro al dominio gestito. Sono disponibili due opzioni:
 
 - Ottenere un certificato da un'autorità di certificazione. Può trattarsi dell'autorità di certificazione della propria organizzazione o di un'autorità di certificazione pubblica.
@@ -57,7 +58,7 @@ La prima attività consiste nell'ottenere un certificato da usare per l'accesso 
 - Creare un certificato autofirmato.
 
 
-### Opzione A (scelta consigliata): ottenere un certificato LDAP sicuro da un'autorità di certificazione
+### <a name="option-a-(recommended)---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>Opzione A (scelta consigliata): ottenere un certificato LDAP sicuro da un'autorità di certificazione
 Se l'organizzazione distribuisce un'infrastruttura a chiave pubblica (PKI) aziendale, è necessario ottenere un certificato dall'autorità di certificazione (CA) aziendale dell'organizzazione. Se l'organizzazione ottiene i certificati da un'autorità di certificazione pubblica, è necessario ottenere il certificato LDAP sicuro dall'autorità di certificazione pubblica.
 
 Quando si richiede un certificato, assicurarsi di rispettare i requisiti descritti nella sezione [Requisiti per il certificato LDAP sicuro](#requirements-for-the-secure-ldap-certificate).
@@ -65,7 +66,7 @@ Quando si richiede un certificato, assicurarsi di rispettare i requisiti descrit
 > [AZURE.NOTE] I computer client che devono connettersi al dominio gestito tramite l'accesso LDAP sicuro devono considerare attendibile l'autorità emittente del certificato LDAPS.
 
 
-### Opzione B: creare un certificato autofirmato per l'accesso LDAP sicuro
+### <a name="option-b---create-a-self-signed-certificate-for-secure-ldap"></a>Opzione B: creare un certificato autofirmato per l'accesso LDAP sicuro
 È possibile scegliere di creare un certificato autofirmato per l'accesso LDAP sicuro se:
 
 - i certificati dell'organizzazione non vengono emessi da un'autorità di certificazione aziendale oppure
@@ -86,7 +87,7 @@ Nell'esempio precedente sostituire "contoso100.com" con il nome di dominio DNS d
 Il certificato autofirmato appena creato viene inserito nell'archivio certificati del computer locale.
 
 
-## Attività 2: Esportare il certificato LDAP sicuro in un file PFX
+## <a name="task-2---export-the-secure-ldap-certificate-to-a-.pfx-file"></a>Attività 2: Esportare il certificato LDAP sicuro in un file PFX
 Prima di iniziare questa attività, assicurarsi di aver ottenuto il certificato LDAP sicuro dall'autorità di certificazione dell'azienda o da un'autorità di certificazione pubblica oppure di aver creato un certificato autofirmato.
 
 Per esportare il certificato LDAPS in un file PFX, seguire questa procedura.
@@ -113,11 +114,11 @@ Per esportare il certificato LDAPS in un file PFX, seguire questa procedura.
 
     ![Aggiungere lo snap-in certificati, Seleziona computer](./media/active-directory-domain-services-admin-guide/secure-ldap-add-certificates-local-computer.png)
 
-7. Nella finestra di dialogo **Aggiungi o rimuovi snap-in** fare clic su **OK** per aggiungere lo snap-in certificati a MMC.
+7. Nella finestra di dialogo **Aggiungi o rimuovi snap-in** fare clic su **OK** per aggiungere lo snap-in Certificati a MMC.
 
     ![Aggiungere lo snap-in certificati a MMC, Fatto](./media/active-directory-domain-services-admin-guide/secure-ldap-add-certificates-snapin-done.png)
 
-8. Nella finestra di MMC selezionare **Radice console **. Verrà visualizzato lo snap-in certificati caricato. Selezionare **Certificati (computer locale)** per espandere la voce. Selezionare il nodo **Personale** per espanderlo, poi selezionare il nodo **Certificati**.
+8. Nella finestra di MMC selezionare **Radice console**. Verrà visualizzato lo snap-in certificati caricato. Selezionare **Certificati (computer locale)** per espandere la voce. Selezionare il nodo **Personale** per espanderlo, poi selezionare il nodo **Certificati**.
 
     ![Aprire l'archivio certificati personali](./media/active-directory-domain-services-admin-guide/secure-ldap-open-personal-store.png)
 
@@ -141,13 +142,13 @@ Per esportare il certificato LDAPS in un file PFX, seguire questa procedura.
 
     ![Esportare il certificato, formato di file](./media/active-directory-domain-services-admin-guide/secure-ldap-export-to-pfx.png)
 
-	> [AZURE.NOTE] È supportato solo il formato di file PFX. Non esportare il certificato nel formato di file CER.
+    > [AZURE.NOTE] È supportato solo il formato di file PFX. Non esportare il certificato nel formato di file CER.
 
 14. Nella pagina **Sicurezza** selezionare l'opzione **Password** e digitare una password per proteggere il file con estensione pfx. Prendere nota della password perché sarà necessaria nell'attività successiva. Fare clic su **Avanti** per continuare.
 
-    ![Password per l'esportazione del certificato](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
+    ![Password per l'esportazione del certificato ](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
 
-	> [AZURE.NOTE] Prendere nota della password. Sarà necessaria per i passaggi descritti nell'[Attività 3: Abilitare l'accesso LDAP sicuro per il dominio gestito](#task-3---enable-secure-ldap-for-the-managed-domain)
+    > [AZURE.NOTE] Prendere nota della password. Sarà necessaria per i passaggi descritti nell' [Attività 3: Abilitare l'accesso LDAP sicuro per il dominio gestito](#task-3---enable-secure-ldap-for-the-managed-domain)
 
 15. Nella pagina **File da esportare** specificare il nome del file e il percorso in cui esportare il certificato.
 
@@ -158,7 +159,7 @@ Per esportare il certificato LDAPS in un file PFX, seguire questa procedura.
     ![Esportare il certificato, Fatto](./media/active-directory-domain-services-admin-guide/secure-ldap-exported-as-pfx.png)
 
 
-## Attività 3: Abilitare l'accesso LDAP sicuro per il dominio gestito
+## <a name="task-3---enable-secure-ldap-for-the-managed-domain"></a>Attività 3: Abilitare l'accesso LDAP sicuro per il dominio gestito
 Per abilitare l'accesso LDAP sicuro, seguire questa procedura di configurazione:
 
 1. Passare al **[portale di Azure classico](https://manage.windowsazure.com)**.
@@ -169,17 +170,17 @@ Per abilitare l'accesso LDAP sicuro, seguire questa procedura di configurazione:
 
     ![Selezionare una directory di Azure AD](./media/active-directory-domain-services-getting-started/select-aad-directory.png)
 
-4. Fare clic sulla scheda **Configure**.
+4. Fare clic sulla scheda **Configure** .
 
     ![Scheda Configura della directory](./media/active-directory-domain-services-getting-started/configure-tab.png)
 
-5. Scorrere fino alla sezione **Servizi di dominio**. Viene visualizzata l'opzione **Accesso LDAP sicuro (LDAPS)**, come illustrato nella schermata seguente:
+5. Scorrere fino alla sezione **Servizi di dominio**. Viene visualizzata l'opzione **Accesso LDAP sicuro (LDAPS)** , come illustrato nella schermata seguente:
 
     ![Sezione per la configurazione di Servizi di dominio](./media/active-directory-domain-services-admin-guide/secure-ldap-start.png)
 
 6. Fare clic sul pulsante **Configura certificato...** per visualizzare la finestra di dialogo **Configura certificato per accesso LDAP sicuro**.
 
-    ![Configurare il certificato per l'accesso LDAP sicuro](./media/active-directory-domain-services-admin-guide/secure-ldap-configure-cert-page.png)
+    ![Configura certificato per accesso LDAP sicuro](./media/active-directory-domain-services-admin-guide/secure-ldap-configure-cert-page.png)
 
 7. Fare clic sull'icona cartella sotto **File PFX con certificato** per specificare il file PFX contenente il certificato da usare per l'accesso LDAP sicuro al dominio gestito. Immettere anche la password specificata durante l'esportazione del certificato nel file PFX. Quindi fare clic sul pulsante Fine nella parte inferiore.
 
@@ -198,16 +199,17 @@ Per abilitare l'accesso LDAP sicuro, seguire questa procedura di configurazione:
 <br>
 
 
-## Attività 4: Abilitare l'accesso LDAP sicuro su Internet
-**Attività facoltativa**: ignorare questa attività di configurazione se non si intende accedere al dominio gestito usando l'accesso LDAP sicuro tramite Internet.
+## <a name="task-4---enable-secure-ldap-access-over-the-internet"></a>Attività 4: Abilitare l'accesso LDAP sicuro su Internet
+**Attività facoltativa** : ignorare questa attività di configurazione se non si intende accedere al dominio gestito usando l'accesso LDAP sicuro tramite Internet.
 
-Prima di iniziare questa attività, assicurarsi di aver completato la procedura descritta nell'[attività 3](#task-3---enable-secure-ldap-for-the-managed-domain).
+Prima di iniziare questa attività, assicurarsi di aver completato la procedura descritta nell' [attività 3](#task-3---enable-secure-ldap-for-the-managed-domain).
 
-1. Nella sezione **Servizi di dominio** della pagina **Configura** viene visualizzata l'opzione **Abilita accesso LDAP sicuro tramite Internet**. Il valore predefinito di questa impostazione è **No**, perché l'accesso LDAP sicuro al dominio gestito tramite Internet è disabilitato per impostazione predefinita.
+1. Nella sezione **Servizi di dominio** della pagina **Configura** viene visualizzata l'opzione **Abilita accesso LDAP sicuro tramite Internet**. Il valore predefinito di questa impostazione è **No** , perché l'accesso LDAP sicuro al dominio gestito tramite Internet è disabilitato per impostazione predefinita.
 
     ![LDAP sicuro abilitato](./media/active-directory-domain-services-admin-guide/secure-ldap-enabled2.png)
 
-2. Impostare **Abilita accesso LDAP sicuro tramite Internet** su **Sì**. Fare clic sul pulsante **Salva** nel riquadro inferiore. ![LDAP sicuro abilitato](./media/active-directory-domain-services-admin-guide/secure-ldap-enable-internet-access.png)
+2. Impostare **Abilita accesso LDAP sicuro tramite Internet** su **Sì**. Fare clic sul pulsante **Salva** nel riquadro inferiore.
+    ![LDAP sicuro abilitato](./media/active-directory-domain-services-admin-guide/secure-ldap-enable-internet-access.png)
 
 3. La sezione **Servizi di dominio** della scheda **Configura** verrà disattivata e rimarrà nello stato **In sospeso...** per alcuni minuti. Dopo un po' di tempo verrà abilitato l'accesso LDAP sicuro tramite Internet al dominio gestito.
 
@@ -215,18 +217,18 @@ Prima di iniziare questa attività, assicurarsi di aver completato la procedura 
 
     > [AZURE.NOTE] Per abilitare l'accesso LDAP sicuro tramite Internet al dominio gestito sono necessari circa 10 minuti.
 
-4. Il messaggio **In sospeso...** scomparirà non appena l'accesso LDAP sicuro al dominio gestito tramite Internet sarà abilitato. Nel campo **Indirizzo IP esterno per l'accesso LDAPS** viene visualizzato l'indirizzo IP esterno che può essere usato per accedere alla directory tramite accesso LDAP sicuro.
+4. Il messaggio **In sospeso...** scomparirà non appena l'accesso LDAP sicuro al dominio gestito tramite Internet sarà abilitato. Nel campo **Indirizzo IP esterno per l'accesso LDAPS**viene visualizzato l'indirizzo IP esterno che può essere usato per accedere alla directory tramite accesso LDAP sicuro.
 
     ![LDAP sicuro abilitato](./media/active-directory-domain-services-admin-guide/secure-ldap-internet-access-enabled.png)
 
 <br>
 
-## Attività 5: Configurare il server DNS per l'accesso al dominio gestito da Internet
-**Attività facoltativa**: ignorare questa attività di configurazione se non si intende accedere al dominio gestito usando l'accesso LDAP sicuro tramite Internet.
+## <a name="task-5---configure-dns-to-access-the-managed-domain-from-the-internet"></a>Attività 5: Configurare il server DNS per l'accesso al dominio gestito da Internet
+**Attività facoltativa** : ignorare questa attività di configurazione se non si intende accedere al dominio gestito usando l'accesso LDAP sicuro tramite Internet.
 
-Prima di iniziare questa attività, assicurarsi di aver completato la procedura descritta nell'[attività 4](#task-4---enable-secure-ldap-access-over-the-internet).
+Prima di iniziare questa attività, assicurarsi di aver completato la procedura descritta nell' [attività 4](#task-4---enable-secure-ldap-access-over-the-internet).
 
-Dopo aver attivato l'accesso LDAP sicuro tramite Internet al dominio gestito, è necessario aggiornare il server DNS in modo che i computer client possano trovare il dominio gestito. Al termine dell'attività 4, nel campo **Indirizzo IP esterno per l'accesso LDAPS** della scheda **Configura** viene visualizzato un indirizzo IP esterno.
+Dopo aver attivato l'accesso LDAP sicuro tramite Internet al dominio gestito, è necessario aggiornare il server DNS in modo che i computer client possano trovare il dominio gestito. Al termine dell'attività 4 nel campo **INDIRIZZO IP ESTERNO PER L'ACCESSO LDAPS** della scheda **Configura** viene visualizzato un indirizzo IP esterno.
 
 Configurare il provider DNS esterno in modo che il nome DNS del dominio gestito, ad esempio "contoso100.com", punti a questo indirizzo IP esterno. Nell'esempio è necessario creare la voce DNS seguente:
 
@@ -238,8 +240,12 @@ La procedura è terminata ed è possibile connettersi al dominio gestito usando 
 
 <br>
 
-## Contenuti correlati
+## <a name="related-content"></a>Contenuti correlati
 
 - [Amministrare un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-administer-domain.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

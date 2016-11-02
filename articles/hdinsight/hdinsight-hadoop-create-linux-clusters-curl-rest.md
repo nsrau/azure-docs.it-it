@@ -1,25 +1,26 @@
 <properties
-   	pageTitle="Creare cluster Hadoop, HBase o Storm su Linux in HDInsight tramite cURL e l'API REST di Azure | Microsoft Azure"
-   	description="Informazioni su come creare cluster HDInsight basati su Linux tramite cURL, i modelli di gestione risorse di Azure e l'API REST di Azure. È possibile specificare il tipo di cluster (Hadoop, HBase o Storm) o utilizzare gli script per installare i componenti personalizzati."
-   	services="hdinsight"
-   	documentationCenter=""
-   	authors="Blackmist"
-   	manager="jhubbard"
-   	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="Creare cluster Hadoop, HBase o Storm su Linux in HDInsight tramite cURL e l'API REST di Azure | Microsoft Azure"
+    description="Informazioni su come creare cluster HDInsight basati su Linux tramite cURL, i modelli di gestione risorse di Azure e l'API REST di Azure. È possibile specificare il tipo di cluster (Hadoop, HBase o Storm) o utilizzare gli script per installare i componenti personalizzati."
+    services="hdinsight"
+    documentationCenter=""
+    authors="Blackmist"
+    manager="jhubbard"
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags
-   	ms.service="hdinsight"
-   	ms.devlang="na"
-   	ms.topic="article"
-   	ms.tgt_pltfrm="na"
-   	ms.workload="big-data"
-   	ms.date="07/27/2016"
-   	ms.author="larryfr"/>
+    ms.service="hdinsight"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="big-data"
+    ms.date="10/11/2016"
+    ms.author="larryfr"/>
 
-#Creare cluster basati su Linux in HDInsight tramite cURL e l’API REST di Azure
 
-[AZURE.INCLUDE [selettore](../../includes/hdinsight-selector-create-clusters.md)]
+#<a name="create-linux-based-clusters-in-hdinsight-using-curl-and-the-azure-rest-api"></a>Creare cluster basati su Linux in HDInsight tramite cURL e l’API REST di Azure
+
+[AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 L'API REST di Azure consente di eseguire operazioni di gestione su servizi ospitati nella piattaforma Azure, inclusa la creazione di nuove risorse, ad esempio cluster HDInsight basati su Linux. In questo documento verrà descritto come creare modelli di Gestione risorse di Azure per configurare un cluster di HDInsight e l’archiviazione associata, quindi utilizzare cURL per distribuire il modello per l'API REST di Azure per creare un nuovo cluster HDInsight.
 
@@ -27,7 +28,7 @@ L'API REST di Azure consente di eseguire operazioni di gestione su servizi ospit
 >
 > Per altre informazioni sulle dimensioni di nodo e i costi associati, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-##Prerequisiti
+##<a name="prerequisites"></a>Prerequisiti
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -48,7 +49,11 @@ L'API REST di Azure consente di eseguire operazioni di gestione su servizi ospit
     >
     > Una volta rimosso l'alias, sarà possibile utilizzare la versione di cURL installata nel sistema.
 
-##Creare un modello
+### <a name="access-control-requirements"></a>Requisiti di controllo di accesso
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+
+##<a name="create-a-template"></a>Creare un modello
 
 I modelli di Gestione risorse di Azure sono documenti JSON che descrivono un __gruppo di risorse__ e tutte le risorse in esso contenute, ad esempio HDInsight. Questo approccio basato sui modelli consente di definire tutte le risorse necessarie per HDInsight in un modello e di gestire le modifiche apportate all'intero gruppo mediante __distribuzioni__ che applicano modifiche al gruppo.
 
@@ -260,13 +265,13 @@ Ad esempio, di seguito è riportata una fusione dei file di modello e di paramet
 
 Questo esempio verrà utilizzato nei passaggi di questo documento. È necessario sostituire il segnaposto _valori_ nella sezione __Parametri__ alla fine del documento con i valori che si desidera utilizzare per il cluster.
 
-##Effettuare l'accesso alla sottoscrizione di Azure
+##<a name="login-to-your-azure-subscription"></a>Effettuare l'accesso alla sottoscrizione di Azure
 
 Seguire i passaggi descritti in [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md) e connettersi alla sottoscrizione usando il comando `azure login`.
 
-##Creare un’entità servizio
+##<a name="create-a-service-principal"></a>Creare un’entità servizio
 
-> [AZURE.NOTE] Questa procedura costituisce una sintesi delle informazioni contenute nella sezione _Autenticazione con password - Interfaccia della riga di comando di Azure_ del documento [Autenticazione di un'entità servizio con Gestione risorse di Azure](../resource-group-authenticate-service-principal.md#authenticate-service-principal-with-password---azure-cli). Consente di creare una nuova entità servizio necessaria per autenticare le richieste dell'API REST usate per la creazione di risorse di Azure, ad esempio un cluster HDInsight.
+> [AZURE.NOTE] Questa procedura costituisce una sintesi delle informazioni contenute nella sezione _Autenticazione con password - Interfaccia della riga di comando di Azure_ del documento [Autenticazione di un'entità servizio con Gestione risorse di Azure](../resource-group-authenticate-service-principal.md#authenticate-service-principal-with-password---azure-cli) . Consente di creare una nuova entità servizio necessaria per autenticare le richieste dell'API REST usate per la creazione di risorse di Azure, ad esempio un cluster HDInsight.
 
 1. Al prompt dei comandi, in una sessione terminal o in una shell usare il comando seguente per elencare le sottoscrizioni di Azure.
 
@@ -282,7 +287,7 @@ Seguire i passaggi descritti in [Connettersi a una sottoscrizione Azure dall'int
     
     > [AZURE.NOTE] Poiché si sta creando questa applicazione per l'autenticazione tramite un'entità servizio, non è necessario che i valori `--home-page` e `--identifier-uris` facciano riferimento a una pagina Web effettiva ospitata in Internet, ma possono essere anche semplici URI univoci.
     
-    Dall'elenco di dati restituiti salvare il valore __AppId__.
+    Dall'elenco di dati restituiti salvare il valore __AppId__ .
     
         data:    AppId:          4fd39843-c338-417d-b549-a545f584a745
         data:    ObjectId:       4f8ee977-216a-45c1-9fa3-d023089b2962
@@ -294,7 +299,7 @@ Seguire i passaggi descritti in [Connettersi a una sottoscrizione Azure dall'int
 
         azure ad sp create 4fd39843-c338-417d-b549-a545f584a745
         
-     Dall'elenco di dati restituiti salvare il valore __ID oggetto__.
+     Dall'elenco di dati restituiti salvare il valore __ID oggetto__ .
      
         info:    Executing command ad sp create
         - Creating service principal for application 4fd39843-c338-417d-b549-a545f584a74+
@@ -305,15 +310,15 @@ Seguire i passaggi descritti in [Connettersi a una sottoscrizione Azure dall'int
         data:                      https://www.contoso.org/example
         info:    ad sp create command OK
         
-4. Assegnare il ruolo __Proprietario__ all'entità servizio usando il valore __ID oggetto__ precedentemente restituito. È necessario usare anche l'__ID sottoscrizione__ ottenuto in precedenza.
+4. Assegnare il ruolo __Owner__ all'entità servizio usando il valore __Object ID__ precedentemente restituito. È necessario usare anche l' __ID sottoscrizione__ ottenuto in precedenza.
     
         azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Owner -c /subscriptions/{SubscriptionID}/
         
     Dopo il completamento del comando, l'entità servizio disporrà dell'accesso all'ID sottoscrizione specificato in qualità di Proprietario.
 
-##Ottenere un token di autenticazione
+##<a name="get-an-authentication-token"></a>Ottenere un token di autenticazione
 
-1. Usare il comando seguente per trovare l'__ID tenant__ relativo alla sottoscrizione.
+1. Usare il comando seguente per trovare l' __ID tenant__ relativo alla sottoscrizione.
 
         azure account show -s <subscription ID>
         
@@ -346,7 +351,7 @@ Seguire i passaggi descritti in [Connettersi a una sottoscrizione Azure dall'int
 
     Se la richiesta ha esito positivo, si riceverà una risposta serie 200 e il corpo della risposta conterrà un documento JSON.
 
-    Il documento JSON restituito da questa richiesta contiene un elemento denominato __access\_token__; il valore di questo elemento è il token di accesso da utilizzare per l'autenticazione delle richieste utilizzate nelle sezioni successive di questo documento.
+    Il documento JSON restituito da questa richiesta contiene un elemento denominato __access_token__; il valore di questo elemento è il token di accesso da usare per l'autenticazione delle richieste usate nelle sezioni successive di questo documento.
     
         {
             "token_type":"Bearer",
@@ -356,13 +361,13 @@ Seguire i passaggi descritti in [Connettersi a una sottoscrizione Azure dall'int
             "resource":"https://management.azure.com/","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWoNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI2Ny8iLCJpYXQiOjE0NjM0MDYwOTQsIm5iZiI6MTQ2MzQwNjA5NCwiZXhwIjoxNDYzNDA5OTk5LCJhcHBpZCI6IjBlYzcyMzM0LTZkMDMtNDhmYi04OWU1LTU2NTJiODBiZDliYiIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0Ny8iLCJvaWQiOiJlNjgxZTZiMi1mZThkLTRkZGUtYjZiMS0xNjAyZDQyNWQzOWYiLCJzdWIiOiJlNjgxZTZiMi1mZThkLTRkZGUtYjZiMS0xNjAyZDQyNWQzOWYiLCJ0aWQiOiI3MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDciLCJ2ZXIiOiIxLjAifQ.nJVERbeDHLGHn7ZsbVGBJyHOu2PYhG5dji6F63gu8XN2Cvol3J1HO1uB4H3nCSt9DTu_jMHqAur_NNyobgNM21GojbEZAvd0I9NY0UDumBEvDZfMKneqp7a_cgAU7IYRcTPneSxbD6wo-8gIgfN9KDql98b0uEzixIVIWra2Q1bUUYETYqyaJNdS4RUmlJKNNpENllAyHQLv7hXnap1IuzP-f5CNIbbj9UgXxLiOtW5JhUAwWLZ3-WMhNRpUO2SIB7W7tQ0AbjXw3aUYr7el066J51z5tC1AK9UC-mD_fO_HUP6ZmPzu5gLA6DxkIIYP3grPnRVoUDltHQvwgONDOw"
         }
 
-##Creare un gruppo di risorse
+##<a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Per creare un nuovo gruppo di risorse, seguire questa procedura. È necessario creare innanzitutto il gruppo prima di poter creare le risorse, ad esempio il cluster HDInsight.
+Per creare un nuovo gruppo di risorse, seguire questa procedura. È necessario creare innanzitutto il gruppo prima di poter creare le risorse, ad esempio il cluster HDInsight. 
 
 * Sostituire __SubscriptionID__ con l'ID sottoscrizione ricevuto durante la creazione dell'entità servizio.
 * Sostituire __AccessToken__ con il token di accesso ricevuto nel passaggio precedente.
-* Sostituire __DataCenterLocation__ con il data center in cui si vuole creare il gruppo di risorse e le risorse. Ad esempio "Stati Uniti centrali del sud".
+* Sostituire __DataCenterLocation__ con il data center in cui si vuole creare il gruppo di risorse e le risorse. Ad esempio "Stati Uniti centrali del sud". 
 * Sostituire __ResourceGroupName__ con il nome che si vuole usare per questo gruppo:
 
 ```
@@ -376,11 +381,11 @@ curl -X "PUT" "https://management.azure.com/subscriptions/SubscriptionID/resourc
 
 Se la richiesta ha esito positivo, si riceverà una risposta serie 200 e il corpo della risposta conterrà un documento JSON che include le informazioni del gruppo. L’elemento `"provisioningState"` conterrà un valore di `"Succeeded"`.
 
-##Creare una distribuzione
+##<a name="create-a-deployment"></a>Creare una distribuzione
 
 Utilizzare le operazioni seguenti per distribuire la configurazione del cluster (valori di modello e di parametri,) nel gruppo di risorse.
 
-* Sostituire __SubscriptionID__ e __AccessToken__ con i valori usati in precedenza.
+* Sostituire __SubscriptionID__ e __AccessToken__ con i valori usati in precedenza. 
 * Sostituire __ResourceGroupName__ con il nome del gruppo di risorse creato nella sezione precedente.
 * Sostituire __DeploymentName__ con il nome che si vuole usare per questa distribuzione.
 
@@ -399,11 +404,11 @@ Se la richiesta ha esito positivo, si riceverà una risposta serie 200 e il corp
 
 > [AZURE.IMPORTANT] Si noti che la distribuzione è stata inviata, ma non è stata completata in questo momento. Possono essere necessari diversi minuti, in genere circa 15, per completare la distribuzione.
 
-##Controllare lo stato di una distribuzione
+##<a name="check-the-status-of-a-deployment"></a>Controllare lo stato di una distribuzione
 
 Per verificare lo stato della distribuzione, usare il comando seguente:
 
-* Sostituire __SubscriptionID__ e __AccessToken__ con i valori usati in precedenza.
+* Sostituire __SubscriptionID__ e __AccessToken__ con i valori usati in precedenza. 
 * Sostituire __ResourceGroupName__ con il nome del gruppo di risorse creato nella sezione precedente.
 
 ```
@@ -414,25 +419,29 @@ curl -X "GET" "https://management.azure.com/subscriptions/SubscriptionID/resourc
 
 Restituirà informazioni di un documento JSON che contiene informazioni sull'operazione di distribuzione. L’elemento `"provisioningState"` conterrà lo stato della distribuzione; se contiene un valore di `"Succeeded"`, quindi la distribuzione è stata completata correttamente. A questo punto, il cluster deve essere disponibile per l'utilizzo.
 
-##Passaggi successivi
+##<a name="next-steps"></a>Passaggi successivi
 
-Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquisire familiarità con il cluster.
+Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquisire familiarità con il cluster. 
 
-###Cluster Hadoop
+###<a name="hadoop-clusters"></a>Cluster Hadoop
 
 * [Usare Hive con HDInsight](hdinsight-use-hive.md)
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-###Cluster HBase
+###<a name="hbase-clusters"></a>Cluster HBase
 
 * [Introduzione a HBase in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
 * [Sviluppare applicazioni Java per HBase in HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
-###Cluster Storm
+###<a name="storm-clusters"></a>Cluster Storm
 
 * [Sviluppare topologie Java per Storm in HDInsight](hdinsight-storm-develop-java-topology.md)
 * [Usare i componenti di Python in Storm in HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Distribuire e monitorare le topologie con Storm in HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

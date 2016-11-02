@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Procedura dettagliata per un modello di Azure Resource Manager | Microsoft Azure"
-   description="Descrizione dettagliata del provisioning di un'architettura IaaS di Azure di base con un modello di Azure Resource Manager."
+   pageTitle="Resource Manager Template Walkthrough | Microsoft Azure"
+   description="A step by step walkthrough of a resource manager template provisioning a basic Azure IaaS architecture."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="navalev"
-   manager=""
-   editor=""/>  
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -14,31 +14,32 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/04/2016"
-   ms.author="navale;tomfitz"/>  
+   ms.author="navale;tomfitz"/>
    
-# Procedura dettagliata per un modello di Resource Manager
 
-Quando si crea un modello ci si chiede prima di tutto come iniziare. È possibile partire da un modello vuoto, seguendo la struttura di base illustrata nell'articolo sulla [creazione di un modello](resource-group-authoring-templates.md#template-format), e quindi aggiungere le risorse e le variabili e i parametri appropriati. In alternativa, è possibile esaminare prima di tutto la [raccolta di avvio rapido](https://github.com/Azure/azure-quickstart-templates) e cercare scenari simili a quello che si vuole creare. È possibile unire più modelli o modificarne uno esistente per adattarlo allo scenario specifico.
+# <a name="resource-manager-template-walkthrough"></a>Resource Manager template walkthrough
 
-Ecco un'infrastruttura comune:
+One of the first questions when creating a template is "how to start?". One can start from a blank template, following the basic structure described in [Authoring Template article](resource-group-authoring-templates.md#template-format), and add the resources and appropriate parameters and variables. A good alternative would be to start by going through the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates) and look for similar scenarios to the one you are trying to create. You can merge several templates or edit an existing one to suit your own specific scenario. 
 
-* Due macchine virtuali che utilizzano lo stesso account di archiviazione, sono nello stesso set di disponibilità e nella stessa subnet di una rete virtuale.
-* Una singola NIC e un indirizzo IP di macchina virtuale per ogni macchina virtuale.
-* Un servizio di bilanciamento del carico con una regola di bilanciamento del carico sulla porta 80.
+Let's take a look at a common infrastructure:
 
-![architettura](./media/resource-group-overview/arm_arch.png)  
+* Two virtual machines that use the same storage account, are in the same availability set, and on the same subnet of a virtual network.
+* A single NIC and VM IP address for each virtual machine.
+* A load balancer with a load balancing rule on port 80
 
-Questo argomento descrive la procedura per la creazione di un modello di Resource Manager per tale infrastruttura. Il modello finale creato è basato su un modello di avvio rapido denominato [2 VM in un servizio di bilanciamento del carico e regole per il bilanciamento del carico](https://azure.microsoft.com/documentation/templates/201-2-vms-loadbalancer-lbrules/).
+![architecture](./media/resource-group-overview/arm_arch.png)
 
-Per semplificare, creare prima di tutto un account di archiviazione e distribuirlo. Al termine della creazione dell'account di archiviazione, sarà possibile aggiungere altre risorse e ridistribuire il modello per completare l'infrastruttura.
+This topic walks you through the steps of creating a Resource Manager template for that infrastructure. The final template you create is based on a Quickstart template called [2 VMs in a Load Balancer and load balancing rules](https://azure.microsoft.com/documentation/templates/201-2-vms-loadbalancer-lbrules/).
 
->[AZURE.NOTE] Durante la creazione del modello è possibile usare un editor di qualsiasi tipo. Visual Studio offre strumenti che semplificano lo sviluppo di modelli, ma non è necessario Visual Studio per completare questa esercitazione. Per un'esercitazione sull'uso di Visual Studio per creare una distribuzione di app Web e database SQL, vedere [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+But, that's a lot to build all at once, so let's first create a storage account and deploy it. After you have mastered creating the storage account, you will add the other resources and re-deploy the template to complete the infrastructure.
 
-## Creare il modello di Azure Resource Manager
+>[AZURE.NOTE] You can use any type of editor when creating the template. Visual Studio provides tools that simplify template development, but you do not need Visual Studio to complete this tutorial. For a tutorial on using Visual Studio to create a Web App and SQL Database deployment, see [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). 
 
-Il modello è un file JSON che definisce tutte le risorse che verranno distribuite. Permette anche di definire i parametri specificati durante la distribuzione, le variabili costruite da altri valori ed espressioni e gli output della distribuzione.
+## <a name="create-the-resource-manager-template"></a>Create the Resource Manager template
 
-Di seguito è riportato il modello più semplice:
+The template is a JSON file that defines all of the resources you will deploy. It also permits you to define parameters that are specified during deployment, variables that constructed from other values and expressions, and outputs from the deployment. 
+
+Let's start with the simplest template:
 
 ```json
     {
@@ -51,10 +52,10 @@ Di seguito è riportato il modello più semplice:
     }
  ```
 
-Salvare questo file come **azuredeploy.json**. Si noti che il modello può avere un nome qualsiasi, ma deve essere un file JSON.
+Save this file as **azuredeploy.json** (note that the template can have any name you want, just that it must be a json file).
 
-## Creare un account di archiviazione
-Nella sezione **resources** aggiungere un oggetto che definisce l'account di archiviazione, come illustrato di seguito.
+## <a name="create-a-storage-account"></a>Create a storage account
+Within the **resources** section, add an object that defines the storage account, as shown below. 
 
 ```json
 "resources": [
@@ -70,15 +71,15 @@ Nella sezione **resources** aggiungere un oggetto che definisce l'account di arc
 ]
 ```
 
-Per quanto riguarda la provenienza dei valori e delle proprietà, Le proprietà **type**, **name**, **apiVersion** e **location** sono elementi standard disponibili per tutti i tipi di risorse. Per informazioni sugli elementi comuni, vedere [Risorse](resource-group-authoring-templates.md#resources). Per **name** viene impostato un valore di parametro passato durante la distribuzione e per **location** viene impostata la posizione usata dal gruppo di risorse. Nelle sezioni seguenti si vedrà come determinare **type** e **apiVersion**.
+You may be wondering where these properties and values come from. The properties **type**, **name**, **apiVersion**, and **location** are standard elements that are available for all resource types. You can learn about the common elements at [Resources](resource-group-authoring-templates.md#resources). **name** is set to a parameter value that you pass in during deployment and **location** as the location used by the resource group. We'll look at how you determine **type** and **apiVersion** in the sections below.
 
-La sezione **properties** contiene tutte le proprietà univoche per un determinato tipo di risorsa. I valori specificati in questa sezione corrispondono esattamente all'operazione PUT nell'API REST per la creazione di quel tipo di risorsa. Quando si crea un account di archiviazione, è necessario specificare un valore per **accountType**. Si noti che nell'[API REST per la creazione di un account di archiviazione](https://msdn.microsoft.com/library/azure/mt163564.aspx) la sezione properties dell'operazione REST contiene anche una proprietà **accountType** e i valori consentiti sono documentati. In questo esempio il tipo di account è impostato su **Standard\_LRS**, ma è possibile specificare un altro valore o consentire agli utenti di passare il tipo di account come un parametro.
+The **properties** section contains all of the properties that are unique to a particular resource type. The values you specify in this section exactly match the PUT operation in the REST API for creating that resource type. When creating a storage account, you must provide an **accountType**. Notice in the [REST API for creating a Storage account](https://msdn.microsoft.com/library/azure/mt163564.aspx) that the properties section of the REST operation also contains an **accountType** property, and the permitted values are documented. In this example, the account type is set to **Standard_LRS**, but you could specify some other value or permit users to pass in the account type as a parameter.
 
-Tornare ora alla sezione **parameters** per verificare come viene definito il nome dell'account di archiviazione. Per altre informazioni sull'uso dei parametri, vedere [Parametri](resource-group-authoring-templates.md#parameters).
+Now let's jump back to the **parameters** section, and see how you define the name of the storage account. You can learn more about the use of parameters at [Parameters](resource-group-authoring-templates.md#parameters). 
 
 ```json
 "parameters" : {
-	"storageAccountName": {
+    "storageAccountName": {
       "type": "string",
       "metadata": {
         "description": "Storage Account Name"
@@ -86,17 +87,17 @@ Tornare ora alla sezione **parameters** per verificare come viene definito il no
     }
 }
 ```
-In questa sezione è stato definito un parametro di tipo string che includerà il nome dell'account di archiviazione. Il valore per questo parametro verrà fornito durante la distribuzione del modello.
+Here you defined a parameter of type string that will hold the name of the storage account. The value for this parameter will be provided during template deployment.
 
-## Distribuzione del modello
-È disponibile un modello completo per la creazione di un nuovo account di archiviazione. Come si ricorderà, il modello è stato salvato nel file **azuredeploy.json**:
+## <a name="deploying-the-template"></a>Deploying the template
+We have a full template for creating a new storage account. As you recall, the template was saved in  **azuredeploy.json** file:
 
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters" : {
-	"storageAccountName": {
+    "storageAccountName": {
       "type": "string",
       "metadata": {
         "description": "Storage Account Name"
@@ -117,7 +118,7 @@ In questa sezione è stato definito un parametro di tipo string che includerà i
 }
 ```
 
-È possibile distribuire un modello in diversi modi, come illustrato nell'articolo sulla [distribuzione delle risorse](resource-group-template-deploy.md). Per distribuire il modello mediante Azure PowerShell usare:
+There are quite a few ways to deploy a template, as you can see in the [Resource Deployment article](resource-group-template-deploy.md). To deploy the template using Azure PowerShell, use:
 
 ```powershell
 # create a new resource group
@@ -127,7 +128,7 @@ New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West Europe"
 New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile azuredeploy.json
 ```
 
-In alternativa, per distribuire il modello mediante l'interfaccia della riga di comando usare:
+Or, to deploy the template using Azure CLI, use:
 
 ```
 azure group create -n ExampleResourceGroup -l "West Europe"
@@ -135,12 +136,12 @@ azure group create -n ExampleResourceGroup -l "West Europe"
 azure group deployment create -f azuredeploy.json -g ExampleResourceGroup -n ExampleDeployment
 ```
 
-Si è ora proprietari di un account di archiviazione.
+You are now the proud owner of a storage account!
 
-Sarà quindi necessario aggiungere tutte le risorse necessarie per distribuire l'architettura illustrata all'inizio dell'esercitazione. Queste risorse verranno aggiunte nello stesso modello usato fino ad ora.
+The next steps will be to add all the resources required to deploy the architecture described in the start of this tutorial. You will add these resources in the same template you have been working on.
 
-## Set di disponibilità
-Dopo la definizione dell'account di archiviazione, aggiungere un set di disponibilità per le macchine virtuali. In questo caso non sono richieste proprietà aggiuntive, quindi la relativa definizione è abbastanza semplice. Per la sezione properties completa, vedere l'[API REST per la creazione di un set di disponibilità](https://msdn.microsoft.com/library/azure/mt163607.aspx), se si vogliono definire i valori relativi ai conteggi del dominio di aggiornamento e del dominio di errore.
+## <a name="availability-set"></a>Availability Set
+After the definition for the storage account, add an availably set for the virtual machines. In this case, there are no additional properties required, so its definition is fairly simple. See the [REST API for creating an Availability Set](https://msdn.microsoft.com/library/azure/mt163607.aspx) for the full properties section, in case you want to define the update domain count and fault domain count values.
 
 ```json
 {
@@ -152,40 +153,40 @@ Dopo la definizione dell'account di archiviazione, aggiungere un set di disponib
 }
 ```
 
-Si noti che la proprietà **name** è impostata sul valore di una variabile. Per questo modello è necessario specificare il nome del set di disponibilità in diversi punti. La gestione del modello risulta più semplice se tale valore viene definito una volta e poi usato in diversi punti.
+Notice that the **name** is set to the value of a variable. For this template, the name of the availability set is needed in a few different places. You can more easily maintain your template by defining that value once and using it in multiple places.
 
-Il valore specificato per **type** contiene sia il provider di risorse che il tipo di risorsa. Per i set di disponibilità, il provider di risorse è **Microsoft.Compute** e il tipo di risorsa è **availabilitySets**. Per ottenere l'elenco dei provider di risorse disponibili è possibile eseguire il comando PowerShell seguente:
+The value you specify for **type** contains both the resource provider and the resource type. For availability sets, the resource provider is **Microsoft.Compute** and the resource type is **availabilitySets**. You can get the list of available resource providers by running the following PowerShell command:
 
 ```powershell
     Get-AzureRmResourceProvider -ListAvailable
 ```
 
-In alternativa, se si usa l'interfaccia della riga di comando di Azure, è possibile eseguire il comando seguente:
+Or, if you are using Azure CLI, you can run the following command:
 ```
     azure provider list
 ```
-Dato che in questo argomento si fa uso di account di archiviazione, macchine virtuali e reti virtuali per la creazione, si userà:
+Given that in this topic you are creating with storage accounts, virtual machines, and virtual networking, you will work with:
 
 - Microsoft.Storage
 - Microsoft.Compute
 - Microsoft.Network
 
-Per visualizzare i tipi di risorsa per un determinato provider, eseguire il comando PowerShell seguente:
+To see the resource types for a particular provider, run the following PowerShell command:
 
 ```powershell
     (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
 ```
 
-In alternativa, per l'interfaccia della riga di comando di Azure, il comando seguente restituisce i tipi disponibili in formato JSON e li salva in un file.
+Or, for Azure CLI, the following command will return the available types in JSON format and save it to a file.
 
 ```
     azure provider show Microsoft.Compute --json > c:\temp.json
 ```
 
-L'oggetto **availabilitySets** dovrebbe essere visualizzato come uno dei tipi all'interno di **Microsoft.Compute**. Il nome completo del tipo è **Microsoft.Compute/availabilitySets**. È possibile determinare il nome del tipo di risorsa per qualsiasi risorsa nel modello.
+You should see **availabilitySets** as one of the types within **Microsoft.Compute**. The full name of the type is **Microsoft.Compute/availabilitySets**. You can determine the resource type name for any of the resources in you template.
 
-## IP pubblico
-Definire un indirizzo IP pubblico. Anche in questo caso, vedere l'[API REST per indirizzi IP pubblici](https://msdn.microsoft.com/library/azure/mt163590.aspx) per informazioni sulle proprietà da impostare.
+## <a name="public-ip"></a>Public IP
+Define a public IP address. Again, look at the [REST API for public IP addresses](https://msdn.microsoft.com/library/azure/mt163590.aspx) for the properties to set.
 
 ```json
 {
@@ -202,25 +203,25 @@ Definire un indirizzo IP pubblico. Anche in questo caso, vedere l'[API REST per 
 }
 ```
 
-Il metodo di allocazione è impostato su **Dynamic**, ma è possibile impostarlo sul valore necessario o in modo che accetti un valore di parametro. Gli utenti del modello sono stati abilitati a passare un valore per l'etichetta del nome di dominio.
+The allocation method is set to **Dynamic** but you could set it to the value you need or set it to accept a parameter value. You have enabled users of your template to pass in a value for the domain name label.
 
-Per determinare **apiVersion**, il valore specificato corrisponde semplicemente alla versione dell'API REST da usare durante la creazione della risorsa. È quindi possibile esaminare la documentazione dell'API REST per quel tipo di risorsa. In alternativa, è possibile eseguire il comando PowerShell seguente per un determinato tipo.
+Now, let's look at how you determine the **apiVersion**. The value you specify simply matches the version of the REST API that you want to use when creating the resource. So, you can look at the REST API documentation for that resource type. Or, you can run the following PowerShell command for a particular type.
 
 ```powershell
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Network).ResourceTypes | Where-Object ResourceTypeName -eq publicIPAddresses).ApiVersions
 ```
-Che restituisce i valori seguenti:
+Which returns the following values:
 
     2015-06-15
     2015-05-01-preview
     2014-12-01-preview
 
-Per visualizzare le versioni API con l'interfaccia della riga di comando di Azure, eseguire lo stesso comando **azure provider show** illustrato in precedenza.
+To see the API versions with Azure CLI, run the same **azure provider show** command shown previously.
 
-Quando si crea un nuovo modello, selezionare la versione API più recente.
+When creating a new template, pick the most recent API version.
 
-## Rete virtuale e subnet
-Creare una rete virtuale con una subnet. Per tutte le proprietà da impostare, vedere l'[API REST per le reti virtuali](https://msdn.microsoft.com/library/azure/mt163661.aspx).
+## <a name="virtual-network-and-subnet"></a>Virtual network and subnet
+Create a virtual network with one subnet. Look at the [REST API for virtual networks](https://msdn.microsoft.com/library/azure/mt163661.aspx) for all the properties to set.
 
 ```json
 {
@@ -246,10 +247,10 @@ Creare una rete virtuale con una subnet. Per tutte le proprietà da impostare, v
 }
 ```
 
-## Servizio di bilanciamento del carico
-A questo punto è possibile creare un servizio di bilanciamento del carico esterno. Dato che il servizio di bilanciamento del carico usa indirizzi IP pubblici, è necessario dichiarare una dipendenza dall'indirizzo IP pubblico nella sezione **dependsOn**. Ciò significa che il servizio di bilanciamento del carico non viene distribuito fino al termine della distribuzione dell'indirizzo IP pubblico. Se non si definisce questa dipendenza, si riceve un messaggio di errore perché Azure Resource Manager prova a distribuire le risorse in parallelo e a impostare il servizio di bilanciamento del carico su un indirizzo IP pubblico che ancora non esiste.
+## <a name="load-balancer"></a>Load balancer
+Now you will create an external facing load balancer. Because this load balancer uses the public IP address, you must declare a dependency on the public IP address in the **dependsOn** section. This means the load balancer will not get deployed until the public IP address has finished deploying. Without defining this dependency, you will receive an error because Resource Manager will attempt to deploy the resources in parallel, and will try to set the load balancer to public IP address that doesn't exist yet. 
 
-In questa definizione risorse viene creato anche un pool di indirizzi back-end, due regole NAT in ingresso per RDP nelle macchine virtuali e una regola di bilanciamento del carico con un probe TCP sulla porta 80. Per tutte le proprietà, vedere l'[API REST per il servizio di bilanciamento del carico](https://msdn.microsoft.com/library/azure/mt163574.aspx).
+You will also create a backend address pool, a couple of inbound NAT rules to RDP into the VMs, and a load balancing rule with a tcp probe on port 80 in this resource definition. Checkout the [REST API for load balancer](https://msdn.microsoft.com/library/azure/mt163574.aspx) for all the properties.
 
 ```json
 {
@@ -338,8 +339,9 @@ In questa definizione risorse viene creato anche un pool di indirizzi back-end, 
 }
 ```
 
-## Interfaccia di rete
-Creare due interfacce di rete, una per ogni macchina virtuale. Anziché dover includere voci duplicate per le interfacce di rete, è possibile usare la [funzione copyIndex()](resource-group-create-multiple.md) per eseguire l'iterazione del ciclo di copia, detto nicLoop, e creare il numero di interfacce di rete definito nelle variabili `numberOfInstances`. L'interfaccia di rete dipende dalla creazione della rete virtuale e del servizio di bilanciamento del carico. Usa la subnet definita per la creazione della rete virtuale e l'ID del servizio di bilanciamento del carico per configurare il pool di indirizzi per il bilanciamento del carico e le regole NAT in ingresso. Per tutte le proprietà, vedere l'[API REST per le interfacce di rete](https://msdn.microsoft.com/library/azure/mt163668.aspx).
+## <a name="network-interface"></a>Network interface
+You will create 2 network interfaces, one for each VM. Rather than having to include duplicate entries for the network interfaces, you can use the [copyIndex() function](resource-group-create-multiple.md) to iterate over the copy loop (referred to as nicLoop) and create the number network interfaces as defined in the `numberOfInstances` variables. The network interface depends on creation of the virtual network and the load balancer. It uses the subnet defined in the virtual network creation, and the load balancer id to configure the load balancer address pool and the inbound NAT rules.
+Look at the [REST API for network interfaces](https://msdn.microsoft.com/library/azure/mt163668.aspx) for all the properties.
 
 ```json
 {
@@ -381,10 +383,11 @@ Creare due interfacce di rete, una per ogni macchina virtuale. Anziché dover in
 }
 ```
 
-## Macchina virtuale
-Creare due macchine virtuali usando la funzione copyIndex(), come per la creazione delle [interfacce di rete](#network-interface). La creazione della macchina virtuale dipende dall'account di archiviazione, dall'interfaccia di rete e dal set di disponibilità. Questa macchina virtuale verrà creata da un'immagine del Marketplace, come definito nella proprietà `storageProfile`. L'oggetto `imageReference` viene usato per definire l'editore di immagini, l'offerta, lo SKU e la versione. Infine, è necessario configurare un profilo di diagnostica per abilitare la diagnostica della macchina virtuale.
+## <a name="virtual-machine"></a>Virtual machine
+You will create 2 virtual machines, using copyIndex() function, as you did in creation of the [network interfaces](#network-interface).
+The VM creation depends on the storage account, network interface and availability set. This VM will be created from a marketplace image, as defined in the `storageProfile` property - `imageReference` is used to define the image publisher, offer, sku and version. Finally, a diagnostic profile is configured to enable diagnostics for the VM. 
 
-Per trovare le proprietà rilevanti per un'immagine del Marketplace, vedere l'articolo relativo alla [selezione di immagini di macchine virtuali Linux](./virtual-machines/virtual-machines-linux-cli-ps-findimage.md) o alla [selezione di immagini di macchine virtuali Windows](./virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
+To find the relevant properties for a marketplace image, follow the [select Linux virtual machine images](./virtual-machines/virtual-machines-linux-cli-ps-findimage.md) or [select Windows virtual machine images](./virtual-machines/virtual-machines-windows-cli-ps-findimage.md) articles.
 
 ```json
 {
@@ -445,13 +448,13 @@ Per trovare le proprietà rilevanti per un'immagine del Marketplace, vedere l'ar
 }
 ```
 
->[AZURE.NOTE] Per le immagini pubblicate da **fornitori di terze parti** è necessario specificare un'altra proprietà denominata `plan`. Un esempio è disponibile in [questo modello](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) nella raccolta di avvio rapido.
+>[AZURE.NOTE] For images published by **3rd party vendors**, you will need to specify another property named `plan`. An example can be found in [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) from the quickstart gallery. 
 
-La definizione delle risorse per il modello è terminata.
+You have finished defining the resources for your template.
 
-## Parametri
+## <a name="parameters"></a>Parameters
 
-Nella sezione parameters è necessario definire i valori che possono essere specificati durante la distribuzione del modello. Definire solo i parametri per i valori che dovrebbero essere modificati durante la distribuzione. È possibile fornire un valore predefinito per un parametro da usare se non ne viene specificato uno durante la distribuzione. È anche possibile definire i valori consentiti, come illustrato per il parametro **imageSKU**.
+In the parameters section, define the values that can be specified when deploying the template. Only define parameters for values that you think should be varied during deployment. You can provide a default value for a parameter that is used if one is not provided during deployment. You can also define the allowed values as shown for the **imageSKU** parameter.
 
 ```json
 "parameters": {
@@ -550,9 +553,9 @@ Nella sezione parameters è necessario definire i valori che possono essere spec
   }
 ```
 
-## Variabili
+## <a name="variables"></a>Variables
 
-Nella sezione variables è possibile definire valori usati in più punti del modello o valori costruiti da altre espressioni o variabili. Le variabili vengono usate spesso per semplificare la sintassi del modello.
+In the variables section, you can define values that are used in more than one place in your template, or values that are constructed from other expressions or variables. Variables are frequently used to simplify the syntax of your template.
 
 ```json
 "variables": {
@@ -569,14 +572,18 @@ Nella sezione variables è possibile definire valori usati in più punti del mod
   }
 ```
 
-Il modello è stato completato. È possibile confrontare il modello con il modello completo disponibile nella [raccolta di avvio rapido](https://github.com/Azure/azure-quickstart-templates) nel [modello con 2 VM in un servizio di bilanciamento del carico e regole per il bilanciamento del carico](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules). Il modello specifico potrebbe risultare leggermente diverso a causa dell'uso di numeri di versione diversi.
+You have completed the template! You can compare your template against the full template in the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates) under [2 VMs with load balancer and load balancer rules template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules). Your template might be slightly different based on using different version numbers. 
 
-È possibile ridistribuire il modello usando gli stessi comandi usati durante la distribuzione dell'account di archiviazione. Non è necessario eliminare l'account di archiviazione prima della ridistribuzione perché Resource Manager ignorerà la ricreazione di risorse già esistenti e non modificate.
+You can re-deploy the template by using the same commands you used when deploying the storage account. You do not need to delete the storage account before re-deploying because Resource Manager will skip re-creating resources that already exist and have not changed.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-- [Azure Resource Manager Template Visualizer (ARMViz)](http://armviz.io/#/) è uno strumento ideale per visualizzare i modelli di Azure Resource Manager, perché potrebbero risultare troppo grandi per essere comprensibili solo mediante la lettura del file JSON.
-- Per altre informazioni sulla struttura del modello, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).
-- Per altre informazioni sulla distribuzione di modelli, vedere [Distribuire un gruppo di risorse con un modello di Azure Resource Manager](resource-group-template-deploy.md)
+- [Azure Resource Manager Template Visualizer (ARMViz)](http://armviz.io/#/) is a great tool to visualize ARM templates, as they might become too large to understand just from reading the json file.
+- To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+- To learn about deploying a template, see [Deploy a Resource Group with Azure Resource Manager template](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

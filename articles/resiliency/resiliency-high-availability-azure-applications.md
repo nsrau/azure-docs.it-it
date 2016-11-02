@@ -16,15 +16,16 @@
    ms.date="08/18/2016"
    ms.author="aglick"/>
 
-#Disponibilità elevata per le applicazioni basate su Microsoft Azure
+
+#<a name="high-availability-for-applications-built-on-microsoft-azure"></a>Disponibilità elevata per le applicazioni basate su Microsoft Azure
 
 Un'applicazione a disponibilità elevata assorbe le fluttuazioni di disponibilità, carico ed errori temporanei nell'hardware e nei servizi dipendenti. L'applicazione continua a funzionare con un livello di risposta utente e di sistema accettabile in base a quanto definito dai requisiti aziendali o dai contratti di servizio dell'applicazione.
 
-##Funzionalità a disponibilità elevata di Azure
+##<a name="azure-high-availability-features"></a>Funzionalità a disponibilità elevata di Azure
 
 Azure offre numerose funzionalità predefinite della piattaforma che supportano applicazioni a disponibilità elevata. Questa sezione descrive alcune di queste funzionalità chiave. Per un'analisi più completa della piattaforma, vedere [Informazioni tecniche sulla resilienza di Azure](./resiliency-technical-guidance.md).
 
-###Controller di infrastruttura
+###<a name="fabric-controller"></a>Controller di infrastruttura
 
 Il controller di infrastruttura di Azure gestisce il provisioning e il monitoraggio delle condizioni delle istanze di calcolo di Azure. Controlla lo stato dell'hardware e del software delle istanze delle macchine host e guest. Quando rileva un errore, applica i contratti di servizio rilocando automaticamente le istanze delle VM. Il contratto di servizio di calcolo è ulteriormente supportato dal concetto dei domini di aggiornamento e di errore.
 
@@ -36,11 +37,11 @@ La figura seguente illustra le risorse condivise di Azure distribuite e gestite 
 
 I domini di aggiornamento hanno una funzione simile ai domini di errore, ma supportano gli aggiornamenti anziché gli errori. Un dominio di aggiornamento è un'unità logica di separazione delle istanze che determina quali istanze in un particolare servizio verranno aggiornate in uno specifico momento. Per impostazione predefinita, per la distribuzione del servizio ospitato vengono definiti cinque domini di aggiornamento. È tuttavia possibile modificare tale valore nel file di definizione del servizio. Si supponga ad esempio di avere otto istanze del ruolo Web. Saranno presenti due istanze in tre domini di aggiornamento e due istanze in un dominio di aggiornamento. Azure definisce la sequenza di aggiornamento, che è tuttavia basata sul numero di domini di aggiornamento. Per altre informazioni sui domini di aggiornamento, vedere [Come aggiornare un servizio cloud](../cloud-services/cloud-services-update-azure-service.md).
 
-###Funzionalità in altri servizi
+###<a name="features-in-other-services"></a>Funzionalità in altri servizi
 
 Oltre a queste funzionalità della piattaforma che supportano la disponibilità elevata a livello di calcolo, Azure incorpora funzionalità di disponibilità elevata negli altri servizi. Il servizio di archiviazione di Azure gestisce ad esempio tre repliche di tutti i dati di BLOB, tabelle e code. Offre anche l'opzione della replica geografica per archiviare i backup di BLOB e tabelle in un'area secondaria. La rete per la distribuzione di contenuti di Azure consente di memorizzare i BLOB nella cache in tutto il mondo ai fini sia della ridondanza sia della scalabilità. Anche il database SQL di Azure gestisce più repliche.
 
-Oltre alla serie di articoli [Informazioni tecniche sulla resilienza](https://aka.ms/bctechguide), vedere il white paper [Procedure consigliate per la progettazione di servizi su larga scala nei servizi cloud di Azure](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/). Questi documenti offrono un esame più approfondito delle funzionalità di disponibilità della piattaforma Azure.
+Oltre alla serie di articoli [Indicazioni tecniche sulla resilienza di Azure](https://aka.ms/bctechguide), vedere il white paper [Best Practices for the Design of Large-Scale Services on Azure Cloud Services](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/) (Procedure consigliate per la progettazione di servizi su larga scala in Servizi cloud di Azure). Questi documenti offrono un esame più approfondito delle funzionalità di disponibilità della piattaforma Azure.
 
 Nonostante Azure offra più funzionalità che supportano la disponibilità elevata, è importante conoscerne le limitazioni:
 
@@ -50,7 +51,7 @@ Nonostante Azure offra più funzionalità che supportano la disponibilità eleva
 
 Per questi motivi, è necessario integrare le funzionalità di disponibilità della piattaforma con funzionalità di disponibilità specifiche dell'applicazione. Le funzionalità di disponibilità dell'applicazione includono la funzionalità di snapshot di BLOB per creare backup temporizzati dei dati BLOB.
 
-###Set di disponibilità per le macchine virtuali di Azure
+###<a name="availability-sets-for-azure-virtual-machines"></a>Set di disponibilità per le macchine virtuali di Azure
 
 Questo articolo è prevalentemente incentrato sui servizi cloud, che usano un modello di piattaforma distribuita come servizio (PaaS). Esistono tuttavia anche funzionalità di disponibilità specifiche per le macchine virtuali di Azure, che usano un modello di infrastruttura distribuita come servizio (IaaS). Per ottenere la disponibilità elevata con le macchine virtuali, è necessario usare set di disponibilità. Un set di disponibilità svolge una funzione simile ai domini di errore e di aggiornamento. All'interno di un set di disponibilità, Azure posiziona le macchine virtuali in modo da impedire che attività di manutenzione ed errori hardware localizzati arrestino tutte le macchine del gruppo. I set di disponibilità sono necessari per soddisfare i requisiti del contratto di servizio di Azure per la disponibilità delle macchine virtuali.
 
@@ -60,11 +61,11 @@ La figura seguente rappresenta due set di disponibilità che raggruppano rispett
 
 >[AZURE.NOTE] Nella figura precedente, SQL Server è installato ed eseguito in macchine virtuali. Nella precedente discussione riguardo al database SQL di Azure, invece, il database viene fornito come servizio gestito.
 
-##Strategie delle applicazioni per la disponibilità elevata
+##<a name="application-strategies-for-high-availability"></a>Strategie delle applicazioni per la disponibilità elevata
 
 La maggior parte delle strategie delle applicazioni per la disponibilità elevata prevedono la ridondanza o la rimozione di dipendenze rigide tra i componenti dell'applicazione. La progettazione dell'applicazione deve supportare la tolleranza di errore durante sporadici tempi di inattività di Azure o di servizi di terze parti. Le sezioni seguenti descrivono diversi modelli delle applicazioni per aumentare la disponibilità dei servizi cloud.
 
-###Comunicazione asincrona e code durevoli
+###<a name="asynchronous-communication-and-durable-queues"></a>Comunicazione asincrona e code durevoli
 
 Per aumentare la disponibilità delle applicazioni Azure, prendere in considerazione la comunicazione asincrona tra servizi a regime di controllo libero. In questo modello, i messaggi vengono scritti nelle code di archiviazione o nelle code del bus di servizio di Azure per l'elaborazione successiva. Quando si scrive il messaggio nella coda, il controllo torna immediatamente al mittente del messaggio. L'elaborazione dei messaggi viene gestita da un altro livello dell'applicazione, in genere implementato come ruolo di lavoro. Se il ruolo di lavoro diventa inattivo, i messaggi si accumulano nella coda finché non viene ripristinato il servizio di elaborazione. Finché la coda è disponibile, non esiste alcuna dipendenza diretta tra mittente front-end ed elaboratore dei messaggi. Viene così eliminato il requisito delle chiamate sincrone ai servizi, che nelle applicazioni distribuite possono costituire un collo di bottiglia per la velocità effettiva.
 
@@ -72,9 +73,9 @@ Una variante usa le code di Archiviazione di Azure (BLOB, tabelle, code) o del b
 
 In entrambi gli scenari, la comunicazione asincrona e l'archiviazione intermedia impediscono a un servizio back-end inattivo di arrestare l'intera applicazione. Le code fungono da intermediario logico. Per altre indicazioni sulla scelta del servizio di accodamento corretto, vedere [Analogie e differenze tra le code di Azure e le code del bus di servizio](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
 
-###Rilevamento degli errori e logica di ripetizione dei tentativi
+###<a name="fault-detection-and-retry-logic"></a>Rilevamento degli errori e logica di ripetizione dei tentativi
 
-Un punto chiave nella progettazione di applicazioni a disponibilità elevata è l'uso nel codice di logica di ripetizione dei tentativi per gestire correttamente un servizio temporaneamente inattivo. Il [Blocco di applicazioni per la gestione degli errori temporanei](https://msdn.microsoft.com/library/hh680934.aspx), sviluppato dal team Microsoft Patterns & Practices, assiste gli sviluppatori di applicazioni in questo processo. Il termine "temporaneo" indica una condizione che dura solo per un periodo di tempo relativamente breve. Nel contesto di questo articolo, la gestione degli errori temporanei fa parte dello sviluppo di un'applicazione a disponibilità elevata. Le condizioni temporanee includono, ad esempio, gli errori di rete intermittente e la perdita delle connessioni ai database.
+Un punto chiave nella progettazione di applicazioni a disponibilità elevata è l'uso nel codice di logica di ripetizione dei tentativi per gestire correttamente un servizio temporaneamente inattivo. Il [Blocco di applicazioni per la gestione degli errori temporanei](https://msdn.microsoft.com/library/hh680934.aspx), sviluppato dal team Microsoft Patterns &amp; Practices, assiste gli sviluppatori di applicazioni in questo processo. Il termine "temporaneo" indica una condizione che dura solo per un periodo di tempo relativamente breve. Nel contesto di questo articolo, la gestione degli errori temporanei fa parte dello sviluppo di un'applicazione a disponibilità elevata. Le condizioni temporanee includono, ad esempio, gli errori di rete intermittente e la perdita delle connessioni ai database.
 
 Il blocco applicazione di gestione degli errori temporanei semplifica la gestione corretta degli errori nel codice. È possibile usarlo per migliorare la disponibilità delle applicazioni aggiungendo un'affidabile logica di gestione degli errori temporanei. Nella maggior parte dei casi, la logica di ripetizione dei tentativi gestisce una breve interruzione e riconnette il mittente e il destinatario dopo uno o più tentativi non riusciti. Una ripetizione dei tentativi riuscita non viene in genere rilevata dagli utenti dell'applicazione.
 
@@ -89,7 +90,7 @@ La strategia di alto livello nel codice è
 
 Testare la logica di ripetizione dei tentativi in errori simulati per verificare che le ripetizioni dei tentativi su operazioni successive non causino un lungo ritardo imprevisto. Eseguire questi test prima di determinare l'esito negativo dell'attività complessiva.
 
-###Modello dei dati di riferimento per la disponibilità elevata
+###<a name="reference-data-pattern-for-high-availability"></a>Modello dei dati di riferimento per la disponibilità elevata
 
 I dati di riferimento sono i dati di sola lettura di un'applicazione. Questi dati forniscono il contesto aziendale all'interno del quale l'applicazione genera dati transazionali nel corso di un'operazione aziendale. I dati transazionali sono una funzione temporizzata dei dati di riferimento. Di conseguenza, la loro integrità dipende dallo snapshot dei dati di riferimento al momento della transazione. Questa definizione, per quanto approssimativa, dovrebbe essere sufficiente per gli scopi di questo articolo.
 
@@ -103,7 +104,7 @@ Per aumentare la disponibilità, i ruoli devono contenere anche un set di dati d
 
 Una considerazione in merito a questo modello riguarda la distribuzione e la velocità di avvio dei ruoli. La distribuzione o il download di grandi quantità di dati di riferimento all'avvio può aumentare il tempo necessario per avviare nuove distribuzioni o istanze del ruolo. Questo compromesso può essere accettabile per assicurare l'autonomia di avere i dati di riferimento immediatamente disponibili in ogni ruolo anziché dipendere da servizi di archiviazione esterni.
 
-###Modello dei dati transazionali per la disponibilità elevata
+###<a name="transactional-data-pattern-for-high-availability"></a>Modello dei dati transazionali per la disponibilità elevata
 
 I dati transazionali sono i dati generati dall'applicazione in un contesto aziendale. I dati transazionali sono una combinazione dell'insieme dei processi aziendali implementati dall'applicazione e dei dati di riferimento che supportano tali processi. Esempi di dati transazionali possono essere ordini, preavvisi di spedizione, fatture e opportunità di gestione delle relazioni con i clienti (CRM). I dati transazionali così generati verranno inviati a sistemi esterni per il mantenimento dei record o l'ulteriore elaborazione.
 
@@ -135,12 +136,16 @@ Si noti che la figura precedente illustra un'implementazione di questo approccio
  * La destinazione finale potrebbe essere Archiviazione di Azure o un diverso provider di database.
  * È possibile usare Cache di Azure al livello Web per garantire i requisiti di memorizzazione immediata nella cache dopo la transazione.
 
-###Modelli per la scalabilità
+###<a name="scalability-patterns"></a>Modelli per la scalabilità
 
 È importante notare che la scalabilità del servizio cloud influisce direttamente sulla disponibilità. Se il servizio non risponde a causa di un incremento del carico, l'utente ha l'impressione che l'applicazione sia inattiva. Seguire le procedure consigliate per la scalabilità in base al carico previsto per l'applicazione e alle aspettative future. La scalabilità massima implica molte considerazioni, ad esempio riguardo all'uso di uno o più account di archiviazione, alla condivisione in più database e alle strategie di caching. Per un approfondimento su questi modelli, vedere [Procedure consigliate per la progettazione di servizi su larga scala nei Servizi cloud di Azure](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/).
 
-##Passaggi successivi
+##<a name="next-steps"></a>Passaggi successivi
 
 Questo articolo fa parte di una serie dedicata al [ripristino di emergenza e disponibilità elevata per le applicazioni basate su Microsoft Azure](./resiliency-disaster-recovery-high-availability-azure-applications.md). L'articolo successivo della serie riguarda il [ripristino di emergenza per le applicazioni basate su Microsoft Azure](./resiliency-disaster-recovery-azure-applications.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

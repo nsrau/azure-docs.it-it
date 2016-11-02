@@ -1,24 +1,25 @@
 <properties
-	pageTitle="Distribuire un'app nei set di scalabilità di macchine virtuali | Microsoft Azure"
-	description="Distribuire un'app nei set di scalabilità di macchine virtuali"
-	services="virtual-machine-scale-sets"
-	documentationCenter=""
-	authors="gbowerman"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Distribuire un'app nei set di scalabilità di macchine virtuali | Microsoft Azure"
+    description="Distribuire un'app nei set di scalabilità di macchine virtuali"
+    services="virtual-machine-scale-sets"
+    documentationCenter=""
+    authors="gbowerman"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/13/2016"
-	ms.author="guybo"/>
+    ms.service="virtual-machine-scale-sets"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/13/2016"
+    ms.author="guybo"/>
 
 
-# Aggiornare un set di scalabilità di macchine virtuali
+
+# <a name="upgrade-a-virtual-machine-scale-set"></a>Aggiornare un set di scalabilità di macchine virtuali
 
 Questo articolo descrive come eseguire un aggiornamento del sistema operativo a un set di scalabilità di macchine virtuali di Azure senza tempi di inattività. In questo contesto, un aggiornamento del sistema operativo riguarda la modifica della versione/SKU del sistema operativo oppure la modifica dell'URI di un'immagine personalizzata. L'aggiornamento senza tempi di inattività implica l'aggiornamento di una macchina virtuale alla volta o in gruppi, ad esempio un dominio di errore alla volta, anziché contemporaneamente. In questo modo, è possibile mantenere in esecuzione tutte le macchine virtuali non in fase di aggiornamento.
 
@@ -47,7 +48,7 @@ La sequenza di base per la modifica della versione/SKU del sistema operativo di 
 
 Tenendo conto di queste informazioni generali, si noti come è possibile aggiornare la versione di un set di scalabilità in PowerShell e tramite l'API REST. Questi esempi riguardano il caso di un'immagine di piattaforma, ma le informazioni fornite in questo articolo saranno sufficienti a adattare il processo per un'immagine personalizzata.
 
-## PowerShell##
+## <a name="powershell##"></a>PowerShell##
 
 Questo esempio aggiorna un set di scalabilità di una macchina virtuale Windows a una nuova versione 4.0.20160229. Dopo l'aggiornamento del modello viene eseguito un aggiornamento di un'istanza di macchina virtuale alla volta.
 
@@ -78,11 +79,11 @@ $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 ```
 
 
-## API REST
+## <a name="the-rest-api"></a>API REST
 
 Di seguito sono riportati due esempi di Python che usano l'API REST di Azure per implementare un aggiornamento di versione del sistema operativo. Entrambi usano la libreria [azurerm](https://pypi.python.org/pypi/azurerm) semplificata della funzione wrapper dell'API REST di Azure per eseguire un'operazione GET sul modello del set di scalabilità, seguiti da un'operazione PUT con un modello aggiornato. Gli esempi esaminano le viste delle istanze della macchina virtuale per l'individuazione delle macchine virtuali tramite il dominio di aggiornamento.
 
-### Vmssupgrade
+### <a name="vmssupgrade"></a>Vmssupgrade
 
  [Vmssupgrade](https://github.com/gbowerman/vmsstools) è uno script Python utile per implementare un aggiornamento del sistema operativo per un set di scalabilità di macchine virtuali in esecuzione, un dominio di aggiornamento alla volta.
 
@@ -90,16 +91,20 @@ Di seguito sono riportati due esempi di Python che usano l'API REST di Azure per
 
 Questo script consente di scegliere le macchine virtuali specifiche per aggiornare o specificare un dominio di aggiornamento. Supporta la modifica di una versione dell'immagine della piattaforma o la modifica dell'URI di un'immagine personalizzata.
 
-### Vmsseditor
+### <a name="vmsseditor"></a>Vmsseditor
 
-[Vmsseditor](https://github.com/gbowerman/vmssdashboard) è un editor generico per i set di scalabilità di macchine virtuali che mostra lo stato della macchina virtuale come heatmap in cui una riga rappresenta un dominio di aggiornamento. Tra le altre cose, è possibile aggiornare il modello per un set di scalabilità con una nuova versione, SKU o URI dell'immagine personalizzata e quindi selezionare i domini di errore da aggiornare. A questo scopo, tutte le macchine virtuali in questo dominio di aggiornamento vengono aggiornate al nuovo modello. In alternativa, è possibile eseguire un aggiornamento in sequenza in base alla dimensione di batch scelta.
+[Vmsseditor](https://github.com/gbowerman/vmssdashboard) è un editor generico per i set di scalabilità di macchine virtuali che mostra lo stato della macchina virtuale come heatmap in cui una riga rappresenta un dominio di aggiornamento. Tra le altre cose, è possibile aggiornare il modello per un set di scalabilità con una nuova versione, SKU o URI dell'immagine personalizzata e quindi selezionare i domini di errore da aggiornare. A questo scopo, tutte le macchine virtuali in questo dominio di aggiornamento vengono aggiornate al nuovo modello. In alternativa, è possibile eseguire un aggiornamento in sequenza in base alla dimensione di batch scelta.  
 
 La schermata seguente illustra un modello di un set di scalabilità per Ubuntu 14.04-2LTS versione 14.04.201507060. Da quando è stata acquisita questa schermata, sono state aggiunte a questo strumento molte opzioni.
 
 ![Modello Vmsseditor di un set di scalabilità per Ubuntu 14.04-2LTS](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor1.png)
 
-Dopo aver fatto clic su **Aggiorna** e quindi su **Dettagli**, le macchine virtuali in UD 0 avviano l'aggiornamento.
+Dopo aver selezionato **Aggiorna** e **Dettagli**, le macchine virtuali nel dominio di aggiornamento 0 avviano l'aggiornamento.
 
 ![Vmsseditor che illustra un aggiornamento in corso](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

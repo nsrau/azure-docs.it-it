@@ -10,7 +10,7 @@ In questa procedura dettagliata verranno trattati i seguenti argomenti:
 
 2. **Compilazione ed esecuzione**: i passaggi richiesti per compilare ed eseguire l'esempio.
 
-## Architettura
+## <a name="architecture"></a>Architettura
 
 L'esempio di caricamento su cloud del dispositivo simulato mostra come usare l'SDK per creare un gateway che invia i dati di telemetria da dispositivi simulati a un hub IoT. I dispositivi simulati non possono connettersi direttamente all'hub IoT perché:
 
@@ -29,7 +29,7 @@ Il diagramma seguente illustra i componenti principali dell'esempio, inclusi i m
 
 > [AZURE.NOTE] I moduli non si scambiano direttamente i messaggi, ma li pubblicano in un broker interno che li invia ad altri moduli usando un meccanismo di sottoscrizione, come mostrato nel diagramma seguente. Per altre informazioni, vedere la pagina di [introduzione a Gateway SDK][lnk-gw-getstarted].
 
-### Modulo di inserimento del protocollo
+### <a name="protocol-ingestion-module"></a>Modulo di inserimento del protocollo
 
 Questo modulo è il punto di partenza per trasferire i dati dai dispositivi al cloud attraverso il gateway. Nell'esempio, il modulo esegue quattro attività:
 
@@ -45,13 +45,13 @@ Questo modulo è il punto di partenza per trasferire i dati dai dispositivi al c
 
 > [AZURE.NOTE] Il modulo denominato **Inserimento del protocollo X** nel diagramma precedente viene chiamato **Dispositivo simulato** nel codice sorgente.
 
-### Modulo ID MAC &lt;-&gt; Hub IoT
+### <a name="mac-&lt;-&gt;-iot-hub-id-module"></a>Modulo ID MAC &lt;-&gt; IoT Hub
 
-Questo modulo esegue l'analisi dei messaggi che includono una proprietà che contiene l'indirizzo MAC del dispositivo simulato, aggiunto dal modulo di inserimento del protocollo. Se il modulo trova questa proprietà, aggiunge un'altra proprietà con una chiave del dispositivo dell'hub IoT al messaggio, quindi rende disponibile il messaggio al modulo successivo nella catena. In questo modo l'esempio associa le identità dei dispositivi di un hub IoT ai dispositivi simulati. Lo sviluppatore imposta manualmente il mapping tra gli indirizzi MAC e le identità dell'hub IoT durante la configurazione del modulo.
+Questo modulo esegue l'analisi dei messaggi che includono una proprietà che contiene l'indirizzo MAC del dispositivo simulato, aggiunto dal modulo di inserimento del protocollo. Se il modulo trova questa proprietà, aggiunge un'altra proprietà con una chiave del dispositivo dell'hub IoT al messaggio, quindi rende disponibile il messaggio al modulo successivo nella catena. In questo modo l'esempio associa le identità dei dispositivi di un hub IoT ai dispositivi simulati. Lo sviluppatore imposta manualmente il mapping tra gli indirizzi MAC e le identità dell'hub IoT durante la configurazione del modulo. 
 
 > [AZURE.NOTE]  Questo esempio usa un indirizzo MAC come identificatore univoco del dispositivo e lo associa a un'identità dei dispositivi di un hub IoT. Tuttavia, è possibile scrivere un modulo personalizzato che usa un identificatore univoco diverso. Ad esempio, alcuni dispositivi con numeri di serie univoci o dati di telemetria con un nome univoco del dispositivo incorporato possono essere usati per determinare l'identità dei dispositivi di un hub IoT.
 
-### Modulo di comunicazione dell'hub IoT
+### <a name="iot-hub-communication-module"></a>Modulo di comunicazione dell'hub IoT
 
 Questo modulo accetta messaggi con un'identità dei dispositivi di un hub IoT assegnata dal modulo precedente e invia il contenuto del messaggio all'hub IoT usando HTTPS. HTTPS è uno dei tre protocolli riconosciuti dall'hub IoT.
 
@@ -65,8 +65,10 @@ Invece di aprire una connessione all'hub IoT per ogni dispositivo simulato, ques
 [2]: media/iot-hub-gateway-sdk-simulated-selector/image2.png
 
 <!-- Links -->
-[esempio di caricamento su cloud del dispositivo simulato]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/sample_simulated_device_cloud_upload.md
+[Esempio di caricamento su cloud del dispositivo simulato]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/sample_simulated_device_cloud_upload.md
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-gw-getstarted]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md
 
-<!---HONumber=AcomDC_0928_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

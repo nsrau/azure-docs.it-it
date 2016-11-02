@@ -3,7 +3,7 @@
    description="Informazioni su bcp e sul relativo uso per scenari di data warehousing."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lodipalm"
+   authors="twounder"
    manager="barbkess"
    editor=""/>
 
@@ -13,21 +13,23 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="mausher;barbkess"/>
 
 
-# Caricare dati con bcp
+
+# <a name="load-data-with-bcp"></a>Caricare i dati con BCP
 
 > [AZURE.SELECTOR]
-- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+- [Redgate](sql-data-warehouse-load-with-redgate.md)  
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
+- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
 
 **[bcp][]** è un'utilità di caricamento bulk da riga di comando che permette di copiare dati tra SQL Server, file di dati e SQL Data Warehouse. Usare bcp per importare numeri elevati di righe nelle tabelle di SQL Data Warehouse o per esportare i dati dalle tabelle di SQL Server ai file di dati. bcp richiede competenze in ambito di Transact-SQL solo quando viene usato con l'opzione queryout.
 
-bcp costituisce un modo semplice e rapido per spostare set di dati di dimensioni ridotte da e verso un database di SQL Data Warehouse. La quantità esatta di dati che è consigliabile caricare/estrarre tramite bcp dipenderà dalla connessione di rete per il data center di Azure. In genere, le tabelle delle dimensioni possono essere caricate ed estratte facilmente con bcp, tuttavia bcp non è consigliato per il caricamento o l'estrazione di grandi volumi di dati. Lo strumento consigliato per il caricamento e l'estrazione di grandi volumi di dati è Polybase, perché offre risultati migliori con l'architettura MPP (Massively Parallel Processing, elaborazione parallela massiva) di SQL Data Warehouse.
+bcp costituisce un modo semplice e rapido per spostare set di dati di dimensioni ridotte da e verso un database di SQL Data Warehouse. La quantità esatta di dati che è consigliabile caricare/estrarre tramite bcp dipenderà dalla connessione di rete per il data center di Azure.  In genere, le tabelle delle dimensioni possono essere caricate ed estratte facilmente con bcp, tuttavia bcp non è consigliato per il caricamento o l'estrazione di grandi volumi di dati.  Lo strumento consigliato per il caricamento e l'estrazione di grandi volumi di dati è Polybase, perché offre risultati migliori con l'architettura MPP (Massively Parallel Processing, elaborazione parallela massiva) di SQL Data Warehouse.
 
 Con bcp è possibile:
 
@@ -41,7 +43,7 @@ In questa esercitazione verranno illustrate le attività seguenti:
 
 >[AZURE.VIDEO loading-data-into-azure-sql-data-warehouse-with-bcp]
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire questa esercitazione, è necessario:
 
@@ -49,13 +51,13 @@ Per eseguire questa esercitazione, è necessario:
 - Utilità della riga di comando bcp installata
 - Utilità della riga di comando SQLCMD installata
 
->[AZURE.NOTE] È possibile scaricare le utilità bcp e sqlcmd dall'[Area download Microsoft][].
+>[AZURE.NOTE] È possibile scaricare le utilità bcp e sqlcmd dall' [Area download Microsoft][].
 
-## Importare i dati in SQL Data Warehouse
+## <a name="import-data-into-sql-data-warehouse"></a>Importare i dati in SQL Data Warehouse
 
 In questa esercitazione verrà creata una tabella in Azure SQL Data Warehouse e verranno importati dati nella tabella.
 
-### Passaggio 1: Creare una tabella in Azure SQL Data Warehouse
+### <a name="step-1-create-a-table-in-azure-sql-data-warehouse"></a>Passaggio 1: Creare una tabella in Azure SQL Data Warehouse
 
 Al prompt dei comandi usare sqlcmd per eseguire la query seguente per creare una tabella nell'istanza:
 
@@ -75,11 +77,11 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
->[AZURE.NOTE] Per altre informazioni sulla creazione di una tabella in SQL Data Warehouse e sulle opzioni disponibili con la clausola WITH, vedere [Overview of tables in SQL Data Warehouse][] \(Panoramica delle tabella in SQL Data Warehouse) o la sintassi di [CREATE TABLE][].
+>[AZURE.NOTE] Per altre informazioni sulla creazione di una tabella in SQL Data Warehouse e sulle opzioni disponibili con la clausola WITH, vedere la [panoramica delle tabelle][] o la [sintassi di CREATE TABLE][].
 
-### Passaggio 2: Creare un file di dati di origine
+### <a name="step-2-create-a-source-data-file"></a>Passaggio 2: Creare un file di dati di origine
 
-Aprire il Blocco note, copiare le righe di dati seguenti in un nuovo file di testo e quindi salvare il file nella directory temporanea locale, C:\\Temp\\DimDate2.txt.
+Aprire il Blocco note, copiare le righe di dati seguenti in un nuovo file di testo e quindi salvare il file nella directory temporanea locale, C:\Temp\DimDate2.txt.
 
 ```
 20150301,1,3
@@ -98,7 +100,7 @@ Aprire il Blocco note, copiare le righe di dati seguenti in un nuovo file di tes
 
 > [AZURE.NOTE] È importante ricordare che bcp.exe non supporta la codifica UTF-8 del file. Usare i file ASCII o con codifica UTF-16 quando si usa bcp.exe.
 
-### Passaggio 3: Connettersi e importare i dati
+### <a name="step-3-connect-and-import-the-data"></a>Passaggio 3: Connettersi e importare i dati
 bcp permette di connettersi e importare i dati usando il comando seguente, sostituendo i valori in base alla necessità:
 
 ```sql
@@ -128,7 +130,7 @@ DateId |CalendarQuarter |FiscalQuarter
 20151101 |4 |2
 20151201 |4 |2
 
-### Passaggio 4: creare le statistiche sui dati appena caricati
+### <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Passaggio 4: creare le statistiche sui dati appena caricati
 
 SQL Data Warehouse di Azure non supporta ancora le statistiche di creazione automatica o aggiornamento automatico. Per ottenere le migliori prestazioni dalle query, è importante creare statistiche per tutte le colonne di tutte le tabelle dopo il primo caricamento o dopo eventuali modifiche sostanziali dei dati. Per una spiegazione dettagliata delle statistiche, vedere l'argomento [Statistiche][] nel gruppo di argomenti sullo sviluppo. Di seguito è possibile vedere un rapido esempio di come creare statistiche nella tabella caricata in questo esempio.
 
@@ -142,10 +144,10 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
-## Esportare i dati da SQL Data Warehouse
-In questa esercitazione verrà creato un file di dati da una tabella in SQL Data Warehouse. I dati creati in precedenza verranno esportati in un nuovo file denominato DimDate2\_export.txt.
+## <a name="export-data-from-sql-data-warehouse"></a>Esportare i dati da SQL Data Warehouse
+In questa esercitazione verrà creato un file di dati da una tabella in SQL Data Warehouse. I dati creati in precedenza verranno esportati in un nuovo file denominato DimDate2_export.txt.
 
-### Passaggio 1: Esportare i dati
+### <a name="step-1-export-the-data"></a>Passaggio 1: Esportare i dati
 
 L'utilità bcp permette di connettersi ed esportare i dati usando il comando seguente, sostituendo i valori in base alla necessità:
 
@@ -171,8 +173,9 @@ Per verificare che i dati siano stati esportati correttamente, aprire il nuovo f
 
 >[AZURE.NOTE] A causa della natura dei sistemi distribuiti, è possibile che l'ordine dei dati non sia uguale nei database di SQL Data Warehouse. Un'altra opzione consiste nell'usare la funzione **queryout** di bcp per scrivere un estratto di query invece di esportare l'intera tabella.
 
-## Passaggi successivi
-Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehouse][]. Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
+## <a name="next-steps"></a>Passaggi successivi
+Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehouse][].
+Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
 
 <!--Image references-->
 
@@ -180,7 +183,7 @@ Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehous
 
 [Caricare i dati in SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
 [Panoramica sullo sviluppo per SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
-[Overview of tables in SQL Data Warehouse]: ./sql-data-warehouse-tables-overview.md
+[Panoramica delle tabelle]: ./sql-data-warehouse-tables-overview.md
 [Statistiche]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
@@ -190,4 +193,8 @@ Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehous
 <!--Other Web references-->
 [Area download Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

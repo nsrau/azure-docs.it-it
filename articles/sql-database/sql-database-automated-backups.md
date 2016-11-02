@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Backup del database SQL | Microsoft Azure"
+   pageTitle="Informazioni sul backup del database SQL | Microsoft Azure" 
    description="Informazioni sui backup dei database predefiniti del database SQL che consentono di ripristinare un database SQL di Azure a un momento precedente o di copiare un database in uno nuovo in un'area geografica (fino a 35 giorni)."
    services="sql-database"
    documentationCenter=""
@@ -16,82 +16,91 @@
    ms.date="09/26/2016"
    ms.author="carlrab"/>
 
-# Backup del database SQL
-
-Il database SQL crea automaticamente backup dei database come parte dell'offerta del servizio, senza che sia necessario acconsentire esplicitamente e senza costi aggiuntivi. Usare i backup dei database per ripristinare lo stato di un momento specifico precedente per un database. Questo articolo illustra i concetti specifici della funzionalità di backup dei database nel database SQL.
-
-## Informazioni sul backup del database  
-
-Un backup del database è un file che archivia le informazioni relative allo stato del database in un momento specifico. Il database SQL crea backup [completi](https://msdn.microsoft.com/library/ms186289.aspx), [differenziali](https://msdn.microsoft.com/library/ms175526.aspx) e con [log delle transazioni](https://msdn.microsoft.com/library/ms191429.aspx). Quando si ripristina un database rispetto a un momento specifico, il servizio individua i backup da ripristinare.
-
-I backup dei database sono una parte essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza, perché proteggono i dati dal danneggiamento o dall'eliminazione accidentale. Per altre informazioni, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
-
-## Archiviazione con ridondanza geografica
-
-Il servizio database SQL archivia i file di backup del database in un account di archiviazione con ridondanza geografica con accesso in lettura (RA-GRS). La funzionalità Archiviazione con ridondanza geografica e accesso in lettura di Archiviazione di Azure replica i file di backup in un [data center associato](../best-practices-availability-paired-regions.md). La replica geografica assicura che sia possibile ripristinare un database nel caso in cui non si possa accedere al backup del database dall'area del database primario. Nell'esempio seguente il database SQL crea backup di database nell'area Stati Uniti orientali e li archivia in un account di Archiviazione con ridondanza geografica e accesso in lettura. Archiviazione di Azure esegue quindi la replica geografica dei backup in un data center associato nell'area Stati Uniti occidentali.
-
-![ripristino geografico](./media/sql-database-geo-restore/geo-restore-1.png)
-
->[AZURE.NOTE] In Archiviazione di Azure il termine *replica* fa riferimento alla copia dei file da una località a un'altra. La *replica di database* di SQL fa riferimento a più database secondari sincronizzati con un database primario.
-
-Per altre informazioni su:
-- Archiviazione con ridondanza geografica, vedere [Replica di Archiviazione di Azure](../storage/storage-redundancy.md).
-- Archiviazione con ridondanza geografica e accesso in lettura, vedere [Archiviazione con ridondanza geografica e accesso in lettura](../storage/storage-redundancy.md#read-access-geo-redundant-storage).
-
-## Costi del backup del database
-
-Il database SQL di Microsoft Azure offre fino al 200% delle risorse di archiviazione massime del database sottoposto a provisioning come risorsa di archiviazione di backup senza costi aggiuntivi. Se si usa ad esempio un'istanza di database Standard con una dimensione di database con provisioning pari a 250 GB, sono disponibili 500 GB di archiviazione di backup senza costi aggiuntivi. Se il database supera le risorse di archiviazione di backup fornite, è possibile scegliere di ridurre il periodo di conservazione contattando il supporto tecnico di Azure. È anche possibile pagare per ottenere risorse di archiviazione di backup aggiuntive, fatturate in base alla tariffa Standard per l'Archiviazione con ridondanza geografica e accesso in lettura.
-
-## Pianificazione dei backup dei database
-
-Tutti i database Basic, Standard e Premium sono protetti da backup automatici. Il backup completo, il backup differenziale e il backup del log delle transazioni vengono eseguiti rispettivamente ogni settimana, ogni ora e ogni cinque minuti. Il primo backup completo viene pianificato subito dopo la creazione di un database. Il completamento richiede in genere 30 minuti, ma potrebbe richiedere più tempo se le dimensioni del database sono elevate. Il backup iniziale, ad esempio, può richiedere più tempo in un database ripristinato o in una copia del database. Dopo il primo backup completo, l'esecuzione di tutti i successivi backup è pianificata e gestita automaticamente in background. Il momento esatto per l'esecuzione dei backup di database completi e [differenziali](https://msdn.microsoft.com/library/ms175526.aspx) viene determinato in modo da bilanciare il carico di lavoro di sistema complessivo.
-
-## Periodo di conservazione dei backup dei database
-
-Ogni backup del database SQL viene conservato per 7 giorni per il livello Basic, 35 giorni per il livello Standard e 35 giorni per il livello Premium. Per altre informazioni sulle funzionalità disponibili in ogni livello di servizio, vedere [Livelli di servizio](sql-database-service-tiers.md).
-
-### Cosa accade al periodo di conservazione del punto di ripristino in caso di downgrade o aggiornamento in base al livello di servizio
-
-Dopo il downgrade a un livello di prestazioni inferiore, il periodo di conservazione del punto di ripristino viene limitato immediatamente al periodo di conservazione del livello di prestazioni del database corrente. Se invece il livello di servizio viene aggiornato, il periodo di conservazione inizia a estendersi solo dopo l'aggiornamento del database. Se, ad esempio, viene eseguito il downgrade del database al livello Basic, il periodo di conservazione cambia da 35 giorni a 7 giorni. Tutti i punti di ripristino precedenti a sette giorni risultano immediatamente non disponibili. Quando si aggiorna un database al livello Standard o Premium, il periodo di conservazione inizia da 7 giorni e viene incrementato fino a raggiungere i 35 giorni.
-
-### Quanto dura il periodo di conservazione di un database rimosso? 
-
-Il periodo di conservazione è determinato dal livello di servizio associato al database prima della rimozione o dal numero di giorni in cui il database esiste ancora (viene usato il valore più basso).
-
-> [AZURE.IMPORTANT] Se si elimina un'istanza del server del database SQL di Azure, vengono eliminati anche tutti i database appartenenti all'istanza e non sarà possibile recuperarli. Non è possibile ripristinare un server eliminato.
 
 
-## Usi comuni per i backup dei database
 
-L'uso principale per i backup dei database consiste nel ripristinare un database a un punto specifico nel periodo di conservazione. Con un backup del database è possibile ripristinare un database a un punto specifico del tempo, ripristinare un database eliminato al momento in cui è stato eliminato oppure ripristinare un database in un'altra area geografica.
+<!-- # H1 Title
 
-- Per informazioni sul ripristino dei database, vedere [Ripristinare un database dai backup automatici](sql-database-recovery-using-backups.md).
+ H1 title should answer the question "What is in this topic?" Write the title in conversational language and use search key words as much as possible. Since this is a learning topic, make sure the title indicates that and doesn't mislead people to think this will tell them how to do tasks.  
+-->
 
-È possibile usare un backup del database per copiare un database in un server SQL logico in qualsiasi area geografica. La copia è coerente a livello transazionale con il database SQL corrente.
+# <a name="learn-about-sql-database-backups"></a>Informazioni sul backup del database SQL
 
-- Per informazioni su come copiare un database, vedere [Copiare un database SQL di Azure](sql-database-copy.md).
+<!-- Introduction
 
-È anche possibile archiviare i backup automatici oltre il periodo di conservazione creando una copia di database da [esportare in un file BACPAC](sql-database-export.md). Dopo avere creato il file BACPAC, è possibile archiviarlo nelle risorse di archiviazione a lungo termine, oltre il periodo di conservazione. In alternativa, usare il file BACPAC per trasferire una copia del database in SQL Server, in locale o in una macchina virtuale di Azure.
+1. Sentence #1 begins with "Learn about ..." and gives the scope of what the article will cover.
+2. Sentence #2 explains the key capability or selling point of the feature.
+3. Sentence #3 begins with "Use this feature to ..." and gives a common use case.
 
-- Per informazioni sull'archiviazione di un backup del database, vedere [Copiare un database SQL di Azure](sql-database-copy.md)
+-->
+
+Il database SQL consente di creare un backup locale del database ogni cinque minuti e usa l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) di Azure per copiare alcuni backup del database in un'altra area geografica. Questi backup si verificano **automaticamente e senza costi aggiuntivi**. Usare i backup dei database locali per [ripristinare il database a un momento specifico](sql-database-point-in-time-restore-portal.md) nello stesso server. Usare i backup con ridondanza geografica per [ripristinare il database in un'area geografica diversa](sql-database-geo-restore-portal.md).  
+
+>[AZURE.NOTE] I backup con ridondanza geografica e i backup locali vengono eseguiti in modo automatico. Non è necessario eseguire alcuna azione e non sono previsti costi aggiuntivi. 
+
+Nel diagramma seguente il database SQL è in esecuzione nell'area Stati Uniti orientali. Viene creato un backup del database ogni cinque minuti, archiviato in locale nell'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) di Azure. Azure copia i backup del database in un data center associato nell'area Stati Uniti occidentali.
+
+![Ripristino geografico](./media/sql-database-geo-restore/geo-restore-1.png)
+
+<!--## What is <feature>?" -->
+
+## <a name="what-is-a-sql-database-backup?"></a>Informazioni sul backup del database SQL  
+
+<!-- 
+First sentence begins with "The <feature> is ..." followed by a definition of the feature. Provide a 1-2 paragraph intro to explain what the feature is, how it works, and the importance of the feature for solving business problems.
+-->
+Un backup del database SQL è un file che archivia le informazioni relative allo stato del database in un momento specifico. Il database SQL usa la tecnologia di SQL Server per creare backup locali [completi](https://msdn.microsoft.com/library/ms186289.aspx), [differenziali](https://msdn.microsoft.com/library/ms175526.aspx ) e del [log delle transazioni](https://msdn.microsoft.com/library/ms191429.aspx). I backup del log delle transazioni viene eseguito ogni cinque minuti, consentendo di eseguire un ripristino in un punto specifico del tempo all'interno dello stesso server che ospita il database. Quando si ripristina un database, il servizio individua i backup completi, differenziali e del log delle transazioni da ripristinare.
+
+>[AZURE.NOTE] Il database SQL crea automaticamente backup di database locali e backup con ridondanza geografica. Non è necessario intervenire manualmente per eseguire i backup. Non sono previsti costi aggiuntivi.
+
+Usare il backup del database per:
+
+- Ripristinare un database in un punto nel tempo entro il periodo di memorizzazione. Con un backup del database è possibile ripristinare un database a un punto specifico del tempo, ripristinare un database eliminato al momento in cui è stato eliminato oppure ripristinare un database in un'altra area geografica. Per eseguire un ripristino, vedere l'articolo su come [ripristinare un database da un backup del database](sql-database-recovery-using-backups.md).
+
+- Copiare un database in un SQL server nella stessa area o in un'area diversa. La copia è coerente a livello transazionale con il database SQL corrente. Per eseguire una copia, vedere l'articolo relativo alla [copia del database](sql-database-copy.md).
+
+- Archiviare il backup del database oltre il periodo di conservazione dei backup. Per eseguire l'archiviazione, [esportare un database SQL in un file con estensione BACPAC](sql-database-export.md). È possibile archiviare il file di archiviazione a lungo termine BACPAC e conservarlo oltre il periodo di conservazione. In alternativa, usare il file BACPAC per trasferire una copia del database in SQL Server, in locale o in una macchina virtuale di Azure.
+
+## <a name="backups-have-geographical-redundancy"></a>I backup hanno ridondanza geografica
+
+Il database SQL usa la [replica dell'archiviazione di Azure](../storage/storage-redundancy.md) per eseguire il backup del database in una posizione geografica differente. Per fornire archiviazione con ridondanza geografica, il database SQL archivia i file di backup del database locale in un account di [archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)](../storage/storage-redundancy.md#read-access-geo-redundant-storage). Azure replica i file di backup in un [data center associato](../best-practices-availability-paired-regions.md). La replica geografica assicura che sia possibile ripristinare un database nel caso in cui non si possa accedere al backup del database dall'area del database primario. 
+
+>[AZURE.NOTE] In Archiviazione di Azure il termine *replica* fa riferimento alla copia dei file da una località a un'altra. La *replica di database* di SQL fa riferimento a più database secondari sincronizzati con un database primario. 
 
 
-## Argomenti correlati
+## <a name="how-much-backup-storage-is-included-at-no-cost?"></a>Quanto spazio di archiviazione di backup è incluso senza costi aggiuntivi?
 
-### Scenari
+Il database SQL offre fino al 200% delle risorse di archiviazione massime del database sottoposto a provisioning come risorsa di archiviazione di backup senza costi aggiuntivi. Se si usa ad esempio un'istanza di database Standard con una dimensione di database con provisioning pari a 250 GB, sono disponibili 500 GB di archiviazione di backup senza costi aggiuntivi. Se il database supera le risorse di archiviazione di backup fornite, è possibile scegliere di ridurre il periodo di conservazione contattando il supporto tecnico di Azure. È anche possibile pagare per ottenere risorse di archiviazione di backup aggiuntive, fatturate in base alla tariffa Standard per l'Archiviazione con ridondanza geografica e accesso in lettura. 
 
-- Per un quadro generale, vedere la [panoramica sulla continuità aziendale](sql-database-business-continuity.md)
+## <a name="how-often-do-backups-happen?"></a>Con quale frequenza si verificano i backup?
 
-### Funzionalità
+Il backup completo, il backup differenziale e il backup del log delle transazioni vengono eseguiti rispettivamente ogni settimana, ogni ora e ogni cinque minuti. Il primo backup completo viene pianificato subito dopo la creazione di un database. Il completamento richiede in genere 30 minuti, ma potrebbe richiedere più tempo se le dimensioni del database sono elevate. Il backup iniziale, ad esempio, può richiedere più tempo in un database ripristinato o in una copia del database. Dopo il primo backup completo, l'esecuzione di tutti i successivi backup è pianificata e gestita automaticamente in background. Il momento esatto per l'esecuzione dei backup di database completi e [differenziali](https://msdn.microsoft.com/library/ms175526.aspx) viene determinato in modo da bilanciare il carico di lavoro di sistema complessivo. 
 
-Per informazioni su:
+## <a name="how-long-do-you-keep-my-backups?"></a>Quanto tempo vengono conservati i backup?
 
-- Ripristino di un backup del database, vedere [Ripristinare un database SQL di Azure mediante i backup automatici del database](sql-database-recovery-using-backups.md).
-- Archiviazione di un database, vedere [Copiare un database SQL di Azure](sql-database-copy.md).
-- Opzioni di ripristino più veloci, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md).
+Ogni backup del Database SQL ha un periodo di memorizzazione che si basa sul [livello del servizio](sql-database-service-tiers.md) del database. Il periodo di memorizzazione per un database nel:
 
-<!-- ### Tasks -->
+- livello di servizio Basic è di sette giorni.
+- livello di servizio Standard è di 35 giorni.
+- livello di servizio premium è di 35 giorni.
 
-<!-- ### Tutorials -->
 
-<!---HONumber=AcomDC_0928_2016-->
+Se si esegue il downgrade del database dai livelli di servizio Standard o Premium al Basic, i backup vengono salvati per sette giorni. Tutti i backup esistenti più vecchi di sette giorni non sono più disponibili. 
+
+Se si aggiorna il database dal livello del servizio Basic a Standard o Premium, il database SQL mantiene i backup esistenti fino a 35 giorni. Allo scadere dei 35, il database conserva i nuovi backup.
+ 
+Se si elimina un database, il database SQL mantiene i backup come farebbe con un database online. Si supponga, ad esempio, che si elimina un database con livello di servizio Basic e periodo di conservazione di sette giorni. Per tre giorni viene conservato un backup dei quattro giorni precedenti.
+
+> [AZURE.IMPORTANT] Se si elimina SQL Server di Azure che ospita i database SQL, vengono eliminati anche tutti i database appartenenti al server e non sarà possibile recuperarli. Non è possibile ripristinare un server eliminato.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+I backup dei database sono una parte essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza, perché proteggono i dati dal danneggiamento o dall'eliminazione accidentale. Per informazioni su come integrare i backup del database nella strategia aziendale, vedere [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

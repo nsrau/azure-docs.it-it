@@ -13,16 +13,17 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="07/25/2016"
+ms.date="10/11/2016"
 ms.author="larryfr"/>
 
-#Usare le firme di accesso condiviso di Archiviazione di Azure per limitare l'accesso ai dati con HDInsight
+
+#<a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-with-hdinsight"></a>Usare le firme di accesso condiviso di Archiviazione di Azure per limitare l'accesso ai dati con HDInsight
 
 HDInsight usa i BLOB di archiviazione di Azure per l'archiviazione dei dati. HDInsight deve avere accesso completo al BLOB usato come risorsa di archiviazione predefinita per il cluster, ma è possibile limitare le autorizzazioni per i dati archiviati in altri BLOB usati dal cluster. Ad esempio, è possibile fare in modo che alcuni dati siano di sola lettura usando le firme di accesso condiviso.
 
 Le firme di accesso condiviso sono una funzionalità degli account di archiviazione di Azure che consente di limitare l'accesso ai dati. Ad esempio, concedendo l'accesso in sola lettura ai dati. In questo documento si apprenderà come usare le firme di accesso condiviso per abilitare l'accesso in sola lettura e solo elenco a un contenitore BLOB da HDInsight.
 
-##Requisiti
+##<a name="requirements"></a>Requisiti
 
 * Una sottoscrizione di Azure.
 
@@ -42,7 +43,7 @@ Le firme di accesso condiviso sono una funzionalità degli account di archiviazi
     
     * Uno script di PowerShell che può creare un nuovo cluster HDInsight e configurarlo per l'uso della firma di accesso condiviso.
 
-##Firme di accesso condiviso
+##<a name="shared-access-signatures"></a>Firme di accesso condiviso
 
 Esistono due tipi di firme di accesso condiviso:
 
@@ -60,17 +61,17 @@ La differenza tra le due forme è importante un unico scenario chiave, la revoca
 
 4. La chiave dell'account utilizzata per creare la firma di accesso condiviso viene rigenerata. Si noti che in seguito a tale operazione tutti i componenti dell'applicazione che utilizzano la chiave dell'account non verranno più autenticati finché non verranno aggiornati in modo da usare l'altra chiave dell'account valida oppure la chiave dell'account appena rigenerata.
 
-> [AZURE.IMPORTANT] L'URI di una firma di accesso condiviso è associato alla chiave dell'account usata per creare la firma e ai relativi criteri di accesso archiviati (se presenti). Se non sono specificati criteri di accesso archiviati, l'unico modo per revocare una firma di accesso condiviso consiste nel modificare la chiave dell'account.
+> [AZURE.IMPORTANT] L'URI di una firma di accesso condiviso è associato alla chiave dell'account usata per creare la firma e ai relativi criteri di accesso archiviati (se presenti). Se non sono specificati criteri di accesso archiviati, l'unico modo per revocare una firma di accesso condiviso consiste nel modificare la chiave dell'account. 
 
 È consigliabile usare sempre i criteri di accesso archiviati, per poter revocare le firme o estendere la data di scadenza in base alle esigenze. I passaggi illustrati in questo documento permettono di usare i criteri di accesso archiviati per generare firme di accesso condiviso.
 
 Per altre informazioni sulle firme di accesso condiviso, vedere [Informazioni sul modello di firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
-##Creare un criterio archiviato e generare una firma di accesso condiviso
+##<a name="create-a-stored-policy-and-generate-a-sas"></a>Creare un criterio archiviato e generare una firma di accesso condiviso
 
 Attualmente i criteri archiviati devono essere creati a livello di codice. Gli esempi di creazione di criteri archiviati e firme di accesso condiviso in C# e in Python sono disponibili all'indirizzo [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature).
 
-###Creare un criterio archiviato e una firma di accesso condiviso con C#
+###<a name="create-a-stored-policy-and-sas-using-c\#"></a>Creare un criterio archiviato e una firma di accesso condiviso con C\#
 
 1. Aprire la soluzione in Visual Studio.
 
@@ -92,15 +93,15 @@ Attualmente i criteri archiviati devono essere creati a livello di codice. Gli e
         
     Salvare il token dei criteri di firma di accesso condiviso, perché sarà necessario per associare l'account di archiviazione al cluster di HDInsight. Saranno necessari anche il nome dell'account di archiviazione e il nome del contenitore.
     
-###Creare un criterio archiviato e una firma di accesso condiviso con Python
+###<a name="create-a-stored-policy-and-sas-using-python"></a>Creare un criterio archiviato e una firma di accesso condiviso con Python
 
 1. Aprire il file SASToken.py e modificare i valori seguenti:
 
     * policy\_name: nome da usare per il criterio archiviato che viene creato.
     
-    * storage\_account\_name: nome dell'account di archiviazione.
+    * storage\_account\_name: nome del proprio account di archiviazione.
     
-    * storage\_account\_key: chiave dell'account di archiviazione.
+    * storage\_account\_key: chiave per l'account di archiviazione.
     
     * storage\_container\_name: contenitore nell'account di archiviazione a cui si vuole limitare l'accesso.
     
@@ -112,7 +113,7 @@ Attualmente i criteri archiviati devono essere creati a livello di codice. Gli e
     
     Salvare il token dei criteri di firma di accesso condiviso, perché sarà necessario per associare l'account di archiviazione al cluster di HDInsight. Saranno necessari anche il nome dell'account di archiviazione e il nome del contenitore.
     
-##Usare la firma di accesso condiviso con HDInsight
+##<a name="use-the-sas-with-hdinsight"></a>Usare la firma di accesso condiviso con HDInsight
 
 Quando si crea un cluster HDInsight è necessario specificare un account di archiviazione primario e, facoltativamente, è possibile specificare account di archiviazione aggiuntivi. Entrambi i metodi di aggiunta di risorse di archiviazione richiedono l'accesso completo agli account di archiviazione e ai contenitori usati.
 
@@ -120,9 +121,9 @@ Per usare una firma di accesso condiviso allo scopo di limitare l'accesso a un c
 
 * Per i cluster HDInsight __basati su Windows__ o __basati su Linux__, è possibile eseguire questa operazione durante la creazione del cluster con PowerShell.
 
-* Per i cluster HDInsight __basati su Linux__, è possibile modificare la configurazione dopo la creazione del cluster con Ambari.
+* Per i cluster HDInsight __basati su Linux__ , è possibile modificare la configurazione dopo la creazione del cluster con Ambari.
 
-###Creare un nuovo cluster che usa la firma di accesso condiviso
+###<a name="create-a-new-cluster-that-uses-the-sas"></a>Creare un nuovo cluster che usa la firma di accesso condiviso
 
 La directory `CreateCluster` del repository include un esempio di creazione di un cluster HDInsight che usa la firma di accesso condiviso. Per usarlo, seguire questa procedura:
 
@@ -179,17 +180,17 @@ La directory `CreateCluster` del repository include un esempio di creazione di u
 
 Il completamento dello script richiede in genere circa 15 minuti. Se lo script viene completato senza errori, il cluster è stato creato.
 
-###Aggiornare un cluster esistente per l'uso della firma di accesso condiviso
+###<a name="update-an-existing-cluster-to-use-the-sas"></a>Aggiornare un cluster esistente per l'uso della firma di accesso condiviso
 
 Se è disponibile un cluster basato su Linux esistente, è possibile aggiungere la firma di accesso condiviso alla configurazione del __core-site__ seguendo questa procedura:
 
-1. Aprire l'interfaccia utente Web di Ambari per il cluster. L'indirizzo di questa pagina è https://YOURCLUSTERNAME.azurehdinsight.net. Quando richiesto, eseguire l'autenticazione nel cluster con il nome utente amministratore (admin) e la password usati durante la creazione del cluster.
+1. Aprire l'interfaccia utente Web di Ambari per il cluster. L'indirizzo di questa pagina è https://NOMECLUSTER.azurehdinsight.net. Quando richiesto, eseguire l'autenticazione nel cluster con il nome utente amministratore (admin) e la password usati durante la creazione del cluster.
 
 2. Nel lato sinistro dell'interfaccia utente Web di Ambari selezionare __HDFS__ e quindi selezionare la scheda __Configs__ al centro della pagina.
 
 3. Selezionare la scheda __Advanced__ e scorrere fino alla sezione __Custom core-site__.
 
-4. Espandere la sezione __Custom core-site__, quindi scorrere fino alla fine e selezionare il collegamento __Add property...__. Usare i valori seguenti per i campi __Key__ e __Value__:
+4. Espandere la sezione __Custom core-site__, quindi scorrere fino alla fine e selezionare il collegamento __Add property__. Usare i valori seguenti per i campi __Key__ e __Value__:
 
     * __Key__: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
     
@@ -199,25 +200,25 @@ Se è disponibile un cluster basato su Linux esistente, è possibile aggiungere 
 
 5. Fare clic sul pulsate __Add__ per salvare la chiave e il valore, quindi fare clic sul pulsante __Save__ per salvare le modifiche alla configurazione. Quando richiesto, aggiungere una descrizione della modifica, ad esempio, "aggiunta di accesso alle risorse di archiviazione per le firme di accesso condiviso", e quindi fare clic su __Save__.
 
-    Al termine delle modifiche, fare clic su __OK__.
+    Al termine delle modifiche, fare clic su __OK__ .
 
     > [AZURE.IMPORTANT] Questo permette di salvare le modifiche alla configurazione, ma perché le modifiche siano effettive è necessario riavviare diversi servizi.
 
-6. Nell'interfaccia utente Web di Ambari selezionare __HDFS__ dall'elenco a sinistra e quindi selezionare __Restart All__ dall'elenco a discesa __Service Actions__ a destra. Quando richiesto, selezionare __Turn on maintenance mode__ e quindi selezionare "Conform Restart All".
+6. Nell'interfaccia utente Web di Ambari selezionare __HDFS__ dall'elenco a sinistra e quindi selezionare __Restart All__ dall'elenco a discesa __Service Actions__ a destra. Quando richiesto, selezionare __Turn on maintenance mode__ e quindi selezionare __Conform Restart All".
 
     Ripetere questa procedura per le voci MapReduce2 e YARN dell'elenco a sinistra della pagina.
 
-7. Dopo il riavvio di queste voci, selezionarle una alla volta e disabilitare la modalità di manutenzione dall'elenco a discesa __Service Actions__.
+7. Dopo il riavvio di queste voci, selezionarle una alla volta e disabilitare la modalità di manutenzione dall'elenco a discesa __Service Actions__ .
 
-##Testare l'accesso limitato
+##<a name="test-restricted-access"></a>Testare l'accesso limitato
 
 Per verificare che l'accesso sia effettivamente limitato, usare i metodi seguenti:
 
-* Per i cluster HDInsight __basati su Windows__, usare Desktop remoto per connettersi al cluster. Per altre informazioni, vedere [Connettersi a HDInsight con RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
+* Per i cluster HDInsight __basati su Windows__ , usare Desktop remoto per connettersi al cluster. Per altre informazioni, vedere [Connettersi a HDInsight con RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp) .
 
     Dopo aver stabilito la connessione, usare l'icona della __riga di comando di Hadoop__ sul desktop per aprire il prompt dei comandi.
 
-* Per i cluster HDInsight __basati su Linux__, usare SSH per connettersi al cluster. Per informazioni sull'uso di SSH con i cluster basati su Linux, vedere uno degli argomenti seguenti:
+* Per i cluster HDInsight __basati su Linux__ , usare SSH per connettersi al cluster. Per informazioni sull'uso di SSH con i cluster basati su Linux, vedere uno degli argomenti seguenti:
 
     * [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, OS X e Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
     * [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
@@ -256,9 +257,9 @@ Dopo aver stabilito la connessione al cluster, usare la procedura seguente per v
         
     Questa volta l'operazione avrà esito positivo.
     
-##Risoluzione dei problemi
+##<a name="troubleshooting"></a>Risoluzione dei problemi
 
-###Un'attività è stata annullata
+###<a name="a-task-was-canceled"></a>Un'attività è stata annullata
 
 __Sintomi__: durante la creazione di un cluster con lo script di PowerShell, si potrebbe ricevere il messaggio di errore seguente:
 
@@ -278,7 +279,7 @@ __Risoluzione__: usare una password che soddisfi i criteri seguenti:
 - Deve contenere almeno un carattere non alfanumerico
 - Deve contenere almeno una lettera maiuscola o minuscola
 
-##Passaggi successivi
+##<a name="next-steps"></a>Passaggi successivi
 
 Ora che si è appreso come aggiungere risorse di archiviazione ad accesso limitato al cluster HDInsight, è possibile conoscere altri modi per usare i dati nel cluster:
 
@@ -290,4 +291,8 @@ Ora che si è appreso come aggiungere risorse di archiviazione ad accesso limita
 
 [powershell]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="jhubbard"
    editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -14,10 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/25/2016"
+   ms.date="10/11/2016"
    ms.author="larryfr"/>
 
-#Eseguire processi Pig mediante PowerShell
+
+#<a name="run-pig-jobs-using-powershell"></a>Eseguire processi Pig mediante PowerShell
 
 [AZURE.INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
@@ -25,7 +26,7 @@ Questo documento fornisce un esempio di come usare Azure PowerShell per inviare 
 
 > [AZURE.NOTE] Questo documento non fornisce una descrizione dettagliata delle operazioni eseguite dalle istruzioni Pig Latin usate negli esempi. Per informazioni sul codice Pig Latin usato in questo esempio, vedere [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md).
 
-##<a id="prereq"></a>Prerequisiti
+##<a name="<a-id="prereq"></a>prerequisites"></a><a id="prereq"></a>Prerequisiti
 
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
 
@@ -35,7 +36,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
-##<a id="powershell"></a>Eseguire processi Pig mediante PowerShell
+##<a name="<a-id="powershell"></a>run-pig-jobs-using-powershell"></a><a id="powershell"></a>Eseguire processi Pig mediante PowerShell
 
 Azure PowerShell fornisce *cmdlet* che consentono di eseguire in modalità remota processi Pig in HDInsight. Questo risultato si ottiene internamente usando chiamate REST a [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (chiamato in precedenza Templeton) in esecuzione nel cluster HDInsight.
 
@@ -111,9 +112,9 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
             -DefaultStorageAccountKey $storageAccountKey `
             -HttpCredential $creds
 
-2. Aprire un nuovo prompt dei comandi di Windows PowerShell. Passare al percorso del file **pigjob.ps1**, quindi usare il seguente comando per eseguire lo script:
+2. Aprire un nuovo prompt dei comandi di Windows PowerShell. Passare al percorso del file **pigjob.ps1** , quindi usare il seguente comando per eseguire lo script:
 
-		.\pigjob.ps1
+        .\pigjob.ps1
         
     Verrà innanzitutto richiesto di accedere alla sottoscrizione di Azure. In un secondo momento, verranno richiesti il nome dell'account HTTPS/Admin e la password per il cluster HDInsight.
 
@@ -129,12 +130,12 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
         (ERROR,6)
         (FATAL,2)
 
-##<a id="troubleshooting"></a>Risoluzione dei problemi
+##<a name="<a-id="troubleshooting"></a>troubleshooting"></a><a id="troubleshooting"></a>Risoluzione dei problemi
 
-Se al termine del processo non vengono restituite informazioni, potrebbe essersi verificato un errore durante l'elaborazione. Per visualizzare informazioni relative all'errore per questo processo, aggiungere il seguente comando alla fine del file **pigjob.ps1**, salvare il file, quindi eseguirlo nuovamente.
+Se al termine del processo non vengono restituite informazioni, potrebbe essersi verificato un errore durante l'elaborazione. Per visualizzare informazioni relative all'errore per questo processo, aggiungere il seguente comando alla fine del file **pigjob.ps1** , salvare il file, quindi eseguirlo nuovamente.
 
-	# Print the output of the Pig job.
-	Write-Host "Display the standard error output ..." -ForegroundColor Green
+    # Print the output of the Pig job.
+    Write-Host "Display the standard error output ..." -ForegroundColor Green
     Get-AzureRmHDInsightJobOutput `
             -Clustername $clusterName `
             -JobId $pigJob.JobId `
@@ -146,11 +147,11 @@ Se al termine del processo non vengono restituite informazioni, potrebbe essersi
 
 Vengono restituite le informazioni scritte in STDERR nel server durante l'esecuzione del processo. Tali informazioni possono essere utili per determinare la causa del problema.
 
-##<a id="summary"></a>Riepilogo
+##<a name="<a-id="summary"></a>summary"></a><a id="summary"></a>Riepilogo
 
 Come è possibile notare, Azure PowerShell fornisce un modo semplice per eseguire processi Pig in un cluster HDInsight, monitorare lo stato del processo e recuperare l'output.
 
-##<a id="nextsteps"></a>Passaggi successivi
+##<a name="<a-id="nextsteps"></a>next-steps"></a><a id="nextsteps"></a>Passaggi successivi
 
 Per informazioni generali su Pig in HDInsight:
 
@@ -162,4 +163,8 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

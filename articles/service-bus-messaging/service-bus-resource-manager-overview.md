@@ -1,14 +1,14 @@
 <properties
     pageTitle="Creare risorse del bus di servizio usando i modelli di Azure Resource Manager | Microsoft Azure"
     description="Usare i modelli di Azure Resource Manager per automatizzare la creazione di risorse del bus di servizio"
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="tbd"
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
@@ -16,27 +16,28 @@
     ms.date="07/11/2016"
     ms.author="sethm"/>
 
-# Creare risorse del bus di servizio usando i modelli di Azure Resource Manager
+
+# <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Creare risorse del bus di servizio usando i modelli di Azure Resource Manager
 
 Questo articolo illustra come creare e distribuire risorse del bus di servizio e dell'hub eventi usando i modelli di Azure Resource Manager, PowerShell e il provider di risorse del bus di servizio.
 
-I modelli di Azure Resource Manager aiutano a definire le risorse da distribuire per una soluzione e a specificare i parametri e le variabili che consentono di immettere i valori per diversi ambienti. Il modello è composto da JSON ed espressioni che è possibile usare per creare valori per la distribuzione. Per informazioni dettagliate sulla creazione di modelli di Azure Resource Manager e una descrizione del formato del modello, vedere [Creazione di modelli di Azure Resource Manager](../resource-group-authoring-templates.md).
+I modelli di Azure Resource Manager aiutano a definire le risorse da distribuire per una soluzione e a specificare i parametri e le variabili che consentono di immettere i valori per diversi ambienti. Il modello è composto da JSON ed espressioni che è possibile usare per creare valori per la distribuzione. Per informazioni dettagliate sulla creazione di modelli di Azure Resource Manager e per una descrizione del formato del modello, vedere [Creazione di modelli di Azure Resource Manager](../resource-group-authoring-templates.md). 
 
->[AZURE.NOTE] Gli esempi inclusi in questo articolo spiegano come usare Azure Resource Manager per creare uno spazio dei nomi del bus di servizio e una entità di messaggistica, ovvero una coda. Per altri esempi di modelli, visitare la raccolta [Modelli di avvio rapido di Azure][] e cercare "service bus".
+>[AZURE.NOTE] Gli esempi inclusi in questo articolo spiegano come usare Azure Resource Manager per creare uno spazio dei nomi del bus di servizio e una entità di messaggistica, ovvero una coda. Per altri esempi di modelli, vedere la raccolta [Modelli di avvio rapido di Azure][] e cercare "service bus".
 
-## Modelli di Resource Manager del bus di servizio e dell'hub eventi
+## <a name="service-bus-and-event-hubs-resource-manager-templates"></a>Modelli di Resource Manager del bus di servizio e dell'hub eventi
 
-Questi modelli di Azure Resource Manager del bus di servizio e dell'hub eventi sono disponibili per il download e la distribuzione. Fare clic sui collegamenti seguenti per informazioni dettagliate su ognuno di essi, con collegamenti ai modelli su GitHub:
+Questi modelli di Azure Resource Manager del bus di servizio e dell'hub eventi sono disponibili per il download e la distribuzione. Fare clic sui collegamenti seguenti per informazioni dettagliate su ognuno di essi, con collegamenti ai modelli su GitHub: 
 
 - [Creare uno spazio dei nomi del bus di servizio](service-bus-resource-manager-namespace.md)
 - [Creare uno spazio dei nomi del bus di servizio con coda](service-bus-resource-manager-namespace-queue.md)
 - [Creare uno spazio dei nomi del bus di servizio con argomento e sottoscrizione](service-bus-resource-manager-namespace-topic.md)
 - [Creare uno spazio dei nomi del bus di servizio con coda e regola di autorizzazione](service-bus-resource-manager-namespace-auth-rule.md)
-- [Creare uno spazio dei nomi del bus di servizio con Hub eventi e un gruppo di consumer usando un modello di Azure Resource Manager](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md)
+- [Creare uno spazio dei nomi di hub eventi con un hub eventi e un gruppo di consumer](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md)
 
-## Distribuire con PowerShell
+## <a name="deploy-with-powershell"></a>Distribuire con PowerShell
 
-La procedura seguente descrive come usare PowerShell per distribuire un modello di Azure Resource Manager che crea uno spazio dei nomi del bus di servizio di livello **Standard** e una coda all'interno di tale spazio dei nomi. Questo esempio è basato sul modello [Creare uno spazio dei nomi del bus di servizio con coda](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue). Il flusso di lavoro è all'incirca il seguente:
+La procedura seguente illustra come usare PowerShell per distribuire un modello di Azure Resource Manager che crea uno spazio dei nomi del bus di servizio di livello **Standard** e una coda all'interno di tale spazio dei nomi. Questo esempio è basato sul modello di [Creare uno spazio dei nomi del bus di servizio con coda](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue). Il flusso di lavoro è all'incirca il seguente:
 
 1. Installare PowerShell.
 2. Creare il modello e, facoltativamente, un file di parametri.
@@ -48,11 +49,11 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
 Per informazioni più complete sulla distribuzione dei modelli di Azure Resource Manager, vedere [Distribuire le risorse con i modelli di Azure Resource Manager][].
 
-### Installare PowerShell
+### <a name="install-powershell"></a>Installare PowerShell
 
 Installare Azure PowerShell seguendo le istruzioni in [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
-### Creare un modello
+### <a name="create-a-template"></a>Creare un modello
 
 Clonare o copiare il modello [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) da GitHub:
 
@@ -122,9 +123,9 @@ Clonare o copiare il modello [201-servicebus-create-queue](https://github.com/Az
 }
 ```
 
-### Creare un file di parametri (facoltativo)
+### <a name="create-a-parameters-file-(optional)"></a>Creare un file di parametri (facoltativo)
 
-Per usare un file di parametri facoltativo, copiare il file [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json). Sostituire il valore di `serviceBusNamespaceName` con il nome dello spazio dei nomi del bus di servizio che si vuole creare in questa distribuzione e sostituire il valore di `serviceBusQueueName` con il nome della coda che si vuole creare.
+Per usare un file di parametri facoltativo, copiare il file [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json). Sostituire il valore di `serviceBusNamespaceName` con il nome dello spazio dei nomi del bus di servizio che si vuole creare in questa distribuzione e sostituire il valore di `serviceBusQueueName` con il nome della coda che si vuole creare. 
 
 ```
 {
@@ -146,7 +147,7 @@ Per usare un file di parametri facoltativo, copiare il file [201-servicebus-crea
 
 Per altre informazioni, vedere l'argomento [File di parametri](../resource-group-template-deploy.md#parameter-file).
 
-### Accedere ad Azure e impostare la sottoscrizione di Azure
+### <a name="log-in-to-azure-and-set-the-azure-subscription"></a>Accedere ad Azure e impostare la sottoscrizione di Azure
 
 Al prompt di PowerShell, eseguire il comando seguente:
 
@@ -166,9 +167,9 @@ Questo comando restituisce un elenco delle sottoscrizioni di Azure disponibili. 
 Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 ```
 
-### Impostare il gruppo di risorse
+### <a name="set-the-resource-group"></a>Impostare il gruppo di risorse
 
-Se non esiste un gruppo di risorse disponibile, creare un nuovo gruppo di risorse con il comando **New-AzureRmResourceGroup**. Specificare il nome del gruppo di risorse e la posizione che si vuole usare, ad esempio:
+Se non è disponibile un gruppo di risorse, creare un nuovo gruppo di risorse con il comando **New-AzureRmResourceGroup**. Specificare il nome del gruppo di risorse e la posizione che si vuole usare, ad esempio:
 
 ```
 New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
@@ -184,7 +185,7 @@ Tags              :
 ResourceId        : /subscriptions/<GUID>/resourceGroups/MyDemoRG
 ```
 
-### Test della distribuzione
+### <a name="test-the-deployment"></a>Test della distribuzione
 
 Convalidare la distribuzione eseguendo il cmdlet `Test-AzureRmResourceGroupDeployment`. Durante il test della distribuzione, specificare esattamente gli stessi parametri di quando si esegue la distribuzione.
 
@@ -192,7 +193,7 @@ Convalidare la distribuzione eseguendo il cmdlet `Test-AzureRmResourceGroupDeplo
 Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
-### Creare la distribuzione
+### <a name="create-the-deployment"></a>Creare la distribuzione
 
 Per creare la nuova distribuzione, eseguire il comando `New-AzureRmResourceGroupDeployment` e specificare i parametri necessari quando viene richiesto. I parametri includono il nome della distribuzione, il nome del gruppo di risorse e il percorso o l'URL del file di modello. Se il parametro **Mode** non è specificato, viene usato il valore predefinito **Incremental**. Per altre informazioni, vedere [Distribuzioni incrementali e complete](../resource-group-template-deploy.md#incremental-and-complete-deployments).
 
@@ -220,7 +221,7 @@ Per eseguire una distribuzione [completa](../resource-group-template-deploy.md#i
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json 
 ```
 
-### Verificare la distribuzione
+### <a name="verify-the-deployment"></a>Verificare la distribuzione
 
 Se le risorse vengono distribuite correttamente, nella finestra di PowerShell viene visualizzato un riepilogo della distribuzione:
 
@@ -240,17 +241,20 @@ Parameters        :
 
 ```
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 Finora sono stati illustrati il flusso di lavoro di base e i comandi per la distribuzione di un modello di Azure Resource Manager. Per informazioni più dettagliate, visitare i collegamenti seguenti:
 
-- [Panoramica di Gestione risorse di Azure][]
+- [Panoramica di Azure Resource Manager][]
 - [Distribuire le risorse con i modelli di Azure Resource Manager][]
 - [Creazione di modelli](../resource-group-authoring-templates.md)
 
 
-[Panoramica di Gestione risorse di Azure]: ../resource-group-overview.md
+[Panoramica di Azure Resource Manager]: ../resource-group-overview.md
 [Distribuire le risorse con i modelli di Azure Resource Manager]: ../resource-group-template-deploy.md
-[Modelli di avvio rapido di Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+[Raccolta di modelli di avvio rapido di Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

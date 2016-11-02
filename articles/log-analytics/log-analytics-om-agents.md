@@ -1,106 +1,107 @@
 <properties
-	pageTitle="Connettere Operations Manager a Log Analytics | Microsoft Azure"
-	description="Per gestire l'investimento esistente in System Center Operations Manager e usare le funzionalità estese con Log Analytics, è possibile integrare Operations Manager con l'area di lavoro di OMS."
-	services="log-analytics"
-	documentationCenter=""
-	authors="MGoedtel"
-	manager="jwhit"
-	editor=""/>
+    pageTitle="Connettere Operations Manager a Log Analytics | Microsoft Azure"
+    description="Per gestire l'investimento esistente in System Center Operations Manager e usare le funzionalità estese con Log Analytics, è possibile integrare Operations Manager con l'area di lavoro di OMS."
+    services="log-analytics"
+    documentationCenter=""
+    authors="MGoedtel"
+    manager="jwhit"
+    editor=""/>
 
 <tags
-	ms.service="log-analytics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/11/2016"
-	ms.author="magoedte"/>
+    ms.service="log-analytics"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/08/2016"
+    ms.author="magoedte"/>
 
-# Connettere Operations Manager a Log Analytics
 
-Per gestire l'investimento esistente in System Center Operations Manager e usare le funzionalità estese con Log Analytics, è possibile integrare Operations Manager con l'area di lavoro di OMS. Ciò consente di sfruttare le opportunità di OMS pur continuando a usare Operations Manager per:
+# <a name="connect-operations-manager-to-log-analytics"></a>Connettere Operations Manager a Log Analytics
+
+Per gestire l'investimento esistente in System Center Operations Manager e usare le funzionalità estese con Log Analytics, è possibile integrare Operations Manager con l'area di lavoro di OMS.  Ciò consente di sfruttare le opportunità di OMS pur continuando a usare Operations Manager per:
 
 - Continuare a monitorare l'integrità dei servizi IT con Operations Manager
 - Gestire l'integrazione con le soluzioni ITSM che supportano la gestione di eventi imprevisti e problemi
 - Gestire il ciclo di vita degli agenti distribuiti in macchine virtuali IaaS locali e nel cloud pubblico monitorate con Operations Manager
 
-L'integrazione con System Center Operations Manager accresce il valore della strategia delle operazioni del servizio sfruttando la velocità e l'efficienza di OMS nella raccolta, nell'archiviazione e nell'analisi dei dati da Operations Manager. OMS semplifica la correlazione e permette di identificare le cause dei problemi e di esporre le nuove occorrenze per supportare il processo di gestione dei problemi esistenti. La flessibilità del motore di ricerca per esaminare prestazioni, dati di eventi e avvisi, con funzionalità di creazione di report e dashboard avanzati per esporre questi dati in modo significativo è indicativa dei vantaggi di OMS come complemento di Operations Manager.
+L'integrazione con System Center Operations Manager accresce il valore della strategia delle operazioni del servizio sfruttando la velocità e l'efficienza di OMS nella raccolta, nell'archiviazione e nell'analisi dei dati da Operations Manager.  OMS semplifica la correlazione e permette di identificare le cause dei problemi e di esporre le nuove occorrenze per supportare il processo di gestione dei problemi esistenti.   La flessibilità del motore di ricerca per esaminare prestazioni, dati di eventi e avvisi, con funzionalità di creazione di report e dashboard avanzati per esporre questi dati in modo significativo è indicativa dei vantaggi di OMS come complemento di Operations Manager.
 
-Gli agenti che fanno riferimento al gruppo di gestione di Operations Manager raccolgono i dati dai server in base alle soluzioni e alle origini dati di Log Analytics abilitate nella sottoscrizione di OMS. A seconda della soluzione abilitata, i dati di queste soluzioni vengono inviati direttamente da un server di gestione di Operations Manager al servizio Web OMS oppure, a causa del volume dei dati raccolti nel sistema gestito dall'agente, vengono inviati direttamente dall'agente al servizio Web OMS. Il server di gestione inoltra direttamente i dati di OMS al servizio Web OMS. I dati non vengono mai scritti nel database OperationsManager o OperationsManagerDW. Quando un server di gestione perde la connettività con il servizio Web OMS, memorizza i dati nella cache locale finché non viene ristabilita la comunicazione con OMS. Se il server di gestione è offline a causa della manutenzione pianificata o di un'interruzione non pianificata, un altro server di gestione del gruppo di gestione riprenderà la connettività con OMS.
+Gli agenti di segnalazione al gruppo di gestione di Operations Manager raccolgono i dati dai server basati sulle soluzioni e sulle origini dati di Log Analytics abilitate nella sottoscrizione OMS.  A seconda della soluzione abilitata, i dati di queste soluzioni vengono inviati direttamente da un server di gestione di Operations Manager al servizio Web OMS oppure, a causa del volume dei dati raccolti nel sistema gestito dall'agente, vengono inviati direttamente dall'agente al servizio Web OMS. Il server di gestione inoltra direttamente i dati di OMS al servizio Web OMS. I dati non vengono mai scritti nel database OperationsManager o OperationsManagerDW.  Quando un server di gestione perde la connettività con il servizio Web OMS, memorizza i dati nella cache locale finché non viene ristabilita la comunicazione con OMS.  Se il server di gestione è offline a causa della manutenzione pianificata o di un'interruzione non pianificata, un altro server di gestione del gruppo di gestione riprenderà la connettività con OMS.  
 
-Il diagramma seguente illustra la relazione tra System Center Operations Manager e OMS.
+Il diagramma seguente illustra la connessione tra gli agenti e i server di gestione in un gruppo di gestione di System Center Operations Manager e OMS, includendo anche la direzione e le porte.   
 
 ![oms-operations-manager-integration-diagram](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
 
-## Requisiti di sistema
+## <a name="system-requirements"></a>Requisiti di sistema
 Prima di iniziare, rivedere i dettagli seguenti per verificare che i prerequisiti necessari siano soddisfatti.
 
-- OMS supporta solo Operations Manager 2012 SP1 UR6 e versioni successive e Operations Manager 2012 R2 UR2 e versioni successive. Il supporto per il proxy è stato aggiunto in Operations Manager 2012 SP1 UR7 e Operations Manager 2012 R2 UR3.
+- OMS supporta solo Operations Manager 2012 SP1 UR6 e versioni successive e Operations Manager 2012 R2 UR2 e versioni successive.  Il supporto per il proxy è stato aggiunto in Operations Manager 2012 SP1 UR7 e Operations Manager 2012 R2 UR3.
 - Tutti gli agenti di Operations Manager devono soddisfare i requisiti di supporto minimo. Verificare che gli agenti dispongano dell’aggiornamento minimo richiesto, altrimenti il traffico degli agenti di Windows avrà esito negativo e nel log eventi di Operations Manager potrebbero essere presenti molti errori.
-- Una sottoscrizione di OMS. Per ulteriori informazioni, vedere [Introduzione a Log Analytics](log-analytics-get-started.md).
+- Una sottoscrizione di OMS.  Per ulteriori informazioni, vedere [Introduzione a Log Analytics](log-analytics-get-started.md).
 
-## Connessione di Operations Manager a OMS
+## <a name="connecting-operations-manager-to-oms"></a>Connessione di Operations Manager a OMS
 Eseguire questa serie di passaggi per configurare il gruppo di gestione di Operations Manager per connettersi a una delle aree di lavoro di OMS.
 
-1. Nella console di Operations Manager selezionare l'area di lavoro **Amministrazione**.
+1. Nella console di Operations Manager selezionare l'area di lavoro **Amministrazione** .
 2. Espandere il nodo Operations Management Suite e fare clic su **Connessione**.
-3. Fare clic sul collegamento **Registrazione a Operations Management Suite**.
-4. Nella pagina **Caricamento guidato di Operations Management Suite: Autenticazione** immettere l'indirizzo di posta elettronica o il numero di telefono e la password dell'account amministratore associato alla sottoscrizione di OMS e fare clic su **Accedi**.
-5. Al termine dell'autenticazione, nella pagina **Caricamento guidato di Operations Management Suite: Selezione area di lavoro** verrà chiesto di selezionare l'area di lavoro di OMS. Se si ha più di un'area di lavoro, selezionare l'area di lavoro che si vuole registrare con il gruppo di gestione di Operations Manager nell'elenco a discesa e quindi fare clic su **Avanti**.
+3. Fare clic sul collegamento **Registrazione a Operations Management Suite** .
+4. Nella pagina**Caricamento guidato di Operations Management Suite: Autenticazione**, immettere l'indirizzo di posta elettronica o il numero di telefono e la password dell'account amministratore associato alla sottoscrizione OMS e fare clic su **Accedi**.
+5. Al termine dell'autenticazione, nella pagina **Caricamento guidato di Operations Management Suite: Selezione area di lavoro** verrà chiesto di selezionare l'area di lavoro di OMS.  Se si ha più di un'area di lavoro, selezionare l'area di lavoro che si vuole registrare con il gruppo di gestione di Operations Manager nell'elenco a discesa e quindi fare clic su **Avanti**.
 
     >[AZURE.NOTE] Operations Manager supporta solo un'area di lavoro di OMS alla volta. La connessione e i computer registrati in OMS con l'area di lavoro precedente vengono rimossi da OMS.
 
 6. Nella pagina **Caricamento guidato di Operations Management Suite: Riepilogo** confermare le impostazioni e, se sono corrette, fare clic su **Crea**.
 7. Nella pagina **Caricamento guidato di Operations Management Suite: Fine** fare clic su **Chiudi**.
 
-### Aggiungere computer gestiti dagli agenti
+### <a name="add-agent-managed-computers"></a>Aggiungere computer gestiti dagli agenti
 Dopo avere configurato l'integrazione con l'area di lavoro di OMS, viene solo stabilita una connessione con OMS, ma nessun dato viene raccolto dagli agenti che fanno riferimento al gruppo di gestione. Questo avverrà solo dopo avere configurato quali computer specifici gestiti dagli agenti raccoglieranno i dati per Log Analytics. È possibile selezionare gli oggetti computer singolarmente o selezionare un gruppo contenente gli oggetti computer Windows. Non è possibile selezionare un gruppo contenente istanze di un'altra classe, ad esempio dischi logici o database SQL.
 
-1. Aprire la console di Operations Manager e selezionare lo spazio di lavoro **Amministrazione**.
+1. Aprire la console di Operations Manager e selezionare lo spazio di lavoro **Amministrazione** .
 2. Espandere il nodo Operations Management Suite e fare clic su **Connessione**.
 3. Fare clic sul collegamento **Aggiungi computer/gruppo** nell'intestazione Azioni sul lato destro del riquadro.
 4. Nella finestra di dialogo **Ricerca computer** è possibile cercare i computer o i gruppi monitorati da Operations Manager. Selezionare i computer o i gruppi da caricare in OMS, fare clic su **Aggiungi** e quindi su **OK**.
 
-È possibile visualizzare i computer e i gruppi configurati per raccogliere dati dal nodo Computer gestiti in Operations Management Suite nell'area di lavoro **Amministrazione** della console operatore. Da qui è possibile aggiungere o rimuovere i computer e i gruppi in base alle esigenze.
+È possibile visualizzare i computer e i gruppi configurati per raccogliere dati dal nodo Computer gestiti in Operations Management Suite nell'area di lavoro **Amministrazione** della console operatore.  Da qui è possibile aggiungere o rimuovere i computer e i gruppi in base alle esigenze.
 
-### Configurare le impostazioni proxy di OMS nella console operatore
-Seguire questa procedura se tra il gruppo di gestione e il servizio Web OMS è presente un server proxy interno. Queste impostazioni vengono gestite centralmente dal gruppo di gestione e distribuite ai sistemi gestiti dagli agenti inclusi nell'ambito della raccolta dati per OMS. Questo è un vantaggio nel caso di alcune soluzioni che ignorano il server di gestione e inviano i dati direttamente al servizio Web OMS.
+### <a name="configure-oms-proxy-settings-in-the-operations-console"></a>Configurare le impostazioni proxy di OMS nella console operatore
+Seguire questa procedura se tra il gruppo di gestione e il servizio Web OMS è presente un server proxy interno.  Queste impostazioni vengono gestite centralmente dal gruppo di gestione e distribuite ai sistemi gestiti dagli agenti inclusi nell'ambito della raccolta dati per OMS.  Questo è un vantaggio nel caso di alcune soluzioni che ignorano il server di gestione e inviano i dati direttamente al servizio Web OMS.
 
-1. Aprire la console di Operations Manager e selezionare lo spazio di lavoro **Amministrazione**.
+1. Aprire la console di Operations Manager e selezionare lo spazio di lavoro **Amministrazione** .
 2. Espandere Operations Management Suite e quindi fare clic su **Connessioni**.
-3. Nella visualizzazione connessione di OMS fare clic su **Configura server proxy**.
-4. Nella pagina **Configurazione guidata impostazioni di Operations Management Suite: Server proxy** selezionare **Usa un server proxy per accedere a Operations Management Suite** e digitare l'URL con il numero di porta, ad esempio http://corpproxy:80, quindi fare clic su **Fine**.
+3. Nella visualizzazione OMS Connection (Connessione OMS), fare clic su **Configure Proxy Server**(Configura server proxy).
+4. Nella pagina **Configurazione guidata impostazioni di Operations Management Suite: Server proxy** selezionare **Usa un server proxy per accedere a Operations Management Suite** e immettere l'URL con il numero di porta, ad esempio http://corpproxy:80, quindi fare clic su **Fine**.
 
 Se il server proxy richiede l'autenticazione, seguire questa procedura per configurare le credenziali e le impostazioni da propagare ai computer gestiti che faranno riferimento a OMS nel gruppo di gestione.
 
-1. Aprire la console di Operations Manager e selezionare lo spazio di lavoro **Amministrazione**.
-2. In **Configurazione RunAs**, selezionare **Profili**.
-3. Aprire il profilo **Proxy del profilo RunAs di System Center Advisor**.
+1. Aprire la console di Operations Manager e selezionare lo spazio di lavoro **Amministrazione** .
+2. In **Configurazione RunAs** selezionare **Profili**.
+3. Aprire il profilo **Proxy del profilo RunAs di System Center Advisor** .
 4. In Creazione guidata profilo RunAs fare clic su Aggiungi per usare un account RunAs. È possibile creare un nuovo [account RunAs](https://technet.microsoft.com/library/hh321655.aspx) oppure usare un account esistente. L'account deve avere autorizzazioni sufficienti per passare attraverso il server proxy.
-5. Per impostare l'account da gestire, scegliere **Classe, gruppo o oggetto selezionato**, fare clic su **Seleziona** e quindi su **Gruppo** per aprire la finestra di dialogo **Ricerca gruppi**.
-6. Cercare e quindi selezionare **Gruppo di server di monitoraggio di Microsoft System Center Advisor**. Fare clic su **OK** dopo avere selezionato il gruppo per chiudere la finestra di dialogo **Ricerca gruppi**.
-7.	Fare clic su **OK** per chiudere il riquadro **Aggiungi account RunAs**.
-8.	Fare clic su **Salva** per completare la procedura guidata e salvare le modifiche.
+5. Per impostare l'account da gestire, scegliere **Classe, gruppo o oggetto selezionato**, fare clic su **Seleziona...** e su **Gruppo...** per aprire la finestra **Ricerca gruppi**.
+6. Cercare e quindi selezionare **Gruppo di server di monitoraggio di Microsoft System Center Advisor**.  Fare clic su **OK** dopo avere selezionato il gruppo per chiudere la finestra **Ricerca gruppi**.
+7.  Fare clic su **OK** per chiudere la finestra **Aggiungi account RunAs**.
+8.  Fare clic su **Salva** per completare la procedura guidata e salvare le modifiche.
 
 Una volta creata la connessione e avere configurato gli agenti che raccoglieranno e segnaleranno i dati a OMS, nel gruppo di gestione viene applicata la configurazione seguente, non necessariamente in questo ordine:
 
-- Viene creato l'account RunAs **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate**, che viene associato al profilo RunAs **BLOB profilo RunAs di Microsoft System Center Advisor** e che specifica come destinazione due classi, **Server raccolta** e **Gruppo di gestione di Operations Manager**.
-- Vengono creati due connettori. Il primo è denominato **Microsoft.SystemCenter.Advisor.DataConnector** e viene configurato automaticamente con una sottoscrizione che inoltrerà tutti gli avvisi generati dalle istanze di tutte le classi nel gruppo di gestione a Log Analytics di OMS. Il secondo connettore è **Advisor Connector**, che è responsabile della comunicazione con il servizio Web OMS e della condivisione dei dati.
+- Viene creato l'account RunAs **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate**, che  viene associato al profilo RunAs **Microsoft System Center Advisor eseguito come profilo BLOB** e che specifica come destinazione due classi, **Server raccolta** e **Gruppo di gestione di Operations Manager**.
+- Vengono creati due connettori.  Il primo è denominato **Microsoft.SystemCenter.Advisor.DataConnector** e viene configurato automaticamente con una sottoscrizione che inoltrerà tutti gli avvisi generati dalle istanze di tutte le classi nel gruppo di gestione a Log Analytics di OMS. Il secondo connettore è **Advisor Connector**, che è responsabile della comunicazione con il servizio Web OMS e della condivisione dei dati.
 - Gli agenti e i gruppi selezionati per raccogliere i dati nel gruppo di gestione verranno aggiunti al **Gruppo di server di monitoraggio di Microsoft System Center Advisor**.
 
-## Aggiornamenti di Management Pack
-Al termine della configurazione guidata, il gruppo di gestione di Operations Manager stabilisce una connessione con il servizio OMS. Il server di gestione si sincronizzerà con il servizio Web e riceverà le informazioni di configurazione aggiornate sotto forma di Management Pack per le soluzioni abilitate che si integrano con Operations Manager. Operations Manager cercherà gli aggiornamenti per questi Management Pack e, se disponibili, li scaricherà e importerà automaticamente. Esistono due regole in particolare che controllano questo comportamento:
+## <a name="management-pack-updates"></a>Aggiornamenti di Management Pack
+Al termine della configurazione guidata, il gruppo di gestione di Operations Manager stabilisce una connessione con il servizio OMS.  Il server di gestione si sincronizzerà con il servizio Web e riceverà le informazioni di configurazione aggiornate sotto forma di Management Pack per le soluzioni abilitate che si integrano con Operations Manager.   Operations Manager cercherà gli aggiornamenti per questi Management Pack e, se disponibili, li scaricherà e importerà automaticamente.  Esistono due regole in particolare che controllano questo comportamento:
 
-- **Microsoft.SystemCenter.Advisor.MPUpdate**: aggiorna i Management Pack di OMS di base. Per impostazione predefinita, viene eseguita ogni dodici (12) ore.
-- **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule**: aggiorna i Management Pack delle soluzioni abilitati nell'area di lavoro. Per impostazione predefinita, viene eseguita ogni cinque (5) minuti.
+- **Microsoft.SystemCenter.Advisor.MPUpdate** : aggiorna i Management Pack di OMS di base. Per impostazione predefinita, viene eseguita ogni dodici (12) ore.
+- **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** : aggiorna i Management Pack delle soluzioni abilitati nell'area di lavoro. Per impostazione predefinita, viene eseguita ogni cinque (5) minuti.
 
-È possibile eseguire l'override di queste due regole per impedire il download automatico disabilitandole o per modificare la frequenza di sincronizzazione del server di gestione con OMS per determinare se è disponibile un nuovo Management Pack e se deve essere scaricato. Seguire i passaggi in [Come eseguire l'override di una regola o di un'attività di monitoraggio](https://technet.microsoft.com/library/hh212869.aspx) per modificare il parametro **Frequenza** con un valore espresso in secondi per cambiare la pianificazione della sincronizzazione oppure per modificare il parametro **Abilitata** per disabilitare le regole. Specificare come destinazione gli override di tutti gli oggetti della classe Gruppo di gestione di Operations Manager.
+È possibile eseguire l'override di queste due regole per impedire il download automatico disabilitandole o per modificare la frequenza di sincronizzazione del server di gestione con OMS per determinare se è disponibile un nuovo Management Pack e se deve essere scaricato.  Seguire i passaggi in [Come eseguire l'override di una regola o di un'attività di monitoraggio](https://technet.microsoft.com/library/hh212869.aspx) per modificare il parametro **Frequenza** con un valore espresso in secondi per cambiare la pianificazione della sincronizzazione oppure per modificare il parametro **Abilitata** per disabilitare le regole.  Specificare come destinazione gli override di tutti gli oggetti della classe Gruppo di gestione di Operations Manager.
 
-Per continuare a seguire il processo di controllo delle modifiche esistente per controllare le versioni dei Management Pack nel gruppo di gestione di produzione, è possibile disabilitare le regole e abilitarle in orari specifici in cui gli aggiornamenti sono consentiti. Se nell'ambiente è presente un gruppo di sviluppo o di gestione del controllo di qualità con connettività a Internet, è possibile configurare tale gruppo di gestione con un'area di lavoro di OMS per supportare questo scenario. Questo consentirà di rivedere e valutare le versioni iterative dei Management Pack di OMS prima di rilasciarli nel gruppo di gestione di produzione.
+Per continuare a seguire il processo di controllo delle modifiche esistente per controllare le versioni dei Management Pack nel gruppo di gestione di produzione, è possibile disabilitare le regole e abilitarle in orari specifici in cui gli aggiornamenti sono consentiti. Se nell'ambiente è presente un gruppo di sviluppo o di gestione del controllo di qualità con connettività a Internet, è possibile configurare tale gruppo di gestione con un'area di lavoro di OMS per supportare questo scenario.  Questo consentirà di rivedere e valutare le versioni iterative dei Management Pack di OMS prima di rilasciarli nel gruppo di gestione di produzione.
 
-## Passare un gruppo di Operations Manager a una nuova area di lavoro di OMS
+## <a name="switch-an-operations-manager-group-to-a-new-oms-workspace"></a>Passare un gruppo di Operations Manager a una nuova area di lavoro di OMS
 1. Accedere alla sottoscrizione di OMS e creare una nuova area di lavoro in [Microsoft Operations Management Suite](http://oms.microsoft.com/).
-2. Aprire la console di Operations Manager con un account membro del ruolo Amministratori di Operations Manager e selezionare l’area di lavoro **Amministrazione**.
+2. Aprire la console di Operations Manager con un account membro del ruolo Amministratori di Operations Manager e selezionare l’area di lavoro **Amministrazione** .
 3. Espandere Operations Management Suite e selezionare **Connessioni**.
 4. Selezionare il collegamento **Riconfigura Operation Management Suite** nella parte centrale del riquadro.
 5. Seguire le indicazioni in **Caricamento guidato di Operations Management Suite** e immettere l'indirizzo di posta elettronica o il numero di telefono e la password dell'account amministratore associato alla nuova area di lavoro OMS.
@@ -108,55 +109,59 @@ Per continuare a seguire il processo di controllo delle modifiche esistente per 
     > [AZURE.NOTE] La pagina **Caricamento guidato di Operations Management Suite: Selezione area di lavoro** presenterà l’area di lavoro esistente in uso.
 
 
-## Convalidare l'integrazione di Operations Manager con OMS
+## <a name="validate-operations-manager-integration-with-oms"></a>Convalidare l'integrazione di Operations Manager con OMS
 È possibile verificare che l'integrazione tra OMS e Operations Manager sia riuscita in diversi modi.
 
-### Per verificare l'integrazione dal portale di OMS
+### <a name="to-confirm-integration-from-the-oms-portal"></a>Per verificare l'integrazione dal portale di OMS
 
-1.	Nel portale di OMS fare clic sul riquadro **Impostazioni**.
+1.  Nel portale di OMS fare clic sul riquadro **Impostazioni** .
 2.  Selezionare **Origini connesse**.
-3.	Nella tabella presente nella sezione System Center Operations Manager verrà visualizzato il nome del gruppo di gestione elencato con il numero di agenti e lo stato relativi all'ultima ricezione di dati.
+3.  Nella tabella presente nella sezione System Center Operations Manager verrà visualizzato il nome del gruppo di gestione elencato con il numero di agenti e lo stato relativi all'ultima ricezione di dati.
 
     ![oms-settings-connectedsources](./media/log-analytics-om-agents/oms-settings-connectedsources.png)
 
-4.  Si noti il valore **ID area di lavoro** a sinistra della pagina Impostazioni. Convalidarlo rispetto al gruppo di gestione Operations Manager di seguito.
+4.  Si noti il valore **ID area di lavoro** a sinistra della pagina Impostazioni.  Convalidarlo rispetto al gruppo di gestione Operations Manager di seguito.  
 
-### Per verificare l'integrazione dalla console operatore
+### <a name="to-confirm-integration-from-the-operations-console"></a>Per verificare l'integrazione dalla console operatore
 
-1.	Aprire la console di Operations Manager e selezionare lo spazio di lavoro **Amministrazione**.
-2.	Selezionare **Management Pack** e nella casella di testo **Cerca** digitare **Advisor** o **Intelligence**.
-3.	A seconda delle soluzioni abilitate, nei risultati della ricerca verrà elencato un Management Pack corrispondente. Se, ad esempio, è stata abilitata la soluzione Gestione avvisi, il Management Pack Gestione avvisi di Microsoft System Center Advisor sarà presente nell'elenco.
-4.  Dalla visualizzazione **Monitoraggio** passare alla visualizzazione **Operations Management Suite\\Stato di integrità**. Selezionare un server di gestione dal riquadro **Stato server di gestione** e nel riquadro **Visualizzazione dettagli** confermare che il valore per la proprietà **URI servizio di autenticazione** corrisponde all'ID area di lavoro di OMS.
+1.  Aprire la console di Operations Manager e selezionare lo spazio di lavoro **Amministrazione** .
+2.  Selezionare **Management Pack** e nella casella di testo **Cerca** digitare **Advisor** o **Intelligence**.
+3.  A seconda delle soluzioni abilitate, nei risultati della ricerca verrà elencato un Management Pack corrispondente.  Se, ad esempio, è stata abilitata la soluzione Gestione avvisi, il Management Pack Gestione avvisi di Microsoft System Center Advisor sarà presente nell'elenco.
+4.  Dalla visualizzazione **Monitoraggio** passare alla visualizzazione **Operations Management Suite\Stato di integrità**.  Selezionare un server di gestione dal riquadro **Stato server di gestione** e nel riquadro **Visualizzazione dettagli** confermare che il valore per la proprietà **URI servizio di autenticazione** corrisponde all'ID area di lavoro di OMS.
 
     ![oms-opsmgr-mg-authsvcuri-property-ms](./media/log-analytics-om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
 
 
-## Rimuovere l’integrazione con OMS
-Quando l’integrazione tra il gruppo di gestione di Operations Manager e l’area di lavoro di OMS non è più richiesta, sono necessari diversi passaggi per rimuovere correttamente la connessione e la configurazione nel gruppo di gestione. Per la seguente procedura sarà necessario aggiornare la tua area di lavoro di OMS eliminando il riferimento del gruppo di gestione, eliminare i connettori di OMS e infine eliminare i Management Pack che supportano OMS.
+## <a name="remove-integration-with-oms"></a>Rimuovere l’integrazione con OMS
+Quando l’integrazione tra il gruppo di gestione di Operations Manager e l’area di lavoro di OMS non è più richiesta, sono necessari diversi passaggi per rimuovere correttamente la connessione e la configurazione nel gruppo di gestione. Per la seguente procedura sarà necessario aggiornare la tua area di lavoro di OMS eliminando il riferimento del gruppo di gestione, eliminare i connettori di OMS e infine eliminare i Management Pack che supportano OMS.   
 
-1.  Nel portale di OMS fare clic sul riquadro **Impostazioni**.
-2.	Selezionare **Origini connesse**.
-3.	Nella tabella della sezione System Center Operations Manager dovrebbe essere visualizzato il nome del gruppo di gestione che si desidera rimuovere dall'area di lavoro. Nella colonna **Ultimi dati** fare clic su **Rimuovi**.  
-4.	Verrà visualizzata una finestra in cui viene chiesto di confermare che si desidera procedere con la rimozione. Fare clic su **Sì** per procedere.  
-5.	Aprire la shell dei comandi di Operations Manager con un account membro del ruolo Amministratori di Operations Manager.
+1.  Aprire la shell dei comandi di Operations Manager con un account membro del ruolo Amministratori di Operations Manager.
 
     >[AZURE.WARNING] Prima di procedere, verificare che non si dispone di nessun Management Pack personalizzato che contenga nel nome la parola Advisor o IntelligencePack, altrimenti verranno eliminati dal gruppo di gestione nei passaggi seguenti.
 
-6.	Dal prompt della shell dei comandi, digitare `Get-SCOMManagementPack -name "*advisor*" | Remove-SCOMManagementPack`
+2.  Dal prompt della shell dei comandi, digitare `Get-SCOMManagementPack -name "*advisor*" | Remove-SCOMManagementPack`
 
-7.	Quindi digitare `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack`
+3.  Quindi digitare `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack`
 
-8.	Aprire la console di Operations Manager con un account membro del ruolo Amministratori di Operations Manager.
-9.	In **Amministrazione** selezionare il nodo **Management Pack** e nella casella **Cerca:** digitare **Advisor** e verificare che i seguenti Management Pack siano ancora importati nel gruppo di gestione:
+4.  Aprire la console di Operations Manager con un account membro del ruolo Amministratori di Operations Manager.
+5.  In **Amministrazione** selezionare il nodo **Management Pack** e nella casella **Cerca:** digitare **Advisor** e verificare che i seguenti Management Pack siano ancora importati nel gruppo di gestione:
 
     - Microsoft System Center Advisor
     - Microsoft System Center Advisor Internal
 
+6. Nel portale di OMS fare clic sul riquadro **Impostazioni** .
+7.  Selezionare **Origini connesse**.
+8.  Nella tabella della sezione System Center Operations Manager dovrebbe essere visualizzato il nome del gruppo di gestione che si desidera rimuovere dall'area di lavoro.  Nella colonna **Ultimi dati** fare clic su **Rimuovi**.  
+
+    >[AZURE.NOTE] Il collegamento **Rimuovi** non sarà disponibile finché non saranno trascorsi 14 giorni senza alcuna attività rilevata dal gruppo di gestione connesso.  
+   
+9.  Verrà visualizzata una finestra in cui viene chiesto di confermare che si desidera procedere con la rimozione.  Fare clic su **Sì** per procedere. 
+
 Per eliminare i due connettori, Microsoft.SystemCenter.Advisor.DataConnector e Advisor Connector, salvare lo script di PowerShell seguente nel computer ed eseguirlo utilizzando gli esempi seguenti.
 
 ```
-    .\OM2012_DeleteConnector.ps1 “Advisor Connector” <ManagementGroupName>
-    .\OM2012_DeleteConnectors.ps1 “Microsoft.SytemCenter.Advisor.DataConnector” <ManagementGroupName>
+    .\OM2012_DeleteConnector.ps1 “Advisor Connector” <ManagementServerName>
+    .\OM2012_DeleteConnectors.ps1 “Microsoft.SytemCenter.Advisor.DataConnector” <ManagementServerName>
 ```
 
 >[AZURE.NOTE] Il computer da cui si esegue questo script, se non è un server di gestione, deve avere installata la shell dei comandi di Operations Manager 2012 SP1 o R2, a seconda della versione del gruppo di gestione.
@@ -164,9 +169,9 @@ Per eliminare i due connettori, Microsoft.SystemCenter.Advisor.DataConnector e A
 ```
     `param(
     [String] $connectorName,
-    [String] $mgName="localhost"
+    [String] $msName="localhost"
     )
-    $mg = new-object Microsoft.EnterpriseManagement.ManagementGroup $mgName
+    $mg = new-object Microsoft.EnterpriseManagement.ManagementGroup $msName
     $admin = $mg.GetConnectorFrameworkAdministration()
     ##########################################################################################
     # Configures a connector with the specified name.
@@ -247,11 +252,15 @@ Per eliminare i due connettori, Microsoft.SystemCenter.Advisor.DataConnector e A
     Remove-Connector $connectorName
 ```
 
-Se in futuro si prevede di riconnettere il gruppo di gestione a un'area di lavoro di OMS, sarà necessario importare nuovamente il file del Management Pack `Microsoft.SystemCenter.Advisor.Resources.<Language>\.mpb` dall'aggiornamento cumulativo più recente applicato al gruppo di gestione. È possibile trovare questo file nella cartella `%ProgramFiles%\Microsoft System Center 2012` o `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
+Se in futuro si prevede di riconnettere il gruppo di gestione a un'area di lavoro di OMS, sarà necessario importare nuovamente il file del Management Pack `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` dall'aggiornamento cumulativo più recente applicato al gruppo di gestione.  È possibile trovare questo file nella cartella `%ProgramFiles%\Microsoft System Center 2012` o `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
-- [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md) per aggiungere funzionalità e raccogliere i dati.
-- [Configurare le impostazioni di proxy e firewall in Log Analytics](log-analytics-proxy-firewall.md) se l'organizzazione usa un server proxy o un firewall per consentire agli agenti di comunicare con il servizio Log Analytics..
+- [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md) per aggiungere funzionalità e raccogliere dati.
+- [Configurare le impostazioni di proxy e firewall in Log Analytics](log-analytics-proxy-firewall.md) se l'organizzazione usa un server proxy o un firewall per consentire agli agenti di comunicare con il servizio Log Analytics.
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

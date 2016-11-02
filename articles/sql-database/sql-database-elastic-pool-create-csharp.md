@@ -13,10 +13,11 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="09/14/2016"
+    ms.date="10/04/2016"
     ms.author="sstein"/>
 
-# Creare un pool di database elastici con C&#x23;
+
+# <a name="create-an-elastic-database-pool-with-c&#x23;"></a>Creare un pool di database elastici con C&#x23;
 
 > [AZURE.SELECTOR]
 - [Portale di Azure](sql-database-elastic-pool-create-portal.md)
@@ -26,23 +27,21 @@
 
 Questo articolo illustra come usare C# per creare un pool di database elastici SQL di Azure con la [libreria di database SQL di Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Per creare un database SQL autonomo, vedere [Prova del database SQL: usare C# per creare un database SQL con la libreria del database SQL per .NET](sql-database-get-started-csharp.md).
 
-La libreria di database SQL di Azure per .NET include un'API basata su [Gestione risorse di Azure](../resource-group-overview.md) che esegue il wrapping dell'[API REST di database SQL basata su Gestione risorse](https://msdn.microsoft.com/library/azure/mt163571.aspx).
+La libreria di database SQL di Azure per .NET include un'API basata su [Azure Resource Manager](../resource-group-overview.md) che esegue il wrapping dell'[API REST di database SQL basata su Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
-
-> [AZURE.NOTE] La libreria di database SQL per .NET è attualmente in anteprima.
-
+>[AZURE.NOTE] Molte nuove funzionalità del database SQL sono supportate solo con il [modello di distribuzione Azure Resource Manager](../resource-group-overview.md). È quindi consigliabile usare sempre la **libreria di gestione di database SQL di Azure per .NET più recente ([documentazione](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [pacchetto NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Le [librerie basate sul modello di distribuzione classica](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) meno recenti sono supportate solo per la compatibilità con le versioni precedenti ed è quindi consigliabile usare le nuove librerie basate su Resource Manager.
 
 Per seguire la procedura descritta in questo articolo, sono necessari gli elementi seguenti:
 
 - Una sottoscrizione di Azure. Se è necessaria una sottoscrizione di Azure, è sufficiente fare clic su **ACCOUNT GRATUITO** nella parte superiore della pagina, quindi tornare e proseguire fino alla fine di questo articolo.
-- Visual Studio. Per una copia gratuita di Visual Studio, vedere la pagina [Download di Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
+- Visual Studio. Per una copia gratuita di Visual Studio, vedere la pagina [Download di Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) .
 
 
-## Creare un'app console e installare le librerie richieste
+## <a name="create-a-console-app-and-install-the-required-libraries"></a>Creare un'app console e installare le librerie richieste
 
 1. Avviare Visual Studio.
 2. Fare clic su **File** > **Nuovo** > **Progetto**.
-3. Creare un'**applicazione console** in C# e denominarla *SqlElasticPoolConsoleApp*
+3. Creare un' **applicazione console** in C# e denominarla *SqlElasticPoolConsoleApp*
 
 
 Per creare un database SQL con C#, caricare le librerie di gestione richieste tramite la [console di Gestione pacchetti](http://docs.nuget.org/Consume/Package-Manager-Console):
@@ -50,14 +49,14 @@ Per creare un database SQL con C#, caricare le librerie di gestione richieste tr
 1. Fare clic su **Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**.
 2. Digitare `Install-Package Microsoft.Azure.Management.Sql –Pre` per installare la [libreria di gestione di Microsoft Azure SQL](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
 3. Digitare `Install-Package Microsoft.Azure.Management.ResourceManager –Pre` per installare la [libreria di Microsoft Azure Resource Manager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
-4. Digitare `Install-Package Microsoft.Azure.Common.Authentication –Pre` per installare la [libreria di autenticazione comune di Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication).
+4. Digitare `Install-Package Microsoft.Azure.Common.Authentication –Pre` per installare la [libreria di autenticazione comune di Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
 
 
 
 > [AZURE.NOTE] Negli esempi inclusi in questo articolo viene utilizzata una forma asincrona di ogni richiesta di API e blocco fino al completamento della chiamata REST nel servizio sottostante. Sono disponibili metodi asincroni.
 
 
-## Creare un pool di database elastici - Esempio in C#
+## <a name="create-a-sql-elastic-database-pool---c#-example"></a>Creare un pool di database elastici - Esempio in C#
 
 L'esempio seguente consente di creare un gruppo di risorse, un server, una regola del firewall, un pool elastico e quindi un database SQL nel pool. Per ottenere le variabili `_subscriptionId, _tenantId, _applicationId, and _applicationSecret`, vedere la sezione [Creare un'entità servizio per accedere alle risorse](#create-a-service-principal-to-access-resources).
 
@@ -258,7 +257,7 @@ namespace SqlElasticPoolConsoleApp
 
 
 
-## Creare un'entità servizio per accedere alle risorse
+## <a name="create-a-service-principal-to-access-resources"></a>Creare un'entità servizio per accedere alle risorse
 
 Lo script di PowerShell seguente permette di creare l'applicazione Active Directory (AD) e l'entità servizio necessarie per autenticare l'app C#. Lo script restituisce i valori necessari per l'esempio di C# precedente. Per informazioni dettagliate, vedere [Usare Azure PowerShell per creare un'entità servizio per accedere alle risorse](../resource-group-authenticate-service-principal.md).
 
@@ -304,15 +303,19 @@ Lo script di PowerShell seguente permette di creare l'applicazione Active Direct
 
   
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 - [Gestire il pool](sql-database-elastic-pool-manage-csharp.md)
 - [Creare processi elastici](sql-database-elastic-jobs-overview.md): i processi elastici consentono di eseguire script T-SQL su un numero qualsiasi di database nel pool.
 - [Aumento del numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md): usare gli strumenti di database elastici per aumentare il numero di istanze.
 
-## Risorse aggiuntive
+## <a name="additional-resources"></a>Risorse aggiuntive
 
 - [Database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [API di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
