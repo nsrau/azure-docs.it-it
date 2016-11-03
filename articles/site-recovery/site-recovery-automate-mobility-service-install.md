@@ -1,97 +1,98 @@
 <properties
-	pageTitle="Eseguire la replica di macchine virtuali VMware in Azure usando Site Recovery con Automation DSC per Azure | Microsoft Azure"
-	description="Descrive come usare Automation DSC per Azure per distribuire automaticamente il servizio Mobility di Azure Site Recovery e l'agente di Azure per le macchine virtuali o i computer fisici in Azure."
-	services="site-recovery"
-	documentationCenter=""
-	authors="krnese"
-	manager="lorenr"
-	editor=""/>
+    pageTitle="Replicate VMware virtual machines to Azure by using Site Recovery with Azure Automation DSC | Microsoft Azure"
+    description="Describes how to use Azure Automation DSC to automatically deploy the Azure Site Recovery Mobility service and Azure agent for virtual/physical machines to Azure."
+    services="site-recovery"
+    documentationCenter=""
+    authors="krnese"
+    manager="lorenr"
+    editor=""/>
 
 <tags
-	ms.service="site-recovery"
-	ms.workload="backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/26/2016"
-	ms.author="krnese"/>
+    ms.service="site-recovery"
+    ms.workload="backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/01/2016"
+    ms.author="krnese"/>
 
-# Eseguire la replica di macchine virtuali VMware in Azure con Site Recovery con Automation DSC per Azure
 
-In Operations Management Suite offriamo una soluzione completa per il backup e il ripristino di emergenza che può essere usata nell'ambito del piano di continuità aziendale.
+# <a name="replicate-vmware-virtual-machines-to-azure-by-using-site-recovery-with-azure-automation-dsc"></a>Replicate VMware virtual machines to Azure by using Site Recovery with Azure Automation DSC
 
-Il percorso è iniziato da Hyper-V con la replica Hyper-V, poi è proseguito per supportare una configurazione eterogenea perché i clienti hanno più hypervisor e piattaforme nei loro cloud.
+In Operations Management Suite, we provide you with a comprehensive backup and disaster recovery solution that you can use as part of your business continuity plan.
 
-Se attualmente si eseguono carichi di lavoro VMware e/o server fisici, un server di gestione esegue tutti i componenti di Azure Site Recovery nell'ambiente per gestire la comunicazione e la replica dei dati con Azure, quando questo è la destinazione.
+We started this journey together with Hyper-V by using Hyper-V Replica. But we have expanded to support a heterogeneous setup because customers have multiple hypervisors and platforms in their clouds.
 
-## Distribuire il servizio Site Recovery Mobility usando Automation DSC
-Per iniziare, è bene riepilogare le operazioni eseguite da questo server di gestione.
+If you are running VMware workloads and/or physical servers today, a management server runs all of the Azure Site Recovery components in your environment to handle the communication and data replication with Azure, when Azure is your destination.
 
-Il server di gestione esegue diversi ruoli del server. Uno di questi ruoli è la *configurazione*, che coordina la comunicazione e gestisce i processi di ripristino e replica dei dati.
+## <a name="deploy-the-site-recovery-mobility-service-by-using-automation-dsc"></a>Deploy the Site Recovery Mobility service by using Automation DSC
+Let's start by doing a quick breakdown of what this management server does.
 
-Inoltre, il ruolo di *elaborazione* funge da gateway di replica. Questo ruolo riceve i dati di replica da computer di origine protetti, li ottimizza attraverso il caching, la compressione e la crittografia e li invia a un account di archiviazione di Azure. Una delle funzioni del ruolo di elaborazione è anche quella di eseguire il push dell'installazione del servizio Mobility nei computer protetti ed eseguire l'individuazione automatica delle VM VMware.
+The management server runs several server roles. One of these roles is *configuration*, which coordinates communication and manages data replication and recovery processes.
 
-In caso di failback da Azure, il ruolo di *destinazione master* gestirà i dati di replica come parte di questa operazione.
+In addition, the *process* role acts as a replication gateway. This role receives replication data from protected source machines, optimizes it with caching, compression, and encryption, and then sends it to an Azure storage account. One of the functions for the process role is also to push installation of the Mobility service to protected machines and perform automatic discovery of VMware VMs.
 
-Per i computer protetti, ci si affida al *servizio Mobility*. Questo componente viene distribuito in ogni computer, ovvero VM VMware o server fisico, di cui si vuole eseguire la replica in Azure. Acquisisce scritture di dati sul computer e le inoltra al server di gestione (ruolo di elaborazione).
+If there's a failback from Azure, the *master target* role will handle the replication data as part of this operation.
 
-Nell'ambito della continuità aziendale è importante comprendere i carichi di lavoro, l'infrastruttura e i componenti coinvolti. È quindi possibile soddisfare i requisiti per gli obiettivi del tempo di ripristino (RTO) e gli obiettivi del punto di ripristino (RPO). In questo contesto, il servizio Mobility è fondamentale per garantire che i carichi di lavoro siano protetti nel modo previsto.
+For the protected machines, we rely on the *Mobility service*. This component is deployed to every machine (VMware VM or physical server) that you want to replicate to Azure. It captures data writes on the machine and forwards them to the management server (process role).
 
-Come possiamo garantire nel modo migliore che la configurazione sia affidabile e protetta usando alcuni componenti di Operations Management Suite?
+When you're dealing with business continuity, it's important to understand your workloads, your infrastructure, and the components involved. You can then meet the requirements for your recovery time objective (RTO) and recovery point objective (RPO). In this context, the Mobility service is key to ensuring that your workloads are protected as you would expect.
 
-In questo articolo viene fornito un esempio di come è possibile usare Automation Desired State Configuration (DSC) di Azure insieme a Site Recovery per assicurarsi che:
+So how can you, in an optimized way, ensure that you have a reliable protected setup with help from some Operations Management Suite components?
 
-- Il servizio Mobility e l'agente VM di Azure vengano distribuiti ai computer Windows che si desidera proteggere.
-- Il servizio Mobility e l'agente VM di Azure siano sempre in esecuzione quando Azure è la destinazione della replica.
+This article provides an example of how you can use Azure Automation Desired State Configuration (DSC), together with Site Recovery, to ensure that:
 
-## Prerequisiti
+- The Mobility service and Azure VM agent are deployed to the Windows machines that you want to protect.
+- The Mobility service and Azure VM agent are always running when Azure is the replication target.
 
-- Un repository per archiviare la configurazione necessaria
-- Un repository per archiviare la passphrase necessaria per la registrazione al server di gestione
+## <a name="prerequisites"></a>Prerequisites
 
- > [AZURE.NOTE] Per ogni server di gestione viene generata una passphrase univoca. Se si intende distribuire più server di gestione, è necessario assicurarsi che la passphrase corretta venga archiviata nel file passphrase txt.
+- A repository to store the required setup
+- A repository to store the required passphrase to register with the management server
 
-- La soluzione Windows Management Framework (WMF) 5.0 installata sui computer di cui che si vuole abilitare la protezione (requisito per Automation DSC)
+ > [AZURE.NOTE] A unique passphrase is generated for each management server. If you are going to deploy multiple management servers, you have to ensure that the correct passphrase is stored in the passphrase.txt file.
 
- > [AZURE.NOTE] Se si desidera usare DSC per computer Windows su cui è installato WMF 4.0, vedere la sezione [Uso di DSC in ambienti non connessi](#Uso di DSC in ambienti non connessi).
+- Windows Management Framework (WMF) 5.0 installed on the machines that you want to enable for protection (a requirement for Automation DSC)
 
-Il servizio Mobility può essere installato tramite la riga di comando e accetta diversi argomenti. Ecco perché è necessario disporre dei file binari (dopo averli estratti dalla configurazione) e archiviarli in un punto in cui è possibile recuperarli usando una configurazione DSC.
+ > [AZURE.NOTE] If you want to use DSC for Windows machines that have WMF 4.0 installed, see the section [Use DSC in disconnected environments](#Use DSC in disconnected environments).
 
-## Passaggio 1: estrazione dei file binari
+The Mobility service can be installed through the command line and accepts several arguments. That’s why you need to have the binaries (after extracting them from your setup) and store them in a place where you can retrieve them by using a DSC configuration.
 
-1. Per estrarre i file necessari per la configurazione, accedere alla directory seguente nel server di gestione:
+## <a name="step-1-extract-binaries"></a>Step 1: Extract binaries
 
-	**\\Microsoft Azure Site Recovery\\home\\svsystems\\pushinstallsvc\\repository**
+1. To extract the files that you need for this setup, browse to the following directory on your management server:
 
-    In questa cartella dovrebbe essere presente un file MSI denominato:
+    **\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository**
 
-    **Microsoft-ASR\_UA\_version\_Windows\_GA\_date\_Release.exe**
+    In this folder, you should see an MSI file named:
 
-    Per estrarre il programma di installazione usare il comando seguente:
+    **Microsoft-ASR_UA_version_Windows_GA_date_Release.exe**
 
-    **.\\Microsoft-ASR\_UA\_9.1.0.0_Windows\_GA_02May2016\_release.exe /q /x:C:\\Users\\Administrator\\Desktop\\Mobility\_Service\\Extract**
+    Use the following command to extract the installer:
 
-2. Selezionare tutti i file e inviarli a una cartella compressa.
+    **.\Microsoft-ASR_UA_9.1.0.0_Windows_GA_02May2016_release.exe /q /x:C:\Users\Administrator\Desktop\Mobility_Service\Extract**
 
-Ora sono disponibili i file binari necessari per automatizzare la configurazione del servizio Mobility con Automation DSC.
+2. Select all files and send them to a compressed (zipped) folder.
 
-### Passphrase
+You now have the binaries that you need to automate the setup of the Mobility service by using Automation DSC.
 
-È quindi necessario scegliere dove si vuole posizionare la cartella compressa. È possibile usare un account di archiviazione di Azure, come illustrato più avanti, per archiviare la passphrase necessaria per la configurazione. L'agente verrà quindi registrato con il server di gestione come parte del processo.
+### <a name="passphrase"></a>Passphrase
 
-La passphrase ottenuta durante la distribuzione del server di gestione può essere salvata in un file txt come passphrase.txt.
+Next, you need to determine where you want to place this zipped folder. You can use an Azure storage account, as shown later, to store the passphrase that you need for the setup. The agent will then register with the management server as part of the process.
 
-Inserire sia la cartella compressa sia la passphrase in un contenitore dedicato nell'account di archiviazione di Azure.
+The passphrase that you got when you deployed the management server can be saved to a text file as passphrase.txt.
 
-![Percorso della cartella](./media/site-recovery-automate-mobilitysevice-install/folder-and-passphrase-location.png)
+Place both the zipped folder and the passphrase in a dedicated container in the Azure storage account.
 
-Se si preferisce, è possibile mantenere questi file in una condivisione all'interno della rete. È sufficiente garantire che la risorsa DSC che verrà usata in un secondo momento disponga dell'accesso e possa usare la configurazione e la passphrase.
+![Folder location](./media/site-recovery-automate-mobilitysevice-install/folder-and-passphrase-location.png)
 
-## Passaggio 2: creazione della configurazione DSC
+If you prefer to keep these files on a share on your network, you can do so. You just need to ensure that the DSC resource that you will be using later has access and can get the setup and passphrase.
 
-Il programma di configurazione dipende da WMF 5.0. Affinché il computer applichi correttamente la configurazione tramite Automation DSC, è necessario che sia presente la soluzione WMF 5.0.
+## <a name="step-2-create-the-dsc-configuration"></a>Step 2: Create the DSC configuration
 
-Nell'ambiente la configurazione DSC di esempio usata è la seguente:
+The setup depends on WMF 5.0. For the machine to successfully apply the configuration through Automation DSC, WMF 5.0 needs to be present.
+
+The environment uses the following example DSC configuration:
 
 ```powershell
 configuration ASRMobilityService {
@@ -152,7 +153,7 @@ configuration ASRMobilityService {
         Package AzureAgent {
             Path = 'C:\Temp\AzureVmAgent.msi'
             Ensure = 'Present'
-            Name = 'Microsoft Azure VM Agent - 2.7.1198.735'
+            Name = 'Windows Azure VM Agent - 2.7.1198.735'
             ProductId = '5CF4D04A-F16C-4892-9196-6025EA61F964'
             Arguments = '/q /l "c:\temp\agentlog.txt'
             DependsOn = '[Package]Install'
@@ -188,41 +189,41 @@ configuration ASRMobilityService {
     }
 }
 ```
-La configurazione eseguirà le operazioni seguenti:
+The configuration will do the following:
 
-- Le variabili indicheranno alla configurazione dove ottenere i file binari per il servizio Mobility e l'agente VM di Azure, la passphrase e il percorso in cui archiviare l'output.
-- La configurazione importerà la risorsa DSC xPSDesiredStateConfiguration in modo da poter usare `xRemoteFile` per scaricare i file dal repository.
-- La configurazione creerà la directory in cui si vuole archiviare i dati binari.
-- La risorsa di archiviazione estrarrà i file dalla cartella compressa.
-- La risorsa Install del pacchetto installerà il servizio Mobility dal programma di installazione UNIFIEDAGENT.EXE con gli argomenti specifici. Le variabile che costruiscono gli argomenti devono essere modificate per riflettere l'ambiente.
-- La risorsa AzureAgent del pacchetto installerà l'agente VM di Azure, consigliato su tutte le VM eseguite in Azure. L'agente VM di Azure rende inoltre possibile aggiungere estensioni alla VM dopo il failover.
-- Una o più risorse del servizio garantiranno che i servizi Mobility correlati e i servizi di Azure siano sempre in esecuzione.
+- The variables will tell the configuration where to get the binaries for the Mobility service and the Azure VM agent, where to get the passphrase, and where to store the output.
+- The configuration will import the xPSDesiredStateConfiguration DSC resource, so that you can use `xRemoteFile` to download the files from the repository.
+- The configuration will create a directory where you want to store the binaries.
+- The archive resource will extract the files from the zipped folder.
+- The package Install resource will install the Mobility service from the UNIFIEDAGENT.EXE installer with the specific arguments. (The variables that construct the arguments need to be changed to reflect your environment.)
+- The package AzureAgent resource will install the Azure VM agent, which is recommended on every VM that runs in Azure. The Azure VM agent also makes it possible to add extensions to the VM after failover.
+- The service resource or resources will ensure that the related Mobility services and the Azure services are always running.
 
-Salvare la configurazione come **ASRMobilityService**.
+Save the configuration as **ASRMobilityService**.
 
->[AZURE.NOTE] È necessario ricordarsi di sostituire il valore CSIP nella configurazione per riflettere il server di gestione effettivo, in modo che l'agente venga connesso e che usi la passphrase corretta.
+>[AZURE.NOTE] Remember to replace the CSIP in your configuration to reflect the actual management server, so that the agent will be connected correctly and will use the correct passphrase.
 
-## Passaggio 3: caricamento su Automation DSC
+## <a name="step-3-upload-to-automation-dsc"></a>Step 3: Upload to Automation DSC
 
-Dal momento che la configurazione DSC creata importerà il modulo di risorse DSC xPSDesiredStateConfiguration richiesto, è necessario importare il modulo in Automation prima di caricare la configurazione DSC.
+Because the DSC configuration that you made will import a required DSC resource module (xPSDesiredStateConfiguration), you need to import that module in Automation before you upload the DSC configuration.
 
-Accedere all'account di Automation, andare su **Asset** > **Moduli** e fare clic su **Esplora raccolta**.
+Sign in to your Automation account, browse to **Assets** > **Modules**, and click **Browse Gallery**.
 
-Qui è possibile cercare il modulo e importarlo nel proprio account.
+Here you can search for the module and import it to your account.
 
-![Importazione del modulo](./media/site-recovery-automate-mobilitysevice-install/search-and-import-module.png)
+![Import module](./media/site-recovery-automate-mobilitysevice-install/search-and-import-module.png)
 
-Al termine passare al computer su cui sono installati i moduli di Azure Resource Manager e continuare a importare la configurazione DSC appena creata.
+When you finish this, go to your machine where you have the Azure Resource Manager modules installed and proceed to import the newly created DSC configuration.
 
-### Cmdlet di importazione
+### <a name="import-cmdlets"></a>Import cmdlets
 
-In PowerShell accedere alla sottoscrizione di Azure. Modificare i cmdlet in modo da riflettere l'ambiente e acquisire le informazioni sull'account di Automation in forma di variabile:
+In PowerShell, sign in to your Azure subscription. Modify the cmdlets to reflect your environment and capture your Automation account information in a variable:
 
 ```powershell
 $AAAccount = Get-AzureRmAutomationAccount -ResourceGroupName 'KNOMS' -Name 'KNOMSAA'
 ```
 
-Caricare la configurazione di Automation DSC usando il cmdlet seguente:
+Upload the configuration to Automation DSC by using the following cmdlet:
 
 ```powershell
 $ImportArgs = @{
@@ -233,43 +234,43 @@ $ImportArgs = @{
 $AAAccount | Import-AzureRmAutomationDscConfiguration @ImportArgs
 ```
 
-### Compilare la configurazione in Automation DSC
+### <a name="compile-the-configuration-in-automation-dsc"></a>Compile the configuration in Automation DSC
 
-È quindi necessario compilare la configurazione in Automation DSC, in modo che sia possibile iniziare a registrare i nodi su di essa. Questo risultato si ottiene eseguendo il cmdlet seguente:
+Next, you need to compile the configuration in Automation DSC, so that you can start to register nodes to it. You achieve that by running the following cmdlet:
 
 ```powershell
 $AAAccount | Start-AzureRmAutomationDscCompilationJob -ConfigurationName ASRMobilityService
 ```
 
-Questa operazione può richiedere alcuni minuti poiché si sta distribuendo la configurazione al servizio di pull DSC ospitato.
+This can take a few minutes, because you're basically deploying the configuration to the hosted DSC pull service.
 
-Al termine della configurazione, è possibile recuperare le informazioni sul processo tramite PowerShell (Get-AzureRmAutomationDscCompilationJob) o usando il [portale di Azure](https://portal.azure.com/).
+After you compile the configuration, you can retrieve the job information by using PowerShell (Get-AzureRmAutomationDscCompilationJob) or by using the [Azure portal](https://portal.azure.com/).
 
-![Recuperare il processo](./media/site-recovery-automate-mobilitysevice-install/retrieve-job.png)
+![Retrieve job](./media/site-recovery-automate-mobilitysevice-install/retrieve-job.png)
 
-La configurazione DSC in Automation DSC è stata ora pubblicata e caricata correttamente.
+You have now successfully published and uploaded your DSC configuration to Automation DSC.
 
-## Passaggio 4: caricamento di computer in Automation DSC
->[AZURE.NOTE] Uno dei prerequisiti per il completamento di questo scenario è che la versione della soluzione WMF nei computer Windows sia aggiornata. È possibile scaricare e installare la versione corretta per la piattaforma dall'[Area download](https://www.microsoft.com/download/details.aspx?id=50395).
+## <a name="step-4-onboard-machines-to-automation-dsc"></a>Step 4: Onboard machines to Automation DSC
+>[AZURE.NOTE] One of the prerequisites for completing this scenario is that your Windows machines are updated with the latest version of WMF. You can download and install the correct version for your platform from the [Download Center](https://www.microsoft.com/download/details.aspx?id=50395).
 
-Si creerà ora una metaconfig per DSC che sarà applicata ai nodi. Per un risultato positivo è necessario recuperare l'URL e la chiave primaria dell'endpoint per l'account di automazione selezionato in Azure. Questi valori si trovano in **Chiavi** nel pannello **Tutte le impostazioni** dell'account di Automation.
+You will now create a metaconfig for DSC that you will apply to your nodes. To succeed with this, you need to retrieve the endpoint URL and the primary key for your selected Automation account in Azure. You can find these values under **Keys** on the **All settings** blade for the Automation account.
 
-![Valori chiave](./media/site-recovery-automate-mobilitysevice-install/key-values.png)
+![Key values](./media/site-recovery-automate-mobilitysevice-install/key-values.png)
 
-In questo esempio è presente un server fisico Windows Server 2012 R2 che si desidera proteggere con Site Recovery.
+In this example, you have a Windows Server 2012 R2 physical server that you want to protect by using Site Recovery.
 
-### Verificare la presenza di eventuali operazioni di ridenominazione di file in sospeso nel Registro di sistema
+### <a name="check-for-any-pending-file-rename-operations-in-the-registry"></a>Check for any pending file rename operations in the registry
 
-Prima di iniziare ad associare il server con l'endpoint Automation DSC, è consigliabile controllare le operazioni di ridenominazione dei file in sospeso nel Registro di sistema, in quanto un riavvio in sospeso potrebbe impedire il completamento della configurazione.
+Before you start to associate the server with the Automation DSC endpoint, we recommend that you check for any pending file rename operations in the registry. They might prohibit the setup from finishing due to a pending reboot.
 
-Per verificare che non vi sia alcun riavvio in sospeso nel server, eseguire il cmdlet seguente:
+Run the following cmdlet to verify that there’s no pending reboot on the server:
 
 ```powershell
 Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\' | Select-Object -Property PendingFileRenameOperations
 ```
-Se non è presente, è possibile continuare. In caso contrario, è necessario riavviare il server in una finestra di manutenzione.
+If this shows empty, you are OK to proceed. If not, you should address this by rebooting the server during a maintenance window.
 
-Per applicare la configurazione sul server, avviare PowerShell Integrated Scripting Environment (ISE) ed eseguire lo script seguente. Lo script è essenzialmente una configurazione locale per DSC che indicherà al motore di gestione configurazione locale di eseguire la registrazione con il servizio Automation DSC e recuperare la configurazione specifica (ASRMobilityService.localhost).
+To apply the configuration on the server, start the PowerShell Integrated Scripting Environment (ISE) and run the following script. This is essentially a DSC local configuration that will instruct the Local Configuration Manager engine to register with the Automation DSC service and retrieve the specific configuration (ASRMobilityService.localhost).
 
 ```powershell
 [DSCLocalConfigurationManager()]
@@ -310,65 +311,65 @@ metaconfig -URL 'https://we-agentservice-prod-1.azure-automation.net/accounts/<Y
 Set-DscLocalConfigurationManager .\metaconfig -Force -Verbose
 ```
 
-Questa configurazione causerà la registrazione del motore di gestione configurazione locale con Automation DSC. Inoltre determinerà come il motore deve funzionare, come comportarsi in presenza di una differenza nella configurazione (ApplyAndAutoCorrect) e come procedere con la configurazione se è richiesto un riavvio.
+This configuration will cause the Local Configuration Manager engine to register itself with Automation DSC. It will also determine how the engine should operate, what it should do if there's a configuration drift (ApplyAndAutoCorrect), and how it should proceed with the configuration if a reboot is required.
 
-Dopo l'esecuzione dello script, il nodo dovrebbe iniziare la registrazione ad Automation DSC.
+After you run this script, the node should start to register with Automation DSC.
 
-![Registrazione del nodo in corso](./media/site-recovery-automate-mobilitysevice-install/register-node.png)
+![Node registration in progress](./media/site-recovery-automate-mobilitysevice-install/register-node.png)
 
-Se si torna al portale di Azure, si può notare che il nodo appena registrato è ora presente nel portale.
+If you go back to the Azure portal, you can see that the newly registered node has now appeared in the portal.
 
-![Nodo registrato nel portale](./media/site-recovery-automate-mobilitysevice-install/registered-node.png)
+![Registered node in the portal](./media/site-recovery-automate-mobilitysevice-install/registered-node.png)
 
-Per verificare che la registrazione del nodo sia stata eseguita correttamente, è possibile eseguire il cmdlet PowerShell seguente sul server:
+On the server, you can run the following PowerShell cmdlet to verify that the node has been registered correctly:
 
 ```powershell
 Get-DscLocalConfigurationManager
 ```
 
-Dopo che il pull della configurazione è stato eseguito e la configurazione è stata applicata al server, procedere alla verifica eseguendo il seguente cmdlet:
+After the configuration has been pulled and applied to the server, you can verify this by running the following cmdlet:
 
 ```powershell
 Get-DscConfigurationStatus
 ```
 
-L'output mostra che il server ha eseguito correttamente il pull della configurazione:
+The output shows that the server has successfully pulled its configuration:
 
 ![Output](./media/site-recovery-automate-mobilitysevice-install/successful-config.png)
 
-Inoltre, la configurazione del servizio Mobility dispone di un proprio log in *SystemDrive*\\ProgramData\\ASRSetupLogs.
+In addition, the Mobility service setup has its own log that can be found at *SystemDrive*\ProgramData\ASRSetupLogs.
 
-La procedura è terminata. Il servizio Mobility è stato distribuito e registrato correttamente sul computer che si desidera proteggere tramite Site Recovery. DSC si assicurerà che i servizi necessari siano sempre in esecuzione.
+That’s it. You have now successfully deployed and registered the Mobility service on the machine that you want to protect by using Site Recovery. DSC will make sure that the required services are always running.
 
-![Distribuzione completata](./media/site-recovery-automate-mobilitysevice-install/successful-install.png)
+![Successful deployment](./media/site-recovery-automate-mobilitysevice-install/successful-install.png)
 
-Una volta che il server di gestione ha rilevato la corretta distribuzione, procedere per configurare la protezione e abilitare la replica nel computer con Site Recovery.
+After the management server detects the successful deployment, you can configure protection and enable replication on the machine by using Site Recovery.
 
-## Uso di DSC in ambienti non connessi
+## <a name="use-dsc-in-disconnected-environments"></a>Use DSC in disconnected environments
 
-Se i computer non sono connessi a Internet, è comunque possibile fare affidamento su DSC per distribuire e configurare il servizio Mobility sui carichi di lavoro da proteggere.
+If your machines aren’t connected to the Internet, you can still rely on DSC to deploy and configure the Mobility service on the workloads that you want to protect.
 
-È possibile creare istanze del server di pull DSC nel proprio ambiente per fornire essenzialmente le stesse funzionalità ottenute da Automation DSC. Ciò significa che, dopo la registrazione, i client eseguiranno il pull della configurazione sull'endpoint DSC. Tuttavia, un'altra opzione consiste nel push manuale della configurazione sui computer locali o remoti.
+You can instantiate your own DSC pull server in your environment to essentially provide the same capabilities that you get from Automation DSC. That is, the clients will pull the configuration (after it's registered) to the DSC endpoint. However, another option is to manually push the DSC configuration to your machines, either locally or remotely.
 
-Notare che in questo esempio esiste un parametro aggiunto per il nome del computer. I file remoti si trovano ora in una condivisione remota che deve essere accessibile ai computer che si desidera proteggere. La fine dello script esegue la configurazione e quindi inizia ad applicare la configurazione DSC al computer di destinazione.
+Note that in this example, there's an added parameter for the computer name. The remote files are now located on a remote share that should be accessible by the machines that you want to protect. The end of the script enacts the configuration and then starts to apply the DSC configuration to the target computer.
 
-### Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 
-Assicurarsi che sia installato il modulo xPSDesiredStateConfiguration di PowerShell. Per i computer Windows su cui è installata la soluzione WMF 5.0, è possibile installare il modulo xPSDesiredStateConfiguration eseguendo il cmdlet seguente nei computer di destinazione:
+Make sure that the xPSDesiredStateConfiguration PowerShell module is installed. For Windows machines where WMF 5.0 is installed, you can install the xPSDesiredStateConfiguration module by running the following cmdlet on the target machines:
 
 ```powershell
 Find-Module -Name xPSDesiredStateConfiguration | Install-Module
 ```
 
-È inoltre possibile scaricare e salvare il modulo nel caso in cui sia necessario distribuirlo ai computer Windows con WMF 4.0. Eseguire questo cmdlet su un computer in cui è presente PowerShellGet (WMF 5.0):
+You can also download and save the module in case you need to distribute it to Windows machines that have WMF 4.0. Run this cmdlet on a machine where PowerShellGet (WMF 5.0) is present:
 
 ```powershell
 Save-Module -Name xPSDesiredStateConfiguration -Path <location>
 ```
 
-Anche per WMF 4.0, assicurarsi che sui computer sia installato [Windows 8.1 update KB2883200](https://www.microsoft.com/download/details.aspx?id=40749).
+Also for WMF 4.0, ensure that the [Windows 8.1 update KB2883200](https://www.microsoft.com/download/details.aspx?id=40749) is installed on the machines.
 
-È possibile eseguire il push della configurazione seguente sui computer Windows con WMF 5.0 e WMF 4.0:
+The following configuration can be pushed to Windows machines that have WMF 5.0 and WMF 4.0:
 
 ```powershell
 configuration ASRMobilityService {
@@ -433,7 +434,7 @@ configuration ASRMobilityService {
         Package AzureAgent {
             Path = 'C:\Temp\AzureVmAgent.msi'
             Ensure = 'Present'
-            Name = 'Microsoft Azure VM Agent - 2.7.1198.735'
+            Name = 'Windows Azure VM Agent - 2.7.1198.735'
             ProductId = '5CF4D04A-F16C-4892-9196-6025EA61F964'
             Arguments = '/q /l "c:\temp\agentlog.txt'
             DependsOn = '[Package]Install'
@@ -469,29 +470,29 @@ ASRMobilityService -ComputerName 'MyTargetComputerName'
 Start-DscConfiguration .\ASRMobilityService -Wait -Force -Verbose
 ```
 
-Se si vuole creare un'istanza del server di pull DSC sulla rete aziendale per riprodurre le funzionalità disponibili in Automation DSC, vedere [Configurazione di un server di pull Web DSC](https://msdn.microsoft.com/powershell/dsc/pullserver?f=255&MSPPError=-2147217396).
+If you want to instantiate your own DSC pull server on your corporate network to mimic the capabilities that you can get from Automation DSC, see [Setting up a DSC web pull server](https://msdn.microsoft.com/powershell/dsc/pullserver?f=255&MSPPError=-2147217396).
 
-## Facoltativo: distribuire una configurazione DSC usando il modello di Azure Resource Manager
+## <a name="optional-deploy-a-dsc-configuration-by-using-an-azure-resource-manager-template"></a>Optional: Deploy a DSC configuration by using an Azure Resource Manager template
 
-Questo articolo ha illustrato come è possibile creare la propria configurazione DSC per distribuire automaticamente il servizio Mobility e l'agente VM di Azure e assicurarsi che siano in esecuzione sui computer da proteggere. È disponibile anche un modello di Azure Resource Manager che consente di distribuire questa configurazione DSC a un account di Automazione di Azure nuovo o esistente. Il modello userà i parametri di input per creare gli asset di automazione che conterranno le variabili per l'ambiente.
+This article has focused on how you can create your own DSC configuration to automatically deploy the Mobility service and the Azure VM Agent--and ensure that they are running on the machines that you want to protect. We also have an Azure Resource Manager template that will deploy this DSC configuration to a new or existing Azure Automation account. The template will use input parameters to create Automation assets that will contain the variables for your environment.
 
-Una volta distribuito il modello, è possibile fare riferimento al passaggio 4 di questa guida per caricare i computer.
+After you deploy the template, you can simply refer to step 4 in this guide to onboard your machines.
 
-Il modello eseguirà le operazioni seguenti:
+The template will do the following:
 
-1. Usare un account di Automazione esistente e crearne uno nuovo
-2. Accettare i parametri di input per:
-	- ASRRemoteFile - il percorso in cui è stata memorizzata la configurazione del servizio Mobility
-	- ASRPassphrase - il percorso in cui è stato memorizzato il file passphrase.txt
-	- ASRCSEndpoint - l'indirizzo IP del server di gestione
-3. Importare il modulo xPSDesiredStateConfiguration di PowerShell
-4. Creare e compilare la configurazione DSC
+1. Use an existing Automation account or create a new one
+2. Take input parameters for:
+    - ASRRemoteFile--the location where you have stored the Mobility service setup
+    - ASRPassphrase--the location where you have stored the passphrase.txt file
+    - ASRCSEndpoint--the IP address of your management server
+3. Import the xPSDesiredStateConfiguration PowerShell module
+4. Create and compile the DSC configuration
 
-Tutti i passaggi precedenti verranno eseguiti nell'ordine corretto in modo da poter iniziare il caricamento dei computer per la protezione.
+All the preceding steps will happen in the right order, so that you can start onboarding your machines for protection.
 
-Il modello con le istruzioni per la distribuzione si trova in [GitHub](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/DSC).
+The template, with instructions for deployment, is located on [GitHub](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/DSC).
 
-Distribuire il modello tramite PowerShell:
+Deploy the template by using PowerShell:
 
 ```powershell
 $RGDeployArgs = @{
@@ -507,8 +508,12 @@ $RGDeployArgs = @{
 New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 ```
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-Dopo avere distribuito gli agenti del servizio Mobility, è possibile [abilitare la replica](site-recovery-vmware-to-azure.md#step-6-replicate-applications) per le macchine virtuali.
+After you deploy the Mobility service agents, you can [enable replication](site-recovery-vmware-to-azure.md#step-6-replicate-applications) for the virtual machines.
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

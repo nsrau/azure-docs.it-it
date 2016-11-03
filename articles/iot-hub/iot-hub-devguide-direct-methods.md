@@ -17,7 +17,7 @@
  ms.author="nberdy"/>
 
 
-# <a name="invoke-a-direct-method-on-a-device-(preview)"></a>Richiamare un metodo diretto in un dispositivo (anteprima)
+# <a name="invoke-a-direct-method-on-a-device-preview"></a>Richiamare un metodo diretto in un dispositivo (anteprima)
 
 ## <a name="overview"></a>Panoramica
 
@@ -54,7 +54,7 @@ Le chiamate ai metodi dei dispositivi sono solo HTTP dal lato cloud e solo MQTT 
 
 ## <a name="reference"></a>Riferimento
 
-### <a name="service-facing"></a>Per il servizio
+### <a name="servicefacing"></a>Per il servizio
 
 #### <a name="method-invocation"></a>Chiamata al metodo
 
@@ -95,7 +95,7 @@ Il back-end riceve una risposta che include:
   
    Sia `status` che `body` vengono forniti dal dispositivo e usati per rispondere con la descrizione e/o il codice di stato del dispositivo.
 
-### <a name="device-facing"></a>Per il dispositivo
+### <a name="devicefacing"></a>Per il dispositivo
 
 #### <a name="method-invocation"></a>Chiamata al metodo
 

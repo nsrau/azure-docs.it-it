@@ -17,7 +17,7 @@
  ms.author="elioda"/>
 
 
-# <a name="understand-device-twins---preview"></a>Informazioni sui dispositivi gemelli - anteprima
+# <a name="understand-device-twins-preview"></a>Informazioni sui dispositivi gemelli - anteprima
 
 ## <a name="overview"></a>Panoramica
 

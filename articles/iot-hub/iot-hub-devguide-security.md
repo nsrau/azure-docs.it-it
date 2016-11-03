@@ -100,7 +100,7 @@ Quando si usa SASL PLAIN con AMQP, un client che si connette a un hub IoT potrà
 *  I gateway si connettono in genere per conto di molti dispositivi. Quando si usa SASL PLAIN, devono creare una connessione TCP distinta per ogni dispositivo che si connette a un hub IoT. Questo scenario aumenta in modo considerevole il consumo energetico e delle risorse di rete e incrementa la latenza della connessione di ogni dispositivo.
 * L'aumento dell'uso delle risorse per la riconnessione dopo la scadenza di ogni token influisce negativamente sui dispositivi vincolati alle risorse.
 
-## <a name="scope-hub-level-credentials"></a>Definire l'ambito delle credenziali a livello di hub
+## <a name="scope-hublevel-credentials"></a>Definire l'ambito delle credenziali a livello di hub
 
 È possibile definire l'ambito dei criteri di sicurezza a livello di hub creando token con URI di risorsa con limitazioni. L'endpoint per l'invio di messaggi da dispositivo a cloud da un dispositivo, ad esempio, è **/devices/{deviceId}/messages/events**. È anche possibile usare criteri di accesso condiviso a livello di hub con autorizzazioni **DeviceConnect** per firmare un token il cui valore resourceURI è **/devices/{deviceId}**. Questo approccio crea un token che può essere usato solo per l'invio di messaggi per conto del dispositivo **deviceId**.
 
@@ -280,7 +280,7 @@ Il risultato, che concede l'accesso in lettura a tutte le identità dispositivo,
 
     SharedAccessSignature sr=myhub.azure-devices.net%2fdevices&sig=JdyscqTpXdEJs49elIUCcohw2DlFDR3zfH5KqGJo4r4%3D&se=1456973447&skn=registryRead
 
-## <a name="supported-x.509-certificates"></a>Certificati X.509 supportati
+## <a name="supported-x509-certificates"></a>Certificati X.509 supportati
 
 È possibile usare qualsiasi certificato X.509 per autenticare un dispositivo con hub IoT. Sono inclusi:
 
@@ -292,11 +292,11 @@ Il risultato, che concede l'accesso in lettura a tutte le identità dispositivo,
 
 Un dispositivo può usare un certificato X.509 o un token di sicurezza per l'autenticazione, ma non per entrambi.
 
-### <a name="register-an-x.509-client-certificate-for-a-device"></a>Registrare un certificato client X.509 per un dispositivo
+### <a name="register-an-x509-client-certificate-for-a-device"></a>Registrare un certificato client X.509 per un dispositivo
 
 [Azure IoT Service SDK per C#][lnk-service-sdk] (versione 1.0.8+) supporta la registrazione di un dispositivo che usa un certificato client X.509 per l'autenticazione. Anche altre API come quelle per l'importazione e l'esportazione dei dispositivi supportano i certificati client X.509.
 
-### <a name="c\#-support"></a>Supporto per C\#
+### <a name="c-support"></a>Supporto per C\#
 
 La classe **RegistryManager** offre un modo di registrare un dispositivo a livello di codice. In particolare, i metodi **AddDeviceAsync** e **UpdateDeviceAsync** consentono a un utente di registrare e aggiornare un dispositivo nel registro delle identità del dispositivo dell'hub Iot. Questi due metodi accettano un'istanza **Device** come input. La classe **Device** include una proprietà **Authentication** che consente all'utente di specificare le identificazioni personali primaria e secondaria del certificato X.509. L'identificazione personale rappresenta un hash SHA-1 del certificato X.509 archiviato usando la codifica DER binaria. Gli utenti hanno la possibilità di specificare un'identificazione personale primaria o un'identificazione personale secondaria o entrambe. Le identificazioni personali primarie e secondarie sono supportate per poter gestire scenari di rollover dei certificati.
 
@@ -319,11 +319,11 @@ RegistryManager registryManager = RegistryManager.CreateFromConnectionString(dev
 await registryManager.AddDeviceAsync(device);
 ```
 
-### <a name="use-an-x.509-client-certificate-during-runtime-operations"></a>Usare un certificato client X.509 durante le operazioni di runtime
+### <a name="use-an-x509-client-certificate-during-runtime-operations"></a>Usare un certificato client X.509 durante le operazioni di runtime
 
 [Azure IoT SDK per dispositivi per .NET][lnk-client-sdk] (versione 1.0.11+) supporta l'uso dei certificati client X.509.
 
-### <a name="c\#-support"></a>Supporto per C\#
+### <a name="c-support"></a>Supporto per C\#
 
 La classe **DeviceAuthenticationWithX509Certificate** supporta la creazione di istanze di  **DeviceClient** usando un certificato client X.509.
 

@@ -38,7 +38,7 @@ La messaggistica è una funzionalità di base dell'hub IoT, da usare per l'invio
 
 Per un confronto tra i servizi dell'hub IoT e di Hub eventi, vedere [Confronto tra l'hub IoT e Hub eventi][lnk-compare].
 
-## <a name="device-to-cloud-messages"></a>Messaggi da dispositivo a cloud
+## <a name="devicetocloud-messages"></a>Messaggi da dispositivo a cloud
 
 I messaggi da dispositivo a cloud vengono inviati tramite un endpoint per il dispositivo (**/devices/{deviceId}/messages/events**). Il servizio back-end riceve i messaggi da dispositivo a cloud tramite un endpoint per il servizio (**/messages/events**) compatibile con [Hub eventi][lnk-event-hubs]. È quindi possibile usare [l'integrazione standard di Hub eventi e gli SDK][lnk-compatible-endpoint] per ricevere i messaggi da dispositivo a cloud.
 
@@ -64,13 +64,13 @@ Per informazioni dettagliate sull'uso della messaggistica da dispositivo a cloud
 
 > [AZURE.NOTE] Quando si usa HTTP per inviare messaggi da dispositivo a cloud, i valori e i nomi di proprietà possono contenere solo caratteri ASCII alfanumerici più ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
-### <a name="non-telemetry-traffic"></a>Traffico non di telemetria
+### <a name="nontelemetry-traffic"></a>Traffico non di telemetria
 
 Spesso, oltre ai punti dati di telemetria, i dispositivi inviano anche messaggi e richieste che devono essere eseguiti e gestiti dal livello della logica di business dell'applicazione. Ad esempio, avvisi critici che devono attivare un'azione specifica nel back-end o risposte a comandi inviati dal back-end.
 
 Per altre informazioni sul modo migliore di elaborare questo tipo di messaggio, vedere l'[Esercitazione: elaborare messaggi da dispositivo a cloud dell'hub IoT usando .NET][lnk-d2c-tutorial].
 
-### <a name="device-to-cloud-configuration-options"></a>Opzioni di configurazione da dispositivo a cloud
+### <a name="devicetocloud-configuration-options"></a>Opzioni di configurazione da dispositivo a cloud
 
 Un hub IoT espone le proprietà seguenti per consentire il controllo della messaggistica da dispositivo a cloud.
 
@@ -81,7 +81,7 @@ Analogamente ad Hub eventi, l'hub IoT consente di gestire i gruppi di consumer n
 
 È possibile modificare tutte queste proprietà a livello di codice con le [API del provider di risorse dell'hub IoT di Azure][lnk-resource-provider-apis] oppure usando il [portale di Azure][lnk-management-portal].
 
-### <a name="anti-spoofing-properties"></a>Proprietà anti-spoofing
+### <a name="antispoofing-properties"></a>Proprietà anti-spoofing
 
 Per evitare lo spoofing di dispositivi nei messaggi da dispositivo a cloud, l'hub IoT contrassegna tutti i messaggi con le proprietà seguenti:
 
@@ -101,7 +101,7 @@ La proprietà **ConnectionAuthMethod** contiene un oggetto serializzato JSON con
 }
 ```
 
-## <a name="cloud-to-device-messages"></a>Messaggi da cloud a dispositivo
+## <a name="cloudtodevice-messages"></a>Messaggi da cloud a dispositivo
 
 È possibile inviare messaggi da cloud a dispositivo tramite un endpoint per il servizio (**/messages/servicebound**). Il dispositivo li ricevere tramite un endpoint per il dispositivo (**/devices/{deviceId}/messages/devicebound**).
 
@@ -134,7 +134,7 @@ Per un'esercitazione sui messaggi da cloud a dispositivo, vedere l'[Esercitazion
 
 > [AZURE.NOTE] I messaggi da cloud a dispositivo vengono in genere completati quando la perdita del messaggio non influisce sulla logica dell'applicazione. Ad esempio, il contenuto del messaggio è stato salvato in modo permanente nell'archivio locale o un'operazione è stata eseguita correttamente. Il messaggio potrebbe anche includere informazioni temporanee la cui perdita non influirebbe sulla funzionalità dell'applicazione. In alcuni casi, per le attività con esecuzione prolungata, è possibile completare il messaggio da cloud a dispositivo dopo aver salvato in modo permanente la descrizione dell'attività nell'archivio locale. È quindi possibile inviare al back-end dell'applicazione una notifica con uno o più messaggi da dispositivo a cloud in diverse fasi di avanzamento dell'attività.
 
-### <a name="message-expiration-(time-to-live)"></a>Scadenza del messaggio (durata)
+### <a name="message-expiration-time-to-live"></a>Scadenza del messaggio (durata)
 
 Ogni messaggio da cloud a dispositivo ha una scadenza. Questa durata viene impostata dal servizio, nella proprietà **ExpiryTimeUtc**, oppure dall'hub IoT, usando il valore di *durata (TTL)* predefinito specificato come proprietà dell'hub IoT. Vedere [Opzioni di configurazione da cloud a dispositivo][lnk-c2d-configuration].
 
@@ -191,7 +191,7 @@ L'esempio seguente illustra il corpo di un messaggio con commenti.
 ]
 ```
 
-### <a name="cloud-to-device-configuration-options"></a>Opzioni di configurazione da cloud a dispositivo
+### <a name="cloudtodevice-configuration-options"></a>Opzioni di configurazione da cloud a dispositivo
 
 Ogni hub IoT espone le opzioni di configurazione seguenti per la messaggistica da cloud a dispositivo.
 
@@ -204,7 +204,7 @@ Ogni hub IoT espone le opzioni di configurazione seguenti per la messaggistica d
 
 Per altre informazioni, vedere l'articolo relativo alla [creazione di hub IoT][lnk-portal].
 
-## <a name="read-device-to-cloud-messages"></a>Leggere i messaggi da dispositivo a cloud
+## <a name="read-devicetocloud-messages"></a>Leggere i messaggi da dispositivo a cloud
 
 L'hub IoT espone un endpoint per permettere ai servizi back-end di leggere i messaggi da dispositivo a cloud ricevuti dall'hub. L'endpoint è compatibile con Hub eventi e consente quindi di usare uno dei meccanismi supportati da tale servizio per la lettura dei messaggi.
 

@@ -18,7 +18,7 @@
    ms.author="rclaus"/>
 
 
-# <a name="using-sap-on-windows-virtual-machines-(vms)"></a>Uso di SAP in macchine virtuali (VM) Windows
+# <a name="using-sap-on-windows-virtual-machines-vms"></a>Uso di SAP in macchine virtuali (VM) Windows
 
 [767598]:https://service.sap.com/sap/support/notes/767598
 [773830]:https://service.sap.com/sap/support/notes/773830
@@ -295,7 +295,7 @@ Ultimo aggiornamento: settembre 2016
 
 [Questa guida è disponibile qui](virtual-machines-linux-sap-on-suse-quickstart.md)
 
-## <a name="deploying-sap-ides-ehp7-sp3-for-sap-erp-6.0-on-microsoft-azure"></a>Distribuzione di SAP IDES EHP7 SP3 per SAP ERP 6.0 su Microsoft Azure
+## <a name="deploying-sap-ides-ehp7-sp3-for-sap-erp-60-on-microsoft-azure"></a>Distribuzione di SAP IDES EHP7 SP3 per SAP ERP 6.0 su Microsoft Azure
 
 Titolo: Guida introduttiva per l'installazione manuale di SAP HANA nelle VM di Azure
 
@@ -304,7 +304,7 @@ Riepilogo: Questo articolo descrive come distribuire SAP IDES in esecuzione con 
 Ultimo aggiornamento: settembre 2016
 
 [Questa guida è disponibile qui](virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql.md)
-##  <a name="<a-name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>planning-and-implementation"></a><a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Pianificazione e implementazione
+##  <a name="a-name3da0389e708b4e82b2a2e92f132df89caplanning-and-implementation"></a><a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Pianificazione e implementazione
 
 Titolo: SAP NetWeaver in macchine virtuali (VM) Windows - Guida alla pianificazione e all'implementazione
 
@@ -313,7 +313,7 @@ Riepilogo: Si tratta del primo documento da esaminare se si sta valutando la pos
 Ultimo aggiornamento: agosto 2016
 
 [Questa guida è disponibile qui][planning-guide]
-## <a name="<a-name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>deployment"></a><a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>Distribuzione
+## <a name="a-name6aadadd276b546d88713e8d63630e955adeployment"></a><a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>Distribuzione
 
 Titolo: SAP NetWeaver in macchine virtuali (VM) Windows - Guida alla distribuzione
 
@@ -323,7 +323,7 @@ Ultimo aggiornamento: agosto 2016
 
 [Questa guida è disponibile qui][deployment-guide]
 
-## <a name="<a-name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>dbms-deployment-guide"></a><a name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>Guida alla distribuzione DBMS
+## <a name="a-name1343ffe180214ce6a08d3a1553a4db82adbms-deployment-guide"></a><a name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>Guida alla distribuzione DBMS
 
 Titolo: SAP NetWeaver in macchine virtuali (VM) Windows - Guida alla distribuzione DBMS
 
@@ -333,7 +333,7 @@ Ultimo aggiornamento: agosto 2016
 
 [Questa guida è disponibile qui][dbms-guide]
 
-## <a name="<a-name="63dab028-2c4f-4636-8f99-90bbb264eaba"></a>high-availability-deployment-guide"></a><a name="63dab028-2c4f-4636-8f99-90bbb264eaba"></a>Guida alla distribuzione di funzionalità di disponibilità elevata
+## <a name="a-name63dab0282c4f46368f9990bbb264eabaahigh-availability-deployment-guide"></a><a name="63dab028-2c4f-4636-8f99-90bbb264eaba"></a>Guida alla distribuzione di funzionalità di disponibilità elevata
 
 Titolo: SAP NetWeaver in macchine virtuali (VM) Windows - Guida alla distribuzione di funzionalità di disponibilità elevata
 
