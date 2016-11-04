@@ -40,9 +40,9 @@ Un servizio Web di Azure Machine Learning può essere usato in due modi, come un
 For more information on how to manage Azure Machine Learning Web service endpoints using the REST API, see **Azure machine learning Web service endpoints**.
 -->
 
-Per informazioni su come creare e pubblicare un servizio Web di Azure Machine Learning, vedere [Pubblicare un servizio Web di Azure Machine Learning][publish]. Per una procedura dettagliata di creazione e pubblicazione di un esperimento di Machine Learning, vedere [Sviluppare una soluzione predittiva mediante Azure Machine Learning][].
+Per informazioni su come creare e pubblicare un servizio Web di Azure Machine Learning, vedere [Pubblicare un servizio Web di Azure Machine Learning][pubblica]. Per una procedura dettagliata di creazione e pubblicazione di un esperimento di Machine Learning, vedere [Sviluppare una soluzione predittiva mediante Azure Machine Learning][].
 
-## <a name="request-response-service-(rrs)"></a>Servizio di richiesta-risposta (RRS)
+## <a name="requestresponse-service-rrs"></a>Servizio di richiesta-risposta (RRS)
 
 Un servizio di richiesta-risposta (RRS) è un servizio Web a bassa latenza e altamente scalabile usato per fornire un'interfaccia ai modelli senza stato,creati e pubblicati da un esperimento Azure Machine Learning Studio. In questo modo abilita scenari in cui l'applicazione del consumo attende una risposta in tempo reale.
 
@@ -51,7 +51,7 @@ RRS accetta una singola riga o più righe di parametri di input e può generare 
 Un esempio per RRS convalida l'autenticità di un'applicazione. In questo caso, è possibile prevedere centinaia di milioni di installazioni di un'applicazione. All'avvio dell'applicazione, chiama il servizio RRS con input pertinente. Quindi, l'applicazione riceve una risposta di convalida dal servizio che consente o blocca le esecuzioni da parte dell'applicazione.
 
 
-## <a name="batch-execution-service-(bes)"></a>Servizio Esecuzione batch (BES)
+## <a name="batch-execution-service-bes"></a>Servizio Esecuzione batch (BES)
 
 Un servizio di esecuzione del batch (BES) è un servizio che gestisce volumi elevati, asincroni e valutazioni di un batch di record di dati. L'input per il BES contiene un batch di record da varie origini, ad esempio blob, tabelle di Azure, SQL Azure, HDInsight (i risultati di una Query Hive, ad esempio) e origini HTTP. L'output per il BES contiene i risultati della valutazione. I risultati vengono inseriti su un file nell'archiviazione blob di Azure e i dati dall'endpoint di archiviazione vengono restituiti nella risposta.
 
@@ -85,7 +85,7 @@ Le informazioni si trovano nelle pagine seguenti:
 * L'**URI della richiesta** è disponibile nella pagina **Uso** 
 * Le **intestazioni della richiesta**, **le intestazioni della risposta** e il **corpo** dell'API prevista sono disponibili nella pagina **API Swagger**
 
-### <a name="information-locations-in-machine-learning-studio-(classic-web-service-only)"></a>Posizioni delle informazioni in Machine Learning Studio (solo per il servizio Web classico)
+### <a name="information-locations-in-machine-learning-studio-classic-web-service-only"></a>Posizioni delle informazioni in Machine Learning Studio (solo per il servizio Web classico)
 
 È possibile trovare le informazioni necessarie da due percorsi: Machine Learning Studio o il portale dei servizi Web di Azure Machine Learning.
 
@@ -408,7 +408,7 @@ Gli esperimenti Azure Machine Learning distribuiti come servizi Web possono incl
 
 Il seguente esempio di codice illustra come inviare e monitorare un processo batch su un servizio di Azure Machine Learning tramite l'SDK BES. I commenti contengono le informazioni dettagliate su impostazioni e chiamate.
 
-#### <a name="**sample-code**"></a>**Codice di esempio**
+#### <a name="sample-code"></a>**Codice di esempio**
 
     // This code requires the Nuget package Microsoft.Azure.MachineLearning to be installed.
     // Instructions for doing this in Visual Studio:
@@ -753,6 +753,6 @@ A questo punto è possibile usare uno qualsiasi degli strumenti Swagger. Di segu
 [mlstudio]: https://studio.azureml.net
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

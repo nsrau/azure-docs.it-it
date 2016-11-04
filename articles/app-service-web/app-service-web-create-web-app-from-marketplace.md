@@ -16,7 +16,6 @@
 	ms.date="09/20/2016"
 	ms.author="robmcm"/>
 
-<!-- Note: This article replaces web-sites-php-web-site-gallery.md -->
 
 # Creare un'app Web da Azure Marketplace
 
@@ -180,4 +179,4 @@ Per altre informazioni sullo sviluppo di app Web WordPress in Azure, vedere [Svi
 [WordPressDashboard2]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png
 [WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0921_2016--->

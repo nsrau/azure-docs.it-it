@@ -17,22 +17,7 @@
    ms.author="carlrab"/>
 
 
-
-
-<!-- # H1 Title
-
- H1 title should answer the question "What is in this topic?" Write the title in conversational language and use search key words as much as possible. Since this is a learning topic, make sure the title indicates that and doesn't mislead people to think this will tell them how to do tasks.  
--->
-
 # <a name="learn-about-sql-database-backups"></a>Informazioni sul backup del database SQL
-
-<!-- Introduction
-
-1. Sentence #1 begins with "Learn about ..." and gives the scope of what the article will cover.
-2. Sentence #2 explains the key capability or selling point of the feature.
-3. Sentence #3 begins with "Use this feature to ..." and gives a common use case.
-
--->
 
 Il database SQL consente di creare un backup locale del database ogni cinque minuti e usa l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) di Azure per copiare alcuni backup del database in un'altra area geografica. Questi backup si verificano **automaticamente e senza costi aggiuntivi**. Usare i backup dei database locali per [ripristinare il database a un momento specifico](sql-database-point-in-time-restore-portal.md) nello stesso server. Usare i backup con ridondanza geografica per [ripristinare il database in un'area geografica diversa](sql-database-geo-restore-portal.md).  
 
@@ -44,7 +29,7 @@ Nel diagramma seguente il database SQL è in esecuzione nell'area Stati Uniti or
 
 <!--## What is <feature>?" -->
 
-## <a name="what-is-a-sql-database-backup?"></a>Informazioni sul backup del database SQL  
+## <a name="what-is-a-sql-database-backup"></a>Informazioni sul backup del database SQL  
 
 <!-- 
 First sentence begins with "The <feature> is ..." followed by a definition of the feature. Provide a 1-2 paragraph intro to explain what the feature is, how it works, and the importance of the feature for solving business problems.
@@ -68,15 +53,15 @@ Il database SQL usa la [replica dell'archiviazione di Azure](../storage/storage-
 >[AZURE.NOTE] In Archiviazione di Azure il termine *replica* fa riferimento alla copia dei file da una località a un'altra. La *replica di database* di SQL fa riferimento a più database secondari sincronizzati con un database primario. 
 
 
-## <a name="how-much-backup-storage-is-included-at-no-cost?"></a>Quanto spazio di archiviazione di backup è incluso senza costi aggiuntivi?
+## <a name="how-much-backup-storage-is-included-at-no-cost"></a>Quanto spazio di archiviazione di backup è incluso senza costi aggiuntivi?
 
 Il database SQL offre fino al 200% delle risorse di archiviazione massime del database sottoposto a provisioning come risorsa di archiviazione di backup senza costi aggiuntivi. Se si usa ad esempio un'istanza di database Standard con una dimensione di database con provisioning pari a 250 GB, sono disponibili 500 GB di archiviazione di backup senza costi aggiuntivi. Se il database supera le risorse di archiviazione di backup fornite, è possibile scegliere di ridurre il periodo di conservazione contattando il supporto tecnico di Azure. È anche possibile pagare per ottenere risorse di archiviazione di backup aggiuntive, fatturate in base alla tariffa Standard per l'Archiviazione con ridondanza geografica e accesso in lettura. 
 
-## <a name="how-often-do-backups-happen?"></a>Con quale frequenza si verificano i backup?
+## <a name="how-often-do-backups-happen"></a>Con quale frequenza si verificano i backup?
 
 Il backup completo, il backup differenziale e il backup del log delle transazioni vengono eseguiti rispettivamente ogni settimana, ogni ora e ogni cinque minuti. Il primo backup completo viene pianificato subito dopo la creazione di un database. Il completamento richiede in genere 30 minuti, ma potrebbe richiedere più tempo se le dimensioni del database sono elevate. Il backup iniziale, ad esempio, può richiedere più tempo in un database ripristinato o in una copia del database. Dopo il primo backup completo, l'esecuzione di tutti i successivi backup è pianificata e gestita automaticamente in background. Il momento esatto per l'esecuzione dei backup di database completi e [differenziali](https://msdn.microsoft.com/library/ms175526.aspx) viene determinato in modo da bilanciare il carico di lavoro di sistema complessivo. 
 
-## <a name="how-long-do-you-keep-my-backups?"></a>Quanto tempo vengono conservati i backup?
+## <a name="how-long-do-you-keep-my-backups"></a>Quanto tempo vengono conservati i backup?
 
 Ogni backup del Database SQL ha un periodo di memorizzazione che si basa sul [livello del servizio](sql-database-service-tiers.md) del database. Il periodo di memorizzazione per un database nel:
 
@@ -101,6 +86,6 @@ I backup dei database sono una parte essenziale di qualsiasi strategia di contin
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 
