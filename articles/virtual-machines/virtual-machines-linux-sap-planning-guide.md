@@ -367,7 +367,7 @@ Le note seguenti su SAP sono correlate all'argomento relativo a SAP in Azure:
 
 Leggere anche il [wiki su SCN](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contenente tutte le note SAP per Linux.
 
-Le limitazioni predefinite generali e le limitazioni massime delle sottoscrizioni di Azure sono disponibili in [questo articolo][azure-subscription-service-limits-subscription] 
+Le limitazioni predefinite generali e le limitazioni massime delle sottoscrizioni di Azure sono disponibili in [questo articolo][azure-subscription-service-limits] 
 
 ## <a name="possible-scenarios"></a>Scenari possibili
 SAP è spesso considerata una delle applicazioni più cruciali nelle aziende. L'architettura e le operazioni di queste applicazioni sono in genere molto complesse ed è quindi molto importante assicurare il rispetto dei requisiti per la disponibilità e le prestazioni.
@@ -1199,7 +1199,7 @@ ___
 
 > ![Windows][Logo_Windows] Windows
 >
-> [Come collegare un disco dati nel portale di Azure][virtual-machines-windows-attach-disk-portal]
+> [Come collegare un disco dati nel portale di Azure][virtual-machines-linux-attach-disk-portal]
 >
 > Se i dischi sono collegati, è necessario accedere alla macchina virtuale per aprire Gestione disco di Windows. Se il montaggio automatico non è abilitato come consigliato nel capitolo [Impostazione del montaggio automatico per dischi collegati][planning-guide-5.5.3], il volume appena collegato deve essere portato online e inizializzato.
 >
@@ -1967,6 +1967,6 @@ I punti chiave della disponibilità elevata per i sistemi SAP in Azure sono i se
 
 
 
-<!---HONumber=Oct16_HO2-->
+<!----HONumber=Oct16_HO2-->
 
 
