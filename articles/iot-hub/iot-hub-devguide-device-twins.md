@@ -54,7 +54,7 @@ Un dispositivo gemello è un documento JSON che include:
 * **Proprietà desiderate**. Sono usate insieme alle proprietà segnalate per sincronizzare la configurazione o la condizione del dispositivo. Le proprietà desiderate possono essere impostate solo dal back-end applicazione e possono essere lette dall'app per dispositivo. L'app per dispositivo può anche ricevere in tempo reale le notifiche relative alle modifiche apportate alle proprietà desiderate.
 * **Proprietà segnalate**. Usate insieme alle proprietà desiderate per sincronizzare la configurazione o la condizione del dispositivo. Le proprietà segnalate possono essere impostate solo dall'app del dispositivo e possono essere lette e sottoposte a query dall'applicazione back-end.
 
-La root del dispositivo gemello contiene le proprietà di sola lettura dell'identità corrispondente, le stesse contenute nel [Registro delle identità dei dispositivi][nk-identity].
+La root del dispositivo gemello contiene le proprietà di sola lettura dell'identità corrispondente, le stesse contenute nel [Registro delle identità dei dispositivi][lnk-identity].
 
 ![][img-twin]
 
@@ -312,6 +312,6 @@ Per provare alcuni dei concetti descritti in questo articolo, possono essere uti
 [img-twin]: media/iot-hub-devguide-device-twins/twin.png
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

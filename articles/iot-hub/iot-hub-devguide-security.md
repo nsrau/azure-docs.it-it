@@ -388,7 +388,7 @@ Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida p
 In questa esercitazione si è appreso come controllare l'accesso all'hub IoT. Altri argomenti di interesse reperibili nella Guida per sviluppatori:
 
 - [Use device twins to synchronize state and configurations][lnk-devguide-device-twins] (Usare dispositivi gemelli per sincronizzare lo stato e le configurazioni)
-- [Invoke a direct method on a device][lnk-methods] (Richiamare un metodo diretto su un dispositivo)
+- [Invoke a direct method on a device][lnk-devguide-directmethods] (Richiamare un metodo diretto su un dispositivo)
 - [Schedule jobs on multiple devices][lnk-devguide-jobs] (Pianificare processi in più dispositivi)
 
 Per provare alcuni dei concetti descritti in questo articolo, possono essere utili le esercitazioni sull'hub IoT seguenti:
@@ -436,6 +436,6 @@ Per provare alcuni dei concetti descritti in questo articolo, possono essere uti
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

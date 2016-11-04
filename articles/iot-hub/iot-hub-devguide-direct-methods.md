@@ -25,7 +25,7 @@ L'hub IoT offre la possibilità di richiamare metodi nei dispositivi dal cloud. 
 
 Un metodo è paragonabile a una chiamata di procedura remota che raggiunge direttamente il dispositivo. Dal cloud è possibile chiamare solo i metodi che sono stati implementati in un dispositivo. Se il cloud prova a richiamare un metodo in un dispositivo in cui tale metodo non è definito, la chiamata al metodo ha esito negativo.
 
-Ogni metodo del dispositivo è destinato a un unico dispositivo. I [processi][file lnk-devguide-jobs] permettono di richiamare i metodi in più dispositivi e di inserire in coda la chiamata al metodo per i dispositivi disconnessi.
+Ogni metodo del dispositivo è destinato a un unico dispositivo. I [processi][lnk-devguide-jobs] permettono di richiamare i metodi in più dispositivi e di inserire in coda la chiamata al metodo per i dispositivi disconnessi.
 
 Chiunque abbia autorizzazioni di **connessione servizio** per l'hub IoT può richiamare un metodo in un dispositivo.
 
@@ -155,6 +155,6 @@ Per provare alcuni dei concetti descritti in questo articolo, può essere utile 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

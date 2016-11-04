@@ -17,22 +17,7 @@
    ms.author="carlrab"/>
 
 
-
-
-<!-- # H1 Title
-
- H1 title should answer the question "What is in this topic?" Write the title in conversational language and use search key words as much as possible. Since this is a learning topic, make sure the title indicates that and doesn't mislead people to think this will tell them how to do tasks.  
--->
-
 # <a name="learn-about-sql-database-backups"></a>Informazioni sul backup del database SQL
-
-<!-- Introduction
-
-1. Sentence #1 begins with "Learn about ..." and gives the scope of what the article will cover.
-2. Sentence #2 explains the key capability or selling point of the feature.
-3. Sentence #3 begins with "Use this feature to ..." and gives a common use case.
-
--->
 
 Il database SQL consente di creare un backup locale del database ogni cinque minuti e usa l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) di Azure per copiare alcuni backup del database in un'altra area geografica. Questi backup si verificano **automaticamente e senza costi aggiuntivi**. Usare i backup dei database locali per [ripristinare il database a un momento specifico](sql-database-point-in-time-restore-portal.md) nello stesso server. Usare i backup con ridondanza geografica per [ripristinare il database in un'area geografica diversa](sql-database-geo-restore-portal.md).  
 
@@ -101,6 +86,6 @@ I backup dei database sono una parte essenziale di qualsiasi strategia di contin
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 
