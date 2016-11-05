@@ -4,7 +4,6 @@
 * [Pubblicazione e controllo degli accessi in base al ruolo (RBAC)](https://azure.microsoft.com/blog/rbac-and-azure-websites-publishing/)
 
 ## Video
-
 * [Automazione del flusso di lavoro di distribuzione per la gestione del rilascio](/documentation/videos/azurecon-2015-manage-code-changes-to-web-apps-using-the-devops-features-of-azure-app-service-and-visual-studio-release-management/)
 
 <!---HONumber=AcomDC_0803_2016-->

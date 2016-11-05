@@ -1,48 +1,44 @@
-<properties
-   pageTitle="Reliable Actors nell'infrastruttura di servizi | Microsoft Azure"
-   description="Descrive come Reliable Actors si sovrappone a Reliable Services e usa le funzionalità della piattaforma Service Fabric."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="vturecek"
-   manager="timlt"
-   editor="amanbha"/>
+---
+title: Reliable Actors nell'infrastruttura di servizi | Microsoft Docs
+description: Descrive come Reliable Actors si sovrappone a Reliable Services e usa le funzionalità della piattaforma Service Fabric.
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: amanbha
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="07/06/2016"
-   ms.author="vturecek"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 07/06/2016
+ms.author: vturecek
 
+---
 # Modalità d'uso della piattaforma Service Fabric da parte di Reliable Actors
-
 Questo articolo descrive il funzionamento di Reliable Actors sulla piattaforma Service Fabric. Reliable Actors viene eseguito in un framework ospitato in un'implementazione di un servizio Reliable Services con stato denominato *servizio Actor*. Il servizio Actor contiene tutti i componenti necessari per gestire il ciclo di vita e l'invio di messaggi per gli attori:
 
- - Il runtime di Actors gestisce il ciclo di vita e la Garbage Collection e applica l'accesso a thread singolo.
- - Un listener di comunicazione remota del servizio Actor accetta chiamate di accesso remoto per gli attori e le invia a un dispatcher per l'indirizzamento all'istanza d attore appropriata.
- - Il provider di stato degli attori esegue il wrapping dei provider di stato (come il provider di stato Reliable Collections) e fornisce un adattatore per la gestione dello stato degli attori.
+* Il runtime di Actors gestisce il ciclo di vita e la Garbage Collection e applica l'accesso a thread singolo.
+* Un listener di comunicazione remota del servizio Actor accetta chiamate di accesso remoto per gli attori e le invia a un dispatcher per l'indirizzamento all'istanza d attore appropriata.
+* Il provider di stato degli attori esegue il wrapping dei provider di stato (come il provider di stato Reliable Collections) e fornisce un adattatore per la gestione dello stato degli attori.
 
 Questi componenti insieme costituiscono il framework Reliable Actors.
 
 ## Livelli del servizio
-
 Dato che il servizio Actor stesso è un servizio Reliable Services, tutti i concetti di [modello applicativo](service-fabric-application-model.md), ciclo di vita, [creazione pacchetti](service-fabric-application-model.md#package-an-application), [distribuzione](service-fabric-deploy-remove-applications.md#deploy-an-application), aggiornamento e ridimensionamento validi per Reliable Services si applicano anche ai servizi Actor.
 
 ![Livelli del servizio Actor][1]
 
 Il diagramma precedente mostra la relazione tra i framework applicativi di Service Fabric e il codice utente. Gli elementi blu rappresentano il framework applicativo di Reliable Services, quelli arancioni il framework Reliable Actors e quelli verdi il codice utente.
 
-
 In Reliable Services il servizio eredita la classe `StatefulService`, che a sua volta deriva da `StatefulServiceBase`. (o `StatelessService` per i servizi senza stato). In Reliable Actors si usa il servizio Actor che è un'implementazione diversa della classe `StatefulServiceBase` che implementa il modello dell'attore in cui vengono eseguiti gli attori. Dato che il servizio Actor è semplicemente un'implementazione di `StatefulServiceBase`, si può scrivere il proprio servizio che deriva da `ActorService` e implementare le funzionalità a livello di servizio così come si farebbe quando si eredita `StatefulService`, ad esempio:
 
- - Backup e ripristino del servizio.
- - Funzionalità condivisa per tutti gli attori, ad esempio un interruttore.
- - Chiamate di procedura di comunicazione remota sul servizio Actor stesso, nonché su ogni attore.
+* Backup e ripristino del servizio.
+* Funzionalità condivisa per tutti gli attori, ad esempio un interruttore.
+* Chiamate di procedura di comunicazione remota sul servizio Actor stesso, nonché su ogni attore.
 
 ### Uso del servizio Actor
-
 Le istanze degli attori hanno accesso al servizio Actor in cui sono in esecuzione. Tramite il servizio Actor, le istanze degli attori possono ottenere il contesto del servizio che include l'ID partizione, il nome del servizio, il nome dell'applicazione e altre informazioni specifiche sulla piattaforma Service Fabric a livello di codice:
 
 ```csharp
@@ -86,12 +82,9 @@ static class Program
 ```
 
 ### Metodi del servizio Actor
-
 Il servizio Actor implementa `IActorService`, che a sua volta implementa `IService`. Questo è l'interfaccia usata dalla comunicazione remota di Reliable Services, che consente le chiamate RPC sui metodi del servizio. Contiene i metodi a livello di servizio che possono essere chiamati in remoto mediante la comunicazione remota del servizio.
 
-
 #### Enumerazione degli attori
-
 Il servizio Actor consente al client di enumerare i metadati relativi agli attori ospitati dal servizio. Dato che il servizio Actor è un servizio con stato partizionato, l'enumerazione viene eseguita per partizione. Poiché ogni partizione può contenere un numero elevato di attori, l'enumerazione viene restituita come set di risultati a pagine. Le pagine vengono esaminate in ciclo fino a quando non vengono lette tutte. L'esempio seguente illustra come creare un elenco di tutti gli attori attivi in una partizione di un servizio Actor:
 
 ```csharp
@@ -104,7 +97,7 @@ List<ActorInformation> activeActors = new List<ActorInformation>();
 do
 {
     PagedResult<ActorInformation> page = await actorServiceProxy.GetActorsAsync(continuationToken, cancellationToken);
-                
+
     activeActors.AddRange(page.Items.Where(x => x.IsActive));
 
     continuationToken = page.ContinuationToken;
@@ -113,7 +106,6 @@ while (continuationToken != null);
 ```
 
 #### Eliminazione di attori
-
 Il servizio Actor fornisce anche una funzione per l'eliminazione di attori:
 
 ```csharp
@@ -121,14 +113,13 @@ ActorId actorToDelete = new ActorId(id);
 
 IActorService myActorServiceProxy = ActorServiceProxy.Create(
     new Uri("fabric:/MyApp/MyService"), actorToDelete);
-            
+
 await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
 ```
 
 Per altre informazioni sull'eliminazione di attori e il relativo stato, vedere la [documentazione sul ciclo di vita degli attori](service-fabric-reliable-actors-lifecycle.md).
 
 ### Servizio Actor personalizzato
-
 Usando l'espressione lambda della registrazione attore si può registrare anche il proprio servizio Actor personalizzato che deriva da `ActorService`, in cui è possibile implementare la propria funzionalità a livello di servizio. Questa operazione si esegue scrivendo una classe di servizio che eredita `ActorService`. Un servizio Actor personalizzato eredita tutte le funzionalità di runtime dell'attore da `ActorService` e può essere usato per implementare i propri metodi del servizio.
 
 ```csharp
@@ -156,7 +147,6 @@ static class Program
 
 
 #### Implementazione del backup e ripristino dell'attore
-
  Nell'esempio seguente il servizio Actor personalizzato espone un metodo per il backup dei dati dell'attore sfruttando il listener di comunicazione remota già presente in `ActorService`:
 
 ```csharp
@@ -175,7 +165,7 @@ class MyActorService : ActorService, IMyActorService
     {
         return this.BackupAsync(new BackupDescription(PerformBackupAsync));
     }
-    
+
     private async Task<bool> PerformBackupAsync(BackupInfo backupInfo, CancellationToken cancellationToken)
     {
         try
@@ -202,27 +192,23 @@ await myActorServiceProxy.BackupActorsAsync();
 
 
 ## Modello di applicazione
-
 I servizi Actor sono servizi Reliable Services, per cui il modello applicativo è lo stesso. Tuttavia, gli strumenti di compilazione del framework attore generano automaticamente gran parte dei file del modello applicativo.
 
 ### Manifesto del servizio
- 
 Il contenuto di ServiceManifest.xml del servizio Actor viene generato automaticamente dagli strumenti di compilazione del framework attore. Sono inclusi:
 
- - Il tipo del servizio Actor. Il nome del tipo viene generato in base al nome del progetto attore. In base all'attributo di persistenza nell'attore, viene impostato anche il flag HasPersistedState.
- - Pacchetto di codice.
- - Pacchetto di configurazione.
- - Risorse ed endpoint
+* Il tipo del servizio Actor. Il nome del tipo viene generato in base al nome del progetto attore. In base all'attributo di persistenza nell'attore, viene impostato anche il flag HasPersistedState.
+* Pacchetto di codice.
+* Pacchetto di configurazione.
+* Risorse ed endpoint
 
 ### Manifesto dell'applicazione
-
 Gli strumenti di compilazione del framework attore creano automaticamente una definizione del servizio predefinito per il servizio Actor. Le proprietà del servizio predefinito vengono popolate dagli strumenti di compilazione:
 
- - Il numero di set di repliche è determinato dall'attributo di persistenza sull'attore. Ogni volta che viene modificato l'attributo di persistenza nell'attore, viene reimpostato di conseguenza il numero di set di repliche nella definizione del servizio predefinito.
- - Lo schema e l'intervallo della partizione vengono impostati su Uniform Int64 con l'intervallo di chiavi Int64 completo.
+* Il numero di set di repliche è determinato dall'attributo di persistenza sull'attore. Ogni volta che viene modificato l'attributo di persistenza nell'attore, viene reimpostato di conseguenza il numero di set di repliche nella definizione del servizio predefinito.
+* Lo schema e l'intervallo della partizione vengono impostati su Uniform Int64 con l'intervallo di chiavi Int64 completo.
 
 ## Concetti relativi alla partizione di Service Fabric per gli attori
-
 I servizi Actor sono servizi con stato partizionati. Ogni partizione di un servizio Actor contiene un set di attori. Le partizioni del servizio vengono distribuite automaticamente su più nodi in Service Fabric. Quindi, le istanze degli attori vengono distribuite di conseguenza.
 
 ![Partizionamento e distribuzione degli attori][5]
@@ -230,7 +216,6 @@ I servizi Actor sono servizi con stato partizionati. Ogni partizione di un servi
 È possibile creare servizi Reliable Services con schemi di partizione e intervalli di chiavi di partizione diversi. Il servizio Actor usa lo schema di partizionamento Int64 con l'intervallo di chiavi Int64 completo per mappare gli attori alle partizioni.
 
 ### ID attore
-
 A ogni attore creato nel servizio è associato un ID univoco, rappresentato dalla classe `ActorId`. `ActorId` è un valore ID opaco che può essere usato per la distribuzione uniforme degli attori nelle partizioni del servizio mediante la generazione di ID casuali:
 
 ```csharp
@@ -248,12 +233,11 @@ ActorProxy.Create<IMyActor>(new ActorId(1234));
 Quando si usano GUID e stringhe, viene eseguito l'hashing dei valori in un Int64. Quando invece si fornisce esplicitamente un Int64 a un `ActorId`, l'Int64 verrà mappato direttamente a una partizione senza ulteriore hashing. Questo consente di controllare in quale la partizione vengono inseriti gli attori.
 
 ## Passaggi successivi
- - [Gestione dello stato degli attori](service-fabric-reliable-actors-state-management.md)
- - [Ciclo di vita degli attori e Garbage Collection](service-fabric-reliable-actors-lifecycle.md)
- - [Documentazione di riferimento delle API di Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
- - [Codice di esempio](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Gestione dello stato degli attori](service-fabric-reliable-actors-state-management.md)
+* [Ciclo di vita degli attori e Garbage Collection](service-fabric-reliable-actors-lifecycle.md)
+* [Documentazione di riferimento delle API di Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Codice di esempio](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 
- 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png
 [2]: ./media/service-fabric-reliable-actors-platform/app-deployment-scripts.png

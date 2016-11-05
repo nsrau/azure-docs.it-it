@@ -1,28 +1,24 @@
-<properties 
-  pageTitle="Distribuzione del registro Docker privato in Azure | Microsoft Azure"
-  description="Descrive come usare il registro Docker per ospitare immagini di contenitori nel servizio di archiviazione BLOB di Azure."
-  services="virtual-machines-linux"
-  documentationCenter="virtual-machines"
-  authors="ahmetalpbalkan"
-  editor="squillace"
-  manager="timlt"
-  tags="azure-service-management,azure-resource-manager" />
+---
+title: Distribuzione del registro Docker privato in Azure | Microsoft Docs
+description: Descrive come usare il registro Docker per ospitare immagini di contenitori nel servizio di archiviazione BLOB di Azure.
+services: virtual-machines-linux
+documentationcenter: virtual-machines
+author: ahmetalpbalkan
+editor: squillace
+manager: timlt
+tags: azure-service-management,azure-resource-manager
 
-<tags
-  ms.service="virtual-machines-linux"
-  ms.devlang="multiple"
-  ms.topic="article"
-  ms.tgt_pltfrm="vm-linux"
-  ms.workload="infrastructure-services"
-  ms.date="09/27/2016" 
-  ms.author="ahmetb" />
+ms.service: virtual-machines-linux
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 09/27/2016
+ms.author: ahmetb
 
-
+---
 # <a name="deploying-your-own-private-docker-registry-on-azure"></a>Distribuzione del registro Docker privato in Azure
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
-
-
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Questo documento spiega cos'è un registro Docker privato e mostra come distribuire un'immagine del contenitore Docker Registry 2.0 in un registro Docker privato in Microsoft Azure usando l'archiviazione BLOB di Azure.
 
@@ -31,9 +27,7 @@ Questo documento presuppone che:
 1. Si sia in grado di usare Docker e si disponga di immagini Docker da archiviare. (No? [Informazioni su Docker](https://www.docker.com))
 2. Si disponga di un server con il motore Docker installato. (No? [Esegui rapidamente l'installazione in Azure.](https://azure.microsoft.com/documentation/templates/docker-simple-on-ubuntu/))
 
-
 ## <a name="what-is-a-private-docker-registry?"></a>Che cos'è un registro Docker privato?
-
 Per poter distribuire applicazioni di contenitori nel cloud, è necessario costruire un'immagine di contenitore Docker e archiviarla da qualche parte in modo che possa essere usata anche da altri utenti. 
 
 Mentre la creazione di un'immagine di contenitore e la relativa distribuzione nel cloud sono operazioni piuttosto semplici, archiviare l'immagine generata in modo affidabile può essere più difficile. Per questo motivo, Docker offre un servizio centralizzato denominato [Docker Hub][docker-hub] per l'archiviazione di immagini contenitore nel cloud e consente di creare in qualsiasi momento contenitori con queste immagini.
@@ -42,17 +36,15 @@ Mentre la creazione di un'immagine di contenitore e la relativa distribuzione ne
 È possibile quindi sfruttare la semplicità di protezione dell'archiviazione BLOB di Azure per creare e usare in Azure un registro Docker privato, da gestire in modo autonomo.
 
 ## <a name="why-should-you-host-a-docker-registry-on-azure?"></a>Perché ospitare un registro Docker in Azure?
-
 L'hosting dell'istanza del registro Docker in Microsoft Azure e la memorizzazione di immagini nell'archiviazione BLOB di Azure offrono alcuni vantaggi:
 
 **Sicurezza:** le immagini Docker non abbandonano mai i data center di Azure. In questo modo non devono attraversare la rete Internet pubblica, come se si usasse Docker Hub.
-  
+
 **Prestazioni:** le immagini Docker vengono archiviate nello stesso data center o nella stessa area geografica delle proprie applicazioni. Le immagini, in questo modo, vengono spostate in modo più veloce e affidabile rispetto a Docker Hub.
 
 **Affidabilità:** usando l'archiviazione BLOB di Microsoft Azure si hanno a disposizione molte proprietà di archiviazione, tra cui disponibilità elevata, ridondanza, archiviazione Premium (unità SSD) e così via.
 
 ## <a name="configuring-docker-registry-to-use-azure-blob-storage"></a>Configurazione del registro Docker per usare l'archiviazione BLOB di Azure
-
 (Si consiglia di leggere la [documentazione relativa a Docker Registry 2.0][registry-docs] prima di continuare.)
 
 È possibile [configurare][registry-config] il registro Docker in due modi diversi.
@@ -89,19 +81,21 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 3698ddfebc6f        registry:2          "registry cmd/regist   2 seconds ago       Up 1 seconds        0.0.0.0:5000->5000/tcp   registry
 ```
 
-> [AZURE.IMPORTANT] La procedura per configurare la protezione per il registro Docker non è illustrata in questo documento e, per impostazione predefinita, il registro sarà accessibile anche agli utenti senza autenticazione se si apre la porta per la porta del registro sull'endpoint della macchina virtuale o sul bilanciamento del carico se si usa il comando di distribuzione precedente.
->
+> [!IMPORTANT]
+> La procedura per configurare la protezione per il registro Docker non è illustrata in questo documento e, per impostazione predefinita, il registro sarà accessibile anche agli utenti senza autenticazione se si apre la porta per la porta del registro sull'endpoint della macchina virtuale o sul bilanciamento del carico se si usa il comando di distribuzione precedente.
+> 
 > Leggere la [documentazione relativa alla configurazione del registro Docker][registry-config] per informazioni su come proteggere l'istanza del registro e le immagini.
+> 
+> 
 
 ## <a name="next-steps"></a>Passaggi successivi
-
 Dopo aver configurato il registro, è possibile iniziare a usarlo. Iniziare con i documenti [registry-docs]del Docker. 
 
 [docker-hub]: https://hub.docker.com/
 [registry]: https://github.com/docker/distribution
 [registry-docs]: http://docs.docker.com/registry/
 [registry-config]: http://docs.docker.com/registry/configuration/
- 
+
 
 
 

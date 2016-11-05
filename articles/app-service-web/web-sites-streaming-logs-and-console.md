@@ -1,35 +1,32 @@
-<properties 
-	pageTitle="Log di streaming e console" 
-	description="Informazioni su console e log in streaming" 
-	authors="btardif" 
-	manager="wpickett" 
-	editor="" 
-	services="app-service\web" 
-	documentationCenter=""/>
+---
+title: Log di streaming e console
+description: Informazioni su console e log in streaming
+author: btardif
+manager: wpickett
+editor: ''
+services: app-service\web
+documentationcenter: ''
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="07/26/2016" 
-	ms.author="byvinyal"/>
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: article
+ms.date: 07/26/2016
+ms.author: byvinyal
 
-#Log di streaming e console
-
-### Log in streaming ###
-
+---
+# Log di streaming e console
+### Log in streaming
 Il portale di Microsoft Azure offre un visualizzatore log di streaming integrato che consente di visualizzare gli eventi di traccia dalle app del servizio app in tempo reale.
 
 L'impostazione di questa funzionalità richiede alcuni semplici passaggi:
 
-- Scrittura delle tracce nel codice
-- Abilitazione della diagnostica applicazioni dal portale di Azure
-- Selezione della parte relativa ai log di streaming nel pannello dell'app Web
+* Scrittura delle tracce nel codice
+* Abilitazione della diagnostica applicazioni dal portale di Azure
+* Selezione della parte relativa ai log di streaming nel pannello dell'app Web
 
-### Come scrivere le tracce nel codice ###
-
+### Come scrivere le tracce nel codice
 La scrittura delle tracce nel codice è facile. In C# è sufficiente scrivere il codice seguente:
 
 `````````````````````````
@@ -52,9 +49,9 @@ In una app node.js è possibile scrivere il codice seguente per ottenere lo stes
 console.log("My trace statement").
 `````````````````````````
 
-### Come abilitare e visualizzare i log in streaming ###
+### Come abilitare e visualizzare i log in streaming
 ![][BrowseSitesScreenshot] La diagnostica viene abilitata a livello di singola app Web. Dall'interno del [portale](https://portal.azure.com) andare al sito per il quale si vuole abilitare questa funzionalità.
-  
+
 ![][DiagnosticsLogs]Quindi fare clic su **(1) Impostazioni** > **(2) Log di diagnostica** e **(3) attivare** **Registrazione applicazioni (file system)** o **Registrazione applicazioni (BLOB)**. L'opzione **Livello** consente di modificare il livello di gravità delle tracce da acquisire. Impostare il livello su **Verbose** se si sta solo acquisendo familiarità con la funzionalità, poiché questa impostazione garantirà la registrazione di tutte le istruzioni di traccia.
 
 Fare clic su **SAVE** nella parte superiore del blade per visualizzare i log.
@@ -63,7 +60,7 @@ Fare clic su **SAVE** nella parte superiore del blade per visualizzare i log.
 
 ![][StreamingLogsScreenshot] Per visualizzare i log di streaming all'interno del portale fare clic su **(1) Strumenti** > **(2) Flusso di registrazione**. Se l'app sta scrivendo attivamente istruzioni di traccia, saranno visibili nella finestra risultante **(3)** in tempo quasi reale.
 
-## Console ##
+## Console
 Il portale di Azure fornisce accesso all'ambiente delle app Web mediante console. È possibile esplorare il file system dell'app Web ed eseguire script Powershell/cmd. Quando si eseguono i comandi della console, si opera con le stesse autorizzazioni impostate per il codice dell'app Web in esecuzione. Non si sarà in grado di accedere a directory protette né di eseguire script che richiedono autorizzazioni elevate.
 
 ![][ConsoleScreenshot] Per accedere alla console, passare a un'app Web come descritto nella sezione precedente. Fare clic su **(1) Strumenti**>**(2) Console ** e la console **(3)** verrà aperta.

@@ -1,45 +1,39 @@
-<properties
-    pageTitle="Come utilizzare iOS SDK per App Mobile di Azure"
-    description="Come utilizzare iOS SDK per App Mobile di Azure"
-    services="app-service\mobile"
-    documentationCenter="ios"
-    authors="ysxu"
-    manager="yochayk"
-    editor=""/>
+---
+title: Come utilizzare iOS SDK per App Mobile di Azure
+description: Come utilizzare iOS SDK per App Mobile di Azure
+services: app-service\mobile
+documentationcenter: ios
+author: ysxu
+manager: yochayk
+editor: ''
 
-<tags
-    ms.service="app-service-mobile"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-ios"
-    ms.devlang="objective-c"
-    ms.topic="article"
-    ms.date="10/01/2016"
-    ms.author="yuaxu"/>
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-ios
+ms.devlang: objective-c
+ms.topic: article
+ms.date: 10/01/2016
+ms.author: yuaxu
 
-
+---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Come usare la libreria client iOS per le app mobili di Azure
-
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
+[!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 Questa guida descrive come eseguire scenari comuni usando il più recente [iOS SDK per le app per dispositivi mobili di Azure][1]. Se si ha familiarità con le App per dispositivi mobili di Azure, completare innanzitutto [Azure Mobile App Quick Start] per creare un back-end, creare una tabella e scaricare un progetto Xcode iOS preesistente. In questa Guida, l'attenzione è posta sul lato client iOS SDK. Per altre informazioni sull'SDK sul lato server per il back-end, vedere le procedure per l'SDK del server.
 
 ## <a name="reference-documentation"></a>Documentazione di riferimento
-
 La documentazione di riferimento per il client SDK di iOS è disponibile qui: [Riferimento al Client iOS di App per dispositivi mobili di Azure][2].
 
 ## <a name="supported-platforms"></a>Piattaforme supportate
-
 L'SDK di iOS supporta progetti Objective-C, Swift 2.2 e Swift 2.3 per le versioni iOS 8.0 o successive.
 
 L'autenticazione "flusso server" usa una visualizzazione Web per l'interfaccia utente presentata.  Se il dispositivo non è in grado di presentare un'interfaccia utente con visualizzazione Web, è necessario un altro metodo di autenticazione non incluso nell'ambito del prodotto.  
 Questo SDK non è quindi adatto per i dispositivi di tipo controllo o con restrizioni simili.
 
-##<a name="<a-name="setup"></a>setup-and-prerequisites"></a><a name="Setup"></a>Installazione e prerequisiti
-
+## <a name="<a-name="setup"></a>setup-and-prerequisites"></a><a name="Setup"></a>Installazione e prerequisiti
 In questa guida si presuppone che siano stati creati un backend e una tabella. In questa guida si presuppone che la tabella abbia lo stesso schema delle tabelle presenti in tali esercitazioni. In questa guida si presuppone inoltre che nel codice, si faccia riferimento a `MicrosoftAzureMobile.framework` e si importi `MicrosoftAzureMobile/MicrosoftAzureMobile.h`.
 
-##<a name="<a-name="create-client"></a>how-to:-create-client"></a><a name="create-client"></a>Procedura: creare Client
-
+## <a name="<a-name="create-client"></a>how-to:-create-client"></a><a name="create-client"></a>Procedura: creare Client
 Per accedere a un back-end di applicazioni per dispositivi mobili di Azure nel progetto, creare un `MSClient`. Sostituire `AppUrl` con l'URL dell'app. È possibile lasciare `gatewayURLString` e `applicationKey` vuoti. Se si configura un gateway per l'autenticazione, popolare `gatewayURLString` con l'URL del gateway.
 
 **Objective-C**:
@@ -55,8 +49,7 @@ let client = MSClient(applicationURLString: "AppUrl")
 ```
 
 
-##<a name="<a-name="table-reference"></a>how-to:-create-table-reference"></a><a name="table-reference"></a>Procedura: Creare un riferimento alla tabella
-
+## <a name="<a-name="table-reference"></a>how-to:-create-table-reference"></a><a name="table-reference"></a>Procedura: Creare un riferimento alla tabella
 Per l'accesso o l'aggiornamento dei dati, creare un riferimento alla tabella di back-end. Sostituire `TodoItem` con il nome della tabella
 
 **Objective-C**:
@@ -72,8 +65,7 @@ let table = client.tableWithName("TodoItem")
 ```
 
 
-##<a name="<a-name="querying"></a>how-to:-query-data"></a><a name="querying"></a>Procedura: Eseguire query sui dati
-
+## <a name="<a-name="querying"></a>how-to:-query-data"></a><a name="querying"></a>Procedura: Eseguire query sui dati
 Per creare una query di database, eseguire una query sull'oggetto `MSTable` . La query seguente ottiene tutti gli elementi in `TodoItem` e registra il testo di ciascun elemento.
 
 **Objective-C**:
@@ -104,8 +96,7 @@ table.readWithCompletion { (result, error) in
 }
 ```
 
-##<a name="<a-name="filtering"></a>how-to:-filter-returned-data"></a><a name="filtering"></a>Procedura: Filtrare i dati restituiti
-
+## <a name="<a-name="filtering"></a>how-to:-filter-returned-data"></a><a name="filtering"></a>Procedura: Filtrare i dati restituiti
 Per filtrare i risultati sono disponibili numerose opzioni.
 
 Per filtrare tramite un predicato, usare `NSPredicate` e `readWithPredicate`. I filtri seguenti hanno restituito i dati per trovare solo gli elementi Todo incompleti.
@@ -144,8 +135,7 @@ table.readWithPredicate(predicate) { (result, error) in
 }
 ```
 
-##<a name="<a-name="query-object"></a>how-to:-use-msquery"></a><a name="query-object"></a>Procedura: Usare MSQuery
-
+## <a name="<a-name="query-object"></a>how-to:-use-msquery"></a><a name="query-object"></a>Procedura: Usare MSQuery
 Per eseguire una query complessa che includa l'ordinamento e il paging, creare un oggetto `MSQuery` , direttamente o tramite un predicato:
 
 **Objective-C**:
@@ -174,7 +164,6 @@ let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 Eseguire una query `MSQuery` chiamando `readWithCompletion` sull'oggetto.
 
 ## <a name="<a-name="sorting"></a>how-to:-sort-data-with-msquery"></a><a name="sorting"></a>Procedura: Ordinare i dati con MSQuery
-
 Per ordinare i risultati, verrà ora esaminato un esempio. Per ordinare il campo "text" in ordine crescente, quindi "complete" in ordine decrescente, richiamare `MSQuery` nel modo seguente:
 
 **Objective-C**:
@@ -211,7 +200,6 @@ query.readWithCompletion { (result, error) in
 
 
 ## <a name="<a-name="selecting"></a><a-name="parameters"></a>how-to:-limit-fields-and-expand-query-string-parameters-with-msquery"></a><a name="selecting"></a><a name="parameters"></a>Procedura: Limitare i campi ed espandere i parametri di query di tipo stringa con MSQuery
-
 Per limitare i campi da restituire in una query, specificare i nomi dei campi nella proprietà **selectFields** . Questo esempio restituisce solo i campi text e completed:
 
 **Objective-C**:
@@ -244,7 +232,6 @@ query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 ```
 
 ## <a name="<a-name="paging"></a>how-to:-configure-page-size"></a><a name="paging"></a>Procedura: Configurare la dimensione di pagina
-
 Con App per dispositivi mobili di Azure la dimensione di pagina controlla il numero di record che vengono estratti contemporaneamente dalle tabelle di back-end. Una chiamata per eseguire il `pull` dei dati eseguirà il batch sui dati, in base alla dimensione di pagina, fino a quando non ci sono più record da estrarre.
 
 È possibile configurare la dimensione di pagina mediante **MSPullSettings** come illustrato di seguito. La dimensione di pagina predefinita è 50 e l'esempio seguente la cambia in 3.
@@ -253,7 +240,7 @@ Con App per dispositivi mobili di Azure la dimensione di pagina controlla il num
 
 Questa impostazione controlla la dimensione di pagina solo sul lato client. Se il client richiede una pagina più grande di quella supportata dal back-end di App per dispositivi mobili, la dimensione di pagina è limitata al massimo valore che il back-end può supportare. 
 
-Questa impostazione è inoltre il _numero_ dei record dei dati, e non la _dimensione in byte_.
+Questa impostazione è inoltre il *numero* dei record dei dati, e non la *dimensione in byte*.
 
 Se si aumenta la dimensione di pagina del client, [è necessario aumentare anche la dimensione di pagina sul server](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#_how-to-adjust-the-table-paging-size).
 
@@ -281,8 +268,7 @@ table.pullWithQuery(query, queryId:nil, settings: pullSettings) { (error) in
 }
 ```
 
-##<a name="<a-name="inserting"></a>how-to:-insert-data"></a><a name="inserting"></a>Procedura: Inserire dati
-
+## <a name="<a-name="inserting"></a>how-to:-insert-data"></a><a name="inserting"></a>Procedura: Inserire dati
 Per inserire una nuova riga di tabella, creare un elemento `NSDictionary` e richiamare `table insert`. Se [Schema dinamico] è abilitato, il back-end per dispositivi mobili del Servizio app di Azure genera automaticamente nuove colonne in base a `NSDictionary`.
 
 Se non viene specificato il valore `id` , il back-end genera automaticamente un nuovo ID univoco. Specificare il proprio `id` per usare indirizzi e-mail, nomi utente o valori personalizzati come ID. La specifica del proprio ID può semplificare l'esecuzione di join e la logica dei database aziendali.
@@ -315,8 +301,7 @@ table.insert(newItem) { (result, error) in
 }
 ```
 
-##<a name="<a-name="modifying"></a>how-to:-modify-data"></a><a name="modifying"></a>Procedura: Modificare dati
-
+## <a name="<a-name="modifying"></a>how-to:-modify-data"></a><a name="modifying"></a>Procedura: Modificare dati
 Per aggiornare una riga esistente, modificare un elemento e chiamare `update`:
 
 **Objective-C**:
@@ -376,8 +361,7 @@ table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
 
 Per le operazioni di aggiornamento è necessario che sia impostato almeno l'attributo `id` .
 
-##<a name="<a-name="deleting"></a>how-to:-delete-data"></a><a name="deleting"></a>Procedura: Eliminare dati
-
+## <a name="<a-name="deleting"></a>how-to:-delete-data"></a><a name="deleting"></a>Procedura: Eliminare dati
 Per eliminare un elemento, richiamare `delete` con l'elemento:
 
 **Objective-C**:
@@ -432,8 +416,7 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 Per le operazioni di eliminazione, è necessario che sia impostato almeno l'attributo `id` .
 
-##<a name="<a-name="customapi"></a>how-to:-call-custom-api"></a><a name="customapi"></a>Procedura: Chiamare un'API personalizzata
-
+## <a name="<a-name="customapi"></a>how-to:-call-custom-api"></a><a name="customapi"></a>Procedura: Chiamare un'API personalizzata
 Con un'API personalizzata è possibile esporre qualsiasi funzionalità di back-end. Non occorre eseguire il mapping a un'operazione su tabella. In questo modo, non solo si ottiene maggiore controllo sulla messaggistica, ma è anche possibile leggere o impostare le intestazioni e modificare il formato del corpo della risposta. Per informazioni su come creare un'API personalizzata nel back-end, leggere [API personalizzate](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
 
 Per chiamare un'API personalizzata, chiamare `MSClient.invokeAPI`. Il contenuto della richiesta e della risposta è in formato JSON. Per utilizzare altri tipi di supporto, [usare l'altro overload di `invokeAPI`][5].  Per eseguire una richiesta `GET` invece di una richiesta `POST`, impostare il parametro `HTTPMethod` su `"GET"` e il parametro `body` su `nil` (dal momento che le richieste GET non hanno corpi dei messaggi). Se l'API personalizzata supporta altri verbi HTTP, modificare `HTTPMethod` in modo appropriato.
@@ -473,8 +456,7 @@ client.invokeAPI("sendEmail",
         }
 ```
 
-##<a name="<a-name="templates"></a>how-to:-register-push-templates-to-send-cross-platform-notifications"></a><a name="templates"></a>Procedura: registrare modelli push per inviare notifiche multipiattaforma
-
+## <a name="<a-name="templates"></a>how-to:-register-push-templates-to-send-cross-platform-notifications"></a><a name="templates"></a>Procedura: registrare modelli push per inviare notifiche multipiattaforma
 Per registrare i modelli, passare modelli con il metodo **client.push registerDeviceToken** nell'app client.
 
 **Objective-C**:
@@ -513,8 +495,7 @@ let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 
 Tutti i tag vengono rimossi dalla richiesta per motivi di sicurezza.  Per aggiungere tag alle istallazioni o modelli all'interno delle istallazioni, vedere [Lavorare con l'SDK del server back-end .NET per App per dispositivi mobili di Azure][4].  Per inviare notifiche tramite questi modelli registrati, usare le [API di Hub di notifica][3].
 
-##<a name="<a-name="errors"></a>how-to:-handle-errors"></a><a name="errors"></a>Procedura: Gestire gli errori
-
+## <a name="<a-name="errors"></a>how-to:-handle-errors"></a><a name="errors"></a>Procedura: Gestire gli errori
 Quando viene eseguita una chiamata a un back-end per dispositivi mobili del Servizio app di Azure, il blocco di completamento contiene un parametro `NSError` . Quando si verifica un errore, il parametro sarà diverso da Nil. In questo caso, è necessario verificare il parametro nel codice e gestire l'errore nel modo appropriato, come dimostrato nei frammenti di codice precedenti.
 
 Il file [`<WindowsAzureMobileServices/MSError.h>`][6] definisce le costanti `MSErrorResponseKey`, `MSErrorRequestKey` e `MSErrorServerItemKey`. Per ottenere più dati relativi all'errore:
@@ -546,29 +527,25 @@ if (error.code == MSErrorPreconditionFailed) {
 ```
 
 ## <a name="<a-name="adal"></a>how-to:-authenticate-users-with-the-active-directory-authentication-library"></a><a name="adal"></a>Procedura: Autenticare gli utenti con Active Directory Authentication Library
-
 È possibile usare Active Directory Authentication Library (ADAL) per far accedere gli utenti all'applicazione tramite Azure Active Directory. È preferibile usare l'autenticazione del flusso client tramite un SDK del provider di identità anziché il metodo `loginWithProvider:completion:` .  L'autenticazione del flusso client garantisce un'esperienza utente più naturale e consente una maggiore personalizzazione.
 
 1. Configurare il back-end dell'app per dispositivi mobili per l'accesso ad Azure Active Directory seguendo l'esercitazione [Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory][7]. Assicurarsi di completare il passaggio facoltativo di registrazione di un'applicazione client nativa. Per iOS è consigliabile che l'URI di reindirizzamento sia nel formato `<app-scheme>://<bundle-id>`. Per altre informazioni, vedere [Guida introduttiva di ADAL iOS][8].
-
 2. Installare ADAL usando Cocoapods. Modificare il podfile includendo la definizione seguente e sostituendo **YOUR-PROJECT** con il nome del progetto Xcode:
-
+   
         source 'https://github.com/CocoaPods/Specs.git'
         link_with ['YOUR-PROJECT']
         xcodeproj 'YOUR-PROJECT'
-
+   
    e il Pod:
-
+   
         pod 'ADALiOS'
-
 3. Nel terminale eseguire `pod install` dalla directory contenente il progetto e quindi aprire l'area di lavoro di Xcode generata (non il progetto).
-
 4. Aggiungere il codice seguente all'applicazione, in base al linguaggio usato. In ogni esempio eseguire queste sostituzioni:
-
-    * Sostituire **INSERT-AUTHORITY-HERE** con il nome del tenant in cui è stato eseguito il provisioning dell'applicazione. Il formato deve essere https://login.windows.net/contoso.onmicrosoft.com. È possibile copiare questo valore dalla scheda Dominio di Azure Active Directory nel [portale di Azure classico].
-    * Sostituire **INSERT-RESOURCE-ID-HERE** con l'ID client per il back-end dell'app per dispositivi mobili. L'ID client è disponibile nella scheda **Avanzate** in **Impostazioni di Azure Active Directory** nel portale.
-    * Sostituire **INSERT-CLIENT-ID-HERE** con l'ID client copiato dall'applicazione client nativa.
-    * Sostituire **INSERT-REDIRECT-URI-HERE** con l'endpoint _/.auth/login/done_ del sito, usando lo schema HTTPS. Questo valore deve essere simile a _https://contoso.azurewebsites.net/.auth/login/done_.
+   
+   * Sostituire **INSERT-AUTHORITY-HERE** con il nome del tenant in cui è stato eseguito il provisioning dell'applicazione. Il formato deve essere https://login.windows.net/contoso.onmicrosoft.com. È possibile copiare questo valore dalla scheda Dominio di Azure Active Directory nel [portale di Azure classico].
+   * Sostituire **INSERT-RESOURCE-ID-HERE** con l'ID client per il back-end dell'app per dispositivi mobili. L'ID client è disponibile nella scheda **Avanzate** in **Impostazioni di Azure Active Directory** nel portale.
+   * Sostituire **INSERT-CLIENT-ID-HERE** con l'ID client copiato dall'applicazione client nativa.
+   * Sostituire **INSERT-REDIRECT-URI-HERE** con l'endpoint */.auth/login/done* del sito, usando lo schema HTTPS. Questo valore deve essere simile a *https://contoso.azurewebsites.net/.auth/login/done*.
 
 **Objective-C**:
 
@@ -632,33 +609,28 @@ if (error.code == MSErrorPreconditionFailed) {
     }
 
 ## <a name="<a-name="facebook-sdk"></a>how-to:-authenticate-users-with-the-facebook-sdk-for-ios"></a><a name="facebook-sdk"></a>Procedura: Autenticare gli utenti con Facebook SDK for iOS
-
 È possibile usare Facebook SDK for iOS per consentire l'accesso degli utenti all'applicazione tramite Facebook.  È preferibile usare l'autenticazione del flusso client all'uso del metodo `loginWithProvider:completion:` .  L'autenticazione del flusso client garantisce un'esperienza utente più naturale e consente una maggiore personalizzazione.
 
 1. Configurare il back-end dell'app per dispositivi mobili per l'accesso con l'account Facebook seguendo l'esercitazione [Come configurare un'applicazione del servizio App per usare l'account di accesso di Facebook][9].
-
 2. Installare Facebook SDK for iOS secondo le indicazioni della documentazione [Facebook SDK for iOS - Getting Started][10] (Facebook SDK for iOS: guida introduttiva). Anziché creare un'app, è possibile aggiungere la piattaforma iOS alla procedura di registrazione esistente. 
-
 3. La documentazione di Facebook include codice Objective-C nel delegato dell'app. Se si usa **Swift**, è possibile utilizzare le seguenti traduzioni per AppDelegate.swift:
-  
+   
         // Add the following import to your bridging header:
         //      #import <FBSDKCoreKit/FBSDKCoreKit.h>
-        
+   
         func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
             FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
             // Add any custom logic here.
             return true
         }
-
+   
         func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
             let handled = FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
             // Add any custom logic here.
             return handled
         }
-
 4. Oltre ad aggiungere `FBSDKCoreKit.framework` al progetto, aggiungere nello stesso modo anche un riferimento a `FBSDKLoginKit.framework`. 
-
-4. Aggiungere il codice seguente all'applicazione, in base al linguaggio usato. 
+5. Aggiungere il codice seguente all'applicazione, in base al linguaggio usato. 
 
 **Objective-C**:
 
@@ -691,7 +663,7 @@ if (error.code == MSErrorPreconditionFailed) {
     // Add the following imports to your bridging header:
     //      #import <FBSDKLoginKit/FBSDKLoginKit.h>
     //      #import <FBSDKCoreKit/FBSDKAccessToken.h>
-    
+
     func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> Void) {
         let loginManager = FBSDKLoginManager()
         loginManager.logInWithReadPermissions(["public_profile"], fromViewController: parent) { (result, error) in
@@ -709,19 +681,20 @@ if (error.code == MSErrorPreconditionFailed) {
     }
 
 ## <a name="<a-name="twitter-fabric"></a>how-to:-authenticate-users-with-twitter-fabric-for-ios"></a><a name="twitter-fabric"></a>Procedura: Autenticare gli utenti con Twitter Fabric for iOS
-
 È possibile usare Fabric for iOS per consentire l'accesso degli utenti all'applicazione tramite Twitter. L'autenticazione del flusso client è preferibile all'uso del metodo `loginWithProvider:completion:` , perché garantisce un'esperienza utente più naturale e consente una maggiore personalizzazione.
 
 1. Configurare il back-end dell'app per dispositivi mobili per l'accesso con l'account Twitter seguendo l'esercitazione [Come configurare un'applicazione del servizio app per usare l'account di accesso di Twitter](app-service-mobile-how-to-configure-twitter-authentication.md) .
-
-2. Aggiungere Fabric al progetto seguendo le indicazioni della documentazione [Fabric for iOS - Getting Started] (Fabric for iOS: guida introduttiva) e configurando TwitterKit.
-
-    > [AZURE.NOTE] Per impostazione predefinita, Fabric crea automaticamente un'applicazione Twitter. È possibile evitare di creare un'applicazione registrando la chiave utente e il segreto utente creati in precedenza tramite i frammenti di codice seguenti.  In alternativa, è possibile sostituire i valori relativi alla chiave utente e al segreto utente forniti al servizio app con i valori visualizzati nel [dashboard di Fabric]. Se si sceglie questa opzione, assicurarsi di impostare l'URL di callback su un valore segnaposto, ad esempio `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
-
+2. Aggiungere Fabric al progetto seguendo le indicazioni della documentazione [Fabric for iOS - Getting Started](Fabric for iOS: guida introduttiva.md) e configurando TwitterKit.
+   
+   > [!NOTE]
+   > Per impostazione predefinita, Fabric crea automaticamente un'applicazione Twitter. È possibile evitare di creare un'applicazione registrando la chiave utente e il segreto utente creati in precedenza tramite i frammenti di codice seguenti.  In alternativa, è possibile sostituire i valori relativi alla chiave utente e al segreto utente forniti al servizio app con i valori visualizzati nel [dashboard di Fabric]. Se si sceglie questa opzione, assicurarsi di impostare l'URL di callback su un valore segnaposto, ad esempio `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
+   > 
+   > 
+   
     Se si sceglie di usare i segreti creati in precedenza, aggiungere il codice seguente al delegato dell'app:
-    
+   
     **Objective-C**:
-
+   
         #import <Fabric/Fabric.h>
         #import <TwitterKit/TwitterKit.h>
         // ...
@@ -732,9 +705,9 @@ if (error.code == MSErrorPreconditionFailed) {
             // Add any custom logic here.
             return YES;
         }
-        
+   
     **Swift**:
-    
+   
         import Fabric
         import TwitterKit
         // ...
@@ -744,7 +717,6 @@ if (error.code == MSErrorPreconditionFailed) {
             // Add any custom logic here.
             return true
         }
-    
 3. Aggiungere il codice seguente all'applicazione, in base al linguaggio usato. 
 
 **Objective-C**:
@@ -783,13 +755,10 @@ if (error.code == MSErrorPreconditionFailed) {
     }
 
 ## <a name="<a-name="google-sdk"></a>how-to:-authenticate-users-with-the-google-sign-in-sdk-for-ios"></a><a name="google-sdk"></a>Procedura: Autenticare gli utenti con Google Sign-In SDK for iOS
-
 È possibile usare Google Sign-In SDK for iOS per consentire l'accesso degli utenti all'applicazione tramite un account Google.  Google ha annunciato recentemente modifiche ai criteri di sicurezza di OAuth.  Queste modifiche apportate ai criteri richiederanno l'uso di Google SDK in futuro.
 
 1. Configurare il back-end dell'app per dispositivi mobili per l'accesso con l'account Google seguendo l'esercitazione [Come configurare un'applicazione del servizio app per usare l'account di accesso di Google](app-service-mobile-how-to-configure-google-authentication.md) .
-
 2. Installare Google SDK for iOS seguendo le istruzioni nel documento [Start integrating Google Sign-In into your iOS app](https://developers.google.com/identity/sign-in/ios/start-integrating) (Iniziare a integrare l'accesso di Google nell'app iOS). È possibile ignorare la sezione relativa all'autenticazione con un server di back-end.
-
 3. Aggiungere quanto segue al metodo `signIn:didSignInForUser:withError:` di delegato, a seconda del linguaggio usato.
 
 **Objective-C**:
@@ -798,7 +767,7 @@ if (error.code == MSErrorPreconditionFailed) {
                                   @"id_token":user.authentication.idToken,
                                   @"authorization_code":user.serverAuthCode
                                   };
-        
+
         [client loginWithProvider:@"google" token:payload completion:^(MSUser *user, NSError *error) {
             // ...
         }];
@@ -810,39 +779,39 @@ if (error.code == MSErrorPreconditionFailed) {
             // ...
         }
 
-4. Aggiungere anche il codice seguente a `application:didFinishLaunchingWithOptions:` nel delegato dell'app, sostituendo "SERVER_CLIENT_ID" con lo stesso ID usato per configurare il servizio app nel passaggio 1.
+1. Aggiungere anche il codice seguente a `application:didFinishLaunchingWithOptions:` nel delegato dell'app, sostituendo "SERVER_CLIENT_ID" con lo stesso ID usato per configurare il servizio app nel passaggio 1.
 
 **Objective-C**:
 
         [GIDSignIn sharedInstance].serverClientID = @"SERVER_CLIENT_ID";
- 
+
  **Swift**:
- 
+
         GIDSignIn.sharedInstance().serverClientID = "SERVER_CLIENT_ID"
 
- 
- 5. Aggiungere il codice seguente all'applicazione in una classe UIViewController che implementi il protocollo `GIDSignInUIDelegate` , in base al linguaggio usato.  L'utente viene disconnesso prima di accedere nuovamente e anche se non è necessario immettere le credenziali una seconda volta, verrà visualizzata una finestra di dialogo di consenso.  Chiamare questo metodo solo quando il token della sessione è scaduto.
- 
- **Objective-C**:
 
-        #import <Google/SignIn.h>
-        // ...
-        - (void)authenticate
-        {
-                [GIDSignIn sharedInstance].uiDelegate = self;
-                [[GIDSignIn sharedInstance] signOut];
-                [[GIDSignIn sharedInstance] signIn];
-        }
- 
- **Swift**:
-    
-        // ...
-        func authenticate() {
-            GIDSignIn.sharedInstance().uiDelegate = self
-            GIDSignIn.sharedInstance().signOut()
-            GIDSignIn.sharedInstance().signIn()
-        }
-        
+1. Aggiungere il codice seguente all'applicazione in una classe UIViewController che implementi il protocollo `GIDSignInUIDelegate` , in base al linguaggio usato.  L'utente viene disconnesso prima di accedere nuovamente e anche se non è necessario immettere le credenziali una seconda volta, verrà visualizzata una finestra di dialogo di consenso.  Chiamare questo metodo solo quando il token della sessione è scaduto.
+   
+   **Objective-C**:
+   
+       #import <Google/SignIn.h>
+       // ...
+       - (void)authenticate
+       {
+               [GIDSignIn sharedInstance].uiDelegate = self;
+               [[GIDSignIn sharedInstance] signOut];
+               [[GIDSignIn sharedInstance] signIn];
+       }
+   
+   **Swift**:
+   
+       // ...
+       func authenticate() {
+           GIDSignIn.sharedInstance().uiDelegate = self
+           GIDSignIn.sharedInstance().signOut()
+           GIDSignIn.sharedInstance().signIn()
+       }
+
 <!-- Anchors. -->
 
 [Informazioni su Servizi mobili]: #what-is

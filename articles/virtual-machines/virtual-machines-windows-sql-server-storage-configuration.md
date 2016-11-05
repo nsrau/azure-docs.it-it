@@ -1,34 +1,36 @@
-<properties
-	pageTitle="Configurazione dell'archiviazione per le VM di SQL Server | Microsoft Azure"
-	description="Questo argomento descrive come viene configurata l'archiviazione da Azure per le VM di SQL Server durante il provisioning (modello di distribuzione di Resource Manager). Viene inoltre spiegato come è possibile configurare l'archiviazione per le VM di SQL Server esistenti."
-	services="virtual-machines-windows"
-	documentationCenter="na"
-	authors="ninarn"
-	manager="jhubbard"    
-	tags="azure-resource-manager"/>  
-<tags
-	ms.service="virtual-machines-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="08/04/2016"
-	ms.author="ninarn" />  
+---
+title: Configurazione dell'archiviazione per le VM di SQL Server | Microsoft Docs
+description: Questo argomento descrive come viene configurata l'archiviazione da Azure per le VM di SQL Server durante il provisioning (modello di distribuzione di Resource Manager). Viene inoltre spiegato come è possibile configurare l'archiviazione per le VM di SQL Server esistenti.
+services: virtual-machines-windows
+documentationcenter: na
+author: ninarn
+manager: jhubbard
+tags: azure-resource-manager
 
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows-sql-server
+ms.workload: infrastructure-services
+ms.date: 08/04/2016
+ms.author: ninarn
+
+---
 # Configurazione dell'archiviazione per le VM di SQL Server
-
 Quando si configura un'immagine di macchina virtuale di SQL Server in Azure, il portale consente di automatizzare la configurazione dell'archiviazione, ovvero collegare l'archiviazione alla VM, renderla disponibile per SQL Server e ottimizzarla in base alle specifiche esigenze a livello di prestazioni.
 
 Questo argomento illustra come viene configurata l'archiviazione da Azure per le VM di SQL Server, sia durante il provisioning che per le VM esistenti. Questa configurazione è basata sulle [procedure consigliate per le prestazioni](virtual-machines-windows-sql-performance.md) per le VM virtuali di Azure che eseguono SQL Server.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Modello di distribuzione classica.
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
+
+Modello di distribuzione classica.
 
 ## Prerequisiti
 Per usare le impostazioni di configurazione automatica dell'archiviazione, la macchina virtuale deve avere le caratteristiche seguenti:
 
-- Provisioning eseguito con un'[immagine della raccolta di SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#option-1-deploy-a-sql-vm-per-minute-licensing).
-- Uso del [modello di distribuzione Azure Resource Manager](../resource-manager-deployment-model.md).
-- Uso dell'[archiviazione Premium](../storage/storage-premium-storage.md).
+* Provisioning eseguito con un'[immagine della raccolta di SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#option-1-deploy-a-sql-vm-per-minute-licensing).
+* Uso del [modello di distribuzione Azure Resource Manager](../resource-manager-deployment-model.md).
+* Uso dell'[archiviazione Premium](../storage/storage-premium-storage.md).
 
 ## Nuove VM
 Le sezioni seguenti descrivono come configurare l'archiviazione per le nuove macchine virtuali di SQL Server.
@@ -40,28 +42,28 @@ Durante il provisioning di una VM di Azure con un'immagine della raccolta di SQL
 
 A seconda delle scelte effettuate, Azure esegue le seguenti attività di configurazione dell'archiviazione dopo la creazione della VM:
 
-- Crea e collega i dischi dati di archiviazione Premium alla macchina virtuale.
-- Configura i dischi dati in modo che siano accessibili per SQL Server.
-- Configura i dischi dati in un pool di archiviazione in base ai requisiti specificati per dimensioni e prestazioni (operazioni di I/O al secondo e velocità effettiva).
-- Associa il pool di archiviazione a una nuova unità nella macchina virtuale.
-- Ottimizza la nuova unità in base al tipo di carico di lavoro specificato (data warehousing, elaborazione transazionale o generale).
+* Crea e collega i dischi dati di archiviazione Premium alla macchina virtuale.
+* Configura i dischi dati in modo che siano accessibili per SQL Server.
+* Configura i dischi dati in un pool di archiviazione in base ai requisiti specificati per dimensioni e prestazioni (operazioni di I/O al secondo e velocità effettiva).
+* Associa il pool di archiviazione a una nuova unità nella macchina virtuale.
+* Ottimizza la nuova unità in base al tipo di carico di lavoro specificato (data warehousing, elaborazione transazionale o generale).
 
 Per ulteriori dettagli su come vengono configurate le impostazioni dell'archiviazione da Azure, vedere la [sezione Configurazione dell'archiviazione](#storage-configuration). Per istruzioni complete su come creare una VM di SQL Server nel portale di Azure, vedere l'[esercitazione sul provisioning](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### Modelli di Resource Manager
 Se si usano i modelli di Resource Manager seguenti, vengono collegati per impostazione predefinita due dischi dati Premium, senza configurare un pool di archiviazione. È comunque possibile personalizzare questi modelli per modificare il numero di dischi di dati Premium collegati alla macchina virtuale.
 
-- [Creare una VM con il backup automatico](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autobackup)
-- [Creare una VM con l'applicazione automatica delle patch](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autopatching)
-- [Creare una VM con l'integrazione di AKV](https://github.com\Azure\azure-quickstart-templates\tree\master\201-vm-sql-full-keyvault)
+* [Creare una VM con il backup automatico](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autobackup)
+* [Creare una VM con l'applicazione automatica delle patch](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autopatching)
+* [Creare una VM con l'integrazione di AKV](https://github.com\\Azure\\azure-quickstart-templates\\tree\\master\\201-vm-sql-full-keyvault)
 
 ## VM esistenti
 Per le VM di SQL Server esistenti, è possibile modificare alcune impostazioni di archiviazione nel portale di Azure. Selezionare la VM, passare all'area Impostazioni e quindi selezionare Configurazione di SQL Server. Il pannello Configurazione di SQL Server mostra l'utilizzo corrente dell'archiviazione della VM. In questo grafico vengono visualizzate tutte le unità esistenti nella VM. Per ogni unità, lo spazio di archiviazione viene visualizzato in quattro sezioni:
 
-- Dati SQL
-- Log SQL
-- Altro (archiviazione non SQL)
-- Disponibile
+* Dati SQL
+* Log SQL
+* Altro (archiviazione non SQL)
+* Disponibile
 
 ![Configurare l'archiviazione per le VM di SQL Server esistenti](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)  
 
@@ -76,10 +78,10 @@ Se si usa questa funzionalità per la prima volta, è possibile specificare le d
 
 Azure crea una nuova unità in base alle specifiche. In questo scenario, Azure esegue le seguenti attività di configurazione dell'archiviazione:
 
-- Crea e collega i dischi dati di archiviazione Premium alla macchina virtuale.
-- Configura i dischi dati in modo che siano accessibili per SQL Server.
-- Configura i dischi dati in un pool di archiviazione in base ai requisiti specificati per dimensioni e prestazioni (operazioni di I/O al secondo e velocità effettiva).
-- Associa il pool di archiviazione a una nuova unità nella macchina virtuale.
+* Crea e collega i dischi dati di archiviazione Premium alla macchina virtuale.
+* Configura i dischi dati in modo che siano accessibili per SQL Server.
+* Configura i dischi dati in un pool di archiviazione in base ai requisiti specificati per dimensioni e prestazioni (operazioni di I/O al secondo e velocità effettiva).
+* Associa il pool di archiviazione a una nuova unità nella macchina virtuale.
 
 Per ulteriori dettagli su come vengono configurate le impostazioni dell'archiviazione da Azure, vedere la [sezione Configurazione dell'archiviazione](#storage-configuration).
 
@@ -98,9 +100,9 @@ L'altra opzione per l'espansione dell'archiviazione prevede l'estensione dell'un
 ## Configurazione dell'archiviazione
 In questa sezione sono disponibili informazioni di riferimento sulle modifiche della configurazione dell'archiviazione eseguite automaticamente da Azure durante il provisioning o la configurazione di VM di SQL nel portale di Azure.
 
-- Se sono stati selezionati meno di due TB di spazio di archiviazione per la VM, Azure non crea un pool di archiviazione.
-- Se sono stati selezionati almeno due TB di spazio di archiviazione per la VM, Azure configura un pool di archiviazione. La sezione successiva di questo argomento fornisce i dettagli della configurazione del pool di archiviazione.
-- Per la configurazione automatica dell'archiviazione vengono sempre usati dischi dati P30 di [archiviazione Premium](../storage/storage-premium-storage.md). Esiste quindi una corrispondenza 1:1 tra il numero selezionato di terabyte e il numero di dischi dati collegati alla VM.
+* Se sono stati selezionati meno di due TB di spazio di archiviazione per la VM, Azure non crea un pool di archiviazione.
+* Se sono stati selezionati almeno due TB di spazio di archiviazione per la VM, Azure configura un pool di archiviazione. La sezione successiva di questo argomento fornisce i dettagli della configurazione del pool di archiviazione.
+* Per la configurazione automatica dell'archiviazione vengono sempre usati dischi dati P30 di [archiviazione Premium](../storage/storage-premium-storage.md). Esiste quindi una corrispondenza 1:1 tra il numero selezionato di terabyte e il numero di dischi dati collegati alla VM.
 
 Per informazioni sui prezzi, vedere la pagina [Prezzi di archiviazione](https://azure.microsoft.com/pricing/details/storage) nella scheda **Archiviazione su disco**.
 
@@ -108,16 +110,16 @@ Per informazioni sui prezzi, vedere la pagina [Prezzi di archiviazione](https://
 Azure usa le impostazioni seguenti per creare il pool di archiviazione nelle VM di SQL.
 
 | Impostazione | Valore |
-|-----|-----|
-| Dimensioni di striping | 256 KB (data warehousing); 64 KB (transazionale) |
-| Dimensione disco | 1 TB ciascuno |
-| Cache | Lettura |
-| Dimensioni allocazione | Dimensioni delle unità di allocazione NTFS = 64 KB |
-| Inizializzazione file immediata | Enabled |
-| Blocco di pagine in memoria | Enabled |
-| Ripristino | Recupero con registrazione minima (nessuna resilienza) |
-| Numero di colonne | Numero di dischi dati<sup>1</sup> |
-| Percorso TempDB | Archiviato sui dischi dati<sup>2</sup> |
+| --- | --- |
+| Dimensioni di striping |256 KB (data warehousing); 64 KB (transazionale) |
+| Dimensione disco |1 TB ciascuno |
+| Cache |Lettura |
+| Dimensioni allocazione |Dimensioni delle unità di allocazione NTFS = 64 KB |
+| Inizializzazione file immediata |Enabled |
+| Blocco di pagine in memoria |Enabled |
+| Ripristino |Recupero con registrazione minima (nessuna resilienza) |
+| Numero di colonne |Numero di dischi dati<sup>1</sup> |
+| Percorso TempDB |Archiviato sui dischi dati<sup>2</sup> |
 
 <sup>1</sup> Dopo aver creato il pool di archiviazione non è possibile modificare il numero di colonne nel pool.
 
@@ -127,12 +129,15 @@ Azure usa le impostazioni seguenti per creare il pool di archiviazione nelle VM 
 La tabella seguente descrive le tre opzioni disponibili per il tipo di carico di lavoro e le ottimizzazioni corrispondenti:
 
 | Tipo di carico di lavoro | Descrizione | Ottimizzazioni |
-|-----|-----|-----|
-| **Generale** | Impostazione predefinita che supporta la maggior parte dei carichi di lavoro | None |
-| **Elaborazione transazionale** | Ottimizza l'archiviazione per carichi di lavoro OLTP di database tradizionali | Flag di traccia 1117<br/>Flag di traccia 1118 |
-| **Data warehousing** | Ottimizza l'archiviazione per i carichi di lavoro di analisi e creazione di report | Flag di traccia 610<br/>Flag di traccia 1117 |
+| --- | --- | --- |
+| **Generale** |Impostazione predefinita che supporta la maggior parte dei carichi di lavoro |None |
+| **Elaborazione transazionale** |Ottimizza l'archiviazione per carichi di lavoro OLTP di database tradizionali |Flag di traccia 1117<br/>Flag di traccia 1118 |
+| **Data warehousing** |Ottimizza l'archiviazione per i carichi di lavoro di analisi e creazione di report |Flag di traccia 610<br/>Flag di traccia 1117 |
 
->[AZURE.NOTE] È possibile specificare il tipo di carico di lavoro solo quando si esegue il provisioning di una macchina virtuale di SQL Serer, selezionandolo nel passaggio di configurazione dell'archiviazione.
+> [!NOTE]
+> È possibile specificare il tipo di carico di lavoro solo quando si esegue il provisioning di una macchina virtuale di SQL Serer, selezionandolo nel passaggio di configurazione dell'archiviazione.
+> 
+> 
 
 ## Passaggi successivi
 Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).

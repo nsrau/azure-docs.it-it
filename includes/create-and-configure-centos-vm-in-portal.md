@@ -3,65 +3,59 @@
 
 1. Accedere al portale di gestione di Azure con il proprio account Azure.
 2. Nel portale di gestione fare clic su **+New** nella parte inferiore sinistra della pagina Web, scegliere **Virtual Machine** e quindi **From Gallery**.
-
-	![Creare una nuova macchina virtuale][Image1]
-
+   
+    ![Creare una nuova macchina virtuale][Image1]
 3. Selezionare un'immagine della macchina virtuale CentOS da **Platform Images**, quindi fare clic sulla freccia Next nella parte inferiore destra della pagina.
-	
 4. Nella pagina **Virtual machine configuration** specificare le informazioni seguenti:
-	- Specificare un **Virtual Machine Name**, ad esempio "testlinuxvm".
-	- Specificare un nuovo **New User Name**, ad esempio "newuser", che verrà aggiunto al file dell'elenco Sudoers.
-	- Nella casella **New Password** immettere una [password complessa](http://msdn.microsoft.com/library/ms161962.aspx).
-	- Nella casella **Conferma password** ridigitare la password.
-	- Selezionare un valore appropriato per **Dimensione** nell'elenco a discesa.
-
-	Fare clic sulla freccia Avanti per continuare.
-	
+   
+   * Specificare un **Virtual Machine Name**, ad esempio "testlinuxvm".
+   * Specificare un nuovo **New User Name**, ad esempio "newuser", che verrà aggiunto al file dell'elenco Sudoers.
+   * Nella casella **New Password** immettere una [password complessa](http://msdn.microsoft.com/library/ms161962.aspx).
+   * Nella casella **Conferma password** ridigitare la password.
+   * Selezionare un valore appropriato per **Dimensione** nell'elenco a discesa.
+     
+     Fare clic sulla freccia Avanti per continuare.
 5. Nella pagina **Modalità macchina virtuale** specificare le informazioni seguenti:
-	- Selezionare **Standalone Virtual Machine**.
-	- Nella casella **DNS Name** immettere un indirizzo DNS valido. Ad esempio, "testlinuxvm".
-	- Nella casella **Storage Account** selezionare **Use an automatically generated storage account**.
-	- Nella casella **Region/Affinity Group/Virtual Network** selezionare l'area in cui verrà ospitata l'immagine virtuale.
-
-	Fare clic sulla freccia Avanti per continuare.
-
+   
+   * Selezionare **Standalone Virtual Machine**.
+   * Nella casella **DNS Name** immettere un indirizzo DNS valido. Ad esempio, "testlinuxvm".
+   * Nella casella **Storage Account** selezionare **Use an automatically generated storage account**.
+   * Nella casella **Region/Affinity Group/Virtual Network** selezionare l'area in cui verrà ospitata l'immagine virtuale.
+     
+     Fare clic sulla freccia Avanti per continuare.
 6. Nella pagina **Opzioni macchina virtuale** selezionare **(nessuno)** nella casella **Set di disponibilità**.
-
-	Fare clic sul segno di spunta per continuare.
-	
+   
+    Fare clic sul segno di spunta per continuare.
 7. Attendere durante la preparazione della macchina virtuale in Azure.
 
-##Configurare gli endpoint
+## Configurare gli endpoint
 Dopo la creazione della macchina virtuale, configurare gli endpoint in modo da consentire la connessione remota.
 
 1. Nel portale di gestione fare clic su **Virtual Machines**, quindi sul nome della nuova macchina virtuale e infine su **Endpoints**.
-
 2. Fare clic su **Edit Endpoint** nella parte inferiore della pagina, quindi modificare l'endpoint SSH in modo che il valore per la relativa **Public Port** sia 22.
 
-##Connettersi alla macchina virtuale
+## Connettersi alla macchina virtuale
 Dopo il provisioning della macchina virtuale e la configurazione degli endpoint, è possibile connettersi tramite SSH o PuTTY.
 
-###Connettersi tramite SSH
+### Connettersi tramite SSH
 Se si utilizza Linux, connettersi alla macchina virtuale tramite SSH. Al prompt dei comandi eseguire:
 
-	$ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180
+    $ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180
 
 Immettere la password dell'utente.
 
-###Connettersi tramite PuTTY
+### Connettersi tramite PuTTY
 Se si utilizza un computer Windows, connettersi alla macchina virtuale tramite PuTTY, disponibile nell'apposita pagina di [download][PuTTYDownLoad].
 
 1. Scaricare e salvare il file **putty.exe** in una directory del computer. Aprire un prompt dei comandi, passare a questa cartella ed eseguire **putty.exe**.
-
 2. Immettere "testlinuxvm.cloudapp.net" come **Nome host** e "22" per **Porta**. ![Schermata di PuTTY][Image6]
 
-##Aggiornare la macchina virtuale (facoltativo)
+## Aggiornare la macchina virtuale (facoltativo)
 Dopo la connessione alla macchina virtuale, è possibile installare gli aggiornamenti, se lo si desidera. Eseguire:
 
-	$ sudo yum update
+    $ sudo yum update
 
 Immettere di nuovo la password. Attendere il completamento dell'installazione dell'aggiornamento.
-
 
 [PuTTYDownload]: http://www.puttyssh.org/download.html
 

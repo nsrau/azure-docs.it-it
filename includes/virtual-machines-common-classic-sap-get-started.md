@@ -1,6 +1,5 @@
 
 ## Pianificazione e implementazione
-
 Titolo: SAP NetWeaver in Macchine virtuali di Azure - Guida alla pianificazione e all'implementazione
 
 Riepilogo: Si tratta del primo documento da esaminare se si sta valutando la possibilità di eseguire SAP NetWeaver in Macchine virtuali di Azure. Questa Guida alla pianificazione e implementazione permette di valutare se è possibile distribuire un sistema basato su SAP NetWeaver esistente o pianificato in un ambiente di Macchine virtuali di Azure. Illustra vari scenari di distribuzione di SAP NetWeaver e include configurazioni SAP specifiche per Azure. Il documento elenca e descrive tutte le informazioni di configurazione necessarie relative a SAP/Azure per eseguire un landscape SAP ibrido. Vengono anche descritte le misure che è possibile adottare per garantire la disponibilità elevata dei sistemi basati su SAP NetWeaver nella soluzione IaaS.
@@ -8,6 +7,7 @@ Riepilogo: Si tratta del primo documento da esaminare se si sta valutando la pos
 Ultimo aggiornamento: agosto 2015
 
 [Scaricare la guida](http://go.microsoft.com/fwlink/?LinkId=397963)
+
 ## Distribuzione
 Titolo: SAP NetWeaver in Macchine virtuali di Azure - Guida alla distribuzione
 
@@ -27,7 +27,6 @@ Ultimo aggiornamento: dicembre 2015
 [Scaricare la guida](http://go.microsoft.com/fwlink/?LinkId=397965)
 
 ## SAP NetWeaver in Azure
-
 Titolo: SAP NetWeaver - Creazione di una soluzione di ripristino di emergenza basata su Azure
 
 Riepilogo: Questo documento fornisce istruzioni dettagliate per la creazione di una soluzione di ripristino di emergenza basata su Azure per SAP NetWeaver. La soluzione descritta presuppone che il landscape SAP sia in esecuzione virtualizzato in locale e basato su Hyper-V. Nella prima parte del documento vengono presentati i servizi e i componenti inclusi in Azure Site Recovery. La seconda parte del documento descrive le specifiche per il landscape basati su SAP NetWeaver. Viene anche descritta la possibilità di usare Azure Site Recovery con istanze dell'applicazione SAP NetWeaver e SAP Central Services. Sempre nella seconda parte viene illustrato in dettaglio come usare Azure Site Recovery per i servizi di SAP Central Services protetti tramite configurazioni cluster di failover di Windows Server.

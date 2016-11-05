@@ -1,32 +1,30 @@
-<properties
-   pageTitle="Panoramica su Integrità risorse di Azure | Microsoft Azure"
-   description="Panoramica su Integrità risorse di Azure"
-   services="Resource health"
-   documentationCenter="dev-center-name"
-   authors="BernardoAMunoz"
-   manager=""
-   editor=""/>
+---
+title: Panoramica su Integrità risorse di Azure | Microsoft Docs
+description: Panoramica su Integrità risorse di Azure
+services: Resource health
+documentationcenter: dev-center-name
+author: BernardoAMunoz
+manager: ''
+editor: ''
 
-<tags
-   ms.service="resource-health"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="Supportability"
-   ms.date="06/01/2016"
-   ms.author="BernardoAMunoz"/>
+ms.service: resource-health
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: Supportability
+ms.date: 06/01/2016
+ms.author: BernardoAMunoz
 
+---
 # Panoramica su Integrità risorse di Azure
-
 Integrità risorse di Azure è un nuovo servizio che espone l'integrità delle singole risorse di Azure e offre consigli pratici per risolvere i problemi. In un ambiente cloud in cui non è possibile accedere direttamente ai server o agli elementi dell'infrastruttura, l'obiettivo di Integrità risorse è quello di ridurre il tempo speso dai clienti per risolvere i problemi, in particolare quello per determinare se la causa del problema è interna all'applicazione o dovuta a un evento nella piattaforma Azure.
 
-## Qual è la definizione di "risorsa" e in che modo Integrità risorse stabilisce se una risorsa è integra o meno? 
+## Qual è la definizione di "risorsa" e in che modo Integrità risorse stabilisce se una risorsa è integra o meno?
 Una risorsa è un'istanza creata dall'utente di un tipo di risorsa messo a disposizione da un servizio, ad esempio una macchina virtuale, un'app Web o un database SQL.
 
 Integrità risorse si basa su segnali emessi dalla risorsa e/o dal servizio per determinare se una risorsa è integra o meno. È importante notare che Integrità risorse considera attualmente solo l'integrità di un tipo di risorsa specifico e non altri elementi che possono contribuire all'integrità complessiva. Quando ad esempio si segnala lo stato di una macchina virtuale, viene considerata solo la parte di calcolo dell'infrastruttura, ovvero i problemi nella rete non saranno visualizzati in Integrità risorse, a meno che non si verifichi un'interruzione di servizio dichiarata. Quest'ultimo evento sarà segnalato con il banner nella parte superiore del pannello. Altre informazioni sull'interruzione di servizio sono illustrate più avanti in questo articolo.
 
 ## In che modo Integrità risorse differisce dal dashboard per l'integrità dei servizi?
-
 Le informazioni messe a disposizione da Integrità risorse sono più granulari di quelle messe a disposizione dal dashboard per l'integrità dei servizi. Mentre il Dashboard per l'integrità dei servizi comunica gli eventi che influiscono sulla disponibilità di un servizio in un'area, Integrità risorse espone informazioni relative a una risorsa specifica, ad esempio espone gli eventi che influiscono sulla disponibilità di una macchina virtuale, un'app web o un database SQL. Se ad esempio un nodo si riavvia in modo imprevisto, i clienti le cui macchine virtuali sono in esecuzione in tale nodo potranno sapere per quale motivo la propria macchina virtuale non è stata disponibile per un periodo di tempo.
 
 ## Come accedere a Integrità risorse
@@ -40,7 +38,7 @@ Il pannello Integrità risorsa nel portale di Azure offre informazioni dettaglia
 
 Dopo aver effettuato l'accesso al portale di Azure, esistono due modi per accedere al pannello Integrità risorsa:
 
-###Aprire il pannello della risorsa
+### Aprire il pannello della risorsa
 Aprire il pannello per una determinata risorsa. Nel pannello Impostazioni visualizzato accanto al pannello della risorsa, fare clic su Integrità risorsa per aprire il pannello Integrità risorsa.
 
 ![Pannello Integrità risorsa](./media/resource-health-overview/resourceBladeAndResourceHealth.png)
@@ -67,12 +65,11 @@ Il servizio non ha rilevato problemi nella piattaforma che potrebbero incidere s
 ![La risorsa è disponibile](./media/resource-health-overview/Available.png)
 
 ### Non disponibile
-
 In questo caso, il servizio ha rilevato un problema nella piattaforma che riduce la disponibilità della risorsa, ad esempio il nodo in cui è in esecuzione la macchina virtuale si è riavviato in modo imprevisto. Questo stato è indicato da un'icona di avviso rossa. Altre informazioni sul problema vengono visualizzate nella sezione centrale del pannello, tra cui:
 
-1.	Azioni intraprese da Microsoft per recuperare la risorsa
-2.	Sequenza temporale dettagliata del problema, incluso il tempo di risoluzione previsto
-3.	Elenco di azioni consigliate agli utenti
+1. Azioni intraprese da Microsoft per recuperare la risorsa
+2. Sequenza temporale dettagliata del problema, incluso il tempo di risoluzione previsto
+3. Elenco di azioni consigliate agli utenti
 
 ![La risorsa non è disponibile](./media/resource-health-overview/Unavailable.png)
 
@@ -97,11 +94,10 @@ Se la risorsa può essere interessata da un evento che ha un impatto sui servizi
 ![L'integrità della risorsa può essere interessata da un evento che ha un impatto sui servizi](./media/resource-health-overview/serviceImpactingEvent.png)
 
 ## Altre informazioni importanti su Integrità risorse
-
 ### Latenza dei segnali
 I segnali che indicano l'integrità della risorsa possono presentare ritardi fino a 15 minuti e ciò può causare discrepanze tra lo stato di integrità corrente della risorsa e la sua disponibilità effettiva. Si tratta di un fattore da tenere a mente per evitare di impiegare inutilmente del tempo per analizzare eventuali problemi.
 
-### Caso speciale per SQL 
+### Caso speciale per SQL
 Integrità risorsa segnala lo stato del database SQL, non di SQL Server. Anche se questo approccio offre un quadro più realistico dell'integrità, è necessario prendere in considerazione più componenti e servizi per determinare l'integrità del database. Il segnale corrente si basa sugli accessi al database e ciò significa che per i database che ricevono regolarmente accessi, incluse le richieste di esecuzione di query, l'integrità verrà visualizzata regolarmente. Se non è stato effettuato l'accesso al database per un periodo di 10 minuti o oltre, verrà impostato lo stato Sconosciuta. Ciò non significa che il database non sia disponibile, ma solo che non è stato generato alcun segnale perché non sono stati eseguiti accessi. Con la connessione al database e l'esecuzione di una query verranno inviati i segnali necessari per determinare e aggiornare lo stato di integrità del database.
 
 ## Commenti e suggerimenti

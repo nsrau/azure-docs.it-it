@@ -14,9 +14,9 @@ Per ridurre i costi, è possibile sospendere e riprendere le risorse di calcolo 
 
 Quando si sospende un database:
 
-- Le risorse di calcolo e memoria vengono restituite al pool di risorse disponibili nel data center.
-- I costi delle DWU sono pari a zero per la durata della pausa.
-- L'archivio dati non è interessato e i dati rimangano invariati. 
-- SQL Data Warehouse annulla tutte le operazioni in esecuzione o in coda.
+* Le risorse di calcolo e memoria vengono restituite al pool di risorse disponibili nel data center.
+* I costi delle DWU sono pari a zero per la durata della pausa.
+* L'archivio dati non è interessato e i dati rimangano invariati. 
+* SQL Data Warehouse annulla tutte le operazioni in esecuzione o in coda.
 
 <!---HONumber=AcomDC_0427_2016-->

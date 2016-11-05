@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Corsi sulla sicurezza di Azure in Microsoft Virtual Academy | Microsoft Azure"
-   description="Questo articolo contiene una dettagliata raccolta di corsi relativi alla sicurezza di Azure da Microsoft Virtual Academy. Microsoft Virtual Academy offre corsi online gratuiti per aiutare gli sviluppatori, i professionisti IT e dati e gli studenti a ottenere informazioni sulle tecnologie più recenti, acquisire competenze e contribuire al loro avanzamento professionale."
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="MBaldwin"
-   editor="TomSh"/>
+---
+title: Corsi sulla sicurezza di Azure in Microsoft Virtual Academy | Microsoft Docs
+description: Questo articolo contiene una dettagliata raccolta di corsi relativi alla sicurezza di Azure da Microsoft Virtual Academy. Microsoft Virtual Academy offre corsi online gratuiti per aiutare gli sviluppatori, i professionisti IT e dati e gli studenti a ottenere informazioni sulle tecnologie più recenti, acquisire competenze e contribuire al loro avanzamento professionale.
+services: security
+documentationcenter: na
+author: TomShinder
+manager: MBaldwin
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/09/2016"
-   ms.author="terrylan"/>  
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: terrylan
 
+---
 # Corsi sulla sicurezza di Azure in Microsoft Virtual Academy
-
 Microsoft Virtual Academy offre corsi online gratuiti per aiutare gli sviluppatori, i professionisti IT e dati e gli studenti a ottenere informazioni sulle tecnologie più recenti, acquisire competenze e contribuire al loro avanzamento professionale.
 
 Questa pagina contiene una raccolta dettagliata di corsi relativi alla sicurezza di Azure. Per vedere tutti i corsi disponibili, visitare la pagina [Microsoft Virtual Academy](https://mva.microsoft.com/).

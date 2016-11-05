@@ -1,33 +1,32 @@
-<properties
-	pageTitle="Procedure consigliate per modelli di Azure Resource Manager | Microsoft Azure"
-	description="Visualizzazione dei modelli di progettazione per i modelli di Gestione risorse di Azure"
-	services="azure-resource-manager"
-	documentationCenter=""
-	authors="tfitzmac"
-	manager="timlt"
-	editor="tysonn"/>
+---
+title: Procedure consigliate per modelli di Azure Resource Manager | Microsoft Docs
+description: Visualizzazione dei modelli di progettazione per i modelli di Gestione risorse di Azure
+services: azure-resource-manager
+documentationcenter: ''
+author: tfitzmac
+manager: timlt
+editor: tysonn
 
-<tags
-	ms.service="azure-resource-manager"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="tomfitz"/>
+ms.service: azure-resource-manager
+ms.workload: multiple
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/12/2016
+ms.author: tomfitz
 
+---
 # Procedure consigliate per la progettazione di modelli di Azure Resource Manager
-
 Nel nostro lavoro con aziende, integratori di sistemi (SI), fornitori di servizi cloud (CSV) e team di progetto per software open source (OSS), è spesso necessario distribuire rapidamente ambienti, carichi di lavoro o unità di scala. Queste distribuzioni devono essere supportate, seguire procedure consolidate ed essere conformi ai criteri identificati. Usando un approccio flessibile basato sui modelli di Azure Resource Manager, è possibile distribuire topologie complesse in modo rapido e coerente. È possibile adattare facilmente queste distribuzioni man mano che le offerte principali cambiano o inserire varianti per scenari o clienti esterni.
 
 Questo argomento fa parte di un white paper di dimensioni maggiori. Per leggere il documento completo, scaricare [Considerazioni e procedure consolidate avanzate per i modelli di Azure Resource Manager](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 I modelli uniscono i vantaggi della Gestione risorse di Azure sottostante con l’adattabilità e la leggibilità di JavaScript Object Notation (JSON). Utilizzando i modelli, è possibile:
 
-- Distribuire in modo coerente le topologie e i relativi carichi di lavoro.
-- Gestire tutte le risorse di un’applicazione contemporaneamente utilizzando gruppi di risorse.
-- Applicare il controllo dell'accesso basato sui ruoli (RBAC) per concedere l'accesso appropriato a utenti, gruppi e servizi.
-- Utilizzare le associazioni di assegnazione di tag per semplificare attività come i rollup di fatturazione.
+* Distribuire in modo coerente le topologie e i relativi carichi di lavoro.
+* Gestire tutte le risorse di un’applicazione contemporaneamente utilizzando gruppi di risorse.
+* Applicare il controllo dell'accesso basato sui ruoli (RBAC) per concedere l'accesso appropriato a utenti, gruppi e servizi.
+* Utilizzare le associazioni di assegnazione di tag per semplificare attività come i rollup di fatturazione.
 
 In questo articolo vengono fornite informazioni dettagliate su scenari di utilizzo, architettura e modelli di implementazione identificati durante le sessioni di progettazione e implementazioni reali dei modelli con i clienti di Azure Customer Advisory Team (AzureCAT). Lungi dall'essere accademici, questi approcci sono procedure consolidate derivanti dallo sviluppo di modelli per 12 delle principali tecnologie OSS basate su Linux, tra cui: Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise basato su Apache Cassandra, Elasticsearch, Jenkins, MongoDB, Nagios, PostgreSQL, Redis e Nagios. La maggior parte di questi modelli è stata sviluppata con un noto fornitore di una specifica distribuzione e influenzata dai requisiti di clienti aziendali e SI di Microsoft durante progetti recenti.
 
@@ -36,11 +35,9 @@ Nel presente articolo vengono proposte queste procedure consolidate allo scopo d
 Lavorando con i clienti, è stata identificata una serie di esperienze di utilizzo dei modelli di Resource Manager tra aziende, system integrator (SI) e CSV. Le sezioni seguenti forniscono una panoramica generale di scenari e modelli comuni per diversi tipi di clienti.
 
 ## Aziende e integratori di sistemi
-
 Nelle organizzazioni di grandi dimensioni, si osservano comunemente due consumer di modelli di Resource Manager: team di sviluppo di software interno e IT aziendale. È risultato evidente che gli scenari relativi agli SI sono associati a quelli delle grandi imprese, quindi si applicano le stesse considerazioni.
 
 ### Team di sviluppo di software interno
-
 Se il team sviluppa software per supportare l’azienda, i modelli forniscono un modo semplice per distribuire rapidamente le tecnologie da utilizzare in soluzioni specifiche per l’azienda. I modelli possono inoltre essere utilizzati per creare rapidamente ambienti di formazione che consentano ai membri del team di acquisire le competenze necessarie.
 
 È possibile utilizzare modelli così come sono oppure estenderli o comporli per adeguarli alle proprie esigenze. Utilizzando l’associazione di tag all’interno dei modelli, è possibile fornire un riepilogo di fatturazione con varie viste quali team, progetto, utente e formazione.
@@ -48,71 +45,61 @@ Se il team sviluppa software per supportare l’azienda, i modelli forniscono un
 Le aziende spesso desiderano team di sviluppo software per creare un modello per la distribuzione coerente di una soluzione offrendo al contempo vincoli per mantenere fissi alcuni elementi all'interno di tale ambiente e impedire che possano essere sottoposti a override. Ad esempio una banca potrebbe richiedere un modello per includere lo RBAC al fine di evitare che un programmatore possa modificare una soluzione di banking per inviare dati a un account di archiviazione personale.
 
 ### IT aziendale
-
 Le organizzazioni IT aziendali in genere utilizzano modelli per la distribuzione di capacità cloud e funzionalità ospitate su cloud.
 
 #### Capacità cloud
-
 Un metodo comune adottato dai gruppi IT aziendali per fornire capacità cloud ai team sono le "taglie", ovvero dimensioni di offerta standard quali small, medium e large. Le offerte basate sulle taglie possono combinare tipi e quantità differenti di risorse fornendo al tempo stesso un livello di standardizzazione che consente di utilizzare i modelli. I modelli offrono capacità in modo coerente permettendo l’applicazione dei criteri aziendali e l’utilizzo dell’associazione di tag per fornire funzionalità di chargeback alle organizzazioni che ne fanno uso.
 
 Ad esempio, potrebbe essere necessario fornire ambienti di sviluppo, test o produzione all'interno dei quali i team di sviluppo software possono distribuire le relative soluzioni. L'ambiente ha una topologia di rete predefinita ed elementi non modificabili dai team di sviluppo software, quali le regole che controllano l'accesso alla rete Internet pubblica e l'ispezione dei pacchetti. Per tali ambienti potrebbero anche esistere regole specifiche dell’organizzazione con diritti di accesso distinti per l’ambiente.
 
 #### Funzionalità ospitate nel cloud
-
 È possibile utilizzare modelli per supportare funzionalità ospitate nel cloud, tra cui singoli pacchetti software oppure offerte combinate disponibili per le linee interne di business. Un esempio di offerta combinata è l’analytics-as-a-service, tecnologie di analisi, virtualizzazione e altre tecnologie, fornita in una configurazione ottimizzata e connessa in una topologia di rete predefinita.
 
 Le funzionalità ospitate nel cloud sono influenzate da considerazioni in materia di sicurezza e ruoli, determinate dall’offerta di capacità cloud su cui sono basate come descritto in precedenza. Queste funzionalità sono disponibili così come sono oppure come servizio gestito. Per quest’ultimo, sono richiesti ruoli con limiti di accesso per abilitare l’accesso all’ambiente a scopo di gestione.
 
 ## Fornitori di servizi cloud
-
 Dopo avere parlato con molti CSV, sono stati identificati molteplici approcci adottabili per distribuire servizi per i clienti e i requisiti associati.
 
 ### Offerta ospitata su CSV
-
 Quando l'offerta viene ospitata nella propria sottoscrizione di Azure, sono comunemente adottati due approcci di hosting: distribuzione di una implementazione distinta per ogni cliente o distribuzione di unità di scala che supportano un'infrastruttura condivisa usata per tutti i clienti.
 
-- **Distribuzioni distinte per ogni cliente.** Le distribuzioni distinte per ogni cliente richiedono topologie fisse di configurazioni note differenti. Queste distribuzioni possono contenere macchine virtuali (VM) di dimensioni differenti, un numero variabile di nodi e volumi diversi di memoria associata. L’associazione di tag alle distribuzioni è utilizzata per i roll-up di fatturazione per ogni cliente. Lo RBAC può essere abilitato per consentire ai clienti di accedere agli aspetti dell’ambiente cloud.
-- **Unità di scala in ambienti multi-tenant condivisi.** Un modello può rappresentare un'unità di scala per ambienti multi-tenant. In questo caso, la stessa infrastruttura viene utilizzata per supportare tutti i clienti. Le distribuzioni rappresentano un gruppo di risorse che forniscono un livello di capacità per le offerte ospitate, ad esempio numero di utenti e numero di transazioni. Tali unità di scala sono aumentate o diminuite secondo necessità.
+* **Distribuzioni distinte per ogni cliente.** Le distribuzioni distinte per ogni cliente richiedono topologie fisse di configurazioni note differenti. Queste distribuzioni possono contenere macchine virtuali (VM) di dimensioni differenti, un numero variabile di nodi e volumi diversi di memoria associata. L’associazione di tag alle distribuzioni è utilizzata per i roll-up di fatturazione per ogni cliente. Lo RBAC può essere abilitato per consentire ai clienti di accedere agli aspetti dell’ambiente cloud.
+* **Unità di scala in ambienti multi-tenant condivisi.** Un modello può rappresentare un'unità di scala per ambienti multi-tenant. In questo caso, la stessa infrastruttura viene utilizzata per supportare tutti i clienti. Le distribuzioni rappresentano un gruppo di risorse che forniscono un livello di capacità per le offerte ospitate, ad esempio numero di utenti e numero di transazioni. Tali unità di scala sono aumentate o diminuite secondo necessità.
 
 ### Offerta CSV inserita nella sottoscrizione del cliente
-
 Potrebbe essere necessario distribuire il software in sottoscrizioni appartenenti a clienti finali. È possibile utilizzare modelli per distribuire distribuzioni distinte in un account Azure del cliente.
 
 Queste distribuzioni utilizzano lo RBAC, pertanto è possibile aggiornare e gestire la distribuzione all'interno dell’account cliente.
 
 ### Azure Marketplace
-
 Per pubblicizzare e vendere le proprie offerte tramite un marketplace, ad esempio Azure Marketplace, è possibile sviluppare modelli per la fornitura di tipi distinti di distribuzioni che vengono eseguiti nell'account Azure di un cliente. Queste distribuzioni distinte possono essere descritte in genere come taglia (small, medium, large), tipo di prodotto/pubblico (community, sviluppatore, grande impresa) o tipo di funzionalità (di base, disponibilità elevata). In alcuni casi, tali tipi consentono di specificare determinati attributi di distribuzione, ad esempio il tipo di VM o il numero di dischi.
 
 ## Progetti OSS
-
 All'interno dei progetti open source, i modelli di Gestione delle risorse consentono a una community di distribuire rapidamente una soluzione, utilizzando procedure consolidate. I modelli possono essere archiviati in un archivio GitHub in modo che la community possa esaminarli nel tempo. Gli utenti distribuiscono questi modelli nelle proprie sottoscrizioni di Azure.
 
 Nelle sezioni seguenti vengono identificati gli aspetti da considerare prima di progettare la soluzione.
 
 ## Identificare gli elementi esterni e interni di una VM
-
 Quando si progetta il modello, è utile esaminare i requisiti in termini di elementi interni ed esterni delle macchine virtuali (VM):
 
-- Per elementi esterni si intendono le VM e altre risorse della distribuzione, quali la topologia di rete, associazione di tag, riferimenti a certificati o chiavi private e controllo di accesso basato sui ruoli. Tutte queste risorse fanno parte del modello.
-- Per elementi interni si intende il software installato e la configurazione dello stato globale desiderato. Altri meccanismi, ad esempio le estensioni di VM o gli script, vengono utilizzati in tutto o in parte. Questi meccanismi possono essere identificati ed eseguiti dal modello ma non al suo interno.
+* Per elementi esterni si intendono le VM e altre risorse della distribuzione, quali la topologia di rete, associazione di tag, riferimenti a certificati o chiavi private e controllo di accesso basato sui ruoli. Tutte queste risorse fanno parte del modello.
+* Per elementi interni si intende il software installato e la configurazione dello stato globale desiderato. Altri meccanismi, ad esempio le estensioni di VM o gli script, vengono utilizzati in tutto o in parte. Questi meccanismi possono essere identificati ed eseguiti dal modello ma non al suo interno.
 
 Esempi comuni di attività eseguite "inside the box" sono:
 
-- Installare o rimuovere funzionalità e ruoli del server
-- Installare e configurare il software a livello di nodo o cluster
-- Distribuire siti Web in un server Web
-- Distribuire schemi di database
-- Gestire il registro di sistema o altri tipi di impostazioni di configurazione
-- Gestire file e directory
-- Avviare, arrestare e gestire processi e servizi
-- Gestire account utente e gruppi locali
-- Installare e gestire i pacchetti (file con estensione .msi, .exe, yum e così via)
-- Gestire le variabili di ambiente
-- Eseguire gli script nativi (Windows PowerShell, bash e così via)
+* Installare o rimuovere funzionalità e ruoli del server
+* Installare e configurare il software a livello di nodo o cluster
+* Distribuire siti Web in un server Web
+* Distribuire schemi di database
+* Gestire il registro di sistema o altri tipi di impostazioni di configurazione
+* Gestire file e directory
+* Avviare, arrestare e gestire processi e servizi
+* Gestire account utente e gruppi locali
+* Installare e gestire i pacchetti (file con estensione .msi, .exe, yum e così via)
+* Gestire le variabili di ambiente
+* Eseguire gli script nativi (Windows PowerShell, bash e così via)
 
 ### Configurazione dello stato desiderato (DSC)
-
 Relativamente allo stato interno delle VM dopo la distribuzione, è opportuno verificare che tale distribuzione non "devii" dalla configurazione definita e controllata nel controllo del codice sorgente. Con questo approccio gli sviluppatori o il personale addetto alle operazioni potranno apportare a un ambiente solo le modifiche ad hoc che sono state esaminate, testate o registrate nel controllo del codice sorgente. Questo controllo è importante perché le modifiche manuali non sono presenti nel controllo del codice sorgente e non fanno nemmeno parte della distribuzione standard e avranno un impatto sulle future distribuzioni automatiche del software.
 
 Oltre che dal punto di vista dei dipendenti interni, la configurazione dello stato desiderato è importante anche in termini di sicurezza. I pirati informatici tentano regolarmente di compromettere e sfruttare i sistemi software. Quando il tentativo riesce, lo scopo è in genere l'installazione di file o altrimenti la modifica dello stato di un sistema compromesso. Utilizzando la configurazione dello stato desiderato, è possibile identificare i delta tra lo stato desiderato e quello effettivo e ripristinare una configurazione nota.
@@ -120,32 +107,26 @@ Oltre che dal punto di vista dei dipendenti interni, la configurazione dello sta
 Esistono estensioni di risorsa per i meccanismi più diffusi per DSC - PowerShell DSC, Chef e Puppet. Ognuna di queste estensioni può distribuire lo stato iniziale della VM ed essere usata anche per verificare che venga mantenuto lo stato voluto.
 
 ## Ambiti dei modello comuni
-
 Nella nostra esperienza, abbiamo visto emergere tre ambiti principali per i modelli di soluzioni. Questi tre ambiti, ovvero capacità, funzionalità e soluzione end-to-end, sono descritti nelle sezioni seguenti.
 
 ### Ambito di capacità
-
 Un ambito di capacità offre un set di risorse in una topologia standard preconfigurata per essere conforme a regolamenti e criteri. L'esempio più comune è la distribuzione di un ambiente di sviluppo standard in uno scenario di IT aziendale o SI.
 
 ### Ambito di funzionalità
-
 Un ambito di funzionalità è incentrato sulla distribuzione e configurazione di una topologia per una determinata tecnologia. Scenari comuni includono tecnologie quali SQL Server, Cassandra, Hadoop.
 
 ### Ambito di soluzione end-to-end
-
 Un ambito di soluzione end-to-end non riguarda una singola funzionalità ma è invece incentrato sulla fornitura di una soluzione end-to-end costituita da più funzionalità.
 
 Un ambito di modello con ambito soluzione si manifesta come un set di uno o più modelli con ambito funzionalità con risorse, logica e stato desiderato specifici della soluzione. Un esempio di modello con ambito soluzione è un modello di soluzione di pipeline di dati end-to-end. Il modello può combinare una topologia e uno stato specifici della soluzione con più modelli di soluzione con ambito funzionalità, ad esempio Kafka, Storm e Hadoop.
 
 ## Scelta del formato libero rispetto a configurazioni note
-
 Inizialmente si potrebbe pensare che un modello debba fornire ai fruitori la massima flessibilità, ma sulla scelta di utilizzare configurazioni in formato libero o configurazioni note influiscono molteplici considerazioni. In questa sezione vengono identificati i principali requisiti dei clienti e le considerazioni tecniche che hanno plasmato l’approccio illustrato nel presente documento.
 
 ### Configurazioni in formato libero
-
 In apparenza, le configurazioni in formato libero sembrano ideali. Consentono di selezionare un tipo di VM e specificare un numero arbitrario di nodi e dischi collegati per tali nodi, come parametri di un modello. Questo approccio, tuttavia, non è l'ideale per alcuni scenari.
 
-Nell'articolo [Dimensioni delle macchine virtuali](./virtual-machines/virtual-machines-windows-sizes.md) vengono identificati i diversi tipi di VM e le dimensioni disponibili oltre a ciascuna combinazione di dischi permanenti (2, 4, 8, 16 o 32) collegabile. Ogni disco collegato fornisce 500 IOPS ed è possibile raggruppare più dischi per ottenere un multiplo di tale numero di IOPS. Ad esempio, 16 dischi possono essere raggruppati per fornire 8.000 IOPS. Il pooling viene eseguito con la configurazione nel sistema operativo, utilizzando spazi di archiviazione di Microsoft Windows o RAID (Redundant Array of Inexpensive Disks) in Linux.
+Nell'articolo [Dimensioni delle macchine virtuali](virtual-machines/virtual-machines-windows-sizes.md) vengono identificati i diversi tipi di VM e le dimensioni disponibili oltre a ciascuna combinazione di dischi permanenti (2, 4, 8, 16 o 32) collegabile. Ogni disco collegato fornisce 500 IOPS ed è possibile raggruppare più dischi per ottenere un multiplo di tale numero di IOPS. Ad esempio, 16 dischi possono essere raggruppati per fornire 8.000 IOPS. Il pooling viene eseguito con la configurazione nel sistema operativo, utilizzando spazi di archiviazione di Microsoft Windows o RAID (Redundant Array of Inexpensive Disks) in Linux.
 
 Una configurazione in formato libero consente di selezionare varie istanze di VM, vari tipi e dimensioni differenti di VM per tali istanze, un numero di dischi che può variare in base al tipo di VM e uno o più script per configurare il contenuto delle VM.
 
@@ -164,7 +145,6 @@ Non è poi possibile creare sottoscrizioni tramite una chiamata API, ma è neces
 Considerando tutti questi fattori, l’adozione di una configurazione in formato libero risulta meno accattivante che a prima vista.
 
 ### Configurazioni note: l’approccio a taglie
-
 Anziché offrire un modello che fornisce massima flessibilità e innumerevoli variazioni, secondo la nostra esperienza uno schema diffuso è fornire la possibilità di selezionare configurazioni note, ovvero taglie standard quali sandbox, small, medium e large. Altri esempi di taglie sono le offerte di prodotti, come Community Edition o Enterprise Edition. In altri casi, potrebbero essere configurazioni specifiche per i carichi di lavoro di una determinata tecnologia, ad esempio map reduce o no sql.
 
 Molteplici organizzazioni IT aziendali, fornitori di OSS e SI oggi rendono disponibili le loro offerte utilizzando questo approccio in ambienti locali virtualizzati (aziende) o come offerte software-as-a-service (SaaS) (CSV e OSV).
@@ -182,7 +162,6 @@ Ai clienti è inoltre possibile offrire varianti specifiche utilizzando modelli 
 Sulla base degli scenari di utilizzo dei modelli da parte dei clienti, dei requisiti identificati all’inizio di questo documento e alla nostra esperienza pratica nella creazione di numerosi modelli, abbiamo identificato uno schema per la scomposizione dei modelli.
 
 ## Modelli di soluzione con ambito di capacità e funzionalità
-
 La scomposizione offre un approccio modulare allo sviluppo dei modelli in grado di supportare riutilizzo, estendibilità e strumenti. In questa sezione vengono forniti dettagli sulla modalità di applicazione di un approccio di scomposizione a modelli con un ambito di capacità o funzionalità.
 
 In questo approccio, un modello principale riceve i valori dei parametri da un consumer di modello, quindi si collega a vari tipi di modelli e script a valle come illustrato di seguito. Per inserire ed estrarre valori dei modelli collegati vengono utilizzati parametri, variabili statiche e variabili generate.
@@ -194,7 +173,6 @@ In questo approccio, un modello principale riceve i valori dei parametri da un c
 Le sezioni seguenti illustrano i tipi di modelli e di script in cui viene scomposto un singolo modello. Le sezioni descrivono gli approcci per passare le informazioni sullo stato tra i modelli. Ogni modello e i tipi di script nell'immagine sono descritti con esempi. Per un esempio contestuale, vedere "Uso combinato: un'implementazione di esempio", più avanti in questo documento.
 
 ### Metadati del modello
-
 I metadati del modello (il file metadata.json) contengono coppie chiave/valore che descrivono un modello in JSON, leggibili da persone e sistemi software.
 
 ![Metadati del modello](./media/best-practices-resource-manager-design-templates/template-metadata.png)
@@ -214,7 +192,6 @@ Di seguito è riportato un file di esempio nel suo complesso.
     }
 
 ### Modello principale
-
 Il modello principale riceve i parametri da un utente, usa tali informazioni per popolare variabili oggetto complesse ed esegue i modelli collegati.
 
 ![Modello principale](./media/best-practices-resource-manager-design-templates/main-template.png)
@@ -228,7 +205,6 @@ Alcune risorse vengono distribuite indipendentemente dalla configurazione nota s
 Alcune risorse vengono distribuite facoltativamente indipendentemente dalla configurazione nota specificata.
 
 ### Modello di risorse condivise
-
 Questo modello offre risorse comuni a tutte le configurazioni note. Contiene la rete virtuale, i set di disponibilità e altre risorse necessarie indipendentemente dal modello di configurazione nota distribuito.
 
 ![Risorse del modello](./media/best-practices-resource-manager-design-templates/template-resources.png)
@@ -238,7 +214,6 @@ Questo modello offre risorse comuni a tutte le configurazioni note. Contiene la 
 I nomi delle risorse, ad esempio il nome della rete virtuale, si basano sul modello principale. È possibile specificarli come una variabile all'interno di tale modello o riceverli come parametro dall'utente, secondo quanto richiesto dall'organizzazione.
 
 ### Modello di risorse facoltative
-
 Il modello di risorse facoltative contiene risorse distribuite a livello di codice in base al valore di un parametro o di una variabile.
 
 ![Risorse facoltative](./media/best-practices-resource-manager-design-templates/optional-resources.png)
@@ -249,13 +224,12 @@ Ad esempio, è possibile utilizzare un modello di risorse facoltative per config
 
 È possibile collegare il modello di risorse facoltative da più posizioni:
 
--	Quando applicabile a ogni distribuzione, creare un collegamento basato su parametro dal modello di risorse condivise.
--	Quando applicabile alle configurazioni note selezionate, ad esempio, installare solo in distribuzioni di grandi dimensioni, creare un collegamento basato su parametro o su variabile dal modello di configurazione nota.
+* Quando applicabile a ogni distribuzione, creare un collegamento basato su parametro dal modello di risorse condivise.
+* Quando applicabile alle configurazioni note selezionate, ad esempio, installare solo in distribuzioni di grandi dimensioni, creare un collegamento basato su parametro o su variabile dal modello di configurazione nota.
 
 Se una determinata risorsa è facoltativa potrebbe non dipendere dal consumer del modello ma dal fornitore del modello. Ad esempio, potrebbe essere necessario soddisfare un requisito specifico del prodotto o un componente aggiuntivo di prodotto (comune per i CSV) o per applicare i criteri (comune per SI e gruppi IT aziendali). In questi casi, è possibile utilizzare una variabile per stabilire se la risorsa deve essere distribuita o meno.
 
 ### Modello di risorse di configurazione note
-
 Nel modello principale, un parametro può essere esposto per consentire al consumer del modello di specificare una configurazione nota desiderata da distribuire. Spesso, questa configurazione nota usa un approccio basato sulle taglie con un set di dimensioni di configurazione fisse quali sandbox, small, medium e large.
 
 ![Risorse di configurazione note](./media/best-practices-resource-manager-design-templates/known-config.png)
@@ -266,11 +240,10 @@ L'approccio a taglie viene comunemente utilizzato, ma i parametri possono rappre
 
 Come con il modello di risorsa condivisa, le variabili vengono passate al modello di configurazioni note da:
 
--	Un utente finale, ovvero i parametri inviati al modello principale.
--	Un'organizzazione, ovvero le variabili nel modello principale che rappresentano requisiti o criteri interni.
+* Un utente finale, ovvero i parametri inviati al modello principale.
+* Un'organizzazione, ovvero le variabili nel modello principale che rappresentano requisiti o criteri interni.
 
 ### Modello di risorse membro
-
 All'interno di una configurazione nota sono spesso inclusi uno o più tipi di nodi membro. Ad esempio, con Hadoop si hanno nodi master e nodi dati. Installando MongoDB, si hanno nodi dati e un arbitro. Distribuendo DataStax, si hanno nodi dati e una VM con OpsCenter installato.
 
 ![Risorse membro](./media/best-practices-resource-manager-design-templates/member-resources.png)
@@ -282,7 +255,6 @@ Ogni tipo di nodo può avere dimensioni di VM, numeri di dischi collegati, scrip
 Per le VM, in genere vengono utilizzati due tipi di script, ovvero script ampiamente riutilizzabili e script personalizzati.
 
 ### Script ampiamente riutilizzabili
-
 Gli script ampiamente riutilizzabili possono essere impiegati in più tipi di modelli. Uno degli esempi migliori per questi script ampiamente riutilizzabili imposta RAID su Linux per raggruppare dischi in pool e ottenere un numero maggiore di IOPS. Indipendentemente dal software installato nella VM, questo script consente di riutilizzare procedure consolidate per scenari comuni.
 
 ![Script riutilizzabili](./media/best-practices-resource-manager-design-templates/reusable-scripts.png)
@@ -290,7 +262,6 @@ Gli script ampiamente riutilizzabili possono essere impiegati in più tipi di mo
 **I modelli di risorse membro possono chiamare script ampiamente riutilizzabili**
 
 ### Script personalizzati
-
 I modelli chiamano comunemente uno o più script che consentono di installare e configurare il software all'interno delle VM. È stato osservato uno schema comune con le topologie di grandi dimensioni in cui vengono distribuite più istanze di uno o più tipi membro. Per ogni macchina virtuale viene avviato uno script di installazione eseguibile in parallelo, seguito da uno script di configurazione chiamato dopo la distribuzione di tutte le VM (o tutte le VM di un tipo di membro specificato).
 
 ![Script personalizzati](./media/best-practices-resource-manager-design-templates/custom-scripts.png)
@@ -298,13 +269,11 @@ I modelli chiamano comunemente uno o più script che consentono di installare e 
 **I modelli di risorse membro possono chiamare script per uno scopo specifico, ad esempio la configurazione della VM**
 
 ## Esempio di modello di soluzione con ambito di funzionalità - Redis
-
 Per mostrare come potrebbe funzionare un'implementazione, verrà esaminato un esempio pratico di creazione di un modello che facilita la distribuzione e la configurazione di Redis a taglie standard.
 
 Per la distribuzione, sono disponibile un set di risorse condivise (rete virtuale, account di archiviazione, set di disponibilità) e una risorsa facoltativa (jumpbox). Esistono più configurazioni note rappresentate come taglie (small, medium, large) ma ciascuna con un tipo di nodo singolo. Esistono anche due script specifici per lo scopo (installazione, configurazione).
 
 ### Creazione dei file dei modelli
-
 Verrà creato un modello principale denominato azuredeploy.json.
 
 Verrà creato un modello di risorse condivise denominato shared-resources.json
@@ -316,7 +285,6 @@ Redis usa solo un tipo di nodo singolo, in modo che venga creato un unico modell
 Con Redis, si vuole installare ogni singolo nodo e quindi configurare il cluster. Sono disponibili script per eseguire l'installazione e la configurazione, redis-cluster-install.sh e redis-cluster-setup.sh.
 
 ### Collegamento dei modelli
-
 Utilizzando il collegamento di modello, il modello principale si collega al modello di risorse condivise, stabilendo in tal modo la rete virtuale.
 
 Nel modello principale viene aggiunta la logica per consentire ai consumer del modello di specificare se un jumpbox dovrà essere distribuito o meno. Un valore *abilitato* per il parametro *AbilitaJumpbox* indica che il cliente desidera distribuire un jumpbox. Quando questo valore viene specificato, il modello concatena *\_enabled* come suffisso al nome di un modello di base per la funzionalità di jumpbox.
@@ -330,15 +298,12 @@ La topologia sarà simile a questa illustrazione.
 **Struttura del modello per un modello di Redis**
 
 ### Configurazione dello stato
-
 Per i nodi del cluster, esistono due fasi per la configurazione dello stato, entrambe rappresentate da script specifici per lo scopo. "redis-cluster-install.sh" installa Redis e "redis-cluster-setup.sh" configura il cluster.
 
 ### Supporto di distribuzioni di dimensioni diverse
-
 Nelle variabili il modello delle taglie specifica il numero di nodi di ogni tipo di distribuzione per la dimensione specificata (*large*). Distribuisce poi il numero di istanze di macchina virtuale utilizzando i cicli di risorse, specificando nomi univoci alle risorse mediante l'aggiunta di un nome di nodo con un numero di sequenza numerica da *copyIndex()*. Questi passaggi vengono eseguiti per le VM di un'area sia sensibile che di una meno sensibile, come definito nel modello di nome della taglia.
 
 ## Modelli con ambito di soluzione end-to-end e di scomposizione
-
 Un modello di soluzione con ambito di soluzione end-to-end è incentrato sulla fornitura di una soluzione end-to-end. Questo approccio prevede in genere una composizione di più modelli con ambito di funzionalità con risorse aggiuntive, logica e stato.
 
 Come evidenziato nell'immagine riportata di seguito, lo stesso modello utilizzato per i modelli con ambito di funzionalità viene esteso per i modelli con ambito di soluzione End-to-End.
@@ -356,7 +321,6 @@ Dato che la taglia della soluzione può differire dal modello con ambito di funz
 **Il modello utilizzato per i modelli di soluzioni con ambito di capacità o funzionalità possono essere facilmente estesi per gli ambiti dei modelli di soluzioni end-to-end**
 
 ## Preparazione di modelli per Marketplace
-
 L'approccio precedente si adatta facilmente a scenari in cui le aziende, gli SI e i CSV vogliono distribuire autonomamente i modelli o consentire ai propri clienti di distribuirli in modo indipendente.
 
 Un altro scenario desiderato è la distribuzione di un modello tramite marketplace. Questo approccio di scomposizione funziona anche per il marketplace, con alcune piccole modifiche.
@@ -376,8 +340,7 @@ Se si desidera pubblicare il modello in marketplace, è sufficiente stabilire co
 **Adattamento di un modello con ambito di soluzione per marketplace**
 
 ## Passaggi successivi
-
-- Per consigli su come gestire la protezione in Gestione risorse di Azure, vedere[Considerazioni sulla protezione per Gestione risorse di Azure](best-practices-resource-manager-security.md)
-- Per ulteriori informazioni sulla condivisione dello stato all’interno e all'esterno dei modelli, vedere [Condivisione dello stato nei modelli di Gestione risorse di Azure](best-practices-resource-manager-state.md)
+* Per consigli su come gestire la protezione in Gestione risorse di Azure, vedere[Considerazioni sulla protezione per Gestione risorse di Azure](best-practices-resource-manager-security.md)
+* Per ulteriori informazioni sulla condivisione dello stato all’interno e all'esterno dei modelli, vedere [Condivisione dello stato nei modelli di Gestione risorse di Azure](best-practices-resource-manager-state.md)
 
 <!---HONumber=AcomDC_0914_2016-->

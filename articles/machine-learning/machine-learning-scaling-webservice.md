@@ -1,33 +1,33 @@
-<properties
-   pageTitle="Ridimensionamento di un servizio Web | Microsoft Azure"
-   description="Informazioni su come ridimensionare un servizio Web mediante l'aumento della concorrenza e l'aggiunta di nuovi endpoint."
-   services="machine-learning"
-   documentationCenter=""
-   authors="neerajkh"
-   manager="srikants"
-   editor="cgronlun"
-   keywords="azure machine learning, servizi Web, messa in funzione, scalabilità, endpoint, concorrenza"
-   />
-<tags
-   ms.service="machine-learning"
-   ms.devlang="NA"
-   ms.workload="data-services"
-   ms.tgt_pltfrm="na"
-   ms.topic="article"
-   ms.date="10/05/2016"
-   ms.author="neerajkh"/>
+---
+title: Ridimensionamento di un servizio Web | Microsoft Docs
+description: Informazioni su come ridimensionare un servizio Web mediante l'aumento della concorrenza e l'aggiunta di nuovi endpoint.
+services: machine-learning
+documentationcenter: ''
+author: neerajkh
+manager: srikants
+editor: cgronlun
+keywords: azure machine learning, servizi Web, messa in funzione, scalabilità, endpoint, concorrenza
 
+ms.service: machine-learning
+ms.devlang: NA
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.topic: article
+ms.date: 10/05/2016
+ms.author: neerajkh
 
+---
 # <a name="scaling-a-web-service"></a>Ridimensionamento di un servizio Web
-
->[AZURE.NOTE] Questo argomento descrive le tecniche applicabili a un servizio Web classico di Machine Learning. 
+> [!NOTE]
+> Questo argomento descrive le tecniche applicabili a un servizio Web classico di Machine Learning. 
+> 
+> 
 
 Per impostazione predefinita, ogni servizio Web pubblicato è configurato per supportare 20 richieste simultanee e può gestire fino a 200 richieste simultanee. Il portale di Azure classico permette di impostare questo valore, mentre Azure Machine Learning ottimizza automaticamente questa impostazione per offrire le prestazioni migliori per il servizio Web, ignorando il valore del portale. 
 
 Se si prevede di chiamare l'API con un carico superiore rispetto al valore di 200 per il numero massimo di chiamate simultanee supportate, è consigliabile creare più endpoint nello stesso servizio Web. È quindi possibile distribuire casualmente il carico tra tutti gli endpoint.
 
 ## <a name="add-new-endpoints-for-same-web-service"></a>Aggiungere nuovi endpoint per lo stesso servizio Web
-
 Il ridimensionamento di un servizio Web è un'attività comune. Alcuni motivi per il ridimensionamento consistono nella necessità di supportare più di 200 richieste simultanee, aumentare la disponibilità tramite più endpoint o fornire endpoint separati per il servizio Web. È possibile aumentare la scalabilità mediante l'aggiunta di altri endpoint per lo stesso servizio Web tramite il [portale di Azure classico](https://manage.windowsazure.com/) o il [portale dei servizi Web di Azure Machine Learning](https://services.azureml.net/).
 
 Per altre informazioni sull'aggiunta di nuovi endpoint, vedere [Creazione di endpoint](machine-learning-create-endpoint.md).

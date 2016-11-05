@@ -1,28 +1,30 @@
-<properties
-	pageTitle="Modificare o aggiornare le proprietà API PowerApps nel portale di Azure | Microsoft Azure"
-	description="Aggiungere un'icona personalizzata, aggiornare il criterio XML o aggiornare la definizione Swagger dell'API PowerApps"
-	services=""
-    suite="powerapps"
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="dwrede"
-	editor=""/>
+---
+title: Modificare o aggiornare le proprietà API PowerApps nel portale di Azure | Microsoft Docs
+description: Aggiungere un'icona personalizzata, aggiornare il criterio XML o aggiornare la definizione Swagger dell'API PowerApps
+services: ''
+suite: powerapps
+documentationcenter: ''
+author: MandiOhlinger
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="powerapps"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="05/02/2016"
-   ms.author="guayan"/>
+ms.service: powerapps
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 05/02/2016
+ms.author: guayan
 
+---
 # Aggiornare un'API esistente e le relative proprietà
-
-> [AZURE.IMPORTANT] Questo argomento è stato archiviato e verrà presto rimosso. Tutte le novità sono disponibili in [PowerApps](https://powerapps.microsoft.com).
+> [!IMPORTANT]
+> Questo argomento è stato archiviato e verrà presto rimosso. Tutte le novità sono disponibili in [PowerApps](https://powerapps.microsoft.com).
 > 
-> - Per altre informazioni su PowerApps e per iniziare a usarlo, visitare [PowerApps](https://powerapps.microsoft.com).  
-> - Per altre informazioni sulle API personalizzate in PowerApps, accedere alla [descrizione delle API personalizzate](https://powerapps.microsoft.com/tutorials/register-custom-api/). 
+> * Per altre informazioni su PowerApps e per iniziare a usarlo, visitare [PowerApps](https://powerapps.microsoft.com).  
+> * Per altre informazioni sulle API personalizzate in PowerApps, accedere alla [descrizione delle API personalizzate](https://powerapps.microsoft.com/tutorials/register-custom-api/). 
+> 
+> 
 
 <!--Archived
 The API you register in the app service environment is essentially a proxy to your backend service. Once you create the API, you may want to change its properties. For example, you may want to: 
@@ -66,10 +68,10 @@ Authenticate with backend service | After registering your backend service in th
 
 - To learn more about Swagger 2.0, see the [official Swagger website](http://swagger.io).
 - To learn more about how to get Swagger 2.0 when developing your API, see:  
-	- [Create an ASP.NET API app in Azure App Service](../app-service-dotnet-create-api-app.md)
-	- [Build and deploy a Java API app in Azure App Service](../app-service-api-java-api-app.md)
-	- [Build and deploy a Node.js API app in Azure App Service](../app-service-api-nodejs-api-app.md)
-	- [Customize Swashbuckle-generated API definitions](../app-service-api-dotnet-swashbuckle-customize.md)
+    - [Create an ASP.NET API app in Azure App Service](../app-service-dotnet-create-api-app.md)
+    - [Build and deploy a Java API app in Azure App Service](../app-service-api-java-api-app.md)
+    - [Build and deploy a Node.js API app in Azure App Service](../app-service-api-nodejs-api-app.md)
+    - [Customize Swashbuckle-generated API definitions](../app-service-api-dotnet-swashbuckle-customize.md)
 - To learn more about best practices of using Swagger 2.0 for PowerApps, see [Develop an API for PowerApps](powerapps-develop-api.md).
 
 ## Update the XML policy of your API

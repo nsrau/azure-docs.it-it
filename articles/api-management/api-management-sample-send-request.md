@@ -1,24 +1,22 @@
-<properties
-	pageTitle="Uso del servizio Gestione API per generare richieste HTTP"
-	description="Informazioni sull'uso dei criteri di richiesta e risposta in Gestione API per chiamare servizi esterni dall'API"
-	services="api-management"
-	documentationCenter=""
-	authors="darrelmiller"
-	manager=""
-	editor=""/>
+---
+title: Uso del servizio Gestione API per generare richieste HTTP
+description: Informazioni sull'uso dei criteri di richiesta e risposta in Gestione API per chiamare servizi esterni dall'API
+services: api-management
+documentationcenter: ''
+author: darrelmiller
+manager: ''
+editor: ''
 
-<tags
-	ms.service="api-management"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/09/2016"
-	ms.author="darrmi"/>
+ms.service: api-management
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: darrmi
 
-
+---
 # Uso di servizi esterni dal servizio Gestione API di Azure
-
 I criteri disponibili nel servizio Gestione API di Azure possono essere usati per una vasta gamma di attività basate esclusivamente su richieste in ingresso, risposte in uscita e informazioni di configurazione di base. Tuttavia, la possibilità di interagire con i servizi esterni dai criteri di Gestione API offre molte altre opportunità.
 
 In precedenza è stata analizzata l'interazione con il [servizio Hub eventi di Azure per la registrazione, il monitoraggio e l'analisi](api-management-log-to-eventhub-sample.md). In questo articolo verranno descritti i criteri che consentono di interagire con qualsiasi servizio esterno basato su HTTP. Questi criteri possono essere usati per l'attivazione di eventi remoti o per il recupero di informazioni che verranno usate per gestire la richiesta e la risposta originali.
@@ -130,17 +128,17 @@ Combinando tutte le parti descritte, si ottengono i criteri seguenti:
       </send-request>
 
       <choose>
-  			<!-- Check active property in response -->
-  			<when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">
-  				<!-- Return 401 Unauthorized with http-problem payload -->
-  				<return-response response-variable-name="existing response variable">
-  					<set-status code="401" reason="Unauthorized" />
-  					<set-header name="WWW-Authenticate" exists-action="override">
-  						<value>Bearer error="invalid_token"</value>
-  					</set-header>
-  				</return-response>
-  			</when>
-  		</choose>
+              <!-- Check active property in response -->
+              <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">
+                  <!-- Return 401 Unauthorized with http-problem payload -->
+                  <return-response response-variable-name="existing response variable">
+                      <set-status code="401" reason="Unauthorized" />
+                      <set-header name="WWW-Authenticate" exists-action="override">
+                          <value>Bearer error="invalid_token"</value>
+                      </set-header>
+                  </return-response>
+              </when>
+          </choose>
       <base />
     </inbound>
 
@@ -149,7 +147,7 @@ Questo è solo uno dei numerosi esempi che illustrano come usare i criteri `send
 ## Composizione della risposta
 I criteri `send-request` possono essere usati per l'ottimizzazione di una richiesta primaria a un sistema back-end, come illustrato nell'esempio precedente, oppure come sostituzione completa della chiamata al back-end. Questa tecnica consente di creare facilmente risorse composite che vengono aggregate da più sistemi.
 
-### Creazione di un dashboard   
+### Creazione di un dashboard
 A volte può essere utile saper esporre le informazioni presenti in più sistemi back-end, ad esempio, per creare un dashboard. Gli indicatori KPI provengono da diversi sistemi back-end, ma può essere opportuno evitare di fornire accesso diretto a questi ultimi e può essere utile recuperare tutte le informazioni in un'unica richiesta. Ad esempio, può essere innanzitutto necessario sezionare e ripulire alcune delle informazioni di back-end. La possibilità di memorizzare nella cache tale risorsa complessa può essere utile per ridurre il carico del back-end, dato che gli utenti tendono a premere F5 per verificare se è possibile modificare le prestazioni limitate delle metriche.
 
 ### Simulazione della risorsa
@@ -192,7 +190,6 @@ Quando le informazioni sono disponibili, è possibile inviare le richieste a tut
 Queste richieste vengono eseguite in sequenza, ma non si tratta della situazione ideale. In una versione futura verranno introdotti nuovi criteri denominati `wait` che consentiranno l'esecuzione in parallelo di tutte le richieste.
 
 ### Invio delle risposte
-
 Per costruire la risposta composita è possibile usare i criteri [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse). L'elemento `set-body` può usare un'espressione per creare un nuovo oggetto `JObject` con tutte le rappresentazioni di componenti incorporate come proprietà.
 
     <return-response response-variable-name="existing response variable">
@@ -212,7 +209,7 @@ Per costruire la risposta composita è possibile usare i criteri [return-respons
 I criteri completi saranno simili ai seguenti:
 
     <policies>
-    	<inbound>
+        <inbound>
 
       <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
       <set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
@@ -250,13 +247,13 @@ I criteri completi saranno simili ai seguenti:
                           ).ToString())
           </set-body>
         </return-response>
-    	</inbound>
-    	<backend>
-    		<base />
-    	</backend>
-    	<outbound>
-    		<base />
-    	</outbound>
+        </inbound>
+        <backend>
+            <base />
+        </backend>
+        <outbound>
+            <base />
+        </outbound>
     </policies>
 
 Nella configurazione dell'operazione segnaposto è possibile impostare la risorsa dashboard in modo che venga memorizzata nella cache per almeno un'ora, perché la natura dei dati implica che anche se scaduta, è comunque sufficientemente efficace per fornire informazioni utili agli utenti.
@@ -267,6 +264,8 @@ Il servizio Gestione API di Azure offre criteri flessibili che possono essere ap
 ## Video contenente una panoramica di questi criteri
 Per altre informazioni sui criteri [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) e [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) presentati in questo articolo, guardare il video seguente.
 
-> [AZURE.VIDEO send-request-and-return-response-policies]
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Send-Request-and-Return-Response-Policies/player]
+> 
+> 
 
 <!---HONumber=AcomDC_0810_2016-->

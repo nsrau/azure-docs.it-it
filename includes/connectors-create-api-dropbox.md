@@ -1,5 +1,5 @@
 ### Prerequisiti
-- Un account [Dropbox](https://www.Dropbox.com/) 
+* Un account [Dropbox](https://www.Dropbox.com/) 
 
 Prima di poter usare l'account Dropbox in un'app per la logica, è necessario autorizzare l'app per la logica a connettersi a tale account. Fortunatamente, è possibile eseguire questa operazione in modo facile dalla propria app per la logica nel portale di Azure.
 
@@ -10,3 +10,4 @@ Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account Dr
 3. Fornire il nome utente e la password di Dropbox per autorizzare l'app per la logica: ![Dropbox passaggio 3](./media/connectors-create-api-dropbox/dropbox-3.png)   
 4. Autorizzare l'app per la logica a usare l'account Dropbox: ![Dropbox passaggio 4](./media/connectors-create-api-dropbox/dropbox-4.png)
 5. Si noti che la connessione è stata creata ed è ora possibile procedere con gli altri passaggi nell'app per la logica: ![Dropbox passaggio 5](./media/connectors-create-api-dropbox/dropbox-5.png)   
+

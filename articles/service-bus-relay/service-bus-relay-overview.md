@@ -1,25 +1,22 @@
-<properties
-    pageTitle="Panoramica sull'inoltro del bus di servizio | Microsoft Azure"
-    description="Panoramica dell'inoltro del bus di servizio."
-    services="service-bus"
-    documentationCenter=".net"
-    authors="sethmanheim"
-    manager="timlt"
-    editor=""/>
+---
+title: Panoramica sull'inoltro del bus di servizio | Microsoft Docs
+description: Panoramica dell'inoltro del bus di servizio.
+services: service-bus
+documentationcenter: .net
+author: sethmanheim
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="service-bus"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="multiple"
-    ms.topic="get-started-article"
-    ms.date="09/01/2016"
-    ms.author="sethm"/>
+ms.service: service-bus
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: get-started-article
+ms.date: 09/01/2016
+ms.author: sethm
 
-
-
+---
 # <a name="overview-of-service-bus-relay"></a>Panoramica dell'inoltro del bus di servizio
-
 Un componente importante del bus di servizio è un servizio di *inoltro* centralizzato, ma con carico altamente bilanciato, che consente di creare applicazioni ibride che vengono eseguite sia in un data center di Azure che nell'ambiente aziendale locale.  L'inoltro del bus di servizio supporta un'ampia gamma di protocolli di trasporto e standard dei servizi Web, tra cui SOAP, WS-* e anche REST. Il servizio di inoltro semplifica le applicazioni ibride consentendo di esporre in modo sicuro nel cloud pubblico i servizi WCF (Windows Communication Foundation) che risiedono in una rete aziendale, senza dover aprire una connessione firewall o richiedere modifiche di notevole impatto a un'infrastruttura di rete aziendale. 
 
 ![Concetti relativi all'inoltro](./media/service-bus-relay-overview/sb-relay-01.png)
@@ -31,14 +28,10 @@ Nel modello di messaggistica inoltrata, un servizio locale si connette al serviz
 È possibile avviare la connessione tra il servizio locale e il servizio di inoltro mediante una suite di associazioni di "inoltro" WCF. Dietro le quinte, eseguire il mapping delle associazioni di inoltro ai nuovi elementi di associazione di trasporto progettati per creare i componenti di canale WCF che si integrano con il bus di servizio nel cloud. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-
 Per informazioni dettagliate sull'inoltro del bus di servizio, vedere gli argomenti seguenti.
 
-- [Panoramica dell'architettura del bus di servizio di Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
-- [Come usare il servizio Inoltro del bus di servizio di Azure](service-bus-dotnet-how-to-use-relay.md)
-
- 
-
+* [Panoramica dell'architettura del bus di servizio di Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
+* [Come usare il servizio Inoltro del bus di servizio di Azure](service-bus-dotnet-how-to-use-relay.md)
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,22 +1,22 @@
-<properties
-    pageTitle="Adozione di Catalogo dati di Azure | Microsoft Azure"
-    description="Questo articolo presenta un approccio e un processo per le organizzazioni intenzionate ad adottare Azure Data Catalog, inclusa la definizione di una visione, l'identificazione dei principali casi d'uso di business e la scelta di un progetto pilota."
-    services="data-catalog"
-    documentationCenter=""
-    authors="steelanddata"
-    manager="NA"
-    editor=""
-    tags=""/>
-<tags
-    ms.service="data-catalog"
-    ms.devlang="NA"
-    ms.topic="hero-article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-catalog"
-    ms.date="10/11/2016"
-    ms.author="maroche"/>
+---
+title: Adozione di Catalogo dati di Azure | Microsoft Docs
+description: Questo articolo presenta un approccio e un processo per le organizzazioni intenzionate ad adottare Azure Data Catalog, inclusa la definizione di una visione, l'identificazione dei principali casi d'uso di business e la scelta di un progetto pilota.
+services: data-catalog
+documentationcenter: ''
+author: steelanddata
+manager: NA
+editor: ''
+tags: ''
 
+ms.service: data-catalog
+ms.devlang: NA
+ms.topic: hero-article
+ms.tgt_pltfrm: NA
+ms.workload: data-catalog
+ms.date: 10/11/2016
+ms.author: maroche
 
+---
 # <a name="adopting-azure-data-catalog"></a>Adozione di Catalogo dati di Azure
 Questo articolo illustra come iniziare ad adottare **Azure Data Catalog** nell'organizzazione. Per adottare **Azure Data Catalog**, è opportuno tenere presenti tre elementi chiave: definire il proprio punto di vista, identificare i principali casi d'uso di business nell'organizzazione e scegliere un progetto pilota.
 
@@ -35,10 +35,10 @@ Un piano di adozione efficace incoraggia le persone a considerare ciò che è po
 
 Un piano di adozione consente di comunicare ciò che è essenziale alle persone per raggiungere i propri obiettivi. Un piano tipico spiega come Data Catalog faciliterà le normali operazioni quotidiane degli utenti e include le parti seguenti:
 
--   **Dichiarazione della visione**: consente di illustrare brevemente il piano di adozione a utenti e stakeholder. È il cosiddetto "elevator pitch".
--   **Team pilota e influencer**: confrontarsi con un team pilota e con gli influencer consente di perfezionare il modo di presentare Data Catalog ai team e agli utenti. Gli influencer possono occuparsi del peer coaching dei colleghi. In questo modo è anche possibile identificare le persone contrarie e quelle favorevoli all'adozione.
--   **Piano per le comunicazioni e il buzz** : consente agli utenti di comprendere l'utilità di Catalogo dati e può facilitare la naturale adozione nei team e infine nell'intera organizzazione.
--   **Piano di training** : un training completo comporta in genere il successo dell'adozione e risultati positivi.
+* **Dichiarazione della visione**: consente di illustrare brevemente il piano di adozione a utenti e stakeholder. È il cosiddetto "elevator pitch".
+* **Team pilota e influencer**: confrontarsi con un team pilota e con gli influencer consente di perfezionare il modo di presentare Data Catalog ai team e agli utenti. Gli influencer possono occuparsi del peer coaching dei colleghi. In questo modo è anche possibile identificare le persone contrarie e quelle favorevoli all'adozione.
+* **Piano per le comunicazioni e il buzz** : consente agli utenti di comprendere l'utilità di Catalogo dati e può facilitare la naturale adozione nei team e infine nell'intera organizzazione.
+* **Piano di training** : un training completo comporta in genere il successo dell'adozione e risultati positivi.
 
 Ecco alcuni suggerimenti per definire un piano di adozione di **Catalogo dati di Azure** .
 
@@ -47,13 +47,10 @@ Il primo passaggio per definire un piano di adozione di **Catalogo dati di Azure
 
 Ecco alcuni suggerimenti per definire la visione:
 
--   **Identificare il driver di distribuzione chiave** : considerare le esigenze di gestione delle origini dati specifiche per il business, che possono essere soddisfatte con Catalogo dati. In questo modo sarà possibile determinare i vantaggi principali dell'uso di Catalogo dati. Ad esempio, possono esserci origini dati comuni che tutti i nuovi dipendenti devono conoscere e usare o origini dati importanti e complesse che solo poche persone chiave conoscono a fondo. **Catalogo dati di Azure** consente di individuare e comprendere facilmente queste origini dati, in modo che queste criticità note possano essere risolte direttamente e subito con l'adozione del servizio.
-
--   **Essere precisi e chiari**: una conoscenza precisa della visione fa in modo che tutti si trovino d'accordo sul valore conferito da Data Catalog all'organizzazione e su come la visione supporti gli obiettivi dell'organizzazione.
-
--   **Spingere le persone a voler usare Catalogo dati** : la visione e il piano di comunicazione devono indurre le persone a riconoscere che Catalogo dati può aiutarle a trovare e a connettersi alle origini dati per ottenere migliori risultati con i dati.
-
--   **Specificare obiettivi e una sequenza temporale**: in questo modo è possibile assicurarsi che il piano di adozione preveda risultati finali specifici e raggiungibili. Una sequenza temporale fa in modo che tutti rimangano concentrati e consente ai checkpoint di valutare la riuscita.
+* **Identificare il driver di distribuzione chiave** : considerare le esigenze di gestione delle origini dati specifiche per il business, che possono essere soddisfatte con Catalogo dati. In questo modo sarà possibile determinare i vantaggi principali dell'uso di Catalogo dati. Ad esempio, possono esserci origini dati comuni che tutti i nuovi dipendenti devono conoscere e usare o origini dati importanti e complesse che solo poche persone chiave conoscono a fondo. **Catalogo dati di Azure** consente di individuare e comprendere facilmente queste origini dati, in modo che queste criticità note possano essere risolte direttamente e subito con l'adozione del servizio.
+* **Essere precisi e chiari**: una conoscenza precisa della visione fa in modo che tutti si trovino d'accordo sul valore conferito da Data Catalog all'organizzazione e su come la visione supporti gli obiettivi dell'organizzazione.
+* **Spingere le persone a voler usare Catalogo dati** : la visione e il piano di comunicazione devono indurre le persone a riconoscere che Catalogo dati può aiutarle a trovare e a connettersi alle origini dati per ottenere migliori risultati con i dati.
+* **Specificare obiettivi e una sequenza temporale**: in questo modo è possibile assicurarsi che il piano di adozione preveda risultati finali specifici e raggiungibili. Una sequenza temporale fa in modo che tutti rimangano concentrati e consente ai checkpoint di valutare la riuscita.
 
 Ecco un esempio di dichiarazione della visione per un piano di adozione di Catalogo dati per la società fittizia Adventure Works:
 
@@ -68,23 +65,17 @@ Per identificare i casi d'uso pertinenti a Catalogo dati e i problemi di busines
 
 Ecco alcuni suggerimenti per identificare i casi d'uso:
 
--   **Definire gli obiettivi del team** : in che modo il team raggiunge i propri obiettivi? Non concentrarsi ancora su Catalogo dati, perché in questa fase è importante essere obiettivi. Si ricordi che si sta parlando dei risultati di business, non della tecnologia.
-
--   **Definire il problema di business** : quali sono le problematiche affrontate dal team relativamente alla ricerca e alla comprensione degli asset di dati? Ad esempio, le informazioni sulle origini dati importanti possono trovarsi in cartelle di lavoro di Excel in una cartella di rete e il team può impiegare molto tempo per individuare le cartelle di lavoro.
-
--   **Comprendere il pensiero del team relativamente al cambiamento** : molte difficoltà dell'adozione riguardano la resistenza al cambiamento più che l'implementazione di un nuovo strumento. La risposta di un team al cambiamento è importante quando si identificano i casi d'uso perché il processo esistente potrebbe essere in atto perché "si è sempre fatto così" o perché "se funziona, non serve cambiarlo". L'adozione di un nuovo strumento o processo è sempre molto facile quando le persone capiscono il valore derivante dal cambiamento e sanno valutare l'importanza dei problemi da risolvere.
-
--   **Mantenere l'attenzione sugli asset di dati** : quando si illustrano i problemi di business affrontati da un team, è necessario andare dritti al punto e concentrarsi su ciò che conta per sfruttare in modo più efficiente gli asset di dati aziendali.
+* **Definire gli obiettivi del team** : in che modo il team raggiunge i propri obiettivi? Non concentrarsi ancora su Catalogo dati, perché in questa fase è importante essere obiettivi. Si ricordi che si sta parlando dei risultati di business, non della tecnologia.
+* **Definire il problema di business** : quali sono le problematiche affrontate dal team relativamente alla ricerca e alla comprensione degli asset di dati? Ad esempio, le informazioni sulle origini dati importanti possono trovarsi in cartelle di lavoro di Excel in una cartella di rete e il team può impiegare molto tempo per individuare le cartelle di lavoro.
+* **Comprendere il pensiero del team relativamente al cambiamento** : molte difficoltà dell'adozione riguardano la resistenza al cambiamento più che l'implementazione di un nuovo strumento. La risposta di un team al cambiamento è importante quando si identificano i casi d'uso perché il processo esistente potrebbe essere in atto perché "si è sempre fatto così" o perché "se funziona, non serve cambiarlo". L'adozione di un nuovo strumento o processo è sempre molto facile quando le persone capiscono il valore derivante dal cambiamento e sanno valutare l'importanza dei problemi da risolvere.
+* **Mantenere l'attenzione sugli asset di dati** : quando si illustrano i problemi di business affrontati da un team, è necessario andare dritti al punto e concentrarsi su ciò che conta per sfruttare in modo più efficiente gli asset di dati aziendali.
 
 Ecco alcuni casi d'uso di esempio correlati a Catalogo dati:
 
 ### <a name="example-use-cases"></a>Casi d'uso di esempio
-
--   **Registrare le origini dati generiche centrali** : l'IT gestisce le origini dati usate nell'organizzazione. L'IT può iniziare a usare Catalogo dati registrando e annotando le origini dati aziendali comuni.
-
--   **Registrare le origini dati basate sul team**: diversi team hanno origini dati line-of-business utili. Iniziare a usare **Azure Data Catalog** identificando e registrando le origini dati chiave usate da più team diversi e acquisire le conoscenze di base di ogni team nelle annotazioni di **Azure Data Catalog**.
-
--   **Business intelligence self-service** : i team dedicano molto tempo a combinare dati da più origini. Registrare e annotare le origini dati in una posizione centrale per eliminare il processo manuale di individuazione delle origini dati.
+* **Registrare le origini dati generiche centrali** : l'IT gestisce le origini dati usate nell'organizzazione. L'IT può iniziare a usare Catalogo dati registrando e annotando le origini dati aziendali comuni.
+* **Registrare le origini dati basate sul team**: diversi team hanno origini dati line-of-business utili. Iniziare a usare **Azure Data Catalog** identificando e registrando le origini dati chiave usate da più team diversi e acquisire le conoscenze di base di ogni team nelle annotazioni di **Azure Data Catalog**.
+* **Business intelligence self-service** : i team dedicano molto tempo a combinare dati da più origini. Registrare e annotare le origini dati in una posizione centrale per eliminare il processo manuale di individuazione delle origini dati.
 
 Questi sono alcuni dei casi d'uso per **Catalogo dati di Azure**. Per altre informazioni sugli scenari di Catalogo dati, vedere [Scenari comuni del Catalogo dati di Azure](data-catalog-common-scenarios.md).
 
@@ -107,9 +98,8 @@ Il primo progetto pilota includerà poche persone che producono dati e che li ut
 
 Uno dei problemi di business risolti da **Azure Data Catalog** è la necessità di mettere in contatto i **produttori di dati** con gli **utilizzatori di dati**. A questo scopo funge da archivio centrale per le informazioni sulle origini dati aziendali. Usando Catalogo dati, David registra le origini dati di SQL Server e Adventure Works. Usando il crowdsourcing gli utenti che individuano questa origine dati possono condividere le proprie opinioni sui dati, oltre a usare i dati trovati. Nancy, ad esempio, trova le origini dati cercando nel catalogo e condivide le sue conoscenze specialistiche sui dati.  Ora gli altri utenti dell'organizzazione possono sfruttare le conoscenze condivise semplicemente eseguendo una ricerca nel catalogo dati.
 
--   Per altre informazioni sulla registrazione delle origini dati, vedere [Registrare le origini dati](data-catalog-get-started.md#exercise-2-registering-data-sources).
-
--   Per altre informazioni sull'individuazione delle origini dati, vedere [Cercare le origini dati](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets).
+* Per altre informazioni sulla registrazione delle origini dati, vedere [Registrare le origini dati](data-catalog-get-started.md#exercise-2-registering-data-sources).
+* Per altre informazioni sull'individuazione delle origini dati, vedere [Cercare le origini dati](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets).
 
 ### <a name="start-small-and-focused"></a>Iniziare con un progetto piccolo e mirato
 Per la maggior parte dei progetti pilota aziendali, è consigliabile inserire nel catalogo origini dati generiche in modo che gli utenti business possano comprendere rapidamente il valore di Catalogo dati. L'IT è l'ideale per iniziare a identificare le origini dati comuni che potrebbero interessare il team pilota. Per le origini dati supportate, ad esempio SQL Server, è consigliabile usare lo strumento di registrazione delle origini dati di **Catalogo dati di Azure** . Con lo strumento di registrazione delle origini dati, è possibile registrare un'ampia gamma di origini dati, inclusi i database SQL Server e Oracle e i report di SQL Server Reporting Services. Per un elenco completo delle origini dati correnti, vedere [Origini dati supportate da Catalogo dati di Azure](data-catalog-dsr.md).
@@ -127,7 +117,10 @@ Per altre informazioni sullo strumento di registrazione delle origini dati, vede
 
 Nell'ambito del progetto pilota, il team di Nancy usa anche le origini dati descritte in una cartella di lavoro di Excel gestita da David e dai suoi colleghi. Poiché anche altri team dell'azienda usano cartelle di lavoro di Excel per descrivere le origini dati, il team IT decide di creare uno strumento per eseguire la migrazione della cartella di lavoro di Excel a Catalogo dati. Usando l'API REST di Catalogo dati per importare le annotazioni esistenti, il team del progetto pilota può ottenere un catalogo dati completo costituito dai metadati estratti dalle origini dati usando lo strumento di registrazione delle origini dati, che include anche le informazioni documentate in precedenza dai produttori e dagli utilizzatori dei dati, senza bisogno di immetterli di nuovo manualmente. Man mano che il catalogo dati cresce, l'organizzazione può usare lo strumento di registrazione per le origini dati comuni e l'API di Catalogo dati per le origini personalizzate e gli scenari non comuni.
 
-> [AZURE.NOTE] Abbiamo scritto uno strumento di esempio che usa l'API di **Catalogo dati di Azure** per eseguire la migrazione di una cartella di lavoro di Excel a Catalogo dati. Per altre informazioni sull'API di Data Catalog e sullo strumento di esempio, è possibile [scaricare il codice di esempio della cartella di lavoro ad hoc](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/) e vedere la documentazione sull'[API REST di Azure Data Catalog](https://msdn.microsoft.com/library/azure/mt267593.aspx).
+> [!NOTE]
+> Abbiamo scritto uno strumento di esempio che usa l'API di **Catalogo dati di Azure** per eseguire la migrazione di una cartella di lavoro di Excel a Catalogo dati. Per altre informazioni sull'API di Data Catalog e sullo strumento di esempio, è possibile [scaricare il codice di esempio della cartella di lavoro ad hoc](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/) e vedere la documentazione sull'[API REST di Azure Data Catalog](https://msdn.microsoft.com/library/azure/mt267593.aspx).
+> 
+> 
 
 Una volta completato il progetto pilota, è ora di eseguire il piano di adozione di Catalogo dati.
 
@@ -136,15 +129,11 @@ A questo punto i casi d'uso per Catalogo dati e il primo progetto sono stati ide
 
 Ecco alcuni suggerimenti per iniziare:
 
--   **Creare entusiasmo**: gli utenti business saranno entusiasti se penseranno che **Azure Data Catalog** semplifichi il loro lavoro. Cercare di orientare la discussione sulla soluzione e sui vantaggi offerti, non sulla tecnologia.
-
--   **Facilitare il cambiamento** : iniziare in piccolo e comunicare il piano agli utenti business. Per la riuscita, è indispensabile coinvolgere gli utenti fin dall'inizio in modo che influenzino il risultato e sviluppino un senso di proprietà nei confronti della soluzione.
-
--   **Formare i primi utenti**: i primi utenti sono utenti business che si appassionano a ciò che fanno e sono entusiasti di far conoscere i vantaggi di **Azure Data Catalog** ai colleghi.
-
--   **Indirizzare il target** : non è necessario che gli utenti business sappiano tutto di Catalogo dati, quindi il training deve essere mirato al raggiungimento degli obiettivi specifici del team. Concentrarsi su ciò che gli utenti faranno e su come potrebbero cambiare alcune attività, per inserire **Catalogo dati di Azure** nella loro routine giornaliera.
-
--   **Essere preparati agli errori** : se il progetto pilota non raggiunge i risultati desiderati, effettuare una nuova valutazione e identificare le aree su cui intervenire, per risolvere i problemi nel progetto pilota prima di passare a un ambito più ampio.
+* **Creare entusiasmo**: gli utenti business saranno entusiasti se penseranno che **Azure Data Catalog** semplifichi il loro lavoro. Cercare di orientare la discussione sulla soluzione e sui vantaggi offerti, non sulla tecnologia.
+* **Facilitare il cambiamento** : iniziare in piccolo e comunicare il piano agli utenti business. Per la riuscita, è indispensabile coinvolgere gli utenti fin dall'inizio in modo che influenzino il risultato e sviluppino un senso di proprietà nei confronti della soluzione.
+* **Formare i primi utenti**: i primi utenti sono utenti business che si appassionano a ciò che fanno e sono entusiasti di far conoscere i vantaggi di **Azure Data Catalog** ai colleghi.
+* **Indirizzare il target** : non è necessario che gli utenti business sappiano tutto di Catalogo dati, quindi il training deve essere mirato al raggiungimento degli obiettivi specifici del team. Concentrarsi su ciò che gli utenti faranno e su come potrebbero cambiare alcune attività, per inserire **Catalogo dati di Azure** nella loro routine giornaliera.
+* **Essere preparati agli errori** : se il progetto pilota non raggiunge i risultati desiderati, effettuare una nuova valutazione e identificare le aree su cui intervenire, per risolvere i problemi nel progetto pilota prima di passare a un ambito più ampio.
 
 Prima che il team pilota inizi a usare Catalogo dati, pianificare una riunione introduttiva per illustrare le aspettative del progetto pilota e fornire il training iniziale.
 
@@ -166,15 +155,13 @@ I primi utenti che hanno partecipato al progetto pilota possono essere di grande
 Questo articolo ha illustrato come iniziare a usare **Catalogo dati di Azure** nell'organizzazione. A questo punto, non resta che avviare un progetto pilota di Catalogo dati ed espandere Catalogo dati a tutta l'organizzazione.
 
 ## <a name="more-information-about-azure-data-catalog"></a>Altre informazioni su Catalogo dati di Azure
--   [Pagina del prodotto Catalogo dati di Azure](https://azure.microsoft.com/services/data-catalog/)
--   [Documentazione di Catalogo dati di Azure](https://azure.microsoft.com/documentation/services/data-catalog/)
--   [Scenari comuni del Catalogo dati di Azure](data-catalog-common-scenarios.md)
--   [Registrare le origini dati](data-catalog-get-started.md#exercise-2-registering-data-sources)
--   [Cercare le origini dati](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets)
--   [Annotare le origini dati](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
-- [Crowdsourcing di metadati](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
-
-
+* [Pagina del prodotto Catalogo dati di Azure](https://azure.microsoft.com/services/data-catalog/)
+* [Documentazione di Catalogo dati di Azure](https://azure.microsoft.com/documentation/services/data-catalog/)
+* [Scenari comuni del Catalogo dati di Azure](data-catalog-common-scenarios.md)
+* [Registrare le origini dati](data-catalog-get-started.md#exercise-2-registering-data-sources)
+* [Cercare le origini dati](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets)
+* [Annotare le origini dati](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
+* [Crowdsourcing di metadati](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
 
 <!--HONumber=Oct16_HO2-->
 

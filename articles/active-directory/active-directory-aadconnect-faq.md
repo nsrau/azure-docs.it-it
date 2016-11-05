@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Domande frequenti su Azure AD Connect | Microsoft Azure"
-    description="Questa pagina contiene le domande frequenti su Azure AD Connect."
-    services="active-directory"
-    documentationCenter=""
-    authors="billmath"
-    manager="femila"
-    editor="curtand"/>
+---
+title: Domande frequenti su Azure AD Connect | Microsoft Docs
+description: Questa pagina contiene le domande frequenti su Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: billmath
+manager: femila
+editor: curtand
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/08/2016"
-    ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/08/2016
+ms.author: billmath
 
-
+---
 # <a name="azure-ad-connect-faq"></a>Domande frequenti su Azure AD Connect
-
 ## <a name="general-installation"></a>Installazione generale
 **D: L'installazione verrà eseguita correttamente se per l'amministratore globale di Active Directory Azure è abilitata l'autenticazione a due fattori?**  
  Questa opzione è supportata nelle build rilasciate a partire da febbraio 2016.
@@ -59,8 +57,8 @@ Usare le linee guida descritte nell'articolo relativo al [rinnovare i certificat
 **D: Perché l'attributo UPN (userPrincipalName) in Azure AD non corrisponde con l’UPN locale?**  
  Vedere i seguenti articoli:
 
-- [I nomi utente in Office 365, Azure o Intune non corrispondono agli ID di accesso o alternativi dell'UPN locale](https://support.microsoft.com/en-us/kb/2523192)
-- [Le modifiche non sono sincronizzate dallo strumento di sincronizzazione di Azure Active Directory dopo aver modificato l'UPN di un account utente per usare un dominio federato diverso](https://support.microsoft.com/en-us/kb/2669550)
+* [I nomi utente in Office 365, Azure o Intune non corrispondono agli ID di accesso o alternativi dell'UPN locale](https://support.microsoft.com/en-us/kb/2523192)
+* [Le modifiche non sono sincronizzate dallo strumento di sincronizzazione di Azure Active Directory dopo aver modificato l'UPN di un account utente per usare un dominio federato diverso](https://support.microsoft.com/en-us/kb/2669550)
 
 È anche possibile configurare Azure AD per consentire al motore di sincronizzazione di aggiornare userPrincipalName come descritto in [Funzionalità del servizio di sincronizzazione di Azure AD Connect](active-directory-aadconnectsyncservice-features.md).
 
@@ -76,17 +74,15 @@ No. Questa opzione non recupererà tutte le impostazioni di configurazione e non
 
 [Ricercare nella Microsoft Knowledge Base (KB)](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
 
-- Cercare nella Microsoft Knowledge Base (KB) soluzioni tecniche per problemi comuni in garanzia riguardanti il supporto per Azure AD Connect.
+* Cercare nella Microsoft Knowledge Base (KB) soluzioni tecniche per problemi comuni in garanzia riguardanti il supporto per Azure AD Connect.
 
 [Forum di Microsoft Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 
-- Per cercare e passare in rassegna domande e risposte tecniche della community o porre domande, fare clic [qui](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
+* Per cercare e passare in rassegna domande e risposte tecniche della community o porre domande, fare clic [qui](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 
 [Assistenza clienti per Azure AD Connect](https://manage.windowsazure.com/?getsupport=true)
 
-- Usare questo collegamento per ottenere assistenza tramite il portale di Azure.
-
-
+* Usare questo collegamento per ottenere assistenza tramite il portale di Azure.
 
 <!--HONumber=Oct16_HO2-->
 

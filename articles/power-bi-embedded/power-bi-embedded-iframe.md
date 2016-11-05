@@ -1,25 +1,23 @@
-<properties
-   pageTitle="Come usare Power BI Embedded con REST | Microsoft Azure"
-   description="Informazioni su come usare Power BI Embedded con REST  "
-   services="power-bi-embedded"
-   documentationCenter=""
-   authors="guyinacube"
-   manager="erikre"
-   editor=""
-   tags=""/>
-<tags
-   ms.service="power-bi-embedded"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="powerbi"
-   ms.date="10/04/2016"
-   ms.author="asaxton"/>
+---
+title: Come usare Power BI Embedded con REST | Microsoft Docs
+description: 'Informazioni su come usare Power BI Embedded con REST  '
+services: power-bi-embedded
+documentationcenter: ''
+author: guyinacube
+manager: erikre
+editor: ''
+tags: ''
 
+ms.service: power-bi-embedded
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: powerbi
+ms.date: 10/04/2016
+ms.author: asaxton
 
+---
 # <a name="how-to-use-power-bi-embedded-with-rest"></a>Come usare Power BI Embedded con REST
-
-
 ## <a name="power-bi-embedded:-what-it-is-and-what-it's-for"></a>Power BI Embedded: che cos'è e a cosa serve
 Sebbene una panoramica di Power BI Embedded sia disponibile nel [sito di Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/)ufficiale, di seguito viene illustrata una breve introduzione prima di analizzare più dettagliatamente il relativo uso con REST.
 
@@ -42,23 +40,25 @@ Prima di iniziare a sviluppare applicazioni, è necessario creare la **raccolta 
 
 Ogni area di lavoro di Power BI Embedded è destinata a un cliente (tenant) ed è possibile aggiungere molte aree di lavoro in ogni raccolta di aree di lavoro. In ogni raccolta di aree di lavoro viene usata la stessa chiave di accesso. In effetti, la raccolta di aree di lavoro è il limite di sicurezza per Power BI Embedded.
 
-![](media\power-bi-embedded-iframe\create-workspace.png)
+![](media\\power-bi-embedded-iframe\\create-workspace.png)
 
 Al termine della creazione della raccolta di aree di lavoro, copiare la chiave di accesso dal portale di Azure.
 
-![](media\power-bi-embedded-iframe\copy-access-key.png)
+![](media\\power-bi-embedded-iframe\\copy-access-key.png)
 
-> [AZURE.NOTE] È inoltre possibile eseguire il provisioning della raccolta di aree di lavoro e ottenere la chiave di accesso tramite l'API REST. Per altre informazioni, vedere [Power BI Resource Provider APIs](https://msdn.microsoft.com/library/azure/mt712306.aspx)(API del provider di risorse di Power BI).
+> [!NOTE]
+> È inoltre possibile eseguire il provisioning della raccolta di aree di lavoro e ottenere la chiave di accesso tramite l'API REST. Per altre informazioni, vedere [Power BI Resource Provider APIs](https://msdn.microsoft.com/library/azure/mt712306.aspx)(API del provider di risorse di Power BI).
+> 
+> 
 
 ## <a name="create-.pbix-file-with-power-bi-desktop"></a>Creare file con estensione pbix con Power BI Desktop
 Successivamente, è necessario creare la connessione dati e i report da incorporare.
 Per questa attività, non è disponibile alcun codice o programmazione. È sufficiente usare Power BI Desktop.
 In questo articolo non verrà analizzato l'uso di Power BI Desktop nel dettaglio. Per assistenza, vedere [Introduzione a Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/). Per questo esempio, sarà sufficiente usare l' [esempio di analisi delle vendite al dettaglio](https://powerbi.microsoft.com/documentation/powerbi-sample-datasets/).
 
-![](media\power-bi-embedded-iframe\power-bi-desktop-1.png)
+![](media\\power-bi-embedded-iframe\\power-bi-desktop-1.png)
 
 ## <a name="create-a-power-bi-workspace"></a>Creare un'area di lavoro di Power BI
-
 Ora che il provisioning è stato eseguito, è possibile iniziare a creare l'area di lavoro di un cliente nella raccolta di aree di lavoro tramite le API REST. La richiesta POST HTTP (REST) crea la nuova area di lavoro nella raccolta di aree di lavoro esistenti. In questo esempio il nome della raccolta di aree di lavoro è **mypbiapp**.
 È sufficiente impostare la chiave di accesso, copiata in precedenza, come **AppKey**. L'autenticazione è molto semplice.
 
@@ -244,21 +244,26 @@ Content-Type: application/json; charset=utf-8
 
 In alternativa, è possibile usare la sicurezza a livello di riga di Power BI Embedded e separare i dati per ogni utente in un unico report. Di conseguenza, è possibile eseguire il provisioning di ogni report cliente con lo stesso file con estensione pbix \(interfaccia utente e così via) e origini dati diverse.
 
-> [AZURE.NOTE] Se si usa la **modalità di importazione** anziché la **modalità DirectQuery**, non è possibile aggiornare i modelli tramite l'API. Inoltre, le origini dati locali mediante gateway di Power BI non sono ancora supportate in Power BI Embedded. Tuttavia, è consigliabile consultare il [blog di Power BI](https://powerbi.microsoft.com/blog/) per scoprire le novità e le versioni future.
+> [!NOTE]
+> Se si usa la **modalità di importazione** anziché la **modalità DirectQuery**, non è possibile aggiornare i modelli tramite l'API. Inoltre, le origini dati locali mediante gateway di Power BI non sono ancora supportate in Power BI Embedded. Tuttavia, è consigliabile consultare il [blog di Power BI](https://powerbi.microsoft.com/blog/) per scoprire le novità e le versioni future.
+> 
+> 
 
 ## <a name="authentication-and-hosting-(embedding)-reports-in-our-web-page"></a>Autenticazione e hosting (incorporamento) dei report nella pagina Web
-
 Nell'API REST precedente è possibile usare la chiave di accesso **AppKey** come intestazione di autorizzazione. Poiché queste chiamate possono essere gestite sul lato server back-end, questa operazione è sicura.
 
 Tuttavia, quando si incorpora il report nella nostra pagina Web, questa tipologia di informazioni di sicurezza verrà gestita usando JavaScript \(front-end). Quindi il valore dell'intestazione di autorizzazione deve essere protetto. Se un utente malintenzionato o un codice dannoso individua la chiave di accesso, la può usare per chiamare qualsiasi operazione.
 
 Quando si incorpora il report nella pagina Web, è necessario usare il token calcolato anziché la chiave di accesso **AppKey**. L'applicazione deve creare il token JSON Web \(JTW) OAuth, che prevede le attestazioni e la firma digitale calcolata. Come illustrato di seguito, questo token JTW OAuth è il token di stringa con codifica delimitato da punti.
 
-![](media\power-bi-embedded-iframe\oauth-jwt.png)
+![](media\\power-bi-embedded-iframe\\oauth-jwt.png)
 
 Innanzitutto, è necessario preparare il valore di input, che viene firmato in un secondo momento. Questo valore è la stringa (rfc4648) con codifica URL base64 del JSON seguente ed è delimitato dal carattere punto \(.). Successivamente, verrà illustrato come ottenere l'id del report.
 
-> [AZURE.NOTE] Se si vuole usare la sicurezza a livello di riga con Power BI Embedded, è necessario specificare anche **nome utente** e **ruoli** nelle attestazioni.
+> [!NOTE]
+> Se si vuole usare la sicurezza a livello di riga con Power BI Embedded, è necessario specificare anche **nome utente** e **ruoli** nelle attestazioni.
+> 
+> 
 
 ```
 {
@@ -334,7 +339,6 @@ function rfc4648_base64_encode($arg) {
 ```
 
 ## <a name="finally,-embed-the-report-into-the-web-page"></a>Incorporare il report nella pagina Web
-
 Per incorporare il report, è necessario ottenere l'URL di incorporamento e l' **id** del report usando l'API REST seguente.
 
 **Richiesta HTTP**
@@ -368,7 +372,10 @@ RequestId: d4099022-405b-49d3-b3b7-3c60cf675958
 È possibile incorporare il report nell'applicazione Web usando il token dell'applicazione precedente.
 Se si esamina il codice di esempio successivo, la prima parte corrisponde all'esempio precedente. In quest'ultima parte **embedUrl** \(vedere il risultato precedente) si trova nell'iframe e il token dell'applicazione viene pubblicato nell'iframe.
 
-> [AZURE.NOTE] Sarà necessario modificare il valore dell'id del report con uno personalizzato. Inoltre, a causa di un bug nel sistema di gestione dei contenuti, il tag iframe nell'esempio di codice viene letto in modo letterale. Rimuovere il testo racchiuso dal tag se si copia e incolla questo codice di esempio.
+> [!NOTE]
+> Sarà necessario modificare il valore dell'id del report con uno personalizzato. Inoltre, a causa di un bug nel sistema di gestione dei contenuti, il tag iframe nell'esempio di codice viene letto in modo letterale. Rimuovere il testo racchiuso dal tag se si copia e incolla questo codice di esempio.
+> 
+> 
 
 ```
     <?php
@@ -450,15 +457,12 @@ Se si esamina il codice di esempio successivo, la prima parte corrisponde all'es
 
 Ed ecco il risultato:
 
-![](media\power-bi-embedded-iframe\view-report.png)
+![](media\\power-bi-embedded-iframe\\view-report.png)
 
 Al momento, Power BI Embedded mostra solo il report nell'iframe. Tuttavia, è consigliabile consultare il [blog di Power BI](). I miglioramenti futuri potrebbero usare le API lato client che consentiranno di inviare informazioni nell'iframe, nonché di ottenere informazioni. Ci sono tanti aspetti interessanti.
 
-
 ## <a name="see-also"></a>Vedere anche
-- [Autenticazione e autorizzazione con Power BI Embedded](power-bi-embedded-app-token-flow.md)
-
-
+* [Autenticazione e autorizzazione con Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
 <!--HONumber=Oct16_HO2-->
 

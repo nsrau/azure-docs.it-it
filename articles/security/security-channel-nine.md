@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Video sulla sicurezza di Azure su Channel 9 | Microsoft Azure"
-   description="L'articolo offre un elenco dettagliato delle presentazioni sulla sicurezza di Azure su Channel 9. Channel 9 è una community che mette in contatto chi crea i prodotti con chi li usa."
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="MBaldwin"
-   editor="TomSh"/>  
+---
+title: Video sulla sicurezza di Azure su Channel 9 | Microsoft Docs
+description: L'articolo offre un elenco dettagliato delle presentazioni sulla sicurezza di Azure su Channel 9. Channel 9 è una community che mette in contatto chi crea i prodotti con chi li usa.
+services: security
+documentationcenter: na
+author: TomShinder
+manager: MBaldwin
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/09/2016"
-   ms.author="terrylan"/>  
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: terrylan
 
+---
 # Video sulla sicurezza di Azure su Channel 9
-
 [Channel 9](https://channel9.msdn.com/) è una community che presenta le persone che sviluppano i prodotti Microsoft e le mette in contatto con i clienti.
 
 Queste persone hanno una forte passione per i prodotti software e un grande entusiasmo. Channel 9 è una community che consente di partecipare a questa continua conversazione.
@@ -46,9 +45,9 @@ Nel video Jack Richins insegna a [Scott](https://channel9.msdn.com/Niners/Glucos
 
 Contenuto del video:
 
-- Informazioni sulla crittografia e SQL Server
-- Informazioni su Data Protection API, sulle chiavi master e sui certificati
-- Uso dei comandi SQL per creare la chiave master e i certificati e per crittografare il database
+* Informazioni sulla crittografia e SQL Server
+* Informazioni su Data Protection API, sulle chiavi master e sui certificati
+* Uso dei comandi SQL per creare la chiave master e i certificati e per crittografare il database
 
 [Come impostare la protezione in DevTest Labs](https://channel9.msdn.com/Blogs/Windows-Azure/How-to-set-security-in-your-DevTest-Lab)
 
@@ -66,11 +65,11 @@ In questo video Narayan Annamalai, Senior Program Manager, insegna a Scott come 
 
 Azure Active Directory (AD) Privileged Identity Management è una funzionalità Premium che consente di individuare, limitare e monitorare le identità con privilegi e il rispettivo accesso alle risorse. Applica anche l'accesso amministrativo "Just-In-Time" su richiesta quando necessario. Vengono fornite informazioni su:
 
-- Gestione della protezione per i ruoli amministrativi di Office 365 specifici per i carichi di lavoro
-- Configurazione di Azure Multi-Factor Authentication (MFA) per le attivazioni di ruoli con privilegi
-- Misurazione e miglioramento delle condizioni di sicurezza del tenant
-- Monitoraggio e risoluzione dei problemi di sicurezza rilevati
-- Verifica degli utenti che devono mantenere i ruoli con privilegi per flussi di lavoro di ricertificazione periodici
+* Gestione della protezione per i ruoli amministrativi di Office 365 specifici per i carichi di lavoro
+* Configurazione di Azure Multi-Factor Authentication (MFA) per le attivazioni di ruoli con privilegi
+* Misurazione e miglioramento delle condizioni di sicurezza del tenant
+* Monitoraggio e risoluzione dei problemi di sicurezza rilevati
+* Verifica degli utenti che devono mantenere i ruoli con privilegi per flussi di lavoro di ricertificazione periodici
 
 [Insieme di credenziali delle chiavi di Azure con Amit Bapat](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Key-Vault-with-Amit-Bapat)
 

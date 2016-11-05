@@ -1,30 +1,29 @@
-<properties
-   pageTitle="Proteggere un cluster di Service Fabric | Microsoft Azure"
-   description="Descrive gli scenari di sicurezza per un cluster Service Fabric e le diverse tecnologie usate per implementare questi scenari."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="ChackDan"
-   manager="timlt"
-   editor=""/>
+---
+title: Proteggere un cluster di Service Fabric | Microsoft Docs
+description: Descrive gli scenari di sicurezza per un cluster Service Fabric e le diverse tecnologie usate per implementare questi scenari.
+services: service-fabric
+documentationcenter: .net
+author: ChackDan
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/19/2016"
-   ms.author="chackdan"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/19/2016
+ms.author: chackdan
 
+---
 # Scenari di sicurezza di un cluster di Service Fabric
-
 Un cluster di Service Fabric è una risorsa di cui si è proprietari. Per impedire a utenti non autorizzati di connettersi al cluster, è necessario proteggerlo, in particolare quando sono in esecuzione carichi di lavoro di produzione. Sebbene sia possibile creare un cluster non protetto, ciò consente a qualsiasi utente anonimo di connettersi al cluster se questo espone gli endpoint di gestione a Internet pubblico.
 
 Questo articolo offre una panoramica degli scenari di sicurezza per i cluster autonomi o in esecuzione in Azure e delle varie tecnologie usate per implementare tali scenari. Gli scenari di sicurezza del cluster sono:
 
-- Sicurezza da nodo a nodo
-- Sicurezza da client a nodo
-- Controllo degli accessi in base al ruolo
+* Sicurezza da nodo a nodo
+* Sicurezza da client a nodo
+* Controllo degli accessi in base al ruolo
 
 ## Sicurezza da nodo a nodo
 Protegge la comunicazione tra le VM o i computer del cluster. Assicura che solo i computer autorizzati a connettersi al cluster possono partecipare all'hosting di applicazioni e servizi nel cluster.
@@ -32,6 +31,7 @@ Protegge la comunicazione tra le VM o i computer del cluster. Assicura che solo 
 ![Diagramma della comunicazione da nodo a nodo][Node-to-Node]
 
 I cluster eseguiti in Azure o i cluster autonomi eseguiti in Windows possono usare la [sicurezza basata su certificati](https://msdn.microsoft.com/library/ff649801.aspx) o la [sicurezza di Windows](https://msdn.microsoft.com/library/ff649396.aspx) per computer Windows Server.
+
 ### Sicurezza basata su certificati da nodo a nodo
 Service Fabric usa i certificati server X.509 specificati durante le configurazioni del tipo di nodo quando si crea un cluster. Alla fine di questo articolo viene fornita una rapida panoramica di questi certificati e di come è possibile acquisirli o crearli.
 
@@ -75,18 +75,16 @@ Gli amministratori hanno accesso completo alle funzionalità di gestione, inclus
 
 I ruoli client amministratore e utente vengono specificati al momento della creazione del cluster fornendo per ognuno identità separate, ad esempio certificati, AAD e così via. Per altre informazioni sulle impostazioni predefinite del controllo di accesso e su come modificarle, vedere [Controllo degli accessi in base al ruolo per i client di Service Fabric](service-fabric-cluster-security-roles.md).
 
-
 ## Certificati X.509 e Service Fabric
 I certificati digitali X509 vengono comunemente usati per autenticare client e server e per crittografare e firmare digitalmente i messaggi. Per altri dettagli su questi certificati, vedere [Utilizzo dei certificati](http://msdn.microsoft.com/library/ms731899.aspx).
 
 Alcuni elementi importanti da considerare:
 
-- È consigliabile creare i certificati usati nei cluster che eseguono carichi di lavoro di produzione con un servizio certificati di Windows Server configurato correttamente oppure ottenerli da un'[autorità di certificazione (CA)](https://en.wikipedia.org/wiki/Certificate_authority) approvata.
-- Non usare mai in fase di produzione certificati temporanei o di test creati con strumenti come MakeCert.exe.
-- È possibile usare un certificato autofirmato, ma lo si deve fare solo per i cluster di test e non nell'ambiente di produzione.
+* È consigliabile creare i certificati usati nei cluster che eseguono carichi di lavoro di produzione con un servizio certificati di Windows Server configurato correttamente oppure ottenerli da un'[autorità di certificazione (CA)](https://en.wikipedia.org/wiki/Certificate_authority) approvata.
+* Non usare mai in fase di produzione certificati temporanei o di test creati con strumenti come MakeCert.exe.
+* È possibile usare un certificato autofirmato, ma lo si deve fare solo per i cluster di test e non nell'ambiente di produzione.
 
 ### Certificati server X.509
-
 L'attività principale dei certificati del server è l'autenticazione di un server (nodo) nei client o di un server (nodo) in un server (nodo). Uno dei primi controlli eseguiti quando un client o un nodo autentica un nodo consiste nel controllare il valore del nome comune nel campo Oggetto. Questo nome comune o uno dei nomi alternativi del soggetto dei certificati deve essere presente nell'elenco di nomi comuni consentiti.
 
 L'articolo seguente descrive come generare certificati con nomi alternativi del soggetto: [Come aggiungere un nome alternativo del soggetto a un certificato LDAP sicuro](http://support.microsoft.com/kb/931351).
@@ -96,16 +94,17 @@ Il campo del soggetto può contenere diversi valori, tutti preceduti da un'inizi
 Il valore del campo Scopi designati del certificato deve includere un valore appropriato, ad esempio "Autenticazione server" o "Autenticazione client".
 
 ### Certificati client X.509
-
 I certificati client in genere non vengono rilasciati da un'autorità di certificazione di terze parti. In genere l'archivio personale della località utente corrente contiene invece certificati client inseriti da un'autorità radice, con lo scopo designato "Autenticazione client". Il client può usare tali certificati quando è necessaria l'autenticazione reciproca.
 
->[AZURE.NOTE] Tutte le operazioni di gestione in un cluster di Service Fabric richiedono certificati server. I certificati client non possono essere usati per la gestione.
+> [!NOTE]
+> Tutte le operazioni di gestione in un cluster di Service Fabric richiedono certificati server. I certificati client non possono essere usati per la gestione.
+> 
+> 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 
 ## Passaggi successivi
-
 Questo articolo contiene informazioni di carattere generale sulla protezione del cluster. Successivamente, [configurare un cluster di Service Fabric usando un modello di Resource Manager](service-fabric-cluster-creation-via-arm.md) o tramite il [portale di Azure](service-fabric-cluster-creation-via-portal.md).
 
 <!--Image references-->

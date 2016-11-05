@@ -1,31 +1,29 @@
-<properties 
-	pageTitle="Creare un'app Web Hello World per Azure in IntelliJ | Microsoft Azure" 
-	description="Questa esercitazione spiega come usare Azure Toolkit per IntelliJ per creare un'app Web Hello World per Azure." 
-	services="app-service\web" 
-	documentationCenter="java" 
-	authors="selvasingh" 
-	manager="wpickett" 
-	editor=""/>
+---
+title: Creare un'app Web Hello World per Azure in IntelliJ | Microsoft Docs
+description: Questa esercitazione spiega come usare Azure Toolkit per IntelliJ per creare un'app Web Hello World per Azure.
+services: app-service\web
+documentationcenter: java
+author: selvasingh
+manager: wpickett
+editor: ''
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/11/2016" 
-	ms.author="asirveda;robmcm"/>
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: Java
+ms.topic: article
+ms.date: 08/11/2016
+ms.author: asirveda;robmcm
 
+---
 # Creare un'app Web Hello World per Azure in IntelliJ
-
 Questa esercitazione spiega come creare e distribuire un'applicazione Hello World di base in Azure come app Web usando [Azure Toolkit per IntelliJ]. Per semplicità è riportato un esempio JSP di base, ma è possibile adottare una procedura molto simile anche per un servlet Java, per quanto riguarda la distribuzione di Azure.
 
 Al termine di questa esercitazione, l'applicazione visualizzata in un browser Web avrà un aspetto simile al seguente:
 
 ![][01]
- 
-## Prerequisiti
 
+## Prerequisiti
 * Java Developer Kit (JDK) versione 1.8 o successiva.
 * IntelliJ IDEA Ultimate Edition. È possibile scaricare il pacchetto all'indirizzo <https://www.jetbrains.com/idea/download/index.html>.
 * Distribuzione di un server Web basato su Java o un server applicazioni, ad esempio Apache Tomcat o Jetty.
@@ -33,135 +31,104 @@ Al termine di questa esercitazione, l'applicazione visualizzata in un browser We
 * Azure Toolkit per IntelliJ. Per altre informazioni, vedere [Installazione di Azure Toolkit per IntelliJ].
 
 ## Per creare un'applicazione Hello World
-
 Creare innanzitutto un progetto Java.
 
 1. Avviare IntelliJ e nel menu fare clic su **File**, quindi su **New** (Nuovo) e su **Project** (Progetto).
-
+   
    ![][02]
-
-1. Nella finestra di dialogo New Project (Nuovo progetto) selezionare **Java**, quindi **Web Application** (Applicazione Web) e fare clic su **Next** (Avanti).
-
+2. Nella finestra di dialogo New Project (Nuovo progetto) selezionare **Java**, quindi **Web Application** (Applicazione Web) e fare clic su **Next** (Avanti).
+   
    ![][03a]
-
+   
    Se viene richiesto di continuare senza SDK assegnato, fare clic su **Yes** (Sì).
-
+   
    ![][03b]
-
-1. Ai fini di questa esercitazione, denominare il progetto **Java-Web-App-On-Azure**, quindi fare clic su **Finish** (Fine).
-
+3. Ai fini di questa esercitazione, denominare il progetto **Java-Web-App-On-Azure**, quindi fare clic su **Finish** (Fine).
+   
    ![][04]
-
-1. Nella visualizzazione Project Explorer di IntelliJ espandere **Java-Web-App-On-Azure**, quindi espandere **web** e fare doppio clic su **index.jsp**.
-
+4. Nella visualizzazione Project Explorer di IntelliJ espandere **Java-Web-App-On-Azure**, quindi espandere **web** e fare doppio clic su **index.jsp**.
+   
    ![][05]
-
-1. Quando in IntelliJ viene aperto il file index.jsp, aggiungere testo in modo da visualizzare dinamicamente **Hello World!** nell'elemento `<body>` esistente. Il contenuto `<body>` aggiornato deve avere un aspetto simile all'esempio seguente:
-
+5. Quando in IntelliJ viene aperto il file index.jsp, aggiungere testo in modo da visualizzare dinamicamente **Hello World!** nell'elemento `<body>` esistente. Il contenuto `<body>` aggiornato deve avere un aspetto simile all'esempio seguente:
+   
    `<body><b><% out.println("Hello World!"); %></b></body>`
-
-1. Salvare index.jsp.
+6. Salvare index.jsp.
 
 ## Per distribuire l'applicazione in un contenitore di app Web di Azure
-
 Esistono diversi modi con cui è possibile distribuire un'applicazione Web Java in Azure. Questa esercitazione descrive uno dei modi più semplici: l'applicazione viene distribuita in un contenitore di app Web di Azure senza richiedere tipi di progetto specifici o strumenti aggiuntivi. JDK e il software del contenitore Web vengono forniti automaticamente da Azure senza la necessità di eseguire alcun caricamento. È sufficiente disporre dell'app Web Java. Di conseguenza, il processo di pubblicazione per l'applicazione richiederà alcuni secondi, non minuti.
 
 1. In Project Explorer di IntelliJ fare clic con il pulsante destro del mouse sul progetto **Java-Web-App-On-Azure**. Dal menu di scelta rapida visualizzato selezionare **Azure** e fare clic su **Publish as Azure Web App** (Pubblica come app Web di Azure).
-
+   
    ![][06]
-
-1. Se non è già stato eseguito l'accesso ad Azure da IntelliJ, verrà richiesto di accedere all'account Azure:
-
+2. Se non è già stato eseguito l'accesso ad Azure da IntelliJ, verrà richiesto di accedere all'account Azure:
+   
    ![][07]
-
+   
    Nota: se si hanno più account Azure, durante il processo di accesso alcune richieste, all'apparenza identiche, possono essere visualizzate più volte, ognuna per un account diverso. In questo caso, continuare a seguire le istruzioni di accesso.
-
-1. Dopo aver eseguito l'accesso all'account Azure, nella finestra di dialogo **Manage Subscriptions** (Gestisci sottoscrizioni) viene visualizzato un elenco delle sottoscrizioni associate alle credenziali usate. Se sono elencate più sottoscrizioni e se ne vogliono usare solo alcune, è possibile deselezionare le sottoscrizioni che non si intende usare. Dopo aver selezionato le sottoscrizioni, fare clic su **Close** (Chiudi).
-
+3. Dopo aver eseguito l'accesso all'account Azure, nella finestra di dialogo **Manage Subscriptions** (Gestisci sottoscrizioni) viene visualizzato un elenco delle sottoscrizioni associate alle credenziali usate. Se sono elencate più sottoscrizioni e se ne vogliono usare solo alcune, è possibile deselezionare le sottoscrizioni che non si intende usare. Dopo aver selezionato le sottoscrizioni, fare clic su **Close** (Chiudi).
+   
    ![][08]
-
-1. Nella finestra di dialogo **Deploy to Azure Web App Container** (Distribuisci in un contenitore app Web di Azure) sono visualizzati tutti i contenitori di app Web creati in precedenza. Se non è stato creato alcun contenitore, l'elenco appare vuoto.   
-
+4. Nella finestra di dialogo **Deploy to Azure Web App Container** (Distribuisci in un contenitore app Web di Azure) sono visualizzati tutti i contenitori di app Web creati in precedenza. Se non è stato creato alcun contenitore, l'elenco appare vuoto.   
+   
    ![][09]
-
-1. Se non è stato creato alcun contenitore di app Web di Azure in precedenza o se si desidera pubblicare l'applicazione in un nuovo contenitore, attenersi alla procedura seguente. In caso contrario, selezionare un contenitore di app Web esistente e andare al passaggio 6.
-
-  1. Fare clic su **+**
-
+5. Se non è stato creato alcun contenitore di app Web di Azure in precedenza o se si desidera pubblicare l'applicazione in un nuovo contenitore, attenersi alla procedura seguente. In caso contrario, selezionare un contenitore di app Web esistente e andare al passaggio 6.
+   
+   1. Fare clic su **+**
+      
         ![][10]
-
-  1. Viene visualizzata la finestra di dialogo **New Web App Container** (Nuovo contenitore app Web), che verrà usata in diversi passaggi della procedura.
-
+   2. Viene visualizzata la finestra di dialogo **New Web App Container** (Nuovo contenitore app Web), che verrà usata in diversi passaggi della procedura.
+      
         ![][11]
-
-  1. In **DNS Label** (Etichetta DNS) specificare un'etichetta per il contenitore di app Web. Questa sarà l'etichetta DNS foglia dell'URL dell'host per l'applicazione Web in Azure. Nota: il nome deve essere disponibile e conforme ai requisiti di denominazione delle app Web di Azure.
-
-  1. Nel menu a discesa **Web Container** (Contenitore Web) selezionare il software appropriato per l'applicazione.
-
+   3. In **DNS Label** (Etichetta DNS) specificare un'etichetta per il contenitore di app Web. Questa sarà l'etichetta DNS foglia dell'URL dell'host per l'applicazione Web in Azure. Nota: il nome deve essere disponibile e conforme ai requisiti di denominazione delle app Web di Azure.
+   4. Nel menu a discesa **Web Container** (Contenitore Web) selezionare il software appropriato per l'applicazione.
+      
         Attualmente è possibile scegliere fra Tomcat 8, Tomcat 7 o Jetty 9. Una distribuzione recente del software selezionato verrà fornita da Azure e sarà eseguita in una distribuzione recente di JDK 8 creata da Oracle e fornita da Azure.
-
-  1. Nel menu a discesa **Subscription** (Sottoscrizione) selezionare la sottoscrizione che si vuole usare per la distribuzione.
-
-  1. Nel menu a discesa **Resource Group** (Gruppo di risorse) selezionare il gruppo di risorse a cui si vuole associare l'app Web.
-
+   5. Nel menu a discesa **Subscription** (Sottoscrizione) selezionare la sottoscrizione che si vuole usare per la distribuzione.
+   6. Nel menu a discesa **Resource Group** (Gruppo di risorse) selezionare il gruppo di risorse a cui si vuole associare l'app Web.
+      
         Nota: i gruppi di risorse di Azure consentono di raggruppare le risorse correlate in modo che, ad esempio, possano essere eliminate insieme.
-
+      
         È possibile selezionare un gruppo di risorse esistente, se presente, e andare al passaggio g seguente o usare questa procedura per creare un nuovo gruppo di risorse:
-
+      
       * Fare clic su **New** (Nuovo).
-
       * Verrà visualizzata la finestra di dialogo **New Resource Group** (Nuovo gruppo di risorse):
-
+        
             ![][12]
-
       * Nella casella di testo **Name** (Nome) specificare un nome per il nuovo gruppo di risorse.
-
       * Nel menu a discesa **Region** (Area) selezionare il percorso del data center di Azure appropriato per il gruppo di risorse.
-
       * Fare clic su **OK**.
-
-  1. Il menu a discesa **App Service Plan** (Piano di servizio app) elenca i piani di servizio app associati al gruppo di risorse selezionato.
-
+   7. Il menu a discesa **App Service Plan** (Piano di servizio app) elenca i piani di servizio app associati al gruppo di risorse selezionato.
+      
         Nota: un piano di servizio app specifica informazioni quali il percorso dell'app Web, il piano tariffario e le dimensioni dell'istanza di calcolo. È possibile usare un singolo piano di servizio app per più app Web. Per questo motivo viene gestito separatamente da una distribuzione di app Web specifica.
-
+      
         È possibile selezionare un piano di servizio app esistente, se presente, e andare al passaggio h seguente o usare questa procedura per creare un nuovo piano di servizio app:
-
+      
       * Fare clic su **New** (Nuovo).
-
       * Viene visualizzata la finestra di dialogo **New App Service Plan** (Nuovo piano di servizio app):
-
+        
             ![][13]
-
       * Nella casella di testo **Name** (Nome) specificare un nome per il nuovo piano di servizio app.
-
       * Nel menu a discesa **Location** (Località) selezionare la posizione del data center di Azure appropriata per il piano.
-
       * Nel menu a discesa **Pricing Tier** (Piano tariffario) selezionare la tariffa appropriata per il piano. Ai fini del test è possibile scegliere **Free** (Gratuito).
-
       * Nel menu a discesa **Instance Size** (Dimensione istanza) selezionare la dimensione dell'istanza appropriata per il piano. Ai fini del test è possibile scegliere **Small** (Piccola).
-
-  1. Dopo aver completato tutti i passaggi precedenti, la finestra di dialogo New Web App Container dovrebbe essere simile alla seguente:
-
+   8. Dopo aver completato tutti i passaggi precedenti, la finestra di dialogo New Web App Container dovrebbe essere simile alla seguente:
+      
         ![][14]
-
-  1. Fare clic su **OK** per completare la creazione del nuovo contenitore di app Web.
-
+   9. Fare clic su **OK** per completare la creazione del nuovo contenitore di app Web.
+      
         Attendere alcuni secondi che venga aggiornato l'elenco dei contenitori di app Web. Il contenitore di app Web appena creato risulterà selezionato nell'elenco.
-
-1. A questo punto si è pronti per completare la distribuzione iniziale dell'app Web in Azure. Fare clic su **OK** per distribuire l'applicazione Java nel contenitore di app Web selezionato.
-
+6. A questo punto si è pronti per completare la distribuzione iniziale dell'app Web in Azure. Fare clic su **OK** per distribuire l'applicazione Java nel contenitore di app Web selezionato.
+   
     ![][15]
-
+   
     Nota: per impostazione predefinita, l'applicazione verrà distribuita come sottodirectory del server applicazioni. Se si vuole distribuire l'applicazione come applicazione radice, selezionare la casella di controllo **Deploy to root** (Distribuisci a radice) prima di fare clic su **OK**.
-
-1. Verrà quindi aperta la visualizzazione **Azure Activity Log** in cui è indicato lo stato della distribuzione dell'app Web.
-
+7. Verrà quindi aperta la visualizzazione **Azure Activity Log** in cui è indicato lo stato della distribuzione dell'app Web.
+   
     ![][16]
-
+   
     Il processo di distribuzione dell'app Web in Azure dovrebbe richiedere solo alcuni secondi. Quando l'applicazione è pronta, viene visualizzato un collegamento denominato **Published** nella colonna **Status**. Quando si fa clic sul collegamento, si passa alla home page dell'app Web distribuita oppure è possibile seguire la procedura indicata nella sezione seguente per passare all'app Web.
 
 ## Passaggio all'app Web in Azure
-
 Per individuare l'app Web in Azure, è possibile usare la visualizzazione **Azure Explorer**.
 
 Se la visualizzazione **Azure Explorer** non è aperta, aprirla facendo clic sul menu **View** (Visualizza) in IntelliJ, quindi su **Tool Windows** (Finestre degli strumenti) e su **Service Explorer**. Se non è già stato eseguito l'accesso in precedenza, verrà richiesto di accedere.
@@ -169,17 +136,13 @@ Se la visualizzazione **Azure Explorer** non è aperta, aprirla facendo clic sul
 Quando appare la visualizzazione **Azure Explorer**, per aprire l'app Web seguire questa procedura:
 
 1. Espandere il nodo **Azure**.
-
-1. Espandere il nodo **Web Apps** (App Web).
-
-1. Fare clic con il pulsante destro del mouse sull'app Web desiderata.
-
-1. Quando viene visualizzato il menu di scelta rapida, fare clic su **Open in Browser** (Apri nel browser).
-
+2. Espandere il nodo **Web Apps** (App Web).
+3. Fare clic con il pulsante destro del mouse sull'app Web desiderata.
+4. Quando viene visualizzato il menu di scelta rapida, fare clic su **Open in Browser** (Apri nel browser).
+   
     ![][17]
 
 ## Aggiornamento dell'app Web
-
 L'aggiornamento di un'app Web di Azure in esecuzione è un processo semplice e rapido. Sono disponibili due opzioni per l'aggiornamento:
 
 * È possibile aggiornare la distribuzione di un'app Web Java esistente.
@@ -188,15 +151,12 @@ L'aggiornamento di un'app Web di Azure in esecuzione è un processo semplice e r
 In entrambi i casi, il processo è identico e richiede solo pochi secondi:
 
 1. In Project Explorer di IntelliJ fare clic con il pulsante destro del mouse sull'applicazione Java che si vuole aggiornare o aggiungere a un contenitore di app Web esistente.
-
-1. Dal menu di scelta rapida visualizzato selezionare **Azure**, quindi **Publish as Azure Web App** (Pubblica come app Web di Azure).
-
-1. Poiché è già stato effettuato l'accesso in precedenza, verrà visualizzato un elenco dei contenitori di app Web esistenti. Selezionare il contenitore in cui si vuole pubblicare o ripubblicare l'applicazione Java e fare clic su **OK**.
+2. Dal menu di scelta rapida visualizzato selezionare **Azure**, quindi **Publish as Azure Web App** (Pubblica come app Web di Azure).
+3. Poiché è già stato effettuato l'accesso in precedenza, verrà visualizzato un elenco dei contenitori di app Web esistenti. Selezionare il contenitore in cui si vuole pubblicare o ripubblicare l'applicazione Java e fare clic su **OK**.
 
 Pochi secondi dopo, nella visualizzazione **Azure Activity Log** (Log attività di Azure) la distribuzione aggiornata apparirà come **Published** (Pubblicata) e sarà possibile verificare l'applicazione aggiornata in un Web browser.
 
 ## Avvio e arresto di un'app Web esistente
-
 Per avviare o arrestare un contenitore di app Web di Azure esistente, incluse tutte le applicazioni Java in esso distribuite, è possibile usare la visualizzazione **Azure Explorer**.
 
 Se la visualizzazione **Azure Explorer** non è aperta, aprirla facendo clic sul menu **View** (Visualizza) in IntelliJ, quindi su **Tool Windows** (Finestre degli strumenti) e su **Service Explorer**. Se non è già stato eseguito l'accesso in precedenza, verrà richiesto di accedere.
@@ -204,33 +164,29 @@ Se la visualizzazione **Azure Explorer** non è aperta, aprirla facendo clic sul
 Quando appare la visualizzazione **Azure Explorer**, per avviare o arrestare l'app Web seguire questa procedura:
 
 1. Espandere il nodo **Azure**.
-
-1. Espandere il nodo **Web Apps** (App Web).
-
-1. Fare clic con il pulsante destro del mouse sull'app Web desiderata.
-
-1. Quando viene visualizzato il menu di scelta rapida, fare clic su **Start** (Avvia) o **Stop** (Arresta). Si noti che le opzioni di menu sono sensibili al contesto, quindi è possibile arrestare solo un'app Web in esecuzione o avviare un'app Web al momento non in esecuzione.
-
+2. Espandere il nodo **Web Apps** (App Web).
+3. Fare clic con il pulsante destro del mouse sull'app Web desiderata.
+4. Quando viene visualizzato il menu di scelta rapida, fare clic su **Start** (Avvia) o **Stop** (Arresta). Si noti che le opzioni di menu sono sensibili al contesto, quindi è possibile arrestare solo un'app Web in esecuzione o avviare un'app Web al momento non in esecuzione.
+   
     ![][18]
 
 ## Passaggi successivi
-
 Per ulteriori informazioni sui Toolkit di Azure per gli IDE di Java, consultare i seguenti collegamenti:
 
-- [Toolkit di Azure per Eclipse]
-  - [Installare il Toolkit di Azure per Eclipse.]
-  - [Creare un'app Web Hello World per Azure in Eclipse]
-  - [Novità di Azure Toolkit per Eclipse]
-- [Toolkit di Azure per IntelliJ]
-  - [Installazione del Toolkit di Azure per IntelliJ]
-  - *Creare un’app Web Hello World per Azure in IntelliJ (questo articolo)*
-  - [Novità del Toolkit di Azure per IntelliJ]
+* [Toolkit di Azure per Eclipse]
+  * [Installare il Toolkit di Azure per Eclipse.]
+  * [Creare un'app Web Hello World per Azure in Eclipse]
+  * [Novità di Azure Toolkit per Eclipse]
+* [Toolkit di Azure per IntelliJ]
+  * [Installazione del Toolkit di Azure per IntelliJ]
+  * *Creare un’app Web Hello World per Azure in IntelliJ (questo articolo)*
+  * [Novità del Toolkit di Azure per IntelliJ]
 
 Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure].
 
 Per altre informazioni sulla creazione di App Web di Azure, vedere la [Panoramica delle App Web].
 
-[AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
+[!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- URL List -->
 

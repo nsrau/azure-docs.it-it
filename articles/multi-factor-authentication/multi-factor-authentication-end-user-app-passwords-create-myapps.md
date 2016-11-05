@@ -1,30 +1,28 @@
-<properties
-	pageTitle="Creare password per le app nel portale Myapps per Azure Multi-Factor Authentication"
-	description="Questa pagina illustra agli utenti la procedura per creare password aggiuntive per le app nel portale di Myapps."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtland"/> 
+---
+title: Creare password per le app nel portale Myapps per Azure Multi-Factor Authentication
+description: Questa pagina illustra agli utenti la procedura per creare password aggiuntive per le app nel portale di Myapps.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtland
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/> 
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/04/2016
+ms.author: kgremban
 
+---
 # Creare password per le app nel portale myapps di Office 365 per Azure Multi-Factor Authentication
-
-
-
 Se non si usa Multi-Factor Authentication con Office 365 e non si ha una sottoscrizione di Azure, è consigliabile creare le password per le app tramite il portale myapps.
 
 ## Per creare password per le app se non si ha una sottoscrizione di Office 365 o Azure
---------------------------------------------------------------------------------
+- - -
 <ol>
+
 <li>Accedere al sito [https://myapps.microsoft.com](https://myapps.microsoft.com)</li>
 <li>Nella parte superiore selezionare il profilo.</li>
 

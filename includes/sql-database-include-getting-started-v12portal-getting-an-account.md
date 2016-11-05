@@ -11,15 +11,12 @@ articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
 ## Connettersi al portale di Azure con una sottoscrizione
-
 Se si ha già una sottoscrizione a Microsoft Azure, seguire la procedura riportata più avanti per connettersi al portale di Azure. Nel caso in cui, invece, non si abbia un account esistente di Microsoft Azure, selezionare uno dei collegamenti seguenti per ottenere un account e quindi seguire la procedura qui riportata per connettersi al portale di Azure.
 
 1. Aprire il browser preferito e connettersi al [portale di Azure](https://portal.azure.com/) all'indirizzo http://portal.azure.com/.
-
-1. Accedere al [portale di Azure](https://portal.azure.com/) all’indirizzo http://portal.azure.com/.
-
-2. Quando viene visualizzata la pagina di accesso, immettere le credenziali per la sottoscrizione
-
+2. Accedere al [portale di Azure](https://portal.azure.com/) all’indirizzo http://portal.azure.com/.
+3. Quando viene visualizzata la pagina di accesso, immettere le credenziali per la sottoscrizione
+   
    ![Accesso][1]
 
 <!-- Image references. -->

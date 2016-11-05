@@ -1,23 +1,22 @@
-<properties
-   pageTitle="API REST degli avvisi di Log Analytics"
-   description="L’API REST degli avvisi di Log Analytics consente di creare e gestire avvisi in OMS (Operations Management Suite)  In questo articolo vengono forniti i dettagli dell'API e alcuni esempi per l'esecuzione di diverse operazioni."
-   services="log-analytics"
-   documentationCenter=""
-   authors="bwren"
-   manager="jwhit"
-   editor="tysonn" />
-<tags
-   ms.service="log-analytics"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/18/2016"
-   ms.author="bwren" />
+---
+title: API REST degli avvisi di Log Analytics
+description: L’API REST degli avvisi di Log Analytics consente di creare e gestire avvisi in OMS (Operations Management Suite)  In questo articolo vengono forniti i dettagli dell'API e alcuni esempi per l'esecuzione di diverse operazioni.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: tysonn
 
+ms.service: log-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/18/2016
+ms.author: bwren
 
+---
 # <a name="log-analytics-alert-rest-api"></a>API REST degli avvisi di Log Analytics
-
 L’API REST degli avvisi di Log Analytics consente di creare e gestire avvisi in OMS (Operations Management Suite)  In questo articolo vengono forniti i dettagli dell'API e alcuni esempi per l'esecuzione di diverse operazioni.
 
 L'API REST di ricerca di Log Analytics è RESTful ed è accessibile tramite l'API REST Azure Resource Manager. In questo documento sono disponibili esempi in cui viene usata l'API di una riga di comando di PowerShell che a sua volta usa [ARMClient](https://github.com/projectkudu/ARMClient), uno strumento della riga di comando open source che semplifica la chiamata dell'API di Azure Resource Manager. L'uso di ARMClient e PowerShell è una delle numerose opzioni di accesso all'API di ricerca di Log Analytics. Con questi strumenti è possibile usare l'API RESTful Azure Resource Manager per effettuare chiamate alle aree di lavoro di OMS ed eseguire i comandi di ricerca al loro interno. L'API fornirà risultati della ricerca per l'utente in formato JSON, consentendo di usare i risultati della ricerca in molti modi diversi a livello di codice.
@@ -29,11 +28,11 @@ Attualmente, gli avvisi possono essere creati solo con una ricerca salvata in Lo
 Una ricerca salvata può avere una o più pianificazioni. La pianificazione definisce la frequenza con cui viene eseguita la ricerca e l'intervallo di tempo in cui vengono identificati i criteri.
 Le pianificazioni includono le proprietà elencate nella tabella seguente.
 
-| Proprietà  | Descrizione |
-|:--|:--|
-| Interval | La frequenza con cui viene eseguita la ricerca. Il valore è espresso in minuti. |
-| QueryTimeSpan | L'intervallo di tempo durante il quale vengono valutati i criteri. Deve essere maggiore o uguale a Interval. Il valore è espresso in minuti. |
-| Version | La versione API utilizzata.  Attualmente, deve sempre essere impostata su 1. |
+| Proprietà | Descrizione |
+|:--- |:--- |
+| Interval |La frequenza con cui viene eseguita la ricerca. Il valore è espresso in minuti. |
+| QueryTimeSpan |L'intervallo di tempo durante il quale vengono valutati i criteri. Deve essere maggiore o uguale a Interval. Il valore è espresso in minuti. |
+| Version |La versione API utilizzata.  Attualmente, deve sempre essere impostata su 1. |
 
 Si consideri ad esempio una query eventi con Interval pari a 15 minuti e Timespan pari a 30 minuti. In questo caso, la query viene eseguita ogni 15 minuti e viene generato un avviso se i criteri continuano a restituire true in un intervallo di 30 minuti.
 
@@ -81,10 +80,10 @@ Una pianificazione può avere più azioni. Un'azione può definire uno o più pr
 Tutte le azioni includono le proprietà elencate nella tabella seguente.  I vari tipi di avvisi hanno diverse proprietà aggiuntive che sono descritte di seguito.
 
 | Proprietà | Descrizione |
-|:--|:--|
-| Type | Tipo di azione.  Attualmente, i valori possibili sono Alert e Webhook. |
-| Name | Nome visualizzato per l'avviso. |
-| Version | La versione API utilizzata.  Attualmente, deve sempre essere impostata su 1. |
+|:--- |:--- |
+| Type |Tipo di azione.  Attualmente, i valori possibili sono Alert e Webhook. |
+| Name |Nome visualizzato per l'avviso. |
+| Version |La versione API utilizzata.  Attualmente, deve sempre essere impostata su 1. |
 
 ### <a name="retrieving-actions"></a>Recupero delle azioni
 Utilizzare il metodo Get per recuperare tutte le azioni per una pianificazione.
@@ -111,10 +110,10 @@ Utilizzare il metodo Delete con l'ID azione per eliminare un’azione.
 Una pianificazione deve avere una sola azione di avviso.  Le azioni di avviso includono una o più delle sezioni elencate nella tabella seguente.  Ciascuna è descritta in dettaglio di seguito.
 
 | Sezione | Descrizione |
-|:--|:--|
-| Soglia | Criteri di esecuzione dell'azione. |  
-| EmailNotification | Inviare messaggi a più destinatari. |
-| Correzione | Avviare un runbook in Automazione di Azure per tentare di risolvere il problema identificato. |
+|:--- |:--- |
+| Soglia |Criteri di esecuzione dell'azione. |
+| EmailNotification |Inviare messaggi a più destinatari. |
+| Correzione |Avviare un runbook in Automazione di Azure per tentare di risolvere il problema identificato. |
 
 #### <a name="thresholds"></a>Soglie
 Un’azione di avviso deve avere una sola soglia.  Quando i risultati di una ricerca salvata corrispondano alla soglia di un'azione associata a tale ricerca, vengono eseguiti tutti gli altri processi in tale azione.  Inoltre, un'azione può contenere solo una soglia, in modo da poter essere utilizzata con azioni di altri tipi che non contengono soglie.
@@ -122,9 +121,9 @@ Un’azione di avviso deve avere una sola soglia.  Quando i risultati di una ric
 Le soglie includono le proprietà elencate nella tabella seguente.
 
 | Proprietà | Descrizione |
-|:--|:--|
-| Operator | Operatore di confronto soglie. <br> gt = Maggiore di <br>  lt = minore di |
-| Value | Valore per la soglia. |
+|:--- |:--- |
+| Operator |Operatore di confronto soglie. <br> gt = Maggiore di <br>  lt = minore di |
+| Value |Valore per la soglia. |
 
 Si consideri ad esempio una query eventi con Interval pari a 15 minuti, Timespan pari a 30 minuti e Threshold maggiore di 10. In questo caso, la query viene eseguita ogni 15 minuti e viene generato un avviso se restituisce 10 eventi creati in un intervallo di 30 minuti.
 
@@ -155,10 +154,10 @@ Usare il metodo Put con un ID azione esistente per modificare un'azione di sogli
 Le notifiche tramite posta elettronica inviano i messaggi a uno o più destinatari.  Includono le proprietà elencate nella tabella seguente.
 
 | Proprietà | Descrizione |
-|:--|:--|
-| Recipients | Elenco di indirizzi di posta elettronica. |
-| Subject | L’oggetto del messaggio. |
-| Attachment | Gli allegati non sono attualmente supportati, pertanto il valore corrispondente sarà sempre "None". |
+|:--- |:--- |
+| Recipients |Elenco di indirizzi di posta elettronica. |
+| Subject |L’oggetto del messaggio. |
+| Attachment |Gli allegati non sono attualmente supportati, pertanto il valore corrispondente sarà sempre "None". |
 
 Di seguito è riportata una risposta di esempio per un'azione di notifica di posta elettronica con una determinata soglia.  
 
@@ -197,10 +196,10 @@ Le correzioni avviano un runbook in Automazione di Azure che tenta di risolvere 
 Le correzioni includono le proprietà elencate nella tabella seguente.
 
 | Proprietà | Descrizione |
-|:--|:--|
-| RunbookName | Nome del runbook. Deve corrispondere a un runbook pubblicato nell'account di automazione configurato nella soluzione di automazione nell'area di lavoro OMS. |
-| WebhookUri | URL del webhook.
-| Expiry | La data e l’ora di scadenza del webhook.  Se il webhook non ha una scadenza, questo può essere una data futura valida. |
+|:--- |:--- |
+| RunbookName |Nome del runbook. Deve corrispondere a un runbook pubblicato nell'account di automazione configurato nella soluzione di automazione nell'area di lavoro OMS. |
+| WebhookUri |URL del webhook. |
+| Expiry |La data e l’ora di scadenza del webhook.  Se il webhook non ha una scadenza, questo può essere una data futura valida. |
 
 Di seguito è riportata una risposta di esempio per un'azione correttiva con una determinata soglia.
 
@@ -254,9 +253,9 @@ Le azioni webhook non hanno una soglia, ma devono invece essere aggiunte a una p
 Le azioni webhook includono le proprietà elencate nella tabella seguente.
 
 | Proprietà | Descrizione |
-|:--|:--|
-| WebhookUri | L’oggetto del messaggio. |
-| CustomPayload | Payload personalizzato da inviare al webhook.  Il formato dipenderà dalle previsioni del webhook. |
+|:--- |:--- |
+| WebhookUri |L’oggetto del messaggio. |
+| CustomPayload |Payload personalizzato da inviare al webhook.  Il formato dipenderà dalle previsioni del webhook. |
 
 Di seguito è riportato un esempio di risposta per un’azione webhook e un'azione di avviso associata con una determinata soglia.
 
@@ -305,10 +304,7 @@ Usare il metodo Put con un ID azione esistente per modificare un'azione di webho
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mywebhookaction?api-version=2015-03-20 $webhookAction
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-- Utilizzare l’ [API REST per eseguire ricerche nei log](log-analytics-log-search-api.md) in Log Analytics.
-
-
+* Utilizzare l’ [API REST per eseguire ricerche nei log](log-analytics-log-search-api.md) in Log Analytics.
 
 <!--HONumber=Oct16_HO2-->
 

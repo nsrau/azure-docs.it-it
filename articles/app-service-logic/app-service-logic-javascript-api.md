@@ -1,24 +1,26 @@
-<properties
-   pageTitle="Uso dell'app per le API JavaScript in un'app per la logica | Microsoft Azure"
-   description="Connettore o app per le API JavaScript"
-   services="logic-apps"
-   documentationCenter=".net,nodejs,java"
-   authors="stepsic-microsoft-com"
-   manager="dwrede"
-   editor=""/>
+---
+title: Uso dell'app per le API JavaScript in un'app per la logica | Microsoft Docs
+description: Connettore o app per le API JavaScript
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: stepsic-microsoft-com
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="09/01/2016"
-   ms.author="stepsic"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 09/01/2016
+ms.author: stepsic
 
+---
 # App API JavaScript
-
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+> [!NOTE]
+> Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+> 
+> 
 
 L'app per le API JavaScript offre un modo semplice per eseguire semplici espressioni JavaScript *mentre l'app per la logica è in esecuzione*.
 
@@ -39,8 +41,9 @@ Per utilizzare l'applicazione dell'API JavaScript, è necessario creare innanzit
 È possibile creare un trigger che attiva il polling, in base a un intervallo definito dall'utente, da parte del servizio app per la logica. Se viene restituito contenuto, esegue l'app per la logica; in caso contrario, attende fino al successivo intervallo di polling per controllare di nuovo.
 
 Gli input per il trigger sono:
-- **Espressione JavaScript**: espressione che viene valutata. Viene chiamata in una funzione e deve restituire `false` quando non si vuole eseguire l'app per la logica. Può restituire qualsiasi altro valore quando si vuole eseguire l'app per la logica. È possibile usare il contenuto della risposta nelle azioni dell'app per la logica.
-- **Oggetto contesto**: oggetto facoltativo che può essere passato nel trigger. È possibile definire tutte le proprietà desiderate, ma l'entità di primo livello deve essere un oggetto, ad esempio`{ "bar" : 0}`.
+
+* **Espressione JavaScript**: espressione che viene valutata. Viene chiamata in una funzione e deve restituire `false` quando non si vuole eseguire l'app per la logica. Può restituire qualsiasi altro valore quando si vuole eseguire l'app per la logica. È possibile usare il contenuto della risposta nelle azioni dell'app per la logica.
+* **Oggetto contesto**: oggetto facoltativo che può essere passato nel trigger. È possibile definire tutte le proprietà desiderate, ma l'entità di primo livello deve essere un oggetto, ad esempio`{ "bar" : 0}`.
 
 Ad esempio, è possibile avere un semplice trigger che eseguirà l'app per la logica solo tra i valori :15 e :30 dell'ora:
 
@@ -49,35 +52,36 @@ var d = new Date(); return (d.getMinutes() > 15) && (d.getMinutes() < 30);
 ```
 
 ### Azione
-
 Analogamente, è possibile fornire un'azione da eseguire.
 
 Gli input per l'azione sono:
-- **Espressione JavaScript**: espressione che viene valutata. È necessario includere l'istruzione `return` per visualizzare qualsiasi contenuto.
-- **Oggetto contesto**: oggetto facoltativo che può essere passato nel trigger. È possibile definire tutte le proprietà desiderate, ma l'entità di primo livello deve essere un oggetto, ad esempio`{ "bar" : 0}`.
+
+* **Espressione JavaScript**: espressione che viene valutata. È necessario includere l'istruzione `return` per visualizzare qualsiasi contenuto.
+* **Oggetto contesto**: oggetto facoltativo che può essere passato nel trigger. È possibile definire tutte le proprietà desiderate, ma l'entità di primo livello deve essere un oggetto, ad esempio`{ "bar" : 0}`.
 
 Si supponga, ad esempio, di utilizzare il trigger di Office 365**nuovo messaggio di posta elettronica**. Che restituisce l'oggetto seguente:
+
 ```
 {
-	...
-	"Attachments" : [
-		{
-			"name" : "Picture.png",
-			"content" : {
-				"ContentData" : "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFAQMAAAC3obSmAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAGUExURf///wAAAFXC034AAAASSURBVAjXY2BgCGBgYOhgKAAABEIBSWDJEbYAAAAASUVORK5CYII=",
-				"ContentType" : "image/png",
-				"ContentTransferEncoding" : "Base64"
-			}
-		},	
-		{
-			"name" : "File.txt",
-			"content" : {
-				"ContentData" : "Don't worry, be happy!",
-				"ContentType" : "text/plain",
-				"ContentTransferEncoding" : "None"
-			}
-		}	
-	]
+    ...
+    "Attachments" : [
+        {
+            "name" : "Picture.png",
+            "content" : {
+                "ContentData" : "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFAQMAAAC3obSmAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAGUExURf///wAAAFXC034AAAASSURBVAjXY2BgCGBgYOhgKAAABEIBSWDJEbYAAAAASUVORK5CYII=",
+                "ContentType" : "image/png",
+                "ContentTransferEncoding" : "Base64"
+            }
+        },    
+        {
+            "name" : "File.txt",
+            "content" : {
+                "ContentData" : "Don't worry, be happy!",
+                "ContentType" : "text/plain",
+                "ContentTransferEncoding" : "None"
+            }
+        }    
+    ]
 }
 ```
 
@@ -91,8 +95,6 @@ L'azione restituisce il JSON restituito dalla funzione. Pertanto, nell'app API Y
 
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
-
- 
 
 <!--References -->
 

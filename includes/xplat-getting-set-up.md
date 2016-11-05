@@ -1,20 +1,24 @@
-<properties services="virtual-machines" title="Setting up Azure CLI for service management" authors="squillace" solutions="" manager="timlt" editor="tysonn" />
+---
+services: virtual-machines
+title: Setting up Azure CLI for service management
+author: squillace
+solutions: ''
+manager: timlt
+editor: tysonn
 
-<tags
-   ms.service="virtual-machine"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="linux"
-   ms.workload="infrastructure"
-   ms.date="04/13/2015"
-   ms.author="rasquill" />
+ms.service: virtual-machine
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: linux
+ms.workload: infrastructure
+ms.date: 04/13/2015
+ms.author: rasquill
 
+---
 ## Utilizzare l'interfaccia della riga di comando di Azure
-
-I passaggi seguenti consentono di utilizzare l'interfaccia della riga di comando di Azure facilmente con la versione più recente e la sottoscrizione appropriata. Se è necessario installare l'interfaccia della riga di comando di Azure e connetterla al proprio account, vedere [Interfaccia della riga di comando di Azure](xplat-cli-install.md).
+I passaggi seguenti consentono di utilizzare l'interfaccia della riga di comando di Azure facilmente con la versione più recente e la sottoscrizione appropriata. Se è necessario installare l'interfaccia della riga di comando di Azure e connetterla al proprio account, vedere [Interfaccia della riga di comando di Azure](../articles/xplat-cli-install.md).
 
 ### Passaggio 1: aggiornare la versione dell'interfaccia della riga di comando di Azure
-
 Al fine di utilizzare l'interfaccia della riga di comando di Azure per i comandi imperativi con modalità di gestione del servizio, sarebbe opportuno disporre di una versione recente. Per verificare la versione, digitare `azure --version`. Dovrebbe essere visualizzata una schermata analoga alla seguente:
 
     $ azure --version
@@ -23,8 +27,7 @@ Al fine di utilizzare l'interfaccia della riga di comando di Azure per i comandi
 Se si desidera aggiornare la versione dell'interfaccia della riga di comando di Azure, vedere [Interfaccia della riga di comando di Azure](https://github.com/Azure/azure-xplat-cli).
 
 ### Passaggio 2: Impostare l'account e la sottoscrizione di Azure
-
-Una volta connessa l'interfaccia della riga di comando di Azure all'account che si desidera utilizzare, è possibile che siano visualizzate più sottoscrizioni. In questo caso, è necessario rivedere le sottoscrizioni disponibili per l'account digitando `azure account list`, quindi selezionare la sottoscrizione che si desidera utilizzare digitando `azure account set <subscription id or name> true` dove _nome o id sottoscrizione_ è l'id sottoscrizione o il nome della sottoscrizione che si desidera utilizzare nella sessione corrente. Verrà visualizzata una schermata simile alla seguente:
+Una volta connessa l'interfaccia della riga di comando di Azure all'account che si desidera utilizzare, è possibile che siano visualizzate più sottoscrizioni. In questo caso, è necessario rivedere le sottoscrizioni disponibili per l'account digitando `azure account list`, quindi selezionare la sottoscrizione che si desidera utilizzare digitando `azure account set <subscription id or name> true` dove *nome o id sottoscrizione* è l'id sottoscrizione o il nome della sottoscrizione che si desidera utilizzare nella sessione corrente. Verrà visualizzata una schermata simile alla seguente:
 
     $ azure account set "Visual Studio Ultimate with MSDN" true
     info:    Executing command account set
@@ -32,6 +35,9 @@ Una volta connessa l'interfaccia della riga di comando di Azure all'account che 
     info:    Changes saved
     info:    account set command OK
 
-> [AZURE.NOTE] Se non è già un account Azure, ma è una sottoscrizione di abbonamento MSDN, è possibile ottenere i crediti di Azure attivando il [abbonati MSDN dei vantaggi qui](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure è possibile utilizzare l'account gratuito. Uno funzionerà per l'accesso ad Azure.
+> [!NOTE]
+> Se non è già un account Azure, ma è una sottoscrizione di abbonamento MSDN, è possibile ottenere i crediti di Azure attivando il [abbonati MSDN dei vantaggi qui](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure è possibile utilizzare l'account gratuito. Uno funzionerà per l'accesso ad Azure.
+> 
+> 
 
 <!---HONumber=AcomDC_0128_2016-->

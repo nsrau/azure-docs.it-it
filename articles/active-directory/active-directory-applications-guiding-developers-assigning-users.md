@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Azure AD e le applicazioni: assegnazione degli utenti a un'applicazione | Microsoft Azure"
-	description="Come implementare l'assegnazione di un utente per le applicazioni Azure."
-	services="active-directory"
-	documentationCenter=""
-	authors="femila"
-	manager="femila"
-	editor=""/>
+---
+title: 'Azure AD e le applicazioni: assegnazione degli utenti a un''applicazione | Microsoft Docs'
+description: Come implementare l'assegnazione di un utente per le applicazioni Azure.
+services: active-directory
+documentationcenter: ''
+author: femila
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/15/2015"
-	ms.author="inhenk"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2015
+ms.author: inhenk
 
+---
 # Azure AD e le applicazioni: assegnazione di utenti a un'applicazione
 Prima di assegnare utenti e gruppi a un'applicazione, è necessario richiedere l'assegnazione dell’utente. Per informazioni su come richiedere l'assegnazione dell’utente, vedere l’articolo [Richiedere assegnazione utente](active-directory-applications-guiding-developers-requiring-user-assignment.md).
 
@@ -26,11 +26,11 @@ Prima di assegnare utenti e gruppi a un'applicazione, è necessario richiedere l
 4. Fare clic sulla scheda **APPLICAZIONI**.
 5. Selezionare l'applicazione dall'elenco di applicazioni associate a questa directory.
 6. Fare clic sulla scheda **UTENTI E GRUPPI**.
-8. Selezionare gli utenti che si desidera assegnare all'applicazione.
-9. Fare clic su **ASSEGNARE**.
-10. Fare clic su **sì** quando richiesto.
+7. Selezionare gli utenti che si desidera assegnare all'applicazione.
+8. Fare clic su **ASSEGNARE**.
+9. Fare clic su **sì** quando richiesto.
 
 ## Passaggi successivi
-[AZURE.INCLUDE [guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
+[!INCLUDE [guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
 
 <!---HONumber=AcomDC_0817_2016-->

@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Deframmentazione delle metriche in Azure Service Fabric | Microsoft Azure"
-   description="Informazioni generali sull'uso della deframmentazione o della compressione come strategia per le metriche in Service Fabric"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: Deframmentazione delle metriche in Azure Service Fabric | Microsoft Docs
+description: Informazioni generali sull'uso della deframmentazione o della compressione come strategia per le metriche in Service Fabric
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
+---
 # Deframmentazione delle metriche e del carico in Service Fabric
 Cluster Resource Manager di Service Fabric si occupa principalmente del bilanciamento del carico in termini di distribuzione del carico stesso, assicurandosi che tutti i nodi del cluster vengano usati allo stesso modo. Si tratta in genere del layout più intelligente e sicuro per la sopravvivenza agli errori perché garantisce che qualsiasi anomalia non interessi gran parte di un carico di lavoro. Cluster Resource Manager di Service Fabric supporta anche una strategia diversa, ovvero la deframmentazione. La deframmentazione in genere implica che invece di tentare di distribuire l'utilizzo di una metrica all'interno del cluster, si cerca di favorirne un consolidamento effettivo. Si tratta di una fortunata inversione della nostra strategia normale: invece di ottimizzare il cluster riducendo al minimo la deviazione media standard della metrica del carico per una determinata metrica, si inizia l'ottimizzazione dagli incrementi della deviazione. Ma perché si dovrebbe desiderare questa strategia?
 
@@ -33,10 +33,10 @@ Il diagramma di seguito offre una rappresentazione visiva di due cluster diversi
 Quali sono quindi questi altri compromessi concettuali? Si consiglia di misurare accuratamente i carichi di lavoro prima di attivare le metriche di deframmentazione. Ecco una tabella riepilogativa degli aspetti da considerare:
 
 | Vantaggi della deframmentazione | Svantaggi della deframmentazione |
-|----------------------|----------------------|
-|Consente di creare servizi di grandi dimensioni più rapidamente |	Concentra i carichi in meno nodi, aumentando il conflitto
-|Consente di ridurre lo spostamento dei dati durante la creazione | Eventuali errori possono impattare più servizi e causare una maggiore varianza
-|Consente una descrizione completa dei requisiti e il recupero di spazio |	Configurazione di gestione delle risorse complessiva più complessa
+| --- | --- |
+| Consente di creare servizi di grandi dimensioni più rapidamente |Concentra i carichi in meno nodi, aumentando il conflitto |
+| Consente di ridurre lo spostamento dei dati durante la creazione |Eventuali errori possono impattare più servizi e causare una maggiore varianza |
+| Consente una descrizione completa dei requisiti e il recupero di spazio |Configurazione di gestione delle risorse complessiva più complessa |
 
 È possibile combinare metriche normali e deframmentate nello stesso cluster. Resource Manager farà il possibile per offrire all'utente un layout che consolidi quante più metriche di deframmentazione possibili mentre tenta di distribuire il resto. I risultati esatti ottenuti dipenderanno dal numero di metriche di bilanciamento rispetto al numero di metriche di deframmentazione, i relativi pesi, i carichi correnti e così via.
 
@@ -53,8 +53,8 @@ ClusterManifest.xml:
 ```
 
 ## Passaggi successivi
-- Cluster Resource Manager dispone di molte opzioni per la descrizione del cluster. Per altre informazioni a riguardo vedere l'articolo [Descrizione di un cluster di Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
-- Le metriche determinano il modo in cui Cluster Resource Manger di Service Fabric gestisce il consumo e la capacità del cluster. Per altre informazioni sulle metriche e su come configurarle, vedere [questo articolo](service-fabric-cluster-resource-manager-metrics.md).
+* Cluster Resource Manager dispone di molte opzioni per la descrizione del cluster. Per altre informazioni a riguardo vedere l'articolo [Descrizione di un cluster di Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
+* Le metriche determinano il modo in cui Cluster Resource Manger di Service Fabric gestisce il consumo e la capacità del cluster. Per altre informazioni sulle metriche e su come configurarle, vedere [questo articolo](service-fabric-cluster-resource-manager-metrics.md).
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-defragmentation-metrics/balancing-defrag-compared.png
 

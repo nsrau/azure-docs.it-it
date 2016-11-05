@@ -1,27 +1,25 @@
-<properties
-    pageTitle="Abilitare la sincronizzazione offline per l'app per dispositivi mobili di Azure (Xamarin iOS)"
-    description="Informazioni su come usare le app per dispositivi mobili del servizio app per memorizzare nella cache e sincronizzare i dati offline in un'applicazione Xamarin iOS"
-    documentationCenter="xamarin"
-    authors="wesmc7777"
-    manager="dwrede"
-    editor=""
-    services="app-service\mobile"/>
+---
+title: Abilitare la sincronizzazione offline per l'app per dispositivi mobili di Azure (Xamarin iOS)
+description: Informazioni su come usare le app per dispositivi mobili del servizio app per memorizzare nella cache e sincronizzare i dati offline in un'applicazione Xamarin iOS
+documentationcenter: xamarin
+author: wesmc7777
+manager: dwrede
+editor: ''
+services: app-service\mobile
 
-<tags
-    ms.service="app-service-mobile"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-xamarin-ios"
-    ms.devlang="dotnet"
-    ms.topic="article"
-	ms.date="08/19/2016"
-    ms.author="wesmc"/>
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-xamarin-ios
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 08/19/2016
+ms.author: wesmc
 
+---
 # Abilitare la sincronizzazione offline per l'app per dispositivi mobili Xamarin.iOS
-
-[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+[!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 ## Overview
-
 Questa esercitazione descrive la funzionalità di sincronizzazione offline di App per dispositivi mobili di Azure per Xamarin.iOS. La sincronizzazione offline consente agli utenti finali di interagire con un'app, visualizzando, aggiungendo e modificando i dati, anche se non è disponibile una connessione di rete. Le modifiche vengono archiviate in un database locale. Quando il dispositivo torna online, vengono sincronizzate con il servizio remoto.
 
 In questa esercitazione viene aggiornato il progetto app Xamarin.iOS dell'esercitazione [Creare un'app Xamarin iOS] per supportare le funzionalità offline delle app per dispositivi mobili di Azure. Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere al progetto il pacchetto di estensione per l'accesso ai dati. Per altre informazioni sui pacchetti di estensione server, vedere l'articolo relativo all'[utilizzo dell'SDK del server back-end .NET per app per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
@@ -29,38 +27,34 @@ In questa esercitazione viene aggiornato il progetto app Xamarin.iOS dell'eserci
 Per altre informazioni sulla funzionalità di sincronizzazione offline, vedere l'argomento [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
 
 ## Verificare il codice di sincronizzazione del client
-
 Il progetto client Xamarin scaricato dopo aver completato l'esercitazione [Creare un'app Xamarin iOS] contiene già il codice che supporta la sincronizzazione offline mediante un database SQLite locale. Ecco un breve riepilogo degli elementi già inclusi nel codice dell'esercitazione. Per una panoramica concettuale della funzionalità, vedere [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
 
 * Prima di poter eseguire qualsiasi operazione su tabella, è necessario inizializzare l'archivio locale. Il database di archiviazione locale viene inizializzato quando `QSTodoListViewController.ViewDidLoad()` esegue `QSTodoService.InitializeStoreAsync()`. Questo comporta la creazione di un nuovo database SQLite locale usando la classe `MobileServiceSQLiteStore` fornita dall'SDK del client dell'app per dispositivi mobili di Azure.
-
-	Il metodo `DefineTable` crea nell'archivio locale una tabella corrispondente ai campi del tipo specificato, `ToDoItem` in questo caso. Il tipo non deve necessariamente includere tutte le colonne presenti nel database remoto. È possibile archiviare solo un subset di colonne.
-
-		// QSTodoService.cs
-
+  
+    Il metodo `DefineTable` crea nell'archivio locale una tabella corrispondente ai campi del tipo specificato, `ToDoItem` in questo caso. Il tipo non deve necessariamente includere tutte le colonne presenti nel database remoto. È possibile archiviare solo un subset di colonne.
+  
+        // QSTodoService.cs
+  
         public async Task InitializeStoreAsync()
         {
             var store = new MobileServiceSQLiteStore(localDbPath);
             store.DefineTable<ToDoItem>();
-
+  
             // Uses the default conflict handler, which fails on conflict
             await client.SyncContext.InitializeAsync(store);
         }
-
-
 * Il membro `todoTable` di `QSTodoService` è di tipo `IMobileServiceSyncTable` invece che `IMobileServiceTable`. Per questo motivo, tutte le operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD, Create, Read, Update, Delete) sulle tabelle vengono indirizzate al database di archiviazione locale.
-
-	È possibile decidere quando eseguire il push delle modifiche nel back-end dell'app per dispositivi mobili di Azure chiamando `IMobileServiceSyncContext.PushAsync()` con il contesto di sincronizzazione per la connessione client. Il contesto di sincronizzazione aiuta a mantenere le relazioni tra tabelle rilevando le modifiche apportate da un'app client in tutte le tabelle ed eseguendone il push quando viene chiamato `PushAsync`.
-
-	Il codice fornito chiama `QSTodoService.SyncAsync()` per eseguire la sincronizzazione ogni volta che l'elenco todoitem viene aggiornato o un oggetto todoitem viene aggiunto o completato. La sincronizzazione avviene quindi dopo ogni modifica locale, eseguendo un'operazione push nel contesto di sincronizzazione e un'operazione pull nella tabella di sincronizzazione. Tuttavia, è importante tenere presente che se viene eseguita un'operazione pull su una tabella con aggiornamenti locali in sospeso rilevati dal contesto, tale operazione attiva automaticamente un'operazione push sul contesto, che viene eseguita prima del pull. In questi casi (aggiornamento, aggiunta e completamento di elementi) è quindi possibile omettere la chiamata esplicita a `PushAsync`. che è ridondante.
-
+  
+    È possibile decidere quando eseguire il push delle modifiche nel back-end dell'app per dispositivi mobili di Azure chiamando `IMobileServiceSyncContext.PushAsync()` con il contesto di sincronizzazione per la connessione client. Il contesto di sincronizzazione aiuta a mantenere le relazioni tra tabelle rilevando le modifiche apportate da un'app client in tutte le tabelle ed eseguendone il push quando viene chiamato `PushAsync`.
+  
+    Il codice fornito chiama `QSTodoService.SyncAsync()` per eseguire la sincronizzazione ogni volta che l'elenco todoitem viene aggiornato o un oggetto todoitem viene aggiunto o completato. La sincronizzazione avviene quindi dopo ogni modifica locale, eseguendo un'operazione push nel contesto di sincronizzazione e un'operazione pull nella tabella di sincronizzazione. Tuttavia, è importante tenere presente che se viene eseguita un'operazione pull su una tabella con aggiornamenti locali in sospeso rilevati dal contesto, tale operazione attiva automaticamente un'operazione push sul contesto, che viene eseguita prima del pull. In questi casi (aggiornamento, aggiunta e completamento di elementi) è quindi possibile omettere la chiamata esplicita a `PushAsync`. che è ridondante.
+  
     Nel codice fornito viene eseguita una query su tutti i record presenti nella tabella `TodoItem` remota, ma è anche possibile filtrare i record passando un ID di query e una query a `PushAsync`. Per altre informazioni, vedere la sezione *Sincronizzazione incrementale* in [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
+  
+    <!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
+    -->
 
-	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
-	-->
-
-
-		// QSTodoService.cs
+        // QSTodoService.cs
 
         public async Task SyncAsync()
         {
@@ -78,21 +72,16 @@ Il progetto client Xamarin scaricato dopo aver completato l'esercitazione [Crear
 
 
 ## Eseguire l'app client
-
 Eseguire l'applicazione client almeno una volta per popolare il database di archiviazione locale. Nella sezione successiva verrà simulato uno scenario offline e verranno modificati i dati nell'archivio locale mentre l'app è offline.
 
-
 ## Aggiornare il comportamento di sincronizzazione dell'app client
-
 In questa sezione si modificherà il progetto client per simulare uno scenario offline usando un URL di applicazione non valido per il back-end. Quando si aggiungono o si modificano elementi di dati, queste modifiche vengono conservate nell'archivio locale, ma non vengono sincronizzate con l'archivio dati back-end fino a quando non viene ristabilita la connessione.
 
 1. All'inizio di `QSTodoService.cs` modificare l'inizializzazione di `applicationURL` in modo da puntare a URL non validi:
-
+   
         const string applicationURL = @"https://your-service.azurewebsites.xxx/";
-
-
 2. Aggiungere un altro elemento `catch` per la classe `Exception` in `QSTodoService.SyncAsync` che scriverà il messaggio di eccezione nella console.
-
+   
         public async Task SyncAsync()
         {
             try
@@ -109,32 +98,23 @@ In questa sezione si modificherà il progetto client per simulare uno scenario o
                 Console.Error.WriteLine(@"Exception: {0}", ex.Message);
             }
         }
-
 3. Compilare ed eseguire l'app client. Aggiungere alcuni nuovi elementi todo e notare l'eccezione registrata nella console per ogni tentativo di sincronizzazione con il back-end dell'app per dispositivi mobili. I nuovi elementi sono presenti solo nell'archivio locale finché non è possibile effettuarne il push al back-end mobile. L'app client si comporta come se fosse connessa al back-end, supportando tutte le operazioni CRUD (creazione, lettura, aggiornamento ed eliminazione).
-
 4. Chiudere l'app e riavviarla per verificare che i nuovi elementi creati siano salvati in modo permanente nell'archivio locale.
-
 5. (Facoltativo) Usare Visual Studio per visualizzare la tabella di database SQL di Azure per verificare che i dati nel database back-end non siano cambiati.
-
-	In Visual Studio aprire **Esplora server**. Passare al database in **Azure**->**Database SQL**. Fare clic con il pulsante destro del mouse sul database e scegliere **Apri in Esplora oggetti di SQL Server**. È ora possibile passare alla tabella di database SQL e al relativo contenuto.
-
+   
+    In Visual Studio aprire **Esplora server**. Passare al database in **Azure**->**Database SQL**. Fare clic con il pulsante destro del mouse sul database e scegliere **Apri in Esplora oggetti di SQL Server**. È ora possibile passare alla tabella di database SQL e al relativo contenuto.
 
 ## Aggiornare l'app client per la riconnessione al back-end mobile
-
 In questa sezione viene riconnessa l'app al back-end mobile, azione che consente di simulare il ritorno dell'app nello stato online. Quando si esegue il movimento di aggiornamento, i dati verranno sincronizzati con il back-end mobile.
 
 1. Aprire `QSTodoService.cs`. Correggere il valore `applicationURL` in modo che faccia riferimento all'URL corretto.
-
 2. Ricompilare ed eseguire l'app client. L'app prova a eseguire la sincronizzazione con il back-end dell'app per dispositivi mobili di Azure dopo l'avvio. Verificare che non vengano registrate eccezioni nella console di debug.
-
 3. (Facoltativo) Visualizzare i dati aggiornati usando Esplora oggetti di SQL Server o uno strumento REST come Fiddler. Si noti che i dati sono stati sincronizzati tra il database back-end dell'app per dispositivi mobili di Azure e l'archivio locale.
-
+   
     Si noti che i dati sono stati sincronizzati tra il database e l'archivio locale e includono gli elementi aggiunti mentre l'app era disconnessa.
 
 ## Risorse aggiuntive
-
 * [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]
-
 * [Cloud Cover: sincronizzazione offline in Servizi mobili di Azure] \(nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure)
 
 <!-- ##Summary

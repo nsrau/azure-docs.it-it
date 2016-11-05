@@ -1,80 +1,60 @@
-<properties 
-	pageTitle="Codice del buffer circolare XEvent per il database SQL | Microsoft Azure" 
-	description="Fornisce un esempio di codice Transact-SQL reso semplice e veloce tramite l'uso della destinazione del buffer circolare nel database SQL di Azure." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jhubbard" 
-	editor="" 
-	tags=""/>
+---
+title: Codice del buffer circolare XEvent per il database SQL | Microsoft Docs
+description: Fornisce un esempio di codice Transact-SQL reso semplice e veloce tramite l'uso della destinazione del buffer circolare nel database SQL di Azure.
+services: sql-database
+documentationcenter: ''
+author: MightyPen
+manager: jhubbard
+editor: ''
+tags: ''
 
+ms.service: sql-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/23/2016
+ms.author: genemi
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/23/2016" 
-	ms.author="genemi"/>
-
-
+---
 # Codice di destinazione del buffer circolare per gli eventi estesi nel database SQL
-
-[AZURE.INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
+[!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 Si desidera un esempio di codice completo per il modo più semplice e rapido per acquisire e segnalare informazioni per un evento esteso durante un test. La destinazione più semplice per i dati degli eventi estesi è la [destinazione del buffer circolare](http://msdn.microsoft.com/library/ff878182.aspx).
 
-
 In questo argomento viene presentato un esempio di codice Transact-SQL che:
 
-
 1. Crea una tabella con i dati a scopo dimostrativo.
-
 2. Crea una sessione per un evento esteso esistente, ovvero **sqlserver.sql\_statement\_starting**.
-	- L'evento è limitato a istruzioni SQL che contengono una determinata stringa di aggiornamento: **statement LIKE '%UPDATE tabEmployee%'**.
-	- Sceglie di inviare l'output dell'evento a una destinazione di tipo buffer circolare, ovvero **package0.ring\_buffer**.
-
+   
+   * L'evento è limitato a istruzioni SQL che contengono una determinata stringa di aggiornamento: **statement LIKE '%UPDATE tabEmployee%'**.
+   * Sceglie di inviare l'output dell'evento a una destinazione di tipo buffer circolare, ovvero **package0.ring\_buffer**.
 3. Avvia la sessione dell'evento.
-
 4. Esegue un paio di semplici istruzioni SQL UPDATE.
-
 5. Esegue un'istruzione SQL SELECT per recuperare l'output dell'evento dal buffer circolare.
-	- **sys.dm\_xe\_database\_session\_targets** e altre viste a gestione dinamica (DMV) sono unite.
-
+   
+   * **sys.dm\_xe\_database\_session\_targets** e altre viste a gestione dinamica (DMV) sono unite.
 6. Arresta la sessione dell'evento.
-
 7. Elimina la destinazione del buffer circolare, per rilasciare le relative risorse.
-
 8. Elimina la sessione dell'evento e la tabella dimostrativa.
 
-
 ## Prerequisiti
-
-
-- Un account e una sottoscrizione di Azure. È possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
-
-
-- Qualsiasi database in cui è possibile creare una tabella.
- - Facoltativamente, è possibile [creare un database dimostrativo **AdventureWorksLT**](sql-database-get-started.md) in pochi minuti.
-
-
-- SQL Server Management Studio (ssms.exe), idealmente l'ultima versione di aggiornamento mensile. È possibile scaricare la versione più recente di ssms.exe da:
- - Argomento intitolato [SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
- - [Un collegamento diretto al download.](http://go.microsoft.com/fwlink/?linkid=616025)
-
+* Un account e una sottoscrizione di Azure. È possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Qualsiasi database in cui è possibile creare una tabella.
+  
+  * Facoltativamente, è possibile [creare un database dimostrativo **AdventureWorksLT**](sql-database-get-started.md) in pochi minuti.
+* SQL Server Management Studio (ssms.exe), idealmente l'ultima versione di aggiornamento mensile. È possibile scaricare la versione più recente di ssms.exe da:
+  
+  * Argomento intitolato [SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
+  * [Un collegamento diretto al download.](http://go.microsoft.com/fwlink/?linkid=616025)
 
 ## Esempio di codice
-
-
 Con alcune lievi modifiche, è possibile eseguire il seguente esempio di codice di buffer circolare nel database SQL di Azure o in Microsoft SQL Server. La differenza è la presenza del nodo '\_database' nel nome di alcune viste a gestione dinamica (DMV) nella clausola FROM nel passaggio 5. ad esempio:
 
-- sys.dm\_xe**\_database**\_session\_targets
-- sys.dm\_xe\_session\_targets
-
+* sys.dm\_xe**\_database**\_session\_targets
+* sys.dm\_xe\_session\_targets
 
 &nbsp;
-
 
 ```
 GO
@@ -86,63 +66,63 @@ GO
 
 
 IF EXISTS
-	(SELECT * FROM sys.objects
-		WHERE type = 'U' and name = 'tabEmployee')
+    (SELECT * FROM sys.objects
+        WHERE type = 'U' and name = 'tabEmployee')
 BEGIN
-	DROP TABLE tabEmployee;
+    DROP TABLE tabEmployee;
 END
 GO
 
 
 CREATE TABLE tabEmployee
 (
-	EmployeeGuid         uniqueIdentifier   not null  default newid()  primary key,
-	EmployeeId           int                not null  identity(1,1),
-	EmployeeKudosCount   int                not null  default 0,
-	EmployeeDescr        nvarchar(256)          null
+    EmployeeGuid         uniqueIdentifier   not null  default newid()  primary key,
+    EmployeeId           int                not null  identity(1,1),
+    EmployeeKudosCount   int                not null  default 0,
+    EmployeeDescr        nvarchar(256)          null
 );
 GO
 
 
 INSERT INTO tabEmployee ( EmployeeDescr )
-	VALUES ( 'Jane Doe' );
+    VALUES ( 'Jane Doe' );
 GO
 
 ---- Step set 2.
 
 
 IF EXISTS
-	(SELECT * from sys.database_event_sessions
-		WHERE name = 'eventsession_gm_azuresqldb51')
+    (SELECT * from sys.database_event_sessions
+        WHERE name = 'eventsession_gm_azuresqldb51')
 BEGIN
-	DROP EVENT SESSION eventsession_gm_azuresqldb51
-		ON DATABASE;
+    DROP EVENT SESSION eventsession_gm_azuresqldb51
+        ON DATABASE;
 END
 GO
 
 
 CREATE
-	EVENT SESSION eventsession_gm_azuresqldb51
-	ON DATABASE
-	ADD EVENT
-		sqlserver.sql_statement_starting
-			(
-			ACTION (sqlserver.sql_text)
-			WHERE statement LIKE '%UPDATE tabEmployee%'
-			)
-	ADD TARGET
-		package0.ring_buffer
-			(SET
-				max_memory = 500   -- Units of KB.
-			);
+    EVENT SESSION eventsession_gm_azuresqldb51
+    ON DATABASE
+    ADD EVENT
+        sqlserver.sql_statement_starting
+            (
+            ACTION (sqlserver.sql_text)
+            WHERE statement LIKE '%UPDATE tabEmployee%'
+            )
+    ADD TARGET
+        package0.ring_buffer
+            (SET
+                max_memory = 500   -- Units of KB.
+            );
 GO
 
 ---- Step set 3.
 
 
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
-	ON DATABASE
-	STATE = START;
+    ON DATABASE
+    STATE = START;
 GO
 
 ---- Step set 4.
@@ -151,10 +131,10 @@ GO
 SELECT 'BEFORE_Updates', EmployeeKudosCount, * FROM tabEmployee;
 
 UPDATE tabEmployee
-	SET EmployeeKudosCount = EmployeeKudosCount + 102;
+    SET EmployeeKudosCount = EmployeeKudosCount + 102;
 
 UPDATE tabEmployee
-	SET EmployeeKudosCount = EmployeeKudosCount + 1015;
+    SET EmployeeKudosCount = EmployeeKudosCount + 1015;
 
 SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 GO
@@ -203,23 +183,23 @@ GO
 
 
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
-	ON DATABASE
-	STATE = STOP;
+    ON DATABASE
+    STATE = STOP;
 GO
 
 ---- Step set 7.
 
 
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
-	ON DATABASE
-	DROP TARGET package0.ring_buffer;
+    ON DATABASE
+    DROP TARGET package0.ring_buffer;
 GO
 
 ---- Step set 8.
 
 
 DROP EVENT SESSION eventsession_gm_azuresqldb51
-	ON DATABASE;
+    ON DATABASE;
 GO
 
 DROP TABLE tabEmployee;
@@ -229,23 +209,16 @@ GO
 
 &nbsp;
 
-
 ## Contenuto del buffer circolare
-
-
 È stato usato ssms.exe per eseguire l'esempio di codice.
-
 
 Per visualizzare i risultati, è stato fatto clic sulla cella sotto l'intestazione di colonna **target\_data\_XML**.
 
 Quindi, nel riquadro dei risultati, è stato fatto clic sulla cella sotto l'intestazione di colonna **target\_data\_XML**. Tramite questo clic del mouse è stata creata un'altra scheda del file in ssms.exe, in cui è stato visualizzato il contenuto della cella del risultato, come XML.
 
-
 L'output è illustrato nella sezione seguente. Sembra lungo, ma è composto solo da due elementi **<event>**.
 
-
 &nbsp;
-
 
 ```
 <RingBufferTarget truncated="0" processingTime="0" totalEventsProcessed="2" eventCount="2" droppedCount="0" memoryUsed="1728">
@@ -336,47 +309,37 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 
 
 #### Rilasciare le risorse usate dal buffer circolare
-
-
 Al termine dell'uso del buffer circolare, è possibile rimuoverlo e rilasciare le relative risorse eseguendo un'istruzione **ALTER** simile alla seguente:
-
 
 ```
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
-	ON DATABASE
-	DROP TARGET package0.ring_buffer;
+    ON DATABASE
+    DROP TARGET package0.ring_buffer;
 GO
 ```
 
 
 La definizione della sessione dell'evento viene aggiornata, ma non eliminata. Successivamente, è possibile aggiungere un'altra istanza del buffer circolare alla sessione dell'evento:
 
-
 ```
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
-	ON DATABASE
-	ADD TARGET
-		package0.ring_buffer
-			(SET
-				max_memory = 500   -- Units of KB.
-			);
+    ON DATABASE
+    ADD TARGET
+        package0.ring_buffer
+            (SET
+                max_memory = 500   -- Units of KB.
+            );
 ```
 
 
 ## Altre informazioni
-
-
 L'argomento principale per gli eventi estesi in un database SQL di Azure è:
 
-
-- [Considerazioni sugli eventi estesi nel database SQL](sql-database-xevent-db-diff-from-svr.md), che illustra alcuni aspetti degli eventi estesi che presentano differenze tra il database SQL di Azure e Microsoft SQL Server.
-
+* [Considerazioni sugli eventi estesi nel database SQL](sql-database-xevent-db-diff-from-svr.md), che illustra alcuni aspetti degli eventi estesi che presentano differenze tra il database SQL di Azure e Microsoft SQL Server.
 
 Altri argomenti con esempi di codice per gli eventi estesi sono disponibili ai collegamenti seguenti. È comunque necessario controllare regolarmente qualsiasi esempio per verificare se è destinato a Microsoft SQL Server o al database SQL di Azure. È quindi possibile decidere se sono necessarie alcune modifiche per eseguire l'esempio.
 
-
-- Esempio di codice per il database SQL di Azure: [codice di destinazione del file evento per gli eventi estesi nel database SQL](sql-database-xevent-code-event-file.md)
-
+* Esempio di codice per il database SQL di Azure: [codice di destinazione del file evento per gli eventi estesi nel database SQL](sql-database-xevent-code-event-file.md)
 
 <!--
 ('lock_acquired' event.)

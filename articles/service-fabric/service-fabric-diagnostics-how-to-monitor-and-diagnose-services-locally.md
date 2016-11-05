@@ -1,29 +1,27 @@
-<properties
-   pageTitle="Monitorare e diagnosticare localmente servizi scritti con Azure Service Fabric | Microsoft Azure"
-   description="Informazioni su come eseguire il monitoraggio e la diagnosi dei servizi scritti usando Microsoft Azure Service Fabric in un computer di sviluppo locale."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="ms-toddabel"
-   manager="timlt"
-   editor=""/>
+---
+title: Monitorare e diagnosticare localmente servizi scritti con Azure Service Fabric | Microsoft Docs
+description: Informazioni su come eseguire il monitoraggio e la diagnosi dei servizi scritti usando Microsoft Azure Service Fabric in un computer di sviluppo locale.
+services: service-fabric
+documentationcenter: .net
+author: ms-toddabel
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/06/2016"
-   ms.author="toddabel"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/06/2016
+ms.author: toddabel
 
-
-
+---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitorare e diagnosticare servizi in una configurazione di sviluppo con computer locale
-
-
-> [AZURE.SELECTOR]
-- [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
-- [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
+> [!div class="op_single_selector"]
+> * [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+> * [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
+> 
+> 
 
 Le operazioni di monitoraggio, rilevamento, diagnosi e risoluzione dei problemi consentono ai servizi di continuare a funzionare con un'interruzione minima dell'esperienza utente. L'efficacia delle operazioni di monitoraggio e diagnostica, essenziali in un ambiente di produzione distribuito reale, dipenderà tuttavia dall'adozione nella fase di sviluppo dei servizi di un modello analogo che ne assicuri il funzionamento anche nel mondo reale. Service Fabric consente agli sviluppatori di servizi di implementare facilmente un sistema di diagnostica in grado di operare senza problemi sia in ambienti di sviluppo costituiti da un unico computer locale sia in configurazioni con cluster di produzione veri e propri.
 
@@ -35,16 +33,13 @@ Le operazioni di monitoraggio, rilevamento, diagnosi e risoluzione dei problemi 
 * **Anche il codice di sistema di Service Fabric usa ETW per il tracciamento interno.** In questo modo, è possibile visualizzare le tracce dell'applicazione interfoliate con le tracce di sistema di Service Fabric ed è più semplice comprendere le sequenze e le correlazioni tra il codice dell'applicazione e gli eventi nel sistema sottostante.
 * **Negli strumenti di Visual Studio per Service Fabric è incorporato il supporto per la visualizzazione degli eventi ETW.**
 
-
 ## <a name="view-service-fabric-system-events-in-visual-studio"></a>Visualizzare gli eventi di sistema di Service Fabric in Visual Studio
-
 Service Fabric emette eventi ETW per aiutare gli sviluppatori di applicazioni a capire cosa sta accadendo nella piattaforma. Se necessario, andare avanti e seguire la procedura descritta in [Creare la prima applicazione in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md). per creare ed eseguire un'applicazione in cui il visualizzatore degli eventi di diagnostica mostra i messaggi di traccia.
 
 1. Se la finestra degli eventi di diagnostica non viene visualizzata automaticamente, passare alla scheda **Visualizza** in Visual Studio, scegliere **Altre finestre** e quindi **Visualizzatore eventi di diagnostica**.
-
 2. Per ogni evento sono disponibili informazioni di metadati standard che indicano il nodo, l'applicazione e il servizio da cui proviene l'evento. È anche possibile filtrare l'elenco degli eventi usando la casella **Filtra eventi** nella parte superiore della finestra. Ad esempio, è possibile filtrare in base al **nome del nodo** o al **nome del servizio**. Se si cercano informazioni dettagliate su un evento, è anche possibile sospendere la sessione tramite il pulsante **Pausa** nella parte superiore della finestra degli eventi e riprendere in un secondo momento senza alcuna perdita di eventi.
-
-  ![Visualizzatore eventi di diagnostica di Visual Studio](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
+   
+   ![Visualizzatore eventi di diagnostica di Visual Studio](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
 
 ## <a name="add-your-own-custom-traces-to-the-application-code"></a>Aggiungere tracce personalizzate al codice dell'applicazione
 I modelli di progetto di Visual Studio per Service Fabric contengono codice di esempio. Il codice mostra come aggiungere tracce ETW personalizzate al codice dell'applicazione, visibili nel visualizzatore ETW di Visual Studio insieme alle tracce di sistema di Service Fabric. Adottando questo metodo, i metadati vengono automaticamente aggiunti alle tracce e il visualizzatore degli eventi di diagnostica di Visual Studio è già configurato per visualizzarli.
@@ -64,10 +59,9 @@ Dopo aver aggiunto il tracciamento ETW personalizzato al codice del servizio, sa
 
 ## <a name="next-steps"></a>Passaggi successivi
 Lo stesso codice di traccia aggiunto all'applicazione precedente per la diagnostica locale potrà essere usato con gli stessi strumenti di cui è possibile avvalersi per visualizzare gli eventi quando si esegue l'applicazione in un cluster di Azure. Leggere questi articoli che illustrano le diverse opzioni per gli strumenti e descrivono come configurarle.
+
 * [Come raccogliere log con Diagnostica di Azure](service-fabric-diagnostics-how-to-setup-wad.md)
 * [Uso di ElasticSearch come archivio di traccia dell'applicazione dell'infrastruttura di servizi](service-fabric-diagnostic-how-to-use-elasticsearch.md)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

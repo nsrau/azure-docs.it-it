@@ -3,20 +3,17 @@ Se il problema di Azure non viene risolto in questo articolo, visitare il [forum
 
 ## Passaggi per la risoluzione dei problemi generali
 ### Risolvere i problemi relativi a errori comuni di allocazione nel modello di distribuzione classico
-
 Questi passaggi possono facilitare la risoluzione di molti errori di allocazione nelle macchine virtuali:
 
-- Ridimensionare la macchina virtuale con una dimensione diversa della macchina virtuale.<br> Fare clic su **Esplora tutto** > **Macchine virtuali (classico)** > Macchina virtuale personale > **Impostazioni** > **Dimensioni**. Per i passaggi dettagliati, vedere l'articolo relativo al [Ridimensionamento della macchina virtuale](https://msdn.microsoft.com/library/dn168976.aspx).
-
-- Eliminare tutte le VM dal servizio cloud e ricrearle.<br> Fare clic su **Esplora tutto** > **Macchine virtuali (classico)** > Macchina virtuale personale > **Elimina**. Quindi, fare clic su **Nuovo** > **Calcolo** > [immagine macchina virtuale].
+* Ridimensionare la macchina virtuale con una dimensione diversa della macchina virtuale.<br> Fare clic su **Esplora tutto** > **Macchine virtuali (classico)** > Macchina virtuale personale > **Impostazioni** > **Dimensioni**. Per i passaggi dettagliati, vedere l'articolo relativo al [Ridimensionamento della macchina virtuale](https://msdn.microsoft.com/library/dn168976.aspx).
+* Eliminare tutte le VM dal servizio cloud e ricrearle.<br> Fare clic su **Esplora tutto** > **Macchine virtuali (classico)** > Macchina virtuale personale > **Elimina**. Quindi, fare clic su **Nuovo** > **Calcolo** > [immagine macchina virtuale].
 
 ### Risolvere i problemi relativi a errori comuni di allocazione nel modello di distribuzione di Gestione risorse di Azure
-
 Questi passaggi possono facilitare la risoluzione di molti errori di allocazione nelle macchine virtuali:
 
-- Arrestare (deallocare) tutte le VM nello stesso set di disponibilità, quindi riavviarle tutte.<br> Per arrestare: fare clic su **Gruppi di risorse** > Gruppo di risorse personale > **Risorse** > Set di disponibilità personale > **Macchine virtuali** > Macchina virtuale personale > **Arresta**.
-
-	Dopo l'arresto di tutte le VM, selezionare la prima e fare clic su **Avvia**.
+* Arrestare (deallocare) tutte le VM nello stesso set di disponibilità, quindi riavviarle tutte.<br> Per arrestare: fare clic su **Gruppi di risorse** > Gruppo di risorse personale > **Risorse** > Set di disponibilità personale > **Macchine virtuali** > Macchina virtuale personale > **Arresta**.
+  
+    Dopo l'arresto di tutte le VM, selezionare la prima e fare clic su **Avvia**.
 
 ## Informazioni generali
 ### Come funziona l'allocazione
@@ -30,12 +27,12 @@ Quando una richiesta di allocazione è bloccata su un cluster, la probabilità d
 ## Risolvere i problemi relativi a scenari di errori di allocazione specifici nel modello di distribuzione classico
 Ecco gli scenari di allocazione comuni che causano una richiesta di allocazione da bloccare. Verrà esaminato ogni scenario più avanti in questo articolo.
 
-- Ridimensionare una VM o aggiungere VM o istanze dei ruoli a un servizio cloud esistente
-- Riavviare VM arrestate (deallocate) parzialmente
-- Riavviare VM arrestate (deallocate) completamente
-- Distribuzioni di gestione temporanea o di produzione (solo Platform-as-a-Service)
-- Gruppo di affinità (prossimità di VM o servizio)
-- Rete virtuale basata su gruppi di affinità
+* Ridimensionare una VM o aggiungere VM o istanze dei ruoli a un servizio cloud esistente
+* Riavviare VM arrestate (deallocate) parzialmente
+* Riavviare VM arrestate (deallocate) completamente
+* Distribuzioni di gestione temporanea o di produzione (solo Platform-as-a-Service)
+* Gruppo di affinità (prossimità di VM o servizio)
+* Rete virtuale basata su gruppi di affinità
 
 Quando si riceve un errore di allocazione, verificare se uno degli scenari descritti è pertinente con questo errore. Usare l'errore di allocazione restituito dalla piattaforma Azure per identificare lo scenario corrispondente. Se la richiesta è bloccata, rimuovere alcuni dei vincoli di blocco per aprire la richiesta a più cluster, aumentando quindi la possibilità di eseguire l'allocazione correttamente.
 
@@ -45,7 +42,10 @@ Due scenari di errore comuni sono correlati ai gruppi di affinità. In passato, 
 
 Il diagramma 5 seguente illustra la tassonomia degli scenari di allocazione (bloccata). ![Tassonomia di allocazione bloccata](./media/virtual-machines-common-allocation-failure/Allocation3.png)
 
-> [AZURE.NOTE] L'errore indicato in ogni scenario di allocazione è in forma breve. Per le stringhe di errore dettagliate, vedere la sezione [Ricerca della stringa di errore](#Error string lookup).
+> [!NOTE]
+> L'errore indicato in ogni scenario di allocazione è in forma breve. Per le stringhe di errore dettagliate, vedere la sezione [Ricerca della stringa di errore](#Error string lookup).
+> 
+> 
 
 ## Scenario di allocazione: ridimensionare una VM o aggiungere altre VM o istanze dei ruoli a un servizio cloud esistente
 **Errore**
@@ -63,7 +63,6 @@ Se l'errore è Upgrade\_VMSizeNotSupported*, provare con dimensioni della VM div
 Se l'errore è GeneralError, è probabile che il tipo di risorsa (ad esempio, le dimensioni specifiche della VM) sia supportato dal cluster, che al momento non dispone di risorse disponibili. Analogamente allo scenario riportato sopra, aggiungere la risorsa di calcolo desiderata tramite la creazione di un nuovo servizio cloud (notare che il nuovo servizio cloud deve usare un indirizzo VIP diverso) e usare una rete virtuale dell'area per connettere i servizi cloud.
 
 ## Scenario di allocazione: riavviare VM arrestate (deallocate) parzialmente
-
 **Errore**
 
 GeneralError*
@@ -75,8 +74,9 @@ La deallocazione parziale significa che una o più macchine virtuali in un servi
 **Soluzione alternativa**
 
 Se è accettabile usare un indirizzo VIP diverso, eliminare le VM arrestate (deallocate), mantenendo però i dischi associati, quindi riaggiungere le VM tramite un servizio cloud diverso. Usare una rete virtuale dell'area per connettere i servizi cloud:
-- Se il servizio cloud esistente usa una rete virtuale dell'area, è sufficiente aggiungere il nuovo servizio cloud alla stessa rete virtuale.
-- Se il servizio cloud esistente non usa una rete virtuale dell'area, creare una nuova rete virtuale per il nuovo servizio cloud, quindi connettere la [rete virtuale esistente a quella nuova](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Altre informazioni sulle [reti virtuali a livello di area](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+
+* Se il servizio cloud esistente usa una rete virtuale dell'area, è sufficiente aggiungere il nuovo servizio cloud alla stessa rete virtuale.
+* Se il servizio cloud esistente non usa una rete virtuale dell'area, creare una nuova rete virtuale per il nuovo servizio cloud, quindi connettere la [rete virtuale esistente a quella nuova](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Altre informazioni sulle [reti virtuali a livello di area](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 ## Scenario di allocazione: riavviare VM arrestate (deallocate) completamente
 **Errore**
@@ -135,9 +135,9 @@ In alternativa, è possibile [eseguire la migrazione della rete virtuale basata 
 ## Procedura di risoluzione dei problemi dettagliata relativa a scenari con errori di allocazione nel modello di distribuzione Azure Resource Manager
 Ecco gli scenari di allocazione comuni che causano una richiesta di allocazione da bloccare. Verrà esaminato ogni scenario più avanti in questo articolo.
 
-- Ridimensionare una VM o aggiungere VM o istanze dei ruoli a un servizio cloud esistente
-- Riavviare VM arrestate (deallocate) parzialmente
-- Riavviare VM arrestate (deallocate) completamente
+* Ridimensionare una VM o aggiungere VM o istanze dei ruoli a un servizio cloud esistente
+* Riavviare VM arrestate (deallocate) parzialmente
+* Riavviare VM arrestate (deallocate) completamente
 
 Quando si riceve un errore di allocazione, verificare se uno degli scenari descritti è pertinente con questo errore. Usare l'errore di allocazione restituito dalla piattaforma Azure per identificare lo scenario corrispondente. Se la richiesta è bloccata su un cluster esistente, rimuovere alcuni dei vincoli di blocco per aprire la richiesta a più cluster, aumentando quindi la possibilità di eseguire l'allocazione correttamente.
 
@@ -200,3 +200,4 @@ Allocazione non riuscita. Impossibile soddisfare i vincoli nella richiesta. La n
 **GeneralError***
 
 "Errore interno del server. Ritentare la richiesta" o "Non è stato possibile produrre un'allocazione per il servizio".
+

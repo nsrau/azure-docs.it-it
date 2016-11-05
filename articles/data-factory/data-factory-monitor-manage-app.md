@@ -1,31 +1,34 @@
-<properties 
-	pageTitle="Monitorare e gestire le pipeline di Data factory di Azure" 
-	description="Informazioni sull'uso dell'app di monitoraggio e gestione per monitorare e gestire le data factory e le pipeline di Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+---
+title: Monitorare e gestire le pipeline di Data factory di Azure
+description: Informazioni sull'uso dell'app di monitoraggio e gestione per monitorare e gestire le data factory e le pipeline di Azure.
+services: data-factory
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: monicar
 
-<tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/06/2016" 
-	ms.author="spelluru"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/06/2016
+ms.author: spelluru
 
+---
 # Monitorare e gestire le pipeline di Azure Data Factory con la nuova app di monitoraggio e gestione
-> [AZURE.SELECTOR]
-- [Con il portale di Azure/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
-- [Con l'app di monitoraggio e gestione](data-factory-monitor-manage-app.md)
+> [!div class="op_single_selector"]
+> * [Con il portale di Azure/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
+> * [Con l'app di monitoraggio e gestione](data-factory-monitor-manage-app.md)
+> 
+> 
 
 Questo articolo descrive le procedure di monitoraggio, gestione e debug delle pipeline e indica come creare avvisi per ricevere notifiche sugli errori usando l'**app di monitoraggio e gestione**. L'uso dell'app di monitoraggio e gestione è illustrato anche nel video riportato di seguito.
-   
 
-> [AZURE.VIDEO azure-data-factory-monitoring-and-managing-big-data-piplines]
-      
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Data-Factory-Monitoring-and-Managing-Big-Data-Piplines/player]
+> 
+> 
+
 ## Avvio dell'app di monitoraggio e gestione
 Per avviare l'app di monitoraggio e gestione, fare clic sul riquadro **Monitoring & Manage** nel pannello **DATA FACTORY** della data factory.
 
@@ -35,11 +38,12 @@ L'app di monitoraggio e gestione verrà avviata in una scheda o finestra separat
 
 ![App di monitoraggio e gestione](./media/data-factory-monitor-manage-app/AppLaunched.png)
 
-> [AZURE.NOTE] Se il Web browser è bloccato su "Concessione autorizzazioni in corso...", disabilitare/deselezionare l'impostazione di **blocco dei cookie di terze parti e dei dati dei siti** oppure lasciarla abilitata e creare un'eccezione per **login.microsoftonline.com** quindi provare di nuovo ad avviare la procedura guidata.
-
+> [!NOTE]
+> Se il Web browser è bloccato su "Concessione autorizzazioni in corso...", disabilitare/deselezionare l'impostazione di **blocco dei cookie di terze parti e dei dati dei siti** oppure lasciarla abilitata e creare un'eccezione per **login.microsoftonline.com** quindi provare di nuovo ad avviare la procedura guidata.
+> 
+> 
 
 Se non vengono visualizzate finestre attività nell’elenco nella parte inferiore, fare clic sul pulsante **Refresh** nella barra degli strumenti per aggiornare l'elenco. Impostare anche i valori corretti per i filtri **Start time** ed **End time**.
-
 
 ## Informazioni sull'app di monitoraggio e gestione
 A sinistra sono disponibili tre schede, **Esplora inventario risorse**, **Visualizzazioni monitoraggio** e **Avvisi**. La scheda Esplora inventario risorse è selezionata per impostazione predefinita.
@@ -47,17 +51,17 @@ A sinistra sono disponibili tre schede, **Esplora inventario risorse**, **Visual
 ### Scheda Resource Explorer
 Saranno visualizzate le informazioni illustrate nell'immagine seguente:
 
-- **Visualizzazione albero** di Esplora inventario risorse nel pannello a sinistra.
-- **Visualizzazione diagramma** in alto.
-- Elenco **Finestre attività** in basso al riquadro nella parte centrale.
-- Schede **Proprietà**/**Esplora finestre attività** nel riquadro destro.
+* **Visualizzazione albero** di Esplora inventario risorse nel pannello a sinistra.
+* **Visualizzazione diagramma** in alto.
+* Elenco **Finestre attività** in basso al riquadro nella parte centrale.
+* Schede **Proprietà**/**Esplora finestre attività** nel riquadro destro.
 
 In Esplora inventario risorse è possibile visualizzare tutte le risorse della data factory, ovvero le pipeline, i set di dati e i servizi collegati, in una visualizzazione albero. Quando si seleziona un oggetto in Esplora inventario risorse, si noti quanto segue:
 
-- L'entità di Data Factory associata viene evidenziata nella vista diagramma.
-- Le finestre attività associate vengono evidenziate nell'elenco Finestre attività, nella parte inferiore del pannello centrale. Fare clic [qui](data-factory-scheduling-and-execution.md) per informazioni sulle finestre attività.
-- Le proprietà dell'oggetto selezionato vengono visualizzate nella finestra Properties nel riquadro destro.
-- La definizione JSON dell’oggetto selezionato se applicabile. Ad esempio un servizio collegato, un set di dati o una pipeline.
+* L'entità di Data Factory associata viene evidenziata nella vista diagramma.
+* Le finestre attività associate vengono evidenziate nell'elenco Finestre attività, nella parte inferiore del pannello centrale. Fare clic [qui](data-factory-scheduling-and-execution.md) per informazioni sulle finestre attività.
+* Le proprietà dell'oggetto selezionato vengono visualizzate nella finestra Properties nel riquadro destro.
+* La definizione JSON dell’oggetto selezionato se applicabile. Ad esempio un servizio collegato, un set di dati o una pipeline.
 
 ![Scheda Resource Explorer](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
 
@@ -65,10 +69,10 @@ Per informazioni dettagliate sulle finestre attività, vedere l'articolo [Pianif
 
 ### Vista Diagramma
 La vista diagramma di una data factory fornisce un'unica console da cui monitorare e gestire la data factory e i relativi asset. Quando si seleziona un'entità di Data Factory, ovvero un set di dati o una pipeline, nella visualizzazione diagramma, si noti quanto segue:
- 
-- L'entità di Data Factory viene selezionata nella visualizzazione albero.
-- Le finestre attività associate vengono evidenziate nell'elenco Activity Windows.
-- Le proprietà dell'oggetto selezionato vengono visualizzate nella finestra Properties.
+
+* L'entità di Data Factory viene selezionata nella visualizzazione albero.
+* Le finestre attività associate vengono evidenziate nell'elenco Activity Windows.
+* Le proprietà dell'oggetto selezionato vengono visualizzate nella finestra Properties.
 
 Quando la pipeline è abilitata, vale a dire non sospesa, viene visualizzata con una linea verde.
 
@@ -112,9 +116,9 @@ Passare alla scheda **Script** per vedere la definizione dello script JSON per l
 
 Le finestre attività vengono visualizzate in tre posizioni:
 
-- Popup Finestre attività nella visualizzazione diagramma, nel riquadro centrale.
-- Activity Window Explorer nel riquadro destro.
-- Elenco Activity Windows nel riquadro inferiore.
+* Popup Finestre attività nella visualizzazione diagramma, nel riquadro centrale.
+* Activity Window Explorer nel riquadro destro.
+* Elenco Activity Windows nel riquadro inferiore.
 
 Nel popup Finestre attività e in Esplora finestre attività è possibile scorrere fino alla settimana precedente e quella successiva usando i pulsanti con la freccia sinistra e destra.
 
@@ -124,7 +128,6 @@ Nella parte inferiore della visualizzazione diagramma, sono presenti i pulsanti 
 
 ![Comandi di zoom nella vista diagramma](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
-
 ### Elenco Activity Windows
 L'elenco delle finestre attività nella parte inferiore del riquadro centrale riporta tutte le finestre attività per il set di dati selezionato in Resource Explorer o nella vista diagramma. Per impostazione predefinita, l'elenco è in ordine decrescente. Ciò significa che la finestra attività più recente viene visualizzata in alto.
 
@@ -132,15 +135,14 @@ L'elenco delle finestre attività nella parte inferiore del riquadro centrale ri
 
 L'elenco non viene aggiornato automaticamente. Deve essere aggiornato manualmente usando il relativo pulsante nella barra degli strumenti.
 
-
 Di seguito sono riportati gli stati possibili per le finestre attività:
 
 <table>
 <tr>
-	<th align="left">Stato</th><th align="left">Stato secondario</th><th align="left">Descrizione</th>
+    <th align="left">Stato</th><th align="left">Stato secondario</th><th align="left">Descrizione</th>
 </tr>
 <tr>
-	<td rowspan="8">Waiting</td><td>ScheduleTime</td><td>Non è ancora il momento di eseguire la finestra attività.</td>
+    <td rowspan="8">Waiting</td><td>ScheduleTime</td><td>Non è ancora il momento di eseguire la finestra attività.</td>
 </tr>
 <tr>
 <td>DatasetDependencies</td><td>Le dipendenze upstream non sono pronte.</td>
@@ -197,9 +199,8 @@ Quando si fa clic su una finestra attività nell'elenco, i relativi dettagli ven
 
 ![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
-### Aggiornare le finestre attività  
+### Aggiornare le finestre attività
 I dettagli non vengono aggiornati automaticamente. L'elenco delle finestre attività deve essere aggiornato manualmente usando il pulsante di **aggiornamento**, vale a dire il secondo pulsante sulla barra dei comandi.
- 
 
 ### Finestra Properties
 La finestra Properties si trova nel riquadro destro dell'app di monitoraggio e gestione.
@@ -209,7 +210,6 @@ La finestra Properties si trova nel riquadro destro dell'app di monitoraggio e g
 Qui vengono visualizzate le proprietà dell'elemento selezionato nella visualizzazione albero di Resource Explorer, nella vista diagramma o nell'elenco delle finestre attività.
 
 ### Activity Window Explorer
-
 La finestra **Esplora finestre attività** si trova nel riquadro destro dell'app di monitoraggio e gestione. Qui vengono visualizzati i dettagli relativi alla finestra attività selezionata nel popup o nell'elenco delle finestre attività.
 
 ![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
@@ -218,7 +218,7 @@ Per passare a un'altra finestra attività, fare clic su di essa nella visualizza
 
 I pulsanti della barra degli strumenti nel riquadro inferiore consentono di **rieseguire** la finestra attività o di **aggiornare** i dettagli nel riquadro.
 
-### Script 
+### Script
 È possibile usare la scheda **Script** per visualizzare la definizione JSON dell'entità Data Factory selezionata (servizio collegato, set di dati e pipeline).
 
 ![Scheda Script](./media/data-factory-monitor-manage-app/ScriptTab.png)
@@ -236,13 +236,15 @@ Quando si seleziona l'opzione **Finestre attività recenti**, le finestre attivi
 
 L'opzione **Finestre attività non riuscite** consente di visualizzare tutte le finestre attività non riuscite nell'elenco. Selezionare una finestra attività non riuscita dall'elenco per visualizzarne i dettagli nella finestra **Proprietà** o in **Esplora finestre attività**. È anche possibile scaricare i log relativi a una finestra attività non riuscita.
 
-
 ## Ordinamento e filtro delle finestre attività
 Modificare le impostazioni relative all'**ora di inizio** e all'**ora di fine** nella barra dei comandi per filtrare le finestre attività. Dopo aver modificato queste impostazioni, fare clic sul pulsante accanto all'ora di fine per aggiornare l'elenco delle finestre attività.
 
 ![Ora di inizio e ora di fine](./media/data-factory-monitor-manage-app/StartAndEndTimes.png)
 
-> [AZURE.NOTE] Al momento, nell'app di monitoraggio e gestione le ore sono in formato UTC.
+> [!NOTE]
+> Al momento, nell'app di monitoraggio e gestione le ore sono in formato UTC.
+> 
+> 
 
 Nell'**elenco Finestre attività** fare clic sul nome di una colonna, ad esempio Stato.
 
@@ -250,9 +252,9 @@ Nell'**elenco Finestre attività** fare clic sul nome di una colonna, ad esempio
 
 A questo punto è possibile eseguire le attività seguenti:
 
-- Applicare l'ordinamento crescente.
-- Applicare l'ordinamento decrescente.
-- Filtrare in base a uno o più valori, ad esempio Pronto, In attesa e così via.
+* Applicare l'ordinamento crescente.
+* Applicare l'ordinamento decrescente.
+* Filtrare in base a uno o più valori, ad esempio Pronto, In attesa e così via.
 
 Quando si specifica un filtro in una colonna, il pulsante filtro è abilitato per la colonna a indicare che i valori nella colonna sono filtrati.
 
@@ -262,9 +264,7 @@ Per cancellare i filtri è possibile usare la stessa finestra popup. Per cancell
 
 ![Cancellare tutti i filtri nell'elenco Activity Windows](./media/data-factory-monitor-manage-app/ClearAllFiltersActivityWindowsList.png)
 
-
 ## Esecuzione di azioni batch
-
 ### Rieseguire finestre attività selezionate
 Selezionare una finestra attività, fare clic sulla freccia giù del primo pulsante nella barra dei comandi e selezionare **Riesegui** o **Riesegui con upstream nella pipeline**. L'opzione **Riesegui con upstream nella pipeline** consente di rieseguire anche tutte le finestre attività upstream. ![Rieseguire una finestra attività](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
@@ -275,48 +275,40 @@ Selezionare una finestra attività, fare clic sulla freccia giù del primo pulsa
 
 ![Sospensione/ripresa nella barra dei comandi](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
 
-## Creazione di avvisi 
+## Creazione di avvisi
 La pagina Avvisi consente di creare nuovi avvisi e di visualizzare, modificare ed eliminare quelli esistenti. Permette anche di abilitare o disabilitare un avviso. Fare clic sulla scheda Avvisi per visualizzare la pagina.
 
 ![Scheda Alerts](./media/data-factory-monitor-manage-app/AlertsTab.png)
 
 ### Per creare un avviso
-
 1. Fare clic su **Aggiungi avviso** per aggiungere un avviso. Verrà visualizzata la pagina dei dettagli.
-
-	![Creazione di avvisi: pagina Details](./media/data-factory-monitor-manage-app/CreateAlertDetailsPage.png)
-1. Specificare il **nome** e la **descrizione** dell'avviso e fare clic su **Avanti**. Viene visualizzata la pagina **Filtri**.
-
-	![Creazione di avvisi: pagina Filters](./media/data-factory-monitor-manage-app/CreateAlertFiltersPage.png)
-
-2. Selezionare l'**evento**, lo **stato** e lo **stato secondario** (facoltativo) per cui si vuole ricevere un avviso dal servizio Data Factory e fare clic su **Avanti**. Dovrebbe essere visualizzata la pagina **Destinatari**.
-
-	![Creazione di avvisi: pagina Recipients](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png)
-3. Selezionare l'opzione **Invia email agli amministratori della sottoscrizione** e/o immettere un valore per l'**email degli amministratori aggiuntivi**, quindi fare clic su **Fine**. L'avviso verrà visualizzato nell'elenco.
-	
-	![Elenco degli avvisi](./media/data-factory-monitor-manage-app/AlertsList.png)
+   
+    ![Creazione di avvisi: pagina Details](./media/data-factory-monitor-manage-app/CreateAlertDetailsPage.png)
+2. Specificare il **nome** e la **descrizione** dell'avviso e fare clic su **Avanti**. Viene visualizzata la pagina **Filtri**.
+   
+    ![Creazione di avvisi: pagina Filters](./media/data-factory-monitor-manage-app/CreateAlertFiltersPage.png)
+3. Selezionare l'**evento**, lo **stato** e lo **stato secondario** (facoltativo) per cui si vuole ricevere un avviso dal servizio Data Factory e fare clic su **Avanti**. Dovrebbe essere visualizzata la pagina **Destinatari**.
+   
+    ![Creazione di avvisi: pagina Recipients](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png)
+4. Selezionare l'opzione **Invia email agli amministratori della sottoscrizione** e/o immettere un valore per l'**email degli amministratori aggiuntivi**, quindi fare clic su **Fine**. L'avviso verrà visualizzato nell'elenco.
+   
+    ![Elenco degli avvisi](./media/data-factory-monitor-manage-app/AlertsList.png)
 
 Nell'elenco degli avvisi, usare i pulsanti associati a un avviso per modificare, eliminare, disabilitare o abilitare l'avviso.
 
 ### Evento, stato e stato secondario
 La tabella seguente fornisce l'elenco di eventi, stati e stati secondari disponibili.
 
-Nome evento | Stato | Stato secondario
--------------- | ------ | ----------
-Esecuzione attività avviata | Started | Avvio in corso
-Esecuzione attività terminata | Operazione completata | Operazione completata 
-Esecuzione attività terminata | Operazione non riuscita| Allocazione risorse non riuscita<br/><br/>Esecuzione non riuscita<br/><br/>Scaduto<br/><br/>Convalida non riuscita<br/><br/>Abbandonato
-Creazione cluster HDI su richiesta avviata | Started | &nbsp; |
-Creazione cluster HDI su richiesta completata | Operazione completata | &nbsp; |
-Cluster HDI su richiesta eliminato | Operazione completata | &nbsp; |
+| Nome evento | Stato | Stato secondario |
+| --- | --- | --- |
+| Esecuzione attività avviata |Started |Avvio in corso |
+| Esecuzione attività terminata |Operazione completata |Operazione completata |
+| Esecuzione attività terminata |Operazione non riuscita |Allocazione risorse non riuscita<br/><br/>Esecuzione non riuscita<br/><br/>Scaduto<br/><br/>Convalida non riuscita<br/><br/>Abbandonato |
+| Creazione cluster HDI su richiesta avviata |Started |&nbsp; |
+| Creazione cluster HDI su richiesta completata |Operazione completata |&nbsp; |
+| Cluster HDI su richiesta eliminato |Operazione completata |&nbsp; |
+
 ### Per modificare, eliminare o disabilitare un avviso
-
-
 ![Pulsanti degli avvisi](./media/data-factory-monitor-manage-app/AlertButtons.png)
-
-
-
-    
- 
 
 <!---HONumber=AcomDC_0907_2016-->

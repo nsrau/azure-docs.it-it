@@ -1,34 +1,33 @@
 
-<properties
-   pageTitle="Creare un ambiente Linux completo tramite l'interfaccia della riga di comando di Azure | Microsoft Azure"
-   description="Usare l'interfaccia della riga di comando di Azure per creare da zero una risorsa di archiviazione, una VM di Linux, una rete virtuale con subnet, il bilanciamento del carico, una scheda di interfaccia di rete, un IP pubblico e un gruppo di sicurezza di rete."
-   services="virtual-machines-linux"
-   documentationCenter="virtual-machines"
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+---
+title: Creare un ambiente Linux completo tramite l'interfaccia della riga di comando di Azure | Microsoft Docs
+description: Usare l'interfaccia della riga di comando di Azure per creare da zero una risorsa di archiviazione, una VM di Linux, una rete virtuale con subnet, il bilanciamento del carico, una scheda di interfaccia di rete, un IP pubblico e un gruppo di sicurezza di rete.
+services: virtual-machines-linux
+documentationcenter: virtual-machines
+author: iainfoulds
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure"
-   ms.date="08/23/2016"
-   ms.author="iainfou"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 08/23/2016
+ms.author: iainfou
 
+---
 # Creare un ambiente Linux completo mediante l'interfaccia della riga di comando di Azure
-
 In questo articolo viene spiegato come creare una semplice rete con un servizio di bilanciamento del carico e un paio di VM utili per lo sviluppo e per calcoli semplici. Viene presentato in dettaglio l'intero processo, comando dopo comando, fino a creare due VM Linux funzionanti e sicure a cui è possibile connettersi da qualsiasi posizione in Internet. Si potrà quindi passare a reti e ambienti più complessi.
 
 Durante il processo si apprenderanno informazioni sulla gerarchia delle dipendenze fornita dal modello di distribuzione di Resource Manager e sulle potenzialità che offre. Dopo aver osservato come viene realizzato il sistema, è possibile ricrearlo molto più rapidamente utilizzando i [modelli di Azure Resource Manager](../resource-group-authoring-templates.md). In più, dopo aver scoperto come interagiscono le parti dell'ambiente, diventa più facile creare modelli per automatizzarle.
 
 Nell'ambiente sono presenti:
 
-- Due VM all'interno di un set di disponibilità.
-- Un servizio di bilanciamento del carico con una regola di bilanciamento del carico sulla porta 80.
-- Regole del gruppo di sicurezza di rete (NSG) per proteggere la VM dal traffico indesiderato.
+* Due VM all'interno di un set di disponibilità.
+* Un servizio di bilanciamento del carico con una regola di bilanciamento del carico sulla porta 80.
+* Regole del gruppo di sicurezza di rete (NSG) per proteggere la VM dal traffico indesiderato.
 
 ![Panoramica sull'ambiente di base](./media/virtual-machines-linux-create-cli-complete/environment_overview.png)
 
@@ -74,7 +73,6 @@ azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.
 ```
 
 Verificare la rete virtuale e la subnet utilizzando il parser JSON:
-
 
 ```bash
 azure network vnet show TestRG TestVNet --json | jq '.'
@@ -240,7 +238,6 @@ azure resource export TestRG
 La procedura dettagliata seguente illustra il funzionamento di ciascun comando durante la creazione dell'ambiente. Questi concetti torneranno utili in fase di creazione degli ambienti personalizzati per lo sviluppo o per la produzione.
 
 ## Creare i gruppi di risorse e scegliere i percorsi di distribuzione
-
 I gruppi di risorse di Azure sono entità di distribuzione logiche che contengono informazioni di configurazione e altri metadati per abilitare la gestione logica delle distribuzioni di risorse.
 
 ```bash
@@ -264,7 +261,6 @@ info:    group create command OK
 ```
 
 ## Creare un account di archiviazione
-
 Sono necessari account di archiviazione per i dischi della macchina virtuale e per eventuali altri dischi dati che si desidera aggiungere. Si creano account di archiviazione quasi subito dopo la creazione di gruppi di risorse.
 
 Viene usato il comando `azure storage account create`, passando il percorso dell'account, il gruppo di risorse che lo controlla e il tipo di supporto di archiviazione desiderato.
@@ -370,7 +366,6 @@ info:    storage container list command OK
 ```
 
 ## Creare una rete virtuale e una subnet
-
 Dopodiché è necessario creare una rete virtuale che funziona in Azure e una subnet in cui poter installare le VM.
 
 ```bash
@@ -499,7 +494,6 @@ Output:
 ```
 
 ## Creare un indirizzo IP pubblico (PIP)
-
 A questo punto, creare l'indirizzo IP pubblico (PIP) che viene assegnato al bilanciamento del carico. Consente di connettersi alle VM da Internet tramite il comando `azure network public-ip create`. Dato che l'indirizzo predefinito è dinamico, si crea una voce DNS denominata nel dominio **cloudapp.azure.com** usando l'opzione `-d testsubdomain`.
 
 ```bash
@@ -784,7 +778,6 @@ info:    network lb rule create command OK
 ```
 
 ## Creare un probe di integrità per il servizio di bilanciamento del carico
-
 Un probe di integrità verifica periodicamente le VM che si trovano dietro il servizio di bilanciamento del carico per assicurarsi che siano operative e che rispondano alle richieste, come specificato. In caso contrario ne viene disabilitata l'operatività per fare in modo che gli utenti non vengano indirizzati a esse. È possibile definire controlli personalizzati per il probe di integrità, nonché gli intervalli e i valori di timeout. Per altre informazioni sui probe di integrità, vedere [Probe di integrità del servizio di bilanciamento del carico](../load-balancer/load-balancer-custom-probe-overview.md).
 
 ```bash
@@ -941,7 +934,6 @@ Output:
 ```
 
 ## Creare una scheda di interfaccia di rete da usare con la VM di Linux
-
  Le schede di interfaccia di rete sono disponibili a livello di programmazione in quanto è possibile applicare delle regole di utilizzo. È inoltre possibile averne più di una. Nel comando `azure network nic create` seguente la scheda di interfaccia di rete viene associata al pool di indirizzi IP back-end del carico e alla regola NAT per consentire il traffico SSH. A questo scopo occorre specificare l'ID della sottoscrizione di Azure al posto di `<GUID>`:
 
 ```bash
@@ -1034,7 +1026,6 @@ azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name T
 ```
 
 ## Creare un gruppo di sicurezza di rete e le regole corrispondenti
-
 Vengono ora creati il gruppo di sicurezza di rete e le regole in ingresso che regolano l'accesso alla scheda di interfaccia di rete.
 
 ```bash
@@ -1053,10 +1044,12 @@ azure network nsg rule create --protocol tcp --direction inbound --priority 1001
     --destination-port-range 80 --access allow -g TestRG -a TestNSG -n HTTPRule
 ```
 
-> [AZURE.NOTE] La regola in ingresso è un filtro per le connessioni di rete in ingresso. In questo esempio il gruppo di sicurezza di rete viene associato alla scheda di rete virtuale delle VM, di conseguenza qualsiasi richiesta per la porta 22 viene passata alla scheda di rete nella VM. Questa regola è relativa alla connessione di rete anziché all'endpoint, come invece sarebbe nelle distribuzioni classiche. Per aprire una porta, è necessario lasciare `--source-port-range` impostato su '*' (valore predefinito) per accettare le richieste in ingresso da **qualsiasi** porta richiedente. Le porte sono solitamente dinamiche.
+> [!NOTE]
+> La regola in ingresso è un filtro per le connessioni di rete in ingresso. In questo esempio il gruppo di sicurezza di rete viene associato alla scheda di rete virtuale delle VM, di conseguenza qualsiasi richiesta per la porta 22 viene passata alla scheda di rete nella VM. Questa regola è relativa alla connessione di rete anziché all'endpoint, come invece sarebbe nelle distribuzioni classiche. Per aprire una porta, è necessario lasciare `--source-port-range` impostato su '*' (valore predefinito) per accettare le richieste in ingresso da **qualsiasi** porta richiedente. Le porte sono solitamente dinamiche.
+> 
+> 
 
 ## Associare alla scheda di rete
-
 Associare il gruppo di sicurezza di rete alle schede di rete:
 
 ```bash
@@ -1078,18 +1071,17 @@ I domini di errore definiscono un gruppo di macchine virtuali che condividono un
 
 I domini di aggiornamento indicano gruppi di macchine virtuali e l'hardware fisico sottostante che possono essere riavviati nello stesso momento. I domini di aggiornamento non vengono necessariamente riavviati in ordine sequenziale durante la manutenzione pianificata, ma ne viene riavviato uno solo alla volta. D nuovo, Azure distribuisce automaticamente le VM tra i domini di aggiornamento durante il posizionamento in un sito di disponibilità.
 
-Per altre informazioni, leggere l'articolo relativo alla [gestione della disponibilità delle VM](./virtual-machines-linux-manage-availability.md).
+Per altre informazioni, leggere l'articolo relativo alla [gestione della disponibilità delle VM](virtual-machines-linux-manage-availability.md).
 
 ## Creare le VM di Linux
-
 Sono state create le risorse di archiviazione e di rete per supportare le VM accessibili tramite Internet. Ora è possibile creare quelle VM e proteggerle con una chiave SSH priva di password. In questo caso, si vuole creare una VM Ubuntu basata sull'LTS più recente. Per trovare le informazioni sull'immagine si usa `azure vm image list`, come descritto nell'articolo relativo alla [ricerca di immagini di VM di Azure](virtual-machines-linux-cli-ps-findimage.md).
 
 È stata selezionata un'immagine utilizzando il comando `azure vm image list westeurope canonical | grep LTS`. In questo caso, si usa `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`. Per l'ultimo campo si passa a `latest` così che in futuro si ottenga sempre la build più recente. La stringa usata è `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`.
 
 Il passaggio successivo è già noto a chiunque abbia già creato una coppia di chiavi ssh-rsa pubblica e privata in Linux o Mac usando **ssh-keygen -t rsa -b 2048**. Se non si dispone di alcuna coppia di chiavi del certificato nella directory `~/.ssh`, è possibile crearle:
 
-- Automaticamente, utilizzando l'opzione `azure vm create --generate-ssh-keys`.
-- Manualmente, usando [le istruzioni per crearle autonomamente](virtual-machines-linux-mac-create-ssh-keys.md).
+* Automaticamente, utilizzando l'opzione `azure vm create --generate-ssh-keys`.
+* Manualmente, usando [le istruzioni per crearle autonomamente](virtual-machines-linux-mac-create-ssh-keys.md).
 
 In alternativa, è possibile utilizzare il metodo con password amministratore per autenticare le connessioni SSH dopo aver creato la VM. Di solito, questo metodo risulta essere meno sicuro.
 
@@ -1269,7 +1261,6 @@ azure group deployment create -f TestRG.json -g NewRGFromTemplate
 Se lo si desidera, è possibile consultare [ulteriori informazioni su come eseguire la distribuzione partendo dai modelli](../resource-group-template-deploy-cli.md). Ulteriori informazioni su come aggiornare gli ambienti in modo incrementale, utilizzare il file di parametri e accedere ai modelli da un unico percorso di archiviazione.
 
 ## Passaggi successivi
-
 Ora è possibile iniziare a utilizzare più componenti di rete e VM. È possibile utilizzare questo ambiente di esempio per compilare l'applicazione utilizzando i componenti principali presentati qui.
 
 <!---HONumber=AcomDC_0914_2016-->

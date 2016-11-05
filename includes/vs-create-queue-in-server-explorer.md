@@ -7,7 +7,6 @@
 3. Selezionare il nodo**Code**e scegliere**Creare coda**dal menu di scelta rapida.
 4. Immettere un nome per la coda e scegliere**OK**.   
 
-
 [Image1]: ./media/vs-create-queue-in-server-explorer/vs-storage-queues-create-in-server-explorer.png
 
 <!---HONumber=Oct15_HO3-->

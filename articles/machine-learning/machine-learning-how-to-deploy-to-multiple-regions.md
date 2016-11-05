@@ -1,30 +1,27 @@
-<properties
-    pageTitle="Procedura: Come distribuire un servizio Web in più aree | Microsoft Azure"
-    description="Procedura per distribuire (copiare) un nuovo servizio Web in altre aree."
-    services="machine-learning"
-    documentationCenter=""
-    authors="vDonGlover"
-    manager="raymondl"
-    editor="cgronlun"/>
+---
+title: 'Procedura: Come distribuire un servizio Web in più aree | Microsoft Docs'
+description: Procedura per distribuire (copiare) un nuovo servizio Web in altre aree.
+services: machine-learning
+documentationcenter: ''
+author: vDonGlover
+manager: raymondl
+editor: cgronlun
 
-<tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/05/2016"
-    ms.author="v-donglo"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/05/2016
+ms.author: v-donglo
 
-
+---
 # <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>Procedura: Come distribuire un servizio Web in più aree
-
 I nuovi servizi Web di Azure consentono di distribuire facilmente un servizio Web in più aree, senza la necessità di più sottoscrizioni o aree di lavoro. 
 
 I prezzi sono specifici per ogni area. È quindi necessario definire un piano di fatturazione per ogni area in cui verrà distribuito il servizio Web.
 
 ## <a name="to-create-a-plan-in-another-region"></a>Per creare un piano in un'altra area
-
 1. Accedere a [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/)(Servizi Web Microsoft Azure Machine Learning).
 2. Fare clic sull'opzione del menu **Plans** (Piani).
 3. Nella pagina della panoramica Plans (Piani), fare clic su **New**(Nuovo).
@@ -35,9 +32,7 @@ I prezzi sono specifici per ogni area. È quindi necessario definire un piano di
 8. In **Plan Options**(Opzioni piano) selezionare il livello di fatturazione per il nuovo piano.
 9. Fare clic su **Create**.
 
-
 ## <a name="deploying-the-web-service-to-another-region"></a>Distribuzione di un servizio Web in un'altra area
-
 1. Fare clic sull'opzione del menu **Web Services** (Servizi Web).
 2. Selezionare il servizio Web da distribuire in una nuova area.
 3. Fare clic su **Copy**.
@@ -49,9 +44,6 @@ I prezzi sono specifici per ogni area. È quindi necessario definire un piano di
 9. Nell'elenco a discesa **Storage account** (Account di archiviazione) selezionare un account di archiviazione in cui archiviare il servizio Web.
 10. Nell'elenco a discesa **Price Plan** (Piano tariffario) selezionare un piano nell'area scelta nel passaggio 8.
 11. Fare clic su **Copy**.
-
-
-
 
 <!--HONumber=Oct16_HO2-->
 

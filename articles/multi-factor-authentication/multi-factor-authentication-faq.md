@@ -1,72 +1,58 @@
-<properties
-	pageTitle="Domande frequenti su Azure Multi-Factor Authentication"
-	description="Fornisce un elenco di domande e risposte frequenti correlate ad Azure Multi-Factor Authentication. Multi-Factor Authentication è un metodo di verifica dell'identità dell'utente che richiede l'uso di più fattori, oltre a un nome utente e una password. Fornisce un livello di sicurezza aggiuntivo agli accessi e alle transazioni degli utenti."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtand"/> 
+---
+title: Domande frequenti su Azure Multi-Factor Authentication
+description: Fornisce un elenco di domande e risposte frequenti correlate ad Azure Multi-Factor Authentication. Multi-Factor Authentication è un metodo di verifica dell'identità dell'utente che richiede l'uso di più fattori, oltre a un nome utente e una password. Fornisce un livello di sicurezza aggiuntivo agli accessi e alle transazioni degli utenti.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtand
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/22/2016"
-	ms.author="kgremban"/> 
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/22/2016
+ms.author: kgremban
 
+---
 # Domande frequenti su Azure Multi-Factor Authentication
-
-
 Queste domande frequenti offrono risposte su Azure Multi-Factor Authentication e sull'uso del servizio Multi-Factor Authentication, incluse domande relative al modello di fatturazione e all'usabilità.
 
 ## Generale
-
 **D: Come è possibile ottenere assistenza per Azure Multi-Factor Authentication?**
 
-- [Cercare nella Microsoft Knowledge Base](https://www.microsoft.com/it-IT/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport)
-
+* [Cercare nella Microsoft Knowledge Base](https://www.microsoft.com/it-IT/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport)
+  
   Cercare nella Knowledge Base le soluzioni ai problemi tecnici comuni.
-
-- [Forum di Microsoft Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD)
-
+* [Forum di Microsoft Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD)
+  
   È possibile cercare e sfogliare le domande e risposte tecniche dalla community o porre le proprie domande nei [forum di Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
-
-- [Reimpostazione delle password](mailto:phonefactorsupport@microsoft.com)
-
+* [Reimpostazione delle password](mailto:phonefactorsupport@microsoft.com)
+  
   I clienti legacy di PhoneFactor che hanno domande o necessitano di assistenza per reimpostare una password possono usare il collegamento per la [reimpostazione della password](mailto:phonefactorsupport@microsoft.com) per aprire una richiesta di assistenza.
-
-- [Supporto per il server Azure Multi-Factor Authentication (PhoneFactor)](https://support.microsoft.com/oas/default.aspx?prid=14947)
-
+* [Supporto per il server Azure Multi-Factor Authentication (PhoneFactor)](https://support.microsoft.com/oas/default.aspx?prid=14947)
+  
   Utilizzare questo collegamento per contattare un supporto Professional di Microsoft. Verranno poste alcune domande per determinare le opzioni di supporto disponibili, tra cui l'invio di messaggi di posta elettronica, l'invio online o il supporto telefonico.
-
-
 
 **D: In che modo il server Azure Multi-Factor Authentication gestisce i dati utente?**
 
 Quando si usa il server Multi-Factor Authentication, i dati utente vengono archiviati solo nel server locale. Nel cloud non vengono archiviati dati utente persistenti. Quando l'utente esegue l'autenticazione a due fattori, il server Multi-Factor Authentication invia dati al servizio cloud Azure Multi-Factor Authentication per l'autenticazione. Quando queste richieste di autenticazione vengono inviate al servizio cloud, i dati prelevati dai campi seguenti vengono inviati nella richiesta e nei log, in modo che siano disponibili nei report di autenticazione e utilizzo del cliente. Alcuni campi sono facoltativi ed è possibile configurarli nel server multi-Factor Authentication. La comunicazione dal server Multi-Factor Authentication al servizio cloud Multi-Factor Authentication avviene tramite Secure Sockets Layer (SSL) o Transport Layer Security (TLS) sulla porta 443 in uscita. Di seguito sono riportati i campi di dati inclusi nei log di autenticazione a due fattori:
 
-- **ID univoco:** nome utente o ID del server Multi-Factor Authentication locale
-- **Nome e cognome:** facoltativo
-- **Indirizzo di posta elettronica:** facoltativo
-- **Numero di telefono:** quando si esegue una chiamata vocale o l'autenticazione tramite SMS
-- **Token del dispositivo:** quando si esegue l'autenticazione con l'app per dispositivi mobili
-- **Modalità di autenticazione**
-- **Risultato dell'autenticazione**
-- **Nome del server Multi-Factor Authentication**
-- **IP del server Multi-Factor Authentication**
-- **IP client:** se disponibile
-
-
+* **ID univoco:** nome utente o ID del server Multi-Factor Authentication locale
+* **Nome e cognome:** facoltativo
+* **Indirizzo di posta elettronica:** facoltativo
+* **Numero di telefono:** quando si esegue una chiamata vocale o l'autenticazione tramite SMS
+* **Token del dispositivo:** quando si esegue l'autenticazione con l'app per dispositivi mobili
+* **Modalità di autenticazione**
+* **Risultato dell'autenticazione**
+* **Nome del server Multi-Factor Authentication**
+* **IP del server Multi-Factor Authentication**
+* **IP client:** se disponibile
 
 Oltre a questi campi, il risultato dell'autenticazione (esito positivo o rifiuto) e il motivo di eventuali rifiuti vengono archiviati insieme ai dati di autenticazione e sono disponibili nei report di autenticazione e utilizzo.
 
-
-
-
 ## Fatturazione
-
 **D: Le chiamate telefoniche o i messaggi SMS usati per autenticare gli utenti verranno addebitati all'organizzazione?**
 
 Tutti i costi sono distribuiti nel costo del servizio per utente o per autenticazione. Alle aziende non vengono addebitati costi per singole chiamate telefoniche effettuate o per messaggi di testo inviati agli utenti tramite Azure Multi-Factor Authentication. I gestori telefonici potrebbero addebitare ai proprietari di telefoni cellulari costi correlati al roaming o di altro tipo per la ricezione di chiamate o SMS.
@@ -75,15 +61,17 @@ Tutti i costi sono distribuiti nel costo del servizio per utente o per autentica
 
 Azure Multi-Factor Authentication è disponibile come servizio autonomo, con opzioni di fatturazione per utente e per autenticazione o in bundle con Azure Active Directory Premium, Enterprise Mobility Suite o Enterprise Cloud Suite. Il servizio autonomo è disponibile come opzione basata sull'utilizzo fatturata mensilmente a fronte dell'impegno monetario stabilito con Azure oppure come licenza annuale per utente disponibile tramite un contratto Microsoft Enterprise Agreement, il programma Microsoft Open License, il programma Microsoft Cloud Solution Provider o Direct.
 
->[AZURE.IMPORTANT]
-Le aree australiane sono disponibili per i clienti con una presenza commerciale in Australia o Nuova Zelanda.
+> [!IMPORTANT]
+> Le aree australiane sono disponibili per i clienti con una presenza commerciale in Australia o Nuova Zelanda.
+> 
+> 
 
-Modello di fatturazione | Prezzo
-------------- | ------------- |
-Utilizzo per utente (impegno monetario con Azure)| $ 1,40 al mese (autenticazioni illimitate)
-Utilizzo per autenticazione (impegno monetario con Azure)|$ 1,40 per 10 autenticazioni
-Licenza annuale per utente (Direct)|$ 1,40 al mese (autenticazioni illimitate)
-Licenza annuale per utente (contratto multilicenza)|Contattare il [rappresentante del contratto Enterprise](https://www.microsoft.com/it-IT/licensing/licensing-programs/enterprise.aspx).
+| Modello di fatturazione | Prezzo |
+| --- | --- |
+| Utilizzo per utente (impegno monetario con Azure) |$ 1,40 al mese (autenticazioni illimitate) |
+| Utilizzo per autenticazione (impegno monetario con Azure) |$ 1,40 per 10 autenticazioni |
+| Licenza annuale per utente (Direct) |$ 1,40 al mese (autenticazioni illimitate) |
+| Licenza annuale per utente (contratto multilicenza) |Contattare il [rappresentante del contratto Enterprise](https://www.microsoft.com/it-IT/licensing/licensing-programs/enterprise.aspx). |
 
 **D: Il modello di fatturazione per utente comporta l'addebito dei costi in base al numero di utenti configurati per l'uso di Multi-Factor Authentication o in base al numero di utenti che eseguono le verifiche?**
 
@@ -113,13 +101,10 @@ Quando crea una risorsa, l'organizzazione sceglie un modello di fatturazione. No
 
 Quando si usano i modelli di fatturazione in base all'utilizzo, non è obbligatorio usare Azure Active Directory. Il collegamento di un provider di Multi-Factor Authentication a una directory è facoltativo. Se l'organizzazione non è collegata a una directory, è possibile distribuire il server Azure Multi-Factor Authentication o l'SDK di Azure Multi-Factor Authentication in locale. Quando si usa il modello di licenza, è necessario usare Azure Active Directory in quanto le licenze vengono aggiunte alla directory quando vengono acquistate e assegnate agli utenti nella directory.
 
-
 ## Usabilità
-
 **D: Cosa fare nel caso in cui un utente non riceve risposta sul telefono, o se il telefono non è disponibile all'utente?**
 
 Se l'utente ha già configurato un telefono di backup, riprovare selezionando tale telefono quando richiesto nella pagina di accesso. Se non è stato configurato alcun altro metodo, è opportuno che l'utente contatti l'amministratore e chieda di aggiornare il numero assegnato al telefono principale, cellulare o dell'ufficio.
-
 
 **D: Cosa fare se un amministratore se viene contattato da un utente per un account al quale l'utente non riesce più ad accedere?**
 
@@ -131,15 +116,17 @@ Se l'utente ha già configurato un telefono di backup, riprovare selezionando ta
 
 **D: Cosa accade se l'utente non può accedere alle applicazioni non basate su browser?**
 
-- A un utente configurato per l'uso di Multi-Factor Authentication è necessaria una password di app per accedere ad alcune app non basate su browser.
-- L'utente deve eliminare le informazioni di accesso, riavviare l'app e accedere con il proprio nome utente e la password di app.
+* A un utente configurato per l'uso di Multi-Factor Authentication è necessaria una password di app per accedere ad alcune app non basate su browser.
+* L'utente deve eliminare le informazioni di accesso, riavviare l'app e accedere con il proprio nome utente e la password di app.
 
 Altre informazioni sulla creazione di password di app e altro nella [Guida alle password per le app](multi-factor-authentication-end-user-app-passwords.md).
 
-
->[AZURE.NOTE] Autenticazione moderna per i client di Office 2013
->
+> [!NOTE]
+> Autenticazione moderna per i client di Office 2013
+> 
 > I client di Office 2013, tra cui Outlook, supportano nuovi protocolli di autenticazione. È possibile configurare Office 2013 affinché supporti l'autenticazione a più fattori. Dopo aver configurato Office 2013, le password di app non sono necessarie per i client di Office 2013. Per altre informazioni, vedere l'[annuncio dell'anteprima pubblica dell'autenticazione moderna di Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> 
+> 
 
 **D: Cosa fare se un utente non riceve un SMS o se risponde a un SMS bidirezionale, ma la verifica scade?**
 
@@ -163,9 +150,7 @@ Le modifiche della sicurezza in Windows Server 2012 R2 hanno variato le modalit�
 
 Quando vengono effettuate chiamate MFA tramite la rete telefonica pubblica, queste vengono a volte indirizzate su un gestore che non supporta l'ID chiamante. Per questo motivo, l'ID chiamante non è garantito, anche se il sistema di autenticazione a più fattori lo invia sempre.
 
-
 ## Errori
-
 **D: Cosa fare quando un utente visualizza l'errore "La richiesta di autenticazione non è per un account attivato" quando esegue l'autenticazone tramite le notifiche di app per dispositivi mobili?**
 
 Seguire questa procedura:
@@ -175,9 +160,6 @@ Seguire questa procedura:
 3. Fare clic su **Verifica aggiuntiva di sicurezza**.
 4. Rimuovere l'account esistente dall'app per dispositivi mobili.
 5. Fare clic su **Configura** e seguire le istruzioni per riconfigurare l'app per dispositivi mobili.
-
-
-
 
 **D: Cosa fare se l'utente visualizza un messaggio di errore 0x800434D4L quando tenta di accedere usando un'app non basata su browser?**
 

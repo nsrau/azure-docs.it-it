@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Servizi cloud Microsoft e sicurezza della rete | Microsoft Azure"
-   description="Informazioni su alcune funzionalità chiave disponibili in Azure per creare ambienti di rete sicuri."
-   services="virtual-network"
-   documentationCenter="na"
-   authors="tracsman"
-   manager="rossort"
-   editor=""/> 
+---
+title: Servizi cloud Microsoft e sicurezza della rete | Microsoft Docs
+description: Informazioni su alcune funzionalità chiave disponibili in Azure per creare ambienti di rete sicuri.
+services: virtual-network
+documentationcenter: na
+author: tracsman
+manager: rossort
+editor: ''
 
-<tags
-   ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="03/14/2016"
-   ms.author="jonor;sivae"/>
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/14/2016
+ms.author: jonor;sivae
 
+---
 # Servizi cloud Microsoft e sicurezza di rete
-
 I Servizi cloud Microsoft offrono servizi e infrastruttura iperscalabili, capacità di livello aziendale e molte opzioni per la connettività ibrida. I clienti possono scegliere di accedere a questi servizi tramite Internet o con Azure ExpressRoute, che offre connettività di rete privata. La piattaforma Microsoft Azure consente ai clienti di estendere con facilità la propria infrastruttura nel cloud e sviluppare architetture a più livelli. Inoltre, le terze parti possono abilitare capacità avanzate offrendo servizi di sicurezza e appliance virtuali. Questo white paper offre una panoramica dei problemi relativi a sicurezza e architettura che i clienti dovrebbero tenere in considerazione quando usano i Servizi cloud Microsoft con accesso tramite ExpressRoute. Il documento illustra anche come creare servizi più sicuri sulle reti virtuali di Azure.
 
 ## Avvio veloce
@@ -47,12 +46,12 @@ Per implementare una rete perimetrale vengono usate numerose architetture, da un
 
 Quando i clienti spostano i propri carichi di lavoro nei cloud pubblici, è essenziale supportare capacità analoghe per l'architettura della rete perimetrale in Azure al fine di soddisfare i requisiti di conformità e sicurezza. Questo documento offre indicazioni su come creare un ambiente di rete sicuro in Azure. Il documento è incentrato sulla rete perimetrale, ma include anche una discussione approfondita dei numerosi aspetti riguardanti la sicurezza di rete. La discussione risponde alle domande seguenti:
 
-- Come è possibile creare una rete perimetrale in Azure?
-- Quali sono alcune delle funzionalità di Azure disponibili per la creazione della rete perimetrale?
-- Come è possibile proteggere i carichi di lavoro back-end?
-- In che modo vengono controllate le comunicazioni Internet per i carichi di lavoro in Azure?
-- In che modo è possibile proteggere le reti locali da distribuzioni in Azure?
-- Quando è consigliabile usare le funzionalità di sicurezza native di Azure invece di appliance o servizi di terze parti?
+* Come è possibile creare una rete perimetrale in Azure?
+* Quali sono alcune delle funzionalità di Azure disponibili per la creazione della rete perimetrale?
+* Come è possibile proteggere i carichi di lavoro back-end?
+* In che modo vengono controllate le comunicazioni Internet per i carichi di lavoro in Azure?
+* In che modo è possibile proteggere le reti locali da distribuzioni in Azure?
+* Quando è consigliabile usare le funzionalità di sicurezza native di Azure invece di appliance o servizi di terze parti?
 
 Il diagramma seguente mostra i vari livelli di sicurezza che Azure offre ai clienti. Questi livelli sono costituiti sia da funzionalità native della piattaforma Azure sia da funzionalità definite dal cliente:
 
@@ -65,17 +64,17 @@ La sezione che segue fornisce una panoramica delle reti virtuali di Azure. Quest
 ## Panoramica delle reti virtuali di Azure
 Prima che il traffico Internet possa raggiungere le reti virtuali di Azure, sono disponibili due livelli di sicurezza insiti nella piattaforma Azure:
 
-1.	**Protezione DDoS**: la protezione DDoS è un livello della rete fisica di Azure che protegge la piattaforma Azure stessa da attacchi su larga scala basati su Internet. Per questi attacchi vengono usati più nodi "bot" nel tentativo di sovraccaricare un servizio Internet. Azure vanta una robusta rete di protezione DDoS su tutta la connettività Internet in ingresso. Questo livello di protezione DDoS non dispone di attributi configurabili dall'utente e non è accessibile al cliente. Protegge la piattaforma Azure da attacchi su larga scala, ma non proteggerà direttamente le applicazioni dei singoli clienti. Il cliente può configurare livelli aggiuntivi di resilienza contro un attacco localizzato. Ad esempio, se il cliente A ha subito un attacco DDoS su larga scala su un endpoint pubblico, Azure blocca le connessioni a quel servizio. Per ripristinare il servizio, il cliente A può eseguire il failover su un'altra rete virtuale o un altro endpoint di servizio non coinvolto nell'attacco. Si noti che, sebbene sia possibile che il cliente A venga interessato dall'attacco su tale endpoint, nessun altro servizio all'esterno dell'endpoint subirà l'attacco. Altri clienti e servizi, inoltre, non subiranno alcun effetto di tale attacco.
-2.	**Endpoint di servizio**: gli endpoint consentono ai servizi cloud o ai gruppi di risorse di avere indirizzi IP pubblici su Internet e porte esposti. L'endpoint userà il processo NAT (Network Address Translation) per instradare il traffico fino all'indirizzo e alla porta interni nella rete virtuale di Azure. Questo è il percorso principale che consente al traffico esterno di passare attraverso la rete virtuale. Gli endpoint di servizio possono essere configurati dall'utente per determinare il traffico autorizzato a passare e come/dove viene convertito nella rete virtuale.
+1. **Protezione DDoS**: la protezione DDoS è un livello della rete fisica di Azure che protegge la piattaforma Azure stessa da attacchi su larga scala basati su Internet. Per questi attacchi vengono usati più nodi "bot" nel tentativo di sovraccaricare un servizio Internet. Azure vanta una robusta rete di protezione DDoS su tutta la connettività Internet in ingresso. Questo livello di protezione DDoS non dispone di attributi configurabili dall'utente e non è accessibile al cliente. Protegge la piattaforma Azure da attacchi su larga scala, ma non proteggerà direttamente le applicazioni dei singoli clienti. Il cliente può configurare livelli aggiuntivi di resilienza contro un attacco localizzato. Ad esempio, se il cliente A ha subito un attacco DDoS su larga scala su un endpoint pubblico, Azure blocca le connessioni a quel servizio. Per ripristinare il servizio, il cliente A può eseguire il failover su un'altra rete virtuale o un altro endpoint di servizio non coinvolto nell'attacco. Si noti che, sebbene sia possibile che il cliente A venga interessato dall'attacco su tale endpoint, nessun altro servizio all'esterno dell'endpoint subirà l'attacco. Altri clienti e servizi, inoltre, non subiranno alcun effetto di tale attacco.
+2. **Endpoint di servizio**: gli endpoint consentono ai servizi cloud o ai gruppi di risorse di avere indirizzi IP pubblici su Internet e porte esposti. L'endpoint userà il processo NAT (Network Address Translation) per instradare il traffico fino all'indirizzo e alla porta interni nella rete virtuale di Azure. Questo è il percorso principale che consente al traffico esterno di passare attraverso la rete virtuale. Gli endpoint di servizio possono essere configurati dall'utente per determinare il traffico autorizzato a passare e come/dove viene convertito nella rete virtuale.
 
 Quando il traffico raggiunge la rete virtuale, sono disponibili molte funzionalità. Le reti virtuali di Azure costituiscono la base a cui i clienti collegano i rispettivi carichi di lavoro e a cui si applica la sicurezza a livello di rete di base. Si tratta di una rete privata (un overlay di rete virtuale) in Azure per i clienti, che offre le funzionalità e le caratteristiche seguenti:
- 
-- **Isolamento del traffico**: una rete virtuale è il limite di isolamento del traffico nella piattaforma Azure. Le macchine virtuali (VM) in una rete virtuale non possono comunicare direttamente con le VM in una rete virtuale diversa, anche se entrambe le reti virtuali vengono create dallo stesso cliente. Questa è una proprietà essenziale, che assicura che le macchine virtuali e le comunicazioni dei clienti rimangano private entro una rete virtuale.
-- **Topologia a più livelli**: le reti virtuali consentono ai clienti di definire una topologia a più livelli, allocando subnet e designando spazi di indirizzi separati per diversi elementi o "livelli" dei rispettivi carichi di lavoro. Questi raggruppamenti logici e queste topologie consentono ai clienti di definire diversi criteri di accesso in base ai tipi di carico di lavoro e anche di controllare i flussi del traffico tra i livelli.
-- **Connettività cross-premise**: i clienti possono stabilire la connettività cross-premise tra una rete virtuale e più siti locali o altre reti virtuali in Azure. A tale scopo, i clienti possono usare i gateway VPN di Azure o appliance virtuali di reti di terze parti. Azure supporta VPN da sito a sito (S2S, site-to-site) mediante protocolli IPsec/IKE standard e la connettività privata di ExpressRoute.
-- **Gruppo di sicurezza di rete (NSG)**: consente ai clienti di creare regole (ACL) al livello di granularità desiderato, ovvero interfacce di rete, singole VM o subnet virtuali. I clienti possono controllare l'accesso autorizzando o negando la comunicazione tra i carichi di lavoro all'interno di una rete virtuale, da sistemi nelle reti dei clienti tramite la connettività cross-premise oppure la comunicazione Internet diretta.
-- Le **UDR** e l'**inoltro IP** consentono ai clienti di definire i percorsi di comunicazione tra livelli diversi all'interno di una rete virtuale. I clienti possono distribuire un firewall, IDS/IPS e altre appliance virtuali e instradare il traffico di rete attraverso queste appliance di sicurezza per l'applicazione dei criteri relativi ai limiti di sicurezza, il controllo e l'ispezione.
-- **Appliance virtuali di rete** in Azure Marketplace: le appliance di sicurezza, ad esempio firewall, servizi di bilanciamento del carico e IDS/IPS, sono disponibili in Azure Marketplace e nella raccolta di immagini delle VM. I clienti possono distribuire queste appliance nelle proprie reti virtuali e, in particolare, nei propri limiti di sicurezza (incluse le subnet della rete perimetrale) per completare un ambiente di rete sicuro a più livelli.
+
+* **Isolamento del traffico**: una rete virtuale è il limite di isolamento del traffico nella piattaforma Azure. Le macchine virtuali (VM) in una rete virtuale non possono comunicare direttamente con le VM in una rete virtuale diversa, anche se entrambe le reti virtuali vengono create dallo stesso cliente. Questa è una proprietà essenziale, che assicura che le macchine virtuali e le comunicazioni dei clienti rimangano private entro una rete virtuale.
+* **Topologia a più livelli**: le reti virtuali consentono ai clienti di definire una topologia a più livelli, allocando subnet e designando spazi di indirizzi separati per diversi elementi o "livelli" dei rispettivi carichi di lavoro. Questi raggruppamenti logici e queste topologie consentono ai clienti di definire diversi criteri di accesso in base ai tipi di carico di lavoro e anche di controllare i flussi del traffico tra i livelli.
+* **Connettività cross-premise**: i clienti possono stabilire la connettività cross-premise tra una rete virtuale e più siti locali o altre reti virtuali in Azure. A tale scopo, i clienti possono usare i gateway VPN di Azure o appliance virtuali di reti di terze parti. Azure supporta VPN da sito a sito (S2S, site-to-site) mediante protocolli IPsec/IKE standard e la connettività privata di ExpressRoute.
+* **Gruppo di sicurezza di rete (NSG)**: consente ai clienti di creare regole (ACL) al livello di granularità desiderato, ovvero interfacce di rete, singole VM o subnet virtuali. I clienti possono controllare l'accesso autorizzando o negando la comunicazione tra i carichi di lavoro all'interno di una rete virtuale, da sistemi nelle reti dei clienti tramite la connettività cross-premise oppure la comunicazione Internet diretta.
+* Le **UDR** e l'**inoltro IP** consentono ai clienti di definire i percorsi di comunicazione tra livelli diversi all'interno di una rete virtuale. I clienti possono distribuire un firewall, IDS/IPS e altre appliance virtuali e instradare il traffico di rete attraverso queste appliance di sicurezza per l'applicazione dei criteri relativi ai limiti di sicurezza, il controllo e l'ispezione.
+* **Appliance virtuali di rete** in Azure Marketplace: le appliance di sicurezza, ad esempio firewall, servizi di bilanciamento del carico e IDS/IPS, sono disponibili in Azure Marketplace e nella raccolta di immagini delle VM. I clienti possono distribuire queste appliance nelle proprie reti virtuali e, in particolare, nei propri limiti di sicurezza (incluse le subnet della rete perimetrale) per completare un ambiente di rete sicuro a più livelli.
 
 Con queste funzionalità e capacità, ad esempio, è possibile creare in Azure l'architettura di rete perimetrale seguente:
 
@@ -87,38 +86,41 @@ La rete perimetrale è progettata per essere il front-end della rete e si interf
 ### Caratteristiche della rete perimetrale
 Con riferimento alla figura precedente, di seguito vengono riportate alcune caratteristiche di una rete perimetrale efficiente:
 
-- Connessione a Internet:
-    - La subnet perimetrale stessa è rivolta a Internet e comunica direttamente con Internet.
-    - Gli indirizzi IP pubblici, gli indirizzi VIP e/o gli endpoint di servizio attraversano il traffico Internet per raggiungere la rete e i dispositivi front-end.
-    - Il traffico in ingresso da Internet passa attraverso dispositivi di sicurezza prima di altre risorse sulla rete front-end.
-    - Se la sicurezza in uscita è abilitata, il traffico attraversa i dispositivi di sicurezza, come passaggio finale, prima di passare a Internet.
-- Rete protetta:
-    - Non vi sono percorsi diretti da Internet all'infrastruttura di base.
-    - I canali verso l'infrastruttura di base devono attraversare i dispositivi di sicurezza, come ad esempio i gruppi di sicurezza di rete, i firewall o i dispositivi VPN.
-    - Altri dispositivi non devono eseguire il bridging tra Internet e l'infrastruttura di base.
-    - I dispositivi di sicurezza nella rete rivolta a Internet e nella rete protetta rivolta ai limiti della rete perimetrale (ad esempio le due icone del firewall presenti nella figura precedente) possono in effetti costituire una singola appliance virtuale con regole o interfacce differenziate per ogni limite (ovvero, un dispositivo, separato logicamente, che gestisce il carico per entrambi i limiti della rete perimetrale).
-- Altri vincoli e procedure comuni:
-    - I carichi di lavoro non devono archiviare informazioni essenziali per l'azienda.
-    - L'accesso e gli aggiornamenti alle configurazioni e alle distribuzioni della rete perimetrale sono limitati solo agli amministratori autorizzati.
+* Connessione a Internet:
+  * La subnet perimetrale stessa è rivolta a Internet e comunica direttamente con Internet.
+  * Gli indirizzi IP pubblici, gli indirizzi VIP e/o gli endpoint di servizio attraversano il traffico Internet per raggiungere la rete e i dispositivi front-end.
+  * Il traffico in ingresso da Internet passa attraverso dispositivi di sicurezza prima di altre risorse sulla rete front-end.
+  * Se la sicurezza in uscita è abilitata, il traffico attraversa i dispositivi di sicurezza, come passaggio finale, prima di passare a Internet.
+* Rete protetta:
+  * Non vi sono percorsi diretti da Internet all'infrastruttura di base.
+  * I canali verso l'infrastruttura di base devono attraversare i dispositivi di sicurezza, come ad esempio i gruppi di sicurezza di rete, i firewall o i dispositivi VPN.
+  * Altri dispositivi non devono eseguire il bridging tra Internet e l'infrastruttura di base.
+  * I dispositivi di sicurezza nella rete rivolta a Internet e nella rete protetta rivolta ai limiti della rete perimetrale (ad esempio le due icone del firewall presenti nella figura precedente) possono in effetti costituire una singola appliance virtuale con regole o interfacce differenziate per ogni limite (ovvero, un dispositivo, separato logicamente, che gestisce il carico per entrambi i limiti della rete perimetrale).
+* Altri vincoli e procedure comuni:
+  * I carichi di lavoro non devono archiviare informazioni essenziali per l'azienda.
+  * L'accesso e gli aggiornamenti alle configurazioni e alle distribuzioni della rete perimetrale sono limitati solo agli amministratori autorizzati.
 
 ### Requisiti della rete perimetrale
 Per abilitare queste caratteristiche, seguire le indicazioni riportate di seguito sui requisiti della rete virtuale necessari per implementare una rete perimetrale efficace:
 
-- **Architettura della subnet:** specificare la rete virtuale in modo che un'intera subnet sia dedicata come rete perimetrale, separata da altre subnet nella stessa rete virtuale. In questo modo si garantisce che il traffico tra la rete perimetrale e altri livelli di subnet interne o private attraversi un firewall o un'appliance virtuale IDS/IPS nei limiti della subnet con route definite dall'utente.
-- **Gruppo di sicurezza di rete (NSG):** la subnet perimetrale stessa deve essere aperta per consentire le comunicazioni con Internet, ma ciò non significa che i clienti devono ignorare i gruppi di sicurezza di rete. Osservare le procedure di sicurezza comuni per ridurre al minimo l'esposizione a Internet delle superfici di rete. Bloccare gli intervalli di indirizzi remoti autorizzati ad accedere alle distribuzioni o i protocolli applicativi specifici e le porte aperte. Tuttavia, in alcuni casi non è possibile usare questa procedura. Ad esempio, se i clienti hanno un sito Web esterno in Azure, la rete perimetrale dovrà consentire le richieste Web in ingresso da qualsiasi indirizzo IP pubblico, ma dovrà aprire solo le porte di applicazione Web TCP:80 e TCP:443.
-- **Tabella di routing**: la subnet perimetrale stessa dovrebbe essere in grado di comunicare direttamente con Internet, ma non deve consentire le comunicazioni dirette verso e da il back-end o dalle reti locali senza attraversare un firewall o un'appliance di sicurezza.
-- **Configurazione dei dispositivi di sicurezza:** per instradare e ispezionare pacchetti tra la rete perimetrale e il resto delle reti protette, le appliance di sicurezza, come ad esempio i firewall e i dispositivi IDS e IPS, possono essere multihomed. Questi dispositivi potrebbero disporre di schede di interfaccia di rete separate per la rete perimetrale e le subnet back-end. Le schede di interfaccia di rete della rete perimetrale comunicano direttamente verso e da Internet, con i gruppi di sicurezza di rete e la tabella di routing della rete perimetrale corrispondenti. Le schede di interfaccia di rete che si connettono alle subnet back-end avranno gruppi di sicurezza di rete e tabelle di routing delle subnet back-end corrispondenti con più restrizioni.
-- **Funzionalità dell'appliance di sicurezza:** le appliance di sicurezza distribuite nella rete perimetrale offrono in genere le funzionalità seguenti:
-    - Firewall: applicazione delle regole del firewall o dei criteri di controllo di accesso per le richieste in ingresso.
-    - Rilevamento e prevenzione delle minacce: rilevamento e mitigazione degli attacchi dannosi provenienti da Internet.
-    - Controllo e registrazione: gestione di log dettagliati per il controllo e l'analisi.
-    - Proxy inverso: reindirizzamento delle richieste in ingresso verso i server back-end corrispondenti. Questo comporta il mapping e la conversione degli indirizzi di destinazione nei dispositivi front-end, in genere firewall, verso gli indirizzi dei server back-end.
-    - Proxy di inoltro: processi NAT ed esecuzione di controlli per le comunicazioni avviate dall'interno della rete virtuale verso Internet.
-    - Router: inoltro del traffico in ingresso e tra le subnet all'interno della rete virtuale.
-    - Dispositivo VPN: funzione di gateway VPN cross-premise per la connettività VPN cross-premise tra le reti locali dei clienti e le reti virtuali di Azure.
-    - Server VPN: accettazione dei client VPN che si connettono alle reti virtuali di Azure.
+* **Architettura della subnet:** specificare la rete virtuale in modo che un'intera subnet sia dedicata come rete perimetrale, separata da altre subnet nella stessa rete virtuale. In questo modo si garantisce che il traffico tra la rete perimetrale e altri livelli di subnet interne o private attraversi un firewall o un'appliance virtuale IDS/IPS nei limiti della subnet con route definite dall'utente.
+* **Gruppo di sicurezza di rete (NSG):** la subnet perimetrale stessa deve essere aperta per consentire le comunicazioni con Internet, ma ciò non significa che i clienti devono ignorare i gruppi di sicurezza di rete. Osservare le procedure di sicurezza comuni per ridurre al minimo l'esposizione a Internet delle superfici di rete. Bloccare gli intervalli di indirizzi remoti autorizzati ad accedere alle distribuzioni o i protocolli applicativi specifici e le porte aperte. Tuttavia, in alcuni casi non è possibile usare questa procedura. Ad esempio, se i clienti hanno un sito Web esterno in Azure, la rete perimetrale dovrà consentire le richieste Web in ingresso da qualsiasi indirizzo IP pubblico, ma dovrà aprire solo le porte di applicazione Web TCP:80 e TCP:443.
+* **Tabella di routing**: la subnet perimetrale stessa dovrebbe essere in grado di comunicare direttamente con Internet, ma non deve consentire le comunicazioni dirette verso e da il back-end o dalle reti locali senza attraversare un firewall o un'appliance di sicurezza.
+* **Configurazione dei dispositivi di sicurezza:** per instradare e ispezionare pacchetti tra la rete perimetrale e il resto delle reti protette, le appliance di sicurezza, come ad esempio i firewall e i dispositivi IDS e IPS, possono essere multihomed. Questi dispositivi potrebbero disporre di schede di interfaccia di rete separate per la rete perimetrale e le subnet back-end. Le schede di interfaccia di rete della rete perimetrale comunicano direttamente verso e da Internet, con i gruppi di sicurezza di rete e la tabella di routing della rete perimetrale corrispondenti. Le schede di interfaccia di rete che si connettono alle subnet back-end avranno gruppi di sicurezza di rete e tabelle di routing delle subnet back-end corrispondenti con più restrizioni.
+* **Funzionalità dell'appliance di sicurezza:** le appliance di sicurezza distribuite nella rete perimetrale offrono in genere le funzionalità seguenti:
+  * Firewall: applicazione delle regole del firewall o dei criteri di controllo di accesso per le richieste in ingresso.
+  * Rilevamento e prevenzione delle minacce: rilevamento e mitigazione degli attacchi dannosi provenienti da Internet.
+  * Controllo e registrazione: gestione di log dettagliati per il controllo e l'analisi.
+  * Proxy inverso: reindirizzamento delle richieste in ingresso verso i server back-end corrispondenti. Questo comporta il mapping e la conversione degli indirizzi di destinazione nei dispositivi front-end, in genere firewall, verso gli indirizzi dei server back-end.
+  * Proxy di inoltro: processi NAT ed esecuzione di controlli per le comunicazioni avviate dall'interno della rete virtuale verso Internet.
+  * Router: inoltro del traffico in ingresso e tra le subnet all'interno della rete virtuale.
+  * Dispositivo VPN: funzione di gateway VPN cross-premise per la connettività VPN cross-premise tra le reti locali dei clienti e le reti virtuali di Azure.
+  * Server VPN: accettazione dei client VPN che si connettono alle reti virtuali di Azure.
 
->[AZURE.TIP] Mantenere i seguenti due gruppi separati: gli individui autorizzati ad accedere ai dispositivi di sicurezza della rete perimetrale e gli individui autorizzati come amministratori per lo sviluppo, la distribuzione e le operazioni sulle applicazioni. Se si mantengono separati questi gruppi, sarà possibile separare nettamente i compiti e impedire a una singola persona di ignorare i controlli di sicurezza delle applicazioni e della rete.
+> [!TIP]
+> Mantenere i seguenti due gruppi separati: gli individui autorizzati ad accedere ai dispositivi di sicurezza della rete perimetrale e gli individui autorizzati come amministratori per lo sviluppo, la distribuzione e le operazioni sulle applicazioni. Se si mantengono separati questi gruppi, sarà possibile separare nettamente i compiti e impedire a una singola persona di ignorare i controlli di sicurezza delle applicazioni e della rete.
+> 
+> 
 
 ### Domande da porre durante la creazione dei limiti della rete
 In questa sezione, se non espressamente specificato, il termine "reti" si riferisce a reti private virtuali di Azure create da un amministratore della sottoscrizione. Il termine non fa riferimento a reti fisiche sottostanti all'interno di Azure.
@@ -130,14 +132,17 @@ Le tre domande che seguono sono fondamentali per la creazione di una rete con un
 #### 1) Quanti limiti servono?
 Il primo punto di decisione consiste nel decidere il numero di limiti di sicurezza necessari in un determinato scenario:
 
-- Un singolo limite: un limite nella rete perimetrale front-end tra la rete virtuale e Internet.
-- Due limiti: uno sul lato Internet della rete perimetrale, un altro tra la subnet perimetrale e le subnet back-end nelle reti virtuali di Azure.
-- Tre limiti: uno sul lato Internet della rete perimetrale, un altro tra la subnet perimetrale e le subnet back-end e l'ultimo tra le subnet back-end e la rete locale.
-- Numero di limiti: variabile. In base ai requisiti di sicurezza, non è previsto alcuna restrizione al numero di limiti di sicurezza applicabili in una determinata rete.
+* Un singolo limite: un limite nella rete perimetrale front-end tra la rete virtuale e Internet.
+* Due limiti: uno sul lato Internet della rete perimetrale, un altro tra la subnet perimetrale e le subnet back-end nelle reti virtuali di Azure.
+* Tre limiti: uno sul lato Internet della rete perimetrale, un altro tra la subnet perimetrale e le subnet back-end e l'ultimo tra le subnet back-end e la rete locale.
+* Numero di limiti: variabile. In base ai requisiti di sicurezza, non è previsto alcuna restrizione al numero di limiti di sicurezza applicabili in una determinata rete.
 
 Il numero e il tipo di limiti necessari dipende dalla tolleranza del rischio dell'azienda e dallo scenario specifico da implementare. Si tratta spesso di una decisione comune presa da più gruppi di un'organizzazione, spesso in collaborazione con un team responsabile dei rischi e della conformità, un team responsabile della rete e della piattaforma e un team responsabile dello sviluppo di applicazioni. Le persone esperte in ambito di sicurezza, dei dati coinvolti e delle tecnologie da usare dovrebbero poter partecipare a questa decisione, per assicurare la strategia di sicurezza appropriata per ogni implementazione.
 
->[AZURE.TIP] Usare il numero minore possibile di limiti in grado di soddisfare i requisiti di sicurezza per una determinata situazione. Un numero maggiore di limiti può rendere più difficili le operazioni e la risoluzione dei problemi, oltre a incrementare l'overhead di gestione correlato alla gestione di più criteri di limite nel tempo. Un numero insufficiente di limiti, tuttavia, comporta un aumento del rischio. È essenziale trovare il giusto equilibrio.
+> [!TIP]
+> Usare il numero minore possibile di limiti in grado di soddisfare i requisiti di sicurezza per una determinata situazione. Un numero maggiore di limiti può rendere più difficili le operazioni e la risoluzione dei problemi, oltre a incrementare l'overhead di gestione correlato alla gestione di più criteri di limite nel tempo. Un numero insufficiente di limiti, tuttavia, comporta un aumento del rischio. È essenziale trovare il giusto equilibrio.
+> 
+> 
 
 ![Rete ibrida con tre limiti di sicurezza][6]
 
@@ -145,9 +150,10 @@ La figura precedente mostra una visualizzazione generale di una rete con tre lim
 
 #### 2) Dove sono situati i limiti?
 Dopo avere stabilito il numero di limiti, occorre determinare dove implementarli. In genere, sono disponibili tre opzioni:
-- Usare un servizio intermediario basato su Internet (ad esempio, un Web application firewall basato su cloud, non trattato in questo documento)
-- Usare funzionalità native e/o appliance virtuali di rete in Azure
-- Usare dispositivi fisici nella rete locale
+
+* Usare un servizio intermediario basato su Internet (ad esempio, un Web application firewall basato su cloud, non trattato in questo documento)
+* Usare funzionalità native e/o appliance virtuali di rete in Azure
+* Usare dispositivi fisici nella rete locale
 
 In reti puramente Azure le opzioni disponibili sono le funzionalità di Azure native (ad esempio i servizi di bilanciamento del carico di Azure) oppure le appliance virtuali di rete presenti nel ricco ecosistema di partner di Azure (ad esempio i firewall Check Point).
 
@@ -175,28 +181,31 @@ Una volta ricevute le risposte alle domande precedenti, la sezione [Avvio veloce
 #### Descrizione dell'ambiente
 In questo esempio è presente una sottoscrizione che include gli elementi seguenti:
 
-- Due servizi cloud, "FrontEnd001" e "BackEnd001"
-- Una rete virtuale, "CorpNetwork", con due subnet: "FrontEnd" e "BackEnd"
-- Un gruppo di sicurezza di rete applicato a entrambe le subnet
-- Un server Windows che rappresenta un server Web applicazioni ("IIS01")
-- Due server Windows che rappresentano server back-end applicazioni ("AppVM01", "AppVM02")
-- Un server Windows che rappresenta un server DNS ("DNS01")
+* Due servizi cloud, "FrontEnd001" e "BackEnd001"
+* Una rete virtuale, "CorpNetwork", con due subnet: "FrontEnd" e "BackEnd"
+* Un gruppo di sicurezza di rete applicato a entrambe le subnet
+* Un server Windows che rappresenta un server Web applicazioni ("IIS01")
+* Due server Windows che rappresentano server back-end applicazioni ("AppVM01", "AppVM02")
+* Un server Windows che rappresenta un server DNS ("DNS01")
 
 Per gli script e un modello di Azure Resource Manager, consultare le [istruzioni di creazione dettagliate][Example1].
 
 #### Descrizione di un gruppo di sicurezza di rete
 In questo esempio viene creato un gruppo di sicurezza di rete, in cui vengono poi caricate sei regole.
 
->[AZURE.TIP] In genere, è consigliabile creare prima di tutto le regole specifiche di tipo "Consenti" e infine le regole di tipo "Nega", più generiche. La priorità assegnata determina quali regole vengono valutate per prime. Quando si rileva che al traffico è applicabile una determinata regola, non vengono valutate altre regole. Le regole del gruppo di sicurezza di rete possono essere applicate nella direzione in ingresso o in uscita (dal punto di vista della subnet).
+> [!TIP]
+> In genere, è consigliabile creare prima di tutto le regole specifiche di tipo "Consenti" e infine le regole di tipo "Nega", più generiche. La priorità assegnata determina quali regole vengono valutate per prime. Quando si rileva che al traffico è applicabile una determinata regola, non vengono valutate altre regole. Le regole del gruppo di sicurezza di rete possono essere applicate nella direzione in ingresso o in uscita (dal punto di vista della subnet).
+> 
+> 
 
 A livello dichiarativo, per il traffico in ingresso vengono create le righe seguenti:
 
-1.	Il traffico DNS interno (porta 53) è consentito.
-2.	Il traffico RDP (porta 3389) da Internet a qualsiasi macchina virtuale è consentito.
-3.	Il traffico HTTP (porta 80) da Internet al server Web (IIS01) è consentito.
-4.	Tutto il traffico (tutte le porte) da IIS01 ad AppVM1 è consentito.
-5.	Tutto il traffico (tutte le porte) da Internet all'intera rete virtuale (entrambe le subnet) viene bloccato.
-6.	Tutto il traffico (tutte le porte) dalla subnet front-end alla subnet back-end viene bloccato.
+1. Il traffico DNS interno (porta 53) è consentito.
+2. Il traffico RDP (porta 3389) da Internet a qualsiasi macchina virtuale è consentito.
+3. Il traffico HTTP (porta 80) da Internet al server Web (IIS01) è consentito.
+4. Tutto il traffico (tutte le porte) da IIS01 ad AppVM1 è consentito.
+5. Tutto il traffico (tutte le porte) da Internet all'intera rete virtuale (entrambe le subnet) viene bloccato.
+6. Tutto il traffico (tutte le porte) dalla subnet front-end alla subnet back-end viene bloccato.
 
 Con queste regole associate a ogni subnet, se una richiesta HTTP proviene da Internet verso il server Web, entrambe le regole 3 (consenti) e 5 (nega) saranno applicabili. Tuttavia, poiché la regola 3 ha una priorità maggiore, verrà applicata solo tale regola e la regola 5 non verrà presa in considerazione. La richiesta HTTP verrà quindi consentita sul server Web. Se lo stesso traffico prova a raggiungere il server DNS01, la regola 5 (nega) sarà la prima applicabile e il traffico non sarà autorizzato a passare al server. La regola 6 (nega) blocca la comunicazione tra la subnet front-end e la subnet back-end (ad eccezione del traffico consentito nelle regole 1 e 4). Ciò consente di proteggere la rete di back-end nel caso in cui un utente malintenzionato comprometta l'applicazione web sul front-end. L'utente malintenzionato potrebbe disporre di accesso limitato alla rete di back-end "protetta" (solo verso risorse esposte sul server AppVM01).
 
@@ -205,42 +214,43 @@ Esiste una regola in uscita predefinita che consente il traffico in uscita verso
 #### Conclusioni
 Si tratta di un metodo relativamente semplice e diretto per isolare la subnet back-end dal traffico in ingresso. Per altre informazioni, consultare le [istruzioni di creazione dettagliate][Example1]. Le istruzioni includono:
 
-- Come creare la rete perimetrale con script di PowerShell
-- Come creare la rete perimetrale con un modello di Azure Resource Manager
-- Descrizioni dettagliate di ogni comando del gruppo di sicurezza di rete
-- Scenari dettagliati del flusso di traffico che illustrano il modo in cui il traffico viene consentito o negato su ogni livello
+* Come creare la rete perimetrale con script di PowerShell
+* Come creare la rete perimetrale con un modello di Azure Resource Manager
+* Descrizioni dettagliate di ogni comando del gruppo di sicurezza di rete
+* Scenari dettagliati del flusso di traffico che illustrano il modo in cui il traffico viene consentito o negato su ogni livello
 
-
- ### Esempio 2: Creare una rete perimetrale per proteggere le applicazioni con un firewall e gruppi di sicurezza di rete [Torna all'avvio veloce](#fast-start) | [Istruzioni di creazione dettagliate per questo esempio][Example2]
-
+### Esempio 2: Creare una rete perimetrale per proteggere le applicazioni con un firewall e gruppi di sicurezza di rete [Torna all'avvio veloce](#fast-start) | [Istruzioni di creazione dettagliate per questo esempio][Example2]
 ![Rete perimetrale in ingresso con appliance virtuali di rete e gruppi di sicurezza di rete][8]
 
 #### Descrizione dell'ambiente
 In questo esempio è presente una sottoscrizione che include gli elementi seguenti:
 
-- Due servizi cloud, "FrontEnd001" e "BackEnd001"
-- Una rete virtuale, "CorpNetwork", con due subnet: "FrontEnd" e "BackEnd"
-- Un gruppo di sicurezza di rete applicato a entrambe le subnet
-- Un'appliance virtuale di rete, in questo caso un firewall connesso alla subnet front-end
-- Un server Windows che rappresenta un server Web applicazioni ("IIS01")
-- Due server Windows che rappresentano server back-end applicazioni ("AppVM01", "AppVM02")
-- Un server Windows che rappresenta un server DNS ("DNS01")
+* Due servizi cloud, "FrontEnd001" e "BackEnd001"
+* Una rete virtuale, "CorpNetwork", con due subnet: "FrontEnd" e "BackEnd"
+* Un gruppo di sicurezza di rete applicato a entrambe le subnet
+* Un'appliance virtuale di rete, in questo caso un firewall connesso alla subnet front-end
+* Un server Windows che rappresenta un server Web applicazioni ("IIS01")
+* Due server Windows che rappresentano server back-end applicazioni ("AppVM01", "AppVM02")
+* Un server Windows che rappresenta un server DNS ("DNS01")
 
 Per gli script e un modello di Azure Resource Manager, consultare le [istruzioni di creazione dettagliate][Example2].
 
 #### Descrizione di un gruppo di sicurezza di rete
 In questo esempio viene creato un gruppo di sicurezza di rete, in cui vengono poi caricate sei regole.
 
->[AZURE.TIP] In genere, è consigliabile creare prima di tutto le regole specifiche di tipo "Consenti" e infine le regole di tipo "Nega", più generiche. La priorità assegnata determina quali regole vengono valutate per prime. Quando si rileva che al traffico è applicabile una determinata regola, non vengono valutate altre regole. Le regole del gruppo di sicurezza di rete possono essere applicate nella direzione in ingresso o in uscita (dal punto di vista della subnet).
+> [!TIP]
+> In genere, è consigliabile creare prima di tutto le regole specifiche di tipo "Consenti" e infine le regole di tipo "Nega", più generiche. La priorità assegnata determina quali regole vengono valutate per prime. Quando si rileva che al traffico è applicabile una determinata regola, non vengono valutate altre regole. Le regole del gruppo di sicurezza di rete possono essere applicate nella direzione in ingresso o in uscita (dal punto di vista della subnet).
+> 
+> 
 
 A livello dichiarativo, per il traffico in ingresso vengono create le righe seguenti:
 
-1.	Il traffico DNS interno (porta 53) è consentito.
-2.	Il traffico RDP (porta 3389) da Internet a qualsiasi macchina virtuale è consentito.
-3.	Tutto il traffico Internet (tutte le porte) verso l'appliance virtuale di rete (firewall) è consentito.
-4.	Tutto il traffico (tutte le porte) da IIS01 ad AppVM1 è consentito.
-5.	Tutto il traffico (tutte le porte) da Internet all'intera rete virtuale (entrambe le subnet) viene bloccato.
-6.	Tutto il traffico (tutte le porte) dalla subnet front-end alla subnet back-end viene bloccato.
+1. Il traffico DNS interno (porta 53) è consentito.
+2. Il traffico RDP (porta 3389) da Internet a qualsiasi macchina virtuale è consentito.
+3. Tutto il traffico Internet (tutte le porte) verso l'appliance virtuale di rete (firewall) è consentito.
+4. Tutto il traffico (tutte le porte) da IIS01 ad AppVM1 è consentito.
+5. Tutto il traffico (tutte le porte) da Internet all'intera rete virtuale (entrambe le subnet) viene bloccato.
+6. Tutto il traffico (tutte le porte) dalla subnet front-end alla subnet back-end viene bloccato.
 
 Con queste regole associate a ogni subnet, se una richiesta HTTP proviene da Internet verso il firewall, le regole 3 (consenti) e 5 (nega) saranno applicabili, Tuttavia, poiché la regola 3 ha una priorità maggiore, verrà applicata solo tale regola e la regola 5 non verrà presa in considerazione. La richiesta HTTP verrà quindi consentita sul firewall. Se lo stesso traffico prova a raggiungere il server IIS01, anche se si trova sulla subnet front-end, la regola 5 (nega) verrà applicata e il traffico non sarà autorizzato a passare al server. La regola 6 (nega) blocca la comunicazione tra la subnet front-end e la subnet back-end (ad eccezione del traffico consentito nelle regole 1 e 4). Ciò consente di proteggere la rete di back-end nel caso in cui un utente malintenzionato comprometta l'applicazione web sul front-end. L'utente malintenzionato potrebbe disporre di accesso limitato alla rete di back-end "protetta" (solo verso risorse esposte sul server AppVM01).
 
@@ -254,10 +264,10 @@ La regola di inoltro accetterà qualsiasi indirizzo di origine in ingresso che r
 #### Conclusioni
 Si tratta di un metodo relativamente semplice per proteggere l'applicazione con un firewall e isolare la subnet back-end dal traffico in ingresso. Per altre informazioni, consultare le [istruzioni di creazione dettagliate][Example2]. Le istruzioni includono:
 
-- Come creare la rete perimetrale con script di PowerShell
-- Come creare la rete perimetrale di esempio con un modello di Azure Resource Manager
-- Descrizioni dettagliate di ogni comando del gruppo di sicurezza di rete e di ogni regola del firewall
-- Scenari dettagliati del flusso di traffico che illustrano il modo in cui il traffico viene consentito o negato su ogni livello
+* Come creare la rete perimetrale con script di PowerShell
+* Come creare la rete perimetrale di esempio con un modello di Azure Resource Manager
+* Descrizioni dettagliate di ogni comando del gruppo di sicurezza di rete e di ogni regola del firewall
+* Scenari dettagliati del flusso di traffico che illustrano il modo in cui il traffico viene consentito o negato su ogni livello
 
 ### Esempio 3: Creare una rete perimetrale per proteggere le reti con un firewall, route definite dall'utente e gruppi di sicurezza di rete.
 [Torna all'avvio veloce](#fast-start) | [Istruzioni di creazione dettagliate per questo esempio][Example3]
@@ -267,12 +277,12 @@ Si tratta di un metodo relativamente semplice per proteggere l'applicazione con 
 #### Descrizione dell'ambiente
 In questo esempio è presente una sottoscrizione che include gli elementi seguenti:
 
-- Tre servizi cloud, "SecSvc001", "FrontEnd001" e "BackEnd001".
-- Una rete virtuale, "CorpNetwork", con tre subnet: "SecNet", "FrontEnd" e "BackEnd"
-- Un'appliance virtuale di rete, in questo caso un firewall connesso alla subnet "SecNet"
-- Un server Windows che rappresenta un server Web applicazioni ("IIS01")
-- Due server Windows che rappresentano server back-end applicazioni ("AppVM01", "AppVM02")
-- Un server Windows che rappresenta un server DNS ("DNS01")
+* Tre servizi cloud, "SecSvc001", "FrontEnd001" e "BackEnd001".
+* Una rete virtuale, "CorpNetwork", con tre subnet: "SecNet", "FrontEnd" e "BackEnd"
+* Un'appliance virtuale di rete, in questo caso un firewall connesso alla subnet "SecNet"
+* Un server Windows che rappresenta un server Web applicazioni ("IIS01")
+* Due server Windows che rappresentano server back-end applicazioni ("AppVM01", "AppVM02")
+* Un server Windows che rappresenta un server DNS ("DNS01")
 
 Per gli script e un modello di Azure Resource Manager, consultare le [istruzioni di creazione dettagliate][Example3].
 
@@ -297,9 +307,13 @@ In questo esempio vengono create due tabelle di routing, una per la subnet front
 2. Traffico della rete virtuale con la definizione di un hop successivo come firewall, in modo da eseguire l'override della regola predefinita che consente l'instradamento diretto del traffico della rete virtuale locale.
 3. Tutto il traffico rimanente (0/0) con un hop successivo definito come firewall.
 
->[AZURE.TIP] Se la voce della rete locale non è presente nella route definita dall'utente, verranno interrotte le comunicazioni con la subnet locale.
-> - Nell'esempio è essenziale che 10.0.1.0/24 faccia riferimento a VNETLocal, altrimenti un pacchetto che lascia il server Web Server (10.0.1.4) destinato a un altro server locale (ad esempio, 10.0.1.25) avrà esito negativo perché verrà inviato tramite l'appliance virtuale di rete, che lo invierà alla subnet, e la subnet lo invierà di nuovo all'appliance virtuale di rete e così via.
-> - Le possibilità di un loop di routing in genere sono maggiori nelle appliance a più NIC direttamente connesse a ogni subnet con cui sono in comunicazione, come di solito accade per le appliance tradizionali locali.
+> [!TIP]
+> Se la voce della rete locale non è presente nella route definita dall'utente, verranno interrotte le comunicazioni con la subnet locale.
+> 
+> * Nell'esempio è essenziale che 10.0.1.0/24 faccia riferimento a VNETLocal, altrimenti un pacchetto che lascia il server Web Server (10.0.1.4) destinato a un altro server locale (ad esempio, 10.0.1.25) avrà esito negativo perché verrà inviato tramite l'appliance virtuale di rete, che lo invierà alla subnet, e la subnet lo invierà di nuovo all'appliance virtuale di rete e così via.
+> * Le possibilità di un loop di routing in genere sono maggiori nelle appliance a più NIC direttamente connesse a ogni subnet con cui sono in comunicazione, come di solito accade per le appliance tradizionali locali.
+> 
+> 
 
 Dopo la creazione, le tabelle di routing vengono associate alle rispettive subnet. Dopo la creazione e l'associazione alla subnet, la tabella di routing della subnet front-end avrà un aspetto analogo al seguente:
 
@@ -307,13 +321,15 @@ Dopo la creazione, le tabelle di routing vengono associate alle rispettive subne
          Address Prefix    Next hop type    Next hop IP address Status   Source     
          --------------    -------------    ------------------- ------   ------     
          {10.0.1.0/24}     VNETLocal                            Active 
-		 {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
+         {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
->[AZURE.NOTE] La route definita dall'utente ora può essere applicata alla subnet del gateway a cui è connesso il circuito ExpressRoute.
->
+> [!NOTE]
+> La route definita dall'utente ora può essere applicata alla subnet del gateway a cui è connesso il circuito ExpressRoute.
+> 
 > Negli esempi 3 e 4 sono illustrate le modalità per abilitare la rete perimetrale con la rete da sito a sito o con ExpressRoute.
-
+> 
+> 
 
 #### Descrizione dell'inoltro IP
 L'inoltro IP è una funzionalità complementare delle route definite dall'utente. Si tratta di un'impostazione in un'appliance virtuale che consente al dispositivo di ricevere traffico non indirizzato in modo specifico ad essa e quindi di inoltrare il traffico alla destinazione finale.
@@ -323,51 +339,58 @@ Ad esempio, se il traffico da AppVM01 effettua una richiesta al server DNS01, le
 #### Descrizione di un gruppo di sicurezza di rete
 In questo esempio viene creato un gruppo di sicurezza di rete, in cui viene poi caricata una singola regola. Questo gruppo viene quindi associato solo alle subnet front-end e back-end (non a SecNet). La regola seguente viene creata in modo dichiarativo:
 
-- Tutto il traffico (tutte le porte) da Internet all'intera rete virtuale (tutte le subnet) viene bloccato.
+* Tutto il traffico (tutte le porte) da Internet all'intera rete virtuale (tutte le subnet) viene bloccato.
 
 Anche se in questo esempio vengono usati i gruppi di sicurezza di rete: lo scopo principale consiste nel creare un secondo livello di difesa contro errori di configurazione manuale. L'obiettivo è bloccare tutto il traffico in ingresso da Internet verso le subnet front-end o back-end. Il traffico deve solo attraversare la subnet SecNet verso il firewall (e quindi, se appropriato, deve raggiungere le subnet front-end o back-end). Con l'abilitazione delle regole delle route definite dall'utente, inoltre, tutto il traffico che raggiunge le subnet front-end o back-end verrà indirizzato verso il firewall (grazie alle route definite dall'utente). Il firewall considera questo traffico come un flusso asimmetrico e rimuove il traffico in uscita. Sono quindi disponibili tre livelli di sicurezza per la protezione delle subnet:
-- Nessun endpoint aperto nei servizi cloud FrontEnd001 e BackEnd001
-- Gruppi di sicurezza di rete che non consentono il traffico da Internet
-- Rimozione del traffico asimmetrico da parte del firewall
+
+* Nessun endpoint aperto nei servizi cloud FrontEnd001 e BackEnd001
+* Gruppi di sicurezza di rete che non consentono il traffico da Internet
+* Rimozione del traffico asimmetrico da parte del firewall
 
 Un aspetto interessante del gruppo di sicurezza di rete di questo esempio consiste nel fatto che include solo una regola, ovvero non consentire il traffico Internet nell'intera rete virtuale, inclusa la subnet di sicurezza. Poiché, tuttavia, il gruppo di sicurezza di rete è associato solo alle subnet front-end e back-end, la regola non viene elaborata sul traffico in ingresso verso la subnet di sicurezza. Di conseguenza, il traffico raggiungerà la subnet di sicurezza.
 
 #### Regole del firewall
 Sul firewall è necessario creare regole di inoltro. Poiché il firewall blocca o inoltra tutto il traffico in ingresso, in uscita e tra le reti virtuali, sono necessarie molte regole del firewall. Tutto il traffico in ingresso, inoltre, raggiungerà l'indirizzo IP pubblico del servizio di sicurezza su porte diverse, per l'elaborazione da parte del firewall. Una procedura consigliata consiste nel creare un diagramma dei flussi logici prima di configurare le regole delle subnet e del firewall, per evitare modifiche successive. La figura seguente è una visualizzazione logica delle regole del firewall per questo esempio:
- 
+
 ![Visualizzazione logica delle regole del firewall][10]
 
->[AZURE.NOTE] Le porte di gestione dipendono dal dispositivo virtuale di rete usato. In questo esempio si fa riferimento a Barracuda NextGen Firewall, che usa le porte 22, 801 e 807. Per informazioni precise sulle porte usate per la gestione del dispositivo in uso, consultare la documentazione del fornitore del dispositivo.
+> [!NOTE]
+> Le porte di gestione dipendono dal dispositivo virtuale di rete usato. In questo esempio si fa riferimento a Barracuda NextGen Firewall, che usa le porte 22, 801 e 807. Per informazioni precise sulle porte usate per la gestione del dispositivo in uso, consultare la documentazione del fornitore del dispositivo.
+> 
+> 
 
 #### Descrizione delle regole del firewall
 Nel diagramma logico precedente la subnet di sicurezza non viene mostrata, perché il firewall è l'unica risorsa su tale subnet e questo diagramma illustra le regole del firewall e il modo in cui le regole consentono o negano logicamente i flussi di traffico, non il percorso instradato effettivo. Le porte esterne selezionate per il traffico RDP, inoltre, sono le porte incluse negli intervalli più elevati (8014 - 8026) e sono state selezionate per allinearsi almeno in parte con gli ultimi due ottetti dell'indirizzo IP locale al fine di facilitarne la lettura (ad esempio, l'indirizzo del server locale 10.0.1.4 è associato alla porta esterna 8014). È tuttavia possibile usare qualsiasi porta superiore non in conflitto.
 
 Per questo esempio, sono necessari sette tipi di regole:
 
-- Regole esterne (per il traffico in ingresso):
-  1.	Regola di gestione del firewall: questa regola di reindirizzamento dell'app consente al traffico di raggiungere le porte di gestione dell'appliance virtuale di rete.
-  2.	Regole RDP (per ogni server Windows): queste quattro regole (una per ogni server) consentono la gestione dei singoli server tramite RDP. È anche possibile raggruppare queste regole in una sola regola, in base alle capacità dell'appliance virtuale di rete usata.
-  3.	Regole del traffico dell'applicazione: sono disponibili due regole, la prima per il traffico Web front-end e la seconda per il traffico back-end (ad esempio dal server Web al livello dati). La configurazione di queste regole dipende dall'architettura di rete (ovvero dove sono posizionati i server) e dai flussi di traffico (ovvero la direzione dei flussi di traffico e le porte usate).
-      - La prima regola consente al traffico effettivo dell'applicazione di raggiungere il server applicazioni. Anche se altre regole consentono la sicurezza e la gestione, le regole delle del traffico dell'applicazione consentono a utenti o servizi esterni di accedere alle applicazioni. In questo esempio è presente un singolo server Web sulla porta 80. Pertanto, una singola regola delle applicazioni per il firewall reindirizza il traffico in ingresso verso l'indirizzo IP esterno e verso l'indirizzo IP interno dei server Web. La sessione di traffico reindirizzato sarà trasferita tramite il processo NAT verso il server interno.
-      - La seconda regola è la regola back-end per consentire al server Web di comunicare con il server AppVM01 (ma non con AppVM02) tramite qualsiasi porta.
-- Regole interne (per il traffico tra le reti virtuali)
-  4.	Regola in uscita verso Internet: questa regola consente al traffico proveniente da qualsiasi rete di passare alle reti selezionate. Questa regola è in genere una regola predefinita già disponibile sul firewall, ma con stato disabilitato. È consigliabile abilitarla per questo esempio.
-  5.	Regola DNS: questa regola consente solo al traffico DNS (porta 53) di raggiungere il server DNS. Per questo ambiente la maggior parte del traffico dal front-end e dal back-end è bloccato. Questa regola consente in modo specifico il traffico DNS da qualsiasi subnet locale.
-  6.	Regola da subnet a subnet: questa regola consente a qualsiasi server sulla subnet back-end di connettersi a qualsiasi server sulla subnet front-end (ma non viceversa).
-- Regola alternativa (per il traffico che non soddisfa alcuna condizione precedente):
-  7.	Regola per negare tutto il traffico: deve essere sempre la regola finale (a livello di priorità). Se i flussi di traffico non corrispondono ad alcuna regola precedente, verranno eliminati da questa regola. Questa è una regola predefinita ed è solitamente attivata, quindi non sono in genere necessarie modifiche.
+* Regole esterne (per il traffico in ingresso):
+  1. Regola di gestione del firewall: questa regola di reindirizzamento dell'app consente al traffico di raggiungere le porte di gestione dell'appliance virtuale di rete.
+  2. Regole RDP (per ogni server Windows): queste quattro regole (una per ogni server) consentono la gestione dei singoli server tramite RDP. È anche possibile raggruppare queste regole in una sola regola, in base alle capacità dell'appliance virtuale di rete usata.
+  3. Regole del traffico dell'applicazione: sono disponibili due regole, la prima per il traffico Web front-end e la seconda per il traffico back-end (ad esempio dal server Web al livello dati). La configurazione di queste regole dipende dall'architettura di rete (ovvero dove sono posizionati i server) e dai flussi di traffico (ovvero la direzione dei flussi di traffico e le porte usate).
+     * La prima regola consente al traffico effettivo dell'applicazione di raggiungere il server applicazioni. Anche se altre regole consentono la sicurezza e la gestione, le regole delle del traffico dell'applicazione consentono a utenti o servizi esterni di accedere alle applicazioni. In questo esempio è presente un singolo server Web sulla porta 80. Pertanto, una singola regola delle applicazioni per il firewall reindirizza il traffico in ingresso verso l'indirizzo IP esterno e verso l'indirizzo IP interno dei server Web. La sessione di traffico reindirizzato sarà trasferita tramite il processo NAT verso il server interno.
+     * La seconda regola è la regola back-end per consentire al server Web di comunicare con il server AppVM01 (ma non con AppVM02) tramite qualsiasi porta.
+* Regole interne (per il traffico tra le reti virtuali)
+  1. Regola in uscita verso Internet: questa regola consente al traffico proveniente da qualsiasi rete di passare alle reti selezionate. Questa regola è in genere una regola predefinita già disponibile sul firewall, ma con stato disabilitato. È consigliabile abilitarla per questo esempio.
+  2. Regola DNS: questa regola consente solo al traffico DNS (porta 53) di raggiungere il server DNS. Per questo ambiente la maggior parte del traffico dal front-end e dal back-end è bloccato. Questa regola consente in modo specifico il traffico DNS da qualsiasi subnet locale.
+  3. Regola da subnet a subnet: questa regola consente a qualsiasi server sulla subnet back-end di connettersi a qualsiasi server sulla subnet front-end (ma non viceversa).
+* Regola alternativa (per il traffico che non soddisfa alcuna condizione precedente):
+  1. Regola per negare tutto il traffico: deve essere sempre la regola finale (a livello di priorità). Se i flussi di traffico non corrispondono ad alcuna regola precedente, verranno eliminati da questa regola. Questa è una regola predefinita ed è solitamente attivata, quindi non sono in genere necessarie modifiche.
 
->[AZURE.TIP] Per semplificare, nella seconda regola del traffico delle applicazioni è consentita qualsiasi porta. In uno scenario reale, è consigliabile usare la porta e gli intervalli di indirizzi più specifici per ridurre la superficie di attacco di questa regola.
+> [!TIP]
+> Per semplificare, nella seconda regola del traffico delle applicazioni è consentita qualsiasi porta. In uno scenario reale, è consigliabile usare la porta e gli intervalli di indirizzi più specifici per ridurre la superficie di attacco di questa regola.
+> 
+> 
 
 Dopo la creazione di tutte le regole precedentemente indicate, è importante esaminare la priorità di ogni regola, per assicurare che il traffico venga consentito o negato in base a quanto previsto. Per questo esempio le regole sono elencate in ordine di priorità.
 
 #### Conclusioni
 Rispetto agli esempi precedenti, questo è un metodo più complesso ma anche più completo per proteggere e isolare la rete (l'esempio 2 protegge solo l'applicazione,mentre l'esempio 1 isola esclusivamente le subnet). Questa struttura consente di monitorare il traffico in entrambe le direzioni e non protegge solo il server applicazioni in ingresso, ma applica anche i criteri di sicurezza di rete su tutti i server in questa rete. In base al dispositivo usato, è anche possibile ottenere il controllo e il riconoscimento di tutto il traffico. Per altre informazioni, consultare le [istruzioni di creazione dettagliate][Example3]. Le istruzioni includono:
 
-- Come creare la rete perimetrale di esempio con script di PowerShell
-- Come creare la rete perimetrale di esempio con un modello di Azure Resource Manager
-- Descrizioni dettagliate di ogni route definita dall'utente, ogni comando del gruppo di sicurezza di rete e ogni regola del firewall
-- Scenari dettagliati del flusso di traffico che illustrano il modo in cui il traffico viene consentito o negato su ogni livello
+* Come creare la rete perimetrale di esempio con script di PowerShell
+* Come creare la rete perimetrale di esempio con un modello di Azure Resource Manager
+* Descrizioni dettagliate di ogni route definita dall'utente, ogni comando del gruppo di sicurezza di rete e ogni regola del firewall
+* Scenari dettagliati del flusso di traffico che illustrano il modo in cui il traffico viene consentito o negato su ogni livello
 
 ### Esempio 4: Aggiungere una connessione ibrida con un'appliance virtuale da sito a sito e con una rete virtuale privata (VPN).
 [Torna all'avvio veloce](#fast-start) | Le istruzioni di creazione dettagliate saranno presto disponibili
@@ -379,7 +402,10 @@ Le reti ibride che usano un'appliance virtuale di rete possono essere aggiunte a
 
 Come illustrato nella figura precedente, una connessione VPN su Internet (da sito a sito) viene usata per connettere una rete locale a una rete virtuale di Azure tramite un'appliance virtuale di rete.
 
->[AZURE.NOTE] Se si usa ExpressRoute attivando l'opzione di peering pubblico di Azure, è necessario creare una route statica, che deve condurre all'indirizzo IP VPN dell'appliance virtuale di rete all'esterno dell'Internet aziendale, senza transitare tramite la rete WAN di ExpressRoute. Il protocollo NAT necessario per l'opzione di peering pubblico di Azure su ExpressRoute può interrompere la sessione VPN.
+> [!NOTE]
+> Se si usa ExpressRoute attivando l'opzione di peering pubblico di Azure, è necessario creare una route statica, che deve condurre all'indirizzo IP VPN dell'appliance virtuale di rete all'esterno dell'Internet aziendale, senza transitare tramite la rete WAN di ExpressRoute. Il protocollo NAT necessario per l'opzione di peering pubblico di Azure su ExpressRoute può interrompere la sessione VPN.
+> 
+> 
 
 Dopo la configurazione della VPN, l'appliance virtuale di rete diventa l'hub centrale per tutte le reti e le subnet. Le regole di inoltro del firewall determinano i flussi di traffico consentiti, sottoposti a NAT, reindirizzati o eliminati (anche per i flussi di traffico tra la rete locale e Azure).
 
@@ -398,9 +424,9 @@ Per l'appliance virtuale di rete, a livello logico, la rete è analoga a quattro
 #### Conclusioni
 L'aggiunta di una connessione di rete ibrida VPN da sito a sito a una rete virtuale di Azure può estendere la rete locale in Azure in modo sicuro. Se si usa una connessione VPN, il traffico verrà crittografato e instradato tramite Internet. L'appliance virtuale di rete in questo esempio fornisce una posizione centrale per l'applicazione e la gestione dei criteri di sicurezza. Per altre informazioni, vedere le istruzioni di creazione dettagliate (presto disponibili). Le istruzioni includono:
 
-- Come creare la rete perimetrale di esempio con script di PowerShell
-- Come creare la rete perimetrale di esempio con un modello di Azure Resource Manager
-- Scenari dettagliati di flussi di traffico che illustrano il modo in cui il traffico scorre nella struttura.
+* Come creare la rete perimetrale di esempio con script di PowerShell
+* Come creare la rete perimetrale di esempio con un modello di Azure Resource Manager
+* Scenari dettagliati di flussi di traffico che illustrano il modo in cui il traffico scorre nella struttura.
 
 ### Esempio 5: Aggiungere una connessione ibrida con un gateway VPN di Azure da sito a sito.
 [Torna all'avvio veloce](#fast-start) | Le istruzioni di creazione dettagliate saranno presto disponibili
@@ -412,7 +438,10 @@ L'aggiunta di una connessione di rete ibrida VPN da sito a sito a una rete virtu
 
 Come illustrato nella figura precedente, una connessione VPN su Internet (da sito a sito) viene usata per connettere una rete locale a una rete virtuale di Azure tramite un gateway VPN di Azure.
 
->[AZURE.NOTE] Se si usa ExpressRoute attivando l'opzione di peering pubblico di Azure, è necessario creare una route statica, che deve condurre all'indirizzo IP VPN dell'appliance virtuale di rete all'esterno dell'Internet aziendale, senza transitare tramite la rete WAN di ExpressRoute. Il protocollo NAT necessario per l'opzione di peering pubblico di Azure su ExpressRoute può interrompere la sessione VPN.
+> [!NOTE]
+> Se si usa ExpressRoute attivando l'opzione di peering pubblico di Azure, è necessario creare una route statica, che deve condurre all'indirizzo IP VPN dell'appliance virtuale di rete all'esterno dell'Internet aziendale, senza transitare tramite la rete WAN di ExpressRoute. Il protocollo NAT necessario per l'opzione di peering pubblico di Azure su ExpressRoute può interrompere la sessione VPN.
+> 
+> 
 
 La seguente figura mostra i due margini di rete di questa opzione. Sul primo margine, l'appliance virtuale di rete e i gruppi di sicurezza di rete controllano i flussi di traffico tra le reti interne ad Azure e tra Azure e Internet. Il secondo margine è il gateway VPN di Azure, ovvero un margine di rete completamente separato e isolato tra le reti locali e Azure.
 
@@ -425,9 +454,9 @@ Se si usa l'ambiente creato nell'esempio 1, e quindi si aggiunge una connessione
 #### Conclusioni
 L'aggiunta di una connessione di rete ibrida VPN da sito a sito a una rete virtuale di Azure può estendere la rete locale in Azure in modo sicuro. Se si usa un gateway VPN nativo di Azure, il traffico viene crittografato con IPSec e instradato tramite Internet. L'uso del gateway VPN di Azure offre inoltre un'opzione a costi ridotti (a differenza delle appliance virtuali di rete di terze parti, che comportano costi di licenza aggiuntivi). Questa soluzione risulta estremamente conveniente nell'esempio 1, in cui non vengono usate appliance virtuali di rete. Per altre informazioni, vedere le istruzioni di creazione dettagliate (presto disponibili). Le istruzioni includono:
 
-- Come creare la rete perimetrale di esempio con script di PowerShell
-- Come creare la rete perimetrale di esempio con un modello di Azure Resource Manager
-- Scenari dettagliati di flussi di traffico che illustrano il modo in cui il traffico scorre nella struttura.
+* Come creare la rete perimetrale di esempio con script di PowerShell
+* Come creare la rete perimetrale di esempio con un modello di Azure Resource Manager
+* Scenari dettagliati di flussi di traffico che illustrano il modo in cui il traffico scorre nella struttura.
 
 ### Esempio 6: Aggiungere una connessione ibrida con ExpressRoute
 [Torna all'avvio veloce](#fast-start) | Le istruzioni di creazione dettagliate saranno presto disponibili
@@ -439,15 +468,18 @@ L'aggiunta di una connessione di rete ibrida VPN da sito a sito a una rete virtu
 
 Come illustrato nella figura precedente, il peering privato di ExpressRoute fornisce una connessione diretta tra la rete locale e la rete virtuale di Azure. Il traffico attraversa solo la rete del provider del servizio e la rete Microsoft Azure, senza contatto con Internet.
 
->[AZURE.NOTE] A causa della complessità del routing dinamico usato nel gateway virtuale di Azure, sono previste limitazioni per l'uso delle route definite dall'utente (UDR) con ExpressRoute. Ecco quali sono:
->
->- Le route definite dall'utente non devono essere applicate alla subnet del gateway a cui è connessa l'istanza di ExpressRoute collegata al gateway virtuale di Azure.
->- L'istanza di ExpressRoute collegata al gateway virtuale di Azure non può essere il dispositivo NextHop usato per altre subnet associate alle route definite dall'utente.
->
->
-<br /> 
-
->[AZURE.TIP] L'uso di ExpressRoute mantiene il traffico di rete aziendale lontano da Internet per una protezione ottimizzata e prestazioni significativamente migliori, agevolando contratti di servizio dal provider ExpressRoute. Il gateway di Azure può raggiungere un massimo di 2 Gb/s con ExpressRoute, mentre la velocità massima effettiva con le VPN da sito a sito per il gateway di Azure è di 200 Mb/s.
+> [!NOTE]
+> A causa della complessità del routing dinamico usato nel gateway virtuale di Azure, sono previste limitazioni per l'uso delle route definite dall'utente (UDR) con ExpressRoute. Ecco quali sono:
+> 
+> * Le route definite dall'utente non devono essere applicate alla subnet del gateway a cui è connessa l'istanza di ExpressRoute collegata al gateway virtuale di Azure.
+> * L'istanza di ExpressRoute collegata al gateway virtuale di Azure non può essere il dispositivo NextHop usato per altre subnet associate alle route definite dall'utente.
+> 
+> <br /> 
+> 
+> [!TIP]
+> L'uso di ExpressRoute mantiene il traffico di rete aziendale lontano da Internet per una protezione ottimizzata e prestazioni significativamente migliori, agevolando contratti di servizio dal provider ExpressRoute. Il gateway di Azure può raggiungere un massimo di 2 Gb/s con ExpressRoute, mentre la velocità massima effettiva con le VPN da sito a sito per il gateway di Azure è di 200 Mb/s.
+> 
+> 
 
 Come illustrato nel diagramma che segue, con questa opzione l'ambiente include ora due margini di rete. L'appliance virtuale di rete e i gruppi di sicurezza di rete controllano i flussi di traffico per le reti interne di Azure e tra Azure e Internet, mentre il gateway è un margine di rete completamente separato e isolato tra le reti locali e Azure.
 
@@ -460,20 +492,20 @@ Se si usa l'ambiente creato nell'esempio 1, e quindi si aggiunge una connessione
 #### Conclusioni
 L'aggiunta di una connessione di rete con peering privato di ExpressRoute può estendere la rete locale in Azure in un modo sicuro, con latenza ridotta e prestazioni migliori. L'uso del gateway nativo di Azure, come illustrato in questo esempio, offre un'opzione a costi ridotti (a differenza delle appliance virtuali di rete che comportano costi di licenza aggiuntivi). Per altre informazioni, vedere le istruzioni di creazione dettagliate (presto disponibili). Le istruzioni includono:
 
-- Come creare la rete perimetrale di esempio con script di PowerShell
-- Come creare la rete perimetrale di esempio con un modello di Azure Resource Manager
-- Scenari dettagliati di flussi di traffico che illustrano il modo in cui il traffico scorre nella struttura.
+* Come creare la rete perimetrale di esempio con script di PowerShell
+* Come creare la rete perimetrale di esempio con un modello di Azure Resource Manager
+* Scenari dettagliati di flussi di traffico che illustrano il modo in cui il traffico scorre nella struttura.
 
 ## Riferimenti
 ### Siti Web e documentazione utili
-- Accedere ad Azure tramite Azure Resource Manager:
-- Accesso ad Azure con PowerShell: [https://azure.microsoft.com/documentation/articles/powershell-install-configure/](./powershell-install-configure.md)
-- Documentazione sulle reti virtuali: [https://azure.microsoft.com/documentation/services/virtual-network/](https://azure.microsoft.com/documentation/services/virtual-network/)
-- Documentazione sui gruppi di sicurezza di rete: [https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/](./virtual-network/virtual-networks-nsg.md)
-- Documentazione sul routing definito dall'utente: [https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/](./virtual-network/virtual-networks-udr-overview.md)
-- Gateway virtuali di Azure: [https://azure.microsoft.com/documentation/services/vpn-gateway/](https://azure.microsoft.com/documentation/services/vpn-gateway/)
-- VPN da sito a sito: [https://azure.microsoft.com/documentation/articles/vpn-gateway-create-site-to-site-rm-powershell](./vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
-- Documentazione su ExpressRoute (assicurarsi di consultare le sezioni relative all'introduzione e alle procedure): [https://azure.microsoft.com/documentation/services/expressroute/](https://azure.microsoft.com/documentation/services/expressroute/)
+* Accedere ad Azure tramite Azure Resource Manager:
+* Accesso ad Azure con PowerShell: [https://azure.microsoft.com/documentation/articles/powershell-install-configure/](powershell-install-configure.md)
+* Documentazione sulle reti virtuali: [https://azure.microsoft.com/documentation/services/virtual-network/](https://azure.microsoft.com/documentation/services/virtual-network/)
+* Documentazione sui gruppi di sicurezza di rete: [https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/](virtual-network/virtual-networks-nsg.md)
+* Documentazione sul routing definito dall'utente: [https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/](virtual-network/virtual-networks-udr-overview.md)
+* Gateway virtuali di Azure: [https://azure.microsoft.com/documentation/services/vpn-gateway/](https://azure.microsoft.com/documentation/services/vpn-gateway/)
+* VPN da sito a sito: [https://azure.microsoft.com/documentation/articles/vpn-gateway-create-site-to-site-rm-powershell](vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+* Documentazione su ExpressRoute (assicurarsi di consultare le sezioni relative all'introduzione e alle procedure): [https://azure.microsoft.com/documentation/services/expressroute/](https://azure.microsoft.com/documentation/services/expressroute/)
 
 <!--Image References--> 
 [0]: ./media/best-practices-network-security/flowchart.png "Diagramma di flusso sulle opzioni di sicurezza"

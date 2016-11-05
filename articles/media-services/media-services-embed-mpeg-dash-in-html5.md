@@ -1,47 +1,40 @@
-<properties 
-    pageTitle="Integrazione di uno streaming video adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js | Microsoft Azure" 
-    description="Questo argomento illustra come integrare un video in streaming adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js." 
-    authors="Juliako" 
-    manager="erikre" 
-    editor="" 
-    services="media-services" 
-    documentationCenter=""/>
+---
+title: Integrazione di uno streaming video adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js | Microsoft Docs
+description: Questo argomento illustra come integrare un video in streaming adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js.
+author: Juliako
+manager: erikre
+editor: ''
+services: media-services
+documentationcenter: ''
 
-<tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/26/2016" 
-    ms.author="juliako"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: juliako
 
-
-
-#<a name="embedding-a-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dash.js"></a>Integrazione di uno streaming video adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js
-
-##<a name="overview"></a>Overview
-
+---
+# <a name="embedding-a-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dash.js"></a>Integrazione di uno streaming video adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js
+## <a name="overview"></a>Overview
 MPEG-DASH è uno standard ISO per lo streaming adattivo di contenuti video che offre vantaggi significativi agli utenti che desiderano distribuire output di streaming video adattivo di alta qualità. Con MPEG-DASH il flusso video viene automaticamente impostato a una definizione inferiore quando si verificano situazioni di congestione sulla rete. Questo riduce il rischio che il video si interrompa mentre il lettore scarica i secondi successivi da riprodurre (noto anche come buffering). Man mano che la congestione sulla rete si riduce, il lettore video torna a un flusso di qualità elevata. La possibilità di adattare la larghezza di banda richiesta riduce anche i tempi di avvio del video. I primi secondi, ad esempio, possono essere riprodotti con una qualità inferiore, rapida da scaricare, per poi passare a una qualità superiore nel momento in cui nel buffer è stato memorizzato contenuto sufficiente.
 
 Dash.js è un lettore video MPEG-DASH open source scritto in JavaScript. È stato sviluppato per offrire un affidabile lettore multipiattaforma che possa essere liberamente riusato in applicazioni che richiedono la riproduzione video. Offre funzionalità di riproduzione MPEG-DASH in qualsiasi browser che supportalo standard W3C Media Source Extensions (MSE), ovvero Chrome,  Microsoft Edge e IE11 (altri browser hanno manifestato l'intenzione di supportare MSE). Per altre informazioni su DASH.js, vedere la pagina relativa al repository dash.js di GitHub.
 
-
-##<a name="creating-a-browser-based-streaming-video-player"></a>Creazione di un lettore di streaming video basato su browser
-
+## <a name="creating-a-browser-based-streaming-video-player"></a>Creazione di un lettore di streaming video basato su browser
 Per creare una pagina Web semplice che visualizzi un lettore video con i controlli previsti, quali riproduzione, pausa, riavvolgimento e così via, sarà necessario:
 
 1. Creare una pagina HTML
-1. Aggiungere un tag video
-1. Aggiungere il lettore dash.js
-1. Inizializzare il lettore
-1. Aggiungere lo stile CSS
-1. Visualizzare i risultati in un browser che implementa MSE
+2. Aggiungere un tag video
+3. Aggiungere il lettore dash.js
+4. Inizializzare il lettore
+5. Aggiungere lo stile CSS
+6. Visualizzare i risultati in un browser che implementa MSE
 
 L'inizializzazione del lettore può essere eseguita con poche righe di codice JavaScript. Usando dash.js, integrare video MPEG-DASH in applicazioni basate su browser è davvero molto semplice.
 
-##<a name="creating-the-html-page"></a>Creazione della pagina HTML
-
+## <a name="creating-the-html-page"></a>Creazione della pagina HTML
 Il primo passaggio consiste nel creare una pagina HTML standard contenente l'elemento **video** e salvare il file come basicPlayer.html, come illustrato nell'esempio seguente:
 
     <!DOCTYPE html>
@@ -53,8 +46,7 @@ Il primo passaggio consiste nel creare una pagina HTML standard contenente l'ele
       </body>
     </html>
 
-##<a name="adding-the-dash.js-player"></a>Aggiunta del lettore DASH.js
-
+## <a name="adding-the-dash.js-player"></a>Aggiunta del lettore DASH.js
 Per aggiungere l'implementazione di riferimento dash.js all'applicazione, è necessario recuperare il file dash.all.js dalla versione 1.0 del progetto dash.js. Il file deve essere quindi salvato nella cartella JavaScript dell'applicazione. Si tratta di un file di riferimento che raccoglie tutto il codice dash.js necessario in un unico file. Esaminando l'archivio dash.js si potrà identificare i singoli file, il codice di test e molto altro, ma se si deve solo usare il file dash.js, questo sarà l'unico elemento effettivamente necessario.
 
 Per aggiungere il lettore dash.js a un'applicazione, aggiungere un tag di script alla sezione di intestazione del file basicPlayer.html:
@@ -88,7 +80,7 @@ Passare l'URL del file MPD a MediaPlayer in modo che riconosca il video previsto
     <body onload="setupVideo()">
 
 Infine, imposta la dimensione dell'elemento video usando lo stile CSS. In un ambiente di streaming adattivo, questo passaggio è particolarmente importante poiché le dimensioni del video riprodotto possono variare mentre la riproduzione si adatta alle mutevoli condizioni di rete. Questo semplice esempio forza l'elemento video all'80% della finestra del browser disponibile aggiungendo lo stile CSS seguente alla sezione di intestazione della pagina:
-    
+
     <style>
     video {
       width: 80%;
@@ -96,26 +88,19 @@ Infine, imposta la dimensione dell'elemento video usando lo stile CSS. In un amb
     }
     </style>
 
-##<a name="playing-a-video"></a>Riproduzione di un video
-
+## <a name="playing-a-video"></a>Riproduzione di un video
 Per riprodurre un video, passare nel browser al file basicPlayback.html e fare clic sul pulsante di riproduzione sul lettore video visualizzato.
 
+## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-##<a name="provide-feedback"></a>Fornire commenti e suggerimenti
-
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-##<a name="see-also"></a>Vedere anche
-
+## <a name="see-also"></a>Vedere anche
 [Sviluppo di applicazioni di lettore video](media-services-develop-video-players.md)
 
 [Repository dash.js di GitHub](https://github.com/Dash-Industry-Forum/dash.js) 
-
-
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,39 +1,37 @@
-<properties
-	pageTitle="Gestire il controllo degli accessi in base al ruolo con Azure PowerShell | Microsoft Azure"
-	description="Come gestire il controllo degli accessi in base al ruolo con Azure PowerShell, come elencare ruoli, assegnare ruoli ed eliminare assegnazioni di ruoli."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor=""/>  
+---
+title: Gestire il controllo degli accessi in base al ruolo con Azure PowerShell | Microsoft Docs
+description: Come gestire il controllo degli accessi in base al ruolo con Azure PowerShell, come elencare ruoli, assegnare ruoli ed eliminare assegnazioni di ruoli.
+services: active-directory
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="07/22/2016"
-	ms.author="kgremban"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 07/22/2016
+ms.author: kgremban
 
+---
 # Gestire il controllo degli accessi in base al ruolo con Azure PowerShell
-
-> [AZURE.SELECTOR]
-- [PowerShell](role-based-access-control-manage-access-powershell.md)
-- [Interfaccia della riga di comando di Azure](role-based-access-control-manage-access-azure-cli.md)
-- [API REST](role-based-access-control-manage-access-rest.md)
-
+> [!div class="op_single_selector"]
+> * [PowerShell](role-based-access-control-manage-access-powershell.md)
+> * [Interfaccia della riga di comando di Azure](role-based-access-control-manage-access-azure-cli.md)
+> * [API REST](role-based-access-control-manage-access-rest.md)
+> 
+> 
 
 È possibile usare il controllo degli accessi in base al ruolo (RBAC) nel portale di Azure e nell'API di Azure Resource Manager per gestire con estrema precisione l'accesso alla propria sottoscrizione. Con questa funzionalità è possibile concedere l'accesso a utenti, gruppi o entità servizio di Active Directory assegnando loro dei ruoli in un determinato ambito.
 
 Per poter usare PowerShell per gestire il controllo degli accessi in base al ruolo, è necessario avere i programmi seguenti:
 
-- Azure PowerShell 0.8.8 o versione successiva. Per installare la versione più recente e associarla alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
-
-- Cmdlet di Azure Resource Manager Installare i [cmdlet di Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx) in PowerShell.
+* Azure PowerShell 0.8.8 o versione successiva. Per installare la versione più recente e associarla alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+* Cmdlet di Azure Resource Manager Installare i [cmdlet di Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx) in PowerShell.
 
 ## Elenco dei ruoli
-
 ### Elencare tutti i ruoli disponibili
 Per elencare i ruoli del controllo degli accessi in base al ruolo disponibili per l'assegnazione e controllare le operazioni a cui concedono l'accesso, usare `Get-AzureRmRoleDefinition`.
 
@@ -57,7 +55,7 @@ Get-AzureRmRoleDefinition Contributor | FL Actions, NotActions
 ## Assegnazioni di accesso
 Per elencare le assegnazioni di accesso al controllo degli accessi in base al ruolo, usare `Get-AzureRmRoleAssignment`.
 
-###	Elencare le assegnazioni di ruolo in un ambito specifico
+### Elencare le assegnazioni di ruolo in un ambito specifico
 È possibile elencare le assegnazioni di accesso in base a sottoscrizione, gruppo di risorse o risorsa specificati. Ad esempio, per elencare tutte le assegnazioni attive per un gruppo di risorse, usare `Get-AzureRmRoleAssignment -ResourceGroupName <resource group name>`.
 
 ```
@@ -180,7 +178,6 @@ Set-AzureRmRoleDefinition -Role $role)
 ![Controllo degli accessi in base al ruolo di PowerShell - Set-AzureRmRoleDefinition - Schermata](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-2.png)  
 
 ## Eliminare un ruolo personalizzato
-
 Per eliminare un ruolo personalizzato, usare il comando `Remove-AzureRmRoleDefinition`.
 
 Nell'esempio seguente viene rimosso il ruolo personalizzato *Operatore macchina virtuale*.
@@ -209,7 +206,7 @@ Nell'esempio seguente il ruolo personalizzato *Operatore macchina virtuale* non 
 ![Controllo degli accessi in base al ruolo di PowerShell - Get-AzureRmRoleDefinition - Schermata](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)  
 
 ## Vedere anche
-- [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md)
-[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+* [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md)
+  [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
 <!---HONumber=AcomDC_0810_2016-->

@@ -7,18 +7,16 @@ Per informazioni aggiuntive sull'installazione di Azure PowerShell, vedere [Come
 **Per installare moduli da PowerShell Gallery**
 
 1. Per installare il modulo Gestione risorse direttamente da PowerShell Gallery, aprire Windows PowerShell come amministratore e digitare quanto segue:
-
-		Install-Module AzureRM
-		Install-AzureRM
-
+   
+        Install-Module AzureRM
+        Install-AzureRM
 2. Dopo aver installato i moduli, per poterli usare è necessario importarli:
-
-		Import-AzureRM
+   
+        Import-AzureRM
 
 **Per installare moduli con l'Installazione guidata piattaforma Web**
 
-- È possibile installare moduli usando l'[Installazione guidata piattaforma Web](http://aka.ms/webpi-azps). Quando si fa clic sul collegamento, viene avviata l'installazione.
-
-- Se si verificano errori durante l'uso dell'Installazione guidata piattaforma Web, potrebbe essere già stata installata una versione precedente dei cmdlet usando PowerShell Gallery. Vedere questo [post di blog](https://azure.microsoft.com/blog/azps-1-0/), per informazioni su come rimuovere le versioni precedenti dei moduli e tornare operativi. In genere gli errori si verificano quando è stata usata l'Installazione guidata piattaforma Web e si passa a PowerShell Gallery o viceversa. Il problema viene risolto rimuovendo i moduli installati in precedenza. Successivamente è possibile eseguire l'installazione dal nuovo percorso.
+* È possibile installare moduli usando l'[Installazione guidata piattaforma Web](http://aka.ms/webpi-azps). Quando si fa clic sul collegamento, viene avviata l'installazione.
+* Se si verificano errori durante l'uso dell'Installazione guidata piattaforma Web, potrebbe essere già stata installata una versione precedente dei cmdlet usando PowerShell Gallery. Vedere questo [post di blog](https://azure.microsoft.com/blog/azps-1-0/), per informazioni su come rimuovere le versioni precedenti dei moduli e tornare operativi. In genere gli errori si verificano quando è stata usata l'Installazione guidata piattaforma Web e si passa a PowerShell Gallery o viceversa. Il problema viene risolto rimuovendo i moduli installati in precedenza. Successivamente è possibile eseguire l'installazione dal nuovo percorso.
 
 <!---HONumber=AcomDC_0218_2016-->

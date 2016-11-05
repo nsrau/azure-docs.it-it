@@ -1,45 +1,38 @@
-<properties
-    pageTitle="Esempi dell'API di creazione report di Azure Active Directory | Microsoft Azure"
-    description="Come iniziare a usare l'API di creazione report di Azure Active Directory"
-    services="active-directory"
-    documentationCenter=""
-    authors="dhanyahk"
-    manager="femila"
-    editor=""/>
+---
+title: Esempi dell'API di creazione report di Azure Active Directory | Microsoft Docs
+description: Come iniziare a usare l'API di creazione report di Azure Active Directory
+services: active-directory
+documentationcenter: ''
+author: dhanyahk
+manager: femila
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="09/28/2016"
-    ms.author="dhanyahk;markvi"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/28/2016
+ms.author: dhanyahk;markvi
 
-
+---
 # <a name="azure-active-directory-reporting-audit-api-samples"></a>Esempi dell'API di creazione report di Azure Active Directory
-
 Questo argomento fa parte di una raccolta di argomenti sull'API di creazione report di Azure Active Directory.  
 La creazione di report di Azure Active Directory fornisce un'API che consente di accedere ai dati di controllo tramite codice o strumenti correlati.
 L'obiettivo di questo argomento è fornire codice di esempio per l' **API di controllo**.
 
 Vedere:
 
-- [Log di controllo](active-directory-reporting-azure-portal.md#audit-logs) .
-
-- [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md) .
+* [Log di controllo](active-directory-reporting-azure-portal.md#audit-logs) .
+* [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md) .
 
 Per domande, problemi o suggerimenti, contattare la [Guida per la creazione di report AAD](mailto:aadreportinghelp@microsoft.com).
 
-
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di poter usare gli esempi contenuti in questo argomento, è necessario completare i [prerequisiti di accesso all'API di creazione report di Azure AD](active-directory-reporting-api-prerequisites.md).  
-  
 
 ## <a name="known-issue"></a>Problema noto
-
 L'autenticazione dell'applicazione non funziona se il tenant si trova nell'area dell'Unione Europea. Per l'accesso all'API di controllo come soluzione alternativa fino a quando non si risolve il problema, usare l'autenticazione degli utenti. 
-
 
 ## <a name="powershell-script"></a>Script di PowerShell
     # This script will require registration of a Web Application in Azure Active Directory (see https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)
@@ -71,7 +64,7 @@ L'autenticazione dell'applicazione non funziona se il tenant si trova nell'area 
             foreach ($event in ($myReport.Content | ConvertFrom-Json).value) {
                 Write-Output ($event | ConvertTo-Json)
             }
-        
+
             # save the query page to an output file
             Write-Output "Save the output to a file audit$i.json"
             $myReport.Content | Out-File -FilePath audit$i.json -Force
@@ -91,9 +84,7 @@ Una volta modificato lo script, eseguirlo e verificare che vengano restituiti i 
 
 Lo script restituisce l'output del report di controllo in formato JSON. Crea anche un file `audit.json` con lo stesso output. È possibile provare a modificare lo script per restituire i dati di altri report e rimuovere i commenti per i formati di output non necessari.
 
-
 ## <a name="bash-script"></a>Script Bash
-
     #!/bin/bash
 
     # Author: Ken Hoff (kenhoff@microsoft.com)
@@ -122,7 +113,6 @@ Lo script restituisce l'output del report di controllo in formato JSON. Crea anc
     echo $REPORT | ./jq-win64.exe -r '.value' | ./jq-win64.exe -r ".[]"
 
 ## <a name="python-script"></a>Script Python
-
     # Author: Michael McLaughlin (michmcla@microsoft.com)
     # Date: January 20, 2016
     # This requires the Python Requests module: http://docs.python-requests.org
@@ -168,14 +158,9 @@ Lo script restituisce l'output del report di controllo in formato JSON. Crea anc
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-- Si desidera personalizzare gli esempi contenuti in questo argomento? Vedere le [informazioni di riferimento sull'API di controllo Azure Active Directory](active-directory-reporting-api-audit-reference.md). 
-
-- Se si desidera visualizzare una panoramica completa sull'uso dell'API di creazione report di Azure Active Directory, vedere [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md).
-
-- Per altre informazioni sulla creazione di report di Azure Active Directory, vedere [Guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).  
-
-
+* Si desidera personalizzare gli esempi contenuti in questo argomento? Vedere le [informazioni di riferimento sull'API di controllo Azure Active Directory](active-directory-reporting-api-audit-reference.md). 
+* Se si desidera visualizzare una panoramica completa sull'uso dell'API di creazione report di Azure Active Directory, vedere [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md).
+* Per altre informazioni sulla creazione di report di Azure Active Directory, vedere [Guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).  
 
 <!--HONumber=Oct16_HO2-->
 

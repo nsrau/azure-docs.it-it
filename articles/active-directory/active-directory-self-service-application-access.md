@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Accesso alle applicazioni self-service e gestione delegata con Azure Active Directory | Microsoft Azure"
-    description="Questo articolo descrive come abilitare l'accesso alle applicazioni self-service e la gestione delegata con Azure Active Directory."
-    services="active-directory"
-    documentationCenter=""
-    authors="asmalser-msft"
-    manager="femila"
-    editor=""/>
+---
+title: Accesso alle applicazioni self-service e gestione delegata con Azure Active Directory | Microsoft Docs
+description: Questo articolo descrive come abilitare l'accesso alle applicazioni self-service e la gestione delegata con Azure Active Directory.
+services: active-directory
+documentationcenter: ''
+author: asmalser-msft
+manager: femila
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/09/2016"
-    ms.author="asmalser"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/09/2016
+ms.author: asmalser
 
-
-#<a name="self-service-application-access-and-delegated-management-with-azure-active-directory"></a>Accesso alle applicazioni self-service e gestione delegata con Azure Active Directory
-
+---
+# <a name="self-service-application-access-and-delegated-management-with-azure-active-directory"></a>Accesso alle applicazioni self-service e gestione delegata con Azure Active Directory
 L'abilitazione della funzionalità self-service per gli utenti finali è uno scenario comune nell'IT aziendale. Con un numero elevato di utenti e di applicazioni, spesso la persona più informata per decidere a chi concedere l'accesso non è l'amministratore della directory, ma il responsabile del team o un altro amministratore con delega. Tutto sommato, la persona più informata su ciò che serve per svolgere il proprio lavoro è proprio l'utente dell'applicazione.
 
 L'accesso alle applicazioni self-service è una funzionalità di [Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/) che permette agli amministratori di directory di:
@@ -34,9 +32,7 @@ Questo articolo illustra come:
 * Configurare l'accesso alle applicazioni self-service per gli utenti finali e configurare un flusso di lavoro di approvazione facoltativo. 
 * Delegare la gestione dell'accesso alle persone più appropriate all'interno dell'organizzazione per applicazioni specifiche e permettere loro di usare il pannello di accesso di Azure AD per approvare le richieste di accesso, assegnare direttamente l'accesso ad alcuni utenti o (facoltativamente) impostare credenziali per l'accesso alle applicazioni quando è configurato il Single Sign-On basato su password.
 
-
-##<a name="configuring-self-service-application-access"></a>Configurazione dell'accesso alle applicazioni self-service
-
+## <a name="configuring-self-service-application-access"></a>Configurazione dell'accesso alle applicazioni self-service
 Per abilitare l'accesso alle applicazioni self-service e specificare quali applicazioni possono essere aggiunte o richieste dagli utenti finali, seguire questa procedura.
 
 **1:** Accedere al [portale di Azure classico](https://manage.windowsazure.com/).
@@ -71,40 +67,33 @@ Se non è richiesta alcuna approvazione, l'applicazione viene aggiunta immediata
 
 **13:** Il messaggio di posta elettronica indica al responsabile dell'approvazione di accedere al pannello di accesso di Azure AD e approvare la richiesta. Dopo l'approvazione della richiesta e al termine di altri eventuali processi speciali da parte del responsabile dell'approvazione, l'utente potrà visualizzare e accedere all'applicazione dalla scheda **Applicazioni** .
 
-##<a name="delegated-application-access-management"></a>Gestione delegata degli accessi alle applicazioni
-
+## <a name="delegated-application-access-management"></a>Gestione delegata degli accessi alle applicazioni
 Un responsabile dell'approvazione degli accessi all'applicazione può essere qualsiasi utente dell'organizzazione che sia ritenuto più adatto ad approvare o negare l'accesso all'applicazione in questione. Questo utente può essere responsabile del provisioning dell'account, della gestione delle licenze o di altri processi aziendali richiesti dall'organizzazione prima di concedere l'accesso a un'app.
- 
+
 Quando si configura l'accesso alle applicazioni self-service descritto in precedenza, i responsabili dell'approvazione per le applicazioni assegnate visualizzano un riquadro **Gestire le applicazioni** aggiuntivo nel pannello di accesso di Azure AD, che mostra le applicazioni di cui sono amministratori degli accessi. Facendo clic su un'app viene visualizzata una schermata con diverse opzioni.
 
 ![][2]
 
-###<a name="approve-requests"></a>Approva richieste
-
+### <a name="approve-requests"></a>Approva richieste
 Il riquadro **Approva richieste** consente ai responsabili dell'approvazione di visualizzare eventuali approvazioni in sospeso specifiche dell'app e reindirizza alla scheda Approvazioni, in cui è possibile confermare o negare le richieste. Si noti che il responsabile dell'approvazione riceve anche messaggi di posta elettronica automatici ogni volta che viene creata una richiesta, con indicazioni sulle operazioni da eseguire.
 
-###<a name="add-users"></a>Aggiungi utenti
-
+### <a name="add-users"></a>Aggiungi utenti
 Il riquadro **Aggiungi utenti** consente ai responsabili dell'approvazione di concedere direttamente l'accesso all'applicazione agli utenti selezionati. Facendo clic su questo riquadro viene aperta una finestra di dialogo che permette al responsabile dell'approvazione di visualizzare e cercare utenti nella propria directory. Quando si aggiunge un utente, l'applicazione viene visualizzata in Office 365 o nel pannello di accesso di Azure AD dell'utente. Se è necessario un processo di provisioning manuale dell'utente all'app perché l'utente possa accedere, il responsabile dell'approvazione deve eseguire questo processo prima di assegnare l'accesso.  
 
-###<a name="manage-users"></a>Gestire gli utenti
-
+### <a name="manage-users"></a>Gestire gli utenti
 Il riquadro **Gestire gli utenti** consente ai responsabili dell'approvazione di aggiornare o rimuovere direttamente gli utenti che hanno accesso all'applicazione. 
 
-###<a name="configure-password-sso-credentials-(if-applicable)"></a>Configurare le credenziali SSO con password (se applicabile)
-
+### <a name="configure-password-sso-credentials-(if-applicable)"></a>Configurare le credenziali SSO con password (se applicabile)
 Il riquadro **Configura** viene visualizzato solo se l'applicazione è stata configurata dall'amministratore IT per l'uso del Single Sign-On basato su password e l'amministratore ha concesso al responsabile dell'approvazione la possibilità di impostare le credenziali SSO con password come descritto in precedenza. Se selezionato, il responsabile dell'approvazione ha a disposizione diverse opzioni per propagare le credenziali agli utenti assegnati:
 
 ![][3]
 
 * **Gli utenti accedono con le proprie password** : in questa modalità, gli utenti assegnati conoscono i relativi nomi utente e password per l'applicazione e devono immetterli al primo accesso all'applicazione. Questo corrisponde al caso di SSO con password in cui [le credenziali sono gestite dagli utenti](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
-
 * **Gli utenti accedono automaticamente usando account separati da me gestiti** : in questa modalità, gli utenti assegnati non devono immettere o conoscere le proprie credenziali specifiche dell'app quando eseguono l'accesso all'applicazione. È il responsabile dell'approvazione che imposta le credenziali per ogni utente dopo aver assegnato l'accesso usando il riquadro **Aggiungi utente** . Quando l'utente fa clic sull'applicazione nel pannello di accesso o in Office 365, viene eseguito automaticamente l'accesso con le credenziali impostate dal responsabile dell'approvazione. Questo corrisponde al caso di SSO con password in cui [le credenziali sono gestite dagli amministratori](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
-
 * **Gli utenti accedono automaticamente usando un singolo account da me gestito** : questo è un caso speciale ed è possibile adottare questa modalità quando è necessario concedere l'accesso a tutti gli utenti assegnati usando un singolo account condiviso. Il caso d'uso più comune per questa modalità è rappresentato dalle applicazioni per social media, in cui un'organizzazione ha un singolo account della società che deve essere aggiornato da più utenti. Anche questo corrisponde al caso di SSO con password in cui [le credenziali sono gestite dagli amministratori](active-directory-appssoaccess-whatis.md#password-based-single-sign-on). Dopo aver selezionato questa opzione, al responsabile dell'approvazione verrà chiesto di immettere il nome utente e la password per il singolo account condiviso. Al termine, facendo clic sull'applicazione nel pannello di accesso di Azure AD o in Office 365 viene eseguito l'accesso per tutti gli utenti assegnati usando questo account.
 
-##<a name="additional-resources"></a>Risorse aggiuntive
-- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+## <a name="additional-resources"></a>Risorse aggiuntive
+* [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-application-access/ssaa_admin.PNG

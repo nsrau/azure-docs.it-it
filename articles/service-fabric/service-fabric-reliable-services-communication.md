@@ -1,27 +1,25 @@
-<properties
-   pageTitle="Panoramica sulla comunicazione di Reliable Services | Microsoft Azure"
-   description="Panoramica sul modello di comunicazione di Reliable Services, compresi i listener di apertura nei servizi, gli endpoint di risoluzione e la comunicazione tra servizi."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="vturecek"
-   manager="timlt"
-   editor="BharatNarasimman"/>
+---
+title: Panoramica sulla comunicazione di Reliable Services | Microsoft Docs
+description: Panoramica sul modello di comunicazione di Reliable Services, compresi i listener di apertura nei servizi, gli endpoint di risoluzione e la comunicazione tra servizi.
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: BharatNarasimman
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="required"
-   ms.date="07/06/2016"
-   ms.author="vturecek"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: required
+ms.date: 07/06/2016
+ms.author: vturecek
 
+---
 # Come usare le API di comunicazione di Reliable Services
-
 Azure Service Fabric è una piattaforma completamente indipendente dalle comunicazioni tra servizi. Sono accettabili tutti i protocolli e gli stack, da UDP a HTTP. Dipende dallo sviluppatore del servizio scegliere la modalità di comunicazione tra servizi. Il framework applicazione di Reliable Services offre gli stack di comunicazione predefiniti nonché le API che è possibile usare per creare componenti di comunicazione personalizzati.
 
 ## Impostare la comunicazione tra servizi
-
 L'API di Reliable Services usa una semplice interfaccia per la comunicazione tra servizi. Per aprire un endpoint del servizio, è sufficiente implementare questa interfaccia:
 
 ```csharp
@@ -89,7 +87,10 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 }
 ```
 
-> [AZURE.NOTE] Quando si creano più listener per un servizio, a ogni listener **deve** essere assegnato un nome univoco.
+> [!NOTE]
+> Quando si creano più listener per un servizio, a ogni listener **deve** essere assegnato un nome univoco.
+> 
+> 
 
 Descrivere infine gli endpoint necessari per il servizio nel [manifesto del servizio](service-fabric-application-model.md), nella sezione relativa agli endpoint.
 
@@ -111,10 +112,12 @@ var port = codePackageActivationContext.GetEndpoint("ServiceEndpoint").Port;
 
 ```
 
-> [AZURE.NOTE] Le risorse di endpoint sono comuni all'intero pacchetto del servizio e vengono allocate da Service Fabric quando viene attivato il pacchetto del servizio. Più repliche di servizio ospitate nella stessa istanza di ServiceHost possono condividere la stessa porta. Ciò significa che il listener di comunicazione deve supportare la condivisione delle porte. Il metodo consigliato per eseguire questa operazione consiste nell'uso dell'ID partizione e dell'ID replica/istanza da parte del listener di comunicazione durante la generazione dell'indirizzo di ascolto.
+> [!NOTE]
+> Le risorse di endpoint sono comuni all'intero pacchetto del servizio e vengono allocate da Service Fabric quando viene attivato il pacchetto del servizio. Più repliche di servizio ospitate nella stessa istanza di ServiceHost possono condividere la stessa porta. Ciò significa che il listener di comunicazione deve supportare la condivisione delle porte. Il metodo consigliato per eseguire questa operazione consiste nell'uso dell'ID partizione e dell'ID replica/istanza da parte del listener di comunicazione durante la generazione dell'indirizzo di ascolto.
+> 
+> 
 
 ### Registrazione dell'indirizzo del servizio
-
 Nei cluster di Service Fabric viene eseguito un servizio di sistema denominato *servizio Naming*. Il servizio Naming è un registrar per i servizi e i relativi indirizzi su cui è in ascolto ogni istanza o replica del servizio. Quando il metodo `OpenAsync` di un oggetto `ICommunicationListener` viene completato, il valore restituito viene registrato nel servizio Naming. Questo valore restituito che viene pubblicato nel servizio Naming è una stringa il cui valore può essere costituito da qualsiasi valore. Questo valore stringa è il valore che verrà visualizzato dai client quando richiedono al servizio Naming un indirizzo per il servizio.
 
 ```csharp
@@ -127,11 +130,11 @@ public Task<string> OpenAsync(CancellationToken cancellationToken)
                 CultureInfo.InvariantCulture,
                 "http://+:{0}/",
                 port);
-                        
+
     this.publishAddress = this.listeningAddress.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
-            
+
     this.webApp = WebApp.Start(this.listeningAddress, appBuilder => this.startup.Invoke(appBuilder));
-    
+
     // the string returned here will be published in the Naming Service.
     return Task.FromResult(this.publishAddress);
 }
@@ -139,7 +142,10 @@ public Task<string> OpenAsync(CancellationToken cancellationToken)
 
 Service Fabric fornisce le API che consentono ai client e ad altri servizi di richiedere questo indirizzo in base al nome del servizio. Questo aspetto è importante perché l'indirizzo del servizio non è statico. I servizi vengono spostati nel cluster ai fini del bilanciamento del carico e della disponibilità delle risorse. Questo meccanismo consente ai client di risolvere l'indirizzo di ascolto per un servizio.
 
-> [AZURE.NOTE] Per una procedura dettagliata completa per scrivere un oggetto `ICommunicationListener`, vedere [Introduzione ai servizi API Web di Service Fabric con self-hosting OWIN](service-fabric-reliable-services-communication-webapi.md).
+> [!NOTE]
+> Per una procedura dettagliata completa per scrivere un oggetto `ICommunicationListener`, vedere [Introduzione ai servizi API Web di Service Fabric con self-hosting OWIN](service-fabric-reliable-services-communication-webapi.md).
+> 
+> 
 
 ## Comunicazione con un servizio
 L'API di Reliable Services offre le librerie seguenti per la scrittura di client che comunicano con i servizi.
@@ -160,7 +166,7 @@ ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.clo
 ```
 
 In alternativa, è possibile assegnare alla classe `ServicePartitionResolver` la funzione per la creazione di un oggetto `FabricClient` da usare internamente:
- 
+
 ```csharp
 public delegate FabricClient CreateFabricClientDelegate();
 ```
@@ -185,7 +191,6 @@ L'indirizzo di un servizio può essere risolto facilmente con `ServicePartitionR
 In genere, non è necessario che il codice client funzioni direttamente con l'oggetto `ServicePartitionResolver`. Il codice viene creato e passato alle factory di client di comunicazione nell'API di Reliable Services. Le factory usano il resolver internamente per generare un oggetto client da poter usare per comunicare con i servizi.
 
 ### Client e factory di comunicazione
-
 La libreria di factory di comunicazione implementa un tipico schema di ripetizione dei tentativi per la gestione degli errori che semplifica la ripetizione dei tentativi di connessioni agli endpoint del servizio risolti. La libreria di factory fornisce il meccanismo di ripetizione dei tentativi mentre l'utente fornisce i gestori di errori.
 
 `ICommunicationClientFactory` definisce l'interfaccia di base implementata da una factory di client di comunicazione che produce client che possono comunicare con un servizio di Service Fabric. L'implementazione dell'oggetto CommunicationClientFactory dipende dallo stack di comunicazione usato dal servizio di Service Fabric con cui il client vuole comunicare. L'API di Reliable Services include un oggetto `CommunicationClientFactoryBase<TCommunicationClient>`, che offre un'implementazione di base dell'interfaccia `ICommunicationClientFactory` e consente di eseguire attività comuni a tutti gli stack di comunicazione. Tali attività includono l'uso di un resolver `ServicePartitionResolver` per determinare l'endpoint del servizio. I client in genere implementano la classe astratta CommunicationClientFactoryBase per gestire la logica specifica dello stack di comunicazione.
@@ -228,13 +233,13 @@ public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCom
 
 Infine, un gestore di eccezioni è responsabile per determinare l'azione da intraprendere quando si verifica un'eccezione. Le eccezioni vengono suddivise in due categorie: **con possibilità di ritentare** e **senza possibilità di ritentare**.
 
- - Le eccezioni **senza possibilità di ritentare** vengono restituite semplicemente al chiamante.
- - Le eccezioni **con possibilità di ritentare** si suddividono a propria volta in due categorie: **temporanee** e **non temporanee**.
-  - Le eccezioni **temporanee** sono quelle per cui è possibile ripetere il tentativo senza risolvere di nuovo l'indirizzo dell'endpoint del servizio. Includono problemi di rete temporanei o risposte di errore del servizio diversi da quelli che indicano che l'indirizzo dell'endpoint del servizio non esiste.
-  - Le eccezioni **non temporanee** sono quelle per cui è necessario risolvere di nuovo l'indirizzo dell'endpoint del servizio. Includono eccezioni che indicano che l'endpoint del servizio non è raggiungibile, ad esempio perché il servizio è stato spostato in un altro nodo.
+* Le eccezioni **senza possibilità di ritentare** vengono restituite semplicemente al chiamante.
+* Le eccezioni **con possibilità di ritentare** si suddividono a propria volta in due categorie: **temporanee** e **non temporanee**.
+  * Le eccezioni **temporanee** sono quelle per cui è possibile ripetere il tentativo senza risolvere di nuovo l'indirizzo dell'endpoint del servizio. Includono problemi di rete temporanei o risposte di errore del servizio diversi da quelli che indicano che l'indirizzo dell'endpoint del servizio non esiste.
+  * Le eccezioni **non temporanee** sono quelle per cui è necessario risolvere di nuovo l'indirizzo dell'endpoint del servizio. Includono eccezioni che indicano che l'endpoint del servizio non è raggiungibile, ad esempio perché il servizio è stato spostato in un altro nodo.
 
 L'oggetto `TryHandleException` prende una decisione su una determinata eccezione. Se **non sa** quali decisioni prendere in merito a un'eccezione, restituirà **false**. Se **sa** quale decisione prendere, imposterà il risultato di conseguenza e restituirà **true**.
- 
+
 ```csharp
 class MyExceptionHandler : IExceptionHandler
 {
@@ -276,12 +281,9 @@ var result = await myServicePartitionClient.InvokeWithRetryAsync(async (client) 
 ```
 
 ## Passaggi successivi
- - Vedere un esempio di comunicazione HTTP tra i servizi in un [progetto di esempio in GitHUb](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount).
-
- - [Chiamate di procedura remota con i Reliable Services remoti](service-fabric-reliable-services-communication-remoting.md)
-
- - [Web API che usa OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
-
- - [Comunicazione di WCF tramite Reliable Services](service-fabric-reliable-services-communication-wcf.md)
+* Vedere un esempio di comunicazione HTTP tra i servizi in un [progetto di esempio in GitHUb](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount).
+* [Chiamate di procedura remota con i Reliable Services remoti](service-fabric-reliable-services-communication-remoting.md)
+* [Web API che usa OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+* [Comunicazione di WCF tramite Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 
 <!---HONumber=AcomDC_0713_2016-->

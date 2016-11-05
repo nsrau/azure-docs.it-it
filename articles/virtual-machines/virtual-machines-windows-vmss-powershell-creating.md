@@ -1,24 +1,23 @@
-<properties
-	pageTitle="Creazione di set di scalabilità di macchine virtuali con i cmdlet di PowerShell | Microsoft Azure"
-	description="Introduzione alla creazione e alla gestione dei set di scalabilità delle macchine virtuali di Azure tramite i cmdlet di Azure PowerShell"
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="danielsollondon"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+---
+title: Creazione di set di scalabilità di macchine virtuali con i cmdlet di PowerShell | Microsoft Docs
+description: Introduzione alla creazione e alla gestione dei set di scalabilità delle macchine virtuali di Azure tramite i cmdlet di Azure PowerShell
+services: virtual-machines-windows
+documentationcenter: ''
+author: danielsollondon
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/30/2016"
-	ms.author="danielsollondon"/>
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/30/2016
+ms.author: danielsollondon
 
+---
 # Creazione di set di scalabilità di macchine virtuali con i cmdlet di PowerShell
-
 Questo esempio descrive come creare il set di scalabilità di una macchina virtuale (VMSS). Viene creato un set di scalabilità di 3 nodi con tutte le funzionalità di rete e di archiviazione associate.
 
 ## Primi passaggi
@@ -27,9 +26,7 @@ Assicurarsi di avere installato il modulo Azure PowerShell più recente che incl
 Per trovare i cmdlet relativi ai set di scalabilità di macchine virtuali, usare la stringa di ricerca *VMSS*.
 
 ## Creazione di un set di scalabilità di macchina virtuale (VMSS)
-
 ##### Crea gruppo di risorse
-
 ```
 $loc = 'westus';
 $rgname = 'mynewrgwu';
@@ -37,7 +34,6 @@ $rgname = 'mynewrgwu';
 ```
 
 ##### Create Storage Account
-
 Impostare il tipo e il nome dell'account di archiviazione.
 
 ```
@@ -49,16 +45,13 @@ $stoaccount = Get-AzureRmStorageAccount -ResourceGroupName $rgname -Name $stonam
 ```
 
 #### Creare la rete (rete virtuale/subnet)
-
 ##### Specifica della subnet
-
 ```
 $subnetName = 'websubnet'
   $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix "10.0.0.0/24";
 ```
 
 ##### Specifica della rete virtuale
-
 ```
 $vnet = New-AzureRmVirtualNetwork -Force -Name ('vnet' + $rgname) -ResourceGroupName $rgname -Location $loc -AddressPrefix "10.0.0.0/16" -DnsServer "10.1.1.1" -Subnet $subnet;
 $vnet = Get-AzureRmVirtualNetwork -Name ('vnet' + $rgname) -ResourceGroupName $rgname;
@@ -68,7 +61,6 @@ $subnetId = $vnet.Subnets[0].Id;
 ```
 
 ##### Creare la risorsa indirizzo IP pubblico per consentire l'accesso esterno
-
 Questo verrà associato al bilanciamento del carico.
 
 ```
@@ -77,7 +69,6 @@ $pubip = Get-AzureRmPublicIpAddress -Name ('pubip' + $rgname) -ResourceGroupName
 ```
 
 ##### Creare e configurare il bilanciamento del carico
-
 ```
 $frontendName = 'fe' + $rgname
 $backendAddressPoolName = 'bepool' + $rgname
@@ -141,7 +132,6 @@ $expectedLb = Get-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgname
 ```
 
 ##### Configurare e creare i set di scalabilità di macchine virtuali
-
 Questo esempio di infrastruttura illustra come configurare, distribuire e scalare il traffico Web nel set di scalabilità, ma nelle immagini di macchine virtuali specificate di seguito non sono presenti servizi Web installati.
 
 ```

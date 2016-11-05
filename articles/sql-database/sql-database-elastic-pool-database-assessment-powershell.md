@@ -1,46 +1,45 @@
-<properties
-    pageTitle="Script di PowerShell per identificare database singoli adatti a un pool | Microsoft Azure"
-    description="Un pool di database elastico è una raccolta di risorse disponibili condivise da un gruppo di database elastici. Questo documento fornisce uno script di PowerShell per valutare l'idoneità dell'utilizzo di un pool di database elastici per un gruppo di database."
-    services="sql-database"
-    documentationCenter=""
-    authors="stevestein"
-    manager="jhubbard"
-    editor=""/>
+---
+title: Script di PowerShell per identificare database singoli adatti a un pool | Microsoft Docs
+description: Un pool di database elastico è una raccolta di risorse disponibili condivise da un gruppo di database elastici. Questo documento fornisce uno script di PowerShell per valutare l'idoneità dell'utilizzo di un pool di database elastici per un gruppo di database.
+services: sql-database
+documentationcenter: ''
+author: stevestein
+manager: jhubbard
+editor: ''
 
-<tags
-    ms.service="sql-database"
-    ms.devlang="NA"
-    ms.date="09/28/2016"
-    ms.author="sstein"
-    ms.workload="data-management"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"/>
+ms.service: sql-database
+ms.devlang: NA
+ms.date: 09/28/2016
+ms.author: sstein
+ms.workload: data-management
+ms.topic: article
+ms.tgt_pltfrm: NA
 
-
+---
 # <a name="powershell-script-for-identifying-databases-suitable-for-an-elastic-database-pool"></a>Script di PowerShell per identificare database adatti a un pool di database elastici
-
 In questo articolo viene fornito uno script di PowerShell di esempio per stimare i valori di eDTU di aggregazione per i database utente in un server di database SQL. Lo script raccoglie i dati mentre è in esecuzione e, per un carico di lavoro di produzione tipico, deve essere eseguito per almeno un giorno. Si desidera ad esempio eseguire lo script per un periodo di tempo che rappresenta il carico di lavoro tipico dei database. Eseguire lo script per un periodo di tempo sufficiente all'acquisizione dei dati sull'uso dei database in condizioni normali o durante i picchi. Un'esecuzione della durata di almeno una settimana fornirà probabilmente una stima più accurata.
 
 Questo script è utile per la valutazione di database nei server v11 e per la migrazione ai server v12, in cui i pool sono supportati. Sui server v12, un database SQL è dotato di un'intelligenza integrata che analizza i dati di telemetria cronologici e suggerisce un pool nel momento più conveniente. Per informazioni, vedere [Monitor, manage, and size an elastic database pool](sql-database-elastic-pool-manage-portal.md) (Monitorare, gestire e dimensionare un pool di database elastici).
 
-> [AZURE.IMPORTANT] Mantenere aperta la finestra di PowerShell durante l'esecuzione dello script. Non chiudere la finestra di PowerShell fino a quando non è stato eseguito lo script per la quantità di tempo richiesto. 
+> [!IMPORTANT]
+> Mantenere aperta la finestra di PowerShell durante l'esecuzione dello script. Non chiudere la finestra di PowerShell fino a quando non è stato eseguito lo script per la quantità di tempo richiesto. 
+> 
+> 
 
-## <a name="prerequisites"></a>Prerequisiti 
-
+## <a name="prerequisites"></a>Prerequisiti
 Installare i componenti seguenti prima di eseguire lo script:
 
-- Versione più recente di Azure PowerShell. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
-- Il [pacchetto delle funzionalità di SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=42295).
+* Versione più recente di Azure PowerShell. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+* Il [pacchetto delle funzionalità di SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=42295).
 
 ## <a name="script-details"></a>Dettagli script
-
 È possibile eseguire lo script dal computer locale o una macchina virtuale nel cloud. Se viene eseguito dal computer locale, si possono causare costi di uscita di dati perché lo script deve scaricare dati da database di destinazione. Di seguito viene illustrata la stima di volume dati basata sul numero di database di destinazione e la durata dell'esecuzione dello script. Peri costi di trasferimento dei dati Azure, fare riferimento a [Dettagli prezzi di trasferimento dati](https://azure.microsoft.com/pricing/details/data-transfers/).
-       
- -     1 database all'ora = 38 KB
- -     1 database al giorno = 900 KB
- -     1 database alla settimana = 6 MB
- -     100 database al giorno = 90 MB
- -     500 database alla settimana = 3 GB
+
+* 1 database all'ora = 38 KB
+* 1 database al giorno = 900 KB
+* 1 database alla settimana = 6 MB
+* 100 database al giorno = 90 MB
+* 500 database alla settimana = 3 GB
 
 Lo script non compila le informazioni per i database seguenti:
 
@@ -54,16 +53,14 @@ Lo script è necessario un database di output per memorizzare dati intermedi per
 Lo script deve fornire le credenziali per connettersi al server di destinazione (il candidato per pool di database elastici) con il nome server completo <*dbname*>**.database.windows.net**. Lo script non supporta l'analisi di più server contemporaneamente.
 
 Dopo l'invio di valori per il set iniziale di parametri, viene richiesto di accedere all'account Azure. Si tratta per l'accesso al server di destinazione, non il server di database di output.
-    
+
 Se si verificano i seguenti avvisi durante l'esecuzione di script possono essere ignorati:
 
-- Avviso: Il cmdlet Switch-AzureMode è deprecato.
-- Avviso: Impossibile ottenere informazioni del servizio SQL Server. Tentativo di connettersi a WMI su 'Microsoft.Azure.Commands.Sql.dll' non riuscito con il seguente errore: il server RPC non è disponibile.
+* Avviso: Il cmdlet Switch-AzureMode è deprecato.
+* Avviso: Impossibile ottenere informazioni del servizio SQL Server. Tentativo di connettersi a WMI su 'Microsoft.Azure.Commands.Sql.dll' non riuscito con il seguente errore: il server RPC non è disponibile.
 
 Al completamento dello script il risultato sarà il numero stimato di eDTU necessarie affinché un pool contenga tutti i database candidati nel server di destinazione. Questa stima può essere utilizzata per creare e configurare il pool. Dopo la creazione del pool e lo spostamento dei database al suo interno, è necessario controllarlo attentamente per alcuni giorni, apportando le modifiche alla configurazione delle eDTU del pool in base alle esigenze. Vedere [Monitor, manage, and size an elastic database pool (Monitorare, gestire e ridimensionare un pool di database elastici)](sql-database-elastic-pool-manage-portal.md).
 
-
-    
 ```
 param (
 [Parameter(Mandatory=$true)][string]$AzureSubscriptionName, # Azure Subscription name - can be found on the Azure portal: https://portal.azure.com/
@@ -270,7 +267,7 @@ $data = Invoke-Sqlcmd -ServerInstance $outputServerName -Database $outputdatabas
 $data | %{'{0}' -f $_[0]}
 }
 ```
-        
+
 
 
 

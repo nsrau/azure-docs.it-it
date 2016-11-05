@@ -1,24 +1,23 @@
-<properties
-pageTitle="Aggiungere il connettore Excel | Microsoft Azure"
-description="Panoramica del connettore Excel con i parametri dell'API REST"
-services=""    
-documentationCenter=""     
-authors="msftman"    
-manager="erikre"    
-editor=""
-tags="connectors"/>
+---
+title: Aggiungere il connettore Excel | Microsoft Docs
+description: Panoramica del connettore Excel con i parametri dell'API REST
+services: ''
+documentationcenter: ''
+author: msftman
+manager: erikre
+editor: ''
+tags: connectors
 
-<tags
-ms.service="multiple"
-ms.devlang="na"
-ms.topic="article"
-ms.tgt_pltfrm="na"
-ms.workload="na"
-ms.date="08/23/2016"
-ms.author="deonhe"/>
+ms.service: multiple
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/23/2016
+ms.author: deonhe
 
+---
 # Introduzione al connettore Excel
-
 Al momento non sono disponibili connettori Excel nelle app per la logica.
 
 ## Per usare dati di Excel

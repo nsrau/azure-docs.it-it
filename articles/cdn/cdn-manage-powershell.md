@@ -1,34 +1,33 @@
-<properties
-	pageTitle="Gestire la rete CDN di Azure con PowerShell | Microsoft Azure"
-	description="Informazioni su come usare i cmdlet di Azure PowerShell per gestire la rete CDN di Azure."
-	services="cdn"
-	documentationCenter=""
-	authors="camsoper"
-	manager="erikre"
-	editor=""/>
+---
+title: Gestire la rete CDN di Azure con PowerShell | Microsoft Docs
+description: Informazioni su come usare i cmdlet di Azure PowerShell per gestire la rete CDN di Azure.
+services: cdn
+documentationcenter: ''
+author: camsoper
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="casoper"/>
+ms.service: cdn
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/17/2016
+ms.author: casoper
 
-
+---
 # Gestire la rete CDN di Azure con PowerShell
-
 PowerShell offre uno dei metodi più flessibili per gestire i profili e gli endpoint della rete CDN. È possibile usare PowerShell in modo interattivo o scrivendo script per automatizzare le attività di gestione. Questa esercitazione illustra alcune delle attività più comuni che è possibile eseguire con PowerShell per gestire i profili e gli endpoint della rete CDN di Azure.
 
 ## Prerequisiti
-
 Per usare PowerShell per gestire i profili e gli endpoint della rete CDN di Azure, è necessario avere il modulo Azure PowerShell installato. Per informazioni su come installare Azure PowerShell e connettersi ad Azure usando il cmdlet `Login-AzureRmAccount`[Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
->[AZURE.IMPORTANT] È necessario accedere con `Login-AzureRmAccount` per poter eseguire i cmdlet di Azure PowerShell.
+> [!IMPORTANT]
+> È necessario accedere con `Login-AzureRmAccount` per poter eseguire i cmdlet di Azure PowerShell.
+> 
+> 
 
 ## Inclusione in elenco dei cmdlet della rete CDN di Azure
-
 È elencare tutti i cmdlet della rete CDN di Azure usando il cmdlet `Get-Command`.
 
 ```text
@@ -59,7 +58,6 @@ Cmdlet          Unpublish-AzureRmCdnEndpointContent                2.0.0      Az
 ```
 
 ## Risorse della Guida
-
 È possibile visualizzare la Guida con uno di questi cmdlet usando il cmdlet `Get-Help`. `Get-Help` fornisce la sintassi e facoltativamente illustra gli esempi.
 
 ```text
@@ -91,7 +89,6 @@ REMARKS
 ```
 
 ## Inclusione in elenco dei profili della rete CDN di Azure esistenti
-
 Il cmdlet `Get-AzureRmCdnProfile` senza alcun parametro recupera tutti i profili della rete CDN esistenti.
 
 ```powershell
@@ -114,10 +111,12 @@ Get-AzureRmCdnProfile | Where-Object { $_.Sku.Name -eq "StandardVerizon" }
 Get-AzureRmCdnProfile -ProfileName CdnDemo -ResourceGroupName CdnDemoRG
 ```
 
->[AZURE.TIP] È possibile avere più profili della rete CDN con lo stesso nome, purché siano in gruppi di risorse diversi. Se si omette il parametro `ResourceGroupName`, vengono restituiti tutti i profili con un nome corrispondente.
+> [!TIP]
+> È possibile avere più profili della rete CDN con lo stesso nome, purché siano in gruppi di risorse diversi. Se si omette il parametro `ResourceGroupName`, vengono restituiti tutti i profili con un nome corrispondente.
+> 
+> 
 
 ## Inclusione in elenco degli endpoint della rete CDN esistenti
-
 `Get-AzureRmCdnEndpoint` può recuperare un singolo endpoint o tutti gli endpoint in un profilo.
 
 ```powershell
@@ -135,7 +134,6 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Where-Object { $_.ResourceState
 ```
 
 ## Creazione dei profili e degli endpoint della rete CDN
-
 `New-AzureRmCdnProfile` e `New-AzureRmCdnEndpoint` vengono usati per creare profili ed endpoint della rete CDN.
 
 ```powershell
@@ -151,7 +149,6 @@ New-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku
 ```
 
 ## Controllo della disponibilità del nome dell'endpoint
-
 `Get-AzureRmCdnEndpointNameAvailability` restituisce un oggetto indicante se un nome di endpoint è disponibile.
 
 ```powershell
@@ -164,10 +161,12 @@ Else { Write-Host "No, that endpoint name is not available." }
 ```
 
 ## Aggiunta di un dominio personalizzato
-
 `New-AzureRmCdnCustomDomain` aggiunge un nome di dominio personalizzato a un endpoint esistente.
 
->[AZURE.IMPORTANT] È necessario configurare CNAME con il provider DNS, come illustrato in [Come eseguire il mapping di un dominio personalizzato all'endpoint della rete per la distribuzione di contenuti (rete CDN)](./cdn-map-content-to-custom-domain.md). È possibile testare il mapping prima di modificare l'endpoint usando `Test-AzureRmCdnCustomDomain`.
+> [!IMPORTANT]
+> È necessario configurare CNAME con il provider DNS, come illustrato in [Come eseguire il mapping di un dominio personalizzato all'endpoint della rete per la distribuzione di contenuti (rete CDN)](cdn-map-content-to-custom-domain.md). È possibile testare il mapping prima di modificare l'endpoint usando `Test-AzureRmCdnCustomDomain`.
+> 
+> 
 
 ```powershell
 # Get an existing endpoint
@@ -181,7 +180,6 @@ If($result.CustomDomainValidated){ New-AzureRmCdnCustomDomain -CustomDomainName 
 ```
 
 ## Modifica di un endpoint
-
 `Set-AzureRmCdnEndpoint` modifica un endpoint esistente.
 
 ```powershell
@@ -197,7 +195,6 @@ Set-AzureRmCdnEndpoint -CdnEndpoint $endpoint
 ```
 
 ## Ripulitura/Precaricamento degli asset della rete CDN
-
 `Unpublish-AzureRmCdnEndpointContent` ripulisce gli asset nella cache, mentre `Publish-AzureRmCdnEndpointContent` precarica gli asset negli endpoint supportati.
 
 ```powershell
@@ -226,7 +223,6 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Start-AzureRmCdnEndpoint
 ```
 
 ## Eliminazione di risorse della rete CDN
-
 `Remove-AzureRmCdnProfile` e `Remove-AzureRmCdnEndpoint` possono essere usati per rimuovere profili ed endpoint.
 
 ```powershell
@@ -241,9 +237,8 @@ Remove-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG
 ```
 
 ## Passaggi successivi
+Informazioni su come automatizzare la rete CDN di Azure con [.NET](cdn-app-dev-net.md) o [Node.js](cdn-app-dev-node.md).
 
-Informazioni su come automatizzare la rete CDN di Azure con [.NET](./cdn-app-dev-net.md) o [Node.js](./cdn-app-dev-node.md).
-
-Per informazioni sulle funzionalità della rete CDN, vedere [Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure](./cdn-overview.md).
+Per informazioni sulle funzionalità della rete CDN, vedere [Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-overview.md).
 
 <!---HONumber=AcomDC_0817_2016-->

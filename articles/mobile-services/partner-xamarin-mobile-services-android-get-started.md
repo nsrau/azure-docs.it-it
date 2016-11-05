@@ -1,28 +1,32 @@
-<properties
-	pageTitle="Introduzione a Servizi mobili per Xamarin Android | Microsoft Azure"
-	writer="craigd"
-	description="Informazioni su come usare Servizi mobili di Azure con l'app per Xamarin.Android."
-	documentationCenter="xamarin"
-	authors="lindydonna"
-	manager="dwrede"
-	editor=""
-	services="mobile-services"/>
+---
+title: Introduzione a Servizi mobili per Xamarin Android | Microsoft Docs
+writer: craigd
+description: Informazioni su come usare Servizi mobili di Azure con l'app per Xamarin.Android.
+documentationcenter: xamarin
+author: lindydonna
+manager: dwrede
+editor: ''
+services: mobile-services
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-android"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="07/21/2016"
-	ms.author="donnam"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-xamarin-android
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 07/21/2016
+ms.author: donnam
 
+---
 # <a name="getting-started"></a>Introduzione a Servizi mobili
+[!INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)] &nbsp;
+&nbsp;
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 > Per l'equivalente di App per dispositivi mobili di questo argomento, vedere [Creare un'app per Xamarin.Android](../app-service-mobile/app-service-mobile-xamarin-android-get-started.md).
+> 
+> 
 
 Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per Xamarin.Android con Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app *To do list* che archivia i dati dell'app nel nuovo servizio mobile.
 
@@ -30,7 +34,9 @@ Se si preferisce guardare un video, la clip seguente usa gli stessi passaggi del
 
 Video "Introduzione a Xamarin e a Servizi mobili di Azure" con Craig Dunn, Developer Evangelist per Xamarin (durata: 10:05 min)
 
-> [AZURE.VIDEO getting-started-with-xamarin-and-mobile-services]
+> [!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services/player]
+> 
+> 
 
 Di seguito è riportata una schermata dell'app completata:
 
@@ -40,75 +46,69 @@ Per completare questa esercitazione sono necessari XCode e Xamarin Studio per OS
 
 Il progetto di Guida introduttiva scaricato contiene il componente Servizi mobili di Azure per Xamarin.Android. Questo progetto richiede Android 4.2 o versioni successive, mentre l'SDK di Servizi mobili richiede solo Android 2.2 o versioni successive.
 
-> [AZURE.IMPORTANT] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5).
+> [!IMPORTANT]
+> Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5).
+> 
+> 
 
 ## <a name="create-new-service"> </a>Creare un nuovo servizio mobile
-
-[AZURE.INCLUDE [mobile-services-create-new-service](../../includes/mobile-services-create-new-service.md)]
+[!INCLUDE [mobile-services-create-new-service](../../includes/mobile-services-create-new-service.md)]
 
 ## Creare una nuova app per Xamarin.Android
-
 Dopo aver creato il servizio mobile, è possibile seguire una facile guida introduttiva nel portale di Azure classico per creare una nuova app o modificare un'app esistente per connettersi al servizio mobile.
 
 In questa sezione si creerà una nuova app per Xamarin.Android connessa al servizio mobile.
 
-1.  Nel [portale di Azure classico] fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
-
+1. Nel [portale di Azure classico] fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
 2. Nella scheda Avvio rapido fare clic su **Xamarin.Android** in **Scegli piattaforma** ed espandere **Crea una nuova app Android**.
-
-	![][6]
-
-	Di seguito sono visualizzati i tre semplici passaggi per creare un'app di Xamarin.Android connessa al servizio mobile.
-
-	![][7]
-
+   
+    ![][6]
+   
+    Di seguito sono visualizzati i tre semplici passaggi per creare un'app di Xamarin.Android connessa al servizio mobile.
+   
+    ![][7]
 3. Fare clic su **Create TodoItem table** per creare una tabella in cui archiviare i dati dell'app.
-
 4. In **Download and run app** fare clic su **Download**.
-
-	Verrà scaricato il progetto per l'applicazione _To do list_ di esempio connessa al servizio mobile. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
+   
+    Verrà scaricato il progetto per l'applicazione *To do list* di esempio connessa al servizio mobile. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
 
 ## Esecuzione dell'app per Android
-
 La fase finale di questa esercitazione prevede la compilazione e l'esecuzione della nuova app.
 
 1. Individuare il percorso in cui sono stati salvati i file compressi del progetto ed espanderli nel computer in uso.
-
 2. In Xamarin Studio o Visual Studio fare clic su **File**, quindi su **Apri**, passare ai file di esempio non compressi e selezionare **XamarinTodoQuickStart.Android.sln** per aprirlo.
-
 3. Premere il pulsante **Esegui** per compilare il progetto e avviare l'app. Verrà chiesto di selezionare un emulatore o un dispositivo USB collegato.
-
-	> [AZURE.NOTE] Per poter eseguire il progetto nell'emulatore di Android, è necessario definire almeno un dispositivo Android Virtual Device (AVD). Usare AVD Manager per creare e gestire questi dispositivi.
-
-4. Nell'app digitare un testo significativo, ad esempio _Complete the tutorial_ e quindi fare clic su **Add**.
-
-	![][10]
-
-	Verrà inviata una richiesta POST al nuovo servizio mobile ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal servizio mobile e i dati vengono visualizzati nell'elenco.
-
-	> [AZURE.NOTE]
-   	È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati trovati nel file ToDoActivity.cs in C#.
-
-6. Tornare al [portale di Azure classico], fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItems**.
-
-	![][11]
-
-	In questo modo sarà possibile visualizzare i dati inseriti nella tabella dall'app.
-
-	![][12]
+   
+   > [!NOTE]
+   > Per poter eseguire il progetto nell'emulatore di Android, è necessario definire almeno un dispositivo Android Virtual Device (AVD). Usare AVD Manager per creare e gestire questi dispositivi.
+   > 
+   > 
+4. Nell'app digitare un testo significativo, ad esempio *Complete the tutorial* e quindi fare clic su **Add**.
+   
+    ![][10]
+   
+    Verrà inviata una richiesta POST al nuovo servizio mobile ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal servizio mobile e i dati vengono visualizzati nell'elenco.
+   
+   > [!NOTE]
+   > È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati trovati nel file ToDoActivity.cs in C#.
+   > 
+   > 
+5. Tornare al [portale di Azure classico], fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItems**.
+   
+    ![][11]
+   
+    In questo modo sarà possibile visualizzare i dati inseriti nella tabella dall'app.
+   
+    ![][12]
 
 ## <a name="next-steps"> </a>Passaggi successivi
 Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili:
 
 * [Introduzione alla sincronizzazione dei dati offline] Informazioni sull'uso della sincronizzazione dei dati offline per rendere l'app più affidabile e veloce nelle risposte.
-
 * [Introduzione all'autenticazione] Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
-
 * [Introduzione alle notifiche push] Informazioni sull'invio di una notifica push di base all'app.
 
-
-
-[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
+[!INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started

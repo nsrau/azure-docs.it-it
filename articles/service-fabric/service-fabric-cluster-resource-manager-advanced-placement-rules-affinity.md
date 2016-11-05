@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Cluster Resource Manager di Service Fabric - Affinità | Microsoft Azure"
-   description="Informazioni generali sulla configurazione dell'affinità per i servizi di Service Fabric"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: Cluster Resource Manager di Service Fabric - Affinità | Microsoft Docs
+description: Informazioni generali sulla configurazione dell'affinità per i servizi di Service Fabric
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
+---
 # Configurazione e utilizzo dell'affinità del servizio in Service Fabric
-
 Il controllo di affinità è disponibile principalmente per facilitare la transizione di grandi applicazioni monolitiche verso ambienti cloud e di microservizi. Ciò premesso, può anche essere usato in alcuni casi come ottimizzazione legittima per migliorare le prestazioni dei servizi, sebbene possa avere effetti collaterali.
 
 Si supponga di voler importare in Service Fabric un'applicazione di grandi dimensioni o che non era stata progettata nell'ottica dei microservizi. Questa transizione è comune e ci è stata manifestata da molti clienti interni ed esterni. Per iniziare, si solleva l'intera applicazione nell'ambiente, la si impacchetta e rende attiva. Quindi, la si suddivide in vari servizi più piccoli che comunicano tra loro.
@@ -25,8 +24,8 @@ Si supponga di voler importare in Service Fabric un'applicazione di grandi dimen
 Poi si verifica un inconveniente. L'inconveniente rientra, in genere, in una di queste categorie:
 
 1. Una parte del componente X dell'app monolitica aveva una dipendenza non documentata dal componente Y che abbiamo appena convertito in servizi separati. Poiché questi servizi sono in esecuzione su nodi diversi del cluster, vengono interrotti.
-2.	Questi elementi comunicano tramite (named pipe locali| memoria condivisa | file su disco), ma è necessario poterli aggiornare in modo indipendente per velocizzarli. La dipendenza rigida verrà rimossa in un secondo momento.
-3.	Tutto va bene, ma si scopre che questi due componenti comunicano molto tra loro o sono sensibili alle prestazioni. Quando sono stati spostati in servizi separati, le prestazioni globali hanno subito dell'applicazione ne hanno risentito pesantemente o hanno aumentato la latenza. Di conseguenza, l'applicazione globale non soddisfa le aspettative.
+2. Questi elementi comunicano tramite (named pipe locali| memoria condivisa | file su disco), ma è necessario poterli aggiornare in modo indipendente per velocizzarli. La dipendenza rigida verrà rimossa in un secondo momento.
+3. Tutto va bene, ma si scopre che questi due componenti comunicano molto tra loro o sono sensibili alle prestazioni. Quando sono stati spostati in servizi separati, le prestazioni globali hanno subito dell'applicazione ne hanno risentito pesantemente o hanno aumentato la latenza. Di conseguenza, l'applicazione globale non soddisfa le aspettative.
 
 In questi casi si non vogliamo perdere il lavoro di ricostruzione e non vogliamo tornare all'app monolitica, ma è necessario un certo senso di posizionamento. Questo verrà mantenuto fino a quando non sarà possibile riprogettare i componenti perché funzionino in modo naturale come servizi o fino a quando non si sarà in grado di risolvere le aspettative delle prestazioni in un altro modo, se possibile.
 
@@ -62,8 +61,8 @@ Un altro aspetto da notare circa le relazioni di affinità attuali è che sono d
 L'ultimo aspetto da notare è che le relazioni di affinità non sono supportate nelle situazioni in cui l'elemento padre è partizionato. È possibile che in futuro venga attivato il supporto per questo aspetto, ma attualmente non è previsto.
 
 ## Passaggi successivi
-- Per maggiori informazioni sulle altre opzioni disponibili per la configurazione dei servizi, consultare l'articolo relativo alle altre configurazioni disponibili per Cluster Resource Manager [Informazioni sulla configurazione dei servizi](service-fabric-cluster-resource-manager-configure-services.md)
-- Numerosi casi in cui gli utenti usano l'affinità, ad esempio per limitare un piccolo set di computer e provare ad aggregare il carico di una raccolta di servizi, sono supportati meglio dai gruppi di applicazioni. Vedere [Gruppi di applicazioni](service-fabric-cluster-resource-manager-application-groups.md)
+* Per maggiori informazioni sulle altre opzioni disponibili per la configurazione dei servizi, consultare l'articolo relativo alle altre configurazioni disponibili per Cluster Resource Manager [Informazioni sulla configurazione dei servizi](service-fabric-cluster-resource-manager-configure-services.md)
+* Numerosi casi in cui gli utenti usano l'affinità, ad esempio per limitare un piccolo set di computer e provare ad aggregare il carico di una raccolta di servizi, sono supportati meglio dai gruppi di applicazioni. Vedere [Gruppi di applicazioni](service-fabric-cluster-resource-manager-application-groups.md)
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resrouce-manager-affinity-modes.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resource-manager-chains-vs-stars.png

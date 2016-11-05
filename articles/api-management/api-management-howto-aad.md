@@ -1,36 +1,37 @@
-<properties 
-	pageTitle="Come autorizzare gli account per sviluppatori usando Azure Active Directory in Gestione API di Azure" 
-	description="Informazioni su come autorizzare gli utenti usando Azure Active Directory in Gestione API." 
-	services="api-management" 
-	documentationCenter="API Management" 
-	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+---
+title: Come autorizzare gli account per sviluppatori usando Azure Active Directory in Gestione API di Azure
+description: Informazioni su come autorizzare gli utenti usando Azure Active Directory in Gestione API.
+services: api-management
+documentationcenter: API Management
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/24/2016" 
-	ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/24/2016
+ms.author: sdanie
 
+---
 # Come autorizzare gli account per sviluppatori usando Azure Active Directory in Gestione API di Azure
-
-
 ## Overview
 Questa guida illustra come abilitare l'accesso al portale per sviluppatori per tutti gli utenti in una o più directory di Azure Active Directory. Questa guida illustra anche come gestire gruppi di utenti di Azure Active Directory aggiungendo gruppi esterni contenenti gli utenti di una directory di Azure Active Directory.
 
->Per completare i passaggi di questa guida, è necessaria una directory di Azure Active Directory in cui creare un'applicazione.
+> Per completare i passaggi di questa guida, è necessaria una directory di Azure Active Directory in cui creare un'applicazione.
+> 
+> 
 
 ## Come autorizzare gli account per sviluppatori usando Azure Active Directory
-
 Per iniziare, fare clic su **Gestisci** nel portale di Azure classico per il servizio Gestione API. Verrà visualizzato il portale di pubblicazione di Gestione API.
 
 ![Portale di pubblicazione][api-management-management-console]
 
->Se non è stato creata un'istanza del servizio Gestione API, vedere [Creare un'istanza del servizio Gestione API][] nell'esercitazione [Introduzione a Gestione API di Azure][].
+> Se non è stato creata un'istanza del servizio Gestione API, vedere [Creare un'istanza del servizio Gestione API][Creare un'istanza del servizio Gestione API] nell'esercitazione [Introduzione a Gestione API di Azure][Introduzione a Gestione API di Azure].
+> 
+> 
 
 Fare clic su **Sicurezza** dal menu **Gestione API** sulla sinistra, quindi scegliere **Identità esterne**.
 
@@ -74,7 +75,9 @@ Selezionare l'elenco a discesa **Autorizzazioni delegate** e selezionare **Abili
 
 ![Autorizzazioni delegate][api-management-aad-delegated-permissions]
 
->Per altre informazioni sulle autorizzazioni applicazione e delegate, vedere [Accesso all'API Graph][].
+> Per altre informazioni sulle autorizzazioni applicazione e delegate, vedere [Accesso all'API Graph][Accesso all'API Graph].
+> 
+> 
 
 Copiare l'**ID client** negli Appunti.
 
@@ -90,7 +93,9 @@ Tornare alla configurazione di Azure Active Directory e fare clic sull'elenco a 
 
 Fare clic su **Salva** per salvare la configurazione e visualizzare la chiave. Copiare la chiave negli Appunti.
 
->Annotare il valore relativo alla chiave. Una volta chiusa la finestra di configurazione di Azure Active Directory, la chiave non potrà più essere visualizzata.
+> Annotare il valore relativo alla chiave. Una volta chiusa la finestra di configurazione di Azure Active Directory, la chiave non potrà più essere visualizzata.
+> 
+> 
 
 ![Chiave][api-management-aad-key-after-save]
 
@@ -106,19 +111,22 @@ Nella sezione **Tenant consentiti** si possono specificare più domini. Per cons
 
 ![Autorizzazioni][api-management-permissions-form]
 
->Se un amministratore non globale cerca di accedere prima che vengano concesse le autorizzazioni da un amministratore globale, il tentativo di accesso non riesce e viene visualizzata una schermata di errore.
+> Se un amministratore non globale cerca di accedere prima che vengano concesse le autorizzazioni da un amministratore globale, il tentativo di accesso non riesce e viene visualizzata una schermata di errore.
+> 
+> 
 
 Una volta specificata la configurazione desiderata, fare clic su **Salva**.
 
 ![Save][api-management-client-allowed-tenants-save]
 
-Una volta salvate le modifiche, gli utenti nella directory di Azure Active Directory specificata possono accedere al portale per sviluppatori seguendo i passaggi in [Accedere al portale per sviluppatori con un account Azure Active Directory][].
+Una volta salvate le modifiche, gli utenti nella directory di Azure Active Directory specificata possono accedere al portale per sviluppatori seguendo i passaggi in [Accedere al portale per sviluppatori con un account Azure Active Directory][Accedere al portale per sviluppatori con un account Azure Active Directory].
 
 ## Come aggiungere un gruppo di Azure Active Directory esterno
-
 Dopo avere abilitato l'accesso per gli utenti in Azure Active Directory, è possibile aggiungere gruppi di Azure Active Directory in Gestione API per gestire più facilmente l'associazione degli sviluppatori del gruppo ai prodotti desiderati.
 
 > Per configurare un gruppo esterno di Azure Active Directory, prima è necessario configurare Azure Active Directory nella scheda Identità seguendo la procedura della sezione precedente.
+> 
+> 
 
 I gruppi esterni di Azure Active Directory vengono aggiunti dalla scheda **Visibilità** del prodotto per cui si desidera concedere l'accesso al gruppo. Fare clic su **Prodotti** e quindi fare clic sul nome del prodotto desiderato.
 
@@ -155,7 +163,6 @@ Da qui è possibile modificare il **Nome** e la **Descrizione** del gruppo.
 Gli utenti della directory di Azure Active Directory configurata possono accedere al portale per sviluppatori e visualizzare e sottoscrivere qualsiasi gruppo su cui hanno visibilità, seguendo le istruzioni della sezione seguente.
 
 ## Come accedere al portale per sviluppatori con un account Azure Active Directory
-
 Per accedere al portale per sviluppatori con un account Azure Active Directory configurato nelle sezioni precedenti, aprire una nuova finestra del browser con l'**URL accesso** della configurazione dell'applicazione Active Directory e fare clic su **Azure Active Directory**.
 
 ![Portale per sviluppatori][api-management-dev-portal-signin]
@@ -171,8 +178,6 @@ Immettere le credenziali di uno degli utenti in Azure Active Directory e fare cl
 L'utente ora è connesso al portale per sviluppatori per l'istanza del servizio Gestione API.
 
 ![Registrazione completata][api-management-registration-complete]
-
-
 
 [api-management-management-console]: ./media/api-management-howto-aad/api-management-management-console.png
 [api-management-security-external-identities]: ./media/api-management-howto-aad/api-management-security-external-identities.png

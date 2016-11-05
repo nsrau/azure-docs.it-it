@@ -1,59 +1,51 @@
-<properties
-    pageTitle="API REST di ricerca nei log di Log Analytics | Microsoft Azure"
-    description="Questa guida contiene un'esercitazione di base che descrive come usare l'API REST di ricerca di Log Analytics in Operations Management Suite (OMS) e offre esempi che indicano come usare i comandi."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bandersmsft"
-    manager="jwhit"
-    editor=""/>
+---
+title: API REST di ricerca nei log di Log Analytics | Microsoft Docs
+description: Questa guida contiene un'esercitazione di base che descrive come usare l'API REST di ricerca di Log Analytics in Operations Management Suite (OMS) e offre esempi che indicano come usare i comandi.
+services: log-analytics
+documentationcenter: ''
+author: bandersmsft
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/10/2016"
-    ms.author="banders"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: banders
 
-
-
+---
 # <a name="log-analytics-log-search-rest-api"></a>API REST di Log Analytics per la ricerca nei log
-
 Questa guida contiene un'esercitazione di base che descrive come usare l'API REST di ricerca di Log Analytics in Operations Management Suite (OMS) e offre esempi che indicano come usare i comandi. Alcuni degli esempi in questo articolo si riferiscono a Operational Insights, ovvero il nome della versione precedente di Log Analytics.
 
 ## <a name="overview-of-the-log-search-rest-api"></a>Panoramica dell'API REST di ricerca di log
-
 L'API REST di ricerca di Log Analytics è RESTful e accessibile tramite l'API Azure Resource Manager. In questo documento sono disponibili esempi in cui viene usata l'API tramite [ARMClient](https://github.com/projectkudu/ARMClient), uno strumento di riga di comando open source che semplifica la chiamata dell'API di Gestione risorse di Azure. L'uso di ARMClient e PowerShell è una delle numerose opzioni di accesso all'API di ricerca di Log Analytics. Un'altra possibilità è quella di usare il modulo Azure PowerShell per OperationalInsights che include cmdlet per l'accesso alla ricerca. Con questi strumenti è possibile usare l'API RESTful Azure Resource Manager per effettuare chiamate alle aree di lavoro di OMS ed eseguire i comandi di ricerca al loro interno. L'API fornirà risultati della ricerca per l'utente in formato JSON, consentendo di usare i risultati della ricerca in molti modi diversi a livello di codice.
 
 È possibile usare Azure Resource Manager tramite una [libreria per NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) nonché una [API REST](https://msdn.microsoft.com/library/azure/mt163658.aspx). Esaminare le pagine Web per altre informazioni.
 
 ## <a name="basic-log-analytics-search-rest-api-tutorial"></a>Esercitazione di base sull'API REST di ricerca di Log Analytics
-
 ### <a name="to-use-the-arm-client"></a>Usare il client ARM
-
 1. Installare [Chocolatey](https://chocolatey.org/), un gestore di pacchetti open source per Windows. Aprire una finestra di prompt di comandi come amministratore ed eseguire il comando seguente:
-
+   
     ```
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
     ```
-
 2. Installare l'ARMClient eseguendo il comando seguente:
-
+   
     ```
     choco install armclient
     ```
 
 ### <a name="to-perform-a-simple-search-using-the-armclient"></a>Per eseguire una ricerca semplice usando ARMClient
-
 1. Accedere al proprio account Microsoft o OrgID:
-
+   
     ```
     armclient login
     ```
-
+   
     Se l’accesso viene effettuato correttamente, vengono elencate tutte le sottoscrizioni associate all'account specificato.
-
+   
     ```
     PS C:\Users\SampleUserName> armclient login
     Welcome YourEmail@ORG.com (Tenant: zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz)
@@ -63,15 +55,14 @@ L'API REST di ricerca di Log Analytics è RESTful e accessibile tramite l'API Az
     Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (Example Name 2)
     Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (Example Name 3)
     ```
-
 2. Ottenere le aree di lavoro di Operations Management Suite.
-
+   
     ```
     armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2015-03-20
     ```
-
+   
     Una chiamata Get riuscita genera tutte le aree di lavoro associate alla sottoscrizione.
-
+   
     ```
     {
     "value": [
@@ -89,12 +80,12 @@ L'API REST di ricerca di Log Analytics è RESTful e accessibile tramite l'API Az
     }
     ```
 3. Creare la variabile di ricerca.
-
+   
     ```
     $mySearch = "{ 'top':150, 'query':'Error'}";
     ```
 4. Eseguire la ricerca usando la nuova variabile di ricerca.
-
+   
     ```
     armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2015-03-20 $mySearch
     ```
@@ -103,7 +94,6 @@ L'API REST di ricerca di Log Analytics è RESTful e accessibile tramite l'API Az
 I codici di esempio seguenti mostrano come usare l’API di ricerca.
 
 ### <a name="search---action/read"></a>Ricerca - Azione/Lettura
-
 **Url di esempio:**
 
 ```
@@ -128,16 +118,15 @@ I codici di esempio seguenti mostrano come usare l’API di ricerca.
 ```
 La tabella seguente descrive le proprietà disponibili.
 
-|**Proprietà**|**Descrizione**|
-|---|---|
-|top|Il numero massimo di risultati da restituire.|
-|highlight|Contiene i parametri pre e post, in genere usati per evidenziare i campi corrispondenti|
-|pre|Antepone la stringa specificata ai campi corrispondenti.|
-|post|Appone la stringa specificata ai campi corrispondenti.|
-|query|La query di ricerca usata per raccogliere e restituire i risultati.|
-|start|L’inizio dell'intervallo di tempo da cui si desidera trovare risultati.|
-|end|La fine dell'intervallo di tempo da cui si desidera trovare risultati.|
-
+| **Proprietà** | **Descrizione** |
+| --- | --- |
+| top |Il numero massimo di risultati da restituire. |
+| highlight |Contiene i parametri pre e post, in genere usati per evidenziare i campi corrispondenti |
+| pre |Antepone la stringa specificata ai campi corrispondenti. |
+| post |Appone la stringa specificata ai campi corrispondenti. |
+| query |La query di ricerca usata per raccogliere e restituire i risultati. |
+| start |L’inizio dell'intervallo di tempo da cui si desidera trovare risultati. |
+| end |La fine dell'intervallo di tempo da cui si desidera trovare risultati. |
 
 **Risposta:**
 
@@ -191,17 +180,18 @@ La tabella seguente descrive le proprietà disponibili.
 ```
 
 ### <a name="search/{id}---action/read"></a>Ricerca/{ID} - Azione/Lettura
-
 **Richiedere il contenuto di una ricerca salvata:**
 
 ```
     armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search/{SearchId}?api-version=2015-03-20
 ```
 
->[AZURE.NOTE] Se la ricerca restituisce lo stato 'Sospeso', il polling dei risultati aggiornati può essere effettuato tramite questa API. Dopo 6 min il risultato della ricerca verrà rimosso dalla cache e sarà restituito Http Gone. Se la richiesta di ricerca iniziale ha restituito immediatamente lo stato "Riuscito", non verrà aggiunto alla cache, determinando la restituzione di Http Gone da parte dell’API in caso di query. Il contenuto di un risultato Http 200 sarà nello stesso formato della richiesta di ricerca iniziale, ma con i valori aggiornati.
+> [!NOTE]
+> Se la ricerca restituisce lo stato 'Sospeso', il polling dei risultati aggiornati può essere effettuato tramite questa API. Dopo 6 min il risultato della ricerca verrà rimosso dalla cache e sarà restituito Http Gone. Se la richiesta di ricerca iniziale ha restituito immediatamente lo stato "Riuscito", non verrà aggiunto alla cache, determinando la restituzione di Http Gone da parte dell’API in caso di query. Il contenuto di un risultato Http 200 sarà nello stesso formato della richiesta di ricerca iniziale, ma con i valori aggiornati.
+> 
+> 
 
 ### <a name="saved-searches---rest-only"></a>Ricerche salvate - solo REST
-
 **Elenco di richieste delle ricerche salvate:**
 
 ```
@@ -214,18 +204,20 @@ Metodi di raccolta supportati: GET
 
 La tabella seguente descrive le proprietà disponibili.
 
-|Proprietà|Descrizione|
-|---|---|
-|ID|Identificatore univoco.|
-|ETag|**Obbligatoria per l'applicazione di patch**. Aggiornata dal server a ogni scrittura. Il valore deve essere uguale al valore archiviato attuale o a "*" per effettuare l'aggiornamento. Viene restituito il codice 409 per i valori obsoleti/non validi.|
-|properties.query|**Obbligatoria**. Query di ricerca.|
-|properties.displayName|**Obbligatoria**. Nome visualizzato della query, definito dall'utente. Se modellata come risorsa di Azure, corrisponderà a un tag.|
-|properties.category|**Obbligatoria**. Categoria della query, definita dall'utente. Se modellata come risorsa di Azure, corrisponderà a un tag.|
+| Proprietà | Descrizione |
+| --- | --- |
+| ID |Identificatore univoco. |
+| ETag |**Obbligatoria per l'applicazione di patch**. Aggiornata dal server a ogni scrittura. Il valore deve essere uguale al valore archiviato attuale o a "*" per effettuare l'aggiornamento. Viene restituito il codice 409 per i valori obsoleti/non validi. |
+| properties.query |**Obbligatoria**. Query di ricerca. |
+| properties.displayName |**Obbligatoria**. Nome visualizzato della query, definito dall'utente. Se modellata come risorsa di Azure, corrisponderà a un tag. |
+| properties.category |**Obbligatoria**. Categoria della query, definita dall'utente. Se modellata come risorsa di Azure, corrisponderà a un tag. |
 
->[AZURE.NOTE] L'API di ricerca di Log Analytics restituisce attualmente le ricerche salvate create dall'utente quando viene eseguito il polling di ricerche salvate in un'area di lavoro. L'API non restituirà attualmente le ricerche salvate fornite dalle soluzioni. Questa funzionalità verrà aggiunta in un secondo momento.
+> [!NOTE]
+> L'API di ricerca di Log Analytics restituisce attualmente le ricerche salvate create dall'utente quando viene eseguito il polling di ricerche salvate in un'area di lavoro. L'API non restituirà attualmente le ricerche salvate fornite dalle soluzioni. Questa funzionalità verrà aggiunta in un secondo momento.
+> 
+> 
 
 ### <a name="create-saved-searches"></a>Creare le ricerche salvate
-
 **Richiesta:**
 
 ```
@@ -234,7 +226,6 @@ La tabella seguente descrive le proprietà disponibili.
 ```
 
 ### <a name="delete-saved-searches"></a>Eliminare le ricerche salvate
-
 **Richiesta:**
 
 ```
@@ -242,7 +233,6 @@ La tabella seguente descrive le proprietà disponibili.
 ```
 
 ### <a name="update-saved-searches"></a>Aggiornare le ricerche salvate
-
  **Richiesta:**
 
 ```
@@ -251,7 +241,6 @@ La tabella seguente descrive le proprietà disponibili.
 ```
 
 ### <a name="metadata---json-only"></a>Metadati - Solo JSON
-
 Ecco come visualizzare i campi per tutti i tipi di log per i dati raccolti nell'area di lavoro. Ad esempio, se si vuole sapere se il tipo di evento include un campo denominato Computer, è possibile procedere in questo modo per la verifica e la conferma.
 
 **Richiesta di campi:**
@@ -293,21 +282,19 @@ Ecco come visualizzare i campi per tutti i tipi di log per i dati raccolti nell'
 
 La tabella seguente descrive le proprietà disponibili.
 
-|**Proprietà**|**Descrizione**|
-|---|---|
-|name|Nome del campo.|
-|displayName|Nome visualizzato del campo.|
-|type|Tipo del valore del campo.|
-|facetable|Combinazione delle proprietà "indexed", "stored" e "facet" attuali.|
-|display|Proprietà "display" attuale. True se il campo è visibile nella ricerca.|
-|ownerType|Ridotta solo ai tipi appartenenti agli indirizzi IP caricati.|
-
+| **Proprietà** | **Descrizione** |
+| --- | --- |
+| name |Nome del campo. |
+| displayName |Nome visualizzato del campo. |
+| type |Tipo del valore del campo. |
+| facetable |Combinazione delle proprietà "indexed", "stored" e "facet" attuali. |
+| display |Proprietà "display" attuale. True se il campo è visibile nella ricerca. |
+| ownerType |Ridotta solo ai tipi appartenenti agli indirizzi IP caricati. |
 
 ## <a name="optional-parameters"></a>Parametri facoltativi
 Le informazioni seguenti illustrano i parametri facoltativi disponibili.
 
 ### <a name="highlighting"></a>Evidenziazione
-
 Il parametro "Highlight" è un parametro facoltativo che può essere usato per richiedere che il sottosistema di ricerca includa un set di marcatori nella risposta.
 
 Questi marcatori indicano l'inizio e la fine del testo evidenziato che corrisponde ai termini forniti nella query di ricerca.
@@ -357,7 +344,6 @@ Questi marcatori indicano l'inizio e la fine del testo evidenziato che corrispon
 Si noti che il risultato precedente contiene un messaggio di errore con prefisso e suffisso.
 
 ## <a name="computer-groups"></a>Gruppi di computer
-
 I gruppi di computer sono ricerche salvate speciali che restituiscono un set di computer.  È possibile usare un gruppo di computer in altre query per limitare i risultati ai computer nel gruppo.  Un gruppo di computer viene implementato come una ricerca salvata con un tag Gruppo con il valore Computer.
 
 Di seguito viene riportata una risposta di esempio per un gruppo di computer.
@@ -375,7 +361,6 @@ Di seguito viene riportata una risposta di esempio per un gruppo di computer.
     }
 
 ### <a name="retrieving-computer-groups"></a>Recupero dei gruppi di computer
-
 Usare il metodo Get con l'ID del gruppo per recuperare un gruppo di computer.
 
 ```
@@ -383,7 +368,6 @@ armclient get /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Na
 ```
 
 ### <a name="creating-or-updating-a-computer-group"></a>Creazione o aggiornamento di un gruppo di computer
-
 Usare il metodo Put con un ID di ricerca salvato univoco per creare un nuovo gruppo di computer. Se si usa un ID gruppo di computer esistente, verrà modificato. Quando si crea un gruppo di computer nella console di OMS, l'ID viene creato dal gruppo e dal nome.
 
 La query usata per la definizione del gruppo deve restituire un insieme di computer per il gruppo per funzionare correttamente.  È consigliabile concludere la query con *| Computer distinto* per assicurarsi che vengano restituiti i dati corretti.
@@ -401,7 +385,6 @@ La definizione di una ricerca salvata deve includere un tag denominato Gruppo co
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/$groupId`?api-version=2015-03-20 $groupJson
 
 ### <a name="deleting-computer-groups"></a>Eliminazione di gruppi di computer
-
 Usare il metodo Delete con l'ID del gruppo per eliminare un gruppo di computer.
 
 ```
@@ -410,10 +393,7 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-- Per informazioni su come creare query usando i campi personalizzati come criteri, vedere l'articolo relativo alle [ricerche nei log](log-analytics-log-searches.md) .
-
-
+* Per informazioni su come creare query usando i campi personalizzati come criteri, vedere l'articolo relativo alle [ricerche nei log](log-analytics-log-searches.md) .
 
 <!--HONumber=Oct16_HO2-->
 

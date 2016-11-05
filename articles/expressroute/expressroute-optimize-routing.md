@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Ottimizzare il routing in ExpressRoute | Microsoft Azure"
-   description="Questa pagina fornisce informazioni dettagliate su come ottimizzare il routing quando un cliente ha a disposizione più circuiti ExpressRoute per la connessione tra Microsoft e la rete aziendale del cliente."
-   documentationCenter="na"
-   services="expressroute"
-   authors="charwen"
-   manager="carmonm"
-   editor=""/>
-<tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
-   ms.author="charwen"/>
+---
+title: Ottimizzare il routing in ExpressRoute | Microsoft Docs
+description: Questa pagina fornisce informazioni dettagliate su come ottimizzare il routing quando un cliente ha a disposizione più circuiti ExpressRoute per la connessione tra Microsoft e la rete aziendale del cliente.
+documentationcenter: na
+services: expressroute
+author: charwen
+manager: carmonm
+editor: ''
 
+ms.service: expressroute
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/10/2016
+ms.author: charwen
 
+---
 # <a name="optimize-expressroute-routing"></a>Ottimizzare il routing in ExpressRoute
 In presenza di più circuiti ExpressRoute sono disponibili più percorsi per connettersi a Microsoft. Il routing può quindi risultare non ottimale, ovvero è possibile che il traffico usi un percorso più lungo per raggiungere Microsoft e da Microsoft la rete del cliente. Più lungo è il percorso di rete, maggiore sarà la latenza che ha un impatto diretto sull'esperienza utente e sulle prestazioni dell'applicazione. Questo articolo descrive il problema e illustra come ottimizzare il routing con tecnologie di routing standard.
 
@@ -39,13 +39,17 @@ Esistono due soluzioni al problema. La prima consiste semplicemente nell'annunci
 
 La seconda soluzione consiste nel continuare ad annunciare entrambi i prefissi in entrambi i circuiti ExpressRoute e, inoltre, indicare qual è il prefisso vicino a un determinato ufficio. Poiché è supportata l'anteposizione di AS PATH in BGP, si può configurare AS PATH nel prefisso per determinare il routing. In questo esempio si può estendere AS PATH per 172.2.0.0/31 negli Stati Uniti orientali, in modo che venga preferito il circuito ExpressRoute negli Stati Uniti occidentali per il traffico destinato a questo prefisso. La rete Microsoft considera infatti più breve il percorso per questo prefisso rispetto a quello negli Stati Uniti orientali. Allo stesso modo si può estendere AS PATH per 172.2.0.2/31 negli Stati Uniti occidentali, in modo che venga preferito il circuito ExpressRoute negli Stati Uniti orientali. Il routing è ottimizzato per entrambi gli uffici. Con questa progettazione, se un circuito ExpressRoute viene interrotto, Exchange Online può comunque raggiungere il cliente tramite un altro circuito ExpressRoute e la rete WAN. 
 
->[AZURE.IMPORTANT] I numeri AS privati in AS PATH per i prefissi ricevuti su peering Microsoft vengono rimossi. L'aggiunta di numeri AS pubblici in AS PATH è necessaria per determinare il routing per peering Microsoft.
+> [!IMPORTANT]
+> I numeri AS privati in AS PATH per i prefissi ricevuti su peering Microsoft vengono rimossi. L'aggiunta di numeri AS pubblici in AS PATH è necessaria per determinare il routing per peering Microsoft.
+> 
+> 
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-solution.png)
 
->[AZURE.IMPORTANT] Anche se gli esempi illustrati qui si riferiscono ai peer Microsoft e pubblici, le stesse funzionalità sono supportate per il peer privato. L'anteposizione di AS PATH funziona poi in un singolo circuito ExpressRoute, per determinare la selezione dei percorsi primari e secondari.
-
-
+> [!IMPORTANT]
+> Anche se gli esempi illustrati qui si riferiscono ai peer Microsoft e pubblici, le stesse funzionalità sono supportate per il peer privato. L'anteposizione di AS PATH funziona poi in un singolo circuito ExpressRoute, per determinare la selezione dei percorsi primari e secondari.
+> 
+> 
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,30 +1,28 @@
-<properties
-    pageTitle="Opzioni di calcolo di Azure - Servizi cloud | Microsoft Azure"
-    description="Informazioni sulle opzioni di hosting di calcolo di Azure e sul relativo funzionamento: Servizio app, Servizi cloud e Macchine virtuali"
-    services="cloud-services"
-    documentationCenter=""
-    authors="Thraka"
-    manager="timlt"/>
+---
+title: Opzioni di calcolo di Azure - Servizi cloud | Microsoft Docs
+description: 'Informazioni sulle opzioni di hosting di calcolo di Azure e sul relativo funzionamento: Servizio app, Servizi cloud e Macchine virtuali'
+services: cloud-services
+documentationcenter: ''
+author: Thraka
+manager: timlt
 
-<tags
-    ms.service="multiple"
-    ms.workload="multiple"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/11/2016"
-    ms.author="adegeo"/>
+ms.service: multiple
+ms.workload: multiple
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/11/2016
+ms.author: adegeo
 
-
+---
 # <a name="should-i-choose-cloud-services-or-something-else?"></a>Perché scegliere Servizi cloud
-
 Servizi cloud di Azure è la scelta giusta? In Azure sono disponibili diversi modelli di hosting per l'esecuzione di applicazioni. Ognuno fornisce un diverso set di servizi, pertanto quello da scegliere dipende dalle attività che si tenta di eseguire.
 
-[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
+[!INCLUDE [compute-table](../../includes/compute-options-table.md)]
 
 <a name="tellmecs"></a>
-## <a name="tell-me-about-cloud-services"></a>Informazioni sui servizi cloud
 
+## <a name="tell-me-about-cloud-services"></a>Informazioni sui servizi cloud
 Servizi cloud è un esempio di [Platform-as-a-Service (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) . Analogamente al [servizio app](../app-service-web/app-service-web-overview.md), questa tecnologia è stata progettata per supportare applicazioni scalabili, attendibili ed economicamente efficienti. Proprio come un servizio app, i servizi cloud sono ospitati su VM, tuttavia il controllo sulle VM è maggiore. È possibile installare il software personalizzato nelle macchine virtuali del servizio cloud ed accedervi in remoto.
 
 ![cs_diagram](./media/cloud-services-choose-me/diagram.png)
@@ -37,7 +35,6 @@ In un servizio cloud sono disponibili tutte le combinazioni di queste due opzion
 
 * **Ruolo Web**  
   : esegue Windows Server con l'app Web automaticamente distribuita a IIS.
-
 * **Ruolo di lavoro**  
   : esegue Windows Server senza IIS.
 
@@ -62,8 +59,6 @@ L'utilizzo della tecnologia PaaS da parte di Servizi cloud comporta anche altre 
 [Creare un'app di servizio cloud in Node.js](cloud-services-nodejs-develop-deploy-app.md)  
 [Creare un'app di servizio cloud in PHP](../cloud-services-php-create-web-role.md)  
 [Creare un'app del servizio cloud in Python](cloud-services-python-ptvs.md)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

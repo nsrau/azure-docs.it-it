@@ -5,14 +5,14 @@ Per connettersi a **SharePoint Online**, è necessario indicare la propria ident
 Durante la progettazione dell'app per la logica, seguire questa procedura per accedere a SharePoint e creare la **connessione** da usare nell'app per la logica:
 
 1. Nella casella di ricerca digitare SharePoint e attendere che la ricerca restituisca tutti i trigger e le azioni correlati a SharePoint Online:  
-![Configurare SharePoint][1]  
+   ![Configurare SharePoint][1]  
 2. Selezionare il trigger **SharePoint Online - Quando un file viene creato**  
 3. Selezionare **Accedi a SharePoint Online**:  
-![Configurare SharePoint][2]  
+   ![Configurare SharePoint][2]  
 4. Specificare le credenziali di SharePoint per accedere ed eseguire l'autenticazione con SharePoint  
-![Configurare SharePoint][3]  
+   ![Configurare SharePoint][3]  
 5. Al termine dell'autenticazione si verrà reindirizzati all'app per la logica. A questo punto, la connessione è stata creata. Il messaggio che appare nella parte inferiore indica che si è connessi a SharePoint.  
-![Configurare SharePoint][4]  
+   ![Configurare SharePoint][4]  
 6. È quindi possibile aggiungere altri trigger e azioni necessari per completare l'app per la logica.  
 
 [1]: ./media/connectors-create-api-sharepointonline/connectionconfig1.png

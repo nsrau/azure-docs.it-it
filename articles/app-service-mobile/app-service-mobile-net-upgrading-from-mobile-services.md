@@ -1,52 +1,51 @@
-<properties
-	pageTitle="L'aggiornamento da Servizi mobili a Servizio app di Azure"
-	description="Informazioni su come eseguire facilmente l'aggiornamento dell'applicazione Servizi mobili a un'app per dispositivi mobili del servizio app"
-	services="app-service\mobile"
-	documentationCenter=""
-	authors="mattchenderson"
-	manager="dwrede"
-	editor=""/>
+---
+title: L'aggiornamento da Servizi mobili a Servizio app di Azure
+description: Informazioni su come eseguire facilmente l'aggiornamento dell'applicazione Servizi mobili a un'app per dispositivi mobili del servizio app
+services: app-service\mobile
+documentationcenter: ''
+author: mattchenderson
+manager: dwrede
+editor: ''
 
-<tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="mahender"/>
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: mobile
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 07/25/2016
+ms.author: mahender
 
+---
 # Aggiornare il servizio mobile .NET di Azure esistente al servizio app
-
 I dispositivi mobili del servizio app offrono un nuovo modo per creare applicazioni mobili usando Microsoft Azure. Per altre informazioni, vedere [Che cosa sono le app per dispositivi mobili?].
 
-Questo argomento descrive come eseguire la migrazione di un'applicazione back-end .NET esistente da Servizi mobili di Azure a una nuova app per dispositivi mobili del servizio app. Durante una migrazione, l'applicazione Servizi mobili esistente può continuare a funzionare. Se si deve aggiornare un'applicazione back-end Node.js, vedere [Aggiornare il servizio mobile Node.js di Azure esistente al servizio app](./app-service-mobile-node-backend-upgrading-from-mobile-services.md).
+Questo argomento descrive come eseguire la migrazione di un'applicazione back-end .NET esistente da Servizi mobili di Azure a una nuova app per dispositivi mobili del servizio app. Durante una migrazione, l'applicazione Servizi mobili esistente può continuare a funzionare. Se si deve aggiornare un'applicazione back-end Node.js, vedere [Aggiornare il servizio mobile Node.js di Azure esistente al servizio app](app-service-mobile-node-backend-upgrading-from-mobile-services.md).
 
 Quando si esegue l'aggiornamento di un back-end per dispositivi mobili a Servizio app di Azure, questo ha accesso a tutte le funzionalità del servizio app e la fatturazione viene eseguita in base ai [prezzi del servizio app], non a quelli di Servizi mobili.
 
-##Eseguire la migrazione o aggiornare
+## Eseguire la migrazione o aggiornare
+[!INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
-[AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
+> [!TIP]
+> Prima di procedere a un aggiornamento, è consigliabile [eseguire una migrazione](app-service-mobile-migrating-from-mobile-services.md). In questo modo, è possibile inserire entrambe le versioni dell'applicazione nello stesso piano del servizio app, senza sostenere costi aggiuntivi.
+> 
+> 
 
->[AZURE.TIP] Prima di procedere a un aggiornamento, è consigliabile [eseguire una migrazione](app-service-mobile-migrating-from-mobile-services.md). In questo modo, è possibile inserire entrambe le versioni dell'applicazione nello stesso piano del servizio app, senza sostenere costi aggiuntivi.
-
-###Miglioramenti dell’SDK del server .NET di App per dispositivi mobili
-
+### Miglioramenti dell’SDK del server .NET di App per dispositivi mobili
 L'aggiornamento al nuovo [SDK delle app per dispositivi mobili](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) offre i vantaggi seguenti:
 
-- Maggiore flessibilità alle dipendenze di NuGet. L'ambiente di hosting non fornisce più le proprie versioni dei pacchetti NuGet, pertanto è possibile utilizzare le versioni compatibili alternative. Tuttavia, se sono presenti nuove correzioni critiche dei bug o aggiornamenti della protezione per l’SDK del Server mobile o dipendenze, è necessario aggiornare il servizio manualmente.
+* Maggiore flessibilità alle dipendenze di NuGet. L'ambiente di hosting non fornisce più le proprie versioni dei pacchetti NuGet, pertanto è possibile utilizzare le versioni compatibili alternative. Tuttavia, se sono presenti nuove correzioni critiche dei bug o aggiornamenti della protezione per l’SDK del Server mobile o dipendenze, è necessario aggiornare il servizio manualmente.
+* Maggiore flessibilità nell’SDK per dispositivi mobili. È possibile controllare in modo esplicito le funzionalità e le route impostate, come autenticazione, API di tabella e endpoint di registrazione push. Per altre informazioni, vedere [Come usare l'SDK del server .NET per le app per dispositivi mobili di Azure](app-service-mobile-net-upgrading-from-mobile-services.md#server-project-setup).
+* Supporto per altri tipi di progetto ASP.NET e route. È ora possibile ospitare controller MVC e API Web nello stesso progetto del progetto di back-end per dispositivi mobili.
+* Supporto per le nuove funzionalità di autenticazione del Servizio app, che consentono di utilizzare una configurazione di autenticazione comune tra web e app per dispositivi mobili:
 
-- Maggiore flessibilità nell’SDK per dispositivi mobili. È possibile controllare in modo esplicito le funzionalità e le route impostate, come autenticazione, API di tabella e endpoint di registrazione push. Per altre informazioni, vedere [Come usare l'SDK del server .NET per le app per dispositivi mobili di Azure](app-service-mobile-net-upgrading-from-mobile-services.md#server-project-setup).
-
-- Supporto per altri tipi di progetto ASP.NET e route. È ora possibile ospitare controller MVC e API Web nello stesso progetto del progetto di back-end per dispositivi mobili.
-
-- Supporto per le nuove funzionalità di autenticazione del Servizio app, che consentono di utilizzare una configurazione di autenticazione comune tra web e app per dispositivi mobili:
-
-##<a name="overview"></a>Panoramica sull'aggiornamento di base
-
+## <a name="overview"></a>Panoramica sull'aggiornamento di base
 In molti casi, l'aggiornamento sarà semplice come passare al nuovo SDK del server di app per dispositivi mobili e ripubblicare il codice in una nuova istanza di app per dispositivi mobili. Esistono, tuttavia, alcuni scenari che richiedono alcune configurazioni aggiuntive, ad esempio l'autenticazione avanzata e l'uso dei processi pianificati. Ciascuno di questi scenari viene trattato nelle sezioni seguenti.
 
->[AZURE.TIP] Si consiglia di leggere e comprendere integralmente il resto di questo argomento prima di avviare un aggiornamento. Prendere nota delle funzionalità usate che sono indicate di seguito.
+> [!TIP]
+> Si consiglia di leggere e comprendere integralmente il resto di questo argomento prima di avviare un aggiornamento. Prendere nota delle funzionalità usate che sono indicate di seguito.
+> 
+> 
 
 Gli SDK del client di Servizi mobili **non** sono compatibili con il nuovo SDK del server di App per dispositivi mobili. Per garantire la continuità del servizio per l'app, non devono essere pubblicate modifiche in un sito che usa client pubblicati. È invece necessario creare una nuova app per dispositivi mobili che agisce da duplicato. È possibile inserire questa applicazione nello stesso piano di servizio app per evitare di sostenere costi finanziari aggiuntivi.
 
@@ -59,7 +58,7 @@ La struttura completa del processo di aggiornamento è la seguente:
 3. Rilasciare una nuova versione dell'applicazione client
 4. (Facoltativo) Eliminare l'istanza migrata originale
 
-##<a name="mobile-app-version"></a>Creazione di una seconda istanza dell'applicazione
+## <a name="mobile-app-version"></a>Creazione di una seconda istanza dell'applicazione
 Il primo passaggio per l'aggiornamento prevede la creazione della risorsa di app per dispositivi mobili che ospiterà la nuova versione dell'applicazione. Se è già stata eseguita la migrazione di un servizio mobile esistente, è consigliabile creare questa versione nello stesso piano di hosting. Aprire il [portale di Azure] e passare all'applicazione migrata. Prendere nota del piano di servizio app in cui è in esecuzione.
 
 Creare quindi la seconda istanza dell'applicazione seguendo le [istruzioni per la creazione di back-end .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app). Quando viene richiesto di selezionare il piano di servizio app o "piano di hosting", scegliere il piano dell'applicazione migrata.
@@ -69,7 +68,6 @@ Potrebbe essere utile usare lo stesso database e hub di notifica usati in Serviz
 Creare una copia del progetto ASP.NET per l'applicazione e pubblicarla nel nuovo sito. Usando una copia dell'applicazione client aggiornata con il nuovo URL, verificare che tutto funzioni come previsto.
 
 ## Aggiornamento del progetto server
-
 Le app per dispositivi mobili forniscono un nuovo [Mobile App Server SDK] che offre molte delle funzionalità del runtime di Servizi per dispositivi mobili. È innanzitutto necessario rimuovere tutti i riferimenti ai pacchetti di Servizi mobili. In Gestione pacchetti NuGet cercare `WindowsAzure.MobileServices.Backend`. Per la maggior parte delle app saranno presenti diversi pacchetti, tra cui `WindowsAzure.MobileServices.Backend.Tables` e `WindowsAzure.MobileServices.Backend.Entity`. In tal caso, iniziare dal pacchetto più basso nella struttura delle dipendenze, ad esempio `Entity`, e rimuoverlo. Quando richiesto, non rimuovere tutti i pacchetti dipendenti. Ripetere questo processo finché non è stato rimosso `WindowsAzure.MobileServices.Backend` stesso.
 
 A questo punto si avrà un progetto che non fa più riferimento agli SDK di Servizi mobili.
@@ -79,7 +77,6 @@ Si aggiungeranno quindi i riferimenti agli SDK delle app per dispositivi mobili.
 Vi saranno alcuni errori del compilatore derivanti dalle differenze tra gli SDK, ma sono semplici da risolvere e vengono descritti nella parte rimanente di questa sezione.
 
 ### Configurazione di base
-
 In WebApiConfig.cs è quindi possibile sostituire:
 
         // Use this class to set configuration options for your mobile service
@@ -95,7 +92,10 @@ con
             .UseDefaultConfiguration()
         .ApplyTo(config);
 
->[AZURE.NOTE] Per altre informazioni sul nuovo SDK del server .NET e su come aggiungere/rimuovere funzionalità dall'app, vedere l'argomento [Come usare l'SDK del server .NET].
+> [!NOTE]
+> Per altre informazioni sul nuovo SDK del server .NET e su come aggiungere/rimuovere funzionalità dall'app, vedere l'argomento [Come usare l'SDK del server .NET].
+> 
+> 
 
 Se l'app fa uso delle funzionalità di autenticazione, sarà inoltre necessario registrare un middleware OWIN. In questo caso, è necessario spostare il codice di configurazione precedente in una nuova classe di avvio OWIN.
 
@@ -111,7 +111,6 @@ Assicurarsi che il metodo `Configuration()` termini con:
 Vi sono ulteriori modifiche relative all'autenticazione, che sono illustrate di seguito nella sezione relativa all'autenticazione completa.
 
 ### Uso dei dati
-
 In Servizi mobili, il nome dell'app per dispositivi mobili veniva usato come nome dello schema predefinito nel programma di installazione di Entity Framework.
 
 Per assicurarsi di fare riferimento allo stesso schema, usare il codice seguente per impostare lo schema in DbContext per l'applicazione:
@@ -121,29 +120,26 @@ Per assicurarsi di fare riferimento allo stesso schema, usare il codice seguente
 Assicurarsi di avere impostato MS\_MobileServiceName se si esegue l'operazione precedente. È anche possibile fornire un altro nome di schema se l'applicazione lo ha personalizzato in precedenza.
 
 ### Proprietà di sistema
-
 #### Denominazione
-
 Nell'SDK del server di Servizi mobili di Azure le proprietà di sistema contengono sempre un prefisso con un doppio carattere di sottolineatura (`__`):
 
-- \_\_createdAt
-- \_\_updatedAt
-- \_\_deleted
-- \_\_version
+* \_\_createdAt
+* \_\_updatedAt
+* \_\_deleted
+* \_\_version
 
 Gli SDK client di Servizi mobili hanno una logica speciale per l'analisi delle proprietà di sistema in questo formato.
 
 Nelle app per dispositivi mobili di Azure le proprietà di sistema non hanno più un formato speciale e sono denominate come segue:
 
-- createdAt
-- updatedAt
-- deleted
-- version
+* createdAt
+* updatedAt
+* deleted
+* version
 
 Gli SDK client delle app per dispositivi mobili usano i nuovi nomi delle proprietà di sistema, pertanto non sono necessarie modifiche al codice client. Tuttavia, se si effettuano direttamente chiamate REST al servizio, è necessario modificare le query di conseguenza.
 
 #### Archivio locale
-
 Le modifiche ai nomi delle proprietà di sistema implicano che un database locale di sincronizzazione offline per Servizi mobili non è compatibile con le applicazioni per dispositivi mobili. Se possibile, evitare di eseguire l'aggiornamento di app client da Servizi mobili alle app per dispositivi mobili finché le modifiche in sospeso non sono state inviate al server. L'app aggiornata deve quindi usare un nuovo nome di file di database.
 
 Se un'app client viene aggiornata da Servizi mobili alle app per dispositivi mobili mentre sono presenti modifiche offline in sospeso nella coda delle operazioni, il database di sistema deve essere aggiornato per l'uso dei nuovi nomi di colonna. In iOS, questa operazione può essere eseguita usando migrazioni semplificate per modificare i nomi di colonna. In Android e nel client gestito .NET, è necessario scrivere codice SQL personalizzato per rinominare le colonne per le tabelle degli oggetti dati.
@@ -151,14 +147,13 @@ Se un'app client viene aggiornata da Servizi mobili alle app per dispositivi mob
 In iOS, è necessario modificare lo schema dei dati di base per le entità di dati in modo che corrispondano a quanto segue. Si noti che le proprietà `createdAt`, `updatedAt` e `version` non hanno più un prefisso `ms_`:
 
 | Attributo | Tipo | Nota |
-|---------- |  ------ | -----------------------------------------------------|
-| id | Stringa, contrassegnata come obbligatoria | chiave primaria nell'archivio remoto |
-| createdAt | Data | (facoltativo) viene mappato alla proprietà di sistema createdAt |
-| updatedAt | Data | (facoltativo) viene mappato alla proprietà di sistema updatedAt |
-| version | String | (facoltativo) usato per il rilevamento dei conflitti, viene mappato a version |
+| --- | --- | --- |
+| id |Stringa, contrassegnata come obbligatoria |chiave primaria nell'archivio remoto |
+| createdAt |Data |(facoltativo) viene mappato alla proprietà di sistema createdAt |
+| updatedAt |Data |(facoltativo) viene mappato alla proprietà di sistema updatedAt |
+| version |String |(facoltativo) usato per il rilevamento dei conflitti, viene mappato a version |
 
 #### Query delle proprietà di sistema
-
 In Servizi mobili di Azure, le proprietà di sistema non vengono inviate per impostazione predefinita, ma solo quando vengono richieste usando la stringa di query `__systemProperties`. Al contrario, nel sistema App per dispositivi mobili di Azure le proprietà sono **sempre selezionate** poiché fanno parte del modello a oggetti dell'SDK server.
 
 Questa modifica influisce principalmente sulle implementazioni personalizzate di gestori di dominio, come le estensioni di `MappedEntityDomainManager`. In Servizi mobili, se un client non richiede mai proprietà del sistema, è possibile usare un `MappedEntityDomainManager` che non esegue effettivamente il mapping di tutte le proprietà. Tuttavia, in App per dispositivi mobili di Azure, queste proprietà non mappate genereranno un errore nelle query GET.
@@ -193,7 +188,6 @@ Ad esempio, il codice seguente definisce `TodoItem` senza proprietà di sistema:
 Nota: se si verificano errori in `NotMapped`, aggiungere un riferimento all'assembly `System.ComponentModel.DataAnnotations`.
 
 ### CORS
-
 Servizi mobili includeva un certo supporto per CORS eseguendo il wrapping della soluzione CORS di ASP.NET. Questo livello di wrapping è stato rimosso per offrire allo sviluppatore un maggiore controllo, pertanto è possibile sfruttare direttamente il [supporto per CORS di ASP.NET](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
 
 Le principali aree problematiche rispetto all'uso di CORS sono rappresentate dal fatto che le intestazioni `eTag` e `Location` devono essere consentite per il corretto funzionamento degli SDK client.
@@ -216,8 +210,7 @@ Analogamente, la registrazione viene ora effettuata mediante la scrittura di tra
     ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
     traceWriter.Info("Hello, World");  
 
-##<a name="authentication"></a>Considerazioni sull'autenticazione
-
+## <a name="authentication"></a>Considerazioni sull'autenticazione
 I componenti di autenticazione di Servizi mobili sono ora stati spostati nella funzionalità di autenticazione/autorizzazione del servizio app. Per informazioni sull'abilitazione di questa funzionalità per il sito, vedere l'argomento [Aggiungere l'autenticazione all'app per dispositivi mobili](app-service-mobile-ios-get-started-users.md).
 
 Per alcuni provider, come AAD, Facebook e Google, dovrebbe essere possibile sfruttare la registrazione esistente dall'applicazione di copia. È sufficiente passare al portale del provider di identità e aggiungere un nuovo URL di reindirizzamento alla registrazione. Configurare quindi l'autenticazione/autorizzazione del servizio app con l'ID client e il segreto.
@@ -226,7 +219,6 @@ Per alcuni provider, come AAD, Facebook e Google, dovrebbe essere possibile sfru
 Tutte le istanze dell'attributo `[AuthorizeLevel(AuthorizationLevel.User)]` ora devono essere modificate per l'uso dell'attributo ASP.NET standard `[Authorize]`. Inoltre, i controller ora sono anonimi per impostazione predefinita, come nelle altre applicazioni ASP.NET. Se si usava una delle altre opzioni AuthorizeLevel, ad esempio Admin o Application, tenere presente che ora non sono più disponibili. È invece possibile impostare AuthorizationFilters per i segreti condivisi o configurare un'entità servizio AAD per abilitare le chiamate da servizio a servizio in modo sicuro.
 
 ### Recupero di informazioni aggiuntive sull'utente
-
 È possibile ottenere informazioni aggiuntive sull'utente, inclusi i token di accesso tramite il metodo `GetAppServiceIdentityAsync()`:
 
         FacebookCredentials creds = await this.User.GetAppServiceIdentityAsync<FacebookCredentials>();
@@ -238,10 +230,9 @@ Inoltre, se l'applicazione stabilisce dipendenze su ID utente, ad esempio memori
 Se l'app stabilisce dipendenze sugli ID utente, è importante sfruttare la stessa registrazione con un provider di identità, se possibile. Gli ID utente sono in genere destinati alla registrazione dell'applicazione che è stata usata, pertanto l'introduzione di una nuova registrazione potrebbe creare problemi di associazione degli utenti ai relativi dati.
 
 ### Autenticazione personalizzata
-
 Se l'app usa una soluzione di autenticazione personalizzata, è necessario assicurarsi che il sito aggiornato abbia accesso al sistema. Seguire le nuove istruzioni per l'autenticazione personalizzata nella [panoramica di .NET Server SDK] per integrare la soluzione. Si noti che i componenti dell'autenticazione personalizzata sono ancora in versione di anteprima.
 
-##<a name="updating-clients"></a>Aggiornamento dei client
+## <a name="updating-clients"></a>Aggiornamento dei client
 Dopo aver reso operativo un back-end dell'app per dispositivi mobili, è possibile lavorare su una nuova versione dell'applicazione client che ne faccia uso. App per dispositivi mobili include anche una nuova versione degli SDK del client e, come nel caso dell'aggiornamento del server descritto in precedenza, sarà necessario rimuovere tutti i riferimenti agli SDK di Servizi mobili prima di installare le versioni di App per dispositivi mobili.
 
 Una delle principali modifiche tra le versioni è rappresentata dai costruttori che non richiedono più una chiave applicazione. Ora è sufficiente passare l'URL dell'app per dispositivi mobili. Ad esempio, nei client .NET, il costruttore `MobileServiceClient` ora è:
@@ -252,8 +243,8 @@ Una delle principali modifiche tra le versioni è rappresentata dai costruttori 
 
 Per altre informazioni sull'installazione dei nuovi SDK e sull'uso della nuova struttura, visitare i collegamenti seguenti:
 
-- [iOS versione 3.0.0 o successiva](app-service-mobile-ios-how-to-use-client-library.md)
-- [.NET (Windows/Xamarin) versione 2.0.0 o successiva](app-service-mobile-dotnet-how-to-use-client-library.md)
+* [iOS versione 3.0.0 o successiva](app-service-mobile-ios-how-to-use-client-library.md)
+* [.NET (Windows/Xamarin) versione 2.0.0 o successiva](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 Se l'applicazione usa le notifiche push, prendere nota delle specifiche istruzioni di registrazione per ogni piattaforma, perché sono state apportate alcune modifiche anche in questo ambito.
 

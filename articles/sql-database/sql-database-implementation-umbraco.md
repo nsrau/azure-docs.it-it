@@ -1,85 +1,78 @@
-<properties
-   pageTitle="Case study Azure del database SQL di Microsoft Azure - Umbraco | Microsoft Azure"
-   description="Altre informazioni su come Umbraco usa il database SQL per eseguire rapidamente il provisioning e ridimensionare i servizi per migliaia di tenant nel cloud"
-   services="sql-database"
-   documentationCenter=""
-   authors="carlrabeler"
-   manager="jhubbard"
-   editor=""/>
+---
+title: Case study Azure del database SQL di Microsoft Azure - Umbraco | Microsoft Docs
+description: Altre informazioni su come Umbraco usa il database SQL per eseguire rapidamente il provisioning e ridimensionare i servizi per migliaia di tenant nel cloud
+services: sql-database
+documentationcenter: ''
+author: carlrabeler
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/22/2016"
-   ms.author="carlrab"/>
+ms.service: sql-database
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/22/2016
+ms.author: carlrab
 
-
+---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco usa il database SQL di Azure per eseguire rapidamente il provisioning e il ridimensionamento di servizi per migliaia di tenant nel cloud.
-
 ![Logo di Umbraco](./media/sql-database-implementation-umbraco/umbracologo.png)
 
 Umbraco è un noto sistema di gestione di contenuti (CMS) open source che può eseguire qualsiasi contenuto, da siti per brochure o piccole campagne ad applicazioni complesse per siti Web di social media globali e aziende nella classifica Fortune 500. 
 
 > "Un'ampia community di sviluppatori usa il sistema, con più di 100.000 sviluppatori nei nostri forum e oltre 350.000 siti attivi che eseguono il sistema Umbraco".
-
-> - Morten Christensen, responsabile tecnico, Umbraco
-
-> [AZURE.VIDEO azure-sql-database-case-study-umbraco]
+> 
+> * Morten Christensen, responsabile tecnico, Umbraco
+> 
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-Case-Study-Umbraco/player]
+> 
+> 
 
 Per semplificare le distribuzioni ai clienti, Umbraco ha aggiunto Umbraco-as-a-Service (UaaS), un'offerta di Software-as-a-Service (SaaS) che esclude la necessità di distribuzioni locali, fornisce un ridimensionamento predefinito ed elimina il sovraccarico di gestione, consentendo agli sviluppatori di concentrarsi sull'innovazione dei prodotti anziché sulla gestione della soluzione. Umbraco offre tutti questi vantaggi basandosi sul modello Platform-as-a-Service (PaaS) flessibile offerto da Microsoft Azure.
 
 Il servizio UaaS consente ai clienti SaaS di usare funzionalità del sistema Umbraco CMS in precedenza non accessibili. Per questi clienti viene eseguito il provisioning di un ambiente CMS di lavoro con un database di produzione. I clienti possono aggiungere fino ad altri due database per gli ambienti di sviluppo e di gestione temporanea, a seconda dei requisiti. Quando è necessario un nuovo ambiente, al cliente viene assegnato automaticamente un database tramite un processo automatizzato. Il nuovo database è pronto in pochi secondi perché il provisioning è stato eseguito preventivamente da Umbraco tramite un pool elastico di database disponibili Azure (figura 1).
 
-
 ![Ciclo di vita del provisioning Umbraco](./media/sql-database-implementation-umbraco/figure1.png)
 
 Figura 1. Ciclo di vita del provisioning per Umbraco-as-a-Service (UaaS)
- 
-##<a name="azure-elastic-pools-and-automation-simplify-deployments"></a>Automazione e pool elastici di Azure per semplificare le distribuzioni
 
+## <a name="azure-elastic-pools-and-automation-simplify-deployments"></a>Automazione e pool elastici di Azure per semplificare le distribuzioni
 Con il database SQL di Azure e altri servizi di Azure, i clienti Umbraco possono eseguire autonomamente il provisioning dei propri ambienti e Umbraco può monitorare e gestire facilmente i database come parte di un flusso di lavoro intuitivo:
 
-1.  Eseguire il provisioning
+1. Eseguire il provisioning
+   
+   Umbraco gestisce 200 database disponibili, il cui provisioning è stato eseguito preventivamente da pool elastici. Quando un nuovo cliente esegue l'iscrizione per il servizio UaaS, Umbraco gli fornisce un nuovo ambiente CMS in tempo pressoché reale, assegnando un database dal pool di disponibilità.
+   
+   Quando viene raggiunta la soglia di un pool di disponibilità, viene creato un nuovo pool elastico e viene eseguito preventivamente il provisioning di nuovi database da assegnare ai clienti in base alle esigenze.
+   
+   L'implementazione è completamente automatizzata tramite le librerie di gestione in C# e le code del bus di servizio.
+2. Uso
+   
+   I clienti usano da uno a tre ambienti, per la produzione, la gestione temporanea e/o lo sviluppo, ognuno con un proprio database. I database dei clienti si trovano in pool di database elastici, che consentono a Umbraco di fornire un ridimensionamento efficace evitando il provisioning eccessivo.
+   
+   ![Panoramica del progetto Umbraco](./media/sql-database-implementation-umbraco/figure2.png)
+   
+   ![Dettagli del progetto Umbraco](./media/sql-database-implementation-umbraco/figure3.png)
+   
+   Figura 2. Sito Web di clienti con Umbraco-as-a-Service (UaaS) che mostra una panoramica e i dettagli del progetto
+   
+   Il database SQL di Azure usa le unità di transazioni di database (DTU) per esprimere la potenza relativa necessaria per le transazioni di database reali. Per i clienti UaaS, la potenza dei database è in genere di circa 10 DTU, ma la flessibilità di ogni database consente la scalabilità su richiesta. I clienti possono quindi disporre delle risorse necessarie, anche durante le ore di punta. Ad esempio, nel corso di un recente evento sportivo notturno di domenica, un cliente del servizio UaaS ha riscontrato un picco del database fino a 100 DTU per la durata dell'evento. Grazie ai pool elastici di Azure, il sistema Umbraco è stato in grado di supportare questa richiesta elevata senza compromettere le prestazioni.
+3. Monitoraggio
+   
+   Umbraco monitora l'attività dei database tramite i dashboard del portale di Azure e agli avvisi di posta elettronica personalizzati.
+4. Ripristino di emergenza
+   
+   Azure offre due opzioni di ripristino di emergenza: il ripristino a livello geografico e la replica geografica attiva. L'opzione adatta ad ogni azienda dipende dagli [obiettivi di continuità aziendale](sql-database-business-continuity.md)specifici.
+   
+   La replica geografica attiva assicura il livello di risposta più veloce in caso di tempi di inattività. Con la replica geografica attiva è possibile creare fino a quattro database secondari leggibili su server in aree diverse e quindi avviare il failover in uno qualsiasi dei database secondari in caso di errore.
+   
+   Umbraco non richiede la replica geografica, tuttavia la replica geografica di Azure offre il vantaggio di tempi di inattività minimi in caso di interruzione. Il ripristino geografico si basa sui backup di database nell'archiviazione di Azure con ridondanza geografica. Gli utenti possono quindi eseguire il ripristino da una copia di backup in caso di interruzione del servizio nell'area primaria.
+5. Deprovisioning
+   
+   Quando viene eliminato l'ambiente di un progetto, tutti i database associati (di sviluppo, di gestione temporanea o live) vengono rimossi durante la pulizia della coda del bus di servizio. Questo processo automatizzato ripristina i database inutilizzati nel pool di disponibilità di database elastici Umbraco, rendendoli disponibili per attività di provisioning future ottimizzando il livello di utilizzo.
 
-    Umbraco gestisce 200 database disponibili, il cui provisioning è stato eseguito preventivamente da pool elastici. Quando un nuovo cliente esegue l'iscrizione per il servizio UaaS, Umbraco gli fornisce un nuovo ambiente CMS in tempo pressoché reale, assegnando un database dal pool di disponibilità.
-
-    Quando viene raggiunta la soglia di un pool di disponibilità, viene creato un nuovo pool elastico e viene eseguito preventivamente il provisioning di nuovi database da assegnare ai clienti in base alle esigenze.
-
-    L'implementazione è completamente automatizzata tramite le librerie di gestione in C# e le code del bus di servizio.
-
-2.  Uso
-
-    I clienti usano da uno a tre ambienti, per la produzione, la gestione temporanea e/o lo sviluppo, ognuno con un proprio database. I database dei clienti si trovano in pool di database elastici, che consentono a Umbraco di fornire un ridimensionamento efficace evitando il provisioning eccessivo.
-
-    ![Panoramica del progetto Umbraco](./media/sql-database-implementation-umbraco/figure2.png)
-
-    ![Dettagli del progetto Umbraco](./media/sql-database-implementation-umbraco/figure3.png)
-
-    Figura 2. Sito Web di clienti con Umbraco-as-a-Service (UaaS) che mostra una panoramica e i dettagli del progetto
-
-    Il database SQL di Azure usa le unità di transazioni di database (DTU) per esprimere la potenza relativa necessaria per le transazioni di database reali. Per i clienti UaaS, la potenza dei database è in genere di circa 10 DTU, ma la flessibilità di ogni database consente la scalabilità su richiesta. I clienti possono quindi disporre delle risorse necessarie, anche durante le ore di punta. Ad esempio, nel corso di un recente evento sportivo notturno di domenica, un cliente del servizio UaaS ha riscontrato un picco del database fino a 100 DTU per la durata dell'evento. Grazie ai pool elastici di Azure, il sistema Umbraco è stato in grado di supportare questa richiesta elevata senza compromettere le prestazioni.
-
-3.  Monitoraggio
-
-    Umbraco monitora l'attività dei database tramite i dashboard del portale di Azure e agli avvisi di posta elettronica personalizzati.
-
-4.  Ripristino di emergenza
-
-    Azure offre due opzioni di ripristino di emergenza: il ripristino a livello geografico e la replica geografica attiva. L'opzione adatta ad ogni azienda dipende dagli [obiettivi di continuità aziendale](sql-database-business-continuity.md)specifici.
-
-    La replica geografica attiva assicura il livello di risposta più veloce in caso di tempi di inattività. Con la replica geografica attiva è possibile creare fino a quattro database secondari leggibili su server in aree diverse e quindi avviare il failover in uno qualsiasi dei database secondari in caso di errore.
-
-    Umbraco non richiede la replica geografica, tuttavia la replica geografica di Azure offre il vantaggio di tempi di inattività minimi in caso di interruzione. Il ripristino geografico si basa sui backup di database nell'archiviazione di Azure con ridondanza geografica. Gli utenti possono quindi eseguire il ripristino da una copia di backup in caso di interruzione del servizio nell'area primaria.
-
-5.  Deprovisioning
-
-    Quando viene eliminato l'ambiente di un progetto, tutti i database associati (di sviluppo, di gestione temporanea o live) vengono rimossi durante la pulizia della coda del bus di servizio. Questo processo automatizzato ripristina i database inutilizzati nel pool di disponibilità di database elastici Umbraco, rendendoli disponibili per attività di provisioning future ottimizzando il livello di utilizzo.
-
-##<a name="elastic-pools-allow-uaas-to-scale-with-ease"></a>I pool elastici consentono un facile ridimensionamento del servizio UaaS
-
+## <a name="elastic-pools-allow-uaas-to-scale-with-ease"></a>I pool elastici consentono un facile ridimensionamento del servizio UaaS
 Grazie all'uso di pool di database elastici Azure, Umbraco è in grado di ottimizzare le prestazioni per i clienti senza ricorrere al provisioning eccessivo o insufficiente. Umbraco dispone attualmente di quasi 3.000 database in 19 pool di database elastici, assicurando un facile ridimensionamento in linea con le esigenze di uno qualsiasi dei 325.000 clienti esistenti o dei nuovi clienti disponibili a distribuire un sistema CMS nel cloud.
 
 Secondo Morten Christensen, responsabile tecnico Umbraco, "Ogni giorno circa 30 nuovi clienti scelgono il servizio UaaS. I clienti apprezzano in particolare la possibilità di eseguire il provisioning di nuovi progetti in pochi secondi, pubblicare immediatamente gli aggiornamenti nei propri siti live da un ambiente di sviluppo tramite le "distribuzioni con un clic" e apportare modifiche altrettanto rapidamente qualora vengano rilevati errori".
@@ -90,13 +83,14 @@ Se un cliente non ha più necessità di un secondo e/o un terzo ambiente, è pos
 
 Figura 3. Architettura per la distribuzione di UaaS in Microsoft Azure
 
-##<a name="the-path-from-datacenter-to-cloud"></a>Percorso dal data center al cloud
-
+## <a name="the-path-from-datacenter-to-cloud"></a>Percorso dal data center al cloud
 Al momento di adottare inizialmente la decisione di migrare a un modello SaaS, gli sviluppatori Umbraco sono consapevoli del fatto che necessitano di un modo conveniente e scalabile per distribuire il servizio.
 
 > "I pool di database elastici sono perfetti per l'offerta SaaS perché consentono di aumentare o ridurre la capacità in base alle esigenze. Il provisioning è semplice e grazie alla configurazione è possibile ottimizzare il livello di utilizzo".
-
-> - Morten Christensen, responsabile tecnico, Umbraco
+> 
+> * Morten Christensen, responsabile tecnico, Umbraco
+> 
+> 
 
 "Il nostro obiettivo era quello di dedicare tempo prezioso alla risoluzione dei problemi dei clienti, non alla gestione dell'infrastruttura. Lo scopo era quello di mettere i clienti nella condizione migliore per ottenere il massimo valore" afferma Niels Hartvig, fondatore di Umbraco. "Inizialmente abbiamo valutato l'ipotesi di eseguire autonomamente l'hosting dei server, ma la pianificazione della capacità avrebbe rappresentato un incubo". Non a caso, Umbraco non impiega amministratori di database, aspetto che evidenzia l'uso di UaaS come proposta di valore chiave.
 
@@ -106,12 +100,11 @@ Inoltre, il team di sviluppo Umbraco desiderava una soluzione che consentisse di
 
 Per soddisfare tutti i criteri, Umbraco ha cercato un partner per il cloud con le caratteristiche seguenti:
 
--   Affidabilità e capacità adeguata
--   Supporto per gli strumenti di sviluppo Microsoft per non costringere i tecnici Umbraco a ricostruire completamente l'ambiente di sviluppo
--   Presenza in tutti i mercati geografici in cui il servizio UaaS opera come competitor: le aziende hanno bisogno di garantire il rapido accesso ai dati e l'archiviazione dei dati in una posizione in linea con i requisiti normativi internazionali
+* Affidabilità e capacità adeguata
+* Supporto per gli strumenti di sviluppo Microsoft per non costringere i tecnici Umbraco a ricostruire completamente l'ambiente di sviluppo
+* Presenza in tutti i mercati geografici in cui il servizio UaaS opera come competitor: le aziende hanno bisogno di garantire il rapido accesso ai dati e l'archiviazione dei dati in una posizione in linea con i requisiti normativi internazionali
 
-##<a name="why-umbraco-chose-azure-for-uaas"></a>Perché Umbraco ha scelto Azure per UaaS
-
+## <a name="why-umbraco-chose-azure-for-uaas"></a>Perché Umbraco ha scelto Azure per UaaS
 Secondo Morten Christensen "Dopo un'attenta valutazione di tutte le opzioni, abbiamo scelto Azure perché soddisfa tutti i criteri, dalla gestibilità e scalabilità alla familiarità e al rapporto costi/benefici. Abbiamo configurato gli ambienti nelle VM Azure e ogni ambiente dispone di una propria istanza del database SQL di Azure, con tutte le istanze nei pool di database elastici. Separando i database tra gli ambienti di sviluppo, di gestione temporanea e live, siamo in grado di offrire ai clienti un livello avanzato di isolamento delle prestazioni abbinato alla scalabilità conseguendo un successo notevole".
 
 Morten afferma anche: "Prima era necessario eseguire manualmente il provisioning di server per i database Web. Ora non teniamo più in considerazione questo aspetto. Tutte le operazioni sono automatizzate, dal provisioning alle operazioni di eliminazione".
@@ -120,28 +113,17 @@ Morten è soddisfatto anche delle funzionalità di ridimensionamento disponibili
 
 Mikkel Madsen ribadisce "Abbiamo adottato il potente algoritmo di Azure che connette uno scenario SaaS comune, come l'acquisizione di nuovi clienti in tempo reale su larga scala, al modello applicativo, come il provisioning preventivo di database, sia di sviluppo sia live, insieme alla tecnologia sottostante usando le code del bus di servizio Azure in combinazione con il database SQL di Azure".
 
-##<a name="with-azure,-uaas-is-exceeding-customer-expectations"></a>Con Azure il servizio UaaS supera le aspettative dei clienti
-
+## <a name="with-azure,-uaas-is-exceeding-customer-expectations"></a>Con Azure il servizio UaaS supera le aspettative dei clienti
 Da quando ha scelto Azure come partner cloud, Umbraco è stato in grado di fornire ai clienti UaaS prestazioni ottimali in termini di gestione dei contenuti, senza dover investire su risorse IT, come sarebbe stato necessario con una soluzione indipendente. Come afferma Morten, "Apprezziamo in particolare i vantaggi e la scalabilità che Azure mette a disposizione degli sviluppatori e i clienti sono particolarmente soddisfatti di funzionalità e affidabilità. Il successo è stato grande da ogni punto di vista".
- 
+
 ## <a name="more-information"></a>Altre informazioni
-
-- Per altre informazioni sui pool di database elastici, vedere [Che cos'è un pool elastico di Azure?](sql-database-elastic-pool.md).
-
-- Per altre informazioni sul bus di servizio di Azure, vedere [Bus di servizio](https://azure.microsoft.com/services/service-bus/).
-
-- Per altre informazioni sui ruoli Web e i ruoli di lavoro, vedere l'argomento relativo ai [ruoli di lavoro](../fundamentals-introduction-to-azure.md#compute). 
-
-- Per altre informazioni sulla rete virtuale, vedere [Rete virtuale](https://azure.microsoft.com/documentation/services/virtual-network/).    
-
-- Per altre informazioni su backup e ripristino, vedere [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).  
-
-- Per altre informazioni sul monitoraggio di pool, vedere [Monitorare e gestire un pool di database elastici con il portale di Azureo](sql-database-elastic-pool-manage-portal.md). 
-
-- Per altre informazioni su Umbraco-as-a-Service, vedere [Umbraco](https://umbraco.com/cloud).
-
-
-
+* Per altre informazioni sui pool di database elastici, vedere [Che cos'è un pool elastico di Azure?](sql-database-elastic-pool.md).
+* Per altre informazioni sul bus di servizio di Azure, vedere [Bus di servizio](https://azure.microsoft.com/services/service-bus/).
+* Per altre informazioni sui ruoli Web e i ruoli di lavoro, vedere l'argomento relativo ai [ruoli di lavoro](../fundamentals-introduction-to-azure.md#compute). 
+* Per altre informazioni sulla rete virtuale, vedere [Rete virtuale](https://azure.microsoft.com/documentation/services/virtual-network/).    
+* Per altre informazioni su backup e ripristino, vedere [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).  
+* Per altre informazioni sul monitoraggio di pool, vedere [Monitorare e gestire un pool di database elastici con il portale di Azureo](sql-database-elastic-pool-manage-portal.md). 
+* Per altre informazioni su Umbraco-as-a-Service, vedere [Umbraco](https://umbraco.com/cloud).
 
 <!--HONumber=Oct16_HO2-->
 

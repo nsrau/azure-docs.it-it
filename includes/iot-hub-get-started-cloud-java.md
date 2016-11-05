@@ -1,17 +1,14 @@
 ## Creare un'identità del dispositivo
-
 In questa sezione si scriverà un'app console di Java che consente di creare una nuova identità del dispositivo nel registro delle identità dell'hub IoT. Un dispositivo non può connettersi all'hub IoT a meno che non sia presente una voce nel registro delle identità del dispositivo. Fare riferimento alla sezione **Registro identità del dispositivo** della [Guida per sviluppatori di hub IoT][lnk-devguide-identity] per ulteriori informazioni. Quando si esegue questa applicazione console, viene generato un ID dispositivo univoco e una chiave con cui il dispositivo può identificarsi quando invia messaggi da dispositivo a cloud all'hub IoT.
 
 1. Creare una nuova cartella vuota denominata iot-java-get-started. Nella cartella iot-java-get-started creare un nuovo progetto Maven denominato **create-device-identity** usando il comando seguente al prompt dei comandi. Si noti che si tratta di un lungo comando singolo:
-
+   
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=create-device-identity -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
-
 2. Al prompt dei comandi passare alla nuova cartella create-device-identity.
-
 3. Usando un editor di testo, aprire il file pom.xml nella cartella create-device-identity e aggiungere la dipendenza seguente al nodo **dependencies**. Ciò consente di usare il pacchetto iothub-service-sdk nell'applicazione:
-
+   
     ```
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
@@ -19,41 +16,35 @@ In questa sezione si scriverà un'app console di Java che consente di creare una
       <version>1.0.2</version>
     </dependency>
     ```
-    
 4. Salvare e chiudere il file pom.xml.
-
 5. Usando un editor di testo, aprire il file create-device-identity\\src\\main\\java\\com\\mycompany\\app\\App.java.
-
 6. Aggiungere al file le istruzioni **import** seguenti:
-
+   
     ```
     import com.microsoft.azure.iot.service.exceptions.IotHubException;
     import com.microsoft.azure.iot.service.sdk.Device;
     import com.microsoft.azure.iot.service.sdk.RegistryManager;
-
+   
     import java.io.IOException;
     import java.net.URISyntaxException;
     ```
-
 7. Aggiungere le variabili a livello di classe seguenti alla classe **App**, sostituendo **{yourhubname}** e **{yourhubkey}** con i valori annotati prima:
-
+   
     ```
     private static final String connectionString = "HostName={yourhubname}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={yourhubkey}";
     private static final String deviceId = "javadevice";
-    
+   
     ```
-    
 8. Modificare la firma del metodo **main** per includere le eccezioni visualizzate sotto:
-
+   
     ```
     public static void main( String[] args ) throws IOException, URISyntaxException, Exception
     ```
-    
 9. Aggiungere il codice seguente come corpo del metodo **main**. Questo codice crea un dispositivo denominato *javadevice* nel registro delle identità dell'hub IoT, se non esiste già. Quindi visualizza l'ID e la chiave del dispositivo che serviranno più avanti:
-
+   
     ```
     RegistryManager registryManager = RegistryManager.createFromConnectionString(connectionString);
-
+   
     Device device = Device.createFromId(deviceId, null, null);
     try {
       device = registryManager.addDevice(device);
@@ -67,41 +58,40 @@ In questa sezione si scriverà un'app console di Java che consente di creare una
     System.out.println("Device id: " + device.getDeviceId());
     System.out.println("Device key: " + device.getPrimaryKey());
     ```
-
 10. Salvare e chiudere il file App.java.
-
 11. Per compilare l'applicazione **create-device-identity** con Maven, eseguire il comando seguente al prompt dei comandi nella cartella create-device-identity:
-
+    
     ```
     mvn clean package -DskipTests
     ```
-
 12. Per eseguire l'applicazione **create-device-identity** con Maven, eseguire il comando seguente al prompt dei comandi nella cartella create-device-identity:
-
+    
     ```
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
-
 13. Prendere nota dei valori di **Device id** e **Device key**, che saranno necessari più avanti quando si creerà un'applicazione che si connette all'hub IoT come dispositivo.
 
-> [AZURE.NOTE] Il registro delle identità dell'hub IoT consente di archiviare solo le identità del dispositivo per abilitare l'accesso sicuro all'hub. Archivia gli ID dispositivo e le chiavi da usare come credenziali di sicurezza e un flag di attivazione/disattivazione che consente di disabilitare l'accesso per un singolo dispositivo. Se l'applicazione deve archiviare altri metadati specifici del dispositivo, dovrà usare un archivio specifico dell'applicazione. Per altre informazioni, vedere la [Guida per sviluppatori di hub IoT][lnk-devguide-identity].
+> [!NOTE]
+> Il registro delle identità dell'hub IoT consente di archiviare solo le identità del dispositivo per abilitare l'accesso sicuro all'hub. Archivia gli ID dispositivo e le chiavi da usare come credenziali di sicurezza e un flag di attivazione/disattivazione che consente di disabilitare l'accesso per un singolo dispositivo. Se l'applicazione deve archiviare altri metadati specifici del dispositivo, dovrà usare un archivio specifico dell'applicazione. Per altre informazioni, vedere la [Guida per sviluppatori di hub IoT][lnk-devguide-identity].
+> 
+> 
 
 ## Ricezione di messaggi da dispositivo a cloud
-
 In questa sezione si creerà un'app console di Java che legge i messaggi da dispositivo a cloud dall'hub IoT. L'hub IoT espone un endpoint compatibile con [Hub eventi][lnk-event-hubs-overview] per abilitare la lettura dei messaggi da dispositivo a cloud. Per semplicità, questa esercitazione crea un lettore di base non adatto per una distribuzione con velocità effettiva elevata. L'esercitazione [Elaborare messaggi da dispositivo a cloud][lnk-processd2c-tutorial] illustra come elaborare i messaggi da dispositivo a cloud su vasta scala. L'esercitazione [Introduzione a Hub eventi][lnk-eventhubs-tutorial] fornisce altre informazioni su come elaborare i messaggi da Hub eventi ed è applicabile agli endpoint compatibili con l'hub eventi dell'hub IoT.
 
-> [AZURE.NOTE] L'endpoint compatibile con Hub eventi per la lettura di messaggi da dispositivo a cloud usa sempre il protocollo AMQPS.
+> [!NOTE]
+> L'endpoint compatibile con Hub eventi per la lettura di messaggi da dispositivo a cloud usa sempre il protocollo AMQPS.
+> 
+> 
 
 1. Nella cartella iot-java-get-started creata nella sezione *Creare un'identità del dispositivo* creare un nuovo progetto Maven denominato **read-d2c-messages** usando il comando seguente al prompt dei comandi. Si noti che si tratta di un lungo comando singolo:
-
+   
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=read-d2c-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
-
 2. Al prompt dei comandi passare alla nuova cartella read-d2c-messages.
-
 3. Usando un editor di testo, aprire il file pom.xml nella cartella read-d2c-messages e aggiungere la dipendenza seguente al nodo **dependencies**. Ciò consente di usare il pacchetto eventhubs-client nell'applicazione per la lettura dall'endpoint compatibile con Hub eventi:
-
+   
     ```
     <dependency>
       <groupId>com.microsoft.eventhubs.client</groupId>
@@ -109,13 +99,10 @@ In questa sezione si creerà un'app console di Java che legge i messaggi da disp
       <version>1.0</version>
     </dependency>
     ```
-
 4. Salvare e chiudere il file pom.xml.
-
 5. Usando un editor di testo, aprire il file read-d2c-messages\\src\\main\\java\\com\\mycompany\\app\\App.java.
-
 6. Aggiungere al file le istruzioni **import** seguenti:
-
+   
     ```
     import java.io.IOException;
     import com.microsoft.eventhubs.client.Constants;
@@ -126,16 +113,14 @@ In questa sezione si creerà un'app console di Java che legge i messaggi da disp
     import com.microsoft.eventhubs.client.EventHubReceiver;
     import com.microsoft.eventhubs.client.ConnectionStringBuilder;
     ```
-
 7. Aggiungere le variabili a livello di classe seguenti alla classe **App**:
-
+   
     ```
     private static EventHubClient client;
     private static long now = System.currentTimeMillis();
     ```
-
 8. Aggiungere la classe annidata seguente nella classe **App**. L'applicazione crea due thread per eseguire **MessageReceiver** per la lettura dei messaggi dalle due partizioni nell'hub eventi:
-
+   
     ```
     private static class MessageReceiver implements Runnable
     {
@@ -143,17 +128,15 @@ In questa sezione si creerà un'app console di Java che legge i messaggi da disp
         private String partitionId;
     }
     ```
-
 9. Aggiungere il costruttore seguente alla classe **MessageReceiver**:
-
+   
     ```
     public MessageReceiver(String partitionId) {
         this.partitionId = partitionId;
     }
     ```
-
 10. Aggiungere il metodo **run** seguente alla classe **MessageReceiver**: Questo metodo crea un'istanza di **EventHubReceiver** per la lettura da una partizione di Hub eventi. Esegue il ciclo ininterrottamente e stampa i dettagli del messaggio nella console finché **stopThread** è true.
-
+    
     ```
     public void run() {
       try {
@@ -174,17 +157,18 @@ In questa sezione si creerà un'app console di Java che legge i messaggi da disp
       }
     }
     ```
-
-    > [AZURE.NOTE] Questo metodo usa un filtro quando crea il ricevitore e quindi il ricevitore legge solo i messaggi inviati all'hub IoT dopo che l'esecuzione del ricevitore è iniziata. Ciò è utile in un ambiente di test perché consente di visualizzare il set di messaggi corrente, ma in un ambiente di produzione il codice deve verificare l'elaborazione di tutti i messaggi. Per altre informazioni, vedere l'esercitazione [Elaborare messaggi da dispositivo a cloud dell'hub IoT][lnk-processd2c-tutorial].
-
+    
+    > [!NOTE]
+    > Questo metodo usa un filtro quando crea il ricevitore e quindi il ricevitore legge solo i messaggi inviati all'hub IoT dopo che l'esecuzione del ricevitore è iniziata. Ciò è utile in un ambiente di test perché consente di visualizzare il set di messaggi corrente, ma in un ambiente di produzione il codice deve verificare l'elaborazione di tutti i messaggi. Per altre informazioni, vedere l'esercitazione [Elaborare messaggi da dispositivo a cloud dell'hub IoT][lnk-processd2c-tutorial].
+    > 
+    > 
 11. Modificare la firma del metodo **main** per includere le eccezioni visualizzate sotto:
-
+    
     ```
     public static void main( String[] args ) throws IOException
     ```
-
 12. Aggiungere il codice seguente al metodo **main** nella classe **App**. Questo codice crea un'istanza di **EventHubClient** per la connessione all'endpoint compatibile con l'hub eventi dell'hub IoT. Crea quindi due thread per la lettura dalle due partizioni. Sostituire **{youriothubkey}**, **{youreventhubcompatiblenamespace}** e **{youreventhubcompatiblename}** con i valori annotati in precedenza. Il valore del segnaposto **{youreventhubcompatiblenamespace}** proviene dall'**endpoint compatibile con l'hub eventi** ed è espresso nel formato **xxxxnamespace**. In altre parole, rimuovere il prefisso **sb://** e il suffisso **.servicebus.windows.net** dal valore dell'endpoint compatibile con l'hub eventi proveniente dal portale.
-
+    
     ```
     String policyName = "iothubowner";
     String policyKey = "{youriothubkey}";
@@ -203,25 +187,24 @@ In questa sezione si creerà un'app console di Java che legge i messaggi da disp
     Thread t0 = new Thread(mr0);
     Thread t1 = new Thread(mr1);
     t0.start(); t1.start();
-
+    
     System.out.println("Press ENTER to exit.");
     System.in.read();
     mr0.stopThread = true;
     mr1.stopThread = true;
     client.close();
     ```
-
-    > [AZURE.NOTE] Questo codice presuppone che l'hub IoT sia stato creato nel livello F1 gratuito. Un hub IoT gratuito ha due partizioni denominate "0" e "1". Se l'hub IoT è stato creato con un altro piano tariffario, è consigliabile modificare il codice per creare un elemento **MessageReceiver** per ogni partizione.
-
+    
+    > [!NOTE]
+    > Questo codice presuppone che l'hub IoT sia stato creato nel livello F1 gratuito. Un hub IoT gratuito ha due partizioni denominate "0" e "1". Se l'hub IoT è stato creato con un altro piano tariffario, è consigliabile modificare il codice per creare un elemento **MessageReceiver** per ogni partizione.
+    > 
+    > 
 13. Salvare e chiudere il file App.java.
-
 14. Per compilare l'applicazione **read-d2c-messages** con Maven, al prompt dei comandi nella cartella read-d2c-messages eseguire il comando seguente:
-
+    
     ```
     mvn clean package -DskipTests
     ```
-
-
 
 <!-- Links -->
 

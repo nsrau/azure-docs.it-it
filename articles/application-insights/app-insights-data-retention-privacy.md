@@ -1,26 +1,24 @@
-<properties 
-	pageTitle="Conservazione e archiviazione dei dati in Application Insights" 
-	description="Informativa sulla conservazione e sulla privacy" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Conservazione e archiviazione dei dati in Application Insights
+description: Informativa sulla conservazione e sulla privacy
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/17/2016" 
-	ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 05/17/2016
+ms.author: awills
 
-# Raccolta, conservazione e archiviazione di dati in Application Insights 
-
+---
+# Raccolta, conservazione e archiviazione di dati in Application Insights
 *Application Insights è disponibile in anteprima.*
 
 Quando si installa [Visual Studio Application Insights][start] SDK nell'app, vengono inviati i dati di telemetria sull'app nel cloud. Naturalmente, gli sviluppatori responsabili vogliono sapere esattamente quali dati vengono inviati, cosa accade ai dati e come possono mantenerne il controllo. In particolare, devono sapere se possono essere inviati dati sensibili, dove vengono archiviati e quale livello di sicurezza viene applicato.
-
 
 Innanzitutto, chiariamo alcuni aspetti:
 
@@ -31,9 +29,7 @@ Innanzitutto, chiariamo alcuni aspetti:
 
 Nella parte restante di questo articolo verranno elaborate ulteriormente queste risposte. Questa parte è progettata per essere indipendente dal resto, pertanto è possibile mostrarla ai colleghi che non fanno parte del proprio team.
 
-
 ## Informazioni su Azure Application Insights
-
 [Visual Studio Application Insights][start] è un servizio Microsoft che consente di migliorare le prestazioni e la facilità d’uso di un'applicazione live. Esegue il monitoraggio dell'applicazione per tutto il tempo che è in esecuzione, sia durante il test che dopo la pubblicazione o la distribuzione. Application Insights crea grafici e tabelle che illustrano, ad esempio, in quali ore del giorno si ottengono più utenti, i tempi di risposta dell'app e come funzionano i servizi esterni da cui dipende. Se sono presenti arresti anomali del sistema, errori o problemi di prestazioni, è possibile cercare i dati di telemetria in dettaglio per diagnosticare la causa. Inoltre, il servizio invierà messaggi di posta elettronica in caso di modifiche della disponibilità e delle prestazioni dell'app.
 
 Per ottenere questa funzionalità, installare Application Insights SDK nell'applicazione, che diventa parte del codice. Quando l'app è in esecuzione, l’SDK monitora il funzionamento e invia i dati di telemetria al servizio Application Insights. Si tratta di un servizio cloud ospitato da [Microsoft Azure](http://azure.com). Application Insights funziona tuttavia per tutte le applicazioni, non solo quelle ospitate in Azure.
@@ -47,20 +43,17 @@ Il servizio Application Insights archivia e analizza i dati di telemetria. Per v
 Sono disponibili Application Insights SDK per una gamma di tipi di applicazioni: servizi Web ospitati nei server J2EE o ASP.NET o in Azure; client Web, ovvero il codice in esecuzione in una pagina Web; app desktop e servizi; app per dispositivi, ad esempio Windows Phone, iOS e Android. Tutti inviano i dati di telemetria allo stesso servizio.
 
 ## Quali dati raccoglie?
-
 ### Come vengono raccolti?
-
 Esistono tre origini dati:
 
 * L’SDK, che viene integrato nell'app [in fase di sviluppo](app-insights-asp-net.md) o [in fase di esecuzione](app-insights-monitor-performance-live-website-now.md). Sono disponibili diversi SDK per diversi tipi di applicazione. È inoltre disponibile un [SDK per le pagine Web](app-insights-javascript.md), che viene caricato nel browser dell'utente finale insieme alla pagina.
-
- * Ogni SDK include un numero di [moduli](app-insights-configuration-with-applicationinsights-config.md), che utilizzano tecniche diverse per raccogliere tipi diversi di dati di telemetria.
- * Se si installa l’SDK in fase di sviluppo, è possibile utilizzare l'API per inviare dati di telemetria personalizzati, oltre ai moduli standard. Tali dati di telemetria personalizzati possono includere qualsiasi tipo di dati si voglia inviare.
+  
+  * Ogni SDK include un numero di [moduli](app-insights-configuration-with-applicationinsights-config.md), che utilizzano tecniche diverse per raccogliere tipi diversi di dati di telemetria.
+  * Se si installa l’SDK in fase di sviluppo, è possibile utilizzare l'API per inviare dati di telemetria personalizzati, oltre ai moduli standard. Tali dati di telemetria personalizzati possono includere qualsiasi tipo di dati si voglia inviare.
 * In alcuni server Web sono disponibili anche agenti che vengono eseguiti insieme all'applicazione e inviano dati di telemetria su CPU, memoria e occupazione della rete. Ad esempio, macchine virtuali di Azure, host Docker e [server J2EE](app-insights-java-agent.md) possono disporre di tali agenti.
 * I [test di disponibilità](app-insights-monitor-web-app-availability.md) sono processi eseguiti da Microsoft che inviano richieste all'app Web a intervalli regolari. I risultati vengono inviati al servizio Application Insights.
 
 ### Quali tipi di dati vengono raccolti?
-
 Le categorie principali sono:
 
 * [Dati di telemetria del server Web](app-insights-asp-net.md): richieste HTTP, URI, tempo impiegato per elaborare la richiesta, codice di risposta, indirizzo IP del client, ID sessione.
@@ -75,7 +68,6 @@ Le categorie principali sono:
 [Maggiori dettagli](#data-sent-by-application-insights).
 
 ## Come è possibile verificare cosa viene raccolto?
-
 Se si sviluppa l'app con Visual Studio, eseguire l'app in modalità di debug (F5). I dati di telemetria vengono visualizzati nella finestra di output. Da qui, è possibile copiarli e formattarli come JSON per semplificare l'ispezione.
 
 ![](./media/app-insights-data-retention-privacy/06-vs.png)
@@ -87,45 +79,32 @@ Per le pagine Web, aprire la finestra di debug del browser.
 ![Premere F12 e aprire la scheda Rete.](./media/app-insights-data-retention-privacy/08-browser.png)
 
 ### È possibile scrivere codice per filtrare i dati di telemetria prima che vengano inviati?
-
 Questo sarebbe possibile scrivendo un [plug-in del processore di telemetria](app-insights-api-filtering-sampling.md).
 
-
-
-## Per quanto tempo vengono conservati i dati? 
-
+## Per quanto tempo vengono conservati i dati?
 I punti dati non elaborati, ovvero elementi di dati ispezionabili nella ricerca diagnostica, vengono conservati per un periodo di 7 giorni. Per conservare i dati più a lungo, è possibile usare l'[esportazione continua](app-insights-export-telemetry.md) per copiarli in un account di archiviazione.
 
 I dati aggregati, ovvero conteggi, medie e altri dati statistici visualizzati in Esplora metriche, vengono conservati con livello di dettaglio di un minuto per 30 giorni e con livello di dettaglio di un'ora o un giorno, a seconda del tipo, per almeno 90 giorni.
 
-
 ## Chi può accedere ai dati?
-
 I dati sono visibili all'utente e, se si usa un account aziendale, ai membri del team dell'utente.
 
 Possono essere esportati dall'utente e dai membri del team e possono essere copiati in altri percorsi e passati ad altri utenti.
 
 #### In che modo Microsoft usa le informazioni inviate dall'app ad Application Insights?
-
 Microsoft usa i dati solo al fine di fornire il servizio all'utente.
 
-
-## Dove vengono archiviati i dati? 
-
+## Dove vengono archiviati i dati?
 * Negli Stati Uniti.
 
-#### È possibile archiviarli altrove, ad esempio in Europa? 
-
+#### È possibile archiviarli altrove, ad esempio in Europa?
 * Attualmente no.
 
 #### Significa che l'app deve essere ospitata negli Stati Uniti?
-
 * No. L'applicazione può essere eseguita ovunque, nel proprio host locale o nel Cloud.
 
-## Quanto sono sicuri i dati?  
-
+## Quanto sono sicuri i dati?
 Application Insights è un servizio di Azure disponibile in anteprima. Durante la fase di anteprima Microsoft si impegna a proteggere i dati degli utenti in base ai criteri descritti nel [white paper su sicurezza, privacy e conformità di Azure](http://go.microsoft.com/fwlink/?linkid=392408).
-
 
 I dati vengono archiviati nei server di Microsoft Azure. Per gli account nel portale di Azure, le restrizioni relative all'account sono illustrate nel [documento relativo a sicurezza, privacy e conformità di Azure](http://go.microsoft.com/fwlink/?linkid=392408). Per gli account nel portale di Visual Studio Team Services, è invece applicabile il documento sulla [protezione dei dati di Visual Studio Team Services](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf).
 
@@ -134,25 +113,20 @@ L'accesso ai dati da parte del personale Microsoft è limitato. Il personale Mic
 I dati in forma aggregata in tutte le applicazioni dei clienti, ad esempio le frequenze dei dati e le dimensioni medie delle tracce, vengono usati per migliorare Application Insights.
 
 #### È possibile che i dati di telemetria di altri utenti interferiscano con i dati di Application Insights?
-
 È possibile che altri utenti inviino dati di telemetria aggiuntivi all'account dell'utente usando la chiave di strumentazione, disponibile nel codice delle pagine Web. Con una quantità sufficiente di dati aggiuntivi, è possibile che le metriche dell'utente non rappresentino correttamente le prestazioni e l'utilizzo dell'app.
 
 Se si condivide codice con altri progetti, è necessario ricordare di rimuovere la chiave di strumentazione.
 
-## I dati vengono crittografati? 
-
+## I dati vengono crittografati?
 Non all'interno dei server, attualmente.
 
 Tutti i dati vengono crittografati durante lo spostamento tra data center.
 
 #### I dati vengono crittografati durante il transito dall'applicazione ai server di Application Insights?
-
 Sì, viene usato HTTPS per l'invio dei dati al portale da quasi tutti gli SDK, inclusi i server Web, i dispositivi e le pagine Web HTTPS. L'unica eccezione è costituita dai dati inviati da semplici pagine Web HTTP.
 
 ## Informazioni personali
-
-#### È possibile che vengano inviate informazioni personali ad Application Insights? 
-
+#### È possibile che vengano inviate informazioni personali ad Application Insights?
 Sì, è possibile.
 
 Indicazioni generali:
@@ -161,95 +135,77 @@ Indicazioni generali:
 * I messaggi di eccezione e di traccia potrebbero contenere informazioni personali
 * I dati di telemetria personalizzati, ovvero chiamate quali TrackEvent scritte nel codice dall'utente mediante API o tracce del log, possono includere qualsiasi dato scelto dall'utente.
 
-
 La tabella alla fine del documento include descrizioni più dettagliate dei dati raccolti.
 
-
-
 #### La responsabilità relativa alla conformità alle leggi e alle normative in ambito di informazioni personali è a carico dell'utente?
-
 Sì. È responsabilità dell'utente assicurare che la raccolta e l'uso dei dati siano conformi alle leggi e alle normative e alle condizioni di Microsoft Online Services.
 
 È consigliabile informare i clienti in modo appropriato in merito ai dati raccolti dall'applicazione e al relativo uso.
 
 #### Gli utenti possono disattivare Application Insights?
-
 Non direttamente. Non viene fornita alcuna opzione che gli utenti possono usare per disattivare Application Insights.
 
 È tuttavia possibile implementare una funzionalità di questo tipo nell'applicazione. Tutti gli SDK includono un'impostazione dell'API che disattiva la raccolta di dati di telemetria.
 
 #### L'applicazione raccoglie involontariamente informazioni riservate. Application Insights può eliminare questi dati in modo che non vengano conservati?
-
 Application Insights non filtra o elimina i dati. È consigliabile gestire i dati in modo appropriato ed evitare di inviare tali dati ad Application Insights.
 
-
-
 ## Dati inviati da Application Insights
-
 Gli SDK sono diversi per le piattaforme specifiche e sono disponibili vari componenti da installare. Fare riferimento a [Application Insights - Guida introduttiva][start]. Ogni componente invia dati diversi.
 
 #### Classi di dati inviati nei diversi scenari
-
-Azione | Classi di dati raccolte (vedere la tabella seguente)
----|---
-[Aggiungere Application Insights SDK a un progetto Web .NET][greenbrown] | ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>users
-[Installare Status Monitor su IIS.][redfield]|Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters
-[Aggiungere Application Insights SDK a un'app Web Java][java]|ServerContext<br/>Inferred<br/>Request<br/>Session<br/>users
-[Aggiungere JavaScript SDK a una pagina Web][client]|ClientContext <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax
-[Definire le proprietà predefinite][apiproperties]|**Properties** in tutti gli eventi standard e personalizzati
-[Chiamare TrackMetric][api]|Valori numerici<br/>**Properties**
-[Chiamare Track*][api]|Nome evento<br/>**Properties**
-[Chiamare TrackException][api]|**Exceptions**<br/>Dump dello stack<br/>**Properties**
-SDK non riesce a raccogliere dati. Ad esempio: <br/> - Non è possibile accedere ai contatori delle prestazioni<br/> - Eccezione nell'inizializzatore di telemetria | Diagnostica di SDK
- 
+| Azione | Classi di dati raccolte (vedere la tabella seguente) |
+| --- | --- |
+| [Aggiungere Application Insights SDK a un progetto Web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>users |
+| [Installare Status Monitor su IIS.][redfield] |Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters |
+| [Aggiungere Application Insights SDK a un'app Web Java][java] |ServerContext<br/>Inferred<br/>Request<br/>Session<br/>users |
+| [Aggiungere JavaScript SDK a una pagina Web][client] |ClientContext <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax |
+| [Definire le proprietà predefinite][apiproperties] |**Properties** in tutti gli eventi standard e personalizzati |
+| [Chiamare TrackMetric][api] |Valori numerici<br/>**Properties** |
+| [Chiamare Track*][api] |Nome evento<br/>**Properties** |
+| [Chiamare TrackException][api] |**Exceptions**<br/>Dump dello stack<br/>**Properties** |
+| SDK non riesce a raccogliere dati. Ad esempio: <br/> - Non è possibile accedere ai contatori delle prestazioni<br/> - Eccezione nell'inizializzatore di telemetria |Diagnostica di SDK |
 
 Per informazioni sugli [SDK per altre piattaforme][platforms], vedere i relativi documenti.
 
-
-
 #### Classi dei dati raccolti
-
-Classe di dati raccolti | Include (elenco non completo) 
----|---
-**Proprietà**|**Qualsiasi dato, in base al codice**
-DeviceContext |ID, IP, impostazioni locali, modello dispositivo, rete, tipo di rete, nome OEM, risoluzione dello schermo, istanza del ruolo, nome ruolo, tipo di dispositivo.
-ClientContext |Sistema operativo, impostazioni locali, lingua, rete, risoluzione della finestra.
-Session | ID sessione
-ServerContext |Nome computer, impostazioni locali, sistema operativo, dispositivo, sessione utente, contesto utente, operazione. 
-Inferred |Area geografica in base a indirizzo IP, timestamp, sistema operativo, browser.
-Metrica | Nome e valore della metrica.
-Eventi | Nome e valore dell'evento.
-PageViews | URL e nome della pagina o della schermata.
-Client perf | URL/nome pagina, tempo di caricamento del browser.
-Ajax | Chiamate HTTP dalla pagina Web al server
-Requests |URL, durata, codice di risposta.
-Dependencies|Tipo (SQL, HTTP, ...), stringa di connessione o URI, sincrono/asincrono, durata, esito positivo, istruzione SQL (con Monitoraggio stato)
-**Eccezioni** | Tipo, **messaggio**, stack di chiamate, file di origine e numero di riga, ID thread.
-Crashes | ID processo, ID processo padre, ID thread di arresto anomalo, patch applicazione, ID, compilazione, tipo di eccezione, indirizzo, motivo, simboli e registri offuscati, indirizzi di inizio e fine binari, nome e percorso binario, tipo di CPU.
-Trace | **Messaggio** e livello di gravità.
-Perf counters | Tempo processore, memoria disponibile, frequenza di richieste, frequenza di eccezioni, byte privati del processo, velocità di I/O, durata richiesta, lunghezza coda richiesta.
-Disponibilità | Codice di risposta del test Web, durata di ogni passo del test, nome del test, timestamp, esito positivo, tempo di risposta, posizione del test
-Diagnostica di SDK | Messaggio di traccia o eccezione 
+| Classe di dati raccolti | Include (elenco non completo) |
+| --- | --- |
+| **Proprietà** |**Qualsiasi dato, in base al codice** |
+| DeviceContext |ID, IP, impostazioni locali, modello dispositivo, rete, tipo di rete, nome OEM, risoluzione dello schermo, istanza del ruolo, nome ruolo, tipo di dispositivo. |
+| ClientContext |Sistema operativo, impostazioni locali, lingua, rete, risoluzione della finestra. |
+| Session |ID sessione |
+| ServerContext |Nome computer, impostazioni locali, sistema operativo, dispositivo, sessione utente, contesto utente, operazione. |
+| Inferred |Area geografica in base a indirizzo IP, timestamp, sistema operativo, browser. |
+| Metrica |Nome e valore della metrica. |
+| Eventi |Nome e valore dell'evento. |
+| PageViews |URL e nome della pagina o della schermata. |
+| Client perf |URL/nome pagina, tempo di caricamento del browser. |
+| Ajax |Chiamate HTTP dalla pagina Web al server |
+| Requests |URL, durata, codice di risposta. |
+| Dependencies |Tipo (SQL, HTTP, ...), stringa di connessione o URI, sincrono/asincrono, durata, esito positivo, istruzione SQL (con Monitoraggio stato) |
+| **Eccezioni** |Tipo, **messaggio**, stack di chiamate, file di origine e numero di riga, ID thread. |
+| Crashes |ID processo, ID processo padre, ID thread di arresto anomalo, patch applicazione, ID, compilazione, tipo di eccezione, indirizzo, motivo, simboli e registri offuscati, indirizzi di inizio e fine binari, nome e percorso binario, tipo di CPU. |
+| Trace |**Messaggio** e livello di gravità. |
+| Perf counters |Tempo processore, memoria disponibile, frequenza di richieste, frequenza di eccezioni, byte privati del processo, velocità di I/O, durata richiesta, lunghezza coda richiesta. |
+| Disponibilità |Codice di risposta del test Web, durata di ogni passo del test, nome del test, timestamp, esito positivo, tempo di risposta, posizione del test |
+| Diagnostica di SDK |Messaggio di traccia o eccezione |
 
 È possibile [disattivare alcuni dei dati modificando ApplicationInsights.config][config]
 
-
 ## Credits
-
 Questo prodotto include dati GeoLite2 creati da MaxMind, disponibile nel sito [http://www.maxmind.com](http://www.maxmind.com).
 
 ## <a name="video"></a>Video
+#### Introduzione
+> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Application-Insights-Introduction/player]
+> 
+> 
 
 #### Introduzione
-
-> [AZURE.VIDEO application-insights-introduction]
-
-#### Introduzione
-
-> [AZURE.VIDEO getting-started-with-application-insights]
-
-
-
+> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Getting-Started-with-Application-Insights/player]
+> 
+> 
 
 <!--Link references-->
 
@@ -264,6 +220,6 @@ Questo prodotto include dati GeoLite2 creati da MaxMind, disponibile nel sito [h
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
- 
+
 
 <!---HONumber=AcomDC_0907_2016-->

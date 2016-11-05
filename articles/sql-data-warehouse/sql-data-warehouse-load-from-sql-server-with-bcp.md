@@ -1,64 +1,60 @@
-<properties
-   pageTitle="Caricare dati da SQL Server in Azure SQL Data Warehouse (bcp) | Microsoft Azure"
-   description="Per dimensioni ridotte dei dati è possibile usare bcp per esportare i dati da SQL Server a file flat e importare i dati direttamente in Azure SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
-   editor=""/>
+---
+title: Caricare dati da SQL Server in Azure SQL Data Warehouse (bcp) | Microsoft Docs
+description: Per dimensioni ridotte dei dati è possibile usare bcp per esportare i dati da SQL Server a file flat e importare i dati direttamente in Azure SQL Data Warehouse.
+services: sql-data-warehouse
+documentationcenter: NA
+author: lodipalm
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/30/2016"
-   ms.author="lodipalm;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/30/2016
+ms.author: lodipalm;barbkess;sonyama
 
-
+---
 # Caricare dati da SQL Server in Azure SQL Data Warehouse (file flat)
-
-> [AZURE.SELECTOR]
-- [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
-- [PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
-- [bcp](sql-data-warehouse-load-from-sql-server-with-bcp.md)
+> [!div class="op_single_selector"]
+> * [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+> * [PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+> * [bcp](sql-data-warehouse-load-from-sql-server-with-bcp.md)
+> 
+> 
 
 Per set di dati di piccole dimensioni è possibile usare l'utilità della riga di comando bcp per esportare i dati da SQL Server e quindi caricarli direttamente in Azure SQL Data Warehouse.
 
 In questa esercitazione si userà bcp per eseguire queste operazioni:
 
-- Esportare una tabella da SQL Server usando il comando bcp out oppure creare un semplice file di esempio.
-- Importare la tabella da un file flat in SQL Data Warehouse.
-- Creare statistiche sui dati caricati.
+* Esportare una tabella da SQL Server usando il comando bcp out oppure creare un semplice file di esempio.
+* Importare la tabella da un file flat in SQL Data Warehouse.
+* Creare statistiche sui dati caricati.
 
->[AZURE.VIDEO loading-data-into-azure-sql-data-warehouse-with-bcp]
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
+> 
+> 
 
 ## Prima di iniziare
-
 ### Prerequisiti
-
 Per eseguire questa esercitazione, è necessario:
 
-- Un database di SQL Data Warehouse
-- Utilità della riga di comando bcp installata
-- Utilità della riga di comando sqlcmd installata
+* Un database di SQL Data Warehouse
+* Utilità della riga di comando bcp installata
+* Utilità della riga di comando sqlcmd installata
 
-È possibile scaricare le utilità bcp e sqlcmd dall'[Area download Microsoft][].
+È possibile scaricare le utilità bcp e sqlcmd dall'[Area download Microsoft][Area download Microsoft].
 
 ### Dati in formato ASCII o UTF-16
-
 Se si prova a eseguire questa esercitazione con dati personalizzati, è necessario che i dati usino la codifica ASCII o UTF-16, perché bcp non supporta UTF-8.
 
 PolyBase supporta UTF-8 ma non supporta ancora UTF-16. Si noti che se si vuole associare bcp con PolyBase, sarà necessario trasformare i dati in UTF-8 dopo l'esportazione da SQL Server.
 
-
 ## 1\. Creare una tabella di destinazione
-
 Definire una tabella in SQL Data Warehouse da usare come tabella di destinazione per il caricamento. Le colonne della tabella devono corrispondere ai dati in ogni riga del file di dati.
 
 Per creare una tabella, aprire un prompt dei comandi e usare sqlcmd.exe per eseguire i comandi seguenti:
-
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
@@ -78,7 +74,6 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 
 ## 2\. Creare un file di dati di origine
-
 Aprire il Blocco note, copiare le righe di dati seguenti in un nuovo file di testo e quindi salvare il file nella directory temporanea locale, C:\\Temp\\DimDate2.txt. I dati hanno formato ASCII.
 
 ```
@@ -119,24 +114,23 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 I risultati dovrebbero avere l'aspetto seguente:
 
-DateId |CalendarQuarter |FiscalQuarter
------------ |--------------- |-------------
-20150101 |1 |3
-20150201 |1 |3
-20150301 |1 |3
-20150401 |2 |4
-20150501 |2 |4
-20150601 |2 |4
-20150701 |3 |1
-20150801 |3 |1
-20150801 |3 |1
-20151001 |4 |2
-20151101 |4 |2
-20151201 |4 |2
+| DateId | CalendarQuarter | FiscalQuarter |
+| --- | --- | --- |
+| 20150101 |1 |3 |
+| 20150201 |1 |3 |
+| 20150301 |1 |3 |
+| 20150401 |2 |4 |
+| 20150501 |2 |4 |
+| 20150601 |2 |4 |
+| 20150701 |3 |1 |
+| 20150801 |3 |1 |
+| 20150801 |3 |1 |
+| 20151001 |4 |2 |
+| 20151101 |4 |2 |
+| 20151201 |4 |2 |
 
 ## 4\. Creare le statistiche
-
-SQL Data Warehouse non supporta ancora la creazione automatica o l'aggiornamento automatico delle statistiche. Per ottenere le prestazioni migliori per le query, è importante creare statistiche su tutte le colonne di tutte le tabelle dopo il primo caricamento o dopo qualsiasi modifica significativa ai dati. Per una spiegazione dettagliata delle statistiche, vedere [Statistiche][].
+SQL Data Warehouse non supporta ancora la creazione automatica o l'aggiornamento automatico delle statistiche. Per ottenere le prestazioni migliori per le query, è importante creare statistiche su tutte le colonne di tutte le tabelle dopo il primo caricamento o dopo qualsiasi modifica significativa ai dati. Per una spiegazione dettagliata delle statistiche, vedere [Statistiche][Statistiche].
 
 Eseguire il comando seguente per creare le statistiche nella tabella appena caricata.
 
@@ -154,7 +148,6 @@ Se si vuole, è possibile esportare i dati appena caricati da SQL Data Warehouse
 I risultati presentano tuttavia una differenza. Poiché i dati vengono archiviati in posizioni distribuite in SQL Data Warehouse, quando si esportano i dati ogni nodo di calcolo scrive i rispettivi dati nel file di output. L'ordine dei dati nel file di output sarà probabilmente diverso dall'ordine dei dati nel file di input.
 
 ### Esportare una tabella e confrontare i risultati esportati
-
 Per visualizzare i dati esportati, aprire un prompt dei comandi ed eseguire questo comando usando parametri personalizzati. ServerName è il nome del server SQL logico di Azure.
 
 ```sql
@@ -178,11 +171,10 @@ Per verificare che i dati siano stati esportati correttamente, aprire il nuovo f
 ```
 
 ### Esportare i risultati di una query
-
 È possibile usare la funzione **queryout** di bcp per esportare i risultati di una query invece di esportare l'intera tabella.
 
 ## Passaggi successivi
-Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehouse][]. Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][]. Per altre informazioni sulla creazione di una tabella in SQL Data Warehouse, vedere [Overview of tables in SQL Data Warehouse][] (Panoramica delle tabella in SQL Data Warehouse) o la sintassi di [CREATE TABLE][].
+Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehouse][Caricare i dati in SQL Data Warehouse]. Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][Panoramica sullo sviluppo per SQL Data Warehouse]. Per altre informazioni sulla creazione di una tabella in SQL Data Warehouse, vedere [Overview of tables in SQL Data Warehouse][Overview of tables in SQL Data Warehouse] (Panoramica delle tabella in SQL Data Warehouse) o la sintassi di [CREATE TABLE][CREATE TABLE].
 
 <!--Image references-->
 

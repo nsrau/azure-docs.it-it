@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Eventi di Reliable Actors | Microsoft Azure"
-   description="Introduzione agli eventi per Service Fabric Reliable Actors"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="vturecek"
-   manager="timlt"
-   editor=""/>
+---
+title: Eventi di Reliable Actors | Microsoft Docs
+description: Introduzione agli eventi per Service Fabric Reliable Actors
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/30/2016"
-   ms.author="amanbha"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/30/2016
+ms.author: amanbha
 
-
+---
 # Eventi relativi agli attori
 Gli eventi relativi agli attori consentono l'invio di notifiche il più possibile accurate dall'attore ai client. Tali eventi sono stati progettati per la comunicazione tra attore e client e non è consigliabile usarli per la comunicazione tra attori.
 
@@ -73,9 +72,9 @@ ev.GameScoreUpdated(Id.GetGuidId(), score);
 ```
 
 ## Passaggi successivi
- - [Rientranza di Reliable Actors](service-fabric-reliable-actors-reentrancy.md)
- - [Diagnostica e monitoraggio delle prestazioni per Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
- - [Documentazione di riferimento delle API di Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
- - [Codice di esempio](https://github.com/Azure/servicefabric-samples)
+* [Rientranza di Reliable Actors](service-fabric-reliable-actors-reentrancy.md)
+* [Diagnostica e monitoraggio delle prestazioni per Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+* [Documentazione di riferimento delle API di Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Codice di esempio](https://github.com/Azure/servicefabric-samples)
 
 <!---HONumber=AcomDC_0907_2016-->

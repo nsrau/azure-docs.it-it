@@ -1,5 +1,4 @@
 ### Creare l'applicazione console e ottenere l'assembly
-
 Per creare una nuova applicazione console in Visual Studio e installare il pacchetto NuGet contenente la libreria client di archiviazione di Azure:
 
 1. In Visual Studio scegliere **File > Nuovo progetto** e quindi **Windows > Applicazione console** dall'elenco di modelli di Visual C#.

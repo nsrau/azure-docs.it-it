@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Informazioni sui criteri di sicurezza del servizio e dell'applicazione di Service Fabric | Microsoft Azure"
-   description="Panoramica dell'esecuzione di un'applicazione di Service Fabric con account di sicurezza di sistema e locali, incluso il punto SetupEntry in cui un'applicazione deve eseguire un'azione con privilegi prima dell'avvio"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="msfussell"
-   manager="timlt"
-   editor=""/>
+---
+title: Informazioni sui criteri di sicurezza del servizio e dell'applicazione di Service Fabric | Microsoft Docs
+description: Panoramica dell'esecuzione di un'applicazione di Service Fabric con account di sicurezza di sistema e locali, incluso il punto SetupEntry in cui un'applicazione deve eseguire un'azione con privilegi prima dell'avvio
+services: service-fabric
+documentationcenter: .net
+author: msfussell
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/22/2016"
-   ms.author="mfussell"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/22/2016
+ms.author: mfussell
 
-
+---
 # <a name="configure-security-policies-for-your-application"></a>Configurare i criteri di sicurezza per l'applicazione
 Azure Service Fabric consente di proteggere le applicazioni in esecuzione nel cluster con account utente diversi. Service Fabric permette anche di proteggere le risorse usate dalle applicazioni in fase di distribuzione con l'account utente, ad esempio file, directory e certificati. In questo modo le applicazioni in esecuzione, anche in un ambiente ospitato condiviso, sono reciprocamente protette. 
 
@@ -27,7 +26,6 @@ Per impostazione predefinita, le applicazioni di Service Fabric vengono eseguite
 È possibile definire e creare gruppi di utenti per aggiungere uno o più utenti a ogni gruppo e gestirli insieme. Questo aspetto è utile quando sono presenti più utenti per punti di ingresso del servizio differenti che devono avere determinati privilegi comuni disponibili a livello di gruppo.
 
 ## <a name="configure-the-policy-for-service-setupentrypoint"></a>Configurare i criteri per l'oggetto SetupEntryPoint del servizio
-
 Come descritto nel [modello applicativo](service-fabric-application-model.md) , **SetupEntryPoint** è un punto di ingresso con privilegi che viene eseguito con le stesse credenziali di Service Fabric (in genere, l'account *NetworkService* ) prima di qualsiasi altro punto di ingresso. Dal momento che l'eseguibile specificato da **EntryPoint** è in genere l'host servizio a esecuzione prolungata, avere un punto di ingresso di configurazione separato evita di dover eseguire l'eseguibile dell'host servizio con privilegi elevati per periodi di tempo estesi. L'eseguibile specificato da **EntryPoint** viene eseguito dopo che **SetupEntryPoint** termina correttamente. Il processo risultante viene monitorato e riavviato (iniziando di nuovo con **SetupEntryPoint**) se termina o si arresta in modo anomalo.
 
 Il seguente è un semplice esempio di manifesto del servizio in cui sono presenti SetupEntryPoint e l'elemento EntryPoint principale per il servizio.
@@ -57,7 +55,6 @@ Il seguente è un semplice esempio di manifesto del servizio in cui sono present
 ~~~
 
 ### <a name="configure-the-policy-using-a-local-account"></a>Configurare i criteri usando un account locale
-
 Dopo aver configurato un punto di ingresso di configurazione per il servizio, è possibile modificare le autorizzazioni di sicurezza in base alle quali viene eseguito nel manifesto dell'applicazione. L'esempio seguente illustra come configurare il servizio per l'esecuzione con i privilegi dell'account amministratore utenti.
 
 ~~~
@@ -117,7 +114,7 @@ Annotare il nome del nodo in cui il servizio è stato distribuito e avviato in S
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ~~~
 
-###  <a name="configure-the-policy-using-local-system-accounts"></a>Configurare i criteri usando gli account di sistema locale
+### <a name="configure-the-policy-using-local-system-accounts"></a>Configurare i criteri usando gli account di sistema locale
 Spesso è preferibile eseguire lo script di avvio usando un account di sistema locale invece di un account amministratore, come illustrato prima. L'esecuzione dei criteri RunAs come amministratori in genere non ha esito positivo in quanto per i computer è abilitato il controllo di accesso dell'utente per impostazione predefinita. In questi casi, **si consiglia di eseguire SetupEntryPoint come LocalSystem invece che come utente locale aggiunto al gruppo di amministratori**. L'esempio seguente illustra l'impostazione di SetupEntryPoint per l'esecuzione come LocalSystem.
 
 ~~~
@@ -138,9 +135,8 @@ Spesso è preferibile eseguire lo script di avvio usando un account di sistema l
 </ApplicationManifest>
 ~~~
 
-##  <a name="launch-powershell-commands-from-a-setupentrypoint"></a>Avviare i comandi di PowerShell da SetupEntryPoint
+## <a name="launch-powershell-commands-from-a-setupentrypoint"></a>Avviare i comandi di PowerShell da SetupEntryPoint
 Per eseguire PowerShell dal punto **SetupEntryPoint**, è possibile eseguire **PowerShell.exe** in un file batch che punta a un file di PowerShell. Aggiungere prima di tutto un file di PowerShell al progetto del servizio, ad esempio **MySetup.ps1**. Ricordarsi di impostare la proprietà *Copia se più recente* in modo che il file venga incluso anche nel pacchetto servizio. L'esempio seguente illustra un file batch di esempio per avviare un file di PowerShell denominato MySetup.ps1, che imposta una variabile di ambiente di sistema denominata **TestVariable**.
-
 
 MySetup. bat per avviare il file di PowerShell.
 
@@ -191,7 +187,7 @@ Echo "Test console redirection which writes to the application log folder on the
 
 **Dopo aver eseguito il debug dello script, rimuovere immediatamente i criteri di reindirizzamento della console**
 
-## <a name="configure-policy-for-service-code-packages"></a>Configurare i criteri per il pacchetto di codice del servizio 
+## <a name="configure-policy-for-service-code-packages"></a>Configurare i criteri per il pacchetto di codice del servizio
 Nei passaggi precedenti è stato illustrato come applicare i criteri RunAs a SetupEntryPoint. A questo punto è possibile vedere come creare entità diverse che possono essere applicate come criteri del servizio.
 
 ### <a name="create-local-user-groups"></a>Creare gruppi di utenti locali
@@ -365,7 +361,6 @@ Il manifesto dell'applicazione seguente illustra molte delle impostazioni:
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passaggi successivi
-
 * [Informazioni sul modello applicativo](service-fabric-application-model.md)
 * [Specificare le risorse in un manifesto del servizio](service-fabric-service-manifest-resources.md)
 * [Distribuire un'applicazione](service-fabric-deploy-remove-applications.md)

@@ -1,30 +1,31 @@
-<properties
-	pageTitle="Introduzione all'autenticazione (Xamarin.iOS) - Servizi mobili"
-	description="Informazioni su come usare l'autenticazione nell'app Servizi mobili di Azure per Xamarin.iOS."
-	documentationCenter="xamarin"
-	services="mobile-services"
-	manager="dwrede"
-	authors="lindydonna"
-	editor=""/>
+---
+title: Introduzione all'autenticazione (Xamarin.iOS) - Servizi mobili
+description: Informazioni su come usare l'autenticazione nell'app Servizi mobili di Azure per Xamarin.iOS.
+documentationcenter: xamarin
+services: mobile-services
+manager: dwrede
+author: lindydonna
+editor: ''
 
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-xamarin-ios
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: donnam
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-ios"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="donnam"/>
-
+---
 # Aggiungere l'autenticazione all'app di Servizi mobili
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+[!INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 > Per la versione equivalente di questo argomento per le app per dispositivi mobili, vedere [Aggiungere l'autenticazione all'app Xamarin.iOS](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md).
+> 
+> 
 
 Questo argomento illustra come autenticare gli utenti in Servizi mobili di Azure dalla propria app. Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.
 
@@ -38,34 +39,27 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 Per completare questa esercitazione, è necessario avere [Xamarin Studio], XCode 6.0 e iOS 7.0 o versioni successive.
 
-##<a name="register"></a>Registrare l'app per l'autenticazione e configurare Servizi mobili
+## <a name="register"></a>Registrare l'app per l'autenticazione e configurare Servizi mobili
+[!INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
+## <a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati
+[!INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-##<a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati
-
-
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
-
-
-3. In Xcode aprire il progetto creato dopo avere completato l'esercitazione [Introduzione a Servizi mobili].
-
-4. Premere il pulsante **Run** per compilare il progetto e avviare l'app nell'emulatore iPhone e verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (Non autorizzato).
-
-   	L'eccezione non gestita viene generata perché l'app tenta di accedere a Servizi mobili come utente non autenticato, mentre la tabella _TodoItem_ richiede ora l'autenticazione.
+1. In Xcode aprire il progetto creato dopo avere completato l'esercitazione [Introduzione a Servizi mobili].
+2. Premere il pulsante **Run** per compilare il progetto e avviare l'app nell'emulatore iPhone e verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (Non autorizzato).
+   
+       L'eccezione non gestita viene generata perché l'app tenta di accedere a Servizi mobili come utente non autenticato, mentre la tabella _TodoItem_ richiede ora l'autenticazione.
 
 A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di richiedere risorse al servizio mobile.
 
-##<a name="add-authentication"></a>Aggiungere l'autenticazione all'app
-
+## <a name="add-authentication"></a>Aggiungere l'autenticazione all'app
 1. Aprire il file del progetto **QSToDoService** e aggiungere le variabili seguenti:
-
-		// Mobile Service logged in user
-		private MobileServiceUser user;
-		public MobileServiceUser User { get { return user; } }
-
+   
+        // Mobile Service logged in user
+        private MobileServiceUser user;
+        public MobileServiceUser User { get { return user; } }
 2. Aggiungere quindi a **ToDoService** un nuovo metodo denominato **Authenticate** e definito come segue:
-
+   
         private async Task Authenticate(MonoTouch.UIKit.UIViewController view)
         {
             try
@@ -77,56 +71,53 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
                 Console.Error.WriteLine (@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
             }
         }
-
-	> [AZURE.NOTE] Se si usa un provider di identità diverso da un account Microsoft, sostituire il valore passato a **LoginAsync** riportato in precedenza con uno dei seguenti: _Facebook_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
-
+   
+   > [!NOTE]
+   > Se si usa un provider di identità diverso da un account Microsoft, sostituire il valore passato a **LoginAsync** riportato in precedenza con uno dei seguenti: *Facebook*, *Twitter*, *Google* o *WindowsAzureActiveDirectory*.
+   > 
+   > 
 3. Spostare la richiesta per la tabella **ToDoItem** dal costruttore **ToDoService** a un nuovo metodo denominato **CreateTable**:
-
+   
         private async Task CreateTable()
         {
             // Create an MSTable instance to allow us to work with the ToDoItem table
             todoTable = client.GetSyncTable<ToDoItem>();
         }
-
 4. Creare un nuovo metodo pubblico asincrono denominato **LoginAndGetData** definito come segue:
-
+   
         public async Task LoginAndGetData(MonoTouch.UIKit.UIViewController view)
         {
             await Authenticate(view);
             await CreateTable();
         }
-
 5. In **TodoListViewController** eseguire l'override del metodo **ViewDidAppear** e definirlo come illustrato di seguito. Questo consente l'accesso dell'utente se **ToDoService** non dispone già di un handle per l'utente:
-
+   
         public override async void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
-
+   
             if (QSTodoService.DefaultService.User == null)
             {
                 await QSTodoService.DefaultService.LoginAndGetData(this);
             }
-
+   
             if (QSTodoService.DefaultService.User == null)
             {
                 // TODO:: show error
                 return;
             }
 
-
             await RefreshAsync();
         }
-6. Rimuovere la chiamata originale a **RefreshAsync** da **TodoListViewController.ViewDidLoad**.
-
-7. Premere il pulsante **Run** per creare il progetto, avviare l'app nell'emulatore iPhone e quindi accedere con il provider di identità scelto.
-
-   	Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
+1. Rimuovere la chiamata originale a **RefreshAsync** da **TodoListViewController.ViewDidLoad**.
+2. Premere il pulsante **Run** per creare il progetto, avviare l'app nell'emulatore iPhone e quindi accedere con il provider di identità scelto.
+   
+       Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
 
 ## Download dell'esempio completato
 Scaricare il [progetto di esempio completato]. Assicurarsi di aggiornare le variabili **applicationURL** e **applicationKey** con le proprie impostazioni di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
-
 Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato verrà utilizzato per filtrare i dati restituiti da Servizi mobili.
 
 <!-- Anchors. -->

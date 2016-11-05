@@ -1,32 +1,30 @@
-<properties 
-    pageTitle="Informazioni di riferimento sull'analisi in Application Insights | Microsoft Azure" 
-    description="Informazioni di riferimento sulle istruzioni nello strumento di ricerca avanzato per l'analisi incluso in Application Insights. " 
-    services="application-insights" 
-    documentationCenter=""
-    authors="alancameronwills" 
-    manager="douge"/>
+---
+title: Informazioni di riferimento sull'analisi in Application Insights | Microsoft Docs
+description: 'Informazioni di riferimento sulle istruzioni nello strumento di ricerca avanzato per l''analisi incluso in Application Insights. '
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-    ms.service="application-insights" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/19/2016" 
-    ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 09/19/2016
+ms.author: awills
 
-
+---
 # <a name="reference-for-analytics"></a>Informazioni di riferimento sull'analisi
-
 L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analytics.
 
-> [AZURE.NOTE] [Eseguire la versione di test di Analisi sui dati simulati](https://analytics.applicationinsights.io/demo) se l'app non invia ancora i dati ad Application Insights.
+> [!NOTE]
+> [Eseguire la versione di test di Analisi sui dati simulati](https://analytics.applicationinsights.io/demo) se l'app non invia ancora i dati ad Application Insights.
+> 
+> 
 
 ## <a name="index"></a>Indice
-
-
 **Let** [let](#let-clause)
-
 
 **Query e operatori** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
 
@@ -42,12 +40,8 @@ L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato inclu
 
 **Array, oggetti e valori dinamici** [Valori letterali di matrice e oggetto](#array-and-object-literals) | [Funzioni di oggetti dinamici](#dynamic-object-functions) | [Oggetti dinamici nelle clausole let](#dynamic-objects-in-let-clauses) | [Espressioni di percorso JSON](#json-path-expressions) | [nomi](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
 
-
-
 ## <a name="let"></a>Let
-
 ### <a name="let-clause"></a>Clausola let
-
 **let tabulare: denominazione di una tabella**
 
     let recentReqs = requests | where timestamp > ago(3d); 
@@ -92,18 +86,16 @@ Self-join:
 
     let Recent = events | where timestamp > ago(7d);
     Recent | where name contains "session_started" 
-  	| project start = timestamp, session_id
-  	| join (Recent 
+      | project start = timestamp, session_id
+      | join (Recent 
         | where name contains "session_ended" 
         | project stop = timestamp, session_id)
       on session_id
-  	| extend duration = stop - start 
+      | extend duration = stop - start 
 
 
 ## <a name="queries-and-operators"></a>Query e operatori
-
 Una query sulla telemetria è costituita da un riferimento a un flusso di origine, seguito da una pipeline di filtri. Ad esempio:
-
 
 ```AIQL
 requests // The request table starts this pipeline.
@@ -111,7 +103,7 @@ requests // The request table starts this pipeline.
    and timestamp > ago(3d)
 | count 
 ```
-    
+
 Ogni filtro preceduto dal carattere di barra verticale `|` è un'istanza di un *operatore*, con alcuni parametri. L'input per l'operatore è la tabella risultante dalla pipeline precedente. Nella maggior parte dei casi i parametri sono [espressioni scalari](#scalars) sulle colonne dell'input. In alcuni casi, i parametri sono i nomi delle colonne di input e, in altri casi, il parametro è una seconda tabella. Il risultato di una query è sempre una tabella, anche se include solo una colonna e una riga.
 
 Le query possono contenere singole interruzioni di riga, ma terminano con una riga vuota. Possono includere commenti tra `//` e la fine della riga.
@@ -130,9 +122,9 @@ Una query può essere preceduta da una o più [clausole let](#let-clause), che d
 
 > `T` viene usato negli esempi di query seguenti per indicare la tabella di origine o la pipeline precedente.
 > 
+> 
 
 ### <a name="count-operator"></a>Operatore count
-
 L'operatore `count` restituisce il numero di record (righe) nel set di record di input.
 
 **Sintassi**
@@ -154,7 +146,6 @@ requests | count
 ```
 
 ### <a name="evaluate-operator"></a>Operatore evaluate
-
 `evaluate` è un meccanismo di estensione che consente di aggiungere algoritmi specializzati alla fine delle query.
 
 `evaluate` deve essere l'ultimo operatore nella pipeline della query, ad eccezione di un possibile `render`. Non deve comparire nel corpo funzione.
@@ -162,7 +153,6 @@ requests | count
 [evaluate autocluster](#evaluate-autocluster) | [evaluate basket](#evaluate-basket) | [evaluate diffpatterns](#evaluate-diffpatterns) | [evaluate extractcolumns](#evaluate-extractcolumns)
 
 #### <a name="evaluate-autocluster"></a>evaluate autocluster
-
      T | evaluate autocluster()
 
 AutoCluster trova modelli comuni di attributi discreti (dimensioni) nei dati e ridurrà i risultati della query originale (indipendentemente dal fatto che siano 100 o 100.000 righe) a un numero minore di modelli. AutoCluster è stato sviluppato per semplificare l'analisi degli errori, ad esempio eccezioni e arresti anomali, ma può potenzialmente funzionare su qualsiasi set di dati filtrato. 
@@ -187,45 +177,34 @@ Si noti che i modelli non sono non contigui: è possibile che si sovrappongano e
 **Argomenti (tutti facoltativi)**
 
 * `output=all | values | minimal` 
-
+  
     Formato dei risultati. Le colonne Count e Percent vengono sempre visualizzate nei risultati. 
-
- * `all` : vengono restituite tutte le colonne dell'input.
- * `values` : consente di filtrare solo le colonne con '*' nei risultati.
- * `minimal` : consente di filtrare anche le colonne identiche per tutte le righe della query originale. 
-
-
+  
+  * `all` : vengono restituite tutte le colonne dell'input.
+  * `values` : consente di filtrare solo le colonne con '*' nei risultati.
+  * `minimal` : consente di filtrare anche le colonne identiche per tutte le righe della query originale. 
 * `min_percent=`*double* (valore predefinito: 1)
-
+  
     Percentuale minima di copertura delle righe generate.
-
+  
     Esempio: `T | evaluate autocluster("min_percent=5.5")`
-
-
 * `num_seeds=` *int* (valore predefinito: 25) 
-
+  
     Il numero di valori di inizializzazione determina il numero di punti di ricerca locale iniziali dell'algoritmo. In alcuni casi, in base alla struttura dei dati, l'aumento del numero di valori di inizializzazione consente di aumentare il numero o la qualità dei risultati tramite uno spazio di ricerca maggiore ma con una query più lenta. L'argomento num_seeds presenta risultati in diminuzione in entrambe le direzioni, quindi ridurlo a un valore inferiore a 5 consentirà di ottenere miglioramenti trascurabili delle prestazioni e aumentarlo a un valore superiore a 50 genererà raramente modelli aggiuntivi.
-
+  
     Esempio: `T | evaluate autocluster("num_seeds=50")`
-
-
 * `size_weight=` *0<double<1*+ (valore predefinito: 0,5)
-
+  
     Consente di controllare parzialmente l'equilibrio tra generico (copertura elevata) e informativo (molti valori condivisi). L'aumento di size_weight riduce in genere il numero di modelli e ogni modello tende a coprire una percentuale più ampia. La riduzione di size_weight produce in genere modelli più specifici con più valori condivisi e una percentuale di copertura minore. La formula predefinita è una media geometrica ponderata tra il punteggio generico normalizzato e il punteggio informativo con size_weight e 1-size_weight per i pesi. 
-
+  
     Esempio: `T | evaluate autocluster("size_weight=0.8")`
-
-
 * `weight_column=` *column_name*
-
+  
     Prende in considerazione ogni riga nell'input in base al peso specificato. Per impostazione predefinita, il peso di ogni riga è '1'. Una colonna di ponderazione viene in genere usata per tenere in considerazione il campionamento o il bucket/aggregazione dei dati già incorporati in ogni riga.
-
+  
     Esempio: `T | evaluate autocluster("weight_column=sample_Count")` 
 
-
-
 #### <a name="evaluate-basket"></a>evaluate basket
-
      T | evaluate basket()
 
 Basket consente di trovare tutti i modelli frequenti di attributi discreti (dimensioni) nei dati e restituirà tutti i modelli frequenti che hanno superato la soglia di frequenza nella query originale. Basket assicura l'individuazione di tutti i modelli frequenti nei dati ma non assicura un runtime polinomiale. Il runtime della query è lineare nel numero di righe ma in alcuni casi può essere esponenziale nel numero di colonne (dimensioni). Basket è basato sull'algoritmo Apriori sviluppato originariamente per il data mining di basket analysis. 
@@ -236,38 +215,27 @@ Tutti i modelli disponibili in più di una frazione specificata degli eventi (va
 
 **Argomenti (tutti facoltativi)**
 
-
 * `threshold=` *0,015<double<1* (valore predefinito: 0,05) 
-
+  
     Imposta il rapporto minimo di righe da considerare frequenti. I modelli con rapporto inferiore non verranno restituiti.
-
+  
     Esempio: `T | evaluate basket("threshold=0.02")`
-
-
 * `weight_column=` *column_name*
-
+  
     Prende in considerazione ogni riga nell'input in base al peso specificato. Per impostazione predefinita, il peso di ogni riga è '1'. Una colonna di ponderazione viene in genere usata per tenere in considerazione il campionamento o il bucket/aggregazione dei dati già incorporati in ogni riga.
-
+  
     Esempio: T | evaluate basket("weight_column=sample_Count")
-
-
 * `max_dims=` *1<int* (valore predefinito: 5)
-
+  
     Imposta il numero massimo di dimensioni non correlate per basket, limitato per impostazione predefinita per diminuire il runtime di query.
-
-
 * `output=minimize` | `all` 
-
+  
     Formato dei risultati. Le colonne Count e Percent vengono sempre visualizzate nei risultati.
-
- * `minimize` : consente di filtrare solo le colonne con '*' nei risultati.
- * `all` : vengono restituite tutte le colonne dell'input.
-
-
-
+  
+  * `minimize` : consente di filtrare solo le colonne con '*' nei risultati.
+  * `all` : vengono restituite tutte le colonne dell'input.
 
 #### <a name="evaluate-diffpatterns"></a>evaluate diffpatterns
-
      requests | evaluate diffpatterns("split=success")
 
 Diffpatterns confronta due set di dati della stessa struttura e trova modelli di attributi discreti (dimensioni) che caratterizzano le differenze tra i due set di dati. Diffpatterns è stato sviluppato per semplificare l'analisi degli errori, ad esempio confrontando gli errori con i non errori in un determinato intervallo di tempo, ma può potenzialmente trovare differenze tra qualsiasi set di dati della stessa struttura. 
@@ -287,103 +255,76 @@ Si noti che i modelli non sono distinti: è possibile che si sovrappongano e in 
 **Suggerimenti**
 
 * Usare where e project nella pipeline di input per ridurre i dati ai soli dati rilevanti.
-
 * Quando si trova una riga interessante, è possibile che si voglia visualizzarne i dettagli, aggiungendo i rispettivi valori specifici al filtro where.
 
 **Argomenti**
 
 * `split=` *nome colonna* (obbligatorio)
-
+  
     La colonna deve avere esattamente due valori. Se necessario, creare questa colonna:
-
+  
     `requests | extend fault = toint(resultCode) >= 500` <br/>
     `| evaluate diffpatterns("split=fault")`
-
 * `target=` *string*
-
+  
     Indica all'algoritmo di cercare solo i modelli con percentuale più elevata nel set di dati di destinazione. La destinazione deve essere uno dei due valori della colonna suddivisa.
-
+  
     `requests | evaluate diffpatterns("split=success", "target=false")`
-
 * `threshold=` *0,015<double<1* (valore predefinito: 0,05) 
-
+  
     Imposta la differenza minima tra modelli (rapporto) tra i due set.
-
+  
     `requests | evaluate diffpatterns("split=success", "threshold=0.04")`
-
 * `output=minimize | all`
-
+  
     Formato dei risultati. Le colonne Count e Percent vengono sempre visualizzate nei risultati. 
-
- * `minimize` : consente di filtrare solo le colonne con '*' nei risultati.
- * `all` : vengono restituite tutte le colonne dell'input.
-
+  
+  * `minimize` : consente di filtrare solo le colonne con '*' nei risultati.
+  * `all` : vengono restituite tutte le colonne dell'input.
 * `weight_column=` *column_name*
-
+  
     Prende in considerazione ogni riga nell'input in base al peso specificato. Per impostazione predefinita ogni riga ha un peso pari a '1'. Una colonna di ponderazione viene in genere usata per tenere in considerazione il campionamento o il bucket/aggregazione dei dati già incorporati in ogni riga.
-
+  
     `requests | evaluate autocluster("weight_column=itemCount")`
 
-
-
-
-
-
 #### <a name="evaluate-extractcolumns"></a>evaluate extractcolumns
-
      exceptions | take 1000 | evaluate extractcolumns("details=json") 
 
 Extractcolumns viene usato per arricchire una tabella con più colonne semplici estratte dinamicamente da colonne (semi) strutturate in base al rispettivo tipo. Supporta attualmente solo le colonne JSON, ovvero serializzazioni dinamiche e di stringhe di JSON.
 
-
 * `max_columns=` *int* (valore predefinito: 10) 
-
+  
     Il numero di nuove colonne aggiunte è dinamico e può essere molto elevato, perché si tratta in effetti del numero di chiavi distinte in tutti i record JSON, quindi deve essere limitato. Le nuove colonne vengono disposte in ordine decrescente in base alla rispettiva frequenza ed è possibile aggiungere fino a max_columns alla tabella.
-
+  
     `T | evaluate extractcolumns("json_column_name=json", "max_columns=30")`
-
-
 * `min_percent=` *double* (valore predefinito: 10,0) 
-
+  
     Un altro modo per limitare le nuove colonne consiste nell'ignorare le colonne con frequenza inferiore a min_percent.
-
+  
     `T | evaluate extractcolumns("json_column_name=json", "min_percent=60")`
-
-
 * `add_prefix=` *bool* (valore predefinito: true) 
-
+  
     Se true, il nome della colonna complessa verrà aggiunto come prefisso ai nomi delle colonne estratte.
-
-
 * `prefix_delimiter=` *string* (valore predefinito: "_") 
-
+  
     Se add_prefix=true, questo parametro definisce il delimitatore che verrà usato per concatenare i nomi delle nuove colonne.
-
+  
     `T | evaluate extractcolumns("json_column_name=json",` <br/>
     `"add_prefix=true", "prefix_delimiter=@")`
-
-
 * `keep_original=` *bool* (valore predefinito: false) 
-
+  
     Se true, le colonne originali (JSON) verranno mantenute nella tabella di output.
-
-
 * `output=query | table` 
-
+  
     Formato dei risultati. 
-
- * `table` : l'output corrisponde alla stessa tabella ricevuta, meno le colonne di input specificate, più le nuove colonne estratte dalle colonne di input.
- * `query` : l'output è una stringa che rappresenta la query da creare per ottenere i risultati sotto forma di tabella. 
-
-
-
+  
+  * `table` : l'output corrisponde alla stessa tabella ricevuta, meno le colonne di input specificate, più le nuove colonne estratte dalle colonne di input.
+  * `query` : l'output è una stringa che rappresenta la query da creare per ottenere i risultati sotto forma di tabella. 
 
 ### <a name="extend-operator"></a>Operatore extend
-
      T | extend duration = stopTime - startTime
 
 Aggiunge una o più colonne calcolate a una tabella. 
-
 
 **Sintassi**
 
@@ -403,7 +344,7 @@ Una copia della tabella di input, con le colonne aggiuntive specificate.
 
 * Usare invece [`project`](#project-operator) se si vuole anche eliminare o rinominare alcune colonne.
 * Non usare `extend` per ottenere semplicemente un nome più breve da usare in un'espressione lunga. `...| extend x = anonymous_user_id_from_client | ... func(x) ...` 
-
+  
     Le colonne native della tabella sono state indicizzate. Il nuovo nome definisce una colonna aggiuntiva non indicizzata, quindi è probabile che la query venga eseguita più lentamente.
 
 **Esempio**
@@ -416,11 +357,9 @@ traces
 
 
 ### <a name="join-operator"></a>Operatore join
-
     Table1 | join (Table2) on CommonColumn
 
 Unisce le righe di due tabelle associando i valori della colonna specificata.
-
 
 **Sintassi**
 
@@ -439,23 +378,19 @@ Una tabella con:
 
 * Una colonna per ogni colonna in ognuna delle due tabelle, incluse le chiavi corrispondenti. Le colonne del lato destro verranno automaticamente rinominate in caso di conflitti tra i nomi.
 * Una riga per ogni corrispondenza tra le tabelle di input. Una corrispondenza è una riga selezionata da una tabella che ha lo stesso valore per tutti i campi `on` di una riga nell'altra tabella. 
-
 * `Kind` non specificato
-
+  
     Solo una riga del lato sinistro viene associata a ogni valore della chiave `on` . L'output contiene una riga per ogni corrispondenza di questa riga con le righe a destra.
-
 * `Kind=inner`
- 
+  
      Nell'output è presente una riga per ogni combinazione di righe corrispondenti a sinistra e a destra.
-
 * `kind=leftouter` (oppure `kind=rightouter` o `kind=fullouter`)
-
+  
      Oltre alle corrispondenza interne, è presente una riga per ogni riga a sinistra (e/o a destra), anche se non ha corrispondenze. In tal caso, le celle di output senza corrispondenza contengono valori Null.
-
 * `kind=leftanti`
-
+  
      Restituisce tutti i record del lato sinistro che non hanno corrispondenze a destra. La tabella risultante contiene solo le colonne del lato sinistro. 
- 
+
 Se sono presenti più righe con gli stessi valori per tali campi, si otterranno righe per tutte le combinazioni.
 
 **Suggerimenti**
@@ -473,19 +408,18 @@ Ottenere le attività estese da un log in cui alcune voci contrassegnano l'inizi
 ```AIQL
     let Events = MyLogTable | where type=="Event" ;
     Events
-  	| where Name == "Start"
-  	| project Name, City, ActivityId, StartTime=timestamp
-  	| join (Events
+      | where Name == "Start"
+      | project Name, City, ActivityId, StartTime=timestamp
+      | join (Events
            | where Name == "Stop"
            | project StopTime=timestamp, ActivityId)
         on ActivityId
-  	| project City, ActivityId, StartTime, StopTime, Duration, StopTime, StartTime
+      | project City, ActivityId, StartTime, StopTime, Duration, StopTime, StartTime
 
 ```
 
 
 ### <a name="limit-operator"></a>Operatore limit
-
      T | limit 5
 
 Restituisce un numero massimo specificato di righe dalla tabella di input. Non c'è garanzia su quali record verranno restituiti. Per ottenere record specifici, usare [`top`](#top-operator).
@@ -503,10 +437,7 @@ Restituisce un numero massimo specificato di righe dalla tabella di input. Non c
 
 Esiste un limite implicito per il numero di righe restituite al client, anche se non si usa `take`. Per aumentare questo limite, usare l'opzione di richiesta client `notruncation` .
 
-
-
 ### <a name="mvexpand-operator"></a>Operatore mvexpand
-
     T | mvexpand listColumn 
 
 Espande un elenco da una cella dinamicamente tipizzata (JSON) in modo che ogni voce abbia una riga separata. Tutte le altre celle in una riga espansa vengono duplicate. 
@@ -517,23 +448,22 @@ Vedere anche [`summarize makelist`](#summarize-operator) che esegue la funzione 
 
 Si supponga che la tabella di input sia:
 
-|A:int|B:string|D:dynamic|
-|---|---|---|
-|1|"hello"|{"key":"value"}|
-|2|"world"|[0,1,"k","v"]|
+| A:int | B:string | D:dynamic |
+| --- | --- | --- |
+| 1 |"hello" |{"key":"value"} |
+| 2 |"world" |[0,1,"k","v"] |
 
     mvexpand D
 
 Il risultato è:
 
-|A:int|B:string|D:dynamic|
-|---|---|---|
-|1|"hello"|{"key":"value"}|
-|2|"world"|0|
-|2|"world"|1|
-|2|"world"|"k"|
-|2|"world"|"v"|
-
+| A:int | B:string | D:dynamic |
+| --- | --- | --- |
+| 1 |"hello" |{"key":"value"} |
+| 2 |"world" |0 |
+| 2 |"world" |1 |
+| 2 |"world" |"k" |
+| 2 |"world" |"v" |
 
 **Sintassi**
 
@@ -562,16 +492,12 @@ Sono supportate due modalità di espansione dei contenitori delle proprietà:
 
 **esempi**
 
-
     exceptions | take 1 
-  	| mvexpand details[0]
+      | mvexpand details[0]
 
 Divide il record di un'eccezione in righe per ogni elemento nel campo dei dettagli.
 
-
-
 ### <a name="parse-operator"></a>Operatore parse
-
     T | parse "I got 2 socks for my birthday when I was 63 years old" 
     with * "got" counter:long " " present "for" * "was" year:long *
 
@@ -594,14 +520,13 @@ Estrae i valori da una stringa. È possibile usare la corrispondenza con espress
 
 * `T`: tabella di input.
 * `kind`: 
- * `simple` (valore predefinito): le stringhe `Match` sono normali stringhe.
- * `relaxed`: se il testo non viene analizzato come tipo di una colonna, la colonna viene impostata su null e l'analisi continua 
- * `regex`: le stringhe `Match` sono espressioni regolari.
+  * `simple` (valore predefinito): le stringhe `Match` sono normali stringhe.
+  * `relaxed`: se il testo non viene analizzato come tipo di una colonna, la colonna viene impostata su null e l'analisi continua 
+  * `regex`: le stringhe `Match` sono espressioni regolari.
 * `Text`: colonna o altra espressione che restituisce una stringa o può essere convertita in una stringa.
 * *Match:* trova la corrispondenza nella parte successiva della stringa e la rimuove.
 * *Column:* assegna la parte successiva della stringa a questa colonna. Se non esiste, la colonna viene creata.
 * *Type:* analizza la parte successiva della stringa come tipo specificato, ad esempio int, date, double. 
-
 
 **Restituisce**
 
@@ -639,14 +564,13 @@ Tutti gli elementi in uno schema di analisi devono corrispondere correttamente. 
      *  // skip rest of string
 ```
 
-x | counter | present | Year
----|---|---|---
-1 | 2 | socks | 63
+| x | counter | present | Year |
+| --- | --- | --- | --- |
+| 1 |2 |socks |63 |
 
 *Relaxed:*
 
 Quando l'input contiene una corrispondenza corretta per ogni colonna tipizzata, un'analisi ridotta genera gli stessi risultati di un'analisi semplice. Se però una delle colonne tipizzate non viene analizzata correttamente, un'analisi ridotta continua a elaborare il resto dello schema, mentre un'analisi semplice si arresta e non riesce a generare risultati.
-
 
 ```AIQL
 
@@ -668,10 +592,9 @@ Quando l'input contiene una corrispondenza corretta per ogni colonna tipizzata, 
 ```
 
 
-x  | present | Year
----|---|---
-1 |  socks | 63
-
+| x | present | Year |
+| --- | --- | --- |
+| 1 |socks |63 |
 
 *Regex:*
 
@@ -692,16 +615,14 @@ range x from 1 to 1 step 1
 | project-away x, s
 ```
 
-resource | slice | lock | release | previous
----|---|---|---|---
-Utilità di pianificazione | 16 | 02/17/2016 08:41:00 | 02/17/2016 08:41 | 2016-02-17T08:40:00Z
+| resource | slice | lock | release | previous |
+| --- | --- | --- | --- | --- |
+| Utilità di pianificazione |16 |02/17/2016 08:41:00 |02/17/2016 08:41 |2016-02-17T08:40:00Z |
 
 ### <a name="project-operator"></a>Operatore project
-
     T | project cost=price*quantity, price
 
 Selezionare le colonne da includere, rinominare o rimuovere e inserire le nuove colonne calcolate. L'ordine delle colonne nel risultato viene specificato dall'ordine degli argomenti. Solo le colonne specificate negli argomenti vengono incluse nel risultato, mentre le altre nell'input vengono rimosse.  Vedere anche `extend`.
-
 
 **Sintassi**
 
@@ -712,7 +633,7 @@ Selezionare le colonne da includere, rinominare o rimuovere e inserire le nuove 
 * *T:* tabella di input.
 * *ColumnName:* nome di una colonna da visualizzare nell'output. Se *Expression*non è presente, deve essere visualizzata una colonna con quel nome nell'input. I [nomi](#names) fanno distinzione tra maiuscole e minuscole e possono contenere caratteri alfabetici, numerici o "_". Usare `['...']` o `["..."]` per racchiudere tra virgolette parole chiave o nomi con altri caratteri.
 * *Expression:* espressione scalare facoltativa che fa riferimento alle colonne di input. 
-
+  
     È consentito restituire una nuova colonna calcolata con lo stesso nome di una colonna esistente nell'input.
 
 **Restituisce**
@@ -734,25 +655,21 @@ T
 ```
 
 ### <a name="project-away-operator"></a>Operatore project-away
-
     T | project-away column1, column2, ...
 
 Escludere le colonne specificate. Il risultato contiene tutte le colonne di input ad eccezione di quelle denominate.
 
 ### <a name="range-operator"></a>Operatore range
-
     range LastWeek from ago(7d) to now() step 1d
 
 Genera una tabella a colonna singola di valori. Si noti che non deve necessariamente avere un input da pipeline. 
 
-|LastWeek|
-|---|
-|2015-12-05 09:10:04.627|
-|2015-12-06 09:10:04.627|
-|...|
-|2015-12-12 09:10:04.627|
-
-
+| LastWeek |
+| --- |
+| 2015-12-05 09:10:04.627 |
+| 2015-12-06 09:10:04.627 |
+| ... |
+| 2015-12-12 09:10:04.627 |
 
 **Sintassi**
 
@@ -801,11 +718,9 @@ range timestamp from ago(4h) to now() step 1m
 Illustra come l'operatore `range` possa essere usato per creare una piccola tabella di dimensioni ad hoc che viene quindi usata per introdurre zeri dove i dati di origine sono senza valori.
 
 ### <a name="reduce-operator"></a>Operatore reduce
-
     exceptions | reduce by outerMessage
 
 Cerca di raggruppare record simili. Per ogni gruppo l'operatore restituisce l'oggetto `Pattern` che descrive meglio il gruppo e l'oggetto `Count` dei record del gruppo.
-
 
 ![](./media/app-insights-analytics-reference/reduce.png)
 
@@ -824,23 +739,20 @@ Due colonne, `Pattern` e `Count`. In molti casi, Pattern sarà un valore complet
 
 Ad esempio, il risultato di `reduce by city` può includere: 
 
-|Modello | Numero |
-|---|---|
-| San * | 5182 |
-| Saint * | 2846 |
-| Moscow | 3726 |
-| \* -on- \* | 2730 |
-| Parigi | 27163 |
-
+| Modello | Numero |
+| --- | --- |
+| San * |5182 |
+| Saint * |2846 |
+| Moscow |3726 |
+| \* -on- \* |2730 |
+| Parigi |27163 |
 
 ### <a name="render-directive"></a>Direttiva render
-
     T | render [ table | timechart  | barchart | piechart ]
 
 Indica al livello di presentazione la modalità di visualizzazione della tabella. Deve essere l'ultimo elemento della pipe. Si tratta di una valida alternativa all'uso dei controlli su schermo che consente di salvare una query con un metodo di presentazione specifico.
 
-### <a name="restrict-clause"></a>Clausola restrict 
-
+### <a name="restrict-clause"></a>Clausola restrict
 Specifica il set di nomi di tabelle disponibili per gli operatori che seguono. Ad esempio:
 
     let e1 = requests | project name, client_City;
@@ -849,8 +761,7 @@ Specifica il set di nomi di tabelle disponibili per gli operatori che seguono. A
     restrict access to (e1, e2);
     union * |  take 10 
 
-### <a name="sort-operator"></a>Operatore sort 
-
+### <a name="sort-operator"></a>Operatore sort
     T | sort by country asc, price desc
 
 Ordina le righe della tabella input in base a una o più colonne.
@@ -877,20 +788,17 @@ Traces
 Tutte le righe della tabella Traces con uno specifico `ActivityId`, ordinate in base al timestamp.
 
 ### <a name="summarize-operator"></a>Operatore summarize
-
 Produce una tabella che aggrega il contenuto della tabella di input.
- 
+
     requests
-  	| summarize count(), avg(duration), makeset(client_City) 
+      | summarize count(), avg(duration), makeset(client_City) 
       by client_CountryOrRegion
 
 Tabella che indica il numero, la durata media della richiesta e il set di città in ogni paese. Nell'output è presente una riga per ogni singolo paese. Le colonne di output indicano il conteggio, la durata media, le città e il paese. Tutte le altre colonne di input vengono ignorate.
 
-
     T | summarize count() by price_range=bin(price, 10.0)
 
 Tabella che indica quanti elementi presentano prezzi in ogni intervallo [0,10.0], [10.0,20.0] e così via. Questo esempio ha una colonna per il conteggio e una per l'intervallo di prezzi. Tutte le altre colonne di input vengono ignorate.
-
 
 **Sintassi**
 
@@ -909,8 +817,6 @@ Se si specifica un'espressione numerica o di data e ora senza usare `bin()`, l'a
 
 Se non si specifica *GroupExpression* , l'intera tabella viene riepilogata in un'unica riga di output.
 
-
-
 **Restituisce**
 
 Le righe di input vengono disposte in gruppi con gli stessi valori delle espressioni `by` . Vengono quindi calcolate per ogni gruppo le funzioni di aggregazione specificate, generando una riga per ogni gruppo. Il risultato contiene le colonne `by` , oltre ad almeno una colonna per ogni aggregazione calcolata. Alcune funzioni di aggregazione restituiscono più colonne.
@@ -921,19 +827,13 @@ Il risultato contiene una riga per ogni singola combinazione di valori `by` . Pe
 
 Anche se è possibile specificare espressioni arbitrarie per le espressioni di aggregazione e raggruppamento, è preferibile usare nomi di colonna semplici o applicare `bin()` a una colonna numerica.
 
-
-
 ### <a name="take-operator"></a>Operatore take
-
 Alias di [limit](#limit-operator)
 
-
 ### <a name="top-operator"></a>Operatore top
-
     T | top 5 by Name desc nulls first
 
 Restituisce i primi *N* record ordinati in base alle colonne specificate.
-
 
 **Sintassi**
 
@@ -946,18 +846,16 @@ Restituisce i primi *N* record ordinati in base alle colonne specificate.
 * `asc` o `desc` (valore predefinito) può essere visualizzato per controllare se la selezione nell'intervallo è effettivamente in ordine crescente o decrescente.
 * Controlli `nulls first` o `nulls last` in cui sono presenti valori null. `First` è il valore predefinito per `asc`, `last` è il valore predefinito per `desc`.
 
-
 **Suggerimenti**
 
 `top 5 by name` apparentemente equivale a `sort by name | take 5`, ma viene eseguito più rapidamente e restituisce sempre risultati ordinati, mentre `take` non offre questo tipo di garanzia.
 
 ### <a name="top-nested-operator"></a>Operatore top-nested
-
     requests 
-  	| top-nested 5 of name by count()  
+      | top-nested 5 of name by count()  
     , top-nested 3 of performanceBucket by count() 
     , top-nested 3 of client_CountryOrRegion by count()
-  	| render barchart 
+      | render barchart 
 
 Restituisce i risultati in una gerarchia in cui ogni livello è un drill-down del livello precedente. È utile per rispondere a domande come: "Quali sono le prime 5 richieste e, per ognuna di esse, quali sono i 3 bucket di prestazione principali e, per ognuno di essi, quali sono i primi 3 paesi da cui provengono le richieste?"
 
@@ -971,9 +869,7 @@ Restituisce i risultati in una gerarchia in cui ogni livello è un drill-down de
 * COLUMN:  - colonna di raggruppamento per l'aggregazione. 
 * AGGREGATION: [funzione di aggregazione](#aggregations) da applicare a ogni gruppo di righe. I risultati delle aggregazioni determineranno i primi gruppi da visualizzare.
 
-
 ### <a name="union-operator"></a>Operatore union
-
      Table1 | union Table2, Table3
 
 Considera due o più tabelle e restituisce le righe di tutte. 
@@ -987,12 +883,12 @@ Considera due o più tabelle e restituisce le righe di tutte.
 **Argomenti**
 
 * *Table1*, *Table2* ...
- *  Il nome di una tabella, ad esempio `requests`, o una tabella definita in una [clausola let](#let-clause).
- *  Un'espressione di query, ad esempio `(requests | where success=="True")`
- *  Un set di tabelle specificato con un carattere jolly. Ad esempio, `e*` forma l'unione di tutte le tabelle definite nelle clausole let precedenti il cui nome inizia per "e", insieme alla tabella "exceptions".
+  * Il nome di una tabella, ad esempio `requests`, o una tabella definita in una [clausola let](#let-clause).
+  * Un'espressione di query, ad esempio `(requests | where success=="True")`
+  * Un set di tabelle specificato con un carattere jolly. Ad esempio, `e*` forma l'unione di tutte le tabelle definite nelle clausole let precedenti il cui nome inizia per "e", insieme alla tabella "exceptions".
 * `kind`: 
- * `inner` : il risultato include il subset di colonne comuni a tutte le tabelle di input.
- * `outer` : il risultato include tutte le colonne presenti in tutti gli input. Le celle non definite da una riga di input vengono impostate su `null`.
+  * `inner` : il risultato include il subset di colonne comuni a tutte le tabelle di input.
+  * `outer` : il risultato include tutte le colonne presenti in tutti gli input. Le celle non definite da una riga di input vengono impostate su `null`.
 * `withsource=`*ColumnName:* se specificato, l'output includerà una colonna denominata *ColumnName* il cui valore indica quale tabella di origine ha contribuito per ogni riga.
 
 **Restituisce**
@@ -1008,7 +904,6 @@ let ttee = exceptions | where timestamp > ago(1h);
 union tt* | count
 ```
 Unione di tutte le tabelle i cui nomi iniziano con "tt".
-
 
 **Esempio**
 
@@ -1031,7 +926,6 @@ exceptions
 Questa versione più efficiente genera lo stesso risultato. Filtra ogni tabella prima di creare l'unione.
 
 ### <a name="where-operator"></a>Operatore where
-
      requests | where resultCode==200
 
 Filtra una tabella per trovare il subset di righe che soddisfano un predicato.
@@ -1056,11 +950,9 @@ Righe in *T* per cui *Predicate* è `true`.
 Per ottenere prestazioni ottimali:
 
 * **Usare confronti semplici** tra i nomi di colonna e le costanti. Con "costante" si intende costante nella tabella, quindi `now()` e `ago()` sono validi e sono dunque valori scalari assegnati con una [clausola `let`](#let-clause).
-
+  
     Ad esempio, preferire `where Timestamp >= ago(1d)` a `where floor(Timestamp, 1d) == ago(1d)`.
-
 * **Prima i termini più semplici**: se sono presenti più clausole unite con `and`, inserire prima le clausole che coinvolgono una sola colonna. Quindi `Timestamp > ago(1d) and OpId == EventId` è meglio del contrario.
-
 
 **Esempio**
 
@@ -1075,9 +967,7 @@ Record risalenti a non più di 1 ora fa e provenienti dall'elemento Source denom
 
 Si noti che il confronto tra due colonne viene inserito per ultimo, perché non riesce a utilizzare l'indice e forza un'analisi.
 
-
 ### <a name="where-in-operator"></a>Operatore where-in
-
     requests | where resultCode !in (200, 201)
 
     requests | where resultCode in (403, 404)
@@ -1096,15 +986,12 @@ Usare `in` per includere solo le righe in cui `col` è uguale a una delle espres
 
 Usare `!in` per includere solo le righe in cui `col` non è uguale a nessuna delle espressioni `expr1...`.  
 
-
 ## <a name="aggregations"></a>Aggregazioni
-
 Le aggregazioni sono funzioni usate per combinare i valori in gruppi creati nell' [operazione di riepilogo](#summarize-operator). In questa query, ad esempio, dcount() è una funzione di aggregazione:
 
     requests | summarize dcount(name) by success
 
-### <a name="any"></a>qualsiasi 
-
+### <a name="any"></a>qualsiasi
     any(Expression)
 
 Seleziona in modo casuale una riga del gruppo e restituisce il valore dell'espressione specificata.
@@ -1123,8 +1010,8 @@ traces
 
 <a name="argmin"></a>
 <a name="argmax"></a>
-### <a name="argmin,-argmax"></a>argmin, argmax
 
+### <a name="argmin,-argmax"></a>argmin, argmax
     argmin(ExprToMinimize, * | ExprToReturn  [ , ... ] )
     argmax(ExprToMaximize, * | ExprToReturn  [ , ... ] ) 
 
@@ -1146,22 +1033,18 @@ Mostrare tutti i dettagli della richiesta più lunga, non solo il timestamp:
 Trovare il valore più basso di ogni metrica, con timestamp e altri dati:
 
     metrics 
-  	| summarize minValue=argmin(value, *) 
+      | summarize minValue=argmin(value, *) 
       by name
 
 
 ![](./media/app-insights-analytics-reference/argmin.png)
- 
-
 
 ### <a name="avg"></a>avg
-
     avg(Expression)
 
 Calcola la media di *Expression* all'interno del gruppo.
 
 ### <a name="buildschema"></a>buildschema
-
     buildschema(DynamicExpression)
 
 Restituisce lo schema minimo che ammette tutti i valori di *DynamicExpression*. 
@@ -1201,12 +1084,11 @@ Si noti che `indexer` indica il punto in cui è necessario usare un indice numer
 
 Si supponga che la colonna di input abbia tre valori dinamici:
 
-| |
-|---|
-|`{"x":1, "y":3.5}`
-|`{"x":"somevalue", "z":[1, 2, 3]}`
-|`{"y":{"w":"zzz"}, "t":["aa", "bb"], "z":["foo"]}`
-
+|  |
+| --- |
+| `{"x":1, "y":3.5}` |
+| `{"x":"somevalue", "z":[1, 2, 3]}` |
+| `{"y":{"w":"zzz"}, "t":["aa", "bb"], "z":["foo"]}` |
 
 Lo schema risultante sarà:
 
@@ -1228,7 +1110,6 @@ Lo schema indica che:
 * Ogni proprietà è facoltativa in modo implicito e qualsiasi matrice può essere vuota.
 
 ##### <a name="schema-model"></a>Modello di schema
-
 La sintassi dello schema restituito è:
 
     Container ::= '{' Named-type* '}';
@@ -1249,67 +1130,67 @@ Equivalgono a un subset di annotazioni di tipo TypeScript, codificato come valor
 
 
 ### <a name="count"></a>count
-
     count([ Predicate ])
 
 Restituisce un conteggio delle righe per il quale *Predicate* restituisce `true`. Se *Predicate* non viene specificato, restituisce il numero totale di record del gruppo. 
 
 **Suggerimento per le prestazioni**: usare `summarize count(filter)` invece di `where filter | summarize count()`
 
-> [AZURE.NOTE] Evitare di usare count() per trovare i numeri di richieste, eccezioni o altri eventi che si sono verificati. Quando [sampling](app-insights-sampling.md) è attivo, il numero di punti dati conservato in Application Insights sarà minore del numero di eventi effettivi. Usare invece `summarize sum(itemCount)...`. La proprietà itemCount indica il numero di eventi originali rappresentati da ogni punto dati mantenuto.
+> [!NOTE]
+> Evitare di usare count() per trovare i numeri di richieste, eccezioni o altri eventi che si sono verificati. Quando [sampling](app-insights-sampling.md) è attivo, il numero di punti dati conservato in Application Insights sarà minore del numero di eventi effettivi. Usare invece `summarize sum(itemCount)...`. La proprietà itemCount indica il numero di eventi originali rappresentati da ogni punto dati mantenuto.
+> 
+> 
 
 ### <a name="countif"></a>countif
-
     countif(Predicate)
 
 Restituisce un conteggio delle righe per il quale *Predicate* restituisce `true`.
 
 **Suggerimento per le prestazioni**: usare `summarize countif(filter)` invece di `where filter | summarize count()`
 
-> [AZURE.NOTE] Evitare di usare countif() per trovare i numeri di richieste, eccezioni o altri eventi che si sono verificati. Quando [sampling](app-insights-sampling.md) è attivo, il numero di punti dati sarà minore del numero di eventi effettivi. Usare invece `summarize sum(itemCount)...`. La proprietà itemCount indica il numero di eventi originali rappresentati da ogni punto dati mantenuto.
+> [!NOTE]
+> Evitare di usare countif() per trovare i numeri di richieste, eccezioni o altri eventi che si sono verificati. Quando [sampling](app-insights-sampling.md) è attivo, il numero di punti dati sarà minore del numero di eventi effettivi. Usare invece `summarize sum(itemCount)...`. La proprietà itemCount indica il numero di eventi originali rappresentati da ogni punto dati mantenuto.
+> 
+> 
 
 ### <a name="dcount"></a>dcount
-
     dcount( Expression [ ,  Accuracy ])
 
 Restituisce una stima del numero di valori distinct di *Expr* nel gruppo. Per visualizzare un elenco dei valori distinct, usare [`makeset`](#makeset).
 
 *Accuracy*, se specificato, controlla il rapporto tra velocità e precisione.
 
- * `0` = il calcolo meno accurato e più veloce.
- * `1` il valore predefinito che bilancia accuratezza e tempi di calcolo; errore dello 0,8 % circa.
- * `2` = il calcolo più accurato e più lento; errore dello 0,4 % circa.
+* `0` = il calcolo meno accurato e più veloce.
+* `1` il valore predefinito che bilancia accuratezza e tempi di calcolo; errore dello 0,8 % circa.
+* `2` = il calcolo più accurato e più lento; errore dello 0,4 % circa.
 
 **Esempio**
 
     pageViews 
-  	| summarize cities=dcount(client_City) 
+      | summarize cities=dcount(client_City) 
       by client_CountryOrRegion
 
 ![](./media/app-insights-analytics-reference/dcount.png)
 
-
 ### <a name="dcountif"></a>dcountif
-
     dcountif( Expression, Predicate [ ,  Accuracy ])
 
 Restituisce una stima del numero di valori distinct di *Expr* nel gruppo per cui *Predicate* è true. Per visualizzare un elenco dei valori distinct, usare [`makeset`](#makeset).
 
 *Accuracy*, se specificato, controlla il rapporto tra velocità e precisione.
 
- * `0` = il calcolo meno accurato e più veloce.
- * `1` il valore predefinito che bilancia accuratezza e tempi di calcolo; errore dello 0,8 % circa.
- * `2` = il calcolo più accurato e più lento; errore dello 0,4 % circa.
+* `0` = il calcolo meno accurato e più veloce.
+* `1` il valore predefinito che bilancia accuratezza e tempi di calcolo; errore dello 0,8 % circa.
+* `2` = il calcolo più accurato e più lento; errore dello 0,4 % circa.
 
 **Esempio**
 
     pageViews 
-  	| summarize cities=dcountif(client_City, client_City startswith "St") 
+      | summarize cities=dcountif(client_City, client_City startswith "St") 
       by client_CountryOrRegion
 
 
 ### <a name="makelist"></a>makelist
-
     makelist(Expr [ ,  MaxListSize ] )
 
 Restituisce una matrice `dynamic` (JSON) di tutti i valori di *Expr* nel gruppo. 
@@ -1317,47 +1198,43 @@ Restituisce una matrice `dynamic` (JSON) di tutti i valori di *Expr* nel gruppo.
 * *MaxListSize* è un limite di tipo integer facoltativo per il numero massimo di elementi restituiti. Il valore predefinito è *128*.
 
 ### <a name="makeset"></a>makeset
-
     makeset(Expression [ , MaxSetSize ] )
 
 Restituisce una matrice `dynamic` (JSON) del set di valori distinct che *Expr* inserisce nel gruppo. Suggerimento: per conteggiare solo i valori distinct, usare [`dcount`](#dcount).
-  
-*  *MaxSetSize* è un limite di tipo integer facoltativo per il numero massimo di elementi restituiti. Il valore predefinito è *128*.
+
+* *MaxSetSize* è un limite di tipo integer facoltativo per il numero massimo di elementi restituiti. Il valore predefinito è *128*.
 
 **Esempio**
 
     pageViews 
-  	| summarize cities=makeset(client_City) 
+      | summarize cities=makeset(client_City) 
       by client_CountryOrRegion
 
 ![](./media/app-insights-analytics-reference/makeset.png)
 
 Vedere anche l'operatore [`mvexpand`](#mvexpand-operator) per la funzione opposta.
 
-
 ### <a name="max,-min"></a>max, min
-
     max(Expr)
 
 Calcola il valore massimo di *Expr*.
-    
+
     min(Expr)
 
 Calcola il valore minimo di *Expr*.
 
 **Suggerimento**: viene restituito solo il valore minimo o massimo, ad esempio il prezzo più alto o più basso. Per inserire invece altre colonne nella riga, ad esempio il nome del fornitore con il prezzo più basso, usare [argmin o argmax](#argmin-argmax).
 
-
 <a name="percentile"></a>
 <a name="percentiles"></a>
 <a name="percentilew"></a>
 <a name="percentilesw"></a>
-### <a name="percentile,-percentiles,-percentilew,-percentilesw"></a>percentile, percentiles, percentilew, percentilesw
 
+### <a name="percentile,-percentiles,-percentilew,-percentilesw"></a>percentile, percentiles, percentilew, percentilesw
     percentile(Expression, Percentile)
 
 Restituisce una stima per *Expression* del percentile specificato nel gruppo. L'accuratezza dipende dalla densità della popolazione nell'area del percentile.
-    
+
     percentiles(Expression, Percentile1 [ , Percentile2 ...] )
 
 Simile a `percentile()`, ma calcola un numero di valori di percentile, operazione più rapida rispetto al calcolo separato di ogni percentile.
@@ -1372,20 +1249,18 @@ Ad esempio `percentilew()`, ma vengono calcolati numerosi valori di percentile.
 
 **esempi**
 
-
 Valore di `duration` , maggiore del 95% del set di esempio e minore del 5% del set di esempio, calcolato per ogni nome richiesta:
 
     request 
-  	| summarize percentile(duration, 95)
+      | summarize percentile(duration, 95)
       by name
 
 Per il calcolo dell'intera tabella, omettere "by...".
 
 Calcolare contemporaneamente più percentili per nomi richiesta diversi:
 
-    
     requests 
-  	| summarize 
+      | summarize 
         percentiles(duration, 5, 20, 50, 80, 95) 
       by name
 
@@ -1396,20 +1271,19 @@ I risultati mostrano che per la richiesta /Events/Index, il 5 % delle richieste 
 Calcolare più statistiche:
 
     requests 
-  	| summarize 
+      | summarize 
         count(), 
         avg(Duration),
         percentiles(Duration, 5, 50, 95)
       by name
 
 #### <a name="weighted-percentiles"></a>Percentili ponderati
-
 Utilizzare le funzioni di percentile ponderato in quei casi in cui i dati sono stati preaggregati. 
 
 Ad esempio, se l'applicazione esegue molte migliaia di operazioni al secondo e si desidera conoscerne la latenza. La soluzione più semplice sarebbe generare una richiesta di Application Insights o un evento personalizzato per ogni operazione. Verrebbe a crearsi molto traffico, anche se verrebbe applicato il campionamento adattivo per ridurlo. Una soluzione ancora migliore consisterebbe invece nello scrivere codice nell'app per aggregare i dati prima di inviarli ad Application Insights. Verrà inviato il riepilogo aggregato a intervalli regolari, riducendo la frequenza di dati anche a pochi punti al minuto.
 
 Il codice registra il flusso delle misurazioni di latenza in millisecondi, Ad esempio:
-    
+
      { 15, 12, 2, 21, 2, 5, 35, 7, 12, 22, 1, 15, 18, 12, 26, 7 }
 
 Conta le misurazioni nei seguenti bin: `{ 10, 20, 30, 40, 50, 100 }`
@@ -1423,12 +1297,12 @@ Periodicamente, esegue una serie di chiamate TrackEvent, una per ogni bucket, co
 
 In Analytics, si noterà un gruppo di eventi simile al seguente:
 
-`opCount` | `latency`| significato
----|---|---
-8 | 10 | = 8 operazioni nel bin 10 ms
-6 | 20 | = 6 operazioni nel bin 20 ms
-3 | 30 | = 3 operazioni nel bin 30 ms
-1 | 40 | = 1 operazione nel bin 40 ms
+| `opCount` | `latency` | significato |
+| --- | --- | --- |
+| 8 |10 |= 8 operazioni nel bin 10 ms |
+| 6 |20 |= 6 operazioni nel bin 20 ms |
+| 3 |30 |= 3 operazioni nel bin 30 ms |
+| 1 |40 |= 1 operazione nel bin 40 ms |
 
 Per ottenere un quadro preciso della distribuzione originale delle latenze di evento, si usa `percentilesw`:
 
@@ -1436,10 +1310,12 @@ Per ottenere un quadro preciso della distribuzione originale delle latenze di ev
 
 I risultati sono gli stessi dell'uso di `percentiles` normali nel set di misure originale.
 
-> [AZURE.NOTE] I percentili ponderati non sono applicabili ai [dati campionati](app-insights-sampling.md), in cui ogni riga campionata rappresenta un campione casuale di righe originali, invece che un bin. Le funzioni del percentile normale sono appropriate per i dati campionati.
+> [!NOTE]
+> I percentili ponderati non sono applicabili ai [dati campionati](app-insights-sampling.md), in cui ogni riga campionata rappresenta un campione casuale di righe originali, invece che un bin. Le funzioni del percentile normale sono appropriate per i dati campionati.
+> 
+> 
 
 #### <a name="estimation-error-in-percentiles"></a>Errore di stima nei percentili
-
 L'aggregazione dei percentili fornisce un valore approssimativo usando [T-Digest](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf). 
 
 Tenere presente le seguenti considerazioni importanti: 
@@ -1448,46 +1324,40 @@ Tenere presente le seguenti considerazioni importanti:
 * I limiti di errore sono visibili nella classifica, non nel valore. Si supponga che percentile(X, 50) abbia restituito il valore Xm. La stima garantisce che almeno il 49 % e al massimo il 51 % dei valori di X sono minori di Xm. Non esiste alcun limite teorico nella differenza tra Xm e il valore mediano effettivo di X.
 
 ### <a name="stdev"></a>stdev
-
      stdev(Expr)
 
 Restituisce la deviazione standard di *Expr* per il gruppo.
 
 ### <a name="variance"></a>variance
-
     variance(Expr)
 
 Restituisce la varianza di *Expr* per il gruppo.
 
 ### <a name="sum"></a>sum
-
     sum(Expr)
 
 Restituisce la somma di *Expr* per il gruppo.                      
 
-
 ## <a name="scalars"></a>Scalari
-
 [Cast](#casts) | [Confronti](#scalar-comparisons)
 <br/>
 [gettype](#gettype) | [hash](#hash) | [iff](#iff) |  [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull) | [toscalar](#toscalar)
 
 I tipi supportati sono:
 
-| Tipo      | Nome/i aggiuntivo/i   | Tipo .NET equivalente |
-| --------- | -------------------- | -------------------- |
-| `bool`    | `boolean`            | `System.Boolean`     |
-| `datetime`| `date`               | `System.DateTime`    |
-| `dynamic` |                      | `System.Object`      |
-| `guid`    | `uuid`, `uniqueid`   | `System.Guid`        |
-| `int`     |                      | `System.Int32`       |
-| `long`    |                      | `System.Int64`       |
-| `double`  | `real`               | `System.Double`      |
-| `string`  |                      | `System.String`      |
-| `timespan`| `time`               | `System.TimeSpan`    |
+| Tipo | Nome/i aggiuntivo/i | Tipo .NET equivalente |
+| --- | --- | --- |
+| `bool` |`boolean` |`System.Boolean` |
+| `datetime` |`date` |`System.DateTime` |
+| `dynamic` | |`System.Object` |
+| `guid` |`uuid`, `uniqueid` |`System.Guid` |
+| `int` | |`System.Int32` |
+| `long` | |`System.Int64` |
+| `double` |`real` |`System.Double` |
+| `string` | |`System.String` |
+| `timespan` |`time` |`System.TimeSpan` |
 
 ### <a name="casts"></a>Cast
-
 È possibile eseguire il cast da un tipo a un altro. In generale, se la conversione è possibile, avrà esito positivo:
 
     todouble(10), todouble("10.6")
@@ -1506,47 +1376,41 @@ Controllare se una stringa può essere convertita in un tipo specifico:
        ..., ...)
 
 ### <a name="scalar-comparisons"></a>Confronti scalari
-
-||
----|---
-`<` |Minore
-`<=`|Minore o uguale a
-`>` |Maggiore
-`>=`|Maggiore o uguale a
-`<>`|Non uguale a
-`!=`|Non uguale a 
-`in`| L'operando di destra è una matrice (dinamica) e l'operando di sinistra è uguale a uno dei relativi elementi.
-`!in`| L'operando di destra è una matrice (dinamica) e l'operando di sinistra non è uguale a uno dei relativi elementi.
-
-
-
+|  |  |
+| --- | --- |
+| `<` |Minore |
+| `<=` |Minore o uguale a |
+| `>` |Maggiore |
+| `>=` |Maggiore o uguale a |
+| `<>` |Non uguale a |
+| `!=` |Non uguale a |
+| `in` |L'operando di destra è una matrice (dinamica) e l'operando di sinistra è uguale a uno dei relativi elementi. |
+| `!in` |L'operando di destra è una matrice (dinamica) e l'operando di sinistra non è uguale a uno dei relativi elementi. |
 
 ### <a name="gettype"></a>gettype
-
 **Restituisce**
 
 Una stringa che rappresenta il tipo di archiviazione sottostante del relativo singolo argomento. Si tratta di una funzione particolarmente utile quando sono presenti valori di tipo `dynamic`: in questo caso `gettype()` indicherà la modalità di codifica di un valore.
 
 **esempi**
 
-|||
----|---
-`gettype("a")` |`"string" `
-`gettype(111)` |`"long" `
-`gettype(1==1)` |`"int8"`
-`gettype(now())` |`"datetime" `
-`gettype(1s)` |`"timespan" `
-`gettype(parsejson('1'))` |`"int" `
-`gettype(parsejson(' "abc" '))` |`"string" `
-`gettype(parsejson(' {"abc":1} '))` |`"dictionary"` 
-`gettype(parsejson(' [1, 2, 3] '))` |`"array"` 
-`gettype(123.45)` |`"real" `
-`gettype(guid(12e8b78d-55b4-46ae-b068-26d7a0080254))` |`"guid"` 
-`gettype(parsejson(''))` |`"null"`
-`gettype(1.2)==real` | `true`
+|  |  |
+| --- | --- |
+| `gettype("a")` |`"string" ` |
+| `gettype(111)` |`"long" ` |
+| `gettype(1==1)` |`"int8"` |
+| `gettype(now())` |`"datetime" ` |
+| `gettype(1s)` |`"timespan" ` |
+| `gettype(parsejson('1'))` |`"int" ` |
+| `gettype(parsejson(' "abc" '))` |`"string" ` |
+| `gettype(parsejson(' {"abc":1} '))` |`"dictionary"` |
+| `gettype(parsejson(' [1, 2, 3] '))` |`"array"` |
+| `gettype(123.45)` |`"real" ` |
+| `gettype(guid(12e8b78d-55b4-46ae-b068-26d7a0080254))` |`"guid"` |
+| `gettype(parsejson(''))` |`"null"` |
+| `gettype(1.2)==real` |`true` |
 
 ### <a name="hash"></a>hash
-
 **Sintassi**
 
     hash(source [, mod])
@@ -1568,7 +1432,6 @@ hash("World", 100)              // 51 (1846988464401551951 % 100)
 hash(datetime("2015-01-01"))    // 1380966698541616202
 ```
 ### <a name="iff"></a>iff
-
 La funzione `iff()` calcola il primo argomento (predicato) e restituisce il valore del secondo o del terzo argomento a seconda che sia stato specificato il predicato `true` o `false`. Il secondo e terzo argomento devono essere dello stesso tipo.
 
 **Sintassi**
@@ -1595,14 +1458,13 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 <a name="isnull"/></a>
 <a name="isnotnull"/></a>
 <a name="notnull"/></a>
-### <a name="isnull,-isnotnull,-notnull"></a>isnull, isnotnull, notnull
 
+### <a name="isnull,-isnotnull,-notnull"></a>isnull, isnotnull, notnull
     isnull(parsejson("")) == true
 
 Accetta un solo argomento e indica se è null.
 
 **Sintassi**
-
 
     isnull([value])
 
@@ -1616,14 +1478,13 @@ Accetta un solo argomento e indica se è null.
 
 True o false a seconda se il valore è null o not null.
 
-
-|x|isnull(x)
-|---|---
-| "" | false
-|"x" | false
-|parsejson("")|true
-|parsejson("[]")|false
-|parsejson("{}")|false
+| x | isnull(x) |
+| --- | --- |
+| "" |false |
+| "x" |false |
+| parsejson("") |true |
+| parsejson("[]") |false |
+| parsejson("{}") |false |
 
 **Esempio**
 
@@ -1634,7 +1495,6 @@ Si noti che esistono altri modi per ottenere questo risultato:
     T | summarize count(PossiblyNull)
 
 ### <a name="toscalar"></a>toscalar
-
 Valuta una query o un'espressione e restituisce il risultato come valore singolo. Questa funzione è utile per i calcoli eseguiti a fasi, ad esempio, per calcolare un conteggio totale degli eventi e usarlo come linea di base.
 
 **Sintassi**
@@ -1655,58 +1515,51 @@ L'argomento valutato. Se l'argomento è una tabella, restituisce la prima colonn
         | where floor(timestamp, 1d) == floor(ago(5d),1d) | count);
     // List the counts relative to that baseline:
     requests | summarize daycount = count() by floor(timestamp, 1d)  
-  	| extend relative = daycount - baseline
+      | extend relative = daycount - baseline
 ```
 
 
 
 
 ### <a name="boolean-literals"></a>Valori letterali booleani
-
     true == 1
     false == 0
     gettype(true) == "int8"
     typeof(bool) == typeof(int8)
 
 ### <a name="boolean-operators"></a>Operatori booleani
-
     and 
     or 
 
-    
+
 
 ## <a name="numbers"></a>Numeri
-
 [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [gamma](#gamma) |[log](#log) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) 
 | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### <a name="numeric-literals"></a>Valori letterali numerici
-
-|||
-|---|---
-|`42`|`long`
-|`42.0`|`real`
+|  |  |
+| --- | --- |
+| `42` |`long` |
+| `42.0` |`real` |
 
 ### <a name="arithmetic-operators"></a>Operatori aritmetici
-
-|| |
-|---|-------------|
-| + | Add         |
-| - | Sottrazione    |
-| * | Moltiplicazione    |
-| / | Divisione      |
-| % | Modulo      |
-||
-|`<` |Minore
-|`<=`|Minore o uguale a
-|`>` |Maggiore
-|`>=`|Maggiore o uguale a
-|`<>`|Non uguale a
-|`!=`|Non uguale a 
-
+|  |  |
+| --- | --- |
+| + |Add |
+| - |Sottrazione |
+| * |Moltiplicazione |
+| / |Divisione |
+| % |Modulo |
+|  | |
+| `<` |Minore |
+| `<=` |Minore o uguale a |
+| `>` |Maggiore |
+| `>=` |Maggiore o uguale a |
+| `<>` |Non uguale a |
+| `!=` |Non uguale a |
 
 ### <a name="abs"></a>abs
-
 **Sintassi**
 
     abs(x)
@@ -1720,8 +1573,8 @@ L'argomento valutato. Se l'argomento è una tabella, restituisce la prima colonn
     iff(x>0, x, -x)
 
 <a name="bin"></a><a name="floor"></a>
-### <a name="bin,-floor"></a>bin, floor
 
+### <a name="bin,-floor"></a>bin, floor
 Arrotonda per difetto i valori fino a un numero intero multiplo della dimensione del contenitore specificata. Usato spesso nella query [`summarize by`](#summarize-operator) . Se si dispone di un set di valori sparsi, i valori verranno raggruppati in un set più piccolo di valori specifici.
 
 Alias `floor`.
@@ -1739,17 +1592,16 @@ Alias `floor`.
 **Restituisce**
 
 Il multiplo più vicino di *roundTo* inferiore a *value*.  
- 
+
     (toint((value/roundTo)-0.5)) * roundTo
 
 **esempi**
 
-Expression | Risultato
----|---
-`bin(4.5, 1)` | `4.0`
-`bin(time(16d), 7d)` | `14d`
-`bin(datetime(1953-04-15 22:25:07), 1d)`|  `datetime(1953-04-15)`
-
+| Expression | Risultato |
+| --- | --- |
+| `bin(4.5, 1)` |`4.0` |
+| `bin(time(16d), 7d)` |`14d` |
+| `bin(datetime(1953-04-15 22:25:07), 1d)` |`datetime(1953-04-15)` |
 
 L'espressione seguente calcola un istogramma di durate, con dimensione del bucket pari a 1 secondo:
 
@@ -1759,18 +1611,15 @@ L'espressione seguente calcola un istogramma di durate, con dimensione del bucke
 ```
 
 ### <a name="exp"></a>exp
-
     exp(v)   // e raised to the power v
     exp2(v)  // 2 raised to the power v
     exp10(v) // 10 raised to the power v
 
 
 ### <a name="floor"></a>floor
-
 Alias di [`bin()`](#bin).
 
 ### <a name="gamma"></a>gamma
-
 [Funzione gamma](https://en.wikipedia.org/wiki/Gamma_function)
 
 **Sintassi**
@@ -1785,9 +1634,7 @@ Per i numeri interi positivi, `gamma(x) == (x-1)!` Ad esempio, `gamma(5) == 4 * 
 
 Vedere anche [loggamma](#loggamma).
 
-
 ### <a name="log"></a>log
-
     log(v)    // Natural logarithm of v
     log2(v)   // Logarithm base 2 of v
     log10(v)  // Logarithm base 10 of v
@@ -1796,8 +1643,6 @@ Vedere anche [loggamma](#loggamma).
 `v` deve essere un numero reale > 0. In caso contrario, viene restituito null.
 
 ### <a name="loggamma"></a>loggamma
-
-
 Logaritmo naturale del valore assoluto della [funzione gamma](#gamma).
 
 **Sintassi**
@@ -1808,19 +1653,13 @@ Logaritmo naturale del valore assoluto della [funzione gamma](#gamma).
 
 * *x:* numero reale
 
-
 ### <a name="rand"></a>rand
-
 Generatore di numeri casuali.
 
 * `rand()` : numero reale compreso tra 0,0 e 1,0
 * `rand(n)` : numero intero compreso tra 0 e n-1
 
-
-
-
 ### <a name="sqrt"></a>sqrt
-
 Funzione della radice quadrata.  
 
 **Sintassi**
@@ -1836,11 +1675,7 @@ Funzione della radice quadrata.
 * Un numero positivo per cui `sqrt(x) * sqrt(x) == x`
 * `null` se l'argomento è negativo o non può essere convertito in un valore `real`. 
 
-
-
-
 ### <a name="toint"></a>toint
-
     toint(100)        // cast from long
     toint(20.7) == 21 // nearest int from double
     toint(20.4) == 20 // nearest int from double
@@ -1849,7 +1684,6 @@ Funzione della radice quadrata.
     toint(b.c)        // cast from dynamic
 
 ### <a name="tolong"></a>tolong
-
     tolong(20.7) == 21 // conversion from double
     tolong(20.4) == 20 // conversion from double
     tolong("  123  ")  // parse string
@@ -1858,7 +1692,6 @@ Funzione della radice quadrata.
 
 
 ### <a name="todouble"></a>todouble
-
     todouble(20) == 20.0 // conversion from long or int
     todouble(" 12.34 ")  // parse string
     todouble(a[0])       // cast from dynamic
@@ -1867,56 +1700,48 @@ Funzione della radice quadrata.
 
 
 ## <a name="date-and-time"></a>Data e ora
-
-
 [ago](#ago) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) |  [dayofyear](#dayofyear) |[datepart](#datepart) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth)|  [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
 ### <a name="date-and-time-literals"></a>Valori letterali di data e ora
-
-|||
----|---
-**datetime**|
-`datetime("2015-12-31 23:59:59.9")`<br/>`datetime("2015-12-31")`|Le ore sono sempre in formato UTC. L'omissione della data indica un'ora di oggi.
-`now()`|Ora corrente.
-`now(`-*timespan*`)`|`now()-`*timespan*
-`ago(`*timespan*`)`|`now()-`*timespan*
-**timespan**|
-`2d`|2 giorni
-`1.5h`|1,5 ore 
-`30m`|30 minuti
-`10s`|10 secondi
-`0.1s`|0,1 secondo
-`100ms`| 100 millisecondi
-`10microsecond`|
-`1tick`|100 ns
-`time("15 seconds")`|
-`time("2")`| 2 giorni
-`time("0.12:34:56.7")`|`0d+12h+34m+56.7s`
+|  |  |
+| --- | --- |
+| **datetime** | |
+| `datetime("2015-12-31 23:59:59.9")`<br/>`datetime("2015-12-31")` |Le ore sono sempre in formato UTC. L'omissione della data indica un'ora di oggi. |
+| `now()` |Ora corrente. |
+| `now(`-*timespan*`)` |`now()-`*timespan* |
+| `ago(`*timespan*`)` |`now()-`*timespan* |
+| **timespan** | |
+| `2d` |2 giorni |
+| `1.5h` |1,5 ore |
+| `30m` |30 minuti |
+| `10s` |10 secondi |
+| `0.1s` |0,1 secondo |
+| `100ms` |100 millisecondi |
+| `10microsecond` | |
+| `1tick` |100 ns |
+| `time("15 seconds")` | |
+| `time("2")` |2 giorni |
+| `time("0.12:34:56.7")` |`0d+12h+34m+56.7s` |
 
 ### <a name="date-and-time-expressions"></a>Espressioni di data e ora
-
-Expression |Risultato
----|---
-`datetime("2015-01-02") - datetime("2015-01-01")`| `1d`
-`datetime("2015-01-01") + 1d`| `datetime("2015-01-02")`
-`datetime("2015-01-01") - 1d`| `datetime("2014-12-31")`
-`2h * 24` | `2d`
-`2d` / `2h` | `24`
-`datetime("2015-04-15T22:33") % 1d` | `timespan("22:33")`
-`bin(datetime("2015-04-15T22:33"), 1d)` | `datetime("2015-04-15T00:00")`
-||
-`<` |Minore
-`<=`|Minore o uguale a
-`>` |Maggiore
-`>=`|Maggiore o uguale a
-`<>`|Non uguale a
-`!=`|Non uguale a 
-
-
-
+| Expression | Risultato |
+| --- | --- |
+| `datetime("2015-01-02") - datetime("2015-01-01")` |`1d` |
+| `datetime("2015-01-01") + 1d` |`datetime("2015-01-02")` |
+| `datetime("2015-01-01") - 1d` |`datetime("2014-12-31")` |
+| `2h * 24` |`2d` |
+| `2d` / `2h` |`24` |
+| `datetime("2015-04-15T22:33") % 1d` |`timespan("22:33")` |
+| `bin(datetime("2015-04-15T22:33"), 1d)` |`datetime("2015-04-15T00:00")` |
+|  | |
+| `<` |Minore |
+| `<=` |Minore o uguale a |
+| `>` |Maggiore |
+| `>=` |Maggiore o uguale a |
+| `<>` |Non uguale a |
+| `!=` |Non uguale a |
 
 ### <a name="ago"></a>ago
-
 Sottrae l'intervallo di tempo specificato dall'ora UTC corrente. Analogamente a `now()`, questa funzione può essere usata più volte in un'istruzione e l'ora UTC a cui fa riferimento sarà la stessa per tutte le istanze.
 
 **Sintassi**
@@ -1941,7 +1766,6 @@ Tutte le righe con un timestamp nell'ultima ora:
 ```
 
 ### <a name="datepart"></a>datepart
-
     datepart("Day", datetime(2015-12-14)) == 14
 
 Estrae una parte specificata di una data come numero intero.
@@ -1959,9 +1783,7 @@ Estrae una parte specificata di una data come numero intero.
 
 Valore Long che rappresenta la parte specificata.
 
-
 ### <a name="dayofmonth"></a>dayofmonth
-
     dayofmonth(datetime("2016-05-15")) == 15 
 
 Il numero ordinale del giorno del mese.
@@ -1974,9 +1796,7 @@ Il numero ordinale del giorno del mese.
 
 * `a_date`: valore `datetime`.
 
-
 ### <a name="dayofweek"></a>dayofweek
-
     dayofweek(datetime("2015-12-14")) == 1d  // Monday
 
 Numero intero di giorni a partire dalla domenica precedente, come `timespan`.
@@ -2001,7 +1821,6 @@ dayofweek(1970-05-11)           // time(1.00:00:00), indicating Monday
 ```
 
 ### <a name="dayofyear"></a>dayofyear
-
     dayofyear(datetime("2016-05-31")) == 152 
     dayofyear(datetime("2016-01-01")) == 1 
 
@@ -2016,8 +1835,8 @@ Il numero ordinale del giorno nell'anno.
 * `a_date`: valore `datetime`.
 
 <a name="endofday"></a><a name="endofweek"></a><a name="endofmonth"></a><a name="endofyear"></a>
-### <a name="endofday,-endofweek,-endofmonth,-endofyear"></a>endofday, endofweek, endofmonth, endofyear
 
+### <a name="endofday,-endofweek,-endofmonth,-endofyear"></a>endofday, endofweek, endofmonth, endofyear
     dt = datetime("2016-05-23 12:34")
 
     endofday(dt) == 2016-05-23T23:59:59.999
@@ -2027,7 +1846,6 @@ Il numero ordinale del giorno nell'anno.
 
 
 ### <a name="getmonth"></a>getmonth
-
 Visualizzare il numero del mese (1-12) di un valore datetime.
 
 **Esempio**
@@ -2037,7 +1855,6 @@ Visualizzare il numero del mese (1-12) di un valore datetime.
     --> month == 10
 
 ### <a name="getyear"></a>getyear
-
 Visualizzare l'anno di un valore datetime.
 
 **Esempio**
@@ -2047,7 +1864,6 @@ Visualizzare l'anno di un valore datetime.
     --> year == 2015
 
 ### <a name="now"></a>now
-
     now()
     now(-2d)
 
@@ -2076,8 +1892,8 @@ T | where ... | extend Elapsed=now() - timestamp
 ```
 
 <a name="startofday"></a><a name="startofweek"></a><a name="startofmonth"></a><a name="startofyear"></a>
-### <a name="startofday,-startofweek,-startofmonth,-startofyear"></a>startofday, startofweek, startofmonth, startofyear
 
+### <a name="startofday,-startofweek,-startofmonth,-startofyear"></a>startofday, startofweek, startofmonth, startofyear
     date=datetime("2016-05-23 12:34:56")
 
     startofday(date) == datetime("2016-05-23")
@@ -2088,7 +1904,6 @@ T | where ... | extend Elapsed=now() - timestamp
 
 
 ### <a name="todatetime"></a>todatetime
-
 Alias `datetime()`.
 
      todatetime("2016-03-28")
@@ -2106,7 +1921,6 @@ Verificare se una stringa è una data valida:
 
 
 ### <a name="totimespan"></a>totimespan
-
 Alias `timespan()`.
 
     totimespan("21d")
@@ -2114,21 +1928,16 @@ Alias `timespan()`.
     totimespan(request.duration)
 
 ### <a name="weekofyear"></a>weekofyear
-
     weekofyear(datetime("2016-05-14")) == 21
     weekofyear(datetime("2016-01-03")) == 1
     weekofyear(datetime("2016-12-31")) == 53
 
 Il risultato è un numero intero che rappresenta il numero della settimana in base allo standard ISO 8601. Il primo giorno della settimana è domenica e la prima settimana dell'anno è la settimana che contiene il primo giovedì dell'anno. Gli ultimi giorni di un anno possono quindi contenere alcuni giorni della settimana 1 dell'anno successivo oppure i primi giorni possono contenere parte della settimana 52 o 53 dell'anno precedente.
 
-
 ## <a name="string"></a>String
-
 [countof](#countof) | [extract](#extract) | [extractjson](#extractjson)  | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [tostring](#tostring) | [toupper](#toupper)
 
-
 ### <a name="string-literals"></a>Valori letterali di stringa
-
 Le regole sono le stesse di JavaScript.
 
 Le stringhe possono essere racchiuse tra virgolette singole o doppie. 
@@ -2140,7 +1949,6 @@ La barra rovesciata (`\`) viene usata per i caratteri di escape, ad esempio `\t`
 * `@"C:\backslash\not\escaped\with @ prefix"`
 
 ### <a name="obfuscated-string-literals"></a>Valori letterali di stringhe offuscate
-
 I valori letterali di stringhe offuscate sono stringhe che Analytics nasconde durante l'output della stringa (ad esempio, durante la traccia). Il processo di offuscamento sostituisce tutti i caratteri offuscati con il carattere`*`.
 
 Per creare un valore letterale di stringa offuscata, anteporre `h` o "H". Ad esempio:
@@ -2152,30 +1960,29 @@ h"hello"
 ```
 
 ### <a name="string-comparisons"></a>Confronti di stringhe
-
-operatore|Descrizione|Distinzione maiuscole/minuscole|Esempio true
----|---|---|---
-`==`|Uguale a |Sì| `"aBc" == "aBc"`
-`<>` `!=`|Non uguale a|Sì| `"abc" <> "ABC"`
-`=~`|Uguale a |No| `"abc" =~ "ABC"`
-`!~`|Non uguale a |No| `"aBc" !~ "xyz"`
-`has`|RHS (Right-Hand-Side) è un termine intero in LHS (Left-Hand-Side)|No| `"North America" has "america"`
-`!has`|RHS non è un termine completo in LHS|No|`"North America" !has "amer"` 
-`hasprefix`|RHS è un prefisso di un termine in LHS|No|`"North America" hasprefix "ame"`
-`!hasprefix`|RHS non è un prefisso di un termine in LHS|No|`"North America" !hasprefix "mer"`
-`hassuffix`|RHS è un suffisso di un termine in LHS|No|`"North America" hassuffix "rth"`
-`!hassuffix`|RHS non è un suffisso di un termine in LHS|No|`"North America" !hassuffix "mer"`
-`contains` | RHS si verifica come sottostringa di LHS|No| `"FabriKam" contains "BRik"`
-`!contains`| RHS non si verifica in LHS|No| `"Fabrikam" !contains "xyz"`
-`containscs` | RHS si verifica come sottostringa di LHS|Sì| `"FabriKam" contains "Kam"`
-`!containscs`| RHS non si verifica in LHS|Sì| `"Fabrikam" !contains "Kam"`
-`startswith`|RHS è una sottostringa iniziale di LHS|No|`"Fabrikam" startswith "fab"`
-`!startswith`|RHS non è una sottostringa iniziale di LHS|No|`"Fabrikam" !startswith "abr"`
-`endswith`|RHS è una sottostringa terminale di LHS|No|`"Fabrikam" endswith "kam"`
-`!endswith`|RHS non è una sottostringa terminale di LHS|No|`"Fabrikam" !endswith "ka"`
-`matches regex`|LHS contiene una corrispondenza per RHS|Sì| `"Fabrikam" matches regex "b.*k"`
-`in`|Uguale a uno degli elementi|Sì|`"abc" in ("123", "345", "abc")`
-`!in`|Non uguale a uno degli elementi|Sì|`"bc" !in ("123", "345", "abc")`
+| operatore | Descrizione | Distinzione maiuscole/minuscole | Esempio true |
+| --- | --- | --- | --- |
+| `==` |Uguale a |Sì |`"aBc" == "aBc"` |
+| `<>` `!=` |Non uguale a |Sì |`"abc" <> "ABC"` |
+| `=~` |Uguale a |No |`"abc" =~ "ABC"` |
+| `!~` |Non uguale a |No |`"aBc" !~ "xyz"` |
+| `has` |RHS (Right-Hand-Side) è un termine intero in LHS (Left-Hand-Side) |No |`"North America" has "america"` |
+| `!has` |RHS non è un termine completo in LHS |No |`"North America" !has "amer"` |
+| `hasprefix` |RHS è un prefisso di un termine in LHS |No |`"North America" hasprefix "ame"` |
+| `!hasprefix` |RHS non è un prefisso di un termine in LHS |No |`"North America" !hasprefix "mer"` |
+| `hassuffix` |RHS è un suffisso di un termine in LHS |No |`"North America" hassuffix "rth"` |
+| `!hassuffix` |RHS non è un suffisso di un termine in LHS |No |`"North America" !hassuffix "mer"` |
+| `contains` |RHS si verifica come sottostringa di LHS |No |`"FabriKam" contains "BRik"` |
+| `!contains` |RHS non si verifica in LHS |No |`"Fabrikam" !contains "xyz"` |
+| `containscs` |RHS si verifica come sottostringa di LHS |Sì |`"FabriKam" contains "Kam"` |
+| `!containscs` |RHS non si verifica in LHS |Sì |`"Fabrikam" !contains "Kam"` |
+| `startswith` |RHS è una sottostringa iniziale di LHS |No |`"Fabrikam" startswith "fab"` |
+| `!startswith` |RHS non è una sottostringa iniziale di LHS |No |`"Fabrikam" !startswith "abr"` |
+| `endswith` |RHS è una sottostringa terminale di LHS |No |`"Fabrikam" endswith "kam"` |
+| `!endswith` |RHS non è una sottostringa terminale di LHS |No |`"Fabrikam" !endswith "ka"` |
+| `matches regex` |LHS contiene una corrispondenza per RHS |Sì |`"Fabrikam" matches regex "b.*k"` |
+| `in` |Uguale a uno degli elementi |Sì |`"abc" in ("123", "345", "abc")` |
+| `!in` |Non uguale a uno degli elementi |Sì |`"bc" !in ("123", "345", "abc")` |
 
 Usare `has` o `in` se si sta testando la presenza di un termine lessicale intero, ovvero un simbolo o una parola alfanumerica delimitata da caratteri non alfanumerici o da inizio o fine del campo. `has` è più rapido di `contains`, `startswith` o `endswith`. La prima delle query seguenti viene eseguita più rapidamente:
 
@@ -2187,7 +1994,6 @@ Usare `has` o `in` se si sta testando la presenza di un termine lessicale intero
 
 
 ### <a name="countof"></a>countof
-
     countof("The cat sat on the mat", "at") == 3
     countof("The cat sat on the mat", @"\b.at\b", "regex") == 3
 
@@ -2209,20 +2015,16 @@ Il numero di volte in cui la stringa di ricerca può essere trovata nel contenit
 
 **esempi**
 
-|||
-|---|---
-|`countof("aaa", "a")`| 3 
-|`countof("aaaa", "aa")`| 3 (non 2!)
-|`countof("ababa", "ab", "normal")`| 2
-|`countof("ababa", "aba")`| 2
-|`countof("ababa", "aba", "regex")`| 1
-|`countof("abcabc", "a.c", "regex")`| 2
-    
-
-
+|  |  |
+| --- | --- |
+| `countof("aaa", "a")` |3 |
+| `countof("aaaa", "aa")` |3 (non 2!) |
+| `countof("ababa", "ab", "normal")` |2 |
+| `countof("ababa", "aba")` |2 |
+| `countof("ababa", "aba", "regex")` |1 |
+| `countof("abcabc", "a.c", "regex")` |2 |
 
 ### <a name="extract"></a>extract
-
     extract("x=([0-9.]+)", 1, "hello x=45.6|wo") == "45.6"
 
 Recupera una corrispondenza di un' [espressione regolare](#regular-expressions) da una stringa di testo. Facoltativamente, converte la sottostringa estratta nel tipo indicato.
@@ -2263,13 +2065,12 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 <a name="notempty"></a>
 <a name="isnotempty"></a>
 <a name="isempty"></a>
-### <a name="isempty,-isnotempty,-notempty"></a>isempty, isnotempty, notempty
 
+### <a name="isempty,-isnotempty,-notempty"></a>isempty, isnotempty, notempty
     isempty("") == true
 
 True se l'argomento è una stringa vuota o è null.
 Vedere anche [isnull](#isnull).
-
 
 **Sintassi**
 
@@ -2285,17 +2086,15 @@ Vedere anche [isnull](#isnull).
 
 Indica se l'argomento è una stringa vuota o isnull.
 
-|x|isempty(x)
-|---|---
-| "" | true
-|"x" | false
-|parsejson("")|true
-|parsejson("[]")|false
-|parsejson("{}")|false
-
+| x | isempty(x) |
+| --- | --- |
+| "" |true |
+| "x" |false |
+| parsejson("") |true |
+| parsejson("[]") |false |
+| parsejson("{}") |false |
 
 **Esempio**
-
 
     T | where isempty(fieldName) | count
 
@@ -2303,7 +2102,6 @@ Indica se l'argomento è una stringa vuota o isnull.
 
 
 ### <a name="replace"></a>replace
-
 Sostituire tutte le corrispondenze di regex con un'altra stringa.
 
 **Sintassi**
@@ -2332,19 +2130,15 @@ range x from 1 to 5 step 1
 
 Ha i seguenti risultati:
 
-| x    | str | valore sostituito|
-|---|---|---|
-| 1    | Number is 1.000000  | Number was: 1.000000|
-| 2    | Number is 2.000000  | Number was: 2.000000|
-| 3    | Number is 3.000000  | Number was: 3.000000|
-| 4    | Number is 4.000000  | Number was: 4.000000|
-| 5    | Number is 5.000000  | Number was: 5.000000|
- 
-
-
+| x | str | valore sostituito |
+| --- | --- | --- |
+| 1 |Number is 1.000000 |Number was: 1.000000 |
+| 2 |Number is 2.000000 |Number was: 2.000000 |
+| 3 |Number is 3.000000 |Number was: 3.000000 |
+| 4 |Number is 4.000000 |Number was: 4.000000 |
+| 5 |Number is 5.000000 |Number was: 5.000000 |
 
 ### <a name="split"></a>split
-
     split("aaa_bbb_ccc", "_") == ["aaa","bbb","ccc"]
 
 Suddivide una stringa specificata in base a un delimitatore specificato e restituisce una matrice di stringhe con le sottostringhe contenute. Facoltativamente, è possibile restituire una sottostringa specifica, se esistente.
@@ -2377,19 +2171,16 @@ split("aabbcc", "bb")         // ["aa","cc"]
 
 
 ### <a name="strcat"></a>strcat
-
     strcat("hello", " ", "world")
 
 Concatena da 1 a 16 argomenti, che devono essere stringhe.
 
 ### <a name="strlen"></a>strlen
-
     strlen("hello") == 5
 
 Lunghezza di una stringa.
 
 ### <a name="substring"></a>substring
-
     substring("abcdefg", 1, 2) == "bc"
 
 Estrarre una sottostringa da una stringa di origine specificata a partire da un indice specificato. Facoltativamente, è possibile specificare la lunghezza della sottostringa richiesta.
@@ -2417,30 +2208,23 @@ substring("ABCD", 0, 2)       // AB
 ```
 
 ### <a name="tolower"></a>tolower
-
     tolower("HELLO") == "hello"
 
 Converte una stringa in lettere minuscole.
 
 ### <a name="toupper"></a>toupper
-
     toupper("hello") == "HELLO"
 
 Converte una stringa in lettere maiuscole.
 
-
-
 ### <a name="guids"></a>GUID
-
     guid(00000000-1111-2222-3333-055567f333de)
 
 
 ## <a name="arrays,-objects-and-dynamic"></a>Array, oggetti e valori dinamici
-
 [valori letterali](#dynamic-literals) | [cast](#casting-dynamic-objects) | [operatori](#operators) | [clausole let](#dynamic-objects-in-let-clauses)
 <br/>
 [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic) | [zip](#zip)
-
 
 Di seguito il risultato di una query su un'eccezione di Application Insights. Il valore in `details` è una matrice.
 
@@ -2449,7 +2233,7 @@ Di seguito il risultato di una query su un'eccezione di Application Insights. Il
 **Indicizzazione:** indicizzare matrici e oggetti come in JavaScript:
 
     exceptions | take 1
-  	| extend 
+      | extend 
         line = details[0].parsedStack[0].line,
         stackdepth = arraylength(details[0].parsedStack)
 
@@ -2458,11 +2242,11 @@ Di seguito il risultato di una query su un'eccezione di Application Insights. Il
 **Cast** In alcuni casi è necessario eseguire il cast di un elemento estratto da un oggetto poiché il tipo può variare. Ad esempio, `summarize...to` richiede un tipo specifico:
 
     exceptions 
-  	| summarize count() 
+      | summarize count() 
       by toint(details[0].parsedStack[0].line)
 
     exceptions 
-  	| summarize count() 
+      | summarize count() 
       by tostring(details[0].parsedStack[0].assembly)
 
 **Valori letterali:** per creare una matrice esplicita o un oggetto contenitore delle proprietà, scrivere l'elemento come stringa JSON ed eseguire il cast.
@@ -2473,17 +2257,16 @@ Di seguito il risultato di una query su un'eccezione di Application Insights. Il
 **mvexpand:** per suddividere le proprietà di un oggetto in righe separate, usare mvexpand.
 
     exceptions | take 1 
-  	| mvexpand details[0].parsedStack[0]
+      | mvexpand details[0].parsedStack[0]
 
 
 ![](./media/app-insights-analytics-reference/410.png)
 
-
 **treepath:** per trovare tutti i percorsi in un oggetto complesso:
 
     exceptions | take 1 | project timestamp, details 
-  	| extend path = treepath(details) 
-  	| mvexpand path
+      | extend path = treepath(details) 
+      | mvexpand path
 
 
 ![](./media/app-insights-analytics-reference/420.png)
@@ -2520,7 +2303,6 @@ Si noti che `indexer` indica il punto in cui è necessario usare un indice numer
 
 
 ### <a name="array-and-object-literals"></a>Valori letterali di matrice e oggetto
-
 Per creare un valore letterale dinamico, usare `parsejson` (alias `todynamic`) con un argomento di stringa JSON:
 
 * `parsejson('[43, 21, 65]')` : una matrice di numeri
@@ -2541,23 +2323,20 @@ T
 
 
 ### <a name="dynamic-object-functions"></a>Funzioni di oggetti dinamici
-
-|||
-|---|---|
-| *value* `in` *matrice*| True se è presente un elemento di *matrice* che è == *valore*<br/>`where City in ('London', 'Paris', 'Rome')`
-| *value* `!in` *matrice*| True se non è presente un elemento di *matrice* che è == *valore*
-|[`arraylength(`matrice`)`](#arraylength)| Null se non è una matrice
-|[`extractjson(`path,object`)`](#extractjson)|Usa path per navigare nell'oggetto.
-|[`parsejson(`source`)`](#parsejson)| Converte una stringa JSON in un oggetto dinamico.
-|[`range(`from,to,step`)`](#range)| Una matrice di valori
-|[`mvexpand` listColumn](#mvexpand-operator) | Replica una riga per ogni valore in un elenco in una cella specificata.
-|[`summarize buildschema(`column`)`](#buildschema) |Deduce lo schema del tipo dal contenuto della colonna
-|[`summarize makelist(`column`)` ](#makelist)| Rende flat gruppi di righe e inserisce i valori della colonna in una matrice.
-|[`summarize makeset(`column`)`](#makeset) | Rende flat gruppi di righe e inserisce i valori della colonna in una matrice, senza duplicazione.
+|  |  |
+| --- | --- |
+| *value* `in` *matrice* |True se è presente un elemento di *matrice* che è == *valore*<br/>`where City in ('London', 'Paris', 'Rome')` |
+| *value* `!in` *matrice* |True se non è presente un elemento di *matrice* che è == *valore* |
+| [`arraylength(`matrice`)`](#arraylength) |Null se non è una matrice |
+| [`extractjson(`path,object`)`](#extractjson) |Usa path per navigare nell'oggetto. |
+| [`parsejson(`source`)`](#parsejson) |Converte una stringa JSON in un oggetto dinamico. |
+| [`range(`from,to,step`)`](#range) |Una matrice di valori |
+| [`mvexpand` listColumn](#mvexpand-operator) |Replica una riga per ogni valore in un elenco in una cella specificata. |
+| [`summarize buildschema(`column`)`](#buildschema) |Deduce lo schema del tipo dal contenuto della colonna |
+| [`summarize makelist(`column`)` ](#makelist) |Rende flat gruppi di righe e inserisce i valori della colonna in una matrice. |
+| [`summarize makeset(`column`)`](#makeset) |Rende flat gruppi di righe e inserisce i valori della colonna in una matrice, senza duplicazione. |
 
 ### <a name="dynamic-objects-in-let-clauses"></a>Oggetti dinamici nelle clausole let
-
-
 Poiché le [clausole let](#let-clause) archiviano i valori dinamici come stringhe, le due clausole seguenti sono equivalenti e richiedono entrambe `parsejson` (o `todynamic`) prima di essere usate:
 
     let list1 = '{"a" : "somevalue"}';
@@ -2569,7 +2348,6 @@ Poiché le [clausole let](#let-clause) archiviano i valori dinamici come stringh
 
 
 ### <a name="arraylength"></a>arraylength
-
 Numero di elementi in una matrice dinamica.
 
 **Sintassi**
@@ -2598,11 +2376,9 @@ arraylength(parsejson('21')) == null
 
 
 ### <a name="extractjson"></a>extractjson
-
     extractjson("$.hosts[1].AvailableMB", EventText, typeof(int))
 
 Recuperare un elemento specificato da un testo JSON usando un'espressione di percorso. Facoltativamente, convertire la stringa estratta in un tipo specifico.
-
 
 **Sintassi**
 
@@ -2616,8 +2392,6 @@ Recuperare un elemento specificato da un testo JSON usando un'espressione di per
 **Restituisce**
 
 Questa funzione esegue una query JsonPath in dataSource che contiene una stringa JSON valida e, facoltativamente, la conversione di tale valore in un tipo diverso, a seconda del terzo argomento.
-
-
 
 **Esempio**
 
@@ -2637,21 +2411,16 @@ La notazione [parentesi quadre] e la notazione punto sono equivalenti:
 * Considerare la possibilità di analizzare JSON al momento dell'inserimento dichiarando il tipo della colonna come dinamico.
 
 ### <a name="json-path-expressions"></a>Espressioni di percorso JSON
-
-|||
-|---|---|
-|`$`|Oggetto radice|
-|`@`|Oggetto corrente|
-|`[0]`|Indice inferiore di matrice|
-|`.` oppure `[0]` | Figlio|
+|  |  |
+| --- | --- |
+| `$` |Oggetto radice |
+| `@` |Oggetto corrente |
+| `[0]` |Indice inferiore di matrice |
+| `.` oppure `[0]` |Figlio |
 
 *(Attualmente non vengono implementati caratteri jolly, ricorsione, unione o sezioni).*
 
-
-
-
 ### <a name="parsejson"></a>parsejson
-
 Interpreta `string` come un [valore JSON](http://json.org/) e restituisce il valore come `dynamic`. È preferibile rispetto a `extractjson()` quando è necessario estrarre più di un elemento di un oggetto composto JSON.
 
 **Sintassi**
@@ -2686,7 +2455,6 @@ T
 
 
 ### <a name="range"></a>range
-
 La funzione `range()`, da non confondere con l'operatore `range`, genera una matrice dinamica contenente una serie di valori equidistanti.
 
 **Sintassi**
@@ -2715,13 +2483,11 @@ L'esempio seguente restituisce una matrice che contiene tutti i giorni dell'anno
 ```
 
 ### <a name="todynamic"></a>todynamic
-
     todynamic('{"a":"a1", "b":["b1", "b2"]}')
 
 Converte una stringa in un valore dinamico.
 
 ### <a name="treepath"></a>treepath
-
     treepath(dynamic_object)
 
 Enumera tutte le espressioni di percorso che identificano gli oggetti foglia in un oggetto dinamico. 
@@ -2742,7 +2508,6 @@ Una matrice di espressioni di percorso.
 Si noti che "[0]" indica la presenza di una matrice, ma non specifica l'indice usato da un percorso specifico.
 
 ### <a name="zip"></a>zip
-
     zip(list1, list2, ...)
 
 Combina un set di elenchi in un elenco di tuple.
@@ -2754,13 +2519,12 @@ Combina un set di elenchi in un elenco di tuple.
     zip(parsejson('[1,3,5]'), parsejson('[2,4,6]'))
     => [ [1,2], [3,4], [5,6] ]
 
-    
+
     zip(parsejson('[1,3,5]'), parsejson('[2,4]'))
     => [ [1,2], [3,4], [5,null] ]
 
 
 ### <a name="names"></a>nomi
-
 I nomi possono contenere fino a 1024 caratteri. Fanno distinzione tra maiuscole e minuscole e possono contenere lettere, cifre e caratteri di sottolineatura (`_`). 
 
 Racchiudere tra virgolette un nome con [' ... '] o [" ... "] per includere altri caratteri o usare una parola chiave come nome. Ad esempio:
@@ -2774,19 +2538,15 @@ Racchiudere tra virgolette un nome con [' ... '] o [" ... "] per includere altri
 ```
 
 
-|||
-|---|---|
-|['path\\file\n\'x\''] | Usare \ per i caratteri di escape|
-|["d-e.=/f#\n"] | |
-|[@'path\file'] | Nessun carattere di escape, \ è un valore letterale|
-|[@"\now & then\"] | |
-|[where] | Parola chiave della lingua usata come nome|
+|  |  |
+| --- | --- |
+| ['path\\file\n\'x\''] |Usare \ per i caratteri di escape |
+| ["d-e.=/f#\n"] | |
+| [@'path\file'] |Nessun carattere di escape, \ è un valore letterale |
+| [@"\now & then\"] | |
+| [where] |Parola chiave della lingua usata come nome |
 
-[AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
-
-
-
+[!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
 <!--HONumber=Oct16_HO2-->
 

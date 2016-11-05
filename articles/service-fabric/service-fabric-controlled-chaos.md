@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Eseguire Chaos in ambiente controllato nei cluster di Service Fabric | Microsoft Azure"
-   description="Uso delle API del servizio di fault injection e di analisi del cluster per la gestione di Chaos nel cluster."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="motanv"
-   manager="rsinha"
-   editor="toddabel"/> 
+---
+title: Eseguire Chaos in ambiente controllato nei cluster di Service Fabric | Microsoft Docs
+description: Uso delle API del servizio di fault injection e di analisi del cluster per la gestione di Chaos nel cluster.
+services: service-fabric
+documentationcenter: .net
+author: motanv
+manager: rsinha
+editor: toddabel
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/19/2016"
-   ms.author="motanv"/> 
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/19/2016
+ms.author: motanv
 
+---
 # Eseguire Chaos in ambiente controllato nei cluster di Service Fabric
 I sistemi distribuiti di grandi dimensioni come le infrastrutture cloud sono intrinsecamente inaffidabili. Azure Service Fabric consente agli sviluppatori di scrivere servizi affidabili anche per un'infrastruttura inaffidabile. Per scrivere servizi di qualità elevata, gli sviluppatori devono essere in grado di mettere alla prova un'infrastruttura inaffidabile in modo da testare la stabilità dei servizi.
 
@@ -24,12 +24,12 @@ Il servizio di fault injection e analisi del cluster offre agli sviluppatori la 
 ## Errori indotti da Chaos
 Chaos genera errori in tutto il cluster di Service Fabric e comprime in poche ore gli errori registrabili in mesi o anni. La combinazione di errori interfoliati con un'elevata frequenza di errori consente di trovare casi limite che altrimenti non verrebbero considerati. Questa applicazione di Chaos consente di ottenere un notevole miglioramento della qualità del codice del servizio. Chaos induce errori delle categorie seguenti:
 
- - Riavvio di un nodo
- - Riavvio di un pacchetto di codice distribuito
- - Rimozione di una replica
- - Riavvio di una replica
- - Spostamento di una replica primaria (configurabile)
- - Spostamento di una replica secondaria (configurabile)
+* Riavvio di un nodo
+* Riavvio di un pacchetto di codice distribuito
+* Rimozione di una replica
+* Riavvio di una replica
+* Spostamento di una replica primaria (configurabile)
+* Spostamento di una replica secondaria (configurabile)
 
 Chaos esegue più iterazioni di errori; ogni iterazione consiste di errori e convalide cluster per il periodo di tempo specificato. È possibile configurare anche il tempo impiegato per la stabilizzazione del cluster e il completamento della convalida. Se viene rilevato un errore di convalida dei cluster, Chaos genera e mantiene un ValidationFailedEvent con il timestamp UTC e i dettagli dell'errore.
 
@@ -38,16 +38,16 @@ Si consideri, ad esempio, un'istanza di Chaos configurata per un'esecuzione dell
 Nella sua forma attuale, Chaos causa solo errori sicuri, il che implica che in assenza di errori esterni non si verifica mai una perdita del quorum o di dati.
 
 ## Opzioni di configurazione importanti
- - **TimeToRun**: tempo totale di esecuzione di Chaos prima del completamento con esito positivo. Chaos può essere arrestato prima sia trascorso il tempo indicato da TimeToRun tramite l'API StopChaos.
- - **MaxClusterStabilizationTimeout**: tempo massimo di attesa prima che il cluster risulti integro e possa essere nuovamente verificato; l'attesa è mirata a ridurre il carico nel cluster durante il ripristino. I controlli eseguiti sono
-    - Se l'integrità del cluster è OK
-    - L'integrità del servizio è OK
-    - Si ottiene la dimensione di set di replica di destinazione per la partizione di servizio
-    - Non esistono repliche InBuild
- - **MaxConcurrentFaults**: numero massimo di errori simultanei indotti in ogni iterazione. Maggiore è il numero, più aggressivo è Chaos e più complesse saranno le combinazioni di failover e transizioni. Chaos garantisce che in assenza di errori esterni non si verificherà una perdita di quorum o di dati, a prescindere da quanto è elevata la configurazione.
- - **EnableMoveReplicaFaults**: abilita o disabilita gli errori che causano lo spostamento delle repliche primarie o secondarie. Questi errori sono disabilitati per impostazione predefinita.
- - **WaitTimeBetweenIterations**: quantità di tempo di attesa tra due iterazioni, ad esempio dopo un ciclo di errori e la convalida corrispondente.
- - **WaitTimeBetweenFaults**: quantità di tempo di attesa tra due errori consecutivi in un'iterazione.
+* **TimeToRun**: tempo totale di esecuzione di Chaos prima del completamento con esito positivo. Chaos può essere arrestato prima sia trascorso il tempo indicato da TimeToRun tramite l'API StopChaos.
+* **MaxClusterStabilizationTimeout**: tempo massimo di attesa prima che il cluster risulti integro e possa essere nuovamente verificato; l'attesa è mirata a ridurre il carico nel cluster durante il ripristino. I controlli eseguiti sono
+  * Se l'integrità del cluster è OK
+  * L'integrità del servizio è OK
+  * Si ottiene la dimensione di set di replica di destinazione per la partizione di servizio
+  * Non esistono repliche InBuild
+* **MaxConcurrentFaults**: numero massimo di errori simultanei indotti in ogni iterazione. Maggiore è il numero, più aggressivo è Chaos e più complesse saranno le combinazioni di failover e transizioni. Chaos garantisce che in assenza di errori esterni non si verificherà una perdita di quorum o di dati, a prescindere da quanto è elevata la configurazione.
+* **EnableMoveReplicaFaults**: abilita o disabilita gli errori che causano lo spostamento delle repliche primarie o secondarie. Questi errori sono disabilitati per impostazione predefinita.
+* **WaitTimeBetweenIterations**: quantità di tempo di attesa tra due iterazioni, ad esempio dopo un ciclo di errori e la convalida corrispondente.
+* **WaitTimeBetweenFaults**: quantità di tempo di attesa tra due errori consecutivi in un'iterazione.
 
 ## Come eseguire Chaos
 Esempio C#

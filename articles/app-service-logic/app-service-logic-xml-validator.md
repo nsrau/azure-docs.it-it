@@ -1,24 +1,23 @@
-<properties
-   pageTitle="Uso di BizTalk XML Validator nelle app per la logica in Servizio app di Azure | Microsoft Azure"
-   description="Convalidare schemi usando BizTalk XML Validator in un'app per la logica"
-   services="logic-apps"
-   documentationCenter=".net,nodejs,java"
-   authors="rajram"
-   manager="erikre"
-   editor=""/>
+---
+title: Uso di BizTalk XML Validator nelle app per la logica in Servizio app di Azure | Microsoft Docs
+description: Convalidare schemi usando BizTalk XML Validator in un'app per la logica
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: rajram
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="04/20/2016"
-   ms.author="rajram"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 04/20/2016
+ms.author: rajram
 
+---
 # BizTalk XML Validator
-
-[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+[!INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Utilizzare il connettore BizTalk XML Validator nell'app per convalidare i dati XML in base a schemi XML predefiniti. È possibile usare gli schemi esistenti o generare schemi basati su un'istanza di file flat, su un'istanza JSON o su connettori esistenti.
 
@@ -38,24 +37,21 @@ Nel pannello dell'app per le API è possibile configurare gli schemi selezionand
 
 ![Schemi di BizTalk XML Validator][3]
 
-
 ### Uso di BizTalk Flat File Encoder nell'area di progettazione
 Dopo la configurazione, è possibile selezionare *->* e scegliere un'azione da un elenco di azioni.
 
 ![Elenco di azioni di BizTalk XML Validator][4]
 
 #### Validate Xml
-
 L'azione di convalida Xml consente di convalidare uno specifico input XML in base a schemi preconfigurati.
 
 ![XML Validate di BizTalk XML Validator][5]
 
-Parametro|Tipo|Descrizione del parametro
----|---|---
-Input Xml|stringa|XML di input da convalidare.
+| Parametro | Tipo | Descrizione del parametro |
+| --- | --- | --- |
+| Input Xml |stringa |XML di input da convalidare. |
 
 L'azione restituisce l'output sotto forma di oggetto. L'output contiene il modello che rappresenta la risposta ottenuta da XML Validator, costituita dal risultato, il nome dello schema, il nodo radice e la descrizione dell'errore.
-
 
 <!-- References -->
 [1]: ./media/app-service-logic-xml-validator/XmlValidator.ClickToConfigure.PNG

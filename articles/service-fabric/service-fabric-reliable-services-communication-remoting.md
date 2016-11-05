@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Servizio remoto in Infrastruttura di servizi | Microsoft Azure"
-   description="La funzionalità remota di Service Fabric consente a client e servizi di comunicare con i servizi tramite una chiamata di procedura remota."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="vturecek"
-   manager="timlt"
-   editor="BharatNarasimman"/>
+---
+title: Servizio remoto in Infrastruttura di servizi | Microsoft Docs
+description: La funzionalità remota di Service Fabric consente a client e servizi di comunicare con i servizi tramite una chiamata di procedura remota.
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: BharatNarasimman
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="required"
-   ms.date="07/06/2016"
-   ms.author="vturecek"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: required
+ms.date: 07/06/2016
+ms.author: vturecek
 
+---
 # Servizio remoto con Reliable Services
 Per i servizi che non sono legati a un protocollo di comunicazione o uno stack particolare, ad esempio WebAPI, Windows Communication Foundation (WCF) o altri, il framework Reliable Services fornisce un meccanismo remoto per impostare in modo semplice e rapido una chiamata di procedura remota per i servizi.
 
@@ -57,12 +57,13 @@ class MyService : StatelessService, IMyService
     }
 }
 ```
-> [AZURE.NOTE] Gli argomenti e i tipi restituiti nell'interfaccia del servizio possono essere semplici, complessi o personalizzati ma, in tutti i casi, devono essere serializzabili mediante il serializzatore .NET [DataContractSerializer](https://msdn.microsoft.com/library/ms731923.aspx).
-
+> [!NOTE]
+> Gli argomenti e i tipi restituiti nell'interfaccia del servizio possono essere semplici, complessi o personalizzati ma, in tutti i casi, devono essere serializzabili mediante il serializzatore .NET [DataContractSerializer](https://msdn.microsoft.com/library/ms731923.aspx).
+> 
+> 
 
 ## Chiamare i metodi del servizio remoto
 La chiamata dei metodi su un servizio mediante lo stack remoto viene eseguita usando un proxy locale al servizio tramite la classe `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy`. Il metodo `ServiceProxy` crea un proxy locale usando la stessa interfaccia implementata dal servizio. Con tale proxy, è possibile semplicemente chiamare dei metodi nell'interfaccia in modalità remota.
-
 
 ```csharp
 
@@ -75,11 +76,8 @@ string message = await helloWorldClient.GetHelloWorld();
 Il framework remoto propaga le eccezioni generate nel servizio al client. La logica di gestione delle eccezioni nel client tramite `ServiceProxy`, quindi, è in grado di gestire direttamente le eccezioni generate dal servizio.
 
 ## Passaggi successivi
-
 * [Web API con OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
-
 * [Comunicazione di WCF con Reliable Services](service-fabric-reliable-services-communication-wcf.md)
-
 * [Proteggere le comunicazioni per Reliable Services](service-fabric-reliable-services-secure-communication.md)
 
 <!---HONumber=AcomDC_0713_2016-->

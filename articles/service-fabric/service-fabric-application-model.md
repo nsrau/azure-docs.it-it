@@ -1,31 +1,28 @@
-<properties
-   pageTitle="Modello di un'applicazione di infrastruttura di servizi | Microsoft Azure"
-   description="Come modellare e descrivere le applicazioni e servizi in infrastruttura di servizi."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rwike77"
-   manager="timlt"
-   editor="mani-ramaswamy"/>
+---
+title: Modello di un'applicazione di infrastruttura di servizi | Microsoft Docs
+description: Come modellare e descrivere le applicazioni e servizi in infrastruttura di servizi.
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: mani-ramaswamy
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/10/2016"   
-   ms.author="seanmck"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/10/2016
+ms.author: seanmck
 
+---
 # Modellare un'applicazione in Service Fabric
-
 In questo articolo viene fornita una panoramica del modello di applicazione Azure Service Fabric. Inoltre descrive come definire un'applicazione e un servizio attraverso file manifesto e come includere l'applicazione in un pacchetto in modo che sia pronta per la distribuzione.
 
 ## Informazioni sul modello applicativo
-
 Un'applicazione è una raccolta di servizi costituenti che eseguono determinate funzioni. Un servizio esegue una funzione completa e autonoma (avvio ed esecuzione indipendenti da altri servizi) ed è costituito da codice, configurazione e dati. Per ogni servizio, il codice è costituito dai file binari eseguibili, la configurazione è costituita dalle impostazioni del servizio che possono essere caricate in fase di esecuzione e i dati sono costituiti da dati statici arbitrari che devono essere usati dal servizio. Per ogni componente di questo modello applicativo gerarchico è possibile eseguire il controllo delle versioni e l'aggiornamento in modo indipendente.
 
 ![Modello di applicazione di Service Fabric][appmodel-diagram]
-
 
 Un tipo di applicazione è una categorizzazione di un'applicazione e consiste in un'aggregazione di tipi di servizi. Un tipo di servizio è una categorizzazione di un servizio. La categorizzazione di un servizio può disporre di impostazioni e configurazioni diverse, ma la funzionalità di base resta la stessa. Le istanze di un servizio sono le diverse varianti di configurazione dello stesso tipo di servizio.
 
@@ -43,11 +40,12 @@ Il diagramma seguente illustra la relazione tra applicazioni e istanze di serviz
 
 ![Partizioni e repliche in un servizio][cluster-application-instances]
 
-
->[AZURE.TIP] È possibile visualizzare il layout delle applicazioni in un cluster usando lo strumento Service Fabric Explorer disponibile all'indirizzo http://&lt;yourclusteraddress&gt;:19080/Explorer. Per altre informazioni, vedere [Visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+> [!TIP]
+> È possibile visualizzare il layout delle applicazioni in un cluster usando lo strumento Service Fabric Explorer disponibile all'indirizzo http://&lt;yourclusteraddress&gt;:19080/Explorer. Per altre informazioni, vedere [Visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+> 
+> 
 
 ## Descrivere un servizio
-
 Il manifesto del servizio definisce in modo dichiarativo il tipo di servizio e la versione. Specifica i metadati del servizio, ad esempio il tipo di servizio, le proprietà di integrità, le metriche del bilanciamento del carico, i file binari del servizio e i file di configurazione. In altri termini, descrive i pacchetti di codice, configurazione e dati che costituiscono un pacchetto servizio per supportare uno o più tipi di servizi. Questo è un semplice esempio di manifesto del servizio:
 
 ~~~
@@ -93,7 +91,10 @@ Gli attributi **Version** sono stringhe non strutturate e non analizzate dal sis
 </Settings>
 ~~~
 
-> [AZURE.NOTE] Un manifesto del servizio può contenere più pacchetti di codice, configurazione e dati. Ognuna di queste può essere creata in modo indipendente.
+> [!NOTE]
+> Un manifesto del servizio può contenere più pacchetti di codice, configurazione e dati. Ognuna di queste può essere creata in modo indipendente.
+> 
+> 
 
 <!--
 For more information about other features supported by service manifests, refer to the following articles:
@@ -106,8 +107,6 @@ For more information about other features supported by service manifests, refer 
 -->
 
 ## Descrivere un'applicazione
-
-
 Il manifesto dell'applicazione descrive in modo dichiarativo il tipo di applicazione e la versione. Specifica i metadati di composizione dei servizi, ad esempio i nomi stabili, lo schema di partizionamento, il numero di istanze/fattore di replica, i criteri di sicurezza/isolamento, i vincoli di posizionamento, gli override di configurazione e i tipi di servizi costituenti. Vengono descritti anche i domini di bilanciamento del carico in cui viene posizionata l'applicazione.
 
 Un manifesto dell'applicazione quindi descrive elementi a livello di applicazione e fa riferimento a uno o più manifesti dei servizi per comporre un tipo di applicazione. Questo è un semplice esempio di manifesto dell'applicazione:
@@ -139,7 +138,10 @@ Analogamente ai manifesti dei servizi, gli attributi **Version** sono stringhe n
 
 **DefaultServices** dichiara le istanze dei servizi create automaticamente ogni volta che viene creata un'istanza di un'applicazione sulla base di questo tipo di applicazione. I servizi predefiniti vengono forniti per comodità e dopo la creazione si comportano come normali servizi sotto ogni aspetto. Vengono aggiornati insieme agli altri servizi nell'istanza dell'applicazione e possono anche essere rimossi.
 
-> [AZURE.NOTE] Un manifesto dell'applicazione può contenere più importazioni di manifesti di servizi e servizi predefiniti. È possibile controllare le versioni di ogni manifesto del servizio in modo indipendente.
+> [!NOTE]
+> Un manifesto dell'applicazione può contenere più importazioni di manifesti di servizi e servizi predefiniti. È possibile controllare le versioni di ogni manifesto del servizio in modo indipendente.
+> 
+> 
 
 Per informazioni su come mantenere applicazioni diverse e parametri di servizio per ambienti singoli, vedere [Gestione dei parametri dell'applicazione per più ambienti](service-fabric-manage-multiple-environment-app-configuration.md).
 
@@ -152,9 +154,7 @@ For more information about other features supported by application manifests, re
 -->
 
 ## Inserire un'applicazione in un pacchetto
-
 ### Layout del pacchetto
-
 Il manifesto dell'applicazione, i manifesti dei servizi e gli altri file del pacchetto necessari devono essere organizzati in un layout specifico per la distribuzione in un cluster di Service Fabric. I manifesti di esempio di questo articolo dovrebbero essere organizzati nella struttura di directory seguente:
 
 ~~~
@@ -179,15 +179,12 @@ D:\TEMP\MYAPPLICATIONTYPE
 Le cartelle sono denominate in modo da corrispondere agli attributi **Name** di ogni elemento corrispondente. Se ad esempio il manifesto del servizio contenesse due pacchetti di codice denominati **MyCodeA** e **MyCodeB**, dovrebbero esistere due cartelle con gli stessi nomi contenenti i file binari necessari per ogni pacchetto di codice.
 
 ### Usare SetupEntryPoint
-
 Gli scenari tipici per l'utilizzo di **SetupEntryPoint** sono quando è necessario eseguire un file eseguibile prima dell'avvio del servizio o quando è necessario eseguire un'operazione con privilegi elevati. Ad esempio:
 
-- Impostazione e inizializzazione di variabili di ambiente necessari per il file eseguibile del servizio. Questo non è limitato solo agli eseguibili scritti tramite i modelli di programmazione di Service Fabric. Ad esempio, npm.exe richiede alcune variabili di ambiente configurate per la distribuzione di un'applicazione node.js.
-
-- Impostazione del controllo di accesso mediante l'installazione di certificati di sicurezza.
+* Impostazione e inizializzazione di variabili di ambiente necessari per il file eseguibile del servizio. Questo non è limitato solo agli eseguibili scritti tramite i modelli di programmazione di Service Fabric. Ad esempio, npm.exe richiede alcune variabili di ambiente configurate per la distribuzione di un'applicazione node.js.
+* Impostazione del controllo di accesso mediante l'installazione di certificati di sicurezza.
 
 ### Creare un pacchetto mediante Visual Studio
-
 Se si usa Visual Studio 2015 per creare un'applicazione, è possibile usare il comando Pacchetto per creare automaticamente un pacchetto corrispondente al layout descritto precedentemente.
 
 Per creare un pacchetto, fare clic con il pulsante destro sul progetto dell'applicazione in Esplora soluzioni e scegliere il comando Pacchetto, come mostrato di seguito:
@@ -197,7 +194,6 @@ Per creare un pacchetto, fare clic con il pulsante destro sul progetto dell'appl
 Dopo aver completato la creazione del pacchetto, ne verrà indicata la posizione nella finestra **Output**. Si noti che il passaggio di creazione del pacchetto viene eseguito automaticamente con la distribuzione o il debug di un'applicazione in Visual Studio.
 
 ### Testare il pacchetto
-
 È possibile verificare la struttura del pacchetto in modalità locale tramite PowerShell usando il comando **Test-ServiceFabricApplicationPackage**. Questo comando consente di verificare i problemi di analisi dei manifesti e tutti i riferimenti. Si noti che questo comando si limita a verificare la correttezza strutturale delle directory e i file nel pacchetto. Non verificherà il codice o i contenuti del pacchetto di dati oltre a controllare che tutti i file necessari siano presenti.
 
 ~~~
@@ -236,7 +232,6 @@ PS D:\temp>
 Dopo aver inserito correttamente l'applicazione nel pacchetto e aver superato la verifica, tutto è pronto per la distribuzione.
 
 ## Passaggi successivi
-
 [Distribuire e rimuovere applicazioni][10]
 
 [Gestione dei parametri dell'applicazione per più ambienti][11]

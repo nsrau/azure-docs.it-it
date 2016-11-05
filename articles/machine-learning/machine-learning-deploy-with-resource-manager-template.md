@@ -1,22 +1,22 @@
-<properties
-	pageTitle="Distribuire un'area di lavoro di Machine Learning con il modello di Azure Resource Manager | Microsoft Azure"
-	description="Come distribuire un'area di lavoro per Azure Machine Learning usando il modello di Azure Resource Manager"
-	services="machine-learning"
-	documentationCenter=""
-	authors="ahgyger"
-	manager="haining"
-	editor="garye"/> 
+---
+title: Distribuire un'area di lavoro di Machine Learning con il modello di Azure Resource Manager | Microsoft Docs
+description: Come distribuire un'area di lavoro per Azure Machine Learning usando il modello di Azure Resource Manager
+services: machine-learning
+documentationcenter: ''
+author: ahgyger
+manager: haining
+editor: garye
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/23/2016"
-	ms.author="ahgyger"/> 
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/23/2016
+ms.author: ahgyger
+
+---
 # Distribuire un'area di lavoro di Machine Learning con Azure Resource Manager
-
 ## Introduzione
 L'uso di un modello di distribuzione Azure Resource Manager consente di risparmiare tempo perché è possibile distribuire in modo scalabile i componenti interconnessi con un meccanismo di convalida e di ripetizione dei tentativi. Per configurare le aree di lavoro di Azure Machine Learning, ad esempio, è necessario configurare prima un account di archiviazione di Azure e quindi distribuire l'area di lavoro. Si immagini di doverlo fare manualmente per centinaia di aree di lavoro. Un'alternativa più semplice prevede l'uso di un modello di Azure Resource Manager per distribuire un'area di lavoro di Azure Machine Learning e tutte le dipendenze. Questo articolo illustra il processo in dettaglio. Per una panoramica generale di Azure Resource Manager, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md).
 
@@ -132,11 +132,11 @@ Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |
 ```
 Dopo il provisioning dell'area di lavoro, è anche possibile automatizzare diverse attività di Azure Machine Learning Studio usando il [modulo PowerShell per Azure Machine Learning](http://aka.ms/amlps).
 
-## Passaggi successivi 
+## Passaggi successivi
 * Altre informazioni sulla [Creazione di modelli di Azure Resource Manager](../resource-group-authoring-templates.md).
 * Vedere il [repository di modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates).
 * Guardare questo video su [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).
- 
+
 <!--Image references--> 
 [1]: ../media/machine-learning-deploy-with-resource-manager-template/azuresubscription.png
 [2]: ../media/machine-learning-deploy-with-resource-manager-template/resourcegroupprovisioning.png

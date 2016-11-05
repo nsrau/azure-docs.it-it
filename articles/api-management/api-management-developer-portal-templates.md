@@ -1,28 +1,25 @@
-<properties 
-	pageTitle="Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli | Microsoft Azure" 
-	description="Informazioni su come personalizzare il portale per sviluppatori di Gestione API di Azure usando i modelli." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+---
+title: Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli | Microsoft Docs
+description: Informazioni su come personalizzare il portale per sviluppatori di Gestione API di Azure usando i modelli.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>  
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/09/2016
+ms.author: sdanie
 
-
+---
 # Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli
-
 Gestione API di Azure offre diverse funzionalità di personalizzazione per consentire agli amministratori di [personalizzare l'aspetto del portale per sviluppatori](api-management-customize-portal.md) e il contenuto delle relative pagine usando un set di modelli che permettono di configurare il contenuto delle pagine stesse. La sintassi [DotLiquid](http://dotliquidmarkup.org/), insieme a un set fornito di risorse stringa localizzate, icone e controlli di pagina, offre grande flessibilità nella configurazione del contenuto delle pagine con questi modelli.
 
 ## Panoramica sui modelli del portale per sviluppatori
-
 I modelli del portale per sviluppatori vengono gestiti nel portale dagli amministratori dell'istanza del servizio Gestione API. Per gestire i modelli di sviluppo, passare all'istanza del servizio Gestione API nel portale di Azure classico e fare clic su **Sfoglia**.
 
 ![Portale per sviluppatori][api-management-browse]
@@ -59,68 +56,67 @@ Il riquadro **Template data** fornisce una guida al modello di dati per le entit
 
 Nell'esempio precedente sono disponibili due prodotti visualizzati nel portale per gli sviluppatori che sono stati recuperati dai dati visualizzati nel riquadro **Template data**, come illustrato nell'esempio seguente.
 
-	{
-		"Paging": {
-			"Page": 1,
-			"PageSize": 10,
-			"TotalItemCount": 2,
-			"ShowAll": false,
-			"PageCount": 1
-		},
-		"Filtering": {
-			"Pattern": null,
-			"Placeholder": "Search products"
-		},
-		"Products": [
-			{
-				"Id": "56ec64c380ed850042060001",
-				"Title": "Starter",
-				"Description": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",
-				"Terms": "",
-				"ProductState": 1,
-				"AllowMultipleSubscriptions": false,
-				"MultipleSubscriptionsCount": 1
-			},
-			{
-				"Id": "56ec64c380ed850042060002",
-				"Title": "Unlimited",
-				"Description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
-				"Terms": null,
-				"ProductState": 1,
-				"AllowMultipleSubscriptions": false,
-				"MultipleSubscriptionsCount": 1
-			}
-		]
-	}
+    {
+        "Paging": {
+            "Page": 1,
+            "PageSize": 10,
+            "TotalItemCount": 2,
+            "ShowAll": false,
+            "PageCount": 1
+        },
+        "Filtering": {
+            "Pattern": null,
+            "Placeholder": "Search products"
+        },
+        "Products": [
+            {
+                "Id": "56ec64c380ed850042060001",
+                "Title": "Starter",
+                "Description": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",
+                "Terms": "",
+                "ProductState": 1,
+                "AllowMultipleSubscriptions": false,
+                "MultipleSubscriptionsCount": 1
+            },
+            {
+                "Id": "56ec64c380ed850042060002",
+                "Title": "Unlimited",
+                "Description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
+                "Terms": null,
+                "ProductState": 1,
+                "AllowMultipleSubscriptions": false,
+                "MultipleSubscriptionsCount": 1
+            }
+        ]
+    }
 
 Il markup del modello **Product list** elabora i dati per fornire l'output previsto scorrendo la raccolta di prodotti per visualizzare le relative informazioni e un collegamento a ogni singolo prodotto. Si notino gli elementi `<search-control>` e `<page-control>` nel markup. Questi controllano la visualizzazione dei controlli di ricerca e di paging nella pagina. `ProductsStrings|PageTitleProducts` è un riferimento a una stringa localizzata che contiene il testo dell'intestazione `h2` della pagina. Per un elenco delle risorse stringa, i controlli di pagina e le icone disponibili per l'uso nei modelli del portale per sviluppatori, vedere il [riferimento ai modelli del portale per sviluppatori di Gestione API](https://msdn.microsoft.com/library/azure/mt697540.aspx).
 
-	<search-control></search-control>
-	<div class="row">
-	    <div class="col-md-9">
-	        <h2>{% localized "ProductsStrings|PageTitleProducts" %}</h2>
-	    </div>
-	</div>
-	<div class="row">
-	    <div class="col-md-12">
-		{% if products.size > 0 %}
-		<ul class="list-unstyled">
-		{% for product in products %}
-			<li>
-				<h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
-				{{product.description}}
-			</li>	
-		{% endfor %}
-		</ul>
-		<paging-control></paging-control>
-		{% else %}
-		{% localized "CommonResources|NoItemsToDisplay" %}
-		{% endif %}
-		</div>
-	</div>
+    <search-control></search-control>
+    <div class="row">
+        <div class="col-md-9">
+            <h2>{% localized "ProductsStrings|PageTitleProducts" %}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+        {% if products.size > 0 %}
+        <ul class="list-unstyled">
+        {% for product in products %}
+            <li>
+                <h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
+                {{product.description}}
+            </li>    
+        {% endfor %}
+        </ul>
+        <paging-control></paging-control>
+        {% else %}
+        {% localized "CommonResources|NoItemsToDisplay" %}
+        {% endif %}
+        </div>
+    </div>
 
 ## Per salvare un modello
-
 Per salvare un modello, fare clic sull'icona di salvataggio nell'editor del modello.
 
 ![Salvare il modello][api-management-save-template]
@@ -128,7 +124,6 @@ Per salvare un modello, fare clic sull'icona di salvataggio nell'editor del mode
 Le modifiche salvate non sono attive nel portale per sviluppatori fino a quando non vengono pubblicate.
 
 ## Per pubblicare un modello
-
 I modelli salvati possono essere pubblicati singolarmente o tutti insieme. Per pubblicare un singolo modello, fare clic sull'icona di pubblicazione nell'editor del modello.
 
 ![Pubblicare il modello][api-management-publish-template]
@@ -148,7 +143,6 @@ Fare clic su **Publish customizations** per confermare.
 I modelli appena pubblicati diventano immediatamente disponibili nel portale per sviluppatori.
 
 ## Per annullare la modifiche alla versione precedente di un modello
-
 Per annullare la modifiche alla versione pubblicata precedente di un modello, fare clic sull'icona di annullamento nell'editor del modello.
 
 ![Annullare le modifiche al modello][api-management-revert-template]
@@ -160,7 +154,6 @@ Fare clic su **Yes** per confermare.
 Al termine dell'operazione di annullamento, la versione pubblicata precedente del modello sarà disponibile nel portale per sviluppatori.
 
 ## Per ripristinare la versione predefinita di un modello
-
 Il ripristino della versione predefinita di un modello è un processo in due passaggi. Occorre prima di tutto ripristinare i modelli e quindi pubblicare le versioni ripristinate.
 
 Per ripristinare la versione predefinita di un singolo modello, fare clic sull'icona di ripristino nell'editor del modello.
@@ -178,15 +171,14 @@ Per ripristinare le versioni predefinite di tutti i modelli, fare clic su **Rest
 I modelli ripristinati devono poi essere pubblicati singolarmente o tutti insieme seguendo i passaggi descritti nella sezione [Per pubblicare un modello](#to-publish-a-template).
 
 ## Riferimento ai modelli del portale per sviluppatori
-
 Per informazioni di riferimento sui modelli del portale per sviluppatori, le risorse stringa, le icone e i controlli di pagina, vedere il [riferimento ai modelli del portale per sviluppatori di Gestione API](https://msdn.microsoft.com/library/azure/mt697540.aspx).
 
 ## Guardare un video introduttivo
-
 Il video seguente illustra come aggiungere classificazioni e un'area discussioni alle pagine dell'API e operative nel portale per sviluppatori usando i modelli.
 
-> [AZURE.VIDEO adding-developer-portal-functionality-using-templates-in-azure-api-management]
-
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Adding-Developer-Portal-functionality-using-Templates-in-Azure-API-Management/player]
+> 
+> 
 
 [api-management-customize-menu]: ./media/api-management-developer-portal-templates/api-management-customize-menu.png
 [api-management-templates-menu]: ./media/api-management-developer-portal-templates/api-management-templates-menu.png

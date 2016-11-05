@@ -1,34 +1,32 @@
-<properties
-    pageTitle="Pianificazione ed esecuzione con Data Factory | Microsoft Azure"
-    description="Informazioni sugli aspetti di pianificazione ed esecuzione del modello applicativo di Azure Data Factory."
-    services="data-factory"
-    documentationCenter=""
-    authors="spelluru"
-    manager="jhubbard"
-    editor="monicar"/>
+---
+title: Pianificazione ed esecuzione con Data Factory | Microsoft Docs
+description: Informazioni sugli aspetti di pianificazione ed esecuzione del modello applicativo di Azure Data Factory.
+services: data-factory
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: monicar
 
-<tags
-    ms.service="data-factory"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/22/2016"
-    ms.author="spelluru"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/22/2016
+ms.author: spelluru
 
-
+---
 # <a name="data-factory-scheduling-and-execution"></a>Pianificazione ed esecuzione con Data Factory
 Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo Azure Data Factory. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 L'articolo presuppone la conoscenza dei concetti di base del modello applicativo di Data Factory: attività, pipeline, servizi collegati e set di dati. Per i concetti di base di Data Factory di Azure, vedere gli articoli seguenti:
 
-- [Introduzione al servizio Data factory](data-factory-introduction.md)
-- [Pipeline](data-factory-create-pipelines.md)
-- [Set di dati](data-factory-create-datasets.md) 
+* [Introduzione al servizio Data factory](data-factory-introduction.md)
+* [Pipeline](data-factory-create-pipelines.md)
+* [Set di dati](data-factory-create-datasets.md) 
 
 ## <a name="schedule-an-activity"></a>Pianificare un'attività
-
 La sezione scheduler del file JSON dell'attività consente di specificare una pianificazione ricorrente per l'attività. Ad esempio, è possibile pianificare che l'attività venga eseguita a cadenza oraria, come riportato di seguito:
 
     "scheduler": {
@@ -47,7 +45,6 @@ La proprietà **scheduler** supporta le stesse proprietà secondarie della propr
 È possibile specificare le proprietà dell'**utilità di pianificazione** per un'attività, pur trattandosi di una proprietà **facoltativa**. Se si specifica una proprietà, questa deve corrispondere alla cadenza indicata nella definizione del set di dati di output. In questo momento la pianificazione è basata sul set di dati di output, quindi è necessario creare un set di dati di output anche se l'attività non genera alcun output. Se l'attività non richiede input, è possibile ignorare la creazione del set di dati di input.
 
 ## <a name="time-series-datasets-and-data-slices"></a>Set di dati in serie temporale e sezioni di dati
-
 I dati in serie temporale sono costituiti da una sequenza continua di punti dati generalmente composta da misure successive effettuate in un intervallo di tempo. Esempi comuni di dati in serie temporale possono essere i dati di un sensore e i dati di telemetria di un'applicazione.
 
 Con Data Factory è possibile elaborare i dati in serie temporale in modalità batch mediante esecuzioni di attività. In genere, viene definita una cadenza ricorrente con cui vengono ricevuti i dati di input e devono essere prodotti i dati di output. La cadenza viene modellata specificando il parametro **availability** del set di dati, come indicato di seguito.
@@ -70,7 +67,6 @@ Attualmente Data Factory richiede che la pianificazione specificata nell'attivit
 Per altre informazioni sulle diverse proprietà disponibili per la sezione availability, vedere [Creazione di set di dati](data-factory-create-datasets.md).
 
 ## <a name="move-data-from-sql-database-to-blob-storage"></a>Spostare i dati dal database SQL a un archivio BLOB
-
 Per questo esempio verrà creata una pipeline che copia dati da una tabella del database SQL di Azure all'archiviazione BLOB di Azure con cadenza oraria.
 
 **Input: set di dati del database SQL di Azure**
@@ -154,8 +150,6 @@ Il parametro **frequency** è impostato su **Hour** e il parametro **interval** 
 
 Il parametro **frequency** è impostato su **Hour** e il parametro **interval** è impostato su **1** nella sezione availability.
 
-
-
 **Attività: attività di copia**
 
     {
@@ -208,23 +202,24 @@ Quando vengono eseguite tre delle sezioni nella fascia oraria 8-11 AM, i dati ne
 
 Dopo la distribuzione della pipeline, l'archiviazione BLOB di Azure viene popolata come segue:
 
--   Il file mypath/2015/1/1/8/Data.&lt;Guid&gt;.txt con dati
-
-            10002345,334,2,2015-01-01 08:24:00.3130000
-            10002345,347,15,2015-01-01 08:24:00.6570000
-            10991568,2,7,2015-01-01 08:56:34.5300000
-
-    > [AZURE.NOTE] Il &lt;Guid&gt; verrà sostituito con un GUID effettivo. Nome file di esempio: Data.bcde1348-7620-4f93-bb89-0eed3455890b.txt
--   Il file mypath/2015/1/1/9/Data.&lt;Guid&gt;.txt con dati:
-
-            10002345,334,1,2015-01-01 09:13:00.3900000
-            24379245,569,23,2015-01-01 09:25:00.3130000
-            16777799,21,115,2015-01-01 09:47:34.3130000
--   Il file mypath/2015/1/1/10/Data.&lt;Guid&gt;.txt senza dati.
-
+* Il file mypath/2015/1/1/8/Data.&lt;Guid&gt;.txt con dati
+  
+          10002345,334,2,2015-01-01 08:24:00.3130000
+          10002345,347,15,2015-01-01 08:24:00.6570000
+          10991568,2,7,2015-01-01 08:56:34.5300000
+  
+  > [!NOTE]
+  > Il &lt;Guid&gt; verrà sostituito con un GUID effettivo. Nome file di esempio: Data.bcde1348-7620-4f93-bb89-0eed3455890b.txt
+  > 
+  > 
+* Il file mypath/2015/1/1/9/Data.&lt;Guid&gt;.txt con dati:
+  
+          10002345,334,1,2015-01-01 09:13:00.3900000
+          24379245,569,23,2015-01-01 09:25:00.3130000
+          16777799,21,115,2015-01-01 09:47:34.3130000
+* Il file mypath/2015/1/1/10/Data.&lt;Guid&gt;.txt senza dati.
 
 ## <a name="active-period-for-pipeline"></a>Periodo attivo per la pipeline
-
 L'articolo [Creazione di pipeline](data-factory-create-pipelines.md) ha introdotto il concetto di periodo attivo per una pipeline specificato impostando le proprietà **start** e **end**.
 
 È possibile impostare la data di inizio per il periodo attivo della pipeline nel passato. Data Factory calcola automaticamente (recuperando le informazioni) tutte le sezioni di dati nel passato e ne avvia l'elaborazione.
@@ -232,7 +227,7 @@ L'articolo [Creazione di pipeline](data-factory-create-pipelines.md) ha introdot
 ## <a name="parallel-processing-of-data-slices"></a>Elaborazione parallela delle sezioni di dati
 È possibile configurare le sezioni di dati recuperati per essere eseguite in parallelo, impostando la proprietà **Concorrenza** nella sezione dei criteri per l'attività JSON. Per ulteriori informazioni su questa proprietà, vedere [Creazione di pipeline](data-factory-create-pipelines.md).
 
-## <a name="rerun-a-failed-data-slice"></a>Nuova esecuzione di una sezione di dati non riuscita 
+## <a name="rerun-a-failed-data-slice"></a>Nuova esecuzione di una sezione di dati non riuscita
 È possibile monitorare l'esecuzione delle sezioni in una ricca modalità visiva. Per informazioni dettagliate, vedere [Monitorare e gestire le pipeline con i pannelli del portale di Azure](data-factory-monitor-manage-pipelines.md) o [App di monitoraggio e gestione](data-factory-monitor-manage-app.md).
 
 Si consideri l'esempio seguente che descrive due attività. Activity1 produce un set di dati in serie temporale il cui output è costituito da sezioni usate come input da Activity2 per la produzione del set di dati in serie temporale che rappresenta l'output finale.
@@ -252,8 +247,8 @@ Dopo che la sezione 9-10 AM di **Dataset2**è stata eseguita nuovamente, Data Fa
 
 Ad esempio, si consideri il caso seguente:
 
-1.  La pipeline P1 include l'attività A1 che richiede il set di dati di input esterno D1 e produce il set di dati di output D2.
-2.  La pipeline P2 include l'attività A2 che richiede l'input del set di dati D2 e produce il set di dati di output D3.
+1. La pipeline P1 include l'attività A1 che richiede il set di dati di input esterno D1 e produce il set di dati di output D2.
+2. La pipeline P2 include l'attività A2 che richiede l'input del set di dati D2 e produce il set di dati di output D3.
 
 In questo scenario, le attività A1 e A2 si trovano in pipeline differenti. L'attività A1 viene eseguita quando i dati esterni sono disponibili e viene raggiunta la frequenza di disponibilità pianificata. L'attività A2 viene eseguita quando le sezioni pianificate di D2 diventano disponibili e viene raggiunta la frequenza di disponibilità pianificata. Se è presente un errore in una delle sezioni del set di dati D2, A2 non verrà eseguita per tale sezione fino a quando non diventa disponibile.
 
@@ -452,17 +447,13 @@ Input: Dataset3, Dataset2. Output: Dataset4.
 
 Si noti che nell'esempio vengono specificati due set di dati di input per la seconda attività di copia. Quando si specificano più input, solo il primo set di dati di input viene usato per la copia dei dati e gli altri set di dati vengono usati come dipendenze. L'esecuzione di CopyActivity2 si avvia solo dopo che le seguenti condizioni sono soddisfatte:
 
-- L’esecuzione di CopyActivity1 è riuscita e Dataset2 è disponibile. Questo set di dati non viene usato per la copia dei dati in Dataset4. La sua funzione è semplicemente quella di pianificare la dipendenza per CopyActivity2.   
-- Dataset3 è disponibile. Questo set di dati rappresenta i dati che vengono copiati nella destinazione.  
-
-
+* L’esecuzione di CopyActivity1 è riuscita e Dataset2 è disponibile. Questo set di dati non viene usato per la copia dei dati in Dataset4. La sua funzione è semplicemente quella di pianificare la dipendenza per CopyActivity2.   
+* Dataset3 è disponibile. Questo set di dati rappresenta i dati che vengono copiati nella destinazione.  
 
 ## <a name="model-datasets-with-different-frequencies"></a>Modellare i set di dati con frequenze diverse
-
 Negli esempi, la finestra di pianificazione dell'attività e le frequenze relative ai set di dati di input e di output erano identiche. Alcuni scenari richiedono tuttavia la possibilità di generare output a una frequenza diversa da quella degli input. Data Factory supporta la modellazione di questi scenari.
 
 ### <a name="sample-1:-produce-a-daily-output-report-for-input-data-that-is-available-every-hour"></a>Esempio 1: Generazione di un report di output giornaliero per i dati di input, disponibile ogni ora
-
 Si consideri uno scenario in cui i dati delle misurazioni di input dei sensori sono disponibili ogni ora nell'archiviazione BLOB di Azure. Si intende generare un report aggregato giornaliero con statistiche, ad esempio media, max e min, per il giorno con [attività Hive di Data Factory](data-factory-hive-activity.md).
 
 Ecco come modellare questo scenario con Data Factory:
@@ -498,7 +489,6 @@ I file di input vengono rilasciati ogni ora nella cartella relativa al giorno sp
 **Set di dati di output**
 
 Un file di output viene creato ogni giorno nella cartella relativa al giorno corrispondente. Il valore di disponibilità per l'output è impostato su **Day** (frequency: Day, interval: 1).
-
 
     {
       "name": "AzureBlobOutput",
@@ -578,9 +568,7 @@ Il diagramma seguente illustra lo scenario dal punto di vista della dipendenza d
 
 Per ogni giorno, la sezione di output dipende dalle 24 sezioni orarie ottenute dal set di dati di input. Data Factory calcola automaticamente queste dipendenze prevedendo le sezioni di dati di input che rientrano nello stesso periodo di tempo della sezione di output da produrre. Se una delle 24 sezioni di input non è disponibile, Data Factory attenderà che la sezione di input sia pronta prima di avviare l'esecuzione dell'attività giornaliera.
 
-
 ### <a name="sample-2:-specify-dependency-with-expressions-and-data-factory-functions"></a>Esempio 2: Definizione di una dipendenza con espressioni e funzioni di Data Factory
-
 Si consideri ora un altro scenario Si supponga di avere un'attività Hive che elabora i due set di dati di input. Uno di questi dispone di nuovi dati ogni giorno, mentre l'altro li riceve ogni settimana. Si supponga inoltre di voler eseguire un join tra i due input e produrre un output ogni giorno.
 
 L'approccio semplice, in cui Data Factory determina automaticamente le sezioni di input da elaborare tramite l'allineamento con il periodo di tempo della sezione dei dati di output, non funziona.
@@ -725,12 +713,10 @@ L'attività Hive usa i due input e genera una sezione di output giornaliera. È 
     }
 
 
-## <a name="data-factory-functions-and-system-variables"></a>Funzioni e variabili di sistema di Data Factory   
-
+## <a name="data-factory-functions-and-system-variables"></a>Funzioni e variabili di sistema di Data Factory
 Per un elenco di funzioni e variabili di sistema supportate da Data Factory, vedere l'articolo [Funzioni e variabili di sistema di Data Factory](data-factory-functions-variables.md) .
 
 ## <a name="data-dependency-deep-dive"></a>Approfondimento della dipendenza dei dati
-
 Per generare una sezione di set di dati da un'esecuzione di attività, Data Factory usa il *modello di dipendenza* seguente per determinare le relazioni tra i set di dati usati e generati da un'attività.
 
 L'intervallo di tempo dei set di dati di input necessario per generare la sezione di set di dati di output prende il nome di *periodo di dipendenza*.
@@ -751,7 +737,6 @@ Ad esempio, nell'esempio di aggregazione in cui l'output viene prodotto giornalm
 È possibile specificare anche un mapping personalizzato per il periodo di dipendenza, come illustrato nell'esempio in cui uno degli input era settimanale, mentre la sezione di output veniva generata giornalmente.
 
 ## <a name="data-dependency-and-validation"></a>Convalida e dipendenza dei dati
-
 Per un set di dati è possibile definire anche un criterio di convalida che specifica in che modo i dati generati dall'esecuzione di una sezione possono essere convalidati prima che siano pronti per l'uso. Per informazioni dettagliate, vedere [Creazione di set di dati](data-factory-create-datasets.md) .
 
 In questi casi, al termine del processo di esecuzione, lo stato della sezione di output viene impostato su **In attesa** con lo stato secondario impostato su **Convalida**. Al termine della convalida, lo stato viene impostato invece su **Pronto**.
@@ -761,7 +746,6 @@ Se una sezione di dati è stata correttamente generata ma non ha superato il pro
 [Monitorare e gestire le pipeline](data-factory-monitor-manage-pipelines.md) vengono descritti i vari stati disponibili per le sezioni di dati di Data Factory.
 
 ## <a name="external-data"></a>Dati esterni
-
 Se un set di dati viene contrassegnato come esterno, come illustrato nel frammento JSON seguente, significa che non è stato generato con Data Factory. In questo caso, al criterio del set di dati è possibile applicare un set di parametri aggiuntivo che definisce i criteri di convalida e ripetizione per il set di dati. Per una descrizione di tutte le proprietà, vedere [Creazione di pipeline](data-factory-create-pipelines.md) .
 
 Analogamente ai set di dati prodotti da Data Factory, è necessario che le sezioni di dati per i dati esterni siano pronte prima che le sezioni dipendenti possano essere elaborate.
@@ -834,12 +818,10 @@ Analogamente ai set di dati prodotti da Data Factory, è necessario che le sezio
 
 Tenere presente quanto segue:
 
-- Le ore di **inizio** e **fine** della pipeline non vengono specificate.
-- La **disponibilità** dei set di dati di input e output viene specificata (**frequenza** e **intervallo**) anche se i valori non vengono usati da Data Factory.  
-- Le pipeline monouso non vengono visualizzate nella vista Diagramma. Questo comportamento dipende dalla progettazione.
-- Le pipeline monouso non possono essere aggiornate. È possibile clonare una pipeline monouso, rinominarla, aggiornarne le proprietà e distribuirla per crearne un'altra.
-
-
+* Le ore di **inizio** e **fine** della pipeline non vengono specificate.
+* La **disponibilità** dei set di dati di input e output viene specificata (**frequenza** e **intervallo**) anche se i valori non vengono usati da Data Factory.  
+* Le pipeline monouso non vengono visualizzate nella vista Diagramma. Questo comportamento dipende dalla progettazione.
+* Le pipeline monouso non possono essere aggiornate. È possibile clonare una pipeline monouso, rinominarla, aggiornarne le proprietà e distribuirla per crearne un'altra.
 
 <!--HONumber=Oct16_HO2-->
 

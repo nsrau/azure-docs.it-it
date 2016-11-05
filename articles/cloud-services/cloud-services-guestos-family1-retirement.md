@@ -1,25 +1,22 @@
-<properties
-   pageTitle="Avviso di ritiro della famiglia di sistemi operativi guest 1 | Microsoft Azure"
-   description="Fornisce informazioni sulla data in cui è stato effettuato il ritiro della famiglia di sistemi operativi guest 1 e su come stabilire se si è interessati"
-   services="cloud-services"
-   documentationCenter="na"
-   authors="yuemlu"
-   manager="timlt"
-   editor=""/>
+---
+title: Avviso di ritiro della famiglia di sistemi operativi guest 1 | Microsoft Docs
+description: Fornisce informazioni sulla data in cui è stato effettuato il ritiro della famiglia di sistemi operativi guest 1 e su come stabilire se si è interessati
+services: cloud-services
+documentationcenter: na
+author: yuemlu
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="cloud-services"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="06/10/2016"
-   ms.author="yuemlu"/>
+ms.service: cloud-services
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: tbd
+ms.date: 06/10/2016
+ms.author: yuemlu
 
-
-
+---
 # Avviso di ritiro della famiglia di sistemi operativi guest 1
-
 Il ritiro della famiglia di sistemi operativi guest 1 è stato annunciato il 1ª giugno 2013.
 
 **2 settembre 2014**. La famiglia di sistemi operativi guest 1.x di Azure, basata su Windows Server 2008, è stata ufficialmente ritirata. Qualsiasi tentativo di distribuire nuovi servizi o aggiornamenti di servizi esistenti mediante la famiglia 1 avrà esito negativo e restituirà un messaggio di errore simile al seguente: "La famiglia di sistemi operativi guest 1 è stata ritirata."
@@ -28,11 +25,7 @@ Il ritiro della famiglia di sistemi operativi guest 1 è stato annunciato il 1ª
 
 Per altre domande, visitare i [forum dei servizi cloud](http://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc) o [contattare il supporto di Azure](https://azure.microsoft.com/support/options/).
 
-
-
-
 ## Si è interessati?
-
 I servizi cloud sono interessati se si verifica una delle seguenti condizioni:
 
 1. Nel file ServiceConfiguration.cscfg del servizio cloud è specificato esplicitamente il valore "osFamily = "1".
@@ -54,7 +47,6 @@ foreach($subscription in Get-AzureSubscription) {
 I servizi cloud saranno interessati dal ritiro della famiglia di sistemi operativi 1 se la colonna osFamily dell'output dello script è vuota o contiene il valore "1".
 
 ## Indicazioni se i servizi cloud sono interessati
-
 Si consiglia di migrare i ruoli del servizio cloud a una delle famiglie di sistemi operativi guest supportate:
 
 **Famiglia di sistema operativi guest 4.x**: Windows Server 2012 R2 *(scelta consigliata)*
@@ -62,18 +54,15 @@ Si consiglia di migrare i ruoli del servizio cloud a una delle famiglie di siste
 1. Assicurarsi che l'applicazione usi SDK 2.1 o versioni successive con .NET Framework 4.0, 4.5 o 4.5.1.
 2. Impostare l'attributo osFamily su "4" nel file ServiceConfiguration.cscfg, quindi ridistribuire il servizio cloud.
 
-
 **Famiglia di sistemi operativi guest 3.x**: Windows Server 2012
 
 1. Assicurarsi che l'applicazione usi SDK 1.8 o versioni successive con .NET Framework 4.0 o 4.5.
 2. Impostare l'attributo osFamily su "3" nel file ServiceConfiguration.cscfg, quindi ridistribuire il servizio cloud.
 
-
 **Famiglia di sistemi operativi guest 2.x**: Windows Server 2008 R2
 
 1. Assicurarsi che l'applicazione usi SDK 1.3 o versioni successive con .NET Framework 3.5 o 4.0.
 2. Impostare l'attributo osFamily su "2" nel file ServiceConfiguration.cscfg, quindi ridistribuire il servizio cloud.
-
 
 ## Supporto esteso per la famiglia di sistemi operativi guest 1 terminato il 3 novembre 2014
 I servizi cloud per la famiglia di sistemi operativi guest 1 non sono più supportati. Disattivare la migrazione della famiglia 1 appena possibile per evitare l'interruzione del servizio.

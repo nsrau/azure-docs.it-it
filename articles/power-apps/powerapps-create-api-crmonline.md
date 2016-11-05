@@ -1,28 +1,30 @@
-<properties
-	pageTitle="Aggiungere l'API di Dynamics CRM Online a PowerApps Enterprise | Microsoft Azure"
-	description="Creare o configurare una nuova API di Dynamics CRM Online nell’ambiente del servizio app dell'organizzazione"
-	services=""
-    suite="powerapps"
-	documentationCenter=""
-	authors="schabungbam"
-	manager="erikre"
-	editor=""/>
+---
+title: Aggiungere l'API di Dynamics CRM Online a PowerApps Enterprise | Microsoft Docs
+description: Creare o configurare una nuova API di Dynamics CRM Online nell’ambiente del servizio app dell'organizzazione
+services: ''
+suite: powerapps
+documentationcenter: ''
+author: schabungbam
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="powerapps"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="05/02/2016"
-   ms.author="sameerch"/>
+ms.service: powerapps
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 05/02/2016
+ms.author: sameerch
 
+---
 # Creare una nuova API Dynamics CRM in PowerApps Enterprise
-
-> [AZURE.IMPORTANT] Questo argomento è archiviato e verrà presto rimosso. Vieni a scoprire le novità di [PowerApps](https://powerapps.microsoft.com).
+> [!IMPORTANT]
+> Questo argomento è archiviato e verrà presto rimosso. Vieni a scoprire le novità di [PowerApps](https://powerapps.microsoft.com).
 > 
-> - Per sapere di più su PowerApps e iniziare a usarlo, visitare [PowerApps](https://powerapps.microsoft.com).  
-> - Per sapere di più sulle connessioni disponibili in PowerApps, visitare la pagina sulle [connessioni disponibili](https://powerapps.microsoft.com/tutorials/connections-list/). 
+> * Per sapere di più su PowerApps e iniziare a usarlo, visitare [PowerApps](https://powerapps.microsoft.com).  
+> * Per sapere di più sulle connessioni disponibili in PowerApps, visitare la pagina sulle [connessioni disponibili](https://powerapps.microsoft.com/tutorials/connections-list/). 
+> 
+> 
 
 <!--Archived
 Add the Dynamics CRM Online API to your organization's (tenant) app service environment. 
@@ -53,7 +55,7 @@ Add the Dynamics CRM Online API to your organization's (tenant) app service envi
 
 9. Enter **Client Id** and **App Key** of your Dynamics CRM Online Azure Active Directory (AAD) application.  If you don't have one, see the "Register an AAD app for use with PowerApps" section in this topic to create the ID and secret values you need.  
 
-	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
+    > [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
 
 10. Select **OK** to complete the steps.
 
@@ -65,7 +67,7 @@ When finished, a new Dynamics CRM Online API is added to your app service enviro
 
 2. Select **Browse** and then select **Active Directory**:  
 
-	> [AZURE.NOTE] This opens Active Directory in the Azure classic portal.  
+    > [AZURE.NOTE] This opens Active Directory in the Azure classic portal.  
 
 3. Select your organization's tenant name:  
 ![Launch Azure Active Directory][7]
@@ -75,19 +77,19 @@ When finished, a new Dynamics CRM Online API is added to your app service enviro
 
 5. In **Add application**:  
 
-	1. Enter a **Name** for your application.  
-	2. Leave the application type as **Web**.  
-	3. Select **Next**.
+    1. Enter a **Name** for your application.  
+    2. Leave the application type as **Web**.  
+    3. Select **Next**.
 
-	![Add AAD application - app info][9]
+    ![Add AAD application - app info][9]
 
 6. In **App Properties**:  
 
-	1. Enter the **SIGN-ON URL** of your application.  Since you are going to authenticate with AAD for PowerApps, set the sign-on url to _https://login.windows.net_.  
-	2. Enter a valid **APP ID URI** for your app.  
-	3. Select **OK**.  
+    1. Enter the **SIGN-ON URL** of your application.  Since you are going to authenticate with AAD for PowerApps, set the sign-on url to _https://login.windows.net_.  
+    2. Enter a valid **APP ID URI** for your app.  
+    3. Select **OK**.  
 
-	![Add AAD application - app properties][10]
+    ![Add AAD application - app properties][10]
 
 7. On successful completion, you are redirected to the new AAD app. Select **Configure**:  
 ![Contoso AAD app][11]

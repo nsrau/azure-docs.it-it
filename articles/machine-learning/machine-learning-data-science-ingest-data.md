@@ -1,26 +1,25 @@
-<properties 
-	pageTitle="Caricare i dati in ambienti di archiviazione per l'analisi | Microsoft Azure" 
-	description="Spostamento dei dati da e verso l'archiviazione BLOB di Azure" 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="jhubbard" 
-	editor="cgronlun" /> 
+---
+title: Caricare i dati in ambienti di archiviazione per l'analisi | Microsoft Docs
+description: Spostamento dei dati da e verso l'archiviazione BLOB di Azure
+services: machine-learning,storage
+documentationcenter: ''
+author: bradsev
+manager: jhubbard
+editor: cgronlun
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/19/2016" 
-	ms.author="bradsev" /> 
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/19/2016
+ms.author: bradsev
 
+---
 # Caricare i dati in ambienti di archiviazione per l'analisi
-
 Il Processo di analisi scientifica dei dati per i team richiede l'inserimento o il caricamento di dati in una vasta gamma di ambienti di archiviazione diversi per l'elaborazione e l'analisi nei modi più appropriati in ogni fase del processo. Le destinazioni dei dati più comunemente usate per l'elaborazione includono l'archiviazione BLOB di Azure, i database di SQL Azure, SQL Server nella macchina virtuale di Azure, HDInsight (Hadoop) e Azure Machine Learning.
 
-[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
+[!INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
 Questo **menu** si collega ad argomenti che descrivono come inserire dati in questi ambienti di destinazione dove i dati vengono archiviati ed elaborati.
 

@@ -1,34 +1,30 @@
-<properties 
-pageTitle="Distribuzione di S/4 HANA o BW/4 HANA in una macchina virtuale di Azure | Microsoft Azure" 
-description="Distribuzione di S/4 HANA o BW/4 HANA in una macchina virtuale di Azure" 
-services="virtual-machines-linux" 
-documentationCenter="" 
-authors="hermanndms" 
-manager="timlt" 
-editor="" 
-tags="azure-resource-manager" 
-  keywords=""/> 
-<tags 
-  ms.service="virtual-machines-linux" 
-  ms.devlang="na" 
-  ms.topic="article" 
-  ms.tgt_pltfrm="vm-linux" 
-  ms.workload="infrastructure-services" 
-  ms.date="09/15/2016" 
-  ms.author="hermannd"/> 
+---
+title: Distribuzione di S/4 HANA o BW/4 HANA in una macchina virtuale di Azure | Microsoft Docs
+description: Distribuzione di S/4 HANA o BW/4 HANA in una macchina virtuale di Azure
+services: virtual-machines-linux
+documentationcenter: ''
+author: hermanndms
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+keywords: ''
 
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 09/15/2016
+ms.author: hermannd
 
-
-# <a name="deploying-s/4-hana-or-bw/4-hana-on-microsoft-azure"></a>Distribuire S/4 HANA o BW/4 HANA in Microsoft Azure 
-
+---
+# <a name="deploying-s/4-hana-or-bw/4-hana-on-microsoft-azure"></a>Distribuire S/4 HANA o BW/4 HANA in Microsoft Azure
 In questo articolo viene descritto come distribuire S/4 HANA in Microsoft Azure tramite SAP Cloud Appliance Library 3.0.
 Le schermate illustrano la procedura dettagliata. Sul piano procedurale, per le altre soluzioni basate su SAP HANA, come BW/4 HANA, la distribuzione funziona nello stesso modo. L'unica cosa da fare è selezionare un'altra soluzione.
 
 Per acquisire familiarità con SAP Cloud Appliance Library (SAP CAL), visitare [questa pagina](https://cal.sap.com/). Esiste anche un blog di SAP sul nuovo [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
 
-
 Le schermate seguenti illustrano in dettaglio come distribuire S/4 HANA in Microsoft Azure. Per altre soluzioni BW/4 HANA, la procedura è sempre la stessa.
-
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic-1b.jpg)
 
@@ -92,15 +88,6 @@ A questo punto è possibile connettersi alla soluzione tramite l'apposito pulsan
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic15.jpg)
 
 Un'altra opzione consiste nell'effettuare l'accesso alla VM client di Windows e avviare, ad esempio, la GUI SAP preconfigurata.
-
-
-
-
-
-
-
-
-
 
 <!--HONumber=Oct16_HO2-->
 

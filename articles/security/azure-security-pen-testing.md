@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Test di penetrazione | Microsoft Azure"
-   description="L'articolo offre una panoramica del processo del test di penetrazione e di come eseguire il test di penetrazione sulle app in esecuzione nell'infrastruttura di Azure."
-   services="security"
-   documentationCenter="na"
-   authors="YuriDio"
-   manager="swadhwa"
-   editor="TomSh"/>  
+---
+title: Test di penetrazione | Microsoft Docs
+description: L'articolo offre una panoramica del processo del test di penetrazione e di come eseguire il test di penetrazione sulle app in esecuzione nell'infrastruttura di Azure.
+services: security
+documentationcenter: na
+author: YuriDio
+manager: swadhwa
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/09/2016"
-   ms.author="yurid"/>  
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: yurid
 
+---
 # Test di penetrazione
-
 Uno dei maggiori vantaggi dell'uso di Microsoft Azure per il test e la distribuzione di applicazioni è che non è necessaria un'infrastruttura locale per sviluppare, testare e distribuire le applicazioni. I servizi della piattaforma Microsoft Azure gestiscono l'intera infrastruttura. Non è necessario richiedere, acquistare e installare il proprio hardware locale.
 
 È tuttavia necessario continuare ad applicare la normale due diligence in materia di sicurezza. Una delle operazioni da eseguire è il test di penetrazione delle applicazioni distribuite in Azure.
@@ -32,9 +31,9 @@ Cosa fare?
 
 Quando si è pronti per eseguire il test di penetrazione delle applicazioni ospitate in Azure, comunicarlo a Microsoft. Sapendo che stanno per essere eseguiti test specifici, Microsoft eviterà di bloccare inavvertitamente gli utenti (ad esempio, bloccando l'indirizzo IP da cui si esegue il test), purché i test siano conformi ai termini e alle condizioni per i test di penetrazione di Azure. I test standard che è possibile eseguire includono:
 
-- Test sugli endpoint per scoprire le [prime 10 vulnerabilità OWASP (Open Web Application Security Project)](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
-- [Test con dati casuali](https://blogs.microsoft.com/cybertrust/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) degli endpoint
-- [Port scanning](https://en.wikipedia.org/wiki/Port_scanner) degli endpoint
+* Test sugli endpoint per scoprire le [prime 10 vulnerabilità OWASP (Open Web Application Security Project)](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
+* [Test con dati casuali](https://blogs.microsoft.com/cybertrust/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) degli endpoint
+* [Port scanning](https://en.wikipedia.org/wiki/Port_scanner) degli endpoint
 
 Tra i tipi di test che non è possibile eseguire sono incluse tutte le tipologie di attacco [Denial of Service (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack), tra cui l'avvio di un attacco DoS vero e proprio o l'esecuzione di test correlati che possono determinare, dimostrare o simulare tutti i tipi di attacco DoS.
 

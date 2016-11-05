@@ -1,7 +1,7 @@
-Risorsa|Free|Basic (anteprima)|S1|S2
----|---|---|---|----
-Numero massimo di servizi in ogni piano per ogni sottoscrizione <sup>1</sup>|1 |12 |12 |1
-Scalabilità massima per ogni piano <sup>2</sup>|N/D|3 unità di ricerca (fino a 3 repliche e 1 partizione)|36 unità di ricerca|36 unità di ricerca  
+| Risorsa | Free | Basic (anteprima) | S1 | S2 |
+| --- | --- | --- | --- | --- |
+| Numero massimo di servizi in ogni piano per ogni sottoscrizione <sup>1</sup> |1 |12 |12 |1 |
+| Scalabilità massima per ogni piano <sup>2</sup> |N/D |3 unità di ricerca (fino a 3 repliche e 1 partizione) |36 unità di ricerca |36 unità di ricerca |
 
 <sup>1</sup> Viene eseguito il provisioning di ogni servizio in un determinato piano tariffario, con limiti al numero di servizi di cui è possibile effettuare il provisioning in ogni piano all'interno di una singola sottoscrizione di Azure. Nel periodo di anteprima i piani sono disponibili con uno sconto del 50% rispetto al prezzo intero.
 

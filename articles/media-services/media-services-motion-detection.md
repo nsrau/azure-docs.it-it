@@ -1,26 +1,23 @@
-<properties
-    pageTitle="Rilevare i movimenti con Analisi Servizi multimediali di Azure | Microsoft Azure"
-    description="Il processore di contenuti multimediali Rilevatore multimediale di movimento Azure consente di identificare in modo efficace le sezioni interessanti all'interno di un video altrimenti lungo e privo di eventi."
-    services="media-services"
-    documentationCenter=""
-    authors="juliako"
-    manager="erikre"
-    editor=""/>
+---
+title: Rilevare i movimenti con Analisi Servizi multimediali di Azure | Microsoft Docs
+description: Il processore di contenuti multimediali Rilevatore multimediale di movimento Azure consente di identificare in modo efficace le sezioni interessanti all'interno di un video altrimenti lungo e privo di eventi.
+services: media-services
+documentationcenter: ''
+author: juliako
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="10/10/2016"  
-    ms.author="milanga;juliako;"/>
- 
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: milanga;juliako;
 
+---
 # <a name="detect-motions-with-azure-media-analytics"></a>Rilevare i movimenti con Analisi servizi multimediali di Azure
-
-##<a name="overview"></a>Panoramica
-
+## <a name="overview"></a>Panoramica
 Il processore di contenuti multimediali **Rilevatore multimediale di movimento Azure** consente di identificare in modo efficace le sezioni interessanti all'interno di un video altrimenti lungo e privo di eventi. Il rilevamento di movimento può essere usato nei filmati statici della videocamera per individuare le sezioni del video in cui si verificano movimenti. Viene generato un file JSON contenente i metadati con i timestamp e l'area di delimitazione in cui si è verificato l'evento.
 
 Questa tecnologia, destinata alle trasmissioni video di sicurezza, è in grado di classificare i movimenti in eventi rilevanti e falsi positivi, ad esempio variazioni di luminosità e delle ombre. In questo modo è possibile generare avvisi di sicurezza dalle trasmissioni della videocamera senza che venga segnalata una serie infinita di eventi irrilevanti e al contempo estrarre i momenti di interesse da video di sorveglianza estremamente lunghi.
@@ -29,30 +26,24 @@ Attualmente il processore multimediale **Rilevatore multimediale di movimento Az
 
 Questo argomento illustra dettagliatamente il **Azure Media Motion Detector** e spiega come usare questa funzionalità con Media Services .NET SDK
 
-
-##<a name="motion-detector-input-files"></a>File di input di Rilevatore di movimento
-
+## <a name="motion-detector-input-files"></a>File di input di Rilevatore di movimento
 File video. Attualmente sono supportati i formati seguenti: MP4, MOV e WMV.
 
-##<a name="task-configuration-(preset)"></a>Configurazione delle attività (set di impostazioni)
-
+## <a name="task-configuration-(preset)"></a>Configurazione delle attività (set di impostazioni)
 Quando si crea un'attività con **Azure Media Motion Detector**è necessario specificare un set di impostazioni di configurazione. 
 
-###<a name="parameters"></a>Parametri
-
+### <a name="parameters"></a>Parametri
 È possibile usare i parametri seguenti:
 
-Nome|Opzioni|Descrizione|Default
----|---|---|---
-sensitivityLevel|Stringa:'low', 'medium', 'high'|Imposta il livello di sensibilità per la segnalazione dei movimenti. Modificare per ridurre il numero di falsi positivi.|'medium'
-frameSamplingValue|Intero positivo|Imposta la frequenza di esecuzione dell'algoritmo. 1 indica a ogni fotogramma, 2 a un fotogramma su due e così via.|1
-detectLightChange|Booleano: 'true', 'false'|Indica se vengono segnalate le variazioni di luce nei risultati|'False'
-mergeTimeThreshold|Xs-time: Hh:mm:ss<br/>Esempio: 00:00:03|Specifica l'intervallo di tempo tra eventi di movimento in cui 2 eventi verranno combinati e segnalati come 1 evento.|00:00:00
-detectionZones|Matrice di zone di rilevamento:<br/>- La zona di rilevamento è una matrice di 3 o più punti<br/>- Il punto è una coordinata x e y da 0 a 1.|Descrive l'elenco delle zone di rilevamento poligonali da usare.<br/>I risultati verranno visualizzati con le zone come ID, dove la prima è 'id':0|Singola zona che copre l'intero fotogramma.
+| Nome | Opzioni | Descrizione | Default |
+| --- | --- | --- | --- |
+| sensitivityLevel |Stringa:'low', 'medium', 'high' |Imposta il livello di sensibilità per la segnalazione dei movimenti. Modificare per ridurre il numero di falsi positivi. |'medium' |
+| frameSamplingValue |Intero positivo |Imposta la frequenza di esecuzione dell'algoritmo. 1 indica a ogni fotogramma, 2 a un fotogramma su due e così via. |1 |
+| detectLightChange |Booleano: 'true', 'false' |Indica se vengono segnalate le variazioni di luce nei risultati |'False' |
+| mergeTimeThreshold |Xs-time: Hh:mm:ss<br/>Esempio: 00:00:03 |Specifica l'intervallo di tempo tra eventi di movimento in cui 2 eventi verranno combinati e segnalati come 1 evento. |00:00:00 |
+| detectionZones |Matrice di zone di rilevamento:<br/>- La zona di rilevamento è una matrice di 3 o più punti<br/>- Il punto è una coordinata x e y da 0 a 1. |Descrive l'elenco delle zone di rilevamento poligonali da usare.<br/>I risultati verranno visualizzati con le zone come ID, dove la prima è 'id':0 |Singola zona che copre l'intero fotogramma. |
 
-###<a name="json-example"></a>Esempio di JSON
-
-    
+### <a name="json-example"></a>Esempio di JSON
     {
       'version': '1.0',
       'options': {
@@ -82,35 +73,36 @@ detectionZones|Matrice di zone di rilevamento:<br/>- La zona di rilevamento è u
     }
 
 
-##<a name="motion-detector-output-files"></a>File di output di Rilevatore di movimento
-
+## <a name="motion-detector-output-files"></a>File di output di Rilevatore di movimento
 Un processo di rilevamento del movimento restituirà un file JSON nell'asset di output che descrive gli avvisi di movimento e le relative categorie all'interno del video. Il file conterrà informazioni sull'ora e sulla durata dei movimenti rilevati nel video.
 
 L'API Rilevatore di movimento fornisce indicatori se sono presenti oggetti in movimento in un video con sfondo fisso, ad esempio un video di sorveglianza. Rilevatore di movimento è in grado di ridurre i falsi allarmi, ad esempio variazioni di luminosità e di ombreggiatura. Le limitazioni correnti degli algoritmi includono video con visione notturna, oggetti semi-trasparenti e oggetti di piccole dimensioni.
 
-###<a name="<a-id="output_elements"></a>elements-of-the-output-json-file"></a><a id="output_elements"></a>Elementi del file di output JSON
-
->[AZURE.NOTE]Nella versione più recente, il formato di output JSON è stato modificato e può rappresentare una modifica di rilievo per alcuni clienti.
+### <a name="<a-id="output_elements"></a>elements-of-the-output-json-file"></a><a id="output_elements"></a>Elementi del file di output JSON
+> [!NOTE]
+> Nella versione più recente, il formato di output JSON è stato modificato e può rappresentare una modifica di rilievo per alcuni clienti.
+> 
+> 
 
 La tabella seguente illustra gli elementi del file di output JSON.
 
-Elemento|Descrizione
----|---
-Versione|Indica la versione dell'API Video. La versione corrente è 2.
-Scala cronologica|"Scatti" al secondo del video.
-Offset|Differenza di orario dei timestamp in "scatti". Nella versione 1.0 delle API Video, questo valore è sempre 0. Negli scenari futuri supportati questo valore potrebbe cambiare.
-Frequenza fotogrammi|Fotogrammi al secondo del video.
-Larghezza, altezza|Indica la larghezza e l'altezza del video in pixel.
-Inizia|Il timestamp di inizio in "scatti".
-Durata|La lunghezza dell'evento in "scatti".
-Interval|L'intervallo di ogni voce dell'evento in "scatti".
-Eventi|Ogni frammento di evento contiene i movimenti rilevati nella durata specificata.
-Tipo|Nella versione corrente questo valore è sempre "2" per il movimento generico. Questa etichetta offre alle API Video la flessibilità necessaria per classificare i movimenti nelle versioni future.
-RegionID|Come spiegato in precedenza, in questa versione questo valore è sempre 0. Questa etichetta offre alle API Video la flessibilità necessaria per individuare i movimenti in varie aree nelle versioni future.
-Regioni|Si riferisce all'area del video in cui si presta particolare attenzione al movimento. <br/><br/>-"id" rappresenta l'area: in questa versione ne è presente una sola, ID 0. <br/>-"type" rappresenta la forma dell'area importante per il movimento. Sono attualmente supportati "rectangle" e "polygon".<br/>  Se è stato specificato "rectangle", le dimensioni dell'area saranno X, Y, larghezza e altezza. Le coordinate X e Y rappresentano le coordinate XY in alto a sinistra nell'area in una scala normalizzata da 0,0 a 1,0. La larghezza e l'altezza rappresentano le dimensioni dell'area in una scala normalizzata da 0,0 a 1,0. Nella versione corrente, X, Y, larghezza e altezza sono sempre 0, 0 e 1, 1. <br/>Se è stato specificato "polygon", le dimensioni dell'area saranno in punti. <br/>
-Frammenti|I metadati sono suddivisi in segmenti diversi, detti frammenti. Ogni frammento contiene un inizio, una durata, un numero di intervallo e uno o più eventi. Un frammento privo di eventi significa che non è stato rilevato alcun movimento in corrispondenza dell'ora di inizio e della durata.
-Parentesi quadre []|Ogni parentesi rappresenta un intervallo nell'evento. Le parentesi vuote in un intervallo indicano che è non stato rilevato alcun movimento.
-locations|Questa nuova voce nell'elenco degli eventi indica le posizioni in cui si è verificato il movimento. È un dato più specifico delle zone di rilevamento.
+| Elemento | Descrizione |
+| --- | --- |
+| Versione |Indica la versione dell'API Video. La versione corrente è 2. |
+| Scala cronologica |"Scatti" al secondo del video. |
+| Offset |Differenza di orario dei timestamp in "scatti". Nella versione 1.0 delle API Video, questo valore è sempre 0. Negli scenari futuri supportati questo valore potrebbe cambiare. |
+| Frequenza fotogrammi |Fotogrammi al secondo del video. |
+| Larghezza, altezza |Indica la larghezza e l'altezza del video in pixel. |
+| Inizia |Il timestamp di inizio in "scatti". |
+| Durata |La lunghezza dell'evento in "scatti". |
+| Interval |L'intervallo di ogni voce dell'evento in "scatti". |
+| Eventi |Ogni frammento di evento contiene i movimenti rilevati nella durata specificata. |
+| Tipo |Nella versione corrente questo valore è sempre "2" per il movimento generico. Questa etichetta offre alle API Video la flessibilità necessaria per classificare i movimenti nelle versioni future. |
+| RegionID |Come spiegato in precedenza, in questa versione questo valore è sempre 0. Questa etichetta offre alle API Video la flessibilità necessaria per individuare i movimenti in varie aree nelle versioni future. |
+| Regioni |Si riferisce all'area del video in cui si presta particolare attenzione al movimento. <br/><br/>-"id" rappresenta l'area: in questa versione ne è presente una sola, ID 0. <br/>-"type" rappresenta la forma dell'area importante per il movimento. Sono attualmente supportati "rectangle" e "polygon".<br/>  Se è stato specificato "rectangle", le dimensioni dell'area saranno X, Y, larghezza e altezza. Le coordinate X e Y rappresentano le coordinate XY in alto a sinistra nell'area in una scala normalizzata da 0,0 a 1,0. La larghezza e l'altezza rappresentano le dimensioni dell'area in una scala normalizzata da 0,0 a 1,0. Nella versione corrente, X, Y, larghezza e altezza sono sempre 0, 0 e 1, 1. <br/>Se è stato specificato "polygon", le dimensioni dell'area saranno in punti. <br/> |
+| Frammenti |I metadati sono suddivisi in segmenti diversi, detti frammenti. Ogni frammento contiene un inizio, una durata, un numero di intervallo e uno o più eventi. Un frammento privo di eventi significa che non è stato rilevato alcun movimento in corrispondenza dell'ora di inizio e della durata. |
+| Parentesi quadre [] |Ogni parentesi rappresenta un intervallo nell'evento. Le parentesi vuote in un intervallo indicano che è non stato rilevato alcun movimento. |
+| locations |Questa nuova voce nell'elenco degli eventi indica le posizioni in cui si è verificato il movimento. È un dato più specifico delle zone di rilevamento. |
 
 Di seguito è riportato un esempio di output JSON
 
@@ -155,22 +147,19 @@ Di seguito è riportato un esempio di output JSON
                 "regionId": 0
               }
             ],
-    
+
     …
-##<a name="limitations"></a>Limitazioni
-
-- I formati video di input supportati includono MP4, MOV e WMV.
-- Il rilevamento di movimento è ottimizzato per i video a sfondo fisso. L'algoritmo mira alla riduzione dei falsi allarmi, ad esempio le variazioni di luce e ombra.
-- È possibile che alcuni movimenti non vengano rilevati per problemi tecnici, ad esempio video con visione notturna, oggetti semi-trasparenti e oggetti di piccole dimensioni.
-
+## <a name="limitations"></a>Limitazioni
+* I formati video di input supportati includono MP4, MOV e WMV.
+* Il rilevamento di movimento è ottimizzato per i video a sfondo fisso. L'algoritmo mira alla riduzione dei falsi allarmi, ad esempio le variazioni di luce e ombra.
+* È possibile che alcuni movimenti non vengano rilevati per problemi tecnici, ad esempio video con visione notturna, oggetti semi-trasparenti e oggetti di piccole dimensioni.
 
 ## <a name="sample-code"></a>Codice di esempio
-
 Il programma seguente illustra come:
 
 1. Creare un asset e caricare un file multimediale nell'asset.
-1. Creare un processo con un'attività di rilevamento movimento video in base al file di configurazione che contiene il set di impostazioni JSON seguente. 
-                    
+2. Creare un processo con un'attività di rilevamento movimento video in base al file di configurazione che contiene il set di impostazioni JSON seguente. 
+   
         {
           'Version': '1.0',
           'Options': {
@@ -198,9 +187,8 @@ Il programma seguente illustra come:
             ]
           }
         }
-
-1. Scaricare i file di output JSON. 
-         
+3. Scaricare i file di output JSON. 
+   
         using System;
         using System.Configuration;
         using System.IO;
@@ -208,7 +196,7 @@ Il programma seguente illustra come:
         using Microsoft.WindowsAzure.MediaServices.Client;
         using System.Threading;
         using System.Threading.Tasks;
-        
+   
         namespace VideoMotionDetection
         {
             class Program
@@ -218,70 +206,70 @@ Il programma seguente illustra come:
                     ConfigurationManager.AppSettings["MediaServicesAccountName"];
                 private static readonly string _mediaServicesAccountKey =
                     ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-        
+   
                 // Field for service context.
                 private static CloudMediaContext _context = null;
                 private static MediaServicesCredentials _cachedCredentials = null;
-        
+   
                 static void Main(string[] args)
                 {
-        
+   
                     // Create and cache the Media Services credentials in a static class variable.
                     _cachedCredentials = new MediaServicesCredentials(
                                     _mediaServicesAccountName,
                                     _mediaServicesAccountKey);
                     // Used the cached credentials to create CloudMediaContext.
                     _context = new CloudMediaContext(_cachedCredentials);
-        
+   
                     // Run the VideoMotionDetection job.
                     var asset = RunVideoMotionDetectionJob(@"C:\supportFiles\VideoMotionDetection\BigBuckBunny.mp4",
                                                 @"C:\supportFiles\VideoMotionDetection\config.json");
-        
+   
                     // Download the job output asset.
                     DownloadAsset(asset, @"C:\supportFiles\VideoMotionDetection\Output");
                 }
-        
+   
                 static IAsset RunVideoMotionDetectionJob(string inputMediaFilePath, string configurationFile)
                 {
                     // Create an asset and upload the input media file to storage.
                     IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
                         "My Video Motion Detection Input Asset",
                         AssetCreationOptions.None);
-        
+   
                     // Declare a new job.
                     IJob job = _context.Jobs.Create("My Video Motion Detection Job");
-        
+   
                     // Get a reference to Azure Media Motion Detector.
                     string MediaProcessorName = "Azure Media Motion Detector";
-        
+   
                     var processor = GetLatestMediaProcessorByName(MediaProcessorName);
-        
+   
                     // Read configuration from the specified file.
                     string configuration = File.ReadAllText(configurationFile);
-        
+   
                     // Create a task with the encoding details, using a string preset.
                     ITask task = job.Tasks.AddNew("My Video Motion Detection Task",
                         processor,
                         configuration,
                         TaskOptions.None);
-        
+   
                     // Specify the input asset.
                     task.InputAssets.Add(asset);
-        
+   
                     // Add an output asset to contain the results of the job.
                     task.OutputAssets.AddNew("My Video Motion Detectoion Output Asset", AssetCreationOptions.None);
-        
+   
                     // Use the following event handler to check job progress.  
                     job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
-        
+   
                     // Launch the job.
                     job.Submit();
-        
+   
                     // Check job execution and wait for job to finish.
                     Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-        
+   
                     progressJobTask.Wait();
-        
+   
                     // If job state is Error, the event handling
                     // method for job progress should log errors.  Here we check
                     // for error state and exit if needed.
@@ -293,20 +281,20 @@ Il programma seguente illustra come:
                                                         error.Message));
                         return null;
                     }
-        
+   
                     return job.OutputMediaAssets[0];
                 }
-        
+   
                 static IAsset CreateAssetAndUploadSingleFile(string filePath, string assetName, AssetCreationOptions options)
                 {
                     IAsset asset = _context.Assets.Create(assetName, options);
-        
+   
                     var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
                     assetFile.Upload(filePath);
-        
+   
                     return asset;
                 }
-        
+   
                 static void DownloadAsset(IAsset asset, string outputDirectory)
                 {
                     foreach (IAssetFile file in asset.AssetFiles)
@@ -314,7 +302,7 @@ Il programma seguente illustra come:
                         file.Download(Path.Combine(outputDirectory, file.Name));
                     }
                 }
-        
+   
                 static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
                 {
                     var processor = _context.MediaProcessors
@@ -322,20 +310,20 @@ Il programma seguente illustra come:
                         .ToList()
                         .OrderBy(p => new Version(p.Version))
                         .LastOrDefault();
-        
+   
                     if (processor == null)
                         throw new ArgumentException(string.Format("Unknown media processor",
                                                                    mediaProcessorName));
-        
+   
                     return processor;
                 }
-        
+   
                 static private void StateChanged(object sender, JobStateChangedEventArgs e)
                 {
                     Console.WriteLine("Job state changed event:");
                     Console.WriteLine("  Previous state: " + e.PreviousState);
                     Console.WriteLine("  Current state: " + e.CurrentState);
-        
+   
                     switch (e.CurrentState)
                     {
                         case JobState.Finished:
@@ -360,27 +348,22 @@ Il programma seguente illustra come:
                             break;
                     }
                 }
-        
+   
             }
         }
 
+## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-##<a name="provide-feedback"></a>Fornire commenti e suggerimenti
-
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-##<a name="related-links"></a>Collegamenti correlati
+## <a name="related-links"></a>Collegamenti correlati
 [Blog di Azure Media Motion Detector](https://azure.microsoft.com/blog/motion-detector-update/)
 
 [Panoramica di Analisi servizi multimediali di Azure](media-services-analytics-overview.md)
 
 [Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

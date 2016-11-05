@@ -1,32 +1,23 @@
-<properties
-    pageTitle="Identità di Azure | Microsoft Azure"
-    description="Informazioni sull'uso di Azure Active Directory."
-    services="active-directory"
-    documentationCenter=".net"
-    authors="curtand"
-    manager="femila"
-    editor=""/>
+---
+title: Identità di Azure | Microsoft Docs
+description: Informazioni sull'uso di Azure Active Directory.
+services: active-directory
+documentationcenter: .net
+author: curtand
+manager: femila
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/04/2016"
-    ms.author="curtand"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/04/2016
+ms.author: curtand
 
-
-
+---
 # <a name="the-fundamentals-of-azure-identity-management"></a>Nozioni fondamentali sulla gestione delle identità di Azure
-
-
-
-
-
-[AZURE.INCLUDE [identity](../../includes/identity.md)]
-
-
+[!INCLUDE [identity](../../includes/identity.md)]
 
 <!--HONumber=Oct16_HO2-->
 

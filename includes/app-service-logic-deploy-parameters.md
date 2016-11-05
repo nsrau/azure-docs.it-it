@@ -5,7 +5,6 @@ Durante la definizione dei parametri, usare il campo **allowedValues** per speci
 Di seguito è riportata la descrizione di ogni parametro del modello.
 
 ### logicAppName
-
 Nome dell'app per la logica da creare.
 
     "logicAppName": {

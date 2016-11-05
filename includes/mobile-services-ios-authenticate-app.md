@@ -1,4 +1,4 @@
-* Aprire **QSTodoListViewController.m** e aggiungere il metodo seguente. Modificare _facebook_ in _accountmicrosoft_, _twitter_, _google_ o _microsoftazureactivedirectory_ se non si usa Facebook come provider di identità.
+* Aprire **QSTodoListViewController.m** e aggiungere il metodo seguente. Modificare *facebook* in *accountmicrosoft*, *twitter*, *google* o *microsoftazureactivedirectory* se non si usa Facebook come provider di identità.
 
 ```
         - (void) loginAndGetData

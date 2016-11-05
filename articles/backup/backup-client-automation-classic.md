@@ -1,33 +1,32 @@
-<properties
-	pageTitle="Distribuire e gestire il backup per Windows Server/Client mediante PowerShell | Microsoft Azure"
-	description="Informazioni su come distribuire e gestire Backup di Azure mediante PowerShell"
-	services="backup"
-	documentationCenter=""
-	authors="saurabhsensharma"
-	manager="shivamg"
-	editor=""/>
+---
+title: Distribuire e gestire il backup per Windows Server/Client mediante PowerShell | Microsoft Docs
+description: Informazioni su come distribuire e gestire Backup di Azure mediante PowerShell
+services: backup
+documentationcenter: ''
+author: saurabhsensharma
+manager: shivamg
+editor: ''
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2016"
-	ms.author="saurabhsensharma;markgal;jimpark;nkolli;trinadhk"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/01/2016
+ms.author: saurabhsensharma;markgal;jimpark;nkolli;trinadhk
 
-
+---
 # Distribuire e gestire il backup in Azure per server Windows/client Windows mediante PowerShell
-
-> [AZURE.SELECTOR]
-- [ARM](backup-client-automation.md)
-- [Classico](backup-client-automation-classic.md)
+> [!div class="op_single_selector"]
+> * [ARM](backup-client-automation.md)
+> * [Classico](backup-client-automation-classic.md)
+> 
+> 
 
 Questo articolo illustra come usare PowerShell per configurare Backup di Azure in un server o un client Windows e per gestire le operazioni di backup e ripristino.
 
 ## Installare Azure PowerShell
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 A ottobre 2015 è stato rilasciato Azure PowerShell 1.0. Questa versione ha fatto seguito alla versione 0.9.8 introducendo alcune modifiche significative, in particolare nel modello di denominazione dei cmdlet. I cmdlet 1.0 seguono il criterio di denominazione {verb}-AzureRm{noun}, mentre i nomi 0.9.8 non includono **Rm** (ad esempio, New-AzureRmResourceGroup anziché New-AzureResourceGroup). Quando si usa Azure PowerShell 0.9.8, è innanzitutto necessario abilitare la modalità Gestione risorse eseguendo il comando **Switch-AzureMode AzureResourceManager**. Questo comando non è necessario nella versione di 1.0 o successiva.
 
@@ -35,13 +34,13 @@ Se si vogliono usare script scritti per l'ambiente 0.9.8 nell'ambiente 1.0 o ver
 
 [Scaricare la versione più recente di PowerShell](https://github.com/Azure/azure-powershell/releases) (la versione minima richiesta è: 1.0.0)
 
-
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
-
+[!INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
 ## Creare un insieme di credenziali per il backup
-
-> [AZURE.WARNING] I clienti che usano il servizio Backup di Azure per la prima volta, dovranno registrare il provider di Backup di Azure da usare con la propria sottoscrizione. A tale scopo, eseguire il comando seguente: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+> [!WARNING]
+> I clienti che usano il servizio Backup di Azure per la prima volta, dovranno registrare il provider di Backup di Azure da usare con la propria sottoscrizione. A tale scopo, eseguire il comando seguente: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+> 
+> 
 
 È possibile creare un nuovo insieme di credenziali per il backup usando il cmdlet **New-AzureRmBackupVault**. L’archivio di backup è una risorsa ARM, pertanto è necessario inserirlo all'interno di un gruppo di risorse. Eseguire i comandi seguenti in una console di Azure PowerShell con privilegi elevati:
 
@@ -51,7 +50,6 @@ PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg”
 ```
 
 Usare il cmdlet **Get-AzureRMBackupVault** per elencare gli insiemi di credenziali di backup in una sottoscrizione.
-
 
 ## Installazione dell'agente di Backup di Azure
 Per installare l'agente di Backup di Azure, è necessario aver scaricato il programma di installazione nel server Windows. È possibile ottenere la versione più recente del programma di installazione dall'[Area download Microsoft](http://aka.ms/azurebackup_agent).o dalla pagina Dashboard dell’archivio di backup. Salvare il programma di installazione in un percorso facilmente accessibile come *C:\\Downloads*.
@@ -69,7 +67,6 @@ Per visualizzare l'elenco dei programmi installati, andare a **Pannello di contr
 ![Agente installato](./media/backup-client-automation/installed-agent-listing.png)
 
 ### Opzioni di installazione
-
 Per visualizzare tutte le opzioni disponibili tramite la riga di comando, utilizzare il comando seguente:
 
 ```
@@ -79,24 +76,23 @@ PS C:\> MARSAgentInstaller.exe /?
 Le opzioni disponibili includono:
 
 | Opzione | Dettagli | Default |
-| ---- | ----- | ----- |
-| /q | Installazione non interattiva | - |
-| /p:"location" | Percorso della cartella di installazione dell'agente di Backup di Azure. | C:\\Programmi\\Microsoft Azure Recovery Services Agent |
-| /s:"location" | Percorso della cartella cache dell'agente di Backup di Azure. | C:\\Programmi\\Microsoft Azure Recovery Services Agente\\Scratch |
-| /m | Accetta Microsoft Update | - |
-| /nu | Non verificare la disponibilità di aggiornamenti al termine dell'installazione | - |
-| /d | Disinstalla Agente di Servizi di ripristino di Microsoft Azure | - |
-| /ph | Indirizzo host proxy | - |
-| /po | Numero porta host proxy | - |
-| /pu | Nome utente host proxy | - |
-| /pw | Password proxy | - |
-
+| --- | --- | --- |
+| /q |Installazione non interattiva |- |
+| /p:"location" |Percorso della cartella di installazione dell'agente di Backup di Azure. |C:\\Programmi\\Microsoft Azure Recovery Services Agent |
+| /s:"location" |Percorso della cartella cache dell'agente di Backup di Azure. |C:\\Programmi\\Microsoft Azure Recovery Services Agente\\Scratch |
+| /m |Accetta Microsoft Update |- |
+| /nu |Non verificare la disponibilità di aggiornamenti al termine dell'installazione |- |
+| /d |Disinstalla Agente di Servizi di ripristino di Microsoft Azure |- |
+| /ph |Indirizzo host proxy |- |
+| /po |Numero porta host proxy |- |
+| /pu |Nome utente host proxy |- |
+| /pw |Password proxy |- |
 
 ## Registrazione del servizio Backup di Azure
 Per poter eseguire la registrazione con il servizio Backup di Azure, è necessario assicurarsi che i [prerequisiti](backup-configure-vault.md) siano soddisfatti. È necessario:
 
-- Avere una sottoscrizione di Azure valida
-- Avere un insieme di credenziali di backup
+* Avere una sottoscrizione di Azure valida
+* Avere un insieme di credenziali di backup
 
 Per scaricare le credenziali dell'insieme di credenziali, eseguire il cmdlet **Get AzureRMBackupVaultCredentials** nella console di Azure PowerShell e archiviarle in una posizione pratica, ad esempio *C:\\Download*.
 
@@ -121,7 +117,10 @@ Region              : West US
 Machine registration succeeded.
 ```
 
-> [AZURE.IMPORTANT] Non utilizzare percorsi relativi per specificare il file dell'insieme di credenziali. È necessario fornire un percorso assoluto come input per il cmdlet.
+> [!IMPORTANT]
+> Non utilizzare percorsi relativi per specificare il file dell'insieme di credenziali. È necessario fornire un percorso assoluto come input per il cmdlet.
+> 
+> 
 
 ## Impostazioni di rete
 Quando il computer Windows si connette a Internet mediante un server proxy, le impostazioni del proxy possono essere fornite anche all'agente. In questo esempio non è presente alcun server proxy, pertanto sono state eliminate tutte le informazioni relative al proxy.
@@ -146,7 +145,10 @@ PS C:\> ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force 
 Server properties updated successfully
 ```
 
-> [AZURE.IMPORTANT] Dopo l'impostazione, conservare le informazioni sulla passphrase al sicuro. Non sarà possibile ripristinare i dati da Azure senza la passphrase.
+> [!IMPORTANT]
+> Dopo l'impostazione, conservare le informazioni sulla passphrase al sicuro. Non sarà possibile ripristinare i dati da Azure senza la passphrase.
+> 
+> 
 
 ## Eseguire il backup di file e cartelle
 Tutti i backup dei server e dei client Windows in Backup di Azure sono regolati da un criterio, costituito da tre parti:
@@ -166,8 +168,8 @@ In questo momento il criterio è vuoto e sono necessari altri cmdlet per definir
 ### Configurazione della pianificazione dei backup
 La prima delle tre parti di un criterio è la pianificazione dei backup, che viene creata tramite il cmdlet [New-OBSchedule](https://technet.microsoft.com/library/hh770401). La pianificazione dei backup definisce quando è necessario eseguire i backup. Quando si crea una pianificazione è necessario specificare due parametri di input:
 
-- **Giorni della settimana** in cui deve essere eseguito il backup. È possibile eseguire il processo di backup in un solo giorno oppure tutti i giorni della settimana o specificando qualsiasi combinazione di giorni.
-- **Orari della giornata** in cui deve essere eseguito il backup. È possibile definire fino a tre orari della giornata diversi in cui verrà attivato il backup.
+* **Giorni della settimana** in cui deve essere eseguito il backup. È possibile eseguire il processo di backup in un solo giorno oppure tutti i giorni della settimana o specificando qualsiasi combinazione di giorni.
+* **Orari della giornata** in cui deve essere eseguito il backup. È possibile definire fino a tre orari della giornata diversi in cui verrà attivato il backup.
 
 Ad esempio, è possibile configurare un criterio di backup eseguito alle 16.00 ogni sabato e domenica.
 
@@ -215,9 +217,9 @@ PolicyState     : Valid
 ### Inclusione ed esclusione di file per il backup
 Un oggetto ```OBFileSpec``` definisce i file da includere o escludere in un backup. Si tratta di un set di regole che definiscono l'ambito di cartelle e file protetti in un computer. È possibile disporre del numero desiderato di regole di inclusione o esclusione di file e associare le regole a un criterio. Quando si crea un nuovo oggetto OBFileSpec, è possibile:
 
-- Specificare file e cartelle da includere
-- Specificare file e cartelle da escludere
-- Specificare un backup ricorsivo dei dati in una cartella (o) se eseguire il backup solo dei file di livello principale nella cartella specificata.
+* Specificare file e cartelle da includere
+* Specificare file e cartelle da escludere
+* Specificare un backup ricorsivo dei dati in una cartella (o) se eseguire il backup solo dei file di livello principale nella cartella specificata.
 
 Quest'ultima impostazione si ottiene usando il flag -NonRecursive nel comando New-OBFileSpec.
 
@@ -351,7 +353,7 @@ DsList : {DataSource
          FileSpec:D:\
          IsExclude:False
          IsRecursive:True
-	}
+    }
 PolicyName : c2eb6568-8a06-49f4-a20e-3019ae411bac
 RetentionPolicy : Retention Days : 7
               WeeklyLTRSchedule :
@@ -551,9 +553,9 @@ PS C:\> .\MARSAgentInstaller.exe /d /q
 
 La disinstallazione dei file binari dell'agente dal computer comporta alcune conseguenze da tenere in considerazione:
 
-- Il filtro di file viene rimosso dal computer e il rilevamento delle modifiche viene arrestato.
-- Tutte le informazioni sui criteri vengono rimosse dal computer, ma continuano a essere archiviate nel servizio.
-- Tutte le pianificazioni dei backup vengono rimosse e non vengono eseguiti ulteriori backup.
+* Il filtro di file viene rimosso dal computer e il rilevamento delle modifiche viene arrestato.
+* Tutte le informazioni sui criteri vengono rimosse dal computer, ma continuano a essere archiviate nel servizio.
+* Tutte le pianificazioni dei backup vengono rimosse e non vengono eseguiti ulteriori backup.
 
 Tuttavia, i dati archiviati in Azure continueranno a rimanere presenti e verranno conservati in base alla configurazione del criterio di conservazione specificata. I punti meno recenti scadono automaticamente.
 
@@ -596,7 +598,7 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Passaggi successivi
 Per altre informazioni su Backup di Azure per Windows Server/Client, vedere
 
-- [Introduzione a Backup di Azure](backup-introduction-to-azure-backup.md)
-- [Backup di server Windows](backup-configure-vault.md)
+* [Introduzione a Backup di Azure](backup-introduction-to-azure-backup.md)
+* [Backup di server Windows](backup-configure-vault.md)
 
 <!---HONumber=AcomDC_0907_2016-->

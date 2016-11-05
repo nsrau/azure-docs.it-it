@@ -1,6 +1,5 @@
 
 ### cacheSKUName
-
 Piano tariffario della nuova Cache Redis di Azure.
 
     "cacheSKUName": {
@@ -18,7 +17,6 @@ Piano tariffario della nuova Cache Redis di Azure.
 Il modello definisce i valori consentiti per questo parametro (Basic o Standard) e assegna un valore predefinito (Basic) se non viene specificato alcun valore. Basic fornisce un singolo nodo con più dimensioni disponibili fino a 53 GB. Standard fornisce due nodi di replica/primario con più dimensioni disponibili fino a 53 GB e contratto di servizio con disponibilità del 99,9%.
 
 ### cacheSKUFamily
-
 Famiglia dello SKU.
 
     "cacheSKUFamily": {
@@ -34,7 +32,6 @@ Famiglia dello SKU.
 
 
 ### cacheSKUCapacity
-
 Dimensioni dell'istanza della nuova Cache Redis di Azure.
 
     "cacheSKUCapacity": {

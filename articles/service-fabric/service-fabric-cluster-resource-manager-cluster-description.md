@@ -1,31 +1,31 @@
-<properties
-   pageTitle="Descrizione del cluster di Resource Balancer | Microsoft Azure"
-   description="Descrizione di un cluster di Service Fabric specificando i domini di errore, i domini di aggiornamento, le proprietà del nodo e le capacità del nodo per Cluster Resource Manager."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: Descrizione del cluster di Resource Balancer | Microsoft Docs
+description: Descrizione di un cluster di Service Fabric specificando i domini di errore, i domini di aggiornamento, le proprietà del nodo e le capacità del nodo per Cluster Resource Manager.
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
+---
 # Descrizione di un cluster di Service Fabric
 Cluster Resource Manager di Service Fabric fornisce alcuni meccanismi per descrivere un cluster. Durante la fase di esecuzione, Cluster Resource Manager usa queste informazioni per assicurare la disponibilità elevata dei servizi in esecuzione sul cluster, assicurando anche che le risorse del cluster vengano usate correttamente.
 
 ## Concetti chiave
 Cluster Resource Manager supporta diverse funzionalità che descrivono un cluster:
 
-- Domini di errore
-- Domini di aggiornamento
-- Proprietà del nodo
-- Capacità del nodo
+* Domini di errore
+* Domini di aggiornamento
+* Proprietà del nodo
+* Capacità del nodo
 
 ## Domini di errore
 Un dominio di errore (FD, Fault Domain) è un'area di errore coordinato. Un singolo computer è un dominio di errore, perché il solo computer si può arrestare per molti motivi diversi, da interruzioni dell'alimentazione a errori delle unità o firmware NIC non valido. Alcuni computer connessi allo stesso commutatore Ethernet si trovano nello stesso dominio di errore, analogamente ai computer connessi a una singola fonte di alimentazione. Poiché è naturale che si sovrappongano, i domini di errore sono intrinsecamente gerarchici e sono rappresentati come URI in Service Fabric.
@@ -70,8 +70,8 @@ Cluster Resource Manager considera il desiderio di mantenere un servizio bilanci
 
 Esaminiamo un esempio. Si supponga che si dispone di un cluster con 6 nodi, configurato con 5 domini di errore e 5 domini di aggiornamento.
 
-| |FD0 |FD1 |FD2 |FD3 |FD4 |
-|-------|:-----:|:-----:|:-----:|:-----:|:-----:|
+|  | FD0 | FD1 | FD2 | FD3 | FD4 |
+| --- |:---:|:---:|:---:|:---:|:---:|
 | UD0 |N1 | | | | |
 | UD1 |N6 |N2 | | | |
 | UD2 | | |N3 | | |
@@ -82,39 +82,38 @@ Ora si supponga di creare un servizio con un valore TargetReplicaSetSize pari a 
 
 Ecco il layout ottenuto e il numero totale di repliche per ogni dominio di errore e di aggiornamento.
 
-
-| |FD0 |FD1 |FD2 |FD3 |FD4 |UDTotal|
-|-------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
 | UD0 |R1 | | | | |1 |
 | UD1 | |R2 | | | |1 |
 | UD2 | | |R3 | | |1 |
 | UD3 | | | |R4 | |1 |
 | UD4 | | | | |R5 |1 |
-|FDTotal|1 |1 |1 |1 |1 |- |
+| FDTotal |1 |1 |1 |1 |1 |- |
 
 Si noti che questo layout è equilibrato in termini di nodi per ogni dominio di errore e di aggiornamento, nonché in termini di numero di repliche per ogni dominio di errore e di aggiornamento. Ogni dominio ha lo stesso numero di nodi e lo stesso numero di repliche.
 
 A questo punto, diamo un'occhiata a che cosa accadrebbe se avessimo usato N6 invece di N2. Come sarebbero state distribuite le repliche? Il risultato sarebbe simile al seguente:
 
-| |FD0 |FD1 |FD2 |FD3 |FD4 |UDTotal|
-|-------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
 | UD0 |R1 | | | | |1 |
 | UD1 |R5 | | | | |1 |
 | UD2 | | |R2 | | |1 |
 | UD3 | | | |R3 | |1 |
 | UD4 | | | | |R4 |1 |
-|FDTotal|2 |0 |1 |1 |1 |- |
+| FDTotal |2 |0 |1 |1 |1 |- |
 
 Questa condizione viola la definizione per il vincolo di dominio di errore, poiché FD0 ha 2 repliche, mentre FD1 ne ha 0, con una differenza totale pari a 2 e pertanto Cluster Resource Manager non consente questa disposizione. Allo stesso modo, se avessimo scelto N2-6 avremmo ottenuto:
 
-| |FD0 |FD1 |FD2 |FD3 |FD4 |UDTotal|
-|-------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
 | UD0 | | | | | |0 |
 | UD1 |R5 |R1 | | | |2 |
 | UD2 | | |R2 | | |1 |
 | UD3 | | | |R3 | |1 |
 | UD4 | | | | |R4 |1 |
-|FDTotal|1 |1 |1 |1 |1 |- |
+| FDTotal |1 |1 |1 |1 |1 |- |
 
 Equilibrato in termini di domini di errore, viola il vincolo del dominio di aggiornamento, poiché UD0 ha 0 repliche, mentre UD1 ne ha 2, e pertanto non è valido.
 
@@ -143,14 +142,17 @@ ClusterManifest.xml
     </WindowsServer>
   </Infrastructure>
 ```
-> [AZURE.NOTE] Nelle distribuzioni di Azure, i domini di errore e quelli di aggiornamento vengono assegnati da Azure. Di conseguenza, la definizione dei nodi e dei ruoli all'interno dell'opzione di infrastruttura di Azure non include informazioni sui domini di errore o aggiornamento.
+> [!NOTE]
+> Nelle distribuzioni di Azure, i domini di errore e quelli di aggiornamento vengono assegnati da Azure. Di conseguenza, la definizione dei nodi e dei ruoli all'interno dell'opzione di infrastruttura di Azure non include informazioni sui domini di errore o aggiornamento.
+> 
+> 
 
 ## Vincoli di posizionamento e proprietà dei nodi
 In alcuni casi, essenzialmente nella maggior parte dei casi, si vuole assicurare che determinati carichi di lavoro vengano eseguiti solo su determinati nodi o set di nodi nel cluster. Ad esempio, è possibile che alcuni carichi di lavoro richiedano GPU o SSD, mentre altri no. Un ottimo esempio è costituito essenzialmente da quasi tutte le architetture con n livelli, in cui determinati computer fungono da front-end/lato di gestione di interfacce dell'applicazione (e quindi probabilmente esposti a Internet) mentre un altro set, spesso con risorse hardware diverse, gestisce il lavoro dei livelli di calcolo o archiviazione (spesso non esposti a Internet). Service Fabric si aspetta che anche in uno scenario con microservizi si verifichino situazioni in cui determinati carichi di lavoro dovranno essere eseguiti in configurazioni hardware specifiche, ad esempio:
 
-- Un'applicazione esistente con n livelli è stata "elevata e spostata" in un ambiente Service Fabric.
-- Un carico di lavoro deve essere eseguito su hardware specifico per finalità di prestazioni, scalabilità o isolamento di sicurezza.
--	Un carico di lavoro deve essere isolato da altri carichi di lavoro per motivi relativi ai criteri o all'utilizzo delle risorse.
+* Un'applicazione esistente con n livelli è stata "elevata e spostata" in un ambiente Service Fabric.
+* Un carico di lavoro deve essere eseguito su hardware specifico per finalità di prestazioni, scalabilità o isolamento di sicurezza.
+* Un carico di lavoro deve essere isolato da altri carichi di lavoro per motivi relativi ai criteri o all'utilizzo delle risorse.
 
 Per supportare questi tipi di configurazione, Service Fabric gestisce in modo eccellente i vincoli di posizionamento. I vincoli di posizionamento possono essere usati per indicare dove occorre eseguire determinati servizi. Il set di vincoli può essere esteso dagli utenti, ovvero le persone possono contrassegnare i nodi con proprietà personalizzate e quindi basare su di esse le selezioni.
 
@@ -158,26 +160,26 @@ Per supportare questi tipi di configurazione, Service Fabric gestisce in modo ec
 
 I diversi tag di tipo chiave/valore sui nodi sono definiti *proprietà* di posizionamento dei nodi o semplicemente proprietà dei nodi, mentre l'istruzione sul servizio viene definita *vincolo* di posizionamento. Il valore specificato nella proprietà del nodo può essere una stringa, un valore booleano o un valore lungo firmato. Il vincolo può essere qualsiasi istruzione booleana che opera sulle diverse proprietà dei nodi nel cluster. I selettori validi in queste istruzioni booleane, in forma di stringhe, sono:
 
-- controlli condizionali per la creazione di istruzioni specifiche
-  - "equal to" ==
-  - "greater than" >
-  - "less than" <
-  - "not equal to" !=
-  - "greater than or equal to" >=
-  - "less than or equal to" <=
-- istruzioni booleane per il raggruppamento e la negazione
-  - "and" &&
-  - "or" ||
-  - "not" !
-- parentesi per le operazioni di raggruppamento
-  - ()
-
+* controlli condizionali per la creazione di istruzioni specifiche
+  * "equal to" ==
+  * "greater than" >
+  * "less than" <
+  * "not equal to" !=
+  * "greater than or equal to" >=
+  * "less than or equal to" <=
+* istruzioni booleane per il raggruppamento e la negazione
+  * "and" &&
+  * "or" ||
+  * "not" !
+* parentesi per le operazioni di raggruppamento
+  
+  * ()
+  
   Di seguito sono riportati alcuni esempi di istruzioni base di limitazione che usano alcuni dei simboli precedenti. Si noti che le proprietà dei nodi possono essere stringhe, bool o valori numerici.
-
-  - "Foo >= 5"
-  - "NodeColor != green"
-  - "((UnaProprietà < 100) || ((Un'altraProprietà == false) && (UnaProprietà >= 100)))"
-
+  
+  * "Foo >= 5"
+  * "NodeColor != green"
+  * "((UnaProprietà < 100) || ((Un'altraProprietà == false) && (UnaProprietà >= 100)))"
 
 Solo sui nodi in cui l'istruzione generale restituisce "True" è possibile posizionare il servizio. I nodi in cui non sono state definite proprietà non corrispondono ad alcun vincolo di posizionamento che contiene proprietà.
 
@@ -334,10 +336,10 @@ LoadMetricInformation     :
 ```
 
 ## Passaggi successivi
-- Per informazioni sull'architettura e sul flusso di informazioni in Cluster Resource Manager, vedere [questo articolo ](service-fabric-cluster-resource-manager-architecture.md)
-- Definire la metrica di deframmentazione rappresenta un modo per consolidare il carico sui nodi anziché distribuirlo. Per informazioni su come configurare la deframmentazione, vedere [questo articolo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- Partire dall'inizio e vedere l'[introduzione a Cluster Resource Manager di Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
-- Per informazioni sul modo in cui Cluster Resource Manager gestisce e bilancia il carico nel cluster, vedere l'articolo relativo al [bilanciamento del carico](service-fabric-cluster-resource-manager-balancing.md)
+* Per informazioni sull'architettura e sul flusso di informazioni in Cluster Resource Manager, vedere [questo articolo ](service-fabric-cluster-resource-manager-architecture.md)
+* Definire la metrica di deframmentazione rappresenta un modo per consolidare il carico sui nodi anziché distribuirlo. Per informazioni su come configurare la deframmentazione, vedere [questo articolo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+* Partire dall'inizio e vedere l'[introduzione a Cluster Resource Manager di Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
+* Per informazioni sul modo in cui Cluster Resource Manager gestisce e bilancia il carico nel cluster, vedere l'articolo relativo al [bilanciamento del carico](service-fabric-cluster-resource-manager-balancing.md)
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-domains.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-uneven-fault-domain-layout.png

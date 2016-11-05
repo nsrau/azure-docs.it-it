@@ -1,47 +1,49 @@
-<properties
-    pageTitle="Come usare l’archiviazione delle code (C++) | Microsoft Azure"
-    description="Informazioni su come usare il servizio di archiviazione delle code in Azure. Gli esempi sono scritti in C++."
-    services="storage"
-    documentationCenter=".net"
-    authors="dineshmurthy"
-    manager="jahogg"
-    editor="tysonn"/>
+---
+title: Come usare l’archiviazione delle code (C++) | Microsoft Docs
+description: Informazioni su come usare il servizio di archiviazione delle code in Azure. Gli esempi sono scritti in C++.
+services: storage
+documentationcenter: .net
+author: dineshmurthy
+manager: jahogg
+editor: tysonn
 
-<tags
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/18/2016"
-    ms.author="dineshm"/>
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/18/2016
+ms.author: dineshm
 
+---
+# <a name="how-to-use-queue-storage-from-c++"></a>Come usare l'archiviazione delle code da C++
+[!INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
-# <a name="how-to-use-queue-storage-from-c++"></a>Come usare l'archiviazione delle code da C++  
-
-[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
-<br/>
-[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
+[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Overview
 In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione di accodamento di Azure. Gli esempi sono scritti in C++ e utilizzano la [libreria client di Archiviazione di Azure per C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). Gli scenari illustrati includono **inserimento**, **visualizzazione**, **recupero** ed **eliminazione** dei messaggi in coda, oltre a **creazione ed eliminazione di code**.
 
->[AZURE.NOTE] Questa guida fa riferimento alla libreria client di Archiviazione di Azure per C++ versione 1.0.0 e successive. La versione consigliata per la libreria client di archiviazione è la 2.2.0, disponibile tramite [NuGet](http://www.nuget.org/packages/wastorage) o [GitHub](http://github.com/Azure/azure-storage-cpp/).
+> [!NOTE]
+> Questa guida fa riferimento alla libreria client di Archiviazione di Azure per C++ versione 1.0.0 e successive. La versione consigliata per la libreria client di archiviazione è la 2.2.0, disponibile tramite [NuGet](http://www.nuget.org/packages/wastorage) o [GitHub](http://github.com/Azure/azure-storage-cpp/).
+> 
+> 
 
-[AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
-[AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+[!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
-## <a name="create-a-c++-application"></a>Creazione di un’applicazione C++  
+[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+
+## <a name="create-a-c++-application"></a>Creazione di un’applicazione C++
 In questa guida verranno utilizzate le funzionalità di archiviazione che è possibile eseguire all’interno di un’applicazione C++.
 
 A tal fine, sarà necessario installare la libreria client di Archiviazione di Azure per C++ e creare un account di archiviazione Azure nella propria sottoscrizione Azure.
 
 Per installare la libreria client di Archiviazione di Azure per C++, è possibile utilizzare i metodi seguenti:
 
--   **Linux:** seguire le istruzioni fornite nella pagina [README della libreria client di Archiviazione di Azure per C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .
--   **Windows:** in Visual Studio, fare clic su **Strumenti > Gestione pacchetti NuGet > console di Gestione pacchetti**. Digitare il seguente comando nella [console Gestione pacchetti NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e premere **INVIO**.
-
-        Install-Package wastorage
+* **Linux:** seguire le istruzioni fornite nella pagina [README della libreria client di Archiviazione di Azure per C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .
+* **Windows:** in Visual Studio, fare clic su **Strumenti > Gestione pacchetti NuGet > console di Gestione pacchetti**. Digitare il seguente comando nella [console Gestione pacchetti NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e premere **INVIO**.
+  
+      Install-Package wastorage
 
 ## <a name="configure-your-application-to-access-queue-storage"></a>Configurazione dell'applicazione per l’accesso ad Archiviazione di accodamento
 Aggiungere le istruzioni include seguenti all'inizio del file C++ in cui si desidera utilizzare le API di archiviazione di Azure per accedere alle code:  
@@ -50,7 +52,6 @@ Aggiungere le istruzioni include seguenti all'inizio del file C++ in cui si desi
     #include "was/queue.h"
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Impostare una stringa di connessione di archiviazione di Azure
-
 I client di archiviazione di Azure usano le stringhe di connessione di archiviazione per archiviare endpoint e credenziali per l'accesso ai servizi di gestione dati. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di archiviazione nel formato seguente, usando il nome dell'account di archiviazione e la chiave di accesso alle risorse di archiviazione per l'account di archiviazione elencato nel [portale di Azure](https://portal.azure.com) per i valori di *AccountName* e *AccountKey*. Per informazioni sugli account di archiviazione e sulle chiavi di accesso, vedere [Informazioni sugli account di archiviazione di Azure](storage-create-storage-account.md). In questo esempio viene illustrato come dichiarare un campo statico per memorizzare la stringa di connessione:  
 
     // Define the connection-string with your values.
@@ -231,17 +232,13 @@ Per eliminare una coda e tutti i messaggi inclusi, chiamare il metodo **delete_q
     queue.delete_queue_if_exists();  
 
 ## <a name="next-steps"></a>Passaggi successivi
-
 A questo punto, dopo aver appreso le nozioni di base di Archiviazione accodamento, visitare i collegamenti seguenti per altre informazioni su Archiviazione di Azure.
 
--   [Come usare l’archiviazione BLOB da C++](storage-c-plus-plus-how-to-use-blobs.md)
--   [Come usare l’archiviazione tabelle da C++](storage-c-plus-plus-how-to-use-tables.md)
--   [Elenco delle risorse di archiviazione di Azure in C++](storage-c-plus-plus-enumeration.md)
--   [Informazioni di riferimento sulla libreria client di archiviazione per C++](http://azure.github.io/azure-storage-cpp)
--   [Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
-
-
-
+* [Come usare l’archiviazione BLOB da C++](storage-c-plus-plus-how-to-use-blobs.md)
+* [Come usare l’archiviazione tabelle da C++](storage-c-plus-plus-how-to-use-tables.md)
+* [Elenco delle risorse di archiviazione di Azure in C++](storage-c-plus-plus-enumeration.md)
+* [Informazioni di riferimento sulla libreria client di archiviazione per C++](http://azure.github.io/azure-storage-cpp)
+* [Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
 
 <!--HONumber=Oct16_HO2-->
 

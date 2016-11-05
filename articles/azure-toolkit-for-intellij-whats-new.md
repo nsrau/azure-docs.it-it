@@ -1,44 +1,42 @@
-<properties
-    pageTitle="Novità del Toolkit di Azure per IntelliJ | Microsoft Azure"
-    description="Sono disponibili informazioni sulle funzionalità più recenti del Toolkit di Azure per IntelliJ."
-    services=""
-    documentationCenter="java"
-    authors="rmcmurray"
-    manager="erikre"
-    editor=""/>
+---
+title: Novità del Toolkit di Azure per IntelliJ | Microsoft Docs
+description: Sono disponibili informazioni sulle funzionalità più recenti del Toolkit di Azure per IntelliJ.
+services: ''
+documentationcenter: java
+author: rmcmurray
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="11/01/2016" 
-    ms.author="robmcm;asirveda;martinsawicki"/>
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: multiple
+ms.devlang: Java
+ms.topic: article
+ms.date: 11/01/2016
+ms.author: robmcm;asirveda;martinsawicki
 
-
+---
 # <a name="whats-new-in-the-azure-toolkit-for-intellij"></a>Novità del Toolkit di Azure per IntelliJ
-
 ## <a name="azure-toolkit-for-intellij-releases"></a>Toolkit di Azure per le versioni di IntelliJ
-
 Questo articolo include informazioni sulle diverse versioni e sugli aggiornamenti più recenti del Toolkit di Azure per Eclipse.
 
-> [AZURE.NOTE] Esiste anche un Toolkit di Azure per l’IDE di Eclipse. Per ulteriori informazioni, vedere [Toolkit di Azure per Eclipse].
+> [!NOTE]
+> Esiste anche un Toolkit di Azure per l’IDE di Eclipse. Per ulteriori informazioni, vedere [Toolkit di Azure per Eclipse].
+> 
+> 
 
 ### <a name="august-26-2016"></a>26 agosto 2016
-
 La versione del Toolkit di Azure per IntelliJ rilasciata ad agosto 2016 include i miglioramenti seguenti:
 
 * **Distribuzioni di JDK personalizzate**. Azure Toolkit per IntelliJ supporta ora la specifica e la distribuzione di una versione di JDK arbitraria nel contenitore di app Web di Azure:
-  - Oltre alla versione JDK fornita da Azure, è possibile scegliere tra un'ampia gamma di versioni di Zulu OpenJDK rese disponibili in Azure da Azul Systems.
-  - È anche possibile specificare una distribuzione di JDK personalizzata se viene caricata come file ZIP nell'account di archiviazione.
+  * Oltre alla versione JDK fornita da Azure, è possibile scegliere tra un'ampia gamma di versioni di Zulu OpenJDK rese disponibili in Azure da Azul Systems.
+  * È anche possibile specificare una distribuzione di JDK personalizzata se viene caricata come file ZIP nell'account di archiviazione.
 * **Miglioramenti alla visualizzazione di Azure Explorer**:
-  - Supporto per la gestione di Macchine virtuali usando il nuovo modello di Azure Resource Manager: è possibile elencare, creare ed eliminare le macchine virtuali basate su Resource Manager senza uscire dall'ambiente IDE.
-  - Supporto per la gestione di BLOB di account di archiviazione tramite Azure Resource Manager, che integra le funzionalità esistenti per la gestione di account di archiviazione "classici".
+  * Supporto per la gestione di Macchine virtuali usando il nuovo modello di Azure Resource Manager: è possibile elencare, creare ed eliminare le macchine virtuali basate su Resource Manager senza uscire dall'ambiente IDE.
+  * Supporto per la gestione di BLOB di account di archiviazione tramite Azure Resource Manager, che integra le funzionalità esistenti per la gestione di account di archiviazione "classici".
 * **Microsoft JDBC Driver 6.0 per SQL Server**. Questo aggiornamento include il driver JDBC più aggiornato per Microsoft SQL Server (versione 6.0), incluso ora come libreria che è possibile aggiungere facilmente ai progetti Java, sostituendo in tal modo la versione precedente.
 
 ### <a name="june-29-2016"></a>29 giugno 2016
-
 La versione del Toolkit di Azure per IntelliJ rilasciata a giugno 2016 include i miglioramenti seguenti:
 
 * **Requisito Java 8**. Per il Toolkit Azure per IntelliJ è ora necessario Java 8. Sebbene questo requisito sia fondamentale per il toolkit, le applicazioni possono continuare a usare versioni di Java supportate da Azure.
@@ -49,25 +47,23 @@ La versione del Toolkit di Azure per IntelliJ rilasciata a giugno 2016 include i
 * **Debug remoto delle app Web Java**. Il Toolkit di Azure per IntelliJ supporta adesso il debug remoto delle App Web Java nel servizio app di Azure.
 
 ### <a name="april-12-2016"></a>12 aprile 2016
-
 La versione del Toolkit di Azure per IntelliJ rilasciata ad aprile 2016 include i miglioramenti seguenti:
 
 * **Supporto per Azure SDK versione 2.9.0**. La versione più recente di Azure SDK è ora il prerequisito minimo per il Toolkit di Azure per IntelliJ.
 * **Vari miglioramenti di usabilità, velocità di risposta e prestazioni relativamente al supporto di app Web di Azure**. Prestazioni ottimizzate relativamente alla comunicazione tra il Toolkit e il risultato di Azure in un'interfaccia utente più reattiva.
 * **Possibilità di eliminare un contenitore di applicazioni Web in Azure da IntelliJ**. Il Toolkit di Azure per IntelliJ consente ora di eliminare un contenitore Web di Azure esistente senza uscire da IntelliJ.
 
-## <a name="see-also"></a>Vedere anche ##
-
+## <a name="see-also"></a>Vedere anche
 Per ulteriori informazioni sui Toolkit di Azure per gli IDE di Java, consultare i seguenti collegamenti:
 
-- [Toolkit di Azure per Eclipse]
-  - [Installare il Toolkit di Azure per Eclipse.]
-  - [Creare un'app Web Hello World per Azure in Eclipse]
-  - [Novità di Azure Toolkit per Eclipse]
-- [Toolkit di Azure per IntelliJ]
-  - [Installazione del Toolkit di Azure per IntelliJ]
-  - [Creare un'App Web Hello World per Azure in IntelliJ]
-  - *Novità del Toolkit di Azure per IntelliJ (questo articolo)*
+* [Toolkit di Azure per Eclipse]
+  * [Installare il Toolkit di Azure per Eclipse.]
+  * [Creare un'app Web Hello World per Azure in Eclipse]
+  * [Novità di Azure Toolkit per Eclipse]
+* [Toolkit di Azure per IntelliJ]
+  * [Installazione del Toolkit di Azure per IntelliJ]
+  * [Creare un'App Web Hello World per Azure in IntelliJ]
+  * *Novità del Toolkit di Azure per IntelliJ (questo articolo)*
 
 Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure].
 

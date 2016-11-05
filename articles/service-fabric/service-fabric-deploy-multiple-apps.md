@@ -1,24 +1,22 @@
-<properties
-   pageTitle="Distribuire un'applicazione Node.js con MongoDB | Microsoft Azure"
-   description="Procedura dettagliata sulla creazione di pacchetti di più eseguibili guest da distribuire in un cluster di Azure Service Fabric"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="bmscholl"
-   manager=""
-   editor=""/>
+---
+title: Distribuire un'applicazione Node.js con MongoDB | Microsoft Docs
+description: Procedura dettagliata sulla creazione di pacchetti di più eseguibili guest da distribuire in un cluster di Azure Service Fabric
+services: service-fabric
+documentationcenter: .net
+author: bmscholl
+manager: ''
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="06/20/2016"
-   ms.author="bscholl;mikhegn"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 06/20/2016
+ms.author: bscholl;mikhegn
 
-
+---
 # Distribuire più eseguibili guest
-
 Questo articolo illustra come creare pacchetti di più eseguibili guest e distribuirli in Azure Service Fabric usando la versione di anteprima dello strumento per la creazione di pacchetti di Service Fabric, disponibile all'indirizzo [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
 
 Per la creazione manuale di un pacchetto di Service Fabric, vedere l'articolo [Distribuire un eseguibile guest in Service Fabric](service-fabric-deploy-existing-app.md).
@@ -26,22 +24,21 @@ Per la creazione manuale di un pacchetto di Service Fabric, vedere l'articolo [D
 Questa procedura dettagliata illustra come distribuire un'applicazione con un front-end di Node.js che usa MongoDB come archivio dati, ma può essere adottata per qualsiasi applicazione che presenta dipendenze da un'altra applicazione.
 
 ## Creare un pacchetto dell'applicazione Node.js
-
 Questo articolo presuppone che Node.js non sia installato nei nodi del cluster di Service Fabric. Sarà quindi necessario aggiungere Node.exe alla directory radice dell'applicazione nodo prima della creazione del pacchetto. La struttura di directory dell'applicazione Node.js (che usa il framework Web Express e il motore per la creazione di modelli Jade) dovrebbe essere simile alla seguente:
 
 ```
 |-- NodeApplication
-	|-- bin
+    |-- bin
         |-- www
-	|-- node_modules
+    |-- node_modules
         |-- .bin
         |-- express
         |-- jade
         |-- etc.
-	|-- public
+    |-- public
         |-- images
         |-- etc.
-	|-- routes
+    |-- routes
         |-- index.js
         |-- users.js
     |-- views
@@ -60,14 +57,17 @@ Il passaggio successivo consiste nella creazione di un pacchetto per l'applicazi
 
 Di seguito è riportata una descrizione dei parametri in uso:
 
-- **/source**: punta alla directory dell'applicazione da includere nel pacchetto.
-- **/target**: definisce la directory in cui creare il pacchetto. Questa directory deve essere diversa dalla directory di origine.
-- **/appname**: definisce il nome dell'applicazione esistente. È importante comprendere che questo nome equivale al nome del servizio nel manifesto e non al nome dell'applicazione di Service Fabric.
-- **/exe**: definisce il file eseguibile che dovrebbe essere avviato da Service Fabric, in questo caso `node.exe`.
-- **/ma**: definisce l'argomento usato per avviare il file eseguibile. Poiché Node.js non è installato, è necessario che Service Fabric avvii il server Web Node.js eseguendo `node.exe bin/www`. `/ma:'bin/www'` indica allo strumento di creazione di pacchetti di usare `bin/ma` come argomento per Node.exe.
-- **/AppType**: definisce il nome del tipo di applicazione di Service Fabric.
+* **/source**: punta alla directory dell'applicazione da includere nel pacchetto.
+* **/target**: definisce la directory in cui creare il pacchetto. Questa directory deve essere diversa dalla directory di origine.
+* **/appname**: definisce il nome dell'applicazione esistente. È importante comprendere che questo nome equivale al nome del servizio nel manifesto e non al nome dell'applicazione di Service Fabric.
+* **/exe**: definisce il file eseguibile che dovrebbe essere avviato da Service Fabric, in questo caso `node.exe`.
+* **/ma**: definisce l'argomento usato per avviare il file eseguibile. Poiché Node.js non è installato, è necessario che Service Fabric avvii il server Web Node.js eseguendo `node.exe bin/www`. `/ma:'bin/www'` indica allo strumento di creazione di pacchetti di usare `bin/ma` come argomento per Node.exe.
+* **/AppType**: definisce il nome del tipo di applicazione di Service Fabric.
 
->[AZURE.NOTE] È anche possibile usare Visual Studio per generare il pacchetto dell'applicazione come parte di un progetto di applicazione. Se si sceglie il collegamento all'origine nel progetto di Visual Studio, la compilazione della soluzione di Visual Studio assicura che il pacchetto dell'applicazione venga aggiornato in base alle modifiche nell'origine. [Uso di Visual Studio per creare il pacchetto di un'applicazione esistente](service-fabric-deploy-existing-app.md#using-visual-studio-to-package-an-existing-application)
+> [!NOTE]
+> È anche possibile usare Visual Studio per generare il pacchetto dell'applicazione come parte di un progetto di applicazione. Se si sceglie il collegamento all'origine nel progetto di Visual Studio, la compilazione della soluzione di Visual Studio assicura che il pacchetto dell'applicazione venga aggiornato in base alle modifiche nell'origine. [Uso di Visual Studio per creare il pacchetto di un'applicazione esistente](service-fabric-deploy-existing-app.md#using-visual-studio-to-package-an-existing-application)
+> 
+> 
 
 Se si passa alla directory specificata nel parametro /target, si noterà che lo strumento ha creato un pacchetto di Service Fabric pienamente funzionante, come illustrato di seguito:
 
@@ -75,7 +75,7 @@ Se si passa alla directory specificata nel parametro /target, si noterà che lo 
 |--[yourtargetdirectory]
     |-- NodeApplication
         |-- C
-		      |-- bin
+              |-- bin
               |-- data
               |-- node_modules
               |-- public
@@ -85,8 +85,8 @@ Se si passa alla directory specificata nel parametro /target, si noterà che lo 
               |-- package.json
               |-- node.exe
         |-- config
-		      |--Settings.xml
-	    |-- ServiceManifest.xml
+              |--Settings.xml
+        |-- ServiceManifest.xml
     |-- ApplicationManifest.xml
 ```
 Il file ServiceManifest.xml generato include ora una sezione che descrive come avviare il server Web Node.js, come illustrato nel frammento di codice seguente:
@@ -107,7 +107,7 @@ In questo esempio il server Web Node.js resta in ascolto sulla porta 3000 ed è 
 ```xml
 <Resources>
       <Endpoints>
-     	<Endpoint Name="NodeServiceEndpoint" Protocol="http" Port="3000" Type="Input" />
+         <Endpoint Name="NodeServiceEndpoint" Protocol="http" Port="3000" Type="Input" />
       </Endpoints>
 </Resources>
 ```
@@ -117,7 +117,7 @@ Per creare un pacchetto di MongoDB, è opportuno assicurarsi di aver creato un p
 
 ```
 |-- MongoDB
-	|-- bin
+    |-- bin
         |-- mongod.exe
         |-- mongo.exe
         |-- anybinary.exe
@@ -127,7 +127,10 @@ Service Fabric deve avviare MongoDB con un comando simile al seguente ed è quin
 ```
 mongod.exe --dbpath [path to data]
 ```
-> [AZURE.NOTE] Se la directory dei dati di MongoDB viene inserita nella directory locale del nodo e si verifica un errore nel nodo, i dati non vengono mantenuti. È quindi consigliabile usare un'archiviazione durevole o implementare un set di repliche di MongoDB per evitare la perdita di dati.
+> [!NOTE]
+> Se la directory dei dati di MongoDB viene inserita nella directory locale del nodo e si verifica un errore nel nodo, i dati non vengono mantenuti. È quindi consigliabile usare un'archiviazione durevole o implementare un set di repliche di MongoDB per evitare la perdita di dati.
+> 
+> 
 
 In PowerShell o nella shell dei comandi verrà eseguito lo strumento di creazione di pacchetti con i parametri seguenti:
 
@@ -137,7 +140,10 @@ In PowerShell o nella shell dei comandi verrà eseguito lo strumento di creazion
 
 Per aggiungere MongoDB al pacchetto dell'applicazione di Service Fabric, è necessario assicurarsi che il parametro /target punti alla stessa directory che contiene già il manifesto dell'applicazione insieme all'applicazione Node.js e che il nome usato sia lo stesso dell'elemento ApplicationType.
 
->[AZURE.NOTE] È anche possibile usare Visual Studio per generare il pacchetto dell'applicazione come parte di un progetto di applicazione. Se si sceglie il collegamento all'origine nel progetto di Visual Studio, la compilazione della soluzione di Visual Studio assicura che il pacchetto dell'applicazione venga aggiornato in base alle modifiche nell'origine. [Uso di Visual Studio per creare il pacchetto di un'applicazione esistente](service-fabric-deploy-existing-app.md#using-visual-studio-to-package-an-existing-application)
+> [!NOTE]
+> È anche possibile usare Visual Studio per generare il pacchetto dell'applicazione come parte di un progetto di applicazione. Se si sceglie il collegamento all'origine nel progetto di Visual Studio, la compilazione della soluzione di Visual Studio assicura che il pacchetto dell'applicazione venga aggiornato in base alle modifiche nell'origine. [Uso di Visual Studio per creare il pacchetto di un'applicazione esistente](service-fabric-deploy-existing-app.md#using-visual-studio-to-package-an-existing-application)
+> 
+> 
 
 Passare alla directory ed esaminare gli elementi creati dallo strumento.
 
@@ -151,8 +157,8 @@ Passare alla directory ed esaminare gli elementi creati dallo strumento.
                 |-- mongo.exe
                 |-- etc.
         |-- config
-		    |--Settings.xml
-	    |-- ServiceManifest.xml
+            |--Settings.xml
+        |-- ServiceManifest.xml
     |-- ApplicationManifest.xml
 ```
 Come si può vedere, lo strumento ha aggiunto una nuova cartella MongoDB alla directory contenente i file binari di MongoDB. Se si apre il file `ApplicationManifest.xml`, si può notare che il pacchetto contiene ora l'applicazione Node.js e MongoDB. Il codice seguente illustra il contenuto del manifesto dell'applicazione.
@@ -194,14 +200,16 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
->[AZURE.NOTE] In Visual Studio è possibile pubblicare l'applicazione localmente tramite il debug (F5) o usando la Pubblicazione guidata.
+> [!NOTE]
+> In Visual Studio è possibile pubblicare l'applicazione localmente tramite il debug (F5) o usando la Pubblicazione guidata.
+> 
+> 
 
 Dopo aver pubblicato l'applicazione nel cluster locale, è possibile accedere all'applicazione Node.js nella porta specificata nel manifesto del servizio dell'applicazione Node.js, ad esempio http://localhost:3000.
 
 In questa esercitazione si è appreso come distribuire facilmente due applicazioni esistenti come una singola applicazione di Service Fabric e come distribuirle in Service Fabric in modo da sfruttare i vantaggi di alcune delle funzionalità di Service Fabric, come la disponibilità elevata e l'integrazione con il sistema di integrità.
 
 ## Passaggi successivi
-
-- Informazioni su come [creare manualmente il pacchetto di un'applicazione guest](service-fabric-deploy-existing-app.md).
+* Informazioni su come [creare manualmente il pacchetto di un'applicazione guest](service-fabric-deploy-existing-app.md).
 
 <!---HONumber=AcomDC_0622_2016-->

@@ -1,39 +1,37 @@
-<properties
-    pageTitle="Progettazione viste di Log Analytics | Microsoft Azure"
-    description="Progettazione viste di Log Analytics consente di creare viste personalizzate nella console di OMS contenenti visualizzazioni diverse dei dati nel repository di OMS. In questo articolo è presentata una panoramica su Progettazione viste e sulle procedure per creare e modificare viste personalizzate."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bwren"
-    manager="jwhit"
-    editor=""/>
+---
+title: Progettazione viste di Log Analytics | Microsoft Docs
+description: Progettazione viste di Log Analytics consente di creare viste personalizzate nella console di OMS contenenti visualizzazioni diverse dei dati nel repository di OMS. In questo articolo è presentata una panoramica su Progettazione viste e sulle procedure per creare e modificare viste personalizzate.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/27/2016"
-    ms.author="bwren"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/27/2016
+ms.author: bwren
 
-
+---
 # <a name="log-analytics-view-designer"></a>Progettazione viste di Log Analytics
 Progettazione viste di Log Analytics consente di creare viste personalizzate nella console di OMS contenenti visualizzazioni diverse dei dati nel repository di OMS. In questo articolo è presentata una panoramica su Progettazione viste e sulle procedure per creare e modificare viste personalizzate.
 
 Altri articoli disponibili su Progettazione viste sono:
 
-- [Informazioni di riferimento sul riquadro](log-analytics-view-designer-tiles.md): informazioni di riferimento sulle impostazioni relative a ciascun riquadro disponibile per l'uso nelle viste personalizzate. 
-- [Informazioni di riferimento sulle parti della visualizzazione](log-analytics-view-designer-parts.md): informazioni di riferimento sulle impostazioni relative a ciascun riquadro disponibile per l'uso nelle viste personalizzate. 
-
+* [Informazioni di riferimento sul riquadro](log-analytics-view-designer-tiles.md): informazioni di riferimento sulle impostazioni relative a ciascun riquadro disponibile per l'uso nelle viste personalizzate. 
+* [Informazioni di riferimento sulle parti della visualizzazione](log-analytics-view-designer-parts.md): informazioni di riferimento sulle impostazioni relative a ciascun riquadro disponibile per l'uso nelle viste personalizzate. 
 
 ## <a name="concepts"></a>Concetti
 Le viste create con Progettazione viste contengono gli elementi riportati nella tabella seguente.
 
 | Parte: | Descrizione |
-|:--|:--|
-| Riquadro | Viene visualizzato nel dashboard principale di panoramica di Log Analytics.  Include un riepilogo visivo delle informazioni contenute nella vista personalizzata.  Diversi tipi di riquadri forniscono diverse visualizzazioni di record nel repository di OMS.  Fare clic sul riquadro per aprire la vista personalizzata. |
-| Vista personalizzata | Viene visualizzato quando l'utente fa clic sul riquadro.  Contiene una o più parti della visualizzazione. |
-| Parti della visualizzazione | La visualizzazione dei dati nel repository di OMS in base a una o più [ricerche nei log](log-analytics-log-searches.md).  Le parti includeranno perlopiù un'intestazione che offre una visualizzazione di alto livello e un elenco dei risultati principali.  Diversi tipi di parti forniscono diverse visualizzazioni di record nel repository di OMS.  Fare clic sugli elementi della parte per eseguire una ricerca nei log che restituisca record dettagliati. |
+|:--- |:--- |
+| Riquadro |Viene visualizzato nel dashboard principale di panoramica di Log Analytics.  Include un riepilogo visivo delle informazioni contenute nella vista personalizzata.  Diversi tipi di riquadri forniscono diverse visualizzazioni di record nel repository di OMS.  Fare clic sul riquadro per aprire la vista personalizzata. |
+| Vista personalizzata |Viene visualizzato quando l'utente fa clic sul riquadro.  Contiene una o più parti della visualizzazione. |
+| Parti della visualizzazione |La visualizzazione dei dati nel repository di OMS in base a una o più [ricerche nei log](log-analytics-log-searches.md).  Le parti includeranno perlopiù un'intestazione che offre una visualizzazione di alto livello e un elenco dei risultati principali.  Diversi tipi di parti forniscono diverse visualizzazioni di record nel repository di OMS.  Fare clic sugli elementi della parte per eseguire una ricerca nei log che restituisca record dettagliati. |
 
 ![Panoramica di Progettazione viste](media/log-analytics-view-designer/overview.png)
 
@@ -43,7 +41,6 @@ Mentre Progettazione viste è in modalità di anteprima, è necessario aggiunger
 ![Abilitazione dell'anteprima](media/log-analytics-view-designer/preview.png)
 
 ## <a name="creating-and-editing-views"></a>Creazione e modifica di viste
-
 ### <a name="create-a-new-view"></a>Creazione di una nuova vista
 Aprire una nuova vista in **Progettazione viste** facendo clic sul riquadro Progettazione viste nel dashboard principale di OMS.
 
@@ -91,13 +88,9 @@ Una vista può includere qualsiasi numero di parti della visualizzazione.  Selez
 ### <a name="rearrange-visualization-parts"></a>Ridisposizione delle parti della visualizzazione
 Le viste hanno solo di una riga di parti della visualizzazione.  Ridisporre le parti esistenti in una vista facendo clic e trascinandole in una nuova posizione.
 
-
 ## <a name="next-steps"></a>Passaggi successivi
-
-- Aggiungere [Riquadri](log-analytics-view-designer-tiles.md) alla vista personalizzata.
-- Aggiungere [parti della visualizzazione](log-analytics-view-designer-parts.md) alla vista personalizzata.
-
-
+* Aggiungere [Riquadri](log-analytics-view-designer-tiles.md) alla vista personalizzata.
+* Aggiungere [parti della visualizzazione](log-analytics-view-designer-parts.md) alla vista personalizzata.
 
 <!--HONumber=Oct16_HO2-->
 

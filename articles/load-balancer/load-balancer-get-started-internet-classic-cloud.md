@@ -1,43 +1,42 @@
-<properties 
-   pageTitle="Introduzione alla creazione del servizio di bilanciamento del carico per Internet nel modello di distribuzione classica per i servizi cloud | Microsoft Azure"
-   description="Informazioni su come creare un servizio di bilanciamento del carico Internet nel modello di distribuzione classica per i servizi cloud"
-   services="load-balancer"
-   documentationCenter="na"
-   authors="sdwheeler"
-   manager="carmonm"
-   editor=""
-   tags="azure-service-management"
-/>
-<tags  
-   ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
-   ms.author="sewhee" />
+---
+title: Introduzione alla creazione del servizio di bilanciamento del carico per Internet nel modello di distribuzione classica per i servizi cloud | Microsoft Docs
+description: Informazioni su come creare un servizio di bilanciamento del carico Internet nel modello di distribuzione classica per i servizi cloud
+services: load-balancer
+documentationcenter: na
+author: sdwheeler
+manager: carmonm
+editor: ''
+tags: azure-service-management
 
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/17/2016
+ms.author: sewhee
+
+---
 # Introduzione alla creazione del servizio di bilanciamento del carico Internet per i servizi cloud
+[!INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
-[AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
+[!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
+[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] In questo articolo viene illustrato il modello di distribuzione classica. Vedere [Informazioni su come creare un servizio di bilanciamento del carico Internet in Gestione risorse di Azure](load-balancer-get-started-internet-arm-cli.md).
+In questo articolo viene illustrato il modello di distribuzione classica. Vedere [Informazioni su come creare un servizio di bilanciamento del carico Internet in Gestione risorse di Azure](load-balancer-get-started-internet-arm-cli.md).
 
 I servizi cloud vengono configurati automaticamente con il servizio di bilanciamento del carico e possono essere personalizzati tramite il modello del servizio.
 
 ## Creare un bilanciamento del carico tramite il file di definizione del servizio
- 
 È possibile usare Azure SDK per .NET 2.5 per aggiornare il servizio cloud. Le impostazioni degli endpoint per i servizi cloud vengono effettuate nel file di [definizione del servizio](https://msdn.microsoft.com/library/azure/gg557553.aspx), con estensione .csdef.
 
 L'esempio seguente mostra la configurazione di un file servicedefinition.csdef per una distribuzione cloud:
 
 Analizzando il frammento di codice per il file con estensione csdef generato da una distribuzione cloud, è possibile vedere l'endpoint esterno configurato per usare le porte HTTP sulle porte 10000, 10001 e 10002.
 
-
-	<ServiceDefinition name=“Tenant“>
-   	<WorkerRole name=“FERole” vmsize=“Small“>
+    <ServiceDefinition name=“Tenant“>
+       <WorkerRole name=“FERole” vmsize=“Small“>
     <Endpoints>
         <InputEndpoint name=“FE_External_Http” protocol=“http” port=“10000“ />
         <InputEndpoint name=“FE_External_Tcp“  protocol=“tcp“  port=“10001“ />
@@ -52,20 +51,18 @@ Analizzando il frammento di codice per il file con estensione csdef generato da 
         </InstanceInputEndpoint>
         <InternalEndpoint name=“FE_InternalEP_Tcp” protocol=“tcp“ />
     </Endpoints>
-  	</WorkerRole>
-	</ServiceDefinition>
+      </WorkerRole>
+    </ServiceDefinition>
 
 
 
 
 ## Controllo dello stato di integrità del servizio di bilanciamento del carico per i servizi cloud
-
-
 Di seguito è riportato un esempio di probe di integrità:
 
-	 	<LoadBalancerProbes>
-    	<LoadBalancerProbe name=“MyProbe” protocol=“http” path=“Probe.aspx” intervalInSeconds=“5” timeoutInSeconds=“100“ />
- 	 	</LoadBalancerProbes>
+         <LoadBalancerProbes>
+        <LoadBalancerProbe name=“MyProbe” protocol=“http” path=“Probe.aspx” intervalInSeconds=“5” timeoutInSeconds=“100“ />
+          </LoadBalancerProbes>
 
 Il servizio di bilanciamento del carico combina le informazioni dell'endpoint e le informazioni del probe per creare un URL nel formato http://{DIP della VM}:80/Probe.aspx, che verrà usato per eseguire una query per l'integrità del servizio.
 
@@ -76,7 +73,6 @@ La definizione del probe ne controlla anche la frequenza. Nel caso precedente, i
 Per altre informazioni, fare riferimento allo schema di definizione del servizio per il [probe di integrità](https://msdn.microsoft.com/library/azure/jj151530.aspx).
 
 ## Passaggi successivi
-
 [Introduzione alla configurazione del bilanciamento del carico interno](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configurare una modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md)

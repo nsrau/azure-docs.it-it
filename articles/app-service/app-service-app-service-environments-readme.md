@@ -1,30 +1,29 @@
-<properties 
-	pageTitle="Ambiente del servizio app | Microsoft Azure" 
-	description="Che cos'è un ambiente del servizio app di Azure? Introduzione all'ambiente del servizio app." 
-	keywords="ambiente del servizio app di azure, rete virtuale, rete protetta"
-	services="app-service" 
-	documentationCenter="" 
-	authors="yochay" 
-	manager="wpickett" 
-	editor=""/>
+---
+title: Ambiente del servizio app | Microsoft Docs
+description: Che cos'è un ambiente del servizio app di Azure? Introduzione all'ambiente del servizio app.
+keywords: ambiente del servizio app di azure, rete virtuale, rete protetta
+services: app-service
+documentationcenter: ''
+author: yochay
+manager: wpickett
+editor: ''
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/15/2016" 
-	ms.author="stefsch"/>
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/15/2016
+ms.author: stefsch
 
+---
 # Documentazione relativa agli ambienti del servizio app
-
 Un ambiente App di servizio è un’opzione di piano di servizio [Premium][PremiumTier] del servizio dell’App di Azure che fornisce un ambiente completamente isolato e dedicato all'esecuzione in modo sicuro delle app di servizio di Azure a livello di scalabilità elevata, tra cui [App Web][WebApps], [App per dispositivi mobili][MobileApps], e [App API][APIApps].
 
 Gli ambienti di servizi di app sono ideali per i carichi di lavoro dell'applicazione che richiedono:
 
-- Scalabilità molto elevata
-- Isolamento e accesso alla rete protetto
+* Scalabilità molto elevata
+* Isolamento e accesso alla rete protetto
 
 I clienti possono creare più ambienti di servizi di applicazione in una singola area di Azure, nonché in più aree di Azure. Questo rende gli Ambienti di servizio dell’App ideali per i livelli dell’applicazione con scalabilità orizzontale senza stato, nel supportare i carichi di lavoro elevati RPS.
 
@@ -41,14 +40,14 @@ Spesso le app devono accedere a risorse aziendali, ad esempio database e servizi
 * [Sicurezza di rete e architettura](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)
 
 ## Procedure
-
-[AZURE.INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
-
+[!INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
 
 ## Video
-[AZURE.VIDEO azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps]
+[!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON325/player]
 
-[AZURE.VIDEO microsoft-ignite-2015-running-enterprise-web-and-mobile-apps-on-azure-app-service]
+
+[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3715/player]
+
 
 
 <!-- LINKS -->

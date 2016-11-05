@@ -3,7 +3,6 @@ Gestione risorse di Azure permette di definire i parametri per i valori da speci
 Di seguito viene fornita la descrizione di ogni parametro del modello.
 
 ### gatewayName
-
 Nome del gateway. Si tratta del gateway usato per la registrazione dell'app per le API.
 
     "gatewayName": {
@@ -11,15 +10,13 @@ Nome del gateway. Si tratta del gateway usato per la registrazione dell'app per 
     }
 
 ### apiAppName
-
 Nome dell'app per le API da creare. Il nome deve contenere almeno 8 caratteri e non più di 50 caratteri.
-    
+
     "apiAppName": {
       "type": "string"
     }
 
 ### apiAppSecret
-
 Segreto dell'app per le API. Questo valore deve essere una stringa con codifica base64. Dovrebbe essere una stringa casuale con 64 caratteri costituita solo di numeri interi e caratteri minuscoli.
 
     "apiAppSecret": {
@@ -27,7 +24,6 @@ Segreto dell'app per le API. Questo valore deve essere una stringa con codifica 
     }
 
 ### location
-
 Percorso della nuova app per le API. È possibile ottenere i percorsi validi eseguendo il comando PowerShell`Get-AzureLocation`o il comando di Azure CLI`azure location list`.
 
     "location": {

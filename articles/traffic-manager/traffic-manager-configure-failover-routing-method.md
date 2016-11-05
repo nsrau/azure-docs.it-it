@@ -1,28 +1,27 @@
-<properties 
-   pageTitle="Gestione un metodo di routing del traffico failover di Gestione traffico | Microsoft Azure"
-   description="Questo articolo aiuterà a configurare il metodo di routing del traffico failover in Gestione traffico"
-   services="traffic-manager"
-   documentationCenter=""
-   authors="sdwheeler"
-   manager="carmonm"
-   editor="tysonn" />
-<tags 
-   ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/10/2016"
-   ms.author="sewhee" />
+---
+title: Gestione un metodo di routing del traffico failover di Gestione traffico | Microsoft Docs
+description: Questo articolo aiuterà a configurare il metodo di routing del traffico failover in Gestione traffico
+services: traffic-manager
+documentationcenter: ''
+author: sdwheeler
+manager: carmonm
+editor: tysonn
 
+ms.service: traffic-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 06/10/2016
+ms.author: sewhee
+
+---
 # Configurare metodo di routing failover
-
 In genere le organizzazioni desiderano offrire la massima affidabilità per i servizi erogati. A questo scopo, è necessario fornire servizi di backup in caso di inattività del servizio primario. Un modello comune di failover del servizio consiste nel fornire un set di servizi identici e nell'inviare traffico a un servizio primario gestendo, al contempo, un elenco configurato di uno o più servizi di backup. Per configurare questo tipo di backup con i servizi cloud e i siti Web di Azure, attenersi alla procedura riportata di seguito.
 
 Tenere presente che i siti Web di Azure forniscono un metodo di routing del traffico failover per i siti Web che si trovano in un unico data center (noto anche come area), indipendentemente dalla modalità del sito Web. Gestione traffico consente di specificare il metodo di routing del traffico failover per i siti web che si trovano in data center diversi.
 
 ## Per configurare un metodo di routing del traffico failover:
-
 1. Nel riquadro sinistro del portale di Azure classico fare clic sull'icona **Gestione traffico** per aprire il relativo riquadro. Se non è ancora stato creato il profilo di Gestione traffico, vedere [Gestire i profili di Gestione traffico](traffic-manager-manage-profiles.md) per i passaggi necessari per la creazione di un profilo di base di Gestione traffico.
 2. Nel riquadro di Gestione traffico del portale di Azure classico individuare il profilo di Gestione traffico in cui sono contenute le impostazioni da modificare e quindi fare clic sulla freccia a destra del nome del profilo. Verrà aperta la pagina delle impostazioni per il profilo.
 3. Nella parte superiore della pagina del profilo fare clic su **Endpoint** e verificare che siano presenti i servizi cloud e i siti Web (endpoint) che si vuole includere nella configurazione. Per i passaggi necessari per aggiungere o rimuovere endpoint, vedere [Gestire gli endpoint in Gestione traffico](traffic-manager-endpoints.md).
@@ -35,7 +34,6 @@ Tenere presente che i siti Web di Azure forniscono un metodo di routing del traf
 10. Dopo avere impostato e verificato il funzionamento del profilo di Gestione traffico, modificare il record DNS sul server DNS autorevole per fare in modo che il nome del dominio aziendale punti al nome di dominio di Gestione traffico. Per altre informazioni, vedere [Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico](traffic-manager-point-internet-domain.md).
 
 ## Passaggi successivi
-
 [Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico](traffic-manager-point-internet-domain.md)
 
 [Metodi di routing di Gestione traffico](traffic-manager-routing-methods.md)
@@ -49,7 +47,5 @@ Tenere presente che i siti Web di Azure forniscono un metodo di routing del traf
 [Gestione traffico: disabilitare, abilitare o eliminare un profilo](disable-enable-or-delete-a-profile.md)
 
 [Gestione traffico: disabilitare o abilitare un endpoint](disable-or-enable-an-endpoint.md)
-
- 
 
 <!---HONumber=AcomDC_0824_2016-->

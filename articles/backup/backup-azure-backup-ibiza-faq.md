@@ -1,27 +1,28 @@
-<properties
-   pageTitle="Insieme di credenziali di Servizi di ripristino: domande frequenti | Microsoft Azure"
-   description="Questa versione delle domande frequenti supporta la versione di anteprima pubblica del servizio Backup di Azure. Risposte alle domande frequenti su agente di backup, backup e conservazione, ripristino, sicurezza e altre domande frequenti sulla soluzione Backup di Azure."
-   services="backup"
-   documentationCenter=""
-   authors="markgalioto"
-   manager="jwhit"
-   editor=""
-   keywords="soluzione di backup; servizio di backup"/>
+---
+title: 'Insieme di credenziali di Servizi di ripristino: domande frequenti | Microsoft Docs'
+description: Questa versione delle domande frequenti supporta la versione di anteprima pubblica del servizio Backup di Azure. Risposte alle domande frequenti su agente di backup, backup e conservazione, ripristino, sicurezza e altre domande frequenti sulla soluzione Backup di Azure.
+services: backup
+documentationcenter: ''
+author: markgalioto
+manager: jwhit
+editor: ''
+keywords: soluzione di backup; servizio di backup
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="get-started-article"
-	 ms.date="08/21/2016"
-	 ms.author="trinadhk; markgal; jimpark;"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/21/2016
+ms.author: trinadhk; markgal; jimpark;
 
+---
 # Insieme di credenziali di Servizi di ripristino: domande frequenti
-
-> [AZURE.SELECTOR]
-- [Domande frequenti su Backup per la modalità classica](backup-azure-backup-faq.md)
-- [Domande frequenti su Backup per la modalità Azure Resource Manager](backup-azure-backup-ibiza-faq.md)
+> [!div class="op_single_selector"]
+> * [Domande frequenti su Backup per la modalità classica](backup-azure-backup-faq.md)
+> * [Domande frequenti su Backup per la modalità Azure Resource Manager](backup-azure-backup-ibiza-faq.md)
+> 
+> 
 
 In questo articolo fornisce informazioni specifiche per l'insieme di credenziali di Servizi di ripristino e integra [Servizio Backup di Azure: Domande frequenti](backup-azure-backup-faq.md). L'articolo Domande frequenti su Backup di Azure include tutte le domande e le risposte relative al servizio Backup di Azure.
 

@@ -1,6 +1,6 @@
 <a name="tellmecs"></a>
-## Informazioni sui servizi cloud
 
+## Informazioni sui servizi cloud
 Servizi cloud è un esempio di Platform-as-a-Service (PaaS). Analogamente al [servizio app](../articles/app-service-web/app-service-web-overview.md), tale tecnologia è stata progettata per supportare applicazioni scalabili, affidabili ed economicamente efficienti. Proprio come un servizio app, i servizi cloud sono ospitati su VM, tuttavia il controllo sulle VM è maggiore. È possibile installare il software personalizzato nelle macchine virtuali del servizio cloud ed accedervi in remoto.
 
 ![cs\_diagram](./media/cloud-services-choose-me-content/diagram.png)
@@ -14,7 +14,7 @@ In un servizio cloud sono disponibili tutte le combinazioni di queste due opzion
 * **Ruolo Web**: esegue Windows Server con l'app Web automaticamente distribuita a IIS.
 * **Ruolo di lavoro**: esegue Windows Server senza IIS.
 
-Ad esempio, un'applicazione semplice può usare solo un ruolo Web, mentre un'applicazione più complessa può usare un ruolo Web per la gestione delle richieste in arrivo dagli utenti, quindi passare il carico di lavoro generato da tali richieste a un ruolo di lavoro per l'elaborazione. Per tale comunicazione è possibile che venga usato il [bus di servizio](../articles/service-bus/service-bus-fundamentals-hybrid-solutions.md) o il [servizio di accodamento di Azure](../articles/storage/storage-introduction.md).
+Ad esempio, un'applicazione semplice può usare solo un ruolo Web, mentre un'applicazione più complessa può usare un ruolo Web per la gestione delle richieste in arrivo dagli utenti, quindi passare il carico di lavoro generato da tali richieste a un ruolo di lavoro per l'elaborazione. Per tale comunicazione è possibile che venga usato il [bus di servizio](../articles/service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) o il [servizio di accodamento di Azure](../articles/storage/storage-introduction.md).
 
 Come illustrato nella figura, tutte le macchine virtuali in una singola applicazione vengono eseguite nello stesso servizio cloud. Per questo motivo gli utenti accedono all'applicazione attraverso un indirizzo IP pubblico che esegue automaticamente il bilanciamento del carico delle richieste nelle macchine virtuali dell'applicazione. La piattaforma [scalerà e distribuirà](../articles/cloud-services/cloud-services-how-to-scale.md) le VM in un'applicazione di Servizi cloud, in modo da evitare un singolo punto di errore hardware.
 

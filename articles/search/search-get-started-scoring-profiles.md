@@ -1,23 +1,22 @@
-<properties 
-	pageTitle="Come usare i profili di assegnazione dei punteggi in Ricerca di Azure | Microsoft Azure | Servizio di ricerca cloud ospitato" 
-	description="Ottimizzare le priorità di ricerca tramite i profili di punteggio in Ricerca di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
-	editor=""/>
+---
+title: Come usare i profili di assegnazione dei punteggi in Ricerca di Azure | Microsoft Docs
+description: Ottimizzare le priorità di ricerca tramite i profili di punteggio in Ricerca di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure.
+services: search
+documentationcenter: ''
+author: HeidiSteen
+manager: mblythe
+editor: ''
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="08/04/2016" 
-	ms.author="heidist"/>
+ms.service: search
+ms.devlang: rest-api
+ms.workload: search
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.date: 08/04/2016
+ms.author: heidist
 
+---
 # Come usare i profili di assegnazione dei punteggi in Ricerca di Azure
-
 Il profilo di punteggio è una funzionalità di Ricerca di Microsoft Azure che personalizza il calcolo dei punteggi di ricerca, influenzando il modo in cui gli elementi vengono classificati in un elenco di risultati della ricerca. Il profilo di punteggio può essere considerato un modo per modellare la rilevanza, assegnando una priorità maggiore agli elementi che soddisfano criteri predefiniti. Si supponga ad esempio che l'applicazione sia un sito per prenotazioni alberghiere. Promuovendo il `location` ricerche che includono un termine come Seattle comporterà un punteggio più alto per gli elementi che dispongono di Seattle in campo la `location` campo. Si noti che è possibile usare più profili di punteggio oppure non usarne nessuno, se i punteggi predefiniti sono sufficienti per l'applicazione specifica.
 
 Per provare a usare il profilo di punteggio, è possibile scaricare un'applicazione di esempio che usa i profili di punteggio per cambiare l'ordine di classificazione dei risultati della ricerca. L'esempio è costituito da un'applicazione console, probabilmente non molto realistica per lo sviluppo di applicazioni nel mondo reale, ma utile comunque come strumento di apprendimento.
@@ -25,17 +24,17 @@ Per provare a usare il profilo di punteggio, è possibile scaricare un'applicazi
 L'applicazione di esempio viene illustrato il punteggi comportamenti utilizzando dati fittizi, denominato il `musicstoreindex` La semplicità dell'app di esempio permette di modificare con facilità i profili di punteggio e le query e di verificare l'effetto immediato sull'ordine di classificazione quando si esegue il programma.
 
 <a id="sub-1"></a>
-## Prerequisiti
 
+## Prerequisiti
 L'applicazione di esempio è scritto in c# utilizzando Visual Studio 2013. Provare il prodotto gratuito [Visual Studio 2013 Express edition](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) se non si dispone di una copia di Visual Studio.
 
 Per completare l'esercitazione è necessario avere una sottoscrizione di Azure e un servizio di ricerca di Azure. Vedere [creare un servizio di ricerca nel portale di](search-create-service-portal.md) per informazioni sulla configurazione del servizio.
 
-[AZURE.INCLUDE [È necessario un account Azure per completare questa esercitazione:](../../includes/free-trial-note.md)]
+[!INCLUDE [È necessario un account Azure per completare questa esercitazione:](../../includes/free-trial-note.md)]
 
 <a id="sub-2"></a>
-## Scaricare l'applicazione di esempio
 
+## Scaricare l'applicazione di esempio
 Andare a [Ricerca di Azure punteggio profili Demo](https://azuresearchscoringprofiles.codeplex.com/) su codeplex per scaricare l'applicazione di esempio descritta in questa esercitazione.
 
 Scegliere la scheda del codice sorgente, **Download** per ottenere un file zip della soluzione.
@@ -43,23 +42,22 @@ Scegliere la scheda del codice sorgente, **Download** per ottenere un file zip d
  ![][12]
 
 <a id="sub-3"></a>
-## Modificare il file app.config
 
+## Modificare il file app.config
 1. Dopo l'estrazione dei file, aprire la soluzione in Visual Studio per modificare il file di configurazione.
-1. In Esplora soluzioni fare doppio clic su **app. config**. Questo file specifica l'endpoint del servizio e un `api-key` utilizzato per autenticare la richiesta. È possibile ottenere questi valori dal portale classico.
-1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Passare al dashboard del servizio per Ricerca di Azure.
-1. Scegliere il **proprietà** riquadro per copiare l'URL del servizio
-1. Fare clic sui **chiavi** riquadro per copiare la `api-key`.
+2. In Esplora soluzioni fare doppio clic su **app. config**. Questo file specifica l'endpoint del servizio e un `api-key` utilizzato per autenticare la richiesta. È possibile ottenere questi valori dal portale classico.
+3. Accedere al [portale di Azure](https://portal.azure.com).
+4. Passare al dashboard del servizio per Ricerca di Azure.
+5. Scegliere il **proprietà** riquadro per copiare l'URL del servizio
+6. Fare clic sui **chiavi** riquadro per copiare la `api-key`.
 
 Dopo aver terminato di aggiungere l'URL e `api-key` in App. config, le impostazioni dell'applicazione dovrebbero essere simile al seguente:e:
 
    ![][11]
 
-
 <a id="sub-4"></a>
-## Esplorare l'applicazione
 
+## Esplorare l'applicazione
 Si è quasi pronti per compilare ed eseguire l'app, ma prima di procedere è consigliabile esaminare i file JSON usati per creare e popolare l'indice.
 
 **Schema.json** definisce l'indice, inclusi i profili di assegnazione dei punteggi vengono evidenziati in questa demo. Si noti che lo schema definisce tutti i campi utilizzati nell'indice, inclusi i campi non è possibile eseguire ricerche, ad esempio `margin`, che è possibile utilizzare in un profilo di assegnazione dei punteggi. Sintassi del profilo di punteggio è documentato in [aggiungere un profilo di assegnazione dei punteggi a un indice di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn798928.aspx).
@@ -68,21 +66,16 @@ Si è quasi pronti per compilare ed eseguire l'app, ma prima di procedere è con
 
 **Program.cs** esegue le operazioni seguenti:
 
-- Apertura della finestra della console.
-
-- Si connette alla Ricerca di Azure utilizzando l'URL del servizio e `api-key`.
-
-- Elimina il `musicstoreindex` se esistente.
-
-- Crea un nuovo `musicstoreindex` utilizzando il file schema.json.
-
-- Popolamento dell'indice mediante i file di dati.
-
-- Esecuzione di query nell'indice tramite quattro query. Si noti che i profili di punteggio sono specificati come parametro di query. Tutte le query cercano lo stesso termine, 'best'. La prima query illustra l'assegnazione di punteggi predefiniti. Le tre query rimanenti usano un profilo di punteggio.
+* Apertura della finestra della console.
+* Si connette alla Ricerca di Azure utilizzando l'URL del servizio e `api-key`.
+* Elimina il `musicstoreindex` se esistente.
+* Crea un nuovo `musicstoreindex` utilizzando il file schema.json.
+* Popolamento dell'indice mediante i file di dati.
+* Esecuzione di query nell'indice tramite quattro query. Si noti che i profili di punteggio sono specificati come parametro di query. Tutte le query cercano lo stesso termine, 'best'. La prima query illustra l'assegnazione di punteggi predefiniti. Le tre query rimanenti usano un profilo di punteggio.
 
 <a id="sub-5"></a>
-## Compilare ed eseguire l'applicazione
 
+## Compilare ed eseguire l'applicazione
 Per evitare problemi di connettività o di riferimento ad assembly, compilare ed eseguire prima di tutto l'applicazione per assicurarsi che non siano presenti problemi da risolvere. Un'applicazione console dovrebbe aprirsi in background. Tutte le quattro query vengono eseguite in sequenza, senza pause. In molti sistemi l'intero programma viene eseguito in meno di 15 secondi. Se l'applicazione console include un messaggio analogo a "Operazione completata. Premere INVIO per continuare", l'esecuzione del programma è stata completata correttamente.
 
 Per confrontare le esecuzioni delle query, è possibile contrassegnare e copiare i risultati delle query dalla console, quindi incollarli in un file di Excel.
@@ -104,8 +97,8 @@ La figura seguente mostra la quarta e ultima query, con priorità incrementata d
 Dopo avere provato a usare i profili di punteggio, è possibile provare a modificare il programma, in modo da usare sintassi di query e profili di punteggio diversi o dati più complessi. Per altre informazioni, vedere i collegamenti nella sezione seguente.
 
 <a id="next-steps"></a>
-## Passaggi successivi
 
+## Passaggi successivi
 Altre informazioni sui profili di punteggio. Vedere [aggiungere un profilo di assegnazione dei punteggi a un indice di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn798928.aspx) per informazioni dettagliate.
 
 Altre informazioni sulla sintassi di ricerca e sui parametri di query. Vedere [ricerca documenti (API REST di Ricerca di Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx) per informazioni dettagliate.

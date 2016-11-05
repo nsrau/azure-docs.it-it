@@ -1,24 +1,22 @@
-<properties
-	pageTitle="Usare Twilio per le funzionalità voce ed SMS in Java | Microsoft Azure"
-	description="Informazioni su come eseguire attività comuni usando l'API Twilio con Servizi mobili di Azure."
-	services="mobile-services"
-	documentationCenter=""
-	authors="devinrader"
-	manager="dwrede"
-	editor=""/>
+---
+title: Usare Twilio per le funzionalità voce ed SMS in Java | Microsoft Docs
+description: Informazioni su come eseguire attività comuni usando l'API Twilio con Servizi mobili di Azure.
+services: mobile-services
+documentationcenter: ''
+author: devinrader
+manager: dwrede
+editor: ''
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="glenga"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: glenga
 
-
+---
 # Come utilizzare Twilio per le funzionalità voce ed SMS da Servizi mobili
-
 In questo argomento viene illustrato come eseguire attività comuni utilizzando l'API Twilio con Servizi mobili di Azure. In questa esercitazione si apprenderà come creare script di API personalizzate che utilizzano l'API Twilio per iniziare una chiamata telefonica e inviare un messaggio SMS (Short Message Service).
 
 ## <a id="WhatIs"></a>Informazioni su Twilio
@@ -80,36 +78,36 @@ Twilio fornisce una libreria Node.js che copre vari aspetti di Twilio per fornir
 Per utilizzare la libreria Node.js di Twilio nel servizio mobile, è necessario avvalersi del supporto per il modulo npm di Servizi mobili, archiviando a tale scopo gli script nel controllo del codice sorgente.
 
 1. Completare l'esercitazione [Archiviare script nel controllo del codice sorgente](mobile-services-store-scripts-source-control.md) che illustra come configurare il controllo del codice sorgente per Servizi mobili e come archiviare gli script del server in un repository Git.
-
 2. Dopo aver configurato il controllo del codice sorgente per il servizio mobile, aprire il repository nel computer locale, selezionare la sottocartella `\services`, aprire il file package.json in un editor di testo e aggiungere il campo seguente all'oggetto **dependencies**:
-
-		"twilio": "~1.7.0"
-
+   
+        "twilio": "~1.7.0"
 3. Dopo aver aggiunto il riferimento al pacchetto Twilio all'oggetto **dependencies**, il file package.json sarà simile al seguente:
-
-		{
-		  "name": "todolist",
-		  "version": "1.0.0",
-		  "description": "todolist - hosted on Azure Mobile Services",
-		  "main": "server.js",
-		  "engines": {
-		    "node": ">= 0.8.19"
-		  },
-		  "dependencies": {
-			"twilio": "~1.7.0"
-		  },
-		  "devDependencies": {},
-		  "scripts": {},
-		  "author": "unknown",
-		  "licenses": [],
-		  "keywords":[]
-		}
-
-	>[AZURE.NOTE]La dipendenza per Twilio deve essere aggiunta come `"twilio": "~1.7.0"`, con una tilde (~). Un riferimento con l'accento circonflesso (^) non è supportato.
-
+   
+        {
+          "name": "todolist",
+          "version": "1.0.0",
+          "description": "todolist - hosted on Azure Mobile Services",
+          "main": "server.js",
+          "engines": {
+            "node": ">= 0.8.19"
+          },
+          "dependencies": {
+            "twilio": "~1.7.0"
+          },
+          "devDependencies": {},
+          "scripts": {},
+          "author": "unknown",
+          "licenses": [],
+          "keywords":[]
+        }
+   
+   > [!NOTE]
+   > La dipendenza per Twilio deve essere aggiunta come `"twilio": "~1.7.0"`, con una tilde (~). Un riferimento con l'accento circonflesso (^) non è supportato.
+   > 
+   > 
 4. Eseguire il commit dell'aggiornamento del file ed effettuarne il push nel servizio mobile.
-
-	Questo aggiornamento al file package.json riavvierà il servizio mobile.
+   
+    Questo aggiornamento al file package.json riavvierà il servizio mobile.
 
 A questo punto il servizio mobile installa e carica il pacchetto Twilio in modo da poter fare riferimento alla libreria Twilio e usarla negli script delle API personalizzate e delle tabelle.
 
@@ -167,10 +165,12 @@ Nel codice seguente viene illustrato come inviare un messaggio SMS tramite la fu
 
 
 ## <a id="howto_provide_twiml_responses"></a>Procedura: Fornire risposte TwiML dal proprio sito Web
-
 Quando l'applicazione avvia una chiamata all'API Twilio, ad esempio tramite il metodo client.InitiateOutboundCall, Twilio invia la richiesta a un URL che deve restituire una risposta TwiML. L'esempio riportato nella sezione Procedura: Effettuare una chiamata in uscita usa l'URL fornito da Twilio http://twimlets.com/message per restituire la risposta.
 
-> [AZURE.NOTE] Poiché TwiML è progettato per essere utilizzato da servizi Web, è possibile visualizzare il codice TwiML nel browser. Ad esempio, fare clic su [twimlet\_message\_url](http://twimlets.com/message) per visualizzare un elemento &lt;Response&gt; vuoto oppure fare clic su [twimlet\_message\_url\_hello\_world](http://twimlets.com/message?Message%5B0%5D=Hello%20World) per visualizzare un elemento &lt;Response&gt; contenente un elemento &lt;Say&gt;.
+> [!NOTE]
+> Poiché TwiML è progettato per essere utilizzato da servizi Web, è possibile visualizzare il codice TwiML nel browser. Ad esempio, fare clic su [twimlet\_message\_url](http://twimlets.com/message) per visualizzare un elemento &lt;Response&gt; vuoto oppure fare clic su [twimlet\_message\_url\_hello\_world](http://twimlets.com/message?Message%5B0%5D=Hello%20World) per visualizzare un elemento &lt;Response&gt; contenente un elemento &lt;Say&gt;.
+> 
+> 
 
 Anziché utilizzare l'URL fornito da Twilio, è possibile creare un sito Web personalizzato che restituisce risposte HTTP. Il sito può essere creato in un linguaggio qualsiasi purché restituisca risposte HTTP. In questo argomento si presuppone che l'URL verrà ospitato da un gestore generico ASP.NET.
 
@@ -207,8 +207,7 @@ Dopo avere configurato un modo per fornire risposte TwiML, è possibile passare 
         });
     };
 
-[AZURE.INCLUDE [twilio-additional-services-and-next-steps](../../includes/twilio-additional-services-and-next-steps.md)]
-
+[!INCLUDE [twilio-additional-services-and-next-steps](../../includes/twilio-additional-services-and-next-steps.md)]
 
 [twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls
 

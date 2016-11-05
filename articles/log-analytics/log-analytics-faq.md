@@ -1,28 +1,25 @@
-<properties
-    pageTitle="Domande frequenti su Log Analytics | Microsoft Azure"
-    description="Risposte alle domande frequenti sul servizio Log Analytics."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bandersmsft"
-    manager="jwhit"
-    editor=""/>
+---
+title: Domande frequenti su Log Analytics | Microsoft Docs
+description: Risposte alle domande frequenti sul servizio Log Analytics.
+services: log-analytics
+documentationcenter: ''
+author: bandersmsft
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/10/2016"
-    ms.author="banders"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: banders
 
-
+---
 # <a name="log-analytics-faq"></a>Domande frequenti su Log Analytics
-
 Queste domande frequenti Microsoft sono relative a Log Analytics in Microsoft Operations Management Suite (OMS). Per altre domande su Log Analytics, visitare il [forum di discussione](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e inviare una domanda. Un membro dalla community fornirà supporto agli utenti per individuare le risposte. Se una domanda viene posta più volte, verrà aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
 
 ## <a name="general"></a>Generale
-
 **D. Quali controlli vengono eseguiti dalle soluzioni di valutazione di AD e di SQL?**
 
 R. La query seguente illustra una descrizione di tutti i controlli attualmente eseguiti:
@@ -58,7 +55,7 @@ Quando vengono eseguite distribuzioni di servizi, gli indirizzi IP effettivi dei
 
 **D. Si usa ExpressRoute per connettersi ad Azure. Il traffico di Log Analytics userà la connessione ExpressRoute?**  
 
-R. I diversi tipi di traffico di ExpressRoute vengono descritti nella [Documentazione di ExpressRoute](./expressroute/expressroute-faqs.md#supported-services).
+R. I diversi tipi di traffico di ExpressRoute vengono descritti nella [Documentazione di ExpressRoute](../expressroute/expressroute-faqs.md#supported-services).
 
 Il traffico verso Log Analytics usa il circuito ExpressRoute di peer pubblico.
 
@@ -90,7 +87,6 @@ R: In SCOM rimuovere il computer dall'elenco gestito OMS. In questo modo verrà 
 In **Analisi dei log di Azure (OMS)**rimuovere tutte le aree di lavoro elencate.
 
 ## <a name="agent-data"></a>Dati dell'agente
-
 **D. Quanti dati è possibile inviare tramite l'agente a Log Analytics? È prevista una quantità massima di dati per ogni cliente?**  
 R. Il piano gratuito prevede un limite giornaliero di 500 MB per area di lavoro. I piani Standard e Premium non hanno limiti per la quantità di dati caricati. Come servizio cloud, Log Analytics in OMS è progettato per passare automaticamente a un piano superiore per gestire il volume proveniente da un cliente, anche se si tratta di diversi terabyte al giorno.
 
@@ -106,9 +102,9 @@ R. La larghezza di banda è una funzione della quantità di dati inviati. I dati
 
 R. Questo dipende soprattutto dagli elementi seguenti:
 
-- Soluzioni abilitate
-- Numero di log e di contatori delle prestazioni che vengono raccolti
-- Volume di dati nei log
+* Soluzioni abilitate
+* Numero di log e di contatori delle prestazioni che vengono raccolti
+* Volume di dati nei log
 
 Il piano tariffario Gratuito è una valida soluzione per caricare diversi server e misurare il volume di dati tipico. L'utilizzo complessivo viene visualizzato nella pagina **Utilizzo** .
 Per i computer che possono eseguire l'agente WireData, è possibile visualizzare la quantità di dati inviati usando la query seguente:
@@ -120,10 +116,7 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-- [Introduzione a Log Analytics](log-analytics-get-started.md) per altre informazioni su Log Analytics e per essere operativi in pochi minuti.
-
-
+* [Introduzione a Log Analytics](log-analytics-get-started.md) per altre informazioni su Log Analytics e per essere operativi in pochi minuti.
 
 <!--HONumber=Oct16_HO2-->
 

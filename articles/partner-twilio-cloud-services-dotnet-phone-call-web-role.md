@@ -1,32 +1,27 @@
-<properties 
-	pageTitle="Come effettuare una chiamata telefonica da Twilio (.NET) | Microsoft Azure" 
-	description="Informazioni su come effettuare una chiamata telefonica e inviare un SMS con il servizio API Twilio API in Azure. Esempi di codice scritti in .NET." 
-	services="" 
-	documentationCenter=".net" 
-	authors="devinrader" 
-	manager="timlt" 
-	editor=""/>
+---
+title: Come effettuare una chiamata telefonica da Twilio (.NET) | Microsoft Docs
+description: Informazioni su come effettuare una chiamata telefonica e inviare un SMS con il servizio API Twilio API in Azure. Esempi di codice scritti in .NET.
+services: ''
+documentationcenter: .net
+author: devinrader
+manager: timlt
+editor: ''
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/04/2016" 
-	ms.author="microsofthelp@twilio.com"/>
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 05/04/2016
+ms.author: microsofthelp@twilio.com
 
-
-
-
+---
 # Come effettuare una chiamata tramite Twilio in un ruolo Web in Azure
-
 In questa guida viene illustrato come usare Twilio per effettuare una chiamata da una pagina Web ospitata in Azure. L'applicazione risultante chiede all'utente di inserire i valori relativi alla chiamata telefonica, come illustrato nella schermata seguente.
 
 ![Modulo di chiamata di Azure con Twilio e ASP.NET][twilio_dotnet_basic_form]
 
 ## <a name="twilio-prereqs"></a>Prerequisiti
-
 Per usare il codice in questo argomento è necessario eseguire le operazioni seguenti:
 
 1. Ottenere un account e un token di autenticazione Twilio. Per iniziare a utilizzare Twilio, effettuare l'iscrizione alla pagina [https://www.twilio.com/try-twilio][try_twilio]. Per informazioni sui prezzi di Twilio, visitare la pagina [http://www.twilio.com/pricing][twilio_pricing]. Per informazioni sull'API fornita da Twilio, vedere [http://www.twilio.com/voice/api][twilio_api].
@@ -35,15 +30,14 @@ Per usare il codice in questo argomento è necessario eseguire le operazioni seg
 È necessario conoscere le modalità di creazione di un ruolo Web di base in Azure.
 
 ## <a name="howtocreateform"></a>Procedura: Creare un modulo Web per effettuare una chiamata
-
 <a id="use_nuget"></a>Per aggiungere le librerie Twilio al progetto di ruolo Web:
 
-1.  Aprire la soluzione in Visual Studio.
-2.  Fare clic con il pulsante destro del mouse su **Riferimenti**.
-3.  Scegliere **Manage NuGet Packages**.
-4.  Fare clic su **Online**.
-5.  Nella casella di ricerca online digitare *twilio*.
-6.  Fare clic su **Install** sul pacchetto Twilio.
+1. Aprire la soluzione in Visual Studio.
+2. Fare clic con il pulsante destro del mouse su **Riferimenti**.
+3. Scegliere **Manage NuGet Packages**.
+4. Fare clic su **Online**.
+5. Nella casella di ricerca online digitare *twilio*.
+6. Fare clic su **Install** sul pacchetto Twilio.
 
 Nel codice seguente viene illustrato come creare un modulo Web per recuperare i dati utente per l'esecuzione di una chiamata. In questo esempio viene creato un ruolo Web ASP.NET denominato **TwilioCloud**.
 
@@ -163,7 +157,7 @@ Questo codice ha lo scopo di illustrare le funzionalità di base dell'utilizzo d
 * Leggere le linee guida sulla sicurezza di Twilio all'indirizzo [https://www.twilio.com/docs/security][twilio_docs_security].
 * Per altre informazioni su Twilio, visitare la pagina [https://www.twilio.com/docs][twilio_docs].
 
-##<a name="seealso"></a>Vedere anche
+## <a name="seealso"></a>Vedere anche
 * [Come usare Twilio per le funzionalità voce e SMS da Azure](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_pricing]: http://www.twilio.com/pricing

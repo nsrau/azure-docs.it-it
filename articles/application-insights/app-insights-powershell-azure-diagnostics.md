@@ -1,26 +1,24 @@
-<properties
-    pageTitle="Uso di PowerShell per l'invio dei dati del servizio Diagnostica di Azure ad Application Insights | Microsoft Azure"
-    description="Configurazione automatizzata del servizio Diagnostica di Azure per l'inoltro tramite pipe ad Application Insights."
-    services="application-insights"
-    documentationCenter=".net"
-    authors="sbtron"
-    manager="douge"/>
+---
+title: Uso di PowerShell per l'invio dei dati del servizio Diagnostica di Azure ad Application Insights | Microsoft Docs
+description: Configurazione automatizzata del servizio Diagnostica di Azure per l'inoltro tramite pipe ad Application Insights.
+services: application-insights
+documentationcenter: .net
+author: sbtron
+manager: douge
 
-<tags
-    ms.service="application-insights"
-    ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na"
-    ms.topic="get-started-article"
-	ms.date="11/17/2015"
-    ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 11/17/2015
+ms.author: awills
 
+---
 # Uso di PowerShell per l'invio dei dati del servizio Diagnostica di Azure ad Application Insights
-
 [Microsoft Azure](https://azure.com) può essere [configurato per l'invio dei dati del servizio Diagnostica di Azure](app-insights-azure-diagnostics.md) a [Visual Studio Application Insights](app-insights-overview.md). I dati della diagnostica sono correlati ai Servizi cloud di Azure e alle macchine virtuali di Azure. Completano i dati di telemetria inviati dall'interno dell'app con Application Insights SDK. Nell'ambito dell'automatizzazione del processo di creazione di nuove risorse in Azure, è possibile configurare la diagnostica usando PowerShell.
 
 ## Abilitare l'estensione delle funzionalità di diagnostica come parte della distribuzione di un servizio Cloud
-
 Il cmdlet `New-AzureDeployment` ha un parametro `ExtensionConfiguration`, che accetta una matrice di configurazioni di diagnostica. Queste possono essere create con il cmdlet `New-AzureServiceDiagnosticsExtensionConfig`. ad esempio:
 
 ```ps
@@ -57,11 +55,10 @@ Il cmdlet `New-AzureDeployment` ha un parametro `ExtensionConfiguration`, che ac
 ``` 
 
 ## Abilitare l'estensione della diagnostica in un servizio Cloud esistente
-
 In un servizio esistente, usare `Set-AzureServiceDiagnosticsExtension`.
 
 ```ps
- 
+
     $service_name = "MyService"
     $diagnostics_storagename = "myservicediagnostics"
     $webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
@@ -87,7 +84,6 @@ In un servizio esistente, usare `Set-AzureServiceDiagnosticsExtension`.
 ```
 
 ## Ottenere la configurazione di estensione della diagnostica corrente
-
 ```ps
 
     Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
@@ -95,7 +91,6 @@ In un servizio esistente, usare `Set-AzureServiceDiagnosticsExtension`.
 
 
 ## Rimuovere l'estensione della diagnostica
-
 ```ps
 
     Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
@@ -112,7 +107,6 @@ Per rimuovere l'estensione della diagnostica da ogni singolo ruolo:
 
 
 ## Vedere anche
-
 * [Monitorare le app dei Servizi cloud di Azure con Application Insights](app-insights-cloudservices.md)
 * [Inviare i dati del servizio Diagnostica di Azure ad Application Insights](app-insights-azure-diagnostics.md)
 * [Automatizzare la configurazione degli avvisi](app-insights-powershell-alerts.md)

@@ -1,31 +1,27 @@
-<properties 
-    pageTitle="Monitorare e gestire i processi di Analisi di flusso con PowerShell | Microsoft Azure" 
-    description="Informazioni su come usare Azure PowerShell e i cmdlet per monitorare e gestire i processi di Analisi di flusso." 
-    keywords="Azure PowerShell, cmdlet di Azure PowerShell, comando di PowerShell, script di PowerShell" 
-    services="stream-analytics" 
-    documentationCenter="" 
-    authors="jeffstokes72" 
-    manager="jhubbard" 
-    editor="cgronlun"/>
+---
+title: Monitorare e gestire i processi di Analisi di flusso con PowerShell | Microsoft Docs
+description: Informazioni su come usare Azure PowerShell e i cmdlet per monitorare e gestire i processi di Analisi di flusso.
+keywords: Azure PowerShell, cmdlet di Azure PowerShell, comando di PowerShell, script di PowerShell
+services: stream-analytics
+documentationcenter: ''
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
 
-<tags 
-    ms.service="stream-analytics" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.workload="data-services" 
-    ms.date="09/26/2016" 
-    ms.author="jeffstok"/>
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 09/26/2016
+ms.author: jeffstok
 
-
-
+---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Monitorare e gestire i processi di Analisi di flusso con i cmdlet di Azure PowerShell
-
 Informazioni su come monitorare e gestire le risorse di Analisi di flusso con i cmdlet di Azure PowerShell e gli script di PowerShell che eseguono attività di base di Analisi di flusso.
 
 ## <a name="prerequisites-for-running-azure-powershell-cmdlets-for-stream-analytics"></a>Prerequisiti per l'esecuzione dei cmdlet di Azure PowerShell per Analisi dei flussi
-
- - Creare un gruppo di risorse di Azure nella sottoscrizione. Di seguito è riportato un esempio di script di Azure PowerShell: Per informazioni su Azure PowerShell , vedere [Installare e configurare Azure PowerShell](../powershell-install-configure.md);  
+* Creare un gruppo di risorse di Azure nella sottoscrizione. Di seguito è riportato un esempio di script di Azure PowerShell: Per informazioni su Azure PowerShell , vedere [Installare e configurare Azure PowerShell](../powershell-install-configure.md);  
 
 Azure PowerShell 0.9.8:  
 
@@ -34,7 +30,7 @@ Azure PowerShell 0.9.8:
 
         # Select the Azure subscription you want to use to create the resource group if you have more than one subscription on your account.
         Select-AzureSubscription -SubscriptionName <subscription name>
- 
+
         # If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureProvider cmdlet to register the provider namespace.
         #Register-AzureProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
@@ -51,13 +47,16 @@ Azure PowerShell 1.0:
 
         # If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureProvider cmdlet to register the provider namespace.
         #Register-AzureRmResourceProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
-        
+
         # Create an Azure resource group
         New-AzureRMResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
-        
 
 
-> [AZURE.NOTE] Nei processi di Analisi di flusso creati a livello di codice il monitoraggio non è abilitato per impostazione predefinita.  Il monitoraggio può essere attivato manualmente nel portale di Azure passando alla pagina Monitoraggio del processo e facendo clic sul pulsante Attiva o procedere a livello di codice seguendo i passaggi in [Analisi di flusso di Azure - Monitorare i processi di analisi di flusso a livello di codice](stream-analytics-monitor-jobs.md).
+
+> [!NOTE]
+> Nei processi di Analisi di flusso creati a livello di codice il monitoraggio non è abilitato per impostazione predefinita.  Il monitoraggio può essere attivato manualmente nel portale di Azure passando alla pagina Monitoraggio del processo e facendo clic sul pulsante Attiva o procedere a livello di codice seguendo i passaggi in [Analisi di flusso di Azure - Monitorare i processi di analisi di flusso a livello di codice](stream-analytics-monitor-jobs.md).
+> 
+> 
 
 ## <a name="azure-powershell-cmdlets-for-stream-analytics"></a>Cmdlet di Azure PowerShell per Analisi dei flussi
 I cmdlet di Azure PowerShell indicati di seguito possono essere utilizzati per monitorare e gestire i processi di Analisi dei flussi di Azure. Si noti che sono disponibili diverse versioni di Azure PowerShell. 
@@ -188,7 +187,7 @@ Questo comando di PowerShell restituisce informazioni sulla trasformazione denom
 
 ### <a name="new-azurestreamanalyticsinput-|-new-azurermstreamanalyticsinput"></a>New-AzureStreamAnalyticsInput | New-AzureRMStreamAnalyticsInput
 Crea un nuovo input all'interno di un processo di Analisi dei flussi o aggiorna un input esistente specificato.
-  
+
 Il nome dell'input può essere specificato nel file json o nella riga di comando. Se vengono specificati entrambi, il nome nella riga di comando deve corrispondere a quello nel file.
 
 Se si specifica un input già esistente e non si specifica il parametro –Force, il cmdlet chiederà se si desidera sostituire l'input esistente.
@@ -305,7 +304,7 @@ Questo comando di PowerShell sostituisce la definizione di "output" nel processo
 
 ### <a name="new-azurestreamanalyticstransformation-|-new-azurermstreamanalyticstransformation"></a>New-AzureStreamAnalyticsTransformation | New-AzureRMStreamAnalyticsTransformation
 Crea una nuova trasformazione all'interno di un processo di Analisi dei flussi o aggiorna la trasformazione esistente.
-  
+
 Il nome della trasformazione può essere specificato nel file json o nella riga di comando. Se vengono specificati entrambi, il nome nella riga di comando deve corrispondere a quello nel file.
 
 Se si specifica una trasformazione già esistente e non si specifica il parametro –Force, il cmdlet chiederà se si desidera sostituire la trasformazione esistente.
@@ -401,7 +400,6 @@ Azure PowerShell 1.0:
 
 Questo comando di PowerShell avvia il processo StreamingJob con un'ora di inizio output personalizzata impostata su 12 dicembre 2012 12:12:12 UTC.
 
-
 ### <a name="stop-azurestreamanalyticsjob-|-stop-azurermstreamanalyticsjob"></a>Stop-AzureStreamAnalyticsJob | Stop-AzureRMStreamAnalyticsJob
 Interrompe in modo asincrono l'esecuzione di un processo di Analisi dei flussi in Microsoft Azure e dealloca le risorse in uso. La definizione del processo e i metadati rimarranno disponibili all'interno della sottoscrizione tramite il portale di Azure e le API di gestione, in modo che sia possibile modificare e riavviare il processo. Non si incorre in alcun addebito per un processo in stato Arrestato.
 
@@ -432,7 +430,7 @@ Azure PowerShell 1.0:
 
 Questo comando di PowerShell verifica lo stato di connessione dell'input EntryStream in StreamingJob.  
 
-###<a name="test-azurestreamanalyticsoutput-|-test-azurermstreamanalyticsoutput"></a>Test-AzureStreamAnalyticsOutput | Test-AzureRMStreamAnalyticsOutput
+### <a name="test-azurestreamanalyticsoutput-|-test-azurermstreamanalyticsoutput"></a>Test-AzureStreamAnalyticsOutput | Test-AzureRMStreamAnalyticsOutput
 Verifica la capacità di Analisi dei flussi di connettersi a un output specificato.
 
 **Esempio 1**
@@ -450,17 +448,12 @@ Questo comando di PowerShell verifica lo stato di connessione dell'output Output
 ## <a name="get-support"></a>Supporto
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics). 
 
-
 ## <a name="next-steps"></a>Passaggi successivi
-
-- [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-- [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
-- [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-- [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
- 
-
-
+* [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
+* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
+* [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
+* [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 [msdn-switch-azuremode]: http://msdn.microsoft.com/library/dn722470.aspx
 [powershell-install]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
@@ -475,7 +468,7 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
- 
+
 
 
 

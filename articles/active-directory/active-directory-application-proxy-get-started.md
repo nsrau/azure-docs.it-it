@@ -1,24 +1,26 @@
-<properties
-	pageTitle="Come fornire l'accesso remoto sicuro alle applicazioni locali"
-	description="Viene illustrato come utilizzare il proxy dell’applicazione di Azure AD per fornire l'accesso remoto sicuro alle applicazioni locali."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor=""/>
+---
+title: Come fornire l'accesso remoto sicuro alle applicazioni locali
+description: Viene illustrato come utilizzare il proxy dell’applicazione di Azure AD per fornire l'accesso remoto sicuro alle applicazioni locali.
+services: active-directory
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2016"
-	ms.author="kgremban"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/25/2016
+ms.author: kgremban
 
+---
 # Come fornire l'accesso remoto sicuro alle applicazioni locali
-
-> [AZURE.NOTE] Il proxy dell’applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
+> [!NOTE]
+> Il proxy dell’applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
+> 
+> 
 
 Oggi i dipendenti vogliono essere produttivi in qualsiasi luogo, in qualsiasi momento e da qualsiasi dispositivo. Vogliono lavorare con i propri dispositivi, che si tratti di tablet, di telefoni o di portatili, e si aspettano di poter accedere a tutte le applicazioni, sia le app SaaS nel cloud sia le app aziendali locali. Per fornire l'accesso alle applicazioni locali, sono sempre state necessarie reti private virtuali (VPN), reti perimetrali o proxy inversi locali. Queste soluzioni non sono solo complesse e difficili da proteggere, ma sono anche costose da configurare e gestire.
 
@@ -34,21 +36,18 @@ Il proxy dell'applicazione di Azure AD fornisce una soluzione di accesso remoto 
 
 Il proxy dell'applicazione di Azure AD:
 
-- Opera nel cloud, facendo risparmiare tempo e denaro. Le soluzioni locali richiedono di configurare e gestire reti perimetrali, server perimetrali o altre infrastrutture complesse.
-
-- È più facile da configurare e da proteggere rispetto alle soluzioni locali perché non è necessario aprire connessioni in ingresso nel firewall.
-
-- Offre una maggiore sicurezza. Quando si pubblicano le app usando il proxy dell'applicazione di Azure AD, è possibile sfruttare l'analisi della sicurezza e i controlli di autorizzazione avanzati in Azure. Ciò significa che sono disponibili funzionalità di sicurezza avanzate per tutte le app esistenti senza doverne modificare nessuna.
-
-- Offre agli utenti un'esperienza di autenticazione coerente. Single Sign-On garantisce agli utenti finali la possibilità di accedere facilmente e semplicemente a tutte le app di cui hanno bisogno per essere produttivi con una sola password.
+* Opera nel cloud, facendo risparmiare tempo e denaro. Le soluzioni locali richiedono di configurare e gestire reti perimetrali, server perimetrali o altre infrastrutture complesse.
+* È più facile da configurare e da proteggere rispetto alle soluzioni locali perché non è necessario aprire connessioni in ingresso nel firewall.
+* Offre una maggiore sicurezza. Quando si pubblicano le app usando il proxy dell'applicazione di Azure AD, è possibile sfruttare l'analisi della sicurezza e i controlli di autorizzazione avanzati in Azure. Ciò significa che sono disponibili funzionalità di sicurezza avanzate per tutte le app esistenti senza doverne modificare nessuna.
+* Offre agli utenti un'esperienza di autenticazione coerente. Single Sign-On garantisce agli utenti finali la possibilità di accedere facilmente e semplicemente a tutte le app di cui hanno bisogno per essere produttivi con una sola password.
 
 ## Quale tipo di applicazione funziona con il proxy dell'applicazione di Azure AD?
 Con il proxy dell'applicazione di Azure AD è possibile accedere a tipi diversi di applicazioni interne:
 
-- Applicazioni Web che usano l'autenticazione integrata di Windows per l'autenticazione
-- Applicazioni Web che usano l'accesso basato su form
-- API Web che si vuole esporre ad applicazioni avanzate in dispositivi diversi
-- Applicazioni ospitate dietro Gateway Desktop remoto
+* Applicazioni Web che usano l'autenticazione integrata di Windows per l'autenticazione
+* Applicazioni Web che usano l'accesso basato su form
+* API Web che si vuole esporre ad applicazioni avanzate in dispositivi diversi
+* Applicazioni ospitate dietro Gateway Desktop remoto
 
 ## Come funziona?
 Il proxy dell'applicazione funziona installando nella rete un servizio slim di Windows Server chiamato connettore, con cui non è necessario aprire porte in ingresso né inserire nulla nella rete perimetrale. Se i volumi di traffico delle app sono elevati, è possibile aggiungere altri connettori e il servizio gestirà il bilanciamento del carico. I connettori sono senza stato e prelevano tutto dal cloud in base alle esigenze.
@@ -79,10 +78,10 @@ La configurazione del proxy dell'applicazione viene eseguita in due passaggi:
 ## Passaggi successivi
 Si può fare molto di più con il proxy dell'applicazione:
 
-- [Pubblicare applicazioni mediante il proprio nome di dominio](active-directory-application-proxy-custom-domains.md)
-- [Abilitare l'accesso Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)
-- [Lavorare con applicazioni grado di riconoscere attestazioni](active-directory-application-proxy-claims-aware-apps.md)
-- [Abilitare l'accesso condizionale](active-directory-application-proxy-conditional-access.md)
+* [Pubblicare applicazioni mediante il proprio nome di dominio](active-directory-application-proxy-custom-domains.md)
+* [Abilitare l'accesso Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)
+* [Lavorare con applicazioni grado di riconoscere attestazioni](active-directory-application-proxy-claims-aware-apps.md)
+* [Abilitare l'accesso condizionale](active-directory-application-proxy-conditional-access.md)
 
 Per le notizie e gli aggiornamenti più recenti, vedere il [blog del proxy dell'applicazione](http://blogs.technet.com/b/applicationproxyblog/)
 

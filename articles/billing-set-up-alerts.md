@@ -1,31 +1,28 @@
-<properties
-	pageTitle="Impostare avvisi di fatturazione per le sottoscrizioni Microsoft Azure | Microsoft Azure"
-	description="Viene descritto come è possibile impostare gli avvisi di fatturazione di Azure per evitare sorprese fatturazione."
-	services=""
-	documentationCenter=""
-	authors="vikdesai"
-	manager="msmbaldwin"
-	editor=""
-	tags="billing"
-	/>
+---
+title: Impostare avvisi di fatturazione per le sottoscrizioni Microsoft Azure | Microsoft Docs
+description: Viene descritto come è possibile impostare gli avvisi di fatturazione di Azure per evitare sorprese fatturazione.
+services: ''
+documentationcenter: ''
+author: vikdesai
+manager: msmbaldwin
+editor: ''
+tags: billing
 
-<tags
-	ms.service="billing"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/18/2016"
-	ms.author="vikdesai"/>
+ms.service: billing
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/18/2016
+ms.author: vikdesai
 
+---
 # Impostare avvisi di fatturazione per le sottoscrizioni di Microsoft Azure
-
 Si è preoccupati per la spesa mensile per la sottoscrizione di Azure? Se si amministrano gli account per una sottoscrizione di Azure, è possibile usare Azure Billing Alert Service per creare avvisi di fatturazione personalizzati che consentono di monitorare e gestire l'attività di fatturazione per gli account Azure.
 
 Questo servizio è disponibile in anteprima, quindi è necessario innanzitutto effettuare l'iscrizione. Visitare la [pagina Anteprima funzionalità](https://account.windowsazure.com/PreviewFeatures) nel portale di gestione account Azure per abilitare questa funzionalità.
 
 ## Impostare la soglia di avviso e i destinatari di posta elettronica
-
 Dopo aver ricevuto tramite posta elettronica la conferma dell'attivazione del servizio di fatturazione per la sottoscrizione, visitare la [pagina relativa alle sottoscrizioni](https://account.windowsazure.com/Subscriptions) nel portale degli account. Fare clic sulla sottoscrizione che si desidera monitorare, quindi selezionare **Avvisi**.
 
 ![][Image1]
@@ -41,7 +38,6 @@ Quando si aggiunge un avviso, assegnare un nome univoco, scegliere una soglia di
 Azure supporta qualsiasi indirizzo di posta elettronica ma non ne verifica il corretto funzionamento, pertanto è necessario accertarsi che non siano presenti errori di digitazione.
 
 ## Controllare gli avvisi
-
 Dopo aver impostato gli avvisi, nel centro account viene visualizzato un elenco degli avvisi già impostati ed è indicato il numero di avvisi aggiuntivi che è possibile ancora impostare. Per ogni avviso è possibile visualizzare la data e l'ora di invio, il tipo di avviso (per totale fattura o credito monetario) e il limite impostato. Il formato dell'ora è 24 ore UTC (Universal Time Coordinate) e il formato della data è aaaa-mm-gg. Fare clic sul segno più per modificare un avviso nell'elenco o sul simbolo del cestino per eliminarlo.
 
 [Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png

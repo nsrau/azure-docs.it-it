@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Utenti con anomalie dell'attività di accesso"
-	description="Un report che indichi tutti gli account utente per i quali è stata identificata un’attività di accesso anomala."
-	services="active-directory"
-	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="gchander"
-	editor=""/>
+---
+title: Utenti con anomalie dell'attività di accesso
+description: Un report che indichi tutti gli account utente per i quali è stata identificata un’attività di accesso anomala.
+services: active-directory
+documentationcenter: ''
+author: SSalahAhmed
+manager: gchander
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/04/2016"
-	ms.author="saah;kenhoff"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/04/2016
+ms.author: saah;kenhoff
 
+---
 # Utenti con anomalie dell'attività di accesso
 Questo è un report aggregato che combina gli accessi sospetti dei report seguenti:
 

@@ -1,54 +1,49 @@
-<properties
-    pageTitle="Servizi di dominio AD Azure: Confrontare Servizi di dominio Azure AD con controller di dominio fai da te | Microsoft Azure"
-    description="Confronto tra Servizi di dominio Azure AD e controller di dominio fai da te"
-    services="active-directory-ds"
-    documentationCenter=""
-    authors="mahesh-unnikrishnan"
-    manager="stevenpo"
-    editor="curtand"/>
+---
+title: 'Servizi di dominio AD Azure: Confrontare Servizi di dominio Azure AD con controller di dominio fai da te | Microsoft Docs'
+description: Confronto tra Servizi di dominio Azure AD e controller di dominio fai da te
+services: active-directory-ds
+documentationcenter: ''
+author: mahesh-unnikrishnan
+manager: stevenpo
+editor: curtand
 
-<tags
-    ms.service="active-directory-ds"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/01/2016"
-    ms.author="maheshu"/>
+ms.service: active-directory-ds
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/01/2016
+ms.author: maheshu
 
-
+---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Come decidere Servizi di dominio Azure AD è adatto alle esigenze del caso di utilizzo
 Servizi di dominio Azure AD consente di distribuire i carichi di lavoro nei servizi di infrastruttura di Azure senza preoccuparsi di mantenere l'infrastruttura di identità. Questo servizio gestito è diverso da una tipica distribuzione di Windows Server Active Directory che viene distribuita e amministrata in modo autonomo. Il servizio è progettato in modo da semplificare la distribuzione, automatizzare il monitoraggio dell'integrità e la correzione e semplificare l'infrastruttura di identità per il cloud. Il servizio è in continua evoluzione per l'aggiunta del supporto di scenari di distribuzione comuni.
 
 Per decidere se usare Servizi di dominio Azure AD o fare un passo avanti e iniziare a gestire una propria infrastruttura di Active Directory (fai da te) in Azure:
 
-- Vedere l'elenco delle [funzionalità offerte da Servizi di dominio Azure AD](active-directory-ds-features.md).
-
-- Esaminare comuni [scenari di distribuzione per Servizi di dominio Azure Active Directory](active-directory-ds-scenarios.md).
-
-- Infine [confrontare Servizi di dominio AZURE AD con un'opzione AD fai da te](active-directory-ds-comparison.md#compare-azure-ad-domain-services-to-diy-ad-domain-in-azure).
-
+* Vedere l'elenco delle [funzionalità offerte da Servizi di dominio Azure AD](active-directory-ds-features.md).
+* Esaminare comuni [scenari di distribuzione per Servizi di dominio Azure Active Directory](active-directory-ds-scenarios.md).
+* Infine [confrontare Servizi di dominio AZURE AD con un'opzione AD fai da te](active-directory-ds-comparison.md#compare-azure-ad-domain-services-to-diy-ad-domain-in-azure).
 
 ## <a name="compare-azure-ad-domain-services-to-diy-ad-domain-in-azure"></a>Confrontare Servizi di dominio Azure AD con un dominio AD fai da te in Azure
 La tabella seguente riporta informazioni utili per scegliere se usare Servizi di dominio Azure AD o gestire una propria infrastruttura di AD in Azure.
 
-|**Funzionalità**|**Servizi di dominio Azure Active Directory**|**AD "fai da te" in VM di Azure**|
-|---|:---:|:---:|
-|[**Servizi gestiti**](active-directory-ds-comparison.md#managed-service)|**&#x2713;**|**&#x2715;**|
-|[**Distribuzioni sicure**](active-directory-ds-comparison.md#secure-deployments)|**&#x2713;**|L'amministratore deve proteggere la distribuzione.|
-|[**Server DNS**](active-directory-ds-comparison.md#dns-server)|**&#x2713;** (servizio gestito)|**&#x2713;**|
-|[**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges)|**&#x2715;**|**&#x2713;**|
-|[**Aggiunta a un dominio**](active-directory-ds-comparison.md#domain-join)|**&#x2713;**|**&#x2713;**|
-|[**Autenticazione di dominio tramite NTLM e Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos)|**&#x2713;**|**&#x2713;**|
-|[**Struttura personalizzata per le unità organizzative**](active-directory-ds-comparison.md#custom-ou-structure)|**&#x2713;**|**&#x2713;**|
-|[**Estensioni dello schema**](active-directory-ds-comparison.md#schema-extensions)|**&#x2715;**|**&#x2713;**|
-|[**Relazioni di trust di dominio/foresta di AD**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts)|**&#x2715;**|**&#x2713;**|
-|[**LDAP read**](active-directory-ds-comparison.md#ldap-read)|**&#x2713;**|**&#x2713;**|
-|[**LDAP sicuro (LDAPS)**](active-directory-ds-comparison.md#secure-ldap)|**&#x2713;**|**&#x2713;**|
-|[**LDAP write**](active-directory-ds-comparison.md#ldap-write)|**&#x2715;**|**&#x2713;**|
-|[**Group Policy**](active-directory-ds-comparison.md#group-policy)|Semplice|Completa|
-|[**Distribuzione in diverse aree geografiche**](active-directory-ds-comparison.md#geo-dispersed-deployments)|**&#x2715;**|**&#x2713;**|
-
+| **Funzionalità** | **Servizi di dominio Azure Active Directory** | **AD "fai da te" in VM di Azure** |
+| --- |:---:|:---:|
+| [**Servizi gestiti**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
+| [**Distribuzioni sicure**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |L'amministratore deve proteggere la distribuzione. |
+| [**Server DNS**](active-directory-ds-comparison.md#dns-server) |**&#x2713;** (servizio gestito) |**&#x2713;** |
+| [**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
+| [**Aggiunta a un dominio**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
+| [**Autenticazione di dominio tramite NTLM e Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
+| [**Struttura personalizzata per le unità organizzative**](active-directory-ds-comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |
+| [**Estensioni dello schema**](active-directory-ds-comparison.md#schema-extensions) |**&#x2715;** |**&#x2713;** |
+| [**Relazioni di trust di dominio/foresta di AD**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&#x2715;** |**&#x2713;** |
+| [**LDAP read**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
+| [**LDAP sicuro (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
+| [**LDAP write**](active-directory-ds-comparison.md#ldap-write) |**&#x2715;** |**&#x2713;** |
+| [**Group Policy**](active-directory-ds-comparison.md#group-policy) |Semplice |Completa |
+| [**Distribuzione in diverse aree geografiche**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
 
 #### <a name="managed-service"></a>Servizi gestiti
 Servizi di dominio Azure AD è gestito da Microsoft. Non è necessario preoccuparsi di patch, aggiornamenti, monitoraggio, backup e di garantire la disponibilità del dominio. Queste attività di gestione sono disponibili come servizio di Microsoft Azure per i domini gestiti.
@@ -92,29 +87,24 @@ Costrutti di criteri di gruppo sofisticati non sono supportati nel domino gestit
 #### <a name="geo-dispersed-deployments"></a>Distribuzioni geograficamente sparse
 I domini gestiti di Servizi di dominio Azure AD sono disponibili in una singola rete virtuale in Azure. Per scenari che richiedono controller di dominio disponibili in più aree di Azure in tutto il mondo, l'impostazione di controller di dominio in VM IaaS di Azure potrebbe essere l'alternativa migliore.
 
-
 ## <a name="'do-it-yourself'-(diy)-ad-deployment-options"></a>Opzioni di distribuzione AD "fai da te"
 Possono esistere situazioni di distribuzione in cui sono necessarie alcune delle funzionalità offerte da un'installazione Active Directory di Windows Server. In questi casi è possibile prendere in considerazione una delle seguenti opzioni fai da te:
 
-- **Dominio cloud autonomo:** è possibile configurare un "dominio cloud" autonomo usando macchine virtuali Azure che sono state configurate come controller di dominio. Questa infrastruttura non si integra con l'ambiente Active Directory locale. Questa opzione richiede un insieme diverso di "credenziali del cloud" per l'accesso e l'amministrazione delle VM nel cloud.
+* **Dominio cloud autonomo:** è possibile configurare un "dominio cloud" autonomo usando macchine virtuali Azure che sono state configurate come controller di dominio. Questa infrastruttura non si integra con l'ambiente Active Directory locale. Questa opzione richiede un insieme diverso di "credenziali del cloud" per l'accesso e l'amministrazione delle VM nel cloud.
+* **Distribuzione di foreste di risorse:** è possibile configurare un dominio nella topologia delle foreste di risorse usando macchine virtuali Azure configurate come controller di dominio. Quindi si può impostare una relazione di trust di Active Directory con l'ambiente Active Directory locale. È possibile aggiungere computer (VM Azure) al dominio in questa foresta di risorse nel cloud. L'autenticazione utente avviene tramite una connessione VPN o ExpressRoute alla directory locale.
+* **Estendere il dominio locale in Azure:** è possibile connettere una rete virtuale di Azure alla rete locale tramite una connessione VPN o ExpressRoute, in modo che le VM Azure possano essere aggiunte ad Active Directory locale. Un'alternativa è alzare di livello dei controller di dominio di replica del dominio locale in Azure portandoli al livello di VM. È possibile configurare il sistema in modo che la replica sia eseguita tramite una connessione VPN o ExpressRoute alla directory locale. Questa modalità di distribuzione estende efficacemente il dominio locale in Azure.
 
-- **Distribuzione di foreste di risorse:** è possibile configurare un dominio nella topologia delle foreste di risorse usando macchine virtuali Azure configurate come controller di dominio. Quindi si può impostare una relazione di trust di Active Directory con l'ambiente Active Directory locale. È possibile aggiungere computer (VM Azure) al dominio in questa foresta di risorse nel cloud. L'autenticazione utente avviene tramite una connessione VPN o ExpressRoute alla directory locale.
-
-- **Estendere il dominio locale in Azure:** è possibile connettere una rete virtuale di Azure alla rete locale tramite una connessione VPN o ExpressRoute, in modo che le VM Azure possano essere aggiunte ad Active Directory locale. Un'alternativa è alzare di livello dei controller di dominio di replica del dominio locale in Azure portandoli al livello di VM. È possibile configurare il sistema in modo che la replica sia eseguita tramite una connessione VPN o ExpressRoute alla directory locale. Questa modalità di distribuzione estende efficacemente il dominio locale in Azure.
-
-> [AZURE.NOTE] Un'opzione fai da te potrebbe essere più adatta per determinate situazioni di distribuzione. [Condividendo i loro commenti](active-directory-ds-contact-us.md) gli utenti ci aiuteranno a comprendere quali funzionalità potrebbero far ricadere la loro scelta in futuro su Servizi di dominio Azure AD. Questi commenti e suggerimenti ci consentiranno di migliorare il servizio in modo da adattarlo ad altre esigenze di distribuzione e casi di utilizzo.
+> [!NOTE]
+> Un'opzione fai da te potrebbe essere più adatta per determinate situazioni di distribuzione. [Condividendo i loro commenti](active-directory-ds-contact-us.md) gli utenti ci aiuteranno a comprendere quali funzionalità potrebbero far ricadere la loro scelta in futuro su Servizi di dominio Azure AD. Questi commenti e suggerimenti ci consentiranno di migliorare il servizio in modo da adattarlo ad altre esigenze di distribuzione e casi di utilizzo.
+> 
+> 
 
 Microsoft ha pubblicato alcune [linee guida per la distribuzione di Active Directory di Windows Server nelle macchine virtuali Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx) come aiuto per l'installazione.
 
-
 ## <a name="related-content"></a>Contenuti correlati
-- [Funzionalità - Servizi di dominio Azure AD](active-directory-ds-features.md)
-
-- [Scenari di distribuzione - Servizi di dominio Azure AD](active-directory-ds-scenarios.md)
-
-- [Linee guida per la distribuzione di Active Directory di Windows Server in macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-
-
+* [Funzionalità - Servizi di dominio Azure AD](active-directory-ds-features.md)
+* [Scenari di distribuzione - Servizi di dominio Azure AD](active-directory-ds-scenarios.md)
+* [Linee guida per la distribuzione di Active Directory di Windows Server in macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 
 <!--HONumber=Oct16_HO2-->
 

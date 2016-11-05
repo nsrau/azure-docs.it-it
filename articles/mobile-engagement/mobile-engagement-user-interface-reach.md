@@ -1,89 +1,84 @@
-<properties 
-   pageTitle="Interfaccia utente di Azure Mobile Engagement - Reach" 
-   description="Informazioni su come raggiungere gli utenti dell'applicazione con le notifiche push usando Azure Mobile Engagement" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede" 
-   editor=""/>
+---
+title: Interfaccia utente di Azure Mobile Engagement - Reach
+description: Informazioni su come raggiungere gli utenti dell'applicazione con le notifiche push usando Azure Mobile Engagement
+services: mobile-engagement
+documentationcenter: ''
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="mobile-engagement"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
-   ms.date="08/19/2016"
-   ms.author="piyushjo"/>
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 08/19/2016
+ms.author: piyushjo
 
-
+---
 # Come raggiungere gli utenti dell'applicazione con le notifiche push
-
 In questo articolo viene descritta la scheda **REACH** del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili. Si noti che per iniziare a utilizzare il portale, è innanzitutto necessario creare un account **Azure Mobile Engagement**. Per ulteriori informazioni, vedere [Creare un account Azure Mobile Engagement](mobile-engagement-create.md).
 
 La sezione Reach dell'interfaccia utente è lo strumento di gestione delle campagne push dove è possibile creare, modificare, attivare, terminare, monitorare e ottenere statistiche per le campagne di notifica push nonché funzionalità a cui è possibile accedere anche tramite l'API Reach e alcuni elementi dell'API Push di basso livello. Tenere presente che, indipendentemente dall'uso delle API o dell'interfaccia utente, è necessario integrare Azure Mobile Engagement e Reach nell'applicazione per ogni piattaforma con l'SDK prima di poter usare le campagne Reach.
 
->[AZURE.NOTE] Molte sezioni dell’interfaccia utente del portale **Mobile Engagement** contengono il pulsante **MOSTRA GUIDA**. Premere questo pulsante per ottenere ulteriori informazioni contestuali su una sezione.
+> [!NOTE]
+> Molte sezioni dell’interfaccia utente del portale **Mobile Engagement** contengono il pulsante **MOSTRA GUIDA**. Premere questo pulsante per ottenere ulteriori informazioni contestuali su una sezione.
+> 
+> 
 
 ## Quattro tipi di notifiche push
-1.    Annunci: consentono di inviare messaggi pubblicitari agli utenti che li reindirizzano a un'altra posizione all'interno dell'app o di inviarli a una pagina Web o a un archivio esterno all'app.
-2.    Sondaggi: consentono di raccogliere informazioni dagli utenti finali ponendo loro domande.
-3.    Push di dati: consentono di inviare un file di dati binario o base64. Le informazioni contenute in un push di dati vengono inviate all'applicazione per modificare l'esperienza corrente degli utenti nell'app. L'applicazione deve essere in grado di elaborare i dati di un push di dati.
+1. Annunci: consentono di inviare messaggi pubblicitari agli utenti che li reindirizzano a un'altra posizione all'interno dell'app o di inviarli a una pagina Web o a un archivio esterno all'app.
+2. Sondaggi: consentono di raccogliere informazioni dagli utenti finali ponendo loro domande.
+3. Push di dati: consentono di inviare un file di dati binario o base64. Le informazioni contenute in un push di dati vengono inviate all'applicazione per modificare l'esperienza corrente degli utenti nell'app. L'applicazione deve essere in grado di elaborare i dati di un push di dati.
 
 ## Dettagli della campagna
-
 È possibile modificare, duplicare, eliminare o attivare campagne che non sono state ancora attivate passando il puntatore sopra i relativi nomi oppure fare clic per aprirle. È possibile duplicare campagne che sono già state attivate passando il puntatore sopra i nomi o fare clic per aprirle. Tuttavia, non è possibile modificare una campagna dopo che è stata attivata.
- 
+
 ![Reach1][18]
 
 ## Feedback di Reach
-
 Per visualizzare i dettagli di una campagna di copertura, fare clic su **Statistiche**. La visualizzazione **Semplice** offre una rappresentazione visiva in forma di istogramma a barre di ciò che accade dopo l'attivazione di una campagna. La visualizzazione **Avanzata** offre informazioni più granulari sulla campagna push. Tali informazioni non saranno disponibili se si invia una campagna di prova, ad esempio una campagna push, a un dispositivo di test. Le informazioni devono essere interpretate nel modo seguente:
 
 1. **Con push**: specifica il numero di messaggi inviati ai dispositivi. Questo numero dipenderà dai destinatari specificati durante la creazione della campagna push. Se non si specificano destinatari, i messaggi verranno inviati a tutti i dispositivi registrati. Come per tutti gli altri servizi push, le notifiche push non vengono inviate direttamente ai dispositivi, ma ai rispettivi servizi di notifica push (Push Notification Service, PNS - APN/GCM/WNS) specifici della piattaforma in modo che recapitino le notifiche ai dispositivi.
+2. **Recapitati**: specifica il numero di messaggi recapitati correttamente dal servizio PNS al dispositivo e confermati come ricevuti da Mobile Engagement SDK.
+   
+   *Motivi per cui il numero dei messaggi Recapitati può essere inferiore al numero dei massaggi Inviati:*
+   
+   1. Se l'utente ha disinstallato l'app dal dispositivo, ma il PNS non ne è a conoscenza al momento dell'invio del push, il messaggio verrà eliminato.
+   2. Se nel dispositivo è installata l'app, ma i dispositivi sono stati offline per lunghi periodi di tempo, il PNS non riuscirà a recapitare il messaggio al dispositivo.
+   3. Se il messaggio viene recapitato al dispositivo ma Mobile Engagement SDK nell'app non riconosce il contenuto del messaggio, il messaggio viene eliminato. Questo problema può verificarsi se la personalizzazione della notifica nell'app genera un'eccezione che viene rilevata nell'SDK e il messaggio viene eliminato. Ciò può verificarsi anche se l'app nel dispositivo usa una versione di Mobile Engagement SDK che non è in grado di comprendere la versione più recente del messaggio push inviato dalla piattaforma, ma solo quando l'app è stata aggiornata dopo l'invio della notifica dalla piattaforma del servizio. La scheda **Avanzate** indicherà il numero di messaggi eliminati.
+   4. Nei dispositivi iOS, i messaggi a volte non vengono recapitati se la batteria del dispositivo è scarica o se l'app utilizza una quantità significativa di alimentazione durante l'elaborazione delle notifiche remote. Si tratta di una limitazione dei dispositivi iOS.
+3. **Visualizzati**: specifica il numero di messaggi visualizzati correttamente dall'utente dell'app sul dispositivo sotto forma di una notifica di sistema push o out-of-app nel centro notifiche o di una notifica in-app all'interno dell'app per dispositivi mobili. La scheda **Avanzate** indicherà il numero di notifiche di sistema e il numero di notifiche in-app.
+   
+   *Motivi per cui il numero dei messaggi Visualizzati può essere inferiore al numero dei massaggi Recapitati (in attesa di visualizzazione)*
+   
+   1. Se la campagna di notifica ha una data di fine, è possibile che la notifica sia stata recapitata, ma che la campagna fosse già scaduta nel momento in cui la notifica doveva essere aperta e visualizzata all'utente dell'app e che quindi non sia mai stata visualizzata.
+   2. Se la notifica è una notifica in-app, viene visualizzata solo quando l'utente dell'app apre l'app. Nei casi in cui l'app non è stata aperta dall'utente, l'SDK segnalerà che la notifica è stata recapitata ma non ancora visualizzata, fino all'apertura dell'app.
+   3. Se la notifica è una notifica in-app ed è configurata per la visualizzazione in un'attività/schermata specifica, anche in questo caso la notifica verrà segnalata come recapitata ma non ancora visualizzata fino all'apertura di una schermata specifica dell'app da parte dell'utente.
+4. **Interazioni dell'utente**: specifica il numero di messaggi con cui l'utente dell'app ha interagito e includerà i messaggi attivati o chiusi.
+   
+   * *L'utente dell'app può attivare una notifica in uno dei modi seguenti:*
+     
+     1. Se la notifica è una notifica di sistema o out-of-app o una notifica in-app inviata come sola notifica, l'utente dell'app deve fare clic sulla notifica.
+     2. Se la notifica è una notifica in-app con un testo, una visualizzazione Web o sondaggi, l'utente dell'app deve fare clic sul pulsante di attivazione nella notifica.
+     3. Se la notifica è una notifica in-app con una visualizzazione Web, l'utente dell'app deve fare clic su un URL nella visualizzazione Web [solo per Android]
+   * *L'utente dell'app può chiudere una notifica in uno dei modi seguenti:*
+     
+     1. Facendo clic sul pulsante di chiusura direttamente nella notifica.
+     2. Facendo scorrere rapidamente con un dito o eliminando la notifica.
+     3. Le notifiche in-app con testo o contenuto Web e sondaggi vengono in genere visualizzate dall'utente dell'app con un processo in due passaggi. Viene prima visualizzata una notifica e, facendo clic su di essa, viene visualizzato il testo, il contenuto Web o i sondaggi. L'utente dell'app può chiudere una notifica con uno di questi passaggi e i dettagli vengono acquisiti nella visualizzazione Avanzata.
+5. **Attivati**: specifica il numero di messaggi esplicitamente attivati dall'utente dell'app. Si tratta del dato più interessante, in quanto indica il numero di utenti dell'app interessati al messaggio inviato nella notifica.
 
-2.	**Recapitati**: specifica il numero di messaggi recapitati correttamente dal servizio PNS al dispositivo e confermati come ricevuti da Mobile Engagement SDK.
-		
-	*Motivi per cui il numero dei messaggi Recapitati può essere inferiore al numero dei massaggi Inviati:*
-	
-	1. Se l'utente ha disinstallato l'app dal dispositivo, ma il PNS non ne è a conoscenza al momento dell'invio del push, il messaggio verrà eliminato.
-	2. Se nel dispositivo è installata l'app, ma i dispositivi sono stati offline per lunghi periodi di tempo, il PNS non riuscirà a recapitare il messaggio al dispositivo.
-	3. Se il messaggio viene recapitato al dispositivo ma Mobile Engagement SDK nell'app non riconosce il contenuto del messaggio, il messaggio viene eliminato. Questo problema può verificarsi se la personalizzazione della notifica nell'app genera un'eccezione che viene rilevata nell'SDK e il messaggio viene eliminato. Ciò può verificarsi anche se l'app nel dispositivo usa una versione di Mobile Engagement SDK che non è in grado di comprendere la versione più recente del messaggio push inviato dalla piattaforma, ma solo quando l'app è stata aggiornata dopo l'invio della notifica dalla piattaforma del servizio. La scheda **Avanzate** indicherà il numero di messaggi eliminati.
-	4. Nei dispositivi iOS, i messaggi a volte non vengono recapitati se la batteria del dispositivo è scarica o se l'app utilizza una quantità significativa di alimentazione durante l'elaborazione delle notifiche remote. Si tratta di una limitazione dei dispositivi iOS.
-
-3.	**Visualizzati**: specifica il numero di messaggi visualizzati correttamente dall'utente dell'app sul dispositivo sotto forma di una notifica di sistema push o out-of-app nel centro notifiche o di una notifica in-app all'interno dell'app per dispositivi mobili. La scheda **Avanzate** indicherà il numero di notifiche di sistema e il numero di notifiche in-app.
-	
-	*Motivi per cui il numero dei messaggi Visualizzati può essere inferiore al numero dei massaggi Recapitati (in attesa di visualizzazione)*
-	
-	1. Se la campagna di notifica ha una data di fine, è possibile che la notifica sia stata recapitata, ma che la campagna fosse già scaduta nel momento in cui la notifica doveva essere aperta e visualizzata all'utente dell'app e che quindi non sia mai stata visualizzata.
-	2. Se la notifica è una notifica in-app, viene visualizzata solo quando l'utente dell'app apre l'app. Nei casi in cui l'app non è stata aperta dall'utente, l'SDK segnalerà che la notifica è stata recapitata ma non ancora visualizzata, fino all'apertura dell'app.
-	2. Se la notifica è una notifica in-app ed è configurata per la visualizzazione in un'attività/schermata specifica, anche in questo caso la notifica verrà segnalata come recapitata ma non ancora visualizzata fino all'apertura di una schermata specifica dell'app da parte dell'utente.
-	
-4.	**Interazioni dell'utente**: specifica il numero di messaggi con cui l'utente dell'app ha interagito e includerà i messaggi attivati o chiusi.
-
-	- *L'utente dell'app può attivare una notifica in uno dei modi seguenti:*
-			
-		1. Se la notifica è una notifica di sistema o out-of-app o una notifica in-app inviata come sola notifica, l'utente dell'app deve fare clic sulla notifica.
-		2. Se la notifica è una notifica in-app con un testo, una visualizzazione Web o sondaggi, l'utente dell'app deve fare clic sul pulsante di attivazione nella notifica.
-		3. Se la notifica è una notifica in-app con una visualizzazione Web, l'utente dell'app deve fare clic su un URL nella visualizzazione Web [solo per Android]
-	
-	- *L'utente dell'app può chiudere una notifica in uno dei modi seguenti:*
-	
-		1. Facendo clic sul pulsante di chiusura direttamente nella notifica.
-		2. Facendo scorrere rapidamente con un dito o eliminando la notifica.
-		3. Le notifiche in-app con testo o contenuto Web e sondaggi vengono in genere visualizzate dall'utente dell'app con un processo in due passaggi. Viene prima visualizzata una notifica e, facendo clic su di essa, viene visualizzato il testo, il contenuto Web o i sondaggi. L'utente dell'app può chiudere una notifica con uno di questi passaggi e i dettagli vengono acquisiti nella visualizzazione Avanzata.
-
-5.	**Attivati**: specifica il numero di messaggi esplicitamente attivati dall'utente dell'app. Si tratta del dato più interessante, in quanto indica il numero di utenti dell'app interessati al messaggio inviato nella notifica.
- 
-> [AZURE.NOTE] Nelle piattaforme iOS e Windows, se l'utente ha l'app aperta e la campagna era di tipo "AnyTime", è possibile che le notifiche out-of-app e in-app vengano visualizzate nello stesso momento. Il numero di messaggi Visualizzati può pertanto essere superiore al numero dei messaggi Recapitati. Se l'utente interagisce con la notifica o la attiva, anche il numero di Interazioni utente o di messaggi Attivati può essere superiore al numero dei messaggi Recapitati.
-
+> [!NOTE]
+> Nelle piattaforme iOS e Windows, se l'utente ha l'app aperta e la campagna era di tipo "AnyTime", è possibile che le notifiche out-of-app e in-app vengano visualizzate nello stesso momento. Il numero di messaggi Visualizzati può pertanto essere superiore al numero dei messaggi Recapitati. Se l'utente interagisce con la notifica o la attiva, anche il numero di Interazioni utente o di messaggi Attivati può essere superiore al numero dei messaggi Recapitati.
+> 
+> 
 
 ![Reach2][19]
 
 ## Vedere anche
-
-- [Concetti][Link 6]
-- [Guida per la risoluzione dei problemi - Assistenza][Link 24]
+* [Concetti][Link 6]
+* [Guida per la risoluzione dei problemi - Assistenza][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -175,6 +170,6 @@ Per visualizzare i dettagli di una campagna di copertura, fare clic su **Statist
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
- 
+
 
 <!---HONumber=AcomDC_0824_2016-->

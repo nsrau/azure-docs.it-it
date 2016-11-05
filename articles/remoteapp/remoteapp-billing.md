@@ -1,27 +1,26 @@
 
-<properties
-    pageTitle="Modificare la fatturazione per Azure RemoteApp | Microsoft Azure"
-    description="Informazioni su come interrompere la fatturazione per Azure RemoteApp."
-    services="remoteapp"
-    documentationCenter=""
-    authors="lizap"
-    manager="mbaldwin" />
+---
+title: Modificare la fatturazione per Azure RemoteApp | Microsoft Docs
+description: Informazioni su come interrompere la fatturazione per Azure RemoteApp.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags
-    ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/15/2016"
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
-
+---
 # Come interrompere la fatturazione per Azure RemoteApp
-
-> [AZURE.IMPORTANT]
-Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> [!IMPORTANT]
+> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> 
+> 
 
 Finché si dispone di raccolte RemoteApp di Azure, persino senza utenti assegnati, verrà applicato un addebito per RemoteApp. Per interrompere la fatturazione, eliminare tutte le raccolte.
 

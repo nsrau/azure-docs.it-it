@@ -1,22 +1,22 @@
 
-<properties
-	pageTitle="Uso di Azure AD Connect Health con Servizi di dominio Active Directory | Microsoft Azure"
-	description="Questa è la pagina di Azure AD Connect Health che descrive come monitorare Servizi di dominio Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="arluca"
-	manager="samueld"
-	editor="curtand"/>
+---
+title: Uso di Azure AD Connect Health con Servizi di dominio Active Directory | Microsoft Docs
+description: Questa è la pagina di Azure AD Connect Health che descrive come monitorare Servizi di dominio Active Directory.
+services: active-directory
+documentationcenter: ''
+author: arluca
+manager: samueld
+editor: curtand
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/30/2016"
-	ms.author="arluca"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/30/2016
+ms.author: arluca
 
+---
 # Uso di Azure AD Connect Health con Servizi di dominio Active Directory
 La documentazione seguente è specifica per il monitoraggio di Servizi di dominio Active Directory con Azure AD Connect Health. Versioni supportate di AD DS: Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2.
 
@@ -51,7 +51,6 @@ Questa funzionalità offre tendenze grafiche dei diversi contatori delle prestaz
 Per impostazione predefinita sono selezionati quattro contatori delle prestazioni. È tuttavia possibile includerne altri facendo clic sul comando del filtro e selezionando o deselezionando qualsiasi contatore delle prestazioni. È anche possibile fare doppio clic su un grafico relativo ai contatori delle prestazioni per aprire un nuovo pannello, che include punti dati corrispondenti a ogni controller di dominio monitorato.
 
 ## Collegamenti correlati
-
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Installazione dell'agente di Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Operazioni di Azure AD Connect Health](active-directory-aadconnect-health-operations.md)

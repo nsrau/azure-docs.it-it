@@ -1,22 +1,22 @@
 
-<properties
-	pageTitle="Uso di Azure AD Connect Health per la sincronizzazione | Microsoft Azure"
-	description="Questa è la pagina di Azure AD Connect Health in cui viene descritto come monitorare il Servizio di sincronizzazione Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="femila"
-	editor="curtand"/>
+---
+title: Uso di Azure AD Connect Health per la sincronizzazione | Microsoft Docs
+description: Questa è la pagina di Azure AD Connect Health in cui viene descritto come monitorare il Servizio di sincronizzazione Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: billmath
+manager: femila
+editor: curtand
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/08/2016"
-	ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/08/2016
+ms.author: billmath
 
+---
 # Uso di Azure AD Connect Health per la sincronizzazione
 La documentazione seguente è specifica per il monitoraggio di Azure Active Directory Connect (Sincronizzazione) con Azure AD Connect Health. Per informazioni sul monitoraggio di AD FS con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md). Per informazioni sul monitoraggio di Servizi di dominio Active Directory con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health con Servizi di dominio Active Directory](active-directory-aadconnect-health-adds.md).
 
@@ -43,8 +43,8 @@ Per modificare questa condizione, fare clic su "Impostazioni" e consentire all'a
 ## Informazioni dettagliate sulla sincronizzazione
 Nella versione più recente di Azure AD Connect Health per la sincronizzazione sono state aggiunte le nuove funzionalità seguenti:
 
-- Latenza delle operazioni di sincronizzazione
-- Tendenza nelle modifiche agli oggetti
+* Latenza delle operazioni di sincronizzazione
+* Tendenza nelle modifiche agli oggetti
 
 ### Latenza della sincronizzazione
 Questa funzionalità fornisce una tendenza grafica della latenza delle operazioni di sincronizzazione, importazione, esportazione e così via, per i connettori. È così disponibile un modo rapido e semplice per comprendere non solo la latenza delle operazioni, molto utile specialmente se è in corso un set di modifiche esteso, ma anche per rilevare le anomalie a livello di latenza che potrebbero richiedere altre indagini.
@@ -59,7 +59,6 @@ Questa funzionalità fornisce una tendenza grafica del numero di modifiche valut
 ![Latenza della sincronizzazione](./media/active-directory-aadconnect-health-sync/syncobjectchanges.png)
 
 ## Collegamenti correlati
-
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Installazione dell'agente di Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Operazioni di Azure AD Connect Health](active-directory-aadconnect-health-operations.md)

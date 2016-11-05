@@ -1,39 +1,38 @@
-<properties
-   pageTitle="Esempi di configurazione di router ExpressRoute | Microsoft Azure"
-   description="In questa pagina vengono forniti esempi di configurazione di router per router Cisco e Juniper."
-   documentationCenter="na"
-   services="expressroute"
-   authors="cherylmc"
-   manager="carmonm"
-   editor="" />
-<tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
-   ms.author="cherylmc"/>
+---
+title: Esempi di configurazione di router ExpressRoute | Microsoft Docs
+description: In questa pagina vengono forniti esempi di configurazione di router per router Cisco e Juniper.
+documentationcenter: na
+services: expressroute
+author: cherylmc
+manager: carmonm
+editor: ''
 
+ms.service: expressroute
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/10/2016
+ms.author: cherylmc
 
+---
 # <a name="router-configuration-samples-to-setup-and-manage-routing"></a>Esempi di configurazione del router per l'impostazione e la gestione del routing
-
 Questa pagina fornisce gli esempi di configurazione dell'interfaccia e del routing per i router Cisco IOS-XE e Juniper MX. Devono essere intesi come esempi a solo scopo informativo e non devono essere usati per altri scopi. È possibile rivolgersi al fornitore per ottenere le configurazioni appropriate per la rete in uso. 
 
->[AZURE.IMPORTANT] Gli esempi inclusi in questa pagina devono essere intesi solo come linee guida. È necessario collaborare con il team di vendita/tecnico del fornitore e il team di rete per ottenere le configurazioni appropriate in base alle specifiche esigenze. Microsoft non offre supporto per i problemi relativi alle configurazioni elencate in questa pagina. È necessario contattare il fornitore del dispositivo per assistenza.
+> [!IMPORTANT]
+> Gli esempi inclusi in questa pagina devono essere intesi solo come linee guida. È necessario collaborare con il team di vendita/tecnico del fornitore e il team di rete per ottenere le configurazioni appropriate in base alle specifiche esigenze. Microsoft non offre supporto per i problemi relativi alle configurazioni elencate in questa pagina. È necessario contattare il fornitore del dispositivo per assistenza.
+> 
+> 
 
 Gli esempi di configurazione del router riportati di seguito si applicano a tutti i peering. Per altri dettagli sul routing, vedere [Peering di ExpressRoute](expressroute-circuit-peerings.md) e [Requisiti per il routing di ExpressRoute](expressroute-routing.md).
 
 ## <a name="cisco-ios-xe-based-routers"></a>Router basati su Cisco IOS-XE
-
 Gli esempi in questa sezione si applicano a qualsiasi router che esegue la famiglia di sistemi operativi IOS-XE.
 
 ### <a name="1.-configuring-interfaces-and-sub-interfaces"></a>1. Configurazione di interfacce e sotto-interfacce
-
 Sarà necessaria una sotto-interfaccia per peering in ogni router connesso a Microsoft. Una sotto-interfaccia può essere identificata mediante un ID VLAN o una coppia in stack di ID VLAN e indirizzo IP.
 
 #### <a name="dot1q-interface-definition"></a>Definizione dell'interfaccia Dot1Q
-
 Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-interfaccia secondario con un ID VLAN. L'ID VLAN è univoco per ogni peering. L'ultimo ottetto dell'indirizzo IPv4 sarà sempre un numero dispari.
 
     interface GigabitEthernet<Interface_Number>.<Number>
@@ -41,15 +40,13 @@ Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-int
      ip address <IPv4_Address><Subnet_Mask>
 
 #### <a name="qinq-interface-definition"></a>Definizione dell'interfaccia QinQ
-
 Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-interfaccia con due ID VLAN. L'ID VLAN esterno (s-tag), se usato, rimane invariato in tutti i peering. L'ID VLAN interno (c-tag) è univoco per ogni peering. L'ultimo ottetto dell'indirizzo IPv4 sarà sempre un numero dispari.
 
     interface GigabitEthernet<Interface_Number>.<Number>
      encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
      ip address <IPv4_Address><Subnet_Mask>
-    
-### <a name="2.-setting-up-ebgp-sessions"></a>2. Impostazione delle sessioni eBGP
 
+### <a name="2.-setting-up-ebgp-sessions"></a>2. Impostazione delle sessioni eBGP
 È necessario impostare una sessione BGP con Microsoft per ogni peering. L'esempio seguente consente di configurare una sessione BGP con Microsoft. Se l'indirizzo IPv4 usato per la sotto-interfaccia è a.b.c.d, l'indirizzo IP del router adiacente BGP (Microsoft) sarà a.b.c.d+1. L'ultimo ottetto dell'indirizzo IPv4 del router adiacente BGP sarà sempre un numero pari.
 
     router bgp <Customer_ASN>
@@ -62,7 +59,6 @@ Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-int
     !
 
 ### <a name="3.-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. Impostazione dei prefissi da pubblicare tramite la sessione BGP
-
 È possibile configurare il router per pubblicare i prefissi di selezione a Microsoft. Per eseguire questa operazione, usare l'esempio riportato di seguito.
 
     router bgp <Customer_ASN>
@@ -76,7 +72,6 @@ Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-int
     !
 
 ### <a name="4.-route-maps"></a>4. Mappe di routing
-
 È possibile usare le mappe di routing e gli elenchi di prefissi per filtrare i prefissi propagati nella rete. È possibile usare l'esempio riportato di seguito per completare l'attività. Assicurarsi di avere impostato gli elenchi di prefissi appropriati.
 
     router bgp <Customer_ASN>
@@ -94,14 +89,11 @@ Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-int
     !
 
 
-## <a name="juniper-mx-series-routers"></a>Router serie Juniper MX 
-
+## <a name="juniper-mx-series-routers"></a>Router serie Juniper MX
 Gli esempi in questa sezione si applicano a tutti i router serie Juniper MX.
 
 ### <a name="1.-configuring-interfaces-and-sub-interfaces"></a>1. Configurazione di interfacce e sotto-interfacce
-
 #### <a name="dot1q-interface-definition"></a>Definizione dell'interfaccia Dot1Q
-
 Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-interfaccia secondario con un ID VLAN. L'ID VLAN è univoco per ogni peering. L'ultimo ottetto dell'indirizzo IPv4 sarà sempre un numero dispari.
 
     interfaces {
@@ -118,7 +110,6 @@ Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-int
 
 
 #### <a name="qinq-interface-definition"></a>Definizione dell'interfaccia QinQ
-
 Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-interfaccia con due ID VLAN. L'ID VLAN esterno (s-tag), se usato, rimane invariato in tutti i peering. L'ID VLAN interno (c-tag) è univoco per ogni peering. L'ultimo ottetto dell'indirizzo IPv4 sarà sempre un numero dispari.
 
     interfaces {
@@ -134,7 +125,6 @@ Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-int
     }                           
 
 ### <a name="2.-setting-up-ebgp-sessions"></a>2. Impostazione delle sessioni eBGP
-
 È necessario impostare una sessione BGP con Microsoft per ogni peering. L'esempio seguente consente di configurare una sessione BGP con Microsoft. Se l'indirizzo IPv4 usato per la sotto-interfaccia è a.b.c.d, l'indirizzo IP del router adiacente BGP (Microsoft) sarà a.b.c.d+1. L'ultimo ottetto dell'indirizzo IPv4 del router adiacente BGP sarà sempre un numero pari.
 
     routing-options {
@@ -151,7 +141,6 @@ Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-int
     }
 
 ### <a name="3.-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. Impostazione dei prefissi da pubblicare tramite la sessione BGP
-
 È possibile configurare il router per pubblicare i prefissi di selezione a Microsoft. Per eseguire questa operazione, usare l'esempio riportato di seguito.
 
     policy-options {
@@ -177,7 +166,6 @@ Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-int
 
 
 ### <a name="4.-route-maps"></a>4. Mappe di routing
-
 È possibile usare le mappe di routing e gli elenchi di prefissi per filtrare i prefissi propagati nella rete. È possibile usare l'esempio riportato di seguito per completare l'attività. Assicurarsi di avere impostato gli elenchi di prefissi appropriati.
 
     policy-options {
@@ -208,10 +196,7 @@ Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-int
     }
 
 ## <a name="next-steps"></a>Passaggi successivi
-
 Per altre informazioni, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md) .
-
-
 
 <!--HONumber=Oct16_HO2-->
 

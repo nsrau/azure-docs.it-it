@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Cluster Resource Manager di Service Fabric - Integrazione della gestione | Microsoft Azure"
-   description="Panoramica dei punti di integrazione tra Cluster Resource Manager e le funzionalità di gestione di Service Fabric."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: Cluster Resource Manager di Service Fabric - Integrazione della gestione | Microsoft Docs
+description: Panoramica dei punti di integrazione tra Cluster Resource Manager e le funzionalità di gestione di Service Fabric.
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
-
+---
 # Integrazione di Cluster Resource Manager con la gestione dei cluster di Service Fabric
 Pur non essendo il componente principale di Service Fabric che si occupa delle operazioni di gestione, come gli aggiornamenti dell'applicazione, Cluster Resource Manager partecipa tuttavia al processo. Il primo modo in cui Cluster Resource Manager contribuisce alla gestione consiste nel monitorare lo stato desiderato del cluster e dei servizi in esso contenuti da una prospettiva di bilanciamento e assegnazione delle risorse e nell'inviare report sull'integrità quando non è possibile applicare al cluster la configurazione desiderata. Un esempio può essere una capacità insufficiente oppure regole in conflitto in merito al posizionamento di un servizio. Un altro fattore di integrazione riguarda il funzionamento degli aggiornamenti: durante gli aggiornamenti, il comportamento di Cluster Resource Manager cambia. Parleremo di entrambi questi aspetti di seguito.
 
@@ -69,29 +68,29 @@ HealthEvents          :
 
 Ecco che cosa indica questo messaggio di stato:
 
-1.	Tutte le repliche sono integre (questa è la priorità principale di Service Fabric)
-2.	Il vincolo di distribuzione del dominio di aggiornamento è stato violato, vale a dire che in un particolare dominio di aggiornamento è presente un numero di repliche superiore a quello previsto per la partizione
-3.	Il nodo che contiene la replica che causa la violazione (il nodo con ID 3d1a4a68b2592f55125328cd0f8ed477)
-4.	Quando si è verificato il problema (10/8/2015 19:13:02: 00)
+1. Tutte le repliche sono integre (questa è la priorità principale di Service Fabric)
+2. Il vincolo di distribuzione del dominio di aggiornamento è stato violato, vale a dire che in un particolare dominio di aggiornamento è presente un numero di repliche superiore a quello previsto per la partizione
+3. Il nodo che contiene la replica che causa la violazione (il nodo con ID 3d1a4a68b2592f55125328cd0f8ed477)
+4. Quando si è verificato il problema (10/8/2015 19:13:02: 00)
 
 Questi dati sono ideali per un avviso generato nell'ambiente di produzione perché comunicano all'utente che si è verificato un errore e che è opportuno indagare. In questo caso, ad esempio, sarebbe opportuno comprendere perché Resource Manager ha scelto di comprimere le repliche nel dominio di aggiornamento. Possibili spiegazioni sono che tutti i nodi degli altri domini di aggiornamento erano inattivi e che non erano disponibili altri domini inutilizzati oppure, se il numero di domini attivi era sufficiente, un altro elemento ha reso non validi i nodi di questi altri domini di aggiornamento, ad esempio un criterio di posizionamento del servizio o una capacità insufficiente.
 
 Supponiamo, tuttavia, di voler creare un servizio o che Resource Manager stia tentando di trovare una posizione in cui inserire alcuni servizi, ma che non ci siano soluzioni accettabili. Questa situazione potrebbe accadere per diversi motivi, ma in genere è dovuta a una delle due condizioni seguenti:
 
-1.	Una qualche condizione temporanea ha reso impossibile inserire correttamente questa istanza del servizio o replica
-2.	I requisiti del servizio non sono configurati correttamente e non possono essere soddisfatti.
+1. Una qualche condizione temporanea ha reso impossibile inserire correttamente questa istanza del servizio o replica
+2. I requisiti del servizio non sono configurati correttamente e non possono essere soddisfatti.
 
 In ognuna di queste condizioni si disporrà di un rapporto di integrità di Cluster Resource Manager con informazioni utili per determinare che cosa sta succedendo e perché il servizio non può essere inserito. Questo processo viene definito "sequenza di eliminazione del vincolo". Durante la procedura il sistema esamina i singoli vincoli che agiscono sul servizio e registra ciò che eliminano. In questo modo, quando non si riesce a inserire i servizi, è possibile visualizzare i nodi eliminati e la relativa motivazione.
 
 ## Tipi di vincolo
 Esaminiamo ciascuno dei vincoli indicati nei rapporti di integrità per capire che cosa ognuno verifica. Si noti che, nella maggior parte dei casi, non si assisterà all'eliminazione dei nodi da parte di alcuni di questi vincoli poiché, per impostazione predefinita, i vincoli sono al livello soft o ottimizzato (all'interno dell'articolo sono disponibili maggiori informazioni sulle priorità dei vincoli). È tuttavia possibile visualizzare messaggi di integrità correlati a questi vincoli se sono configurati come vincoli "Hard" o nei rari casi in cui determinano l'eliminazione dei nodi. Per questo motivo, vengono qui presentati per completezza:
 
--	ReplicaExclusionStatic e ReplicaExclusionDynamic: vincolo interno che indica che durante la ricerca si è verificata una situazione in cui due repliche con stato o istanze senza stato dalla stessa partizione dovevano essere posizionate sullo stesso nodo, operazione non consentita. ReplicaExclusionStatic e ReplicaExclusionDynamic sono regole quasi identiche. Il vincolo ReplicaExclusionDynamic afferma che è stato impossibile collocare nel nodo questa replica perché l'unica soluzione proposta già aveva inserito una replica. Questa affermazione è diversa dall'esclusione di ReplicaExclusionStatic che indica non un possibile ma un effettivo conflitto: esiste già una replica nel nodo. È ambiguo? Sì. È molto importante? No. Basti sapere che se si nota una sequenza di eliminazione del vincolo contenente ReplicaExclusionStatic o ReplicaExclusionDynamic significa che Cluster Resource Manager ritiene che non vi siano nodi sufficienti per inserire tutte le repliche. Gli altri vincoli possono, in genere, indicarci come è possibile che il numero di nodi sia insufficiente.
--	PlacementConstraint: se viene visualizzato questo messaggio significa che sono stati eliminati alcuni nodi perché non rispettavano i vincoli di posizionamento del servizio. I vincoli di posizionamento attualmente configurati vengono indicati come parte di questo messaggio. Questo è generalmente normale se si dispone di un vincolo di posizionamento. Tuttavia, questo risultato potrebbe essere visualizzato se è presente un bug nel vincolo di posizionamento che determina l'eliminazione di troppi nodi.
--	NodeCapacity: se viene visualizzato questo vincolo significa che non è stato possibile inserire le repliche nei nodi indicati perché l'operazione avrebbe fatto superare la capacità del nodo
--	Affinity: questo vincolo indica che non è stato possibile inserire la replica nei nodi interessati perché questa operazione avrebbe generato una violazione del vincolo Affinity.
--	FaultDomain & UpgradeDomain: questo vincolo elimina i nodi se l'inserimento della replica nei nodi indicati comporterebbe la compressione in un particolare dominio di aggiornamento o di errore. Alcuni esempi che illustrano questo vincolo sono presentati nell'argomento sui [vincoli dei domini di aggiornamento e di errore e il relativo comportamento](service-fabric-cluster-resource-manager-cluster-description.md)
--	PreferredLocation: in genere non si dovrebbe assistere alla rimozione di nodi dalla soluzione da parte di questo vincolo perché, per impostazione predefinita, è riservato all'ottimizzazione. Inoltre, il vincolo PreferredLocation è presente, in genere, solo durante gli aggiornamenti, quando viene usato per riportare le repliche alla posizione originaria in cui si trovavano all'inizio dell'aggiornamento, anche se è possibile trovarlo in altri ambiti.
+* ReplicaExclusionStatic e ReplicaExclusionDynamic: vincolo interno che indica che durante la ricerca si è verificata una situazione in cui due repliche con stato o istanze senza stato dalla stessa partizione dovevano essere posizionate sullo stesso nodo, operazione non consentita. ReplicaExclusionStatic e ReplicaExclusionDynamic sono regole quasi identiche. Il vincolo ReplicaExclusionDynamic afferma che è stato impossibile collocare nel nodo questa replica perché l'unica soluzione proposta già aveva inserito una replica. Questa affermazione è diversa dall'esclusione di ReplicaExclusionStatic che indica non un possibile ma un effettivo conflitto: esiste già una replica nel nodo. È ambiguo? Sì. È molto importante? No. Basti sapere che se si nota una sequenza di eliminazione del vincolo contenente ReplicaExclusionStatic o ReplicaExclusionDynamic significa che Cluster Resource Manager ritiene che non vi siano nodi sufficienti per inserire tutte le repliche. Gli altri vincoli possono, in genere, indicarci come è possibile che il numero di nodi sia insufficiente.
+* PlacementConstraint: se viene visualizzato questo messaggio significa che sono stati eliminati alcuni nodi perché non rispettavano i vincoli di posizionamento del servizio. I vincoli di posizionamento attualmente configurati vengono indicati come parte di questo messaggio. Questo è generalmente normale se si dispone di un vincolo di posizionamento. Tuttavia, questo risultato potrebbe essere visualizzato se è presente un bug nel vincolo di posizionamento che determina l'eliminazione di troppi nodi.
+* NodeCapacity: se viene visualizzato questo vincolo significa che non è stato possibile inserire le repliche nei nodi indicati perché l'operazione avrebbe fatto superare la capacità del nodo
+* Affinity: questo vincolo indica che non è stato possibile inserire la replica nei nodi interessati perché questa operazione avrebbe generato una violazione del vincolo Affinity.
+* FaultDomain & UpgradeDomain: questo vincolo elimina i nodi se l'inserimento della replica nei nodi indicati comporterebbe la compressione in un particolare dominio di aggiornamento o di errore. Alcuni esempi che illustrano questo vincolo sono presentati nell'argomento sui [vincoli dei domini di aggiornamento e di errore e il relativo comportamento](service-fabric-cluster-resource-manager-cluster-description.md)
+* PreferredLocation: in genere non si dovrebbe assistere alla rimozione di nodi dalla soluzione da parte di questo vincolo perché, per impostazione predefinita, è riservato all'ottimizzazione. Inoltre, il vincolo PreferredLocation è presente, in genere, solo durante gli aggiornamenti, quando viene usato per riportare le repliche alla posizione originaria in cui si trovavano all'inizio dell'aggiornamento, anche se è possibile trovarlo in altri ambiti.
 
 ### Priorità dei vincoli
 Dato l'elevato numero di questi vincoli è possibile ritenere che i vincoli di posizionamento siano i più importanti del sistema. Si può pensare che sia preferibile violare altri vicoli, ad esempio affinità e capacità, pur di non violare mai i vincoli di posizionamento.
@@ -135,6 +134,6 @@ Un altro evento che si verifica durante gli aggiornamenti è che Cluster Resourc
 Quello che accade spesso durante gli aggiornamenti è che si desidera che l'aggiornamento venga portato a termine anche se il cluster è nel complesso piuttosto pieno o carico di vincoli. Durante gli aggiornamenti la necessità di gestire la capacità del cluster è ancora più importante perché in genere la percentuale del cluster resa inattiva in un dato momento è tra il 5 e il 20 percento e il carico di lavoro deve essere spostato da qualche parte. È qui che entra in gioco il concetto di [capacità in buffering](service-fabric-cluster-resource-manager-cluster-description.md#buffered-capacity). Mentre la capacità in buffering viene rispettata durante il normale funzionamento, negli aggiornamenti Cluster Resource Manager sfrutta la capacità totale del buffer.
 
 ## Passaggi successivi
-- Partire dall'inizio e vedere l'[introduzione a Cluster Resource Manager di Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
+* Partire dall'inizio e vedere l'[introduzione a Cluster Resource Manager di Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
 
 <!---HONumber=AcomDC_0824_2016-->

@@ -1,29 +1,27 @@
-<properties 
-    pageTitle="Code, argomenti e sottoscrizioni del bus di servizio | Microsoft Azure"
-    description="Panoramica delle entità di messaggistica del bus di servizio."
-    services="service-bus"
-    documentationCenter="na"
-    authors="sethmanheim"
-    manager="timlt"
-    editor="" />
-<tags 
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="10/14/2016"
-    ms.author="sethm" />
+---
+title: Code, argomenti e sottoscrizioni del bus di servizio | Microsoft Docs
+description: Panoramica delle entità di messaggistica del bus di servizio.
+services: service-bus
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: ''
 
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/14/2016
+ms.author: sethm
 
+---
 # <a name="service-bus-queues,-topics,-and-subscriptions"></a>Code, argomenti e sottoscrizioni del bus di servizio
-
 Il bus di servizio di Microsoft Azure supporta un set di tecnologie middleware orientate ai messaggi e basate sul cloud, incluso l'accodamento dei messaggi affidabile e la messaggistica di pubblicazione e sottoscrizione permanente. Queste funzionalità di messaggistica negoziata possono essere considerate come funzionalità di messaggistica asincrone o disaccoppiate che supportano scenari di pubblicazione e sottoscrizione, disaccoppiamento temporale e bilanciamento del carico tramite l'infrastruttura di messaggistica del bus di servizio.  La comunicazione disaccoppiata presenta molti vantaggi, ad esempio client e server possono connettersi quando necessario ed eseguire le relative operazioni in modo asincrono.
 
 Le entità di messaggistica che costituiscono le funzionalità di messaggistica negoziata di base nel bus di servizio sono code, argomenti/sottoscrizioni e regole/azioni.
 
 ## <a name="queues"></a>Code
-
 Le code consentono un recapito dei messaggi di tipo First In, First Out (FIFO) a uno o più consumer concorrenti. In altri termini, i messaggi in genere vengono ricevuti ed elaborati dai ricevitori secondo l'ordine temporale in cui sono stati aggiunti alla coda e ogni messaggio viene ricevuto ed elaborato da un solo consumer. Il vantaggio principale derivante dall'uso delle code è quello di ottenere un "disaccoppiamento temporale" dei componenti applicativi, ovvero non è necessario che i producer e i consumer inviino e ricevano i messaggi contemporaneamente perché i messaggi restano archiviati nella coda. Il producer inoltre non deve attendere la risposta del consumer per continuare a elaborare e inviare messaggi.
 
 Un vantaggio correlato è quello del "livellamento del carico", che permette ai producer e ai consumer di inviare e ricevere i messaggi con frequenze diverse. In molte applicazioni, il carico del sistema varia nel tempo, tuttavia, il tempo di elaborazione necessario per ogni unità è in genere costante. L'interposizione di una coda tra producer e consumer di messaggi implica che è necessario solo eseguire il provisioning dell'applicazione consumer per gestire un carico medio invece di un carico massimo. In base alla variazione del carico in ingresso, si verificherà un incremento o una riduzione della profondità della coda, con un risparmio diretto in termini economici rispetto alle risorse infrastrutturali richieste per gestire il carico dell'applicazione. Con l'aumento del carico, è possibile aggiungere altri processi di lavoro per la lettura della coda. Ciascun messaggio viene elaborato da un solo processo di lavoro. Inoltre, il bilanciamento del carico di tipo pull permette un uso ottimale dei computer di lavoro anche quando questi presentano una potenza di elaborazione diversa.Ogni computer effettuerà infatti il pull dei messaggi in base alla propria velocità massima. Questo modello viene spesso definito modello del "consumer concorrente".
@@ -83,7 +81,6 @@ Si noti che in caso di arresto anomalo dell'applicazione dopo l'elaborazione del
 Per altre informazioni e per un esempio pratico su come creare e inviare messaggi alle code e dalle code, vedere [Esercitazione sulla messaggistica negoziata del bus di servizio - .NET](service-bus-brokered-tutorial-dotnet.md).
 
 ## <a name="topics-and-subscriptions"></a>Argomenti e sottoscrizioni
-
 Diversamente dalle code, in cui ogni messaggio viene elaborato da un unico consumer, gli *argomenti* e le *sottoscrizioni* offrono una forma di comunicazione di tipo uno-a-molti, in un modello di *pubblicazione/sottoscrizione*. Particolarmente utile per la comunicazione con un numero molto elevato di destinatari, ogni messaggio pubblicato è reso disponibile per ogni sottoscrizione registrata con l'argomento. I messaggi vengono inviati a un argomento e recapitati a una o più sottoscrizioni associate, a seconda delle regole di filtro che possono essere impostate per ogni sottoscrizione. Per limitare i messaggi da ricevere, le sottoscrizioni possono usare filtri aggiuntivi. I messaggi vengono inviati a un argomento nello stesso modo in cui vengono inviati a una coda, con la differenza che i messaggi non vengono ricevuti direttamente dall'argomento. Vengono ricevuti dalle sottoscrizioni. La sottoscrizione di un argomento è simile a una coda virtuale che riceve copie dei messaggi inviati all'argomento. La procedura di ricezione dei messaggi da parte di una sottoscrizione è identica a quella usata per la ricezione da parte di una coda.
 
 Ai fini di un confronto, la funzionalità di invio dei messaggi di una coda esegue il mapping direttamente a un argomento e la funzionalità di ricezione dei messaggi esegue il mapping a una sottoscrizione. Questo significa anche che le sottoscrizioni supportano gli stessi modelli descritti prima in questa sezione in merito alle code: consumer concorrente, disaccoppiamento temporale, livellamento del carico e bilanciamento del carico.
@@ -144,7 +141,6 @@ while ((message = auditSubscriptionClient.Receive(TimeSpan.FromSeconds(5))) != n
 ```
 
 ### <a name="rules-and-actions"></a>Regole e azioni
-
 In molti scenari, i messaggi con caratteristiche specifiche devono essere elaborati in modi specifici. A questo scopo, è possibile configurare le sottoscrizioni in modo che trovino i messaggi che presentano le proprietà desiderate e apportare quindi alcune modifiche a tali proprietà. Mentre nelle sottoscrizioni del bus di servizio tutti i messaggi vengono inviati all'argomento, l'utente può copiare solo un subset di tali messaggi nella coda virtuale delle sottoscrizioni. Questa operazione viene eseguita usando i filtri della sottoscrizione. Queste modifiche sono chiamate *azioni di filtro*. Quando viene creata una sottoscrizione, è possibile specificare un'espressione di filtro che agisce sulle proprietà del messaggio, sulle proprietà del sistema, ad esempio **Label**, e sulle proprietà dell'applicazione personalizzata, ad esempio **StoreName**. In questo caso l'espressione di filtro SQL è facoltativa. Senza un'espressione di filtro SQL, qualsiasi azione di filtro definita in una sottoscrizione verrà eseguita in tutti i messaggi di tale sottoscrizione.
 
 Facendo riferimento all'esempio precedente, per filtrare solo i messaggi provenienti da **Store1**, è necessario creare la sottoscrizione Dashboard come indicato nella procedura seguente:
@@ -158,17 +154,13 @@ Dopo aver creato questo filtro della sottoscrizione, solo i messaggi con la prop
 Per altre informazioni sui valori di filtro possibili, vedere la documentazione relativa alle classi [SqlFilter](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx) e [SqlRuleAction](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlruleaction.aspx). Vedere anche gli esempi [Brokered Messaging: Advanced Filters](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) (Messaggistica negoziata: filtri avanzati) e [Topic Filters](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters) (Filtri di argomento).
 
 ## <a name="next-steps"></a>Passaggi successivi
-
 Per altri esempi e informazioni sull'uso delle entità di messaggistica negoziata del bus di servizio, vedere gli argomenti avanzati seguenti.
 
-- [Panoramica della messaggistica del bus di servizio](service-bus-messaging-overview.md)
-- [Esercitazione sulla messaggistica negoziata del bus di servizio - .NET](service-bus-brokered-tutorial-dotnet.md)
-- [Esercitazione sulla messaggistica negoziata del bus di servizio - REST](service-bus-brokered-tutorial-rest.md)
-- [Topic filters sample](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters) (Esempio Filtri di argomento)
-- [Brokered Messaging: Advanced Filters sample](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) (Esempio Messaggistica negoziata: filtri avanzati)
-
-
-
+* [Panoramica della messaggistica del bus di servizio](service-bus-messaging-overview.md)
+* [Esercitazione sulla messaggistica negoziata del bus di servizio - .NET](service-bus-brokered-tutorial-dotnet.md)
+* [Esercitazione sulla messaggistica negoziata del bus di servizio - REST](service-bus-brokered-tutorial-rest.md)
+* [Topic filters sample](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters) (Esempio Filtri di argomento)
+* [Brokered Messaging: Advanced Filters sample](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) (Esempio Messaggistica negoziata: filtri avanzati)
 
 <!--HONumber=Oct16_HO2-->
 

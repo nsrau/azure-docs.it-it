@@ -1,26 +1,27 @@
-<properties
-   pageTitle="Distribuzione di un'applicazione di Service Fabric | Microsoft Azure"
-   description="Come distribuire e rimuovere applicazioni in Service Fabric"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rwike77"
-   manager="timlt"
-   editor=""/>
+---
+title: Distribuzione di un'applicazione di Service Fabric | Microsoft Docs
+description: Come distribuire e rimuovere applicazioni in Service Fabric
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/25/2016"
-   ms.author="ryanwi"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/25/2016
+ms.author: ryanwi
 
+---
 # Distribuire e rimuovere applicazioni con PowerShell
-
-> [AZURE.SELECTOR]
-- [PowerShell](service-fabric-deploy-remove-applications.md)
-- [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+> [!div class="op_single_selector"]
+> * [PowerShell](service-fabric-deploy-remove-applications.md)
+> * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+> 
+> 
 
 <br/>
 
@@ -30,10 +31,12 @@ Dopo aver creato un [pacchetto di un tipo di applicazione][10], è possibile dis
 2. Registrare il tipo di applicazione
 3. Creare l'istanza dell'applicazione
 
->[AZURE.NOTE] Se si usa Visual Studio per eseguire la distribuzione e il debug delle applicazioni nel cluster di sviluppo locale, tutti i passaggi seguenti vengono gestiti automaticamente tramite uno script di PowerShell presente nella cartella Scripts del progetto dell'applicazione. Questo articolo illustra le operazioni eseguite da tali script per consentirne l'esecuzione anche all'esterno di Visual Studio.
+> [!NOTE]
+> Se si usa Visual Studio per eseguire la distribuzione e il debug delle applicazioni nel cluster di sviluppo locale, tutti i passaggi seguenti vengono gestiti automaticamente tramite uno script di PowerShell presente nella cartella Scripts del progetto dell'applicazione. Questo articolo illustra le operazioni eseguite da tali script per consentirne l'esecuzione anche all'esterno di Visual Studio.
+> 
+> 
 
 ## Caricare il pacchetto applicazione
-
 Quando si carica il pacchetto dell’applicazione, la si inserisce in un percorso accessibile ai componenti interni di Service Fabric. È possibile utilizzare PowerShell per eseguire il caricamento. Prima di eseguire qualsiasi comando di PowerShell incluso in questo articolo, iniziare sempre utilizzando [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) per connettersi al cluster di Service Fabric.
 
 Si supponga di disporre di una cartella denominata *MyApplicationType* contenente il manifesto dell'applicazione necessaria, i manifesti del servizio e i pacchetti di codice/configurazione/dati. Il comando [Copy-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/mt125905.aspx) consente di caricare il pacchetto nell'archivio immagini del cluster. Il cmdlet **Get-ImageStoreConnectionStringFromClusterManifest**, che fa parte del modulo PowerShell Service Fabric SDK, viene usato per ottenere la stringa di connessione dell'archivio immagini. Per importare il modulo SDK, eseguire:
@@ -92,7 +95,6 @@ PS D:\temp>
 ~~~
 
 ## Registrare il pacchetto applicazione
-
 Quando si registra il pacchetto dell’applicazione, il tipo e la versione dell'applicazione dichiarati nel manifesto di quest'ultima diventano disponibili per l'uso Il sistema leggerà il pacchetto caricato nel passaggio precedente, lo verificherà (mediante un'operazione equivalente all'esecuzione di [Test-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/mt125950.aspx) in locale), ne elaborerà il contenuto e infine copierà il pacchetto elaborato in un percorso di sistema interno.
 
 ~~~
@@ -113,7 +115,6 @@ Il comando [Register-ServiceFabricApplicationType](https://msdn.microsoft.com/li
 Il comando [Get-ServiceFabricApplicationType](https://msdn.microsoft.com/library/mt125871.aspx) elenca tutte le versioni del tipo di applicazione registrate correttamente.
 
 ## Creazione dell'applicazione
-
 È possibile creare un'istanza di un'applicazione utilizzando qualsiasi versione del tipo di applicazione registrata correttamente mediante il comando [New-ServiceFabricApplication](https://msdn.microsoft.com/library/mt125913.aspx). Il nome di ogni applicazione deve iniziare con lo schema *fabric:* ed essere univoco per ogni istanza dell'applicazione. I servizi predefiniti specificati nel manifesto dell'applicazione del tipo di applicazione di destinazione vengono creati in questa fase.
 
 ~~~
@@ -153,7 +154,6 @@ Il comando [Get-ServiceFabricService](https://msdn.microsoft.com/library/mt12588
 Per qualsiasi versione di un tipo di applicazione registrato, è possibile creare più istanze dell'applicazione. Ogni istanza viene eseguita in isolamento, con un proprio processo e una propria directory di lavoro.
 
 ## Rimuovere un'applicazione
-
 Quando un'istanza dell'applicazione non è più necessaria, è possibile rimuoverla definitivamente usando il comando [Remove-ServiceFabricApplication](https://msdn.microsoft.com/library/mt125914.aspx). Questo comando rimuove automaticamente anche tutti i servizi appartenenti all'applicazione, nonché il relativo stato di servizio. Tale operazione non può essere annullata e lo stato dell'applicazione non può essere recuperato.
 
 ~~~
@@ -202,9 +202,7 @@ PS D:\temp>
 ~~~
 
 ## Risoluzione dei problemi
-
 ### Copy-ServiceFabricApplicationPackage chiede un parametro ImageStoreConnectionString
-
 Nell'ambiente Service Fabric SDK dovrebbero già essere configurate le impostazioni predefinite corrette. Tuttavia, se necessario, ImageStoreConnectionString per tutti i comandi deve corrispondere al valore che viene usato dal cluster Service Fabric. È possibile trovarlo nel manifesto del cluster recuperato tramite il comando [Get-ServiceFabricClusterManifest](https://msdn.microsoft.com/library/mt126024.aspx):
 
 ~~~
@@ -232,7 +230,6 @@ PS D:\temp>
 ~~~
 
 ## Passaggi successivi
-
 [Aggiornamento di un'applicazione di infrastruttura di servizi](service-fabric-application-upgrade.md)
 
 [Introduzione all'integrità di Service Fabric](service-fabric-health-introduction.md)

@@ -1,28 +1,25 @@
-<properties
-    pageTitle="Autorizzazione di Azure AD da servizio a servizio con OAuth2.0 | Microsoft Azure"
-    description="Questo articolo illustra come usare i messaggi HTTP per implementare l'autenticazione da servizio a servizio usando il flusso di concessione di credenziali client OAuth2.0."
-    services="active-directory"
-    documentationCenter=".net"
-    authors="priyamohanram"
-    manager="mbaldwin"
-    editor=""/>
+---
+title: Autorizzazione di Azure AD da servizio a servizio con OAuth2.0 | Microsoft Docs
+description: Questo articolo illustra come usare i messaggi HTTP per implementare l'autenticazione da servizio a servizio usando il flusso di concessione di credenziali client OAuth2.0.
+services: active-directory
+documentationcenter: .net
+author: priyamohanram
+manager: mbaldwin
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/03/2016"
-    ms.author="priyamo"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/03/2016
+ms.author: priyamo
 
-
+---
 # <a name="service-to-service-calls-using-client-credentials"></a>Chiamate da servizio a servizio mediante le credenziali client
-
 Il flusso di concessione delle credenziali client OAuth 2.0 consente a un servizio Web, ovvero un *client riservato*, di usare le proprie credenziali per l'autenticazione durante la chiamata a un altro servizio Web, invece di rappresentare un utente. In questo scenario il client è in genere un servizio Web di livello intermedio, un servizio daemon o un sito Web.
 
 ## <a name="client-credentials-grant-flow-diagram"></a>Diagramma del flusso di concessione delle credenziali client
-
 Il diagramma seguente illustra il funzionamento del flusso di concessione delle credenziali client in Azure Active Directory (Azure AD).
 
 ![Flusso di concessione delle credenziali client di OAuth 2.0](media/active-directory-protocols-oauth-service-to-service/active-directory-protocols-oauth-client-credentials-grant-flow.jpg)
@@ -33,11 +30,9 @@ Il diagramma seguente illustra il funzionamento del flusso di concessione delle 
 4. I dati della risorsa protetta vengono restituiti all'applicazione Web.
 
 ## <a name="register-the-services-in-azure-ad"></a>Registrare i servizi in Azure AD
-
 Registrare il servizio chiamante e il servizio ricevente in Azure Active Directory (Azure AD). Per istruzioni dettagliate, vedere [Integrazione di applicazioni con Azure Active Directory](active-directory-integrating-applications.md#BKMK_Native)
 
 ## <a name="request-an-access-token"></a>Richiedere un token di accesso
-
 Per richiedere un token di accesso, usare una richiesta HTTP POST per l'endpoint di Azure AD specifico del tenant.
 
 ```
@@ -45,18 +40,16 @@ https://login.microsoftonline.com/<tenant id>/oauth2/token
 ```
 
 ## <a name="service-to-service-access-token-request"></a>Richiesta del token di accesso da servizio a servizio
-
 Un token di accesso da servizio a servizio contiene i parametri seguenti.
 
-| Parametro | | Descrizione |
-|-----------|------|------------|
-| response_type | Obbligatoria | Specifica il tipo di risposta richiesto. In un flusso di concessione delle credenziali client il valore deve essere **client_credentials**.|
-| client_id | Obbligatoria | Specifica l'ID client di Azure AD del servizio Web chiamante. Per trovare l'ID client dell'applicazione chiamante, nel portale di gestione di Azure fare clic su **Active Directory**, selezionare la directory, fare clic sull'applicazione e infine su **Configura**.|
-| client_secret | Obbligatoria |  Immettere una chiave registrata per il servizio Web chiamante in Azure AD. Per creare una chiave, nel portale di gestione di Azure fare clic su **Active Directory**, selezionare la directory, fare clic sull'applicazione e infine su **Configura**. |
-| resource | Obbligatoria | Immettere l'URI ID app del servizio Web ricevente. Per trovare l'URI ID app, nel portale di gestione di Azure fare clic su **Active Directory**, selezionare la directory, fare clic sull'applicazione e infine su **Configura**. |
+| Parametro |  | Descrizione |
+| --- | --- | --- |
+| response_type |Obbligatoria |Specifica il tipo di risposta richiesto. In un flusso di concessione delle credenziali client il valore deve essere **client_credentials**. |
+| client_id |Obbligatoria |Specifica l'ID client di Azure AD del servizio Web chiamante. Per trovare l'ID client dell'applicazione chiamante, nel portale di gestione di Azure fare clic su **Active Directory**, selezionare la directory, fare clic sull'applicazione e infine su **Configura**. |
+| client_secret |Obbligatoria |Immettere una chiave registrata per il servizio Web chiamante in Azure AD. Per creare una chiave, nel portale di gestione di Azure fare clic su **Active Directory**, selezionare la directory, fare clic sull'applicazione e infine su **Configura**. |
+| resource |Obbligatoria |Immettere l'URI ID app del servizio Web ricevente. Per trovare l'URI ID app, nel portale di gestione di Azure fare clic su **Active Directory**, selezionare la directory, fare clic sull'applicazione e infine su **Configura**. |
 
 ## <a name="example"></a>Esempio
-
 La richiesta HTTP POST seguente richiede un token di accesso per il servizio Web https://service.contoso.com/. `client_id` identifica il servizio Web che richiede il token di accesso.
 
 ```
@@ -68,19 +61,17 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 ```
 
 ## <a name="service-to-service-access-token-response"></a>Risposta del token di accesso da servizio a servizio
-
 Una risposta corretta contiene una risposta OAuth 2.0 JSON con i parametri seguenti.
 
-| Parametro   | Descrizione |
-|-------------|-------------|
-|access_token |Token di accesso richiesto. Il servizio Web chiamante può usare questo token per l'autenticazione nel servizio Web ricevente. |
-|access_type  | Indica il valore del tipo di token. L'unico tipo supportato da Azure AD è **Bearer**. Per altre informazioni sui token di connessione, vedere [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt)(Framework di autorizzazione di OAuth2.0: uso dei token di connessione - RFC 6750).
-|expires_in   | Validità del token di accesso (espressa in secondi).|
-|expires_on   |Scadenza del token di accesso. La data è rappresentata come numero di secondi da 1970-01-01T0:0:0Z UTC fino alla scadenza. Questo valore viene usato per determinare la durata dei token memorizzati nella cache. |
-|resource     | URI ID app del servizio Web ricevente. |
+| Parametro | Descrizione |
+| --- | --- |
+| access_token |Token di accesso richiesto. Il servizio Web chiamante può usare questo token per l'autenticazione nel servizio Web ricevente. |
+| access_type |Indica il valore del tipo di token. L'unico tipo supportato da Azure AD è **Bearer**. Per altre informazioni sui token di connessione, vedere [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt)(Framework di autorizzazione di OAuth2.0: uso dei token di connessione - RFC 6750). |
+| expires_in |Validità del token di accesso (espressa in secondi). |
+| expires_on |Scadenza del token di accesso. La data è rappresentata come numero di secondi da 1970-01-01T0:0:0Z UTC fino alla scadenza. Questo valore viene usato per determinare la durata dei token memorizzati nella cache. |
+| resource |URI ID app del servizio Web ricevente. |
 
 ## <a name="example"></a>Esempio
-
 L'esempio seguente mostra una risposta corretta a una richiesta di token di accesso per un servizio Web.
 
 ```
@@ -94,10 +85,7 @@ L'esempio seguente mostra una risposta corretta a una richiesta di token di acce
 ```
 
 ## <a name="see-also"></a>Vedere anche
-
 * [OAuth 2.0 in Azure AD](active-directory-protocols-oauth-code.md)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

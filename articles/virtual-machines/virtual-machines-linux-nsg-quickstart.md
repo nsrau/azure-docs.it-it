@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Aprire porte per una VM Linux | Microsoft Azure"
-   description="Informazioni su come aprire una porta o creare un endpoint per la VM Linux tramite il modello di distribuzione Azure Resource Manager e l'interfaccia della riga di comando di Azure"
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""/>
+---
+title: Aprire porte per una VM Linux | Microsoft Docs
+description: Informazioni su come aprire una porta o creare un endpoint per la VM Linux tramite il modello di distribuzione Azure Resource Manager e l'interfaccia della riga di comando di Azure
+services: virtual-machines-linux
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="08/08/2016"
-   ms.author="iainfou"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 08/08/2016
+ms.author: iainfou
 
+---
 # Apertura di porte per una VM Linux in Azure
 Aprire una porta o creare un endpoint in una macchina virtuale (VM) di Azure tramite la creazione di un filtro di rete su una subnet o un'interfaccia di rete di VM. Questi filtri, che consentono di controllare il traffico in ingresso e in uscita, vengono inseriti in un gruppo di sicurezza di rete e collegati alla risorsa che riceve il traffico. Si userà un esempio comune di traffico Web sulla porta 80.
 
@@ -57,8 +57,8 @@ Se si deve usare il port forwarding per eseguire il mapping di una sola porta es
 ## Passaggi successivi
 In questo esempio viene creata una regola semplice per consentire il traffico HTTP. È possibile trovare informazioni sulla creazione di ambienti più dettagliati negli articoli seguenti:
 
-- [Panoramica di Gestione risorse di Azure](../resource-group-overview.md)
-- [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md)
-- [Panoramica di Azure Resource Manager per i servizi di bilanciamento del carico](../load-balancer2 /load-balancer-arm.md)
+* [Panoramica di Gestione risorse di Azure](../resource-group-overview.md)
+* [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md)
+* [Panoramica di Azure Resource Manager per i servizi di bilanciamento del carico](../load-balancer/load-balancer-arm.md)
 
 <!---HONumber=AcomDC_0907_2016-->

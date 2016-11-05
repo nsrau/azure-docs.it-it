@@ -1,50 +1,45 @@
-<properties
-	pageTitle="Linee guida per le sottoscrizioni e gli account | Microsoft Azure"
-	description="Informazioni sulle principali linee guida di progettazione e implementazione per le sottoscrizioni e gli account in Azure."
-	documentationCenter=""
-	services="virtual-machines-linux"
-	authors="iainfoulds"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+---
+title: Linee guida per le sottoscrizioni e gli account | Microsoft Docs
+description: Informazioni sulle principali linee guida di progettazione e implementazione per le sottoscrizioni e gli account in Azure.
+documentationcenter: ''
+services: virtual-machines-linux
+author: iainfoulds
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/08/2016"
-	ms.author="iainfou"/>
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 09/08/2016
+ms.author: iainfou
 
+---
 # Linee guida per le sottoscrizioni e gli account
-
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
+[!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Questo articolo è incentrato sulla comprensione delle modalità di gestione delle sottoscrizioni e degli account mano a mano che si amplia l'ambiente e la base utenti.
 
-
 ## Linee guida per l'implementazione di sottoscrizioni e account
-
 Decisioni:
 
-- Quali sono i set di sottoscrizioni e account necessari per l’hosting dell’infrastruttura o del carico di lavoro IT?
-- Come deve essere suddivisa la gerarchia in modo da adattarsi all'organizzazione?
+* Quali sono i set di sottoscrizioni e account necessari per l’hosting dell’infrastruttura o del carico di lavoro IT?
+* Come deve essere suddivisa la gerarchia in modo da adattarsi all'organizzazione?
 
 Attività:
 
-- Definire la gerarchia di organizzazione logica in base a come si desidera gestirla a livello di sottoscrizioni.
-- Per associare la gerarchia logica, definire gli account necessari e le sottoscrizioni per ogni account.
-- Creare il set di sottoscrizioni e account usando la convenzione di denominazione scelta.
-
+* Definire la gerarchia di organizzazione logica in base a come si desidera gestirla a livello di sottoscrizioni.
+* Per associare la gerarchia logica, definire gli account necessari e le sottoscrizioni per ogni account.
+* Creare il set di sottoscrizioni e account usando la convenzione di denominazione scelta.
 
 ## Sottoscrizioni e account
-
 Per lavorare con Azure, sono necessarie una o più sottoscrizioni ad Azure. Nell'ambito di tali sottoscrizioni sono presenti risorse come ad esempio le macchine virtuali o le reti virtuali.
 
-- I clienti aziendali dispongono in genere di una registrazione Enterprise, che è la risorsa più in alto nella gerarchia ed è associata a uno o più account.
-- Per utenti e clienti senza una registrazione Enterprise, la risorsa di livello superiore è l'Account.
-- Le sottoscrizioni sono associate agli account ed è possibile associare una o più sottoscrizioni a ogni account. In Azure le informazioni relative alla fatturazione vengono registrate a livello di sottoscrizione.
+* I clienti aziendali dispongono in genere di una registrazione Enterprise, che è la risorsa più in alto nella gerarchia ed è associata a uno o più account.
+* Per utenti e clienti senza una registrazione Enterprise, la risorsa di livello superiore è l'Account.
+* Le sottoscrizioni sono associate agli account ed è possibile associare una o più sottoscrizioni a ogni account. In Azure le informazioni relative alla fatturazione vengono registrate a livello di sottoscrizione.
 
 A causa del limite di due livelli della gerarchia nella relazione di account/sottoscrizione è importante allineare la convenzione di denominazione degli account e delle sottoscrizioni alle esigenze di fatturazione. Se ad esempio un'azienda globale usa Azure, può scegliere di disporre di un account per ogni area e fare in modo che le sottoscrizioni vengano gestite a livello di area:
 
@@ -64,9 +59,7 @@ L'organizzazione potrebbe avere un aspetto simile al seguente:
 
 Viene fornita la fatturazione dettagliata tramite un file scaricabile, per un singolo account o per tutti gli account di un contratto Enterprise.
 
-
 ## Passaggi successivi
-
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
+[!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
 <!---HONumber=AcomDC_0914_2016-->

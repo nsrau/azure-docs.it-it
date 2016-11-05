@@ -1,25 +1,26 @@
-<properties 
-	pageTitle="Eseguire Cassandra con Linux in Azure | Microsoft Azure" 
-	description="Spiega come eseguire un cluster Cassandra in Linux in Macchine virtuali di Azure da un’app Node.js" 
-	services="virtual-machines-linux" 
-	documentationCenter="nodejs" 
-	authors="hanuk" 
-	manager="wpickett" 
-	editor=""
-	tags="azure-service-management"/>
+---
+title: Eseguire Cassandra con Linux in Azure | Microsoft Docs
+description: Spiega come eseguire un cluster Cassandra in Linux in Macchine virtuali di Azure da un’app Node.js
+services: virtual-machines-linux
+documentationcenter: nodejs
+author: hanuk
+manager: wpickett
+editor: ''
+tags: azure-service-management
 
-<tags 
-	ms.service="virtual-machines-linux" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2016" 
-	ms.author="hanuk;robmcm"/>
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 08/11/2016
+ms.author: hanuk;robmcm
 
-# Esecuzione di Cassandra con Linux in Azure e accesso da Node.js 
+---
+# Esecuzione di Cassandra con Linux in Azure e accesso da Node.js
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Informazioni su come [eseguire questa procedura con il modello di Resource Manager](https://azure.microsoft.com/documentation/templates/datastax-on-ubuntu/).
+Informazioni su come [eseguire questa procedura con il modello di Resource Manager](https://azure.microsoft.com/documentation/templates/datastax-on-ubuntu/).
 
 ## Overview
 Microsoft Azure è una piattaforma cloud aperta che esegue software sia Microsoft che non Microsoft, inclusi sistemi operativi, server applicazioni, middleware di messaggistica, oltre a database SQL e NoSQL da modelli sia commerciali che open source. La compilazione di servizi resilienti su cloud pubblici, incluso Azure, richiede un'attenta pianificazione e un'architettura mirata sia per i server applicazioni che per i livelli di archiviazione. L'architettura di archiviazione distribuita di Cassandra aiuta a compilare con facilità sistemi a disponibilità elevata a tolleranza di errore del cluster. Cassandra è un database NoSQL con scalabilità cloud gestito da Apache Software Foundation all'indirizzo cassandra.apache.org. Cassandra, essendo scritto in Java, viene eseguito su piattaforme sia Windows che Linux.
@@ -28,15 +29,15 @@ Lo scopo di questo articolo è mostrare la distribuzione di Cassandra in Ubuntu 
 
 Questo articolo usa un approccio di base per spiegare che cosa comporta la compilazione del cluster Cassandra rispetto a Docker, Chef o Puppet, semplificando notevolmente la distribuzione dell'infrastruttura.
 
-## Modelli di distribuzione 
+## Modelli di distribuzione
 La rete di Microsoft Azure consente di distribuire cluster privati isolati, il cui accesso può essere limitato per ottenere una sicurezza di rete con granularità fine. Poiché lo scopo di questo articolo è illustrare la distribuzione di Cassandra a un livello di base, non si parlerà del livello di coerenza e della progettazione delle risorse di archiviazione ottimale per la velocità effettiva. Ecco i requisiti di rete per l'ipotetico cluster:
 
-- I sistemi esterni non possono accedere al database Cassandra da Azure o all'esterno di Azure
-- Il cluster Cassandra deve trovarsi dietro un bilanciamento del carico per il traffico Thrift
-- Distribuire i nodi di Cassandra in due gruppi in ogni data center per una migliore disponibilità del cluster
-- Bloccare il cluster in modo che solo la server farm applicazioni abbia accesso diretto al database
-- Nessun endpoint di rete pubblico diverso da SSH
-- Ogni nodo di Cassandra richiede un indirizzo IP interno fisso
+* I sistemi esterni non possono accedere al database Cassandra da Azure o all'esterno di Azure
+* Il cluster Cassandra deve trovarsi dietro un bilanciamento del carico per il traffico Thrift
+* Distribuire i nodi di Cassandra in due gruppi in ogni data center per una migliore disponibilità del cluster
+* Bloccare il cluster in modo che solo la server farm applicazioni abbia accesso diretto al database
+* Nessun endpoint di rete pubblico diverso da SSH
+* Ogni nodo di Cassandra richiede un indirizzo IP interno fisso
 
 Cassandra può essere distribuito in una singola area di Azure o in più aree a seconda della natura distribuita del carico di lavoro. Il modello di distribuzione in più aree può essere usato per gestire gli utenti finali più vicini a una determinata area geografica con la stessa infrastruttura di Cassandra. La replica dei nodi predefiniti di Cassandra consente di sincronizzare le scritture multimaster derivanti da più data center e presenta alle applicazioni una visualizzazione coerente dei dati. La distribuzione in più aree è utile anche per attenuare i rischi causati dalle interruzioni di Servizi di Azure. La coerenza perfezionabile e la topologia di replica di Cassandra saranno di aiuto anche per soddisfare diverse esigenze RPO delle applicazioni.
 
@@ -64,14 +65,13 @@ Con il cluster a 8 nodi illustrato in precedenza, con un fattore di replica pari
 Configurazione del cluster Cassandra in un'area singola:
 
 | Parametro cluster | Valore | Osservazioni |
-| ----------------- | ----- | ------- |
-| Number of Nodes (N) | 8 | Numero totale di nodi nel cluster |
-| Replication Factor (RF) | 3 |	Numero di repliche di una determinata riga |
-| Consistency Level (Write) | QUORUM[(RF/2) +1) = 2] Il risultato della formula viene arrotondato per difetto | Scrive al massimo 2 repliche prima che la risposta venga inviata al chiamante. La terza replica viene scritta in modo coerente alla fine. |
-| Consistency Level (Read) | QUORUM [(RF/2) +1= 2] Il risultato della formula viene arrotondato per difetto | Legge 2 repliche prima di inviare la risposta al chiamante. |
-| Replication Strategy | NetworkTopologyStrategy: per ulteriori informazioni, vedere [Replica dei dati](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) nella documentazione di Cassandra | Riconosce la topologia della distribuzione e inserisce le repliche nei nodi in modo che tutte le repliche non finiscano nello stesso rack |
-| Snitch | GossipingPropertyFileSnitch: per ulteriori informazioni, vedere [Snitch](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) nella documentazione di Cassandra | NetworkTopologyStrategy usa il concetto di snitch per conoscere la topologia. GossipingPropertyFileSnitch offre un maggior controllo sul mapping di ogni nodo al data center e al rack. Il cluster usa quindi il protocollo gossip per propagare queste informazioni. Questo è molto più semplice nell'impostazione IP dinamico relativa a PropertyFileSnitch |
-
+| --- | --- | --- |
+| Number of Nodes (N) |8 |Numero totale di nodi nel cluster |
+| Replication Factor (RF) |3 |Numero di repliche di una determinata riga |
+| Consistency Level (Write) |QUORUM[(RF/2) +1) = 2] Il risultato della formula viene arrotondato per difetto |Scrive al massimo 2 repliche prima che la risposta venga inviata al chiamante. La terza replica viene scritta in modo coerente alla fine. |
+| Consistency Level (Read) |QUORUM [(RF/2) +1= 2] Il risultato della formula viene arrotondato per difetto |Legge 2 repliche prima di inviare la risposta al chiamante. |
+| Replication Strategy |NetworkTopologyStrategy: per ulteriori informazioni, vedere [Replica dei dati](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) nella documentazione di Cassandra |Riconosce la topologia della distribuzione e inserisce le repliche nei nodi in modo che tutte le repliche non finiscano nello stesso rack |
+| Snitch |GossipingPropertyFileSnitch: per ulteriori informazioni, vedere [Snitch](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) nella documentazione di Cassandra |NetworkTopologyStrategy usa il concetto di snitch per conoscere la topologia. GossipingPropertyFileSnitch offre un maggior controllo sul mapping di ogni nodo al data center e al rack. Il cluster usa quindi il protocollo gossip per propagare queste informazioni. Questo è molto più semplice nell'impostazione IP dinamico relativa a PropertyFileSnitch |
 
 **Considerazioni di Azure per Cluster Cassandra:** la funzionalità Macchine virtuali di Microsoft Azure utilizza l'archiviazione BLOB di Azure per la persistenza del disco; Archiviazione di Azure consente di salvare 3 repliche di ciascun disco per garantire una durabilità elevata. Ciò significa che ogni riga di dati inserita in una tabella di Cassandra è già archiviata in 3 repliche e, pertanto, la coerenza dei dati è già assicurata anche se il fattore di replica (RF) è 1. Il problema principale con un fattore di replica pari a 1 è che l'applicazione subirà tempi di inattività anche in caso di errore di un singolo nodo di Cassandra. Tuttavia, se un nodo è inattivo per problemi riconosciuti dal Controller di infrastruttura di Azure, ad esempio errori hardware o del software di sistema, verrà effettuato il provisioning di un nuovo nodo utilizzando le stesse unità di archiviazione. Il provisioning di un nuovo nodo per sostituire quello vecchio potrebbe richiedere alcuni minuti. Allo stesso modo, per le attività di manutenzione pianificata come le modifiche del sistema operativo guest, gli aggiornamenti e le modifiche dell’applicazione di Cassandra, il controller di infrastruttura di Azure esegue in sequenza gli aggiornamenti dei nodi del cluster. Gli aggiornamenti in sequenza potrebbero comportare l’inattività di alcuni nodi, per cui nel cluster potrebbe verificarsi breve periodo di inattività per alcune partizioni. Tuttavia, i dati non saranno persi grazie alla ridondanza di archiviazione di Azure incorporata.
 
@@ -98,26 +98,24 @@ Le distribuzioni devono riconoscere l'impatto della topologia del cluster sulla 
 
 **Configurazione del cluster Cassandra in due aree**
 
-
 | Parametro cluster | Valore | Osservazioni |
-| ----------------- | ----- | ------- |
-| Number of Nodes (N) | 8 + 8 | Numero totale di nodi nel cluster |
-| Replication Factor (RF) | 3 | Numero di repliche di una determinata riga |
-| Consistency Level (Write) | LOCAL\_QUORUM [(sum(RF)/2) +1) = 4] Il risultato della formula viene arrotondato per difetto | 2 nodi verranno scritti nel primo data center in modo sincrono. Gli altri 2 nodi necessari per il quorum verranno scritti in modo asincrono nel secondo data center. |
-| Consistency Level (Read) | LOCAL\_QUORUM((RF/2) +1) = 2 Il risultato della formula viene arrotondato per difetto | Le richieste di lettura vengono soddisfatte da una sola area. 2 nodi vengono letti prima che la risposta venga inviata nuovamente al client. |
-| Replication Strategy | NetworkTopologyStrategy: per ulteriori informazioni, vedere [Replica dei dati](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) nella documentazione di Cassandra | Riconosce la topologia della distribuzione e inserisce le repliche nei nodi in modo che tutte le repliche non finiscano nello stesso rack |
-| Snitch | GossipingPropertyFileSnitch: per ulteriori informazioni, vedere [Snitch](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) nella documentazione di Cassandra | NetworkTopologyStrategy usa il concetto di snitch per conoscere la topologia. GossipingPropertyFileSnitch offre un maggior controllo sul mapping di ogni nodo al data center e al rack. Il cluster usa quindi il protocollo gossip per propagare queste informazioni. Questo è molto più semplice nell'impostazione IP dinamico relativa a PropertyFileSnitch | 
- 
+| --- | --- | --- |
+| Number of Nodes (N) |8 + 8 |Numero totale di nodi nel cluster |
+| Replication Factor (RF) |3 |Numero di repliche di una determinata riga |
+| Consistency Level (Write) |LOCAL\_QUORUM [(sum(RF)/2) +1) = 4] Il risultato della formula viene arrotondato per difetto |2 nodi verranno scritti nel primo data center in modo sincrono. Gli altri 2 nodi necessari per il quorum verranno scritti in modo asincrono nel secondo data center. |
+| Consistency Level (Read) |LOCAL\_QUORUM((RF/2) +1) = 2 Il risultato della formula viene arrotondato per difetto |Le richieste di lettura vengono soddisfatte da una sola area. 2 nodi vengono letti prima che la risposta venga inviata nuovamente al client. |
+| Replication Strategy |NetworkTopologyStrategy: per ulteriori informazioni, vedere [Replica dei dati](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) nella documentazione di Cassandra |Riconosce la topologia della distribuzione e inserisce le repliche nei nodi in modo che tutte le repliche non finiscano nello stesso rack |
+| Snitch |GossipingPropertyFileSnitch: per ulteriori informazioni, vedere [Snitch](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) nella documentazione di Cassandra |NetworkTopologyStrategy usa il concetto di snitch per conoscere la topologia. GossipingPropertyFileSnitch offre un maggior controllo sul mapping di ogni nodo al data center e al rack. Il cluster usa quindi il protocollo gossip per propagare queste informazioni. Questo è molto più semplice nell'impostazione IP dinamico relativa a PropertyFileSnitch |
 
-##CONFIGURAZIONE SOFTWARE
+## CONFIGURAZIONE SOFTWARE
 Durante la distribuzione vengono usate le seguenti versioni software:
 
 <table>
 <tr><th>Software</th><th>Sorgente</th><th>Versione</th></tr>
-<tr><td>JRE	</td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
-<tr><td>JNA	</td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
+<tr><td>JRE    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
+<tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
-<tr><td>Ubuntu	</td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
+<tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
 </table>
 
 Poiché il download di JRE richiede di accettare manualmente la licenza Oracle, per semplificare la distribuzione, scaricare tutto il software necessario nel desktop per caricarlo in seguito nell'immagine modello di Ubuntu che verrà creata come precursore della distribuzione cluster.
@@ -126,10 +124,11 @@ Scaricare il software citato sopra in una directory per i download nota (ad esem
 
 ### CREARE UNA MACCHINA VIRTUALE UBUNTU
 In questo passaggio del processo verrà creata l'immagine di Ubuntu con i prerequisiti software per poter riusare l'immagine per il provisioning di più nodi di Cassandra.
-####PASSAGGIO 1: Generare la coppia di chiavi SSH
+
+#### PASSAGGIO 1: Generare la coppia di chiavi SSH
 In fase di provisioning Azure richiede una chiave pubblica X509 con codifica PEM o DER. Generare una coppia di chiavi pubbliche/private seguendo le istruzioni contenute in Come usare SSH con Linux in Azure. Se si prevede di usare putty.exe come client SSH in Windows o Linux, è necessario convertire la chiave privata RSA con codifica PEM nel formato PPK mediante puttygen.exe. Le istruzioni relative a questa operazione sono disponibili nella pagina Web precedente.
 
-####PASSAGGIO 2: Creare una macchina virtuale modello Ubuntu
+#### PASSAGGIO 2: Creare una macchina virtuale modello Ubuntu
 Per creare il modello di macchina virtuale, accedere al portale di Azure classico e usare la sequenza seguente: fare clic su NUOVO, CALCOLO, MACCHINA VIRTUALE, DA RACCOLTA, UBUNTU, Ubuntu Server 14.04 LTS e quindi fare clic sulla freccia a destra. Per un'esercitazione che descrive come creare una macchina virtuale Linux, vedere Creazione di una macchina virtuale che esegue Linux.
 
 Immettere le informazioni seguenti nella schermata n. 1 "Configurazione macchina virtuale":
@@ -137,179 +136,179 @@ Immettere le informazioni seguenti nella schermata n. 1 "Configurazione macchina
 <table>
 <tr><th>NOME CAMPO              </td><td>       VALORE CAMPO               </td><td>         OSSERVAZIONI                </td><tr>
 <tr><td>DATA DI RILASCIO VERSIONE    </td><td> Selezionare una data nella casella a discesa</td><td></td><tr>
-<tr><td>NOME MACCHINA VIRTUALE    </td><td> cass-template	               </td><td> Nome host della macchina virtuale </td><tr>
-<tr><td>LIVELLO	                 </td><td> STANDARD	                       </td><td> Lasciare l'impostazione predefinita              </td><tr>
-<tr><td>DIMENSIONE	                 </td><td> A1                              </td><td>Selezionare la macchina virtuale in base alle esigenze di IO; per questo scopo, lasciare l'impostazione predefinita </td><tr>
-<tr><td> NUOVO NOME UTENTE	         </td><td> localadmin	                   </td><td> "admin" è un nome utente riservato in Ubuntu 12.xx e versioni successive</td><tr>
-<tr><td> AUTENTICAZIONE	     </td><td> Fare clic sulla casella di controllo                 </td><td>Selezionare se si desidera applicare la protezione con una chiave SSH </td><tr>
-<tr><td> CERTIFICATO	         </td><td> nome file del certificato di chiave pubblica </td><td> Usare la chiave pubblica generata in precedenza</td><tr>
-<tr><td> Nuova password	</td><td> password complessa </td><td> </td><tr>
-<tr><td> Confirm Password	</td><td> password complessa </td><td></td><tr>
+<tr><td>NOME MACCHINA VIRTUALE    </td><td> cass-template                   </td><td> Nome host della macchina virtuale </td><tr>
+<tr><td>LIVELLO                     </td><td> STANDARD                           </td><td> Lasciare l'impostazione predefinita              </td><tr>
+<tr><td>DIMENSIONE                     </td><td> A1                              </td><td>Selezionare la macchina virtuale in base alle esigenze di IO; per questo scopo, lasciare l'impostazione predefinita </td><tr>
+<tr><td> NUOVO NOME UTENTE             </td><td> localadmin                       </td><td> "admin" è un nome utente riservato in Ubuntu 12.xx e versioni successive</td><tr>
+<tr><td> AUTENTICAZIONE         </td><td> Fare clic sulla casella di controllo                 </td><td>Selezionare se si desidera applicare la protezione con una chiave SSH </td><tr>
+<tr><td> CERTIFICATO             </td><td> nome file del certificato di chiave pubblica </td><td> Usare la chiave pubblica generata in precedenza</td><tr>
+<tr><td> Nuova password    </td><td> password complessa </td><td> </td><tr>
+<tr><td> Confirm Password    </td><td> password complessa </td><td></td><tr>
 </table>
 
 Immettere le informazioni seguenti nella schermata n. 2 "Configurazione macchina virtuale":
 
 <table>
-<tr><th>NOME CAMPO             </th><th> VALORE CAMPO	                   </th><th> OSSERVAZIONI                                 </th></tr>
-<tr><td> SERVIZIO CLOUD	</td><td> Crea un nuovo servizio cloud	</td><td>Il servizio cloud è un contenitore per le risorse di calcolo come le macchine virtuali</td></tr>
-<tr><td> NOME DNS DEL SERVIZIO CLOUD:	</td><td>ubuntu-template.cloudapp.net	</td><td>Assegnare un nome bilanciamento del carico indipendente dal computer</td></tr>
-<tr><td> AREA/GRUPPO DI AFFINITÀ/RETE VIRTUALE </td><td>	Stati Uniti occidentali	</td><td> Selezionare un'area da cui le applicazioni Web accedono al cluster Cassandra</td></tr>
-<tr><td>ACCOUNT DI ARCHIVIAZIONE </td><td>	Usare l'impostazione predefinita.	</td><td>Usare l'account di archiviazione predefinito o un account di archiviazione creato in precedenza in una determinata area</td></tr>
-<tr><td>SET DI DISPONIBILITÀ </td><td>	None </td><td>	Lasciare vuoto</td></tr>
-<tr><td>ENDPOINT	</td><td>Usare l'impostazione predefinita. </td><td>	Usare la configurazione SSH predefinita </td></tr>
+<tr><th>NOME CAMPO             </th><th> VALORE CAMPO                       </th><th> OSSERVAZIONI                                 </th></tr>
+<tr><td> SERVIZIO CLOUD    </td><td> Crea un nuovo servizio cloud    </td><td>Il servizio cloud è un contenitore per le risorse di calcolo come le macchine virtuali</td></tr>
+<tr><td> NOME DNS DEL SERVIZIO CLOUD:    </td><td>ubuntu-template.cloudapp.net    </td><td>Assegnare un nome bilanciamento del carico indipendente dal computer</td></tr>
+<tr><td> AREA/GRUPPO DI AFFINITÀ/RETE VIRTUALE </td><td>    Stati Uniti occidentali    </td><td> Selezionare un'area da cui le applicazioni Web accedono al cluster Cassandra</td></tr>
+<tr><td>ACCOUNT DI ARCHIVIAZIONE </td><td>    Usare l'impostazione predefinita.    </td><td>Usare l'account di archiviazione predefinito o un account di archiviazione creato in precedenza in una determinata area</td></tr>
+<tr><td>SET DI DISPONIBILITÀ </td><td>    None </td><td>    Lasciare vuoto</td></tr>
+<tr><td>ENDPOINT    </td><td>Usare l'impostazione predefinita. </td><td>    Usare la configurazione SSH predefinita </td></tr>
 </table>
 
 Fare clic sulla freccia destra, lasciare le impostazioni predefinite nella schermata n. 3 e fare clic sul pulsante con il segno di spunta per completare il processo di provisioning della macchina virtuale. Dopo alcuni minuti, la macchina virtuale "ubuntu-template" sarà in stato "In esecuzione".
 
-###INSTALLARE IL SOFTWARE NECESSARIO
-####PASSAGGIO 1: Caricare i file tarball 
+### INSTALLARE IL SOFTWARE NECESSARIO
+#### PASSAGGIO 1: Caricare i file tarball
 Con scp o pscp, copiare il software scaricato in precedenza nella directory ~/downloads con il seguente formato del comando:
 
-#####pscp server-jre-8u5-linux-x64.tar.gz localadmin@hk-cas-template.cloudapp.net:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
-
+##### pscp server-jre-8u5-linux-x64.tar.gz localadmin@hk-cas-template.cloudapp.net:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
 Ripetere il comando precedente per JRE e per i bit di Cassandra.
 
-####PASSAGGIO 2: Preparare la struttura di directory ed estrarre gli archivi
+#### PASSAGGIO 2: Preparare la struttura di directory ed estrarre gli archivi
 Accedere alla macchina virtuale e creare la struttura di directory ed estrarre il software come utente con privilegi avanzati con lo script bash seguente:
 
-	#!/bin/bash
-	CASS_INSTALL_DIR="/opt/cassandra"
-	JRE_INSTALL_DIR="/opt/java"
-	CASS_DATA_DIR="/var/lib/cassandra"
-	CASS_LOG_DIR="/var/log/cassandra"
-	DOWNLOADS_DIR="~/downloads"
-	JRE_TARBALL="server-jre-8u5-linux-x64.tar.gz"
-	CASS_TARBALL="apache-cassandra-2.0.8-bin.tar.gz"
-	SVC_USER="localadmin"
-	
-	RESET_ERROR=1
-	MKDIR_ERROR=2
-	
-	reset_installation ()
-	{
-	   rm -rf $CASS_INSTALL_DIR 2> /dev/null
-	   rm -rf $JRE_INSTALL_DIR 2> /dev/null
-	   rm -rf $CASS_DATA_DIR 2> /dev/null
-	   rm -rf $CASS_LOG_DIR 2> /dev/null
-	}
-	make_dir ()
-	{
-	   if [ -z "$1" ]
-	   then
-	      echo "make_dir: invalid directory name"
-	      exit $MKDIR_ERROR
-	   fi
-	   
-	   if [ -d "$1" ]
-	   then
-	      echo "make_dir: directory already exists"
-	      exit $MKDIR_ERROR
-	   fi
-	
-	   mkdir $1 2>/dev/null
-	   if [ $? != 0 ]
-	   then
-	      echo "directory creation failed"
-	      exit $MKDIR_ERROR
-	   fi
-	}
-	
-	unzip()
-	{
-	   if [ $# == 2 ]
-	   then
-	      tar xzf $1 -C $2
-	   else
-	      echo "archive error"
-	   fi
-	   
-	}
-	
-	if [ -n "$1" ]
-	then
-	   SVC_USER=$1
-	fi
-	
-	reset_installation 
-	make_dir $CASS_INSTALL_DIR
-	make_dir $JRE_INSTALL_DIR
-	make_dir $CASS_DATA_DIR
-	make_dir $CASS_LOG_DIR
-	
-	#unzip JRE and Cassandra 
-	unzip $HOME/downloads/$JRE_TARBALL $JRE_INSTALL_DIR
-	unzip $HOME/downloads/$CASS_TARBALL $CASS_INSTALL_DIR
-	
-	#Change the ownership to the service credentials
-	
-	chown -R $SVC_USER:$GROUP $CASS_DATA_DIR
-	chown -R $SVC_USER:$GROUP $CASS_LOG_DIR
-	echo "edit /etc/profile to add JRE to the PATH"
-	echo "installation is complete"
+    #!/bin/bash
+    CASS_INSTALL_DIR="/opt/cassandra"
+    JRE_INSTALL_DIR="/opt/java"
+    CASS_DATA_DIR="/var/lib/cassandra"
+    CASS_LOG_DIR="/var/log/cassandra"
+    DOWNLOADS_DIR="~/downloads"
+    JRE_TARBALL="server-jre-8u5-linux-x64.tar.gz"
+    CASS_TARBALL="apache-cassandra-2.0.8-bin.tar.gz"
+    SVC_USER="localadmin"
+
+    RESET_ERROR=1
+    MKDIR_ERROR=2
+
+    reset_installation ()
+    {
+       rm -rf $CASS_INSTALL_DIR 2> /dev/null
+       rm -rf $JRE_INSTALL_DIR 2> /dev/null
+       rm -rf $CASS_DATA_DIR 2> /dev/null
+       rm -rf $CASS_LOG_DIR 2> /dev/null
+    }
+    make_dir ()
+    {
+       if [ -z "$1" ]
+       then
+          echo "make_dir: invalid directory name"
+          exit $MKDIR_ERROR
+       fi
+
+       if [ -d "$1" ]
+       then
+          echo "make_dir: directory already exists"
+          exit $MKDIR_ERROR
+       fi
+
+       mkdir $1 2>/dev/null
+       if [ $? != 0 ]
+       then
+          echo "directory creation failed"
+          exit $MKDIR_ERROR
+       fi
+    }
+
+    unzip()
+    {
+       if [ $# == 2 ]
+       then
+          tar xzf $1 -C $2
+       else
+          echo "archive error"
+       fi
+
+    }
+
+    if [ -n "$1" ]
+    then
+       SVC_USER=$1
+    fi
+
+    reset_installation 
+    make_dir $CASS_INSTALL_DIR
+    make_dir $JRE_INSTALL_DIR
+    make_dir $CASS_DATA_DIR
+    make_dir $CASS_LOG_DIR
+
+    #unzip JRE and Cassandra 
+    unzip $HOME/downloads/$JRE_TARBALL $JRE_INSTALL_DIR
+    unzip $HOME/downloads/$CASS_TARBALL $CASS_INSTALL_DIR
+
+    #Change the ownership to the service credentials
+
+    chown -R $SVC_USER:$GROUP $CASS_DATA_DIR
+    chown -R $SVC_USER:$GROUP $CASS_LOG_DIR
+    echo "edit /etc/profile to add JRE to the PATH"
+    echo "installation is complete"
 
 
 Se si incolla questo script in una finestra di vim, rimuovere il ritorno a capo (‘\\r”) con il comando seguente:
 
-	tr -d '\r' <infile.sh >outfile.sh
+    tr -d '\r' <infile.sh >outfile.sh
 
-####Passaggio 3: Modificare etc/profile
+#### Passaggio 3: Modificare etc/profile
 Aggiungere il codice seguente alla fine:
 
-	JAVA_HOME=/opt/java/jdk1.8.0_05 
-	CASS_HOME= /opt/cassandra/apache-cassandra-2.0.8
-	PATH=$PATH:$HOME/bin:$JAVA_HOME/bin:$CASS_HOME/bin
-	export JAVA_HOME
-	export CASS_HOME
-	export PATH
+    JAVA_HOME=/opt/java/jdk1.8.0_05 
+    CASS_HOME= /opt/cassandra/apache-cassandra-2.0.8
+    PATH=$PATH:$HOME/bin:$JAVA_HOME/bin:$CASS_HOME/bin
+    export JAVA_HOME
+    export CASS_HOME
+    export PATH
 
-####Passaggio 4: Installare JNA per i sistemi di produzione
+#### Passaggio 4: Installare JNA per i sistemi di produzione
 Utilizzare la sequenza di comandi seguente: il comando seguente installerà jna-3.2.7.jar e jna-platform 3.2.7.jar nella directory /usr/share.java sudo apt-get install libjna-java
 
 Creare collegamenti simbolici nella directory $CASS\_HOME/lib in modo che lo script di avvio di Cassandra possa trovare questi file jar:
 
-	ln -s /usr/share/java/jna-3.2.7.jar $CASS_HOME/lib/jna.jar
+    ln -s /usr/share/java/jna-3.2.7.jar $CASS_HOME/lib/jna.jar
 
-	ln -s /usr/share/java/jna-platform-3.2.7.jar $CASS_HOME/lib/jna-platform.jar
+    ln -s /usr/share/java/jna-platform-3.2.7.jar $CASS_HOME/lib/jna-platform.jar
 
-####Passaggio 5: Configurare cassandra.yaml
+#### Passaggio 5: Configurare cassandra.yaml
 Modificare cassandra.yaml su ciascuna macchina virtuale in modo da rispecchiare la configurazione necessaria per tutte le macchine virtuali [questo passaggio verrà perfezionato durante il provisioning vero e proprio]:
 
 <table>
-<tr><th>Nome campo   </th><th> Valore  </th><th>	Osservazioni </th></tr>
-<tr><td>cluster_name </td><td>	"CustomerService"	</td><td> Usare il nome che rispecchia la distribuzione</td></tr> 
-<tr><td>listen_address	</td><td>[lasciare vuoto]	</td><td> Eliminare "localhost" </td></tr>
-<tr><td>rpc_addres   </td><td>[lasciare vuoto]	</td><td> Eliminare "localhost" </td></tr>
-<tr><td>seeds	</td><td>"10.1.2.4, 10.1.2.6, 10.1.2.8"	</td><td>Elenco di tutti gli indirizzi IP designati come semi.</td></tr>
+<tr><th>Nome campo   </th><th> Valore  </th><th>    Osservazioni </th></tr>
+<tr><td>cluster_name </td><td>    "CustomerService"    </td><td> Usare il nome che rispecchia la distribuzione</td></tr> 
+<tr><td>listen_address    </td><td>[lasciare vuoto]    </td><td> Eliminare "localhost" </td></tr>
+<tr><td>rpc_addres   </td><td>[lasciare vuoto]    </td><td> Eliminare "localhost" </td></tr>
+<tr><td>seeds    </td><td>"10.1.2.4, 10.1.2.6, 10.1.2.8"    </td><td>Elenco di tutti gli indirizzi IP designati come semi.</td></tr>
 <tr><td>endpoint_snitch </td><td> org.apache.cassandra.locator.GossipingPropertyFileSnitch </td><td> Viene usato da NetworkTopologyStrateg per derivare il data center e il rack della macchina virtuale</td></tr>
 </table>
 
-####Passaggio 6: Acquisire l'immagine della macchina virtuale
+#### Passaggio 6: Acquisire l'immagine della macchina virtuale
 Accedere alla macchina virtuale con il nome host (hk-cas-template.cloudapp.net) e la chiave privata SSH creata in precedenza. Per informazioni dettagliate su come accedere con il comando SSH o putty.exe, vedere Come usare SSH con Linux in Azure.
 
 Per acquisire l'immagine, eseguire la sequenza di azioni seguente:
-#####1\. Effettuare il deprovisioning
+
+##### 1\. Effettuare il deprovisioning
 Usare il comando "sudo waagent –deprovision+user" per rimuovere le informazioni specifiche dell'istanza della macchina virtuale. Per altri dettagli sul processo di acquisizione di un'immagine, vedere [Come acquisire una macchina virtuale Linux da usare come modello](virtual-machines-linux-classic-capture-image.md).
 
-#####2: Arrestare la macchina virtuale
+##### 2: Arrestare la macchina virtuale
 Assicurarsi che la macchina virtuale sia evidenziata e fare clic sul collegamento ARRESTA nella barra dei comandi in basso.
 
-#####3: Acquisire l'immagine
+##### 3: Acquisire l'immagine
 Assicurarsi che la macchina virtuale sia evidenziata e fare clic sul collegamento ACQUISISCI nella barra dei comandi in basso. Nella schermata successiva assegnare un NOME IMMAGINE (ad esempio, hk-cas-2-08-ub-14-04-2014071) e una DESCRIZIONE IMMAGINE appropriata e fare clic sul segno di spunta per terminare il processo di ACQUISIZIONE.
 
 Dopo alcuni secondi l'immagine dovrebbe essere disponibile nella sezione IMMAGINI PERSONALI della raccolta immagini. La macchina virtuale di origine verrà automaticamente eliminata una volta acquisita l'immagine.
 
-##Processo di distribuzione in un'area singola
+## Processo di distribuzione in un'area singola
 **Passaggio 1: creare la rete virtuale** Accedere al portale di Azure classico e creare una rete virtuale con gli attributi elencati nella tabella. Per i singoli passaggi del processo, vedere [Configurare una rete virtuale usando il portale di Azure classico](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
 
 <table>
 <tr><th>Nome attributo macchina virtuale</th><th>Valore</th><th>Osservazioni</th></tr>
-<tr><td>Nome</td><td>vnet-cass-west-us</td><td></td></tr>	
-<tr><td>Region</td><td>Stati Uniti occidentali</td><td></td></tr>	
-<tr><td>Server DNS	</td><td>None</td><td>Ignorare questo attributo perché non si userà un server DNS</td></tr>
+<tr><td>Nome</td><td>vnet-cass-west-us</td><td></td></tr>    
+<tr><td>Region</td><td>Stati Uniti occidentali</td><td></td></tr>    
+<tr><td>Server DNS    </td><td>None</td><td>Ignorare questo attributo perché non si userà un server DNS</td></tr>
 <tr><td>Configura una VPN Point-to-Site</td><td>None</td><td> Ignorare questo attributo</td></tr>
 <tr><td>Configura una VPN Site-to-Site</td><td>Nessuno</td><td> Ignorare questo attributo</td></tr>
-<tr><td>Spazio di indirizzi</td><td>10.1.0.0/16</td><td></td></tr>	
-<tr><td>IP iniziale</td><td>10.1.0.0</td><td></td></tr>	
+<tr><td>Spazio di indirizzi</td><td>10.1.0.0/16</td><td></td></tr>    
+<tr><td>IP iniziale</td><td>10.1.0.0</td><td></td></tr>    
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>
 </table>
 
@@ -326,130 +325,129 @@ Le subnet dati e Web possono essere protette con i gruppi di sicurezza di rete c
 **Passaggio 2: Provisioning di macchine virtuali** Utilizzando l’immagine creata in precedenza, verranno create le macchine virtuali seguenti nel server cloud “hk-c-svc-west” e saranno associate alle rispettive subnet, come mostrato di seguito:
 
 <table>
-<tr><th>Nome computer    </th><th>Subnet	</th><th>Indirizzo IP	</th><th>Set di disponibilità</th><th>DC/Rack</th><th>Valore di inizializzazione?</th></tr>
-<tr><td>hk-c1-west-us	</td><td>data	</td><td>10.1.2.4	</td><td>hk-c-aset-1	</td><td>dc =WESTUS rack =rack1 </td><td>Sì</td></tr>
-<tr><td>hk-c2-west-us	</td><td>data	</td><td>10.1.2.5	</td><td>hk-c-aset-1	</td><td>dc =WESTUS rack =rack1	</td><td>No </td></tr>
-<tr><td>hk-c3-west-us	</td><td>data	</td><td>10.1.2.6	</td><td>hk-c-aset-1	</td><td>dc =WESTUS rack =rack2	</td><td>Sì</td></tr>
-<tr><td>hk-c4-west-us	</td><td>data	</td><td>10.1.2.7	</td><td>hk-c-aset-1	</td><td>dc =WESTUS rack =rack2	</td><td>No </td></tr>
-<tr><td>hk-c5-west-us	</td><td>data	</td><td>10.1.2.8	</td><td>hk-c-aset-2	</td><td>dc =WESTUS rack =rack3	</td><td>Sì</td></tr>
-<tr><td>hk-c6-west-us	</td><td>data	</td><td>10.1.2.9	</td><td>hk-c-aset-2	</td><td>dc =WESTUS rack =rack3	</td><td>No </td></tr>
-<tr><td>hk-c7-west-us	</td><td>data	</td><td>10.1.2.10	</td><td>hk-c-aset-2	</td><td>dc =WESTUS rack =rack4	</td><td>Sì</td></tr>
-<tr><td>hk-c8-west-us	</td><td>data	</td><td>10.1.2.11	</td><td>hk-c-aset-2	</td><td>dc =WESTUS rack =rack4	</td><td>No </td></tr>
-<tr><td>hk-w1-west-us	</td><td>Web	</td><td>10.1.1.4	</td><td>hk-w-aset-1	</td><td>                       </td><td>N/D</td></tr>
-<tr><td>hk-w2-west-us	</td><td>Web	</td><td>10.1.1.5	</td><td>hk-w-aset-1	</td><td>                       </td><td>N/D</td></tr>
+<tr><th>Nome computer    </th><th>Subnet    </th><th>Indirizzo IP    </th><th>Set di disponibilità</th><th>DC/Rack</th><th>Valore di inizializzazione?</th></tr>
+<tr><td>hk-c1-west-us    </td><td>data    </td><td>10.1.2.4    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack1 </td><td>Sì</td></tr>
+<tr><td>hk-c2-west-us    </td><td>data    </td><td>10.1.2.5    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack1    </td><td>No </td></tr>
+<tr><td>hk-c3-west-us    </td><td>data    </td><td>10.1.2.6    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack2    </td><td>Sì</td></tr>
+<tr><td>hk-c4-west-us    </td><td>data    </td><td>10.1.2.7    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack2    </td><td>No </td></tr>
+<tr><td>hk-c5-west-us    </td><td>data    </td><td>10.1.2.8    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack3    </td><td>Sì</td></tr>
+<tr><td>hk-c6-west-us    </td><td>data    </td><td>10.1.2.9    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack3    </td><td>No </td></tr>
+<tr><td>hk-c7-west-us    </td><td>data    </td><td>10.1.2.10    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack4    </td><td>Sì</td></tr>
+<tr><td>hk-c8-west-us    </td><td>data    </td><td>10.1.2.11    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack4    </td><td>No </td></tr>
+<tr><td>hk-w1-west-us    </td><td>Web    </td><td>10.1.1.4    </td><td>hk-w-aset-1    </td><td>                       </td><td>N/D</td></tr>
+<tr><td>hk-w2-west-us    </td><td>Web    </td><td>10.1.1.5    </td><td>hk-w-aset-1    </td><td>                       </td><td>N/D</td></tr>
 </table>
 
 Per creare l'elenco precedente di macchine virtuali, è necessario eseguire il processo seguente:
 
-1.  Creare un servizio cloud vuoto in una determinata area
-2.	Creare una macchina virtuale dall'immagine acquisita in precedenza e collegarla alla rete virtuale creata in precedenza e ripetere questo passaggio per tutte le macchine virtuali
-3.	Aggiungere al servizio cloud un dispositivo di bilanciamento del carico interno e collegarlo alla subnet "dati"
-4.	Per ogni macchina virtuale creata in precedenza, aggiungere un endpoint con carico bilanciato per il traffico Thrift con un set con carico bilanciato connesso al dispositivo di bilanciamento del carico creato in precedenza
+1. Creare un servizio cloud vuoto in una determinata area
+2. Creare una macchina virtuale dall'immagine acquisita in precedenza e collegarla alla rete virtuale creata in precedenza e ripetere questo passaggio per tutte le macchine virtuali
+3. Aggiungere al servizio cloud un dispositivo di bilanciamento del carico interno e collegarlo alla subnet "dati"
+4. Per ogni macchina virtuale creata in precedenza, aggiungere un endpoint con carico bilanciato per il traffico Thrift con un set con carico bilanciato connesso al dispositivo di bilanciamento del carico creato in precedenza
 
 Il processo precedente può essere eseguito dal portale di Azure classico. Usare un computer Windows (ricorrere a una macchina virtuale in Azure se non si ha accesso a un computer Windows) e applicare il seguente script PowerShell per il provisioning automatico di tutte le 8 macchine virtuali.
 
 **Elenco 1: script di PowerShell per il provisioning delle macchine virtuali**
-		
-		#Tested with Azure Powershell - November 2014	
-		#This powershell script deployes a number of VMs from an existing image inside an Azure region
-		#Import your Azure subscription into the current Powershell session before proceeding
-		#The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. crate a list of VMs from the template
-		
-		#fundamental variables - change these to reflect your subscription
-		$country="us"; $region="west"; $vnetName = "your_vnet_name";$storageAccount="your_storage_account"
-		$numVMs=8;$prefix = "hk-cass";$ilbIP="your_ilb_ip"
-		$subscriptionName = "Azure_subscription_name"; 
-		$vmSize="ExtraSmall"; $imageName="your_linux_image_name"
-		$ilbName="ThriftInternalLB"; $thriftEndPoint="ThriftEndPoint"
-		
-		#generated variables
-		$serviceName = "$prefix-svc-$region-$country"; $azureRegion = "$region $country"
-		
-		$vmNames = @()
-		for ($i=0; $i -lt $numVMs; $i++)
-		{
-		   $vmNames+=("$prefix-vm"+($i+1) + "-$region-$country" );
-		}
-		
-		#select an Azure subscription already imported into Powershell session
-		Select-AzureSubscription -SubscriptionName $subscriptionName -Current
-		Set-AzureSubscription -SubscriptionName $subscriptionName -CurrentStorageAccountName $storageAccount
-		
-		#create an empty cloud service
-		New-AzureService -ServiceName $serviceName -Label "hkcass$region" -Location $azureRegion
-		Write-Host "Created $serviceName"
-		
-		$VMList= @()   # stores the list of azure vm configuration objects
-		#create the list of VMs
-		foreach($vmName in $vmNames)
-		{
-		   $VMList += New-AzureVMConfig -Name $vmName -InstanceSize ExtraSmall -ImageName $imageName |
-		   Add-AzureProvisioningConfig -Linux -LinuxUser "localadmin" -Password "Local123" |
-		   Set-AzureSubnet "data"
-		}
-		
-		New-AzureVM -ServiceName $serviceName -VNetName $vnetName -VMs $VMList
-		
-		#Create internal load balancer
-		Add-AzureInternalLoadBalancer -ServiceName $serviceName -InternalLoadBalancerName $ilbName -SubnetName "data" -StaticVNetIPAddress "$ilbIP"
-		Write-Host "Created $ilbName"
-		#Add add the thrift endpoint to the internal load balancer for all the VMs
-		foreach($vmName in $vmNames)
-		{
-		    Get-AzureVM -ServiceName $serviceName -Name $vmName |
-		        Add-AzureEndpoint -Name $thriftEndPoint -LBSetName "ThriftLBSet" -Protocol tcp -LocalPort 9160 -PublicPort 9160 -ProbePort 9160 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ilbName | 
-		        Update-AzureVM 
-		
-		    Write-Host "created $vmName"     
-		}
+
+        #Tested with Azure Powershell - November 2014    
+        #This powershell script deployes a number of VMs from an existing image inside an Azure region
+        #Import your Azure subscription into the current Powershell session before proceeding
+        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. crate a list of VMs from the template
+
+        #fundamental variables - change these to reflect your subscription
+        $country="us"; $region="west"; $vnetName = "your_vnet_name";$storageAccount="your_storage_account"
+        $numVMs=8;$prefix = "hk-cass";$ilbIP="your_ilb_ip"
+        $subscriptionName = "Azure_subscription_name"; 
+        $vmSize="ExtraSmall"; $imageName="your_linux_image_name"
+        $ilbName="ThriftInternalLB"; $thriftEndPoint="ThriftEndPoint"
+
+        #generated variables
+        $serviceName = "$prefix-svc-$region-$country"; $azureRegion = "$region $country"
+
+        $vmNames = @()
+        for ($i=0; $i -lt $numVMs; $i++)
+        {
+           $vmNames+=("$prefix-vm"+($i+1) + "-$region-$country" );
+        }
+
+        #select an Azure subscription already imported into Powershell session
+        Select-AzureSubscription -SubscriptionName $subscriptionName -Current
+        Set-AzureSubscription -SubscriptionName $subscriptionName -CurrentStorageAccountName $storageAccount
+
+        #create an empty cloud service
+        New-AzureService -ServiceName $serviceName -Label "hkcass$region" -Location $azureRegion
+        Write-Host "Created $serviceName"
+
+        $VMList= @()   # stores the list of azure vm configuration objects
+        #create the list of VMs
+        foreach($vmName in $vmNames)
+        {
+           $VMList += New-AzureVMConfig -Name $vmName -InstanceSize ExtraSmall -ImageName $imageName |
+           Add-AzureProvisioningConfig -Linux -LinuxUser "localadmin" -Password "Local123" |
+           Set-AzureSubnet "data"
+        }
+
+        New-AzureVM -ServiceName $serviceName -VNetName $vnetName -VMs $VMList
+
+        #Create internal load balancer
+        Add-AzureInternalLoadBalancer -ServiceName $serviceName -InternalLoadBalancerName $ilbName -SubnetName "data" -StaticVNetIPAddress "$ilbIP"
+        Write-Host "Created $ilbName"
+        #Add add the thrift endpoint to the internal load balancer for all the VMs
+        foreach($vmName in $vmNames)
+        {
+            Get-AzureVM -ServiceName $serviceName -Name $vmName |
+                Add-AzureEndpoint -Name $thriftEndPoint -LBSetName "ThriftLBSet" -Protocol tcp -LocalPort 9160 -PublicPort 9160 -ProbePort 9160 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ilbName | 
+                Update-AzureVM 
+
+            Write-Host "created $vmName"     
+        }
 
 **Passaggio 3: Configurare Cassandra in ogni macchina virtuale**
 
 Accedere alla macchina virtuale ed eseguire la procedura seguente:
 
 * Modificare $CASS\_HOME/conf/cassandra-rackdc.properties per specificare le proprietà del data center e del rack:
-      
+  
        dc =EASTUS, rack =rack1
-
 * Modificare cassandra.yaml per configurare i nodi dei valori di inizializzazione come segue:
-     
+  
        Valori di inizializzazione: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10"
 
 **Passaggio 4: Avviare le macchine virtuali e testare il cluster**
 
 Accedere a uno dei nodi (ad esempio, hk-c1-west-us) ed eseguire il comando seguente per visualizzare lo stato del cluster:
-       
+
        nodetool –h 10.1.2.4 –p 7199 status 
 
 Per un cluster a 8 nodi i dati visualizzati saranno simili ai seguenti:
 
 <table>
-<tr><th>Stato</th></th>Indirizzo	</th><th>chiudi	</th><th>Tokens	</th><th>Owns </th><th>Host ID	</th><th>Rack</th></tr>
-<tr><th>UN	</td><td>10.1.2.4 	</td><td>87,81 KB	</td><td>256	</td><td>38,0%	</td><td>Guid (removed)</td><td>rack1</td></tr>
-<tr><th>UN	</td><td>10.1.2.5 	</td><td>41,08 KB	</td><td>256	</td><td>68,9% 	</td><td>Guid (removed)</td><td>rack1</td></tr>
-<tr><th>UN	</td><td>10.1.2.6 	</td><td>55,29 KB	</td><td>256	</td><td>68,8%	</td><td>Guid (removed)</td><td>rack2</td></tr>
-<tr><th>UN	</td><td>10.1.2.7 	</td><td>55,29 KB	</td><td>256	</td><td>68,8%	</td><td>Guid (removed)</td><td>rack2</td></tr>
-<tr><th>UN	</td><td>10.1.2.8 	</td><td>55,29 KB	</td><td>256	</td><td>68,8%	</td><td>Guid (removed)</td><td>rack3</td></tr>
-<tr><th>UN	</td><td>10.1.2.9 	</td><td>55,29 KB	</td><td>256	</td><td>68,8%	</td><td>Guid (removed)</td><td>rack3</td></tr>
-<tr><th>UN	</td><td>10.1.2.10 	</td><td>55,29 KB	</td><td>256	</td><td>68,8%	</td><td>Guid (removed)</td><td>rack4</td></tr>
-<tr><th>UN	</td><td>10.1.2.11 	</td><td>55,29 KB	</td><td>256	</td><td>68,8%	</td><td>Guid (removed)</td><td>rack4</td></tr>
+<tr><th>Stato</th></th>Indirizzo    </th><th>chiudi    </th><th>Tokens    </th><th>Owns </th><th>Host ID    </th><th>Rack</th></tr>
+<tr><th>UN    </td><td>10.1.2.4     </td><td>87,81 KB    </td><td>256    </td><td>38,0%    </td><td>Guid (removed)</td><td>rack1</td></tr>
+<tr><th>UN    </td><td>10.1.2.5     </td><td>41,08 KB    </td><td>256    </td><td>68,9%     </td><td>Guid (removed)</td><td>rack1</td></tr>
+<tr><th>UN    </td><td>10.1.2.6     </td><td>55,29 KB    </td><td>256    </td><td>68,8%    </td><td>Guid (removed)</td><td>rack2</td></tr>
+<tr><th>UN    </td><td>10.1.2.7     </td><td>55,29 KB    </td><td>256    </td><td>68,8%    </td><td>Guid (removed)</td><td>rack2</td></tr>
+<tr><th>UN    </td><td>10.1.2.8     </td><td>55,29 KB    </td><td>256    </td><td>68,8%    </td><td>Guid (removed)</td><td>rack3</td></tr>
+<tr><th>UN    </td><td>10.1.2.9     </td><td>55,29 KB    </td><td>256    </td><td>68,8%    </td><td>Guid (removed)</td><td>rack3</td></tr>
+<tr><th>UN    </td><td>10.1.2.10     </td><td>55,29 KB    </td><td>256    </td><td>68,8%    </td><td>Guid (removed)</td><td>rack4</td></tr>
+<tr><th>UN    </td><td>10.1.2.11     </td><td>55,29 KB    </td><td>256    </td><td>68,8%    </td><td>Guid (removed)</td><td>rack4</td></tr>
 </table>
 
 ## Testare il cluster in un'area singola
 Usare i passaggi seguenti per testare il cluster:
 
-1.    Con il commandlet Get-AzureInternalLoadbalancer dei comandi Powershell, ottenere l'indirizzo IP del dispositivo di bilanciamento del carico interno (ad esempio, 10.1.2.101). La sintassi del comando viene mostrata di seguito: Get-AzureLoadbalancer –ServiceName "hk-c-svc-west-us" [vengono visualizzati i dettagli del servizio di bilanciamento del carico interno con l'indirizzo IP]
-2.	Accedere alla macchina virtuale della Web farm (ad esempio, hk-w1-west-us) con Putty o SSH
-3.	Eseguire $CASS\_HOME/bin/cqlsh 10.1.2.101 9160
-4.	Usare i seguenti comandi CQL per verificare se il cluster è in funzione:
-
-		CREATE KEYSPACE customers_ks WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };	
-		USE customers_ks;
-		CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
-		INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
-		INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
-		
-		SELECT * FROM Customers;
+1. Con il commandlet Get-AzureInternalLoadbalancer dei comandi Powershell, ottenere l'indirizzo IP del dispositivo di bilanciamento del carico interno (ad esempio, 10.1.2.101). La sintassi del comando viene mostrata di seguito: Get-AzureLoadbalancer –ServiceName "hk-c-svc-west-us" [vengono visualizzati i dettagli del servizio di bilanciamento del carico interno con l'indirizzo IP]
+2. Accedere alla macchina virtuale della Web farm (ad esempio, hk-w1-west-us) con Putty o SSH
+3. Eseguire $CASS\_HOME/bin/cqlsh 10.1.2.101 9160
+4. Usare i seguenti comandi CQL per verificare se il cluster è in funzione:
+   
+     CREATE KEYSPACE customers_ks WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };    
+     USE customers_ks;
+     CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
+     INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
+     INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
+   
+     SELECT * FROM Customers;
 
 I dati visualizzati saranno simili ai seguenti:
 
@@ -461,57 +459,55 @@ I dati visualizzati saranno simili ai seguenti:
 
 Si noti che il keyspace creato nel passaggio 4 usa SimpleStrategy con replication\_factor pari a 3. SimpleStrategy è consigliato per le distribuzioni in un data center singolo, NetworkTopologyStrategy invece per le distribuzioni in più data center. Un replication\_factor pari a 3 garantirà la tolleranza per gli errori dei nodi.
 
-##<a id="tworegion"> </a>Processo di distribuzione in più aree
+## <a id="tworegion"> </a>Processo di distribuzione in più aree
 Verrà sfruttata la distribuzione in un'area singola completata e si ripeterà lo stesso processo per l'installazione della seconda area. La differenza principale tra la distribuzione in un'area singola e in più aree è la configurazione del tunnel VPN per la comunicazione tra le aree. Si inizierà con l'installazione di rete, il provisioning delle macchine virtuali e la configurazione di Cassandra.
 
-###Passaggio 1: Creare la rete virtuale nella seconda area
+### Passaggio 1: Creare la rete virtuale nella seconda area
 Accedere al portale di Azure classico e creare una rete virtuale con gli attributi elencati nella tabella. Per i singoli passaggi del processo, vedere [Configurare una rete virtuale usando il portale di Azure classico](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 
 <table>
-<tr><th>Nome attributo    </th><th>Valore	</th><th>Osservazioni</th></tr>
-<tr><td>Nome	</td><td>vnet-cass-east-us</td><td></td></tr>	
-<tr><td>Region	</td><td>Stati Uniti orientali</td><td></td></tr>	
-<tr><td>Server DNS		</td><td></td><td>Ignorare questo attributo perché non si userà un server DNS</td></tr>
-<tr><td>Configura una VPN Point-to-Site</td><td></td><td>		Ignorare questo attributo</td></tr>
-<tr><td>Configura una VPN Site-to-Site</td><td></td><td>		Ignorare questo attributo</td></tr>
-<tr><td>Spazio di indirizzi	</td><td>10.2.0.0/16</td><td></td></tr>	
-<tr><td>IP iniziale	</td><td>10.2.0.0	</td><td></td></tr>
-<tr><td>CIDR	</td><td>/16 (65531)</td><td></td></tr>
-</table>	
+<tr><th>Nome attributo    </th><th>Valore    </th><th>Osservazioni</th></tr>
+<tr><td>Nome    </td><td>vnet-cass-east-us</td><td></td></tr>    
+<tr><td>Region    </td><td>Stati Uniti orientali</td><td></td></tr>    
+<tr><td>Server DNS        </td><td></td><td>Ignorare questo attributo perché non si userà un server DNS</td></tr>
+<tr><td>Configura una VPN Point-to-Site</td><td></td><td>        Ignorare questo attributo</td></tr>
+<tr><td>Configura una VPN Site-to-Site</td><td></td><td>        Ignorare questo attributo</td></tr>
+<tr><td>Spazio di indirizzi    </td><td>10.2.0.0/16</td><td></td></tr>    
+<tr><td>IP iniziale    </td><td>10.2.0.0    </td><td></td></tr>
+<tr><td>CIDR    </td><td>/16 (65531)</td><td></td></tr>
+</table>    
 
 Aggiungere le subnet seguenti:
+
 <table>
-<tr><th>Nome    </th><th>IP iniziale	</th><th>CIDR	</th><th>Osservazioni</th></tr>
-<tr><td>Web	</td><td>10.2.1.0	</td><td>/24 (251)	</td><td>Subnet per la Web farm</td></tr>
-<tr><td>data	</td><td>10.2.2.0	</td><td>/24 (251)	</td><td>Subnet per i nodi del database</td></tr>
+<tr><th>Nome    </th><th>IP iniziale    </th><th>CIDR    </th><th>Osservazioni</th></tr>
+<tr><td>Web    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Subnet per la Web farm</td></tr>
+<tr><td>data    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>Subnet per i nodi del database</td></tr>
 </table>
 
 
-###Passaggio 2: Creazione delle reti locali
+### Passaggio 2: Creazione delle reti locali
 Una rete locale nella rete virtuale di Azure è uno spazio di indirizzi proxy che esegue il mapping a un sito remoto, incluso un cloud privato o un'altra area di Azure. Questo spazio di indirizzi proxy è associato a un gateway remoto per il routing della rete alle destinazioni di rete appropriate. Per le istruzioni per stabilire la connessione tra reti virtuali, vedere [Configurare una connessione tra reti virtuali](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 Creare due reti locali con i dettagli seguenti:
 
 | Nome rete | Indirizzo gateway VPN | Spazio di indirizzi | Osservazioni |
-| ------------ | ------------------- | ------------- | ------- |
-| hk-lnet-map-to-east-us | 23\.1.1.1 | 10\.2.0.0/16 | Durante la creazione della rete locale assegnare un indirizzo gateway segnaposto. Il vero indirizzo gateway verrà inserito una volta creato il gateway. Verificare che lo spazio di indirizzi corrisponda esattamente alla rispettiva rete virtuale remota, in questo caso la rete virtuale creata nell'area Stati Uniti orientali. |
-| hk-lnet-map-to-west-us | 23\.2.2.2 | 10\.1.0.0/16 | Durante la creazione della rete locale assegnare un indirizzo gateway segnaposto. Il vero indirizzo gateway verrà inserito una volta creato il gateway. Verificare che lo spazio di indirizzi corrisponda esattamente alla rispettiva rete virtuale remota, in questo caso la rete virtuale creata nell'area Stati Uniti occidentali. |
+| --- | --- | --- | --- |
+| hk-lnet-map-to-east-us |23\.1.1.1 |10\.2.0.0/16 |Durante la creazione della rete locale assegnare un indirizzo gateway segnaposto. Il vero indirizzo gateway verrà inserito una volta creato il gateway. Verificare che lo spazio di indirizzi corrisponda esattamente alla rispettiva rete virtuale remota, in questo caso la rete virtuale creata nell'area Stati Uniti orientali. |
+| hk-lnet-map-to-west-us |23\.2.2.2 |10\.1.0.0/16 |Durante la creazione della rete locale assegnare un indirizzo gateway segnaposto. Il vero indirizzo gateway verrà inserito una volta creato il gateway. Verificare che lo spazio di indirizzi corrisponda esattamente alla rispettiva rete virtuale remota, in questo caso la rete virtuale creata nell'area Stati Uniti occidentali. |
 
-
-###Passaggio 3: Eseguire il mapping della rete "locale" alle rispettive reti virtuali
+### Passaggio 3: Eseguire il mapping della rete "locale" alle rispettive reti virtuali
 Nel portale di Azure classico, selezionare ogni rete virtuale, fare clic su "Configura", scegliere "Connetti alla rete locale" e selezionare le reti locali con i dettagli seguenti:
 
-
 | Rete virtuale | Rete locale |
-| --------------- | ------------- |
-| hk-vnet-west-us | hk-lnet-map-to-east-us |
-| hk-vnet-east-us | hk-lnet-map-to-west-us |
+| --- | --- |
+| hk-vnet-west-us |hk-lnet-map-to-east-us |
+| hk-vnet-east-us |hk-lnet-map-to-west-us |
 
-
-###Passaggio 4: Creare i gateway nella rete virtuale 1 e nella rete virtuale 2
+### Passaggio 4: Creare i gateway nella rete virtuale 1 e nella rete virtuale 2
 Nel dashboard di entrambe le reti virtuali fare clic su CREA GATEWAY per attivare il processo di provisioning dei gateway VPN. Dopo alcuni minuti nel dashboard di ogni rete virtuale verrà visualizzato l'effettivo indirizzo gateway.
 
-###Passaggio 5: Aggiornare le reti "locali" con i rispettivi indirizzi "gateway"###
+### Passaggio 5: Aggiornare le reti "locali" con i rispettivi indirizzi "gateway"
 Modificare entrambe le reti locali per poter sostituire l'indirizzo IP gateway segnaposto con il vero indirizzo IP dei gateway di cui è appena stato effettuato il provisioning. Usare il mapping seguente:
 
 <table>
@@ -520,87 +516,82 @@ Modificare entrambe le reti locali per poter sostituire l'indirizzo IP gateway s
 <tr><td>hk-lnet-map-to-west-us </td><td>Gateway di hk-vnet-east-us</td></tr>
 </table>
 
-###Passaggio 6: Aggiornare la chiave condivisa
+### Passaggio 6: Aggiornare la chiave condivisa
 Utilizzare lo script di Powershell seguente per aggiornare la chiave IPSec di ciascun gateway VPN [utilizzare la chiave SAKE per entrambi i gateway]: Set-AzureVNetGatewayKey -VNetName hk-vnet-east-us -LocalNetworkSiteName hk-lnet-map-to-west-us -SharedKey D9E76BKK Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-map-to-east-us -SharedKey D9E76BKK
 
-###Passaggio 7: Stabilire la connessione tra reti virtuali
+### Passaggio 7: Stabilire la connessione tra reti virtuali
 Nel portale di Azure classico, usare il menu "DASHBOARD" di entrambe le reti virtuali per stabilire la connessione da gateway a gateway. Usare le voci del menu "CONNETTI" nella barra degli strumenti in basso. Dopo alcuni minuti nel dashboard apparirà la visualizzazione grafica dei dettagli della connessione.
 
-###Passaggio 8: Creare le macchine virtuali nell'area n. 2 
+### Passaggio 8: Creare le macchine virtuali nell'area n. 2
 Creare l'immagine Ubuntu descritta nella distribuzione nell'area n. 1 seguendo gli stessi passaggi o copiare il file VHD dell'immagine nell'account di archiviazione di Azure dell'area n. 2 e creare l'immagine. Usare questa immagine e creare il seguente elenco di macchine virtuali in un nuovo servizio cloud hk-c-svc-east-us:
 
-
 | Nome computer | Subnet | Indirizzo IP | Set di disponibilità | DC/Rack | Valore di inizializzazione? |
-| ------------ | ------ | ---------- | ---------------- | ------- | ----- |
-| hk-c1-east-us | data | 10\.2.2.4 | hk-c-aset-1 | dc =EASTUS rack =rack1 | Sì |
-| hk-c2-east-us | data | 10\.2.2.5 | hk-c-aset-1 | dc =EASTUS rack =rack1 | No |
-| hk-c3-east-us | data | 10\.2.2.6 | hk-c-aset-1 | dc =EASTUS rack =rack2 | Sì |
-| hk-c5-east-us | data | 10\.2.2.8 | hk-c-aset-2 | dc =EASTUS rack =rack3 | Sì |
-| hk-c6-east-us | data | 10\.2.2.9 | hk-c-aset-2 | dc =EASTUS rack =rack3 | No |
-| hk-c7-east-us | data | 10\.2.2.10 | hk-c-aset-2 | dc =EASTUS rack =rack4 | Sì |
-| hk-c8-east-us | data | 10\.2.2.11 | hk-c-aset-2 | dc =EASTUS rack =rack4 | No |
-| hk-w1-east-us | Web | 10\.2.1.4 | hk-w-aset-1 | N/D | N/D |
-| hk-w2-east-us | Web | 10\.2.1.5 | hk-w-aset-1 | N/D | N/D |
-
+| --- | --- | --- | --- | --- | --- |
+| hk-c1-east-us |data |10\.2.2.4 |hk-c-aset-1 |dc =EASTUS rack =rack1 |Sì |
+| hk-c2-east-us |data |10\.2.2.5 |hk-c-aset-1 |dc =EASTUS rack =rack1 |No |
+| hk-c3-east-us |data |10\.2.2.6 |hk-c-aset-1 |dc =EASTUS rack =rack2 |Sì |
+| hk-c5-east-us |data |10\.2.2.8 |hk-c-aset-2 |dc =EASTUS rack =rack3 |Sì |
+| hk-c6-east-us |data |10\.2.2.9 |hk-c-aset-2 |dc =EASTUS rack =rack3 |No |
+| hk-c7-east-us |data |10\.2.2.10 |hk-c-aset-2 |dc =EASTUS rack =rack4 |Sì |
+| hk-c8-east-us |data |10\.2.2.11 |hk-c-aset-2 |dc =EASTUS rack =rack4 |No |
+| hk-w1-east-us |Web |10\.2.1.4 |hk-w-aset-1 |N/D |N/D |
+| hk-w2-east-us |Web |10\.2.1.5 |hk-w-aset-1 |N/D |N/D |
 
 Seguire le stesse istruzioni dell'area n. 1, ma usare lo spazio di indirizzi 10.2.xxx.xxx.
 
-###Passaggio 9: Configurare Cassandra in ogni VM
+### Passaggio 9: Configurare Cassandra in ogni VM
 Accedere alla macchina virtuale ed eseguire la procedura seguente:
 
 1. Modificare $CASS\_HOME/conf/cassandra-rackdc.properties per specificare le proprietà del centro dati e del rack nel formato: dc =EASTUS rack =rack1
 2. Modificare cassandra.yaml per configurare i nodi dei valori di inizializzazione: Valori di inizializzazione: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
 
-###Passaggio 10: Avviare Cassandra
+### Passaggio 10: Avviare Cassandra
 Accedere a ogni macchina virtuale e avviare Cassandra in background eseguendo il comando seguente: $CASS\_HOME/bin/cassandra
 
 ## Testare il cluster in più aree
 Per ora Cassandra è stato distribuito in 16 nodi con 8 nodi in ogni area di Azure. Questi nodi sono nello stesso cluster grazie al nome cluster comune e alla configurazione dei nodi dei valori di inizializzazione. Usare il processo seguente per testare il cluster:
 
-###Passaggio 1: Ottenere l'IP del servizio di bilanciamento del carico interno per entrambe le aree con PowerShell
-- Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-west-us"
-- Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"
-
+### Passaggio 1: Ottenere l'IP del servizio di bilanciamento del carico interno per entrambe le aree con PowerShell
+* Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-west-us"
+* Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"
+  
     Prendere nota degli indirizzi IP (ad esempio, west - 10.1.2.101, east - 10.2.2.101) visualizzati.
 
-###Passaggio 2: Eseguire quanto segue nell'area occidentale dopo l'accesso a hk-w1-west-us
-1.    Eseguire $CASS\_HOME/bin/cqlsh 10.1.2.101 9160
-2.	Eseguire i comandi CQL seguenti:
-
-		CREATE KEYSPACE customers_ks
-		WITH REPLICATION = { 'class' : 'NetworkToplogyStrategy', 'WESTUS' : 3, 'EASTUS' : 3};
-		USE customers_ks;
-		CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
-		INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
-		INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
-		SELECT * FROM Customers;
+### Passaggio 2: Eseguire quanto segue nell'area occidentale dopo l'accesso a hk-w1-west-us
+1. Eseguire $CASS\_HOME/bin/cqlsh 10.1.2.101 9160
+2. Eseguire i comandi CQL seguenti:
+   
+     CREATE KEYSPACE customers_ks
+     WITH REPLICATION = { 'class' : 'NetworkToplogyStrategy', 'WESTUS' : 3, 'EASTUS' : 3};
+     USE customers_ks;
+     CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
+     INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
+     INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
+     SELECT * FROM Customers;
 
 I dati visualizzati saranno simili ai seguenti:
 
 | customer\_id | firstname | Lastname |
-| ----------- | --------- | -------- |
-| 1 | John | Doe |
-| 2 | Jane | Doe |
+| --- | --- | --- |
+| 1 |John |Doe |
+| 2 |Jane |Doe |
 
-
-###Passaggio 3: Eseguire quanto segue nell'area orientale dopo l'accesso a hk-w1-east-us
-1.    Eseguire $CASS\_HOME/bin/cqlsh 10.2.2.101 9160
-2.	Eseguire i comandi CQL seguenti:
-
-		USE customers_ks;
-		CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
-		INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
-		INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
-		SELECT * FROM Customers;
+### Passaggio 3: Eseguire quanto segue nell'area orientale dopo l'accesso a hk-w1-east-us
+1. Eseguire $CASS\_HOME/bin/cqlsh 10.2.2.101 9160
+2. Eseguire i comandi CQL seguenti:
+   
+     USE customers_ks;
+     CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
+     INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
+     INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
+     SELECT * FROM Customers;
 
 I dati visualizzati saranno uguali a quelli dell'area occidentale:
 
-
 | customer\_id | firstname | Lastname |
-|------------ | --------- | ---------- |
-| 1 | John | Doe |
-| 2 | Jane | Doe |
-
+| --- | --- | --- |
+| 1 |John |Doe |
+| 2 |Jane |Doe |
 
 Inserire ancora alcuni dati per vedere che verranno replicati nella parte west-us del cluster.
 
@@ -612,97 +603,96 @@ Con una delle macchine virtuali Linux create nel livello "Web" in precedenza, ve
 1. Installare Node.js e NPM
 2. Installare il pacchetto di nodi "cassandra-client" con NPM
 3. Eseguire lo script seguente al prompt della shell. Viene visualizzata la stringa json dei dati recuperati:
+   
+        var pooledCon = require('cassandra-client').PooledConnection;
+        var ksName = "custsupport_ks";
+        var cfName = "customers_cf";
+        var hostList = ['internal_loadbalancer_ip:9160'];
+        var ksConOptions = { hosts: hostList,
+                             keyspace: ksName, use_bigints: false };
+   
+        function createKeyspace(callback){
+           var cql = 'CREATE KEYSPACE ' + ksName + ' WITH strategy_class=SimpleStrategy AND strategy_options:replication_factor=1';
+           var sysConOptions = { hosts: hostList,  
+                                 keyspace: 'system', use_bigints: false };
+           var con = new pooledCon(sysConOptions);
+           con.execute(cql,[],function(err) {
+           if (err) {
+             console.log("Failed to create Keyspace: " + ksName);
+             console.log(err);
+           }
+           else {
+             console.log("Created Keyspace: " + ksName);
+             callback(ksConOptions, populateCustomerData);
+           }
+           });
+           con.shutdown();
+        } 
+   
+        function createColumnFamily(ksConOptions, callback){
+          var params = ['customers_cf','custid','varint','custname',
+                        'text','custaddress','text'];
+          var cql = 'CREATE COLUMNFAMILY ? (? ? PRIMARY KEY,? ?, ? ?)';
+        var con =  new pooledCon(ksConOptions);
+          con.execute(cql,params,function(err) {
+              if (err) {
+                 console.log("Failed to create column family: " + params[0]);
+                 console.log(err);
+              }
+              else {
+                 console.log("Created column family: " + params[0]);
+                 callback();
+              }
+          });
+          con.shutdown();
+        } 
+   
+        //populate Data
+        function populateCustomerData() {
+           var params = ['John','Infinity Dr, TX', 1];
+           updateCustomer(ksConOptions,params);
+   
+           params = ['Tom','Fermat Ln, WA', 2];
+           updateCustomer(ksConOptions,params);
+        }
+   
+        //update will also insert the record if none exists
+        function updateCustomer(ksConOptions,params)
+        {
+          var cql = 'UPDATE customers_cf SET custname=?,custaddress=? where custid=?';
+          var con = new pooledCon(ksConOptions);
+          con.execute(cql,params,function(err) {
+              if (err) console.log(err);
+              else console.log("Inserted customer : " + params[0]);
+          });
+          con.shutdown();
+        }
+   
+        //read the two rows inserted above
+        function readCustomer(ksConOptions)
+        {
+          var cql = 'SELECT * FROM customers_cf WHERE custid IN (1,2)';
+          var con = new pooledCon(ksConOptions);
+          con.execute(cql,[],function(err,rows) {
+              if (err) 
+                 console.log(err);
+              else 
+                 for (var i=0; i<rows.length; i++)
+                    console.log(JSON.stringify(rows[i]));
+            });
+           con.shutdown();
+        }
+   
+        //exectue the code
+        createKeyspace(createColumnFamily);
+        readCustomer(ksConOptions)
 
-		var pooledCon = require('cassandra-client').PooledConnection;
-		var ksName = "custsupport_ks";
-		var cfName = "customers_cf";
-		var hostList = ['internal_loadbalancer_ip:9160'];
-		var ksConOptions = { hosts: hostList,
-		                     keyspace: ksName, use_bigints: false };
-		
-		function createKeyspace(callback){
-		   var cql = 'CREATE KEYSPACE ' + ksName + ' WITH strategy_class=SimpleStrategy AND strategy_options:replication_factor=1';
-		   var sysConOptions = { hosts: hostList,  
-		                         keyspace: 'system', use_bigints: false };
-		   var con = new pooledCon(sysConOptions);
-		   con.execute(cql,[],function(err) {
-		   if (err) {
-		     console.log("Failed to create Keyspace: " + ksName);
-		     console.log(err);
-		   }
-		   else {
-		     console.log("Created Keyspace: " + ksName);
-		     callback(ksConOptions, populateCustomerData);
-		   }
-		   });
-		   con.shutdown();
-		} 
-		
-		function createColumnFamily(ksConOptions, callback){
-		  var params = ['customers_cf','custid','varint','custname',
-		                'text','custaddress','text'];
-		  var cql = 'CREATE COLUMNFAMILY ? (? ? PRIMARY KEY,? ?, ? ?)';
-		var con =  new pooledCon(ksConOptions);
-		  con.execute(cql,params,function(err) {
-		      if (err) {
-		         console.log("Failed to create column family: " + params[0]);
-		         console.log(err);
-		      }
-		      else {
-		         console.log("Created column family: " + params[0]);
-		         callback();
-		      }
-		  });
-		  con.shutdown();
-		} 
-		
-		//populate Data
-		function populateCustomerData() {
-		   var params = ['John','Infinity Dr, TX', 1];
-		   updateCustomer(ksConOptions,params);
-		
-		   params = ['Tom','Fermat Ln, WA', 2];
-		   updateCustomer(ksConOptions,params);
-		}
-		
-		//update will also insert the record if none exists
-		function updateCustomer(ksConOptions,params)
-		{
-		  var cql = 'UPDATE customers_cf SET custname=?,custaddress=? where custid=?';
-		  var con = new pooledCon(ksConOptions);
-		  con.execute(cql,params,function(err) {
-		      if (err) console.log(err);
-		      else console.log("Inserted customer : " + params[0]);
-		  });
-		  con.shutdown();
-		}
-		
-		//read the two rows inserted above
-		function readCustomer(ksConOptions)
-		{
-		  var cql = 'SELECT * FROM customers_cf WHERE custid IN (1,2)';
-		  var con = new pooledCon(ksConOptions);
-		  con.execute(cql,[],function(err,rows) {
-		      if (err) 
-		         console.log(err);
-		      else 
-		         for (var i=0; i<rows.length; i++)
-		            console.log(JSON.stringify(rows[i]));
-		    });
-		   con.shutdown();
-		}
-		
-		//exectue the code
-		createKeyspace(createColumnFamily);
-		readCustomer(ksConOptions)
-
-
-## Conclusione 
+## Conclusione
 Microsoft Azure è una piattaforma flessibile che consente di eseguire software sia Microsoft che open source, come è stato illustrato in questa esercitazione. I cluster Cassandra a disponibilità elevata possono essere distribuiti in un data center singolo distribuendo i nodi dei cluster in più domini di errore. I cluster Cassandra possono essere distribuiti anche in più area di Azure geograficamente distanti per sistemi a prova di emergenza. La combinazione di Azure e Cassandra consente di creare servizi cloud a scalabilità elevata, a disponibilità elevata e ripristinabili in caso di emergenza, necessari per gli odierni servizi su scala Internet.
 
-##Riferimenti##
-- [http://cassandra.apache.org](http://cassandra.apache.org)
-- [http://www.datastax.com](http://www.datastax.com)
-- [http://www.nodejs.org](http://www.nodejs.org)
+## Riferimenti
+* [http://cassandra.apache.org](http://cassandra.apache.org)
+* [http://www.datastax.com](http://www.datastax.com)
+* [http://www.nodejs.org](http://www.nodejs.org)
 
 <!---HONumber=AcomDC_0817_2016-->

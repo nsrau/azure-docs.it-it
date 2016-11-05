@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Configurazione dei servizi con Cluster Resource Manager di Service Fabric | Microsoft Azure"
-   description="Describing a Service Fabric Service by specifying metrics, placement constraints, and other placement policies."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: Configurazione dei servizi con Cluster Resource Manager di Service Fabric | Microsoft Docs
+description: Describing a Service Fabric Service by specifying metrics, placement constraints, and other placement policies.
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
-
+---
 # Configurazione delle impostazioni di Cluster Resource Manager per i servizi Service Fabric
 Cluster Resource Manager di Service Fabric consente un controllo con granularità molto fine sulle regole che disciplinano ogni singolo servizio denominato. Ogni istanza del servizio con nome può specificare regole per la modalità di allocazione nel cluster e può definire il set di metriche di cui desidera generare un report, tra cui il relativo livello di importanza per tale servizio. La configurazione dei servizi prevede in genere tre diverse attività:
 
@@ -36,11 +35,11 @@ Le metriche rappresentano l'elenco delle risorse su cui questo servizio deve ess
 Esistono altri tipi di regole di posizionamento che sono principalmente utili nei cluster distribuiti geograficamente o in altri scenari meno comuni. Queste sono configurate tramite correlazioni o criteri. Sebbene non vengano utilizzate in molti scenari, verranno descritte per motivi di completezza.
 
 ## Passaggi successivi
-- Le metriche determinano il modo in cui Cluster Resource Manger di Service Fabric gestisce il consumo e la capacità del cluster. Per altre informazioni sulle metriche e su come configurarle, vedere [questo articolo](service-fabric-cluster-resource-manager-metrics.md).
-- L'affinità è un modo di configurare i servizi. Non è un'operazione frequente, ma se necessario sono disponibili altre informazioni [qui](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-- Sono disponibili molte regole di posizionamento diverse da configurare nel servizio per gestire scenari aggiuntivi. È possibile trovare informazioni sui vari criteri di posizionamento [qui](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-- Partire dall'inizio e vedere l'[introduzione a Cluster Resource Manager di Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
-- Per informazioni sul modo in cui Cluster Resource Manager gestisce e bilancia il carico nel cluster, vedere l'articolo relativo al [bilanciamento del carico](service-fabric-cluster-resource-manager-balancing.md)
-- Cluster Resource Manager dispone di molte opzioni per la descrizione del cluster. Per altre informazioni a riguardo vedere l'articolo [Descrizione di un cluster di Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
+* Le metriche determinano il modo in cui Cluster Resource Manger di Service Fabric gestisce il consumo e la capacità del cluster. Per altre informazioni sulle metriche e su come configurarle, vedere [questo articolo](service-fabric-cluster-resource-manager-metrics.md).
+* L'affinità è un modo di configurare i servizi. Non è un'operazione frequente, ma se necessario sono disponibili altre informazioni [qui](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+* Sono disponibili molte regole di posizionamento diverse da configurare nel servizio per gestire scenari aggiuntivi. È possibile trovare informazioni sui vari criteri di posizionamento [qui](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
+* Partire dall'inizio e vedere l'[introduzione a Cluster Resource Manager di Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
+* Per informazioni sul modo in cui Cluster Resource Manager gestisce e bilancia il carico nel cluster, vedere l'articolo relativo al [bilanciamento del carico](service-fabric-cluster-resource-manager-balancing.md)
+* Cluster Resource Manager dispone di molte opzioni per la descrizione del cluster. Per altre informazioni a riguardo vedere l'articolo [Descrizione di un cluster di Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
 
 <!---HONumber=AcomDC_0824_2016-->

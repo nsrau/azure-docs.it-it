@@ -5,7 +5,6 @@ Durante la definizione dei parametri, usare il campo **allowedValues** per speci
 Di seguito è fornita la descrizione di ogni parametro del modello.
 
 ### siteName
-
 Il nome dell'app Web che si desidera creare.
 
     "siteName":{
@@ -13,15 +12,13 @@ Il nome dell'app Web che si desidera creare.
     }
 
 ### hostingPlanName
-
 Il nome del piano di servizio app da usare per l'hosting dell'app Web.
-    
+
     "hostingPlanName":{
       "type":"string"
     }
 
 ### sku
-
 Il piano tariffario del piano di hosting.
 
     "sku": {
@@ -49,7 +46,6 @@ Il piano tariffario del piano di hosting.
 Il modello definisce i valori consentiti per questo parametro e assegna un valore predefinito (S1) se non viene specificato alcun valore.
 
 ### workerSize
-
 Le dimensioni delle istanze del piano di hosting (piccole, medie o grandi dimensioni).
 
     "workerSize":{
@@ -61,6 +57,6 @@ Le dimensioni delle istanze del piano di hosting (piccole, medie o grandi dimens
       ],
       "defaultValue":"0"
     }
-    
+
 Il modello definisce i valori consentiti per questo parametro (0, 1 o 2) e assegna un valore predefinito (0) nel caso in cui non viene specificato alcun valore. I valori corrispondono a piccole, medie e grandi dimensioni.
 

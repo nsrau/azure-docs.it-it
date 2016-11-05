@@ -1,23 +1,22 @@
-<properties
-    pageTitle="Aumentare il numero di istanze con il database SQL di Azure | Microsoft Azure"
-    description="Gli sviluppatori di Software come Servizio (Saas) possono facilmente creare database elastici e scalabili nel cloud utilizzando questi strumenti"
-    services="sql-database"
-    documentationCenter=""
-    manager="jhubbard"
-    authors="ddove"
-    editor=""/>
+---
+title: Aumentare il numero di istanze con il database SQL di Azure | Microsoft Docs
+description: Gli sviluppatori di Software come Servizio (Saas) possono facilmente creare database elastici e scalabili nel cloud utilizzando questi strumenti
+services: sql-database
+documentationcenter: ''
+manager: jhubbard
+author: ddove
+editor: ''
 
-<tags
-    ms.service="sql-database"
-    ms.workload="sql-database"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/06/2016"
-    ms.author="ddove"/>
+ms.service: sql-database
+ms.workload: sql-database
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/06/2016
+ms.author: ddove
 
+---
 # Aumentare il numero di istanze con il database SQL di Azure
-
 È possibile aumentare facilmente il numero di istante dei database SQL di Azure con gli strumenti dei **database elastici**. Questi strumenti e funzionalità consentono di usare le risorse di database virtualmente illimitate di **Database SQL di Azure** per creare soluzioni per carichi di lavoro transazionali e soprattutto applicazioni SaaS (Software as a Service). Le funzioni di database elastico sono costituite dai seguenti elementi:
 
 * [Libreria client dei database elastici](sql-database-elastic-database-client-library.md): la libreria client è una funzionalità che consente di creare e gestire i database partizionati. Vedere [Iniziare a usare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md).
@@ -38,12 +37,9 @@ In questo grafico, i colori del database rappresentano gli schemi. I database co
 6. La **query di database elastico** consente di scrivere una query che si estende a tutti i database nel set di partizioni.
 7. **Transazioni di database elastico** è una funzionalità che consente di eseguire transazioni che si estendono su più database.
 
-
 ![Strumenti di database elastici][1]
 
-
 ## Perché usare gli strumenti?
-
 Il raggiungimento dell’elasticità e della scalabilità delle applicazioni cloud è stato semplice per le VM e l'archiviazione BLOB in quanto è bastato aggiungere o sottrarre le unità nonché aumentare la potenza. Tuttavia, resta una sfida per l’elaborazione dei dati con stato in database relazionali. Sfide emerse in questi scenari:
 
 * Aumento e riduzione della capacità per la parte del carico di lavoro relativa al database relazionale.
@@ -52,7 +48,6 @@ Il raggiungimento dell’elasticità e della scalabilità delle applicazioni clo
 In genere, questi scenari sono stati affrontati effettuando investimenti in server di database di scala maggiore per supportare l'applicazione. Questa opzione offre però possibilità limitate negli ambienti cloud, in cui l'intera elaborazione viene eseguita su appositi componenti hardware predefiniti. Invece, la distribuzione dei dati e l’elaborazione in molti database strutturati in modo identico (un modello di scalabilità orizzontale noto come "partizionamento orizzontale") fornisce un'alternativa agli approcci tradizionali di scalabilità verticale sia in termini di costi che di elasticità.
 
 ## Scalabilità orizzontale e verticale
-
 Nella figura seguente vengono illustrate le dimensioni orizzontali e verticali della scalabilità, che sono i metodi di base in cui possono essere ridimensionati i database elastici.
 
 ![Scalabilità orizzontale e verticale][2]
@@ -64,11 +59,9 @@ Per scalabilità verticale si intende l’aumento o la riduzione del livello del
 La maggior parte delle applicazioni di database su scala cloud utilizzano una combinazione di questi due strategie. Un'applicazione di software come servizio può, ad esempio, utilizzare la scalabilità orizzontale per eseguire il provisioning di nuovi clienti finali e la scalabilità verticale per consentire l’espansione o la riduzione delle risorse del database di ogni cliente finale in base alle esigenze del carico di lavoro.
 
 * La scalabilità orizzontale è gestita tramite la [Libreria client di database elastici](sql-database-elastic-database-client-library.md).
-
 * La scalabilità verticale viene eseguita con i cmdlet di Azure PowerShell per modificare il livello di servizio o posizionando i database in un pool elastico.
 
 ## Partizionamento orizzontale
-
 Il *partizionamento orizzontale* è una tecnica per distribuire grandi quantità di dati strutturati in modo identico tra più database indipendenti. È molto usato dagli sviluppatori cloud che creano offerte Software as a Service (SAAS) per clienti finali o aziende. Questi clienti finali vengono spesso definiti "tenant". Il partizionamento orizzontale può essere necessario per vari motivi:
 
 * La quantità totale di dati è troppo elevata per un singolo database
@@ -81,7 +74,6 @@ In altri scenari, ad esempio l'inserimento di dati da dispositivi distribuiti, i
 Il partizionamento orizzontale rappresenta la scelta ottimale quando tutte le transazioni in un'applicazione possono essere limitate a un singolo valore di una chiave di partizionamento orizzontale. Questo garantisce che tutte le transazioni saranno locali rispetto a uno specifico database.
 
 ## Multi-tenant e single-tenant
-
 Alcune applicazioni usano l'approccio più semplice di creare un database separato per ogni tenant. Questo è il **modello di partizionamento orizzontale per singolo tenant**, che offre isolamento, funzionalità di backup e ripristino e scalabilità delle risorse in base alla granularità del tenant. Con il partizionamento orizzontale per singolo tenant, ogni database è associato a uno specifico valore di ID tenant (o valore di chiave del cliente), ma tale chiave non deve essere necessariamente presente nei dati. È responsabilità dell'applicazione indirizzare ogni richiesta al database appropriato e la libreria client può semplificare questa operazione.
 
 ![Single-tenant e multi-tenant][4]
@@ -89,18 +81,16 @@ Alcune applicazioni usano l'approccio più semplice di creare un database separa
 Altri scenari prevedono di riunire più tenant all'interno dei database, anziché isolarli in database separati. Si tratta di un **modello di partizionamento orizzontale multi-tenant** tipico e la scelta di un modello di questo tipo può essere dovuta al fatto che un'applicazione gestisce un numero elevato di tenant di dimensioni molto limitate. Nel partizionamento orizzontale multi-tenant, tutte le righe delle tabelle di database sono progettate per contenere una chiave che identifica l'ID tenant o una chiave di partizionamento orizzontale. Anche in questo caso, il livello applicazione è responsabile dell'instradamento delle richieste del tenant al database appropriato e questo può essere supportato dalla libreria client dei database elastici. Inoltre, la sicurezza a livello di riga può essere utilizzata per filtrare le righe a cui ogni tenant può accedere: per informazioni dettagliate, vedere [Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga](sql-database-elastic-tools-multi-tenant-row-level-security.md). Con lo schema di partizionamento orizzontale multi-tenant potrebbe essere necessaria la ridistribuzione dei dati tra database e questa operazione è facilitata dallo strumento di suddivisione-unione dei database elastici. Per altre informazioni sui modelli di progettazione per le applicazioni SaaS mediante pool elastici, vedere [Modelli di progettazione per applicazioni SaaS multi-tenant con database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ### Spostare i dati da database a più tenancy a database a singolo tenancy
-
 Quando si crea un'applicazione SaaS, in genere ai clienti potenziali viene offerta una versione di valutazione del software. In questo caso, è conveniente utilizzare un database multi-tenant per i dati. Tuttavia, quando un potenziale cliente diventa un cliente reale, è consigliabile utilizzare un database single-tenant, poiché garantisce prestazioni migliori. Se il cliente ha creato dati durante il periodo di valutazione, utilizzare lo [strumento di suddivisione-unione](sql-database-elastic-scale-overview-split-and-merge.md) per spostare i dati dal database multi-tenant al nuovo database single-tenant.
 
 ## Passaggi successivi
-
 Per un'app di esempio che illustra la libreria client, vedere [Iniziare a usare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md).
 
 Per convertire i database esistenti e usare gli strumenti, vedere l'articolo sulla [migrazione dei database esistenti per aumentare il numero di istanze](sql-database-elastic-convert-to-use-elastic-tools.md).
 
 Per visualizzare le specifiche del pool di database elastici, vedere [Considerazioni di prezzo e prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md) o creare un nuovo pool con l’[esercitazione](sql-database-elastic-pool-create-portal.md).
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Anchors-->
 <!--Image references-->

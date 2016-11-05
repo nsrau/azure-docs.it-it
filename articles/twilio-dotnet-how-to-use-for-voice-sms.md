@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Come usare Twilio per le funzionalità voce e SMS (.NET) | Microsoft Azure"
-	description="Informazioni su come effettuare una chiamata telefonica e inviare un SMS con il servizio API Twilio API in Azure. Esempi di codice scritti in .NET."
-	services=""
-	documentationCenter=".net"
-	authors="devinrader"
-	manager="twilio"
-	editor=""/>
+---
+title: Come usare Twilio per le funzionalità voce e SMS (.NET) | Microsoft Docs
+description: Informazioni su come effettuare una chiamata telefonica e inviare un SMS con il servizio API Twilio API in Azure. Esempi di codice scritti in .NET.
+services: ''
+documentationcenter: .net
+author: devinrader
+manager: twilio
+editor: ''
 
-<tags
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="04/24/2015"
-	ms.author="devinrader"/>
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 04/24/2015
+ms.author: devinrader
 
+---
 # Come usare Twilio per le funzionalità voce ed SMS da Azure
-
 In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per altre informazioni su Twilio e sull'utilizzo delle funzionalità voce ed SMS nelle applicazioni, vedere la sezione [Passaggi successivi](#NextSteps).
 
 ## <a id="WhatIs"></a>Informazioni su Twilio
@@ -93,17 +92,18 @@ Le librerie possono essere [installate tramite l'estensione Gestione pacchetti N
 
 Per impostazione predefinita, con Microsoft Visual Studio 2010 viene installata la versione 1.2 di NuGet. L'installazione delle librerie Twilio richiede NuGet 1.6 o versioni successive. Per informazioni sull'installazione o l'aggiornamento di NuGet, vedere [http://nuget.org/][nuget].
 
-> [AZURE.NOTE] Per installare la versione più recente di NuGet, è innanzitutto necessario disinstallare la versione caricata tramite Gestione estensioni di Visual Studio. A questo scopo, è necessario eseguire Visual Studio come amministratore. In caso contrario, il pulsante Disinstalla è disabilitato.
+> [!NOTE]
+> Per installare la versione più recente di NuGet, è innanzitutto necessario disinstallare la versione caricata tramite Gestione estensioni di Visual Studio. A questo scopo, è necessario eseguire Visual Studio come amministratore. In caso contrario, il pulsante Disinstalla è disabilitato.
+> 
+> 
 
 ### <a id="use_nuget"></a>Per aggiungere le librerie Twilio al progetto di Visual Studio:
-
-1.  Aprire la soluzione in Visual Studio.
-2.  Fare clic con il pulsante destro del mouse su **Riferimenti**.
-3.  Scegliere **Gestisci pacchetti NuGet...**
-4.  Fare clic su **Online**.
-5.  Nella casella di ricerca online digitare *twilio*.
-6.  Fare clic su **Install** sul pacchetto Twilio.
-
+1. Aprire la soluzione in Visual Studio.
+2. Fare clic con il pulsante destro del mouse su **Riferimenti**.
+3. Scegliere **Gestisci pacchetti NuGet...**
+4. Fare clic su **Online**.
+5. Nella casella di ricerca online digitare *twilio*.
+6. Fare clic su **Install** sul pacchetto Twilio.
 
 ## <a id="howto_make_call"></a>Procedura: Effettuare una chiamata in uscita
 Di seguito è illustrato come effettuare una chiamata in uscita tramite la classe **TwilioRestClient**. Questo codice utilizza inoltre un sito fornito da Twilio per restituire la risposta TwiML (Twilio Markup Language). Sostituire i valori per i numeri di telefono **From** e **To** e assicurarsi di verificare il numero di telefono in **From** per l'account Twilio prima di eseguire il codice.
@@ -164,7 +164,10 @@ Nella schermata seguente è illustrato come inviare un messaggio SMS tramite la 
 ## <a id="howto_provide_twiml_responses"></a>Procedura: Fornire risposte TwiML dal proprio sito Web
 Quando l'applicazione avvia una chiamata all'API Twilio, ad esempio tramite il metodo **client.InitiateOutboundCall**, Twilio invia la richiesta a un URL che deve restituire una risposta TwiML. L'esempio in [Procedura: Effettuare una chiamata in uscita](#howto_make_call) usa l'URL fornito da Twilio [http://twimlets.com/message][twimlet_message_url] per restituire la risposta.
 
-> [AZURE.NOTE] Poiché TwiML è progettato per essere utilizzato da servizi Web, è possibile visualizzare il codice TwiML nel browser. Ad esempio, fare clic su [http://twimlets.com/message](twimlet_message_url) per visualizzare un elemento &lt;Response&gt; vuoto; per un altro esempio, fare clic su [http://twimlets.com/message?Message%5B0%5D=Hello%20World](twimlet_message_url_hello_world) per visualizzare un elemento &lt;Response&gt; contenente un elemento &lt;Say&gt;.
+> [!NOTE]
+> Poiché TwiML è progettato per essere utilizzato da servizi Web, è possibile visualizzare il codice TwiML nel browser. Ad esempio, fare clic su [http://twimlets.com/message](twimlet_message_url.md) per visualizzare un elemento &lt;Response&gt; vuoto; per un altro esempio, fare clic su [http://twimlets.com/message?Message%5B0%5D=Hello%20World](twimlet_message_url_hello_world.md) per visualizzare un elemento &lt;Response&gt; contenente un elemento &lt;Say&gt;.
+> 
+> 
 
 Anziché utilizzare l'URL fornito da Twilio, è possibile creare un sito Web personalizzato che restituisce risposte HTTP. Il sito può essere creato in un linguaggio qualsiasi purché restituisca risposte HTTP. In questo argomento si presuppone che l'URL verrà ospitato da un gestore generico ASP.NET.
 
@@ -255,11 +258,7 @@ Dopo avere configurato un modo per fornire risposte TwiML, è possibile passare 
 
 Per altre informazioni sull'utilizzo di Twilio in Azure con ASP.NET, vedere [Come effettuare una chiamata tramite Twilio in un ruolo Web in Azure][howto_phonecall_dotnet].
 
-[AZURE.INCLUDE [twilio-additional-services-and-next-steps](../includes/twilio-additional-services-and-next-steps.md)]
-
-
-
-
+[!INCLUDE [twilio-additional-services-and-next-steps](../includes/twilio-additional-services-and-next-steps.md)]
 
 [howto_phonecall_dotnet]: partner-twilio-cloud-services-dotnet-phone-call-web-role.md
 

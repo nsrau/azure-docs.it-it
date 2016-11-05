@@ -1,31 +1,30 @@
-<properties
- pageTitle="Soluzioni di Azure per Internet delle cose | Microsoft Azure"
- description="Una panoramica di IoT in Azure, inclusa un'architettura della soluzione di esempio e la sua relazione con l’hub IoT di Azure, gli SDK per dispositivi e le soluzioni preconfigurate"
- services="iot-hub"
- documentationCenter=""
- authors="dominicbetts"
- manager="timlt"
- editor=""/>
+---
+title: Soluzioni di Azure per Internet delle cose | Microsoft Docs
+description: Una panoramica di IoT in Azure, inclusa un'architettura della soluzione di esempio e la sua relazione con l’hub IoT di Azure, gli SDK per dispositivi e le soluzioni preconfigurate
+services: iot-hub
+documentationcenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-hub"
- ms.devlang="na"
- ms.topic="get-started-article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="10/05/2016"
- ms.author="dobett"/>
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/05/2016
+ms.author: dobett
 
-[AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
+---
+[!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Passaggi successivi
-
 Hub IoT di Azure è un servizio che consente comunicazioni bidirezionali affidabili e sicure tra il back-end dell'applicazione e milioni di dispositivi. Consente al back-end dell'applicazione di:
 
-- Ricevere dati di telemetria su larga scala dai dispositivi.
-- Instradare i dati dai dispositivi a un processore di eventi di flusso.
-- Ricevere caricamenti di file dai dispositivi.
-- Inviare comandi da cloud a dispositivo a dispositivi specifici.
+* Ricevere dati di telemetria su larga scala dai dispositivi.
+* Instradare i dati dai dispositivi a un processore di eventi di flusso.
+* Ricevere caricamenti di file dai dispositivi.
+* Inviare comandi da cloud a dispositivo a dispositivi specifici.
 
 È possibile usate l'hub IoT per implementare il back-end della propria soluzione. L'hub IoT include anche un registro delle identità dei dispositivi che è possibile usare per effettuare il provisioning dei dispositivi, le credenziali di sicurezza e i relativi diritti per connettersi all'hub. Per altre informazioni sull'hub IoT, vedere [Informazioni sull'hub IoT][lnk-iot-hub].
 

@@ -1,32 +1,28 @@
-<properties
-	pageTitle="Foglio informativo sugli algoritmi di Machine Learning | Microsoft Azure"
-	description="Un foglio informativo sugli algoritmi di Machine Learning stampabile aiuta a scegliere il giusto algoritmo per il proprio modello predittivo in Azure Machine Learning Studio."
-	keywords="foglio informativo sugli algoritmi, foglio informatico, algoritmo di machine learning"
-	services="machine-learning"
-	documentationCenter=""
-	authors="brohrer"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Foglio informativo sugli algoritmi di Machine Learning | Microsoft Docs
+description: Un foglio informativo sugli algoritmi di Machine Learning stampabile aiuta a scegliere il giusto algoritmo per il proprio modello predittivo in Azure Machine Learning Studio.
+keywords: foglio informativo sugli algoritmi, foglio informatico, algoritmo di machine learning
+services: machine-learning
+documentationcenter: ''
+author: brohrer
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/09/2016"
-	ms.author="brohrer;garye" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/09/2016
+ms.author: brohrer;garye
 
-
+---
 # Foglio informativo sugli algoritmi di Machine Learning per Microsoft Azure Machine Learning Studio
-
 Il **foglio informativo sugli algoritmi di Microsoft Azure Machine Learning** aiuta a scegliere il giusto algoritmo per un modello di analisi predittiva.
 
 [Azure Machine Learning Studio](https://studio.azureml.net/) include una grande libreria di algoritmi delle famiglie di ***regressione***, ***classificazione***, ***clustering*** e ***rilevamento anomalie***. Ognuno è progettato per risolvere un tipo diverso di problema di Machine Learning.
 
-
 ## Download: foglio informativo sugli algoritmi di Machine Learning
-
 **Download del foglio informativo: [Foglio informativo sugli algoritmi di Machine Learning (27,9 x 43,2 cm)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**.
 
 ![Foglio informativo sugli algoritmi di Machine Learning: informazioni su come scegliere un algoritmo di Machine Learning.][cheat-sheet]
@@ -35,17 +31,18 @@ Il **foglio informativo sugli algoritmi di Microsoft Azure Machine Learning** ai
 
 Scaricare e stampare il foglio informativo sugli algoritmi di Machine Learning in formato tabloid per averlo sempre a disposizione quando è necessario scegliere un algoritmo.
 
-> [AZURE.NOTE] Vedere l'articolo [Come scegliere gli algoritmi di Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md) per una Guida dettagliata all'utilizzo di questo foglio informativo.
+> [!NOTE]
+> Vedere l'articolo [Come scegliere gli algoritmi di Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md) per una Guida dettagliata all'utilizzo di questo foglio informativo.
+> 
+> 
 
 ## Altre informazioni sugli algoritmi
-
 * Per una discussione più approfondita sui diversi tipi di algoritmi di Machine Learning, sul loro utilizzo e su come utilizzare questo foglio informativo per la scelta dell'algoritmo corretto, vedere [Come scegliere gli algoritmi di Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
 * Per un elenco per categoria degli algoritmi di Machine Learning disponibili in Machine Learning Studio, vedere [Initialize Model][initialize-model] nella Guida degli algoritmi e dei moduli di Machine Learning Studio.
 * Per un elenco completo degli algoritmi e dei moduli disponibili in Machine Learning Studio, vedere [Elenco moduli A-Z di Machine Learning Studio][a-z-list] nella Guida degli algoritmi e dei moduli di Machine Learning Studio.
 * Per scaricare e stampate un diagramma che offra una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 
-
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 <!-- This needs to be updated based on the new Choosing and Algorithm article
 

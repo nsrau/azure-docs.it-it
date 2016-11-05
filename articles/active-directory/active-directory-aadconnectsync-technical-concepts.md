@@ -1,23 +1,21 @@
-<properties
-    pageTitle="Servizio di sincronizzazione Azure AD Connect: Concetti tecnici | Microsoft Azure"
-    description="Illustra i concetti tecnici del servizio di sincronizzazione Azure AD Connect."
-    services="active-directory"
-    documentationCenter=""
-    authors="MarkusVi"
-    manager="femila"
-    editor=""/>
+---
+title: 'Servizio di sincronizzazione Azure AD Connect: Concetti tecnici | Microsoft Docs'
+description: Illustra i concetti tecnici del servizio di sincronizzazione Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: MarkusVi
+manager: femila
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/10/2016"
-    ms.author="markusvi;andkjell"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: markusvi;andkjell
 
-
-
+---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Servizio di sincronizzazione Azure AD Connect: Concetti tecnici
 Questo articolo è un riepilogo dell'argomento [Informazioni sull'architettura](active-directory-aadconnectsync-technical-concepts.md).
 
@@ -29,14 +27,13 @@ Basandosi su MIIS, ILM e FIM, i servizi di sincronizzazione di Azure Active Dire
 
 Le sezioni successive includono altri dettagli sugli aspetti seguenti del servizio di sincronizzazione FIM:
 
-- Connettore
-- Flusso dell'attributo
-- Spazio connettore
-- Metaverse
-- Provisioning
+* Connettore
+* Flusso dell'attributo
+* Spazio connettore
+* Metaverse
+* Provisioning
 
 ## <a name="connector"></a>Connettore
-
 I moduli di codice utilizzati per comunicare con una directory connessa sono chiamati connettori (definiti in precedenza agenti di gestione (MA)).
 
 Sono installati nel computer che esegue il servizio di sincronizzazione Azure AD Connect.
@@ -49,7 +46,6 @@ Il connettore è responsabile di tutte le funzionalità di importazione ed espor
 Le importazioni e le esportazioni sono eseguite solo quando pianificato, permettendo un maggiore isolamento dalle modifiche apportate nel sistema, poiché le modifiche non vengono propagate automaticamente all'origine dati connessa. Gli sviluppatori, inoltre, possono creare connettori personalizzati per connettersi praticamente a qualsiasi origine dati.
 
 ## <a name="attribute-flow"></a>Flusso dell'attributo
-
 Per metaverse si intende la visualizzazione consolidata di tutte le identità unite dagli spazi connettore vicini. Nella figura precedente il flusso di attributi è rappresentato tramite linee con frecce per il flusso in entrata e in uscita. Il flusso di attributi è il processo di copia o trasformazione dei dati da un sistema a un altro e tutti gli attributi sono associati a flussi di attributi in entrata o in uscita.
 
 Il flusso dell'attributo si verifica in modo bidirezionale tra lo spazio connettore e il metaverse quando è pianificata l'esecuzione di operazioni di sincronizzazione (completa o delta).
@@ -57,18 +53,15 @@ Il flusso dell'attributo si verifica in modo bidirezionale tra lo spazio connett
 Il flusso dell'attributo si verifica solo quando vengono eseguite le sincronizzazioni. I flussi di attributi sono definiti nelle regole di sincronizzazione. Le regole possono essere in entrata (ISR nella figura precedente) o in uscita (OSR nella figura precedente).
 
 ## <a name="connected-system"></a>Sistema connesso
-
 Il sistema connesso (noto anche come directory connessa) fa riferimento al sistema remoto a cui il servizio di sincronizzazione Azure AD Connect è connesso e ai dati di identità nei quali vengono svolte operazioni di lettura e scrittura.
 
 ## <a name="connector-space"></a>Spazio connettore
-
 Ogni origine dati connessa è rappresentata come sottoinsieme filtrato di oggetti e attributi nello spazio connettore.
 Ciò permette al servizio di sincronizzazione di funzionare localmente, senza che sia necessario contattare il sistema remoto durante la sincronizzazione di oggetti, e limita le interazioni alle sole importazioni ed esportazioni.
 
 Quando l'origine dati e il connettore sono in grado di fornire un elenco di modifiche (importazione delta), l'efficienza operativa aumenta in modo drastico, poiché saranno scambiate solo le modifiche successive all'ultimo ciclo di polling. Lo spazio connettore isola l'origine dati connessa dalla propagazione automatica delle modifiche, richiedendo che il connettore pianifichi le importazioni e le esportazioni. Ciò offre una maggiore sicurezza durante il test, l'anteprima o la conferma dell'aggiornamento successivo.
 
 ## <a name="metaverse"></a>Metaverse
-
 Per metaverse si intende la visualizzazione consolidata di tutte le identità unite dagli spazi connettore vicini.
 
 Poiché le identità sono collegate tra loro e l'autorità è assegnata a diversi attributi tramite i mapping di flusso di importazione, l'oggetto metaverse centrale inizia ad aggregare informazioni da più sistemi. Da questo flusso di attributi dell'oggetto, i mapping portano le informazioni ai sistemi in uscita.
@@ -81,7 +74,6 @@ Quando rileva nuove origini dati che potrebbero includere oggetti preesistenti d
 Dopo la creazione del collegamento, la valutazione non viene ripetuta ed è permesso il flusso normale dell'attributo tra l'origine dati remota connessa e il metaverse.
 
 ## <a name="provisioning"></a>Provisioning
-
 Quando un'origine autorevole proietta un nuovo oggetto nel metaverse, un nuovo oggetto spazio connettore può essere creato in un altro connettore che rappresenta un'origine dati connessa successiva.
 
 In questo modo sarà stabilito implicitamente un collegamento e il flusso dell'attributo potrà procedere in modo bidirezionale.
@@ -89,7 +81,6 @@ In questo modo sarà stabilito implicitamente un collegamento e il flusso dell'a
 Quando una regola determina che è necessario creare un nuovo oggetto spazio connettore, questa operazione è definita provisioning. Poiché tuttavia questa operazione si verifica solo nello spazio connettore, verrà applicata all'origine dati connessa solo quando sarà eseguita un'esportazione.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
-
 * [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 

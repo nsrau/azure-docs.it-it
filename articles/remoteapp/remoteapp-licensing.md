@@ -1,25 +1,25 @@
-<properties
-    pageTitle="Licenze di Azure RemoteApp | Microsoft Azure"
-    description="Informazioni sul funzionamento delle licenze in Azure RemoteApp."
-    services="remoteapp"
-    documentationCenter=""
-    authors="lizap"
-    manager="mbaldwin" />
+---
+title: Licenze di Azure RemoteApp | Microsoft Docs
+description: Informazioni sul funzionamento delle licenze in Azure RemoteApp.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags
-    ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/15/2016"
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
+---
 # Funzionamento delle licenze in Azure RemoteApp
-
-> [AZURE.IMPORTANT]
-Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> [!IMPORTANT]
+> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> 
+> 
 
 È stato configurato il servizio Azure RemoteApp, sono stati creati i modelli e si è ora pronti per pubblicare le app per gli utenti. Ma c'è ancora un aspetto da prendere in considerazione: le licenze. Come funzionano le licenze per RemoteApp e per le app condivise tramite RemoteApp?
 

@@ -1,22 +1,21 @@
-<properties
-    pageTitle="Domini multipli di Azure AD Connect"
-    description="Questo documento descrive l'impostazione e la configurazione di più domini di primo livello con Office 365 e Azure AD."
-    services="active-directory"
-    documentationCenter=""
-    authors="billmath"
-    manager="femila"
-    editor="curtand"/>
+---
+title: Domini multipli di Azure AD Connect
+description: Questo documento descrive l'impostazione e la configurazione di più domini di primo livello con Office 365 e Azure AD.
+services: active-directory
+documentationcenter: ''
+author: billmath
+manager: femila
+editor: curtand
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/08/2016"
-    ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/08/2016
+ms.author: billmath
 
-
+---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Supporto di più domini per la federazione con Azure AD
 La documentazione seguente fornisce indicazioni su come usare più domini di primo livello e sottodomini durante la federazione con domini di Office 365 o Azure AD.
 
@@ -25,7 +24,10 @@ Per la federazione di più domini di primo livello con Azure AD sono necessarie 
 
 Quando un dominio è federato con Azure AD, alcune proprietà vengono impostate nel dominio in Azure.  Una proprietà importante è IssuerUri.  Si tratta di un URI usato da Azure AD per identificare il dominio a cui è associato il token.  Non è necessario che l'URI venga risolto, ma deve essere un URI valido.  Per impostazione predefinita, Azure AD lo imposta sul valore dell'identificatore del servizio federativo nella configurazione locale di AD FS.
 
->[AZURE.NOTE]L'identificatore del servizio federativo è un URI che identifica in modo univoco un servizio federativo.  Il servizio federativo è un'istanza di AD FS che funge da servizio token di sicurezza. 
+> [!NOTE]
+> L'identificatore del servizio federativo è un URI che identifica in modo univoco un servizio federativo.  Il servizio federativo è un'istanza di AD FS che funge da servizio token di sicurezza. 
+> 
+> 
 
 È possibile visualizzare IssuerUri usando il comando `Get-MsolDomainFederationSettings - DomainName <your domain>`di PowerShell.
 
@@ -36,17 +38,15 @@ Si verifica un problema quando si vogliono aggiungere più domini di primo livel
 ![Domini](./media/active-directory-multiple-domains/domains.png)
 
 Quando si prova a convertire il dominio bmfabrikam.com in modo che sia federato, viene visualizzato un errore.  La causa dell'errore è un vincolo di Azure AD che non consente alla proprietà IssuerUri di avere lo stesso valore per più di un dominio.  
-  
 
 ![Errore della federazione](./media/active-directory-multiple-domains/error.png)
 
 ### <a name="supportmultipledomain-parameter"></a>Parametro SupportMultipleDomain
-
 Per risolvere il problema, è necessario aggiungere una proprietà IssuerUri diversa, usando il parametro `-SupportMultipleDomain` .  Questo parametro viene usato con i cmdlet seguenti:
-    
-- `New-MsolFederatedDomain`
-- `Convert-MsolDomaintoFederated`
-- `Update-MsolFederatedDomain`
+
+* `New-MsolFederatedDomain`
+* `Convert-MsolDomaintoFederated`
+* `Update-MsolFederatedDomain`
 
 Questo parametro consente ad Azure AD di configurare IssuerUri in modo che sia basata sul nome del dominio.  Questo valore sarà univoco nelle directory di Azure AD.  L'uso del parametro consente il completamento corretto del comando di PowerShell.
 
@@ -69,8 +69,10 @@ Di seguito è riportata la regola attestazioni personalizzata che implementa que
     c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type =   "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
 
 
->[AZURE.IMPORTANT]Per usare l'opzione -SupportMultipleDomain quando si prova ad aggiungere o convertire domini già aggiunti, è necessario che il trust federativo sia stato configurato per supportarli in origine.  
-
+> [!IMPORTANT]
+> Per usare l'opzione -SupportMultipleDomain quando si prova ad aggiungere o convertire domini già aggiunti, è necessario che il trust federativo sia stato configurato per supportarli in origine.  
+> 
+> 
 
 ## <a name="how-to-update-the-trust-between-ad-fs-and-azure-ad"></a>Come aggiornare il trust tra AD FS e Azure AD
 Se il trust federativo non è stato configurato tra AD FS e l'istanza di Azure AD, potrebbe essere necessario crearlo di nuovo,  perché, quando viene configurato in origine senza il parametro `-SupportMultipleDomain`, il valore IssuerUri viene impostato con il valore predefinito.  Nella schermata seguente è possibile vedere che IssuerUri è impostato su https://adfs.bmcontoso.com/adfs/services/trust.
@@ -91,32 +93,30 @@ Usare la procedura seguente per aggiungere un dominio di primo livello aggiuntiv
 
 Usare la procedura seguente per rimuovere il trust di Microsoft Online e aggiornare il dominio originale.
 
-2.  Nel server federativo di AD FS aprire **Gestione AD FS** 
-2.  Sulla sinistra espandere **Relazioni di attendibilità** e **Attendibilità componente**
-3.  Sulla destra eliminare la voce **Piattaforma delle identità di Microsoft Office 365** .
-![Rimozione di Microsoft Online](./media/active-directory-multiple-domains/trust4.png)
-1.  Nel computer in cui è installato il [Modulo di Microsoft Azure Active Directory per Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) eseguire il comando seguente: `$cred=Get-Credential`.  
-2.  Immettere il nome utente e la password di un amministratore globale di Azure AD con cui si esegue la federazione.
-2.  In PowerShell immettere `Connect-MsolService -Credential $cred`
-4.  In PowerShell immettere `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain`.  Questa impostazione è relativa al dominio originale.  Usando i domini precedenti, si ottiene quindi: `Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`
-
+1. Nel server federativo di AD FS aprire **Gestione AD FS** 
+2. Sulla sinistra espandere **Relazioni di attendibilità** e **Attendibilità componente**
+3. Sulla destra eliminare la voce **Piattaforma delle identità di Microsoft Office 365** .
+   ![Rimozione di Microsoft Online](./media/active-directory-multiple-domains/trust4.png)
+4. Nel computer in cui è installato il [Modulo di Microsoft Azure Active Directory per Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) eseguire il comando seguente: `$cred=Get-Credential`.  
+5. Immettere il nome utente e la password di un amministratore globale di Azure AD con cui si esegue la federazione.
+6. In PowerShell immettere `Connect-MsolService -Credential $cred`
+7. In PowerShell immettere `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain`.  Questa impostazione è relativa al dominio originale.  Usando i domini precedenti, si ottiene quindi: `Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`
 
 Usare la procedura seguente per aggiungere il nuovo dominio di primo livello tramite PowerShell
 
-1.  Nel computer in cui è installato il [Modulo di Microsoft Azure Active Directory per Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) eseguire il comando seguente: `$cred=Get-Credential`.  
-2.  Immettere il nome utente e la password di un amministratore globale di Azure AD con cui si esegue la federazione.
-2.  In PowerShell immettere `Connect-MsolService -Credential $cred`
-3.  In PowerShell immettere `New-MsolFederatedDomain –SupportMultipleDomain –DomainName`
+1. Nel computer in cui è installato il [Modulo di Microsoft Azure Active Directory per Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) eseguire il comando seguente: `$cred=Get-Credential`.  
+2. Immettere il nome utente e la password di un amministratore globale di Azure AD con cui si esegue la federazione.
+3. In PowerShell immettere `Connect-MsolService -Credential $cred`
+4. In PowerShell immettere `New-MsolFederatedDomain –SupportMultipleDomain –DomainName`
 
 Usare la procedura seguente per aggiungere il nuovo dominio di primo livello tramite Azure AD Connect.
 
-1.  Avviare Azure AD Connect dal desktop o dal menu Start.
-2.  Scegliere "Aggiunta di un altro dominio di Azure AD" ![Aggiunta di un altro dominio di Azure AD](./media/active-directory-multiple-domains/add1.png)
-3.  Immettere le credenziali di Azure AD e Active Directory.
-4.  Selezionare il secondo dominio da configurare per la federazione.
-![Aggiunta di un altro dominio di Azure AD](./media/active-directory-multiple-domains/add2.png)
-5.  Fare clic su Installa.
-
+1. Avviare Azure AD Connect dal desktop o dal menu Start.
+2. Scegliere "Aggiunta di un altro dominio di Azure AD" ![Aggiunta di un altro dominio di Azure AD](./media/active-directory-multiple-domains/add1.png)
+3. Immettere le credenziali di Azure AD e Active Directory.
+4. Selezionare il secondo dominio da configurare per la federazione.
+   ![Aggiunta di un altro dominio di Azure AD](./media/active-directory-multiple-domains/add2.png)
+5. Fare clic su Installa.
 
 ### <a name="verify-the-new-top-level-domain"></a>Verificare il nuovo dominio di primo livello
 Usando il comando `Get-MsolDomainFederationSettings - DomainName <your domain>`di PowerShell, è possibile visualizzare la proprietà IssuerUri aggiornata.  La schermata seguente mostra le impostazioni di federazione aggiornate sul dominio originale http://bmcontoso.com/adfs/services/trust
@@ -127,8 +127,7 @@ E IssuerUri sul nuovo dominio è stato impostato su https://bmfabrikam.com/adfs/
 
 ![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/settings2.png)
 
-
-##<a name="support-for-sub-domains"></a>Supporto per sottodomini
+## <a name="support-for-sub-domains"></a>Supporto per sottodomini
 A causa della modalità di gestione dei domini in Azure AD, eventuali sottodomini aggiunti erediteranno le impostazioni del dominio padre.  La proprietà IssuerUri deve quindi corrispondere a quella degli elementi padre.
 
 Si supponga ad esempio che sia presente il dominio bmcontoso.com e che quindi si aggiunga corp.bmcontoso.com.  Ciò significa che IssuerUri per un utente di corp.bmcontoso.com dovrà essere **http://bmcontoso.com/adfs/services/trust.**  Tuttavia la regola standard implementata sopra per Azure AD genererà un token con un emittente come **http://corp.bmcontoso.com/adfs/services/trust.** che non corrisponderà al valore di dominio obbligatorio e l'autenticazione avrà esito negativo.
@@ -142,22 +141,20 @@ L'attestazione seguente consente di eseguire questa operazione:
 
 Usare la procedura seguente per aggiungere un'attestazione personalizzata per il supporto dei sottodomini.
 
-1.  Aprire Gestione AD FS.
-2.  Fare clic con il pulsante destro del mouse sul trust della relying party di Microsoft Online RP quindi scegliere Modifica regole attestazione.
-3.  Selezionare la terza regola attestazioni e sostituire ![Modifica dell'attestazione](./media/active-directory-multiple-domains/sub1.png)
-4.  Sostituire l'attestazione corrente:
-    
-        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
-        
-    con
-    
-        `c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^((.*)([.|@]))?(?<domain>[^.]*[.].*)$", "http://${domain}/adfs/services/trust/"));`
-    
+1. Aprire Gestione AD FS.
+2. Fare clic con il pulsante destro del mouse sul trust della relying party di Microsoft Online RP quindi scegliere Modifica regole attestazione.
+3. Selezionare la terza regola attestazioni e sostituire ![Modifica dell'attestazione](./media/active-directory-multiple-domains/sub1.png)
+4. Sostituire l'attestazione corrente:
+   
+       c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
+   
+   con
+   
+       `c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^((.*)([.|@]))?(?<domain>[^.]*[.].*)$", "http://${domain}/adfs/services/trust/"));`
+
 ![Sostituzione dell'attestazione](./media/active-directory-multiple-domains/sub2.png)
-5.  Fare clic su Ok.  Fare clic su Applica.  Fare clic su Ok.  Chiudere Gestione ADFS.
 
-
-
+1. Fare clic su Ok.  Fare clic su Applica.  Fare clic su Ok.  Chiudere Gestione ADFS.
 
 <!--HONumber=Oct16_HO2-->
 

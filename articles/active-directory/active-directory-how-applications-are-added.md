@@ -1,27 +1,25 @@
-<properties
-   pageTitle="Come vengono aggiunte le applicazioni in Azure Active Directory."
-   description="Questo articolo descrive il modo in cui le applicazioni vengono aggiunge a un'istanza di Azure Active Directory."
-   services="active-directory"
-   documentationCenter=""
-   authors="shoatman"
-   manager="kbrint"
-   editor=""/>
+---
+title: Come vengono aggiunte le applicazioni in Azure Active Directory.
+description: Questo articolo descrive il modo in cui le applicazioni vengono aggiunge a un'istanza di Azure Active Directory.
+services: active-directory
+documentationcenter: ''
+author: shoatman
+manager: kbrint
+editor: ''
 
-   <tags
-      ms.service="active-directory"
-      ms.devlang="na"
-      ms.topic="article"
-      ms.tgt_pltfrm="na"
-      ms.workload="identity"
-      ms.date="02/09/2016"
-      ms.author="shoatman"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 02/09/2016
+ms.author: shoatman
 
+---
 # Come vengono aggiunte le applicazioni in Azure AD e perché
-
 Uno degli aspetti più sconcertanti quando si visualizza un elenco di applicazioni nell'istanza di Azure Active Directory sta nel comprendere da dove provengono le applicazioni e perché si trovano nella directory. Questo articolo fornisce una panoramica generale del modo in cui le applicazioni sono rappresentate nella directory, oltre alle informazioni necessarie per comprendere perché un'applicazione è stata inclusa nella directory.
 
 ## Quali sono i servizi che Azure AD offre alle applicazioni?
-
 Le applicazioni vengono aggiunte in Azure AD in modo che sia possibile sfruttare uno o più servizi offerti. I servizi comprendono:
 
 * Autenticazione e autorizzazione delle app
@@ -33,7 +31,6 @@ Le applicazioni vengono aggiunte in Azure AD in modo che sia possibile sfruttare
 * Proxy e pubblicazione dell'applicazione. È possibile pubblicare un'app in Internet da una rete privata
 
 ## In che modo sono rappresentate le applicazioni nella directory?
-
 Le applicazioni sono rappresentate in Azure AD tramite 2 oggetti: un oggetto applicazione e un oggetto entità servizio. Esiste un oggetto applicazione, registrato in una directory "home"/"proprietario" o "pubblicazione" e uno o più oggetti entità servizio che rappresentano l'applicazione in ogni directory in cui opera.
 
 L'oggetto applicazione descrive l'app ad Azure AD (servizio multitenant) e può includere gli elementi seguenti: (*Nota*: questo elenco potrebbe non essere completo)
@@ -52,16 +49,15 @@ L'entità servizio è un record dell'applicazione in ogni directory in cui quest
 * Fa riferimento a un oggetto applicazione tramite la proprietà ID app
 * Registra le assegnazioni del ruolo app al gruppo e all'utente locale
 * Registra le autorizzazioni di amministratore e utente locale concesse all'app
-    * Ad esempio, l'autorizzazione dell'app ad accedere all'indirizzo di posta elettronica di un utente specifico
+  * Ad esempio, l'autorizzazione dell'app ad accedere all'indirizzo di posta elettronica di un utente specifico
 * Registra i criteri locali, inclusi i criteri di accesso condizionale
 * Registra le impostazioni locali alternative per un'app
-    * Regole di trasformazione delle attestazioni
-    * Mapping degli attributi (provisioning utenti)
-    * Ruoli app specifici del tenant (se l'app supporta i ruoli personalizzati)
-    * Nome/Logo
+  * Regole di trasformazione delle attestazioni
+  * Mapping degli attributi (provisioning utenti)
+  * Ruoli app specifici del tenant (se l'app supporta i ruoli personalizzati)
+  * Nome/Logo
 
 ### Diagramma degli oggetti applicazione e delle entità servizio tra le directory
-
 ![Diagramma che illustra gli oggetti applicazione e le entità servizio presenti all'interno delle istanze di Azure AD.][apps_service_principals_directory]
 
 Come si può notare nel diagramma, Microsoft mantiene internamente due directory (a sinistra) usate per pubblicare le applicazioni.
@@ -78,35 +74,32 @@ Applicazioni aggiunte dall'utente:
 * App pubblicate tramite il proxy di applicazione di Azure AD.
 
 ### Note ed eccezioni
-
 * Non tutte le entità servizio fanno riferimento a oggetti applicazione. Questo perché al momento della creazione di Azure AD, i servizi forniti alle applicazioni erano molto più limitati e l'entità servizio era sufficiente per stabilire l'identità di un'app. L'entità servizio originale assomigliava più all'account del servizio di Windows Server Active Directory. Per questo motivo, è ancora possibile creare entità servizio usando Azure AD PowerShell senza dover prima creare un oggetto applicazione. L'API Graph richiede che venga creato un oggetto app prima di creare un'entità servizio.
 * Non tutte le informazioni riportate sopra sono al momento esposte a livello di codice. Le funzionalità seguenti sono disponibili solo nell'interfaccia utente:
-    * Regole di trasformazione delle attestazioni
-    * Mapping degli attributi (provisioning utenti)
+  * Regole di trasformazione delle attestazioni
+  * Mapping degli attributi (provisioning utenti)
 * Per informazioni dettagliate sugli oggetti applicazione ed entità servizio, vedere la documentazione di riferimento all'API REST di Azure AD Graph. *Suggerimento*: la documentazione di riferimento all'API Graph di Azure AD è quanto di più somigliante al riferimento a uno schema per Azure AD disponibile al momento.  
-    * [Applicazione](https://msdn.microsoft.com/library/azure/dn151677.aspx)
-    * [Entità servizio](https://msdn.microsoft.com/library/azure/dn194452.aspx)
-
+  * [Applicazione](https://msdn.microsoft.com/library/azure/dn151677.aspx)
+  * [Entità servizio](https://msdn.microsoft.com/library/azure/dn194452.aspx)
 
 ## In che modo le app vengono aggiunte alla mia istanza di Azure AD?
 È possibile aggiungere un'app in Azure AD in diversi modi:
 
 * Aggiungere un'app dalla [Raccolta app di Azure Active Directory](https://azure.microsoft.com/updates/azure-active-directory-over-1000-apps/)
 * Iscriversi o accedere a un'app di terze parti integrata in Azure Active Directory, ad esempio [Smartsheet](https://app.smartsheet.com/b/home) o [DocuSign](https://www.docusign.net/member/MemberLogin.aspx)
-    * Durante la procedura di iscrizione/accesso, agli utenti viene richiesto di concedere all'app l'autorizzazione ad accedere al proprio profilo e altri tipi di autorizzazioni. Quando viene dato il primo consenso, l'entità servizio che rappresenta l'app viene aggiunta alla directory.
+  * Durante la procedura di iscrizione/accesso, agli utenti viene richiesto di concedere all'app l'autorizzazione ad accedere al proprio profilo e altri tipi di autorizzazioni. Quando viene dato il primo consenso, l'entità servizio che rappresenta l'app viene aggiunta alla directory.
 * Iscriversi o accedere ai Microsoft Online Services, ad esempio [Office 365](http://products.office.com/)
-    * Quando si effettua l'abbonamento a Office 365 o si richiede una versione di valutazione, vengono create una o più entità servizio nella directory che rappresenta i vari servizi usati per fornire tutte le funzionalità associate a Office 365.
-    * Alcuni servizi di Office 365, ad esempio SharePoint, creano entità servizio in modo continuativo per consentire la comunicazione sicura tra i componenti, inclusi i flussi di lavoro.
+  * Quando si effettua l'abbonamento a Office 365 o si richiede una versione di valutazione, vengono create una o più entità servizio nella directory che rappresenta i vari servizi usati per fornire tutte le funzionalità associate a Office 365.
+  * Alcuni servizi di Office 365, ad esempio SharePoint, creano entità servizio in modo continuativo per consentire la comunicazione sicura tra i componenti, inclusi i flussi di lavoro.
 * Aggiungere un'app in fase di sviluppo nel portale di gestione di Azure. Vedere https://msdn.microsoft.com/library/azure/dn132599.aspx
 * Aggiungere un'app in fase di sviluppo tramite Visual Studio. Vedere:
-    * [Metodi di autenticazione ASP.NET](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions)
-    * [Servizi connessi](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
+  * [Metodi di autenticazione ASP.NET](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions)
+  * [Servizi connessi](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
 * Aggiungere un'app per l'uso del [proxy di applicazione di Azure AD](https://msdn.microsoft.com/library/azure/dn768219.aspx)
 * Connettere un'app per l'accesso Single Sign-On tramite SAML o SSO basato su password
 * Sono disponibili altri modi, incluse varie esperienze utente in Azure ed esperienze di esplorazione delle API nei centri per sviluppatori
 
 ## Chi è autorizzato ad aggiungere applicazioni alla mia istanza di Azure AD?
-
 Solo gli amministratori globali possono:
 
 * Aggiungere app dalla raccolta di app Azure AD (app di terze parti preintegrate)
@@ -129,10 +122,8 @@ Anche se questo può inizialmente destare qualche preoccupazione, tenere present
 
 ![Schermata dell'interfaccia utente per la configurazione delle impostazioni delle app integrate][app_settings]
 
-
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
-
 Altre informazioni su come aggiungere applicazioni in Azure AD e su come configurare i servizi per le app.
 
 * Sviluppatori: [Informazioni su come integrare un'applicazione con AAD](https://msdn.microsoft.com/library/azure/dn151122.aspx)
@@ -143,8 +134,7 @@ Altre informazioni su come aggiungere applicazioni in Azure AD e su come configu
 * Professionisti IT: [Informazioni su come pubblicare un'app tramite il proxy di applicazione di Azure Active Directory](https://msdn.microsoft.com/library/azure/dn768219.aspx)
 
 ## Vedere anche
-
-- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+* [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
 <!--Image references-->
 [apps_service_principals_directory]: media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg

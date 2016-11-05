@@ -1,27 +1,23 @@
-<properties
-	pageTitle="Limiti delle risorse del database SQL di Azure"
-	description="In questa pagina vengono descritti alcuni limiti di risorse comuni per il Database SQL Azure."
-	services="sql-database"
-	documentationCenter="na"
-	authors="CarlRabeler"
-	manager="jhubbard"
-	editor="monicar" />
+---
+title: Limiti delle risorse del database SQL di Azure
+description: In questa pagina vengono descritti alcuni limiti di risorse comuni per il Database SQL Azure.
+services: sql-database
+documentationcenter: na
+author: CarlRabeler
+manager: jhubbard
+editor: monicar
 
+ms.service: sql-database
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-management
+ms.date: 07/19/2016
+ms.author: carlrab
 
-<tags
-	ms.service="sql-database"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-management"
-	ms.date="07/19/2016"
-	ms.author="carlrab" />
-
-
+---
 # Limiti delle risorse del database SQL di Azure
-
 ## Overview
-
 Il database SQL di Azure gestisce le risorse disponibili per un database usando due meccanismi diversi: la **governance delle risorse** e l'**imposizione di limiti**. Questo argomento illustra queste due aree principali relative alla gestione delle risorse.
 
 ## Governance delle risorse
@@ -32,11 +28,9 @@ Come in un computer dedicato, l'utilizzo di tutte le risorse disponibili determi
 ### Consigli:
 Monitorare l'utilizzo delle risorse e i tempi di risposta medi delle query quando si sta per raggiungere l'utilizzo massimo di un database. Quando si verificano latenze di query più elevate, sono disponibili tre opzioni:
 
-1.	Ridurre la quantità di richieste in entrata al database per evitare timeout e l'accumulo delle richieste.
-
-2.	Assegnare al database un livello di prestazioni più elevato.
-
-3.	Ottimizzare le query per ridurre l'utilizzo delle risorse di ogni query. Per altre informazioni, vedere la sezione Hint/ottimizzazione di query in Linee guida per le prestazioni del database SQL di Azure.
+1. Ridurre la quantità di richieste in entrata al database per evitare timeout e l'accumulo delle richieste.
+2. Assegnare al database un livello di prestazioni più elevato.
+3. Ottimizzare le query per ridurre l'utilizzo delle risorse di ogni query. Per altre informazioni, vedere la sezione Hint/ottimizzazione di query in Linee guida per le prestazioni del database SQL di Azure.
 
 ## Applicazione dei limiti
 Per le risorse diverse da CPU, memoria, I/O di log e I/O di dati, al raggiungimento dei limiti le nuove richieste vengono negate. I client visualizzeranno un [messaggio di errore](sql-database-develop-error-messages.md) a seconda del limite che è stato raggiunto.
@@ -44,35 +38,28 @@ Per le risorse diverse da CPU, memoria, I/O di log e I/O di dati, al raggiungime
 Ad esempio, il numero di connessioni a un database SQL e il numero di richieste simultanee che possono essere elaborate viene limitato. Nel database SQL, il numero di connessioni al database può essere maggiore del numero di richieste simultanee per supportare i pool di connessioni. Mentre la quantità di connessioni disponibili può essere facilmente controllata dall'applicazione, la quantità di richieste parallele è più difficile da stimare e da controllare. In particolare, durante i carichi di picco quando l'applicazione invia troppe richieste o il database raggiunge i relativi limiti e inizia ad accumulare thread di lavoro a causa dei tempi di esecuzione delle query prolungati, è possibile che si verifichino errori.
 
 ## Livelli di servizio e livelli di prestazioni
-
 Sono disponibili livelli di servizio e livelli di prestazioni sia per i database autonomi che per i pool elastici.
 
 ### Database autonomi
-
 Per un database autonomo, i limiti di un database sono definiti dal livello del servizio del database e dal livello delle prestazioni. La tabella seguente descrive le caratteristiche dei database Basic, Standard e Premium a diversi livelli di prestazioni.
 
-[AZURE.INCLUDE [Tabella livelli di servizio database SQL](../../includes/sql-database-service-tiers-table.md)]
+[!INCLUDE [Tabella livelli di servizio database SQL](../../includes/sql-database-service-tiers-table.md)]
 
 ### Pool elastici
-
 I [pool elastici](sql-database-elastic-pool.md) condividono le risorse tra i database del pool. La tabella seguente descrive le caratteristiche dei pool di database elastici Basic, Standard e Premium.
 
-[AZURE.INCLUDE [Tabella livelli di servizio di database SQL per database elastici](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
+[!INCLUDE [Tabella livelli di servizio di database SQL per database elastici](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 Per una definizione espansa di ogni risorsa elencata nelle tabelle precedenti, vedere le descrizioni in [Limiti e capacità a livello di servizio](sql-database-performance-guidance.md#service-tier-capabilities-and-limits). Per una panoramica dei livelli di servizio, vedere [Livelli di servizio e livelli di prestazioni del database SQL di Azure](sql-database-service-tiers.md).
 
 ## Altri limiti relativi al database SQL
-
 | Area | Limite | Descrizione |
-|---|---|---|
-| Database che usano l'esportazione automatizzata per ogni sottoscrizione | 10 | L’esportazione automatizzata consente di creare una pianificazione personalizzata per il backup dei database SQL. Per ulteriori informazioni, vedere [Database SQL: supporto per le esportazioni automatizzate di Database SQL](http://weblogs.asp.net/scottgu/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines).|
-| Database per server | Fino a 5000 | Nei server V12 sono permessi fino a 5000 database per server. |  
-| DTU per server | 45000 | Nei server V12 sono disponibili 45000 DTU per server per il provisioning di database, pool elastici e data warehouse. |
-
-
+| --- | --- | --- |
+| Database che usano l'esportazione automatizzata per ogni sottoscrizione |10 |L’esportazione automatizzata consente di creare una pianificazione personalizzata per il backup dei database SQL. Per ulteriori informazioni, vedere [Database SQL: supporto per le esportazioni automatizzate di Database SQL](http://weblogs.asp.net/scottgu/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines). |
+| Database per server |Fino a 5000 |Nei server V12 sono permessi fino a 5000 database per server. |
+| DTU per server |45000 |Nei server V12 sono disponibili 45000 DTU per server per il provisioning di database, pool elastici e data warehouse. |
 
 ## Risorse
-
 [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md)
 
 [Livelli di servizio e livelli di prestazioni del database SQL di Azure](sql-database-service-tiers.md)

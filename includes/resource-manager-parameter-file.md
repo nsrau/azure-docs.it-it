@@ -1,5 +1,4 @@
 ## File di parametri
-
 Se si usa un file di parametri per passare i valori di parametro durante la distribuzione, è necessario creare un file JSON con un formato simile all'esempio seguente.
 
     {

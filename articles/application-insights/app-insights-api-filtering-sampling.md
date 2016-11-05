@@ -1,22 +1,21 @@
-<properties 
-	pageTitle="Filtri e pre-elaborazione in Application Insights SDK | Microsoft Azure" 
-	description="Scrivere processori e inizializzatori di telemetria per l'SDK per filtrare i dati o aggiungere proprietà prima dell'invio della telemetria al portale di Application Insights." 
-	services="application-insights"
-    documentationCenter="" 
-	authors="beckylino" 
-	manager="douge"/>
- 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="08/30/2016" 
-	ms.author="borooji"/>
+---
+title: Filtri e pre-elaborazione in Application Insights SDK | Microsoft Docs
+description: Scrivere processori e inizializzatori di telemetria per l'SDK per filtrare i dati o aggiungere proprietà prima dell'invio della telemetria al portale di Application Insights.
+services: application-insights
+documentationcenter: ''
+author: beckylino
+manager: douge
 
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: multiple
+ms.topic: article
+ms.date: 08/30/2016
+ms.author: borooji
+
+---
 # Filtri e pre-elaborazione della telemetria in Application Insights SDK
-
 *Application Insights è disponibile in anteprima.*
 
 È possibile scrivere e configurare plug-in per Application Insights SDK per personalizzare l'acquisizione e l'elaborazione della telemetria prima che venga inviata al servizio Application Insights.
@@ -28,43 +27,43 @@ Queste funzionalità attualmente sono disponibili per ASP.NET SDK.
 * Gli [inizializzatori di telemetria aggiungono proprietà](#add-properties) a tutti i dati di telemetria inviati dall'app, inclusi quelli dei moduli standard. È possibile, ad esempio, aggiungere valori calcolati oppure i numeri di versione in base a cui filtrare i dati nel portale.
 * [L'API SDK](app-insights-api-custom-events-metrics.md) viene usata per inviare metriche ed eventi personalizzati.
 
-
 Prima di iniziare:
 
 * Installare [Application Insights SDK per ASP.NET v2](app-insights-asp-net.md) nell'app.
 
-
 <a name="filtering"></a>
-## Filtro: ITelemetryProcessor
 
+## Filtro: ITelemetryProcessor
 Questa tecnica offre un controllo più diretto su ciò che viene incluso o escluso dal flusso di telemetria. È possibile usarla insieme al campionamento oppure separatamente.
 
 Per filtrare la telemetria, scrivere un processore di telemetria e registrarlo con l'SDK. Tutta la telemetria passa attraverso il processore ed è possibile scegliere di eliminarla dal flusso o di aggiungere le proprietà. È inclusa la telemetria dei moduli standard, ad esempio l'agente di raccolta delle richieste HTTP e l'agente di raccolta delle dipendenze, oltre alla telemetria scritta manualmente. È possibile, ad esempio, filtrare la telemetria sulle richieste dei robot o le chiamate di dipendenza riuscite.
 
-> [AZURE.WARNING] Se si filtra la telemetria inviata dall'SDK usando i processori, le statistiche visualizzate nel portale possono essere alterate e può risultare difficile seguire gli elementi correlati.
+> [!WARNING]
+> Se si filtra la telemetria inviata dall'SDK usando i processori, le statistiche visualizzate nel portale possono essere alterate e può risultare difficile seguire gli elementi correlati.
 > 
 > In alternativa, valutare la possibilità di usare il [campionamento](app-insights-sampling.md).
+> 
+> 
 
 ### Creare un processore di telemetria
-
 1. Verificare che la versione di Application Insights SDK usata nel progetto sia 2.0.0 o successiva. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni di Visual Studio e scegliere Gestisci pacchetti NuGet. In Gestione pacchetti NuGet selezionare Microsoft.ApplicationInsights.Web.
-
-1. Per creare un filtro, implementare ITelemetryProcessor, un altro punto di estendibilità come il modulo di telemetria, l'inizializzatore di telemetria e il canale di telemetria.
-
+2. Per creare un filtro, implementare ITelemetryProcessor, un altro punto di estendibilità come il modulo di telemetria, l'inizializzatore di telemetria e il canale di telemetria.
+   
     Si noti che i processori di telemetria creano una catena di elaborazione. Quando si crea un'istanza di un processore di telemetria, si passa un collegamento al processore successivo nella catena. Quando un punto dati della telemetria viene passato al metodo Process, esegue le operazioni necessarie e quindi chiama il processore di telemetria successivo nella catena.
-
+   
     ``` C#
-
+   
     using Microsoft.ApplicationInsights.Channel;
     using Microsoft.ApplicationInsights.Extensibility;
-
+   
     public class SuccessfulDependencyFilter : ITelemetryProcessor
       {
+   
         private ITelemetryProcessor Next { get; set; }
-
+   
         // You can pass values from .config
         public string MyParamFromConfigFile { get; set; }
-
+   
         // Link processors to each other in a chain.
         public SuccessfulDependencyFilter(ITelemetryProcessor next)
         {
@@ -76,29 +75,28 @@ Per filtrare la telemetria, scrivere un processore di telemetria e registrarlo c
             if (!OKtoSend(item)) { return; }
             // Modify the item if required 
             ModifyItem(item);
-
+   
             this.Next.Process(item);
         }
-
+   
         // Example: replace with your own criteria.
         private bool OKtoSend (ITelemetry item)
         {
             var dependency = item as DependencyTelemetry;
             if (dependency == null) return true;
-
+   
             return dependency.Success != true;
         }
-
+   
         // Example: replace with your own modifiers.
         private void ModifyItem (ITelemetry item)
         {
             item.Context.Properties.Add("app-version", "1." + MyParamFromConfigFile);
         }
     }
-    
 
     ```
-2. Inserirlo in ApplicationInsights.config:
+1. Inserirlo in ApplicationInsights.config:
 
 ```XML
 
@@ -115,9 +113,11 @@ Per filtrare la telemetria, scrivere un processore di telemetria e registrarlo c
 
 È possibile passare i valori della stringa dal file .config fornendo proprietà denominate come pubbliche nella classe.
 
-> [AZURE.WARNING] Prestare attenzione a fare corrispondere il nome del tipo e i nomi delle proprietà nel file. config ai nomi di classe e di proprietà nel codice. Se il file. config fa riferimento a un tipo inesistente o una proprietà, l’SDK potrebbe automaticamente non riuscire a inviare nessuna telemetria.
+> [!WARNING]
+> Prestare attenzione a fare corrispondere il nome del tipo e i nomi delle proprietà nel file. config ai nomi di classe e di proprietà nel codice. Se il file. config fa riferimento a un tipo inesistente o una proprietà, l’SDK potrebbe automaticamente non riuscire a inviare nessuna telemetria.
+> 
+> 
 
- 
 **In alternativa**, è possibile inizializzare il filtro nel codice. In una classe di inizializzazione adatta, ad esempio AppStart in Global.asax.cs, inserire il processore nella catena:
 
 ```C#
@@ -135,9 +135,7 @@ Per filtrare la telemetria, scrivere un processore di telemetria e registrarlo c
 Gli elementi TelemetryClient creati dopo questo punto useranno i processori dell'utente.
 
 ### Filtri di esempio
-
 #### Richieste sintetiche
-
 Filtrare i robot e i test Web. Anche se Esplora metriche consente di filtrare le origini sintetiche, questa opzione riduce il traffico filtrandole nell'SDK.
 
 ``` C#
@@ -153,7 +151,6 @@ Filtrare i robot e i test Web. Anche se Esplora metriche consente di filtrare le
 ```
 
 #### Autenticazione non riuscita
-
 Filtrare le richieste con una risposta "401".
 
 ```C#
@@ -175,17 +172,19 @@ public void Process(ITelemetry item)
 ```
 
 #### Filtrare le chiamate di dipendenza remote rapide
-
 Per diagnosticare solo le chiamate lente, filtrare quelle rapide.
 
-> [AZURE.NOTE] In questo modo le statistiche visualizzate nel portale verranno modificate. Il grafico delle dipendenze apparirà come se tutte le chiamate di dipendenza fossero non riuscite.
+> [!NOTE]
+> In questo modo le statistiche visualizzate nel portale verranno modificate. Il grafico delle dipendenze apparirà come se tutte le chiamate di dipendenza fossero non riuscite.
+> 
+> 
 
 ``` C#
 
 public void Process(ITelemetry item)
 {
     var request = item as DependencyTelemetry;
-            
+
     if (request != null && request.Duration.Milliseconds < 100)
     {
         return;
@@ -196,13 +195,11 @@ public void Process(ITelemetry item)
 ```
 
 #### Diagnosticare i problemi di dipendenza
-
 [Questo blog](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/) descrive un progetto per diagnosticare i problemi di dipendenza con l'invio automatico di ping regolari alle dipendenze.
 
-
 <a name="add-properties"></a>
-## Aggiungere proprietà: ITelemetryInitializer
 
+## Aggiungere proprietà: ITelemetryInitializer
 Utilizzare gli inizializzatori di telemetria per definire le proprietà globali che vengono inviate con tutti i dati di telemetria; eseguire l'override del comportamento selezionato dei moduli di telemetria standard.
 
 Ad esempio, il pacchetto Application Insights per il Web raccoglie dati di telemetria relativi alle richieste HTTP e, per impostazione predefinita, contrassegna come non riuscita qualsiasi richiesta con un codice di risposta > = 400. Tuttavia, se si vuole considerare 400 come un risultato positivo, è possibile fornire un inizializzatore di telemetria che imposti la proprietà Success.
@@ -264,7 +261,6 @@ In ApplicationInsights.config:
 
 *In alternativa,* è possibile creare un'istanza dell'inizializzatore nel codice, ad esempio nel file Global.aspx.cs:
 
-
 ```C#
     protected void Application_Start()
     {
@@ -278,8 +274,8 @@ In ApplicationInsights.config:
 [Vedere questo esempio nel dettaglio.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
 
 <a name="js-initializer"></a>
-### Inizializzatori di telemetria JavaScript
 
+### Inizializzatori di telemetria JavaScript
 *JavaScript*
 
 Inserire un inizializzatore di telemetria immediatamente dopo il codice di inizializzazione ottenuto dal portale:
@@ -328,9 +324,7 @@ Per un riepilogo delle proprietà non personalizzate disponibili in telemetryIte
 
 È possibile aggiungere tutti gli inizializzatori desiderati.
 
-
 ## ITelemetryProcessor e ITelemetryInitializer
-
 Qual è la differenza tra processori di telemetria e inizializzatori di telemetria?
 
 * Alcune funzioni si sovrappongono: entrambi possono essere usati per aggiungere proprietà a dati di telemetria.
@@ -338,10 +332,7 @@ Qual è la differenza tra processori di telemetria e inizializzatori di telemetr
 * I processori di telemetria consentono di sostituire o rimuovere completamente un elemento di telemetria.
 * I processori di telemetria non elaborano dati di telemetria dei contatori delle prestazioni.
 
-
-
-## Canale di persistenza 
-
+## Canale di persistenza
 Se l'app viene eseguita in ambienti in cui la connessione Internet non è sempre disponibile o è lenta, è possibile usare il canale di persistenza invece del canale in memoria predefinito.
 
 Il canale in memoria predefinito perde tutti i dati di telemetria che non sono stati inviati prima della chiusura dell'app. Anche se è possibile usare `Flush()` per provare a inviare i dati rimanenti nel buffer, i dati andranno comunque persi in assenza di una connessione Internet o in caso di arresto dell'app prima del completamento della trasmissione.
@@ -349,58 +340,54 @@ Il canale in memoria predefinito perde tutti i dati di telemetria che non sono s
 Al contrario, il canale di persistenza memorizza la telemetria in un file prima di inviare i dati al portale. `Flush()` assicura che i dati siano archiviati nel file. Gli eventuali dati non inviati prima della chiusura dell'app rimangono nel file. Al riavvio dell'app, i dati saranno inviati se è disponibile una connessione Internet. I dati si accumulano nel file per tutto il tempo necessario, finché non sarà disponibile una connessione.
 
 ### Per usare il canale di persistenza
-
 1. Importare il pacchetto NuGet [Microsoft.ApplicationInsights.PersistenceChannel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PersistenceChannel/1.2.3).
 2. Includere questo codice nell'app in una posizione di inizializzazione appropriata:
- 
+   
     ```C# 
-
+   
       using Microsoft.ApplicationInsights.Channel;
       using Microsoft.ApplicationInsights.Extensibility;
       ...
-
+   
       // Set up 
       TelemetryConfiguration.Active.InstrumentationKey = "YOUR INSTRUMENTATION KEY";
- 
+   
       TelemetryConfiguration.Active.TelemetryChannel = new PersistenceChannel();
-    
+   
     ``` 
 3. Usare `telemetryClient.Flush()` prima della chiusura dell'app, per assicurare che i dati siano inviati al portale o salvati nel file.
-
+   
     Si noti che Flush () è sincrono per il canale di persistenza, ma asincrono per altri canali.
 
- 
 Il canale di persistenza è ottimizzato per gli scenari con dispositivi in cui il numero di eventi prodotti dall'applicazione è relativamente piccolo e la connessione è spesso inaffidabile. Questo canale scriverà gli eventi prima sul disco in uno spazio di archiviazione affidabile e quindi proverà a inviarli.
 
 #### Esempio
-
 Si supponga di voler monitorare le eccezioni non gestite. Sottoscrivere l'evento `UnhandledException`. Includere nel callback una chiamata a Flush per garantire la persistenza della telemetria.
- 
+
 ```C# 
 
 AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException; 
- 
+
 ... 
- 
+
 private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e) 
 { 
     ExceptionTelemetry excTelemetry = new ExceptionTelemetry((Exception)e.ExceptionObject); 
     excTelemetry.SeverityLevel = SeverityLevel.Critical; 
     excTelemetry.HandledAt = ExceptionHandledAt.Unhandled; 
- 
+
     telemetryClient.TrackException(excTelemetry); 
- 
+
     telemetryClient.Flush(); 
 } 
 
 ``` 
 
 All'arresto dell'app verrà visualizzato un file in `%LocalAppData%\Microsoft\ApplicationInsights` che contiene gli eventi compressi.
- 
+
 Al prossimo avvio dell'applicazione il canale usa questo file e recapita la telemetria ad Application Insights, se possibile.
 
 #### Esempio di test
-
 ```C#
 
 using Microsoft.ApplicationInsights;
@@ -443,28 +430,19 @@ namespace ConsoleApplication1
 
 Il codice del canale di persistenza è disponibile in [github](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/v1.2.3/src/TelemetryChannels/PersistenceChannel).
 
-
 ## Documentazione di riferimento
-
 * [Panoramica API](app-insights-api-custom-events-metrics.md)
-
 * [Riferimento ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
 
-
 ## Codice SDK
-
 * [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
-
 ## <a name="next"></a>Passaggi successivi
-
-
 * [Cercare eventi e log][diagnostic]
 * [Campionamento](app-insights-sampling.md)
 * [Risoluzione dei problemi][qna]
-
 
 <!--Link references-->
 
@@ -481,6 +459,6 @@ Il codice del canale di persistenza è disponibile in [github](https://github.co
 [trace]: app-insights-search-diagnostic-logs.md
 [windows]: app-insights-windows-get-started.md
 
- 
+
 
 <!---HONumber=AcomDC_0907_2016-->

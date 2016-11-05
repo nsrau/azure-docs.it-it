@@ -12,9 +12,9 @@ articles/sql-data-warehouse/sql-data-warehouse-manage-scale-out-tasks-rest-api.m
 -->
 Quando si riattiva un database:
 
-- SQL Data Warehouse acquisisce risorse di calcolo e di memoria per l'impostazione DWU.
-- Verranno ripresi gli addebiti per le ore di calcolo di DWU.
-- I dati saranno disponibili.
-- Sarà necessario riavviare le query del carico di lavoro.
+* SQL Data Warehouse acquisisce risorse di calcolo e di memoria per l'impostazione DWU.
+* Verranno ripresi gli addebiti per le ore di calcolo di DWU.
+* I dati saranno disponibili.
+* Sarà necessario riavviare le query del carico di lavoro.
 
 <!---HONumber=AcomDC_0427_2016-->

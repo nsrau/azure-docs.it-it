@@ -1,25 +1,23 @@
-<properties
-    pageTitle="Comandi dell’interfaccia della riga di comando Azure in modalità di gestione risorse | Microsoft Azure"
-    description="Comandi dell’interfaccia della riga di comando Azure (CLI) per gestire le risorse nel modello di distribuzione di gestione risorse"
-    services="virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services"
-    documentationCenter=""
-    authors="dlepow"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+---
+title: Comandi dell’interfaccia della riga di comando Azure in modalità di gestione risorse | Microsoft Docs
+description: Comandi dell’interfaccia della riga di comando Azure (CLI) per gestire le risorse nel modello di distribuzione di gestione risorse
+services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
+documentationcenter: ''
+author: dlepow
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-    ms.service="multiple"
-    ms.workload="multiple"
-    ms.tgt_pltfrm="command-line-interface"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/05/2016"
-    ms.author="danlep"/>
+ms.service: multiple
+ms.workload: multiple
+ms.tgt_pltfrm: command-line-interface
+ms.devlang: na
+ms.topic: article
+ms.date: 08/05/2016
+ms.author: danlep
 
-
+---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Comandi dell’interfaccia della riga di comando Azure in modalità Resource Manager
-
 In questo articolo vengono fornite sintassi e opzioni per i comandi dell'interfaccia della riga di comando (CLI) di Azure usati comunemente per creare e gestire risorse di Azure nel modello di distribuzione Azure Resource Manager. Accedere ai comandi eseguendo l’interfaccia della riga di comando in modalità di gestione risorse (arm). Non si tratta di un riferimento completo e la versione dell'interfaccia della riga di comando in uso potrebbe mostrare comandi o parametri leggermente diversi. Per informazioni generali su risorse e gruppi di risorse di Azure, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md).  
 
 Per iniziare, innanzitutto [installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e [connettersi alla sottoscrizione di Azure](../xplat-cli-connect.md) usando un account aziendale o dell'istituto di istruzione o un'identità dell'account Microsoft.
@@ -31,13 +29,14 @@ I parametri facoltativi sono indicati tra parentesi quadre, ad esempio `[paramet
 Oltre ai parametri facoltativi specifici del comando documentati qui, vi sono tre parametri opzionali che possono essere utilizzati per visualizzare output dettagliato come opzioni richiesta e codici di stato. Il parametro `-v` fornisce l'output dettagliato, mentre il parametro `-vv` fornisce un output con un dettaglio ancor maggiore. L'opzione `--json` consente di visualizzare il risultato in formato JSON non elaborato.
 
 ## <a name="setting-the-resource-manager-mode"></a>Impostazione della modalità di gestione risorse
-
 Usare il comando seguente per abilitare i comandi della modalità Resource Manager dell'interfaccia della riga di comando di Azure.
 
     azure config mode arm
 
->[AZURE.NOTE] La modalità Azure Resource Manager e la modalità Gestione servizi di Azure dell'interfaccia della riga di comando si escludono a vicenda, ossia le risorse create in una modalità non possono essere gestite dall'altra.
-
+> [!NOTE]
+> La modalità Azure Resource Manager e la modalità Gestione servizi di Azure dell'interfaccia della riga di comando si escludono a vicenda, ossia le risorse create in una modalità non possono essere gestite dall'altra.
+> 
+> 
 
 ## <a name="azure-account:-manage-your-account-information"></a>azure account - Gestione delle informazioni relative all'account
 Le informazioni relative alla sottoscrizione di Azure vengono usate dallo strumento per connettersi all'account dell'utente.
@@ -67,7 +66,6 @@ Le informazioni relative alla sottoscrizione di Azure vengono usate dallo strume
     account env delete [options] [environment]
 
 ## <a name="azure-ad:-commands-to-display-active-directory-objects"></a>azure ad - Comandi per visualizzare gli oggetti Active Directory
-
 **Comandi per visualizzare le applicazioni di Active Directory**
 
     ad app create [options]
@@ -95,7 +93,6 @@ Le informazioni relative alla sottoscrizione di Azure vengono usate dallo strume
     ad user show [options]
 
 ## <a name="azure-availset:-commands-to-manage-your-availability-sets"></a>azure availset - Comandi per gestire i set di disponibilità
-
 **Creare un set di disponibilità all'interno di un gruppo di risorse**
 
     availset create [options] <resource-group> <name> <location> [tags]
@@ -113,7 +110,6 @@ Le informazioni relative alla sottoscrizione di Azure vengono usate dallo strume
     availset delete [options] <resource-group> <name>
 
 ## <a name="azure-config:-commands-to-manage-your-local-settings"></a>azure config - Comandi per gestire le impostazioni locali
-
 **Elencare le impostazioni di configurazione dell'interfaccia della riga di comando di Azure**
 
     config list [options]
@@ -132,7 +128,6 @@ Le informazioni relative alla sottoscrizione di Azure vengono usate dallo strume
 
 
 ## <a name="azure-feature:-commands-to-manage-account-features"></a>azure feature - Comandi per gestire le funzionalità dell'account
-
 **Elencare tutte le funzionalità disponibili per la sottoscrizione**
 
     feature list [options]
@@ -146,7 +141,6 @@ Le informazioni relative alla sottoscrizione di Azure vengono usate dallo strume
     feature register [options] <providerName> <featureName>
 
 ## <a name="azure-group:-commands-to-manage-your-resource-groups"></a>azure group - Comandi per gestire i gruppi di risorse
-
 **Crea un gruppo di risorse**
 
     group create [options] <name> <location>
@@ -186,7 +180,6 @@ Le informazioni relative alla sottoscrizione di Azure vengono usate dallo strume
     group template validate [options] <resource-group>
 
 ## <a name="azure-hdinsight:-commands-to-manage-your-hdinsight-clusters"></a>Azure hdinsight: comandi per gestire i cluster HDInsight
-
 **Comandi per creare o aggiungere a un file di configurazione del cluster**
 
     hdinsight config create [options] <configFilePath> <overwrite>
@@ -305,24 +298,20 @@ Opzioni dei parametri:
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
 ## <a name="azure-insights:-commands-related-to-monitoring-insights-(events,-alert-rules,-autoscale-settings,-metrics)"></a>azure insights - Comandi relativi al monitoraggio di Insights (eventi, regole di avviso, impostazioni di scalabilità automatica, metriche)
-
 **Recuperare i log delle operazioni per una sottoscrizione, un ID correlazione, un gruppo di risorse, una risorsa o un provider di risorse**
 
     insights logs list [options]
 
 ## <a name="azure-location:-commands-to-get-the-available-locations-for-all-resource-types"></a>azure location - Comandi per ottenere le posizioni disponibili per tutti i tipi di risorse
-
 **Elencare le posizioni disponibili**
 
     location list [options]
 
 ## <a name="azure-network:-commands-to-manage-network-resources"></a>azure network - Comandi per gestire le risorse di rete
-
 **Comandi per gestire le reti virtuali**
 
     network vnet create [options] <resource-group> <name> <location>
 Crea una rete virtuale. Nell'esempio seguente viene creata una rete virtuale denominata newvnet per il gruppo di risorse myresourcegroup nell'area westus.
-
 
     azure network vnet create myresourcegroup newvnet "west us"
     info:    Executing command network vnet create
@@ -415,7 +404,6 @@ Opzioni dei parametri:
 
 Il comando elenca tutte le reti virtuali in un gruppo di risorse.
 
-
     C:\>azure network vnet list myresourcegroup
 
     info:    Executing command network vnet list
@@ -429,7 +417,6 @@ Il comando elenca tutte le reti virtuali in un gruppo di risorse.
     info:    network vnet list command OK
 
 Opzioni dei parametri:
-
 
       -h, --help                             output usage information
       -v, --verbose                          use verbose output
@@ -520,7 +507,6 @@ Opzioni dei parametri:
     network vnet subnet set [options] <resource-group> <vnet-name> <name>
 
 Imposta una subnet specifica della rete virtuale all'interno di un gruppo di risorse.
-
 
     C:\>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
 
@@ -1206,7 +1192,6 @@ Crea una regola NAT in ingresso per il bilanciamento del carico.
 
 Nell'esempio seguente è stata creata una regola NAT dall'oggetto IP front-end (definito in precedenza tramite il comando "azure network frontend-ip") con una porta di ascolto in ingresso e una porta in uscita usata dal servizio/dispositivo di bilanciamento del carico per inviare il traffico di rete.
 
-
     azure network lb inbound-nat-rule create -g myresourcegroup -l mylb -n myinboundnat -p tcp -f 80 -b 8080 -i myfrontendip
 
     info:    Executing command network lb inbound-nat-rule create
@@ -1590,7 +1575,6 @@ Opzioni dei parametri:
     network gateway list [options] <resource-group>
 
 ## <a name="azure-provider:-commands-to-manage-resource-provider-registrations"></a>azure provider - Comandi per gestire le registrazioni dei provider di risorse
-
 **Elencare i provider attualmente registrati in Resource Manager**
 
     provider list [options]
@@ -1608,7 +1592,6 @@ Opzioni dei parametri:
     provider unregister [options] <namespace>
 
 ## <a name="azure-resource:-commands-to-manage-your-resources"></a>azure resource - Comandi per gestire le risorse
-
 **Creare una risorsa in un gruppo di risorse**
 
     resource create [options] <resource-group> <name> <resource-type> <location> <api-version>
@@ -1630,7 +1613,6 @@ Opzioni dei parametri:
     resource delete [options] <resource-group> <name> <resource-type> <api-version>
 
 ## <a name="azure-role:-commands-to-manage-your-azure-roles"></a>azure role - Comandi per gestire i ruoli di Azure
-
 **Ottenere tutte le definizioni di ruolo disponibili**
 
     role list [options]
@@ -1646,7 +1628,6 @@ Opzioni dei parametri:
     role assignment delete [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
 
 ## <a name="azure-storage:-commands-to-manage-your-storage-objects"></a>azure storage - Comandi per gestire gli oggetti di archiviazione
-
 **Comandi per gestire gli account di archiviazione**
 
     storage account list [options]
@@ -1770,7 +1751,6 @@ Opzioni dei parametri:
     storage table policy delete [options] [table] [name]
 
 ## <a name="azure-tag:-commands-to-manage-your-resource-manager-tag"></a>azure tag - Comandi per gestire il tag di Gestione risorse
-
 **Aggiungere un tag**
 
     tag create [options] <name> <value>
@@ -1788,7 +1768,6 @@ Opzioni dei parametri:
     tag show [options] [name]
 
 ## <a name="azure-vm:-commands-to-manage-your-azure-virtual-machines"></a>azure vm - Comandi per gestire le macchine virtuali di Azure
-
 **Creare una macchina virtuale**
 
     vm create [options] <resource-group> <name> <location> <os-type>
@@ -1796,8 +1775,11 @@ Opzioni dei parametri:
 **Creare una macchina virtuale con le risorse predefinite**
 
     vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password
-    
->[AZURE.TIP]A partire dalla versione 0.10 dell'interfaccia della riga di comando è possibile specificare un alias breve, ad esempio "UbuntuLTS" o "Win2012R2Datacenter" come `image-urn` per alcune immagini Marketplace più diffuse. Eseguire `azure help vm quick-create` per le opzioni. A partire dalla versione 0.10, `azure vm quick-create` usa inoltre l'archiviazione Premium per impostazione predefinita, se disponibile nell'area selezionata.
+
+> [!TIP]
+> A partire dalla versione 0.10 dell'interfaccia della riga di comando è possibile specificare un alias breve, ad esempio "UbuntuLTS" o "Win2012R2Datacenter" come `image-urn` per alcune immagini Marketplace più diffuse. Eseguire `azure help vm quick-create` per le opzioni. A partire dalla versione 0.10, `azure vm quick-create` usa inoltre l'archiviazione Premium per impostazione predefinita, se disponibile nell'area selezionata.
+> 
+> 
 
 **Elencare le macchine virtuali all’interno di un account**
 

@@ -1,40 +1,40 @@
-<properties
-   pageTitle="Visualizzare le operazioni di distribuzione con l'API REST | Microsoft Azure"
-   description="Questo articolo descrive come usare l'API REST di Azure Resource Manager per rilevare i problemi relativi alla distribuzione di Resource Manager."
-   services="azure-resource-manager,virtual-machines"
-   documentationCenter=""
-   tags="top-support-issue"
-   authors="tfitzmac"
-   manager="timlt"
-   editor="tysonn"/>
+---
+title: Visualizzare le operazioni di distribuzione con l'API REST | Microsoft Docs
+description: Questo articolo descrive come usare l'API REST di Azure Resource Manager per rilevare i problemi relativi alla distribuzione di Resource Manager.
+services: azure-resource-manager,virtual-machines
+documentationcenter: ''
+tags: top-support-issue
+author: tfitzmac
+manager: timlt
+editor: tysonn
 
-<tags
-   ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-multiple"
-   ms.workload="infrastructure"
-   ms.date="06/13/2016"
-   ms.author="tomfitz"/>
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-multiple
+ms.workload: infrastructure
+ms.date: 06/13/2016
+ms.author: tomfitz
 
+---
 # Visualizzare le operazioni di distribuzione con l'API REST di Azure Resource Manager
-
-> [AZURE.SELECTOR]
-- [Portale](resource-manager-troubleshoot-deployments-portal.md)
-- [PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
-- [Interfaccia della riga di comando di Azure](resource-manager-troubleshoot-deployments-cli.md)
-- [API REST](resource-manager-troubleshoot-deployments-rest.md)
+> [!div class="op_single_selector"]
+> * [Portale](resource-manager-troubleshoot-deployments-portal.md)
+> * [PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
+> * [Interfaccia della riga di comando di Azure](resource-manager-troubleshoot-deployments-cli.md)
+> * [API REST](resource-manager-troubleshoot-deployments-rest.md)
+> 
+> 
 
 Se si è verificato un errore durante la distribuzione delle risorse in Azure, è opportuno visualizzare i dettagli delle operazioni di distribuzione eseguite. L'API REST fornisce operazioni che consentono di trovare gli errori e determinare le possibili soluzioni.
 
-[AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
+[!INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
 È possibile evitare alcuni errori convalidando il modello e l'infrastruttura prima della distribuzione. Durante la distribuzione è inoltre possibile registrare ulteriori informazioni su richieste e risposte potenzialmente utili per la risoluzione di eventuali problemi successivi. Per ulteriori informazioni sulla convalida e su come registrare informazioni di richiesta e risposta, vedere come [distribuire un gruppo di risorse con un modello di Azure Resource Manager](resource-group-template-deploy-rest.md).
 
 ## Eseguire la risoluzione dei problemi con l'API REST
-
 1. Distribuire le risorse eseguendo la [creazione di un modello di distribuzione](https://msdn.microsoft.com/library/azure/dn790564.aspx). Per mantenere informazioni che potrebbero essere utili per il debug, impostare la proprietà **debugSetting** nella richiesta JSON su **requestContent** e/o **responseContent**. 
-
+   
         PUT https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
           <common headers>
           {
@@ -53,15 +53,14 @@ Se si è verificato un errore durante la distribuzione delle risorse in Azure, �
               }
             }
           }
-
+   
     Per impostazione predefinita, il valore **debugSetting** è impostato su **none**. Quando si specifica il valore **debugSetting**, è necessario valutare con attenzione il tipo di informazioni passate durante la distribuzione. La registrazione di informazioni sulla richiesta o sulla risposta può esporre dati riservati, che vengono recuperati tramite le operazioni di distribuzione.
-
 2. Ottenere informazioni su una distribuzione con l'operazione [Ottenere informazioni su una distribuzione modello](https://msdn.microsoft.com/library/azure/dn790565.aspx).
-
+   
         GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
-
+   
     Nella risposta si notino in particolare gli elementi **provisioningState**, **correlationId** ed **error**. Il valore **correlationId** viene usato per tenere traccia degli eventi correlati e può essere utile quando si interagisce con il supporto tecnico per risolvere un problema.
-    
+   
         { 
           ...
           "properties": {
@@ -74,13 +73,12 @@ Se si è verificato un errore durante la distribuzione delle risorse in Azure, �
             }  
           }
         }
-
 3. Ottenere informazioni sulle operazioni di distribuzione con l'operazione [Elencare tutte le operazioni di distribuzione modello](https://msdn.microsoft.com/library/azure/dn790518.aspx).
-
+   
         GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
-
+   
     La risposta includerà la richiesta e/o le informazioni sulla risposta in base a quanto specificato nella proprietà **debugSetting** durante la distribuzione.
-    
+   
         {
           ...
           "properties": 
@@ -103,16 +101,13 @@ Se si è verificato un errore durante la distribuzione delle risorse in Azure, �
             }
           }
         }
-
 4. Ottenere eventi dai log di controllo per la distribuzione con l'operazione [Elencare gli eventi di gestione in una sottoscrizione](https://msdn.microsoft.com/library/azure/dn931934.aspx).
-
+   
         GET https://management.azure.com/subscriptions/{subscription-id}/providers/microsoft.insights/eventtypes/management/values?api-version={api-version}&$filter={filter-expression}&$select={comma-separated-property-names}
 
-
 ## Passaggi successivi
-
-- Per informazioni sulla risoluzione di errori di distribuzione specifici vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
-- Per informazioni sull'uso dei log di controllo per monitorare altri tipi di azioni vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
-- Per convalidare la distribuzione prima di eseguirla vedere [Distribuire un gruppo di risorse con un modello di Azure Resource Manager](resource-group-template-deploy.md).
+* Per informazioni sulla risoluzione di errori di distribuzione specifici vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
+* Per informazioni sull'uso dei log di controllo per monitorare altri tipi di azioni vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
+* Per convalidare la distribuzione prima di eseguirla vedere [Distribuire un gruppo di risorse con un modello di Azure Resource Manager](resource-group-template-deploy.md).
 
 <!---HONumber=AcomDC_0615_2016-->

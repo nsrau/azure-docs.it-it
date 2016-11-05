@@ -1,51 +1,45 @@
-<properties
- pageTitle="Monitoraggio delle operazioni dell'hub IoT"
- description="Panoramica del monitoraggio delle operazioni dell'hub IoT che consente di monitorare lo stato delle operazioni nel proprio hub IoT in tempo reale"
- services="iot-hub"
- documentationCenter=""
- authors="nberdy"
- manager="timlt"
- editor=""/>
+---
+title: Monitoraggio delle operazioni dell'hub IoT
+description: Panoramica del monitoraggio delle operazioni dell'hub IoT che consente di monitorare lo stato delle operazioni nel proprio hub IoT in tempo reale
+services: iot-hub
+documentationcenter: ''
+author: nberdy
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-hub"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="08/11/2016"
- ms.author="nberdy"/>
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/11/2016
+ms.author: nberdy
 
+---
 # Introduzione al monitoraggio delle operazioni
-
 Il monitoraggio delle operazioni dell'hub IoT consente di monitorare lo stato delle operazioni nel proprio hub IoT in tempo reale. L'hub IoT tiene traccia degli eventi nelle diverse categorie di operazioni e consente di scegliere di impostare l'invio di eventi da una o più categorie a un endpoint del proprio hub IoT per l'elaborazione. È possibile monitorare i dati per individuare gli errori o configurare un'elaborazione più complessa in base ai modelli di dati.
 
 L'hub IoT monitora cinque categorie di eventi:
 
-- Operazioni relative alle identità dei dispositivi
-- Telemetria dei dispositivi
-- Comandi da cloud a dispositivo
-- Connessioni
-- Caricamenti di file
+* Operazioni relative alle identità dei dispositivi
+* Telemetria dei dispositivi
+* Comandi da cloud a dispositivo
+* Connessioni
+* Caricamenti di file
 
 ## Come abilitare il monitoraggio delle operazioni
-
 1. Creare un hub IoT. È possibile trovare le istruzioni su come creare un hub IoT nella [Guida introduttiva][lnk-get-started].
-
 2. Aprire il pannello dell'hub IoT. Da qui, fare clic su **Monitoraggio operazioni**.
-
+   
     ![][1]
-
 3. Selezionare le categorie di monitoraggio da controllare e fare clic su **Salva**. Gli eventi sono disponibili per la lettura nell'endpoint compatibile con l'hub eventi elencato in **Impostazioni di monitoraggio**. L'endpoint dell'hub IoT è chiamato `messages/operationsmonitoringevents`.
-
+   
     ![][2]
 
 ## Categorie di eventi e modalità d'uso
-
 Ogni categoria di monitoraggio delle operazioni tiene traccia di un diverso tipo di interazione con l'hub IoT e ogni categoria di monitoraggio ha uno schema che definisce come sono strutturati gli eventi nella categoria stessa.
 
 ### Operazioni relative alle identità dei dispositivi
-
 La categoria di operazioni di identità del dispositivo tiene traccia degli errori che si verificano quando si prova a creare, aggiornare o eliminare una voce nel registro delle identità dell'hub IoT. Il rilevamento di questa categoria è utile per gli scenari di provisioning.
 
     {
@@ -62,7 +56,6 @@ La categoria di operazioni di identità del dispositivo tiene traccia degli erro
     }
 
 ### Telemetria dei dispositivi
-
 La categoria di telemetria dei dispositivi tiene traccia degli errori che si verificano nell'hub IoT e sono correlati alla pipeline di telemetria. Questa categoria include gli errori che si verificano durante l'invio di eventi di telemetria, ad esempio la limitazione, e la ricezione di eventi di telemetria, ad esempio un lettore non autorizzato. Si noti che questa categoria non può intercettare gli errori causati da codice in esecuzione nel dispositivo stesso.
 
     {
@@ -84,7 +77,6 @@ La categoria di telemetria dei dispositivi tiene traccia degli errori che si ver
     }
 
 ### Comandi da cloud a dispositivo
-
 La categoria di comandi da cloud a dispositivo tiene traccia degli errori che si verificano nell'hub IoT e sono correlati alla pipeline di comandi dei dispositivi. Questa categoria include gli errori che si verificano durante l'invio di comandi, ad esempio un mittente non autorizzato, la ricezione di comandi, ad esempio il superamento del numero di recapiti, e la ricezione di commenti sui comandi, ad esempio commenti scaduti. Questa categoria non intercetta gli errori da un dispositivo che gestisce in modo non corretto un comando, se questo è stato recapitato correttamente.
 
     {
@@ -106,7 +98,6 @@ La categoria di comandi da cloud a dispositivo tiene traccia degli errori che si
     }
 
 ### Connessioni
-
 La categoria Connessioni tiene traccia degli errori che si verificano quando i dispositivi si connettono o disconnettono da un hub IoT. Il rilevamento di questa categoria è utile per identificare i tentativi di connessione non autorizzati e per rilevare quando una connessione viene persa dai dispositivi in aree di scarsa connettività.
 
     {
@@ -124,7 +115,6 @@ La categoria Connessioni tiene traccia degli errori che si verificano quando i d
     }
 
 ### Caricamenti di file
-
 La categoria di caricamenti dei file tiene traccia degli errori che si verificano nell'hub IoT e correlati alla funzionalità di caricamento dei file. Questa categoria include errori che si verificano con l'URI della firma di accesso condiviso (ad esempio, quando scade prima che un dispositivo invii una notifica all'hub riguardo a un caricamento completato), con caricamenti non riusciti segnalati dal dispositivo e quando non è possibile trovare un file in memoria durante la creazione dei messaggi di notifica dell'hub IoT. Questa categoria non può intercettare errori che si verificano direttamente mentre il dispositivo sta caricando un file in memoria.
 
     {
@@ -143,15 +133,14 @@ La categoria di caricamenti dei file tiene traccia degli errori che si verifican
     }
 
 ## Passaggi successivi
-
 Dopo questa panoramica sul monitoraggio delle operazione, vedere [Gestire l'accesso all'hub IoT][lnk-itpro] per ottenere maggiori informazioni sulla gestione dell'hub IoT.
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
-- [Progettare una soluzione][lnk-design]
-- [Guida per sviluppatori][lnk-devguide]
-- [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
-- [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
+* [Progettare una soluzione][lnk-design]
+* [Guida per sviluppatori][lnk-devguide]
+* [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
+* [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
 
 <!-- Links and images -->
 [1]: media/iot-hub-operations-monitoring/enable-OM-1.png

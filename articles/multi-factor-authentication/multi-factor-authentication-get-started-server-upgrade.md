@@ -1,23 +1,22 @@
-<properties 
-	pageTitle="Aggiornamento dell'agente PhoneFactor al server Azure multi-Factor Authentication"
-	description="In questo documento viene descritto come iniziare a utilizzare il server Azure MFA e come eseguire l'aggiornamento dall'agente phonefactor precedente."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtland"/>
+---
+title: Aggiornamento dell'agente PhoneFactor al server Azure multi-Factor Authentication
+description: In questo documento viene descritto come iniziare a utilizzare il server Azure MFA e come eseguire l'aggiornamento dall'agente phonefactor precedente.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtland
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/04/2016
+ms.author: kgremban
 
+---
 # Aggiornamento dell'agente PhoneFactor al server Azure multi-Factor Authentication
-
 Per l'aggiornamento dall'agente PhoneFactor V5.x o versione meno recente al server Azure multi-Factor Authentication, è necessario disinstallare l'agent PhoneFactor e relativi componenti prima di procedere con l'installazione del server Multi-Factor Authentication e relativi componenti.
 
 ## Per effettuare l'aggiornamnto dell'agente PhoneFactor al server Azure multi-Factor Authentication
@@ -39,6 +38,7 @@ Per l'aggiornamento dall'agente PhoneFactor V5.x o versione meno recente al serv
 
 
 <li>Se il servizio Web app per dispositivi mobili è installato:
+
 <ol>
 <li>Passare alla cartella di installazione ed eseguire il backup del file web.config. Il percorso di installazione predefinito è C:\inetpub\wwwroot\PhoneFactorPhoneAppWebService.</li>
 <li>Disinstallare il servizio Web app per dispositivi mobili tramite Programmi e funzionalità di Windows.</li></ol>
@@ -56,6 +56,7 @@ Per l'aggiornamento dall'agente PhoneFactor V5.x o versione meno recente al serv
 <li>Se il portale utenti in precedenza è stato installato nel server dell'agente PhoneFactor, installare il nuovo portale utenti Multi-Factor Authentication tramite la relativa interfaccia utente. Si noti che il nome predefinito della directory virtuale è adesso "MultiFactorAuth" anziché "PhoneFactor". Se si desidera utilizzare il nome precedente, è necessario modificare il nome della directory virtuale durante l'installazione. In caso contrario, se si consente all'installazione di usare il nuovo nome predefinito, è necessario fare clic sull'icona del portale utenti nel server Multi-Factor Authentication e aggiornare l'URL del portale utente nella scheda Impostazioni.
 
 <li>Se in precedenza il portale per gli utenti e/o il servizio Web app per dispositivi mobili è stato installato in un server diverso dall'agente PhoneFactor:
+
 <ol>
 <li>Passare al percorso di installazione, ad esempio C:\Program Files\PhoneFactor, e copiare i programmi di installazione appropriati nell'altro server. Sono disponibili programmi di installazione a 32 bit e a 64 bit per il portale per gli utenti e il servizio Web app per dispositivi mobili. Si chiamano rispettivamente MultiFactorAuthenticationUserPortalSetupXX.msi e MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi.</li>
 <li>Per installare il portale per gli utenti nel server Web, aprire un prompt dei comandi come amministratore ed eseguire il file MultiFactorAuthenticationUserPortalSetupXX.msi. Si noti che il nome predefinito della directory virtuale è adesso "MultiFactorAuth" anziché "PhoneFactor". Se si desidera utilizzare il nome precedente, è necessario modificare il nome della directory virtuale durante l'installazione. In caso contrario, se si consente all'installazione di usare il nuovo nome predefinito, è necessario fare clic sull'icona del portale utenti nel server Multi-Factor Authentication e aggiornare l'URL del portale utente nella scheda Impostazioni. Sarà necessario informare gli utenti esistenti del nuovo URL.</li>

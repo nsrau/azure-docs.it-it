@@ -1,26 +1,23 @@
-<properties 
-	pageTitle="Domande frequenti | Microsoft Azure" 
-	description="Domande frequenti (FAQ)" 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="erikre" 
-	editor=""/> 
+---
+title: Domande frequenti | Microsoft Docs
+description: Domande frequenti (FAQ)
+services: media-services
+documentationcenter: ''
+author: Juliako
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/19/2016" 
-	ms.author="juliako"/> 
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/19/2016
+ms.author: juliako
 
-
-#Domande frequenti
-
-##Domande frequenti generali su AMS
-
+---
+# Domande frequenti
+## Domande frequenti generali su AMS
 D: Come scalare l'indicizzazione?
 
 R: Le unità riservate sono le stesse per le attività di codifica e indicizzazione. Seguire le istruzioni in [Come scalare le unità riservate di codifica](media-services-scale-media-processing-overview.md). **Tenere presente** che le prestazioni dell'indicizzatore non vengono influenzate dal tipo di unità riservata.
@@ -49,38 +46,34 @@ D: Quali sono i caratteri supportati per la denominazione dei file quando si usa
 
 R: Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la creazione degli URL per i contenuti in streaming, ad esempio http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà **Name** non può contenere i [caratteri riservati per la codifica percentuale](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#". L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
 
-
 D: Come connettersi usando REST?
 
 R: Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere eseguite al nuovo URI, come descritto in [Connessione a un account di Servizi multimediali mediante l'API REST](media-services-rest-connect-programmatically.md).
 
-
 D: Come è possibile ruotare un video durante il processo di codifica.
 
 R: Il [codificatore multimediale standard](media-services-dotnet-encode-with-media-encoder-standard.md) supporta la rotazione in base ad angoli di 90/180/270. Il comportamento predefinito è "Auto", che tenta di rilevare i metadati di rotazione nel file MP4/MOV in arrivo per la compensazione. Includere l'elemento **Sources** seguente in uno dei set di impostazioni JSON definiti [qui](http://msdn.microsoft.com/library/azure/mt269960.aspx):
-	
-	"Version": 1.0,
-	"Sources": [
-	{
-	  "Streams": [],
-	  "Filters": {
-	    "Rotation": "90"
-	  }
-	}
-	],
-	"Codecs": [
-	
-	...
+
+    "Version": 1.0,
+    "Sources": [
+    {
+      "Streams": [],
+      "Filters": {
+        "Rotation": "90"
+      }
+    }
+    ],
+    "Codecs": [
+
+    ...
 
 
 
 
-##Percorsi di apprendimento di Servizi multimediali
+## Percorsi di apprendimento di Servizi multimediali
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-##Fornire commenti e suggerimenti
-
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+## Fornire commenti e suggerimenti
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 <!---HONumber=AcomDC_0921_2016-->

@@ -1,23 +1,20 @@
-#Gestione dati e analisi business
-
+# Gestione dati e analisi business
 La gestione e l'analisi dei dati nel cloud è importante quanto in altri ambiti. In Azure sono pertanto disponibili svariate tecnologie per l'utilizzo di dati relazionali e non relazionali. In questo articolo viene presentata ogni opzione disponibile.
 
-##Sommario      
-
-- [Archiviazione BLOB](#blob)
-- [Esecuzione di DBMS in una macchina virtuale](#dbinvm)
-- [Database SQL](#sqldb)
-	- [Sincronizzazione dati SQL](#datasync)
-	- [Creazione di report di dati SQL tramite macchine virtuali](#datarpt)
-- [Archiviazione tabelle](#tblstor)
-- [Hadoop](#hadoop)
+## Sommario
+* [Archiviazione BLOB](#blob)
+* [Esecuzione di DBMS in una macchina virtuale](#dbinvm)
+* [Database SQL](#sqldb)
+  * [Sincronizzazione dati SQL](#datasync)
+  * [Creazione di report di dati SQL tramite macchine virtuali](#datarpt)
+* [Archiviazione tabelle](#tblstor)
+* [Hadoop](#hadoop)
 
 ## <a name="blob"></a>Archiviazione BLOB
-
 Il termine "BLOB" è l'acronimo di "Binary Large OBject" (oggetto binario di grandi dimensioni) e descrive esattamente la natura di questo oggetto, ovvero una raccolta di informazioni binarie. Benché siano semplici, gli oggetti BLOB sono molto utili. Nella [figura 1](#Fig1) sono illustrate le nozioni di base dell'archiviazione BLOB di Azure.
 
 <a name="Fig1"></a>![Diagramma di oggetti BLOB][blobs]
- 
+
 **Figura 1: Archiviazione BLOB di Azure consente di memorizzare i dati binari (BLOB) in contenitori.**
 
 Per usare i BLOB, è necessario creare innanzitutto un *account di archiviazione di Azure*. Nel corso di questa procedura si specifica il data center in cui verranno archiviati gli oggetti creati usando questo account. Dovunque si trovi, ogni oggetto BLOB creato appartiene a un contenitore nell'account di archiviazione. Per accedere a un oggetto BLOB, un'applicazione specifica un URL con il formato seguente:
@@ -28,15 +25,14 @@ http://&lt;*StorageAccount*&gt;.blob.core.windows.net/&lt;*Container*&gt;/&lt;*B
 
 In Azure sono disponibili due tipi diversi di oggetti BLOB. Le opzioni disponibili sono:
 
-- BLOB *in blocchi*, ognuno dei quali può contenere fino a 200 gigabyte di dati. Come indicato dal nome, un oggetto BLOB in blocchi è suddiviso in alcuni blocchi. Se si verifica un errore durante il trasferimento di un BLOB in blocchi, sarà possibile riprendere la trasmissione dal blocco più recente, invece di inviare di nuovo l'intero oggetto BLOB. Gli oggetti BLOB in blocchi costituiscono un approccio abbastanza generico all'archiviazione e sono i tipi di oggetti BLOB attualmente più usati.
-
-- BLOB *di pagine*, ognuno dei quali può raggiungere dimensioni pari a un terabyte. Gli oggetti BLOB di pagine sono stati progettati per l'accesso casuale, quindi ogni oggetto è suddiviso in alcune pagine. Un'applicazione potrà leggere e scrivere in singole pagine casuali nell'oggetto BLOB. In Macchine virtuali di Azure, ad esempio, le macchine virtuali create usano gli oggetti BLOB di pagine come archivio permanente per i dischi del sistema operativo e per i dischi di dati.
+* BLOB *in blocchi*, ognuno dei quali può contenere fino a 200 gigabyte di dati. Come indicato dal nome, un oggetto BLOB in blocchi è suddiviso in alcuni blocchi. Se si verifica un errore durante il trasferimento di un BLOB in blocchi, sarà possibile riprendere la trasmissione dal blocco più recente, invece di inviare di nuovo l'intero oggetto BLOB. Gli oggetti BLOB in blocchi costituiscono un approccio abbastanza generico all'archiviazione e sono i tipi di oggetti BLOB attualmente più usati.
+* BLOB *di pagine*, ognuno dei quali può raggiungere dimensioni pari a un terabyte. Gli oggetti BLOB di pagine sono stati progettati per l'accesso casuale, quindi ogni oggetto è suddiviso in alcune pagine. Un'applicazione potrà leggere e scrivere in singole pagine casuali nell'oggetto BLOB. In Macchine virtuali di Azure, ad esempio, le macchine virtuali create usano gli oggetti BLOB di pagine come archivio permanente per i dischi del sistema operativo e per i dischi di dati.
 
 Indipendentemente dalla scelta di oggetti BLOB in blocchi o di pagine, le applicazioni possono accedere ai dati in molti modi diversi. Di seguito sono indicate alcune opzioni disponibili:
 
-- In modo diretto tramite un protocollo di accesso RESTful (ad esempio, basato su HTTP). Questa opzione può essere usata sia dalle applicazioni Azure che dalle applicazioni esterne, incluse le applicazioni in esecuzione locale.
-- Tramite la libreria del client di archiviazione di Azure, che offre un'interfaccia più semplice per gli sviluppatori, oltre al protocollo di accesso a oggetti BLOB RESTful non elaborati. Anche questa opzione può essere usata sia dalle applicazioni Azure che dalle applicazioni esterne per l'accesso agli oggetti BLOB tramite questa libreria.
-- Tramite le unità Azure, un'opzione che consente a un'applicazione Azure di gestire un oggetto BLOB di pagine come unità locale con file system NTFS. Per l'applicazione, l'oggetto BLOB di pagine appare come un normale file system Windows, a cui si accede tramite I/O file standard. Le operazioni di lettura e scrittura vengono in effetti inviate all'oggetto BLOB di pagine sottostante, che implementa l'unità Azure. 
+* In modo diretto tramite un protocollo di accesso RESTful (ad esempio, basato su HTTP). Questa opzione può essere usata sia dalle applicazioni Azure che dalle applicazioni esterne, incluse le applicazioni in esecuzione locale.
+* Tramite la libreria del client di archiviazione di Azure, che offre un'interfaccia più semplice per gli sviluppatori, oltre al protocollo di accesso a oggetti BLOB RESTful non elaborati. Anche questa opzione può essere usata sia dalle applicazioni Azure che dalle applicazioni esterne per l'accesso agli oggetti BLOB tramite questa libreria.
+* Tramite le unità Azure, un'opzione che consente a un'applicazione Azure di gestire un oggetto BLOB di pagine come unità locale con file system NTFS. Per l'applicazione, l'oggetto BLOB di pagine appare come un normale file system Windows, a cui si accede tramite I/O file standard. Le operazioni di lettura e scrittura vengono in effetti inviate all'oggetto BLOB di pagine sottostante, che implementa l'unità Azure. 
 
 Per evitare eventuali errori hardware e ottimizzare la disponibilità, ogni oggetto BLOB viene replicato in tre computer in un data center di Azure. La scrittura in un oggetto BLOB comporta l'aggiornamento di tutte e tre le copie, in modo che le letture successive non rilevino risultati incoerenti. È inoltre possibile specificare che i dati di un oggetto BLOB devono essere copiati in un altro data center di Azure situato nella stessa area geografica ma ad almeno 800 km di distanza. Questo tipo di copia, definito *replica geografica*, viene eseguito entro pochi minuti dall'aggiornamento di un oggetto BLOB e risulta molto utile in caso di ripristino di emergenza.
 
@@ -44,13 +40,11 @@ Per evitare eventuali errori hardware e ottimizzare la disponibilità, ogni ogge
 
 Pur essendo estremamente semplici, gli oggetti BLOB rappresentano la scelta ideale per molte situazioni, ad esempio per l'archiviazione e lo streaming di video e audio, oltre che per i backup e altri tipi di archiviazione di dati. Gli sviluppatori possono inoltre usare gli oggetti BLOB per l'archiviazione di qualsiasi tipo di dato non strutturato. La possibilità di usare un sistema semplice per l'archiviazione e l'accesso di dati binari può risultare estremamente utile.
 
-
 ## <a name="dbinvm"></a>Esecuzione di DBMS in una macchina virtuale
-
 Molte applicazioni si avvalgono attualmente di un sistema di gestione di database (DBMS, Database Management System). I sistemi relazionali quali SQL Server sono i più usati, ma gli approcci non relazionali, comunemente noti come *NoSQL*, sono sempre più diffusi. Per consentire alle applicazioni cloud di usare queste opzioni di gestione dati, in Macchine virtuali di Azure è possibile eseguire un DBMS (relazionale o NoSQL) in una macchina virtuale. Nella [figura 2](#Fig2) viene mostrato l'utilizzo di SQL Server.
 
 <a name="Fig2"></a>![Diagramma di SQL Server in una macchina virtuale][SQLSvr-vm]
- 
+
 **Figura 2: Macchine virtuali di Azure consente l'esecuzione di un DBMS in una macchina virtuale. Il salvataggio permanente viene offerto dagli oggetti BLOB.**
 
 Per gli sviluppatori e gli amministratori di database questo scenario risulta molto simile all'esecuzione dello stesso software nel proprio data center. In questo esempio è possibile usare quasi tutte le funzionalità di SQL Server e si dispone di accesso amministrativo completo al sistema. L'utente sarà inoltre responsabile della gestione del server database, esattamente come per l'esecuzione in locale.
@@ -59,13 +53,11 @@ Come illustrato nella [figura 2](#Fig2), i database sembrano essere archiviati s
 
 Un'altra soluzione per l'utilizzo di SQL Server in una macchina virtuale consiste nella creazione di un'applicazione ibrida, in cui i dati si trovano su Azure mentre la logica dell'applicazione viene eseguita in locale. Ad esempio, ciò potrebbe risultare efficace nel caso in cui applicazioni in esecuzione in diverse posizioni o in diversi dispositivi mobili debbano condividere gli stessi dati. Per semplificare le comunicazioni tra il database del cloud e la logica locale, un'organizzazione può usare Rete virtuale di Azure per creare una connessione VPN (Virtual Private Network, rete privata virtuale) tra un data center di Azure e il proprio data center locale.
 
-
 ## <a name="sqldb"></a>Database SQL
-
 In genere, l'esecuzione di un DBMS in una macchina virtuale è la prima opzione a cui si pensa per la gestione di dati strutturati nel cloud. Non si tratta tuttavia dell'unica soluzione disponibile e non è sempre la soluzione migliore. In alcuni casi la gestione dei dati tramite un approccio di tipo PaaS (Platform as a Service) è più appropriato. In Azure è disponibile una tecnologia PaaS definita database SQL, che consente la gestione dei dati relazionali, come illustrato nella [figura 3](#Fig3).
 
 <a name="Fig3"></a>![Diagramma di database SQL][SQL-db]
- 
+
 **Figura 3: Database SQL offre un servizio di archiviazione relazionale PaaS condiviso.**
 
 Database SQL non fornisce a ogni cliente un'istanza fisica di SQL Server, offre invece un servizio multi-tenant, con un database SQL logico per ogni cliente. Tutti i clienti condividono le capacità di calcolo e di archiviazione offerte dal servizio. Analogamente all'Archiviazione BLOB, tutti i dati in database SQL vengono archiviati in tre computer distinti in un data center di Azure, assicurando ai database una disponibilità elevata predefinita.
@@ -86,26 +78,22 @@ Un modo semplice per valutare questo aspetto consiste nel considerare database S
 
 È infine importante notare che database SQL non è l'unico servizio dati PaaS disponibile in Azure. Altre opzioni sono rese disponibili dai partner Microsoft. Ad esempio, ClearDB offre una soluzione PaaS MySQL, mentre Cloudant vende una soluzione NoSQL. I servizi dati PaaS rappresentano la soluzione ideale in molte situazioni, quindi questo approccio alla gestione dati è un aspetto importante di Azure.
 
-
 ### <a name="datasync"></a>Sincronizzazione dati SQL
-
 Benché database SQL mantenga tre copie di ogni database in un singolo data center di Azure, non esegue automaticamente la replica dei dati tra i data center di Azure. Per eseguire tale operazione è disponibile Sincronizzazione dati SQL, come illustrato nella [figura 4](#Fig4).
 
 <a name="Fig4"></a>![Diagramma di Sincronizzazione dati SQL][SQL-datasync]
- 
+
 **Figura 4: Sincronizzazione dati SQL consente di sincronizzare i dati disponibili in database SQL con i dati presenti in Azure e nei data center locali.**
 
 Come mostrato nel diagramma, Sincronizzazione dati SQL consente di sincronizzare i dati in diverse posizioni. Si supponga di eseguire un'applicazione in più data center di Azure, ad esempio, con dati archiviati in database SQL. È possibile usare Sincronizzazione dati SQL per mantenere la sincronizzazione di tali dati. Sincronizzazione dati SQL consente inoltre di sincronizzare dati tra un data center di Azure e un'istanza di SQL Server in esecuzione in un data center locale. Ciò può risultare utile per la gestione di una copia locale dei dati usata dalle applicazioni locali e una copia sul cloud usata dalle applicazioni in esecuzione su Azure. Benché non sia mostrato nella figura, è possibile usare Sincronizzazione dati SQL anche per sincronizzare i dati tra database SQL e SQL Server in esecuzione in una macchina virtuale in Azure o altrove.
 
 La sincronizzazione può essere bidirezionale ed è possibile determinare esattamente i dati da sincronizzare e la frequenza della sincronizzazione. La sincronizzazione tra database non è tuttavia atomica, presenta sempre un minimo ritardo. Comunque lo si utilizzi, l'impostazione di una sincronizzazione con Sincronizzazione dati SQL viene gestita completamente dalla configurazione, senza che sia necessario scrivere codice.
 
-
 ### <a name="datarpt"></a>Creazione di report di dati SQL tramite macchine virtuali
-
 Quando un database include dati, è probabile che si desideri creare report usando tali dati. Azure consente di eseguire SQL Server Reporting Services (SSRS) in Macchine virtuali di Azure. Questa procedura è funzionalmente equivalente all'esecuzione di SQL Server Reporting Services in locale. È quindi possibile usare SSRS per eseguire report relativi ai dati archiviati in un database SQL di Azure. Nella [figura 5](#Fig5) viene mostrato il funzionamento di questo processo.
 
 <a name="Fig5"></a>![Diagramma della creazione di report SQL][SQL-report]
- 
+
 **Figura 5: SQL Server Reporting Services in esecuzione in Macchine virtuali di Azure offre servizi di creazione di report per i dati disponibili in database SQL.**
 
 Prima che un utente possa visualizzare un report, è necessario che l'aspetto di tale report venga definito (passaggio 1). Grazie a SSRS su una macchina virtuale, tale operazione può essere eseguita usando uno dei due strumenti seguenti: Server Data Tools, parte di SQL Server 2012, o il suo predecessore, Business Intelligence (BI) Development Studio. Analogamente a SSRS, queste definizioni di report vengono espresse nel linguaggio RDL (Report Definition Language). Dopo la creazione dei file RDL per un report, tali file vengono caricati in una macchina virtuale nel cloud (passaggio 2). La definizione del report è ora pronta per l'utilizzo.
@@ -116,16 +104,13 @@ Incorporare un report in un'applicazione, ovvero lo scenario appena illustrato, 
 
 SSRS in una macchina virtuale di Azure offre tutte le funzionalità disponibili in una soluzione di creazione di report nel cloud. Nei report è possibile usare qualsiasi origine dati supportata da SSRS. Le applicazioni e i report possono includere codice incorporato o assembly per il supporto dei comportamenti personalizzati. L'esecuzione e il rendering dei report risultano molto veloci, poiché il contenuto e il motore del server di report sono in esecuzione nello stesso server virtuale.
 
-
-
 ## <a name="tblstor"></a>Archiviazione tabelle
-
 I dati relazionali risultano utili in molte situazioni, ma non costituiscono sempre la soluzione ottimale. Se l'applicazione necessita di accesso semplice e rapido a quantità molto elevate di dati poco strutturati, ad esempio, è possibile che un database relazionale non sia appropriato. Una tecnologia NoSQL rappresenta probabilmente un'opzione migliore in questo caso.
 
 Archiviazione tabelle di Azure è un esempio di questo tipo di approccio NoSQL. Nonostante il nome, Archiviazione tabelle non supporta le tabelle relazionali standard. Offre invece un *archivio chiave/valore*, associando un set di dati a una chiave specifica, quindi consentendo a un'applicazione di accedere a tali dati fornendo la chiave. Nella [figura 6](#Fig6) sono illustrate le nozioni di base.
 
 <a name="Fig6"></a>![Diagramma di Archiviazione tabelle][SQL-tblstor]
- 
+
 **Figura 6: Archiviazione tabelle di Azure è un archivio chiave/valore che offre un accesso semplice e rapido a quantità elevate di dati.**
 
 Analogamente agli oggetti BLOB, ogni tabella è associata a un account di archiviazione di Azure. I nomi delle tabelle sono simili a quelli degli oggetti BLOB, con un URL nel formato
@@ -142,9 +127,7 @@ Questa struttura consente di usare tabelle di grandi dimensioni, poiché una sin
 
 Archiviazione tabelle di Azure è una soluzione ideale per applicazioni che necessitano di accesso semplice e rapido a quantità elevate di dati poco strutturati. Ad esempio, un'applicazione Internet che archivia informazioni sui profili per molti utenti potrebbe usare le tabelle. La rapidità di accesso è essenziale in questa situazione e l'applicazione non necessita probabilmente di tutte le funzionalità di SQL. La rinuncia a tali funzionalità a favore di velocità e dimensioni elevate può risultare a volte consigliabile, quindi Archiviazione tabelle rappresenta la soluzione ideale per alcune situazioni.
 
-
 ## <a name="hadoop"></a>Hadoop
-
 Le organizzazioni hanno creato data warehouse per decenni. Queste raccolte di informazioni, molto spesso archiviate in database relazionali, consentono agli utenti di usare i dati e apprendere dai dati in molti modi diversi. A tale scopo, in SQL Server, ad esempio, vengono spesso usati strumenti quali SQL Server Analysis Services.
 
 Si supponga tuttavia che si desideri eseguire analisi su dati non relazionali. I dati possono essere disponibili in molte forme diverse, ovvero informazioni da sensori o tag RFID, file di log in server farm, dati clickstream prodotti da applicazioni Web, immagini da dispositivi diagnostici medici e altro ancora. Tali dati potrebbero essere inoltre di dimensioni elevate, troppo elevate per un utilizzo efficace con un data warehouse tradizionale. Problemi come questo, relativi ai Big Data, rari fino a qualche anno fa, sono ora diventati piuttosto comuni.

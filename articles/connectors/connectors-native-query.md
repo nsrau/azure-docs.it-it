@@ -1,33 +1,31 @@
-<properties
-	pageTitle="Aggiungere l'azione di query alle app per la logica | Microsoft Azure"
-	description="Panoramica dell'azione di query per l'esecuzione di azioni come Filtra matrice."
-	services=""
-	documentationCenter=""
-	authors="jeffhollan"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+---
+title: Aggiungere l'azione di query alle app per la logica | Microsoft Docs
+description: Panoramica dell'azione di query per l'esecuzione di azioni come Filtra matrice.
+services: ''
+documentationcenter: ''
+author: jeffhollan
+manager: erikre
+editor: ''
+tags: connectors
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/20/2016"
-   ms.author="jehollan"/>
+ms.service: logic-apps
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 07/20/2016
+ms.author: jehollan
 
+---
 # Introduzione all'azione di query
-
 Con l'azione di query è possibile usare batch e matrici per poter eseguire flussi di lavoro per:
 
-- Creare un'attività per tutti i record ad alta priorità di un database.
-- Salvare tutti gli allegati PDF per i messaggi di posta elettronica in un BLOB di Azure.
+* Creare un'attività per tutti i record ad alta priorità di un database.
+* Salvare tutti gli allegati PDF per i messaggi di posta elettronica in un BLOB di Azure.
 
 Per iniziare a usare l'azione di query in un'app per la logica, vedere [Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Usare l'azione di query
-
 Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](connectors-overview.md).
 
 L'azione di query ha attualmente un'operazione, denominata Filtra matrice, esposta nella finestra di progettazione. Questa consente di interrogare una matrice e restituire un set di risultati filtrati.
@@ -37,48 +35,44 @@ Ecco come è possibile aggiungerla in un'app per la logica:
 1. Fare clic sul pulsante **Nuovo passaggio**.
 2. Scegliere **Aggiungi un'azione**.
 3. Nella casella di ricerca azione digitare **Filtro** per elencare l'azione **Filtra matrice**.
-
-	![Selezionare l'azione di query](./media/connectors-native-query/using-action-1.png)
-
+   
+    ![Selezionare l'azione di query](./media/connectors-native-query/using-action-1.png)
 4. Selezionare una matrice da filtrare. Lo screenshot seguente illustra la matrice di risultati ottenuta da una ricerca in Twitter.
 5. Creare una condizione da valutare per ogni elemento. Lo screenshot seguente filtra i tweet degli utenti con più di 100 follower.
-
-	![Completare l'azione di query](./media/connectors-native-query/using-action-2.png)
-
-	L'azione genera una nuova matrice che contiene solo i risultati che soddisfano i requisiti del filtro.
+   
+    ![Completare l'azione di query](./media/connectors-native-query/using-action-2.png)
+   
+    L'azione genera una nuova matrice che contiene solo i risultati che soddisfano i requisiti del filtro.
 6. Fare clic sull'angolo in alto a sinistra della barra degli strumenti per salvare e pubblicare (attivare) l'app per la logica.
 
 ## Azione di query
-
 Ecco i dettagli per l'azione supportata da questo connettore. Il connettore supporta una sola azione possibile.
 
-|Azione|Descrizione|
-|---|---|
-|Filtra matrice|Valuta una condizione per ogni elemento in una matrice e restituisce i risultati|
+| Azione | Descrizione |
+| --- | --- |
+| Filtra matrice |Valuta una condizione per ogni elemento in una matrice e restituisce i risultati |
 
 ## Informazioni dettagliate sulle azioni
-
 L'azione di query supporta un'azione possibile. La tabella seguente descrive i campi di input obbligatori e facoltativi per l'azione e i dettagli di output corrispondenti associati all'uso dell'azione.
 
 ### Filtra matrice
 Di seguito sono riportati campi di input per l'azione, che esegue una richiesta HTTP in uscita. Un asterisco (*) indica che è un campo obbligatorio.
 
-|Nome visualizzato|Nome proprietà|Descrizione|
-|---|---|---|
-|Da*|from|La matrice da filtrare|
-|Condizione*|dove|La condizione da valutare per ogni elemento|
+| Nome visualizzato | Nome proprietà | Descrizione |
+| --- | --- | --- |
+| Da* |from |La matrice da filtrare |
+| Condizione* |dove |La condizione da valutare per ogni elemento |
+
 <br>
 
 ### Dettagli dell'output
-
 Di seguito sono riportati i dettagli di output per la risposta HTTP.
 
-|Nome proprietà|Tipo di dati|Description|
-|---|---|---|
-|Matrice filtrata|array|Matrice che contiene un oggetto per ogni risultato filtrato|
+| Nome proprietà | Tipo di dati | Description |
+| --- | --- | --- |
+| Matrice filtrata |array |Matrice che contiene un oggetto per ogni risultato filtrato |
 
 ## Passaggi successivi
-
 Provare ora a usare la piattaforma e [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l'[elenco di API](apis-list.md).
 
 <!---HONumber=AcomDC_0817_2016-->

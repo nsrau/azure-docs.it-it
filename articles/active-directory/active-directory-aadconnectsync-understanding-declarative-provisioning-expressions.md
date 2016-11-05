@@ -1,23 +1,21 @@
-<properties
-    pageTitle="Servizio di sincronizzazione Azure AD Connect: Informazioni sulle espressioni di provisioning dichiarativo | Microsoft Azure"
-    description="Informazioni sulle espressioni di provisioning dichiarativo."
-    services="active-directory"
-    documentationCenter=""
-    authors="andkjell"
-    manager="femila"
-    editor=""/>
+---
+title: 'Servizio di sincronizzazione Azure AD Connect: Informazioni sulle espressioni di provisioning dichiarativo | Microsoft Docs'
+description: Informazioni sulle espressioni di provisioning dichiarativo.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/31/2016"
-    ms.author="markusvi;andkjell"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/31/2016
+ms.author: markusvi;andkjell
 
-
-
+---
 # <a name="azure-ad-connect-sync:-understanding-declarative-provisioning-expressions"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sulle espressioni di provisioning dichiarativo
 Il servizio di sincronizzazione Azure AD Connect si basa sul provisioning dichiarativo introdotto inizialmente in Forefront Identity Manager 2010. Consente di implementare la logica di business completa per l'integrazione delle identità senza dover scrivere codice compilato.
 
@@ -28,14 +26,13 @@ Per altre informazioni dettagliate, vedere i [riferimenti per il linguaggio Visu
 Gli attributi sono fortemente tipizzati. Una funzione accetta solo gli attributi del tipo corretto. Fa anche distinzione tra maiuscole e minuscole. Se per i nomi delle funzioni e degli attributi non viene rispettata correttamente la distinzione maiuscole/minuscole, viene generato un errore.
 
 ## <a name="language-definitions-and-identifiers"></a>Definizioni e identificatori del linguaggio
-
-- I nomi delle funzioni sono seguiti dagli argomenti racchiusi tra parentesi: NomeFunzione(argomento 1,argomento N).
-- Gli attributi sono identificati da parentesi quadre: [attributeName].
-- I parametri sono identificati dal segno di percentuale: %ParameterName%
-- Le costanti di stringa sono racchiuse tra virgolette: ad esempio, "Contoso" (Nota: è necessario usare le virgolette semplici "", non quelle non inglesi “”)
-- I valori numerici sono espressi senza virgolette e devono essere decimali. Ai valori esadecimali viene aggiunto un prefisso di tipo &H. Ad esempio, 98052, &HFF
-- I valori booleani sono espressi con costanti: True, False.
-- Le costanti predefinite sono espresse solo tramite il relativo nome: NULL, CRLF, IgnoreThisFlow
+* I nomi delle funzioni sono seguiti dagli argomenti racchiusi tra parentesi: NomeFunzione(argomento 1,argomento N).
+* Gli attributi sono identificati da parentesi quadre: [attributeName].
+* I parametri sono identificati dal segno di percentuale: %ParameterName%
+* Le costanti di stringa sono racchiuse tra virgolette: ad esempio, "Contoso" (Nota: è necessario usare le virgolette semplici "", non quelle non inglesi “”)
+* I valori numerici sono espressi senza virgolette e devono essere decimali. Ai valori esadecimali viene aggiunto un prefisso di tipo &H. Ad esempio, 98052, &HFF
+* I valori booleani sono espressi con costanti: True, False.
+* Le costanti predefinite sono espresse solo tramite il relativo nome: NULL, CRLF, IgnoreThisFlow
 
 ### <a name="functions"></a>Funzioni
 Il provisioning dichiarativo usa molte funzioni per rendere possibile la trasformazione dei valori dell'attributo. Queste funzioni possono essere annidate, in modo che il risultato di una funzione venga passato a un'altra.
@@ -51,12 +48,12 @@ Active Directory Connector fornisce i parametri seguenti per le regole di sincro
 
 | Nome parametro | Commento |
 | --- | --- |
-| Domain.Netbios | Formato Netbios del dominio attualmente importato, ad esempio FABRIKAMSALES |
-| Domain.FQDN | Formato FQDN del dominio attualmente importato, ad esempio sales.fabrikam.com |
-| Domain.LDAP | Formato LDAP del dominio attualmente importato, ad esempio DC=sales,DC=fabrikam,DC=com |
-| Forest.Netbios | Formato Netbios del nome della foresta attualmente importata, ad esempio FABRIKAMCORP |
-| Forest.FQDN | Formato FQDN del nome della foresta attualmente importato, ad esempio FABRIKAMCORP |
-| Forest.LDAP | Formato FQDN del nome della foresta attualmente importato, ad esempio DC=fabrikam,DC=com |
+| Domain.Netbios |Formato Netbios del dominio attualmente importato, ad esempio FABRIKAMSALES |
+| Domain.FQDN |Formato FQDN del dominio attualmente importato, ad esempio sales.fabrikam.com |
+| Domain.LDAP |Formato LDAP del dominio attualmente importato, ad esempio DC=sales,DC=fabrikam,DC=com |
+| Forest.Netbios |Formato Netbios del nome della foresta attualmente importata, ad esempio FABRIKAMCORP |
+| Forest.FQDN |Formato FQDN del nome della foresta attualmente importato, ad esempio FABRIKAMCORP |
+| Forest.LDAP |Formato FQDN del nome della foresta attualmente importato, ad esempio DC=fabrikam,DC=com |
 
 Il sistema fornisce il parametro seguente, usato per ottenere l'identificatore del connettore attualmente in esecuzione:   
 `Connector.ID`
@@ -67,11 +64,11 @@ L'esempio seguente popola il dominio dell'attributo metaverse con il nome netbio
 ### <a name="operators"></a>Operatori
 È possibile usare gli operatori seguenti:
 
-- **Confronto**: <, <=, <>, =, >, >=
-- **Matematici**: +, -, \*, -
-- **Stringa**: & (concatenazione)
-- **Logici**: && (AND), || (OR)
-- **Ordine di valutazione**: ( )
+* **Confronto**: <, <=, <>, =, >, >=
+* **Matematici**: +, -, \*, -
+* **Stringa**: & (concatenazione)
+* **Logici**: && (AND), || (OR)
+* **Ordine di valutazione**: ( )
 
 Gli operatori vengono valutati da sinistra a destra e hanno la stessa priorità di valutazione. Ad esempio, \* (moltiplicazione) non viene valutato prima di - (sottrazione). L'operazione 2\*(5+3) è diversa da 2\*5+3. Le parentesi ( ) vengono usate per modificare l'ordine di valutazione quando un ordine da sinistra a destra non è appropriato.
 
@@ -84,21 +81,18 @@ Ad esempio
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Cercare l'indirizzo SIP e rimuoverlo dai valori.
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-- Per altre informazioni sul modello di configurazione, vedere [Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
-- Per informazioni sull'uso del provisioning dichiarativo predefinito, vedere [Servizio di sincronizzazione Azure AD Connect: Informazioni sulla configurazione predefinita](active-directory-aadconnectsync-understanding-default-configuration.md).
-- Per informazioni su come apportare una modifica pratica con il provisioning dichiarativo, vedere [Servizio di sincronizzazione Azure AD Connect: come apportare modifiche alla configurazione predefinita](active-directory-aadconnectsync-change-the-configuration.md).
+* Per altre informazioni sul modello di configurazione, vedere [Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+* Per informazioni sull'uso del provisioning dichiarativo predefinito, vedere [Servizio di sincronizzazione Azure AD Connect: Informazioni sulla configurazione predefinita](active-directory-aadconnectsync-understanding-default-configuration.md).
+* Per informazioni su come apportare una modifica pratica con il provisioning dichiarativo, vedere [Servizio di sincronizzazione Azure AD Connect: come apportare modifiche alla configurazione predefinita](active-directory-aadconnectsync-change-the-configuration.md).
 
 **Argomenti generali**
 
-- [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](active-directory-aadconnectsync-whatis.md)
-- [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
+* [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](active-directory-aadconnectsync-whatis.md)
+* [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
 **Argomenti di riferimento**
 
-- [Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni](active-directory-aadconnectsync-functions-reference.md)
-
-
+* [Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni](active-directory-aadconnectsync-functions-reference.md)
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,22 +1,21 @@
-<properties
-	pageTitle="Uso dell'analisi con Application Insights"
-	description="Panoramica dell'analisi dell'uso con Application Insights"
-	services="application-insights"
-    documentationCenter=""
-	authors="alancameronwills"
-	manager="douge"/>
+---
+title: Uso dell'analisi con Application Insights
+description: Panoramica dell'analisi dell'uso con Application Insights
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="multiple"
-	ms.topic="article" 
-	ms.date="04/08/2016"
-	ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: multiple
+ms.topic: article
+ms.date: 04/08/2016
+ms.author: awills
 
+---
 # Uso dell'analisi con Application Insights
-
 La conoscenza della modalità d'uso dell'applicazione consente di concentrare l'attenzione sugli scenari più importanti e ottenere informazioni sugli obiettivi più facili o più difficili da raggiungere per gli utenti.
 
 Application Insights può offrire una visione chiara dell'uso dell'applicazione, consentendo di migliorare l'esperienza degli utenti e soddisfare gli obiettivi aziendali.
@@ -24,7 +23,6 @@ Application Insights può offrire una visione chiara dell'uso dell'applicazione,
 Application Insights funziona per entrambe le applicazioni autonome (in iOS, Android e Windows) e per le applicazioni web (ospitate su .NET o J2EE).
 
 ## Aggiunta di Application Insights al progetto
-
 Per iniziare, ottenere un account gratuito in [Microsoft Azure](https://azure.com). Dopo il periodo di valutazione, è possibile continuare con il livello gratuito del servizio.
 
 Nel [portale di Azure](https://portal.azure.com) creare una risorsa di Application Insights. che mostra i dati sulle prestazioni e l'utilizzo dell'app.
@@ -39,18 +37,14 @@ Nel [portale di Azure](https://portal.azure.com) creare una risorsa di Applicati
 
 È inoltre possibile aggiungere Application Insights per il codice server [ASP.NET](app-insights-asp-net.md) o [J2EE](app-insights-java-get-started.md) in modo da combinare dati di telemetria sia dal client che dal server.
 
-
 ### Eseguire il progetto e vedere i primi risultati
-
 Eseguire il progetto in modalità di debug per alcuni minuti e quindi eseguire il [portale Azure](https://portal.azure.com) e passare alla risorsa di progetto in Application Insights.
 
 ![In Azure, fare clic su Sfoglia, Application Insights e selezionare il progetto](./media/app-insights-overview-usage/00-start.png)
 
 Pubblicare l'app per ottenere ulteriori dati di telemetria e scoprire cosa fanno gli utenti con l'applicazione.
 
-
 ## Analisi predefinita
-
 Fare clic sul riquadro di visualizzazioni pagina per visualizzare i dettagli di utilizzo.
 
 ![In Azure, Sfoglia > Application Insights > il nome del progetto e scorrere verso il basso fino al riquadro delle Visualizzazioni Pagina.](./media/app-insights-overview-usage/01-overview.png)
@@ -79,11 +73,8 @@ Raggruppare (segmentare) i dati in base a una proprietà come browser, sistema o
 
 ![Selezionare un grafico che mostra una sola metrica, passare su Raggruppamento e scegliere una proprietà](./media/app-insights-overview-usage/03-browsers.png)
 
-
 ## Uso delle pagine
-
 Fare clic su visualizzazioni di pagina affiancata per ottenere un una suddivisione delle pagine più diffuse:
-
 
 ![Nel pannello Panoramica fare clic sul grafico delle visualizzazioni Pagina](./media/app-insights-overview-usage/05-games.png)
 
@@ -94,15 +85,13 @@ L'esempio precedente è tratto da un sito Web di giochi. Da quest'ultimo è imme
 * "Crossword" è il gioco più popolare. È consigliabile dare la priorità a nuove idee e a miglioramenti in questo ambito.
 
 ## Rilevamento personalizzato
-
 Si supponga che, invece di implementare ogni gioco in una pagina Web separata, si decida di eseguire il refactoring di tutti i giochi nella stessa app a singola pagina con la maggior parte delle funzionalità codificate come Javascript nella pagina Web. Ciò consente all'utente di passare rapidamente da un gioco all'altro o di avere a disposizione diversi giochi in un'unica pagina.
 
 Tuttavia, si vuole comunque che Application Insights registri il numero di volte in cui ogni gioco viene aperto, esattamente come se fossero in pagine Web separate. La risposta è semplice: è sufficiente inserire una chiamata al modulo di telemetria nel codice JavaScript in cui si vuole registrare l'apertura di una nuova 'pagina':
 
-	telemetryClient.trackPageView(game.Name);
+    telemetryClient.trackPageView(game.Name);
 
 ## Eventi personalizzati
-
 È possibile usare i dati di telemetria in molti modi per comprendere l'uso dell'applicazione. Ma non sempre si desidera combinare i messaggi con le visualizzazioni pagina. Usare invece gli eventi personalizzati. È possibile inviarli da app per dispositivi, pagine Web o un server Web:
 
 (JavaScript)
@@ -131,23 +120,19 @@ Fare clic sull'intestazione della tabella per visualizzare il numero totale di e
 Le sequenze temporali, una funzionalità particolarmente utile, consentono di correlare le modifiche con altre metriche ed eventi. Ad esempio, nei momenti in cui vengono usati più giochi, ci si aspetterebbe anche un incremento dei giochi abbandonati. Ma se l'aumento dei giochi abbandonati è sproporzionato, è necessario verificare se il carico elevato causa problemi ritenuti inaccettabili dagli utenti.
 
 ## Esaminare eventi specifici
-
 Per una migliore comprensione dell'andamento di una sessione tipica, è possibile concentrarsi su una sessione utente specifica che contiene un particolare tipo di evento.
 
 In questo esempio viene codificato un evento personalizzato "NoGame" che viene chiamato se l'utente si disconnette senza effettivamente iniziare un gioco. Occorre capire perché un utente si comporta in questo modo. Forse se si esaminano alcune occorrenze specifiche, si otterranno delle indicazioni.
 
 Gli eventi personalizzati ricevuti dall'app sono elencati per nome nel pannello Panoramica:
 
-
 ![Nel pannello Panoramica fare clic su uno dei tipi di evento personalizzato.](./media/app-insights-overview-usage/07-clickEvent.png)
 
 Fare clic nell'evento di interesse e quindi selezionare un'occorrenza specifica recente:
 
-
 ![Nell'elenco sotto il grafico di riepilogo fare clic su un evento](./media/app-insights-overview-usage/08-searchEvents.png)
 
 Esaminare i dati di telemetria relativi alla sessione in cui si è verificato l'evento NoGame specifico.
-
 
 ![Fare clic su 'tutti i dati di telemetria per sessione'](./media/app-insights-overview-usage/09-relatedTelemetry.png)
 
@@ -155,14 +140,12 @@ Non si sono verificate eccezioni, quindi non sono stati eventuali errori a imped
 
 È possibile escludere tramite filtro tutti i tipi di dati di telemetria, ad eccezione delle visualizzazioni pagina per la sessione corrente:
 
-
 ![](./media/app-insights-overview-usage/10-filter.png)
 
 Come si può vedere ora, questo utente si è connesso semplicemente per controllare i punteggi più recenti. Potrebbe essere utile sviluppare una storia utente che semplifichi questa operazione. È anche consigliabile implementare un evento personalizzato per segnalare quando si verifica questa storia specifica.
 
 ## Filtrare, cercare e segmentare i dati con proprietà
 È possibile allegare tag arbitrari e valori numerici agli eventi.
-
 
 JavaScript nel client
 
@@ -208,17 +191,13 @@ JavaScript nel client
 
 Nella Ricerca diagnostica è possibile visualizzare le proprietà facendo clic su una singola occorrenza di un evento.
 
-
 ![Nell'elenco di eventi aprire un evento e quindi fare clic su '...' per visualizzare altre proprietà](./media/app-insights-overview-usage/11-details.png)
 
 Usare il campo Ricerca per visualizzare le occorrenze di eventi con un valore della proprietà particolare.
 
-
 ![Digitare un valore nel campo Ricerca](./media/app-insights-overview-usage/12-searchEvents.png)
 
-
 ## Test A | B
-
 Se non si sa quale variante di una funzionalità sarà più efficace, rilasciarle entrambe, rendendo ognuna accessibile a utenti diversi. Valutare la riuscita di ognuna e quindi passare a una versione unificata.
 
 Per questa tecnica è possibile collegare tag differenti per tutti i dati di telemetria inviati da ogni versione dell'app. A questo scopo, definire le proprietà nel TelemetryContext attivo. Queste proprietà predefinite vengono aggiunte a ogni messaggio di telemetria inviato dall'applicazione, non solo ai messaggi personalizzati, ma anche ai dati di telemetria standard.
@@ -267,7 +246,6 @@ Nell'inizializzatore di app, ad esempio Global.asax.cs, procedere come segue:
 
 
 ## Compilare - Misurare - Acquisire informazioni
-
 Quando si usa l'analisi, questa diventa parte integrante del ciclo di sviluppo, non solo un'attività da prendere in considerazione per la risoluzione dei problemi. Ecco alcuni suggerimenti:
 
 * Determinare la metrica chiave dell'applicazione. Stabilire se si vogliono prendere in considerazione tutti gli utenti possibili o è preferibile un piccolo gruppo di utenti molto soddisfatti oppure se si vogliono ottimizzare le visite o le vendite.
@@ -277,15 +255,12 @@ Quando si usa l'analisi, questa diventa parte integrante del ciclo di sviluppo, 
 * È essenziale comunicare con gli utenti. L'analisi non è sufficiente da sola, ma è complementare per mantenere una buona relazione con i clienti.
 
 ## Altre informazioni
-
 * [Rilevare, valutare e diagnosticare gli arresti anomali e i problemi di prestazione nell'applicazione](app-insights-detect-triage-diagnose.md)
 * [Iniziare a utilizzare Application Insights su molte piattaforme](app-insights-detect-triage-diagnose.md)
 
-
 ## Video
-
-> [AZURE.VIDEO usage-monitoring-application-insights]
-
- 
+> [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/231/player]
+> 
+> 
 
 <!---HONumber=AcomDC_0420_2016-->

@@ -1,28 +1,25 @@
-<properties 
-	pageTitle="Ridimensionamento degli endpoint dell'API | Microsoft Azure" 
-	description="Ridimensionamento degli endpoint del servizio Web in Azure Machine Learning" 
-	services="machine-learning"
-	documentationCenter="" 
-	authors="hiteshmadan" 
-	manager="padou" 
-	editor=""/>
+---
+title: Ridimensionamento degli endpoint dell'API | Microsoft Docs
+description: Ridimensionamento degli endpoint del servizio Web in Azure Machine Learning
+services: machine-learning
+documentationcenter: ''
+author: hiteshmadan
+manager: padou
+editor: ''
 
-<tags
-	ms.service="machine-learning"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd" 
-	ms.date="05/25/2016"
-	ms.author="himad"/>
+ms.service: machine-learning
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: tbd
+ms.date: 05/25/2016
+ms.author: himad
 
-
+---
 # Ridimensionamento degli endpoint dell'API
-
 Gli endpoint del servizio Web in Azure Machine Learning dispongono di livelli di limitazione selezionabili in base alla frequenza con cui verrà utilizzato l'endpoint.
 
 Per controllare la quantità di limitazione nell'endpoint, usare il dispositivo di scorrimento nel portale di Azure classico per impostare il numero massimo di chiamate simultanee tra 20-200
-
 
 Le API sincrone in genere vengono usate nelle situazioni in cui si desidera una bassa latenza. La latenza qui indica il tempo impiegato dall'API per completare una richiesta e non tiene in considerazione i ritardi di rete. Si supponga di disporre di un'API con una latenza di 50 ms. Per utilizzare appieno la capacità disponibile con il livello di limitazione Elevato e il numero massimo di chiamate simultanee pari a 20, è necessario chiamare l'API 20 * 1000 / 50 = 400 volte al secondo. Estendendo ulteriormente tale capacità, un numero massimo di chiamate simultanee pari a 200 consentirà di chiamare l'API 4000 volte al secondo, supponendo una latenza di 50 ms.
 
@@ -38,13 +35,7 @@ L'interfaccia utente di gestione consente di specificare un numero di concorrenz
 2. Passare alla scheda Machine Learning
 3. Fare clic sull'area di lavoro.
 4. Passare al servizio Web dove si trova l'endpoint ![Passare al servizio Web](./media/machine-learning-scaling-endpoints/figure-1.png)
-
 5. Fare clic sull'endpoint e quindi sulla scheda Configura ![Passare alla configurazione dell'endpoint](./media/machine-learning-scaling-webservice/machlearn-2.png)
-
-
 6. Modificare il dispositivo di scorrimento per aumentare il livello di concorrenza e fare clic su Salva.
-
-
- 
 
 <!---HONumber=AcomDC_0622_2016-->

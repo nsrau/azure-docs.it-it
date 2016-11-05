@@ -1,29 +1,27 @@
-<properties
-   pageTitle="Modelli collegati con Resource Manager | Microsoft Azure"
-   description="Descrive come usare i modelli collegati in un modello di Azure Resource Manager per creare una soluzione basata su un modello modulare. Mostra come passare i valori dei parametri, specificare un file di parametri e gli URL creati in modo dinamico."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="timlt"
-   editor="tysonn"/>
+---
+title: Modelli collegati con Resource Manager | Microsoft Docs
+description: Descrive come usare i modelli collegati in un modello di Azure Resource Manager per creare una soluzione basata su un modello modulare. Mostra come passare i valori dei parametri, specificare un file di parametri e gli URL creati in modo dinamico.
+services: azure-resource-manager
+documentationcenter: na
+author: tfitzmac
+manager: timlt
+editor: tysonn
 
-<tags
-   ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/02/2016"
-   ms.author="tomfitz"/>
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/02/2016
+ms.author: tomfitz
 
+---
 # Uso di modelli collegati con Azure Resource Manager
-
 Dall'interno di un modello di Azure Resource Manager è possibile collegarsi a un altro modello che consente di scomporre la distribuzione in un set di modelli di destinazione specifici. In modo analogo alla scomposizione di un'applicazione in diverse classi di codice, la scomposizione offre vantaggi in termini di testing, riuso e leggibilità.
 
 È possibile passare parametri da un modello principale a un modello collegato. Tali parametri possono venire associati direttamente ai parametri e alle variabili esposti dal modello chiamante. Il modello collegato può inoltre passare una variabile di output al modello di origine, consentendo un scambio bidirezionale di dati tra modelli.
 
 ## Collegamento a un modello
-
 Per creare un collegamento tra due modelli, aggiungere una risorsa di distribuzione all'interno del modello principale che punta al modello collegato. Impostare la proprietà **templateLink** sull'URI del modello collegato. È possibile fornire i valori dei parametri per il modello nidificato specificando i valori direttamente nel modello o mediante il collegamento a un file di parametri. Nel seguente esempio viene utilizzata la proprietà **parameters** per specificare direttamente un valore di parametro.
 
     "resources": [ 
@@ -76,7 +74,6 @@ Nell'esempio seguente viene illustrato un modello padre che si collega a un altr
 Anche se il token viene passato come stringa sicura, l'URI del modello collegato, incluso il token di firma di accesso condiviso, è registrato nelle operazioni di distribuzione per il gruppo di risorse in questione. Per limitare l'esposizione, impostare una scadenza per il token.
 
 ## Collegamento a un file di parametri
-
 Nell'esempio successivo viene utilizzata la proprietà **parametersLink** per il collegamento a un file di parametri.
 
     "resources": [ 
@@ -101,7 +98,6 @@ Nell'esempio successivo viene utilizzata la proprietà **parametersLink** per il
 Il valore URI per il file di parametro collegato non può essere un file locale e deve includere o **http** o **https**. È anche possibile limitare l'accesso al file dei parametri solo tramite un token di firma di accesso condiviso.
 
 ## Uso di variabili per collegare i modelli
-
 Negli esempi precedenti sono illustrati i valori di URL hard-coded per i collegamenti del modello. Questo approccio potrebbe funzionare per un modello semplice ma non funziona correttamente in caso di uso di un ampio set di modelli modulari. In alternativa, è possibile creare una variabile statica contenente un URL di base per il modello principale e quindi creare dinamicamente gli URL per i modelli collegati da tale URL di base. Il vantaggio di questo approccio è rappresentato dal fatto che risulta più semplice spostare o scomporre il modello perché è sufficiente modificare la variabile statica nel modello principale. Il modello principale passa gli URI corretti a tutto il modello scomposto.
 
 Nell'esempio seguente viene illustrato come usare un URL di base per creare due URL per i modelli collegati (**sharedTemplateUrl** e **vmTemplate**).
@@ -132,7 +128,6 @@ Nell'esempio seguente viene illustrato come usare un URL di base per creare due 
     }
 
 ## Collegamento condizionale a modelli
-
 È possibile collegarsi a diversi modelli passando un valore parametro che viene usato per costruire l'URI del modello collegato. Questo approccio funziona bene quando è necessario specificare durante la distribuzione il modello collegato da usare. Ad esempio, è possibile specificare un modello da usare per un account di archiviazione esistente e un altro modello da usare per un nuovo account di archiviazione.
 
 L'esempio seguente mostra un parametro per un nome di account di archiviazione e un parametro per specificare se l'account di archiviazione è nuovo o esistente.
@@ -233,7 +228,6 @@ L'esempio seguente mostra il modello **newStorageAccount.json**. Si noti che, ol
     }
 
 ## Esempio completo
-
 I seguenti modelli di esempio mostrano una disposizione semplificata di modelli collegati, allo scopo di illustrare alcuni dei concetti in questo articolo. supponendo che i modelli siano stati aggiunti nello stesso contenitore in un account di archiviazione con accesso pubblico disattivato. Il modello collegato restituisce un valore al modello principale nella sezione **outputs**.
 
 Il file **parent.json** è costituito da:
@@ -269,19 +263,19 @@ Il file **parent.json** è costituito da:
 Il file **helloworld.json** è costituito da:
 
     {
-	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	  "contentVersion": "1.0.0.0",
-	  "parameters": {},
-	  "variables": {},
-	  "resources": [],
-	  "outputs": {
-		"result": {
-			"value": "Hello World",
-			"type" : "string"
-		}
-	  }
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {},
+      "variables": {},
+      "resources": [],
+      "outputs": {
+        "result": {
+            "value": "Hello World",
+            "type" : "string"
+        }
+      }
     }
-    
+
 Nella PowerShell, ottenere un token per il contenitore e distribuire i modelli con:
 
     Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
@@ -297,7 +291,7 @@ Nell'interfaccia della riga di comando di Azure, ottenere un token per il conten
 Viene richiesto di fornire il token di firma di accesso condiviso come parametro. È necessario che il token sia preceduto da **?**.
 
 ## Passaggi successivi
-- Per informazioni sulla definizione dell'ordine di distribuzione per le risorse, vedere [Definizione delle dipendenze nei modelli di Azure Resource Manager](resource-group-define-dependencies.md)
-- Per informazioni su come definire una sola risorsa e crearne molte istanze, vedere [Creare più istanze di risorse in Azure Resource Manager](resource-group-create-multiple.md)
+* Per informazioni sulla definizione dell'ordine di distribuzione per le risorse, vedere [Definizione delle dipendenze nei modelli di Azure Resource Manager](resource-group-define-dependencies.md)
+* Per informazioni su come definire una sola risorsa e crearne molte istanze, vedere [Creare più istanze di risorse in Azure Resource Manager](resource-group-create-multiple.md)
 
 <!---HONumber=AcomDC_0907_2016-->

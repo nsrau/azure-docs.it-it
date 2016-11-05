@@ -1,51 +1,48 @@
-<properties
-    pageTitle="Creare uno spazio dei nomi dell'hub eventi con Hub eventi e un gruppo di consumer usando un modello di Azure Resource Manager | Microsoft Azure"
-    description="Creare uno spazio dei nomi dell'hub eventi con Hub eventi e un gruppo di consumer usando un modello di Azure Resource Manager"
-    services="event-hubs"
-    documentationCenter=".net"
-    authors="sethmanheim"
-    manager="timlt"
-    editor=""/>
+---
+title: Creare uno spazio dei nomi dell'hub eventi con Hub eventi e un gruppo di consumer usando un modello di Azure Resource Manager | Microsoft Docs
+description: Creare uno spazio dei nomi dell'hub eventi con Hub eventi e un gruppo di consumer usando un modello di Azure Resource Manager
+services: event-hubs
+documentationcenter: .net
+author: sethmanheim
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="event-hubs"
-    ms.devlang="tbd"
-    ms.topic="article"
-    ms.tgt_pltfrm="dotnet"
-    ms.workload="na"
-    ms.date="08/31/2016"
-    ms.author="sethm;shvija"/>
+ms.service: event-hubs
+ms.devlang: tbd
+ms.topic: article
+ms.tgt_pltfrm: dotnet
+ms.workload: na
+ms.date: 08/31/2016
+ms.author: sethm;shvija
 
-
+---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Creare uno spazio dei nomi dell'hub eventi con Hub eventi e un gruppo di consumer usando un modello di Azure Resource Manager
-
 Questo articolo illustra come usare un modello di Azure Resource Manager per creare uno spazio dei nomi dell'hub eventi con un Hub eventi e un gruppo di consumer. Verrà illustrato come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per la distribuzione o personalizzarlo in base alle esigenze.
 
-Per altre informazioni sulla creazione di modelli, vedere [Creazione di modelli di Azure Resource Manager][].
+Per altre informazioni sulla creazione di modelli, vedere [Creazione di modelli di Azure Resource Manager][Creazione di modelli di Azure Resource Manager].
 
-Per il modello completo, vedere il [modello di Hub eventi e del gruppo di consumer][] su GitHub.
+Per il modello completo, vedere il [modello di Hub eventi e del gruppo di consumer][modello di Hub eventi e del gruppo di consumer] su GitHub.
 
->[AZURE.NOTE]
->Per verificare gli ultimi modelli, visitare la raccolta [Modelli di avvio rapido di Azure][] e cercare Hub eventi.
+> [!NOTE]
+> Per verificare gli ultimi modelli, visitare la raccolta [Modelli di avvio rapido di Azure][Modelli di avvio rapido di Azure] e cercare Hub eventi.
+> 
+> 
 
 ## <a name="what-will-you-deploy?"></a>Distribuzione
-
 Questo modello consente di distribuire uno spazio dei nomi dell'hub eventi con un hub eventi e un gruppo di consumer.
 
-[Hub eventi](../event-hubs/event-hubs-what-is-event-hubs.md) è un servizio di elaborazione di eventi che viene usato per fornire eventi e dati di telemetria in entrata in Azure su larga scala, con bassa latenza ed elevata affidabilità.
+[Hub eventi](event-hubs-what-is-event-hubs.md) è un servizio di elaborazione di eventi che viene usato per fornire eventi e dati di telemetria in entrata in Azure su larga scala, con bassa latenza ed elevata affidabilità.
 
 Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
 [![Distribuzione in Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametri
-
 Gestione risorse di Azure permette di definire i parametri per i valori da specificare durante la distribuzione del modello. Il modello include una sezione denominata `Parameters` che contiene tutti i valori dei parametri. È necessario definire un parametro per i valori che variano in base al progetto distribuito o all'ambiente in cui viene distribuito il progetto. Non definire i parametri per i valori che rimangono invariati. Ogni valore di parametro nel modello viene usato per definire le risorse distribuite.
 
 Il modello definisce i parametri seguenti.
 
 ### <a name="eventhubnamespacename"></a>eventHubNamespaceName
-
 Nome dello spazio dei nomi dell'hub eventi da creare.
 
 ```
@@ -55,7 +52,6 @@ Nome dello spazio dei nomi dell'hub eventi da creare.
 ```
 
 ### <a name="eventhubname"></a>eventHubName
-
 Nome dell'hub eventi creato nello spazio dei nomi dell'hub eventi.
 
 ```
@@ -65,7 +61,6 @@ Nome dell'hub eventi creato nello spazio dei nomi dell'hub eventi.
 ```
 
 ### <a name="eventhubconsumergroupname"></a>eventHubConsumerGroupName
-
 Nome del gruppo di consumer creato per l'Hub eventi.
 
 ```
@@ -75,7 +70,6 @@ Nome del gruppo di consumer creato per l'Hub eventi.
 ```
 
 ### <a name="apiversion"></a>apiVersion
-
 Versione API del modello.
 
 ```
@@ -85,7 +79,6 @@ Versione API del modello.
 ```
 
 ## <a name="resources-to-deploy"></a>Risorse da distribuire
-
 Crea uno spazio dei nomi di tipo **Hub eventi**con Hub eventi e un gruppo di consumer.
 
 ```
@@ -130,17 +123,14 @@ Crea uno spazio dei nomi di tipo **Hub eventi**con Hub eventi e un gruppo di con
 ```
 
 ## <a name="commands-to-run-deployment"></a>Comandi per eseguire la distribuzione
-
-[AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
+[!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
-
 ```
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json
 ```
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-
 ```
 azure config mode arm
 

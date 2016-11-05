@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Esportare i dati di Log Analytics in Power BI | Microsoft Azure"
-   description="Power BI è un servizio di analisi business basato sul cloud di Microsoft che fornisce report e visualizzazioni dettagliate per l'analisi di diversi set di dati.  Log Analytics può esportare continuamente dati dal repository OMS in Power BI per poterne sfruttare gli strumenti di analisi e le visualizzazioni.  Questo articolo descrive come configurare query in Log Analytics che eseguono automaticamente l'esportazione in Power BI a intervalli regolari."
-   services="log-analytics"
-   documentationCenter=""
-   authors="bwren"
-   manager="jwhit"
-   editor="tysonn" />
-<tags
-   ms.service="log-analytics"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/18/2016"
-   ms.author="bwren" />
+---
+title: Esportare i dati di Log Analytics in Power BI | Microsoft Docs
+description: Power BI è un servizio di analisi business basato sul cloud di Microsoft che fornisce report e visualizzazioni dettagliate per l'analisi di diversi set di dati.  Log Analytics può esportare continuamente dati dal repository OMS in Power BI per poterne sfruttare gli strumenti di analisi e le visualizzazioni.  Questo articolo descrive come configurare query in Log Analytics che eseguono automaticamente l'esportazione in Power BI a intervalli regolari.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: tysonn
 
+ms.service: log-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/18/2016
+ms.author: bwren
 
+---
 # <a name="export-log-analytics-data-to-power-bi"></a>Esportare i dati di Log Analytics in Power BI
-
 [Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) è un servizio di analisi business basato sul cloud di Microsoft che fornisce visualizzazioni dettagliate e report per l'analisi di differenti set di dati.  Log Analytics può esportare automaticamente dati dal repository OMS in Power BI per poterne sfruttare gli strumenti di analisi e le visualizzazioni.
 
 Quando si configura Power BI con Log Analytics, si creano query di log che esportano i risultati nei set di dati corrispondenti in Power BI.  La query e l'esportazione continuano a essere eseguite automaticamente in base a una pianificazione definita dall'utente per mantenere aggiornato il set di dati con gli ultimi dati raccolti da Log Analytics.
@@ -25,15 +24,16 @@ Quando si configura Power BI con Log Analytics, si creano query di log che espor
 ![Log Analytics in Power BI](media/log-analytics-powerbi/overview.png)
 
 ## <a name="power-bi-schedules"></a>Pianificazioni di Power BI
-
 Una *pianificazione di Power BI* include una ricerca dei log che esporta un set di dati dal repository OMS per un set di dati corrispondente in Power BI e una pianificazione che definisce la frequenza con cui viene eseguita la ricerca per mantenere aggiornato il set di dati.
 
 I campi nel set di dati corrisponderanno alle proprietà dei record restituiti dalla ricerca dei log.  Se la ricerca restituisce i record di tipi diversi, il set di dati includerà tutte le proprietà di ognuno dei tipi di record inclusi.  
 
-> [AZURE.NOTE] La procedura consigliata consiste nell'usare una query di ricerca dei log che restituisce dati non elaborati invece di eseguire una qualsiasi operazione di consolidamento usando comandi come [Measure](log-analytics-search-reference.md#measure).  È possibile eseguire qualsiasi aggregazione e calcoli in Power BI da dati non elaborati.
+> [!NOTE]
+> La procedura consigliata consiste nell'usare una query di ricerca dei log che restituisce dati non elaborati invece di eseguire una qualsiasi operazione di consolidamento usando comandi come [Measure](log-analytics-search-reference.md#measure).  È possibile eseguire qualsiasi aggregazione e calcoli in Power BI da dati non elaborati.
+> 
+> 
 
 ## <a name="connecting-oms-workspace-to-power-bi"></a>Connessione dell'area di lavoro di OMS a Power BI
-
 Prima di poter esportare da Log Analytics in Power BI, è necessario connettersi l'area di lavoro di OMS all'account Power BI usando la procedura seguente.  
 
 1. Nella console di OMS selezionare il riquadro **Impostazioni** .
@@ -42,7 +42,6 @@ Prima di poter esportare da Log Analytics in Power BI, è necessario connettersi
 4. Immettere le credenziali per l'account Power BI.
 
 ## <a name="create-a-power-bi-schedule"></a>Creare una pianificazione di Power BI
-
 Creare una pianificazione di Power BI per ogni set di dati usando la procedura seguente.
 
 1. Nella console di OMS selezionare il riquadro **Ricerca log** .
@@ -51,14 +50,13 @@ Creare una pianificazione di Power BI per ogni set di dati usando la procedura s
 4. Fornire le informazioni nella tabella seguente e fare clic su **Salva**.
 
 | Proprietà | Descrizione |
-|:--|:--|
-| Nome | Nome per identificare la pianificazione quando si visualizza l'elenco di pianificazioni di Power BI. |
-| Ricerca salvata | Ricerca dei log da eseguire.  È possibile selezionare la query corrente o selezionare una ricerca salvata dalla casella a discesa. |
-| Pianificazione | Frequenza con cui eseguire la ricerca salvata ed esportare nel set di dati di Power BI.  Il valore deve essere compreso tra 15 minuti e 24 ore. |
-| Nome del set di dati | Nome del set di dati in Power BI.  Verrà creato se non esiste e aggiornato se esiste. |
+|:--- |:--- |
+| Nome |Nome per identificare la pianificazione quando si visualizza l'elenco di pianificazioni di Power BI. |
+| Ricerca salvata |Ricerca dei log da eseguire.  È possibile selezionare la query corrente o selezionare una ricerca salvata dalla casella a discesa. |
+| Pianificazione |Frequenza con cui eseguire la ricerca salvata ed esportare nel set di dati di Power BI.  Il valore deve essere compreso tra 15 minuti e 24 ore. |
+| Nome del set di dati |Nome del set di dati in Power BI.  Verrà creato se non esiste e aggiornato se esiste. |
 
 ## <a name="viewing-and-removing-power-bi-schedules"></a>Visualizzazione e rimozione di pianificazioni di Power BI
-
 Visualizzare l'elenco di pianificazioni di Power BI esistenti con la procedura seguente.
 
 1. Nella console di OMS selezionare il riquadro **Impostazioni** .
@@ -113,11 +111,8 @@ Per salvare il report fare clic sul pulsante Salva nella parte superiore della s
 ![Report di Power BI](media/log-analytics-powerbi/walkthrough-report.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-- Informazioni su [ricerche dei log](log-analytics-log-searches.md) per compilare query che possono essere esportate in Power BI.
-- Altre informazioni su [Power BI](http://powerbi.microsoft.com) per generare visualizzazioni basate sulle esportazioni di Log Analytics.
-
-
+* Informazioni su [ricerche dei log](log-analytics-log-searches.md) per compilare query che possono essere esportate in Power BI.
+* Altre informazioni su [Power BI](http://powerbi.microsoft.com) per generare visualizzazioni basate sulle esportazioni di Log Analytics.
 
 <!--HONumber=Oct16_HO2-->
 

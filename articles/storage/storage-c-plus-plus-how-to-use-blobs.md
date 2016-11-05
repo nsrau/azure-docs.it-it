@@ -1,38 +1,40 @@
-<properties
-    pageTitle="Come usare l'archiviazione BLOB (archiviazione di oggetti) da C++ | Microsoft Azure""
-    description="Archiviare i dati non strutturati nel cloud con l'archivio BLOB (archivio di oggetti) di Azure."
-    services="storage"
-    documentationCenter=".net"
-    authors="dineshmurthy"
-    manager="jahogg"
-    editor="tysonn"/>
+---
+title: Come usare l'archiviazione BLOB (archiviazione di oggetti) da C++ | Microsoft Docs
+"\"": ''
+description: Archiviare i dati non strutturati nel cloud con l'archivio BLOB (archivio di oggetti) di Azure.
+services: storage
+documentationcenter: .net
+author: dineshmurthy
+manager: jahogg
+editor: tysonn
 
-<tags
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/18/2016"
-    ms.author="dineshm"/>
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/18/2016
+ms.author: dineshm
 
+---
+# <a name="how-to-use-blob-storage-from-c++"></a>Come usare l'archiviazione BLOB da C++
+[!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
-# <a name="how-to-use-blob-storage-from-c++"></a>Come usare l'archiviazione BLOB da C++  
-
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
-<br/>
-[AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
+[!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Overview
-
 L'archiviazione BLOB di Azure è un servizio che archivia dati non strutturati nel cloud come oggetti/BLOB. Archivio BLOB può archiviare qualsiasi tipo di dati di testo o binari, ad esempio un documento, un file multimediale o un programma di installazione di un'applicazione. L'archivio BLOB è anche denominato archivio di oggetti.
 
 In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione BLOB di Azure. Gli esempi sono scritti in C++ e utilizzano la [libreria client di Archiviazione di Azure per C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). Gli scenari illustrati includono **caricamento**, **visualizzazione in elenchi**, **download** e **eliminazione** di BLOB.  
 
->[AZURE.NOTE] Questa guida fa riferimento alla libreria client di Archiviazione di Azure per C++ versione 1.0.0 e successive. La versione consigliata per la libreria client di archiviazione è la 2.2.0, disponibile tramite [NuGet](http://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/Azure/azure-storage-cpp).
+> [!NOTE]
+> Questa guida fa riferimento alla libreria client di Archiviazione di Azure per C++ versione 1.0.0 e successive. La versione consigliata per la libreria client di archiviazione è la 2.2.0, disponibile tramite [NuGet](http://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/Azure/azure-storage-cpp).
+> 
+> 
 
-[AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
-[AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+[!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
+
+[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-c++-application"></a>Creazione di un’applicazione C++
 In questa guida verranno utilizzate le funzionalità di archiviazione che è possibile eseguire all’interno di un’applicazione C++.  
@@ -41,12 +43,12 @@ A tal fine, sarà necessario installare la libreria client di Archiviazione di A
 
 Per installare la libreria client di Archiviazione di Azure per C++, è possibile utilizzare i metodi seguenti:
 
--   **Linux:** seguire le istruzioni fornite nella pagina [README della libreria client di Archiviazione di Azure per C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .  
--   **Windows:** in Visual Studio, fare clic su **Strumenti > Gestione pacchetti NuGet > console di Gestione pacchetti**. Digitare il seguente comando nella [console Gestione pacchetti NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e premere **INVIO**.  
+* **Linux:** seguire le istruzioni fornite nella pagina [README della libreria client di Archiviazione di Azure per C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .  
+* **Windows:** in Visual Studio, fare clic su **Strumenti > Gestione pacchetti NuGet > console di Gestione pacchetti**. Digitare il seguente comando nella [console Gestione pacchetti NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e premere **INVIO**.  
+  
+      Install-Package wastorage
 
-        Install-Package wastorage
-
-## <a name="configure-your-application-to-access-blob-storage"></a>Configurazione dell'applicazione per l'accesso all'archiviazione BLOB  
+## <a name="configure-your-application-to-access-blob-storage"></a>Configurazione dell'applicazione per l'accesso all'archiviazione BLOB
 Aggiungere le istruzioni include seguenti all'inizio del file C++ in cui si desidera utilizzare le API di archiviazione di Azure per accedere ai BLOB:  
 
     #include "was/storage_account.h"
@@ -79,8 +81,7 @@ Ottenere successivamente un riferimento alla classe **cloud_blob_client**, perch
     azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();  
 
 ## <a name="how-to:-create-a-container"></a>Procedura: creare un contenitore
-
-[AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
+[!INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
 In questo esempio viene creato un contenitore, nel caso in cui non esista già:  
 
@@ -238,14 +239,12 @@ Per eliminare un BLOB, ottenere prima un riferimento al BLOB e chiamare il metod
 ## <a name="next-steps"></a>Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, visitare i collegamenti seguenti per ulteriori informazioni su Archiviazione di Azure.  
 
--   [Come usare l’archiviazione delle code da C++](storage-c-plus-plus-how-to-use-queues.md)
--   [Come usare l’archiviazione tabelle da C++](storage-c-plus-plus-how-to-use-tables.md)
--   [Elenco delle risorse di archiviazione di Azure in C++](storage-c-plus-plus-enumeration.md)
--   [Informazioni di riferimento sulla libreria client di archiviazione per C++](http://azure.github.io/azure-storage-cpp)
--   [Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
-- [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
-
-
+* [Come usare l’archiviazione delle code da C++](storage-c-plus-plus-how-to-use-queues.md)
+* [Come usare l’archiviazione tabelle da C++](storage-c-plus-plus-how-to-use-tables.md)
+* [Elenco delle risorse di archiviazione di Azure in C++](storage-c-plus-plus-enumeration.md)
+* [Informazioni di riferimento sulla libreria client di archiviazione per C++](http://azure.github.io/azure-storage-cpp)
+* [Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 
 <!--HONumber=Oct16_HO2-->
 

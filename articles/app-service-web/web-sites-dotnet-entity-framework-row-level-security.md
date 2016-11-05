@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Esercitazione: App Web con database multi-tenant che usa Entity Framework e la sicurezza a livello di riga"
-	description="Informazioni su come sviluppare un'app Web ASP.NET MVC 5 con un back-end del database SQL multi-tenant che usa Entity Framework e la sicurezza a livello di riga."
-  metaKeywords="azure asp.net mvc entity framework multi tenant row level security rls sql database"
-	services="app-service\web"
-	documentationCenter=".net"
-	manager="jeffreyg"
-  authors="tmullaney"/>
+---
+title: 'Esercitazione: App Web con database multi-tenant che usa Entity Framework e la sicurezza a livello di riga'
+description: Informazioni su come sviluppare un'app Web ASP.NET MVC 5 con un back-end del database SQL multi-tenant che usa Entity Framework e la sicurezza a livello di riga.
+metakeywords: azure asp.net mvc entity framework multi tenant row level security rls sql database
+services: app-service\web
+documentationcenter: .net
+manager: jeffreyg
+author: tmullaney
 
-<tags
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="04/25/2016"
-	ms.author="thmullan"/>
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 04/25/2016
+ms.author: thmullan
 
+---
 # Esercitazione: App Web con database multi-tenant che usa Entity Framework e la sicurezza a livello di riga
-
 Questa esercitazione illustra come sviluppare un'app Web multi-tenant con un modello di tenancy di tipo "[database condiviso, schema condiviso](https://msdn.microsoft.com/library/aa479086.aspx)" usando Entity Framework e la [sicurezza a livello di riga](https://msdn.microsoft.com/library/dn765131.aspx). In questo modello un database singolo contiene dati per molti tenant e ogni riga in ogni tabella è associata a un "ID tenant". La sicurezza a livello di riga, una nuova funzionalità del database SQL di Azure, consente di impedire ai tenant di accedere ai dati degli altri tenant. È necessaria solo una piccola modifica all'applicazione. Centralizzando la logica di accesso al tenant entro il database stesso, la sicurezza a livello di riga semplifica il codice dell'applicazione e riduce il rischio di diffusione accidentale dei dati tra i tenant.
 
 È possibile iniziare con la semplice applicazione Contact Manager disponibile in [Creare un'app ASP.NET MVC con autenticazione e database SQL e distribuirla nel servizio app di Azure](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). L'applicazione consente attualmente a tutti gli utenti (tenant) di visualizzare tutti i contatti:
@@ -27,15 +26,14 @@ Questa esercitazione illustra come sviluppare un'app Web multi-tenant con un mod
 Con qualche modifica è possibile aggiungere il supporto per il multi-tenancy, in modo che gli utenti possano visualizzare solo i propri contatti.
 
 ## Passaggio 1: Aggiungere una classe Interceptor nell'applicazione per configurare SESSION\_CONTEXT
-
 È necessario apportare una modifica all'applicazione. Poiché tutti gli utenti dell'applicazione si connettono al database usando la stessa stringa di connessione, ovvero lo stesso accesso SQL, non è attualmente possibile per un criterio di sicurezza a livello di riga conoscere l'utente in base a cui applicare il filtro. Questo approccio è molto comune in applicazioni Web perché consente il pooling efficiente delle connessioni, ma richiede un altro modo per identificare l'utente attuale dell'applicazione Web nel database. La soluzione consiste nel fare in modo che l'applicazione configuri una coppia chiave-valore per l'UserId corrente in [SESSION\_CONTEXT](https://msdn.microsoft.com/library/mt590806) immediatamente dopo l'apertura della connessione e prima dell'esecuzione di query. SESSION\_CONTEXT è un archivio di coppie chiave-valore con ambito sessione e il criterio della sicurezza a livello di riga userà il valore UserId archiviato per identificare l'utente corrente.
 
 Verrà aggiunto un [intercettore](https://msdn.microsoft.com/data/dn469464.aspx), in particolare [DbConnectionInterceptor](https://msdn.microsoft.com/library/system.data.entity.infrastructure.interception.idbconnectioninterceptor), una nuova funzionalità di Entity Framework (EF) 6, per configurare automaticamente il valore UserId attuale in SESSION\_CONTEXT eseguendo un'istruzione T-SQL ogni volta che EF apre una connessione.
 
-1.	Aprire il progetto ContactManager in Visual Studio.
-2.	Fare clic con il pulsante destro del mouse sulla cartella Modelli in Esplora soluzioni, quindi scegliere Aggiungi > Classe.
-3.	Assegnare alla nuova classe il nome "SessionContextInterceptor.cs" e fare clic su Aggiungi.
-4.	Sostituire i contenuti di SessionContextInterceptor.cs con il codice seguente.
+1. Aprire il progetto ContactManager in Visual Studio.
+2. Fare clic con il pulsante destro del mouse sulla cartella Modelli in Esplora soluzioni, quindi scegliere Aggiungi > Classe.
+3. Assegnare alla nuova classe il nome "SessionContextInterceptor.cs" e fare clic su Aggiungi.
+4. Sostituire i contenuti di SessionContextInterceptor.cs con il codice seguente.
 
 ```
 using System;
@@ -53,7 +51,7 @@ namespace ContactManager.Models
     {
         public void Opened(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
         {
-        	// Set SESSION_CONTEXT to current UserId whenever EF opens a connection
+            // Set SESSION_CONTEXT to current UserId whenever EF opens a connection
             try
             {
                 var userId = System.Web.HttpContext.Current.User.Identity.GetUserId();
@@ -73,7 +71,7 @@ namespace ContactManager.Models
                 // If no user is logged in, leave SESSION_CONTEXT null (all rows will be filtered)
             }
         }
-        
+
         public void Opening(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
         {
         }
@@ -180,7 +178,6 @@ namespace ContactManager.Models
 È necessaria solo una modifica all'applicazione. Sviluppare e pubblicare l'applicazione.
 
 ## Passaggio 2: Aggiungere una colonna UserId allo schema del database
-
 È ora necessario aggiungere una colonna UserId alla tabella Contacts per associare ogni riga a un utente (tenant). Lo schema verrà modificato direttamente nel database, quindi non è necessario includere questo campo nel modello di dati EF.
 
 Connettersi direttamente al database, usando SQL Server Management Studio o Visual Studio, quindi eseguire l'istruzione T-SQL seguente:
@@ -210,7 +207,6 @@ WHERE ContactId IN (1, 2, 5)
 ```
 
 ## Passaggio 3: Creare un criterio di sicurezza a livello di riga nel database
-
 Il passaggio finale consiste nel creare un criterio di sicurezza che usa il valore UserId in SESSION\_CONTEXT per filtrare automaticamente i risultati restituiti dalle query.
 
 Mentre si è connessi al database, eseguire l'istruzione T-SQL seguente:
@@ -220,16 +216,16 @@ CREATE SCHEMA Security
 go
 
 CREATE FUNCTION Security.userAccessPredicate(@UserId nvarchar(128))
-	RETURNS TABLE
-	WITH SCHEMABINDING
+    RETURNS TABLE
+    WITH SCHEMABINDING
 AS
-	RETURN SELECT 1 AS accessResult
-	WHERE @UserId = CAST(SESSION_CONTEXT(N'UserId') AS nvarchar(128))
+    RETURN SELECT 1 AS accessResult
+    WHERE @UserId = CAST(SESSION_CONTEXT(N'UserId') AS nvarchar(128))
 go
 
 CREATE SECURITY POLICY Security.userSecurityPolicy
-	ADD FILTER PREDICATE Security.userAccessPredicate(UserId) ON dbo.Contacts,
-	ADD BLOCK PREDICATE Security.userAccessPredicate(UserId) ON dbo.Contacts
+    ADD FILTER PREDICATE Security.userAccessPredicate(UserId) ON dbo.Contacts,
+    ADD BLOCK PREDICATE Security.userAccessPredicate(UserId) ON dbo.Contacts
 go
 
 ```
@@ -243,7 +239,6 @@ Eseguire l'applicazione e accedere come user1@contoso.com. L'utente vede solo i 
 Per una convalida aggiuntiva, provare a registrare un nuovo utente. Il nuovo utente non vedrà alcun contatto, perché nessun contatto è stato assegnato a questo utente. Se l'utente crea un nuovo contatto, questo contatto gli verrà assegnato e potrà visualizzarlo.
 
 ## Passaggi successivi
-
 L'operazione è terminata. La semplice app Web Contact Manager è stata convertita in un multi-tenant in cui ogni utente ha il proprio elenco contatti. Usando la sicurezza a livello di riga si evita la complessità derivante dall'applicare la logica di accesso al tenant nel codice dell'applicazione. Questa trasparenza consente all'applicazione di concentrarsi sul problema aziendale effettivo e riduce anche il rischio di divulgazione accidentale dei dati con la crescita della codebase dell'applicazione.
 
 Questa esercitazione offre solo un'idea delle possibilità della sicurezza a livello di riga. È ad esempio possibile avere una logica di accesso più avanzata o granulare e archiviare più del solo valore UserId corrente in SESSION\_CONTEXT. È anche possibile [integrare la sicurezza a livello di riga con le librerie client del database elastico](../sql-database/sql-database-elastic-tools-multi-tenant-row-level-security.md) per supportare partizioni multi-tenant in un livello dati con scalabilità orizzontale.

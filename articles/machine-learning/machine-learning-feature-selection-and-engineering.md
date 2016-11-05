@@ -1,27 +1,25 @@
-<properties
-	pageTitle="Progettazione e selezione di funzioni in Azure Machine Learning | Microsoft Azure"
-	description="Illustra le finalità della progettazione e della selezione di funzioni e fornisce esempi del relativo ruolo nel processo di miglioramento dei dati di Machine Learning."
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Progettazione e selezione di funzioni in Azure Machine Learning | Microsoft Docs
+description: Illustra le finalità della progettazione e della selezione di funzioni e fornisce esempi del relativo ruolo nel processo di miglioramento dei dati di Machine Learning.
+services: machine-learning
+documentationcenter: ''
+author: bradsev
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="zhangya;bradsev" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/12/2016
+ms.author: zhangya;bradsev
 
-
+---
 # Progettazione e selezione di funzioni in Azure Machine Learning
-
 Questo argomento illustra le finalità della progettazione e selezione di funzioni nel processo di miglioramento dei dati di Machine Learning. Descrive cosa comportano questi processi usando gli esempi forniti da Azure Machine Learning Studio.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 I dati di training usati in Machine Learning spesso possono essere migliorati con la selezione o l'estrazione di funzioni dai dati non elaborati raccolti. Un esempio di funzione progettata nel contesto dell'apprendimento della modalità di classificazione delle immagini dei caratteri scritti a mano, è una mappa della densità di bit costruita dai dati di distribuzione dei bit non elaborati. La mappa può essere utile per individuare in modo più efficiente i bordi dei caratteri.
 
@@ -42,9 +40,7 @@ Progettazione e selezione costituiscono il passaggio di **miglioramento dei dati
 
 Questo argomento tratta solo gli aspetti relativi a progettazione e selezione di funzioni del processo di miglioramento dei dati. Per altre informazioni sul passaggio di pre-elaborazione dei dati, guardare il video sulla [pre-elaborazione dei dati in Azure ML Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
 
-
 ## Creazione di funzioni dai dati: progettazione di funzioni
-
 I dati di training sono costituiti da una matrice composta da esempi (record o osservazioni archiviate in righe), ognuno dei quali presenta un set di funzioni (variabili o campi archiviati in colonne). Le funzioni specificate nella progettazione sperimentale caratterizzeranno i modelli nei dati. Anche se molti dei campi dati non elaborati possono essere inclusi direttamente nel set di funzioni selezionate usato per il training di un modello, spesso è necessario costruire altre funzioni (progettate) dalle funzioni presenti nei dati non elaborati per generare un set di dati di training avanzato.
 
 Il tipo di funzioni da creare per migliorare il set di dati durante il training di un modello sono le funzioni progettate che migliorano il training e forniscono informazioni che consentono di differenziare meglio i modello nei dati Le nuove funzioni dovrebbero fornire informazioni aggiuntive che non vengono chiaramente acquisite o non risultano facilmente apparenti nel set di funzioni originali o esistenti. Questo processo è tuttavia una sorta di artificio. Le decisioni valide e produttive richiedono spesso una certa esperienza specifica.
@@ -54,8 +50,7 @@ Quando si inizia a usare Azure Machine Learning, è più facile afferrare questo
 * Un esempio di regressione basato sulla [stima del numero di noleggi di biciclette](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) in un esperimento controllato in cui sono noti i valori di destinazione.
 * Un esempio di classificazione di data mining del testo tramite [Feature Hashing][feature-hashing].
 
-### Esempio 1: Aggiunta di funzioni temporali per il modello di regressione ###
-
+### Esempio 1: Aggiunta di funzioni temporali per il modello di regressione
 Per dimostrare come progettare le funzioni per un'attività di regressione, si userà l'esperimento "Demand forecasting of bikes" in Azure Machine Learning Studio. L'obiettivo di questo esperimento è stimare la domanda di biciclette, ovvero il numero di noleggi di biciclette nell'arco di un mese, un giorno o un'ora specifica. Come dati di input non elaborati si usa il set di dati "Bike Rental UCI dataset". Questo set di dati si basa su dati reali della società Capital Bikeshare che gestisce una rete di noleggio di biciclette a Washington DC, negli Stati Uniti. Il set di dati rappresenta il numero di noleggi di biciclette in un'ora specifica del giorno dal 2011 al 2012 e include 17.379 righe e 17 colonne. Il set di funzioni non elaborate include le condizioni meteorologiche (temperatura/umidità/velocità del vento) e il tipo di giorno (festività/giorno feriale). Il campo per la stima è "cnt", un conteggio che rappresenta i noleggi di biciclette in un'ora specifica e compreso nell'intervallo da 1 a 977.
 
 Allo scopo di costruire funzioni efficaci nei dati di training, vengono compilati quattro modelli di regressione con lo stesso algoritmo, ma con quattro diversi set di dati di training. I quattro set di dati rappresentano gli stessi dati di input non elaborati, ma con un numero crescente di set di funzioni. Queste funzioni sono raggruppate in quattro categorie:
@@ -75,8 +70,7 @@ Il confronto dei risultati delle prestazioni dei quattro modelli è riepilogato 
 
 ![confronto dei risultati](./media/machine-learning-feature-selection-and-engineering/result1.png)
 
-### <a name="example2"></a> Esempio 2: Creazione di funzionalità per il data mining del testo  
-
+### <a name="example2"></a> Esempio 2: Creazione di funzionalità per il data mining del testo
 La progettazione di funzioni viene ampiamente applicata nelle attività correlate al data mining del testo, ad esempio la classificazione di documenti e l'analisi del sentiment. Ad esempio, quando si vogliono classificare documenti in diverse categorie, un tipico presupposto è il fatto che le parole o le frasi incluse in una categoria di documenti sono presenti con minore probabilità in un'altra categoria di documenti. In altre parole, la frequenza di distribuzione di parole/frasi è in grado di caratterizzare diverse categorie di documenti. Poiché in genere nelle applicazioni di data mining del testo singole parti del contenuto di testo vengono usate come dati di input, per creare le funzioni che comportano frequenze di parole/frasi è necessario usare il processo di progettazione delle funzioni.
 
 Per completare questa attività, si applica una tecnica definita **hashing di funzioni** per trasformare in modo efficiente le funzioni di testo arbitrarie in indici. Anziché associare ogni funzioni di testo (parole/frasi) a un indice particolare, questo metodo applica una funzione hash alle funzioni e usa direttamente i relativi valori hash come indici.
@@ -93,8 +87,7 @@ La figura seguente mostra l'aspetto delle nuove funzioni.
 
 ![Esempio di "Feature Hashing"](./media/machine-learning-feature-selection-and-engineering/feature-Hashing2.png)
 
-## Filtro delle funzioni dai dati: selezione di funzioni  ##
-
+## Filtro delle funzioni dai dati: selezione di funzioni
 La selezione delle funzioni è un processo applicato comunemente per la costruzione di set di dati di training per le attività di modellazione predittive, come la classificazione o la regressione. L'obiettivo consiste nel selezionare un subset di funzioni dal set di dati originale, che riducono le dimensioni usando un set minimo di funzioni per rappresentare la quantità massima di varianza nei dati. Questo subset di funzioni contiene le sole funzioni da includere per il training del modello. La selezione delle funzioni ha due scopi principali.
 
 * La selezione di funzioni migliora spesso la precisione della classificazione eliminando le funzioni irrilevanti, ridondanti o altamente correlate.
@@ -107,7 +100,6 @@ Tra le altre, una categoria di funzioni ampiamente applicata in un contesto supe
 In Azure Machine Learning Studio sono disponibili moduli per la selezione delle funzioni. Come illustrato nella figura seguente, questi moduli includono [Filter-Based Feature Selection][filter-based-feature-selection] e [Fisher Linear Discriminant Analysis][fisher-linear-discriminant-analysis].
 
 ![Esempio di selezione delle funzioni](./media/machine-learning-feature-selection-and-engineering/feature-Selection.png)
-
 
 Si consideri ad esempio l'uso del modulo [Filter-Based Feature Selection][filter-based-feature-selection]. Per praticità, si continuerà a usare l'esempio di data mining del testo illustrato in precedenza. Si supponga di voler compilare un modello di regressione in base a un set di 256 funzioni create con il modulo [Feature Hashing][feature-hashing] e che la variabile di risposta sia "Col1" e rappresenti le classificazioni delle recensioni di un libro in un intervallo da 1 a 5. Impostando "Feature scoring method" su "Pearson Correlation", "Target column" su "Col1" e "Number of desired features" su 50, Il modulo [Filter-Based Feature Selection][filter-based-feature-selection] produrrà un set di dati contenente 50 funzioni insieme all'attributo di destinazione "Col1". La figura seguente mostra il flusso dell'esperimenti e i parametri di input appena descritti.
 

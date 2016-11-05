@@ -1,38 +1,31 @@
 
-<properties
-   pageTitle="Sicurezza di un cluster di Service Fabric: ruoli client | Microsoft Azure"
-   description="In questo articolo vengono descritti i due ruoli client e le autorizzazioni fornite per i ruoli."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="mani-ramaswamy"
-   manager="coreysa"
-   editor=""/> 
+---
+title: 'Sicurezza di un cluster di Service Fabric: ruoli client | Microsoft Docs'
+description: In questo articolo vengono descritti i due ruoli client e le autorizzazioni fornite per i ruoli.
+services: service-fabric
+documentationcenter: .net
+author: mani-ramaswamy
+manager: coreysa
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/14/2016"
-   ms.author="subramar"/> 
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/14/2016
+ms.author: subramar
 
-
-
+---
 # Controllo di accesso basato sui ruoli per i client di Service Fabric
-
 Azure Service Fabric supporta due tipi di controllo di accesso diversi per i client connessi a un cluster di Service Fabric: amministratore e utente. Il Controllo di accesso consente all'amministratore del cluster di limitare l'accesso a determinate operazioni del cluster per diversi gruppi di utenti, rendendo più sicuro il cluster.
 
 Gli **amministratori** hanno accesso completo alle funzionalità di gestione, incluse funzionalità di lettura/scrittura. Gli **utenti**, per impostazione predefinita, hanno solo l'accesso in lettura alle funzionalità di gestione, ad esempio funzionalità di query, e la possibilità di risolvere applicazioni e servizi.
 
 I due ruoli di client, amministratore o client, vengono specificati al momento della creazione del cluster fornendo certificati separati per ognuno di essi. Per informazioni dettagliate su come configurare un cluster di Service Fabric protetto, vedere l'articolo relativo alla [sicurezza di un cluster di Service Fabric](service-fabric-cluster-security.md).
 
-
 ## Impostazioni predefiniti di controllo di accesso
-
-
 Il tipo di controllo di accesso dell’amministratore ha accesso completo a tutte le API di FabricClient. Può eseguire qualsiasi operazione di lettura e scrittura con il cluster di Service Fabric, incluse:
-
 
 ### Operazioni dell’applicazione e di servizio
 * **CreateService**: creazione del servizio
@@ -53,7 +46,6 @@ Il tipo di controllo di accesso dell’amministratore ha accesso completo a tutt
 * **RecoverPartitions**: ripristino di partizioni
 * **RecoverServicePartitions**: ripristino di partizioni del servizio
 * **RecoverSystemPartitions**: ripristino di partizioni del servizio di sistema
-
 
 ### Operazioni del cluster
 * **ProvisionFabric**: provisioning del manifesto del cluster e/o del file con estensione msi
@@ -84,8 +76,6 @@ Il tipo di controllo di accesso dell’amministratore ha accesso completo a tutt
 * **Query**: tutte le query consentite
 * **NameExists**: verifiche dell'esistenza dell'URI di denominazione
 
-
-
 Il tipo di controllo di accesso utente è limitato per impostazione predefinita alle operazioni seguenti.
 
 * **EnumerateSubnames**: enumerazione dell'URI di denominazione
@@ -106,11 +96,9 @@ Il tipo di controllo di accesso utente è limitato per impostazione predefinita 
 Il controllo di accesso amministratore ha accesso anche alle operazioni precedenti.
 
 ## Modifica delle impostazioni predefinite per i ruoli del client
-
 Nel file manifesto del cluster è possibile assegnare al client funzionalità di amministratore, se necessario. È possibile modificare le impostazioni predefinite tramite l'opzione **Impostazioni Fabric** durante la [creazione di un cluster](service-fabric-cluster-creation-via-portal.md) e specificare le impostazioni precedenti nei campi **nome**, **amministratore**, **utente** e **valore**.
 
 ## Passaggi successivi
-
 [Sicurezza di un cluster di Service Fabric](service-fabric-cluster-security.md)
 
 [Creazione del cluster di Service Fabric](service-fabric-cluster-creation-via-portal.md)

@@ -1,24 +1,23 @@
-<properties 
-    pageTitle="Notifiche delle modifiche DocumentDB usando le app per la logica | Microsoft Azure" 
-    description="." 
-    keywords="notifica delle modifiche"
-    services="documentdb" 
-    authors="hedidin" 
-    manager="jhubbard" 
-    editor="mimig" 
-    documentationCenter=""/>
+---
+title: Notifiche delle modifiche DocumentDB usando le app per la logica | Microsoft Docs
+description: .
+keywords: notifica delle modifiche
+services: documentdb
+author: hedidin
+manager: jhubbard
+editor: mimig
+documentationcenter: ''
 
-<tags 
-    ms.service="documentdb" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="rest-api" 
-    ms.topic="article" 
-    ms.date="09/23/2016" 
-    ms.author="b-hoedid"/>
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: rest-api
+ms.topic: article
+ms.date: 09/23/2016
+ms.author: b-hoedid
 
+---
 # Notifiche per le risorse di DocumentDB nuove o modificate usando le app per la logica
-
 Questo articolo ha origine da una domanda inviata in uno dei forum della community di Azure DocumentDB. La domanda è **DocumentDB supporta le notifiche per le risorse modificate**?
 
 Ho collaborato con BizTalk Server per molti anni e questo è uno scenario molto comune quando si usa il [WCF LOB Adapter](https://msdn.microsoft.com/library/bb798128.aspx). Per questa ragione ho deciso di provare a duplicare questa funzionalità in DocumentDB per i documenti nuovi e/o modificati.
@@ -26,7 +25,6 @@ Ho collaborato con BizTalk Server per molti anni e questo è uno scenario molto 
 Questo articolo offre una panoramica dei componenti della soluzione di notifica delle modifiche che include un [trigger](documentdb-programming.md#trigger) e un'[app per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md). Frammenti di codice importanti sono disponibili inline, mentre l'intera soluzione è disponibile su [GitHub](https://github.com/HEDIDIN/DocDbNotifications).
 
 ## Caso d'uso
-
 Di seguito è descritto il caso d'uso di questo articolo.
 
 DocumentDB è il repository per i documenti di Health Level Seven International (HL7) Fast Healthcare Interoperability Resources (FHIR). Si supponga che il database di DocumentDB associato all'API e all'app per la logica costituisca un server di HL7 FHIR. Una struttura sanitaria memorizza i dati dei pazienti nel database "Patients" di DocumentDB. Il database dei pazienti include diverse raccolte: Clinical, Identification e così via. Le informazioni sui pazienti rientrano nella categoria Identification. Esiste una raccolta denominata "Patient".
@@ -36,11 +34,9 @@ Il reparto di cardiologia tiene traccia dei dati personali relativi a salute ed 
 Il reparto IT risponde che l'operazione è molto semplice. Comunica inoltre che è possibile inviare i documenti all'[archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/) in modo che il reparto di cardiologia possa accedervi facilmente.
 
 ## Come è stato risolto il problema dal reparto IT
-
 Per creare l'applicazione, il reparto IT ha deciso di definire prima un modello. Il vantaggio della notazione BPMN (Business Process Model and Notation) è rappresentato dalla sua facilità d'uso sia da parte di specialisti che di non specialisti. L'intero processo di notifica è considerato un processo aziendale.
 
 ## Panoramica del processo di notifica
-
 1. Si inizia con un'app per la logica che include un trigger timer. Per impostazione predefinita, il trigger viene eseguito ogni ora.
 2. Successivamente viene eseguito un POST HTTP nell'app per la logica.
 3. L'app per la logica esegue tutte le operazioni.
@@ -55,27 +51,28 @@ Nella figura seguente è possibile osservare i diversi passaggi del flusso di la
 Attenersi alla procedura seguente:
 
 1. È necessario ottenere il valore DateTime UTC da un'app per le API. Il valore predefinito è un'ora prima.
-
 2. Il valore DateTime UTC viene convertito in un formato Timestamp Unix. Questo è il formato predefinito per i timestamp in DocumentDB.
-
 3. Viene eseguito il POST del valore in un'app per le API che esegue una query DocumentDB. Il valore viene usato in una query.
-
+   
     ```SQL
-     	SELECT * FROM Patients p WHERE (p._ts >= @unixTimeStamp)
+         SELECT * FROM Patients p WHERE (p._ts >= @unixTimeStamp)
     ```
-
-    > [AZURE.NOTE] \_ts rappresenta i metadati TimeStamp per tutte le risorse di DocumentDB.
-
+   
+   > [!NOTE]
+   > \_ts rappresenta i metadati TimeStamp per tutte le risorse di DocumentDB.
+   > 
+   > 
 4. Se vengono trovati documenti, il corpo della risposta viene inviato all'archiviazione BLOB di Azure.
-
-    > [AZURE.NOTE] L'archiviazione BLOB richiede un account di archiviazione di Azure. Eseguire il provisioning di un account di archiviazione BLOB di Azure e aggiungere un nuovo BLOB denominato patients. Per altre informazioni, vedere [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md) e [Introduzione all'archiviazione BLOB di Azure ](../storage/storage-dotnet-how-to-use-blobs.md).
-
+   
+   > [!NOTE]
+   > L'archiviazione BLOB richiede un account di archiviazione di Azure. Eseguire il provisioning di un account di archiviazione BLOB di Azure e aggiungere un nuovo BLOB denominato patients. Per altre informazioni, vedere [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md) e [Introduzione all'archiviazione BLOB di Azure ](../storage/storage-dotnet-how-to-use-blobs.md).
+   > 
+   > 
 5. Viene infine inviato un messaggio che comunica al destinatario il numero di documenti trovati. Se non vengono trovati documenti, il corpo del messaggio sarà "0 Documents Found".
 
 Dopo aver illustrato le operazioni eseguite dal flusso di lavoro, viene ora descritta la modalità di implementazione.
 
 ### Iniziare con l'app per la logica principale
-
 Se non si ha familiarità con le app per la logica, le app sono disponibili in [Azure Marketplace](https://portal.azure.com/). Vedere anche [Cosa sono le app per la logica?](../app-service-logic/app-service-logic-what-are-logic-apps.md)
 
 Quando si crea una nuova app per la logica, viene richiesto come si desidera iniziare (**How would you like to start?**)
@@ -101,13 +98,16 @@ Se si seleziona **Add a condition**, viene visualizzato un modulo per l'immissio
 
 ![Aggiungere una condizione](./media/documentdb-change-notification/condition1.png)
 
-> [AZURE.NOTE] È inoltre possibile immettere tutti gli elementi nella visualizzazione Codice.
+> [!NOTE]
+> È inoltre possibile immettere tutti gli elementi nella visualizzazione Codice.
+> 
+> 
 
 Si osservi l'app per la logica completata nella visualizzazione Codice.
 
 ```JSON
-   
-   	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+
+       "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
     "actions": {
         "Conversion": {
             "conditions": [
@@ -239,7 +239,7 @@ Si osservi l'app per la logica completata nella visualizzazione Codice.
             },
             "type": "Manual"
         }
-	
+
 ```
 
 Se non si ha familiarità con ciò che rappresentano le diverse sezioni del codice, vedere la documentazione relativa al [linguaggio di definizione del flusso di lavoro delle app per la logica](http://aka.ms/logicappsdocs).
@@ -254,31 +254,34 @@ Per questo flusso di lavoro si usa un [trigger webhook HTTP](https://sendgrid.co
 
 `triggerBody()` rappresenta i parametri inclusi nel corpo di un POST REST nell'API REST dell'app per la logica. `()['Subject']` rappresenta il campo. Tutti questi parametri costituiscono il corpo in formato JSON.
 
-> [AZURE.NOTE] Usando un webhook, è possibile accedere all'intestazione e al corpo della richiesta del trigger. In questa applicazione si desidera accedere al corpo.
+> [!NOTE]
+> Usando un webhook, è possibile accedere all'intestazione e al corpo della richiesta del trigger. In questa applicazione si desidera accedere al corpo.
+> 
+> 
 
 Come accennato in precedenza, è possibile usare la finestra di progettazione per assegnare i parametri. In alternativa, l'operazione può essere eseguita nella visualizzazione Codice. Se si esegue l'operazione nella visualizzazione Codice, si definiscono le proprietà che richiedono un valore, come illustrato nell'esempio di codice seguente.
 
 ```JSON
 
-	"triggers": {
-		"manual": {
-		    "inputs": {
-			"schema": {
-			    "properties": {
-			"Subject": {
-			    "type" : "String"	
+    "triggers": {
+        "manual": {
+            "inputs": {
+            "schema": {
+                "properties": {
+            "Subject": {
+                "type" : "String"    
 
-			}
-			},
-			    "required": [
-			"Subject"
-			     ],
-			    "type": "object"
-			}
-		    },
-		    "type": "Manual"
-		}
-	    }
+            }
+            },
+                "required": [
+            "Subject"
+                 ],
+                "type": "object"
+            }
+            },
+            "type": "Manual"
+        }
+        }
 ```
 
 Si sta creando uno schema JSON che verrà passato dal corpo del POST HTTP. Per attivare il trigger, è necessario un URL callback. La generazione dell'URL è descritta più avanti nell'esercitazione.
@@ -287,7 +290,6 @@ Si sta creando uno schema JSON che verrà passato dal corpo del POST HTTP. Per a
 Di seguito sono descritte le operazioni eseguite da ogni azione dell'app per la logica.
 
 ### GetUTCDate
-
 **Visualizzazione di progettazione**
 
 ![](./media/documentdb-change-notification/getutcdate.png)
@@ -296,20 +298,20 @@ Di seguito sono descritte le operazioni eseguite da ogni azione dell'app per la 
 
 ```JSON
 
-	"GetUtcDate": {
-		    "conditions": [],
-		    "inputs": {
-			"method": "get",
-			"queries": {
-			    "hoursBack": "@{int(triggerBody()['GetUtcDate_HoursBack'])}"
-			},
-			"uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Authorization"
-		    },
-		    "metadata": {
-			"apiDefinitionUrl": "https://docdbnotificationapi-debug.azurewebsites.net/swagger/docs/v1"
-		    },
-		    "type": "Http"
-		},
+    "GetUtcDate": {
+            "conditions": [],
+            "inputs": {
+            "method": "get",
+            "queries": {
+                "hoursBack": "@{int(triggerBody()['GetUtcDate_HoursBack'])}"
+            },
+            "uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Authorization"
+            },
+            "metadata": {
+            "apiDefinitionUrl": "https://docdbnotificationapi-debug.azurewebsites.net/swagger/docs/v1"
+            },
+            "type": "Http"
+        },
 
 ```
 
@@ -318,18 +320,17 @@ Questa azione HTTP esegue un'operazione GET. Chiama il metodo GetUtcDate dell'ap
 Questa azione chiama l'app per le API per restituire il valore di stringa della data UTC.
 
 #### Operazioni
-
 **Richiesta**
 
 ```JSON
 
-	{
-	    "uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Authorization",
-	    "method": "get",
-	    "queries": {
-		  "hoursBack": "24"
-	    }
-	}
+    {
+        "uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Authorization",
+        "method": "get",
+        "queries": {
+          "hoursBack": "24"
+        }
+    }
 
 ```
 
@@ -337,51 +338,48 @@ Questa azione chiama l'app per le API per restituire il valore di stringa della 
 
 ```JSON
 
-	{
-	    "statusCode": 200,
-	    "headers": {
-		  "pragma": "no-cache",
-		  "cache-Control": "no-cache",
-		  "date": "Fri, 26 Feb 2016 15:47:33 GMT",
-		  "server": "Microsoft-IIS/8.0",
-		  "x-AspNet-Version": "4.0.30319",
-		  "x-Powered-By": "ASP.NET"
-	    },
-	    "body": "Fri, 15 Jan 2016 23:47:33 GMT"
-	}
+    {
+        "statusCode": 200,
+        "headers": {
+          "pragma": "no-cache",
+          "cache-Control": "no-cache",
+          "date": "Fri, 26 Feb 2016 15:47:33 GMT",
+          "server": "Microsoft-IIS/8.0",
+          "x-AspNet-Version": "4.0.30319",
+          "x-Powered-By": "ASP.NET"
+        },
+        "body": "Fri, 15 Jan 2016 23:47:33 GMT"
+    }
 
 ```
 
 Il passaggio successivo consiste nel convertire il valore DateTime UTC in TimeStamp Unix, che è un tipo double .NET.
 
 ### Conversione
-
 ##### Visualizzazione di progettazione
-
 ![Conversione](./media/documentdb-change-notification/conversion.png)
 
 ##### Visualizzazione Codice
-
 ```JSON
 
-	"Conversion": {
-	    "conditions": [
-		{
-		    "dependsOn": "GetUtcDate"
-		}
-	    ],
-	    "inputs": {
-		"method": "post",
-		"queries": {
-		    "currentDateTime": "@{body('GetUtcDate')}"
-		},
-		"uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Conversion"
-	    },
-	    "metadata": {
-		"apiDefinitionUrl": "https://docdbnotificationapi-debug.azurewebsites.net/swagger/docs/v1"
-	    },
-	    "type": "Http"
-	},
+    "Conversion": {
+        "conditions": [
+        {
+            "dependsOn": "GetUtcDate"
+        }
+        ],
+        "inputs": {
+        "method": "post",
+        "queries": {
+            "currentDateTime": "@{body('GetUtcDate')}"
+        },
+        "uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Conversion"
+        },
+        "metadata": {
+        "apiDefinitionUrl": "https://docdbnotificationapi-debug.azurewebsites.net/swagger/docs/v1"
+        },
+        "type": "Http"
+    },
 
 ```
 
@@ -390,77 +388,70 @@ Viene passato il valore restituito da GetUTCDate. Poiché è presente una condiz
 Questa azione chiama l'app per le API per gestire la conversione.
 
 #### Operazioni
-
 ##### Richiesta
-
 ```JSON
 
-	{
-	    "uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Conversion",
-	    "method": "post",
-	    "queries": {
-		"currentDateTime": "Fri, 15 Jan 2016 23:47:33 GMT"
-	    }
-	}   
+    {
+        "uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Conversion",
+        "method": "post",
+        "queries": {
+        "currentDateTime": "Fri, 15 Jan 2016 23:47:33 GMT"
+        }
+    }   
 ```
 
 ##### Response
-
 ```JSON
 
-	{
-	    "statusCode": 200,
-	    "headers": {
-		  "pragma": "no-cache",
-		  "cache-Control": "no-cache",
-		  "date": "Fri, 26 Feb 2016 15:47:33 GMT",
-		  "server": "Microsoft-IIS/8.0",
-		  "x-AspNet-Version": "4.0.30319",
-		  "x-Powered-By": "ASP.NET"
-	    },
-	    "body": 1452901653
-	}
+    {
+        "statusCode": 200,
+        "headers": {
+          "pragma": "no-cache",
+          "cache-Control": "no-cache",
+          "date": "Fri, 26 Feb 2016 15:47:33 GMT",
+          "server": "Microsoft-IIS/8.0",
+          "x-AspNet-Version": "4.0.30319",
+          "x-Powered-By": "ASP.NET"
+        },
+        "body": 1452901653
+    }
 ```
 
 Nell'azione successiva, verrà eseguita un'operazione POST nell'app per le API.
 
-### GetDocuments 
-
+### GetDocuments
 ##### Visualizzazione di progettazione
-
 ![Acquisizione documenti](./media/documentdb-change-notification/getdocuments.png)
 
 ##### Visualizzazione Codice
-
 ```JSON
 
-	"GetDocuments": {
-	    "conditions": [
-		{
-		    "dependsOn": "Conversion"
-		}
-	    ],
-	    "inputs": {
-		"method": "post",
-		"queries": {
-		    "unixTimeStamp": "@{body('Conversion')}"
-		},
-		"uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Patient"
-	    },
-	    "metadata": {
-		"apiDefinitionUrl": "https://docdbnotificationapi-debug.azurewebsites.net/swagger/docs/v1"
-	    },
-	    "type": "Http"
-	},
+    "GetDocuments": {
+        "conditions": [
+        {
+            "dependsOn": "Conversion"
+        }
+        ],
+        "inputs": {
+        "method": "post",
+        "queries": {
+            "unixTimeStamp": "@{body('Conversion')}"
+        },
+        "uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Patient"
+        },
+        "metadata": {
+        "apiDefinitionUrl": "https://docdbnotificationapi-debug.azurewebsites.net/swagger/docs/v1"
+        },
+        "type": "Http"
+    },
 
 ```
 
 Per l'azione GetDocuments si passa il corpo della risposta dell'azione di conversione. Si tratta di un parametro dell'URI:
 
- 
 ```C#
 
-	unixTimeStamp=@{body('Conversion')}
+    unixTimeStamp=@{body('Conversion')}
 
 ```
 
@@ -469,64 +460,61 @@ L'azione QueryDocuments esegue un'operazione HTTP POST nell'app per le API.
 Il metodo chiamato è **QueryForNewPatientDocuments**.
 
 #### Operazioni
-
 ##### Richiesta
-
 ```JSON
 
-	{
-	    "uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Patient",
-	    "method": "post",
-	    "queries": {
-		"unixTimeStamp": "1452901653"
-	    }
-	}
+    {
+        "uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Patient",
+        "method": "post",
+        "queries": {
+        "unixTimeStamp": "1452901653"
+        }
+    }
 ```
 
 ##### Response
-
 ```JSON
 
-	{
-	    "statusCode": 200,
-	    "headers": {
-		"pragma": "no-cache",
-		"cache-Control": "no-cache",
-		"date": "Fri, 26 Feb 2016 15:47:35 GMT",
-		"server": "Microsoft-IIS/8.0",
-		"x-AspNet-Version": "4.0.30319",
-		"x-Powered-By": "ASP.NET"
-	    },
-	    "body": [
-		{
-		    "id": "xcda",
-		    "_rid": "vCYLAP2k6gAXAAAAAAAAAA==",
-		    "_self": "dbs/vCYLAA==/colls/vCYLAP2k6gA=/docs/vCYLAP2k6gAXAAAAAAAAAA==/",
-		    "_ts": 1454874620,
-		    "_etag": ""00007d01-0000-0000-0000-56b79ffc0000"",
-		    "resourceType": "Patient",
-		    "text": {
-			"status": "generated",
-			"div": "<div>\n      \n      <p>Henry Levin the 7th</p>\n    \n    </div>"
-		    },
-		    "identifier": [
-			{
-			    "use": "usual",
-			    "type": {
-				"coding": [
-				    {
-					"system": "http://hl7.org/fhir/v2/0203",
-					"code": "MR"
-				    }
-				]
-			    },
-			    "system": "urn:oid:2.16.840.1.113883.19.5",
-			    "value": "12345"
-			}
-		    ],
-		    "active": true,
-		    "name": [
-			{
+    {
+        "statusCode": 200,
+        "headers": {
+        "pragma": "no-cache",
+        "cache-Control": "no-cache",
+        "date": "Fri, 26 Feb 2016 15:47:35 GMT",
+        "server": "Microsoft-IIS/8.0",
+        "x-AspNet-Version": "4.0.30319",
+        "x-Powered-By": "ASP.NET"
+        },
+        "body": [
+        {
+            "id": "xcda",
+            "_rid": "vCYLAP2k6gAXAAAAAAAAAA==",
+            "_self": "dbs/vCYLAA==/colls/vCYLAP2k6gA=/docs/vCYLAP2k6gAXAAAAAAAAAA==/",
+            "_ts": 1454874620,
+            "_etag": ""00007d01-0000-0000-0000-56b79ffc0000"",
+            "resourceType": "Patient",
+            "text": {
+            "status": "generated",
+            "div": "<div>\n      \n      <p>Henry Levin the 7th</p>\n    \n    </div>"
+            },
+            "identifier": [
+            {
+                "use": "usual",
+                "type": {
+                "coding": [
+                    {
+                    "system": "http://hl7.org/fhir/v2/0203",
+                    "code": "MR"
+                    }
+                ]
+                },
+                "system": "urn:oid:2.16.840.1.113883.19.5",
+                "value": "12345"
+            }
+            ],
+            "active": true,
+            "name": [
+            {
                     "family": [
                         "Levin"
                     ],
@@ -547,19 +535,19 @@ Il metodo chiamato è **QueryForNewPatientDocuments**.
 
 L'azione successiva consiste nel salvare i documenti nell'[archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/).
 
-> [AZURE.NOTE] L'archiviazione BLOB richiede un account di archiviazione di Azure. Eseguire il provisioning di un account di archiviazione BLOB di Azure e aggiungere un nuovo BLOB denominato patients. Per altre informazioni, vedere [Introduzione all'archiviazione BLOB di Azure](../storage/storage-dotnet-how-to-use-blobs.md).
+> [!NOTE]
+> L'archiviazione BLOB richiede un account di archiviazione di Azure. Eseguire il provisioning di un account di archiviazione BLOB di Azure e aggiungere un nuovo BLOB denominato patients. Per altre informazioni, vedere [Introduzione all'archiviazione BLOB di Azure](../storage/storage-dotnet-how-to-use-blobs.md).
+> 
+> 
 
 ### Create File
-
 ##### Visualizzazione di progettazione
-
 ![Create File](./media/documentdb-change-notification/createfile.png)
 
 ##### Visualizzazione Codice
-
 ```JSON
 
-	{
+    {
     "host": {
         "api": {
             "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/azureblob"
@@ -627,12 +615,10 @@ Il codice viene generato dall'azione nella finestra di progettazione. Non è nec
 Se non si ha familiarità con l'API BLOB di Azure, vedere l'articolo relativo all'[introduzione all'API di archiviazione BLOB di Azure](../connectors/connectors-create-api-azureblobstorage.md).
 
 #### Operazioni
-
 ##### Richiesta
-
 ```JSON
 
-	"host": {
+    "host": {
         "api": {
             "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/azureblob"
         },
@@ -696,99 +682,95 @@ Se non si ha familiarità con l'API BLOB di Azure, vedere l'articolo relativo al
 ```
 
 ##### Response
-
 ```JSON
 
-	{
-	    "statusCode": 200,
-	    "headers": {
-		"pragma": "no-cache",
-		"x-ms-request-id": "2b2f7c57-2623-4d71-8e53-45c26b30ea9d",
-		"cache-Control": "no-cache",
-		"date": "Fri, 26 Feb 2016 15:47:36 GMT",
-		"set-Cookie": "ARRAffinity=29e552cea7db23196f7ffa644003eaaf39bc8eb6dd555511f669d13ab7424faf;Path=/;Domain=127.0.0.1",
-		"server": "Microsoft-HTTPAPI/2.0",
-		"x-AspNet-Version": "4.0.30319",
-		"x-Powered-By": "ASP.NET"
-	    },
-	    "body": {
-		"Id": "0B0nBzHyMV-_NRGRDcDNMSFAxWFE",
-		"Name": "Patient_47a2a0dc-640d-4f01-be38-c74690d085cb.json",
-		"DisplayName": "Patient_47a2a0dc-640d-4f01-be38-c74690d085cb.json",
-		"Path": "/Patient/Patient_47a2a0dc-640d-4f01-be38-c74690d085cb.json",
-		"LastModified": "2016-02-26T15:47:36.215Z",
-		"Size": 65647,
-		"MediaType": "application/octet-stream",
-		"IsFolder": false,
-		"ETag": ""c-g_a-1OtaH-kNQ4WBoXLp3Zv9s/MTQ1NjUwMTY1NjIxNQ"",
-		"FileLocator": "0B0nBzHyMV-_NRGRDcDNMSFAxWFE"
-	    }
-	}
+    {
+        "statusCode": 200,
+        "headers": {
+        "pragma": "no-cache",
+        "x-ms-request-id": "2b2f7c57-2623-4d71-8e53-45c26b30ea9d",
+        "cache-Control": "no-cache",
+        "date": "Fri, 26 Feb 2016 15:47:36 GMT",
+        "set-Cookie": "ARRAffinity=29e552cea7db23196f7ffa644003eaaf39bc8eb6dd555511f669d13ab7424faf;Path=/;Domain=127.0.0.1",
+        "server": "Microsoft-HTTPAPI/2.0",
+        "x-AspNet-Version": "4.0.30319",
+        "x-Powered-By": "ASP.NET"
+        },
+        "body": {
+        "Id": "0B0nBzHyMV-_NRGRDcDNMSFAxWFE",
+        "Name": "Patient_47a2a0dc-640d-4f01-be38-c74690d085cb.json",
+        "DisplayName": "Patient_47a2a0dc-640d-4f01-be38-c74690d085cb.json",
+        "Path": "/Patient/Patient_47a2a0dc-640d-4f01-be38-c74690d085cb.json",
+        "LastModified": "2016-02-26T15:47:36.215Z",
+        "Size": 65647,
+        "MediaType": "application/octet-stream",
+        "IsFolder": false,
+        "ETag": ""c-g_a-1OtaH-kNQ4WBoXLp3Zv9s/MTQ1NjUwMTY1NjIxNQ"",
+        "FileLocator": "0B0nBzHyMV-_NRGRDcDNMSFAxWFE"
+        }
+    }
 ```
 
 L'ultimo passaggio consiste nell'inviare una notifica di posta elettronica
 
 ### sendEmail
-
 ##### Visualizzazione di progettazione
-
 ![Invia messaggio di posta elettronica](./media/documentdb-change-notification/sendemail.png)
 
 ##### Visualizzazione Codice
-
 ```JSON
 
 
-	"sendMail": {
-	    "conditions": [
-		{
-		    "dependsOn": "GetDocuments"
-		}
-	    ],
-	    "inputs": {
-		"body": "api_user=@{triggerBody()['sendgridUsername']}&api_key=@{triggerBody()['sendgridPassword']}&from=@{parameters('fromAddress')}&to=@{triggerBody()['EmailTo']}&subject=@{triggerBody()['Subject']}&text=@{int(length(body('GetDocuments')))} Documents Found",
-		"headers": {
-		    "Content-type": "application/x-www-form-urlencoded"
-		},
-		"method": "POST",
-		"uri": "https://api.sendgrid.com/api/mail.send.json"
-	    },
-	    "type": "Http"
-	}
+    "sendMail": {
+        "conditions": [
+        {
+            "dependsOn": "GetDocuments"
+        }
+        ],
+        "inputs": {
+        "body": "api_user=@{triggerBody()['sendgridUsername']}&api_key=@{triggerBody()['sendgridPassword']}&from=@{parameters('fromAddress')}&to=@{triggerBody()['EmailTo']}&subject=@{triggerBody()['Subject']}&text=@{int(length(body('GetDocuments')))} Documents Found",
+        "headers": {
+            "Content-type": "application/x-www-form-urlencoded"
+        },
+        "method": "POST",
+        "uri": "https://api.sendgrid.com/api/mail.send.json"
+        },
+        "type": "Http"
+    }
 ```
 
 In questa azione si invia una notifica di posta elettronica. Si usa [SendGrid](https://sendgrid.com/marketing/sendgrid-services?cvosrc=PPC.Bing.sendgrib&cvo_cid=SendGrid%20-%20US%20-%20Brand%20-%20&mc=Paid%20Search&mcd=BingAds&keyword=sendgrib&network=o&matchtype=e&mobile=&content=&search=1&utm_source=bing&utm_medium=cpc&utm_term=%5Bsendgrib%5D&utm_content=%21acq%21v2%2134335083397-8303227637-1649139544&utm_campaign=SendGrid+-+US+-+Brand+-+%28English%29).
 
 Il codice è stato generato usando un modello per l'app per la logica e SendGrid che si trova nel [repository Github 101-logic-app-sendgrid](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sendgrid).
- 
+
 L'operazione HTTP è un POST.
 
 I parametri di autorizzazione sono nelle proprietà del trigger
 
 ```JSON
 
-	},
-		"sendgridPassword": {
-			 "type": "SecureString"
-		 },
-		 "sendgridUsername": {
-			"type": "String"
-		 }
+    },
+        "sendgridPassword": {
+             "type": "SecureString"
+         },
+         "sendgridUsername": {
+            "type": "String"
+         }
 
-		In addition, other parameters are static values set in the Parameters section of the Logic App. These are:
-		},
-		"toAddress": {
-		    "defaultValue": "XXXX@XXXX.com",
-		    "type": "String"
-		},
-		"fromAddress": {
-		    "defaultValue": "XXX@msn.com",
-		    "type": "String"
-		},
-		"emailBody": {
-		    "defaultValue": "@{string(concat(int(length(actions('QueryDocuments').outputs.body)) Records Found),'/n', actions('QueryDocuments').outputs.body)}",
-		    "type": "String"
-		},
+        In addition, other parameters are static values set in the Parameters section of the Logic App. These are:
+        },
+        "toAddress": {
+            "defaultValue": "XXXX@XXXX.com",
+            "type": "String"
+        },
+        "fromAddress": {
+            "defaultValue": "XXX@msn.com",
+            "type": "String"
+        },
+        "emailBody": {
+            "defaultValue": "@{string(concat(int(length(actions('QueryDocuments').outputs.body)) Records Found),'/n', actions('QueryDocuments').outputs.body)}",
+            "type": "String"
+        },
 
 ```
 
@@ -797,50 +779,47 @@ emailBody esegue la concatenazione del numero di documenti restituiti dalla quer
 Questa azione dipende dall'azione **GetDocuments**.
 
 #### Operazioni
-
 ##### Richiesta
 ```JSON
 
-	{
-	    "uri": "https://api.sendgrid.com/api/mail.send.json",
-	    "method": "POST",
-	    "headers": {
-		"Content-type": "application/x-www-form-urlencoded"
-	    },
-	    "body": "api_user=azureuser@azure.com&api_key=Biz@Talk&from=user@msn.com&to=XXXX@XXXX.com&subject=New Patients&text=37 Documents Found"
-	}
+    {
+        "uri": "https://api.sendgrid.com/api/mail.send.json",
+        "method": "POST",
+        "headers": {
+        "Content-type": "application/x-www-form-urlencoded"
+        },
+        "body": "api_user=azureuser@azure.com&api_key=Biz@Talk&from=user@msn.com&to=XXXX@XXXX.com&subject=New Patients&text=37 Documents Found"
+    }
 
 ```
 
 ##### Response
-
 ```JSON
 
-	{
-	    "statusCode": 200,
-	    "headers": {
-		"connection": "keep-alive",
-		"x-Frame-Options": "DENY,DENY",
-		"access-Control-Allow-Origin": "https://sendgrid.com",
-		"date": "Fri, 26 Feb 2016 15:47:35 GMT",
-		"server": "nginx"
-	    },
-	    "body": {
-		"message": "success"
-	    }
-	}
+    {
+        "statusCode": 200,
+        "headers": {
+        "connection": "keep-alive",
+        "x-Frame-Options": "DENY,DENY",
+        "access-Control-Allow-Origin": "https://sendgrid.com",
+        "date": "Fri, 26 Feb 2016 15:47:35 GMT",
+        "server": "nginx"
+        },
+        "body": {
+        "message": "success"
+        }
+    }
 ```
 
 Infine si desidera essere in grado di visualizzare i risultati dall'app per la logica nel portale di Azure. A tale scopo, si aggiunge un parametro alla sezione degli output.
 
-
 ```JSON
 
-	"outputs": {
-		"Results": {
-		    "type": "String",
-		    "value": "@{int(length(actions('QueryDocuments').outputs.body))} Records Found"
-		}
+    "outputs": {
+        "Results": {
+            "type": "String",
+            "value": "@{int(length(actions('QueryDocuments').outputs.body))} Records Found"
+        }
 
 ```
 
@@ -854,7 +833,6 @@ Viene restituito lo stesso valore che viene inviato nel corpo del messaggio di p
 ![](./media/documentdb-change-notification/metrics.png)
 
 ## DocDb Trigger
-
 Questa app per la logica è il trigger che avvia il flusso di lavoro nell'app per la logica principale.
 
 La figura seguente mostra la visualizzazione di progettazione.
@@ -863,89 +841,85 @@ La figura seguente mostra la visualizzazione di progettazione.
 
 ```JSON
 
-	{
-	    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	    "actions": {
-		"Http": {
-		    "conditions": [],
-		    "inputs": {
-			"body": {
-			    "EmailTo": "XXXXXX@XXXXX.net",
-			    "GetUtcDate_HoursBack": "24",
-			    "Subject": "New Patients",
-			    "sendgridPassword": "********",
-			    "sendgridUsername": "azureuser@azure.com"
-			},
-			"method": "POST",
-			"uri": "https://prod-01.westus.logic.azure.com:443/workflows/12a1de57e48845bc9ce7a247dfabc887/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ObTlihr529ATIuvuG-dhxOgBL4JZjItrvPQ8PV6973c"
-		    },
-		    "type": "Http"
-		}
-	    },
-	    "contentVersion": "1.0.0.0",
-	    "outputs": {
-		"Results": {
-		    "type": "String",
-		    "value": "@{body('Http')['status']}"
-		}
-	    },
-	    "parameters": {},
-	    "triggers": {
-		"recurrence": {
-		    "recurrence": {
-			"frequency": "Hour",
-			"interval": 24
-		    },
-		    "type": "Recurrence"
-		}
-	    }
-	}
+    {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+        "actions": {
+        "Http": {
+            "conditions": [],
+            "inputs": {
+            "body": {
+                "EmailTo": "XXXXXX@XXXXX.net",
+                "GetUtcDate_HoursBack": "24",
+                "Subject": "New Patients",
+                "sendgridPassword": "********",
+                "sendgridUsername": "azureuser@azure.com"
+            },
+            "method": "POST",
+            "uri": "https://prod-01.westus.logic.azure.com:443/workflows/12a1de57e48845bc9ce7a247dfabc887/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ObTlihr529ATIuvuG-dhxOgBL4JZjItrvPQ8PV6973c"
+            },
+            "type": "Http"
+        }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {
+        "Results": {
+            "type": "String",
+            "value": "@{body('Http')['status']}"
+        }
+        },
+        "parameters": {},
+        "triggers": {
+        "recurrence": {
+            "recurrence": {
+            "frequency": "Hour",
+            "interval": 24
+            },
+            "type": "Recurrence"
+        }
+        }
+    }
 
 ```
 
 Il trigger è impostato per una ricorrenza di 24 ore. L'azione è un POST HTTP che usa l'URL callback per l'app per la logica principale. Il corpo contiene i parametri specificati nello schema JSON.
 
 #### Operazioni
-
 ##### Richiesta
-
 ```JSON
 
-	{
-	    "uri": "https://prod-01.westus.logic.azure.com:443/workflows/12a1de57e48845bc9ce7a247dfabc887/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ObTlihr529ATIuvuG-dhxOgBL4JZjItrvPQ8PV6973c",
-	    "method": "POST",
-	    "body": {
-		"EmailTo": "XXXXXX@XXXXX.net",
-		"GetUtcDate_HoursBack": "24",
-		"Subject": "New Patients",
-		"sendgridPassword": "********",
-		"sendgridUsername": "azureuser@azure.com"
-	    }
-	}
+    {
+        "uri": "https://prod-01.westus.logic.azure.com:443/workflows/12a1de57e48845bc9ce7a247dfabc887/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ObTlihr529ATIuvuG-dhxOgBL4JZjItrvPQ8PV6973c",
+        "method": "POST",
+        "body": {
+        "EmailTo": "XXXXXX@XXXXX.net",
+        "GetUtcDate_HoursBack": "24",
+        "Subject": "New Patients",
+        "sendgridPassword": "********",
+        "sendgridUsername": "azureuser@azure.com"
+        }
+    }
 
 ```
 
 ##### Response
-
 ```JSON
 
-	{
-	    "statusCode": 202,
-	    "headers": {
-		"pragma": "no-cache",
-		"x-ms-ratelimit-remaining-workflow-writes": "7486",
-		"x-ms-ratelimit-burst-remaining-workflow-writes": "1248",
-		"x-ms-request-id": "westus:2d440a39-8ba5-4a9c-92a6-f959b8d2357f",
-		"cache-Control": "no-cache",
-		"date": "Thu, 25 Feb 2016 21:01:06 GMT"
-	    }
-	}
+    {
+        "statusCode": 202,
+        "headers": {
+        "pragma": "no-cache",
+        "x-ms-ratelimit-remaining-workflow-writes": "7486",
+        "x-ms-ratelimit-burst-remaining-workflow-writes": "1248",
+        "x-ms-request-id": "westus:2d440a39-8ba5-4a9c-92a6-f959b8d2357f",
+        "cache-Control": "no-cache",
+        "date": "Thu, 25 Feb 2016 21:01:06 GMT"
+        }
+    }
 ```
 
 Si osservi ora l'app per le API.
 
 ## DocDBNotificationApi
-
 Sebbene esistano diverse operazioni nell'app, ne verranno usate solo tre.
 
 * GetUtcDate
@@ -955,50 +929,48 @@ Sebbene esistano diverse operazioni nell'app, ne verranno usate solo tre.
 ### Operazioni DocDBNotificationApi
 Si esamini la documentazione di Swagger
 
-> [AZURE.NOTE] Per consentire di chiamare le operazioni esternamente, è necessario aggiungere un valore di origine CORS consentito "*" (senza virgolette) nelle impostazioni dell'app per le API come illustrato nella figura seguente.
+> [!NOTE]
+> Per consentire di chiamare le operazioni esternamente, è necessario aggiungere un valore di origine CORS consentito "*" (senza virgolette) nelle impostazioni dell'app per le API come illustrato nella figura seguente.
+> 
+> 
 
 ![Configurazione Cors](./media/documentdb-change-notification/cors.png)
 
 #### GetUtcDate
-
 ![G](./media/documentdb-change-notification/getutcdateswagger.png)
 
 #### ConvertToTimeStamp
-
 ![Ottenere la data UTC](./media/documentdb-change-notification/converion-swagger.png)
 
 #### QueryForNewPatientDocuments
-
 ![Query](./media/documentdb-change-notification/patientswagger.png)
 
 Si esamini ora il codice di questa operazione.
 
 #### GetUtcDate
-
 ```C#
 
     /// <summary>
-	/// Gets the current UTC Date value
-	/// </summary>
-	/// <returns></returns>
-	[H ttpGet]
-	[Metadata("GetUtcDate", "Gets the current UTC Date value minus the Hours Back")]
-	[SwaggerOperation("GetUtcDate")]
-	[SwaggerResponse(HttpStatusCode.OK, type: typeof (string))]
-	[SwaggerResponse(HttpStatusCode.InternalServerError, "Internal Server Operation Error")]
-	public string GetUtcDate(
-	   [Metadata("Hours Back", "How many hours back from the current Date Time")] int hoursBack)
-	{
+    /// Gets the current UTC Date value
+    /// </summary>
+    /// <returns></returns>
+    [H ttpGet]
+    [Metadata("GetUtcDate", "Gets the current UTC Date value minus the Hours Back")]
+    [SwaggerOperation("GetUtcDate")]
+    [SwaggerResponse(HttpStatusCode.OK, type: typeof (string))]
+    [SwaggerResponse(HttpStatusCode.InternalServerError, "Internal Server Operation Error")]
+    public string GetUtcDate(
+       [Metadata("Hours Back", "How many hours back from the current Date Time")] int hoursBack)
+    {
 
 
-	    return DateTime.UtcNow.AddHours(-hoursBack).ToString("r");
-	}
+        return DateTime.UtcNow.AddHours(-hoursBack).ToString("r");
+    }
 ```
 
 Questa operazione restituisce semplicemente il valore DateTime UTC corrente meno il valore HoursBack.
 
 #### ConvertToTimeStamp
-
 ``` C#
 
         /// <summary>
@@ -1040,10 +1012,9 @@ Questa operazione restituisce semplicemente il valore DateTime UTC corrente meno
 Questa operazione converte la risposta dell'operazione GetUtcDate in un valore double.
 
 #### QueryForNewPatientDocuments
-
 ```C#
 
-	    /// <summary>
+        /// <summary>
         ///     Query for new Patient Documents
         /// </summary>
         /// <param name="unixTimeStamp"></param>
@@ -1073,7 +1044,7 @@ Questa operazione converte la risposta dell'operazione GetUtcDate in un valore d
                 context.Client.CreateDocumentQuery<Document>(collectionLink, filterQuery, options).AsEnumerable();
 
             return response.ToList();
-	}
+    }
 
 ```
 
@@ -1088,11 +1059,10 @@ La risposta dell'operazione ConvertToTimeStamp (unixTimeStamp) viene passata. L'
 In precedenza è stato citato CallbackURL. Per avviare il flusso di lavoro nell'app per la logica principale, è necessario effettuare una chiamata usando CallbackURL.
 
 ## CallbackURL
-
 Per iniziare, sarà necessario il token di Azure AD. Ottenere questo token può risultare difficile. Stavo cercando un metodo semplice e Jeff Hollan, che è un Program Manager di app per la logica di Azure, mi ha consigliato di usare [armclient](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) in PowerShell. È possibile installarlo seguendo le indicazioni fornite.
 
 Le operazioni che si desidera usare sono Login e Call ARM API.
- 
+
 Login: usare le stesse credenziali per l'accesso al portale di Azure.
 
 L'operazione Call ARM API genererà il CallBackURL.
@@ -1101,7 +1071,7 @@ In PowerShell, è possibile eseguire la chiamata come indicato di seguito:
 
 ```powershell
 
-	ArmClient.exe post https://management.azure.com/subscriptions/[YOUR SUBSCRIPTION ID/resourcegroups/[YOUR RESOURCE GROUP]/providers/Microsoft.Logic/workflows/[YOUR LOGIC APP NAME/triggers/manual/listcallbackurl?api-version=2015-08-01-preview
+    ArmClient.exe post https://management.azure.com/subscriptions/[YOUR SUBSCRIPTION ID/resourcegroups/[YOUR RESOURCE GROUP]/providers/Microsoft.Logic/workflows/[YOUR LOGIC APP NAME/triggers/manual/listcallbackurl?api-version=2015-08-01-preview
 
 ```
 
@@ -1109,7 +1079,7 @@ Il risultato dovrebbe avere l'aspetto seguente:
 
 ```powershell
 
-	https://prod-02.westus.logic.azure.com:443/workflows/12a1de57e48845bc9ce7a247dfabc887/triggers/manual/run?api-version=2015-08-01-prevaiew&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=XXXXXXXXXXXXXXXXXXX
+    https://prod-02.westus.logic.azure.com:443/workflows/12a1de57e48845bc9ce7a247dfabc887/triggers/manual/run?api-version=2015-08-01-prevaiew&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=XXXXXXXXXXXXXXXXXXX
 
 ```
 
@@ -1119,16 +1089,15 @@ Il risultato dovrebbe avere l'aspetto seguente:
 
 Nella tabella seguente sono elencati i parametri di Trigger che costituiscono il corpo dell'app per la logica DocDB Trigger.
 
-Parametro | Descrizione 
---- | --- 
-GetUtcDate\_HoursBack | Consente di impostare il numero di ore per la data di inizio della ricerca
-sendgridUsername | Consente di impostare il numero di ore per la data di inizio della ricerca
-sendgridPassword | Il nome utente per la posta elettronica di Send Grid
-EmailTo | L'indirizzo di posta elettronica che riceverà la notifica di posta elettronica
-Oggetto | L'oggetto per il messaggio di posta elettronica
+| Parametro | Descrizione |
+| --- | --- |
+| GetUtcDate\_HoursBack |Consente di impostare il numero di ore per la data di inizio della ricerca |
+| sendgridUsername |Consente di impostare il numero di ore per la data di inizio della ricerca |
+| sendgridPassword |Il nome utente per la posta elettronica di Send Grid |
+| EmailTo |L'indirizzo di posta elettronica che riceverà la notifica di posta elettronica |
+| Oggetto |L'oggetto per il messaggio di posta elettronica |
 
 ## Visualizzazione dei dati dei pazienti nel servizio BLOB di Azure
-
 Accedere al proprio account di archiviazione di Azure e selezionare BLOB in Servizi, come illustrato nella figura seguente.
 
 ![Account di archiviazione](./media/documentdb-change-notification/docdbstorageaccount.png)
@@ -1137,9 +1106,7 @@ Sarà possibile visualizzare le informazioni del file BLOB del paziente, come il
 
 ![Servizio BLOB](./media/documentdb-change-notification/blobservice.png)
 
-
 ## Riepilogo
-
 In questa procedura dettagliata, è stato appreso quanto segue:
 
 * È possibile implementare le notifiche in DocumentDB.

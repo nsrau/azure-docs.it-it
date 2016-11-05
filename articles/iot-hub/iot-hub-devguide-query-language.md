@@ -1,33 +1,29 @@
-<properties
- pageTitle="Guida per sviluppatori: linguaggio di query | Microsoft Azure"
- description="Guida per sviluppatori dell'hub IoT di Azure: descrizione del linguaggio di query usato per recuperare informazioni su dispositivi gemelli, metodi e processi dall'hub IoT."
- services="iot-hub"
- documentationCenter=".net"
- authors="fsautomata"
- manager="timlt"
- editor=""/>
+---
+title: 'Guida per sviluppatori: linguaggio di query | Microsoft Docs'
+description: 'Guida per sviluppatori dell''hub IoT di Azure: descrizione del linguaggio di query usato per recuperare informazioni su dispositivi gemelli, metodi e processi dall''hub IoT.'
+services: iot-hub
+documentationcenter: .net
+author: fsautomata
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-hub"
- ms.devlang="multiple"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="09/30/2016" 
- ms.author="elioda"/>
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/30/2016
+ms.author: elioda
 
-
+---
 # <a name="reference---query-language-for-twins-and-jobs"></a>Informazioni di riferimento: linguaggio di query per dispositivi gemelli e processi
-
 ## <a name="overview"></a>Panoramica
-
 L'hub IoT fornisce un linguaggio simile a SQL avanzato per recuperare informazioni su [dispositivi gemelli][lnk-twins] e [processi][lnk-jobs]. Questo articolo contiene:
 
 * Un'introduzione alle principali funzionalità del linguaggio di query dell'hub IoT
 * La descrizione dettagliata del linguaggio
 
 ## <a name="getting-started-with-twin-queries"></a>Introduzione alle query dei dispositivi gemelli
-
 I [dispositivi gemelli][lnk-twins] possono contenere oggetti JSON arbitrari come tag e proprietà. L'hub IoT consente di effettuare una query dei dispositivi gemelli come singolo documento JSON contenente tutte le informazioni sui dispositivi gemelli.
 Si supponga, ad esempio, che i dispositivi gemelli dell'hub IoT abbiano la struttura seguente:
 
@@ -73,7 +69,10 @@ Quindi la query seguente recupera l'intero set di dispositivi:
 
         SELECT * FROM devices
 
-> [AZURE.NOTE] Gli [SDK dell'hub IoT][lnk-hub-sdks] supportano il paging di risultati di grandi dimensioni.
+> [!NOTE]
+> Gli [SDK dell'hub IoT][lnk-hub-sdks] supportano il paging di risultati di grandi dimensioni.
+> 
+> 
 
 L'hub IoT consente di recuperare i dispositivi gemelli applicando filtri con condizioni arbitrarie. Ad esempio,
 
@@ -120,8 +119,7 @@ restituisce il numero di dispositivi in ogni stato di configurazione della telem
 
 L'esempio precedente illustra una situazione in cui tre dispositivi hanno segnalato che la configurazione è riuscita, due stanno ancora applicando la configurazione e uno ha segnalato un errore.
 
-### <a name="c#-example"></a>Esempio in C#
-
+### <a name="c#-example"></a>Esempio in C
 La funzionalità di query viene esposta dall'[SDK del servizio C#][lnk-hub-sdks] nella classe **RegistryManager**.
 Ecco un esempio di una query semplice:
 
@@ -139,7 +137,6 @@ Si noti come venga creata un'istanza dell'oggetto **query** con dimensioni della
 È importante notare che l'oggetto query espone più **Next\***, a seconda dell'opzione di deserializzazione richiesta dalla query, ad esempio se devono essere usati oggetti twin o job oppure il normale codice JSON quando si ricorre alle proiezioni.
 
 ### <a name="node-example"></a>Esempio in Node
-
 La funzionalità di query viene esposta dall'[SDK del servizio Node][lnk-hub-sdks] nell'oggetto **Registry**.
 Ecco un esempio di una query semplice:
 
@@ -164,11 +161,9 @@ Si noti come venga creata un'istanza dell'oggetto **query** con dimensioni della
 È importante notare che l'oggetto query espone più **next\***, a seconda dell'opzione di deserializzazione richiesta dalla query, ad esempio se devono essere usati oggetti twin o job oppure il normale codice JSON quando si ricorre alle proiezioni.
 
 ### <a name="limitations"></a>Limitazioni
-
 Attualmente le proiezioni sono supportate solo quando si usano le aggregazioni, vale a dire che le query non aggregate possono usare solo `SELECT *`. Oltre a ciò, le aggregazioni sono supportate solo in combinazione con il raggruppamento.
 
 ## <a name="getting-started-with-jobs-queries"></a>Introduzione alle query dei processi
-
 I [processi][lnk-jobs] consentono di eseguire operazioni su set di dispositivi. Ogni dispositivo gemello contiene le informazioni dei processi di cui fa parte in una raccolta denominata **jobs**.
 La struttura logica è la seguente.
 
@@ -231,7 +226,6 @@ Attualmente le query su **devices.jobs** non supportano:
 * Esecuzione di aggregazioni, ad esempio count, avg, group by.
 
 ## <a name="basics-of-an-iot-hub-query"></a>Nozioni di base di una query dell'hub IoT
-
 Ogni query dell'hub IoT è costituita da una clausola SELECT e da una clausola FROM e dalle clausole facoltative WHERE e GROUP BY. Ogni query viene eseguita su una raccolta di documenti JSON, ad esempio dispositivi gemelli. La clausola FROM indica la raccolta di documenti in cui eseguire l'iterazione (**devices** o **devices.jobs**). Viene quindi applicato il filtro nella clausola WHERE. Nel caso delle aggregazioni, i risultati di questo passaggio vengono raggruppati come specificato nella clausola GROUP BY e, per ogni gruppo, viene generata una riga come specificato nella clausola SELECT.
 
         SELECT <select_list>
@@ -240,17 +234,14 @@ Ogni query dell'hub IoT è costituita da una clausola SELECT e da una clausola F
         [GROUP BY <group_specification>]
 
 ## <a name="from-clause"></a>Clausola FROM
-
 La clausola **FROM <from_specification>** può avere solo due valori: **FROM devices**, per effettuare una query dei dispositivi gemelli, o **FROM devices.jobs**, per effettuare una query dei dettagli per ogni dispositivo.
 
 ## <a name="where-clause"></a>Clausola WHERE
-
 La clausola **WHERE <filter_condition>** è facoltativa e specifica la condizione (o le condizioni) che i documenti JSON della raccolta FROM devono soddisfare per essere inclusi come parte del risultato. Per essere incluso nel risultato, qualsiasi documento JSON deve restituire "true" per le condizioni specificate.
 
 Le condizioni consentite vengono descritte nella sezione [Espressioni e condizioni][lnk-query-expressions].
 
 ## <a name="select-clause"></a>Clausola SELECT
-
 La clausola SELECT (**SELECT <select_list>**) è obbligatoria e specifica quali valori saranno recuperati dalla query. Specifica i valori JSON da usare per generare nuovi oggetti JSON. Per ogni elemento del subset filtrato (e facoltativamente raggruppato) della raccolta FROM, la fase di proiezione genera un nuovo oggetto JSON, costruito con i valori specificati nella clausola SELECT.
 
 Questa è la sintassi della clausola SELECT:
@@ -278,7 +269,6 @@ dove **attribute_name** si riferisce alle proprietà del documento JSON nella ra
 Attualmente le clausole di selezione diverse da **SELECT \*** sono supportate solo nelle query aggregate sui dispositivi gemelli.
 
 ## <a name="group-by-clause"></a>Clausola GROUP BY
-
 La clausola **GROUP BY <group_specification>** è un passaggio facoltativo che può essere eseguito dopo il filtro specificato nella clausola WHERE e prima della proiezione specificata in SELECT. Raggruppa i documenti in base al valore di un attributo. Questi gruppi vengono usati per generare valori aggregati come specificato nella clausola SELECT.
 
 Ecco un esempio di query che usa GROUP BY:
@@ -300,7 +290,6 @@ dove **attribute_name** si riferisce alle proprietà del documento JSON nella ra
 Attualmente la clausola GROUP BY è supportata solo quando si effettua una query dei dispositivi gemelli.
 
 ## <a name="expressions-and-conditions"></a>Espressioni e condizioni
-
 In generale, un'*espressione*:
 
 * Restituisce un'istanza di un tipo JSON (ad esempio, Boolean, number, string, array o object)
@@ -334,26 +323,24 @@ La sintassi delle espressioni è:
 dove:
 
 | Simbolo | Definizione |
-| -------------- | -----------------|
-| attribute_name | Proprietà del documento JSON nella raccolta FROM. |
-| unary_operator | Operatore unario come indicato nella sezione Operatori. |
-| binary_operator | Operatore binario come indicato nella sezione Operatori. |
-| decimal_literal | Float espresso in una notazione decimale. |
-| hexadecimal_literal | Numero espresso dalla stringa "0x" seguita da una stringa costituita da cifre esadecimali. |
-| string_literal | I valori letterali stringa sono stringhe Unicode rappresentate da una sequenza di zero o più caratteri Unicode o sequenze di escape. I valori letterali stringa sono racchiusi tra virgolette singole (apostrofo: ') o virgolette doppie (virgolette inglesi: "). Caratteri di escape consentiti: `\'`, `\"`, `\\`, `\uXXXX` per i caratteri Unicode definiti da 4 cifre esadecimali. |
+| --- | --- |
+| attribute_name |Proprietà del documento JSON nella raccolta FROM. |
+| unary_operator |Operatore unario come indicato nella sezione Operatori. |
+| binary_operator |Operatore binario come indicato nella sezione Operatori. |
+| decimal_literal |Float espresso in una notazione decimale. |
+| hexadecimal_literal |Numero espresso dalla stringa "0x" seguita da una stringa costituita da cifre esadecimali. |
+| string_literal |I valori letterali stringa sono stringhe Unicode rappresentate da una sequenza di zero o più caratteri Unicode o sequenze di escape. I valori letterali stringa sono racchiusi tra virgolette singole (apostrofo: ') o virgolette doppie (virgolette inglesi: "). Caratteri di escape consentiti: `\'`, `\"`, `\\`, `\uXXXX` per i caratteri Unicode definiti da 4 cifre esadecimali. |
 
 ### <a name="operators"></a>Operatori
-
 Sono supportati gli operatori seguenti:
 
 | Famiglia | Operatori |
-| -------------- | -----------------|
-| Aritmetico | +,-,*,/,% |
-| Logico | AND, OR, NOT |
-| Confronto |  =, !=, <, >, <=, >=, <> |
+| --- | --- |
+| Aritmetico |+,-,*,/,% |
+| Logico |AND, OR, NOT |
+| Confronto |=, !=, <, >, <=, >=, <> |
 
 ## <a name="next-steps"></a>Passaggi successivi
-
 Informazioni su come eseguire query nelle app usando gli [SDK dell'hub IoT][lnk-hub-sdks].
 
 [lnk-query-where]: iot-hub-devguide-query-language.md#where-clause

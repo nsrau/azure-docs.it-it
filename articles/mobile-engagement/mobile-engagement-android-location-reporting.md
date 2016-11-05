@@ -1,38 +1,36 @@
-<properties
-	pageTitle="Segnalazione della posizione per Android SDK per Azure Mobile Engagement"
-	description="Descrive come configurare la segnalazione della posizione per Android SDK per Azure Mobile Engagement"
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="piyushjo"
-	manager="erikre"
-	editor="" />
+---
+title: Segnalazione della posizione per Android SDK per Azure Mobile Engagement
+description: Descrive come configurare la segnalazione della posizione per Android SDK per Azure Mobile Engagement
+services: mobile-engagement
+documentationcenter: mobile
+author: piyushjo
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/12/2016"
-	ms.author="piyushjo;ricksal" />
+ms.service: mobile-engagement
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-android
+ms.devlang: Java
+ms.topic: article
+ms.date: 08/12/2016
+ms.author: piyushjo;ricksal
 
+---
 # Segnalazione della posizione per Android SDK per Azure Mobile Engagement
-
-> [AZURE.SELECTOR]
-- [Android](mobile-engagement-android-integrate-engagement.md)
+> [!div class="op_single_selector"]
+> * [Android](mobile-engagement-android-integrate-engagement.md)
+> 
+> 
 
 Questo argomento descrive come segnalare la posizione per l'applicazione Android.
 
 ## Prerequisiti
-
-[AZURE.INCLUDE [Prerequisiti](../../includes/mobile-engagement-android-prereqs.md)]
+[!INCLUDE [Prerequisiti](../../includes/mobile-engagement-android-prereqs.md)]
 
 ## Segnalazione della posizione
-
 Per fare in modo che le posizioni vengano segnalate, è necessario aggiungere alcune righe di configurazione tra i tag `<application>` e `</application>`.
 
 ### Segnalazione differita della posizione
-
 La segnalazione differita della posizione consente di segnalare il paese, l'area geografica e la località associati ai dispositivi. Questo tipo di segnalazione della posizione usa solo le posizioni di rete, sulla base dell'ID di cella o della connessione Wi-Fi. L'area del dispositivo viene segnalata al massimo una volta per sessione. Il GPS non viene mai usato, per cui l'impatto di questo tipo di segnalazione della posizione sulla batteria è ridotto.
 
 Le aree segnalate vengono usate per calcolare statistiche geografiche relative a utenti, sessioni, eventi ed errori. Possono essere usate anche come criteri nelle campagne Reach.
@@ -46,12 +44,11 @@ Si abilita la segnalazione differita della posizione usando la configurazione de
 
 È inoltre necessario specificare un'autorizzazione di posizione. Questo codice usa l'autorizzazione ``COARSE``:
 
-	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 Se l'app lo richiede, è possibile usare invece di ``ACCESS_FINE_LOCATION``.
 
 ### Segnalazione della posizione in tempo reale
-
 La segnalazione della posizione in tempo reale consente di segnalare la latitudine e la longitudine associate ai dispositivi. Questo tipo di segnalazione della posizione usa solo le posizioni di rete, sulla base dell'ID di cella o della connessione Wi-Fi. La segnalazione è attiva solo quando l'applicazione viene eseguita in primo piano, ad esempio durante una sessione.
 
 Le posizioni in tempo reale *NON* sono usate per calcolare dati statistici. Il loro unico scopo è consentire l'uso del criterio di definizione del recinto virtuale in tempo reale <Reach-Audience-geofencing> nelle campagne Reach.
@@ -63,14 +60,13 @@ Per abilitare la segnalazione della posizione in tempo reale, aggiungere una rig
     engagementConfiguration.setRealtimeLocationReport(true);
     EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-		You also need to specify a location permission. This code uses ``COARSE`` permission:
+        You also need to specify a location permission. This code uses ``COARSE`` permission:
 
-			<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
-		If your app requires it, you can use ``ACCESS_FINE_LOCATION`` instead.
+        If your app requires it, you can use ``ACCESS_FINE_LOCATION`` instead.
 
 #### Segnalazione basata su GPS
-
 Per impostazione predefinita, la segnalazione della posizione in tempo reale usa solo posizioni di rete. Per abilitare l'uso di posizioni basate su GPS, che sono molto più precise, usare l'oggetto di configurazione:
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -81,10 +77,9 @@ Per impostazione predefinita, la segnalazione della posizione in tempo reale usa
 
 È necessario aggiungere anche le autorizzazioni seguenti, se mancanti:
 
-	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
 #### Segnalazione in background
-
 Per impostazione predefinita, la segnalazione della posizione in tempo reale è attiva solo quando l'applicazione viene eseguita in primo piano, ad esempio durante una sessione. Per abilitare la segnalazione anche in background, usare questo oggetto di configurazione:
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -93,23 +88,25 @@ Per impostazione predefinita, la segnalazione della posizione in tempo reale è 
     engagementConfiguration.setBackgroundRealtimeLocationReport(true);
     EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-> [AZURE.NOTE] Quando l'applicazione viene eseguita in background, vengono segnalate solo le posizioni basate sulla rete, anche se è abilitato il GPS.
+> [!NOTE]
+> Quando l'applicazione viene eseguita in background, vengono segnalate solo le posizioni basate sulla rete, anche se è abilitato il GPS.
+> 
+> 
 
 Se l'utente riavvia il dispositivo, viene interrotta la segnalazione della posizione in background. Per fare in modo che venga riavviata automaticamente al riavvio, aggiungere questo codice.
 
-	<receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
-		   android:exported="false">
-		<intent-filter>
-		    <action android:name="android.intent.action.BOOT_COMPLETED" />
-		</intent-filter>
-	</receiver>
+    <receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
+           android:exported="false">
+        <intent-filter>
+            <action android:name="android.intent.action.BOOT_COMPLETED" />
+        </intent-filter>
+    </receiver>
 
 È necessario aggiungere anche le autorizzazioni seguenti, se mancanti:
 
-	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
 ## Autorizzazioni Android M
-
 A partire da Android M, alcune autorizzazioni vengono gestite in fase di esecuzione e richiedono l'approvazione dell'utente.
 
 Se la destinazione è il livello 23 dell'API Android, le autorizzazioni di runtime verranno disattivate per impostazione predefinita per le installazioni di nuove app. In caso contrario vengono attivate per impostazione predefinita.
@@ -118,8 +115,8 @@ Se la destinazione è il livello 23 dell'API Android, le autorizzazioni di runti
 
 Nel contesto della segnalazione della posizione in Mobile Engagement, le autorizzazioni che richiedono l'approvazione in fase di esecuzione sono:
 
-- `ACCESS_COARSE_LOCATION`
-- `ACCESS_FINE_LOCATION`
+* `ACCESS_COARSE_LOCATION`
+* `ACCESS_FINE_LOCATION`
 
 Richiedere le autorizzazioni all'utente con una finestra di dialogo di sistema standard. Se l'utente approva, specificare ``EngagementAgent`` per applicare la modifica in tempo reale. In caso contrario la modifica verrà elaborata al successivo avvio dell'applicazione da parte dell'utente.
 

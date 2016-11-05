@@ -1,28 +1,27 @@
-<properties
-   pageTitle="Assegnazione di variabili in SQL Data Warehouse | Microsoft Azure"
-   description="Suggerimenti per l'assegnazione di variabili Transact-SQL in Azure SQL Data Warehouse per lo sviluppo di soluzioni."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Assegnazione di variabili in SQL Data Warehouse | Microsoft Docs
+description: Suggerimenti per l'assegnazione di variabili Transact-SQL in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/14/2016
+ms.author: jrj;barbkess;sonyama
 
+---
 # Assegnare variabili in SQL Data Warehouse
 Le variabili in SQL Data Warehouse vengono impostate usando l'istruzione `DECLARE` o `SET`.
 
 Tutti modi seguenti sono perfettamente validi per impostare il valore di una variabile:
 
 ## Impostazione delle variabili con DECLARE
-
 L'inizializzazione di variabili con DECLARE è uno dei modi più flessibili per impostare un valore della variabile in SQL Data Warehouse.
 
 ```sql
@@ -63,9 +62,8 @@ SET     @v +=1;
 ## Limitazioni
 Non è possibile usare SELECT o UPDATE per l'assegnazione di variabili.
 
-
 ## Passaggi successivi
-Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
+Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][Panoramica sullo sviluppo per SQL Data Warehouse].
 
 <!--Image references-->
 

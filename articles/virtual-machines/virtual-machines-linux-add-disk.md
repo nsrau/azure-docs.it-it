@@ -1,29 +1,27 @@
-<properties
-	pageTitle="Aggiungere un disco a una VM Linux | Microsoft Azure"
-	description="Informazioni su come aggiungere un disco persistente alla VM Linux"
-	keywords="macchina virtuale Linux, aggiungere un disco di risorse"
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="rickstercdn"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-manager" />
+---
+title: Aggiungere un disco a una VM Linux | Microsoft Docs
+description: Informazioni su come aggiungere un disco persistente alla VM Linux
+keywords: macchina virtuale Linux, aggiungere un disco di risorse
+services: virtual-machines-linux
+documentationcenter: ''
+author: rickstercdn
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machines-linux"
-	ms.topic="article"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.date="09/06/2016"
-	ms.author="rclaus"/>
+ms.service: virtual-machines-linux
+ms.topic: article
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.date: 09/06/2016
+ms.author: rclaus
 
+---
 # Aggiungere un disco a una VM Linux
-
 Questo articolo illustra come collegare un disco persistente alla VM per poter mantenere i dati, anche se si effettua di nuovo il provisioning della VM per manutenzione o ridimensionamento. Per aggiungere un disco, è necessaria l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) configurata in modalità Azure Resource Manager (`azure config mode arm`).
 
 ## Comandi rapidi
-
 Negli esempi di comandi seguenti sostituire i valori compresi tra &lt; e &gt; con i valori dell'ambiente locale.
 
 ```bash
@@ -31,7 +29,6 @@ azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>
 ```
 
 ## Collegare un disco
-
 Il collegamento di un nuovo disco è un’operazione rapida. Digitare `azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>` per creare e collegare un nuovo disco GB per la VM. Se non si indica in modo esplicito un account di archiviazione, tutti i dischi creati vengono assegnati allo stesso account di archiviazione in cui si trova il disco del sistema operativo. Il comando dovrebbe essere simile al seguente:
 
 ```bash
@@ -49,8 +46,10 @@ info:    vm disk attach-new command OK
 ```
 
 ## Connettersi alla VM Linux per montare il nuovo disco
-
-> [AZURE.NOTE] In questo argomento la connessione a una VM viene effettuata con nomi utente e password. Per usare coppie di chiavi pubbliche e private per comunicare con la VM, vedere [Come usare SSH con Linux in Azure](virtual-machines-linux-mac-create-ssh-keys.md). È possibile modificare la connettività **SSH** delle macchine virtuali create con il comando `azure vm quick-create` usando il comando `azure vm reset-access` per reimpostare completamente l'accesso **SSH**, aggiungere o rimuovere utenti o aggiungere file di chiave pubblica per proteggere l'accesso.
+> [!NOTE]
+> In questo argomento la connessione a una VM viene effettuata con nomi utente e password. Per usare coppie di chiavi pubbliche e private per comunicare con la VM, vedere [Come usare SSH con Linux in Azure](virtual-machines-linux-mac-create-ssh-keys.md). È possibile modificare la connettività **SSH** delle macchine virtuali create con il comando `azure vm quick-create` usando il comando `azure vm reset-access` per reimpostare completamente l'accesso **SSH**, aggiungere o rimuovere utenti o aggiungere file di chiave pubblica per proteggere l'accesso.
+> 
+> 
 
 È necessario SSH nella VM di Azure per partizionare, formattare e montare il nuovo disco in modo che la VM di Linux possa usarlo. Se non si ha familiarità con la connessione a **ssh**, il comando assume il formato `ssh <username>@<FQDNofAzureVM> -p <the ssh port>` e ha l'aspetto seguente:
 
@@ -184,7 +183,7 @@ Maximum filesystem blocks=1342177280
 32768 blocks per group, 32768 fragments per group
 8192 inodes per group
 Superblock backups stored on blocks:
-	32768, 98304, 163840, 229376, 294912, 819200, 884736
+    32768, 98304, 163840, 229376, 294912, 819200, 884736
 Allocating group tables: done
 Writing inode tables: done
 Creating journal (32768 blocks): done
@@ -230,7 +229,10 @@ L'output è simile al seguente:
 /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 ```
 
->[AZURE.NOTE] Se il file **/etc/fstab** non viene modificato in modo corretto, il sistema potrebbe diventare non avviabile. In caso di dubbi, fare riferimento alla documentazione della distribuzione per informazioni su come modificare correttamente questo file. È inoltre consigliabile creare una copia di backup del file /etc/fstab prima della modifica.
+> [!NOTE]
+> Se il file **/etc/fstab** non viene modificato in modo corretto, il sistema potrebbe diventare non avviabile. In caso di dubbi, fare riferimento alla documentazione della distribuzione per informazioni su come modificare correttamente questo file. È inoltre consigliabile creare una copia di backup del file /etc/fstab prima della modifica.
+> 
+> 
 
 Successivamente, aprire il file **/etc/fstab** in un editor di testo:
 
@@ -244,37 +246,37 @@ In questo esempio vengono usati il valore UUID del nuovo dispositivo **/dev/sdc1
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
 ```
 
->[AZURE.NOTE] Se si rimuove successivamente un disco dati senza modificare fstab, è possibile che si verifichi un errore di avvio della VM. La maggior parte delle distribuzioni offre le opzioni fstab `nofail` e/o `nobootwait`. Queste opzioni consentono l'avvio di un sistema anche se il montaggio del disco non riesce in fase di avvio. Per altre informazioni su questi parametri, consultare la documentazione della distribuzione.
-
+> [!NOTE]
+> Se si rimuove successivamente un disco dati senza modificare fstab, è possibile che si verifichi un errore di avvio della VM. La maggior parte delle distribuzioni offre le opzioni fstab `nofail` e/o `nobootwait`. Queste opzioni consentono l'avvio di un sistema anche se il montaggio del disco non riesce in fase di avvio. Per altre informazioni su questi parametri, consultare la documentazione della distribuzione.
+> 
+> 
 
 ### Supporto delle funzioni TRIM/UNMAP per Linux in Azure
 Alcuni kernel di Linux supportano operazioni TRIM/UNMAP allo scopo di rimuovere i blocchi inutilizzati sul disco. Nel servizio di archiviazione standard, questa caratteristica è particolarmente utile per informare Azure che le pagine eliminate non sono più valide e possono essere rimosse. Così facendo, è possibile risparmiare sui costi quando si creano file di grandi dimensioni per poi eliminarli.
 
 Esistono due modi per abilitare la funzione TRIM in una VM Linux. Come di consueto, consultare la documentazione della distribuzione per stabilire l'approccio consigliato:
 
-- Usare l'opzione di montaggio `discard` in `/etc/fstab`, ad esempio:
-
-		UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
-
-- In alternativa, è possibile eseguire il comando `fstrim` manualmente dalla riga di comando oppure aggiungerlo a crontab per eseguirlo a intervalli regolari:
-
-	**Ubuntu**
-
-		# sudo apt-get install util-linux
-		# sudo fstrim /datadrive
-
-	**RHEL/CentOS**
-
-		# sudo yum install util-linux
-		# sudo fstrim /datadrive
+* Usare l'opzione di montaggio `discard` in `/etc/fstab`, ad esempio:
+  
+        UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
+* In alternativa, è possibile eseguire il comando `fstrim` manualmente dalla riga di comando oppure aggiungerlo a crontab per eseguirlo a intervalli regolari:
+  
+    **Ubuntu**
+  
+        # sudo apt-get install util-linux
+        # sudo fstrim /datadrive
+  
+    **RHEL/CentOS**
+  
+        # sudo yum install util-linux
+        # sudo fstrim /datadrive
 
 ## Risoluzione dei problemi
-[AZURE.INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
+[!INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
 
 ## Passaggi successivi
-
-- Tenere presente che il nuovo disco non è disponibile per la VM se la macchina virtuale viene riavviata, a meno che non si scrivano queste informazioni nel file [fstab](http://en.wikipedia.org/wiki/Fstab).
-- Per assicurarsi che la VM di Linux sia configurata correttamente, vedere le raccomandazioni per [ottimizzare le prestazioni della macchina virtuale di Linux](virtual-machines-linux-optimization.md).
-- Espandere la capacità di archiviazione aggiungendo altri dischi e [configurare RAID](virtual-machines-linux-configure-raid.md) per migliorare le prestazioni.
+* Tenere presente che il nuovo disco non è disponibile per la VM se la macchina virtuale viene riavviata, a meno che non si scrivano queste informazioni nel file [fstab](http://en.wikipedia.org/wiki/Fstab).
+* Per assicurarsi che la VM di Linux sia configurata correttamente, vedere le raccomandazioni per [ottimizzare le prestazioni della macchina virtuale di Linux](virtual-machines-linux-optimization.md).
+* Espandere la capacità di archiviazione aggiungendo altri dischi e [configurare RAID](virtual-machines-linux-configure-raid.md) per migliorare le prestazioni.
 
 <!---HONumber=AcomDC_0914_2016-->

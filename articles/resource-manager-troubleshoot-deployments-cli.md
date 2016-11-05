@@ -1,50 +1,49 @@
-<properties
-   pageTitle="Visualizzare le operazioni di distribuzione con l'interfaccia della riga di comando di Azure | Microsoft Azure"
-   description="Questo articolo descrive come usare l'interfaccia della riga di comando di Azure per rilevare i problemi relativi alla distribuzione di Resource Manager."
-   services="azure-resource-manager,virtual-machines"
-   documentationCenter=""
-   tags="top-support-issue"
-   authors="tfitzmac"
-   manager="timlt"
-   editor="tysonn"/>
+---
+title: Visualizzare le operazioni di distribuzione con l'interfaccia della riga di comando di Azure | Microsoft Docs
+description: Questo articolo descrive come usare l'interfaccia della riga di comando di Azure per rilevare i problemi relativi alla distribuzione di Resource Manager.
+services: azure-resource-manager,virtual-machines
+documentationcenter: ''
+tags: top-support-issue
+author: tfitzmac
+manager: timlt
+editor: tysonn
 
-<tags
-   ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-multiple"
-   ms.workload="infrastructure"
-   ms.date="08/15/2016"
-   ms.author="tomfitz"/>
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-multiple
+ms.workload: infrastructure
+ms.date: 08/15/2016
+ms.author: tomfitz
 
+---
 # Visualizzare le operazioni di distribuzione con l'interfaccia della riga di comando di Azure
-
-> [AZURE.SELECTOR]
-- [Portale](resource-manager-troubleshoot-deployments-portal.md)
-- [PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
-- [Interfaccia della riga di comando di Azure](resource-manager-troubleshoot-deployments-cli.md)
-- [API REST](resource-manager-troubleshoot-deployments-rest.md)
+> [!div class="op_single_selector"]
+> * [Portale](resource-manager-troubleshoot-deployments-portal.md)
+> * [PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
+> * [Interfaccia della riga di comando di Azure](resource-manager-troubleshoot-deployments-cli.md)
+> * [API REST](resource-manager-troubleshoot-deployments-rest.md)
+> 
+> 
 
 Se si è verificato un errore durante la distribuzione delle risorse in Azure, è opportuno visualizzare i dettagli delle operazioni di distribuzione eseguite. L'interfaccia della riga di comando di Azure fornisce i comandi che consentono di trovare gli errori e determinare le possibili soluzioni.
 
-[AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
+[!INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
 È possibile evitare alcuni errori convalidando il modello e l'infrastruttura prima della distribuzione. Durante la distribuzione è inoltre possibile registrare ulteriori informazioni su richieste e risposte potenzialmente utili per la risoluzione di eventuali problemi successivi. Per ulteriori informazioni sulla convalida e su come registrare informazioni di richiesta e risposta, vedere come [distribuire un gruppo di risorse con un modello di Azure Resource Manager](resource-group-template-deploy-cli.md).
 
 ## Usare i log di controllo per risolvere i problemi
-
-[AZURE.INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
+[!INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
 
 Per visualizzare gli errori per una distribuzione, seguire questa procedura:
 
 1. Per visualizzare i log di controllo, eseguire il comando **azure group log show**. Includendo l'opzione **--last-deployment**, è possibile recuperare solo il log relativo alla distribuzione più recente.
-
+   
         azure group log show ExampleGroup --last-deployment
-
 2. Il comando **azure group log show** può restituire una notevole quantità di informazioni, ma per la risoluzione dei problemi in genere è necessario concentrarsi sulle operazioni che presentano errori. Lo script seguente usa l'opzione **--json** e l'utilità JSON [jq](https://stedolan.github.io/jq/) per cercare nel log gli errori di distribuzione.
-
+   
         azure group log show ExampleGroup --json | jq '.[] | select(.status.value == "Failed")'
-        
+   
         {
         "claims": {
           "aud": "https://management.core.windows.net/",
@@ -80,22 +79,19 @@ Per visualizzare gli errori per una distribuzione, seguire questa procedura:
             "54001","MessageTemplate":"Website with given name {0} already exists.","Parameters":["mysite"],"InnerErrors":null}}],"Innererror":null}"
         },
         ...
-
+   
     In **properties** sono incluse informazioni in json sull'operazione non riuscita.
-
+   
     È possibile usare le opzioni **--verbose** e **-vv** per visualizzare altre informazioni contenute nei log. L'opzione **--verbose** consente di visualizzare i passaggi eseguiti dall'operazione in `stdout`. L'opzione **-vv** invece consente di visualizzare la cronologia completa delle richieste. I messaggi spesso forniscono indicazioni importanti sulla causa degli errori.
-
 3. Per concentrarsi sul messaggio di stato delle voci con esito negativo, usare il comando seguente:
-
+   
         azure group log show ExampleGroup --json | jq -r ".[] | select(.status.value == "Failed") | .properties.statusMessage"
 
-
 ## Usare le operazioni di distribuzione per risolvere i problemi
-
 1. Per ottenere lo stato complessivo di una distribuzione, è possibile usare il comando **azure group deployment show**. Nell'esempio seguente la distribuzione ha avuto esito negativo.
-
+   
         azure group deployment show --resource-group ExampleGroup --name ExampleDeployment
-        
+   
         info:    Executing command group deployment show
         + Getting deployments
         data:    DeploymentName     : ExampleDeployment
@@ -111,16 +107,13 @@ Per visualizzare gli errori per una distribuzione, seguire questa procedura:
         data:    sku              String  Free
         data:    workerSize       String  0
         info:    group deployment show command OK
-
 2. Per visualizzare il messaggio relativo alle operazioni non riuscite per una distribuzione, usare:
-
+   
         azure group deployment operation list --resource-group ExampleGroup --name ExampleDeployment --json  | jq ".[] | select(.properties.provisioningState == "Failed") | .properties.statusMessage.Message"
 
-
 ## Passaggi successivi
-
-- Per informazioni sulla risoluzione di errori di distribuzione specifici vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
-- Per informazioni sull'uso dei log di controllo per monitorare altri tipi di azioni vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
-- Per convalidare la distribuzione prima di eseguirla, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](resource-group-template-deploy.md).
+* Per informazioni sulla risoluzione di errori di distribuzione specifici vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
+* Per informazioni sull'uso dei log di controllo per monitorare altri tipi di azioni vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
+* Per convalidare la distribuzione prima di eseguirla, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](resource-group-template-deploy.md).
 
 <!---HONumber=AcomDC_0817_2016-->

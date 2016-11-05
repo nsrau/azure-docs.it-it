@@ -1,26 +1,23 @@
 
-<properties
-	pageTitle="Risoluzione dei problemi di appartenenza dinamica per i gruppi | Microsoft Azure"
-	description="Suggerimenti per la risoluzione dei problemi di appartenenza dinamica per i gruppi di Azure AD."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""
-	/>
+---
+title: Risoluzione dei problemi di appartenenza dinamica per i gruppi | Microsoft Docs
+description: Suggerimenti per la risoluzione dei problemi di appartenenza dinamica per i gruppi di Azure AD.
+services: active-directory
+documentationcenter: ''
+author: curtand
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/10/2016"
-	ms.author="curtand"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/10/2016
+ms.author: curtand
 
-
+---
 # Risoluzione dei problemi di appartenenza dinamica per i gruppi
-
 **Ho configurato una regola in un gruppo ma le appartenenze nel gruppo non vengono aggiornate**<br/>Verificare che l'impostazione **Abilita gestione gruppi delegata** sia impostata su **Sì** nella scheda **Configura**. Questa impostazione verrà visualizzato solo se si è connessi come utente a cui è assegnata una licenza di Azure Active Directory Premium. Verificare i valori degli attributi utente della regola: sono presenti utenti che soddisfano la regola?
 
 **Ho configurato una regola, ma i membri esistenti della regola sono stati rimossi**<br/>Si tratta di un comportamento previsto. I membri esistenti del gruppo vengono rimosse quando una regola viene abilitata o modificata. Gli utenti restituiti dalla valutazione della regola vengono aggiunti come membri al gruppo.

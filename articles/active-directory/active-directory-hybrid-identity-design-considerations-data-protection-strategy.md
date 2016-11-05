@@ -1,31 +1,28 @@
-<properties
-    pageTitle="Considerazioni di progettazione per la soluzione ibrida di gestione delle identità di Azure Active Directory: Definire la strategia di protezione dati | Microsoft Azure"
-    description="Verrà definita la strategia di protezione dati in modo che la soluzione ibrida di gestione delle identità soddisfi i requisiti aziendali definiti."
-    documentationCenter=""
-    services="active-directory"
-    authors="billmath"
-    manager="femila"
-    editor=""/>
+---
+title: 'Considerazioni di progettazione per la soluzione ibrida di gestione delle identità di Azure Active Directory: Definire la strategia di protezione dati | Microsoft Docs'
+description: Verrà definita la strategia di protezione dati in modo che la soluzione ibrida di gestione delle identità soddisfi i requisiti aziendali definiti.
+documentationcenter: ''
+services: active-directory
+author: billmath
+manager: femila
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="08/08/2016"
-    ms.author="billmath"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 08/08/2016
+ms.author: billmath
 
-
-
+---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definire una strategia di protezione dei dati per la soluzione ibrida di gestione delle identità
-
 In questa attività verrà definita la strategia di protezione dati in modo che la soluzione ibrida di gestione delle identità soddisfi i requisiti aziendali definiti in:
 
-- [Determinare i requisiti di protezione dati](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
-- [Determinare i requisiti di gestione del contenuto](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
-- [Determinare i requisiti di controllo di accesso](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
-- [Determinare i requisiti di risposta agli eventi imprevisti](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
+* [Determinare i requisiti di protezione dati](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
+* [Determinare i requisiti di gestione del contenuto](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
+* [Determinare i requisiti di controllo di accesso](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
+* [Determinare i requisiti di risposta agli eventi imprevisti](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
 
 ## <a name="define-data-protection-options"></a>Definire le opzioni di protezione dati
 Come descritto in [Determinare i requisiti di sincronizzazione della directory](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md), è possibile sincronizzare Microsoft Azure AD con Servizi di dominio Active Directory locale. Questa integrazione consente alle organizzazioni di usare Azure Active Directory per verificare le credenziali dell'utente quando tentano di accedere alle risorse aziendali. Questa operazione può essere eseguita per entrambi gli scenari: dati inattivi in locale e nel cloud.  L'accesso ai dati in Azure AD richiede l'autenticazione utente tramite un servizio token di sicurezza.
@@ -38,45 +35,47 @@ Poiché gli scenari in cui vengono riscontrati dati in transito sono diversi, è
 
 A seconda delle risposte fornite alle domande nella sezione [Determinare i requisiti di protezione dati](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md), sarà possibile stabilire come si vogliono proteggere i dati e qual è il supporto che la soluzione di gestione delle identità può offrire in tal senso. Questa tabella illustra le opzioni supportate da Azure disponibili per ogni scenario di protezione dati.
 
+| Opzioni di protezione dati | Inattivi nel cloud | Inattivi in locale | In transito |
+| --- | --- | --- | --- |
+| Crittografia unità BitLocker |X |X | |
+| SQL Server per la crittografia dei database |X |X | |
+| Crittografia da VM a VM | | |X |
+| SSL/TLS | | |X |
+| VPN | | |X |
 
-| Opzioni di protezione dati         | Inattivi nel cloud | Inattivi in locale | In transito |
-|---------------------------------|----------------------|---------------------|------------|
-| Crittografia unità BitLocker      | X                    | X                   |            |
-| SQL Server per la crittografia dei database | X                    | X                   |            |
-| Crittografia da VM a VM             |                      |                     | X          |
-| SSL/TLS                         |                      |                     | X          |
-| VPN                             |                      |                     | X          |
-
-
->[AZURE.NOTE]
-Per altre informazioni sulle garanzie relative alla conformità per ogni servizio di Azure, vedere [Conformità in base al prodotto](https://azure.microsoft.com/support/trust-center/services/) nel [Centro protezione di Microsoft Azure](https://azure.microsoft.com/support/trust-center/).
-Poiché le opzioni per la protezione dei dati usano un approccio multilivello, il confronto tra tali opzioni non è applicabile per questa attività. Assicurarsi di usare tutte le opzioni disponibili per ogni stato dei dati.
+> [!NOTE]
+> Per altre informazioni sulle garanzie relative alla conformità per ogni servizio di Azure, vedere [Conformità in base al prodotto](https://azure.microsoft.com/support/trust-center/services/) nel [Centro protezione di Microsoft Azure](https://azure.microsoft.com/support/trust-center/).
+> Poiché le opzioni per la protezione dei dati usano un approccio multilivello, il confronto tra tali opzioni non è applicabile per questa attività. Assicurarsi di usare tutte le opzioni disponibili per ogni stato dei dati.
+> 
+> 
 
 ## <a name="define-content-management-options"></a>Definire le opzioni di gestione del contenuto
 Uno dei vantaggi derivanti dall'uso di Azure AD per gestire un'infrastruttura ibrida di gestione delle identità sta nel fatto che il processo è completamente trasparente dal punto di vista dell'utente finale. L'utente tenterà di accedere a una risorsa condivisa, la risorsa richiede l'autenticazione, quindi l'utente deve inviare una richiesta di autenticazione ad Azure AD per ottenere il token e accedere alla risorsa. Questo processo viene eseguito in background, senza alcuna interazione dell'utente. È anche possibile concedere l'autorizzazione a un [gruppo](active-directory-manage-groups.md#getting-started-with-access-management) di utenti per consentire loro di eseguire determinate azioni comuni.
 
 Le organizzazioni che si preoccupano circa la privacy dei dati, richiedono in genere la classificazione dei dati per la soluzione da adottare. Se l'infrastruttura locale corrente adotta già la classificazione dei dati, è possibile usare Azure AD come repository principale per le identità degli utenti. Uno strumento comune usato in locale per la classificazione dati è [Data Classification Toolkit](https://msdn.microsoft.com/library/Hh204743.aspx) per Windows Server 2012 R2. Questo strumento consente di identificare, classificare e proteggere i dati nei file server del cloud privato. Per questo scopo, è anche possibile usare la funzionalità di [classificazione file automatica](https://technet.microsoft.com/library/hh831672.aspx) in Windows Server 2012.
 
-Se l'organizzazione non ha implementato una soluzione di classificazione dei dati ma ha la necessità di proteggere i file sensibili senza aggiungere nuovi server locali, è disponibile Microsoft [Azure Rights Management Service](https://technet.microsoft.com/library/JJ585026.aspx).  Azure RMS usa infatti criteri di crittografia, identità e autorizzazione in grado di proteggere file e posta elettronica e può essere usato su più dispositivi, inclusi telefoni, tablet e PC. Poiché Azure RMS è un servizio cloud, per poter condividere contenuti protetti con altre organizzazioni non è necessario configurare esplicitamente dei trust con queste ultime. Se queste organizzazioni dispongono già di una directory di Office 365 o di Azure AD, la collaborazione tra organizzazioni è supportata automaticamente. È anche possibile sincronizzare solo gli attributi della directory richiesti da Azure RMS per supportare un'identità comune per gli account Active Directory locali usando i servizi di sincronizzazione di Azure Active Directory (AAD Sync) o Azure AD Connect.
+Se l'organizzazione non ha implementato una soluzione di classificazione dei dati ma ha la necessità di proteggere i file sensibili senza aggiungere nuovi server locali, è disponibile Microsoft [Azure Rights Management Service](https://technet.microsoft.com/library/JJ585026.aspx).  Azure RMS usa infatti criteri di crittografia, identità e autorizzazione in grado di proteggere file e posta elettronica e può essere usato su più dispositivi, inclusi telefoni, tablet e PC. Poiché Azure RMS è un servizio cloud, per poter condividere contenuti protetti con altre organizzazioni non è necessario configurare esplicitamente dei trust con queste ultime. Se queste organizzazioni dispongono già di una directory di Office 365 o di Azure AD, la collaborazione tra organizzazioni è supportata automaticamente. È anche possibile sincronizzare solo gli attributi della directory richiesti da Azure RMS per supportare un'identità comune per gli account Active Directory locali usando i servizi di sincronizzazione di Azure Active Directory (AAD Sync) o Azure AD Connect.
 
 Per un'efficace gestione del contenuto, è necessario sapere chi accede a una determinata risorsa, di conseguenza la soluzione di gestione delle identità deve includere funzionalità di registrazione avanzate. Azure AD fornisce la registrazione delle informazioni seguenti per un periodo di oltre 30 giorni:
 
-- Modifiche all'appartenenza dei ruoli, ad esempio utenti aggiunti al ruolo amministratore globale
-- Aggiornamenti delle credenziali, ad esempio modifiche delle password
-- Gestione dei domini, ad esempio verifica di un dominio personalizzato, rimozione di un dominio
-- Aggiunta o rimozione di applicazioni
-- Gestione di utenti, ad esempio aggiunta, rimozione o aggiornamento di un utente
-- Aggiunta o rimozione di licenze
+* Modifiche all'appartenenza dei ruoli, ad esempio utenti aggiunti al ruolo amministratore globale
+* Aggiornamenti delle credenziali, ad esempio modifiche delle password
+* Gestione dei domini, ad esempio verifica di un dominio personalizzato, rimozione di un dominio
+* Aggiunta o rimozione di applicazioni
+* Gestione di utenti, ad esempio aggiunta, rimozione o aggiornamento di un utente
+* Aggiunta o rimozione di licenze
 
->[AZURE.NOTE]
-Per altre informazioni sulle funzionalità di registrazione in Azure, vedere l'articolo relativo alla [gestione dei log di controllo e sicurezza di Microsoft Azure](http://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) .
-A seconda delle risposte fornite alle domande nella sezione [Determinare i requisiti di gestione del contenuto](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md), sarà possibile stabilire come si vuole che il contenuto venga gestito nella soluzione ibrida di gestione delle identità. Sebbene tutte le opzioni esposte nella tabella 6 possano essere integrate con Azure AD, è importante definire quella più appropriata in base alle esigenze aziendali.
+> [!NOTE]
+> Per altre informazioni sulle funzionalità di registrazione in Azure, vedere l'articolo relativo alla [gestione dei log di controllo e sicurezza di Microsoft Azure](http://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) .
+> A seconda delle risposte fornite alle domande nella sezione [Determinare i requisiti di gestione del contenuto](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md), sarà possibile stabilire come si vuole che il contenuto venga gestito nella soluzione ibrida di gestione delle identità. Sebbene tutte le opzioni esposte nella tabella 6 possano essere integrate con Azure AD, è importante definire quella più appropriata in base alle esigenze aziendali.
+> 
+> 
 
-| Opzioni di gestione del contenuto                                                               | Vantaggi                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Svantaggi:                                                                                                                                                                                                                               |
-|------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Centralizzata locale (server Active Directory Rights Management)                      | Controllo completo sull'infrastruttura server responsabile della classificazione dei dati  <br> Funzionalità predefinita in Windows Server, senza necessità di licenza o sottoscrizione supplementare <br> Può essere integrato con Azure AD in uno scenario ibrido <br> Supporta la funzionalità Information Rights Management (IRM) nei servizi Microsoft Online come Exchange Online e SharePoint Online, nonché Office 365 <br>  Supporta i prodotti server Microsoft locali, ad esempio Exchange Server, SharePoint Server e file server che eseguono Windows Server e Infrastruttura di classificazione file. | Manutenzione più elevata (aggiornamenti, configurazioni e potenziali aggiornamenti di versione), poiché il server è di proprietà del reparto IT  <br> Richiede un'infrastruttura di server locale<br>  Non usa le funzionalità di Azure in modo nativo                                     |
-| Centralizzata nel cloud (Azure RMS)                                                     | Più facile da gestire rispetto alla soluzione locale  <br> Può essere integrato con Servizi di dominio Active Directory in uno scenario ibrido <br>  Completamente integrato con Azure Active Directory <br> Non richiede un server locale per distribuire il servizio <br> Supporta i prodotti server Microsoft locali, ad esempio Exchange Server, SharePoint Server e file server che eseguono Windows Server e Infrastruttura di classificazione file <br>  Il reparto IT ha il controllo completo sulla chiave del tenant grazie alla funzionalità BYOK (Bring Your Own Key).                                                                                    | L'organizzazione deve avere una sottoscrizione cloud che supporta RMS  <br>  L'organizzazione deve avere una directory di Azure AD per supportare l'autenticazione utente per RMS                                                                                  |
-| Ibrida (soluzione Azure RMS integrata con un server Active Directory Rights Management locale) | Questo scenario combina i vantaggi di entrambe le opzioni precedenti, centralizzata locale e nel cloud.                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | L'organizzazione deve avere una sottoscrizione cloud che supporta RMS  <br> L'organizzazione deve avere una directory di Azure AD per supportare l'autenticazione utente per RMS, <br>  Richiede una connessione tra il servizio cloud di Azure e l'infrastruttura locale |
+| Opzioni di gestione del contenuto | Vantaggi | Svantaggi: |
+| --- | --- | --- |
+| Centralizzata locale (server Active Directory Rights Management) |Controllo completo sull'infrastruttura server responsabile della classificazione dei dati  <br> Funzionalità predefinita in Windows Server, senza necessità di licenza o sottoscrizione supplementare <br> Può essere integrato con Azure AD in uno scenario ibrido <br> Supporta la funzionalità Information Rights Management (IRM) nei servizi Microsoft Online come Exchange Online e SharePoint Online, nonché Office 365 <br>  Supporta i prodotti server Microsoft locali, ad esempio Exchange Server, SharePoint Server e file server che eseguono Windows Server e Infrastruttura di classificazione file. |Manutenzione più elevata (aggiornamenti, configurazioni e potenziali aggiornamenti di versione), poiché il server è di proprietà del reparto IT  <br> Richiede un'infrastruttura di server locale<br>  Non usa le funzionalità di Azure in modo nativo |
+| Centralizzata nel cloud (Azure RMS) |Più facile da gestire rispetto alla soluzione locale  <br> Può essere integrato con Servizi di dominio Active Directory in uno scenario ibrido <br>  Completamente integrato con Azure Active Directory <br> Non richiede un server locale per distribuire il servizio <br> Supporta i prodotti server Microsoft locali, ad esempio Exchange Server, SharePoint Server e file server che eseguono Windows Server e Infrastruttura di classificazione file <br>  Il reparto IT ha il controllo completo sulla chiave del tenant grazie alla funzionalità BYOK (Bring Your Own Key). |L'organizzazione deve avere una sottoscrizione cloud che supporta RMS  <br>  L'organizzazione deve avere una directory di Azure AD per supportare l'autenticazione utente per RMS |
+| Ibrida (soluzione Azure RMS integrata con un server Active Directory Rights Management locale) |Questo scenario combina i vantaggi di entrambe le opzioni precedenti, centralizzata locale e nel cloud. |L'organizzazione deve avere una sottoscrizione cloud che supporta RMS  <br> L'organizzazione deve avere una directory di Azure AD per supportare l'autenticazione utente per RMS, <br>  Richiede una connessione tra il servizio cloud di Azure e l'infrastruttura locale |
 
 ## <a name="define-access-control-options"></a>Definire le opzioni di controllo di accesso
 Le funzionalità di autenticazione, autorizzazione e controllo di accesso disponibili in Azure AD consentono alla società di usare un repository delle identità centralizzato e al contempo di permettere a utenti e partner di usare l'accesso Single Sign-On (SSO), come illustrato nella figura seguente:
@@ -87,35 +86,41 @@ Gestione centralizzata e integrazione completa con altre directory
 
 Azure Active Directory offre l'accesso Single Sign-On a migliaia di applicazioni SaaS e di applicazioni Web locali. Per altre informazioni sull'accesso Single Sign-On con provider di terze parti testati da Microsoft, vedere l' [elenco di compatibilità per la federazione di Azure Active Directory: provider di identità di terze parti che possono essere usati per implementare l'accesso Single Sign-On](https://msdn.microsoft.com/library/azure/jj679342.aspx) . Questa funzionalità consente alle organizzazioni di implementare una vasta gamma di scenari B2B mantenendo il controllo della gestione delle identità e degli accessi. Tuttavia, durante il processo di progettazione B2B è importante comprendere il metodo di autenticazione che verrà usato dal partner e verificare se questo metodo è supportato da Azure. Attualmente, i metodi supportati da Azure AD sono i seguenti:
 
-- SAML (Security Assertion Markup Language)
-- OAuth
-- Kerberos
-- Tokens
-- Certificati
+* SAML (Security Assertion Markup Language)
+* OAuth
+* Kerberos
+* Tokens
+* Certificati
 
-
->[AZURE.NOTE] Per informazioni dettagliate su ogni protocollo e sulle relative funzionalità in Azure, leggere la pagina relativa ai [protocolli di autenticazione di Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx) .
+> [!NOTE]
+> Per informazioni dettagliate su ogni protocollo e sulle relative funzionalità in Azure, leggere la pagina relativa ai [protocolli di autenticazione di Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx) .
+> 
+> 
 
 Grazie al supporto di Azure AD, le applicazioni aziendali per dispositivi mobili possono usare la stessa esperienza di autenticazione semplificata a Servizi mobili per consentire ai dipendenti di accedere alle applicazioni per dispositivi mobili con le proprie credenziali Active Directory aziendali. Con questa funzionalità, Azure AD è supportato come un provider di identità in Servizi mobili, insieme agli altri provider di identità già supportati, ad esempio Account Microsoft, ID Facebook, ID Google e ID Twitter. Se le app locali usano le credenziali dell'utente che risiedono nell'istanza di Servizi di dominio Active Directory locale, l'accesso da partner e utenti provenienti dal cloud dovrebbe essere trasparente. È possibile gestire il controllo di accesso condizionale dell'utente alle applicazioni Web (basate sul cloud), alle API Web, ai servizi cloud Microsoft, alle applicazioni SaaS di terze parti e alle applicazioni client (per dispositivi mobili) native e usufruire al contempo delle funzionalità di sicurezza, controllo e creazione di report da un'unica posizione centralizzata. È tuttavia consigliabile convalidare questa soluzione in un ambiente non di produzione o con un numero limitato di utenti.
 
-
->[AZURE.TIP] È importante tenere presente che in Azure AD non è disponibile la funzionalità Criteri di gruppo come in Servizi di dominio Active Directory. Per imporre criteri per i dispositivi sarà necessario adottare una soluzione per la gestione di dispositivi mobili, ad esempio [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx).
+> [!TIP]
+> È importante tenere presente che in Azure AD non è disponibile la funzionalità Criteri di gruppo come in Servizi di dominio Active Directory. Per imporre criteri per i dispositivi sarà necessario adottare una soluzione per la gestione di dispositivi mobili, ad esempio [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx).
+> 
+> 
 
 Una volta autenticato l'utente tramite Azure AD, è importante valutare il livello di accesso che verrà assegnato all'utente. Il livello di accesso che verrà assegnato all'utente per una risorsa può variare. Sebbene Azure AD possa aggiungere un ulteriore livello di sicurezza controllando l'accesso ad alcune risorse, è necessario tenere presente che potrebbe essere stato definito un elenco di controllo di accesso separato per la risorsa stessa, ad esempio per l'accesso ai file che risiedono in un file server. La figura seguente riassume i livelli di controllo di accesso che possono essere impostati in uno scenario ibrido:
 
 ![](./media/hybrid-id-design-considerations/accesscontrol.png)
-
 
 Ogni interazione nel diagramma illustrato nella figura X rappresenta uno scenario di controllo di accesso che può essere gestito da Azure AD. Di seguito è mostrata una descrizione di ogni scenario:
 
 1.Accesso condizionale alle applicazioni ospitate in locale: è possibile usare i dispositivi registrati con criteri di accesso per le applicazioni configurate per l'uso di AD FS con Windows Server 2012 R2. Per altre informazioni su come configurare l'accesso condizionale in locale, vedere [Configurazione dell'accesso condizionale in locale usando il servizio Registrazione del dispositivo di Azure Active Directory](active-directory-conditional-access-on-premises-setup.md).
 2.Controllo di accesso al portale di gestione di Azure: Azure consente anche di controllare l'accesso al portale di gestione tramite il controllo degli accessi in base al ruolo. Questo metodo permette alla società di limitare la quantità di operazioni che possono essere eseguite da un soggetto una volta effettuato l'accesso al portale di gestione di Azure. L'uso del controllo degli accessi in base al ruolo per controllare gli accessi al portale, permette agli amministratori IT di delegare l'accesso tramite gli approcci di gestione dell'accesso seguenti:
 
- - Assegnazione di ruolo basata su gruppo: è possibile assegnare l'accesso ai gruppi di Azure AD che possono essere sincronizzati dall'istanza di Active Directory locale. Questo consente di sfruttare gli investimenti esistenti dell'organizzazione in termini di strumenti e processi per la gestione dei gruppi. È anche possibile usare la funzionalità di delega della gestione dei gruppi disponibile in Azure AD Premium.
- - Uso dei ruoli predefiniti in Azure: Sono disponibili tre ruoli, proprietario, collaboratore e lettore, per garantire che utenti e gruppi siano autorizzati a eseguire solo le attività necessarie per svolgere il proprio lavoro.
- - Accesso granulare alle risorse: è possibile assegnare ruoli a utenti e gruppi per una sottoscrizione, un gruppo di risorse o una singola risorsa di Azure specifica, ad esempio un sito Web o un database. In questo modo, è possibile fare in modo che gli utenti possano accedere a tutte le risorse necessarie e non abbiano accesso alle risorse che invece non devono gestire.
+* Assegnazione di ruolo basata su gruppo: è possibile assegnare l'accesso ai gruppi di Azure AD che possono essere sincronizzati dall'istanza di Active Directory locale. Questo consente di sfruttare gli investimenti esistenti dell'organizzazione in termini di strumenti e processi per la gestione dei gruppi. È anche possibile usare la funzionalità di delega della gestione dei gruppi disponibile in Azure AD Premium.
+* Uso dei ruoli predefiniti in Azure: Sono disponibili tre ruoli, proprietario, collaboratore e lettore, per garantire che utenti e gruppi siano autorizzati a eseguire solo le attività necessarie per svolgere il proprio lavoro.
+* Accesso granulare alle risorse: è possibile assegnare ruoli a utenti e gruppi per una sottoscrizione, un gruppo di risorse o una singola risorsa di Azure specifica, ad esempio un sito Web o un database. In questo modo, è possibile fare in modo che gli utenti possano accedere a tutte le risorse necessarie e non abbiano accesso alle risorse che invece non devono gestire.
 
->[AZURE.NOTE] Per informazioni dettagliate su questa funzionalità, vedere [Role-based access control in Azure](https://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/) (Controllo di accessi in base al ruolo in Azure). Gli sviluppatori che creano applicazioni e che vogliono personalizzare il controllo di accesso per tali applicazioni, possono usare i ruoli applicazione di Azure AD per l'autorizzazione. Per informazioni su come progettare l'app per usare questa funzionalità, vedere l' [esempio WebApp-RoleClaims-DotNet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) .
+> [!NOTE]
+> Per informazioni dettagliate su questa funzionalità, vedere [Role-based access control in Azure](https://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/) (Controllo di accessi in base al ruolo in Azure). Gli sviluppatori che creano applicazioni e che vogliono personalizzare il controllo di accesso per tali applicazioni, possono usare i ruoli applicazione di Azure AD per l'autorizzazione. Per informazioni su come progettare l'app per usare questa funzionalità, vedere l' [esempio WebApp-RoleClaims-DotNet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) .
+> 
+> 
 
 3.Accesso condizionale per applicazioni di Office 365 con Microsoft Intune: gli amministratori IT possono effettuare il provisioning dei criteri di accesso condizionale dei dispositivi per proteggere le risorse aziendali, consentendo allo stesso tempo agli operatori dei sistemi informativi che usano dispositivi compatibili di accedere ai servizi. Per altre informazioni, vedere [Criteri di accesso condizionale dei dispositivi per i servizi di Office 365](active-directory-conditional-access-device-policies.md).
 
@@ -126,40 +131,39 @@ Poiché le opzioni per il controllo di accesso usano un approccio multilivello, 
 ## <a name="define-incident-response-options"></a>Definire le opzioni di risposta agli eventi imprevisti
 Azure AD può supportare il reparto IT nell'identificazione dei potenziali rischi per la sicurezza nell'ambiente monitorando l'attività degli utenti, usando la funzionalità di creazione di report di accesso e utilizzo di Azure AD per ottenere visibilità sull'integrità e sulla sicurezza della directory dell'organizzazione. Con queste informazioni un amministratore della directory può determinare le aree in cui possono risiedere i potenziali rischi per la sicurezza in modo da poterne pianificare adeguatamente l'attenuazione.  [sottoscrizione Azure AD Premium](active-directory-get-started-premium.md) include un set di report di sicurezza che consentono al reparto IT di ottenere tali informazioni. [report di Azure AD](active-directory-view-access-usage-reports.md) sono classificati nel modo seguente:
 
-- **Report anomalie**: contiene eventi di accesso individuati come anomali. L'obiettivo è rendere gli utenti consapevoli di tale attività e consentire loro di essere in grado di stabilire se un evento è sospetto.
-- **Report applicazioni integrate**: fornisce informazioni dettagliate sul modo in cui vengono usate le applicazioni cloud nell'organizzazione. Azure Active Directory offre l'integrazione con migliaia di applicazioni cloud.
-- **Report di errori**: segnalano gli errori che possono verificarsi durante il provisioning di account in applicazioni esterne.
-- **Report specifici dell'utente**: visualizzano i dati del dispositivo/dell'attività di accesso per un utente specifico.
-- **Log attività**: contengono un record di tutti gli eventi controllati nelle ultime 24 ore, negli ultimi 7 giorni o negli ultimi 30 giorni, nonché le modifiche alle attività del gruppo e le attività di registrazione e di reimpostazione password.
+* **Report anomalie**: contiene eventi di accesso individuati come anomali. L'obiettivo è rendere gli utenti consapevoli di tale attività e consentire loro di essere in grado di stabilire se un evento è sospetto.
+* **Report applicazioni integrate**: fornisce informazioni dettagliate sul modo in cui vengono usate le applicazioni cloud nell'organizzazione. Azure Active Directory offre l'integrazione con migliaia di applicazioni cloud.
+* **Report di errori**: segnalano gli errori che possono verificarsi durante il provisioning di account in applicazioni esterne.
+* **Report specifici dell'utente**: visualizzano i dati del dispositivo/dell'attività di accesso per un utente specifico.
+* **Log attività**: contengono un record di tutti gli eventi controllati nelle ultime 24 ore, negli ultimi 7 giorni o negli ultimi 30 giorni, nonché le modifiche alle attività del gruppo e le attività di registrazione e di reimpostazione password.
 
->[AZURE.TIP]
-Un altro report che può risultare utile per il team che gestisce le risposte per gli eventi imprevisti è il report [Utenti con credenziali perse](http://blogs.technet.com/b/ad/archive/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials.aspx) .  Questo report evidenzia eventuali corrispondenze tra l'elenco delle credenziali perse e il tenant in uso.
+> [!TIP]
+> Un altro report che può risultare utile per il team che gestisce le risposte per gli eventi imprevisti è il report [Utenti con credenziali perse](http://blogs.technet.com/b/ad/archive/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials.aspx) .  Questo report evidenzia eventuali corrispondenze tra l'elenco delle credenziali perse e il tenant in uso.
+> 
+> 
 
 Altri importanti report predefiniti disponibili in Azure AD che possono risultare utili per fornire le risposte durante l'analisi degli eventi imprevisti sono:
 
-- **Attività di reimpostazione password**: fornisce all'amministratore informazioni dettagliate sul modo in cui la funzionalità di reimpostazione della password viene usata all'interno dell'organizzazione.
-- **Attività di registrazione per la reimpostazione delle password**: fornisce informazioni dettagliate sugli utenti che hanno registrato i propri metodi per la reimpostazione delle password e sui metodi selezionati.
-- **Attività del gruppo**: fornisce la cronologia delle modifiche apportate al gruppo, ad esempio utenti aggiunti o rimossi, avviate nel pannello di accesso.
+* **Attività di reimpostazione password**: fornisce all'amministratore informazioni dettagliate sul modo in cui la funzionalità di reimpostazione della password viene usata all'interno dell'organizzazione.
+* **Attività di registrazione per la reimpostazione delle password**: fornisce informazioni dettagliate sugli utenti che hanno registrato i propri metodi per la reimpostazione delle password e sui metodi selezionati.
+* **Attività del gruppo**: fornisce la cronologia delle modifiche apportate al gruppo, ad esempio utenti aggiunti o rimossi, avviate nel pannello di accesso.
 
 Oltre alle funzionalità di creazione di report principali disponibili in Azure AD Premium che possono essere usate durante un processo di analisi per fornire le risposte relative agli eventi imprevisti, il reparto IT può usare anche il report di controllo che permette di ottenere le informazioni seguenti:
 
-- Modifiche all'appartenenza dei ruoli, ad esempio utenti aggiunti al ruolo amministratore globale
-- Aggiornamenti delle credenziali, ad esempio modifiche delle password
-- Gestione dei domini, ad esempio verifica di un dominio personalizzato, rimozione di un dominio
-- Aggiunta o rimozione di applicazioni
-- Gestione di utenti, ad esempio aggiunta, rimozione o aggiornamento di un utente
-- Aggiunta o rimozione di licenze
+* Modifiche all'appartenenza dei ruoli, ad esempio utenti aggiunti al ruolo amministratore globale
+* Aggiornamenti delle credenziali, ad esempio modifiche delle password
+* Gestione dei domini, ad esempio verifica di un dominio personalizzato, rimozione di un dominio
+* Aggiunta o rimozione di applicazioni
+* Gestione di utenti, ad esempio aggiunta, rimozione o aggiornamento di un utente
+* Aggiunta o rimozione di licenze
 
 Poiché le opzioni per le risposte agli eventi imprevisti usano un approccio multilivello, il confronto tra tali opzioni non è applicabile per questa attività. Assicurarsi di usare tutte le opzioni disponibili per ogni scenario che richiede l'uso della funzionalità di creazione di report di Azure AD come parte del processo di risposta agli eventi imprevisti della società.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Determinare le attività per la soluzione ibrida di gestione delle identità](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
 
-
 ## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

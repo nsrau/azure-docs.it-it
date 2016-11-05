@@ -1,6 +1,4 @@
-﻿## Application Insights - Altre informazioni
-
-
+## Application Insights - Altre informazioni
 <table width="100%"><tr valign="top"><td>
 
 Informazioni generali

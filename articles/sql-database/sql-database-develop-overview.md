@@ -1,22 +1,21 @@
-<properties
-	pageTitle="Panoramica dello sviluppo di database SQL | Microsoft Azure"
-	description="Informazioni sulle librerie di connettività disponibili e procedure consigliate per applicazioni che si connettono al Database SQL."
-	services="sql-database"
-	documentationCenter=""
-	authors="annemill"
-	manager="jhubbard"
-	editor="genemi"/>
+---
+title: Panoramica dello sviluppo di database SQL | Microsoft Docs
+description: Informazioni sulle librerie di connettività disponibili e procedure consigliate per applicazioni che si connettono al Database SQL.
+services: sql-database
+documentationcenter: ''
+author: annemill
+manager: jhubbard
+editor: genemi
 
+ms.service: sql-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/17/2016
+ms.author: annemill
 
-<tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="annemill"/>
-
+---
 # Panoramica dello sviluppo di database SQL
 Questo articolo esamina le considerazioni di base di cui uno sviluppatore deve tenere conto quando scrive il codice per collegarsi al database SQL di Azure.
 
@@ -64,7 +63,6 @@ La scalabilità elastica semplifica il processo di ridimensionamento.
 * [Introduzione alla funzionalità di scalabilità elastica del database SQL di Azure (anteprima)](sql-database-elastic-scale-get-started.md)
 
 ## Passaggi successivi
-
 Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/services/sql-database/).
 
 <!---HONumber=AcomDC_0817_2016-->

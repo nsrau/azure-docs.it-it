@@ -1,51 +1,47 @@
-<properties
-   pageTitle="Panoramica di Gestione risorse di Azure | Microsoft Azure"
-   description="Viene descritto come utilizzare Gestione risorse di Azure per la distribuzione, la gestione e il controllo dell’accesso delle risorse in Azure."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="timlt"
-   editor="tysonn"/>
+---
+title: Panoramica di Gestione risorse di Azure | Microsoft Docs
+description: Viene descritto come utilizzare Gestione risorse di Azure per la distribuzione, la gestione e il controllo dell’accesso delle risorse in Azure.
+services: azure-resource-manager
+documentationcenter: na
+author: tfitzmac
+manager: timlt
+editor: tysonn
 
-<tags
-   ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/16/2016"
-   ms.author="tomfitz"/>
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/16/2016
+ms.author: tomfitz
 
+---
 # Panoramica di Gestione risorse di Microsoft Azure
-
 L'infrastruttura per l'applicazione è in genere costituita da vari componenti, ad esempio una macchina virtuale, un account di archiviazione e una rete virtuale oppure un'app Web, un database, un server di database e servizi di terze parti. Questi componenti non appaiono come entità separate, ma come parti correlate e interdipendenti di una singola entità e devono essere distribuite, gestite e monitorate come gruppo. Gestione risorse di Azure consente di usare le risorse incluse nella soluzione come un gruppo. È possibile distribuire, aggiornare o eliminare tutte le risorse della soluzione con un'unica operazione coordinata. Per la distribuzione viene usato un modello; questo modello può essere usato per diversi ambienti, ad esempio di testing, staging e produzione. Gestione risorse offre funzionalità di sicurezza, controllo e categorizzazione che semplificano la gestione delle risorse dopo la distribuzione.
 
 ## Terminologia
-
 Se non si ha esperienza con Azure Resource Manager, è possibile che non si conoscano alcuni termini.
 
-- **risorsa**: elemento gestibile disponibile tramite Azure. Alcune risorse comuni sono le macchine virtuali, gli account di archiviazione, le app Web, i database e le reti virtuali, ma ne esistono molte altre.
-- **gruppo di risorse**: contenitore con risorse correlate per una soluzione Azure. Il gruppo di risorse può includere tutte le risorse della soluzione o solo le risorse da gestire come gruppo. L'utente decide come allocare le risorse ai gruppi di risorse nel modo più appropriato per l'organizzazione. Vedere [Gruppi di risorse](#resource-groups).
-- **provider di risorse**: servizio che mette a disposizione le risorse che è possibile distribuire e gestire con Resource Manager. Ogni provider di risorse offre operazioni per l'uso delle risorse distribuite. Alcuni provider di risorse comuni sono Microsoft.Compute che mette a disposizione la risorsa delle macchine virtuali, Microsoft.Storage che offre la risorsa di account di archiviazione e Microsoft.Web che mette a disposizione risorse correlate alle app Web. Vedere [Provider di risorse](#resource-providers).
-- **modello di Resource Manager**: file JavaScript Object Notation (JSON) che definisce una o più risorse da distribuire in un gruppo di risorse. Definisce anche le dipendenze tra le risorse distribuite. Il modello può essere usato per distribuire le risorse in modo coerente e ripetuto. Vedere [Distribuzione del modello](#template-deployment).
-- **sintassi dichiarativa**: sintassi che consente di indicare l'oggetto da creare senza dover scrivere la sequenza di comandi di programmazione per crearlo. Il modello di Resource Manager è un esempio di sintassi dichiarativa. Nel file vengono definite le proprietà per l'infrastruttura da distribuire in Azure.
+* **risorsa**: elemento gestibile disponibile tramite Azure. Alcune risorse comuni sono le macchine virtuali, gli account di archiviazione, le app Web, i database e le reti virtuali, ma ne esistono molte altre.
+* **gruppo di risorse**: contenitore con risorse correlate per una soluzione Azure. Il gruppo di risorse può includere tutte le risorse della soluzione o solo le risorse da gestire come gruppo. L'utente decide come allocare le risorse ai gruppi di risorse nel modo più appropriato per l'organizzazione. Vedere [Gruppi di risorse](#resource-groups).
+* **provider di risorse**: servizio che mette a disposizione le risorse che è possibile distribuire e gestire con Resource Manager. Ogni provider di risorse offre operazioni per l'uso delle risorse distribuite. Alcuni provider di risorse comuni sono Microsoft.Compute che mette a disposizione la risorsa delle macchine virtuali, Microsoft.Storage che offre la risorsa di account di archiviazione e Microsoft.Web che mette a disposizione risorse correlate alle app Web. Vedere [Provider di risorse](#resource-providers).
+* **modello di Resource Manager**: file JavaScript Object Notation (JSON) che definisce una o più risorse da distribuire in un gruppo di risorse. Definisce anche le dipendenze tra le risorse distribuite. Il modello può essere usato per distribuire le risorse in modo coerente e ripetuto. Vedere [Distribuzione del modello](#template-deployment).
+* **sintassi dichiarativa**: sintassi che consente di indicare l'oggetto da creare senza dover scrivere la sequenza di comandi di programmazione per crearlo. Il modello di Resource Manager è un esempio di sintassi dichiarativa. Nel file vengono definite le proprietà per l'infrastruttura da distribuire in Azure.
 
 ## Vantaggi dell'utilizzo di Gestione risorse
-
 Gestione risorse offre numerosi vantaggi:
 
-- È possibile distribuire, gestire e monitorare tutte le risorse per la soluzione come un gruppo, anziché gestire singolarmente tali risorse.
-- È possibile distribuire ripetutamente la soluzione nel corso del ciclo di vita dello sviluppo garantendo al contempo che le risorse vengano distribuite in uno stato coerente.
-- È possibile gestire l'infrastruttura con modelli dichiarativi, piuttosto che con script.
-- È possibile definire le dipendenze tra risorse e pertanto esse vengono distribuite nell'ordine corretto.
-- è possibile applicare il controllo di accesso a tutti i servizi nel gruppo di risorse perché il controllo di accesso basato sui ruoli (RBAC) è integrato in modo nativo nella piattaforma di gestione.
-- È possibile applicare tag alle risorse per organizzare in modo logico tutte le risorse nella sottoscrizione.
-- È possibile ottenere informazioni dettagliate sulla fatturazione per l'organizzazione visualizzando i costi di un gruppo di risorse che condividono lo stesso tag.
+* È possibile distribuire, gestire e monitorare tutte le risorse per la soluzione come un gruppo, anziché gestire singolarmente tali risorse.
+* È possibile distribuire ripetutamente la soluzione nel corso del ciclo di vita dello sviluppo garantendo al contempo che le risorse vengano distribuite in uno stato coerente.
+* È possibile gestire l'infrastruttura con modelli dichiarativi, piuttosto che con script.
+* È possibile definire le dipendenze tra risorse e pertanto esse vengono distribuite nell'ordine corretto.
+* è possibile applicare il controllo di accesso a tutti i servizi nel gruppo di risorse perché il controllo di accesso basato sui ruoli (RBAC) è integrato in modo nativo nella piattaforma di gestione.
+* È possibile applicare tag alle risorse per organizzare in modo logico tutte le risorse nella sottoscrizione.
+* È possibile ottenere informazioni dettagliate sulla fatturazione per l'organizzazione visualizzando i costi di un gruppo di risorse che condividono lo stesso tag.
 
 Gestione risorse offre un nuovo modo per distribuire e gestire le soluzioni. Per informazioni sulle modifiche introdotte rispetto al modello di distribuzione precedente, vedere l'articolo relativo alle [informazioni sulla distribuzione di Gestione risorse e sulla distribuzione classica](resource-manager-deployment-model.md).
 
 ## Indicazioni
-
 I suggerimenti seguenti consentono di sfruttare al meglio Resource Manager per le proprie soluzioni.
 
 1. Definire e distribuire l'infrastruttura tramite la sintassi dichiarativa nei modelli di Gestione risorse, anziché tramite comandi imperativi.
@@ -56,27 +52,24 @@ I suggerimenti seguenti consentono di sfruttare al meglio Resource Manager per l
 Per ulteriori suggerimenti, vedere [Procedure consigliate per la creazione di modelli di Azure Resource Manager](resource-manager-template-best-practices.md).
 
 ## Gruppi di risorse
-
 Esistono alcuni fattori importanti da considerare quando si definisce il gruppo di risorse:
 
 1. Tutte le risorse del gruppo devono condividere lo stesso ciclo di vita. Le risorse vengono distribuite, aggiornate ed eliminate insieme. Se una risorsa, ad esempio un server di database, deve esistere in un ciclo di distribuzione diverso deve essere inclusa in un altro gruppo di risorse.
 2. Ogni risorsa può appartenere a un solo gruppo di risorse.
 3. È possibile aggiungere o rimuovere una risorsa in un gruppo di risorse in qualsiasi momento.
 4. È possibile spostare una risorsa da un gruppo di risorse a un altro. Per altre informazioni, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](resource-group-move-resources.md).
-4. Un gruppo di risorse può contenere le risorse che risiedono in aree diverse.
-5. Un gruppo di risorse consente di definire l'ambito di controllo di accesso per operazioni amministrative.
-6. Una risorsa può interagire con le risorse di altri gruppi di risorse. Questa interazione è comune quando le due risorse sono correlate, ma non condividono lo stesso ciclo di vita, ad esempio app Web che si connettono a un database.
+5. Un gruppo di risorse può contenere le risorse che risiedono in aree diverse.
+6. Un gruppo di risorse consente di definire l'ambito di controllo di accesso per operazioni amministrative.
+7. Una risorsa può interagire con le risorse di altri gruppi di risorse. Questa interazione è comune quando le due risorse sono correlate, ma non condividono lo stesso ciclo di vita, ad esempio app Web che si connettono a un database.
 
 Quando si crea un gruppo di risorse è necessario specificarne il percorso. Perché un gruppo di risorse necessita di un percorso? E se le risorse possono avere percorsi diversi rispetto al gruppo di risorse, perché il percorso del gruppo di risorse è importante? Il gruppo di risorse archivia i metadati delle risorse. Quando si specifica un percorso per il gruppo di risorse, si specifica il percorso di archiviazione dei metadati. Per motivi di conformità potrebbe essere necessario assicurarsi che i dati siano archiviati in una determinata area.
 
 ## Provider di risorse
-
-Ogni provider di risorse offre una serie di risorse e operazioni per l'uso dell'area tecnica. Per archiviare chiavi e segreti sarà ad esempio necessario usare il provider di risorse **Microsoft.KeyVault**. Questo provider di risorse offre un tipo di risorsa denominato **vaults** per creare l'insieme di credenziali delle chiavi e un tipo di risorsa denominato **vaults/secrets** per creare un segreto nell'insieme di credenziali delle chiavi. Mette anche a disposizione operazioni tramite l'[API REST dell'insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/dn903609.aspx). È possibile chiamare direttamente l'API REST oppure usare i [cmdlet PowerShell dell'insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/dn868052.aspx) e l'[interfaccia della riga di comando di Azure dell'insieme di credenziali delle chiavi](./key-vault/key-vault-manage-with-cli.md) per gestire l'insieme di credenziali delle chiavi. È anche possibile usare una serie di linguaggi di programmazione per la maggior parte delle risorse. Per altre informazioni, vedere [SDK ed esempi](#sdks-and-samples).
+Ogni provider di risorse offre una serie di risorse e operazioni per l'uso dell'area tecnica. Per archiviare chiavi e segreti sarà ad esempio necessario usare il provider di risorse **Microsoft.KeyVault**. Questo provider di risorse offre un tipo di risorsa denominato **vaults** per creare l'insieme di credenziali delle chiavi e un tipo di risorsa denominato **vaults/secrets** per creare un segreto nell'insieme di credenziali delle chiavi. Mette anche a disposizione operazioni tramite l'[API REST dell'insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/dn903609.aspx). È possibile chiamare direttamente l'API REST oppure usare i [cmdlet PowerShell dell'insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/dn868052.aspx) e l'[interfaccia della riga di comando di Azure dell'insieme di credenziali delle chiavi](key-vault/key-vault-manage-with-cli.md) per gestire l'insieme di credenziali delle chiavi. È anche possibile usare una serie di linguaggi di programmazione per la maggior parte delle risorse. Per altre informazioni, vedere [SDK ed esempi](#sdks-and-samples).
 
 Per distribuire e gestire l'infrastruttura è necessario conoscere i dettagli relativi al provider di risorse. È necessario conoscere i relativi tipi di risorse, i numeri di versione per le operazioni API REST, le operazioni supportate e lo schema da usare per la creazione delle risorse. Per altre informazioni sui provider di risorse supportati, vedere [Provider, aree, versioni API e schemi di Resource Manager](resource-manager-supported-services.md).
 
 ## Distribuzione del modello
-
 Resource Manager consente di creare un modello in formato JSON che definisce la distribuzione e la configurazione dell'applicazione. Utilizzando un modello, è possibile distribuire l'applicazione in tutto il ciclo di vita dell'app ripetutamente e avere la certezza che le risorse vengano distribuite in uno stato coerente. Azure Resource Manager analizza le dipendenze per far sì che le risorse vengano create nell'ordine corretto. Per altre informazioni, vedere [Definizione delle dipendenze nei modelli di Gestione risorse di Azure](resource-group-define-dependencies.md).
 
 Quando si crea una soluzione dal portale, la soluzione include automaticamente un modello di distribuzione. Non è necessario creare un modello da zero perché è possibile iniziare con il modello per la soluzione e personalizzarlo per soddisfare esigenze specifiche. È possibile recuperare un modello per un gruppo di risorse esistente esportando lo stato corrente del gruppo di risorse oppure visualizzando il modello usato per una distribuzione specifica. Per conoscere la sintassi del modello è molto utile visualizzare il modello esportato. Per altre informazioni sull'uso di modelli esportati, vedere [Esportare un modello di Azure Resource Manager da risorse esistenti](resource-manager-export-template.md).
@@ -98,7 +91,6 @@ Per istruzioni dettagliate sulla creazione di un modello, vedere [Procedura dett
 Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](solution-dev-test-environments.md).
 
 ## Tag
-
 Gestione risorse di Azure offre una funzionalità di categorizzazione che consente di suddividere le risorse in categorie in base ai requisiti di gestione o fatturazione. Usare i tag quando si ha un insieme complesso di gruppi di risorse e risorse ed è necessario visualizzare tali risorse nel modo più razionale. Ad esempio, è possibile contrassegnare le risorse che svolgono un ruolo simile nell'organizzazione o che appartengono allo stesso reparto. Senza tag è possibile che gli utenti dell'organizzazione creino più risorse che possono risultare difficili da identificare e gestire in un secondo momento. Si supponga ad esempio di voler eliminare tutte le risorse per un progetto specifico. Se le risorse non hanno tag per il progetto sarà necessario trovarle manualmente. L'assegnazione di tag può essere un modo importante per ridurre i costi non necessari nella sottoscrizione.
 
 Non è necessario che le risorse si trovino nello stesso gruppo di risorse per condividere un tag. È possibile creare una propria tassonomia di tag per assicurarsi che tutti gli utenti dell'organizzazione utilizzino tag comuni anziché applichino inavvertitamente tag leggermente diversi (ad esempio "dept" anziché "department").
@@ -106,23 +98,20 @@ Non è necessario che le risorse si trovino nello stesso gruppo di risorse per c
 Per altre informazioni sui tag, vedere [Uso dei tag per organizzare le risorse di Azure](resource-group-using-tags.md). È possibile creare [criteri personalizzati](#manage-resources-with-customized-policies) che richiedono l'aggiunta di tag alle risorse durante la distribuzione.
 
 ## Controllo di accesso
-
 Gestione risorse di Azure consente di controllare gli utenti autorizzati ad accedere ad azioni specifiche per l'organizzazione. In modo nativo, integra la piattaforma di gestione OAuth e controllo di accesso basato sui ruoli (RBAC) e applica tale controllo di accesso a tutti i servizi nel gruppo di risorse. È possibile aggiungere utenti ai ruoli specifici di risorsa e di piattaforma predefiniti e applicare tali ruoli a una sottoscrizione, a un gruppo di risorse o a una risorsa per limitare l'accesso. Ad esempio, è possibile sfruttare il ruolo predefinito denominato Collaboratore di DB SQL che consente agli utenti di gestire i database, ma non i server di database o i criteri di sicurezza. È possibile aggiungere utenti dell'organizzazione che richiedono questo tipo di accesso al ruolo Collaboratore Database SQL e applicare il ruolo alla sottoscrizione, al gruppo di risorse o alla risorsa.
 
 Gestione risorse di Azure registra automaticamente le azioni dell'utente ai fini del controllo. Per informazioni sull'uso dei log di controllo, vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
 
-Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Controllo degli accessi in base al ruolo di Azure](./active-directory/role-based-access-control-configure.md). Per un elenco dei ruoli predefiniti e delle azioni consentite, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](./active-directory/role-based-access-built-in-roles.md). I ruoli predefiniti includono i ruoli generali, ad esempio Proprietario, Lettore e Collaboratore, oltre ai ruoli specifici del servizio come ad esempio Collaboratore Macchina virtuale, Collaboratore Rete virtuale, Gestore Sicurezza SQL, solo per citarne alcuni.
+Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Controllo degli accessi in base al ruolo di Azure](active-directory/role-based-access-control-configure.md). Per un elenco dei ruoli predefiniti e delle azioni consentite, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](active-directory/role-based-access-built-in-roles.md). I ruoli predefiniti includono i ruoli generali, ad esempio Proprietario, Lettore e Collaboratore, oltre ai ruoli specifici del servizio come ad esempio Collaboratore Macchina virtuale, Collaboratore Rete virtuale, Gestore Sicurezza SQL, solo per citarne alcuni.
 
 È anche possibile bloccare in modo esplicito le risorse critiche per impedire agli utenti di eliminarle o modificarle. Per altre informazioni, vedere [Bloccare le risorse con Gestione risorse di Azure](resource-group-lock-resources.md).
 
 Per le procedure consigliate, vedere [Considerazioni sulla sicurezza per Gestione risorse di Azure](best-practices-resource-manager-security.md)
 
 ## Gestire risorse con criteri personalizzati
-
 Gestione risorse consente di creare criteri personalizzati per gestire le risorse. I tipi di criteri creati possono includere diversi scenari. È possibile applicare una convenzione di denominazione alle risorse e limitare i tipi e le istanze di risorse che possono essere distribuiti o le aree che possono ospitare un tipo di risorsa. È possibile richiedere l'applicazione di un valore di tag per le risorse per organizzare la fatturazione per i reparti. Creare criteri per ridurre i costi e mantenere la coerenza della sottoscrizione. Per altre informazioni, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
 
 ## Livello di gestione coerente
-
 Resource Manager fornisce operazioni compatibili attraverso Azure PowerShell, l'interfaccia della riga di comando di Azure per Mac, Linux e Windows, il portale di Azure o l'API REST. È possibile utilizzare l'interfaccia più adatta alle proprie esigenze e spostarsi rapidamente tra le interfacce senza confusione.
 
 Per informazioni su PowerShell, vedere [Utilizzo di Azure PowerShell con Gestione risorse di Azure](powershell-azure-resource-manager.md) e [Cmdlet di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn757692.aspx).
@@ -136,7 +125,6 @@ Per informazioni sull'uso del portale, vedere [Distribuire le risorse con i mode
 Gestione risorse di Azure supporta la condivisione di risorse tra origini (CORS, Cross-Origin Resource Sharing). Con CORS è possibile chiamare l'API REST di Gestione risorse o un'API REST del servizio Azure da un'applicazione Web residente in un dominio diverso. Senza il supporto di CORS il Web browser impedisce a un'app in un dominio di accedere alle risorse in un altro dominio. Gestione risorse abilita CORS per tutte le richieste con credenziali di autenticazione valide.
 
 ## SDK
-
 Azure SDK sono disponibili per più linguaggi e piattaforme. Ogni implementazione del linguaggio è disponibile tramite Gestione pacchetti del relativo ecosistema e in GitHub.
 
 Il codice in ogni SDK viene generato dalle specifiche dell'API RESTful di Azure. Queste specifiche sono open source e si basano sulla specifica Swagger 2.0. Il codice degli SDK viene generato con un progetto open source denominato AutoRest. AutoRest trasforma le specifiche delle API basate su REST in librerie client in più linguaggi. Se si vogliono migliorare alcuni aspetti del codice generato negli SDK, l'intero set di strumenti per creare gli SDK è aperto, disponibile gratuitamente e basato su un formato di specifica API ampiamente diffuso.
@@ -145,51 +133,47 @@ Di seguito sono riportati i repository SDK open source. Sono graditi commenti e 
 
 [.NET](https://github.com/Azure/azure-sdk-for-net) | [Java](https://github.com/Azure/azure-sdk-for-java) | [Node.js](https://github.com/Azure/azure-sdk-for-node) | [PHP](https://github.com/Azure/azure-sdk-for-php) | [Python](https://github.com/Azure/azure-sdk-for-python) | [Ruby](https://github.com/Azure/azure-sdk-ruby)
 
-> [AZURE.NOTE] Se l'SDK non offre le funzionalità necessarie, è anche possibile chiamare direttamente l'[API REST di Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
+> [!NOTE]
+> Se l'SDK non offre le funzionalità necessarie, è anche possibile chiamare direttamente l'[API REST di Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
+> 
+> 
 
 ## Esempi
-
 ### .NET
-
-- [Manage Azure resources and resource groups (Gestire risorse e gruppi di risorse di Azure)](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-- [Deploy an SSH Enabled VM with a Template (Distribuire una macchina virtuale abilitata per SSH con un modello)](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
+* [Manage Azure resources and resource groups (Gestire risorse e gruppi di risorse di Azure)](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
+* [Deploy an SSH Enabled VM with a Template (Distribuire una macchina virtuale abilitata per SSH con un modello)](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
 
 ### Java
-
-- [Manage Azure resources (Gestire risorse di Azure)](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource/)
-- [Manage Azure resource groups (Gestire gruppi di risorse di Azure)](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
-- [Deploy an SSH Enabled VM with a Template (Distribuire una macchina virtuale abilitata per SSH con un modello)](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+* [Manage Azure resources (Gestire risorse di Azure)](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource/)
+* [Manage Azure resource groups (Gestire gruppi di risorse di Azure)](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
+* [Deploy an SSH Enabled VM with a Template (Distribuire una macchina virtuale abilitata per SSH con un modello)](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
 
 ### Node.js
-
-- [Manage Azure resources and resource groups (Gestire risorse e gruppi di risorse di Azure)](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
-- [Deploy an SSH Enabled VM with a Template (Distribuire una macchina virtuale abilitata per SSH con un modello)](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+* [Manage Azure resources and resource groups (Gestire risorse e gruppi di risorse di Azure)](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+* [Deploy an SSH Enabled VM with a Template (Distribuire una macchina virtuale abilitata per SSH con un modello)](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
 
 ### Python
-
-- [Manage Azure resources and resource groups (Gestire risorse e gruppi di risorse di Azure)](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
-- [Deploy an SSH Enabled VM with a Template (Distribuire una macchina virtuale abilitata per SSH con un modello)](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+* [Manage Azure resources and resource groups (Gestire risorse e gruppi di risorse di Azure)](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+* [Deploy an SSH Enabled VM with a Template (Distribuire una macchina virtuale abilitata per SSH con un modello)](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
 
 ### Ruby
-
-- [Manage Azure resources and resource groups (Gestire risorse e gruppi di risorse di Azure)](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
-- [Deploy an SSH Enabled VM with a Template (Distribuire una macchina virtuale abilitata per SSH con un modello)](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
-
+* [Manage Azure resources and resource groups (Gestire risorse e gruppi di risorse di Azure)](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+* [Deploy an SSH Enabled VM with a Template (Distribuire una macchina virtuale abilitata per SSH con un modello)](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 Oltre che in questi esempi, è possibile cercare negli esempi della raccolta.
 
 [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) | [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) | [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs) | [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python) | [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
 
 ## Passaggi successivi
-
-- Per una semplice introduzione all'uso dei modelli, vedere [Esportare un modello di Azure Resource Manager da risorse esistenti](resource-manager-export-template.md).
-- Per istruzioni dettagliate sulla creazione di un modello, vedere [Procedura dettagliata per un modello di Resource Manager](resource-manager-template-walkthrough.md).
-- Per comprendere le funzioni che è possibile usare in un modello, vedere [Funzioni del modello](resource-group-template-functions.md)
-- Per informazioni sull'uso di Visual Studio con Resource Manager, vedere [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
-- Per informazioni sull'uso di Visual Studio Code con Resource Manager, vedere [Uso dei modelli di Azure Resource Manager in Visual Studio Code](resource-manager-vs-code.md).
+* Per una semplice introduzione all'uso dei modelli, vedere [Esportare un modello di Azure Resource Manager da risorse esistenti](resource-manager-export-template.md).
+* Per istruzioni dettagliate sulla creazione di un modello, vedere [Procedura dettagliata per un modello di Resource Manager](resource-manager-template-walkthrough.md).
+* Per comprendere le funzioni che è possibile usare in un modello, vedere [Funzioni del modello](resource-group-template-functions.md)
+* Per informazioni sull'uso di Visual Studio con Resource Manager, vedere [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+* Per informazioni sull'uso di Visual Studio Code con Resource Manager, vedere [Uso dei modelli di Azure Resource Manager in Visual Studio Code](resource-manager-vs-code.md).
 
 Ecco una dimostrazione video di questa panoramica:
 
-[AZURE.VIDEO azure-resource-manager-overview]
+[!VIDEO https://channel9.msdn.com/Blogs/Azure-Documentation-Shorts/Azure-Resource-Manager-Overview/player]
+
 
 <!---HONumber=AcomDC_0921_2016-->

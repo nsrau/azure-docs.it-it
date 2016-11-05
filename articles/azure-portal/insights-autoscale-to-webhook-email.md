@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Azure Insights: usare le azioni di scalabilità automatica per inviare notifiche di avviso di webhook e posta elettronica in Azure Insights| Microsoft Azure"
-	description="Informazioni su come usare le azioni di scalabilità automatica per chiamare URL Web o inviare notifiche di posta elettronica in Azure Insights. "
-	authors="kamathashwin"
-	manager=""
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>  
+---
+title: 'Azure Insights: usare le azioni di scalabilità automatica per inviare notifiche di avviso di webhook e posta elettronica in Azure Insights| Microsoft Docs'
+description: 'Informazioni su come usare le azioni di scalabilità automatica per chiamare URL Web o inviare notifiche di posta elettronica in Azure Insights. '
+author: kamathashwin
+manager: ''
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/19/2016"
-	ms.author="ashwink"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/19/2016
+ms.author: ashwink
 
+---
 # Usare le azioni di scalabilità automatica per inviare notifiche di avviso di webhook e posta elettronica in Azure Insights
-
 Questo articolo illustra come configurare i trigger per poter chiamare URL Web specifici o inviare messaggi di posta elettronica in base alle azioni di scalabilità automatica in Azure.
 
 ## Webhook
@@ -26,11 +25,10 @@ I webhook consentono di instradare le notifiche di avviso di Azure ad altri sist
 ## Email
 È possibile inviare un messaggio di posta elettronica a qualsiasi indirizzo di posta elettronica valido. Verrà inviata una notifica anche agli amministratori e ai coamministratori della sottoscrizione in cui viene eseguita la regola.
 
-
 ## Servizi cloud e app Web
 È possibile acconsentire esplicitamente dal portale di Azure ai servizi cloud e alle server farm (app Web).
 
-- Scegliere la metrica **Ridimensiona di**.
+* Scegliere la metrica **Ridimensiona di**.
 
 ![Opzione Ridimensiona di](./media/insights-autoscale-to-webhook-email/insights-autoscale-scale-by.png)
 
@@ -61,16 +59,15 @@ Per le macchine virtuali più recenti create con Resource Manager (set di scalab
       }
     ]
 ```
-|Campo |Obbligatorio?|	Descrizione|
-|---|---|---|
-|operation |sì |Il valore deve essere "Scale"|
-|sendToSubscriptionAdministrator |sì |Il valore deve essere "true" o "false"|
-|sendToSubscriptionCoAdministrators |sì |Il valore deve essere "true" o "false"|
-|customEmails |sì |Il valore può essere null o la matrice di stringhe di messaggi di posta elettronica|
-|webhooks |sì |Il valore può essere null o un URI valido|
-|serviceUri |sì |Un URI HTTPS valido|
-|properties |sì |Il valore deve essere vuoto {} o può contenere coppie chiave-valore|
-
+| Campo | Obbligatorio? | Descrizione |
+| --- | --- | --- |
+| operation |sì |Il valore deve essere "Scale" |
+| sendToSubscriptionAdministrator |sì |Il valore deve essere "true" o "false" |
+| sendToSubscriptionCoAdministrators |sì |Il valore deve essere "true" o "false" |
+| customEmails |sì |Il valore può essere null o la matrice di stringhe di messaggi di posta elettronica |
+| webhooks |sì |Il valore può essere null o un URI valido |
+| serviceUri |sì |Un URI HTTPS valido |
+| properties |sì |Il valore deve essere vuoto {} o può contenere coppie chiave-valore |
 
 ## Autenticazione nei webhook
 Esistono due tipi di URI di autenticazione:
@@ -108,23 +105,23 @@ Quando viene generata la notifica di scalabilità automatica, nel payload del we
 ```
 
 
-|Campo |Obbligatorio?|	Descrizione|
-|---|---|---|
-|status |sì |Stato che indica che è stata generata un'azione di scalabilità automatica|
-|operation|	sì |Per un aumento delle istanze, sarà "Scale Out", mentre per una riduzione delle istanze, sarà "Scale In"|
-|context|	sì |Contesto dell'azione di scalabilità automatica|
-|timestamp|	sì |Timestamp in cui è stata attivata l'azione di scalabilità automatica|
-|id |Sì|	ID di Resource Manager dell'impostazione di scalabilità automatica|
-|name |Sì|	Nome dell'impostazione di scalabilità automatica|
-|informazioni dettagliate|	Sì |Spiegazione dell'azione eseguita dal servizio di scalabilità automatica e della modifica al conteggio delle istanze|
-|subscriptionId|	Sì |ID sottoscrizione della risorsa di destinazione da ridimensionare|
-|resourceGroupName|	Sì|	Nome del gruppo di risorse della risorsa di destinazione da ridimensionare|
-|resourceName |Sì|	Nome della risorsa di destinazione da ridimensionare|
-|resourceType |Sì|	I tre valori supportati: "microsoft.classiccompute/domainnames/slots/roles" (ruoli dei servizi cloud), "microsoft.compute/virtualmachinescalesets" (set di scalabilità di macchine virtuali) e "Microsoft.Web/serverfarms" (app Web)|
-|resourceId |Sì|ID di Resource Manager della risorsa di destinazione da ridimensionare|
-|portalLink |Sì |Collegamento del portale di Azure alla pagina di riepilogo della risorsa di destinazione|
-|oldCapacity|	Sì |Conteggio delle istanze corrente (precedente) quando la scalabilità automatica ha eseguito un'azione di scalabilità|
-|newCapacity|	Sì |Nuovo conteggio delle istanze in base al quale la scalabilità automatica ha ridimensionato la risorsa|
-|Proprietà|	No|	Facoltativo. Set di coppie < chiave, valore > (ad esempio Dizionario <Stringa, Stringa>). Il campo properties è facoltativo. In un flusso di lavoro basato su interfaccia utente personalizzata o app per la logica, è possibile immettere chiavi e valori che possono essere passati usando il payload. Un metodo alternativo per passare le proprietà personalizzate alla chiamata al webhook in uscita è di usare l'URI del webhook stesso (sotto forma di parametri di query)|
+| Campo | Obbligatorio? | Descrizione |
+| --- | --- | --- |
+| status |sì |Stato che indica che è stata generata un'azione di scalabilità automatica |
+| operation |sì |Per un aumento delle istanze, sarà "Scale Out", mentre per una riduzione delle istanze, sarà "Scale In" |
+| context |sì |Contesto dell'azione di scalabilità automatica |
+| timestamp |sì |Timestamp in cui è stata attivata l'azione di scalabilità automatica |
+| id |Sì |ID di Resource Manager dell'impostazione di scalabilità automatica |
+| name |Sì |Nome dell'impostazione di scalabilità automatica |
+| informazioni dettagliate |Sì |Spiegazione dell'azione eseguita dal servizio di scalabilità automatica e della modifica al conteggio delle istanze |
+| subscriptionId |Sì |ID sottoscrizione della risorsa di destinazione da ridimensionare |
+| resourceGroupName |Sì |Nome del gruppo di risorse della risorsa di destinazione da ridimensionare |
+| resourceName |Sì |Nome della risorsa di destinazione da ridimensionare |
+| resourceType |Sì |I tre valori supportati: "microsoft.classiccompute/domainnames/slots/roles" (ruoli dei servizi cloud), "microsoft.compute/virtualmachinescalesets" (set di scalabilità di macchine virtuali) e "Microsoft.Web/serverfarms" (app Web) |
+| resourceId |Sì |ID di Resource Manager della risorsa di destinazione da ridimensionare |
+| portalLink |Sì |Collegamento del portale di Azure alla pagina di riepilogo della risorsa di destinazione |
+| oldCapacity |Sì |Conteggio delle istanze corrente (precedente) quando la scalabilità automatica ha eseguito un'azione di scalabilità |
+| newCapacity |Sì |Nuovo conteggio delle istanze in base al quale la scalabilità automatica ha ridimensionato la risorsa |
+| Proprietà |No |Facoltativo. Set di coppie < chiave, valore > (ad esempio Dizionario <Stringa, Stringa>). Il campo properties è facoltativo. In un flusso di lavoro basato su interfaccia utente personalizzata o app per la logica, è possibile immettere chiavi e valori che possono essere passati usando il payload. Un metodo alternativo per passare le proprietà personalizzate alla chiamata al webhook in uscita è di usare l'URI del webhook stesso (sotto forma di parametri di query) |
 
 <!---HONumber=AcomDC_0810_2016-->

@@ -1,28 +1,28 @@
-<properties
-   pageTitle="Esempio di configurazione per le estensioni di macchina virtuale di Linux | Microsoft Azure"
-   description="Configurazione di esempio per la creazione di modelli con le estensioni per le macchine virtuali di Linux."
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="kundanap"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+---
+title: Esempio di configurazione per le estensioni di macchina virtuale di Linux | Microsoft Docs
+description: Configurazione di esempio per la creazione di modelli con le estensioni per le macchine virtuali di Linux.
+services: virtual-machines-linux
+documentationcenter: ''
+author: kundanap
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="09/13/2016"
-   ms.author="kundanap"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 09/13/2016
+ms.author: kundanap
 
-
+---
 # <a name="linux-vm-extension-configuration-samples"></a>Esempi di configurazione dell’estensione delle macchine virtuali di Linux.
-
-> [AZURE.SELECTOR]
-- [PowerShell - Modello](virtual-machines-windows-extensions-configuration-samples.md)
-- [Interfaccia della riga di comando - Modello](virtual-machines-linux-extensions-configuration-samples.md)
+> [!div class="op_single_selector"]
+> * [PowerShell - Modello](virtual-machines-windows-extensions-configuration-samples.md)
+> * [Interfaccia della riga di comando - Modello](virtual-machines-linux-extensions-configuration-samples.md)
+> 
+> 
 
 <br>
 
@@ -56,7 +56,6 @@ Il frammento di modello per la distribuzione di estensioni appare come segue:
       }
 
 ## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets."></a>Frammento di modello di esempio per le estensioni VM con set di scalabilità di VM.
-
           {
            "type":"Microsoft.Compute/virtualMachineScaleSets",
           ....
@@ -217,8 +216,6 @@ Negli esempi precedenti, sostituire il numero di versione con il numero di versi
 Di seguito è riportato un modello di macchina virtuale completo per la creazione di una VM Linux con un'estensione:
 
 [Estensione di script personalizzato in una macchina virtuale Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

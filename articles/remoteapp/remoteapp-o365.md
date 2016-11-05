@@ -1,25 +1,26 @@
 
-<properties
-    pageTitle="Uso di Office con Azure RemoteApp | Microsoft Azure" 
-    description="Informazioni sull'interazione tra Office e Azure RemoteApp"
-    services="remoteapp"
-    documentationCenter=""
-    authors="lizap"
-    manager="mbaldwin" />
+---
+title: Uso di Office con Azure RemoteApp | Microsoft Docs
+description: Informazioni sull'interazione tra Office e Azure RemoteApp
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags
-    ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/15/2016"
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: elizapo
 
+---
 # Usare Office con Azure RemoteApp
-
-> [AZURE.IMPORTANT]
-Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> [!IMPORTANT]
+> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> 
+> 
 
 Sono disponibili due opzioni per l'hosting di applicazioni di Office in Azure RemoteApp: Office 365 ProPlus o la versione di valutazione di Office 2013 Professional Plus.
 
@@ -34,7 +35,6 @@ Per usare l'attivazione di computer condivisi di Office 365, è necessario crear
 
 È possibile gestire le licenze di Office 365 degli utenti nel [portale dell'amministratore di Office 365](https://portal.office365.com/). Per altre informazioni, vedere la pagina relativa ai [piani di servizio di Office 365](http://technet.microsoft.com/library/office-365-plan-options.aspx).
 
-
 ## Versione di valutazione di Office 2013 Professional Plus
 Durante la valutazione di 30 giorni di RemoteApp, è possibile usare l'immagine modello di Office 2013 Professional Plus (versione di valutazione) per creare una raccolta RemoteApp. È possibile assegnare utenti a questa versione di valutazione della raccolta usando i rispettivi account di lavoro di Azure Active Directory oppure gli account Microsoft. Non è necessaria una sottoscrizione aggiuntiva.
 
@@ -45,10 +45,9 @@ Quando si avvia la versione di valutazione gratuita di 30 giorni, una nota nella
 
 Quando si attiva l'account, l'operazione avrà effetto su tutte le raccolte RemoteApp presenti nell'account stesso.
 
-- Le raccolte che vengono eseguite con Windows Server 2012 R2 o con le immagini modello di Office 365 ProPlus passeranno facilmente e trasparentemente alla modalità di produzione. Tutti i dati e le impostazioni utente, comprese le sessioni in corso, rimarranno invariate.
-- Se sono state caricate immagini modello personalizzate, anche la transizione delle raccolte che usano tali immagini avverrà facilmente e in modo trasparente.
-- L'immagine modello di Office 2013 Professional Plus (versione di valutazione) è destinata esclusivamente alla valutazione. Le raccolte in cui si esegue questa immagine modello non possono essere passate alla modalità di produzione. Queste raccolte verranno messe in stato di disabilitazione.
-
+* Le raccolte che vengono eseguite con Windows Server 2012 R2 o con le immagini modello di Office 365 ProPlus passeranno facilmente e trasparentemente alla modalità di produzione. Tutti i dati e le impostazioni utente, comprese le sessioni in corso, rimarranno invariate.
+* Se sono state caricate immagini modello personalizzate, anche la transizione delle raccolte che usano tali immagini avverrà facilmente e in modo trasparente.
+* L'immagine modello di Office 2013 Professional Plus (versione di valutazione) è destinata esclusivamente alla valutazione. Le raccolte in cui si esegue questa immagine modello non possono essere passate alla modalità di produzione. Queste raccolte verranno messe in stato di disabilitazione.
 
 Se non si esegue la transizione alla modalità di produzione entro la scadenza della versione di valutazione, le raccolte RemoteApp verranno disabilitate. Ciò non sarà comunque un problema: le impostazioni e i dati degli utenti verranno salvati per altri 90 giorni, in modo che sia comunque possibile attivare il servizio e passare alla modalità di produzione senza alcuna perdita di dati.
 

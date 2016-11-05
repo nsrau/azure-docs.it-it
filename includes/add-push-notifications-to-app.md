@@ -1,6 +1,5 @@
 
 ## <a id="add-push"></a>Aggiungere notifiche push all'app
-
 * In QSAppDelegate.m, importare iOS SDK e QSTodoService.h:
 
 ```

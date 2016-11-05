@@ -1,33 +1,31 @@
-<properties 
-    pageTitle="Utilizzo dei dati geospaziali in Azure DocumentDB | Microsoft Azure" 
-    description="Informazioni su come creare, indice ed eseguire query su oggetti spaziali con Azure DocumentDB." 
-    services="documentdb" 
-    documentationCenter="" 
-    authors="arramac" 
-    manager="jhubbard" 
-    editor="monicar"/>
+---
+title: Utilizzo dei dati geospaziali in Azure DocumentDB | Microsoft Docs
+description: Informazioni su come creare, indice ed eseguire query su oggetti spaziali con Azure DocumentDB.
+services: documentdb
+documentationcenter: ''
+author: arramac
+manager: jhubbard
+editor: monicar
 
-<tags 
-    ms.service="documentdb" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.workload="data-services" 
-    ms.date="08/08/2016" 
-    ms.author="arramac"/>
-    
+ms.service: documentdb
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 08/08/2016
+ms.author: arramac
+
+---
 # Utilizzo dei dati geospaziali in Azure DocumentDB
-
 In questo articolo viene fornita un'introduzione alla funzionalità geospaziale in [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 
-- Come è possibile archiviare i dati spaziali in Azure DocumentDB?
-- Come è possibile eseguire una query su dati geospaziali in Azure DocumentDB in SQL e LINQ?
-- Come è possibile abilitare o disabilitare l'indicizzazione spaziale in DocumentDB?
+* Come è possibile archiviare i dati spaziali in Azure DocumentDB?
+* Come è possibile eseguire una query su dati geospaziali in Azure DocumentDB in SQL e LINQ?
+* Come è possibile abilitare o disabilitare l'indicizzazione spaziale in DocumentDB?
 
 Consultare il [progetto Github](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)per esempi di codice.
 
 ## Introduzione ai dati spaziali
-
 I dati spaziali descrivono la posizione e la forma degli oggetti nello spazio. Nella maggior parte delle applicazioni, questi corrispondono a oggetti sulla terra, vale a dire dati geospaziali. I dati spaziali possono essere utilizzati per rappresentare la posizione di una persona, un luogo di interesse o i confini di una città o di un lago. Casi di utilizzo comuni includono spesso query di prossimità, ad esempio, "trova tutti i negozi vicino alla mia posizione attuale".
 
 ### GeoJSON
@@ -43,9 +41,12 @@ Un **punto** indica una posizione singola nello spazio. In dati geospaziali, un 
        "coordinates":[ 31.9, -4.8 ]
     }
 
->[AZURE.NOTE] GeoJSON specifica la longitudine prima e la latitudine dopo. Come in altre applicazioni di mapping, longitudine e latitudine sono angoli e sono espresse in gradi. I valori della longitudine vengono misurati dal meridiano principale e sono compresi tra -180° e 180,0° gradi, mentre i valori della latitudine sono misurati dall'equatore e sono compresi tra -90,0° e 90,0°.
->
+> [!NOTE]
+> GeoJSON specifica la longitudine prima e la latitudine dopo. Come in altre applicazioni di mapping, longitudine e latitudine sono angoli e sono espresse in gradi. I valori della longitudine vengono misurati dal meridiano principale e sono compresi tra -180° e 180,0° gradi, mentre i valori della latitudine sono misurati dall'equatore e sono compresi tra -90,0° e 90,0°.
+> 
 > DocumentDB interpreta le coordinate come rappresentate secondo il sistema di riferimento WGS-84. Per ulteriori informazioni sui sistemi di coordinate di riferimento, vedere di seguito.
+> 
+> 
 
 Questo può essere incorporato in un documento di DocumentDB come illustrato in questo esempio di un profilo utente contenente i dati sulla posizione:
 
@@ -77,14 +78,16 @@ Oltre ai punti, GeoJSON supporta oggetti linestring e poligoni. I **LineStrings*
        ]
     }
 
->[AZURE.NOTE] La specifica GeoJSON richiede che per i poligoni validi, l’ultima coppia di coordinate fornita sia la stessa della prima, per creare una forma chiusa.
->
->I punti all'interno di un poligono devono essere specificati in senso antiorario. Un poligono specificato in senso orario rappresenta l'inverso dell'area al suo interno.
+> [!NOTE]
+> La specifica GeoJSON richiede che per i poligoni validi, l’ultima coppia di coordinate fornita sia la stessa della prima, per creare una forma chiusa.
+> 
+> I punti all'interno di un poligono devono essere specificati in senso antiorario. Un poligono specificato in senso orario rappresenta l'inverso dell'area al suo interno.
+> 
+> 
 
 Oltre a punto, LineString e poligono, GeoJSON specifica inoltre la rappresentazione della modalità di raggruppamento di più posizioni geospaziali, nonché come associare proprietà arbitrarie alla georilevazione come **Caratteristica**. Poiché questi sono oggetti JSON validi, essi possono essere memorizzati ed elaborati tutti in DocumentDB. Tuttavia DocumentDB supporta solo l'indicizzazione automatica dei punti.
 
 ### Sistemi di riferimento delle coordinate
-
 Poiché la forma della terra è irregolare, le coordinate dei dati geospaziali sono rappresentate in molti sistemi di coordinate di riferimento (CRS), ognuno con la propria struttura di riferimento e le proprie unità di misura. Ad esempio, il "National Grid of Britain" è un sistema di riferimento molto accurato per il Regno Unito, ma non al suo esterno.
 
 Il più diffuso CRS attualmente in uso è il World Geodetic System [WGS-84](http://earth-info.nga.mil/GandG/wgs84/). Dispositivi GPS e molti servizi di mapping, tra cui Google Maps e le API di Bing Maps, utilizzano WGS-84. DocumentDB supporta l'indicizzazione e l'esecuzione di query di dati geospaziali utilizzando solo il CRS WGS-84.
@@ -111,7 +114,7 @@ Se si lavora con gli SDK .NET (o Java), è possibile utilizzare le nuove classi,
 **Creare documenti con i dati geospaziali in .NET**
 
     using Microsoft.Azure.Documents.Spatial;
-    
+
     public class UserProfile
     {
         [JsonProperty("name")]
@@ -119,10 +122,10 @@ Se si lavora con gli SDK .NET (o Java), è possibile utilizzare le nuove classi,
 
         [JsonProperty("location")]
         public Point Location { get; set; }
-        
+
         // More properties
     }
-    
+
     await client.CreateDocumentAsync(
         UriFactory.CreateDocumentCollectionUri("db", "profiles"), 
         new UserProfile 
@@ -134,7 +137,6 @@ Se si lavora con gli SDK .NET (o Java), è possibile utilizzare le nuove classi,
 Se non si dispone delle informazioni di latitudine e longitudine, ma si dispone di indirizzi fisici o del nome della posizione come la città o il paese, è possibile cercare le coordinate effettive tramite un servizio di geocodifica come i servizi REST di Bing Maps. Ulteriori informazioni sulla geocodifica di Bing Maps sono disponibili [qui](https://msdn.microsoft.com/library/ff701713.aspx).
 
 ## Query sui tipi spaziali
-
 Ora che abbiamo esaminato come inserire i dati geospaziali, diamo un'occhiata a come eseguire query sui dati utilizzando DocumentDB, SQL e LINQ.
 
 ### Funzioni predefinite spaziali di SQL
@@ -188,8 +190,8 @@ Gli argomenti Polygon in ST\_WITHIN possono contenere solo un anello singolo, ad
     SELECT * 
     FROM Families f 
     WHERE ST_WITHIN(f.location, {
-    	'type':'Polygon', 
-    	'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
+        'type':'Polygon', 
+        'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
     })
 
 **Risultati**
@@ -197,8 +199,11 @@ Gli argomenti Polygon in ST\_WITHIN possono contenere solo un anello singolo, ad
     [{
       "id": "WakefieldFamily",
     }]
-    
->[AZURE.NOTE] Come per il funzionamento di tipi non corrispondenti nella query di DocumentDB, se il valore del percorso specificato nell'argomento è non corretto o non valido, verrà valutato **undefined** e il documento valutato verrà ignorato dai risultati della query. Se la query non restituisce alcun risultato, eseguire ST\_ISVALIDDETAILED per eseguire il debug del tipo spatail non valido.
+
+> [!NOTE]
+> Come per il funzionamento di tipi non corrispondenti nella query di DocumentDB, se il valore del percorso specificato nell'argomento è non corretto o non valido, verrà valutato **undefined** e il documento valutato verrà ignorato dai risultati della query. Se la query non restituisce alcun risultato, eseguire ST\_ISVALIDDETAILED per eseguire il debug del tipo spatail non valido.
+> 
+> 
 
 ST\_ISVALID e ST\_ISVALIDDETAILED possono essere utilizzati per verificare la validità di un oggetto spaziale. Ad esempio, la seguente query controlla la validità di un punto con un valore di latitudine fuori scala (-132,8). ST\_ISVALID restituisce solo un valore booleano e ST\_ISVALIDDETAILED restituisce il valore booleano e una stringa contenente il motivo per cui è considerato non valido.
 
@@ -217,20 +222,19 @@ Queste funzioni possono essere utilizzate anche per convalidare i poligoni. Ad e
 **Query**
 
     SELECT ST_ISVALIDDETAILED({ "type": "Polygon", "coordinates": [[ 
-    	[ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] 
-    	]]})
+        [ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] 
+        ]]})
 
 **Risultati**
 
     [{
        "$1": { 
-      	  "valid": false, 
-      	  "reason": "The Polygon input is not valid because the start and end points of the ring number 1 are not the same. Each ring of a polygon must have the same start and end points." 
-      	}
+            "valid": false, 
+            "reason": "The Polygon input is not valid because the start and end points of the ring number 1 are not the same. Each ring of a polygon must have the same start and end points." 
+          }
     }]
-    
-### Query di LINQ in .NET SDK
 
+### Query di LINQ in .NET SDK
 Il .NET SDK di DocumentDB fornisce inoltre metodi stub `Distance()` e `Within()` per l'utilizzo all'interno di espressioni LINQ. Il provider LINQ di DocumentDB converte le chiamate di questi metodi nelle chiamate della funzione predefinita di SQL equivalente (ST\_DISTANCE e ST\_WITHIN rispettivamente).
 
 Di seguito è riportato un esempio di una query LINQ che consente di trovare tutti i documenti nella raccolta di DocumentDB il cui valore "location" è entro un raggio di 30 km dal punto specificato utilizzando LINQ.
@@ -269,14 +273,16 @@ Analogamente, di seguito è riportata una query per trovare tutti i documenti il
 Ora che abbiamo dato un'occhiata a come eseguire una query dei documenti utilizzando LINQ ed SQL, esaminiamo come configurare DocumentDB per l'indicizzazione spaziale.
 
 ## Indicizzazione
-
 Come illustrato nell’articolo [Indicizzazione indipendente dallo schema con Azure DocumentDB](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), abbiamo progettato il motore del database DocumentDB per essere realmente indipendente dallo schema e fornire supporto avanzato per JSON. Il motore di database ottimizzato per la scrittura di DocumentDB ora riconosce anche a livello nativo i dati spaziali rappresentati nello standard GeoJSON.
 
 In breve, la geometria è proiettata dalle coordinate geodetiche su un piano 2D, quindi suddivisa progressivamente in celle utilizzando un **quadtree**. Queste celle vengono mappate in 1D in base alla posizione della cella all'interno di una **curva di riempimento dello spazio di Hilbert**, che consente di mantenere la posizione dei punti. Inoltre, quando i dati sulla località sono indicizzati, passano attraverso un processo noto come **tassellatura**, vale a dire tutte le celle che intersecano una posizione vengono identificate e archiviate come chiavi dell’indice di DocumentDB. In fase di query, anche argomenti come punti e poligoni sono tassellati per estrarre gli intervalli degli ID delle celle rilevanti e quindi utilizzati per recuperare dati dall'indice.
 
 Se si specifica un criterio di indicizzazione che include un indice spaziale per /* (tutti i percorsi), tutti i punti trovati all'interno dell'insieme vengono indicizzati per query spaziali efficienti (ST\_WITHIN e ST\_DISTANCE). Gli indici spaziali non hanno un valore di precisione e utilizzano sempre un valore di precisione predefinito.
 
->[AZURE.NOTE] DocumentDB supporta l'indicizzazione automatica di tipi di dati Point, Polygon (anteprima privata) e LineString (anteprima privata). Per l'accesso all'anteprima, inviare un messaggio all'indirizzo askdocdb@microsoft.com oppure contattare Microsoft tramite il supporto di Azure.
+> [!NOTE]
+> DocumentDB supporta l'indicizzazione automatica di tipi di dati Point, Polygon (anteprima privata) e LineString (anteprima privata). Per l'accesso all'anteprima, inviare un messaggio all'indirizzo askdocdb@microsoft.com oppure contattare Microsoft tramite il supporto di Azure.
+> 
+> 
 
 Il seguente frammento JSON mostra un criterio di indicizzazione con indicizzazione spaziale abilitata, ossia indicizza qualsiasi punto GeoJSON trovato all'interno di documenti per le query spaziali. Se si modifica il criterio di indicizzazione tramite il portale di Azure, è possibile specificare il seguente JSON come criterio di indicizzazione per abilitare l’indicizzazione spaziale nella raccolta.
 
@@ -336,16 +342,19 @@ Di seguito viene descritto come modificare una raccolta esistente per sfruttare 
         await Task.Delay(TimeSpan.FromSeconds(1));
     }
 
-> [AZURE.NOTE] Se il valore GeoJSON della posizione all'interno del documento è non corretto o non valido, non verrà indicizzato per le query spaziali. È possibile convalidare valori della posizione utilizzando ST\_ISVALID e ST\_ISVALIDDETAILED.
->
+> [!NOTE]
+> Se il valore GeoJSON della posizione all'interno del documento è non corretto o non valido, non verrà indicizzato per le query spaziali. È possibile convalidare valori della posizione utilizzando ST\_ISVALID e ST\_ISVALIDDETAILED.
+> 
 > Se la definizione della raccolta include una chiave di partizione, non viene segnalato lo stato di avanzamento della trasformazione dell'indicizzazione.
+> 
+> 
 
 ## Passaggi successivi
 Ora che si è appreso come iniziare a utilizzare il supporto geospaziale in DocumentDB, è possibile:
 
-- Iniziare a programmare con gli [esempi di codice .NET geospaziale su Github](https://github.com/Azure/azure-documentdb-dotnet/blob/e880a71bc03c9af249352cfa12997b51853f47e5/samples/code-samples/Geospatial/Program.cs)
-- Utilizzare le query geospaziali nel [Query Playground di DocumentDB](http://www.documentdb.com/sql/demo#geospatial)
-- Altre informazioni sulle [query di DocumentDB](documentdb-sql-query.md)
-- Ulteriori informazioni sui [criteri di indicizzazione di DocumentDB](documentdb-indexing-policies.md)
+* Iniziare a programmare con gli [esempi di codice .NET geospaziale su Github](https://github.com/Azure/azure-documentdb-dotnet/blob/e880a71bc03c9af249352cfa12997b51853f47e5/samples/code-samples/Geospatial/Program.cs)
+* Utilizzare le query geospaziali nel [Query Playground di DocumentDB](http://www.documentdb.com/sql/demo#geospatial)
+* Altre informazioni sulle [query di DocumentDB](documentdb-sql-query.md)
+* Ulteriori informazioni sui [criteri di indicizzazione di DocumentDB](documentdb-indexing-policies.md)
 
 <!---HONumber=AcomDC_0824_2016-->

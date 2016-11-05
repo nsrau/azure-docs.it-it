@@ -1,42 +1,36 @@
-<properties
-	pageTitle="Selezione delle funzionalità nel Processo di analisi scientifica dei dati per i team | Microsoft Azure" 
-	description="Illustra le finalità della selezione delle funzioni e fornisce esempi del relativo ruolo nel processo di miglioramento dei dati di Machine Learning."
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="jhubbard"
-	editor="cgronlun"/> 
+---
+title: Selezione delle funzionalità nel Processo di analisi scientifica dei dati per i team | Microsoft Docs
+description: Illustra le finalità della selezione delle funzioni e fornisce esempi del relativo ruolo nel processo di miglioramento dei dati di Machine Learning.
+services: machine-learning
+documentationcenter: ''
+author: bradsev
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/19/2016"
-	ms.author="zhangya;bradsev" /> 
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/19/2016
+ms.author: zhangya;bradsev
 
-
+---
 # Selezione delle funzionalità nel Processo di analisi scientifica dei dati per i team (TDSP)
-
 Questo articolo illustra la selezione della funzione e fornisce esempi del relativo ruolo nel processo di miglioramento dei dati di Machine Learning. Questi esempi sono tratti da Azure Machine Learning Studio.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 Questo argomento illustra la selezione della funzione e fornisce esempi del relativo ruolo nel processo di miglioramento dei dati di Machine Learning. Questi esempi sono tratti da Azure Machine Learning Studio.
 
 La progettazione e la selezione delle funzionalità sono parti del processo TDSP descritto in [Informazioni sul Processo di analisi scientifica dei dati per i team](data-science-process-overview.md). La progettazione e la selezione delle funzionalità sono parti del passaggio **Sviluppare funzionalità** del processo TDSP.
 
 * **Progettazione di funzionalità**: questo processo tenta di creare altre funzioni rilevanti dalle funzioni non elaborate esistenti nei dati e di aumentare le potenzialità predittive dell'algoritmo di apprendimento.
-
 * **Selezione di funzionalità**: questo processo seleziona il subset principale delle funzionalità dei dati originali nel tentativo di ridurre la dimensionalità del problema di training.
 
 In genere **la progettazione di funzioni** viene applicata innanzitutto per generare altre funzioni e quindi viene eseguito il passaggio di **selezione delle funzioni** per eliminare quelle irrilevanti, ridondanti o altamente correlate.
 
-
-## Filtro delle funzioni dai dati: selezione di funzioni 
-
+## Filtro delle funzioni dai dati: selezione di funzioni
 La selezione delle funzioni è un processo applicato comunemente per la costruzione di set di dati di training per le attività di modellazione predittive, come la classificazione o la regressione. L'obiettivo consiste nel selezionare un subset di funzioni dal set di dati originale, che riducono le dimensioni usando un set minimo di funzioni per rappresentare la quantità massima di varianza nei dati. Questo subset di funzioni rappresenta quindi le sole funzioni da includere per il training del modello. La selezione delle funzioni ha due scopi principali.
 
 * La selezione di funzioni migliora spesso la precisione della classificazione eliminando le funzioni irrilevanti, ridondanti o altamente correlate.
@@ -49,7 +43,6 @@ Tra le altre, una categoria di funzioni ampiamente applicata in un contesto supe
 In Azure Machine Learning Studio sono disponibili moduli per la selezione delle funzioni. Come illustrato nella figura seguente, questi moduli includono [Filter-Based Feature Selection][filter-based-feature-selection] e [Fisher Linear Discriminant Analysis][fisher-linear-discriminant-analysis].
 
 ![Esempio di selezione delle funzioni](./media/machine-learning-data-science-select-features/feature-Selection.png)
-
 
 Si consideri ad esempio l'uso del modulo [Filter-Based Feature Selection][filter-based-feature-selection]. Per praticità, si continuerà a usare l'esempio di data mining del testo illustrato in precedenza. Si supponga di voler compilare un modello di regressione in base a un set di 256 funzioni create con il modulo [Feature Hashing][feature-hashing] e che la variabile di risposta sia "Col1" e rappresenti le classificazioni delle recensioni di un libro in un intervallo da 1 a 5. Impostando "Feature scoring method" su "Pearson Correlation", "Target column" su "Col1" e "Number of desired features" su 50, il modulo [Filter-Based Feature Selection][filter-based-feature-selection] produrrà un set di dati contenente 50 funzioni insieme all'attributo di destinazione "Col1". La figura seguente mostra il flusso dell'esperimenti e i parametri di input appena descritti.
 
@@ -74,6 +67,6 @@ Si noti che non sempre è necessario eseguire la progettazione o la selezione de
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
- 
+
 
 <!---HONumber=AcomDC_0921_2016-->

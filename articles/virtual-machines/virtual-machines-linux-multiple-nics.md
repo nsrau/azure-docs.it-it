@@ -1,25 +1,28 @@
-<properties
-   pageTitle="Configurare più schede di rete in una macchina virtuale di Linux | Microsoft Azure"
-   description="Informazioni su come creare una macchina virtuale con più schede di rete collegate utilizzando l'interfaccia della riga di comando di Azure o i modelli di Azure Resource Manager."
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""/>
+---
+title: Configurare più schede di rete in una macchina virtuale di Linux | Microsoft Docs
+description: Informazioni su come creare una macchina virtuale con più schede di rete collegate utilizzando l'interfaccia della riga di comando di Azure o i modelli di Azure Resource Manager.
+services: virtual-machines-linux
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure"
-   ms.date="08/02/2016"
-   ms.author="iainfou"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 08/02/2016
+ms.author: iainfou
 
+---
 # Creazione di una macchina virtuale con più schede di rete
 È possibile creare una macchina virtuale (VM) in Azure con più interfacce di rete virtuale (NIC) collegate. Uno scenario comune è quello di avere subnet diverse per la connettività front-end e back-end, oppure disporre di una rete dedicata a una soluzione di monitoraggio o di backup. In questo articolo vengono presentati i comandi rapidi per creare una macchina virtuale con più schede di rete collegate. Per informazioni dettagliate, incluse quelle sulla creazione di più schede di rete all'interno degli script di Bash, consultare la sezione dedicata alla [distribuzione di macchine virtuali con più schede di rete](../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Le differenti [dimensioni della macchina virtuale](virtual-machines-linux-sizes.md) supportano un numero variabile di schede di rete, pertanto scegliere le dimensioni della macchina virtuale di conseguenza.
 
->[AZURE.WARNING] È necessario collegare più schede di rete quando si crea una VM, poiché non è possibile aggiungere le schede di rete a una macchina virtuale esistente. È possibile [creare una nuova macchina virtuale basata sui dischi virtuali originali](virtual-machines-linux-copy-vm.md) e creare più schede di rete mentre si distribuisce la macchina virtuale.
+> [!WARNING]
+> È necessario collegare più schede di rete quando si crea una VM, poiché non è possibile aggiungere le schede di rete a una macchina virtuale esistente. È possibile [creare una nuova macchina virtuale basata sui dischi virtuali originali](virtual-machines-linux-copy-vm.md) e creare più schede di rete mentre si distribuisce la macchina virtuale.
+> 
+> 
 
 ## Comandi rapidi
 Controllare di aver effettuato l'accesso tramite l'[ interfaccia della riga di comando di Azure](../xplat-cli-install.md) e di usare la modalità Resource Manager (`azure config mode arm`).

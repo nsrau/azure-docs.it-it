@@ -1,37 +1,38 @@
-<properties 
-	pageTitle="Impostare gli avvisi in Application Insights" 
-	description="Ricevere messaggi di posta elettronica per arresti anomali, eccezioni, modifiche delle metriche." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Impostare gli avvisi in Application Insights
+description: Ricevere messaggi di posta elettronica per arresti anomali, eccezioni, modifiche delle metriche.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/20/2016" 
-	ms.author="awills"/>
- 
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 06/20/2016
+ms.author: awills
+
+---
 # Impostare gli avvisi in Application Insights
-
 [Visual Studio Application Insights][start] segnala le variazioni nelle metriche di utilizzo o delle prestazioni nell'app.
 
 Application Insights esegue il monitoraggio dell'app attiva in un'[ampia varietà di piattaforme][platforms] per consentire di diagnosticare i problemi di prestazioni e acquisire informazioni sui modelli di utilizzo.
 
 Esistono due tipi di avvisi:
- 
+
 * I **test Web** indicano quando il sito non è disponibile in Internet o risponde lentamente. [Altre informazioni][availability]
 * Gli **avvisi delle metriche** indicano quando una qualsiasi metrica supera un valore di soglia per un determinato periodo, ad esempio, numero di errori, memoria o visualizzazioni di pagina. 
 
 Poiché è disponibile una [pagina separata sui test Web][availability], qui verranno descritti gli avvisi delle metriche.
 
-> [AZURE.NOTE] Si potrebbero ricevere messaggi di posta elettronica anche dal [rilevamento proattivo](app-insights-proactive-detection.md), che avvisano di anomalie nelle prestazioni dell'applicazione. A differenza degli avvisi, queste notifiche vengono eseguite senza che sia necessario impostarle. Hanno lo scopo di ottimizzare le prestazioni dell'applicazione e non di segnalare problemi immediati.
+> [!NOTE]
+> Si potrebbero ricevere messaggi di posta elettronica anche dal [rilevamento proattivo](app-insights-proactive-detection.md), che avvisano di anomalie nelle prestazioni dell'applicazione. A differenza degli avvisi, queste notifiche vengono eseguite senza che sia necessario impostarle. Hanno lo scopo di ottimizzare le prestazioni dell'applicazione e non di segnalare problemi immediati.
+> 
+> 
 
 ## Avvisi delle metriche
-
 Se non è stato ancora configurato Application Insights per l'app [eseguire prima questa operazione][start].
 
 Per ricevere un messaggio di posta elettronica quando una metrica supera una soglia, iniziare da Esplora metriche o dal riquadro Regole avvisi nel pannello Panoramica.
@@ -43,15 +44,17 @@ Per ricevere un messaggio di posta elettronica quando una metrica supera una sog
 * Il nome assegnato all'avviso deve essere univoco all'interno del gruppo di risorse (non solo dell'applicazione).
 * Se si seleziona la casella "Proprietari di posta elettronica...", verranno inviati avvisi tramite posta elettronica a chiunque abbia accesso a questo gruppo di risorse. Per espandere il set di utenti, aggiungerli al [gruppo di risorse o a una sottoscrizione](app-insights-resources-roles-access-control.md) (non la risorsa).
 * Se si specifica "Indirizzi di posta elettronica aggiuntivi", gli avvisi verranno inviati agli utenti o gruppi corrispondenti (indipendentemente dalla selezione della casella relativa ai "proprietari di posta elettronica..."). 
-* Impostare un [indirizzo di webhook](../azure-portal/insights-webhooks-alerts.md) se è stata impostata un'app Web che risponderà agli avvisi. L'app verrà richiamata sia quando l'avviso viene attivato sia quando viene risolto. Si noti però che attualmente i parametri di query non vengono passati come proprietà webhook.
+* Impostare un [indirizzo di webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) se è stata impostata un'app Web che risponderà agli avvisi. L'app verrà richiamata sia quando l'avviso viene attivato sia quando viene risolto. Si noti però che attualmente i parametri di query non vengono passati come proprietà webhook.
 * È possibile disabilitare o abilitare l'avviso usando i pulsanti nella parte superiore del pannello.
 
 *Il pulsante Aggiungi avviso non viene visualizzato*: si sta usando un account aziendale? È possibile impostare gli avvisi se si ha l'accesso come proprietario o come collaboratore a questa risorsa dell'applicazione. Controllare in Impostazioni -> Utenti. [Informazioni sul controllo di accesso][roles].
 
-> [AZURE.NOTE] Nel pannello degli avvisi si noterà che è già presente un avviso: [Diagnostica proattiva quasi in tempo reale](app-insights-nrt-proactive-diagnostics.md). Si tratta di un avviso automatico che controlla una particolare metrica, la frequenza di errori delle richieste. Pertanto, a meno che non si decida di disabilitare questa opzione, non è necessario impostare un proprio avviso relativo alla frequenza di errori delle richieste.
+> [!NOTE]
+> Nel pannello degli avvisi si noterà che è già presente un avviso: [Diagnostica proattiva quasi in tempo reale](app-insights-nrt-proactive-diagnostics.md). Si tratta di un avviso automatico che controlla una particolare metrica, la frequenza di errori delle richieste. Pertanto, a meno che non si decida di disabilitare questa opzione, non è necessario impostare un proprio avviso relativo alla frequenza di errori delle richieste.
+> 
+> 
 
 ## Visualizzare gli avvisi
-
 Si riceve un messaggio di posta elettronica quando lo stato dell'avviso passa da inattivo ad attivo e viceversa.
 
 Lo stato corrente di ogni avviso viene visualizzato nel pannello delle regole di avviso.
@@ -64,36 +67,22 @@ La cronologia delle modifiche di stato si trova nel log di controllo:
 
 ![Nel pannello Panoramica fare clic su Impostazioni, Log di controllo](./media/app-insights-alerts/09-alerts.png)
 
-
-
 ## Funzionamento degli avvisi
-
 * Un avviso può avere tre stati: "Mai attivato", "Attivato" e "Risolto". Lo stato Attivato indica che la condizione specificata aveva valore true al momento dell'ultima valutazione.
-
 * Quando lo stato di un avviso viene modificato, viene generata una notifica. Se la condizione dell'avviso era già impostata su true durante la creazione dell'avviso, è possibile che non si riceva alcuna notifica finché la condizione non viene impostata su false.
-
 * Ogni notifica genera un messaggio di posta elettronica se è stata selezionata la casella dei messaggi di posta elettronica o sono stati specificati indirizzi di posta elettronica. È anche possibile esaminare l'elenco di riepilogo a discesa Notifiche.
-
 * Un avviso viene valutato ogni volta che arriva una metrica, ma non altrimenti.
-
 * La valutazione aggrega la metrica per il periodo precedente e quindi la confronta con la soglia per determinare il nuovo stato.
-
 * Il periodo scelto specifica l'intervallo per il quale vengono aggregate le metriche. Non influisce sulla frequenza con cui viene valutato l'avviso: ciò dipende dalla frequenza di arrivo delle metriche.
-
 * Se per un periodo di tempo non arrivano dati per una determinata metrica, il divario comporta diversi effetti sulla valutazione dell'avviso e sui grafici in Esplora metriche. Se in Esplora metriche non viene visualizzato alcun dato per un periodo più lungo dell'intervallo di campionamento del grafico, il grafico mostrerà un valore pari a 0. Un avviso basato sulla metrica stessa non verrà valutato nuovamente e lo stato dell'avviso rimarrà invariato.
-
+  
     Quando infine arrivano i dati, il grafico verrà riportato su un valore diverso da zero. L'avviso verrà valutato in base ai dati disponibili per il periodo specificato. Se il nuovo punto dati è l'unico disponibile nel periodo, la funzione di aggregazione si baserà solo su di esso.
-
 * Un avviso può spesso passare velocemente dallo stato di avviso a quello integro e viceversa, anche se si imposta un periodo prolungato. Questa situazione può verificarsi se il valore della metrica si aggira intorno alla soglia. Non esiste alcuna isteresi nella soglia: la transizione allo stato di avviso si verifica in corrispondenza dello stesso valore della transizione allo stato integro.
 
-
-
 ## Avvisi di disponibilità
-
 È possibile configurare test Web che consentono di testare qualsiasi sito Web in qualunque parte del mondo. [Altre informazioni][availability]
 
 ## Quali sono gli avvisi corretti da impostare?
-
 Dipende dall'applicazione. Per iniziare, è consigliabile non impostare un numero eccessivo di metriche. Esaminare i grafici delle metriche mentre l'app è in esecuzione per acquisire informazioni sul comportamento normale. Sarà così possibile trovare un modo per migliorare le prestazioni. Impostare quindi gli avvisi per ricevere le notifiche quando le metriche superano la zona normale.
 
 Gli avvisi più diffusi includono:
@@ -104,17 +93,13 @@ Gli avvisi più diffusi includono:
 * **Eccezioni del server**: per visualizzarle, è necessario effettuare alcuni passaggi di [configurazione aggiuntivi](app-insights-asp-net-exceptions.md).
 
 ## Automazione
-
 * [Usare PowerShell per automatizzare la configurazione degli avvisi](app-insights-powershell-alerts.md)
-* [Usare webhook per automatizzare la risposta agli avvisi](../azure-portal/insights-webhooks-alerts.md)
+* [Usare webhook per automatizzare la risposta agli avvisi](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 
 ## Vedere anche
-
 * [Test Web di disponibilità](app-insights-monitor-web-app-availability.md)
 * [Automatizzare la configurazione degli avvisi](app-insights-powershell-alerts.md)
 * [Rilevamento proattivo](app-insights-proactive-detection.md) 
-
-
 
 <!--Link references-->
 
@@ -124,6 +109,6 @@ Gli avvisi più diffusi includono:
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-overview.md
 
- 
+
 
 <!---HONumber=AcomDC_0622_2016-->

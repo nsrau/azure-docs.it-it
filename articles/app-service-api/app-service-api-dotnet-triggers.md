@@ -1,28 +1,28 @@
-<properties 
-	pageTitle="Trigger delle app per le API del servizio app | Microsoft Azure" 
-	description="Come implementare i trigger in un'app per le API in Servizio app di Azure." 
-	services="logic-apps" 
-	documentationCenter=".net" 
-	authors="guangyang"
-	manager="wpickett" 
-	editor="jimbe"/>
+---
+title: Trigger delle app per le API del servizio app | Microsoft Docs
+description: Come implementare i trigger in un'app per le API in Servizio app di Azure.
+services: logic-apps
+documentationcenter: .net
+author: guangyang
+manager: wpickett
+editor: jimbe
 
-<tags 
-	ms.service="logic-apps" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/25/2016" 
-	ms.author="rachelap"/>
+ms.service: logic-apps
+ms.workload: na
+ms.tgt_pltfrm: dotnet
+ms.devlang: na
+ms.topic: article
+ms.date: 08/25/2016
+ms.author: rachelap
 
+---
 # Trigger delle app per le API del servizio app di Azure
-
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per le API.
-
+> [!NOTE]
+> Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per le API.
+> 
+> 
 
 ## Overview
-
 Questo articolo spiega come implementare i trigger delle app per le API e usarli da un'app per la logica.
 
 Tutti i frammenti di codice in questo argomento sono stati copiati dall'[esempio di codice di app per le API FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802).
@@ -30,34 +30,31 @@ Tutti i frammenti di codice in questo argomento sono stati copiati dall'[esempio
 Per la corretta compilazione ed esecuzione del codice riportato in questo articolo, sarà inoltre necessario scaricare il pacchetto NuGet seguente: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
 
 ## Cosa sono i trigger delle app per le API?
-
 In genere, le app per le API generano eventi in modo che i client dell'app per le API possano eseguire l'azione appropriata in risposta all'evento. Il meccanismo basato sull'API REST che supporta questo scenario è definito come trigger dell'app per le API.
 
 Si supponga, ad esempio, che il codice client usi l'[app per le API Twitter Connector](../app-service-logic/app-service-logic-connector-twitter.md) e che il codice debba eseguire un'azione in base ai nuovi tweet che contengono parole specifiche. In questo caso, è possibile configurare un trigger di polling o di push.
 
 ## Trigger di polling e trigger di push
-
 Attualmente sono supportati due tipi di trigger:
 
-- Trigger di polling: il client esegue il polling dell'app per le API per la notifica di un evento generato
-- Trigger di push: il client riceve una notifica dall'app per le API quando viene generato un evento
+* Trigger di polling: il client esegue il polling dell'app per le API per la notifica di un evento generato
+* Trigger di push: il client riceve una notifica dall'app per le API quando viene generato un evento
 
 ### Trigger di polling
-
 Un trigger di polling viene implementato come un'API REST normale e prevede che i client, ad esempio un'app per la logica, ne eseguano il polling per ricevere la notifica. Mentre il client può mantenere il suo stato, il trigger di polling stesso è senza stato.
 
 Le informazioni seguenti relative ai pacchetti di richiesta e di risposta illustrano alcuni aspetti fondamentali del contratto del trigger di polling:
 
-- Richiesta
-    - Metodo HTTP: GET
-    - Parametri
-        - triggerState: questo parametro facoltativo consente ai client di specificare il proprio stato in modo che il trigger di polling possa decidere correttamente se restituire o meno una notifica in base allo stato specificato.
-        - Parametri specifici dell'API
-- Response
-    - Codice di stato **200**: la richiesta è valida ed è presente una notifica dal trigger. Il contenuto della notifica si troverà nel corpo della risposta. Un'intestazione "Retry-After" nella risposta indica che è necessario recuperare i dati della notifica aggiuntivi con una chiamata di richiesta successiva.
-    - Codice di stato **202**: la richiesta è valida ma non sono presenti nuove notifiche dal trigger.
-    - Codice di stato **4xx**: la richiesta non è valida. Il client non deve ripetere la richiesta.
-    - Codice di stato **5xx**: durante la richiesta si è verificato un errore interno del server e/o un problema temporaneo. Il client deve ripetere la richiesta.
+* Richiesta
+  * Metodo HTTP: GET
+  * Parametri
+    * triggerState: questo parametro facoltativo consente ai client di specificare il proprio stato in modo che il trigger di polling possa decidere correttamente se restituire o meno una notifica in base allo stato specificato.
+    * Parametri specifici dell'API
+* Response
+  * Codice di stato **200**: la richiesta è valida ed è presente una notifica dal trigger. Il contenuto della notifica si troverà nel corpo della risposta. Un'intestazione "Retry-After" nella risposta indica che è necessario recuperare i dati della notifica aggiuntivi con una chiamata di richiesta successiva.
+  * Codice di stato **202**: la richiesta è valida ma non sono presenti nuove notifiche dal trigger.
+  * Codice di stato **4xx**: la richiesta non è valida. Il client non deve ripetere la richiesta.
+  * Codice di stato **5xx**: durante la richiesta si è verificato un errore interno del server e/o un problema temporaneo. Il client deve ripetere la richiesta.
 
 Il frammento di codice seguente descrive come implementare un trigger di polling.
 
@@ -97,24 +94,23 @@ Per testare il trigger di polling, seguire questa procedura:
 3. Chiamare il trigger di polling con il parametro **triggerState** impostato su un timestamp prima di procedere al passaggio 2. L'immagine seguente illustra la richiesta di esempio tramite Postman. ![Chiamata del trigger di polling tramite Postman](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.PNG)
 
 ### Trigger di push
-
 Un trigger di push viene implementato come un'API REST normale che esegue il push delle notifiche ai client registrati per ricevere una notifica quando vengono generati eventi specifici.
 
 Le informazioni seguenti relative ai pacchetti di richiesta e di risposta illustrano alcuni aspetti fondamentali del contratto del trigger di push:
 
-- Richiesta
-    - Metodo HTTP: PUT
-    - Parametri
-        - triggerId: obbligatorio. Si tratta di una stringa opaca (ad esempio un GUID) che rappresenta la registrazione di un trigger di push.
-        - callbackUrl: obbligatorio. Si tratta dell'URL del callback da richiamare quando viene generato l'evento. La chiamata è una semplice chiamata HTTP POST.
-        - Parametri specifici dell'API
-- Response
-    - Codice di stato **200**: la richiesta di registrazione del client è riuscita.
-    - Codice di stato **4xx**: la richiesta non è valida. Il client non deve ripetere la richiesta.
-    - Codice di stato **5xx**: durante la richiesta si è verificato un errore interno del server e/o un problema temporaneo. Il client deve ripetere la richiesta.
-- Callback
-    - Metodo HTTP: POST
-    - Corpo della richiesta: contenuto della notifica.
+* Richiesta
+  * Metodo HTTP: PUT
+  * Parametri
+    * triggerId: obbligatorio. Si tratta di una stringa opaca (ad esempio un GUID) che rappresenta la registrazione di un trigger di push.
+    * callbackUrl: obbligatorio. Si tratta dell'URL del callback da richiamare quando viene generato l'evento. La chiamata è una semplice chiamata HTTP POST.
+    * Parametri specifici dell'API
+* Response
+  * Codice di stato **200**: la richiesta di registrazione del client è riuscita.
+  * Codice di stato **4xx**: la richiesta non è valida. Il client non deve ripetere la richiesta.
+  * Codice di stato **5xx**: durante la richiesta si è verificato un errore interno del server e/o un problema temporaneo. Il client deve ripetere la richiesta.
+* Callback
+  * Metodo HTTP: POST
+  * Corpo della richiesta: contenuto della notifica.
 
 Il frammento di codice seguente descrive come implementare un trigger di push:
 
@@ -202,7 +198,6 @@ Per testare il trigger di polling, seguire questa procedura:
 5. Controllare l'oggetto RequestBin per assicurarsi che il callback del trigger di push venga richiamato con l'output delle proprietà. ![Chiamata del trigger di polling tramite Postman](./media/app-service-api-dotnet-triggers/pushtriggercallbackinrequestbin.PNG)
 
 ### Descrivere i trigger nella definizione dell'API
-
 Dopo aver implementato i trigger e distribuito l'app per le API in Azure, passare al pannello **Definizione API** nel portale di anteprima di Azure. Si noterà che i trigger vengono riconosciuti automaticamente nell'interfaccia utente che è basata sulla definizione API Swagger 2.0 dell'app per le API.
 
 ![Pannello Definizione API](./media/app-service-api-dotnet-triggers/apidefinitionblade.PNG)
@@ -226,19 +221,17 @@ Se si fa clic sul pulsante **Scarica Swagger** e si apre il file JSON, verranno 
 
 La proprietà **x-ms-schedular-trigger** rappresenta il modo in cui i trigger sono descritti nella definizione dell'API e viene aggiunta automaticamente dal gateway dell'app per le API quando si richiede la definizione dell'API tramite il gateway, se la richiesta soddisfa uno dei criteri seguenti. È anche possibile aggiungere questa proprietà manualmente.
 
-- Trigger di polling
-    - Se il metodo HTTP è **GET**.
-    - Se la proprietà **operationId** contiene la stringa **trigger**.
-    - Se la proprietà **parameters** include un parametro con una proprietà **name** impostata su **triggerState**.
-- Trigger di push
-    - Se il metodo HTTP è **PUT**.
-    - Se la proprietà **operationId** contiene la stringa **trigger**.
-    - Se la proprietà **parameters** include un parametro con una proprietà **name** impostata su **triggerId**.
+* Trigger di polling
+  * Se il metodo HTTP è **GET**.
+  * Se la proprietà **operationId** contiene la stringa **trigger**.
+  * Se la proprietà **parameters** include un parametro con una proprietà **name** impostata su **triggerState**.
+* Trigger di push
+  * Se il metodo HTTP è **PUT**.
+  * Se la proprietà **operationId** contiene la stringa **trigger**.
+  * Se la proprietà **parameters** include un parametro con una proprietà **name** impostata su **triggerId**.
 
 ## Usare i trigger di app per le API nelle app per la logica
-
 ### Elencare e configurare i trigger di app per le API nella finestra di progettazione di app per la logica
-
 Se si crea un'app per la logica nello stesso gruppo di risorse dell'app per le API, sarà possibile aggiungerla all'area di disegno della finestra di progettazione, semplicemente facendo clic su di essa. Vedere le immagini seguenti per un esempio:
 
 ![Trigger nella finestra di progettazione di app per la logica](./media/app-service-api-dotnet-triggers/triggersinlogicappdesigner.PNG)
@@ -248,12 +241,11 @@ Se si crea un'app per la logica nello stesso gruppo di risorse dell'app per le A
 ![Configurazione del trigger di push nella finestra di progettazione di app per la logica](./media/app-service-api-dotnet-triggers/configurepushtriggerinlogicappdesigner.PNG)
 
 ## Ottimizzare i trigger di app per le API per le app per la logica
-
 Dopo aver aggiunto i trigger a un'app per le API, è possibile eseguire alcune operazioni per migliorare l'esperienza durante l'uso dell'app per le API in un'app per la logica.
 
 Ad esempio, impostare il parametro **triggerState** per i trigger di polling sull'espressione seguente nell'app per la logica. Questa espressione deve valutare l'ultima chiamata del trigger dall'app per la logica e restituire il relativo valore.
 
-	@coalesce(triggers()?.outputs?.body?['triggerState'], '')
+    @coalesce(triggers()?.outputs?.body?['triggerState'], '')
 
 NOTA: per una spiegazione delle funzioni usate nell'espressione precedente, fare riferimento alla documentazione relativa al [linguaggio di definizione del flusso di lavoro delle app per la logica](https://msdn.microsoft.com/library/azure/dn948512.aspx).
 
@@ -261,7 +253,7 @@ Gli utenti dell'app per la logica dovranno specificare l'espressione precedente 
 
     "/api/Messages/poll": {
       "get": {
-	    "operationId": "Messages_NewMessageTrigger",
+        "operationId": "Messages_NewMessageTrigger",
         "parameters": [
           {
             "name": "triggerState",
@@ -295,7 +287,6 @@ Grazie all'uso delle proprietà di estensione **x-ms-scheduler-recommendation** 
 
 
 ### Aggiungere le proprietà di estensione nella definizione dell'API
-
 Per aggiungere ulteriori informazioni sui metadati, ad esempio le proprietà di estensione **x-ms-scheduler-recommendation** e **x-ms-visibility**, alla definizione dell'API sono disponibili due modi, uno statico e uno dinamico.
 
 Per i metadati statici, è possibile modificare direttamente il file */metadata/apiDefinition.swagger.json* nel progetto e aggiungere manualmente le proprietà.
@@ -340,6 +331,6 @@ Di seguito è riportato un esempio di come è possibile implementare questa clas
             }
         }
     }
- 
+
 
 <!---HONumber=AcomDC_0831_2016-->

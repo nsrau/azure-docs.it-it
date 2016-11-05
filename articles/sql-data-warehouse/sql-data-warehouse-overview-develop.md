@@ -1,52 +1,51 @@
-<properties
-   pageTitle="Decisioni di progettazione e tecniche di codifica per lo sviluppo di SQL Data Warehouse | Microsoft Azure"
-   description="Concetti di sviluppo, decisioni di progettazione, suggerimenti e tecniche di codifica per SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Decisioni di progettazione e tecniche di codifica per lo sviluppo di SQL Data Warehouse | Microsoft Docs
+description: Concetti di sviluppo, decisioni di progettazione, suggerimenti e tecniche di codifica per SQL Data Warehouse.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="08/16/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 08/16/2016
+ms.author: jrj;barbkess;sonyama
 
+---
 # Decisioni di progettazione e tecniche di codifica per SQL Data Warehouse
-
 Esaminare questi articoli sullo sviluppo per capire meglio le decisioni chiave nella progettazione, i suggerimenti e le tecniche di codifica per SQL Data Warehouse.
 
 ## Decisioni chiave nella progettazione
 Gli articoli seguenti illustrano alcuni dei concetti chiave e alcune delle decisioni di progettazione che sarà necessario conoscere per lo sviluppo del data warehouse distribuito tramite SQL Data Warehouse:
 
-- [Connessioni][]
-- [Concorrenza][]
-- [Transazioni][]
-- [Schemi definiti dall'utente][]
-- [Distribuzione di tabelle in SQL Data Warehouse][]
-- [Indicizzazione di tabelle in SQL Data Warehouse][]
-- [Partizioni di tabella][]
-- [CTAS][]
-- [Statistiche][]
+* [Connessioni][Connessioni]
+* [Concorrenza][Concorrenza]
+* [Transazioni][Transazioni]
+* [Schemi definiti dall'utente][Schemi definiti dall'utente]
+* [Distribuzione di tabelle in SQL Data Warehouse][Distribuzione di tabelle in SQL Data Warehouse]
+* [Indicizzazione di tabelle in SQL Data Warehouse][Indicizzazione di tabelle in SQL Data Warehouse]
+* [Partizioni di tabella][Partizioni di tabella]
+* [CTAS][CTAS]
+* [Statistiche][Statistiche]
 
 ## Sviluppo dei suggerimenti e delle tecniche di codifica
 Questi articoli illustrano le tecniche di codifica, i consigli e i suggerimenti consigliate specifici per lo sviluppo dell’SQL Data Warehouse:
 
-- [Stored procedure][]
-- [Etichette][]
-- [Viste][]
-- [Tabelle temporanee][]
-- [SQL dinamico][]
-- [Cicli][]
-- [Opzioni di raggruppamento][]
-- [Assegnazione di variabili][]
+* [Stored procedure][Stored procedure]
+* [Etichette][Etichette]
+* [Viste][Viste]
+* [Tabelle temporanee][Tabelle temporanee]
+* [SQL dinamico][SQL dinamico]
+* [Cicli][Cicli]
+* [Opzioni di raggruppamento][Opzioni di raggruppamento]
+* [Assegnazione di variabili][Assegnazione di variabili]
 
 ## Passaggi successivi
-Dopo aver letto gli articoli sullo sviluppo, esaminare la pagina relativa agli [argomenti di riferimento per Transact-SQL][] per altre informazioni sulla sintassi supportata per SQL Data Warehouse.
+Dopo aver letto gli articoli sullo sviluppo, esaminare la pagina relativa agli [argomenti di riferimento per Transact-SQL][argomenti di riferimento per Transact-SQL] per altre informazioni sulla sintassi supportata per SQL Data Warehouse.
 
 <!--Image references-->
 

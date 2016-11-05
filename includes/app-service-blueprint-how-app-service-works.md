@@ -11,7 +11,6 @@
 * [Supporto degli stack di sviluppo del Servizio app di Azure](/blog/windows-azure-websites-development-stacks-support/)
 
 ## Video
-
 * [Architettura del Servizio app di Azure](/documentation/videos/why-azure-web-sites-plus-architecture/)
 
 <!---HONumber=AcomDC_0224_2016-->

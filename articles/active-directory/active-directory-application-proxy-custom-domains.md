@@ -1,27 +1,25 @@
-<properties
-	pageTitle="Utilizzo di domini personalizzati nel Proxy di applicazione di Azure AD | Microsoft Azure"
-	description="Viene illustrato il funzionamento di domini personalizzati nel Proxy di applicazione di Azure AD"
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor=""/>
+---
+title: Utilizzo di domini personalizzati nel Proxy di applicazione di Azure AD | Microsoft Docs
+description: Viene illustrato il funzionamento di domini personalizzati nel Proxy di applicazione di Azure AD
+services: active-directory
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/22/2016"
-	ms.author="kgremban"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/22/2016
+ms.author: kgremban
 
+---
 # Utilizzo di domini personalizzati nel Proxy di applicazione AD Azure
-
 L'utilizzo di un dominio predefinito consente di impostare lo stesso URL come URL interno ed esterno per l'accesso all'applicazione in modo che gli utenti dispongano solo di un URL per ricordare l'accesso all'app indipendentemente dal luogo da cui si accede. Ciò consente inoltre di creare un collegamento singolo nel Pannello di accesso per l'applicazione. Se si utilizza il dominio predefinito fornito dal Proxy di applicazione Azure AD, non esiste alcuna configurazione aggiuntiva necessaria per abilitare il dominio. Nel caso in cui si utilizza un dominio personalizzato, esistono alcune cose da fare per assicurarsi che il Proxy di applicazione riconosca il dominio e convalidi i certificati.
 
 ## Selezionare un dominio personalizzato
-
 1. Pubblicare l'applicazione seguendo le istruzioni descritte in [Pubblicare applicazioni mediante il proxy di applicazione AD Azure](active-directory-application-proxy-publish.md).
 2. Dopo che l'applicazione verrà visualizzata nell'elenco delle applicazioni, selezionarla e fare clic su **Configura**.
 3. Su **URL esterno**, immettere il dominio personalizzato.
@@ -29,7 +27,6 @@ L'utilizzo di un dominio predefinito consente di impostare lo stesso URL come UR
 5. Assicurarsi di aggiungere un record DNS che indirizzi l'URL interno all'applicazione che consente di ottenere lo stesso URL per l'accesso interno ed esterno e un singolo collegamento all'applicazione nell'elenco delle applicazioni dell'utente.
 
 ## Domande frequenti sull'utilizzo di domini personalizzati
-
 D: è possibile selezionare un certificato già caricato senza caricarlo nuovamente? R: I certificati precedentemente caricati vengono associati automaticamente a un'applicazione ed esiste esattamente un solo certificato corrispondente al nome host dell'applicazione.
 
 D: Come aggiungere un certificato e in quale formato deve essere caricato il documento esportato? R: Il certificato deve poi essere caricato dalla pagina di configurazione dell'applicazione. Il certificato deve essere un file PFX.
@@ -56,13 +53,11 @@ D: È possibile usare un certificato autofirmato? R: Sì, sono consentiti i cert
 
 D: esiste una posizione per visualizzare tutti i certificati per il tenant? R: Questo non è supportato nella versione corrente.
 
-
 ## Vedere anche
-
-- [Pubblicare le applicazioni con il proxy di applicazione](active-directory-application-proxy-publish.md)
-- [Abilita Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)
-- [Abilitare l'accesso condizionale](active-directory-application-proxy-conditional-access.md)
-- [Aggiungere un nome di dominio personalizzato ad Azure AD](active-directory-add-domain.md)
+* [Pubblicare le applicazioni con il proxy di applicazione](active-directory-application-proxy-publish.md)
+* [Abilita Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)
+* [Abilitare l'accesso condizionale](active-directory-application-proxy-conditional-access.md)
+* [Aggiungere un nome di dominio personalizzato ad Azure AD](active-directory-add-domain.md)
 
 Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (Blog sul proxy di applicazione)
 

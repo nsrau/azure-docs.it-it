@@ -6,32 +6,29 @@ Il seguente codice consente di inviare notifiche a Windows Store, Windows Phone 
 Se è stata creata un'app console quando è stata completata l'esercitazione [Introduzione agli Hub di notifica][get-started], ignorare i passaggi da 1 a 3.
 
 1. In Visual Studio creare una nuova applicazione console in Visual C#: 
-
-   	![][13]
-
+   
+       ![][13]
 2. Nel menu principale di Visual Studio fare clic su **Strumenti**, **Gestione pacchetti di librerie** e **Console di Gestione pacchetti**, quindi nella finestra di tipo console digitare quanto segue e premere **INVIO**:
-
+   
         Install-Package Microsoft.Azure.NotificationHubs
- 	
-	Verrà aggiunto un riferimento a Azure Notification Hubs SDK mediante il <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">pacchetto Microsoft.Azure.Notification Hubs NuGet</a>.
-
+   
+    Verrà aggiunto un riferimento a Azure Notification Hubs SDK mediante il <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">pacchetto Microsoft.Azure.Notification Hubs NuGet</a>.
 3. Aprire il file Program.cs e aggiungere l'istruzione `using` seguente:
-
+   
         using Microsoft.Azure.NotificationHubs;
-
 4. Nella classe `Program` aggiungere il metodo seguente oppure sostituirlo se esiste già:
-
+   
         private static async void SendNotificationAsync()
         {
-			// Define the notification hub.
-		    NotificationHubClient hub = 
-				NotificationHubClient.CreateClientFromConnectionString(
-					"<connection string with full access>", "<hub name>");
-		
-		    // Create an array of breaking news categories.
-		    var categories = new string[] { "World", "Politics", "Business", 
-		        "Technology", "Science", "Sports"};
-		
+            // Define the notification hub.
+            NotificationHubClient hub = 
+                NotificationHubClient.CreateClientFromConnectionString(
+                    "<connection string with full access>", "<hub name>");
+   
+            // Create an array of breaking news categories.
+            var categories = new string[] { "World", "Politics", "Business", 
+                "Technology", "Science", "Sports"};
+   
             foreach (var category in categories)
             {
                 try
@@ -41,7 +38,7 @@ Se è stata creata un'app console quando è stata completata l'esercitazione [In
                         + "<text id="1">Breaking " + category + " News!" 
                         + "</text></binding></visual></toast>";         
                     await hub.SendWindowsNativeNotificationAsync(wnsToast, category);
-
+   
                     // Define a Windows Phone toast.
                     var mpnsToast =
                         "<?xml version="1.0" encoding="utf-8"?>" +
@@ -51,12 +48,12 @@ Se è stata creata un'app console quando è stata completata l'esercitazione [In
                             "</wp:Toast> " +
                         "</wp:Notification>";         
                     await hub.SendMpnsNativeNotificationAsync(mpnsToast, category);
-
+   
                     // Define an iOS alert.
                     var alert = "{"aps":{"alert":"Breaking " + category + " News!"}}";
                     await hub.SendAppleNativeNotificationAsync(alert, category);
-
-					// Define an Android notification.
+   
+                    // Define an Android notification.
                     var notification = "{"data":{"msg":"Breaking " + category + " News!"}}";
                     await hub.SendGcmNativeNotificationAsync(notification, category);
                 }
@@ -66,18 +63,19 @@ Se è stata creata un'app console quando è stata completata l'esercitazione [In
                     // registered for the iOS, Windows Store, or Windows Phone platform. 
                 }
             }
-		 }
-
-	Con questo codice vengono inviate notifiche per ognuno dei sei tag della matrice di stringhe a Windows Store, Windows Phone e dispositivi iOS. Con i tag è possibile assicurarsi che i dispositivi ricevano notifiche solo per le categorie registrate.
-	
-	> [AZURE.NOTE]Questo codice back-end supporta Windows Store, Windows Phone e client iOS e Android. I metodi Send restituiscono una risposta di errore se l'hub di notifica non è stato ancora configurato per una determinata piattaforma client.
-
-6. Nel codice precedente sostituire i segnaposto `<hub name>` e `<connection string with full access>`, con il nome dell'hub di notifica e la stringa di connessione per *DefaultFullSharedAccessSignature* ottenuta in precedenza.
-
-7. Aggiungere le righe seguenti nel metodo **Main**:
-
+         }
+   
+    Con questo codice vengono inviate notifiche per ognuno dei sei tag della matrice di stringhe a Windows Store, Windows Phone e dispositivi iOS. Con i tag è possibile assicurarsi che i dispositivi ricevano notifiche solo per le categorie registrate.
+   
+   > [!NOTE]
+   > Questo codice back-end supporta Windows Store, Windows Phone e client iOS e Android. I metodi Send restituiscono una risposta di errore se l'hub di notifica non è stato ancora configurato per una determinata piattaforma client.
+   > 
+   > 
+5. Nel codice precedente sostituire i segnaposto `<hub name>` e `<connection string with full access>`, con il nome dell'hub di notifica e la stringa di connessione per *DefaultFullSharedAccessSignature* ottenuta in precedenza.
+6. Aggiungere le righe seguenti nel metodo **Main**:
+   
          SendNotificationAsync();
-		 Console.ReadLine();
+         Console.ReadLine();
 
 <!-- Anchors -->
 [From a console app]: #console

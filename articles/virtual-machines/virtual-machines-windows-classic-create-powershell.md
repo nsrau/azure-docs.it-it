@@ -1,34 +1,34 @@
-<properties
-    pageTitle="Creare una macchina virtuale Windows con PowerShell | Microsoft Azure"
-    description="Creare macchine virtuali Windows con Azure PowerShell e il modello di distribuzione classica."
-    services="virtual-machines-windows"
-    documentationCenter=""
-    authors="cynthn"
-    manager="timlt"
-    editor=""
-    tags="azure-service-management"/>
+---
+title: Creare una macchina virtuale Windows con PowerShell | Microsoft Docs
+description: Creare macchine virtuali Windows con Azure PowerShell e il modello di distribuzione classica.
+services: virtual-machines-windows
+documentationcenter: ''
+author: cynthn
+manager: timlt
+editor: ''
+tags: azure-service-management
 
-<tags
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/27/2016"
-    ms.author="cynthn"/>
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 09/27/2016
+ms.author: cynthn
 
-
-# <a name="create-a-windows-virtual-machine-with-powershell-and-the-classic-deployment-model"></a>Creare macchine virtuali Windows con il modello di distribuzione classica e PowerShell 
-
-> [AZURE.SELECTOR]
-- [Portale di Azure classico - Windows](virtual-machines-windows-classic-tutorial.md)
-- [PowerShell - Windows](virtual-machines-windows-classic-create-powershell.md)
+---
+# <a name="create-a-windows-virtual-machine-with-powershell-and-the-classic-deployment-model"></a>Creare macchine virtuali Windows con il modello di distribuzione classica e PowerShell
+> [!div class="op_single_selector"]
+> * [Portale di Azure classico - Windows](virtual-machines-windows-classic-tutorial.md)
+> * [PowerShell - Windows](virtual-machines-windows-classic-create-powershell.md)
+> 
+> 
 
 <br>
 
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Informazioni su come [eseguire questa procedura con il modello di Resource Manager](virtual-machines-windows-ps-create.md).
-
+Informazioni su come [eseguire questa procedura con il modello di Resource Manager](virtual-machines-windows-ps-create.md).
 
 In questi passaggi viene illustrato come personalizzare un set di comandi di Azure PowerShell per la creazione e la preconfigurazione di una macchina virtuale di Azure basata su Windows tramite un approccio con componenti principali. È possibile usare questo processo per creare rapidamente un set di comandi per una nuova macchina virtuale basata su Windows ed espandere una distribuzione esistente oppure creare più set di comandi in grado di generare rapidamente un ambiente personalizzato di sviluppo/test o per professionisti IT.
 
@@ -37,14 +37,12 @@ Questi passaggi seguono un approccio basato sul completamento di valori predefin
 Se non è ancora stato installato, attenersi alle istruzioni incluse nell’argomento [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per installare Azure PowerShell nel computer locale. Quindi, aprire un prompt dei comandi di Windows PowerShell.
 
 ## <a name="step-1:-add-your-account"></a>Passaggio 1: Aggiungere l'account
-
 1. Al prompt di PowerShell digitare **Add-AzureAccount** e premere **INVIO**. 
 2. Digitare l'indirizzo di posta elettronica associato alla sottoscrizione di Azure e fare clic su **Continua**. 
 3. Digitare la password per l'account. 
 4. Fare clic su **Accedi**.
 
 ## <a name="step-2:-set-your-subscription-and-storage-account"></a>Passaggio 2: Impostare l'account di archiviazione e la sottoscrizione
-
 Impostare la sottoscrizione di Azure e l'account di archiviazione eseguendo questi comandi al prompt dei comandi di Windows PowerShell. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < e >, con i nomi corretti.
 
     $subscr="<subscription name>"
@@ -55,17 +53,16 @@ Impostare la sottoscrizione di Azure e l'account di archiviazione eseguendo ques
 È possibile ottenere il nome della sottoscrizione corretto dalla proprietà SubscriptionName dell'output del comando **Get-AzureSubscription** . È possibile ottenere il nome dell'account di archiviazione corretto dalla proprietà Label dell'output del comando **Get-AzureStorageAccount** dopo aver eseguito il comando **Select-AzureSubscription**.
 
 ## <a name="step-3:-determine-the-imagefamily"></a>Passaggio 3: determinare il valore ImageFamily
-
 Il passaggio successivo prevede la determinazione del valore ImageFamily o Label per l'immagina specifica corrispondente alla macchina virtuale di Azure da creare. Con questo comando è possibile ottenere l'elenco di valori ImageFamily disponibili.
 
     Get-AzureVMImage | select ImageFamily -Unique
 
 Di seguito sono riportati alcuni esempi di valori ImageFamily per i computer basati su Windows:
 
-- Windows Server 2012 R2 Datacenter
-- Windows Server 2008 R2 SP1,
-- Windows Server 2016 Technical Preview 4
-- SQL Server 2012 SP1 Enterprise in Windows Server 2012
+* Windows Server 2012 R2 Datacenter
+* Windows Server 2008 R2 SP1,
+* Windows Server 2016 Technical Preview 4
+* SQL Server 2012 SP1 Enterprise in Windows Server 2012
 
 Se si trova l'immagine che si sta cercando, aprire una nuova istanza dell'editor di testo preferito o l'ambiente PowerShell Integrated Scripting Environment (ISE). Copiare quanto segue nel nuovo file di testo o in PowerShell ISE, sostituendo il valore ImageFamily.
 
@@ -82,7 +79,6 @@ Se si trova l'immagine corretta con questo comando, aprire una nuova istanza del
     $image = Get-AzureVMImage | where { $_.Label -eq $label } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
 ## <a name="step-4:-build-your-command-set"></a>Passaggio 4: compilare il set di comandi
-
 Compilare il resto del set di comandi copiando il seguente set appropriato di blocchi nel nuovo file di testo o in ISE, quindi compilare i valori delle variabili rimuovendo i caratteri < e >. Vedere i due [esempi](#examples) alla fine di questo articolo per avere un'idea del risultato finale.
 
 Avviare il set di comandi scegliendo uno dei due seguenti blocchi di comandi (obbligatorio).
@@ -102,7 +98,10 @@ Opzione 2: specificare un nome, la dimensione e il nome del set di disponibilit�
 
 Per i valori InstanceSize per le macchine virtuali di serie D-, DS- o G-, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
->[AZURE.NOTE] Se si dispone di un contratto Enterprise con Software Assurance e si intende sfruttare il [vantaggio dell'uso ibrido](https://azure.microsoft.com/pricing/hybrid-use-benefit/) di Windows Server, aggiungere il parametro **-LicenseType** al cmdlet **New-AzureVMConfig**, passando il valore **Windows_Server** come caso d'uso tipico.  Controllare che si stia usando un'immagine caricata, poiché con il vantaggio dell'uso ibrido non è consentito usare un'immagine standard della raccolta.
+> [!NOTE]
+> Se si dispone di un contratto Enterprise con Software Assurance e si intende sfruttare il [vantaggio dell'uso ibrido](https://azure.microsoft.com/pricing/hybrid-use-benefit/) di Windows Server, aggiungere il parametro **-LicenseType** al cmdlet **New-AzureVMConfig**, passando il valore **Windows_Server** come caso d'uso tipico.  Controllare che si stia usando un'immagine caricata, poiché con il vantaggio dell'uso ibrido non è consentito usare un'immagine standard della raccolta.
+> 
+> 
 
 Facoltativamente, per un computer Windows autonomo, specificare l'account amministratore locale e la password.
 
@@ -170,31 +169,28 @@ Opzione 2: creare la macchina virtuale in un servizio cloud e in una rete virtua
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
 ## <a name="step-5:-run-your-command-set"></a>Passaggio 5: eseguire il set di comandi
-
 Rivedere il set di comandi di Azure PowerShell compilato nell'editor di testo o in PowerShell ISE costituito da più blocchi di comandi del passaggio 4. Assicurarsi di aver specificato tutte le variabili necessarie e che siano presenti i valori corretti. Assicurarsi inoltre che siano stati rimossi tutti i caratteri < e >.
 
 Se si usa un editor di testo, copiare il set di comandi negli Appunti, quindi fare clic con il pulsante destro del mouse sul prompt dei comandi aperto di Windows PowerShell. Il set di comandi verrà emesso come una serie di comandi di PowerShell e verrà creata la macchina virtuale di Azure. In alternativa, eseguire il comando set in PowerShell ISE.
 
 Se si crea nuovamente questa macchina virtuale o una simile, è possibile:
 
-- Salvare questo set di comandi come file di script di PowerShell (*.ps1).
-- Salvare questo set di comandi come Runbook di automazione di Azure nella sezione **Automazione** del portale di Azure classico.
+* Salvare questo set di comandi come file di script di PowerShell (*.ps1).
+* Salvare questo set di comandi come Runbook di automazione di Azure nella sezione **Automazione** del portale di Azure classico.
 
 ## <a name="<a-id="examples"></a>examples"></a><a id="examples"></a>Esempi:
-
 Di seguito sono riportati due esempi d'uso dei passaggi precedenti per compilare i set di comandi di Azure PowerShell per la creazione di macchine virtuali Azure basate su Windows.
 
 ### <a name="example-1"></a>Esempio 1
-
 Un set di comandi di PowerShell è necessario per creare la macchina virtuale iniziale per un controller di dominio di Active Directory che:
 
-- Utilizzi l'immagine Windows Server 2012 R2 Datacenter.
-- Sia denominato AZDC1.
-- Sia un computer autonomo.
-- Disponga di un disco dati aggiuntivo di 20 GB.
-- Abbia l'indirizzo IP statico 192.168.244.4.
-- Si trovi nella subnet BackEnd della rete virtuale AZDatacenter.
-- Si trovi nel servizio cloud Azure-TailspinToys.
+* Utilizzi l'immagine Windows Server 2012 R2 Datacenter.
+* Sia denominato AZDC1.
+* Sia un computer autonomo.
+* Disponga di un disco dati aggiuntivo di 20 GB.
+* Abbia l'indirizzo IP statico 192.168.244.4.
+* Si trovi nella subnet BackEnd della rete virtuale AZDatacenter.
+* Si trovi nel servizio cloud Azure-TailspinToys.
 
 Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina virtuale, con righe vuote tra ogni blocco per migliorare la leggibilità.
 
@@ -222,15 +218,14 @@ Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
 ### <a name="example-2"></a>Esempio 2
-
 Un set di comandi di PowerShell è necessario per creare una macchina virtuale per un server line-of-business che:
 
-- Utilizzi l'immagine Windows Server 2012 R2 Datacenter.
-- Sia denominato LOB1.
-- Sia membro del dominio corp.contoso.com.
-- Disponga di un disco dati aggiuntivo di 200 GB.
-- Si trovi nella subnet FrontEnd della rete virtuale AZDatacenter.
-- Si trovi nel servizio cloud Azure-TailspinToys.
+* Utilizzi l'immagine Windows Server 2012 R2 Datacenter.
+* Sia denominato LOB1.
+* Sia membro del dominio corp.contoso.com.
+* Disponga di un disco dati aggiuntivo di 200 GB.
+* Si trovi nella subnet FrontEnd della rete virtuale AZDatacenter.
+* Si trovi nel servizio cloud Azure-TailspinToys.
 
 Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina virtuale.
 
@@ -260,14 +255,7 @@ Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-
 Se è necessario un disco del sistema operativo superiore a 127 GB, è possibile [espandere l'unità del sistema operativo](virtual-machines-windows-expand-os-disk.md).
-
-
-
-
-
-
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,37 +1,33 @@
-<properties
-   pageTitle="Automazione della distribuzione di applicazioni con le estensioni delle macchine virtuali | Microsoft Azure"
-   description="Macchine virtuali di Azure - Esercitazione DotNet Core"
-   services="virtual-machines-linux"
-   documentationCenter="virtual-machines"
-   authors="neilpeterson"
-   manager="timlt"
-   editor="tysonn"
-   tags="azure-service-management"/>
+---
+title: Automazione della distribuzione di applicazioni con le estensioni delle macchine virtuali | Microsoft Docs
+description: Macchine virtuali di Azure - Esercitazione DotNet Core
+services: virtual-machines-linux
+documentationcenter: virtual-machines
+author: neilpeterson
+manager: timlt
+editor: tysonn
+tags: azure-service-management
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure"
-   ms.date="09/21/2016"
-   ms.author="nepeters"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 09/21/2016
+ms.author: nepeters
 
-
+---
 # <a name="application-deployment-with-azure-resource-manager-templates"></a>Distribuzione di applicazioni con i modelli di Azure Resource Manager
-
 Dopo che tutti i requisiti dell'infrastruttura di Azure sono stati identificati e convertiti in un modello di distribuzione, è necessario occuparsi della distribuzione effettiva delle applicazioni. Per distribuzione delle applicazioni si intende l'installazione effettiva dei file binari delle applicazioni nelle risorse di Azure. Per l'esempio Music Store, è necessario installare e configurare .NET Core, NGINX e Supervisor in ogni macchina virtuale, nonché installare i file binari di Music Store nella macchina virtuale e creare il database di Music Store.
 
 Questo documento descrive in che modo le estensioni delle macchine virtuali possono automatizzare la distribuzione e la configurazione di applicazioni nelle macchine virtuali di Azure. Tutte le dipendenze e le configurazioni univoche sono evidenziate. Per ottenere risultati ottimali, pre-distribuire un'istanza della soluzione alla propria sottoscrizione di Azure ed esercitarsi con il modello di Azure Resource Manager. Il modello completo è disponibile in [Music Store Deployment on Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)(Distribuzione di Music Store in Ubuntu).
 
 ## <a name="configuration-script"></a>Script di configurazione
-
 Le estensioni delle macchine virtuali sono programmi specializzati che vengono eseguiti sulle macchine virtuali per automatizzare le attività di configurazione. Le estensioni sono disponibili per molti scopi specifici, ad esempio un programma antivirus, la configurazione della registrazione e la configurazione di Docker. Un'estensione script personalizzata può essere usata per eseguire uno script su una macchina virtuale. Nel caso dell'esempio Music Store, l'estensione script personalizzata viene usata per configurare le macchine virtuali Ubuntu e installare l'applicazione Music Store.
 
 Prima di vedere in che modo le estensioni delle macchine virtuali sono dichiarate in un modello di Azure Resource Manager, esaminare lo script che viene eseguito. Questo script configura la macchina virtuale Ubuntu in modo da ospitare l'applicazione Music Store. Durante l'esecuzione, lo script installa tutto il software necessario, installa l'applicazione Music Store dal controllo del codice sorgente e prepara il database. 
 
 Per altre informazioni sull'hosting di un'applicazione .NET Core su Linux, vedere [Publish to a Linux production environment](https://docs.asp.net/en/latest/publishing/linuxproduction.html)(Pubblicare in un ambiente di produzione Linux). 
-
 
 ```none
 #!/bin/bash
@@ -74,7 +70,6 @@ sudo service supervisor start
 ```
 
 ## <a name="vm-script-extension"></a>Estensione script della macchina virtuale
-
 Le estensioni delle macchine virtuali possono essere eseguite su una macchina virtuale in fase di compilazione includendo la risorsa dell'estensione nel modello di Azure Resource Manager. È possibile aggiungere l'estensione usando la procedura guidata Aggiungi nuova risorsa di Visual Studio o inserendo una risorsa JSON valida nel modello. La risorsa dell'estensione script è annidata all'interno della risorsa della macchina virtuale, come illustrato nell'esempio seguente.
 
 Fare clic su questo collegamento per vedere l'esempio JSON incluso nel modello di Resource Manager: [Estensione script della macchina virtuale](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L359). 
@@ -110,15 +105,12 @@ Nel codice JSON seguente è possibile notare che lo script è archiviato in GitH
 }
 ```
 
-Per altre informazioni sull'estensione script personalizzata, vedere [Custom script extensions with Resource Manager templates](./virtual-machines-linux-extensions-customscript.md)(Estensioni script personalizzate con i modelli di Resource Manager).
+Per altre informazioni sull'estensione script personalizzata, vedere [Custom script extensions with Resource Manager templates](virtual-machines-linux-extensions-customscript.md)(Estensioni script personalizzate con i modelli di Resource Manager).
 
 ## <a name="next-step"></a>Passaggio successivo
-
 <hr>
 
 [Explore More Azure Resource Manager Templates](https://github.com/Azure/azure-quickstart-templates)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

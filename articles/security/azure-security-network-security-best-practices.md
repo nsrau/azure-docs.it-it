@@ -1,54 +1,51 @@
-<properties
-   pageTitle="Procedure consigliate per la sicurezza della rete di Azure | Microsoft Azure"
-   description="Questo articolo fornisce una serie di procedure consigliate per la sicurezza di rete usando le funzionalità integrate di Azure."
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="swadhwa"
-   editor="TomShinder"/>
+---
+title: Procedure consigliate per la sicurezza della rete di Azure | Microsoft Docs
+description: Questo articolo fornisce una serie di procedure consigliate per la sicurezza di rete usando le funzionalità integrate di Azure.
+services: security
+documentationcenter: na
+author: TomShinder
+manager: swadhwa
+editor: TomShinder
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="05/25/2016"
-   ms.author="TomSh"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 05/25/2016
+ms.author: TomSh
 
+---
 # Procedure consigliate per la sicurezza della rete di Azure
-
 Microsoft Azure consente di connettere macchine e dispositivi virtuali ad altri dispositivi di rete inserendoli in reti virtuali di Azure. Una rete virtuale di Azure è un costrutto di rete virtuale che consente di connettere le schede di rete virtuale a una rete virtuale per consentire le comunicazioni basate su TCP/IP tra i dispositivi abilitati per la rete. Le macchine virtuali di Azure connesse a una rete virtuale di Azure possono connettersi ai dispositivi nella stessa rete virtuale di Azure, in diverse reti virtuali di Azure, su Internet o persino in reti locali.
 
 In questo articolo verrà illustrato un insieme di procedure consigliate per la sicurezza della rete di Azure, derivate dalla nostra esperienza con la rete di Azure e dalle esperienze di altri clienti.
 
 Per ogni procedura consigliata verrà illustrato:
 
-- Qual è la procedura consigliata
-- Il motivo per cui si vuole abilitare tale procedura consigliata
-- Quale potrebbe essere il risultato se non fosse possibile abilitare la procedura consigliata
-- Alternative possibili alla procedura consigliata
-- Come imparare ad abilitare la procedura consigliata
+* Qual è la procedura consigliata
+* Il motivo per cui si vuole abilitare tale procedura consigliata
+* Quale potrebbe essere il risultato se non fosse possibile abilitare la procedura consigliata
+* Alternative possibili alla procedura consigliata
+* Come imparare ad abilitare la procedura consigliata
 
 Il presente articolo sulle procedure consigliate per la sicurezza della rete di Azure si basa su un parere condiviso, nonché sulle capacità e sui set di funzionalità della piattaforma di Azure esistenti al momento della scrittura. Le opinioni e le tecnologie cambiano nel tempo e questo articolo verrà aggiornato regolarmente per riflettere tali modifiche.
 
 Le procedure consigliate per la sicurezza della rete di Azure discusse in questo articolo includono:
 
-- Segmentare logicamente le subnet
-- Controllare il comportamento di routing
-- Abilitare il tunneling forzato
-- Usare i dispositivi di rete virtuale
-- Distribuire reti perimetrali per la suddivisione in zone di sicurezza
-- Evitare l'esposizione a Internet con collegamenti WAN dedicati
-- Ottimizzare il tempo di attività e le prestazioni
-- Usare il bilanciamento del carico globale
-- Disabilitare l'accesso RDP alle macchine virtuali di Azure
-- Abilitare il Centro sicurezza di Azure
-- Estendere il data center in Azure
-
+* Segmentare logicamente le subnet
+* Controllare il comportamento di routing
+* Abilitare il tunneling forzato
+* Usare i dispositivi di rete virtuale
+* Distribuire reti perimetrali per la suddivisione in zone di sicurezza
+* Evitare l'esposizione a Internet con collegamenti WAN dedicati
+* Ottimizzare il tempo di attività e le prestazioni
+* Usare il bilanciamento del carico globale
+* Disabilitare l'accesso RDP alle macchine virtuali di Azure
+* Abilitare il Centro sicurezza di Azure
+* Estendere il data center in Azure
 
 ## Segmentare logicamente le subnet
-
 Le [reti virtuali di Azure](https://azure.microsoft.com/documentation/services/virtual-network/) sono simili a una rete LAN nella rete locale. L'idea alla base di una rete virtuale di Azure è creare una singola rete basata sullo spazio indirizzi IP privato in cui è possibile inserire tutte le [macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/). Gli spazi di indirizzi IP privati disponibili sono negli intervalli di Classe A (10.0.0.0/8), Classe B (172.16.0.0/12) e Classe C (192.168.0.0/16).
 
 Analogamente alle operazioni svolte in locale, sarà consigliabile segmentare il più ampio spazio indirizzi in subnet. Per creare le subnet è possibile usare principi di suddivisione in subnet basati su [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -59,26 +56,27 @@ Uno degli elementi che è possibile usare per eseguire questa operazione è un [
 
 L'uso di NSG per il controllo di accesso di rete tra subnet consente di inserire le risorse che appartengono alla stessa area di protezione o allo stesso ruolo nelle proprie subnet. Ad esempio, si pensi a una semplice applicazione a 3 livelli con un livello Web, un livello di logica di applicazione e un livello di database. Si inseriscono le macchine virtuali che appartengono a ciascuno di questi livelli nella propria subnet, quindi si usano gli NSG per controllare il traffico tra le subnet:
 
-- Le macchine virtuali a livello Web possono avviare connessioni solo alle macchine a livello di logica dell'applicazione e accettare solo connessioni da Internet
-- Le macchine virtuali a livello di logica dell'applicazione possono avviare connessioni solo con un livello database e accettare solo connessioni dal livello Web
-- Le macchine virtuali a livello database non possono avviare alcuna connessione all'esterno della propria subnet e possono accettare solo connessioni dal livello di logica dell'applicazione
+* Le macchine virtuali a livello Web possono avviare connessioni solo alle macchine a livello di logica dell'applicazione e accettare solo connessioni da Internet
+* Le macchine virtuali a livello di logica dell'applicazione possono avviare connessioni solo con un livello database e accettare solo connessioni dal livello Web
+* Le macchine virtuali a livello database non possono avviare alcuna connessione all'esterno della propria subnet e possono accettare solo connessioni dal livello di logica dell'applicazione
 
 Per altre informazioni sui gruppi di sicurezza di rete e su come è possibile usarli per segmentare logicamente le reti virtuali di Azure, vedere l'articolo [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) (NSG).
 
 ## Controllare il comportamento di routing
-
 Quando si inserisce una macchina virtuale in una rete virtuale di Azure, si noterà che la macchina virtuale può connettersi a qualsiasi altra macchina virtuale nella stessa rete virtuale Azure, anche se le altre macchine virtuali si trovano in subnet diverse. Il motivo per cui questo è possibile è che esiste un insieme di route di sistema, abilitate per impostazione predefinita, che consente questo tipo di comunicazione. Queste route predefinite consentono alle macchine virtuali nella stessa rete virtuale di Azure di avviare le connessioni tra loro e con Internet (per le comunicazioni in uscita solo con Internet).
 
 Nonostante le route di sistema predefinite siano utili per molti scenari di distribuzione, in alcuni casi si vuole personalizzare la configurazione del routing per le distribuzioni. Queste personalizzazioni permettono di configurare l'indirizzo hop successivo in modo da raggiungere destinazioni specifiche.
 
 È consigliabile configurare route definite dall'utente quando si distribuisce un dispositivo di sicurezza di rete virtuale, che verrà illustrato in una procedura consigliata successiva.
 
-> [AZURE.NOTE] Le route definite dall'utente non sono necessarie e le route di sistema predefinite funzioneranno nella maggior parte dei casi.
+> [!NOTE]
+> Le route definite dall'utente non sono necessarie e le route di sistema predefinite funzioneranno nella maggior parte dei casi.
+> 
+> 
 
 Altre informazioni sulle route definite dall'utente e su come configurarle sono disponibili nell'articolo [Cosa sono le route definite dall'utente e l'inoltro IP](../virtual-network/virtual-networks-udr-overview.md).
 
 ## Abilitare il tunneling forzato
-
 Per comprendere meglio il tunneling forzato, è utile comprendere cosa si intende per "split tunneling". L'esempio più comune di split tunneling è visibile nelle connessioni VPN. Si supponga di stabilire una connessione VPN da una camera d'albergo alla propria rete aziendale. Questa connessione consente di connettersi alle risorse nella rete aziendale e tutte le comunicazioni alle risorse nella rete aziendale passano attraverso il tunnel VPN.
 
 Cosa accade quando ci si vuole connettere alle risorse in Internet? Quando è abilitato lo split tunneling, tali connessioni passano direttamente a Internet e non attraverso il tunnel VPN. Alcuni esperti di sicurezza lo considerano un potenziale rischio e quindi consigliano di disabilitare lo split tunneling e di far passare tutte le connessioni, che siano destinate a Internet o alle risorse aziendali, attraverso il tunnel VPN. Il vantaggio di questa operazione è che le connessioni a Internet vengono quindi forzate attraverso i dispositivi di sicurezza di rete aziendale, il che non accadrebbe se il client VPN fosse connesso a Internet di fuori del tunnel VPN.
@@ -90,25 +88,24 @@ Se non si ha una connessione cross-premise, assicurarsi che sia possibile sfrutt
 Per altre informazioni sul tunneling forzato e su come abilitarlo, vedere l'articolo [Configurare il tunneling forzato con PowerShell e Azure Resource Manager](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md).
 
 ## Usare i dispositivi di rete virtuale
-
 Nonostante i gruppi di sicurezza di rete e il routing definito dall'utente possano fornire un certo grado di sicurezza di rete ai livelli di rete e di trasporto del [modello OSI](https://en.wikipedia.org/wiki/OSI_model), vi saranno situazioni in cui si vorrà oppure sarà necessario abilitare la protezione di alto livello dello stack. In tali situazioni, è consigliabile distribuire i dispositivi di sicurezza di rete virtuale forniti dai partner di Azure.
 
 I dispositivi di sicurezza di rete di Azure possono offrire livelli di sicurezza notevolmente migliorati rispetto a quanto offerto dai controlli a livello di rete. Tra le funzionalità di sicurezza di rete fornite da dispositivi di sicurezza di rete virtuale sono incluse le seguenti:
 
-- Funzionalità di firewall
-- Rilevamento intrusione/Prevenzione intrusioni
-- Gestione vulnerabilità
-- Controllo applicazione
-- Rilevamento anomalie basato su rete
-- Filtro Web
-- Antivirus
-- Protezione botnet
+* Funzionalità di firewall
+* Rilevamento intrusione/Prevenzione intrusioni
+* Gestione vulnerabilità
+* Controllo applicazione
+* Rilevamento anomalie basato su rete
+* Filtro Web
+* Antivirus
+* Protezione botnet
 
 Se è necessario un livello di sicurezza di rete più elevato, ottenibile con i controlli di accesso a livello di rete, è consigliabile indagare e distribuire i dispositivi di sicurezza di rete virtuale di Azure.
 
 Per informazioni su quali dispositivi di sicurezza della rete virtuale di Azure sono disponibili e sulle relative capacità, visitare [Azure Marketplace](https://azure.microsoft.com/marketplace/) e cercare "sicurezza" e "sicurezza di rete".
 
-##Distribuire reti perimetrali per la suddivisione in zone di sicurezza
+## Distribuire reti perimetrali per la suddivisione in zone di sicurezza
 Una "rete perimetrale" è un segmento di rete fisica o logica che è progettato per fornire un ulteriore livello di sicurezza tra le risorse e Internet. Lo scopo della rete perimetrale è inserire i dispositivi di controllo di accesso di rete specializzati al margine della rete perimetrale in modo che sia consentito solo il traffico desiderato oltre il dispositivo di sicurezza di rete e nella rete virtuale di Azure.
 
 Le reti perimetrali sono utili perché permettono di concentrare le operazioni di gestione, monitoraggio, registrazione e creazione di report del controllo di accesso alla rete sui dispositivi al margine della rete virtuale di Azure. In questo caso, in genere si abilitano la prevenzione DDoS, i sistemi di rilevamento intrusione/prevenzione intrusioni (IDS/IPS), le regole e i criteri dei firewall, il filtro Web, il software antimalware per la rete e molto altro. I dispositivi di sicurezza di rete sono posizionati tra Internet e la rete virtuale di Azure e hanno un'interfaccia su entrambe le reti.
@@ -124,8 +121,8 @@ Molte organizzazioni hanno scelto la strada dell'IT ibrido. Nell'ambiente IT ibr
 
 In uno scenario IT ibrido generalmente è presente un certo tipo di connettività cross-premise, che consente alla società di connettere le proprie reti locali alle reti virtuali di Azure. Sono disponibili due soluzioni di connettività cross-premise:
 
-- Da sito a VPN
-- ExpressRoute
+* Da sito a VPN
+* ExpressRoute
 
 [VPN da sito a sito](../vpn-gateway/vpn-gateway-site-to-site-create.md) rappresenta una connessione privata virtuale tra la rete locale e una rete virtuale di Azure. Questa connessione viene eseguita via Internet e consente di inviare le informazioni attraverso un "tunnel" all'interno di un collegamento crittografato tra la rete e Azure. La rete VPN da sito a sito è una tecnologia sicura e collaudata, che viene distribuita da aziende di ogni dimensione ormai da decenni. La crittografia del tunnel viene eseguita usando la [modalità tunnel IPsec](https://technet.microsoft.com/library/cc786385.aspx).
 
@@ -144,18 +141,18 @@ Questa distribuzione del traffico aumenta la disponibilità perché se uno dei s
 
 È consigliabile impiegare il bilanciamento del carico ogni volta possibile e quando adeguato ai servizi. L'adeguatezza verrà presa in considerazione nelle sezioni seguenti. A livello di rete virtuale di Azure, Azure offre che tre opzioni di bilanciamento del carico principali:
 
-- Bilanciamento del carico basato su HTTP
-- Bilanciamento del carico esterno
-- Bilanciamento del carico interno
+* Bilanciamento del carico basato su HTTP
+* Bilanciamento del carico esterno
+* Bilanciamento del carico interno
 
 ## Bilanciamento del carico basato su HTTP
 Il bilanciamento del carico basato su HTTP consente di decidere a quale server inviare le connessioni che usano le caratteristiche del protocollo HTTP. Azure offre un servizio di bilanciamento del carico HTTP il cui nome è Gateway applicazione.
 
 È consigliabile usare Gateway applicazione di Azure nei casi seguenti:
 
-- Applicazioni che necessitano delle richieste provenienti dalla stessa sessione utente/client per raggiungere la stessa macchina virtuale back-end, ad esempio applicazioni carrello e server di posta Web.
-- Applicazioni che hanno la funzione di liberare le server farm Web dal sovraccarico della terminazione SSL sfruttando la funzionalità [Offload SSL](https://f5.com/glossary/ssl-offloading) del Gateway applicazione.
-- Applicazioni, ad esempio la rete per la distribuzione di contenuti, che necessitano che più richieste HTTP nella stessa connessione TCP con esecuzione prolungata vengano instradate/bilanciate in server back-end diversi.
+* Applicazioni che necessitano delle richieste provenienti dalla stessa sessione utente/client per raggiungere la stessa macchina virtuale back-end, ad esempio applicazioni carrello e server di posta Web.
+* Applicazioni che hanno la funzione di liberare le server farm Web dal sovraccarico della terminazione SSL sfruttando la funzionalità [Offload SSL](https://f5.com/glossary/ssl-offloading) del Gateway applicazione.
+* Applicazioni, ad esempio la rete per la distribuzione di contenuti, che necessitano che più richieste HTTP nella stessa connessione TCP con esecuzione prolungata vengano instradate/bilanciate in server back-end diversi.
 
 Per altre informazioni sul funzionamento del gateway applicazione Azure e su come è possibile usarlo nelle distribuzioni, vedere l'articolo [Panoramica del gateway applicazione](../application-gateway/application-gateway-introduction.md).
 
@@ -197,9 +194,9 @@ Il potenziale problema di sicurezza comportato dall'uso di questi protocolli via
 
 Per questo motivo, è consigliabile disabilitare l'accesso diretto RDP e SSH alle macchine virtuali di Azure da Internet. Dopo aver disabilitato l'accesso diretto RDP e SSH da Internet, sono disponibili altre opzioni per accedere a queste macchine virtuali per la gestione remota:
 
-- VPN da punto a sito
-- Da sito a VPN
-- ExpressRoute
+* VPN da punto a sito
+* Da sito a VPN
+* ExpressRoute
 
 [VPN da punto a sito](../vpn-gateway/vpn-gateway-point-to-site-create.md) è un altro termine per indicare una connessione client/server VPN con accesso remoto. Una VPN da punto a sito consente a un singolo utente di connettersi a una rete virtuale di Azure via Internet. Dopo aver stabilito la connessione da punto a sito, l'utente riuscirà a usare RDP o SSH per connettersi a tutte le macchine virtuali presenti nella rete virtuale Azure e a cui l'utente si è connesso con VPN da punto a sito. Ciò presuppone che l'utente sia autorizzato a raggiungere tali macchine virtuali.
 
@@ -214,9 +211,9 @@ Il Centro sicurezza di Azure aiuta a impedire, rilevare e rispondere alle minacc
 
 Il Centro sicurezza di Azure aiuta a ottimizzare e monitorare la sicurezza di rete offrendo:
 
-- Suggerimenti per la sicurezza di rete
-- Monitoraggio dello stato della configurazione della sicurezza di rete
-- Avvisi relativi alle minacce basate sulla rete a livello di endpoint e di rete
+* Suggerimenti per la sicurezza di rete
+* Monitoraggio dello stato della configurazione della sicurezza di rete
+* Avvisi relativi alle minacce basate sulla rete a livello di endpoint e di rete
 
 È consigliabile abilitare il Centro sicurezza di Azure per tutte le distribuzioni di Azure.
 

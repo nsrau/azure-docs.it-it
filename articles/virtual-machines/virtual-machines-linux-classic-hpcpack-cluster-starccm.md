@@ -1,25 +1,26 @@
-<properties
- pageTitle="Eseguire STAR-CCM+ con HPC Pack in VM Linux | Microsoft Azure"
- description="Distribuire un cluster Microsoft HPC Pack in Azure ed eseguire un processo STAR-CCM+ in più nodi di calcolo Linux su una rete RDMA."
- services="virtual-machines-linux"
- documentationCenter=""
- authors="xpillons"
- manager="timlt"
- editor=""
- tags="azure-service-management,azure-resource-manager,hpc-pack"/>
-<tags
- ms.service="virtual-machines-linux"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="vm-linux"
- ms.workload="big-compute"
- ms.date="09/13/2016"
- ms.author="xpillons"/>
+---
+title: Eseguire STAR-CCM+ con HPC Pack in VM Linux | Microsoft Docs
+description: Distribuire un cluster Microsoft HPC Pack in Azure ed eseguire un processo STAR-CCM+ in più nodi di calcolo Linux su una rete RDMA.
+services: virtual-machines-linux
+documentationcenter: ''
+author: xpillons
+manager: timlt
+editor: ''
+tags: azure-service-management,azure-resource-manager,hpc-pack
 
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: big-compute
+ms.date: 09/13/2016
+ms.author: xpillons
+
+---
 # Eseguire STAR-CCM+ con Microsoft HPC Pack in un cluster Linux RDMA in Azure
 Questo articolo illustra come distribuire un cluster Microsoft HPC Pack in Azure ed eseguire un processo [CD-adapco STAR-CCM+](http://www.cd-adapco.com/products/star-ccm%C2%AE) su più nodi di calcolo Linux interconnessi con InfiniBand.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Microsoft HPC Pack fornisce le funzionalità necessarie per eseguire svariate applicazioni HPC e parallele su larga scala, incluse le applicazioni MPI, in cluster di macchine virtuali di Microsoft Azure. HPC Pack supporta anche applicazioni HPC che eseguono Linux su VM di nodi di calcolo Linux distribuite in un cluster HPC Pack. Per informazioni introduttive sull'uso di nodi di calcolo Linux con HPC Pack, vedere [Introduzione all'uso di nodi di calcolo Linux in un cluster HPC Pack in Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
 
@@ -84,11 +85,9 @@ Il nodo head sarà pronto dopo 20-30 minuti. È possibile connettersi al nodo da
 
 Sarà infine necessario risolvere i problemi del server d'inoltro DNS. A questo scopo, avviare il Gestore DNS.
 
-1.  Fare clic con il pulsante destro del mouse sul nome del server in Gestore DNS, scegliere **Proprietà** e selezionare la scheda **Server d'inoltro**.
-
-2.  Fare clic sul pulsante **Modifica**, rimuovere gli eventuali server d'inoltro e quindi fare clic su **OK**.
-
-3.  Assicurarsi di selezionare la casella di controllo **Usa parametri radice se non sono disponibili server d'inoltro** e fare clic su **OK**.
+1. Fare clic con il pulsante destro del mouse sul nome del server in Gestore DNS, scegliere **Proprietà** e selezionare la scheda **Server d'inoltro**.
+2. Fare clic sul pulsante **Modifica**, rimuovere gli eventuali server d'inoltro e quindi fare clic su **OK**.
+3. Assicurarsi di selezionare la casella di controllo **Usa parametri radice se non sono disponibili server d'inoltro** e fare clic su **OK**.
 
 ## Configurare nodi di calcolo Linux
 Distribuire i nodi di calcolo Linux con lo stesso modello di distribuzione usato per creare il nodo head.
@@ -99,15 +98,12 @@ Nel nodo head copiare gli script di distribuzione IaaS per HPC Pack.
 
 Eseguire i comandi di Azure PowerShell seguenti in un prompt dei comandi con privilegi elevati:
 
-1.  Eseguire **Add-AzureAccount** per connettersi alla sottoscrizione di Azure.
-
-2.  Se sono disponibili più sottoscrizioni, eseguire **Get-AzureSubscription** per elencarle.
-
-3.  Impostare una sottoscrizione predefinita eseguendo il comando **Select-AzureSubscription -SubscriptionName xxxx -Default**.
-
-4.  Eseguire **.\\New-HPCIaaSCluster.ps1 -ConfigFile MyCluster.xml** per avviare la distribuzione dei nodi di calcolo Linux.
-
-    ![Distribuzione del nodo head][hndeploy]
+1. Eseguire **Add-AzureAccount** per connettersi alla sottoscrizione di Azure.
+2. Se sono disponibili più sottoscrizioni, eseguire **Get-AzureSubscription** per elencarle.
+3. Impostare una sottoscrizione predefinita eseguendo il comando **Select-AzureSubscription -SubscriptionName xxxx -Default**.
+4. Eseguire **.\\New-HPCIaaSCluster.ps1 -ConfigFile MyCluster.xml** per avviare la distribuzione dei nodi di calcolo Linux.
+   
+   ![Distribuzione del nodo head][hndeploy]
 
 Aprire lo strumento HPC Pack Cluster Manager Dopo alcuni minuti, i nodi di calcolo Linux verranno visualizzati normalmente in un elenco di nodi di calcolo del cluster. Con la modalità di distribuzione classica, le VM IaaS vengono create in modo sequenziale, quindi se il numero di nodi è importante, la distribuzione di tutte le VM potrebbe richiedere una quantità di tempo significativa.
 
@@ -118,7 +114,7 @@ Quando tutti i nodi sono attivi e in esecuzione nel cluster, si dovranno configu
 ## Configurare una condivisione file di Azure per nodi Windows e Linux
 È possibile usare il servizio File di Azure per archiviare script, pacchetti delle applicazioni e file di dati. File di Azure offre funzionalità CIFS su un'archivio BLOB di Azure come archivio permanente. Si noti che questa non è la soluzione più ridimensionabile, ma si tratta della soluzione più semplice e non richiede macchine virtuali dedicate.
 
-Creare una condivisione file di Azure seguendo le istruzioni disponibili nell'articolo [Introduzione ad Archiviazione file di Azure in Windows](..\storage\storage-dotnet-how-to-use-files.md)
+Creare una condivisione file di Azure seguendo le istruzioni disponibili nell'articolo [Introduzione ad Archiviazione file di Azure in Windows](../storage/storage-dotnet-how-to-use-files.md)
 
 Mantenere il nome dell'account di archiviazione **saname**, il nome della condivisione file **sharename** e la chiave dell'account di archiviazione **sakey**.
 
@@ -199,11 +195,9 @@ HPC Pack viene usato per le relative funzionalità di pianificazione di processi
 
 Lo script di Powershell seguente viene usato per accodare un processo STAR-CCM+. Accetta tre argomenti:
 
-*  Nome del modello
-
-*  Numero di nodi da usare
-
-*  Numero di core in ogni nodo da usare
+* Nome del modello
+* Numero di nodi da usare
+* Numero di core in ogni nodo da usare
 
 Poiché STAR-CCM+ può consumare tutta la larghezza di banda della memoria, è in genere consigliabile usare un numero minore di core per ogni nodo di calcolo e aggiungere nuovi nodi. Il rapporto esatto tra core e nodi dipende dalla famiglia del processore e dalla velocità di interconnessione.
 
@@ -212,7 +206,6 @@ I nodi vengono allocati esclusivamente per il processo e non possono essere cond
 Il modello di input e lo script **runstarccm.sh** vengono archiviati nella condivisione **/hpcdata** montata in precedenza.
 
 Ai file di log viene assegnato l'ID del processo come nome e i file vengono archiviati nella **condivisione /hpcdata**, insieme ai file di output di STAR-CCM+.
-
 
 #### Script SubmitStarccmJob.ps1 di esempio
 ```
@@ -229,7 +222,7 @@ Ai file di log viene assegnato l'ID del processo come nome e i file vengono arch
     $jobId = [String]$job.Id
 
     #---------------------------------------------------------------------------------------------------------
-    # Submit the job 	
+    # Submit the job     
     $workdir =  "/hpcdata"
     $execName = "$nbCoresPerNode runner.java $modelName.sim"
 
@@ -267,19 +260,19 @@ Sostituire **runner.java** con il servizio di avvio preferito per il modello Jav
     NBNODES=0
     while [ ${I} -lt ${COUNT} ]
     do
-    	echo "${NODESCORES[${I}]}" >> ${NODELIST_PATH}
-    	let "I=${I}+2"
-    	let "NBNODES=${NBNODES}+1"
+        echo "${NODESCORES[${I}]}" >> ${NODELIST_PATH}
+        let "I=${I}+2"
+        let "NBNODES=${NBNODES}+1"
     done
     let "NBCORES=${NBNODES}*${NBCORESPERNODE}"
 
     # Run STAR-CCM with the hostfile argument
     #  
     ${STARCCM} -np ${NBCORES} -machinefile ${NODELIST_PATH} \
-    	-power -podkey "<yourkey>" -rsh ssh \
-    	-mpi intel -fabric UDAPL -cpubind bandwidth,v \
-    	-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0" \
-    	-batch $2 $3
+        -power -podkey "<yourkey>" -rsh ssh \
+        -mpi intel -fabric UDAPL -cpubind bandwidth,v \
+        -mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0" \
+        -batch $2 $3
     RTNSTS=$?
     rm -f ${NODELIST_PATH}
 
@@ -299,25 +292,18 @@ Il formato della variabile **$CCP\_NODES\_CORES** segue questo modello:
 Dove:
 
 * `<Number of nodes>` è il numero di nodi allocati a questo processo.
-
 * `<Name of node_n_...>` è il nome di ogni nodo allocato a questo processo.
-
 * `<Cores of node_n_...>` è il numero di core nel nodo allocato a questo processo.
 
 Il numero di core **$NBCORES** viene calcolato anche in base al numero di nodi **$NBNODES** e al numero di core per nodo specificato come parametro **$NBCORESPERNODE**.
 
 Ecco le opzioni MPI usate con Intel MPI in Azure:
 
-*   `-mpi intel` per specificare Intel MPI.
-
-*   `-fabric UDAPL` per usare verbi InfiniBand Azure.
-
-*   `-cpubind bandwidth,v` per ottimizzare la larghezza di banda per MPI con STAR-CCM+.
-
-*   `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"` per consentire il funzionamento di Intel MPI con InfiniBand Azure e impostare il numero di core per nodo necessario.
-
-*   `-batch` per avviare STAR-CCM+ in modalità batch senza interfaccia utente.
-
+* `-mpi intel` per specificare Intel MPI.
+* `-fabric UDAPL` per usare verbi InfiniBand Azure.
+* `-cpubind bandwidth,v` per ottimizzare la larghezza di banda per MPI con STAR-CCM+.
+* `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"` per consentire il funzionamento di Intel MPI con InfiniBand Azure e impostare il numero di core per nodo necessario.
+* `-batch` per avviare STAR-CCM+ in modalità batch senza interfaccia utente.
 
 Per avviare un processo, assicurarsi infine che i nodi siano attivi, in esecuzione e online in Cluster Manager. Da un prompt dei comandi di PowerShell eseguire quindi questo comando:
 
@@ -337,9 +323,7 @@ Al termine dei test, per arrestare e avviare i nodi è possibile usare i comandi
 Provare a eseguire altri carichi di lavoro di Linux. Per esempi, vedere:
 
 * [Eseguire NAMD con Microsoft HPC Pack su nodi di calcolo Linux in Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md)
-
 * [Eseguire OpenFoam con Microsoft HPC Pack in un cluster Linux RDMA in Azure.](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
-
 
 <!--Image references-->
 [hndeploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/hndeploy.png

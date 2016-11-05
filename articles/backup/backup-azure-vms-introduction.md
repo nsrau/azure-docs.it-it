@@ -1,22 +1,22 @@
-<properties
-	pageTitle="Pianificare l'infrastruttura di backup delle macchine virtuali in Azure | Microsoft Azure"
-	description="Considerazioni importanti sulla pianificazione del backup di macchine virtuali in Azure"
-	services="backup"
-	documentationCenter=""
-	authors="markgalioto"
-	manager="jwhit"
-	editor=""
-	keywords="backup di vm, backup di macchine virtuali"/>
+---
+title: Pianificare l'infrastruttura di backup delle macchine virtuali in Azure | Microsoft Docs
+description: Considerazioni importanti sulla pianificazione del backup di macchine virtuali in Azure
+services: backup
+documentationcenter: ''
+author: markgalioto
+manager: jwhit
+editor: ''
+keywords: backup di vm, backup di macchine virtuali
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/14/2016"
-	ms.author="trinadhk; jimpark; markgal;"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/14/2016
+ms.author: trinadhk; jimpark; markgal;
 
+---
 # Pianificare l'infrastruttura di backup delle macchine virtuali in Azure
 Questo articolo fornisce suggerimenti relativi alle prestazioni e alle risorse per semplificare la pianificazione dell'infrastruttura di backup delle macchine virtuali. Definisce anche gli elementi fondamentali del servizio Backup. Questi aspetti possono essere essenziali per determinare l'architettura, la pianificazione della capacità e la pianificazione generale. Se è stato [preparato l'ambiente](backup-azure-vms-prepare.md), questo è il passaggio successivo prima di iniziare a [eseguire il backup delle macchine virtuali](backup-azure-vms.md). Per altre informazioni sulle macchine virtuali di Azure, vedere [Macchine virtuali - Documentazione](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
@@ -32,7 +32,10 @@ Quando il trasferimento dei dati è completato, lo snapshot viene rimosso e vien
 ### Coerenza dei dati
 Le operazioni di backup e ripristino dei dati aziendali critici sono ulteriormente complicate dal fatto che è necessario eseguire il backup mentre le applicazioni che generano i dati sono in esecuzione. Per risolvere il problema, il servizio Backup di Azure fornisce funzionalità di backup coerenti con l'applicazione per i carichi di lavoro Microsoft avvalendosi del Servizio Copia Shadow del volume per garantire che la scrittura dei dati nell'archiviazione venga effettuata correttamente.
 
->[AZURE.NOTE] Per le macchine virtuali Linux, sono disponibili solo backup coerenti con i file, perché Linux non ha una piattaforma equivalente al Servizio Copia Shadow del volume.
+> [!NOTE]
+> Per le macchine virtuali Linux, sono disponibili solo backup coerenti con i file, perché Linux non ha una piattaforma equivalente al Servizio Copia Shadow del volume.
+> 
+> 
 
 Backup di Azure esegue backup VSS completi nelle macchine virtuali di Windows (altre informazioni su [backup VSS completi](http://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx)). Per abilitare i backup VSS di copia è necessario impostare la seguente chiave di registro nella macchina virtuale.
 
@@ -45,19 +48,18 @@ Backup di Azure esegue backup VSS completi nelle macchine virtuali di Windows (a
 Questa tabella illustra i tipi di coerenza e le condizioni in cui si verificano durante le procedure di backup e ripristino delle macchine virtuali di Azure.
 
 | Coerenza | Basato su VSS | Spiegazione e dettagli |
-|-------------|-----------|---------|
-| Coerenza con l'applicazione | Sì | Questo è il tipo di coerenza ideale per i carichi di lavoro Microsoft perché garantisce:<ol><li> L'*avvio* della macchina virtuale. <li>L'*assenza di qualsiasi danneggiamento*. <li>L'*assenza di perdite di dati*.<li> La coerenza dei dati con l'applicazione che li usa, grazie all'impiego dell'applicazione al momento del backup tramite il Servizio Copia Shadow del volume.</ol> La maggior parte dei carichi di lavoro di Microsoft ha writer VSS che eseguono azioni specifiche di un carico di lavoro correlate alla coerenza dei dati. Ad esempio, Microsoft SQL Server ha un writer VSS che garantisce l'esecuzione corretta delle operazioni di scrittura nel file di log delle transazioni e nel database.<br><br> Per i backup delle VM di Azure, il recupero di un punto di ripristino coerente con un'applicazione significa che l'estensione per il backup è riuscita a richiamare il flusso di lavoro del Servizio Copia Shadow del volume e a essere completata *correttamente* prima dell'esecuzione dello snapshot della VM. Naturalmente, questo significa che anche i writer VSS di tutte le applicazioni nella VM di Azure sono stati richiamati.<br><br>Leggere le [nozioni di base del Servizio Copia Shadow del volume](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) per approfondimenti sui dettagli di [funzionamento](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx). |
-| Coerenza del file system | Sì, per i computer basati su Windows | Esistono due scenari in cui il punto di ripristino può essere *coerente con i file system*:<ul><li>Backup di VM Linux in Azure, poiché Linux non dispone di una piattaforma equivalente al Servizio Copia Shadow del volume.<li>Errore del Servizio Copia Shadow del volume durante il backup di VM Windows in Azure.</li></ul> In entrambi i casi la soluzione ottimale è garantire: <ol><li>L'*avvio* della macchina virtuale. <li>L'*assenza di qualsiasi danneggiamento*.<li>L'*assenza di perdite di dati*.</ol> Le applicazioni devono implementare il proprio meccanismo di correzione sui dati ripristinati.|
-| Coerenza dei dati | No | Questa situazione è equivalente a quella di una macchina virtuale che si è arrestata in modo anomalo a causa di un ripristino software o hardware. Ciò si verifica in genere quando la macchina virtuale di Azure viene arrestata durante il backup. Per i backup delle macchine virtuali di Azure, il recupero di un punto di ripristino coerente con l'arresto anomalo indica che Backup di Azure non offre alcuna garanzia di coerenza dei dati sul supporto di archiviazione, dal punto di vista del sistema operativo o dal punto di vista dell'applicazione. Solo i dati già esistente sul disco al momento del backup vengono acquisiti e sottoposti a backup. <br/> <br/> Anche se non ci sono garanzie, nella maggior parte dei casi il sistema operativo verrà avviato. Questa operazione è in genere seguita da una procedura di controllo come chkdsk per risolvere eventuali errori di danneggiamento del disco. I dati in memoria o le scritture che non sono state scaricate completamente sul disco andranno persi. In genere l'applicazione esegue il proprio meccanismo di verifica nel caso in cui sia necessario effettuare il rollback di dati. <br><br>Ad esempio, se il log delle transazioni contiene voci che non sono presenti nel database, il software del database esegue un rollback fino a quando i dati sono coerenti. Quando i dati sono distribuiti tra più dischi virtuali (ad esempio volumi con spanning), un punto di ripristino coerente con l'arresto anomalo del sistema non fornisce alcuna garanzia della correttezza dei dati.|
-
+| --- | --- | --- |
+| Coerenza con l'applicazione |Sì |Questo è il tipo di coerenza ideale per i carichi di lavoro Microsoft perché garantisce:<ol><li> L'*avvio* della macchina virtuale. <li>L'*assenza di qualsiasi danneggiamento*. <li>L'*assenza di perdite di dati*.<li> La coerenza dei dati con l'applicazione che li usa, grazie all'impiego dell'applicazione al momento del backup tramite il Servizio Copia Shadow del volume.</ol> La maggior parte dei carichi di lavoro di Microsoft ha writer VSS che eseguono azioni specifiche di un carico di lavoro correlate alla coerenza dei dati. Ad esempio, Microsoft SQL Server ha un writer VSS che garantisce l'esecuzione corretta delle operazioni di scrittura nel file di log delle transazioni e nel database.<br><br> Per i backup delle VM di Azure, il recupero di un punto di ripristino coerente con un'applicazione significa che l'estensione per il backup è riuscita a richiamare il flusso di lavoro del Servizio Copia Shadow del volume e a essere completata *correttamente* prima dell'esecuzione dello snapshot della VM. Naturalmente, questo significa che anche i writer VSS di tutte le applicazioni nella VM di Azure sono stati richiamati.<br><br>Leggere le [nozioni di base del Servizio Copia Shadow del volume](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) per approfondimenti sui dettagli di [funzionamento](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx). |
+| Coerenza del file system |Sì, per i computer basati su Windows |Esistono due scenari in cui il punto di ripristino può essere *coerente con i file system*:<ul><li>Backup di VM Linux in Azure, poiché Linux non dispone di una piattaforma equivalente al Servizio Copia Shadow del volume.<li>Errore del Servizio Copia Shadow del volume durante il backup di VM Windows in Azure.</li></ul> In entrambi i casi la soluzione ottimale è garantire: <ol><li>L'*avvio* della macchina virtuale. <li>L'*assenza di qualsiasi danneggiamento*.<li>L'*assenza di perdite di dati*.</ol> Le applicazioni devono implementare il proprio meccanismo di correzione sui dati ripristinati. |
+| Coerenza dei dati |No |Questa situazione è equivalente a quella di una macchina virtuale che si è arrestata in modo anomalo a causa di un ripristino software o hardware. Ciò si verifica in genere quando la macchina virtuale di Azure viene arrestata durante il backup. Per i backup delle macchine virtuali di Azure, il recupero di un punto di ripristino coerente con l'arresto anomalo indica che Backup di Azure non offre alcuna garanzia di coerenza dei dati sul supporto di archiviazione, dal punto di vista del sistema operativo o dal punto di vista dell'applicazione. Solo i dati già esistente sul disco al momento del backup vengono acquisiti e sottoposti a backup. <br/> <br/> Anche se non ci sono garanzie, nella maggior parte dei casi il sistema operativo verrà avviato. Questa operazione è in genere seguita da una procedura di controllo come chkdsk per risolvere eventuali errori di danneggiamento del disco. I dati in memoria o le scritture che non sono state scaricate completamente sul disco andranno persi. In genere l'applicazione esegue il proprio meccanismo di verifica nel caso in cui sia necessario effettuare il rollback di dati. <br><br>Ad esempio, se il log delle transazioni contiene voci che non sono presenti nel database, il software del database esegue un rollback fino a quando i dati sono coerenti. Quando i dati sono distribuiti tra più dischi virtuali (ad esempio volumi con spanning), un punto di ripristino coerente con l'arresto anomalo del sistema non fornisce alcuna garanzia della correttezza dei dati. |
 
 ## Prestazioni e utilizzo delle risorse
-Analogamente al software distribuito in locale, è necessario pianificare le esigenze di utilizzo di capacità e risorse durante il backup delle macchine virtuali in Azure. I [limiti del servizio di archiviazione di Azure](azure-subscription-service-limits.md#storage-limits) definiscono il modo in cui sono strutturate le distribuzioni delle macchine virtuali per ottenere prestazioni ottimali con il minimo impatto sui carichi di lavoro in esecuzione.
+Analogamente al software distribuito in locale, è necessario pianificare le esigenze di utilizzo di capacità e risorse durante il backup delle macchine virtuali in Azure. I [limiti del servizio di archiviazione di Azure](../azure-subscription-service-limits.md#storage-limits) definiscono il modo in cui sono strutturate le distribuzioni delle macchine virtuali per ottenere prestazioni ottimali con il minimo impatto sui carichi di lavoro in esecuzione.
 
 Prestare attenzione ai limiti seguenti dell'Archiviazione di Azure durante la pianificazione delle prestazioni del backup:
 
-- Numero massimo in uscita per account di archiviazione
-- Frequenza delle richieste totale per account di archiviazione
+* Numero massimo in uscita per account di archiviazione
+* Frequenza delle richieste totale per account di archiviazione
 
 ### Limiti dell'account di archiviazione
 Quando i dati di backup vengono copiati dall'account di archiviazione, vengono conteggiati ai fini delle metriche relative alle operazioni di input/output al secondo (IOPS) e ai dati in uscita (velocità effettiva) dell'account di archiviazione. Al contempo, le macchine virtuali sono in esecuzione e utilizzano operazioni di I/O al secondo (IOPS) e velocità effettiva. L'obiettivo è garantire che il traffico totale, del backup e delle macchine virtuali, non superi i limiti previsti per l'account di archiviazione.
@@ -75,31 +77,29 @@ Tutti questi fattori indicano che è necessario pianificare in modo appropriato 
 Per ogni disco di cui si esegue il backup, il servizio Backup di Azure legge i blocchi nel disco e archivia solo i dati modificati (backup incrementale). Questa tabella illustra i valori medi della velocità effettiva che è possibile aspettarsi dal Backup di Azure. In questo modo è possibile stimare la quantità di tempo necessaria per il backup di un disco con le dimensioni specificate.
 
 | Operazione di backup | Velocità effettiva ottimale |
-| ---------------- | ---------- |
-| Backup iniziale | 160 Mbps |
-| Backup incrementale (ripristino di emergenza) | 640 Mbps <br><br> Questo valore può diminuire in modo significativo in presenza di una varianza dislocata elevata sul disco di cui si deve eseguire il backup. |
+| --- | --- |
+| Backup iniziale |160 Mbps |
+| Backup incrementale (ripristino di emergenza) |640 Mbps <br><br> Questo valore può diminuire in modo significativo in presenza di una varianza dislocata elevata sul disco di cui si deve eseguire il backup. |
 
 ## Tempo totale di backup della macchina virtuale
 Nonostante la maggior parte del tempo venga impiegata per la lettura e la copia dei dati, ci sono altre operazioni che influiscono sul tempo totale necessario per il backup di una macchina virtuale:
 
-- Tempo necessario per l'[installazione o l'aggiornamento dell'estensione per il backup](backup-azure-vms.md#offline-vms).
-- Tempo dello snapshot, ovvero il tempo impiegato per attivare uno snapshot. Gli snapshot vengono attivati vicino al momento del backup pianificato.
-- Tempo di attesa di coda. Poiché il servizio di backup elabora i backup di più clienti, è possibile che la copia dei dati di backup dallo snapshot nell'insieme di credenziali di Backup o di Servizi di ripristino non venga avviata immediatamente. Nei periodi di massimo carico, l'attesa può durare al massimo 8 ore a causa del numero di backup in corso di elaborazione. Tuttavia, il tempo di backup totale della macchina virtuale sarà inferiore a 24 ore per i criteri di backup giornalieri.
+* Tempo necessario per l'[installazione o l'aggiornamento dell'estensione per il backup](backup-azure-vms.md#offline-vms).
+* Tempo dello snapshot, ovvero il tempo impiegato per attivare uno snapshot. Gli snapshot vengono attivati vicino al momento del backup pianificato.
+* Tempo di attesa di coda. Poiché il servizio di backup elabora i backup di più clienti, è possibile che la copia dei dati di backup dallo snapshot nell'insieme di credenziali di Backup o di Servizi di ripristino non venga avviata immediatamente. Nei periodi di massimo carico, l'attesa può durare al massimo 8 ore a causa del numero di backup in corso di elaborazione. Tuttavia, il tempo di backup totale della macchina virtuale sarà inferiore a 24 ore per i criteri di backup giornalieri.
 
 ## Procedure consigliate
 È consigliabile seguire queste procedure durante la configurazione del backup per le macchine virtuali:
 
-- Non pianificare il backup di più di quattro macchine virtuali classiche contemporaneamente dallo stesso servizio cloud. È consigliabile sfalsare di un'ora le ore di inizio dei backup se si vuole eseguire il backup di più macchine virtuali dallo stesso servizio cloud.
-- Non pianificare il backup contemporaneo di più di 40 macchine virtuali distribuite da Azure Resource Manager.
-- Pianificare i backup delle macchine virtuali durante orari non di picco, in modo che il servizio Backup usi IOPS per il trasferimento dei dati dall'account di archiviazione del cliente all'insieme di credenziali di Backup o di Servizi di ripristino.
-- Assicurarsi che un criterio faccia riferimento a macchine virtuali in più account di archiviazione. È consigliabile proteggere non più di 20 dischi in totale da un singolo account di archiviazione con un criterio. Se un account di archiviazione include più di 20 dischi, suddividere le macchine virtuali tra più criteri per ottenere i valori di IOPS necessari durante la fase di trasferimento del processo di backup.
-- Non ripristinare una macchina virtuale in esecuzione nell'Archiviazione Premium nello stesso account di archiviazione. Se il processo dell'operazione di ripristino coincide con l'operazione di backup, il valore di IOPS disponibile per il backup sarà ridotto.
-- È consigliabile eseguire ogni macchina virtuale Premium VM in un account di archiviazione Premium distinto per assicurare prestazioni di backup ottimali.
+* Non pianificare il backup di più di quattro macchine virtuali classiche contemporaneamente dallo stesso servizio cloud. È consigliabile sfalsare di un'ora le ore di inizio dei backup se si vuole eseguire il backup di più macchine virtuali dallo stesso servizio cloud.
+* Non pianificare il backup contemporaneo di più di 40 macchine virtuali distribuite da Azure Resource Manager.
+* Pianificare i backup delle macchine virtuali durante orari non di picco, in modo che il servizio Backup usi IOPS per il trasferimento dei dati dall'account di archiviazione del cliente all'insieme di credenziali di Backup o di Servizi di ripristino.
+* Assicurarsi che un criterio faccia riferimento a macchine virtuali in più account di archiviazione. È consigliabile proteggere non più di 20 dischi in totale da un singolo account di archiviazione con un criterio. Se un account di archiviazione include più di 20 dischi, suddividere le macchine virtuali tra più criteri per ottenere i valori di IOPS necessari durante la fase di trasferimento del processo di backup.
+* Non ripristinare una macchina virtuale in esecuzione nell'Archiviazione Premium nello stesso account di archiviazione. Se il processo dell'operazione di ripristino coincide con l'operazione di backup, il valore di IOPS disponibile per il backup sarà ridotto.
+* È consigliabile eseguire ogni macchina virtuale Premium VM in un account di archiviazione Premium distinto per assicurare prestazioni di backup ottimali.
 
 ## Crittografia dei dati
-
 Il Backup di Azure non crittografa i dati come parte del processo di backup. È tuttavia possibile crittografare i dati all'interno della macchina virtuale e ed eseguire il backup dei dati protetti facilmente (altre informazioni sul [backup dei dati crittografati](backup-azure-vms-encryption.md)).
-
 
 ## Modalità di calcolo delle istanze protette
 Le macchine virtuali di Azure di cui viene eseguito il backup mediante Backup di Azure sono soggette a [fatturazione sulla base dei prezzi di tale servizio](https://azure.microsoft.com/pricing/details/backup/). Il calcolo delle istanze protette si basa sulle dimensioni *effettive* della macchina virtuale, ovvero sul totale di tutti i dati presenti in quest'ultima con esclusione del “disco risorse”.
@@ -108,12 +108,12 @@ La fatturazione *non* sarà basata sulle dimensioni massime supportate per ogni 
 
 Si prenda ad esempio una macchina virtuale di dimensioni A2-Standard dotata di due dischi dati aggiuntivi con capacità massima di 1 TB ciascuno. La tabella seguente indica i dati effettivi archiviati in ciascuno di tali dischi:
 
-|Tipo di disco|Dimensioni massime|Dati effettivi presenti|
-|---------|--------|------|
-| Disco del sistema operativo | 1023 GB | 17 GB |
-| Disco locale/Disco risorse | 135 GB | 5 GB (non incluso per il backup) |
-| Disco dati 1 |	1023 GB | 30 GB |
-| Disco dati 2 | 1023 GB | 0 GB |
+| Tipo di disco | Dimensioni massime | Dati effettivi presenti |
+| --- | --- | --- |
+| Disco del sistema operativo |1023 GB |17 GB |
+| Disco locale/Disco risorse |135 GB |5 GB (non incluso per il backup) |
+| Disco dati 1 |1023 GB |30 GB |
+| Disco dati 2 |1023 GB |0 GB |
 
 In questo caso, le dimensioni *effettive* della macchina virtuale sono 17 GB + 30 GB + 0 GB = 47 GB. Queste dimensioni diventano le dimensioni dell'istanza protetta su cui è basata la fattura mensile. Con l'aumentare della quantità di dati presente nella macchina virtuale, le dimensioni dell'istanza protetta usata per la fatturazione cambiano di conseguenza.
 
@@ -125,10 +125,9 @@ La fatturazione relativa a una macchina virtuale specificata verrà interrotta s
 In caso di domande o se si vuole che venga inclusa una funzionalità, è possibile [inviare commenti e suggerimenti](http://aka.ms/azurebackup_feedback).
 
 ## Passaggi successivi
-
-- [Eseguire il backup di macchine virtuali](backup-azure-vms.md)
-- [Gestire i backup delle macchine virtuali](backup-azure-manage-vms.md)
-- [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
-- [Risolvere i problemi relativi al backup delle macchine virtuali di Azure](backup-azure-vms-troubleshoot.md)
+* [Eseguire il backup di macchine virtuali](backup-azure-vms.md)
+* [Gestire i backup delle macchine virtuali](backup-azure-manage-vms.md)
+* [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
+* [Risolvere i problemi relativi al backup delle macchine virtuali di Azure](backup-azure-vms-troubleshoot.md)
 
 <!---HONumber=AcomDC_0720_2016-->

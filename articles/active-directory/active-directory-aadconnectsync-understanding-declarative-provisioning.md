@@ -1,23 +1,21 @@
-<properties
-    pageTitle="Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo | Microsoft Azure"
-    description="Illustra il modello di configurazione del provisioning dichiarativo in Azure AD Connect."
-    services="active-directory"
-    documentationCenter=""
-    authors="andkjell"
-    manager="femila"
-    editor=""/>
+---
+title: 'Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo | Microsoft Docs'
+description: Illustra il modello di configurazione del provisioning dichiarativo in Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/29/2016"
-    ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/29/2016
+ms.author: billmath
 
-
-
+---
 # <a name="azure-ad-connect-sync:-understanding-declarative-provisioning"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo
 Questo argomento illustra il modello di configurazione in Azure AD Connect. Il modello è denominato provisioning dichiarativo e consente di modificare una configurazione con facilità. Molte operazioni descritte in questo argomento sono avanzate e non necessarie per la maggior parte degli scenari dei clienti.
 
@@ -30,12 +28,12 @@ La pipeline include diversi moduli. Ognuno di essi è responsabile di un concett
 
 ![Pipeline di sincronizzazione](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/pipeline.png)  
 
-- Origine, l'oggetto di origine
-- [Ambito](#scope), consente di trovare tutte le regole di sincronizzazione che si trovano nell'ambito
-- [Join](#join), determina la relazione tra spazio connettore e metaverse
-- [Trasformazione](#transform), calcola la modalità di trasformazione e il flusso degli attributi
-- [Precedenza](#precedence), risolve i conflitti tra attributi
-- Destinazione, l'oggetto di destinazione
+* Origine, l'oggetto di origine
+* [Ambito](#scope), consente di trovare tutte le regole di sincronizzazione che si trovano nell'ambito
+* [Join](#join), determina la relazione tra spazio connettore e metaverse
+* [Trasformazione](#transform), calcola la modalità di trasformazione e il flusso degli attributi
+* [Precedenza](#precedence), risolve i conflitti tra attributi
+* Destinazione, l'oggetto di destinazione
 
 ## <a name="scope"></a>Ambito
 Il modulo scope valuta un oggetto e determina le regole che si trovano nell'ambito e devono essere incluse nell'elaborazione. A seconda dei valori degli attributi sull'oggetto, viene valutata la presenza di diverse regole di sincronizzazione nell'ambito. Ad esempio, un utente disabilitato senza alcuna cassetta postale di Exchange ha regole diverse rispetto a un utente abilitato che ha una cassetta postale.  
@@ -48,18 +46,18 @@ L'ambito è definito sotto forma di gruppi e clausole. Le clausole si trovano al
 
 Il modulo dell'ambito supporta le operazioni seguenti.
 
-Operazione | Descrizione
---- | ---
-EQUAL, NOTEQUAL | Confronto di stringhe che valuta se il valore è uguale al valore dell'attributo. Per gli attributi multivalore, vedere ISIN e ISNOTIN.
-LESSTHAN, LESSTHAN_OR_EQUAL | Confronto di stringhe che valuta se il valore è minore del valore dell'attributo.
-CONTAINS, NOTCONTAINS | Confronto di stringhe che valuta se il valore è presente nel valore dell'attributo.
-STARTSWITH, NOTSTARTSWITH | Confronto di stringhe che valuta se il valore è all'inizio del valore dell'attributo.
-ENDSWITH, NOTENDSWITH | Confronto di stringhe che valuta se il valore è alla fine del valore dell'attributo.
-GREATERTHAN, GREATERTHAN_OR_EQUAL | Confronto di stringhe che valuta se il valore è maggiore del valore dell'attributo.
-ISNULL, ISNOTNULL | Valuta se l'attributo è assente dall'oggetto. Se l'attributo non è presente e quindi è null, la regola si trova nell'ambito.
-ISIN, ISNOTIN | Valuta se il valore è presente nell'attributo definito. Questa operazione è la variante multivalore di EQUAL e NOTEQUAL. L'attributo deve essere un attributo multivalore e se il valore è presente in uno dei valori dell'attributo, la regola si trova nell'ambito.
-ISBITSET, ISNOTBITSET | Valuta se un determinato bit è impostato. Può essere ad esempio usato per valutare i bit di userAccountControl per vedere se un utente è abilitato o disabilitato.
-ISMEMBEROF, ISNOTMEMBEROF | Il valore deve contenere un nome distinto per un gruppo nello spazio connettore. Se l'oggetto è un membro del gruppo specificato, la regola si trova nell'ambito.
+| Operazione | Descrizione |
+| --- | --- |
+| EQUAL, NOTEQUAL |Confronto di stringhe che valuta se il valore è uguale al valore dell'attributo. Per gli attributi multivalore, vedere ISIN e ISNOTIN. |
+| LESSTHAN, LESSTHAN_OR_EQUAL |Confronto di stringhe che valuta se il valore è minore del valore dell'attributo. |
+| CONTAINS, NOTCONTAINS |Confronto di stringhe che valuta se il valore è presente nel valore dell'attributo. |
+| STARTSWITH, NOTSTARTSWITH |Confronto di stringhe che valuta se il valore è all'inizio del valore dell'attributo. |
+| ENDSWITH, NOTENDSWITH |Confronto di stringhe che valuta se il valore è alla fine del valore dell'attributo. |
+| GREATERTHAN, GREATERTHAN_OR_EQUAL |Confronto di stringhe che valuta se il valore è maggiore del valore dell'attributo. |
+| ISNULL, ISNOTNULL |Valuta se l'attributo è assente dall'oggetto. Se l'attributo non è presente e quindi è null, la regola si trova nell'ambito. |
+| ISIN, ISNOTIN |Valuta se il valore è presente nell'attributo definito. Questa operazione è la variante multivalore di EQUAL e NOTEQUAL. L'attributo deve essere un attributo multivalore e se il valore è presente in uno dei valori dell'attributo, la regola si trova nell'ambito. |
+| ISBITSET, ISNOTBITSET |Valuta se un determinato bit è impostato. Può essere ad esempio usato per valutare i bit di userAccountControl per vedere se un utente è abilitato o disabilitato. |
+| ISMEMBEROF, ISNOTMEMBEROF |Il valore deve contenere un nome distinto per un gruppo nello spazio connettore. Se l'oggetto è un membro del gruppo specificato, la regola si trova nell'ambito. |
 
 ## <a name="join"></a>Join
 Il modulo join nella pipeline di sincronizzazione provvede a trovare la relazione tra l'oggetto nell'origine e un oggetto nella destinazione. In una regola in ingresso, questa relazione sarebbe rappresentata da un oggetto in uno spazio connettore che trova una relazione con un oggetto nel metaverse.  
@@ -147,22 +145,19 @@ Per questo scenario è necessario modificare l'ambito delle regole di sincronizz
 ![Più oggetti uniti nello stesso oggetto mv](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/multiple2.png)  
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-- Per altre informazioni sul linguaggio delle espressioni, vedere [Servizio di sincronizzazione Azure AD Connect: Informazioni sulle espressioni di provisioning dichiarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
-- Per informazioni sull'uso del provisioning dichiarativo predefinito, vedere [Servizio di sincronizzazione Azure AD Connect: Informazioni sulla configurazione predefinita](active-directory-aadconnectsync-understanding-default-configuration.md).
-- Per informazioni su come apportare una modifica pratica con il provisioning dichiarativo, vedere [Servizio di sincronizzazione Azure AD Connect: come apportare modifiche alla configurazione predefinita](active-directory-aadconnectsync-change-the-configuration.md).
-- Per altre informazioni sull'interazione tra utenti e contatti, vedere [Servizio di sincronizzazione Azure AD Connect: Informazioni su utenti e contatti](active-directory-aadconnectsync-understanding-users-and-contacts.md).
+* Per altre informazioni sul linguaggio delle espressioni, vedere [Servizio di sincronizzazione Azure AD Connect: Informazioni sulle espressioni di provisioning dichiarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
+* Per informazioni sull'uso del provisioning dichiarativo predefinito, vedere [Servizio di sincronizzazione Azure AD Connect: Informazioni sulla configurazione predefinita](active-directory-aadconnectsync-understanding-default-configuration.md).
+* Per informazioni su come apportare una modifica pratica con il provisioning dichiarativo, vedere [Servizio di sincronizzazione Azure AD Connect: come apportare modifiche alla configurazione predefinita](active-directory-aadconnectsync-change-the-configuration.md).
+* Per altre informazioni sull'interazione tra utenti e contatti, vedere [Servizio di sincronizzazione Azure AD Connect: Informazioni su utenti e contatti](active-directory-aadconnectsync-understanding-users-and-contacts.md).
 
 **Argomenti generali**
 
-- [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](active-directory-aadconnectsync-whatis.md)
-- [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
+* [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](active-directory-aadconnectsync-whatis.md)
+* [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
 **Argomenti di riferimento**
 
-- [Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni](active-directory-aadconnectsync-functions-reference.md)
-
-
+* [Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni](active-directory-aadconnectsync-functions-reference.md)
 
 <!--HONumber=Oct16_HO2-->
 

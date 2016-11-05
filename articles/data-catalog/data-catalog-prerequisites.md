@@ -1,25 +1,24 @@
-<properties
-   pageTitle="Prerequisiti di Azure Data Catalog | Microsoft Azure"
-   description="Prerequisiti di Azure Data Catalog: tutte le informazioni per iniziare a usare Azure Data Catalog."
-   services="data-catalog"
-   documentationCenter=""
-   authors="steelanddata"
-   manager="NA"
-   editor=""
-   tags=""/> 
-<tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="09/21/2016"
-   ms.author="maroche"/> 
+---
+title: Prerequisiti di Azure Data Catalog | Microsoft Docs
+description: 'Prerequisiti di Azure Data Catalog: tutte le informazioni per iniziare a usare Azure Data Catalog.'
+services: data-catalog
+documentationcenter: ''
+author: steelanddata
+manager: NA
+editor: ''
+tags: ''
 
+ms.service: data-catalog
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-catalog
+ms.date: 09/21/2016
+ms.author: maroche
+
+---
 # Prerequisiti del Catalogo dati di Azure
-
 ## Prerequisiti per iniziare a usare il Catalogo dati di Azure
-
 Vi sono alcune cose di cui è necessario occuparsi prima di poter impostare il **Catalogo dati di Azure**. Nessuna c’è da preoccuparsi: occorre poco tempo.
 
 ## Sottoscrizione di Azure
@@ -32,10 +31,12 @@ Per configurare Azure Data Catalog, è necessario accedere con un account utente
 
 Azure Active Directory (Azure AD) è un servizio che offre semplici e pratiche funzionalità di gestione delle identità e degli accessi, sia nel cloud sia in locale. Gli utenti possono utilizzare un singolo account aziendale o dell'istituto di istruzione per eseguire il Single Sign-On a qualsiasi applicazione Web locale o nel cloud. Il Catalogo dati di Azure utilizza Azure AD per autenticare il Single Sign-On. Per altre informazioni, vedere [Informazioni su Azure Active Directory](../active-directory/active-directory-whatis.md)
 
-> [AZURE.NOTE] Il [portale di Azure](http://portal.azure.com/) consente agli utenti di accedere con un account Microsoft personale oppure con un account aziendale o dell'istituto di istruzione di Azure Active Directory. Per configurare Azure Data Catalog usando il portale di Azure o il [portale di Data Catalog](http://www.azuredatacatalog.com), è necessario eseguire l'accesso con un account di Azure Active Directory, non con un account personale.
+> [!NOTE]
+> Il [portale di Azure](http://portal.azure.com/) consente agli utenti di accedere con un account Microsoft personale oppure con un account aziendale o dell'istituto di istruzione di Azure Active Directory. Per configurare Azure Data Catalog usando il portale di Azure o il [portale di Data Catalog](http://www.azuredatacatalog.com), è necessario eseguire l'accesso con un account di Azure Active Directory, non con un account personale.
+> 
+> 
 
 ## Configurazione dei criteri di Azure Active Directory
-
 In alcuni casi, è possibile che si verifichi una situazione in cui gli utenti possono accedere al portale del Catalogo dati di Azure, ma, quando tentano di accedere allo strumento di registrazione dell'origine dati, viene restituito un messaggio di errore che impedisce l'accesso. Questo errore si verifica solo quando l'utente è nella rete aziendale o si connette dall'esterno della rete aziendale.
 
 Lo strumento di registrazione dell'origine dati usa l'autenticazione basata su form per convalidare gli accessi degli utenti in Active Directory. Per accedere, l'autenticazione basata su form deve essere abilitata nei criteri di autenticazione globali da un amministratore di Active Directory.

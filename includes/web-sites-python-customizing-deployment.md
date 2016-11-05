@@ -1,14 +1,14 @@
 Per stabilire se l'applicazione usa Python, Azure verifica se **entrambe le condizioni seguenti sono soddisfatte**:
 
-- Presenza del file requirements.txt nella cartella radice
-- Presenza di un qualsiasi file .py nella cartella radice OPPURE di un file runtime.txt in cui viene specificato python
+* Presenza del file requirements.txt nella cartella radice
+* Presenza di un qualsiasi file .py nella cartella radice OPPURE di un file runtime.txt in cui viene specificato python
 
 In tale circostanza, userà uno script di distribuzione specifico di Python che eseguirà la sincronizzazione standard dei file, oltre ad operazioni aggiuntive di Python, tra cui:
 
-- Gestione automatica dell'ambiente virtuale
-- Installazione dei pacchetti elencati in requirements.txt tramite pip
-- Creazione del file web.config appropriato sulla base della versione di Python selezionata
-- Raccolta di file statici per le applicazioni Django
+* Gestione automatica dell'ambiente virtuale
+* Installazione dei pacchetti elencati in requirements.txt tramite pip
+* Creazione del file web.config appropriato sulla base della versione di Python selezionata
+* Raccolta di file statici per le applicazioni Django
 
 È possibile controllare determinati aspetti della procedura di distribuzione predefinita senza dover personalizzare lo script.
 
@@ -21,7 +21,7 @@ Per un maggiore controllo sulla distribuzione, è possibile eseguire l'override 
     \.deployment
     \deploy.cmd
 
-Per creare i file, è possibile usare l'[interfaccia della riga di comando di Azure][]. Usare questo comando dalla cartella del progetto:
+Per creare i file, è possibile usare l'[interfaccia della riga di comando di Azure][interfaccia della riga di comando di Azure]. Usare questo comando dalla cartella del progetto:
 
     azure site deploymentscript --python
 

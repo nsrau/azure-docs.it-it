@@ -1,27 +1,28 @@
-<properties
-   pageTitle="Viste in SQL Data Warehouse | Microsoft Azure"
-   description="Suggerimenti per l'uso di viste Transact-SQL in Azure SQL Data Warehouse per lo sviluppo di soluzioni."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Viste in SQL Data Warehouse | Microsoft Docs
+description: Suggerimenti per l'uso di viste Transact-SQL in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="07/01/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 07/01/2016
+ms.author: jrj;barbkess;sonyama
 
-
+---
 # Viste in SQL Data Warehouse
-
 Le viste sono particolarmente utili in SQL Data Warehouse. Risultano utili in molti modi diversi per migliorare la qualità della soluzione. Questo articolo contiene alcuni esempi che illustrano come migliorare la soluzione con le viste e le limitazioni da prendere in considerazione.
 
-> [AZURE.NOTE] La sintassi per `CREATE VIEW` non viene illustrata in questo articolo. Per informazioni di riferimento, vedere l'articolo [CREATE VIEW][] su MSDN.
+> [!NOTE]
+> La sintassi per `CREATE VIEW` non viene illustrata in questo articolo. Per informazioni di riferimento, vedere l'articolo [CREATE VIEW][CREATE VIEW] su MSDN.
+> 
+> 
 
 ## Astrazione dell'architettura
 Un modello di applicazione molto comune consiste nel ricreare le tabelle usando CREATE TABLE AS SELECT (CTAS) seguito da un modello di ridenominazione di oggetti durante il caricamento dei dati.
@@ -54,15 +55,14 @@ Le viste possono anche essere usate per creare join ottimizzati per le prestazio
 ## Limitazioni
 Le viste in SQL Data Warehouse sono solo metadati. Di conseguenza, le opzioni seguenti non sono disponibili:
 
-- 	Non esiste alcuna opzione di binding dello schema
-- 	Le tabelle di base non possono essere aggiornate tramite la vista
-- 	Non è possibile creare visualizzazioni sulle tabelle temporanee
-- 	Non è disponibile alcun supporto per gli hint EXPAND/NOEXPAND
-- 	Non sono disponibili viste indicizzate in SQL Data Warehouse
-
+* Non esiste alcuna opzione di binding dello schema
+* Le tabelle di base non possono essere aggiornate tramite la vista
+* Non è possibile creare visualizzazioni sulle tabelle temporanee
+* Non è disponibile alcun supporto per gli hint EXPAND/NOEXPAND
+* Non sono disponibili viste indicizzate in SQL Data Warehouse
 
 ## Passaggi successivi
-Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][]. Per la sintassi di `CREATE VIEW`, vedere [CREATE VIEW][].
+Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][Panoramica sullo sviluppo per SQL Data Warehouse]. Per la sintassi di `CREATE VIEW`, vedere [CREATE VIEW][CREATE VIEW].
 
 <!--Image references-->
 

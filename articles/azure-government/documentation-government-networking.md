@@ -1,26 +1,24 @@
-<properties
-	pageTitle="Documentazione di Azure per enti pubblici | Microsoft Azure"
-	description="Fornisce un confronto di funzionalità e informazioni aggiuntive per la connettività privata all'eGovernment"
-	services="Azure-Government"
-	cloud="gov" 
-	documentationCenter=""
-	authors="ryansoc"
-	manager="zakramer"
-	editor=""/>
+---
+title: Documentazione di Azure per enti pubblici | Microsoft Docs
+description: Fornisce un confronto di funzionalità e informazioni aggiuntive per la connettività privata all'eGovernment
+services: Azure-Government
+cloud: gov
+documentationcenter: ''
+author: ryansoc
+manager: zakramer
+editor: ''
 
-<tags
-	ms.service="multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="azure-government"
-	ms.date="08/25/2016"
-	ms.author="ryansoc"/>
+ms.service: multiple
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: azure-government
+ms.date: 08/25/2016
+ms.author: ryansoc
 
-#  Rete di Azure per enti pubblici
-
-##  ExpressRoute (connettività privata)
-
+---
+# Rete di Azure per enti pubblici
+## ExpressRoute (connettività privata)
 Esistono due servizi di base che forniscono la connettività di rete privata in Azure per enti pubblici: VPN (da sito a sito per un'organizzazione tipica) ed ExpressRoute.
 
 Azure ExpressRoute si usa per creare connessioni private tra i data center di Azure per enti pubblici e l'infrastruttura locale o in un ambiente di housing. Le connessioni ExpressRoute non usano la rete Internet pubblica. Offrono maggiore affidabilità, velocità più elevate e latenze più basse rispetto alle connessioni Internet tradizionali. In alcuni casi, l'uso delle connessioni ExpressRoute per trasferire dati tra sistemi locali e Azure offre vantaggi significativi in termini di costi.

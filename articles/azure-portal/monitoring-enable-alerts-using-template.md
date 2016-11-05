@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Creare un avviso metrica con un modello di Resource Manager | Microsoft Azure"
-	description="Informazioni su come usare un modello di Resource Manager per creare un avviso metrica per ricevere notifiche tramite posta elettronica o webhook."
-	authors="johnkemnetz"
-	manager="rboucher"
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Creare un avviso metrica con un modello di Resource Manager | Microsoft Docs
+description: Informazioni su come usare un modello di Resource Manager per creare un avviso metrica per ricevere notifiche tramite posta elettronica o webhook.
+author: johnkemnetz
+manager: rboucher
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/26/2016"
-	ms.author="johnkem"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: johnkem
 
+---
 # Creare un avviso metrica con un modello di Resource Manager
-
 Questo articolo mostra come usare un [modello di Resource Manager di Azure](../resource-group-authoring-templates.md) per configurare gli avvisi sulle metriche in Azure. Consente di configurare automaticamente gli avvisi relativi alle risorse al momento della loro creazione, per assicurarsi che tutte le risorse siano correttamente monitorate.
 
 I passaggi di base sono i seguenti:
@@ -28,7 +27,6 @@ I passaggi di base sono i seguenti:
 Di seguito viene descritto come creare un modello di Resource Manager prima per un avviso, quindi per un avviso durante la creazione di un'altra risorsa.
 
 ## Modello di Resource Manager per un avviso metrica
-
 Per creare un avviso usando un modello di Resource Manager, creare una risorsa di tipo `Microsoft.Insights/alertRules` e completare tutte le proprietà correlate. Di seguito è riportato un modello che crea una regola di avviso.
 
 ```json
@@ -179,7 +177,6 @@ Per creare un avviso usando un modello di Resource Manager, creare una risorsa d
 Una spiegazione dello schema e delle proprietà per una regola di avviso [è disponibile qui](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## Modello di Resource Manager per una risorsa con un avviso
-
 In genere, un avviso in un modello di Resource Manager è più utile quando si crea un avviso durante la creazione di una risorsa. Ad esempio, si deve verificare che la regola "CPU > 80%" venga impostata ogni volta che si distribuisce una macchina virtuale. A tale scopo, aggiungere la regola di avviso come risorsa nell'array della risorsa per il modello della VM e aggiungere una dipendenza usando la proprietà `dependsOn` all'ID risorsa della VM. L'esempio seguente crea una VM Windows e aggiunge un avviso che informa gli amministratori della sottoscrizione quando l'utilizzo della CPU supera l'80%.
 
 ```json
@@ -400,7 +397,7 @@ In genere, un avviso in un modello di Resource Manager è più utile quando si c
 ```
 
 ## Passaggi successivi
-- [Altre informazioni sugli avvisi](./insights-receive-alert-notifications.md).
-- [Aggiungere impostazioni di diagnostica](./monitoring-enable-diagnostic-logs-using-template.md) al modello di Resource Manager
+* [Altre informazioni sugli avvisi](insights-receive-alert-notifications.md).
+* [Aggiungere impostazioni di diagnostica](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md) al modello di Resource Manager
 
 <!---HONumber=AcomDC_0928_2016-->

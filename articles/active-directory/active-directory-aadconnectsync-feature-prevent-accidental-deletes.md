@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Sincronizzazione di Azure AD Connect: impedire eliminazioni accidentali | Microsoft Azure"
-   description="Questo argomento descrive la funzionalità per impedire le eliminazioni accidentali in Azure AD Connect."
-   services="active-directory"
-   documentationCenter=""
-   authors="AndKjell"
-   manager="femila"
-   editor=""/>
+---
+title: 'Sincronizzazione di Azure AD Connect: impedire eliminazioni accidentali | Microsoft Docs'
+description: Questo argomento descrive la funzionalità per impedire le eliminazioni accidentali in Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/01/2016"
-   ms.author="andkjell"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/01/2016
+ms.author: andkjell
 
+---
 # Servizio di sincronizzazione Azure AD Connect: Impedire eliminazioni accidentali
 Questo argomento descrive la funzionalità per impedire le eliminazioni accidentali in Azure AD Connect.
 
@@ -23,9 +23,9 @@ Quando si installa Azure AD Connect, la funzionalità per impedire le eliminazio
 
 Gli scenari comuni in cui si verificano molte eliminazioni includono:
 
-- Modifiche ai [filtri](active-directory-aadconnectsync-configure-filtering.md) in cui è deselezionata un'intera [unità organizzativa](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) o un [dominio](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering).
-- Vengono eliminati tutti gli oggetti in un'unità organizzativa.
-- Un'unità organizzativa viene rinominata in modo che tutti gli oggetti in essa contenuti vengano considerati al di fuori dell'ambito di sincronizzazione.
+* Modifiche ai [filtri](active-directory-aadconnectsync-configure-filtering.md) in cui è deselezionata un'intera [unità organizzativa](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) o un [dominio](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering).
+* Vengono eliminati tutti gli oggetti in un'unità organizzativa.
+* Un'unità organizzativa viene rinominata in modo che tutti gli oggetti in essa contenuti vengano considerati al di fuori dell'ambito di sincronizzazione.
 
 Il valore predefinito di 500 oggetti può essere modificato con PowerShell utilizzando `Enable-ADSyncExportDeletionThreshold`. È consigliabile configurare questo valore in base alle dimensioni dell'organizzazione. Poiché l'utilità di pianificazione della sincronizzazione viene eseguita ogni 30 minuti, il valore è il numero di eliminazioni visualizzate in 30 minuti.
 
@@ -34,6 +34,8 @@ Se il numero di eliminazioni da esportare in Azure AD è troppo elevato, l'espor
 ![Messaggio di posta elettronica per evitare eliminazioni accidentali](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
 
 > *Gentile (contatto tecnico), Sincronizzazione delle identità: il giorno (data) è stato rilevato che il numero di eliminazioni ha superato la soglia di eliminazione per (nome dell'organizzazione). È stato inviato un totale di (numero) oggetti per l'eliminazione in questa esecuzione di sincronizzazione delle identità. È stato quindi raggiunto o superato il valore della soglia di eliminazione configurato di (numero) oggetti. Prima di continuare, è necessario confermare di voler procedere con l'elaborazione di queste eliminazioni. Per altre informazioni sull'errore indicato in questo messaggio di posta elettronica, vedere l'articolo che illustra come evitare eliminazioni accidentali.*
+> 
+> 
 
 È anche possibile visualizzare lo stato `stopped-deletion-threshold-exceeded` nell'interfaccia utente di **Synchronization Service Manager** per il profilo di esportazione. ![Interfaccia utente di Synchronization Service Manager per evitare eliminazioni accidentali](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/syncservicemanager.png)
 
@@ -54,10 +56,9 @@ Se si desidera tutte le eliminazioni, eseguire le operazioni seguenti:
 3. Per riabilitare la protezione, eseguire il cmdlet PowerShell: `Enable-ADSyncExportDeletionThreshold`.
 
 ## Passaggi successivi
-
 **Argomenti generali**
 
-- [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](active-directory-aadconnectsync-whatis.md)
-- [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
+* [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](active-directory-aadconnectsync-whatis.md)
+* [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
 <!---HONumber=AcomDC_0907_2016-->

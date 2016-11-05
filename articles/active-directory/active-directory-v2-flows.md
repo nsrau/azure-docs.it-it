@@ -1,34 +1,35 @@
-<properties
-    pageTitle="Tipi dell'endpoint v2.0 | Microsoft Azure"
-    description="Tipi di app e scenari supportati dall'endpoint v2.0 di Azure AD."
-    services="active-directory"
-    documentationCenter=""
-    authors="dstrockis"
-    manager="mbaldwin"
-    editor=""/>
+---
+title: Tipi dell'endpoint v2.0 | Microsoft Docs
+description: Tipi di app e scenari supportati dall'endpoint v2.0 di Azure AD.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/30/2016"
-    ms.author="dastrock"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/30/2016
+ms.author: dastrock
 
-
+---
 # <a name="types-of-apps-for-the-v2.0-endpoint"></a>Tipi di app per l'endpoint v2.0
 L'endpoint v2.0 supporta l'autenticazione di un'ampia gamma di architetture di app moderne, basate sui protocolli standard del settore [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) e/o [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow).  Questo documento descrive brevemente i tipi di app che è possibile creare, indipendente dal linguaggio o dalla piattaforma preferita.  Il documento consentirà di comprendere gli scenari di alto livello prima di [passare direttamente al codice](active-directory-appmodel-v2-overview.md#getting-started).
 
-> [AZURE.NOTE]
-    Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0.  Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+> [!NOTE]
+> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0.  Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+> 
+> 
 
 ## <a name="the-basics"></a>Nozioni di base
 Ogni app che usa l'endpoint v2.0 dovrà essere registrata in [apps.dev.microsoft.com](https://apps.dev.microsoft.com).  Il processo di registrazione raccoglie e assegna all'app alcuni valori:
 
-- Un **ID applicazione** che identifica l'app in modo univoco
-- Un **URI di reindirizzamento** che può essere usato per indirizzare le risposte all'app
-- Altri valori specifici dello scenario  Per informazioni dettagliate, consultare l'argomento relativo alla [registrazione di un'app](active-directory-v2-app-registration.md).
+* Un **ID applicazione** che identifica l'app in modo univoco
+* Un **URI di reindirizzamento** che può essere usato per indirizzare le risposte all'app
+* Altri valori specifici dello scenario  Per informazioni dettagliate, consultare l'argomento relativo alla [registrazione di un'app](active-directory-v2-app-registration.md).
 
 Dopo la registrazione, l'app comunica con Azure AD inviando richieste all'endpoint v2.0 di Azure Active Directory.  Vengono forniti framework open source e librerie per la gestione dei dettagli delle richieste oppure è possibile implementare la logica di autenticazione creando le richieste in questi endpoint:
 
@@ -89,7 +90,6 @@ Per altre informazioni su codici di autorizzazione, token di aggiornamento e pro
 
 Per informazioni su come proteggere un'API Web con i token di accesso di OAuth 2.0, consultare gli esempi di codice dell'API Web nella sezione [introduttiva](active-directory-appmodel-v2-overview.md#getting-started).
 
-
 ## <a name="mobile-and-native-apps"></a>App per dispositivi mobili e native
 Le app installate in un dispositivo, ad esempio app desktop e per dispositivi mobili, devono spesso accedere a servizi back-end o ad API Web che archiviano i dati ed eseguono diverse funzioni per conto dell'utente.  Queste app possono aggiungere accesso e autorizzazioni ai servizi back-end mediante il [flusso del codice di autorizzazione OAuth 2.0](active-directory-v2-protocols-oauth-code.md).  
 
@@ -122,8 +122,6 @@ I tipi di app riportati di seguito non sono attualmente supportati dall'endpoint
 Molte architetture includono un'API Web che deve chiamare un'altra API Web downstream, entrambe protette dall'endpoint v2.0.  Questo scenario è comune nei client nativi che dispongono di un back-end dell'API Web, che a sua volta chiama un servizio Microsoft Online come Office 365 o l'API Graph.
 
 Questo scenario dell'API Web concatenata può essere supportato tramite la concessione delle credenziali di connessione JWT di OAuth 2.0, nota anche come [flusso On-Behalf-Of](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow).  Tuttavia, il flusso On-Behalf-Of non è attualmente implementato nell'endpoint v2.0.  Per verificare il funzionamento di questo flusso nel servizio Azure AD disponibile a livello generale, consultare l' [esempio di codice On-Behalf-Of su GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

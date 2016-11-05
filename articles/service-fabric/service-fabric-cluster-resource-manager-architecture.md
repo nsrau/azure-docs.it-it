@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Resource Manager Architecture | Microsoft Azure"
-   description="An architectural overview of Service Fabric Cluster Resource Manager."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: Resource Manager Architecture | Microsoft Docs
+description: An architectural overview of Service Fabric Cluster Resource Manager.
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
+---
 # Panoramica dell'architettura di Cluster Resource Manager
 Per gestire le risorse del cluster, Cluster Resource Manager di Service Fabric deve disporre di varie informazioni. Deve conoscere i servizi esistenti e la relativa quantità attuale (o predefinita) di risorse che tali servizi stanno usando. Deve conoscere la capacità effettiva dei nodi nel cluster e, di conseguenza, la quantità di risorse disponibili sia nel cluster intero sia in un nodo specifico. L'uso di risorse di un determinato servizio può cambiare nel tempo e che i servizi, in realtà, sono in genere interessati da più di una risorsa. In molti servizi diversi potrebbero essere presenti entrambe le risorse fisiche reali, misurate e segnalate come metriche quali consumo della memoria e del disco, nonché come (e in realtà più comunemente) metriche logiche, ad esempio "WorkQueueDepth" o "TotalRequests". Le metriche logiche e fisiche possono essere usate in molti tipi diversi di servizi oppure essere specifiche di un paio di servizi.
 
@@ -34,7 +34,7 @@ Diamo un'occhiata al diagramma seguente e osserviamo cosa succede. Si supponga c
 ![Architettura di Resource Balancer][Image2]
 
 ## Passaggi successivi
-- Cluster Resource Manager dispone di molte opzioni per la descrizione del cluster. Per altre informazioni a riguardo vedere l'articolo [Descrivere un cluster di Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
+* Cluster Resource Manager dispone di molte opzioni per la descrizione del cluster. Per altre informazioni a riguardo vedere l'articolo [Descrivere un cluster di Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-1.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-2.png

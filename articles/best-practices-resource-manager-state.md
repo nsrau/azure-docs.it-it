@@ -1,30 +1,27 @@
-<properties
-	pageTitle="Gestione dello stato nei modelli di Gestione risorse | Microsoft Azure"
-	description="Mostra gli approcci consigliati per usare oggetti complessi per condividere i dati sullo stato con i modelli di Gestione risorse di Azure e i modelli collegati"
-	services="azure-resource-manager"
-	documentationCenter=""
-	authors="tfitzmac"
-	manager="timlt"
-	editor="tysonn"/>
+---
+title: Gestione dello stato nei modelli di Gestione risorse | Microsoft Docs
+description: Mostra gli approcci consigliati per usare oggetti complessi per condividere i dati sullo stato con i modelli di Gestione risorse di Azure e i modelli collegati
+services: azure-resource-manager
+documentationcenter: ''
+author: tfitzmac
+manager: timlt
+editor: tysonn
 
-<tags
-	ms.service="azure-resource-manager"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/12/2016"
-	ms.author="tomfitz"/>
+ms.service: azure-resource-manager
+ms.workload: multiple
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/12/2016
+ms.author: tomfitz
 
+---
 # Condivisione dello stato in modelli di Gestione risorse di Azure
-
 Questo argomento illustra le procedure consigliate per la gestione e la condivisione dello stato all'interno dei modelli. I parametri e le variabili illustrati in questo argomento sono esempi del tipo di oggetti che è possibile definire per organizzare facilmente i requisiti di distribuzione. Da questi esempi, è possibile implementare gli oggetti con valori di proprietà utili per l'ambiente.
 
 Questo argomento fa parte di un white paper di dimensioni maggiori. Per leggere il documento completo, scaricare [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
-
 ## Uso di impostazioni di configurazione standard
-
 Anziché offrire un modello che fornisce massima flessibilità e innumerevoli variazioni, uno schema diffuso è fornire la possibilità di selezionare configurazioni note, ovvero taglie standard quali sandbox, small, medium e large. Altri esempi di taglie sono le offerte di prodotti, come Community Edition o Enterprise Edition. In altri casi, potrebbero essere configurazioni specifiche per i carichi di lavoro di una determinata tecnologia, ad esempio map reduce o no sql.
 
 Con gli oggetti complessi, è possibile creare variabili che contengono insiemi di dati, talvolta note come "contenitori di proprietà" e utilizzare tali dati per guidare la dichiarazione delle risorse nel modello. Questo approccio fornisce configurazioni note ed efficienti di dimensioni variabili, preconfigurate per i clienti. Senza configurazioni note, i clienti devono determinare autonomamente la dimensione del cluster, includere i limiti di risorse della piattaforma ed effettuare calcoli matematici per identificare il partizionamento risultante degli account di archiviazione e altre risorse (a causa della dimensione del cluster e dei limiti di risorse). Oltre a migliorare l'esperienza del cliente, un numero limitato di configurazioni note è più facile da supportare e consente di offrire un livello superiore di densità.
@@ -166,21 +163,20 @@ Si noti che la variabile **tshirtSize** concatena la taglia delle t-shirt fornit
     }
 
 ## Passaggio dello stato a un modello
-
 È possibile condividere lo stato in un modello tramite parametri forniti direttamente durante la distribuzione.
 
 La seguente tabella elenca i parametri di uso comune nei modelli.
 
-Nome | Valore | Descrizione
----- | ----- | -----------
-location | Stringa da un elenco vincolato di aree di Azure | Posizione in cui verranno distribuite le risorse.
-storageAccountNamePrefix | Stringa | Nome DNS univoco dell'account di archiviazione in cui verranno inseriti i dischi della VM
-domainName | Stringa | Nome di dominio della VM Jumpbox accessibile pubblicamente nel formato: **{domainName}.{location}.cloudapp.com**, ad esempio: **mydomainname.westus.cloudapp.azure.com**
-adminUsername | Stringa | Nome utente per le VM
-adminPassword | Stringa | Password delle VM
-tshirtSize | Stringa da un elenco vincolato di taglie offerte | Dimensioni dell'unità di scala denominata di cui effettuare il provisioning. Ad esempio, "Small", "Medium", "Large"
-virtualNetworkName | Stringa | Nome della rete virtuale che l'utente vuole usare.
-enableJumpbox | Stringa da un elenco vincolato (abilitato/disabilitato) | Parametro che indica se abilitare Jumpbox per l'ambiente. Valori: "enabled", "disabled"
+| Nome | Valore | Descrizione |
+| --- | --- | --- |
+| location |Stringa da un elenco vincolato di aree di Azure |Posizione in cui verranno distribuite le risorse. |
+| storageAccountNamePrefix |Stringa |Nome DNS univoco dell'account di archiviazione in cui verranno inseriti i dischi della VM |
+| domainName |Stringa |Nome di dominio della VM Jumpbox accessibile pubblicamente nel formato: **{domainName}.{location}.cloudapp.com**, ad esempio: **mydomainname.westus.cloudapp.azure.com** |
+| adminUsername |Stringa |Nome utente per le VM |
+| adminPassword |Stringa |Password delle VM |
+| tshirtSize |Stringa da un elenco vincolato di taglie offerte |Dimensioni dell'unità di scala denominata di cui effettuare il provisioning. Ad esempio, "Small", "Medium", "Large" |
+| virtualNetworkName |Stringa |Nome della rete virtuale che l'utente vuole usare. |
+| enableJumpbox |Stringa da un elenco vincolato (abilitato/disabilitato) |Parametro che indica se abilitare Jumpbox per l'ambiente. Valori: "enabled", "disabled" |
 
 Il parametro **tshirtSize** usato nella sezione precedente viene definito come:
 
@@ -201,11 +197,9 @@ Il parametro **tshirtSize** usato nella sezione precedente viene definito come:
 
 
 ## Passaggio dello stato ai modelli collegati
-
 Quando ci si connette a modelli collegati, si userà spesso una combinazione di variabili statiche e generate.
 
 ### Variabili statiche
-
 Le variabili statiche vengono usate spesso per fornire i valori di base, ad esempio URL, usati in un modello.
 
 Nell'estratto di modello seguente, `templateBaseUrl` specifica il percorso radice del modello in GitHub. La riga successiva compila una nuova variabile `sharedTemplateUrl` che concatena l'URL di base con il nome noto del modello di risorse condiviso. Sotto, una variabile oggetto complesso viene usata per archiviare una taglia, dove l'URL di base viene concatenato al percorso del modello di configurazione noto e archiviato nella proprietà `vmTemplate`.
@@ -232,15 +226,12 @@ Il vantaggio di questo approccio è di poter modificare solo la variabile static
     }
 
 ### Variabili generate
-
 Oltre alle variabili statiche, alcune variabili vengono generate dinamicamente. Questa sezione identifica alcuni dei tipi comuni di variabili generate.
 
 #### tshirtSize
-
 A questo punto si ha familiarità con la variabile generata dagli esempi precedenti.
 
 #### networkSettings
-
 In una capacità, funzionalità o modello di soluzione con ambito end-to-end, i modelli collegati di solito creano risorse esistenti in una rete. Un approccio semplice consiste nell'usare un oggetto complesso per archiviare le impostazioni di rete e passarle ai modelli collegati.
 
 Di seguito è riportato un esempio di impostazioni di rete di comunicazione.
@@ -263,7 +254,6 @@ Di seguito è riportato un esempio di impostazioni di rete di comunicazione.
     }
 
 #### availabilitySettings
-
 Le risorse create nei modelli collegati vengono spesso inserite in un set di disponibilità. Nell'esempio seguente, vengono specificati il nome del set di disponibilità e anche il conteggio di domini di errore e di domini di aggiornamento da usare.
 
     "availabilitySetSettings": {
@@ -275,7 +265,6 @@ Le risorse create nei modelli collegati vengono spesso inserite in un set di dis
 Se sono necessari più set di disponibilità (ad esempio, uno per i nodi master e un altro per i nodi dati), è possibile usare un nome come prefisso, specificare più set di disponibilità o seguire il modello mostrato prima per creare una variabile per una taglia specifica.
 
 #### storageSettings
-
 I dettagli di archiviazione spesso vengono condivisi con i modelli collegati. Nell'esempio seguente, un oggetto *storageSettings* fornisce i dettagli sull'account di archiviazione e sui nomi dei contenitori.
 
     "storageSettings": {
@@ -285,7 +274,6 @@ I dettagli di archiviazione spesso vengono condivisi con i modelli collegati. Ne
     }
 
 #### osSettings
-
 Con i modelli collegati, potrebbe essere necessario passare le impostazioni del sistema operativo a vari tipi di nodi tra tipi di configurazione noti diversi. Un oggetto complesso consente di archiviare e condividere facilmente le informazioni sul sistema operativo e di supportare più scelte del sistema operativo per la distribuzione.
 
 Il seguente esempio mostra un oggetto per*osSettings*:
@@ -300,7 +288,6 @@ Il seguente esempio mostra un oggetto per*osSettings*:
     }
 
 #### machineSettings
-
 Una variabile generata, *machineSettings* è un oggetto complesso contenente una combinazione di variabili principali per la creazione di una nuova VM: nome utente e password dell'amministratore, un prefisso per i nomi delle VM e un riferimento a un'immagine del sistema operativo come mostrato sotto:
 
     "machineSettings": {
@@ -318,7 +305,6 @@ Una variabile generata, *machineSettings* è un oggetto complesso contenente una
 Si noti che *osImageReference* recupera i valori della variabile *osSettings* definita nel modello principale. Ciò significa che è possibile modificare facilmente il sistema operativo per una VM, interamente o in base alla preferenza di un utente del modello.
 
 #### vmScripts
-
 L'oggetto *vmScripts* contiene i dettagli sugli script per il download e l'esecuzione in un'istanza di una VM, inclusi i riferimenti esterni e interni. I riferimenti esterni includono l'infrastruttura. I riferimenti interni includono il software installato e la configurazione.
 
 La proprietà *scriptsToDownload* viene usata per elencare gli script per il download nella VM.
@@ -341,7 +327,6 @@ Nella sezione delle variabili è possibile trovare le variabili che definiscono 
 
 
 ## Restituzione dello stato da un modello
-
 Non è solo possibile passare i dati a un modello, ma anche condividerli di nuovo con il modello chiamante. Nella sezione **outputs** di un modello collegato, è possibile specificare le coppie chiave/valore che possono essere utilizzate dal modello di origine.
 
 Il seguente esempio mostra come passare l'indirizzo IP privato generato in un modello collegato.
@@ -364,11 +349,10 @@ All'interno del modello principale, è possibile usare tali dati con la sintassi
         "value": "[reference('master-node').outputs.masterip.value]",
         "type": "string"
       }
-     
+
 Per un esempio di uso della sezione outputs di un modello collegato per la restituzione dei dischi dati per una macchina virtuale, vedere [Creazione di più dischi dati per una macchina virtuale](resource-group-create-multiple.md#creating-multiple-data-disks-for-a-virtual-machine).
 
 ## Definizione delle impostazioni di autenticazione per la macchina virtuale
-
 È possibile usare il modello descritto in alto per le impostazioni di configurazione per specificare le impostazioni di autenticazione per una macchina virtuale. Creare un parametro per passare il tipo di autenticazione.
 
     "parameters": {
@@ -423,7 +407,7 @@ Quando si definisce la macchina virtuale, si imposta **osProfile** sulla variabi
 
 
 ## Passaggi successivi
-- Per informazioni sulle sezioni del modello, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
-- Per tutte le funzioni disponibili in un modello, vedere [Funzioni del modello di Gestione risorse di Azure](resource-group-template-functions.md).
+* Per informazioni sulle sezioni del modello, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
+* Per tutte le funzioni disponibili in un modello, vedere [Funzioni del modello di Gestione risorse di Azure](resource-group-template-functions.md).
 
 <!---HONumber=AcomDC_0713_2016-->

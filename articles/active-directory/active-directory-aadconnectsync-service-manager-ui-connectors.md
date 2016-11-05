@@ -1,46 +1,44 @@
-<properties
-	pageTitle="Servizio di sincronizzazione Azure AD Connect: Interfaccia utente di Synchronization Service Manager | Microsoft Azure"
-	description="Comprendere la scheda Connettori in Synchronization Service Manager di Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+---
+title: 'Servizio di sincronizzazione Azure AD Connect: Interfaccia utente di Synchronization Service Manager | Microsoft Docs'
+description: Comprendere la scheda Connettori in Synchronization Service Manager di Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="andkjell"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/07/2016
+ms.author: andkjell
 
-
+---
 # Servizio di sincronizzazione Azure AD Connect: Synchronization Service Manager
-
-[Operazioni](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Connettori](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Finestra di progettazione metaverse](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Ricerca metaverse](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
---- | --- | --- | ---
+| [Operazioni](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Connettori](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Finestra di progettazione metaverse](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Ricerca metaverse](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) |
+| --- | --- | --- | --- |
+|  | | | |
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectors.png)
 
 La scheda Connettori consente di gestire tutti i sistemi a cui il motore di sincronizzazione è connesso.
 
 ## Azioni del connettore
-
-Azione | Commento
---- | ---
-Create | Non usare. Per la connessione ad altre foreste AD, usare l'installazione guidata.
-Proprietà | Si usa per i filtri di unità organizzativa e dominio.
-[Eliminazione](#delete) | Si usa per eliminare i dati nello spazio connettore o per eliminare la connessione a una foresta.
-[Configura profili di esecuzione](#configure-run-profiles) | Fatta eccezione per i filtri di dominio, qui non è richiesta alcuna configurazione. Questa azione consente di visualizzare i profili di esecuzione già configurati.
-Esegui | Si usa per avviare l'esecuzione occasionale di un profilo.
-Arresto | Arresta un connettore che sta eseguendo attualmente un profilo.
-Esporta connettore | Non usare.
-Importa connettore | Non usare.
-Aggiorna connettore | Non usare.
-Aggiorna schema | Aggiorna lo schema memorizzato nella cache. È preferibile usare l'opzione nell'installazione guidata perché aggiorna anche le regole di sincronizzazione.
-[Spazio connettore di ricerca](#search-connector-space) | Consente di trovare oggetti e [seguire un oggetto e i relativi dati attraverso il sistema](#follow-an-object-and-its-data-through-the-system).
+| Azione | Commento |
+| --- | --- |
+| Create |Non usare. Per la connessione ad altre foreste AD, usare l'installazione guidata. |
+| Proprietà |Si usa per i filtri di unità organizzativa e dominio. |
+| [Eliminazione](#delete) |Si usa per eliminare i dati nello spazio connettore o per eliminare la connessione a una foresta. |
+| [Configura profili di esecuzione](#configure-run-profiles) |Fatta eccezione per i filtri di dominio, qui non è richiesta alcuna configurazione. Questa azione consente di visualizzare i profili di esecuzione già configurati. |
+| Esegui |Si usa per avviare l'esecuzione occasionale di un profilo. |
+| Arresto |Arresta un connettore che sta eseguendo attualmente un profilo. |
+| Esporta connettore |Non usare. |
+| Importa connettore |Non usare. |
+| Aggiorna connettore |Non usare. |
+| Aggiorna schema |Aggiorna lo schema memorizzato nella cache. È preferibile usare l'opzione nell'installazione guidata perché aggiorna anche le regole di sincronizzazione. |
+| [Spazio connettore di ricerca](#search-connector-space) |Consente di trovare oggetti e [seguire un oggetto e i relativi dati attraverso il sistema](#follow-an-object-and-its-data-through-the-system). |
 
 ### Elimina
 L'azione di eliminazione viene usata per due scopi diversi. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectordelete.png)

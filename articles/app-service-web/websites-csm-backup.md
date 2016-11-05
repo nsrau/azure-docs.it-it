@@ -1,37 +1,41 @@
-<properties
-	pageTitle="Usare REST per eseguire il backup e il ripristino di app del servizio App"
-	description="Informazioni su come usare chiamate API RESTful per eseguire il backup e il ripristino di un'app in Servizio app di Azure"
-	services="app-service"
-	documentationCenter=""
-	authors="NKing92"
-	manager="wpickett"
-    editor="" />
+---
+title: Usare REST per eseguire il backup e il ripristino di app del servizio App
+description: Informazioni su come usare chiamate API RESTful per eseguire il backup e il ripristino di un'app in Servizio app di Azure
+services: app-service
+documentationcenter: ''
+author: NKing92
+manager: wpickett
+editor: ''
 
-<tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/10/2016"
-	ms.author="nicking"/>  
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/10/2016
+ms.author: nicking
+
+---
 # Usare REST per eseguire il backup e il ripristino di app del servizio App
-
-> [AZURE.SELECTOR]
-- [PowerShell](../app-service/app-service-powershell-backup.md)
-- [API REST](websites-csm-backup.md)
+> [!div class="op_single_selector"]
+> * [PowerShell](../app-service/app-service-powershell-backup.md)
+> * [API REST](websites-csm-backup.md)
+> 
+> 
 
 È possibile eseguire il backup di [app del servizio App](https://azure.microsoft.com/services/app-service/web/) come BLOB nell'archiviazione di Azure. Il backup può contenere anche i database delle app. Se si elimina l'app accidentalmente o se è necessario ripristinarne una versione precedente, è possibile farlo da un backup precedente. I backup possono essere eseguito in qualsiasi momento su richiesta o pianificati a intervalli appropriati.
 
 Questo articolo illustra le procedure di backup e ripristino di un'app con le richieste API RESTful. Se si vogliono creare e gestire i backup di app graficamente tramite il portale di Azure, vedere [Eseguire il backup di un'app Web nel servizio app di Azure](web-sites-backup.md).
 
 <a name="gettingstarted"></a>
+
 ## Introduzione
 Per inviare richieste REST, è necessario conoscere **nome**, **gruppo di risorse** e **ID sottoscrizione** dell'app. Per trovare queste informazioni, fare clic sull'app nel pannello **Servizio app** del [portale di Azure](https://portal.azure.com). Per gli esempi in questo articolo, verrà configurato il sito Web **backuprestoreapiexamples.azurewebsites.net**. È archiviato nel gruppo di risorse Default-Web-WestUS ed è in esecuzione in una sottoscrizione con l'ID 00001111-2222-3333-4444-555566667777.
 
 ![Informazioni sul sito Web di esempio][SampleWebsiteInformation]
 
 <a name="backup-restore-rest-api"></a>
+
 ## API REST per backup e ripristino
 Verranno ora esaminati alcuni esempi relativi all'uso dell'API REST per il backup e il ripristino di un'app. Ogni esempio include un URL e il corpo della richiesta HTTP. L'URL di esempio contiene segnaposto racchiusi tra parentesi graffe, ad esempio {subscription-id}. Sostituire i segnaposto con le informazioni corrispondenti per la propria app. Come riferimento, ecco una descrizione di ogni segnaposto visualizzato negli URL di esempio.
 
@@ -43,6 +47,7 @@ Verranno ora esaminati alcuni esempi relativi all'uso dell'API REST per il backu
 Per la documentazione completa dell'API, inclusi i diversi parametri opzionali che possono essere inclusi nella richiesta HTTP, vedere [Esplora risorse di Azure](https://resources.azure.com/).
 
 <a name="backup-on-demand"></a>
+
 ## Eseguire il backup di un'app su richiesta
 Per eseguire immediatamente il backup di un'app, inviare una richiesta **POST** a **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backup/**.
 
@@ -96,9 +101,13 @@ Il backup dell'app inizia immediatamente alla ricezione della richiesta. Il comp
 }
 ```
 
->[AZURE.NOTE] I messaggi di errore si trovano nella proprietà log della risposta HTTP.
+> [!NOTE]
+> I messaggi di errore si trovano nella proprietà log della risposta HTTP.
+> 
+> 
 
 <a name="schedule-automatic-backups"></a>
+
 ## Pianificare backup automatici
 Oltre al backup di un'app su richiesta, è anche possibile pianificare l'esecuzione automatica di un backup.
 
@@ -137,6 +146,7 @@ Per ottenere una configurazione di backup per un'app, inviare una richiesta **PO
 L'URL per il sito di esempio è **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup/list**.
 
 <a name="get-backup-status"></a>
+
 ## Ottenere lo stato di un backup
 A seconda delle dimensioni dell'app, il completamento di un backup può richiedere alcuni minuti. I backup possono anche non riuscire, raggiungere il timeout o riuscire parzialmente. Per visualizzare lo stato di tutti i backup di un'app, inviare una richiesta **GET** all'URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups**.
 
@@ -179,6 +189,7 @@ Lo stato di un backup è un tipo enumerato. Ecco tutti gli stati possibili.
 * 9 – Deleted: il backup è stato eliminato.
 
 <a name="restore-app"></a>
+
 ## Ripristinare un'app da un backup
 Se l'app è stata eliminata o se si vuole tornare a una versione precedente dell'app, è possibile ripristinarla da un backup. Per richiamare un'operazione di ripristino, inviare una richiesta **POST** all'URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}/restore**.
 
@@ -207,12 +218,14 @@ Nel corpo della richiesta inviare un oggetto JSON che contiene le proprietà per
 Quando si ripristina un backup, in alcuni casi è consigliabile creare una nuova app, invece di sovrascriverne una esistente. A tale scopo, modificare l'URL della richiesta in modo che punti alla nuova app che si vuole creare e modificare la proprietà **overwrite** in JSON su **false**.
 
 <a name="delete-app-backup"></a>
+
 ## Eliminare un backup dell'app
 Per eliminare un backup, inviare una richiesta **DELETE** all'URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}**.
 
 Ecco l'aspetto dell'URL per il sito Web di esempio: **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1**
 
 <a name="manage-sas-url"></a>
+
 ## Gestire L'URL di firma di accesso condiviso di un backup
 Servizio app di Azure tenta di eliminare il backup dall'archiviazione di Azure usando l'URL di firma di accesso condiviso specificato al momento della creazione del backup. Se questo URL di firma di accesso condiviso non è più valido, il backup non potrà essere eliminato tramite l'API REST. È tuttavia possibile aggiornare l'URL di firma di accesso condiviso associato a un backup inviando una richiesta **POST** all'URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}/list**.
 
@@ -229,7 +242,10 @@ Nel corpo della richiesta inviare un oggetto JSON che contiene il nuovo URL di f
 }
 ```
 
->[AZURE.NOTE] Per motivi di sicurezza, l'URL di firma di accesso condiviso associato a un backup non viene restituito quando si invia una richiesta GET per un backup specifico. Se si vuole visualizzare l'URL di firma di accesso condiviso associato a un backup, inviare una richiesta POST allo stesso URL precedente e includere semplicemente un oggetto JSON vuoto nel corpo della richiesta. La risposta dal server contiene tutte le informazioni del backup, incluso l'URL di firma di accesso condiviso.
+> [!NOTE]
+> Per motivi di sicurezza, l'URL di firma di accesso condiviso associato a un backup non viene restituito quando si invia una richiesta GET per un backup specifico. Se si vuole visualizzare l'URL di firma di accesso condiviso associato a un backup, inviare una richiesta POST allo stesso URL precedente e includere semplicemente un oggetto JSON vuoto nel corpo della richiesta. La risposta dal server contiene tutte le informazioni del backup, incluso l'URL di firma di accesso condiviso.
+> 
+> 
 
 <!-- IMAGES -->
 [SampleWebsiteInformation]: ./media/websites-csm-backup/01siteconfig.png

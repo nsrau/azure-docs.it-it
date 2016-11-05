@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Cluster Resource Manager di Service Fabric - Criteri di posizionamento | Microsoft Azure"
-   description="Panoramica su altre politiche e regole per i servizi di Service Fabric"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: Cluster Resource Manager di Service Fabric - Criteri di posizionamento | Microsoft Docs
+description: Panoramica su altre politiche e regole per i servizi di Service Fabric
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
+---
 # Criteri di posizionamento per i servizi di Service Fabric
 Esistono numerose e diverse regole aggiuntive di cui potrebbe essere necessario tener conto in caso di cluster di Service Fabric distribuito su una vasta area geografica, ad esempio tra più data center o aree di Azure oppure in caso di ambiente distribuito su più aree di controllo geopolitico, altre circostanze in cui sono previsti limiti legali o politici oppure distanze hanno un impatto effettivo su prestazioni e latenza. Molte di queste regole possono essere configurate tramite le proprietà dei nodi e i vincoli di posizionamento, ma alcune sono più complesse. Per semplificare il processo, forniamo questi comandi aggiuntivi. Proprio come gli altri vincoli di posizionamento, i criteri di posizionamento possono essere configurati in base all'istanza del servizio.
 
@@ -96,7 +96,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 Dunque è possibile utilizzare queste configurazioni per i servizi in un cluster non distribuito geograficamente? Certamente. Ma non vi è neanche un ottimo motivo. In particolare le configurazioni di dominio necessarie, non valide e preferite devono essere evitate, a meno che l'esecuzione avvenga effettivamente in un cluster diffuso a livello geografico. Non ha senso forzare un determinato carico di lavoro per l'esecuzione in un singolo rack o preferire alcuni segmenti del cluster locale rispetto ad altri, a meno che non esistano diversi tipi di hardware o non stia avvenendo la segmentazione del carico di lavoro: questi casi possono essere gestiti tramite i vincoli normali di posizionamento.
 
 ## Passaggi successivi
-- Per maggiori informazioni sulle altre opzioni disponibili per la configurazione dei servizi, consultare l'articolo relativo alle altre configurazioni disponibili per Cluster Resource Manager [Informazioni sulla configurazione dei servizi](service-fabric-cluster-resource-manager-configure-services.md)
+* Per maggiori informazioni sulle altre opzioni disponibili per la configurazione dei servizi, consultare l'articolo relativo alle altre configurazioni disponibili per Cluster Resource Manager [Informazioni sulla configurazione dei servizi](service-fabric-cluster-resource-manager-configure-services.md)
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-invalid-placement-domain.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-required-placement-domain.png

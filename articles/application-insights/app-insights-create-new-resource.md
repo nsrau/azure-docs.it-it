@@ -1,28 +1,26 @@
-<properties 
-	pageTitle="Creare una nuova risorsa di Application Insights | Microsoft Azure" 
-	description="Impostare il monitoraggio di Application Insights per una nuova applicazione live. Approccio basato sul Web." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Creare una nuova risorsa di Application Insights | Microsoft Docs
+description: Impostare il monitoraggio di Application Insights per una nuova applicazione live. Approccio basato sul Web.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/26/2016" 
-	ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 08/26/2016
+ms.author: awills
 
+---
 # Creare una risorsa di Application Insights
-
 Application Insights di Visual Studio visualizza dati relativi all'applicazione in una *risorsa* di Microsoft Azure. La creazione di una nuova risorsa fa dunque parte della [configurazione di Application Insights per monitorare una nuova applicazione][start]. In molti casi questa operazione può essere eseguita automaticamente dall'IDE, ovvero la modalità consigliata in cui è disponibile. In alcuni casi è tuttavia necessario creare una risorsa manualmente.
 
 Dopo aver creato la risorsa, si ottiene la relativa chiave di strumentazione, che consente di configurare l'SDK nell'applicazione. In tal modo, i dati di telemetria verranno inviati alla risorsa.
 
 ## Iscriversi a Microsoft Azure
-
 Se non si ha ancora un [account Microsoft, è possibile ottenerne uno ora](http://live.com) (se si usano servizi come Outlook.com, OneDrive, Windows Phone o XBox Live, si ha già un account Microsoft).
 
 È necessaria anche una sottoscrizione di [Microsoft Azure](http://azure.com). Se il team o l'organizzazione ha una sottoscrizione di Azure, il proprietario potrà aggiungere l'utente alla sottoscrizione usando Windows Live ID.
@@ -31,14 +29,10 @@ In alternativa è possibile creare una nuova sottoscrizione. L'account gratuito 
 
 Dopo aver ottenuto una sottoscrizione, accedere ad Application Insights all'indirizzo [http://portal.azure.com](https://portal.azure.com) usando il proprio Live ID.
 
-
 ## Creare una risorsa di Application Insights
-  
-
 In [portal.azure.com](https://portal.azure.com) aggiungere una nuova risorsa di Application Insights:
 
 ![Fare clic su Nuovo, Application Insights](./media/app-insights-create-new-resource/01-new.png)
-
 
 * Il **tipo di applicazione** influisce sul contenuto del pannello Panoramica e sulle proprietà disponibili in [Esplora metriche][metrics]. Se il tipo dell'app non è visualizzato, scegliere ASP.NET.
 * Un **gruppo di risorse** è utile per gestire le proprietà come il controllo di accesso. Se sono già state create altre risorse di Azure, è possibile inserire questa nuova risorsa nello stesso gruppo.
@@ -50,24 +44,19 @@ Dopo aver creato l'app, verrà visualizzato un nuovo pannello che mostra i dati 
 
 Per visualizzare di nuovo questo pannello al successivo accesso ad Azure, cercare il riquadro di avvio rapido dell'app nella schermata iniziale. In alternativa, fare clic su Sfoglia per cercarlo.
 
-
 ## Eseguire una copia della chiave di strumentazione
-
 La chiave di strumentazione identifica la risorsa creata. Sarà necessario fornirla all'SDK.
 
 ![Fare clic su Informazioni di base, quindi sulla chiave di strumentazione e infine premere CTRL+C.](./media/app-insights-create-new-resource/02-props.png)
 
 ## Installare l’SDK nell'app
-
 Installare Application Insights SDK nell'app. Questo passaggio dipende dal tipo di applicazione.
 
 Usare la chiave di strumentazione per configurare l'[SDK installato nell'applicazione][start].
 
 L'SDK include i moduli standard che inviano dati di telemetria senza che occorra scrivere codice. Per rilevare le azioni degli utenti o diagnosticare i problemi in modo più dettagliato, [usare l'API][api] per inviare dati di telemetria personalizzati.
 
-
 ## <a name="monitor"></a>Visualizzare i dati di telemetria
-
 Chiudere il pannello di avvio rapido per tornare al pannello dell'applicazione nel portale di Azure.
 
 Fare clic sul riquadro Cerca per vedere [Ricerca diagnostica][diagnostic], ovvero la finestra in cui verranno visualizzati i primi eventi.
@@ -75,16 +64,13 @@ Fare clic sul riquadro Cerca per vedere [Ricerca diagnostica][diagnostic], ovver
 Se si prevedono più dati, fare clic su Aggiorna dopo pochi secondi.
 
 ## Creazione automatica di una risorsa
-
 È possibile scrivere uno [script di PowerShell](app-insights-powershell-script-create-resource.md) per creare automaticamente una risorsa.
 
 ## Passaggi successivi
-
 * [Creare un dashboard](app-insights-dashboards.md)
 * [Ricerca diagnostica](app-insights-diagnostic-search.md)
 * [Esplorare le metriche](app-insights-metrics-explorer.md)
 * [Scrivere query di Analisi](app-insights-analytics.md)
-
 
 <!--Link references-->
 
@@ -93,6 +79,6 @@ Se si prevedono più dati, fare clic su Aggiorna dopo pochi secondi.
 [metrics]: app-insights-metrics-explorer.md
 [start]: app-insights-overview.md
 
- 
+
 
 <!---HONumber=AcomDC_0831_2016-->

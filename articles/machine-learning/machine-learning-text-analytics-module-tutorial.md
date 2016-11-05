@@ -1,33 +1,31 @@
-<properties
-	pageTitle="Creare modelli di analisi del testo in Azure Machine Learning Studio | Microsoft Azure"
-	description="Come creare modelli di analisi del testo in Azure Machine Learning Studio usando moduli di pre-elaborazione del testo, estrazione degli n-grammi o hashing delle caratteristiche"
-	services="machine-learning"
-	documentationCenter=""
-	authors="rastala"
-	manager="jhubbard"
-	editor=""/>
+---
+title: Creare modelli di analisi del testo in Azure Machine Learning Studio | Microsoft Docs
+description: Come creare modelli di analisi del testo in Azure Machine Learning Studio usando moduli di pre-elaborazione del testo, estrazione degli n-grammi o hashing delle caratteristiche
+services: machine-learning
+documentationcenter: ''
+author: rastala
+manager: jhubbard
+editor: ''
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/06/2016"
-	ms.author="roastala" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/06/2016
+ms.author: roastala
 
-
-#Creare modelli di analisi del testo in Azure Machine Learning Studio
-
+---
+# Creare modelli di analisi del testo in Azure Machine Learning Studio
 È possibile usare Azure Machine Learning per creare modelli di analisi del testo e renderli operativi. Questi modelli consentono di risolvere, ad esempio, problemi di classificazione dei documenti o analisi di valutazione.
 
 In un esperimento di analisi del testo è necessario in genere:
 
- 1. Pulire e pre-elaborare i set di dati di testo
- 2. Estrarre i vettori di caratteristiche numeriche dal testo pre-elaborato
- 3. Addestrare il modello di classificazione o regressione
- 4. Assegnare un punteggio e convalidare il modello
- 5. Distribuire il modello in produzione
+1. Pulire e pre-elaborare i set di dati di testo
+2. Estrarre i vettori di caratteristiche numeriche dal testo pre-elaborato
+3. Addestrare il modello di classificazione o regressione
+4. Assegnare un punteggio e convalidare il modello
+5. Distribuire il modello in produzione
 
 In questa esercitazione si apprenderanno questi passaggi eseguendo un modello di analisi di valutazione mediante il set di dati di Amazon Book Reviews (vedere il documento di ricerca “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification” di John Blitzer, Mark Dredze e Fernando Pereira; Association of Computational Linguistics (ACL), 2007). Questo set di dati è costituito da punteggi di recensione (1-2 o 4-5) e testo in formato libero. L'obiettivo consiste nella stima del punteggio di recensione: basso (1-2) o alto (4-5).
 
@@ -38,7 +36,6 @@ In questa esercitazione si apprenderanno questi passaggi eseguendo un modello di
 [Stimare le recensioni dei libri - Esperimento predittivo](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
 
 ## Passaggio 1: Pulire e pre-elaborare i set di dati di testo
-
 Iniziamo l'esperimento dividendo i punteggi di recensione nei bucket di categoria basso e alto per formulare il problema come classificazione a due classi. Si useranno i moduli [Edit Metadata](https://msdn.microsoft.com/library/azure/dn905986.aspx) e [Group Categorical Values](https://msdn.microsoft.com/library/azure/dn906014.aspx).
 
 ![Creazione dell'etichetta](./media/machine-learning-text-analytics-module-tutorial/create-label.png)
@@ -52,7 +49,6 @@ Se si desidera usare un elenco di parole non significative personalizzato? È po
 Dopo aver completato la pre-elaborazione, si suddividono i dati in set di addestramento e set di test.
 
 ## Passaggio 2: Estrarre vettori di caratteristiche numeriche dal testo pre-elaborato
-
 Per compilare un modello per i dati di testo è necessario in genere convertire il testo in formato libero in vettori di caratteristiche numeriche. In questo esempio si usa il modulo [Extract N-Gram Features from Text](https://msdn.microsoft.com/library/azure/mt762916.aspx) per trasformare i dati di testo in tale formato. Il modulo accetta una colonna di parole separate da spazi e calcola un dizionario di parole, o n-grammi di parole, che vengono visualizzate nel set di dati. Quindi conta il numero di volte in cui ogni parola, o n-gramma, compare in ogni record e crea vettori di caratteristiche da questi conteggi. In questa esercitazione impostiamo la dimensione dell'n-gramma su 2 quindi i nostri vettori di caratteristiche includono singole parole e combinazioni di due parole consecutive.
 
 ![Estrazione degli n-grammi](./media/machine-learning-text-analytics-module-tutorial/extract-ngrams.png)
@@ -66,7 +62,6 @@ Inoltre è possibile usare la selezione delle funzioni per selezionare solo le f
 In alternativa all'uso al modulo Extract N-Gram Features è possibile usare il modulo Feature Hashing. Si noti tuttavia che [Feature Hashing](https://msdn.microsoft.com/library/azure/dn906018.aspx) non dispone di capacità integrate di selezione delle funzioni o di ponderazione TF*IDF.
 
 ## Passaggio 3: Addestrare il modello di classificazione o regressione
-
 Il testo è stato ora trasformato in colonne di caratteristiche numeriche. Il set di dati contiene ancora le colonne di stringhe dalle fasi precedenti, perciò usiamo Select Columns in Dataset per escluderle.
 
 Usiamo poi [Two-Class Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) per stimare il target: punteggio di recensione alto o basso. A questo punto il problema di analisi del testo è stato trasformato in un normale problema di classificazione. È possibile usare gli strumenti disponibili in Azure Machine Learning per migliorare il modello. Ad esempio è possibile sperimentare diversi classificatori per scoprire l'accuratezza dei loro risultati o usare l'ottimizzazione con iperparametri per migliorare l'accuratezza.
@@ -74,13 +69,11 @@ Usiamo poi [Two-Class Logistic Regression](https://msdn.microsoft.com/library/az
 ![Addestramento e assegnazione dei punteggi](./media/machine-learning-text-analytics-module-tutorial/scoring-text.png)
 
 ## Passaggio 4: Assegnare un punteggio e convalidare il modello
-
 Come si convalida il modello addestrato? Si assegna un punteggio rispetto al set di dati di test e si valuta l'accuratezza. Tuttavia, il modello ha appreso il vocabolario degli n-grammi e i loro pesi del set di dati di addestramento. Pertanto, sarà necessario usare quel vocabolario e quei pesi per l'estrazione delle funzioni dai dati di test, invece di creare il vocabolario di nuovo. Si aggiunge perciò il modulo Extract N-Gram Features al ramo di assegnazione del punteggio dell'esperimento, si connette il vocabolario di output dal ramo di addestramento e si imposta la modalità di vocabolario in sola lettura. Si disattiva inoltre il filtro di n-grammi per frequenza impostando il minimo su 1 istanza e il massimo su 100% e si disattiva la selezione delle funzioni.
 
 Dopo che la colonna di testo nei dati di test è stata trasformata in colonne di caratteristiche numeriche, si escludono le colonne stringa delle fasi precedenti come nel ramo di addestramento. Si usa poi il modulo Score Model per eseguire stime e il modulo Evaluate Model per valutare l'accuratezza.
 
 ## Passaggio 5: Distribuire il modello in produzione
-
 Il modello è quasi pronto per essere distribuito nell'ambiente di produzione. Se viene distribuito come servizio Web, accetta una stringa di testo in formato libero come input e restituisce una stima "alta" o "bassa". Usa il vocabolario di n-grammi appreso per trasformare il testo in funzioni e il modello di regressione logistica addestrato per effettuare una previsione da queste funzioni.
 
 Per configurare l'esperimento predittivo è innanzitutto necessario salvare il vocabolario di n-grammi come set di dati e il modello di regressione logistica addestrato del ramo di addestramento dell'esperimento. Quindi si salva l'esperimento usando "Salva con nome" per creare un grafico per l'esperimento predittivo. Si rimuove il modulo Split Data e il ramo di addestramento dall'esperimento. Quindi si collega il vocabolario di n-grammi e il modello salvati in precedenza rispettivamente ai moduli Extract N-Gram Features e Score Model. Si rimuove anche il modulo Evaluate Model.
@@ -92,7 +85,6 @@ Si inseriscono le colonne selezionate nel modulo Select Columns in Dataset prima
 Ora abbiamo un esperimento che può essere pubblicato come servizio Web e chiamato mediante le API di richiesta-risposta o di esecuzione in batch.
 
 ## Passaggi successivi
-
 Per informazioni sui moduli di analisi del testo, vedere la [documentazione su MSDN](https://msdn.microsoft.com/library/azure/dn905886.aspx).
 
 <!---HONumber=AcomDC_0914_2016-->

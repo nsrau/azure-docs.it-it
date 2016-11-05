@@ -1,32 +1,31 @@
-<properties
-    pageTitle="Migrazione ad Archiviazione Premium di Azure | Microsoft Azure"
-    description="Eseguire la migrazione di macchine virtuali esistenti in archiviazione Premium di Azure. Archiviazione Premium offre prestazioni elevate e supporto per dischi a bassa latenza per carichi di lavoro con I/O intensivo in esecuzione su Macchine virtuali di Azure."
-    services="storage"
-    documentationCenter="na"
-    authors="aungoo-msft"
-    manager="tadb"
-    editor="tysonn"/>
+---
+title: Migrazione ad Archiviazione Premium di Azure | Microsoft Docs
+description: Eseguire la migrazione di macchine virtuali esistenti in archiviazione Premium di Azure. Archiviazione Premium offre prestazioni elevate e supporto per dischi a bassa latenza per carichi di lavoro con I/O intensivo in esecuzione su Macchine virtuali di Azure.
+services: storage
+documentationcenter: na
+author: aungoo-msft
+manager: tadb
+editor: tysonn
 
-<tags
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/21/2016"
-    ms.author="aungoo"/>
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/21/2016
+ms.author: aungoo
 
-
-
+---
 # <a name="migrating-to-azure-premium-storage"></a>Migrazione ad Archiviazione Premium di Azure
-
 ## <a name="overview"></a>Overview
-
 Archiviazione Premium di Azure offre prestazioni elevate e supporto per dischi a bassa latenza per le macchine virtuali che eseguono carichi di lavoro con I/O intensivo. I dischi delle macchine virtuali (VM) che usano Archiviazione Premium archiviano i dati in unità SSD (Solid State Drive). È possibile migrare i dischi delle macchine virtuali dell'applicazione ad Archiviazione Premium di Azure per trarre vantaggio dalla velocità e dalle prestazioni di questi dischi.
 
 Una macchina virtuale di Azure supporta il collegamento di diversi dischi di Archiviazione Premium, consentendo alle applicazioni di avere fino a 64 TB di spazio di archiviazione per ogni macchina virtuale. Con Archiviazione Premium le applicazioni possono raggiungere 80.000 IOPS (operazioni di input/output al secondo) per ogni macchina virtuale e 2000 MB al secondo di velocità effettiva dei dischi per ogni macchina virtuale, con una latenza estremamente bassa per le operazioni di lettura.
 
->[AZURE.NOTE] È consigliabile eseguire la migrazione di qualsiasi disco di macchine virtuali che richiede un numero elevato di IOPS ad Archiviazione Premium di Azure per ottenere prestazioni ottimali per l'applicazione. Se il disco non richiede un numero elevato di IOPS, è possibile limitare i costi mantenendolo in Archiviazione Standard, che archivia i dati dei dischi delle macchine virtuali in unità disco rigido (HDD) invece che in unità SSD.
+> [!NOTE]
+> È consigliabile eseguire la migrazione di qualsiasi disco di macchine virtuali che richiede un numero elevato di IOPS ad Archiviazione Premium di Azure per ottenere prestazioni ottimali per l'applicazione. Se il disco non richiede un numero elevato di IOPS, è possibile limitare i costi mantenendolo in Archiviazione Standard, che archivia i dati dei dischi delle macchine virtuali in unità disco rigido (HDD) invece che in unità SSD.
+> 
+> 
 
 Lo scopo di questa guida è preparare i nuovi utenti di Archiviazione Premium di Microsoft Azure a eseguire una transizione senza intoppi dal sistema corrente ad Archiviazione Premium. La guida prende in considerazione tre dei componenti chiave di questo processo: pianificazione della migrazione ad Archiviazione Premium, migrazione dei dischi rigidi virtuali (VHD) esistenti ad Archiviazione Premium e creazione di istanze delle macchine virtuali di Azure in Archiviazione Premium.
 
@@ -36,45 +35,40 @@ Una panoramica delle funzionalità di Archiviazione Premium è disponibile in [A
 
 Questa guida è suddivisa in due sezioni che coprono i due scenari di migrazione seguenti:
 
-- [Migrazione di VM da altre piattaforme ad Archiviazione Premium di Azure](#migrating-vms-from-other-platforms-to-azure-premium-storage)
-- [Migrazione di VM di Azure esistenti in Archiviazione Premium di Azure](#migrating-existing-azure-vms-to-azure-premium-storage).
+* [Migrazione di VM da altre piattaforme ad Archiviazione Premium di Azure](#migrating-vms-from-other-platforms-to-azure-premium-storage)
+* [Migrazione di VM di Azure esistenti in Archiviazione Premium di Azure](#migrating-existing-azure-vms-to-azure-premium-storage).
 
 Seguire i passaggi specificati nella sezione pertinente al proprio scenario.
 
 ## <a name="migrating-vms-from-other-platforms-to-azure-premium-storage"></a>Migrazione di VM da altre piattaforme ad Archiviazione Premium di Azure
-
 ### <a name="prerequisites"></a>Prerequisiti
-- È necessaria una sottoscrizione di Azure. In caso contrario, è possibile creare una sottoscrizione di [valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/) di un mese oppure vedere [prezzi di Azure](https://azure.microsoft.com/pricing/) per altre opzioni.
-- Per eseguire i cmdlet PowerShell è necessario il modulo di Microsoft Azure PowerShell. Per scaricare il modulo, vedere la pagina dei [download di Microsoft Azure](https://azure.microsoft.com/downloads/) .
-- Quando si pianifica di usare VM di Azure in esecuzione su Archiviazione Premium, è necessario usare le VM serie DS, serie DSv2 o serie GS. Con le VM della serie DS, della serie DSv2 e della serie GS è possibile usare dischi sia di Archiviazione Standard che di Archiviazione Premium. I dischi di archiviazione premium saranno disponibili con più tipi di macchine virtuali in futuro. Per altre informazioni su tutte le dimensioni e su tutti i tipi di dischi disponibili per le macchine virtuali di Azure, vedere [Dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-windows-sizes.md) e [Dimensioni dei servizi cloud](../cloud-services/cloud-services-sizes-specs.md).
+* È necessaria una sottoscrizione di Azure. In caso contrario, è possibile creare una sottoscrizione di [valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/) di un mese oppure vedere [prezzi di Azure](https://azure.microsoft.com/pricing/) per altre opzioni.
+* Per eseguire i cmdlet PowerShell è necessario il modulo di Microsoft Azure PowerShell. Per scaricare il modulo, vedere la pagina dei [download di Microsoft Azure](https://azure.microsoft.com/downloads/) .
+* Quando si pianifica di usare VM di Azure in esecuzione su Archiviazione Premium, è necessario usare le VM serie DS, serie DSv2 o serie GS. Con le VM della serie DS, della serie DSv2 e della serie GS è possibile usare dischi sia di Archiviazione Standard che di Archiviazione Premium. I dischi di archiviazione premium saranno disponibili con più tipi di macchine virtuali in futuro. Per altre informazioni su tutte le dimensioni e su tutti i tipi di dischi disponibili per le macchine virtuali di Azure, vedere [Dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-windows-sizes.md) e [Dimensioni dei servizi cloud](../cloud-services/cloud-services-sizes-specs.md).
 
 ### <a name="considerations"></a>Considerazioni
-
 #### <a name="vm-sizes"></a>Dimensioni delle macchine virtuali
 Le specifiche delle dimensioni delle VM di Azure sono elencate in [Dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-windows-sizes.md). Esaminare le caratteristiche delle prestazioni delle Macchine virtuali che usano Archiviazione Premium e scegliere le dimensioni delle VM maggiormente indicate per i propri carichi di lavoro. Assicurarsi che nella macchina virtuale sia disponibile larghezza di banda sufficiente per gestire il traffico dei dischi.
-
 
 #### <a name="disk-sizes"></a>Dimensione disco
 È possibile utilizzare tre tipi di dischi con la macchina virtuale, ciascuno con limiti IOP e di velocità effettiva specifici. Tenere in considerazione questi limiti nella scelta del tipo di disco per la macchina virtuale in base alle esigenze dell’applicazione in termini di capacità, prestazioni, scalabilità e carichi di picco.
 
-|Tipo di disco di Archiviazione Premium|P10|P20|P30|
+| Tipo di disco di Archiviazione Premium | P10 | P20 | P30 |
 |:---:|:---:|:---:|:---:|
-|Dimensioni disco|128 GB|512 GB|1024 GB (1 TB)|
-|IOPS per disco|500|2300|5000|
-|Velocità effettiva per disco|100 MB al secondo|150 MB al secondo|200 MB al secondo|
+| Dimensioni disco |128 GB |512 GB |1024 GB (1 TB) |
+| IOPS per disco |500 |2300 |5000 |
+| Velocità effettiva per disco |100 MB al secondo |150 MB al secondo |200 MB al secondo |
 
 #### <a name="storage-account-scalability-targets"></a>Obiettivi di scalabilità per gli account di archiviazione
-
 Gli account di Archiviazione Premium hanno i seguenti obiettivi di scalabilità oltre agli [obiettivi di scalabilità e prestazioni di Azure](storage-scalability-targets.md). Se le esigenze dell'applicazione superano gli obiettivi di scalabilità di un singolo account di archiviazione, compilare l'applicazione in modo che sia possibile usare più account di archiviazione e partizionare i dati tra tali account di archiviazione.
 
-|Capacità account totale|Larghezza di banda totale per un account di archiviazione con ridondanza locale|
-|:--|:---|
-|Capacità disco : 35 TB<br />Capacità snapshot: 10 TB|Fino a 50 gigabit al secondo per dati in ingresso e in uscita|
+| Capacità account totale | Larghezza di banda totale per un account di archiviazione con ridondanza locale |
+|:--- |:--- |
+| Capacità disco : 35 TB<br />Capacità snapshot: 10 TB |Fino a 50 gigabit al secondo per dati in ingresso e in uscita |
 
 Per altre informazioni sulle specifiche di Archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage.md#scalability-and-performance-targets-when-using-premium-storage).
 
 #### <a name="additional-data-disks"></a>Dischi dati aggiuntivi
-
 A seconda del carico di lavoro, determinare se per la macchina virtuale in uso sono necessari dischi dati aggiuntivi. È possibile collegare più dischi dati persistenti alla macchina virtuale in uso. Se necessario, è possibile eseguire lo striping dei dischi per aumentare la capacità e le prestazioni del volume. Se si esegue lo striping dei dischi dati di Archiviazione Premium usando gli [spazi di archiviazione](http://technet.microsoft.com/library/hh831739.aspx), è necessario configurarlo con una colonna per ciascun disco utilizzato. In caso contrario, le prestazioni complessive del volume in cui è stato eseguito lo striping possono essere inferiori al previsto a causa di una distribuzione non uniforme del traffico di dati da un disco a un altro. Per le macchine virtuali Linux è possibile usare l'utilità *mdadm* per ottenere lo stesso risultato. Per informazioni dettagliate, vedere l'articolo sulla [configurazione del RAID software in Linux](../virtual-machines/virtual-machines-linux-configure-raid.md) .
 
 #### <a name="disk-caching-policy"></a>Criteri di memorizzazione nella cache su disco
@@ -84,120 +78,110 @@ Per impostazione predefinita, il criterio di memorizzazione nella cache su disco
 Selezionare una posizione in cui è disponibile il servizio Archiviazione Premium di Azure. Per informazioni aggiornate sulle posizioni disponibili, vedere [Servizi di Azure per area](https://azure.microsoft.com/regions/#services) . Le macchine virtuali presenti nella stessa area dell'account di archiviazione in cui sono archiviati i dischi per la macchina virtuale, offrirà prestazioni superiori rispetto a quelle ubicate in aree separate.
 
 #### <a name="other-azure-vm-configuration-settings"></a>Altre impostazioni di configurazione delle macchine virtuali di Azure
-
 Quando si crea una macchina virtuale di Azure verrà richiesto di configurare determinate impostazioni della macchina virtuale. Ricordare che esistono alcune impostazioni fisse per la durata della macchina virtuale, mentre è possibile modificarne o aggiungerne altre in un secondo momento. Esaminare queste impostazioni di configurazione della macchina virtuale di Azure e assicurarsi che siano configurate in modo appropriato per soddisfare le esigenze del carico di lavoro.
 
 ## <a name="prepare-vhds-for-migration"></a>Preparare i dischi rigidi virtuali per la migrazione
-
 Nella sezione seguente vengono fornite linee guida per preparare i dischi rigidi virtuali da una macchina virtuale in modo che siano pronti per la migrazione. Il disco rigido virtuale può essere:
 
-- Un'immagine del sistema operativo generalizzata che può essere utilizzata per creare più macchine virtuali di Azure.
-- Un disco del sistema operativo che può essere utilizzato con una singola istanza di macchina virtuale di Azure.
-- Un disco dati che può essere collegato a una macchina virtuale di Azure per l'archiviazione permanente.
+* Un'immagine del sistema operativo generalizzata che può essere utilizzata per creare più macchine virtuali di Azure.
+* Un disco del sistema operativo che può essere utilizzato con una singola istanza di macchina virtuale di Azure.
+* Un disco dati che può essere collegato a una macchina virtuale di Azure per l'archiviazione permanente.
 
 ### <a name="prerequisites"></a>Prerequisiti
-
 Per eseguire la migrazione delle macchine virtuali, è necessario:
 
-- Una sottoscrizione di Azure, un account di archiviazione e un contenitore in tale account di archiviazione in cui copiare il disco rigido virtuale. Si noti che l'account di archiviazione di destinazione può essere un account di archiviazione Standard o Premium in base alle esigenze dell’utente.
-- Uno strumento per generalizzare il disco rigido virtuale se si pianifica di creare più istanze di macchine virtuali da esso. Ad esempio, sysprep per Windows o virt-sysprep per Ubuntu.
-- Uno strumento per caricare il file del disco rigido virtuale nell'account di archiviazione. Vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md) o usare [Esplora archivi di Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx). Questa guida descrive la copia del disco rigido virtuale utilizzando lo strumento AzCopy.
+* Una sottoscrizione di Azure, un account di archiviazione e un contenitore in tale account di archiviazione in cui copiare il disco rigido virtuale. Si noti che l'account di archiviazione di destinazione può essere un account di archiviazione Standard o Premium in base alle esigenze dell’utente.
+* Uno strumento per generalizzare il disco rigido virtuale se si pianifica di creare più istanze di macchine virtuali da esso. Ad esempio, sysprep per Windows o virt-sysprep per Ubuntu.
+* Uno strumento per caricare il file del disco rigido virtuale nell'account di archiviazione. Vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md) o usare [Esplora archivi di Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx). Questa guida descrive la copia del disco rigido virtuale utilizzando lo strumento AzCopy.
 
-> [AZURE.NOTE] Per prestazioni ottimali, copiare il disco rigido virtuale eseguendo uno di questi strumenti da una macchina virtuale di Azure nella stessa area dell'account di archiviazione di destinazione. Se si copia un disco rigido virtuale da una macchina virtuale di Azure in un'area diversa, le prestazioni potrebbero essere più lente.
->
+> [!NOTE]
+> Per prestazioni ottimali, copiare il disco rigido virtuale eseguendo uno di questi strumenti da una macchina virtuale di Azure nella stessa area dell'account di archiviazione di destinazione. Se si copia un disco rigido virtuale da una macchina virtuale di Azure in un'area diversa, le prestazioni potrebbero essere più lente.
+> 
 > Per la copia di una grande quantità di dati su una larghezza di banda limitata, prendere in considerazione l'[uso del servizio di importazione/esportazione di Azure per trasferire i dati nell'archivio BLOB](storage-import-export-service.md). Ciò consente di trasferire i dati tramite l'invio delle unità disco rigido a un datacenter Azure. È possibile utilizzare il servizio di importazione/esportazione di Azure per copiare dati in un solo account di archiviazione standard. Una volta che i dati si trovano nell'account di archiviazione standard, è possibile usare l'[API Copy Blob](https://msdn.microsoft.com/library/azure/dd894037.aspx) oppure AzCopy per trasferire i dati all'account di archiviazione Premium.
->
+> 
 > Notare che Microsoft Azure supporta solo file di disco rigido virtuale a dimensione fissa. I file VHDX o i dischi rigidi virtuali dinamici non sono supportati. Se si dispone di un disco rigido virtuale dinamico, è possibile convertirlo in un disco a dimensione fissa utilizzando il cmdlet [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) .
+> 
+> 
 
 ### <a name="scenarios-for-preparing-vhds"></a>Scenari per la preparazione dei dischi rigidi virtuali
-
 Di seguito esamineremo alcuni scenari per preparare i dischi rigidi virtuali.
 
 #### <a name="generalized-operating-system-vhd-to-create-multiple-vm-instances"></a>Disco rigido virtuale del sistema operativo generalizzato per creare più istanze di macchine virtuali
-
 Se si sta caricando un disco rigido virtuale che verrà utilizzato per creare più istanze di macchine virtuali di Azure generiche, è innanzitutto necessario generalizzare il disco rigido virtuale mediante un'utilità sysprep. Tale utilità si applica a un disco rigido virtuale che si trova in locale o nel cloud. Sysprep consente di rimuovere eventuali informazioni specifiche sul computer dal disco rigido virtuale.
 
->[AZURE.IMPORTANT] Eseguire un'istantanea o il backup della macchina virtuale prima di generalizzarla. L’esecuzione di sysprep eliminerà l'istanza della macchina virtuale. Eseguire i passaggi di seguito per utilizzare sysprep su un disco rigido virtuale di sistema operativo Windows. Si noti che l’esecuzione del comando Sysprep richiederà di arrestare la macchina virtuale. Per altre informazioni su Sysprep, vedere la [panoramica di Sysprep](http://technet.microsoft.com/library/hh825209.aspx) oppure il [materiale di riferimento tecnico di Sysprep](http://technet.microsoft.com/library/cc766049.aspx).
+> [!IMPORTANT]
+> Eseguire un'istantanea o il backup della macchina virtuale prima di generalizzarla. L’esecuzione di sysprep eliminerà l'istanza della macchina virtuale. Eseguire i passaggi di seguito per utilizzare sysprep su un disco rigido virtuale di sistema operativo Windows. Si noti che l’esecuzione del comando Sysprep richiederà di arrestare la macchina virtuale. Per altre informazioni su Sysprep, vedere la [panoramica di Sysprep](http://technet.microsoft.com/library/hh825209.aspx) oppure il [materiale di riferimento tecnico di Sysprep](http://technet.microsoft.com/library/cc766049.aspx).
+> 
+> 
 
 1. Aprire una finestra del Prompt dei comandi come amministratore.
 2. Immettere il comando seguente per aprire Sysprep:
-
+   
         %windir%\system32\sysprep\sysprep.exe
-
-4. Nell'Utilità preparazione sistema selezionare Enter System Out-of-Box Experience (OOBE), selezionare la casella di controllo Generalizza, selezionare **Arresto** e fare clic su **OK**, come illustrato nell'immagine seguente. Questo eseguirà la generalizzazione del sistema operativo e arresterà il sistema.
-
+3. Nell'Utilità preparazione sistema selezionare Enter System Out-of-Box Experience (OOBE), selezionare la casella di controllo Generalizza, selezionare **Arresto** e fare clic su **OK**, come illustrato nell'immagine seguente. Questo eseguirà la generalizzazione del sistema operativo e arresterà il sistema.
+   
     ![][1]
 
 Per una VM Ubuntu, utilizzare virt-sysprep per ottenere lo stesso risultato. Vedere [virt-sysprep](http://manpages.ubuntu.com/manpages/precise/man1/virt-sysprep.1.html) per ulteriori informazioni. Vedere alcuni [software open source di provisioning dei server Linux](http://www.cyberciti.biz/tips/server-provisioning-software.html) per altri sistemi operativi Linux.
 
 #### <a name="unique-operating-system-vhd-to-create-a-single-vm-instance"></a>Disco rigido virtuale di sistema operativo univoco per creare una singola istanza di macchina virtuale
-
 Se si dispone di un'applicazione in esecuzione nella macchina virtuale che richiede i dati specifici del computer, non generalizzare il disco rigido virtuale. Un disco rigido virtuale non generalizzato può essere utilizzato per creare un'istanza univoca di macchina virtuale di Azure. Ad esempio, se si dispone di Controller di dominio sul disco rigido virtuale, l'esecuzione di sysprep lo renderà inefficace come controller di dominio. Rivedere le applicazioni in esecuzione sulla macchina virtuale e l'impatto di sysprep su di esse prima di generalizzare il disco rigido virtuale.
 
 #### <a name="data-disk-vhds-to-be-attached-to-vm-instance(s)"></a>Dischi rigidi virtuali di dischi dati da collegare alle istanze di macchine virtuali
-
 Se si dispone di dischi dati in un'archiviazione cloud di cui eseguire la migrazione, è necessario assicurarsi che le macchine virtuali che utilizzano questi dischi dati vengano arrestate. Per i dischi dati locali, creare un disco rigido virtuale coerente.
 
 ## <a name="copy-vhds-to-azure-storage"></a>Copiare i dischi rigidi virtuali in Archiviazione di Azure
-
 Ora che il disco rigido virtuale è pronto, attenersi alla procedura descritta di seguito per caricarlo in Archiviazione di Azure e registrarlo come immagine del sistema operativo, disco del sistema operativo sottoposto a provisioning o disco dati sottoposto a provisioning.
 
 ### <a name="create-the-destination-for-your-vhd"></a>Crea la destinazione per il disco rigido virtuale
-
 Creare un account di archiviazione per mantenere i dischi rigidi virtuali. Prendere in considerazione i seguenti punti quando si pianifica la posizione in cui archiviare i dischi rigidi virtuali:
 
-- L'account di archiviazione di destinazione potrebbe essere standard o premium, a seconda delle esigenze dell'applicazione.
-- La posizione dell'account di archiviazione deve essere uguale a quella delle VM di Azure serie DS, serie DSv2 o serie GS che saranno create nella fase finale. È possibile eseguire la copia in un nuovo account di archiviazione oppure pianificare di utilizzare lo stesso account di archiviazione in base alle esigenze.
-- Copiare e salvare la chiave dell’account di archiviazione dell'account di archiviazione di destinazione per la fase successiva.
-- Per i dischi dati, è possibile scegliere di mantenerne alcuni in un account di archiviazione standard (ad esempio, i dischi che dispongono di un’archiviazione meno problematica) e spostare i dischi con IOP pesanti in un account di archiviazione premium.
+* L'account di archiviazione di destinazione potrebbe essere standard o premium, a seconda delle esigenze dell'applicazione.
+* La posizione dell'account di archiviazione deve essere uguale a quella delle VM di Azure serie DS, serie DSv2 o serie GS che saranno create nella fase finale. È possibile eseguire la copia in un nuovo account di archiviazione oppure pianificare di utilizzare lo stesso account di archiviazione in base alle esigenze.
+* Copiare e salvare la chiave dell’account di archiviazione dell'account di archiviazione di destinazione per la fase successiva.
+* Per i dischi dati, è possibile scegliere di mantenerne alcuni in un account di archiviazione standard (ad esempio, i dischi che dispongono di un’archiviazione meno problematica) e spostare i dischi con IOP pesanti in un account di archiviazione premium.
 
 ### <a name="copy-your-vhd-from-the-source"></a>Copiare il disco rigido virtuale dall'origine
-
 Di seguito sono descritti alcuni scenari per la copia del disco rigido virtuale.
 
 #### <a name="copy-vhd-from-azure-storage"></a>Copia del disco rigido virtuale da Archiviazione di Azure
-
 Se si esegue la migrazione del disco rigido virtuale da un account di archiviazione Azure Standard a un account di archiviazione Azure Premium, è necessario copiare il percorso di origine del contenitore del disco rigido virtuale, il nome del file del disco rigido virtuale e la chiave dell’account di archiviazione dell'account di archiviazione di origine.
 
 1. Accedere a **Portale di Azure > Macchine virtuali > Dischi**.
 2. Copiare e salvare l'URL del contenitore del disco rigido virtuale dalla colonna Percorso. L'URL del contenitore sarà simile a `https://myaccount.blob.core.windows.net/mycontainer/`.
 
 #### <a name="copy-vhd-from-non-azure-cloud"></a>Copia del disco rigido virtuale dal cloud non Azure
-
 Se si esegue la migrazione del disco rigido virtuale dall’archiviazione cloud non Azure ad Azure, è necessario innanzitutto esportare il disco rigido virtuale in una directory locale. Copiare il percorso di origine completo della directory locale in cui è archiviato il disco rigido virtuale.
 
 1. Se si utilizza AWS, esportare l'istanza EC2 in un disco rigido virtuale in un bucket Amazon S3. Seguire i passaggi descritti nella documentazione di Amazon per l'[esportazione delle istanze di Amazon EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExportingEC2Instances.html) per installare lo strumento di interfaccia della riga di comando Amazon EC2 ed eseguire il comando per esportare l'istanza di EC2 in un file di disco rigido virtuale.
-
+   
     Assicurarsi di usare **VHD** per la variabile DISK&#95;IMAGE&#95;FORMAT quando si esegue il comando. Il file di disco rigido virtuale esportato viene salvato nel bucket Amazon S3 indicato durante tale processo.
-
+   
     ![][2]
-
 2. Scaricare il file di disco rigido virtuale dal bucket S3. Selezionare il file del disco rigido virtuale e scegliere **Azioni** > **Download**.
-
+   
     ![][3]|
 
 #### <a name="copy-a-vhd-from-on-premise"></a>Copia di un disco rigido virtuale da locale
-
 Se si esegue la migrazione del disco rigido virtuale da un ambiente locale, è necessario il percorso di origine completo in cui è archiviato il disco rigido virtuale. Potrebbe trattarsi di un percorso server o di una condivisione file.
 
 ### <a name="copy-a-vhd-with-azcopy"></a>Copia di un disco rigido virtuale con AzCopy
-
 Tramite AzCopy è possibile caricare facilmente il disco rigido virtuale in Internet. A seconda della dimensione dei dischi rigidi virtuali, tale operazione potrebbe richiedere tempo. Ricordarsi di verificare i limiti di ingresso/uscita dell’account di archiviazione quando si utilizza questa opzione. Vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md) per i dettagli.
 
 1. Scaricare e installare AzCopy da qui: [versione più recente di AzCopy](http://aka.ms/downloadazcopy)
 2. Aprire Azure PowerShell e passare alla cartella in cui è installato AzCopy.
 3. Utilizzare il seguente comando per copiare il file di disco rigido virtuale da "Source" a "Destination".
-
+   
         AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
-
+   
     Di seguito sono riportate le descrizioni dei parametri utilizzati nel comando AzCopy:
-
- - **/Source: *&lt;source&gt;:*** percorso della cartella o URL del contenitore di archiviazione che contiene il disco rigido virtuale.
- - **/SourceKey: *&lt;source-account-key&gt;:*** chiave dell'account di archiviazione di origine.
- - **/Dest: *&lt;destination&gt;:*** URL del contenitore di archiviazione in cui copiare il disco rigido virtuale.
- - **/DestKey: *&lt;dest-account-key&gt;:*** chiave dell'account di archiviazione di destinazione.
- - **/BlobType:page:** specifica che la destinazione è un BLOB di pagine.
- - **/Pattern: *&lt;file-name&gt;:*** specificare il nome file del disco rigido virtuale da copiare.
+   
+   * **/Source: *&lt;source&gt;:*** percorso della cartella o URL del contenitore di archiviazione che contiene il disco rigido virtuale.
+   * **/SourceKey: *&lt;source-account-key&gt;:*** chiave dell'account di archiviazione di origine.
+   * **/Dest: *&lt;destination&gt;:*** URL del contenitore di archiviazione in cui copiare il disco rigido virtuale.
+   * **/DestKey: *&lt;dest-account-key&gt;:*** chiave dell'account di archiviazione di destinazione.
+   * **/BlobType:page:** specifica che la destinazione è un BLOB di pagine.
+   * **/Pattern: *&lt;file-name&gt;:*** specificare il nome file del disco rigido virtuale da copiare.
 
 Per informazioni dettagliate sull'uso dello strumento AzCopy, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md).
 
@@ -210,24 +194,23 @@ Per informazioni dettagliate sull'uso dello strumento AzCopy, vedere [Trasferire
     Start-AzureStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext -DestContainer "vhds" -DestBlob "myvhd.vhd" -DestContext $destinationContext
 
 ### <a name="other-options-for-uploading-a-vhd"></a>Altre opzioni per il caricamento di un disco rigido virtuale
-
 È inoltre possibile caricare un disco rigido virtuale nell'account di archiviazione utilizzando uno dei seguenti modi:
 
-- [API Copy Blob di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd894037.aspx)
-- [Materiale di riferimento dell'API REST del servizio di importazione/esportazione dell'archiviazione](https://msdn.microsoft.com/library/dn529096.aspx)
+* [API Copy Blob di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd894037.aspx)
+* [Materiale di riferimento dell'API REST del servizio di importazione/esportazione dell'archiviazione](https://msdn.microsoft.com/library/dn529096.aspx)
 
->[AZURE.NOTE] L’importazione/esportazione può essere utilizzata per copiare solo nell’account di archiviazione standard. Sarà necessario copiare dall'archiviazione standard all’account di archiviazione premium mediante uno strumento come AzCopy.
+> [!NOTE]
+> L’importazione/esportazione può essere utilizzata per copiare solo nell’account di archiviazione standard. Sarà necessario copiare dall'archiviazione standard all’account di archiviazione premium mediante uno strumento come AzCopy.
+> 
+> 
 
 ## <a name="create-azure-vms-using-premium-storage"></a>Creare macchine virtuali di Azure tramite Archiviazione Premium
-
 Dopo aver caricato il disco rigido virtuale nell'account di archiviazione desiderato, seguire le istruzioni in questa sezione per registrare il disco rigido virtuale come immagine del sistema operativo oppure come disco del sistema operativo, a seconda dello scenario e quindi creare da esso un'istanza di macchina virtuale. Il disco rigido virtuale del disco dati può essere collegato alla macchina virtuale una volta che questa è stata creata.
 
 ### <a name="register-your-vhd"></a>Registrazione del disco rigido virtuale
-
 Per creare una VM dal disco rigido virtuale del sistema operativo o collegare un disco di dati a una nuova VM, è necessario innanzitutto registrarlo. Seguire la procedura riportata di seguito, a seconda dello scenario.
 
 #### <a name="generalized-operating-system-vhd-to-create-multiple-azure-vm-instances"></a>Disco rigido virtuale del sistema operativo generalizzato per creare più istanze di macchine virtuali di Azure
-
 Dopo che il disco rigido virtuale dell’immagine del sistema operativo viene caricato nell’account di archiviazione, registrarlo come **immagine macchina virtuale di Azure** , in modo che sia possibile utilizzarlo per creare una o più istanze di macchine virtuali. Utilizzare i cmdlet PowerShell riportati di seguito per registrare il disco rigido virtuale come immagine del sistema operativo di una macchina virtuale di Azure. Fornire l'URL completo del contenitore in cui è stato copiato il disco rigido virtuale.
 
     Add-AzureVMImage -ImageName "OSImageName" -MediaLocation "https://storageaccount.blob.core.windows.net/vhdcontainer/osimage.vhd" -OS Windows
@@ -235,7 +218,6 @@ Dopo che il disco rigido virtuale dell’immagine del sistema operativo viene ca
 Copiare e salvare il nome di questa nuova immagine di macchina virtuale di Azure. Nell'esempio precedente è *OSImageName*.
 
 #### <a name="unique-operating-system-vhd-to-create-a-single-azure-vm-instance"></a>Disco rigido virtuale di sistema operativo univoco per creare una singola istanza di macchina virtuale di Azure
-
 Dopo aver caricato il disco rigido virtuale di sistema operativo univoco nell'account di archiviazione, registrarlo come **disco del sistema operativo Azure** in modo che sia possibile utilizzarlo per creare un'istanza di macchina virtuale. Utilizzare i cmdlet PowerShell riportati di seguito per registrare il disco rigido virtuale come disco del sistema operativo di Azure. Fornire l'URL completo del contenitore in cui è stato copiato il disco rigido virtuale.
 
     Add-AzureDisk -DiskName "OSDisk" -MediaLocation "https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd" -Label "My OS Disk" -OS "Windows"
@@ -243,7 +225,6 @@ Dopo aver caricato il disco rigido virtuale di sistema operativo univoco nell'ac
 Copiare e salvare il nome di questo nuovo disco di sistema operativo di Azure. Nell'esempio precedente è *OSDisk*.
 
 #### <a name="data-disk-vhd-to-be-attached-to-new-azure-vm-instance(s)"></a>Disco rigido virtuale del disco dati da collegare alle nuove istanze di macchine virtuali di Azure
-
 Dopo avere caricato il disco rigido virtuale del disco dati nell'account di archiviazione, registrarlo come disco dati Azure in modo che possa essere collegato alla nuova istanza di VM di Azure serie DS, serie DSv2 o serie GS.
 
 Utilizzare i cmdlet PowerShell riportati di seguito per registrare il disco rigido virtuale come disco dati di Azure. Fornire l'URL completo del contenitore in cui è stato copiato il disco rigido virtuale.
@@ -253,10 +234,12 @@ Utilizzare i cmdlet PowerShell riportati di seguito per registrare il disco rigi
 Copiare e salvare il nome di questo nuovo disco dati di Azure. Nell'esempio precedente è *DataDisk*.
 
 ### <a name="create-an-azure-ds-series,-dsv2-series-or-gs-series-vm"></a>Creare una VM di Azure della serie DS, della serie DSv2 o della serie GS.
-
 Una volta che l'immagine del sistema operativo o il disco del sistema operativo sono registrati, creare una nuova VM di Azure della serie DS, DSv2 o GS. Si utilizzerà l'immagine del sistema operativo o il nome del disco del sistema operativo registrato. Selezionare il tipo di macchina virtuale dal livello Archiviazione Premium. Nell'esempio riportato di seguito viene usata la dimensione della macchina virtuale *Standard_DS2*.
 
->[AZURE.NOTE] Aggiornare le dimensioni del disco per assicurarsi che corrispondano alla capacità, ai requisiti di prestazione e alle dimensioni dei dischi di Azure disponibili.
+> [!NOTE]
+> Aggiornare le dimensioni del disco per assicurarsi che corrispondano alla capacità, ai requisiti di prestazione e alle dimensioni dei dischi di Azure disponibili.
+> 
+> 
 
 Seguire i cmdlet di PowerShell dettagliati indicati di seguito per creare la nuova macchina virtuale. Innanzitutto, impostare i parametri comuni:
 
@@ -275,7 +258,6 @@ Innanzitutto, creare un servizio cloud in cui verranno ospitate le nuove VM.
 In secondo luogo, a seconda dello scenario, creare l'istanza di VM di Azure dall'immagine del sistema operativo o dal disco del sistema operativo registrato.
 
 #### <a name="generalized-operating-system-vhd-to-create-multiple-azure-vm-instances"></a>Disco rigido virtuale del sistema operativo generalizzato per creare più istanze di macchine virtuali di Azure
-
 Creare le nuove istanze di macchine virtuali di Azure serie DS utilizzando l’ **immagine del sistema operativo Azure** registrata. Specificare questo nome immagine del sistema operativo nella configurazione della macchina virtuale quando si crea la nuova macchina virtuale come illustrato di seguito.
 
     $OSImage = Get-AzureVMImage –ImageName "OSImageName"
@@ -287,7 +269,6 @@ Creare le nuove istanze di macchine virtuali di Azure serie DS utilizzando l’ 
     New-AzureVM -ServiceName $serviceName -VM $vm
 
 #### <a name="unique-operating-system-vhd-to-create-a-single-azure-vm-instance"></a>Disco rigido virtuale di sistema operativo univoco per creare una singola istanza di macchina virtuale di Azure
-
 Creare una nuova istanza di macchina virtuale di Azure serie DS utilizzando il **disco del sistema operativo Azure** registrato. Specificare questo nome disco del sistema operativo nella configurazione della macchina virtuale quando si crea la nuova macchina virtuale come illustrato di seguito.
 
     $OSDisk = Get-AzureDisk –DiskName "OSDisk"
@@ -299,7 +280,6 @@ Creare una nuova istanza di macchina virtuale di Azure serie DS utilizzando il *
 Specificare altre informazioni di macchina virtuale di Azure, ad esempio, un servizio cloud, l’area, l’account di archiviazione, il set di disponibilità e i criteri di memorizzazione nella cache. Si noti che l'istanza di macchina virtuale deve essere collocata con il sistema operativo o con i dischi dati associati, in modo che il servizio cloud, l’area e l’account di archiviazione selezionati si trovino tutti nella stessa posizione dei dischi rigidi virtuali sottostanti di questi dischi.
 
 ### <a name="attach-data-disk"></a>Collegare il disco dati
-
 Infine, se sono stati registrati i dischi rigidi virtuali del disco dati, collegarli alla nuova VM di Azure serie DS, serie DSv2 o serie GS.
 
 Utilizzare il seguente cmdlet PowerShell per collegare il disco dati alla nuova macchina virtuale e specificare i criteri di memorizzazione nella cache. Nell'esempio riportato di seguito il criterio di memorizzazione nella cache è impostato su *ReadOnly*.
@@ -310,13 +290,16 @@ Utilizzare il seguente cmdlet PowerShell per collegare il disco dati alla nuova 
 
     Update-AzureVM  -VM $vm
 
->[AZURE.NOTE] È possibile che per supportare l’applicazione siano necessari passaggi specifici che non sono illustrati in questa guida.
+> [!NOTE]
+> È possibile che per supportare l’applicazione siano necessari passaggi specifici che non sono illustrati in questa guida.
+> 
+> 
 
 ## <a name="migrating-existing-azure-vms-to-azure-premium-storage"></a>Migrazione di VM di Azure esistenti in Archiviazione Premium di Azure
-
 Se attualmente si dispone di una VM di Azure che usa dischi di archiviazione standard, seguire il processo riportato di seguito per eseguirne la migrazione ad Archiviazione Premium. In generale, la migrazione è costituita da due fasi:
--   Migrazione dei dischi da un account di Archiviazione Standard a un account di Archiviazione Premium.
--   Conversione delle dimensioni della VM da A/D/G a DS, DSv2 o GS necessaria per l'uso di dischi di Archiviazione Premium.
+
+* Migrazione dei dischi da un account di Archiviazione Standard a un account di Archiviazione Premium.
+* Conversione delle dimensioni della VM da A/D/G a DS, DSv2 o GS necessaria per l'uso di dischi di Archiviazione Premium.
 
 Vedere anche la sezione precedente sulle considerazioni per conoscere le diverse possibili ottimizzazioni per Archiviazione Premium. A seconda delle ottimizzazioni applicabili alle applicazioni, il processo di migrazione può rientrare in uno degli scenari di migrazione seguenti.
 
@@ -333,25 +316,21 @@ Il vantaggio è la facilità della migrazione, mentre lo svantaggio è che la co
 6. Preparare l'applicazione per il tempo di inattività. Per eseguire una migrazione senza problemi, è necessario arrestare ogni elaborazione nel sistema corrente. Solo a quel punto lo stato sarà coerente e sarà possibile eseguire la migrazione alla nuova piattaforma. La durata del tempo di inattività dipenderà dalla quantità di dati nei dischi di cui eseguire la migrazione.
 
 #### <a name="execution-steps"></a>Passaggi di esecuzione
-1.  Arrestare la VM. Come spiegato in precedenza, la VM deve essere completamente inattiva per la migrazione a uno stato pulito. Il tempo di inattività proseguirà fino al termine della migrazione.
-
-2.  Una volta arrestata la VM, copiare ogni VHD della VM nel nuovo account di archiviazione Premium. È necessario copiare il BLOB VHD del disco del sistema operativo oltre a tutti i BLOB VHD dei dischi dati. Per la migrazione si consiglia di usare AzCopy o CopyBlob. Se si preferisce, è possibile usare anche altri strumenti di terze parti.
-
-  Per i comandi, vedere le sezioni precedenti di [Copiare un disco rigido virtuale con AzCopy](#copy-a-vhd-with-azcopy) o [Copiare un disco rigido virtuale con PowerShell](#copy-a-vhd-with-powershell).
-
-3.  Verificare se la copia è stata completata. Attendere che tutti i dischi vengano copiati. Una volta terminata la copia di tutti i dischi, è possibile procedere con i passaggi successivi per creare la nuova VM.
-4.  Creare un nuovo disco del sistema operativo con il BLOB VHD del disco del sistema operativo copiato nell'account di archiviazione Premium. Per questa operazione, è possibile eseguire il cmdlet "Add-AzureDisk" di PowerShell.
-
-    Script di esempio: Add-AzureDisk -DiskName "NewOSDisk1" -MediaLocation "https://newpremiumstorageaccount.blob.core.windows.net/vhds/MyOSDisk.vhd" -OS "Windows"
+1. Arrestare la VM. Come spiegato in precedenza, la VM deve essere completamente inattiva per la migrazione a uno stato pulito. Il tempo di inattività proseguirà fino al termine della migrazione.
+2. Una volta arrestata la VM, copiare ogni VHD della VM nel nuovo account di archiviazione Premium. È necessario copiare il BLOB VHD del disco del sistema operativo oltre a tutti i BLOB VHD dei dischi dati. Per la migrazione si consiglia di usare AzCopy o CopyBlob. Se si preferisce, è possibile usare anche altri strumenti di terze parti.
+   
+   Per i comandi, vedere le sezioni precedenti di [Copiare un disco rigido virtuale con AzCopy](#copy-a-vhd-with-azcopy) o [Copiare un disco rigido virtuale con PowerShell](#copy-a-vhd-with-powershell).
+3. Verificare se la copia è stata completata. Attendere che tutti i dischi vengano copiati. Una volta terminata la copia di tutti i dischi, è possibile procedere con i passaggi successivi per creare la nuova VM.
+4. Creare un nuovo disco del sistema operativo con il BLOB VHD del disco del sistema operativo copiato nell'account di archiviazione Premium. Per questa operazione, è possibile eseguire il cmdlet "Add-AzureDisk" di PowerShell.
+   
+   Script di esempio: Add-AzureDisk -DiskName "NewOSDisk1" -MediaLocation "https://newpremiumstorageaccount.blob.core.windows.net/vhds/MyOSDisk.vhd" -OS "Windows"
 5. Creare quindi la VM serie DS (o serie DSv2 o serie GS) con il disco del sistema operativo e i dischi dati indicati prima.
-
+   
     Script di esempio per creare un nuovo servizio cloud e una nuova macchina virtuale in tale servizio: New-AzureService -ServiceName "NewServiceName" -Location "East US 2"
-
+   
         New-AzureVMConfig -Name "NewDSVMName" -InstanceSize "Standard_DS2" -DiskName "NewOSDisk1" | Add-AzureProvisioningConfig -Windows | Add-AzureDataDisk -LUN 0 -DiskLabel "DataDisk1" -ImportFrom -MediaLocation "https://newpremiumstorageaccount.blob.core.windows.net/vhds/Disk1.vhd" | Add-AzureDataDisk -LUN 1 -DiskLabel "DataDisk2" -ImportFrom -MediaLocation https://newpremiumstorageaccount.blob.core.windows.net/vhds/Disk2.vhd | New-AzureVM -ServiceName "NewServiceName" –Location “East US 2”
-
-6.  Una volta che la nuova VM è operativa, accedervi con lo stesso ID di accesso e la stessa password della VM originale e verificare che tutto funzioni come previsto. Tutte le impostazioni, inclusi i volumi con striping, dovrebbero essere presenti nella nuova VM.
-
-7.  L'ultimo passaggio è la pianificazione del backup e della manutenzione per la nuova VM in base alle esigenze dell'applicazione.
+6. Una volta che la nuova VM è operativa, accedervi con lo stesso ID di accesso e la stessa password della VM originale e verificare che tutto funzioni come previsto. Tutte le impostazioni, inclusi i volumi con striping, dovrebbero essere presenti nella nuova VM.
+7. L'ultimo passaggio è la pianificazione del backup e della manutenzione per la nuova VM in base alle esigenze dell'applicazione.
 
 ### <a name="automation"></a>Automazione
 Se è necessario eseguire la migrazione di più VM, sarà utile l'automazione con gli script di PowerShell. Di seguito è riportato un esempio di script che automatizza la migrazione di una VM. Tenere presente che lo script seguente è solo un esempio e che sono state formulate alcune ipotesi sui dischi VM correnti. Potrebbe essere necessario aggiornare lo script per farlo corrispondere allo scenario specifico.
@@ -652,32 +631,31 @@ La configurazione VM corrente potrebbe essere personalizzata per favorirne il fu
 Le ottimizzazioni di questo tipo devono essere gestite singolarmente e, dopo la migrazione, sono necessari passaggi personalizzati. Esiste anche la possibilità che questo processo non funzioni bene per i database e le applicazioni che dipendono dal layout del disco definito durante la configurazione.
 
 #### <a name="preparation"></a>Operazioni preliminari
-1.  Completare la migrazione semplice descritta nella sezione più sopra. Le ottimizzazioni verranno eseguite nella nuova VM dopo la migrazione.
-2.  Definire le dimensioni dei nuovi dischi necessarie per la configurazione ottimizzata.
-3.  Determinare il mapping dei dischi/volumi correnti alle specifiche dei nuovi dischi.
+1. Completare la migrazione semplice descritta nella sezione più sopra. Le ottimizzazioni verranno eseguite nella nuova VM dopo la migrazione.
+2. Definire le dimensioni dei nuovi dischi necessarie per la configurazione ottimizzata.
+3. Determinare il mapping dei dischi/volumi correnti alle specifiche dei nuovi dischi.
 
 #### <a name="execution-steps:"></a>Passaggi di esecuzione:
-1.  Creare i nuovi dischi con le dimensioni corrette nella VM di Archiviazione Premium.
-2.  Accedere alla VM e copiare i dati dal volume corrente al nuovo disco di cui viene eseguito il mapping a tale volume. Effettuare questa operazione per tutti i volumi correnti di cui è necessario eseguire il mapping a un nuovo disco.
-3.  Modificare quindi le impostazioni dell'applicazione in modo da passare ai nuovi dischi e scollegare i vecchi volumi.
+1. Creare i nuovi dischi con le dimensioni corrette nella VM di Archiviazione Premium.
+2. Accedere alla VM e copiare i dati dal volume corrente al nuovo disco di cui viene eseguito il mapping a tale volume. Effettuare questa operazione per tutti i volumi correnti di cui è necessario eseguire il mapping a un nuovo disco.
+3. Modificare quindi le impostazioni dell'applicazione in modo da passare ai nuovi dischi e scollegare i vecchi volumi.
 
-###  <a name="application-migrations"></a>Migrazioni delle applicazioni
+### <a name="application-migrations"></a>Migrazioni delle applicazioni
 I database e altre applicazioni complesse potrebbero richiedere particolari passaggi in base a quanto definito dal provider dell'applicazione per la migrazione. Vedere la documentazione relativa a ogni applicazione. Ad esempio, è possibile in genere eseguire la migrazione dei database con il backup e ripristino.
 
 ## <a name="next-steps"></a>Passaggi successivi
-
 Controllare le risorse seguenti per scenari specifici per la migrazione di macchine virtuali:
 
-- [Eseguire la migrazione di macchine virtuali di Azure tra account di archiviazione](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-- [Creare e caricare un disco rigido virtuale Windows Server in Azure.](../virtual-machines/virtual-machines-windows-classic-createupload-vhd.md)
-- [Creazione e caricamento di un disco rigido virtuale contenente il sistema operativo Linux](../virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md)
-- [Migrazione di macchine virtuali da Amazon AWS a Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
+* [Eseguire la migrazione di macchine virtuali di Azure tra account di archiviazione](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
+* [Creare e caricare un disco rigido virtuale Windows Server in Azure.](../virtual-machines/virtual-machines-windows-classic-createupload-vhd.md)
+* [Creazione e caricamento di un disco rigido virtuale contenente il sistema operativo Linux](../virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md)
+* [Migrazione di macchine virtuali da Amazon AWS a Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Inoltre, controllare le seguenti risorse per ulteriori informazioni su Archiviazione di Azure e Macchine virtuali di Azure:
 
-- [Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
-- [Macchine virtuali di Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
-- [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage.md)
+* [Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Macchine virtuali di Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
+* [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage.md)
 
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png

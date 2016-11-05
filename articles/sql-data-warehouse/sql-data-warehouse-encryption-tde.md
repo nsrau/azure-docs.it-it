@@ -1,35 +1,34 @@
-<properties
-   pageTitle="Transparent Data Encryption in SQL Data Warehouse (portale) | Microsoft Azure"
-   description="Transparent Data Encryption (TDE) in SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter=""
-   authors="ronortloff"
-   manager="barbkess"
-   editor=""/>
+---
+title: Transparent Data Encryption in SQL Data Warehouse (portale) | Microsoft Docs
+description: Transparent Data Encryption (TDE) in SQL Data Warehouse.
+services: sql-data-warehouse
+documentationcenter: ''
+author: ronortloff
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.workload="data-management"
-   ms.tgt_pltfrm="na"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.date="09/24/2016" 
-   ms.author="rortloff;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/24/2016
+ms.author: rortloff;barbkess;sonyama
 
+---
 # Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse
-
-> [AZURE.SELECTOR]
-- [Proteggere un database in SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md)
-- [Autenticazione](sql-data-warehouse-authentication.md)
-- [Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse](sql-data-warehouse-encryption-tde.md)
-- [Introduzione a Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde-tsql.md)
+> [!div class="op_single_selector"]
+> * [Proteggere un database in SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md)
+> * [Autenticazione](sql-data-warehouse-authentication.md)
+> * [Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse](sql-data-warehouse-encryption-tde.md)
+> * [Introduzione a Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde-tsql.md)
+> 
+> 
 
 ## Autorizzazioni necessarie
-
 Per abilitare Transparent Data Encryption (TDE), è necessario essere un amministratore o un membro del ruolo dbmanager.
 
 ## Abilitazione della crittografia
-
 Per abilitare TDE per un SQL Data Warehouse, seguire questa procedura:
 
 1. Aprire il database nel [portale di Azure](https://portal.azure.com)
@@ -39,7 +38,6 @@ Per abilitare TDE per un SQL Data Warehouse, seguire questa procedura:
 5. Selezionare **Salva** ![][3]
 
 ## Disabilitazione della crittografia
-
 Per disabilitare TDE per un SQL Data Warehouse, seguire questa procedura:
 
 1. Aprire il database nel [portale di Azure](https://portal.azure.com)
@@ -49,11 +47,10 @@ Per disabilitare TDE per un SQL Data Warehouse, seguire questa procedura:
 5. Selezionare **Salva** ![][5]
 
 ## Viste a gestione dinamica della crittografia
-
 La crittografia può essere confermata con le seguenti viste a gestione dinamica:
 
-- [sys.databases]
-- [sys.dm\_pdw\_nodes\_database\_encryption\_keys]
+* [sys.databases]
+* [sys.dm\_pdw\_nodes\_database\_encryption\_keys]
 
 <!--MSDN references-->
 [Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx

@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Stored procedure in SQL Data Warehouse | Microsoft Azure"
-   description="Suggerimenti per l'implementazione delle stored procedure in Azure SQL Data Warehouse per lo sviluppo di soluzioni."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Stored procedure in SQL Data Warehouse | Microsoft Docs
+description: Suggerimenti per l'implementazione delle stored procedure in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/30/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/30/2016
+ms.author: jrj;barbkess;sonyama
 
+---
 # Stored procedure in SQL Data Warehouse
-
 SQL Data Warehouse supporta molte delle funzionalità Transact-SQL disponibili in SQL Server. Ancora più importanti sono le funzionalità di scalabilità orizzontale specifiche, che si useranno per massimizzare le prestazioni della soluzione.
 
 Tuttavia, per mantenere la scalabilità e le prestazioni di SQL Data Warehouse sono disponibili anche funzionalità e caratteristiche con differenze di comportamento e altra che non sono supportate.
@@ -42,6 +41,7 @@ La chiamata alla stored procedure di livello superiore equivale al livello di an
 EXEC prc_nesting
 ```
 Se la stored procedure effettua anche un'altra chiamata a EXEC, il livello di annidamento passerà a 2.
+
 ```sql
 CREATE PROCEDURE prc_nesting
 AS
@@ -50,6 +50,7 @@ GO
 EXEC prc_nesting
 ```
 Se la seconda procedura esegue quindi alcune istruzioni SQL dinamiche, il livello di annidamento passerà a 3.
+
 ```sql
 CREATE PROCEDURE prc_nesting_2
 AS
@@ -66,25 +67,24 @@ SQL Data Warehouse non consente di usare il set di risultati di una stored proce
 Per un esempio di come eseguire questa operazione, fare riferimento all'articolo seguente sulle [tabelle temporanee].
 
 ## Limitazioni
-
 Esistono alcuni aspetti delle stored procedure Transact-SQL che non sono implementate in SQL Data Warehouse.
 
 Sono:
 
-- Stored procedure temporanee
-- Stored procedure numerate
-- Stored procedure estese
-- Stored procedure CLR
-- Opzione di crittografia
-- Opzione di replica
-- Parametri con valori di tabella
-- Parametri di sola lettura
-- Parametri predefiniti
-- Contesti di esecuzione
-- Istruzione return
+* Stored procedure temporanee
+* Stored procedure numerate
+* Stored procedure estese
+* Stored procedure CLR
+* Opzione di crittografia
+* Opzione di replica
+* Parametri con valori di tabella
+* Parametri di sola lettura
+* Parametri predefiniti
+* Contesti di esecuzione
+* Istruzione return
 
 ## Passaggi successivi
-Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
+Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][Panoramica sullo sviluppo per SQL Data Warehouse].
 
 <!--Image references-->
 

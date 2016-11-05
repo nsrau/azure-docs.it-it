@@ -1,31 +1,32 @@
-<properties
-   pageTitle="Uso del listener e del connettore HTTP nelle app per la logica | Microsoft Azure App Service "
-   description="Come creare e configurare l'app per le API o il connettore del listener e dell'azione HTTP e usarlo in un'app per la logica in Azure App Service"
-   services="logic-apps"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="erikre"
-   editor=""/>
+---
+title: Uso del listener e del connettore HTTP nelle app per la logica | Microsoft Docs
+description: Come creare e configurare l'app per le API o il connettore del listener e dell'azione HTTP e usarlo in un'app per la logica in Azure App Service
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: anuragdalmia
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/31/2016"
-   ms.author="prkumar"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 08/31/2016
+ms.author: prkumar
 
-
+---
 # Uso del listener e dell'azione HTTP e aggiunta all'app per la logica
-
-> [AZURE.NOTE] Il supporto per questo connettore sta per terminare. La funzionalità del connettore, infatti, è ora inclusa per impostazione predefinita come **attivazione manuale** nella procedura di creazione di nuove app per la logica. È consigliabile aggiornare tutte le app per la logica che usano questo connettore. Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+> [!NOTE]
+> Il supporto per questo connettore sta per terminare. La funzionalità del connettore, infatti, è ora inclusa per impostazione predefinita come **attivazione manuale** nella procedura di creazione di nuove app per la logica. È consigliabile aggiornare tutte le app per la logica che usano questo connettore. Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+> 
+> 
 
 Connettersi direttamente alle risorse HTTP per rimanere in attesa delle richieste HTTP e configurare le richieste Web HTTP. In alcuni scenari può essere necessario usare connessioni HTTP dirette, ad esempio:
 
-1.	Per sviluppare un'app per la logica che supporta un front-end interattivo utente mobile o Web.
-2.	Per ottenere ed elaborare i dati da un servizio Web privo di un connettore predefinito.
-3.	Per eseguire azioni già esposte come servizio Web, ma non disponibili come app per le API.
+1. Per sviluppare un'app per la logica che supporta un front-end interattivo utente mobile o Web.
+2. Per ottenere ed elaborare i dati da un servizio Web privo di un connettore predefinito.
+3. Per eseguire azioni già esposte come servizio Web, ma non disponibili come app per le API.
 
 Per questi scenari, sono disponibili due opzioni:
 
@@ -39,15 +40,12 @@ Le app per la logica possono essere attivate in base a diverse origini dati e of
 
 1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
 2. Cercare "HTTP", selezionare Listener HTTP, quindi fare clic su **Crea**.
-3.	Configurare il listener HTTP nel modo seguente: ![][1]
-
-4.	Quando si configurano le impostazioni del pacchetto, verrà visualizzata l'opzione seguente che indica se il listener deve rispondere automaticamente o richiedere all'utente di inviare una risposta esplicita. Impostarla su **False** per inviare la propria risposta: ![][2]
-
-5.	Fare clic su **OK** per crearla.
-6.	Dopo avere creato l'istanza dell'app per le API, aprire le impostazioni per configurare la sicurezza. Il listener HTTP supporta attualmente l'autenticazione di base. È possibile configurarla usando l'opzione Sicurezza quando si apre il listener HTTP: ![][3]
-  
-	**Problema noto** *Le impostazioni di sicurezza mostrano "Nessuno" come valore predefinito, ma il valore non è stato definito. È necessario modificare l'impostazione in Base e quindi di nuovo in Nessuno prima di salvarla, in modo da assicurare che il listener HTTP sia configurato correttamente.*
-
+3. Configurare il listener HTTP nel modo seguente: ![][1]
+4. Quando si configurano le impostazioni del pacchetto, verrà visualizzata l'opzione seguente che indica se il listener deve rispondere automaticamente o richiedere all'utente di inviare una risposta esplicita. Impostarla su **False** per inviare la propria risposta: ![][2]
+5. Fare clic su **OK** per crearla.
+6. Dopo avere creato l'istanza dell'app per le API, aprire le impostazioni per configurare la sicurezza. Il listener HTTP supporta attualmente l'autenticazione di base. È possibile configurarla usando l'opzione Sicurezza quando si apre il listener HTTP: ![][3]
+   
+   **Problema noto** *Le impostazioni di sicurezza mostrano "Nessuno" come valore predefinito, ma il valore non è stato definito. È necessario modificare l'impostazione in Base e quindi di nuovo in Nessuno prima di salvarla, in modo da assicurare che il listener HTTP sia configurato correttamente.*
 7. Configurare infine le impostazioni di sicurezza dell'app per le API su Pubblico (anonimo) per consentire ai client esterni di accedere all'endpoint. Questa impostazione è disponibile in "Tutte le impostazioni > Impostazioni applicazione" dell'app per le API del listener HTTP: ![][10]
 
 A questo punto è possibile creare un'app per la logica per usare il listener HTTP.
@@ -55,13 +53,12 @@ A questo punto è possibile creare un'app per la logica per usare il listener HT
 ## Uso del listener HTTP nell'app per la logica
 Dopo aver creato l'app per le API, è possibile usare il listener HTTP come trigger per l'app per la logica. A questo scopo, è necessario:
 
-4.	Creare una nuova app per la logica.
-5.	Aprire "Triggers and Actions" per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso. Il listener HTTP è elencato nella raccolta. Selezionarlo.
-6.	A questo punto, è possibile impostare il metodo HTTP e il relativo URL per richiedere al listener di attivare il flusso: ![][4] ![][5]
-
-7.	Per ottenere l'URI completo, fare doppio clic sul listener HTTP per visualizzarne le impostazioni di configurazione e copiare l'URL dell'"Host" dell'app per le API: ![][6]
-8.	A questo punto, è possibile usare i dati ricevuti nella richiesta HTTP in altre azioni nel flusso, nel modo seguente: ![][7] ![][8]
-9.	Infine, per inviare una risposta, aggiungere un altro listener HTTP e selezionare l'azione di invio della risposta HTTP. Impostare l'ID richiesta sull'ID ottenuto dal listener HTTP e immettere il corpo della risposta e lo stato HTTP che dovranno essere restituiti: ![][9]
+1. Creare una nuova app per la logica.
+2. Aprire "Triggers and Actions" per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso. Il listener HTTP è elencato nella raccolta. Selezionarlo.
+3. A questo punto, è possibile impostare il metodo HTTP e il relativo URL per richiedere al listener di attivare il flusso: ![][4] ![][5]
+4. Per ottenere l'URI completo, fare doppio clic sul listener HTTP per visualizzarne le impostazioni di configurazione e copiare l'URL dell'"Host" dell'app per le API: ![][6]
+5. A questo punto, è possibile usare i dati ricevuti nella richiesta HTTP in altre azioni nel flusso, nel modo seguente: ![][7] ![][8]
+6. Infine, per inviare una risposta, aggiungere un altro listener HTTP e selezionare l'azione di invio della risposta HTTP. Impostare l'ID richiesta sull'ID ottenuto dal listener HTTP e immettere il corpo della risposta e lo stato HTTP che dovranno essere restituiti: ![][9]
 
 ## Uso dell'azione HTTP
 L'azione HTTP è supportata in modo nativo dalle app per la logica e non è necessario creare prima un'app per le API per poterla usare. È possibile inserire un'azione HTTP in qualsiasi punto dell'app per la logica e scegliere l'URI, le intestazioni e il corpo per la chiamata. L'azione HTTP supporta diverse opzioni per la sicurezza lato client. Vedere le [opzioni per la sicurezza lato client](../scheduler/scheduler-outbound-authentication.md).
@@ -75,7 +72,10 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 
 È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
 
-> [AZURE.NOTE] Se si vuole iniziare a usare le app per la logica di Azure prima di creare un account di Azure, passare alla pagina che consente di [provare le app per la logica](https://tryappservice.azure.com/?appservice=logic). È possibile creare immediatamente un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> [!NOTE]
+> Se si vuole iniziare a usare le app per la logica di Azure prima di creare un account di Azure, passare alla pagina che consente di [provare le app per la logica](https://tryappservice.azure.com/?appservice=logic). È possibile creare immediatamente un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> 
+> 
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-http/1.png

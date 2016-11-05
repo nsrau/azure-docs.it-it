@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Introduzione a Microsoft Azure | Microsoft Azure"
-	description="Nuovo utente di Microsoft Azure? Visualizzare una panoramica di base dei servizi offerti assieme a esempi di uso."
-	services=" "
-	documentationCenter=".net"
-	authors="rboucher"
-	manager=""
-	editor=""/>
+---
+title: Introduzione a Microsoft Azure | Microsoft Docs
+description: Nuovo utente di Microsoft Azure? Visualizzare una panoramica di base dei servizi offerti assieme a esempi di uso.
+services: " "
+documentationcenter: .net
+author: rboucher
+manager: ''
+editor: ''
 
-<tags
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2015"  
-	ms.author="robb"/>
+ms.service: multiple
+ms.workload: multiple
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/30/2015
+ms.author: robb
 
+---
 # Introduzione a Microsoft Azure
-
 Microsoft Azure è la piattaforma applicativa di Microsoft per il cloud pubblico. Lo scopo di questo articolo è offrire all'utente le basi per comprendere i dati fondamentali di Azure, anche se non si ha alcuna nozione del cloud computing.
 
 **Come leggere questo articolo**
@@ -28,9 +27,7 @@ Azure è in continua crescita, pertanto può accadere che l'utente si senta sovr
 
 I commenti degli utenti sono importanti. Questo articolo dovrebbe fornire una panoramica efficiente di Azure. In caso contrario, invitiamo gli utenti a inviare i propri commenti usando l'apposita sezione in fondo alla pagina, fornendo alcune informazioni sulle proprie aspettative e sulle aree di miglioramento dell'articolo.
 
-
 ## Componenti di Azure
-
 Azure raggruppa i servizi in categorie nel portale di gestione e in vari supporti visivi come l'[infografica su Microsoft Azure](https://azure.microsoft.com/documentation/infographics/azure/). Il portale di gestione è il portale usato per gestire la maggior parte dei servizi in Azure (ma non tutti).
 
 In questo articolo verrà usata un'**organizzazione diversa** per descrivere i servizi in base a una funzione simile e per richiamare sottoservizi importanti che fanno parte dei servizi di maggiori dimensioni.
@@ -42,17 +39,12 @@ Azure offre un'interfaccia Web denominata [portale di gestione](http://manage.wi
 
 Quando entrambi i portali sono attivi si verifica in genere una lunga sovrapposizione: benché i servizi principali siano disponibili in entrambi i portali, non tutte le funzionalità potrebbero esserlo. I servizi più recenti potrebbero essere visualizzati prima nel nuovo portale, mentre i servizi e le funzionalità più obsoleti potrebbero esistere solo sul vecchio portale. In altre parole, se non si trova un contenuto nel vecchio portale, è consigliabile verificare sul nuovo portale, e viceversa.
 
-
-
 ## Calcolo
-
 Una delle attività di base svolte da una piattaforma cloud è l'esecuzione di applicazioni. Ogni modello di calcolo di Azure ha un ruolo specifico.
 
 È possibile utilizzare queste tecnologie separatamente o combinarle secondo necessità per creare la base appropriata per l'applicazione. L'approccio scelto dipende dai problemi che si sta tentando di risolvere.
 
-
 ### Macchine virtuali di Azure
-
 ![Macchine virtuali di Azure ROBBCSIART\_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *Figura: Macchine virtuali offre il controllo completo sulle istanze della macchina virtuale nel cloud.*
 
 La possibilità di creare una macchina virtuale su richiesta, sia da un'immagine standard che da una fornita dall'utente, può risultare estremamente utile. Questo approccio, comunemente noto come IaaS (Infrastructure as a Service), è quanto fornito da Macchine virtuali di Azure. La figura 2 mostra una combinazione di esecuzione della macchina virtuale (VM) e di creazione di una macchina virtuale da un VHD.
@@ -67,14 +59,11 @@ Si tratta di un approccio generale al cloud computing che consente risolvere esi
 
 **Scenari di macchine virtuali**
 
-1.	**viluppo/Test**: è possibile usarle per creare una piattaforma di test e sviluppo conveniente che è possibile arrestare dopo l'uso oppure per creare ed eseguire applicazioni basate su qualsiasi linguaggio o libreria. Per queste applicazioni è possibile scegliere qualsiasi opzione di gestione dati offerta da Azure e decidere se utilizzare SQL Server o un altro DBMS in esecuzione in una o più macchine virtuali.
-2.	**Spostamento delle applicazioni in Azure (sollevamento e spostamento)** - "Sollevamento e spostamento" indica lo spostamento dell'applicazione in modo analogo a un'operazione di sollevamento di un oggetto di grandi dimensioni effettuato con un carrello elevatore. L'utente "solleva" il VHD dal data center locale e lo "sposta" in Azure, dove viene eseguito. In genere è necessario effettuare alcune operazioni per rimuovere le dipendenze da altri sistemi. Se sono presenti troppe dipendenze, è possibile scegliere l'opzione 3.
-3.	**Estensione del data center**: usare le macchine virtuali Azure come estensione del data center locale, che esegue SharePoint o altre applicazioni. Per supportare questa opzione, è possibile creare domini di Windows nel cloud tramite l'esecuzione di Active Directory nelle macchine virtuali di Azure. È possibile usare la rete virtuale di Azure (citata in seguito) per collegare la rete locale e la propria rete in Azure.
-
-
+1. **viluppo/Test**: è possibile usarle per creare una piattaforma di test e sviluppo conveniente che è possibile arrestare dopo l'uso oppure per creare ed eseguire applicazioni basate su qualsiasi linguaggio o libreria. Per queste applicazioni è possibile scegliere qualsiasi opzione di gestione dati offerta da Azure e decidere se utilizzare SQL Server o un altro DBMS in esecuzione in una o più macchine virtuali.
+2. **Spostamento delle applicazioni in Azure (sollevamento e spostamento)** - "Sollevamento e spostamento" indica lo spostamento dell'applicazione in modo analogo a un'operazione di sollevamento di un oggetto di grandi dimensioni effettuato con un carrello elevatore. L'utente "solleva" il VHD dal data center locale e lo "sposta" in Azure, dove viene eseguito. In genere è necessario effettuare alcune operazioni per rimuovere le dipendenze da altri sistemi. Se sono presenti troppe dipendenze, è possibile scegliere l'opzione 3.
+3. **Estensione del data center**: usare le macchine virtuali Azure come estensione del data center locale, che esegue SharePoint o altre applicazioni. Per supportare questa opzione, è possibile creare domini di Windows nel cloud tramite l'esecuzione di Active Directory nelle macchine virtuali di Azure. È possibile usare la rete virtuale di Azure (citata in seguito) per collegare la rete locale e la propria rete in Azure.
 
 ### App Web
-
 ![Applicazioni Web di Azure ROBBCSIART\_TEST](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png) *Figura: App Web di Azure esegue un'applicazione di Sito Web nel cloud senza dover gestire il server Web sottostante.*
 
 In genere, il cloud viene usato per eseguire siti Web e applicazioni Web. Macchine virtuali di Azure fornisce questo tipo di servizio, ma lascia all'utente la responsabilità di amministrare uno o più sistemi operativi sottostanti. I ruoli Web dei servizi cloud possono effettuare questa operazione, ma implementarli e distribuirli richiede un'attività amministrativa. Se invece si preferisce evitare di occuparsi delle attività di amministrazione del sito Web,
@@ -82,7 +71,6 @@ In genere, il cloud viene usato per eseguire siti Web e applicazioni Web. Macchi
 Questo è ciò che fornisce esattamente App Web. Questo modello di calcolo rende disponibile un ambiente Web gestito tramite il portale di gestione di Azure e diverse API. È possibile spostare un'applicazione Sito Web esistente in App Web lasciandola invariata o crearne una nuova direttamente nel cloud. Non appena un sito Web è in esecuzione, è possibile aggiungere o rimuovere istanze in modo dinamico, usando App Web di Azure per bilanciare il carico delle richieste. App Web di Azure offre un'opzione condivisa grazie alla quale il sito viene eseguito in una macchina virtuale assieme ad altri siti, e un'opzione standard che consente l'esecuzione di un sito in una macchina virtuale specifica. L'opzione standard consente inoltre di aumentare le dimensioni (potenza di elaborazione) delle istanze, se necessario.
 
 Per gli ambienti di sviluppo, App Web supporta .NET, PHP, Node.js, Java e Python insieme a database SQL e MySQL (di ClearDB, un partner Microsoft) per l'archivio relazionale. Fornisce inoltre il supporto incorporato per numerose applicazioni ampiamente diffuse, ad esempio WordPress, Joomla e Drupal. Si tratta di una piattaforma a basso costo, scalabile ed estremamente utile per la creazione di siti e applicazioni Web nel cloud pubblico.
-
 
 **Scenari di Applicazioni Web**
 
@@ -106,20 +94,15 @@ Quando si crea un'istanza, sono disponibili due ruoli, entrambi basati su Window
 I servizi cloud sono ideali per supportare un livello avanzato di scalabilità orizzontale quando occorre esercitare un controllo maggiore sulla piattaforma rispetto a quello fornito da Applicazioni Web di Azure ma non sul sistema operativo sottostante.
 
 #### Scelta di un modello di calcolo
-La [pagina di confronto tra Applicazioni Web , Servizi cloud e Macchine virtuali di Azure](./app-service-web/choose-web-site-cloud-service-vm.md) fornisce informazioni più dettagliate su come scegliere un modello di calcolo.
-
-
+La [pagina di confronto tra Applicazioni Web , Servizi cloud e Macchine virtuali di Azure](app-service-web/choose-web-site-cloud-service-vm.md) fornisce informazioni più dettagliate su come scegliere un modello di calcolo.
 
 ## Gestione dati
-
 Alle applicazioni servono i dati e ad applicazioni diverse servono tipi di dati diversi. Per questo motivo, in Azure sono disponibili diversi modi per archiviare e gestire i dati. Azure fornisce numerose opzioni di archiviazione, ma sono tutte progettate per un'archiviazione prolungata nel tempo. Con una qualsiasi di queste opzioni sono sempre presenti tre copie dei dati sincronizzati con il data center Azure; sei copie nel caso in cui si consenta ad Azure di usare la ridondanza geografica per eseguire il backup in un altro data center ubicato a una distanza di almeno 480 chilometri.
-
 
 ### All'interno delle macchine virtuali
 Si è già accennato alla possibilità di eseguire SQL Server o un altro DBMS in una macchina virtuale creata con macchine virtuali di Azure. Questa opzione non è limitata ai sistemi relazionali. È infatti possibile eseguire tecnologie NoSQL, come ad esempio MongoDB e Cassandra. L'esecuzione di un sistema di database personale è semplice, in quanto rientra nelle attività normalmente eseguite in un data center, ma richiede anche la gestione dell'amministrazione di uno specifico DBMS. In altre opzioni Azure gestisce un maggior numero di attività amministrative, o anche tutte, automaticamente.
 
 È importante ricordare che lo stato della macchina virtuali e di eventuali dischi di dati aggiuntivi creati o caricati sono supportati dall'archiviazione BLOB (che verrà descritta in seguito).
-
 
 ### Database SQL di Azure
 ![Database SQL di archiviazione di Azure](./media/fundamentals-introduction-to-azure/StorageAzureSQLDatabaseIntroNew.png)
@@ -132,11 +115,9 @@ Precedentemente denominato SQL Azure, il database SQL di Azure offre tutte le fu
 
 Tuttavia, il database SQL non rappresenta solo un DBMS nel cloud: si tratta infatti di un vero e proprio servizio PaaS che consente di mantenere il controllo sui dati e sugli utenti che possono accedervi, ma gestisce tutto le attività amministrative, ad esempio la gestione dell'infrastruttura hardware e l'aggiornamento automatico del software di database e del sistema operativo. Il database SQL fornisce disponibilità elevata, backup automatici, funzionalità di ripristino a un momento specifico e possibilità di replicare copie tra varie aree geografiche.
 
-
 **Scenari per il database SQL**
 
 Se si crea un'applicazione di Azure (con uno qualsiasi dei tre metodi di calcolo) che richiede una soluzione di archiviazione relazionale, il database SQL rappresenta una scelta ottimale. Anche le applicazioni in esecuzione all'esterno del cloud possono usare questo servizio, pertanto gli scenari possibili sono davvero numerosi. Ad esempio, è possibile accedere ai dati archiviati in SQL Database da diversi sistemi client, inclusi desktop, portatili, tablet e telefoni cellulari. Poiché offre disponibilità elevata incorporata tramite replica, Database SQL consente inoltre di ridurre i tempi di inattività.
-
 
 ### Tabelle
 ![Tabelle di archiviazione di Azure](./media/fundamentals-introduction-to-azure/StorageTablesIntroNew.png)
@@ -150,7 +131,6 @@ Anche se il nome può confondere, questa tecnologia non fornisce servizi di arch
 **Scenari per le tabelle**
 
 Si supponga di voler creare un'applicazione di Azure che necessita di accesso rapido a grandi quantità di dati tipizzati ma che non debba eseguire query SQL complesse su tali dati. Ad esempio, un'applicazione consumer che deve archiviare le informazioni relative al profilo del cliente per ogni utente. Questa app diventerà molto popolare, pertanto occorrerà prevedere la possibilità di archiviare grandi quantità di dati, ma non altre operazioni, da recuperare in modo semplice. Questo è esattamente lo scenario in cui il servizio Tabelle di Azure può risultare utile.
-
 
 ### Blobs
 ![BLOB di archiviazione di Azure:](./media/fundamentals-introduction-to-azure/StorageBlobsIntroNew.png) *Figura: i blob di Azure forniscono dati binari non strutturati.*
@@ -172,10 +152,8 @@ Potrebbe essere necessario spostare un'elevata quantità di dati in Azure. Quest
 
 **Scenari di importazione/esportazione**
 
-- **Migrazione dei dati**: quando sono presenti elevate quantità di dati (terabyte) da caricare in Azure, il servizio di Importazione/Esportazione è spesso molto più veloce e anche più conveniente del trasferimento tramite Internet. Quando i dati sono nei BLOB, è possibile elaborarli in altri modi, ad esempio l'archiviazione tabelle o un database SQL.
-
-- **Ripristino dei dati archiviati**: è possibile usare la funzionalità Importazione/Esportazione per trasferire tramite Microsoft elevate quantità di dati presenti nell'archivio BLOB di Azure in un dispositivo di archiviazione inviato dall'utente, che viene poi restituito in una posizione specificata dall'utente. Poiché questa operazione richiede del tempo, non è un'opzione idonea per il disaster recovery. È preferibile per i dati archiviati per i quali non occorre effettuare l'accesso velocemente.
-
+* **Migrazione dei dati**: quando sono presenti elevate quantità di dati (terabyte) da caricare in Azure, il servizio di Importazione/Esportazione è spesso molto più veloce e anche più conveniente del trasferimento tramite Internet. Quando i dati sono nei BLOB, è possibile elaborarli in altri modi, ad esempio l'archiviazione tabelle o un database SQL.
+* **Ripristino dei dati archiviati**: è possibile usare la funzionalità Importazione/Esportazione per trasferire tramite Microsoft elevate quantità di dati presenti nell'archivio BLOB di Azure in un dispositivo di archiviazione inviato dall'utente, che viene poi restituito in una posizione specificata dall'utente. Poiché questa operazione richiede del tempo, non è un'opzione idonea per il disaster recovery. È preferibile per i dati archiviati per i quali non occorre effettuare l'accesso velocemente.
 
 ### Servizio file
 ![Servizio file di Azure](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *Figura: Servizi file di Azure fornisce percorsi SMB \\\server\\share per le applicazioni in esecuzione nel cloud.*
@@ -184,26 +162,18 @@ In locale è frequente la disponibilità di un'elevata quantità di archiviazion
 
 **Scenari per File di Azure**
 
-- **Migrazione delle app esistenti nel cloud**: è più semplice eseguire la migrazione di applicazioni locali nel cloud che usare condivisioni di file tra parti dell'applicazione. Ogni macchina virtuale si connette alla condivisione file e quindi esegue la lettura e la scrittura di file come farebbe su una condivisione file locale.
-
-- **Impostazioni delle applicazioni condivise**: in uno schema comune per le applicazioni distribuite i file di configurazione si trovano in una posizione centralizzata dove numerose macchine virtuali diverse possono accedervi. Questi file di configurazione possono essere archiviati in una condivisione di File Azure ed essere letti da tutte le istanze delle applicazioni. Le impostazioni possono inoltre essere gestite tramite l'interfaccia REST, che consente l'accesso a livello globale ai file di configurazione.
-
-- **Condivisione di diagnostica**: è possibile salvare e condividere file di diagnostica come log, metriche e dump di arresto anomalo del sistema. La disponibilità di questi file tramite SMB e l'interfaccia REST consente alle applicazioni di usare una varietà di strumenti di analisi per l'elaborazione e l'analisi dei dati di diagnostica.
-
-- **Sviluppo/Test/Debug**: quando gli sviluppatori o gli amministratori usano le macchine virtuali nel cloud, spesso necessitano di un set di strumenti o di utilità. L'installazione e la distribuzione di queste utilità su ogni macchina virtuale richiede molto tempo. Con File di Azure uno sviluppatore o amministratore può archiviare i propri strumenti preferiti in una condivisione file e connettersi a essi da qualsiasi macchina virtuale.
-
-
+* **Migrazione delle app esistenti nel cloud**: è più semplice eseguire la migrazione di applicazioni locali nel cloud che usare condivisioni di file tra parti dell'applicazione. Ogni macchina virtuale si connette alla condivisione file e quindi esegue la lettura e la scrittura di file come farebbe su una condivisione file locale.
+* **Impostazioni delle applicazioni condivise**: in uno schema comune per le applicazioni distribuite i file di configurazione si trovano in una posizione centralizzata dove numerose macchine virtuali diverse possono accedervi. Questi file di configurazione possono essere archiviati in una condivisione di File Azure ed essere letti da tutte le istanze delle applicazioni. Le impostazioni possono inoltre essere gestite tramite l'interfaccia REST, che consente l'accesso a livello globale ai file di configurazione.
+* **Condivisione di diagnostica**: è possibile salvare e condividere file di diagnostica come log, metriche e dump di arresto anomalo del sistema. La disponibilità di questi file tramite SMB e l'interfaccia REST consente alle applicazioni di usare una varietà di strumenti di analisi per l'elaborazione e l'analisi dei dati di diagnostica.
+* **Sviluppo/Test/Debug**: quando gli sviluppatori o gli amministratori usano le macchine virtuali nel cloud, spesso necessitano di un set di strumenti o di utilità. L'installazione e la distribuzione di queste utilità su ogni macchina virtuale richiede molto tempo. Con File di Azure uno sviluppatore o amministratore può archiviare i propri strumenti preferiti in una condivisione file e connettersi a essi da qualsiasi macchina virtuale.
 
 ## Rete
-
 Oggi Azure viene eseguito in numerosi data center distribuiti in tutto il mondo. Durante l'esecuzione di un'applicazione o l'archiviazione dei dati, è possibile selezionare uno o più data center da usare. È inoltre possibile connettersi a questi data center in vari modi mediante i servizi seguenti.
-
 
 ### Rete virtuale
 ![VirtualNetwork](./media/fundamentals-introduction-to-azure/VirtualNetworkIntroNew.png)
 
 *Figura: le reti virtuali forniscono una rete privata nel cloud in modo da consentire a servizi diversi di comunicare reciprocamente o in risorse locali se si imposta una connessione VPN tra più sedi locali.*
-
 
 È possibile usare un cloud pubblico considerandolo come un'estensione del proprio data center.
 
@@ -211,10 +181,9 @@ Grazie alla possibilità di creare macchine virtuali su richiesta e quindi di ri
 
 Affinché questa opzione risulti veramente utile, tuttavia, gli utenti dovrebbero essere in grado di trattare le applicazioni come se fossero in esecuzione nel proprio data center. E questo è il servizio offerto da Rete virtuale di Azure. Usando un dispositivo VPN, un amministratore può impostare una rete virtuale privata (VPN) tra la rete locale e le macchine virtuali distribuite in una rete virtuale di Azure. Assegnando indirizzi IPv4 personalizzati alle macchine virtuali del cloud, risulteranno come appartenenti alla rete in uso. Gli utenti dell'organizzazione potranno accedere alle applicazioni contenute in tali macchine virtuali come se fossero eseguite localmente.
 
-Per altre informazioni sulla pianificazione e sulla creazione di una rete virtuale adatta alle esigenze dell'utente, vedere [Rete virtuale](./virtual-network/virtual-networks-overview.md).
+Per altre informazioni sulla pianificazione e sulla creazione di una rete virtuale adatta alle esigenze dell'utente, vedere [Rete virtuale](virtual-network/virtual-networks-overview.md).
 
 ### Express Route
-
 ![ExpressRoute](./media/fundamentals-introduction-to-azure/ExpressRouteIntroNew.png)
 
 *Figura: ExpressRoute usa una rete virtuale di Azure, ma reindirizza le connessioni tramite linee dedicate più veloci invece della rete Internet pubblica.*
@@ -223,10 +192,9 @@ Se è necessaria ulteriore larghezza di banda o sicurezza rispetto a quelle che 
 
 L'impostazione di una connessione ExpressRoute richiede una maggiore quantità di tempo e di pianificazione, pertanto potrebbe essere necessario iniziare con una VPN da sito a sito ed effettuare quindi la migrazione a una connessione ExpressRoute.
 
-Per altre informazioni su ExpressRoute, vedere [Panoramica tecnica relativa a ExpressRoute](./expressroute/expressroute-introduction.md).
+Per altre informazioni su ExpressRoute, vedere [Panoramica tecnica relativa a ExpressRoute](expressroute/expressroute-introduction.md).
 
 ### Gestione traffico
-
 ![TrafficManager](./media/fundamentals-introduction-to-azure/TrafficManagerIntroNew.png)
 
 *Figura: Gestione traffico di Azure consente di instradare il traffico globale al servizio dell'utente in base a regole intelligenti.*
@@ -239,7 +207,6 @@ Il proprietario di un'applicazione definisce le regole che consentono di specifi
 
 Gestione traffico usa il DNS (Directory Name Service) per instradare gli utenti agli endpoint di servizio, ma l'ulteriore traffico non procede attraverso Gestione traffico una volta effettuata la connessione. In tal modo, Gestione traffico non costituisce un collo di bottiglia che potrebbe rallentare le comunicazioni del servizio.
 
-
 ## Servizi per gli sviluppatori
 Azure offre numerosi strumenti che aiutano gli sviluppatori e i professionisti IT a creare e gestire le applicazioni nel cloud.
 
@@ -251,7 +218,6 @@ Questi SDK supportano l'utente nelle attività di creazione, distribuzione e ges
 Questi SDK, oltre a supportare gli utenti per la creazione di applicazioni Azure, forniscono librerie client che consentono di creare software che usa tali servizi di Azure. Ad esempio, è possibile creare un'applicazione che legga e scriva i BLOB di Azure oppure creare uno strumento che distribuisca applicazioni Azure tramite l'interfaccia di gestione di Azure.
 
 ### Visual Studio Team Services
-
 Visual Studio Team Services è un nome di marketing riferito a numerosi servizi che consentono di sviluppare applicazioni in Azure.
 
 A scanso di equivoco, si tenga presente che Visual Studio Online non fornisce una versione ospitata o basata su Web di Visual Studio. È sempre necessario avere una copia in esecuzione in locale di Visual Studio. Tuttavia, fornisce molti altri strumenti che possono rivelarsi molto utili.
@@ -269,7 +235,6 @@ Visual Studio Team Services è un'opzione adatta alle aziende che hanno la neces
 Tuttavia, le organizzazioni che hanno già un sistema locale possono testare nuovi progetti su Visual Studio Team Services per verificarne l'eventuale maggiore efficienza.
 
 ### Application Insights
-
 ![Application Insights](./media/fundamentals-introduction-to-azure/ApplicationInsights.png)
 
 *Figura: Application Insights esegue il monitoraggio delle prestazioni e dell'utilizzo dell'app Web o del dispositivo attiva.*
@@ -299,9 +264,7 @@ L'automazione usa "runbook", che a loro volta usano flussi di lavoro Windows Pow
 
 L'automazione di Azure è una scelta ottimale per automatizzare le attività manuali, con esecuzione prolungata, soggette a errori e ripetute frequentemente.
 
-
 ### Gestione API
-
 La creazione e la pubblicazione di Application Programmer Interfaces (API) in Internet costituisce un modo comune di fornire servizi alle applicazioni. Se tali servizi sono rivendibili (ad esempio dati meteorologici), un'organizzazione può consentire ad altre terze parti di accedere, a pagamento, agli stessi servizi. Quando si scala per includere un maggior numero di partner, in genere è necessario ottimizzare e controllare l'accesso. Alcuni partner possono perfino necessitare dei dati in un formato diverso.
 
 La gestione delle API di Azure consente alle organizzazioni di pubblicare in modo semplice API per partner, dipendenti e sviluppatori terzi in modo sicuro e su vasta scala. Specifica un endpoint dell'API diverso e agisce come proxy per chiamare l'endpoint effettivo, offrendo al contempo servizi quali memorizzazione nella cache, trasformazione, limitazione delle richieste, controllo degli accessi e aggregazione delle analisi.
@@ -312,14 +275,10 @@ Si supponga, ad esempio, che un'azienda abbia una serie di dispositivi che devon
 
 Anche un cliente dell'azienda di spedizioni probabilmente trarrebbe vantaggio da questi dati di posizionamento. Il cliente potrebbe usarli per conoscere la distanza del trasporto, dove sono bloccati i prodotti, l'importo pagato lungo determinati itinerari (se unito all'importo pagato per la spedizione). Se l'azienda di spedizioni aggrega già questi dati, molti clienti potrebbero essere disposti a pagare per averli, ma a quel punto sorge per l'azienda di spedizioni la necessità di avere a disposizione uno strumento per fornire i dati ai clienti. Dopo aver fornito accesso ai clienti, potrebbero non avere il controllo sulla frequenza di interrogazione dei dati. Dovranno fornire delle regole che definiscano le autorizzazioni di accesso ai dati e i dati ai quali è possibile accedere. Tutte queste regole devono essere integrate nella loro API esterna, ed è in questa situazione che Gestione API può essere di aiuto.
 
-
 ## Identità e accesso
-
 L'utilizzo delle identità è importante per la maggior parte delle applicazioni. Le informazioni relative all'identità di un utente consentono a un'applicazione di decidere la modalità di interazione con tale utente. Azure fornisce servizi che consentono di tenere traccia dell'identità nonché di integrarla con gli archivi di identità eventualmente già usati dall'utente.
 
-
 ### Active Directory
-
 Come la maggior parte dei servizi directory, Azure Active Directory archivia le informazioni relative agli utenti e alle organizzazioni a cui appartengono. Consente agli utenti di eseguire l'accesso e quindi fornisce loro i token che dovranno presentare alle applicazioni per dimostrare la propria identità. Consente inoltre di sincronizzare le informazioni relative agli utenti con Windows Server Active Directory in esecuzione nella rete locale. Sebbene i meccanismi e i formati di dati utilizzati da Azure Active Directory non siano identici a quelli utilizzati in Windows Server Active Directory, le funzioni che eseguono sono molto simili.
 
 È importante ricordare che Azure Active Directory è progettato principalmente per l'utilizzo da parte di applicazioni cloud. Può ad esempio essere usato da applicazioni in esecuzione in Azure o in altre piattaforme cloud. Viene anche usato dalle applicazioni di Microsoft, ad esempio le applicazioni di Office 365. Se si vuole estendere il data center al cloud mediante Macchine virtuali di Azure e Rete virtuale di Azure, Azure Active Directory non è la scelta adatta. Sarà più opportuno eseguire Windows Server Active Directory nelle macchine virtuali.
@@ -337,9 +296,9 @@ I servizi directory rappresentano un rinforzo essenziale delle risorse di elabor
 
 La protezione è sempre importante. La Multi-Factor Authentication (MFA) garantisce che solo gli utenti stessi possano accedere ai propri account. La MFA (nota anche come autenticazione a due fattori, o "2FA") richiede agli utenti di fornire due di questi tre metodi di verifica dell'identità per gli accessi e le transazioni degli utenti.
 
-- Un'informazione nota (in genere una password)
-- Un oggetto che si possiede (un dispositivo attendibile non facile da duplicare, ad esempio un telefono)
-- Una caratteristica fisica dell'utente (biometrica)
+* Un'informazione nota (in genere una password)
+* Un oggetto che si possiede (un dispositivo attendibile non facile da duplicare, ad esempio un telefono)
+* Una caratteristica fisica dell'utente (biometrica)
 
 Quindi, quando gli utenti effettuano l'accesso, è possibile richiedere loro di verificare la propria identità anche con un'app mobile, una telefonata o un messaggio di testo insieme alla propria password. Per impostazione predefinita, Azure Active Directory supporta l'uso delle password poiché è l'unico metodo di autenticazione supportato per gli accessi degli utenti. È possibile usare MFA insieme ad Azure AD o con applicazioni e directory personalizzate MFA SDK. È anche possibile usarla insieme ad applicazioni locali tramite il server Multi-Factor Authentication.
 
@@ -347,37 +306,25 @@ Quindi, quando gli utenti effettuano l'accesso, è possibile richiedere loro di 
 
 Protezione degli accessi ad account sensibili, ad esempio dati di accesso bancari e accesso al codice sorgente quando l'immissione non autorizzata potrebbe comportare un costo elevato sulla proprietà finanziaria o intellettuale.
 
-
-
-
-
-
 ## Mobile
-
 Se si crea un'app per dispositivi mobili, Azure può archiviare i dati nel cloud, autenticare gli utenti e inviare notifiche push senza necessità di scrivere un'elevata quantità di codice personalizzato.
 
 Nonostante sia certamente possibile creare il back-end per un'app per dispositivi mobili tramite Macchine virtuali, Servizi cloud o Applicazioni Web, usando i servizi di Azure è possibile dedicare molto meno tempo alla scrittura dei componenti del servizio sottostanti.
 
-
 ### App per dispositivi mobili
-
 ![App per dispositivi mobili](./media/fundamentals-introduction-to-azure/MobileServicesIntroNew.png)
 
 *Figura: App per dispositivi mobili fornisce funzionalità comunemente richieste dalle applicazioni che si interfacciano con dispositivi mobili.*
 
 App per dispositivi mobili di Azure fornisce molte funzionalità utili che consentono di risparmiare tempo nella creazione di un back-end per un'applicazione per dispositivi mobili. Consente di effettuare semplici attività di provisioning e gestione dei dati archiviati in un database SQL. Con il codice lato server è possibile usare facilmente opzioni aggiuntive di archiviazione di dati come lo storage BLOB o MongoDB. App per dispositivi mobili fornisce il supporto per le notifiche, anche se in determinati casi è possibile usare gli hub di notifica come descritto in seguito. Il servizio include inoltre un'API REST che l'applicazione mobile può chiamare per l'esecuzione delle attività. App per dispositivi mobili offre inoltre la possibilità di autenticare gli utenti tramite Microsoft e Active Directory, nonché altri provider di identità noti come Facebook, Twitter e Google.
 
-
 È possibile usare altri servizi Azure come bus di servizio e ruoli di lavoro e connettersi a sistemi locali. È anche possibile usare componenti aggiuntivi di terze parti da Azure Store (come SendGrid per la posta elettronica) per fornire ulteriori funzionalità.
-
 
 Le librerie client native per Android, iOS, HTML/JavaScript, Windows Phone e Windows Store semplificano lo sviluppo di app su tutte le principali piattaforme mobili. Un'API REST consente di usare funzionalità di dati e autenticazione di Servizi mobili con app su piattaforme diverse. Un singolo servizio mobile può supportare più app client in modo da offrire un'esperienza utente coerente su tutti i dispositivi.
 
 Poiché Azure supporta già un livello avanzato di scalabilità, è possibile gestire il traffico man mano che l'app acquisisce popolarità. Il monitoraggio e la registrazione sono supportati per semplificare la risoluzione dei problemi e la gestione delle prestazioni.
 
-
 ### Hub di notifica
-
 ![NotificationHubs](./media/fundamentals-introduction-to-azure/NotificationHubsIntroNew.png)
 
 *Figura: Hub di notifica fornisce le funzionalità comunemente richieste dalle applicazioni che si interfacciano con dispositivi mobili.*
@@ -390,14 +337,10 @@ Hub di notifica è progettato per funzionare con qualsiasi back-end. È possibil
 
 Consente di inviare ultime notizie, informazioni sugli eventi sportivi e annunci di prodotti a milioni di utenti con bassa latenza. Le aziende possono inviare ai propri dipendenti nuove comunicazioni in cui il fattore tempo è un elemento determinante, ad esempio contatti di vendita, in modo che i dipendenti non debbano controllare costantemente l'e-mail o altre applicazioni per restare aggiornati. È possibile inviare password monouso richieste per l'autenticazione a più fattori.
 
-
-
-
 ## Back-up
 Ogni azienda deve eseguire il backup e il ripristino dei dati. È possibile usare Azure per eseguire il backup e il ripristino dell'applicazione nel cloud o in locale. Azure offre opzioni diverse a seconda del tipo di backup.
 
 ### Site Recovery
-
 Azure Site Recovery (in precedenza Gestione di ripristino di Hyper-V) consente di proteggere le applicazioni importanti coordinando la replica e il ripristino in più siti. Site Recovery consente di proteggere le applicazioni basate su Hyper-v, VMWare o SAN nel sito secondario, nel sito di un host o in Azure e di evitare difficoltà e costi correlati con le operazioni di creazione e gestione della propria posizione secondaria. Azure crittografa i dati e le comunicazioni ed è possibile abilitare la crittografia anche per i dati at-rest.
 
 Monitora continuamente l'integrità dei servizi e contribuisce ad automatizzare il ripristino ordinato dei servizi nell'eventualità di un'interruzione del sito presso il data center primario. Le macchine virtuali possono essere attivate in modo orchestrato per facilitare il rapido ripristino del servizio, anche per carichi di lavoro multilivello complessi.
@@ -417,10 +360,7 @@ La protezione dei dati aumenta perché i backup vengono crittografati prima dell
 
 Se si usa già Windows Server o System Center, Backup di Azure è una scelta naturale per eseguire il backup del file system del server, di macchine virtuali e di database SQL Server. Backup di Azure funziona con file crittografati, sparse e compressi. Sono presenti alcune limitazioni, quindi si consiglia di [controllare prima i prerequisiti di Backup di Azure](http://technet.microsoft.com/library/dn296608.aspx).
 
-
-
 ## Messaggistica e integrazione
-
 Indipendentemente dall'attività svolta, spesso il codice deve interagire con altro codice. In alcune situazioni, è sufficiente un messaggio in coda di base. In altri casi, sono necessarie interazioni più complesse. In Azure sono disponibili diversi modi per risolvere i problemi di questo tipo. Nella figura 5 sono illustrate le scelte disponibili.
 
 ### Queues
@@ -443,7 +383,6 @@ Quando un'istanza del ruolo Web riceve un nuovo video da un utente, può archivi
 Un'applicazione strutturata in questo modo consente l'elaborazione asincrona e favorisce la scalabilità dell'applicazione in quanto il numero di istanze del ruolo Web e del ruolo di lavoro può variare in modo indipendente. È inoltre possibile usare la dimensione della coda per attivare il dimensionamento verso l'alto o verso il basso del numero di ruoli di lavoro. Se il valore è molto elevato vengono aggiunti altri ruoli. Se il numero si riduce, è possibile ridurre il numero di ruoli in esecuzione per risparmiare denaro.
 
 È possibile usare lo stesso criterio tra diverse parti dell'applicazione, anche se non usano ruoli Web e di lavoro. Ciò consente di ridimensionare le parti su ogni lato della coda secondo la domanda e i tempi di elaborazione.
-
 
 ### Bus di servizio
 Le applicazioni, indipendentemente dal fatto che siano eseguite nel cloud, in un data center, in un dispositivo mobile o altrove, devono interagire. Il bus di servizio di Azure consente alle applicazioni eseguite praticamente ovunque di scambiarsi i dati.
@@ -470,23 +409,19 @@ Bus di servizio fornisce un meccanismo di pubblicazione e sottoscrizione denomin
 
 Ogni volta che si individuano le aree in cui sono molti messaggi tutti importanti, ma vari sistemi di downstream devono solo essere in ascolto di diversi subset di tali comunicazioni, Argomenti e sottoscrizioni del bus di servizio costituisce una scelta appropriata.
 
-
 ### Servizi BizTalk
 ![Servizi BizTalk](./media/fundamentals-introduction-to-azure/BizTalkServicesIntroNew.png) *Figura: i Servizi BizTalk consentono di trasformare i formati dei messaggi XML nel cloud.*
 
 A volte è necessario connettere sistemi che comunicano usando formati di messaggistica diversi. Spesso accade che le aziende abbiano schemi di database e formati di messaggistica XML diversi, anche quando è disponibile uno standard comune. Invece di scrivere un'elevata quantità di codice personalizzato, è possibile usare BizTalk Server in locale per integrare vari sistemi. Servizi BizTalk di Azure fornisce lo stesso tipo di servizio, ma nel cloud. È possibile pagare solo in base all'uso effettivo senza preoccuparsi della scalabilità come nel caso del servizio fornito in locale.
 
-
 **Scenari di Servizi BizTalk**
 
 Le interazioni business-to-business (B2B) in genere richiedono questo tipo di conversione. Un produttore di aeroplani, ad esempio, ha la necessità di ordinare parti dai suoi numerosi fornitori. Tali ordini devono essere automatizzati per passare direttamente dai sistemi del produttore di aeroplani ai sistemi dei fornitori. L'azienda non vuole modificare i propri sistemi di base e formati dei messaggi ed è molto improbabile che tali formati siano gli stessi. Servizi BizTalk può convertire questi messaggi tra i nuovi formati in entrambe le direzioni. Tale conversione può essere eseguita dal fornitore di aeroplani o dai vari fornitori, a seconda di chi desidera un controllo maggiore e della quantità di conversione necessaria.
-
 
 ## Assistenza per il calcolo
 Azure fornisce assistenza per servizi che non devono essere eseguiti continuamente.
 
 ### Utilità di pianificazione
-
 ![Utilità di pianificazione di Azure](./media/fundamentals-introduction-to-azure/SchedulerIntroNew.png) *Figura: l'utilità di pianificazione di Azure consente di pianificare i processi in modo che vengano eseguiti in un momento specifico e per una durata specifica.*
 
 A volte è necessario eseguire le applicazioni solo in un preciso momento. In Azure è possibile risparmiare con questo tipo di app invece di lasciare che un'applicazione venga eseguita 24 ore 24, 7 giorni su 7 in attesa dei dati da elaborare. L'utilità di pianificazione di Azure consente di pianificare l'esecuzione di un'applicazione in base a un intervallo di tempo o a un calendario. È affidabile e verificherà che un processo venga eseguito anche se sono presenti errori di rete, di computer e di data center. È possibile gestire queste azioni con L'API REST dell'utilità di pianificazione.
@@ -495,33 +430,24 @@ Quando si verifica un allarme pianificato, l'utilità di pianificazione invia me
 
 **Scenari dell'utilità di pianificazione**
 
-- Azioni ricorrenti delle applicazioni: un servizio potrebbe ad esempio ottenere periodicamente dati da Twitter e raccoglierli in un feed regolare.
-- Manutenzione quotidiana: elaborazione o eliminazione dei registri, esecuzione di backup e altre attività di pianificazione eseguite a intermittenza.
-- Attività eseguite di notte.
-- Per le applicazioni Web come l'eliminazione giornaliera dei registri è necessario eseguire attività di manutenzione quotidiane, ad esempio l'esecuzione di backup e altre attività di manutenzione. Un amministratore può ad esempio scegliere di eseguire il backup del database ogni giorno alle 13.00 per i 9 mesi successivi.
+* Azioni ricorrenti delle applicazioni: un servizio potrebbe ad esempio ottenere periodicamente dati da Twitter e raccoglierli in un feed regolare.
+* Manutenzione quotidiana: elaborazione o eliminazione dei registri, esecuzione di backup e altre attività di pianificazione eseguite a intermittenza.
+* Attività eseguite di notte.
+* Per le applicazioni Web come l'eliminazione giornaliera dei registri è necessario eseguire attività di manutenzione quotidiane, ad esempio l'esecuzione di backup e altre attività di manutenzione. Un amministratore può ad esempio scegliere di eseguire il backup del database ogni giorno alle 13.00 per i 9 mesi successivi.
 
 L'API dell'utilità di pianificazione consente di creare, aggiornare, eliminare, visualizzare e gestire raccolte di processi e processi pianificati a livello di codice.
 
-
-
-
-
 ## Prestazioni
-
 Le prestazioni sono sempre importanti per un'applicazione. Le applicazioni tendono ad accedere ripetutamente sempre agli stessi dati. Per migliorare le prestazioni, è possibile mantenere una copia di quei dati più vicino all'applicazione, riducendo così il tempo necessario per recuperarli. A questo scopo, Azure fornisce diversi servizi.
 
-
 ### Servizio di memorizzazione nella cache di Azure
-
 ![Servizio di memorizzazione nella cache di Azure](./media/fundamentals-introduction-to-azure/AzureCacheIntroNew.png) **Figura: un'applicazione Azure può memorizzare i dati nella cache e perfino suddividerli in numerosi ruoli di lavoro**
 
 L'accesso ai dati archiviati nei servizi di gestione dati di Azure, ovvero database SQL, tabelle o BLOB, è molto veloce. Ma l'accesso ai dati archiviati in memoria è ancora più rapido. Di conseguenza, mantenere una copia in memoria dei dati utilizzati di frequente consente di migliorare le prestazioni delle applicazioni. A questo scopo, è possibile usare il servizio Cache di Azure in memoria.
 
-
 Un'applicazione Servizi cloud può archiviare i dati in questa cache e quindi recuperarli direttamente senza dover accedere all'archivio permanente. La cache può essere gestita all'interno delle macchine virtuali dell'applicazione o essere fornita da macchine virtuali dedicate esclusivamente alla memorizzazione nella cache. In entrambi i casi, la cache può essere distribuita con i dati in essa contenuti distribuiti tra più macchine virtuali in un data center di Azure.
 
 Azure offre numerose tecnologie di cache che sono cambiate nel corso del tempo. Nell'ordine in cui sono state introdotte sono presenti una cache condivisa, una cache nel ruolo, una cache gestita e una cache Redis. La memorizzazione nella cache condivisa è una precedente tecnologia che non è necessario usare per creare nuove implementazioni. La cache gestita ha le stesse funzionalità della cache nel ruolo, ma come servizio gestito all'esterno del portale di gestione di Azure. La cache Redis è in anteprima. L'implementazione di Redis presenta il numero più elevato di funzionalità ed è consigliato quando si scrive nuovo codice di memorizzazione nella cache.
-
 
 **Scenari della Cache di Azure**
 
@@ -538,10 +464,7 @@ Nella rete CDN sono presenti decine di siti in tutto il mondo, in ognuno dei qua
 
 Accade spesso di usare CDN con Servizi multimediali per fornire contenuti video in tutto il mondo. Un video è in genere di grandi dimensioni e richiede una notevole quantità di larghezza di banda. Servizi media è citato in altre sezioni di questa pagina.
 
-
-
 ## Big Data e Big Compute
-
 ### HDInsight (Hadoop)
 ![HDInsight](./media/fundamentals-introduction-to-azure/HDInsightIntroNew.png) **Figura: HDInsight è utile per l'elaborazione in blocco di elevate quantità di dati**
 
@@ -554,7 +477,6 @@ HDInsight è il nome del servizio basato su Hadoop Apache di Azure. HDInsight co
 HDinsight supporta anche altri componenti dell'ecosistema Hadoop, ad esempio Hive e Pig. Microsoft ha inoltre creato componenti che semplificano l'utilizzo dei dati creati da HDInsight mediante strumenti di business intelligence tradizionali, quali l'adattatore HiveODBC e il visualizzatore per i dati che funzionano con Excel.
 
 ### High-Performance Computing (Big Compute)
-
 L'esecuzione di High-Performance Computing (HPC) e altre applicazioni "Big Compute" rappresenta uno dei modi più interessanti di usare una piattaforma cloud. Gli esempi includono le applicazioni di tecniche specializzate create per usare la Message Passing Interface (MPI) standard di settore nonché le cosiddette applicazioni "embarrassingly parallel", come i modelli di rischio finanziario.
 
 L'essenza del Big Compute è l'esecuzione di codice su numerosi computer contemporaneamente. In Azure questo significa eseguire contemporaneamente molte macchine virtuali in parallelo per risolvere eventuali problemi. Questa operazione richiede risorse e una pianificazione delle applicazioni, ad esempio per distribuire il relativo lavoro tra tali istanze. Il pacchetto HPC gratuito di Microsoft e altre soluzioni cluster di calcolo possono raggiungere prestazioni elevate in Azure, usufruendo dei servizi di calcolo e infrastruttura di Azure per aggiungere capacità on demand a un cluster di calcolo locale o per eseguire applicazioni Big Compute interamente nel cloud.
@@ -563,10 +485,7 @@ Azure fornisce una gamma di dimensioni delle istanze delle macchine virtuali con
 
 Azure offre inoltre a sviluppatori e partner delle applicazioni Big Compute un set completo di funzionalità di calcolo, servizi, scelte di architettura e strumenti di sviluppo. Azure supporta flussi di lavoro di Big Compute personalizzati che comportano flussi di lavoro di dati specializzati, modelli di pianificazione di attività e processi scalabili a migliaia di core di calcolo.
 
-
-
 ## Contenuti multimediali
-
 ![Servizi multimediali di Azure](./media/fundamentals-introduction-to-azure/MediaServicesIntroNew.png) **Figura: Servizi multimediali è una piattaforma per le applicazioni che forniscono video e altri elementi multimediali a client in tutto il mondo.**
 
 I video costituiscono gran parte del traffico Internet attuale e questa percentuale è destinata ad aumentare in futuro. Tuttavia, fornire video sul Web non è così semplice. Esistono numerose variabili, ad esempio l'algoritmo di codifica e la risoluzione dello schermo dell'utente. I video tendono inoltre a registrare picchi nella domanda, ad esempio il sabato sera quando molte persone decidono di guardare un film online.
@@ -586,23 +505,18 @@ Per distribuire ciò che produce, un'applicazione può utilizzare la rete CDN di
 Per una panoramica visiva del funzionamento di Servizi multimediali, scaricare il [poster di Servizi multimediali di Azure][Azure Media Services Poster].
 
 ## E-commerce
-
 La diffusione della tecnologia SaaS (Software as a Service) sta trasformando il modo in cui si creano le applicazioni e anche il modo in cui queste vengono vendute. Poiché un'applicazione SaaS vive nel cloud, è normale che i potenziali clienti cerchino soluzioni online. Questo cambiamento si applica ai dati come alle applicazioni. Non è quindi strano che gli utenti si rivolgano al cloud per cercare set di dati disponibili per l'acquisto. Entrambi gli aspetti vengono gestiti con [Azure Marketplace](https://azure.microsoft.com/marketplace/).
 
 ![E-commerce di Azure](./media/fundamentals-introduction-to-azure/CommerceIntroNew.png) **Figura: Azure Marketplace e Azure Store consentono di trovare e acquistare applicazioni e set di dati commerciali Azure e di usarli come parte delle applicazioni Azure.**
 
 La differenza tra i due servizi sta nel fatto che il Marketplace si trova all'esterno del portale di gestione di Azure, mentre è possibile accedere al negozio direttamente dal portale. I clienti potenziali possono effettuare ricerche per trovare applicazioni Azure che soddisfano le loro esigenze. I clienti possono cercare set di dati commerciali, ad esempio dati demografici, dati finanziari, dati geografici e così via. Quando trovano qualcosa di interessante, possono accedervi sia dal fornitore, direttamente tramite i siti Web del Marketplace o del negozio oppure, in alcuni casi, direttamente dal portale di gestione. Le applicazioni possono inoltre usare l'API di ricerca Bing tramite il Marketplace per consentire agli utenti di accedere ai risultati delle ricerche Web.
 
-
 **Scenari di e-commerce**
 
 SendGrid è un'applicazione di Azure Store che consente di inviare e-mail. Offre funzionalità aggiuntive come la consegna affidabile e statistiche. È possibile acquistare questa applicazione e servizi correlati invece di provare a creare tale infrastruttura autonomamente.
 
-
 ## Introduzione
-
 Dopo avere acquisito una panoramica generale, sarà possibile iniziare a scrivere la prima applicazione Azure. Scegliere la lingua, [scaricare l'SDK appropriato](/downloads/) e installarlo. Il cloud computing è la nuova piattaforma predefinita. Ora è possibile iniziare.
-
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 

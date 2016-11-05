@@ -2,10 +2,10 @@
 Per eseguire in Azure il backup di file e dati da Windows Server o da System Center Data Protection Manager (SCDPM) oppure il backup di macchine virtuali IaaS, è necessario creare un insieme di credenziali per il backup nell'area geografica in cui si vuole archiviare i dati.
 
 ### Procedura dettagliata video
-
 Ecco un breve video del processo.
 
-[AZURE.VIDEO azure-backup-vault-creation]
+[!VIDEO https://channel9.msdn.com/Blogs/Azure-Documentation-Shorts/Azure-Backup-Vault-Creation/player]
+
 
 La procedura seguente illustra la creazione dell'insieme di credenziali utilizzate per archiviare i backup.
 
@@ -15,14 +15,15 @@ La procedura seguente illustra la creazione dell'insieme di credenziali utilizza
 3. Per il parametro **Nome** immettere un nome descrittivo per identificare l'insieme di credenziali di backup. È necessario che il nome sia univoco per ogni sottoscrizione.
 4. Per il parametro **Area** selezionare l'area geografica per l'insieme di credenziali per il backup. La scelta determina l'area geografica a cui viene inviati i dati di backup. Scegliendo un'area geografica vicina alla propria posizione, è possibile ridurre la latenza di rete durante il backup in Azure.
 5. Fare clic su **Crea insieme di credenziali** per completare il flusso di lavoro. La creazione dell'insieme di credenziali per il backup può richiedere alcuni minuti. Per verificare lo stato, è possibile monitorare le notifiche nella parte inferiore del portale.
-
+   
     ![Creazione dell'insieme di credenziali](./media/backup-create-vault-wgif/create-vault-wgif.gif)
-
 6. Dopo aver creato l'archivio di backup, un messaggio che indica che l'insieme di credenziali è stato creato correttamente. L'insieme di credenziali viene anche elencato nelle risorse dei servizi di ripristino come **Attivo**.
 
 ### Backup di Azure: opzioni di ridondanza di archiviazione
-
-> [AZURE.IMPORTANT]È consigliabile identificare l'opzione di ridondanza di archiviazione subito dopo la creazione dell'insieme di credenziali e prima che i computer vengano registrati nell'insieme di credenziali. Dopo la registrazione di un elemento nell'insieme di credenziali, l'opzione di ridondanza di archiviazione è bloccata e non può essere modificata.
+> [!IMPORTANT]
+> È consigliabile identificare l'opzione di ridondanza di archiviazione subito dopo la creazione dell'insieme di credenziali e prima che i computer vengano registrati nell'insieme di credenziali. Dopo la registrazione di un elemento nell'insieme di credenziali, l'opzione di ridondanza di archiviazione è bloccata e non può essere modificata.
+> 
+> 
 
 La ridondanza di archiviazione dell'archiviazione back-end di Backup di Azure è determinata in base alle esigenze aziendali. Se si usa Azure come endpoint primario di archiviazione dei backup (se ad esempio si esegue il backup in Azure da Windows Server), è consigliabile scegliere l'opzione predefinita di archiviazione con ridondanza geografica. Questa opzione viene visualizzata nella sezione **Configura** dell'insieme di credenziali per il backup.
 

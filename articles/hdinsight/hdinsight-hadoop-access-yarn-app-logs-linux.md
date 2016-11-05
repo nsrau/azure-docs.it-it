@@ -1,37 +1,35 @@
-<properties
-    pageTitle="Accedere ai log dell’applicazione YARN Hadoop in HDInsight basato su Linux | Microsoft Azure"
-    description="Informazioni su come accedere ai log dell’applicazione YARN in un cluster HDInsight (Hadoop) basato su Linux tramite la riga di comando e un browser web."
-    services="hdinsight"
-    documentationCenter=""
-    tags="azure-portal"
-    authors="Blackmist" 
-    manager="jhubbard"
-    editor="cgronlun"/>
+---
+title: Accedere ai log dell’applicazione YARN Hadoop in HDInsight basato su Linux | Microsoft Docs
+description: Informazioni su come accedere ai log dell’applicazione YARN in un cluster HDInsight (Hadoop) basato su Linux tramite la riga di comando e un browser web.
+services: hdinsight
+documentationcenter: ''
+tags: azure-portal
+author: Blackmist
+manager: jhubbard
+editor: cgronlun
 
-<tags
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/21/2016"
-    ms.author="larryfr"/>
+ms.service: hdinsight
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/21/2016
+ms.author: larryfr
 
-
-# <a name="access-yarn-application-logs-on-linux-based-hdinsight"></a>Accedere ai log delle applicazioni YARN in HDInsight basato su Linux 
-
+---
+# <a name="access-yarn-application-logs-on-linux-based-hdinsight"></a>Accedere ai log delle applicazioni YARN in HDInsight basato su Linux
 In questo documento viene illustrato come accedere ai log delle applicazioni YARN (Yet Another Resource Negotiator) che sono finite in un cluster Hadoop in Azure HDInsight.
 
-> [AZURE.NOTE] Le informazioni contenute in questo documento sono specifiche per i cluster HDInsight basati su Linux. Per informazioni sui cluster basati su Windows, vedere [Accedere ai log delle applicazioni YARN in HDInsight basato su Linux](hdinsight-hadoop-access-yarn-app-logs.md)
+> [!NOTE]
+> Le informazioni contenute in questo documento sono specifiche per i cluster HDInsight basati su Linux. Per informazioni sui cluster basati su Windows, vedere [Accedere ai log delle applicazioni YARN in HDInsight basato su Linux](hdinsight-hadoop-access-yarn-app-logs.md)
+> 
+> 
 
 ## <a name="prerequisites"></a>Prerequisiti
-
 * Un cluster HDInsight basato su Linux.
-
 * È necessario [creare un tunnel SSH](hdinsight-linux-ambari-ssh-tunnel.md) prima di poter accedere all'interfaccia utente Web dei log di ResourceManager.
 
 ## <a name="<a-name="yarntimelineserver"></a>yarn-timeline-server"></a><a name="YARNTimelineServer"></a>Server di sequenza temporale YARN
-
 Il [server di sequenza temporale YARN](http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) fornisce informazioni generiche sulle applicazioni completate, nonché informazioni sulle applicazioni specifiche del framework, tramite due interfacce diverse. In particolare:
 
 * L'archiviazione e il recupero di informazioni generiche sulle applicazioni nei cluster HDInsight sono stati abilitati a partire dalla versione 3.1.1.374.
@@ -45,7 +43,6 @@ Le informazioni generiche sulle applicazioni includono i seguenti tipi di dati:
 * Contenitori usati da qualsiasi tentativo dell'applicazione specifico
 
 ## <a name="<a-name="yarnappsandlogs"></a>yarn-applications-and-logs"></a><a name="YARNAppsAndLogs"></a>Log e applicazioni YARN
-
 YARN supporta diversi modelli di programmazione, tra cui MapReduce, separando la gestione delle risorse dalla pianificazione e dal monitoraggio dell'applicazione. A tale scopo, vengono usati un oggetto *ResourceManager* (RM) globale, oggetti *NodeManagers* (NM) per ogni nodo di lavoro e oggetti *ApplicationMasters* (AM) per ogni applicazione. L'AM per applicazione negozia le risorse (CPU, memoria, disco e rete) per l'esecuzione dell'applicazione con l'RM. L'oggetto RM opera con gli oggetti NM per concedere queste risorse come *contenitori*. L'AM è responsabile del monitoraggio dello stato dei contenitori assegnati dall'RM. A seconda del tipo, un'applicazione può richiedere più contenitori.
 
 Ogni applicazione, inoltre, può essere costituita da più *tentativi dell'applicazione* finalizzati al completamento in presenza di arresti anomali o di perdita della comunicazione tra gli oggetti AM e RM. Di conseguenza, i contenitori vengono concessi a uno specifico tentativo di un'applicazione. In un certo senso, un contenitore fornisce il contesto per l'unità di base del lavoro eseguito da un'applicazione YARN e tutto il lavoro svolto all'interno del contesto di un contenitore viene eseguito nel singolo nodo di lavoro in cui è stato allocato il contenitore. Per altri riferimenti, vedere [YARN Concepts][YARN-concepts].
@@ -58,37 +55,32 @@ In questo percorso, *user* è il nome dell'utente che ha avviato l'applicazione 
 
 I log aggregati non sono leggibili direttamente, poiché vengono scritti in un oggetto [TFile][T-file], un [formato binario][binary-format] indicizzato dal contenitore. È necessario utilizzare i log del ResourceManager YARN o gli strumenti dell’interfaccia di riga di comando per visualizzare questi log come testo normale per le applicazioni o i contenitori di interesse. 
 
-##<a name="yarn-cli-tools"></a>Strumenti dell’interfaccia di riga di comando YARN
-
+## <a name="yarn-cli-tools"></a>Strumenti dell’interfaccia di riga di comando YARN
 Per utilizzare gli strumenti CLI YARN, è innanzitutto necessario connettersi al cluster HDInsight tramite SSH. Per informazioni sull'uso di SSH con HDInsight, vedere uno dei documenti seguenti:
 
-- [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+* [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+* [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-- [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-    
 È possibile visualizzare questi log come testo normale eseguendo uno dei seguenti comandi:
 
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
-    
+
 È necessario specificare le informazioni di &lt;applicationId>, &lt;utente-che-ha-avviato-l’applicazione>, &lt;containerId> e &ltindirizzo-nodo-lavoro> quando si eseguono questi comandi.
 
-##<a name="yarn-resourcemanager-ui"></a>Interfaccia utente di ResourceManager YARN
-
+## <a name="yarn-resourcemanager-ui"></a>Interfaccia utente di ResourceManager YARN
 L'interfaccia utente di ResourceManager YARN viene eseguita sul nodo head del cluster ed è accessibile tramite l’interfaccia utente Web Ambari; tuttavia, è innanzitutto necessario [creare un tunnel SSH](hdinsight-linux-ambari-ssh-tunnel.md) prima di poter accedere all’interfaccia utente di ResourceManager.
 
 Dopo aver creato un tunnel SSH, utilizzare la procedura seguente per visualizzare i log YARN:
 
 1. Nel browser Web, accedere a https://CLUSTERNAME.azurehdinsight.net. Sostituire CLUSTERNAME con il nome del cluster HDInsight.
-
-2. Nell'elenco dei servizi a sinistra, selezionare __YARN__.
-
+2. Nell'elenco dei servizi a sinistra, selezionare **YARN**.
+   
     ![Servizio Yarn selezionato](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnservice.png)
-
-3. Dall’elenco a discesa __Collegamenti rapidi__ selezionare uno dei nodi head del cluster e quindi __Log ResourceManager__.
-
+3. Dall’elenco a discesa **Collegamenti rapidi** selezionare uno dei nodi head del cluster e quindi **Log ResourceManager**.
+   
     ![Collegamenti rapidi Yarn](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnquicklinks.png)
-    
+   
     Verrà visualizzato un elenco di collegamenti ai log YARN.
 
 [YARN-timeline-server]:http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html

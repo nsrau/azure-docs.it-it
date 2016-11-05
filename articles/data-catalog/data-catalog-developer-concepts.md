@@ -1,28 +1,26 @@
-<properties
-    pageTitle="Concetti per sviluppatori di Data Catalog | Microsoft Azure"
-    description="Introduzione ai concetti chiave nel modello concettuale del Catalogo dati di Azure, come esposto tramite l'API REST del Catalogo."
-    services="data-catalog"
-    documentationCenter=""
-    authors="spelluru"
-    manager="jhubbard"
-    editor=""
-    tags=""/>
-<tags
-    ms.service="data-catalog"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-catalog"
-    ms.date="10/11/2016"
-    ms.author="spelluru"/>  
+---
+title: Concetti per sviluppatori di Data Catalog | Microsoft Docs
+description: Introduzione ai concetti chiave nel modello concettuale del Catalogo dati di Azure, come esposto tramite l'API REST del Catalogo.
+services: data-catalog
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: ''
+tags: ''
 
+ms.service: data-catalog
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-catalog
+ms.date: 10/11/2016
+ms.author: spelluru
 
+---
 # <a name="azure-data-catalog-developer-concepts"></a>Concetti per sviluppatori del Catalogo dati di Azure
-
 **Catalogo dati di Microsoft Azure** è un servizio cloud completamente gestito che offre funzionalità di individuazione dell’origine dati e di crowdsourcing dei metadati dell'origine dati. Gli sviluppatori possono usare il servizio tramite le API REST. La comprensione dei concetti implementati nel servizio è importante per gli sviluppatori al fine di una perfetta integrazione con il **Catalogo dati di Azure**.
 
 ## <a name="key-concepts"></a>Concetti chiave
-
 Il modello concettuale di **Azure Data Catalog** è basato su quattro concetti chiave: il **catalogo**, gli **utenti**, gli **asset** e le **annotazioni**.
 
 ![concetto][1]
@@ -30,13 +28,11 @@ Il modello concettuale di **Azure Data Catalog** è basato su quattro concetti c
 *Figura 1. Modello concettuale semplificato del Catalogo dati di Azure*
 
 ### <a name="catalog"></a>Catalogo
-
 Il **catalogo** è il contenitore di livello principale per tutti i metadati archiviati da un'organizzazione. Per ogni account Azure è consentito un solo **catalogo**. I cataloghi sono legati a una sottoscrizione di Azure. Anche se un account può avere più sottoscrizioni, per un determinato account Azure è possibile creare un solo **catalogo**.
 
 Un catalogo contiene **utenti** e **asset**.
 
 ### <a name="users"></a>Utenti
-
 Gli utenti sono entità di sicurezza autorizzati a eseguire azioni nel catalogo, ad esempio a fare ricerche nel catalogo, aggiungere, modificare o rimuovere elementi e così via.
 
 Diversi sono i ruoli disponibili che un utente può avere. Per altre informazioni sui ruoli, vedere la sezione Ruoli e autorizzazione.
@@ -46,7 +42,6 @@ Diversi sono i ruoli disponibili che un utente può avere. Per altre informazion
 Il Catalogo dati di Azure usa Azure Active Directory per la gestione delle identità e degli accessi. Ogni utente del catalogo deve essere un membro di Active Directory per l'account.
 
 ### <a name="assets"></a>asset
-
 Il **catalogo** contiene gli asset di dati. **asset** rappresentano l'unità di granularità gestita dal catalogo.
 
 La granularità di un asset varia a seconda dell'origine dati. Per database Oracle o SQL Server un asset può essere una tabella o una vista. Per SQL Server Analysis Services un asset può essere una misura, una dimensione o un indicatore di prestazioni chiave (KPI). Per SQL Server Reporting Services un asset è un report.
@@ -56,20 +51,18 @@ L’ **asset** è l'elemento che si aggiunge o si rimuove da un catalogo. È l'u
 L' **asset** è composto dal relativo nome, dal percorso, dal tipo e dalle annotazioni che lo descrivono ulteriormente.
 
 ### <a name="annotations"></a>annotazioni
-
 Le annotazioni sono elementi che rappresentano i metadati relativi agli asset.
 
 Descrizioni, tag, schemi, documentazione e così via sono esempi di annotazioni. Un elenco completo dei tipi di annotazione e di asset è disponibile nella sezione Modello a oggetti asset.
 
 ## <a name="crowdsourcing-annotations-and-user-perspective-(multiplicity-of-opinion)"></a>Annotazioni crowdsourcing e prospettiva dell'utente (molteplicità di opinione)
-
 Un aspetto fondamentale del Catalogo dati di Azure è il supporto crowdsourcing dei metadati nel sistema. A differenza dell’approccio wiki, dove è presente una sola opinione e l'ultima scrittura prevale, il modello Catalogo dati di Azure consente a più opinioni di convivere affiancate nel sistema.
 
 Questo approccio riflette il mondo reale dei dati aziendali in cui diversi utenti possono avere diverse prospettive su un determinato asset:
 
--   Un amministratore del database può fornire informazioni sui contratti di servizio o la finestra di elaborazione disponibile per le operazioni ETL in blocco
--   Un amministratore dei dati può fornire informazioni sui processi aziendali a cui si applica l'asset o le classificazioni a cui è stato applicato dall’azienda
--   Un analista finanziario può fornire informazioni sull'uso dei dati durante le attività di reporting di fine periodo
+* Un amministratore del database può fornire informazioni sui contratti di servizio o la finestra di elaborazione disponibile per le operazioni ETL in blocco
+* Un amministratore dei dati può fornire informazioni sui processi aziendali a cui si applica l'asset o le classificazioni a cui è stato applicato dall’azienda
+* Un analista finanziario può fornire informazioni sull'uso dei dati durante le attività di reporting di fine periodo
 
 Per supportare questo esempio, ogni utente (l'amministratore del database, l'amministratore dei dati e l’analista) può aggiungere una descrizione a una singola tabella che è stata registrata nel catalogo. Tutte le descrizioni vengono gestite nel sistema e nel portale del Catalogo dati di Azure vengono visualizzate tutte le descrizioni.
 
@@ -79,20 +72,17 @@ Ad esempio, sotto la radice dell'asset è disponibile una matrice di oggetti des
 
 L'esperienza utente può quindi scegliere come visualizzare la combinazione. Esistono tre diversi modelli per la visualizzazione.
 
--   Il modello più semplice è "Mostra tutto". In questo modello tutti gli oggetti vengono visualizzati in una visualizzazione elenco. Il portale di Azure Data Catalog fa uso di questo modello per la descrizione.
--   Un altro modello è "Merge". In questo modello tutti i valori dai diversi utenti vengono uniti e i duplicati vengono rimossi. Esempi di questo modello nell’esperienza utente nel portale del Catalogo dati di Azure sono le proprietà di tag ed esperti.
--   Un terzo modello è "ultima scrittura prevale". In questo modello viene visualizzato solo il valore digitato più di recente. friendlyName è un esempio di questo modello.
+* Il modello più semplice è "Mostra tutto". In questo modello tutti gli oggetti vengono visualizzati in una visualizzazione elenco. Il portale di Azure Data Catalog fa uso di questo modello per la descrizione.
+* Un altro modello è "Merge". In questo modello tutti i valori dai diversi utenti vengono uniti e i duplicati vengono rimossi. Esempi di questo modello nell’esperienza utente nel portale del Catalogo dati di Azure sono le proprietà di tag ed esperti.
+* Un terzo modello è "ultima scrittura prevale". In questo modello viene visualizzato solo il valore digitato più di recente. friendlyName è un esempio di questo modello.
 
 ## <a name="asset-object-model"></a>Modello a oggetti asset
-
 Come descritto nella sezione dei concetti chiave, il modello a oggetti del **Catalogo dati di Azure** include elementi che possono essere asset o annotazioni. Gli elementi dispongono di proprietà che possono essere obbligatorie o facoltative. Alcune proprietà si applicano a tutti gli elementi. Alcune proprietà si applicano a tutti gli asset. Alcune proprietà si applicano solo a tipi di asset specifici.
 
 ### <a name="system-properties"></a>Proprietà di sistema
-
 <table><tr><td><b>Nome proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>timestamp</td><td>DateTime</td><td>Data e ora dell'ultima modifica apportata all'elemento. Questo campo viene generato dal server quando viene inserito un elemento e ogni volta che viene aggiornato un elemento. Il valore di questa proprietà viene ignorato durante l'input di operazioni di pubblicazione.</td></tr><tr><td>id</td><td>Uri</td><td>URL assoluto dell'elemento (sola lettura). Si tratta dell'URI indirizzabile univoco per l'elemento.  Il valore di questa proprietà viene ignorato durante l'input di operazioni di pubblicazione.</td></tr><tr><td>type</td><td>Stringa</td><td>Tipo di asset (sola lettura).</td></tr><tr><td>etag</td><td>String</td><td>Stringa che corrisponde alla versione dell'elemento che è possibile usare per il controllo della concorrenza ottimistica quando si eseguono operazioni che aggiornano gli elementi nel catalogo. È possibile usare "*" per cercare corrispondenze per qualsiasi valore.</td></tr></table>
 
 ### <a name="common-properties"></a>Proprietà comuni
-
 Queste proprietà si applicano a tutti i tipi di asset radice e a tutti i tipi di annotazione.
 
 <table>
@@ -103,10 +93,10 @@ Queste proprietà si applicano a tutti i tipi di asset radice e a tutti i tipi d
 ### <a name="common-root-properties"></a>Proprietà radice comuni
 <p>
 Queste proprietà si applicano a tutti i tipi di asset radice.
+
 <table><tr><td><b>Nome proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>name</td><td>String</td><td>Nome derivato dalle informazioni del percorso di origine dati.</td></tr><tr><td>dsl</td><td>DataSourceLocation</td><td>Descrive in modo univoco l'origine dati ed è uno degli identificatori per l’asset. Vedere la sezione relativa all’identità doppia.  La struttura del percorso dell'origine dati varia in base al tipo di protocollo e di origine.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Ulteriori dettagli sul tipo di asset.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Descrive l'utente che ha registrato l’asset più di recente.  Contiene l'ID univoco per l'utente (upn) e un nome visualizzato (lastName e firstName).</td></tr><tr><td>containerId</td><td>String</td><td>ID dell'asset di contenitore per l'origine dati. Questa proprietà non è supportata per il tipo di contenitore.</td></tr></table>
 
 ### <a name="common-non-singleton-annotation-properties"></a>Proprietà comuni di annotazione non singleton
-
 Queste proprietà si applicano a tutti i tipi di annotazione non singleton, ad esempio le annotazioni di cui sono consentite più occorrenze per ogni asset.
 
 <table>
@@ -115,14 +105,12 @@ Queste proprietà si applicano a tutti i tipi di annotazione non singleton, ad e
 </table>
 
 ### <a name="root-asset-types"></a>Tipi di asset radice
-
 I tipi di asset radice rappresentano i diversi tipi di asset di dati che possono essere registrati nel catalogo. Per ogni tipo radice è disponibile una vista che descrive asset e annotazioni inclusi nella vista. Il nome della vista deve essere usato nel segmento dell'URL corrispondente {vista_nome} quando un asset viene pubblicato tramite l'API REST.
 
 <table><tr><td><b>Tipo di asset (nome vista)</b></td><td><b>Proprietà aggiuntive</b></td><td><b>Tipo di dati</b></td><td><b>Annotazioni consentite</b></td><td><b>Commenti</b></td></tr><tr><td>Tabella ("tabelle")</td><td></td><td></td><td>Descrizione<p>FriendlyName<p>Tag<p>Schema<p>ColumnDescription<p>ColumnTag<p> Esperto<p>Preview<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Documentazione<p></td><td>Tabella che rappresenta i dati tabulari.  Ad esempio: tabella SQL, vista SQL, tabella tabulare di Analysis Services, dimensione multidimensionale di Analysis Services, tabella Oracle e così via.   </td></tr><tr><td>Misura ("misure")</td><td></td><td></td><td>Descrizione<p>FriendlyName<p>Tag<p>Esperto<p>AccessInstruction<p>Documentazione<p></td><td>Tipo che rappresenta una misura di Analysis Services.</td></tr><tr><td></td><td>Misura</td><td>Colonna</td><td></td><td>Metadati che descrivono la misura.</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td></td><td>Specifica se la misura viene calcolata o meno.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Contenitore fisico per la misura.</td></tr><td>Indicatore KPI ("indicatori KPI")</td><td></td><td></td><td>Descrizione<p>FriendlyName<p>Tag<p>Esperto<p>AccessInstruction<p>Documentazione</td><td></td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Contenitore fisico per la misura.</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td></td><td>Espressione numerica MDX o calcolo che restituisce il valore di destinazione dell'indicatore KPI.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td></td><td>Espressione numerica MDX che restituisce il valore effettivo dell'indicatore KPI.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td></td><td>Espressione MDX che rappresenta lo stato dell'indicatore KPI in un punto specifico nel tempo.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td></td><td>Espressione MDX che restituisce il valore dell'indicatore KPI nel tempo. La tendenza può essere un qualsiasi criterio basato sul tempo utile in un contesto aziendale specifico.</td>
 <tr><td>Report ("report")</td><td></td><td></td><td>Descrizione<p>FriendlyName<p>Tag<p>Esperto<p>AccessInstruction<p>Documentazione<p></td><td>Tipo che rappresenta un report di SQL Server Reporting Services. </td></tr><tr><td></td><td>assetCreatedDate</td><td>Stringa</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>Stringa</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>Stringa</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>Stringa</td><td></td><td></td></tr><tr><td>Contenitore ("contenitori")</td><td></td><td></td><td>Descrizione<p>FriendlyName<p>Tag<p>Esperto<p>AccessInstruction<p>Documentazione<p></td><td>Questo tipo rappresenta un contenitore di altri asset, ad esempio un database SQL, un contenitore di BLOB di Azure o un modello di Analysis Services.</td></tr></table>
 
 ### <a name="annotation-types"></a>Tipi di annotazione
-
 I tipi di annotazione sono tipi di metadati che possono essere assegnati ad altri tipi all'interno del catalogo.
 
 <table>
@@ -178,8 +166,8 @@ I tipi di annotazione sono tipi di metadati che possono essere assegnati ad altr
 </table>
 
 ### <a name="common-types"></a>Tipi comuni
-
 I tipi comuni possono essere usati come tipi per proprietà, ma non sono elementi.
+
 <table>
 <tr><td><b>Tipo comune</b></td><td><b>Proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr>
 <tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr>
@@ -248,18 +236,15 @@ Il set di protocolli supportati può essere esteso a livello di codice. Vedere i
 </table>
 
 ## <a name="roles-and-authorization"></a>Ruoli e autorizzazione
-
 Catalogo dati di Microsoft Azure offre funzionalità di autorizzazione per le operazioni CRUD su asset e annotazioni.
 
 ## <a name="key-concepts"></a>Concetti chiave
-
 Catalogo dati di Azure usa due meccanismi di autorizzazione:
 
-- Autorizzazione basata sui ruoli
-- Autorizzazione basata sulle autorizzazioni
+* Autorizzazione basata sui ruoli
+* Autorizzazione basata sulle autorizzazioni
 
 ### <a name="roles"></a>Ruoli
-
 Sono disponibili tre ruoli: **Amministratore**, **Proprietario** e **Collaboratore**.  Ogni ruolo ha un ambito e dei diritti che sono riepilogati nella tabella seguente.
 
 <table><tr><td><b>Ruolo</b></td><td><b>Scope</b></td><td><b>Diritti</b></td></tr><tr><td>Amministratore</td><td>Catalogo (ad esempio tutti gli asset o le annotazioni del catalogo)</td><td>Read Delete ViewRoles
@@ -268,12 +253,14 @@ ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Proprietario</
 
 ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Collaboratore</td><td>Ogni singolo asset e annotazione</td><td>Read Update Delete ViewRoles Nota: tutti i diritti vengono revocati se il diritto Read sull'elemento viene revocato dall'autore</td></tr></table>
 
-> [AZURE.NOTE] I diritti **Read**, **Update**, **Delete** e **ViewRoles** sono applicabili a qualsiasi elemento (asset o annotazione) mentre **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility** e **ViewPermissions** sono applicabili solo all'asset radice.
->
->**Delete** si applica a un elemento e agli eventuali elementi secondari o al singolo elemento sottostante. Ad esempio, l'eliminazione di un asset comporta l'eliminazione delle annotazioni dell'asset.
+> [!NOTE]
+> I diritti **Read**, **Update**, **Delete** e **ViewRoles** sono applicabili a qualsiasi elemento (asset o annotazione) mentre **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility** e **ViewPermissions** sono applicabili solo all'asset radice.
+> 
+> **Delete** si applica a un elemento e agli eventuali elementi secondari o al singolo elemento sottostante. Ad esempio, l'eliminazione di un asset comporta l'eliminazione delle annotazioni dell'asset.
+> 
+> 
 
 ### <a name="permissions"></a>Autorizzazioni
-
 L'autorizzazione è come un elenco di voci di controllo di accesso. Ogni voce di controllo di accesso assegna un set di diritti a un'entità di sicurezza. Le autorizzazioni possono essere specificate solo su un asset, vale a dire un elemento radice, e si applicano all'asset e ai relativi elementi secondari.
 
 Durante l'anteprima di **Azure Data Catalog** solo il diritto **Read** è supportato nell'elenco delle autorizzazioni per consentire allo scenario di limitare la visibilità a un asset.
@@ -281,23 +268,26 @@ Durante l'anteprima di **Azure Data Catalog** solo il diritto **Read** è suppor
 Per impostazione predefinita tutti gli utenti autenticati hanno il diritto **Read** per qualsiasi elemento del catalogo, a meno che la visibilità non sia limitata al set di entità nelle autorizzazioni.
 
 ## <a name="rest-api"></a>API REST
-
 Le richieste dell'elemento di visualizzazione **PUT** e **POST** possono essere usate per controllare i ruoli e le autorizzazioni: oltre al payload dell'elemento, è possibile specificare due proprietà di sistema, **ruoli** e **autorizzazioni**.
 
-> [AZURE.NOTE]
->
+> [!NOTE]
 > **permissions** si applicano solo a un elemento radice.
->
+> 
 > **Proprietario** si applica solo a un elemento radice.
->
+> 
 > Per impostazione predefinita quando viene creato un elemento nel catalogo, il relativo **Collaboratore** è impostato sull'utente attualmente autenticato. Se l'elemento deve poter essere aggiornato da tutti, è necessario che **Collaboratore** sia impostato sull'entità di sicurezza speciale &lt;Tutti&gt; nella proprietà **ruoli** quando l'elemento viene pubblicato per la prima volta. Vedere l'esempio riportato di seguito. **Collaboratore** non può essere modificato e rimane invariato per la durata di un elemento. Neanche **Amministratore** o **Proprietario** hanno il diritto di modificare il ruolo **Collaboratore**. L'unico valore supportato per l'impostazione esplicita di **Collaboratore** è &lt;Tutti&gt;: ad esempio, **Collaboratore** può essere solo un utente che ha creato un elemento o &lt;Tutti&gt;.
+> 
+> 
 
-###<a name="examples"></a>esempi
+### <a name="examples"></a>esempi
 **Impostare collaboratore su &lt;Tutti&gt; durante la pubblicazione di un elemento.**
 L'entità di sicurezza speciale &lt;Tutti&gt; ha come objectId "00000000-0000-0000-0000-000000000201".
   **POST**: https://api.azuredatacatalog.com/catalogs/default/views/tables/?api-version=2016-03-30
 
-  > [AZURE.NOTE] Alcune implementazioni di client HTTP possono ripetere automaticamente l'invio di richieste in caso di risposta 302 dal server, eliminando in genere le intestazioni di autorizzazione dalla richiesta. Dato che l'intestazione dell'autorizzazione è obbligatoria per l'invio di richieste ad Azure Data Catalog, è necessario assicurarsi che sia ancora disponibile quando si invia di nuovo una richiesta a un percorso di reindirizzamento specificato da Azure Data Catalog. L'esempio di codice seguente offre una dimostrazione usando l'oggetto .NET HttpWebRequest.
+> [!NOTE]
+> Alcune implementazioni di client HTTP possono ripetere automaticamente l'invio di richieste in caso di risposta 302 dal server, eliminando in genere le intestazioni di autorizzazione dalla richiesta. Dato che l'intestazione dell'autorizzazione è obbligatoria per l'invio di richieste ad Azure Data Catalog, è necessario assicurarsi che sia ancora disponibile quando si invia di nuovo una richiesta a un percorso di reindirizzamento specificato da Azure Data Catalog. L'esempio di codice seguente offre una dimostrazione usando l'oggetto .NET HttpWebRequest.
+> 
+> 
 
 **Corpo**
 
@@ -358,7 +348,10 @@ L'entità di sicurezza speciale &lt;Tutti&gt; ha come objectId "00000000-0000-00
         ]
     }
 
-> [AZURE.NOTE] In PUT non è necessario specificare un payload dell'elemento nel corpo: PUT consente di aggiornare solo i ruoli e/o le autorizzazioni.
+> [!NOTE]
+> In PUT non è necessario specificare un payload dell'elemento nel corpo: PUT consente di aggiornare solo i ruoli e/o le autorizzazioni.
+> 
+> 
 
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png

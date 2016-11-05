@@ -1,39 +1,36 @@
-<properties
-    pageTitle="Crittografia del servizio di archiviazione di Azure per dati inattivi | Microsoft Azure"
-    description="La funzionalità Crittografia del servizio di archiviazione di Azure consente di crittografare l'archivio BLOB di Azure sul lato del servizio durante l'archiviazione dei dati e di decrittografarlo durante il recupero dei dati."
-    services="storage"
-    documentationCenter=".net"
-    authors="robinsh"
-    manager="carmonm"
-    editor="tysonn"/>
+---
+title: Crittografia del servizio di archiviazione di Azure per dati inattivi | Microsoft Docs
+description: La funzionalità Crittografia del servizio di archiviazione di Azure consente di crittografare l'archivio BLOB di Azure sul lato del servizio durante l'archiviazione dei dati e di decrittografarlo durante il recupero dei dati.
+services: storage
+documentationcenter: .net
+author: robinsh
+manager: carmonm
+editor: tysonn
 
-<tags
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/16/2016"
-    ms.author="robinsh"/>
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: robinsh
 
-
+---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Crittografia del servizio di archiviazione di Azure per dati inattivi
-
 Crittografia del servizio di archiviazione di Azure per dati inattivi consente di proteggere e salvaguardare i dati, in modo da soddisfare i criteri di sicurezza e conformità dell'organizzazione. Questa funzionalità consente ad Archiviazione di Azure di crittografare automaticamente i dati prima della persistenza nella risorsa di archiviazione e di decrittografarli prima del recupero. La crittografia, la decrittografia e la gestione delle chiavi sono completamente trasparenti per gli utenti.
 
 Le sezioni seguenti forniscono indicazioni dettagliate su come usare le funzionalità Crittografia del servizio di archiviazione, oltre a informazioni sugli scenari supportati e sulle esperienze utente.
 
 ## <a name="overview"></a>Panoramica
-
 Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, che consentono agli sviluppatori di creare applicazioni sicure. È possibile proteggere i dati in transito tra un'applicazione e Azure usando la [crittografia lato client](storage-client-side-encryption.md), HTTPS o SMB 3.0. La crittografia del servizio di archiviazione permette di eseguire la crittografia a riposo, gestendo le operazioni di crittografia, decrittografia e gestione delle chiavi in modo completamente trasparente. Tutti i dati sono crittografati tramite la [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)a 256 bit, una delle crittografie a blocchi più solide tra quelle disponibili.
 
 La crittografia del servizio di archiviazione esegue la crittografia dei dati durante la scrittura in Archiviazione di Azure e può essere utilizzata per i BLOB in blocchi, i BLOB di pagine e i BLOB di accodamento. È adatta alle operazioni seguenti:
 
--   Account di archiviazione di uso generale e account di archiviazione BLOB
--   Archiviazione Standard e Archiviazione Premium 
--   Tutti i livelli di ridondanza (LRS, ZRS, GRS e RA-GRS)
--   Account di archiviazione di Azure Resource Manager (non classici) 
--   Tutte le aree
+* Account di archiviazione di uso generale e account di archiviazione BLOB
+* Archiviazione Standard e Archiviazione Premium 
+* Tutti i livelli di ridondanza (LRS, ZRS, GRS e RA-GRS)
+* Account di archiviazione di Azure Resource Manager (non classici) 
+* Tutte le aree
 
 Per abilitare o disabilitare la crittografia del servizio di archiviazione per un account di archiviazione, accedere al [portale di Azure](https://azure.portal.com) e selezionare un account di archiviazione. Nel pannello delle impostazioni cercare la sezione Servizio BLOB, illustrata in questo screenshot, e fare clic su Crittografia.
 
@@ -43,82 +40,64 @@ Dopo avere selezionato l'impostazione Crittografia, è possibile abilitare o dis
 
 ![Schermata del portale che mostra le proprietà della crittografia](./media/storage-service-encryption/image2.png)
 
-##<a name="encryption-scenarios"></a>Scenari di crittografia
-
+## <a name="encryption-scenarios"></a>Scenari di crittografia
 La funzionalità Crittografia del servizio di archiviazione può essere abilitata a livello di account di archiviazione. Supporta gli scenari cliente seguenti:
 
--   Crittografia di BLOB in blocchi, BLOB di aggiunta e BLOB di pagine.
-
--   Crittografia di VHD archiviati e modelli trasferiti in Azure da posizioni locali.
-
--   Crittografia del sistema operativo sottostante e dei dischi dati per VM IaaS create usando i VHD.
+* Crittografia di BLOB in blocchi, BLOB di aggiunta e BLOB di pagine.
+* Crittografia di VHD archiviati e modelli trasferiti in Azure da posizioni locali.
+* Crittografia del sistema operativo sottostante e dei dischi dati per VM IaaS create usando i VHD.
 
 La crittografia del servizio di archiviazione presenta le limitazioni seguenti:
 
--   La crittografia degli account di archiviazione classici non è supportata.
+* La crittografia degli account di archiviazione classici non è supportata.
+* La crittografia degli account di archiviazione classici di cui è stata eseguita la migrazione negli account di archiviazione di Resource Manager non è supportata.
+* Dati esistenti: Crittografia del servizio di archiviazione crittografa solo i dati appena creati dopo l'abilitazione della crittografia. Se ad esempio si crea un nuovo account di archiviazione di Resource Manager ma non si attiva la crittografia e quindi si caricano BLOB o VHD archiviati nell'account di archiviazione e in seguito si attiva Crittografia del servizio di archiviazione, questi BLOB non verranno crittografati, a meno che non vengano riscritti o copiati.
+* Supporto per il Marketplace: è possibile abilitare la crittografia di VM create dal Marketplace usando il [portale di Azure](https://portal.azure.com), PowerShell e l'interfaccia della riga di comando di Azure. L'immagine di base del VHD rimarrà non crittografata. Eventuali operazioni di scrittura eseguite dopo la creazione della macchina virtuale, tuttavia, verranno crittografate.
+* Le tabelle, le code e i dati dei file non verranno crittografati.
 
--   La crittografia degli account di archiviazione classici di cui è stata eseguita la migrazione negli account di archiviazione di Resource Manager non è supportata.
-
--   Dati esistenti: Crittografia del servizio di archiviazione crittografa solo i dati appena creati dopo l'abilitazione della crittografia. Se ad esempio si crea un nuovo account di archiviazione di Resource Manager ma non si attiva la crittografia e quindi si caricano BLOB o VHD archiviati nell'account di archiviazione e in seguito si attiva Crittografia del servizio di archiviazione, questi BLOB non verranno crittografati, a meno che non vengano riscritti o copiati.
-
--   Supporto per il Marketplace: è possibile abilitare la crittografia di VM create dal Marketplace usando il [portale di Azure](https://portal.azure.com), PowerShell e l'interfaccia della riga di comando di Azure. L'immagine di base del VHD rimarrà non crittografata. Eventuali operazioni di scrittura eseguite dopo la creazione della macchina virtuale, tuttavia, verranno crittografate.
-
--   Le tabelle, le code e i dati dei file non verranno crittografati.
-
-##<a name="getting-started"></a>Introduzione
-
-###<a name="step-1:-[create-a-new-storage-account](storage-create-storage-account.md)."></a>Passaggio 1: [Creare un nuovo account di archiviazione](storage-create-storage-account.md).
-
-###<a name="step-2:-enable-encryption."></a>Passaggio 2: Abilitare la crittografia.
-
+## <a name="getting-started"></a>Introduzione
+### <a name="step-1:-[create-a-new-storage-account](storage-create-storage-account.md)."></a>Passaggio 1: [Creare un nuovo account di archiviazione](storage-create-storage-account.md).
+### <a name="step-2:-enable-encryption."></a>Passaggio 2: Abilitare la crittografia.
 È possibile abilitare la crittografia usando il [portale di Azure](https://portal.azure.com).
 
-> [AZURE.NOTE] Se si vuole abilitare o disabilitare a livello di codice la crittografia del servizio di archiviazione in un account di archiviazione, è possibile usare l'[API REST del provider di risorse di archiviazione di Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx), la [libreria client dei provider delle risorse di archiviazione per .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx), [Azure PowerShell](../powershell-install-configure.md) o l'[interfaccia della riga di comando di Azure](storage-azure-cli.md).
+> [!NOTE]
+> Se si vuole abilitare o disabilitare a livello di codice la crittografia del servizio di archiviazione in un account di archiviazione, è possibile usare l'[API REST del provider di risorse di archiviazione di Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx), la [libreria client dei provider delle risorse di archiviazione per .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx), [Azure PowerShell](../powershell-install-configure.md) o l'[interfaccia della riga di comando di Azure](storage-azure-cli.md).
+> 
+> 
 
-###<a name="step-3:-copy-data-to-storage-account"></a>Passaggio 3: Copiare i dati in un account di archiviazione
-
+### <a name="step-3:-copy-data-to-storage-account"></a>Passaggio 3: Copiare i dati in un account di archiviazione
 Se si abilita la crittografia del servizio di archiviazione su un account in cui successivamente si scrivono BLOB, questi ultimi verranno crittografati. Eventuali BLOB già presenti nell'account di archiviazione non verranno crittografati finché non saranno riscritti. È possibile copiare i dati da un account di archiviazione a uno con la crittografia del servizio di archiviazione eseguita oppure abilitare la crittografia del servizio di archiviazione e copiare i BLOB da un contenitore a un altro per assicurarsi che i dati precedenti siano crittografati. Per farlo, è possibile usare uno qualsiasi dei seguenti strumenti.
 
 #### <a name="using-azcopy"></a>Con AzCopy
-
 AzCopy è un'utilità della riga di comando di Windows progettata la copia dei dati in e da servizi di archiviazione BLOB, file e tabelle di Microsoft Azure usando semplici comandi con prestazioni ottimali. Può essere usato per copiare i BLOB da un account di archiviazione a un altro con la crittografia del servizio di archiviazione abilitata. 
 
 Per altre informazioni, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md).
 
 #### <a name="using-the-storage-client-libraries"></a>Con le librerie dei client di archiviazione
-
 È possibile copiare i dati dei BLOB da e negli archivi BLOB o fra gli account di archiviazione usando il set avanzato di librerie dei client di archiviazione, inclusi .NET, C++, Java, Android, Node.js, PHP, Python e Ruby.
 
 Per altre informazioni, vedere [Introduzione all'archivio BLOB di Azure con .NET](storage-dotnet-how-to-use-blobs.md).
 
 #### <a name="using-a-storage-explorer"></a>Con Storage Explorer
-
 È possibile usare uno strumento di esplorazione dell'archivio per creare account di archiviazione, caricare e scaricare dati, visualizzare i contenuti dei BLOB e spostarsi tra le directory. È possibile usare uno di questi strumenti per caricare BLOB nell'account di archiviazione con crittografia abilitata. Nel caso di alcuni strumenti di esplorazione dell'archiviazione è anche possibile copiare dati dall'archivio BLOB esistente a un contenitore diverso dell'account di archiviazione oppure in un nuovo account di archiviazione con la crittografia del servizio di archiviazione abilitata.
 
 Per altre informazioni, vedere la pagina relativa agli [strumenti di esplorazione di archiviazione di Azure](storage-explorers.md).
 
-###<a name="step-4:-query-the-status-of-the-encrypted-data"></a>Passaggio 4: Eseguire query relative allo stato dei dati crittografati
-
+### <a name="step-4:-query-the-status-of-the-encrypted-data"></a>Passaggio 4: Eseguire query relative allo stato dei dati crittografati
 È stata distribuita una versione aggiornata delle librerie dei client di archiviazione che consente di eseguire query relative allo stato di un oggetto per determinare se sua crittografato o meno. A breve verranno aggiunti alcuni esempi in questo documento.
 
 Nel frattempo è possibile chiamare l'operazione per il [recupero delle proprietà dell'account](https://msdn.microsoft.com/library/azure/mt163553.aspx) per verificare che la crittografia sia abilitata per l'account di archiviazione oppure visualizzare le proprietà dell'account di archiviazione nel portale di Azure.
 
-##<a name="encryption-and-decryption-workflow"></a>Flusso di lavoro di crittografia e decrittografia
-
+## <a name="encryption-and-decryption-workflow"></a>Flusso di lavoro di crittografia e decrittografia
 Ecco una breve descrizione del flusso di lavoro di crittografia/decrittografia:
 
--   Il cliente abilita la crittografia sull'account di archiviazione.
+* Il cliente abilita la crittografia sull'account di archiviazione.
+* Quando il cliente scrive nuovi dati (PUT Blob, PUT Block, PUT Page e così via) nell'archiviazione BLOB, ogni operazione di scrittura viene crittografata mediante la [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) a 256 bit, una delle crittografie a blocchi più solide tra quelle disponibili.
+* Quando il cliente deve accedere ai dati (GET Blob e così via), i dati vengono decrittografati automaticamente prima della restituzione all'utente.
+* Se la crittografia è disabilitata, le nuove operazioni di scrittura non vengono più crittografate e i dati crittografati esistenti rimangono crittografati fino a quando non vengono riscritti dall'utente. Quando la crittografia è abilitata, le operazioni di scrittura nell'archivio BLOB verranno sempre crittografate. Lo stato dei dati non cambia quando l'utente attiva/disattiva la crittografia per l'account di archiviazione.
+* Tutte le chiavi di crittografia vengono archiviate, crittografate e gestite da Microsoft.
 
--   Quando il cliente scrive nuovi dati (PUT Blob, PUT Block, PUT Page e così via) nell'archiviazione BLOB, ogni operazione di scrittura viene crittografata mediante la [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) a 256 bit, una delle crittografie a blocchi più solide tra quelle disponibili.
-
--   Quando il cliente deve accedere ai dati (GET Blob e così via), i dati vengono decrittografati automaticamente prima della restituzione all'utente.
-
--   Se la crittografia è disabilitata, le nuove operazioni di scrittura non vengono più crittografate e i dati crittografati esistenti rimangono crittografati fino a quando non vengono riscritti dall'utente. Quando la crittografia è abilitata, le operazioni di scrittura nell'archivio BLOB verranno sempre crittografate. Lo stato dei dati non cambia quando l'utente attiva/disattiva la crittografia per l'account di archiviazione.
-
--   Tutte le chiavi di crittografia vengono archiviate, crittografate e gestite da Microsoft.
-
-##<a name="frequently-asked-questions-about-storage-service-encryption-for-data-at-rest"></a>Domande frequenti su Crittografia del servizio di archiviazione per i dati inattivi
-
+## <a name="frequently-asked-questions-about-storage-service-encryption-for-data-at-rest"></a>Domande frequenti su Crittografia del servizio di archiviazione per i dati inattivi
 **D: È disponibile un account di archiviazione classico. Si può abilitare Crittografia del servizio di archiviazione per questo account?**
 
 R: No, la funzionalità di crittografia del servizio di archiviazione è supportata solo negli account di archiviazione di Resource Manager.
@@ -193,11 +172,8 @@ R: La crittografia del servizio di archiviazione è disponibile in tutte le aree
 
 D: Contattare [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com) per qualsiasi problema relativo a Crittografia del servizio di archiviazione.
 
-##<a name="next-steps"></a>Passaggi successivi
-
+## <a name="next-steps"></a>Passaggi successivi
 Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, che consentono agli sviluppatori di creare applicazioni sicure. Per altre informazioni, vedere la [Guida alla sicurezza delle risorse di archiviazione](storage-security-guide.md).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

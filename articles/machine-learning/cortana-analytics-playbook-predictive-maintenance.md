@@ -1,34 +1,34 @@
-<properties
-    pageTitle="Studio del modello di soluzione Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale e in altri campi | Microsoft Azure"
-    description="Modello di soluzione con Microsoft Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale, nei servizi pubblici e nei trasporti."
-    services="cortana-analytics"
-    documentationCenter=""
-    authors="fboylu"
-    manager="jhubbard"
-    editor="cgronlun"/>
+---
+title: Studio del modello di soluzione Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale e in altri campi | Microsoft Docs
+description: Modello di soluzione con Microsoft Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale, nei servizi pubblici e nei trasporti.
+services: cortana-analytics
+documentationcenter: ''
+author: fboylu
+manager: jhubbard
+editor: cgronlun
 
-<tags
-    ms.service="cortana-analytics"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/12/2016"
-    ms.author="fboylu" />
+ms.service: cortana-analytics
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/12/2016
+ms.author: fboylu
 
-
+---
 # <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Studio del modello di soluzione Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale e in altri campi
-
-## <a name="executive-summary"></a>Riepilogo  
+## <a name="executive-summary"></a>Riepilogo
 La manutenzione predittiva è una delle applicazioni dell'analisi predittiva più richieste, che offre indiscutibili vantaggi tra cui un risparmio significativo in termini di costi. Questo studio ha lo scopo di fornire un riferimento per le soluzioni di manutenzione predittiva, con particolare attenzione ai principali casi d'uso.
 È concepito per offrire al lettore una descrizione dei più comuni scenari aziendali di manutenzione predittiva, delle sfide legate ai problemi aziendali idonei per queste soluzioni, dei dati richiesti per risolvere questi problemi aziendali, delle tecniche di modellazione predittiva per creare soluzioni con questi dati e delle procedure consigliate con architetture delle soluzioni di esempio.
 Descrive anche le specifiche dei modelli predittivi sviluppati, come la progettazione delle funzioni, lo sviluppo del modello e la valutazione delle prestazioni. In sostanza, questo studio sintetizza le linee guida aziendali e analitiche per sviluppare e distribuire nel modo corretto le soluzioni di manutenzione predittiva. Queste linee guida sono concepite per assistere i destinatari nella creazione di una soluzione iniziale con Cortana Intelligence Suite e in particolare Azure Machine Learning come punto di partenza di una strategia di manutenzione predittiva a lungo termine. La documentazione relativa a Cortana Intelligence Suite e Azure Machine Learning è disponibile nelle pagine [Cortana Analytics](http://www.microsoft.com/server-cloud/cortana-analytics-suite/overview.aspx) e [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/).
 
->[AZURE.TIP]
-Per una guida tecnica all'implementazione di questo modello di soluzione, vedere [Guida tecnica del modello di soluzione Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale e in altri campi](cortana-analytics-technical-guide-predictive-maintenance.md).
-Per scaricare un diagramma che fornisce una panoramica architetturale di questo modello, vedere [Architettura del modello di soluzione Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale e in altri campi](cortana-analytics-architecture-predictive-maintenance.md).
+> [!TIP]
+> Per una guida tecnica all'implementazione di questo modello di soluzione, vedere [Guida tecnica del modello di soluzione Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale e in altri campi](cortana-analytics-technical-guide-predictive-maintenance.md).
+> Per scaricare un diagramma che fornisce una panoramica architetturale di questo modello, vedere [Architettura del modello di soluzione Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale e in altri campi](cortana-analytics-architecture-predictive-maintenance.md).
+> 
+> 
 
-## <a name="playbook-overview-and-target-audience"></a>Panoramica dello studio e destinatari  
+## <a name="playbook-overview-and-target-audience"></a>Panoramica dello studio e destinatari
 Questo studio è organizzato a beneficio dei destinatari tecnici e non tecnici con conoscenze e interessi diversi nell'ambito della manutenzione predittiva. Lo studio illustra sia gli aspetti a livello generale dei diversi tipi di soluzioni di manutenzione predittiva che i dettagli della modalità di implementazione. Il contenuto è concepito per soddisfare le esigenze dei destinatari interessati solo a conoscere l'ambito della soluzione e il tipo di applicazioni e di coloro che mirano a implementare queste soluzioni e quindi sono interessati ai relativi dettagli tecnici.
 
 La maggior parte del contenuto di questo studio non presuppone una precedente conoscenza o esperienza nel campo dell'analisi scientifica dei dati. Alcune parti dello studio richiederanno tuttavia una certa familiarità con i concetti dell'analisi scientifica dei dati per poter seguire i dettagli dell'implementazione. Per sfruttare appieno il materiale disponibile in quelle sezioni, sono necessarie competenze introduttive nel campo dell'analisi scientifica dei dati.
@@ -37,7 +37,6 @@ La prima parte dello studio include un'introduzione alle applicazioni di manuten
 
 Nella seconda metà dello studio sono descritti i tipi di tecniche di modellazione predittiva per le applicazioni di manutenzione predittiva e la modalità di implementazione di questi modelli tramite esempi dei casi d'uso illustrati nella prima metà dello studio. Questi aspetti sono illustrati attraverso i passaggi di pre-elaborazione dei dati, come l'assegnazione di etichette ai dati e la progettazione delle funzioni, la selezione del modello, l'esecuzione di training/test e le procedure consigliate per la valutazione delle funzioni. Queste sezioni sono destinate a destinatari con conoscenze tecniche.
 
-
 ## <a name="predictive-maintenance-in-iot"></a>Manutenzione predittiva in IoT
 Il tempo di inattività non pianificato delle attrezzature può avere un impatto distruttivo per le aziende. È fondamentale mantenere in funzione le attrezzature sul campo per massimizzare l'utilizzo e le prestazioni, riducendo inoltre il costoso tempo di inattività non pianificato. Semplicemente, attendere che si verifichi l'errore non è concepibile nell'attuale scenario delle operazioni aziendali. Per rimanere competitive, le aziende sono alla ricerca di nuovi metodi per ottimizzare le prestazioni degli asset usando i dati raccolti da vari canali. Un metodo importante per analizzare queste informazioni consiste nell'utilizzare le tecniche di analisi predittiva che si avvalgono di schemi cronologici per prevedere i risultati futuri. Una delle più comuni di queste soluzioni è detta manutenzione predittiva che può essere definita, tra l'altro, come la previsione della possibilità di errore di un asset nel prossimo futuro, in modo da consentire il monitoraggio degli asset per identificare in modo proattivo gli errori e intervenire prima che si verifichino. Queste soluzioni rilevano gli schemi di errore per determinare quali asset sono soggetti al maggior rischio. L'identificazione preventiva dei problemi consente di distribuire una quantità limitata di risorse di manutenzione in modo più conveniente e di migliorare la qualità e i processi della supply chain.
 
@@ -45,17 +44,17 @@ Con la diffusione delle applicazioni IoT (Internet of Things), la manutenzione p
 
 I problemi aziendali nell'ambito della manutenzione predittiva comprendono un elevato rischio operativo, a causa degli errori imprevisti e delle limitate informazioni dettagliate sulla causa radice dei problemi negli ambienti aziendali complessi. Si può classificare la maggior parte di questi problemi e farli rientrare nelle domande aziendali seguenti:
 
--   Qual è la probabilità che un componente dell'apparecchiatura si guasti nel prossimo futuro?
--   Qual è la vita utile rimanente dell'apparecchiatura?
--   Quali sono le cause dei guasti e quali azioni di manutenzione si dovranno eseguire per risolvere questi problemi?
+* Qual è la probabilità che un componente dell'apparecchiatura si guasti nel prossimo futuro?
+* Qual è la vita utile rimanente dell'apparecchiatura?
+* Quali sono le cause dei guasti e quali azioni di manutenzione si dovranno eseguire per risolvere questi problemi?
 
 Usando la manutenzione predittiva per rispondere alle domande seguenti, le aziende possono:
 
--   Ridurre il rischio operativo e aumentare il tasso di redditività degli asset individuando i guasti prima che si verifichino
--   Ridurre le inutili operazioni di manutenzione temporizzate e controllare il costo della manutenzione
--   Migliorare complessivamente l'immagine del marchio, eliminare la cattiva pubblicità e la conseguente perdita di vendite a causa dell'abbandono da parte dei clienti
--   Ridurre i costi di magazzino riducendo i livelli di inventario grazie alla previsione del punto di riordino
--   Individuare gli schemi connessi ai diversi problemi di manutenzione
+* Ridurre il rischio operativo e aumentare il tasso di redditività degli asset individuando i guasti prima che si verifichino
+* Ridurre le inutili operazioni di manutenzione temporizzate e controllare il costo della manutenzione
+* Migliorare complessivamente l'immagine del marchio, eliminare la cattiva pubblicità e la conseguente perdita di vendite a causa dell'abbandono da parte dei clienti
+* Ridurre i costi di magazzino riducendo i livelli di inventario grazie alla previsione del punto di riordino
+* Individuare gli schemi connessi ai diversi problemi di manutenzione
 
 La manutenzione predittiva può fornire indicatori di prestazioni chiave, ad esempio lo stato di integrità per monitorare la condizione degli asset in tempo reale, una stima dell'intervallo di validità rimanente degli asset, le attività di manutenzione proattiva consigliate e le date degli ordini stimate per la sostituzione delle parti.
 
@@ -68,9 +67,9 @@ Ad esempio, se l'obiettivo è quello di stimare i guasti delle ruote del treno, 
 
 Quando si qualifica l'idoneità di un problema aziendale per una soluzione di manutenzione predittiva, occorre trovare tre origini dati essenziali:
 
-1.  Cronologia dei guasti: in genere, nelle applicazioni di manutenzione predittiva gli eventi di errore sono molto rari. Quando tuttavia si compilano modelli predittivi che stimano i guasti, è necessario che l'algoritmo apprenda lo schema operativo normale, oltre allo schema dei guasti attraverso il processo di training. Di conseguenza, è fondamentale che i dati di training contengano un numero sufficiente di esempi in entrambe le categorie per apprendere questi due schemi diversi. Per questo motivo, è necessario che i dati contengano un numero sufficiente di eventi di errore. Gli eventi di errore si possono trovare nei record di manutenzione e nella cronologia della sostituzione di parti oppure è possibile usare le anomalie nei dati di training come guasti identificati dagli esperti del dominio.
-2.  Cronologia di manutenzione/riparazione: un'origine di dati essenziale per le soluzioni di manutenzione predittiva è la cronologia di manutenzione dettagliata degli asset, che contiene informazioni sui componenti sostituiti, sulle attività di manutenzione preventiva eseguite e così via. È estremamente importante acquisire questi eventi perché tutti incidono sugli schemi di riduzione delle prestazioni e l'assenza di queste informazioni può causare risultati fuorvianti.
-3.  Condizioni delle macchine: per stimare quanti altri giorni (ore, chilometri, transazioni e così via) dura una macchina prima che si verifichi un guasto, si presuppone che il relativo stato integrità diminuisca con il tempo. È quindi necessario che i dati contengano funzioni variabili nel tempo che acquisiscono schemi di aging o qualsiasi anomalia che possa causare una riduzione delle prestazioni. Nelle applicazioni IoT i dati di telemetria dai diversi sensori costituiscono un buon esempio. Per stimare se una macchina possa incorrere in un guasto entro un intervallo di tempo, i dati dovrebbero idealmente acquisire il trend in calo durante questo intervallo prima dell'evento di errore effettivo.
+1. Cronologia dei guasti: in genere, nelle applicazioni di manutenzione predittiva gli eventi di errore sono molto rari. Quando tuttavia si compilano modelli predittivi che stimano i guasti, è necessario che l'algoritmo apprenda lo schema operativo normale, oltre allo schema dei guasti attraverso il processo di training. Di conseguenza, è fondamentale che i dati di training contengano un numero sufficiente di esempi in entrambe le categorie per apprendere questi due schemi diversi. Per questo motivo, è necessario che i dati contengano un numero sufficiente di eventi di errore. Gli eventi di errore si possono trovare nei record di manutenzione e nella cronologia della sostituzione di parti oppure è possibile usare le anomalie nei dati di training come guasti identificati dagli esperti del dominio.
+2. Cronologia di manutenzione/riparazione: un'origine di dati essenziale per le soluzioni di manutenzione predittiva è la cronologia di manutenzione dettagliata degli asset, che contiene informazioni sui componenti sostituiti, sulle attività di manutenzione preventiva eseguite e così via. È estremamente importante acquisire questi eventi perché tutti incidono sugli schemi di riduzione delle prestazioni e l'assenza di queste informazioni può causare risultati fuorvianti.
+3. Condizioni delle macchine: per stimare quanti altri giorni (ore, chilometri, transazioni e così via) dura una macchina prima che si verifichi un guasto, si presuppone che il relativo stato integrità diminuisca con il tempo. È quindi necessario che i dati contengano funzioni variabili nel tempo che acquisiscono schemi di aging o qualsiasi anomalia che possa causare una riduzione delle prestazioni. Nelle applicazioni IoT i dati di telemetria dai diversi sensori costituiscono un buon esempio. Per stimare se una macchina possa incorrere in un guasto entro un intervallo di tempo, i dati dovrebbero idealmente acquisire il trend in calo durante questo intervallo prima dell'evento di errore effettivo.
 
 È anche necessario che i dati siano direttamente correlati alle condizioni operative dell'asset obiettivo della stima. La decisione relativa all'obiettivo si basa sia sulle esigenze aziendali che sulla disponibilità dei dati. Prendendo come esempio la stima dei guasti delle ruote del treno, è possibile stimare "se il guasto riguarderà la ruota" o "se interesserà tutto il treno". Il primo è relativo a un componente specifico, mentre il secondo riguarda il treno. Il secondo è una questione più generale che richiede molti più elementi dati sparsi rispetto al primo, rendendo più difficile la compilazione di un modello. Al contrario, cercare di stimare i guasti delle ruote osservando semplicemente i dati sulle condizioni del treno a livello generale potrebbe non essere fattibile, perché non contengono informazioni a livello di componente. In generale, è più pratico stimare eventi di errore specifici rispetto a quelli più generali.
 
@@ -139,12 +138,11 @@ Può anche ridurre la quantità di inutili attività di manutenzione preventiva.
 Uno dei motivi principali dei ritardi e dei problemi delle operazioni di una metropolitana sono i guasti delle porte delle carrozze. La possibilità di stimare che le porte di una carrozza potrebbero avere un guasto oppure di prevedere tra quanti giorni si verificherà il prossimo guasto alle porte costituisce un'informazione preventiva estremamente importante. Offre la possibilità di ottimizzare gli interventi di assistenza alle porte del treno e ridurne il tempo di inattività.
 
 #### <a name="data-sources"></a>Origini dati
-
 Le tre origini dei dati in questo caso d'uso sono 
 
-- **Dati degli eventi dei treni**, ovvero i record cronologici degli eventi dei treni 
-- **Dati di manutenzione** , ad esempio tipi di manutenzione, tipi di ordini di lavoro e codici di priorità  
-- **Record dei guasti**
+* **Dati degli eventi dei treni**, ovvero i record cronologici degli eventi dei treni 
+* **Dati di manutenzione** , ad esempio tipi di manutenzione, tipi di ordini di lavoro e codici di priorità  
+* **Record dei guasti**
 
 ##### <a name="*business-value-of-the-predictive-model*"></a>*Valore del modello predittivo per l'azienda*
 Sono stati compilati due modelli per stimare la probabilità di guasti del giorno successivo usando la classificazione binaria e i giorni prima del prossimo guasto usando la regressione. In modo analogo ai casi precedenti, i modelli creano una straordinaria opportunità di miglioramento della qualità del servizio (QoS) e della soddisfazione dei clienti a complemento dei normali regimi di manutenzione.
@@ -153,11 +151,11 @@ Sono stati compilati due modelli per stimare la probabilità di guasti del giorn
 ### <a name="data-sources"></a>Origini dati
 Gli elementi di dati comuni per i problemi di manutenzione predittiva possono essere riepilogati come segue:
 
--   Cronologia dei guasti, ovvero la cronologia dei guasti in una macchina o in un componente della macchina.
--   Cronologia di manutenzione, ovvero la cronologia delle riparazioni di una macchina, ad esempio codici errore, attività di manutenzione precedenti o sostituzione di componenti.
--   Condizioni e utilizzo della macchina, ovvero le condizioni operative di una macchina, ad esempio i dati raccolti dai sensori.
--   Caratteristiche della macchina, ad esempio cilindrata, marca e modello, posizione.
--   Caratteristiche dell'operatore, ad esempio sesso, esperienze precedenti.
+* Cronologia dei guasti, ovvero la cronologia dei guasti in una macchina o in un componente della macchina.
+* Cronologia di manutenzione, ovvero la cronologia delle riparazioni di una macchina, ad esempio codici errore, attività di manutenzione precedenti o sostituzione di componenti.
+* Condizioni e utilizzo della macchina, ovvero le condizioni operative di una macchina, ad esempio i dati raccolti dai sensori.
+* Caratteristiche della macchina, ad esempio cilindrata, marca e modello, posizione.
+* Caratteristiche dell'operatore, ad esempio sesso, esperienze precedenti.
 
 È possibile, ed è di solito così, che la cronologia dei guasti sia inclusa nella cronologia di manutenzione, ad esempio sotto forma di codici di errore speciali o date degli ordini delle parti di ricambio. In alcuni casi, i guasti possono essere estratti dai dati di manutenzione. Settori aziendali diversi possono anche avere molte altre origini dati che influenzano gli schemi relativi ai guasti e che qui non sono illustrati in modo esauriente. Questi dovranno essere identificati consultando gli esperti del settore al momento della compilazione dei modelli predittivi.
 
@@ -175,7 +173,6 @@ Considerate le origini dati precedenti, i due tipi di dati principali osservati 
 Cronologia dei guasti, condizioni della macchina, cronologia delle riparazioni, cronologia dell'utilizzo sono quasi sempre accompagnati da timestamp che indicano l'ora della raccolta di ogni singolo dato. Le caratteristiche della macchina e dell'operatore sono in genere statiche, perché di solito descrivono le specifiche tecniche delle macchine o le proprietà dell'operatore. Queste caratteristiche possono cambiare con il tempo e, in questo caso, dovranno essere gestite come origini dati con timestamp.
 
 ### <a name="merging-data-sources"></a>Unione di origini dati
-
 Prima di addentrarsi in qualunque tipo di progettazione di funzioni o di processo di aggiunta di etichette, è necessario preparare i dati nel formato richiesto per crearne le funzioni. Lo scopo finale consiste nel generare un record per ogni unità di tempo di ogni asset con le relative funzioni ed etichette da inserire nell'algoritmo di Machine Learning. Per preparare il set di dati finale corretto, è necessario eseguire alcuni passaggi di pre-elaborazione. Il primo consiste nel dividere la durata della raccolta di dati in unità di tempo in cui ogni record a un'unità di tempo per un asset. La raccolta di dati può anche essere divisa in altre unità, ad esempio azioni, tuttavia per semplicità nel resto delle descrizioni si usano le unità di tempo.
 
 L'unità di misura di tempo può essere in secondi, minuti, ore, giorni, mesi, cicli, chilometri o transazioni a seconda dell'efficienza di preparazione dei dati e delle modifiche osservate nelle condizioni dell'asset da un'unità di tempo all'altra o di altri fattori specifici del dominio. In altre parole, l'unità di tempo non deve essere la stessa della frequenza di raccolta di dati, perché in molti casi i dati potrebbero non mostrare alcuna differenza da un'unità all'altra. Ad esempio, se i valori di temperatura vengono raccolti ogni 10 secondi, la selezione di un'unità di tempo di 10 secondi per l'intera analisi aumenta il numero di esempi, senza fornire informazioni aggiuntive. La strategia migliore consiste nell'usare, ad esempio, una media in un'ora.
@@ -229,14 +226,14 @@ Durante la generazione della funzione è necessario eseguire altri passaggi impo
 
 La tabella delle funzioni finale, dopo i passaggi di progettazione delle funzioni illustrati nella sezione precedente, dovrebbe essere simile allo schema di dati di esempio seguente quando l'unità di tempo è un giorno:
 
-|ID asset|Time|Colonne delle funzioni|Etichetta|
-|---|---|---|---|
-|1|Giorno 1|||
-|1|Giorno 2|||
-|...|...|||
-|2|Giorno 1|||
-|2|Giorno 2|||
-|...|...|||
+| ID asset | Time | Colonne delle funzioni | Etichetta |
+| --- | --- | --- | --- |
+| 1 |Giorno 1 | | |
+| 1 |Giorno 2 | | |
+| ... |... | | |
+| 2 |Giorno 1 | | |
+| 2 |Giorno 2 | | |
+| ... |... | | |
 
 ## <a name="modeling-techniques"></a>Tecniche di modellazione
 La manutenzione predittiva è un ambito molto avanzato che spesso utilizza domande aziendali avvicinabili da molte angolazioni diverse dalla prospettiva della modellazione predittiva. Le sezioni successive illustrano le principali tecniche che è possibile usare per modellare domande aziendali diverse a cui è possibile rispondere con soluzioni di manutenzione predittiva. Anche se ci sono similitudini, ogni modello ha un modo personalizzato di costruire etichette, che sono descritte in dettaglio. Come risorsa associata, è possibile far riferimento al modello di manutenzione predittiva incluso negli esperimenti di esempio forniti con Azure Machine Learning. I collegamenti al materiale online per questo modello sono disponibili nella sezione delle risorse. Si può vedere in che modo vengono applicate alcune tecniche di progettazione delle funzioni descritte in precedenza e la tecnica di modellazione che viene descritta nelle sezioni successive per stimare i guasti dei motori degli aerei usando Azure Machine Learning.
@@ -367,8 +364,6 @@ Gli stessi data warehouse possono essere usati per i punteggi batch degli esempi
 Figura 8. Architettura della soluzione di esempio per la manutenzione predittiva
 
 Per altre informazioni su ogni componente dell'architettura, vedere la documentazione di [Azure](https://azure.microsoft.com/) .
-
-
 
 <!--HONumber=Oct16_HO2-->
 

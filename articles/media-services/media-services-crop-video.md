@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Come ritagliare video | Microsoft Azure"
-    description="Questo articolo illustra come ritagliare video con Media Encoder Standard."
-    services="media-services"
-    documentationCenter=""
-    authors="anilmur"
-    manager="erikre"
-    editor=""/>
+---
+title: Come ritagliare video | Microsoft Docs
+description: Questo articolo illustra come ritagliare video con Media Encoder Standard.
+services: media-services
+documentationcenter: ''
+author: anilmur
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="09/26/2016"  
-    ms.author="anilmur;juliako;"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: anilmur;juliako;
 
-
+---
 # <a name="crop-videos-with-media-encoder-standard"></a>Ritagliare video con Media Encoder Standard
-
 È possibile usare Media Encoder Standard (MES) per ritagliare l'input video. Il ritaglio è il processo di selezione di una finestra rettangolare all'interno del fotogramma video per codificare solo i pixel all'interno di quella finestra. Il diagramma seguente illustra il processo.
 
 ![Ritagliare un video](./media/media-services-crop-video/media-services-crop-video01.png)
@@ -30,18 +28,15 @@ Il ritaglio in MES è una fase di pre-elaborazione, quindi i parametri di ritagl
 L'argomento [seguente](media-services-advanced-encoding-with-mes.md#encoding_with_dotnet) illustra come creare un processo di codifica con MES e come specificare un set di impostazioni personalizzato per l'attività di codifica. 
 
 ## <a name="creating-a-custom-preset"></a>Creazione di un set di impostazioni personalizzato
-
 Nell'esempio illustrato nel diagramma:
 
 1. L'input originale è 1920x1080
-1. Deve essere ritagliato in un output di 1440x1080, centrato nel frame di input
-1. Ciò equivale a un offset X (1920 - 1440)/2 = 240 e un offset Y pari a zero
-1. La larghezza e l'altezza del rettangolo di ritaglio sono rispettivamente di 1440 e 1080
-1. Nella fase di codifica, l'attività consiste nel produrre tre livelli con risoluzioni di 1440x1080, 960x720 e 480x360
+2. Deve essere ritagliato in un output di 1440x1080, centrato nel frame di input
+3. Ciò equivale a un offset X (1920 - 1440)/2 = 240 e un offset Y pari a zero
+4. La larghezza e l'altezza del rettangolo di ritaglio sono rispettivamente di 1440 e 1080
+5. Nella fase di codifica, l'attività consiste nel produrre tre livelli con risoluzioni di 1440x1080, 960x720 e 480x360
 
-###<a name="json-preset"></a>Set di impostazioni JSON
-
-
+### <a name="json-preset"></a>Set di impostazioni JSON
     {
       "Version": 1.0,
       "Sources": [
@@ -126,28 +121,23 @@ Nell'esempio illustrato nel diagramma:
     }
 
 
-##<a name="restrictions-on-cropping"></a>Restrizioni relative al ritaglio
-
+## <a name="restrictions-on-cropping"></a>Restrizioni relative al ritaglio
 La funzionalità di ritaglio è concepita per essere manuale. Sarà necessario caricare il video di input in uno strumento di editing valido che consenta di selezionare i frame di interesse, posizionare il cursore per determinare gli offset del rettangolo di ritaglio, per determinare il set di impostazioni di codifica ottimale per quel particolare video e così via. Questa funzionalità non è progettata per consentire ad esempio il rilevamento e la rimozione automatici dei bordi neri formato 16:9 e formato 4:3 nel video di input.
 
 Alla funzionalità di ritaglio si applicano le limitazioni seguenti. Se queste limitazioni non vengono osservate, l'attività di codifica produrrà errori o un output imprevisto.
 
 1. Le coordinate e le dimensioni del rettangolo di ritaglio devono rientrare nel video di input
-1. Come indicato in precedenza, la larghezza e l'altezza nelle impostazioni di codifica devono corrispondere al video ritagliato
-1. Il ritaglio si applica a video acquisiti in modalità orizzontale, ovvero non è applicabile a video registrati con uno smartphone con orientamento verticale
-1. Il ritaglio funziona in modo ottimale con video progressivo acquisito con pixel quadrati
+2. Come indicato in precedenza, la larghezza e l'altezza nelle impostazioni di codifica devono corrispondere al video ritagliato
+3. Il ritaglio si applica a video acquisiti in modalità orizzontale, ovvero non è applicabile a video registrati con uno smartphone con orientamento verticale
+4. Il ritaglio funziona in modo ottimale con video progressivo acquisito con pixel quadrati
 
-##<a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-##<a name="next-step"></a>Passaggio successivo
- 
+## <a name="next-step"></a>Passaggio successivo
 Vedere i percorsi di apprendimento di Servizi multimediali di Azure per informazioni sulle potenti funzionalità offerte da Servizi multimediali di Azure.  
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 <!--HONumber=Oct16_HO2-->
 

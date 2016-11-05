@@ -1,81 +1,81 @@
-<properties 
-	pageTitle="Come usare Cache nel ruolo (.NET) | Microsoft Azure" 
-	description="Informazioni su come usare Cache nel ruolo di Azure. Negli esempi, scritti in C#, viene usata l'API .NET." 
-	services="cache" 
-	documentationCenter=".net" 
-	authors="steved0x" 
-	manager="douge" 
-	editor=""/> 
+---
+title: Come usare Cache nel ruolo (.NET) | Microsoft Docs
+description: Informazioni su come usare Cache nel ruolo di Azure. Negli esempi, scritti in C#, viene usata l'API .NET.
+services: cache
+documentationcenter: .net
+author: steved0x
+manager: douge
+editor: ''
 
-<tags 
-	ms.service="cache" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/15/2016" 
-	ms.author="sdanie"/> 
+ms.service: cache
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 09/15/2016
+ms.author: sdanie
 
-
-
-
-
-
+---
 # Come usare Cache nel ruolo per Cache di Azure
+In questa guida viene illustrato come utilizzare la **Cache nel ruolo per Cache di Azure**. Negli esempi, scritti in C#, viene usata l'API .NET. Gli scenari presentati includono **configurazione di un cluster di cache**, **configurazione di client della cache**, **aggiunta e rimozione di oggetti dalla cache, archiviazione dello stato della sessione ASP.NET nella cache** e **abilitazione della memorizzazione nella cache dell'output delle pagine ASP.NET**. Per ulteriori informazioni sull'utilizzo di Cache nel ruolo, fare riferimento alla sezione [Passaggi successivi][Passaggi successivi].
 
-In questa guida viene illustrato come utilizzare la **Cache nel ruolo per Cache di Azure**. Negli esempi, scritti in C#, viene usata l'API .NET. Gli scenari presentati includono **configurazione di un cluster di cache**, **configurazione di client della cache**, **aggiunta e rimozione di oggetti dalla cache, archiviazione dello stato della sessione ASP.NET nella cache** e **abilitazione della memorizzazione nella cache dell'output delle pagine ASP.NET**. Per ulteriori informazioni sull'utilizzo di Cache nel ruolo, fare riferimento alla sezione [Passaggi successivi][].
-
->[AZURE.IMPORTANT]Sulla base dell'[annuncio](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) dello scorso anno, il Servizio cache gestita di Azure e il servizio Cache nel ruolo di Azure verranno ritirati il 30 novembre 2016. È consigliabile usare [Cache Redis di Azure](https://azure.microsoft.com/services/cache/). Per informazioni sulla migrazione, vedere [Eseguire la migrazione dal Servizio cache gestita alla Cache Redis di Azure](../redis-cache/cache-migrate-to-redis.md).
+> [!IMPORTANT]
+> Sulla base dell'[annuncio](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) dello scorso anno, il Servizio cache gestita di Azure e il servizio Cache nel ruolo di Azure verranno ritirati il 30 novembre 2016. È consigliabile usare [Cache Redis di Azure](https://azure.microsoft.com/services/cache/). Per informazioni sulla migrazione, vedere [Eseguire la migrazione dal Servizio cache gestita alla Cache Redis di Azure](../redis-cache/cache-migrate-to-redis.md).
+> 
+> 
 
 <a name="what-is"></a>
-## Informazioni su Cache nel ruolo
 
+## Informazioni su Cache nel ruolo
 Cache nel ruolo fornisce un livello di memorizzazione nella cache per le applicazioni Azure. La memorizzazione nella cache determina un aumento delle prestazioni grazie all'archiviazione temporanea delle informazioni in memoria da altre origini back-end e consente di ridurre i costi associati alle transazioni di database nel cloud. In Cache nel ruolo sono disponibili le funzionalità seguenti:
 
--   Provider ASP.NET predefiniti per la memorizzazione nella cache dello stato della sessione e delle pagine di output per consentire l'accelerazione delle applicazioni Web senza dover modificare il codice dell'applicazione.
--   Memorizzazione nella cache di qualsiasi oggetto serializzabile, ad esempio: oggetti CLR, righe, XML, dati binari.
--   Modello di sviluppo coerente tra Azure e Windows Server AppFabric.
+* Provider ASP.NET predefiniti per la memorizzazione nella cache dello stato della sessione e delle pagine di output per consentire l'accelerazione delle applicazioni Web senza dover modificare il codice dell'applicazione.
+* Memorizzazione nella cache di qualsiasi oggetto serializzabile, ad esempio: oggetti CLR, righe, XML, dati binari.
+* Modello di sviluppo coerente tra Azure e Windows Server AppFabric.
 
 Cache nel ruolo fornisce un nuovo modo di eseguire la memorizzazione nella cache mediante l'utilizzo di una parte della memoria delle macchine virtuali che ospitano le istanze del ruolo nei servizi cloud di Azure, noti anche come servizi ospitati. Offre maggiore flessibilità in termini di opzioni di distribuzione, le cache possono avere dimensioni molto elevate e non sono previste limitazioni di quota specifiche della cache.
 
->[AZURE.IMPORTANT] A partire da Azure SDK 2.6, Cache nel ruolo utilizza l'SDK Archiviazione di Microsoft Azure versione 4.3. Nelle versioni precedenti di Azure SDK, Cache nel ruolo utilizzava l'SDK Archiviazione di Azure 1.7. Le applicazioni che utilizzano Cache nel ruolo con le versioni di Azure SDK precedenti alla versione 2.6 devono eseguire la migrazione all'SDK Azure 2.6 prima della rimozione delle autorizzazioni per Archiviazione di Azure versione 18/08/2011. -il 1° agosto 2016. Per altre informazioni, vedere [Note sulla versione di Azure SDK 2.6 - Cache nel ruolo](../azure-sdk-dotnet-release-notes-2-6.md#in-role-cache-updates) e [Aggiornamento della rimozione della versione del servizio di archiviazione di Microsoft Azure: estensione al 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
+> [!IMPORTANT]
+> A partire da Azure SDK 2.6, Cache nel ruolo utilizza l'SDK Archiviazione di Microsoft Azure versione 4.3. Nelle versioni precedenti di Azure SDK, Cache nel ruolo utilizzava l'SDK Archiviazione di Azure 1.7. Le applicazioni che utilizzano Cache nel ruolo con le versioni di Azure SDK precedenti alla versione 2.6 devono eseguire la migrazione all'SDK Azure 2.6 prima della rimozione delle autorizzazioni per Archiviazione di Azure versione 18/08/2011. -il 1° agosto 2016. Per altre informazioni, vedere [Note sulla versione di Azure SDK 2.6 - Cache nel ruolo](../app-service-web/azure-sdk-dotnet-release-notes-2-6.md#in-role-cache-updates) e [Aggiornamento della rimozione della versione del servizio di archiviazione di Microsoft Azure: estensione al 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
+> 
+> 
 
 La memorizzazione nella cache basata su istanze del ruolo presenta i vantaggi seguenti:
 
--	Non è previsto alcun addebito per la memorizzazione nella cache. Viene addebitato solo l'utilizzo delle risorse di elaborazione che ospitano la cache.
--	Elimina le quote e la limitazione della cache.
--	Offre maggiore controllo e isolamento.
--	Prestazioni migliorate.
--	Le cache vengono dimensionate automaticamente in base all'aumento o alla riduzione dei ruoli. Aumenta o riduce efficacemente la memoria disponibile per la memorizzazione nella cache quando vengono aggiunte o rimosse istanze del ruolo.
--	Garantisce la completa fedeltà del debug in fase di sviluppo.
--	Supporta il protocollo memcache.
+* Non è previsto alcun addebito per la memorizzazione nella cache. Viene addebitato solo l'utilizzo delle risorse di elaborazione che ospitano la cache.
+* Elimina le quote e la limitazione della cache.
+* Offre maggiore controllo e isolamento.
+* Prestazioni migliorate.
+* Le cache vengono dimensionate automaticamente in base all'aumento o alla riduzione dei ruoli. Aumenta o riduce efficacemente la memoria disponibile per la memorizzazione nella cache quando vengono aggiunte o rimosse istanze del ruolo.
+* Garantisce la completa fedeltà del debug in fase di sviluppo.
+* Supporta il protocollo memcache.
 
 La memorizzazione delle istanze del ruolo nella cache offre inoltre le opzioni configurabili seguenti:
 
--	Configurazione di un ruolo dedicato per la memorizzazione nella cache o memorizzazione nella cache basata su ruoli esistenti con risorse condivise.
--	Disponibilità della cache per più client nella stessa distribuzione del servizio cloud.
--	Creazione di più cache denominate con proprietà diverse.
--	Configurazione facoltativa della disponibilità elevata su singole cache.
--	Utilizzo di funzionalità di memorizzazione nella cache espanse quali aree, tag e notifiche.
+* Configurazione di un ruolo dedicato per la memorizzazione nella cache o memorizzazione nella cache basata su ruoli esistenti con risorse condivise.
+* Disponibilità della cache per più client nella stessa distribuzione del servizio cloud.
+* Creazione di più cache denominate con proprietà diverse.
+* Configurazione facoltativa della disponibilità elevata su singole cache.
+* Utilizzo di funzionalità di memorizzazione nella cache espanse quali aree, tag e notifiche.
 
-In questa guida vengono fornite informazioni generali su Cache nel ruolo. Per informazioni dettagliate su queste funzionalità che non rientrano nell'ambito di questa guida introduttiva, vedere la [panoramica di Cache nel ruolo][].
+In questa guida vengono fornite informazioni generali su Cache nel ruolo. Per informazioni dettagliate su queste funzionalità che non rientrano nell'ambito di questa guida introduttiva, vedere la [panoramica di Cache nel ruolo][panoramica di Cache nel ruolo].
 
 <a name="getting-started-cache-role-instance"></a>
-## Introduzione a Cache nel ruolo
 
+## Introduzione a Cache nel ruolo
 Cache nel ruolo consente di abilitare la memorizzazione nella cache utilizzando la memoria disponibile nelle macchine virtuali che ospitano le istanze del ruolo. Le istanze del ruolo che ospitano le cache sono note come **cluster di cache**. Sono disponibili due topologie di distribuzione per la memorizzazione nella cache basata su istanze del ruolo:
 
--	Memorizzazione nella cache basata su **ruolo dedicato**: le istanze del ruolo vengono utilizzate esclusivamente per la memorizzazione nella cache.
--	Memorizzazione nella cache **basata su ruolo con risorse condivise**: la cache condivide le risorse della macchina virtuale (larghezza di banda, CPU e memoria) con l'applicazione.
+* Memorizzazione nella cache basata su **ruolo dedicato**: le istanze del ruolo vengono utilizzate esclusivamente per la memorizzazione nella cache.
+* Memorizzazione nella cache **basata su ruolo con risorse condivise**: la cache condivide le risorse della macchina virtuale (larghezza di banda, CPU e memoria) con l'applicazione.
 
 Per utilizzare la memorizzazione nella cache basata su istanze del ruolo, è necessario configurare un cluster di cache e i client della cache affinché possano accedere al cluster di cache.
 
--	[Configurare il cluster di cache][]
--	[Configurare i client della cache][]
+* [Configurare il cluster di cache][Configurare il cluster di cache]
+* [Configurare i client della cache][Configurare i client della cache]
 
 <a name="enable-caching"></a>
-## Configurare il cluster di cache
 
+## Configurare il cluster di cache
 Per configurare un cluster di cache **basata su ruolo con risorse condivise**, selezionare il ruolo in cui si desidera ospitare il cluster di cache. Fare clic con il pulsante destro del mouse sulle proprietà del ruolo in **Esplora soluzioni** e scegliere **Proprietà**.
 
 ![RoleCache1][RoleCache1]
@@ -96,11 +96,15 @@ Dopo avere abilitato la memorizzazione nella cache, è possibile configurare l'a
 
 ![RoleCache10][RoleCache10]
 
->Se l'account di archiviazione non è configurato i ruoli non verranno avviati.
+> Se l'account di archiviazione non è configurato i ruoli non verranno avviati.
+> 
+> 
 
 La dimensione della cache è determinata da una combinazione della dimensione della macchina virtuale del ruolo, dal numero di istanze del ruolo e dal fatto che il cluster di cache sia configurato come cluster di cache con ruolo dedicato o con risorse condivise.
 
->In questa sezione viene fornita una panoramica semplificata della configurazione delle dimensioni della cache. Per ulteriori informazioni sulle dimensioni della cache e altre considerazioni sulla pianificazione della capacità, vedere [Considerazioni sulla pianificazione della capacità di Cache nel ruolo][].
+> In questa sezione viene fornita una panoramica semplificata della configurazione delle dimensioni della cache. Per ulteriori informazioni sulle dimensioni della cache e altre considerazioni sulla pianificazione della capacità, vedere [Considerazioni sulla pianificazione della capacità di Cache nel ruolo][Considerazioni sulla pianificazione della capacità di Cache nel ruolo].
+> 
+> 
 
 Per configurare le dimensioni della macchina virtuale e il numero di istanze del ruolo, fare clic con il pulsante destro del mouse sulle proprietà del ruolo in **Esplora soluzioni** e scegliere **Proprietà**.
 
@@ -112,34 +116,39 @@ Passare alla scheda **Configurazione**. Il valore predefinito di **Conteggio ist
 
 Di seguito è riportata la memoria totale disponibile per le dimensioni delle macchine virtuali:
 
--	**Piccola**: 1,75 GB
--	**Media**: 3,5 GB
--	**Grande**: 7 GB
--	**Molto grande**: 14 GB
+* **Piccola**: 1,75 GB
+* **Media**: 3,5 GB
+* **Grande**: 7 GB
+* **Molto grande**: 14 GB
 
+> Le dimensioni della memoria rappresentano la quantità totale di memoria disponibile per la macchina virtuale condivisa tra sistema operativo, memoria del processo destinata alla cache, dati della cache e applicazione. Per ulteriori informazioni sulla configurazione delle dimensioni della macchina virtuale, vedere [Come configurare le dimensioni della macchina virtuale][Come configurare le dimensioni della macchina virtuale]. Si noti che la cache non è supportata nelle macchine virtuali di dimensioni **ExtraSmall**.
+> 
+> 
 
-> Le dimensioni della memoria rappresentano la quantità totale di memoria disponibile per la macchina virtuale condivisa tra sistema operativo, memoria del processo destinata alla cache, dati della cache e applicazione. Per ulteriori informazioni sulla configurazione delle dimensioni della macchina virtuale, vedere [Come configurare le dimensioni della macchina virtuale][]. Si noti che la cache non è supportata nelle macchine virtuali di dimensioni **ExtraSmall**.
-
-Quando si specifica la memorizzazione nella cache basata su **Ruolo con risorse condivise**, la dimensione della cache disponibile è determinata dalla percentuale di memoria della macchina virtuale specificata. Quando si specifica la memorizzazione della cache basata su **Ruolo dedicato** tutta la memoria disponibile nella macchina virtuale viene utilizzata per la memorizzazione nella cache. Se sono configurate due istanze del ruolo, viene utilizzata la memoria combinata delle macchine virtuali. In questo modo si forma un cluster di cache in cui la memoria cache disponibile è distribuita tra più istanze del ruolo ma presentata ai client della cache come risorsa singola. Configurando ulteriori istanze del ruolo è possibile aumentare la dimensione della cache. Per determinare le impostazioni necessarie per eseguire il provisioning di una cache delle dimensioni desiderate, è possibile utilizzare il foglio di calcolo per la pianificazione della capacità, disponibile in [Considerazioni sulla pianificazione della capacità per Cache nel ruolo][].
+Quando si specifica la memorizzazione nella cache basata su **Ruolo con risorse condivise**, la dimensione della cache disponibile è determinata dalla percentuale di memoria della macchina virtuale specificata. Quando si specifica la memorizzazione della cache basata su **Ruolo dedicato** tutta la memoria disponibile nella macchina virtuale viene utilizzata per la memorizzazione nella cache. Se sono configurate due istanze del ruolo, viene utilizzata la memoria combinata delle macchine virtuali. In questo modo si forma un cluster di cache in cui la memoria cache disponibile è distribuita tra più istanze del ruolo ma presentata ai client della cache come risorsa singola. Configurando ulteriori istanze del ruolo è possibile aumentare la dimensione della cache. Per determinare le impostazioni necessarie per eseguire il provisioning di una cache delle dimensioni desiderate, è possibile utilizzare il foglio di calcolo per la pianificazione della capacità, disponibile in [Considerazioni sulla pianificazione della capacità per Cache nel ruolo][Considerazioni sulla pianificazione della capacità per Cache nel ruolo].
 
 Dopo avere configurato il cluster di cache, è possibile configurare i client della cache per consentire l'accesso alla cache.
 
 <a name="NuGet"></a>
-## Configurare i client della cache
 
+## Configurare i client della cache
 Per accedere alla cache di Cache nel ruolo, è necessario che i client si trovino nella stessa distribuzione. Se il cluster di cache è un cluster di cache basato su ruolo dedicato, i client saranno costituiti da altri ruoli nella distribuzione. Se il cluster di cache è un cluster di cache basato su ruolo con risorse condivise, i client possono essere costituiti da altri ruoli nella distribuzione o dai ruoli stessi che ospitano il cluster di cache. Viene fornito un pacchetto NuGet che può essere utilizzato per configurare ogni ruolo client che accede alla cache. Per configurare un ruolo per l'accesso al cluster di cache tramite il pacchetto NuGet di memorizzazione nella cache, fare clic con il pulsante destro del mouse sul progetto del ruolo in **Esplora soluzioni** e scegliere **Manage NuGet Packages**.
 
 ![RoleCache4][RoleCache4]
 
 Selezionare **In-Role Cache**, fare clic su **Install** e quindi su **I Accept**.
 
->Se **In-Role Cache** non è incluso nell'elenco, digitare **WindowsAzure.Caching** nella casella di testo **Search Online**, quindi selezionare la voce corrispondente dai risultati.
+> Se **In-Role Cache** non è incluso nell'elenco, digitare **WindowsAzure.Caching** nella casella di testo **Search Online**, quindi selezionare la voce corrispondente dai risultati.
+> 
+> 
 
 ![RoleCache5][RoleCache5]
 
 Il pacchetto NuGet consente di effettuare varie operazioni: aggiunge la configurazione necessaria al file di configurazione del ruolo, aggiunge un'impostazione del livello di diagnostica per il client della cache al file ServiceConfiguration.cscfg dell'applicazione Azure e aggiunge i riferimenti all'assembly necessari.
 
->Per i ruoli web ASP.NET il pacchetto di memorizzazione nella cache NuGet consente inoltre di aggiungere due sezioni commentate a web.config. La prima sezione permette di memorizzare nella cache lo stato della sessione e la seconda consente la memorizzazione nella cache dell'output delle pagine ASP.NET. Per ulteriori informazioni, vedere [Procedura: archiviare lo stato della sessione ASP.NET nella cache] e [Procedura: archiviare la memorizzazione dell'output delle pagine ASP.NET nella cache][].
+> Per i ruoli web ASP.NET il pacchetto di memorizzazione nella cache NuGet consente inoltre di aggiungere due sezioni commentate a web.config. La prima sezione permette di memorizzare nella cache lo stato della sessione e la seconda consente la memorizzazione nella cache dell'output delle pagine ASP.NET. Per ulteriori informazioni, vedere [Procedura: archiviare lo stato della sessione ASP.NET nella cache] e [Procedura: archiviare la memorizzazione dell'output delle pagine ASP.NET nella cache][Procedura: archiviare la memorizzazione dell'output delle pagine ASP.NET nella cache].
+> 
+> 
 
 Il pacchetto NuGet aggiunge i seguenti elementi di configurazione nel file web.config o app.config del ruolo. All'elemento **configSections** vengono aggiunte una sezione **dataCacheClients** e una sezione **cacheDiagnostics**. Se non è presente alcun elemento **configSections**, ne verrà creato uno come figlio dell'elemento **configuration**.
 
@@ -150,7 +159,7 @@ Il pacchetto NuGet aggiunge i seguenti elementi di configurazione nel file web.c
                type="Microsoft.ApplicationServer.Caching.DataCacheClientsSection, Microsoft.ApplicationServer.Caching.Core" 
                allowLocation="true" 
                allowDefinition="Everywhere" />
-    
+
       <section name="cacheDiagnostics" 
                type="Microsoft.ApplicationServer.Caching.AzureCommon.DiagnosticsConfigurationSection, Microsoft.ApplicationServer.Caching.AzureCommon" 
                allowLocation="true" 
@@ -171,7 +180,9 @@ In queste nuove sezioni sono inclusi i riferimenti a un elemento **dataCacheClie
 
 Dopo avere aggiunto la configurazione, sostituire **[cache cluster role name]** con il nome del ruolo che ospita il cluster di cache.
 
->Se **[cache cluster role name]** non viene sostituito con il nome del ruolo che ospita il cluster di cache, verrà generata un'eccezione **TargetInvocationException** quando viene eseguito l'accesso alla cache con un'eccezione **DatacacheException** interna e un messaggio che indica che il ruolo non esiste.
+> Se **[cache cluster role name]** non viene sostituito con il nome del ruolo che ospita il cluster di cache, verrà generata un'eccezione **TargetInvocationException** quando viene eseguito l'accesso alla cache con un'eccezione **DatacacheException** interna e un messaggio che indica che il ruolo non esiste.
+> 
+> 
 
 Il pacchetto NuGet consente inoltre di aggiungere un’impostazione **ClientDiagnosticLevel** a **ConfigurationSettings** del ruolo client della cache in ServiceConfiguration.cscfg. Nell’esempio seguente viene illustrata la sezione **WebRole1** da un file ServiceConfiguration.cscfg con un livello **ClientDiagnosticLevel** di 1, che è il livello **ClientDiagnosticLevel** predefinito.
 
@@ -184,42 +195,46 @@ Il pacchetto NuGet consente inoltre di aggiungere un’impostazione **ClientDiag
       </ConfigurationSettings>
     </Role>
 
->Cache nel ruolo fornisce inoltre un livello diagnostico del server di cache e del client della cache. Il livello diagnostico consiste in una singola impostazione che consente di configurare il livello di informazioni diagnostiche raccolte per la memorizzazione nella cache. Per ulteriori informazioni, vedere [Diagnostica e risoluzione dei problemi di In-Role Cache][]
+> Cache nel ruolo fornisce inoltre un livello diagnostico del server di cache e del client della cache. Il livello diagnostico consiste in una singola impostazione che consente di configurare il livello di informazioni diagnostiche raccolte per la memorizzazione nella cache. Per ulteriori informazioni, vedere [Diagnostica e risoluzione dei problemi di In-Role Cache][Diagnostica e risoluzione dei problemi di In-Role Cache]
+> 
+> 
 
 Il pacchetto NuGet aggiunge inoltre riferimenti agli assembly seguenti:
 
--   Microsoft.ApplicationServer.Caching.Client.dll
--   Microsoft.ApplicationServer.Caching.Core.dll
--   Microsoft.WindowsFabric.Common.dll
--   Microsoft.WindowsFabric.Data.Common.dll
--   Microsoft.ApplicationServer.Caching.AzureCommon.dll
--   Microsoft.ApplicationServer.Caching.AzureClientHelper.dll
+* Microsoft.ApplicationServer.Caching.Client.dll
+* Microsoft.ApplicationServer.Caching.Core.dll
+* Microsoft.WindowsFabric.Common.dll
+* Microsoft.WindowsFabric.Data.Common.dll
+* Microsoft.ApplicationServer.Caching.AzureCommon.dll
+* Microsoft.ApplicationServer.Caching.AzureClientHelper.dll
 
 Se il ruolo è un ruolo Web ASP.NET, viene aggiunto anche il riferimento all'assembly seguente:
 
--	Microsoft.Web.DistributedCache.dll.
+* Microsoft.Web.DistributedCache.dll.
 
 Dopo avere configurato il progetto client per la memorizzazione nella cache, è possibile utilizzare le tecniche descritte nelle sezioni seguenti per utilizzare la cache.
 
 <a name="working-with-caches"></a>
-## Utilizzo delle cache
 
+## Utilizzo delle cache
 Nelle procedure riportate in questa sezione viene descritto come eseguire attività comuni con la memorizzazione nella cache.
 
--	[Procedura: creare un oggetto DataCache][]
--   [Procedura: aggiungere e recuperare un oggetto dalla cache][]
--   [Procedura: specificare la scadenza di un oggetto nella cache][]
--   [Procedura: archiviare lo stato della sessione ASP.NET nella cache][]
--   [Procedura: archiviare la memorizzazione nella cache dell'output delle pagine ASP.NET][]
+* [Procedura: creare un oggetto DataCache][Procedura: creare un oggetto DataCache]
+* [Procedura: aggiungere e recuperare un oggetto dalla cache][Procedura: aggiungere e recuperare un oggetto dalla cache]
+* [Procedura: specificare la scadenza di un oggetto nella cache][Procedura: specificare la scadenza di un oggetto nella cache]
+* [Procedura: archiviare lo stato della sessione ASP.NET nella cache][Procedura: archiviare lo stato della sessione ASP.NET nella cache]
+* [Procedura: archiviare la memorizzazione nella cache dell'output delle pagine ASP.NET][Procedura: archiviare la memorizzazione nella cache dell'output delle pagine ASP.NET]
 
 <a name="create-cache-object"></a>
-## Procedura: creare un oggetto DataCache
 
+## Procedura: creare un oggetto DataCache
 Per usare una cache a livello di codice, è necessario un riferimento alla cache. Aggiungere l'elemento seguente nella parte superiore di ogni file da cui si desidera utilizzare Cache nel ruolo:
 
     using Microsoft.ApplicationServer.Caching;
 
->Se in Visual Studio non vengono riconosciuti i tipi nell'istruzione using anche in seguito all'installazione del pacchetto NuGet di memorizzazione nella cache durante la quale vengono aggiunti i riferimenti necessari, verificare che il profilo di destinazione sia .NET Framework 4.0 o versione successiva e accertarsi di selezionare uno dei profili in cui non sia specificato **Client Profile**. Per istruzioni sulla configurazione dei client della cache, vedere [Configurazione dei client della cache][].
+> Se in Visual Studio non vengono riconosciuti i tipi nell'istruzione using anche in seguito all'installazione del pacchetto NuGet di memorizzazione nella cache durante la quale vengono aggiunti i riferimenti necessari, verificare che il profilo di destinazione sia .NET Framework 4.0 o versione successiva e accertarsi di selezionare uno dei profili in cui non sia specificato **Client Profile**. Per istruzioni sulla configurazione dei client della cache, vedere [Configurazione dei client della cache][Configurazione dei client della cache].
+> 
+> 
 
 È possibile creare un oggetto **DataCache** in due modi. Il primo consiste nel creare un oggetto **DataCache** semplicemente passando il nome della cache desiderata.
 
@@ -233,11 +248,11 @@ Il secondo modo consiste nel creare un nuovo oggetto **DataCacheFactory** nell'a
     DataCacheFactory cacheFactory = new DataCacheFactory();
     DataCache cache = cacheFactory.GetDefaultCache();
     // Or DataCache cache = cacheFactory.GetCache("MyCache");
-    // cache can now be used to add and retrieve items.	
+    // cache can now be used to add and retrieve items.    
 
 <a name="add-object"></a>
-## Procedura: aggiungere e recuperare un oggetto dalla cache
 
+## Procedura: aggiungere e recuperare un oggetto dalla cache
 Per aggiungere un elemento alla cache, è possibile utilizzare il metodo **Add** o il metodo **Put**. Il metodo **Add** aggiunge l'oggetto specificato alla cache, associato a una chiave costituita dal valore del parametro della chiave.
 
     // Add the string "value" to the cache, keyed by "item"
@@ -246,6 +261,8 @@ Per aggiungere un elemento alla cache, è possibile utilizzare il metodo **Add**
 Se nella cache è già presente un oggetto con la stessa chiave, viene generata un'eccezione **DataCacheException** con un messaggio che indica
 
 > ErrorCode:SubStatus: si sta tentando di creare un oggetto con una chiave già presente nella cache. La memorizzazione nella cache accetterà solo valori chiave univoci per gli oggetti.
+> 
+> 
 
 Per recuperare un oggetto con una chiave specifica, è possibile utilizzare il metodo **Get**. Se l'oggetto esiste, viene restituito, in caso contrario viene restituito un valore null.
 
@@ -270,8 +287,8 @@ Il metodo **Put** aggiunge l'oggetto con la chiave specificata alla cache se non
     cache.Put("item", "value");
 
 <a name="specify-expiration"></a>
-## Procedura: specificare la scadenza di un oggetto nella cache
 
+## Procedura: specificare la scadenza di un oggetto nella cache
 Per impostazione predefinita, gli elementi nella cache scadono 10 minuti dopo essere stati collocati nella cache. È possibile impostare il valore nell'impostazione **Time to Live (min)** nelle proprietà del ruolo che ospita il cluster di cache.
 
 ![RoleCache6][RoleCache6]
@@ -292,9 +309,9 @@ Per visualizzare l'intervallo di timeout rimanente di un oggetto nella cache, è
     TimeSpan timeRemaining = item.Timeout;
 
 <a name="store-session"></a>
-## Procedura: archiviare lo stato della sessione ASP.NET nella cache
 
-Il provider di stato della sessione per Cache nel ruolo è un meccanismo di archiviazione out-of-process specifico per le applicazioni ASP.NET. Tale provider consente di archiviare lo stato della sessione in una cache di Azure anziché in memoria o in un database di SQL Server. Per utilizzare il provider di stato della sessione di memorizzazione nella cache, configurare innanzitutto il cluster di cache e quindi l'applicazione ASP.NET per la memorizzazione nella cache utilizzando il pacchetto NuGet di memorizzazione nella cache, come descritto in [Introduzione a Cache nel ruolo][]. Durante l'installazione del pacchetto NuGet di memorizzazione nella cache, viene aggiunta una sezione commentata nel file web.config contenente la configurazione richiesta dall'applicazione ASP.NET per l'utilizzo del provider di stato della sessione per Cache nel ruolo.
+## Procedura: archiviare lo stato della sessione ASP.NET nella cache
+Il provider di stato della sessione per Cache nel ruolo è un meccanismo di archiviazione out-of-process specifico per le applicazioni ASP.NET. Tale provider consente di archiviare lo stato della sessione in una cache di Azure anziché in memoria o in un database di SQL Server. Per utilizzare il provider di stato della sessione di memorizzazione nella cache, configurare innanzitutto il cluster di cache e quindi l'applicazione ASP.NET per la memorizzazione nella cache utilizzando il pacchetto NuGet di memorizzazione nella cache, come descritto in [Introduzione a Cache nel ruolo][Introduzione a Cache nel ruolo]. Durante l'installazione del pacchetto NuGet di memorizzazione nella cache, viene aggiunta una sezione commentata nel file web.config contenente la configurazione richiesta dall'applicazione ASP.NET per l'utilizzo del provider di stato della sessione per Cache nel ruolo.
 
     <!--Uncomment this section to use In-Role Cache for session state caching
     <system.web>
@@ -309,16 +326,18 @@ Il provider di stato della sessione per Cache nel ruolo è un meccanismo di arch
       </sessionState>
     </system.web>-->
 
->Se il file web.config non contiene questa sezione commentata dopo l'installazione del pacchetto NuGet di Cache, verificare di avere installato la versione più recente di Gestione pacchetti NuGet, come descritto nell'articolo relativo all'[installazione di Gestione pacchetti NuGet][], quindi disinstallare e reinstallare il pacchetto.
+> Se il file web.config non contiene questa sezione commentata dopo l'installazione del pacchetto NuGet di Cache, verificare di avere installato la versione più recente di Gestione pacchetti NuGet, come descritto nell'articolo relativo all'[installazione di Gestione pacchetti NuGet][installazione di Gestione pacchetti NuGet], quindi disinstallare e reinstallare il pacchetto.
+> 
+> 
 
 Per abilitare il provider di stato della sessione per Cache nel ruolo, rimuovere il commento dalla sezione specificata. La cache predefinita è specificata nel frammento di codice fornito. Per utilizzare una cache diversa, specificare la cache desiderata nell'attributo **cacheName**.
 
-Per ulteriori informazioni sull'utilizzo del provider di stato della sessione del servizio di caching, vedere l'argomento relativo al [provider di stato della sessione per Cache nel ruolo][].
+Per ulteriori informazioni sull'utilizzo del provider di stato della sessione del servizio di caching, vedere l'argomento relativo al [provider di stato della sessione per Cache nel ruolo][provider di stato della sessione per Cache nel ruolo].
 
 <a name="store-page"></a>
-## Procedura: archiviare la memorizzazione nella cache dell'output delle pagine ASP.NET
 
-Il provider di cache di output per Cache nel ruolo è un meccanismo di memorizzazione out-of-process per i dati della cache di output. Tali dati sono specificamente utilizzati per le risposte HTTP complete (memorizzazione nella cache di output delle pagine). Il provider viene inserito nel nuovo punto di estendibilità del provider di cache di output che è stato introdotto in ASP.NET 4. Per usare il provider di cache di output, configurare innanzitutto il cluster di cache e quindi l'applicazione ASP.NET per la memorizzazione nella cache usando il pacchetto NuGet di memorizzazione nella cache, come descritto in [Introduzione a Cache nel ruolo][]. Durante l'installazione del pacchetto NuGet di memorizzazione nella cache, viene aggiunta la sezione commentata seguente nel file web.config contenente la configurazione richiesta dall'applicazione ASP.NET per l'utilizzo del provider di cache di output per Cache nel ruolo.
+## Procedura: archiviare la memorizzazione nella cache dell'output delle pagine ASP.NET
+Il provider di cache di output per Cache nel ruolo è un meccanismo di memorizzazione out-of-process per i dati della cache di output. Tali dati sono specificamente utilizzati per le risposte HTTP complete (memorizzazione nella cache di output delle pagine). Il provider viene inserito nel nuovo punto di estendibilità del provider di cache di output che è stato introdotto in ASP.NET 4. Per usare il provider di cache di output, configurare innanzitutto il cluster di cache e quindi l'applicazione ASP.NET per la memorizzazione nella cache usando il pacchetto NuGet di memorizzazione nella cache, come descritto in [Introduzione a Cache nel ruolo][Introduzione a Cache nel ruolo]. Durante l'installazione del pacchetto NuGet di memorizzazione nella cache, viene aggiunta la sezione commentata seguente nel file web.config contenente la configurazione richiesta dall'applicazione ASP.NET per l'utilizzo del provider di cache di output per Cache nel ruolo.
 
     <!--Uncomment this section to use In-Role Cache for output caching
     <caching>
@@ -333,7 +352,9 @@ Il provider di cache di output per Cache nel ruolo è un meccanismo di memorizza
       </outputCache>
     </caching>-->
 
->Se il file web.config non contiene questa sezione commentata dopo l'installazione del pacchetto NuGet di Cache, verificare di avere installato la versione più recente di Gestione pacchetti NuGet, come descritto nell'articolo relativo all'[installazione di Gestione pacchetti NuGet][], quindi disinstallare e reinstallare il pacchetto.
+> Se il file web.config non contiene questa sezione commentata dopo l'installazione del pacchetto NuGet di Cache, verificare di avere installato la versione più recente di Gestione pacchetti NuGet, come descritto nell'articolo relativo all'[installazione di Gestione pacchetti NuGet][installazione di Gestione pacchetti NuGet], quindi disinstallare e reinstallare il pacchetto.
+> 
+> 
 
 Per abilitare il provider di cache di output per Cache nel ruolo, rimuovere il commento dalla sezione specificata. La cache predefinita è specificata nel frammento di codice fornito. Per utilizzare una cache diversa, specificare la cache desiderata nell'attributo **cacheName**.
 
@@ -341,19 +362,19 @@ Aggiungere una direttiva **OutputCache** a ogni pagina per cui si desidera memor
 
     <%@ OutputCache Duration="60" VaryByParam="*" %>
 
-In questo esempio i dati delle pagine rimarranno memorizzati nella cache per 60 secondi e per ogni combinazione di parametri verrà memorizzata nella cache una versione diversa della pagina. Per ulteriori informazioni sulle opzioni disponibili, vedere [Direttiva OutputCache][].
+In questo esempio i dati delle pagine rimarranno memorizzati nella cache per 60 secondi e per ogni combinazione di parametri verrà memorizzata nella cache una versione diversa della pagina. Per ulteriori informazioni sulle opzioni disponibili, vedere [Direttiva OutputCache][Direttiva OutputCache].
 
-Per ulteriori informazioni sull'utilizzo del provider di cache di output per Cache nel ruolo, vedere l'argomento relativo al [provider di cache di output per Cache nel ruolo][].
+Per ulteriori informazioni sull'utilizzo del provider di cache di output per Cache nel ruolo, vedere l'argomento relativo al [provider di cache di output per Cache nel ruolo][provider di cache di output per Cache nel ruolo].
 
 <a name="next-steps"></a>
-## Passaggi successivi
 
+## Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base di Cache nel ruolo, visitare i collegamenti seguenti per altre informazioni sulle attività di memorizzazione nella cache più complesse.
 
--   Vedere il riferimento MSDN: [Cache nel ruolo][]
--   Informazioni su come eseguire la migrazione a Cache nel ruolo: [Migrazione a Cache nel ruolo][]
--   Consultare gli esempi: [Esempi di Cache nel ruolo][]
--	Guardare la sessione sulle [prestazioni ottimali e l’accelerazione delle applicazioni dei servizi cloud con la memorizzazione nella cache di Azure][] da TechEd 2013 sulla Cache nel ruolo
+* Vedere il riferimento MSDN: [Cache nel ruolo][Cache nel ruolo]
+* Informazioni su come eseguire la migrazione a Cache nel ruolo: [Migrazione a Cache nel ruolo][Migrazione a Cache nel ruolo]
+* Consultare gli esempi: [Esempi di Cache nel ruolo][Esempi di Cache nel ruolo]
+* Guardare la sessione sulle [prestazioni ottimali e l’accelerazione delle applicazioni dei servizi cloud con la memorizzazione nella cache di Azure][prestazioni ottimali e l’accelerazione delle applicazioni dei servizi cloud con la memorizzazione nella cache di Azure] da TechEd 2013 sulla Cache nel ruolo
 
 <!-- INTRA-TOPIC LINKS -->
 [Passaggi successivi]: #next-steps
@@ -376,7 +397,7 @@ A questo punto, dopo aver appreso le nozioni di base di Cache nel ruolo, visitar
 [Procedura: archiviare la memorizzazione dell'output delle pagine ASP.NET nella cache]: #store-page
 [Procedura: archiviare la memorizzazione nella cache dell'output delle pagine ASP.NET]: #store-page
 [Target a Supported .NET Framework Profile]: #prepare-vs-target-net
- 
+
 <!-- IMAGES --> 
 [RoleCache1]: ./media/cache-dotnet-how-to-use-in-role/cache8.png
 [RoleCache2]: ./media/cache-dotnet-how-to-use-in-role/cache9.png
@@ -387,7 +408,7 @@ A questo punto, dopo aver appreso le nozioni di base di Cache nel ruolo, visitar
 [RoleCache7]: ./media/cache-dotnet-how-to-use-in-role/cache14.png
 [RoleCache8]: ./media/cache-dotnet-how-to-use-in-role/cache15.png
 [RoleCache10]: ./media/cache-dotnet-how-to-use-in-role/cache17.png
-  
+
 <!-- LINKS --> 
 [Come configurare le dimensioni della macchina virtuale]: http://go.microsoft.com/fwlink/?LinkId=164387
 [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
@@ -411,6 +432,6 @@ A questo punto, dopo aver appreso le nozioni di base di Cache nel ruolo, visitar
 [Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
- 
+
 
 <!---HONumber=AcomDC_0921_2016-->

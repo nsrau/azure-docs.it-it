@@ -1,23 +1,22 @@
-<properties 
-	pageTitle="Installazione dei processi di database elastici | Microsoft Azure" 
-	description="Installazione dettagliata della funzionalità dei processi elastici." 
-	services="sql-database" 
-	documentationCenter="" 
-	manager="jhubbard" 
-	authors="ddove" 
-	editor=""/>
+---
+title: Installazione dei processi di database elastici | Microsoft Docs
+description: Installazione dettagliata della funzionalità dei processi elastici.
+services: sql-database
+documentationcenter: ''
+manager: jhubbard
+author: ddove
+editor: ''
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/27/2016" 
-	ms.author="ddove"/>
+ms.service: sql-database
+ms.workload: sql-database
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/27/2016
+ms.author: ddove
 
+---
 # Installazione dei processi di database elastici (panoramica)
-
 I [**Processi di database elastici**](sql-database-elastic-jobs-overview.md) possono essere installati tramite PowerShell o tramite il portale di Azure classico. È possibile ottenere l'accesso solo per creare e gestire processi utilizzando l'API PowerShell solo se si installa il pacchetto di PowerShell. Inoltre, le API PowerShell forniscono molte più funzionalità rispetto al portale in questo momento.
 
 Se sono già stati installati i **Processi database elastici** tramite il portale da un’esistente **pool di database elastici**, l'ultima anteprima di Powershell include gli script per aggiornare l'installazione esistente. È consigliabile aggiornare l'installazione alla versione più recente dei componenti dei **Processi di database elastici** per trarre vantaggio dalle nuove funzionalità esposte tramite le API di PowerShell.
@@ -29,31 +28,27 @@ Se sono già stati installati i **Processi database elastici** tramite il portal
 
 ## Scaricare e importare il pacchetto di PowerShell dei processi di database elastici
 1. Avviare la finestra di comando Microsoft Azure PowerShell e passare alla directory in cui è stato scaricata l’utilità della riga di comando NuGet (nuget.exe).
-
 2. Scaricare e importare il pacchetto **Processi di database elastici** nella directory corrente con il comando seguente:
-
-		PS C:\>.\nuget install Microsoft.Azure.SqlDatabase.Jobs -prerelease
-
+   
+        PS C:\>.\nuget install Microsoft.Azure.SqlDatabase.Jobs -prerelease
+   
     I file **Processi di database elastici**vengono inseriti in una directory locale in una cartella denominata **Microsoft.Azure.SqlDatabase.Processi.x.x.xxxx.x** dove *x.x.xxxx.x* rappresenta il numero di versione. I cmdlet di PowerShell (inclusi i client .dlls richiesti) si trovano nella sottodirectory **Strumenti\\ProcessiDatabaseElastici** e gli script di PowerShell per installare, aggiornare e disinstallare si trovano anch’essi nella sottodirectory **Strumenti**.
-
 3. Passare alla sottodirectory strumenti sotto la cartella Microsoft.Azure.SqlDatabase.Processi.x.x.xxx.x digitando strumenti cd, ad esempio:
-
-		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
-
-4.	Eseguire lo script .\\InstallElasticDatabaseJobsCmdlets.ps1 per copiare la directory ProcessiDatabaseElastici in $home\\Documenti\\WindowsPowerShell\\Moduli. Il modulo da utilizzare, verrà automaticamente importato, ad esempio:
-
-		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1
-		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobsCmdlets.ps1
+   
+        PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
+4. Eseguire lo script .\\InstallElasticDatabaseJobsCmdlets.ps1 per copiare la directory ProcessiDatabaseElastici in $home\\Documenti\\WindowsPowerShell\\Moduli. Il modulo da utilizzare, verrà automaticamente importato, ad esempio:
+   
+     PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1
+     PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobsCmdlets.ps1
 
 ## Installare i componenti dei processi di database elastici utilizzando PowerShell
-1.	Avviare una finestra di comando di Microsoft Azure PowerShell e passare alla \\sottodirectory strumenti sotto la cartella Microsoft.Azure.SqlDatabase.Processi.x.x.xxx.x: digitare cd\\strumenti
-
-		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
-
-2.	Eseguire lo script PowerShell .\\InstallElasticDatabaseJobs.ps1 e fornire valori per le variabili richieste. Questo script crea i componenti descritti in [Componenti e prezzi dei processi di database elastici](sql-database-elastic-jobs-overview.md#components-and-pricing) con la configurazione del servizio Cloud di Azure per utilizzare correttamente i componenti dipendenti.
-
-		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1
-		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobs.ps1
+1. Avviare una finestra di comando di Microsoft Azure PowerShell e passare alla \\sottodirectory strumenti sotto la cartella Microsoft.Azure.SqlDatabase.Processi.x.x.xxx.x: digitare cd\\strumenti
+   
+     PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
+2. Eseguire lo script PowerShell .\\InstallElasticDatabaseJobs.ps1 e fornire valori per le variabili richieste. Questo script crea i componenti descritti in [Componenti e prezzi dei processi di database elastici](sql-database-elastic-jobs-overview.md#components-and-pricing) con la configurazione del servizio Cloud di Azure per utilizzare correttamente i componenti dipendenti.
+   
+     PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1
+     PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobs.ps1
 
 Quando si esegue questo comando, viene visualizzata una finestra in cui vengono richiesti **Nome utente** e **Password**. Non si tratta delle credenziali di Azure. Immettere il nome utente e password che saranno le credenziali di amministratore che si desidera creare per il nuovo server.
 
@@ -66,44 +61,44 @@ I parametri forniti in questa chiamata di esempio possono essere modificati per 
   </tr>
 
 <tr>
-	<td>ResourceGroupName</td>
-	<td>Fornisce il nome del gruppo di risorse di Azure creato per contenere i componenti di Azure appena creati. Questo parametro viene impostato su "__ElasticDatabaseJob". È consigliabile non modificare questo valore.</td>
-	</tr>
+    <td>ResourceGroupName</td>
+    <td>Fornisce il nome del gruppo di risorse di Azure creato per contenere i componenti di Azure appena creati. Questo parametro viene impostato su "__ElasticDatabaseJob". È consigliabile non modificare questo valore.</td>
+    </tr>
 
 </tr>
 
-	<tr>
-	<td>ResourceGroupLocation</td>
-	<td>Fornisce la posizione di Azure da utilizzare per i componenti di Azure appena creati. Questo parametro viene impostato per il percorso Stati Uniti centrali.</td>
+    <tr>
+    <td>ResourceGroupLocation</td>
+    <td>Fornisce la posizione di Azure da utilizzare per i componenti di Azure appena creati. Questo parametro viene impostato per il percorso Stati Uniti centrali.</td>
 </tr>
 
 <tr>
-	<td>ServiceWorkerCount</td>
-	<td>Fornisce il numero di ruoli di lavoro del servizio da installare. Questo parametro viene impostato su 1. Per ridimensionare il servizio e per garantire un'elevata disponibilità, è possibile utilizzare un numero maggiore di ruoli di lavoro. È consigliabile utilizzare "2" per le distribuzioni che richiedono un'elevata disponibilità del servizio.</td>
-	</tr>
+    <td>ServiceWorkerCount</td>
+    <td>Fornisce il numero di ruoli di lavoro del servizio da installare. Questo parametro viene impostato su 1. Per ridimensionare il servizio e per garantire un'elevata disponibilità, è possibile utilizzare un numero maggiore di ruoli di lavoro. È consigliabile utilizzare "2" per le distribuzioni che richiedono un'elevata disponibilità del servizio.</td>
+    </tr>
 
 </tr>
-	<tr>
-	<td>ServiceVmSize</td>
-	<td>Fornisce le dimensioni della macchina virtuale per l'utilizzo all'interno del servizio Cloud. Questo parametro viene impostato su A0. Sono accettati valori di parametri di A0/A1/A2/A3 che fanno si che il ruolo di lavoro utilizzi una dimensione Extrapiccola/Piccola/Media/Grande, rispettivamente. Per ulteriori informazioni sulle dimensioni dei ruoli di lavoro, vedere [Componenti e prezzi dei processi di database elastici](sql-database-elastic-jobs-overview/#components-and-pricing).</td>
-</tr>
-
-</tr>
-	<tr>
-	<td>SqlServerDatabaseSlo</td>
-	<td>Fornisce l'obiettivo del livello di servizio per un'edizione Standard. Questo parametro viene impostato su S0. Sono accettati i valori dei parametri S0/S1/S2/S3 che fanno si che il Database SQL di Azure utilizzi il rispettivo SLO. Per ulteriori informazioni sugli SLO del database SQL, vedere [Componenti e prezzi dei processi di database elastici](sql-database-elastic-jobs-overview/#components-and-pricing).</td>
+    <tr>
+    <td>ServiceVmSize</td>
+    <td>Fornisce le dimensioni della macchina virtuale per l'utilizzo all'interno del servizio Cloud. Questo parametro viene impostato su A0. Sono accettati valori di parametri di A0/A1/A2/A3 che fanno si che il ruolo di lavoro utilizzi una dimensione Extrapiccola/Piccola/Media/Grande, rispettivamente. Per ulteriori informazioni sulle dimensioni dei ruoli di lavoro, vedere [Componenti e prezzi dei processi di database elastici](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </tr>
-	<tr>
-	<td>SqlServerAdministratorUserName</td>
-	<td>Fornisce il nome utente dell’amministratore per il server del Database SQL di Azure appena creato. Se omesso, si aprirà una finestra di credenziali di PowerShell per la richiesta di credenziali.</td>
+    <tr>
+    <td>SqlServerDatabaseSlo</td>
+    <td>Fornisce l'obiettivo del livello di servizio per un'edizione Standard. Questo parametro viene impostato su S0. Sono accettati i valori dei parametri S0/S1/S2/S3 che fanno si che il Database SQL di Azure utilizzi il rispettivo SLO. Per ulteriori informazioni sugli SLO del database SQL, vedere [Componenti e prezzi dei processi di database elastici](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </tr>
-	<tr>
-	<td>SqlServerAdministratorPassword</td>
-	<td>Fornisce la password dell’amministratore per il server del Database SQL di Azure appena creato. Se omesso, si aprirà una finestra di credenziali di PowerShell per richiedere le credenziali.</td>
+    <tr>
+    <td>SqlServerAdministratorUserName</td>
+    <td>Fornisce il nome utente dell’amministratore per il server del Database SQL di Azure appena creato. Se omesso, si aprirà una finestra di credenziali di PowerShell per la richiesta di credenziali.</td>
+</tr>
+
+</tr>
+    <tr>
+    <td>SqlServerAdministratorPassword</td>
+    <td>Fornisce la password dell’amministratore per il server del Database SQL di Azure appena creato. Se omesso, si aprirà una finestra di credenziali di PowerShell per richiedere le credenziali.</td>
 </tr>
 </table>
 
@@ -113,7 +108,6 @@ Per i sistemi che mirano ad avere un numero elevato di processi in esecuzione in
     PS C:*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*\tools>.\InstallElasticDatabaseJobs.ps1 -ServiceWorkerCount 2 -ServiceVmSize A2 -SqlServerDatabaseSlo S2
 
 ## Aggiornare un'installazione dei componenti dei processi di database elastici esistente tramite PowerShell
-
 I **Processi di database elastici** possono essere aggiornati all'interno di un'installazione esistente per la scalabilità e la disponibilità elevata. Questo processo consente aggiornamenti futuri del codice del servizio senza dover eliminare e ricreare il database di controllo. Questo processo può anche essere utilizzato all'interno della stessa versione per modificare la dimensione della macchina virtuale di servizio o il numero del ruolo di lavoro del server.
 
 Per aggiornare la dimensione della macchina virtuale di un'installazione, eseguire lo script seguente con i parametri aggiornati ai valori di propria scelta.
@@ -128,31 +122,29 @@ Per aggiornare la dimensione della macchina virtuale di un'installazione, esegui
 </tr>
 
   <tr>
-	<td>ResourceGroupName</td>
-	<td>Identifica il nome del gruppo di risorse di Azure utilizzato quando i componenti dei processi di database elastici sono stati inizialmente installati. Questo parametro viene impostato su "__ElasticDatabaseJob". Poiché non è consigliabile modificare questo valore, non è necessario specificare questo parametro.</td>
-	</tr>
+    <td>ResourceGroupName</td>
+    <td>Identifica il nome del gruppo di risorse di Azure utilizzato quando i componenti dei processi di database elastici sono stati inizialmente installati. Questo parametro viene impostato su "__ElasticDatabaseJob". Poiché non è consigliabile modificare questo valore, non è necessario specificare questo parametro.</td>
+    </tr>
 </tr>
 
 </tr>
 
   <tr>
-	<td>ServiceWorkerCount</td>
-	<td>Fornisce il numero di ruoli di lavoro del servizio da installare. Questo parametro viene impostato su 1. Per ridimensionare il servizio e per garantire un'elevata disponibilità, è possibile utilizzare un numero maggiore di ruoli di lavoro. È consigliabile utilizzare "2" per le distribuzioni che richiedono un'elevata disponibilità del servizio.</td>
+    <td>ServiceWorkerCount</td>
+    <td>Fornisce il numero di ruoli di lavoro del servizio da installare. Questo parametro viene impostato su 1. Per ridimensionare il servizio e per garantire un'elevata disponibilità, è possibile utilizzare un numero maggiore di ruoli di lavoro. È consigliabile utilizzare "2" per le distribuzioni che richiedono un'elevata disponibilità del servizio.</td>
 </tr>
 
 </tr>
 
-	<tr>
-	<td>ServiceVmSize</td>
-	<td>Fornisce le dimensioni della macchina virtuale per l'utilizzo all'interno del servizio Cloud. Questo parametro viene impostato su A0. Sono accettati valori di parametri di A0/A1/A2/A3 che fanno si che il ruolo di lavoro utilizzi una dimensione Extrapiccola/Piccola/Media/Grande, rispettivamente. Per ulteriori informazioni sulle dimensioni dei ruoli di lavoro, vedere [Componenti e prezzi dei processi di database elastici](sql-database-elastic-jobs-overview/#components-and-pricing).</td>
+    <tr>
+    <td>ServiceVmSize</td>
+    <td>Fornisce le dimensioni della macchina virtuale per l'utilizzo all'interno del servizio Cloud. Questo parametro viene impostato su A0. Sono accettati valori di parametri di A0/A1/A2/A3 che fanno si che il ruolo di lavoro utilizzi una dimensione Extrapiccola/Piccola/Media/Grande, rispettivamente. Per ulteriori informazioni sulle dimensioni dei ruoli di lavoro, vedere [Componenti e prezzi dei processi di database elastici](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </table>
 
 ## Installare i componenti dei processi di database elastici utilizzando il portale
-
 Dopo aver creato un [pool di database elastici](sql-database-elastic-pool-create-portal.md), è possibile installare componenti dei **processi di database elastici** per abilitare l’esecuzione di attività amministrative su ogni database nel pool di database elastici. A differenza di quando si utilizzano le API PowerShell dei **processi di database elastici**, l'interfaccia del portale è attualmente limitata solamente all’esecuzione su un pool esistente.
-
 
 **Tempo previsto per il completamento:** 10 minuti
 
@@ -160,25 +152,21 @@ Dopo aver creato un [pool di database elastici](sql-database-elastic-pool-create
 2. Se si sta creando un processo per la prima volta, è necessario installare **processi di database elastici** facendo clic su **ANTEPRIMA TERMINI**.
 3. Accettare i termini selezionando la casella di controllo.
 4. Nella vista "Installa servizi", fare clic su **CREDENZIALI PROCESSO**.
-
-	![Installazione dei servizi][1]
-
+   
+    ![Installazione dei servizi][1]
 5. Digitare un nome utente e una password per un amministratore del database. Come parte dell'installazione, viene creato un nuovo server di database SQL di Azure. All'interno di questo nuovo server, viene creato un nuovo database, noto come database di controllo, che viene utilizzato per contenere i metadati per i processi di database elastici. Il nome utente e la password creati in questo caso vengono utilizzati per l'accesso al database di controllo. Una credenziale separata viene utilizzata per l'esecuzione di script sui database all'interno del pool.
-
-	![Creare nome utente e password][2]
-
+   
+    ![Creare nome utente e password][2]
 6. Fare clic sul pulsante OK. I componenti vengono creati automaticamente in pochi minuti in un nuovo [gruppo di risorse](../resource-group-overview.md). Il nuovo gruppo di risorse viene bloccato sulla schermata iniziale, come illustrato di seguito. Una volta creati, i processi di database elastici (Servizio cloud, database SQL, Bus di servizio e Archiviazione) vengono creati tutti nel gruppo.
-
-	![gruppo di risorse nella schermata iniziale][3]
-
+   
+    ![gruppo di risorse nella schermata iniziale][3]
 7. Se si tenta di creare o gestire un processo mentre si installano i processi di database elastici, nel momento in cui vengono fornite le **credenziali** verrà visualizzato il messaggio seguente.
-
-	![Distribuzione ancora in corso][4]
+   
+    ![Distribuzione ancora in corso][4]
 
 Se è necessaria la disinstallazione, eliminare il gruppo di risorse. Vedere [Come disinstallare i componenti dei processi di database elastici](sql-database-elastic-jobs-uninstall.md).
 
 ## Passaggi successivi
-
 Assicurarsi che una credenziale con i diritti appropriati per l'esecuzione di script venga creata in ogni database nel gruppo e vedere [Protezione del Database SQL](sql-database-security.md) per ulteriori informazioni. Per un’introduzione, vedere [Creazione e gestione di processi di database elastici](sql-database-elastic-jobs-create-and-manage.md).
 
 <!--Image references-->

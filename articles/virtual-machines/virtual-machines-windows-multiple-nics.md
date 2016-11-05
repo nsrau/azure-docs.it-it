@@ -1,25 +1,28 @@
-<properties
-   pageTitle="Configurare più schede di rete in una macchina virtuale di Windows | Microsoft Azure"
-   description="Informazioni su come creare una macchina virtuale con più schede di rete collegate utilizzando i modelli di Azure Resource Manager o PowerShell."
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""/>
+---
+title: Configurare più schede di rete in una macchina virtuale di Windows | Microsoft Docs
+description: Informazioni su come creare una macchina virtuale con più schede di rete collegate utilizzando i modelli di Azure Resource Manager o PowerShell.
+services: virtual-machines-windows
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure"
-   ms.date="08/04/2016"
-   ms.author="iainfou"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
+ms.date: 08/04/2016
+ms.author: iainfou
 
+---
 # Creazione di una macchina virtuale con più schede di rete
 È possibile creare una macchina virtuale (VM) in Azure con più interfacce di rete virtuale (NIC) collegate. Uno scenario comune è quello di avere subnet diverse per la connettività front-end e back-end, oppure disporre di una rete dedicata a una soluzione di monitoraggio o di backup. In questo articolo vengono presentati i comandi rapidi per creare una macchina virtuale con più schede di rete collegate. Per informazioni dettagliate, incluse quelle sulla creazione di più schede di rete all'interno degli script di PowerShell, consultare la sezione dedicata alla [distribuzione di macchine virtuali con più schede di rete](../virtual-network/virtual-network-deploy-multinic-arm-ps.md). Le differenti [dimensioni della macchina virtuale](virtual-machines-windows-sizes.md) supportano un numero variabile di schede di rete, pertanto scegliere le dimensioni della macchina virtuale di conseguenza.
 
->[AZURE.WARNING] È necessario collegare più schede di rete quando si crea una VM, poiché non è possibile aggiungere le schede di rete a una macchina virtuale esistente. È possibile [creare una nuova macchina virtuale basata sui dischi virtuali originali](virtual-machines-windows-specialized-image.md) e creare più schede di rete mentre si distribuisce la macchina virtuale.
+> [!WARNING]
+> È necessario collegare più schede di rete quando si crea una VM, poiché non è possibile aggiungere le schede di rete a una macchina virtuale esistente. È possibile [creare una nuova macchina virtuale basata sui dischi virtuali originali](virtual-machines-windows-specialized-image.md) e creare più schede di rete mentre si distribuisce la macchina virtuale.
+> 
+> 
 
 ## Creare le risorse principali
 Verificare di aver prima [installato e configurato la versione più recente di Azure PowerShell](../powershell-install-configure.md).
@@ -67,7 +70,6 @@ $NIC2 = New-AzureRmNetworkInterface -Name NIC2 -ResourceGroupName TestRG `
 ```
 
 In genere è necessario creare anche un [gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) o un [servizio di bilanciamento del carico](../load-balancer/load-balancer-overview.md) per gestire e distribuire il traffico tra le macchine virtuali. L'articolo dettagliato sulla [macchina virtuale con più schede di rete](../virtual-network/virtual-network-deploy-multinic-arm-ps.md) offre una guida alla creazione di un gruppo di sicurezza di rete e all'assegnazione delle schede di rete.
-
 
 ## Creare la macchina virtuale
 Ora è possibile iniziare con la configurazione della macchina virtuale. Ad ogni dimensione della macchina virtuale corrisponde un limite del numero totale di schede di rete che è possibile aggiungere. Ulteriori informazioni sulle [dimensioni delle macchine Virtuali di Windows](virtual-machines-windows-sizes.md). Nell'esempio seguente viene utilizzata una dimensione della macchina virtuale che supporta fino a due schede di rete (`Standard_DS2_v2`):

@@ -1,29 +1,29 @@
-<properties
-   pageTitle="Bilanciamento del carico del cluster con Cluster Resource Manager di Azure Service Fabric | Microsoft Azure"
-   description="Introduzione al bilanciamento del carico del cluster con Cluster Resource Manager di Service Fabric."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: Bilanciamento del carico del cluster con Cluster Resource Manager di Azure Service Fabric | Microsoft Docs
+description: Introduzione al bilanciamento del carico del cluster con Cluster Resource Manager di Service Fabric.
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
+---
 # Bilanciamento del carico nel cluster di Service Fabric
 Cluster Resource Manager di Service Fabric consente di segnalare il carico dinamico, di reagire alle modifiche nel cluster, di correggere le violazioni alle limitazioni e di ribilanciare il carico, se necessario. Ma qual è la frequenza di queste operazioni e come si attiva? Sono previsti diversi controlli per questa situazione.
 
 Il primo set di controlli sul bilanciamento del carico sono un set di timer. Questi timer controllano la frequenza con cui Cluster Resource Manager esamina lo stato del cluster alla ricerca di problemi da risolvere. Esistono tre diverse categorie di lavoro, ognuna con un timer corrispondente. Vale a dire:
 
-1.	Posizionamento: questa fase riguarda l'inserimento di repliche con stato o istanze senza stato mancanti. Questo interessa sia i nuovi servizi sia la gestione di repliche con stato o istanze senza stato che non sono riuscite correttamente e devono essere ricreate. In questa fase viene gestita anche l'eliminazione di istanze e repliche.
-2.	Verifiche dei vincoli: in questa fase vengono controllate e corrette le violazioni dei vincoli (regole) di posizionamento all'interno del sistema. Le regole servono, ad esempio, per controllare che i nodi non superino la capacità o che i vincoli di posizionamento del servizio vengano rispettati. Più avanti verranno fornite altre informazioni sui vincoli di posizionamento.
-3.	Bilanciamento del carico: questa fase verifica se è necessario applicare il ribilanciamento proattivo sulla base del livello di bilanciamento configurato per le diverse metriche e, in tal caso, tenta di trovare una disposizione più bilanciata all'interno del cluster.
+1. Posizionamento: questa fase riguarda l'inserimento di repliche con stato o istanze senza stato mancanti. Questo interessa sia i nuovi servizi sia la gestione di repliche con stato o istanze senza stato che non sono riuscite correttamente e devono essere ricreate. In questa fase viene gestita anche l'eliminazione di istanze e repliche.
+2. Verifiche dei vincoli: in questa fase vengono controllate e corrette le violazioni dei vincoli (regole) di posizionamento all'interno del sistema. Le regole servono, ad esempio, per controllare che i nodi non superino la capacità o che i vincoli di posizionamento del servizio vengano rispettati. Più avanti verranno fornite altre informazioni sui vincoli di posizionamento.
+3. Bilanciamento del carico: questa fase verifica se è necessario applicare il ribilanciamento proattivo sulla base del livello di bilanciamento configurato per le diverse metriche e, in tal caso, tenta di trovare una disposizione più bilanciata all'interno del cluster.
 
 ## Configurazione delle fasi e dei timer di Cluster Resource Manager
 Ognuno di questi tipi diversi di correzioni che Cluster Resource Manager può apportare è controllato da un timer diverso che determina la frequenza. Poniamo, ad esempio, che si desideri gestire ogni ora solo l'inserimento di nuovi carichi di lavoro del servizio nel cluster (raggruppandoli), ma applicare controlli di bilanciamento standard ogni pochi secondi. È possibile configurare questa operazione. Quando viene attivato ogni timer, l'attività viene pianificata. Per impostazione predefinita, Resource Manager analizza il suo stato e applica gli aggiornamenti (eseguendo il batch di tutte le modifiche apportate dall'ultima scansione, come ad esempio notare che un nodo è inattivo) ogni 1/10 di secondo, imposta i flag di posizionamento e di verifica dei vincoli ogni secondo e imposta il flag di bilanciamento del carico ogni 5 secondi.
@@ -104,10 +104,9 @@ Cluster Resource Manager determina automaticamente quali servizi sono correlati 
 ![Bilanciamento composto dei servizi][Image5]
 
 ## Passaggi successivi
-- Le metriche determinano il modo in cui Cluster Resource Manger di Service Fabric gestisce il consumo e la capacità del cluster. Per altre informazioni sulle metriche e su come configurarle, vedere [questo articolo](service-fabric-cluster-resource-manager-metrics.md)
-- Il costo dello spostamento è un modo per segnalare a Cluster Resource Manager che alcuni servizi sono più costosi da spostare rispetto ad altri. Per altre informazioni sui costi di spostamento, vedere [questo articolo](service-fabric-cluster-resource-manager-movement-cost.md)
-- Cluster Resource Manager dispone di diverse limitazioni da configurare per rallentare la varianza del cluster. Queste limitazioni non sono in genere necessarie, ma sono eventualmente disponibili altre informazioni [qui](service-fabric-cluster-resource-manager-advanced-throttling.md)
-
+* Le metriche determinano il modo in cui Cluster Resource Manger di Service Fabric gestisce il consumo e la capacità del cluster. Per altre informazioni sulle metriche e su come configurarle, vedere [questo articolo](service-fabric-cluster-resource-manager-metrics.md)
+* Il costo dello spostamento è un modo per segnalare a Cluster Resource Manager che alcuni servizi sono più costosi da spostare rispetto ad altri. Per altre informazioni sui costi di spostamento, vedere [questo articolo](service-fabric-cluster-resource-manager-movement-cost.md)
+* Cluster Resource Manager dispone di diverse limitazioni da configurare per rallentare la varianza del cluster. Queste limitazioni non sono in genere necessarie, ma sono eventualmente disponibili altre informazioni [qui](service-fabric-cluster-resource-manager-advanced-throttling.md)
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png

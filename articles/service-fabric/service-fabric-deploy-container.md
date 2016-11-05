@@ -1,46 +1,49 @@
-<properties
-   pageTitle="Service Fabric e distribuzione di contenitori | Microsoft Azure"
-   description="Service Fabric e l'uso di contenitori per la distribuzione di applicazioni di microservizi. Questo articolo illustra le funzionalità offerte da Service Fabric per i contenitori e la distribuzione di un immagine contenitore in un cluster."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="msfussell"
-   manager=""
-   editor=""/>
+---
+title: Service Fabric e distribuzione di contenitori | Microsoft Docs
+description: Service Fabric e l'uso di contenitori per la distribuzione di applicazioni di microservizi. Questo articolo illustra le funzionalità offerte da Service Fabric per i contenitori e la distribuzione di un immagine contenitore in un cluster.
+services: service-fabric
+documentationcenter: .net
+author: msfussell
+manager: ''
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/25/2016"
-   ms.author="msfussell"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/25/2016
+ms.author: msfussell
 
-
+---
 # <a name="preview:-deploy-a-container-to-service-fabric"></a>Anteprima: Distribuire un contenitore in Service Fabric
-
->[AZURE.NOTE] Questa funzionalità è in anteprima per Linux e non è attualmente disponibile in Windows Server. Sarà disponibile in anteprima per Windows Server nella prossima versione di Service Fabric dopo la disponibilità generale di Windows Server 2016 e sarà quindi supportata nella versione successiva.
+> [!NOTE]
+> Questa funzionalità è in anteprima per Linux e non è attualmente disponibile in Windows Server. Sarà disponibile in anteprima per Windows Server nella prossima versione di Service Fabric dopo la disponibilità generale di Windows Server 2016 e sarà quindi supportata nella versione successiva.
+> 
+> 
 
 Service Fabric offre diverse funzionalità relative ai contenitori che consentono di creare applicazioni costituite da microservizi inseriti in contenitori, denominati servizi in contenitori. Le funzionalità includono:
 
-- Distribuzione e attivazione di immagini contenitore
-- Governance delle risorse
-- Autenticazione nel repository
-- Mapping tra porta del contenitore e porta dell'host
-- Individuazione e comunicazione da contenitore a contenitore
-- Possibilità di configurare e impostare variabili di ambiente
+* Distribuzione e attivazione di immagini contenitore
+* Governance delle risorse
+* Autenticazione nel repository
+* Mapping tra porta del contenitore e porta dell'host
+* Individuazione e comunicazione da contenitore a contenitore
+* Possibilità di configurare e impostare variabili di ambiente
 
 Verranno ora esaminate le singole funzionalità coinvolte nella creazione del pacchetto di un servizio in contenitore da includere nell'applicazione.
 
 ## <a name="packaging-a-container"></a>Creazione del pacchetto di un contenitore
-
 Quando si crea il pacchetto di un contenitore, si può scegliere di usare un modello di progetto di Visual Studio oppure di [creare manualmente il pacchetto dell'applicazione](#manually). Se si usa Visual Studio, la struttura del pacchetto dell'applicazione e i file manifesto vengono creati automaticamente dalla Creazione guidata nuovo progetto.
 
 ## <a name="using-visual-studio-to-package-an-existing-executable"></a>Uso di Visual Studio per creare il pacchetto di un eseguibile esistente
-
->[AZURE.NOTE] In una versione futura dell'SDK degli strumenti di Visual Studio sarà possibile aggiungere un contenitore a un'applicazione analogamente a come può ora essere aggiunto un eseguibile guest. Vedere l'argomento [Distribuire un eseguibile guest in Service Fabric](service-fabric-deploy-existing-app.md) . Attualmente è necessario creare manualmente il pacchetto come descritto di seguito.
+> [!NOTE]
+> In una versione futura dell'SDK degli strumenti di Visual Studio sarà possibile aggiungere un contenitore a un'applicazione analogamente a come può ora essere aggiunto un eseguibile guest. Vedere l'argomento [Distribuire un eseguibile guest in Service Fabric](service-fabric-deploy-existing-app.md) . Attualmente è necessario creare manualmente il pacchetto come descritto di seguito.
+> 
+> 
 
 <a id="manually"></a>
+
 ## <a name="manually-packaging-and-deploying-container"></a>Creazione manuale del pacchetto e distribuzione del contenitore
 Il processo per creare manualmente il pacchetto di un servizio in contenitore prevede i passaggi seguenti:
 
@@ -68,14 +71,16 @@ Nel manifesto del servizio aggiungere un elemento `ContainerHost` per il punto d
 ## <a name="resource-governance"></a>Governance delle risorse
 La governance delle risorse è una funzionalità del contenitore e limita le risorse che possono essere usate dal contenitore nell'host. L'impostazione `ResourceGovernancePolicy`, specificata nel manifesto dell'applicazione, offre la possibilità di dichiarare limiti di risorse per il pacchetto di codice di un servizio. È possibile impostare limiti di risorse per:
 
-- Memoria
-- MemorySwap
-- CpuShares (peso relativo CPU)
-- MemoryReservationInMB  
-- BlkioWeight (peso relativo BlockIO) 
+* Memoria
+* MemorySwap
+* CpuShares (peso relativo CPU)
+* MemoryReservationInMB  
+* BlkioWeight (peso relativo BlockIO) 
 
->[AZURE.NOTE] In una versione futura sarà supportata la definizione di specifici limiti di I/O di blocco, come operazioni di I/O al secondo, BPS in lettura/scrittura e altri.
-
+> [!NOTE]
+> In una versione futura sarà supportata la definizione di specifici limiti di I/O di blocco, come operazioni di I/O al secondo, BPS in lettura/scrittura e altri.
+> 
+> 
 
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
@@ -89,7 +94,6 @@ La governance delle risorse è una funzionalità del contenitore e limita le ris
 ## <a name="repository-authentication"></a>Autenticazione nel repository
 Per scaricare un contenitore potrebbe essere necessario specificare credenziali di accesso per il relativo repository. Le credenziali di accesso, indicate nel manifesto dell' *applicazione* , vengono usate per specificare le informazioni di accesso o la chiave SSH per scaricare l'immagine contenitore dal repository immagini.  L'esempio seguente illustra un account denominato *TestUser* con password non crittografata. Questa impostazione **non** è consigliata.
 
-
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
         <Policies>
@@ -102,7 +106,6 @@ Per scaricare un contenitore potrebbe essere necessario specificare credenziali 
 È possibile e consigliabile crittografare la password con un certificato distribuito nel computer.
 
 L'esempio seguente illustra un account denominato *TestUser* con password crittografata con un certificato denominato *MyCert*. È possibile usare il comando `Invoke-ServiceFabricEncryptText` di Powershell per creare il testo crittografato segreto per la password. Per informazioni dettagliate in proposito, vedere l'articolo sulla [gestione dei segreti in Service Fabric](service-fabric-application-secret-management.md) . La chiave privata del certificato per decrittografare la password deve essere distribuita nel computer locale con un metodo fuori banda (in Azure, tramite Resource Manager). Quando distribuisce il pacchetto servizio nel computer, Service Fabric può quindi decrittografare il segreto e, con il nome dell'account, eseguire l'autenticazione nel repository del contenitore usando queste credenziali.
-
 
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
@@ -118,7 +121,6 @@ L'esempio seguente illustra un account denominato *TestUser* con password critto
 
 ## <a name="container-port-to-host-port-mapping"></a>Mapping tra porta del contenitore e porta dell'host
 È possibile configurare una porta dell'host per la comunicazione con il contenitore specificando `PortBinding` nel manifesto dell'applicazione. Il binding di porta esegue il mapping tra la porta su cui il servizio è in ascolto all'interno del contenitore e una porta nell'host.
-
 
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
@@ -184,7 +186,6 @@ Nell'esempio precedente è stato specificato un valore esplicito per la variabil
 
 ## <a name="complete-examples-for-application-and-service-manifest"></a>Esempi completi per il manifesto dell'applicazione e del servizio
 Di seguito è riportato un manifesto dell'applicazione di esempio che illustra le funzionalità dei contenitori.
-
 
     <ApplicationManifest ApplicationTypeName="SimpleContainerApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Description>A simple service container application</Description>

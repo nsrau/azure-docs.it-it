@@ -1,29 +1,35 @@
-<properties 
-   pageTitle="Altre informazioni sui rilasci più recenti del sistema operativo guest Azure | Microsoft Azure" 
-   description="Notizie sui rilasci più recenti e sulla compatibilità SDK per il sistema operativo guest di Servizi cloud di Azure." 
-   services="cloud-services" 
-   documentationCenter="na" 
-   authors="yuemlu" 
-   manager="timlt" 
-   editor=""/>
+---
+title: Altre informazioni sui rilasci più recenti del sistema operativo guest Azure | Microsoft Docs
+description: Notizie sui rilasci più recenti e sulla compatibilità SDK per il sistema operativo guest di Servizi cloud di Azure.
+services: cloud-services
+documentationcenter: na
+author: yuemlu
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="cloud-services"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd" 
-   ms.date="07/13/2016"
-   ms.author="raiye"/>
+ms.service: cloud-services
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: tbd
+ms.date: 07/13/2016
+ms.author: raiye
 
+---
 # Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
-Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure più recente per i servizi cloud. Queste informazioni sono utili per pianificare il percorso di aggiornamento prima che un sistema operativo guest venga disabilitato. Se si configurano i ruoli per l'uso degli aggiornamenti *automatici* del sistema operativo guest come descritto in [Impostazioni di aggiornamento del sistema operativo guest Azure][], non è indispensabile leggere questa pagina.
+Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure più recente per i servizi cloud. Queste informazioni sono utili per pianificare il percorso di aggiornamento prima che un sistema operativo guest venga disabilitato. Se si configurano i ruoli per l'uso degli aggiornamenti *automatici* del sistema operativo guest come descritto in [Impostazioni di aggiornamento del sistema operativo guest Azure][Impostazioni di aggiornamento del sistema operativo guest Azure], non è indispensabile leggere questa pagina.
 
-> [AZURE.IMPORTANT] Questa pagina è applicabile ai ruoli Web e ai ruoli di lavoro dei servizi cloud in esecuzione su un sistema operativo guest. **Non si applica** alle macchine virtuali IaaS.
+> [!IMPORTANT]
+> Questa pagina è applicabile ai ruoli Web e ai ruoli di lavoro dei servizi cloud in esecuzione su un sistema operativo guest. **Non si applica** alle macchine virtuali IaaS.
+> 
+> 
 
 <!-- -->
 
-> [AZURE.TIP] Sottoscrivere il [feed RSS di aggiornamento del sistema operativo guest][rss] per ricevere notifiche più tempestive su tutte le modifiche al sistema operativo guest.
+> [!TIP]
+> Sottoscrivere il [feed RSS di aggiornamento del sistema operativo guest][rss] per ricevere notifiche più tempestive su tutte le modifiche al sistema operativo guest.
+> 
+> 
 
 Non si è certi di quale sia il sistema operativo guest o di come funzionano i rilasci del sistema operativo guest? Leggere [questa](#how-it-works) sezione.
 
@@ -59,110 +65,114 @@ L'implementazione del sistema operativo guest di gennaio è iniziata il 18 genna
 Il sistema operativo guest del 2 novembre 2015 è stato rilasciato per la distribuzione il 4 gennaio 2016. Questa versione del sistema operativo non è impostata come sistema operativo predefinito per l'aggiornamento automatico, quindi i tempi di provisioning della distribuzione del sistema operativo guest alla versione del 2 novembre 2015 sono leggermente più lunghi.
 
 ## Rilasci
-
 ## Versioni della famiglia 4
 **Windows Server 2012 R2**
 
 Supporta .NET 4.0, 4.5, 4.5.1 e 4.5.2
 
->[AZURE.NOTE] La date contrassegnate da * sono soggette a modifiche.
+> [!NOTE]
+> La date contrassegnate da * sono soggette a modifiche.
+> 
+> 
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
-| ------------------------------ | --------------- | ------------- | ---- |
-| WA-GUEST-OS-4.36\_201609-01 | 13 ottobre 2016 | Dopo la versione 4.38 | Da definire |
-| WA-GUEST-OS-4.35\_201608-01 | 13 settembre 2016 | Dopo la versione 4.37 | Da definire |
-| WA-GUEST-OS-4.34\_201607-01 | 8 agosto 2016 | Post 4.36 | Da definire |
-| WA-GUEST-OS-4.33\_201606-01 | 13 luglio 2016 | 13 ottobre 2016 | Da definire |
-| WA-GUEST-OS-4.32\_201605-01 | 10 giugno 2016 | 8 settembre 2016 | Da definire |
-| WA-GUEST-OS-4.31\_201604-01 | 2 maggio 2016 | 13 agosto 2016 | Da definire |
-| WA-GUEST-OS-4.30\_201603-01 | 7 aprile 2016 | 10 luglio 2016 | Da definire |
-| WA-GUEST-OS-4.29\_201602-02 | 12 marzo 2016 | 2 giugno 2016 | Da definire |
-| WA-GUEST-OS-4.28\_201601-01 | 12 febbraio 2016 | 7 maggio 2016 | Da definire | 
-| WA-GUEST-OS-4.27\_201512-01 | 12 gennaio 2016 | 12 aprile 2016 | Da definire |
-| ~~WA-GUEST-OS-4.26\_201511-02~~ | 4 gennaio 2016 | 12 marzo 2016 | Da definire |
-| ~~WA-GUEST-OS-4.26\_201511-01~~ | 10 dicembre 2015 | 12 marzo 2016 | Da definire |
-| ~~WA-GUEST-OS-4.25\_201510-01~~ | 6 novembre 2015 | 12 febbraio 2016 | Da definire |
-| ~~WA-GUEST-OS-4.24\_201509-01~~ | 1 ottobre 2015 | 10 gennaio 2016 | Da definire |
-| ~~WA-GUEST-OS-4.23\_201508-02~~ | 9 settembre 2015 | 6 dicembre 2015 | Da definire |
-| ~~WA-GUEST-OS-4.22\_201507-02~~ | 7 agosto 2015 | 1 novembre 2015 | Da definire |
-| ~~WA-GUEST-OS-4.21\_201506-01~~ | 9 luglio 2015 | 9 ottobre 2015 | Da definire |
-| ~~WA-GUEST-OS-4.20\_201505-02~~ | 12 giugno 2015 | 7 settembre 2015 | Da definire |
-| ~~WA-GUEST-OS-4.19\_201504-01~~ | 17 aprile 2015 | 9 agosto 2015 | Da definire |
+| --- | --- | --- | --- |
+| WA-GUEST-OS-4.36\_201609-01 |13 ottobre 2016 |Dopo la versione 4.38 |Da definire |
+| WA-GUEST-OS-4.35\_201608-01 |13 settembre 2016 |Dopo la versione 4.37 |Da definire |
+| WA-GUEST-OS-4.34\_201607-01 |8 agosto 2016 |Post 4.36 |Da definire |
+| WA-GUEST-OS-4.33\_201606-01 |13 luglio 2016 |13 ottobre 2016 |Da definire |
+| WA-GUEST-OS-4.32\_201605-01 |10 giugno 2016 |8 settembre 2016 |Da definire |
+| WA-GUEST-OS-4.31\_201604-01 |2 maggio 2016 |13 agosto 2016 |Da definire |
+| WA-GUEST-OS-4.30\_201603-01 |7 aprile 2016 |10 luglio 2016 |Da definire |
+| WA-GUEST-OS-4.29\_201602-02 |12 marzo 2016 |2 giugno 2016 |Da definire |
+| WA-GUEST-OS-4.28\_201601-01 |12 febbraio 2016 |7 maggio 2016 |Da definire |
+| WA-GUEST-OS-4.27\_201512-01 |12 gennaio 2016 |12 aprile 2016 |Da definire |
+| ~~WA-GUEST-OS-4.26\_201511-02~~ |4 gennaio 2016 |12 marzo 2016 |Da definire |
+| ~~WA-GUEST-OS-4.26\_201511-01~~ |10 dicembre 2015 |12 marzo 2016 |Da definire |
+| ~~WA-GUEST-OS-4.25\_201510-01~~ |6 novembre 2015 |12 febbraio 2016 |Da definire |
+| ~~WA-GUEST-OS-4.24\_201509-01~~ |1 ottobre 2015 |10 gennaio 2016 |Da definire |
+| ~~WA-GUEST-OS-4.23\_201508-02~~ |9 settembre 2015 |6 dicembre 2015 |Da definire |
+| ~~WA-GUEST-OS-4.22\_201507-02~~ |7 agosto 2015 |1 novembre 2015 |Da definire |
+| ~~WA-GUEST-OS-4.21\_201506-01~~ |9 luglio 2015 |9 ottobre 2015 |Da definire |
+| ~~WA-GUEST-OS-4.20\_201505-02~~ |12 giugno 2015 |7 settembre 2015 |Da definire |
+| ~~WA-GUEST-OS-4.19\_201504-01~~ |17 aprile 2015 |9 agosto 2015 |Da definire |
 
 ## Versioni della famiglia 3
-
 **Windows Server 2012**
 
 Supporta .NET 4.0, 4.5, 4.5.1 e 4.5.2
 
->[AZURE.NOTE] La date contrassegnate da * sono soggette a modifiche.
+> [!NOTE]
+> La date contrassegnate da * sono soggette a modifiche.
+> 
+> 
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
-| ------------------------------ | -------------- | ------------- | --- |
-| WA-GUEST-OS-3.43\_201609-01 | 13 ottobre 2016 | Dopo la versione 3.45 | Da definire |
-| WA-GUEST-OS-3.42\_201608-01 | 13 settembre 2016 | Dopo la versione 3.44 | Da definire |
-| WA-GUEST-OS-3.41\_201607-01 | 8 agosto 2016 | Post 3.43 | Da definire |
-| WA-GUEST-OS-3.40\_201606-01 | 13 luglio 2016 | 13 ottobre 2016 | Da definire |
-| WA-GUEST-OS-3.39\_201605-01 | 10 giugno 2016 | 8 settembre 2016 | Da definire |
-| WA-GUEST-OS-3.38\_201604-01 | 2 maggio 2016 | 13 agosto 2016 | Da definire |
-| WA-GUEST-OS-3.37\_201603-01 | 7 aprile 2016 | 10 luglio 2016 | Da definire |
-| WA-GUEST-OS-3.36\_201602-02 | 12 marzo 2016 | 2 giugno 2016 | Da definire |
-| WA-GUEST-OS-3.35\_201601-01 | 12 febbraio 2016 | 7 maggio 2016 | Da definire |
-| WA-GUEST-OS-3.34\_201512-01 | 12 gennaio 2016 | 12 aprile 2016 | Da definire |
-| ~~WA-GUEST-OS-3.33\_201511-02~~ | 4 gennaio 2016 | 12 marzo 2016 | Da definire |
-| ~~WA-GUEST-OS-3.33\_201511-01~~ | 10 dicembre 2015 | 12 marzo 2016 | Da definire |
-| ~~WA-GUEST-OS-3.32\_201510-01~~ | 6 novembre 2015 | 12 febbraio 2016 | Da definire |
-| ~~WA-GUEST-OS-3.31\_201509-01~~ | 1 ottobre 2015 | 10 gennaio 2016 | Da definire |
-| ~~WA-GUEST-OS-3.30\_201508-02~~ | 9 settembre 2015 | 6 dicembre 2015 | Da definire |
-| ~~WA-GUEST-OS-3.29\_201507-02~~ | 7 agosto 2015 | 1 novembre 2015 | Da definire |
-| ~~WA-GUEST-OS-3.28\_201506-01~~ | 9 luglio 2015 | 9 ottobre 2015 | Da definire |
-| ~~WA-GUEST-OS-3.27\_201505-02~~ | 12 giugno 2015 | 7 settembre 2015 | Da definire |
-| ~~WA-GUEST-OS-3.26\_201504-01~~ | 17 aprile 2015 | 9 agosto 2015 | Da definire |
-
+| --- | --- | --- | --- |
+| WA-GUEST-OS-3.43\_201609-01 |13 ottobre 2016 |Dopo la versione 3.45 |Da definire |
+| WA-GUEST-OS-3.42\_201608-01 |13 settembre 2016 |Dopo la versione 3.44 |Da definire |
+| WA-GUEST-OS-3.41\_201607-01 |8 agosto 2016 |Post 3.43 |Da definire |
+| WA-GUEST-OS-3.40\_201606-01 |13 luglio 2016 |13 ottobre 2016 |Da definire |
+| WA-GUEST-OS-3.39\_201605-01 |10 giugno 2016 |8 settembre 2016 |Da definire |
+| WA-GUEST-OS-3.38\_201604-01 |2 maggio 2016 |13 agosto 2016 |Da definire |
+| WA-GUEST-OS-3.37\_201603-01 |7 aprile 2016 |10 luglio 2016 |Da definire |
+| WA-GUEST-OS-3.36\_201602-02 |12 marzo 2016 |2 giugno 2016 |Da definire |
+| WA-GUEST-OS-3.35\_201601-01 |12 febbraio 2016 |7 maggio 2016 |Da definire |
+| WA-GUEST-OS-3.34\_201512-01 |12 gennaio 2016 |12 aprile 2016 |Da definire |
+| ~~WA-GUEST-OS-3.33\_201511-02~~ |4 gennaio 2016 |12 marzo 2016 |Da definire |
+| ~~WA-GUEST-OS-3.33\_201511-01~~ |10 dicembre 2015 |12 marzo 2016 |Da definire |
+| ~~WA-GUEST-OS-3.32\_201510-01~~ |6 novembre 2015 |12 febbraio 2016 |Da definire |
+| ~~WA-GUEST-OS-3.31\_201509-01~~ |1 ottobre 2015 |10 gennaio 2016 |Da definire |
+| ~~WA-GUEST-OS-3.30\_201508-02~~ |9 settembre 2015 |6 dicembre 2015 |Da definire |
+| ~~WA-GUEST-OS-3.29\_201507-02~~ |7 agosto 2015 |1 novembre 2015 |Da definire |
+| ~~WA-GUEST-OS-3.28\_201506-01~~ |9 luglio 2015 |9 ottobre 2015 |Da definire |
+| ~~WA-GUEST-OS-3.27\_201505-02~~ |12 giugno 2015 |7 settembre 2015 |Da definire |
+| ~~WA-GUEST-OS-3.26\_201504-01~~ |17 aprile 2015 |9 agosto 2015 |Da definire |
 
 ## Versioni della famiglia 2
-
 **Windows Server 2008 R2 SP1**
 
 Supporta .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
->[AZURE.NOTE] La date contrassegnate da * sono soggette a modifiche.
+> [!NOTE]
+> La date contrassegnate da * sono soggette a modifiche.
+> 
+> 
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
-| ------------------------------ | ------------- | ------------  | --- |
-| WA-GUEST-OS-2.55\_201609-01 | 13 ottobre 2016 | Dopo la versione 2.57 | Da definire |
-| WA-GUEST-OS-2.54\_201608-01 | 13 settembre 2016 | Dopo la versione 2.56 | Da definire |
-| WA-GUEST-OS-2.53\_201607-01 | 8 agosto 2016 | Post 2.55 | Da definire |
-| WA-GUEST-OS-2.52\_201606-01 | 13 luglio 2016 | 13 ottobre 2016 | Da definire |
-| WA-GUEST-OS-2.51\_201605-01 | 10 giugno 2016 | 8 settembre 2016 | Da definire |
-| WA-GUEST-OS-2.50\_201604-01 | 2 maggio 2016 | 13 agosto 2016 | Da definire |
-| WA-GUEST-OS-2.49\_201603-01 | 7 aprile 2016 | 10 luglio 2016 | Da definire |
-| WA-GUEST-OS-2.48\_201602-02 | 12 marzo 2016 | 2 giugno 2016 | Da definire |
-| WA-GUEST-OS-2.47\_201601-01 | 12 febbraio 2016 | 7 maggio 2016 | Da definire |
-| WA-GUEST-OS-2.46\_201512-01 | 12 gennaio 2016 | 12 aprile 2016 | Da definire |
-| ~~WA-GUEST-OS-2.45\_201511-02~~ | 4 gennaio 2016 | 12 marzo 2016 | Da definire |
-| ~~WA-GUEST-OS-2.45\_201511-01~~ | 10 dicembre 2015 | 12 marzo 2016 | Da definire |
-| ~~WA-GUEST-OS-2.44\_201510-01~~ | 6 novembre 2015 | 12 febbraio 2016 | Da definire |
-| ~~WA-GUEST-OS-2.43\_201509-01~~ | 1 ottobre 2015 | 10 gennaio 2016 | Da definire |
-| ~~WA-GUEST-OS-2.42\_201508-02~~ | 9 settembre 2015 | 6 dicembre 2015 | Da definire |
-| ~~WA-GUEST-OS-2.41\_201507-02~~ | 7 agosto 2015 | 1 novembre 2015 | Da definire |
-| ~~WA-GUEST-OS-2.40\_201506-01~~ | 9 luglio 2015 | 9 ottobre 2015 | Da definire |
-| ~~WA-GUEST-OS-2.39\_201505-02~~ | 12 giugno 2015 | 7 settembre 2015 | Da definire |
-| ~~WA-GUEST-OS-2.38\_201504-01~~ | 17 aprile 2015 | 9 agosto 2015 | Da definire |
+| --- | --- | --- | --- |
+| WA-GUEST-OS-2.55\_201609-01 |13 ottobre 2016 |Dopo la versione 2.57 |Da definire |
+| WA-GUEST-OS-2.54\_201608-01 |13 settembre 2016 |Dopo la versione 2.56 |Da definire |
+| WA-GUEST-OS-2.53\_201607-01 |8 agosto 2016 |Post 2.55 |Da definire |
+| WA-GUEST-OS-2.52\_201606-01 |13 luglio 2016 |13 ottobre 2016 |Da definire |
+| WA-GUEST-OS-2.51\_201605-01 |10 giugno 2016 |8 settembre 2016 |Da definire |
+| WA-GUEST-OS-2.50\_201604-01 |2 maggio 2016 |13 agosto 2016 |Da definire |
+| WA-GUEST-OS-2.49\_201603-01 |7 aprile 2016 |10 luglio 2016 |Da definire |
+| WA-GUEST-OS-2.48\_201602-02 |12 marzo 2016 |2 giugno 2016 |Da definire |
+| WA-GUEST-OS-2.47\_201601-01 |12 febbraio 2016 |7 maggio 2016 |Da definire |
+| WA-GUEST-OS-2.46\_201512-01 |12 gennaio 2016 |12 aprile 2016 |Da definire |
+| ~~WA-GUEST-OS-2.45\_201511-02~~ |4 gennaio 2016 |12 marzo 2016 |Da definire |
+| ~~WA-GUEST-OS-2.45\_201511-01~~ |10 dicembre 2015 |12 marzo 2016 |Da definire |
+| ~~WA-GUEST-OS-2.44\_201510-01~~ |6 novembre 2015 |12 febbraio 2016 |Da definire |
+| ~~WA-GUEST-OS-2.43\_201509-01~~ |1 ottobre 2015 |10 gennaio 2016 |Da definire |
+| ~~WA-GUEST-OS-2.42\_201508-02~~ |9 settembre 2015 |6 dicembre 2015 |Da definire |
+| ~~WA-GUEST-OS-2.41\_201507-02~~ |7 agosto 2015 |1 novembre 2015 |Da definire |
+| ~~WA-GUEST-OS-2.40\_201506-01~~ |9 luglio 2015 |9 ottobre 2015 |Da definire |
+| ~~WA-GUEST-OS-2.39\_201505-02~~ |12 giugno 2015 |7 settembre 2015 |Da definire |
+| ~~WA-GUEST-OS-2.38\_201504-01~~ |17 aprile 2015 |9 agosto 2015 |Da definire |
 
 ## Patch di aggiornamento MSRC
 L'elenco di patch incluse con il rilascio del sistema operativo di ogni mese è disponibile [qui][patches].
 
 ## Supporto SDK
-
 Anche se le [informazioni sul ritiro di Azure SDK][retire policy sdk] indicano che solo le versioni successive alla 2.2 sono supportate, determinate famiglie di sistemi operativi guest consentono di usare versioni precedenti. È sempre necessario usare l’SDK più recente supportato.
 
 | Famiglia del sistema operativo guest | Versioni dell’SDK compatibili |
-| --------------- | ----------------------- |
-| 4 | Versione 2.1+ |
-| 3 | Versione 1.8+ |
-| 2 | Versione 1.3+ |
-| 1 | Versione 1.0+ |
+| --- | --- |
+| 4 |Versione 2.1+ |
+| 3 |Versione 1.8+ |
+| 2 |Versione 1.3+ |
+| 1 |Versione 1.0+ |
 
 ## Informazioni sui rilasci del sistema operativo guest
 Sono tre le date importanti per le versioni dei sistemi operativi guest: la data di **rilascio**, la data di **disabilitazione** e la data di **scadenza**. Un sistema operativo guest è considerato disponibile quando è disponibile sul portale e può essere selezionato come sistema operativo guest di destinazione. Quando un sistema operativo guest raggiunge la data di **disabilitazione**, viene rimosso da Azure. Tuttavia qualsiasi servizio cloud che abbia come obiettivo quel sistema operativo guest funzionerà normalmente.
@@ -174,16 +184,14 @@ Quando si supera la data di **scadenza**, qualsiasi servizio cloud che usa ancor
 ## Spiegazione delle famiglie e delle versioni del sistema operativo guest
 Le famiglie dei sistemi operativi guest sono basate sulle versioni rilasciate di Microsoft Windows Server e il sistema operativo guest è il sistema operativo sottostante in cui viene eseguito Servizi cloud di Azure. A ogni sistema operativo guest sono associati una famiglia, una versione e un numero di rilascio.
 
-- **Famiglia di sistemi operativi guest**  
- Una versione del sistema operativo Windows Server sulla quale è basato un sistema operativo guest. Ad esempio, la *famiglia 3* è basata su Windows Server 2012.
-
-- **Versione del sistema operativo guest**  
-Specifica per l'immagine di una famiglia di sistemi operativi guest e per le patch pertinenti di [Microsoft Security Response Center (MSRC)][msrc] che sono disponibili al momento dell'introduzione della nuova versione del sistema operativo guest. È possibile che non siano incluse tutte le patch.
-
+* **Famiglia di sistemi operativi guest**  
+  Una versione del sistema operativo Windows Server sulla quale è basato un sistema operativo guest. Ad esempio, la *famiglia 3* è basata su Windows Server 2012.
+* **Versione del sistema operativo guest**  
+  Specifica per l'immagine di una famiglia di sistemi operativi guest e per le patch pertinenti di [Microsoft Security Response Center (MSRC)][msrc] che sono disponibili al momento dell'introduzione della nuova versione del sistema operativo guest. È possibile che non siano incluse tutte le patch.
+  
     I numeri iniziano da 0 e vengono incrementati di 1 a ogni aggiunta di un nuovo set di aggiornamenti. Gli zeri finali vengono visualizzati solo se sono importanti; ad esempio, la versione 2.10 è una versione diversa e successiva rispetto alla versione 2.1.
-
-- **Rilascio del sistema operativo guest**  
-Un nuovo rilascio di una versione del sistema operativo guest. Il nuovo rilascio viene introdotto se durante la fase di test Microsoft rileva problemi che richiedono l'esecuzione di modifiche. L'ultimo rilascio sostituisce sempre quelli precedenti, che siano pubblici o meno. Il portale di Azure classico consente agli utenti di scaricare soltanto l'ultimo rilascio disponibile per una determinata versione. Le distribuzioni in cui si usa una versione precedente in genere non vengono forzate all'aggiornamento in base alla gravità del bug.
+* **Rilascio del sistema operativo guest**  
+  Un nuovo rilascio di una versione del sistema operativo guest. Il nuovo rilascio viene introdotto se durante la fase di test Microsoft rileva problemi che richiedono l'esecuzione di modifiche. L'ultimo rilascio sostituisce sempre quelli precedenti, che siano pubblici o meno. Il portale di Azure classico consente agli utenti di scaricare soltanto l'ultimo rilascio disponibile per una determinata versione. Le distribuzioni in cui si usa una versione precedente in genere non vengono forzate all'aggiornamento in base alla gravità del bug.
 
 Nell'esempio seguente, 2 rappresenta la famiglia, 12 la versione e "rel2" il rilascio.
 
@@ -203,7 +211,6 @@ Quando viene pubblicato un nuovo rilascio del sistema operativo guest, la propag
 Per moltissime informazioni importanti sui riavvii e sui puntatori ad altre informazioni sui dettagli tecnici degli aggiornamenti dei sistemi operativi guest e host, vedere il post del blog su MSDN relativo [ai riavvii dell'istanza del ruolo dovuti ad aggiornamenti del sistema operativo][restarts].
 
 Se si aggiorna manualmente il sistema operativo guest, leggere le informazioni importanti seguenti sul [supporto e sul ritiro del sistema operativo guest][retirepolicy].
-
 
 ## Criteri relativi al supporto e al ritiro del sistema operativo guest
 I criteri relativi al supporto e al ritiro del sistema operativo guest sono descritti [qui][retirepolicy].
@@ -227,6 +234,6 @@ I criteri relativi al supporto e al ritiro del sistema operativo guest sono desc
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
- 
+
 
 <!---HONumber=AcomDC_0921_2016-->

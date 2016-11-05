@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Panoramica dei Servizi di dominio Azure Active Directory | Microsoft Azure"
-    description="Panoramica dei Servizi di dominio Azure Active Directory"
-    services="active-directory-ds"
-    documentationCenter=""
-    authors="mahesh-unnikrishnan"
-    manager="stevenpo"
-    editor="curtand"/>
+---
+title: Panoramica dei Servizi di dominio Azure Active Directory | Microsoft Docs
+description: Panoramica dei Servizi di dominio Azure Active Directory
+services: active-directory-ds
+documentationcenter: ''
+author: mahesh-unnikrishnan
+manager: stevenpo
+editor: curtand
 
-<tags
-    ms.service="active-directory-ds"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/07/2016"
-    ms.author="maheshu"/>
+ms.service: active-directory-ds
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/07/2016
+ms.author: maheshu
 
-
+---
 # <a name="azure-ad-domain-services"></a>Servizi di dominio Azure Active Directory
-
 ## <a name="overview"></a>Panoramica
 I servizi di infrastruttura di Azure consentono di distribuire un'ampia gamma di soluzioni di computing in modo agile. Con Macchine virtuali di Azure, è possibile eseguire la distribuzione quasi istantaneamente, con un pagamento al minuto. Grazie al supporto per Windows, Linux, SQL Server, Oracle, IBM, SAP e BizTalk, è possibile distribuire qualsiasi carico di lavoro e qualunque linguaggio su quasi tutti i sistemi operativi. Questi vantaggi permettono di eseguire la migrazione di applicazioni legacy distribuite in locale in Azure, per generare risparmi sulle spese operative.
 
@@ -26,14 +24,13 @@ Uno degli aspetti più importanti della migrazione delle applicazioni locali in 
 
 Per soddisfare le esigenze in termini di gestione delle identità delle applicazioni distribuite in Azure, spesso gli amministratori adottano una delle soluzioni seguenti:
 
-- Distribuzione di una connessione VPN da sito a sito tra i carichi di lavoro in esecuzione nei servizi di infrastruttura di Azure e la directory aziendale locale.
-- Estensione dell'infrastruttura di dominio/foresta Active Directory aziendale tramite la configurazione di controller di dominio di replica usando macchine virtuali di Azure.
-- Distribuzione di un dominio autonomo in Azure tramite controller di dominio distribuiti come macchine virtuali di Azure.
+* Distribuzione di una connessione VPN da sito a sito tra i carichi di lavoro in esecuzione nei servizi di infrastruttura di Azure e la directory aziendale locale.
+* Estensione dell'infrastruttura di dominio/foresta Active Directory aziendale tramite la configurazione di controller di dominio di replica usando macchine virtuali di Azure.
+* Distribuzione di un dominio autonomo in Azure tramite controller di dominio distribuiti come macchine virtuali di Azure.
 
 Tutti questi approcci tuttavia prevedono costi elevati e un carico di lavoro amministrativo significativo. Gli amministratori devono distribuire i controller di dominio tramite macchine virtuali in Azure. In più, devono gestire, proteggere, applicare patch, monitorare, eseguire il backup e risolvere i problemi relativi a tali macchine virtuali. L'utilizzo di connessioni VPN alla directory locale rende i carichi di lavoro distribuiti in Azure vulnerabili a errori o interruzioni di rete temporanee. Queste interruzioni di rete determinano tempi di attività inferiori e affidabilità ridotta delle applicazioni.
 
 Servizi di dominio Azure Active Directory è pensata per offrire un'alternativa più semplice.
-
 
 ## <a name="introducing-azure-ad-domain-services"></a>Introduzione a Servizi di dominio Azure AD
 Servizi di dominio Azure Active Directory offre servizi di dominio gestiti, ad esempio aggiunta a un dominio, Criteri di gruppo, LDAP e autenticazione Kerberos/NTLM, completamente compatibili con Windows Server Active Directory. È possibile utilizzare questi servizi di dominio senza dover distribuire, gestire e applicare patch ai controller di dominio nel cloud. Servizi di dominio Azure Active Directory si integra con il tenant Azure AD esistente per consentire agli utenti di eseguire l'accesso usando le proprie credenziali aziendali. È anche possibile usare i gruppi e gli account utente esistenti per proteggere l'accesso alle risorse e garantire uno spostamento semplificato delle risorse locali nei servizi di infrastruttura di Azure.
@@ -49,17 +46,19 @@ L'amministratore IT di Contoso può abilitare Servizi di dominio Azure AD per il
 
 Di seguito sono illustrati alcuni degli aspetti più importanti del dominio gestito di cui Servizi di dominio Azure AD esegue il provisioning:
 
-- L'amministratore IT di Contoso non deve gestire, applicare patch o monitorare questo dominio o i controller di dominio per questo dominio gestito.
-- Non è necessario gestire la replica Active Directory per il dominio. Gli account utente, le appartenenze ai gruppi e le credenziali del tenant Azure AD di Contoso sono automaticamente disponibili all'interno del dominio gestito.
-- Poiché il dominio è gestito da Servizi di dominio Azure AD, l'amministratore IT di Contoso non dispone di privilegi di amministratore di dominio o amministratore dell'organizzazione per questo dominio.
-
+* L'amministratore IT di Contoso non deve gestire, applicare patch o monitorare questo dominio o i controller di dominio per questo dominio gestito.
+* Non è necessario gestire la replica Active Directory per il dominio. Gli account utente, le appartenenze ai gruppi e le credenziali del tenant Azure AD di Contoso sono automaticamente disponibili all'interno del dominio gestito.
+* Poiché il dominio è gestito da Servizi di dominio Azure AD, l'amministratore IT di Contoso non dispone di privilegi di amministratore di dominio o amministratore dell'organizzazione per questo dominio.
 
 ### <a name="azure-ad-domain-services-for-hybrid-organizations"></a>Servizi di dominio Azure AD per le organizzazioni ibride
 Le organizzazioni con un'infrastruttura IT ibrida utilizzano una combinazione di risorse cloud e risorse locali. Queste organizzazioni sincronizzano le informazioni relative alle identità della directory locale con il tenant Azure AD. Poiché le organizzazioni ibride hanno l'obiettivo di eseguire la migrazione della maggior parte delle applicazioni locali nel cloud, in particolare le applicazioni legacy compatibili con le directory, Servizi di dominio Azure AD può risultare utile.
 
 Litware Corporation ha distribuito [Azure AD Connect](../active-directory/active-directory-aadconnect.md)in modo da sincronizzare le informazioni relative alle identità della directory locale con il tenant Azure AD. Le informazioni sull'identità sincronizzate includono gli account utente, i relativi hash delle credenziali per l'autenticazione (sincronizzazione delle password) e le appartenenze ai gruppi.
 
-> [AZURE.NOTE] **La sincronizzazione delle password è un requisito obbligatorio per le organizzazioni ibride per poter usare Servizi di dominio Azure Active Directory**. Questo perché nel dominio gestito fornito da Servizi di dominio Azure AD le credenziali degli utenti sono necessarie per autenticare gli utenti tramite i metodi di autenticazione NTLM o Kerberos.
+> [!NOTE]
+> **La sincronizzazione delle password è un requisito obbligatorio per le organizzazioni ibride per poter usare Servizi di dominio Azure Active Directory**. Questo perché nel dominio gestito fornito da Servizi di dominio Azure AD le credenziali degli utenti sono necessarie per autenticare gli utenti tramite i metodi di autenticazione NTLM o Kerberos.
+> 
+> 
 
 ![Servizi di dominio Azure AD per Litware Corporation](./media/active-directory-domain-services-overview/aadds-overview-synced-tenant.png)
 
@@ -67,24 +66,18 @@ La figura precedente mostra l'uso di Servizi di dominio Azure AD nelle organizza
 
 Di seguito sono illustrati alcuni degli aspetti più importanti del dominio gestito di cui Servizi di dominio Azure AD esegue il provisioning:
 
-- Il dominio gestito rappresenta un dominio autonomo. Non si tratta di un'estensione del dominio locale di Litware.
-- L'amministratore IT di Litware non deve gestire, applicare patch o monitorare i controller di dominio per questo dominio gestito.
-- Non è necessario gestire la replica Active Directory nel dominio. Gli account utente, le appartenenze ai gruppi e le credenziali della directory locale di Litware sono sincronizzati in Azure AD tramite Azure AD Connect. Gli account utente, le appartenenze ai gruppi e le credenziali sono automaticamente disponibili all'interno del dominio gestito.
-- Poiché il dominio è gestito da Servizi di dominio Azure AD, l'amministratore IT di Litware non dispone di privilegi di amministratore di dominio o amministratore dell'organizzazione per questo dominio.
-
+* Il dominio gestito rappresenta un dominio autonomo. Non si tratta di un'estensione del dominio locale di Litware.
+* L'amministratore IT di Litware non deve gestire, applicare patch o monitorare i controller di dominio per questo dominio gestito.
+* Non è necessario gestire la replica Active Directory nel dominio. Gli account utente, le appartenenze ai gruppi e le credenziali della directory locale di Litware sono sincronizzati in Azure AD tramite Azure AD Connect. Gli account utente, le appartenenze ai gruppi e le credenziali sono automaticamente disponibili all'interno del dominio gestito.
+* Poiché il dominio è gestito da Servizi di dominio Azure AD, l'amministratore IT di Litware non dispone di privilegi di amministratore di dominio o amministratore dell'organizzazione per questo dominio.
 
 ## <a name="benefits"></a>Vantaggi
 Servizi di dominio Azure AD offre i vantaggi seguenti:
 
--   **Semplice** : è possibile soddisfare le esigenze di identità delle macchine virtuali distribuite ai servizi di infrastruttura di Azure con pochi semplici clic. Non è necessario distribuire e gestire l'infrastruttura di identità in Azure o di riconfigurare la connettività in base all'infrastruttura di identità locale.
-
--   **Integrazione** : Servizi di dominio Azure AD è strettamente integrato con il tenant Azure AD. Ora è possibile utilizzare Azure AD come una directory aziendale basata sul cloud integrata che soddisfa le esigenze delle applicazioni moderne e di quelle tradizionali compatibili con le directory.
-
--   **Compatibile** : Servizi di dominio Azure Active Directory è realizzata sull'infrastruttura di livello aziendale collaudata di Windows Server Active Directory. Di conseguenza, le applicazioni possono dipendere da un più alto livello di compatibilità con le funzionalità di Windows Server Active Directory. Non tutte le funzionalità disponibili in Windows Server Active Directory sono attualmente disponibili in Servizi di dominio Azure AD. Le funzionalità disponibili sono tuttavia compatibili con le funzionalità di Windows Server Active Directory corrispondenti usate nell'infrastruttura locale. Le funzionalità LDAP, Kerberos, NTLM, Criteri di gruppo e di aggiunta a un dominio costituiscono un'offerta matura testata e perfezionata nel corso di diverse versioni di Windows Server.
-
--   **Conveniente** : Servizi di dominio Azure AD consente di evitare i costi di gestione e di infrastruttura associati alla gestione dell'infrastruttura di identità per il supporto delle applicazioni compatibili con le directory tradizionali. È possibile spostare queste applicazioni nei servizi di infrastruttura di Azure e ottenere maggiori risparmi sulle spese operative.
-
-
+* **Semplice** : è possibile soddisfare le esigenze di identità delle macchine virtuali distribuite ai servizi di infrastruttura di Azure con pochi semplici clic. Non è necessario distribuire e gestire l'infrastruttura di identità in Azure o di riconfigurare la connettività in base all'infrastruttura di identità locale.
+* **Integrazione** : Servizi di dominio Azure AD è strettamente integrato con il tenant Azure AD. Ora è possibile utilizzare Azure AD come una directory aziendale basata sul cloud integrata che soddisfa le esigenze delle applicazioni moderne e di quelle tradizionali compatibili con le directory.
+* **Compatibile** : Servizi di dominio Azure Active Directory è realizzata sull'infrastruttura di livello aziendale collaudata di Windows Server Active Directory. Di conseguenza, le applicazioni possono dipendere da un più alto livello di compatibilità con le funzionalità di Windows Server Active Directory. Non tutte le funzionalità disponibili in Windows Server Active Directory sono attualmente disponibili in Servizi di dominio Azure AD. Le funzionalità disponibili sono tuttavia compatibili con le funzionalità di Windows Server Active Directory corrispondenti usate nell'infrastruttura locale. Le funzionalità LDAP, Kerberos, NTLM, Criteri di gruppo e di aggiunta a un dominio costituiscono un'offerta matura testata e perfezionata nel corso di diverse versioni di Windows Server.
+* **Conveniente** : Servizi di dominio Azure AD consente di evitare i costi di gestione e di infrastruttura associati alla gestione dell'infrastruttura di identità per il supporto delle applicazioni compatibili con le directory tradizionali. È possibile spostare queste applicazioni nei servizi di infrastruttura di Azure e ottenere maggiori risparmi sulle spese operative.
 
 <!--HONumber=Oct16_HO2-->
 

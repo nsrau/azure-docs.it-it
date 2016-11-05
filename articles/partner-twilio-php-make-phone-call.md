@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Come effettuare una chiamata telefonica da Twilio (PHP) | Microsoft Azure"
-	description="Informazioni su come effettuare una chiamata telefonica e inviare un SMS con il servizio API Twilio API in Azure. Esempi per un'applicazione PHP."
-	documentationCenter="php"
-	services=""
-	authors="devinrader"
-	manager="twilio"
-	editor="mollybos"/>
+---
+title: Come effettuare una chiamata telefonica da Twilio (PHP) | Microsoft Docs
+description: Informazioni su come effettuare una chiamata telefonica e inviare un SMS con il servizio API Twilio API in Azure. Esempi per un'applicazione PHP.
+documentationcenter: php
+services: ''
+author: devinrader
+manager: twilio
+editor: mollybos
 
-<tags
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="PHP"
-	ms.topic="article"
-	ms.date="11/25/2014"
-	ms.author="microsofthelp@twilio.com"/>
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: PHP
+ms.topic: article
+ms.date: 11/25/2014
+ms.author: microsofthelp@twilio.com
 
+---
 # Come effettuare una chiamata tramite Twilio in un'applicazione PHP in Azure
-
 Nell'esempio seguente viene illustrato come è possibile utilizzare Twilio per effettuare una chiamata da una pagina Web PHP ospitata in Azure. L'applicazione risultante chiederà all'utente di inserire i valori relativi alla chiamata telefonica, come illustrato nella schermata seguente.
 
 ![Modulo di chiamata di Azure con Twilio e PHP][twilio_php]
@@ -29,70 +28,69 @@ Per usare il codice in questo argomento è necessario eseguire le operazioni seg
 3. Installare Azure SDK per PHP. Per informazioni generali sull'SDK e istruzioni per installarlo, vedere la pagina relativa alla [configurazione di Azure SDK per PHP][setup_php_sdk].
 
 ## Creare un modulo Web per effettuare una chiamata
-
 Il codice HTML seguente mostra come creare una pagina Web (**callform.html**) che consente di recuperare i dati utente per l'effettuazione di una chiamata:
 
     <html>
-	<head>
-		<title>Automated call form</title>
-	</head>
-	<body>
-	<h1>Automated Call Form</h1>
- 	<p>Fill in all fields and click <b>Make this call</b>.</p>
-  	<form action="makecall.php" method="post">
-   	<table>
-     	<tr>
-       		<td>To:</td>
-       		<td><input type="text" size=50 name="callTo" value=""></td>
-     	</tr>
-     	<tr>
-       		<td>From:</td>
-       		<td><input type="text" size=50 name="callFrom" value=""></td>
-     	</tr>
-     	<tr>
-       		<td>Call message:</td>
-       		<td><input type="text" size=100 name="callText" value="Hello. This is the call text. Good bye." /></td>
-     	</tr>
-     	<tr>
-       		<td colspan=2><input type="submit" value="Make this call"></td>
-     	</tr>
-   	</table>
- 	</form>
- 	<br/>
-	</body>
-	</html>
+    <head>
+        <title>Automated call form</title>
+    </head>
+    <body>
+    <h1>Automated Call Form</h1>
+     <p>Fill in all fields and click <b>Make this call</b>.</p>
+      <form action="makecall.php" method="post">
+       <table>
+         <tr>
+               <td>To:</td>
+               <td><input type="text" size=50 name="callTo" value=""></td>
+         </tr>
+         <tr>
+               <td>From:</td>
+               <td><input type="text" size=50 name="callFrom" value=""></td>
+         </tr>
+         <tr>
+               <td>Call message:</td>
+               <td><input type="text" size=100 name="callText" value="Hello. This is the call text. Good bye." /></td>
+         </tr>
+         <tr>
+               <td colspan=2><input type="submit" value="Make this call"></td>
+         </tr>
+       </table>
+     </form>
+     <br/>
+    </body>
+    </html>
 
 ## Creare il codice per l'esecuzione della chiamata
 Nel codice seguente viene illustrato come creare una pagina Web (**makecall.php**), che viene chiamata quando l'utente invia il form visualizzato da **callform.html**. Il codice seguente crea il messaggio di chiamata e genera la chiamata. Nel codice seguente sostituire i valori segnaposto assegnati a **$sid** e **$token** con il proprio account e il token di autenticazione Twilio.
 
     <html>
-	<head><title>Making call...</title></head>
-	<body>
-	<p>Your call is being made.</p>
+    <head><title>Making call...</title></head>
+    <body>
+    <p>Your call is being made.</p>
 
-	<?php
-	require_once 'Services/Twilio.php';
+    <?php
+    require_once 'Services/Twilio.php';
 
-	$sid = "your_account_sid";
-	$token = "your_authentication_token";
+    $sid = "your_account_sid";
+    $token = "your_authentication_token";
 
-	$from_number = $_POST['callFrom']; // Calls must be made from a registered Twilio number.
-	$to_number = $_POST['callTo'];
-	$message = $_POST['callText'];
+    $from_number = $_POST['callFrom']; // Calls must be made from a registered Twilio number.
+    $to_number = $_POST['callTo'];
+    $message = $_POST['callText'];
 
-	$client = new Services_Twilio($sid, $token, "2010-04-01");
+    $client = new Services_Twilio($sid, $token, "2010-04-01");
 
-	$call = $client->account->calls->create(
-		$from_number,
-		$to_number,
-  		'http://twimlets.com/message?Message='.urlencode($message)
-	);
+    $call = $client->account->calls->create(
+        $from_number,
+        $to_number,
+          'http://twimlets.com/message?Message='.urlencode($message)
+    );
 
-	echo "Call status: ".$call->status."<br />";
-	echo "URI resource: ".$call->uri."<br />";
-	?>
-	</body>
-	</html>
+    echo "Call status: ".$call->status."<br />";
+    echo "URI resource: ".$call->uri."<br />";
+    ?>
+    </body>
+    </html>
 
 Oltre a effettuare la chiamata, **makecall.php** visualizza alcuni metadati della chiamata, come mostrato nell'esempio nella schermata seguente. Per altre informazioni sui metadati della chiamata, vedere [https://www.twilio.com/docs/api/rest/call#instance-properties][twilio_call_properties].
 

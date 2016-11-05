@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Concetti relativi a Mobile Engagement | Microsoft Azure"
-	description="Concetti relativi ad Azure Mobile Engagement"
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="piyushjo"
-	manager="dwrede"
-	editor="" />
+---
+title: Concetti relativi a Mobile Engagement | Microsoft Docs
+description: Concetti relativi ad Azure Mobile Engagement
+services: mobile-engagement
+documentationcenter: mobile
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/19/2016"
-	ms.author="piyushjo" />
+ms.service: mobile-engagement
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-android
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/19/2016
+ms.author: piyushjo
 
+---
 # Concetti relativi ad Azure Mobile Engagement
-
 Mobile Engagement definisce alcuni concetti comuni a tutte le piattaforme supportate, descritti brevemente in questo articolo.
 
 Questo articolo è un buon punto di partenza per chi non ha familiarità con Mobile Engagement. Leggere anche la documentazione specifica per la piattaforma in uso, per informazioni più dettagliate sui concetti illustrati in questo articolo, con esempi e indicazioni relative alle possibili limitazioni.
@@ -79,10 +78,9 @@ La loro struttura è simile a quella degli oggetti JSON: sono costituiti da un a
 L'intero albero di coppie chiave/valore viene archiviato come oggetto JSON. Tuttavia, solo il primo livello di chiavi/valori viene scomposto per essere direttamente accessibile per alcune funzioni avanzate come i segmenti (ad esempio, è possibile definire in modo semplice un segmento denominato "SciFi fans" costituito da tutti gli utenti che hanno inviato almeno 10 volte l'evento denominato "content\_viewed" con la chiave aggiuntiva "content\_type" impostata sul valore "scifi" nell'ultimo mese). È pertanto consigliabile inviare solo dati aggiuntivi costituiti da semplici elenchi di coppie chiave/valore con valori scalari (ad esempio stringhe, date, numeri interi o valori booleani).
 
 ## Passaggi successivi
-
-- [Panoramica di Windows Universal SDK per Azure Mobile Engagement](mobile-engagement-windows-store-sdk-overview.md)
-- [Panoramica di Windows Phone Silverlight SDK per Azure Mobile Engagement](mobile-engagement-windows-phone-sdk-overview.md)
-- [iOS SDK per Azure Mobile Engagement](mobile-engagement-ios-sdk-overview.md)
-- [Android SDK per Azure Mobile Engagement](mobile-engagement-android-sdk-overview.md)
+* [Panoramica di Windows Universal SDK per Azure Mobile Engagement](mobile-engagement-windows-store-sdk-overview.md)
+* [Panoramica di Windows Phone Silverlight SDK per Azure Mobile Engagement](mobile-engagement-windows-phone-sdk-overview.md)
+* [iOS SDK per Azure Mobile Engagement](mobile-engagement-ios-sdk-overview.md)
+* [Android SDK per Azure Mobile Engagement](mobile-engagement-android-sdk-overview.md)
 
 <!---HONumber=AcomDC_0824_2016-->

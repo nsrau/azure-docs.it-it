@@ -1,25 +1,26 @@
 
-<properties 
-    pageTitle="Protezione dell'accesso ad Azure RemoteApp e oltre | Microsoft Azure"
-	description="Informazioni su come proteggere l'accesso ad RemoteApp usando l'accesso condizionale in Azure Active Directory"
-	services="remoteapp"
-	documentationCenter="" 
-	authors="piotrci" 
-	manager="mbaldwin" />
+---
+title: Protezione dell'accesso ad Azure RemoteApp e oltre | Microsoft Docs
+description: Informazioni su come proteggere l'accesso ad RemoteApp usando l'accesso condizionale in Azure Active Directory
+services: remoteapp
+documentationcenter: ''
+author: piotrci
+manager: mbaldwin
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/15/2016" 
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: elizapo
 
+---
 # Protezione dell'accesso ad Azure RemoteApp e oltre
-
-> [AZURE.IMPORTANT]
-Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> [!IMPORTANT]
+> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> 
+> 
 
 In questo articolo verrà illustrato come un amministratore può configurare un canale di accesso sicuro dall'utente finale ad Azure RemoteApp e infine a una risorsa sicura, ad esempio un database SQL o un altro back-end dell'applicazione. L'obiettivo è fare in modo che solo gli utenti autorizzati che soddisfano le condizioni desiderate possano accedere alle applicazioni remote e che il back-end sicuro sia accessibile solo dall'ambiente di Azure RemoteApp controllato e non da altre posizioni.
 
@@ -36,8 +37,8 @@ L'amministratore sceglie gli utenti che possono accedere alle applicazioni remot
 
 Usando gli account Azure AD per controllare l'accesso ad Azure RemoteApp si ottengono due risultati:
 
-1.	Si sa sempre chi può accedere alle applicazioni pubblicate e ai back-end a cui le applicazioni si connettono.
-2.	Si controlla l'istanza di Azure AD sottostante per poter creare ed eliminare gli account utente, impostare i criteri password, usare l'autenticazione a più fattori e così via.
+1. Si sa sempre chi può accedere alle applicazioni pubblicate e ai back-end a cui le applicazioni si connettono.
+2. Si controlla l'istanza di Azure AD sottostante per poter creare ed eliminare gli account utente, impostare i criteri password, usare l'autenticazione a più fattori e così via.
 
 ## Come si accede alla raccolta? Da dove?
 Gli amministratori di solito vogliono definire i criteri per l'accesso a un ambiente Internet pubblico, ad esempio Azure RemoteApp. Vogliono, ad esempio, essere certi che gli utenti che accedono all'ambiente dall'esterno della rete aziendale debbano usare l'autenticazione a più fattori (MFA) per ottenere l'accesso o che vengano completamente bloccati, se necessario.
@@ -47,29 +48,25 @@ Gli amministratori di Azure RemoteApp possono usare la funzionalità disponibile
 ### Come configurare l'accesso condizionale per Azure RemoteApp
 Verrà ora illustrato uno scenario di esempio: l'amministratore di Azure RemoteApp vuole bloccare l'accesso all'ambiente quando gli utenti sono all'esterno della rete aziendale.
 
->[AZURE.NOTE] Si presuppone che Azure AD sia stato aggiornato al piano Premium e che sia stata creata almeno una raccolta di Azure RemoteApp.
+> [!NOTE]
+> Si presuppone che Azure AD sia stato aggiornato al piano Premium e che sia stata creata almeno una raccolta di Azure RemoteApp.
+> 
+> 
 
-1.	Nel portale di Azure fare clic sulla scheda **Active Directory**. quindi fare clic sulla directory che si vuole configurare.
-
-	Si ricordi che l'accesso condizionale è una proprietà della directory e non di Azure RemoteApp, quindi la configurazione viene completamente eseguita a livello di directory e perciò è necessario essere l'amministratore della directory per apportare queste modifiche.
-
-2.	Fare clic su **Applicazioni** e quindi su **Microsoft Azure RemoteApp** per configurare l'accesso condizionale. Si noti che è possibile configurare l'accesso condizionale per ogni singola applicazione "software come un servizio" nella directory. ![Configurazione dell'accesso condizionale per Azure RemoteApp](./media/remoteapp-secureaccess/ra-conditionalaccessscreen.png)
- 
-
-3.	Nella scheda **Configura** impostare **Abilita regole di accesso** come attivo. ![Abilitare le regole di accesso per Azure RemoteApp](./media/remoteapp-secureaccess/ra-enableaccessrules.png)
- 
-
-4.	Ora è possibile configurare diverse regole e scegliere a chi applicarle:
-
-	1. Scegliere **Blocca l'accesso quando non al lavoro** per impedire completamente agli utenti di accedere ad Azure RemoteApp al di fuori dell'ambiente specificato.
-	2. Fare clic sull'opzione sotto per definire gli intervalli di indirizzi IP che costituiscono la "rete attendibile". Tutti gli altri indirizzi verranno rifiutati.
-
-5.	Testare la configurazione avviando il client Azure RemoteApp da un indirizzo IP non compreso nell'intervallo specificato. Dopo avere eseguito l'accesso con le credenziali di Azure AD, verrà visualizzato un messaggio simile a questo:
+1. Nel portale di Azure fare clic sulla scheda **Active Directory**. quindi fare clic sulla directory che si vuole configurare.
+   
+   Si ricordi che l'accesso condizionale è una proprietà della directory e non di Azure RemoteApp, quindi la configurazione viene completamente eseguita a livello di directory e perciò è necessario essere l'amministratore della directory per apportare queste modifiche.
+2. Fare clic su **Applicazioni** e quindi su **Microsoft Azure RemoteApp** per configurare l'accesso condizionale. Si noti che è possibile configurare l'accesso condizionale per ogni singola applicazione "software come un servizio" nella directory. ![Configurazione dell'accesso condizionale per Azure RemoteApp](./media/remoteapp-secureaccess/ra-conditionalaccessscreen.png)
+3. Nella scheda **Configura** impostare **Abilita regole di accesso** come attivo. ![Abilitare le regole di accesso per Azure RemoteApp](./media/remoteapp-secureaccess/ra-enableaccessrules.png)
+4. Ora è possibile configurare diverse regole e scegliere a chi applicarle:
+   
+   1. Scegliere **Blocca l'accesso quando non al lavoro** per impedire completamente agli utenti di accedere ad Azure RemoteApp al di fuori dell'ambiente specificato.
+   2. Fare clic sull'opzione sotto per definire gli intervalli di indirizzi IP che costituiscono la "rete attendibile". Tutti gli altri indirizzi verranno rifiutati.
+5. Testare la configurazione avviando il client Azure RemoteApp da un indirizzo IP non compreso nell'intervallo specificato. Dopo avere eseguito l'accesso con le credenziali di Azure AD, verrà visualizzato un messaggio simile a questo:
 
 ![Accesso negato ad Azure RemoteApp](./media/remoteapp-secureaccess/ra-accessdenied.png)
- 
 
-### Funzionalità di accesso condizionale future 
+### Funzionalità di accesso condizionale future
 Il team di Azure Active Directory sta lavorando alle nuove funzionalità di accesso condizionale. Gli amministratori potranno creare nuovi tipi di regole oltre a quelle basate sui percorsi di rete. Un'anteprima pubblica delle nuove funzionalità sarà presto disponibile.
 
 ### Come monitorare l'accesso ad Azure RemoteApp
@@ -77,16 +74,13 @@ Un'eccellente funzionalità da usare con l'accesso condizionale è la creazione 
 
 Ad esempio, è possibile visualizzare i nomi degli utenti che hanno eseguito l'accesso ad Azure RemoteApp, quante volte l'hanno effettuato e quando.
 
-1.	Nel portale di Azure fare clic su **Active Directory** e quindi sulla directory.
+1. Nel portale di Azure fare clic su **Active Directory** e quindi sulla directory.
+2. Passare alla scheda **Report**.
+3. Nell'elenco di report selezionare **Utilizzo applicazioni** in **Applicazioni integrate**.
+   
+   Verranno visualizzate alcune statistiche aggregate per Azure RemoteApp. ![Statistiche di accesso di Azure RemoteApp aggregate](./media/remoteapp-secureaccess/ra-accessstats.png)
+4. Fare clic sull'applicazione per visualizzare le informazioni sugli utenti che accedono ad Azure RemoteApp. ![Statistiche di accesso utente per Azure RemoteApp](./media/remoteapp-secureaccess/ra-userstats.png)
 
-2.	Passare alla scheda **Report**.
-
-3.	Nell'elenco di report selezionare **Utilizzo applicazioni** in **Applicazioni integrate**.
-
-	Verranno visualizzate alcune statistiche aggregate per Azure RemoteApp. ![Statistiche di accesso di Azure RemoteApp aggregate](./media/remoteapp-secureaccess/ra-accessstats.png)
- 
-5.	Fare clic sull'applicazione per visualizzare le informazioni sugli utenti che accedono ad Azure RemoteApp. ![Statistiche di accesso utente per Azure RemoteApp](./media/remoteapp-secureaccess/ra-userstats.png)
- 
 ### Riepilogo
 Con Azure Active Directory Premium è possibile configurare regole di accesso ad Azure RemoteApp (e ad altre applicazioni software come un servizio disponibili in Azure AD). Le regole attualmente sono limitate ai criteri basati sui percorsi di rete, ma in futuro verranno estese ad altri aspetti della gestione aziendale.
 
@@ -101,10 +95,9 @@ La soluzione è inserire sia l'ambiente Azure RemoteApp che la risorsa sicura ne
 
 Azure RemoteApp supporta due tipi di distribuzione di raccolte in cui è possibile specificare la propria rete virtuale:
 
--	Non appartenente a un dominio: le applicazioni avranno una "visuale" delle altre risorse della rete virtuale. Può essere usata, ad esempio, per connettere le applicazioni a un database SQL che usa l'autenticazione SQL (le applicazioni autenticano l'utente direttamente nel database)
+* Non appartenente a un dominio: le applicazioni avranno una "visuale" delle altre risorse della rete virtuale. Può essere usata, ad esempio, per connettere le applicazioni a un database SQL che usa l'autenticazione SQL (le applicazioni autenticano l'utente direttamente nel database)
+* Appartenente a un dominio: le macchine virtuali usate da Azure RemoteApp appartengono a un controller di dominio della rete virtuale. È utile quando le applicazioni devono eseguire l'autenticazione in un controller di dominio Windows per ottenere l'accesso a una risorsa back-end. ![Raccolta appartenente a un dominio in Azure RemoteApp](./media/remoteapp-secureaccess/ra-domainjoined.png)
 
--	Appartenente a un dominio: le macchine virtuali usate da Azure RemoteApp appartengono a un controller di dominio della rete virtuale. È utile quando le applicazioni devono eseguire l'autenticazione in un controller di dominio Windows per ottenere l'accesso a una risorsa back-end. ![Raccolta appartenente a un dominio in Azure RemoteApp](./media/remoteapp-secureaccess/ra-domainjoined.png)
- 
 ### Come creare una connessione sicura tra l'ambiente Azure e locale
 Le opzioni di configurazione per connettere gli ambienti Azure e locali sono diverse. Qui è disponibile un'ampia panoramica delle opzioni.
 

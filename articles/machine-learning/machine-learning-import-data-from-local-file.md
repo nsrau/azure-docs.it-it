@@ -1,33 +1,28 @@
-<properties
-	pageTitle="Importare dati in Machine Learning Studio da un file locale | Microsoft Azure"
-	description="Come importare dati di training in Azure Machine Learning Studio da un file locale."
-	keywords="dati di importazione, formato dati, tipi di dati, origini dati, dati di training"
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="jhubbard"
-	editor="cgronlun"/> 
+---
+title: Importare dati in Machine Learning Studio da un file locale | Microsoft Docs
+description: Come importare dati di training in Azure Machine Learning Studio da un file locale.
+keywords: dati di importazione, formato dati, tipi di dati, origini dati, dati di training
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="garye;bradsev" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: garye;bradsev
 
-
+---
 # Importare dati di training in Azure Machine Learning Studio da un file locale
-
-[AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
-
+[!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 Per usare i propri dati in Machine Learning Studio, è possibile caricare un file di dati in anticipo dal disco rigido locale per creare un modulo di set di dati nell'area di lavoro.
 
-
 ## Importare dati da un file locale
-
 È possibile importare dati da un disco rigido locale effettuando le operazioni seguenti:
 
 1. Fare clic su **+ NEW** nella parte inferiore della finestra di Machine Learning Studio.

@@ -1,81 +1,78 @@
-<properties
-	pageTitle="Modellazione multi-tenancy in Ricerca di Azure | Microsoft Azure | Servizio di ricerca cloud ospitato"
-	description="Informazioni sui modelli di progettazione comuni per le applicazioni SaaS multi-tenant quando si usa Ricerca di Azure."
-	services="search"
-	authors="ashmaka"
-	documentationCenter=""/> 
+---
+title: Modellazione multi-tenancy in Ricerca di Azure | Microsoft Docs
+description: Informazioni sui modelli di progettazione comuni per le applicazioni SaaS multi-tenant quando si usa Ricerca di Azure.
+services: search
+author: ashmaka
+documentationcenter: ''
 
-<tags
-	ms.service="search"
-	ms.devlang="NA"
-	ms.workload="search"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.date="09/20/2016"
-	ms.author="ashmaka"/> 
+ms.service: search
+ms.devlang: NA
+ms.workload: search
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.date: 09/20/2016
+ms.author: ashmaka
 
+---
 # Modelli di progettazione per le applicazioni SaaS multi-tenant e Ricerca di Azure
-
 Un'applicazione multi-tenant è un'applicazione che fornisce gli stessi servizi e funzionalità a un numero qualsiasi di tenant che non possono vedere o condividere i dati di nessun altro tenant. Questo documento illustra le strategie di isolamento dei tenant per le applicazioni multi-tenant compilate con Ricerca di Azure.
 
 ## Concetti di Ricerca di Azure
 Come soluzione di ricerca come servizio, Ricerca di Azure consente agli sviluppatori di aggiungere esperienze di ricerca avanzate alle applicazioni, senza dover gestire un'infrastruttura o diventare esperti di ricerca. I dati vengano caricati nel servizio e quindi archiviati nel cloud. Tramite semplici richieste all'API di Ricerca di Azure, i dati possono essere modificati e ricercati. Una panoramica del servizio è riportata in [questo articolo](http://aka.ms/whatisazsearch). Prima di esaminare i modelli di progettazione, è importante comprendere alcuni concetti di Ricerca di Azure.
 
 ### Servizi di ricerca, indici, campi e documenti
-Quando si usa Ricerca di Azure, si sottoscrive un _servizio di ricerca_. Quando i dati vengono caricati in Ricerca di Azure, vengono archiviati in un _indice_ all'interno del servizio di ricerca. In un solo servizio possono essere presenti molti indici. Facendo riferimento ai familiari concetti relativi ai database, il servizio di ricerca può essere paragonato a un database, mentre gli indici all'interno di un servizio possono essere paragonati alle tabelle di un database.
+Quando si usa Ricerca di Azure, si sottoscrive un *servizio di ricerca*. Quando i dati vengono caricati in Ricerca di Azure, vengono archiviati in un *indice* all'interno del servizio di ricerca. In un solo servizio possono essere presenti molti indici. Facendo riferimento ai familiari concetti relativi ai database, il servizio di ricerca può essere paragonato a un database, mentre gli indici all'interno di un servizio possono essere paragonati alle tabelle di un database.
 
-Ogni indice all'interno di un servizio di ricerca ha un proprio schema, definito da un certo numero di _campi_ personalizzabili. I dati vengono aggiunti a un indice di Ricerca di Azure sotto forma di singoli _documenti_. Ogni documento deve essere caricato in un indice specifico e deve adattarsi allo schema di tale indice. Quando si eseguono ricerche di dati tramite Ricerca di Azure, vengono eseguite query di ricerca full-text su un particolare indice. Facendo riferimento ai database, i campi possono essere paragonati alle colonne e i documenti alle righe di una tabella del database.
+Ogni indice all'interno di un servizio di ricerca ha un proprio schema, definito da un certo numero di *campi* personalizzabili. I dati vengono aggiunti a un indice di Ricerca di Azure sotto forma di singoli *documenti*. Ogni documento deve essere caricato in un indice specifico e deve adattarsi allo schema di tale indice. Quando si eseguono ricerche di dati tramite Ricerca di Azure, vengono eseguite query di ricerca full-text su un particolare indice. Facendo riferimento ai database, i campi possono essere paragonati alle colonne e i documenti alle righe di una tabella del database.
 
 ### Scalabilità
 Qualsiasi servizio di Ricerca di Azure nel [piano tariffario](https://azure.microsoft.com/pricing/details/search/) Standard può essere ridimensionato in due sensi: archiviazione e disponibilità.
-* È possibile aggiungere _partizioni_ per aumentare lo spazio di archiviazione di un servizio di ricerca.
-* Possono essere aggiunte _repliche_ a un servizio per aumentare la velocità effettiva delle richieste che un servizio di ricerca può gestire.
+
+* È possibile aggiungere *partizioni* per aumentare lo spazio di archiviazione di un servizio di ricerca.
+* Possono essere aggiunte *repliche* a un servizio per aumentare la velocità effettiva delle richieste che un servizio di ricerca può gestire.
 
 Aggiungendo e rimuovendo partizioni e repliche si consentirà alla capacità del servizio di ricerca di crescere in base alla quantità di dati e al traffico richiesti dall'applicazione. Affinché un servizio di ricerca rispetti un [contratto di servizio](https://azure.microsoft.com/support/legal/sla/search/v1_0/) di lettura, sono necessarie due repliche. Affinché un servizio rispetti un [contratto di servizio](https://azure.microsoft.com/support/legal/sla/search/v1_0/) di lettura-scrittura, sono necessarie tre repliche.
-
 
 ### Limiti dei servizi e degli indici in Ricerca di Azure
 Esistono vari [piani tariffari](https://azure.microsoft.com/pricing/details/search/) per Ricerca di Azure e ciascuno presenta [limiti e quote](search-limits-quotas-capacity.md) diverse. Alcuni di questi limiti sono a livello di servizio, altri sono a livello di indice e altri ancora a livello di partizione.
 
-
-| | Basic | Standard1 | Standard2 | Standard3 | Standard3 HD |
-|----------------------------------|-----------|-------------|-------------|-------------|---------------|
-| Massimo numero di repliche per servizio | 3 | 12 | 12 | 12 | 12 |
-| Massimo numero di partizioni per servizio | 1 | 12 | 12 | 12 | 1 |
-| Massimo numero di unità di ricerca (repliche * partizioni) per servizio | 3 | 36 | 36 | 36 | 12 |
-| Massimo numero di documenti per servizio | 1 milione | 180 milioni | 720 milioni | 1,4 miliardi | 200 milioni |
-| Massimo spazio di archiviazione per servizio | 2 GB | 300 GB | 1,2 TB | 2,4 TB | 200 GB |
-| Massimo numero di documenti per partizione | 1 milione | 15 milioni | 60 milioni | 120 milioni | 200 milioni |
-| Massimo spazio di archiviazione per partizione | 2 GB | 25 GB | 100 GB | 200 GB | 200 GB |
-| Massimo numero di indici per servizio | 5 | 50 | 200 | 200 | 1000 |
-
+|  | Basic | Standard1 | Standard2 | Standard3 | Standard3 HD |
+| --- | --- | --- | --- | --- | --- |
+| Massimo numero di repliche per servizio |3 |12 |12 |12 |12 |
+| Massimo numero di partizioni per servizio |1 |12 |12 |12 |1 |
+| Massimo numero di unità di ricerca (repliche * partizioni) per servizio |3 |36 |36 |36 |12 |
+| Massimo numero di documenti per servizio |1 milione |180 milioni |720 milioni |1,4 miliardi |200 milioni |
+| Massimo spazio di archiviazione per servizio |2 GB |300 GB |1,2 TB |2,4 TB |200 GB |
+| Massimo numero di documenti per partizione |1 milione |15 milioni |60 milioni |120 milioni |200 milioni |
+| Massimo spazio di archiviazione per partizione |2 GB |25 GB |100 GB |200 GB |200 GB |
+| Massimo numero di indici per servizio |5 |50 |200 |200 |1000 |
 
 #### S3 ad alta densità
 Nel piano tariffario S3 di Ricerca di Azure è disponibile un'opzione per la modalità a densità elevata (HD) progettata specificamente per gli scenari multi-tenant. Nella modalità ad alta densità, lo SKU di S3 presenta limiti diversi rispetto alla configurazione S3 standard:
+
 * Sono ammessi fino a 1000 indici per ogni servizio, invece di 200
 * Sono ammessi fino a 200 GB di dati per ogni servizio, invece di 2,4 TB
 * È ammessa 1 sola partizione per ogni servizio, anziché 12
 
 Il piano S3 HD è ideale per applicazioni con abilitazione SaaS che implementano il modello "indice per tenant" descritto di seguito.
 
-
 ## Considerazioni per le applicazioni multi-tenant
 Le applicazioni multi-tenant devono distribuire in modo efficace le risorse tra i tenant mantenendo al tempo stesso un certo livello di privacy tra i vari tenant. Quando si progetta l'architettura di un'applicazione di questo tipo, ci sono alcuni aspetti da considerare:
 
-* _Isolamento del tenant:_ gli sviluppatori di applicazioni devono adottare misure appropriate per assicurarsi che nessun tenant non autorizzato o indesiderato acceda ai dati di altri tenant. Oltre alla questione della privacy dei dati, le strategie di isolamento tenant richiedono una gestione efficace delle risorse condivise e la protezione da vicini fastidiosi.
-* _Costi delle risorse del cloud:_ come con qualsiasi altra applicazione, le soluzioni software devono rimanere competitive quando sono componenti di un'applicazione multi-tenant.
-* _Semplicità delle operazioni:_ quando si sviluppa un'architettura multi-tenant, l'impatto sulle operazioni e la complessità dell'applicazione è un fattore importante. Ricerca di Azure ha un [contratto di servizio del 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
-* _Presenza globale:_ le applicazioni multi-tenant potrebbero dover gestire in modo efficace tenant distribuiti in tutto il mondo.
-* _Scalabilità:_ gli sviluppatori di applicazioni devono mantenere le applicazioni a un livello di complessità sufficientemente ridotto e allo stesso tempo progettarle in maniera che siano scalabili in base al numero di tenant e alla dimensione dei dati e del carico di lavoro dei tenant.
+* *Isolamento del tenant:* gli sviluppatori di applicazioni devono adottare misure appropriate per assicurarsi che nessun tenant non autorizzato o indesiderato acceda ai dati di altri tenant. Oltre alla questione della privacy dei dati, le strategie di isolamento tenant richiedono una gestione efficace delle risorse condivise e la protezione da vicini fastidiosi.
+* *Costi delle risorse del cloud:* come con qualsiasi altra applicazione, le soluzioni software devono rimanere competitive quando sono componenti di un'applicazione multi-tenant.
+* *Semplicità delle operazioni:* quando si sviluppa un'architettura multi-tenant, l'impatto sulle operazioni e la complessità dell'applicazione è un fattore importante. Ricerca di Azure ha un [contratto di servizio del 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+* *Presenza globale:* le applicazioni multi-tenant potrebbero dover gestire in modo efficace tenant distribuiti in tutto il mondo.
+* *Scalabilità:* gli sviluppatori di applicazioni devono mantenere le applicazioni a un livello di complessità sufficientemente ridotto e allo stesso tempo progettarle in maniera che siano scalabili in base al numero di tenant e alla dimensione dei dati e del carico di lavoro dei tenant.
 
 Ricerca di Azure offre alcuni confini che consentono di isolare i dati e il carico di lavoro dei tenant.
 
 ## Modellazione del multi-tenancy con Ricerca di Azure
 Nel caso di uno scenario multi-tenant, lo sviluppatore dell'applicazione usa uno o più servizi di ricerca e divide i tenant tra i servizi, gli indici o entrambi. Ricerca di Azure dispone di alcuni modelli comuni per la modellazione di uno scenario multi-tenant:
 
-1. _Indice per tenant:_ ogni tenant dispone di un proprio indice all'interno di un servizio di ricerca che è condiviso con altri tenant.
-1. _Servizio per tenant:_ ogni tenant dispone di un proprio servizio Ricerca di Azure dedicato, il che offre un livello più elevato di separazione dei dati e del carico di lavoro.
-1. _Combinazione di entrambi:_ ai tenant più grandi e attivi vengono assegnati servizi dedicati mentre ai tenant più piccoli vengono assegnati singoli indici all'interno di servizi condivisi.
+1. *Indice per tenant:* ogni tenant dispone di un proprio indice all'interno di un servizio di ricerca che è condiviso con altri tenant.
+2. *Servizio per tenant:* ogni tenant dispone di un proprio servizio Ricerca di Azure dedicato, il che offre un livello più elevato di separazione dei dati e del carico di lavoro.
+3. *Combinazione di entrambi:* ai tenant più grandi e attivi vengono assegnati servizi dedicati mentre ai tenant più piccoli vengono assegnati singoli indici all'interno di servizi condivisi.
 
 ## 1\. Indice per tenant
 ![Un'immagine del modello "indice per tenant"](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png) 
@@ -93,7 +90,6 @@ Per le applicazioni con una presenza globale, il modello "indice per tenant" pot
 Ricerca di Azure consente il ridimensionamento verso l'alto dei singoli indici e anche l'incremento del numero totale di indici. Se viene scelto un piano tariffario appropriato, possono essere aggiunte partizioni e repliche all'intero servizio di ricerca quando un singolo indice all'interno del servizio diventa troppo grande in termini di archiviazione o traffico.
 
 Se il numero totale di indici diventa troppo grande per un singolo servizio, è necessario eseguire il provisioning di un altro servizio per accogliere i nuovi tenant. Se è necessario spostare determinati indici tra i servizi di ricerca quando vengono aggiunti nuovi servizi, i dati dell'indice devono essere copiati manualmente da un indice all'altro in quanto Ricerca di Azure non consente di spostare un indice.
-
 
 ## 2\. Servizio per tenant
 ![Un'immagine del modello "servizio per tenant"](./media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png) 

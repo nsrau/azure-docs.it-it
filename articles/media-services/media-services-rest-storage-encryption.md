@@ -1,68 +1,65 @@
-<properties 
-    pageTitle="Crittografare i contenuti con la crittografia di archiviazione tramite API REST di AMS" 
-    description="Crittografare i contenuti con la crittografia di archiviazione tramite API REST di AMS." 
-    services="media-services" 
-    documentationCenter="" 
-    authors="Juliako" 
-    manager="erikre" 
-    editor=""/>
+---
+title: Crittografare i contenuti con la crittografia di archiviazione tramite API REST di AMS
+description: Crittografare i contenuti con la crittografia di archiviazione tramite API REST di AMS.
+services: media-services
+documentationcenter: ''
+author: Juliako
+manager: erikre
+editor: ''
 
-<tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/26/2016"
-    ms.author="juliako"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: juliako
 
-
-
-#<a name="encrypting-your-content-with-storage-encryption-using-ams-rest-api"></a>Crittografare i contenuti con la crittografia di archiviazione tramite API REST di AMS
-
+---
+# <a name="encrypting-your-content-with-storage-encryption-using-ams-rest-api"></a>Crittografare i contenuti con la crittografia di archiviazione tramite API REST di AMS
 È consigliabile crittografare i propri contenuti localmente usando la crittografia AES a 256 bit e quindi caricarli nel servizio Archiviazione di Azure, dove verranno archiviati in forma crittografata.
 
 In questo articolo viene illustrata una panoramica della crittografia di archiviazione di AMS e viene specificato come caricare il contenuto crittografato per l'archiviazione:
 
-- Creare una chiave simmetrica.
-- Creare un asset. Durante la creazione dell'asset, impostare AssetCreationOption su StorageEncryption.
-
+* Creare una chiave simmetrica.
+* Creare un asset. Durante la creazione dell'asset, impostare AssetCreationOption su StorageEncryption.
+  
      Gli asset crittografati devono essere associati a chiavi simmetriche.
-- Collegare la chiave simmetrica all'asset.  
-- Impostare i parametri relativi alla crittografia sulle entità AssetFile.
- 
->[AZURE.NOTE]Se si desidera distribuire un asset con memoria crittografata, è necessario configurare i criteri di distribuzione appropriati. Prima di trasmettere in streaming l'asset in base ai criteri specificati, il server rimuove la crittografia di archiviazione. Per altre informazioni, vedere l'articolo [Procedura: Configurare i criteri di distribuzione degli asset](media-services-rest-configure-asset-delivery-policy.md).
+* Collegare la chiave simmetrica all'asset.  
+* Impostare i parametri relativi alla crittografia sulle entità AssetFile.
 
+> [!NOTE]
+> Se si desidera distribuire un asset con memoria crittografata, è necessario configurare i criteri di distribuzione appropriati. Prima di trasmettere in streaming l'asset in base ai criteri specificati, il server rimuove la crittografia di archiviazione. Per altre informazioni, vedere l'articolo [Procedura: Configurare i criteri di distribuzione degli asset](media-services-rest-configure-asset-delivery-policy.md).
+> 
+> [!NOTE]
+> Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
+> 
+> Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
+> 
+> Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere eseguite al nuovo URI, come descritto in [Connessione a un account di Servizi multimediali mediante l'API REST](media-services-rest-connect-programmatically.md). 
+> 
+> 
 
->[AZURE.NOTE] Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
->
->Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
-
->Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere eseguite al nuovo URI, come descritto in [Connessione a un account di Servizi multimediali mediante l'API REST](media-services-rest-connect-programmatically.md). 
-
-##<a name="storage-encryption-overview"></a>Panoramica della crittografia di archiviazione. 
-
+## <a name="storage-encryption-overview"></a>Panoramica della crittografia di archiviazione.
 La crittografia di archiviazione di AMS applica la crittografia in modalità **AES-CTR** all'intero file.  La modalità CTR-AES è una crittografia a blocchi in grado di crittografare dati di lunghezza arbitraria senza bisogno di spaziatura interna. Funziona mediante la crittografia di un blocco di contatori con l'algoritmo AES e l'applicazione di XOR sull'output di AES con i dati da crittografare o decrittografare.  Il blocco di contatori usato viene creato copiando il valore di InitializationVector nei byte da 0 a 7 del valore del contatore, mentre i byte da 8 a 15 del valore del contatore vengono impostati su zero. Nel blocco del contatore a 16 byte, i byte da 8 a 15, vale a dire i byte meno significativi, vengono usati come semplice numero intero a 64 bit senza firma che viene aumentato di uno per ogni blocco di dati elaborato successivo e viene mantenuto nell'ordine dei byte di rete. Si noti che quando il numero intero raggiunge il valore massimo 0xFFFFFFFFFFFFFFFF, un incremento azzera i byte da 8 a 15 del contatore del blocco, senza influenzare gli altri 64 bit del contatore, vale a dire i byte da 0 a 7.   Per mantenere la sicurezza della crittografia in modalità AES-CTR, il valore InitializationVector dell'identificatore chiave di ogni chiave simmetrica deve essere univoco per ogni file e i file devono essere di lunghezza inferiore a 2^64 blocchi.  Questo metodo serve a garantire che un valore del contatore non venga mai riutilizzato con una chiave specificata. Per altre informazioni sulla modalità CTR, vedere questa [pagina della wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) tenendo presente che l'articolo della wiki usa il termine "Nonce" anziché "InitializationVector".
 
 Usare la **crittografia di archiviazione** per crittografare il contenuto localmente tramite crittografia AES a 256 bit, quindi caricarlo nel servizio Archiviazione di Azure dove viene archiviato in forma crittografata. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica. Se necessario, inoltre, possono essere ricrittografati prima del successivo caricamento come nuovo asset di output. La crittografia di archiviazione viene usata principalmente per proteggere file multimediali di input di alta qualità archiviati su disco applicando una crittografia avanzata.
 
 Per poter trasmettere l'asset crittografato di archiviazione, è necessario configurare i criteri di distribuzione dell'asset in modo da informare Servizi multimediali della modalità di distribuzione del contenuto. Per potere permettere lo streaming dell'asset, il server di streaming rimuove la crittografia di archiviazione ed esegue lo streaming dei contenuti usando i criteri di recapito specificati (ad esempio, AES, crittografia comune o nessuna crittografia).
 
-##<a name="create-contentkeys-used-for-encryption"></a>Creare chiavi simmetriche per la crittografia
-
+## <a name="create-contentkeys-used-for-encryption"></a>Creare chiavi simmetriche per la crittografia
 Gli asset crittografati devono essere associati alle chiavi di crittografia di archiviazione. È necessario creare la chiave simmetrica da usare per la crittografia prima di creare i file di asset. Questa sezione descrive come creare una chiave simmetrica.
 
 Di seguito sono descritti i passaggi generali per la generazione di chiavi simmetriche da associare agli asset che si desidera crittografare. 
 
 1. Per la crittografia di archiviazione, generare in modo casuale una chiave AES a 32 byte. 
-
+   
     Questa sarà la chiave simmetrica dell'asset. Ciò significa che tutti i file associati all'asset dovranno usare la stessa chiave simmetrica durante la decrittografia. 
-2.  Chiamare i metodi [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) per ottenere il certificato X.509 corretto da usare per crittografare la chiave simmetrica.
-3.  Crittografare la chiave simmetrica con la chiave pubblica del certificato X.509. 
-
-    L'SDK di Servizi multimediali per .NET usa RSA con OAEP durante l'esecuzione della crittografia.  È disponibile un esempio .NET nella [funzione EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-4.  Creare un valore del checksum calcolato usando l'identificatore di chiave e la chiave simmetrica. Il seguente esempio .NET calcola il checksum usando la parte GUID dell'identificatore chiave e la chiave simmetrica non crittografata.
-    
+2. Chiamare i metodi [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) per ottenere il certificato X.509 corretto da usare per crittografare la chiave simmetrica.
+3. Crittografare la chiave simmetrica con la chiave pubblica del certificato X.509. 
+   
+   L'SDK di Servizi multimediali per .NET usa RSA con OAEP durante l'esecuzione della crittografia.  È disponibile un esempio .NET nella [funzione EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+4. Creare un valore del checksum calcolato usando l'identificatore di chiave e la chiave simmetrica. Il seguente esempio .NET calcola il checksum usando la parte GUID dell'identificatore chiave e la chiave simmetrica non crittografata.
 
         public static string CalculateChecksum(byte[] contentKey, Guid keyId)
         {
@@ -91,11 +88,10 @@ Di seguito sono descritti i passaggi generali per la generazione di chiavi simme
         }
 
 
-5. Creare la chiave simmetrica con i valori **EncryptedContentKey** (convertito in stringa con codifica Base64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** e **Checksum** ricevuti nei passaggi precedenti.
+1. Creare la chiave simmetrica con i valori **EncryptedContentKey** (convertito in stringa con codifica Base64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** e **Checksum** ricevuti nei passaggi precedenti.
 
-    
     Per la crittografia di archiviazione, nel corpo della richiesta devono essere incluse le proprietà seguenti.
-     
+
     Proprietà del corpo della richiesta   | Descrizione
     ---|---
     ID | ID della chiave simmetrica generato dall'utente con il formato seguente: "nb:kid:UUID:<NEW GUID>".
@@ -104,17 +100,13 @@ Di seguito sono descritti i passaggi generali per la generazione di chiavi simme
     ProtectionKeyId | ID della chiave di protezione per il certificato X.509 di crittografia di archiviazione usato per crittografare la chiave simmetrica.
     ProtectionKeyType | Tipo di crittografia per la chiave di protezione usata per crittografare la chiave simmetrica. Per l'esempio questo valore è StorageEncryption(1).
     Checksum |Checksum MD5 calcolato per la chiave simmetrica. Viene ricavato crittografando l'ID contenuto con la chiave simmetrica. Il codice di esempio mostra come calcolare il checksum.
-    
 
-###<a name="retrieve-the-protectionkeyid"></a>Recuperare l'entità ProtectionKeyId 
- 
 
+### <a name="retrieve-the-protectionkeyid"></a>Recuperare l'entità ProtectionKeyId
 Il seguente esempio mostra come recuperare l'entità ProtectionKeyId, un'identificazione personale del certificato da usare per la crittografia della chiave simmetrica. Eseguire questo passaggio per assicurarsi di avere già il certificato appropriato nel computer.
 
-
 Richiesta:
-    
-    
+
     GET https://media.windows.net/api/GetProtectionKeyId?contentKeyType=0 HTTP/1.1
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
@@ -123,10 +115,10 @@ Richiesta:
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
     x-ms-version: 2.11
     Host: media.windows.net
-    
+
 
 Risposta:
-    
+
     HTTP/1.1 200 OK
     Cache-Control: no-cache
     Content-Length: 139
@@ -139,15 +131,14 @@ Risposta:
     X-Powered-By: ASP.NET
     Strict-Transport-Security: max-age=31536000; includeSubDomains
     Date: Wed, 04 Feb 2015 02:42:52 GMT
-    
+
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String","value":"7D9BB04D9D0A4A24800CADBFEF232689E048F69C"}
 
-###<a name="retrieve-the-protectionkey-for-the-protectionkeyid"></a>Recuperare l'entità ProtectionKey per ProtectionKeyId
-
+### <a name="retrieve-the-protectionkey-for-the-protectionkeyid"></a>Recuperare l'entità ProtectionKey per ProtectionKeyId
 Il seguente esempio mostra come recuperare il certificato X.509 usando l'entità ProtectionKeyId ricevuta nel passaggio precedente.
 
 Richiesta:
-        
+
     GET https://media.windows.net/api/GetProtectionKey?ProtectionKeyId='7D9BB04D9D0A4A24800CADBFEF232689E048F69C' HTTP/1.1
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
@@ -157,11 +148,11 @@ Richiesta:
     x-ms-version: 2.11
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
-    
+
 
 
 Risposta:
-    
+
     HTTP/1.1 200 OK
     Cache-Control: no-cache
     Content-Length: 1227
@@ -175,18 +166,16 @@ Risposta:
     X-Powered-By: ASP.NET
     Strict-Transport-Security: max-age=31536000; includeSubDomains
     Date: Thu, 05 Feb 2015 07:52:30 GMT
-    
+
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String",
     "value":"MIIDSTCCAjGgAwIBAgIQqf92wku/HLJGCbMAU8GEnDANBgkqhkiG9w0BAQQFADAuMSwwKgYDVQQDEyN3YW1zYmx1cmVnMDAxZW5jcnlwdGFsbHNlY3JldHMtY2VydDAeFw0xMjA1MjkwNzAwMDBaFw0zMjA1MjkwNzAwMDBaMC4xLDAqBgNVBAMTI3dhbXNibHVyZWcwMDFlbmNyeXB0YWxsc2VjcmV0cy1jZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzR0SEbXefvUjb9wCUfkEiKtGQ5Gc328qFPrhMjSo+YHe0AVviZ9YaxPPb0m1AaaRV4dqWpST2+JtDhLOmGpWmmA60tbATJDdmRzKi2eYAyhhE76MgJgL3myCQLP42jDusWXWSMabui3/tMDQs+zfi1sJ4Ch/lm5EvksYsu6o8sCv29VRwxfDLJPBy2NlbV4GbWz5Qxp2tAmHoROnfaRhwp6WIbquk69tEtu2U50CpPN2goLAqx2PpXAqA+prxCZYGTHqfmFJEKtZHhizVBTFPGS3ncfnQC9QIEwFbPw6E5PO5yNaB68radWsp5uvDg33G1i8IT39GstMW6zaaG7cNQIDAQABo2MwYTBfBgNVHQEEWDBWgBCOGT2hPhsvQioZimw8M+jOoTAwLjEsMCoGA1UEAxMjd2Ftc2JsdXJlZzAwMWVuY3J5cHRhbGxzZWNyZXRzLWNlcnSCEKn/dsJLvxyyRgmzAFPBhJwwDQYJKoZIhvcNAQEEBQADggEBABcrQPma2ekNS3Wc5wGXL/aHyQaQRwFGymnUJ+VR8jVUZaC/U/f6lR98eTlwycjVwRL7D15BfClGEHw66QdHejaViJCjbEIJJ3p2c9fzBKhjLhzB3VVNiLIaH6RSI1bMPd2eddSCqhDIn3VBN605GcYXMzhYp+YA6g9+YMNeS1b+LxX3fqixMQIxSHOLFZ1G/H2xfNawv0VikH3djNui3EKT1w/8aRkUv/AAV0b3rYkP/jA1I0CPn0XFk7STYoiJ3gJoKq9EMXhit+Iwfz0sMkfhWG12/XO+TAWqsK1ZxEjuC9OzrY7pFnNxs4Mu4S8iinehduSpY+9mDd3dHynNwT4="}
 
-### <a name="create-the-content-key"></a>Creare la chiave simmetrica 
-
+### <a name="create-the-content-key"></a>Creare la chiave simmetrica
 Dopo aver recuperato il certificato X.509 e usato la chiave pubblica per crittografare la chiave simmetrica, creare un'entità **ContentKey** e impostare i valori delle proprietà di conseguenza.
 
 Uno dei valori che è necessario impostare quando si crea la chiave simmetrica è quello relativo al tipo. In caso di crittografia di archiviazione, il valore è '1'. 
 
 L'esempio seguente mostra come creare un'entità **ContentKey** con l'entità **ContentKeyType** impostata per la crittografia di archiviazione ("1") e l'entità **ProtectionKeyType** impostata su "0" per indicare che l'ID della chiave di protezione è l'identificazione personale del certificato X.509.  
-
 
 Richiesta
 
@@ -211,7 +200,7 @@ Richiesta
 
 
 Risposta:
-    
+
     HTTP/1.1 201 Created
     Cache-Control: no-cache
     Content-Length: 777
@@ -225,7 +214,7 @@ Risposta:
     X-Powered-By: ASP.NET
     Strict-Transport-Security: max-age=31536000; includeSubDomains
     Date: Wed, 04 Feb 2015 02:37:46 GMT
-    
+
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeys/@Element",
     "Id":"nb:kid:UUID:9c8ea9c6-52bd-4232-8a43-8e43d8564a99","Created":"2015-02-04T02:37:46.9684379Z",
     "LastModified":"2015-02-04T02:37:46.9684379Z",
@@ -237,7 +226,6 @@ Risposta:
     "Checksum":"calculated checksum"}
 
 ## <a name="create-an-asset"></a>Creare un asset
-
 Il seguente esempio mostra come creare un asset.
 
 **Richiesta HTTP**
@@ -251,14 +239,14 @@ Il seguente esempio mostra come creare un asset.
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
     x-ms-version: 2.11
     Host: media.windows.net
-    
+
     {"Name":"BigBuckBunny" "Options":1}
 
 
 **Risposta HTTP**
 
 Se l'esito è positivo, viene restituita la seguente risposta:
-    
+
     HTP/1.1 201 Created
     Cache-Control: no-cache
     Content-Length: 452
@@ -284,13 +272,12 @@ Se l'esito è positivo, viene restituita la seguente risposta:
        "Uri":"https://storagetestaccount001.blob.core.windows.net/asset-9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
        "StorageAccountName":"storagetestaccount001"
     }
-    
-##<a name="associate-the-contentkey-with-an-asset"></a>Associare l'entità ContentKey a un asset
 
+## <a name="associate-the-contentkey-with-an-asset"></a>Associare l'entità ContentKey a un asset
 Dopo aver creato l'entità ContentKey, associarla all'asset mediante l'operazione $links, come mostrato nel seguente esempio:
-    
+
 Richiesta:
-    
+
     POST https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Afbd7ce05-1087-401b-aaae-29f16383c801')/$links/ContentKeys HTTP/1.1
     DataServiceVersion: 1.0;NetFx
     MaxDataServiceVersion: 3.0;NetFx
@@ -301,15 +288,14 @@ Richiesta:
     x-ms-version: 2.11
     Host: media.windows.net
 
-    
+
     {"uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A01e6ea36-2285-4562-91f1-82c45736047c')"}
 
 Risposta:
 
     HTTP/1.1 204 No Content 
 
-##<a name="create-an-assetfile"></a>Creare un'entità AssetFile
-
+## <a name="create-an-assetfile"></a>Creare un'entità AssetFile
 L'entità [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) rappresenta un file video o audio archiviato in un contenitore BLOB. Un file di asset è sempre associato a un asset e un asset può contenere uno o più file. Se un oggetto di file di asset non è associato a un file digitale in un contenitore BLOB, l'attività del codificatore di Servizi multimediali restituisce un errore.
 
 Si noti che l'istanza di **AssetFile** e l'effettivo file multimediale sono due oggetti distinti. L'istanza di AssetFile contiene metadati relativi al file multimediale, mentre quest'ultimo contiene l'effettivo contenuto multimediale.
@@ -328,7 +314,7 @@ Dopo avere caricato il file multimediale digitale in un contenitore BLOB, è nec
     x-ms-version: 2.11
     Host: media.windows.net
     Content-Length: 164
-    
+
     {  
        "IsEncrypted":"true",
        "EncryptionScheme" : "StorageEncryption", 
@@ -357,7 +343,7 @@ Dopo avere caricato il file multimediale digitale in un contenitore BLOB, è nec
     X-Powered-By: ASP.NET
     Strict-Transport-Security: max-age=31536000; includeSubDomains
     Date: Mon, 19 Jan 2015 00:34:07 GMT
-    
+
     {  
        "odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Files/@Element",
        "Id":"nb:cid:UUID:f13a0137-0a62-9d4c-b3b9-ca944b5142c5",

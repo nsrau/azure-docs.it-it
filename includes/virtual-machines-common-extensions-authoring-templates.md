@@ -1,5 +1,4 @@
 ## Panoramica dei modelli di Gestione risorse di Azure
-
 I modelli di Azure Resource Manager consentono di specificare in modo dichiarativo l'infrastruttura IaaS di Azure in linguaggio JSON, definendo le dipendenze tra risorse. Per una panoramica dettagliata dei modelli di Azure Resource Manager, vedere gli articoli seguenti:
 
 [Panoramica del gruppo di risorse](../articles/resource-group-overview.md)
@@ -30,7 +29,6 @@ Come si può notare da quanto sopra, il modello dell'estensione contiene due par
 2. Configurazione dell'estensione.
 
 ## Identificazione dell'editore, del tipo e del valore typeHandlerVersion per le estensioni.
-
 Le estensioni della macchina virtuale di Azure vengono pubblicate da Microsoft ed editori di terze parti attendibili e ogni estensione è identificata in modo univoco dall'editore, dal tipo e dal valore typeHandlerVersion. Questi possono essere determinati come segue:
 
 <!---HONumber=AcomDC_0330_2016-->

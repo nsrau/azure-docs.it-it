@@ -1,26 +1,24 @@
-<properties
-	pageTitle="Tomcat in una macchina virtuale | Microsoft Azure"
-	description="Questa esercitazione utilizza le risorse create con il modello di distribuzione classica, e illustra come creare una macchina virtuale di Windows e come configurarla per eseguire il server di applicazione Apache Tomcat."
-	services="virtual-machines-windows"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor=""
-    tags="azure-service-management" />
+---
+title: Tomcat in una macchina virtuale | Microsoft Docs
+description: Questa esercitazione utilizza le risorse create con il modello di distribuzione classica, e illustra come creare una macchina virtuale di Windows e come configurarla per eseguire il server di applicazione Apache Tomcat.
+services: virtual-machines-windows
+documentationcenter: java
+author: rmcmurray
+manager: wpickett
+editor: ''
+tags: azure-service-management
 
-<tags
-	ms.service="virtual-machines-windows"
-	ms.workload="web"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/11/2016"
-	ms.author="robmcm"/>
+ms.service: virtual-machines-windows
+ms.workload: web
+ms.tgt_pltfrm: vm-windows
+ms.devlang: Java
+ms.topic: article
+ms.date: 08/11/2016
+ms.author: robmcm
 
+---
 # Come eseguire un server di applicazione di Java in una macchina virtuale creata con il modello di distribuzione classica.
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 Con Azure è possibile utilizzare una macchina virtuale per fornire funzionalità di server. Si può ad esempio configurare una macchina virtuale in esecuzione in Azure per ospitare un server applicazioni Java, come Apache Tomcat. Dopo aver completato la lettura di questa guida, si disporrà di tutte le informazioni necessarie per creare una macchina virtuale in esecuzione su Azure e configurarla per eseguire un server applicazioni Java.
 
@@ -36,33 +34,31 @@ Ai fini di questa esercitazione, verrà installato un server applicazioni Apache
 
 ![Macchina virtuale che esegue Apache Tomcat][virtual_machine_tomcat]
 
-[AZURE.INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
+[!INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
 
 ## Per creare una macchina virtuale
-
 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 2. Fare clic su **New**, quindi **Compute**, su **Virtual machine** e infine su **From Gallery**.
 3. Nella finestra di dialogo **Seleziona immagine macchina virtuale** selezionare **JDK 7 Windows Server 2012**. Se si dispone di applicazioni legacy non ancora predisposte per l'esecuzione in JDK 7, è disponibile anche **JDK 6 Windows Server 2012**.
 4. Fare clic su **Next**.
 5. Nella finestra di dialogo **Configurazione macchina virtuale**:
-    1. Specificare un nome per la macchina virtuale.
-    2. Specificare la dimensione da utilizzare per la macchina virtuale.
-    3. Immettere un nome per l'amministratore nel campo **User Name**. Prendere nota del nome e della password immesse successivamente, perché verranno utilizzate per l'accesso in remoto alla macchina virtuale.
-    4. Immettere una password nel campo **New password** e reimmetterlo nel campo **Confirm**. Si tratta della password dell'account dell'amministratore.
-    5. Fare clic su **Avanti**.
+   1. Specificare un nome per la macchina virtuale.
+   2. Specificare la dimensione da utilizzare per la macchina virtuale.
+   3. Immettere un nome per l'amministratore nel campo **User Name**. Prendere nota del nome e della password immesse successivamente, perché verranno utilizzate per l'accesso in remoto alla macchina virtuale.
+   4. Immettere una password nel campo **New password** e reimmetterlo nel campo **Confirm**. Si tratta della password dell'account dell'amministratore.
+   5. Fare clic su **Avanti**.
 6. Nella finestra di dialogo **Configurazione macchina virtuale** successiva:
-    1. Per **Cloud service** utilizzare l'impostazione predefinita di **Create a new cloud service**.
-    2. Il valore di **Nome DNS del servizio cloud** deve essere univoco in cloudapp.net. Se necessario, modificarlo in modo che sia indicato come univoco in Azure.
-    2. Specificare un'area, un gruppo di affinità o una rete virtuale. Ai fini di questa esercitazione, specificare un’area come **Stati Uniti Occidentali**.
-    2. Nella casella **Storage Account** selezionare **Use an automatically generated storage account**.
-    3. Nella casella **Availability Set** selezionare **(None)**.
-    4. Fare clic su **Avanti**.
+   1. Per **Cloud service** utilizzare l'impostazione predefinita di **Create a new cloud service**.
+   2. Il valore di **Nome DNS del servizio cloud** deve essere univoco in cloudapp.net. Se necessario, modificarlo in modo che sia indicato come univoco in Azure.
+   3. Specificare un'area, un gruppo di affinità o una rete virtuale. Ai fini di questa esercitazione, specificare un’area come **Stati Uniti Occidentali**.
+   4. Nella casella **Storage Account** selezionare **Use an automatically generated storage account**.
+   5. Nella casella **Availability Set** selezionare **(None)**.
+   6. Fare clic su **Avanti**.
 7. Nella finestra di dialogo **Configurazione macchina virtuale** finale:
-    1. Accettare le voci di endpoint predefinite.
-    2. Fare clic su **Complete**.
+   1. Accettare le voci di endpoint predefinite.
+   2. Fare clic su **Complete**.
 
 ## Per accedere in remoto alla macchina virtuale
-
 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 2. Fare clic su **Virtual machines**.
 3. Fare clic sul nome della macchina virtuale a cui si desidera accedere.
@@ -71,7 +67,6 @@ Ai fini di questa esercitazione, verrà installato un server applicazioni Apache
 6. Rispondere ai prompt visualizzati per connettersi alla macchina virtuale. Ciò implica salvare o aprire il file RDP che contiene i dettagli della connessione. Potrebbe essere necessario copiare url:port nell'ultima parte della prima riga del file .rdp e incollarlo in un'applicazione di accesso remoto.
 
 ## Per installare un server applicazioni Java sulla macchina virtuale
-
 È possibile copiare un server applicazioni Java sulla macchina virtuale oppure installarlo tramite un programma di installazione.
 
 Ai fini di questa esercitazione, verrà installato Tomcat.
@@ -96,11 +91,11 @@ Per vedere Tomcat in esecuzione da macchine esterne, è necessario creare un end
 5. Fare clic su **Aggiungi**.
 6. Nella finestra di dialogo **Aggiungi endpoint**, assicurarsi che l'opzione **Aggiungi endpoint autonomo** sia selezionata, quindi fare clic su **Avanti**.
 7. Nella finestra di dialogo **Dettagli nuovo endpoint**:
-    1. Specificare un nome per l'endpoint, ad esempio **HttpIn**.
-    2. Specificare **TCP** per il protocollo.
-    3. Specificare **80** per la porta pubblica.
-    4. Specificare **8080** per la porta privata.
-    5. Fare clic sul pulsante **Operazione completata** per chiudere la finestra di dialogo. A questo punto verrà creato l'endpoint.
+   1. Specificare un nome per l'endpoint, ad esempio **HttpIn**.
+   2. Specificare **TCP** per il protocollo.
+   3. Specificare **80** per la porta pubblica.
+   4. Specificare **8080** per la porta privata.
+   5. Fare clic sul pulsante **Operazione completata** per chiudere la finestra di dialogo. A questo punto verrà creato l'endpoint.
 
 ## Per aprire nel firewall una porta per la macchina virtuale
 1. Accedere alla macchina virtuale.
@@ -119,9 +114,9 @@ A questo punto, il sito Web Tomcat dovrebbe essere visibile da un browser estern
 ## Considerazioni sul ciclo di vita delle applicazioni
 * È possibile creare il proprio archivio di applicazioni Web (WAR) e aggiungerlo alla cartella **webapps**. Ad esempio, creare un progetto Web dinamico JSP (Java Service Page) di base ed esportarlo come file WAR, quindi copiare il file WAR nella cartella di **webapps** Apache Tomcat sulla macchina virtuale ed eseguirlo in un browser.
 * Per impostazione predefinita, quando viene installato, il servizio Tomcat è impostato per l'avvio manuale. È possibile passare a esso per avviare automaticamente tramite lo snap-in Servizi. Avviare lo snap-in Servizi facendo clic su **Start di Windows**, **Strumenti di amministrazione**, **Servizi**. Fare doppio clic sul servizio **Apache Tomcat** e impostare **Tipo di avvio** su **Automatico**.
-
+  
     ![Impostazione di un servizio per l'avvio automatico][service_automatic_startup]
-
+  
     L'impostazione di Tomcat per l'avvio automatico può risultare utile in quanto in caso di riavvio della macchina virtuale, ad esempio dopo l'installazione di aggiornamenti software che richiedono un riavvio, il servizio verrà riavviato automaticamente.
 
 ## Passaggi successivi

@@ -1,29 +1,28 @@
-<properties
-	pageTitle="Crittografia sempre attiva: Proteggere i dati sensibili nel database SQL di Azure con la crittografia del database | Microsoft Azure"
-	description="Proteggere i dati sensibili nel database SQL in pochi minuti."
-	keywords="crittografia dati, crittografia sql, crittografia database, dati sensibili, crittografia sempre attiva"
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: 'Crittografia sempre attiva: Proteggere i dati sensibili nel database SQL di Azure con la crittografia del database | Microsoft Docs'
+description: Proteggere i dati sensibili nel database SQL in pochi minuti.
+keywords: crittografia dati, crittografia sql, crittografia database, dati sensibili, crittografia sempre attiva
+services: sql-database
+documentationcenter: ''
+author: stevestein
+manager: jhubbard
+editor: cgronlun
 
+ms.service: sql-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/18/2016
+ms.author: sstein
 
-<tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/18/2016"
-	ms.author="sstein"/>
-
+---
 # Crittografia sempre attiva: Proteggere i dati sensibili nel database SQL e archiviare le chiavi di crittografia nell'archivio certificati di Windows
-
-> [AZURE.SELECTOR]
-- [Insieme di credenziali chiave Azure](sql-database-always-encrypted-azure-key-vault.md)
-- [Archivio certificati di Windows](sql-database-always-encrypted.md)
-
+> [!div class="op_single_selector"]
+> * [Insieme di credenziali chiave Azure](sql-database-always-encrypted-azure-key-vault.md)
+> * [Archivio certificati di Windows](sql-database-always-encrypted.md)
+> 
+> 
 
 Questo articolo illustra come proteggere i dati sensibili in un database SQL con la crittografia di database tramite la [procedura guidata per la crittografia sempre attiva](https://msdn.microsoft.com/library/mt459280.aspx) di [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Descrive anche l'archiviazione delle chiavi di crittografia nell'archivio certificati di Windows.
 
@@ -33,59 +32,50 @@ Dopo avere configurato il database per usare la crittografia sempre attiva, vien
 
 Seguire i passaggi in questo articolo per imparare come configurare la crittografia sempre attiva per un database SQL di Azure. Questo articolo spiega come eseguire le attività seguenti:
 
-- Usare la procedura guidata per la crittografia sempre attiva in SSMS per creare [chiavi con crittografia sempre attiva](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3).
-    - Creare una [chiave master di colonna (CMK, Column Master Key)](https://msdn.microsoft.com/library/mt146393.aspx).
-    - Creare una [chiave di crittografia di colonna (CEK, Column Encryption Key)](https://msdn.microsoft.com/library/mt146372.aspx).
-- Creare una tabella di database e crittografare le colonne.
-- Creare un'applicazione che inserisce, seleziona e visualizza i dati delle colonne crittografate.
+* Usare la procedura guidata per la crittografia sempre attiva in SSMS per creare [chiavi con crittografia sempre attiva](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3).
+  * Creare una [chiave master di colonna (CMK, Column Master Key)](https://msdn.microsoft.com/library/mt146393.aspx).
+  * Creare una [chiave di crittografia di colonna (CEK, Column Encryption Key)](https://msdn.microsoft.com/library/mt146372.aspx).
+* Creare una tabella di database e crittografare le colonne.
+* Creare un'applicazione che inserisce, seleziona e visualizza i dati delle colonne crittografate.
 
 ## Prerequisiti
-
 Per questa esercitazione occorrono:
 
-- Un account e una sottoscrizione di Azure. Nel caso in cui non siano disponibili, è possibile usare una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) versione 13.0.700.242 o successive.
-- [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) o versioni successive (nel computer client).
-- [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
-
-
+* Un account e una sottoscrizione di Azure. Nel caso in cui non siano disponibili, è possibile usare una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) versione 13.0.700.242 o successive.
+* [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) o versioni successive (nel computer client).
+* [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 
 ## Creare un database SQL vuoto
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Fare clic su **Nuovo** > **Dati + Archiviazione** > **Database SQL**.
 3. Creare un database **vuoto** denominato **Clinic** in un server nuovo o esistente. Per istruzioni dettagliate sulla creazione di un database nel portale di Azure, vedere [Creare un database SQL in pochi minuti](sql-database-get-started.md).
-
-	![Creazione di un database vuoto](./media/sql-database-always-encrypted/create-database.png)
+   
+    ![Creazione di un database vuoto](./media/sql-database-always-encrypted/create-database.png)
 
 La stringa di connessione sarà necessaria più avanti nell'esercitazione. Dopo avere creato il database passare al nuovo database Clinic e copiare la stringa di connessione. È possibile ottenere la stringa di connessione in qualsiasi momento, ma è facile copiarla quando ci si trova nel portale di Azure.
 
 1. Fare clic su **Database SQL** > **Clinic** > **Mostra stringhe di connessione del database**.
 2. Copiare la stringa di connessione per **ADO.NET**.
-
-	![Copia della stringa di connessione](./media/sql-database-always-encrypted/connection-strings.png)
-
+   
+    ![Copia della stringa di connessione](./media/sql-database-always-encrypted/connection-strings.png)
 
 ## Connettersi al database con SSMS
-
 Aprire SSMS e connettersi al server con il database Clinic.
-
 
 1. Aprire SQL Server Management Studio. Fare clic su **Connetti** > **Motore di database** per aprire la finestra **Connetti al server**, se non è già aperta.
 2. Immettere il nome e le credenziali del server. Il nome del server è disponibile nel pannello del database SQL e nella stringa di connessione copiata in precedenza. Digitare il nome completo del server, compreso *database.windows.net*.
-
-	![Copia della stringa di connessione](./media/sql-database-always-encrypted/ssms-connect.png)
+   
+    ![Copia della stringa di connessione](./media/sql-database-always-encrypted/ssms-connect.png)
 
 Se viene visualizzata la finestra **Nuova regola firewall**, accedere ad Azure e lasciare che SSMS crei una nuova regola firewall per l'utente.
 
-
 ## Creare una tabella
-
 Questa sezione contiene istruzioni per creare una tabella con i dati dei pazienti. Sarà una normale tabella inizialmente; la crittografia verrà configurata nella sezione successiva.
 
 1. Espandere **Database**.
-1. Fare clic con il pulsante destro del mouse sul database **Clinic** e quindi fare clic su **Nuova query**.
-2. Incollare il comando Transact-SQL (T-SQL) seguente nella finestra della nuova query ed **eseguirlo**.
-
+2. Fare clic con il pulsante destro del mouse sul database **Clinic** e quindi fare clic su **Nuova query**.
+3. Incollare il comando Transact-SQL (T-SQL) seguente nella finestra della nuova query ed **eseguirlo**.
 
         CREATE TABLE [dbo].[Patients](
          [PatientId] [int] IDENTITY(1,1),
@@ -103,18 +93,16 @@ Questa sezione contiene istruzioni per creare una tabella con i dati dei pazient
 
 
 ## Crittografare le colonne configurando la crittografia sempre attiva
-
 SSMS offre una procedura guidata per configurare facilmente la crittografia sempre attiva impostando la chiave master di colonna (CMK), la chiave di crittografia di colonna (CEK) e le colonne crittografate automaticamente.
 
 1. Espandere **Database** > **Clinic** > **Tabelle**.
 2. Fare clic con il pulsante destro del mouse sulla tabella **Patients** e selezionare **Crittografa colonne** per aprire la procedura guidata per la crittografia sempre attiva:
-
+   
     ![Crittografia delle colonne](./media/sql-database-always-encrypted/encrypt-columns.png)
 
 La procedura guidata per la crittografia sempre attiva include le sezioni seguenti: **Selezione colonne**, **Configurazione della chiave master** (CMK), **Convalida** e **Riepilogo**.
 
-### Selezione colonne ###
-
+### Selezione colonne
 Fare clic su **Avanti** nella pagina **Introduzione** per aprire la pagina **Selezione colonne**. In questa pagina verranno selezionate le colonne da crittografare, [il tipo di crittografia e la chiave di crittografia di colonna (CEK)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) da usare.
 
 Crittografare il **CF** e la **data di nascita** per ogni paziente. La colonna relativa al **CF** usa la crittografia deterministica, che supporta ricerche di uguaglianza, join e raggruppamenti. La colonna relativa alla **data di nascita** usa la crittografia casuale, che non supporta le operazioni.
@@ -123,72 +111,62 @@ Impostare il **Tipo di crittografia** per la colonna **CF** su **Deterministica*
 
 ![Crittografia delle colonne](./media/sql-database-always-encrypted/column-selection.png)
 
-### Configurazione della chiave master###
-
+### Configurazione della chiave master
 La pagina **Configurazione della chiave master** consente di impostare la CMK e selezionare il provider dell'archivio chiavi in cui verrà archiviata la CMK. Attualmente è possibile archiviare una chiave master di colonna nell'archivio certificati di Windows, nell'insieme di credenziali delle chiavi di Azure o in un modulo di protezione hardware. Questa esercitazione illustra come archiviare le chiavi nell'archivio certificati di Windows.
 
 Verificare che l'**archivio certificati di Windows** sia selezionato e fare clic su **Avanti**.
 
 ![Configurazione della chiave master](./media/sql-database-always-encrypted/master-key-configuration.png)
 
-
-### Convalida###
-
+### Convalida
 È attualmente possibile crittografare le colonne o salvare uno script di PowerShell da eseguire in un secondo momento. Per questa esercitazione selezionare **Procedi per completare ora** e fare clic su **Avanti**.
 
-### Riepilogo###
-
+### Riepilogo
 Verificare che tutte le impostazioni siano corrette e fare clic su **Fine** per completare la configurazione della crittografia sempre attiva.
 
 ![Riepilogo](./media/sql-database-always-encrypted/summary.png)
 
-
 ### Confermare le azioni della procedura guidata
-
 Al termine della procedura guidata, il database è configurato per la crittografia sempre attiva. La procedura guidata esegue le azioni seguenti:
 
-- Creare una chiave CMK.
-- Creare una chiave di crittografia di colonna (CEK).
-- Configurazione delle colonne selezionate per la crittografia. La tabella **Patients** attualmente è vuota, ma eventuali dati esistenti nelle colonne selezionate sono ora crittografati.
+* Creare una chiave CMK.
+* Creare una chiave di crittografia di colonna (CEK).
+* Configurazione delle colonne selezionate per la crittografia. La tabella **Patients** attualmente è vuota, ma eventuali dati esistenti nelle colonne selezionate sono ora crittografati.
 
 È possibile verificare la creazione di chiavi in SSMS passando a **Clinic** > **Sicurezza** > **Chiavi con crittografia sempre attiva**. Sono ora visibili le nuove chiavi generate dalla procedura guidata.
 
-
 ## Creare un'applicazione client che funziona con i dati crittografati
-
 Ora che la crittografia sempre attiva è configurata, è possibile creare un'applicazione che esegua alcuni *inserimenti* e *selezioni* nelle colonne crittografate. Per eseguire correttamente l'applicazione di esempio, è necessario avviarla nello stesso computer in cui è stata eseguita la procedura guidata per la crittografia sempre attiva. Per eseguire l'applicazione in un altro computer è necessario distribuire i certificati della crittografia sempre attiva nel computer che esegue l'applicazione client.
 
-> [AZURE.IMPORTANT] L'applicazione deve usare oggetti [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) per trasferire dati di testo non crittografato al server con colonne con la crittografia sempre attiva. Il trasferimento di valori letterali senza usare oggetti SqlParameter genererà un'eccezione.
-
+> [!IMPORTANT]
+> L'applicazione deve usare oggetti [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) per trasferire dati di testo non crittografato al server con colonne con la crittografia sempre attiva. Il trasferimento di valori letterali senza usare oggetti SqlParameter genererà un'eccezione.
+> 
+> 
 
 1. Aprire Visual Studio e creare un'applicazione console C#. Verificare che il progetto sia impostato su **.NET Framework 4.6** o versione successiva.
 2. Denominare il progetto **AlwaysEncryptedConsoleApp** e fare clic su **OK**.
 
 ![Nuova applicazione console](./media/sql-database-always-encrypted/console-app.png)
 
-
-
 ## Modificare la stringa di connessione per abilitare la crittografia sempre attiva
-
 Questa sezione descrive come abilitare la crittografia sempre attiva nella stringa di connessione del database. Si modificherà l'app console appena creata nella sezione successiva "Applicazione console di esempio della crittografia sempre attiva".
-
 
 Per abilitare la crittografia sempre attiva è necessario aggiungere la parola chiave **Column Encryption Setting** alla stringa di connessione e impostarla su **Enabled**.
 
 È possibile impostarla direttamente nella stringa di connessione o tramite [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx). L'applicazione di esempio nella sezione successiva mostra come usare **SqlConnectionStringBuilder**.
 
-> [AZURE.NOTE] Questa è l'unica modifica specifica della crittografia sempre attiva da apportare a un'applicazione client. Se è presente un'applicazione esistente che archivia la stringa di connessione esternamente, ad esempio in un file di configurazione, è possibile abilitare la crittografia sempre attiva senza modificare il codice.
-
+> [!NOTE]
+> Questa è l'unica modifica specifica della crittografia sempre attiva da apportare a un'applicazione client. Se è presente un'applicazione esistente che archivia la stringa di connessione esternamente, ad esempio in un file di configurazione, è possibile abilitare la crittografia sempre attiva senza modificare il codice.
+> 
+> 
 
 ### Abilitare la crittografia sempre attiva nella stringa di connessione
-
 Aggiungere la parola chiave seguente alla stringa di connessione:
 
     Column Encryption Setting=Enabled
 
 
 ### Abilitare la crittografia sempre attiva con SqlConnectionStringBuilder
-
 Il codice seguente mostra come abilitare la crittografia sempre attiva tramite l'impostazione di [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) su [Enabled](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx).
 
     // Instantiate a SqlConnectionStringBuilder.
@@ -202,12 +180,11 @@ Il codice seguente mostra come abilitare la crittografia sempre attiva tramite l
 
 
 ## Applicazione console di esempio della crittografia sempre attiva
-
 Questo esempio dimostra come:
 
-- Modificare la stringa di connessione per abilitare la crittografia sempre attiva.
-- Inserire dati nelle colonne crittografate.
-- Selezionare un record filtrando in base a un valore specifico in una colonna crittografata.
+* Modificare la stringa di connessione per abilitare la crittografia sempre attiva.
+* Inserire dati nelle colonne crittografate.
+* Selezionare un record filtrando in base a un valore specifico in una colonna crittografata.
 
 Sostituire il contenuto del file **Program.cs** con il codice seguente. Sostituire la stringa di connessione per la variabile globale connectionString nella riga immediatamente sopra il metodo Main con la stringa di connessione valida del portale di Azure. Questa è l'unica modifica che è necessario apportare al codice.
 
@@ -494,7 +471,6 @@ Eseguire l'app per vedere in azione la crittografia sempre attiva.
 
 
 ## Verificare che i dati siano crittografati
-
 È possibile verificare rapidamente che i dati effettivi nel server siano crittografati eseguendo una query dei dati della tabella **Patients** con SSMS. Usare la connessione corrente in cui l'impostazione di crittografia della colonna non è ancora abilitata.
 
 Eseguire la query seguente nel database Clinic.
@@ -505,44 +481,41 @@ Eseguire la query seguente nel database Clinic.
 
    ![Nuova applicazione console](./media/sql-database-always-encrypted/ssms-encrypted.png)
 
-
 Per usare SSMS per accedere ai dati di testo non crittografato, aggiungere il parametro **Column Encryption Setting=Enabled** alla connessione.
 
 1. In SSMS fare clic con il pulsante destro del mouse sul server in **Esplora oggetti** e fare clic su **Disconnetti**.
 2. Fare clic su **Connetti** > **Motore di database** per aprire la finestra **Connetti al server** e quindi fare clic su **Opzioni**.
 3. Fare clic su **Parametri aggiuntivi per la connessione** e digitare **Column Encryption Setting=Enabled**.
-
-	![Nuova applicazione console](./media/sql-database-always-encrypted/ssms-connection-parameter.png)
-
+   
+    ![Nuova applicazione console](./media/sql-database-always-encrypted/ssms-connection-parameter.png)
 4. Eseguire la query seguente nel database **Clinic**.
-
+   
         SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
-
+   
      È ora possibile visualizzare i dati non crittografati nelle colonne crittografate.
 
-
-	![Nuova applicazione console](./media/sql-database-always-encrypted/ssms-plaintext.png)
-
+    ![Nuova applicazione console](./media/sql-database-always-encrypted/ssms-plaintext.png)
 
 
-> [AZURE.NOTE] Se ci si connette a SSMS (o a un client qualsiasi) da un altro computer, il computer non avrà accesso alle chiavi di crittografia e quindi non sarà in grado di decrittografare i dati.
 
-
+> [!NOTE]
+> Se ci si connette a SSMS (o a un client qualsiasi) da un altro computer, il computer non avrà accesso alle chiavi di crittografia e quindi non sarà in grado di decrittografare i dati.
+> 
+> 
 
 ## Passaggi successivi
 Dopo avere creato un database che usa la crittografia sempre attiva, è possibile eseguire le operazioni seguenti:
 
-- Eseguire questo esempio da un altro computer. Non avrà accesso alle chiavi di crittografia e quindi non avrà accesso ai dati non crittografati e non verrà eseguito correttamente.
-- [Ruotare e pulire le chiavi](https://msdn.microsoft.com/library/mt607048.aspx).
-- [Eseguire la migrazione dei dati già crittografati con la crittografia sempre attiva](https://msdn.microsoft.com/library/mt621539.aspx).
-- [Installare certificati con crittografia sempre attiva in altri computer client](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1). Vedere la sezione Rendere disponibili i certificati a utenti e applicazioni.
+* Eseguire questo esempio da un altro computer. Non avrà accesso alle chiavi di crittografia e quindi non avrà accesso ai dati non crittografati e non verrà eseguito correttamente.
+* [Ruotare e pulire le chiavi](https://msdn.microsoft.com/library/mt607048.aspx).
+* [Eseguire la migrazione dei dati già crittografati con la crittografia sempre attiva](https://msdn.microsoft.com/library/mt621539.aspx).
+* [Installare certificati con crittografia sempre attiva in altri computer client](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1). Vedere la sezione Rendere disponibili i certificati a utenti e applicazioni.
 
 ## Informazioni correlate
-
-- [Crittografia sempre attiva (sviluppo di client)](https://msdn.microsoft.com/library/mt147923.aspx)
-- [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx)
-- [Crittografia di SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
-- [Procedura guidata della crittografia sempre attiva](https://msdn.microsoft.com/library/mt459280.aspx)
-- [Blog della crittografia sempre attiva](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+* [Crittografia sempre attiva (sviluppo di client)](https://msdn.microsoft.com/library/mt147923.aspx)
+* [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx)
+* [Crittografia di SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
+* [Procedura guidata della crittografia sempre attiva](https://msdn.microsoft.com/library/mt459280.aspx)
+* [Blog della crittografia sempre attiva](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
 <!---HONumber=AcomDC_0824_2016-->

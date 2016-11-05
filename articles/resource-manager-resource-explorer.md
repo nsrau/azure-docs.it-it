@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Esplora risorse di Azure | Microsoft Azure"
-   description="Descrive Esplora risorse di Azure e come può essere usato per visualizzare e aggiornare le distribuzioni tramite Azure Resource Manager"
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="stuartleeks"
-   manager="ankodu"
-   editor=""/>
+---
+title: Esplora risorse di Azure | Microsoft Docs
+description: Descrive Esplora risorse di Azure e come può essere usato per visualizzare e aggiornare le distribuzioni tramite Azure Resource Manager
+services: azure-resource-manager
+documentationcenter: na
+author: stuartleeks
+manager: ankodu
+editor: ''
 
-<tags
-   ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/01/2016"
-   ms.author="stuartle;tomfitz"/>
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/01/2016
+ms.author: stuartle;tomfitz
 
+---
 # Usare Esplora risorse di Azure per visualizzare e modificare le risorse
 [Esplora risorse di Azure](https://resources.azure.com) è uno straordinario strumento per osservare le risorse già create nella sottoscrizione. Tramite questo strumento, è possibile comprendere la struttura delle risorse e vedere le proprietà assegnate a ogni risorsa. Sono fornite informazioni sulle operazioni dell'API REST e sui cmdlet PowerShell disponibili per un tipo di risorsa ed è possibile eseguire comandi tramite l'interfaccia. Esplora risorse può essere particolarmente utile quando si creano modelli di Resource Manager in quanto consente di visualizzare le proprietà per le risorse esistenti.
 
@@ -45,7 +45,6 @@ L'esplorazione del database ne mostra le relative proprietà. Nella schermata se
 ![sql database](./media/resource-manager-resource-explorer/are-04-database-get.png)
 
 ## Modifica delle risorse
-
 Dopo essere passati a una risorsa, è possibile selezionare il pulsante Modifica per rendere modificabile il contenuto JSON. È quindi possibile utilizzare Esplora risorse per modificare il codice JSON e inviare una richiesta PUT per cambiare la risorsa. Ad esempio, la figura seguente mostra il livello database modificato in `S0`:
 
 ![database - PUT request](./media/resource-manager-resource-explorer/are-05-database-put.png)
@@ -57,7 +56,6 @@ Dopo l'invio della richiesta, Esplora risorse genera nuovamente la richiesta GET
 ![database - GET request2](./media/resource-manager-resource-explorer/are-06-database-get2.png)
 
 ## Esecuzione di operazioni sulle risorse
-
 La scheda delle **azioni** consente di visualizzare ed eseguire altre operazioni REST. Ad esempio, quando è stata selezionata una risorsa del sito Web, questa scheda presenta un lungo elenco di operazioni disponibili, alcune delle quali sono illustrate di seguito.
 
 ![web - POST request](./media/resource-manager-resource-explorer/are-web-post.png)

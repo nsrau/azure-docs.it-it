@@ -1,60 +1,58 @@
-<properties
-	pageTitle="Azure Active Directory B2C | Microsoft Azure"
-	description="Come compilare un'appllicazione Web con funzionalità di gestione dell'iscrizione, dell'accesso e del profilo utente usando Azure Active Directory B2C."
-	services="active-directory-b2c"
-	documentationCenter=".net"
-	authors="dstrockis"
-	manager="msmbaldwin"
-	editor=""/>
+---
+title: Azure Active Directory B2C | Microsoft Docs
+description: Come compilare un'appllicazione Web con funzionalità di gestione dell'iscrizione, dell'accesso e del profilo utente usando Azure Active Directory B2C.
+services: active-directory-b2c
+documentationcenter: .net
+author: dstrockis
+manager: msmbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/22/2016"
-	ms.author="dastrock"/>
+ms.service: active-directory-b2c
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 07/22/2016
+ms.author: dastrock
 
+---
 # Azure AD B2C: compilare un'app Web .NET
-
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 Azure Active Directory (Azure AD) B2C permette di aggiungere funzionalità efficaci di gestione delle identità self-service all'app Web con pochi brevi passaggi. Questo articolo descrive come creare un'app Web MVC (Model-View-Controller) .NET con funzionalità di gestione dell'iscrizione, dell'accesso e del profilo utente. L'app includerà il supporto per l'iscrizione e l'accesso tramite un nome utente o un indirizzo di posta elettronica e usando account di social media quali Facebook e Google.
 
 ## Ottenere una directory di Azure AD B2C
-
 Prima di poter usare Azure AD B2C, è necessario creare una directory, o tenant. Una directory è un contenitore per utenti, app, gruppi e così via. Se non ne è già disponibile una, prima di continuare con questa guida [creare una directory B2C](active-directory-b2c-get-started.md).
 
 ## Creare un'applicazione
-
 Successivamente, è necessario creare un'app nella directory B2C. In questo modo Azure AD acquisisce le informazioni necessarie per comunicare in modo sicuro con l'app. Per creare un'app, [seguire questa procedura](active-directory-b2c-app-registration.md). Assicurarsi di:
 
-- Includere un'**app Web o un'API Web** nell'applicazione.
-- Immettere `https://localhost:44316/` come **URI di reindirizzamento**. Si tratta dell'URL predefinito per questo esempio di codice.
-- Copiare l'**ID applicazione** assegnato all'app, Sarà necessario più avanti.
+* Includere un'**app Web o un'API Web** nell'applicazione.
+* Immettere `https://localhost:44316/` come **URI di reindirizzamento**. Si tratta dell'URL predefinito per questo esempio di codice.
+* Copiare l'**ID applicazione** assegnato all'app, Sarà necessario più avanti.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Creare i criteri
-
 In Azure AD B2C ogni esperienza utente è definita da [criteri](active-directory-b2c-reference-policies.md) specifici. Questo esempio di codice contiene tre esperienze di identità: iscrizione, accesso e modifica del profilo. È necessario creare un criterio per ogni tipo, come descritto nell'[articolo di riferimento sui criteri](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).
 
->[AZURE.NOTE] Azure AD B2C supporta anche criteri di registrazione o accesso combinati non illustrati in questa esercitazione. I criteri di iscrizione o accesso sono illustrati in [questa esercitazione equivalente](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
+> [!NOTE]
+> Azure AD B2C supporta anche criteri di registrazione o accesso combinati non illustrati in questa esercitazione. I criteri di iscrizione o accesso sono illustrati in [questa esercitazione equivalente](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
+> 
+> 
 
 Durante la creazione dei tre criteri, assicurarsi di:
 
-- Scegliere **Iscrizione ID utente** o **Iscrizione posta elettronica** nel pannello dei provider di identità.
-- Scegliere **Nome visualizzato** e altri attributi nei criteri di iscrizione.
-- Scegliere l'attestazione **Nome visualizzato** come attestazione dell'applicazione in tutti i criteri. È consentito scegliere anche altre attestazioni.
-- Copiare il **Nome** di ogni criterio dopo averlo creato. I nomi dei criteri saranno necessari in un secondo momento.
+* Scegliere **Iscrizione ID utente** o **Iscrizione posta elettronica** nel pannello dei provider di identità.
+* Scegliere **Nome visualizzato** e altri attributi nei criteri di iscrizione.
+* Scegliere l'attestazione **Nome visualizzato** come attestazione dell'applicazione in tutti i criteri. È consentito scegliere anche altre attestazioni.
+* Copiare il **Nome** di ogni criterio dopo averlo creato. I nomi dei criteri saranno necessari in un secondo momento.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Dopo aver creato i tre criteri, è possibile passare alla compilazione dell'app.
 
 ## Scaricare il codice e configurare l'autenticazione
-
 Il codice per questo esempio è [disponibile in GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet). Per compilare l'esempio passo dopo passo, è possibile [scaricare il progetto bozza come file ZIP](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip). È anche possibile clonare la struttura:
 
 ```
@@ -95,7 +93,7 @@ Aprire quindi il file `web.config` nella radice del progetto e immettere i valor
 ...
 ```
 
-[AZURE.INCLUDE [active-directory-b2c-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+[!INCLUDE [active-directory-b2c-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 Aggiungere quindi al progetto una classe di avvio OWIN denominata `Startup.cs`. Fare clic con il pulsante destro del mouse sul progetto, selezionare **Aggiungi**, **Nuovo elemento** e quindi cercare "OWIN". **Assicurarsi di modificare la dichiarazione di classe in `public partial class Startup`**. Parte di questa classe è stata implementata in un altro file. Il middleware OWIN richiamerà il metodo `Configuration(...)` all'avvio dell'app. In questo metodo effettuare una chiamata a `ConfigureAuth(...)`, in cui viene configurata l'autenticazione per l'app.
 
@@ -266,8 +264,8 @@ Aprire il file `Controllers\HomeController.cs`. È possibile accedere alle attes
 [Authorize]
 public ActionResult Claims()
 {
-	Claim displayName = ClaimsPrincipal.Current.FindFirst(ClaimsPrincipal.Current.Identities.First().NameClaimType);
-	ViewBag.DisplayName = displayName != null ? displayName.Value : string.Empty;
+    Claim displayName = ClaimsPrincipal.Current.FindFirst(ClaimsPrincipal.Current.Identities.First().NameClaimType);
+    ViewBag.DisplayName = displayName != null ? displayName.Value : string.Empty;
     return View();
 }
 ```
@@ -275,19 +273,17 @@ public ActionResult Claims()
 È possibile accedere a qualsiasi attestazione ricevuta dall'applicazione nello stesso modo. Nella pagina **Attestazioni** è disponibile un elenco di tutte le attestazioni ricevute dall'app.
 
 ## Eseguire l'app di esempio
-
 A questo punto e possibile compilare ed eseguire l'app. Effettuare l'iscrizione all'app usando un indirizzo di posta elettronica o un nome utente. Disconnettersi e accedere nuovamente con lo stesso account utente. Modificare il profilo dell'utente. Disconnettersi ed effettuare l'iscrizione usando un account utente diverso. Si noti che le informazioni visualizzate nella scheda **Attestazioni** corrispondono alle informazioni configurate nei criteri.
 
 ## Aggiungere i provider di identità per i social network
-
 L'app supporta attualmente solo l'iscrizione e l'accesso dell'utente con **account locali**. Si tratta di account archiviati nella directory B2C che usano un nome utente e una password. Tramite Azure AD B2C è possibile aggiungere il supporto per altri **provider di identità** (IdP) senza modificare il codice.
 
 Per aggiungere provider di identità per i social media all'applicazione, seguire le istruzioni dettagliate fornite in questi articoli. Per ogni provider di identità che si vuole supportare, è necessario registrare un'applicazione nel relativo sistema e ottenere un ID client.
 
-- [Configurare Facebook come provider di identità](active-directory-b2c-setup-fb-app.md)
-- [Configurare Google come provider di identità](active-directory-b2c-setup-goog-app.md)
-- [Configurare Amazon come provider di identità](active-directory-b2c-setup-amzn-app.md)
-- [Configurare LinkedIn come provider di identità](active-directory-b2c-setup-li-app.md)
+* [Configurare Facebook come provider di identità](active-directory-b2c-setup-fb-app.md)
+* [Configurare Google come provider di identità](active-directory-b2c-setup-goog-app.md)
+* [Configurare Amazon come provider di identità](active-directory-b2c-setup-amzn-app.md)
+* [Configurare LinkedIn come provider di identità](active-directory-b2c-setup-li-app.md)
 
 Dopo aver aggiunto i provider di identità alla directory B2C, è necessario modificare ognuno dei tre criteri per includere i nuovi provider di identità, come descritto nell'[articolo di riferimento sui criteri](active-directory-b2c-reference-policies.md). Dopo aver salvato i criteri, eseguire nuovamente l'app. I nuovi provider di identità dovrebbero essere stati aggiunti tra le opzioni di accesso e iscrizione in ognuna delle esperienze per l'identità.
 

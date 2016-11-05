@@ -1,32 +1,30 @@
-<properties 
-    pageTitle="Panoramica delle API Hub eventi di Azure | Microsoft Azure"
-    description="Un riepilogo di alcuni client .NET di Hub eventi chiave API."
-    services="event-hubs"
-    documentationCenter="na"
-    authors="sethmanheim"
-    manager="timlt"
-    editor="" />
-<tags 
-    ms.service="event-hubs"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="08/16/2016"
-    ms.author="sethm" />
+---
+title: Panoramica delle API Hub eventi di Azure | Microsoft Docs
+description: Un riepilogo di alcuni client .NET di Hub eventi chiave API.
+services: event-hubs
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: ''
 
+ms.service: event-hubs
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/16/2016
+ms.author: sethm
+
+---
 # Panoramica dell'API Hub eventi
-
 In questo articolo vengono riepilogati alcuni dei principali API client .NET di Hub eventi. Esistono due categorie: API di runtime e gestione. Le API di runtime si compongono di tutte le operazioni necessarie per inviare e ricevere un messaggio. Operazioni di gestione consentono di gestire lo stato dell'entità di Hub eventi per la creazione, aggiornamento ed eliminazione di entità.
 
 Gli scenari di monitoraggio comprendono sia la gestione che il runtime. Per la documentazione di riferimento dettagliata sulle API .NET, vedere i riferimenti [.NET del bus di servizio](https://msdn.microsoft.com/library/azure/mt419900.aspx) e [API EventProcessorHost](https://msdn.microsoft.com/library/azure/mt445521.aspx).
 
 ## API di gestione
-
 Per eseguire le operazioni di gestione riportate di seguito sono necessarie autorizzazioni di **gestione** per lo spazio dei nomi di Hub eventi:
 
 ### Create
-
 ```
 // Create the Event Hub
 EventHubDescription ehd = new EventHubDescription(eventHubName);
@@ -35,7 +33,6 @@ namespaceManager.CreateEventHubAsync(ehd).Wait();
 ```
 
 ### Aggiornamento
-
 ```
 EventHubDescription ehd = await namespaceManager.GetEventHubAsync(eventHubName);
 
@@ -48,22 +45,18 @@ namespaceManager.UpdateEventHubAsync(ehd).Wait();
 ```
 
 ### Elimina
-
 ```
 namespaceManager.DeleteEventHubAsync("Event Hub name").Wait();
 ```
 
 ## API di runtime
-
 ### Crea editore
-
 ```
 // EventHubClient model (uses implicit factory instance, so all links on same connection)
 EventHubClient eventHubClient = EventHubClient.Create("Event Hub name");
 ```
 
 ### Pubblica messaggio
-
 ```
 // Create the device/temperature metric
 MetricEvent info = new MetricEvent() { DeviceId = random.Next(SampleManager.NumDevices), Temperature = random.Next(100) };
@@ -82,7 +75,6 @@ await client.SendAsync(data);
 ```
 
 ### Crea consumer
-
 ```
 // Create the Event Hubs client
 EventHubClient eventHubClient = EventHubClient.Create(EventHubName);
@@ -95,26 +87,24 @@ EventHubReceiver consumer = await defaultConsumerGroup.CreateReceiverAsync(shard
 
 // From one day ago
 EventHubReceiver consumer = await defaultConsumerGroup.CreateReceiverAsync(shardId: index, startingDateTimeUtc:DateTime.Now.AddDays(-1));
-                        
+
 // From specific offset, -1 means oldest
 EventHubReceiver consumer = await defaultConsumerGroup.CreateReceiverAsync(shardId: index,startingOffset:-1); 
 ```
 
 ### Utilizzare messaggio
-
 ```
 var message = await consumer.ReceiveAsync();
 
 // Provide a serializer
 var info = message.GetBody<Type>(Serializer)
-                                    
+
 // Get a byte[]
 var info = message.GetBytes(); 
 msg = UnicodeEncoding.UTF8.GetString(info);
 ```
 
 ## API host processore di eventi
-
 Queste API garantiscono resilienza ai processi di lavoro che possono diventare non disponibili, distribuendo tuttavia partizioni tra thread di lavoro disponibili.
 
 ```
@@ -158,7 +148,7 @@ public class SimpleEventProcessor : IEventProcessor
         {
             Process messages here
         }
-        
+
         // Checkpoint when appropriate
         await context.CheckpointAsync();
 
@@ -176,17 +166,16 @@ public class SimpleEventProcessor : IEventProcessor
 ```
 
 ## Passaggi successivi
-
 Per altre informazioni sugli scenari di Hub eventi, visitare i collegamenti seguenti:
 
-- [Che cos'è l'hub di eventi di Azure?](event-hubs-what-is-event-hubs.md)
-- [Panoramica di Hub eventi](event-hubs-overview.md)
-- [Guida alla programmazione di Hub eventi](event-hubs-programming-guide.md)
-- [Esempi di codice di Hub eventi](http://code.msdn.microsoft.com/site/search?query=eventhub&f[0].Value=event hubs&f[0].Type=SearchText&ac=5)
+* [Che cos'è l'hub di eventi di Azure?](event-hubs-what-is-event-hubs.md)
+* [Panoramica di Hub eventi](event-hubs-overview.md)
+* [Guida alla programmazione di Hub eventi](event-hubs-programming-guide.md)
+* [Esempi di codice di Hub eventi](http://code.msdn.microsoft.com/site/search?query=eventhub&f\[0\].Value=event hubs&f\[0\].Type=SearchText&ac=5)
 
 I riferimenti API .NET sono qui:
 
-- [Riferimenti API .NET di Hub eventi e del bus di servizio](https://msdn.microsoft.com/library/azure/mt419900.aspx)
-- [Host del processore riferimento all'API di eventi](https://msdn.microsoft.com/library/azure/mt445521.aspx)
+* [Riferimenti API .NET di Hub eventi e del bus di servizio](https://msdn.microsoft.com/library/azure/mt419900.aspx)
+* [Host del processore riferimento all'API di eventi](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
 <!---HONumber=AcomDC_0817_2016-->

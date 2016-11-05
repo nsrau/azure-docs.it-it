@@ -1,28 +1,26 @@
-<properties 
-    pageTitle="Inoltro automatico di entità di messaggistica del bus di servizio | Microsoft Azure"
-    description="Come concatenare una coda o una sottoscrizione a un'altra coda o argomento."
-    services="service-bus"
-    documentationCenter="na"
-    authors="sethmanheim"
-    manager="timlt"
-    editor="" /> 
-<tags 
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="09/29/2016"
-    ms.author="sethm" />
+---
+title: Inoltro automatico di entità di messaggistica del bus di servizio | Microsoft Docs
+description: Come concatenare una coda o una sottoscrizione a un'altra coda o argomento.
+services: service-bus
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: ''
 
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/29/2016
+ms.author: sethm
 
+---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>Concatenamento di entità del bus di servizio con l'inoltro automatico
-
 La funzionalità di *inoltro automatico* consente di concatenare una coda o una sottoscrizione a un'altra coda o a un altro argomento che fa parte dello stesso spazio dei nomi. Quando l'inoltro automatico è abilitato, il bus di servizio rimuove automaticamente i messaggi presenti nella prima coda o sottoscrizione (origine) e li inserisce nella seconda coda o argomento (destinazione). Si noti che è comunque possibile inviare un messaggio direttamente all'entità di destinazione. Tenere presente che non è possibile concatenare una coda secondaria, ad esempio una coda di messaggi non recapitabili, a una coda o a un argomento differente.
 
 ## <a name="using-auto-forwarding"></a>Utilizzo dell'inoltro automatico
-
-Per abilitare l'inoltro automatico, è possibile impostare la proprietà [QueueDescription.ForwardTo][] o [SubscriptionDescription.ForwardTo][] nell'oggetto [QueueDescription][] o [SubscriptionDescription][] per l'origine, come illustrato nell'esempio seguente.
+Per abilitare l'inoltro automatico, è possibile impostare la proprietà [QueueDescription.ForwardTo][QueueDescription.ForwardTo] o [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] nell'oggetto [QueueDescription][QueueDescription] o [SubscriptionDescription][SubscriptionDescription] per l'origine, come illustrato nell'esempio seguente.
 
 ```
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
@@ -43,7 +41,6 @@ L'entità di destinazione deve essere presente al momento della creazione dell'e
 Se uno dei rappresentanti si assenta, viene riempita la coda personale, ma non l'argomento ERP. In questo scenario, poiché un rappresentante di vendita non ha ricevuto alcun messaggio, nessuno degli argomenti ERP raggiunge la quota.
 
 ## <a name="auto-forwarding-considerations"></a>Considerazioni sulla funzionalità di inoltro automatico
-
 Se l'entità di destinazione ha accumulato troppi messaggi e supera la quota oppure è disabilitata, l'entità di origine aggiunge i messaggi alla relativa [coda dei messaggi non recapitabili](service-bus-dead-letter-queues.md) finché non si libera spazio nella destinazione o l'entità non viene riabilitata. I messaggi resteranno nella coda dei messaggi non recapitabili, pertanto sarà necessario riceverli ed elaborarli in modo esplicito da tale coda.
 
 Se si concatenano singoli argomenti per ottenere un argomento composito con diverse sottoscrizioni, è consigliabile avere un certo numero di sottoscrizioni nell'argomento di primo livello e un numero più elevato di sottoscrizioni negli argomenti di secondo livello. Ad esempio, un argomento di primo livello con 20 sottoscrizioni, ognuna delle quali concatenata a un argomento di secondo livello con 200 sottoscrizioni, consente una velocità effettiva più alta rispetto a un argomento di primo livello con 200 sottoscrizioni, ognuna delle quali concatenata a un argomento di secondo livello con 20 sottoscrizioni.
@@ -53,22 +50,21 @@ Il bus di servizio addebita un'operazione per ogni messaggio inoltrato. Ad esemp
 Per creare una sottoscrizione concatenata a una coda o a un argomento diverso, l'autore deve avere le autorizzazioni di **gestione** per l'entità di origine e per quella di destinazione. Per l'invio di messaggi solo all'argomento di origine sono necessarie solo le autorizzazioni di **invio** per l'argomento di origine.
 
 ## <a name="next-steps"></a>Passaggi successivi
-
 Per informazioni dettagliate sull'inoltro automatico, vedere gli argomenti di riferimento seguenti:
 
-- [SubscriptionDescription.ForwardTo][]
-- [QueueDescription][]
-- [SubscriptionDescription][]
+* [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo]
+* [QueueDescription][QueueDescription]
+* [SubscriptionDescription][SubscriptionDescription]
 
-Per altre informazioni sui miglioramenti delle prestazioni del bus di servizio, vedere [Entità di messaggistica partizionate][].
+Per altre informazioni sui miglioramenti delle prestazioni del bus di servizio, vedere [Entità di messaggistica partizionate][Entità di messaggistica partizionate].
 
-  [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
-  [SubscriptionDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.forwardto.aspx
-  [QueueDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx
-  [SubscriptionDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.aspx
-  [0]: ./media/service-bus-auto-forwarding/IC628631.gif
-  [1]: ./media/service-bus-auto-forwarding/IC628632.gif
-  [Entità di messaggistica partizionate]: service-bus-partitioning.md
+[QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
+[SubscriptionDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.forwardto.aspx
+[QueueDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx
+[SubscriptionDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.aspx
+[0]: ./media/service-bus-auto-forwarding/IC628631.gif
+[1]: ./media/service-bus-auto-forwarding/IC628632.gif
+[Entità di messaggistica partizionate]: service-bus-partitioning.md
 
 
 <!--HONumber=Oct16_HO2-->

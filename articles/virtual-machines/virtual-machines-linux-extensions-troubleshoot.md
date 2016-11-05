@@ -1,25 +1,24 @@
-<properties
-   pageTitle="Risoluzione degli errori delle estensioni della macchina virtuale Linux | Microsoft Azure"
-   description="Informazioni sulla risoluzione degli errori delle estensioni della macchina virtuale di Azure"
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="kundanap"
-   manager="timlt"
-   editor=""
-   tags="top-support-issue,azure-resource-manager"/>
+---
+title: Risoluzione degli errori delle estensioni della macchina virtuale Linux | Microsoft Docs
+description: Informazioni sulla risoluzione degli errori delle estensioni della macchina virtuale di Azure
+services: virtual-machines-linux
+documentationcenter: ''
+author: kundanap
+manager: timlt
+editor: ''
+tags: top-support-issue,azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="support-article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="03/29/2016"
-   ms.author="kundanap"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: support-article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 03/29/2016
+ms.author: kundanap
 
+---
 # Risoluzione degli errori delle estensioni della macchina virtuale Linux di Azure
-
-[AZURE.INCLUDE [virtual-machines-common-extensions-troubleshoot](../../includes/virtual-machines-common-extensions-troubleshoot.md)]
+[!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../includes/virtual-machines-common-extensions-troubleshoot.md)]
 
 ## Visualizzazione dello stato dell'estensione
 I modelli di Azure Resource Manager possono essere eseguiti dall'interfaccia della riga di comando di Azure. Una volta che il modello viene eseguito, è possibile visualizzare lo stato dell'estensione da Esplora risorse di Azure o dagli strumenti da riga di comando.
@@ -57,13 +56,10 @@ Di seguito è riportato l'output di esempio:
   ]
 
 ## Risoluzione degli errori delle Estensioni:
-
 ### Eseguire nuovamente l'estensione nella macchina virtuale
-
 Se si eseguono gli script nella macchina virtuale usando l'estensione script personalizzato, è possibile riscontrare in alcuni casi un errore in cui la creazione della macchina virtuale è riuscita, ma lo script ha avuto esito negativo. In queste condizioni, il metodo consigliato per risolvere il problema consiste nel rimuovere l'estensione e eseguire nuovamente il modello. Nota: In futuro, questa funzionalità potrebbe essere migliorata in modo da eliminare la necessità di disinstallazione dell'estensione.
 
 #### Rimuovere l'estensione dall'interfaccia della riga di comando di Azure
-
       azure vm extension set --resource-group "KPRG1" --vm-name "kundanapdemo" --publisher-name "Microsoft.Compute.CustomScriptExtension" --name "myCustomScriptExtension" --version 1.4 --uninstall
 
 Dove "publsher-name" corrisponde al tipo di estensione dall'output di "azure vm get-instance-view" e nome è il nome della risorsa di estensione dal modello

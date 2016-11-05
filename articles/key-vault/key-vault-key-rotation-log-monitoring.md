@@ -1,32 +1,33 @@
-<properties
-	pageTitle="Come configurare l'insieme di credenziali delle chiavi con rotazione e controllo delle chiavi end-to-end | Microsoft Azure"
-	description="Usare questa procedura per configurare la rotazione delle chiavi e i log di controllo dell'insieme di credenziali delle chiavi"
-	services="key-vault"
-	documentationCenter=""
-	authors="swgriffith"
-	manager=""
-	tags=""/>
+---
+title: Come configurare l'insieme di credenziali delle chiavi con rotazione e controllo delle chiavi end-to-end | Microsoft Docs
+description: Usare questa procedura per configurare la rotazione delle chiavi e i log di controllo dell'insieme di credenziali delle chiavi
+services: key-vault
+documentationcenter: ''
+author: swgriffith
+manager: ''
+tags: ''
 
-<tags
-	ms.service="key-vault"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/05/2016"
-	ms.author="jodehavi;stgriffi"/>
-#Come configurare l'insieme di credenziali delle chiavi con rotazione e controllo delle chiavi end-to-end
+ms.service: key-vault
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/05/2016
+ms.author: jodehavi;stgriffi
 
-##Introduzione
-
+---
+# Come configurare l'insieme di credenziali delle chiavi con rotazione e controllo delle chiavi end-to-end
+## Introduzione
 Dopo aver creato l'insieme di credenziali delle chiavi di Azure sarà possibile iniziare a usare questo insieme di credenziali per archiviare le chiavi e i segreti. Le applicazioni non devono più rendere persistenti le chiavi o i segreti, ma li richiederanno all'insieme di credenziali delle chiavi in base alle esigenze. In questo modo sarà possibile aggiornare le chiavi e i segreti senza influenzare il comportamento dell'applicazione; si apre così un ampio ventaglio di possibilità per la gestione del comportamento di chiavi e segreti.
 
 Questo articolo illustra un esempio di uso dell'insieme di credenziali delle chiavi di Azure per archiviare un segreto, in questo caso una chiave dell'account di archiviazione di Azure cui accede un'applicazione. Dimostra anche l'implementazione di una rotazione pianificata della chiave dell'account di archiviazione. Illustra infine come monitorare i log di controllo dell'insieme di credenziali delle chiavi e generare avvisi in caso di richieste impreviste.
 
-> [AZURE.NOTE] Questa esercitazione non illustra nei dettagli la configurazione iniziale dell'insieme di credenziali delle chiavi di Azure. Per altre informazioni, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md). In alternativa, per le istruzioni relative all'interfaccia della riga di comando multipiattaforma, vedere [questa esercitazione equivalente](key-vault-manage-with-cli.md).
+> [!NOTE]
+> Questa esercitazione non illustra nei dettagli la configurazione iniziale dell'insieme di credenziali delle chiavi di Azure. Per altre informazioni, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md). In alternativa, per le istruzioni relative all'interfaccia della riga di comando multipiattaforma, vedere [questa esercitazione equivalente](key-vault-manage-with-cli.md).
+> 
+> 
 
-##Configurazione dell'insieme di credenziali delle chiavi
-
+## Configurazione dell'insieme di credenziali delle chiavi
 Per consentire a un'applicazione di recuperare un segreto dall'insieme di credenziali delle chiavi di Azure, è prima necessario creare il segreto e caricarlo nell'insieme di credenziali. Questa operazione può essere facilmente eseguita con PowerShell come illustrato di seguito.
 
 Avviare una sessione di Azure PowerShell e accedere all'account Azure con il comando seguente:
@@ -68,11 +69,13 @@ Sarà quindi necessario ottenere l'URI per il segreto appena creato. L'URI verr�
 Get-AzureKeyVaultSecret –VaultName <vaultName>
 ```
 
-##Configurazione dell'applicazione
-
+## Configurazione dell'applicazione
 Ora che il segreto è stato archiviato sarà necessario recuperarlo e usarlo dal codice. Sono necessari pochi passaggi, il primo e più importante è registrare l'applicazione con Azure Active Directory e quindi indicare le informazioni sull'applicazione nell'insieme di credenziali delle chiavi di Azure in modo da consentire richieste dall'applicazione.
 
-> [AZURE.NOTE] L'applicazione deve essere creata nello stesso tenant di Azure Active Directory dell'insieme di credenziali delle chiavi.
+> [!NOTE]
+> L'applicazione deve essere creata nello stesso tenant di Azure Active Directory dell'insieme di credenziali delle chiavi.
+> 
+> 
 
 Passare prima alla scheda Applicazioni di Azure Active Directory
 
@@ -142,7 +145,7 @@ using Microsoft.Azure.KeyVault;
 ```
 
 Aggiungere quindi le chiamate di metodo per richiamare l'insieme di credenziali delle chiavi e recuperare il segreto. In questo metodo viene specificato l'URI del segreto salvato in un passaggio precedente. Si noti l'uso del metodo GetToken dalla classe Utils creata in precedenza.
-    
+
 ```csharp
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetToken));
 
@@ -151,8 +154,7 @@ var sec = kv.GetSecretAsync(<SecretID>).Result.Value;
 
 Quando si esegue l'applicazione, verrà eseguita l'autenticazione ad Azure Active Directory e quindi recuperato il valore del segreto dall'insieme di credenziali delle chiavi di Azure.
 
-##Rotazione delle chiavi con Automazione di Azure
-
+## Rotazione delle chiavi con Automazione di Azure
 Sono disponibili diverse opzioni per l'implementazione di una strategia di rotazione per i valori memorizzati come segreti dell'insieme di credenziali delle chiavi di Azure. I segreti possono essere ruotati nell'ambito di un processo manuale, a livello di codice sfruttando le chiamate API oppure con uno script di automazione. In questo articolo verrà usato Azure PowerShell insieme ad Automazione di Azure per modificare una chiave di accesso dell'account di archiviazione di Azure, quindi un secreto dell'insieme di credenziali delle chiavi verrà aggiornato con la nuova chiave.
 
 Per consentire ad Automazione di Azure di impostare i valori del segreto nell'insieme di credenziali delle chiavi sarà necessario ottenere l'ID client per la connessione denominata 'AzureRunAsConnection', creata quando è stata definita l'istanza di Automazione di Azure. L'ID può essere ottenuto scegliendo 'Asset' dall'istanza di Automazione di Azure. Scegliere quindi 'Connessioni' e selezionare l'entità servizio 'AzureRunAsConnection'. Prendere nota del valore di 'ID applicazione'.
@@ -161,14 +163,17 @@ Per consentire ad Automazione di Azure di impostare i valori del segreto nell'in
 
 Sempre nella finestra Asset scegliere 'Moduli'. Nei moduli selezionare 'Raccolta' e quindi cercare e importare le versioni aggiornate di ognuno dei moduli seguenti.
 
-	Azure
-	Azure.Storage	
-	AzureRM.Profile
-	AzureRM.KeyVault
-	AzureRM.Automation
-	AzureRM.Storage
-	
-> [AZURE.NOTE] Alla stesura di questo articolo è necessario aggiornare solo i moduli indicati in precedenza per lo script condiviso di seguito. Se si verificano errori nel processo di automazione è necessario verificare che tutti i moduli necessari e le relative dipendenze siano stati importati.
+    Azure
+    Azure.Storage    
+    AzureRM.Profile
+    AzureRM.KeyVault
+    AzureRM.Automation
+    AzureRM.Storage
+
+> [!NOTE]
+> Alla stesura di questo articolo è necessario aggiornare solo i moduli indicati in precedenza per lo script condiviso di seguito. Se si verificano errori nel processo di automazione è necessario verificare che tutti i moduli necessari e le relative dipendenze siano stati importati.
+> 
+> 
 
 Dopo aver recuperato l'ID applicazione per la connessione di Automazione di Azure sarà necessario specificare nell'insieme di credenziali delle chiavi di Azure che l'applicazione è autorizzata ad aggiornare i segreti dell'insieme di credenziali. A tale scopo è possibile usare il comando PowerShell seguente.
 
@@ -225,8 +230,7 @@ $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Secre
 
 Nel riquadro dell'editor è possibile scegliere 'Riquadro di test' per provare lo script. Dopo aver eseguito lo script senza errori è possibile selezionare l'opzione 'Pubblica' e quindi applicare una pianificazione per il runbook nel riquadro di configurazione del runbook.
 
-##Pipeline del controllo dell'insieme di credenziali delle chiavi
-
+## Pipeline del controllo dell'insieme di credenziali delle chiavi
 Quando si configura un insieme di credenziali delle chiavi di Azure è possibile attivare il controllo per raccogliere log relativi alle richieste di accesso all'insieme di credenziali delle chiavi. Questi log vengono archiviati in un apposito account di archiviazione di Azure e possono essere quindi estratti, monitorati e analizzati. Di seguito viene illustrato uno scenario che sfrutta Funzioni di Azure, le app per la logica di Azure e i log di controllo dell'insieme di credenziali delle chiavi per creare una pipeline per l'invio di un messaggio di posta elettronica quando i segreti dell'insieme di credenziali vengono recuperati da un'applicazione che corrisponde all'ID app dell'app Web.
 
 Sarà prima necessario abilitare la registrazione per l'insieme di credenziali delle chiavi. Questa operazione può essere eseguita tramite i comandi di PowerShell seguenti. Per i dettagli completi, vedere [qui](key-vault-logging.md):
@@ -239,14 +243,17 @@ Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id
 
 Dopo aver abilitato la registrazione, i log di controllo inizieranno la raccolta di informazioni nell'account di archiviazione designato. Questi log conterranno eventi relativi alla modalità e al momento in cui si accede all'insieme di credenziali delle chiavi e a chi esegue l'accesso.
 
-> [AZURE.NOTE] È possibile accedere alle informazioni di registrazione dopo un massimo di 10 minuti dall'operazione sull'insieme di credenziali delle chiavi, ma nella maggior parte dei casi si potrà farlo prima.
+> [!NOTE]
+> È possibile accedere alle informazioni di registrazione dopo un massimo di 10 minuti dall'operazione sull'insieme di credenziali delle chiavi, ma nella maggior parte dei casi si potrà farlo prima.
+> 
+> 
 
 Il passaggio successivo consiste nella [creazione di una coda del bus di servizio di Azure](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md). Qui verranno inseriti i log di controllo dell'insieme di credenziali delle chiavi. Quando i log si trovano nella coda, l'app per la logica li seleziona ed esegue operazioni su di essi. Creare un bus di servizio è relativamente semplice e di seguito sono riportati i passaggi generali:
 
 1. Creare uno spazio dei nomi del bus di servizio. Se è già presente uno spazio dei nomi da usare a questo scopo, andare direttamente al passaggio 2.
 2. Passare al bus di servizio nel portale e selezionare lo spazio dei nomi nel quale creare la coda.
 3. Scegliere Nuovo, scegliere Bus di servizio -> Coda e immettere i dettagli necessari.
-4. Recuperare le informazioni di connessione del bus di servizio selezionando lo spazio dei nomi e facendo clic su _Informazioni di connessione_. Queste informazioni saranno necessarie per la parte successiva.
+4. Recuperare le informazioni di connessione del bus di servizio selezionando lo spazio dei nomi e facendo clic su *Informazioni di connessione*. Queste informazioni saranno necessarie per la parte successiva.
 
 [Creare una funzione di Azure](../azure-functions/functions-create-first-azure-function.md) per eseguire il poll dei log dell'insieme di credenziali delle chiavi nell'account di archiviazione e selezionare i nuovi eventi. Questa funzione verrà attivata in base alla pianificazione.
 
@@ -256,7 +263,7 @@ Dopo aver creato la funzione di Azure, passare alla funzione e scegliere una fun
 
 ![Pannello iniziale di Funzioni di Azure](./media/keyvault-keyrotation/Azure_Functions_Start.png)
 
-Nella scheda _Sviluppo_ sostituire il codice run.csx con il seguente:
+Nella scheda *Sviluppo* sostituire il codice run.csx con il seguente:
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -366,15 +373,18 @@ static string GetContainerSasUri(CloudBlockBlob blob)
     return blob.Uri + sasBlobToken;
 }
 ```
-> [AZURE.NOTE] Sostituire le variabili nel codice precedente in modo che puntino all'account di archiviazione in cui vengono scritti i log dell'insieme di credenziali delle chiavi, al bus di servizio creato in precedenza e al percorso specifico dei log di archiviazione dell'insieme di credenziali delle chiavi.
+> [!NOTE]
+> Sostituire le variabili nel codice precedente in modo che puntino all'account di archiviazione in cui vengono scritti i log dell'insieme di credenziali delle chiavi, al bus di servizio creato in precedenza e al percorso specifico dei log di archiviazione dell'insieme di credenziali delle chiavi.
+> 
+> 
 
-La funzione seleziona il file del log più recente dall'account di archiviazione in cui vengono scritti i log dell'insieme di credenziali delle chiavi, acquisisce gli eventi più recenti dal file e li inserisce in una coda del bus di servizio. Un singolo file può avere più eventi, ad esempio nell'arco di un'ora, quindi viene creato un file _sync.txt_ che la funzione esamina per determinare il timestamp dell'ultimo evento selezionato. In questo modo, lo stesso evento non verrà inserito più volte. Questo file _sync.txt_ contiene semplicemente un timestamp per l'ultimo evento rilevato. I log, quando caricati, devono essere ordinati in base al timestamp per far sì che vengano ordinati correttamente.
+La funzione seleziona il file del log più recente dall'account di archiviazione in cui vengono scritti i log dell'insieme di credenziali delle chiavi, acquisisce gli eventi più recenti dal file e li inserisce in una coda del bus di servizio. Un singolo file può avere più eventi, ad esempio nell'arco di un'ora, quindi viene creato un file *sync.txt* che la funzione esamina per determinare il timestamp dell'ultimo evento selezionato. In questo modo, lo stesso evento non verrà inserito più volte. Questo file *sync.txt* contiene semplicemente un timestamp per l'ultimo evento rilevato. I log, quando caricati, devono essere ordinati in base al timestamp per far sì che vengano ordinati correttamente.
 
-Per questa funzione si fa riferimento a un paio di altre librerie non disponibili per impostazione predefinita in Funzioni di Azure. Per includerle è necessario che Funzioni di Azure le recuperi tramite NuGet. Scegliere l'opzione _Visualizza file_
+Per questa funzione si fa riferimento a un paio di altre librerie non disponibili per impostazione predefinita in Funzioni di Azure. Per includerle è necessario che Funzioni di Azure le recuperi tramite NuGet. Scegliere l'opzione *Visualizza file*
 
 ![Opzione Visualizza file](./media/keyvault-keyrotation/Azure_Functions_ViewFiles.png)
 
-e aggiungere un nuovo file denominato _project.json_ con il contenuto seguente:
+e aggiungere un nuovo file denominato *project.json* con il contenuto seguente:
 
 ```json
     {
@@ -388,27 +398,26 @@ e aggiungere un nuovo file denominato _project.json_ con il contenuto seguente:
        }
     }
 ```
-Dopo aver fatto clic su _Salva_, Funzioni di Azure scaricherà i file binari necessari.
+Dopo aver fatto clic su *Salva*, Funzioni di Azure scaricherà i file binari necessari.
 
-Passare alla scheda **Integra** e assegnare al parametro timer un nome significativo da usare all'interno della funzione. Nel codice precedente è previsto che il timer si chiami _myTimer_. Specificare un'[espressione CRON](../app-service-web/web-sites-create-web-jobs.md#CreateScheduledCRON) come segue: 0 * * * * * per il timer che attiverà l'esecuzione della funzione una volta al minuto.
+Passare alla scheda **Integra** e assegnare al parametro timer un nome significativo da usare all'interno della funzione. Nel codice precedente è previsto che il timer si chiami *myTimer*. Specificare un'[espressione CRON](../app-service-web/web-sites-create-web-jobs.md#CreateScheduledCRON) come segue: 0 * * * * * per il timer che attiverà l'esecuzione della funzione una volta al minuto.
 
-Nella stessa scheda **Integra** aggiungere un input che sarà di tipo _Archivio BLOB di Azure_. Punterà al file _sync.txt_ che contiene il timestamp dell'ultimo evento esaminato dalla funzione. L'input sarà reso disponibile all'interno della funzione dal nome del parametro. Nel codice precedente, l'input dell'archivio BLOB di Azure prevede che il nome del parametro sia _inputBlob_. Scegliere l'account di archiviazione in cui risiederà il file _sync.txt_. Può essere lo stesso account di archiviazione o un account diverso. Nel campo del percorso specificare il percorso in cui si trova il file, nel formato {nome-contenitore}/path/to/sync.txt.
+Nella stessa scheda **Integra** aggiungere un input che sarà di tipo *Archivio BLOB di Azure*. Punterà al file *sync.txt* che contiene il timestamp dell'ultimo evento esaminato dalla funzione. L'input sarà reso disponibile all'interno della funzione dal nome del parametro. Nel codice precedente, l'input dell'archivio BLOB di Azure prevede che il nome del parametro sia *inputBlob*. Scegliere l'account di archiviazione in cui risiederà il file *sync.txt*. Può essere lo stesso account di archiviazione o un account diverso. Nel campo del percorso specificare il percorso in cui si trova il file, nel formato {nome-contenitore}/path/to/sync.txt.
 
-Aggiungere un output che sarà di tipo _Archivio BLOB di Azure_. Anche questo punterà al file _sync.txt_ appena definito nell'input. Verrà usato dalla funzione per scrivere il timestamp dell'ultimo evento esaminato. Il codice precedente prevede che questo parametro sia denominato _outputBlob_.
+Aggiungere un output che sarà di tipo *Archivio BLOB di Azure*. Anche questo punterà al file *sync.txt* appena definito nell'input. Verrà usato dalla funzione per scrivere il timestamp dell'ultimo evento esaminato. Il codice precedente prevede che questo parametro sia denominato *outputBlob*.
 
-A questo punto la funzione è pronta. Tornare alla scheda **Sviluppo** e _salvare_ il codice. Verificare se nella finestra di output sono presenti errori di compilazione ed eventualmente correggerli. Dopo la compilazione, il codice sarà in esecuzione e verificherà i log dell'insieme di credenziali delle chiavi ogni minuto, inserendo eventuali nuovi eventi nella coda del bus di servizio definito. Le informazioni di registrazione verranno scritte nella finestra del log ogni volta che la funzione viene attivata.
+A questo punto la funzione è pronta. Tornare alla scheda **Sviluppo** e *salvare* il codice. Verificare se nella finestra di output sono presenti errori di compilazione ed eventualmente correggerli. Dopo la compilazione, il codice sarà in esecuzione e verificherà i log dell'insieme di credenziali delle chiavi ogni minuto, inserendo eventuali nuovi eventi nella coda del bus di servizio definito. Le informazioni di registrazione verranno scritte nella finestra del log ogni volta che la funzione viene attivata.
 
-###App per la logica di Azure
-
+### App per la logica di Azure
 Sarà quindi necessario creare un'app per la logica di Azure che selezionerà gli eventi che la funzione inserisce nella coda del bus di servizio, ne analizzerà il contenuto e invierà un messaggio di posta elettronica in base alla soddisfazione di una condizione.
 
 [Creare un app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md) passando a Nuovo -> App per la logica.
 
-Dopo averla creata, passare all'app per la logica e scegliere _modifica_. Nell'editor di app per la logica scegliere l'API gestita _Coda del bus di servizio_ e immettere le credenziali del bus di servizio per connetterlo alla coda.
+Dopo averla creata, passare all'app per la logica e scegliere *modifica*. Nell'editor di app per la logica scegliere l'API gestita *Coda del bus di servizio* e immettere le credenziali del bus di servizio per connetterlo alla coda.
 
 ![Bus di servizio dell'app per la logica di Azure](./media/keyvault-keyrotation/Azure_LogicApp_ServiceBus.png)
 
-Scegliere quindi _Aggiungi una condizione_. Nella condizione, passare all'_editor avanzato_ e immettere il codice seguente, sostituendo l'APP\_ID con l'effettivo APP\_ID dell'app Web:
+Scegliere quindi *Aggiungi una condizione*. Nella condizione, passare all'*editor avanzato* e immettere il codice seguente, sostituendo l'APP\_ID con l'effettivo APP\_ID dell'app Web:
 
 ```
 @equals('<APP_ID>', json(decodeBase64(triggerBody()['ContentData']))['identity']['claim']['appid'])
@@ -416,11 +425,11 @@ Scegliere quindi _Aggiungi una condizione_. Nella condizione, passare all'_edito
 
 Questa espressione restituirà essenzialmente **false** se la proprietà **appid** dell'evento in ingresso, ovvero il corpo del messaggio del bus di servizio, non è l'**appid** dell'app.
 
-Creare ora un'azione nell'opzione _Se no, non fare nulla_.
+Creare ora un'azione nell'opzione *Se no, non fare nulla*.
 
 ![Scelta dell'azione per l'app per la logica di Azure](./media/keyvault-keyrotation/Azure_LogicApp_Condition.png)
 
-Per l'azione, scegliere _Office 365 - send email_. Compilare i campi per creare un messaggio di posta elettronica da inviare quando la condizione specificata restituisce false. Se non si ha Office 365 è possibile valutare alternative per ottenere lo stesso risultato.
+Per l'azione, scegliere *Office 365 - send email*. Compilare i campi per creare un messaggio di posta elettronica da inviare quando la condizione specificata restituisce false. Se non si ha Office 365 è possibile valutare alternative per ottenere lo stesso risultato.
 
 A questo punto è disponibile una pipeline end-to-end che, una volta al minuto, cercherà nuovi log di controllo dell'insieme di credenziali delle chiavi. I nuovi log trovati verranno inseriti in una coda del bus di servizio. L'app per la logica verrà attivata non appena arriva un nuovo messaggio nella coda e se l'appid all'interno dell'evento non corrisponde all'id app dell'applicazione chiamante verrà inviato un messaggio di posta elettronica.
 

@@ -1,60 +1,56 @@
-<properties 
-   pageTitle="Gestire archivi Azure Data Lake mediante Azure SDK per Node.js | Microsoft Azure"
-   description="Informazioni su come gestire gli account Archivio Data Lake e il file system." 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="jhubbard" 
-   editor="cgronlun"/>
- 
-<tags
-   ms.service="data-lake-store"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
-   ms.date="09/13/2016"
-   ms.author="nitinme"/>
+---
+title: Gestire archivi Azure Data Lake mediante Azure SDK per Node.js | Microsoft Docs
+description: Informazioni su come gestire gli account Archivio Data Lake e il file system.
+services: data-lake-store
+documentationcenter: ''
+author: nitinme
+manager: jhubbard
+editor: cgronlun
 
+ms.service: data-lake-store
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 09/13/2016
+ms.author: nitinme
+
+---
 # Gestire Archivio Azure Data Lake utilizzando Azure SDK per Node.js
-
-> [AZURE.SELECTOR]
-- [Portale](data-lake-store-get-started-portal.md)
-- [PowerShell](data-lake-store-get-started-powershell.md)
-- [.NET SDK](data-lake-store-get-started-net-sdk.md)
-- [SDK per Java](data-lake-store-get-started-java-sdk.md)
-- [API REST](data-lake-store-get-started-rest-api.md)
-- [Interfaccia della riga di comando di Azure](data-lake-store-get-started-cli.md)
-- [Node.JS](data-lake-store-manage-use-nodejs.md)
-
+> [!div class="op_single_selector"]
+> * [Portale](data-lake-store-get-started-portal.md)
+> * [PowerShell](data-lake-store-get-started-powershell.md)
+> * [.NET SDK](data-lake-store-get-started-net-sdk.md)
+> * [SDK per Java](data-lake-store-get-started-java-sdk.md)
+> * [API REST](data-lake-store-get-started-rest-api.md)
+> * [Interfaccia della riga di comando di Azure](data-lake-store-get-started-cli.md)
+> * [Node.JS](data-lake-store-manage-use-nodejs.md)
+> 
+> 
 
 L’SDK di Azure per Node.js può essere usato per gestire account Archivio Azure Data Lake e anche operazioni del file system:
 
 Attualmente supporta:
 
-  *  **Versione di Node.js: 0.10.0 o successiva**
-  *  **Versione dell'API REST per l'account: 2015-10-01-preview**
-  *  **Versione dell'API REST per FileSystem: 2015-10-01-anteprima**
+* **Versione di Node.js: 0.10.0 o successiva**
+* **Versione dell'API REST per l'account: 2015-10-01-preview**
+* **Versione dell'API REST per FileSystem: 2015-10-01-anteprima**
 
-##Prerequisiti
-
+## Prerequisiti
 Per eseguire le procedure descritte nell'articolo è necessario:
 
-- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Funzionalità
-
-- Gestione account: creare, ottenere, elencare, aggiornare ed eliminare.
-- Gestione file system: creare, ottenere, caricare, aggiungere, scaricare, leggere, eliminare, elencare.
+* Gestione account: creare, ottenere, elencare, aggiornare ed eliminare.
+* Gestione file system: creare, ottenere, caricare, aggiungere, scaricare, leggere, eliminare, elencare.
 
 ## Come eseguire l'installazione
-
 ```bash
 npm install azure-arm-datalake-store
 ```
 
 ## Eseguire l'autenticazione con Azure Active Directory
-
  ```javascript
  var msrestAzure = require('ms-rest-azure');
  //user authentication
@@ -64,7 +60,6 @@ npm install azure-arm-datalake-store
  ```
 
 ## Creare client di Analisi Data Lake
-
 ```javascript
 var adlsManagement = require("azure-arm-datalake-store");
 var acccountClient = new adlsManagement.DataLakeStoreAccountClient(credentials, "your-subscription-id");
@@ -72,7 +67,6 @@ var filesystemClient = new adlsManagement.DataLakeStoreFileSystemClient(credenti
 ```
 
 ## Creare un account Archivio Data Lake
-
 ```javascript
 var util = require('util');
 var resourceGroupName = 'testrg';
@@ -128,7 +122,6 @@ filesystemClient.fileSystem.listFileStatus(accountName, fileToCreate, options, f
 ```
 
 ## Ottenere un elenco di file e cartelle
-
 ```javascript
 var util = require('util');
 var accountName = 'testadlsacct';
@@ -143,8 +136,7 @@ filesystemClient.fileSystem.listFileStatus(accountName, pathToEnumerate, functio
 ```
 
 ## Vedere anche
-
-- [Microsoft Azure SDK per Node.js](https://github.com/azure/azure-sdk-for-node)
-- [Microsoft Azure SDK per Node. js - Gestione di Analisi Data Lake](https://www.npmjs.com/package/azure-arm-datalake-analytics)
+* [Microsoft Azure SDK per Node.js](https://github.com/azure/azure-sdk-for-node)
+* [Microsoft Azure SDK per Node. js - Gestione di Analisi Data Lake](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 
 <!---HONumber=AcomDC_0914_2016-->

@@ -1,32 +1,30 @@
-<properties
-	pageTitle="Azure Active Directory B2C: framework di criteri estendibile| Microsoft Azure"
-	description="Argomento che descrive il framework di criteri estendibile di Azure Active Directory B2C e che illustra come creare vari tipi di criteri"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="bryanla"/>
+---
+title: 'Azure Active Directory B2C: framework di criteri estendibile| Microsoft Docs'
+description: Argomento che descrive il framework di criteri estendibile di Azure Active Directory B2C e che illustra come creare vari tipi di criteri
+services: active-directory-b2c
+documentationcenter: ''
+author: swkrish
+manager: msmbaldwin
+editor: bryanla
 
-<tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/24/2016"
-	ms.author="swkrish"/>
+ms.service: active-directory-b2c
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/24/2016
+ms.author: swkrish
 
+---
 # Azure Active Directory B2C: framework di criteri estendibile
-
 ## Nozioni di base
-
 Il framework di criteri estendibile di Azure Active Directory (Azure AD) B2C è il punto di forza del servizio. I criteri descrivono le esperienze di identità utente, ad esempio iscrizione, accesso o modifica del profilo. Ad esempio, i criteri di iscrizione consentono di controllare i comportamenti configurando le impostazioni seguenti:
 
-- Tipi di account (account di social network come Facebook o account locali come un indirizzo di posta elettronica) che gli utenti possono usare per effettuare l'iscrizione all'applicazione.
-- Attributi (ad esempio nome, codice postale, numero di scarpe) da raccogliere dall'utente durante la procedura di iscrizione.
-- Uso di Multi-Factor Authentication.
-- Aspetto di tutte le pagine di iscrizione.
-- Informazioni (visualizzate come attestazioni in un token) che l'applicazione riceve al termine dell'esecuzione dei criteri.
+* Tipi di account (account di social network come Facebook o account locali come un indirizzo di posta elettronica) che gli utenti possono usare per effettuare l'iscrizione all'applicazione.
+* Attributi (ad esempio nome, codice postale, numero di scarpe) da raccogliere dall'utente durante la procedura di iscrizione.
+* Uso di Multi-Factor Authentication.
+* Aspetto di tutte le pagine di iscrizione.
+* Informazioni (visualizzate come attestazioni in un token) che l'applicazione riceve al termine dell'esecuzione dei criteri.
 
 È possibile creare più criteri di tipi diversi nel proprio tenant e usarli nelle applicazioni in base alle esigenze. I criteri possono essere usati per più applicazioni. In questo modo, gli sviluppatori possono definire e modificare le esperienze di identità degli utenti con modifiche minime o senza modifiche al codice.
 
@@ -63,7 +61,6 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 Per altre informazioni sul framework di criteri, vedere questo [post di blog](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
 
 ## Creare un criterio di iscrizione
-
 Per abilitare l'iscrizione nell'applicazione, è necessario creare i criteri di iscrizione. I criteri descrivono l'esperienza utente durante la procedura di iscrizione e il contenuto dei token che l'applicazione riceverà al completamento dell'iscrizione.
 
 1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
@@ -77,12 +74,13 @@ Per abilitare l'iscrizione nell'applicazione, è necessario creare i criteri di 
 9. Aprire il criterio facendo clic su "**B2C\_1\_SiUp**".
 10. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni** e `https://localhost:44321/` nel menu a discesa **URL di risposta / URI di reindirizzamento**.
 11. Fare clic su **Esegui adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di iscrizione per l'applicazione.
-
-    > [AZURE.NOTE]
-    La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
+    
+    > [!NOTE]
+    > La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
+    > 
+    > 
 
 ## Creare un criterio di accesso
-
 Per abilitare l'accesso nell'applicazione, è necessario creare i criteri di accesso. I criteri descrivono l'esperienza utente durante la procedura di accesso e il contenuto dei token che l'applicazione riceverà al completamento dell'accesso.
 
 1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
@@ -95,12 +93,13 @@ Per abilitare l'accesso nell'applicazione, è necessario creare i criteri di acc
 8. Aprire i criteri facendo clic su "**B2C\_1\_SiIn**".
 9. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni** e `https://localhost:44321/` nel menu a discesa **URL di risposta / URI di reindirizzamento**.
 10. Fare clic su **Esegui adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di accesso all'applicazione.
-
-    > [AZURE.NOTE]
-    La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
+    
+    > [!NOTE]
+    > La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
+    > 
+    > 
 
 ## Creare un criterio di iscrizione o accesso
-
 Questo criterio consente di gestire le esperienze di iscrizione e accesso dei consumatori tramite una singola configurazione. I consumatori vengono indirizzati sul percorso corretto (iscrizione o accesso) a seconda del contesto. Vengono inoltre descritti i contenuti dei token che l'applicazione riceverà al completamento dell'iscrizione o dell'accesso. Un esempio di codice per i criteri di iscrizione o di accesso è [disponibile qui](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
 
 1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
@@ -114,12 +113,13 @@ Questo criterio consente di gestire le esperienze di iscrizione e accesso dei co
 9. Aprire il criterio facendo clic su "**B2C\_1\_SiUpIn**".
 10. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni** e `https://localhost:44321/` nel menu a discesa **URL di risposta / URI di reindirizzamento**.
 11. Fare clic su **Esegui Adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di iscrizione o accesso all'applicazione, a seconda della configurazione.
-
-    > [AZURE.NOTE]
-    La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
+    
+    > [!NOTE]
+    > La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
+    > 
+    > 
 
 ## Creare i criteri di modifica del profilo
-
 Per abilitare la modifica del profilo nell'applicazione, è necessario creare i criteri di modifica del profilo. Questi criteri descrivono l'esperienza utente durante la procedura di modifica del profilo e il contenuto dei token che l'applicazione riceverà al completamento della procedura.
 
 1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
@@ -133,12 +133,13 @@ Per abilitare la modifica del profilo nell'applicazione, è necessario creare i 
 9. Aprire il criterio facendo clic su "**B2C\_1\_SiPe**".
 10. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni** e `https://localhost:44321/` nel menu a discesa **URL di risposta / URI di reindirizzamento**.
 11. Fare clic su **Esegui adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di modifica del profilo nell'applicazione.
-
-    > [AZURE.NOTE]
-    La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
     
-## Creare i criteri di reimpostazione delle password
+    > [!NOTE]
+    > La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
+    > 
+    > 
 
+## Creare i criteri di reimpostazione delle password
 Per abilitare una reimpostazione dettagliata delle password nell'applicazione, è necessario creare criteri di reimpostazione delle password. Si noti che l'opzione di reimpostazione delle password a livello di tenant specificata [qui](active-directory-b2c-reference-sspr.md) è comunque applicabile per i criteri di accesso. Questi criteri descrivono l'esperienza utente durante la procedura di reimpostazione delle password e il contenuto dei token che l'applicazione riceverà al completamento della procedura.
 
 1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
@@ -151,12 +152,13 @@ Per abilitare una reimpostazione dettagliata delle password nell'applicazione, �
 8. Aprire il criterio facendo clic su "**B2C\_1\_SSPR**".
 9. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni** e `https://localhost:44321/` nel menu a discesa **URL di risposta / URI di reindirizzamento**.
 10. Fare clic su **Esegui adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di reimpostazione delle password nell'applicazione.
-
-    > [AZURE.NOTE]
-    La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
+    
+    > [!NOTE]
+    > La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
+    > 
+    > 
 
 ## Risorse aggiuntive
-
-- [Configurazione di token, sessione e accesso Single Sign-On](active-directory-b2c-token-session-sso.md).
+* [Configurazione di token, sessione e accesso Single Sign-On](active-directory-b2c-token-session-sso.md).
 
 <!---HONumber=AcomDC_0727_2016-->

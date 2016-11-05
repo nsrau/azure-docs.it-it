@@ -1,22 +1,28 @@
-<properties 
-   pageTitle="Profili nidificati di Gestione Traffico | Microsoft Azure"
-   description="Questo articolo descrive la funzionalità ";Profili nidificati"; di Gestione traffico di Azure"
-   services="traffic-manager"
-   documentationCenter=""
-   authors="sdwheeler"
-   manager="carmonm"
-   editor="tysonn" />
-<tags 
-   ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/25/2016"
-   ms.author="sewhee" />
+---
+title: Profili nidificati di Gestione Traffico | Microsoft Docs
+description: 'Questo articolo descrive la funzionalità '
+;profili: ''
+nidificati";: ''
+di: ''
+gestione: ''
+traffico: ''
+azure": ''
+services: traffic-manager
+documentationcenter: ''
+author: sdwheeler
+manager: carmonm
+editor: tysonn
 
+ms.service: traffic-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 05/25/2016
+ms.author: sewhee
+
+---
 # Profili nidificati di Gestione traffico
-
 Gestione traffico include diversi metodi di routing del traffico, che consentono di controllare la modalità con cui Gestione traffico sceglie quale endpoint deve ricevere traffico da ogni utente finale. Questi metodi sono descritti in [Metodi di routing del traffico di Gestione traffico](traffic-manager-routing-methods.md) e consentono di soddisfare i requisiti più comuni di routing del traffico.
 
 Ciascun profilo di Gestione traffico specifica un solo metodo di routing del traffico. Alcune volte, tuttavia, le applicazioni più complesse richiedono un sistema di routing del traffico più sofisticato che possa essere fornito da un singolo profilo di Gestione traffico.
@@ -28,7 +34,6 @@ I profili nidificati consentono anche di ignorare il comportamento predefinito d
 Nella parte restante di questa pagina viene illustrata, tramite una sequenza di esempi, la modalità d'uso dei profili nidificati di Gestione traffico in una vasta gamma di scenari. Alla fine dell'articolo sono presenti domande frequenti sui profili nidificati
 
 ## Esempio 1: Combinazione di metodi di routing del traffico "Prestazioni" e "Ponderato"
-
 Si supponga che l'applicazione venga distribuita in più aree di Azure: Stati Uniti occidentali, Europa occidentale e Asia orientale. Si userà il metodo di routing del traffico "Prestazioni" di Gestione traffico per distribuire il traffico nell'area più vicina all'utente.
 
 ![Profilo singolo di Gestione traffico][1]
@@ -46,7 +51,6 @@ In questo modo, il traffico indirizzato tramite il profilo padre verrà distribu
 Si noti che, quando il profilo padre usa il metodo di routing del traffico "Prestazioni", deve essere nota la posizione di ogni endpoint. Per gli endpoint nidificati, come per gli endpoint esterni, questa posizione deve essere specificata come parte della configurazione dell'endpoint. Scegliere l'area di Azure più vicina alla distribuzione. Le opzioni disponibili sono le aree di Azure, ovvero le posizioni supportate dalla tabella della latenza di Internet. Per altre informazioni, vedere [Metodo di routing del traffico "Prestazioni" di Gestione traffico](traffic-manager-routing-methods.md#performance-traffic-routing-method).
 
 ## Esempio 2: Monitoraggio degli endpoint nei profili nidificati
-
 Gestione traffico esegue continuamente il monitoraggio dell'integrità di ogni endpoint di servizio. Se un endpoint è stato identificato come danneggiato, Gestione traffico indirizzerà gli utenti ad endpoint alternativi, mantenendo in tal modo la disponibilità complessiva del servizio. Il comportamento di monitoraggio e failover degli endpoint si applica a tutti i metodi di routing del traffico. Per altre informazioni, vedere [Informazioni sul monitoraggio di Gestione traffico](traffic-manager-monitoring.md).
 
 Per i profili nidificati si applicano alcune specifiche regole di monitoraggio degli endpoint. Quando un profilo padre viene configurato con un profilo figlio come endpoint nidificato, l'elemento padre non esegue direttamente i controlli dell'integrità sull'elemento figlio. L'integrità degli endpoint del profilo figlio viene usata invece per calcolare l'integrità complessiva del profilo figlio e queste informazioni vengono propagate alla gerarchia dei profili nidificati per determinare l'integrità dell'endpoint nidificato all'interno del profilo padre. In tal modo, si determina se il profilo padre indirizzerà il traffico all'elemento figlio. I dettagli completi sull'esatta modalità di calcolo dell'integrità dell'endpoint nidificato nel profilo padre a partire dall'integrità del profilo figlio sono riportati [di seguito](#faq).
@@ -64,7 +68,6 @@ Nell'esempio riportato di seguito viene illustrato quanto segue: quando MinChild
 Si noti che quando il profilo figlio usa il metodo di routing del traffico "Priorità", tutto il traffico a tale elemento figlio viene ricevuto da un singolo endpoint. In questo caso è quindi probabilmente inutile impostare MinChildEndpoints su un valore diverso da "1".
 
 ## Esempio 3: Aree di failover con priorità con metodo di routing del traffico "Prestazioni"
-
 Quando un singolo profilo usa il metodo di routing del traffico "Prestazioni", se un endpoint (ad esempio Europa occidentale) ha esito negativo, tutto il traffico normalmente indirizzato a tale endpoint viene invece distribuito tra gli altri endpoint in tutte le aree. Si tratta del comportamento predefinito per il metodo di routing del traffico "Prestazioni", progettato per evitare il sovraccarico dell'endpoint successivo più vicino e una conseguente serie di errori a catena.
 
 ![Routing del traffico "Prestazioni" con failover predefinito][5]
@@ -78,7 +81,6 @@ Poiché l'endpoint dell'Europa occidentale ha priorità più elevata rispetto al
 È possibile ripetere questo modello per tutte le aree, sostituendo i 3 endpoint nel profilo padre con 3 profili figlio, ognuno con una sequenza di failover con priorità.
 
 ## Esempio 4: Controllo del metodo di routing del traffico "Prestazioni" tra più endpoint nella stessa area
-
 Si supponga che il metodo di routing del traffico "Prestazioni" venga usato in un profilo con più di un endpoint in una determinata area, ad esempio gli Stati Uniti occidentali. Per impostazione predefinita il traffico indirizzato a tale area verrà distribuito in modo uniforme tra tutti gli endpoint disponibili nell'area.
 
 ![Routing del traffico "Prestazioni" con distribuzione del traffico nell'area (comportamento predefinito)][7]
@@ -88,7 +90,6 @@ Questa impostazione predefinita può essere modificata tramite i profili nidific
 ![Routing del traffico "Prestazioni" con distribuzione personalizzata del traffico nell'area][8]
 
 ## Esempio 5: Impostazioni di monitoraggio per ogni endpoint
-
 Si supponga di usare Gestione traffico per facilitare la migrazione di traffico tra un sito Web legacy locale e una nuova versione basata su cloud ospitata in Azure. Per il sito legacy si vuole usare la home page (percorso "/") per monitorare l'integrità del sito, ma per la nuova versione basata su cloud si vuole implementare una pagina di monitoraggio personalizzata che include controlli aggiuntivi (percorso "/monitor.aspx").
 
 ![Monitoraggio degli endpoint di Gestione traffico (comportamento predefinito)][9]
@@ -98,30 +99,24 @@ Le impostazioni di monitoraggio in un profilo di Gestione traffico si applicano 
 ![Monitoraggio degli endpoint di Gestione traffico con impostazioni per ogni endpoint][10]
 
 ## Domande frequenti
-
 ### Come si configurano i profili nidificati?
-
 I profili nidificati di Gestione traffico possono essere configurati usando Azure Resource Manager (ARM), le API REST di Azure Service Management (ASM), i cmdlet di PowerShell e i comandi multipiattaforma di Azure CLI. Sono supportati anche nel portale di Azure, ma non nel portale "classico".
 
 ### Quanti livelli di nidificazione supporta Gestione traffico?
 È possibile nidificare i profili fino a 10 livelli. I "loop" non sono consentiti.
 
 ### È possibile combinare altri tipi di endpoint con profili figlio nidificati nello stesso profilo di Gestione traffico?
-
 Sì. Non esistono restrizioni sulla modalità di combinazione di tipi diversi di endpoint all'interno di un profilo.
 
 ### Come viene applicato il modello di fatturazione per i profili nidificati?
-
 L'uso di profili nidificati non ha alcun impatto negativo sui prezzi.
 
 La fatturazione di Gestione traffico include due componenti: i controlli dell'integrità degli endpoint e milioni di query DNS (per informazioni dettagliate, vedere la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/traffic-manager/).) La fatturazione si applica ai profili nidificati nel modo seguente:
 
-- Controlli dell'integrità degli endpoint: non è previsto alcun addebito per un profilo figlio configurato come endpoint in un profilo padre. Gli endpoint nel profilo figlio che eseguono il monitoraggio dei servizi sottostanti vengono fatturati nel modo consueto.
-
-- Query DNS: ogni query viene conteggiata una sola volta. Una query in un profilo padre che restituisce un endpoint da un profilo figlio viene fatturata solo per il profilo padre.
+* Controlli dell'integrità degli endpoint: non è previsto alcun addebito per un profilo figlio configurato come endpoint in un profilo padre. Gli endpoint nel profilo figlio che eseguono il monitoraggio dei servizi sottostanti vengono fatturati nel modo consueto.
+* Query DNS: ogni query viene conteggiata una sola volta. Una query in un profilo padre che restituisce un endpoint da un profilo figlio viene fatturata solo per il profilo padre.
 
 ### I profili nidificati influiscono sulle prestazioni?
-
 No, quando si usano i profili nidificati non si verifica alcun impatto sulle prestazioni.
 
 I server dei nomi di Gestione traffico attraversano internamente la gerarchia dei profili durante l'elaborazione di ogni query DNS, in modo che una query DNS a un profilo padre possa ricevere una risposta DNS con un endpoint da un profilo figlio.
@@ -129,22 +124,19 @@ I server dei nomi di Gestione traffico attraversano internamente la gerarchia de
 Viene usato pertanto un singolo record CNAME, lo stesso di quando si usa un singolo profilo di Gestione traffico. **Non** è necessaria una sequenza di record CNAME, uno per ogni profilo nella gerarchia, pertanto non si verifica alcuna riduzione delle prestazioni.
 
 ### Come viene calcolata da Gestione traffico l'integrità di un endpoint nidificato in un profilo padre, in base all'integrità del profilo figlio?
-
 Quando un profilo padre viene configurato con un profilo figlio come endpoint nidificato, l'elemento padre non esegue direttamente i controlli dell'integrità sull'elemento figlio. L'integrità degli endpoint del profilo figlio viene usata invece per calcolare l'integrità complessiva del profilo figlio e queste informazioni vengono propagate alla gerarchia dei profili nidificati per determinare l'integrità dell'endpoint nidificato all'interno del profilo padre. In tal modo, si determina se il profilo padre indirizzerà il traffico all'elemento figlio.
 
 La tabella seguente descrive il comportamento dei controlli dell'integrità di Gestione traffico per un endpoint nidificato in un profilo padre che punta a un profilo figlio.
 
-|Stato di monitoraggio del profilo figlio|Stato di monitoraggio dell'endpoint padre|Note|
-|---|---|---|
-|Disabilitato. Il profilo figlio è stato disabilitato dall'utente.|Arrestato|Lo stato dell'endpoint padre è Stopped, non Disabled. Lo stato Disabled è usato esclusivamente per indicare che l'utente ha disabilitato l'endpoint nel profilo padre.|
-|Danneggiato. Almeno uno degli endpoint del profilo figlio è nello stato Danneggiato.|Online: il numero di endpoint Online nel profilo figlio è pari almeno al valore di MinChildEndpoints. CheckingEndpoint: il numero di endpoint Online e CheckingEndpoint nel profilo figlio è pari almeno al valore di MinChildEndpoints. Danneggiato: negli altri casi.|Il traffico viene indirizzato a un endpoint con stato CheckingEndpoint. Se il valore di MinChildEndpoints è troppo elevato, l'endpoint sarà sempre danneggiato.|
-|Online. Almeno uno degli endpoint del profilo figlio è nello stato Online e nessun endpoint è nello stato Danneggiato.|Vedere sopra.||
-|CheckingEndpoints. Almeno uno degli endpoint del profilo figlio è nello stato "CheckingEndpoint" e nessun endpoint è nello stato "Online" o "Danneggiato".|Come sopra.||
-|Inattivo. Tutti gli endpoint del profilo figlio sono nello stato Disabilitato o Arrestato oppure si tratta di un profilo senza endpoint.|Arrestato||
-
+| Stato di monitoraggio del profilo figlio | Stato di monitoraggio dell'endpoint padre | Note |
+| --- | --- | --- |
+| Disabilitato. Il profilo figlio è stato disabilitato dall'utente. |Arrestato |Lo stato dell'endpoint padre è Stopped, non Disabled. Lo stato Disabled è usato esclusivamente per indicare che l'utente ha disabilitato l'endpoint nel profilo padre. |
+| Danneggiato. Almeno uno degli endpoint del profilo figlio è nello stato Danneggiato. |Online: il numero di endpoint Online nel profilo figlio è pari almeno al valore di MinChildEndpoints. CheckingEndpoint: il numero di endpoint Online e CheckingEndpoint nel profilo figlio è pari almeno al valore di MinChildEndpoints. Danneggiato: negli altri casi. |Il traffico viene indirizzato a un endpoint con stato CheckingEndpoint. Se il valore di MinChildEndpoints è troppo elevato, l'endpoint sarà sempre danneggiato. |
+| Online. Almeno uno degli endpoint del profilo figlio è nello stato Online e nessun endpoint è nello stato Danneggiato. |Vedere sopra. | |
+| CheckingEndpoints. Almeno uno degli endpoint del profilo figlio è nello stato "CheckingEndpoint" e nessun endpoint è nello stato "Online" o "Danneggiato". |Come sopra. | |
+| Inattivo. Tutti gli endpoint del profilo figlio sono nello stato Disabilitato o Arrestato oppure si tratta di un profilo senza endpoint. |Arrestato | |
 
 ## Passaggi successivi
-
 Altre informazioni sul [funzionamento di Gestione traffico](traffic-manager-how-traffic-manager-works.md)
 
 Informazioni su come [creare un profilo di Gestione traffico](traffic-manager-manage-profiles.md)

@@ -1,53 +1,50 @@
-<properties
-    pageTitle="Creare uno spazio dei nomi dell'hub eventi con Hub eventi e abilitare l'archivio usando un modello di Azure Resource Manager | Microsoft Azure"
-    description="Creare uno spazio dei nomi dell'hub eventi con Hub eventi e abilitare l'archivio usando un modello di Azure Resource Manager"
-    services="event-hubs"
-    documentationCenter=".net"
-    authors="ShubhaVijayasarathy"
-    manager="timlt"
-    editor=""/>
+---
+title: Creare uno spazio dei nomi dell'hub eventi con Hub eventi e abilitare l'archivio usando un modello di Azure Resource Manager | Microsoft Docs
+description: Creare uno spazio dei nomi dell'hub eventi con Hub eventi e abilitare l'archivio usando un modello di Azure Resource Manager
+services: event-hubs
+documentationcenter: .net
+author: ShubhaVijayasarathy
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="event-hubs"
-    ms.devlang="tbd"
-    ms.topic="article"
-    ms.tgt_pltfrm="dotnet"
-    ms.workload="na"
-    ms.date="09/14/2016"
-    ms.author="ShubhaVijayasarathy"/>
+ms.service: event-hubs
+ms.devlang: tbd
+ms.topic: article
+ms.tgt_pltfrm: dotnet
+ms.workload: na
+ms.date: 09/14/2016
+ms.author: ShubhaVijayasarathy
 
-
+---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-enable-archive-using-an-azure-resource-manager-template"></a>Creare uno spazio dei nomi dell'hub eventi con Hub eventi e abilitare l'archivio usando un modello di Azure Resource Manager
-
 Questo articolo illustra come usare un modello di Azure Resource Manager per creare uno spazio dei nomi dell'hub eventi con un Hub eventi e abilitare l'archivio in Hub eventi. Illustra inoltre le modalità di definizione delle risorse da distribuire e dei parametri specificati durante l'esecuzione della distribuzione. È possibile usare questo modello per la distribuzione o personalizzarlo in base alle esigenze.
 
-Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Azure Resource Manager][].
+Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Azure Resource Manager][Creazione di modelli di Azure Resource Manager].
 
-Per altre informazioni su procedure e modelli sulle convenzioni di denominazione delle risorse di Azure, vedere [Azure Resources Naming Conventions][](Convenzioni di denominazione delle risorse Azure).
+Per altre informazioni su procedure e modelli sulle convenzioni di denominazione delle risorse di Azure, vedere [Azure Resources Naming Conventions][](Convenzioni di denominazione delle risorse Azure.md).
 
-Per il modello completo, vedere [Event Hub and enable Archive template][] (Hub eventi e abilitazione del modello dell'archivio) su GitHub.
+Per il modello completo, vedere [Event Hub and enable Archive template][Event Hub and enable Archive template] (Hub eventi e abilitazione del modello dell'archivio) su GitHub.
 
->[AZURE.NOTE]
->Per verificare gli ultimi modelli, visitare la raccolta [Modelli di avvio rapido di Azure][] e cercare Hub eventi.
+> [!NOTE]
+> Per verificare gli ultimi modelli, visitare la raccolta [Modelli di avvio rapido di Azure][Modelli di avvio rapido di Azure] e cercare Hub eventi.
+> 
+> 
 
 ## <a name="what-you-deploy?"></a>Cosa viene distribuito?
-
 Questo modello consente di distribuire uno spazio dei nomi dell'hub eventi con un Hub eventi e abilita l'archivio.
 
-[Hub eventi](../event-hubs/event-hubs-what-is-event-hubs.md) è un servizio di elaborazione di eventi che viene usato per fornire eventi e dati di telemetria in entrata in Azure su larga scala, con bassa latenza ed elevata affidabilità. L'archivio di Hub eventi consentirà di distribuire automaticamente il flusso di dati dell'Hub di eventi nell'archivio BLOB di Azure scelto, entro un intervallo temporale o di dimensioni specificato.
+[Hub eventi](event-hubs-what-is-event-hubs.md) è un servizio di elaborazione di eventi che viene usato per fornire eventi e dati di telemetria in entrata in Azure su larga scala, con bassa latenza ed elevata affidabilità. L'archivio di Hub eventi consentirà di distribuire automaticamente il flusso di dati dell'Hub di eventi nell'archivio BLOB di Azure scelto, entro un intervallo temporale o di dimensioni specificato.
 
 Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
 [![Distribuzione in Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-archive%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametri
-
 Gestione risorse di Azure permette di definire i parametri per i valori da specificare durante la distribuzione del modello. Il modello include una sezione denominata `Parameters` che contiene tutti i valori dei parametri. È necessario definire un parametro per i valori che variano in base al progetto distribuito o all'ambiente in cui viene distribuito il progetto. Non definire i parametri per i valori che rimangono invariati. Ogni valore di parametro nel modello viene usato per definire le risorse distribuite.
 
 Il modello definisce i parametri seguenti.
 
 ### <a name="eventhubnamespacename"></a>eventHubNamespaceName
-
 Nome dello spazio dei nomi dell'hub eventi da creare.
 
 ```
@@ -60,7 +57,6 @@ Nome dello spazio dei nomi dell'hub eventi da creare.
 ```
 
 ### <a name="eventhubname"></a>eventHubName
-
 Nome dell'hub eventi creato nello spazio dei nomi dell'hub eventi.
 
 ```
@@ -73,7 +69,6 @@ Nome dell'hub eventi creato nello spazio dei nomi dell'hub eventi.
 ```
 
 ### <a name="messageretentionindays"></a>messageRetentionInDays
-
 Il numero di giorni che si desidera che i messaggi vengano mantenuti in Hub eventi. 
 
 ```
@@ -89,7 +84,6 @@ Il numero di giorni che si desidera che i messaggi vengano mantenuti in Hub even
 ```
 
 ### <a name="partitioncount"></a>partitionCount
-
 Il numero di partizioni desiderato nell'Hub eventi.
 
 ```
@@ -105,7 +99,6 @@ Il numero di partizioni desiderato nell'Hub eventi.
 ```
 
 ### <a name="archiveenabled"></a>archiveEnabled
-
 Consente di abilitare l'archivio nell'Hub eventi.
 
 ```
@@ -121,7 +114,6 @@ Consente di abilitare l'archivio nell'Hub eventi.
  }
 ```
 ### <a name="archiveencodingformat"></a>archiveEncodingFormat
-
 Il formato di codifica specificato per serializzare i dati dell'evento.
 
 ```
@@ -137,7 +129,6 @@ Il formato di codifica specificato per serializzare i dati dell'evento.
 ```
 
 ### <a name="archivetime"></a>archiveTime
-
 L'intervallo temporale in cui l'archivio inizia l'archiviazione dei dati nell'archivio BLOB di Azure.
 
 ```
@@ -153,7 +144,6 @@ L'intervallo temporale in cui l'archivio inizia l'archiviazione dei dati nell'ar
 ```
 
 ### <a name="archivesize"></a>archiveSize
-
 L'intervallo di dimensioni in cui l'archivio inizia l'archiviazione dei dati nell'archivio BLOB di Azure.
 
 ```
@@ -169,7 +159,6 @@ L'intervallo di dimensioni in cui l'archivio inizia l'archiviazione dei dati nel
 ```
 
 ### <a name="destinationstorageaccountresourceid"></a>destinationStorageAccountResourceId
-
 L'archivio richiede un ID risorsa dell'account di archiviazione per abilitare l'archivio verso l'archiviazione di Azure scelta.
 
 ```
@@ -182,7 +171,6 @@ L'archivio richiede un ID risorsa dell'account di archiviazione per abilitare l'
 ```
 
 ### <a name="blobcontainername"></a>blobContainerName
-
 Il contenitore BLOB in cui si desidera archiviare i dati dell'evento.
 
 ```
@@ -196,7 +184,6 @@ Il contenitore BLOB in cui si desidera archiviare i dati dell'evento.
 
 
 ### <a name="apiversion"></a>apiVersion
-
 Versione API del modello.
 
 ```
@@ -210,7 +197,6 @@ Versione API del modello.
 ```
 
 ## <a name="resources-to-deploy"></a>Risorse da distribuire
-
 Crea uno spazio dei nomi di tipo **EventHubs**con Hub eventi e abilita l'archivio.
 
 ```
@@ -249,9 +235,9 @@ Crea uno spazio dei nomi di tipo **EventHubs**con Hub eventi e abilita l'archivi
                             }
                         } 
                   }
-                  
+
                }
-               
+
             }
          ]
       }
@@ -259,17 +245,14 @@ Crea uno spazio dei nomi di tipo **EventHubs**con Hub eventi e abilita l'archivi
 ```
 
 ## <a name="commands-to-run-deployment"></a>Comandi per eseguire la distribuzione
-
-[AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
+[!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
-
 ```
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-archive/azuredeploy.json
 ```
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-
 ```
 azure config mode arm
 

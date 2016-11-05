@@ -1,36 +1,35 @@
-<properties
-   pageTitle="Azure AD Connect: Eseguire l'aggiornamento da una versione precedente | Microsoft Azure"
-   description="Illustra i diversi metodi per eseguire l'aggiornamento alla versione più recente di Azure Active Directory Connect, tra cui l'aggiornamento sul posto e la migrazione swing."
-   services="active-directory"
-   documentationCenter=""
-   authors="AndKjell"
-   manager="femila"
-   editor=""/>
+---
+title: 'Azure AD Connect: Eseguire l''aggiornamento da una versione precedente | Microsoft Docs'
+description: Illustra i diversi metodi per eseguire l'aggiornamento alla versione più recente di Azure Active Directory Connect, tra cui l'aggiornamento sul posto e la migrazione swing.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="Identity"
-   ms.date="06/27/2016"
-   ms.author="billmath"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: Identity
+ms.date: 06/27/2016
+ms.author: billmath
 
-
+---
 # <a name="azure-ad-connect:-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Eseguire l'aggiornamento da una versione precedente alla versione più recente
 Questo argomento descrive i diversi metodi che è possibile usare per aggiornare l'installazione di Azure AD Connect alla versione più recente. È consigliabile mantenersi sempre al passo con le versioni di Azure AD Connect.
 
-Se si vuole eseguire l'aggiornamento da DirSync, vedere invece l'argomento relativo all'[aggiornamento dallo strumento di sincronizzazione di Azure AD (DirSync)](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md) .
+Se si vuole eseguire l'aggiornamento da DirSync, vedere invece l'argomento relativo all'[aggiornamento dallo strumento di sincronizzazione di Azure AD (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md) .
 
 Esistono diverse strategie per eseguire l'aggiornamento di Azure AD Connect.
 
-Metodo | Descrizione
---- | ---
-[Aggiornamento automatico](active-directory-aadconnect-feature-automatic-upgrade.md) | Si tratta del metodo più semplice per i clienti con installazione rapida.
-[Aggiornamento sul posto](#in-place-upgrade) | Se si ha un singolo server, eseguire un aggiornamento sul posto dell'installazione nello stesso server.
-[Migrazione swing](#swing-migration) | Con due server è possibile preparare uno dei due server con la nuova versione e, quando si è pronti, modificare il server attivo.
+| Metodo | Descrizione |
+| --- | --- |
+| [Aggiornamento automatico](active-directory-aadconnect-feature-automatic-upgrade.md) |Si tratta del metodo più semplice per i clienti con installazione rapida. |
+| [Aggiornamento sul posto](#in-place-upgrade) |Se si ha un singolo server, eseguire un aggiornamento sul posto dell'installazione nello stesso server. |
+| [Migrazione swing](#swing-migration) |Con due server è possibile preparare uno dei due server con la nuova versione e, quando si è pronti, modificare il server attivo. |
 
-Per informazioni, vedere l'articolo relativo alle [autorizzazioni necessarie per l'aggiornamento](./aad-connect/active-directory-aadconnect-accounts-permissions.md#upgrade).
+Per informazioni, vedere l'articolo relativo alle [autorizzazioni necessarie per l'aggiornamento](active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 ## <a name="in-place-upgrade"></a>Aggiornamento sul posto
 Un aggiornamento sul posto è indicato per il passaggio da Azure AD Sync o Azure AD Connect. L'aggiornamento sul posto non è indicato per DirSync o per una soluzione con FIM + Azure AD Connector.
@@ -52,10 +51,9 @@ I due server possono usare versioni diverse. Ad esempio il server attivo per il 
 
 Nota: si è notato che alcuni clienti preferiscono avere tre o quattro server per eseguire questa operazione. Poiché è in corso l'aggiornamento del server di gestione temporanea, durante l'operazione non sarà presente un server di backup in caso di [ripristino di emergenza](active-directory-aadconnectsync-operations.md#disaster-recovery). Con un massimo di quattro server è possibile preparare un nuovo set di server primari o di standby con la nuova versione, per assicurare che sia sempre presente un server di gestione temporanea pronto a sostituire il server attivo.
 
-Questa procedura è indicata anche per il passaggio da Azure AD Sync o da una soluzione con FIM + Azure AD Connector. Questa procedura non è indicata per DirSync, ma è disponibile lo stesso metodo con migrazione swing, chiamato anche distribuzione parallela, con i passaggi per DirSync nell'argomento [Aggiornamento del servizio di sincronizzazione di Microsoft Azure Active Directory (DirSync)](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md).
+Questa procedura è indicata anche per il passaggio da Azure AD Sync o da una soluzione con FIM + Azure AD Connector. Questa procedura non è indicata per DirSync, ma è disponibile lo stesso metodo con migrazione swing, chiamato anche distribuzione parallela, con i passaggi per DirSync nell'argomento [Aggiornamento del servizio di sincronizzazione di Microsoft Azure Active Directory (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md).
 
 ### <a name="swing-migration-steps"></a>Passaggi della migrazione swing
-
 1. Se si usa Azure AD Connect in entrambi i server, assicurarsi che il server attivo e il server di gestione temporanea usino entrambi la stessa versione prima di iniziare l'aggiornamento. Ciò renderà più facile un successivo confronto delle differenze. Se si esegue l'aggiornamento da Azure AD Sync, questi server hanno versioni diverse.
 2. Se è stata eseguita una configurazione personalizzata che non è presente nel server di gestione temporanea, seguire i passaggi descritti in [Spostare la configurazione personalizzata dal server attivo al server di gestione temporanea](#move-custom-configuration-from-active-to-staging-server).
 3. Se si esegue l'aggiornamento da una versione precedente di Azure AD Connect, aggiornare il server di gestione temporanea alla versione più recente. Se si esegue lo spostamento da Azure AD Sync, installare Azure AD Connect nel server di gestione temporanea.
@@ -71,24 +69,22 @@ Le regole di sincronizzazione personalizzate create possono essere spostate con 
 
 Elementi che devono essere configurati allo stesso modo in entrambi i server:
 
-- Connessione alle stesse foreste.
-- Domini e filtri unità organizzativa.
-- Stesse funzionalità facoltative, come la sincronizzazione e il writeback delle password.
+* Connessione alle stesse foreste.
+* Domini e filtri unità organizzativa.
+* Stesse funzionalità facoltative, come la sincronizzazione e il writeback delle password.
 
 **Spostare le regole di sincronizzazione**  
  Per spostare una regola di sincronizzazione personalizzata, seguire questa procedura:
 
 1. Aprire l' **editor delle regole di sincronizzazione** nel server attivo.
 2. Selezionare la regola personalizzata. Fare clic sul pulsante per l'**esportazione**. Verrà visualizzata una finestra del Blocco note. Salvare il file temporaneo con estensione ps1. In questo modo diventerà uno script PowerShell. Copiare il file con estensione ps1 nel server di gestione temporanea.
-![Esportazione delle regole di sincronizzazione](./media/active-directory-aadconnect-upgrade-previous-version/exportrule.png)
+   ![Esportazione delle regole di sincronizzazione](./media/active-directory-aadconnect-upgrade-previous-version/exportrule.png)
 3. Il GUID del connettore sarà diverso nel server di gestione temporanea. Per ottenere il GUID, avviare l'**editor di sincronizzazione delle regole**, selezionare una delle regole predefinite che rappresentano lo stesso sistema connesso e fare clic sul pulsante per l'**esportazione**. Sostituire il GUID nel file con estensione ps1 con il GUID del server di gestione temporanea.
 4. In un prompt dei comandi di PowerShell eseguire il file con estensione ps1. In questo modo verrà creata la regola di sincronizzazione personalizzata nel server di gestione temporanea.
 5. Se sono presenti più regole personalizzate, ripetere la procedura per tutte le regole personalizzate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

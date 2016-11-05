@@ -1,25 +1,22 @@
-<properties
-	pageTitle="Funzionalità JSON del database SQL di Azure | Microsoft Azure"
-	description="Il database SQL di Azure consente di analizzare, formattare ed eseguire query sui dati nella notazione JavaScript Object Notation (JSON)."
-	services="sql-database"
-	documentationCenter=""
-	authors="jovanpop-msft"
-	manager="jhubbard"
-	editor=""/>
+---
+title: Funzionalità JSON del database SQL di Azure | Microsoft Docs
+description: Il database SQL di Azure consente di analizzare, formattare ed eseguire query sui dati nella notazione JavaScript Object Notation (JSON).
+services: sql-database
+documentationcenter: ''
+author: jovanpop-msft
+manager: jhubbard
+editor: ''
 
-<tags
-	ms.service="sql-database"
-	ms.devlang="NA"
-	ms.date="08/17/2016"
-	ms.author="jovanpop"
-   ms.workload="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>
+ms.service: sql-database
+ms.devlang: NA
+ms.date: 08/17/2016
+ms.author: jovanpop
+ms.workload: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
 
-
-
+---
 # Introduzione alle funzionalità JSON nel database SQL di Azure
-
 Il database SQL di Azure consente di analizzare ed eseguire query sui dati rappresentati in formato JavaScript Object Notation [(JSON)](http://www.json.org/) e di esportare i dati relazionali come testo JSON.
 
 JSON è un formato di dati diffuso usato per scambiare dati nelle moderne applicazioni Web e per dispositivi mobili. JSON è usato anche per archiviare dati semistrutturati nei file di log o nei database NoSQL come [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). Molti servizi Web REST restituiscono risultati formattati come testo JSON o accettano dati formattati come JSON. La maggior parte dei servizi di Azure come [Ricerca di Azure](https://azure.microsoft.com/services/search/), [Archiviazione di Azure](https://azure.microsoft.com/services/storage/) e [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) presentano endpoint REST che restituiscono o usano JSON.
@@ -27,7 +24,6 @@ JSON è un formato di dati diffuso usato per scambiare dati nelle moderne applic
 Il database SQL di Azure consente di lavorare facilmente con dati JSON e integrare il database con i servizi moderni.
 
 ## Overview
-
 Il database SQL di Azure fornisce le funzioni seguenti per lavorare con i dati JSON:
 
 ![Funzioni di JSON](./media/sql-database-json-features/image_1.png)
@@ -84,10 +80,10 @@ Il valore principale della clausola FOR JSON è che consente di restituire dati 
 
 ```
 select CustomerName as Name, PhoneNumber as Phone, FaxNumber as Fax,
-		Orders.OrderID, Orders.OrderDate, Orders.ExpectedDeliveryDate
+        Orders.OrderID, Orders.OrderDate, Orders.ExpectedDeliveryDate
 from Sales.Customers Customer
-	join Sales.Orders Orders
-		on Customer.CustomerID = Orders.CustomerID
+    join Sales.Orders Orders
+        on Customer.CustomerID = Orders.CustomerID
 where Customer.CustomerID = 931
 FOR JSON AUTO, WITHOUT_ARRAY_WRAPPER
 
@@ -109,7 +105,6 @@ Anziché inviare query separate per ottenere i dati dei clienti e quindi per rec
 ```
 
 ## Uso dei dati JSON
-
 Se non si dispone di dati rigorosamente strutturati, se si dispone di oggetti secondari, array o dati gerarchici complessi, oppure se le strutture di dati si evolvono nel tempo, il formato JSON può essere utile per rappresentare una struttura di dati complessa.
 
 JSON è un formato testuale che può essere usato come qualsiasi altro tipo di stringa nel database SQL di Azure. È possibile inviare o archiviare i dati JSON come NVARCHAR standard:
@@ -123,8 +118,8 @@ CREATE TABLE Products (
 go
 CREATE PROCEDURE InsertProduct(@title nvarchar(200), @json nvarchar(max))
 AS BEGIN
-	insert into Products(Title, Data)
-	values(@title, @json)
+    insert into Products(Title, Data)
+    values(@title, @json)
 END
 ```
 
@@ -137,7 +132,6 @@ EXEC InsertProduct 'Toy car', '{"Price":50,"Color":"White","tags":["toy","childr
 Qualsiasi lingua o raccolta client-side compatibile con i dati della stringa nel database SQL di Azure è compatibile anche con i dati JSON. I dati JSON possono essere archiviati in qualsiasi tabella che supporta il tipo NVARCHAR, ad esempio una tabella con ottimizzazione per la memoria o una tabella con controllo delle versioni del sistema. Il formato JSON non introduce alcun vincolo nel codice lato client o nel livello di database.
 
 ## Query sui dati JSON
-
 Se si dispone di dati formattati come JSON archiviati in tabelle SQL di Azure, le funzioni JSON consentono di usare i dati in qualsiasi query SQL.
 
 Le funzioni JSON disponibili nel database SQL di Azure consentono di trattare i dati formattati come JSON come qualsiasi altro tipo di dati SQL. È facilmente possibile estrarre i valori dal testo JSON e usare dati JSON in qualsiasi query:
@@ -163,13 +157,12 @@ Dal momento che il tasto JSON è archiviato in un testo standard, non vi sono ga
 ```
 ALTER TABLE Products
     ADD CONSTRAINT [Data should be formatted as JSON]
-		CHECK (ISJSON(Data) > 0)
+        CHECK (ISJSON(Data) > 0)
 ```
 
 Se il testo di input è formattato correttamente come JSON, la funzione ISJSON restituisce il valore 1. A ogni inserimento o aggiornamento della colonna JSON, questo vincolo verificherà che nuovo valore di testo non sia un formato JSON non corretto.
 
 ## Trasformazione del formato JSON in formato tabulare
-
 Il database SQL di Azure consente anche di trasformare gli insiemi JSON in formato tabulare e di caricare o eseguire query sui dati JSON.
 
 OPENJSON è una funzione con valori di tabella che analizza il testo JSON, individua un array di oggetti JSON, scorre gli elementi dell'array e restituisce una riga nel risultato di output per ogni elemento dell'array.
@@ -184,27 +177,26 @@ Nell'esempio precedente, è possibile specificare dove si trova l'array JSON da 
 CREATE PROCEDURE InsertOrders(@orders nvarchar(max))
 AS BEGIN
 
-	insert into Orders(Number, Date, Customer, Quantity)
-	select Number, Date, Customer, Quantity
-	OPENJSON (@orders)
-	 WITH (
-			Number varchar(200),
-			Date datetime,
-			Customer varchar(200),
-			Quantity int
-	 )
+    insert into Orders(Number, Date, Customer, Quantity)
+    select Number, Date, Customer, Quantity
+    OPENJSON (@orders)
+     WITH (
+            Number varchar(200),
+            Date datetime,
+            Customer varchar(200),
+            Quantity int
+     )
 
 END
 ```
 La raccolta di ordini formattata come array JSON e fornita come parametro alla stored procedure può essere analizzata e inserita nella tabella Orders.
 
 ## Passaggi successivi
-
 Per informazioni su come integrare JSON nell'applicazione, consultare le seguenti risorse:
 
-- [Blog di TechNet](https://blogs.technet.microsoft.com/dataplatforminsider/2016/01/05/json-in-sql-server-2016-part-1-of-4/)
-- [Documentazione di MSDN](https://msdn.microsoft.com/library/dn921897.aspx)
-- [Video di Channel 9](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
+* [Blog di TechNet](https://blogs.technet.microsoft.com/dataplatforminsider/2016/01/05/json-in-sql-server-2016-part-1-of-4/)
+* [Documentazione di MSDN](https://msdn.microsoft.com/library/dn921897.aspx)
+* [Video di Channel 9](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
 
 Per ulteriori informazioni sui vari scenari per l'integrazione di JSON nell'applicazione, vedere le dimostrazioni in questo [video di Channel 9](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) o trovare uno scenario che corrisponde al caso d'uso nei [post del blog su JSON](http://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/).
 

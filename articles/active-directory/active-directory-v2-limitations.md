@@ -1,30 +1,28 @@
-<properties
-    pageTitle="Limitazioni e restrizioni dell'endpoint 2.0 | Microsoft Azure"
-    description="Elenco di limitazioni e restrizioni relative all'endpoint 2.0 di Azure AD."
-    services="active-directory"
-    documentationCenter=""
-    authors="dstrockis"
-    manager="mbaldwin"
-    editor=""/>
+---
+title: Limitazioni e restrizioni dell'endpoint 2.0 | Microsoft Docs
+description: Elenco di limitazioni e restrizioni relative all'endpoint 2.0 di Azure AD.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/30/2016"
-    ms.author="dastrock"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/30/2016
+ms.author: dastrock
 
-
+---
 # <a name="should-i-use-the-v2.0-endpoint?"></a>Perché usare l'endpoint 2.0
-
 Nella compilazione di applicazioni che si integrano con Azure Active Directory è necessario stabilire se l'endpoint 2.0 e i protocolli di autenticazione rispondono ai requisiti specifici.  L'endpoint di Azure AD originale è ancora completamente supportato e, per alcuni aspetti, include più funzionalità della versione 2.0.  L'endpoint 2.0, tuttavia, [introduce vantaggi importanti](active-directory-v2-compare.md) per gli sviluppatori che possono convincere a usare il nuovo modello di programmazione.
 
 In questo momento, consigliamo quanto segue sull'uso dell'endpoint 2.0:
 
-- Se si desidera supportare account Microsoft personali nell'applicazione, usare l'endpoint 2.0.  Tuttavia, assicurarsi di comprendere le restrizioni elencate in questo articolo, specialmente quelle che riguardano gli account aziendali e dell'istituto di istruzione.
-- Se l'applicazione richiede solo il supporto per account aziendali e dell'istituto di istruzione, è necessario usare [gli endpoint originali di Azure AD](active-directory-developers-guide.md).
+* Se si desidera supportare account Microsoft personali nell'applicazione, usare l'endpoint 2.0.  Tuttavia, assicurarsi di comprendere le restrizioni elencate in questo articolo, specialmente quelle che riguardano gli account aziendali e dell'istituto di istruzione.
+* Se l'applicazione richiede solo il supporto per account aziendali e dell'istituto di istruzione, è necessario usare [gli endpoint originali di Azure AD](active-directory-developers-guide.md).
 
 Nel corso del tempo, l'endpoint 2.0 verrà migliorato per eliminare le restrizioni elencate di seguito, in modo da consentire l'uso esclusivo dell'endpoint 2.0.  Nel frattempo, questo articolo permette di determinare se l'endpoint 2.0 risponde ai requisiti dell'applicazione.  L'articolo verrà aggiornato periodicamente in base allo stato corrente dell'endpoint 2.0. Si consiglia di tornare a consultarlo di quando in quando per valutare le funzionalità della versione 2.0 rispetto ai requisiti specifici.
 
@@ -50,10 +48,10 @@ Analogamente, le app registrate nel nuovo portale di registrazione delle app non
 
 Le registrazioni di app create in [apps.dev.microsoft.com](https://apps.dev.microsoft.com) hanno le condizioni seguenti:
 
-- La proprietà **homepage**, nota anche come **URL di accesso**, non è supportata.  Senza una home page, queste applicazioni non verranno visualizzate nel pannello Mie app di Office.
-- In questo momento, sono consentiti solo due segreti dell'app per ogni ID applicazione.
-- La registrazione di un'app può essere visualizzata e gestita solo da un singolo account sviluppatore.  Non può essere condiviso tra più sviluppatori.
-- Esistono diverse restrizioni relative al formato consentito per l'URI di reindirizzamento.  Per maggiori dettagli, vedere la sezione seguente.
+* La proprietà **homepage**, nota anche come **URL di accesso**, non è supportata.  Senza una home page, queste applicazioni non verranno visualizzate nel pannello Mie app di Office.
+* In questo momento, sono consentiti solo due segreti dell'app per ogni ID applicazione.
+* La registrazione di un'app può essere visualizzata e gestita solo da un singolo account sviluppatore.  Non può essere condiviso tra più sviluppatori.
+* Esistono diverse restrizioni relative al formato consentito per l'URI di reindirizzamento.  Per maggiori dettagli, vedere la sezione seguente.
 
 ## <a name="restrictions-on-redirect-uris"></a>Limitazioni relative agli URI di reindirizzamento
 Le app registrate nel nuovo portale di registrazione delle app sono attualmente limitate a un set ristretto di valori di URI di reindirizzamento.  L'URI di reindirizzamento per le applicazioni e i servizi Web deve iniziare con lo schema `https` e tutti i valori degli URI di reindirizzamento devono condividere un singolo dominio DNS.  Ad esempio, non è possibile registrare un'app Web con gli URI di reindirizzamento seguenti:
@@ -63,8 +61,8 @@ Le app registrate nel nuovo portale di registrazione delle app sono attualmente 
 
 Il sistema di registrazione confronta il nome DNS intero dell'URI di reindirizzamento esistente con il nome DNS dell'URI di reindirizzamento da aggiungere. La richiesta di aggiunta del nome DNS avrà esito negativo se vengono soddisfatte le condizioni seguenti:  
 
-- Se l'intero nome DNS del nuovo URI di reindirizzamento non corrisponde al nome DNS dell'URI di reindirizzamento esistente.
-- Se l'intero nome DNS del nuovo URI di reindirizzamento non è un sottodominio dell'URI di reindirizzamento esistente.
+* Se l'intero nome DNS del nuovo URI di reindirizzamento non corrisponde al nome DNS dell'URI di reindirizzamento esistente.
+* Se l'intero nome DNS del nuovo URI di reindirizzamento non è un sottodominio dell'URI di reindirizzamento esistente.
 
 Ad esempio, se l'URI di reindirizzamento corrente dell'applicazione è:
 
@@ -91,29 +89,29 @@ Per informazioni su come registrare un'app nel nuovo portale di registrazione de
 ## <a name="restrictions-on-services-&-apis"></a>Restrizioni relative ai servizi e alle API
 L'endpoint 2.0 attualmente supporta l'accesso di qualsiasi app registrata nel nuovo portale di registrazione delle app, a condizione che rientri nell'elenco dei [flussi di autenticazione supportati](active-directory-v2-flows.md).  Tuttavia, queste app saranno in grado di acquisire solo token di accesso di OAuth 2.0 per un set molto limitato di risorse.  L'endpoint 2.0 rilascerà token di accesso solo per:
 
-- L'app che ha richiesto il token.  Un'app può acquisire un token di accesso per se stessa, se l'app per la logica è costituita da diversi componenti o livelli.  Per vedere questo scenario, consultare le esercitazioni nella sezione [introduttiva](active-directory-appmodel-v2-overview.md#getting-started) .
-- Le API REST di Posta, Calendario e Contatti di Outlook che si trovano in https://outlook.office.com.  Per informazioni su come scrivere un'app che accede a queste API, fare riferimento alle esercitazioni nella sezione [introduttiva di Office](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) .
-- Le API Microsoft Graph.  Per informazioni su Microsoft Graph e su tutti i dati disponibili, vedere [https://graph.microsoft.io](https://graph.microsoft.io).
+* L'app che ha richiesto il token.  Un'app può acquisire un token di accesso per se stessa, se l'app per la logica è costituita da diversi componenti o livelli.  Per vedere questo scenario, consultare le esercitazioni nella sezione [introduttiva](active-directory-appmodel-v2-overview.md#getting-started) .
+* Le API REST di Posta, Calendario e Contatti di Outlook che si trovano in https://outlook.office.com.  Per informazioni su come scrivere un'app che accede a queste API, fare riferimento alle esercitazioni nella sezione [introduttiva di Office](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) .
+* Le API Microsoft Graph.  Per informazioni su Microsoft Graph e su tutti i dati disponibili, vedere [https://graph.microsoft.io](https://graph.microsoft.io).
 
 Attualmente non sono supportati altri servizi.  In futuro verranno aggiunti altri servizi online Microsoft nonché il supporto per le API Web e i servizi personalizzati.
 
 ## <a name="restrictions-on-libraries-&-sdks"></a>Restrizioni relative alle librerie e agli SDK
 In questo momento, il supporto della libreria per l'endpoint 2.0 è piuttosto limitato.  Per usare l'endpoint 2.0 in un'applicazione di produzione, sono disponibili le opzioni seguenti:
 
-- Se si compila un'applicazione Web, è possibile usare il middleware lato server disponibile a livello generale per eseguire operazioni di accesso e convalida dei token.  È incluso il middleware OpenID Connect OWIN per ASP.NET e il plug-in di Passport per NodeJS.  Nella sezione [Introduzione](active-directory-appmodel-v2-overview.md#getting-started) sono disponibili anche esempi di codice che usano tale middleware.
-- Per altre piattaforme e per le applicazioni native e per dispositivi mobili, è possibile realizzare l'integrazione con l'endpoint 2.0 anche con l'invio e la ricezione diretta di messaggi di protocollo nel codice dell'applicazione.  I protocolli OAuth e OpenID Connect della versione 2.0 [sono stati documentati in modo esplicito](active-directory-v2-protocols.md) per consentire tale integrazione.
-- Per l'integrazione con l'endpoint 2.0 è anche possibile usare librerie OpenID Connect e OAuth open source.  Il protocollo della versione 2.0 dovrebbe essere compatibile con molte librerie di protocollo open source senza modifiche rilevanti.  La disponibilità di tali librerie varia in base alla piattaforma e al linguaggio. Nei siti Web di [Open ID Connect](http://openid.net/connect/) e [OAuth 2.0](http://oauth.net/2/) sono disponibili elenchi delle implementazioni più diffuse. Per altre informazioni e per l'elenco delle librerie client open source, nonché per esempi testati con l'endpoint 2.0, vedere [Azure Active Directory (AD) 2.0 e librerie di autenticazione](active-directory-v2-libraries.md).
+* Se si compila un'applicazione Web, è possibile usare il middleware lato server disponibile a livello generale per eseguire operazioni di accesso e convalida dei token.  È incluso il middleware OpenID Connect OWIN per ASP.NET e il plug-in di Passport per NodeJS.  Nella sezione [Introduzione](active-directory-appmodel-v2-overview.md#getting-started) sono disponibili anche esempi di codice che usano tale middleware.
+* Per altre piattaforme e per le applicazioni native e per dispositivi mobili, è possibile realizzare l'integrazione con l'endpoint 2.0 anche con l'invio e la ricezione diretta di messaggi di protocollo nel codice dell'applicazione.  I protocolli OAuth e OpenID Connect della versione 2.0 [sono stati documentati in modo esplicito](active-directory-v2-protocols.md) per consentire tale integrazione.
+* Per l'integrazione con l'endpoint 2.0 è anche possibile usare librerie OpenID Connect e OAuth open source.  Il protocollo della versione 2.0 dovrebbe essere compatibile con molte librerie di protocollo open source senza modifiche rilevanti.  La disponibilità di tali librerie varia in base alla piattaforma e al linguaggio. Nei siti Web di [Open ID Connect](http://openid.net/connect/) e [OAuth 2.0](http://oauth.net/2/) sono disponibili elenchi delle implementazioni più diffuse. Per altre informazioni e per l'elenco delle librerie client open source, nonché per esempi testati con l'endpoint 2.0, vedere [Azure Active Directory (AD) 2.0 e librerie di autenticazione](active-directory-v2-libraries.md).
 
 Microsoft ha rilasciato anche un'anteprima iniziale di [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) solo per .NET.  Si invitano gli utenti a provare questa libreria nelle applicazioni client e server .NET che tuttavia, in quanto libreria di anteprima, non dispone di supporto di qualità a livello generale.
 
 ## <a name="restrictions-on-protocols"></a>Restrizioni relative ai protocolli
 L'endpoint 2.0 supporta unicamente i protocolli OpenID Connect e OAuth 2.0.  Tuttavia, non tutte le funzionalità e caratteristiche dei vari protocolli sono state incorporate nell'endpoint 2.0, tra cui:
 
-- `end_session_endpoint` di OpenID Connect, che consente a un'app terminare la sessione dell'utente con l'endpoint 2.0.
-- I token ID emessi dall'endpoint 2.0 contengono solo un identificatore pairwise per l'utente.  Ciò significa che due applicazioni diverse riceveranno un ID diverso per lo stesso utente.  Si noti che, eseguendo una query sull'endpoint `/me` Microsoft Graph, sarà possibile ottenere un ID correlabile per l'utente da usare nelle diverse applicazioni.
-- A questo punto, i token ID emessi dall'endpoint 2.0 non contengono un'attestazione `email` per l'utente, anche se si acquisisce l'autorizzazione da parte dell'utente per visualizzare la posta elettronica.
-- L'endpoint di informazioni sull'utente di OpenID Connect. Attualmente, l'endpoint di informazioni sull'utente non è implementato nell'endpoint 2.0.  Tuttavia, tutti i dati del profilo utente potenzialmente ricevuti sull'endpoint sono disponibili tramite l'endpoint `/me` di Microsoft Graph.
-- Attestazioni di ruoli e gruppi.  In questo momento, l'endpoint 2.0 non supporta l'emissione di attestazioni di ruoli o gruppi nei token ID.
+* `end_session_endpoint` di OpenID Connect, che consente a un'app terminare la sessione dell'utente con l'endpoint 2.0.
+* I token ID emessi dall'endpoint 2.0 contengono solo un identificatore pairwise per l'utente.  Ciò significa che due applicazioni diverse riceveranno un ID diverso per lo stesso utente.  Si noti che, eseguendo una query sull'endpoint `/me` Microsoft Graph, sarà possibile ottenere un ID correlabile per l'utente da usare nelle diverse applicazioni.
+* A questo punto, i token ID emessi dall'endpoint 2.0 non contengono un'attestazione `email` per l'utente, anche se si acquisisce l'autorizzazione da parte dell'utente per visualizzare la posta elettronica.
+* L'endpoint di informazioni sull'utente di OpenID Connect. Attualmente, l'endpoint di informazioni sull'utente non è implementato nell'endpoint 2.0.  Tuttavia, tutti i dati del profilo utente potenzialmente ricevuti sull'endpoint sono disponibili tramite l'endpoint `/me` di Microsoft Graph.
+* Attestazioni di ruoli e gruppi.  In questo momento, l'endpoint 2.0 non supporta l'emissione di attestazioni di ruoli o gruppi nei token ID.
 
 Per comprendere meglio l'ambito della funzionalità del protocollo supportata nell'endpoint 2.0, vedere il [riferimento ai protocolli OpenID Connect e OAuth 2.0](active-directory-v2-protocols.md).
 
@@ -127,8 +125,6 @@ L'endpoint 2.0 non supporta ancora l'autenticazione del dispositivo per applicaz
 
 ##### <a name="windows-integrated-authentication-for-federated-tenants"></a>Autenticazione integrata di Windows per tenant federati
 Se si usa ADAL, e quindi l'endpoint originale di Azure AD, in applicazioni Windows, è possibile che si stia usando la cosiddetta autorizzazione all'asserzione SAML.  Questa autorizzazione consente agli utenti dei tenant Azure AD federati di eseguire automaticamente l'autenticazione con l'istanza di Active Directory locale senza dover immettere le credenziali.  L'autorizzazione per l'asserzione SAML non è supportata sull'endpoint 2.0.
-
-
 
 <!--HONumber=Oct16_HO2-->
 

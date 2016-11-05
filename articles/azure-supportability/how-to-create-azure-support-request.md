@@ -1,29 +1,28 @@
-<properties
-	 pageTitle="Come creare una richiesta di supporto di Azure | Microsoft Azure"
-	 description="Come creare una richiesta di supporto di Azure."
-	 services="Azure Supportability"
-	 documentationCenter=""
-	 authors="ganganarayanan"
-	 manager="scotthit"
-	 editor=""/>
+---
+title: Come creare una richiesta di supporto di Azure | Microsoft Docs
+description: Come creare una richiesta di supporto di Azure.
+services: Azure Supportability
+documentationcenter: ''
+author: ganganarayanan
+manager: scotthit
+editor: ''
 
-<tags
-	 ms.service="azure-supportability"
-	 ms.workload="na"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="07/25/2016"
-	 ms.author="gangan"/>
+ms.service: azure-supportability
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/25/2016
+ms.author: gangan
 
+---
 # Come creare una richiesta di supporto in Azure
-
 ## Riepilogo
 I clienti di Azure è possono creare e gestire le richieste di supporto nel portale di Azure, [https://portal.azure.com](https://portal.azure.com). In base ai suggerimenti dei clienti, abbiamo aggiornato l'esperienza relativa alla richiesta di supporto per concentrarsi su tre obiettivi principali:
 
-- **Semplificazione**: meno operazioni e pannelli per semplificare il processo di invio di una richiesta di supporto.
-- **Integrazione**: quando si risolve un problema relativo a una risorsa Azure deve risultare semplice aprire una richiesta di supporto relativa alla risorsa senza cambiare contesto.
-- **Efficienza**: raccolta delle informazioni chiave necessarie per il tecnico di supporto per risolvere il problema in modo efficiente.
+* **Semplificazione**: meno operazioni e pannelli per semplificare il processo di invio di una richiesta di supporto.
+* **Integrazione**: quando si risolve un problema relativo a una risorsa Azure deve risultare semplice aprire una richiesta di supporto relativa alla risorsa senza cambiare contesto.
+* **Efficienza**: raccolta delle informazioni chiave necessarie per il tecnico di supporto per risolvere il problema in modo efficiente.
 
 ## Introduzione
 È possibile creare una richiesta di supporto dal menu di navigazione in alto o direttamente dal pannello di una risorsa.
@@ -43,7 +42,10 @@ Si prenda ad esempio il caso in cui si riscontrino problemi tecnici con la macch
 
 ![Pannello Nozioni di base](./media/how-to-create-azure-support-request/Basics.png)
 
->[AZURE.NOTE] Azure offre il supporto illimitato per la gestione delle sottoscrizioni, ad esempio fatturazione, modifiche delle quote e trasferimenti di account. Per rivolgersi al supporto tecnico è necessario un piano di supporto. [Altre informazioni sui piani di supporto](https://azure.microsoft.com/support/plans).
+> [!NOTE]
+> Azure offre il supporto illimitato per la gestione delle sottoscrizioni, ad esempio fatturazione, modifiche delle quote e trasferimenti di account. Per rivolgersi al supporto tecnico è necessario un piano di supporto. [Altre informazioni sui piani di supporto](https://azure.microsoft.com/support/plans).
+> 
+> 
 
 ## Problema
 Il secondo passaggio della procedura guidata consiste nella raccolta di altre informazioni sul problema. In questa fase l'indicazione di informazioni precise consente di inoltrare la pratica al tecnico di supporto più adatto a risolvere il problema e di avviare la diagnosi del problema il prima possibile.
@@ -75,7 +77,10 @@ Se si desidera modificare la gravità della richiesta, fare clic sul riquadro **
 
 Facendo clic sul riquadro viene visualizzato l'elenco di livelli di gravità che è possibile assegnare a una richiesta di supporto aperta.
 
->[AZURE.NOTE] Il livello di gravità massimo dipende dal piano di supporto. [Altre informazioni sui piani di supporto](https://azure.microsoft.com/support/plans).
+> [!NOTE]
+> Il livello di gravità massimo dipende dal piano di supporto. [Altre informazioni sui piani di supporto](https://azure.microsoft.com/support/plans).
+> 
+> 
 
 ![VID-2](./media/how-to-create-azure-support-request/VID-2.png)
 

@@ -1,45 +1,45 @@
-<properties
-    pageTitle="Personalizzare: Gestione delle password di Azure AD | Microsoft Azure"
-    description="Come personalizzare l'aspetto, il comportamento e le notifiche di Gestione delle password in Azure AD in base alle proprie esigenze."
-    services="active-directory"
-    documentationCenter=""
-    authors="asteen"
-    manager="femila"
-    editor="curtand"/>
+---
+title: 'Personalizzare: Gestione delle password di Azure AD | Microsoft Docs'
+description: Come personalizzare l'aspetto, il comportamento e le notifiche di Gestione delle password in Azure AD in base alle proprie esigenze.
+services: active-directory
+documentationcenter: ''
+author: asteen
+manager: femila
+editor: curtand
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/03/2016"
-    ms.author="asteen"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/03/2016
+ms.author: asteen
 
-
+---
 # <a name="customizing-password-management-to-fit-your-organization's-needs"></a>Personalizzazione di Gestione delle password in base alle esigenze dell'organizzazione
-
-> [AZURE.IMPORTANT] **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,**  [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+> [!IMPORTANT]
+> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,**  [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+> 
+> 
 
 Per offrire agli utenti la migliore esperienza possibile, è consigliabile esplorare e provare tutte le opzioni di configurazione disponibili di Gestione delle password. Di fatto, è possibile iniziare l'esplorazione immediatamente passando alla scheda di configurazione dell' **estensione Active Directory** nel [portale di Azure classico](https://manage.windowsazure.com). In questo argomento vengono descritte tutte le diverse personalizzazioni di Gestione delle password che è possibile eseguire come amministratore nella scheda **Configura** della directory all'interno del [portale di Azure classico](https://manage.windowsazure.com), tra cui:
 
 | Argomento |  |
-| --------- | --------- |
-| Come è possibile abilitare o disabilitare la reimpostazione della password? | [Impostazione: Utenti abilitati per la reimpostazione della password](#users-enabled-for-password-reset) |
-| Come è possibile limitare la reimpostazione delle password a un gruppo specifico di utenti? | [Limitare la reimpostazione delle password a determinati utenti](#restrict-access-to-password-reset) |
-| Come è possibile modificare i metodi di autenticazione supportati? | [Impostazione: Metodi di autenticazione disponibili per gli utenti](#authentication-methods-available-to-users) |
-| Come è possibile modificare il numero di metodi di autenticazione necessari? | [Impostazione: Numero di metodi di autenticazione necessari](#number-of-authentication-methods-required) |
-| Come è possibile configurare domande di sicurezza personalizzate? | [Impostazione: Domande di sicurezza personalizzate](#custom-security-questions) |
-| Come è possibile configurare domande di sicurezza localizzate predefinite? | [Impostazione: Domande di sicurezza basate su informazioni note](#knowledge-based-security-questions) |
-| Come è possibile modificare il numero di domande di sicurezza necessarie? | [Impostazione: Numero di domande di sicurezza per la registrazione o la reimpostazione](#number-of-questions-required-to-register) |
-| Come è possibile forzare gli utenti a registrarsi durante la procedura di accesso? | [Implementazione della funzione di reimpostazione della password basata sulla registrazione forzata](#require-users-to-register-when-signing-in) |
-| Come è possibile forzare gli utenti a riconfermare periodicamente la propria registrazione? | [Impostazione: Numero di giorni prima che agli utenti venga chiesto di riconfermare le informazioni di autenticazione](#number-of-days-before-users-must-confirm-their-contact-data) |
-| Come è possibile personalizzare le modalità con cui un utente può entrare in contatto con un amministratore? | [Impostazione: Personalizzare il collegamento "Contattare l'amministratore?"](#customize-the-contact-your-administrator-link) |
-| Come è possibile consentire agli utenti di sbloccare account di Active Directory senza reimpostare una password? | [Impostazione: Consenti agli utenti di sbloccare gli account senza reimpostare la password](#allow-users-to-unlock-accounts-without-resetting-their-password) |
-| Come è possibile abilitare le notifiche di reimpostazione della password per gli utenti? | [Impostazione: Notifica a utenti e amministratori quando è stata reimpostata la propria password](#notify-users-and-admins-when-their-own-password-has-been-reset) |
-| Come è possibile abilitare le notifiche di reimpostazione della password per gli amministratori? | [Impostazione: Notifica agli amministratori quando altri amministratori reimpostano le proprie password](#notify-admins-when-other-admins-reset-their-own-passwords) |
-| Come è possibile personalizzare la veste grafica della funzione di reimpostazione della password? | [Impostazione: Nome, marchio e logo dell'azienda ](#password-management-look-and-feel) |
-
+| --- | --- |
+| Come è possibile abilitare o disabilitare la reimpostazione della password? |[Impostazione: Utenti abilitati per la reimpostazione della password](#users-enabled-for-password-reset) |
+| Come è possibile limitare la reimpostazione delle password a un gruppo specifico di utenti? |[Limitare la reimpostazione delle password a determinati utenti](#restrict-access-to-password-reset) |
+| Come è possibile modificare i metodi di autenticazione supportati? |[Impostazione: Metodi di autenticazione disponibili per gli utenti](#authentication-methods-available-to-users) |
+| Come è possibile modificare il numero di metodi di autenticazione necessari? |[Impostazione: Numero di metodi di autenticazione necessari](#number-of-authentication-methods-required) |
+| Come è possibile configurare domande di sicurezza personalizzate? |[Impostazione: Domande di sicurezza personalizzate](#custom-security-questions) |
+| Come è possibile configurare domande di sicurezza localizzate predefinite? |[Impostazione: Domande di sicurezza basate su informazioni note](#knowledge-based-security-questions) |
+| Come è possibile modificare il numero di domande di sicurezza necessarie? |[Impostazione: Numero di domande di sicurezza per la registrazione o la reimpostazione](#number-of-questions-required-to-register) |
+| Come è possibile forzare gli utenti a registrarsi durante la procedura di accesso? |[Implementazione della funzione di reimpostazione della password basata sulla registrazione forzata](#require-users-to-register-when-signing-in) |
+| Come è possibile forzare gli utenti a riconfermare periodicamente la propria registrazione? |[Impostazione: Numero di giorni prima che agli utenti venga chiesto di riconfermare le informazioni di autenticazione](#number-of-days-before-users-must-confirm-their-contact-data) |
+| Come è possibile personalizzare le modalità con cui un utente può entrare in contatto con un amministratore? |[Impostazione: Personalizzare il collegamento "Contattare l'amministratore?"](#customize-the-contact-your-administrator-link) |
+| Come è possibile consentire agli utenti di sbloccare account di Active Directory senza reimpostare una password? |[Impostazione: Consenti agli utenti di sbloccare gli account senza reimpostare la password](#allow-users-to-unlock-accounts-without-resetting-their-password) |
+| Come è possibile abilitare le notifiche di reimpostazione della password per gli utenti? |[Impostazione: Notifica a utenti e amministratori quando è stata reimpostata la propria password](#notify-users-and-admins-when-their-own-password-has-been-reset) |
+| Come è possibile abilitare le notifiche di reimpostazione della password per gli amministratori? |[Impostazione: Notifica agli amministratori quando altri amministratori reimpostano le proprie password](#notify-admins-when-other-admins-reset-their-own-passwords) |
+| Come è possibile personalizzare la veste grafica della funzione di reimpostazione della password? |[Impostazione: Nome, marchio e logo dell'azienda ](#password-management-look-and-feel) |
 
 ## <a name="password-management-look-and-feel"></a>Aspetto di Gestione delle password
 Nella tabella seguente viene descritto come ciascun controllo influisce sull'esperienza degli utenti che effettuano la registrazione per la reimpostazione delle password e che reimpostano le proprie password.  È possibile configurare queste opzioni nella sezione **Proprietà della directory** della scheda **Configura** relativa alla directory all'interno del [portale di gestione di Azure](https://manage.windowsazure.com).
@@ -134,7 +134,10 @@ Determina se il logo personalizzato viene visualizzato o meno nella parte inferi
 ## <a name="password-management-behavior"></a>Comportamento di Gestione delle password
 Nella tabella seguente viene descritto come ciascun controllo influisce sull'esperienza degli utenti che effettuano la registrazione per la reimpostazione delle password e che reimpostano le proprie password.  È possibile configurare queste opzioni nella sezione **Criteri di reimpostazione password dell'utente** della scheda **Configura** relativa alla directory nel [portale di gestione di Azure](https://manage.windowsazure.com).
 
-> [AZURE.NOTE] Per poter vedere i controlli dei criteri, l'account di amministratore in uso deve avere assegnata una licenza AAD Premium.<br><br>I controlli dei criteri si applicano solo agli utenti finali che reimpostano le proprie password e non agli amministratori.  **Gli amministratori dispongono di un criterio predefinito di posta elettronica alternativa e/o di telefono cellulare specificato da Microsoft che non può essere modificato.**
+> [!NOTE]
+> Per poter vedere i controlli dei criteri, l'account di amministratore in uso deve avere assegnata una licenza AAD Premium.<br><br>I controlli dei criteri si applicano solo agli utenti finali che reimpostano le proprie password e non agli amministratori.  **Gli amministratori dispongono di un criterio predefinito di posta elettronica alternativa e/o di telefono cellulare specificato da Microsoft che non può essere modificato.**
+> 
+> 
 
 <table>
             <tbody><tr>
@@ -868,7 +871,6 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 * [**Domande frequenti**](active-directory-passwords-faq.md) : risposte alle domande frequenti
 * [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md): informazioni su come risolvere rapidamente eventuali problemi con il servizio
 * [**Altre informazioni**](active-directory-passwords-learn-more.md): approfondimenti sui dettagli tecnici del funzionamento del servizio
-
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 

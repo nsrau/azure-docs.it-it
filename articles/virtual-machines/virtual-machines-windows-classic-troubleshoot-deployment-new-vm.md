@@ -1,42 +1,39 @@
-<properties
-   pageTitle="Risolvere i problemi di distribuzione di VM Windows - Classica | Microsoft Azure"
-   description="Risolvere i problemi della distribuzione classica quando si crea una nuova macchina virtuale Windows in Azure"
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="JiangChen79"
-   manager="felixwu"
-   editor=""
-   tags="top-support-issue"/>
+---
+title: Risolvere i problemi di distribuzione di VM Windows - Classica | Microsoft Docs
+description: Risolvere i problemi della distribuzione classica quando si crea una nuova macchina virtuale Windows in Azure
+services: virtual-machines-windows
+documentationcenter: ''
+author: JiangChen79
+manager: felixwu
+editor: ''
+tags: top-support-issue
 
-<tags
-  ms.service="virtual-machines-windows"
-  ms.workload="na"
-  ms.tgt_pltfrm="vm-windows"
-  ms.devlang="na"
-  ms.topic="article"
-  ms.date="09/06/2016"
-  ms.author="cjiang"/>
+ms.service: virtual-machines-windows
+ms.workload: na
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 09/06/2016
+ms.author: cjiang
 
-
+---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-windows-virtual-machine-in-azure"></a>Risolvere i problemi della distribuzione classica con la creazione di una nuova macchina virtuale Windows in Azure
+[!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-selectors-include.md)]
 
-[AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-selectors-include.md)]
+[!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
-[AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="collect-audit-logs"></a>Raccogliere log di controllo
-
 Per avviare la risoluzione dei problemi, raccogliere i log di controllo per identificare l'errore associato al problema.
 
 Nel portale di Azure fare clic su **Esplora** > **Macchine virtuali** > *macchina virtuale Windows* > **Impostazioni** > **Log di controllo**.
 
-[AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
+[!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
-[AZURE.INCLUDE [virtual-machines-windows-troubleshoot-deployment-new-vm-table](../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-table.md)]
+[!INCLUDE [virtual-machines-windows-troubleshoot-deployment-new-vm-table](../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-table.md)]
 
 **S:** se il sistema operativo è Windows generalizzato e viene caricato e/o acquisito con l'impostazione generalizzata, non si verificheranno errori. Analogamente, se il sistema operativo Windows è specializzato e viene caricato e/o acquisito con l'impostazione specializzata, non si verificheranno errori.
 
@@ -69,24 +66,25 @@ In base ai vincoli del servizio cloud usato per creare la nuova VM, si potrebbe 
 
 **Risoluzione 1:**
 
-- Creare un nuovo servizio cloud e associarlo a un'area o una rete virtuale basata sull'area.
-- Crea una nuova VM nel nuovo servizio cloud.
+* Creare un nuovo servizio cloud e associarlo a un'area o una rete virtuale basata sull'area.
+* Crea una nuova VM nel nuovo servizio cloud.
   Se si verifica un errore durante il tentativo di creare un nuovo servizio cloud, riprovare in un secondo momento o cambiare l'area per il servizio cloud.
 
-> [AZURE.IMPORTANT] Se si sta provando a creare una nuova VM in un servizio cloud esistente, ma è stato necessario creare un nuovo servizio cloud per la nuova VM, è possibile scegliere di consolidare tutte le VM nello stesso servizio cloud. A questo scopo, eliminare le VM nel servizio cloud esistente e acquisirle di nuovo dai relativi dischi nel nuovo servizio cloud. È tuttavia importante ricordare che il nuovo servizio cloud avrà un nuovo nome e un nuovo indirizzo VIP, quindi sarà necessario aggiornarli per tutte le dipendenze che attualmente usano queste informazioni per il servizio cloud esistente.
+> [!IMPORTANT]
+> Se si sta provando a creare una nuova VM in un servizio cloud esistente, ma è stato necessario creare un nuovo servizio cloud per la nuova VM, è possibile scegliere di consolidare tutte le VM nello stesso servizio cloud. A questo scopo, eliminare le VM nel servizio cloud esistente e acquisirle di nuovo dai relativi dischi nel nuovo servizio cloud. È tuttavia importante ricordare che il nuovo servizio cloud avrà un nuovo nome e un nuovo indirizzo VIP, quindi sarà necessario aggiornarli per tutte le dipendenze che attualmente usano queste informazioni per il servizio cloud esistente.
+> 
+> 
 
 **Causa 2:** il servizio cloud è associato a una rete virtuale collegata a un gruppo di affinità e perciò è aggiunto a un cluster specifico in base alla progettazione. Tutte le nuove richieste di risorse di calcolo in quel gruppo di affinità vengono quindi provate nello stesso cluster in cui sono ospitate le risorse esistenti. Tuttavia, lo stesso cluster potrebbe non supportare le dimensioni della VM richieste o non ha spazio disponibile sufficiente, causando un errore di allocazione. Questo vale indipendentemente dal fatto che le nuove risorse vengano create tramite un servizio cloud nuovo o esistente.
 
 **Risoluzione 2:**
 
-- Crea una nuova rete virtuale a livello di area
-- Creare la nuova VM nella nuova rete virtuale.
-- [Connettere la rete virtuale esistente](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) alla nuova rete virtuale. Altre informazioni sulle [reti virtuali a livello di area](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/). In alternativa, è possibile [eseguire la migrazione della rete virtuale basata su gruppi di affinità alla rete virtuale a livello di area](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)e quindi creare la nuova VM.
+* Crea una nuova rete virtuale a livello di area
+* Creare la nuova VM nella nuova rete virtuale.
+* [Connettere la rete virtuale esistente](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) alla nuova rete virtuale. Altre informazioni sulle [reti virtuali a livello di area](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/). In alternativa, è possibile [eseguire la migrazione della rete virtuale basata su gruppi di affinità alla rete virtuale a livello di area](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)e quindi creare la nuova VM.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se si incontrano problemi quando si avvia una VM Windows arrestata o si ridimensiona una VM Windows esistente in Azure, vedere l'articolo su come [risolvere i problemi della distribuzione classica con il riavvio o il ridimensionamento di una macchina virtuale Windows esistente in Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

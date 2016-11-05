@@ -1,40 +1,39 @@
 
-<properties
-   pageTitle="Peering reti virtuali di Azure | Microsoft Azure"
-   description="Informazioni sul peering reti virtuali in Azure."
-   services="virtual-network"
-   documentationCenter="na"
-   authors="NarayanAnnamalai"
-   manager="jefco"
-   editor="tysonn" />
-<tags
-   ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/28/2016"
-   ms.author="narayan" />
+---
+title: Peering reti virtuali di Azure | Microsoft Docs
+description: Informazioni sul peering reti virtuali in Azure.
+services: virtual-network
+documentationcenter: na
+author: NarayanAnnamalai
+manager: jefco
+editor: tysonn
 
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 07/28/2016
+ms.author: narayan
+
+---
 # Peering reti virtuali
-
 Peering reti virtuale è un meccanismo che connette due reti virtuali nella stessa area tramite la rete backbone di Azure. Una volta eseguito il peering, le due reti virtuali appaiono come una sola per qualsiasi scopo di connettività. Continuano a essere gestite come risorse separate, ma le macchine virtuali in queste reti virtuali possono comunicare direttamente tra di esse usando gli indirizzi IP privati.
 
 Il traffico tra le macchine virtuali nelle reti virtuali con peering viene instradato tramite l'infrastruttura di Azure, in modo analogo al traffico instradato tra le macchine virtuali nella stessa rete virtuale. Ecco alcuni dei vantaggi offerti dall'uso del peering reti virtuali:
 
-- Connessione a bassa latenza e larghezza di banda elevata tra le risorse in reti virtuali diverse.
-- Possibilità di usare le risorse, ad esempio le appliance di rete virtuale, e i gateway VPN come punti di transito in rete virtuale con peering.
-- Possibilità di connettere una rete virtuale che usa il modello di distribuzione Azure Resource Manager in una rete virtuale che usa il modello di distribuzione classica e di abilitare la connettività completa tra le risorse in queste reti virtuali.
+* Connessione a bassa latenza e larghezza di banda elevata tra le risorse in reti virtuali diverse.
+* Possibilità di usare le risorse, ad esempio le appliance di rete virtuale, e i gateway VPN come punti di transito in rete virtuale con peering.
+* Possibilità di connettere una rete virtuale che usa il modello di distribuzione Azure Resource Manager in una rete virtuale che usa il modello di distribuzione classica e di abilitare la connettività completa tra le risorse in queste reti virtuali.
 
 Requisiti e aspetti principali del peering reti virtuali:
 
-- Le due reti virtuali con peering devono trovarsi nella stessa area di Azure.
-- Le reti virtuali con peering non devono avere spazi di indirizzi IP sovrapposti.
-- Il peering reti virtuali viene eseguito tra due reti virtuali senza alcuna relazione transitiva derivata. Ad esempio, se per la rete virtuale A è stato eseguito il peering con la rete virtuale B e se per quest'ultima è stato eseguito il peering con la rete virtuale C, non viene stabilito automaticamente il peering tra la rete virtuale A e la rete virtuale C.
-- Il peering può essere stabilito tra reti virtuali in due diverse sottoscrizioni, a condizione che un utente con privilegi di entrambe le sottoscrizioni autorizzi il peering e che le sottoscrizioni siano associate allo stesso tenant di Active Directory.
-- È possibile eseguire il peering di una rete virtuale che usa il modello di distribuzione Resource Manager con un'altra rete virtuale che usa questo modello o con una rete virtuale che usa il modello di distribuzione classica. Non è tuttavia possibile eseguire il peering tra reti virtuali che usano il modello di distribuzione classica.
-- Anche se la comunicazione tra le macchine virtuali nelle reti virtuali con peering non presenta restrizioni in termini di larghezza di banda aggiuntiva, viene comunque applicato il limite di larghezza di banda in base alle dimensioni della macchina virtuale.
-
+* Le due reti virtuali con peering devono trovarsi nella stessa area di Azure.
+* Le reti virtuali con peering non devono avere spazi di indirizzi IP sovrapposti.
+* Il peering reti virtuali viene eseguito tra due reti virtuali senza alcuna relazione transitiva derivata. Ad esempio, se per la rete virtuale A è stato eseguito il peering con la rete virtuale B e se per quest'ultima è stato eseguito il peering con la rete virtuale C, non viene stabilito automaticamente il peering tra la rete virtuale A e la rete virtuale C.
+* Il peering può essere stabilito tra reti virtuali in due diverse sottoscrizioni, a condizione che un utente con privilegi di entrambe le sottoscrizioni autorizzi il peering e che le sottoscrizioni siano associate allo stesso tenant di Active Directory.
+* È possibile eseguire il peering di una rete virtuale che usa il modello di distribuzione Resource Manager con un'altra rete virtuale che usa questo modello o con una rete virtuale che usa il modello di distribuzione classica. Non è tuttavia possibile eseguire il peering tra reti virtuali che usano il modello di distribuzione classica.
+* Anche se la comunicazione tra le macchine virtuali nelle reti virtuali con peering non presenta restrizioni in termini di larghezza di banda aggiuntiva, viene comunque applicato il limite di larghezza di banda in base alle dimensioni della macchina virtuale.
 
 ![Peering reti virtuali di base](./media/virtual-networks-peering-overview/figure01.png)
 
@@ -82,10 +81,9 @@ Esistono limiti al numero di peering consentiti per una singola rete virtuale. P
 ## Prezzi
 Il peering reti virtuali è disponibile gratuitamente durante il periodo di verifica. Dopo il rilascio, al traffico in ingresso e in uscita che usa il peering verrà applicata una tariffa nominale. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/virtual-network).
 
-
 ## Passaggi successivi
-- [Creare un peering reti virtuali usando il portale di Azure](virtual-networks-create-vnetpeering-arm-portal.md).
-- Informazioni sui [gruppi di sicurezza di rete](virtual-networks-nsg.md).
-- Informazioni su [route definite dall'utente e inoltro IP](virtual-networks-udr-overview.md).
+* [Creare un peering reti virtuali usando il portale di Azure](virtual-networks-create-vnetpeering-arm-portal.md).
+* Informazioni sui [gruppi di sicurezza di rete](virtual-networks-nsg.md).
+* Informazioni su [route definite dall'utente e inoltro IP](virtual-networks-udr-overview.md).
 
 <!---HONumber=AcomDC_0928_2016-->

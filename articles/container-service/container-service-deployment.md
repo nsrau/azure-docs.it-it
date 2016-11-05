@@ -1,31 +1,29 @@
-<properties
-   pageTitle="Distribuire un cluster del servizio contenitore di Azure | Microsoft Azure"
-   description="Distribuire un cluster del servizio contenitore di Azure usando il portale di Azure, l'interfaccia della riga di comando di Azure o PowerShell."
-   services="container-service"
-   documentationCenter=""
-   authors="rgardler"
-   manager="timlt"
-   editor=""
-   tags="acs, azure-container-service"
-   keywords="Docker, Contenitori, Micro-servizi, Mesos, Azure"/>
+---
+title: Distribuire un cluster del servizio contenitore di Azure | Microsoft Docs
+description: Distribuire un cluster del servizio contenitore di Azure usando il portale di Azure, l'interfaccia della riga di comando di Azure o PowerShell.
+services: container-service
+documentationcenter: ''
+author: rgardler
+manager: timlt
+editor: ''
+tags: acs, azure-container-service
+keywords: Docker, Contenitori, Micro-servizi, Mesos, Azure
 
-<tags
-   ms.service="container-service"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/13/2016"
-   ms.author="rogardle"/>
+ms.service: container-service
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/13/2016
+ms.author: rogardle
 
+---
 # Distribuire un cluster del servizio contenitore di Azure
-
 Il servizio contenitore di Azure consente la distribuzione rapida delle soluzioni open source di clustering e orchestrazione dei contenitori più diffuse. Con il servizio contenitore di Azure è possibile distribuire cluster DC/OS e Docker Swarm usando i modelli di Azure Resource Manager o il portale di Azure. I cluster vengono distribuiti tramite set di scalabilità di macchine virtuali di Azure e sfruttano i vantaggi delle offerte di rete e di archiviazione di Azure. Per accedere al servizio contenitore di Azure è necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
 Questo documento illustra come distribuire un cluster del servizio contenitore di Azure tramite il [portale di Azure](#creating-a-service-using-the-azure-portal), l'[interfaccia della riga di comando di Azure](#creating-a-service-using-the-azure-cli) e il [modulo di Azure PowerShell](#creating-a-service-using-powershell).
 
 ## Creare un servizio usando il portale di Azure
-
 Accedere al portale di Azure, selezionare **Nuovo**, quindi cercare **Servizio contenitore di Azure** in Azure Marketplace.
 
 ![Creare una distribuzione 1](media/acs-portal1.png) <br />
@@ -36,11 +34,11 @@ Selezionare **Servizio contenitore di Azure** e fare clic su **Crea**.
 
 Immettere le seguenti informazioni:
 
-- **Nome utente**: verrà usato per un account in ogni macchina virtuale e ogni set di scalabilità di macchine virtuali nel cluster del servizio contenitore di Azure.
-- **Sottoscrizione**: selezionare una sottoscrizione di Azure.
-- **Gruppo di risorse**: selezionare un gruppo di risorse esistente o crearne uno nuovo.
-- **Località**: selezionare un'area di Azure per la distribuzione del servizio contenitore di Azure.
-- **Chiave pubblica SSH**: aggiungere la chiave pubblica che verrà usata per l'autenticazione delle macchine virtuali nel servizio contenitore di Azure. È molto importante che questa chiave sia priva di interruzioni di riga e che includa il prefisso 'ssh-rsa' e il suffisso 'nomeutente@dominio'. L'aspetto della chiave dovrebbe essere simile al seguente: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. Per indicazioni sulla creazione di chiavi SSH (Secure Shell), vedere gli articoli per [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) e [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
+* **Nome utente**: verrà usato per un account in ogni macchina virtuale e ogni set di scalabilità di macchine virtuali nel cluster del servizio contenitore di Azure.
+* **Sottoscrizione**: selezionare una sottoscrizione di Azure.
+* **Gruppo di risorse**: selezionare un gruppo di risorse esistente o crearne uno nuovo.
+* **Località**: selezionare un'area di Azure per la distribuzione del servizio contenitore di Azure.
+* **Chiave pubblica SSH**: aggiungere la chiave pubblica che verrà usata per l'autenticazione delle macchine virtuali nel servizio contenitore di Azure. È molto importante che questa chiave sia priva di interruzioni di riga e che includa il prefisso 'ssh-rsa' e il suffisso 'nomeutente@dominio'. L'aspetto della chiave dovrebbe essere simile al seguente: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. Per indicazioni sulla creazione di chiavi SSH (Secure Shell), vedere gli articoli per [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) e [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
 
 Quando si è pronti per continuare, fare clic su **OK**.
 
@@ -48,8 +46,8 @@ Quando si è pronti per continuare, fare clic su **OK**.
 
 Selezionare un tipo di orchestrazione. Le opzioni sono:
 
-- **DC/OS**: distribuisce un cluster DC/OS.
-- **Swarm**: distribuisce un cluster Docker Swarm.
+* **DC/OS**: distribuisce un cluster DC/OS.
+* **Swarm**: distribuisce un cluster Docker Swarm.
 
 Quando si è pronti per continuare, fare clic su **OK**.
 
@@ -57,10 +55,10 @@ Quando si è pronti per continuare, fare clic su **OK**.
 
 Immettere le seguenti informazioni:
 
-- **Master count** (Conteggio master): numero di master nel cluster.
-- **Conteggio agenti**: per Docker Swarm sarà il numero iniziale di agenti nel set di scalabilità degli agenti. Per DC/OS sarà il numero iniziale di agenti in un set di scalabilità privato. Viene creato anche un set di scalabilità pubblico contenente un numero predeterminato di agenti. Il numero di agenti in questo set di scalabilità pubblico viene determinato in base al numero di master creati nel cluster, ovvero un agente pubblico per un master e due agenti pubblici per tre o cinque master.
-- **Agent virtual machine size** (Dimensioni macchina virtuale dell'agente): specifica le dimensioni delle macchine virtuali dell'agente.
-- **Prefisso DNS**: nome univoco globale che verrà usato come prefisso delle parti chiave dei nomi di dominio completo per il servizio.
+* **Master count** (Conteggio master): numero di master nel cluster.
+* **Conteggio agenti**: per Docker Swarm sarà il numero iniziale di agenti nel set di scalabilità degli agenti. Per DC/OS sarà il numero iniziale di agenti in un set di scalabilità privato. Viene creato anche un set di scalabilità pubblico contenente un numero predeterminato di agenti. Il numero di agenti in questo set di scalabilità pubblico viene determinato in base al numero di master creati nel cluster, ovvero un agente pubblico per un master e due agenti pubblici per tre o cinque master.
+* **Agent virtual machine size** (Dimensioni macchina virtuale dell'agente): specifica le dimensioni delle macchine virtuali dell'agente.
+* **Prefisso DNS**: nome univoco globale che verrà usato come prefisso delle parti chiave dei nomi di dominio completo per il servizio.
 
 Quando si è pronti per continuare, fare clic su **OK**.
 
@@ -81,7 +79,6 @@ Se si è scelto di aggiungere la distribuzione al portale di Azure, si potrà vi
 Una volta completata la distribuzione, il cluster del servizio contenitore di Azure è pronto per l'uso.
 
 ## Creare un servizio usando l'interfaccia della riga di comando di Azure
-
 Per creare un'istanza del servizio contenitore di Azure usando la riga di comando, è necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). L'interfaccia della riga di comando di Azure deve essere [installata](../xplat-cli-install.md) e [configurata](../xplat-cli-connect.md).
 
 Per distribuire un cluster DC/OS o Docker Swarm, selezionare uno dei modelli di GitHub seguenti. Si noti che i modelli si equivalgono, differiscono unicamente nella selezione dell'agente di orchestrazione predefinito.
@@ -108,18 +105,20 @@ azure config mode arm
 
 Creare un gruppo di risorse e un cluster del servizio contenitore di Azure con il comando seguente, dove:
 
-- **RESOURCE\_GROUP** è il nome del gruppo di risorse da usare per questo servizio.
-- **LOCATION** è l'area di Azure in cui verrà creata la distribuzione del gruppo di risorse e del servizio contenitore di Azure.
-- **TEMPLATE\_URI** è il percorso del file di distribuzione. Si noti che deve trattarsi del file RAW, non di un puntatore all'interfaccia utente di GitHub. Per trovare questo URL, selezionare il file azuredeploy.json in GitHub e fare clic sul pulsante **RAW**.
+* **RESOURCE\_GROUP** è il nome del gruppo di risorse da usare per questo servizio.
+* **LOCATION** è l'area di Azure in cui verrà creata la distribuzione del gruppo di risorse e del servizio contenitore di Azure.
+* **TEMPLATE\_URI** è il percorso del file di distribuzione. Si noti che deve trattarsi del file RAW, non di un puntatore all'interfaccia utente di GitHub. Per trovare questo URL, selezionare il file azuredeploy.json in GitHub e fare clic sul pulsante **RAW**.
 
-> [AZURE.NOTE] Quando si esegue questo comando, la shell richiede i valori dei parametri di distribuzione.
+> [!NOTE]
+> Quando si esegue questo comando, la shell richiede i valori dei parametri di distribuzione.
+> 
+> 
 
 ```bash
 azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri TEMPLATE_URI
 ```
 
 ### Fornire i parametri del modello
-
 Questa versione del comando richiede all'utente di definire i parametri in modo interattivo. Per specificare i parametri, ad esempio una stringa in formato JSON, è possibile usare l'opzione `-p`. ad esempio:
 
  ```bash
@@ -135,7 +134,6 @@ azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMP
 Per visualizzare un file di parametri di esempio denominato `azuredeploy.parameters.json`, cercarlo tra i modelli del servizio contenitore di Azure in GitHub.
 
 ## Creare un servizio usando PowerShell
-
 È anche possibile distribuire un cluster del servizio contenitore di Azure con PowerShell. Questo documento si basa sul [modulo Azure PowerShell](https://azure.microsoft.com/blog/azps-1-0/) versione 1.0.
 
 Per distribuire un cluster DC/OS o Docker Swarm, selezionare uno dei modelli seguenti. Si noti che i modelli si equivalgono, differiscono unicamente nella selezione dell'agente di orchestrazione predefinito.
@@ -168,7 +166,6 @@ New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESO
 ```
 
 ### Fornire i parametri del modello
-
 Se si ha familiarità con PowerShell, è possibile cercare un cmdlet tra i parametri disponibili digitando un segno meno (-) e quindi premendo TAB. Questa stessa funzionalità può essere usata anche con i parametri definiti nel modello. Quando si digita il nome del modello, il cmdlet recupera il modello, analizza i parametri e aggiunge i relativi parametri al comando in modo dinamico. In questo modo è molto semplice specificare i valori dei parametri del modello. Inoltre, se si dimentica un valore per un parametro obbligatorio, PowerShell richiede il valore.
 
 Di seguito viene riportato il comando completo con i parametri inclusi. È possibile specificare i propri valori per i nomi delle risorse.
@@ -178,11 +175,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
 ```
 
 ## Passaggi successivi
-
 Ora che si ha a disposizione un cluster funzionante, vedere i documenti seguenti per informazioni dettagliate sulla connessione e la gestione:
 
-- [Connettersi a un cluster del servizio contenitore di Azure](container-service-connect.md)
-- [Gestione di contenitori tramite l'API REST](container-service-mesos-marathon-rest.md)
-- [Gestione dei contenitori con Docker Swarm](container-service-docker-swarm.md)
+* [Connettersi a un cluster del servizio contenitore di Azure](container-service-connect.md)
+* [Gestione di contenitori tramite l'API REST](container-service-mesos-marathon-rest.md)
+* [Gestione dei contenitori con Docker Swarm](container-service-docker-swarm.md)
 
 <!---HONumber=AcomDC_0914_2016-->

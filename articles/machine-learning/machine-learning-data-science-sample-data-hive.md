@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Dati di esempio nelle tabelle Hive di Azure HDInsight| Microsoft Azure"
-    description="Esecuzione del sotto-campionamento dei dati nelle tabelle Hive (Hadoop) di Azure HDInsight"
-    services="machine-learning,hdinsight"
-    documentationCenter=""
-    authors="bradsev"
-    manager="jhubbard"
-    editor="cgronlun"  />
+---
+title: Dati di esempio nelle tabelle Hive di Azure HDInsight| Microsoft Docs
+description: Esecuzione del sotto-campionamento dei dati nelle tabelle Hive (Hadoop) di Azure HDInsight
+services: machine-learning,hdinsight
+documentationcenter: ''
+author: bradsev
+manager: jhubbard
+editor: cgronlun
 
-<tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/19/2016"
-    ms.author="hangzh;bradsev" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/19/2016
+ms.author: hangzh;bradsev
 
-
+---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Dati di esempio nelle tabelle Hive di Azure HDInsight
-
 In questo articolo, viene descritto come eseguire il downsampling dei dati archiviati nelle tabelle Hive di Azure HDInsight usando le query Hive. Vengono trattati i tre metodi di campionamento utilizzati più frequentemente:
 
 * Campionamento casuale uniforme
@@ -30,10 +28,9 @@ In questo articolo, viene descritto come eseguire il downsampling dei dati archi
 
 Il **menu** seguente collega ad argomenti che descrivono come campionare dati da vari ambienti di archiviazione.
 
-[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+[!INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
 Questo campionamento è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
-
 
 ## <a name="how-to-submit-hive-queries"></a>Come inviare query Hive
 Le query Hive possono essere inviate dalla console della riga di comando di Hadoop nel nodo head del cluster Hadoop. Per effettuare questa operazione, accedere al nodo head del cluster Hadoop, aprire la console della riga di comando e inviare le query Hive da tale posizione. Per istruzioni su come inviare le query Hive nella console della riga di comando di Hadoop, vedere [Come inviare le query Hive](machine-learning-data-science-move-hive-tables.md#submit).
@@ -57,7 +54,6 @@ Di seguito è fornito un esempio di query:
 In questo caso, `<sample rate, 0-1>` indica la proporzione di record che gli utenti desiderano campionare.
 
 ## <a name="<a-name="group"></a>-random-sampling-by-groups"></a><a name="group"></a> Campionamento casuale per gruppi
-
 Quando si esegue il campionamento dei dati di categoria, è possibile scegliere di includere o di escludere tutte le istanze di un determinato valore di una variabile di categoria. Questo è il significato di "campionamento per gruppi".
 Ad esempio, se si dispone di variabile di categoria "State" con valori quali NY, MA, CA, NJ, PA e così via, è possibile che l'utente desideri che i record dello stesso stato siano sempre visualizzati insieme, che siano campionati o meno.
 
@@ -88,7 +84,6 @@ Di seguito è presentata una query di esempio che consente di eseguire il campio
     on b.catfield=c.catfield
 
 ## <a name="<a-name="stratified"></a>stratified-sampling"></a><a name="stratified"></a> Campionamento stratificato
-
 Il campionamento casuale è stratificato rispetto a una variabile di categoria, nel caso in cui i campioni ottenuti presentino, per quella categoria, valori di proporzione equivalente a quelli del popolamento padre dal quale sono stati ottenuti i campioni. Usando lo stesso esempio precedente, si supponga che i dati dispongano di un popolamento secondario in base allo stato. Ad esempio, NJ dispone di 100 osservazioni, NY dispone di 60 osservazioni e WA di 300 osservazioni. Se si specifica che la proporzione del campionamento stratificato sia pari a 0,5, il campione ottenuto deve disporre all'incirca di 50, 30 e 150 osservazioni per NJ, NY e WA
 
 Di seguito è fornito un esempio di query:
@@ -108,8 +103,6 @@ Di seguito è fornito un esempio di query:
 
 
 Per informazioni su metodi di campionamento più avanzati disponibili in Hive, vedere [Campionamento di LanguageManual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

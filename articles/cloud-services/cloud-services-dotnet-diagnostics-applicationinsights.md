@@ -1,27 +1,25 @@
-<properties
-   pageTitle="Risoluzione dei problemi di Servizi Cloud tramite Application Insights | Microsoft Azure"
-   description="Informazioni su come risolvere i problemi relativi al servizio cloud mediante Application Insights per elaborare i dati del servizio Diagnostica di Azure."
-   services="cloud-services"
-   documentationCenter=".net"
-   authors="sbtron"
-   manager="timlt"
-   editor="tysonn" />
-<tags
-   ms.service="cloud-services"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/15/2015"
-   ms.author="saurabh" />
+---
+title: Risoluzione dei problemi di Servizi Cloud tramite Application Insights | Microsoft Docs
+description: Informazioni su come risolvere i problemi relativi al servizio cloud mediante Application Insights per elaborare i dati del servizio Diagnostica di Azure.
+services: cloud-services
+documentationcenter: .net
+author: sbtron
+manager: timlt
+editor: tysonn
 
+ms.service: cloud-services
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 12/15/2015
+ms.author: saurabh
 
+---
 # Risoluzione dei problemi di Servizi Cloud tramite Application Insights
-
 Con [Azure SDK 2.8](https://azure.microsoft.com/downloads/) e l'estensione Diagnostica di Azure 1.5 è ora possibile inviare i dati del servizio Diagnostica di Azure per il servizio cloud direttamente ad Application Insights. I vari tipi di log raccolti da Diagnostica di Azure, tra cui log applicazioni, registri eventi di Windows, log ETW e contatori delle prestazioni possono ora essere inviati ad Application Insights e visualizzati nell'interfaccia utente del portale di Application Insights. Quando vengono usati con Application Insights SDK, è possibile ottenere informazioni dettagliate sulle metriche e i log provenienti dall'applicazione, nonché dai dati del livello di sistema e dell'infrastruttura provenienti da Diagnostica di Azure.
 
 ## Configurare Diagnostica di Azure per inviare dati ad Application Insights
-
 Seguire questi passaggi per configurare il progetto del servizio cloud per l'invio di dati del servizio Diagnostica di Azure ad Application Insights.
 
 1) In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse su un ruolo e scegliere **Proprietà** per aprire la finestra di progettazione dei ruoli
@@ -51,24 +49,22 @@ La telemetria diagnostica di Azure verrà visualizzata nella risorsa di Applicat
 
 L'elenco puntato seguente illustra il modo in cui i vari tipi di log di Diagnostica di Azure vengono mappati ai concetti di Application Insights:
 
--  I contatori delle prestazioni vengono visualizzati come metriche personalizzate in Application Insights
--  I registri eventi di Windows vengono visualizzati come tracce ed eventi personalizzati in Application Insights
--  I log applicazioni, i log ETW e gli eventuali log dell'infrastruttura di diagnostica vengono visualizzati come tracce in Application Insights.
+* I contatori delle prestazioni vengono visualizzati come metriche personalizzate in Application Insights
+* I registri eventi di Windows vengono visualizzati come tracce ed eventi personalizzati in Application Insights
+* I log applicazioni, i log ETW e gli eventuali log dell'infrastruttura di diagnostica vengono visualizzati come tracce in Application Insights.
 
 Per visualizzare i dati del servizio Diagnostica di Azure in Application Insights:
 
-- Usare [Esplora metriche](../application-insights/app-insights-metrics-explorer.md) per visualizzare tutti i contatori delle prestazioni personalizzati o i conteggi di diversi tipi di eventi del registro eventi di Windows.
+* Usare [Esplora metriche](../application-insights/app-insights-metrics-explorer.md) per visualizzare tutti i contatori delle prestazioni personalizzati o i conteggi di diversi tipi di eventi del registro eventi di Windows.
 
 ![Metriche personalizzate in Esplora metriche][5]
 
-- Usare [Cerca](../application-insights/app-insights-diagnostic-search.md) per eseguire ricerche nei vari log di traccia inviati da Diagnostica di Azure. Ad esempio, se è presente un'eccezione non gestita in un ruolo che ha causato l'arresto e il riciclo del ruolo, tali informazioni verranno visualizzate nel canale *Applicazione* del *registro eventi di Windows*. È possibile usare la funzionalità di ricerca per esaminare l'errore del registro eventi di Windows e l'analisi dello stack completa per l'eccezione. In questo modo sarà possibile trovare la causa radice del problema.
+* Usare [Cerca](../application-insights/app-insights-diagnostic-search.md) per eseguire ricerche nei vari log di traccia inviati da Diagnostica di Azure. Ad esempio, se è presente un'eccezione non gestita in un ruolo che ha causato l'arresto e il riciclo del ruolo, tali informazioni verranno visualizzate nel canale *Applicazione* del *registro eventi di Windows*. È possibile usare la funzionalità di ricerca per esaminare l'errore del registro eventi di Windows e l'analisi dello stack completa per l'eccezione. In questo modo sarà possibile trovare la causa radice del problema.
 
 ![Cerca tracce][6]
 
 ## Passaggi successivi
-
-- [Aggiungere Application Insights SDK al servizio cloud](../application-insights/app-insights-cloudservices.md) per inviare dati relativi a richieste, eccezioni, dipendenze ed eventuale telemetria personalizzata dall'applicazione. Uniti ai dati del servizio Diagnostica di Azure, offriranno una visione completa dell'applicazione e del sistema nella stessa risorsa di Application Insight.  
-
+* [Aggiungere Application Insights SDK al servizio cloud](../application-insights/app-insights-cloudservices.md) per inviare dati relativi a richieste, eccezioni, dipendenze ed eventuale telemetria personalizzata dall'applicazione. Uniti ai dati del servizio Diagnostica di Azure, offriranno una visione completa dell'applicazione e del sistema nella stessa risorsa di Application Insight.  
 
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/solution-explorer-properties.png

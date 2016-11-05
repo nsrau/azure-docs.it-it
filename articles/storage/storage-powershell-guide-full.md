@@ -1,24 +1,22 @@
-<properties
-	pageTitle="Uso di Azure PowerShell con Archiviazione di Azure | Microsoft Azure"
-	description="Imparare a utilizzare i cmdlet PowerShell di Azure per l'archiviazione di Azure per creare e gestire gli account di archiviazione; lavorare con BLOB, tabelle, code e file. configurare analisi archiviazione di query e creare firme di accesso condiviso."
-	services="storage"
-	documentationCenter="na"
-	authors="robinsh"
-	manager="carmonm"/>
+---
+title: Uso di Azure PowerShell con Archiviazione di Azure | Microsoft Docs
+description: Imparare a utilizzare i cmdlet PowerShell di Azure per l'archiviazione di Azure per creare e gestire gli account di archiviazione; lavorare con BLOB, tabelle, code e file. configurare analisi archiviazione di query e creare firme di accesso condiviso.
+services: storage
+documentationcenter: na
+author: robinsh
+manager: carmonm
 
-<tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/03/2016"
-	ms.author="micurd;robinsh"/>
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/03/2016
+ms.author: micurd;robinsh
 
+---
 # Uso di Azure PowerShell con Archiviazione di Azure
-
 ## Overview
-
 Azure PowerShell è un modulo che offre i cmdlet per gestire Azure tramite Windows PowerShell. Corrisponde a una shell della riga di comando basata su attività e un linguaggio di scripting progettato appositamente per l'amministrazione del sistema. Con PowerShell è possibile controllare e automatizzare facilmente l'amministrazione dei servizi e delle applicazioni di Azure. Ad esempio, è possibile usare i cmdlet per eseguire le stesse attività eseguibili tramite il [portale di Azure](https://portal.azure.com).
 
 In questa guida verrà illustrato come usare i [cmdlet di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/mt269418.aspx) per eseguire una serie di attività di sviluppo e amministrazione con Archiviazione di Azure.
@@ -27,9 +25,7 @@ Nella guida si presuppone una certa esperienza nell'uso di [Archiviazione di Azu
 
 La prima sezione di questa guida fornisce una panoramica di Archiviazione di Azure e PowerShell. Per informazioni dettagliate e istruzioni, iniziare da [Prerequisiti per l'uso di Azure PowerShell con Archiviazione di Azure](#prerequisites-for-using-azure-powershell-with-azure-storage).
 
-
 ## Introduzione ad Archiviazione di Azure e PowerShell in 5 minuti
-
 Questa sezione descrive come accedere ad Archiviazione di Azure tramite PowerShell in 5 minuti.
 
 **Novità in Azure:** ottenere una sottoscrizione di Microsoft Azure e un account Microsoft associato alla sottoscrizione. Per ottenere una sottoscrizione Azure, vedere la [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/), le [opzioni di acquisto](https://azure.microsoft.com/pricing/purchase-options/) e le [offerte per i membri](https://azure.microsoft.com/pricing/member-offers/) (per i membri di MSDN, Microsoft Partner Network, BizSpark e altri programmi Microsoft).
@@ -38,100 +34,95 @@ Per altre informazioni sulle sottoscrizioni di Azure, vedere [Assegnazione dei r
 
 **Dopo aver creato una sottoscrizione e un account di Microsoft Azure:**
 
-1.	Scaricare e installare [Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409).
-2.	Avviare Windows PowerShell Integrated Scripting Environment (ISE): Nel computer locale, passare al menù **Start**. Digitare**Strumenti di amministrazione** e fare clic per eseguirli. Nella finestra **Strumenti di amministrazione** fare clic con il pulsante destro del mouse su **Windows PowerShell ISE**, quindi scegliere **Esegui come amministratore**.
-3.	In **Windows PowerShell ISE**, fare clic su **File** > **Nuovo** per creare un nuovo file di script.
-4.	A questo punto viene fornito uno script semplice che mostra i comandi PowerShell di base per accedere ad Archiviazione di Azure. Lo script richiede innanzitutto le credenziali dell'account Azure per aggiungerlo all'ambiente PowerShell locale. Lo script quindi imposta la sottoscrizione predefinita di Azure e crea un nuovo account di archiviazione in Azure. Lo script crea un nuovo contenitore in questo nuovo account di archiviazione e carica un file di immagine esistente (BLOB) in tale contenitore. Dopo aver elencato tutti i BLOB nel contenitore, lo script crea una nuova directory di destinazione nel computer locale e scarica il file di immagine.
-5.	Nella sezione di codice riportata di seguito, selezionare lo script tra **#begin** e **#end**. Premere CTRL+C per copiarlo negli Appunti.
-
-    	#begin
-    	# Update with the name of your subscription.
-    	$SubscriptionName = "YourSubscriptionName"
-
-    	# Give a name to your new storage account. It must be lowercase!
-    	$StorageAccountName = "yourstorageaccountname"
-
-    	# Choose "West US" as an example.
-    	$Location = "West US"
-
-    	# Give a name to your new container.
-    	$ContainerName = "imagecontainer"
-
-    	# Have an image file and a source directory in your local computer.
-    	$ImageToUpload = "C:\Images\HelloWorld.png"
-
-    	# A destination directory in your local computer.
-    	$DestinationFolder = "C:\DownloadImages"
-
-    	# Add your Azure account to the local PowerShell environment.
-    	Add-AzureAccount
-
-    	# Set a default Azure subscription.
-    	Select-AzureSubscription -SubscriptionName $SubscriptionName –Default
-
-    	# Create a new storage account.
-    	New-AzureStorageAccount –StorageAccountName $StorageAccountName -Location $Location
-
-    	# Set a default storage account.
-    	Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
-
-    	# Create a new container.
-    	New-AzureStorageContainer -Name $ContainerName -Permission Off
-
-    	# Upload a blob into a container.
-    	Set-AzureStorageBlobContent -Container $ContainerName -File $ImageToUpload
-
-    	# List all blobs in a container.
-    	Get-AzureStorageBlob -Container $ContainerName
-
-    	# Download blobs from the container:
-    	# Get a reference to a list of all blobs in a container.
-    	$blobs = Get-AzureStorageBlob -Container $ContainerName
-
-    	# Create the destination directory.
-    	New-Item -Path $DestinationFolder -ItemType Directory -Force  
-
-    	# Download blobs into the local destination directory.
-    	$blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
-    	#end
-
-5.	In **Windows PowerShell ISE**, premere CTRL + V per copiare lo script. Fare clic su **File** > **Salva**. Nella finestra di dialogo **Salva con nome** digitare il nome del file di script, ad esempio "mystoragescript". Fare clic su **Save**.
-
-6.	A questo punto, è necessario aggiornare le variabili dello script in base alle impostazioni di configurazione. È necessario aggiornare la variabile **$SubscriptionName** con la propria sottoscrizione. È possibile mantenere le altre variabili come specificato nello script o aggiornarle secondo le proprie preferenze.
-
-	- **$SubscriptionName:** è necessario aggiornare questa variabile con il proprio nome di sottoscrizione. Attenersi a uno dei tre modi seguenti per individuare il nome della sottoscrizione:
-
-		a. In **Windows PowerShell ISE**, fare clic su **File** > **Nuovo** per creare un nuovo file di script. Copiare lo script seguente nel nuovo file di script e fare clic su **Debug** > **Esegui**. Lo script richiede innanzitutto le credenziali dell'account Azure per aggiungerlo all'ambiente PowerShell locale, quindi visualizza tutte le sottoscrizioni connesse alla sessione PowerShell locale. Prendere nota del nome della sottoscrizione da usare durante questa esercitazione:
-
-			Add-AzureAccount
-				Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
-
-		b. Per individuare e copiare il nome della sottoscrizione nel [portale di Azure](https://portal.azure.com), nel menu hub a sinistra fare clic su **Sottoscrizioni**. Copiare il nome della sottoscrizione da usare durante l'esecuzione degli script specificati in questa guida.
-
-		![Portale di Azure][Image2]
-
-		c. Per individuare e copiare il nome della sottoscrizione nel [portale di Azure classico](https://manage.windowsazure.com/), scorrere verso il basso e fare clic su **Impostazioni** sul lato sinistro del portale. Fare clic su **Sottoscrizioni** per visualizzare un elenco delle sottoscrizioni. Copiare il nome della sottoscrizione da usare durante l'esecuzione degli script specificati in questa guida.
-
-		![Portale di Azure classico][Image1]
-
-	- **$StorageAccountName:** utilizzare il nome specificato nello script oppure immettere un nuovo nome per l'account di archiviazione. **Importante:** il nome dell'account di archiviazione deve essere univoco in Azure. Utilizzare caratteri minuscoli.
-
-	- **$Location:** utilizzare "West US" specificato nello script oppure scegliere altre posizioni di Azure, ad esempio Stati Uniti orientali, Europa settentrionale e così via.
-
-	- **$ContainerName:** usare il nome specificato nello script oppure immettere un nuovo nome per il contenitore.
-
-	- **$ImageToUpload:** immettere il percorso di un'immagine nel computer locale, ad esempio "C:\\Images\\HelloWorld.png".
-
-	- **$DestinationFolder:** immettere il percorso di una directory locale per archiviare i file scaricati da Archiviazione di Azure, ad esempio "C:\\DownloadImages".
-
-7.	Dopo aver aggiornato le variabili dello script nel file "mystoragescript.ps1", fare clic su **File** > **Salva**. Quindi, fare clic su **Debug** > **Esegui** o premere **F5** per eseguire lo script.
+1. Scaricare e installare [Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409).
+2. Avviare Windows PowerShell Integrated Scripting Environment (ISE): Nel computer locale, passare al menù **Start**. Digitare**Strumenti di amministrazione** e fare clic per eseguirli. Nella finestra **Strumenti di amministrazione** fare clic con il pulsante destro del mouse su **Windows PowerShell ISE**, quindi scegliere **Esegui come amministratore**.
+3. In **Windows PowerShell ISE**, fare clic su **File** > **Nuovo** per creare un nuovo file di script.
+4. A questo punto viene fornito uno script semplice che mostra i comandi PowerShell di base per accedere ad Archiviazione di Azure. Lo script richiede innanzitutto le credenziali dell'account Azure per aggiungerlo all'ambiente PowerShell locale. Lo script quindi imposta la sottoscrizione predefinita di Azure e crea un nuovo account di archiviazione in Azure. Lo script crea un nuovo contenitore in questo nuovo account di archiviazione e carica un file di immagine esistente (BLOB) in tale contenitore. Dopo aver elencato tutti i BLOB nel contenitore, lo script crea una nuova directory di destinazione nel computer locale e scarica il file di immagine.
+5. Nella sezione di codice riportata di seguito, selezionare lo script tra **#begin** e **#end**. Premere CTRL+C per copiarlo negli Appunti.
+   
+   # begin
+   # Update with the name of your subscription.
+     $SubscriptionName = "YourSubscriptionName"
+   
+   # Give a name to your new storage account. It must be lowercase!
+     $StorageAccountName = "yourstorageaccountname"
+   
+   # Choose "West US" as an example.
+     $Location = "West US"
+   
+   # Give a name to your new container.
+     $ContainerName = "imagecontainer"
+   
+   # Have an image file and a source directory in your local computer.
+     $ImageToUpload = "C:\Images\HelloWorld.png"
+   
+   # A destination directory in your local computer.
+     $DestinationFolder = "C:\DownloadImages"
+   
+   # Add your Azure account to the local PowerShell environment.
+     Add-AzureAccount
+   
+   # Set a default Azure subscription.
+     Select-AzureSubscription -SubscriptionName $SubscriptionName –Default
+   
+   # Create a new storage account.
+     New-AzureStorageAccount –StorageAccountName $StorageAccountName -Location $Location
+   
+   # Set a default storage account.
+     Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
+   
+   # Create a new container.
+     New-AzureStorageContainer -Name $ContainerName -Permission Off
+   
+   # Upload a blob into a container.
+     Set-AzureStorageBlobContent -Container $ContainerName -File $ImageToUpload
+   
+   # List all blobs in a container.
+     Get-AzureStorageBlob -Container $ContainerName
+   
+   # Download blobs from the container:
+   # Get a reference to a list of all blobs in a container.
+     $blobs = Get-AzureStorageBlob -Container $ContainerName
+   
+   # Create the destination directory.
+     New-Item -Path $DestinationFolder -ItemType Directory -Force  
+   
+   # Download blobs into the local destination directory.
+     $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
+   
+   # end
+6. In **Windows PowerShell ISE**, premere CTRL + V per copiare lo script. Fare clic su **File** > **Salva**. Nella finestra di dialogo **Salva con nome** digitare il nome del file di script, ad esempio "mystoragescript". Fare clic su **Save**.
+7. A questo punto, è necessario aggiornare le variabili dello script in base alle impostazioni di configurazione. È necessario aggiornare la variabile **$SubscriptionName** con la propria sottoscrizione. È possibile mantenere le altre variabili come specificato nello script o aggiornarle secondo le proprie preferenze.
+   
+   * **$SubscriptionName:** è necessario aggiornare questa variabile con il proprio nome di sottoscrizione. Attenersi a uno dei tre modi seguenti per individuare il nome della sottoscrizione:
+     
+     a. In **Windows PowerShell ISE**, fare clic su **File** > **Nuovo** per creare un nuovo file di script. Copiare lo script seguente nel nuovo file di script e fare clic su **Debug** > **Esegui**. Lo script richiede innanzitutto le credenziali dell'account Azure per aggiungerlo all'ambiente PowerShell locale, quindi visualizza tutte le sottoscrizioni connesse alla sessione PowerShell locale. Prendere nota del nome della sottoscrizione da usare durante questa esercitazione:
+     
+         Add-AzureAccount
+             Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
+     
+     b. Per individuare e copiare il nome della sottoscrizione nel [portale di Azure](https://portal.azure.com), nel menu hub a sinistra fare clic su **Sottoscrizioni**. Copiare il nome della sottoscrizione da usare durante l'esecuzione degli script specificati in questa guida.
+     
+     ![Portale di Azure][Image2]
+     
+     c. Per individuare e copiare il nome della sottoscrizione nel [portale di Azure classico](https://manage.windowsazure.com/), scorrere verso il basso e fare clic su **Impostazioni** sul lato sinistro del portale. Fare clic su **Sottoscrizioni** per visualizzare un elenco delle sottoscrizioni. Copiare il nome della sottoscrizione da usare durante l'esecuzione degli script specificati in questa guida.
+     
+     ![Portale di Azure classico][Image1]
+   * **$StorageAccountName:** utilizzare il nome specificato nello script oppure immettere un nuovo nome per l'account di archiviazione. **Importante:** il nome dell'account di archiviazione deve essere univoco in Azure. Utilizzare caratteri minuscoli.
+   * **$Location:** utilizzare "West US" specificato nello script oppure scegliere altre posizioni di Azure, ad esempio Stati Uniti orientali, Europa settentrionale e così via.
+   * **$ContainerName:** usare il nome specificato nello script oppure immettere un nuovo nome per il contenitore.
+   * **$ImageToUpload:** immettere il percorso di un'immagine nel computer locale, ad esempio "C:\\Images\\HelloWorld.png".
+   * **$DestinationFolder:** immettere il percorso di una directory locale per archiviare i file scaricati da Archiviazione di Azure, ad esempio "C:\\DownloadImages".
+8. Dopo aver aggiornato le variabili dello script nel file "mystoragescript.ps1", fare clic su **File** > **Salva**. Quindi, fare clic su **Debug** > **Esegui** o premere **F5** per eseguire lo script.
 
 Dopo l'esecuzione dello script è necessario disporre di una cartella di destinazione locale che includa il file di immagine scaricato. La schermata seguente mostra un output di esempio:
 
 ![Scaricare BLOB][Image3]
 
-
-> [AZURE.NOTE] La sezione "Introduzione ad Archiviazione di Azure e PowerShell in 5 minuti" fornisce un'introduzione rapida su come usare Azure PowerShell con Archiviazione di Azure. Per informazioni dettagliate e istruzioni si consiglia di leggere le sezioni seguenti.
+> [!NOTE]
+> La sezione "Introduzione ad Archiviazione di Azure e PowerShell in 5 minuti" fornisce un'introduzione rapida su come usare Azure PowerShell con Archiviazione di Azure. Per informazioni dettagliate e istruzioni si consiglia di leggere le sezioni seguenti.
+> 
+> 
 
 ## Prerequisiti per l'uso di Azure PowerShell con Archiviazione di Azure
 Sono necessari una sottoscrizione e un account di Azure per eseguire i cmdlet di PowerShell forniti in questa guida.
@@ -141,64 +132,58 @@ Azure PowerShell è un modulo che offre i cmdlet per gestire Azure tramite Windo
 È possibile eseguire i cmdlet nella console standard di Windows PowerShell o da Windows PowerShell Integrated Scripting Environment (ISE). Per aprire **Windows PowerShell ISE**, nel menu Start digitare Strumenti di amministrazione e fare clic per eseguirli. Nella finestra Strumenti di amministrazione fare clic con il pulsante destro del mouse su Windows PowerShell ISE, quindi scegliere Esegui come amministratore.
 
 ## Come gestire gli account di archiviazione in Azure
-
 ### Come impostare una sottoscrizione di Azure predefinita
 Per gestire Archiviazione di Azure con Azure PowerShell è necessario eseguire l'autenticazione dell'ambiente client con Azure usando l'autenticazione di Azure Active Directory o l'autenticazione basata su certificato. Per informazioni dettagliate, vedere il tutorial [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). In questa guida viene usata l'autenticazione di Azure Active Directory.
 
-1.	In Windows PowerShell ISE digitare il comando seguente per aggiungere l'account Azure all'ambiente PowerShell locale:
-
-    `Add-AzureAccount`
-
-2.	Nella finestra di accesso a Microsoft Azure digitare l'indirizzo di posta elettronica e la password associati all'account. Le informazioni delle credenziali vengono autenticate e salvate in Azure, quindi la finestra viene chiusa.
-
-3.	Eseguire questo comando per visualizzare gli account Azure nell'ambiente PowerShell locale e verificare che l'account sia presente:
-
-	`Get-AzureAccount`
-
-4.	Quindi, eseguire il cmdlet seguente per visualizzare tutte le sottoscrizioni connesse alla sessione PowerShell locale e verificare che la sottoscrizione sia presente:
-
-	`Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName`
-
-5.	Per impostare la sottoscrizione di Azure predefinita, eseguire il cmdlet Select-AzureSubscription:
-
-	    $SubscriptionName = 'Your subscription Name'
-    	Select-AzureSubscription -SubscriptionName $SubscriptionName –Default
-
-6.	Verificare il nome della sottoscrizione predefinita eseguendo il cmdlet Get-AzureSubscription:
-
-	`Get-AzureSubscription -Default`
-
-7.	Per visualizzare tutti i cmdlet di PowerShell disponibili per Archiviazione di Azure, eseguire:
-
-	`Get-Command -Module Azure -Noun *Storage*`
+1. In Windows PowerShell ISE digitare il comando seguente per aggiungere l'account Azure all'ambiente PowerShell locale:
+   
+   `Add-AzureAccount`
+2. Nella finestra di accesso a Microsoft Azure digitare l'indirizzo di posta elettronica e la password associati all'account. Le informazioni delle credenziali vengono autenticate e salvate in Azure, quindi la finestra viene chiusa.
+3. Eseguire questo comando per visualizzare gli account Azure nell'ambiente PowerShell locale e verificare che l'account sia presente:
+   
+   `Get-AzureAccount`
+4. Quindi, eseguire il cmdlet seguente per visualizzare tutte le sottoscrizioni connesse alla sessione PowerShell locale e verificare che la sottoscrizione sia presente:
+   
+   `Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName`
+5. Per impostare la sottoscrizione di Azure predefinita, eseguire il cmdlet Select-AzureSubscription:
+   
+     $SubscriptionName = 'Your subscription Name'
+     Select-AzureSubscription -SubscriptionName $SubscriptionName –Default
+6. Verificare il nome della sottoscrizione predefinita eseguendo il cmdlet Get-AzureSubscription:
+   
+   `Get-AzureSubscription -Default`
+7. Per visualizzare tutti i cmdlet di PowerShell disponibili per Archiviazione di Azure, eseguire:
+   
+   `Get-Command -Module Azure -Noun *Storage*`
 
 ### Come creare un nuovo account di archiviazione di Azure
 Per usare Archiviazione di Azure, è necessario un account di archiviazione. Dopo aver configurato il computer per connettersi alla sottoscrizione, è possibile creare un nuovo account di archiviazione di Azure.
 
-1.	Eseguire il cmdlet Get-AzureLocation per trovare tutte le posizioni dei data center disponibili:
+1. Eseguire il cmdlet Get-AzureLocation per trovare tutte le posizioni dei data center disponibili:
+   
+   `Get-AzureLocation | Format-Table -Property Name, AvailableServices, StorageAccountTypes`
+2. Eseguire il cmdlet New-AzureStorageAccount per creare un nuovo account di archiviazione. Nell'esempio seguente viene creato un nuovo account di archiviazione nel data center "West US":
+   
+     $location = "West US"
+     $StorageAccountName = "yourstorageaccount"
+     New-AzureStorageAccount –StorageAccountName $StorageAccountName -Location $location
 
-    `Get-AzureLocation | Format-Table -Property Name, AvailableServices, StorageAccountTypes`
-
-2.	Eseguire il cmdlet New-AzureStorageAccount per creare un nuovo account di archiviazione. Nell'esempio seguente viene creato un nuovo account di archiviazione nel data center "West US":
-
-    	$location = "West US"
-	    $StorageAccountName = "yourstorageaccount"
-	    New-AzureStorageAccount –StorageAccountName $StorageAccountName -Location $location
-
-> [AZURE.IMPORTANT] Il nome per l'account di archiviazione è univoco in Azure e deve essere in minuscolo. Per le convenzioni di denominazione e le restrizioni, vedere [Informazioni sugli account di archiviazione di Azure](storage-create-storage-account.md) e [Assegnazione di nome e riferimento a contenitori, BLOB e metadati](http://msdn.microsoft.com/library/azure/dd135715.aspx).
+> [!IMPORTANT]
+> Il nome per l'account di archiviazione è univoco in Azure e deve essere in minuscolo. Per le convenzioni di denominazione e le restrizioni, vedere [Informazioni sugli account di archiviazione di Azure](storage-create-storage-account.md) e [Assegnazione di nome e riferimento a contenitori, BLOB e metadati](http://msdn.microsoft.com/library/azure/dd135715.aspx).
+> 
+> 
 
 ### Come impostare un account di archiviazione di Azure predefinito
 È possibile avere più account di archiviazione nella sottoscrizione. È possibile sceglierne uno e impostarlo come account di archiviazione predefinito per tutti i comandi di archiviazione nella stessa sessione PowerShell. Questo consente di eseguire i comandi di archiviazione di Azure PowerShell senza specificare in modo esplicito il contesto di archiviazione.
 
-1.	Per impostare un account di archiviazione predefinito per la sottoscrizione, è possibile eseguire il cmdlet Set-AzureSubscription.
-
-		$SubscriptionName = "Your subscription name"
-     	$StorageAccountName = "yourstorageaccount"  
-    	Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
-
-2.	Eseguire quindi il cmdlet Get-AzureSubscription per verificare che l'account di archiviazione sia associato all'account di sottoscrizione predefinito. Questo comando restituisce le proprietà della sottoscrizione corrente, incluso l'account di archiviazione corrente.
-
-	    Get-AzureSubscription –Current
+1. Per impostare un account di archiviazione predefinito per la sottoscrizione, è possibile eseguire il cmdlet Set-AzureSubscription.
+   
+     $SubscriptionName = "Your subscription name"
+      $StorageAccountName = "yourstorageaccount"  
+     Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
+2. Eseguire quindi il cmdlet Get-AzureSubscription per verificare che l'account di archiviazione sia associato all'account di sottoscrizione predefinito. Questo comando restituisce le proprietà della sottoscrizione corrente, incluso l'account di archiviazione corrente.
+   
+     Get-AzureSubscription –Current
 
 ### Come elencare tutti gli account di archiviazione di Azure in una sottoscrizione
 Ogni sottoscrizione di Azure può avere fino a 100 account di archiviazione. Per informazioni più aggiornate sui limiti, vedere [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](../azure-subscription-service-limits.md).
@@ -212,46 +197,42 @@ Il contesto di archiviazione di Azure è un oggetto in PowerShell che permette d
 
 Usare uno dei seguenti tre metodi per creare un contesto di archiviazione:
 
-- Eseguire il [Get AzureStorageKey](http://msdn.microsoft.com/library/azure/dn495235.aspx) cmdlet per individuare la chiave di accesso alle risorse di archiviazione primaria per l'account di archiviazione di Azure. Chiamare quindi il cmdlet [New AzureStorageContext](http://msdn.microsoft.com/library/azure/dn806380.aspx) per creare un contesto di archiviazione:
-
-    	$StorageAccountName = "yourstorageaccount"
-    	$StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
-    	$Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
-
-
-- Generare un token di firma di accesso condiviso per un contenitore di archiviazione di Azure e usarlo per creare un contesto di archiviazione:
-
-    	$sasToken = New-AzureStorageContainerSASToken -Container abc -Permission rl
-    	$Ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -SasToken $sasToken
-
-	Per altre informazioni, vedere [New-AzureStorageContainerSASToken](http://msdn.microsoft.com/library/azure/dn806416.aspx) e [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
-
-- In alcuni casi, è possibile specificare gli endpoint del servizio quando si crea un nuovo contesto di archiviazione. Ciò potrebbe essere necessario quando un nome di dominio personalizzato per l'account di archiviazione viene registrato con il servizio BLOB oppure si vuole usare una firma di accesso condiviso per l'accesso alle risorse di archiviazione. Impostare gli endpoint del servizio in una stringa di connessione e usarla per creare un nuovo contesto di archiviazione, come illustrato di seguito:
-
-    	$ConnectionString = "DefaultEndpointsProtocol=http;BlobEndpoint=<blobEndpoint>;QueueEndpoint=<QueueEndpoint>;TableEndpoint=<TableEndpoint>;AccountName=<AccountName>;AccountKey=<AccountKey>"
-    	$Ctx = New-AzureStorageContext -ConnectionString $ConnectionString
+* Eseguire il [Get AzureStorageKey](http://msdn.microsoft.com/library/azure/dn495235.aspx) cmdlet per individuare la chiave di accesso alle risorse di archiviazione primaria per l'account di archiviazione di Azure. Chiamare quindi il cmdlet [New AzureStorageContext](http://msdn.microsoft.com/library/azure/dn806380.aspx) per creare un contesto di archiviazione:
+  
+        $StorageAccountName = "yourstorageaccount"
+        $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+        $Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
+* Generare un token di firma di accesso condiviso per un contenitore di archiviazione di Azure e usarlo per creare un contesto di archiviazione:
+  
+        $sasToken = New-AzureStorageContainerSASToken -Container abc -Permission rl
+        $Ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -SasToken $sasToken
+  
+    Per altre informazioni, vedere [New-AzureStorageContainerSASToken](http://msdn.microsoft.com/library/azure/dn806416.aspx) e [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
+* In alcuni casi, è possibile specificare gli endpoint del servizio quando si crea un nuovo contesto di archiviazione. Ciò potrebbe essere necessario quando un nome di dominio personalizzato per l'account di archiviazione viene registrato con il servizio BLOB oppure si vuole usare una firma di accesso condiviso per l'accesso alle risorse di archiviazione. Impostare gli endpoint del servizio in una stringa di connessione e usarla per creare un nuovo contesto di archiviazione, come illustrato di seguito:
+  
+        $ConnectionString = "DefaultEndpointsProtocol=http;BlobEndpoint=<blobEndpoint>;QueueEndpoint=<QueueEndpoint>;TableEndpoint=<TableEndpoint>;AccountName=<AccountName>;AccountKey=<AccountKey>"
+        $Ctx = New-AzureStorageContext -ConnectionString $ConnectionString
 
 Per altre informazioni su come configurare una stringa di connessione di archiviazione, vedere [Configurazione delle stringhe di connessione](storage-configure-connection-string.md).
 
 Dopo aver configurato il computer e compreso come gestire le sottoscrizioni e gli account di archiviazione di Azure PowerShell, passare alla sezione successiva per informazioni su come gestire i BLOB e gli snapshot BLOB di Azure.
 
 ### Come recuperare e rigenerare le chiavi di archiviazione di Azure
-
 Un account di archiviazione di Azure viene fornito con due chiavi. È possibile usare il cmdlet seguente per recuperare le chiavi.
 
-	Get-AzureStorageKey -StorageAccountName "yourstorageaccount"
+    Get-AzureStorageKey -StorageAccountName "yourstorageaccount"
 
 Usare il cmdlet seguente per recuperare una chiave specifica. I valori validi sono Primary e Secondary.
 
-	(Get-AzureStorageKey -StorageAccountName $StorageAccountName).Primary
+    (Get-AzureStorageKey -StorageAccountName $StorageAccountName).Primary
 
-	(Get-AzureStorageKey -StorageAccountName $StorageAccountName).Secondary
+    (Get-AzureStorageKey -StorageAccountName $StorageAccountName).Secondary
 
 Per rigenerare le chiavi, usare il cmdlet seguente. I valori validi per -KeyType sono "Primary" e "Secondary".
 
-	New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Primary”
+    New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Primary”
 
-	New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Secondary”
+    New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Secondary”
 
 ## Come gestire i BLOB di Azure
 Archivio BLOB di Azure è un servizio per l'archiviazione di grandi quantità di dati non strutturati, ad esempio dati di testo o binari, a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. Questa sezione presuppone la conoscenza dei concetti relativi al servizio di archiviazione BLOB di Azure. Per informazioni dettagliate, vedere [Introduzione all'archivio BLOB di Azure con .NET](storage-dotnet-how-to-use-blobs.md) e [Blob Service Concepts](http://msdn.microsoft.com/library/azure/dd179376.aspx) (Concetti relativi al servizio BLOB).
@@ -262,7 +243,10 @@ Ogni BLOB nell'archiviazione di Azure deve risiedere in un contenitore. È possi
     $StorageContainerName = "yourcontainername"
     New-AzureStorageContainer -Name $StorageContainerName -Permission Off
 
-> [AZURE.NOTE] Esistono tre livelli di accesso in lettura anonimo: **Off**, **Blob**, e **contenitore**. Per impedire l'accesso anonimo ai BLOB, impostare il parametro di autorizzazione su **Disattivato**. Per impostazione predefinita, il nuovo contenitore è privato ed è accessibile solo al proprietario dell'account. Per consentire l'accesso in lettura pubblico anonimo alle risorse BLOB, ma non ai metadati del contenitore o all'elenco dei BLOB nel contenitore, impostare il parametro di autorizzazione su **BLOB**. Per consentire l'accesso in lettura pubblico completo alle risorse BLOB, ai metadati del contenitore e all'elenco dei BLOB nel contenitore, impostare il parametro di autorizzazione **su Contenitore**. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](storage-manage-access-to-resources.md).
+> [!NOTE]
+> Esistono tre livelli di accesso in lettura anonimo: **Off**, **Blob**, e **contenitore**. Per impedire l'accesso anonimo ai BLOB, impostare il parametro di autorizzazione su **Disattivato**. Per impostazione predefinita, il nuovo contenitore è privato ed è accessibile solo al proprietario dell'account. Per consentire l'accesso in lettura pubblico anonimo alle risorse BLOB, ma non ai metadati del contenitore o all'elenco dei BLOB nel contenitore, impostare il parametro di autorizzazione su **BLOB**. Per consentire l'accesso in lettura pubblico completo alle risorse BLOB, ai metadati del contenitore e all'elenco dei BLOB nel contenitore, impostare il parametro di autorizzazione **su Contenitore**. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](storage-manage-access-to-resources.md).
+> 
+> 
 
 ### Come caricare un BLOB in un contenitore
 In Archiviazione BLOB di Azure sono supportati BLOB in blocchi e BLOB di pagine. Per altre informazioni, vedere [Informazioni sui BLOB in blocchi, sui BLOB di aggiunta e sui BLOB di pagine](http://msdn.microsoft.com/library/azure/ee691964.aspx).
@@ -429,8 +413,8 @@ Attualmente, Azure PowerShell non fornisce i cmdlet per gestire direttamente le 
 #### Come aggiungere le entità di tabella
 Per aggiungere un'entità a una tabella, creare prima un oggetto che definisca le proprietà dell'entità. Un'entità può contenere fino a 255 proprietà, incluse 3 proprietà di sistema: **PartitionKey**, **RowKey**, e **Timestamp**. L'utente è responsabile dell'inserimento e dell'aggiornamento dei valori di **PartitionKey** e **RowKey**. Il server gestisce il valore **Timestamp**, che non può essere modificato. Insieme **PartitionKey** e **RowKey** identificano in modo univoco tutte le entità di una tabella.
 
--	**PartitionKey**: determina la partizione in cui è archiviata l'entità.
--	**RowKey**: identifica in modo univoco l'entità all'interno della partizione.
+* **PartitionKey**: determina la partizione in cui è archiviata l'entità.
+* **RowKey**: identifica in modo univoco l'entità all'interno della partizione.
 
 È possibile definire fino a 252 proprietà personalizzate per un'entità. Per altre informazioni, vedere [Informazioni sul modello di dati del servizio tabelle](http://msdn.microsoft.com/library/azure/dd179338.aspx).
 
@@ -623,14 +607,14 @@ Per informazioni su come abilitare e recuperare i dati di registrazione di archi
 ## Come gestire la firma di accesso condiviso (SAS) e criteri di accesso archiviati
 Le firme di accesso condiviso costituiscono una parte essenziale del modello di sicurezza di qualsiasi applicazione che usa il servizio di archiviazione di Azure. Le firme di accesso condiviso sono utili per offrire autorizzazioni limitate all'account di archiviazione ai client ai quali non si desidera fornire la chiave dell'account. Per impostazione predefinita, solo il proprietario dell'account di archiviazione può accedere a BLOB, tabelle e code all'interno dell'account. Se il servizio o l'applicazione deve rendere disponibili queste risorse ad altri client senza condividere la chiave di accesso, sono disponibili tre opzioni:
 
-- Impostare le autorizzazioni di un contenitore per consentire l'accesso in lettura anonimo al contenitore e ai relativi BLOB. Questa operazione non è consentita per le tabelle o le code.
-- Usare una firma di accesso condiviso che concede diritti di accesso limitati a contenitori, BLOB, code e tabelle per un intervallo di tempo specifico.
-- Usare criteri di accesso archiviati per ottenere un livello di controllo aggiuntivo sulle firme di accesso condiviso per un contenitore o i relativi BLOB, per una coda o per una tabella. I criteri di accesso archiviati consentono di modificare l'ora di inizio, la scadenza o le autorizzazioni per una firma o di revocare la firma dopo che è stata emessa.
+* Impostare le autorizzazioni di un contenitore per consentire l'accesso in lettura anonimo al contenitore e ai relativi BLOB. Questa operazione non è consentita per le tabelle o le code.
+* Usare una firma di accesso condiviso che concede diritti di accesso limitati a contenitori, BLOB, code e tabelle per un intervallo di tempo specifico.
+* Usare criteri di accesso archiviati per ottenere un livello di controllo aggiuntivo sulle firme di accesso condiviso per un contenitore o i relativi BLOB, per una coda o per una tabella. I criteri di accesso archiviati consentono di modificare l'ora di inizio, la scadenza o le autorizzazioni per una firma o di revocare la firma dopo che è stata emessa.
 
 Una firma di accesso condiviso può assumere una delle due forme seguenti:
 
-- **SAS Ad hoc **quando si crea una firma di accesso condiviso ad hoc, l'ora di inizio, la scadenza e le autorizzazioni vengono tutte specificate nell'URI corrispondente. Questo tipo di firma di accesso condiviso può essere creato per un contenitore, un BLOB, una tabella e una coda e non è revocabile.
-- **Firma di accesso condiviso con politica di accesso archiviazione**: i criteri di accesso archiviati vengono definiti per un contenitore di risorse, ovvero un contenitore BLOB, una tabella o una coda, e possono essere usati per gestire i vincoli per una o più firme di accesso condiviso. Quando si associa una firma di accesso condiviso a criteri di accesso archiviati, la firma eredita i vincoli, ovvero ora di inizio, scadenza e autorizzazioni, definiti per i criteri di accesso archiviati. Questo tipo di firma di accesso condiviso è revocabile.
+* **SAS Ad hoc **quando si crea una firma di accesso condiviso ad hoc, l'ora di inizio, la scadenza e le autorizzazioni vengono tutte specificate nell'URI corrispondente. Questo tipo di firma di accesso condiviso può essere creato per un contenitore, un BLOB, una tabella e una coda e non è revocabile.
+* **Firma di accesso condiviso con politica di accesso archiviazione**: i criteri di accesso archiviati vengono definiti per un contenitore di risorse, ovvero un contenitore BLOB, una tabella o una coda, e possono essere usati per gestire i vincoli per una o più firme di accesso condiviso. Quando si associa una firma di accesso condiviso a criteri di accesso archiviati, la firma eredita i vincoli, ovvero ora di inizio, scadenza e autorizzazioni, definiti per i criteri di accesso archiviati. Questo tipo di firma di accesso condiviso è revocabile.
 
 Per altre informazioni, vedere [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md) e [Gestire l'accesso in lettura anonimo a contenitori e BLOB](storage-manage-access-to-resources.md).
 
@@ -670,43 +654,39 @@ Un ambiente Azure è una distribuzione indipendente di Microsoft Azure, ad esemp
 
 Per usare Archiviazione di Azure con AzureChinaCloud, è necessario creare un contesto di archiviazione associato ad AzureChinaCloud. Seguire questi passaggi per iniziare:
 
-1.	Eseguire il cmdlet [Get-AzureEnvironment](https://msdn.microsoft.com/library/azure/dn790368.aspx) per visualizzare gli ambienti Azure disponibili:
-
-    `Get-AzureEnvironment`
-
-2.	Aggiungere un account Azure Cina a Windows PowerShell:
-
-    `Add-AzureAccount –Environment AzureChinaCloud`
-
-3.	Creare un contesto di archiviazione per un account AzureChinaCloud:
-
-    	$Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureChinaCloud
+1. Eseguire il cmdlet [Get-AzureEnvironment](https://msdn.microsoft.com/library/azure/dn790368.aspx) per visualizzare gli ambienti Azure disponibili:
+   
+   `Get-AzureEnvironment`
+2. Aggiungere un account Azure Cina a Windows PowerShell:
+   
+   `Add-AzureAccount –Environment AzureChinaCloud`
+3. Creare un contesto di archiviazione per un account AzureChinaCloud:
+   
+     $Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureChinaCloud
 
 Per utilizzare l'archiviazione di Azure con [il governo degli Stati Uniti](https://azure.microsoft.com/features/gov/), è necessario definire un nuovo ambiente e creare un nuovo contesto di archiviazione con questo ambiente:
 
-1.	Eseguire il cmdlet [Get-AzureEnvironment](https://msdn.microsoft.com/library/azure/dn790368.aspx) per visualizzare gli ambienti Azure disponibili:
-
-    `Get-AzureEnvironment`
-
-2.	Aggiungere un account Azure per enti pubblici a Windows PowerShell:
-
-    `Add-AzureAccount –Environment AzureUSGovernment`
-
-3.	Creare un contesto di archiviazione per un account AzureUSGovernment:
-
-    	$Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureUSGovernment
+1. Eseguire il cmdlet [Get-AzureEnvironment](https://msdn.microsoft.com/library/azure/dn790368.aspx) per visualizzare gli ambienti Azure disponibili:
+   
+   `Get-AzureEnvironment`
+2. Aggiungere un account Azure per enti pubblici a Windows PowerShell:
+   
+   `Add-AzureAccount –Environment AzureUSGovernment`
+3. Creare un contesto di archiviazione per un account AzureUSGovernment:
+   
+     $Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureUSGovernment
 
 Per altre informazioni, vedere:
 
-- [Guida per gli sviluppatori di Microsoft Azure Government](../azure-government-developer-guide.md).
-- [Panoramica delle differenze nella creazione di un'applicazione in China Service](https://msdn.microsoft.com/library/azure/dn578439.aspx)
+* [Guida per gli sviluppatori di Microsoft Azure Government](../azure-government-developer-guide.md).
+* [Panoramica delle differenze nella creazione di un'applicazione in China Service](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 
 ## Passaggi successivi
 In questa guida è stato appreso come gestire Archiviazione di Azure con Azure PowerShell. Per altre informazioni, vedere gli articoli e le risorse correlati seguenti:
 
-- [Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
-- [Cmdlet di PowerShell per Archiviazione di Azure](http://msdn.microsoft.com/library/azure/dn806401.aspx)
-- [Riferimenti Windows PowerShell](https://msdn.microsoft.com/library/ms714469.aspx)
+* [Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Cmdlet di PowerShell per Archiviazione di Azure](http://msdn.microsoft.com/library/azure/dn806401.aspx)
+* [Riferimenti Windows PowerShell](https://msdn.microsoft.com/library/ms714469.aspx)
 
 [Image1]: ./media/storage-powershell-guide-full/Subscription_currentportal.png
 [Image2]: ./media/storage-powershell-guide-full/Subscription_Previewportal.png

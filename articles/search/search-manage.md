@@ -1,34 +1,35 @@
-<properties 
-    pageTitle="Amministrazione del servizio per Ricerca di Azure nel portale di Azure" 
-    description="Gestire Ricerca di Azure, un servizio di ricerca cloud ospitato in Microsoft Azure, usando il portale di Azure." 
-    services="search" 
-    documentationCenter="" 
-    authors="HeidiSteen" 
-    manager="jhubbard" 
-    editor=""
-    tags="azure-portal"/>
+---
+title: Amministrazione del servizio per Ricerca di Azure nel portale di Azure
+description: Gestire Ricerca di Azure, un servizio di ricerca cloud ospitato in Microsoft Azure, usando il portale di Azure.
+services: search
+documentationcenter: ''
+author: HeidiSteen
+manager: jhubbard
+editor: ''
+tags: azure-portal
 
-<tags 
-    ms.service="search" 
-    ms.devlang="rest-api" 
-    ms.workload="search" 
-    ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.date="10/17/2016" 
-    ms.author="heidist"/>
+ms.service: search
+ms.devlang: rest-api
+ms.workload: search
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.date: 10/17/2016
+ms.author: heidist
 
-
+---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Amministrazione del servizio per Ricerca di Azure nel portale di Azure
-> [AZURE.SELECTOR]
-- [Portale](search-manage.md)
-- [PowerShell](search-manage-powershell.md)
-- [API REST](search-get-started-management-api.md)
+> [!div class="op_single_selector"]
+> * [Portale](search-manage.md)
+> * [PowerShell](search-manage-powershell.md)
+> * [API REST](search-get-started-management-api.md)
+> 
+> 
 
 Ricerca di Azure è un servizio di ricerca basato sul cloud completamente gestito usato per offrire un'esperienza di ricerca avanzata nelle app personalizzate. Questo articolo illustra le attività di *amministrazione del servizio* che è possibile eseguire nel [portale di Azure](https://portal.azure.com) per un servizio di ricerca di cui si è già effettuato il provisining. *Service administration* è leggera e limitata alle attività seguenti:
 
-- Gestire e proteggere l'accesso alle *chiavi API* usate per l'accesso in lettura o scrittura al servizio.
-- Regolare la capacità del servizio modificando l'allocazione di partizioni e repliche.
-- Monitorare l'uso della risorsa, relativamente ai limiti massimi del livello del servizio.
+* Gestire e proteggere l'accesso alle *chiavi API* usate per l'accesso in lettura o scrittura al servizio.
+* Regolare la capacità del servizio modificando l'allocazione di partizioni e repliche.
+* Monitorare l'uso della risorsa, relativamente ai limiti massimi del livello del servizio.
 
 **Non nell'ambito** 
 
@@ -39,8 +40,8 @@ Ricerca di Azure è un servizio di ricerca basato sul cloud completamente gestit
 Ricerca di Azure non offre soluzioni predefinite per il ripristino di emergenza o il backup e ripristino. Per i clienti che effettuano il push di oggetti e dati nel servizio, il codice sorgente per la creazione e il popolamento di un indice è di fatto l'opzione di ripristino se si elimina un indice per errore. Per il ripristino di emergenza, i clienti danno il consenso esplicito per la ridondanza tramite un servizio aggiuntivo in un data center a livello di area diverso. Per altre informazioni, vedere [Prestazioni e ottimizzazione in Ricerca di Azure](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
-## <a name="administrator-rights-in-azure-search"></a>Diritti di amministratore in Ricerca di Azure
 
+## <a name="administrator-rights-in-azure-search"></a>Diritti di amministratore in Ricerca di Azure
 Il provisioning o il ritiro delle autorizzazioni per il servizio in sé può essere effettuato da un amministratore o da un coamministratore della sottoscrizione di Azure.
 
 In un servizio chiunque abbia accesso all'URL del servizio e a una chiave API di amministrazione ha accesso in lettura/scrittura al servizio, con la relativa possibilità di aggiungere, eliminare o modificare gli oggetti server, ad esempio chiavi API, indici, indicizzatori, origini dati, pianificazioni e assegnazioni di ruolo, implementati tramite i [ruoli definiti dal controllo degli accessi in base al ruolo](#rbac).
@@ -48,27 +49,27 @@ In un servizio chiunque abbia accesso all'URL del servizio e a una chiave API di
 Ogni interazione dell'utente con Ricerca di Azure rientra in una di queste modalità: accesso in lettura/scrittura al servizio (diritti di amministratore) o accesso di sola lettura al servizio (diritti di query). Per altre informazioni, vedere [Gestire le chiavi API](#manage-keys).
 
 <a id="sys-info"></a>
-## <a name="logging-in-azure-search-and-system-information"></a>Accesso a Ricerca di Azure e informazioni sul sistema
 
+## <a name="logging-in-azure-search-and-system-information"></a>Accesso a Ricerca di Azure e informazioni sul sistema
 Ricerca di Azure non espone i file di log di un singolo servizio né tramite il portale né tramite interfacce programmatiche. Nel piano Basic Microsoft monitora tutti i servizi di Ricerca di Azure per verificare la disponibilità del 99,9% per ogni contratto di servizio. Se il servizio è lento o la velocità effettiva delle richieste è al di sotto delle soglie dei contratti di servizio, i team di supporto esaminano i file di log disponibili e risolvono il problema.
 
 In termini di informazioni generali sul servizio, è possibile ottenere informazioni nei modi seguenti:
 
-- Nel portale tramite notifiche, proprietà e messaggi di stato nel dashboard del servizio.
-- Uso di [PowerShell](search-manage-powershell.md) o dell'interfaccia [API REST di gestione](https://msdn.microsoft.com/library/azure/dn832684.aspx) per [ottenere le proprietà del servizio](https://msdn.microsoft.com/library/azure/dn832694.aspx) oppure lo stato nell'uso della risorsa dell'indice.
-- Tramite l' [analisi del traffico di ricerca](search-traffic-analytics.md), come indicato prima.
+* Nel portale tramite notifiche, proprietà e messaggi di stato nel dashboard del servizio.
+* Uso di [PowerShell](search-manage-powershell.md) o dell'interfaccia [API REST di gestione](https://msdn.microsoft.com/library/azure/dn832684.aspx) per [ottenere le proprietà del servizio](https://msdn.microsoft.com/library/azure/dn832694.aspx) oppure lo stato nell'uso della risorsa dell'indice.
+* Tramite l' [analisi del traffico di ricerca](search-traffic-analytics.md), come indicato prima.
 
 <a id="manage-keys"></a>
-## <a name="manage-the-api-keys"></a>Gestire le chiavi API
 
+## <a name="manage-the-api-keys"></a>Gestire le chiavi API
 Tutte le richieste indirizzate a un servizio di ricerca necessitano di una chiave API generata specificamente per il proprio servizio. Questa chiave API è l'unico meccanismo di autenticazione dell'accesso all'endpoint di servizio di ricerca. 
 
 Una chiave API è una stringa composta da lettere e numeri generati casualmente. Viene generata esclusivamente dal servizio. Tramite le [autorizzazioni RBAC](#rbac), è possibile eliminare o leggere le chiavi, ma non è possibile eseguire l'override di una chiave generata con una stringa definita dall'utente. In particolare, in caso di password usate periodicamente, non è possibile sostituire una chiave API con una password definita dall'utente. 
 
 Per accedere al servizio di ricerca vengono usati due tipi di chiavi:
 
-+   Amministratore (valida per qualsiasi operazione in lettura/scrittura sul servizio)
-+   Di query (valida per operazioni di sola lettura, ad esempio le query su un indice)
+* Amministratore (valida per qualsiasi operazione in lettura/scrittura sul servizio)
+* Di query (valida per operazioni di sola lettura, ad esempio le query su un indice)
 
 Una chiave API amministratore viene creata quando viene effettuato il provisioning del servizio. Esistono due chiavi amministratore, designate come *primaria* e *secondaria* per distinguerle, ma di fatto sono intercambiabili. Ogni servizio ha due chiavi amministratore in modo che sia possibile eseguire il rollover di una senza perdere l'accesso al servizio. È possibile rigenerare qualsiasi delle due chiavi amministrative ma non è possibile aggiungere chiavi al totale delle chiavi amministrative disponibili. È consentito un massimo di due chiavi amministratore per ogni servizio di ricerca.
 
@@ -79,24 +80,23 @@ Per ottenere o rigenerare le chiavi API, aprire il Dashboard servizi. Fare clic 
  ![][9]
 
 <a id="rbac"></a>
-## <a name="set-rbac-roles-on-administrative-access-for-azure-search"></a>Impostare i ruoli Controllo degli accessi in base al ruolo nell'accesso amministrativo per Ricerca di Azure
 
+## <a name="set-rbac-roles-on-administrative-access-for-azure-search"></a>Impostare i ruoli Controllo degli accessi in base al ruolo nell'accesso amministrativo per Ricerca di Azure
 Azure offre un [modello di autorizzazione basata sui ruoli globali](../active-directory/role-based-access-control-configure.md) per tutti i servizi gestiti tramite il portale o le API di Resource Manager. I ruoli Proprietario, Collaboratore e Lettore determinano il livello di amministrazione del servizio per gli utenti, i gruppi e le entità di sicurezza di Active Directory assegnati a ogni ruolo. 
 
 Per Ricerca di Azure, le autorizzazioni del controllo degli accessi in base al ruolo determinano le attività amministrative seguenti:
 
-Ruolo|Attività
----|---
-Proprietario|Creare o eliminare il servizio o qualsiasi oggetto nel servizio, inclusi chiavi API, indici, indicizzatori, origini dati di un indicizzatore e pianificazioni di indicizzatore.<p>Visualizzare lo stato del servizio, inclusi conteggi e dimensioni.<p>Aggiunta o eliminazione dell'appartenenza al ruolo, che può essere gestita solo da un Proprietario.<p>Gli amministratori delle sottoscrizioni e i proprietari del servizio vengono aggiunti automaticamente al ruolo proprietario.
-Collaboratore|Stesso livello di accesso del Proprietario, tranne la gestione dei ruoli Controllo degli accessi in base al ruolo. Ad esempio, un Collaboratore può visualizzare e rigenerare `api-key`, ma non può modificare le appartenenze ai ruoli.
-Reader|Può visualizzare lo stato e le chiavi di query. I membri di questo ruolo non possono modificare la configurazione del servizio né visualizzare le chiavi amministratore.
+| Ruolo | Attività |
+| --- | --- |
+| Proprietario |Creare o eliminare il servizio o qualsiasi oggetto nel servizio, inclusi chiavi API, indici, indicizzatori, origini dati di un indicizzatore e pianificazioni di indicizzatore.<p>Visualizzare lo stato del servizio, inclusi conteggi e dimensioni.<p>Aggiunta o eliminazione dell'appartenenza al ruolo, che può essere gestita solo da un Proprietario.<p>Gli amministratori delle sottoscrizioni e i proprietari del servizio vengono aggiunti automaticamente al ruolo proprietario. |
+| Collaboratore |Stesso livello di accesso del Proprietario, tranne la gestione dei ruoli Controllo degli accessi in base al ruolo. Ad esempio, un Collaboratore può visualizzare e rigenerare `api-key`, ma non può modificare le appartenenze ai ruoli. |
+| Reader |Può visualizzare lo stato e le chiavi di query. I membri di questo ruolo non possono modificare la configurazione del servizio né visualizzare le chiavi amministratore. |
 
 Si noti che i ruoli non concedono diritti di accesso all'endpoint del servizio. Le operazioni del servizio di ricerca, ad esempio la gestione e il popolamento degli indici e le query sui dati di ricerca, sono controllate tramite le chiavi API, non tramite i ruoli. Per altre informazioni, vedere "Autorizzazioni per le operazioni di gestione e per le operazioni di dati" in [Che cos'è il controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md).
 
-
 <a id="secure-keys"></a>
-## <a name="secure-the-api-keys"></a>Proteggere le chiavi API
 
+## <a name="secure-the-api-keys"></a>Proteggere le chiavi API
 La sicurezza delle chiavi viene garantita limitando l'accesso tramite il portale o le interfacce di Resource Manager (PowerShell o interfaccia della riga di comando). Come indicato, gli amministratori delle sottoscrizioni possono visualizzare e rigenerare tutte le chiavi API. Per precauzione, esaminare le assegnazioni di ruolo per sapere chi ha accesso alle chiavi amministratore.
 
 1. Nel dashboard del servizio fare clic sull'icona Accesso per aprire il pannello Utenti con effetto scorrimento.
@@ -107,21 +107,23 @@ La sicurezza delle chiavi viene garantita limitando l'accesso tramite il portale
 Per visualizzare le autorizzazioni di accesso, è anche possibile fare clic su **Ruoli** nel pannello Utenti. In questo modo vengono visualizzati i ruoli disponibili e il numero di utenti o gruppi assegnati a ogni ruolo.
 
 <a id="sub-5"></a>
-## <a name="monitor-resource-usage"></a>Monitorare l'uso delle risorse
 
+## <a name="monitor-resource-usage"></a>Monitorare l'uso delle risorse
 Nel dashboard il monitoraggio delle risorse è limitato alle informazioni visualizzate nel dashboard del servizio e ad alcune metriche che è possibile ottenere effettuando query sul servizio. Nella sezione Utilizzo del Dashboard servizi è possibile determinare rapidamente se i livelli delle risorse di partizione sono adeguati per l'applicazione.
 
 Usando l'API del servizio di ricerca, è possibile ottenere un conteggio dei documenti e degli indici. Esistono limiti rigidi associati a questi conteggi in base al livello di prezzo. Per altre informazioni, vedere [Limiti del servizio di ricerca](search-limits-quotas-capacity.md). 
 
-+   [Ottenere le statistiche di un indice](http://msdn.microsoft.com/library/dn798942.aspx)
-+   [Conteggio documenti](http://msdn.microsoft.com/library/dn798924.aspx)
+* [Ottenere le statistiche di un indice](http://msdn.microsoft.com/library/dn798942.aspx)
+* [Conteggio documenti](http://msdn.microsoft.com/library/dn798924.aspx)
 
-> [AZURE.NOTE] Il comportamento della cache può determinare la dichiarazione di un limite più alto. Ad esempio, quando si usa il servizio condiviso, è possibile che venga visualizzato un conteggio documenti superiore al limite rigido di 10.000. Questa stima in eccesso è temporanea e verrà rilevata al successivo controllo di imposizione del limite. 
-
+> [!NOTE]
+> Il comportamento della cache può determinare la dichiarazione di un limite più alto. Ad esempio, quando si usa il servizio condiviso, è possibile che venga visualizzato un conteggio documenti superiore al limite rigido di 10.000. Questa stima in eccesso è temporanea e verrà rilevata al successivo controllo di imposizione del limite. 
+> 
+> 
 
 <a id="scale"></a>
-## <a name="scale-up-or-down"></a>Aumentare o ridurre la quantità di risorse
 
+## <a name="scale-up-or-down"></a>Aumentare o ridurre la quantità di risorse
 Ogni servizio di ricerca viene creato con un minimo di una replica e una partizione. Se si esegue l'iscrizione alle risorse dedicate usando il [piano tariffario Basic o Standard](search-limits-quotas-capacity.md), fare clic sul riquadro **RIDIMENSIONA** nel dashboard del servizio per regolare il numero di partizioni e di repliche usate dal servizio stesso.
 
 Quando si aggiunge capacità tramite l'una o l'altra risorsa, la risorsa aggiunta viene usata dal servizio in modo automatico. Non sono necessarie ulteriori azioni da parte dell'utente, ma vi sarà un lieve ritardo prima che l'impatto delle nuove risorse sia apprezzabile. Possono essere necessari 15 o più minuti per il provisioning delle risorse aggiuntive.
@@ -129,7 +131,6 @@ Quando si aggiunge capacità tramite l'una o l'altra risorsa, la risorsa aggiunt
  ![][10]
 
 ### <a name="add-replicas"></a>Aggiungere repliche
-
 L'aumento delle query al secondo o il raggiungimento della disponibilità elevata si ottengono mediante l'aggiunta di repliche. Ogni replica presenta una copia di un indice, quindi l'aggiunta di un'altra replica si traduce in un indice aggiuntivo disponibile per la gestione delle richieste di query del servizio. Per una disponibilità elevata, sono necessarie almeno 3 repliche. Per informazioni dettagliate, vedere [Pianificazione della capacità](search-capacity-planning.md).
 
 Un servizio di ricerca con un numero superiore di repliche può eseguire il bilanciamento del carico delle richieste di query su un numero maggiore di indici. Per un determinato volume di query, la velocità effettiva delle query sarà maggiore in presenza di più copie dell'indice disponibili per soddisfare la richiesta. Se si verificano latenze delle query, ci si può aspettare un netto miglioramento delle prestazioni una volta portate online le repliche aggiuntive.
@@ -137,19 +138,16 @@ Un servizio di ricerca con un numero superiore di repliche può eseguire il bila
 Sebbene la velocità effettiva delle query aumenti quando si aggiungono repliche, non viene effettivamente raddoppiata o triplicata in rapporto al numero di repliche aggiunte. Tutte le applicazioni di ricerca sono influenzate da fattori esterni che possono influire sulle prestazioni di query. Query complesse e latenza di rete sono due fattori che contribuiscono alle variazioni nei tempi di risposta alle query.
 
 ### <a name="add-partitions"></a>Aggiungere partizioni
-
 Per la maggior parte delle applicazioni di servizio è indispensabile un numero maggiore di repliche invece che di partizioni. Per i casi in cui è necessario un numero maggiore di documenti, l'iscrizione al servizio Standard permette di aggiungere partizioni. Il livello Basic non offre partizioni aggiuntive.
 
 Al livello Standard le partizioni vengono aggiunte in multipli di 12 (ossia 1, 2, 3, 4, 6 o 12). Si tratta di un elemento del partizionamento orizzontale. Un indice viene creato in 12 sottopartizioni, tutte archiviabili a propria volta in 1 partizione o equamente distribuibili in 2, 3, 4, 6 o 12 partizioni (in quest'ultimo caso, una per partizione).
 
 ### <a name="remove-replicas"></a>Rimuovere repliche
-
 Dopo periodi di alti volumi di query è possibile che si vogliano ridurre le repliche dopo che i carichi di query di ricerca si sono normalizzati (ad esempio al termine di un periodo di vendite prefestive).
 
 Per fare ciò, spostare il dispositivo di scorrimento relativo alle repliche su un numero inferiore. Non vi sono altre azioni richieste da parte dell'utente. La riduzione del numero di repliche comporta il rilascio di macchine virtuali nel data center. Le operazioni di query e di inserimento dati verranno ora elaborate su un numero minore di VM rispetto a prima. Il limite minimo è di una replica.
 
 ### <a name="remove-partitions"></a>Rimuovere partizioni
-
 A differenza della rimozione di repliche, che non richiede operazioni aggiuntive da parte dell'utente, potrebbe essere richiesto lavoro aggiuntivo se si occupa più archiviazione di quanta se ne vuole ottenere dopo una riduzione. Ad esempio, se la soluzione usa tre partizioni, il downsizing a una o due partizioni genererà un errore se il nuovo spazio di archiviazione è meno del necessario. Come è prevedibile, la scelta è di eliminare indici o documenti in un indice associato per liberare spazio oppure di mantenere la configurazione attuale.
 
 Non è disponibile un metodo di rilevamento che indichi quante sottopartizioni di indice sono archiviate su una partizione specifica. Ogni partizione fornisce approssimativamente 25 GB di spazio di archiviazione, pertanto sarà necessario ridurre l'archiviazione a una dimensione che possa essere contenuta nel numero disponibile di partizioni. Se si vuole tornare a una partizione, questa dovrà contenere tutte e 12 le sottopartizioni.
@@ -157,22 +155,23 @@ Non è disponibile un metodo di rilevamento che indichi quante sottopartizioni d
 Per pianificare in anticipo le esigenze future, è possibile verificare l'archiviazione (usando [Ottieni statistiche indice](http://msdn.microsoft.com/library/dn798942.aspx)) per verificare quanta archiviazione è stata effettivamente usata. 
 
 <a id="advanced-deployment"></a>
-## <a name="best-practices-on-scale-and-deployment-(video)"></a>Procedure consigliate su scalabilità e distribuzione (video)
 
+## <a name="best-practices-on-scale-and-deployment-(video)"></a>Procedure consigliate su scalabilità e distribuzione (video)
 Questo video di 30 minuti esamina le procedure consigliate per gli scenari di distribuzione avanzata, inclusi i carichi di lavoro con distribuzione geografica. Per le pagine della guida che illustrano gli stessi argomenti, è anche possibile vedere [Prestazioni e ottimizzazione in Ricerca di Azure](search-performance-optimization.md) .
 
-> [AZURE.VIDEO azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications]
+> [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
+> 
+> 
 
 <a id="next-steps"></a>
-## <a name="next-steps"></a>Passaggi successivi
 
+## <a name="next-steps"></a>Passaggi successivi
 Dopo avere compreso i tipi di operazioni relative all'amministrazione del servizio, tenere in considerazione i diversi approcci per la gestione dei servizi:
 
-- [PowerShell](search-manage-powershell.md)
-- [API REST di gestione](search-get-started-management-api.md)
+* [PowerShell](search-manage-powershell.md)
+* [API REST di gestione](search-get-started-management-api.md)
 
 Se non è già stato fatto, vedere anche l' [articolo su prestazioni e ottimizzazione](search-performance-optimization.md)e guardare il video citato nella sezione precedente per informazioni più approfondite e dimostrazioni delle tecniche consigliate.
-
 
 <!--Image references-->
 [7]: ./media/search-manage/rbac-icon.png
@@ -181,7 +180,7 @@ Se non è già stato fatto, vedere anche l' [articolo su prestazioni e ottimizza
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
 
 
- 
+
 
 
 

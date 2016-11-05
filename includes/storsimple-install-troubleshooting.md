@@ -1,7 +1,6 @@
 <!--author=alkohli last changed: 03/17/16-->
 
 ## Risoluzione degli errori di aggiornamento
-
 **Se viene visualizzata una notifica che i controlli di pre-aggiornamento non è stato?**
 
 Se un controllo preliminare ha esito negativo, verificare che siano presenti nella barra di notifica dettagliate nella parte inferiore della pagina. Fornisce informazioni aggiuntive quali controllo preliminare non riuscita. Nella figura seguente è illustrata un'istanza in cui viene visualizzata una notifica. In questo caso, il controllo di integrità del controller e il controllo di integrità del componente hardware non sono riusciti. Nella sezione **Stato hardware** è possibile vedere e i componenti **Controller 0** e **Controller 1** richiedono attenzione.

@@ -1,6 +1,8 @@
-> [AZURE.SELECTOR]
-- [Portale](virtual-network-manage-nsg-arm-portal.md)
-- [PowerShell](virtual-network-manage-nsg-arm-ps.md)
-- [Interfaccia della riga di comando di Azure](virtual-network-manage-nsg-arm-cli.md)
+> [!div class="op_single_selector"]
+> * [Portale](../articles/virtual-network/virtual-network-manage-nsg-arm-portal.md)
+> * [PowerShell](../articles/virtual-network/virtual-network-manage-nsg-arm-ps.md)
+> * [Interfaccia della riga di comando di Azure](../articles/virtual-network/virtual-network-manage-nsg-arm-cli.md)
+> 
+> 
 
 <!---HONumber=AcomDC_0914_2016-->

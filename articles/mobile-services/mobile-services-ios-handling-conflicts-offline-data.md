@@ -1,84 +1,80 @@
-<properties
-	pageTitle="Gestire i conflitti relativi alla sincronizzazione offline dei dati in Servizi mobili (iOS) | Mobile Dev Center"
-	description="Informazioni sull'uso di Servizi mobili di Azure per gestire i conflitti durante la sincronizzazione dei dati offline nell'applicazione iOS."
-	documentationCenter="ios"
-	authors="krisragh"
-	manager="erikre"
-	editor=""
-	services="mobile-services"/>
+---
+title: Gestire i conflitti relativi alla sincronizzazione offline dei dati in Servizi mobili (iOS) | Microsoft Docs
+description: Informazioni sull'uso di Servizi mobili di Azure per gestire i conflitti durante la sincronizzazione dei dati offline nell'applicazione iOS.
+documentationcenter: ios
+author: krisragh
+manager: erikre
+editor: ''
+services: mobile-services
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="krisragh;donnam"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-ios
+ms.devlang: objective-c
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: krisragh;donnam
 
-
+---
 # Gestione dei conflitti relativi alla sincronizzazione offline dei dati in Servizi mobili
-
-[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
+[!INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
 Questo argomento illustra come sincronizzare e gestire i conflitti quando si usano le funzionalità offline di Servizi mobili di Azure. Questa esercitazione si basa sull'esercitazione [Introduzione ai dati offline].
 
->[AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">versione di valutazione gratuita di Azure</a>.
-
+> [!NOTE]
+> Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">versione di valutazione gratuita di Azure</a>.
+> 
+> 
 
 ## Scaricare progetto iOS
-
 Per questa esercitazione, scaricare [un progetto Xcode aggiornato da Github](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS). È stato utilizzato il progetto Xcode dalla fine dell’esercitazione [Introduzione ai dati Offline] come punto di avvio, e poi è stato aggiornato in modo da consentire la modifica degli elementi. Sono state aggiunte anche le classi e i metodi di supporto in modo da poter aggiungere un gestore del conflitto nella sezione successiva.
 
 Al termine dell'esercitazione, se si esegue l'app su due telefoni, si modifica lo stesso elemento localmente in entrambi i telefoni e si esegue il push delle modifiche sul server, si consentirà all'utente di ogni telefono di scegliere la versione da conservare:
-  * mantenere la versione del client (che esegue l'override della versione del server),
-  * mantenere la versione del server (che aggiorna la tabella locale del client), oppure
-  * non mantenere nessuna delle versioni (annulla il push e lascia l'operazione in sospeso).
+
+* mantenere la versione del client (che esegue l'override della versione del server),
+* mantenere la versione del server (che aggiorna la tabella locale del client), oppure
+* non mantenere nessuna delle versioni (annulla il push e lascia l'operazione in sospeso).
 
 Ora, aggiungiamo il gestore del conflitto per abilitare questa funzionalità.
 
 ## <a name="add-conflict-handling"></a>Aggiungere il gestore dei conflitti al controller di visualizzazione dell'elenco attività
-
 1. In **QSTodoListViewController.m** modificare **viewDidLoad**. Sostituire la chiamata a **defaultService** con una chiamata a **defaultServiceWithDelegate**:
-
+   
         self.todoService = [QSTodoService defaultServiceWithDelegate:self];
-
 2. In **QSTodoListViewController.h** aggiungere **&lt;MSSyncContextDelegate&gt;** alla dichiarazione dell'interfaccia, in modo da implementare il protocollo **MSSyncContextDelegate**.
-
+   
         @interface QSTodoListViewController : UITableViewController<MSSyncContextDelegate, NSFetchedResultsControllerDelegate>
-
 3. Aggiungere l'istruzione di importazione seguente nella parte superiore di **QSTodoListViewController.m**:
-
+   
         #import "QSUIAlertViewWithBlock.h"
-
 4. Infine, si aggiungeranno le due operazioni seguenti a **QSTodoListViewController.m** per usare la classe helper e richiedere all'utente di riconciliare il conflitto usando uno di tre metodi.
-
+   
         - (void)tableOperation:(MSTableOperation *)operation onComplete:(MSSyncItemBlock)completion
         {
             [self doOperation:operation complete:completion];
         }
-
+   
         -(void)doOperation:(MSTableOperation *)operation complete:(MSSyncItemBlock)completion
         {
             [operation executeWithCompletion:^(NSDictionary *item, NSError *error) {
-
+   
                 NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
-
+   
                 if (error.code == MSErrorPreconditionFailed) {
                     QSUIAlertViewWithBlock *alert = [[QSUIAlertViewWithBlock alloc] initWithCallback:^(NSInteger buttonIndex) {
                         if (buttonIndex == 1) { // Client
                             NSMutableDictionary *adjustedItem = [operation.item mutableCopy];
-
+   
                             [adjustedItem setValue:[serverItem objectForKey:MSSystemColumnVersion] forKey:MSSystemColumnVersion];
                             operation.item = adjustedItem;
-
+   
                             [self doOperation:operation complete:completion];
                             return;
-
+   
                         } else if (buttonIndex == 2) { // Server
                             NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
                             completion(serverItem, nil);
@@ -87,9 +83,9 @@ Ora, aggiungiamo il gestore del conflitto per abilitare questa funzionalità.
                             completion(nil, error);
                         }
                     }];
-
+   
                     NSString *message = [NSString stringWithFormat:@"Client value: %@\nServer value: %@", operation.item[@"text"], serverItem[@"text"]];
-
+   
                     [alert showAlertWithTitle:@"Server Conflict"
                                       message:message
                             cancelButtonTitle:@"Cancel"
@@ -101,7 +97,6 @@ Ora, aggiungiamo il gestore del conflitto per abilitare questa funzionalità.
         }
 
 ## <a name="test-app"></a>Testare l'app
-
 Si procederà ora al test dell'app con i conflitti. Modificare lo stesso elemento in due diverse istanze dell'app in esecuzione nello stesso momento o usando l'app e un client REST.
 
 Eseguire il movimento di aggiornamento nelle istanze delle app mediante trascinamento dall'alto. A questo punto verrà visualizzata una richiesta di risoluzione del conflitto:

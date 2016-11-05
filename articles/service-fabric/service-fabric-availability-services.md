@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Disponibilità dei servizi di Service Fabric | Microsoft Azure"
-   description="Descrive il rilevamento degli errori, il failover e il ripristino dei servizi"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+---
+title: Disponibilità dei servizi di Service Fabric | Microsoft Docs
+description: Descrive il rilevamento degli errori, il failover e il ripristino dei servizi
+services: service-fabric
+documentationcenter: .net
+author: appi101
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/10/2016"
-   ms.author="aprameyr"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/10/2016
+ms.author: aprameyr
 
+---
 # Disponibilità dei servizi di Service Fabric
 I servizi Service Fabric di Azure possono essere con o senza stato. Questo articolo fornisce una panoramica della gestione della disponibilità di un servizio in Service Fabric in caso di errori.
 
@@ -38,16 +38,16 @@ Il concetto di replica primaria o replica secondaria attiva è noto come ruolo d
 ### Ruoli di replica
 Il ruolo di una replica viene usato per gestire il ciclo di vita dello stato gestito da tale replica. Una replica con ruolo primario gestisce le richieste di lettura. Essa gestisce anche le richieste di scrittura aggiornando il proprio stato e replicando le modifiche nelle repliche secondarie attive del relativo set di repliche. Il ruolo di una replica secondaria attiva è quello di ricevere i cambiamenti di stato che la replica primaria ha replicato e di aggiornare la visualizzazione dello stato.
 
->[AZURE.NOTE] Modelli di programmazione di livello superiore come il [framework Reliable Actors](service-fabric-reliable-actors-introduction.md) sottraggono il concetto di ruolo di replica alla consapevolezza dello sviluppatore.
+> [!NOTE]
+> Modelli di programmazione di livello superiore come il [framework Reliable Actors](service-fabric-reliable-actors-introduction.md) sottraggono il concetto di ruolo di replica alla consapevolezza dello sviluppatore.
+> 
+> 
 
 ## Passaggi successivi
-
 Per ulteriori informazioni sui concetti relativi a Service Fabric, vedere gli articoli seguenti:
 
-- [Scalabilità dei servizi di Service Fabric](service-fabric-concepts-scalability.md)
-
-- [Partizionamento dei servizi di Service Fabric](service-fabric-concepts-partitioning.md)
-
-- [Definizione e gestione dello stato](service-fabric-concepts-state.md)
+* [Scalabilità dei servizi di Service Fabric](service-fabric-concepts-scalability.md)
+* [Partizionamento dei servizi di Service Fabric](service-fabric-concepts-partitioning.md)
+* [Definizione e gestione dello stato](service-fabric-concepts-state.md)
 
 <!---HONumber=AcomDC_0810_2016-->

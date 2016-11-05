@@ -1,34 +1,30 @@
-<properties 
-	pageTitle="Domande frequenti sulla pubblicazione e sull'uso delle app di Machine Learning in Azure Marketplace | Microsoft Azure" 
-	description="Domande frequenti" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="bharaths" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+---
+title: Domande frequenti sulla pubblicazione e sull'uso delle app di Machine Learning in Azure Marketplace | Microsoft Docs
+description: Domande frequenti
+services: machine-learning
+documentationcenter: ''
+author: bharaths
+manager: jhubbard
+editor: cgronlun
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/11/2016" 
-	ms.author="bharaths"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/11/2016
+ms.author: bharaths
 
-#Domande frequenti sulla pubblicazione e sull'uso delle app di Machine Learning in Azure Marketplace
-
-##Domande sull'utilizzo da Marketplace
-
-
+---
+# Domande frequenti sulla pubblicazione e sull'uso delle app di Machine Learning in Azure Marketplace
+## Domande sull'utilizzo da Marketplace
 **1. Perché viene generato il messaggio di errore seguente dopo l'immissione di dati di input per il servizio Web?**
 
 **La richiesta ha avuto come risultato un timeout di back-end o un errore di back-end. Il team sta esaminando questo problema. Ci scusiamo per l'inconveniente. (500)**
 
 È possibile che i parametri di input immessi non siano conformi al formato richiesto per il servizio Web specifico. Fare riferimento al collegamento seguente relativo alla documentazione per individuare il formato corretto per i parametri di input e per informazioni sulle limitazioni di questo servizio Web.
 
-
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 **2. Se si copia il collegamento all'API per il servizio Web disponibile in "Esplorare il set di dati" e lo si incolla in un'altra finestra del browser, quali credenziali è necessario usare per accedere ai risultati e come vengono visualizzati?**
 
@@ -44,9 +40,7 @@
 
 Si tratta di un problema noto con il Marketplace del portale di Azure classico. Il team è impegnato nella risoluzione del problema.
 
-
-##Domande sulla pubblicazione da Azure Machine Learning nel Marketplace
-
+## Domande sulla pubblicazione da Azure Machine Learning nel Marketplace
 **1. Perché i logo, le immagini e il numero di transazioni non vengono aggiornati per il servizio Web?**
 
 I logo e le immagini vengono memorizzati nella cache del portale di pubblicazione e potrebbero essere necessari fino a 10 giorni per l'aggiornamento del nuovo logo o della nuova immagine nel portale.
@@ -69,12 +63,6 @@ La modalità di input batch non è attualmente supportata nei servizi Web del Ma
 
 **6. A chi ci si deve rivolgere per ottenere supporto in caso di domande su come diventare un'entità di pubblicazione di dati o in caso di problemi durante la pubblicazione?**
 
-Per altre informazioni, contattare il team di Azure Marketplace in <datamarketbd@microsoft.com>.
-
-
-
-
-
- 
+Per altre informazioni, contattare il team di Azure Marketplace in <mailto:datamarketbd@microsoft.com>.
 
 <!---HONumber=AcomDC_0914_2016-->

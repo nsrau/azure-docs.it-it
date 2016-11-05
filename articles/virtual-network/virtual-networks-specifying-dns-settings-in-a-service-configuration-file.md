@@ -1,24 +1,23 @@
-<properties 
-   pageTitle="Specifica le impostazioni DNS in un File di configurazione del servizio | Microsoft Azure"
-   description="Specificare le impostazioni DNS personalizzate utilizzando il file di configurazione del servizio per la rete virtuale"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="jimdial"
-   manager="carmonm"
-   editor="tysonn" />  
-<tags 
-   ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="02/24/2016"
-   ms.author="jdial" />  
+---
+title: Specifica le impostazioni DNS in un File di configurazione del servizio | Microsoft Docs
+description: Specificare le impostazioni DNS personalizzate utilizzando il file di configurazione del servizio per la rete virtuale
+services: virtual-network
+documentationcenter: na
+author: jimdial
+manager: carmonm
+editor: tysonn
 
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 02/24/2016
+ms.author: jdial
+
+---
 # Specifica le impostazioni DNS in un File di configurazione del servizio
-
 ## Elemento DNS
-
 Un file di configurazione del servizio può contenere un elemento DnsServers con un elenco di indirizzi IPv4 per i server Domain Name System (DNS) che verrà utilizzato dal servizio. Le impostazioni nel file di configurazione del servizio hanno la precedenza sulle impostazioni nel file di configurazione di rete. Per altre informazioni, vedere [Schema di configurazione dei servizi di Azure (con estensione .cscfg)](https://msdn.microsoft.com/library/azure/ee758710.aspx).
 
 **Elemento NetworkConfiguration**
@@ -29,10 +28,12 @@ Un file di configurazione del servizio può contenere un elemento DnsServers con
         <DnsServer name="ID3" IPAddress="IPAddress3" />
       </DnsServers>
 
->[AZURE.WARNING] Il**nome**dell’attributo nell’elemento **DnsServer**viene utilizzato solo come nome di riferimento. Non rappresenta il nome host per il server DNS. Ogni valore dell’attributo**DnsServer**deve essere univoco nell'intera sottoscrizione Microsoft Azure
+> [!WARNING]
+> Il**nome**dell’attributo nell’elemento **DnsServer**viene utilizzato solo come nome di riferimento. Non rappresenta il nome host per il server DNS. Ogni valore dell’attributo**DnsServer**deve essere univoco nell'intera sottoscrizione Microsoft Azure
+> 
+> 
 
 ## Vedere anche
-
 [Schema di configurazione dei servizi di Azure (file .cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710)
 
 [Attività di configurazione di Rete virtuale di Azure](http://go.microsoft.com/fwlink/?LinkId=248093)

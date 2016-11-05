@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Procedura dettagliata sull'API REST di monitoraggio di Azure | Microsoft Azure"
-	description="Come autenticare le richieste e usare l'API REST di monitoraggio di Azure."
-	authors="mcollier, rboucher"
-	manager=""
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Procedura dettagliata sull'API REST di monitoraggio di Azure | Microsoft Docs
+description: Come autenticare le richieste e usare l'API REST di monitoraggio di Azure.
+author: mcollier
+manager: ''
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/27/2016"
-	ms.author="mcollier"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/27/2016
+ms.author: mcollier
 
+---
 # Procedura dettagliata sull'API REST di monitoraggio di Azure
 In questo articolo viene illustrato come eseguire l'autenticazione in modo che il codice possa usare le [informazioni di riferimento sulle API REST di monitoraggio di Microsoft Azure](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
@@ -24,7 +24,6 @@ L'API di monitoraggio di Azure consente di recuperare in modo programmatico le d
 Oltre a essere compatibile con vari punti dati della metrica, come illustrato in questo articolo, l'API di monitoraggio consente di elencare le regole di avviso, di visualizzare i registri delle attività e molto altro ancora. Per un elenco completo delle operazioni disponibili, vedere le [informazioni di riferimento sulle API REST di monitoraggio di Microsoft Azure](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
 ## Autenticazione delle richieste di monitoraggio di Azure
-
 Innanzitutto è necessario autenticare la richiesta.
 
 Tutte le attività eseguite sull'API di monitoraggio di Azure usano il modello di autenticazione Azure Resource Manager. Di conseguenza, tutte le richieste devono essere autenticate con Azure Active Directory (Azure AD). Un approccio per autenticare l'applicazione client consiste nel creare un'entità servizio di Azure AD e recuperare il token di autenticazione (JTW). Il seguente script di esempio mostra la creazione di un'entità servizio di Azure AD tramite PowerShell. Per una procedura più dettagliata, fare riferimento alla documentazione sull'[uso di Azure PowerShell per creare un'entità servizio per accedere alle risorse](../resource-group-authenticate-service-principal.md#authenticate-service-principal-with-password—powershell). È anche possibile [creare un'entità servizio tramite il portale di Azure](../resource-group-create-service-principal-portal.md).
@@ -69,7 +68,7 @@ $authUrl = "https://login.windows.net/${tenantId}"
 
 $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]$authUrl
 $cred = New-Object -TypeName Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential -ArgumentList ($clientId, $pwd)
- 
+
 $result = $AuthContext.AcquireToken("https://management.core.windows.net/", $cred)
 
 # Build an array of HTTP header values 
@@ -83,12 +82,13 @@ $authHeader = @{
 Una volta completato il passaggio di configurazione dell'autenticazione, è possibile eseguire le query con l'API REST di monitoraggio di Azure. Esistono due query utili:
 
 1. Elencare le definizioni delle metriche per una risorsa
-
 2. Recuperare i valori delle metriche
 
-
 ## Recuperare le definizioni delle metriche
->[AZURE.NOTE] Per recuperare le definizioni delle metriche mediante l'API REST di monitoraggio di Azure, usare "2016-03-01" come versione dell'API.
+> [!NOTE]
+> Per recuperare le definizioni delle metriche mediante l'API REST di monitoraggio di Azure, usare "2016-03-01" come versione dell'API.
+> 
+> 
 
 ```PowerShell
 $apiVersion = "2016-03-01"
@@ -108,11 +108,14 @@ Per ulteriori informazioni, vedere la documentazione [Elencare le definizioni de
 ## Recuperare i valori delle metriche
 Una volta che le definizioni delle metriche disponibili sono note, è possibile recuperare i relativi valori. Usare il 'valore' del nome della metrica (non ' localizedValue') per tutte le richieste di filtro (ad esempio, per recuperare i punti dati delle metriche 'CpuTime' e 'Requests'). Se non è specificato alcun filtro, viene restituita la metrica predefinita.
 
->[AZURE.NOTE] Per recuperare i valori delle metriche mediante l'API REST di monitoraggio di Azure, usare "2016-06-01" come versione dell'API.
+> [!NOTE]
+> Per recuperare i valori delle metriche mediante l'API REST di monitoraggio di Azure, usare "2016-06-01" come versione dell'API.
+> 
+> 
 
 **Metodo**: GET
 
-**URI della richiesta**: https://management.azure.com/subscriptions/_{subscription-id}_/resourceGroups/_{resource-group-name}_/providers/_{resource-provider-namespace}_/_{resource-type}_/_{resource-name}_/providers/microsoft.insights/metrics?$filter=_{filter}_&api-version=_{apiVersion}_
+**URI della richiesta**: https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*
 
 Ad esempio, per recuperare i dati della metrica RunsSucceeded per la finestra temporale specificata e per un intervallo di tempo di 1 ora, la richiesta sarà come mostrato di seguito:
 
@@ -146,16 +149,11 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourc
 Un'alternativa all'uso di PowerShell (come illustrato in precedenza) consiste nell'usare [ARMClient](https://github.com/projectkudu/ARMClient) su computer Windows. ARMClient gestisce automaticamente l'autenticazione di Azure AD (e il token JTW risultante). Di seguito viene illustrato l'uso di ARMClient per recuperare i dati delle metriche:
 
 1. Installare [Chocolatey](https://chocolatey.org/) e [ARMClient](https://github.com/projectkudu/ARMClient).
-
-2. In una finestra del terminale digitare _armclient.exe login_. Viene richiesto di accedere ad Azure.
-
-3. Digitare _armclient GET [your\_resource\_id]/providers/microsoft.insights/metricdefinitions?api-version=2016-03-01_
-
-4. Digitare _armclient GET [your\_resource\_id]/providers/microsoft.insights/metrics?api-version=2016-06-01_
-
+2. In una finestra del terminale digitare *armclient.exe login*. Viene richiesto di accedere ad Azure.
+3. Digitare *armclient GET [your\_resource\_id]/providers/microsoft.insights/metricdefinitions?api-version=2016-03-01*
+4. Digitare *armclient GET [your\_resource\_id]/providers/microsoft.insights/metrics?api-version=2016-06-01*
 
 ![Alt "Uso di ARMClient con l'API REST di monitoraggio di Azure"](./media/monitoring-rest-api-walkthrough/armclient_metricdefinitions.png)
-
 
 ## Recuperare l'ID risorsa
 L'uso dell'API REST può aiutare davvero a comprendere le definizioni delle metriche disponibili, la granularità e i valori correlati. Tali informazioni sono utili quando si usa [Azure Management Library](https://msdn.microsoft.com/library/azure/mt417623.aspx).
@@ -166,20 +164,13 @@ Per il codice precedente, l'ID risorsa da usare è il percorso completo verso la
 
 Il seguente elenco contiene alcuni esempi di formati di ID risorsa per le varie risorse di Azure:
 
-* **Hub IoT** - /subscriptions/_{subscription-id}_/resourceGroups/_{resource-group-name}_/providers/Microsoft.Devices/IotHubs/_{iot-hub-name}_
-
-* **Pool elastico di SQL** - /subscriptions/_{subscription-id}_/resourceGroups/_{resource-group-name}_/providers/Microsoft.Sql/servers/_{pool-db}_/elasticpools/_{sql-pool-name}_
-
-* **Database SQL (v12)** - /subscriptions/_{subscription-id}_/resourceGroups/_{resource-group-name}_/providers/Microsoft.Sql/servers/_{server-name}_/databases/_{database-name}_
-
-* **Bus di servizio** - /subscriptions/_{subscription-id}_/resourceGroups/_{resource-group-name}_/providers/Microsoft.ServiceBus/_{namespace}_/_{servicebus-name}_
-
-* **Set di scalabilità di VM** - /subscriptions/_{subscription-id}_/resourceGroups/_{resource-group-name}_/providers/Microsoft.Compute/virtualMachineScaleSets/_{vm-name}_
-
-* **VM** - /subscriptions/_{subscription-id}_/resourceGroups/_{resource-group-name}_/providers/Microsoft.Compute/virtualMachines/_{vm-name}_
-
-* **Hub eventi** - /subscriptions/_{subscription-id}_/resourceGroups/_{resource-group-name}_/providers/Microsoft.EventHub/namespaces/_{eventhub-namespace}_
-
+* **Hub IoT** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Devices/IotHubs/*{iot-hub-name}*
+* **Pool elastico di SQL** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Sql/servers/*{pool-db}*/elasticpools/*{sql-pool-name}*
+* **Database SQL (v12)** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Sql/servers/*{server-name}*/databases/*{database-name}*
+* **Bus di servizio** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.ServiceBus/*{namespace}*/*{servicebus-name}*
+* **Set di scalabilità di VM** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Compute/virtualMachineScaleSets/*{vm-name}*
+* **VM** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Compute/virtualMachines/*{vm-name}*
+* **Hub eventi** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.EventHub/namespaces/*{eventhub-namespace}*
 
 Esistono approcci alternativi per recuperare l'ID risorsa, tra cui l'uso di Esplora risorse di Azure, la visualizzazione della risorsa desiderata nel portale di Azure e tramite PowerShell o l'interfaccia della riga di comando di Azure.
 
@@ -196,12 +187,12 @@ L'ID risorsa può anche essere ottenuto dal portale di Azure. A tale scopo, acce
 ### Azure PowerShell
 L'ID risorsa può essere recuperato anche tramite i cmdlet di Azure PowerShell. Ad esempio, per ottenere l'ID risorsa per un'App Web di Azure, eseguire il cmdlet Get-AzureRmWebApp, come illustrato nella seguente schermata:
 
-![Alt "ID risorsa ottenuto tramite PowerShell"](./media\monitoring-rest-api-walkthrough\resourceid_powershell.png)
+![Alt "ID risorsa ottenuto tramite PowerShell"](./media\\monitoring-rest-api-walkthrough\\resourceid_powershell.png)
 
 ### Interfaccia della riga di comando di Azure
 Per recuperare l'ID risorsa tramite l'interfaccia della riga di comando di Azure, eseguire il comando 'azure webapp show', specificando l'opzione '-json' come mostrato nella schermata seguente:
 
-![Alt "ID risorsa ottenuto tramite PowerShell"](./media\monitoring-rest-api-walkthrough\resourceid_azurecli.png)
+![Alt "ID risorsa ottenuto tramite PowerShell"](./media\\monitoring-rest-api-walkthrough\\resourceid_azurecli.png)
 
 ## Recuperare i dati del registro attività
 Oltre a lavorare con le definizioni delle metriche e i valori correlati, è anche possibile recuperare interessanti informazioni aggiuntive relative alle risorse di Azure. Ad esempio, è possibile eseguire query sui dati del [registro attività](https://msdn.microsoft.com/library/azure/dn931934.aspx). Nell'esempio seguente viene illustrato l'uso dell'API REST di monitoraggio di Azure per eseguire query sui dati del registro attività all'interno di un intervallo di date specifico per una sottoscrizione di Azure:
@@ -217,8 +208,8 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/provide
 ```
 
 ## Passaggi successivi
-* Esaminare la [panoramica sul monitoraggio](monitoring-overview.md).
-* Visualizzare le [metriche supportate con il monitoraggio di Azure](monitoring-supported-metrics.md).
+* Esaminare la [panoramica sul monitoraggio](../monitoring-and-diagnostics/monitoring-overview.md).
+* Visualizzare le [metriche supportate con il monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 * Esaminare le [informazioni di riferimento sulle API REST di monitoraggio di Microsoft Azure](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 * Esaminare [Azure Management Library](https://msdn.microsoft.com/library/azure/mt417623.aspx).
 

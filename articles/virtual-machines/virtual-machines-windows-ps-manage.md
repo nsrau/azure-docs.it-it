@@ -1,39 +1,35 @@
-<properties
-	pageTitle="Gestire VM con Resource Manager e PowerShell | Microsoft Azure"
-	description="Gestire macchine virtuali con Azure Resource Manager e PowerShell."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+---
+title: Gestire VM con Resource Manager e PowerShell | Microsoft Docs
+description: Gestire macchine virtuali con Azure Resource Manager e PowerShell.
+services: virtual-machines-windows
+documentationcenter: ''
+author: davidmu1
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machines-windows"
-	ms.workload="na"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/07/2016"
-	ms.author="davidmu"/>
+ms.service: virtual-machines-windows
+ms.workload: na
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 06/07/2016
+ms.author: davidmu
 
+---
 # Gestire macchine virtuali di Azure con Resource Manager di Azure e PowerShell
-
 ## Installare Azure PowerShell
- 
 Per informazioni su come installare la versione più recente di Azure PowerShell, selezionare la sottoscrizione da usare e accedere all'account Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 ## Impostare variabili
-
 Tutti i comandi nell'articolo richiedono il nome del gruppo di risorse in cui si trova la macchina virtuale e il nome della macchina virtuale da gestire. Sostituire il valore di **$rgName** con il nome del gruppo di risorse che contiene la macchina virtuale. Sostituire il valore di **$vmName** con il nome della VM. Creare le variabili.
 
     $rgName = "resource-group-name"
     $vmName = "VM-name"
 
 ## Visualizzare informazioni relative a una macchina virtuale
-
 Ottenere le informazioni relative alla macchina virtuale.
-  
+
     Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
 Verrà visualizzata una schermata simile alla seguente:
@@ -105,7 +101,6 @@ Verrà visualizzata una schermata simile alla seguente:
                                 rg1/providers/Microsoft.Network/networkInterfaces/nc1}
 
 ## Avviare una macchina virtuale
-
 Avviare la macchina virtuale.
 
     Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
@@ -117,7 +112,6 @@ Dopo qualche minuto viene visualizzata una schermata simile alla seguente:
                               True          OK  OK
 
 ## Arrestare una macchina virtuale
-
 Arrestare la macchina virtuale.
 
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
@@ -127,7 +121,7 @@ Verrà richiesta una conferma:
     Virtual machine stopping operation
     This cmdlet will stop the specified virtual machine. Do you want to continue?
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
-        
+
 Immettere **Y** per arrestare la macchina virtuale.
 
 Dopo qualche minuto viene visualizzata una schermata simile alla seguente:
@@ -137,7 +131,6 @@ Dopo qualche minuto viene visualizzata una schermata simile alla seguente:
                               True          OK  OK
 
 ## Riavviare una macchina virtuale
-
 Riavviare la macchina virtuale.
 
     Restart-AzureRmVM -ResourceGroupName $rgName -Name $vmName
@@ -149,12 +142,14 @@ Verrà visualizzata una schermata simile alla seguente:
                               True          OK  OK
 
 ## Eliminare una macchina virtuale
-
 Eliminare la macchina virtuale.
 
     Remove-AzureRmVM -ResourceGroupName $rgName –Name $vmName
 
-> [AZURE.NOTE] È possibile utilizzare il parametro **-Force** per ignorare la richiesta di conferma.
+> [!NOTE]
+> È possibile utilizzare il parametro **-Force** per ignorare la richiesta di conferma.
+> 
+> 
 
 Se non si usa il parametro -Force, verrà richiesta una conferma:
 
@@ -169,24 +164,22 @@ Verrà visualizzata una schermata simile alla seguente:
                               True          OK  OK
 
 ## Ridimensionare una macchina virtuale
-
 Questo esempio illustra come aggiornare le dimensioni della macchina virtuale.
-        
+
     $vmSize = "Standard_A1"
     $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     $vm.HardwareProfile.vmSize = $vmSize
     Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
-    
+
 Verrà visualizzata una schermata simile alla seguente:
 
     RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
     ---------  -------------------  ----------  ------------
                               True          OK  OK
-                              
+
 Per un elenco di dimensioni disponibili per una macchina virtuale, vedere [Dimensioni delle macchine virtuali in Azure](virtual-machines-windows-sizes.md).
 
 ## Aggiungere un disco dati a una macchina virtuale
-
 Questo esempio illustra come aggiungere un disco dati a una macchina virtuale esistente.
 
     $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
@@ -219,7 +212,6 @@ Il file di script può contenere codice analogo al seguente per inizializzare i 
     }
 
 ## Passaggi successivi
-
 Se si sono verificati problemi con la distribuzione, è consigliabile vedere [Visualizzare le operazioni di distribuzione con il portale di Azure](../resource-manager-troubleshoot-deployments-portal.md)
 
 <!---HONumber=AcomDC_0907_2016-->

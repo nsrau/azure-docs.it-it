@@ -1,52 +1,49 @@
-<properties
-	pageTitle="Aggiungere l'autenticazione all'app di Servizi mobili di Azure esistente (iOS) | Backend JavaScript | Microsoft Azure"
-	description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app per iOS tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft."
-	services="mobile-services"
-	documentationCenter="ios"
-	authors="krisragh"
-	manager="erikre"
-	editor=""/>
+---
+title: Aggiungere l'autenticazione all'app di Servizi mobili di Azure esistente (iOS) | Microsoft Docs
+description: Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app per iOS tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft.
+services: mobile-services
+documentationcenter: ios
+author: krisragh
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="krisragh"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-ios
+ms.devlang: objective-c
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: krisragh
 
+---
 # Aggiungere l'autenticazione a un'app esistente
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+[!INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 > Per la versione equivalente di questo argomento per le app per dispositivi mobili, vedere [Aggiungere l'autenticazione all'app iOS](../app-service-mobile/app-service-mobile-ios-get-started-users.md).
+> 
+> 
 
 Questa esercitazione consente di aggiungere l'autenticazione all’[esercitazione Guida introduttiva per Servizi mobili] tramite un provider di identità supportato.
 
 È consigliabile completare prima di tutto l'[Esercitazione Guida introduttiva per Servizi mobili]. In alternativa scaricare semplicemente il progetto iOS di avvio rapido dal [portale di Azure classico], fare clic su **Servizi mobili** > servizio mobile personalizzato > l'accesso cloud in alto a sinistra > **iOS** > **Crea una nuova app iOS** > **Scaricare ed eseguire l'applicazione** > **Objective-C** > **Scarica**. Fare clic su **Crea tabella TodoItem** prima di fare clic su **Scarica**, se la tabella non è ancora stata creata.
 
-##<a name="register"></a>Registrare l'app per l'autenticazione
+## <a name="register"></a>Registrare l'app per l'autenticazione
+[!INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
+## <a name="permissions"></a>Limitare le autorizzazioni dati agli utenti autenticati
+[!INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-##<a name="permissions"></a>Limitare le autorizzazioni dati agli utenti autenticati
+## <a name="add-authentication"></a>Aggiungere l'autenticazione all'app
+[!INCLUDE [mobile-services-ios-authenticate-app](../../includes/mobile-services-ios-authenticate-app.md)]
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
-
-##<a name="add-authentication"></a>Aggiungere l'autenticazione all'app
-
-[AZURE.INCLUDE [mobile-services-ios-authenticate-app](../../includes/mobile-services-ios-authenticate-app.md)]
-
-##<a name="store-authentication"></a>Archiviare i token di autenticazione nell'app
-
-[AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../../includes/mobile-services-ios-authenticate-app-with-token.md)]
+## <a name="store-authentication"></a>Archiviare i token di autenticazione nell'app
+[!INCLUDE [mobile-services-ios-authenticate-app-with-token](../../includes/mobile-services-ios-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
-
 Quindi, leggere le informazioni su [come utilizzare il valore dell'ID utente per filtrare i dati restituiti](mobile-services-javascript-backend-service-side-authorization.md).
 
 <!-- Anchors. -->

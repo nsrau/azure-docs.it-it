@@ -1,24 +1,22 @@
-<properties
-	pageTitle="Usare i set di dati di esempio in Machine Learning Studio | Microsoft Azure"
-	description="Descrizione dei set di dati usati nei modelli di esempio inclusi in ML Studio. È possibile usare questi set di dati di esempio per gli esperimenti."
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="jhubbard"
-	editor="cgronlun"/> 
+---
+title: Usare i set di dati di esempio in Machine Learning Studio | Microsoft Docs
+description: Descrizione dei set di dati usati nei modelli di esempio inclusi in ML Studio. È possibile usare questi set di dati di esempio per gli esperimenti.
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="garye"/> 
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: garye
 
-
+---
 # Usare i set di dati di esempio in Azure Machine Learning Studio
-
 [top]: #machine-learning-sample-datasets
 
 Quando si crea una nuova area di lavoro in Azure Machine Learning, per impostazione predefinita è inclusa una serie di set di dati e di esperimenti di esempio. Molti di questi set di dati esempio vengono usati dai modelli di esempio in [Azure Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/), altri sono inclusi come esempi dei diversi tipi di dati usati in Machine Learning.
@@ -27,15 +25,13 @@ Alcuni di questi set di dati sono disponibili nell'archivio BLOB di Azure. Per q
 
 I restanti set di dati di esempio sono elencati in **Set di dati salvati** nella tavolozza del modulo a sinistra dell'area di disegno dell'esperimento quando si apre o si crea un nuovo esperimento in ML Studio. Per usare uno qualsiasi di questi set di dati in un esperimento personalizzato, trascinarlo sull'area di disegno dell'esperimento.
 
-
 <!--
 For a list of sample experiments available in ML Studio, see [Machine Learning Sample Experiments][sample-experiments].
 
 [sample-experiments]: machine-learning-sample-experiments.md
 -->
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 <table>
 

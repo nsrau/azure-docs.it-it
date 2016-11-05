@@ -1,50 +1,49 @@
-<properties
-	pageTitle="Introduzione all'autenticazione (Windows Phone) | Microsoft Azure"
-	description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app per Windows Phone tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft."
-	services="mobile-services"
-	documentationCenter="windows"
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+---
+title: Introduzione all'autenticazione (Windows Phone) | Microsoft Docs
+description: Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app per Windows Phone tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft.
+services: mobile-services
+documentationcenter: windows
+author: ggailey777
+manager: dwrede
+editor: ''
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows-phone"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="glenga"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-windows-phone
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: glenga
 
+---
 # Aggiungere l'autenticazione all'app di Servizi mobili
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
 &nbsp;
 
+[!INCLUDE [mobile-services-selector-get-started-users-legacy](../../includes/mobile-services-selector-get-started-users-legacy.md)]
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-users-legacy](../../includes/mobile-services-selector-get-started-users-legacy.md)]
-
-##Panoramica
-
+## Panoramica
 Questo argomento illustra come autenticare gli utenti in Servizi mobili di Azure dalla propria app. Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.
 
 Questa esercitazione viene illustrata anche da Nick Harris nel video seguente:
 
-> [AZURE.VIDEO mobile-authorize-users-in-scripts-windows-phone]
+> [!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Phone-Authenticate-and-Authorize-users-with-Server-Scripts-in-Windows-Azure-Mobile-Services/player]
+> 
+> 
 
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. È inoltre necessario completare l'esercitazione [Aggiungere Servizi mobili a un'app esistente].
 
->[AZURE.NOTE]Questa esercitazione illustra il flusso di autenticazione gestito da Servizi mobili mediante vari provider di identità. Questo metodo è semplice da configurare e supporta più provider, L'uso dell'autenticazione gestita dal client consente all'app di accedere a dati utente aggiuntivi mantenuti dal provider di identità. È possibile ottenere gli stessi dati utente nel servizio mobile chiamando la funzione **user.getIdentities()** negli script del server. Per altre informazioni, vedere [questo post](http://go.microsoft.com/fwlink/p/?LinkId=506605).
+> [!NOTE]
+> Questa esercitazione illustra il flusso di autenticazione gestito da Servizi mobili mediante vari provider di identità. Questo metodo è semplice da configurare e supporta più provider, L'uso dell'autenticazione gestita dal client consente all'app di accedere a dati utente aggiuntivi mantenuti dal provider di identità. È possibile ottenere gli stessi dati utente nel servizio mobile chiamando la funzione **user.getIdentities()** negli script del server. Per altre informazioni, vedere [questo post](http://go.microsoft.com/fwlink/p/?LinkId=506605).
+> 
+> 
 
-##<a name="register"></a>Registrare l'app per l'autenticazione e configurare Servizi mobili
+## <a name="register"></a>Registrare l'app per l'autenticazione e configurare Servizi mobili
+[!INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
-
-##<a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati
-
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
-
+## <a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati
+[!INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 &nbsp;&nbsp;3. In Visual Studio aprire il progetto creato dopo avere completato l'esercitazione [Aggiungere Servizi mobili a un'app esistente](mobile-services-windows-phone-get-started-data.md).
 
@@ -52,16 +51,13 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di richiedere risorse al servizio mobile.
 
-##<a name="add-authentication"></a>Aggiungere l'autenticazione all'app
+## <a name="add-authentication"></a>Aggiungere l'autenticazione all'app
+[!INCLUDE [mobile-services-windows-phone-authenticate-app](../../includes/mobile-services-windows-phone-authenticate-app.md)]
 
-[AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app](../../includes/mobile-services-windows-phone-authenticate-app.md)]
-
-##<a name="tokens"></a>Archiviare i token di autorizzazione sul client
-
-[AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app-with-token](../../includes/mobile-services-windows-phone-authenticate-app-with-token.md)]
+## <a name="tokens"></a>Archiviare i token di autorizzazione sul client
+[!INCLUDE [mobile-services-windows-phone-authenticate-app-with-token](../../includes/mobile-services-windows-phone-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"> </a>Passaggi successivi
-
 Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di Servizi mobili](mobile-services-javascript-backend-service-side-authorization.md), il valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato verrà utilizzato per filtrare i dati restituiti da Servizi mobili.
 
 <!-- Anchors. -->

@@ -1,30 +1,29 @@
-<properties
-	pageTitle="Procedure consigliate per il servizio app di Azure"
-	description="Informazioni sulle procedure consigliate e la risoluzione dei problemi per il servizio app di Azure."
-	services="app-service"
-	documentationCenter=""
-	authors="dariagrigoriu"
-	manager="wpickett"
-	editor="mollybos"/>
+---
+title: Procedure consigliate per il servizio app di Azure
+description: Informazioni sulle procedure consigliate e la risoluzione dei problemi per il servizio app di Azure.
+services: app-service
+documentationcenter: ''
+author: dariagrigoriu
+manager: wpickett
+editor: mollybos
 
-<tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2016"
-	ms.author="dariagrigoriu"/>
-    
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/30/2016
+ms.author: dariagrigoriu
+
+---
 # Procedure consigliate per il servizio app di Azure
-
 Questo articolo riepiloga le procedure consigliate per l'uso del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 ## <a name="colocation"></a>Condivisione dell'area
 Quando le risorse di Azure che costituiscono una soluzione, ad esempio un'app Web e un database, si trovano in aree diverse, gli effetti possono includere quanto segue:
 
-*  Aumento della latenza nella comunicazione tra le risorse
-*  Addebiti per il trasferimento dei dati in uscita tra aree come indicato nella [pagina dei prezzi di Azure](https://azure.microsoft.com/pricing/details/data-transfers).
+* Aumento della latenza nella comunicazione tra le risorse
+* Addebiti per il trasferimento dei dati in uscita tra aree come indicato nella [pagina dei prezzi di Azure](https://azure.microsoft.com/pricing/details/data-transfers).
 
 La condivisione dell'area è ideale per le risorse di Azure che compongono una soluzione per la memorizzazione di dati o contenuti, come un'app Web e un database o un account di archiviazione. Quando si creano risorse, verificare che queste si trovino nella stessa area di Azure, a meno che non esistano motivi aziendali o di design specifici che lo impediscono. È possibile trasferire un'app del servizio app nella stessa area del database con la [funzionalità di clonazione del servizio app](app-service-web-app-cloning-portal.md) attualmente disponibile nel piano di servizio app Premium.
 

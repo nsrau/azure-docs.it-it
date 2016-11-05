@@ -1,27 +1,25 @@
-<properties
-	pageTitle="Dispositivi gemelli di Gestione dei dispositivi dell'hub IoT | Microsoft Azure"
-	description="Esercitazione relativa alla funzionalità Gestione dei dispositivi dell'hub IoT di Azure che descrive come usare i dispositivi gemelli."
-	services="iot-hub"
-	documentationCenter=".net"
-	authors="juanjperez"
-	manager="timlt"
-	editor=""/>
+---
+title: Dispositivi gemelli di Gestione dei dispositivi dell'hub IoT | Microsoft Docs
+description: Esercitazione relativa alla funzionalità Gestione dei dispositivi dell'hub IoT di Azure che descrive come usare i dispositivi gemelli.
+services: iot-hub
+documentationcenter: .net
+author: juanjperez
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-hub"
- ms.devlang="dotnet"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="04/29/2016"
- ms.author="juanpere"/>
+ms.service: iot-hub
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 04/29/2016
+ms.author: juanpere
 
+---
 # Esercitazione: Come usare il dispositivo gemello con Node.js (anteprima)
-
-[AZURE.INCLUDE [iot-hub-device-management-twin-selector](../../includes/iot-hub-device-management-twin-selector.md)]
+[!INCLUDE [iot-hub-device-management-twin-selector](../../includes/iot-hub-device-management-twin-selector.md)]
 
 ## Introduzione
-
 Gestione dei dispositivi dell'hub Iot di Azure include il dispositivo gemello, una rappresentazione lato server di un dispositivo fisico. Il diagramma seguente mostra i componenti del dispositivo gemello.
 
 ![][img-twin]
@@ -31,7 +29,6 @@ Questa esercitazione si concentrerà sulle proprietà del dispositivo. Per infor
 Le proprietà del dispositivo sono costituite da un dizionario predefinito di proprietà che descrivono il dispositivo fisico. Il dispositivo fisico è il dispositivo master di ogni proprietà del dispositivo e costituisce l'archivio autorevole di ogni valore corrispondente. Una rappresentazione 'che risulterà infine coerente' di queste proprietà è archiviata nel dispositivo gemello nel cloud. La coerenza e l'aggiornamento sono soggetti alle impostazioni di sincronizzazione, descritte sotto. Tra gli esempi di proprietà del dispositivo sono inclusi la versione del firmware, il livello della batteria e il nome del produttore.
 
 ## Sincronizzazione delle proprietà del dispositivo
-
 Il dispositivo fisico è l'origine autorevole delle proprietà del dispositivo. I valori selezionati nel dispositivo fisico sono automaticamente sincronizzati nel dispositivo gemello nell'hub IoT tramite il modello di *osservazione/notifica* descritto dalla specifica [LWM2M][lnk-lwm2m].
 
 Quando il dispositivo fisico si connette all'hub IoT, avvia le *osservazioni* delle proprietà del dispositivo selezionate. Il dispositivo fisico *notifica* quindi all'hub IoT le modifiche apportate alle proprietà del dispositivo. Per implementare l'isteresi, il valore di **pmin**, ovvero il tempo minimo tra le notifiche, è impostato su 5 minuti. Questo significa che per ogni proprietà il dispositivo fisico non invia all'hub IoT una notifica più di una volta ogni 5 minuti, anche se si è verificata una modifica. Per garantire l'aggiornamento, **pmax**, ovvero il tempo massimo tra le notifiche, è impostato su 6 ore. Questo significa che per ogni proprietà il dispositivo fisico invia all'hub IoT una notifica almeno una volta ogni 6 ore, anche se la proprietà non ha subito modifiche in tale periodo.
@@ -43,39 +40,28 @@ L'elenco completo delle proprietà del dispositivo osservate automaticamente è 
 ![][img-observed]
 
 ## Esecuzione dell'esempio del dispositivo gemello
-
 L'esempio seguente estende la funzionalità dell'esercitazione [Introduzione a Gestione dei dispositivi dell'hub IoT di Azure][lnk-get-started]. Inizia dall'esecuzione di due dispositivi simulati diversi e usa il dispositivo gemello per leggere e modificare le proprietà in un dispositivo simulato.
 
-### Prerequisiti 
-
+### Prerequisiti
 Prima di eseguire questo esempio, è necessario aver completato le procedure illustrate in [Introduzione a Gestione dei dispositivi dell'hub IoT di Azure][lnk-get-started]. I dispositivi simulati devono quindi essere in esecuzione. Se il processo è già stato completato in precedenza, riavviare i dispositivi simulati adesso.
 
 ### Avvio dell'esempio
-
 Per avviare l'esempio, è necessario eseguire ```jobClient_devicePropertyReadWrite.js```. Questo processo legge le proprietà del dispositivo dal dispositivo gemello e dal dispositivo fisico. Modifica anche una proprietà del dispositivo nel dispositivo fisico. Per avviare l'esempio, seguire questa procedura:
 
-1.  Dalla cartella radice in cui è stato clonato il repository **azure-iot-sdks** passare alla cartella **azure-iot-sdks/node/service/samples**.
-
-2.  Aprire **jobClient\_devicePropertyReadWrite.js** e sostituire il segnaposto con la stringa di connessione dell'hub IoT.
-
-2.  Eseguire `node jobClient_devicePropertyReadWrite.js`.
+1. Dalla cartella radice in cui è stato clonato il repository **azure-iot-sdks** passare alla cartella **azure-iot-sdks/node/service/samples**.
+2. Aprire **jobClient\_devicePropertyReadWrite.js** e sostituire il segnaposto con la stringa di connessione dell'hub IoT.
+3. Eseguire `node jobClient_devicePropertyReadWrite.js`.
 
 Nella finestra della riga di comando verrà visualizzato l'output che mostra l'uso del dispositivo gemello. Processo eseguito dall'esempio:
 
-1.  Lettura superficiale: stampa le proprietà `BatteryLevel` e `Timezone` del dispositivo sul dispositivo gemello.
-
-2.  Lettura approfondita: legge la proprietà `Timezone` del dispositivo dal dispositivo fisico.
-
+1. Lettura superficiale: stampa le proprietà `BatteryLevel` e `Timezone` del dispositivo sul dispositivo gemello.
+2. Lettura approfondita: legge la proprietà `Timezone` del dispositivo dal dispositivo fisico.
 3. Lettura superficiale: stampa le proprietà `BatteryLevel` e `Timezone` del dispositivo sul dispositivo gemello.
-
-4.  Scrittura approfondita: esegue la scrittura della proprietà del dispositivo **Timezone** nel dispositivo fisico.
-
-5.  Lettura approfondita: esegue la lettura della proprietà del dispositivo **Timezone** dal dispositivo fisico per verificare se è stata modificata.
-
-6.  Lettura superficiale: stampa le proprietà `BatteryLevel` e `Timezone` del dispositivo sul dispositivo gemello.
+4. Scrittura approfondita: esegue la scrittura della proprietà del dispositivo **Timezone** nel dispositivo fisico.
+5. Lettura approfondita: esegue la lettura della proprietà del dispositivo **Timezone** dal dispositivo fisico per verificare se è stata modificata.
+6. Lettura superficiale: stampa le proprietà `BatteryLevel` e `Timezone` del dispositivo sul dispositivo gemello.
 
 ### Lettura superficiale
-
 Esistono alcune differenze tra letture *superficiali* e letture/scritture *approfondite*. Una lettura superficiale restituisce il valore della proprietà richiesta dal dispositivo gemello archiviato nell'hub IoT di Azure. Si tratterà del valore ottenuto dall'operazione di notifica precedente. Non è possibile eseguire una scrittura superficiale perché il dispositivo fisico è l'origine autorevole delle proprietà del dispositivo. Una lettura superficiale è un'operazione di lettura della proprietà dal dispositivo gemello:
 
 ```
@@ -91,7 +77,6 @@ deviceInfo.deviceProperties.BatteryLevel.lastUpdatedTime
 Allo stesso modo, è possibile eseguire la lettura delle proprietà del servizio, che sono archiviate esclusivamente nel dispositivo gemello e non sono sincronizzate con il dispositivo.
 
 ### Lettura approfondita
-
 Una lettura approfondita avvia un processo del dispositivo per eseguire la lettura della proprietà richiesta dal dispositivo fisico. I processi del dispositivo sono stati illustrati in [Panoramica di Gestione dei dispositivi IoT di Azure][lnk-dm-overview] e descritti in dettaglio in [Esercitazione: Come usare processi del dispositivo per aggiornare il firmware del dispositivo][lnk-dm-jobs]. La lettura approfondita consente di ottenere un valore più aggiornato per la proprietà del dispositivo, dal momento che l'aggiornamento non è limitato dall'intervallo di notifica. Il processo invia un messaggio al dispositivo fisico e aggiorna il dispositivo gemello con il valore più recente solo per la proprietà specificata. Non aggiorna l'intero dispositivo gemello.
 
 ```
@@ -101,7 +86,6 @@ scheduleDevicePropertyRead(jobId, deviceIds, propertyNames, done)
 Non è possibile eseguire una lettura approfondita sulle proprietà del servizio o i tag, perché non sono sincronizzati con il dispositivo.
 
 ### Scrittura approfondita
-
 Per modificare una proprietà del dispositivo accessibile in scrittura, è possibile eseguire una scrittura approfondita che avvia un processo del dispositivo per scrivere il valore nel dispositivo fisico. Non tutte le proprietà del dispositivo sono accessibili in scrittura. Per un elenco completo, vedere l'appendice A dell'articolo sull'[introduzione alla libreria client di Gestione dei dispositivi dell'hub IoT di Azure][lnk-dm-library].
 
 Il processo invia un messaggio al dispositivo fisico richiedendo l'aggiornamento della proprietà specificata. Il dispositivo gemello non viene aggiornato immediatamente al termine del processo. Sarà necessario attendere fino all'intervallo di notifica successivo. Al termine della sincronizzazione, sarà possibile visualizzare la modifica nel dispositivo gemello eseguendo una lettura superficiale.
@@ -111,7 +95,6 @@ scheduleDevicePropertyWrite(jobId, deviceIds, properties, done)
 ```
 
 ### Dettagli di implementazione del simulatore di dispositivi
-
 Si esamineranno ora le operazioni da eseguire sul lato dispositivo per implementare il modello di osservazione/notifica e le operazioni di lettura/scrittura approfondite.
 
 Poiché la sincronizzazione delle proprietà del dispositivo è gestita completamente tramite la libreria client di Gestione dei dispositivi dell'hub IoT di Azure, è sufficiente chiamare l'API per impostare la proprietà del dispositivo, in questo esempio il livello della batteria, a intervalli regolari. Quando il servizio esegue una lettura approfondita, viene restituito l'ultimo valore impostato. Quando il servizio esegue una lettura approfondita, viene chiamato questo metodo Set. In **iotdm\_simple\_sample.c** è disponibile un esempio:
@@ -124,21 +107,20 @@ set_device_batterylevel(0, level);
 Invece di usare il metodo Set, è anche possibile implementare un callback. Per altre informazioni su questa opzione, vedere l'[introduzione alla libreria client di Gestione dei dispositivi dell'hub IoT di Azure][lnk-dm-library].
 
 ## Passaggi successivi
-
 Per altre informazioni sulle funzionalità di Gestione dei dispositivi dell'hub IoT di Azure, vedere le esercitazioni seguenti:
 
-- [Come trovare dispositivi gemelli tramite query][lnk-tutorial-queries]
-- [Come usare processi del dispositivo per aggiornare il firmware del dispositivo][lnk-tutorial-jobs]
-- [Abilitare i dispositivi gestiti protetti da un gateway IoT][lnk-dm-gateway]
-- [Introduzione alla libreria client di Gestione dei dispositivi dell'hub IoT di Azure][lnk-library-c]
-- Nelle librerie client di Gestione dei dispositivi è disponibile un esempio completo che usa un [dispositivo Intel Edison][lnk-edison].
+* [Come trovare dispositivi gemelli tramite query][lnk-tutorial-queries]
+* [Come usare processi del dispositivo per aggiornare il firmware del dispositivo][lnk-tutorial-jobs]
+* [Abilitare i dispositivi gestiti protetti da un gateway IoT][lnk-dm-gateway]
+* [Introduzione alla libreria client di Gestione dei dispositivi dell'hub IoT di Azure][lnk-library-c]
+* Nelle librerie client di Gestione dei dispositivi è disponibile un esempio completo che usa un [dispositivo Intel Edison][lnk-edison].
 
 Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
 
-- [Progettare una soluzione][lnk-design]
-- [Guida per sviluppatori][lnk-devguide]
-- [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
-- [Utilizzo del portale di Azure per gestire l'hub IoT][lnk-portal]
+* [Progettare una soluzione][lnk-design]
+* [Guida per sviluppatori][lnk-devguide]
+* [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
+* [Utilizzo del portale di Azure per gestire l'hub IoT][lnk-portal]
 
 <!-- images and links -->
 [img-twin]: media/iot-hub-device-management-device-twin/image1.png

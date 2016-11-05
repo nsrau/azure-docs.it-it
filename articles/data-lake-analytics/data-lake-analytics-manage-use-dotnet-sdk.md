@@ -1,25 +1,23 @@
-<properties 
-   pageTitle="Gestire Azure Data Lake Analytics tramite .NET SDK di Azure | Azure" 
-   description="Informazioni su come gestire processi, origini dati e utenti di Data Lake Analytics. " 
-   services="data-lake-analytics" 
-   documentationCenter="" 
-   authors="mumian" 
-   manager="jhubbard" 
-   editor="cgronlun"/>
- 
-<tags
-   ms.service="data-lake-analytics"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
-   ms.date="09/23/2016"
-   ms.author="jgao"/>
+---
+title: Gestire Azure Data Lake Analytics tramite .NET SDK di Azure | Microsoft Docs
+description: 'Informazioni su come gestire processi, origini dati e utenti di Data Lake Analytics. '
+services: data-lake-analytics
+documentationcenter: ''
+author: mumian
+manager: jhubbard
+editor: cgronlun
 
+ms.service: data-lake-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 09/23/2016
+ms.author: jgao
 
+---
 # <a name="manage-azure-data-lake-analytics-using-azure-.net-sdk"></a>Gestire Azure Data Lake Analytics tramite .NET SDK di Azure
-
-[AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
+[!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Informazioni su come gestire gli account, le origini dati, gli utenti e i processi di Azure Data Lake Analytics tramite .NET SDK di Azure. Per visualizzare gli argomenti relativi alla gestione tramite altri strumenti, fare clic sul selettore di scheda riportato sopra.
 
@@ -27,15 +25,13 @@ Informazioni su come gestire gli account, le origini dati, gli utenti e i proces
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-
+* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 <!-- ################################ -->
 <!-- ################################ -->
 
 
 ## <a name="connect-to-azure-data-lake-analytics"></a>Connettersi ad Azure Data Lake Analytics
-
 Sono necessari i pacchetti NuGet seguenti:
 
     Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
@@ -118,11 +114,9 @@ L'esempio di codice seguente indica come connettersi ad Azure ed elenca gli acco
 
 
 ## <a name="manage-accounts"></a>Gestire account
-
 Prima di eseguire qualsiasi processo di Analisi Data Lake, è necessario disporre di un account di Analisi Data Lake. A differenza di Azure HDInsight, un account di Analisi non è soggetto ad alcun pagamento fino a quando il processo non è in esecuzione.  Il pagamento, infatti, viene richiesto solo per la durata di esecuzione di un processo.  Per altre informazioni, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).  
 
-###<a name="create-accounts"></a>Creare account
-
+### <a name="create-accounts"></a>Creare account
 È necessario disporre di un gruppo di gestione delle risorse di Azure e un account Data Lake Store prima di poter eseguire l'esempio seguente.
 
 Il codice seguente mostra come creare il gruppo di risorse:
@@ -153,19 +147,16 @@ Il codice seguente mostra come creare un account Data Lake Analytics:
     var adlaParameters = new DataLakeAnalyticsAccount(properties: adlaProperties, location: location);
     var adlaAccount = _adlaClient.Account.Create(resourceGroupName, adlaAccountName, adlaParameters);
 
-###<a name="list-accounts"></a>Elencare gli account
-
+### <a name="list-accounts"></a>Elencare gli account
 Vedere [Connettersi ad Azure Data Lake Analytics](#connect_to_azure_data_lake_analytics).
 
-###<a name="find-an-account"></a>Trovare un account
-
+### <a name="find-an-account"></a>Trovare un account
 Dopo aver ottenuto un oggetto di un elenco di account Data Lake Analytics, è possibile usare quanto segue per trovare un account:
 
     Predicate<DataLakeAnalyticsAccount> accountFinder = (DataLakeAnalyticsAccount a) => { return a.Name == adlaAccountName; };
     var myAdlaAccount = adlaAccounts.Find(accountFinder);
 
-###<a name="delete-data-lake-analytics-accounts"></a>Eliminare gli account di Data Lake Analytics
-
+### <a name="delete-data-lake-analytics-accounts"></a>Eliminare gli account di Data Lake Analytics
 Il frammento di codice seguente elimina un account Data Lake Analytics:
 
     _adlaClient.Account.Delete(resourceGroupName, adlaAccountName);
@@ -173,31 +164,28 @@ Il frammento di codice seguente elimina un account Data Lake Analytics:
 <!-- ################################ -->
 <!-- ################################ -->
 ## <a name="manage-account-data-sources"></a>Gestire le origini dati degli account
-
 Data Lake Analytics attualmente supporta le seguenti origini dati:
 
-- [Archiviazione di Azure Data Lake](../data-lake-store/data-lake-store-overview.md)
-- [Archiviazione di Azure](../storage/storage-introduction.md)
+* [Archiviazione di Azure Data Lake](../data-lake-store/data-lake-store-overview.md)
+* [Archiviazione di Azure](../storage/storage-introduction.md)
 
 Quando si crea un account di Analytics, è necessario impostare un account di archiviazione di Azure Data Lake come account di archiviazione predefinito. L'account di Data Lake Store predefinito viene usato per archiviare i metadati e i log di controllo dei processi. Dopo aver creato un account di Analytics, è possibile aggiungere altri account di archiviazione di Data Lake e/o account di archiviazione di Azure. 
 
 ### <a name="find-the-default-data-lake-store-account"></a>Trovare l'account di Data Lake Store predefinito
-
 Consultare la sezione Trovare un account di questo articolo per trovare l'account Data Lake Analytics, quindi usare il comando seguente:
 
     string adlaDefaultDataLakeStoreAccountName = myAccount.Properties.DefaultDataLakeStoreAccount;
 
 
 ## <a name="use-azure-resource-manager-groups"></a>Usare i gruppi Gestione risorse di Azure
-
 Le applicazioni sono in genere costituite da molti componenti, ad esempio app Web, database, server di database, risorsa di archiviazione e servizi di terze parti. Azure Resource Manager consente di usare le risorse dell'applicazione come gruppo, detto Gruppo di risorse di Azure. È quindi possibile distribuire, aggiornare, monitorare o eliminare tutte le risorse per l'applicazione con una singola operazione coordinata. È possibile descrivere le risorse del gruppo in un modello JSON per la distribuzione e quindi usare tale modello per ambienti diversi, ad esempio di testing, staging  e produzione. È possibile chiarire la fatturazione per l'organizzazione visualizzando i costi per l'intero gruppo. Per altre informazioni, vedere [Panoramica di Gestione risorse di Azure](../resource-group-overview.md). 
 
 Un servizio di Analisi Data Lake può includere i componenti seguenti:
 
-- Account di Azure Data Lake Analytics
-- Account di archiviazione predefinito obbligatorio di Azure Data Lake
-- Account di archiviazione aggiuntivi di Azure Data Lake
-- Account di archiviazione aggiuntivi di Azure
+* Account di Azure Data Lake Analytics
+* Account di archiviazione predefinito obbligatorio di Azure Data Lake
+* Account di archiviazione aggiuntivi di Azure Data Lake
+* Account di archiviazione aggiuntivi di Azure
 
 È possibile creare tutti questi componenti in un unico gruppo di gestione delle risorse per semplificarne la gestione.
 
@@ -206,15 +194,11 @@ Un servizio di Analisi Data Lake può includere i componenti seguenti:
 Un account di Analisi Data Lake e gli account di archiviazione dipendenti devono trovarsi nello stesso data center di Azure,
 mentre il gruppo di gestione delle risorse può trovarsi anche in un data center diverso.  
 
-##<a name="see-also"></a>Vedere anche 
-
-- [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-- [Esercitazione: Introduzione ad Azure Data Lake Analytics con il portale di Azure](data-lake-analytics-get-started-portal.md)
-- [Gestire Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-manage-use-portal.md)
-- [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-
-
-
+## <a name="see-also"></a>Vedere anche
+* [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
+* [Esercitazione: Introduzione ad Azure Data Lake Analytics con il portale di Azure](data-lake-analytics-get-started-portal.md)
+* [Gestire Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-manage-use-portal.md)
+* [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 <!--HONumber=Oct16_HO2-->
 

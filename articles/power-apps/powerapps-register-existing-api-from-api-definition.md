@@ -1,29 +1,31 @@
-<properties
-	pageTitle="Creare una definizione API Swagger 2.0 da un'API in PowerApps Enterprise | Microsoft Azure"
-	description="Informazioni su come registrare un'API dalla definizione dell'API di Swagger 2.0 creata da un'API esistente"
-	services=""
-    suite="powerapps"
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="dwrede"
-	editor=""/>
+---
+title: Creare una definizione API Swagger 2.0 da un'API in PowerApps Enterprise | Microsoft Docs
+description: Informazioni su come registrare un'API dalla definizione dell'API di Swagger 2.0 creata da un'API esistente
+services: ''
+suite: powerapps
+documentationcenter: ''
+author: MandiOhlinger
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="powerapps"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="05/02/2016"
-   ms.author="guayan"/>
+ms.service: powerapps
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 05/02/2016
+ms.author: guayan
 
-# Registrare un'API dalla definizione dell'API Swagger 2.0  
-
-> [AZURE.IMPORTANT] Questo argomento è stato archiviato e verrà presto rimosso. Tutte le novità sono disponibili in [PowerApps](https://powerapps.microsoft.com).
+---
+# Registrare un'API dalla definizione dell'API Swagger 2.0
+> [!IMPORTANT]
+> Questo argomento è stato archiviato e verrà presto rimosso. Tutte le novità sono disponibili in [PowerApps](https://powerapps.microsoft.com).
 > 
-> - Per altre informazioni su PowerApps e per iniziare a usarlo, visitare [PowerApps](https://powerapps.microsoft.com).  
-> - Per altre informazioni sulle connessioni disponibili in PowerApps, visitare la pagina sulle [connessioni disponibili](https://powerapps.microsoft.com/tutorials/connections-list/).  
-> - Per altre informazioni sulle API personalizzate in PowerApps, accedere alla [descrizione delle API personalizzate](https://powerapps.microsoft.com/tutorials/register-custom-api/). 
+> * Per altre informazioni su PowerApps e per iniziare a usarlo, visitare [PowerApps](https://powerapps.microsoft.com).  
+> * Per altre informazioni sulle connessioni disponibili in PowerApps, visitare la pagina sulle [connessioni disponibili](https://powerapps.microsoft.com/tutorials/connections-list/).  
+> * Per altre informazioni sulle API personalizzate in PowerApps, accedere alla [descrizione delle API personalizzate](https://powerapps.microsoft.com/tutorials/register-custom-api/). 
+> 
+> 
 
 <!--Archived
 Many organizations already have some existing APIs that users can use and consume within their apps. To use these APIs in your apps, you must "register" the APIs in the Azure portal using a managed API, existing APIs in your app service environment, or creating an API using Swagger. 
@@ -46,13 +48,13 @@ It's very easy to register these existing APIs. Steps include:
 
 1. Create the [Swagger 2.0](http://swagger.io) API definition for your existing API. PowerApps uses Swagger 2.0 as the API definition format. You can use the tools referenced on the [Swagger 2.0 website](http://swagger.io) to help you easily author a Swagger 2.0 API definition. A few things to note:  
 
-	- The ``host`` property should point to the actual endpoint of your existing API. Do you not use scheme or any sub-paths. For example, enter ``api.contoso.com``.  <br/><br/>
-	- The ``basePath`` property should list the sub paths of your existing API endpoint, if there is any. Start with a forward slash ``/``. For example,  enter ``/purchaseorderapi``.
+    - The ``host`` property should point to the actual endpoint of your existing API. Do you not use scheme or any sub-paths. For example, enter ``api.contoso.com``.  <br/><br/>
+    - The ``basePath`` property should list the sub paths of your existing API endpoint, if there is any. Start with a forward slash ``/``. For example,  enter ``/purchaseorderapi``.
 
 2. Make sure your existing API is accessible by your app service environment securely:  
 
-	1. If you are comfortable with making your API accessible using the internet, you can set up HTTP basic access authentication between your app service environment and your existing API. [Update an existing API](powerapps-configure-apis.md) to see how.  <br/><br/>
-	2. If you want to keep your API within your organization's network, you can set up a virtual network on the app service environment to access your organization's network securely. Learn more about [app service environments](../app-service-web/app-service-app-service-environment-intro.md).
+    1. If you are comfortable with making your API accessible using the internet, you can set up HTTP basic access authentication between your app service environment and your existing API. [Update an existing API](powerapps-configure-apis.md) to see how.  <br/><br/>
+    2. If you want to keep your API within your organization's network, you can set up a virtual network on the app service environment to access your organization's network securely. Learn more about [app service environments](../app-service-web/app-service-app-service-environment-intro.md).
 
 3. In the [Azure portal](https://portal.azure.com/), select **PowerApps**, and then select **Manage APIs**:  
 ![][11]
@@ -60,8 +62,8 @@ It's very easy to register these existing APIs. Steps include:
 ![][12]
 5. In **Add API**, enter the API properties:  
 
-	- In **Name**, enter a name for your API. Notice that the name you enter is included in the runtime URL of the API. Make the name meaningful and unique within your organization.
-	- In **Source**, select **Import from Swagger 2.0**.
+    - In **Name**, enter a name for your API. Notice that the name you enter is included in the runtime URL of the API. Make the name meaningful and unique within your organization.
+    - In **Source**, select **Import from Swagger 2.0**.
 
 6. In **API definition (Swagger 2.0)**, upload your Swagger 2.0 API definition file:  
  ![][13]

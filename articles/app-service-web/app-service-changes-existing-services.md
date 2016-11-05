@@ -1,38 +1,35 @@
-<properties
-	pageTitle="Servizio app di Azure e impatto sui servizi di Azure esistenti"
-	description="Viene illustrato come il nuovo servizio app di Azure e le relative funzionalità influiscono sui servizi esistenti in Azure."
-	services="app-service"
-    documentationCenter=""
-	authors="yochay"
-	manager="nirma"
-	editor=""/>
+---
+title: Servizio app di Azure e impatto sui servizi di Azure esistenti
+description: Viene illustrato come il nuovo servizio app di Azure e le relative funzionalità influiscono sui servizi esistenti in Azure.
+services: app-service
+documentationcenter: ''
+author: yochay
+manager: nirma
+editor: ''
 
-<tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/12/2016"
-	ms.author="yochayk"/>
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/12/2016
+ms.author: yochayk
 
-
+---
 # Servizio app di Azure e i servizi di Azure esistenti
-
 Questo articolo illustra le modifiche ai servizi di Azure esistenti come parte delle modifiche introdotte al fine di raggruppare vari servizi di Azure nel [servizio app di Azure](https://azure.microsoft.com/services/app-service/), una nuova offerta integrata.
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Panoramica
-
 Il [servizio app di Azure](https://azure.microsoft.com/services/app-service/) è un servizio cloud nuovo ed esclusivo che consente agli sviluppatori di creare app per dispositivi mobili e Web per qualsiasi piattaforma e dispositivo. Il servizio app viene offerto come soluzione integrata progettata per snellire le ripetitive procedure di scrittura del codice, integrarsi con i sistemi aziendali e SaaS e automatizzare i processi aziendali, adattandosi al contempo alle esigenze di sicurezza, affidabilità e scalabilità.
 
 Il servizio app riunisce i servizi di Azure esistenti [Siti Web](https://azure.microsoft.com/services/websites/), [Servizi mobili](https://azure.microsoft.com/services/mobile-services/) e [Servizi Biztalk](https://azure.microsoft.com/services/biztalk-services/) in un unico servizio combinato, a cui sono state aggiunte nuove funzionalità avanzate. Il servizio app consente di ospitare i seguenti tipi di app:
 
--   App Web
--   App per dispositivi mobili
--   App per le API
--   App per la logica
+* App Web
+* App per dispositivi mobili
+* App per le API
+* App per la logica
 
 La tabella seguente illustra la corrispondenza tra i servizi di Azure esistenti e il nuovo servizio app, nonché i tipi di app disponibili al suo interno.
 

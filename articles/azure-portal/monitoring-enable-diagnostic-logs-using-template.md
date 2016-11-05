@@ -1,28 +1,28 @@
-<properties
-	pageTitle="Abilitare automaticamente le impostazioni di diagnostica con un modello di Resource Manager | Microsoft Azure"
-	description="Informazioni su come usare un modello di Resource Manager per creare impostazioni di diagnostica che permettono di trasmettere i log di diagnostica a Hub eventi o di memorizzarli in un account di archiviazione."
-	authors="johnkemnetz"
-	manager="rboucher"
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Abilitare automaticamente le impostazioni di diagnostica con un modello di Resource Manager | Microsoft Docs
+description: Informazioni su come usare un modello di Resource Manager per creare impostazioni di diagnostica che permettono di trasmettere i log di diagnostica a Hub eventi o di memorizzarli in un account di archiviazione.
+author: johnkemnetz
+manager: rboucher
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/26/2016"
-	ms.author="johnkem"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: johnkem
 
+---
 # Abilitare automaticamente le impostazioni di diagnostica durante la creazione di risorse con un modello di Resource Manager
 Questo articolo illustra come usare un [modello di Azure Resource Manager](../resource-group-authoring-templates.md) per configurare le impostazioni di diagnostica in una risorsa durante la sua creazione. Ciò consente di iniziare automaticamente a trasmettere le metriche e i log di diagnostica a Hub eventi, di memorizzarli in un account di archiviazione o di inviarli a Log Analytics quando viene creata una risorsa.
 
 Il metodo da usare per abilitare i log di diagnostica tramite un modello di Resource Manager dipende dal tipo di risorsa.
 
-- Per le **risorse non di calcolo**, ad esempio Gruppi di sicurezza di rete, App per la logica e Automazione, usare le [impostazioni di diagnostica descritte in questo articolo](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
-- Per le **risorse di calcolo**, basate su WAD/LAD, usare il [file di configurazione WAD/LAD descritto in questo articolo](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
+* Per le **risorse non di calcolo**, ad esempio Gruppi di sicurezza di rete, App per la logica e Automazione, usare le [impostazioni di diagnostica descritte in questo articolo](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+* Per le **risorse di calcolo**, basate su WAD/LAD, usare il [file di configurazione WAD/LAD descritto in questo articolo](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
 
 Questo articolo illustra come configurare la diagnostica con entrambi i metodi.
 
@@ -37,7 +37,7 @@ Di seguito viene fornito un esempio del file JSON modello da generare per le ris
 Per le risorse non di calcolo, è necessario eseguire due operazioni:
 
 1. Aggiungere parametri al BLOB dei parametri per il nome dell'account di archiviazione, l'ID dell'area regola del bus di servizio e/o l'ID dell'area di lavoro di Log Analytics OMS, abilitando la memorizzazione dei log di diagnostica in un account di archiviazione, la trasmissione dei log a Hub eventi e/o l'invio dei log a Log Analytics.
-
+   
     ```json
     "storageAccountName": {
       "type": "string",
@@ -59,7 +59,7 @@ Per le risorse non di calcolo, è necessario eseguire due operazioni:
     }
     ```
 2. Nella matrice di risorse della risorsa per cui si vuole abilitare i log di diagnostica, aggiungere una risorsa di tipo `[resource namespace]/providers/diagnosticSettings`.
-
+   
     ```json
     "resources": [
       {
@@ -180,13 +180,15 @@ Per abilitare la diagnostica su una risorsa di calcolo, ad esempio una macchina 
 2. Specificare un account di archiviazione e/o un hub eventi come parametro.
 3. Aggiungere il contenuto del file XML WADCfg nella proprietà XMLCfg, usando le sequenze di escape corrette per i caratteri XML.
 
-> [AZURE.WARNING] Quest'ultimo passaggio può risultare difficile. Per un esempio che divide lo schema di configurazione di diagnostica in variabili con sequenze di escape e formattazione corrette, [vedere questo articolo](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md#diagnostics-configuration-variables).
+> [!WARNING]
+> Quest'ultimo passaggio può risultare difficile. Per un esempio che divide lo schema di configurazione di diagnostica in variabili con sequenze di escape e formattazione corrette, [vedere questo articolo](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md#diagnostics-configuration-variables).
+> 
+> 
 
 L'intero processo, esempi compresi, viene descritto in [questo documento](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).
 
-
 ## Passaggi successivi
-- [Altre informazioni sui log di diagnostica di Azure](./monitoring-overview-of-diagnostic-logs.md)
-- [Trasmettere log di diagnostica di Azure a Hub eventi](./monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Altre informazioni sui log di diagnostica di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Trasmettere log di diagnostica di Azure a Hub eventi](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
 
 <!---HONumber=AcomDC_0928_2016-->

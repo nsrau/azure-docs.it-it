@@ -1,35 +1,31 @@
-<properties
-	pageTitle="Utilizzo del portale Application Insights"
-	description="Metriche, ricerca, dashboard e impostazioni nel portale Application Insights."
-	services="application-insights"
-    documentationCenter=""
-	authors="alancameronwills"
-	manager="douge"/>
+---
+title: Utilizzo del portale Application Insights
+description: Metriche, ricerca, dashboard e impostazioni nel portale Application Insights.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="multiple"
-	ms.topic="article" 
-	ms.date="07/30/2016"
-	ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: multiple
+ms.topic: article
+ms.date: 07/30/2016
+ms.author: awills
 
+---
 # Navigazione e dashboard nel portale Application Insights
-
 Dopo aver [impostato Application Insights nel progetto](app-insights-overview.md), i dati di telemetria sull'utilizzo e le prestazioni dell'applicazione verranno visualizzati nella risorsa di Application Insights del progetto nel [portale Azure](https://portal.azure.com).
 
 ## Trovare i dati di telemetria
-
 Nel [portale di Azure](https://portal.azure.com) passare alla risorsa di Application Insights creata per la propria applicazione.
 
 ![Fare clic su Sfoglia, selezionare Application Insights, quindi fare clic sull'app.](./media/app-insights-dashboards/00-start.png)
 
 La pagina della panoramica mostra alcuni dati di telemetria di base e include collegamenti ad altre informazioni. Il contenuto varia a seconda del tipo di app e può essere personalizzato.
 
-
 ## Pannello Panoramica dell'app
-
 Il pannello (pagina) Panoramica dell'app mostra un riepilogo della metrica di diagnostica chiave dell'app e permette di accedere alle altre funzionalità del portale.
 
 Fare clic su:
@@ -41,23 +37,17 @@ Fare clic su:
 * [**Analisi**](app-insights-analytics.md) per eseguire query avanzate con i dati di telemetria.
 * [**Flusso attivo**](app-insights-metrics-explorer.md#live-stream) per un set fisso di metriche quasi istantanee, utile quando si distribuisce una nuova compilazione o si esegue il debug.
 
-
 ![Route principali per visualizzare i dati di telemetria](./media/app-insights-dashboards/010-oview.png)
 
-
-### Personalizzare il pannello Panoramica 
-
+### Personalizzare il pannello Panoramica
 Scegliere gli elementi da visualizzare nella panoramica. In Personalizza è possibile inserire titoli di sezione, spostare riquadri e grafici, rimuovere elementi e aggiungere nuovi riquadri e grafici dalla raccolta.
 
 ![Fare clic su Edit. Spostare i grafici e i riquadri. Aggiungere i riquadri dalla raccolta. Fare quindi clic su Fine.](./media/app-insights-dashboards/020-customize.png)
 
 ## Dashboard
-
 Il primo oggetto visualizzato dopo l'accesso al [portale di Microsoft Azure](https://portal.azure.com) è un dashboard, in cui è possibile raggruppare i grafici più importanti di tutte le risorse di Azure, inclusi i dati di telemetria di [Visual Studio Application Insights](app-insights-overview.md).
- 
 
 ![Un dashboard personalizzato.](./media/app-insights-dashboards/31.png)
-
 
 1. Modificare, creare e condividere dashboard usando la barra degli strumenti del dashboard.
 2. Tornare al dashboard corrente o passare ad altre visualizzazioni recenti.
@@ -66,7 +56,6 @@ Il primo oggetto visualizzato dopo l'accesso al [portale di Microsoft Azure](htt
 5. Passare il puntatore del mouse su un riquadro e usare la relativa barra superiore per spostarlo, personalizzarlo o rimuoverlo.
 
 ## Aggiungere elementi a un dashboard
-
 I pannelli o i set di grafici particolarmente interessanti possono essere aggiunti al dashboard. Saranno visibili al successivo accesso.
 
 ![Per aggiungere un grafico, passare il mouse su di esso e fare clic su "..." nell'intestazione.](./media/app-insights-dashboards/33.png)
@@ -78,11 +67,9 @@ I pannelli o i set di grafici particolarmente interessanti possono essere aggiun
 Si noti che i grafici sono raggruppati in riquadri e che un riquadro può contenere più di un grafico. Viene aggiunto al dashboard l'intero riquadro.
 
 ### Grafici di Analisi
-
 È anche possibile [aggiungere grafici di Analisi](app-insights-analytics-using.md#pin-to-dashboard) a un dashboard [condiviso](#share-dashboards-with-your-team). In questo modo è possibile aggiungere grafici di una query arbitraria insieme alle metriche standard.
 
 ## Modificare un riquadro nel dashboard
-
 Dopo aver aggiunto un riquadro al dashboard, è possibile modificarlo.
 
 ![Passare il puntatore del mouse su un grafico per modificarlo.](./media/app-insights-dashboards/36.png)
@@ -96,23 +83,18 @@ I riquadri aggiunti dai pannelli di Esplora metriche hanno più opzioni di modif
 
 Il riquadro originale aggiunto non è interessato dalle modifiche.
 
-
 ## Passare da un dashboard all'altro
-
 È possibile salvare più dashboard e passare da un dashboard all'altro. Quando si aggiunge un grafico o un pannello, l'aggiunta viene eseguita nel dashboard corrente.
 
 ![Per passare da un dashboard all'altro, fare clic su Dashboard e selezionare un dashboard salvato. Per creare e salvare un nuovo dashboard, fare clic su Nuovo. Per modificare la disposizione, fare clic su Modifica.](./media/app-insights-dashboards/32.png)
 
 È possibile ad esempio usare un dashboard per la visualizzazione a schermo intero nell'area del team e un altro dashboard per lo sviluppo generale.
 
-
 Nel dashboard i pannelli vengono visualizzati sotto forma di riquadri: fare clic sul riquadro desiderato per passare al pannello. I grafici sono una replica dei grafici che si trovano nel percorso originale.
 
 ![Fare clic su un riquadro per aprire il pannello che rappresenta](./media/app-insights-dashboards/35.png)
 
-
 ## Condividere i dashboard con il team
-
 Dopo aver creato un dashboard, è possibile condividerlo con altri utenti.
 
 ![Fare clic su Condividi nell'intestazione del dashboard](./media/app-insights-dashboards/41.png)
@@ -120,7 +102,6 @@ Dopo aver creato un dashboard, è possibile condividerlo con altri utenti.
 Altre informazioni su [ruoli e controllo di accesso](app-insights-resources-roles-access-control.md).
 
 ## Impostazioni
-
 Il pulsante Impostazioni nel pannello di panoramica non riguarda solo la configurazione, ma permette anche di accedere a svariati tipi di grafici.
 
 * **Log di controllo**: analisi degli avvisi e delle azioni eseguite nella risorsa app.
@@ -143,16 +124,15 @@ Il pulsante Impostazioni nel pannello di panoramica non riguarda solo la configu
 * [**Elementi di lavoro**](app-insights-diagnostic-search.md#create-work-item): connessione a un sistema di verifica del lavoro per poter creare bug durante l'analisi dei dati di telemetria.
 * [**Utenti**](app-insights-resources-roles-access-control.md): gestione degli utenti che possono accedere alla risorsa app.
 * [**Ruoli**](app-insights-resources-roles-access-control.md): gestione delle operazioni che gli utenti possono eseguire.
-* [**Tag**](..\resource-group-using-tags.md): organizzazione delle risorse di Azure.
-* [**Blocchi**](..\resource-group-lock-resources.md): blocco delle risorse di Azure.
+* [**Tag**](../resource-group-using-tags.md): organizzazione delle risorse di Azure.
+* [**Blocchi**](../resource-group-lock-resources.md): blocco delle risorse di Azure.
 * [**Esportazione modello**](app-insights-powershell.md): esportazione di una definizione della risorsa di Azure perché possa essere usata come modello per la creazione di nuove risorse.
 
 ## Passaggi successivi
-
-||
-|---|---
-|[Esplora metriche](app-insights-metrics-explorer.md)<br/>Consente di filtrare e segmentare le metriche|![Esempio di ricerca](./media/app-insights-dashboards/64.png)
-|[Ricerca diagnostica](app-insights-diagnostic-search.md)<br/>Consente di cercare e analizzare eventi ed eventi correlati e di creare bug |![Esempio di ricerca](./media/app-insights-dashboards/61.png)
-|[Analisi](app-insights-analytics.md)<br/>Linguaggio di query avanzato| ![Esempio di ricerca](./media/app-insights-dashboards/63.png)
+|  |  |
+| --- | --- |
+| [Esplora metriche](app-insights-metrics-explorer.md)<br/>Consente di filtrare e segmentare le metriche |![Esempio di ricerca](./media/app-insights-dashboards/64.png) |
+| [Ricerca diagnostica](app-insights-diagnostic-search.md)<br/>Consente di cercare e analizzare eventi ed eventi correlati e di creare bug |![Esempio di ricerca](./media/app-insights-dashboards/61.png) |
+| [Analisi](app-insights-analytics.md)<br/>Linguaggio di query avanzato |![Esempio di ricerca](./media/app-insights-dashboards/63.png) |
 
 <!---HONumber=AcomDC_0817_2016-->

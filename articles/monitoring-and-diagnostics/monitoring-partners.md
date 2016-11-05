@@ -1,30 +1,28 @@
-<properties
-    pageTitle="Integrazioni partner del monitoraggio di Azure | Microsoft Azure"
-    description="Informazioni sui partner del monitoraggio di Azure e sulle modalità di accesso alla documentazione per l'integrazione."
-    authors="johnkemnetz"
-    manager="rboucher"
-    editor=""
-    services="monitoring-and-diagnostics"
-    documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Integrazioni partner del monitoraggio di Azure | Microsoft Docs
+description: Informazioni sui partner del monitoraggio di Azure e sulle modalità di accesso alla documentazione per l'integrazione.
+author: johnkemnetz
+manager: rboucher
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-<tags
-    ms.service="monitoring-and-diagnostics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/26/2016"
-    ms.author="johnkem"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: johnkem
 
-
+---
 # <a name="azure-monitor-partner-integrations"></a>Integrazioni partner del monitoraggio di Azure
-
-|Partner|||
-|-----------|-----------|-----------|
-| [![Partner Logo][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Partner Logo][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Partner Logo][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
-| [![Partner Logo][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] | [![Partner Logo][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![Partner Logo][datadog-logo]<br/>**DataDog**][datadog-anchor] |
-| [![Partner Logo][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![Partner Logo][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] | [![Partner Logo][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] |
-| [![Partner Logo][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] | [![Partner Logo][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![Partner Logo][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] |
+| Partner |  |  |
+| --- | --- | --- |
+| [![Partner Logo][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] |[![Partner Logo][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] |[![Partner Logo][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
+| [![Partner Logo][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] |[![Partner Logo][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] |[![Partner Logo][datadog-logo]<br/>**DataDog**][datadog-anchor] |
+| [![Partner Logo][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |[![Partner Logo][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] |[![Partner Logo][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] |
+| [![Partner Logo][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |[![Partner Logo][splunk-logo]<br/>**Splunk**][splunk-anchor] |[![Partner Logo][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] |
 
 ## <a name="alertlogic-log-manager"></a>Gestione log AlertLogic
 Gestione log AlertLogic raccoglie i log della piattaforma di Azure, delle applicazioni e delle VM a fini di analisi di sicurezza e conservazione. Sono inclusi i log di controllo di Azure tramite l'API di Azure Insights.  Queste informazioni vengono usate per rilevare eventuali infrazioni e soddisfare i requisiti di conformità.
@@ -62,7 +60,6 @@ La correlazione dei problemi basata sull'IA e l'analisi della causa principale p
 [Vai alla documentazione.][dynatrace-doc]
 
 ## <a name="newrelic"></a>NewRelic
-
 [Altre informazioni.][newrelic-doc]
 
 ## <a name="opsgenie"></a>OpsGenie
@@ -83,12 +80,11 @@ Le informazioni sulle prestazioni e sulla diagnostica vengono raccolte dalle tab
 [Vai alla documentazione.][splunk-doc]
 
 ## <a name="sumo-logic"></a>SumoLogic
-
 [Altre informazioni.][sumologic-doc]
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Altre informazioni sul log attività (in precedenza, log di controllo)](../resource-group-audit.md)
-- [Trasmettere il log attività di Azure a Hub eventi](./monitoring-stream-activity-logs-event-hubs.md)
+* [Altre informazioni sul log attività (in precedenza, log di controllo)](../resource-group-audit.md)
+* [Trasmettere il log attività di Azure a Hub eventi](monitoring-stream-activity-logs-event-hubs.md)
 
 <!--Connectors Documentation-->
 [alertlogic-anchor]: #alertlogic-log-manager "AlertLogic"

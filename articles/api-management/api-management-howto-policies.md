@@ -1,34 +1,32 @@
-<properties 
-	pageTitle="Criteri in Gestione API di Azure | Microsoft Azure" 
-	description="Informazioni su come creare, modificare e configurare criteri in Gestione API." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+---
+title: Criteri in Gestione API di Azure | Microsoft Docs
+description: Informazioni su come creare, modificare e configurare criteri in Gestione API.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>  
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/09/2016
+ms.author: sdanie
 
-
-#Criteri in Gestione API di Azure
-
+---
+# Criteri in Gestione API di Azure
 In Gestione API di Azure i criteri sono una potente funzionalità del sistema che consentono all'entità di pubblicazione di modificare il comportamento dell'API tramite la configurazione. I criteri sono una raccolta di istruzioni che vengono eseguite in modo sequenziale in caso di richiesta o risposta di un'API. Le istruzioni più comuni includono la conversione di formato da XML a JSON e la limitazione della frequenza delle chiamate per limitare la quantità di chiamate in ingresso da uno sviluppatore. Sono disponibili molti altri criteri predefiniti.
 
-Per un elenco completo di istruzioni dei criteri e delle relative impostazioni, vedere [Informazioni di riferimento per i criteri][].
+Per un elenco completo di istruzioni dei criteri e delle relative impostazioni, vedere [Informazioni di riferimento per i criteri][Informazioni di riferimento per i criteri].
 
 I criteri vengono applicati nel gateway che si trova tra il consumer di API e l'API gestita. Il gateway riceve tutte le richieste e in genere le inoltra invariate all'API sottostante. Tuttavia i criteri possono applicare modifiche sia alla richiesta in ingresso che alla risposta in uscita.
 
-Le espressioni di criteri possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei criteri di Gestione API, salvo diversamente specificato dai criteri. Alcuni criteri, come [choose][] e [set-variable][], sono basati su espressioni di criteri. Per altre informazioni, vedere [Criteri avanzati][] ed [Espressioni di criteri][].
+Le espressioni di criteri possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei criteri di Gestione API, salvo diversamente specificato dai criteri. Alcuni criteri, come [choose][choose] e [set-variable][set-variable], sono basati su espressioni di criteri. Per altre informazioni, vedere [Criteri avanzati][Criteri avanzati] ed [Espressioni di criteri][Espressioni di criteri].
 
 ## <a name="scopes"> </a>Come configurare criteri
-I criteri possono essere configurati a livello globale o nell'ambito di un [prodotto][], un'[API][] o un'[operazione][]. Per configurare i criteri, passare all'editor dei criteri nel portale di pubblicazione.
+I criteri possono essere configurati a livello globale o nell'ambito di un [prodotto][prodotto], un'[API][API] o un'[operazione][operazione]. Per configurare i criteri, passare all'editor dei criteri nel portale di pubblicazione.
 
 ![Manu Criteri][policies-menu]
 
@@ -52,9 +50,12 @@ La definizione criteri è un semplice documento XML che descrive una sequenza di
 
 Facendo clic su un'istruzione abilitata, il codice XML appropriato verrà aggiunto in corrispondenza del cursore nella visualizzazione definizione.
 
->[AZURE.NOTE] Se il criterio che si desidera aggiungere non è abilitato, verificare di essere nell'ambito corretto per il criterio. Ogni istruzione di criterio è progettata per essere usata in determinati ambiti e sezioni dei criteri. Per esaminare le sezioni dei criteri e gli ambiti di un criterio, controllare la sezione relativa all'**utilizzo** del criterio in [Riferimento ai criteri di Gestione API di Azure][].
+> [!NOTE]
+> Se il criterio che si desidera aggiungere non è abilitato, verificare di essere nell'ambito corretto per il criterio. Ogni istruzione di criterio è progettata per essere usata in determinati ambiti e sezioni dei criteri. Per esaminare le sezioni dei criteri e gli ambiti di un criterio, controllare la sezione relativa all'**utilizzo** del criterio in [Riferimento ai criteri di Gestione API di Azure][Riferimento ai criteri di Gestione API di Azure].
+> 
+> 
 
-Un elenco completo di istruzioni dei criteri e le relative impostazioni sono disponibili in [Informazioni di riferimento per i criteri][].
+Un elenco completo di istruzioni dei criteri e le relative impostazioni sono disponibili in [Informazioni di riferimento per i criteri][Informazioni di riferimento per i criteri].
 
 Ad esempio, per aggiungere una nuova istruzione per limitare le richieste in arrivo agli indirizzi IP specificati, posizionare il cursore nel contenuto dell'elemento XML `inbound` e fare clic sull'istruzione **Limita IP chiamanti**.
 
@@ -62,40 +63,39 @@ Ad esempio, per aggiungere una nuova istruzione per limitare le richieste in arr
 
 Verrà aggiunto un frammento XML all'elemento `inbound` che fornisce informazioni aggiuntive sulla configurazione dell'istruzione.
 
-	<ip-filter action="allow | forbid">
-		<address>address</address>
-		<address-range from="address" to="address"/>
-	</ip-filter>
+    <ip-filter action="allow | forbid">
+        <address>address</address>
+        <address-range from="address" to="address"/>
+    </ip-filter>
 
 Per limitare le richieste in ingresso e accettare solo quelle da un indirizzo IP 1.2.3.4, modificare il codice XML nel modo seguente:
 
-	<ip-filter action="allow">
-		<address>1.2.3.4</address>
-	</ip-filter>
+    <ip-filter action="allow">
+        <address>1.2.3.4</address>
+    </ip-filter>
 
 ![Save][policies-save]
 
 Dopo aver configurato le istruzioni per il criterio, fare clic su **Salva** per propagare immediatamente le modifiche al gateway di Gestione API.
 
-##<a name="sections"> </a>Informazioni sulla configurazione dei criteri
-
+## <a name="sections"> </a>Informazioni sulla configurazione dei criteri
 Un criterio è una serie di istruzioni eseguite in un determinato ordine in relazione a una richiesta e una risposta. La configurazione è correttamente suddivisa nelle sezioni `inbound`, `backend`, `outbound`, e `on-error` come mostrato nella seguente configurazione.
 
-	<policies>
-	  <inbound>
-	    <!-- statements to be applied to the request go here -->
-	  </inbound>
-	  <backend>
-	    <!-- statements to be applied before the request is forwarded to 
-	         the backend service go here -->
-	  </backend>
-	  <outbound>
-	    <!-- statements to be applied to the response go here -->
-	  </outbound>
-	  <on-error>
-	    <!-- statements to be applied if there is an error condition go here -->
-	  </on-error>
-	</policies> 
+    <policies>
+      <inbound>
+        <!-- statements to be applied to the request go here -->
+      </inbound>
+      <backend>
+        <!-- statements to be applied before the request is forwarded to 
+             the backend service go here -->
+      </backend>
+      <outbound>
+        <!-- statements to be applied to the response go here -->
+      </outbound>
+      <on-error>
+        <!-- statements to be applied if there is an error condition go here -->
+      </on-error>
+    </policies> 
 
 Se si verifica un errore durante l'elaborazione di una richiesta, tutti i rimanenti passaggi nelle sezioni `inbound`, `backend`, o `outbound` vengono ignorate e l'esecuzione prosegue con le istruzioni nella sezione`on-error`. Inserendo istruzioni di criteri nella sezione `on-error` è possibile rivedere l'errore utilizzando la proprietà `context.LastError`, esaminare e personalizzare la risposta di errore tramite il criterio `set-body` e configurare che cosa accade se si verifica un errore. Sono disponibili codici di errore per i passaggi incorporati e per gli errori che possono verificarsi durante l'elaborazione delle istruzioni dei criteri. Per altre informazioni, vedere [Gestione degli errori nei criteri di Gestione API](https://msdn.microsoft.com/library/azure/mt629506.aspx).
 
@@ -112,13 +112,13 @@ Le istruzioni all'interno di essi vengono valutate in base alla posizione dell�
 
 Ad esempio, se ci sono un criterio a livello globale e un criterio configurato per un'API, quando questa particolare API viene usata, vengono applicati entrambi i criteri. Gestione API consente l'ordinamento deterministico delle istruzioni combinate per i criteri attraverso l'elemento di base.
 
-	<policies>
-    	<inbound>
-        	<cross-domain />
-        	<base />
-        	<find-and-replace from="xyz" to="abc" />
-    	</inbound>
-	</policies>
+    <policies>
+        <inbound>
+            <cross-domain />
+            <base />
+            <find-and-replace from="xyz" to="abc" />
+        </inbound>
+    </policies>
 
 Nella definizione del criterio dell'esempio precedente, l'istruzione `cross-domain` verrà eseguita prima di un criterio di livello superiore che verrà a sua volta seguito dal criterio `find-and-replace`.
 
@@ -127,10 +127,11 @@ Se lo stesso criterio viene visualizzato due volte nell'istruzione del criterio,
 Notare che i criteri globali non hanno criteri padre e che usando in essi l'elemento `<base>` esso non produce alcun effetto.
 
 ## Passaggi successivi
-
 Vedere il video seguente sulle espressioni di criteri.
 
-> [AZURE.VIDEO policy-expressions-in-azure-api-management]
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
+> 
+> 
 
 [Informazioni di riferimento per i criteri]: api-management-policy-reference.md
 [Riferimento ai criteri di Gestione API di Azure]: api-management-policy-reference.md

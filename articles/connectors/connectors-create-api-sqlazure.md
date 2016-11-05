@@ -1,101 +1,96 @@
-<properties
-    pageTitle="Aggiungere il connettore del database SQL di Azure alle app per la logica | Microsoft Azure"
-    description="Panoramica del connettore del database SQL di Azure con i parametri dell'API REST"
-    services=""
-    documentationCenter="" 
-    authors="MandiOhlinger"
-    manager="erikre"
-    editor=""
-    tags="connectors"/>
+---
+title: Aggiungere il connettore del database SQL di Azure alle app per la logica | Microsoft Docs
+description: Panoramica del connettore del database SQL di Azure con i parametri dell'API REST
+services: ''
+documentationcenter: ''
+author: MandiOhlinger
+manager: erikre
+editor: ''
+tags: connectors
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="07/25/2016"
-   ms.author="mandia"/>
+ms.service: logic-apps
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 07/25/2016
+ms.author: mandia
 
-
+---
 # Introduzione al connettore del database SQL di Azure
 Usando il connettore del database SQL di Azure, creare flussi di lavoro per l'organizzazione che gestiscano i dati nelle tabelle.
 
 Con il database SQL è possibile:
 
-- Creare il flusso di lavoro aggiungendo un nuovo cliente in un database di clienti o aggiornando un ordine in un database di ordini.
-- Usare le azioni per ottenere una riga di dati, inserire una nuova riga e persino eliminare una riga. Ad esempio, quando viene creato un record in Dynamics CRM Online (trigger), inserire una riga in un database SQL di Azure (azione).
+* Creare il flusso di lavoro aggiungendo un nuovo cliente in un database di clienti o aggiornando un ordine in un database di ordini.
+* Usare le azioni per ottenere una riga di dati, inserire una nuova riga e persino eliminare una riga. Ad esempio, quando viene creato un record in Dynamics CRM Online (trigger), inserire una riga in un database SQL di Azure (azione).
 
 Questo argomento illustra come usare il connettore del database SQL in un'app per la logica ed elenca le azioni.
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla la disponibilità generale delle app per la logica.
+> [!NOTE]
+> Questa versione dell'articolo si applica alla la disponibilità generale delle app per la logica.
+> 
+> 
 
 Per altre informazioni sulle app per la logica, vedere [Cosa sono le app per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md) e l'articolo su come [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Connettersi al database SQL di Azure
-
 Prima che l'app per la logica possa accedere a qualsiasi servizio, è necessario creare una *connessione* al servizio. Una connessione fornisce la connettività tra un'app per la logica e un altro servizio. Ad esempio, per connettersi al database SQL, si crea una *connessione* al database SQL. Per creare una connessione, immettere le credenziali che si usano normalmente per accedere al servizio a cui connettersi. Pertanto, per creare la connessione al database SQL, immettere le credenziali del database SQL.
 
 #### Creare la connessione
-
->[AZURE.INCLUDE [Creare la connessione a SQL Azure](../../includes/connectors-create-api-sqlazure.md)]
+> [!INCLUDE [Creare la connessione a SQL Azure](../../includes/connectors-create-api-sqlazure.md)]
+> 
+> 
 
 ## Usare un trigger
-
 Questo connettore non include trigger. Usare altri trigger per avviare l'app per la logica, come un trigger Ricorrenza, un trigger Webhook HTTP, i trigger disponibili con altri connettori e altri ancora. Nella sezione [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md) è riportato un esempio.
 
 ## Usare un'azione
-	
 Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
 1. Selezionare il segno più. Sono disponibili varie opzioni: **Aggiungi un'azione**, **Aggiungi una condizione** e le opzioni in **Altro**.
-
-	![](./media/connectors-create-api-sqlazure/add-action.png)
-
+   
+    ![](./media/connectors-create-api-sqlazure/add-action.png)
 2. Selezionare **Aggiungi un'azione**.
-
 3. Nella casella di testo digitare "sql" per ottenere l'elenco di tutte le azioni disponibili.
-
-	![](./media/connectors-create-api-sqlazure/sql-1.png)
-
+   
+    ![](./media/connectors-create-api-sqlazure/sql-1.png)
 4. In questo esempio scegliere **SQL Server - Get row** (SQL Server - Ottieni riga). Se esiste già una connessione, selezionare il **nome della tabella** dall'elenco a discesa e immettere l'**ID riga** che si desidera restituire.
-
-	![](./media/connectors-create-api-sqlazure/sample-table.png)
-
-	Se viene richiesto di inserire le informazioni di connessione, immettere i dettagli per creare la connessione. La sezione [Creare la connessione](connectors-create-api-sqlazure.md#create-the-connection) di questo argomento descrive queste proprietà.
-
-	> [AZURE.NOTE] In questo esempio si restituisce una riga da una tabella. Per visualizzare i dati in questa riga aggiungere un'altra azione che crea un file usando i campi della tabella. Ad esempio, aggiungere un'azione OneDrive che usa i campi Nome e Cognome per creare un nuovo file nell'account di archiviazione cloud.
-
+   
+    ![](./media/connectors-create-api-sqlazure/sample-table.png)
+   
+    Se viene richiesto di inserire le informazioni di connessione, immettere i dettagli per creare la connessione. La sezione [Creare la connessione](connectors-create-api-sqlazure.md#create-the-connection) di questo argomento descrive queste proprietà.
+   
+   > [!NOTE]
+   > In questo esempio si restituisce una riga da una tabella. Per visualizzare i dati in questa riga aggiungere un'altra azione che crea un file usando i campi della tabella. Ad esempio, aggiungere un'azione OneDrive che usa i campi Nome e Cognome per creare un nuovo file nell'account di archiviazione cloud.
+   > 
+   > 
 5. Scegliere **Salva** nell'angolo in alto a sinistra della barra degli strumenti per salvare le modifiche. L'app per la logica viene salvata e può essere attivata automaticamente.
 
-
 ## Dettagli tecnici
-
 ## Azioni del database SQL
 Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. Il connettore del database SQL include le azioni seguenti.
 
-|Azione|Descrizione|
-|--- | ---|
-|[ExecuteProcedure](connectors-create-api-sqlazure.md#execute-stored-procedure)|Esegue una stored procedure in SQL|
-|[GetRow](connectors-create-api-sqlazure.md#get-row)|Recupera una riga singola da una tabella SQL|
-|[GetRows](connectors-create-api-sqlazure.md#get-rows)|Recupera righe da una tabella SQL|
-|[InsertRow](connectors-create-api-sqlazure.md#insert-row)|Inserisce una nuova riga in una tabella SQL|
-|[DeleteRow](connectors-create-api-sqlazure.md#delete-row)|Elimina una riga da una tabella SQL|
-|[GetTables](connectors-create-api-sqlazure.md#get-tables)|Recupera le tabelle da un database SQL|
-|[UpdateRow](connectors-create-api-sqlazure.md#update-row)|Aggiorna una riga esistente in una tabella SQL|
+| Azione | Descrizione |
+| --- | --- |
+| [ExecuteProcedure](connectors-create-api-sqlazure.md#execute-stored-procedure) |Esegue una stored procedure in SQL |
+| [GetRow](connectors-create-api-sqlazure.md#get-row) |Recupera una riga singola da una tabella SQL |
+| [GetRows](connectors-create-api-sqlazure.md#get-rows) |Recupera righe da una tabella SQL |
+| [InsertRow](connectors-create-api-sqlazure.md#insert-row) |Inserisce una nuova riga in una tabella SQL |
+| [DeleteRow](connectors-create-api-sqlazure.md#delete-row) |Elimina una riga da una tabella SQL |
+| [GetTables](connectors-create-api-sqlazure.md#get-tables) |Recupera le tabelle da un database SQL |
+| [UpdateRow](connectors-create-api-sqlazure.md#update-row) |Aggiorna una riga esistente in una tabella SQL |
 
 ### Informazioni dettagliate sulle azioni
-
 In questa sezione si vedranno i dettagli relativi a ogni azione, incluse le proprietà di input obbligatorie o facoltative e gli output corrispondenti associati al connettore.
-
 
 #### Esegui stored procedure
 Esegue una stored procedure in SQL.
 
-| Nome proprietà| Nome visualizzato |Descrizione|
-| ---|---|---|
-|procedure* | Nome della stored procedure | Il nome della stored procedure da eseguire |
-|parameters* | Parametri di input | I parametri sono dinamici e basati sulla stored procedure selezionata. <br/><br/> Ad esempio, se si usa il database di esempio Adventure Works, scegliere la stored procedure *ufnGetCustomerInformation*. Viene visualizzato il parametro di input **ID cliente**. Immettere "6" o uno degli altri ID cliente. |
+| Nome proprietà | Nome visualizzato | Descrizione |
+| --- | --- | --- |
+| procedure* |Nome della stored procedure |Il nome della stored procedure da eseguire |
+| parameters* |Parametri di input |I parametri sono dinamici e basati sulla stored procedure selezionata. <br/><br/> Ad esempio, se si usa il database di esempio Adventure Works, scegliere la stored procedure *ufnGetCustomerInformation*. Viene visualizzato il parametro di input **ID cliente**. Immettere "6" o uno degli altri ID cliente. |
 
 L'asterisco (*) indica che la proprietà è obbligatoria.
 
@@ -103,19 +98,18 @@ L'asterisco (*) indica che la proprietà è obbligatoria.
 ProcedureResult: riporta il risultato dell'esecuzione della stored procedure
 
 | Nome proprietà | Tipo di dati | Descrizione |
-|---|---|---|
-|OutputParameters|oggetto|Valori di output dei parametri |
-|ReturnCode|integer|Codice restituito di una routine |
-|ResultSets|oggetto| Set di risultati|
+| --- | --- | --- |
+| OutputParameters |oggetto |Valori di output dei parametri |
+| ReturnCode |integer |Codice restituito di una routine |
+| ResultSets |oggetto |Set di risultati |
 
-
-#### Ottenere la riga 
+#### Ottenere la riga
 Recupera una riga singola da una tabella SQL.
 
-| Nome proprietà| Nome visualizzato |Descrizione|
-| ---|---|---|
-|table* | Nome tabella |Nome della tabella SQL|
-|id* | ID di riga |Identificatore univoco della riga da recuperare|
+| Nome proprietà | Nome visualizzato | Descrizione |
+| --- | --- | --- |
+| table* |Nome tabella |Nome della tabella SQL |
+| id* |ID di riga |Identificatore univoco della riga da recuperare |
 
 L'asterisco (*) indica che la proprietà è obbligatoria.
 
@@ -123,20 +117,19 @@ L'asterisco (*) indica che la proprietà è obbligatoria.
 Item
 
 | Nome proprietà | Tipo di dati |
-|---|---|
-|ItemInternalId|string|
+| --- | --- |
+| ItemInternalId |string |
 
-
-#### Ottieni righe 
+#### Ottieni righe
 Recupera righe da una tabella SQL.
 
-|Nome proprietà| Nome visualizzato|Descrizione|
-| ---|---|---|
-|table*|Nome tabella|Nome della tabella SQL|
-|$skip|Ignora conteggio|Numero di elementi da ignorare (impostazione predefinita = 0)|
-|$top|Numero massimo di Get|Numero massimo di elementi da recuperare (impostazione predefinita = 256)|
-|$filter|Query di filtro|Query di filtro ODATA per limitare il numero di elementi|
-|$orderby|Ordina per|Query orderBy ODATA per specificare l'ordine degli elementi|
+| Nome proprietà | Nome visualizzato | Descrizione |
+| --- | --- | --- |
+| table* |Nome tabella |Nome della tabella SQL |
+| $skip |Ignora conteggio |Numero di elementi da ignorare (impostazione predefinita = 0) |
+| $top |Numero massimo di Get |Numero massimo di elementi da recuperare (impostazione predefinita = 256) |
+| $filter |Query di filtro |Query di filtro ODATA per limitare il numero di elementi |
+| $orderby |Ordina per |Query orderBy ODATA per specificare l'ordine degli elementi |
 
 L'asterisco (*) indica che la proprietà è obbligatoria.
 
@@ -144,17 +137,16 @@ L'asterisco (*) indica che la proprietà è obbligatoria.
 ItemsList
 
 | Nome proprietà | Tipo di dati |
-|---|---|
-|value|array|
+| --- | --- |
+| value |array |
 
-
-#### Inserisci riga 
+#### Inserisci riga
 Inserisce una nuova riga in una tabella SQL.
 
-|Nome proprietà| Nome visualizzato|Descrizione|
-| ---|---|---|
-|table*|Nome tabella|Nome della tabella SQL|
-|item*|Riga|Riga da inserire nella tabella specificata in SQL|
+| Nome proprietà | Nome visualizzato | Descrizione |
+| --- | --- | --- |
+| table* |Nome tabella |Nome della tabella SQL |
+| item* |Riga |Riga da inserire nella tabella specificata in SQL |
 
 L'asterisco (*) indica che la proprietà è obbligatoria.
 
@@ -162,72 +154,67 @@ L'asterisco (*) indica che la proprietà è obbligatoria.
 Item
 
 | Nome proprietà | Tipo di dati |
-|---|---|
-|ItemInternalId|string|
+| --- | --- |
+| ItemInternalId |string |
 
-
-#### Elimina riga 
+#### Elimina riga
 Elimina una riga da una tabella SQL.
 
-|Nome proprietà| Nome visualizzato|Descrizione|
-| ---|---|---|
-|table*|Nome tabella|Nome della tabella SQL|
-|id*|ID di riga|Identificatore univoco della riga da eliminare|
+| Nome proprietà | Nome visualizzato | Descrizione |
+| --- | --- | --- |
+| table* |Nome tabella |Nome della tabella SQL |
+| id* |ID di riga |Identificatore univoco della riga da eliminare |
 
 L'asterisco (*) indica che la proprietà è obbligatoria.
 
 ##### Dettagli output
 Nessuna.
 
-#### Ottieni tabelle 
+#### Ottieni tabelle
 Recupera tabelle da un database SQL.
 
 Non sono disponibili parametri per questa chiamata.
 
-##### Dettagli dell'output 
+##### Dettagli dell'output
 TablesList
 
 | Nome proprietà | Tipo di dati |
-|---|---|
-|value|array|
+| --- | --- |
+| value |array |
 
-#### Aggiorna riga 
+#### Aggiorna riga
 Aggiorna una riga esistente in una tabella SQL.
 
-|Nome proprietà| Nome visualizzato|Descrizione|
-| ---|---|---|
-|table*|Nome tabella|Nome della tabella SQL|
-|id*|ID di riga|Identificatore univoco della riga da aggiornare|
-|item*|Riga|Riga con i valori aggiornati|
+| Nome proprietà | Nome visualizzato | Descrizione |
+| --- | --- | --- |
+| table* |Nome tabella |Nome della tabella SQL |
+| id* |ID di riga |Identificatore univoco della riga da aggiornare |
+| item* |Riga |Riga con i valori aggiornati |
 
 L'asterisco (*) indica che la proprietà è obbligatoria.
 
-##### Dettagli dell'output  
+##### Dettagli dell'output
 Item
 
 | Nome proprietà | Tipo di dati |
-|---|---|
-|ItemInternalId|string|
-
+| --- | --- |
+| ItemInternalId |string |
 
 ### Risposte HTTP
-
 Quando si effettuano chiamate alle diverse azioni, è possibile ottenere determinate risposte. La tabella seguente indica le risposte e le relative descrizioni:
 
-|Nome|Descrizione|
-|---|---|
-|200|OK|
-|202|Accepted|
-|400|Bad Request|
-|401|Non autorizzata|
-|403|Accesso negato|
-|404|Non trovato|
-|500|Errore interno del server. Si è verificato un errore sconosciuto|
-|default|Operazione non riuscita.|
-
+| Nome | Descrizione |
+| --- | --- |
+| 200 |OK |
+| 202 |Accepted |
+| 400 |Bad Request |
+| 401 |Non autorizzata |
+| 403 |Accesso negato |
+| 404 |Non trovato |
+| 500 |Errore interno del server. Si è verificato un errore sconosciuto |
+| default |Operazione non riuscita. |
 
 ## Passaggi successivi
-
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). Esplorare gli altri connettori disponibili nelle app per la logica nell'[elenco delle API](apis-list.md).
 
 <!---HONumber=AcomDC_0727_2016-->

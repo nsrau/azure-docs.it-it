@@ -1,10 +1,9 @@
-##Toolkit di Azure per Eclipse
-
+## Toolkit di Azure per Eclipse
 Prerequisiti:
 
 1. Windows 7, Windows 8, Windows 10, Windows Server 2008 o Windows Server 2012.
 2. I sistemi operativi Macintosh o Linux elencati nell’articolo [Novità del Toolkit di Azure per Eclipse].
-2. Eclipse Indigo o versione successiva.
+3. Eclipse Indigo o versione successiva.
 
 Passaggi per l'installazione:
 

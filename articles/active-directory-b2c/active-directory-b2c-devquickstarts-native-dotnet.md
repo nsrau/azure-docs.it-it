@@ -1,54 +1,49 @@
-<properties
-	pageTitle="Azure Active Directory B2C | Microsoft Azure"
-	description="Come creare un'applicazione desktop di Windows con funzionalità di gestione dell'iscrizione, dell'accesso e del profilo utente usando Azure Active Directory B2C."
-	services="active-directory-b2c"
-	documentationCenter=".net"
-	authors="dstrockis"
-	manager="msmbaldwin"
-	editor=""/>
+---
+title: Azure Active Directory B2C | Microsoft Docs
+description: Come creare un'applicazione desktop di Windows con funzionalità di gestione dell'iscrizione, dell'accesso e del profilo utente usando Azure Active Directory B2C.
+services: active-directory-b2c
+documentationcenter: .net
+author: dstrockis
+manager: msmbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/22/2016"
-	ms.author="dastrock"/>
+ms.service: active-directory-b2c
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 07/22/2016
+ms.author: dastrock
 
+---
 # Azure AD B2C: creare un'app desktop di Windows
-
 Azure Active Directory (Azure AD) B2C consente di aggiungere funzionalità avanzate di gestione delle identità self-service all'app desktop in pochi brevi passaggi. Questo articolo descrive come creare un'app Windows Presentation Foundation (WPF) .NET "To do list" con funzionalità di gestione dell'iscrizione, dell'accesso e del profilo utente. L'app includerà il supporto per l'iscrizione e l'accesso tramite un nome utente o un indirizzo di posta elettronica. L'app includerà anche il supporto per l'iscrizione e l'accesso tramite account di social networking quali Facebook e Google.
 
 ## Ottenere una directory di Azure AD B2C
-
 Prima di poter usare Azure AD B2C, è necessario creare una directory, o tenant. Una directory è un contenitore per utenti, app, gruppi e così via. Se non è già stato fatto, [creare una directory B2C](active-directory-b2c-get-started.md) prima di proseguire con questa guida.
 
 ## Creare un'applicazione
-
 Successivamente, è necessario creare un'app nella directory B2C. In questo modo Azure AD acquisisce le informazioni necessarie per comunicare in modo sicuro con l'app. Per creare un'app, [seguire questa procedura](active-directory-b2c-app-registration.md). Assicurarsi di:
 
-- Includere un **client nativo** nell'applicazione.
-- Copiare l'**URI di reindirizzamento** `urn:ietf:wg:oauth:2.0:oob`. Si tratta dell'URL predefinito per questo esempio di codice.
-- Copiare l'**ID applicazione** assegnato all'app. Sarà necessario più avanti.
+* Includere un **client nativo** nell'applicazione.
+* Copiare l'**URI di reindirizzamento** `urn:ietf:wg:oauth:2.0:oob`. Si tratta dell'URL predefinito per questo esempio di codice.
+* Copiare l'**ID applicazione** assegnato all'app. Sarà necessario più avanti.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Creare i criteri
-
 In Azure AD B2C ogni esperienza utente è definita da [criteri](active-directory-b2c-reference-policies.md) specifici. Questo esempio di codice contiene tre esperienze di identità: iscrizione, accesso e modifica del profilo. È necessario creare i criteri per ogni tipo, come descritto nell'[articolo di riferimento sui criteri](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Durante la creazione dei tre criteri, assicurarsi di:
 
-- Scegliere **Iscrizione ID utente** o **Iscrizione posta elettronica** nel pannello dei provider di identità.
-- Scegliere **Nome visualizzato** e altri attributi nei criteri di iscrizione.
-- Scegliere le attestazioni **Nome visualizzato** e **ID oggetto** come attestazioni dell'applicazione in tutti i criteri. È consentito scegliere anche altre attestazioni.
-- Copiare il **Nome** di ogni criterio dopo averlo creato. Dovrebbero mostrare il prefisso `b2c_1_`. I nomi dei criteri saranno necessari in un secondo momento.
+* Scegliere **Iscrizione ID utente** o **Iscrizione posta elettronica** nel pannello dei provider di identità.
+* Scegliere **Nome visualizzato** e altri attributi nei criteri di iscrizione.
+* Scegliere le attestazioni **Nome visualizzato** e **ID oggetto** come attestazioni dell'applicazione in tutti i criteri. È consentito scegliere anche altre attestazioni.
+* Copiare il **Nome** di ogni criterio dopo averlo creato. Dovrebbero mostrare il prefisso `b2c_1_`. I nomi dei criteri saranno necessari in un secondo momento.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Dopo aver creato i tre criteri, è possibile passare alla compilazione dell'app.
 
 ## Scaricare il codice
-
 Il codice per questa esercitazione è [disponibile in GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet). Per compilare l'esempio passo dopo passo, è possibile [scaricare un progetto bozza come file ZIP](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip). È anche possibile clonare la struttura:
 
 ```
@@ -90,8 +85,7 @@ public static class Globals
 }
 ```
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
-
+[!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 ### Creare PublicClientApplication
 La classe primaria di MSAL è `PublicClientApplication`. Questa classe rappresenta l'applicazione nel sistema Azure Active Directory B2C. All'avvio dell'app, creare un'istanza di `PublicClientApplication` in `MainWindow.xaml.cs`. Questa istanza può essere usata in tutta la finestra.
@@ -107,7 +101,7 @@ protected async override void OnInitialized(EventArgs e)
         // we've extended the MSAL TokenCache and created a simple FileCache in this app.
         UserTokenCache = new FileCache(),
     };
-    
+
     ...
 ```
 
@@ -168,13 +162,13 @@ private async void SignUp(object sender, RoutedEventArgs e)
 ```C#
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
-	AuthenticationResult result = null;
-	try
-	{
-		result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
+    AuthenticationResult result = null;
+    try
+    {
+        result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
                     string.Empty, UiOptions.ForceLogin, null, null, Globals.authority,
                     Globals.signInPolicy);
-		...
+        ...
 ```
 
 ### Avviare un flusso di modifica del profilo
@@ -183,16 +177,15 @@ Anche in questo caso è possibile eseguire i criteri di modifica del profilo in 
 ```C#
 private async void EditProfile(object sender, RoutedEventArgs e)
 {
-	AuthenticationResult result = null;
-	try
-	{
-		result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
+    AuthenticationResult result = null;
+    try
+    {
+        result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
                     string.Empty, UiOptions.ForceLogin, null, null, Globals.authority,
                     Globals.editProfilePolicy);
 ```
 
 In tutti questi casi, MSAL restituisce un token in `AuthenticationResult` oppure genera un'eccezione. Ogni volta che si ottiene un token da MSAL, è possibile usare l'oggetto `AuthenticationResult.User` per aggiornare i dati utente nell'app, ad esempio l'interfaccia utente. ADAL inoltre memorizza nella cache il token per l'uso in altre parti dell'applicazione.
-
 
 ### Verificare la presenza di token all'avvio dell'app
 È possibile usare MSAL anche per tenere traccia dello stato di accesso dell'utente. In questa app si vuole che l'utente rimanga connesso anche dopo che ha chiuso e riaperto l'app. Nuovamente all'interno dell'override `OnInitialized`, usare il metodo `AcquireTokenSilent` di MSAL per verificare la disponibilità di token memorizzati nella cache:
@@ -276,19 +269,19 @@ private async void GetTodoList()
 
         return;
     }
-	...
+    ...
 ```
 
 Quando la chiamata a `AcquireTokenSilentAsync(...)` riesce e viene trovato un token nella cache, è possibile aggiungerlo all'intestazione `Authorization` della richiesta HTTP. L'API Web dell'attività userà questa intestazione per autenticare la richiesta di lettura dell'elenco attività dell'utente:
 
 ```C#
-	...
-	// Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
+    ...
+    // Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
 
     // Call the To Do list service.
     HttpResponseMessage response = await httpClient.GetAsync(Globals.taskServiceUrl + "/api/tasks");
-	...
+    ...
 ```
 
 ## Disconnettere l'utente dall'app
@@ -314,19 +307,17 @@ private void SignOut(object sender, RoutedEventArgs e)
 ```
 
 ## Eseguire l'app di esempio
-
 Infine, compilare ed eseguire l'esempio. Effettuare l'iscrizione all'app usando un indirizzo di posta elettronica o un nome utente. Disconnettersi e accedere nuovamente con lo stesso account utente. Modificare il profilo dell'utente. Disconnettersi ed eseguire l'iscrizione usando un account utente diverso.
 
 ## Aggiungere i provider di identità per i social network
-
 L'app supporta attualmente solo l'iscrizione e l'accesso dell'utente con **account locali**. Si tratta di account archiviati nella directory B2C che usano un nome utente e una password. Usando Azure AD B2C, è possibile aggiungere il supporto per altri provider di identità (IDP) senza modificare il codice.
 
 Per aggiungere provider di identità per i social media all'applicazione, seguire le istruzioni dettagliate fornite in questi articoli. Per ogni provider di identità che si vuole supportare, è necessario registrare un'applicazione nel relativo sistema e ottenere un ID client.
 
-- [Configurare Facebook come provider di identità](active-directory-b2c-setup-fb-app.md)
-- [Configurare Google come provider di identità](active-directory-b2c-setup-goog-app.md)
-- [Configurare Amazon come provider di identità](active-directory-b2c-setup-amzn-app.md)
-- [Configurare LinkedIn come provider di identità](active-directory-b2c-setup-li-app.md)
+* [Configurare Facebook come provider di identità](active-directory-b2c-setup-fb-app.md)
+* [Configurare Google come provider di identità](active-directory-b2c-setup-goog-app.md)
+* [Configurare Amazon come provider di identità](active-directory-b2c-setup-amzn-app.md)
+* [Configurare LinkedIn come provider di identità](active-directory-b2c-setup-li-app.md)
 
 Dopo aver aggiunto i provider di identità alla directory B2C, è necessario modificare ognuno dei tre criteri per includere i nuovi provider di identità, come descritto nell'[articolo di riferimento sui criteri](active-directory-b2c-reference-policies.md). Dopo aver salvato i criteri, eseguire nuovamente l'app. I nuovi provider di identità dovrebbero essere stati aggiunti tra le opzioni di accesso e iscrizione in ognuna delle esperienze per l'identità.
 

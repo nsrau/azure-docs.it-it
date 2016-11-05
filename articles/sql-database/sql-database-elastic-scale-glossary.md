@@ -1,21 +1,21 @@
-<properties 
-    pageTitle="Glossario sugli strumenti di database elastici | Microsoft Azure" 
-    description="Spiegazione dei termini utilizzati per gli strumenti dei database elastici" 
-    services="sql-database" 
-    documentationCenter="" 
-    manager="jhubbard" 
-    authors="ddove" 
-    editor=""/>
+---
+title: Glossario sugli strumenti di database elastici | Microsoft Docs
+description: Spiegazione dei termini utilizzati per gli strumenti dei database elastici
+services: sql-database
+documentationcenter: ''
+manager: jhubbard
+author: ddove
+editor: ''
 
-<tags 
-    ms.service="sql-database" 
-    ms.workload="sql-database" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="05/27/2016" 
-    ms.author="ddove"/>
+ms.service: sql-database
+ms.workload: sql-database
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/27/2016
+ms.author: ddove
 
+---
 # Glossario sugli strumenti di database elastici
 Di seguito sono elencate le definizioni dei termini usati per gli [strumenti di database elastici](sql-database-elastic-scale-introduction.md), una funzionalità del database SQL di Azure. Gli strumenti vengono usati per gestire le [mappe partizioni](sql-database-elastic-scale-shard-map-management.md), e includono la [libreria client](sql-database-elastic-database-client-library.md), lo [strumento di suddivisione-unione](sql-database-elastic-scale-overview-split-and-merge.md), i [pool elastici](sql-database-elastic-pool.md), e le [query](sql-database-elastic-query-overview.md).
 
@@ -65,9 +65,7 @@ Ecco una rappresentazione di database a tenant singolo e multi-tenant **partizio
 
 ![Mapping][2]
 
-
-##Verbi
-
+## Verbi
 **Scalare orizzontalmente**: aumentare o ridurre le dimensioni di una raccolta di partizioni aggiungendo o rimuovendo partizioni a una mappa partizioni.
 
 ![Scalabilità orizzontale e verticale][3]
@@ -82,12 +80,12 @@ Ecco una rappresentazione di database a tenant singolo e multi-tenant **partizio
 
 **Scalare verticalmente**: aumentare o ridurre il livello di prestazioni di una singola partizione. Ad esempio, modifica di una partizione da Standard a Premium (che comporta più risorse di elaborazione).
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-glossary/glossary.png
 [2]: ./media/sql-database-elastic-scale-glossary/mappings.png
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
- 
+
 
 <!---HONumber=AcomDC_0601_2016-->

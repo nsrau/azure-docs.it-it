@@ -1,29 +1,26 @@
 
-<properties
-	pageTitle="Effettuare l’accesso all'app per dispositivi mobili utilizzando un codice di verifica con Azure Multi-Factor Authentication"
-	description="Questa pagina descriverà come un utente può accedere utilizzando un codice di verifica dell’app per dispositivi mobili con Azure MFA."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtland"/>
+---
+title: Effettuare l’accesso all'app per dispositivi mobili utilizzando un codice di verifica con Azure Multi-Factor Authentication
+description: Questa pagina descriverà come un utente può accedere utilizzando un codice di verifica dell’app per dispositivi mobili con Azure MFA.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtland
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/04/2016
+ms.author: kgremban
 
+---
 # Effettuare l’accesso all'app per dispositivi mobili utilizzando un codice di verifica con Azure Multi-Factor Authentication
-
-
 Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazione a più fattori con l’app per dispositivi mobili quando si utilizza un codice di verifica.
 
 ## Accedere utilizzando un codice di verifica con l’app per dispositivi mobili
-
 <ol>
 
 <li>Accedere a un'applicazione o servizio come Office 365 utilizzando nome utente e password.</li>

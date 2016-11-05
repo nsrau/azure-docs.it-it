@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Servizio di sincronizzazione Azure AD Connect: utilità di pianificazione | Microsoft Azure"
-   description="Questo argomento illustra la funzionalità utilità di pianificazione predefinita nel servizio di sincronizzazione Azure AD Connect."
-   services="active-directory"
-   documentationCenter=""
-   authors="AndKjell"
-   manager="femila"
-   editor=""/>
+---
+title: 'Servizio di sincronizzazione Azure AD Connect: utilità di pianificazione | Microsoft Docs'
+description: Questo argomento illustra la funzionalità utilità di pianificazione predefinita nel servizio di sincronizzazione Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="08/04/2016"
-   ms.author="billmath"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 08/04/2016
+ms.author: billmath
 
-
+---
 # <a name="azure-ad-connect-sync:-scheduler"></a>Servizio di sincronizzazione Azure AD Connect: utilità di pianificazione
 Questo argomento illustra l'utilità di pianificazione predefinita nel servizio di sincronizzazione Azure AD Connect, anche detto motore di sincronizzazione.
 
@@ -29,8 +28,8 @@ Nelle versioni precedenti l'utilità di pianificazione per oggetti e attributi �
 
 L'utilità di pianificazione è responsabile di due attività:
 
-- **Ciclo di sincronizzazione**. processo di importazione, sincronizzazione ed esportazione delle modifiche.
-- **Attività di manutenzione**. rinnovo di chiavi e certificati per la reimpostazione delle password e per il servizio Registrazione dispositivo. Consente di ripulire le voci obsolete nel log operazioni.
+* **Ciclo di sincronizzazione**. processo di importazione, sincronizzazione ed esportazione delle modifiche.
+* **Attività di manutenzione**. rinnovo di chiavi e certificati per la reimpostazione delle password e per il servizio Registrazione dispositivo. Consente di ripulire le voci obsolete nel log operazioni.
 
 L'utilità di pianificazione stessa è sempre in esecuzione, ma può essere configurata per eseguire solo una o nessuna di queste attività. Ad esempio, se è necessario avere un processo di ciclo di sincronizzazione personalizzato, è possibile disabilitare questa attività nell'utilità di pianificazione, ma eseguire comunque l'attività di manutenzione.
 
@@ -41,23 +40,23 @@ Per visualizzare le impostazioni attuali della configurazione, passare a PowerSh
 
 Se quando si esegue questo cmdlet viene visualizzato il messaggio **Non è disponibile il comando o il cmdlet di sincronizzazione** , il modulo PowerShell non viene caricato. Questo problema può verificarsi se si esegue Azure AD Connect in un controller di dominio o in un server con livelli di restrizione di PowerShell più elevati rispetto alle impostazioni predefinite. Se si visualizza questo errore, eseguire `Import-Module ADSync` per rendere disponibile il cmdlet.
 
-- **AllowedSyncCycleInterval**. frequenza massima consentita da Azure AD per l'esecuzione della sincronizzazione. La sincronizzazione con una frequenza superiore a quella specificata non è supportata.
-- **CurrentlyEffectiveSyncCycleInterval**. pianificazione attualmente applicata. Avrà lo stesso valore di CustomizedSyncInterval (se impostato), se non ha una frequenza superiore ad AllowedSyncInterval. Se si modifica il valore di CustomizedSyncCycleInterval, la modifica verrà applicata dopo il ciclo di sincronizzazione successivo.
-- **CustomizedSyncCycleInterval**. se si vuole che l'utilità di pianificazione sia eseguita con una frequenza diversa dal valore predefinito di 30 minuti, è possibile configurare questa impostazione. Nell'immagine precedente l'utilità di pianificazione è stata impostata per essere eseguita ogni ora. Se si imposta un valore inferiore a quello di AllowedSyncInterval, verrà usato quest'ultimo valore.
-- **NextSyncCyclePolicyType**. differenziale o iniziale. Definisce se l'esecuzione successiva deve elaborare solo le modifiche differenziali o se deve eseguire un'importazione e una sincronizzazione complete, in modo da rielaborare anche eventuali regole nuove o cambiate.
-- **NextSyncCycleStartTimeInUTC**. ora di inizio del prossimo ciclo di sincronizzazione da parte dell'utilità di pianificazione.
-- **PurgeRunHistoryInterval**. tempo di conservazione dei log operazioni. È possibile esaminarli in Synchronization Service Manager. Per impostazione predefinita, vengono conservati per 7 giorni.
-- **SyncCycleEnabled**. indica se l'utilità di pianificazione esegue i processi di importazione, sincronizzazione ed esportazione come parte del funzionamento normale.
-- **MaintenanceEnabled**. indica se il processo di manutenzione è abilitato. Aggiornerà i certificati/le chiavi e ripulirà i log operazioni.
-- **IsStagingModeEnabled**. Indica se la [modalità di gestione temporanea](active-directory-aadconnectsync-operations.md#staging-mode) è abilitata.
+* **AllowedSyncCycleInterval**. frequenza massima consentita da Azure AD per l'esecuzione della sincronizzazione. La sincronizzazione con una frequenza superiore a quella specificata non è supportata.
+* **CurrentlyEffectiveSyncCycleInterval**. pianificazione attualmente applicata. Avrà lo stesso valore di CustomizedSyncInterval (se impostato), se non ha una frequenza superiore ad AllowedSyncInterval. Se si modifica il valore di CustomizedSyncCycleInterval, la modifica verrà applicata dopo il ciclo di sincronizzazione successivo.
+* **CustomizedSyncCycleInterval**. se si vuole che l'utilità di pianificazione sia eseguita con una frequenza diversa dal valore predefinito di 30 minuti, è possibile configurare questa impostazione. Nell'immagine precedente l'utilità di pianificazione è stata impostata per essere eseguita ogni ora. Se si imposta un valore inferiore a quello di AllowedSyncInterval, verrà usato quest'ultimo valore.
+* **NextSyncCyclePolicyType**. differenziale o iniziale. Definisce se l'esecuzione successiva deve elaborare solo le modifiche differenziali o se deve eseguire un'importazione e una sincronizzazione complete, in modo da rielaborare anche eventuali regole nuove o cambiate.
+* **NextSyncCycleStartTimeInUTC**. ora di inizio del prossimo ciclo di sincronizzazione da parte dell'utilità di pianificazione.
+* **PurgeRunHistoryInterval**. tempo di conservazione dei log operazioni. È possibile esaminarli in Synchronization Service Manager. Per impostazione predefinita, vengono conservati per 7 giorni.
+* **SyncCycleEnabled**. indica se l'utilità di pianificazione esegue i processi di importazione, sincronizzazione ed esportazione come parte del funzionamento normale.
+* **MaintenanceEnabled**. indica se il processo di manutenzione è abilitato. Aggiornerà i certificati/le chiavi e ripulirà i log operazioni.
+* **IsStagingModeEnabled**. Indica se la [modalità di gestione temporanea](active-directory-aadconnectsync-operations.md#staging-mode) è abilitata.
 
 Alcune di queste impostazioni possono essere modificate con `Set-ADSyncScheduler`. È possibile modificare i parametri seguenti:
 
-- CustomizedSyncCycleInterval
-- NextSyncCyclePolicyType
-- PurgeRunHistoryInterval
-- SyncCycleEnabled
-- MaintenanceEnabled
+* CustomizedSyncCycleInterval
+* NextSyncCyclePolicyType
+* PurgeRunHistoryInterval
+* SyncCycleEnabled
+* MaintenanceEnabled
 
 La configurazione dell'utilità di pianificazione viene archiviata in Azure AD. Se si dispone di un server di gestione temporanea, qualsiasi modifica apportata nel server primario avrà effetto anche nel server di gestione temporanea (fatta eccezione per IsStagingModeEnabled).
 
@@ -77,24 +76,24 @@ Per impostazione predefinita, l'utilità di pianificazione verrà eseguita ogni 
 **Ciclo di sincronizzazione differenziale**  
  Un ciclo di sincronizzazione differenziale include i passaggi seguenti:
 
-- Importazione differenziale su tutti i connettori
-- Sincronizzazione differenziale su tutti i connettori
-- Esportazione su tutti i connettori
+* Importazione differenziale su tutti i connettori
+* Sincronizzazione differenziale su tutti i connettori
+* Esportazione su tutti i connettori
 
 È possibile che sia presente una modifica urgente da sincronizzare immediatamente e che sia quindi necessario eseguire manualmente un ciclo. Se occorre eseguire manualmente un ciclo, in PowerShell eseguire il comando `Start-ADSyncSyncCycle -PolicyType Delta`.
 
 **Ciclo di sincronizzazione completo**  
 Se è stata apportata una delle modifiche seguenti alla configurazione, è necessario eseguire un ciclo di sincronizzazione completo, anche detto Iniziale:
 
-- Aggiunta di altri oggetti o attributi da importare da una directory di origine
-- Modifiche alle regole di sincronizzazione
-- Modifica dei [filtri](active-directory-aadconnectsync-configure-filtering.md) in modo che venga incluso un numero diverso di oggetti
+* Aggiunta di altri oggetti o attributi da importare da una directory di origine
+* Modifiche alle regole di sincronizzazione
+* Modifica dei [filtri](active-directory-aadconnectsync-configure-filtering.md) in modo che venga incluso un numero diverso di oggetti
 
 Se è stata apportata una di queste modifiche, è necessario eseguire un ciclo di sincronizzazione completa, in modo che il motore di sincronizzazione possa riconsolidare gli spazi connettore. Un ciclo di sincronizzazione completa include i passaggi seguenti:
 
-- Importazione completa su tutti i connettori
-- Sincronizzazione completa su tutti i connettori
-- Esportazione su tutti i connettori
+* Importazione completa su tutti i connettori
+* Sincronizzazione completa su tutti i connettori
+* Esportazione su tutti i connettori
 
 Per avviare un ciclo di sincronizzazione completa, eseguire `Start-ADSyncSyncCycle -PolicyType Initial` a un prompt di PowerShell. Verrà avviato un ciclo di sincronizzazione completa.
 
@@ -107,7 +106,7 @@ Quando un ciclo di sincronizzazione è in esecuzione, non è possibile modificar
 
 1. Richiedere prima di tutto all'utilità di pianificazione di interrompere il ciclo corrente con il cmdlet `Stop-ADSyncSyncCycle`di PowerShell.
 2. L'interruzione dell'utilità di pianificazione non comporta l'interruzione dell'attività corrente del connettore attuale. Per imporre l'arresto del connettore, eseguire queste azioni: ![StopAConnector](./media/active-directory-aadconnectsync-feature-scheduler/stopaconnector.png)
-    - Avviare **Sychronization Service** dal menu Start. Passare a **Connectors**, evidenziare il connettore con stato **Running** e selezionare **Stop** fra le azioni.
+   * Avviare **Sychronization Service** dal menu Start. Passare a **Connectors**, evidenziare il connettore con stato **Running** e selezionare **Stop** fra le azioni.
 
 L'utilità di pianificazione è ancora attiva e verrà riavviata alla successiva opportunità.
 
@@ -157,8 +156,6 @@ Se si avvia l'installazione guidata, l'utilità di pianificazione verrà sospesa
 Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

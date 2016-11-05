@@ -2,7 +2,6 @@
 
 
 ## Assegnazione di tag a una macchina virtuale tramite modelli
-
 In primo luogo, diamo un'occhiata ai tag tramite modelli. [Questo modello](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags)inserisce i tag per le risorse seguenti: calcolo (macchina virtuale), archiviazione (Account di archiviazione) e rete (indirizzo IP pubblico, rete virtuale e interfaccia di rete). Questo modello riguarda una VM Windows ma può essere adattato per le VM Linux.
 
 Fare clic sul pulsante**Distribuisci in Azure**dal [collegamento modello](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags). Verrà visualizzato il [portale di Azure](https://portal.azure.com/) in cui è possibile distribuire il modello.
@@ -28,9 +27,7 @@ Successivamente, nella sezione**Modifica parametri**, è possibile compilare i v
 
 Fare clic su**Crea**per distribuire il modello con i valori dei tag.
 
-
 ## Assegnazione di tag tramite il portale
-
 Dopo aver creato le risorse con i tag, è possibile visualizzare, aggiungere ed eliminare i tag nel portale.
 
 Selezionare l'icona di tag per visualizzare i tag:

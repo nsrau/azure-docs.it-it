@@ -1,34 +1,33 @@
-<properties
-	pageTitle="Copia guidata di data factory | Microsoft Azure"
-	description="Informazioni su come usare Copia guidata di Data Factory per copiare i dati da origini dati supportate nei sink."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
-	editor="monicar"/>
+---
+title: Copia guidata di data factory | Microsoft Docs
+description: Informazioni su come usare Copia guidata di Data Factory per copiare i dati da origini dati supportate nei sink.
+services: data-factory
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: monicar
 
-<tags
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/27/2016"
-	ms.author="spelluru"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/27/2016
+ms.author: spelluru
 
+---
 # Copia guidata di data factory
 Copia guidata di Azure Data Factory consente di creare una pipeline per copiare dati dalle origini supportate nelle destinazioni senza scrivere definizioni JSON per i servizi collegati, i set di dati e le pipeline. Per avviare Copia guidata, fare clic sul riquadro **Copia dati** nella home page della data factory.
 
 ![Copia guidata](./media/data-factory-copy-wizard/copy-data-wizard.png)
 
 ## Funzionalità
-
 ### Una procedura guidata intuitiva e perfettamente integrata per la copia dei dati
 Questa procedura guidata consente di spostare facilmente i dati da un'origine a una destinazione in pochi minuti con i semplici passaggi seguenti:
 
-1.	Selezione l'origine.
-2.	Selezionare la destinazione.
-3.	Configurare le impostazioni.
+1. Selezione l'origine.
+2. Selezionare la destinazione.
+3. Configurare le impostazioni.
 
 ![Selezionare l'origine dati](./media/data-factory-copy-wizard/select-data-source-page.png)
 
@@ -63,10 +62,10 @@ Un'operazione di copia eseguita una sola volta permette di spostare dati da un'o
 
 Si supponga di avere cartelle di input nel formato seguente:
 
-	2016/03/01/01
-	2016/03/01/02
-	2016/03/01/03
-	...
+    2016/03/01/01
+    2016/03/01/02
+    2016/03/01/03
+    ...
 
 Fare clic sul pulsante **Esplora** per **File o cartella**, passare a una di queste cartelle, ad esempio 2016->03->01->02, e fare clic su **Scegli**. Nella casella di testo dovrebbe essere visualizzato **2016/03/01/02**. Sostituire **2016** con **{year}**, **03** con **{month}**, **01** with **{day}** e **02** con **{hour}** e premere TAB. Dovrebbero essere visualizzati elenchi a discesa da cui selezionare il formato per queste quattro variabili:
 

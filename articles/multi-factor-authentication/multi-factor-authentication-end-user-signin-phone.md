@@ -1,28 +1,26 @@
 
-<properties
-	pageTitle="Effettuare l’accesso tramite una chiamata al telefono cellulare o dell’ufficio con Azure Multi-Factor Authentication"
-	description="In questa pagina viene descritto come un utente può accedere utilizzando il telefono cellulare."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtland"/>
+---
+title: Effettuare l’accesso tramite una chiamata al telefono cellulare o dell’ufficio con Azure Multi-Factor Authentication
+description: In questa pagina viene descritto come un utente può accedere utilizzando il telefono cellulare.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtland
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/04/2016
+ms.author: kgremban
 
+---
 # Effettuare l’accesso tramite una chiamata al telefono cellulare o dell’ufficio con Azure Multi-Factor Authentication
-
 Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazione a più fattori con il telefono cellulare o dell'ufficio.
 
 ## Effettuare l'accesso con una chiamata al telefono cellulare o dell’ufficio
-
 <ol>
 
 <li>Accedere a un'applicazione o servizio come Office 365 utilizzando nome utente e password.</li>

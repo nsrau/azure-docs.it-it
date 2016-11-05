@@ -1,30 +1,27 @@
-<properties
-	pageTitle="Risoluzione dei problemi: Creare e connettersi a un'area di lavoro di Machine Learning | Microsoft Azure"
-	description="Soluzioni per problemi comuni di creazione e connessione a un'area di lavoro di Azure Machine Learning"
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: 'Risoluzione dei problemi: Creare e connettersi a un''area di lavoro di Machine Learning | Microsoft Docs'
+description: Soluzioni per problemi comuni di creazione e connessione a un'area di lavoro di Azure Machine Learning
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/09/2016"
-	ms.author="garye"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/09/2016
+ms.author: garye
 
-
+---
 # Guida per la risoluzione dei problemi: Creazione e connessione a un'area di lavoro di Machine Learning
-
 Questa guida offre soluzioni per alcuni problemi frequenti relativi alla configurazione di aree di lavoro di Azure Machine Learning.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## Proprietario dell'area di lavoro
-
 Quando si crea una nuova area di lavoro di Machine Learning, l'ID immesso nel campo WORKSPACE OWNER deve essere un account Microsoft valido (in precedenza Windows Live ID), ad esempio, john-contoso@live.com o john-contoso@hotmail.com. Non è possibile usare un account non Microsoft, ad esempio l'account di posta elettronica aziendale. Per creare un account Microsoft gratuito, passare a [www.live.com](http://www.live.com).
 
 Tenere presente che l'account Microsoft usato per accedere al portale di Azure per creare un'area di lavoro non è automaticamente autorizzato ad *aprire* quell'area di lavoro, a meno di specificare quell'account come proprietario. Per aprire un'area di lavoro in Machine Learning Studio, è necessario essere connessi con l'account Microsoft definito come proprietario dell'area di lavoro oppure ricevere un invito dal proprietario per partecipare all'area di lavoro. Dal portale di Azure classico è tuttavia possibile *gestire* l'area di lavoro, con la possibilità, ad esempio, di modificare il proprietario e configurare l'accesso.
@@ -34,7 +31,6 @@ Per altre informazioni sulla gestione di un'area di lavoro, vedere [Gestire un'a
 [Gestire un'area di lavoro di Azure Machine Learning]: machine-learning-manage-workspace.md
 
 ## Aree geografiche disponibili
-
 Machine Learning è attualmente disponibile in un numero limitato di aree. Se la sottoscrizione non include una di queste aree, è possibile che venga visualizzato l'errore "Non sono presenti sottoscrizioni nelle aree consentite".
 
 Per richiedere l'aggiunta di un'area per la sottoscrizione, selezionare **Contattare il supporto tecnico Microsoft** dal portale di Azure classico, scegliere **Fatturazione** come tipo di problema, quindi seguire le istruzioni per inviare la richiesta.
@@ -42,7 +38,6 @@ Per richiedere l'aggiunta di un'area per la sottoscrizione, selezionare **Contat
 ![Contattare il supporto Microsoft][screen1]
 
 ## Account di archiviazione
-
 Il servizio Machine Learning necessita di un account di archiviazione per archiviare i dati. È possibile usare un account di archiviazione esistente oppure creare un nuovo account di archiviazione quando si crea la nuova area di lavoro di Machine Learning, se la quota disponibile è sufficiente per la creazione di un nuovo account di archiviazione.
 
 <!-- These instructions no longer work, but I'm not sure what to replace them with

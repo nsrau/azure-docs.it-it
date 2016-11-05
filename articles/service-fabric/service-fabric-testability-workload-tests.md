@@ -1,33 +1,33 @@
-<properties
-   pageTitle="Scenari di test personalizzati | Microsoft Azure"
-   description="Come proteggere i servizi in caso di errori normali e anomali"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="anmolah"
-   manager="timlt"
-   editor=""/>
+---
+title: Scenari di test personalizzati | Microsoft Docs
+description: Come proteggere i servizi in caso di errori normali e anomali
+services: service-fabric
+documentationcenter: .net
+author: anmolah
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="05/17/2016"
-   ms.author="anmola"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 05/17/2016
+ms.author: anmola
 
+---
 # Simulare gli errori durante i carichi di lavoro del servizio
-
 Gli scenari di testabilità in Service Fabric di Azure consentono agli sviluppatori di non preoccuparsi della gestione dei singoli errori. Tuttavia, sono disponibili scenari in cui potrebbe essere necessaria un'interfoliazione esplicita del carico di lavoro client e degli errori. L'interfoliazione del carico di lavoro client e degli errori garantisce che il servizio stia effettivamente eseguendo un’azione quando si verifica un errore. Dato il livello di controllo fornito dalla testabilità, questi errori potrebbero verificarsi in momenti precisi dell'esecuzione del carico di lavoro. L’induzione degli errori in stati diversi nell'applicazione può consentire di individuare bug e migliorare la qualità.
 
 ## Esempio di scenario personalizzato
 In questo test viene illustrato uno scenario in cui si verifica l'interfoliazione del carico di lavoro di business con [errori normali e anomali](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Per ottenere risultati ottimali, gli errori devono essere indotti nel corso delle operazioni del servizio o del calcolo.
 
 Esaminiamo in dettaglio un esempio di servizio che espone quattro carichi di lavoro: A, B, C e D. Ognuno corrisponde a un insieme di flussi di lavoro e potrebbe essere calcolo, archiviazione o una combinazione. Per ragioni di semplicità, nel nostro esempio verranno estrapolati i carichi di lavoro. I diversi errori eseguiti in questo esempio sono:
-  + RestartNode: errore anomalo per simulare un riavvio del computer.
-  + RestartDeployedCodePackage: errore anomalo per simulare arresti anomali del processo host del servizio.
-  + RemoveReplica: errore normale per simulare la rimozione della replica.
-  + MovePrimary: errore normale per simulare gli spostamenti della replica attivati dal servizio di bilanciamento del carico di Service Fabric.
+
+* RestartNode: errore anomalo per simulare un riavvio del computer.
+* RestartDeployedCodePackage: errore anomalo per simulare arresti anomali del processo host del servizio.
+* RemoveReplica: errore normale per simulare la rimozione della replica.
+* MovePrimary: errore normale per simulare gli spostamenti della replica attivati dal servizio di bilanciamento del carico di Service Fabric.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.

@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Funzionalità in anteprima di Azure AD Connect | Microsoft Azure"
-   description="Questo argomento descrive in maggiore dettaglio le funzionalità in anteprima di Azure AD Connect."
-   services="active-directory"
-   documentationCenter=""
-   authors="andkjell"
-   manager="femila"
-   editor=""/>
+---
+title: Funzionalità in anteprima di Azure AD Connect | Microsoft Docs
+description: Questo argomento descrive in maggiore dettaglio le funzionalità in anteprima di Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"  
-   ms.workload="identity"
-   ms.tgt_pltfrm="na"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.date="06/27/2016"
-   ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/27/2016
+ms.author: billmath
 
-
+---
 # <a name="more-details-about-features-in-preview"></a>Altre informazioni sulle funzionalità in anteprima
 Questo argomento descrive come usare le funzionalità attualmente in anteprima.
 
@@ -29,22 +28,26 @@ Questo gruppo verrà rappresentato come gruppo di distribuzione in AD DS locale.
 
 **Note durante l'anteprima**
 
-- Attualmente l'attributo della rubrica non è popolato nell'anteprima. Senza questo attributo, il gruppo non sarà visibile nell'elenco indirizzi globale. Il modo più semplice per popolare questo attributo consiste nell'usare il cmdlet di PowerShell per Exchange `update-recipient`.
-- Solo le foreste con lo schema di Exchange sono destinazioni valide per i gruppi. Se è stata rilevata alcuna versione di Exchange, il writeback dei gruppi non potrà essere abilitato.
-- Attualmente sono supportate solo le distribuzioni in organizzazioni di Exchange a foresta singola. Se sono presenti più organizzazioni di Exchange locali, sarà necessaria una soluzione GALSync locale per visualizzare questi gruppi nelle altre foreste.
-- La funzionalità di writeback dei gruppi al momento non gestisce gruppi di protezione o gruppi di distribuzione.
+* Attualmente l'attributo della rubrica non è popolato nell'anteprima. Senza questo attributo, il gruppo non sarà visibile nell'elenco indirizzi globale. Il modo più semplice per popolare questo attributo consiste nell'usare il cmdlet di PowerShell per Exchange `update-recipient`.
+* Solo le foreste con lo schema di Exchange sono destinazioni valide per i gruppi. Se è stata rilevata alcuna versione di Exchange, il writeback dei gruppi non potrà essere abilitato.
+* Attualmente sono supportate solo le distribuzioni in organizzazioni di Exchange a foresta singola. Se sono presenti più organizzazioni di Exchange locali, sarà necessaria una soluzione GALSync locale per visualizzare questi gruppi nelle altre foreste.
+* La funzionalità di writeback dei gruppi al momento non gestisce gruppi di protezione o gruppi di distribuzione.
 
->[AZURE.NOTE] Per il writeback dei gruppi è necessaria una sottoscrizione di Azure AD Premium.
+> [!NOTE]
+> Per il writeback dei gruppi è necessaria una sottoscrizione di Azure AD Premium.
+> 
+> 
 
 ## <a name="user-writeback"></a>Writeback degli utenti
-> [AZURE.IMPORTANT] La funzionalità di anteprima di writeback degli utenti è stata rimossa nell'aggiornamento di agosto 2015 di Azure AD Connect. Se questa funzionalità è stata abilitata, è necessario disabilitarla.
+> [!IMPORTANT]
+> La funzionalità di anteprima di writeback degli utenti è stata rimossa nell'aggiornamento di agosto 2015 di Azure AD Connect. Se questa funzionalità è stata abilitata, è necessario disabilitarla.
+> 
+> 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Continuare l'[Installazione personalizzata di Azure AD Connect](./aad-connect/active-directory-aadconnect-get-started-custom.md).
+Continuare l'[Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

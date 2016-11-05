@@ -1,28 +1,26 @@
-<properties
-   pageTitle="Script personalizzati nelle VM Windows che utilizzano modelli | Microsoft Azure"
-   description="Automatizzare le attività di configurazione delle VM Windows utilizzando l'estensione dello Script personalizzato con i modelli di gestione delle risorse"
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="kundanap"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+---
+title: Script personalizzati nelle VM Windows che utilizzano modelli | Microsoft Docs
+description: Automatizzare le attività di configurazione delle VM Windows utilizzando l'estensione dello Script personalizzato con i modelli di gestione delle risorse
+services: virtual-machines-windows
+documentationcenter: ''
+author: kundanap
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure-services"
-   ms.date="03/29/2016"
-   ms.author="kundanap"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 03/29/2016
+ms.author: kundanap
 
+---
 # Estensioni di script personalizzato di VM Windows con modelli di Azure Resource Manager
-
-[AZURE.INCLUDE [virtual-machines-common-extensions-customscript](../../includes/virtual-machines-common-extensions-customscript.md)]
+[!INCLUDE [virtual-machines-common-extensions-customscript](../../includes/virtual-machines-common-extensions-customscript.md)]
 
 ## Esempio di modello per una VM Windows
-
 Definire la seguente risorsa nella sezione delle risorse del modello.
 
        {
@@ -52,7 +50,6 @@ Nell'esempio precedente, sostituire l'URL e il nome del file con le proprie impo
 Se si desidera mantenere privati gli URL script e i parametri, è possibile impostare l'URL script come **privato**. Se l'URL script è impostato come **privato**, è possibile accedervi solo con il nome e la chiave di un account di archiviazione inviati come impostazioni protette. È inoltre possibile specificare i parametri script come impostazioni protette con l'estensione di script personalizzato versione 1.7 o successiva.
 
 ## Esempio di modello per una VM Windows con impostazioni protette
-
         {
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",

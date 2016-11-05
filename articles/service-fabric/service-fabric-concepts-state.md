@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Definizione e gestione dello stato | Microsoft Azure"
-   description="Come definire e gestire lo stato di un servizio in Service Fabric"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+---
+title: Definizione e gestione dello stato | Microsoft Docs
+description: Come definire e gestire lo stato di un servizio in Service Fabric
+services: service-fabric
+documentationcenter: .net
+author: appi101
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/10/2016"
-   ms.author="aprameyr"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/10/2016
+ms.author: aprameyr
 
+---
 # Stato del servizio
 Per **stato del servizio** si intendono i dati di cui il servizio necessita per funzionare. Si tratta delle strutture e delle variabili di dati che vengono lette e scritte dal servizio per il funzionamento.
 
@@ -31,13 +31,10 @@ Lo stato può essere archiviato all'esterno oppure condividere la posizione con 
 Lo stato può anche condividere la posizione con il codice che lo modifica. I servizi con stato in Service Fabric vengono creati usando questo modello. Service Fabric offre l'infrastruttura necessaria per garantire la disponibilità elevata e la tolleranza di errore dello stato in caso di errori.
 
 ## Passaggi successivi
-
 Per ulteriori informazioni sui concetti relativi a Service Fabric, vedere gli articoli seguenti:
 
-- [Disponibilità dei servizi di Service Fabric](service-fabric-availability-services.md)
-
-- [Scalabilità dei servizi di Service Fabric](service-fabric-concepts-scalability.md)
-
-- [Partizionamento dei servizi di Service Fabric](service-fabric-concepts-partitioning.md)
+* [Disponibilità dei servizi di Service Fabric](service-fabric-availability-services.md)
+* [Scalabilità dei servizi di Service Fabric](service-fabric-concepts-scalability.md)
+* [Partizionamento dei servizi di Service Fabric](service-fabric-concepts-partitioning.md)
 
 <!---HONumber=AcomDC_0810_2016-->

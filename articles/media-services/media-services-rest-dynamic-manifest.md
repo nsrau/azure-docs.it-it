@@ -1,28 +1,27 @@
-<properties 
-    pageTitle="Creazione di filtri con l'API REST di Servizi multimediali di Azure | Microsoft Azure" 
-    description="Questo argomento descrive come creare filtri che il client può usare per trasmettere in streaming sezioni specifiche di un flusso. Servizi multimediali crea manifesti dinamici per consentire questo streaming selettivo."
-    services="media-services" 
-    documentationCenter="" 
-    authors="Juliako" 
-    manager="dwrede" 
-    editor=""/>
+---
+title: Creazione di filtri con l'API REST di Servizi multimediali di Azure | Microsoft Docs
+description: Questo argomento descrive come creare filtri che il client può usare per trasmettere in streaming sezioni specifiche di un flusso. Servizi multimediali crea manifesti dinamici per consentire questo streaming selettivo.
+services: media-services
+documentationcenter: ''
+author: Juliako
+manager: dwrede
+editor: ''
 
-<tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="ne" 
-    ms.topic="article" 
-    ms.date="09/26/2016"  
-    ms.author="juliako;cenkdin"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: ne
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: juliako;cenkdin
 
-
-#<a name="creating-filters-with-azure-media-services-rest-api"></a>Creazione di filtri con l'API REST di Servizi multimediali di Azure
-
-> [AZURE.SELECTOR]
-- [.NET](media-services-dotnet-dynamic-manifest.md)
-- [REST](media-services-rest-dynamic-manifest.md)
-
+---
+# <a name="creating-filters-with-azure-media-services-rest-api"></a>Creazione di filtri con l'API REST di Servizi multimediali di Azure
+> [!div class="op_single_selector"]
+> * [.NET](media-services-dotnet-dynamic-manifest.md)
+> * [REST](media-services-rest-dynamic-manifest.md)
+> 
+> 
 
 A partire dalla versione 2.11, Servizi multimediali consente di definire filtri per i propri asset. I filtri sono costituiti da regole lato server che consentono ai clienti di eseguire operazioni particolari, come riprodurre solo una sezione di un video (anziché il video intero) oppure specificare solo un sottoinsieme di rendering audio e video, in modo che possa essere gestito dal dispositivo del cliente (anziché tutti i rendering associati all'asset). Il filtro degli asset viene archiviato attraverso **manifesti dinamici**creati su richiesta del cliente per trasmettere un video in streaming in base ai filtri specificati.
 
@@ -30,32 +29,28 @@ Per altre informazioni sui filtri e sul manifesto dinamico, vedere [Filtri e man
 
 Questo argomento illustra come usare le API REST per creare, aggiornare ed eliminare filtri. 
 
-##<a name="types-used-to-create-filters"></a>Tipi usati per la creazione dei filtri
-
+## <a name="types-used-to-create-filters"></a>Tipi usati per la creazione dei filtri
 Durante la creazione dei filtri vengono usati i tipi seguenti:  
 
-- [Filter](http://msdn.microsoft.com/library/azure/mt149056.aspx)
-- [AssetFilter](http://msdn.microsoft.com/library/azure/mt149053.aspx)
-- [PresentationTimeRange](http://msdn.microsoft.com/library/azure/mt149052.aspx)
-- [FilterTrackSelect e FilterTrackPropertyCondition](http://msdn.microsoft.com/library/azure/mt149055.aspx)
+* [Filter](http://msdn.microsoft.com/library/azure/mt149056.aspx)
+* [AssetFilter](http://msdn.microsoft.com/library/azure/mt149053.aspx)
+* [PresentationTimeRange](http://msdn.microsoft.com/library/azure/mt149052.aspx)
+* [FilterTrackSelect e FilterTrackPropertyCondition](http://msdn.microsoft.com/library/azure/mt149055.aspx)
 
+> [!NOTE]
+> Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
+> 
+> Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
+> 
+> Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere eseguite al nuovo URI, come descritto in [Connessione a un account di Servizi multimediali mediante l'API REST](media-services-rest-connect-programmatically.md). 
+> 
+> 
 
-
->[AZURE.NOTE] Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
->
->Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
-
->Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere eseguite al nuovo URI, come descritto in [Connessione a un account di Servizi multimediali mediante l'API REST](media-services-rest-connect-programmatically.md). 
-
-
-##<a name="create-filters"></a>Creare filtri
-
-###<a name="create-global-filters"></a>Creare filtri globali
-
+## <a name="create-filters"></a>Creare filtri
+### <a name="create-global-filters"></a>Creare filtri globali
 Per creare un filtro globale, usare le richieste HTTP seguenti:  
 
-####<a name="http-request"></a>Richiesta HTTP
-
+#### <a name="http-request"></a>Richiesta HTTP
 Intestazioni richiesta
 
     POST https://media.windows.net/API/Filters HTTP/1.1 
@@ -102,16 +97,13 @@ Corpo della richiesta
 
 
 
-####<a name="http-response"></a>Risposta HTTP
-    
+#### <a name="http-response"></a>Risposta HTTP
     HTTP/1.1 201 Created 
 
-###<a name="create-local-assetfilters"></a>Creare AssetFilters locali
-
+### <a name="create-local-assetfilters"></a>Creare AssetFilters locali
 Per creare un AssetFilter locale, usare le richieste HTTP seguenti:  
 
-####<a name="http-request"></a>Richiesta HTTP
-
+#### <a name="http-request"></a>Richiesta HTTP
 Intestazioni richiesta
 
     POST https://media.windows.net/API/AssetFilters HTTP/1.1 
@@ -156,19 +148,15 @@ Corpo della richiesta
        ] 
     } 
 
-####<a name="http-response"></a>Risposta HTTP 
-
+#### <a name="http-response"></a>Risposta HTTP
     HTTP/1.1 201 Created 
     . . . 
 
-##<a name="list-filters"></a>Elencare i filtri
-
-###<a name="get-all-global-**filter**s-in-the-ams-account"></a>Ottenere tutti i **Filter**globali nell'account di Servizi multimediali di Azure
-
+## <a name="list-filters"></a>Elencare i filtri
+### <a name="get-all-global-**filter**s-in-the-ams-account"></a>Ottenere tutti i **Filter**globali nell'account di Servizi multimediali di Azure
 Per elencare i filtri, usare le richieste HTTP seguenti: 
 
-####<a name="http-request"></a>Richiesta HTTP
-     
+#### <a name="http-request"></a>Richiesta HTTP
     GET https://media.windows.net/API/Filters HTTP/1.1 
     DataServiceVersion:3.0 
     MaxDataServiceVersion: 3.0 
@@ -177,11 +165,9 @@ Per elencare i filtri, usare le richieste HTTP seguenti:
     Authorization: Bearer <token value> 
     x-ms-version: 2.11 
     Host: media.windows.net 
-    
+
 ### <a name="get-**assetfilter**s-associated-with-an-asset"></a>Ottenere gli **AssetFilter**associati a un asset
-
-####<a name="http-request"></a>Richiesta HTTP
-
+#### <a name="http-request"></a>Richiesta HTTP
     GET https://media.windows.net/API/Assets('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592')/AssetFilters HTTP/1.1 
     DataServiceVersion: 3.0 
     MaxDataServiceVersion: 3.0 
@@ -192,10 +178,8 @@ Per elencare i filtri, usare le richieste HTTP seguenti:
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
 
-###<a name="get-an-**assetfilter**-based-on-its-id"></a>Ottenere un **AssetFilter** in base all'ID
-
-####<a name="http-request"></a>Richiesta HTTP
-
+### <a name="get-an-**assetfilter**-based-on-its-id"></a>Ottenere un **AssetFilter** in base all'ID
+#### <a name="http-request"></a>Richiesta HTTP
     GET https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__TestFilter') HTTP/1.1 
     DataServiceVersion: 3.0 
     MaxDataServiceVersion: 3.0 
@@ -206,18 +190,15 @@ Per elencare i filtri, usare le richieste HTTP seguenti:
     x-ms-client-request-id: 00000000
 
 
-##<a name="update-filters"></a>Aggiornare i filtri
- 
+## <a name="update-filters"></a>Aggiornare i filtri
 Usare PATCH, PUT o MERGE per aggiornare un filtro con i nuovi valori di proprietà.  Per altre informazioni su queste operazioni, vedere [PATCH, PUT, MERGE](http://msdn.microsoft.com/library/dd541276.aspx).
- 
-Se si aggiorna un filtro, l'endpoint di streaming può impiegare fino a due minuti per aggiornare le regole. Se il contenuto è stato trasmesso usando dei filtri (e memorizzato nelle cache dei proxy e delle reti CDN), l'aggiornamento del filtro può determinare un errore del lettore. È consigliabile quindi cancellare la cache dopo aver aggiornato il filtro. Se questa operazione non è consentita, prendere in considerazione la possibilità di usare un filtro diverso.  
- 
-###<a name="update-global-filters"></a>Aggiornare filtri globali
 
+Se si aggiorna un filtro, l'endpoint di streaming può impiegare fino a due minuti per aggiornare le regole. Se il contenuto è stato trasmesso usando dei filtri (e memorizzato nelle cache dei proxy e delle reti CDN), l'aggiornamento del filtro può determinare un errore del lettore. È consigliabile quindi cancellare la cache dopo aver aggiornato il filtro. Se questa operazione non è consentita, prendere in considerazione la possibilità di usare un filtro diverso.  
+
+### <a name="update-global-filters"></a>Aggiornare filtri globali
 Per aggiornare un filtro globale, usare le richieste HTTP seguenti: 
 
-####<a name="http-request"></a>Richiesta HTTP
- 
+#### <a name="http-request"></a>Richiesta HTTP
 Intestazioni della richiesta: 
 
     MERGE https://media.windows.net/API/Filters('filterName') HTTP/1.1 
@@ -231,9 +212,9 @@ Intestazioni della richiesta:
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
     Content-Length: 384
-    
+
 Corpo della richiesta: 
-    
+
     { 
        "Tracks":[   
           {   
@@ -254,12 +235,10 @@ Corpo della richiesta:
        ] 
     } 
 
-###<a name="update-local-assetfilters"></a>Aggiornare AssetFilters locali
-
+### <a name="update-local-assetfilters"></a>Aggiornare AssetFilters locali
 Per aggiornare un filtro locale, usare le richieste HTTP seguenti: 
 
-####<a name="http-request"></a>Richiesta HTTP
-
+#### <a name="http-request"></a>Richiesta HTTP
 Intestazioni della richiesta: 
 
     MERGE https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__TestFilter')  HTTP/1.1 
@@ -272,9 +251,9 @@ Intestazioni della richiesta:
     x-ms-version: 2.11 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
-    
+
 Corpo della richiesta: 
-    
+
     { 
        "Tracks":[   
           {   
@@ -296,15 +275,11 @@ Corpo della richiesta:
     } 
 
 
-##<a name="delete-filters"></a>Eliminare filtri
-
-
-###<a name="delete-global-filters"></a>Eliminare filtri globali
-
+## <a name="delete-filters"></a>Eliminare filtri
+### <a name="delete-global-filters"></a>Eliminare filtri globali
 Per eliminare un filtro globale, usare le richieste HTTP seguenti:
-    
-####<a name="http-request"></a>Richiesta HTTP
 
+#### <a name="http-request"></a>Richiesta HTTP
     DELETE https://media.windows.net/api/Filters('GlobalFilter') HTTP/1.1 
     DataServiceVersion:3.0 
     MaxDataServiceVersion: 3.0 
@@ -315,12 +290,10 @@ Per eliminare un filtro globale, usare le richieste HTTP seguenti:
     Host: media.windows.net 
 
 
-###<a name="delete-local-assetfilters"></a>Eliminare AssetFilter locali
-
+### <a name="delete-local-assetfilters"></a>Eliminare AssetFilter locali
 Per eliminare un AssetFilter locale, usare le richieste HTTP seguenti:
 
-####<a name="http-request"></a>Richiesta HTTP
-
+#### <a name="http-request"></a>Richiesta HTTP
     DELETE https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__LocalFilter') HTTP/1.1 
     DataServiceVersion: 3.0 
     MaxDataServiceVersion: 3.0 
@@ -330,10 +303,8 @@ Per eliminare un AssetFilter locale, usare le richieste HTTP seguenti:
     x-ms-version: 2.11 
     Host: media.windows.net 
 
-##<a name="build-streaming-urls-that-use-filters"></a>Creare URL di streaming basati su filtri
-
+## <a name="build-streaming-urls-that-use-filters"></a>Creare URL di streaming basati su filtri
 Per informazioni su come pubblicare e distribuire asset, vedere [Informazioni generali sulla distribuzione di contenuti ai clienti](media-services-deliver-content-overview.md).
-
 
 Gli esempi seguenti illustrano come aggiungere filtri agli URL di streaming.
 
@@ -359,23 +330,14 @@ Gli esempi seguenti illustrano come aggiungere filtri agli URL di streaming.
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f, filter=MyFilter)
 
 
-##<a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
+## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-##<a name="provide-feedback"></a>Fornire commenti e suggerimenti
-
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-##<a name="see-also"></a>Vedere anche 
-
+## <a name="see-also"></a>Vedere anche
 [Filtri e manifesti dinamici](media-services-dynamic-manifest-overview.md)
- 
-
- 
-
-
 
 <!--HONumber=Oct16_HO2-->
 

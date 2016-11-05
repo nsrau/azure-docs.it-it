@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Ricerche nei log in Log Analytics | Microsoft Azure"
-    description="Le ricerche nei log permettono di combinare e correlare i dati del computer provenienti da più origini nell'ambiente corrente."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bandersmsft"
-    manager="jwhit"
-    editor=""/>
+---
+title: Ricerche nei log in Log Analytics | Microsoft Docs
+description: Le ricerche nei log permettono di combinare e correlare i dati del computer provenienti da più origini nell'ambiente corrente.
+services: log-analytics
+documentationcenter: ''
+author: bandersmsft
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/10/2016"
-    ms.author="banders"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: banders
 
-
+---
 # <a name="log-searches-in-log-analytics"></a>Ricerche nei log in Log Analytics
-
 Un elemento fondamentale di Log Analytics è la funzionalità di ricerca nei log, che permette di combinare e correlare i dati del computer da più origini all'interno dell'ambiente. Anche le soluzioni sono basate sulla ricerca log, per offrire metriche specifiche per una particolare area problematica.
 
 Nella pagina Search è possibile creare una query e quindi, durante la ricerca, filtrare i risultati usando controlli facet. È anche possibile creare query avanzate per trasformare, filtrare e creare report sui risultati.
@@ -32,11 +30,9 @@ Si inizierà con esempi semplici e pratici, tali esempi verranno quindi compilat
 Dopo aver acquisito familiarità con le tecniche di ricerca, vedere il [riferimento alla ricerca nei log di Log Analytics](log-analytics-search-reference.md).
 
 ## <a name="use-basic-filters"></a>Usare filtri di base
-
 La prima parte di una query di ricerca, quella prima di un carattere di barra verticale "|", è sempre un *filtro*. Può essere considerata come una clausola WHERE in TSQL, perché determina *quale* subset di dati estrarre dall'archivio dati di OMS. Per la ricerca in un archivio dati è importante specificare le caratteristiche dei dati da estrarre, è quindi normale che una query inizi con la clausola WHERE.
 
 I filtri più semplici che è possibile usare sono *parole chiave*, ad esempio 'error' o 'timeout' o un nome di computer. Questi tipi di query semplici restituiscono in genere diverse forme di dati all'interno dello stesso set di risultati. Questo perché Log Analytics include diversi *tipi* di dati nel sistema.
-
 
 ### <a name="to-conduct-a-simple-search"></a>Per eseguire una ricerca semplice
 1. Nel portale di OMS, fare clic su **Ricerca log**.  
@@ -57,7 +53,7 @@ Se i record Type=Perf hanno un campo denominato "CounterName", è quindi possibi
 Questa query fornirà solo i dati sulle prestazioni in cui il nome del contatore delle prestazioni è "% Processor Time".
 
 ### <a name="to-search-for-processor-time-performance-data"></a>Per ricercare i dati sulle prestazioni del tempo del processore
-- Nel campo della query di ricerca, digitare `Type=Perf CounterName="% Processor Time"`
+* Nel campo della query di ricerca, digitare `Type=Perf CounterName="% Processor Time"`
 
 È inoltre possibile essere più specifici e usare **InstanceName=_'Total'** nella query, che rappresenta un contatore delle prestazioni di Windows. È possibile anche selezionare un facet e un altro **field:value**. Il filtro viene aggiunto automaticamente al filtro dell'utente nella barra di query. È possibile visualizzare il risultato nell'immagine seguente. Viene indicato dove è possibile fare clic per aggiungere **InstanceName:'_Total'** alla query senza digitare nulla.
 
@@ -66,6 +62,7 @@ Questa query fornirà solo i dati sulle prestazioni in cui il nome del contatore
 La query diventa `Type=Perf CounterName="% Processor Time" InstanceName="_Total"`
 
 In questo esempio non è necessario specificare **Type=Perf** per ottenere questo risultato. Dato che i campi CounterName e InstanceName esistono solo per record di Type=Perf, la query è abbastanza specifica per restituire gli stessi risultati della query precedente, più lunga:
+
 ```
 CounterName="% Processor Time" InstanceName="_Total"
 ```
@@ -94,7 +91,6 @@ EventLog=Application EventLog=System
 
 
 ## <a name="use-additional-filters"></a>Usare filtri aggiuntivi
-
 La query seguente restituisce le voci per 2 registri eventi per tutti i computer che hanno inviato dati.
 
 ```
@@ -137,7 +133,6 @@ CounterName="% Processor Time"  AND InstanceName="_Total" AND (Computer=SERVER1.
 ### <a name="boolean-operators"></a>Operatori booleani
 Con i campi di data/ora e numerici, è possibile cercare i valori usando *maggiore di*, *minore di* e *minore o uguale a*. È possibile usare operatori semplici come >, < , >=, <= , != nella barra di ricerca della query.
 
-
 È possibile eseguire una query su un registro eventi specifico per uno specifico periodo di tempo. Ad esempio, le ultime 24 ore viene espresso con la seguente espressione mnemonica.
 
 ```
@@ -146,7 +141,7 @@ EventLog=System TimeGenerated>NOW-24HOURS
 
 
 #### <a name="to-search-using-a-boolean-operator"></a>Per eseguire la ricerca usando un operatore booleano
-- Nel campo della query di ricerca, digitare `EventLog=System TimeGenerated>NOW-24HOURS"`  
+* Nel campo della query di ricerca, digitare `EventLog=System TimeGenerated>NOW-24HOURS"`  
     ![ricerca con valore booleano](./media/log-analytics-log-searches/oms-search-boolean.png)
 
 Nonostante sia possibile controllare graficamente l'intervallo di tempo, e la maggior parte delle volte si desideri farlo, l'inclusione di un filtro temporale direttamente nella query presenta dei vantaggi. Ad esempio, è efficace con i dashboard, in cui è possibile sostituire l'intervallo di tempo per ogni riquadro, indipendentemente dal selettore temporale *globale* nella pagina del dashboard. Per altre informazioni, vedere l'argomento relativo alle [questioni di tempo nel dashboard](http://cloudadministrator.wordpress.com/2014/10/19/system-center-advisor-restarted-time-matters-in-dashboard-part-6/).
@@ -161,9 +156,9 @@ Gli operatori di confronto usati per il campo TimeGenerated sono utili anche in 
 
 Ad esempio, poiché gli avvisi di Configuration Assessment presentano i seguenti valori di gravità:
 
-- 0 = Informazioni
-- 1 = Avviso
-- 2 = Avviso critico
+* 0 = Informazioni
+* 1 = Avviso
+* 2 = Avviso critico
 
 È possibile eseguire una query per avvisi e avvisi critici ed escludere gli avvisi informativi con la query seguente:
 
@@ -179,10 +174,12 @@ Type=Event EventLog="Operations Manager" EventID:[2100..2199]
 ```
 
 
->[AZURE.NOTE] La sintassi dell'intervallo da usare è il separatore di due punti (:), field:value, e *non* il segno di uguale (=). Racchiudere le estremità inferiore e superiore dell'intervallo tra parentesi quadre e separarle con due punti (..).
+> [!NOTE]
+> La sintassi dell'intervallo da usare è il separatore di due punti (:), field:value, e *non* il segno di uguale (=). Racchiudere le estremità inferiore e superiore dell'intervallo tra parentesi quadre e separarle con due punti (..).
+> 
+> 
 
 ## <a name="manipulate-search-results"></a>Modificare i risultati della ricerca
-
 Quando si esegue una ricerca di dati, è opportuno ridefinire la query di ricerca e avere un buon livello di controllo sui risultati. Quando i risultati vengono recuperati, è possibile applicare comandi per trasformarli.
 
 I comandi nelle ricerche di Log Analytics *devono* seguire il carattere di barra verticale (|). Un filtro deve essere sempre la prima parte di una stringa di query. Definisce il set di dati che si sta usando e quindi "invia" i risultati in un comando. È quindi possibile usare il carattere di barra verticale per aggiungere altri comandi. Il funzionamento è simile a quello della pipeline di Windows PowerShell.
@@ -192,7 +189,6 @@ Il linguaggio di ricerca di Log Analytics segue in genere lo stile e le linee gu
 I comandi hanno nomi di verbi, pertanto è possibile stabilire facilmente quali azioni eseguono.  
 
 ### <a name="sort"></a>Ordina
-
 Il comando sort consente di definire l'ordinamento in base a uno o più campi. Anche se non viene usato, per impostazione predefinita, viene applicato un ordine decrescente di tempo. I risultati più recenti sono sempre nella parte superiore dei risultati della ricerca. Ciò significa che quando si esegue una ricerca con `Type=Event EventID=1234`, in realtà la query che viene eseguita automaticamente è:
 
 ```
@@ -231,17 +227,15 @@ Type=Event EventID=600 | Top 1
 
 
 #### <a name="to-search-using-top"></a>Per eseguire la ricerca usando il comando top
-- Nel campo della query di ricerca, digitare `Type=Event EventID=600 | Top 1`   
+* Nel campo della query di ricerca, digitare `Type=Event EventID=600 | Top 1`   
     ![top di ricerca](./media/log-analytics-log-searches/oms-search-top.png)
 
 Nell'immagine precedente, sono presenti 358.000 record con EventID=600. I campi, i facet e i filtri a sinistra mostrano sempre informazioni sui risultati restituiti *dalla parte filtro* della query, ovvero la parte prima di qualsiasi carattere di barra verticale. Il riquadro **Risultati** restituisce il risultato più recente, in quanto il comando di esempio ha dato una forma e trasformato i risultati.
 
 ### <a name="select"></a>Selezionare
-
 Il comando SELECT si comporta come Select-Object in PowerShell. Restituisce i risultati filtrati che non presentano tutte le relative proprietà originali. Al contrario, seleziona solo le proprietà specificate.
 
 #### <a name="to-run-a-search-using-the-select-command"></a>Per eseguire una ricerca usando il comando select
-
 1. Nella ricerca, digitare `Type=Event` e quindi fare clic su **Search**.
 2. Fare clic su **+ show more** in uno dei risultati per visualizzare tutte le proprietà dei risultati.
 3. Selezionare alcune proprietà in modo esplicito, la query viene modificata in `Type=Event | Select Computer,EventID,RenderedDescription`.  
@@ -249,14 +243,10 @@ Il comando SELECT si comporta come Select-Object in PowerShell. Restituisce i ri
 
 Si tratta di comando particolarmente utile quando si desidera controllare l'output di ricerca e scegliere solo le parti di dati davvero importanti per l'esplorazione, che spesso non corrispondono al record completo. Il comando è utile anche quando record di tipo diverso hanno *alcune* proprietà comuni, ma non *tutte*. È possibile generare un output simile a una tabella o che funziona bene quando esportato in un file CSV e quindi modificato in Excel.
 
-
-
 ## <a name="use-the-measure-command"></a>Usare il comando measure
-
 MEASURE è uno dei comandi più versatili nelle ricerche di Log Analytics. Consente di applicare *funzioni* statistiche ai dati e di aggregare i risultati raggruppati in base a un determinato campo. Esistono più funzioni statistiche supportate dal comando Measure.
 
 ### <a name="measure-count()"></a>Measure count()
-
 La prima funzione statistica da usare e una delle più semplici da comprendere è la funzione *count()* .
 
 Nei risultati di una query di ricerca, ad esempio `Type=Event`, i filtri, anche denominati facet, vengono visualizzati sul lato sinistro dei risultati della ricerca. I filtri visualizzano una distribuzione di valori in base a un determinato campo, per i risultati della ricerca eseguita.
@@ -264,7 +254,6 @@ Nei risultati di una query di ricerca, ad esempio `Type=Event`, i filtri, anche 
 ![measure count di ricerca](./media/log-analytics-log-searches/oms-search-measure-count01.png)
 
 Ad esempio, nell'immagine precedente viene visualizzato il campo **Computer**. Tale campo indica che in quasi 739.000 eventi nei risultati sono presenti 68 valori univoci e distinti per il campo **Computer** in questi record. Nel riquadro vengono visualizzati solo i primi 5 valori, che corrispondono ai 5 valori più comuni scritti nel campo **Computer**, ordinati in base al numero di documenti che contengono quel valore specifico in quel campo. Nell'immagine è possibile vedere che, di quasi 369.000 eventi, 90.000 provengono dal computer OpsInsights04.contoso.com, 83.000 dal computer DB03.contoso.com e così via.
-
 
 Poiché nel riquadro vengono visualizzati solo i primi 5 valori, in che modo è possibile visualizzare tutti i valori?
 
@@ -293,11 +282,9 @@ Type=Event | Measure count() by EventID | Select EventID | Sort EventID asc
 ```
 
 #### <a name="to-search-using-measure-count"></a>Per eseguire la ricerca con measure count
-
-- Nel campo della query di ricerca, digitare `Type=Event | Measure count() by EventID`
-- Aggiungere `| Select EventID` alla fine della query.
-- Infine, aggiungere `| Sort EventID asc` alla fine della query.
-
+* Nel campo della query di ricerca, digitare `Type=Event | Measure count() by EventID`
+* Aggiungere `| Select EventID` alla fine della query.
+* Infine, aggiungere `| Sort EventID asc` alla fine della query.
 
 Esistono due aspetti importanti da notare e mettere in evidenza:
 
@@ -306,7 +293,6 @@ In primo luogo, i risultati visualizzati non sono più i risultati originali non
 In secondo luogo, **Measure count** restituisce attualmente solo i primi 100 risultati distinti. Questo limite non si applica alle altre funzioni statistiche. Pertanto, in genere è necessario usare un filtro più preciso per cercare elementi specifici, prima di applicare measure count().
 
 ## <a name="use-the-max-and-min-functions-with-the-measure-command"></a>Usare le funzioni max e min con il comando measure
-
 Esistono vari scenari in cui è utile usare **Measure Max()** e **Measure Min()**. Tuttavia, poiché ciascuna funzione è opposta all'altra, verrà illustrata la funzione Max() e l'utente sperimenterà autonomamente la funzione Min().
 
 Se si esegue una query per gli eventi di sicurezza, tali eventi hanno una proprietà **Livello** che può variare. Ad esempio:
@@ -340,7 +326,6 @@ Type=ConfigurationChange | Measure Max(TimeGenerated) by Computer
 ```
 
 ## <a name="use-the-avg-function-with-the-measure-command"></a>Usare la funzione avg con il comando measure
-
 La funzione statistica Avg() usata con il comando measure consente di calcolare il valore medio per alcuni campi e di raggruppare i risultati in base allo stesso campo o ad un campo diverso. Questa funzione è utile in diversi casi, ad esempio con i dati sulle prestazioni.
 
 Si inizierà con i dati sulle prestazioni. Si noti che OMS attualmente raccoglie i contatori delle prestazioni sia per i computer Windows che Linux.
@@ -357,9 +342,9 @@ La prima cosa che si noterà è che Log Analytics mostra tre prospettive: Elenco
 
 Nell'immagine precedente, sono presenti due set di campi contrassegnati che indicano quanto segue:
 
-- Il primo set identifica il nome del contatore delle prestazioni di Windows, il nome dell'oggetto e il nome dell'istanza nel filtro della query. Questi sono i campi che probabilmente verranno usati in genere come facet/filtri
-- **CounterValue** è il valore effettivo del contatore. In questo esempio, il valore è *75*.
-- **TimeGenerated** è 12:51, nel formato 24 ore.
+* Il primo set identifica il nome del contatore delle prestazioni di Windows, il nome dell'oggetto e il nome dell'istanza nel filtro della query. Questi sono i campi che probabilmente verranno usati in genere come facet/filtri
+* **CounterValue** è il valore effettivo del contatore. In questo esempio, il valore è *75*.
+* **TimeGenerated** è 12:51, nel formato 24 ore.
 
 Questa è una visualizzazione delle metriche in un grafico.
 
@@ -382,8 +367,7 @@ Type=Perf  ObjectName:Processor  InstanceName:_Total  CounterName:"% Processor T
 ```
 
 ### <a name="to-search-using-the-avg-function-with-the-measure-command"></a>Per eseguire la ricerca tramite la funzione avg con il comando measure
-- Nella casella della query di ricerca, digitare `Type=Perf  ObjectName:Processor  InstanceName:_Total  CounterName:"% Processor Time" TimeGenerated>NOW-6HOURS | Measure Avg(CounterValue) by Computer`
-
+* Nella casella della query di ricerca, digitare `Type=Perf  ObjectName:Processor  InstanceName:_Total  CounterName:"% Processor Time" TimeGenerated>NOW-6HOURS | Measure Avg(CounterValue) by Computer`
 
 È possibile aggregare e correlare i dati *tra* computer. Ad esempio, si supponga di disporre di un set di host in un certo tipo di farm in cui ogni nodo è uguale a qualsiasi altro nodo, tutti i nodi eseguono lo stesso tipo di lavoro e il carico è approssimativamente bilanciato. È possibile ottenere tutti i contatori contemporaneamente con la query seguente e ottenere le medie per l'intera farm. È possibile iniziare scegliendo i computer con l'esempio seguente:
 
@@ -413,13 +397,11 @@ Ciò consente una visualizzazione utile e compatta di un paio di indicatori di p
 
 ![avg grouping di ricerca](./media/log-analytics-log-searches/oms-search-avg04.png)
 
-
 È possibile usare facilmente la query di ricerca in un dashboard. Ad esempio, è possibile salvare la query di ricerca e creare un dashboard chiamato *Web Farm KPIs*. Per altre informazioni sull'uso dei dashboard, vedere l'articolo relativo alla [creazione di un dashboard personalizzato in Log Analytics](log-analytics-dashboards.md).
 
 ![avg dashboard di ricerca](./media/log-analytics-log-searches/oms-search-avg05.png)
 
 ### <a name="use-the-sum-function-with-the-measure-command"></a>Usare la funzione sum con il comando measure
-
 La funzione sum è simile ad altre funzioni del comando measure. È possibile vedere un esempio su come usare la funzione sum nell'argomento relativo alla [ricerca di Log W3C IIS in Microsoft Azure Operational Insights](http://blogs.msdn.com/b/dmuscett/archive/2014/09/20/w3c-iis-logs-search-in-system-center-advisor-limited-preview.aspx).
 
 È possibile usare Max() e Min() con numeri, intervalli di data/ora e stringhe di testo. Le stringhe di testo sono ordinate in ordine alfabetico e vengono visualizzate la prima e l'ultima.
@@ -427,7 +409,6 @@ La funzione sum è simile ad altre funzioni del comando measure. È possibile ve
 Tuttavia, è possibile usare Sum() con elementi diversi dai campi numerici. Questo vale anche per Avg().
 
 ### <a name="use-the-percentile-function-with-the-measure-command"></a>Usare la funzione percentile con il comando measure
-
 La funzione percentile è simile a Avg() e Sum() perché può essere usata unicamente per i campi numerici. In un campo numerico è possibile usare qualsiasi percentile compreso tra 1 e 99. È possibile usare sia il comando**percentile** che il comando **pct**. Di seguito sono riportati alcuni esempi:  
 
 ```
@@ -438,7 +419,6 @@ Type:Perf ObjectName=LogicalDisk CounterName="Current Disk Queue Length" Compute
 ```
 
 ## <a name="use-the-where-command"></a>Usare il comando where
-
 Il comando where funziona come un filtro, ma può essere applicato nella pipeline per filtrare ulteriormente i risultati aggregati prodotti da un comando Measure, differentemente dai risultati non elaborati che vengono filtrati all'inizio di una query.
 
 ad esempio:
@@ -460,7 +440,6 @@ Se si ha familiarità con Microsoft System Center - Operations Manager, è possi
 ![dashboard mobile](./media/log-analytics-log-searches/oms-search-mobile.png)
 
 ## <a name="use-the-in-operator"></a>Usare l'operatore IN
-
 Gli operatori *IN* e *NOT IN* permettono di usare le sottoricerche, ovvero ricerche che includono un'altra ricerca come argomento. Sono racchiuse tra parentesi graffe {} all'interno di un'altra ricerca *primaria* o *esterna*. Il risultato di una sottoricerca, costituito spesso da un elenco di risultati distinti, viene quindi usato come argomento nella ricerca primaria.
 
 È possibile usare le sottoricerche per la corrispondenza con subset di dati che non è possibile descrivere direttamente in un'espressione di ricerca, ma che possono essere generati da una ricerca. Ad esempio, se si vuole usare una sola ricerca per trovare tutti gli eventi da *computer privi di aggiornamenti della sicurezza*, è necessario progettare prima di tutto una sottoricerca che identifichi i *computer privi di aggiornamenti della sicurezza* per poi trovare gli eventi appartenenti a tali host.
@@ -480,7 +459,6 @@ Type=Event Computer IN {Type:Update UpdateState=Needed Optional=false Classifica
 ```
 ![esempio di ricerca con IN](./media/log-analytics-log-searches/oms-search-in02-revised.png)
 
-
 Si noti anche il filtro temporale usato nella ricerca interna perché System Update Assessment acquisisce uno snapshot di tutti i computer ogni 24 ore. È possibile rendere più leggera e precisa la query interna cercando soltanto un giorno. La ricerca esterna usa invece la selezione della data/ora nell'interfaccia utente e recupera gli eventi degli ultimi sette giorni. Per altre informazioni sugli operatori temporali, vedere la sezione [Operatori booleani](#boolean-operators) .
 
 Dato che i risultati della ricerca interna vengono usati solo come valore filtro per quella esterna, è comunque possibile applicare i comandi alla ricerca esterna. Ad esempio, è ancora possibile raggruppare gli eventi mostrati sopra con un altro comando measure:
@@ -490,7 +468,6 @@ Type=Event Computer IN {Type:Update UpdateState=Needed Optional=false Classifica
 ```
 
 ![esempio di ricerca con IN](./media/log-analytics-log-searches/oms-search-in03-revised.png)
-
 
 In genere, la query interna deve essere eseguita rapidamente perché Log Analytics prevede timeout sul lato servizio e anche per ottenere una quantità ridotta di risultati. Se la query interna restituisce più risultati, l'elenco dei risultati viene troncato e questo può portare a risultati non corretti restituiti dalla ricerca esterna.
 
@@ -525,7 +502,6 @@ Type=SecurityEvent EventID=4624   Account!="BACONLAND\\jochan" Computer IN { Typ
 ```
 
 ## <a name="use-the-distinct-command"></a>Usare il comando distinct
-
 Come suggerisce il nome, questo comando restituisce un elenco di valori distinct per un campo. È estremamente semplice ma molto utile. È possibile ottenere lo stesso risultato con il comando measure count(), come illustrato di seguito.
 
 ```
@@ -583,19 +559,17 @@ Type=WireData | measure avg(ReceivedBytes), avg(SentBytes) by Direction interval
 ![OMS-multiaggregates1](./media/log-analytics-log-searches/oms-multiaggregates1.png)
 
 Di seguito è riportato un altro esempio:
+
  ```
 * | measure countdistinct(Computer) as Computers, count() as TotalRecords by Type
 ```
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-
 Per altre informazioni sulle ricerche nei log:
 
-- Usare [Campi personalizzati in Log Analytics](log-analytics-custom-fields.md) per estendere le ricerche nei log.
-- Vedere il [riferimento alla ricerca nei log di Log Analytics](log-analytics-search-reference.md) per visualizzare tutti i campi di ricerca e i facet disponibili in Log Analytics.
-
-
+* Usare [Campi personalizzati in Log Analytics](log-analytics-custom-fields.md) per estendere le ricerche nei log.
+* Vedere il [riferimento alla ricerca nei log di Log Analytics](log-analytics-search-reference.md) per visualizzare tutti i campi di ricerca e i facet disponibili in Log Analytics.
 
 <!--HONumber=Oct16_HO2-->
 

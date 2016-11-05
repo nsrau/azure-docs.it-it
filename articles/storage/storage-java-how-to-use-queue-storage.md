@@ -1,45 +1,41 @@
-<properties
-	pageTitle="Come usare l'archiviazione di accodamento da Java | Microsoft Azure"
-	description="Informazioni su come usare il servizio di accodamento di Azure per creare ed eliminare code e per inserire, visualizzare ed eliminare messaggi. Gli esempi sono scritti in Java."
-	services="storage"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor="tysonn"/>
+---
+title: Come usare l'archiviazione di accodamento da Java | Microsoft Docs
+description: Informazioni su come usare il servizio di accodamento di Azure per creare ed eliminare code e per inserire, visualizzare ed eliminare messaggi. Gli esempi sono scritti in Java.
+services: storage
+documentationcenter: java
+author: rmcmurray
+manager: wpickett
+editor: tysonn
 
-<tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/11/2016"
-	ms.author="cbrooks;robmcm"/>
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: Java
+ms.topic: article
+ms.date: 08/11/2016
+ms.author: cbrooks;robmcm
 
+---
 # Come usare l'archiviazione di accodamento da Java
+[!INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
-[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
-<br/>
-[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
+[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Overview
+Questa guida illustra diversi scenari di utilizzo comuni del servizio di archiviazione code di Azure. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][Azure Storage SDK per Java]. Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione** ed **eliminazione** di code. Per altre informazioni sulle code, vedere la sezione [Passaggi successivi](#Next-Steps).
 
-Questa guida illustra diversi scenari di utilizzo comuni del servizio di archiviazione code di Azure. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][]. Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione** ed **eliminazione** di code. Per altre informazioni sulle code, vedere la sezione [Passaggi successivi](#Next-Steps).
+Nota: per gli sviluppatori che usano il servizio di archiviazione di Azure in dispositivi Android, è disponibile un SDK specifico. Per altre informazioni, vedere [Azure Storage SDK per Android][Azure Storage SDK per Android].
 
-Nota: per gli sviluppatori che usano il servizio di archiviazione di Azure in dispositivi Android, è disponibile un SDK specifico. Per altre informazioni, vedere [Azure Storage SDK per Android][].
+[!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
-[AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
-
-[AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## Creare un'applicazione Java
-
 In questa guida si utilizzeranno le funzionalità di archiviazione che possono essere eseguite in un'applicazione Java in locale o nel codice in esecuzione in un ruolo Web, in un ruolo di lavoro o in Azure.
 
-A questo scopo, è necessario installare Java Development Kit (JDK) e creare un account di archiviazione di Azure nella sottoscrizione di Azure. Dopo avere eseguito questa operazione, sarà necessario verificare che il sistema di sviluppo in uso soddisfi i requisiti minimi e le dipendenze elencate nell'archivio [Azure Storage SDK for Java][] su GitHub. Se il sistema soddisfa i requisiti, è possibile seguire le istruzioni per scaricare e installare le librerie di archiviazione di Azure per Java nel sistema dall'archivio indicato. Dopo avere completato queste attività, sarà possibile creare un'applicazione Java che usa gli esempi illustrati in questo articolo.
+A questo scopo, è necessario installare Java Development Kit (JDK) e creare un account di archiviazione di Azure nella sottoscrizione di Azure. Dopo avere eseguito questa operazione, sarà necessario verificare che il sistema di sviluppo in uso soddisfi i requisiti minimi e le dipendenze elencate nell'archivio [Azure Storage SDK for Java][Azure Storage SDK for Java] su GitHub. Se il sistema soddisfa i requisiti, è possibile seguire le istruzioni per scaricare e installare le librerie di archiviazione di Azure per Java nel sistema dall'archivio indicato. Dopo avere completato queste attività, sarà possibile creare un'applicazione Java che usa gli esempi illustrati in questo articolo.
 
 ## Configurazione dell'applicazione per l'accesso all'archiviazione di accodamento
-
 Aggiungere le istruzioni import seguenti all'inizio del file Java in cui si desidera usare le API di archiviazione di Azure per accedere alle code:
 
     // Include the following imports to use queue APIs.
@@ -47,7 +43,6 @@ Aggiungere le istruzioni import seguenti all'inizio del file Java in cui si desi
     import com.microsoft.azure.storage.queue.*;
 
 ## Configurare una stringa di connessione di archiviazione di Azure
-
 I client di archiviazione di Azure usano le stringhe di connessione di archiviazione per archiviare endpoint e credenziali per l'accesso ai servizi di gestione dati. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di archiviazione nel formato seguente, utilizzando il nome dell'account di archiviazione e la chiave di accesso primaria relativa all'account di archiviazione riportata nel [portale di Azure](https://portal.azure.com) per i valori *AccountName* e *AccountKey*. In questo esempio viene illustrato come dichiarare un campo statico per memorizzare la stringa di connessione:
 
     // Define the connection-string with your values.
@@ -65,25 +60,24 @@ In un'applicazione in esecuzione in un ruolo di Microsoft Azure, questa stringa 
 Gli esempi seguenti presumono che sia stato usato uno di questi due metodi per ottenere la stringa di connessione di archiviazione.
 
 ## Procedura: creare una coda
-
 Per ottenere oggetti di riferimento per le code, è possibile usare un oggetto **CloudQueueClient**. Il codice seguente consente di creare un oggetto **CloudQueueClient**. (Nota: esistono altri modi per creare oggetti **CloudStorageAccount**. Per altre informazioni, vedere **CloudStorageAccount** nel [Riferimento all'SDK del client di archiviazione di Azure]).
 
 Usare l'oggetto**CloudQueueClient**t per ottenere un riferimento alla coda da usare. È possibile creare la coda se non esiste già.
 
     try
     {
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount =
-	       CloudStorageAccount.parse(storageConnectionString);
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount =
+           CloudStorageAccount.parse(storageConnectionString);
 
-	   // Create the queue client.
-	   CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+       // Create the queue client.
+       CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-	   // Retrieve a reference to a queue.
-	   CloudQueue queue = queueClient.getQueueReference("myqueue");
+       // Retrieve a reference to a queue.
+       CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-	   // Create the queue if it doesn't already exist.
-	   queue.createIfNotExists();
+       // Create the queue if it doesn't already exist.
+       queue.createIfNotExists();
     }
     catch (Exception e)
     {
@@ -92,27 +86,26 @@ Usare l'oggetto**CloudQueueClient**t per ottenere un riferimento alla coda da us
     }
 
 ## Procedura: aggiungere un messaggio a una coda
-
 Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo oggetto **CloudQueueMessage**. Quindi, chiamare il metodo **addMessage**. È possibile creare un oggetto **CloudQueueMessage** da una stringa in formato UTF-8 o da una matrice di byte. Di seguito è riportato il codice che consente di creare una coda (se non esiste già) e di inserire il messaggio "Hello, World".
 
     try
     {
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount =
-	       CloudStorageAccount.parse(storageConnectionString);
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount =
+           CloudStorageAccount.parse(storageConnectionString);
 
-    	// Create the queue client.
-    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+        // Create the queue client.
+        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-    	// Retrieve a reference to a queue.
-    	CloudQueue queue = queueClient.getQueueReference("myqueue");
+        // Retrieve a reference to a queue.
+        CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-    	// Create the queue if it doesn't already exist.
-    	queue.createIfNotExists();
+        // Create the queue if it doesn't already exist.
+        queue.createIfNotExists();
 
-    	// Create a message and add it to the queue.
-    	CloudQueueMessage message = new CloudQueueMessage("Hello, World");
-    	queue.addMessage(message);
+        // Create a message and add it to the queue.
+        CloudQueueMessage message = new CloudQueueMessage("Hello, World");
+        queue.addMessage(message);
     }
     catch (Exception e)
     {
@@ -121,29 +114,28 @@ Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo og
     }
 
 ## Procedura: visualizzare il messaggio successivo
-
 È possibile visualizzare il messaggio successivo di una coda senza rimuoverlo dalla coda chiamando il metodo **peekMessage**.
 
     try
     {
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount =
-	       CloudStorageAccount.parse(storageConnectionString);
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount =
+           CloudStorageAccount.parse(storageConnectionString);
 
-    	// Create the queue client.
-    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+        // Create the queue client.
+        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-    	// Retrieve a reference to a queue.
-    	CloudQueue queue = queueClient.getQueueReference("myqueue");
+        // Retrieve a reference to a queue.
+        CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-    	// Peek at the next message.
-    	CloudQueueMessage peekedMessage = queue.peekMessage();
+        // Peek at the next message.
+        CloudQueueMessage peekedMessage = queue.peekMessage();
 
-    	// Output the message value.
-    	if (peekedMessage != null)
-    	{
-		  System.out.println(peekedMessage.getMessageContentAsString());
-	   }
+        // Output the message value.
+        if (peekedMessage != null)
+        {
+          System.out.println(peekedMessage.getMessageContentAsString());
+       }
     }
     catch (Exception e)
     {
@@ -152,7 +144,6 @@ Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo og
     }
 
 ## Procedura: cambiare il contenuto di un messaggio accodato
-
 È possibile cambiare il contenuto di un messaggio inserito nella coda. Se il messaggio rappresenta un'attività di lavoro, è possibile utilizzare questa funzionalità per aggiornarne lo stato. Il codice seguente consente di aggiornare il messaggio in coda con nuovo contenuto e di impostarne il timeout di visibilità per prolungarlo di altri 60 secondi. In questo modo lo stato del lavoro associato al messaggio viene salvato e il client ha a disposizione un altro minuto per continuare l'elaborazione del messaggio. È possibile usare questa tecnica per tenere traccia di flussi di lavoro composti da più passaggi nei messaggi in coda, senza la necessità di ricominciare dall'inizio se un passaggio di elaborazione non riesce a causa di errori hardware o software. In genere, è consigliabile mantenere anche un conteggio dei tentativi, in modo da eliminare i messaggi per cui vengono effettuati più di *n* tentativi. In questo modo è possibile evitare che un messaggio attivi un errore dell'applicazione ogni volta che viene elaborato.
 
 L'esempio di codice seguente consente di eseguire una ricerca nella coda di messaggi, individuare il primo messaggio con una corrispondenza di "Hello, World" per il contenuto, di modificare il contenuto del messaggio e infine di uscire.
@@ -163,11 +154,11 @@ L'esempio di codice seguente consente di eseguire una ricerca nella coda di mess
         CloudStorageAccount storageAccount =
             CloudStorageAccount.parse(storageConnectionString);
 
-    	// Create the queue client.
-    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+        // Create the queue client.
+        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-    	// Retrieve a reference to a queue.
-    	CloudQueue queue = queueClient.getQueueReference("myqueue");
+        // Retrieve a reference to a queue.
+        CloudQueue queue = queueClient.getQueueReference("myqueue");
 
         // The maximum number of messages that can be retrieved is 32.
         final int MAX_NUMBER_OF_MESSAGES_TO_PEEK = 32;
@@ -200,21 +191,21 @@ In alternativa, l'esempio di codice seguente consente di aggiornare solo il prim
 
     try
     {
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount =
-	       CloudStorageAccount.parse(storageConnectionString);
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount =
+           CloudStorageAccount.parse(storageConnectionString);
 
-    	// Create the queue client.
-    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+        // Create the queue client.
+        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-    	// Retrieve a reference to a queue.
-    	CloudQueue queue = queueClient.getQueueReference("myqueue");
+        // Retrieve a reference to a queue.
+        CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-    	// Retrieve the first visible message in the queue.
-    	CloudQueueMessage message = queue.retrieveMessage();
+        // Retrieve the first visible message in the queue.
+        CloudQueueMessage message = queue.retrieveMessage();
 
-    	if (message != null)
-    	{
+        if (message != null)
+        {
             // Modify the message content.
             message.setMessageContent("Updated contents.");
             // Set it to be visible in 60 seconds.
@@ -223,7 +214,7 @@ In alternativa, l'esempio di codice seguente consente di aggiornare solo il prim
                 MessageUpdateFields.VISIBILITY);
             // Update the message.
             queue.updateMessage(message, 60, updateFields, null, null);
-    	}
+        }
     }
     catch (Exception e)
     {
@@ -232,29 +223,28 @@ In alternativa, l'esempio di codice seguente consente di aggiornare solo il prim
     }
 
 ## Procedura: recuperare la lunghezza delle code
-
 È possibile ottenere una stima sul numero di messaggi presenti in una coda. Il metodo **downloadAttributes** richiede al servizio di accodamento diversi valori correnti, incluso un conteggio dei messaggi presenti in una coda. Il conteggio è solo approssimativo, poiché è possibile aggiungere o rimuovere messaggi dopo la risposta del servizio di accodamento. Il metodo **getApproximateMessageCount** restituisce l'ultimo valore recuperato dalla chiamata a **downloadAttributes**, senza chiamare il servizio di accodamento.
 
     try
     {
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount =
-	       CloudStorageAccount.parse(storageConnectionString);
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount =
+           CloudStorageAccount.parse(storageConnectionString);
 
-    	// Create the queue client.
-    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+        // Create the queue client.
+        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-    	// Retrieve a reference to a queue.
-    	CloudQueue queue = queueClient.getQueueReference("myqueue");
+        // Retrieve a reference to a queue.
+        CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-	   // Download the approximate message count from the server.
-    	queue.downloadAttributes();
+       // Download the approximate message count from the server.
+        queue.downloadAttributes();
 
-    	// Retrieve the newly cached approximate message count.
-    	long cachedMessageCount = queue.getApproximateMessageCount();
+        // Retrieve the newly cached approximate message count.
+        long cachedMessageCount = queue.getApproximateMessageCount();
 
-    	// Display the queue length.
-    	System.out.println(String.format("Queue length: %d", cachedMessageCount));
+        // Display the queue length.
+        System.out.println(String.format("Queue length: %d", cachedMessageCount));
     }
     catch (Exception e)
     {
@@ -263,29 +253,28 @@ In alternativa, l'esempio di codice seguente consente di aggiornare solo il prim
     }
 
 ## Procedura: rimuovere il messaggio successivo dalla coda
-
 Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiamando il metodo **retrieveMessage**, si ottiene il messaggio successivo in una coda. Un messaggio restituito da **retrieveMessage** diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche **deleteMessage**. Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio non riesca a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice chiama **deleteMessage** immediatamente dopo l'elaborazione del messaggio.
 
     try
     {
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount =
-    	    CloudStorageAccount.parse(storageConnectionString);
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount =
+            CloudStorageAccount.parse(storageConnectionString);
 
-    	// Create the queue client.
-    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+        // Create the queue client.
+        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-    	// Retrieve a reference to a queue.
-    	CloudQueue queue = queueClient.getQueueReference("myqueue");
+        // Retrieve a reference to a queue.
+        CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-    	// Retrieve the first visible message in the queue.
-    	CloudQueueMessage retrievedMessage = queue.retrieveMessage();
+        // Retrieve the first visible message in the queue.
+        CloudQueueMessage retrievedMessage = queue.retrieveMessage();
 
-    	if (retrievedMessage != null)
-    	{
-    		// Process the message in less than 30 seconds, and then delete the message.
-    		queue.deleteMessage(retrievedMessage);
-    	}
+        if (retrievedMessage != null)
+        {
+            // Process the message in less than 30 seconds, and then delete the message.
+            queue.deleteMessage(retrievedMessage);
+        }
     }
     catch (Exception e)
     {
@@ -295,7 +284,6 @@ Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiama
 
 
 ## Opzioni aggiuntive per rimuovere i messaggi dalla coda
-
 È possibile personalizzare il recupero di messaggi da una coda in due modi. Innanzitutto, è possibile recuperare un batch di messaggi (massimo 32). In secondo luogo, è possibile impostare un timeout di invisibilità più lungo o più breve assegnando al codice più o meno tempo per l'elaborazione completa di ogni messaggio.
 
 Nell'esempio di codice seguente viene usato il metodo **retrieveMessages** per recuperare 20 messaggi con una sola chiamata. Quindi, ogni messaggio viene elaborato con un ciclo **for**. Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti (300 secondi). Si noti che i cinque minuti iniziano per tutti i messaggi contemporaneamente, quindi dopo che sono trascorsi cinque minuti dalla chiamata a **retrieveMessages**, tutti i messaggi che non sono stati eliminati diventano nuovamente visibili.
@@ -326,7 +314,6 @@ Nell'esempio di codice seguente viene usato il metodo **retrieveMessages** per r
     }
 
 ## Procedura: elencare le code
-
 Per ottenere un elenco delle code correnti, chiamare il metodo **CloudQueueClient.listQueues()** che restituisce una raccolta di oggetti **CloudQueue**.
 
     try
@@ -353,7 +340,6 @@ Per ottenere un elenco delle code correnti, chiamare il metodo **CloudQueueClien
     }
 
 ## Procedura: eliminare una coda
-
 Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **deleteIfExists** sull'oggetto **CloudQueue**.
 
     try
@@ -378,13 +364,12 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **del
     }
 
 ## Passaggi successivi
-
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accodamento, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
-- [Azure Storage SDK per Java][]
-- [Riferimento all'SDK del client di archiviazione di Azure][]
-- [API REST dei servizi di archiviazione di Azure][]
-- [Blog del team di Archiviazione di Azure][]
+* [Azure Storage SDK per Java][Azure Storage SDK per Java]
+* [Riferimento all'SDK del client di archiviazione di Azure][Riferimento all'SDK del client di archiviazione di Azure]
+* [API REST dei servizi di archiviazione di Azure][API REST dei servizi di archiviazione di Azure]
+* [Blog del team di Archiviazione di Azure][Blog del team di Archiviazione di Azure]
 
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java

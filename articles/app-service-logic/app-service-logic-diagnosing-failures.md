@@ -1,31 +1,28 @@
-<properties
-   pageTitle="Diagnosticare gli errori delle app per la logica | Microsoft Azure"
-   description="Approcci comuni per la comprensione degli errori delle app per la logica"
-   services="logic-apps"
-   documentationCenter=".net,nodejs,java"
-   authors="jeffhollan"
-   manager="erikre"
-   editor=""/>
+---
+title: Diagnosticare gli errori delle app per la logica | Microsoft Docs
+description: Approcci comuni per la comprensione degli errori delle app per la logica
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: jeffhollan
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="05/18/2016"
-   ms.author="jehollan"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 05/18/2016
+ms.author: jehollan
 
+---
 # Diagnosi degli errori delle app per la logica
-
 Se si verificano problemi o errori con la funzionalità App per la logica del servizio app di Azure, con alcuni accorgimenti sarà possibile capire meglio l'origine degli errori.
 
 ## Strumenti del portale di Azure
-
 Il portale di Azure offre molti strumenti per la diagnosi delle app per la logica a ogni passaggio.
 
 ### Cronologia di attivazione
-
 Ogni app per la logica ha almeno un trigger. Se le app non si attivano, la prima risorsa in cui cercare informazioni aggiuntive è la cronologia di attivazione. La cronologia di attivazione è disponibile dal pannello principale delle app per la logica.
 
 ![Accedere alla cronologia dei trigger][1]
@@ -39,11 +36,9 @@ Possono essere visualizzati i seguenti stati:
 * **Operazione non riuscita**. È stato generato un errore.
 
 #### Avviare manualmente un trigger
-
 Se si desidera che l'app per la logica verifichi immediatamente la presenza di un trigger disponibile, senza attendere la ricorrenza successiva, è possibile fare clic sul pulsante **Seleziona trigger** nel pannello principale per forzare un controllo. Ad esempio, facendo clic su questo collegamento con un trigger di Dropbox, il flusso di lavoro eseguirà immediatamente il poll di Dropbox alla ricerca di nuovi file.
 
 ### Cronologia di esecuzione
-
 Ogni trigger attivato ha come risultato un'esecuzione. Le informazioni sull'esecuzione sono accessibili dal pannello principale, che contiene numerose informazioni potenzialmente utili per capire cosa si è verificato durante il flusso di lavoro.
 
 ![Accedere alla cronologia di attivazione][2]
@@ -58,25 +53,22 @@ Un'esecuzione può visualizzare uno dei seguenti stati:
 Quando si analizza una cronologia di esecuzione, è possibile visualizzare ulteriori dettagli.
 
 #### Output dei trigger
-
 Gli output dei trigger mostrano i dati ricevuti dal trigger. Ciò consente di determinare se tutte le proprietà siano state restituite come previsto.
 
->[AZURE.NOTE] Potrebbe essere utile comprendere il modo in cui le app per la logica [gestiscono diversi tipi di contenuto](app-service-logic-content-type.md), se si notano contenuti poco chiari.
+> [!NOTE]
+> Potrebbe essere utile comprendere il modo in cui le app per la logica [gestiscono diversi tipi di contenuto](app-service-logic-content-type.md), se si notano contenuti poco chiari.
+> 
+> 
 
 ![Esempi di output di trigger][3]
 
 #### Input e output delle azioni
-
 È possibile visualizzare informazioni dettagliate sugli input e sugli output ricevuti da un'azione, in modo da semplificare la comprensione delle dimensioni e delle forme degli output, oltre a visualizzare eventuali messaggi di errore generati.
 
 ![Input e output delle azioni][4]
 
 ## Debug del runtime del flusso di lavoro
-
 Per monitorare gli input, gli output e i trigger di un'esecuzione, potrebbe essere utile aggiungere alcuni passaggi in un flusso di lavoro per semplificare il debug. [RequestBin](http://requestb.in) è uno strumento utile che è possibile aggiungere come passaggio in un flusso di lavoro. Utilizzando RequestBin, è possibile configurare un controllo per le richieste HTTP, in modo da stabilire esattamente le dimensioni, la forma e il formato di una richiesta HTTP. È possibile creare un nuovo RequestBin e incollare l'URL in un'azione HTTP POST dell'app per la logica, con qualsiasi contenuto del corpo da verificare, ad esempio un'espressione o l'output di un altro passaggio. Dopo l'esecuzione dell'app per la logica, è possibile aggiornare RequestBin per verificare in che modo è stata formata la richiesta durante la generazione dal motore di app per la logica.
-
-
-
 
 <!-- image references -->
 [1]: ./media/app-service-logic-diagnosing-failures/triggerHistory.PNG

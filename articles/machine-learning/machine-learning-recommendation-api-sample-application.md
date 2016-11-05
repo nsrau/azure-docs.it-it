@@ -1,36 +1,35 @@
-<properties 
-	pageTitle="Operazioni comuni nell'API Recommendations di Machine Learning | Microsoft Azure" 
-	description="Recommendations di Azure ML - Applicazione di esempio" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="LuisCabrer" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+---
+title: Operazioni comuni nell'API Recommendations di Machine Learning | Microsoft Docs
+description: Recommendations di Azure ML - Applicazione di esempio
+services: machine-learning
+documentationcenter: ''
+author: LuisCabrer
+manager: jhubbard
+editor: cgronlun
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2016" 
-	ms.author="luisca"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/08/2016
+ms.author: luisca
 
-
+---
 # Applicazione di esempio dell'API Recommendations
+> [!NOTE]
+> È consigliabile iniziare usando l'API Recommendations di Servizi cognitivi invece di questa versione. Il Servizio cognitivo di Recommendations sostituirà questo servizio e verranno sviluppate nuove funzionalità. Il servizio include nuove funzionalità come il supporto in batch, una migliore funzione di Esplora API, una superficie API più pulita, un'esperienza più coerente in termini di iscrizione e fatturazione e così via. Per altre informazioni, vedere [Migrating to the new Cognitive Service](http://aka.ms/recomigrate) (Migrazione al nuovo Servizio cognitivo)
+> 
+> 
 
->[AZURE.NOTE] È consigliabile iniziare usando l'API Recommendations di Servizi cognitivi invece di questa versione. Il Servizio cognitivo di Recommendations sostituirà questo servizio e verranno sviluppate nuove funzionalità. Il servizio include nuove funzionalità come il supporto in batch, una migliore funzione di Esplora API, una superficie API più pulita, un'esperienza più coerente in termini di iscrizione e fatturazione e così via. Per altre informazioni, vedere [Migrating to the new Cognitive Service](http://aka.ms/recomigrate) (Migrazione al nuovo Servizio cognitivo)
-
-##Scopo
-
+## Scopo
 Questo documento illustra l'utilizzo dell'API Recommendations di Azure Machine Learning, tramite un'[applicazione di esempio](https://code.msdn.microsoft.com/Recommendations-144df403).
 
 Questa applicazione non è concepita per includere tutte le funzionalità, né per l'uso di tutte le API, ma serve solo per dimostrare alcune delle operazioni comuni da eseguire quando si vuole provare il servizio di raccomandazione di Machine Learning.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-##Introduzione al servizio di raccomandazione di Machine Learning
-
+## Introduzione al servizio di raccomandazione di Machine Learning
 Le raccomandazioni tramite il servizio di raccomandazione di Machine Learning vengono abilitate quando si compila un modello di raccomandazione basato sui dati seguenti:
 
 * Repository dell'elemento da raccomandare, noto anche come catalogo.
@@ -56,18 +55,15 @@ Per abilitare lo scenario precedente, eseguire le operazioni seguenti nel serviz
 
 In genere si richiama Get Recommendation per un certo periodo di tempo. Durante questo intervallo di tempo è possibile reindirizzare i dati di utilizzo al sistema di raccomandazione di Machine Learning che li aggiungerà al contenitore del modello specificato. Quando si avranno dati di utilizzo sufficienti, si potrà compilare un nuovo modello di raccomandazione che incorpora i dati di utilizzo aggiuntivi.
 
-##Prerequisiti
-
+## Prerequisiti
 * Visual Studio 2013
 * Accesso a Internet
 * Sottoscrizione all'API Recommendations (https://datamarket.azure.com/dataset/amla/recommendations).
 
-##Soluzione di app di esempio di Azure Machine Learning
-
+## Soluzione di app di esempio di Azure Machine Learning
 La soluzione contiene il codice sorgente, i file dei dati di utilizzo e del catalogo di esempio, oltre alle istruzioni per scaricare i pacchetti necessari per la compilazione.
 
-##API usate
-
+## API usate
 L'applicazione usa la funzionalità di raccomandazione di Machine Learning tramite un subset delle API disponibili. Nell'applicazione vengono illustrate le API seguenti:
 
 * Creare un modello: creare il contenitore logico per i dati e i modelli di raccomandazione. Un modello è identificato da un nome. Non è possibile creare più volte un modello con lo stesso nome.
@@ -83,13 +79,11 @@ Per una descrizione completa delle API, vedere la documentazione di Microsoft Az
 **Nota**: con il tempo, un modello può avere diverse compilazioni (non contemporaneamente). Ogni compilazione viene creata con lo stesso catalogo o un catalogo aggiornato e dati di utilizzo aggiuntivi.
 
 ## Inconvenienti comuni
-
 * È necessario fornire il nome utente e la chiave primaria dell'account Microsoft Azure Marketplace per eseguire l'app di esempio.
 * L'app di esempio non può essere eseguita consecutivamente. Il flusso dell'applicazione include le operazioni di creazione, caricamento, monitoraggio della compilazione e recupero di raccomandazioni da un modello predefinito. Di conseguenza, l'esecuzione consecutiva non riuscirà se non si cambia il nome del modello tra una chiamata e l'altra.
 * La raccomandazione potrebbe essere restituita senza dati. L'app di esempio usa un file del catalogo e dei dati di utilizzo molto piccolo. Alcuni elementi del catalogo non avranno pertanto elementi raccomandati.
 
 ## Dichiarazione di non responsabilità
 L'app di esempio non è destinata all'esecuzione in un ambiente di produzione. I dati forniti nel catalogo sono molto limitati e non offrono un modello di raccomandazione significativo. Vengono forniti per fini dimostrativi.
- 
 
 <!---HONumber=AcomDC_0914_2016-->

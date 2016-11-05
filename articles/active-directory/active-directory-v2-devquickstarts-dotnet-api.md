@@ -1,27 +1,28 @@
-<properties
-	pageTitle="API Web .NET v2.0 di Azure AD| Microsoft Azure"
-	description="Come creare un'API Web .NET MVC che accetta token da account Microsoft personali, aziendali e dell'istituto di istruzione."
-	services="active-directory"
-	documentationCenter=".net"
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/> 
+---
+title: API Web .NET v2.0 di Azure AD| Microsoft Docs
+description: Come creare un'API Web .NET MVC che accetta token da account Microsoft personali, aziendali e dell'istituto di istruzione.
+services: active-directory
+documentationcenter: .net
+author: dstrockis
+manager: mbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="dastrock"/> 
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: dastrock
 
+---
 # Proteggere un'API Web MVC
-
 Con l'endpoint v2.0 di Azure Active Directory è possibile proteggere un'API Web usando token di accesso [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) in modo da consentire agli utenti di accedere all'API Web in modo sicuro con un account Microsoft personale, aziendale o dell'istituto di istruzione.
 
-> [AZURE.NOTE]
-	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+> [!NOTE]
+> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+> 
+> 
 
 Nelle API Web ASP.NET, a questo scopo si usa il middleware OWIN di Microsoft incluso in .NET Framework 4.5. Verrà usato OWIN per compilare un'API Web MVC "Elenco attività" che consente ai client di creare e leggere le attività dall'elenco di attività dell'utente. L'API Web verifica che le richieste in ingresso contengano un token di accesso valido e rifiuta le richieste che non superano la convalida su una route protetta.
 
@@ -41,19 +42,17 @@ git clone https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
 ## Registrare un'app
 Creare una nuova app in [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o seguire questa [procedura dettagliata](active-directory-v2-app-registration.md). Verificare di:
 
-- Copiare l'**ID applicazione** assegnato all'app, perché verrà richiesto a breve.
+* Copiare l'**ID applicazione** assegnato all'app, perché verrà richiesto a breve.
 
 Questa soluzione di visual studio contiene anche una "TodoListClient", che è una semplice applicazione WPF. La TodoListClient viene utilizzata per illustrare come avviene l’accesso dell'utente e come un client può inviare le richieste all’API Web. In questo caso, sia TodoListClient sia il TodoListService sono rappresentati dalla stessa app. Per configurare il TodoListClient, è necessario inoltre:
 
-- Aggiungere la piattaforma **Mobile** per l'app.
-- Annotare il **Redirect URI** dal portale. È necessario usare il valore predefinito `urn:ietf:wg:oauth:2.0:oob`.
-
+* Aggiungere la piattaforma **Mobile** per l'app.
+* Annotare il **Redirect URI** dal portale. È necessario usare il valore predefinito `urn:ietf:wg:oauth:2.0:oob`.
 
 ## Installare OWIN
-
 Dopo aver registrato un'app, si dovrà configurarla in modo che comunichi con l'endpoint v 2.0 per convalidare le richieste in ingresso e i token.
 
-- Per iniziare, aprire la soluzione e aggiungere i pacchetti NuGet del middleware OWIN al progetto TodoListService usando la Console di Gestione pacchetti.
+* Per iniziare, aprire la soluzione e aggiungere i pacchetti NuGet del middleware OWIN al progetto TodoListService usando la Console di Gestione pacchetti.
 
 ```
 PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService
@@ -62,9 +61,8 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
 ```
 
 ## Configurare l'autenticazione OAuth
-
-- Aggiungere al progetto TodoListService una OWIN Startup Class denominata `Startup.cs`. Fare clic con il pulsante destro del mouse sul progetto --> **Aggiungi** --> **Nuovo elemento** --> Cercare "OWIN". Il middleware OWIN richiamerà il metodo `Configuration(…)` all'avvio dell'app.
-- Sostituire la dichiarazione della classe con `public partial class Startup`. Parte di questa classe è già stata implementata in un altro file. Nel metodo `Configuration(…)` effettuare una chiamata a ConfgureAuth(...) per configurare l'autenticazione per l'app Web.
+* Aggiungere al progetto TodoListService una OWIN Startup Class denominata `Startup.cs`. Fare clic con il pulsante destro del mouse sul progetto --> **Aggiungi** --> **Nuovo elemento** --> Cercare "OWIN". Il middleware OWIN richiamerà il metodo `Configuration(…)` all'avvio dell'app.
+* Sostituire la dichiarazione della classe con `public partial class Startup`. Parte di questa classe è già stata implementata in un altro file. Nel metodo `Configuration(…)` effettuare una chiamata a ConfgureAuth(...) per configurare l'autenticazione per l'app Web.
 
 ```C#
 public partial class Startup
@@ -76,44 +74,44 @@ public partial class Startup
 }
 ```
 
-- Aprire il file `App_Start\Startup.Auth.cs` e implementare il metodo `ConfigureAuth(…)`, che configura l'API Web per accettare token dall'endpoint 2.0.
+* Aprire il file `App_Start\Startup.Auth.cs` e implementare il metodo `ConfigureAuth(…)`, che configura l'API Web per accettare token dall'endpoint 2.0.
 
 ```C#
 public void ConfigureAuth(IAppBuilder app)
 {
-		var tvps = new TokenValidationParameters
-		{
-				// In this app, the TodoListClient and TodoListService
-				// are represented using the same Application Id - we use
-				// the Application Id to represent the audience, or the
-				// intended recipient of tokens.
+        var tvps = new TokenValidationParameters
+        {
+                // In this app, the TodoListClient and TodoListService
+                // are represented using the same Application Id - we use
+                // the Application Id to represent the audience, or the
+                // intended recipient of tokens.
 
-				ValidAudience = clientId,
+                ValidAudience = clientId,
 
-				// In a real applicaiton, you might use issuer validation to
-				// verify that the user's organization (if applicable) has
-				// signed up for the app.  Here, we'll just turn it off.
+                // In a real applicaiton, you might use issuer validation to
+                // verify that the user's organization (if applicable) has
+                // signed up for the app.  Here, we'll just turn it off.
 
-				ValidateIssuer = false,
-		};
+                ValidateIssuer = false,
+        };
 
-		// Set up the OWIN pipeline to use OAuth 2.0 Bearer authentication.
-		// The options provided here tell the middleware about the type of tokens
-		// that will be recieved, which are JWTs for the v2.0 endpoint.
+        // Set up the OWIN pipeline to use OAuth 2.0 Bearer authentication.
+        // The options provided here tell the middleware about the type of tokens
+        // that will be recieved, which are JWTs for the v2.0 endpoint.
 
-		// NOTE: The usual WindowsAzureActiveDirectoryBearerAuthenticaitonMiddleware uses a
-		// metadata endpoint which is not supported by the v2.0 endpoint.  Instead, this
-		// OpenIdConenctCachingSecurityTokenProvider can be used to fetch & use the OpenIdConnect
-		// metadata document.
+        // NOTE: The usual WindowsAzureActiveDirectoryBearerAuthenticaitonMiddleware uses a
+        // metadata endpoint which is not supported by the v2.0 endpoint.  Instead, this
+        // OpenIdConenctCachingSecurityTokenProvider can be used to fetch & use the OpenIdConnect
+        // metadata document.
 
-		app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
-		{
-				AccessTokenFormat = new Microsoft.Owin.Security.Jwt.JwtFormat(tvps, new OpenIdConnectCachingSecurityTokenProvider("https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration")),
-		});
+        app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
+        {
+                AccessTokenFormat = new Microsoft.Owin.Security.Jwt.JwtFormat(tvps, new OpenIdConnectCachingSecurityTokenProvider("https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration")),
+        });
 }
 ```
 
-- È ora possibile usare gli attributi `[Authorize]` per proteggere i controller e le azioni con l'autenticazione della connessione OAuth 2.0. Decorare la classe `Controllers\TodoListController.cs` con un tag di autorizzazione. Ciò forzerà l'utente a eseguire l'accesso prima di accedere alla pagina.
+* È ora possibile usare gli attributi `[Authorize]` per proteggere i controller e le azioni con l'autenticazione della connessione OAuth 2.0. Decorare la classe `Controllers\TodoListController.cs` con un tag di autorizzazione. Ciò forzerà l'utente a eseguire l'accesso prima di accedere alla pagina.
 
 ```C#
 [Authorize]
@@ -121,7 +119,7 @@ public class TodoListController : ApiController
 {
 ```
 
-- Quando un chiamante autorizzato riesce a chiamare una delle API `TodoListController`, l'azione potrebbe richiedere l'accesso alle informazioni relative al chiamante. OWIN fornisce l'accesso alle attestazioni all'interno del token di connessione tramite l'oggetto `ClaimsPrincpal`.
+* Quando un chiamante autorizzato riesce a chiamare una delle API `TodoListController`, l'azione potrebbe richiedere l'accesso alle informazioni relative al chiamante. OWIN fornisce l'accesso alle attestazioni all'interno del token di connessione tramite l'oggetto `ClaimsPrincpal`.
 
 ```C#
 public IEnumerable<TodoItem> Get()
@@ -138,15 +136,15 @@ public IEnumerable<TodoItem> Get()
 }
 ```
 
--	Infine aprire il file `web.config` nella radice del progetto TodoListService e immettere i valori di configurazione nella sezione `<appSettings>`.
-  -	`ida:Audience` rappresenta l'**ID applicazione** dell'app immesso nel portale.
+* Infine aprire il file `web.config` nella radice del progetto TodoListService e immettere i valori di configurazione nella sezione `<appSettings>`.
+  * `ida:Audience` rappresenta l'**ID applicazione** dell'app immesso nel portale.
 
 ## Configurare l'app client
 Prima di poter vedere in azione il servizio To Do List, è necessario configurare il client To Do List in modo che possa ricevere i token dall'endpoint 2.0 ed eseguire chiamate al servizio.
 
-- Nel progetto client To Do List aprire `App.config` e immettere i valori di configurazione nella sezione `<appSettings>`.
-  -	ID applicazione `ida:ClientId` copiato dal portale.
-	- `ida:RedirectUri` rappresenta l'**URI di reindirizzamento** dal portale.
+* Nel progetto client To Do List aprire `App.config` e immettere i valori di configurazione nella sezione `<appSettings>`.
+  * ID applicazione `ida:ClientId` copiato dal portale.
+    * `ida:RedirectUri` rappresenta l'**URI di reindirizzamento** dal portale.
 
 Infine pulire, compilare ed eseguire ogni progetto. È ora disponibile un'API Web .NET MVC che accetta token da account Microsoft personali, aziendali e dell'istituto di istruzione. Accedere al client To Do List e chiamare l'API Web in modo che aggiunga attività all'elenco di attività da svolgere dell'utente.
 
@@ -160,11 +158,11 @@ Come riferimento [è disponibile qui l'esempio completato (senza i valori di con
 [Chiamata di un'API Web da un'applicazione Web >>](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 
 Per altre risorse, vedere:
-- [Guida per sviluppatori v2.0 >>](active-directory-appmodel-v2-overview.md)
-- [StackOverflow: tag "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+
+* [Guida per sviluppatori v2.0 >>](active-directory-appmodel-v2-overview.md)
+* [StackOverflow: tag "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## Ottenere aggiornamenti della sicurezza per i prodotti
-
 È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
 
 <!---HONumber=AcomDC_0921_2016-->

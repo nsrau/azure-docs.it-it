@@ -1,50 +1,45 @@
-<properties
-   pageTitle="Informazioni su come creare un'app per le API di BizTalk Rules nell'app per la logica | Microsoft Azure"
-   description="Questo argomento illustra le funzionalità del connettore BizTalk Rules e fornisce istruzioni sul suo utilizzo"
-   services="logic-apps"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="erikre"
-   editor=""/>
+---
+title: Informazioni su come creare un'app per le API di BizTalk Rules nell'app per la logica | Microsoft Docs
+description: Questo argomento illustra le funzionalità del connettore BizTalk Rules e fornisce istruzioni sul suo utilizzo
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: anuragdalmia
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="04/20/2016"
-   ms.author="andalmia"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 04/20/2016
+ms.author: andalmia
 
-#BizTalk Rules
-
-[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+---
+# BizTalk Rules
+[!INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Le regole di business incapsulano i criteri e le decisioni che controllano i processi di business. Tali criteri possono essere definiti formalmente all'interno di manuali di procedure o contratti oppure possono esistere sotto forma di conoscenze o competenze dei dipendenti. Questi criteri sono dinamici e soggetti a modifiche nel tempo, come conseguenza di modifiche dei piani aziendali oppure delle normative o per altri motivi.
 
 L'implementazione di questi criteri nei linguaggi di programmazione tradizionali richiede tempo e coordinazione. La creazione e la manutenzione dei criteri di business sono riservate ai programmatori. Le regole di business di BizTalk consentono di implementare rapidamente questi criteri e di separare il resto del processo di business. Ciò consente di apportare le modifiche necessarie ai criteri di business senza alcun impatto sul resto del processo di business.
 
-##Perché le regole
-
+## Perché le regole
 Esistono tre motivi principali che giustificano l'uso delle regole di business di BizTalk nel processo di business:
 
 * Separare la logica di business dal codice dell'applicazione
-- Consentire agli analisti aziendali di avere maggiore controllo sulla gestione della logica di business
-+ Le modifiche alla logica di business passano in produzione più velocemente
+* Consentire agli analisti aziendali di avere maggiore controllo sulla gestione della logica di business
+* Le modifiche alla logica di business passano in produzione più velocemente
 
-##Concetti delle regole
-
-##Vocabolario
-
-Un _vocabolario_ è una raccolta di definizioni costituite da nomi descrittivi per gli oggetti di elaborazione usati nelle condizioni e azioni. Le definizioni del vocabolario semplificano la lettura, la comprensione e la condivisione delle regole da parte degli utenti in un dominio aziendale specifico.
+## Concetti delle regole
+## Vocabolario
+Un *vocabolario* è una raccolta di definizioni costituite da nomi descrittivi per gli oggetti di elaborazione usati nelle condizioni e azioni. Le definizioni del vocabolario semplificano la lettura, la comprensione e la condivisione delle regole da parte degli utenti in un dominio aziendale specifico.
 
 I vocabolari sono progettati per colmare il divario tra la semantica di business e l'implementazione. Ad esempio, un data binding per uno stato di approvazione potrebbe puntare a una determinata colonna di una determinata riga in un determinato database, rappresentato come una query SQL. Anziché inserire questo tipo di rappresentazione complessa in una regola, è invece possibile creare una definizione del vocabolario, associata a tale data binding, con un nome descrittivo "Stato". Successivamente è possibile includere "Stato" in un numero qualsiasi di regole e il motore di regole può recuperare i dati corrispondenti dalla tabella.
 
-##Regola
-
+## Regola
 Le regole di business sono istruzioni dichiarative che regolano la gestione dei processi di business. Una regola è costituita da una condizione e da azioni. La condizione viene valutata e, se il risultato è true, il motore delle regole avvia una o più azioni. Le regole Business Rules Framework vengono definite usando il formato seguente:
 
-_IF_ _condizione_ _THEN_ _azione_
+*IF* *condizione* *THEN* *azione*
 
 Si consideri l'esempio seguente:
 
@@ -52,26 +47,22 @@ Si consideri l'esempio seguente:
 
 Questa regola determina se verrà eseguita una transazione applicando la logica di business, in base al confronto tra due valori monetari, costituiti dall'importo di una transazione e dai fondi disponibili. È possibile usare la regola di business per creare, modificare e distribuire regole di business. In alternativa, è possibile eseguire le attività precedenti a livello di codice.
 
-###Condizioni
-
+### Condizioni
 Una condizione è un'espressione true o false (booleana) costituita da uno o più predicati. Nell'esempio riportato in questa pagina viene applicato il predicato minore o uguale a per la quantità e i fondi disponibili. Questa condizione restituisce sempre true o false. I predicati possono essere combinati con gli operatori logici AND, OR e NOT per formare un'espressione logica che è potenzialmente di grandi dimensioni, ma restituiscono sempre true o false.
 
-###Actions
-
+### Actions
 Le azioni sono le conseguenze funzionali della valutazione della condizione. Se viene soddisfatta una condizione della regola, vengono avviate una o più azioni corrispondenti. Nell'esempio riportato in questa pagina la transazione e la stampa della ricevuta sono azioni che vengono eseguite se e solo quando la condizione (in questo caso, "IF quantità è minore o uguale ai fondi disponibili") è true. Le azioni sono rappresentate in Business Rules Framework eseguendo le operazioni set su documenti XML.
 
-##Criterio
-
+## Criterio
 Un criterio è un raggruppamento logico di regole. È possibile comporre, salvare, testare un criterio e, quando si è soddisfatti dei risultati, è possibile usarlo in un ambiente di produzione.
 
-###Composizione dei criteri
-
+### Composizione dei criteri
 È possibile comporre i criteri nel portale delle regole. Un criterio può contenere un insieme di regole arbitrariamente grande, ma in genere un criterio viene composto mediante regole che si riferiscono a un dominio all'interno del contesto dell'applicazione che userà tale criterio.
 
-###Test dei criteri
+### Test dei criteri
 È possibile effettuare un'esecuzione dei test del criterio prima di usarlo in un ambiente di produzione. Il portale delle regole consente di fornire input a un criterio, eseguirlo e visualizzarne l'output. L'output include log, l'esecuzione delle regole, valutazione della condizione e output risultanti.
 
-##Scenario di esempio - Richieste di risarcimenti assicurativi
+## Scenario di esempio - Richieste di risarcimenti assicurativi
 Verrà esaminato uno scenario di esempio e verrà descritto come si compone la logica di business per tale scenario.
 
 ![Alt text][1]
@@ -82,50 +73,48 @@ In uno scenario di richiesta di risarcimento assicurativo realmente semplice, il
 
 Ora verranno usate le regole di business per implementare questa logica di business.
 
-
-##Creazione dell'app per le API delle regole
-
-
+## Creazione dell'app per le API delle regole
 1. Eseguire l'accesso al portale di Azure
 2. Selezionare Nuovo-> Marketplace, quindi cercare *BizTalk Rules*
 3. Selezionare BizTalk Rules dall'elenco dei risultati. Verrà aperto il pannello BizTalk Rules.
 4. Selezionare il pulsante *Crea*. ![Alt text][3]
-1. Nel nuovo pannello che viene visualizzato, immettere le informazioni seguenti:
-	1. Nome: specificare un nome per l'app per le API delle regole
-	1. Piano di servizio app: selezionare o creare un nuovo piano di servizio app
-	1. Piano tariffario: scegliere il piano tariffario desiderato per l'app
-	1. Gruppo di risorse: selezionare o creare il gruppo di risorse desiderato per quest'app
-	2. Sottoscrizione: selezionare la sottoscrizione da usare
-	1. Località: scegliere la località geografica in cui si vuole distribuire l'app.
-4.	Selezionare *Crea*. Entro pochi minuti verranno create le app per le app per le API di BizTalk Rules.
+5. Nel nuovo pannello che viene visualizzato, immettere le informazioni seguenti:
+   1. Nome: specificare un nome per l'app per le API delle regole
+   2. Piano di servizio app: selezionare o creare un nuovo piano di servizio app
+   3. Piano tariffario: scegliere il piano tariffario desiderato per l'app
+   4. Gruppo di risorse: selezionare o creare il gruppo di risorse desiderato per quest'app
+   5. Sottoscrizione: selezionare la sottoscrizione da usare
+   6. Località: scegliere la località geografica in cui si vuole distribuire l'app.
+6. Selezionare *Crea*. Entro pochi minuti verranno create le app per le app per le API di BizTalk Rules.
 
-##Creazione del vocabolario
+## Creazione del vocabolario
 Dopo aver creato un'app per le API di BizTalk Rules, il passaggio successivo prevede la creazione di vocabolari. Questo esercizio viene in genere eseguito dallo sviluppatore. Ecco come fare:
 
-
 1. Avviare l'app per le API BizTalk Rules dal portale facendo clic su Esplora->App per le API-><app per le API delle regole creata>. Verrà visualizzato un dashboard dell'app per le API delle regole simile al seguente:
-
+   
    ![Alt text][4]
 
 2\. Selezionare "Definizioni vocabolario". Viene visualizzata la schermata Creazione vocabolario. 
-3. Selezionare "Aggiungi" per iniziare ad aggiungere nuove definizioni di vocabolario.
-Attualmente sono supportati due tipi di definizioni del vocabolario: Valore letterale e XML.
 
-##Definizione Valore letterale
-1.	Dopo aver fatto clic su "Aggiungi", viene visualizzato il pannello "Aggiungi definizione". Immettere i valori seguenti
-  1.	Nome: sono previsti solo caratteri alfanumerici senza caratteri speciali. Il nome deve essere univoco per l'elenco di definizioni del vocabolario esistente.
-  2.	Descrizione: campo facoltativo.
-  3.	Tipo definizione: sono supportati 2 tipi. In questo esempio scegliere Valore letterale
-  4.	Tipo di dati: consente agli utenti di selezionare il tipo di dati della definizione. Attualmente sono supportati 4 tipi di dati: 
-    i.	Stringa: questi valori devono essere immessi tra virgolette ("Stringa di esempio") 
-    ii.	Booleano: può essere true o false  
-    iii.	Numero: può essere qualsiasi numero decimale  
-    iv.	DateTime: la definizione è di tipo data. I dati devono essere immessi con il seguente formato: gg/mm/aaaa hh:mm:ss AM\\PM  
-  5. Input: immettere il valore della definizione in questo campo. I valori immessi devono essere conformi al tipo di dati scelto. È possibile immettere un singolo valore, un set di valori separati da virgole o un intervallo di valori usando la parola chiave *a*. È possibile, ad esempio, immettere il valore univoco 1, un set 1, 2, 3 o un intervallo "da 1 a 5". Si noti che l'intervallo è supportato solo per i numeri.
-  6. Selezionare *OK*.
+1. Selezionare "Aggiungi" per iniziare ad aggiungere nuove definizioni di vocabolario.
+   Attualmente sono supportati due tipi di definizioni del vocabolario: Valore letterale e XML.
+
+## Definizione Valore letterale
+1. Dopo aver fatto clic su "Aggiungi", viene visualizzato il pannello "Aggiungi definizione". Immettere i valori seguenti
+   1. Nome: sono previsti solo caratteri alfanumerici senza caratteri speciali. Il nome deve essere univoco per l'elenco di definizioni del vocabolario esistente.
+   2. Descrizione: campo facoltativo.
+   3. Tipo definizione: sono supportati 2 tipi. In questo esempio scegliere Valore letterale
+   4. Tipo di dati: consente agli utenti di selezionare il tipo di dati della definizione. Attualmente sono supportati 4 tipi di dati: 
+      i.    Stringa: questi valori devono essere immessi tra virgolette ("Stringa di esempio") 
+      ii.    Booleano: può essere true o false  
+      iii.    Numero: può essere qualsiasi numero decimale  
+      iv.    DateTime: la definizione è di tipo data. I dati devono essere immessi con il seguente formato: gg/mm/aaaa hh:mm:ss AM\\PM  
+   5. Input: immettere il valore della definizione in questo campo. I valori immessi devono essere conformi al tipo di dati scelto. È possibile immettere un singolo valore, un set di valori separati da virgole o un intervallo di valori usando la parola chiave *a*. È possibile, ad esempio, immettere il valore univoco 1, un set 1, 2, 3 o un intervallo "da 1 a 5". Si noti che l'intervallo è supportato solo per i numeri.
+   6. Selezionare *OK*.
 
 ![Alt text][5]
-##Definizione XML
+
+## Definizione XML
 Se si sceglie XML come tipo di vocabolario, è necessario specificare gli input seguenti a. Schema: facendo clic su questa opzione si aprirà un nuovo pannello che consente all'utente di scegliere da un elenco di schemi già caricati o di caricarne uno nuovo. b. XPATH: questo input si sblocca solo dopo aver scelto uno schema nel passaggio precedente. Facendo clic su questa opzione viene visualizzato lo schema che è stato selezionato e l'utente potrà selezionare il nodo per il quale deve essere creata una definizione del vocabolario. c. FATTI: questo input identifica l'oggetto dati da inserire nel motore delle regole per l'elaborazione. Si tratta di una proprietà avanzata e per impostazione predefinita è impostata sull'elemento padre dell'elemento XPATH selezionato. FATTI diventa particolarmente importante per gli scenari di concatenamento e raccolta.
 
 ![Alt text][6]
@@ -135,26 +124,28 @@ Nei passaggi precedenti sono state descritte le operazioni di creazione delle de
 
 ![Alt text][7]
 
-##Creazione di criteri
+## Creazione di criteri
 Una volta che lo sviluppatore ha creato i vocabolari necessari, il business analyst dovrebbe creare i criteri aziendali tramite il portale di Azure.  
-	1.	Nell'app delle regole create è presente una sezione Criteri. Facendo clic su di essa l'utente passa alla pagina di creazione dei criteri.  
-	2.	Nella pagina viene mostrato l'elenco dei criteri di questa specifica app delle regole. L'analista può aggiungere un nuovo criterio semplicemente digitandone il nome e premendo TAB due volte. Più criteri possono risiedere in una singola app per le API delle regole.  
-	3.	Selezionando il criterio creato l'utente passerà alla pagina Dettagli criteri dove può osservare le regole presenti nel criterio.  
-	![Alt text][8]
-	4.	Selezionare "Aggiungi" per aggiungere una nuova regola. Verrà visualizzato un nuovo pannello.
 
-##Creazione di regole
+    1.    Nell'app delle regole create è presente una sezione Criteri. Facendo clic su di essa l'utente passa alla pagina di creazione dei criteri.  
+    2.    Nella pagina viene mostrato l'elenco dei criteri di questa specifica app delle regole. L'analista può aggiungere un nuovo criterio semplicemente digitandone il nome e premendo TAB due volte. Più criteri possono risiedere in una singola app per le API delle regole.  
+    3.    Selezionando il criterio creato l'utente passerà alla pagina Dettagli criteri dove può osservare le regole presenti nel criterio.  
+    ![Alt text][8]
+    4.    Selezionare "Aggiungi" per aggiungere una nuova regola. Verrà visualizzato un nuovo pannello.
+
+## Creazione di regole
 Una regola è una raccolta di istruzioni relative a condizioni e azioni. Le azioni vengono eseguite se la condizione restituisce true. Nel pannello Crea regola, assegnare un nome univoco della regola (per il criterio) e una descrizione (facoltativa). 
 La casella Condizione (IF) può essere usata per creare istruzioni condizionali complesse. Di seguito sono elencate le parole chiave supportate:  
-1. 	And: operatore condizionale  
-2. 	Or: operatore condizionale  
-3. 	does\_not\_exist  
-4. 	exists  
-5. 	false  
-6. 	is\_equal\_to  
-7. 	is\_greater\_than  
-8. 	is\_greater\_than\_equal\_to  
-9. 	is\_in  
+
+1. And: operatore condizionale  
+2. Or: operatore condizionale  
+3. does\_not\_exist  
+4. exists  
+5. false  
+6. is\_equal\_to  
+7. is\_greater\_than  
+8. is\_greater\_than\_equal\_to  
+9. is\_in  
 10. is\_less\_than  
 11. is\_less\_than\_equal\_to  
 12. is\_not\_in  
@@ -163,29 +154,31 @@ La casella Condizione (IF) può essere usata per creare istruzioni condizionali 
 15. true  
 
 La casella Azione (THEN) può contenere più istruzioni, una per riga, per creare azioni da eseguire. Di seguito sono elencate le parole chiave supportate:  
-1.	equals  
-2.	false  
-3.	true  
-4.	halt  
-5.	mod  
-6.	Null  
-7.	update  
+
+1. equals  
+2. false  
+3. true  
+4. halt  
+5. mod  
+6. Null  
+7. update  
 
 Le caselle Condizione e Azione offrono il supporto IntelliSense che aiuta a creare una regola rapidamente. Questa può essere attivata premendo CTRL+BARRA SPAZIATRICE o semplicemente iniziando a digitare. Le parole chiave corrispondenti ai caratteri digitati verranno automaticamente filtrate e mostrate. La finestra IntelliSense mostrerà tutte le parole chiave e le definizioni del vocabolario. 
 ![Alt text][9]
 
-##Concatenamento diretto esplicito
+## Concatenamento diretto esplicito
 Poiché BizTalk Rules supporta il concatenamento diretto esplicito, se gli utenti vogliono rivalutare le regole in risposta a determinate azioni, possono attivare questo processo usando determinate parole chiave. Di seguito sono elencate le parole chiave supportate:  
-   1.	update <definizione vocabolario>: questa parola chiave rivaluta tutte le regole che usano la definizione del vocabolario specificata nella condizione.  
-   2.	Halt: questa parola chiave interrompe tutte le esecuzioni di regole
 
-##Abilitazione\\disabilitazione di regole
+1. update <definizione vocabolario>: questa parola chiave rivaluta tutte le regole che usano la definizione del vocabolario specificata nella condizione.  
+2. Halt: questa parola chiave interrompe tutte le esecuzioni di regole
+
+## Abilitazione\\disabilitazione di regole
 Ogni regola del criterio può essere abilitata o disabilitata. Per impostazione predefinita tutte le regole sono abilitate. Le regole disabilitate non verranno eseguite durante l'esecuzione dei criteri. L'abilitazione/disabilitazione delle regole può essere eseguita direttamente dal pannello delle regole, usando i comandi disponibili nella barra dei comandi nella parte superiore del pannello, o dal criterio; nel menu di scelta rapida (visualizzato facendo clic con il pulsante destro del mouse su una regola) è disponibile l'opzione di abilitazione/disabilitazione.
 
-##Priorità delle regole
+## Priorità delle regole
 Tutte le regole dei criteri vengono eseguite in ordine. La priorità di esecuzione è determinata dall'ordine in cui si verificano nel criterio. Questa priorità può essere modificata semplicemente trascinando e rilasciando la regola.
 
-##Testare un criterio
+## Testare un criterio
 È possibile testare i criteri usando il comando "Test dei criteri" nel pannello Test dei criteri. dove è disponibile un elenco di definizioni del vocabolario usate nel criterio che richiedono un input dell'utente. Gli utenti possono aggiungere manualmente i valori per questi input per il proprio scenario di test. In alternativa, possono importare XML di test per gli input. Una volta inseriti tutti gli input, il test può essere eseguito e nella colonna di output verranno visualizzati gli output per ogni definizione del vocabolario per un semplice confronto. Per visualizzare log semplici da usare per i business analyst, fare clic su "Visualizza log" per visualizzare i log di esecuzione. Per salvare i log, è disponibile l'opzione "Salva output" che consente di archiviare tutti i dati correlati ai test per l'analisi indipendente.
 
 ## Uso delle regole nelle app per la logica
@@ -198,16 +191,16 @@ L'app per le API delle regole può essere chiamata anche usando una vasta gamma 
 
 Di seguito è riportato un esempio di come è possibile usare questa API in C#
 
-   			// Constructing the JSON message to use in API call to Rules API App
+               // Constructing the JSON message to use in API call to Rules API App
 
-			// xmlInstance is the XML message instance to be passed as input to our Policy
+            // xmlInstance is the XML message instance to be passed as input to our Policy
             string xmlInstance = "<ns0:Patient xmlns:ns0="http://tempuri.org/XMLSchema.xsd">  <ns0:Name>Name_0</ns0:Name>  <ns0:Email>Email_0</ns0:Email>  <ns0:PatientID>PatientID_0</ns0:PatientID>  <ns0:Age>10.4</ns0:Age>  <ns0:Claim>    <ns0:ClaimDate>2012-05-31T13:20:00.000-05:00</ns0:ClaimDate>    <ns0:ClaimID>10</ns0:ClaimID>    <ns0:TreatmentID>12</ns0:TreatmentID>    <ns0:ClaimAmount>10000.0</ns0:ClaimAmount>    <ns0:ClaimStatus>ClaimStatus_0</ns0:ClaimStatus>    <ns0:ClaimStatusReason>ClaimStatusReason_0</ns0:ClaimStatusReason>  </ns0:Claim></ns0:Patient>";
 
             JObject input = new JObject();
 
-			// The JSON object is to be of form {"<XMLSchemName>_<RootNodeName>":"<XML Instance String>".
-			// In the below case, we are using XML Schema - "insruanceclaimsschema" and the root node is "Patient".
-			// This is CASE SENSITIVE.
+            // The JSON object is to be of form {"<XMLSchemName>_<RootNodeName>":"<XML Instance String>".
+            // In the below case, we are using XML Schema - "insruanceclaimsschema" and the root node is "Patient".
+            // This is CASE SENSITIVE.
             input.Add("insuranceclaimschema_Patient", xmlInstance);
             string stringContent = JsonConvert.SerializeObject(input);
 
@@ -215,7 +208,7 @@ Di seguito è riportato un esempio di come è possibile usare questa API in C#
             // Making REST call to Rules API App
             HttpClient httpClient = new HttpClient();
 
-			// The url is the Host URL of the Rules API App
+            // The url is the Host URL of the Rules API App
             httpClient.BaseAddress = new Uri("https://rulesservice77492755b7b54c3f9e1df8ba0b065dc6.azurewebsites.net/");
             HttpContent httpContent = new StringContent(stringContent);
             httpContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");

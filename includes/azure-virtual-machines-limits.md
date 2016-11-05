@@ -1,7 +1,7 @@
-Risorsa|Limite predefinito|Limite massimo
----|---|---
-[Macchine virtuali](../articles/virtual-machines/virtual-machines-linux-about.md) per servizio cloud<sup>1</sup>|50|50
-Endpoint di input per servizio cloud<sup>2</sup>|150|150
+| Risorsa | Limite predefinito | Limite massimo |
+| --- | --- | --- |
+| [Macchine virtuali](../articles/virtual-machines/virtual-machines-linux-about.md) per servizio cloud<sup>1</sup> |50 |50 |
+| Endpoint di input per servizio cloud<sup>2</sup> |150 |150 |
 
 <sup>1</sup>Macchine virtuali create in Gestione dei servizi (anziché Gestione risorse) vengono automaticamente archiviate in un servizio cloud. È possibile aggiungere più macchine virtuali al servizio cloud per il bilanciamento del carico e disponibilità. Vedere [Come connettere le macchine virtuali con una rete virtuale o un servizio cloud](../articles/virtual-machines/virtual-machines-linux-classic-connect-vms.md).
 

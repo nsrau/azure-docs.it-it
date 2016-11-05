@@ -1,23 +1,22 @@
-<properties
-	pageTitle="App per le API del servizio app: Modifiche apportate | Microsoft Azure"
-	description="Informazioni sulle novità relative alle app per le API nel servizio app di Azure."
-	services="app-service\api"
-	documentationCenter=".net"
-	authors="mohitsriv"
-	manager="wpickett"
-	editor="tdykstra"/>
+---
+title: 'App per le API del servizio app: Modifiche apportate | Microsoft Docs'
+description: Informazioni sulle novità relative alle app per le API nel servizio app di Azure.
+services: app-service\api
+documentationcenter: .net
+author: mohitsriv
+manager: wpickett
+editor: tdykstra
 
-<tags
-	ms.service="app-service-api"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/29/2016"
-	ms.author="rachelap"/>
+ms.service: app-service-api
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/29/2016
+ms.author: rachelap
 
+---
 # App per le API del servizio app: Modifiche apportate
-
 All'evento Connect() di novembre 2015 è stata [annunciata](https://azure.microsoft.com/blog/azure-app-service-updates-november-2015/) una serie di miglioramenti al servizio app di Azure. Tra i miglioramenti introdotti ci sono modifiche sottostanti alle app per le API, per ottenere un allineamento ottimale con le app Web e per dispositivi mobili, ridurre il numero di concetti e migliorare le prestazioni a livello di runtime e di distribuzione. A partire dal 30 novembre 2015, le nuove app per le API create usando il portale di gestione di Azure o gli strumenti più recenti includono queste modifiche. Questo articolo illustra le modifiche apportate e come ridistribuire le app esistenti per sfruttare le nuove funzionalità.
 
 ## Modifiche apportate alle funzionalità
@@ -32,12 +31,12 @@ Le funzionalità di autenticazione di app per le API, servizi mobili o app per d
 
 Per gli scenari di API, sono disponibili varie nuove funzionalità:
 
-- **Supporto per l'uso diretto di Azure Active Directory**, senza la necessità di scambiare il token AAD con un token di sessione per il codice client. Il client può semplicemente includere i token AAD nell'intestazione dell'autorizzazione, in base alla specifica del token di connessione. Ciò significa che anche sul lato client o server non è necessario alcun SDK specifico del servizio app.
-- **Accesso da servizio a servizio o "interno"**: se un processo del daemon o un altro client deve accedere alle API senza un'interfaccia, è possibile richiedere un token usando un'entità servizio AAD e passarlo al servizio app per l'autenticazione nell'applicazione.
-- **Autorizzazione posticipata**: molte applicazioni presentano restrizioni di accesso differenti per diverse parti dell'applicazione. Alcune API potrebbero essere disponibili pubblicamente, mentre altre potrebbero richiedere l'accesso. La funzionalità di autenticazione/autorizzazione originale è all-or-nothing, con l'intero sito che richiede un account di accesso. Questa opzione esiste ancora, ma in alternativa è possibile consentire al codice dell'applicazione di eseguire il rendering di decisioni di accesso dopo che il servizio app ha autenticato l'utente.
- 
+* **Supporto per l'uso diretto di Azure Active Directory**, senza la necessità di scambiare il token AAD con un token di sessione per il codice client. Il client può semplicemente includere i token AAD nell'intestazione dell'autorizzazione, in base alla specifica del token di connessione. Ciò significa che anche sul lato client o server non è necessario alcun SDK specifico del servizio app.
+* **Accesso da servizio a servizio o "interno"**: se un processo del daemon o un altro client deve accedere alle API senza un'interfaccia, è possibile richiedere un token usando un'entità servizio AAD e passarlo al servizio app per l'autenticazione nell'applicazione.
+* **Autorizzazione posticipata**: molte applicazioni presentano restrizioni di accesso differenti per diverse parti dell'applicazione. Alcune API potrebbero essere disponibili pubblicamente, mentre altre potrebbero richiedere l'accesso. La funzionalità di autenticazione/autorizzazione originale è all-or-nothing, con l'intero sito che richiede un account di accesso. Questa opzione esiste ancora, ma in alternativa è possibile consentire al codice dell'applicazione di eseguire il rendering di decisioni di accesso dopo che il servizio app ha autenticato l'utente.
+
 Per altre informazioni sulle nuove funzionalità di autenticazione, vedere [Autenticazione e autorizzazione per app per le API nel servizio app di Azure](app-service-api-authentication.md). Per informazioni su come eseguire la migrazione di app per le API esistenti dal modello di app per le API precedente a quello nuovo, vedere [Migrazione delle app per le API esistenti](#migrating-existing-api-apps) più avanti in questo articolo.
- 
+
 ### CORS
 Invece di un'impostazione dell'app **MS\_CrossDomainOrigins** delimitata da virgole, ora è disponibile un pannello nel portale di gestione di Azure per la configurazione di CORS. In alternativa, è possibile eseguirne la configurazione usando strumenti di Gestione risorse come Azure PowerShell, l'interfaccia della riga di comando o [Esplora risorse](https://resources.azure.com/). Impostare la proprietà **cors** sul tipo di risorsa **Microsoft.Web/sites/config** per la risorsa **&lt;nome del sito&gt;/web**. Ad esempio:
 
@@ -67,7 +66,6 @@ Selezionando **Nuovo > Web e dispositivi mobili > App per le API** nel portale �
 Le app per le API esistenti (o le app per le API Marketplace create da app per la logica) con le funzionalità di anteprima precedenti saranno ancora visibili nella finestra di progettazione delle app per la logica e quando si esplorano tutte le risorse in un gruppo di risorse.
 
 ## Visual Studio
-
 La maggior parte degli strumenti delle app Web è compatibile con le nuove app per le API perché condivide lo stesso tipo di risorsa **Microsoft.Web/sites** sottostante. È tuttavia necessario eseguire l'aggiornamento degli strumenti di Visual Studio di Azure almeno alla versione 2.8.1 perché espone diverse funzionalità specifiche delle API. Scaricare l'SDK dalla [pagina dei download di Azure](https://azure.microsoft.com/downloads/).
 
 Con la razionalizzazione dei tipi del servizio app, anche la pubblicazione è stata unificata in **Pubblica > Servizio app di Microsoft Azure**:
@@ -86,17 +84,17 @@ I passaggi per la ridistribuzione sono gli stessi della distribuzione nel serviz
 
 1. Creare un'app per le API vuota. Questa operazione può essere eseguita nel portale selezionando Nuovo > App per le API, dalla pubblicazione in Visual Studio o dagli strumenti di Gestione risorse. Se si usano gli strumenti o i modelli di Gestione risorse, impostare il valore del **tipo** su **api** nel tipo di risorsa **Microsoft.Web/sites** per orientare le guide introduttive e le impostazioni nel portale di gestione verso scenari di API.
 2. Connettere e distribuire il progetto nell'app per le API vuota usando uno dei meccanismi di distribuzione supportati dal servizio app. Per altre informazioni, vedere [Documentazione sulla distribuzione del servizio app di Azure](../app-service-web/web-sites-deploy.md).
-  
+
 ### Autenticazione
 I servizi di autenticazione del servizio app supportano le stesse funzionalità disponibili con il modello di app per le API precedente. Se si usano i token di sessione e sono necessari SDK, usare gli SDK di client e server indicati di seguito:
 
-- Client: [Azure Mobile Client SDK](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/)
-- Server: [pacchetto di estensione di Microsoft Azure Mobile .NET Server Authentication](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/)
+* Client: [Azure Mobile Client SDK](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/)
+* Server: [pacchetto di estensione di Microsoft Azure Mobile .NET Server Authentication](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/)
 
 Se invece si usano gli SDK alfa del servizio app, gli SDK seguenti sono deprecati:
 
-- Client: [Microsoft Azure AppService SDK](http://www.nuget.org/packages/Microsoft.Azure.AppService)
-- Server: [Microsoft.Azure.AppService.ApiApps.Service](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service)
+* Client: [Microsoft Azure AppService SDK](http://www.nuget.org/packages/Microsoft.Azure.AppService)
+* Server: [Microsoft.Azure.AppService.ApiApps.Service](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service)
 
 In particolare con Azure Active Directory, tuttavia, se si usa direttamente il token AAD non è necessario un SDK specifico del servizio app.
 
@@ -112,14 +110,12 @@ Il modello di app per le API precedente contiene API per l'individuazione di alt
 4. In fase di distribuzione, popolare le impostazioni app di tutte le app per le API (e dei client) con gli endpoint delle altre app per le API. Questo è possibile nelle distribuzioni di modelli, anche grazie al controllo dell'URL ora offerto dalle app per le API.
 
 ## Uso delle app per le API con app per la logica
-
 Il nuovo modello di app per le API interagisce in modo ottimale con lo [schema delle app per la logica versione 2015-08-01](../app-service-logic/app-service-logic-schema-2015-08-01.md).
 
 ## Passaggi successivi
-
 Per altre informazioni, leggere gli articoli nella sezione [Documentazione di App per le API](https://azure.microsoft.com/documentation/services/app-service/api/). Gli articoli sono stati aggiornati in base al nuovo modello di app per le API. Per informazioni dettagliate o indicazioni sulla migrazione è possibile rivolgersi ai forum:
 
-- [Forum MSDN](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureAPIApps)
-- [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-apps)
+* [Forum MSDN](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureAPIApps)
+* [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
 <!---HONumber=AcomDC_0713_2016-->

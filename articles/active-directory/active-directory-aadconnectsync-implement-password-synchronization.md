@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Implementazione della sincronizzazione password con il servizio di sincronizzazione Azure AD Connect | Microsoft Azure"
-	description="Fornisce informazioni sul funzionamento e sull'abilitazione della sincronizzazione password."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="femila"
-	editor=""/>
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2016"
-	ms.author="markusvi;andkjell"/>
+---
+title: Implementazione della sincronizzazione password con il servizio di sincronizzazione Azure AD Connect | Microsoft Docs
+description: Fornisce informazioni sul funzionamento e sull'abilitazione della sincronizzazione password.
+services: active-directory
+documentationcenter: ''
+author: markusvi
+manager: femila
+editor: ''
 
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/24/2016
+ms.author: markusvi;andkjell
 
+---
 # Implementazione della sincronizzazione password con il servizio di sincronizzazione Azure AD Connect
 Questo argomento contiene le indicazioni necessarie per sincronizzare le password utente da un'istanza di Active Directory (AD) locale a un'istanza di Azure Active Directory basata sul cloud (Azure AD).
 
@@ -28,20 +28,23 @@ La sincronizzazione password è una funzionalità che permette di sincronizzare 
 
 Poiché riduce il numero di password necessarie agli utenti a una sola, la sincronizzazione password consente di:
 
-- Migliorare la produttività degli utenti
-- Ridurre i costi del supporto tecnico
+* Migliorare la produttività degli utenti
+* Ridurre i costi del supporto tecnico
 
 Se si decide di usare la[**federazione con AD FS**](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect), è anche possibile abilitare la sincronizzazione password come backup in caso di errore dell'infrastruttura AD FS.
 
 La sincronizzazione password è un'estensione della funzionalità di sincronizzazione della directory implementata dal relativo servizio Azure AD Connect. Per usare la sincronizzazione password nel proprio ambiente, è necessario:
 
-- Installare Azure AD Connect
-- Configurare la sincronizzazione delle directory tra l'istanza di Active Directory locale e Azure Active Directory
-- Abilitare la sincronizzazione password
+* Installare Azure AD Connect
+* Configurare la sincronizzazione delle directory tra l'istanza di Active Directory locale e Azure Active Directory
+* Abilitare la sincronizzazione password
 
 Per altre informazioni, vedere [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-> [AZURE.NOTE] Per altre informazioni dettagliate sui Servizi di dominio Active Directory configurati per FIPS e per la sincronizzazione password, vedere [Sincronizzazione password e FIPS](#password-synchronization-and-fips)
+> [!NOTE]
+> Per altre informazioni dettagliate sui Servizi di dominio Active Directory configurati per FIPS e per la sincronizzazione password, vedere [Sincronizzazione password e FIPS](#password-synchronization-and-fips)
+> 
+> 
 
 ## Funzionamento della sincronizzazione password
 Servizi di dominio Active Directory archivia le password come rappresentazione del valore hash della password utente effettiva. Un valore hash è il risultato di una funzione matematica unidirezionale, detta "*algoritmo hash*". Non esiste un metodo per ripristinare la versione in testo normale di una password dal risultato di una funzione unidirezionale. Non è possibile usare l'hash della password per accedere alla rete locale.
@@ -56,7 +59,10 @@ Quando si modifica una password locale, la password aggiornata viene sincronizza
 
 La sincronizzazione di una password non incide in alcun modo sull'utente attualmente connesso. Se si modifica una password sincronizzata dopo aver eseguito l'accesso a un servizio cloud, la sessione corrente del servizio cloud non è immediatamente interessata. Tuttavia, quando il servizio cloud richiede di nuovo l'autenticazione, è necessario specificare la nuova password.
 
-> [AZURE.NOTE] La sincronizzazione delle password è supportata solo per l'utente del tipo di oggetto in Active Directory. Non è supportata per il tipo di oggetto iNetOrgPerson.
+> [!NOTE]
+> La sincronizzazione delle password è supportata solo per l'utente del tipo di oggetto in Active Directory. Non è supportata per il tipo di oggetto iNetOrgPerson.
+> 
+> 
 
 ### Funzionamento della sincronizzazione password con Servizi di dominio Azure AD
 È possibile usare la funzionalità di sincronizzazione password per sincronizzare le password locali con [Servizi di dominio Azure AD](../active-directory-domain-services/active-directory-ds-overview.md). Questo scenario consente a Servizi di dominio Azure AD di autenticare gli utenti nel cloud con tutti i metodi disponibili nell'istanza di Active Directory locale. L'esperienza di questo scenario è simile all'uso dell'Utilità di migrazione ad Active Directory (ADMT) in un ambiente locale.
@@ -75,7 +81,10 @@ L'abilitazione della sincronizzazione password influisce su due tipi di criteri 
 **Criteri di complessità delle password**
 Quando si abilita la sincronizzazione password, i criteri di complessità delle password presenti nell'istanza locale di Active Directory sostituiscono i criteri di complessità definiti nel cloud per gli utenti sincronizzati. È possibile usare tutte le password valide di Active Directory locale per accedere ai servizi Azure AD.
 
-> [AZURE.NOTE] Le password degli utenti create direttamente nel cloud restano soggette ai criteri password definiti nel cloud.
+> [!NOTE]
+> Le password degli utenti create direttamente nel cloud restano soggette ai criteri password definiti nel cloud.
+> 
+> 
 
 **Criteri di scadenza delle password**
 Se un utente è incluso nell'ambito della sincronizzazione password, la password dell'account cloud viene impostata su "*Non scade mai*". È possibile continuare ad accedere ai servizi cloud usando una password sincronizzata che è in realtà scaduta nell'ambiente locale. La password cloud viene aggiornata alla modifica successiva della password nell'ambiente locale.
@@ -108,11 +117,11 @@ Se il server è stato bloccato in conformità allo standard FIPS (Federal Inform
 Per riferimento, questo elemento di cattura mostra come apparirà:
 
 ```
-	<configuration>
-		<runtime>
-			<enforceFIPSPolicy enabled="false"/>
-		</runtime>
-	</configuration>
+    <configuration>
+        <runtime>
+            <enforceFIPSPolicy enabled="false"/>
+        </runtime>
+    </configuration>
 ```
 
 Per informazioni sulla sicurezza e su FIPS, vedere il post di blog relativo alla [conformità di FIPS, della crittografia e della sincronizzazione password di ADD](https://blogs.technet.microsoft.com/enterprisemobility/2014/06/28/aad-password-sync-encryption-and-fips-compliance/)
@@ -120,8 +129,8 @@ Per informazioni sulla sicurezza e su FIPS, vedere il post di blog relativo alla
 ## Risoluzione dei problemi di sincronizzazione password
 Se le password non vengono sincronizzate come previsto, può essere per un subset di utenti o per tutti gli utenti.
 
-- Se si verifica un problema con singoli oggetti, vedere [Risolvere i problemi relativi a un oggetto che non sincronizza le password](#troubleshoot-one-object-that-is-not-synchronizing-passwords).
-- Se si verifica un problema in cui non viene sincronizzata alcuna password, vedere [Risolvere i problemi in cui non viene sincronizzata alcuna password](#troubleshoot-issues-where-no-passwords-are-synchronized).
+* Se si verifica un problema con singoli oggetti, vedere [Risolvere i problemi relativi a un oggetto che non sincronizza le password](#troubleshoot-one-object-that-is-not-synchronizing-passwords).
+* Se si verifica un problema in cui non viene sincronizzata alcuna password, vedere [Risolvere i problemi in cui non viene sincronizzata alcuna password](#troubleshoot-issues-where-no-passwords-are-synchronized).
 
 ### Risolvere i problemi relativi a un oggetto che non sincronizza le password
 È possibile risolvere facilmente i problemi di sincronizzazione password esaminando lo stato di un oggetto.
@@ -141,14 +150,14 @@ Se in Active Directory non vengono rilevati problemi, il passaggio successivo co
 
 I valori possibili per la colonna dello stato sono i seguenti:
 
-Stato | Description
----- | -----
-Success | La password è stata sincronizzata.
-FilteredByTarget | La password è impostata su **Richiedi modifica della password all'accesso successivo**. La password non è stata sincronizzata.
-NoTargetConnection | Nessun oggetto in metaverse o nello spazio connettore di Azure AD
-SourceConnectorNotPresent | Nessun oggetto trovato nello spazio connettore di Active Directory locale.
-TargetNotExportedToDirectory | L'oggetto nello spazio connettore di Azure AD non è stato ancora esportato.
-MigratedCheckDetailsForMoreInfo | La voce di log è stata creata prima della compilazione 1.0.9125.0 e viene visualizzata nello stato precedente.
+| Stato | Description |
+| --- | --- |
+| Success |La password è stata sincronizzata. |
+| FilteredByTarget |La password è impostata su **Richiedi modifica della password all'accesso successivo**. La password non è stata sincronizzata. |
+| NoTargetConnection |Nessun oggetto in metaverse o nello spazio connettore di Azure AD |
+| SourceConnectorNotPresent |Nessun oggetto trovato nello spazio connettore di Active Directory locale. |
+| TargetNotExportedToDirectory |L'oggetto nello spazio connettore di Azure AD non è stato ancora esportato. |
+| MigratedCheckDetailsForMoreInfo |La voce di log è stata creata prima della compilazione 1.0.9125.0 e viene visualizzata nello stato precedente. |
 
 ### Risolvere i problemi in cui non viene sincronizzata alcuna password
 Iniziare eseguendo lo script nella sezione [Ottenere lo stato delle impostazioni di sincronizzazione password](#get-the-status-of-password-sync-settings). Fornisce una panoramica della configurazione della sincronizzazione password. ![Output dello script di PowerShell dalle impostazioni di sincronizzazione password](./media/active-directory-aadconnectsync-implement-password-synchronization/psverifyconfig.png) Se la funzionalità non è abilitata in Azure AD o se lo stato di sincronizzazione del canale non è abilitato, eseguire l'installazione guidata di Connect. Selezionare **Personalizzazione delle opzioni di sincronizzazione** e deselezionare l'opzione di sincronizzazione password. Questa modifica disabilita temporaneamente la funzionalità. Eseguire quindi di nuovo la procedura guidata e riabilitare la sincronizzazione password. Eseguire di nuovo lo script per verificare che la configurazione sia corretta.
@@ -156,7 +165,6 @@ Iniziare eseguendo lo script nella sezione [Ottenere lo stato delle impostazioni
 Se lo script indica che non sono stati ricevuti heartbeat, eseguire lo script disponibile in [Attivare una sincronizzazione completa di tutte le password](#trigger-a-full-sync-of-all-passwords). Questo script può essere usato anche per altri scenari in cui la configurazione è corretta, ma non vengono sincronizzate le password.
 
 #### Ottenere lo stato delle impostazioni di sincronizzazione password
-
 ```
 Import-Module ADSync
 $connectors = Get-ADSyncConnector
@@ -228,7 +236,6 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 ```
 
 ## Passaggi successivi
-
 * [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 

@@ -1,7 +1,7 @@
 
 Per altre informazioni sui dischi, vedere [Informazioni sui dischi delle macchine virtuali in Azure](http://go.microsoft.com/fwlink/p/?LinkId=403697).
 
-##<a id="cliattachempty"></a>Procedura: Collegare un disco vuoto
+## <a id="cliattachempty"></a>Procedura: Collegare un disco vuoto
 Collegare un disco vuoto è il modo più semplice per aggiungere un disco dati. Eseguire il comando seguente per collegare un nuovo disco vuoto:
 
     vm disk attach-new <vm-name> <size-in-gb> [blob-url]

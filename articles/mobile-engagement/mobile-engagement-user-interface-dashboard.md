@@ -1,37 +1,37 @@
-<properties 
-   pageTitle="Interfaccia utente di Azure Mobile Engagement - Dashboard" 
-   description="Informazioni su come visualizzare e gestire i grafici dei dati relativi all'applicazione usando Azure Mobile Engagement" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede" 
-   editor=""/>
+---
+title: Interfaccia utente di Azure Mobile Engagement - Dashboard
+description: Informazioni su come visualizzare e gestire i grafici dei dati relativi all'applicazione usando Azure Mobile Engagement
+services: mobile-engagement
+documentationcenter: ''
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="mobile-engagement"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
-   ms.date="08/19/2016"
-   ms.author="piyushjo"/>
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 08/19/2016
+ms.author: piyushjo
 
+---
 # Come visualizzare e gestire i grafici dei dati relativi all'applicazione
 La sezione Dashboard dell'interfaccia utente consente ai clienti di creare grafici personalizzati. In questo modo, potranno sfruttare al meglio il tempo fornendo informazioni precise, invece di cercarle nella sezione delle analisi. Nel dashboard vengono visualizzate le tendenze dell'applicazione e il conteggio degli utenti attivi, suddivisi in base alle differenti versioni dell'applicazione e per un determinato periodo di tempo (ora, giorno, settimana, mese, personalizzato). Le tendenze visualizzate sono basate sugli ultimi 7 giorni.
 
 ### Vedere anche
--  [Guida alla risoluzione dei problemi - Analytics][Link 21]
+* [Guida alla risoluzione dei problemi - Analytics][Link 21]
 
 ## Dashboard
-- È possibile aggiungere grafici a un dashboard vuoto selezionando l'azione "Invia a dashboard" dal menu ingranaggio di qualsiasi grafico presente nella sezione Analisi dell'interfaccia utente che si desidera visualizzare nel dashboard
- 
+* È possibile aggiungere grafici a un dashboard vuoto selezionando l'azione "Invia a dashboard" dal menu ingranaggio di qualsiasi grafico presente nella sezione Analisi dell'interfaccia utente che si desidera visualizzare nel dashboard
+
 ## + (Aggiungi un dashboard)
-- È possibile utilizzare l'elemento "+" del menu della barra multifunzione per creare un nuovo dashboard da visualizzare nel menu della barra multifunzione.
- 
+* È possibile utilizzare l'elemento "+" del menu della barra multifunzione per creare un nuovo dashboard da visualizzare nel menu della barra multifunzione.
+
 ## Menu ingranaggio
-- È possibile utilizzare il menu ingranaggio di un dashboard per eliminare, rinominare, condividere o pianificare (ricezione e-mail) gli elementi del dashboard. È possibile utilizzare l'opzione Pianifica per definire la pianificazione in base alla quale si desidera ricevere il dashboard personalizzato tramite posta elettronica. È possibile pianificare di riceverlo ogni giorno, ogni settimana oppure ogni mese. È possibile scegliere l'ora del giorno, il giorno della settimana o il giorno del mese in cui si desidera ricevere il messaggio e-mail. L'indirizzo e-mail e il fuso orario si basano sulle impostazioni configurate nella sezione Account personale dell'interfaccia utente.
- 
- ![dashboard1][34]
+* È possibile utilizzare il menu ingranaggio di un dashboard per eliminare, rinominare, condividere o pianificare (ricezione e-mail) gli elementi del dashboard. È possibile utilizzare l'opzione Pianifica per definire la pianificazione in base alla quale si desidera ricevere il dashboard personalizzato tramite posta elettronica. È possibile pianificare di riceverlo ogni giorno, ogni settimana oppure ogni mese. È possibile scegliere l'ora del giorno, il giorno della settimana o il giorno del mese in cui si desidera ricevere il messaggio e-mail. L'indirizzo e-mail e il fuso orario si basano sulle impostazioni configurate nella sezione Account personale dell'interfaccia utente.
+  
+  ![dashboard1][34]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -127,6 +127,6 @@ La sezione Dashboard dell'interfaccia utente consente ai clienti di creare grafi
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
- 
+
 
 <!---HONumber=AcomDC_0824_2016-->

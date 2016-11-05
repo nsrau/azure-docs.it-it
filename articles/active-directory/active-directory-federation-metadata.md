@@ -1,29 +1,25 @@
-<properties
-    pageTitle="Metadati della federazione di Azure AD | Microsoft Azure"
-    description="Questo articolo descrive il documento di metadati della federazione pubblicato da Azure Active Directory per i servizi che accettano i token di Azure Active Directory."
-    services="active-directory"
-    documentationCenter=".net"
-    authors="priyamohanram"
-    manager="mbaldwin"
-    editor=""/>
+---
+title: Metadati della federazione di Azure AD | Microsoft Docs
+description: Questo articolo descrive il documento di metadati della federazione pubblicato da Azure Active Directory per i servizi che accettano i token di Azure Active Directory.
+services: active-directory
+documentationcenter: .net
+author: priyamohanram
+manager: mbaldwin
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/03/2016"
-    ms.author="priyamo"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/03/2016
+ms.author: priyamo
 
-
-
+---
 # <a name="federation-metadata"></a>Metadati della federazione
-
 Azure Active Directory (Azure AD) pubblica un documento di metadati della federazione per i servizi configurati per accettare i token di sicurezza rilasciati da Azure AD. Il formato del documento di metadati della federazione è descritto in [Web Services Federation Language (WS-Federation) Version 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html) (Linguaggio Web Services Federation (WS-Federation) versione 1.2), che estende la pubblicazione [Metadata for the OASIS Security Assertion Markup Language (SAML) v2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf) (Metadati per il linguaggio SAML (Security Assertion Markup Language) OASIS v 2.0).
 
 ## <a name="tenant-specific-and-tenant-independent-metadata-endpoints"></a>Endpoint dei metadati specifici del tenant e indipendenti dal tenant
-
 Azure AD pubblica endpoint specifici del tenant e indipendenti dal tenant.
 
 Gli endpoint specifici del tenant sono progettati per un particolare tenant. I metadati di federazione specifici del tenant includono informazioni sul tenant, incluse le informazioni specifiche del tenant relative all'autorità emittente e all’endpoint. Le applicazioni che limitano l'accesso a un singolo tenant utilizzano endpoint specifici del tenant.
@@ -31,24 +27,21 @@ Gli endpoint specifici del tenant sono progettati per un particolare tenant. I m
 Gli endpoint indipendenti dal tenant forniscono informazioni comuni a tutti i tenant di Azure AD. Queste informazioni si applicano ai tenant ospitati in *login.microsoftonline.com* e vengono condivise tra i tenant. Per le applicazioni multi-tenant si consiglia di utilizzare endpoint indipendenti dal tenant, dal momento che non sono associate a un particolare tenant.
 
 ## <a name="federation-metadata-endpoints"></a>Endpoint dei metadati della federazione
-
 Azure AD pubblica i metadati della federazione all'indirizzo `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`.
 
 Per gli **endpoint specifici del tenant**, `TenantDomainName` può essere uno dei seguenti tipi:
 
-- Un nome di dominio registrato di un tenant di Azure AD, ad esempio: `contoso.onmicrosoft.com`.
-- L'ID tenant non modificabile del dominio, ad esempio `72f988bf-86f1-41af-91ab-2d7cd011db45`.
+* Un nome di dominio registrato di un tenant di Azure AD, ad esempio: `contoso.onmicrosoft.com`.
+* L'ID tenant non modificabile del dominio, ad esempio `72f988bf-86f1-41af-91ab-2d7cd011db45`.
 
 Per gli **endpoint indipendenti dal tenant**, `TenantDomainName` è `common`. Questo documento elenca solo gli elementi dei metadati della federazione che sono comuni a tutti i tenant di Azure AD ospitati in login.microsoftonline.com.
 
 Un endpoint specifico del tenant può essere ad esempio `https:// login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. L'endpoint indipendente dal tenant è [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). È possibile visualizzare il documento di metadati della federazione digitando questo URL in un browser.
 
 ## <a name="contents-of-federation-metadata"></a>Contenuto dei metadati della federazione
-
 Nella sezione seguente vengono fornite le informazioni necessarie per i servizi che utilizzano token emessi da Azure AD.
 
 ### <a name="entity-id"></a>ID entità
-
 L'elemento `EntityDescriptor` contiene un attributo `EntityID`. Il valore dell'attributo `EntityID` rappresenta l'autorità di certificazione, vale a dire il servizio token di sicurezza che ha rilasciato il token. È importante convalidare l'autorità di certificazione, quando si riceve un token.
 
 I metadati seguenti indicano un elemento `EntityDescriptor` di esempio specifico del tenant con un elemento `EntityID`.
@@ -71,7 +64,6 @@ entityID="https://sts.windows.net/{tenant}/">
 ```
 
 ### <a name="token-signing-certificates"></a>Certificati per la firma di token
-
 Quando un servizio riceve un token emesso da un tenant di Azure AD, è necessario convalidare la firma del token con una chiave per la firma che viene pubblicata nel documento dei metadati di federazione. I metadati di federazione includono la parte pubblica dei certificati utilizzati dai tenant per la firma dei token. I byte non elaborati del certificato vengono visualizzati nell'elemento `KeyDescriptor` . Il certificato per la firma di token è valido per la firma solo quando il valore dell'attributo `use` è `signing`.
 
 Un documento di metadati della federazione pubblicato da Azure AD può avere più chiavi per la firma, ad esempio quando Azure AD sta per aggiornare il certificato di firma. Quando un documento di metadati di federazione include certificati, un servizio che convalida i token deve supportare tutti i certificati nel documento.
@@ -110,7 +102,6 @@ I metadati seguenti indicano un esempio di elemento `IDPSSODescriptor` .
 Non esistono differenze nel formato di certificati specifici del tenant e indipendenti dal tenant.
 
 ### <a name="ws-federation-endpoint-url"></a>URL dell'endpoint WS-Federation
-
 I metadati di federazione includono l'URL utilizzato da Azure AD per il Single Sign-In e il Single Sign-Out nel protocollo WS-Federation. Questo endpoint viene visualizzato nell'elemento `PassiveRequestorEndpoint` .
 
 I metadati seguenti indicano un elemento `PassiveRequestorEndpoint` di esempio per un endpoint specifico del tenant.
@@ -137,7 +128,6 @@ https://login.microsoftonline.com/common/wsfed
 ```
 
 ### <a name="saml-protocol-endpoint-url"></a>URL dell'endpoint del protocollo SAML
-
 I metadati di federazione includono l'URL utilizzato da Azure AD per il Single Sign-In e il Single Sign-Out nel protocollo SAML 2.0. Questi endpoint vengono visualizzati nell'elemento `IDPSSODescriptor` .
 
 Gli URL di accesso e di disconnessione vengono visualizzati negli elementi `SingleSignOnService` e `SingleLogoutService`.

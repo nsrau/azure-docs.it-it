@@ -1,50 +1,52 @@
-<properties
-   pageTitle="Creare un indice per i documenti in più lingue in Ricerca di Azure | Microsoft Azure | Servizio di ricerca cloud ospitato"
-   description=" Ricerca di Azure supporta 56 lingue, grazie ai vantaggi offerti dagli analizzatori delle lingue della tecnologia Lucene e di elaborazione del linguaggio naturale di Microsoft."
-   services="search"
-   documentationCenter=""
-   authors="yahnoosh"
-   manager="pablocas"
-   editor=""/>
+---
+title: Creare un indice per i documenti in più lingue in Ricerca di Azure | Microsoft Docs
+description: " Ricerca di Azure supporta 56 lingue, grazie ai vantaggi offerti dagli analizzatori delle lingue della tecnologia Lucene e di elaborazione del linguaggio naturale di Microsoft."
+services: search
+documentationcenter: ''
+author: yahnoosh
+manager: pablocas
+editor: ''
 
-<tags
-   ms.service="search"
-   ms.devlang="na"
-   ms.workload="search"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.date="07/14/2016"
-   ms.author="jlembicz"/>
+ms.service: search
+ms.devlang: na
+ms.workload: search
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.date: 07/14/2016
+ms.author: jlembicz
 
+---
 # Creare un indice per i documenti in più lingue in Ricerca di Azure
-> [AZURE.SELECTOR]
-- [Portale](search-language-support.md)
-- [REST](https://msdn.microsoft.com/library/azure/dn879793.aspx)
-- [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.analyzername.aspx)
+> [!div class="op_single_selector"]
+> * [Portale](search-language-support.md)
+> * [REST](https://msdn.microsoft.com/library/azure/dn879793.aspx)
+> * [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.analyzername.aspx)
+> 
+> 
 
 Consentire l'espressione della potenza degli analizzatori delle lingue è semplice come l'impostazione di una proprietà in un campo di ricerca nella definizione dell'indice. Questo passaggio può ora essere eseguito nel portale.
 
 Di seguito sono riportate schermate dei pannelli del portale di Azure relativi a Ricerca di Azure che consentono agli utenti di definire uno schema di indice. Da questi pannelli, gli utenti possono creare tutti i campi e impostare la proprietà analyzer per ognuno di essi.
 
-> [AZURE.IMPORTANT] È possibile impostare solo un analizzatore della lingua durante la definizione del campo, come quando si crea un nuovo indice da zero o si aggiunge un nuovo campo a un indice esistente. Assicurarsi di specificare completamente tutti gli attributi, incluso l'analizzatore, durante la creazione del campo. Non sarà possibile modificare gli attributi o cambiare il tipo di analizzatore dopo avere salvato le modifiche.
+> [!IMPORTANT]
+> È possibile impostare solo un analizzatore della lingua durante la definizione del campo, come quando si crea un nuovo indice da zero o si aggiunge un nuovo campo a un indice esistente. Assicurarsi di specificare completamente tutti gli attributi, incluso l'analizzatore, durante la creazione del campo. Non sarà possibile modificare gli attributi o cambiare il tipo di analizzatore dopo avere salvato le modifiche.
+> 
+> 
 
 ## Definire una nuova definizione di campo
-
 1. Accedere al [portale di Azure](https://portal.azure.com) e aprire il pannello del servizio di ricerca.
 2. Fare clic su **Aggiungi un indice** nella barra di comando del dashboard del servizio per avviare un nuovo indice oppure aprire un indice esistente per impostare un analizzatore nei nuovi campi aggiunti a un indice esistente.
 3. Viene visualizzato il pannello Campi, con opzioni per la definizione dello schema dell'indice, inclusa la scheda Analizzatore usata per la scelta di un analizzatore della lingua.
 4. In Campi avviare una definizione di campo fornendo un nome, scegliendo il tipo di dati e impostando gli attributi per contrassegnare il campo come disponibile per la ricerca full-text, recuperabile nei risultati della ricerca, utilizzabile nelle strutture di navigazione facet, ordinabile e così via.
 5. Prima di passare al campo successivo, aprire la scheda **Analizzatore**.
 
-   
 ![][1] *Per selezionare un analizzatore, fare clic sulla scheda Analizzatore nel pannello Campi*
 
 ## Scegliere un analizzatore
-
-6. Scorrere per trovare il campo che si sta definendo.
-7. Se il campo non è stato contrassegnato come ricercabile, fare clic sulla casella di controllo per contrassegnarlo come **Ricercabile**.
-8. Fare clic sull'area dell'analizzatore per visualizzare l'elenco degli analizzatori disponibili.
-9. Scegliere l'analizzatore che si desidera usare.
+1. Scorrere per trovare il campo che si sta definendo.
+2. Se il campo non è stato contrassegnato come ricercabile, fare clic sulla casella di controllo per contrassegnarlo come **Ricercabile**.
+3. Fare clic sull'area dell'analizzatore per visualizzare l'elenco degli analizzatori disponibili.
+4. Scegliere l'analizzatore che si desidera usare.
 
 ![][2] *Selezionare uno degli analizzatori supportati per ogni campo*
 

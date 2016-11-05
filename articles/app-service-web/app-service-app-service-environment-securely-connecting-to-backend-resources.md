@@ -1,24 +1,23 @@
-<properties 
-	pageTitle="Connessione sicura alle risorse back-end da un ambiente del servizio app" 
-	description="Informazioni su come connettersi in modo sicuro alle risorse back-end da un ambiente del servizio app." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="ccompy" 
-	manager="wpickett" 
-	editor=""/>
+---
+title: Connessione sicura alle risorse back-end da un ambiente del servizio app
+description: Informazioni su come connettersi in modo sicuro alle risorse back-end da un ambiente del servizio app.
+services: app-service
+documentationcenter: ''
+author: ccompy
+manager: wpickett
+editor: ''
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/11/2016" 
-	ms.author="stefsch"/>
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/11/2016
+ms.author: stefsch
 
-# Connessione sicura alle risorse back-end da un ambiente del servizio app #
-
-## Panoramica ##
+---
+# Connessione sicura alle risorse back-end da un ambiente del servizio app
+## Panoramica
 Poiché un ambiente del servizio app viene sempre creato in una **rete virtuale** di Azure Resource Manager **o** in una [rete virtuale][virtualnetwork] creata con il modello di distribuzione classica, le connessioni in uscita da un ambiente del servizio app ad altre risorse back-end possono transitare esclusivamente tramite la rete virtuale. Con una modifica recente apportata a giugno 2016, gli ambienti del servizio app possono essere distribuiti nelle reti virtuali che usano intervalli di indirizzi pubblici o spazi di indirizzi RFC1918, ovvero indirizzi privati.
 
 Ad esempio, potrebbe essere in esecuzione un'istanza di SQL Server in un cluster di macchine virtuali con la porta 1433 bloccata. In base all'elenco di controllo di accesso definito per l'endpoint, potrebbe essere consentito solo l'accesso da altre risorse nella stessa rete virtuale.
@@ -29,9 +28,9 @@ Per tutti questi scenari, le app in esecuzione in un ambiente del servizio app p
 
 Si noti che un'eccezione è rappresentata dal traffico in uscita da un ambiente del servizio app agli endpoint all'interno di una rete virtuale. Gli ambienti del servizio app non riescono a raggiungere gli endpoint delle macchine virtuali all'interno della **stessa** subnet dell'ambiente del servizio app. Questo normalmente non costituisce un problema, purché gli ambienti del servizio app vengano distribuiti in una subnet riservata a uso esclusivo dell'ambiente del servizio app.
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## Requisiti per DNS e connettività in uscita ##
+## Requisiti per DNS e connettività in uscita
 Per un corretto funzionamento dell'ambiente del servizio app, è necessario l'accesso in uscita ai vari endpoint. Un elenco completo degli endpoint esterni usati da un ambiente del servizio app è disponibile nella sezione "Requisiti della connettività di rete" dell'articolo [Configurazione di rete per ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity).
 
 Gli ambienti del servizio app richiedono un'infrastruttura DNS valida configurata per la rete virtuale. Se per qualsiasi motivo viene modificata la configurazione DNS dopo aver creato un ambiente di servizio app, gli sviluppatori possono forzare un ambiente di servizio app per selezionare la nuova configurazione del DNS. L'attivazione di un riavvio di ambiente in sequenza mediante l'icona "Riavvia" posizionata nella parte superiore del pannello di gestione dell'ambiente del servizio app nel portale farà sì che l'ambiente selezioni la nuova configurazione del DNS.
@@ -45,14 +44,10 @@ Una configurazione di SQL Server comune prevede un endpoint in ascolto sulla por
 
 È possibile usare due approcci per limitare il traffico a questo endpoint:
 
-
-- [Elenchi di controllo di accesso di rete][NetworkAccessControlLists] \(ACL di rete)
-
-- [Gruppi di sicurezza di rete][NetworkSecurityGroups]
-
+* [Elenchi di controllo di accesso di rete][NetworkAccessControlLists] \(ACL di rete)
+* [Gruppi di sicurezza di rete][NetworkSecurityGroups]
 
 ## Limitazione dell'accesso con un elenco di controllo di accesso di rete
-
 È possibile proteggere la porta 1433 usando un elenco di controllo di accesso di rete. L'esempio seguente illustra come consentire gli indirizzi client originati dall'interno di una rete virtuale e bloccare l'accesso a tutti gli altri client.
 
 ![Esempio di elenco di controllo di accesso di rete (ACL)][NetworkAccessControlListExample]
@@ -79,11 +74,10 @@ Di conseguenza, è possibile bloccare l'accesso a SQL Server semplicemente appli
 L'esempio seguente mostra come applicare un gruppo di sicurezza di rete alla subnet contenente le macchine virtuali:
 
     Get-AzureNetworkSecurityGroup -Name "testNSGExample" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-1'
-    
+
 Il risultato finale è costituito da un set di regole di sicurezza che blocca l'accesso esterno e consente l'accesso interno al traffico proveniente dalla rete virtuale:
 
 ![Regole di sicurezza di rete predefinite][DefaultNetworkSecurityRules]
-
 
 ## Introduzione
 Tutti gli articoli e le procedure sugli ambienti del servizio app sono disponibili nel [file LEGGIMI per gli ambienti di servizio dell'applicazione](../app-service/app-service-app-service-environments-readme.md).
@@ -94,10 +88,9 @@ Per informazioni dettagliate su come controllare il traffico in ingresso all'amb
 
 Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Servizio app di Azure][AzureAppService].
 
-[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
+[!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-[AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
- 
+[!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- LINKS -->
 [virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/

@@ -1,24 +1,23 @@
-<properties
-	pageTitle="Configurare IIS Express per i test locali del servizio mobile | Servizi mobili di Azure"
-	description="Informazioni su come configurare IIS Express per consentire le connessioni a un progetto di servizio mobile locale da usare per i test."
-	authors="ggailey777"
-	manager="dwrede"
-	services="mobile-services"
-	documentationCenter=""
-	editor=""/>
+---
+title: Configurare IIS Express per i test locali del servizio mobile | Microsoft Docs
+description: Informazioni su come configurare IIS Express per consentire le connessioni a un progetto di servizio mobile locale da usare per i test.
+author: ggailey777
+manager: dwrede
+services: mobile-services
+documentationcenter: ''
+editor: ''
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="glenga"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: glenga
 
+---
 # Configurazione del server Web locale per consentire le connessioni a un servizio mobile locale.
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
 &nbsp;
 
@@ -26,6 +25,6 @@ Servizi mobili di Azure consente di creare il servizio mobile in Visual Studio u
 
 Per poter testare un servizio mobile localmente con i client in esecuzione su un emulatore, una macchina virtuale o una workstation separata, è necessario configurare il server Web locale e il computer host in modo da consentire le connessioni all'indirizzo e alla porta IP della workstation. Questo argomento descrive come configurare IIS Express in modo da abilitare le connessioni al servizio mobile ospitato localmente.
 
-[AZURE.INCLUDE [mobile-services-how-to-configure-iis-express](../../includes/mobile-services-how-to-configure-iis-express.md)]
+[!INCLUDE [mobile-services-how-to-configure-iis-express](../../includes/mobile-services-how-to-configure-iis-express.md)]
 
 <!---HONumber=AcomDC_0727_2016-->

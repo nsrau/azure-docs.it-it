@@ -1,26 +1,23 @@
-<properties
-    pageTitle="Panoramica di IPv6 per Azure Load Balancer | Microsoft Azure"
-    description="Informazioni sul supporto IPv6 per Azure Load Balancer e le macchine virtuali con bilanciamento del carico."
-    services="load-balancer"
-    documentationCenter="na"
-    authors="sdwheeler"
-    manager="carmonm"
-    editor=""
-    keywords="ipv6, azure load balancer, dual stack, ip pubblico, ipv6 nativo, mobili, iot"
-/>
-<tags
-    ms.service="load-balancer"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="09/14/2016"
-    ms.author="sewhee"
-/>
+---
+title: Panoramica di IPv6 per Azure Load Balancer | Microsoft Docs
+description: Informazioni sul supporto IPv6 per Azure Load Balancer e le macchine virtuali con bilanciamento del carico.
+services: load-balancer
+documentationcenter: na
+author: sdwheeler
+manager: carmonm
+editor: ''
+keywords: ipv6, azure load balancer, dual stack, ip pubblico, ipv6 nativo, mobili, iot
 
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 09/14/2016
+ms.author: sewhee
 
+---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Panoramica di IPv6 per Azure Load Balancer
-
 I servizi di bilanciamento del carico con connessione Internet possono essere distribuiti con un indirizzo IPv6. Oltre alla connettività IPv4, sono abilitate le funzionalità seguenti:
 
 * Connettività IPv6 nativa end-to-end tra client Internet pubblici e macchine virtuali di Azure tramite il servizio di bilanciamento del carico.
@@ -33,7 +30,6 @@ L'immagine seguente illustra la funzionalità IPv6 per Azure Load Balancer.
 Dopo la distribuzione, un client Internet abilitato per IPv4 o IPv6 può comunicare con gli indirizzi (o nomi host) IPv4 o IPv6 pubblici dell'istanza di Azure Load Balancer con connessione Internet. Il servizio di bilanciamento del carico instrada i pacchetti IPv6 agli indirizzi IPv6 privati delle macchine virtuali tramite NAT (Network Address Translation). Il client Internet IPv6 non può comunicare direttamente con l'indirizzo IPv6 delle macchine virtuali.
 
 ## <a name="features"></a>Funzionalità
-
 Il supporto IPv6 nativo per le macchine virtuali distribuite tramite Azure Resource Manager offre:
 
 1. Servizi IPv6 con bilanciamento del carico per i client IPv6 in Internet
@@ -42,14 +38,12 @@ Il supporto IPv6 nativo per le macchine virtuali distribuite tramite Azure Resou
 4. I protocolli supportati, ad esempio TCP, UDP e HTTP(S), consentono un'ampia gamma di architetture di servizi
 
 ## <a name="benefits"></a>Vantaggi
-
 Questa funzionalità offre i vantaggi principali seguenti:
 
 * Soddisfare le normative che dettano che le nuove applicazioni siano accessibili solo ai client IPv6
 * Consentire agli sviluppatori di app per dispositivi mobili e Internet delle cose (IOT) di usare macchine virtuali di Azure dual stack (IPv4+IPv6) per soddisfare le esigenze dei mercati mobile e IOT in espansione
 
 ## <a name="details-and-limitations"></a>Dettagli e limitazioni
-
 Dettagli
 
 * Il servizio DNS Azure contiene i record dei nomi AAAA sia per IPv4 che per IPv6 e risponde con entrambi i record per il servizio di bilanciamento del carico. Il client sceglie con quale indirizzo comunicare, IPv4 o IPv6.
@@ -71,15 +65,12 @@ Limitazioni
 * La modifica del parametro IdleTimeout per IPv6 **non è attualmente supportata**. Il valore predefinito è quattro minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
-
 Informazioni su come distribuire un servizio di bilanciamento del carico con IPv6.
 
 * [Disponibilità di IPv6 per area](https://go.microsoft.com/fwlink/?linkid=828357)
 * [Distribuire un servizio di bilanciamento del carico con IPv6 usando un modello](load-balancer-ipv6-internet-template.md)
 * [Distribuire un servizio di bilanciamento del carico con IPv6 usando Azure PowerShell](load-balancer-ipv6-internet-ps.md)
 * [Distribuire un servizio di bilanciamento del carico con IPv6 usando l'interfaccia della riga di comando di Azure](load-balancer-ipv6-internet-cli.md)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

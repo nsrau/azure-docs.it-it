@@ -1,35 +1,31 @@
-<properties
-	pageTitle="Azure Insights: esempi di avvio rapido di PowerShell Azure Insights. | Microsoft Azure"
-	description="I comandi PowerShell di esempio per l’avvio rapido di Azure Insights aiutano ad accedere rapidamente alle funzionalità di monitoraggio di Azure Insights."
-	authors="kamathashwin"
-	manager=""
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: 'Azure Insights: esempi di avvio rapido di PowerShell Azure Insights. | Microsoft Docs'
+description: I comandi PowerShell di esempio per l’avvio rapido di Azure Insights aiutano ad accedere rapidamente alle funzionalità di monitoraggio di Azure Insights.
+author: kamathashwin
+manager: ''
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2016"
-	ms.author="ashwink"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/30/2016
+ms.author: ashwink
 
+---
 # Esempi di avvio rapido con PowerShell per Azure Insights
-
 Questo articolo illustra comandi PowerShell di esempio per accedere rapidamente alle funzionalità di monitoraggio di Azure Insights. Azure Insights consente di ridimensionare automaticamente servizi cloud, macchine virtuali e app Web oltre che inviare notifiche di avviso o chiamare URL Web in base ai valori di dati di telemetria configurati.
 
 ## Configurare PowerShell
 Se non è ancora stato fatto, configurare PowerShell per l'esecuzione sul computer. Per altre informazioni, vedere [Come installare e configurare PowerShell](../powershell-install-configure.md).
 
 ## Esempi in questo articolo
-
 Gli esempi in questo articolo illustrano come usare i cmdlet di Azure Insights. È anche possibile esaminare l'elenco completo di cmdlet di PowerShell (monitoraggio) di Azure Insights in [Azure Insights Cmdlets](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx) (Cmdlet di Azure Insights).
 
-
 ## Eseguire l'acccesso e usare le sottoscrizioni
-
 Per prima cosa, accedere alla propria sottoscrizione di Azure.
 
 ```
@@ -90,7 +86,10 @@ Get-AzureRmLog -MaxEvents 1000
 
 `Get-AzureRmLog` supporta diversi altri parametri. Per altre informazioni, vedere il riferimento `Get-AzureRmLog`.
 
->[AZURE.NOTE] `Get-AzureRmLog` fornisce solo 15 giorni di cronologia. L’uso del parametro **-MaxEvents** consente di eseguire una query sugli ultimi N eventi, oltre i 15 giorni. Per accedere agli eventi precedenti ai 15 giorni, usare l'API REST o l'SDK (esempio di C# tramite il SDK). Se non si include **StartTime**, il valore predefinito è **EndTime** meno un'ora. Se non si include **EndTime**, il valore predefinito è l’ora corrente. Tutte le ore sono in formato UTC.
+> [!NOTE]
+> `Get-AzureRmLog` fornisce solo 15 giorni di cronologia. L’uso del parametro **-MaxEvents** consente di eseguire una query sugli ultimi N eventi, oltre i 15 giorni. Per accedere agli eventi precedenti ai 15 giorni, usare l'API REST o l'SDK (esempio di C# tramite il SDK). Se non si include **StartTime**, il valore predefinito è **EndTime** meno un'ora. Se non si include **EndTime**, il valore predefinito è l’ora corrente. Tutte le ore sono in formato UTC.
+> 
+> 
 
 ## Recupero della cronologia di avvisi
 Per visualizzare tutti gli eventi di avviso, è possibile ricercare nei registri di Azure Resource Manager (ARM) utilizzando gli esempi seguenti.
@@ -106,7 +105,6 @@ Get-AzureRmAlertHistory -ResourceId /subscriptions/s1/resourceGroups/rg1/provide
 ```
 
 Il cmdlet `Get-AzureRmAlertHistory` supporta diversi parametri. Per altre informazioni, vedere [Get-AlertHistory](https://msdn.microsoft.com/library/mt282453.aspx).
-
 
 ## Recupero delle informazioni sulle regole di avviso
 Tutti i comandi seguenti agiscono su un gruppo di risorse chiamato "montest".
@@ -141,20 +139,19 @@ La sezione successiva contiene un esempio che illustra come creare una regola di
 ### Regola di avviso su una metrica
 La tabella seguente descrive i parametri e valori usati per creare un avviso tramite una metrica.
 
-
-|parametro|value|
-|---|---|
-|Nome|	simpletestdiskwrite|
-|Posizione di questa regola di avviso|	Stati Uniti orientali|
-|ResourceGroup|	montest|
-|TargetResourceId|	/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig|
-|MetricName dell'avviso creato|	\\PhysicalDisk(\_Total)\\Disk Writes/sec. Vedere il cmdlet `Get-MetricDefinitions` di seguito per il recupero dei nomi esatti delle metriche|
-|operator|	GreaterThan|
-|Valore soglia (conteggio al secondo per questa metrica)|	1|
-|WindowSize (formato hh:mm:ss)|	00:05:00|
-|aggregatore (statistica della metrica che usa il numero medio, in questo caso)|	Media|
-|indirizzi di posta elettronica personalizzati (matrice di stringhe)|'foo@example.com','bar@example.com'|
-|invio di messaggi di posta elettronica a proprietari, collaboratori e lettori|	-SendToServiceOwners|
+| parametro | value |
+| --- | --- |
+| Nome |simpletestdiskwrite |
+| Posizione di questa regola di avviso |Stati Uniti orientali |
+| ResourceGroup |montest |
+| TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
+| MetricName dell'avviso creato |\\PhysicalDisk(\_Total)\\Disk Writes/sec. Vedere il cmdlet `Get-MetricDefinitions` di seguito per il recupero dei nomi esatti delle metriche |
+| operator |GreaterThan |
+| Valore soglia (conteggio al secondo per questa metrica) |1 |
+| WindowSize (formato hh:mm:ss) |00:05:00 |
+| aggregatore (statistica della metrica che usa il numero medio, in questo caso) |Media |
+| indirizzi di posta elettronica personalizzati (matrice di stringhe) |'foo@example.com','bar@example.com' |
+| invio di messaggi di posta elettronica a proprietari, collaboratori e lettori |-SendToServiceOwners |
 
 Creare un'azione Email
 
@@ -183,8 +180,10 @@ Get-AzureRmAlertRule -Name vmcpu_gt_1 -ResourceGroup myrg1 -DetailedOutput
 Il cmdlet Aggiungi avviso aggiorna anche la regola se esiste già una regola di avviso per le proprietà specificate. Per disabilitare una regola di avviso, includere il parametro **-DisableRule**.
 
 ### Avviso per un evento del registro eventi
-
->[AZURE.NOTE] Questa funzionalità è ancora in anteprima.
+> [!NOTE]
+> Questa funzionalità è ancora in anteprima.
+> 
+> 
 
 In questo scenario viene inviato un messaggio di posta elettronica quando un sito Web viene avviato correttamente nella sottoscrizione personale del gruppo di risorse *abhingrgtest123*.
 
@@ -229,7 +228,6 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 Un elenco completo delle opzioni disponibili per `Get-AzureRmMetricDefinition` si trova in [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
 
-
 ## Creazione e gestione delle impostazioni di scalabilità automatica
 Una risorsa, ad esempio un'app Web, una macchina virtuale, un servizio cloud o un set di scalabilità di macchine virtuali, può avere una sola impostazione di scalabilità automatica configurata. Tuttavia, ogni impostazione di scalabilità automatica può includere diversi profili. Ad esempio, un profilo di scalabilità in base alle prestazioni e un altro profilo basato sulla pianificazione. Ogni profilo può avere più regole associate configurate. Per altre informazioni sulla scalabilità automatica, vedere [Come configurare la scalabilità automatica di un servizio cloud](../cloud-services/cloud-services-how-to-scale.md).
 
@@ -246,7 +244,7 @@ Per prima cosa, creare una regola per aumentare il numero di istanze, con un inc
 
 ```
 $rule1 = New-AzureRmAutoscaleRule -MetricName "\Processor(_Total)\% Processor Time" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 0.01 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue 1
-```		
+```        
 
 Creare poi una regola per ridurre il numero di istanze, con una diminuzione di una istanza.
 
@@ -318,26 +316,22 @@ Remove-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 ```
 
 ## Gestione dei profili di log per i log di controllo
-
 È possibile creare un *profilo di log* ed esportare i dati dai log di controllo in un account di archiviazione ed è possibile configurare la relativa conservazione dei dati. Facoltativamente, è inoltre possibile trasmettere i dati all'hub eventi. Questa funzionalità attualmente è in anteprima ed è possibile creare solo un profilo di log per ogni sottoscrizione. Per creare e gestire i profili di log, è possibile usare i cmdlet seguenti con la sottoscrizione corrente. È anche possibile scegliere una sottoscrizione specifica. Anche se PowerShell usa la sottoscrizione corrente per impostazione predefinita, è sempre possibile modificarla usando `Set-AzureRmContext`. È possibile configurare i log di controllo per indirizzare i dati a qualsiasi account di archiviazione o all'hub eventi all'interno di tale sottoscrizione. I dati sono scritti come file di BLOB in formato JSON.
 
 ### Acquisizione di un profilo di log
 Per recuperare i profili di log esistenti, usare il cmdlet `Get-AzureRmLogProfile`.
 
 ### Aggiunta di un profilo di log senza conservazione dei dati
-
 ```
 Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia
 ```
 
 ### Rimozione di un profilo di log
-
 ```
 Remove-AzureRmLogProfile -name my_log_profile_s1
 ```
 
 ### Aggiunta di un profilo di log con conservazione dei dati
-
 È possibile specificare la proprietà **-RetentionInDays** con il numero di giorni, sotto forma di numero intero positivo, per i quali i dati vengono conservati.
 
 ```
@@ -355,7 +349,6 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 Molti servizi di Azure forniscono log e telemetria aggiuntivi, inclusi gruppi di sicurezza di rete di Azure, servizi di bilanciamento del carico software, insieme di credenziali chiave, servizi di Ricerca di Azure e app per la logica e possono essere configurati per salvare i dati nell'account di archiviazione di Azure. Tale operazione può essere eseguita solo a livello di risorse e l'account di archiviazione deve essere presente nella stessa area come risorsa di destinazione in cui viene configurata l'impostazione di diagnostica.
 
 ### Acquisizione dell’impostazione di diagnostica
-
 ```
 Get-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Logic/workflows/andy0315logicapp
 ```

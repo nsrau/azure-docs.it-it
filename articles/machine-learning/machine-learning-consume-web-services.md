@@ -1,27 +1,23 @@
-<properties
-    pageTitle="Usare un servizio Web di Machine Learning | Microsoft Azure"
-    description="Dopo la pubblicazione di un servizio di Machine Learning, può essere usato il servizio Web RESTFul che viene reso disponibile come servizio di richiesta-risposta o come un servizio di esecuzione del batch."
-    services="machine-learning"
-    documentationCenter=""
-    authors="garyericson"
-    manager="jhubbard"
-    editor="cgronlun" />
+---
+title: Usare un servizio Web di Machine Learning | Microsoft Docs
+description: Dopo la pubblicazione di un servizio di Machine Learning, può essere usato il servizio Web RESTFul che viene reso disponibile come servizio di richiesta-risposta o come un servizio di esecuzione del batch.
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-    ms.service="machine-learning"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="tbd"
-    ms.date="10/04/2016"
-    ms.author="garye" />
+ms.service: machine-learning
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: tbd
+ms.date: 10/04/2016
+ms.author: garye
 
-
-
+---
 # <a name="how-to-consume-an-azure-machine-learning-web-service-that-has-been-deployed-from-a-machine-learning-experiment"></a>Come usare un servizio Web di Azure Machine Learning pubblicato da un esperimento di Machine Learning
-
 ## <a name="introduction"></a>Introduzione
-
 Quando viene pubblicato come servizio Web, gli esperimenti Azure Machine Learning forniscono messaggi formattati JSON e dell'API che possono essere usati da un'ampia gamma di dispositivi e piattaforme. Il portale di Azure Machine Learning fornisce il codice che può essere usato per chiamare il servizio Web in R, c# e Python. 
 
 Questi servizi possono essere chiamati con qualsiasi linguaggio di programmazione e da qualsiasi dispositivo che soddisfi i tre criteri:
@@ -30,11 +26,14 @@ Questi servizi possono essere chiamati con qualsiasi linguaggio di programmazion
 * Dispone di funzionalità di SSL per eseguire le richieste HTTPS
 * Può analizzare JSON (dalle librerie disponibili o supporto)
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]  
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 Un servizio Web di Azure Machine Learning può essere usato in due modi, come un servizio di richiesta-risposta o come un servizio di esecuzione batch. In ogni scenario, la funzionalità viene fornita tramite il servizio Web RESTFul reso disponibile per l'uso dopo la pubblicazione dell'esperimento.
 
-> [AZURE.TIP] Per informazioni su un modo semplice per creare un'app Web per l'accesso al servizio Web predittivo, vedere l'articolo relativo all'[uso di un servizio Web di Azure Machine Learning con un modello di app Web](machine-learning-consume-web-service-with-web-app-template.md).
+> [!TIP]
+> Per informazioni su un modo semplice per creare un'app Web per l'accesso al servizio Web predittivo, vedere l'articolo relativo all'[uso di un servizio Web di Azure Machine Learning con un modello di app Web](machine-learning-consume-web-service-with-web-app-template.md).
+> 
+> 
 
 <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning Web service endpoints using the REST API, see **Azure machine learning Web service endpoints**.
@@ -43,22 +42,18 @@ For more information on how to manage Azure Machine Learning Web service endpoin
 Per informazioni su come creare e pubblicare un servizio Web di Azure Machine Learning, vedere [Pubblicare un servizio Web di Azure Machine Learning][pubblica]. Per una procedura dettagliata di creazione e pubblicazione di un esperimento di Machine Learning, vedere [Sviluppare una soluzione predittiva mediante Azure Machine Learning][].
 
 ## <a name="requestresponse-service-rrs"></a>Servizio di richiesta-risposta (RRS)
-
 Un servizio di richiesta-risposta (RRS) è un servizio Web a bassa latenza e altamente scalabile usato per fornire un'interfaccia ai modelli senza stato,creati e pubblicati da un esperimento Azure Machine Learning Studio. In questo modo abilita scenari in cui l'applicazione del consumo attende una risposta in tempo reale.
 
 RRS accetta una singola riga o più righe di parametri di input e può generare una singola riga o più righe come output. La riga di output può contenere più colonne.
 
 Un esempio per RRS convalida l'autenticità di un'applicazione. In questo caso, è possibile prevedere centinaia di milioni di installazioni di un'applicazione. All'avvio dell'applicazione, chiama il servizio RRS con input pertinente. Quindi, l'applicazione riceve una risposta di convalida dal servizio che consente o blocca le esecuzioni da parte dell'applicazione.
 
-
 ## <a name="batch-execution-service-bes"></a>Servizio Esecuzione batch (BES)
-
 Un servizio di esecuzione del batch (BES) è un servizio che gestisce volumi elevati, asincroni e valutazioni di un batch di record di dati. L'input per il BES contiene un batch di record da varie origini, ad esempio blob, tabelle di Azure, SQL Azure, HDInsight (i risultati di una Query Hive, ad esempio) e origini HTTP. L'output per il BES contiene i risultati della valutazione. I risultati vengono inseriti su un file nell'archiviazione blob di Azure e i dati dall'endpoint di archiviazione vengono restituiti nella risposta.
 
 Un BES potrebbe essere utile quando le risposte non sono necessarie immediatamente, ad esempio per valutazioni regolarmente pianificate per singoli utenti o dispositivi IOT (Internet of things).
 
 ## <a name="examples"></a>esempi
-
 Per visualizzare il funzionamento di RRS e BES, viene usato un servizio Web di Azure di esempio. Questo servizio potrebbe essere utilizzato in uno scenario IOT (Internet Of Things). In breve, il dispositivo invia solo un valore, `cog_speed`, e riceve una sola risposta.
 
 Dopo aver distribuito l'esperimento, esistono quattro tipi di informazioni necessari per chiamare il servizio RRS o BES.
@@ -70,8 +65,7 @@ Dopo aver distribuito l'esperimento, esistono quattro tipi di informazioni neces
 
 Il modo in cui si ottengono queste informazioni dipende dal tipo di servizio distribuito: un nuovo servizio Web o un servizio Web classico.
 
-### <a name="information-location-in-the-azure-machine-learning-web-services-portal"></a>Posizione delle informazioni nel portale dei servizi Web di Azure Machine Learning 
-
+### <a name="information-location-in-the-azure-machine-learning-web-services-portal"></a>Posizione delle informazioni nel portale dei servizi Web di Azure Machine Learning
 Per trovare le informazioni necessarie:
 
 1. Accedere al portale dei [servizi Web di Azure Machine Learning][webservicesportal].
@@ -86,7 +80,6 @@ Le informazioni si trovano nelle pagine seguenti:
 * Le **intestazioni della richiesta**, **le intestazioni della risposta** e il **corpo** dell'API prevista sono disponibili nella pagina **API Swagger**
 
 ### <a name="information-locations-in-machine-learning-studio-classic-web-service-only"></a>Posizioni delle informazioni in Machine Learning Studio (solo per il servizio Web classico)
-
 È possibile trovare le informazioni necessarie da due percorsi: Machine Learning Studio o il portale dei servizi Web di Azure Machine Learning.
 
 Per trovare le informazioni necessarie in Machine Learning studio:
@@ -100,7 +93,6 @@ Le informazioni si trovano nelle pagine seguenti:
 * La **chiave API** è disponibile nel **dashboard** del servizio 
 * L'**URI della richiesta** è disponibile nella pagina della guida dell'API
 * Le **intestazioni della richiesta**, **le intestazioni della risposta** e il **corpo** dell'API prevista sono disponibili nella pagina della guida dell'API
-
 
 Per accedere alla pagina della guida dell'API, fare clic sul collegamento **RICHIESTA/RISPOSTA** o sul collegamento **ESECUZIONE BATCH** in base all'attività.
 
@@ -120,9 +112,6 @@ Le informazioni si trovano nelle pagine seguenti:
 Nei due esempi seguenti, il linguaggio c# viene usato per illustrare che il codice necessario.
 
 ### <a name="rrs-example"></a>Esempio RRS
-
-
-
 La seguente richiesta di esempio mostra il payload dell'input API per la chiamata API del servizio di esempio. Per un servizio Web classico, è possibile trovare gli esempi di payload nella **pagina della guida dell'API** o nella pagina **API Swagger** del portale dei servizi Web di Machine Learning. Per un nuovo servizio Web, è possibile trovare gli esempi di payload nella pagina **API Swagger** del portale dei servizi Web di Machine Learning.
 
 **Richiesta di esempio**
@@ -261,16 +250,16 @@ Il codice di esempio seguente mostra come costruire una richiesta di API REST in
           * @return response from the REST API
           */    
         public static String rrsHttpPost() {
-        
+
             HttpPost post;
             HttpClient client;
             StringEntity entity;
-        
+
             try {
                     // create HttpPost and HttpClient object
                     post = new HttpPost(apiurl);
                     client = HttpClientBuilder.create().build();
-            
+
                     // setup output message by copying JSON body into 
                     // apache StringEntity object along with content type
                     entity = new StringEntity(jsonBody, HTTP.UTF_8);
@@ -280,35 +269,34 @@ Il codice di esempio seguente mostra come costruire una richiesta di API REST in
                     // add HTTP headers
                     post.setHeader("Accept", "text/json");
                     post.setHeader("Accept-Charset", "UTF-8");
-        
+
                     // set Authorization header based on the API key
                     post.setHeader("Authorization", ("Bearer "+apikey));
                     post.setEntity(entity);
 
                     // Call REST API and retrieve response content
                     HttpResponse authResponse = client.execute(post);
-            
+
                     return EntityUtils.toString(authResponse.getEntity());
-            
+
             }
             catch (Exception e) {
-            
+
                     return e.toString();
             }
-    
+
         }
-    
-        
- 
+
+
+
 
 ### <a name="bes-example"></a>Esempio BES
-
 A differenza del servizio RRS, il servizio BES è asincrono. Ciò significa che l'API BES accoda semplicemente un processo da eseguire e il chiamante esegue il polling dello stato del processo per verificarne il completamento. Ecco le operazioni attualmente supportate per i processi batch:
 
 1. Creare (inviare) un processo batch.
-1. Avviare questo processo batch.
-1. Ottenere lo stato o il risultato di un processo batch.
-1. Annullare un processo batch in esecuzione.
+2. Avviare questo processo batch.
+3. Ottenere lo stato o il risultato di un processo batch.
+4. Annullare un processo batch in esecuzione.
 
 **1. Creare un processo di esecuzione batch**
 
@@ -317,11 +305,12 @@ Quando si crea un processo batch per il servizio di Azure Machine Learning, è p
 * **Input**: rappresenta un riferimento al BLOB in cui viene archiviato il processo batch di input.
 * **GlobalParameters**: rappresenta il set di parametri globali che è possibile definire per l'esperimento. Un esperimento di Azure Machine Learning può avere contemporaneamente parametri obbligatori e facoltativi che personalizzano l'esecuzione del servizio e tutti i parametri obbligatori, se disponibili, devono essere forniti dal chiamante. Questi parametri vengono specificati come una raccolta di coppie chiave-valore.
 * **Output**: se il servizio ha definito uno o più output, il chiamante può reindirizzarli verso un percorso BLOB di Azure. Impostando questo parametro, è possibile salvare l'output del servizio in un percorso preferito e con un nome prevedibile. In caso contrario, il nome del BLOB di output viene generato casualmente. 
-
+  
     Il servizio prevede che l'output del contenuto, in base al tipo, venga salvato nei formati supportati:
-  - Output di set di dati: possono essere salvati come file con estensione **csv, tsv, arff**
-  - Output di modelli sottoposti a training: devono essere salvati come file con estensione **.ilearner**
-
+  
+  * Output di set di dati: possono essere salvati come file con estensione **csv, tsv, arff**
+  * Output di modelli sottoposti a training: devono essere salvati come file con estensione **.ilearner**
+    
     Specificare l'override del percorso di output come una raccolta di nomi output, o coppie di riferimento BLOB. Il *nome output* è il nome definito dall'utente per un nodo output specifico, mentre il *riferimento BLOB* è un riferimento a un percorso BLOB di Azure a cui viene reindirizzato l'output. Il *nome output* viene visualizzato nella pagina della guida dell'API del servizio.
 
 Tutti questi parametri di creazione del processo sono facoltativi, a seconda della natura del servizio. I servizi per cui non sono definiti nodi di input, ad esempio, non richiedono il passaggio di un parametro *Input*. Analogamente, la funzionalità di override del percorso di output è facoltativa. In caso contrario, gli output verranno archiviati nell'account di archiviazione predefinito configurato per l'area di lavoro di Azure Machine Learning. Di seguito vengono descritti i payload di richiesta di esempio per un servizio in cui vengono fornite solo le informazioni di input:
@@ -401,7 +390,6 @@ La proprietà *Results* viene popolata se il processo è stato completato corret
 È possibile annullare un processo batch in esecuzione in qualsiasi momento chiamando l'API *CancelJob* designata e passando l'ID del processo. Ciò può essere eseguito per vari motivi, ad esempio se il processo impiega troppo tempo per il completamento.
 
 #### <a name="using-the-bes-sdk"></a>Uso dell'SDK BES
-
 Il [pacchetto NuGet BES SDK](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) fornisce funzioni che semplificano la chiamata a BES per assegnare un punteggio in modalità batch. Per installare il pacchetto NuGet in Visual Studio, nel menu **Strumenti** selezionare **Gestione pacchetti NuGet** e quindi fare clic su **Console di Gestione pacchetti**.
 
 Gli esperimenti Azure Machine Learning distribuiti come servizi Web possono includere moduli di input del servizio Web. Ciò significa che l'input al servizio web viene fornito mediante la chiamata al servizio Web sotto forma di riferimento a un percorso BLOB. È inoltre possibile non usare un modulo di input del servizio Web e usare invece un modulo **Importazione dati**. In questo caso, il modulo **Importazione dati** legge da un'origine dati, come il database SQL usando una query in fase di esecuzione. È possibile usare parametri del servizio Web per scegliere in modo dinamico altri server o tabelle e così via. L'SDK supporta entrambi questi modelli.
@@ -409,7 +397,6 @@ Gli esperimenti Azure Machine Learning distribuiti come servizi Web possono incl
 Il seguente esempio di codice illustra come inviare e monitorare un processo batch su un servizio di Azure Machine Learning tramite l'SDK BES. I commenti contengono le informazioni dettagliate su impostazioni e chiamate.
 
 #### <a name="sample-code"></a>**Codice di esempio**
-
     // This code requires the Nuget package Microsoft.Azure.MachineLearning to be installed.
     // Instructions for doing this in Visual Studio:
     // Tools -> Nuget Package Manager -> Package Manager Console
@@ -537,9 +524,7 @@ Il seguente esempio di codice illustra come inviare e monitorare un processo bat
     }
 
 #### <a name="sample-code-in-java-for-bes"></a>Codice di esempio Java per BES
-
 Come mostrato nell'esempio di seguito, l'API REST del servizio di esecuzione batch accetta l'elemento JSON costituito da un riferimento a un file con estensione csv di esempio di input e a un file con estensione csv di esempio di output e crea un processo in Azure ML per eseguire le stime batch. È possibile visualizzare il codice completo in [Github](https://github.com/nk773/AzureML_BESApp/tree/master/src/azureml_besapp). Questo esempio Java richiede la [libreria Apache HTTP Client](https://hc.apache.org/downloads.cgi). 
-
 
     { "GlobalParameters": {}, 
         "Inputs": { "input1": { "ConnectionString":     "DefaultEndpointsProtocol=https;
@@ -551,57 +536,55 @@ Come mostrato nell'esempio di seguito, l'API REST del servizio di esecuzione bat
     } 
 
 
-##### <a name="create-a-bes-job"></a>Creare un processo BES  
-        
+##### <a name="create-a-bes-job"></a>Creare un processo BES
         /**
          * Call REST API to create a job to Azure ML 
          * for batch predictions
          * @return response from the REST API
          */ 
         public static String besCreateJob() {
-            
+
             HttpPost post;
             HttpClient client;
             StringEntity entity;
-            
+
             try {
                 // create HttpPost and HttpClient object
                 post = new HttpPost(apiurl);
                 client = HttpClientBuilder.create().build();
-                
+
                 // setup output message by copying JSON body into 
                 // apache StringEntity object along with content type
                 entity = new StringEntity(jsonBody, HTTP.UTF_8);
                 entity.setContentEncoding(HTTP.UTF_8);
                 entity.setContentType("text/json");
-    
+
                 // add HTTP headers
                 post.setHeader("Accept", "text/json");
                 post.setHeader("Accept-Charset", "UTF-8");
-            
+
                 // set Authorization header based on the API key
                 // note a space after the word "Bearer " - don't miss that
                 post.setHeader("Authorization", ("Bearer "+apikey));
                 post.setEntity(entity);
-    
+
                 // Call REST API and retrieve response content
                 HttpResponse authResponse = client.execute(post);
-                
+
                 jobId = EntityUtils.toString(authResponse.getEntity()).replaceAll("\"", "");
-                
-                
+
+
                 return jobId;
-                
+
             }
             catch (Exception e) {
-                
+
                 return e.toString();
             }
-        
+
         }
-        
-##### <a name="start-a-previously-created-bes-job"></a>Avviare un processo BES creato in precedenza        
-    
+
+##### <a name="start-a-previously-created-bes-job"></a>Avviare un processo BES creato in precedenza
         /**
          * Call REST API for starting prediction job previously submitted 
          * 
@@ -612,37 +595,36 @@ Come mostrato nell'esempio di seguito, l'API REST del servizio di esecuzione bat
             HttpPost post;
             HttpClient client;
             StringEntity entity;
-            
+
             try {
                 // create HttpPost and HttpClient object
                 post = new HttpPost(startJobUrl+"/"+job+"/start?api-version=2.0");
                 client = HttpClientBuilder.create().build();
-             
+
                 // add HTTP headers
                 post.setHeader("Accept", "text/json");
                 post.setHeader("Accept-Charset", "UTF-8");
-            
+
                 // set Authorization header based on the API key
                 post.setHeader("Authorization", ("Bearer "+apikey));
-    
+
                 // Call REST API and retrieve response content
                 HttpResponse authResponse = client.execute(post);
-                
+
                 if (authResponse.getEntity()==null)
                 {
                     return authResponse.getStatusLine().toString();
                 }
-                
+
                 return EntityUtils.toString(authResponse.getEntity());
-                
+
             }
             catch (Exception e) {
-                
+
                 return e.toString();
             }
         }
 ##### <a name="cancel-a-previously-created-bes-job"></a>Annullare un processo BES creato in precedenza
-        
         /**
          * Call REST API for canceling the batch job 
          * 
@@ -653,37 +635,36 @@ Come mostrato nell'esempio di seguito, l'API REST del servizio di esecuzione bat
             HttpDelete post;
             HttpClient client;
             StringEntity entity;
-            
+
             try {
                 // create HttpPost and HttpClient object
                 post = new HttpDelete(startJobUrl+job);
                 client = HttpClientBuilder.create().build();
-             
+
                 // add HTTP headers
                 post.setHeader("Accept", "text/json");
                 post.setHeader("Accept-Charset", "UTF-8");
-            
+
                 // set Authorization header based on the API key
                 post.setHeader("Authorization", ("Bearer "+apikey));
-    
+
                 // Call REST API and retrieve response content
                 HttpResponse authResponse = client.execute(post);
-             
+
                 if (authResponse.getEntity()==null)
                 {
                     return authResponse.getStatusLine().toString();
                 }
                 return EntityUtils.toString(authResponse.getEntity());
-                
+
             }
             catch (Exception e) {
-                
+
                 return e.toString();
             }
         }
-        
-### <a name="other-programming-environments"></a>Altri ambienti di programmazione
 
+### <a name="other-programming-environments"></a>Altri ambienti di programmazione
 È anche possibile generare il codice in diversi altri linguaggi seguendo le istruzioni fornite nel sito [swagger.io](http://swagger.io/). Per un servizio Web classico è possibile ottenere il documento swagger:
 
 * Dalla pagina della guida dell'API 
@@ -717,7 +698,6 @@ A questo punto è possibile usare uno qualsiasi degli strumenti Swagger. Di segu
 
 **Pagina di esempio della Guida dell'API**
 
-
     {
       "swagger": "2.0",
       "info": {
@@ -742,7 +722,7 @@ A questo punto è possibile usare uno qualsiasi degli strumenti Swagger. Di segu
           "get": {
             "summary": "Get swagger API document for the Web service",
             "operationId": "getSwaggerDocument",
-            
+
 <!-- Relative Links -->
 
 [pubblica]: machine-learning-publish-a-machine-learning-web-service.md

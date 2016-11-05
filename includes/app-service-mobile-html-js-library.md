@@ -1,13 +1,11 @@
-##<a name="create-client"></a>Creare una connessione client
-
+## <a name="create-client"></a>Creare una connessione client
 Creare una connessione client creando un oggetto `WindowsAzure.MobileServiceClient`. Sostituire `appUrl` con l'URL dell'app per dispositivi mobili.
 
 ```
 var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
-##<a name="table-reference"></a>Usare le tabelle
-
+## <a name="table-reference"></a>Usare le tabelle
 Per l'accesso o l'aggiornamento dei dati, creare un riferimento alla tabella di back-end. Sostituire `tableName` con il nome della tabella
 
 ```
@@ -24,8 +22,7 @@ Dopo aver creato un riferimento a tabella, saranno disponibili le operazioni seg
 * [Modifica dei dati](#modifying)
 * [Eliminazione dei dati](#deleting)
 
-###<a name="querying"></a>Procedura: Eseguire query su un riferimento a tabella
-
+### <a name="querying"></a>Procedura: Eseguire query su un riferimento a tabella
 Dopo aver creato un riferimento a tabella, è possibile usarlo per eseguire una query sui dati nel server. Le query vengono eseguite in un linguaggio "simile a LINQ". Per restituire tutti i dati dalla tabella, usare quanto segue:
 
 ```
@@ -58,8 +55,7 @@ La funzione success viene chiamata con l'oggetto results. Non usare `for (var i 
 
 Per altre informazioni sulla sintassi delle query, vedere la [documentazione relativa all'oggetto Query].
 
-####<a name="table-filter"></a>Filtro dei dati nel server
-
+#### <a name="table-filter"></a>Filtro dei dati nel server
 È possibile usare una clausola `where` nel riferimento a tabella:
 
 ```
@@ -82,8 +78,7 @@ table
     .then(success, failure);
 ```
 
-####<a name="table-paging"></a>Paging dei dati
-
+#### <a name="table-paging"></a>Paging dei dati
 Usare i metodi take() e skip(). Ad esempio, se si vuole dividere la tabella in record di 100 righe:
 
 ```
@@ -111,9 +106,7 @@ Il metodo `.includeTotalCount()` viene usato per aggiungere un campo totalCount 
 
 Si potrà quindi usare la variabile pages e alcuni pulsanti dell'interfaccia utente per fornire un elenco di pagine. Usare loadPage() per caricare i nuovi record per ogni pagina. È necessario implementare una sorta di caching per velocizzare l'accesso ai record già caricati.
 
-
-####<a name="sorting-data"></a>Procedura: Restituire dati ordinati
-
+#### <a name="sorting-data"></a>Procedura: Restituire dati ordinati
 Usare i metodi di query .orderBy() o .orderByDescending():
 
 ```
@@ -125,8 +118,7 @@ table
 
 Per altre informazioni sull'oggetto Query, vedere la [documentazione relativa all'oggetto Query].
 
-###<a name="inserting"></a>Procedura: Inserire dati
-
+### <a name="inserting"></a>Procedura: Inserire dati
 Creare un oggetto JavaScript con la data appropriata e chiamare table.insert() in modo asincrono:
 
 ```
@@ -146,8 +138,7 @@ Una volta completato l'inserimento, viene restituito l'elemento inserito con i c
 
 Si noti che Node. js Server SDK per le app per dispositivi mobili supporta lo schema dinamico per scopi di sviluppo. Nel caso di schema dinamico, lo schema della tabella viene aggiornato in tempo reale, consentendo di aggiungere colonne alla tabella specificandole semplicemente in un'operazione di inserimento o aggiornamento. È consigliabile disattivare lo schema dinamico prima di trasferire l'applicazione in produzione.
 
-###<a name="modifying"></a>Procedura: Modificare dati
-
+### <a name="modifying"></a>Procedura: Modificare dati
 In modo analogo al metodo .insert(), è consigliabile creare un oggetto Update e quindi chiamare .update(). L'oggetto update deve contenere l'ID del record da aggiornare, che si ottiene durante la lettura del record o quando si chiama .insert().
 
 ```
@@ -163,8 +154,7 @@ table
     }, failure);
 ```
 
-###<a name="deleting"></a>Procedura: Eliminare dati
-
+### <a name="deleting"></a>Procedura: Eliminare dati
 Chiamare il metodo .del() per eliminare un record. Passare l'ID in un riferimento all'oggetto:
 
 ```

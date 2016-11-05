@@ -1,25 +1,22 @@
-<properties
-	pageTitle="Ridimensionamento automatico e ambiente del servizio app | Microsoft Azure"
-	description="Ridimensionamento automatico e ambiente del servizio app"
-	services="app-service"
-	documentationCenter=""
-	authors="btardif"
-	manager="wpickett"
-	editor=""
-/>
+---
+title: Ridimensionamento automatico e ambiente del servizio app | Microsoft Docs
+description: Ridimensionamento automatico e ambiente del servizio app
+services: app-service
+documentationcenter: ''
+author: btardif
+manager: wpickett
+editor: ''
 
-<tags
-	ms.service="app-service"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/07/2016"
-	ms.author="byvinyal"
-/>
+ms.service: app-service
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/07/2016
+ms.author: byvinyal
 
+---
 # Ridimensionamento automatico e ambiente del servizio app
-
 Gli ambienti del servizio app di Azure supportano il *ridimensionamento automatico*. È possibile ridimensionare automaticamente singoli pool di lavoro in base alle metriche o alla pianificazione.
 
 ![Opzioni di ridimensionamento automatico per un pool di lavoro.][intro]
@@ -27,7 +24,6 @@ Gli ambienti del servizio app di Azure supportano il *ridimensionamento automati
 Il ridimensionamento automatico consente di ottimizzare l'utilizzo delle risorse aumentando o riducendo automaticamente le risorse di un ambiente del servizio app, in base al budget o al profilo di carico.
 
 ## Configurare il ridimensionamento automatico del pool di lavoro
-
 È possibile accedere alla funzionalità di ridimensionamento automatico dalla scheda **Impostazioni** del pool di lavoro.
 
 ![Scheda Impostazioni del pool di lavoro.][settings-scale]
@@ -51,13 +47,11 @@ Dopo aver definito il profilo, è possibile aggiungere regole di ridimensionamen
  Per definire le regole di ridimensionamento automatico, è possibile usare qualsiasi metrica del pool di lavoro o del front-end. Si tratta delle stesse metriche che è possibile monitorare nei grafici del pannello delle risorse o per cui si possono impostare avvisi.
 
 ## Esempio di ridimensionamento automatico
-
 Per illustrare il ridimensionamento automatico di un ambiente del servizio app, si userà uno scenario con procedure dettagliate.
 
 Questo articolo descrive tutte le considerazioni necessarie per configurare il ridimensionamento automatico, nonché tutte le interazioni che entrano in gioco quando si configura il ridimensionamento automatico di ambienti del servizio app ospitati in un ambiente del servizio app.
 
 ### Introduzione dello scenario
-
 Diego è amministratore di sistema presso una società e ha eseguito la migrazione di una parte dei carichi di lavoro che gestisce a un ambiente del servizio app.
 
 L'ambiente del servizio app è configurato per la scalabilità manuale come segue:
@@ -75,37 +69,36 @@ Diego ha una notevole familiarità con l'applicazione. Sa che le ore di picco di
 
 ![Impostazioni specifiche per l'app LOB.][asp-scale]
 
-|	**Profilo di ridimensionamento automatico - Giorni feriali - Piano di servizio app** |	**Profilo di ridimensionamento automatico - Fine settimana - Piano di servizio app** |
-|	----------------------------------------------------	|	----------------------------------------------------	|
-|	**Nome:** profilo Giorno feriale |	**Nome:** profilo Fine settimana |
-|	**Ridimensiona in base a:** regole per la pianificazione e le prestazioni |	**Ridimensiona in base a:** regole per la pianificazione e le prestazioni |
-|	**Profilo:** giorni della settimana |	**Profilo:** fine settimana |
-|	**Tipo:** ricorrenza |	**Tipo:** ricorrenza |
-|	**Intervallo di destinazione:** da 5 a 20 istanze |	**Intervallo di destinazione:** da 3 a 10 istanze |
-|	**Giorni:** Lunedì, Martedì, Mercoledì, Giovedì, Venerdì |	**Giorni:** Sabato, Domenica |
-|	**Ora di inizio:** 9:00 |	**Ora di inizio:** 9:00 |
-|	**Fuso orario:** UTC -08 |	**Fuso orario:** UTC -08 |
-| | |
-|	**Regola di ridimensionamento automatico (aumento)** |	**Regola di ridimensionamento automatico (aumento)** |
-|	**Risorsa:** produzione (Ambiente del servizio app) |	**Risorsa:** produzione (Ambiente del servizio app) |
-|	**Metrica:** % CPU |	**Metrica:** % CPU |
-|	**Operazione:** maggiore del 60% |	**Operazione:** maggiore del 80% |
-|	**Durata:** 5 minuti |	**Durata:** 10 minuti |
-|	**Aggregazione temporale:** media |	**Aggregazione temporale:** media |
-|	**Azione:** aumenta numero di 2 |	**Azione:** aumenta numero di 1 |
-|	**Disattiva regole dopo (minuti):** 15 |	**Disattiva regole dopo (minuti):** 20 |
-| | |
- |	**Regola di ridimensionamento automatico (riduzione)** |	**Regola di ridimensionamento automatico (riduzione)** |
-|	**Risorsa:** produzione (Ambiente del servizio app) |	**Risorsa:** produzione (Ambiente del servizio app) |
-|	**Metrica:** % CPU |	**Metrica:** % CPU |
-|	**Operazione:** inferiore al 30% |	**Operazione:** inferiore al 20% |
-|	**Durata:** 10 minuti |	**Durata:** 15 minuti |
-|	**Aggregazione temporale:** media |	**Aggregazione temporale:** media |
-|	**Azione:** riduci numero di 1 |	**Azione:** riduci numero di 1 |
-|	**Disattiva regole dopo (minuti):** 20 |	**Disattiva regole dopo (minuti):** 10 |
+| **Profilo di ridimensionamento automatico - Giorni feriali - Piano di servizio app** | **Profilo di ridimensionamento automatico - Fine settimana - Piano di servizio app** |
+| --- | --- |
+| **Nome:** profilo Giorno feriale |**Nome:** profilo Fine settimana |
+| **Ridimensiona in base a:** regole per la pianificazione e le prestazioni |**Ridimensiona in base a:** regole per la pianificazione e le prestazioni |
+| **Profilo:** giorni della settimana |**Profilo:** fine settimana |
+| **Tipo:** ricorrenza |**Tipo:** ricorrenza |
+| **Intervallo di destinazione:** da 5 a 20 istanze |**Intervallo di destinazione:** da 3 a 10 istanze |
+| **Giorni:** Lunedì, Martedì, Mercoledì, Giovedì, Venerdì |**Giorni:** Sabato, Domenica |
+| **Ora di inizio:** 9:00 |**Ora di inizio:** 9:00 |
+| **Fuso orario:** UTC -08 |**Fuso orario:** UTC -08 |
+|  | |
+| **Regola di ridimensionamento automatico (aumento)** |**Regola di ridimensionamento automatico (aumento)** |
+| **Risorsa:** produzione (Ambiente del servizio app) |**Risorsa:** produzione (Ambiente del servizio app) |
+| **Metrica:** % CPU |**Metrica:** % CPU |
+| **Operazione:** maggiore del 60% |**Operazione:** maggiore del 80% |
+| **Durata:** 5 minuti |**Durata:** 10 minuti |
+| **Aggregazione temporale:** media |**Aggregazione temporale:** media |
+| **Azione:** aumenta numero di 2 |**Azione:** aumenta numero di 1 |
+| **Disattiva regole dopo (minuti):** 15 |**Disattiva regole dopo (minuti):** 20 |
+|  | |
+| **Regola di ridimensionamento automatico (riduzione)** |**Regola di ridimensionamento automatico (riduzione)** |
+| **Risorsa:** produzione (Ambiente del servizio app) |**Risorsa:** produzione (Ambiente del servizio app) |
+| **Metrica:** % CPU |**Metrica:** % CPU |
+| **Operazione:** inferiore al 30% |**Operazione:** inferiore al 20% |
+| **Durata:** 10 minuti |**Durata:** 15 minuti |
+| **Aggregazione temporale:** media |**Aggregazione temporale:** media |
+| **Azione:** riduci numero di 1 |**Azione:** riduci numero di 1 |
+| **Disattiva regole dopo (minuti):** 20 |**Disattiva regole dopo (minuti):** 10 |
 
 ### Tasso di inflazione del piano di servizio app
-
 I piani di servizio app configurati per il ridimensionamento automatico verranno ridimensionati automaticamente in base al tasso massimo su base oraria. Questa frequenza può essere calcolata in base ai valori specificati nella regola di ridimensionamento automatico.
 
 È importante comprendere e calcolare il *tasso di inflazione del piano di servizio app* per il ridimensionamento automatico dell'ambiente del servizio app, perché l'operazione di ridimensionamento del pool di lavoro non è istantanea.
@@ -139,7 +132,6 @@ Se in un pool di lavoro sono ospitati più piani di servizio app, è necessario 
 ![Calcolo del tasso di inflazione totale per più piani di servizio app ospitati in un pool di lavoro.][ASP-Total-Inflation]
 
 ### Usare il tasso di inflazione del piano di servizio app per definire le regole di ridimensionamento automatico del pool di lavoro
-
 Ai pool di lavoro che ospitano piani di servizio app configurati per il ridimensionamento automatico sarà necessario allocare un buffer di capacità. Il buffer consente alle operazioni di ridimensionamento automatico di aumentare e ridurre il piano di servizio app in base alle esigenze. Il buffer minimo sarà costituito dal tasso di inflazione totale calcolato per il piano di servizio app.
 
 Poiché l'applicazione delle operazioni di ridimensionamento dell'ambiente del servizio app richiede tempo, qualsiasi modifica deve tenere conto delle ulteriori variazioni della domanda che possono verificarsi mentre è in corso un'operazione di ridimensionamento. Per questo motivo è consigliabile usare il tasso di inflazione totale calcolato per il piano di servizio app come numero minimo di istanze aggiunte per ogni operazione di ridimensionamento automatico.
@@ -148,34 +140,34 @@ Con queste informazioni Diego può definire le regole e il profilo di ridimensio
 
 ![Regole del profilo di ridimensionamento automatico per l'esempio LOB.][Worker-Pool-Scale]
 
-|	**Profilo di ridimensionamento automatico - Giorni feriali** |	**Profilo di ridimensionamento automatico - Fine settimana** |
-|	----------------------------------------------------	|	--------------------------------------------	|
-|	**Nome:** profilo Giorno feriale |	**Nome:** profilo Fine settimana |
-|	**Ridimensiona in base a:** regole per la pianificazione e le prestazioni |	**Ridimensiona in base a:** regole per la pianificazione e le prestazioni |
-|	**Profilo:** giorni della settimana |	**Profilo:** fine settimana |
-|	**Tipo:** ricorrenza |	**Tipo:** ricorrenza |
-|	**Intervallo di destinazione:** da 13 a 25 istanze |	**Intervallo di destinazione:** da 6 a 15 istanze |
-|	**Giorni:** Lunedì, Martedì, Mercoledì, Giovedì, Venerdì |	**Giorni:** Sabato, Domenica |
-|	**Ora di inizio:** 7:00 |	**Ora di inizio:** 9:00 |
-|	**Fuso orario:** UTC -08 |	**Fuso orario:** UTC -08 |
-| | |
-|	**Regola di ridimensionamento automatico (aumento)** |	**Regola di ridimensionamento automatico (aumento)** |
-|	**Risorsa:** Pool di lavoro 1 |	**Risorsa:** Pool di lavoro 1 |
-|	**Metrica:** Pool di lavoro disponibili |	**Metrica:** Pool di lavoro disponibili |
-|	**Operazione:** minore di 8 |	**Operazione:** minore di 3 |
-|	**Durata:** 20 minuti |	**Durata:** 30 minuti |
-|	**Aggregazione temporale:** media |	**Aggregazione temporale:** media |
-|	**Azione:** aumenta numero di 8 |	**Azione:** aumenta numero di 3 |
-|	**Disattiva regole dopo (minuti):** 180 |	**Disattiva regole dopo (minuti):** 180 |
-| | |
-|	**Regola di ridimensionamento automatico (riduzione)** |	**Regola di ridimensionamento automatico (riduzione)** |
-|	**Risorsa:** Pool di lavoro 1 |	**Risorsa:** Pool di lavoro 1 |
-|	**Metrica:** Pool di lavoro disponibili |	**Metrica:** Pool di lavoro disponibili |
-|	**Operazione:** maggiore di 8 |	**Operazione:** maggiore di 3 |
-|	**Durata:** 20 minuti |	**Durata:** 15 minuti |
-|	**Aggregazione temporale:** media |	**Aggregazione temporale:** media |
-|	**Azione:** riduci numero di 2 |	**Azione:** riduci numero di 3 |
-|	**Disattiva regole dopo (minuti):** 120 |	**Disattiva regole dopo (minuti):** 120 |
+| **Profilo di ridimensionamento automatico - Giorni feriali** | **Profilo di ridimensionamento automatico - Fine settimana** |
+| --- | --- |
+| **Nome:** profilo Giorno feriale |**Nome:** profilo Fine settimana |
+| **Ridimensiona in base a:** regole per la pianificazione e le prestazioni |**Ridimensiona in base a:** regole per la pianificazione e le prestazioni |
+| **Profilo:** giorni della settimana |**Profilo:** fine settimana |
+| **Tipo:** ricorrenza |**Tipo:** ricorrenza |
+| **Intervallo di destinazione:** da 13 a 25 istanze |**Intervallo di destinazione:** da 6 a 15 istanze |
+| **Giorni:** Lunedì, Martedì, Mercoledì, Giovedì, Venerdì |**Giorni:** Sabato, Domenica |
+| **Ora di inizio:** 7:00 |**Ora di inizio:** 9:00 |
+| **Fuso orario:** UTC -08 |**Fuso orario:** UTC -08 |
+|  | |
+| **Regola di ridimensionamento automatico (aumento)** |**Regola di ridimensionamento automatico (aumento)** |
+| **Risorsa:** Pool di lavoro 1 |**Risorsa:** Pool di lavoro 1 |
+| **Metrica:** Pool di lavoro disponibili |**Metrica:** Pool di lavoro disponibili |
+| **Operazione:** minore di 8 |**Operazione:** minore di 3 |
+| **Durata:** 20 minuti |**Durata:** 30 minuti |
+| **Aggregazione temporale:** media |**Aggregazione temporale:** media |
+| **Azione:** aumenta numero di 8 |**Azione:** aumenta numero di 3 |
+| **Disattiva regole dopo (minuti):** 180 |**Disattiva regole dopo (minuti):** 180 |
+|  | |
+| **Regola di ridimensionamento automatico (riduzione)** |**Regola di ridimensionamento automatico (riduzione)** |
+| **Risorsa:** Pool di lavoro 1 |**Risorsa:** Pool di lavoro 1 |
+| **Metrica:** Pool di lavoro disponibili |**Metrica:** Pool di lavoro disponibili |
+| **Operazione:** maggiore di 8 |**Operazione:** maggiore di 3 |
+| **Durata:** 20 minuti |**Durata:** 15 minuti |
+| **Aggregazione temporale:** media |**Aggregazione temporale:** media |
+| **Azione:** riduci numero di 2 |**Azione:** riduci numero di 3 |
+| **Disattiva regole dopo (minuti):** 120 |**Disattiva regole dopo (minuti):** 120 |
 
 L'intervallo di destinazione definito nel profilo è calcolato in base al numero minimo di istanze definito nel profilo per il piano di servizio app più il buffer.
 
@@ -186,41 +178,40 @@ L'aumento del numero per le regole di aumento deve essere impostato su un valore
 La riduzione del numero può essere regolata su un valore compreso tra la metà o una volta il tasso di inflazione del piano di servizio app per l'operazione di riduzione.
 
 ### Ridimensionamento automatico per il pool front-end
-
 Le regole per il ridimensionamento automatico front-end sono più semplici rispetto ai pool di lavoro. Prima di tutto è necessario assicurarsi che la durata della misurazione e i timer di raffreddamento tengano presente che le operazioni di ridimensionamento in un piano di servizio app non sono istantanee.
 
 Per questo scenario Diego sa che il tasso di errore aumenta dopo che i front-end hanno raggiunto l'80% di utilizzo della CPU. Per evitare questo problema, imposta la regola di ridimensionamento automatico per aumentare le istanze nel modo seguente:
 
 ![Impostazioni di ridimensionamento automatico per il pool front-end.][Front-End-Scale]
 
-|	**Profilo di ridimensionamento automatico - Front-end** |
-|	--------------------------------------------	|
-|	**Nome:** Ridimensionamento automatico - Front-end |
-|	**Ridimensiona in base a:** regole per la pianificazione e le prestazioni |
-|	**Profilo:** ogni giorno |
-|	**Tipo:** ricorrenza |
-|	**Intervallo di destinazione:** da 3 a 10 istanze |
-|	**Giorni:** ogni giorno |
-|	**Ora di inizio:** 9:00 |
-|	**Fuso orario:** UTC -08 |
-| |
-|	**Regola di ridimensionamento automatico (aumento)** |
-|	**Risorsa:** pool front-end |
-|	**Metrica:** % CPU |
-|	**Operazione:** maggiore del 60% |
-|	**Durata:** 20 minuti |
-|	**Aggregazione temporale:** media |
-|	**Azione:** aumenta numero di 3 |
-|	**Disattiva regole dopo (minuti):** 120 |
-| |
-|	**Regola di ridimensionamento automatico (riduzione)** |
-|	**Risorsa:** Pool di lavoro 1 |
-|	**Metrica:** % CPU |
-|	**Operazione:** inferiore al 30% |
-|	**Durata:** 20 minuti |
-|	**Aggregazione temporale:** media |
-|	**Azione:** riduci numero di 3 |
-|	**Disattiva regole dopo (minuti):** 120 |
+| **Profilo di ridimensionamento automatico - Front-end** |
+| --- |
+| **Nome:** Ridimensionamento automatico - Front-end |
+| **Ridimensiona in base a:** regole per la pianificazione e le prestazioni |
+| **Profilo:** ogni giorno |
+| **Tipo:** ricorrenza |
+| **Intervallo di destinazione:** da 3 a 10 istanze |
+| **Giorni:** ogni giorno |
+| **Ora di inizio:** 9:00 |
+| **Fuso orario:** UTC -08 |
+|  |
+| **Regola di ridimensionamento automatico (aumento)** |
+| **Risorsa:** pool front-end |
+| **Metrica:** % CPU |
+| **Operazione:** maggiore del 60% |
+| **Durata:** 20 minuti |
+| **Aggregazione temporale:** media |
+| **Azione:** aumenta numero di 3 |
+| **Disattiva regole dopo (minuti):** 120 |
+|  |
+| **Regola di ridimensionamento automatico (riduzione)** |
+| **Risorsa:** Pool di lavoro 1 |
+| **Metrica:** % CPU |
+| **Operazione:** inferiore al 30% |
+| **Durata:** 20 minuti |
+| **Aggregazione temporale:** media |
+| **Azione:** riduci numero di 3 |
+| **Disattiva regole dopo (minuti):** 120 |
 
 <!-- IMAGES -->
 [intro]: ./media/app-service-environment-auto-scale/introduction.png

@@ -13,7 +13,6 @@ Svantaggi:
 1. Impossibile collegare dischi dati a istanze di VM in un set di scalabilità. Di contro, è necessario utilizzare l'archiviazione BLOB, file di Azure, tabelle di Azure o un'altra soluzione di archiviazione.
 
 ## Creazione rapida tramite riga di comando di Azure
-
 Ove non già fatto in precedenza, è possibile ottenere una [versione di valutazione gratuita della sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/) e la [riga di comando di Azure](../articles/xplat-cli-install.md) [connessa all'account Azure](../articles/xplat-cli-connect.md). Al termine dell'operazione, è possibile eseguire i comandi seguenti per la creazione rapida di un set di scalabilità di VM:
 
 ```bash
@@ -71,7 +70,6 @@ ssh -p 50000 $FQDN
 ```
 
 ## Passaggi successivi
-
 Per informazioni generali vedere la [pagina di destinazione principale per i set di scalabilità di VM](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 
 Per la documentazione vedere la [pagina della documentazione principale per i set di scalabilità di VM](https://azure.microsoft.com/documentation/services/virtual-machines-scale-sets/).

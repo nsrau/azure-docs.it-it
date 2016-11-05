@@ -6,8 +6,8 @@ Quando si aggiunge una connessione tra reti virtuali, verificare che entrambe le
 4. Per **Tipo di connessione** selezionare **Tra reti virtuali**
 5. Il valore del campo **Gateway di rete virtuale** è fisso perché la connessione viene eseguita da questo gateway.
 6. Per **Secondo gateway di rete virtuale** selezionare il gateway con cui si vuole stabilire una connessione dal gateway in uso.
-8. I valori restanti, relativi ai campi **Sottoscrizione**, **Gruppo di risorse** e **Percorso**, sono fissi.
-9. Fare clic su **OK** per creare la connessione. Sullo schermo lampeggerà il messaggio *Creazione della connessione*.
-10. Dopo essere stata completata, la connessione verrà visualizzata nel pannello **Connessioni** relativo al gateway.
+7. I valori restanti, relativi ai campi **Sottoscrizione**, **Gruppo di risorse** e **Percorso**, sono fissi.
+8. Fare clic su **OK** per creare la connessione. Sullo schermo lampeggerà il messaggio *Creazione della connessione*.
+9. Dopo essere stata completata, la connessione verrà visualizzata nel pannello **Connessioni** relativo al gateway.
 
 <!---HONumber=AcomDC_0107_2016-->

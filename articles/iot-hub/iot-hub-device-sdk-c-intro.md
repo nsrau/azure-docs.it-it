@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Utilizzare l’SDK per dispositivi IoT Azure per C | Microsoft Azure"
-	description="Altre informazioni e introduzione all'uso del codice di esempio nel dispositivo Azure IoT SDK per C"
-	services="iot-hub"
-	documentationCenter=""
-	authors="olivierbloch"
-	manager="timlt"
-	editor=""/>
+---
+title: Utilizzare l’SDK per dispositivi IoT Azure per C | Microsoft Docs
+description: Altre informazioni e introduzione all'uso del codice di esempio nel dispositivo Azure IoT SDK per C
+services: iot-hub
+documentationcenter: ''
+author: olivierbloch
+manager: timlt
+editor: ''
 
-<tags
-     ms.service="iot-hub"
-     ms.devlang="cpp"
-     ms.topic="article"
-     ms.tgt_pltfrm="na"
-     ms.workload="na"
-     ms.date="09/06/2016"
-     ms.author="obloch"/>
+ms.service: iot-hub
+ms.devlang: cpp
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/06/2016
+ms.author: obloch
 
+---
 # Introduzione ad Azure IoT device SDK per C
-
 **Azure IoT device SDK** è un set di librerie concepite per semplificare l'invio di eventi e la ricezione di messaggi dal servizio **Hub IoT di Azure**. Esistono diverse varianti dell'SDK, ognuna destinata a una piattaforma specifica, ma questo articolo illustrerà **Azure IoT device SDK per C**.
 
 Azure IoT device SDK per C è scritto in ANSI C (C99) per ottimizzare la portabilità. Questo aspetto lo rende particolarmente adatto al funzionamento su numerosi dispositivi e piattaforme, specialmente quando la riduzione del footprint del disco e della memoria costituisce una priorità.
@@ -26,10 +25,14 @@ Esiste una vasta gamma di piattaforme in cui è stato testato l'SDK. Vedere l'[e
 
 In questo articolo verrà introdotta l'architettura di Azure IoT device SDK per C. Verrà illustrato come inizializzare la libreria di dispositivi, inviare eventi all'hub IoT e riceverne i messaggi. Le informazioni contenute in questo articolo dovrebbero essere sufficienti per iniziare a usare l'SDK, ma forniscono anche puntatori per ottenere informazioni aggiuntive sulle librerie.
 
->> [AZURE.NOTE] Questo articolo non include informazioni su come usare le funzionalità di *gestione dei dispositivi* delle librerie C nell'SDK. Per informazioni su come usare le funzionalità di gestione dei dispositivi, vedere l'[introduzione alla libreria client di Gestione dei dispositivi dell'hub IoT di Azure](iot-hub-device-management-library.md).
+> > [!NOTE]
+> > Questo articolo non include informazioni su come usare le funzionalità di *gestione dei dispositivi* delle librerie C nell'SDK. Per informazioni su come usare le funzionalità di gestione dei dispositivi, vedere l'[introduzione alla libreria client di Gestione dei dispositivi dell'hub IoT di Azure](iot-hub-device-management-library.md).
+> > 
+> > 
+> 
+> 
 
 ## Architettura dell'SDK
-
 È possibile trovare **Azure IoT SDK per dispositivi per C** nel repository [Microsoft Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) su GitHub e visualizzare i dettagli relativi all'API in [C API reference](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html) (Riferimenti per le API C).
 
 L'ultima versione delle librerie è disponibile nel ramo **master** di questo repository:
@@ -43,15 +46,15 @@ Il repository include l'intera famiglia di Azure IoT device SDK. Questo articolo
 * L'implementazione di base dell'SDK si trova nella cartella **iothub\_client** contenente l'implementazione del livello di API più basso nell'SDK: la libreria **IoTHubClient**. La libreria **IoTHubClient** contiene le API di implementazione di messaggistica non elaborata per inviare all'hub IoT i messaggi e per riceverli. Se si usa questa libreria, è necessario implementare la serializzazione dei messaggi seguendo l'esempio di serializzazione illustrato sotto, mentre gli altri dettagli della comunicazione con l'hub IoT vengono gestiti automaticamente.
 * La cartella **serializer** contiene le funzioni di supporto e gli esempi che mostrano come serializzare i dati prima dell'invio all'hub IoT di Azure tramite la libreria client. Si noti che l'uso del serializer, fornito solo per comodità, non è obbligatorio. Se si usa la libreria **serializer**, iniziare definendo un modello che specifica gli eventi da inviare all'hub IoT, oltre ai messaggi che si prevede di ricevere dall'hub stesso. Dopo la definizione del modello, l'SDK fornisce tuttavia una superficie dell'API che consente di utilizzare facilmente eventi e messaggi senza doversi occupare dei dettagli relativi alla serializzazione. La libreria dipende dall'implementazione del trasporto tramite diversi protocolli (AMQP, MQTT) da parte di altre librerie open source.
 * La libreria **IoTHubClient** dipende da altre librerie open source:
-   * La libreria [Azure C shared utility](https://github.com/Azure/azure-c-shared-utility), che offre funzionalità comuni per le attività di base, come stringa, manipolazione elenco, I/O e così via, necessarie in diversi SDK per C relativi ad Azure.
-   * La libreria [Azure uAMQP](https://github.com/Azure/azure-uamqp-c), che è l'implementazione lato client di AMQP ottimizzata per i dispositivi con vincoli di risorse.
-   * La libreria [Azure uMQTT](https://github.com/Azure/azure-umqtt-c), che è una libreria generica per l'implementazione del protocollo MQTT, ottimizzata per i dispositivi con vincoli di risorse.
+  * La libreria [Azure C shared utility](https://github.com/Azure/azure-c-shared-utility), che offre funzionalità comuni per le attività di base, come stringa, manipolazione elenco, I/O e così via, necessarie in diversi SDK per C relativi ad Azure.
+  * La libreria [Azure uAMQP](https://github.com/Azure/azure-uamqp-c), che è l'implementazione lato client di AMQP ottimizzata per i dispositivi con vincoli di risorse.
+  * La libreria [Azure uMQTT](https://github.com/Azure/azure-umqtt-c), che è una libreria generica per l'implementazione del protocollo MQTT, ottimizzata per i dispositivi con vincoli di risorse.
 
 Tutti questi dettagli sono più facilmente comprensibili osservando esempi di codice. Le sezioni seguenti illustrano in dettaglio un paio di applicazioni di esempio incluse nell'SDK. Dovrebbero fornire una panoramica delle diverse funzionalità dei livelli architetturali dell'SDK, oltre a un'introduzione al funzionamento delle API.
 
 ## Prima di eseguire gli esempi
-
 Prima di poter eseguire gli esempi in Azure IoT SDK per dispositivi per C, è necessario creare un'istanza del servizio nella sottoscrizione di Azure se non già presente e completare 2 attività:
+
 * preparare l'ambiente di sviluppo
 * ottenere le credenziali del dispositivo.
 
@@ -60,40 +63,31 @@ Per creare un'istanza di hub IoT di Azure nella sottoscrizione di Azure, seguire
 Il file [readme](https://github.com/Azure/azure-iot-sdks/tree/master/c) incluso nell'SDK fornisce istruzioni per la preparazione dell'ambiente di sviluppo e per ottenere le credenziali del dispositivo. Le sezioni seguenti includono alcuni commenti aggiuntivi su queste istruzioni.
 
 ### Preparazione dell'ambiente di sviluppo
-
 Mentre i pacchetti vengono forniti per alcune piattaforme, ad esempio NuGet per Windows o apt\_get per Debian e Ubuntu, oltre a essere usati dagli esempi quando disponibili, le istruzioni riportate sotto illustrano come compilare la libreria e gli esempi direttamente dal codice.
 
 Prima di tutto è necessario ottenere una copia dell'SDK da GitHub e quindi compilare il codice sorgente. È consigliabile ottenere una copia del codice sorgente dal ramo **master** del [repository GitHub](https://github.com/Azure/azure-iot-sdks).
 
 Dopo aver scaricato una copia del codice sorgente, è necessario completare la procedura illustrata nell'articolo relativo alla [Prepare your development environment](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md) (Preparare l'ambiente di sviluppo) per l'SDK.
 
-
 Ecco comunque alcuni suggerimenti per completare più facilmente la procedura descritta nella guida alla preparazione:
 
--   Quando si installa l'utilità **CMake**, scegliere l'opzione per aggiungere **CMake** alla variabile di sistema PATH per **tutti gli utenti**. Funziona correttamente anche l'aggiunta all'**utente corrente**:
-
+* Quando si installa l'utilità **CMake**, scegliere l'opzione per aggiungere **CMake** alla variabile di sistema PATH per **tutti gli utenti**. Funziona correttamente anche l'aggiunta all'**utente corrente**:
+  
   ![](media/iot-hub-device-sdk-c-intro/08-CMake.PNG)
-
-
--   Prima di aprire il **Prompt dei comandi per gli sviluppatori per VS2015**, installare gli strumenti da riga di comando di Git. Per installare questi strumenti, completare i passaggi seguenti:
-
-	1. Avviare il programma di installazione di **Visual Studio 2015** oppure scegliere **Microsoft Visual Studio 2015** da **Programmi e funzionalità** nel Pannello di controllo e selezionare **Modifica**.
-	
-	2. Assicurarsi che la funzionalità **GIT per Windows** sia selezionata nel programma di installazione. È anche consigliabile selezionare l'opzione **Estensione GitHub per Visual Studio** per offrire l'integrazione dell'IDE:
-
-  		![](media/iot-hub-device-sdk-c-intro/10-GitTools.PNG)
-
-	3. Completare l'installazione guidata per installare gli strumenti.
-
-	4. Aggiungere la directory **bin** degli strumenti Git alla variabile di sistema **PATH**. In Windows la schermata è simile alla seguente:
-
-  		![](media/iot-hub-device-sdk-c-intro/11-GitToolsPath.PNG)
-
+* Prima di aprire il **Prompt dei comandi per gli sviluppatori per VS2015**, installare gli strumenti da riga di comando di Git. Per installare questi strumenti, completare i passaggi seguenti:
+  
+  1. Avviare il programma di installazione di **Visual Studio 2015** oppure scegliere **Microsoft Visual Studio 2015** da **Programmi e funzionalità** nel Pannello di controllo e selezionare **Modifica**.
+  2. Assicurarsi che la funzionalità **GIT per Windows** sia selezionata nel programma di installazione. È anche consigliabile selezionare l'opzione **Estensione GitHub per Visual Studio** per offrire l'integrazione dell'IDE:
+     
+        ![](media/iot-hub-device-sdk-c-intro/10-GitTools.PNG)
+  3. Completare l'installazione guidata per installare gli strumenti.
+  4. Aggiungere la directory **bin** degli strumenti Git alla variabile di sistema **PATH**. In Windows la schermata è simile alla seguente:
+     
+        ![](media/iot-hub-device-sdk-c-intro/11-GitToolsPath.PNG)
 
 Al termine della procedura descritta nella pagina ["Prepare your development environment"](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md) (Preparare l'ambiente di sviluppo), è possibile compilare le applicazioni di esempio.
 
 ### Ottenere le credenziali del dispositivo
-
 Dopo aver configurato l'ambiente di sviluppo, è necessario ottenere un set di credenziali del dispositivo. Perché un dispositivo possa accedere all'hub IoT, è necessario aggiungere prima di tutto il dispositivo al registro del dispositivo nell'hub IoT. Quando si aggiunge il dispositivo, si ottiene un set di credenziali del dispositivo, che saranno necessarie per consentire la connessione del dispositivo a un hub IoT. Le applicazioni di esempio che saranno esaminate nella sezione successiva richiedono queste credenziali sotto forma di **stringa di connessione del dispositivo**.
 
 Vengono forniti due strumenti nel repository open source SDK per la gestione dell'hub IoT. Uno è l'applicazione Device Explorer di Windows, l'altro è uno strumento dell'interfaccia della riga di comando di piattaforma incrociata basato su Node.js, chiamato iothub-explorer. Altre informazioni su questi strumenti sono disponibili [qui](https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md).
@@ -137,7 +131,6 @@ static const char* connectionString = "[device connection string]";
 Se si vuole seguire la procedura, immettere qui la stringa di connessione del proprio dispositivo e ricompilare la soluzione. Si potrà quindi eseguire l'esempio.
 
 ## IoTHubClient
-
 Nella cartella **iothub\_client** all'interno del repository azure-iot-sdks è disponibile una cartella **samples** che contiene un'applicazione chiamata **iothub\_client\_sample\_amqp**.
 
 La versione per Windows dell'applicazione **iothub\_client\_sample\_ampq** include la soluzione di Visual Studio seguente:
@@ -146,10 +139,10 @@ La versione per Windows dell'applicazione **iothub\_client\_sample\_ampq** inclu
 
 Questa soluzione contiene un singolo progetto. Occorre notare che in questa soluzione sono installati quattro pacchetti NuGet:
 
-- Microsoft.Azure.C.SharedUtility
-- Microsoft.Azure.IoTHub.AmqpTransport
-- Microsoft.Azure.IoTHub.IoTHubClient
-- Microsoft.Azure.uamqp
+* Microsoft.Azure.C.SharedUtility
+* Microsoft.Azure.IoTHub.AmqpTransport
+* Microsoft.Azure.IoTHub.IoTHubClient
+* Microsoft.Azure.uamqp
 
 Il pacchetto **Microsoft.Azure.C.SharedUtility** è sempre necessario quando si utilizza l'SDK. Poiché questo esempio si basa su AMQP, è necessario includere i pacchetti **Microsoft.Azure.uamqp** e **Microsoft.Azure.IoTHub.AmqpTransport**. Sono disponibili pacchetti equivalenti per HTTP e MQTT. L'esempio usa la libreria **IoTHubClient**, quindi è necessario includere il pacchetto **Microsoft.Azure.IoTHub.IoTHubClient** nella soluzione.
 
@@ -158,8 +151,10 @@ L'implementazione dell'applicazione di esempio si trova nel file di origine **io
 Questa applicazione di esempio sarà usata per illustrare i requisiti per l'uso della libreria **IoTHubClient**.
 
 ### Inizializzazione della libreria
-
-> [AZURE.NOTE] Prima di iniziare a usare le librerie, è necessario eseguire alcune operazioni di inizializzazione specifiche della piattaforma. Ad esempio, se si prevede di usare AMQPS in Linux è necessario inizializzare la libreria OpenSSL. Negli esempi del [repository GitHub](https://github.com/Azure/azure-iot-sdks) viene chiamata la funzione di utilità **platform\_init** all'avvio del client e la funzione **platform\_deinit** prima dell'uscita. Queste funzioni sono dichiarate nel file di intestazione "platform.h". Esaminare le definizioni di queste funzioni per la piattaforma di destinazione nel [repository](https://github.com/Azure/azure-iot-sdks) per determinare se è necessario includere un codice di inizializzazione della piattaforma nel client.
+> [!NOTE]
+> Prima di iniziare a usare le librerie, è necessario eseguire alcune operazioni di inizializzazione specifiche della piattaforma. Ad esempio, se si prevede di usare AMQPS in Linux è necessario inizializzare la libreria OpenSSL. Negli esempi del [repository GitHub](https://github.com/Azure/azure-iot-sdks) viene chiamata la funzione di utilità **platform\_init** all'avvio del client e la funzione **platform\_deinit** prima dell'uscita. Queste funzioni sono dichiarate nel file di intestazione "platform.h". Esaminare le definizioni di queste funzioni per la piattaforma di destinazione nel [repository](https://github.com/Azure/azure-iot-sdks) per determinare se è necessario includere un codice di inizializzazione della piattaforma nel client.
+> 
+> 
 
 Per iniziare a lavorare con le librerie, è necessario allocare prima di tutto un handle del client per l'hub IoT:
 
@@ -173,7 +168,6 @@ A questa funzione viene passata una copia della stringa di connessione del dispo
 Quando è disponibile uno **IOTHUB\_CLIENT\_HANDLE** valido, si potrà iniziare a chiamare le API per l'invio di eventi e la ricezione di messaggi dall'hub IoT, come si vedrà in seguito.
 
 ### Invio di eventi
-
 L'invio di eventi all'hub IoT richiede il completamento dei passaggi seguenti:
 
 Prima di tutto, creare un messaggio:
@@ -206,7 +200,6 @@ static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, v
 Si noti la chiamata alla funzione **IoTHubMessage\_Destroy** dopo il completamento dell'invio del messaggio. È necessario effettuare questa chiamata per liberare le risorse allocate quando si crea il messaggio..
 
 ### Ricezione di messaggi
-
 La ricezione di un messaggio è un'operazione asincrona. Prima di tutto registrare un callback da richiamare quando il dispositivo riceve un messaggio:
 
 ```
@@ -238,7 +231,6 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 Si noti che si usa la funzione **IoTHubMessage\_GetByteArray** per recuperare il messaggio, che in questo esempio è una stringa.
 
 ### Annullamento dell'inizializzazione della libreria
-
 Al termine dell'invio degli eventi e della ricezione dei messaggi, è possibile annullare l'inizializzazione della libreria IoT. A questo scopo, effettuare la chiamata di funzione seguente:
 
 ```
@@ -252,7 +244,6 @@ Come si può vedere, è facile inviare eventi e ricevere messaggi con la libreri
 La libreria **IoTHubClient** offre anche un controllo preciso della modalità di serializzazione degli eventi che il dispositivo invia l'hub IoT. In alcuni casi rappresenta un vantaggio, ma in altri è un dettaglio di implementazione di cui si preferirebbe non occuparsi. In questo caso, è possibile considerare l'uso della libreria **serializer**, che sarà illustrata nella sezione successiva.
 
 ## Serializer
-
 A livello concettuale, la libreria **serializer** si basa sulla libreria **IoTHubClient** nell'SDK. Usa la libreria **IoTHubClient** per la comunicazione sottostante con l'hub IoT, ma aggiunge anche funzionalità di modellazione che consentono allo sviluppatore di evitare l'impegno di doversi occupare della serializzazione dei messaggi. Il funzionamento di questa libreria può essere illustrato meglio con un esempio.
 
 Nella cartella **serializer** all'interno del repository azure-iot-sdks è disponibile una cartella **samples** che contiene un'applicazione chiamata **simplesample\_amqp**. La versione per Windows di questo esempio include la soluzione di Visual Studio seguente:
@@ -261,11 +252,11 @@ Nella cartella **serializer** all'interno del repository azure-iot-sdks è dispo
 
 Come con l'esempio precedente, questo include diversi pacchetti NuGet:
 
-- Microsoft.Azure.C.SharedUtility
-- Microsoft.Azure.IoTHub.AmqpTransport
-- Microsoft.Azure.IoTHub.IoTHubClient
-- Microsoft.Azure.IoTHub.Serializer
-- Microsoft.Azure.uamqp
+* Microsoft.Azure.C.SharedUtility
+* Microsoft.Azure.IoTHub.AmqpTransport
+* Microsoft.Azure.IoTHub.IoTHubClient
+* Microsoft.Azure.IoTHub.Serializer
+* Microsoft.Azure.uamqp
 
 La maggior parte di questi pacchetti è stata illustrata nell'esempio precedente, ma **Microsoft.Azure.IoTHub.Serializer** è nuovo. È necessario quando si usa la libreria **serializer**.
 
@@ -274,7 +265,6 @@ L'implementazione dell'applicazione di esempio si trova nel file **simplesample\
 Le sezioni seguenti illustrano gli elementi chiave di questo esempio.
 
 ### Inizializzazione della libreria
-
 Per iniziare a lavorare con la libreria **serializer**, è necessario chiamare le API di inizializzazione:
 
 ```
@@ -290,7 +280,6 @@ La chiamata alla funzione **serializer\_init** è una chiamata singola e viene u
 Chiamare infine la funzione **CREATE\_MODEL\_INSTANCE**. Si noti che **WeatherStation** è lo spazio dei nomi del modello e **ContosoAnemometer** è il nome del modello. Dopo la creazione dell'istanza del modello, è possibile usarla per iniziare a inviare eventi e ricevere messaggi. Prima è però importante comprendere che cos'è un modello.
 
 ### Definizione del modello
-
 Un modello nella libreria **serializer** definisce gli eventi che il dispositivo può inviare all'hub IoT e i messaggi, chiamati *azioni* nel linguaggio di modellazione, che può ricevere. Per definire un modello, usare un set di macro C come nell'applicazione di esempio **simplesample\_amqp**:
 
 ```
@@ -314,7 +303,6 @@ In questo esempio è presente un singolo modello chiamato **ContosoAnemometer**.
 Gli eventi e le azioni specificati nel modello definiscono una superficie dell'API che si può usare per inviare eventi all'hub IoT e per rispondere ai messaggi inviati al dispositivo. Questo aspetto può essere illustrato meglio con un esempio.
 
 ### Invio di eventi
-
 Il modello definisce gli eventi che è possibile inviare all'hub IoT. In questo esempio è uno dei due eventi definiti con la macro **WITH\_DATA**. Ad esempio, se si vuole inviare un evento **WindSpeed** a un hub IoT, è necessario eseguire alcuni passaggi perché ciò avvenga. Il primo consiste nell'impostare i dati da inviare:
 
 ```
@@ -381,7 +369,6 @@ Il secondo parametro è un puntatore al contesto utente, lo stesso puntatore pas
 Questo è tutto ciò che occorre fare per inviare eventi. Rimane solo da illustrare come ricevere i messaggi.
 
 ### Ricezione di messaggi
-
 La ricezione di un messaggi funziona in modo simile alla modalità d'uso dei messaggi nella libreria **IoTHubClient**. Prima di tutto occorre registrare la funzione di callback di un messaggio.
 
 ```
@@ -450,7 +437,6 @@ Si noti che il nome della funzione corrisponde al nome dell'azione nel modello e
 Quando il dispositivo riceve un messaggio che corrisponde alla firma, viene chiamata la funzione corrispondente. Quindi, a parte la necessità di includere il codice boilerplate da **IoTHubMessage**, per la ricezione dei messaggi si tratta solo di definire una semplice funzione per ogni azione definita nel modello.
 
 ### Annullamento dell'inizializzazione della libreria
-
 Una volta completato l'invio dei dati e la ricezione di messaggi, è possibile annullare l'inizializzazione della libreria IoT:
 
 ```
@@ -464,7 +450,6 @@ serializer_deinit();
 Ognuna di queste tre funzioni è allineata con le tre funzioni di inizializzazione descritte in precedenza. Chiamando questi API si assicura che siano liberate le risorse allocate in precedenza.
 
 ## Passaggi successivi
-
 Questo articolo descrive le nozioni di base relative all'uso delle librerie in **Azure IoT device SDK per C**. Fornisce informazioni sufficienti per comprendere il contenuto dell'SDK, la relativa architettura e come iniziare a usare gli esempi per Windows. L'articolo successivo continua la descrizione dell'SDK, fornendo [altre informazioni sulla libreria IoTHubClient](iot-hub-device-sdk-c-iothubclient.md).
 
 Per informazioni su come usare le capacità di gestione dei dispositivi nell'**SDK per dispositivi Azure IoT per C**, vedere [Introduzione alla libreria client di Gestione dei dispositivi dell'hub IoT di Azure](iot-hub-device-management-library.md).
@@ -473,10 +458,10 @@ Per ulteriori informazioni sullo sviluppo dell'hub IoT, vedere gli [SDK dell'hub
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
-- [Progettare una soluzione][lnk-design]
-- [Esplorare la Gestione dei dispositivi dell'hub IoT di Azure usando l'interfaccia utente di esempio][lnk-dmui]
-- [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
-- [Utilizzo del portale di Azure per gestire l'hub IoT][lnk-portal]
+* [Progettare una soluzione][lnk-design]
+* [Esplorare la Gestione dei dispositivi dell'hub IoT di Azure usando l'interfaccia utente di esempio][lnk-dmui]
+* [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
+* [Utilizzo del portale di Azure per gestire l'hub IoT][lnk-portal]
 
 [lnk-file upload]: iot-hub-csharp-csharp-file-upload.md
 [lnk-create-hub]: iot-hub-rm-template-powershell.md

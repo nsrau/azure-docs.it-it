@@ -1,25 +1,23 @@
-<properties
-   pageTitle="Uso del connettore BizTalk JSON Encoder nelle app per la logica | Microsoft Azure App Service "
-   description="Come creare e configurare l'app per le API o il connettore BizTalk JSON Encoder e usarlo in un'app per la logica in Azure App Service"
-   services="logic-apps"
-   documentationCenter=".net,nodejs,java"
-   authors="rajeshramabathiran"
-   manager="erikre"
-   editor=""/>
+---
+title: Uso del connettore BizTalk JSON Encoder nelle app per la logica | Microsoft Docs
+description: Come creare e configurare l'app per le API o il connettore BizTalk JSON Encoder e usarlo in un'app per la logica in Azure App Service
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: rajeshramabathiran
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="04/20/2016"
-   ms.author="rajram"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 04/20/2016
+ms.author: rajram
 
-# Uso di BizTalk JSON Encoder e aggiunta all'app per la logica 
-
-[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
-
+---
+# Uso di BizTalk JSON Encoder e aggiunta all'app per la logica
+[!INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Il connettore di codifica e decodifica BizTalk JSON consente l'interoperabilità di app tra i dati JSON e XML. Può convertire una determinata istanza JSON in XML e viceversa.
 
@@ -32,34 +30,35 @@ Per usare BizTalk JSON Encoder, è innanzitutto necessario creare un'istanza del
 Seguire la procedura in [Creare un'app per la logica]. BizTalk JSON Encoder può essere usato come azione. Non include trigger.
 
 ### Azione
-- Fare clic su BizTalk JSON Encoder dal riquadro destro
+* Fare clic su BizTalk JSON Encoder dal riquadro destro
+  
+    ![Impostazioni di azione][3]
+* Fare clic su ->
+  
+    ![Elenco di azioni][4]
+* BizTalk JSON Encoder supporta due azioni. Selezionare *Xml to JSON*
+  
+    ![Input di Xml to JSON][5]
+* Fornire gli input per l'azione e configurarla.
+  
+    ![Configurazione di Encode & Send][6]
 
-	![Impostazioni di azione][3]
-- Fare clic su ->
-
-	![Elenco di azioni][4]
-- BizTalk JSON Encoder supporta due azioni. Selezionare *Xml to JSON*
-
-	![Input di Xml to JSON][5]
-- Fornire gli input per l'azione e configurarla.
-
-	![Configurazione di Encode & Send][6]
-
-Parametro|Tipo|Descrizione del parametro
----|---|---
-Input Xml|object|Contenuto XML di input
-Remove Outer Envelope|string|Flag impostato per rimuovere il nodo radice dal contenuto XML
+| Parametro | Tipo | Descrizione del parametro |
+| --- | --- | --- |
+| Input Xml |object |Contenuto XML di input |
+| Remove Outer Envelope |string |Flag impostato per rimuovere il nodo radice dal contenuto XML |
 
 L'azione restituisce una rappresentazione JSON del contenuto dell'input.
 
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> [!NOTE]
+> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> 
+> 
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
-
- 
 
 <!--References -->
 [1]: app-service-logic-connector-tpm

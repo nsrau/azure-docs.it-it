@@ -1,39 +1,35 @@
-<properties
-   pageTitle="Il database SQL di Azure apprende e si adatta"
-   description="Informazioni su come il database SQL di Azure apprende e si adatta"
-   keywords=""
-   services="sql-database"
-   documentationCenter=""
-   authors="CarlRabeler"
-   manager="jhubbard"
-   editor=""/>
+---
+title: Il database SQL di Azure apprende e si adatta
+description: Informazioni su come il database SQL di Azure apprende e si adatta
+keywords: ''
+services: sql-database
+documentationcenter: ''
+author: CarlRabeler
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="07/19/2016"
-   ms.author="carlrab"/>
+ms.service: sql-database
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-management
+ms.date: 07/19/2016
+ms.author: carlrab
 
+---
 # Il database SQL di Azure apprende e si adatta
-
-
 ## In che modo il database SQL di Azure apprende, si adatta e cresce di pari passo con l'applicazione
-
 Il database SQL di Azure gestisce miliardi di transazioni e milioni di database al giorno. Una delle sue caratteristiche principali, inoltre, risiede nella sua capacità di apprendere e adattarsi costantemente in parallelo all'app. Questo consente di ottimizzare in modo dinamico le prestazioni, l'affidabilità e la sicurezza dei dati, con il minimo sforzo da parte dell'utente.
 
 ![learn-and-adapt](./media/sql-database-learn-and-adapt/sql-database-learn-and-adapt.png)
 
-## Rilevamento delle minacce e avvisi  
+## Rilevamento delle minacce e avvisi
 Grazie al rilevamento di minacce e anomalie, il database SQL offre strumenti incorporati di analisi del comportamento, avvisi in tempo reale, un criterio configurabile per le minacce, un log di controllo e modi intelligenti per rilevare e correggere le anomalie.
 
 [Leggere la documentazione](sql-database-threat-detection-get-started.md)
 
 ## Ottimizzazione automatica
 Il database SQL offre il necessario per ottimizzare le prestazioni dell'app. Tutto questo grazie all'apprendimento costante degli schemi di attività dell'applicazione, all'ottimizzazione adattiva delle prestazioni e al perfezionamento automatico, senza alcun intervento da parte dell'utente.
-
 
 [Leggere la documentazione](http://go.microsoft.com/fwlink/?LinkID=787566)
 
@@ -50,13 +46,11 @@ Il database SQL offre l'amministrazione automatica e la protezione dei dati di c
 Passare alla home page per vedere cos'altro può offrire il database SQL. [Fare clic qui per provare](https://azure.microsoft.com/services/sql-database/)
 
 ## Passaggi successivi
-
 Creare una [sottoscrizione gratuita ad Azure](https://azure.microsoft.com/get-started/) e [il primo database SQL di Azure](sql-database-get-started.md).
 
 ## Risorse aggiuntive
-
 Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/services/sql-database/).
- 
+
 Consultare la [panoramica tecnica sul database SQL](sql-database-technical-overview.md).
 
 <!---HONumber=AcomDC_0803_2016-->

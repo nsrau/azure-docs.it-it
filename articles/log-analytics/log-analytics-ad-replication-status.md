@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Soluzione Stato replica di Active Directory in Log Analytics | Microsoft Azure"
-    description="Il pacchetto della soluzione Stato replica di Active Directory monitora a intervalli regolari l'ambiente Active Directory per rilevare eventuali errori di replica e segnala i risultati nel dashboard di OMS."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bandersmsft"
-    manager="jwhit"
-    editor=""/>
+---
+title: Soluzione Stato replica di Active Directory in Log Analytics | Microsoft Docs
+description: Il pacchetto della soluzione Stato replica di Active Directory monitora a intervalli regolari l'ambiente Active Directory per rilevare eventuali errori di replica e segnala i risultati nel dashboard di OMS.
+services: log-analytics
+documentationcenter: ''
+author: bandersmsft
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/10/2016"
-    ms.author="banders"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: banders
 
-
+---
 # <a name="active-directory-replication-status-solution-in-log-analytics"></a>Soluzione Stato replica di Active Directory in Log Analytics
-
 Active Directory è un componente chiave di un ambiente IT aziendale. Per garantire disponibilità e prestazioni elevate, ogni controller di dominio ha la propria copia del database di Active Directory. I controller di dominio si replicano tra loro per propagare le modifiche all'interno dell'azienda. Gli errori in questo processo di replica possono causare una serie di problemi all'interno dell'azienda.
 
 Il pacchetto della soluzione Stato replica di Active Directory monitora a intervalli regolari l'ambiente Active Directory per rilevare eventuali errori di replica e segnala i risultati nel dashboard di OMS.
@@ -26,31 +24,32 @@ Il pacchetto della soluzione Stato replica di Active Directory monitora a interv
 ## <a name="installing-and-configuring-the-solution"></a>Installazione e configurazione della soluzione
 Usare le informazioni seguenti per installare e configurare la soluzione.
 
-- Gli agenti devono essere installati nei controller di dominio membri del dominio da valutare o nei server membri configurati per inviare dati di replica di AD a OMS. Per informazioni su come connettere i computer Windows a OMS, vedere [Connettere computer Windows a Log Analytics](log-analytics-windows-agents.md). Se il controller di dominio fa già parte di un ambiente System Center Operations Manager esistente che si intende connettere a OMS, vedere [Connettere Operations Manager a Log Analytics](log-analytics-om-agents.md).
-- Aggiungere la soluzione Stato replica di Active Directory all'area di lavoro di OMS usando la procedura descritta in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).  Non è richiesta alcuna ulteriore configurazione.
-
+* Gli agenti devono essere installati nei controller di dominio membri del dominio da valutare o nei server membri configurati per inviare dati di replica di AD a OMS. Per informazioni su come connettere i computer Windows a OMS, vedere [Connettere computer Windows a Log Analytics](log-analytics-windows-agents.md). Se il controller di dominio fa già parte di un ambiente System Center Operations Manager esistente che si intende connettere a OMS, vedere [Connettere Operations Manager a Log Analytics](log-analytics-om-agents.md).
+* Aggiungere la soluzione Stato replica di Active Directory all'area di lavoro di OMS usando la procedura descritta in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).  Non è richiesta alcuna ulteriore configurazione.
 
 ## <a name="ad-replication-status-data-collection-details"></a>Dettagli sulla raccolta dati di Stato replica di Active Directory
-
 La tabella seguente descrive i metodi di raccolta dati e altri dettagli sul modo in cui vengono raccolti i dati per Stato replica di Active Directory.
 
 | piattaforma | Agente diretto | Agente SCOM | Archiviazione di Azure | SCOM obbligatorio? | Dati dell'agente SCOM inviati con il gruppo di gestione | frequenza della raccolta |
-|---|---|---|---|---|---|---|
-|Windows|![Sì](./media/log-analytics-ad-replication-status/oms-bullet-green.png)|![Sì](./media/log-analytics-ad-replication-status/oms-bullet-green.png)|![No](./media/log-analytics-ad-replication-status/oms-bullet-red.png)|![No](./media/log-analytics-ad-replication-status/oms-bullet-red.png)|![Sì](./media/log-analytics-ad-replication-status/oms-bullet-green.png)| ogni 5 giorni|
-
+| --- | --- | --- | --- | --- | --- | --- |
+| Windows |![Sì](./media/log-analytics-ad-replication-status/oms-bullet-green.png) |![Sì](./media/log-analytics-ad-replication-status/oms-bullet-green.png) |![No](./media/log-analytics-ad-replication-status/oms-bullet-red.png) |![No](./media/log-analytics-ad-replication-status/oms-bullet-red.png) |![Sì](./media/log-analytics-ad-replication-status/oms-bullet-green.png) |ogni 5 giorni |
 
 ## <a name="optionally,-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>Abilitare un controller non di dominio per l'invio di dati di Active Directory a OMS (facoltativo)
 Se non si intende connettere i controller di dominio direttamente a OMS è possibile usare qualsiasi altro computer connesso a OMS nel dominio per raccogliere i dati per il pacchetto della soluzione Stato replica di Active Directory e abilitarlo per l'invio dei dati.
 
 ### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>Per abilitare un controller non di dominio per l'invio di dati di Active Directory a OMS
-1.  Verificare che il computer sia membro del dominio da monitorare con la soluzione Stato replica di Active Directory.
-2.  [Connettere il computer Windows a OMS](log-analytics-windows-agents.md) oppure [connetterlo usando l'ambiente Operations Manager esistente](log-analytics-om-agents.md), se non è già connesso.
-3.  Nel computer impostare la chiave del Registro di sistema seguente:
-    - Chiave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
-    - Valore: **IsTarge**
-    - Dati valore: **true**
-
-    >[AZURE.NOTE]Queste modifiche non saranno effettive fino al riavvio del servizio Microsoft Monitoring Agent (HealthService.exe).
+1. Verificare che il computer sia membro del dominio da monitorare con la soluzione Stato replica di Active Directory.
+2. [Connettere il computer Windows a OMS](log-analytics-windows-agents.md) oppure [connetterlo usando l'ambiente Operations Manager esistente](log-analytics-om-agents.md), se non è già connesso.
+3. Nel computer impostare la chiave del Registro di sistema seguente:
+   
+   * Chiave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
+   * Valore: **IsTarge**
+   * Dati valore: **true**
+   
+   > [!NOTE]
+   > Queste modifiche non saranno effettive fino al riavvio del servizio Microsoft Monitoring Agent (HealthService.exe).
+   > 
+   > 
 
 ## <a name="understanding-replication-errors"></a>Informazioni sugli errori di replica
 Dopo l'invio dei dati dello stato replica di Active Directory a OMS, nel dashboard OMS verrà visualizzato un riquadro simile al seguente, con il numero di errori di replica attuale.  
@@ -60,7 +59,6 @@ Dopo l'invio dei dati dello stato replica di Active Directory a OMS, nel dashboa
 
 Facendo clic sul riquadro verranno visualizzate altre informazioni sugli errori.
 ![Dashboard Stato replica di Active Directory](./media/log-analytics-ad-replication-status/oms-ad-replication-dash.png)
-
 
 ### <a name="destination-server-status-and-source-server-status"></a>Stato del server di destinazione e stato del server di origine
 Questi pannelli indicano lo stato dei server di destinazione e dei server di origine in cui si verificano errori di replica. Il numero accanto al nome di ogni controller di dominio indica il numero di errori di replica presenti.
@@ -93,7 +91,10 @@ Si tratta di errori chiaramente residui, non temporanei, quindi è probabilmente
 
 Come accennato in precedenza, il riquadro del dashboard per la soluzione Stato replica di Active Directory indica il numero di errori di replica *critici* presenti nell'ambiente, ovvero gli errori oltre il 75% della durata di rimozione definitiva, compresi gli errori oltre il 100% della durata di rimozione definitiva. Cercare di mantenere questo numero a 0.
 
->[AZURE.NOTE] Tutti i calcoli della percentuale della durata di rimozione definitiva si basano sulla durata di rimozione definitiva effettiva per la foresta di Active Directory in uso, quindi tali percentuali sono accurate anche se è impostato un valore di durata di rimozione definitiva personalizzato.
+> [!NOTE]
+> Tutti i calcoli della percentuale della durata di rimozione definitiva si basano sulla durata di rimozione definitiva effettiva per la foresta di Active Directory in uso, quindi tali percentuali sono accurate anche se è impostato un valore di durata di rimozione definitiva personalizzato.
+> 
+> 
 
 ### <a name="ad-replication-status-details"></a>Dettagli di Stato replica di Active Directory
 Quando si fa clic su un elemento in uno degli elenchi, sarà possibile accedere ad altre informazioni usando la ricerca nei log. I risultati vengono filtrati per indicare solo gli errori correlati all'elemento. Se ad esempio si fa clic sul primo controller di dominio elencato in **Stato server di destinazione (ADDC02)**, i risultati della ricerca verranno filtrati per indicare gli errori con quel controller di dominio elencato come server di destinazione:
@@ -143,12 +144,8 @@ Se occorre assistenza per la connessione di uno dei controller di dominio è pos
 
 Se non si intende connettere i controller di dominio direttamente a OMS o SCOM, vedere [Per abilitare un controller non di dominio per l'invio di dati di Active Directory a OMS](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
-
 ## <a name="next-steps"></a>Passaggi successivi
-
-- Usare le [ricerche nei log in Log Analytics](log-analytics-log-searches.md) per visualizzare dati dettagliati dello stato di replica di Active Directory.
-
-
+* Usare le [ricerche nei log in Log Analytics](log-analytics-log-searches.md) per visualizzare dati dettagliati dello stato di replica di Active Directory.
 
 <!--HONumber=Oct16_HO2-->
 

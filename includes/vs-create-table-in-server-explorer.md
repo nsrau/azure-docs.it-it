@@ -7,9 +7,6 @@
 3. Selezionare il nodo **Tabelle** e scegliere**Crea tabella** dal menu di scelta rapida.
 4. Immettere un nome per la tabella e scegliere **OK**.   
 
-
-
-
 [Image1]: ./media/vs-storage-getting-started-tables-include/vs-storage-create-tables-in-Server-Explorer.png
 
 <!---HONumber=Oct15_HO3-->

@@ -2,7 +2,6 @@ Il log di attività contiene tutte le operazioni di scrittura (PUT, POST, DELETE
 
 I registri attività vengono conservati per 90 giorni. È possibile eseguire query per qualsiasi intervallo di date, purché la data di inizio non risalga a più di 90 giorni prima.
 
-
 <!--HONumber=Oct16_HO2-->
 
 

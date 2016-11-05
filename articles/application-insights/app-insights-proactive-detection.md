@@ -1,47 +1,40 @@
-<properties 
-	pageTitle="Rilevamento proattivo in Application Insights | Microsoft Azure" 
-	description="Application Insights esegue automaticamente un'analisi approfondita dei dati di telemetria dell'app e segnala potenziali problemi." 
-	services="application-insights" 
-    documentationCenter="windows"
-	authors="rakefetj" 
-	manager="douge"/>
+---
+title: Rilevamento proattivo in Application Insights | Microsoft Docs
+description: Application Insights esegue automaticamente un'analisi approfondita dei dati di telemetria dell'app e segnala potenziali problemi.
+services: application-insights
+documentationcenter: windows
+author: rakefetj
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/15/2016" 
-	ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: awills
 
-#  Rilevamento proattivo in Application Insights
-
+---
+# Rilevamento proattivo in Application Insights
  Il rilevamento proattivo segnala automaticamente i potenziali problemi di prestazioni nell'applicazione Web. Esegue l'analisi intelligente dei dati di telemetria che l'applicazione invia a [Visual Studio Application Insights](app-insights-overview.md). Se si verifica un improvviso aumento della percentuale di errori o in caso di modelli anomali delle prestazioni di client o server, viene generato un avviso. Questa funzionalità non richiede alcuna configurazione. Funziona se l'applicazione invia dati di telemetria sufficienti.
 
 È possibile accedere gli avvisi della funzionalità Rilevamento proattivo dai messaggi di posta elettronica ricevuti e dal pannello Rilevamento proattivo.
 
-
-
 ## Esaminare i rilevamenti proattivi
-
 È possibile individuare i rilevamenti in due modi:
 
 * **Viene visualizzato un messaggio di posta elettronica** da Application Insights. Ecco un esempio tipico:
-
+  
     ![Avviso di posta elettronica](./media/app-insights-proactive-detection/03.png)
-
+  
     Fare clic sul pulsante grande per visualizzare altri dettagli nel portale.
-
 * Il **riquadro Rilevamento proattivo** nel pannello della panoramica dell'app visualizza il numero di avvisi recenti. Fare clic sul riquadro per visualizzare un elenco degli avvisi recenti.
 
 ![Visualizzare rilevamenti recenti](./media/app-insights-proactive-detection/04.png)
 
 Selezionare un avviso per visualizzarne i dettagli.
 
-
 ## Tipi di problemi rilevati
-
 Esistono tre tipologie di rilevamento:
 
 * [Avvisi di errore quasi in tempo reale](app-insights-proactive-failure-diagnostics.md). Si usa Machine Learning per impostare la frequenza prevista delle richieste non riuscite per l'app, in correlazione con il carico e altri fattori. Se la percentuale di errori supera la prevista, viene inviato un avviso.
@@ -50,9 +43,7 @@ Esistono tre tipologie di rilevamento:
 
 I collegamenti della Guida in ogni notifica consentono di vedere gli articoli pertinenti.
 
-
 ## Passaggi successivi
-
 Gli strumenti di diagnostica seguenti consentono di controllare la telemetria dall'app:
 
 * [Esplora metriche](app-insights-metrics-explorer.md)

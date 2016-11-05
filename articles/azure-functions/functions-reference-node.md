@@ -1,36 +1,36 @@
-<properties
-	pageTitle="Guida di riferimento per gli sviluppatori NodeJS di Funzioni di Azure | Microsoft Azure"
-	description="Informazioni su come sviluppare Funzioni di Azure in NodeJS."
-	services="functions"
-	documentationCenter="na"
-	authors="christopheranderson"
-	manager="erikre"
-	editor=""
-	tags=""
-	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server"/> 
+---
+title: Guida di riferimento per gli sviluppatori NodeJS di Funzioni di Azure | Microsoft Docs
+description: Informazioni su come sviluppare Funzioni di Azure in NodeJS.
+services: functions
+documentationcenter: na
+author: christopheranderson
+manager: erikre
+editor: ''
+tags: ''
+keywords: Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server
 
-<tags
-	ms.service="functions"
-	ms.devlang="nodejs"
-	ms.topic="reference"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="05/13/2016"
-	ms.author="chrande"/>
+ms.service: functions
+ms.devlang: nodejs
+ms.topic: reference
+ms.tgt_pltfrm: multiple
+ms.workload: na
+ms.date: 05/13/2016
+ms.author: chrande
 
+---
 # Guida di riferimento per gli sviluppatori NodeJS di Funzioni di Azure
-
-> [AZURE.SELECTOR]
-- [Script C#](../articles/azure-functions/functions-reference-csharp.md)
-- [Script F#](../articles/azure-functions/functions-reference-fsharp.md)
-- [Node.JS](../articles/azure-functions/functions-reference-node.md)
+> [!div class="op_single_selector"]
+> * [Script C#](functions-reference-csharp.md)
+> * [Script F#](functions-reference-fsharp.md)
+> * [Node.JS](functions-reference-node.md)
+> 
+> 
 
 L'esperienza Node/JavaScript per Funzioni di Azure semplifica l'esportazione di una funzione a cui viene passato un oggetto `context` per la comunicazione con il runtime e per la ricezione e l'invio di dati tramite associazioni.
 
 Questo articolo presuppone che l'utente abbia già letto [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md).
 
 ## Esportazione di una funzione
-
 Tutte le funzioni JavaScript devono esportare una singola `function` tramite `module.exports` per consentire al runtime di trovare la funzione ed eseguirla. Questa funzione deve sempre includere un oggetto `context`.
 
 ```javascript
@@ -54,7 +54,6 @@ Gli argomenti vengono sempre passati insieme alla funzione nell'ordine in cui so
 Anche tutte le associazioni, indipendentemente dalla direzione, vengono passate sull'oggetto `context` (vedere di seguito).
 
 ## Oggetto context
-
 Il runtime usa un oggetto `context` per passare dati dalla e alla funzione e consentire la comunicazione con il runtime.
 
 L'oggetto context è sempre il primo parametro di una funzione e deve sempre essere incluso, perché contiene i metodi, ad esempio `context.done` e `context.log`, necessari per usare correttamente il runtime. È possibile assegnare all'oggetto un nome qualsiasi, ad esempio `ctx` o `c`.
@@ -67,7 +66,6 @@ module.exports = function(context) {
 ```
 
 ## context.bindings
-
 L'oggetto `context.bindings` raccoglie tutti i dati di input e output. I dati vengono aggiunti all'oggetto `context.bindings` tramite la proprietà `name` dell'associazione. Data la seguente definizione di associazione in *function.json*, è ad esempio possibile accedere al contenuto della coda tramite `context.bindings.myInput`.
 
 ```json
@@ -88,8 +86,7 @@ context.bindings.myOutput = {
         a_number: 1 };
 ```
 
-## `context.done([err],[propertyBag])` 
-
+## `context.done([err],[propertyBag])`
 La funzione `context.done` comunica al runtime che l'esecuzione è stata completata. È importante eseguire questa chiamata una volta completata la funzione. In caso contrario, il runtime non saprà mai che la funzione è stata completata.
 
 La funzione `context.done` consente di passare di nuovo al runtime un errore definito dall'utente, nonché un contenitore delle proprietà con proprietà che sovrascriveranno quelle nell'oggetto `context.bindings`.
@@ -105,7 +102,6 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 ```
 
 ## context.log(messaggio)
-
 Il metodo `context.log` consente di generare istruzioni log correlate tra loro a scopo di registrazione. Se si usa `console.log`, i messaggi saranno visualizzati solo per la registrazione a livello di processo, che non è particolarmente utile.
 
 ```javascript
@@ -129,7 +125,6 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
 ## Trigger HTTP: context.req e context.res
-
 Nel caso di trigger HTTP, essendo un modello molto comune l'uso di `req` e `res` per gli oggetti di richiesta e risposta HTTP, si è deciso di semplificare l'accesso a quelli contenuti nell'oggetto context, invece di dover usare il modello `context.bindings.name` completo.
 
 ```javascript
@@ -140,7 +135,6 @@ context.res = { status: 202, body: 'You successfully ordered more coffee!' };
 ```
 
 ## Versione di Node e gestione dei pacchetti
-
 La versione di Node è attualmente bloccata alla `5.9.1`. Si sta analizzando la possibilità di aggiungere il supporto per altre versioni e renderle configurabili.
 
 È possibile includere pacchetti nella funzione caricando un file *package.json* nella cartella della funzione nel file system dell'app per le funzioni. Per istruzioni sul caricamento di file, vedere la sezione **Come aggiornare i file dell'app per le funzioni** dell'argomento [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md#fileupdate).
@@ -148,11 +142,8 @@ La versione di Node è attualmente bloccata alla `5.9.1`. Si sta analizzando la 
 È anche possibile usare `npm install` nell'interfaccia della riga di comando SCM (Kudu) dell'app per le funzioni:
 
 1. Accedere a `https://<function_app_name>.scm.azurewebsites.net`.
-
 2. Fare clic su **Debug Console (Console di debug) > CMD**.
-
 3. Accedere a `D:\home\site\wwwroot<function_name>`.
-
 4. Eseguire `npm install`.
 
 Una volta che i pacchetti necessari sono installati è possibile importarli nella funzione con i metodi normali, ad esempio con `require('packagename')`
@@ -169,17 +160,16 @@ module.exports = function(context) {
 ```
 
 ## Variabili di ambiente
-
 Per ottenere una variabile di ambiente o un valore di impostazione dell'app, usare `process.env` come illustrato nell'esempio di codice seguente:
 
 ```javascript
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
-    
+
     context.log('Node.js timer trigger function ran!', timeStamp);   
     context.log(GetEnvironmentVariable("AzureWebJobsStorage"));
     context.log(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
-    
+
     context.done();
 };
 
@@ -190,11 +180,9 @@ function GetEnvironmentVariable(name)
 ```
 
 ## Supporto di TypeScript/CoffeeScript
-
 Non è ancora disponibile il supporto diretto per la compilazione automatica di TypeScript/CoffeeScript tramite il runtime, quindi queste operazioni devono essere tutte gestite all'esterno del runtime al momento della distribuzione.
 
 ## Passaggi successivi
-
 Per altre informazioni, vedere le seguenti risorse:
 
 * [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)

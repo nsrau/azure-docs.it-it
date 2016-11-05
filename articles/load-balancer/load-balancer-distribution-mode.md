@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Configurare la modalità di distribuzione del bilanciamento del carico | Microsoft Azure"
-   description="Come configurare la modalità di distribuzione del bilanciamento del carico di Azure per supportare l'affinità IP di origine"
-   services="load-balancer"
-   documentationCenter="na"
-   authors="sdwheeler"
-   manager="carmonm"
-   editor="tysonn" />
-<tags
-   ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="04/05/2016"
-   ms.author="sewhee" />
+---
+title: Configurare la modalità di distribuzione del bilanciamento del carico | Microsoft Docs
+description: Come configurare la modalità di distribuzione del bilanciamento del carico di Azure per supportare l'affinità IP di origine
+services: load-balancer
+documentationcenter: na
+author: sdwheeler
+manager: carmonm
+editor: tysonn
 
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 04/05/2016
+ms.author: sewhee
 
+---
 # Modalità di distribuzione del servizio di bilanciamento del carico (affinità IP di origine)
-
 ## Modalità di affinità IP di origine
 È stata introdotta una nuova modalità di distribuzione definita affinità IP di origine (anche nota come affinità di sessione o affinità del client IP). Il bilanciamento del carico di Azure può essere configurato in modo che usi 2 tuple (IP di origine, IP di destinazione) o 3 tuple (IP di origine, IP di destinazione, protocollo) per eseguire il mapping del traffico ai server disponibili. Usando l'affinità IP di origine, le connessioni avviate dallo stesso computer client passano allo stesso endpoint DIP.
 
@@ -25,28 +24,27 @@
 
 L'affinità IP di origine risolve un'incompatibilità tra il Gateway Desktop remoto e il servizio di bilanciamento del carico di Azure. Ora è possibile creare una farm di gateway Desktop remoto in un singolo servizio cloud. Un altro scenario d'uso è il caricamento di contenuti multimediali dove il caricamento dei dati reali avviene tramite UDP, ma il piano di controllo viene raggiunto tramite TCP:
 
-- Prima un client avvia una sessione TCP all'indirizzo pubblico con carico bilanciato e viene diretto a un DIP specifico. Questo canale viene lasciato attivo per monitorare lo stato della connessione
-- Viene avviata una nuova sessione UDP dallo stesso computer client allo stesso endpoint pubblico con carico bilanciato. Qui ci si aspetta che anche questa connessione venga indirizzata allo stesso endpoint DIP della precedente connessione TCP in modo che il caricamento di contenuti multimediali possa essere eseguito a una velocità effettiva elevata, mantenendo allo stesso tempo un canale di controllo tramite TCP.
+* Prima un client avvia una sessione TCP all'indirizzo pubblico con carico bilanciato e viene diretto a un DIP specifico. Questo canale viene lasciato attivo per monitorare lo stato della connessione
+* Viene avviata una nuova sessione UDP dallo stesso computer client allo stesso endpoint pubblico con carico bilanciato. Qui ci si aspetta che anche questa connessione venga indirizzata allo stesso endpoint DIP della precedente connessione TCP in modo che il caricamento di contenuti multimediali possa essere eseguito a una velocità effettiva elevata, mantenendo allo stesso tempo un canale di controllo tramite TCP.
 
 Si noti che, se il set con carico bilanciato viene modificato (rimozione o aggiunta di una macchina virtuale), la distribuzione delle richieste client viene ricalcolata. Non è possibile dipendere da nuove connessioni da sessioni client esistenti che terminano nello stesso server. Inoltre, l'uso della modalità di distribuzione dell'affinità IP di origine può comportare una distribuzione diversa del traffico. I client in esecuzione dietro i proxy possono essere visto come una applicazione client univoca.
 
 ## Modalità di distribuzione basata su hash
-
 L'algoritmo di distribuzione usato è un hash a 5 tuple (IP di origine, porta di origine, IP di destinazione, porta di destinazione, tipo di protocollo) per eseguire il mapping del traffico ai server disponibili. La persistenza viene mantenuta solo all'interno di una sessione di trasporto. I pacchetti nella stessa sessione TCP o UDP verranno indirizzati alla stessa istanza di IP di data center (DIP) nell'endpoint con carico bilanciato. Quando il client chiude e riapre la connessione o avvia una nuova sessione dallo stesso IP di origine, la porta di origine cambia e il traffico quindi viene indirizzato a un endpoint DIP diverso.
 
 ![bilanciamento del carico basato su hash](./media/load-balancer-distribution-mode/load-balancer-distribution.png)
 
-
 ## Configurazione delle impostazioni di affinità IP di origine per il bilanciamento del carico
-
 Per le macchine virtuali, è possibile usare PowerShell per modificare le impostazioni di timeout:
 
 Aggiungere un endpoint di Azure a una macchina virtuale e impostare la modalità di distribuzione del servizio di bilanciamento del carico
 
     Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 
->[AZURE.NOTE] LoadBalancerDistribution può essere impostato su sourceIP per il bilanciamento del carico a 2 tuple (IP di origine, IP di destinazione), su sourceIPProtocol per il bilanciamento del carico a 3 tuple (IP di origine, IP di destinazione, protocollo) o su Nessuno per il comportamento predefinito con bilanciamento del carico a 5 tuple
-
+> [!NOTE]
+> LoadBalancerDistribution può essere impostato su sourceIP per il bilanciamento del carico a 2 tuple (IP di origine, IP di destinazione), su sourceIPProtocol per il bilanciamento del carico a 3 tuple (IP di origine, IP di destinazione, protocollo) o su Nessuno per il comportamento predefinito con bilanciamento del carico a 5 tuple
+> 
+> 
 
 Recuperare una configurazione di modalità di distribuzione del bilanciamento del carico con endpoint
 
@@ -72,15 +70,12 @@ Recuperare una configurazione di modalità di distribuzione del bilanciamento de
 
 Se l'elemento LoadBalancerDistribution non viene specificato, il bilanciamento del carico di Azure utilizza l'algoritmo di 5 tuple predefinito
 
-
 ### Impostare la modalità di distribuzione su un set di endpoint con carico bilanciato
-
 Se gli endpoint fanno parte di un set di endpoint con carico bilanciato, è necessario impostare la modalità di distribuzione sul set di endpoint con carico bilanciato:
 
     Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocol TCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
 
 ### Configurazione del servizio cloud per modificare la modalità di distribuzione
-
 È possibile sfruttare Azure SDK per .NET 2.5 (che verrà rilasciato a novembre) per aggiornare le impostazioni degli endpoint di servizio cloud nel file .csdef. Per aggiornare la modalità di distribuzione del servizio di bilanciamento del carico per una distribuzione di servizi cloud, è necessario un aggiornamento della distribuzione. Di seguito è riportato un esempio di modifiche del file con estensione csdef alle impostazioni degli endpoint:
 
     <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
@@ -101,7 +96,6 @@ Se gli endpoint fanno parte di un set di endpoint con carico bilanciato, è nece
 
 
 ## Esempio di API
-
 È possibile configurare la distribuzione del servizio di bilanciamento del carico tramite l'API di gestione dei servizi. Assicurarsi di aggiungere l'intestazione `x-ms-version` impostata sulla versione `2014-09-01` o successiva.
 
 Aggiornare la configurazione del set con carico bilanciato specificato in una distribuzione
@@ -145,7 +139,6 @@ Il valore di LoadBalancerDistribution può essere sourceIP per l'affinità a 2 t
     Date: Thu, 16 Oct 2014 22:49:21 GMT
 
 ## Passaggi successivi
-
 [Panoramica del bilanciamento del carico interno](load-balancer-internal-overview.md)
 
 [Introduzione alla configurazione del bilanciamento del carico Internet](load-balancer-get-started-internet-arm-ps.md)

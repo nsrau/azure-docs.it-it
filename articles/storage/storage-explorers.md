@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Strumenti client di Archiviazione di Azure | Microsoft Azure"
-    description="Elenco di strumenti che consentono di visualizzare o interagire con i dati di Archiviazione di Azure."
-    services="storage"
-    documentationCenter=""
-    authors="micurd"
-    manager="jahogg"
-    editor="tysonn"/>
+---
+title: Strumenti client di Archiviazione di Azure | Microsoft Docs
+description: Elenco di strumenti che consentono di visualizzare o interagire con i dati di Archiviazione di Azure.
+services: storage
+documentationcenter: ''
+author: micurd
+manager: jahogg
+editor: tysonn
 
-<tags
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/18/2016"
-    ms.author="micurd"/>
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/18/2016
+ms.author: micurd
 
-
+---
 # <a name="azure-storage-client-tools"></a>Strumento client di Archiviazione di Azure
-
 Gli utenti dell'Archiviazione di Azure possono visualizzare o interagire con i propri dati utilizzando lo strumento client di Archiviazione di Azure. Nelle tabelle seguenti sono elencati numerosi strumenti che consentono di eseguire questa operazione. Con una "X" in ogni blocco viene indicata la possibilità di enumerare e/o accedere all'astrazione dei dati. Viene inoltre specificato se lo strumento è gratuito o meno. "Prova" indica che esiste una versione di valutazione gratuita, ma il prodotto completo non è gratuito. "S/N" indica che è disponibile una versione gratuita, mentre è possibile acquistare una versione diversa.
 
 Si tratta unicamente di un riepilogo degli strumenti client di Archiviazione di Azure disponibili. Le funzionalità degli strumenti possono continuare a migliorare e aumentare. Per eventuali correzioni o aggiornamenti, è possibile lasciare un commento. Per suggerire l'aggiunta di altri strumenti simili, lasciare un commento.

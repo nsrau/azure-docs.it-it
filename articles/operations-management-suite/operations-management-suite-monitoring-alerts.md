@@ -1,23 +1,22 @@
-<properties 
-   pageTitle="Gestione degli avvisi nei prodotti di monitoraggio Microsoft | Microsoft Azure"
-   description="Un avviso indica un problema che richiede attenzione da parte di un amministratore.  In questo articolo vengono descritte le differenze nella modalità di creazione e gestione degli avvisi in System Center Operations Manager (SCOM) e Log Analytics. Inoltre, vengono suggerite le procedure consigliate per usufruire al meglio dei due prodotti, per una strategia di gestione degli avvisi ibrida." 
-   services="operations-management-suite"
-   documentationCenter=""
-   authors="bwren"
-   manager="jwhit"
-   editor="tysonn" />
-<tags 
-   ms.service="operations-management-suite"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/06/2016"
-   ms.author="bwren" />
+---
+title: Gestione degli avvisi nei prodotti di monitoraggio Microsoft | Microsoft Docs
+description: Un avviso indica un problema che richiede attenzione da parte di un amministratore.  In questo articolo vengono descritte le differenze nella modalità di creazione e gestione degli avvisi in System Center Operations Manager (SCOM) e Log Analytics. Inoltre, vengono suggerite le procedure consigliate per usufruire al meglio dei due prodotti, per una strategia di gestione degli avvisi ibrida.
+services: operations-management-suite
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: tysonn
 
+ms.service: operations-management-suite
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 09/06/2016
+ms.author: bwren
 
-# <a name="managing-alerts-with-microsoft-monitoring"></a>Gestione degli avvisi di monitoraggio Microsoft 
-
+---
+# <a name="managing-alerts-with-microsoft-monitoring"></a>Gestione degli avvisi di monitoraggio Microsoft
 Un avviso indica un problema che richiede attenzione da parte di un amministratore.  Esistono delle differenze ben distinte tra System Center Operations Manager (SCOM) e Log Analytics in Operations Management Suite (OMS) in termini della modalità di creazione, gestione e analisi degli avvisi, ma anche per quanto riguarda la modalità di notifica in caso di rilevamento di un problema critico.
 
 ## <a name="alerts-in-operations-manager"></a>Avvisi in Operations Manager
@@ -59,7 +58,7 @@ Tuttavia, non è possibile gestire completamente gli avvisi SCOM in Log Analytic
 
 ## <a name="alert-remediation"></a>Correzione tramite avvisi
 [correzione](http://technet.microsoft.com/library/mt614775.aspx) si riferisce a un tentativo di correggere automaticamente il problema identificato da un avviso.
-  
+
 SCOM consente di eseguire diagnostica e ripristini in risposta a uno stato non integro riscontrato dal monitoraggio.  Ciò accade simultaneamente al monitoraggio che crea l'avviso.  Diagnostica e ripristini, in genere, vengono implementati come uno script eseguito sull'agente.  La diagnostica tenta di raccogliere ulteriori informazioni sul problema rilevato, mentre il ripristino tenta di risolvere il problema.
 
 Log Analytics consente di avviare un [runbook di automazione di Azure](https://azure.microsoft.com/documentation/services/automation/) o di chiamare un webhook in risposta a un avviso di Log Analytics.  I runbook possono includere logica complessa implementata in PowerShell.  Lo script viene eseguito in Azure e può accedere a qualsiasi risorsa di Azure o a risorse esterne disponibili nel cloud.  Automazione di Azure ha la possibilità di eseguire i runbook in un server nel data center locale, ma questa funzionalità non è attualmente disponibile quando si avvia il runbook in risposta agli avvisi di Log Analytics.
@@ -69,9 +68,7 @@ Sia i ripristini in SCOM sia i runbook in OMS possono contenere gli script di Po
 Se si utilizza SCOM come un'origine dati per Log Analytics, è possibile creare un avviso Log Analytics tramite una query di log per recuperare gli avvisi SCOM archiviati nel repository OMS.  Questo consente di eseguire un runbook di Automazione di Azure in risposta a un avviso SCOM.  Naturalmente, poiché il runbook viene eseguito in Azure, questa non è una strategia attuabile in caso di ripristini di problemi a livello locale.
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-- Informazioni dettagliate sugli [avvisi in System Center Operations Manager (SCOM)](https://technet.microsoft.com/library/hh212913.aspx).
-
+* Informazioni dettagliate sugli [avvisi in System Center Operations Manager (SCOM)](https://technet.microsoft.com/library/hh212913.aspx).
 
 <!--HONumber=Oct16_HO2-->
 

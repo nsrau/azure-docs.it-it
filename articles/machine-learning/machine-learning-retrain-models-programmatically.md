@@ -1,64 +1,58 @@
-<properties
-    pageTitle="Ripetere il training dei modelli di Machine Learning a livello di codice | Microsoft Azure"
-    description="Informazioni su come ripetere il training di un modello a livello di codice e aggiornare il servizio Web per l'uso del modello appena sottoposto a training in Azure Machine Learning."
-    services="machine-learning"
-    documentationCenter=""
-    authors="raymondlaghaeian"
-    manager="jhubbard"
-    editor="cgronlun"/>
+---
+title: Ripetere il training dei modelli di Machine Learning a livello di codice | Microsoft Docs
+description: Informazioni su come ripetere il training di un modello a livello di codice e aggiornare il servizio Web per l'uso del modello appena sottoposto a training in Azure Machine Learning.
+services: machine-learning
+documentationcenter: ''
+author: raymondlaghaeian
+manager: jhubbard
+editor: cgronlun
 
-<tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/10/2016"
-    ms.author="raymondl;garye;v-donglo"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: raymondl;garye;v-donglo
 
-
-
-# <a name="retrain-machine-learning-models-programmatically"></a>Ripetere il training dei modelli di Machine Learning a livello di codice  
-
+---
+# <a name="retrain-machine-learning-models-programmatically"></a>Ripetere il training dei modelli di Machine Learning a livello di codice
 Questa procedura dettagliata descrive come ripetere il training di un servizio Web di Azure Machine Learning a livello di codice usando C# e il servizio Esecuzione batch di Machine Learning.
 
 Dopo aver ripetuto il training del modello, le procedure dettagliate seguenti descrivono come aggiornare il modello nel servizio Web predittivo:
 
-- Se è stato distribuito un servizio Web classico nel portale dei servizi Web di Machine Learning, vedere [Ripetere il training di un servizio Web classico](machine-learning-retrain-a-classic-web-service.md). 
-- Se è stato distribuito un nuovo servizio Web, vedere [Ripetere il training di un nuovo servizio Web usando i cmdlet di gestione di PowerShell per Machine Learning](machine-learning-retrain-new-web-service-using-powershell.md).
+* Se è stato distribuito un servizio Web classico nel portale dei servizi Web di Machine Learning, vedere [Ripetere il training di un servizio Web classico](machine-learning-retrain-a-classic-web-service.md). 
+* Se è stato distribuito un nuovo servizio Web, vedere [Ripetere il training di un nuovo servizio Web usando i cmdlet di gestione di PowerShell per Machine Learning](machine-learning-retrain-new-web-service-using-powershell.md).
 
 Per una panoramica del processo di ripetizione del training, vedere [Ripetere il training di un modello di Machine Learning](machine-learning-retrain-machine-learning-model.md).
 
 Se si vuole iniziare con il servizio Web esistente basato sul nuovo Azure Resource Manager, vedere [Ripetere il training di un servizio Web predittivo esistente](machine-learning-retrain-existing-resource-manager-based-web-service.md).
 
 ## <a name="create-a-training-experiment"></a>Creare un esperimento di training
- 
 Per questo esempio, si userà "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" che fa parte degli esempi di Microsoft Azure Machine Learning. 
-    
+
 Per creare l'esperimento:
 
-1.  Accedere a Microsoft Azure Machine Learning Studio. 
-2.  Nell'angolo in basso a destra del dashboard fare clic su **New**(Nuovo).
-3.  Tra gli esempi di Microsoft selezionare l'esempio 5.
-4.  Per rinominare l'esperimento, nella parte superiore dell'area di disegno dell'esperimento selezionare il nome dell'esperimento "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset".
-5.  Digitare Census Model.
-6.  Fare clic su **Run**(Esegui) nella parte inferiore dell'area di disegno dell'esperimento.
-7.  Fare clic su **Set Up Web service** (Configura servizio Web) e selezionare **Retraining Web service** (Servizio Web di ripetizione del training). 
-
-    ![Esperimento iniziale.][2]
+1. Accedere a Microsoft Azure Machine Learning Studio. 
+2. Nell'angolo in basso a destra del dashboard fare clic su **New**(Nuovo).
+3. Tra gli esempi di Microsoft selezionare l'esempio 5.
+4. Per rinominare l'esperimento, nella parte superiore dell'area di disegno dell'esperimento selezionare il nome dell'esperimento "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset".
+5. Digitare Census Model.
+6. Fare clic su **Run**(Esegui) nella parte inferiore dell'area di disegno dell'esperimento.
+7. Fare clic su **Set Up Web service** (Configura servizio Web) e selezionare **Retraining Web service** (Servizio Web di ripetizione del training). 
+   
+   ![Esperimento iniziale.][2]
 
 Diagramma 2: esperimento iniziale.
 
-## <a name="create-a-predictive-experiment-and-publish-as-a-web-service"></a>Creare un esperimento predittivo e pubblicarlo come servizio Web  
-
+## <a name="create-a-predictive-experiment-and-publish-as-a-web-service"></a>Creare un esperimento predittivo e pubblicarlo come servizio Web
 Ora viene creato un esperimento predicativo.
 
-1.  Nella parte inferiore dell'area di disegno dell'esperimento fare clic su **Set Up Web Service** (Configura servizio Web) e selezionare **Predictive Web Service** (Servizio Web predittivo). In questo modo, il modello verrà salvato come modello con training e verranno aggiunti i moduli di input e output del servizio Web. 
-2.  Fare clic su **Run**. 
-3.  Al termine dell'esecuzione dell'esperimento, fare clic su **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]) o **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]).
+1. Nella parte inferiore dell'area di disegno dell'esperimento fare clic su **Set Up Web Service** (Configura servizio Web) e selezionare **Predictive Web Service** (Servizio Web predittivo). In questo modo, il modello verrà salvato come modello con training e verranno aggiunti i moduli di input e output del servizio Web. 
+2. Fare clic su **Run**. 
+3. Al termine dell'esecuzione dell'esperimento, fare clic su **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]) o **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]).
 
 ## <a name="deploy-the-training-experiment-as-a-training-web-service"></a>Distribuire l'esperimento di training come servizio Web di training
-
 Per ripetere il training del modello con training, è necessario distribuire l'esperimento di training creato come servizio Web di ripetizione del training. Per poter produrre nuovi modelli con training, questo servizio Web necessita di un modulo *Web Service Output* (Output servizio Web) connesso al modulo *[Train Model][train-model]* (Modello di training).
 
 1. Per tornare all'esperimento di training, fare clic sull'icona Experiments (Esperimenti) nel riquadro sinistro e quindi sull'esperimento denominato Census Model.  
@@ -68,7 +62,7 @@ Per ripetere il training del modello con training, è necessario distribuire l'e
 5. Fare clic su **Run**. 
 
 Sarà quindi necessario distribuire l'esperimento di training come un servizio Web che produce un modello con training e risultati di valutazione del modello. A tale scopo, il set di azioni successivo dipende dall'uso di un servizio Web classico o di un nuovo servizio Web.  
-  
+
 **Servizio Web classico**
 
 Nella parte inferiore dell'area di disegno dell'esperimento fare clic su **Set Up Web Service** (Configura servizio Web) e selezionare **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]). Viene visualizzato il **Dashboard** del servizio Web con la chiave API e la pagina della guida dell'API per l'esecuzione batch. È possibile usare solo il metodo di esecuzione batch per la creazione di modelli di training.
@@ -84,29 +78,27 @@ Al termine dell'esecuzione dell'esperimento, il flusso di lavoro sarà in ogni c
 Diagramma 3: flusso di lavoro risultante dopo l'esecuzione.
 
 ## <a name="retrain-the-model-with-new-data-using-bes"></a>Ripetere il training del modello con i nuovi dati usando BES
-
 In questo esempio viene usato C# per creare l'applicazione di ripetizione del training. Per eseguire questa attività, è anche possibile usare il codice di esempio Python o R.
 
 Per chiamare le API per la ripetizione del training:
 
 1. Creare un'applicazione console C# in Visual Studio. A tale scopo, selezionare Nuovo->Progetto->Windows Desktop->Applicazione console.
-2.  Accedere al portale dei servizi Web di Machine Learning.
-3.  Se si usa un servizio Web classico, fare clic su **Classic Web Services**(Servizi Web classici).
-    1.  Fare clic sul servizio Web usato.
-    2.  Fare clic sull'endpoint predefinito.
-    3.  Fare clic su **Consume**(Uso).
-    4.  Nella sezione **Sample Code** (Codice di esempio) nella parte inferiore della pagina **Consume** (Uso) fare clic su **Batch**.
-    5.  Procedere al passaggio 5 di questa procedura.
-4.  Se si usa un nuovo servizio Web, fare clic su **Web Services**(Servizi Web).
-    1.  Fare clic sul servizio Web usato.
-    2.  Fare clic su **Consume**(Uso).
-    3.  Nella sezione **Sample Code** (Codice di esempio) nella parte inferiore della pagina Consume (Uso) fare clic su **Batch**.
-5.  Copiare il codice C# di esempio per l'esecuzione batch e incollarlo nel file Program.cs, verificando che lo spazio dei nomi rimanga invariato.
+2. Accedere al portale dei servizi Web di Machine Learning.
+3. Se si usa un servizio Web classico, fare clic su **Classic Web Services**(Servizi Web classici).
+   1. Fare clic sul servizio Web usato.
+   2. Fare clic sull'endpoint predefinito.
+   3. Fare clic su **Consume**(Uso).
+   4. Nella sezione **Sample Code** (Codice di esempio) nella parte inferiore della pagina **Consume** (Uso) fare clic su **Batch**.
+   5. Procedere al passaggio 5 di questa procedura.
+4. Se si usa un nuovo servizio Web, fare clic su **Web Services**(Servizi Web).
+   1. Fare clic sul servizio Web usato.
+   2. Fare clic su **Consume**(Uso).
+   3. Nella sezione **Sample Code** (Codice di esempio) nella parte inferiore della pagina Consume (Uso) fare clic su **Batch**.
+5. Copiare il codice C# di esempio per l'esecuzione batch e incollarlo nel file Program.cs, verificando che lo spazio dei nomi rimanga invariato.
 
 Aggiungere il pacchetto NuGet Microsoft.AspNet.WebApi.Client come specificato nei commenti. Per aggiungere il riferimento a Microsoft.WindowsAzure.Storage.dll, potrebbe essere prima necessario installare la libreria client per i servizi di archiviazione di Microsoft Azure. Per altre informazioni, vedere i [servizi di archiviazione Windows](https://www.nuget.org/packages/WindowsAzure.Storage).
 
 ### <a name="update-the-apikey-declaration"></a>Aggiornare la dichiarazione apikey
-
 Individuare la dichiarazione **apikey** .
 
     const string apiKey = "abc123"; // Replace this with the API key for the web service
@@ -114,29 +106,27 @@ Individuare la dichiarazione **apikey** .
 Nella sezione **Basic consumption info** (Informazioni di base sul consumo) della pagina **Consume** (Uso) individuare la chiave primaria e copiarla nella dichiarazione **apikey**.
 
 ### <a name="update-the-azure-storage-information"></a>Aggiornare le informazioni di archiviazione di Azure
-
 Il codice di esempio BES carica un file da un'unità locale (ad esempio, "C:\temp\CensusIpnput.csv") in Archiviazione di Azure, lo elabora e scrive i risultati in Archiviazione di Azure.  
 
 Per eseguire questa attività è necessario recuperare il nome dell'account di archiviazione, la chiave e le informazioni sul per l'account di archiviazione dal portale di Azure classico e quindi aggiornare i valori corrispondenti nel codice. 
 
 1. Accedere al portale di Azure classico.
-1. Nella colonna di spostamento a sinistra fare clic su **Archiviazione**.
-1. Nell'elenco degli account di archiviazione selezionarne uno per l'archiviazione del modello per il quale è stato ripetuto il training.
-1. Nella parte inferiore della pagina fare clic su **Gestisci chiavi di accesso**.
-1. Copiare e salvare la **chiave di accesso primaria** , quindi chiudere la finestra di dialogo. 
-1. Nella parte superiore della pagina fare clic su **Contenitori**.
-1. Selezionare un contenitore esistente oppure crearne uno nuovo e salvare il nome.
+2. Nella colonna di spostamento a sinistra fare clic su **Archiviazione**.
+3. Nell'elenco degli account di archiviazione selezionarne uno per l'archiviazione del modello per il quale è stato ripetuto il training.
+4. Nella parte inferiore della pagina fare clic su **Gestisci chiavi di accesso**.
+5. Copiare e salvare la **chiave di accesso primaria** , quindi chiudere la finestra di dialogo. 
+6. Nella parte superiore della pagina fare clic su **Contenitori**.
+7. Selezionare un contenitore esistente oppure crearne uno nuovo e salvare il nome.
 
 Individuare le dichiarazioni *StorageAccountName*, *StorageAccountKey* e *StorageContainerName* e aggiornare i valori salvati dal portale di Azure.
 
     const string StorageAccountName = "mystorageacct"; // Replace this with your Azure Storage Account name
     const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage Key
     const string StorageContainerName = "mycontainer"; // Replace this with your Azure Storage Container name
-            
+
 È necessario anche assicurarsi che il file di input sia disponibile nella posizione specificata nel codice. 
 
 ### <a name="specify-the-output-location"></a>Specificare il percorso di output
-
 Quando si specifica il percorso di output nel payload della richiesta, l'estensione del file specificata in *RelativeLocation* deve essere indicata come ilearner. 
 
 Vedere l'esempio seguente:
@@ -151,14 +141,16 @@ Vedere l'esempio seguente:
             }
         },
 
->[AZURE.NOTE] I nomi dei percorsi di output possono essere diversi da quelli di questa procedura dettagliata a seconda dell'ordine in cui sono stati aggiunti i moduli di output del servizio Web. Dato che questo esperimento di training è stato configurato con due output, i risultati includono le informazioni sul percorso di archiviazione per entrambi.  
+> [!NOTE]
+> I nomi dei percorsi di output possono essere diversi da quelli di questa procedura dettagliata a seconda dell'ordine in cui sono stati aggiunti i moduli di output del servizio Web. Dato che questo esperimento di training è stato configurato con due output, i risultati includono le informazioni sul percorso di archiviazione per entrambi.  
+> 
+> 
 
 ![Output della ripetizione del training.][6]
 
 Diagramma 4: output della ripetizione del training.
 
 ## <a name="evaluate-the-retraining-results"></a>Valutare i risultati della ripetizione del training
- 
 Quando si esegue l'applicazione, l'output include l'URL e il token di firma di accesso condiviso necessari per accedere ai risultati della valutazione.
 
 È possibile visualizzare i risultati sulle prestazioni del modello sottoposto nuovamente a training combinando *BaseLocation*, *RelativeLocation* e *SasBlobToken* dai risultati di output per *output2* (come mostrato nell'immagine precedente dell'output della ripetizione del training) e incollando l'URL completo nella barra degli indirizzi del browser.  
@@ -168,7 +160,6 @@ Esaminare i risultati per determinare se le prestazioni del modello appena sotto
 Copiare *BaseLocation*, *RelativeLocation* e *SasBlobToken* dai risultati di output. Verranno usati durante il processo di ripetizione del training.
 
 ## <a name="next-steps"></a>Passaggi successivi
-
 [Ripetere il training di un servizio Web classico](machine-learning-retrain-a-classic-web-service.md)
 
 [Ripetere il training di un nuovo servizio Web usando i cmdlet di gestione per Machine Learning](machine-learning-retrain-new-web-service-using-powershell.md)

@@ -1,25 +1,26 @@
-<properties 
-	pageTitle="Che cos'è Azure RemoteApp? | Microsoft Azure" 
-	description="Informazioni su come condividere applicazioni e risorse in qualsiasi dispositivo con Azure RemoteApp." 
-	services="remoteapp" 
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" 
-	editor=""/>
+---
+title: Che cos'è Azure RemoteApp? | Microsoft Docs
+description: Informazioni su come condividere applicazioni e risorse in qualsiasi dispositivo con Azure RemoteApp.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
+editor: ''
 
-<tags 
-	ms.service="remoteapp" 
-	ms.workload="compute" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/15/2016" 
-	ms.author="elizapo"/>
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/15/2016
+ms.author: elizapo
 
+---
 # Informazioni su Azure RemoteApp
-
-> [AZURE.IMPORTANT]
-Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> [!IMPORTANT]
+> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> 
+> 
 
 Azure RemoteApp integra in Azure le funzionalità del programma Microsoft RemoteApp locale supportate da Servizi Desktop remoto. Azure RemoteApp consente di fornire un accesso remoto sicuro alle applicazioni da molti dispositivi utente diversi. Sostanzialmente Azure RemoteApp ospita nel cloud le sessioni di Terminal Server non permanenti per poterle usare e condividere con gli utenti.
 
@@ -36,23 +37,20 @@ Azure RemoteApp fa parte dell'[infrastruttura VDI Microsoft](http://www.microsof
 ## Raccolte di Azure RemoteApp
 Sono disponibili due tipi di [raccolte Azure RemoteApp](remoteapp-collections.md):
 
-
-- Una **raccolta nel cloud** è ospitata nel cloud insieme ai dati dei programmi. Gli utenti possono accedere alle app effettuando l'accesso con l'account Microsoft o con le credenziali aziendali sincronizzate o federate con Azure Active Directory.
-
-	Scegliere una raccolta cloud quando l'applicazione che si desidera condividere non richiede una connessione a una risorsa della rete privata della propria azienda (ad esempio, tramite un dispositivo VPN). Se l'applicazione usa risorse in Internet, OneDrive o Azure, una raccolta cloud è consigliabile ed è inoltre la più rapida da creare.
-
-- Una **raccolta ibrida** è ospitata nel cloud di Azure insieme ai dati ma consente agli utenti di accedere anche ai dati e alle risorse archiviati nella rete locale. Gli utenti possono accedere alle app effettuando l'accesso con le credenziali aziendali sincronizzate o federate con Azure Active Directory.
-
-	Scegliere una raccolta ibrida se è necessaria una connessione alle risorse della rete privata della propria azienda, ad esempio, se l'applicazione deve accedere a uno dei seguenti elementi:
-
-	- Server di file sulla rete intranet
-	- Quicken
-	- Database protetti da firewall
-
-	Questa soluzione è generalmente più adatta a grandi aziende con molte risorse sulle proprie reti private, che non possono essere trasferite nel cloud.
+* Una **raccolta nel cloud** è ospitata nel cloud insieme ai dati dei programmi. Gli utenti possono accedere alle app effettuando l'accesso con l'account Microsoft o con le credenziali aziendali sincronizzate o federate con Azure Active Directory.
+  
+    Scegliere una raccolta cloud quando l'applicazione che si desidera condividere non richiede una connessione a una risorsa della rete privata della propria azienda (ad esempio, tramite un dispositivo VPN). Se l'applicazione usa risorse in Internet, OneDrive o Azure, una raccolta cloud è consigliabile ed è inoltre la più rapida da creare.
+* Una **raccolta ibrida** è ospitata nel cloud di Azure insieme ai dati ma consente agli utenti di accedere anche ai dati e alle risorse archiviati nella rete locale. Gli utenti possono accedere alle app effettuando l'accesso con le credenziali aziendali sincronizzate o federate con Azure Active Directory.
+  
+    Scegliere una raccolta ibrida se è necessaria una connessione alle risorse della rete privata della propria azienda, ad esempio, se l'applicazione deve accedere a uno dei seguenti elementi:
+  
+  * Server di file sulla rete intranet
+  * Quicken
+  * Database protetti da firewall
+    
+    Questa soluzione è generalmente più adatta a grandi aziende con molte risorse sulle proprie reti private, che non possono essere trasferite nel cloud.
 
 I diversi insiemi hanno diverse opzioni, tra cui le reti, quindi scoprire [quale insieme](remoteapp-collections.md) è adatto alle proprie esigenze.
-
 
 ### Aggiornamento della raccolta
 Una delle principali differenze tra le raccolte ibride e cloud è rappresentata dal modo in cui vengono gestiti gli aggiornamenti software. Con una raccolta cloud che usa l'immagine di Office 365 ProPlus o Office 2013 preinstallata, non è necessario preoccuparsi di eventuali aggiornamenti. Il servizio viene gestito automaticamente e gli aggiornamenti vengono applicati regolarmente sia alle app che al sistema operativo.
@@ -71,16 +69,15 @@ Per altre informazioni sui client vedere [Accesso alle app in Azure RemoteApp](r
 ## Passaggi successivi
 Per provarlo, vedere gli articoli seguenti che descrivono come iniziare a usare Azure RemoteApp:
 
-- [Tipo di raccolta necessario per RemoteApp di Azure](remoteapp-collections.md)
-- [Creare un'immagine di Azure RemoteApp](remoteapp-imageoptions.md)
-- [Come creare una raccolta cloud di Azure RemoteApp](remoteapp-create-cloud-deployment.md)
-- [Come creare una raccolta ibrida per Azure RemoteApp](remoteapp-create-hybrid-deployment.md)
-- [Funzionamento delle licenze in Azure RemoteApp](remoteapp-licensing.md)
-- [Procedure consigliate per l'uso di Azure RemoteApp](remoteapp-bestpractices.md)
-- [Domande frequenti su Azure RemoteApp](remoteapp-faq.md)
- 
+* [Tipo di raccolta necessario per RemoteApp di Azure](remoteapp-collections.md)
+* [Creare un'immagine di Azure RemoteApp](remoteapp-imageoptions.md)
+* [Come creare una raccolta cloud di Azure RemoteApp](remoteapp-create-cloud-deployment.md)
+* [Come creare una raccolta ibrida per Azure RemoteApp](remoteapp-create-hybrid-deployment.md)
+* [Funzionamento delle licenze in Azure RemoteApp](remoteapp-licensing.md)
+* [Procedure consigliate per l'uso di Azure RemoteApp](remoteapp-bestpractices.md)
+* [Domande frequenti su Azure RemoteApp](remoteapp-faq.md)
 
-### Come contribuire al miglioramento 
+### Come contribuire al miglioramento
 Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** o **Modifica** per apportare modifiche. Una volta esaminati e approvati, i miglioramenti e le modifiche suggeriti dagli utenti verranno applicati qui.
 
 <!---HONumber=AcomDC_0817_2016-->
