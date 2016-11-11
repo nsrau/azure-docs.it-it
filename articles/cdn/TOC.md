@@ -1,0 +1,61 @@
+# [Panoramica](cdn-overview.md)
+## [Procedure consigliate per la rete CDN di Azure](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+# Attività iniziali
+## [Uso della rete CDN di Azure](cdn-create-new-endpoint.md)
+## Introduzione allo sviluppo della rete CDN di Azure
+### [.NET](cdn-app-dev-net.md)
+### [Node.js](cdn-app-dev-node.md)
+
+# Procedure
+## Integrare
+### [Integrare la soluzione con App Web](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [Integrare la soluzione con Servizi cloud](cdn-cloud-service-with-cdn.md)
+### [Integrare la soluzione con Archiviazione](cdn-create-a-storage-account-with-cdn.md)
+### [Condivisione di risorse tra le origini](cdn-cors.md)
+
+## Gestire
+### [Gestire con PowerShell](cdn-manage-powershell.md)
+### Configurare la durata (TTL)
+#### [Contenuto App Web/Servizi cloud, ASP.NET o IIS](cdn-manage-expiration-of-cloud-service-content.md)
+#### [Contenuto del servizio BLOB del servizio di archiviazione](cdn-manage-expiration-of-blob-content.md)
+### [Eseguire il mapping di un dominio personalizzato alla rete CDN](cdn-map-content-to-custom-domain.md)
+### [Limitare l'accesso in base al paese](cdn-restrict-access-by-country.md)
+### [Compressione dei file per migliorare le prestazioni](cdn-improve-performance.md)
+### Memorizzare il contenuto nella cache per stringa di query
+#### [Livello Standard](cdn-query-string.md)
+#### [Livello Premium](cdn-query-string-premium.md)
+### [Ripulire asset memorizzati nella cache](cdn-purge-endpoint.md)
+### [Precaricare asset memorizzati nella cache](cdn-preload-endpoint.md)
+### [Eseguire l'override del comportamento con regole](cdn-rules-engine.md)
+### [Ricevere avvisi in tempo reale](cdn-real-time-alerts.md)
+
+## Automatizzare
+### [Gestire con PowerShell](cdn-manage-powershell.md)
+
+## Analizzare
+### [Analizzare i modelli di utilizzo](cdn-analyze-usage-patterns.md)
+### [Generare report HTTP avanzati](cdn-advanced-http-reports.md)
+### [Visualizzare statistiche in tempo reale](cdn-real-time-stats.md)
+### [Analizzare le prestazioni del nodo perimetrale](cdn-edge-performance.md)
+
+## Sviluppare
+### Introduzione allo sviluppo della rete CDN di Azure
+#### [.NET](cdn-app-dev-net.md)
+#### [Node.js](cdn-app-dev-node.md)
+
+## Risolvere i problemi
+### [Risolvere i problemi relativi allo stato 404](cdn-troubleshoot-endpoint.md)
+### [Risolvere i problemi relativi alla compressione dei file](cdn-troubleshoot-compression.md)
+
+# Riferimento
+## [Informazioni di riferimento sulle API REST](https://msdn.microsoft.com/library/mt634456.aspx)
+
+# Risorse correlate
+
+# Risorse
+## [Località POP della rete CDN di Azure](cdn-pop-locations.md)
+
+
+<!--HONumber=Nov16_HO2-->
+
+
