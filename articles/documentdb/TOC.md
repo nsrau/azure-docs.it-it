@@ -1,0 +1,130 @@
+# Panoramica
+## [Che cos'è DocumentDB?](documentdb-introduction.md)
+## [Concetti principali ](documentdb-resources.md)
+## [Archiviazione e prestazioni](documentdb-manage.md)
+## [Partizionamento e ridimensionamento](documentdb-partition-data.md)
+## [Distribuzione globale](documentdb-distribute-data-globally.md)
+## [Coerenza](documentdb-consistency-levels.md)
+## [SQL query](documentdb-sql-query.md)
+## [NoSQL e SQL](documentdb-nosql-vs-sql.md)
+## Scenari
+### [Casi d'uso comuni](documentdb-use-cases.md)
+### [Uso di DocumentDB per i social media](documentdb-social-media-apps.md)
+### [Multi-tenancy](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)
+
+
+# Attività iniziali
+## Scrivere la prima app
+### [App console .NET](documentdb-get-started.md)
+### [Node.js console app](documentdb-nodejs-get-started.md) (App console Node.js)
+## Creare un'app Web
+### [App Web .NET](documentdb-dotnet-application.md)
+### [App Web Node.js](documentdb-nodejs-application.md)
+### [App Web Java](documentdb-java-application.md)
+### [Python Flask web app](documentdb-python-application.md) (App web Python Flask)
+## [Domande frequenti](documentdb-faq.md)
+
+
+
+# Procedure
+
+## Manage 
+### [Importare i dati](documentdb-import-data.md)
+### [Modellare i dati](documentdb-modeling-data.md)
+### [Usare i dati geospaziali](documentdb-geospatial.md)
+### [Sviluppare per più aree](documentdb-developing-with-multiple-regions.md)
+### [Scadenza automatica dei dati](documentdb-time-to-live.md)
+### [Personalizzare gli indici](documentdb-indexing-policies.md)
+### [Proteggere l'accesso ai dati](documentdb-secure-access-to-data.md)
+### [Backup e ripristino](documentdb-online-backup-and-restore.md)
+### [Livelli di prestazioni](documentdb-performance-levels.md)
+### [Quote di risorse](documentdb-limits.md)
+### [Aumentare le quote](documentdb-increase-limits.md)
+### [Richiedere unità](documentdb-request-units.md)
+### [Interfaccia della riga di comando di Azure e Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
+### [Supporto del firewall](documentdb-firewall-support.md)
+### [Migliorare l'account](documentdb-supercharge-your-account.md)
+
+## Sviluppare
+### [Stored procedure, trigger e UDF](documentdb-programming.md)
+### [Test delle prestazioni](documentdb-performance-testing.md)
+### [Suggerimenti per incrementare le prestazioni](documentdb-performance-tips.md)
+### DocumentDB per sviluppatori MongoDB
+#### [Cos'è il supporto dei protocolli per MongoDB?](documentdb-protocol-mongodb.md)
+#### [Creare un account](documentdb-create-mongodb-account.md)
+#### [Connettersi all'account](documentdb-connect-mongodb-account.md)
+#### [Usare MongoChef](documentdb-mongodb-mongochef.md)
+#### [Esempi di supporto dei protocolli](documentdb-mongodb-samples.md)
+
+## Usare il portale 
+### [Creare un account di database](documentdb-create-account.md)
+### [Creare una raccolta](documentdb-create-collection.md)
+### [Aggiungere una replica globale](documentdb-portal-global-replication.md)
+### [Aggiungere e modificare documenti](documentdb-view-json-document-explorer.md)
+### [Eseguire query su documenti](documentdb-query-collections-query-explorer.md)
+### [Gestire un account](documentdb-manage-account.md)
+### [Monitorare un account](documentdb-monitor-accounts.md)
+### [Gestire gli script](documentdb-view-scripts.md)
+### [Suggerimenti per la risoluzione dei problemi](documentdb-portal-troubleshooting.md)
+
+
+## Integrare
+### [Distribuire un sito Web con il Servizio app di Azure](documentdb-create-documentdb-website.md)
+### [Registrazione delle applicazioni con App per la logica](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md)
+### [Eseguire associazioni a Funzioni di Azure](../azure-functions/functions-bindings-documentdb.md)
+### [Analizzare i dati con Hadoop](documentdb-run-hadoop-with-hdinsight.md)
+### [Integrare Ricerca di Azure](documentdb-search-indexer.md)
+### [Spostare dati con Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
+### [Analizzare dati in tempo reale con l'analisi di flusso di Azure](../stream-analytics/stream-analytics-define-outputs.md#documentdb.md)
+### [Ottenere notifiche con App per la logica](documentdb-change-notification.md)
+### [Elaborare dati dei sensori in tempo reale](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
+### [Visualizzare dati con Power BI](documentdb-powerbi-visualize.md)
+
+
+# riferimento
+## [.NET SDK](documentdb-sdk-dotnet.md)
+## [Esempi .NET](documentdb-dotnet-samples.md)
+## [SDK per Java](documentdb-sdk-java.md)
+## [SDK per Node.js](documentdb-sdk-node.md)
+## [Esempi per Node.js](documentdb-nodejs-samples.md)
+## [Python](documentdb-sdk-python.md)
+## [Python samples](documentdb-python-samples.md) (Esempi per Python)
+## [REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) 
+## [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+## [Foglio informativo sulla grammatica SQL](documentdb-sql-query-cheat-sheet.md)
+
+
+# Risorse
+## [Prezzi](https://azure.microsoft.com/pricing/details/documentdb/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb)
+## [Forum MSDN](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
+## [Servizio Ask DocumentDB](documentdb-community.md#contact-the-team)
+## [Portale della community](documentdb-community.md)
+## [Eventi e registrazioni](documentdb-community.md#events-and-recordings)
+## [Query Playground](https://www.documentdb.com/sql/demo)
+## [Documento sull'indicizzazione indipendente dallo schema](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)
+## [La coerenza dei dati spiegata attraverso il baseball](http://research.microsoft.com/apps/pubs/default.aspx?id=206913)
+## [Libro: Using Microsoft Azure DocumentDB in a Node.js Application](https://go.microsoft.com/fwlink/?LinkId=828428&clcid=0x409)
+## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+
