@@ -1,13 +1,13 @@
 ---
-title: 'Opzioni e prestazioni del database SQL: livelli di servizio | Microsoft Docs'
-description: Confrontare le prestazioni e le funzionalità di continuità aziendale dei vari livelli di servizio del database SQL per trovare il giusto compromesso tra costi e funzionalità a sostegno della scalabilità.
+title: 'Opzioni e prestazioni del database SQL: livelli di servizio | Documentazione Microsoft'
+description: "Confrontare le prestazioni e le funzionalità di continuità aziendale dei vari livelli di servizio del database SQL per trovare il giusto compromesso tra costi e funzionalità a sostegno della scalabilità."
 keywords: opzioni di database,prestazioni del database
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
 editor: CarlRabeler
-
+ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 08/10/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9ecbee74bc0559aa632304b0a0428abb36606597
+
 
 ---
-# <a name="sql-database-options-and-performance:-understand-what's-available-in-each-service-tier"></a>Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL
+# <a name="sql-database-options-and-performance-understand-whats-available-in-each-service-tier"></a>Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL
 [database SQL di Azure](sql-database-technical-overview.md) offre tre livelli di servizio con diversi livelli di prestazioni per la gestione di carichi di lavoro differenti. Ogni livello di prestazioni offre un set di risorse superiore progettato per garantire un aumento della velocità effettiva. È possibile gestire ogni database nel proprio [livello di servizio](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) con il proprio livello di prestazioni. È anche possibile gestire più database in un [pool elastico](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) con un set di risorse condiviso. Le risorse disponibili per i database autonomi sono espressi in unità di transazione di database (DTU) e per i pool elastici in unità di transazione di database elastico o eDTU. Per altre informazioni sulle DTU e le eDTU, vedere le [informazioni sulle unità di transazione di database (DTU)](sql-database-what-is-a-dtu.md). 
 
 In entrambi i casi, i livelli di servizio includono **Basic**, **Standard** e **Premium**. Le opzioni di database in questi livelli sono simili per i database autonomi e i pool elastici, ma per questi ultimi esistono altre considerazioni. Questo articolo fornisce i dettagli relativi ai livelli di servizio per i database autonomi e per i pool elastici.
@@ -70,7 +74,7 @@ Per stabilire un livello di servizio per un database autonomo, determinare prima
 
 Dopo aver determinato l'edizione del database SQL, è possibile determinare il livello di prestazioni del database, ovvero il numero di DTU. Si può fare una supposizione e quindi [aumentare o ridurre le prestazioni in modo dinamico](sql-database-scale-up.md) in base all'esperienza effettiva. È anche possibile usare lo strumento per il [calcolo di DTU](http://dtucalculator.azurewebsites.net/) per simulare il numero di DTU necessario. 
 
-### <a name="choosing-a-service-tier-for-an-elastic-database-pool."></a>Scelta di un livello di servizio per un pool di database elastici
+### <a name="choosing-a-service-tier-for-an-elastic-database-pool"></a>Scelta di un livello di servizio per un pool di database elastici
 Per stabilire un livello di servizio per un pool di database elastici, determinare prima di tutto le funzionalità di database necessarie per scegliere il livello di servizio per il pool.
 
 * Dimensioni del database: 2 GB per Basic, 250 GB per Standard e 500 GB per Premium.
@@ -90,6 +94,9 @@ Dopo aver determinato il livello di servizio per il pool, è possibile determina
 * [Modelli di progettazione per le applicazioni SaaS multi-tenant e il database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * [Esercitazione video di Microsoft Virtual Academy sulle funzionalità di database elastico nel database SQL di Azure](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

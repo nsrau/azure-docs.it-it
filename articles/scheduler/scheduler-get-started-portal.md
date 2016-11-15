@@ -1,12 +1,12 @@
 ---
-title: Introduzione all'Utilità di pianificazione di Azure nel portale di Azure | Microsoft Docs
-description: Introduzione all'Utilità di pianificazione di Azure nel portale di Azure
+title: "Introduzione all&quot;Utilità di pianificazione di Azure nel portale di Azure | Documentazione di Microsoft"
+description: "Introduzione all&quot;Utilità di pianificazione di Azure nel portale di Azure"
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: ''
-
+editor: 
+ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.service: scheduler
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,56 +14,60 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 85e0f59bdaae76f6feb03e66a7bbf96c29b45dec
+
 
 ---
-# Introduzione all'Utilità di pianificazione di Azure nel portale di Azure
+# <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Introduzione all'Utilità di pianificazione di Azure nel portale di Azure
 L'Utilità di pianificazione di Azure permette di creare facilmente processi pianificati. In questa esercitazione si apprenderà come creare un processo. Si apprenderanno anche le funzionalità di monitoraggio e gestione dell'Utilità di pianificazione.
 
-## Creare un processo
-1. Accedere al [portale di Azure](https://portal.azure.com/).
+## <a name="create-a-job"></a>Creare un processo
+1. Accedere al [portale di Azure](https://portal.azure.com/).  
 2. Fare clic su **+Nuovo**, digitare *Utilità di pianificazione* nella casella di ricerca, selezionare **Utilità di pianificazione** tra i risultati e quindi fare clic su **Crea**.
    
     ![][marketplace-create]
-3. Creiamo un processo che parte semplicemente http://www.microsoft.com/ con una richiesta GET. Nella schermata **Processo dell'Utilità di pianificazione** immettere le informazioni seguenti:
+3. Creiamo un processo che accede semplicemente a http://www.microsoft.com/ con una richiesta GET. Nella schermata **Processo dell'Utilità di pianificazione** immettere le informazioni seguenti:
    
-   1. **Nome:** `getmicrosoft`
-   2. **Sottoscrizione:** sottoscrizione di Azure
+   1. **Nome:** `getmicrosoft`  
+   2. **Sottoscrizione:** sottoscrizione di Azure   
    3. **Raccolta processi:** selezionare una raccolta di processi esistente oppure fare clic su **Crea nuovo** e immettere un nome.
-4. Successivamente, in **Impostazioni azione** definire i valori seguenti:
+4. Successivamente, in **Impostazioni azione**definire i valori seguenti:
    
-   1. **Tipo di azione:** ` HTTP`
-   2. **Metodo:** `GET`
-   3. **URL:** ` http://www.microsoft.com`
+   1. **Tipo di azione:** ` HTTP`  
+   2. **Metodo:** `GET`  
+   3. **URL:** ` http://www.microsoft.com`  
       
       ![][action-settings]
 5. Infine, definire una pianificazione. È possibile impostare il processo come unico, ma in questo esempio viene selezionata una pianificazione ricorrenza.
    
-   1. **Ricorrenza**: `Recurring`
+   1. **Ricorrenza:** `Recurring`
    2. **Inizia**: data odierna
    3. **Ricorre ogni:** `12 Hours`
-   4. **Termina entro**: due giorni dalla data odierna
+   4. **Termina entro**: due giorni dalla data odierna  
       
       ![][recurrence-schedule]
 6. Fare clic su **Crea**
 
-## Gestire e monitorare i processi
+## <a name="manage-and-monitor-jobs"></a>Gestire e monitorare i processi
 Un processo appena creato viene visualizzato nel dashboard principale di Azure. Fare clic sul processo per visualizzare una nuova finestra con le schede seguenti:
 
-1. Proprietà
-2. Impostazioni azione
-3. Pianificazione
+1. Proprietà  
+2. Impostazioni azione  
+3. Pianificazione  
 4. Cronologia
 5. Utenti
    
    ![][job-overview]
 
-### Proprietà
+### <a name="properties"></a>Proprietà
 Queste proprietà di sola lettura descrivono i metadati di gestione per il processo dell'Utilità di pianificazione.
 
    ![][job-properties]
 
-### Impostazioni di azione
-Per configurare un processo, fare clic sul processo corrispondente nella schermata **Processi**. Questo permette di configurare le impostazioni avanzate, se non sono state configurate nella procedura guidata di creazione rapida.
+### <a name="action-settings"></a>Impostazioni azione
+Per configurare un processo, fare clic sul processo corrispondente nella schermata **Processi** . Questo permette di configurare le impostazioni avanzate, se non sono state configurate nella procedura guidata di creazione rapida.
 
 Per tutti i tipi di azione è possibile modificare i criteri per i tentativi e l'azione di errore.
 
@@ -75,7 +79,7 @@ Per i tipi di azione del bus di servizio è possibile modificare lo spazio dei n
 
    ![][job-action-settings]
 
-### Pianificazione
+### <a name="schedule"></a>Pianificazione
 Permette di riconfigurare la pianificazione creata nella procedura guidata di creazione rapida.
 
 Offre la possibilità di creare [pianificazioni complesse e operazioni ricorrenti avanzate nel processo](scheduler-advanced-complexity.md)
@@ -84,14 +88,14 @@ Offre la possibilità di creare [pianificazioni complesse e operazioni ricorrent
 
    ![][job-schedule]
 
-### Cronologia
+### <a name="history"></a>Cronologia
 La scheda **Cronologia** mostra le metriche selezionate per ogni esecuzione di processo nel sistema per il processo selezionato. Le metriche forniscono valori in tempo reale relativi all'integrità dell'Utilità di pianificazione:
 
-1. Status
-2. Dettagli
+1. Status  
+2. Dettagli  
 3. Tentativi
 4. Occorrenza: 1, 2, 3 e così via
-5. Ora di inizio dell'esecuzione
+5. Ora di inizio dell'esecuzione  
 6. Ora di fine dell'esecuzione
    
    ![][job-history]
@@ -100,10 +104,10 @@ La scheda **Cronologia** mostra le metriche selezionate per ogni esecuzione di p
 
    ![][job-history-details]
 
-### Utenti
+### <a name="users"></a>Utenti
 Il controllo degli accessi in base al ruolo di Azure consente una gestione degli accessi specifica per l'Utilità di pianificazione di Azure. Per informazioni sull'uso della scheda Utenti, vedere [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md)
 
-## Vedere anche
+## <a name="see-also"></a>Vedere anche
  [Che cos'è l'Utilità di pianificazione?](scheduler-intro.md)
 
  [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione](scheduler-concepts-terms.md)
@@ -149,4 +153,8 @@ Il controllo degli accessi in base al ruolo di Azure consente una gestione degli
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

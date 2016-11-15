@@ -1,23 +1,27 @@
 ---
-title: Introduzione alla creazione del servizio di bilanciamento del carico Internet nel modello di distribuzione classica tramite l’interfaccia della riga di comando di Azure | Microsoft Docs
-description: Informazioni su come creare un servizio di bilanciamento del carico Internet nel modello di distribuzione classica mediante l'interfaccia della riga di comando di Azure
+title: "Introduzione alla creazione del servizio di bilanciamento del carico Internet nel modello di distribuzione classica tramite l’interfaccia della riga di comando di Azure | Documentazione Microsoft"
+description: Informazioni su come creare un servizio di bilanciamento del carico Internet nel modello di distribuzione classica mediante l&quot;interfaccia della riga di comando di Azure
 services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: e433a824-4a8a-44d2-8765-a74f52d4e584
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e8a346c1b2d430eceb4aa1b8bc94fbbe89394556
+
 
 ---
-# Introduzione alla creazione del servizio di bilanciamento del carico Internet (classico) nell’interfaccia della riga di comando di Azure
+# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-cli"></a>Introduzione alla creazione del servizio di bilanciamento del carico Internet (classico) nell’interfaccia della riga di comando di Azure
 [!INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
@@ -28,7 +32,7 @@ In questo articolo viene illustrato il modello di distribuzione classica. Vedere
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## Procedura dettagliata sulla creazione di un servizio di bilanciamento del carico Internet tramite CLI
+## <a name="step-by-step-creating-an-internet-facing-load-balancer-using-cli"></a>Procedura dettagliata sulla creazione di un servizio di bilanciamento del carico Internet tramite CLI
 In questa guida viene illustrato come creare un servizio di bilanciamento del carico Internet in base allo scenario precedente.
 
 1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
@@ -40,25 +44,29 @@ In questa guida viene illustrato come creare un servizio di bilanciamento del ca
    
         info:    New mode is asm
 
-## Creazione dell’endpoint e del set del servizio di bilanciamento del carico
-Lo scenario presuppone che le macchine virtuali "web1" e "web2" sono state create. In questa guida verrà creato un set del servizio di bilanciamento del carico utilizzando la porta 80 come porta pubblica e la porta 80 come porta locale. Una porta probe è inoltre stata configurata sulla porta 80 e il set del servizio di bilanciamento del carico è stato chiamato "lbset".
+## <a name="create-endpoint-and-load-balancer-set"></a>Creazione dell’endpoint e del set del servizio di bilanciamento del carico
+Lo scenario presuppone che le macchine virtuali "web1" e "web2" sono state create.
+In questa guida verrà creato un set del servizio di bilanciamento del carico utilizzando la porta 80 come porta pubblica e la porta 80 come porta locale. Una porta probe è inoltre stata configurata sulla porta 80 e il set del servizio di bilanciamento del carico è stato chiamato "lbset".
 
-### Passaggio 1
+### <a name="step-1"></a>Passaggio 1
 Creare il primo endpoint e il set del servizio di bilanciamento del carico utilizzando `azure network vm endpoint create` per la macchina virtuale "web1".
 
     azure vm endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset
 
 Parametri utilizzati:
 
-**-k** - porta della macchina virtuale locale<br> **-o** - protocollo<BR> **-t** - porta sonda<BR> **-b** - nome del servizio di bilanciamento del carico<BR>
+**-k**: porta locale della macchina virtuale<br>
+**-o**: protocollo<BR>
+**-t**: porta probe<BR>
+**-b**: nome del servizio di bilanciamento del carico<BR>
 
-## Passaggio 2
+## <a name="step-2"></a>Passaggio 2
 Aggiungere una seconda macchina virtuale "web2" al set del servizio di bilanciamento del carico.
 
     azure vm endpoint create web2 80 -k 80 -o tcp -t 80 -b lbset
 
-## Passaggio 3
-Verificare la configurazione del servizio di bilanciamento del carico utilizzando `azure vm show`.
+## <a name="step-3"></a>Passaggio 3
+Verificare la configurazione del servizio di bilanciamento del carico utilizzando `azure vm show` .
 
     azure vm show web1
 
@@ -106,13 +114,13 @@ L'output sarà:
     data:    Network Endpoints 2 port 58081
     info:    vm show command OK
 
-## Creare un endpoint di desktop remoto per una macchina virtuale
+## <a name="create-a-remote-desktop-endpoint-for-a-virtual-machine"></a>Creare un endpoint di desktop remoto per una macchina virtuale
 È possibile creare un endpoint di desktop remoto per inoltrare il traffico di rete da una porta pubblica a una porta locale per una macchina virtuale specifica utilizzando `azure vm endpoint create`.
 
     azure vm endpoint create web1 54580 -k 3389
 
 
-## Rimuovere la macchina virtuale dal servizio di bilanciamento del carico
+## <a name="remove-virtual-machine-from-load-balancer"></a>Rimuovere la macchina virtuale dal servizio di bilanciamento del carico
 È necessario eliminare l'endpoint associato al set del servizio di bilanciamento del carico impostato dalla macchina virtuale. Una volta rimosso l'endpoint, la macchina virtuale non appartiene più al set del servizio di bilanciamento del carico.
 
  Utilizzando l'esempio precedente, è possibile rimuovere l'endpoint creato per la macchina virtuale "web1" dal servizio di bilanciamento del carico "lbset" utilizzando il comando `azure vm endpoint delete`.
@@ -125,11 +133,16 @@ L'output sarà:
 > 
 > 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 [Introduzione alla configurazione del bilanciamento del carico interno](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configurare una modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md)
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

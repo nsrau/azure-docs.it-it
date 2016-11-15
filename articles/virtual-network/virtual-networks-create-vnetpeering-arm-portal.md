@@ -2,12 +2,12 @@
 title: Creare un peering reti virtuali usando il portale di Azure | Microsoft Docs
 description: Informazioni su come creare una rete virtuale con il portale di Azure in Resource Manager.
 services: virtual-network
-documentationcenter: ''
+documentationcenter: 
 author: NarayanAnnamalai
 manager: jefco
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 026bca75-2946-4c03-b4f6-9f3c5809c69a
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayanannamalai;annahar
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 688fed72b32767f33010b9e8f17921b16320072d
+
 
 ---
-# Creare un peering reti virtuali usando il portale di Azure
+# <a name="create-a-virtual-network-peering-using-the-azure-portal"></a>Creare un peering reti virtuali usando il portale di Azure
 [!INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnetpeering-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnetpeering-intro-include.md)]
@@ -26,8 +30,8 @@ ms.author: narayanannamalai;annahar
 
 Per creare un peering reti virtuali basato sullo scenario precedente tramite il portale di Azure, seguire questa procedura.
 
-1. Da un browser, passare a http://portal.azure.com e, se necessario, accedere con l'account Azure.
-2. Per stabilire un peering reti virtuali, è necessario creare due collegamenti, uno per ogni direzione, tra due reti virtuali. È possibile creare il collegamento per il peering reti virtuali prima da VNET1 a VNET2. Nel portale fare clic su **Esplora** > scegliere **Reti virtuali**.
+1. In un browser passare a http://portal.azure.com e, se necessario, accedere con l'account Azure.
+2. Per stabilire un peering reti virtuali, è necessario creare due collegamenti, uno per ogni direzione, tra due reti virtuali. È possibile creare il collegamento per il peering reti virtuali prima da VNET1 a VNET2. Nel portale fare clic su **Esplora** > **e scegliere Reti virtuali**
    
     ![Creare un peering reti virtuali nel portale di Azure](./media/virtual-networks-create-vnetpeering-arm-portal/figure01.png)
 3. Nel pannello Reti virtuali scegliere VNET1, fare clic su Peer e quindi su Aggiungi.
@@ -48,7 +52,7 @@ Per creare un peering reti virtuali basato sullo scenario precedente tramite il 
 8. Dopo la creazione del collegamento per il peering reti virtuali, sarà possibile visualizzare lo stato del collegamento come segue:
    
     ![Stato del collegamento finale](./media/virtual-networks-create-vnetpeering-arm-portal/figure07.png)
-9. Controllare lo stato di LinkToVnet2 che ora risulta anch'esso Connesso.
+9. Controllare lo stato di LinkToVnet2 che ora risulta anch'esso Connesso.  
    
     ![Stato del collegamento finale 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure08.png)
    
@@ -61,8 +65,8 @@ Esistono alcune proprietà configurabili per ogni collegamento:
 
 | Opzione | Descrizione | Default |
 |:--- |:--- |:--- |
-| AllowVirtualNetworkAccess |Indica se lo spazio indirizzi della rete virtuale peer deve essere incluso come parte del tag Virtual\_network. |Sì |
-| AllowForwardedTraffic |Consente di accettare o eliminare il traffico che non ha origine dalla rete virtuale con peering. |No |
+| AllowVirtualNetworkAccess |Indica se lo spazio indirizzi della rete virtuale peer deve essere incluso come parte del tag Virtual_network. |Sì |
+| AllowForwardedTraffic |Consente di accettare o eliminare il traffico che non ha origine da una rete virtuale con peering. |No |
 | AllowGatewayTransit |Consente alla rete virtuale peer di usare il gateway di rete virtuale. |No |
 | UseRemoteGateways |Consente di usare il gateway di rete virtuale del peer. Per la rete virtuale peer deve essere configurato un gateway ed essere selezionata l'opzione AllowGatewayTransit. Non è possibile usare questa opzione se si ha un gateway configurato. |No |
 
@@ -70,7 +74,7 @@ Ogni collegamento nel peering reti virtuali include un set delle proprietà prec
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
-1. Da un browser, passare a http://portal.azure.com e, se necessario, accedere con l'account Azure.
+1. In un browser passare a http://portal.azure.com e, se necessario, accedere con l'account Azure.
 2. In questo esempio si useranno due sottoscrizioni A e B e due utenti, utente A e utente B, con privilegi nelle rispettive sottoscrizioni.
 3. Nel portale fare clic su Esplora e scegliere Reti virtuali. Fare clic sulla rete virtuale e quindi su Aggiungi.
    
@@ -90,7 +94,7 @@ Ogni collegamento nel peering reti virtuali include un set delle proprietà prec
    > 
 6. Accedere al portale come utente A, passare al pannello VNET3, fare clic su Peer, selezionare la casella di controllo "Conosco l'ID della risorsa" e digitare l'ID della risorsa per VNET5 nel formato seguente.
    
-    /subscriptions/<ID sottoscrizione>/resourceGroups/<NomeGruppoRisorse>/providers/Microsoft.Network/VirtualNetwork/<Nome rete virtuale>
+    /subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Network/VirtualNetwork/{VNETname}
    
     ![ID risorsa](./media/virtual-networks-create-vnetpeering-arm-portal/figure12.png)
 7. Accedere al portale come utente B e seguire il passaggio precedente per creare il collegamento per il peering da VNET5 a VNet3.
@@ -110,8 +114,8 @@ Ogni collegamento nel peering reti virtuali include un set delle proprietà prec
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
 
-1. Da un browser, passare a http://portal.azure.com e, se necessario, accedere con l'account Azure.
-2. Per stabilire il peering reti virtuali in questo scenario, è necessario creare solo un collegamento, dalla rete virtuale in Azure Resource Manager a quella nella distribuzione classica, ovvero da **VNET1** a **VNET2**. Nel portale fare clic su **Esplora** > scegliere **Reti virtuali**.
+1. In un browser passare a http://portal.azure.com e, se necessario, accedere con l'account Azure.
+2. Per stabilire il peering reti virtuali in questo scenario, è necessario creare solo un collegamento, dalla rete virtuale in Azure Resource Manager a quella nella distribuzione classica, ovvero da **VNET1** a **VNET2**. Nel portale fare clic su **Esplora** > e scegliere **Reti virtuali**
 3. Nel pannello Reti virtuali scegliere **VNET1**. Fare clic su **Peer**, quindi su **Aggiungi**.
 4. Nel pannello Aggiungi peering assegnare un nome al collegamento. Qui è chiamato **LinkToVNet2**. In Dettagli peer selezionare **Classica**.
 5. Scegliere quindi la sottoscrizione e la rete virtuale del peer **VNET2**. Fare quindi clic su OK.
@@ -121,8 +125,8 @@ Ogni collegamento nel peering reti virtuali include un set delle proprietà prec
    
     ![Controllo della connessione peering](./media/virtual-networks-create-vnetpeering-arm-portal/figure19.png)
 
-## Rimuovere il peering reti virtuali
-1. Da un browser passare a http://portal.azure.com e, se necessario, accedere con l'account Azure.
+## <a name="remove-vnet-peering"></a>Rimuovere il peering reti virtuali
+1. In un browser passare a http://portal.azure.com e, se necessario, accedere con l'account Azure.
 2. Passare al pannello Reti virtuali, fare clic su Peer, fare clic sul collegamento da rimuovere e scegliere il pulsante Elimina.
    
    ![Elimina1](./media/virtual-networks-create-vnetpeering-arm-portal/figure15.png)
@@ -131,4 +135,9 @@ Ogni collegamento nel peering reti virtuali include un set delle proprietà prec
     ![Elimina2](./media/virtual-networks-create-vnetpeering-arm-portal/figure16.png)
 4. Con questo stato non si potrà ricreare il collegamento fino a quando lo stato del collegamento peer non diventerà Avviato. È consigliabile rimuovere entrambi i collegamenti prima di ricreare il peering reti virtuali.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

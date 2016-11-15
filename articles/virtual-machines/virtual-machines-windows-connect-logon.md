@@ -1,13 +1,13 @@
 ---
-title: Connettersi a una macchina virtuale Windows Server | Microsoft Docs
+title: Connettersi a una VM Windows Server | Microsoft Docs
 description: Informazioni su come connettersi e accedere a una VM Windows mediante il portale di Azure e il modello di distribuzione Resource Manager.
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: ef62b02e-bf35-468d-b4c3-71b63fe7f409
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,14 +15,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/28/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: db417fb72442ea8a5cd4ef882eb657b08bebaa0a
+
 
 ---
-# Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows
+# <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows
 Per avviare una sessione di Desktop remoto (RDP), si userà il pulsante **Connetti** nel portale di Azure. Effettuare la connessione alla macchina virtuale, quindi accedere al sistema.
 
-## Connettersi alla macchina virtuale
+## <a name="connect-to-the-virtual-machine"></a>Connettersi alla macchina virtuale
 1. Accedere al [portale di Azure](https://portal.azure.com/), se questa operazione non è già stata eseguita.
-2. Scegliere **Macchine virtuali** dal menu Hub.
+2. Scegliere **Macchine virtuali**dal menu Hub.
 3. Selezionare la macchina virtuale dall'elenco.
 4. Nel pannello della macchina virtuale fare clic su **Connetti**.
    
@@ -33,10 +37,15 @@ Per avviare una sessione di Desktop remoto (RDP), si userà il pulsante **Connet
    > 
    > 
 
-## Accesso alla macchina virtuale
+## <a name="log-on-to-the-virtual-machine"></a>Accesso alla macchina virtuale
 [!INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 In caso di problemi quando si cerca di eseguire la connessione, vedere [Risolvere i problemi di connessioni Desktop remoto](virtual-machines-windows-troubleshoot-rdp-connection.md). In questo articolo viene illustrato come diagnosticare e risolvere i problemi più comuni.
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

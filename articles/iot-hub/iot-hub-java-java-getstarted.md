@@ -1,12 +1,12 @@
 ---
-title: Introduzione all'hub IoT di Azure per Java | Microsoft Docs
-description: Esercitazione introduttiva all'hub IoT di Azure con Java. Usare l'hub IoT di Azure e Java con gli SDK IoT di Microsoft Azure per implementare una soluzione Internet delle cose.
+title: Introduzione all&quot;hub IoT di Azure per Java | Documentazione Microsoft
+description: Esercitazione introduttiva all&quot;hub IoT di Azure con Java. Usare l&quot;hub IoT di Azure e Java con gli SDK IoT di Microsoft Azure per implementare una soluzione Internet delle cose.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 70dae4a8-0e98-4c53-b5a5-9d6963abb245
 ms.service: iot-hub
 ms.devlang: java
 ms.topic: hero-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7913033d0812d6f6c2ff9a413862cb63c1e5a59e
+
 
 ---
 # <a name="get-started-with-azure-iot-hub-for-java"></a>Introduzione all'hub IoT di Azure per Java
@@ -23,18 +27,18 @@ Al termine di questa esercitazione si hanno tre applicazioni console Java:
 
 * **create-device-identity**, che crea un'identità del dispositivo e la chiave di sicurezza associata per connettere il dispositivo simulato.
 * **read-d2c-messages**, che consente di visualizzare i dati di telemetria inviati dal dispositivo simulato.
-* **simulated-device**, che si connette all'hub IoT con l'identità del dispositivo creata in precedenza e invia un messaggio di telemetria ogni secondo usando il protocollo AMQPS.
+* **simulated-device**, che si connette all'hub IoT con l'identità del dispositivo creata in precedenza e invia un messaggio di telemetria ogni secondo usando il protocollo AMQP.
 
 > [!NOTE]
-> L'articolo [IoT Hub SDKs](SDK Hub IoT.md)[lnk-hub-sdks] fornisce informazioni sui vari SDK che consentono di compilare entrambe le applicazioni da eseguire nei dispositivi e nel back-end della soluzione.
+> L'articolo [SDK Hub IoT][lnk-hub-sdks] fornisce informazioni sui vari SDK che consentono di compilare entrambe le applicazioni da eseguire nei dispositivi e nel back-end della soluzione.
 > 
 > 
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Java SE 8. <br/> [Prepare your development environment](Preparare l'ambiente di sviluppo.md)[lnk-dev-setup] descrive come installare Java per questa esercitazione in Windows o Linux.
-* Maven 3.  <br/> [Prepare your development environment](Preparare l'ambiente di sviluppo.md)[lnk-dev-setup] descrive come installare Maven per questa esercitazione in Windows o Linux.
-* Un account Azure attivo. Se non si ha un account è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][lnk-free-trial].
+* Java SE 8. <br/> [Prepare your development environment] (Preparare l'ambiente di sviluppo)[lnk-dev-setup] descrive come installare Java per questa esercitazione in Windows o Linux.
+* Maven 3.  <br/> [Prepare your development environment] (Preparare l'ambiente di sviluppo)[lnk-dev-setup] descrive come installare Maven per questa esercitazione in Windows o Linux.
+* Un account Azure attivo. Se non si dispone di un account, è possibile creare un [account gratuito][lnk-free-trial] in pochi minuti.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -42,7 +46,7 @@ Infine prendere nota del valore presente in **Chiave primaria** e quindi fare cl
 
 ![Pannello Messaggistica dell'hub IoT nel portale di Azure][6]
 
-Si è appena creato l'hub IoT e si conoscono il nome host dell'hub IoT, la stringa di connessione dell'hub IoT, la chiave primaria dell'hub IoT, il nome compatibile con l'Hub eventi e l'endpoint compatibile con l'Hub eventi necessari per completare l'esercitazione.
+Si è appena creato l'hub IoT e si conoscono il nome host dell'hub IoT, la stringa di connessione dell'hub IoT, la chiave primaria dell'hub IoT, il nome e l'endpoint compatibili con Hub eventi necessari per completare l'esercitazione.
 
 ## <a name="create-a-device-identity"></a>Creare un'identità del dispositivo
 In questa sezione si scrive un'app console di Java che consente di creare una nuova identità del dispositivo nel registro delle identità dell'hub IoT. Un dispositivo non può connettersi all'hub IoT a meno che non sia presente una voce nel registro delle identità del dispositivo. Vedere la sezione relativa al **registro identità del dispositivo** nella [Guida per sviluppatori di hub IoT][lnk-devguide-identity] per altre informazioni. Quando si esegue questa applicazione console vengono generati un ID dispositivo univoco e una chiave con cui il dispositivo può identificarsi quando invia messaggi da dispositivo a cloud all'hub IoT.
@@ -122,11 +126,11 @@ In questa sezione si scrive un'app console di Java che consente di creare una nu
 > 
 > 
 
-## <a name="receive-device-to-cloud-messages"></a>Ricezione di messaggi da dispositivo a cloud
+## <a name="receive-devicetocloud-messages"></a>Ricezione di messaggi da dispositivo a cloud
 In questa sezione si crea un'app console di Java che legge i messaggi da dispositivo a cloud dall'hub IoT. L'hub IoT espone un endpoint compatibile con [Hub eventi][lnk-event-hubs-overview] per abilitare la lettura dei messaggi da dispositivo a cloud. Per semplicità, questa esercitazione crea un lettore di base non adatto per una distribuzione con velocità effettiva elevata. L'esercitazione sull'[elaborazione di messaggi da dispositivo a cloud][lnk-process-d2c-tutorial] illustra come elaborare i messaggi da dispositivo a cloud su vasta scala. L'esercitazione [Introduzione all'Hub eventi][lnk-eventhubs-tutorial] fornisce altre informazioni su come elaborare i messaggi da Hub eventi ed è applicabile agli endpoint compatibili con Hub eventi dell'hub IoT.
 
 > [!NOTE]
-> L'endpoint compatibile con Hub eventi per la lettura di messaggi da dispositivo a cloud usa sempre il protocollo AMQPS.
+> L'endpoint compatibile con Hub eventi per la lettura di messaggi da dispositivo a cloud usa sempre il protocollo AMQP.
 > 
 > 
 
@@ -309,12 +313,12 @@ In questa sezione si crea un'app console di Java che simula un dispositivo che i
    
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myFirstJavaDevice;SharedAccessKey={yourdevicekey}";
-    private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
+    private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQP;
     private static String deviceId = "myFirstJavaDevice";
     private static DeviceClient client;
     ```
    
-    Questa applicazione di esempio usa la variabile **protocol** quando crea un'istanza di un oggetto **DeviceClient**. È possibile usare il protocollo HTTPS o AMQPS per comunicare con l'hub IoT.
+    Questa applicazione di esempio usa la variabile **protocol** quando crea un'istanza di un oggetto **DeviceClient**. È possibile usare il protocollo HTTP o AMQP per comunicare con l'hub IoT.
 8. Aggiungere la classe **TelemetryDataPoint** annidata seguente nella classe **App** per specificare i dati di telemetria inviati dal dispositivo all'hub IoT:
    
     ```
@@ -408,7 +412,7 @@ In questa sezione si crea un'app console di Java che simula un dispositivo che i
     ```
 
 > [!NOTE]
-> Per semplicità, in questa esercitazione non si implementa alcun criterio di ripetizione dei tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN [Transient Fault Handling](Gestione degli errori temporanei.md)[lnk-transient-faults].
+> Per semplicità, in questa esercitazione non si implementa alcun criterio di ripetizione dei tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN [Transient Fault Handling] (Gestione degli errori temporanei)[lnk-transient-faults].
 > 
 > 
 
@@ -434,13 +438,13 @@ A questo punto è possibile eseguire le applicazioni.
     ![Riquadro Utilizzo del portale di Azure con il numero dei messaggi inviati all'hub IoT][43]
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione è stato configurato un nuovo hub IoT nel portale ed è stata quindi creata un'identità del dispositivo nel registro delle identità dell'hub. Questa identità del dispositivo è stata usata per consentire all'app del dispositivo simulato di inviare all'hub messaggi da dispositivo a cloud. È stata anche creata un'app che visualizza i messaggi ricevuti dall'hub. 
+In questa esercitazione è stato configurato un nuovo hub IoT nel portale di Azure ed è stata quindi creata un'identità del dispositivo nel registro delle identità dell'hub. Questa identità del dispositivo è stata usata per consentire all'app del dispositivo simulato di inviare all'hub messaggi da dispositivo a cloud. È stata anche creata un'app che visualizza i messaggi ricevuti dall'hub. 
 
 Per altre informazioni sulle attività iniziali con l'hub IoT e per esplorare altri scenari IoT, vedere:
 
 * [Connetti il tuo dispositivo][lnk-connect-device]
 * [Introduzione alla gestione dei dispositivi][lnk-device-management]
-* [Introduzione a Gateway SDK][lnk-gateway-SDK]
+* [Introduzione a IoT SDK per gateway][lnk-gateway-SDK]
 
 Per informazioni sull'estensione della soluzione IoT e l'elaborazione di messaggi da dispositivo a cloud su vasta scala, vedere l'esercitazione sull'[elaborazione di messaggi da dispositivo a cloud][lnk-process-d2c-tutorial].
 
@@ -469,6 +473,7 @@ Per informazioni sull'estensione della soluzione IoT e l'elaborazione di messagg
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO2-->
 
 

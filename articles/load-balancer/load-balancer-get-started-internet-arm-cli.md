@@ -1,23 +1,27 @@
 ---
-title: Creare un servizio di bilanciamento del carico Internet in Gestione risorse mediante l'interfaccia della riga di comando di Azure | Microsoft Docs
-description: Informazioni su come creare un servizio di bilanciamento del carico Internet in Gestione risorse mediante l'interfaccia della riga di comando di Azure.
+title: Creare un servizio di bilanciamento del carico Internet in Resource Manager mediante l&quot;interfaccia della riga di comando di Azure | Documentazione Microsoft
+description: Informazioni su come creare un servizio di bilanciamento del carico Internet in Gestione risorse mediante l&quot;interfaccia della riga di comando di Azure.
 services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: a8bcdd88-f94c-4537-8143-c710eaa86818
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 10/24/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 86220eabc2625bf8bf1e4d6fac9c0ae41adc962c
 
 ---
-# Creazione di un servizio di bilanciamento del carico interno tramite l'interfaccia della riga di comando di Azure
+# <a name="creating-an-internal-load-balancer-using-the-azure-cli"></a>Creazione di un servizio di bilanciamento del carico interno tramite l'interfaccia della riga di comando di Azure
+
 [!INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
@@ -28,7 +32,8 @@ Questo articolo illustra il modello di distribuzione Gestione risorse. Vedere [I
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## Distribuzione della soluzione tramite l'interfaccia della riga di comando di Azure
+## <a name="deploying-the-solution-using-the-azure-cli"></a>Distribuzione della soluzione tramite l'interfaccia della riga di comando di Azure
+
 La procedura seguente illustra come creare un servizio di bilanciamento del carico Internet usando Azure Resource Manager con l'interfaccia della riga di comando di Azure. Con Azure Resource Manager ogni risorsa viene creata e configurata singolarmente e quindi integrata per creare una risorsa.
 
 Creare e configurare gli oggetti seguenti per distribuire un servizio di bilanciamento del carico:
@@ -41,49 +46,68 @@ Creare e configurare gli oggetti seguenti per distribuire un servizio di bilanci
 
 Per altre informazioni, vedere [Supporto di Gestione risorse di Azure per il servizio di bilanciamento del carico](load-balancer-arm.md).
 
-## Configurare l'interfaccia della riga di comando per l'uso di Resource Manager
+## <a name="set-up-cli-to-use-resource-manager"></a>Configurare l'interfaccia della riga di comando per l'uso di Resource Manager
+
 1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
 2. Eseguire il comando **azure config mode** per passare alla modalità Gestione risorse, come illustrato di seguito.
-   
+
+    ```azurecli
         azure config mode arm
-   
+    ```
+
     Output previsto:
-   
+
         info:    New mode is arm
 
-## Creare una rete virtuale e un indirizzo IP pubblico per il pool di indirizzi IP front-end
-1. Creare una rete virtuale (VNet) denominata *NRPVnet* nella località Stati Uniti orientali usando un gruppo di risorse denominato *NRPRG*.
-   
-        azure network vnet create NRPRG NRPVnet eastUS -a 10.0.0.0/16
-   
-    Creare una subnet denominata *NRPVnetSubnet* con un blocco CIDR di 10.0.0.0/24 in *NRPVnet*.
-   
-        azure network vnet subnet create NRPRG NRPVnet NRPVnetSubnet -a 10.0.0.0/24
-2. Creare un indirizzo IP pubblico denominato *NRPPublicIP* che dovrà essere usato da un pool di indirizzi IP front-end con nome DNS *loadbalancernrp.eastus.cloudapp.azure.com*. Il comando seguente usa il tipo di allocazione statica e un timeout di inattività pari a 4 minuti.
-   
-        azure network public-ip create -g NRPRG -n NRPPublicIP -l eastus -d loadbalancernrp -a static -i 4
-   
-   > [!IMPORTANT]
-   > Il servizio di bilanciamento del carico userà l'etichetta di dominio dell'indirizzo IP pubblico come nome di dominio completo. Questa è una differenza rispetto alla distribuzione classica, che usa il servizio cloud come nome di dominio completo del servizio di bilanciamento del carico. In questo esempio il nome di dominio completo è *loadbalancernrp.eastus.cloudapp.azure.com*.
-   > 
-   > 
+## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-frontend-ip-pool"></a>Creare una rete virtuale e un indirizzo IP pubblico per il pool di indirizzi IP front-end
 
-## Creare un servizio di bilanciamento del carico
+1. Creare una rete virtuale (VNet) denominata *NRPVnet* nella località Stati Uniti orientali usando un gruppo di risorse denominato *NRPRG*.
+
+    ```azurecli
+        azure network vnet create NRPRG NRPVnet eastUS -a 10.0.0.0/16
+    ```
+
+    Creare una subnet denominata *NRPVnetSubnet* con un blocco CIDR di 10.0.0.0/24 in *NRPVnet*.
+
+    ```azurecli
+        azure network vnet subnet create NRPRG NRPVnet NRPVnetSubnet -a 10.0.0.0/24
+    ```
+
+2. Creare un indirizzo IP pubblico denominato *NRPPublicIP* che dovrà essere usato da un pool di indirizzi IP front-end con nome DNS *loadbalancernrp.eastus.cloudapp.azure.com*. Il comando seguente usa il tipo di allocazione statica e un timeout di inattività pari a 4 minuti.
+
+    ```azurecli
+        azure network public-ip create -g NRPRG -n NRPPublicIP -l eastus -d loadbalancernrp -a static -i 4
+    ```
+
+   > [!IMPORTANT]
+   > Il servizio di bilanciamento del carico userà l'etichetta di dominio dell'indirizzo IP pubblico come nome di dominio completo. Questa è una differenza rispetto alla distribuzione classica, che usa il servizio cloud come nome di dominio completo del servizio di bilanciamento del carico.
+   > In questo esempio il nome di dominio completo è *loadbalancernrp.eastus.cloudapp.azure.com*.
+
+## <a name="create-a-load-balancer"></a>Creare un servizio di bilanciamento del carico
+
 Il comando seguente crea un servizio di bilanciamento del carico denominato *NRPlb* nel gruppo di risorse *NRPRG* nella località *Stati Uniti orientali* di Azure.
 
+    ```azurecli
     azure network lb create NRPRG NRPlb eastus
+    ```
 
-## Creare un pool di indirizzi IP front-end e un pool di indirizzi back-end
-Questo esempio crea il pool di indirizzi IP front-end che riceve il traffico in ingresso per il servizio di bilanciamento del carico e il pool di indirizzi IP back-end a cui il pool front-end invia il traffico di rete sottoposto a bilanciamento del carico.
+## <a name="create-a-frontend-ip-pool-and-a-backend-address-pool"></a>Creare un pool di indirizzi IP front-end e un pool di indirizzi back-end
+Questo esempio spiega come creare il pool di indirizzi IP front-end che riceve il traffico di rete in entrata per il servizio di bilanciamento del carico e il pool di indirizzi IP back-end a cui il pool front-end invia il traffico di rete sottoposto a bilanciamento del carico.
 
 1. Creare un pool di indirizzi IP front-end che associa l'indirizzo IP pubblico creato nel passaggio precedente e il servizio di bilanciamento del carico.
-   
-        azure network lb frontend-ip create nrpRG NRPlb NRPfrontendpool -i nrppublicip
-2. Configurare un pool di indirizzi back-end usato per ricevere il traffico in ingresso dal pool di indirizzi IP front-end.
-   
-        azure network lb address-pool create NRPRG NRPlb NRPbackendpool
 
-## Creare regole di bilanciamento del carico, regole NAT e probe
+    ```azurecli
+        azure network lb frontend-ip create nrpRG NRPlb NRPfrontendpool -i nrppublicip
+    ```
+
+2. Configurare un pool di indirizzi back-end usato per ricevere il traffico in ingresso dal pool di indirizzi IP front-end.
+
+    ```azurecli
+        azure network lb address-pool create NRPRG NRPlb NRPbackendpool
+    ```
+
+## <a name="create-lb-rules-nat-rules-and-probe"></a>Creare regole di bilanciamento del carico, regole NAT e probe
+
 Questo esempio crea gli elementi seguenti.
 
 * Regola NAT per la conversione di tutto il traffico in ingresso sulla porta 21 alla porta 22<sup>1</sup>
@@ -94,39 +118,32 @@ Questo esempio crea gli elementi seguenti.
 <sup>1</sup> Le regole NAT vengono associate a un'istanza di macchina virtuale specifica dietro al servizio di bilanciamento del carico. Il traffico di rete in arrivo sulla porta 21 viene inviato a una specifica macchina virtuale sulla porta 22 associata a questa regola NAT. È necessario specificare un protocollo (UDP o TCP) per una regola NAT. Entrambi i protocolli non possono essere assegnati alla stessa porta.
 
 1. Creare le regole NAT.
-   
-        azure network lb inbound-nat-rule create -g nrprg -l nrplb -n ssh1 -p tcp -f 21 -b 22
-        azure network lb inbound-nat-rule create -g nrprg -l nrplb -n ssh2 -p tcp -f 23 -b 22
-   
-    Parametri
-   
-   * **-g**: nome del gruppo di risorse.
-   * **-l**: nome del servizio di bilanciamento del carico.
-   * **-n**: nome della risorsa che indica se si tratta di una regola NAT, una regola probe o una regola del servizio di bilanciamento del carico.
-   * **-p**: protocollo. Può essere TCP o UDP.
-   * **-f**: porta front-end da usare. Il comando probe usa -f per definire il percorso probe
-   * **-b**: porta back-end da usare
+
+    ```azurecli
+        azure network lb inbound-nat-rule create --resource-group nrprg --lb-name nrplb --name ssh1 --protocol tcp --frontend-port 21 --backend-port 22
+        azure network lb inbound-nat-rule create --resource-group nrprg --lb-name nrplb --name ssh2 --protocol tcp --frontend-port 23 --backend-port 22
+    ```
+
 2. Creare una regola del servizio di bilanciamento del carico.
-   
-        azure network lb rule create nrprg nrplb lbrule -p tcp -f 80 -b 80 -t NRPfrontendpool -o NRPbackendpool
+
+    ```azurecli
+        azure network lb rule create --resource-group nrprg nrplb --lb-name lbrule --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name NRPfrontendpool --backend-address-pool-name NRPbackendpool
+    ```
+
 3. Creare un probe di integrità.
-   
-        azure network lb probe create -g nrprg -l nrplb -n healthprobe -p "http" -o 80 -f healthprobe.aspx -i 15 -c 4
-   
-    Parametri
-   
-   * **-g**: gruppo di risorse
-   * **-l**: nome del set di bilanciamento del carico
-   * **-n**: nome del probe di integrità
-   * **-p**: protocollo usato dal probe di integrità
-   * **-i**: intervallo di probe in secondi
-   * **-c**: numero di controlli
+
+    ```azurecli
+        azure network lb probe create --resource-group nrprg --lb-name nrplb --name healthprobe --protocol "http" --port 80 --path healthprobe.aspx --interval 15 --count 4
+    ```
+
 4. Verificare le impostazioni.
-   
+
+    ```azurecli
         azure network lb show nrprg nrplb
-   
+    ```
+
     Output previsto:
-   
+
         info:    Executing command network lb show
         + Looking up the load balancer "nrplb"
         + Looking up the public ip "NRPPublicIP"
@@ -186,62 +203,59 @@ Questo esempio crea gli elementi seguenti.
         data:
         info:    network lb show command OK
 
-## Creare NIC
+## <a name="create-nics"></a>Creare NIC
+
 È necessario creare schede di interfaccia di rete (NIC) o modificare quelle esistenti e associarle a regole NAT, regole del servizio di bilanciamento del carico e probe.
 
-1. Creare una NIC denominata *lb-nic1-be* e associarla alla regola NAT *rdp1* e quindi al pool di indirizzi back-end *NRPbackendpool*.
-   
-        azure network nic create -g nrprg -n lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" eastus
-   
-    Parametri
-   
-   * **-g**: nome del gruppo di risorse.
-   * **-n**: nome della risorsa NIC.
-   * **--subnet-name**: nome della subnet.
-   * **--subnet-vnet-name**: nome della rete virtuale.
-   * **-d**: ID del pool di risorse back-end. Inizia con /subscription/{subscriptionID/resourcegroups/<resourcegroup-name>/providers/Microsoft.Network/loadbalancers/<load-balancer-name>/backendaddresspools/<name-of-the-backend-pool>
-   * **-e**: ID della regola NAT da associare alla risorsa NIC. Inizia con /subscriptions/####################################/resourceGroups/<resourcegroup-name>/providers/Microsoft.Network/loadBalancers/<load-balancer-name>/inboundNatRules/<nat-rule-name>
-     
-     Output previsto:
-     
-       info:    Executing command network nic create
-     
-     * Looking up the network interface "lb-nic1-be"
-     * Looking up the subnet "nrpvnetsubnet"
-     * Creating network interface "lb-nic1-be"
-     * Looking up the network interface "lb-nic1-be"
-       data:    Id                              : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
-       data:    Name                            : lb-nic1-be
-       data:    Type                            : Microsoft.Network/networkInterfaces
-       data:    Location                        : eastus
-       data:    Provisioning state              : Succeeded
-       data:    Enable IP forwarding            : false
-       data:    IP configurations:
-       data:      Name                          : NIC-config
-       data:      Provisioning state            : Succeeded
-       data:      Private IP address            : 10.0.0.4
-       data:      Private IP Allocation Method  : Dynamic
-       data:      Subnet                        : /subscriptions/####################################/resourceGroups/NRPRG/providers/Microsoft.Network/virtualNetworks/NRPVnet/subnets/NRPVnetSubnet
-       data:      Load balancer backend address pools
-       data:        Id                          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool
-       data:      Load balancer inbound NAT rules:
-       data:        Id                          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1
-       data:
-       info:    network nic create command OK
-2. Creare una NIC denominata *lb-nic2-be* e associarla alla regola NAT *rdp2* e quindi al pool di indirizzi back-end *NRPbackendpool*.
-   
-        azure network nic create -g nrprg -n lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" eastus
-3. Creare una macchina virtuale denominata *web1* e associarla alla NIC denominata *lb-nic1-be*. Un account di archiviazione denominato *web1nrp* è stato creato prima dell'esecuzione del comando seguente.
-   
+1. Creare una schede di interfaccia di rete denominata *lb-nic1-be* e associarla alla regola NAT *rdp1* e al pool di indirizzi back-end *NRPbackendpool*.
+
+    ```azurecli
+        azure network nic create --resource-group nrprg --name lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" eastus
+    ```
+
+    Output previsto:
+
+        info:    Executing command network nic create
+        + Looking up the network interface "lb-nic1-be"
+        + Looking up the subnet "nrpvnetsubnet"
+        + Creating network interface "lb-nic1-be"
+        + Looking up the network interface "lb-nic1-be"
+        data:    Id                              : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
+        data:    Name                            : lb-nic1-be
+        data:    Type                            : Microsoft.Network/networkInterfaces
+        data:    Location                        : eastus
+        data:    Provisioning state              : Succeeded
+        data:    Enable IP forwarding            : false
+        data:    IP configurations:
+        data:      Name                          : NIC-config
+        data:      Provisioning state            : Succeeded
+        data:      Private IP address            : 10.0.0.4
+        data:      Private IP Allocation Method  : Dynamic
+        data:      Subnet                        : /subscriptions/####################################/resourceGroups/NRPRG/providers/Microsoft.Network/virtualNetworks/NRPVnet/subnets/NRPVnetSubnet
+        data:      Load balancer backend address pools
+        data:        Id                          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool
+        data:      Load balancer inbound NAT rules:
+        data:        Id                          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1
+        data:
+        info:    network nic create command OK
+
+2. Creare una schede di interfaccia di rete denominata *lb-nic2-be* e associarla alla regola NAT *rdp2* e al pool di indirizzi back-end *NRPbackendpool*.
+
+    ```azurecli
+        azure network nic create --resource-group nrprg --name lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" eastus
+    ```
+
+3. Creare una macchina virtuale (VM) denominata *web1* e associarla alla schede di interfaccia di rete denominata *lb-nic1-be*. Un account di archiviazione denominato *web1nrp* è stato creato prima dell'esecuzione del comando seguente.
+
+    ```azurecli
         azure vm create --resource-group nrprg --name web1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
-   
-   > [!IMPORTANT]
-   > Le macchine virtuali in un servizio di bilanciamento del carico devono trovarsi nello stesso set di disponibilità. Usare `azure availset create` per creare un set di disponibilità.
-   > 
-   > 
-   
+    ```
+
+    > [!IMPORTANT]
+    > Le macchine virtuali in un servizio di bilanciamento del carico devono trovarsi nello stesso set di disponibilità. Usare `azure availset create` per creare un set di disponibilità.
+
     L'output dovrebbe essere simile al seguente:
-   
+
         info:    Executing command vm create
         + Looking up the VM "web1"
         Enter username: azureuser
@@ -258,45 +272,41 @@ Questo esempio crea gli elementi seguenti.
         info:    This is a NIC without publicIP configured
         + Creating VM "web1"
         info:    vm create command OK
-   
-   > [!NOTE]
-   > Il messaggio informativo **This is a NIC without publicIP configured** è un comportamento previsto, perché la NIC creata per il servizio di bilanciamento del carico si connette a Internet tramite l'indirizzo IP pubblico del servizio di bilanciamento del carico.
-   > 
-   > 
-   
-    Poiché la NIC *lb-nic1-be* è associata alla regola NAT *rdp1*, è possibile connettersi a *web1* mediante RDP tramite la porta 3441 nel servizio di bilanciamento del carico.
-4. Creare una macchina virtuale denominata *web2* e associarla alla NIC denominata *lb-nic2-be*. Un account di archiviazione denominato *web1nrp* è stato creato prima dell'esecuzione del comando seguente.
-   
+
+    > [!NOTE]
+    > Il messaggio informativo **This is a NIC without publicIP configured** è un comportamento previsto, perché la NIC creata per il servizio di bilanciamento del carico si connette a Internet tramite l'indirizzo IP pubblico del servizio di bilanciamento del carico.
+
+    Poiché la schede di interfaccia di rete *lb-nic1-be* è associata alla regola NAT *rdp1*, è possibile connettersi a *web1* con RDP tramite la porta 3441 nel servizio di bilanciamento del carico.
+
+4. Creare una macchina virtuale (VM) denominata *web2* e associarla alla schede di interfaccia di rete denominata *lb-nic2-be*. Un account di archiviazione denominato *web1nrp* è stato creato prima dell'esecuzione del comando seguente.
+
+    ```azurecli
         azure vm create --resource-group nrprg --name web2 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic2-be --availset-name nrp-avset --storage-account-name web2nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
+    ```
 
-## Aggiornare un bilanciamento del carico esistente
-È possibile aggiungere regole che fanno riferimento a un servizio di bilanciamento del carico esistente. Nell'esempio seguente una nuova regola di bilanciamento del carico viene aggiunta a un servizio di bilanciamento del carico **NRPlb** esistente
+## <a name="update-an-existing-load-balancer"></a>Aggiornare un bilanciamento del carico esistente
+È possibile aggiungere regole che fanno riferimento a un servizio di bilanciamento del carico esistente. Nell'esempio seguente una nuova regola di bilanciamento del carico viene aggiunta a un servizio di bilanciamento del carico **NRPlb**
 
-    azure network lb rule create -g nrprg -l nrplb -n lbrule2 -p tcp -f 8080 -b 8051 -t frontendnrppool -o NRPbackendpool
+```azurecli
+azure network lb rule create --resource-group nrprg --lb-name nrplb --name lbrule2 --protocol tcp --frontend-port 8080 --backend-port 8051 --frontend-ip-name frontendnrppool --backend-address-pool-name NRPbackendpool
+```
 
-Parametri
-
-* **-g**: nome del gruppo di risorse.
-* **-l**: nome del servizio di bilanciamento del carico.
-* **-n**: nome della regola di bilanciamento del carico
-* **-p**: protocollo
-* **-f**: porta front-end
-* **-b**: porta back-end
-* **-t**: nome del pool front-end
-* **-b**: nome del pool back-end
-
-## Eliminare un servizio di bilanciamento del carico
+## <a name="delete-a-load-balancer"></a>Eliminare un servizio di bilanciamento del carico
 Per rimuovere un servizio di bilanciamento del carico, usare il comando seguente:
 
-    azure network lb delete -g nrprg -n nrplb
+```azurecli
+azure network lb delete --resource-group nrprg --name nrplb
+```
 
-Dove **nrprg** è il gruppo di risorse e **nrplb** è il nome del servizio di bilanciamento del carico.
-
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 [Introduzione alla configurazione del bilanciamento del carico interno](load-balancer-get-started-ilb-arm-cli.md)
 
 [Configurare una modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md)
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

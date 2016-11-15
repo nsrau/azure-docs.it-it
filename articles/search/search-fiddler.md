@@ -1,22 +1,26 @@
 ---
-title: Usare Fiddler per valutare e testare le API REST di Ricerca di Azure | Microsoft Docs
-description: Utilizzare Fiddler per un approccio senza scrittura di codice alla verifica della disponibilità di Ricerca di Azure e alla valutazione delle API REST.
+title: Come utilizzare Fiddler per valutare e testare le API REST di Ricerca di Azure | Documentazione di Microsoft
+description: "Utilizzare Fiddler per un approccio senza scrittura di codice alla verifica della disponibilità di Ricerca di Azure e alla valutazione delle API REST."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: HeidiSteen
 manager: mblythe
-editor: ''
-
+editor: 
+ms.assetid: 790e5779-c6a3-4a07-9d1e-d6739e6b87d2
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/08/2016
+ms.date: 10/17/2016
 ms.author: heidist
+translationtype: Human Translation
+ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
+ms.openlocfilehash: 12f5a22fa65d84682e5792bcbe88b67986540498
+
 
 ---
-# Utilizzare Fiddler per valutare e testare le API REST di Ricerca di Azure
+# <a name="use-fiddler-to-evaluate-and-test-azure-search-rest-apis"></a>Utilizzare Fiddler per valutare e testare le API REST di Ricerca di Azure
 > [!div class="op_single_selector"]
 > * [Panoramica](search-query-overview.md)
 > * [Esplora ricerche](search-explorer.md)
@@ -32,8 +36,8 @@ Nei seguenti passaggi verrà creato un indice, verranno caricati i documenti, si
 
 Per completare questi passaggi, è necessario disporre del servizio Ricerca di Azure e di `api-key`. Vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md) per istruzioni su come iniziare.
 
-## Creare un indice
-1. Avviare Fiddler Nel menu **File** disattivare **Capture Traffic** per nascondere attività HTTP estranee non correlate all'attività corrente.
+## <a name="create-an-index"></a>Creare un indice
+1. Avviare Fiddler Nel menu **File** disattivare **Capture Traffic** (Acquisisci traffico) per nascondere attività HTTP estranee non correlate all'attività corrente.
 2. Nella scheda **Composer** formulare una richiesta simile alla schermata seguente.
    
       ![][1]
@@ -77,7 +81,7 @@ Entro pochi secondi si dovrebbe visualizzare una risposta HTTP 201 nell'elenco d
 
 Se viene restituita una risposta HTTP 504, verificare se nell'URL è specificato HTTPS. Se viene visualizzata la risposta HTTP 400 o 404, esaminare il corpo della richiesta per verificare che le operazioni di copia e incolla sono state eseguite correttamente. Una risposta HTTP 403 indica in genere che si è verificato un problema con la chiave API (chiave non valida o problema di sintassi nella specifica della chiave API).
 
-## Caricare i documenti
+## <a name="load-documents"></a>Caricare i documenti
 Nella scheda **Composer** la richiesta di pubblicazione dei documenti avrà un aspetto simile al seguente. Il corpo della richiesta contiene i dati di ricerca per 4 hotel.
 
    ![][2]
@@ -158,8 +162,8 @@ Nella scheda **Composer** la richiesta di pubblicazione dei documenti avrà un a
 
 Entro pochi secondi si dovrebbe visualizzare una risposta HTTP 200 nella sessione. Questo indica che i documenti sono stati creati correttamente. Se viene restituito un codice 207, significa che il caricamento di almeno uno dei documenti non è riuscito. Se viene restituito un codice 404 significa che è presente un errore di sintassi nell'intestazione o nel corpo della richiesta.
 
-## Eseguire una query sull'indice
-Ora che l'indice e i documenti sono stati caricati, è possibile eseguire query su di essi. Nella scheda **Composer** un comando **GET** che esegue una query sul servizio avrà un aspetto simile alla schermata seguente.
+## <a name="query-the-index"></a>Eseguire una query sull'indice
+Ora che l'indice e i documenti sono stati caricati, è possibile eseguire query su di essi.  Nella scheda **Composer** (Compositore) un comando **GET** che esegue una query sul servizio avrà un aspetto simile allo screenshot seguente.
 
    ![][3]
 
@@ -190,7 +194,7 @@ La query di esempio seguente è tratta dall'argomento relativo alle [operazioni 
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2015-02-28
 
-## Eseguire query sul sistema
+## <a name="query-the-system"></a>Eseguire query sul sistema
 È possibile eseguire query sul sistema per ottenere il numero di documenti e informazioni sull'utilizzo dello spazio di archiviazione. Nella scheda **Composer** la richiesta avrà un aspetto simile al seguente e la risposta restituirà un conteggio relativo al numero di documenti e allo spazio utilizzato.
 
  ![][5]
@@ -207,9 +211,9 @@ La query di esempio seguente è tratta dall'argomento relativo alle [operazioni 
          api-key: 1111222233334444
 4. Lasciare il corpo della richiesta vuoto.
 5. Fare clic su **Execute**. Entro pochi secondi si dovrebbe visualizzare un codice di stato HTTP 200 nell'elenco della sessione. Selezionare la voce inserita per il comando.
-6. Fare clic sulla scheda **Inspectors**, sulla scheda **Headers** e quindi selezionare il formato JSON. Verrà visualizzato il numero di documenti e la dimensione dello spazio di archiviazione (in KB).
+6. Fare clic sulla scheda **Inspectors** (Controlli), sulla scheda **Headers** (Intestazioni) e quindi selezionare il formato JSON. Verrà visualizzato il numero di documenti e la dimensione dello spazio di archiviazione (in KB).
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Vedere [Gestire il servizio di ricerca in Microsoft Azure](search-manage.md) per un approccio senza scrittura di codice alla gestione e all'uso di Ricerca di Azure.
 
 <!--Image References-->
@@ -219,4 +223,8 @@ Vedere [Gestire il servizio di ricerca in Microsoft Azure](search-manage.md) per
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

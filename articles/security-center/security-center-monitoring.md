@@ -1,12 +1,12 @@
 ---
-title: Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure | Microsoft Docs
-description: Questo documento consente di iniziare a utilizzare le funzionalità di monitoraggio nel Centro sicurezza di Azure.
+title: "Monitoraggio dell&quot;integrità della sicurezza nel Centro sicurezza di Azure | Documentazione di Microsoft"
+description: "Questo articolo illustra come iniziare a usare le funzionalità di monitoraggio nel Centro sicurezza di Azure."
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 3bd5b122-1695-495f-ad9a-7c2a4cd1c808
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
@@ -14,164 +14,168 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 73510d618f414ebedd7cd1df979397e0b00570b8
+
 
 ---
-# Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure
-Questo documento descrive come usare le funzionalità di monitoraggio nel Centro sicurezza di Azure per verificare la conformità ai criteri.
+# <a name="security-health-monitoring-in-azure-security-center"></a>Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure
+Questo articolo descrive come usare le funzionalità di monitoraggio nel Centro sicurezza di Azure per verificare la conformità ai criteri.
 
-## Che cos'è il monitoraggio dello stato di sicurezza?
+## <a name="what-is-security-health-monitoring"></a>Che cos'è il monitoraggio dello stato di sicurezza?
 Spesso si pensa al monitoraggio come l'osservazione e l'attesa di un evento al fine di reagire alla situazione verificatasi. Per monitoraggio della sicurezza si intende una strategia proattiva per il controllo delle risorse, al fine di identificare i sistemi non conformi agli standard o alle procedure consigliate della società.
 
-## Monitoraggio dello stato di sicurezza
-Dopo aver abilitato i [criteri di sicurezza](security-center-policies.md) per le risorse di una sottoscrizione, il Centro sicurezza analizza la sicurezza delle risorse per identificare le potenziali vulnerabilità. Le informazioni sulla configurazione di rete sono disponibili immediatamente, mentre le informazioni sulla configurazione della macchina virtuale, ad esempio lo stato di aggiornamento della sicurezza e la configurazione del sistema operativo, potrebbero diventare disponibili dopo un'ora o più. Nel pannello **Integrità sicurezza delle risorse** è possibile visualizzare lo stato di sicurezza delle risorse ed eventuali problemi rilevati, mentre nel pannello **Raccomandazioni** è disponibile l'elenco dei problemi riscontrati.
+## <a name="monitoring-security-health"></a>Monitoraggio dello stato di sicurezza
+Dopo avere abilitato i [criteri di sicurezza](security-center-policies.md) per le risorse di una sottoscrizione, il Centro sicurezza analizza la sicurezza delle risorse per identificare le potenziali vulnerabilità. Le informazioni sulla configurazione di rete sono disponibili immediatamente. Le informazioni sulla configurazione della macchina virtuale, ad esempio lo stato di aggiornamento della sicurezza e la configurazione del sistema operativo, potrebbero diventare disponibili dopo un'ora o più. Nel pannello **Integrità sicurezza delle risorse** è possibile visualizzare lo stato di sicurezza delle risorse ed eventuali problemi rilevati. Anche nel pannello **Raccomandazioni** è disponibile l'elenco dei problemi riscontrati.
 
-Per ulteriori informazioni su come applicare i suggerimenti leggere [Implementazione dei suggerimenti per la sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md).
+Per altre informazioni su come applicare le raccomandazioni, leggere l'articolo sull'[implementazione delle raccomandazioni sulla sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md).
 
 Il riquadro **Integrità sicurezza delle risorse** consente di monitorare lo stato di sicurezza delle risorse. L'esempio seguente mostra alcuni problemi con livelli di gravità medio e alto che richiedono attenzione. I criteri di sicurezza abilitati influiranno sui tipi di controlli monitorati.
 
-![Integrità delle risorse](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
+![Riquadro Integrità sicurezza delle risorse](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
 
-Se il Centro sicurezza identifica una vulnerabilità che deve essere risolta, ad esempio una VM in cui mancano aggiornamenti della sicurezza o una subnet senza un [gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md), verrà riportata qui.
+Se il Centro sicurezza identifica una vulnerabilità che deve essere risolta, ad esempio una macchina virtuale in cui mancano aggiornamenti della sicurezza o una subnet senza un [gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md), la vulnerabilità verrà riportata qui.
 
-### Monitorare le macchine virtuali
-Quando si fa clic su **Macchine virtuali** nel riquadro **Integrità sicurezza delle risorse**, viene aperto il pannello **Macchine virtuali** con altri dettagli sulle operazioni di caricamento e prevenzione e un elenco di tutte le VM monitorate dal Centro sicurezza, come illustrato di seguito.
+### <a name="monitor-virtual-machines"></a>Monitorare le macchine virtuali
+Quando si fa clic su **Macchine virtuali** nel riquadro **Integrità sicurezza delle risorse**, viene aperto il pannello **Macchine virtuali** con altri dettagli sulle operazioni di caricamento e di prevenzione e un elenco di tutte le macchine virtuali monitorate dal Centro sicurezza, come illustrato nello screenshot seguente.
 
-![Aggiornamento di sistema mancante per VM](./media/security-center-monitoring/security-center-monitoring-fig2-ga.png)
+![Aggiornamento di sistema mancante per la macchina virtuale](./media/security-center-monitoring/security-center-monitoring-fig2-ga.png)
 
 * Operazioni di caricamento
 * Raccomandazioni per le macchine virtuali
 * Macchine virtuali
 
-In ogni sezione è possibile selezionare una singola opzione per visualizzare altri dettagli riguardanti il passaggio consigliato per risolvere il problema. Di seguito viene fornita una descrizione dettagliata delle singole sezioni.
+In ogni sezione è possibile selezionare una singola opzione per visualizzare altri dettagli riguardanti la procedura raccomandata per risolvere il problema. Le sezioni successive descrivono in maggiore dettaglio queste aree.
 
-#### Monitoraggio delle raccomandazioni
-Questa sezione mostra il numero totale di VM inizializzate per la raccolta dei dati, con il relativo stato corrente. Dopo l'inizializzazione della raccolta dei dati in tutte le VM, queste potranno ricevere i criteri di sicurezza dal Centro sicurezza. Quando si fa clic su questa voce, viene aperto il pannello **Stato di installazione della raccolta di dati** in cui è possibile vedere i nomi delle VM e lo stato corrente della raccolta dati nella colonna **STATO DELL'INSTALLAZIONE**, come illustrato di seguito.
+#### <a name="monitoring-recommendations"></a>Monitoraggio delle raccomandazioni
+Questa sezione mostra il numero totale di macchine virtuali inizializzate per la raccolta dei dati, con i relativi stati correnti. Dopo l'inizializzazione della raccolta dei dati in tutte le macchine virtuali, queste potranno ricevere i criteri di sicurezza dal Centro sicurezza. Quando si fa clic su questa voce, viene aperto il pannello **Stato di installazione della raccolta di dati** in cui è possibile esaminare i nomi delle macchine virtuali e lo stato corrente della raccolta dati nella colonna **STATO DELL'INSTALLAZIONE**, come illustrato nello screenshot seguente.
 
-![Stato inizializzazione](./media/security-center-monitoring/security-center-monitoring-fig3-ga.png)
+![Stato di inizializzazione delle macchine virtuali](./media/security-center-monitoring/security-center-monitoring-fig3-ga.png)
 
-#### Raccomandazioni per le macchine virtuali
-Questa sezione include una serie di [raccomandazioni per ogni VM](security-center-virtual-machine-recommendations.md) monitorata dal Centro sicurezza di Azure. La prima colonna include la raccomandazione, la seconda il numero totale di VM interessate dalla raccomandazione e la terza il livello di gravità del problema, come illustrato di seguito.
+#### <a name="virtual-machine-recommendations"></a>Raccomandazioni per le macchine virtuali
+Questa sezione include una serie di [raccomandazioni per ogni macchina virtuale](security-center-virtual-machine-recommendations.md) monitorata dal Centro sicurezza di Azure. La prima colonna elenca la raccomandazione. La seconda colonna mostra il numero totale di macchine virtuali interessate da questa raccomandazione. La terza colonna indica la gravità del problema, come illustrato nello screenshot seguente.
 
-![Raccomandazioni per le VM](./media/security-center-monitoring/security-center-monitoring-fig4-ga.png)
+![Raccomandazioni per le macchine virtuali](./media/security-center-monitoring/security-center-monitoring-fig4-ga.png)
 
 > [!NOTE]
-> Nell'elenco Network topology (Topologia di rete) del pannello Networking Health (Integrità rete) vengono visualizzate soltanto le VM con almeno un endpoint pubblico.
+> Nell'elenco **Network topology** (Topologia di rete) del pannello **Networking Health** (Integrità rete) vengono visualizzate soltanto le macchine virtuali con almeno un endpoint pubblico.
 > 
 > 
 
-Ogni raccomandazione è inoltre associata a una serie di azioni che è possibile eseguire facendo clic su di essa. Ad esempio, se si fa clic su **Aggiornamenti di sistema mancanti**, viene aperto il pannello **Aggiornamenti di sistema mancanti**. Elenca le VM senza patch e il livello di gravità per l'aggiornamento mancante, come illustrato di seguito.
+Ogni raccomandazione è inoltre associata a una serie di azioni che è possibile eseguire dopo aver fatto clic su di essa. Ad esempio, se si fa clic su **Aggiornamenti di sistema mancanti**, viene aperto il pannello **Aggiornamenti di sistema mancanti**. Elenca le macchine virtuali senza patch e il livello di gravità per l'aggiornamento mancante, come illustrato nello screenshot seguente.
 
-![Aggiornamenti di sistema mancanti](./media/security-center-monitoring/security-center-monitoring-fig5-ga.png)
+![Aggiornamenti di sistema mancanti per le macchine virtuali](./media/security-center-monitoring/security-center-monitoring-fig5-ga.png)
 
 Il pannello **Aggiornamenti di sistema mancanti** mostra una tabella con le informazioni seguenti:
 
 * **MACCHINA VIRTUALE**: nome della macchina virtuale priva di aggiornamenti.
 * **AGGIORNAMENTI DI SISTEMA**: numero di aggiornamenti di sistema mancanti.
-* **ORA ULTIMA ANALISI**: ora dell'ultima volta in cui il Centro sicurezza di Azure ha verificato la disponibilità di aggiornamenti per le VM.
+* **ORA ULTIMA ANALISI**: ora dell'ultima volta in cui il Centro sicurezza di Azure ha verificato la disponibilità di aggiornamenti per le macchine virtuali.
 * **STATO**: stato attuale della raccomandazione:
   * **Aperta**: la raccomandazione non è ancora stata risolta.
-  * **In corso**: la raccomandazione è stata applicata alle risorse specificate e non è richiesta alcuna azione da parte dell'utente.
-  * **Risolta**: la raccomandazione è già stata completata. Dopo che il problema è stato risolto, la voce è visualizzata in grigio.
+  * **In corso**: la raccomandazione è stata applicata alle risorse e non è richiesta alcuna azione da parte dell'utente.
+  * **Risolta**: la raccomandazione è stata già completata. Quando il problema è stato risolto, la voce viene visualizzata in grigio.
 * **GRAVITÀ**: descrive il livello di gravità della raccomandazione:
   * **Elevata**: esiste una vulnerabilità associata a una risorsa significativa, ad esempio applicazione, macchina virtuale, gruppo di sicurezza di rete, che richiede attenzione.
   * **Media**: sono necessari passaggi aggiuntivi, o non critici, per completare un processo o eliminare una vulnerabilità.
   * **Bassa**: vulnerabilità che è opportuno risolvere, ma non richiede attenzione immediata. Per impostazione predefinita, le raccomandazioni con gravità bassa non appaiono, ma è possibile visualizzarle applicando il filtro corrispondente.
 
-Per visualizzare i dettagli delle raccomandazioni, fare clic sul nome della VM. Viene aperto un nuovo pannello per la VM con l'elenco degli aggiornamenti, come illustrato di seguito.
+Per visualizzare i dettagli delle raccomandazioni, fare clic sul nome della macchina virtuale. Viene visualizzato un nuovo pannello per la macchina virtuale con l'elenco degli aggiornamenti, come illustrato nello screenshot seguente.
 
-![Aggiornamenti di sistema mancanti per le VM](./media/security-center-monitoring/security-center-monitoring-fig6-ga.png)
+![Aggiornamenti di sistema mancanti per una macchina virtuale specifica](./media/security-center-monitoring/security-center-monitoring-fig6-ga.png)
 
 > [!NOTE]
-> I suggerimenti per la sicurezza contenuti qui sono identici a quelli nel pannello relativo ai suggerimenti. Vedere l'articolo [Implementazione dei suggerimenti per la sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md) per ulteriori informazioni sui suggerimenti per la risoluzione dei problemi. Questo vale non solo per le VM, ma anche per tutte le risorse disponibili nel riquadro Integrità delle risorse.
+> Le raccomandazioni sulla sicurezza contenute qui sono identiche a quelle nel pannello **Raccomandazioni**. Per altre informazioni su come gestire correttamente le raccomandazioni, leggere l'articolo sull'[implementazione delle raccomandazioni sulla sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md). Questo vale non solo per le macchine virtuali, ma anche per tutte le risorse disponibili nel riquadro **Integrità delle risorse**.
 > 
 > 
 
-#### Sezione Macchine virtuali
-La sezione relativa alle macchine virtuali offre una panoramica di tutte le VM con le relative raccomandazioni. Ogni colonna rappresenta un set di raccomandazioni, come illustrato di seguito:
+#### <a name="virtual-machines-section"></a>Sezione Macchine virtuali
+La sezione relativa alle macchine virtuali offre una panoramica di tutte le macchine virtuali con le relative raccomandazioni. Ogni colonna rappresenta un set di raccomandazioni, come illustrato nello screenshot seguente:
 
-![VM](./media/security-center-monitoring/security-center-monitoring-fig7-ga.png)
+![Panoramica di tutte le macchine virtuali e delle raccomandazioni](./media/security-center-monitoring/security-center-monitoring-fig7-ga.png)
 
-L'icona visualizzata sotto ogni tipo di raccomandazione consente di identificare rapidamente le VM che richiedono attenzione e il tipo di raccomandazione.
+L'icona visualizzata sotto ogni tipo di raccomandazione consente di identificare rapidamente le macchine virtuali che richiedono attenzione e il tipo di raccomandazione.
 
-Nell'esempio precedente, per una VM è disponibile una raccomandazione critica relativa a Endpoint Protection. Per ottenere altre informazioni, fare clic sulla VM. Viene aperto un nuovo pannello che rappresenta questa VM, come illustrato di seguito.
+Nell'esempio precedente, per una macchina virtuale è disponibile una raccomandazione critica relativa a Endpoint Protection. Per ottenere altre informazioni relative alla macchina virtuale, fare clic su di essa. Un nuovo pannello che viene visualizzato rappresenta questa macchina virtuale, come illustrato nello screenshot seguente.
 
-![Dettagli di sicurezza delle VM](./media/security-center-monitoring/security-center-monitoring-fig8-ga.png)
+![Dettagli della sicurezza delle macchine virtuali](./media/security-center-monitoring/security-center-monitoring-fig8-ga.png)
 
-Nel pannello sono presenti anche dettagli di sicurezza relativi alla VM. Nella parte inferiore è possibile vedere l'azione consigliata e il livello di gravità di ogni problema.
+Il pannello include dettagli di sicurezza per la macchina virtuale. Nella parte inferiore di questo pannello è possibile vedere l'azione consigliata e il livello di gravità di ogni problema.
 
-#### Sezione Servizi cloud (anteprima)
-Lo stato di integrità per i servizi cloud è incluso nel riquadro di integrità della sicurezza delle macchine virtuali. Quando la versione del sistema operativo non è aggiornata, viene creata una raccomandazione come illustrato di seguito:
+#### <a name="cloud-services-preview-section"></a>Sezione Servizi cloud (anteprima)
+Lo stato di integrità per i servizi cloud è incluso nel riquadro **Integrità sicurezza** delle macchine virtuali. Viene creata una raccomandazione quando la versione del sistema operativo non è aggiornata, come illustrato nello screenshot seguente:
 
-![Servizi cloud](./media/security-center-monitoring/security-center-monitoring-fig8-new2.png)
+![Stato di integrità per i servizi cloud](./media/security-center-monitoring/security-center-monitoring-fig8-new2.png)
 
-È necessario seguire i passaggi indicati nella raccomandazione per aggiornare la versione del sistema operativo. Ad esempio, se si fa clic nell'avviso rosso in un ruolo Web (che esegue Windows Server con l'app Web distribuita automaticamente in IIS) o un ruolo di lavoro (che esegue Windows Server con l'app Web distribuita automaticamente in IIS), verrà visualizzato un nuovo pannello con altri dettagli su questa raccomandazione come illustrato di seguito:
+È necessario seguire i passaggi indicati nella raccomandazione per aggiornare la versione del sistema operativo. Ad esempio, se si fa clic nell'avviso rosso in un ruolo Web1 (che esegue Windows Server con l'app Web distribuita automaticamente in IIS) o un ruolo di lavoro1 (che esegue Windows Server con l'app Web distribuita automaticamente in IIS), verrà visualizzato un nuovo pannello con altri dettagli su questa raccomandazione, come illustrato nello screenshot seguente:
 
 ![Dettagli del servizio cloud](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
-Per visualizzare una spiegazione più esaustiva riguardante questa raccomandazione, fare clic su **Aggiorna la versione del sistema operativo** nella colonna **DESCRIZIONE **. Verrà aperto il pannello **Aggiorna la versione del sistema operativo (anteprima)** con altri dettagli.
+Per visualizzare una spiegazione più esaustiva riguardante questa raccomandazione, fare clic su **Aggiorna la versione del sistema operativo** nella colonna **DESCRIZIONE**. Viene aperto il pannello **Aggiorna la versione del sistema operativo (anteprima)** con altri dettagli.
 
-![Indicazioni dei servizi cloud](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)
+![Raccomandazioni sui servizi cloud](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 
-### Monitorare le reti virtuali
-Quando si fa clic su **Rete** nel riquadro **Integrità sicurezza delle risorse**, viene aperto il pannello **Rete** con altri dettagli, come illustrato di seguito:
+### <a name="monitor-virtual-networks"></a>Monitorare le reti virtuali
+Quando si fa clic su **Rete** nel riquadro **Integrità sicurezza delle risorse**, viene aperto il pannello **Rete** con altri dettagli, come illustrato nello screenshot seguente:
 
-![Rete](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
+![Pannello Rete](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
-#### Raccomandazioni di rete
-Analogamente alle informazioni sull'integrità delle risorse delle macchine virtuali, il pannello fornisce un elenco riepilogativo dei problemi nella parte superiore e un elenco delle reti monitorate nella parte inferiore.
+#### <a name="networking-recommendations"></a>Raccomandazioni di rete
+Come le informazioni sull'integrità delle risorse delle macchine virtuali, il pannello fornisce un elenco riepilogativo dei problemi nella parte superiore e un elenco delle reti monitorate nella parte inferiore.
 
 La sezione dei dettagli sullo stato della rete elenca i problemi di sicurezza potenziali e fornisce [raccomandazioni](security-center-network-recommendations.md). I possibili problemi possono includere:
 
 * Firewall di nuova generazione non installato
 * Gruppi di sicurezza di rete nelle subnet non abilitati
-* Gruppi di sicurezza di rete nelle VM non abilitati
+* Gruppi di sicurezza di rete nelle macchine virtuali non abilitati
 * Limitare l'accesso esterno tramite endpoint esterni pubblici
 * Endpoint con connessione Internet integri
 
-Quando si fa clic su una delle raccomandazioni, si apre un pannello con altre informazioni su di essa, come illustrato nell'esempio seguente:
+Quando si fa clic su una raccomandazione, viene visualizzato un nuovo pannello con altri dettagli sulla raccomandazione, come illustrato nello screenshot seguente.
 
-![Limita endpoint](./media/security-center-monitoring/security-center-monitoring-fig9-ga.png)
+![Dettagli per una raccomandazione nel pannello Rete](./media/security-center-monitoring/security-center-monitoring-fig9-ga.png)
 
-In questo esempio il pannello **Configura i gruppi di sicurezza di rete mancanti per le subnet** include un elenco di subnet e macchine virtuali prive della protezione dei gruppi di sicurezza di rete. Se si fa clic sulla subnet a cui si vuole applicare il gruppo di sicurezza di rete, verrà aperto un altro pannello.
+In questo esempio il pannello **Configura i gruppi di sicurezza di rete mancanti per le subnet** include un elenco di subnet e macchine virtuali prive della protezione dei gruppi di sicurezza di rete. Se si sfa clic sulla subnet a cui applicare il gruppo di sicurezza di rete, viene visualizzato un altro pannello.
 
 Nel pannello **Scegli un gruppo di sicurezza di rete** è possibile selezionare il gruppo di sicurezza di rete più appropriato per la subnet oppure creare un nuovo gruppo di sicurezza di rete.
 
-#### Sezione Endpoint con connessione Internet
-Nella sezione **Endpoint con connessione Internet** è possibile visualizzare le VM attualmente configurate con un endpoint con connessione Internet e il relativo stato corrente.
+#### <a name="internet-facing-endpoints-section"></a>Sezione Endpoint con connessione Internet
+Nella sezione **Endpoint con connessione Internet** è possibile visualizzare le macchine virtuali attualmente configurate con un endpoint con connessione Internet e il relativo stato corrente.
 
-![Endpoint con connessione Internet](./media/security-center-monitoring/security-center-monitoring-fig10-ga.png)
+![Macchine virtuali configurate con stato ed endpoint con connessione Internet](./media/security-center-monitoring/security-center-monitoring-fig10-ga.png)
 
-La tabella include il nome dell'endpoint che rappresenta la macchina virtuale, l'indirizzo IP con connessione Internet, lo stato corrente di gravità del gruppo di sicurezza di rete e del firewall di nuova generazione. Questa tabella è ordinata in base alla gravità, come descritto di seguito:
-
-* Rosso (in alto): priorità elevata e da risolvere immediatamente
-* Arancione: priorità media e da risolvere appena possibile
-* Verde (ultimo): stato di integrità
-
-#### Sezione Topologia di rete
-La sezione **Topologia di rete** include una visualizzazione gerarchica delle risorse, come illustrato di seguito:
-
-![Topologia di rete](./media/security-center-monitoring/security-center-monitoring-fig121-new4.png)
-
-Questa tabella è ordinata (VM e subnet) in base a gravità, come illustrato di seguito:
+La tabella include il nome dell'endpoint che rappresenta la macchina virtuale, l'indirizzo IP con connessione Internet, lo stato corrente di gravità del gruppo di sicurezza di rete e del firewall di nuova generazione. Questa tabella è ordinata in base alla gravità:
 
 * Rosso (in alto): priorità elevata e da risolvere immediatamente
 * Arancione: priorità media e da risolvere appena possibile
 * Verde (ultimo): stato di integrità
 
-Nella visualizzazione della topologia il primo livello include [Reti virtuali](../virtual-network/virtual-networks-overview.md), [Gateway di rete virtuale](../vpn-gateway/vpn-gateway-site-to-site-create.md) e [Rete virtuale (versione classica)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Il secondo livello include le subnet e il terzo livello include le VM appartenenti alle subnet. La colonna destra include lo stato attuale del gruppo di sicurezza di rete per queste risorse, come illustrato nell'esempio seguente:
+#### <a name="networking-topology-section"></a>Sezione Topologia di rete
+La sezione **Topologia di rete** include una visualizzazione gerarchica delle risorse, come illustrato nello screenshot seguente:
 
-![Struttura di rete](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
+![Visualizzazione gerarchica di risorse nella sezione Topologia di rete](./media/security-center-monitoring/security-center-monitoring-fig121-new4.png)
 
-La parte inferiore del pannello include le raccomandazioni per questa VM, simili a quanto illustrato in precedenza. È possibile fare clic su una raccomandazione per ottenere altre informazioni o per applicare il controllo di sicurezza necessario o la configurazione.
+Questa tabella è ordinata (macchine virtuali e subnet) in base alla gravità:
 
-### Monitorare di dati
-Quando si fa clic su **Dati** nel riquadro **Resources security health** (Integrità della sicurezza delle risorse), viene aperto il pannello **SQL** con raccomandazioni relative a problemi come la mancata abilitazione del controllo e di Transparent Data Encryption. Il pannello include anche [raccomandazioni](security-center-sql-service-recommendations.md) sullo stato di integrità generale del database.
+* Rosso (in alto): priorità elevata e da risolvere immediatamente
+* Arancione: priorità media e da risolvere appena possibile
+* Verde (ultimo): stato di integrità
+
+Nella visualizzazione della topologia il primo livello include [Reti virtuali](../virtual-network/virtual-networks-overview.md), [Gateway di rete virtuale](../vpn-gateway/vpn-gateway-site-to-site-create.md) e [Rete virtuale (versione classica)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Il secondo livello include le subnet e il terzo livello include le macchine virtuali appartenenti alle subnet. La colonna destra include lo stato attuale del gruppo di sicurezza di rete per queste risorse, come illustrato nell'esempio seguente:
+
+![Stato del gruppo di sicurezza di rete nella sezione Topologia di rete](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
+
+La parte inferiore del pannello include le raccomandazioni per questa macchina virtuale, simili a quanto illustrato in precedenza. È possibile fare clic su una raccomandazione per ottenere altre informazioni o per applicare la configurazione o il controllo di sicurezza necessario.
+
+### <a name="monitor-data"></a>Monitorare di dati
+Quando si fa clic su **Dati** nel riquadro **Integrità sicurezza delle risorse**, viene aperto il pannello **SQL** con le raccomandazioni relative a problemi come la mancata abilitazione del controllo e di Transparent Data Encryption. Il pannello include anche [raccomandazioni](security-center-sql-service-recommendations.md) sullo stato di integrità generale del database.
 
 ![Integrità delle risorse SQL](./media/security-center-monitoring/security-center-monitoring-fig13-ga.png)
 
-È possibile fare clic su una di queste raccomandazioni e visualizzare altri dettagli, nonché eseguire altre azioni per risolvere il problema. L'esempio seguente illustra l'espansione della raccomandazione **Controllo database non abilitato**.
+È possibile fare clic su qualsiasi raccomandazione e ottenere maggiori dettagli su altre azioni per risolvere il problema. L'esempio seguente illustra l'espansione della raccomandazione **Controllo database non abilitato**.
 
-![Integrità delle risorse SQL](./media/security-center-monitoring/security-center-monitoring-fig14-ga.png)
+![Informazioni dettagliate su una raccomandazione SQL](./media/security-center-monitoring/security-center-monitoring-fig14-ga.png)
 
 Il pannello **Abilita il controllo sui database SQL** contiene le informazioni seguenti:
 
@@ -181,32 +185,37 @@ Il pannello **Abilita il controllo sui database SQL** contiene le informazioni s
 * Stato corrente.
 * Gravità del problema.
 
-Quando si fa clic sul database per applicare la raccomandazione, viene aperto il pannello **Controllo e rilevamento minacce**, come illustrato di seguito.
+Quando si fa clic sul database per applicare la raccomandazione, viene aperto il pannello **Controllo e rilevamento minacce**, come illustrato nello screenshot seguente.
 
-![Integrità delle risorse SQL](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
+![Pannello Controllo e rilevamento minacce](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
 
-Per abilitare il controllo, selezionare semplicemente **SÌ** sotto l'opzione **Controllo**.
+Per abilitare il controllo, selezionare semplicemente **SÌ** nell'opzione **Controllo**.
 
-### Monitorare le applicazioni
-Se il carico di lavoro di Azure include applicazioni che si trovano in [VM di Resource Manager](../resource-manager-deployment-model.md) con porte Web esposte (porte TCP 80 e 443), il Centro sicurezza può monitorarle per identificare potenziali problemi di sicurezza, suggerendo le procedure di correzione. Quando si fa clic sul riquadro **Applicazioni**, viene aperto il pannello **Applicazioni** con una serie di raccomandazioni nella sezione relativa alla procedura di prevenzione. Visualizza anche il dettaglio dell'applicazione per host/IP virtuale, come illustrato di seguito.
+### <a name="monitor-applications"></a>Monitorare le applicazioni
+Se il carico di lavoro di Azure include applicazioni che si trovano nelle [macchine virtuali create tramite Azure Resource Manager](../resource-manager-deployment-model.md) con porte Web esposte (porte TCP 80 e 443), il Centro sicurezza può monitorarle per identificare potenziali problemi di sicurezza, raccomandando le procedure di correzione. Quando si fa clic sul riquadro **Applicazioni**, viene aperto il pannello **Applicazioni** con una serie di raccomandazioni nella sezione relativa alla **procedura di prevenzione**. Visualizza anche il dettaglio dell'applicazione per host/IP virtuale, come illustrato nello screenshot seguente.
 
 ![Integrità sicurezza delle applicazioni](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
 
-Proprio come per le altre raccomandazioni, è possibile fare clic su di essa per visualizzare altri dettagli sul problema e su come risolverlo. L'esempio illustrato nella figura seguente è un'applicazione identificata come applicazione Web non sicura. Se si seleziona l'applicazione considerata non sicura, si aprirà un altro pannello con l'opzione seguente disponibile:
+Proprio come per le altre raccomandazioni, è possibile fare clic su una raccomandazione per visualizzare altri dettagli sul problema e su come risolverlo. L'esempio illustrato nella figura seguente è un'applicazione identificata come applicazione Web non sicura. Se si seleziona l'applicazione considerata non sicura, si apre un altro pannello con l'opzione seguente disponibile:
 
-![App](./media/security-center-monitoring/security-center-monitoring-fig17-ga.png)
+![Informazioni dettagliate su un'app non sicura](./media/security-center-monitoring/security-center-monitoring-fig17-ga.png)
 
-Questo pannello visualizza un elenco di tutte le raccomandazioni per l'applicazione. Facendo clic sulla raccomandazione **Aggiungi un Web application firewall** verrà aperto il pannello **Aggiungi un Web application firewall** con opzioni per installare un Web application firewall (WAF) di terze parti, come illustrato di seguito.
+Questo pannello visualizza un elenco di tutte le raccomandazioni per l'applicazione. Facendo clic sulla raccomandazione **Aggiungi un web application firewall** verrà aperto il pannello **Aggiungi un web application firewall** con opzioni per installare un web application firewall (WAF) di un partner, come illustrato nello screenshot seguente.
 
-![Aggiungi WAF](./media/security-center-monitoring/security-center-monitoring-fig18-ga.png)
+![Finestra di dialogo Aggiungi un web application firewall](./media/security-center-monitoring/security-center-monitoring-fig18-ga.png)
 
-## Vedere anche
-In questo documento è stato descritto come utilizzare le funzionalità di monitoraggio nel Centro sicurezza di Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
+## <a name="see-also"></a>Vedere anche
+Questo articolo descrive come usare le funzionalità di monitoraggio nel Centro sicurezza di Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
 
 * [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare le impostazioni di sicurezza nel Centro sicurezza di Azure.
-* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza
+* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
 * [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare l'integrità delle soluzioni dei partner.
-* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio
-* [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure
+* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
+* [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

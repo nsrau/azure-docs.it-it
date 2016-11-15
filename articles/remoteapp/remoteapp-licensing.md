@@ -1,11 +1,11 @@
 ---
-title: Licenze di Azure RemoteApp | Microsoft Docs
+title: Licenze di Azure RemoteApp |Documentazione Microsoft
 description: Informazioni sul funzionamento delle licenze in Azure RemoteApp.
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: lizap
 manager: mbaldwin
-
+ms.assetid: ff8ebd20-61a1-4f10-87a6-234a170534c9
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
@@ -13,11 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f4429461139a41644f87185bbb06b1f6a8011345
+
 
 ---
-# Funzionamento delle licenze in Azure RemoteApp
+# <a name="how-does-licensing-work-in-azure-remoteapp"></a>Funzionamento delle licenze in Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -27,7 +31,7 @@ RemoteApp non richiede licenze Windows o licenze CAL per Desktop remoto. La part
 
 Se si usa una delle immagini incluse nella sottoscrizione, è possibile condividere le app installate in tale immagine senza la necessità di una licenza separata. Ad esempio, se si utilizza l'immagine modello di Windows Server 2012 R2 per creare la raccolta, è possibile condividere System Center Endpoint Protection con gli utenti. Le uniche eccezioni a questa regola sono Office 365 ProPlus, che richiede una sottoscrizione separata, e Office 2013, che non può essere condiviso in una raccolta di produzione.
 
-Se si desidera usare l'immagine modello di Office 365 inclusa in RemoteApp, è necessario disporre di un piano *esistente* di Office 365 ProPlus. Lo stesso vale per qualsiasi app di Office 365 pubblicate usando un modello personalizzato. È necessario attivare le app usando la propria sottoscrizione. Questo vale sia per le sottoscrizioni di valutazione che per quelle a pagamento. Per usare l'immagine modello di Office 365 durante la valutazione *e non si ha già una sottoscrizione*, andare alla pagina di Office 365 per [iscriversi](https://go.microsoft.com/fwlink/p/?LinkID=403802) a una sottoscrizione di valutazione. Per altre informazioni, vedere la pagina relativa al [funzionamento di RemoteApp e Office in combinazione](remoteapp-o365.md).
+Se si desidera usare l'immagine modello di Office 365 inclusa in RemoteApp, è necessario disporre di un piano *esistente* di Office 365 ProPlus. Lo stesso vale per qualsiasi app di Office 365 pubblicate usando un modello personalizzato. È necessario attivare le app usando la propria sottoscrizione. Questo vale sia per le sottoscrizioni di valutazione che per quelle a pagamento. Per usare l'immagine modello di Office 365 durante la valutazione *e non si ha già una sottoscrizione*, andare alla pagina di Office 365 per [iscriversi](https://go.microsoft.com/fwlink/p/?LinkID=403802) a una sottoscrizione di valutazione. Per altre informazioni, vedere la pagina relativa al [funzionamento di RemoteApp e Office in combinazione](remoteapp-o365.md) .
 
 Se durante il periodo di valutazione non si vuole ottenere una sottoscrizione di valutazione di Office 365, usare l'immagine modello di Office 2013 Professional Plus fornita con RemoteApp. Questa immagine modello può essere usata solo per 30 giorni e non può essere convertita in una raccolta a pagamento.
 
@@ -37,4 +41,9 @@ Riassumendo, è possibile pubblicare qualsiasi app di cui si detiene il diritto 
 
 Si noti che non è possibile usare una licenza CAL o un contratto multilicenza in una raccolta nel cloud. È *possibile* usare un contratto multilicenza per attivare applicazioni nella raccolta ibrida (ad eccezione di Office). È sufficiente installarle nell'immagine modello dai supporti forniti per contratti multilicenza. Seguire le indicazioni del fornitore dell'applicazione per installare le licenze in un ambiente Desktop remoto.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

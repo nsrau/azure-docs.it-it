@@ -1,22 +1,26 @@
 ---
-title: Creare un'app Web Node.js in Azure App Service | Microsoft Docs
-description: Informazioni su come distribuire un'applicazione Node.js in un'app Web nel servizio app di Azure.
+title: Creare un&quot;App Web Node.js nel Servizio app di Azure | Microsoft Docs
+description: Informazioni su come distribuire un&quot;applicazione Node.js in un&quot;app Web nel servizio app di Azure.
 services: app-service\web
 documentationcenter: nodejs
 author: rmcmurray
-manager: wpickett
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 85af23df-54af-4430-8d77-a1f97e2f5b10
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c63b2b59143b57d6666910e701d8810bd517a42d
+
 
 ---
-# Creare un'app Web Node.js nel servizio app di Azure
+# <a name="create-a-nodejs-web-app-in-azure-app-service"></a>Creare un'app Web Node.js nel servizio app di Azure
 > [!div class="op_single_selector"]
 > * [.Net](web-sites-dotnet-get-started.md)
 > * [Node.JS](web-sites-nodejs-develop-deploy-mac.md)
@@ -27,7 +31,7 @@ ms.author: robmcm
 > 
 > 
 
-Questa esercitazione illustra come creare una semplice applicazione [Node.js](http://nodejs.org) e distribuirla in un'[app Web](app-service-web-overview.md) nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md) mediante [Git](http://git-scm.com). Le istruzioni di questa esercitazione possono essere eseguite in qualsiasi sistema operativo in grado di eseguire Node.js.
+Questa esercitazione illustra come creare una semplice applicazione [Node.js](http://nodejs.org) e distribuirla in un'[app Web](app-service-web-overview.md) nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md) usando [Git](http://git-scm.com). Le istruzioni di questa esercitazione possono essere eseguite in qualsiasi sistema operativo in grado di eseguire Node.js.
 
 Si apprenderà come:
 
@@ -41,38 +45,38 @@ L'applicazione completata scrive una breve stringa "hello world" nel browser.
 Per esercitazioni ed esempi di codice con applicazioni Node.js più complesse o per altri argomenti relativi all'uso di Node.js in Azure, vedere il [centro per sviluppatori Node.js](/develop/nodejs/).
 
 > [!NOTE]
-> Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione Visual Studio](/it-IT/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) oppure [iscriversi per ottenere una versione di valutazione gratuita](/it-IT/pricing/free-trial/?WT.mc_id=A261C142F).
+> Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione Visual Studio](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) oppure [iscriversi per ottenere una versione di valutazione gratuita](/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
 > 
 > Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751). In questa pagina è possibile creare immediatamente un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 
-## Creare un'app Web di Azure e abilitare la pubblicazione Git
-Seguire questa procedura per creare un'app Web nel servizio app di Azure e abilitare la pubblicazione Git.
+## <a name="create-a-web-app-and-enable-git-publishing"></a>Creare un'app Web di Azure e abilitare la pubblicazione Git
+Seguire questa procedura per creare un'app Web nel servizio app di Azure e abilitare la pubblicazione Git. 
 
-[Git](http://git-scm.com/) è un sistema di controllo delle versioni distribuite che è possibile usare per distribuire il sito Web di Azure. Il codice scritto per l'app Web verrà archiviato in un repository Git locale e verrà distribuito in Azure tramite il push in un repository remoto. Questo metodo di distribuzione è una funzionalità delle app Web del servizio app.
+[Git](http://git-scm.com/) è un sistema di controllo delle versioni distribuite che è possibile usare per distribuire il sito Web di Azure. Il codice scritto per l'app Web verrà archiviato in un repository Git locale e verrà distribuito in Azure tramite il push in un repository remoto. Questo metodo di distribuzione è una funzionalità delle app Web del servizio app.  
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Fare clic sull'icona **+ NUOVO** nella parte superiore sinistra del portale di Azure.
 3. Fare clic su **Web e dispositivi mobili** e quindi su **App Web**.
    
     ![][portal-quick-create]
-4. Immettere un nome per l'app Web nella casella **App Web**.
+4. Immettere un nome per l'app Web nella casella **App Web** .
    
     Il nome deve essere univoco nel dominio azurewebsites.net perché l'URL dell'app Web sarà {nome}.azurewebsites.net. Se il nome immesso non è univoco, nella casella di testo verrà visualizzato un punto esclamativo rosso.
 5. Selezionare una **Sottoscrizione**.
 6. Selezionare un **Gruppo di risorse** o crearne uno nuovo.
    
-    Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md).
+    Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 7. Selezionare un **Piano di servizio app/Posizione** o crearne uno nuovo.
    
-    Per altre informazioni sui piani del servizio app, vedere [Panoramica approfondita dei piani del servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+    Per altre informazioni sui piani del servizio app, vedere [Panoramica approfondita dei piani del servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 8. Fare clic su **Crea**.
    
     ![][portal-quick-create2]
    
     In meno di un minuto Azure completa la creazione della nuova app Web.
-9. Fare clic su **App Web > {nuova app Web personale}**.
+9. Fare clic su **App Web > {nuova app Web}**.
    
     ![](./media/web-sites-nodejs-develop-deploy-mac/gotowebapp.png)
 10. Nel pannello **App Web** fare clic sulla parte **Distribuzione**.
@@ -84,11 +88,11 @@ Seguire questa procedura per creare un'app Web nel servizio app di Azure e abili
     ![][setup-git-publishing]
 13. Configurare le credenziali di distribuzione, se non è stato ancora fatto.
     
-    a. Nel pannello dell'app Web fare clic su **Impostazioni > Credenziali di distribuzione**.
+    a. Nel pannello dell'app Web fare clic su **Impostazioni > Credenziali per la distribuzione**.
     
     ![][deployment-credentials]
     
-    b. Creare un nome utente e una password.
+    b. Creare un nome utente e una password. 
     
     ![](./media/web-sites-nodejs-develop-deploy-mac/setdeploycreds.png)
 14. Nel pannello dell'app Web fare clic su **Impostazioni** e quindi su **Proprietà**.
@@ -97,12 +101,12 @@ Seguire questa procedura per creare un'app Web nel servizio app di Azure e abili
     
     ![][git-url]
 
-## Creazione e test dell'applicazione in locale
+## <a name="build-and-test-your-application-locally"></a>Creazione e test dell'applicazione in locale
 In questa sezione verrà creato un file **server.js** che contiene una versione lievemente modificata dell'esempio 'Hello World' di [nodejs.org]. Il codice aggiunge process.env.PORT come porta su cui rimanere in ascolto durante l'esecuzione in un'app Web di Azure.
 
 1. Creare una directory denominata *helloworld*.
-2. Usare un editor di testo per creare un nuovo file denominato **server.js** nella directory *helloworld*.
-3. Copiare il codice seguente nel file **server.js**, quindi salvare il file:
+2. Usare un editor di testo per creare un nuovo file denominato **server.js** nella directory *helloworld* .
+3. Copiare il codice seguente nel file **server.js** , quindi salvare il file:
    
         var http = require('http')
         var port = process.env.PORT || 1337;
@@ -113,13 +117,13 @@ In questa sezione verrà creato un file **server.js** che contiene una versione 
 4. Aprire la riga di comando e usare il comando seguente per avviare l'app Web in locale.
    
         node server.js
-5. Aprire un Web browser e passare all'indirizzo http://localhost:1337.
+5. Aprire il Web browser e passare all'indirizzo http://localhost:1337. 
    
     Verrà visualizzata una pagina Web che mostra "Hello World", come illustrato nella schermata seguente.
    
     ![Finestra del browser con il messaggio 'Hello World' visualizzato.][helloworld-localhost]
 
-## Pubblicare l'applicazione
+## <a name="publish-your-application"></a>Pubblicare l'applicazione
 1. Se non è già stato fatto, installare Git.
    
     Per le istruzioni di installazione in una specifica piattaforma, vedere la [pagina di download di Git](http://git-scm.com/download).
@@ -152,14 +156,14 @@ In questa sezione verrà creato un file **server.js** che contiene una versione 
         remote: Deployment successful.
         To https://user@testsite.scm.azurewebsites.net/testsite.git
          * [new branch]      master -> master
-6. Per visualizzare l'app, fare clic sul pulsante **Sfoglia** nella parte **App Web** del portale di Azure.
+6. Per visualizzare l'app, fare clic sul pulsante **Sfoglia** nella parte **App Web** nel portale di Azure.
    
     ![Pulsante Sfoglia](./media/web-sites-nodejs-develop-deploy-mac/browsebutton.png)
    
     ![Hello world in Azure](./media/web-sites-nodejs-develop-deploy-mac/helloworldazure.png)
 
-## Pubblicazione delle modifiche apportate all'applicazione
-1. Aprire il file **server.js** in un editor di testo e sostituire 'Hello World\\n' con 'Hello Azure\\n'.
+## <a name="publish-changes-to-your-application"></a>Pubblicazione delle modifiche apportate all'applicazione
+1. Aprire il file **server.js** in un editor di testo e sostituire 'Hello World\n' con 'Hello Azure\n'. 
 2. Salvare il file.
 3. Dalla riga di comando passare alla directory **helloworld** ed eseguire i comandi seguenti:
    
@@ -172,11 +176,11 @@ In questa sezione verrà creato un file **server.js** che contiene una versione 
    
     ![Pagina Web in cui è visualizzato il messaggio 'Hello Azure'][helloworld-completed]
 
-## Eseguire il rollback di una distribuzione
-Dal pannello **App Web** è possibile fare clic su **Impostazioni > Distribuzione continua** per visualizzare la cronologia di distribuzione nel pannello **Distribuzioni**. Se occorre eseguire il rollback a una distribuzione precedente, è possibile selezionarla e quindi fare clic su **Ridistribuisci** nel pannello **Dettagli distribuzione**.
+## <a name="roll-back-a-deployment"></a>Eseguire il rollback di una distribuzione
+Nel pannello **App Web** è possibile fare clic su **Impostazioni > Distribuzione continua** per visualizzare la cronologia di distribuzione nel pannello **Distribuzioni**. Se occorre eseguire il rollback a una distribuzione precedente, è possibile selezionarla e quindi fare clic su **Ridistribuisci** nel pannello **Dettagli della distribuzione**.
 
-## Passaggi successivi
-È stata distribuita un'applicazione Node.js in un'app Web nel servizio app di Azure. Per altre informazioni su come le app Web del servizio app eseguono le applicazioni Node.js, vedere [App Web del servizio app di Azure: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx) e [Specifica di una versione Node.js in un'applicazione Azure](../nodejs-specify-node-version-azure-apps.md).
+## <a name="next-steps"></a>Passaggi successivi
+È stata distribuita un'applicazione Node.js in un'app Web nel servizio app di Azure. Per altre informazioni sull'esecuzione di applicazioni Node.js in app Web del servizio app, vedere [App Web del servizio app di Azure: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx) e [Specifica di una versione di Node.js in un'applicazione Azure](../nodejs-specify-node-version-azure-apps.md).
 
 Node.js fornisce un ecosistema completo di moduli che è possibile utilizzare nelle applicazioni. Per informazioni su come usare le app Web con i moduli, vedere [Uso di moduli Node.js con applicazioni Azure](../nodejs-use-node-modules-azure-apps.md).
 
@@ -196,4 +200,8 @@ Per altre informazioni su come sviluppare applicazioni Node.js in Azure, vedere 
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+
