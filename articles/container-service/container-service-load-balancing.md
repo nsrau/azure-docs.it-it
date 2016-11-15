@@ -1,14 +1,14 @@
 ---
-title: Bilanciare il carico dei contenitori in un cluster del servizio contenitore di Azure | Microsoft Docs
-description: Bilanciare il carico tra più contenitori in un cluster del servizio contenitore di Azure.
+title: Bilanciare il carico dei contenitori in un cluster del servizio contenitore di Azure | Documentazione Microsoft
+description: "Bilanciare il carico tra più contenitori in un cluster del servizio contenitore di Azure."
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: rgardler
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
 keywords: Contenitori, Micro-Service, controller di dominio/sistema operativo, Azure
-
+ms.assetid: f0ab5645-2636-42de-b23b-4c3a7e3aa8bb
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,6 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/11/2016
 ms.author: rogardle
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: cf255856302ad5bdb1f6022d231833610acbcac5
+
 
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-cluster"></a>Bilanciare il carico dei contenitori in un cluster del servizio contenitore di Azure
@@ -35,14 +39,14 @@ Il servizio di bilanciamento del carico Marathon si riconfigura in base ai conte
 
 Per installare il servizio di bilanciamento del carico Marathon, è possibile usare l'interfaccia utente Web di DC/OS o la riga di comando.
 
-### <a name="install-marathon-lb-using-dc/os-web-ui"></a>Installare Marathon-LB usando l'interfaccia utente Web di DC/OS
+### <a name="install-marathonlb-using-dcos-web-ui"></a>Installare Marathon-LB usando l'interfaccia utente Web di DC/OS
 1. Fare clic su 'Universe' (Universo)
 2. Cercare 'Marathon-LB'
 3. Fare clic su 'Install' (Installa)
 
 ![Installazione di marathon-lb mediante l'interfaccia Web di DC/OS](./media/dcos/marathon-lb-install.png)
 
-### <a name="install-marathon-lb-using-the-dc/os-cli"></a>Installare Marathon-LB usando l'interfaccia della riga di comando di DC/OS
+### <a name="install-marathonlb-using-the-dcos-cli"></a>Installare Marathon-LB usando l'interfaccia della riga di comando di DC/OS
 Dopo l'installazione dell'interfaccia della riga di comando di DC/OS e dopo avere verificato che è possibile connettersi al cluster, eseguire il comando seguente dal computer client:
 
 ```bash
@@ -97,13 +101,13 @@ Ora che il pacchetto marathon-lb è disponibile, è possibile distribuire un con
 
 È opportuno notare che per impostazione predefinita Marathon verrà distribuito nel cluster privato e la distribuzione precedente sarà quindi accessibile solo tramite il servizio di bilanciamento del carico, come in genere desiderato.
 
-### <a name="deploy-using-the-dc/os-web-ui"></a>Distribuire usando l'interfaccia utente Web di DC/OS
+### <a name="deploy-using-the-dcos-web-ui"></a>Distribuire usando l'interfaccia utente Web di DC/OS
 1. Visitare la pagina Marathon all'indirizzo http://localhost/marathon (dopo aver configurato il [tunnel SSH](container-service-connect.md)) e fare clic su `Create Appliction`.
 2. Nella finestra di dialogo `New Application` fare clic su `JSON Mode` nell'angolo superiore destro.
 3. Incollare il codice JSON precedente nell'editor.
 4. Fare clic su`Create Appliction`.
 
-### <a name="deploy-using-the-dc/os-cli"></a>Distribuire usando l'interfaccia della riga di comando di DC/OS
+### <a name="deploy-using-the-dcos-cli"></a>Distribuire usando l'interfaccia della riga di comando di DC/OS
 Per distribuire questa applicazione con l'interfaccia della riga di comando di DC/OS, è sufficiente copiare il codice JSON precedente in un file denominato `hello-web.json` ed eseguire questo comando:
 
 ```bash
@@ -129,6 +133,9 @@ Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/), vedere la documentazione relativa a DC/OS.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

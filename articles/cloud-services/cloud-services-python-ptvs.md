@@ -1,12 +1,12 @@
 ---
-title: Ruoli Web e ruoli di lavoro Python con Visual Studio | Microsoft Docs
-description: Panoramica dell'uso di Python Tools per Visual Studio per creare servizi cloud di Azure, inclusi ruoli Web e ruoli di lavoro.
+title: Ruoli Web e ruoli di lavoro Python con Visual Studio | Documentazione Microsoft
+description: Panoramica dell&quot;uso di Python Tools per Visual Studio per creare servizi cloud di Azure, inclusi ruoli Web e ruoli di lavoro.
 services: cloud-services
 documentationcenter: python
 author: thraka
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 5489405d-6fa9-4b11-a161-609103cbdc18
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,20 +14,24 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 08/03/2016
 ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d951e05a9a0ae59adb64d53726e9898d95424d80
+
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Ruoli Web e ruoli di lavoro Python con Python Tools for Visual Studio
-Questo articolo offre una panoramica dell'uso dei ruoli Web e di lavoro con [Python Tools for Visual Studio][]. Si apprenderà come usare Visual Studio per creare e distribuire un servizio cloud di base che usa Python.
+Questo articolo offre una panoramica dell'uso dei ruoli Web e di lavoro con [Python Tools for Visual Studio][Python Tools for Visual Studio]. Si apprenderà come usare Visual Studio per creare e distribuire un servizio cloud di base che usa Python.
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Visual Studio 2013 o 2015
-* [Python Tools for Visual Studio][](PTVS.md)
-* [Strumenti di Azure SDK per VS 2013][] o [Strumenti di Azure SDK per VS 2015][]
+* [Python Tools for Visual Studio][Python Tools for Visual Studio] (PTVS)
+* [Strumenti di Azure SDK per VS 2013][Strumenti di Azure SDK per VS 2013] o [Strumenti di Azure SDK per VS 2015][Strumenti di Azure SDK per VS 2015]
 * [Python 2.7 a 32 bit][Python 2.7 a 32 bit] o [Python 3.5 a 32 bit][Python 3.5 a 32 bit]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-## <a name="what-are-python-web-and-worker-roles?"></a>Cosa sono i ruoli Web e di lavoro Python?
+## <a name="what-are-python-web-and-worker-roles"></a>Cosa sono i ruoli Web e di lavoro Python?
 Azure offre tre modelli di calcolo per l'esecuzione di applicazioni: [funzionalità App Web in Servizio app di Azure][execution model-web sites], [Macchine virtuali di Azure][execution model-vms] e [Servizi cloud di Azure][execution model-cloud services]. Tutti e tre i modelli supportano Python. Servizi cloud, che include ruoli Web e di lavoro, fornisce la tecnologia di *piattaforma distribuita come servizio (PaaS)*. Nell'ambito di un servizio cloud, un ruolo Web fornisce un server Web IIS (Internet Information Services) dedicato su cui ospitare applicazioni Web front-end, mentre un ruolo di lavoro consente di eseguire attività asincrone, a esecuzione prolungata o perpetue, indipendenti dall'interazione o dall'input degli utenti.
 
 Per altre informazioni, vedere [Informazioni sul servizio cloud].
@@ -110,7 +114,7 @@ Gli script seguenti sono stati scritti per Python 3.5. Per usare la versione 2.x
 </Runtime>
 ```
 
-#### <a name="sample-servicedefinition.csdef"></a>File ServiceDefinition.csdef di esempio
+#### <a name="sample-servicedefinitioncsdef"></a>File ServiceDefinition.csdef di esempio
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceDefinition name="AzureCloudServicePython" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
@@ -161,7 +165,7 @@ Gli script seguenti sono stati scritti per Python 3.5. Per usare la versione 2.x
 
 Creare ora i file **PrepPython.ps1** e **PipInstaller.ps1** nella cartella **./bin** del ruolo.
 
-#### <a name="preppython.ps1"></a>PrepPython.ps1
+#### <a name="preppythonps1"></a>PrepPython.ps1
 Questo script installa Python. Se la variabile di ambiente **PYTHON2** viene impostata su **on** verrà installato Python 2.7, in caso contrario verrà installato Python 3.5.
 
 ```powershell
@@ -207,7 +211,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### <a name="pipinstaller.ps1"></a>PipInstaller.ps1
+#### <a name="pipinstallerps1"></a>PipInstaller.ps1
 Questo script chiama pip e installa tutte le dipendenze presenti nel file **requirements.txt**. Se la variabile di ambiente **PYTHON2** viene impostata su **on** verrà usato Python 2.7, in caso contrario verrà usato Python 3.5.
 
 ```powershell
@@ -235,7 +239,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### <a name="modify-launchworker.ps1"></a>Modificare LaunchWorker.ps1
+#### <a name="modify-launchworkerps1"></a>Modificare LaunchWorker.ps1
 > [!NOTE]
 > Nel caso di un progetto **ruolo di lavoro**, è necessario il file **LauncherWorker.ps1** per eseguire il file di avvio. In un progetto **ruolo Web** il file di avvio viene invece definito nelle proprietà del progetto.
 > 
@@ -280,7 +284,7 @@ else
 }
 ```
 
-#### <a name="ps.cmd"></a>ps.cmd
+#### <a name="pscmd"></a>ps.cmd
 I modelli di Visual Studio dovrebbero aver creato un file **ps.cmd** nella cartella **./bin**. Questo script della shell chiama gli script del wrapper di PowerShell precedenti e fornisce la registrazione in base al nome del wrapper di PowerShell chiamato. Se questo file non è stato creato, di seguito è indicato il contenuto necessario. 
 
 ```bat
@@ -319,12 +323,12 @@ Nella finestra di output verranno visualizzati alcuni stati, quindi apparirà la
 Saranno necessari alcuni minuti per completare la distribuzione, quindi i ruoli di lavoro e/o Web verranno eseguiti in Azure.
 
 ### <a name="investigate-logs"></a>Esaminare i log
-Dopo che la macchina virtuale del servizio cloud è stata avviata e ha installato Python, è possibile esaminare i log per trovare eventuali messaggi di errore. Questi log si trovano nella cartella **C:\Resources\Directory\{role}\LogFiles**. **PrepPython.err.txt** conterrà almeno un errore relativo al tentativo dello script di verificare se Python è installato e **PipInstaller.err.txt** può segnalare una versione obsoleta di pip.
+Dopo che la macchina virtuale del servizio cloud è stata avviata e ha installato Python, è possibile esaminare i log per trovare eventuali messaggi di errore. Questi log si trovano nella cartella **C:\Resources\Directory\\{role}\LogFiles**. **PrepPython.err.txt** conterrà almeno un errore relativo al tentativo dello script di verificare se Python è installato e **PipInstaller.err.txt** può segnalare una versione obsoleta di pip.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni più dettagliate sull'uso di ruoli di lavoro e Web in Python Tools per Visual Studio, vedere la documentazione PTVS:
 
-* [Cloud Service Projects][](Progetti di servizio cloud.md)
+* [Progetti di servizi cloud][Progetti di servizi cloud]
 
 Per altre informazioni dettagliate sull'uso di servizi di Azure dai ruoli di lavoro e Web, ad esempio sull'uso dell'archiviazione o del bus di servizio di Azure, vedere gli articoli seguenti.
 
@@ -361,6 +365,6 @@ Per altre informazioni dettagliate sull'uso di servizi di Azure dai ruoli di lav
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

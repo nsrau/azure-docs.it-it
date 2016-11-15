@@ -1,12 +1,12 @@
 ---
-title: Create SQL Data Warehouse by using PowerShell | Microsoft Docs
-description: Create SQL Data Warehouse by using PowerShell
+title: Creare un&quot;istanza di SQL Data Warehouse con PowerShell | Documentazione Microsoft
+description: Creare un&quot;istanza di SQL Data Warehouse con PowerShell
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 97434863-7938-4129-8949-5a119f5949e3
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,99 +14,103 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3d13d4a0dd1d6e0b7361a57e167b06f0b717bfb4
+
 
 ---
-# <a name="create-sql-data-warehouse-using-powershell"></a>Create SQL Data Warehouse using PowerShell
+# <a name="create-sql-data-warehouse-using-powershell"></a>Creare SQL Data Warehouse con PowerShell
 > [!div class="op_single_selector"]
-> * [Azure Portal](sql-data-warehouse-get-started-provision.md)
+> * [Portale di Azure](sql-data-warehouse-get-started-provision.md)
 > * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 > * [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 > 
 > 
 
-This article shows you how to create a SQL Data Warehouse using PowerShell.
+Questo articolo illustra come creare un'istanza di SQL Data Warehouse usando PowerShell.
 
-## <a name="prerequisites"></a>Prerequisites
-To get started, you need:
+## <a name="prerequisites"></a>Prerequisiti
+Per iniziare, è necessario:
 
-* **Azure account**: Visit [Azure Free Trial][Azure Free Trial] or [MSDN Azure Credits][MSDN Azure Credits] to create an account.
-* **Azure SQL server**:  See [Create an Azure SQL Database logical server with the Azure Portal][Create an Azure SQL Database logical server with the Azure Portal] or [Create an Azure SQL Database logical server with PowerShell][Create an Azure SQL Database logical server with PowerShell] for more details.
-* **Resource group**: Either use the same resource group as your Azure SQL server or see [how to create a resource group][how to create a resource group].
-* **PowerShell version 1.0.3 or greater**:  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][How to install and configure Azure PowerShell].
+* **Account di Azure**: vedere la [versione di valutazione gratuita][versione di valutazione gratuita] o [Crediti Azure MSDN][Crediti Azure MSDN] per creare un account.
+* **Server di Azure SQL**: per maggiori dettagli, vedere [Creare un server logico del database SQl di Azure usando il portale di Azure][Creare un server logico del database SQl di Azure usando il portale di Azure] o [Creare un server logico del database SQl di Azure usando PowerShell][Creare un server logico del database SQl di Azure usando PowerShell].
+* **Gruppo di risorse**: usare lo stesso gruppo di risorse del server di Azure SQL o vedere [Come creare un gruppo di risorse][Come creare un gruppo di risorse].
+* **PowerShell versione 1.0.3 o successiva**: è possibile verificare la versione in uso eseguendo **Get-Module -ListAvailable -Name Azure**.  È possibile installare la versione più recente usando [Installazione guidata piattaforma Web Microsoft][Installazione guidata piattaforma Web Microsoft].  Per altre informazioni sull'installazione della versione più recente, vedere [Come installare e configurare Azure PowerShell][Come installare e configurare Azure PowerShell].
 
 > [!NOTE]
-> Creating a SQL Data Warehouse may result in a new billable service.  See [SQL Data Warehouse pricing][SQL Data Warehouse pricing] for more details on pricing.
+> La creazione di un'istanza di SQL Data Warehouse può dare luogo a un nuovo servizio fatturabile.  Per informazioni dettagliate sui prezzi, vedere [Prezzi di SQL Data Warehouse][Prezzi di SQL Data Warehouse].
 > 
 > 
 
-## <a name="create-a-sql-data-warehouse"></a>Create a SQL Data Warehouse
-1. Open Windows PowerShell.
-2. Run this cmdlet to login to Azure Resource Manager.
+## <a name="create-a-sql-data-warehouse"></a>Creare un SQL Data Warehouse
+1. Aprire Windows PowerShell.
+2. Eseguire questo cmdlet per accedere a Gestione risorse di Azure.
    
     ```Powershell
     Login-AzureRmAccount
     ```
-3. Select the subscription you want to use for your current session.
+3. Selezionare la sottoscrizione da usare per la sessione corrente.
    
     ```Powershell
-    Get-AzureRmSubscription -SubscriptionName "MySubscription" | Select-AzureRmSubscription
+    Get-AzureRmSubscription    -SubscriptionName "MySubscription" | Select-AzureRmSubscription
     ```
-4. Create database. This example creates a database named "mynewsqldw", with service objective level "DW400", to the server named "sqldwserver1", which is in the resource group named "mywesteuroperesgp1".
+4. Creare il database. Questo esempio crea un database denominato "mynewsqldw", con un livello di obiettivo di servizio "DW400" nel server denominato "sqldwserver1" incluso nel gruppo di risorse "mywesteuroperesgp1".
    
    ```Powershell
    New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse" -CollationName "SQL_Latin1_General_CP1_CI_AS" -MaxSizeBytes 10995116277760
    ```
 
-Required Parameters are:
+I parametri obbligatori sono:
 
-* **RequestedServiceObjectiveName**: The amount of [DWU][DWU] you are requesting.  Supported values are: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000, and DW6000.
-* **DatabaseName**: The name of the SQL Data Warehouse that you are creating.
-* **ServerName**: The name of the server that you are using for creation (must be V12).
-* **ResourceGroupName**: Resource group you are using.  To find available resource groups in your subscription use Get-AzureResource.
-* **Edition**: Must be "DataWarehouse" to create a SQL Data Warehouse.
+* **RequestedServiceObjectiveName**: quantità di [DWU][DWU] richiesta.  I valori supportati sono: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000 e DW6000.
+* **DatabaseName**: il nome dell'istanza di SQL Data Warehouse che si sta creando.
+* **ServerName**: il nome del server che si sta usando per la creazione (deve essere V12).
+* **ResourceGroupName**: il gruppo di risorse in uso.  Per trovare i gruppi di risorse disponibili nella sottoscrizione, usare Get-AzureResource.
+* **Edition**: per creare un'istanza di SQL Data Warehouse, deve essere "DataWarehouse".
 
-Optional Parameters are:
+I parametri facoltativi sono:
 
-* **CollationName**: The default collation if not specified is SQL_Latin1_General_CP1_CI_AS.  Collation cannot be changed on a database.
-* **MaxSizeBytes**: The default max size of a database is 10 GB.
+* **CollationName**: se non specificate, le regole di confronto predefinite sono SQL_Latin1_General_CP1_CI_AS.  Non è possibile modificare le regole di confronto in un database.
+* **MaxSizeBytes**: la dimensione massima predefinita di un database è 10 GB.
 
-For more details on the parameter options, see [New-AzureRmSqlDatabase][New-AzureRmSqlDatabase] and [Create Database (Azure SQL Data Warehouse)][Create Database (Azure SQL Data Warehouse)].
+Per informazioni dettagliate sulle opzioni dei parametri, vedere [New-AzureRmSqlDatabase][New-AzureRmSqlDatabase] e [CREATE DATABASE (Azure SQL Data Warehouse)][CREATE DATABASE (Azure SQL Data Warehouse)].
 
-## <a name="next-steps"></a>Next steps
-After your SQL Data Warehouse has finished provisioning you may want to try [loading sample data][loading sample data] or check out how to [develop][develop], [load][load], or [migrate][migrate].
+## <a name="next-steps"></a>Passaggi successivi
+Al termine del provisioning di SQL Data Warehouse, è possibile provare a [caricare dati di esempio][caricare dati di esempio] o scoprire come eseguire le attività di [sviluppo][sviluppo], [caricamento][caricamento] o [migrazione][migrazione].
 
-If you're interested in more on how to manage SQL Data Warehouse programmatically, check out our article on how to use [PowerShell cmdlets and REST APIs][PowerShell cmdlets and REST APIs].
+Per altre informazioni su come gestire SQL Data Warehouse a livello di codice, vedere l'articolo [Usare i cmdlet di PowerShell e le API REST con SQL Data Warehouse][Usare i cmdlet di PowerShell e le API REST con SQL Data Warehouse].
 
 <!--Image references-->
 
 <!--Article references-->
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
-[migrate]: ./sql-data-warehouse-overview-migrate.md
-[develop]: ./sql-data-warehouse-overview-develop.md
-[load]: ./sql-data-warehouse-load-with-bcp.md
-[loading sample data]: ./sql-data-warehouse-load-sample-databases.md
-[PowerShell cmdlets and REST APIs]: ./sql-data-warehouse-reference-powershell-cmdlets.md
-[firewall rules]: ../sql-database-configure-firewall-settings.md
+[migrazione]: ./sql-data-warehouse-overview-migrate.md
+[sviluppo]: ./sql-data-warehouse-overview-develop.md
+[caricamento]: ./sql-data-warehouse-load-with-bcp.md
+[caricamento di dati di esempio]: ./sql-data-warehouse-load-sample-databases.md
+[Usare i cmdlet di PowerShell e le API REST con SQL Data Warehouse]: ./sql-data-warehouse-reference-powershell-cmdlets.md
+[regole del firewall]: ../sql-database-configure-firewall-settings.md
 
-[How to install and configure Azure PowerShell]: ../powershell/powershell-install-configure.md
-[how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
-[Create an Azure SQL Database logical server with the Azure Portal]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
-[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[how to create a resource group]: ../resource-group-template-deploy-portal.md#create-resource-group
+[Come installare e configurare Azure PowerShell]: ../powershell-install-configure.md
+[Procedura: Creare un database SQL Data Warehouse nel portale di Azure]: ./sql-data-warehouse-get-started-provision.md
+[Creare un server logico del database SQL di Azure]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
+[Creare un server logico del database SQL di Azure con Powershell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[Creare un gruppo di risorse]: ../resource-group-template-deploy-portal.md#create-resource-group
 
-<!--MSDN references--> 
+<!--MSDN references-->
 [MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
 [New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
-[Create Database (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt204021.aspx
+[CREATE DATABASE (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt204021.aspx
 
 <!--Other Web references-->
-[Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
-[SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
-[Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
-[MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+[Installazione guidata piattaforma Web Microsoft]: https://aka.ms/webpi-azps
+[Prezzi di SQL Data Warehouse]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+[versione di valutazione gratuita]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
+[Credito Azure mensile per sottoscrittori di Visual Studio]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

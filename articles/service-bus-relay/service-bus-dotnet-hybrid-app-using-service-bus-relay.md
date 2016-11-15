@@ -1,12 +1,12 @@
 ---
 title: Applicazione ibrida cloud/locale (.NET) | Microsoft Docs
-description: Informazioni su come creare un'applicazione .NET ibrida locale e nel cloud usando l'inoltro di Bus di servizio di Azure.
+description: Informazioni su come creare un&quot;applicazione .NET ibrida locale e nel cloud usando l&quot;inoltro di Bus di servizio di Azure.
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
 ms.service: service-bus
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/16/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3c9d542edf04c119f5d97f80eacdfd0521acd77d
+
 
 ---
-# <a name=".net-on-premises/cloud-hybrid-application-using-azure-service-bus-relay"></a>Uso di Inoltro del bus di servizio di Azure per creare applicazioni ibride cloud/locali .NET
+# <a name="net-onpremisescloud-hybrid-application-using-azure-service-bus-wcf-relay"></a>Uso di Inoltro WCF del bus di servizio di Azure per creare applicazioni ibride cloud/locali .NET
 ## <a name="introduction"></a>Introduzione
 Questo articolo descrive come compilare un'applicazione cloud ibrida con Microsoft Azure e Visual Studio. Nell'esercitazione si presuppone che l'utente non abbia mai usato Azure. In meno di 30 minuti si otterrà un'applicazione in esecuzione nel cloud e che usa più risorse di Azure.
 
 Si acquisiranno le nozioni seguenti:
 
 * Creare o adattare un servizio Web esistente utilizzabile in una soluzione Web.
-* Usare il servizio Inoltro del bus di servizio di Azure per condividere dati tra un'applicazione Azure e un servizio Web ospitato altrove.
+* Usare il servizio Inoltro WCF del bus di servizio di Azure per condividere dati tra un'applicazione Azure e un servizio Web ospitato altrove.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -48,7 +52,7 @@ Di seguito è riportata una schermata relativa alla pagina iniziale dell'applica
 ## <a name="set-up-the-development-environment"></a>Configurare l'ambiente di sviluppo
 Prima di iniziare a sviluppare applicazioni Azure, è necessario ottenere gli strumenti e configurare l'ambiente di sviluppo.
 
-1. Installare Azure SDK per .NET dalla pagina [Ottenere strumenti e SDK][Ottenere strumenti e SDK].
+1. Installare Azure SDK per .NET dalla pagina [Get Tools and SDK][Get Tools and SDK] (Ottenere strumenti e SDK).
 2. Fare clic su **Installare l'SDK** per la versione di Visual Studio in uso. Nelle procedure di questa esercitazione viene usato Visual Studio 2015.
 3. Quando viene richiesto se eseguire o salvare il file di installazione, fare clic su **Esegui**.
 4. Nell'**Installazione guidata piattaforma Web** fare clic su **Installa** e procedere con l'installazione.
@@ -59,7 +63,7 @@ Per iniziare a usare le funzionalità del bus di servizio in Azure, è innanzitu
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="create-an-on-premises-server"></a>Creare un server locale
+## <a name="create-an-onpremises-server"></a>Creare un server locale
 In primo luogo, si creerà un sistema di catalogo prodotti locale fittizio. Si tratta di un sistema locale abbastanza semplice che intende rappresentare un catalogo prodotti effettivo che include una superficie completa di servizi da integrare.
 
 Il progetto è un'applicazione console di Visual Studio e usa il [pacchetto NuGet del bus di servizio di Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) per includere le librerie e le impostazioni di configurazione del bus di servizio.
@@ -71,7 +75,7 @@ Il progetto è un'applicazione console di Visual Studio e usa il [pacchetto NuGe
    
    ![][11]
 4. Fare clic su **OK** per creare il progetto **ProductsServer**.
-5. Se Gestione pacchetti NuGet per Visual Studio è già stato installato, continuare con il passaggio successivo. In caso contrario, visitare il sito [NuGet][NuGet] e fare clic sull'opzione per [Installare NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Seguire le istruzioni visualizzate per installare Gestione pacchetti NuGet, quindi riavviare Visual Studio.
+5. Se Gestione pacchetti NuGet per Visual Studio è già stato installato, continuare con il passaggio successivo. In caso contrario, visitare il sito [NuGet][NuGet] e fare clic su [Installa NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Seguire le istruzioni visualizzate per installare Gestione pacchetti NuGet, quindi riavviare Visual Studio.
 6. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **ProductsServer** e quindi scegliere **Gestisci pacchetti NuGet**.
 7. Fare clic sulla scheda **Sfoglia** e quindi cercare `Microsoft Azure Service Bus`. Fare clic su **Installa**e accettare le condizioni per l'utilizzo.
    
@@ -197,14 +201,14 @@ Il progetto è un'applicazione console di Visual Studio e usa il [pacchetto NuGe
     
     ```
     <appSettings>
-    <!-- Service Bus specific app settings for messaging connections -->
-    <add key="Microsoft.ServiceBus.ConnectionString"
+       <!-- Service Bus specific app settings for messaging connections -->
+       <add key="Microsoft.ServiceBus.ConnectionString"
            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
     </appSettings>
     ```
 14. Premere **CTRL+MAIUSC+B** oppure scegliere **Compila soluzione** dal menu **Compila** per compilare l'applicazione e verificare la correttezza del lavoro svolto finora.
 
-## <a name="create-an-asp.net-application"></a>Creare un'applicazione ASP.NET
+## <a name="create-an-aspnet-application"></a>Creare un'applicazione ASP.NET
 In questa sezione si creerà una semplice applicazione ASP.NET per visualizzare i dati recuperati dal servizio dei prodotti.
 
 ### <a name="create-the-project"></a>Creare il progetto
@@ -234,7 +238,7 @@ In questa sezione si creerà una semplice applicazione ASP.NET per visualizzare 
    
    ```
    // Declare properties for the products inventory.
-   namespace ProductsWeb.Models
+    namespace ProductsWeb.Models
    {
        public class Product
        {
@@ -278,31 +282,31 @@ In questa sezione si creerà una semplice applicazione ASP.NET per visualizzare 
    @model IEnumerable<ProductsWeb.Models.Product>
    
    @{
-           ViewBag.Title = "Index";
+            ViewBag.Title = "Index";
    }
    
    <h2>Prod Inventory</h2>
    
    <table>
-           <tr>
-               <th>
-                   @Html.DisplayNameFor(model => model.Name)
-               </th>
+             <tr>
+                 <th>
+                     @Html.DisplayNameFor(model => model.Name)
+                 </th>
                  <th></th>
-               <th>
-                   @Html.DisplayNameFor(model => model.Quantity)
-               </th>
-           </tr>
+                 <th>
+                     @Html.DisplayNameFor(model => model.Quantity)
+                 </th>
+             </tr>
    
    @foreach (var item in Model) {
-           <tr>
-               <td>
-                   @Html.DisplayFor(modelItem => item.Name)
-               </td>
-               <td>
-                   @Html.DisplayFor(modelItem => item.Quantity)
-               </td>
-           </tr>
+             <tr>
+                 <td>
+                     @Html.DisplayFor(modelItem => item.Name)
+                 </td>
+                 <td>
+                     @Html.DisplayFor(modelItem => item.Quantity)
+                 </td>
+             </tr>
    }
    
    </table>
@@ -469,6 +473,6 @@ Per ulteriori informazioni sul bus di servizio, vedere le risorse seguenti:
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

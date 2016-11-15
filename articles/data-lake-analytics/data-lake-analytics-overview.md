@@ -1,12 +1,12 @@
 ---
-title: Panoramica di Microsoft Azure Data Lake Analytics | Microsoft Docs
-description: 'Data Lake Analytics è un servizio di calcolo dei Big Data di Azure che consente di usare i dati per la gestione delle attività aziendali mediante le informazioni dettagliate ricavate dai dati archiviati nel cloud, indipendentemente dalla loro posizione o dimensione. Data Lake Analytics consente di eseguire queste operazioni nel modo più semplice, scalabile ed economico possibile. '
+title: Panoramica di Microsoft Azure Data Lake Analytics | Documentazione Microsoft
+description: "Data Lake Analytics è un servizio di calcolo dei Big Data di Azure che consente di usare i dati per la gestione delle attività aziendali mediante le informazioni dettagliate ricavate dai dati archiviati nel cloud, indipendentemente dalla loro posizione o dimensione. Data Lake Analytics consente di eseguire queste operazioni nel modo più semplice, scalabile ed economico possibile. "
 services: data-lake-analytics
-documentationcenter: ''
+documentationcenter: 
 author: edmacauley
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: edmaca
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a6d2d6365afaecab57a100867a72b9aa2def3745
+
 
 ---
-# Panoramica di Microsoft Azure Data Lake Analytics
-## Che cos'è Azure Data Lake Analytics?
+# <a name="overview-of-microsoft-azure-data-lake-analytics"></a>Panoramica di Microsoft Azure Data Lake Analytics
+## <a name="what-is-azure-data-lake-analytics"></a>Che cos'è Azure Data Lake Analytics?
 Azure Data Lake Analytics è un nuovo servizio appositamente sviluppato per semplificare l'analisi dei Big Data. Questo servizio consente di concentrarsi sulla scrittura, esecuzione e gestione dei processi anziché sul funzionamento dell'infrastruttura distribuita. Anziché distribuire, configurare e ottimizzare l'hardware, è possibile scrivere query per trasformare i dati ed estrarre informazioni di interesse. Con il servizio di analisi è possibile gestire processi di qualsiasi dimensione immediatamente, semplicemente definendo il livello e l'ambito necessari. Verrà addebitato un costo solo per il processo durante la sua esecuzione, per la massima convenienza. Il servizio di analisi supporta l'integrazione di Azure Active Directory, che consente di gestire facilmente l'accesso e i ruoli, con il sistema di gestione delle identità locale in uso. È incluso anche U-SQL, un linguaggio che combina i vantaggi di SQL con la potenza espressiva del codice utente. Il runtime distribuito scalabile di U-SQL permette di analizzare in modo efficiente i dati nell'archivio e tra server SQL in Azure, il database SQL di Azure e SQL Data Warehouse di Azure.
 
-## Funzionalità principali
+## <a name="key-capabilities"></a>Funzionalità principali
 * **Scalabilità dinamica**
   
-    Data Lake Analytics è stato progettato da zero per garantire scalabilità e prestazioni di livello cloud. Il servizio effettua il provisioning dinamico delle risorse e permette di svolgere analisi su terabyte e addirittura exabyte di dati. Al termine del processo, il servizio riduce automaticamente le risorse, permettendo di pagare solo per la potenza di elaborazione effettivamente usata. Se si aumenta o riduce le dimensioni dei dati archiviati o la quantità di calcolo usata, non è necessario riscrivere il codice. In questo modo, è possibile concentrarsi solo sulla logica di business e non sul modo in cui elaborare e archiviare set di dati di grandi dimensioni.
+    Data Lake Analytics è stato progettato da zero per garantire scalabilità e prestazioni di livello cloud.  Il servizio effettua il provisioning dinamico delle risorse e permette di svolgere analisi su terabyte e addirittura exabyte di dati. Al termine del processo, il servizio riduce automaticamente le risorse, permettendo di pagare solo per la potenza di elaborazione effettivamente usata. Se si aumenta o riduce le dimensioni dei dati archiviati o la quantità di calcolo usata, non è necessario riscrivere il codice. In questo modo, è possibile concentrarsi solo sulla logica di business e non sul modo in cui elaborare e archiviare set di dati di grandi dimensioni.
 * **Strumenti familiari per sviluppo più rapido, debug e ottimizzazione avanzata**
   
     Data Lake Analytics è caratterizzato da una profonda integrazione con Visual Studio, che permette di usare strumenti familiari per esecuzione, debug e ottimizzazione del codice. Le visualizzazioni dei processi U-SQL permettono di definire la scalabilità con cui viene eseguito il codice, per poter identificare i colli di bottiglia in termini di prestazioni e ridurre i costi.
@@ -40,7 +44,7 @@ Azure Data Lake Analytics è un nuovo servizio appositamente sviluppato per semp
   
     Data Lake Analytics può usare numerose origini dati di Azure: archiviazione BLOB di Azure, database SQL di Azure, ed è ottimizzato in particolar modo per usare l'archivio di Azure Data Lake, in modo da offrire il più elevato livello di prestazioni, velocità effettiva e parallelizzazione dei carichi di lavoro dei Big Data.
 
-## Vedere anche
+## <a name="see-also"></a>Vedere anche
 * Introduzione
   
   * [Introduzione a Analisi Data Lake tramite il portale di Azure](data-lake-analytics-get-started-portal.md)
@@ -65,8 +69,13 @@ Azure Data Lake Analytics è un nuovo servizio appositamente sviluppato per semp
   * [Analizzare i log dei siti Web con Analisi Azure Data Lake](data-lake-analytics-analyze-weblogs.md)
 * Feedback
   
-  * [Commentare il backlog della documentazione](data-lake-analytics-documentation-backlog.md)
+  <!-- Fixing broken links for Azure content migration from ACOM to DOCS. I can't find a suitable substitute for what appears to be a link that is no longer available. I am commenting out for now. The author can investigate in the future. Hyperlink text: Comment on our documentation backlog. Referenced file: data-lake-analytics-documentation-backlog.md -->
   * [Inviare una richiesta di funzionalità](http://aka.ms/adlafeedback)
   * [Ottenere informazioni sui forum](http://aka.ms/adlaforums)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

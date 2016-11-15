@@ -1,12 +1,12 @@
 ---
-title: Usare bcp per caricare i dati in SQL Data Warehouse | Microsoft Docs
+title: Usare bcp per caricare i dati in SQL Data Warehouse | Documentazione Microsoft
 description: Informazioni su bcp e sul relativo uso per scenari di data warehousing.
 services: sql-data-warehouse
 documentationcenter: NA
 author: twounder
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: f9467d11-fcd6-4131-a65a-2022d2c32d24
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5a0519a0fdbfc428530e5b30a3f8e4e8bcdaa50b
+
 
 ---
 # <a name="load-data-with-bcp"></a>Caricare i dati con BCP
@@ -78,7 +82,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 > [!NOTE]
-> Per altre informazioni sulla creazione di una tabella in SQL Data Warehouse e sulle opzioni disponibili con la clausola WITH, vedere la [panoramica delle tabelle][panoramica delle tabelle] o la [sintassi di CREATE TABLE][].
+> Per altre informazioni sulla [creazione di una tabella][creazione di una tabella] in SQL Data Warehouse e sulle opzioni disponibili con la clausola WITH, vedere la panoramica delle tabelle o la [sintassi di CREATE TABLE][sintassi di CREATE TABLE].
 > 
 > 
 
@@ -201,6 +205,6 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

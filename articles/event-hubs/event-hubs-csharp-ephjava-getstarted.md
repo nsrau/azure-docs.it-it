@@ -1,12 +1,12 @@
 ---
-title: Introduzione all'Hub eventi in C# | Microsoft Docs
+title: Introduzione a Hub eventi in C# | Documentazione Microsoft
 description: Eseguire questa esercitazione per iniziare a usare gli hub eventi di Azure, inviare gli eventi in C# e riceverli in Java usando EventProcessorHost.
 services: event-hubs
-documentationcenter: ''
+documentationcenter: 
 author: jtaubensee
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 059fb733-a397-400e-8e43-0c7ea5930b8b
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/27/2016
 ms.author: jotaub;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 51d880650ab8059f3346b5c1272c232b49be33e9
+
 
 ---
 # <a name="get-started-with-event-hubs"></a>Introduzione all'Hub eventi
@@ -48,8 +52,8 @@ A questo punto è possibile eseguire le applicazioni.
 ## <a name="next-steps"></a>Passaggi successivi
 Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve i dati, è possibile passare ai seguenti scenari:
 
-* Un' [applicazione di esempio completa che usa Hub eventi][applicazione di esempio completa che usa Hub eventi].
-* Esempio relativo alla [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi][scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi] .
+* [Applicazione di esempio completa che usa Hub eventi][Applicazione di esempio completa che usa Hub eventi]
+* [Esempio di aumento del numero di istanze dell'elaborazione di eventi con Hub eventi][Esempio di aumento del numero di istanze dell'elaborazione di eventi con Hub eventi]
 * [Panoramica di Hub eventi][Panoramica di Hub eventi]
 
 <!-- Images. -->
@@ -64,6 +68,6 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

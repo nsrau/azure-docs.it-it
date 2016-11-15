@@ -10,6 +10,10 @@ Ecco un esempio che illustra come recuperare una stringa di connessione da un fi
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-L'uso di Gestione configurazione di Azure è facoltativo. È anche possibile usare un'API, ad esempio la [classe ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) di .NET Framework.
+L'uso di Gestione configurazione di Azure è facoltativo. È anche possibile usare un'API, come la [classe ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx)di .NET Framework.
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+
