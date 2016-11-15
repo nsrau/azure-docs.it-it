@@ -1,13 +1,13 @@
 ---
-title: Come eseguire la migrazione di app per la logica alla versione dello schema 2015-08-01-preview | Microsoft Docs
-description: È possibile eseguire facilmente la migrazione di app per la logica alla versione più recente dello schema, seguendo questa procedura.
+title: Come eseguire la migrazione di app per la logica alla versione dello schema 2015-08-01-preview | Documentazione Microsoft
+description: "È possibile eseguire facilmente la migrazione di app per la logica alla versione più recente dello schema, seguendo questa procedura."
 services: logic-apps
-documentationcenter: ''
+documentationcenter: 
 author: MSFTMAN
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -15,35 +15,46 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/23/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ab22e0369781f9f9afb9b3df9e7fdd54660a959d
+
 
 ---
-# Come eseguire la migrazione di app per la logica alla versione dello schema 2015-08-01-preview
+# <a name="how-to-migrate-logic-apps-to-schema-version-20150801preview"></a>Come eseguire la migrazione di app per la logica alla versione dello schema 2015-08-01-preview
 Per spostare le app per la logica esistenti nel nuovo schema, seguire questa procedura:  
 
 1. Aprire l'app per la logica nel portale di Azure.  
 2. Fare clic su Aggiorna schema:
-
-![Icona API][step1]
-
-Viene visualizzata la pagina Aggiorna schema, con un collegamento a un documento che fornisce dettagli sui miglioramenti disponibili nel nuovo schema:
-
-![Icona API][step2]
+   
+   ![Icona API][step1]   
+   Viene visualizzata la pagina Aggiorna schema, con un collegamento a un documento che fornisce dettagli sui miglioramenti disponibili nel nuovo schema: ![Icona API][step2]
 
 > [!NOTE]
 > Quando si seleziona **Aggiorna schema**, vengono eseguiti automaticamente i passaggi della migrazione e viene generato l'output del codice. È possibile usare questi elementi per aggiornare la definizione. Assicurarsi, tuttavia, di seguire le procedure di codifica consigliate, ad esempio quelle indicate nella **sezione seguente**.
 > 
 > 
 
-## Procedure consigliate durante la migrazione di app per la logica alla versione più recente dello schema
+## <a name="best-practices-when-migrating-your-logic-apps-to-the-latest-schema-version"></a>Procedure consigliate durante la migrazione di app per la logica alla versione più recente dello schema
 * Copiare lo script di cui è stata eseguita la migrazione in una nuova app per la logica. Non sovrascrivere l'app precedente fino a quando non è stato completato il test ed è stato confermato il corretto funzionamento dell'app di cui è stata eseguita la migrazione.
 * Testare l'app per la logica **prima** di passare alla fase di produzione.
 * Al termine della migrazione, avviare l'aggiornamento delle app per la logica per usare le [API gestite](apis-list.md), quando è possibile. Ad esempio, si può iniziare a usare Dropbox 2 anziché Dropbox 1.
 
-## Passaggi successivi
+## <a name="whats-next"></a>Passaggi successivi
 * [Informazioni su come eseguire manualmente la migrazione delle app per la logica](../app-service-logic/app-service-logic-schema-2015-08-01.md)
 
 <!--Icon references-->
 [step1]: ./media/connectors-schema-migration/migrateschema1.png
 [step2]: ./media/connectors-schema-migration/migrateschema2.png
 
-<!-----HONumber=AcomDC_0824_2016-->
+
+
+
+
+
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

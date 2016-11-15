@@ -1,13 +1,13 @@
 ---
-title: Che cos'è Azure Data Catalog? | Microsoft Docs
-description: Questo articolo offre una panoramica di Microsoft Azure Data Catalog, incluse le funzionalità e i problemi per cui è stato progettato. Data Catalog offre funzionalità che consentono a tutti gli utenti, ad esempio analisti, data scientist e sviluppatori, di registrare le origini dati, di individuarle, di ottenere informazioni su di esse e di utilizzarle.
+title: "Che cos&quot;è il Catalogo dei dati di Azure? | Documentazione Microsoft"
+description: "Questo articolo offre una panoramica di Microsoft Azure Data Catalog, incluse le funzionalità e i problemi per cui è stato progettato. Data Catalog offre funzionalità che consentono a tutti gli utenti, ad esempio analisti, data scientist e sviluppatori, di registrare le origini dati, di individuarle, di ottenere informazioni su di esse e di utilizzarle."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: cc733907-17ec-4153-9f0c-5b3754b2db19
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: get-started-article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 09/21/2016
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 97482bc365395e3d9218688bf38ded4a54bb556a
+
 
 ---
-# Che cos'è il Catalogo dei dati di Azure?
+# <a name="what-is-azure-data-catalog"></a>Che cos'è il Catalogo dei dati di Azure?
 Azure Data Catalog è un servizio cloud completamente gestito che consente agli utenti di trovare le origini dati necessarie e ottenere informazioni su di esse e alle organizzazioni di ottenere il massimo dagli investimenti esistenti. Data Catalog offre funzionalità che consentono a tutti gli utenti, ad esempio analisti, data scientist e sviluppatori, di trovare le origini dati, ottenere informazioni su di esse e di utilizzarle. Data Catalog include un modello di crowdsourcing di metadati e annotazioni e consente a tutti gli utenti di contribuire con le proprie conoscenze per creare una community e una cultura di dati.
 
-## Difficoltà di individuazione per i consumer di dati
+## <a name="discovery-challenges-for-data-consumers"></a>Difficoltà di individuazione per i consumer di dati
 Tradizionalmente, individuazione di origini dati aziendali è stato un processo organico basato su conoscenze specifiche. Questo presenta numerose sfide per le aziende che desiderano ottenere il massimo dalle loro risorse di informazioni.
 
 * Gli utenti non sono consapevoli che origini dati esistano, a meno che essi entrare in contatto con come parte di un altro processo. non esiste alcuna posizione centrale in cui origini dati vengono registrate.
@@ -29,7 +33,7 @@ Tradizionalmente, individuazione di origini dati aziendali è stato un processo 
 * Se un utente ha delle domande su un asset di informazioni, deve individuare l'esperto o il team responsabile dei dati e coinvolgere tali esperti offline. Non è disponibile alcuna connessione esplicita tra i dati e gli esperti sul relativo uso.
 * A meno che un utente sia in grado di comprendere il processo per richiedere l'accesso all'origine dati, l’individuazione dell'origine dati e della relativa documentazione non gli consente comunque di accedere ai dati necessari.
 
-## Difficoltà di individuazione per i produttori di dati
+## <a name="discovery-challenges-for-data-producers"></a>Difficoltà di individuazione per i produttori di dati
 Mentre i consumer di dati si trovano ad affrontare queste difficoltà, gli utenti responsabili della produzione e gestione delle risorse di informazioni affrontano difficoltà proprie.
 
 * L'annotazione di origini dati con metadati descrittivi è spesso un lavoro perso; le applicazioni client in genere ignorano descrizioni archiviate nell'origine dati.
@@ -40,7 +44,7 @@ La procedura di creazione e gestione della documentazione relativa a un'origine 
 
 Queste sfide presentano un ostacolo significativo per le aziende che desiderano incoraggiare e promuovere l'uso e la comprensione dei dati aziendali.
 
-## Il contributo di Azure Data Catalog
+## <a name="azure-data-catalog-can-help"></a>Il contributo di Azure Data Catalog
 Data Catalog è progettato per risolvere questi problemi e consentire alle aziende di ottenere il massimo dai propri asset di informazioni esistenti. Data Catalog rende le origini dati facilmente individuabili e comprensibili per gli utenti che necessitano dei dati gestiti.
 
 Data Catalog fornisce un servizio basato sul cloud in cui le origini dati possono essere registrate. I dati rimangono nella posizione esistente, ma una copia dei metadati viene aggiunta a Data Catalog insieme a un riferimento al percorso dell'origine dati. Questi metadati sono indicizzati anche per rendere facilmente individuabile ogni singola origine dati tramite ricerca e per renderla comprensibile agli utenti che la trovano.
@@ -51,12 +55,12 @@ Individuazione e informazioni sulle origini dati e il relativo utilizzo è lo sc
 
 ![Funzionalità di Data Catalog](./media/data-catalog-what-is-data-catalog/data-catalog-capabilities.png)
 
-## Introduzione a Data Catalog
-Per un'introduzione a Data Catalog, visitare il sito[www.azuredatacatalog.com](https://www.azuredatacatalog.com).
+## <a name="get-started-with-data-catalog"></a>Introduzione a Data Catalog
+Per un'introduzione a Data Catalog, visitare il sito [www.azuredatacatalog.com](https://www.azuredatacatalog.com).
 
 Una guida introduttiva è disponibile [qui](data-catalog-get-started.md).
 
-## Altre informazioni su Data Catalog
+## <a name="learn-more-about-data-catalog"></a>Altre informazioni su Data Catalog
 Per altre informazioni sulle funzionalità di Data Catalog, vedere:
 
 * [Come registrare le origini dati](data-catalog-how-to-register.md)
@@ -69,4 +73,9 @@ Per altre informazioni sulle funzionalità di Data Catalog, vedere:
 * [Come configurare il glossario aziendale](data-catalog-how-to-business-glossary.md)
 * [Domande frequenti](data-catalog-frequently-asked-questions.md)
 
-<!----HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+
