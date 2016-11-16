@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#IoT Hub Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 1b5ea8b5b5fb99fa65a1efd0eeff48af2e39346c
+ms.openlocfilehash: 7e3e54511ef1205d04eef1820a3e20f480386ed1
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a solution back end.  It also provides extensive monitoring for device connectivity and includes device libraries for most popular languages and platforms. 
+---
+#<a name="iot-hub-documentation"></a>Documentazione sull'hub IoT
+
+L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT e un back-end della soluzione.  Offre anche il monitoraggio completo della connettività dei dispositivi e include librerie di dispositivi per le piattaforme e i linguaggi più comuni. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -17,7 +21,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure IoT Hub</h3>
+                        <h3>Informazioni sull'hub IoT di Azure</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure IoT Hub Video Library</h3>
+                        <h3>Catalogo video dell'hub IoT di Azure</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with IoT Hub using .NET</h3>
+                        <h3>Introduzione all'hub IoT di Azure con .NET</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with IoT Hub using Java</h3>
+                        <h3>Introduzione all'hub IoT di Azure con Java</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +93,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with IoT Hub using Node.js</h3>
+                        <h3>Introduzione all'hub IoT di Azure con Node.js</h3>
                     </div>
                 </div>
             </div>
@@ -100,26 +104,31 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
 
 ---
 
-##Reference
+##<a name="reference"></a>Riferimento
 
-###Azure CLI 
-[IoT HUB with Azure CLI](/cli/azure/iot)  
+###<a name="azure-cli"></a>Interfaccia della riga di comando di Azure 
+[Hub IoT con l'interfaccia della riga di comando di Azure](/cli/azure/iot)  
 
-###.NET 
-[.NET Managed Reference API](/dotnet/api/) 
+###<a name="net"></a>.NET 
+[API di riferimento gestita .NET](/dotnet/api/) 
 
-###Java 
-[Java SDK Reference](/java/api/) 
+###<a name="java"></a>Java 
+[Informazioni di riferimento su Java SDK](/java/api/) 
 
-###REST 
-[IoT HUB REST API Reference](/rest/api/iothub) 
+###<a name="rest"></a>REST 
+[Informazioni di riferimento sulle API REST dell'hub IoT](/rest/api/iothub) 
 
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-hub.pdf">
         <div class="img"></div>
         <div class="text">
-            Download IoT Hub Documentation
-        </div>
+Scaricare la documentazione dell'hub IoT </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

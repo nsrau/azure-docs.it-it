@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#Load Balancer Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 4d6fd9344eaee31de4ee1e614ae558ce159c9245
+ms.openlocfilehash: 926beb8579ccdb1b0ed502ecb1892063ba976025
 
-Azure Load Balancer delivers high availability and network performance to your applications.  Load Balancer can be configured to load balance incoming Internet traffic to virtual machines, traffic between cloud resources, traffic in a cross-premises virtual network, or external traffic to a specific virtual machine.
+---
+#<a name="load-balancer-documentation"></a>Documentazione sul servizio di bilanciamento del carico
+
+Il servizio di bilanciamento del carico di Azure offre elevati livelli di disponibilità e prestazioni di rete per le applicazioni.  Load Balancer può essere configurato per bilanciare il carico del traffico Internet in ingresso verso le macchine virtuali, il traffico tra risorse cloud, il traffico in una rete virtuale cross-premise o il traffico esterno verso una macchina virtuale specifica.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Azure Load Balancer delivers high availability and network performance to your a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Load Balancer</h3>
+                        <h3>Informazioni su Load Balancer</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure Load Balancer delivers high availability and network performance to your a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Load Balancer Video Library</h3>
+                        <h3>Catalogo video di Load Balancer</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure Load Balancer delivers high availability and network performance to your a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with an Internet-facing load balancer</h3>
+                        <h3>Introduzione a un servizio di bilanciamento del carico Internet</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure Load Balancer delivers high availability and network performance to your a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with an internal-facing load balancer</h3>
+                        <h3>Introduzione a un servizio di bilanciamento del carico interno</h3>
                     </div>
                 </div>
             </div>
@@ -82,29 +86,34 @@ Azure Load Balancer delivers high availability and network performance to your a
 
 ---
 
-##Reference
+##<a name="reference"></a>riferimento
 
-###PowerShell
-[Load Balancer PowerShell Reference](/powershell/azureps-cmdlets-doc)
+###<a name="powershell"></a>PowerShell
+[Informazioni di riferimento su PowerShell per Load Balancer](/powershell/azureps-cmdlets-doc)
 
-###Azure CLI
-[Load Balancer Azure CLI] (/cli/azure/network/lb)
+###<a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+[Interfaccia della riga di comando di Azure per Load Balancer] (/cli/azure/network/lb)
 
-###.NET
-[.NET API Reference](/dotnet/api)
+###<a name="net"></a>.NET
+[Informazioni di riferimento sulle API .NET](/dotnet/api)
 
-###Java
-[Java API Reference](/java/api)
+###<a name="java"></a>Java
+[Informazioni di riferimento sulle API Java](/java/api)
 
-###REST
-[Load Balancer REST API Reference](https://msdn.microsoft.com/library/azure/mt163651.aspx)
+###<a name="rest"></a>REST
+[Informazioni di riferimento sulle API REST di Load Balancer](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/load-balancer.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Load Balancer Documentation
-        </div>
+Scaricare la documentazione sul servizio di bilanciamento del carico </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

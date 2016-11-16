@@ -11,7 +11,7 @@
 ### [Node.js](app-service-web-nodejs-get-started.md)
 ### [Python](web-sites-python-ptvs-django-mysql.md)
 ### [Java](web-sites-java-get-started.md)
-### [App del Marketplace](web-sites-php-web-site-gallery.md)
+### [App di Marketplace](web-sites-php-web-site-gallery.md)
 ### [PHP](app-service-web-php-get-started.md)   
 
 ## App per le API
@@ -54,7 +54,10 @@
 
 ## Sviluppare
 ### [Aggiungere funzionalità alla prima App Web](app-service-web-get-started-2.md)
-### [Create a web app on Linux](app-service-linux-how-to-create-a-web-app.md) (Creare un'App Web in Linux)
+### [Creare un'App Web in Linux](app-service-linux-how-to-create-a-web-app.md)
+### [Informazioni di riferimento sul servizio app](app-service-changes-existing-services.md)
+### [Portale di Azure](app-service-web-app-azure-portal.md)
+### [SDK di Processi Web](websites-dotnet-webjobs-sdk-get-started.md)
 
 ### App ASP.NET
 #### [Distribuire la prima App Web .NET in Azure in cinque minuti](app-service-web-get-started-dotnet.md)
@@ -110,7 +113,7 @@
 #### [Come creare un ambiente del servizio app](app-service-web-how-to-create-an-app-service-environment.md)
 #### [Creare un'app Web in un ambiente del servizio app](app-service-web-how-to-create-a-web-app-in-an-ase.md)
 #### [Come creare un ambiente del servizio app con servizio di bilanciamento del carico interno usando modelli di Azure Resource Manager](app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
-#### [Usare un servizio di bilanciamento del carico interno](app-service-environment-with-internal-load-balancer.md)
+#### [Uso di un servizio di bilanciamento del carico interno](app-service-environment-with-internal-load-balancer.md)
 
 ## [Distribuire](../app-service/app-service-deployment-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### [Distribuire nel servizio app](web-sites-deploy.md)
@@ -126,7 +129,7 @@
 ### [Migrate from IIS](web-sites-migration-from-iis-server.md) (Eseguire la migrazione da IIS)
 ### [Distribuzione di processi Web usando Visual Studio](websites-dotnet-deploy-webjobs.md)
 
-## [Scalare](../app-service/app-service-scale-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+## [Ridimensionare](../app-service/app-service-scale-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### [Aumentare le prestazioni di un'app](web-sites-scale.md)
 ### [Ambiente del servizio app](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [Scalabilità distribuita a livello geografico con ambienti del servizio app](app-service-app-service-environment-geo-distributed-scale.md)
@@ -157,8 +160,8 @@
 #### [Eseguire attività in background con Processi Web](web-sites-create-web-jobs.md)
 
 ### [Ambiente del servizio app](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [Configura](app-service-web-configure-an-app-service-environment.md)
-#### [Custom configuration settings](app-service-app-service-environment-custom-settings.md) (Impostazioni di configurazione personalizzate)
+#### [Configurare](app-service-web-configure-an-app-service-environment.md)
+#### [Impostazioni di configurazione personalizzate](app-service-app-service-environment-custom-settings.md)
 #### [Come controllare il traffico in ingresso](app-service-app-service-environment-control-inbound-traffic.md)
 #### [Panoramica dell'architettura di rete](app-service-app-service-environment-network-architecture-overview.md)
 #### [Dettagli della configurazione di rete con ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md)
@@ -168,23 +171,23 @@
 ### [Ripristinare un'app in Azure](web-sites-restore.md)
 ### [Usare REST per eseguire il backup e il ripristino di app del servizio app](websites-csm-backup.md)
 
-## [Monitoraggio](web-sites-monitor.md)
+## [Monitorare](web-sites-monitor.md)
 ### [Abilitare la registrazione diagnostica](web-sites-enable-diagnostic-log.md)
 ### [Troubleshoot using Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md) (Risolvere i problemi con Visual Studio)
 
 ## [Proteggere](../app-service/app-service-security-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-### [Garantire la sicurezza di un'app nel servizio app di Azure](web-sites-security.md)
+### [Garantire la sicurezza di un'app in Servizio app di Azure](web-sites-security.md)
 ### [Authentication and authorization](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json) (Autenticazione e autorizzazione)
 ### Eseguire l'autenticazione con provider di identità
 #### [Autenticazione di Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [Autenticazione di Facebook](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [Autenticazione di Google](../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [Autenticazione tramite account Microsoft](../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+#### [Autenticazione di account Microsoft](../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [Autenticazione di Twitter](../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### [Eseguire l'autenticazione con l'istanza locale di Active Directory](web-sites-authentication-authorization.md)
 
 ### HTTPS
-#### [Configurare l'autenticazione reciproca TLS ](app-service-web-configure-tls-mutual-auth.md)
+#### [Configurare l'autenticazione reciproca TLS](app-service-web-configure-tls-mutual-auth.md)
 #### [Buy an SSL certificate in Azure](web-sites-purchase-ssl-web-site.md) (Acquistare un certificato SSL in Azure)
 #### [Use an SSL certificate obtained elsewhere](web-sites-configure-ssl-certificate.md) (Usare un certificato SSL ottenuto altrove)
 
@@ -213,7 +216,7 @@
 ### PowerShell
 #### [Automate backup and restore](../app-service/app-service-powershell-backup.md?toc=%2fazure%2fapp-service-web%2ftoc.json) (Automatizzare il backup e il ripristino)
 #### [Clonazione di app](app-service-web-app-cloning.md)
-#### [Binding di certificati SSL](app-service-web-app-powershell-ssl-binding.md)
+#### [Associazione di certificati SSL](app-service-web-app-powershell-ssl-binding.md)
 #### [Usare Azure Resource Manager con PowerShell](app-service-web-app-azure-resource-manager-powershell.md)
 ### [Manage apps using Azure Automation](automation-manage-web-app.md) (Gestire app con Automazione di Azure)
 
@@ -242,10 +245,11 @@
 ### [Risolvere gli errori HTTP 502 e 503](app-service-web-troubleshoot-http-502-http-503.md)
 ### [Troubleshoot web app performance issues](app-service-web-troubleshoot-performance-degradation.md) (Risolvere i problemi di prestazioni delle App Web)
 
-# riferimento
-## [Informazioni di riferimento sul servizio app](app-service-changes-existing-services.md)
-## [Portale di Azure](app-service-web-app-azure-portal.md)
-## [SDK di Processi Web](websites-dotnet-webjobs-sdk-get-started.md)
+# Riferimento
+## [Interfaccia della riga di comando di Azure](/cli/azure/)
+## [Java](/java/api/)
+## [.NET](/dotnet/api)
+## [REST](/rest/api/appservice)
 
 # Risorse correlate
 ## [Azure SDK per .NET - Note sulla versione](azure-sdk-dotnet-release-notes.md)

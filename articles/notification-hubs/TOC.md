@@ -1,4 +1,5 @@
-# [Panoramica](notification-hubs-push-notification-overview.md)
+# Overview
+## [Informazioni su Hub di notifica](notification-hubs-push-notification-overview.md)
 # Attività iniziali
 ## [Android (FCM)](notification-hubs-android-push-notification-google-fcm-get-started.md)
 ## [Baidu](notification-hubs-baidu-china-android-notifications-get-started.md)
@@ -9,9 +10,9 @@
 ## [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md)
 ## [Xamarin.Android](xamarin-notification-hubs-push-notifications-android-gcm.md)
 ## [Xamarin.iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md)
+## [Domande frequenti](notification-hubs-push-notification-faq.md)
 
 # Procedure
-
 ## Pianificare e progettare
 ### [Guida all'architettura push aziendale](notification-hubs-enterprise-push-notification-architecture.md)
 
@@ -27,7 +28,7 @@
 ### [Inviare notifiche multipiattaforma](notification-hubs-aspnet-cross-platform-notification.md)
 ### Uso degli SDK del server
 #### [.NET](https://msdn.microsoft.com/library/mt414893.aspx)
-#### [Node.js](notification-hubs-nodejs-push-notification-tutorial.md)
+#### [Node.JS](notification-hubs-nodejs-push-notification-tutorial.md)
 #### [Java](notification-hubs-java-push-notification-tutorial.md)
 #### [PHP](notification-hubs-php-push-notification-tutorial.md)
 #### [Python](notification-hubs-python-push-notification-tutorial.md)
@@ -50,22 +51,24 @@
 #### [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
 #### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 
-
-
 ## Automatizzare
 ### [Distribuire e gestire hub di notifica tramite PowerShell](notification-hubs-deploy-and-manage-powershell.md)
 ### [Inviare notifiche pianificate](notification-hubs-send-push-notifications-scheduled.md)
-
 
 ## Risolvere i problemi
 ### [Linee guida per la diagnosi](notification-hubs-push-notification-fixer.md)
 
 # Riferimento
-
-# Risorse correlate
+## [Cmdlet di PowerShell](/powershell/resourcemanager/)
+## [.NET](/dotnet/api/)
+## [REST](/rest/api/notificationhubs/)
 
 # Risorse
-## [Domande frequenti](notification-hubs-push-notification-faq.md)
+## [Prezzi](https://azure.microsoft.com/pricing/details/notification-hubs/)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-notificationhub)
+## [Video](https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs)
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=notification-hubs)
 
 
 <!--HONumber=Nov16_HO2-->

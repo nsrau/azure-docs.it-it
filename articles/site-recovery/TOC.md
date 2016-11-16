@@ -48,6 +48,10 @@
 ### [Eseguire il failback di server fisici e macchine virtuali VMware](site-recovery-failback-azure-to-vmware.md)
 ## [Monitorare e risolvere i problemi](site-recovery-monitoring-and-troubleshooting.md)
 
+# Riferimento
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell - Classica](/powershell/servicemanagement/)
+
 # Risorse correlate
 ## [Automazione di Azure](/azure/automation/)
 
@@ -56,6 +60,7 @@
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
 ## [Blog](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/site-recovery/)
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
 <!--HONumber=Nov16_HO2-->

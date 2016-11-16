@@ -54,15 +54,19 @@
 ### [Analizzatori personalizzati](https://msdn.microsoft.com/library/azure/mt605304)
 ### [Ricerca in più lingue](search-language-support.md)
 
-# Riferimento
-## [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165)
-## [API REST del servizio](https://msdn.microsoft.com/library/azure/dn798935)
-## [API REST del servizio (versione di anteprima)](search-api-2015-02-28-preview.md)
-## [API REST di gestione](https://msdn.microsoft.com/library/azure/dn832684)
+# riferimento
 ## [Versioni dell'API](search-api-versions.md)
+## [Java](/java/api/)
+## [.NET](/dotnet/api/)
 ## [Sintassi di query Lucene](https://msdn.microsoft.com/library/azure/mt589323)
 ## [Sintassi di query semplice](https://msdn.microsoft.com/library/azure/dn798920)
+## [REST del servizio](/rest/api/searchservice/)
+## [REST del servizio (anteprima)](search-api-2015-02-28-preview.md)
+## [REST di gestione](/rest/api/searchmanagement/)
+
 # Risorse
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=search)
+## [Prezzi](https://azure.microsoft.com/pricing/details/search/)
 ## Siti di demo
 ### [App di offerte di lavoro](http://aka.ms/azjobsdemo)
 ### [App demo in diretta](https://searchsamples.azurewebsites.net/)
@@ -73,7 +77,7 @@
 ## Partner e community
 ### [Modellare dati relazionali](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
 ### [Facet multilivello](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-### [Forum MSDN](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
+### [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [Ricerca di Azure in GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 

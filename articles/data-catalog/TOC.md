@@ -30,9 +30,11 @@
 ## [Scelte rapide da tastiera per Azure Data Catalog](data-catalog-keyboard-shortcuts.md)
 ## [Terminologia](data-catalog-terminology.md)
 ## [Note sulla versione](data-catalog-release-notes.md)
+## [REST](https://docs.microsoft.com/rest/api/datacatalog/)
 
 # Risorse
 ## [Prezzi](https://azure.microsoft.com/pricing/details/data-catalog/)
+
 
 <!--HONumber=Nov16_HO2-->
 

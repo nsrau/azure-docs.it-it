@@ -37,23 +37,27 @@
 ### [Portale](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (Classic)](application-gateway-create-probe-classic-ps.md) (PowerShell (classico))
-### Manage
+## Manage
 ### [Diagnostica](application-gateway-diagnostics.md)
 ### [Risoluzione dei problemi](application-gateway-troubleshooting-502.md)
-# riferimento
-## [API di Resource Manager](https://msdn.microsoft.com/library/azure/mt684941)
-## [Service Management APIs](https://msdn.microsoft.com/library/azure/mt299393) (API Gestione dei servizi)
-## [Cmdlet di PowerShell](https://go.microsoft.com/fwlink/p/?LinkId=536407)
+# Riferimento
+## [Cmdlet di PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [REST](https://msdn.microsoft.com/library/mt684941)
+## [REST classica](https://msdn.microsoft.com/library/azure/mt299393)
+
 # Risorse correlate
-## [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/)
-## [Rete virtuale](https://azure.microsoft.com/documentation/services/virtual-network/)
-## [Gateway VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/)
-## [Macchine virtuali](https://azure.microsoft.com/documentation/services/virtual-machines/)
-## [Bilanciamento del carico](https://azure.microsoft.com/documentation/services/load-balancer/)
-## [Gestione traffico](https://azure.microsoft.com/documentation/services/traffic-manager/)
+## [ExpressRoute](/azure/expressroute/)
+## [Rete virtuale](/azure/virtual-network/)
+## [Gateway VPN](/azure/vpn-gateway/)
+## [Macchine virtuali](/azure/virtual-machines/)
+## [Bilanciamento del carico](/azure/load-balancer/)
+## [Gestione traffico](/azure/traffic-manager/)
 # Risorse
 ## [Prezzi](https://azure.microsoft.com/pricing/details/application-gateway/)
-## [CONTRATTO DI SERVIZIO](https://azure.microsoft.com/support/legal/sla/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)  
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=application-gateway)
+## [Contratto di servizio](https://azure.microsoft.com/support/legal/sla/)
+
 
 <!--HONumber=Nov16_HO2-->
 

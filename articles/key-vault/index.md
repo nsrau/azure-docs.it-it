@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-# Key Vault Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: d6059070f8cb8765986763a2ae52068ab692d41d
+ms.openlocfilehash: 9614778d6c7502f16639d2ccb2f259a98be5b0c9
 
-Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. By using Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For added assurance, you can import or generate keys in HSMs.
+---
+# <a name="key-vault-documentation"></a>Documentazione sull'insieme di credenziali delle chiavi
+
+L'insieme di credenziali chiave di Azure consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Con l'insieme di credenziali chiave è possibile crittografare chiavi e segreti (ad esempio, chiavi di autenticazione, chiavi dell'account di archiviazione, chiavi di crittografia dati, file PFX e password) usando chiavi protette da moduli di protezione hardware (HSM). Per una maggiore sicurezza, è possibile importare o generare le chiavi in moduli di protezione hardware.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Key Vault</h3>
+                        <h3>Informazioni sull'insieme di credenziali delle chiavi</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Key Vault Video Library</h3>
+                        <h3>Catalogo video dell'insieme di credenziali delle chiavi</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Key Vault</h3>
+                        <h3>Introduzione all'insieme di credenziali delle chiavi</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Key Vault from a Web Application</h3>
+                        <h3>Introduzione all'insieme di credenziali delle chiavi da un'applicazione Web</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +93,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Set up Azure Key Vault with end-to-end key rotation and auditing</h3>
+                        <h3>Configurare l'insieme di credenziali delle chiavi di Azure con rotazione e controllo delle chiavi end-to-end</h3>
                     </div>
                 </div>
             </div>
@@ -100,22 +104,22 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 
 ---
 
-## Reference
+## <a name="reference"></a>Riferimento
 
-### PowerShell
-[Azure PowerShell Reference](/PowerShell/azureps-cmdlets-docs)
+### <a name="powershell"></a>PowerShell
+[Informazioni di riferimento su Azure PowerShell](/PowerShell/azureps-cmdlets-docs)
 
-### Azure CLI 
-[Key Vault using Azure CLI](/cli/azure/keyvault)
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure 
+[Insieme di credenziali delle chiavi con l'interfaccia della riga di comando di Azure](/cli/azure/keyvault)
 
-### Java 
-[Key Vault in Java Reference](/java/api/)
+### <a name="java"></a>Java 
+[Informazioni di riferimento sull'insieme di credenziali delle chiavi in Java](/java/api/)
 
-### .NET 
-[Key Vault Managed Reference API](/dotnet/api/) 
+### <a name="net"></a>.NET 
+[API di riferimento gestite dell'insieme di credenziali delle chiavi](/dotnet/api/) 
 
-### REST 
-[Key Vault REST API Reference](/rest/api/keyvault) 
+### <a name="rest"></a>REST 
+[Informazioni di riferimento sull'API REST dell'insieme di credenziali delle chiavi](/rest/api/keyvault) 
 
 ---
 
@@ -123,7 +127,12 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/key-vault.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Key Vault Documentation
-        </div>
+Scaricare la documentazione sull'insieme di credenziali delle chiavi </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

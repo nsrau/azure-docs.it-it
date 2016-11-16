@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#SQL Database Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: edfc23605c738fbe8aac99c0db89c6f588a09d60
+ms.openlocfilehash: 85bf943fb28348a17e609fff506dddf855b28dfa
 
-Azure SQL Database is a relational database service in the cloud with mission-critical capabilities based on the Microsoft SQL Server engine. It delivers predictable performance, scalability with no downtime, business continuity and data protection - all with minimal administration. Because it's based on the SQL Server engine, SQL Database supports existing SQL Server tools, libraries, and APIs, making it easier to move and extend to the cloud.
+---
+#<a name="sql-database-documentation"></a>Documentazione sul database SQL
+
+Il database SQL di Azure è un servizio di database relazionale nel cloud con funzionalità di importanza strategica basato sul motore di Microsoft SQL Server. Offre prestazioni prevedibili, scalabilità senza tempi di inattività, continuità aziendale e protezione dei dati con esigenze di amministrazione minime. Poiché si basa sul motore di SQL Server, il database SQL supporta strumenti, librerie e API di SQL Server esistenti, rendendo più facile il passaggio e l'estensione al cloud.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -17,7 +21,7 @@ Azure SQL Database is a relational database service in the cloud with mission-cr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure SQL Database</h3>
+                        <h3>Informazioni sul database SQL di Azure</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure SQL Database is a relational database service in the cloud with mission-cr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure SQL Database Video Library</h3>
+                        <h3>Catalogo video del database SQL di Azure</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure SQL Database is a relational database service in the cloud with mission-cr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure SQL Database</h3>
+                        <h3>Introduzione al database SQL di Azure</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure SQL Database is a relational database service in the cloud with mission-cr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Elastic Tools</h3>
+                        <h3>Introduzione agli strumenti elastici</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +93,7 @@ Azure SQL Database is a relational database service in the cloud with mission-cr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started managing access and permissions</h3>
+                        <h3>Introduzione alla gestione dell'accesso e delle autorizzazioni</h3>
                     </div>
                 </div>
             </div>
@@ -100,29 +104,34 @@ Azure SQL Database is a relational database service in the cloud with mission-cr
 
 ---
 
-##Reference
+##<a name="reference"></a>Riferimento
 
-###PowerShell
-[Azure PowerShell Reference] (/powershell/azureps-cmdlets-docs)
+###<a name="powershell"></a>PowerShell
+[Informazioni di riferimento su Azure PowerShell] (/powershell/azureps-cmdlets-docs)
 
-###.NET
-[.NET Managed Reference](/dotnet/api)
+###<a name="net"></a>.NET
+[Informazioni di riferimento gestite su .NET](/dotnet/api)
 
-### Java
-[Java SDK Reference](/java/api)
+### <a name="java"></a>Java
+[Informazioni di riferimento su Java SDK](/java/api)
 
-###REST
-[SQL Database REST API Reference](/rest/api/sql)
+###<a name="rest"></a>REST
+[Informazioni di riferimento sull'API REST del database SQL](/rest/api/sql)
 
-###T-SQL
-[T-SQL Reference](https://msdn.microsoft.com/library/azure/bb510741)
+###<a name="tsql"></a>T-SQL
+[Informazioni di riferimento su T-SQL](https://msdn.microsoft.com/library/azure/bb510741)
 
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-database.pdf">
         <div class="img"></div>
         <div class="text">
-            Download SQL Database Documentation
-        </div>
+Scaricare la documentazione relativa al database SQL </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+
