@@ -1,14 +1,13 @@
 ---
-title: Installare l'interfaccia della riga di comando del controller di dominio/sistema operativo | Microsoft Docs
-description: Installare l'interfaccia della riga di comando del controller di dominio/sistema operativo.
+title: Installare l&quot;interfaccia della riga di comando del controller di dominio/sistema operativo | Documentazione Microsoft
+description: Installare l&quot;interfaccia della riga di comando del controller di dominio/sistema operativo.
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: rgardler
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
 keywords: Contenitori, Micro-Service, controller di dominio/sistema operativo, Azure
-
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/10/2016
 ms.author: rogardle
+translationtype: Human Translation
+ms.sourcegitcommit: e664ce9426a2852a35dfdade5d41a9ce8b37a3b7
+ms.openlocfilehash: a8ea47f158c0d666340815d2e039995c7483257f
+
 
 ---
 > [!NOTE]
@@ -48,3 +51,8 @@ Questo passaggio non sarà necessario quando si avviano nuove shell.
 ```bash
 dcos --help
 ```
+
+
+<!--HONumber=Nov16_HO2-->
+
+

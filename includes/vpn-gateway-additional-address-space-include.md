@@ -1,13 +1,20 @@
-### Per aggiungere spazio di indirizzi
-1. Per aggiungere altro spazio di indirizzi, fare clic su **Tutte le impostazioni** per aprire il pannello **Impostazioni**. 
-2. Nel pannello **Impostazioni** fare clic su **Spazio di indirizzi** per aprire il pannello corrispondente. Aggiungere altro spazio di indirizzi in questo pannello e quindi fare clic su **Salva** nella parte superiore del pannello.
+### <a name="to-add-address-space"></a>Per aggiungere spazio di indirizzi
+1. Per aggiungere altro spazio, nella sezione **Impostazioni** del pannello della rete virtuale fare clic su **Spazio indirizzi** per aprire il pannello Spazio indirizzi.
+2. Aggiungere lo spazio indirizzi aggiuntivo e quindi fare clic su **Salva** nella parte superiore del pannello.
    
-    ![Aggiungere spazio di indirizzi](./media/vpn-gateway-additional-address-space-include/address400.png)
+    ![Aggiungere spazio di indirizzi](./media/vpn-gateway-additional-address-space-include/address_space.png)
 
-### Per aggiungere subnet
-1. Per aggiungere altre subnet per gli spazi di indirizzi, nel pannello **Impostazioni** fare clic su **Subnet** per aprire il pannello **Subnet**. 
-2. Nel pannello Subnet fare clic su **Aggiungi** per aprire il pannello **Aggiungi subnet**. Denominare la nuova subnet e specificare l'intervallo di indirizzi, quindi fare clic su **OK** nella parte inferiore del pannello. Dopo aver creato una subnet, è possibile usare il pannello Subnet per visualizzare tutte le subnet di una rete virtuale.
+### <a name="to-create-subnets"></a>Per creare le subnet
+1. Per creare le subnet, nella sezione **Impostazioni** del pannello della rete virtuale, fare clic su **Subnet** per aprire il pannello **Subnet**. 
+2. Nel pannello Subnet fare clic su **+Subnet** per aprire il pannello **Aggiungi subnet**. Assegnare un nome alla nuova subnet e specificare l'intervallo di indirizzi.
+   
+    ![Impostazioni della subnet](./media/vpn-gateway-additional-address-space-include/add_subnet.png)        
+3. Fare clic su **OK** nella parte inferiore del pannello per salvare le modifiche.
+   
+    ![Impostazioni della subnet](./media/vpn-gateway-additional-address-space-include/ok.png)
 
-    ![Impostazioni della subnet](./media/vpn-gateway-additional-address-space-include/addsubnet250.png)
 
-<!-----HONumber=AcomDC_0406_2016-->
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -2,4 +2,7 @@ Il servizio di bilanciamento del carico interno di Azure (ILB) consente di bilan
 
 Per informazioni sull'uso e sulla configurazione di reti virtuali nell'ambito di un'area, vedere [Reti virtuali regionali](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md). Le reti virtuali esistenti che sono state configurate per un gruppo di affinità non possono usare il bilanciamento del carico interno.
 
-<!---HONumber=AcomDC_0316_2016-->
+
+<!--HONumber=Nov16_HO2-->
+
+

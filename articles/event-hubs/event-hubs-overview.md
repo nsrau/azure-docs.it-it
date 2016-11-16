@@ -1,12 +1,12 @@
 ---
-title: Panoramica degli Hub di eventi di Azure | Microsoft Docs
+title: Panoramica di Hub eventi di Azure | Documentazione Microsoft
 description: Introduzione e panoramica di Hub eventi di Azure.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: f0e0dd20-f745-49c7-bfca-30ea1c46e873
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: df9897894a2a2a09735b0947fd335959e81a46cd
+
 
 ---
 # <a name="azure-event-hubs-overview"></a>Panoramica di Hub eventi di Azure
@@ -25,7 +29,7 @@ Hub eventi di Azure è un servizio di elaborazione eventi che fornisce un punto 
 
 Un Hub eventi viene creato a livello di spazio dei nomi di Hub eventi, analogamente a code e argomenti del bus di servizio. Hub eventi utilizza AMQP e HTTP come le interfacce API primarie. Il grafico seguente mostra la relazione tra Hub eventi e Bus di servizio.
 
-![Hub eventi](./media/event-hubs-overview/IC741188.png)
+![Hub eventi](./media/event-hubs-overview/ehoverview2.png)
 
 ## <a name="conceptual-overview"></a>Informazioni generali
 Hub eventi fornisce i flussi di messaggi tramite un modello consumer partizionato. Le code e gli argomenti usano un modello del [consumer concorrente](https://msdn.microsoft.com/library/dn568101.aspx) in cui ogni consumer cerca di leggere dalla stessa coda o risorsa. La concorrenza per le risorse determina complessità e limiti di scalabilità per le applicazioni di elaborazione del flusso. Hub eventi utilizza un modello consumer partizionato in cui ogni consumer legge solo un sottoinsieme specifico, o partizione, del flusso di messaggi. Questo modello consente la scalabilità orizzontale per l'elaborazione di eventi e fornisce altre funzionalità incentrate sul flusso non disponibili in code e argomenti.
@@ -147,6 +151,6 @@ Ora che i concetti di Hub eventi sono chiari, è possibile passare agli scenari 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

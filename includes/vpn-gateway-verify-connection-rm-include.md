@@ -41,6 +41,8 @@ Nel portale di Azure è possibile visualizzare lo stato della connessione passan
    
     ![Verificare la connessione](./media/vpn-gateway-verify-connection-rm-include/connectionsucceeded.png)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

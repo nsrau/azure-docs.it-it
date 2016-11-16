@@ -1,5 +1,5 @@
 
-### Limiti del pool elastico Basic
+### <a name="basic-elastic-pool-limits"></a>Limiti del pool elastico Basic
 |  |  |
 | --- |:---:|
 | Max eDTU per ogni pool |&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
@@ -16,11 +16,11 @@
 | Ripristino di emergenza |Replica geografica attiva |
 |  | |
 
-* Il numero massimo e minimo di eDTU per database può essere impostato su uno qualsiasi dei valori elencati purché le dimensioni selezionate per le DTU del pool siano almeno pari al numero massimo di eDTU per database
+* Il numero massimo e minimo di eDTU per database può essere impostato su uno qualsiasi dei valori elencati purché le dimensioni selezionate per le DTU del pool siano almeno pari al numero massimo di eDTU per database 
 
 ** I database elastici condividono lo spazio di archiviazione del pool, quindi lo spazio di archiviazione del database è limitato allo spazio di archiviazione del pool rimanente o allo spazio di archiviazione massimo per database
 
-### Limiti del pool elastico Standard
+### <a name="standard-elastic-pool-limits"></a>Limiti del pool elastico Standard
 |  |  |
 | --- |:---:|
 | Max eDTU per ogni pool |&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
@@ -37,11 +37,11 @@
 | Ripristino di emergenza |Replica geografica attiva |
 |  | |
 
-* Il numero massimo e minimo di eDTU per database può essere impostato su uno qualsiasi dei valori elencati purché le dimensioni selezionate per le DTU del pool siano almeno pari al numero massimo di eDTU per database
+* Il numero massimo e minimo di eDTU per database può essere impostato su uno qualsiasi dei valori elencati purché le dimensioni selezionate per le DTU del pool siano almeno pari al numero massimo di eDTU per database 
 
 ** I database elastici condividono lo spazio di archiviazione del pool, quindi lo spazio di archiviazione del database è limitato allo spazio di archiviazione del pool rimanente o allo spazio di archiviazione massimo per database
 
-### Limiti del pool elastico Premium
+### <a name="premium-elastic-pool-limits"></a>Limiti del pool elastico Premium
 |  |  |
 | --- |:---:|
 | Max eDTU per ogni pool |125 &nbsp;&nbsp;&nbsp; 250 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 1000 &nbsp;&nbsp;&nbsp; &nbsp;1500 |
@@ -58,8 +58,12 @@
 | Ripristino di emergenza |Replica geografica attiva |
 |  | |
 
-* Il numero massimo e minimo di eDTU per database può essere impostato su uno qualsiasi dei valori elencati purché le dimensioni selezionate per le DTU del pool siano almeno pari al numero massimo di eDTU per database
+* Il numero massimo e minimo di eDTU per database può essere impostato su uno qualsiasi dei valori elencati purché le dimensioni selezionate per le DTU del pool siano almeno pari al numero massimo di eDTU per database 
 
 ** I database elastici condividono lo spazio di archiviazione del pool, quindi lo spazio di archiviazione del database è limitato allo spazio di archiviazione del pool rimanente o allo spazio di archiviazione massimo per database
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

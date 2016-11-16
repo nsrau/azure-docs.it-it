@@ -10,12 +10,12 @@ A questo punto si crea una campagna di notifica push semplice che invia una noti
    
     a. Fornire un **Nome** per la campagna.
    
-    b. Selezionare l'**Ora di recapito** su *Qualsiasi ora*
+    b. Selezionare l' **Ora di recapito** su *Qualsiasi ora*
    
     d. Nel testo della notifica digitare il **titolo** che apparirà in grassetto nel push.
    
     e. Digitare quindi il **messaggio**
-4. Scorrere verso il basso e nella sezione **Contenuto** selezionare **Solo notifica**.
+4. Scorrere verso il basso e nella sezione **Contenuto** selezionare **Notification only** (Solo notifica).
    
     ![](./media/mobile-engagement-windows-push-campaign/campaign-content.png)
 5. L'impostazione della campagna più semplice possibile è stata completata. Ora scorrere nuovamente verso il basso e fare clic sul pulsante **Crea** per salvare la campagna.
@@ -23,4 +23,8 @@ A questo punto si crea una campagna di notifica push semplice che invia una noti
    
     ![](./media/mobile-engagement-windows-push-campaign/campaign-activate.png)
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

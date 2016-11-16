@@ -6,4 +6,7 @@ In questo scenario verranno eseguite le seguenti attività:
 
 ![Scenario del bilanciamento del carico](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Nov16_HO2-->
+
+

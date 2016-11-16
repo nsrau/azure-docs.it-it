@@ -1,12 +1,12 @@
 ---
-title: Spostamento dei circuiti ExpressRoute dal modello di distribuzione classica al modello di distribuzione Resource Manager | Microsoft Docs
+title: Spostamento dei circuiti ExpressRoute dal modello di distribuzione classica al modello di distribuzione Resource Manager | Documentazione Microsoft
 description: Questo articolo offre una panoramica delle informazioni utili sul bridging dei modelli di distribuzione Resource Manager e classica.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 945923d9858ec0ed31272c23268b263f77b5c7a4
+
 
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Spostamento dei circuiti ExpressRoute dal modello di distribuzione classica al modello di distribuzione Resource Manager
@@ -74,7 +78,7 @@ La velocità effettiva aggregata è limitata dalla capacità di velocità effett
 ## <a name="access-to-azure-public-and-microsoft-peering-resources"></a>Accesso alle risorse di peering Microsoft e peering pubblico di Azure
 È possibile continuare ad accedere alle risorse normalmente accessibili con il peering pubblico di Azure e il peering Microsoft senza interruzioni.  
 
-## <a name="what's-supported"></a>Attività supportate
+## <a name="whats-supported"></a>Attività supportate
 Questa sezione descrive le attività supportate per i circuiti ExpressRoute:
 
 * Per accedere alle reti virtuali distribuite nei modelli di distribuzione Resource Manager o classica, è possibile usare un solo circuito ExpressRoute.
@@ -84,7 +88,7 @@ Questa sezione descrive le attività supportate per i circuiti ExpressRoute:
 * Il circuito ExpressRoute fa da bridge tra il modello di distribuzione classica e il modello di distribuzione Resource Manager. Il traffico tra le macchine virtuali nelle reti virtuali del modello di distribuzione classica e quelle nelle reti virtuali del modello di distribuzione Resource Manager passa attraverso ExpressRoute se entrambe le reti virtuali sono collegate allo stesso circuito ExpressRoute.
 * La connettività tra sottoscrizioni è supportata sia nel modello di distribuzione classica che nel modello di distribuzione Resource Manager.
 
-## <a name="what's-not-supported"></a>Attività non supportate
+## <a name="whats-not-supported"></a>Attività non supportate
 Questa sezione descrive le attività non supportate per i circuiti ExpressRoute:
 
 * Spostamento delle reti virtuali, dei gateway e dei collegamenti del circuito dal modello di distribuzione classica al modello di distribuzione Resource Manager.
@@ -102,6 +106,9 @@ Vedere le istruzioni riportate nell'articolo [Spostamento dei circuiti ExpressRo
   * [Configurare il routing](expressroute-howto-routing-arm.md)
   * [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

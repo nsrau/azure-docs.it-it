@@ -1,12 +1,12 @@
 ---
-title: Creazione di un accordo tra partner commerciali in Servizio app di Azure | Microsoft Docs
+title: Creare un accordo tra partner commerciali nel Servizio app di Azure | Microsoft Docs
 description: Creare accordi tra partner commerciali
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: rajram
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 319e46fa-fd81-4730-a742-768bf1676972
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/23/2016
 ms.author: rajram
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e41ac0e91bd66fbc7df08b4397e78377021fcbca
+
 
 ---
-# Creazione di un accordo tra partner commerciali
+# <a name="creating-a-trading-partner-agreement"></a>Creazione di un accordo tra partner commerciali
 [!INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 I partner commerciali sono le entità coinvolte nelle comunicazioni B2B. Quando due partner stabiliscono una relazione, questa è definita un *Contratto*. Il contratto definito si basa sulla comunicazione che i due partner vogliono ottenere ed è specifico del protocollo o del trasporto. I diversi protocolli e trasporti B2B supportati da Azure App Service includono:
@@ -25,10 +29,10 @@ I partner commerciali sono le entità coinvolte nelle comunicazioni B2B. Quando 
 * EDIFACT (United Nations/Electronic Data Interchange For Administration, Commerce and Transport (UN/EDIFACT))
 * X12 (ASC X12)
 
-### App per le API BizTalk che supportano scenari B2B
+### <a name="biztalk-api-apps-that-support-b2b-scenarios"></a>App per le API BizTalk che supportano scenari B2B
 Le app per le API seguenti consentono di usare queste funzionalità, caratterizzate da un'esperienza avanzata e intuitiva, nel portale di Azure:
 
-## BizTalk Trading Partner Management (TPM)
+## <a name="biztalk-trading-partner-management-tpm"></a>BizTalk Trading Partner Management (TPM)
 * Creazione e gestione di partner, profili e identità
 * Archiviazione e gestione di schemi EDI
 * Archiviazione e gestione di certificati (usata nel protocollo AS2)
@@ -38,26 +42,26 @@ Le app per le API seguenti consentono di usare queste funzionalità, caratterizz
 
 ![][1]
 
-## AS2 Connector
+## <a name="as2-connector"></a>AS2 Connector
 * Esegue i contratti AS2 definiti nell'istanza dell'app per le API TPM correlata
 * Presenta le informazioni di elaborazione/rilevamento AS2 per la risoluzione dei problemi
 
-## BizTalk EDIFACT
+## <a name="biztalk-edifact"></a>BizTalk EDIFACT
 * Esegue i contratti EDIFACT definiti nell'istanza dell'app per le API TPM correlata
 * Presenta le informazioni di elaborazione/rilevamento EDIFACT per la risoluzione dei problemi
 * Fornisce la gestione dello stato dei batch (avvio e arresto) definita nei contratti EDIFACT nell'istanza dell'app per le API TPM correlata
 
-## BizTalk X12
-* Esegue i contratti X12 definiti nell'istanza dell'app per le API TPM correlata
+## <a name="biztalk-x12"></a>BizTalk X12
+* Esegue i contratti X12 definiti nell'istanza dell'app per le API TPM correlata 
 * Presenta le informazioni di elaborazione/rilevamento X12 per la risoluzione dei problemi
 * Fornisce la gestione dello stato dei batch (avvio e arresto) definita nei contratti X12 nell'istanza dell'app per le API TPM correlata
 
 Come indicato in precedenza, per le app per le API AS2, X12 ed EDIFACT è necessaria un'app per le API TPM che funzioni come previsto.
 
-## Introduzione
+## <a name="getting-started"></a>Introduzione
 Per creare accordi tra partner commerciali:
 
-1. Creare un'istanza del connettore **BizTalk Trading Partner Management**. Per il funzionamento dell'app per le API è necessario un database SQL vuoto. Prima di iniziare, assicurarsi che sia disponibile e pronto per l'uso un database vuoto.
+1. Creare un'istanza del connettore **BizTalk Trading Partner Management** . Per il funzionamento dell'app per le API è necessario un database SQL vuoto. Prima di iniziare, assicurarsi che sia disponibile e pronto per l'uso un database vuoto.
 2. Caricare gli schemi e i certificati richiesti dai contratti. Eseguire questa operazione passando all'istanza TPM creata e quindi alla sezione "Schemi" e/o "Certificati"
 3. Passare all'istanza TPM creata e quindi alla sezione **Partner**
 4. Creare i partner desiderati. Modificare anche i profili in base alle proprie esigenze e aggiungere le identità necessarie
@@ -73,4 +77,8 @@ Per creare accordi tra partner commerciali:
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.png
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

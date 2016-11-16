@@ -5,4 +5,8 @@ Se si ha già familiarità con Hub di notifica, è possibile selezionare un altr
 
 I commenti e suggerimenti inviati seriamente verranno presi in considerazione. Se si riscontrano difficoltà nel completare questo argomento o si hanno suggerimenti per migliorarne il contenuto, è possibile lasciare un commento nella parte inferiore della pagina.
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

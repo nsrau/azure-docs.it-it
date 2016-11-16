@@ -10,7 +10,7 @@
    * **Nome**: Nome of your *raccolta di applicazioni* 
    * **Piattaforme**: selezionare le piattaforme di destinazione per l'app nel pannello Piattaforme che verrà aperto. Ad esempio, se è necessaria un'app sia per iOS che per Android, selezionare entrambe le piattaforme per creare due app in questa raccolta di app. 
      
-     ![](./media/mobile-engagement-create-app-in-portal-new/choose-platform.png)
+      ![](./media/mobile-engagement-create-app-in-portal-new/choose-platform.png)
    * **Sottoscrizione**: selezionare la sottoscrizione di Azure. 
    * **Gruppo di risorse**: selezionare il gruppo di risorse di Azure in cui inserire questa risorsa di Azure (Raccolta di app Mobile Engagement). È possibile scegliere di crearne uno nuovo.  
    * **Località**: area in cui verranno archiviati i dati su questa raccolta di app e su questa app.
@@ -30,6 +30,8 @@
    
     ![](./media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

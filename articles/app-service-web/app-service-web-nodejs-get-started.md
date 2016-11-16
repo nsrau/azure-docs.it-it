@@ -1,12 +1,12 @@
 ---
 title: Introduzione alle app Web Node.js nel servizio app di Azure
-description: Informazioni su come distribuire un'applicazione Node.js in un'app Web nel servizio app di Azure.
+description: Informazioni su come distribuire un&quot;applicazione Node.js in un&quot;app Web nel servizio app di Azure.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: fb2b90c8-02b6-4700-929b-5de9a35d67cc
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: nodejs
 ms.topic: get-started-article
 ms.date: 07/01/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5c61d7a04d7d3e7f82ca8636dcd5d222e1a37a96
+
 
 ---
-# <a name="get-started-with-node.js-web-apps-in-azure-app-service"></a>Introduzione alle app Web Node.js nel servizio app di Azure
+# <a name="get-started-with-nodejs-web-apps-in-azure-app-service"></a>Introduzione alle app Web Node.js nel servizio app di Azure
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 Questa esercitazione illustra come creare una semplice applicazione [Node.js] e distribuirla nel [servizio app di Azure] da un ambiente di riga di comando come cmd.exe o bash. Le istruzioni di questa esercitazione possono essere eseguite in tutti i sistemi operativi che possono eseguire Node.js.
@@ -28,14 +32,14 @@ Questa esercitazione illustra come creare una semplice applicazione [Node.js] e 
 <a name="prereq"></a>
 
 ## <a name="prerequisites"></a>Prerequisiti
-* [Node.JS]
+* [Node.js]
 * [Bower]
 * [Yeoman]
 * [Git]
 * [Interfaccia della riga di comando di Azure]
 * Un account Microsoft Azure. Se non si ha un account, è possibile [iscriversi per ottenere una versione di valutazione gratuita] oppure [attivare i vantaggi per i sottoscrittori di Visual Studio].
 
-## <a name="create-and-deploy-a-simple-node.js-web-app"></a>Creare e distribuire una semplice app Web Node.js
+## <a name="create-and-deploy-a-simple-nodejs-web-app"></a>Creare e distribuire una semplice app Web Node.js
 1. Aprire il terminale della riga di comando scelto e installare il [generatore di Express per Yeoman].
    
         npm install -g generator-express
@@ -99,10 +103,10 @@ Questa esercitazione illustra come creare una semplice applicazione [Node.js] e 
    
     ![Esempio di come passare all'applicazione distribuita.][deployed-express-app]
 
-## <a name="update-your-node.js-web-app"></a>Aggiornare l'app Web Node.js
+## <a name="update-your-nodejs-web-app"></a>Aggiornare l'app Web Node.js
 Per aggiornare l'app Web Node.js in esecuzione nel servizio app, è sufficiente eseguire `git add`, `git commit` e `git push` come per la distribuzione iniziale dell'app Web.
 
-## <a name="how-app-service-deploys-your-node.js-app"></a>Distribuzione dell'app Node.js da parte del servizio app
+## <a name="how-app-service-deploys-your-nodejs-app"></a>Distribuzione dell'app Node.js da parte del servizio app
 Il servizio app di Azure usa [iisnode] per eseguire le app Node.js. L'interfaccia della riga di comando di Azure e il motore Kudu (distribuzione Git) collaborano per semplificare l'esperienza di sviluppo e distribuzione di app Node.js dalla riga di comando. 
 
 * `azure site create --git` riconosce il modello Node.js comune di server.js o app.js e crea nella directory radice un file iisnode.yml, che può essere usato per personalizzare iisnode.
@@ -112,7 +116,7 @@ Il servizio app di Azure usa [iisnode] per eseguire le app Node.js. L'interfacci
   * Generare un file Web.config per iisnode che punta allo script di avvio in package.json, ad esempio server.js o app.js.
   * Personalizzare Web.config per preparare l'app per il debug con Node-Inspector.
 
-## <a name="use-a-node.js-framework"></a>Usare un framework di Node.js
+## <a name="use-a-nodejs-framework"></a>Usare un framework di Node.js
 Se si usa un framework Node.js comune, ad esempio [Sails.js][SAILSJS] o [MEAN.js][MEANJS], per sviluppare app, queste potranno essere distribuite nel servizio app. I framework di Node.js più diffusi hanno caratteristiche non standard specifiche e le relative dipendenze dei pacchetti vengono aggiornate continuamente. Tuttavia, nel servizio app sono disponibili i log stdout e stderr che permettono di capire esattamente cosa sta facendo l'app e apportare le modifiche necessarie. Per altre informazioni, vedere [Ottenere log stdout e stderr da iisnode](#iisnodelog).
 
 Le esercitazioni seguenti mostrano come usare un framework specifico nel servizio app:
@@ -123,7 +127,7 @@ Le esercitazioni seguenti mostrano come usare un framework specifico nel servizi
 
 <a name="version"></a>
 
-## <a name="use-a-specific-node.js-engine"></a>Usare un motore Node.js specifico
+## <a name="use-a-specific-nodejs-engine"></a>Usare un motore Node.js specifico
 In un normale flusso di lavoro è possibile fare in modo che il servizio app usi un motore Node.js specifico, come accade in package.json.
 Ad esempio:
 
@@ -182,7 +186,7 @@ Per leggere i log di iisnode, seguire questa procedura.
    
     ![Esame di un file di log di iisnode.][iislog-kudu-console-read]
 
-## <a name="debug-your-app-with-node-inspector"></a>Eseguire il debug dell'app con Node-Inspector
+## <a name="debug-your-app-with-nodeinspector"></a>Eseguire il debug dell'app con Node-Inspector
 Se si usa Node-Inspector per eseguire il debug delle app Node.js, è possibile usarlo anche per l'app del servizio app attiva. Node-Inspector è preinstallato nell'installazione di iisnode per il servizio app. Se si esegue la distribuzione tramite Git, il file Web.config generato automaticamente da Kudu contiene già tutta la configurazione necessaria per abilitare Node-Inspector.
 
 Per abilitare Node-Inspector, seguire questa procedura:
@@ -218,7 +222,7 @@ Per abilitare Node-Inspector, seguire questa procedura:
 
 [Interfaccia della riga di comando di Azure]: ../xplat-cli-install.md
 [servizio app di Azure]: ../app-service/app-service-value-prop-what-is.md
-[attivare i vantaggi della sottoscrizione di Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
+[attivare i vantaggi per i sottoscrittori di Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Bower]: http://bower.io/
 [Creazione di un'applicazione di chat Node.js con Socket.IO in Servizio app di Azure]: ./web-sites-nodejs-chat-app-socketio.md
 [Distribuire un'app Web Sails.js nel servizio app di Azure]: ./app-service-web-nodejs-sails.md
@@ -228,7 +232,7 @@ Per abilitare Node-Inspector, seguire questa procedura:
 [Come utilizzare io.js con Azure applicazione servizio Web App]: ./web-sites-nodejs-iojs.md
 [iisnode]: https://github.com/tjanczuk/iisnode/wiki
 [MEANJS]: http://meanjs.org/
-[Node.JS]: http://nodejs.org
+[Node.js]: http://nodejs.org
 [SAILSJS]: http://sailsjs.org/
 [iscriversi per ottenere una versione di valutazione gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
 [App Web]: ./app-service-web-overview.md
@@ -243,6 +247,6 @@ Per abilitare Node-Inspector, seguire questa procedura:
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività (anteprima) | Microsoft Docs
+title: "Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività (anteprima) | Documentazione Microsoft"
 description: La soluzione Virtual Machine Management permette di avviare e arrestare le macchine virtuali di Azure Resource Manager in base a una pianificazione e di monitorare in modo attivo tramite Log Analytics.
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/07/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b0fec06e4a167e615381fca17def46923d9f0f1b
+
 
 ---
-# <a name="start/stop-vms-during-off-hours-[preview]-solution-in-automation"></a>Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività (anteprima) in Automazione di Azure
+# <a name="startstop-vms-during-offhours-preview-solution-in-automation"></a>Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività (anteprima) in Automazione di Azure
 La soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività (anteprima) permette di avviare e arrestare le macchine virtuali di Azure Resource Manager in base a una pianificazione definita dall'utente e, tramite OMS Log Analytics, fornisce informazioni approfondite sui processi di Automazione completati che avviano e arrestano le macchine virtuali.  
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -121,7 +125,7 @@ Verrà visualizzato il pannello della soluzione **Start-Stop-VM[Workspace]** (Av
 
 Da qui è anche possibile aprire l'area di lavoro OMS ed eseguire un'analisi aggiuntiva dei record dei processi.  È sufficiente fare clic su **Tutte le impostazioni** e quindi selezionare **Avvio rapido** nel pannello **Impostazioni** e infine **Portale di OMS** nel pannello **Avvio rapido**.   Verrà aperta una nuova scheda o una nuova sessione del browser e verrà visualizzata l'area di lavoro OMS associata alla sottoscrizione e all'account di Automazione.  
 
-### <a name="configuring-e-mail-notifications"></a>Configurazione delle notifiche tramite posta elettronica
+### <a name="configuring-email-notifications"></a>Configurazione delle notifiche tramite posta elettronica
 Per abilitare le notifiche tramite posta elettronica al termine dell'esecuzione dei runbook di avvio e arresto di macchine virtuali, è necessario modificare le credenziali **O365Credential** e almeno le variabili seguenti:
 
 * SendMailO365-IsSendEmail-MS-Mgmt
@@ -202,6 +206,9 @@ La tabella seguente contiene esempi di ricerche nei log per i record dei process
 * Per maggiori informazioni sull'esecuzione dei runbook, su come monitorare i processi dei runbook e su altri dettagli tecnici, vedere come tenere traccia del processo di un runbook in [Esecuzione di runbook in Automazione di Azure](automation-runbook-execution.md)
 * Per altre informazioni su Log Analytics di OMS e sulle origini di raccolta dati, vedere la [panoramica della raccolta dati di Archiviazione di Azure in Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

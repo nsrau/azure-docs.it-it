@@ -1,13 +1,13 @@
 ---
 title: Azure AD Connect in Microsoft Cloud per la Germania
-description: Azure AD Connect integra le directory locali con Azure Active Directory. Consente di fornire un'identità comune per le applicazioni di Office 365, Azure e SaaS integrate con Azure AD.
-keywords: introduzione ad Azure AD Connect, panoramica di Azure AD Connect, che cos'è Azure AD Connect, installare Active Directory, Germania, Foresta Nera
+description: "Azure AD Connect integra le directory locali con Azure Active Directory. Consente di fornire un&quot;identità comune per le applicazioni di Office 365, Azure e SaaS integrate con Azure AD."
+keywords: "introduzione ad Azure AD Connect, panoramica di Azure AD Connect, che cos&quot;è Azure AD Connect, installare Active Directory, Germania, Foresta Nera"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 2bcb0caf-5d97-46cb-8c32-bda66cc22dad
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,11 +15,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 32feb93bf6b6b77d0b14206802c776da3a8eac91
+
 
 ---
-# Azure AD Connect in Microsoft Cloud per la Germania: anteprima pubblica
-## Introduzione
-Azure AD Connect consente la sincronizzazione tra Active Directory locale e Azure Active Directory. Attualmente, molti scenari in [Microsoft Cloud per la Germania](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx) devono essere gestiti dall'operatore. Quando si usa Microsoft Cloud per la Germania, è necessario tenere presente quanto segue:
+# <a name="azure-ad-connect-in-microsoft-cloud-germany-public-preview"></a>Azure AD Connect in Microsoft Cloud per la Germania: anteprima pubblica
+## <a name="introduction"></a>Introduzione
+Azure AD Connect consente la sincronizzazione tra Active Directory locale e Azure Active Directory.
+Attualmente, molti scenari in [Microsoft Cloud per la Germania](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx) devono essere gestiti dall'operatore. Quando si usa Microsoft Cloud per la Germania, è necessario tenere presente quanto segue:
 
 * Gli URL seguenti devono essere aperti su un server proxy per eseguire correttamente la sincronizzazione:
   
@@ -32,10 +37,10 @@ Azure AD Connect consente la sincronizzazione tra Active Directory locale e Azur
   * Aggiornamenti automatici
   * Writeback delle password
 
-## Scaricare
-È possibile scaricare Azure AD Connect dal pannello Azure AD Connect nel portale. Usare le istruzioni seguenti per trovare il pannello Azure AD Connect.
+## <a name="download"></a>Scaricare
+È possibile scaricare Azure AD Connect dal pannello Azure AD Connect nel portale.  Usare le istruzioni seguenti per trovare il pannello Azure AD Connect.
 
-### Pannello Azure AD Connect
+### <a name="the-azure-ad-connect-blade"></a>Pannello Azure AD Connect
 Dopo l'accesso al portale di Azure, seguire questa procedura:
 
 1. Andare a Esplora
@@ -54,10 +59,15 @@ La tabella seguente illustra le funzionalità visualizzate nel pannello.
 | ULTIMA SINCRONIZZAZIONE |Ultima volta in cui è stata completata correttamente una sincronizzazione. |
 | DOMINI FEDERATI |Indica il numero di domini federati attualmente configurati. |
 
-## Installazione
+## <a name="installation"></a>Installazione
 Per installare Azure AD Connect, è possibile usare la documentazione disponibile [qui](active-directory-aadconnect.md#install-azure-ad-connect).
 
-## Funzionalità avanzate e informazioni aggiuntive
-Per altre informazioni e indicazioni sulle impostazioni personalizzate o sulle configurazioni avanzate, vedere [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md). Questa pagina contiene informazioni e collegamenti ad altre indicazioni.
+## <a name="advanced-features-and-additional-information"></a>Funzionalità avanzate e informazioni aggiuntive
+Per altre informazioni e indicazioni sulle impostazioni personalizzate o sulle configurazioni avanzate, vedere [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).  Questa pagina contiene informazioni e collegamenti ad altre indicazioni.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

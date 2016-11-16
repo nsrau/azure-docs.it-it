@@ -1,4 +1,4 @@
-## Peering tra sottoscrizioni
+## <a name="peering-across-subscriptions"></a>Peering tra sottoscrizioni
 In questo scenario si creerà un peering tra due reti virtuali appartenenti a sottoscrizioni diverse.
 
 ![Scenario tra sottoscrizioni](./media/virtual-networks-create-vnetpeering-scenario-crosssub-include/figure01.PNG)
@@ -10,4 +10,8 @@ Il peering reti virtuali si basa sul controllo degli accessi in base al ruolo pe
 > 
 > 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Ottimizzare il routing in ExpressRoute | Microsoft Docs
-description: Questa pagina fornisce informazioni dettagliate su come ottimizzare il routing quando un cliente ha a disposizione più circuiti ExpressRoute per la connessione tra Microsoft e la rete aziendale del cliente.
+title: Ottimizzare il routing in ExpressRoute | Documentazione Microsoft
+description: "Questa pagina fornisce informazioni dettagliate su come ottimizzare il routing quando un cliente ha a disposizione più circuiti ExpressRoute per la connessione tra Microsoft e la rete aziendale del cliente."
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: fca53249-d9c3-4cff-8916-f8749386a4dd
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: charwen
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 26f0992e734f0aae96ac6e8b7040d661d5fb063c
+
 
 ---
 # <a name="optimize-expressroute-routing"></a>Ottimizzare il routing in ExpressRoute
@@ -24,7 +28,7 @@ Per esaminare il problema di routing si userà un esempio. Si supponga di avere 
 
 ![](./media/expressroute-optimize-routing/expressroute-case1-problem.png)
 
-### <a name="solution:-use-bgp-communities"></a>Soluzione: usare BGP Community
+### <a name="solution-use-bgp-communities"></a>Soluzione: usare BGP Community
 Per ottimizzare il routing per gli utenti di entrambi gli uffici, è necessario sapere quale prefisso proviene da Azure negli Stati Uniti occidentali e quale da Azure negli Stati Uniti orientali. Queste informazioni vengono codificate con i [valori di BGP Community](expressroute-routing.md). È stato assegnato un valore di BGP Community univoco per ogni area di Azure, ad esempio "12076:51004" per gli Stati Uniti orientali, "12076:51006" per gli Stati Uniti occidentali. Dopo aver appreso da quale area di Azure proviene ogni prefisso, si può scegliere il circuito ExpressRoute da configurare come preferito. Poiché si usa BGP per lo scambio di informazioni di routing, è possibile usare il valore di BGP relativo alla preferenza locale per determinare il routing. In questo esempio è possibile assegnare un valore di preferenza locale 13.100.0.0/16 più alto negli Stati Uniti occidentali di quello negli Stati Uniti orientali e, in modo analogo, un valore di preferenza locale 23.100.0.0/16 più alto negli Stati Uniti orientali rispetto a quello negli Stati Uniti occidentali. Questa configurazione garantirà che, quando sono disponibili entrambi i percorsi per connettersi a Microsoft, gli utenti di Los Angeles useranno il circuito ExpressRoute negli Stati Uniti occidentali per connettersi ad Azure negli Stati Uniti occidentali, mentre gli utenti di New York useranno il circuito ExpressRoute negli Stati Uniti orientali per connettersi ad Azure negli Stati Uniti orientali. Il routing è ottimizzato su entrambi i lati. 
 
 ![](./media/expressroute-optimize-routing/expressroute-case1-solution.png)
@@ -34,7 +38,7 @@ Ecco un altro esempio in cui le connessioni da Microsoft usano un percorso più 
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-problem.png)
 
-### <a name="solution:-use-as-path-prepending"></a>Soluzione: anteporre AS PATH
+### <a name="solution-use-as-path-prepending"></a>Soluzione: anteporre AS PATH
 Esistono due soluzioni al problema. La prima consiste semplicemente nell'annunciare il prefisso locale per l'ufficio di Los Angeles, 177.2.0.0/31, sul circuito ExpressRoute negli Stati Uniti occidentali e il prefisso locale per l'ufficio di New York, 177.2.0.2/31, sul circuito ExpressRoute negli Stati Uniti orientali. Di conseguenza, Microsoft avrà un solo percorso per connettersi agli uffici del cliente. Non esistono ambiguità e il routing risulta ottimizzato. Con questa progettazione è necessario considerare la strategia di failover. Nel caso di interruzione del percorso verso Microsoft tramite ExpressRoute, è necessario assicurarsi che Exchange Online possa comunque connettersi ai server locali. 
 
 La seconda soluzione consiste nel continuare ad annunciare entrambi i prefissi in entrambi i circuiti ExpressRoute e, inoltre, indicare qual è il prefisso vicino a un determinato ufficio. Poiché è supportata l'anteposizione di AS PATH in BGP, si può configurare AS PATH nel prefisso per determinare il routing. In questo esempio si può estendere AS PATH per 172.2.0.0/31 negli Stati Uniti orientali, in modo che venga preferito il circuito ExpressRoute negli Stati Uniti occidentali per il traffico destinato a questo prefisso. La rete Microsoft considera infatti più breve il percorso per questo prefisso rispetto a quello negli Stati Uniti orientali. Allo stesso modo si può estendere AS PATH per 172.2.0.2/31 negli Stati Uniti occidentali, in modo che venga preferito il circuito ExpressRoute negli Stati Uniti orientali. Il routing è ottimizzato per entrambi gli uffici. Con questa progettazione, se un circuito ExpressRoute viene interrotto, Exchange Online può comunque raggiungere il cliente tramite un altro circuito ExpressRoute e la rete WAN. 
@@ -51,6 +55,9 @@ La seconda soluzione consiste nel continuare ad annunciare entrambi i prefissi i
 > 
 > 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 
