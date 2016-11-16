@@ -89,7 +89,7 @@ A ogni nodo aggiunto a un pool viene assegnato un nome univoco e un indirizzo IP
 Quando si crea un pool, è possibile specificare gli attributi seguenti:
 
 * **Sistema operativo** e **versione** dei nodi di calcolo
--  
+  
     Sono disponibili due opzioni quando si seleziona un sistema operativo per i nodi nel pool: **Configurazione macchina virtuale** e **Cloud Services Configuration** (Configurazione servizi cloud).
   
     **Configurazione macchina virtuale** fornisce immagini Linux e Windows per i nodi di calcolo dal [Marketplace per Macchine virtuali di Azure][vm_marketplace].
@@ -148,10 +148,10 @@ Quando si crea un pool, è possibile specificare gli attributi seguenti:
 Un processo è una raccolta di attività. Gestisce la modalità di esecuzione dei calcoli da parte delle attività nei nodi di calcolo di un pool.
 
 * Il processo specifica il **pool** in cui eseguire il lavoro. È possibile creare un nuovo pool per ogni processo o usare un pool per più processi. È possibile creare un pool per ogni processo associato a una pianificazione o per tutti i processi associati a una pianificazione.
-* È possibile specificare una **priorità del processo** facoltativa. Quando si invia un processo con priorità più alta rispetto ad altri processi in corso, le attività del processo con la priorità più alta vengono inserite nella coda prima delle attività del processo con priorità più bassa. Le attività nei processi con priorità più bassa già in esecuzione non vengono messe in attesa.
+* È possibile specificare una **priorità del processo**facoltativa. Quando si invia un processo con priorità più alta rispetto ad altri processi in corso, le attività del processo con la priorità più alta vengono inserite nella coda prima delle attività del processo con priorità più bassa. Le attività nei processi con priorità più bassa già in esecuzione non vengono messe in attesa.
 * È possibile usare i **vincoli** del processo per specificare determinati limiti per i processi:
   
-    È possibile impostare un **tempo massimo** in modo che, se un processo viene eseguito per un periodo più lungo del tempo specificato, il processo e tutte le attività vengano terminati.
+    È possibile impostare un **tempo massimo**in modo che, se un processo viene eseguito per un periodo più lungo del tempo specificato, il processo e tutte le attività vengano terminati.
   
     Batch può rilevare e quindi provare a eseguire di nuovo le attività non riuscite. È possibile specificare il **numero massimo di tentativi per l'attività** sotto forma di vincolo, indicando anche se un'attività viene *sempre* ripetuta oppure *mai*. Per nuovo tentativo si intende che l'attività viene riaccodata per essere eseguita di nuovo.
 * L'applicazione client può aggiungere attività a un processo oppure è possibile specificare un'[attività del gestore di processi](#job-manager-task). Un'attività del gestore di processi contiene le informazioni necessarie per creare le attività obbligatorie per un processo. L'attività del gestore di processi viene eseguita in uno dei nodi di calcolo del pool. L'attività del gestore di processi viene gestita in modo specifico da Batch, ovvero viene accodata non appena si crea il processo e viene riavviata se l'operazione non riesce. Un'attività del gestore di processi è *obbligatoria* per i processi creati da una [pianificazione di processi](#scheduled-jobs), perché è l'unico modo per definire le attività prima della creazione di istanze del processo.
@@ -159,7 +159,7 @@ Un processo è una raccolta di attività. Gestisce la modalità di esecuzione de
   
     Si noti che il servizio Batch considera un processo *senza* attività quando ha tutte le relative attività completate. Di conseguenza, questa opzione viene usata più comunemente con un' [attività del gestore di processi](#job-manager-task). Se si vuole usare la chiusura automatica di processi senza un gestore di processi, è necessario impostare inizialmente la proprietà **onAllTasksComplete** di un nuovo processo su *noaction*, quindi impostarlo su *terminatejob* solo dopo aver completato l'aggiunta di attività al processo.
 
-### <a name="job-priority"></a>Priorità del processo
+### <a name="job-priority"></a>priorità del processo
 È possibile assegnare una priorità ai processi creati in Batch. Il servizio Batch usa il valore di priorità del processo per determinare l'ordine di programmazione dei processi in un account, da non confondere con un [processo pianificato](#scheduled-jobs). I valori di priorità sono compresi in un intervallo da -1000 a 1000, dove -1000 è la priorità più bassa e 1000 la più alta. È possibile aggiornare la priorità di un processo usando l'operazione [Aggiornare le proprietà di un processo][rest_update_job] (Batch REST) o modificando la proprietà [CloudJob.Priority][net_cloudjob_priority] (Batch .NET).
 
 All'interno dello stesso account i processi con priorità più alta hanno precedenza di pianificazione rispetto ai processi con priorità inferiori. Un processo con un valore di priorità più elevato in un account non ha tale precedenza di pianificazione rispetto a un altro processo con un valore di priorità inferiore in un account diverso.
