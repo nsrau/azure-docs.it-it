@@ -184,15 +184,18 @@
 ## [Dati](https://go.microsoft.com/fwlink/p/?linkid=833404)
 ## [Interfacce di dati](https://go.microsoft.com/fwlink/p/?linkid=833406)
 ## [Sistema](https://go.microsoft.com/fwlink/p/?linkid=833407)
-## [PowerShell](https://go.microsoft.com/fwlink/p/?linkid=833408)
-## [API REST](https://go.microsoft.com/fwlink/p/?LinkID=532910)
-## [API Java](https://go.microsoft.com/fwlink/p/?linkid=833410)
 ## [Codice di esempio](http://aka.ms/servicefabricsamples)
+## [PowerShell](/powershell/servicefabric/vlatest/servicefabric)
+## [API Java](https://go.microsoft.com/fwlink/p/?linkid=833410)
+## [.NET](/dotnet/api)
+## [REST](/rest/api/servicefabric/)
 
 # Risorse
 ## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
-## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=service-fabric&updatetype=&platform=)
+## [Prezzi](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
+## [Video](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
 
 
 <!--HONumber=Nov16_HO2-->

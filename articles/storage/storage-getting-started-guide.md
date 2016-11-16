@@ -1,28 +1,32 @@
 ---
-title: Introduzione a Azure Storage in cinque minuti | Microsoft Docs
-description: Imparare rapidamente a usare BLOB, tabelle e code di Microsoft Azure mediante Avvio rapido di Archiviazione di Azure, Visual Studio e l'emulatore di archiviazione di Azure. Eseguire la prima applicazione di Archiviazione di Azure nel servizio di archiviazione di Azure
+title: Introduzione a Azure Storage in cinque minuti | Documentazione Microsoft
+description: Imparare rapidamente a usare BLOB, tabelle e code di Microsoft Azure mediante Avvio rapido di Archiviazione di Azure, Visual Studio e l&quot;emulatore di archiviazione di Azure. Eseguire la prima applicazione di Archiviazione di Azure nel servizio di archiviazione di Azure
 services: storage
 documentationcenter: .net
 author: tamram
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 582f76f8-c814-4a69-8a5c-1fd0e0d5d8f2
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 09/20/2016
-ms.author: dineshm;tamram
+ms.date: 10/18/2016
+ms.author: tamram
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 369e45ed8303735976813c1224ce74842f886536
+
 
 ---
-# Introduzione a Azure Storage in cinque minuti
-## Overview
+# <a name="get-started-with-azure-storage-in-five-minutes"></a>Introduzione a Azure Storage in cinque minuti
+## <a name="overview"></a>Overview
 Lo sviluppo con Archiviazione di Azure è una procedura semplice. In questa esercitazione viene illustrato come ottenere un'applicazione di archiviazione di Azure backup rapidità e facilità. Si useranno i modelli di avvio rapido inclusi in Azure SDK per .NET. Tali modelli contengono codice pronto all'uso che illustra alcuni scenari di programmazione di base con Archiviazione di Azure.
 
 Per ottenere altre informazioni su Archiviazione di Azure prima di approfondire le informazioni sul codice, vedere [Passaggi successivi](#next-steps).
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, verificare di disporre dei prerequisiti seguenti.
 
 1. Per compilare l'applicazione, è necessario disporre di [Visual Studio](https://www.visualstudio.com/) installato nel computer.
@@ -35,14 +39,16 @@ Prima di iniziare, verificare di disporre dei prerequisiti seguenti.
    * Per ottenere una sottoscrizione di Azure, vedere la [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/), le [opzioni di acquisto](https://azure.microsoft.com/pricing/purchase-options/) e le [offerte per i membri](https://azure.microsoft.com/pricing/member-offers/) (per i membri di MSDN, Microsoft Partner Network, BizSpark e altri programmi Microsoft).
    * Per creare un account di archiviazione in Azure, vedere l'articolo relativo alla [creazione di un account di archiviazione](storage-create-storage-account.md#create-a-storage-account).
 
-## Eseguire la prima applicazione di Archiviazione di Azure in Archiviazione di Azure nel cloud
+## <a name="run-your-first-azure-storage-application-against-azure-storage-in-the-cloud"></a>Eseguire la prima applicazione di Archiviazione di Azure in Archiviazione di Azure nel cloud
 Ora verrà creata una semplice applicazione di Archiviazione di Azure usando uno dei progetti di esempio di avvio rapido di Azure in Visual Studio. Questa esercitazione si concentra sui progetti di esempio per Archiviazione di Azure: **Archiviazione di Azure: BLOB**, **Archiviazione di Azure: file**, **Archiviazione di Azure: code** e **Archiviazione di Azure: tabelle**:
 
 1. Avviare Visual Studio.
 2. Scegliere **Nuovo progetto** dal menu **File**.
-3. Nella finestra di dialogo **Nuovo progetto** fare clic su **Installato** > **Modelli** > **Visual C#** > **Cloud** > **Avvio rapido** > **Servizi dati**. a. Scegliere uno dei modelli seguenti: **Archiviazione di Azure: BLOB**, **Archiviazione di Azure: file**, **Archiviazione di Azure: code** o **Archiviazione di Azure: tabelle**. b. Assicurarsi che come framework di destinazione sia selezionata l'opzione **.NET Framework 4.5**.
+3. Nella finestra di dialogo **Nuovo progetto**, fare clic su **Installati** > **Modelli** > **Visual C#** > **Cloud** > **QuickStarts** > **Servizi dati**.
+    a. Scegliere uno dei modelli seguenti: **Archiviazione di Azure: BLOB**, **Archiviazione di Azure: file**, **Archiviazione di Azure: code** o **Archiviazione di Azure: tabelle**.
+    b. Assicurarsi che come framework di destinazione sia selezionata l'opzione **.NET Framework 4.5**.
    
-   * 3\.c. Specificare un nome per il progetto e creare la nuova soluzione di Visual Studio, come illustrato:
+   * 3.c. Specificare un nome per il progetto e creare la nuova soluzione di Visual Studio, come illustrato:
      
      ![Avvio rapido di Azure][Image1]
 
@@ -50,27 +56,30 @@ Ora verrà creata una semplice applicazione di Archiviazione di Azure usando uno
 
 A questo punto, eseguire l'applicazione di esempio:
 
-1. In Visual Studio, selezionare **Esplora Soluzioni** sul menu **Visualizza** . Aprire il file App.config e impostare come commento la stringa di connessione per l'emulatore di archiviazione di Azure:
+1. In Visual Studio, selezionare **Esplora Soluzioni** sul menu **Visualizza**. Aprire il file App.config e impostare come commento la stringa di connessione per l'emulatore di archiviazione di Azure:
    
    `<!--<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>-->`
 2. Rimuovere i simboli di commento dalla stringa di connessione per il servizio di archiviazione di Azure e fornire il nome e la chiave di accesso dell'account di archiviazione nel file App.config: `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
    
    Per recuperare la chiave di accesso dell'account di archiviazione, vedere [Gestire le chiavi di accesso alle risorse di archiviazione](storage-create-storage-account.md#manage-your-storage-access-keys).
-3. Dopo aver specificato il nome e la chiave di accesso dell'account di archiviazione nel file App.config, nel menu **File** fare clic su Salva tutto per **salvare tutti** i file di progetto.
-4. Sul menu **Compila** fare clic su **Compila soluzione**.
-5. Nel menu **Debug** premere **F11** per eseguire la soluzione dettagliata o premere **F5** per eseguire la soluzione.
+3. Dopo aver specificato il nome e la chiave di accesso dell'account di archiviazione nel file App.config, nel menu **File** fare clic su **Salva tutto** per salvare tutti i file di progetto.
+4. Nel menu **Compila** scegliere **Compila soluzione**.
+5. Nel menu **Debug** premere **F11** per eseguire la soluzione dettagliata o **F5** per eseguire la soluzione dall'inizio alla fine.
 
-## Eseguire la prima applicazione di Archiviazione di Azure nell'emulatore di archiviazione di Azure
-L'[emulatore di archiviazione di Azure](storage-use-emulator.md) offre un ambiente locale che emula i servizi BLOB, code e tabelle di Azure per scopi di sviluppo. È possibile usare l'emulatore di archiviazione per testare l'applicazione di archiviazione in locale, senza creare un account di archiviazione o una sottoscrizione di Azure e senza incorrere in alcun costo.
+## <a name="run-your-first-azure-storage-application-locally-against-the-azure-storage-emulator"></a>Eseguire la prima applicazione di Archiviazione di Azure nell'emulatore di archiviazione di Azure
+L' [emulatore di archiviazione di Azure](storage-use-emulator.md) offre un ambiente locale che emula i servizi BLOB, code e tabelle di Azure per scopi di sviluppo. È possibile usare l'emulatore di archiviazione per testare l'applicazione di archiviazione in locale, senza creare un account di archiviazione o una sottoscrizione di Azure e senza incorrere in alcun costo.
 
-Proviamo, verrà creata una semplice applicazione di Archiviazione di Azure usando uno dei progetti di esempio di Avvio rapido di Azure in Visual Studio. Questa esercitazione si concentra sui progetti di esempio di **archiviazione Blob di Azure**, **archiviazione tabelle di Azure** e **Code di archiviazione di Azure** :
+Proviamo, verrà creata una semplice applicazione di Archiviazione di Azure usando uno dei progetti di esempio di Avvio rapido di Azure in Visual Studio. Questa esercitazione si concentra sui progetti di esempio di **archiviazione BLOB di Azure**, **archiviazione tabelle di Azure** e **archiviazione code di Azure**:
 
 1. Avviare Visual Studio.
 2. Scegliere **Nuovo progetto** dal menu **File**.
-3. Nella finestra di dialogo **Nuovo progetto** fare clic su **Installato** > **Modelli** > **Visual C#** > **Cloud** > **Avvio rapido** > **Servizi dati**. a. Scegliere uno dei modelli seguenti: **Archiviazione di Azure: BLOB**, **Archiviazione di Azure: file**, **Archiviazione di Azure: code** o **Archiviazione di Azure: tabelle**. b. Assicurarsi che come framework di destinazione sia selezionata l'opzione **.NET Framework 4.5**. c. Specificare un nome per il progetto e creare la nuova soluzione di Visual Studio, come illustrato:
+3. Nella finestra di dialogo **Nuovo progetto**, fare clic su **Installati** > **Modelli** > **Visual C#** > **Cloud** > **QuickStarts** > **Servizi dati**.
+    a. Scegliere uno dei modelli seguenti: **Archiviazione di Azure: BLOB**, **Archiviazione di Azure: file**, **Archiviazione di Azure: code** o **Archiviazione di Azure: tabelle**.
+    b. Assicurarsi che come framework di destinazione sia selezionata l'opzione **.NET Framework 4.5**.
+    c. Specificare un nome per il progetto e creare la nuova soluzione di Visual Studio, come illustrato:
    
     ![Avvio rapido di Azure][Image1]
-4. In Visual Studio, selezionare **Esplora Soluzioni** sul menu **Visualizza** . Aprire il file App.config e impostare come commento la stringa di connessione per l'account di archiviazione di Azure, se è già stato aggiunto. Quindi rimuovere il commento della stringa di connessione per l'emulatore di archiviazione di Azure:
+4. In Visual Studio, selezionare **Esplora Soluzioni** sul menu **Visualizza**. Aprire il file App.config e impostare come commento la stringa di connessione per l'account di archiviazione di Azure, se è già stato aggiunto. Quindi rimuovere il commento della stringa di connessione per l'emulatore di archiviazione di Azure:
    
    `<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>`
 
@@ -78,11 +87,11 @@ Proviamo, verrà creata una semplice applicazione di Archiviazione di Azure usan
 
 Successivamente, eseguire l'applicazione di esempio nell'emulatore di archiviazione di Azure:
 
-1. Premere il tasto **Start** o il tasto Windows, cercare *Emulatore di archiviazione di Microsoft Azure* e avviare l'applicazione. Quando l'emulatore si avvia, verranno visualizzate un'icona e una notifica nell'area di visualizzazione attività di Windows.
-2. In Visual Studio, fare clic su **Compila Soluzione** sul menu **Build**.
-3. Nel menu **Debug** premere **F11** per eseguire la soluzione dettagliata o **F5** per eseguire la soluzione dall’inizio alla fine.
+1. Premere il tasto **Start** o il tasto Windows, cercare *Emulatore di archiviazione di Microsoft Azure*e avviare l'applicazione. Quando l'emulatore si avvia, verranno visualizzate un'icona e una notifica nell'area di visualizzazione attività di Windows.
+2. In Visual Studio, fare clic su **Compila soluzione** on the **Build** .
+3. Nel menu **Debug** premere **F11** per eseguire la soluzione dettagliata o **F5** per eseguire la soluzione dall'inizio alla fine.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni sull'archiviazione Azure, vedere la risorsa seguente:
 
 * [Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md)
@@ -98,4 +107,8 @@ Per ulteriori informazioni sull'archiviazione Azure, vedere la risorsa seguente:
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

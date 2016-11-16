@@ -1,32 +1,36 @@
 ---
-title: Informazioni sulle funzionalità delle edizioni di Servizi BizTalk | Microsoft Docs
-description: 'Confronto tra le funzionalità delle edizioni di Servizi BizTalk: Free, Developer, Basic, Standard e Premium. MABS, WABS.'
+title: "Informazioni sulle funzionalità delle edizioni di servizi BizTalk | Documentazione Microsoft"
+description: "Confronto tra le funzionalità delle edizioni di Servizi BizTalk: Free, Developer, Basic, Standard e Premium. MABS, WABS."
 services: biztalk-services
-documentationcenter: ''
+documentationcenter: 
 author: MandiOhlinger
-manager: erikre
-editor: ''
-
+manager: anneta
+editor: 
+ms.assetid: c589629f-06b1-44bb-b8ca-1db71826ea59
 ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
+ms.date: 11/07/2016
 ms.author: mandia
+translationtype: Human Translation
+ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
+ms.openlocfilehash: b8d2b49a416883376302c9b3cc5924877b404a95
+
 
 ---
-# Servizi BizTalk: Grafico edizioni
+# <a name="biztalk-services-editions-chart"></a>Servizi BizTalk: Grafico edizioni
 Servizi BizTalk di Azure offre diverse edizioni. Usare questo argomento per individuare la versione più adatta al proprio scenario e alle proprie esigenze di business.
 
-## Confronto delle edizioni
+## <a name="compare-the-editions"></a>Confronto delle edizioni
 **Free (anteprima)**
 
 Consente di creare e gestire connessioni ibride. Una connessione ibrida è un modo semplice per connettere un sito Web di Azure a un sistema locale, ad esempio SQL Server.
 
 **Developer**
 
-Include connessioni ibride, l'elaborazione dei messaggi EAI e EDI con un portale di gestione dei partner commerciali facile da usare, il supporto di schemi EDI comuni e l'elaborazione avanzata di EDI su X12 e AS2. È possibile creare scenari EAI comuni per connettere i servizi nel cloud con i protocolli HTTP/S, REST, FTP, WCF e SFTP per la lettura e la scrittura di messaggi. È possibile usare la connettività a sistemi line-of-business locali con adattatori SAP, Oracle eBusiness, Oracle DB, Siebel e SQL Server pronti all'uso. È presente un ambiente a misura di sviluppatore, con strumenti di Visual Studio per sviluppare e distribuire con facilità le applicazioni. Limitata allo sviluppo e all'esecuzione di test senza contratto di servizio.
+Include connessioni ibride, l'elaborazione dei messaggi EAI e EDI con un portale di gestione dei partner commerciali facile da usare, il supporto di schemi EDI comuni e l'elaborazione avanzata di EDI su X12 e AS2. È possibile creare scenari EAI comuni per connettere i servizi nel cloud con i protocolli HTTP/S, REST, FTP, WCF e SFTP per la lettura e la scrittura di messaggi.  È possibile usare la connettività a sistemi line-of-business locali con adattatori SAP, Oracle eBusiness, Oracle DB, Siebel e SQL Server pronti all'uso. È presente un ambiente a misura di sviluppatore, con strumenti di Visual Studio per sviluppare e distribuire con facilità le applicazioni. Limitata allo sviluppo e all'esecuzione di test senza contratto di servizio.
 
 **Basic**
 
@@ -40,7 +44,7 @@ include tutte le funzionalità dell'edizione Basic con miglioramenti a livello d
 
 include tutte le funzionalità dell'edizione Standard con miglioramenti a livello di connessioni ibride, bridge EAI, contratti EDI e connessioni con BizTalk Adapter Pack. Offre inoltre archiviazione, disponibilità elevata e un'opzione per la scalabilità con un contratto di servizio.
 
-## Grafico edizioni
+## <a name="editions-chart"></a>Grafico edizioni
 Nella tabella seguente sono elencate le differenze tra le varie edizioni.
 
 <table border="1">
@@ -55,7 +59,7 @@ Nella tabella seguente sono elencate le differenze tra le varie edizioni.
 
 <tr>
 <td><strong>Prezzo iniziale</strong></td>
-<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011">Prezzi dei Servizi BizTalk</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full">Calcolatore dei prezzi di Azure</a></td>
+<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Prezzi dei servizi BizTalk di Azure</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full"> Calcolatore dei prezzi di Azure</a></td>
 </tr>
 <tr>
 <td><strong>Configurazione minima predefinita</strong></td>
@@ -145,7 +149,7 @@ Include contratti TPM</td>
 <tr>
 <td><strong>Disponibilità elevata</strong>
 <br/><br/>
-Per il contratto di servizio, vedere <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011">Dettagli prezzi servizi BizTalk</a>.
+Per il contratto di servizio, vedere i <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011">prezzi dei servizi BizTalk</a>.
 </td>
 <td>Non incluso</td>
 <td>Non incluso</td>
@@ -201,11 +205,11 @@ Include ricevuta di non ripudio (NRR) e download dei messaggi rilevati</td>
 > 
 > 
 
-## Domande frequenti
-#### Che cos'è un'unità di BizTalk?
+## <a name="faqs"></a>Domande frequenti
+#### <a name="what-is-a-biztalk-unit"></a>Che cos'è un'unità di BizTalk?
 Un'unità è il livello atomico di una distribuzione di Servizi BizTalk di Azure. Ogni edizione include un'unità con capacità di calcolo e memoria diverse. Un'unità Basic, ad esempio, ha maggiori funzionalità di calcolo di un'unità Developer, una Standard ha maggiori funzionalità di calcolo di una Basic e così via. Quando si parla di scalabilità di Servizi BizTalk, la si intende in termini di unità.
 
-#### Qual è la differenza tra Servizi BizTalk e una macchina virtuale BizTalk di Azure?
+#### <a name="what-is-the-difference-between-biztalk-services-and-azure-biztalk-vm"></a>Qual è la differenza tra Servizi BizTalk e una macchina virtuale BizTalk di Azure?
 Servizi BizTalk offre una vera architettura di piattaforma distribuita come servizio (PaaS) per la creazione di soluzioni di integrazione nel cloud. Con il modello PaaS, l'utente si concentra completamente sulla logica dell'applicazione e lascia tutta la gestione dell'infrastruttura a Microsoft:
 
 * Non è necessario gestire o installare patch sulle macchine virtuali.
@@ -216,36 +220,41 @@ BizTalk Server su Macchine virtuali di Azure offre un'architettura di infrastrut
 
 Se si desidera creare nuove soluzioni di integrazione che riducano al minimo le operazioni di gestione dell'infrastruttura, usare Servizi BizTalk. Se si desidera eseguire la migrazione rapida delle soluzioni BizTalk esistenti o si cerca un ambiente su richiesta per sviluppare e testare applicazioni BizTalk Server, utilizzare BizTalk Server su una macchina virtuale Azure.
 
-#### Qual è la differenza tra BizTalk Adapter Service e le connessioni ibride?
+#### <a name="what-is-the-difference-between-biztalk-adapter-service-and-hybrid-connections"></a>Qual è la differenza tra BizTalk Adapter Service e le connessioni ibride?
 BizTalk Adapter Service viene usato da un Servizio BizTalk di Azure. BizTalk Adapter Service usa BizTalk Adapter Pack per la connessione a un sistema line-of-business locale. Una connessione ibrida consente di connettere applicazioni Azure, come la funzionalità app Web nel servizio app di Azure e in Servizi mobili di Azure, alle risorse locali in modo facile e intuitivo.
 
-#### Che cosa significa "Trasferimento di dati di connessioni ibride (GB) per unità"? Si intende al minuto/ora/giorno/mese? Cosa accade quando si raggiunge il limite?
+#### <a name="what-does-hybrid-connection-data-transfer-gb-per-unit-mean-is-this-per-minutehourdayweekmonth-what-happens-when-the-limit-is-reached"></a>Che cosa significa "Trasferimento di dati di connessioni ibride (GB) per unità"? Si intende al minuto/ora/giorno/mese? Cosa accade quando si raggiunge il limite?
 Il costo della connessione ibrida per unità dipende dall'edizione di Servizi BizTalk. In pratica, i costi dipendono dalla quantità di dati da trasferire. Ad esempio, trasferire 10 GB di dati al giorno costa meno che trasferire 100 GB al giorno. Usare il [Calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/?scenario=full) per determinare i costi specifici di Servizi BizTalk. In genere, i limiti vengono applicati ogni giorno. Se si supera il limite, il costo aggiuntivo addebitato è di 1 dollaro US per GB.
 
-#### Quando si crea un contratto in Servizi BizTalk, perché il numero di bridge aumenta di due anziché di uno?
+#### <a name="when-i-create-an-agreement-in-biztalk-services-why-does-the-number-of-bridges-go-up-by-two-instead-of-just-one"></a>Quando si crea un contratto in Servizi BizTalk, perché il numero di bridge aumenta di due anziché di uno?
 Ogni contratto include due bridge diversi: uno per la comunicazione sul lato di trasmissione e l'altro sul lato di ricezione.
 
-#### Che cosa succede se si raggiunge il limite di quota o il numero massimo di bridge o contratti?
+#### <a name="what-happens-when-i-hit-the-quota-limit-on-the-number-of-bridges-or-agreements"></a>Che cosa succede se si raggiunge il limite di quota o il numero massimo di bridge o contratti?
 Non è possibile distribuire nuovi bridge o creare nuovi contratti. Per distribuire più bridge e contratti, è necessario aumentare il numero di unità del servizio BizTalk oppure passare a un'edizione superiore.
 
-#### Come si esegue la migrazione da un livello di Servizi BizTalk a un altro?
-Non è possibile eseguire la migrazione dell'edizione gratuita o "scalarla" a un altro livello e non è possibile eseguirne il backup e il ripristino in un altro livello. Se è necessario un altro livello, creare un nuovo servizio BizTalk con il nuovo livello. Gli eventuali elementi creati con l'edizione gratuita, incluse le connessioni ibride, devono essere ricreati nel nuovo servizio BizTalk.
+#### <a name="how-do-i-migrate-from-one-tier-of-biztalk-services-to-another"></a>Come si esegue la migrazione da un livello di Servizi BizTalk a un altro?
+Non è possibile eseguire la migrazione dell'edizione gratuita o "scalarla" a un altro livello e non è possibile eseguirne il backup e il ripristino in un altro livello. Se è necessario un altro livello, creare un nuovo servizio BizTalk con il nuovo livello. Gli eventuali elementi creati con l'edizione gratuita, incluse le connessioni ibride, devono essere ricreati nel nuovo servizio BizTalk. 
 
-Per le altre edizioni, usare il backup e ripristino per eseguire la migrazione degli elementi da un livello a un altro. Ad esempio, eseguire il backup degli elementi nel livello Standard e quindi ripristinarli nel livello Premium. [Servizi BizTalk: backup e ripristino](biztalk-backup-restore.md) descrive i percorsi di migrazione supportati ed elenca gli elementi di cui viene eseguito il backup. Si noti che il backup delle connessioni ibride non viene eseguito. Dopo il backup e ripristino in un nuovo livello, si ricreano le connessioni ibride.
+Per le altre edizioni, usare il backup e ripristino per eseguire la migrazione degli elementi da un livello a un altro. Ad esempio, eseguire il backup degli elementi nel livello Standard e quindi ripristinarli nel livello Premium. [Servizi BizTalk: backup e ripristino](biztalk-backup-restore.md) descrive i percorsi di migrazione supportati ed elenca gli elementi di cui viene eseguito il backup. Si noti che il backup delle connessioni ibride non viene eseguito. Dopo il backup e ripristino in un nuovo livello, si ricreano le connessioni ibride.  
 
-#### Il servizio Adapter BizTalk è incluso nel servizio? Come è possibile ricevere il software?
-Sì, il servizio Adapter BizTalk e BizTalk Adapter Pack sono inclusi in nel [download](http://www.microsoft.com/download/details.aspx?id=39087) dell'SDK di Servizi BizTalk di Azure.
+#### <a name="is-the-biztalk-adapter-service-included-in-the-service-how-do-i-receive-the-software"></a>Il servizio Adapter BizTalk è incluso nel servizio? Come è possibile ricevere il software?
+Sì, il servizio Adapter BizTalk e BizTalk Adapter Pack sono inclusi in nel [download](http://www.microsoft.com/download/details.aspx?id=39087)dell'SDK di Servizi BizTalk di Azure.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Per creare Servizi BizTalk di Azure nel portale di Azure, vedere [Servizi BizTalk: Provisioning mediante il portale di Azure](biztalk-provision-services.md). Per iniziare a creare applicazioni, vedere [Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
-## Risorse aggiuntive
+## <a name="additional-resources"></a>Risorse aggiuntive
 * [Servizi BizTalk: Provisioning mediante il portale di Azure](biztalk-provision-services.md)<br/>
-* [Servizi BizTalk: Tabella degli stati del servizio](biztalk-service-state-chart.md)<br/>
+* [Servizi BizTalk: Grafico dello stato del provisioning](biztalk-service-state-chart.md)<br/>
 * [Servizi BizTalk: Schede Dashboard, Monitoraggio, Scalabilità](biztalk-dashboard-monitor-scale-tabs.md)<br/>
-* [Servizi BizTalk: backup e ripristino](biztalk-backup-restore.md)<br/>
+* [BizTalk Services: Backup and restore](biztalk-backup-restore.md)<br/>
 * [Servizi BizTalk: limitazione](biztalk-throttling-thresholds.md)<br/>
 * [Servizi BizTalk: nome e chiave dell'autorità emittente](biztalk-issuer-name-issuer-key.md)<br/>
 * [Come iniziare a usare l'SDK di Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

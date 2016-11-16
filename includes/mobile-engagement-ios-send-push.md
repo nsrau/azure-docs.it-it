@@ -1,4 +1,4 @@
-### Concedere a Mobile Engagement l'accesso al certificato push
+### <a name="grant-access-to-your-push-certificate-to-mobile-engagement"></a>Concedere a Mobile Engagement l'accesso al certificato push
 Per consentire a Mobile Engagement di inviare notifiche push per conto dell'utente, è necessario concedere l'accesso al certificato. A tale scopo, è necessario configurare il certificato e immetterlo nel portale di Mobile Engagement. Assicurarsi di avere ottenuto il certificato con estensione p12 come descritto nella [documentazione di Apple](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
 
 1. Passare al portale di Mobile Engagement. Verificare la posizione corretta e fare clic sul pulsante **Attiva** nella parte inferiore:
@@ -11,7 +11,7 @@ Per consentire a Mobile Engagement di inviare notifiche push per conto dell'uten
    
     ![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
 
-## <a id="send"></a>Inviare una notifica all'app
+## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Inviare una notifica all'app
 Si creerà ora una semplice campagna di notifica push per l'invio di un push all'app.
 
 1. Passare alla scheda **Reach** nel portale di Mobile Engagement.
@@ -23,14 +23,14 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
     ![](./media/mobile-engagement-ios-send-push/campaign-first-params.png)
    
    * Fornire un **Nome** per la campagna 
-   * Selezionare come **tempo di recapito** **Solo all'esterno dell'app**: si tratta di un tipo di notifica push Apple semplice che include testo.
+   * Per **Ora di consegna** selezionare **Out of app only** (Solo all'esterno dell'app): si tratta di un tipo di notifica push Apple semplice che include testo.
    * Nel testo della notifica digitare innanzitutto il **titolo** che sarà la prima riga del push.
    * Digitare quindi il **messaggio** che costituirà la seconda riga
-4. Scorrere verso il basso e nella sezione contenuto selezionare **Solo notifica**.
+4. Scorrere verso il basso e nella sezione contenuto selezionare **Solo notifica**
    
     ![](./media/mobile-engagement-ios-send-push/campaign-content.png)
-5. L'impostazione della campagna più semplice è stata completata. Ora scorrere verso il basso e fare clic sul pulsante **Crea** per salvare la campagna di notifica push.
-6. Infine, fare clic sul **Attiva** per inviare notifiche push.
+5. L'impostazione della campagna più semplice è stata completata. Ora scorrere verso il basso e fare clic sul pulsante **Crea** per salvare la campagna di notifica push. 
+6. Infine, fare clic sul **Attiva** per inviare notifiche push. 
    
     ![](./media/mobile-engagement-ios-send-push/campaign-activate.png)
 7. Sarà possibile ricevere la notifica sul dispositivo iOS nel centro di notifica, come mostrato di seguito:
@@ -40,4 +40,8 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
    
     ![](./media/mobile-engagement-ios-send-push/apple-watch.png)
 
-<!---HONumber=Nov15_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

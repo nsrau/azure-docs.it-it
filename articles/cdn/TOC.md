@@ -1,16 +1,13 @@
 # [Panoramica](cdn-overview.md)
-## [Procedure consigliate per la rete CDN di Azure](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+## [Che cos'è la rete CDN di Azure?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
 # Attività iniziali
-## [Uso della rete CDN di Azure](cdn-create-new-endpoint.md)
-## Introduzione allo sviluppo della rete CDN di Azure
-### [.NET](cdn-app-dev-net.md)
-### [Node.js](cdn-app-dev-node.md)
+## [Abilitare la rete CDN di Azure](cdn-create-new-endpoint.md)
 
 # Procedure
 ## Integrare
-### [Integrare la soluzione con App Web](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
-### [Integrare la soluzione con Servizi cloud](cdn-cloud-service-with-cdn.md)
-### [Integrare la soluzione con Archiviazione](cdn-create-a-storage-account-with-cdn.md)
+### [App Web](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [Servizi cloud](cdn-cloud-service-with-cdn.md)
+### [Archiviazione](cdn-create-a-storage-account-with-cdn.md)
 ### [Condivisione di risorse tra le origini](cdn-cors.md)
 
 ## Gestire
@@ -29,9 +26,6 @@
 ### [Eseguire l'override del comportamento con regole](cdn-rules-engine.md)
 ### [Ricevere avvisi in tempo reale](cdn-real-time-alerts.md)
 
-## Automatizzare
-### [Gestire con PowerShell](cdn-manage-powershell.md)
-
 ## Analizzare
 ### [Analizzare i modelli di utilizzo](cdn-analyze-usage-patterns.md)
 ### [Generare report HTTP avanzati](cdn-advanced-http-reports.md)
@@ -39,21 +33,25 @@
 ### [Analizzare le prestazioni del nodo perimetrale](cdn-edge-performance.md)
 
 ## Sviluppare
-### Introduzione allo sviluppo della rete CDN di Azure
-#### [.NET](cdn-app-dev-net.md)
-#### [Node.js](cdn-app-dev-node.md)
+### [.NET](cdn-app-dev-net.md)
+### [Node.js](cdn-app-dev-node.md)
 
-## Risolvere i problemi
-### [Risolvere i problemi relativi allo stato 404](cdn-troubleshoot-endpoint.md)
-### [Risolvere i problemi relativi alla compressione dei file](cdn-troubleshoot-compression.md)
+## Risoluzione dei problemi
+### [Stato 404](cdn-troubleshoot-endpoint.md)
+### [Compressione dei file](cdn-troubleshoot-compression.md)
 
 # Riferimento
-## [Informazioni di riferimento sulle API REST](https://msdn.microsoft.com/library/mt634456.aspx)
-
-# Risorse correlate
+## [Cmdlet di PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [API .NET](https://docs.microsoft.com/dotnet/api)
+## [Località POP della rete CDN di Azure](cdn-pop-locations.md)
+## [REST](https://msdn.microsoft.com/library/mt634456.aspx)
 
 # Risorse
-## [Località POP della rete CDN di Azure](cdn-pop-locations.md)
+## [Prezzi](https://azure.microsoft.com/pricing/details/cdn/)
+## [Forum MSDN](https://social.msdn.microsoft.com/forums/home?forum=azurecdn)
+## [Video](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=cdn)
+
 
 
 <!--HONumber=Nov16_HO2-->

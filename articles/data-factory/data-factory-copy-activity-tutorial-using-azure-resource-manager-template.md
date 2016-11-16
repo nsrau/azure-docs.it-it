@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Create a pipeline using Resource Manager Template | Microsoft Docs'
-description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using Azure Resource Manager template.
+title: 'Esercitazione: Creare una pipeline usando il modello di Resource Manager | Documentazione Microsoft'
+description: "In questa esercitazione viene creata una pipeline di Azure Data Factory con un&quot;attività di copia usando il modello di Azure Resource Manager."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 1274e11a-e004-4df5-af07-850b2de7c15e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,47 +14,51 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 535eb3c22dad35da3c1dbc10be5a7c11c6bb8d00
+
 
 ---
-# <a name="tutorial:-create-a-pipeline-with-copy-activity-using-azure-resource-manager-template"></a>Tutorial: Create a pipeline with Copy Activity using Azure Resource Manager template
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-azure-resource-manager-template"></a>Esercitazione: Creare una pipeline con l'attività di copia usando il modello di Azure Resource Manager
 > [!div class="op_single_selector"]
-> * [Overview and prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Panoramica e prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
+> * [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-> * [Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-> * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-> * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+> * [Modello di Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
 > 
 
-This tutorial shows you how to create and monitor an Azure data factory using an Azure Resource Manager template. The pipeline in the data factory copies data from Azure Blob Storage to Azure SQL Database.
+Questa esercitazione illustra come creare e monitorare una data factory di Azure con un modello di Azure Resource Manager. La pipeline nella data factory copia i dati dall'archivio BLOB di Azure al database SQL di Azure.
 
-## <a name="prerequisites"></a>Prerequisites
-* Go through [Tutorial Overview and Prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) and complete the **prerequisite** steps.
-* Follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install latest version of Azure PowerShell on your computer. In this tutorial, you use PowerShell to deploy Data Factory entities. 
-* (optional) See [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md) to learn about Azure Resource Manager templates.
+## <a name="prerequisites"></a>Prerequisiti
+* Vedere [Panoramica e prerequisiti dell'esercitazione](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) ed eseguire i passaggi relativi ai **prerequisiti**.
+* Seguire le istruzioni disponibili nell'articolo [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per installare la versione più recente di Azure PowerShell nel computer. In questa esercitazione si usa PowerShell per distribuire le entità di Data Factory. 
+* (facoltativo) Per informazioni sulla creazione di modelli di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](../resource-group-authoring-templates.md).
 
-## <a name="in-this-tutorial"></a>In this tutorial
-In this tutorial, you create a data factory with the following Data Factory entities:
+## <a name="in-this-tutorial"></a>Contenuto dell'esercitazione:
+In questa esercitazione si crea una data factory con le entità di Data Factory seguenti:
 
-| Entity | Description |
+| Entità | Descrizione |
 | --- | --- |
-| Azure Storage linked service |Links your Azure Storage account to the data factory. Azure Storage is the source data store and Azure SQL database is the sink data store for the copy activity in the tutorial. It specifies the storage account that contains the input data for the copy activity. |
-| Azure SQL Database linked service |Links your Azure SQL database to the data factory. It specifies the Azure SQL database that holds the output data for the copy activity. |
-| Azure Blob input dataset |Refers to the Azure Storage linked service. The linked service refers to an Azure Storage account and the Azure Blob dataset specifies the container, folder, and file name in the storage that holds the input data. |
-| Azure SQL output dataset |Refers to the Azure SQL linked service. The Azure SQL linked service refers to an Azure SQL server and the Azure SQL dataset specifies the name of the table that holds the output data. |
-| Data pipeline |The pipeline has one activity of type Copy that takes the Azure blob dataset as an input and the Azure SQL dataset as an output. The copy activity copies data from an Azure blob to a table in the Azure SQL database. |
+| Servizio collegato Archiviazione di Azure |Collega l'account di archiviazione di Azure alla data factory. Archiviazione di Azure è l'archivio dati di origine e il database SQL di Azure è l'archivio dati del sink per l'attività di copia nell'esercitazione. Specifica l'account di archiviazione che contiene i dati di input per l'attività di copia. |
+| Servizio collegato per il database SQL Azure |Collega il database SQL di Azure alla data factory. Specifica il database SQL di Azure che contiene i dati di output per l'attività di copia. |
+| Set di dati di input del BLOB di Azure |Fa riferimento al servizio collegato di archiviazione di Azure. Il servizio collegato fa riferimento a un account di archiviazione di Azure e il set di dati del BLOB di Azure specifica il contenitore, la cartella e il nome del file nella risorsa di archiviazione che contiene i dati di input. |
+| Set di dati di output di SQL Azure |Fa riferimento al servizio collegato SQL di Azure. Il servizio collegato SQL di Azure fa riferimento a un server di Azure SQL e il set di dati SQL di Azure specifica il nome della tabella che contiene i dati di output. |
+| Data Pipeline |La pipeline ha un'attività di tipo copia che accetta il set di dati del BLOB di Azure come input e il set di dati SQL di Azure come output. L'attività di copia esegue la copia dei dati da un BLOB di Azure a una tabella nel database SQL di Azure. |
 
-A data factory can have one or more pipelines. A pipeline can have one or more activities in it. There are two types of activities: [data movement activities](data-factory-data-movement-activities.md) and [data transformation activities](data-factory-data-transformation-activities.md). In this tutorial, you create a pipeline with one activity (copy activity).
+Una data factory può comprendere una o più pipeline. Una pipeline può comprendere una o più attività. Esistono due tipi di attività: [attività di spostamento dei dati](data-factory-data-movement-activities.md) e [attività di trasformazione dei dati](data-factory-data-transformation-activities.md). In questa esercitazione si crea una pipeline con una sola attività (attività di copia).
 
-![Copy Azure Blob to Azure SQL Database](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/CopyBlob2SqlDiagram.png) 
+![Copiare il BLOB di Azure nel database SQL di Azure](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/CopyBlob2SqlDiagram.png) 
 
-The following section provides the complete Resource Manager template for defining Data Factory entities so that you can quickly run through the tutorial and test the template. To understand how each Data Factory entity is defined, see [Data Factory entities in the template](#data-factory-entities-in-the-template) section.
+La sezione seguente contiene il modello di Resource Manager completo per la definizione di entità di Data Factory. In questo modo sarà possibile eseguire rapidamente l'esercitazione e testare il modello. Per conoscere come viene definita ogni entità di Data Factory, vedere la sezione [Entità di Data Factory nel modello](#data-factory-entities-in-the-template).
 
-## <a name="data-factory-json-template"></a>Data Factory JSON template
-The top-level Resource Manager template for defining a data factory is: 
+## <a name="data-factory-json-template"></a>Modello JSON di Data Factory
+Il modello di Resource Manager principale per la definizione di una data factory è il seguente: 
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -79,7 +83,7 @@ The top-level Resource Manager template for defining a data factory is:
         ]
     }
 
-Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** folder with the following content:
+Creare un file JSON denominato **ADFCopyTutorialARM.json** nella cartella **C:\ADFGetStarted** con il contenuto seguente:
 
     {
         "contentVersion": "1.0.0.0",
@@ -264,11 +268,11 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
         ]
       }
 
-## <a name="parameters-json"></a>Parameters JSON
-Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains parameters for the Azure Resource Manager template. 
+## <a name="parameters-json"></a>Parametri JSON
+Creare un file JSON denominato **ADFCopyTutorialARM-Parameters.json** contenente i parametri per il modello di Azure Resource Manager. 
 
 > [!IMPORTANT]
-> Specify the name and key of your Azure Storage account for **storageAccountName** and **storageAccountKey** parameters.  
+> Specificare il nome e la chiave dell'account di archiviazione di Azure per i parametri **storageAccountName** e **storageAccountKey**.  
 > 
 > 
 
@@ -276,9 +280,9 @@ Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains pa
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
         "parameters": { 
-            "storageAccountName": { "value": "<Name of the Azure storage account>"  },
+            "storageAccountName": {    "value": "<Name of the Azure storage account>"    },
             "storageAccountKey": {
-                "value": "<Key for the Azure storage account>"
+                     "value": "<Key for the Azure storage account>"
             },
             "sourceBlobContainer": { "value": "adftutorial" },
             "sourceBlobName": { "value": "emp.txt" },
@@ -291,45 +295,45 @@ Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains pa
     }
 
 > [!IMPORTANT]
-> You may have separate parameter JSON files for development, testing, and production environments that you can use with the same Data Factory JSON template. By using a Power Shell script, you can automate deploying Data Factory entities in these environments.  
+> Si possono avere file JSON di parametri separati per gli ambienti di sviluppo, test e produzione che è possibile usare con lo stesso modello JSON di Data Factory. Usando uno script di Power Shell, è possibile automatizzare la distribuzione delle entità di Data Factory in questi ambienti.  
 > 
 > 
 
-## <a name="create-data-factory"></a>Create data factory
-1. Start **Azure PowerShell** and run the following command:
-   * Run `Login-AzureRmAccount` and enter the user name and password that you use to sign in to the Azure portal.  
-   * Run `Get-AzureRmSubscription` to view all the subscriptions for this account.
-   * Run `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext` to select the subscription that you want to work with. 
-2. Run the following command to deploy Data Factory entities using the Resource Manager template you created in Step 1.
+## <a name="create-data-factory"></a>Creare un'istanza di Data Factory
+1. Avviare **Azure PowerShell** ed eseguire questo comando:
+   * Eseguire `Login-AzureRmAccount` e immettere il nome utente e la password usati per accedere al portale di Azure.  
+   * Eseguire `Get-AzureRmSubscription` per visualizzare tutte le sottoscrizioni per l'account.
+   * Eseguire `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext` per selezionare la sottoscrizione da usare. 
+2. Eseguire il comando seguente per distribuire entità di Data Factory usando il modello di Resource Manager creato nel Passaggio 1.
    
         New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
 
-## <a name="monitor-pipeline"></a>Monitor pipeline
-1. Log in to the [Azure portal](https://portal.azure.com) using your Azure account.
-2. Click **Data factories** on the left menu (or) click **More services** and click **Data factories** under **INTELLIGENCE + ANALYTICS** category.
+## <a name="monitor-pipeline"></a>Monitorare la pipeline
+1. Accedere al [portale di Azure](https://portal.azure.com) con il proprio account Azure.
+2. Scegliere **Data factory** dal menu a sinistra o fare clic su **Altri servizi** e quindi su **Data factory** nella categoria **INTELLIGENCE E ANALISI**.
    
-    ![Data factories menu](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
-3. In the **Data factories** page, search for and find your data factory. 
+    ![Menu Data factory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
+3. Nella pagina **Data factory** cercare e trovare la data factory. 
    
-    ![Search for data factory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/search-for-data-factory.png)  
-4. Click your Azure data factory. You see the home page for the data factory.
+    ![Cercare la data factory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/search-for-data-factory.png)  
+4. Fare clic sulla data factory di Azure. Viene visualizzata la home page della data factory.
    
-    ![Home page for data factory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
-5. Click **Diagram** tile to see the diagram view of your data factory.
+    ![Home page della data factory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
+5. Fare clic sul riquadro **Diagramma** per visualizzare la vista diagramma della data factory.
    
-    ![Diagram view of data factory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-diagram-view.png)
-6. In the diagram view, double-click the dataset **SQLOutputDataset**. You see that status of the slice. When the copy operation is done, you the status set to **Ready**.
+    ![Vista diagramma della data factory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-diagram-view.png)
+6. Nella vista diagramma fare doppio clic sul set di dati **SQLOutputDataset**. Viene visualizzato lo stato della sezione. Quando l'operazione di copia termina, lo stato risulta impostato su **Pronto**.
    
-    ![Output slice in ready state](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/output-slice-ready.png)
-7. When the slice is in **Ready** state, verify that the data is copied to the **emp** table in the Azure SQL database.
+    ![Sezione di output nello stato Pronto](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/output-slice-ready.png)
+7. Quando la sezione è nello stato **Pronto**, verificare che i dati vengano copiati nella tabella **emp** nel database SQL di Azure.
 
-See [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) for instructions on how to use the Azure portal blades to monitor the pipeline and datasets you have created in this tutorial.
+Per istruzioni su come usare i pannelli del portale di Azure per monitorare la pipeline e i set di dati creati in questa esercitazione, vedere [Monitorare e gestire le pipeline di Azure Data Factory](data-factory-monitor-manage-pipelines.md) .
 
-You can also use Monitor and Manage App to monitor your data pipelines. See [Monitor and manage Azure Data Factory pipelines using Monitoring App](data-factory-monitor-manage-app.md) for details about using the application.
+È anche possibile usare l'app di monitoraggio e gestione per monitorare le pipeline di dati. Per i dettagli sull'uso dell'applicazione, vedere [Monitorare e gestire le pipeline di Azure Data Factory con la nuova app di monitoraggio e gestione](data-factory-monitor-manage-app.md) .
 
-## <a name="data-factory-entities-in-the-template"></a>Data Factory entities in the template
-### <a name="define-data-factory"></a>Define data factory
-You define a data factory in the resource manager template as shown in the following sample:  
+## <a name="data-factory-entities-in-the-template"></a>Entità di Data Factory nel modello
+### <a name="define-data-factory"></a>Definire una data factory
+È possibile definire una data factory nel modello di Resource Manager come illustrato nell'esempio seguente:  
 
     "resources": [
     {
@@ -339,23 +343,23 @@ You define a data factory in the resource manager template as shown in the follo
         "location": "West US"
     }
 
-The dataFactoryName is defined as: 
+Il valore dataFactoryName viene definito come segue: 
 
     "dataFactoryName": "[concat('AzureBlobToAzureSQLDatabaseDF', uniqueString(resourceGroup().id))]"
 
-It is an unique string based on the resource group ID.  
+È una stringa univoca basata sull'ID del gruppo di risorse.  
 
-### <a name="defining-data-factory-entities"></a>Defining Data Factory entities
-The following Data Factory entities are defined in the JSON template: 
+### <a name="defining-data-factory-entities"></a>Definizione di entità di Data factory
+Le entità di Data Factory seguenti vengono definite nel modello JSON: 
 
-1. [Azure Storage linked service](#azure-storage-linked-service)
-2. [Azure SQL linked service](#azure-sql-database-linked-service)
-3. [Azure blob dataset](#azure-blob-dataset)
-4. [Azure SQL dataset](#azure-sql-dataset)
-5. [Data pipeline with a copy activity](#data-pipeline)
+1. [Servizio collegato Archiviazione di Azure](#azure-storage-linked-service)
+2. [Servizio collegato SQL di Azure](#azure-sql-database-linked-service)
+3. [Set di dati del BLOB di Azure](#azure-blob-dataset)
+4. [Set di dati di Azure SQL](#azure-sql-dataset)
+5. [Pipeline di dati con un'attività di copia](#data-pipeline)
 
-#### <a name="azure-storage-linked-service"></a>Azure Storage linked service
-You specify the name and key of your Azure storage account in this section. See [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service) for details about JSON properties used to define an Azure Storage linked service. 
+#### <a name="azure-storage-linked-service"></a>Servizio collegato Archiviazione di Azure
+In questa sezione si specificano il nome e la chiave dell'account di archiviazione di Azure. Per informazioni dettagliate sulle proprietà JSON usate per definire un servizio collegato di Archiviazione di Azure, vedere [Servizio collegato Archiviazione di Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service). 
 
     {
         "type": "linkedservices",
@@ -373,10 +377,10 @@ You specify the name and key of your Azure storage account in this section. See 
         }
     }
 
-The connectionString uses the storageAccountName and storageAccountKey parameters. The values for these parameters passed by using a configuration file. The definition also uses variables: azureStroageLinkedService and dataFactoryName defined in the template. 
+connectionString usa i parametri storageAccountName e storageAccountKey. I valori per questi parametri sono stati passati usando un file di configurazione. La definizione usa anche le variabili azureStroageLinkedService e dataFactoryName definite nel modello. 
 
-#### <a name="azure-sql-database-linked-service"></a>Azure SQL Database linked service
-You specify the Azure SQL server name, database name, user name, and user password in this section. See [Azure SQL linked service](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) for details about JSON properties used to define an Azure SQL linked service.  
+#### <a name="azure-sql-database-linked-service"></a>Servizio collegato per il database SQL Azure
+In questa sezione si specificano il nome del server di Azure SQL, il nome del database, il nome utente e la password utente. Per informazioni dettagliate sulle proprietà JSON usate per definire un servizio collegato di Azure SQL, vedere [Servizio collegato Azure SQL](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).  
 
     {
         "type": "linkedservices",
@@ -386,18 +390,18 @@ You specify the Azure SQL server name, database name, user name, and user passwo
         ],
         "apiVersion": "2015-10-01",
         "properties": {
-            "type": "AzureSqlDatabase",
-            "description": "Azure SQL linked service",
-            "typeProperties": {
+              "type": "AzureSqlDatabase",
+              "description": "Azure SQL linked service",
+              "typeProperties": {
                 "connectionString": "[concat('Server=tcp:',parameters('sqlServerName'),'.database.windows.net,1433;Database=', parameters('databaseName'), ';User ID=',parameters('sqlServerUserName'),';Password=',parameters('sqlServerPassword'),';Trusted_Connection=False;Encrypt=True;Connection Timeout=30')]"
-            }
+              }
         }
     }
 
-The connectionString uses sqlServerName, databaseName, sqlServerUserName, and sqlServerPassword parameters whose values are passed by using a configuration file. The definition also uses the following variables from the template: azureSqlLinkedServiceName, dataFactoryName.
+connectionString usa i parametri sqlServerName, databaseName, sqlServerUserName e sqlServerPassword i cui valori vengono passati usando un file di configurazione. La definizione usa anche le variabili seguenti del modello: azureSqlLinkedServiceName, dataFactoryName.
 
-#### <a name="azure-blob-dataset"></a>Azure blob dataset
-You specify the names of blob container, folder, and file that contains the input data. See [Azure Blob dataset properties](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) for details about JSON properties used to define an Azure Blob dataset. 
+#### <a name="azure-blob-dataset"></a>Set di dati del BLOB di Azure
+Vengono specificati i nomi del contenitore BLOB, della cartella e del file contenente i dati di input. Per informazioni dettagliate sulle proprietà JSON usate per definire un set di dati del BLOB di Azure, vedere [Proprietà del set di dati del BLOB di Azure](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
 
     {
         "type": "datasets",
@@ -409,127 +413,127 @@ You specify the names of blob container, folder, and file that contains the inpu
         "apiVersion": "2015-10-01",
         "properties": {
             "type": "AzureBlob",
-            "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
+              "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
             "structure": [
             {
-                "name": "Column0",
-                "type": "String"
+                  "name": "Column0",
+                  "type": "String"
             },
             {
-                "name": "Column1",
-                "type": "String"
+                  "name": "Column1",
+                  "type": "String"
             }
-            ],
-            "typeProperties": {
+              ],
+              "typeProperties": {
                 "folderPath": "[concat(parameters('sourceBlobContainer'), '/')]",
                 "fileName": "[parameters('sourceBlobName')]",
                 "format": {
-                    "type": "TextFormat",
-                    "columnDelimiter": ","
+                      "type": "TextFormat",
+                      "columnDelimiter": ","
                 }
-            },
-            "availability": {
+              },
+              "availability": {
                 "frequency": "Day",
                 "interval": 1
-            },
-            "external": true
+              },
+              "external": true
         }
     }
 
-#### <a name="azure-sql-dataset"></a>Azure SQL dataset
-You specify the name of the table in the Azure SQL database that holds the copied data from the Azure Blob storage. See [Azure SQL dataset properties](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties) for details about JSON properties used to define an Azure SQL dataset. 
+#### <a name="azure-sql-dataset"></a>Set di dati di Azure SQL
+Viene specificato il nome della tabella nel database SQL di Azure che contiene i dati copiati dall'archivio BLOB di Azure. Per informazioni dettagliate sulle proprietà JSON usate per definire un set di dati di Azure SQL, vedere [Proprietà del set di dati di Azure SQL](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties). 
 
     {
         "type": "datasets",
         "name": "[variables('sqlOutputDatasetName')]",
         "dependsOn": [
             "[variables('dataFactoryName')]",
-            "[variables('azureSqlLinkedServiceName')]"
+              "[variables('azureSqlLinkedServiceName')]"
         ],
         "apiVersion": "2015-10-01",
         "properties": {
-            "type": "AzureSqlTable",
-            "linkedServiceName": "[variables('azureSqlLinkedServiceName')]",
-            "structure": [
+              "type": "AzureSqlTable",
+              "linkedServiceName": "[variables('azureSqlLinkedServiceName')]",
+              "structure": [
             {
-                "name": "FirstName",
-                "type": "String"
+                  "name": "FirstName",
+                  "type": "String"
             },
             {
-                "name": "LastName",
-                "type": "String"
+                  "name": "LastName",
+                  "type": "String"
             }
-            ],
-            "typeProperties": {
+              ],
+              "typeProperties": {
                 "tableName": "[parameters('targetSQLTable')]"
-            },
-            "availability": {
+              },
+              "availability": {
                 "frequency": "Day",
                 "interval": 1
-            }
+              }
         }
     }
 
-#### <a name="data-pipeline"></a>Data pipeline
-You define a pipeline that copies data from the Azure blob dataset to the Azure SQL dataset. See [Pipeline JSON](data-factory-create-pipelines.md#pipeline-json) for descriptions of JSON elements used to define a pipeline in this example. 
+#### <a name="data-pipeline"></a>Data Pipeline
+Viene definita una pipeline che copia i dati dal set di dati del BLOB di Azure al set di dati di Azure SQL. Per le descrizioni degli elementi JSON usati per definire una pipeline in questo esempio, vedere [Pipeline JSON](data-factory-create-pipelines.md#pipeline-json). 
 
     {
         "type": "datapipelines",
         "name": "[variables('pipelineName')]",
         "dependsOn": [
             "[variables('dataFactoryName')]",
-            "[variables('azureStorageLinkedServiceName')]",
-            "[variables('azureSqlLinkedServiceName')]",
-            "[variables('blobInputDatasetName')]",
-            "[variables('sqlOutputDatasetName')]"
+              "[variables('azureStorageLinkedServiceName')]",
+              "[variables('azureSqlLinkedServiceName')]",
+              "[variables('blobInputDatasetName')]",
+              "[variables('sqlOutputDatasetName')]"
         ],
         "apiVersion": "2015-10-01",
         "properties": {
-            "activities": [
+              "activities": [
             {
-                "name": "CopyFromAzureBlobToAzureSQL",
-                "description": "Copy data frm Azure blob to Azure SQL",
-                "type": "Copy",
-                "inputs": [
+                  "name": "CopyFromAzureBlobToAzureSQL",
+                  "description": "Copy data frm Azure blob to Azure SQL",
+                  "type": "Copy",
+                  "inputs": [
                 {
-                    "name": "[variables('blobInputDatasetName')]"
+                      "name": "[variables('blobInputDatasetName')]"
                 }
-                ],
-                "outputs": [
+                  ],
+                  "outputs": [
                 {
-                    "name": "[variables('sqlOutputDatasetName')]"
+                      "name": "[variables('sqlOutputDatasetName')]"
                 }
-                ],
-                "typeProperties": {
+                  ],
+                  "typeProperties": {
                     "source": {
-                        "type": "BlobSource"
+                          "type": "BlobSource"
                     },
                     "sink": {
-                        "type": "SqlSink",
-                        "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM {0}', 'emp')"
+                          "type": "SqlSink",
+                          "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM {0}', 'emp')"
                     },
                     "translator": {
-                        "type": "TabularTranslator",
-                        "columnMappings": "Column0:FirstName,Column1:LastName"
+                          "type": "TabularTranslator",
+                          "columnMappings": "Column0:FirstName,Column1:LastName"
                     }
-                },
-                "Policy": {
+                  },
+                  "Policy": {
                     "concurrency": 1,
                     "executionPriorityOrder": "NewestFirst",
                     "retry": 3,
                     "timeout": "01:00:00"
-                }
+                  }
             }
-            ],
-            "start": "2016-10-02T00:00:00Z",
-            "end": "2016-10-03T00:00:00Z"
+              ],
+              "start": "2016-10-02T00:00:00Z",
+              "end": "2016-10-03T00:00:00Z"
         }
     }
 
-## <a name="reuse-the-template"></a>Reuse the template
-In the tutorial, you created a template for defining Data Factory entities and a template for passing values for parameters. The pipeline copies data from an Azure Storage account to an Azure SQL database specified via parameters. To use the same template to deploy Data Factory entities to different environments, you create a parameter file for each environment and use it when deploying to that environment.     
+## <a name="reuse-the-template"></a>Riutilizzare il modello
+Nell'esercitazione sono stati creati un modello per definire le entità di Data Factory e un modello per passare i valori dei parametri. La pipeline copia i dati da un account di archiviazione di Azure a un database SQL di Azure specificato tramite i parametri. Per usare lo stesso modello per distribuire le entità di Data Factory in ambienti diversi, si crea un file dei parametri per ogni ambiente e lo si usa durante la distribuzione in tale ambiente.     
 
-Example:  
+Esempio:  
 
     New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Dev.json
 
@@ -537,10 +541,13 @@ Example:
 
     New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Production.json
 
-Notice that the first command uses parameter file for the development environment, second one for the test environment, and the third one for the production environment.  
+Si noti che il primo comando usa il file dei parametri per l'ambiente di sviluppo, il secondo per l'ambiente di test e il terzo per l'ambiente di produzione.  
 
-You can also reuse the template to perform repeated tasks. For example, you need to create many data factories with one or more pipelines that implement the same logic but each data factory uses different Azure storage and Azure SQL Database accounts. In this scenario, you use the same template in the same environment (dev, test, or production) with different parameter files to create data factories.   
+È anche possibile riutilizzare il modello per eseguire attività ripetute. Ad esempio, è necessario creare più data factory con una o più pipeline che implementano la stessa logica, ma ogni data factory usa account di archiviazione di Azure e di database SQL di Azure diversi. In questo scenario si usa lo stesso modello nello stesso ambiente (sviluppo, test o produzione) con file dei parametri diversi per creare le data factory.   
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

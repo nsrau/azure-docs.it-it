@@ -1,4 +1,4 @@
-## Definizione di un criterio di backup
+## <a name="defining-a-backup-policy"></a>Definizione di un criterio di backup
 Un criterio di backup definisce una matrice relativa a quando sono stati acquisiti gli snapshot dei dati e per quanto tempo tali snapshot vengono conservati. Quando si definisce un criterio per il backup di una VM è possibile attivare un processo di backup *una volta al giorno*. Quando si crea un nuovo criterio, viene applicato all'insieme di credenziali. L'interfaccia del criterio di backup è simile alla seguente:
 
 ![Criterio di backup](./media/backup-create-policy-for-vms/backup-policy.png)
@@ -26,4 +26,8 @@ Per creare un criterio:
    
     Il nuovo criterio verrà immediatamente applicato all'insieme di credenziali.
 
-<!---HONumber=AcomDC_0608_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

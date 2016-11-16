@@ -1,12 +1,12 @@
 ---
-title: Azure Service Bus | Microsoft Docs
-description: An introduction to using Service Bus to connect Azure applications to other software.
+title: Bus di servizio di Azure | Documentazione Microsoft
+description: Introduzione all&quot;uso del bus di servizio per connettere le applicazioni Azure ad altri software.
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 12654cdd-82ab-4b95-b56f-08a5a8bbc6f9
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,99 +14,103 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c8d8549db680b0189fa94064b930d4f91ff2472b
+
 
 ---
-# <a name="azure-service-bus"></a>Azure Service Bus
-Whether an application or service runs in the cloud or on premises, it often needs to interact with other applications or services. To provide a broadly useful way to do this, Microsoft Azure offers Service Bus. This article takes a look at this technology, describing what it is and why you might want to use it.
+# <a name="azure-service-bus"></a>Bus di servizio di Azure
+Indipendentemente dal fatto che sia eseguito nel cloud o in locale, spesso è necessario che un'applicazione o un servizio interagisca con altre applicazioni o servizi. Per semplificare questa operazione, in Microsoft Azure è disponibile il bus di servizio. In questo articolo verrà illustrata questa tecnologia, verrà descritto di che cosa si tratta e perché potrebbe essere necessario usarla.
 
-## <a name="service-bus-fundamentals"></a>Service Bus fundamentals
-Different situations call for different styles of communication. Sometimes, letting applications send and receive messages through a simple queue is the best solution. In other situations, an ordinary queue isn't enough; a queue with a publish-and-subscribe mechanism is better. In some cases, all that's really needed is a connection between applications; queues aren't required. Service Bus provides all three options, enabling your applications to interact in several different ways.
+## <a name="service-bus-fundamentals"></a>Dati fondamentali del bus di servizio
+A seconda delle situazioni, possono essere necessari stili di comunicazione diversi. Talvolta, consentire alle applicazioni di inviare e ricevere messaggi attraverso una semplice coda è la soluzione migliore. In altre situazioni, una coda ordinaria non è sufficiente e l'uso di una coda con un meccanismo di pubblicazione e sottoscrizione risulta la soluzione più adatta. In alcuni casi, è sufficiente una connessione tra applicazioni e le code non sono necessarie. Il bus di servizio offre tutte e tre le opzioni e permette alle applicazioni di interagire in diversi modi.
 
-Service Bus is a multi-tenant cloud service, which means that the service is shared by multiple users. Each user, such as an application developer, creates a *namespace*, then defines the communication mechanisms she needs within that namespace. Figure 1 shows how this looks.
+Il bus di servizio è un servizio cloud multi-tenant, il che significa che il servizio è condiviso da più utenti. Ogni utente, ad esempio uno sviluppatore di applicazioni, crea uno *spazio dei nomi* e quindi definisce i meccanismi di comunicazione necessari all'interno di tale spazio dei nomi, come illustrato nella figura 1.
 
 ![][1]
 
-**Figure 1: Service Bus provides a multi-tenant service for connecting applications through the cloud.**
+**Figura 1: il bus di servizio offre un servizio multi-tenant per la connessione di applicazioni attraverso il cloud.**
 
-Within a namespace, you can use one or more instances of four different communication mechanisms, each of which connects applications in a different way. The choices are:
+All'interno di uno spazio dei nomi è possibile usare una o più istanze di quattro meccanismi di comunicazione diversi, ognuno dei quali consente di connettere le applicazioni in modo diverso. Le opzioni disponibili sono:
 
-* *Queues*, which allow one-directional communication. Each queue acts as an intermediary (sometimes called a *broker*) that stores sent messages until they are received. Each message is received by a single recipient.
-* *Topics*, which provide one-directional communication using *subscriptions*-a single topic can have multiple subscriptions. Like a queue, a topic acts as a broker, but each subscription can optionally use a filter to receive only messages that match specific criteria.
-* *Relays*, which provide bi-directional communication. Unlike queues and topics, a relay doesn't store in-flight messages; it's not a broker. Instead, it just passes them on to the destination application.
+* *Code*: consentono la comunicazione unidirezionale. Ogni coda funge da intermediario (talvolta è infatti denominata *broker*) che archivia i messaggi inviati fino a quando non vengono ricevuti. Ogni messaggio viene ricevuto da un singolo destinatario.
+* *Argomenti*: garantiscono la comunicazione unidirezionale mediante *sottoscrizioni*. Un singolo argomento può avere più sottoscrizioni. Come la coda, un argomento funge da broker ma ogni sottoscrizione può facoltativamente usare un filtro per ricevere solo messaggi corrispondenti a criteri specifici.
+* *Inoltri*: forniscono funzionalità di comunicazione bidirezionale. Diversamente da code e argomenti, un inoltro non archivia i messaggi in elaborazione, perché non si tratta di un broker. Al contrario, li passa semplicemente all'applicazione di destinazione.
 
-When you create a queue, topic, or relay, you give it a name. Combined with whatever you called your namespace, this name creates a unique identifier for the object. Applications can provide this name to Service Bus, then use that queue, topic, or relay to communicate with one another. 
+Quando si crea una coda, un argomento o un inoltro, occorre assegnargli un nome. Questo nome, associato a quello assegnato allo spazio dei nomi, costituisce un identificatore univoco per l'oggetto. Le applicazioni possono fornire questo nome al bus di servizio e quindi usare tale coda, argomento o inoltro per comunicare tra loro. 
 
-To use any of these objects in the relay scenario, Windows applications can use Windows Communication Foundation (WCF). For queues and topics, Windows applications can use Service Bus-defined messaging APIs. To make these objects easier to use from non-Windows applications, Microsoft provides SDKs for Java, Node.js, and other languages. You can also access queues and topics using REST APIs over HTTP(s). 
+In uno scenario di inoltro le applicazioni Windows possono usare questi oggetti tramite Windows Communication Foundation (WCF). Per le code e gli argomenti, le applicazioni Windows possono usare API del sistema di messaggistica definite dal bus di servizio. Per rendere questi oggetti più semplici da usare da applicazioni non Windows, Microsoft fornisce SDK per Java, Node.js e altri linguaggi. È anche possibile accedere a code e argomenti tramite le API REST su HTTP. 
 
-It's important to understand that even though Service Bus itself runs in the cloud (that is, in Microsoft's Azure datacenters), applications that use it can run anywhere. You can use Service Bus to connect applications running on Azure, for example, or applications running inside your own datacenter. You can also use it to connect an application running on Azure or another cloud platform with an on-premises application or with tablets and phones. It's even possible to connect household appliances, sensors, and other devices to a central application or to one other. Service Bus is a communication mechanism in the cloud that's accessible from pretty much anywhere. How you use it depends on what your applications need to do.
+È importante comprendere che, sebbene il bus di servizio stesso sia in esecuzione nel cloud, ovvero nei data center di Microsoft Azure, le applicazioni che lo usano possono essere eseguite ovunque. È possibile usare il bus di servizio per connettere applicazioni in esecuzione in Azure o all'interno del proprio data center. È inoltre possibile usarlo per connettere un'applicazione in esecuzione in Azure o in un'altra piattaforma cloud a un'applicazione locale o a tablet e telefoni. È altresì possibile connettere elettrodomestici, sensori e altri dispositivi a un'applicazione centrale o gli uni agli altri. Il bus di servizio è un meccanismo di comunicazione nel cloud accessibile praticamente ovunque. Il modo in cui lo si usa dipende dalle operazioni che le applicazioni devono eseguire.
 
-## <a name="queues"></a>Queues
-Suppose you decide to connect two applications using a Service Bus queue. Figure 2 illustrates this situation.
+## <a name="queues"></a>Code
+Si supponga di dover connettere due applicazioni usando una coda del bus di servizio. Nella figura 2 è illustrato questo scenario.
 
 ![][2]
 
-**Figure 2: Service Bus queues provide one-way asynchronous queuing.**
+**Figura 2: le code del bus di servizio forniscono un servizio di accodamento asincrono unidirezionale.**
 
-The process is simple: A sender sends a message to a Service Bus queue, and a receiver picks up that message at some later time. A queue can have just a single receiver, as Figure 2 shows. Or, multiple applications can read from the same queue. In the latter situation, each message is read by just one receiver. For a multi-cast service, you should use a topic instead.
+Il processo è semplice: un mittente invia un messaggio a una coda del bus di servizio e un ricevitore lo preleva un momento successivo. Una coda può avere un singolo ricevitore, come illustrato nella Figura 2, oppure più applicazioni possono leggere dalla stessa coda. In quest'ultimo caso, ogni messaggio viene letto da un solo ricevitore. Per un servizio multicast è invece consigliabile usare un argomento.
 
-Each message has two parts: a set of properties, each a key/value pair, and a binary message body. How they're used depends on what an application is trying to do. For example, an application sending a message about a recent sale might include the properties *Seller="Ava"* and *Amount=10000*. The message body might contain a scanned image of the sale's signed contract or, if there isn't one, just remain empty.
+Ogni messaggio è costituito da due parti: un set di proprietà, ognuno costituito da una coppia chiave-valore, e un corpo del messaggio binario. Il modo in cui vengono usati dipende dall'operazione che l'applicazione sta tentando di eseguire. Ad esempio, un'applicazione che invia un messaggio relativo a una vendita recente, potrebbe includere le proprietà *Seller="Ava"* e *Amount=10000*. Il corpo del messaggio potrebbe contenere un'immagine digitalizzata del contratto di vendita firmato, oppure, se questo non è disponibile, rimanere vuoto.
 
-A receiver can read a message from a Service Bus queue in two different ways. The first option, called *ReceiveAndDelete*, removes a message from the queue and immediately deletes it. This is simple, but if the receiver crashes before it finishes processing the message, the message will be lost. Because it's been removed from the queue, no other receiver can access it. 
+Un ricevitore può leggere un messaggio da una coda del bus di servizio in due modi. La prima opzione, denominata *ReceiveAndDelete*, rimuove un messaggio dalla coda e lo elimina immediatamente. Se, tuttavia, il ricevitore si arresta in modo anomalo prima di aver terminato l'elaborazione del messaggio, il messaggio andrà perso. Poiché è stato rimosso dalla coda, nessun altro ricevitore potrà accedervi. 
 
-The second option, *PeekLock*, is meant to help with this problem. Like **ReceiveAndDelete**, a **PeekLock** read removes a message from the queue. It doesn't delete the message, however. Instead, it locks the message, making it invisible to other receivers, then waits for one of three events:
+La seconda opzione, *PeekLock*, consente di risolvere il problema. Come **ReceiveAndDelete**, anche la modalità di lettura **PeekLock** rimuove un messaggio dalla coda, ma non lo elimina. Il messaggio viene invece bloccato e quindi reso invisibile agli altri utenti e rimane in attesa di uno dei tre eventi seguenti:
 
-* If the receiver processes the message successfully, it calls **Complete**, and the queue deletes the message. 
-* If the receiver decides that it can't process the message successfully, it calls **Abandon**. The queue then removes the lock from the message and makes it available to other receivers.
-* If the receiver calls neither of these within a configurable period of time (by default, 60 seconds), the queue assumes the receiver has failed. In this case, it behaves as if the receiver had called **Abandon**, making the message available to other receivers.
+* Se il ricevitore elabora correttamente il messaggio, chiama il metodo **Complete**e la coda elimina il messaggio. 
+* Se il ricevitore stabilisce che non è possibile elaborare il messaggio, chiama il metodo **Abandon**. La coda rimuove quindi il blocco dal messaggio e lo rende disponibile per gli altri ricevitori.
+* Se il ricevitore non chiama uno di questi metodi entro un periodo di tempo configurabile (per impostazione predefinita, 60 secondi) la coda presuppone che si sia verificato un errore nel ricevitore. In questo caso si comporta come se il ricevitore avesse chiamato il metodo **Abandon**, rendendo così il messaggio disponibile per altri ricevitori.
 
-Notice what can happen here: the same message might be delivered twice, perhaps to two different receivers. Applications using Service Bus queues must be prepared for this. To make duplicate detection easier, each message has a unique **MessageID** property that by default stays the same no matter how many times the message is read from a queue. 
+Possibili risultati: lo stesso messaggio potrebbe essere recapitato due volte, anche a due ricevitori diversi. Le applicazioni che usano le code del bus di servizio devono prevedere questa possibilità. Per semplificare il rilevamento dei duplicati, ogni messaggio ha una proprietà **MessageID** univoca che per impostazione predefinita rimane invariata indipendentemente dal numero di letture del messaggio da una coda. 
 
-Queues are useful in quite a few situations. They enable applications to communicate even when both aren't running at the same time, something that's especially handy with batch and mobile applications. A queue with multiple receivers also provides automatic load balancing, since sent messages are spread across these receivers.
+Le code risultano utili in un numero limitato di situazioni. Permettono alle applicazioni di comunicare anche se non sono in esecuzione contemporaneamente, sono quindi ideali per l'uso con applicazioni batch e mobili. Una coda con più ricevitori garantisce inoltre il bilanciamento del carico automatico, in quanto i messaggi vengono distribuiti tra i vari ricevitori.
 
-## <a name="topics"></a>Topics
-Useful as they are, queues aren't always the right solution. Sometimes, Service Bus topics are better. Figure 3 illustrates this idea.
+## <a name="topics"></a>Argomenti
+Sebbene siano utili, non sempre le code rappresentano la soluzione più appropriata. Talvolta, sono più indicati gli argomenti del bus di servizio. Nella figura 3 viene illustrato questo concetto.
 
 ![][3]
 
-**Figure 3: Based on the filter a subscribing application specifies, it can receive some or all of the messages sent to a Service Bus topic.**
+**Figura 3: in base al filtro specificato dall'applicazione di sottoscrizione, è possibile che vengano ricevuti alcuni o tutti i messaggi inviati a un argomento del bus di servizio.**
 
-A *topic* is similar in many ways to a queue. Senders submit messages to a topic in the same way that they submit messages to a queue, and those messages look the same as with queues. The big difference is that topics enable each receiving application to create its own *subscription* by defining a *filter*. A subscriber will then see only the messages that match that filter. For example, Figure 3 shows a sender and a topic with three subscribers, each with its own filter:
+Un *argomento* e una coda presentano caratteristiche simili. I mittenti inviano messaggi a un argomento nello stesso modo in cui li inviano a una coda e tali messaggi hanno lo stesso aspetto di quelli nelle code. La differenza principale sta nel fatto che gli argomenti permettono a ogni applicazione ricevente di creare la propria *sottoscrizione* con la creazione di un *filtro*. Un sottoscrittore potrà quindi visualizzare solo i messaggi corrispondenti al filtro definito. Nella figura 3, ad esempio, sono mostrati un mittente e un argomento con tre sottoscrittori, ognuno con il relativo filtro:
 
-* Subscriber 1 receives only messages that contain the property *Seller="Ava"*.
-* Subscriber 2 receives messages that contain the property *Seller="Ruby"* and/or contain an *Amount* property whose value is greater than 100,000. Perhaps Ruby is the sales manager, so she wants to see both her own sales and all big sales regardless of who makes them.
-* Subscriber 3 has set its filter to *True*, which means that it receives all messages. For example, this application might be responsible for maintaining an audit trail and therefore it needs to see all the messages.
+* Il sottoscrittore 1 riceve solo i messaggi che contengono la proprietà *Venditore="Ava"*.
+* Il sottoscrittore 2 riceve i messaggi che contengono la proprietà *Seller="Ruby"* e/o che contengono una proprietà *Amount* il cui valore è maggiore di 100.000. Ruby potrebbe essere una responsabile vendite che vuole visualizzare sia le proprie vendite che le vendite di importo elevato, indipendentemente da chi le abbia concluse.
+* Il sottoscrittore 3 presenta un filtro impostato su *True*e pertanto riceve tutti i messaggi. Questa applicazione potrebbe ad esempio essere responsabile del mantenimento di un audit trail, pertanto è necessario che possa visualizzare tutti i messaggi.
 
-As with queues, subscribers to a topic can read messages using either **ReceiveAndDelete** or **PeekLock**. Unlike queues, however, a single message sent to a topic can be received by multiple subscriptions. This approach, commonly called *publish and subscribe* (or *pub/sub*), is useful whenever multiple applications are interested in the same messages. By defining the right filter, each subscriber can tap into just the part of the message stream that it needs to see.
+Come con le code, i sottoscrittori di un argomento possono leggere i messaggi usando la modalità di ricezione **ReceiveAndDelete** o **PeekLock**. A differenza delle code, tuttavia, un singolo messaggio inviato a un argomento può essere ricevuto da più sottoscrizioni. Questo approccio, comunemente denominato di *pubblicazione e sottoscrizione* o *pub/sub*, risulta utile qualora più applicazioni siano interessate agli stessi messaggi. Con la definizione del filtro corretto, ogni sottoscrittore può accedere solo alla parte del flusso dei messaggi che gli interessa.
 
-## <a name="relays"></a>Relays
-Both queues and topics provide one-way asynchronous communication through a broker. Traffic flows in just one direction, and there's no direct connection between senders and receivers. But what if you don't want this? Suppose your applications need to both send and receive messages, or perhaps you want a direct link between them and you don't need a broker to store messages. To address scenarios such as this, Service Bus provides *relays*, as Figure 4 shows.
+## <a name="relays"></a>Inoltri
+Le code e gli argomenti consentono la comunicazione asincrona unidirezionale tramite un broker. Il traffico scorre in una sola direzione e non esiste una connessione diretta tra mittenti e ricevitori. Talvolta questo potrebbe non essere sufficiente, ad esempio se è necessario che le applicazioni possano inviare e ricevere messaggi o se occorre un collegamento diretto tra esse e non serve che i messaggi vengano archiviati tramite un broker. In questi scenari nel bus di servizio sono disponibili gli *inoltri*, come illustrato nella figura 4.
 
 ![][4]
 
-**Figure 4: Service Bus relay provides synchronous, two-way communication between applications.**
+**Figura 4: l'inoltro del bus di servizio garantisce la comunicazione sincrona bidirezionale tra applicazioni.**
 
-The obvious question to ask about relays is this: why would I use one? Even if I don't need queues, why make applications communicate via a cloud service rather than just interact directly? The answer is that talking directly can be harder than you might think.
+La domanda più ovvia relativa all'uso degli inoltri è: perché è necessario usarli? Anche se le code non sono necessarie, perché le applicazioni dovrebbero comunicare tramite un servizio cloud anziché interagire direttamente? La risposta è che la comunicazione diretta tra le applicazioni potrebbe risultare più complessa di quanto si pensi.
 
-Suppose you want to connect two on-premises applications, both running inside corporate datacenters. Each of these applications sits behind a firewall, and each datacenter probably uses network address translation (NAT). The firewall blocks incoming data on all but a few ports, and NAT implies that the machine each application is running on doesn't have a fixed IP address that you can reach directly from outside the datacenter. Without some extra help, connecting these applications over the public internet is problematic.
+Ad esempio, potrebbe essere necessario connettere due applicazioni locali, entrambe in esecuzione all'interno di data center aziendali. Ognuna di queste applicazioni è protetta da firewall ed è probabile che ogni data center usi il processo NAT (Network Address Translation). Il firewall blocca i dati in ingresso su tutte le porte tranne alcune e il processo NAT implica che il computer in cui è in esecuzione ogni applicazione non disponga di un indirizzo IP fisso raggiungibile direttamente dall'esterno del data center. Senza un ulteriore supporto, la connessione di queste applicazioni sulla rete Internet pubblica risulta problematica.
 
-A Service Bus relay can help. To communicate bi-directionally through a relay, each application establishes an outbound TCP connection with Service Bus, then keeps it open. All communication between the two applications travels over these connections. Because each connection was established from inside the datacenter, the firewall allows incoming traffic to each application without opening new ports. This approach also gets around the NAT problem, because each application has a consistent endpoint in the cloud throughout the communication. By exchanging data through the relay, the applications can avoid the problems that would otherwise make communication difficult. 
+L'inoltro del bus di servizio di Azure può risultare utile. Per comunicare in modalità bidirezionale tramite un inoltro, ogni applicazione stabilisce una connessione TCP in uscita con il bus di servizio e la mantiene aperta. Tutte le comunicazioni tra le due applicazioni avvengono su tali connessioni. Dato che ogni connessione è stata stabilita dall'interno del data center, il firewall consente il traffico in ingresso a ogni applicazione senza aprire nuove porte. Questo approccio consente inoltre di risolvere il problema relativo al processo NAT, in quanto ogni applicazione presenta un endpoint coerente nel cloud nel corso della comunicazione. Lo scambio di dati tramite l'inoltro consente alle applicazioni di evitare i problemi che potrebbero rendere difficoltosa la comunicazione. 
 
-To use Service Bus relays, applications rely on the Windows Communication Foundation (WCF). Service Bus provides WCF bindings that make it straightforward for Windows applications to interact via relays. Applications that already use WCF can typically just specify one of these bindings, then talk to each other through a relay. Unlike queues and topics, however, using relays from non-Windows applications, while possible, requires some programming effort; no standard libraries are provided.
+Per usare l'inoltro del bus di servizio, le applicazioni usano Windows Communication Foundation (WCF). Il bus di servizio fornisce le associazioni WCF che semplificano l'interazione delle applicazioni Windows tramite inoltro. Le applicazioni che utilizzano già WCF possono in genere specificare una di queste associazioni e quindi comunicare tra loro tramite un inoltro. Diversamente da code e argomenti, l'uso degli inoltri da applicazioni non Windows, anche se possibile, richiede alcune operazioni di programmazione dato che non sono disponibili librerie standard.
 
-Unlike queues and topics, applications don't explicitly create relays. Instead, when an application that wishes to receive messages establishes a TCP connection with Service Bus, a relay is created automatically. When the connection is dropped, the relay is deleted. To enable an application to find the relay created by a specific listener, Service Bus provides a registry that enables applications to locate a specific relay by name.
+Diversamente da code e argomenti, le applicazioni non creano inoltri in modo esplicito. Al contrario, quando un'applicazione che desidera ricevere messaggi stabilisce una connessione TCP con il bus di servizio, l'inoltro viene creato automaticamente. Quando la connessione viene chiusa, l'inoltro viene eliminato. Per consentire a un'applicazione di trovare l'inoltro creato da un listener specifico, il bus di servizio fornisce un registro che permette alle applicazioni di trovare un inoltro specifico in base al nome.
 
-Relays are the right solution when you need direct communication between applications. For example, consider an airline reservation system running in an on-premises datacenter that must be accessed from check-in kiosks, mobile devices, and other computers. Applications running on all of these systems could rely on Service Bus relays in the cloud to communicate, wherever they might be running.
+Gli inoltri rappresentano la soluzione ottimale nei casi in cui è necessaria la comunicazione diretta tra applicazioni, ad esempio un sistema di prenotazione di una compagnia aerea in esecuzione in un data center locale al quale devono poter accedere banchi del check-in, dispositivi mobili e altri computer. Le applicazioni in esecuzione in questi sistemi possono utilizzare l'inoltro del bus di servizio nel cloud per comunicare, indipendentemente dalla posizione in cui risiedono.
 
-## <a name="summary"></a>Summary
-Connecting applications has always been part of building complete solutions, and the range of scenarios that require applications and services to communicate with each other is set to increase as more applications and devices are connected to the Internet. By providing cloud-based technologies for achieving this through queues, topics, and relays, Service Bus aims to make this essential function easier to implement and more broadly available.
+## <a name="summary"></a>Riepilogo
+La connessione tra applicazioni è sempre stata parte integrante dello sviluppo di soluzioni complete e il numero di scenari che richiedono una comunicazione diretta tra servizi e applicazioni è in costante aumento, di pari passo con il numero di applicazioni e dispositivi connessi a Internet. Il bus di servizio include tecnologie basate sul cloud, tramite code, argomenti e inoltri, che consentono di rendere questa funzionalità essenziale più semplice da implementare e disponibile a livello più ampio.
 
-## <a name="next-steps"></a>Next steps
-Now that you've learned the fundamentals of Azure Service Bus, follow these links to learn more.
+## <a name="next-steps"></a>Passaggi successivi
+A questo punto, dopo aver appreso le nozioni di base del bus di servizio di Azure, usare i seguenti collegamenti per altre informazioni.
 
-* How to use [Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-* How to use [Service Bus topics](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-* How to use [Service Bus relay](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
-* [Service Bus samples](service-bus-samples.md)
+* Come usare le [code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
+* Come usare gli [argomenti del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+* Come usare l' [inoltro del bus di servizio](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
+* [Esempi relativi al bus di servizio](service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
 [2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
@@ -115,6 +119,6 @@ Now that you've learned the fundamentals of Azure Service Bus, follow these link
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,23 +1,27 @@
 ---
-title: Domande frequenti su Azure Machine Learning | Microsoft Docs
-description: Introduzione ad Azure Machine Learning; domande frequenti su fatturazione, funzionalità e limitazioni di un servizio cloud per la modellazione predittiva semplificata.
-keywords: introduzione al machine learning, modellazione predittiva, cos’è il machine learning
+title: Domande frequenti su Azure Machine Learning | Documentazione di Microsoft
+description: "Introduzione ad Azure Machine Learning; domande frequenti su fatturazione, funzionalità e limitazioni di un servizio cloud per la modellazione predittiva semplificata."
+keywords: "introduzione al machine learning, modellazione predittiva, cos’è il machine learning"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: paulettm
 editor: cgronlun
-
+ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/14/2016
+ms.date: 10/26/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 36fd6b01dae6aa9a48985a252766d3f2d0b19342
+
 
 ---
-# <a name="azure-machine-learning-frequently-asked-questions-(faq):-billing,-capabilities,-limitations,-and-support"></a>Domande frequenti su Azure Machine Learning: Fatturazione, funzionalità, limitazioni e supporto
+# <a name="azure-machine-learning-frequently-asked-questions-faq-billing-capabilities-limitations-and-support"></a>Domande frequenti su Azure Machine Learning: Fatturazione, funzionalità, limitazioni e supporto
 Questa sezione contiene le domande e le risposte su Azure Machine Learning, un servizio cloud per lo sviluppo di modelli predittivi e l'operatività delle soluzioni con i servizi Web. In questa sezione sono contenute le domande sull'uso del servizio, inclusi il modello di fatturazione, le funzionalità, le limitazioni e il supporto.
 
 ## <a name="general-questions"></a>Domande generali
@@ -41,12 +45,14 @@ Per altre informazioni, vedere [Connessione a un servizio Web di Azure Machine L
 
 **Dove sono elencati i servizi Web classici? Dove sono elencati i nuovi servizi Web basati su Azure Resource Manager?**
 
-I servizi Web classici sono elencati nella scheda Servizi Web di [Machine Learning Studio](http://studio.azureml.net) . I nuovi servizi Web basati su Azure Resource Manager sono elencati nel portale [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/) (Servizi Web di Microsoft Azure Machine Learning). Non è disponibile un elenco incrociato.
+I servizi classici e i nuovi servizi Web basati su Azure Resource Manager sono elencati nel portale [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/) (Servizi Web di Microsoft Azure Machine Learning). 
+
+I servizi Web classici sono elencati anche nella scheda Servizi Web di [Machine Learning Studio](http://studio.azureml.net).
 
 ## <a name="microsoft-azure-machine-learning-web-service-questions"></a>Domande sui servizi Web di Microsoft Azure Machine Learning
-**Che cosa sono i servizi Web di Azure ML?**
+**Che cosa sono i servizi Web di Azure Machine Learning?**
 
-Con il servizio Web di Azure Machine Learning, un'applicazione esterna comunica con un modello di valutazione del flusso di lavoro di Machine Learning in tempo reale. Una chiamata al servizio Web di Machine Learning restituisce i risultati della stima a un'applicazione esterna. Per effettuare una chiamata al servizio Web di Machine Learning, passare una chiave API creata al momento della distribuzione del servizio Web. Il servizio Web di Machine Learning è basato su REST, una scelta di architettura diffusa per progetti di programmazione Web.
+I servizi Web di Machine Learning offrono un'interfaccia tra un'applicazione e un modello di punteggio del flusso di lavoro di Machine Learning. Con il servizio Web di Azure Machine Learning, un'applicazione esterna può comunicare con un modello di punteggio del flusso di lavoro di Machine Learning in tempo reale. Una chiamata al servizio Web di Machine Learning restituisce i risultati della stima a un'applicazione esterna. Per effettuare una chiamata al servizio Web di Machine Learning, passare una chiave API creata al momento della distribuzione del servizio Web. Il servizio Web di Machine Learning è basato su REST, una scelta di architettura diffusa per progetti di programmazione Web.
 
 Azure Machine Learning dispone di due tipi di servizi:
 
@@ -55,7 +61,8 @@ Azure Machine Learning dispone di due tipi di servizi:
 
 È possibile utilizzare l'API REST e accedere al servizio Web in diversi modi. È ad esempio possibile scrivere un'applicazione in C#, R o Python usando il codice di esempio generato automaticamente quando è stato distribuito il servizio Web.
 
-Il codice di esempio è disponibile nella pagina di utilizzo del servizio Web nel portale dei servizi Web di Microsoft Azure Machine Learning e nella pagina della Guida dell'API nel dashboard del servizio Web in Machine Learning Studio.
+Il codice di esempio è disponibile nella pagina di uso del servizio Web nel portale dei servizi Web di Microsoft Azure Machine Learning
+e nella pagina della Guida dell'API nel dashboard del servizio Web in Machine Learning Studio.
 
 In alternativa, è possibile usare la cartella di lavoro di Microsoft Excel di esempio creata, disponibile anche nel dashboard del servizio Web in Studio.
 
@@ -64,23 +71,12 @@ In alternativa, è possibile usare la cartella di lavoro di Microsoft Excel di e
 Per altre informazioni sui nuovi servizi Web di Azure Machine Learning, vedere la [documentazione correlata](machine-learning-whats-new.md).
 
 ## <a name="machine-learning-studio-questions"></a>Domande su Machine Learning Studio
-### <a name="creating-an-experiment"></a>Creazione di un esperimento
-**Esiste il controllo della versione o l'integrazione Git per i grafici dell'esperimento?**
-
-No, tuttavia Machine Learning Studio mantiene ogni iterazione di un esperimento che non può essere modificato da altri utenti.
-Per altre informazioni, vedere [Gestire iterazioni dell'esperimento in Azure Machine Learning Studio](machine-learning-manage-experiment-iterations.md).
-
-### <a name="deploying-an-experiment"></a>Distribuzione di un esperimento
-**È possibile distribuire come nuovo servizio Web basato su Azure Resource Manager un esperimento predittivo già distribuito come servizio Web classico?**
-
-No, non è possibile distribuire un esperimento già distribuito come servizio Web classico. È invece necessario creare e distribuire un nuovo esperimento predittivo.
-
 ### <a name="importing-and-exporting-data-for-machine-learning"></a>Importazione ed esportazione dei dati per Machine Learning
 **Quali origini dati sono supportate da Machine Learning?**
 
 È possibile caricare dati in un esperimento di Machine Learning Studio in tre modi: caricando un file locale come set di dati, usando un modulo per importare i dati dai servizi dati cloud o importando un set di dati da un altro esperimento. Per altre informazioni sui formati di file supportati, vedere [Importare dati di training in Azure Machine Learning Studio](machine-learning-data-science-import-data.md).
 
-#### <a name="<a-id="modulelimit"></a>how-large-can-the-data-set-be-for-my-modules?"></a><a id="ModuleLimit"></a>Qual è la grandezza massima dei set di dati per i moduli?
+#### <a name="a-idmodulelimitahow-large-can-the-data-set-be-for-my-modules"></a><a id="ModuleLimit"></a>Qual è la grandezza massima dei set di dati per i moduli?
 I moduli in Machine Learning Studio supportano set di dati fino a 10 GB di dati numerici ad alta densità per i casi di utilizzo comuni. Se un modulo richiede più input, 10 GB rappresenta il totale di tutte le dimensioni degli input. È anche possibile campionare set di dati di dimensioni maggiori tramite le query di Hive o del database SQL di Azure oppure tramite la pre-elaborazione Learning by Counts prima dell'inserimento.  
 
 I seguenti tipi di dati possono espandersi in set di dati di dimensioni maggiori durante la normalizzazione della funzionalità e sono limitati a meno di 10 GB:
@@ -100,7 +96,7 @@ I seguenti moduli sono limitati a set di dati inferiori a 10 GB:
 
 Per i set di dati con dimensioni maggiori di alcuni GB, è necessario caricare i dati in Archiviazione di Azure o nel database SQL di Azure oppure usare HDInsight, anziché caricarli direttamente dal file locale.
 
-#### <a name="<a-id="uploadlimit"></a>what-are-the-limits-for-data-upload?"></a><a id="UploadLimit"></a>Quali sono i limiti per il caricamento di dati?
+#### <a name="a-iduploadlimitawhat-are-the-limits-for-data-upload"></a><a id="UploadLimit"></a>Quali sono i limiti per il caricamento di dati?
 Per i set di dati con dimensioni maggiori di un paio di GB, caricare i dati in Archiviazione di Azure o nel database SQL di Azure oppure usare HDInsight, anziché caricarli direttamente dal file locale.
 
 **È possibile leggere i dati da Amazon S3?**
@@ -193,7 +189,7 @@ Anche se non attualmente, è possibile usare uno o più moduli [Execute Python S
 
 **Esiste un ambiente REPL per Python?**
 
-È possibile usare Jupyter Notebook in Machine Learning Studio. Per altre informazioni, vedere [Introducing Jupyter Notebooks in Azure Machine Learning Studio (Introduzione a Jupyter Notebooks in Azure Machine Learning Studio)](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx).
+È possibile usare Jupyter Notebook in Machine Learning Studio. Per altre informazioni, vedere [Introducing Jupyter Notebooks in Azure Machine Learning Studio](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)(Introduzione di Jupyter Notebook in Azure Machine Learning Studio).
 
 ## <a name="web-service"></a>Servizio Web
 ### <a name="retraining-models-programmatically"></a>Ripetizione del training dei modelli a livello di codice
@@ -224,7 +220,7 @@ Per altre informazioni, vedere [Ripetere il training dei modelli di Machine Lear
 
 **Come monitorare il servizio Web distribuito in produzione?**
 
-Una volta distribuito un modello predittivo, è possibile monitorarlo dal portale di Azure classico. Ogni servizio distribuito ha un proprio dashboard, in cui è possibile visualizzare le informazioni di monitoraggio per il servizio. Per altre informazioni sulla gestione dei servizi Web distribuiti, vedere [Gestire un'area di lavoro di Azure Machine Learning](machine-learning-manage-workspace.md).
+Dopo aver distribuito un modello predittivo, è possibile monitorarlo dal portale di Azure classico (solo servizi Web classici) o dal portale dei servizi Web di Azure Machine Learning. Ogni servizio distribuito ha un proprio dashboard, in cui è possibile visualizzare le informazioni di monitoraggio per il servizio. Per altre informazioni sulla gestione dei servizi Web distribuiti, vedere [Gestire un nuovo servizio Web di Machine Learning](machine-learning-manage-new-webservice.md) e [Gestire un'area di lavoro di Azure Machine Learning](machine-learning-manage-workspace.md).
 
 **Esiste una posizione in cui è possibile visualizzare l'output di RRS/BES?**
 
@@ -436,7 +432,7 @@ I nuovi piani di fatturazione sono disponibili nelle tre aree di produzione in c
 
 Sì. I prezzi dei piani variano in base all'area. Quando si distribuisce un servizio Web in un'altra area, è necessario assegnare al servizio un piano specifico di tale regione.
 
-### <a name="new-web-services---overages"></a>Nuovi servizi Web: eccedenze
+### <a name="new-web-services-overages"></a>Nuovi servizi Web: eccedenze
 **Come si controlla se si è verificata un'eccedenza nell'utilizzo del servizio Web?**
 
 È possibile visualizzare l'uso in tutti i propri piani nella pagina Plans (Piani) del portale Azure Machine Learning Web Services (Servizi Web di Microsoft Azure Machine Learning). Accedere al portale e fare clic sull'opzione di menu Plans (Piani).
@@ -549,6 +545,6 @@ L'accesso guest è un'esperienza di valutazione limitata che consente di creare 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

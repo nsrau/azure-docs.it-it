@@ -1,12 +1,12 @@
 ---
-title: Come creare un'app Web con la cache Redis | Microsoft Docs
-description: Informazioni su come creare un'app Web con la cache Redis
+title: Come creare un&quot;app Web con la cache Redis | Documentazione Microsoft
+description: Informazioni su come creare un&quot;app Web con la cache Redis
 services: redis-cache
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/11/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 425729dde12d8477b7b8ecd6394b31b7c5a5e92b
+
 
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Come creare un'app Web con la cache Redis
@@ -49,7 +53,7 @@ Per completare l'esercitazione, è necessario un account Azure. È possibile:
 * [Aprire un account Azure gratuitamente](/pricing/free-trial/?WT.mc_id=redis_cache_hero): sono inclusi crediti da usare per provare i servizi di Azure a pagamento. Una volta esauriti i crediti, è possibile mantenere l'account e usare le funzionalità e i servizi di Azure gratuiti.
 * [Attivare i vantaggi della sottoscrizione Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). con l'abbonamento MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 
-### <a name="visual-studio-2015-with-the-azure-sdk-for-.net"></a>Visual Studio 2015 con Azure SDK per .NET
+### <a name="visual-studio-2015-with-the-azure-sdk-for-net"></a>Visual Studio 2015 con Azure SDK per .NET
 L'esercitazione è stata scritta per Visual Studio 2015 con [Azure SDK per .NET](../dotnet-sdk.md) 2.8.2 o versione successiva. [Scaricare qui la versione più recente di Azure SDK per Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Visual Studio viene installato automaticamente con l'SDK, se necessario.
 
 Se è disponibile Visual Studio 2013, è possibile [scaricare la versione più recente di Azure SDK per Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Alcune schermate potrebbero essere diverse da quelle illustrate nell'esercitazione.
@@ -69,7 +73,7 @@ Se è disponibile Visual Studio 2013, è possibile [scaricare la versione più r
     ![Seleziona modello progetto][cache-select-template]
 4. Fare clic su **OK** per creare il progetto.
 
-## <a name="create-the-asp.net-mvc-application"></a>Creare l'applicazione ASP.NET MVC
+## <a name="create-the-aspnet-mvc-application"></a>Creare l'applicazione ASP.NET MVC
 In questa sezione dell'esercitazione verrà creata l'applicazione di base che legge e visualizza le statistiche del team da un database.
 
 * [Aggiungere il modello](#add-the-model)
@@ -174,7 +178,7 @@ In questa sezione dell'esercitazione verrà creata l'applicazione di base che le
         <connectionStrings>
             <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ContosoTeamStats-20160216120918.mdf;Initial Catalog=aspnet-ContosoTeamStats-20160216120918;Integrated Security=True"
                 providerName="System.Data.SqlClient" />
-            <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"  providerName="System.Data.SqlClient" />
+            <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
         </connectionStrings>
 
 ### <a name="add-the-controller"></a>Aggiungere il controller
@@ -241,7 +245,7 @@ In questa sezione dell'esercitazione verrà configurata l'applicazione di esempi
 * [Aggiornare i metodi Create, Edit e Delete per l'interazione con la cache](#update-the-create-edit-and-delete-methods-to-work-with-the-cache)
 * [Aggiornare la visualizzazione Index dei team per l'interazione con la cache](#update-the-teams-index-view-to-work-with-the-cache)
 
-### <a name="configure-the-application-to-use-stackexchange.redis"></a>Configurare l'applicazione per l'uso di StackExchange.Redis
+### <a name="configure-the-application-to-use-stackexchangeredis"></a>Configurare l'applicazione per l'uso di StackExchange.Redis
 1. Per configurare un'applicazione client in Visual Studio con il pacchetto NuGet StackExchange.Redis, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**. 
    
     ![Manage NuGet packages][redis-cache-manage-nuget-menu]
@@ -513,7 +517,7 @@ In questo esempio è possibile recuperare le statistiche del team dal database o
         }
 
 
-### <a name="update-the-create,-edit,-and-delete-methods-to-work-with-the-cache"></a>Aggiornare i metodi Create, Edit e Delete per l'interazione con la cache
+### <a name="update-the-create-edit-and-delete-methods-to-work-with-the-cache"></a>Aggiornare i metodi Create, Edit e Delete per l'interazione con la cache
 Il codice di scaffolding generato come parte di questo esempio include metodi per l'aggiunta, la modifica e l'eliminazione di elementi. Quando un team viene aggiunto, modificato o rimosso, i dati nella cache diventano obsoleti. In questa sezione verranno modificati questi tre metodi per cancellare i team memorizzati nella cache, in modo che la cache non risulti non sincronizzata con il database.
 
 1. Passare al metodo `Create(Team team)` nella classe `TeamsController`. Aggiungere una chiamata al metodo `ClearCachedTeams` , come illustrato nell'esempio seguente.
@@ -804,6 +808,6 @@ Dopo la selezione o la creazione della cache da usare, passare alla cache nel po
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

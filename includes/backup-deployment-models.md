@@ -6,8 +6,12 @@ Il servizio Backup di Azure presenta insiemi di credenziali di due tipi: l'insie
 | Gestione risorse |[Azzurro](https://portal.azure.com) |Servizi di ripristino |
 
 > [!NOTE]
-> Le credenziali per il backup non consentono di proteggere le soluzioni distribuite con Resource Manager. Tuttavia, per proteggere le VM e i server distribuiti in modo tradizionale, è possibile utilizzare un insieme di credenziali dei servizi di ripristino.
+> Le credenziali per il backup non consentono di proteggere le soluzioni distribuite con Resource Manager. Tuttavia, per proteggere le VM e i server distribuiti in modo tradizionale, è possibile utilizzare un insieme di credenziali dei servizi di ripristino.  
 > 
 > 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

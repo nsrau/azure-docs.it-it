@@ -1,12 +1,12 @@
 ---
-title: 'Servizi di dominio Azure AD: Abilitare la sincronizzazione password | Microsoft Docs'
+title: 'Azure AD Domain Services: abilitare la sincronizzazione password | Documentazione Microsoft'
 description: Introduzione a Servizi di dominio Azure Active Directory
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 5a32a0df-a3ca-4ebe-b980-91f58f8030fc
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/20/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c625fdf679c282bb62fdcbc864cd5b65d1014231
+
 
 ---
-# Abilitare la sincronizzazione password in Servizi di dominio Azure AD
+# <a name="enable-password-synchronization-to-azure-ad-domain-services"></a>Abilitare la sincronizzazione password in Servizi di dominio Azure AD
 Nelle attività precedenti si è abilitato Servizi di dominio Azure AD per il tenant di Azure AD. L'attività successiva prevede l'abilitazione degli hash delle credenziali necessari per l'autenticazione NTLM e Kerberos per la sincronizzazione con Servizi di dominio Azure AD. Dopo avere configurato la sincronizzazione delle credenziali, gli utenti possono accedere al dominio gestito usando le credenziali aziendali.
 
 I passaggi sono diversi a seconda che l'organizzazione abbia un tenant di Azure AD basato solo sul cloud o sia impostata per la sincronizzazione con la directory locale tramite Azure AD Connect.
@@ -31,7 +35,7 @@ I passaggi sono diversi a seconda che l'organizzazione abbia un tenant di Azure 
 
 <br>
 
-## Attività 5: Abilitare la sincronizzazione password in Servizi di dominio Azure AD per un tenant di Azure AD solo cloud
+## <a name="task-5-enable-password-synchronization-to-aad-domain-services-for-a-cloudonly-azure-ad-tenant"></a>Attività 5: Abilitare la sincronizzazione password in Servizi di dominio Azure AD per un tenant di Azure AD solo cloud
 Servizi di dominio Azure AD richiede che gli hash delle credenziali siano in un formato adatto all'autenticazione NTLM e Kerberos, per autenticare gli utenti nel dominio gestito. A meno che non si abiliti Servizi di dominio AAD per il tenant, Azure AD non genera né archivia gli hash delle credenziali nel formato necessario per l'autenticazione NTLM o Kerberos. Per ovvi motivi di sicurezza, Azure AD non archivia nemmeno le credenziali in un formato non crittografato. Azure AD quindi non può generare questi hash delle credenziali NTLM o Kerberos in base alle credenziali esistenti degli utenti.
 
 > [!NOTE]
@@ -41,7 +45,7 @@ Servizi di dominio Azure AD richiede che gli hash delle credenziali siano in un 
 
 Questo processo di modifica delle password attiva la generazione in Azure AD degli hash delle credenziali richiesti da Servizi di dominio Azure AD per l'autenticazione Kerberos e NTLM. È possibile impostare come scadute le password per tutti gli utenti nel tenant che dovranno usare Servizi di dominio Azure AD oppure richiedere a tali utenti di cambiare le loro password.
 
-### Abilitare la generazione di hash di credenziali NTLM e Kerberos per un tenant di Azure AD solo cloud
+### <a name="enable-ntlm-and-kerberos-credential-hash-generation-for-a-cloudonly-azure-ad-tenant"></a>Abilitare la generazione di hash di credenziali NTLM e Kerberos per un tenant di Azure AD solo cloud
 Ecco le istruzioni che è necessario fornire agli utenti finali in modo che possano modificare le password:
 
 1. Passare alla pagina del pannello di accesso di Azure AD per l'organizzazione all'indirizzo [http://myapps.microsoft.com](http://myapps.microsoft.com).
@@ -62,7 +66,7 @@ Dopo la modifica, la nuova password sarà utilizzabile in Servizi di dominio Azu
 
 <br>
 
-## Contenuti correlati
+## <a name="related-content"></a>Contenuti correlati
 * [Come aggiornare la password](../active-directory/active-directory-passwords-update-your-own-password.md)
 * [Introduzione alla gestione delle password](../active-directory/active-directory-passwords-getting-started.md)
 * [Abilitare la sincronizzazione password in Servizi di dominio AAD per un tenant di Azure AD sincronizzato](active-directory-ds-getting-started-password-sync-synced-tenant.md)
@@ -70,4 +74,9 @@ Dopo la modifica, la nuova password sarà utilizzabile in Servizi di dominio Azu
 * [Aggiungere una macchina virtuale Windows a un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Aggiungere una macchina virtuale Red Hat Enterprise Linux a un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 
-<!----HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

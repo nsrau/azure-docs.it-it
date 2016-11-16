@@ -1,12 +1,12 @@
 ---
-title: Usare gli argomenti del bus di servizio con .NET | Microsoft Docs
+title: Usare gli argomenti del bus di servizio con .NET | Documentazione Microsoft
 description: Informazioni su come usare le sottoscrizioni e gli argomenti del bus di servizio con .NET in Azure. Gli esempi di codice sono scritti per applicazioni .NET.
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 31d0bc29-6524-4b1b-9c7f-aa15d5a9d3b4
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b90d2b49807b39bb7a71315877a8e84550efc9cc
+
 
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions"></a>Come usare gli argomenti e le sottoscrizioni del bus di servizio
@@ -90,7 +94,7 @@ Quando si usa Siti Web o Macchine virtuali di Azure, è consigliabile usare il s
 </configuration>
 ```
 
-Usare i valori relativi alla chiave e al nome della firma di accesso condiviso recuperati dal [portale di Azure][portale di Azure] come descritto in precedenza.
+Usare i valori relativi alla chiave e al nome della firma di accesso condiviso recuperati dal [portale di Azure][portale di Azure], come descritto in precedenza.
 
 ## <a name="create-a-topic"></a>Creare un argomento
 Per eseguire operazioni di gestione per gli argomenti e le sottoscrizioni del bus di servizio, è possibile usare la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Questa classe fornisce metodi per creare, enumerare ed eliminare gli argomenti.
@@ -151,7 +155,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 > 
 > 
 
-### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>Creare una sottoscrizione con il filtro (MatchAll) predefinito
+### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Creare una sottoscrizione con il filtro (MatchAll) predefinito
 Se non vengono specificati altri filtri durante la creazione di una nuova sottoscrizione, viene usato il filtro predefinito **MatchAll**. Quando si usa il filtro **MatchAll**, tutti i messaggi pubblicati nell'argomento vengono inseriti nella coda virtuale della sottoscrizione. Nell'esempio seguente viene creata una sottoscrizione denominata "AllMessages" e viene usato il filtro predefinito **MatchAll**.
 
 ```
@@ -170,9 +174,9 @@ if (!namespaceManager.SubscriptionExists("TestTopic", "AllMessages"))
 ### <a name="create-subscriptions-with-filters"></a>Creare sottoscrizioni con i filtri
 È anche possibile configurare filtri che consentono di specificare quali messaggi inviati a un argomento devono essere presenti in una specifica sottoscrizione dell'argomento.
 
-Il tipo di filtro più flessibile supportato dalle sottoscrizioni è la classe [SqlFilter][SqlFilter] che implementa un subset di SQL92. I filtri SQL agiscono sulle proprietà dei messaggi pubblicati nell'argomento. Per altre informazioni sulle espressioni che possono essere usate con un filtro SQL, vedere la sintassi [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
+Il tipo di filtro più flessibile supportato dalle sottoscrizioni è la classe [SqlFilter][SqlFilter] che implementa un subset di SQL92. I filtri SQL agiscono sulle proprietà dei messaggi pubblicati nell'argomento. Per altre informazioni sulle espressioni che è possibile usare con un filtro SQL, vedere la sintassi di [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
-L'esempio seguente crea una sottoscrizione denominata **HighMessages** con un oggetto [SqlFilter][SqlFilter] che seleziona solo i messaggi che hanno una proprietà personalizzata **MessageNumber** maggiore di 3.
+L'esempio seguente crea una sottoscrizione denominata **HighMessages** con un oggetto [SqlFilter][SqlFilter] che seleziona solo i messaggi il cui valore della proprietà personalizzata **MessageNumber** è maggiore di 3.
 
 ```
 // Create a "HighMessages" filtered subscription.
@@ -303,13 +307,13 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 ## <a name="next-steps"></a>Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base degli argomenti e delle sottoscrizioni del bus di servizio, usare i collegamenti seguenti per altre informazioni.
 
-* [Code, argomenti e sottoscrizioni][].
-* [Esempio di filtri di argomento][Esempio di filtri di argomento]
-* Informazioni di riferimento sulle API per [SqlFilter][SqlFilter].
+* [Code, argomenti e sottoscrizioni][Code, argomenti e sottoscrizioni].
+* [Esempio di filtri di argomenti][Esempio di filtri di argomenti]
+* Riferimento sulle API per [SqlFilter][SqlFilter].
 * Per creare un'applicazione funzionante che invia e riceve messaggi verso e da una coda del bus di servizio, vedere [Esercitazione sulla messaggistica negoziata del bus di servizio - .NET][Esercitazione sulla messaggistica negoziata del bus di servizio - .NET].
 * Esempi relativi al bus di servizio: è possibile scaricarli dagli [esempi di Azure][esempi di Azure] oppure vedere la [panoramica](service-bus-samples.md).
 
-[portale di Azure]: https://portal.azure.com
+[Portale di Azure]: https://portal.azure.com
 
 [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
@@ -322,6 +326,6 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti e delle sot
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

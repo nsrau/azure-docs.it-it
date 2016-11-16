@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#Linux Virtual Machine Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 8125aca5030c869476499a07b17c8e21fcb76ef6
+ms.openlocfilehash: e5640566e8781441713ca5491abee1d9334b3970
 
-Use Azure Virtual Machines to create and run Linux virtual machines on Azure's compute, networking, and storage infrastructure.  Scale to thousands of machines for internet-wide deployments, or run one for a few minutes to crunch some serious numbers:  you'll get both speed and consistency.
+---
+#<a name="linux-virtual-machine-documentation"></a>Documentazione delle macchine virtuali Linux
+
+Usare le macchine virtuali di Azure per creare ed eseguire macchine virtuali Linux nell'infrastruttura di calcolo, rete e archiviazione di Azure.  Ridimensionare fino a ottenere migliaia di macchine virtuali per distribuzioni a livello Internet oppure eseguire una sola macchina virtuale per qualche minuto per completare calcoli complessi, in modo da ottenere velocità e coerenza.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -13,11 +17,11 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/virtualmachine.svg" alt="" />
+                            <img src="media/index/virtual-machine.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Linux Virtual Machines</h3>
+                        <h3>Informazioni sulle macchine virtuali Linux</h3>
                     </div>
                 </div>
             </div>
@@ -31,11 +35,11 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/virtualmachine.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Virtual Machines Video Library</h3>
+                        <h3>Catalogo video di Macchine virtuali</h3>
                     </div>
                 </div>
             </div>
@@ -49,11 +53,11 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/virtualmachine.svg" alt="" />
+                            <img src="media/index/portal.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a VM using the Portal</h3>
+                        <h3>Creare una macchina virtuale con il portale</h3>
                     </div>
                 </div>
             </div>
@@ -67,11 +71,11 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/virtualmachine.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create SSH keys on Linux and Mac for Linux VMs in Azure</h3>
+                        <h3>Creare chiavi SSH in Linux e Mac per le VM Linux in Azure</h3>
                     </div>
                 </div>
             </div>
@@ -85,11 +89,11 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/virtualmachine.svg" alt="" />
+                            <img src="media/index/cli.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Install the Azure CLI</h3>
+                        <h3>Installare l'interfaccia della riga di comando di Azure</h3>
                     </div>
                 </div>
             </div>
@@ -103,11 +107,11 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/virtualmachine.svg" alt="" />
+                            <img src="media/index/cli.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Linux VM on Azure by using the CLI</h3>
+                        <h3>Creare una VM Linux in Azure tramite l'interfaccia della riga di comando</h3>
                     </div>
                 </div>
             </div>
@@ -118,31 +122,36 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
 
 ---
 
-##Reference
+##<a name="reference"></a>riferimento
 
-###Azure CLI
-[Azure CLI](/cli/azure/vm)
+###<a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+[Interfaccia della riga di comando di Azure](/cli/azure/vm)
 
-###.NET
-[Managed Reference API Reference](/dotnet/api/)
+###<a name="net"></a>.NET
+[Informazioni di riferimento sulle API gestite](/dotnet/api/)
 
-###Java SDK
+###<a name="java-sdk"></a>SDK per Java
 [Java](/java/api/)
 
-###REST (Compute)
-[Compute REST API Reference](/rest/api/compute)
+###<a name="rest-compute"></a>REST (calcolo)
+[Informazioni di riferimento sulle API REST di calcolo](/rest/api/compute)
 
-###REST (Network)
-[Network REST API Reference](https://msdn.microsoft.com/library/mt163658.aspx)
+###<a name="rest-network"></a>REST (rete)
+[Informazioni di riferimento sulle API REST di rete](https://msdn.microsoft.com/library/mt163658.aspx)
 
-###REST (Storage)
-[Storage REST API Reference](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+###<a name="rest-storage"></a>REST (archiviazione)
+[Informazioni di riferimento sulle API REST di archiviazione](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/linux.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Linux Virtual Machine Documentation
-        </div>
+Scaricare la documentazione delle macchine virtuali Linux </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

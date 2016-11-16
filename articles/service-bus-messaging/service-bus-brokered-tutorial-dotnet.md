@@ -1,12 +1,12 @@
 ---
-title: Esercitazione .NET sulla messaggistica negoziata del Bus di servizio| Microsoft Docs
+title: Esercitazione sulla messaggistica negoziata del Bus di servizio - .NET | Documentazione Microsoft
 description: Esercitazione di messaggistica negoziata .NET.
 services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 964e019a-8abe-42f3-8314-867010cb2608
 ms.service: service-bus
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
+
 
 ---
-# <a name="service-bus-brokered-messaging-.net-tutorial"></a>Esercitazione sulla messaggistica negoziata del bus di servizio - .NET
+# <a name="service-bus-brokered-messaging-net-tutorial"></a>Esercitazione sulla messaggistica negoziata del bus di servizio - .NET
 Il bus di servizio di Azure fornisce due soluzioni di messaggistica complete. La prima tramite un servizio di "inoltro" centralizzato in esecuzione nel cloud che supporta una vasta gamma di protocolli di trasporto e standard di servizi Web, tra cui SOAP, WS-* e REST. Il client non necessita di una connessione diretta al servizio locale, non è necessario che conosca la posizione in cui risiede il servizio e il servizio locale non richiede porte in ingresso aperte sul firewall.
 
 La seconda soluzione di messaggistica offre funzionalità di messaggistica "negoziata". Queste funzionalità possono essere considerate come funzionalità di messaggistica asincrone o disaccoppiate che supportano scenari di pubblicazione-sottoscrizione, disaccoppiamento temporale e bilanciamento del carico tramite l'infrastruttura di messaggistica del bus di servizio.  La comunicazione disaccoppiata presenta molti vantaggi, ad esempio client e server possono connettersi quando necessario ed eseguire le relative operazioni in modo asincrono.
 
-Questa esercitazione intende offrire una panoramica ed esperienza pratica con le code, uno dei componenti principali di messaggistica negoziata del bus di servizio. Dopo aver esaminato la sequenza di argomenti in questa esercitazione, si ha a disposizione un'applicazione che popola un elenco dei messaggi, crea una coda e invia messaggi alla coda. Infine, l'applicazione riceve e visualizza i messaggi dalla coda, quindi pulisce le proprie risorse e si chiude. Per un'esercitazione corrispondente che descrive come compilare un'applicazione che usa l'inoltro del bus di servizio, vedere l'[esercitazione sulla messaggistica inoltrata del bus di servizio](../service-bus-relay/service-bus-relay-tutorial.md).
+Questa esercitazione intende offrire una panoramica ed esperienza pratica con le code, uno dei componenti principali di messaggistica negoziata del bus di servizio. Dopo aver esaminato la sequenza di argomenti in questa esercitazione, si ha a disposizione un'applicazione che popola un elenco dei messaggi, crea una coda e invia messaggi alla coda. Infine, l'applicazione riceve e visualizza i messaggi dalla coda, quindi pulisce le proprie risorse e si chiude. Per un'esercitazione che descrive come compilare un'applicazione che usa l'inoltro WCF del bus di servizio, vedere l'[esercitazione sulla messaggistica inoltrata del bus di servizio](../service-bus-relay/service-bus-relay-tutorial.md).
 
 ## <a name="introduction-and-prerequisites"></a>Introduzione e prerequisiti
 Le code consentono un recapito dei messaggi di tipo First In, First Out (FIFO) a uno o più consumer concorrenti. FIFO significa che i messaggi vengono in genere ricevuti ed elaborati dai destinatari nell'ordine temporale in cui sono stati aggiunti alla coda e ogni messaggio viene ricevuto ed elaborato da un solo consumer di messaggi. Un vantaggio importante dell'uso delle code è quello di ottenere un *disaccoppiamento temporale* dei componenti dell'applicazione: in altre parole, non è necessario che i producer e i consumer inviino e ricevano i messaggi contemporaneamente perché i messaggi restano memorizzati nella coda. Un vantaggio correlato è il *livellamento del carico*, che consente a producer e consumer di inviare e ricevere i messaggi con frequenze diverse.
@@ -611,7 +615,7 @@ Completati i passaggi precedenti, è possibile compilare ed eseguire l'applicazi
 In Visual Studio scegliere **Compila soluzione** dal menu **Compila** o premere **CTRL+MAIUSC+B**. Se si presentano errori, verificare che il codice sia corretto in base all'esempio completo presentato alla fine del passaggio precedente.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questa esercitazione ha illustrato come creare un'applicazione client del bus di servizio e un servizio utilizzando le funzionalità di messaggistica negoziata del bus di servizio. Per un'esercitazione simile che usa l'[inoltro](service-bus-messaging-overview.md#Relayed-messaging) del bus di servizio, vedere l'[esercitazione sulla messaggistica inoltrata del bus di servizio](../service-bus-relay/service-bus-relay-tutorial.md).
+Questa esercitazione ha illustrato come creare un'applicazione client del bus di servizio e un servizio utilizzando le funzionalità di messaggistica negoziata del bus di servizio. Per un'esercitazione simile che usa l'[inoltro WCF](service-bus-messaging-overview.md#Relayed-messaging) del bus di servizio, vedere l'[esercitazione sulla messaggistica inoltrata del bus di servizio](../service-bus-relay/service-bus-relay-tutorial.md).
 
 Per altre informazioni sul [bus di servizio](https://azure.microsoft.com/services/service-bus/), vedere gli argomenti seguenti.
 
@@ -619,6 +623,9 @@ Per altre informazioni sul [bus di servizio](https://azure.microsoft.com/service
 * [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 * [Architettura del bus di servizio](service-bus-architecture.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

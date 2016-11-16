@@ -1,23 +1,27 @@
 ---
-title: Creare un servizio di bilanciamento del carico interno usando PowerShell nel modello di distribuzione classica | Microsoft Docs
+title: Creare un servizio di bilanciamento del carico interno usando PowerShell nel modello di distribuzione classica | Documentazione Microsoft
 description: Informazioni su come creare un servizio di bilanciamento del carico interno usando PowerShell nel modello di distribuzione classica
 services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 3be93168-3787-45a5-a194-9124fe386493
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ed28a11420d4bcc732801aea8d6217dbf14389d4
+
 
 ---
-# Introduzione alla creazione di un servizio di bilanciamento del carico interno (classico) tramite PowerShell
+# <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>Introduzione alla creazione di un servizio di bilanciamento del carico interno (classico) tramite PowerShell
 [!INCLUDE [load-balancer-get-started-ilb-classic-selectors-include.md](../../includes/load-balancer-get-started-ilb-classic-selectors-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
@@ -30,14 +34,14 @@ Informazioni su come [eseguire questa procedura con il modello di Resource Manag
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## Creare un set con servizio di bilanciamento del carico interno per le macchine virtuali
+## <a name="create-an-internal-load-balancer-set-for-virtual-machines"></a>Creare un set con servizio di bilanciamento del carico interno per le macchine virtuali
 Per creare un set con servizio di bilanciamento del carico e i server che invieranno il traffico a esso, è necessario eseguire le operazioni seguenti:
 
 1. Creare un'istanza della funzionalità di bilanciamento del carico interno che sarà l'endpoint del traffico in ingresso da configurare con carico bilanciato tra i server di un set con carico bilanciato.
 2. Aggiungere gli endpoint corrispondenti alle macchine virtuali che riceveranno il traffico in ingresso.
 3. Configurare i server che invieranno il traffico con carico bilanciato all'indirizzo IP virtuale (indirizzo VIP) dell'istanza del bilanciamento del carico interno.
 
-### Passaggio 1: Creare un'istanza del bilanciamento del carico interno
+### <a name="step-1-create-an-internal-load-balancing-instance"></a>Passaggio 1: Creare un'istanza del bilanciamento del carico interno
 Per un servizio cloud esistente o un servizio cloud distribuito in una rete virtuale dell'area, è possibile creare un'istanza del bilanciamento del carico interno con i comandi di Windows PowerShell seguenti:
 
     $svc="<Cloud Service Name>"
@@ -50,7 +54,7 @@ Per un servizio cloud esistente o un servizio cloud distribuito in una rete virt
 
 Si noti che questo uso del cmdlet di Windows PowerShell [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) richiede il set di parametri DefaultProbe. Per altre informazioni sui set di parametri aggiuntivi, vedere [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx).
 
-### Passaggio 2: Aggiungere endpoint all'istanza del bilanciamento del carico interno
+### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>Passaggio 2: Aggiungere endpoint all'istanza del bilanciamento del carico interno
 Di seguito è fornito un esempio:
 
     $svc="mytestcloud"
@@ -64,8 +68,8 @@ Di seguito è fornito un esempio:
     Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Lbset $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
 
-### Passaggio 3: Configurare i server per l'invio del traffico al nuovo endpoint del bilanciamento del carico interno
-È necessario configurare i server il cui traffico verrà configurato con carico bilanciato per l'uso del nuovo indirizzo IP (indirizzo VIP) dell'istanza del bilanciamento del carico interno. Si tratta dell'indirizzo su cui è in ascolto l'istanza del bilanciamento del carico interno. Nella maggior parte dei casi, è sufficiente aggiungere o modificare un record DNS per l'indirizzo VIP dell'istanza del bilanciamento del carico interno.
+### <a name="step-3-configure-your-servers-to-send-their-traffic-to-the-new-internal-load-balancing-endpoint"></a>Passaggio 3: Configurare i server per l'invio del traffico al nuovo endpoint del bilanciamento del carico interno
+Per poter usare il nuovo indirizzo IP (indirizzo VIP) dell'istanza del bilanciamento del carico interno, è necessario configurare i server il cui traffico verrà configurato con carico bilanciato. Si tratta dell'indirizzo su cui è in ascolto l'istanza del bilanciamento del carico interno. Nella maggior parte dei casi, è sufficiente aggiungere o modificare un record DNS per l'indirizzo VIP dell'istanza del bilanciamento del carico interno.
 
 Se l'indirizzo IP è stato specificato durante la creazione dell'istanza del bilanciamento del carico interno, si ha già l'indirizzo VIP. In caso contrario, è possibile visualizzare l'indirizzo VIP eseguendo i comandi seguenti:
 
@@ -83,15 +87,16 @@ Per usare questi comandi, inserire i valori e rimuovere < and >. Di seguito è f
 Dalla visualizzazione del comando Get-AzureInternalLoadBalancer prendere nota dell'indirizzo IP e apportare le modifiche necessarie ai server o ai record DNS per assicurarsi che il traffico venga inviato all'indirizzo VIP.
 
 > [!NOTE]
-> La piattaforma Microsoft Azure usa un indirizzo IPv4 statico e instradabile pubblicamente per un'ampia gamma di scenari di amministrazione. L'indirizzo IP è 168.63.129.16. Questo indirizzo IP non deve essere bloccato da alcun firewall, perché potrebbe causare un comportamento imprevisto. Per quanto riguarda il bilanciamento del carico interno di Azure, questo indirizzo IP viene usato da probe di monitoraggio del servizio di bilanciamento del carico per determinare lo stato di integrità delle macchine virtuali in un set con carico bilanciato. Se si usa un gruppo di sicurezza di rete per limitare il traffico alle macchine virtuali di Azure in un set con carico bilanciato internamente o lo si applica a una subnet di rete virtuale, assicurarsi di aggiungere una regola di sicurezza di rete per consentire il traffico dall'indirizzo 168.63.129.16.
+> La piattaforma Microsoft Azure usa un indirizzo IPv4 statico e instradabile pubblicamente per un'ampia gamma di scenari di amministrazione. L'indirizzo IP è 168.63.129.16. Questo indirizzo IP non deve essere bloccato da alcun firewall, perché potrebbe causare un comportamento imprevisto.
+> Per quanto riguarda il bilanciamento del carico interno di Azure, questo indirizzo IP viene usato da probe di monitoraggio del servizio di bilanciamento del carico per determinare lo stato di integrità delle macchine virtuali in un set con carico bilanciato. Se si usa un gruppo di sicurezza di rete per limitare il traffico alle macchine virtuali di Azure in un set con carico bilanciato internamente o lo si applica a una subnet di rete virtuale, assicurarsi di aggiungere una regola di sicurezza di rete per consentire il traffico dall'indirizzo 168.63.129.16.
 > 
 > 
 
-## Esempio di bilanciamento del carico interno
+## <a name="example-of-internal-load-balancing"></a>Esempio di bilanciamento del carico interno
 Per una descrizione del processo end-to-end di creazione di un set con carico bilanciato per due configurazioni di esempio, vedere le sezioni seguenti.
 
-### Applicazione multilivello con connessione Internet
-Si desidera fornire un servizio di database con carico bilanciato per un gruppo di server Web con connessione Internet. Entrambi i set di server sono ospitati in un unico servizio cloud di Azure. Il traffico dei server Web verso la porta TCP 1433 deve essere distribuito tra due macchine virtuali nel livello database. La figura 1 illustra la configurazione.
+### <a name="an-internet-facing-multitier-application"></a>Applicazione multilivello con connessione Internet
+Si vuole offrire un servizio di database con carico bilanciato per un gruppo di server Web con connessione Internet. Entrambi i set di server sono ospitati in un unico servizio cloud di Azure. Il traffico dei server Web verso la porta TCP 1433 deve essere distribuito tra due macchine virtuali nel livello database. La figura 1 illustra la configurazione.
 
 ![Set con carico bilanciato interno per il livello database](./media/load-balancer-internal-getstarted/IC736321.png)
 
@@ -119,7 +124,7 @@ I comandi seguenti configurano una nuova istanza del bilanciamento del carico in
     Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
 
-## Rimuovere una configurazione del bilanciamento del carico interno
+## <a name="remove-an-internal-load-balancing-configuration"></a>Rimuovere una configurazione del bilanciamento del carico interno
 Per rimuovere una macchina virtuale come endpoint da un'istanza del servizio di bilanciamento del carico interno, usare i comandi seguenti:
 
     $svc="<Cloud service name>"
@@ -150,7 +155,7 @@ Di seguito è fornito un esempio:
 
 
 
-## Altre informazioni sui cmdlet per servizio di bilanciamento del carico interno
+## <a name="additional-information-about-internal-load-balancer-cmdlets"></a>Altre informazioni sui cmdlet per servizio di bilanciamento del carico interno
 Per ottenere altre informazioni sui cmdlet per il bilanciamento del carico interno, eseguire i comandi seguenti da un prompt di Windows PowerShell:
 
 * Get-help New-AzureInternalLoadBalancerConfig -full
@@ -158,9 +163,14 @@ Per ottenere altre informazioni sui cmdlet per il bilanciamento del carico inter
 * Get-help Get-AzureInternalLoadbalancer -full
 * Get-help Remove-AzureInternalLoadBalancer -full
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 [Configurare una modalità di distribuzione del servizio di bilanciamento del carico utilizzando l’affinità dell’IP di origine](load-balancer-distribution-mode.md)
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

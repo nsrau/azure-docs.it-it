@@ -1,16 +1,16 @@
 # [Panoramica](media-services-overview.md)
 ## [Concetti](media-services-concepts.md)
-## [Prezzi](https://azure.microsoft.com/pricing/details/media-services/)
-## [Note sulla versione](media-services-release-notes.md)
-# Attività iniziali
+
+
+# Introduzione
 ## [Creare e gestire gli account](media-services-portal-create-account.md)
 ## [Configurare l'ambiente di sviluppo](media-services-set-up-computer.md)
-## Video on demand
+## Distribuire video su richiesta
 ### [Portale](media-services-portal-vod-get-started.md)
 ### [.NET SDK](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
 ### [REST](media-services-rest-get-started.md)
-## Streaming live
+## Eseguire lo streaming live
 ### [Portale](media-services-portal-live-passthrough-get-started.md)
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
@@ -165,13 +165,15 @@
 ###[Codici di errore](media-services-error-codes.md)
 ###[Logica di ripetizione dei tentativi](media-services-retry-logic-in-dotnet-sdk.md)
 
-# Riferimento
-## [Media Services .NET SDK](media-services-dotnet-how-to-use.md)
-## [API REST di Servizi multimediali](media-services-rest-how-to-use.md)
+# riferimento
+## [Note sulla versione](media-services-release-notes.md)
+## [.NET](media-services-dotnet-how-to-use.md)
+## [REST](media-services-rest-how-to-use.md)
 ## [Codec e formati del flusso di lavoro Premium del codificatore multimediale](media-services-premium-workflow-encoder-formats.md)
 ## [Formati e codec Media Encoder Standard](media-services-media-encoder-standard-formats.md)
 
-# Risorse correlate
+# Risorse
+## [Prezzi](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Community di Servizi multimediali di Azure](media-services-community.md)
 
 

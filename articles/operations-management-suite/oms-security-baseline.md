@@ -1,12 +1,12 @@
 ---
-title: Baseline della soluzione Sicurezza e controllo di Operations Management Suite | Microsoft Docs
-description: Questo documento illustra come usare la soluzione Sicurezza e controllo di OMS per eseguire una valutazione baseline di tutti i computer monitorati per finalità di conformità e sicurezza.
+title: Baseline della soluzione Sicurezza e controllo di Operations Management Suite | Documentazione Microsoft
+description: "Questo documento illustra come usare la soluzione Sicurezza e controllo di OMS per eseguire una valutazione baseline di tutti i computer monitorati per finalità di conformità e sicurezza."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 17837c8b-3e79-47c0-9b83-a51c6ca44ca6
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: hero-article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1c3e2cf86a33f9bbe6b34f4f52b82a078b91661f
+
 
 ---
 # <a name="baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Valutazione baseline nella soluzione Sicurezza e controllo di Operations Management Suite
 Questo documento illustra come usare le funzionalità della valutazione baseline nella [Soluzione Sicurezza e controllo di Operations Management Suite (OMS)](operations-management-suite-overview.md) per accedere allo stato di protezione delle risorse monitorate.
 
-## <a name="what-is-baseline-assessment?"></a>Informazioni sulla valutazione baseline
+## <a name="what-is-baseline-assessment"></a>Informazioni sulla valutazione baseline
 Microsoft, insieme ad altre organizzazioni del settore e governative in tutto il mondo, definisce una configurazione di Windows che rappresenta distribuzioni server a sicurezza elevata. Questa configurazione è un set di chiavi del Registro di sistema, impostazioni dei criteri di controllo e impostazioni di criteri di sicurezza, oltre ai valori consigliati di Microsoft per queste impostazioni. Questo set di regole è noto come baseline sicurezza. La funzionalità per la valutazione baseline della soluzione Sicurezza e controllo di OMS consente di analizzare con facilità tutti i computer per verificarne la conformità. 
 
 Esistono tre tipi di regole:
@@ -80,6 +84,9 @@ In questo documento sono disponibili informazioni sulla valutazione baseline del
 * [Monitoraggio e gestione degli avvisi di sicurezza nella soluzione Operations Management Suite per la sicurezza e il controllo](oms-security-responding-alerts.md)
 * [Monitoraggio delle risorse nella soluzione Operations Management Suite per la sicurezza e il controllo](oms-security-monitoring-resources.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

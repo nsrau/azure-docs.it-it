@@ -1,4 +1,4 @@
-### Concedere a Mobile Engagement l'accesso alla chiave API GCM
+### <a name="grant-mobile-engagement-access-to-your-gcm-api-key"></a>Concedere a Mobile Engagement l'accesso alla chiave API GCM
 Per consentire a Mobile Engagement di inviare notifiche push per conto dell'utente, è necessario concedere l'accesso alla chiave API. A tale scopo, è necessario configurare la chiave e immetterla nel portale di Mobile Engagement.
 
 1. Nel portale di Azure classico verificare che l'app usata per questo progetto sia aperta e fare clic sul pulsante **Attiva** nella parte inferiore della schermata.
@@ -14,7 +14,7 @@ Per consentire a Mobile Engagement di inviare notifiche push per conto dell'uten
    
     ![](./media/mobile-engagement-android-send-push/api-key.png)
 
-## <a id="send"></a>Inviare una notifica all'app
+## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Inviare una notifica all'app
 A questo punto si crea una campagna di notifica push semplice che invia una notifica push all'app.
 
 1. Passare alla scheda **REACH** nel portale di Mobile Engagement.
@@ -27,14 +27,14 @@ A questo punto si crea una campagna di notifica push semplice che invia una noti
    
     a. Assegnare un nome alla campagna.
    
-    b. Selezionare **Tipo di recapito** come *Notifica di sistema -> Semplice*: si tratta di un tipo di notifica push Android semplice con un titolo e una breve riga di testo.
+    b. Selezionare *Notifica di sistema -> Semplice* per **Tipo di recapito**: si tratta di un tipo di notifica push Android semplice con un titolo e una breve riga di testo.
    
     c. Per **Ora di recapito** selezionare *In qualsiasi momento* per consentire all'app di ricevere una notifica anche se non è stata avviata.
    
     d. Nel testo della notifica digitare il **titolo** che apparirà in grassetto nel push.
    
-    e. Digitare quindi il messaggio nel campo **Messaggio**.
-4. Scorrere verso il basso e nella sezione **Contenuto** selezionare **Solo notifica**.
+    e. Digitare quindi il **messaggio**
+4. Scorrere verso il basso e nella sezione **Contenuto** selezionare **Notification only** (Solo notifica).
    
     ![](./media/mobile-engagement-android-send-push/campaign-content.png)
 5. L'impostazione della campagna più semplice possibile è stata completata. Ora scorrere nuovamente verso il basso e fare clic sul pulsante **Crea** per salvare la campagna.
@@ -42,4 +42,8 @@ A questo punto si crea una campagna di notifica push semplice che invia una noti
    
     ![](./media/mobile-engagement-android-send-push/campaign-activate.png)
 
-<!---HONumber=AcomDC_0330_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

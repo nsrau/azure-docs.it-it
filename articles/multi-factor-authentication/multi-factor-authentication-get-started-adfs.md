@@ -1,47 +1,57 @@
 ---
-title: Introduzione a Azure Multi-Factor Authentication e Active Directory Federation Services
-description: Questa è la pagina di Azure Multi-Factor Authentication che descrive come iniziare a usare Azure MFA e ADFS.
+title: Azure Multi-Factor Authentication e Active Directory Federation Services | Documentazione Microsoft
+description: "Questa è la pagina di Azure Multi-Factor Authentication che descrive come iniziare a usare Azure MFA e ADFS."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: curtland
-
+editor: yossib
+ms.assetid: 44fbba68-6cf9-46c1-a9df-736580b68ae3
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/04/2016
+ms.date: 10/17/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dcf67cfd5f4d44188f119ca40b227b32c684e1f7
+
 
 ---
-# Introduzione a Azure Multi-Factor Authentication e Active Directory Federation Services
+# <a name="getting-started-with-azure-multifactor-authentication-and-active-directory-federation-services"></a>Introduzione a Azure Multi-Factor Authentication e Active Directory Federation Services
 <center>![Cloud](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
-Se l'azienda ha federato la Active Directory locale con Azure Active Directory tramite ADFS, le due opzioni seguenti per l'utilizzo di Azure Multi-Factor Authentication sono disponibili.
+Se l'organizzazione ha federato l'istanza locale di Active Directory con Azure Active Directory tramite AD FS, sono disponibili due opzioni per l'uso di Azure Multi-Factor Authentication.
 
 * Proteggere le risorse cloud mediante Azure Multi-Factor Authentication o Active Directory Federation Services
 * Proteggere le risorse del cloud e locali mediante Server Azure multi-Factor Authentication
 
-Nella tabella seguente è riepilogata l'esperienza di autenticazione tra le risorse di protezione con Azure Multi-Factor Authentication e ADFS
+La tabella seguente riepiloga l'esperienza di verifica tra le risorse di protezione con Azure Multi-Factor Authentication e AD FS
 
-| Esperienza di autenticazione - App basate su Browser | Esperienza di autenticazione - App Non basate su Browser |
+| Esperienza di verifica - App basate su browser | Esperienza di verifica - App non basate su browser |
 |:--- |:--- |:--- |
-| Proteggere le risorse Azure AD utilizzando Azure Multi-Factor Authentication |<li>Il primo fattore di autenticazione viene eseguito in locale utilizzando ADFS.</li> <li>Il secondo fattore è un metodo basato su telefono eseguito mediante l'autenticazione cloud.</li> |
-| Proteggere le risorse di Azure AD con Active Directory Federation Services |<li>Il primo fattore di autenticazione viene eseguito in locale utilizzando ADFS.</li><li>Il secondo fattore viene eseguito in locale rispettando l'attestazione.</li> |
+| Proteggere le risorse Azure AD utilizzando Azure Multi-Factor Authentication |<li>Il primo passaggio di verifica viene eseguito in locale usando AD FS.</li> <li>Il secondo passaggio è un metodo basato su telefono eseguito mediante l'autenticazione cloud.</li> |
+| Proteggere le risorse di Azure AD con Active Directory Federation Services |<li>Il primo passaggio di verifica viene eseguito in locale usando AD FS.</li><li>Il secondo passaggio viene eseguito in locale rispettando l'attestazione.</li> |
 
 Avvertenze per le password dell’app rivolte agli utenti federati:
 
-* La Password dell’App viene verificata mediante l'autenticazione cloud e di conseguenza ignora le federazioni. La federazione viene usata attivamente solo durante l'impostazione della Password dell'app.
-* Le impostazioni locali di Controllo dell'accesso Client non vengono rispettate dalla password dell'app.
-* Si perde la Funzionalità di registrazione dell'autenticazione locale per la Password dell’App.
-* La disabilitazione/eliminazione dell’account può richiedere fino a 3 ore per dirsync e per ritardare la disabilitazione o l'eliminazione della password dell’app nell'identità cloud.
+* Le password dell'app vengono verificate mediante l'autenticazione cloud e di conseguenza ignorano la federazione. La federazione viene usata attivamente solo durante l'impostazione della password dell'app.
+* Le impostazioni locali di Controllo di accesso client non vengono rispettate dalle password dell'app.
+* Si perde la funzionalità di registrazione dell'autenticazione locale per le password dell'app.
+* La disabilitazione/eliminazione dell'account può richiedere fino a tre ore per la sincronizzazione della directory e per ritardare la disabilitazione/eliminazione delle password dell'app nell'identità cloud.
 
-Per informazioni sull'impostazione di Azure Multi-Factor Authentication o del Server Azure Multi-Factor Authentication con ADFS vedere quanto segue:
+## <a name="next-steps"></a>Passaggi successivi
+Per informazioni sull'impostazione di Azure Multi-Factor Authentication o del server di Azure Multi-Factor Authentication con AD FS vedere gli articoli seguenti:
 
 * [Proteggere le risorse cloud mediante Azure Multi-Factor Authentication e ADFS](multi-factor-authentication-get-started-adfs-cloud.md)
 * [Proteggere le risorse del cloud e locali mediante Server Azure multi-Factor Authentication con ADFS Server Windows 2012 R2](multi-factor-authentication-get-started-adfs-w2k12.md)
 * [Proteggere le risorse del cloud e locali mediante Server Azure Multi-Factor Authentication con AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

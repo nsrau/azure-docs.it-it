@@ -1,4 +1,4 @@
-## Distribuire il modello ARM tramite l'interfaccia della riga di comando di Azure
+## <a name="deploy-the-arm-template-by-using-the-azure-cli"></a>Distribuire il modello ARM tramite l'interfaccia della riga di comando di Azure
 Per distribuire il modello di Gestione risorse di Azure scaricato tramite l'interfaccia della riga di comando di Azure, seguire questa procedura.
 
 1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../articles/xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
@@ -9,7 +9,7 @@ Per distribuire il modello di Gestione risorse di Azure scaricato tramite l'inte
     Di seguito è riportato l'output previsto per il comando precedente:
    
         info:    New mode is arm
-3. Se necessario, eseguire **`azure group create`** per creare un nuovo gruppo di risorse, come illustrato di seguito. Si noti l'output del comando. Nell'elenco riportato dopo l'output sono indicati i parametri usati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](../articles/resource-group-overview.md).
+3. Se necessario, eseguire **`azure group create`** per creare un nuovo gruppo di risorse, come illustrato di seguito. Si noti l'output del comando. Nell'elenco riportato dopo l'output sono indicati i parametri usati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](../articles/azure-resource-manager/resource-group-overview.md).
    
         azure group create -n TestRG -l centralus
    
@@ -85,4 +85,8 @@ Per distribuire il modello di Gestione risorse di Azure scaricato tramite l'inte
         data:
         info:    network vnet show command OK
 
-<!---HONumber=AcomDC_0323_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

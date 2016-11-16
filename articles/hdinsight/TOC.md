@@ -1,11 +1,12 @@
 # Panoramica
-## [Che cos'è Hadoop?](hdinsight-hadoop-introduction.md)
-## [Che cos'è R Server?](hdinsight-hadoop-r-server-overview.md)
-## [Che cos'è Spark?](hdinsight-apache-spark-overview.md)
-## [Che cos'è HBase?](hdinsight-hbase-overview.md)
-## [Che cos'è Storm?](hdinsight-storm-overview.md)
-## [Che cos'è un'anteprima di HDInsight aggiunto al dominio?](hdinsight-domain-joined-introduction.md)
+## [Hadoop](hdinsight-hadoop-introduction.md)
 ## [Componenti Hadoop in HDInsight](hdinsight-component-versioning.md)
+## [R Server](hdinsight-hadoop-r-server-overview.md)
+## [Apache Spark](hdinsight-apache-spark-overview.md)
+## [HBase](hdinsight-hbase-overview.md)
+## [Apache Storm](hdinsight-storm-overview.md)
+## [Anteprima di HDInsight aggiunto al dominio](hdinsight-domain-joined-introduction.md)
+
 # Attività iniziali
 ## [Iniziare a usare Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
 ## [Iniziare a usare l'anteprima di Interactive Hive](hdinsight-hadoop-use-interactive-hive.md)
@@ -13,14 +14,13 @@
 ## [Iniziare a usare Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [Iniziare a usare HBase e NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Iniziare a usare Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
-## [Eliminare un cluster](hdinsight-delete-cluster.md)
 ## [Sandbox Hadoop](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake Tools con Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Strumenti per Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
 ## [Usare l'archiviazione BLOB](hdinsight-hadoop-use-blob-storage.md)
-## [Percorso di apprendimento](https://azure.microsoft.com/en-us/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
+
 # Procedure
-## Hadoop: Query Batch
+## Usare Hadoop per l'invio di query in batch
 ### [Hive con Hadoop](hdinsight-use-hive.md)
 #### [Usare la visualizzazione Hive](hdinsight-hadoop-use-hive-ambari-view.md)
 #### [Usare SSH](hdinsight-hadoop-use-hive-ssh.md)
@@ -32,13 +32,13 @@
 #### [Usare Desktop remoto](hdinsight-hadoop-use-hive-remote-desktop.md)
 #### [Usare Console query](hdinsight-hadoop-use-hive-query-console.md)
 ### [Usare una funzione definita dall'utente Java con Hive](hdinsight-hadoop-hive-java-udf.md)
-### [MapReduce con Hadoop](hdinsight-use-mapreduce.md)
+### [Usare MapReduce con Hadoop](hdinsight-use-mapreduce.md)
 #### [Usare Desktop remoto](hdinsight-hadoop-use-mapreduce-remote-desktop.md)
 #### [Usare SSH](hdinsight-hadoop-use-mapreduce-ssh.md)
 #### [Usare cURL](hdinsight-hadoop-use-mapreduce-curl.md)
 #### [Usare PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md)
-### [Esempi di MapReduce](hdinsight-hadoop-run-samples-linux.md)
-### [Pig con Hadoop](hdinsight-use-pig.md)
+### [Eseguire gli esempi di MapReduce](hdinsight-hadoop-run-samples-linux.md)
+### [Usare Pig con Hadoop](hdinsight-use-pig.md)
 #### [Usare Desktop remoto](hdinsight-hadoop-use-pig-remote-desktop.md)
 #### [Usare SSH e Pig](hdinsight-hadoop-use-pig-ssh.md)
 #### [Usare PowerShell](hdinsight-hadoop-use-pig-powershell.md)
@@ -47,11 +47,11 @@
 ### [Usare DataFu con Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [Cluster su richiesta](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Inviare processi di Hadoop](hdinsight-submit-hadoop-jobs-programmatically.md)
-## Anteprima di R Server
+## Usare l'anteprima di R Server
 ### [Opzioni di archiviazione](hdinsight-hadoop-r-server-storage.md)
 ### [Installare RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [Contesti di calcolo](hdinsight-hadoop-r-server-compute-contexts.md)
-## Spark: elaborazione in memoria
+## Usare Spark per l'elaborazione in memoria
 ### [Con gli strumenti di business intelligence](hdinsight-apache-spark-use-bi-tools.md)
 ### [App autonoma](hdinsight-apache-spark-create-standalone-application.md)
 ### [Elaborare eventi di flusso](hdinsight-apache-spark-eventhub-streaming.md)
@@ -67,7 +67,7 @@
 ### [Gestire risorse](hdinsight-apache-spark-resource-manager.md)
 ### [Tenere traccia ed eseguire il debug dei processi](hdinsight-apache-spark-job-debugging.md)
 ### [Problemi noti](hdinsight-apache-spark-known-issues.md)
-## HBase: NoSQL
+## Usare HBase
 ### [Usare Phoenix e SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [Analizzare i tweet in tempo reale](hdinsight-hbase-analyze-twitter-sentiment.md)
 ### [Creare cluster in una rete virtuale](hdinsight-hbase-provision-vnet.md)
@@ -75,7 +75,7 @@
 ### [Configurare server DNS](hdinsight-hbase-geo-replication-configure-dns.md)
 ### [Configurare la replica geografica di HBase](hdinsight-hbase-geo-replication.md)
 ### [Sviluppare un'app con Java](hdinsight-hbase-build-java-maven-linux.md)
-## Storm: query di flusso
+## Usare Storm
 ### [Distribuire e gestire topologie](hdinsight-storm-deploy-monitor-topology-linux.md)
 ### [Sviluppare app di elaborazione dati in SCP](hdinsight-storm-scp-programming-guide.md)
 ### [Esempi su Storm](hdinsight-storm-example-topology.md)
@@ -90,7 +90,7 @@
 #### [Elaborare i dati dei sensori di un veicolo](hdinsight-storm-iot-eventhub-documentdb.md)
 #### [Correlare gli eventi nel tempo](hdinsight-storm-correlation-topology.md)
 #### [Sviluppare topologie usando Python](hdinsight-storm-develop-python-topology.md)
-## Anteprima di HDInsight aggiunto al dominio
+## Usare l'anteprima di HDInsight aggiunto al dominio
 ### [Configurare](hdinsight-domain-joined-configure.md)
 ### [Gestire](hdinsight-domain-joined-manage.md)
 ### [Configurare criteri Hive](hdinsight-domain-joined-run-hive.md)
@@ -104,7 +104,7 @@
 ### [Serializzare i dati con la libreria Avro](hdinsight-dotnet-avro-serialization.md)
 ### [Usare funzioni C# definite dall'utente](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 ### [Usare Python con Hive e Pig](hdinsight-python.md)
-## Soluzioni Big Data
+## Analizzare Big Data
 ### [Eseguire l'analisi con Power Query](hdinsight-connect-excel-power-query.md)
 ### [Connettere Excel a Hadoop](hdinsight-connect-excel-hive-odbc-driver.md)
 ### [Connettersi usando il driver JDBC Hive](hdinsight-connect-hive-jdbc-driver.md)
@@ -125,12 +125,12 @@
 ### [Usare Solr](hdinsight-hadoop-solr-install-linux.md)
 ### [Usare la rete virtuale](hdinsight-extend-hadoop-virtual-network.md)
 ### [Usare Zeppelin](hdinsight-apache-spark-use-zeppelin-notebook.md)
-### Applicazioni HDInsight
+### Sviluppare applicazioni HDInsight
 #### [Installare app HDInsight](hdinsight-apps-install-applications.md)
 #### [Installare app personalizzate](hdinsight-apps-install-custom-applications.md)
 #### [Usare REST per installare app](https://msdn.microsoft.com/library/mt706515.aspx)
 #### [Pubblicare app HDInsight in Azure Marketplace](hdinsight-apps-publish-applications.md)
-## Sicurezza
+## Proteggere
 ### [Usare il tunneling SSH](hdinsight-linux-ambari-ssh-tunnel.md)
 ### [Usare SSH da Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 ### [Usare SSH dal sistema operativo Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
@@ -172,6 +172,7 @@
 #### [Errore di memoria insufficiente corretto dalle impostazioni Hive](hdinsight-hadoop-hive-out-of-memory-error-oom.md)
 #### [Ottimizzare le query Hive](hdinsight-hadoop-optimize-hive-query.md)
 #### [Prestazioni delle query Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
+
 # Riferimento
 ## [Informazioni di riferimento sulle API REST](https://msdn.microsoft.com/library/mt622197.aspx)
 ## [API REST Spark per processi remoti](https://msdn.microsoft.com/library/mt613023.aspx)
@@ -179,8 +180,8 @@
 ## [.NET SDK per Hadoop](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [.NET SDK per HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [Libreria .NET per Avro](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
-# Risorse
-## [Ottenere informazioni sui forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
+
+# Risorse correlate
 ## Cluster Windows
 ### [Eseguire la migrazione di cluster Windows a cluster Linux](hdinsight-migrate-from-windows-to-linux.md)
 ### [Iniziare a usare Hadoop](hdinsight-hadoop-tutorial-get-started-windows.md)
@@ -210,6 +211,11 @@
 ### [Analizzare dati di Twitter](hdinsight-analyze-twitter-data.md)
 ### [Gestire i cluster con il portale di Azure](hdinsight-administer-use-management-portal.md)
 ### [Monitorare i cluster con l'API Ambari](hdinsight-monitor-use-ambari-api.md)
+
+# Risorse
+## [Ottenere informazioni sui forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
+## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
+
 
 <!--HONumber=Nov16_HO2-->
 

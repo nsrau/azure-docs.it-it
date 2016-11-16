@@ -1,13 +1,13 @@
 ---
-title: 'Esercitazione sul database SQL: creare un database SQL | Microsoft Docs'
-description: L'articolo fornisce informazioni su come configurare un server logico del database SQL, una regola firewall del server, un database SQL e dati di esempio. Fornisce anche informazioni su come connettersi con strumenti client, configurare utenti e impostare una regola firewall del database.
+title: 'Esercitazione sul database SQL: creare un database SQL | Documentazione Microsoft'
+description: L&quot;articolo fornisce informazioni su come configurare un server logico del database SQL, una regola firewall del server, un database SQL e dati di esempio. Fornisce anche informazioni su come connettersi con strumenti client, configurare utenti e impostare una regola firewall del database.
 keywords: esercitazione sul database sql, creare un database sql
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/07/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 914d5f7e6b8e9165fc8ba9021e1030b865ba5fb2
+
 
 ---
-# Esercitazione sul database SQL: Creare un database SQL in pochi minuti usando il portale di Azure
+# <a name="sql-database-tutorial-create-a-sql-database-in-minutes-by-using-the-azure-portal"></a>Esercitazione sul database SQL: Creare un database SQL in pochi minuti usando il portale di Azure
 > [!div class="op_single_selector"]
 > * [Portale di Azure](sql-database-get-started.md)
 > * [C#](sql-database-get-started-csharp.md)
@@ -36,7 +40,7 @@ Per eseguire le stesse attività è possibile usare [C#](sql-database-get-starte
 
 <a name="create-logical-server-bk"></a>
 
-## Creare il primo database SQL di Azure
+## <a name="create-your-first-azure-sql-database"></a>Creare il primo database SQL di Azure
 1. Se non è ancora stato fatto, connettersi al [portale di Azure](http://portal.azure.com).
 2. Fare clic su **Nuovo**, quindi su **Dati e archiviazione** e cercare **Database SQL**.
    
@@ -66,13 +70,13 @@ Per eseguire le stesse attività è possibile usare [C#](sql-database-get-starte
 11. Nella casella di testo **Nome del server** specificare un nome per il server, ad esempio "nuovo-oggetto-server-personale". Un segno di spunta verde indica che è stato specificato un nome valido.
     
     ![Nuovo database SQL 9](./media/sql-database-get-started/sql-database-new-database-9.png)
-12. In **Account di accesso amministratore server** specificare un nome utente per l'account di accesso amministratore per questo server, ad esempio "account-amministratore-personale". Questo è noto come account di accesso dell'entità server. Un segno di spunta verde indica che è stato specificato un nome valido.
+12. In **Account di accesso amministratore server**specificare un nome utente per l'account di accesso amministratore per questo server, ad esempio "account-amministratore-personale". Questo è noto come account di accesso dell'entità server. Un segno di spunta verde indica che è stato specificato un nome valido.
     
     ![Nuovo database SQL 10](./media/sql-database-get-started/sql-database-new-database-10.png)
-13. In **Password** e **Conferma password** specificare una password per l'account di accesso dell'entità server, ad esempio "p@ssw0rd1". Un segno di spunta verde indica che è stata specificata una password valida.
+13. In **Password** e **Conferma password** specificare una password per l'account di accesso dell'entità server, ad esempio "p@ssw0rd1".. Un segno di spunta verde indica che è stata specificata una password valida.
     
     ![Nuovo database SQL 11](./media/sql-database-get-started/sql-database-new-database-11.png)
-14. In **Località** selezionare un data center adatto alla propria località, ad esempio "Australia orientale".
+14. In **Località**selezionare un data center adatto alla propria località, ad esempio "Australia orientale".
     
     ![Nuovo database SQL 12](./media/sql-database-get-started/sql-database-new-database-12.png)
 15. Si noti che **Crea server V12 (ultimo aggiornamento) offre soltanto la possibilità di creare una versione corrente del server SQL Azure.
@@ -99,19 +103,24 @@ Per eseguire le stesse attività è possibile usare [C#](sql-database-get-starte
 > 
 > 
 
-[!INCLUDE [Creare una regola firewall del server](../../includes/sql-database-create-new-server-firewall-portal.md)]
+[!INCLUDE [Create server firewall rule](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Al termine dell'esercitazione sul database SQL e dopo aver creato un database con alcuni dati di esempio, è possibile iniziare l'esplorazione con gli strumenti preferiti.
 
 * Se si ha familiarità con Transact-SQL e SQL Server Management Studio (SSMS), vedere [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md).
 * Se si ha familiarità con Excel, vedere l'esercitazione [Connettere Excel a un database SQL di Azure e creare un report](sql-database-connect-excel.md).
 * Se si è pronti per iniziare a scrivere codice, scegliere il linguaggio di programmazione in [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md).
-* Per spostare i database SQL Server locali in Azure, vedere [Migrazione di un database SQL Server al database SQL nel cloud](sql-database-cloud-migrate.md).
+* Per spostare i database SQL Server locali in Azure, vedere [Migrazione di un database SQL Server al database SQL nel cloud](sql-database-cloud-migrate.md) .
 * Per caricare alcuni dati in una nuova tabella da un file CSV usando lo strumento da riga di comando BCP, vedere [Caricare dati da CSV in Azure SQL Data Warehouse (file flat)](sql-database-load-from-csv-with-bcp.md).
-* Per informazioni sulla sicurezza del database SQL di Azure, vedere l'[introduzione alla sicurezza](sql-database-get-started-security.md).
+* Per informazioni sulla sicurezza del database SQL di Azure, vedere l' [introduzione alla sicurezza](sql-database-get-started-security.md)
 
-## Risorse aggiuntive
+## <a name="additional-resources"></a>Risorse aggiuntive
 [Informazioni sul database SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

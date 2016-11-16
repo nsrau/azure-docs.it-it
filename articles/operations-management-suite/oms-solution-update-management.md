@@ -1,22 +1,26 @@
 ---
-title: Soluzione Gestione aggiornamenti in OMS | Microsoft Docs
-description: Questo articolo illustra l'uso di questa soluzione per gestire gli aggiornamenti per i computer Windows e Linux.
+title: Soluzione Gestione aggiornamenti in OMS | Documentazione Microsoft
+description: Questo articolo illustra l&quot;uso di questa soluzione per gestire gli aggiornamenti per i computer Windows e Linux.
 services: operations-management-suite
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/28/2016
+ms.date: 10/14/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4bd1e84fd9af1273f95f70d941c3a4535984c8a9
+
 
 ---
-# <a name="![update-management-solution-in-oms](./media/oms-solution-update-management/update-management-solution-icon.png)-update-management-solution-in-oms"></a>![Soluzione Gestione aggiornamenti in OMS](./media/oms-solution-update-management/update-management-solution-icon.png) Soluzione Gestione aggiornamenti in OMS
+# <a name="update-management-solution-in-omsmediaomssolutionupdatemanagementupdatemanagementsolutioniconpng-update-management-solution-in-oms"></a>![Soluzione Gestione aggiornamenti in OMS](./media/oms-solution-update-management/update-management-solution-icon.png) Soluzione Gestione aggiornamenti in OMS
 La soluzione Gestione aggiornamenti in OMS consente di gestire gli aggiornamenti per i computer Windows e Linux.  È possibile valutare rapidamente lo stato degli aggiornamenti disponibili in tutti i computer agente e avviare il processo di installazione degli aggiornamenti necessari per i server. 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -35,15 +39,13 @@ Eseguire questa procedura per aggiungere la soluzione Gestione aggiornamenti nel
 2. Nel portale OMS selezionare **Impostazioni** e quindi **Origini connesse**.  Prendere nota del valore di **ID area di lavoro** e di **Chiave primaria** o **Chiave secondaria**.
 3. Eseguire questa procedura per ogni computer Linux.
    
-   a.  Installare la versione più recente dell'agente OMS per Linux usando i comandi seguenti.  Sostituire <Workspace ID> con l'ID area di lavoro e <Key> con la chiave primaria o secondaria.
+   a.    Installare la versione più recente dell'agente OMS per Linux usando i comandi seguenti.  Sostituire <Workspace ID> con l'ID area di lavoro e <Key> con la chiave primaria o secondaria.
    
-       cd ~
-       wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh
-       sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
+     cd ~   wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh   sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
    
-    b. Per rimuovere l'agente, usare il comando seguente.
+   b. Per rimuovere l'agente, usare il comando seguente.
    
-       sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
+     sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
 
 ## <a name="management-packs"></a>Management Pack
 Se il gruppo di gestione di System Center Operations Manager è connesso all'area di lavoro di OMS, in Operations Manager verranno installati i Management Pack seguenti quando si aggiunge questa soluzione. Per questi Management Pack non è richiesta alcuna configurazione o manutenzione. 
@@ -95,7 +97,7 @@ Fare clic sul riquadro **Gestione aggiornamenti** per aprire il dashboard **Gest
 ![Visualizzazione dei pacchetti nel dashboard di Gestione aggiornamenti](./media/oms-solution-update-management/update-management-assessment-package-view.png)<br>  
 
 ## <a name="installing-updates"></a>Installazione degli aggiornamenti
-Dopo aver valutato gli aggiornamenti per tutti i computer nell'ambiente, è possibile installare gli aggiornamenti necessari creando una *distribuzione degli aggiornamenti*.  Una distribuzione degli aggiornamenti è un'installazione pianificata di aggiornamenti necessari per uno o più computer Windows.  Specificare la data e l'ora della distribuzione, oltre a un computer o gruppo di computer da includere.  
+Dopo aver valutato gli aggiornamenti per tutti i computer Windows nell'ambiente, è possibile installare gli aggiornamenti necessari creando una *distribuzione degli aggiornamenti*.  Una distribuzione degli aggiornamenti è un'installazione pianificata di aggiornamenti necessari per uno o più computer Windows.  Specificare la data e l'ora della distribuzione, oltre a un computer o gruppo di computer da includere.  
 
 Gli aggiornamenti vengono installati da runbook in Automazione di Azure.  Questi runbook non richiedono alcuna configurazione e non possono essere attualmente visualizzati.  Quando si crea una distribuzione degli aggiornamenti, viene creata una pianificazione che avvia un runbook di aggiornamento master alla data e ora specificata per i computer inclusi.  Questo runbook master avvia un runbook figlio in ogni agente Windows che esegue l'installazione degli aggiornamenti necessari.  
 
@@ -152,7 +154,7 @@ Viene creato un record di tipo **Aggiornamento** per ogni aggiornamento installa
 | Proprietà | Descrizione |
 | --- | --- |
 | Tipo |*Aggiornamento* |
-| SourceSystem |Origine che ha approvato l'installazione dell'aggiornamento.<br>I valori possibili sono:<br>- Microsoft Update<br>-  Windows Update<br>- SCCM<br>- Server Linux recuperati da Gestione pacchetti |
+| SourceSystem |Origine che ha approvato l'installazione dell'aggiornamento.<br>I valori possibili sono:<br>- Microsoft Update<br>- Windows Update<br>- SCCM<br>- Server Linux recuperati da Gestione pacchetti |
 | Approved |Specifica se l'aggiornamento è stato approvato per l'installazione.<br> Per i server Linux è attualmente facoltativo perché l'applicazione di patch non è gestita da OMS. |
 | Classificazione per Windows |Classificazione dell'aggiornamento.<br>I valori possibili sono:<br>- Applicazioni<br>- Aggiornamenti critici<br>- Aggiornamenti della definizione<br>- Feature Pack<br>- Aggiornamenti della sicurezza<br>- Service Pack<br>- Aggiornamenti cumulativi<br>- Aggiornamenti |
 | Classificazione per Linux |Classificazione dell'aggiornamento.<br>I valori possibili sono:<br>- Aggiornamenti critici<br>- Aggiornamenti della sicurezza<br>- Altri aggiornamenti |
@@ -237,6 +239,9 @@ La tabella seguente contiene esempi di ricerche log per i record di aggiornament
 * [Creare dashboard personalizzati](../log-analytics/log-analytics-dashboards.md) che indicano la conformità degli aggiornamenti per i computer gestiti.
 * [Creare avvisi](../log-analytics/log-analytics-alerts.md) quando aggiornamenti critici vengono rilevati come mancanti nei computer oppure quando gli aggiornamenti automatici sono disabilitati per un computer.  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

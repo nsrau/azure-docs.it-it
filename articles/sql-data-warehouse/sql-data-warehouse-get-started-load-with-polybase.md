@@ -1,12 +1,12 @@
 ---
-title: Esercitazione su PolyBase in SQL Data Warehouse | Microsoft Docs
+title: Esercitazione su PolyBase in SQL Data Warehouse | Documentazione Microsoft
 description: Informazioni su PolyBase e sul relativo uso per scenari di data warehousing.
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: 0a0103b4-ddd6-4d1e-87be-4965d6e99f3f
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 936bfcb7d4e7d2a901304f31a58b31e6cd14498a
+
 
 ---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Caricare dati con PolyBase in SQL Data Warehouse
@@ -40,7 +44,7 @@ Per eseguire questa esercitazione, sono necessari:
 
 * Un database di SQL Data Warehouse.
 * Un account di archiviazione di Azure di tipo Archiviazione con ridondanza locale Standard (Standard-LRS), Archiviazione con ridondanza geografica Standard (Standard-GRS) o Archiviazione con ridondanza geografica e accesso in lettura Standard (Standard-RAGRS).
-* Utilità da riga di comando di AzCopy. Scaricare e installare la [versione più recente di AzCopy][versione più recente di AzCopy] , installata insieme agli Strumenti di archiviazione di Microsoft Azure.
+* Utilità da riga di comando di AzCopy. Scaricare e installare la [versione più recente di AzCopy][versione più recente di AzCopy], installata insieme agli Strumenti di archiviazione di Microsoft Azure.
   
     ![Strumenti di archiviazione di Azure](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
@@ -123,11 +127,11 @@ PolyBase usa le tabelle esterne per accedere ai dati nell'archivio BLOB di Azure
 
 L'esempio in questo passaggio usa queste istruzioni Transact-SQL per creare una tabella esterna.
 
-* [Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)] per crittografare il segreto delle credenziali con ambito database.
-* [Create Database Scoped Credential (Transact-SQL)][Create Database Scoped Credential (Transact-SQL)] per specificare le informazioni di autenticazione per l'account di archiviazione di Azure.
-* [Create External Data Source (Transact-SQL)][Create External Data Source (Transact-SQL)] per specificare la posizione dell'archivio BLOB di Azure.
-* [Create External File Format (Transact-SQL)][Create External File Format (Transact-SQL)] per specificare il formato dei dati.
-* [Create External Table (Transact-SQL)][Create External Table (Transact-SQL)] per specificare la definizione di tabella e la posizione dei dati.
+* [CREATE MASTER KEY (Transact-SQL)][CREATE MASTER KEY (Transact-SQL)] per crittografare il segreto delle credenziali con ambito database.
+* [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)][CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)] per specificare le informazioni di autenticazione per l'account di archiviazione di Azure.
+* [CREATE EXTERNAL DATA SOURCE (Transact-SQL)][CREATE EXTERNAL DATA SOURCE (Transact-SQL)] per specificare la posizione dell'archivio BLOB di Azure.
+* [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][CREATE EXTERNAL FILE FORMAT (Transact-SQL)] per specificare il formato dei dati.
+* [CREATE EXTERNAL TABLE (Transact-SQL)][CREATE EXTERNAL TABLE (Transact-SQL)] per specificare la definizione di tabella e la posizione dei dati.
 
 Eseguire questa query nel database di SQL Data Warehouse. Verrà creata una tabella esterna denominata DimDate2External nello schema dbo che fa riferimento ai dati di esempio DimDate2.txt nell'archivio BLOB di Azure.
 
@@ -207,8 +211,8 @@ In Esplora oggetti di SQL Server in Visual Studio è possibile visualizzare il f
 ## <a name="step-3-load-data-into-sql-data-warehouse"></a>Passaggio 3: Caricare i dati in SQL Data Warehouse
 Dopo la creazione della tabella esterna, è possibile caricare i dati in una nuova tabella o inserirli in una tabella esistente.
 
-* Per caricare i dati in una nuova tabella, eseguire l'istruzione [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] . La nuova tabella includerà le colonne indicate nella query. I tipi di dati della colonna corrisponderanno ai tipi di dati nella definizione della tabella esterna.
-* Per caricare i dati in una tabella esistente, usare l'istruzione [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)] .
+* Per caricare i dati in una nuova tabella, eseguire l'istruzione [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]. La nuova tabella includerà le colonne indicate nella query. I tipi di dati della colonna corrisponderanno ai tipi di dati nella definizione della tabella esterna.
+* Per caricare i dati in una tabella esistente, usare l'istruzione [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)].
 
 ```sql
 -- Load the data from Azure blob storage to SQL Data Warehouse
@@ -237,7 +241,7 @@ CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 Per altre informazioni, vedere [Statistiche][Statistiche].  
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni utili durante lo sviluppo di una soluzione che usa PolyBase, vedere la [guida su PolyBase][guida su PolyBase] .
+Per altre informazioni utili durante lo sviluppo di una soluzione che usa PolyBase, vedere la [guida su PolyBase][guida su PolyBase].
 
 <!--Image references-->
 
@@ -274,6 +278,6 @@ Per altre informazioni utili durante lo sviluppo di una soluzione che usa PolyBa
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -64,6 +64,12 @@
 ### [Risolvere i problemi relativi a una raccolta ibrida](remoteapp-hybridtrouble.md)
 ### [Risolvere i problemi relativi a una raccolta cloud](remoteapp-cloudtrouble.md)
 
+# Risorse
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=remoteapp)
+## [Prezzi](https://azure.microsoft.com/pricing/details/remoteapp/)
+## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureRemoteApp)
+## [Video](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)
+
 
 <!--HONumber=Nov16_HO2-->
 

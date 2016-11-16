@@ -1,13 +1,14 @@
-## Differenze del servizio di bilanciamento del carico
+## <a name="load-balancer-differences"></a>Differenze del servizio di bilanciamento del carico
+
 Sono disponibili diverse opzioni per distribuire il traffico di rete tramite Microsoft Azure. Queste opzioni funzionano in modo diverso, vantano un set di funzionalità differenti e supportano diversi scenari. Possono essere utilizzate singolarmente o in combinazione.
 
 * **Azure Load Balancer** funziona al livello trasporto (livello 4 nello stack di riferimento di rete OSI). Assicura la distribuzione del traffico a livello di rete tra le istanze di un'applicazione in esecuzione nello stesso data center di Azure.
-* Il **gateway applicazione** funziona a livello di applicazione (livello 7 nello stack di riferimento di rete OSI). Agisce come un servizio di proxy inverso, terminando la connessione di client e inoltrando richieste a endpoint di back-end.
-* Il **servizio Gestione traffico** funziona a livello DNS. Usa le risposte DNS per indirizzare il traffico degli utenti finali agli endpoint distribuiti a livello globale. I client si connettono quindi direttamente a questi endpoint.
+* **gateway applicazione** funziona a livello di applicazione (livello 7 nello stack di riferimento di rete OSI). Agisce come un servizio di proxy inverso, terminando la connessione di client e inoltrando richieste a endpoint di back-end.
+* **servizio Gestione traffico** funziona a livello DNS.  Usa le risposte DNS per indirizzare il traffico degli utenti finali agli endpoint distribuiti a livello globale. I client si connettono quindi direttamente a questi endpoint.
 
 La tabella seguente riepiloga le funzionalità offerte da ogni servizio:
 
-| Service | Servizio di bilanciamento del carico di Azure | Gateway applicazione | Gestione traffico |
+| Service | Azure Load Balancer | gateway applicazione | servizio Gestione traffico |
 | --- | --- | --- | --- |
 | Tecnologia |Livello trasporto (livello 4) |Livello applicazione (livello 7) |Livello DNS |
 | Protocolli di applicazioni supportati |Qualsiasi |HTTP e HTTPS |Qualsiasi (è richiesto un endpoint HTTP per il monitoraggio degli endpoint) |
@@ -17,7 +18,7 @@ La tabella seguente riepiloga le funzionalità offerte da ogni servizio:
 
 Azure Load Balancer e il gateway applicazione di Azure indirizzano il traffico di rete agli endpoint, ma presentano diversi scenari di uso in base al traffico da gestire. La tabella seguente consente di comprendere la differenza tra i due servizi di bilanciamento del carico:
 
-| Tipo | Servizio di bilanciamento del carico di Azure | Gateway applicazione |
+| Tipo | Azure Load Balancer | gateway applicazione |
 | --- | --- | --- |
 | Protocolli |UDP/TCP |HTTP/HTTPS |
 | Prenotazione IP |Supportato |Non supportate |
@@ -26,4 +27,7 @@ Azure Load Balancer e il gateway applicazione di Azure indirizzano il traffico d
 | Probe di integrità |Predefinito: intervallo di probe - 15 secondi. Esclusione dalla rotazione: 2 errori ripetuti. Supporta le probe definite dall'utente |Inattivo: intervallo di probe - 30 secondi. Esclusione dopo 5 errori consecutivi di traffico live o un errore di probe singolo in modalità di inattività. Supporta le probe definite dall'utente |
 | Offload SSL |Non supportate |Supportato |
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Nov16_HO2-->
+
+

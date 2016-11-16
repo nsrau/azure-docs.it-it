@@ -1,19 +1,23 @@
 ---
-title: Creare la prima applicazione Infrastruttura di servizi in Visual Studio | Microsoft Docs
-description: Creare, distribuire ed eseguire il debug di un'applicazione Infrastruttura di servizi con Visual Studio
+title: Creare la prima applicazione Infrastruttura di servizi in Visual Studio | Documentazione Microsoft
+description: Creare, distribuire ed eseguire il debug di un&quot;applicazione Infrastruttura di servizi con Visual Studio
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: c3655b7b-de78-4eac-99eb-012f8e042109
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2016
+ms.date: 10/26/2016
 ms.author: ryanwi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 037dc010a6dc60eb49ad4fdad2861e8653e36199
+
 
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Creare la prima applicazione di Azure Service Fabric
@@ -71,7 +75,7 @@ A questo punto, è possibile provare a eseguire l'applicazione creata.
 1. Premere F5 in Visual Studio per compilare l'applicazione per il debug.
    
    > [!NOTE]
-   > La distribuzione richiederà alcuni minuti, perché Visual Studio crea un cluster locale per lo sviluppo. Un cluster locale esegue lo stesso codice della piattaforma che verrà creato in un cluster con più macchine virtuali, ma in una singola macchina virtuale. Lo stato della creazione del cluster verrà visualizzato nella finestra di output di Visual Studio.
+   > La distribuzione richiederà alcuni minuti, perché Visual Studio crea un cluster locale per lo sviluppo. Un cluster locale esegue lo stesso codice della piattaforma che viene creato in un cluster con più macchine virtuali, ma in una singola macchina virtuale. Lo stato della creazione del cluster verrà visualizzato nella finestra di output di Visual Studio.
    > 
    > 
    
@@ -96,7 +100,7 @@ A questo punto, è possibile provare a eseguire l'applicazione creata.
 4. Nel progetto di servizio trovare la classe che deriva da StatefulService, ad esempio MyStatefulService, e impostare un punto di interruzione sulla prima riga del metodo `RunAsync` .
    
     ![Punto di interruzione nel metodo RunAsync del servizio con stato][7]
-5. Fare clic con il pulsante destro del mouse sull'app dell'area di notifica Local Cluster Manager e scegliere **Manage Local Cluster** (Gestisci cluster locale) per avviare Service Fabric Explorer.
+5. Fare clic con il pulsante destro del mouse sull'app dell'area di notifica Local Cluster Manager e scegliere **Gestisci cluster locale** per avviare Service Fabric Explorer.
    
     ![Avvio di Service Fabric Explorer da Local Cluster Manager][systray-launch-sfx]
    
@@ -107,7 +111,7 @@ A questo punto, è possibile provare a eseguire l'applicazione creata.
     ![Arresto di un nodo in Service Fabric Explorer][sfx-stop-node]
    
     Verrà visualizzato il raggiungimento del punto di interruzione in Visual Studio mentre viene effettuato il failover del calcolo eseguito su un nodo in un altro nodo.
-8. Tornare al visualizzatore eventi di diagnostica e osservare i messaggi. Si noti che il contatore ha continuato ad aumentare anche se gli eventi provengono in effetti da un nodo diverso.
+8. Tornare al visualizzatore eventi di diagnostica e osservare i messaggi. Il contatore ha continuato ad aumentare anche se gli eventi provengono in effetti da un nodo diverso.
    
     ![Visualizzatore eventi di diagnostica dopo il failover][diagnostic-events-viewer-detail-post-failover]
 
@@ -116,7 +120,7 @@ Per impostazione predefinita, il cluster di sviluppo locale è configurato per e
 
 ![Cambiare la modalità cluster][switch-cluster-mode]
 
-Quando si cambia la modalità cluster, il cluster di sviluppo viene reimpostato e tutte le applicazioni di cui è stato effettuato il provisioning o che sono in esecuzione nel cluster verranno rimosse.
+Quando si cambia la modalità cluster, il cluster di sviluppo viene reimpostato e tutte le applicazioni di cui è stato effettuato il provisioning o che sono in esecuzione nel cluster vengono rimosse.
 
 ## <a name="cleaning-up"></a>+ Cleaning up
   Prima di concludere, è importante ricordare che il cluster locale è molto reale. L'arresto del debugger rimuove l'istanza dell'applicazione e annulla la registrazione del tipo di applicazione. L'esecuzione del cluster tuttavia continua in background. A questo scopo, sono disponibili diverse opzioni per gestire il cluster:
@@ -147,6 +151,6 @@ Quando si cambia la modalità cluster, il cluster di sviluppo viene reimpostato 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

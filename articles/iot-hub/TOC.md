@@ -1,5 +1,4 @@
 # Panoramica
-## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Azure e IoT](iot-hub-what-is-azure-iot.md)
 ## [Che cos'è l'hub IoT di Azure?](iot-hub-what-is-iot-hub.md)
 ## [Panoramica della gestione dei dispositivi](iot-hub-device-management-overview.md)
@@ -28,22 +27,23 @@
 ### [Risoluzione dei problemi](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
 ## [Introduzione a Gateway SDK (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Introduzione a Gateway SDK (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
+## Esercitazioni
+### [Esercitazione sull'elaborazione dei messaggi da dispositivo a cloud (.NET)](iot-hub-csharp-csharp-process-d2c.md)
+### [Esercitazione sull'elaborazione dei messaggi da dispositivo a cloud (Java)](iot-hub-java-java-process-d2c.md)
+### [Esercitazione sul caricamento di file da dispositivi](iot-hub-csharp-csharp-file-upload.md)
+### [Inviare messaggi da cloud a dispositivo (.NET)](iot-hub-csharp-csharp-c2d.md)
+### [Inviare messaggi da cloud a dispositivo (Java)](iot-hub-java-java-c2d.md)
+### [Inviare messaggi da cloud a dispositivo (Node)](iot-hub-node-node-c2d.md)
+### [Introduzione ai dispositivi gemelli](iot-hub-node-node-twin-getstarted.md)
+### [Come usare le proprietà dei dispositivi gemelli](iot-hub-node-node-twin-how-to-configure.md)
 
 # Procedure
-## [Esercitazione sull'elaborazione dei messaggi da dispositivo a cloud (.NET)](iot-hub-csharp-csharp-process-d2c.md)
-## [Esercitazione sull'elaborazione dei messaggi da dispositivo a cloud (Java)](iot-hub-java-java-process-d2c.md)
-## [Esercitazione sul caricamento di file da dispositivi](iot-hub-csharp-csharp-file-upload.md)
-## [Inviare messaggi da cloud a dispositivo (.NET)](iot-hub-csharp-csharp-c2d.md)
-## [Inviare messaggi da cloud a dispositivo (Java)](iot-hub-java-java-c2d.md)
-## [Inviare messaggi da cloud a dispositivo (Node)](iot-hub-node-node-c2d.md)
-## [Introduzione ai dispositivi gemelli](iot-hub-node-node-twin-getstarted.md)
-## [Come usare le proprietà dei dispositivi gemelli](iot-hub-node-node-twin-how-to-configure.md)
 ## Pianificare la distribuzione
 ### [Confronto tra hub IoT e Hub eventi](iot-hub-compare-event-hubs.md)
 ### [Ridimensionare una soluzione](iot-hub-scaling.md)
 ### [Disponibilità elevata e ripristino di emergenza](iot-hub-ha-dr.md)
 ### [Supporto di protocolli aggiuntivi](iot-hub-protocol-gateway.md)
-## Guida per sviluppatori
+## Sviluppare
 ### [Introduzione](iot-hub-devguide.md)
 ### [Inviare e ricevere messaggi](iot-hub-devguide-messaging.md)
 ### [Caricare file da un dispositivo](iot-hub-devguide-file-upload.md)
@@ -69,26 +69,27 @@
 ### [Metriche di utilizzo](iot-hub-metrics.md)
 ### [Monitoraggio delle operazioni](iot-hub-operations-monitoring.md)
 
-## Sicurezza
+## Proteggere
 ### [Sicurezza sin dall'inizio](iot-hub-security-ground-up.md)
 ### [Procedure di sicurezza consigliate](iot-hub-security-best-practices.md)
 ### [Architettura di sicurezza](iot-hub-security-architecture.md)
 ### [Proteggere la distribuzione di IoT](iot-hub-security-deployment.md)
+
+
+# Riferimento
+## [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure)
+## [Java](https://docs.microsoft.com/java/api)
+## [API .NET](https://docs.microsoft.com/dotnet/api)
 ## Gateway SDK
 ### [Esercitazione sulla simulazione di un dispositivo con Gateway SDK (Linux)](iot-hub-linux-gateway-sdk-simulated-device.md)
 ### [Esercitazione sulla simulazione di un dispositivo con Gateway SDK (Windows)](iot-hub-windows-gateway-sdk-simulated-device.md)
 ### [Esercitazione sull'invio di messaggi da un dispositivo reale con Gateway SDK](iot-hub-gateway-sdk-physical-device.md)
-
-# Riferimento
-## [API .NET per dispositivi e client](https://msdn.microsoft.com/library/mt488521.aspx)
-## [API REST del provider di risorse](https://docs.microsoft.com/rest/api/iothub/iothubresource)
-## [API REST per le identità dei dispositivi](https://go.microsoft.com/fwlink/p/?linkid=833394)
-## [API REST per la messaggistica dei dispositivi](https://go.microsoft.com/fwlink/p/?linkid=833395)
 ## [API degli SDK per dispositivi](http://azure.github.io/azure-iot-sdks/)
 ## [API di Gateway SDK](http://azure.github.io/azure-iot-gateway-sdk)
 ## [Introduzione ad Azure IoT SDK per dispositivi per C](iot-hub-device-sdk-c-intro.md)
 ## [IoT SDK per dispositivi per C: altre informazioni su IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ## [IoT SDK per dispositivi per C: altre informazioni sul serializzatore](iot-hub-device-sdk-c-serializer.md)
+## [REST](https://docs.microsoft.com/en-us/rest/api/iothub/)
 
 # Risorse correlate
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
@@ -97,9 +98,15 @@
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 # Risorse
+## [Prezzi](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub) 
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
+## [Video](https://azure.microsoft.com/documentation/videos/index/?services=iot-hub) 
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=iot-hub) 
+## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Centro per sviluppatori Azure IoT](https://azure.microsoft.com/develop/iot/)
 ## [Catalogo dei dispositivi Azure Certified per IoT](https://catalog.azureiotsuite.com/)
-## [Informazioni sui prezzi](https://azure.microsoft.com/pricing/details/iot-hub/)
+
 
 
 <!--HONumber=Nov16_HO2-->

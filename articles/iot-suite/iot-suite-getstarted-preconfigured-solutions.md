@@ -1,13 +1,13 @@
 ---
-title: Introduzione alle soluzioni preconfigurate IoT | Microsoft Docs
+title: Introduzione alle soluzioni preconfigurate | Documentazione Microsoft
 description: Seguire questa esercitazione per apprendere come distribuire una soluzione preconfigurata di Azure IoT Suite.
-services: ''
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 6ab38d1a-b564-469e-8a87-e597aa51d0f7
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: hero-article
@@ -15,11 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8ec86ebefccaf74c67cb7917ccf7d538bc95ae07
+
 
 ---
-# Esercitazione: Introduzione alle soluzioni preconfigurate
-## Introduzione
-Le [soluzioni preconfigurate ][lnk-preconfigured-solutions] di Azure IoT Suite combinano più servizi IoT di Azure per fornire soluzioni end-to-end che implementano scenari aziendali IoT comuni. La soluzione preconfigurata per il *monitoraggio remoto* si connette ai dispositivi e li monitora. È possibile usare la soluzione per analizzare il flusso di dati dai dispositivi e di migliorare i risultati aziendali facendo in modo che i processi rispondano automaticamente a quel flusso di dati.
+# <a name="tutorial-get-started-with-the-preconfigured-solutions"></a>Esercitazione: Introduzione alle soluzioni preconfigurate
+## <a name="introduction"></a>Introduzione
+Le [soluzioni preconfigurate][lnk-preconfigured-solutions] di Azure IoT Suite combinano più servizi IoT di Azure per fornire soluzioni end-to-end per l'implementazione di scenari aziendali IoT comuni. La soluzione preconfigurata per il *monitoraggio remoto* si connette ai dispositivi e li monitora. È possibile usare la soluzione per analizzare il flusso di dati dai dispositivi e di migliorare i risultati aziendali facendo in modo che i processi rispondano automaticamente a quel flusso di dati.
 
 Questa esercitazione illustra come effettuare il provisioning della soluzione preconfigurata per il monitoraggio remoto. Ne descrive anche le funzionalità di base. È possibile accedere a molte di queste funzionalità tramite il dashboard distribuito insieme alla soluzione preconfigurata:
 
@@ -28,16 +32,16 @@ Questa esercitazione illustra come effettuare il provisioning della soluzione pr
 Per completare l'esercitazione, è necessaria una sottoscrizione di Azure attiva.
 
 > [!NOTE]
-> Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][lnk_free_trial].
+> Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [Versione di valutazione gratuita di Azure][lnk_free_trial].
 > 
 > 
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
-## Visualizzare il dashboard della soluzione
+## <a name="view-the-solution-dashboard"></a>Visualizzare il dashboard della soluzione
 Il dashboard della soluzione consente di gestire la soluzione distribuita. Ad esempio, è possibile visualizzare dati di telemetria, aggiungere dispositivi e configurare regole.
 
-1. Al termine del provisioning quando il riquadro della soluzione preconfigurata indica **Pronto**, fare clic su **Avvia** per aprire il portale della soluzione di monitoraggio remoto in una nuova scheda.
+1. Al termine del provisioning, quando il riquadro della soluzione preconfigurata indica **Pronto**, fare clic su **Avvia** per aprire il portale della soluzione di monitoraggio remoto in una nuova scheda.
    
    ![Avviare la soluzione preconfigurata][img-launch-solution]
 2. Per impostazione predefinita, il portale della soluzione visualizza il *dashboard della soluzione*. È possibile selezionare altre viste usando il menu a sinistra.
@@ -50,10 +54,10 @@ Il dashboard visualizza le informazioni seguenti:
 * Il pannello **Cronologia telemetria** traccia la telemetria di umidità e temperatura da un dispositivo selezionato in tempo quasi reale e visualizza i dati aggregati, ad esempio l'umidità massima, minima e media.
 * Il pannello **Cronologia avvisi** mostra gli eventi di avviso recenti relativi a quando un valore di telemetria ha superato una soglia. È possibile definire i propri avvisi oltre agli esempi creati dalla soluzione preconfigurata.
 
-## Visualizzare l'elenco dei dispositivi
+## <a name="view-the-device-list"></a>Visualizzare l'elenco dei dispositivi
 L'elenco dei dispositivi mostra tutti i dispositivi registrati nella soluzione. Permette di visualizzare e modificare metadati dei dispositivi, aggiungere o rimuovere dispositivi e inviare comandi ai dispositivi.
 
-1. Fare clic su **Dispositivi** nel menu a sinistra per passare all'*elenco dei dispositivi* per questa soluzione.
+1. Fare clic su **Dispositivi** nel menu a sinistra per passare all' *elenco dei dispositivi* per questa soluzione.
    
    ![Elenco dei dispositivi nel dashboard][img-devicelist]
 2. L'elenco di dispositivi mostra che sono presenti quattro dispositivi simulati creati dal processo di provisioning.
@@ -67,7 +71,7 @@ Il pannello **Dettagli dispositivo** contiene tre sezioni:
 * La sezione **Proprietà dispositivo** elenca i metadati del dispositivo. Alcuni di questi metadati provengono dal dispositivo stesso (ad esempio, il produttore), altri invece vengono generati dalla soluzione (ad esempio, l'ora di creazione). È possibile modificare i metadati del dispositivo da qui.
 * La sezione **Chiavi di autenticazione** elenca le chiavi che il dispositivo può usare per l'autenticazione con la soluzione.
 
-## Inviare un comando a un dispositivo
+## <a name="send-a-command-to-a-device"></a>Inviare un comando a un dispositivo
 Il riquadro dei dettagli del dispositivo mostra tutti i comandi supportati da un dispositivo specifico e consente di inviare comandi a un dispositivo. Quando un dispositivo viene avviato per la prima volta, invia alla soluzione informazioni sui comandi che supporta.
 
 1. Fare clic su **Comandi** nel riquadro dei dettagli del dispositivo selezionato.
@@ -81,7 +85,7 @@ Il riquadro dei dettagli del dispositivo mostra tutti i comandi supportati da un
 
 La soluzione tiene traccia dello stato di ogni comando inviato. All'inizio il risultato è **In sospeso**. Quando il dispositivo segnala che il comando è stato eseguito, il risultato viene impostato su **Operazione riuscita**.
 
-## Aggiungere un nuovo dispositivo simulato
+## <a name="add-a-new-simulated-device"></a>Aggiungere un nuovo dispositivo simulato
 Quando si distribuisce la soluzione preconfigurata, viene effettuato automaticamente il provisioning di quattro dispositivi di esempio visibili nell'elenco dei dispositivi. Si tratta di *dispositivi simulati* in esecuzione in un processo Web di Azure. I dispositivi simulati consentono di provare facilmente la soluzione preconfigurata senza la necessità di distribuire dispositivi fisici reali. Per connettere un dispositivo reale alla soluzione, vedere l'esercitazione [Connettere il dispositivo alla soluzione preconfigurata per il monitoraggio remoto][lnk-connect-rm].
 
 La procedura seguente illustra come aggiungere un dispositivo simulato alla soluzione:
@@ -90,28 +94,28 @@ La procedura seguente illustra come aggiungere un dispositivo simulato alla solu
 2. Fare clic su **+ Aggiungi dispositivo** nell'angolo in basso a sinistra per aggiungere un dispositivo.
    
    ![Aggiungere un dispositivo alla soluzione preconfigurata][img-adddevice]
-3. Fare clic su **Aggiungi nuovo** nel riquadro **Dispositivo simulato**.
+3. Fare clic su **Aggiungi nuovo** nel riquadro **Simulated Device** (Dispositivo simulato).
    
    ![Impostare i dettagli del nuovo dispositivo nel dashboard][img-addnew]
    
-   Oltre a creare un nuovo dispositivo simulato, è anche possibile aggiungere un dispositivo fisico se si sceglie di creare un **dispositivo personalizzato**. Per altre informazioni sulla connessione di dispositivi fisici alla soluzione, vedere [Connettere il dispositivo alla soluzione preconfigurata per il monitoraggio remoto IoT Suite][lnk-connect-rm].
-4. Selezionare **Definire l'ID dispositivo** e aggiungere un nome di ID dispositivo univoco, ad esempio **mydevice\_01**.
+   Oltre a creare un nuovo dispositivo simulato, è anche possibile aggiungere un dispositivo fisico se si sceglie di creare un **dispositivo personalizzato**. Per altre informazioni sulla connessione di dispositivi fisici alla soluzione, vedere [Connettere il dispositivo alla soluzione preconfigurata per il monitoraggio remoto][lnk-connect-rm].
+4. Selezionare **Let me define my own Device ID** (Definire l'ID dispositivo personale) e immettere un nome di ID dispositivo univoco, ad esempio **mydevice_01**.
 5. Fare clic su **Crea**.
    
    ![Salvare un nuovo dispositivo][img-definedevice]
-6. Nel passaggio 3 della procedura **Aggiungi un dispositivo simulato** fare clic su **Operazione completata** per tornare all'elenco dei dispositivi.
-7. Verificare che lo stato del dispositivo nell'elenco sia **In esecuzione**.
+6. Nel passaggio 3 della procedura **Aggiungere un nuovo dispositivo simulato** fare clic su **Fatto** per tornare all'elenco dei dispositivi.
+7. Verificare che lo stato del dispositivo nell'elenco sia **In esecuzione** .
    
     ![Visualizzare il nuovo dispositivo nell'elenco dei dispositivi][img-runningnew]
 8. È anche possibile visualizzare la telemetria simulata dal nuovo dispositivo nel dashboard:
    
     ![Visualizzare i dati di telemetria dal nuovo dispositivo][img-runningnew-2]
 
-## Modificare i metadati del dispositivo
+## <a name="edit-the-device-metadata"></a>Modificare i metadati del dispositivo
 Quando un dispositivo si connette per la prima volta alla soluzione, invia i propri metadati alla soluzione. Quando si modificano i metadati del dispositivo nel dashboard della soluzione, i nuovi valori dei metadati vengono inviati al dispositivo e archiviati nel database DocumentDB della soluzione. Per altre informazioni, vedere [Registro delle identità dei dispositivi e DocumentDB][lnk-devicemetadata].
 
 1. Tornare all'elenco dei dispositivi.
-2. Selezionare il nuovo dispositivo in **Elenco dei dispositivi** e quindi fare clic su **Modifica** per modificare **Proprietà dispositivo**:
+2. Selezionare il nuovo dispositivo in **Devices List** (Elenco dei dispositivi) e quindi fare clic su **Modifica** per modificare le proprietà in **Device Properties** (Proprietà dispositivo):
    
    ![Modificare i metadati del dispositivo][img-editdevice]
 3. Scorrere verso il basso e modificare i valori di latitudine e longitudine. Fare quindi clic su **Salva le modifiche al Registro di sistema del dispositivo**.
@@ -121,11 +125,11 @@ Quando un dispositivo si connette per la prima volta alla soluzione, invia i pro
    
     ![Modificare i metadati del dispositivo][img-editdevice3]
 
-## Aggiungere una regola per il nuovo dispositivo
+## <a name="add-a-rule-for-the-new-device"></a>Aggiungere una regola per il nuovo dispositivo
 Non sono presenti regole per il nuovo dispositivo appena aggiunto. In questa sezione si aggiunge una regola che attiva un avviso quando la temperatura segnalata dal nuovo dispositivo supera i 47 gradi. Prima di iniziare, si noti che la cronologia della telemetria per il nuovo dispositivo nel dashboard indica che la temperatura del dispositivo non supera mai i 45 gradi.
 
 1. Tornare all'elenco dei dispositivi.
-2. Selezionare il nuovo dispositivo in **Elenco dei dispositivi** e quindi fare clic su **Aggiungi regola** per aggiungere una regola per il dispositivo.
+2. Selezionare il nuovo dispositivo in **Devices List** (Elenco dei dispositivi) e quindi fare clic su **Aggiungi regola** per aggiungere una regola per il dispositivo.
 3. Creare una regola che usa **Temperature** come campo dati e **AlarmTemp** come output quando la temperatura supera i 47 gradi:
    
     ![Aggiungere una regola per il dispositivo][img-adddevicerule]
@@ -147,11 +151,11 @@ Non sono presenti regole per il nuovo dispositivo appena aggiunto. In questa sez
     ![Elenco delle azioni per il dispositivo][img-actions]
 
 > [!NOTE]
-> È possibile definire azioni che possono inviare un messaggio di posta elettronica o un SMS in risposta a una regola oppure eseguire un'integrazione con un sistema line-of-business tramite un'[app per la logica][lnk-logic-apps]. Per altre informazioni, vedere [Connettere l'app per la logica alla soluzione preconfigurata per il monitoraggio remoto Azure IoT Suite][lnk-logicapptutorial].
+> È possibile definire azioni che possono inviare un messaggio di posta elettronica o un SMS in risposta a una regola oppure eseguire un'integrazione con un sistema line-of-business tramite un'[app per la logica][lnk-logic-apps]. Per altre informazioni, vedere [Connect Logic App to your Azure IoT Suite Remote Monitoring preconfigured solution][lnk-logicapptutorial] (Connettere l'app per la logica alla soluzione preconfigurata per il monitoraggio remoto di Azure IoT Suite).
 > 
 > 
 
-## Altre funzionalità
+## <a name="other-features"></a>Altre funzionalità
 Tramite il portale della soluzione è possibile cercare i dispositivi con caratteristiche specifiche, ad esempio un numero di modello:
 
 ![Cercare un dispositivo][img-search]
@@ -160,14 +164,14 @@ Tramite il portale della soluzione è possibile cercare i dispositivi con caratt
 
 ![Disabilitare e rimuovere un dispositivo][img-disable]
 
-## Dietro le quinte
+## <a name="behind-the-scenes"></a>Dietro le quinte
 Quando si distribuisce una soluzione preconfigurata, il processo di distribuzione crea più risorse nella sottoscrizione di Azure selezionata. È possibile visualizzare queste risorse nel [portale][lnk-portal] di Azure. Il processo di distribuzione crea un **gruppo di risorse** con un nome basato sul nome scelto per la soluzione preconfigurata:
 
 ![Soluzione preconfigurata nel portale di Azure][img-portal]
 
 È possibile visualizzare le impostazioni di ogni risorsa selezionandola nell'elenco di risorse nel gruppo di risorse.
 
-È anche possibile visualizzare il codice sorgente per la soluzione preconfigurata. Il codice sorgente della soluzione preconfigurata per il monitoraggio remoto si trova nel repository GitHub [azure-iot-remote-monitoring][lnk-rmgithub]\:
+È anche possibile visualizzare il codice sorgente per la soluzione preconfigurata. Il codice sorgente della soluzione preconfigurata per il monitoraggio remoto si trova nel repository GitHub [azure-iot-remote-monitoring][lnk-rmgithub]:
 
 * La cartella **DeviceAdministration** contiene il codice sorgente per il dashboard.
 * La cartella **Simulator** contiene il codice sorgente per il dispositivo simulato.
@@ -176,11 +180,11 @@ Quando si distribuisce una soluzione preconfigurata, il processo di distribuzion
 Al termine, è possibile eliminare la soluzione preconfigurata dalla sottoscrizione di Azure nel sito [azureiotsuite.com][lnk-azureiotsuite]. Questo sito consente di eliminare facilmente tutte le risorse di cui è stato effettuato il provisioning quando si è creata la soluzione preconfigurata.
 
 > [!NOTE]
-> Per assicurarsi di eliminare tutti gli elementi correlati alla soluzione preconfigurata, eliminarli dal sito [azureiotsuite.com][lnk-azureiotsuite] e non limitarsi a eliminare il gruppo di risorse nel portale.
+> Per assicurarsi di eliminare tutti gli elementi correlati alla soluzione preconfigurata, eliminarli nel sito [azureiotsuite.com][lnk-azureiotsuite] e non limitarsi a eliminare il gruppo di risorse nel portale.
 > 
 > 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Dopo aver distribuito una soluzione preconfigurata è possibile proseguire con l'introduzione a IoT Suite vedendo gli articoli seguenti:
 
 * [Procedura dettagliata della soluzione preconfigurata per il monitoraggio remoto][lnk-rm-walkthrough]
@@ -223,4 +227,8 @@ Dopo aver distribuito una soluzione preconfigurata è possibile proseguire con l
 [lnk-connect-rm]: iot-suite-connecting-devices.md
 [lnk-permissions]: iot-suite-permissions.md
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

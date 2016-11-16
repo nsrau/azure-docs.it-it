@@ -9,4 +9,6 @@
 [lnk_vm]: ../articles/virtual-machines/virtual-machines-windows-about.md
 [lnk_cloud]: ../articles/cloud-services/cloud-services-choose-me.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!--HONumber=Nov16_HO2-->
+
+

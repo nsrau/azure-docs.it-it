@@ -1,25 +1,29 @@
 ---
-title: Panoramica delle connessioni ibride | Microsoft Docs
+title: Panoramica delle connessioni ibride | Documentazione Microsoft
 description: Informazioni sulle connessioni ibride, sulla sicurezza, sulle porte TCP e sulle configurazioni supportate. MABS, WABS.
 services: biztalk-services
-documentationcenter: ''
+documentationcenter: 
 author: MandiOhlinger
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 216e4927-6863-46e7-aa7c-77fec575c8a6
 ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2016
-ms.author: mandia
+ms.date: 10/18/2016
+ms.author: ccompy
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 397a922bf3bf4c39c89f5f69015de4942bda0af9
+
 
 ---
-# Panoramica delle connessioni ibride
+# <a name="hybrid-connections-overview"></a>Panoramica delle connessioni ibride
 Presenta la funzionalità Connessioni ibride, descrive le configurazioni supportate e indica le porte TCP necessarie.
 
-## Informazioni sulle connessioni ibride
+## <a name="what-is-a-hybrid-connection"></a>Informazioni sulle connessioni ibride
 La funzionalità Connessioni ibride è inclusa in Servizi BizTalk di Azure. La funzionalità Connessioni ibride consente di connettere in modo facile e intuitivo la funzione App Web di Azure App Service (in precedenza siti Web) e la funzione App per dispositivi mobili di Azure App Service (in precedenza Servizi mobili) alle risorse locali protette da firewall.
 
 ![connessioni ibride][HCImage]
@@ -44,7 +48,7 @@ La funzionalità Connessioni ibride offre inoltre agli amministratori dell'organ
 * Tramite le impostazioni di Criteri di gruppo, gli amministratori possono consentire connessioni ibride alla rete e indicare le risorse a cui le applicazioni ibride possono accedere.
 * Log eventi e di controllo sulla rete aziendale offrono visibilità sulle risorse a cui accedono le connessioni ibride.
 
-## Scenari di esempio
+## <a name="example-scenarios"></a>Scenari di esempio
 La funzionalità Connessioni ibride supporta le combinazioni di framework e applicazioni seguenti:
 
 * Accesso di .NET Framework a SQL Server
@@ -61,7 +65,7 @@ Quando si usa la funzionalità Connessioni ibride per accedere a SQL Server loca
 * La modalità `ApplicationIntent=ReadOnly` non è attualmente supportata.
 * Potrebbe essere necessaria l'autenticazione SQL come metodo di autorizzazione end-to-end supportato dall'applicazione Azure e dall'istanza di SQL Server locale.
 
-## Sicurezza e porte
+## <a name="security-and-ports"></a>Sicurezza e porte
 La funzionalità Connessioni ibride usa l'autorizzazione con firma di accesso condiviso per proteggere le connessioni tra le applicazioni Azure e Gestione connessioni ibride locale. Vengono create chiavi di connessione separate per l'applicazione e per Gestione connessioni ibride locale. È possibile eseguire il rollover e revocare queste chiavi di connessione in modo indipendente.
 
 La funzionalità Connessioni ibride garantisce la distribuzione sicura delle chiavi alle applicazioni e a Gestione connessioni ibride locale.
@@ -70,7 +74,7 @@ Vedere [Creare e gestire connessioni ibride](integration-hybrid-connection-creat
 
 *L'autorizzazione dell'applicazione è separata dalla connessione ibrida*. È possibile usare qualsiasi metodo di autorizzazione appropriato. Il metodo di autorizzazione dipende dai metodi di autorizzazione end-to-end supportati nel cloud di Azure e nei componenti locali. Si supponga, ad esempio, che l'applicazione Azure acceda a un'istanza di SQL Server locale. In questo scenario l'autorizzazione SQL potrebbe costituire il metodo di autorizzazione end-to-end supportato.
 
-#### Porte TCP
+#### <a name="tcp-ports"></a>Porte TCP
 La funzionalità Connessioni ibride richiede solo la connettività TCP o HTTP in uscita dalla rete privata. Non è necessario aprire le porte firewall o modificare la configurazione del perimetro di rete per consentire la connettività in ingresso alla rete.
 
 Le seguenti porte TCP vengono usate dalle connessioni ibride:
@@ -79,17 +83,26 @@ Le seguenti porte TCP vengono usate dalle connessioni ibride:
 | --- | --- |
 | 9350 - 9354 |Queste porte vengono usate per la trasmissione dei dati. La gestione dell'inoltro del bus di servizio verifica la porta 9350 per determinare se è disponibile la connettività TCP. Se è disponibile, presuppone che sia disponibile anche la porta 9352. Il traffico dati passerà per la porta 9352. <br/><br/>Consentire le connessioni in uscita in queste porte. |
 | 5671 |Quando la porta 9352 viene utilizzata per il traffico dati, la porta 5671 viene utilizzata come il canale di controllo. <br/><br/>Consentire le connessioni in uscita in questa porta. |
-| 80, 443 |Queste porte vengono usate per alcune richieste di dati in Azure. Se non è possibile usare le porte 9352 e 5671, verranno usate le porte 80 e 443 come porte di fallback per la trasmissione dei dati e il canale di controllo.<br/><br/>Consentire le connessioni in uscita in queste porte. <br/><br/>**Nota** Non è consigliabile usare queste porte come porte di fallback al posto delle altre porte TCP. HTTP/WebSocket viene utilizzato come protocollo al posto del protocollo TCP nativo per i canali di dati. Può comportare prestazioni ridotte. |
+| 80, 443 |Queste porte vengono usate per alcune richieste di dati in Azure. Inoltre, se le porte 9352 e 5671 non possono essere impiegate, *allora*verranno usate le porte 80 e 443 come porte di fallback per la trasmissione dei dati e il canale di controllo.<br/><br/>Consentire le connessioni in uscita in queste porte. <br/><br/>**Nota** Non è consigliabile usare queste porte come porte di fallback al posto delle altre porte TCP. HTTP/WebSocket viene utilizzato come protocollo al posto del protocollo TCP nativo per i canali di dati. Può comportare prestazioni ridotte. |
 
-## Passaggi successivi
-[Creare e gestire connessioni ibride](integration-hybrid-connection-create-manage.md)<br/> [Connettere un sito Web d Azure a una risorsa locale](../app-service-web/web-sites-hybrid-connection-get-started.md)<br/> [Connettersi a un’istanza di SQL Server locale da un’app Web di Azure](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/> [Servizi mobili di Azure e connessioni ibride](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md)
+## <a name="next-steps"></a>Passaggi successivi
+[Create and manage Hybrid Connections](integration-hybrid-connection-create-manage.md)<br/>
+[Connettere le app Web a una risorsa locale](../app-service-web/web-sites-hybrid-connection-get-started.md)<br/>
+[Connettersi a un'istanza di SQL Server locale da un'app Web di Azure](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/>
 
-## Vedere anche
-[API REST per la gestione di servizi BizTalk in Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx) [Servizi BizTalk: tabella delle edizioni](biztalk-editions-feature-chart.md)<br/> [Creare un servizio BizTalk tramite il portale di Azure](biztalk-provision-services.md)<br/> [Servizi BizTalk: schede Dashboard, Monitor e Scale](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+## <a name="see-also"></a>Vedere anche
+[REST API for Managing BizTalk Services on Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)
+ (API REST per la gestione dei servizi BizTalk in Microsoft Azure)[Servizi BizTalk: Grafico edizioni](biztalk-editions-feature-chart.md)<br/>
+[Creazione di servizi BizTalk tramite il portale di Azure](biztalk-provision-services.md)<br/>
+[Servizi BizTalk: schede Dashboard, Monitora e Scala](biztalk-dashboard-monitor-scale-tabs.md)<br/>
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png
 [HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Azure Security Center and Azure Virtual Machines | Microsoft Docs
-description: This document helps you to understand how Azure Security Center can safeguard you Azure Virtual Machines.
+title: Centro sicurezza di Azure e macchine virtuali di Azure | Documentazione Microsoft
+description: "Questo documento illustra in che modo il Centro sicurezza di Azure può proteggere le macchine virtuali di Azure."
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 5fe5a12c-5d25-430c-9d47-df9438b1d7c5
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
@@ -14,91 +14,98 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0c5cebf365f99866058aec25da0564ee0854af9a
+
 
 ---
-# <a name="azure-security-center-and-azure-virtual-machines"></a>Azure Security Center and Azure Virtual Machines
-[Azure Security Center](https://azure.microsoft.com/services/security-center/) helps you prevent, detect, and respond to threats. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+# <a name="azure-security-center-and-azure-virtual-machines"></a>Centro sicurezza di Azure e macchine virtuali di Azure
+Il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/) consente di impedire, rilevare e gestire le minacce. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni di Azure, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
 
-This article shows how Security Center can help you secure your Azure Virtual Machines (VM).
+Questo articolo illustra come il Centro sicurezza consente di proteggere le macchine virtuali (VM) di Azure.
 
-## <a name="why-use-security-center?"></a>Why use Security Center?
-Security Center helps you safeguard virtual machine data in Azure by providing visibility into your virtual machine’s security settings. When Security Center safeguards your VMs, the following capabilities will be available:
+## <a name="why-use-security-center"></a>Perché usare il Centro sicurezza?
+Il Centro sicurezza consente di proteggere i dati delle macchine virtuali di Azure fornendo visibilità sulle impostazioni di sicurezza di queste ultime. Quando si usa il Centro sicurezza per la protezione delle VM, sono disponibili le funzionalità seguenti:
 
-* Operating System (OS) security settings with the recommended configuration rules
-* System security and critical updates that are missing
-* Endpoint protection recommendations
-* Disk encryption validation
-* Vulnerability assessment and remediation
-* Threat detection
+* Impostazioni di sicurezza del sistema operativo con le regole di configurazione consigliate
+* Aggiornamenti della sicurezza del sistema e altri aggiornamenti di importanza critica eventualmente mancanti
+* Consigli per la protezione degli endpoint
+* Convalida della crittografia del disco
+* Valutazione della vulnerabilità e correzioni
+* Introduzione al rilevamento delle minacce
 
-In addition to helping protect your Azure VMs, Security Center also provides security monitoring and management for Cloud Services, App Services, Virtual Networks, and more. 
-
-> [!NOTE]
-> See [Introduction to Azure Security Center](security-center-intro.md) to learn more about Azure Security Center.
-> 
-> 
-
-## <a name="prerequisites"></a>Prerequisites
-To get started with Azure Security Center, you’ll need to know and consider the following:
-
-* You must have a subscription to Microsoft Azure. See [Security Center Pricing](https://azure.microsoft.com/pricing/details/security-center/) for more information on Security Center’s free and standard tiers.
-* Plan your Security Center adoption, see [Azure Security Center planning and operations guide](security-center-planning-and-operations-guide.md) to learn more about planning and operations considerations.
-* For information regarding operating system supportability, see [Azure Security Center frequently asked questions (FAQ)](security-center-faq.md). 
-
-## <a name="set-security-policy"></a>Set security policy
-Data collection needs to be enabled so that Azure Security Center can gather the information it needs to provide recommendations and alerts that are generated based on the security policy you configure. In the figure below, you can see that **Data collection** has been turned **On**.
-
-A security policy defines the set of controls which are recommended for resources within the specified subscription or resource group. Before enabling security policy, you must have data collection enabled, Security Center collects data from your virtual machines in order to assess their security state, provide security recommendations, and alert you to threats. In Security Center, you define policies for your Azure subscriptions or resource groups according to your company’s security needs and the type of applications or sensitivity of the data in each subscription. 
-
-![Security policy](./media/security-center-virtual-machine/security-center-virtual-machine-fig1.png)
+Oltre a proteggere le macchine virtuali di Azure, il Centro sicurezza offre funzionalità per il monitoraggio e la gestione dei servizi cloud, dei servizi app, delle reti virtuali e molto altro. 
 
 > [!NOTE]
-> To learn more about each **Prevention policy** available, see [Set security policies](security-center-policies.md) article.
+> Per altre informazioni sul Centro sicurezza di Azure, vedere l'articolo [Introduzione al Centro sicurezza di Azure](security-center-intro.md).
 > 
 > 
 
-## <a name="manage-security-recommendations"></a>Manage security recommendations
-Security Center analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations. The recommendations guide you through the process of configuring the needed controls.
+## <a name="prerequisites"></a>Prerequisiti
+Per iniziare a usare il Centro sicurezza di Azure, è necessario conoscere e tenere in considerazione quanto segue:
 
-After setting a security policy, Security Center analyzes the security state of your resources to identify potential vulnerabilities. The recommendations are shown in a table format where each line represents one particular recommendation. The table below provides some examples of recommendations for Azure VMs and what each one will do if you apply it. When you select a recommendation, you will be provided information that shows you how to implement the recommendation in Security Center.
+* È necessaria una sottoscrizione a Microsoft Azure. Per altre informazioni sui livelli gratuito e standard del Centro sicurezza, vedere [Centro sicurezza Prezzi](https://azure.microsoft.com/pricing/details/security-center/).
+* Pianificare l'adozione del Centro sicurezza. Per informazioni sulle considerazioni relative alla pianificazione e alle operazioni, vedere [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md).
+* Per informazioni relative al supporto dei sistemi operativi, vedere [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md). 
 
-| Recommendation | Description |
+## <a name="set-security-policy"></a>Impostare i criteri di sicurezza
+È necessario abilitare la funzionalità di raccolta dati per consentire al Centro sicurezza di Azure di raccogliere le informazioni di cui ha bisogno per fornire indicazioni e avvisi generati sulla base dei criteri di sicurezza configurati. Nella figura seguente è possibile osservare che la funzionalità **Raccolta dati** è stato impostata su **On**.
+
+I criteri di sicurezza definiscono il set di controlli consigliato per le risorse all'interno della sottoscrizione o di un gruppo di risorse specificato. Prima di abilitare i criteri di sicurezza, è necessario abilitare la funzionalità di raccolta dati. Il Centro sicurezza raccoglie i dati dalle macchine virtuali per valutarne lo stato della sicurezza, fornire raccomandazioni sulla sicurezza e avvisare delle minacce. Nel Centro sicurezza è possibile definire i criteri per le sottoscrizioni o i gruppi di risorse di Azure in base alle esigenze di sicurezza della propria società e al tipo di applicazioni o al livello di riservatezza dei dati di ogni sottoscrizione. 
+
+![Criteri di sicurezza](./media/security-center-virtual-machine/security-center-virtual-machine-fig1.png)
+
+> [!NOTE]
+> Per altre informazioni su ciascun **criterio di prevenzione** disponibile, vedere l'articolo [Impostare i criteri di sicurezza](security-center-policies.md).
+> 
+> 
+
+## <a name="manage-security-recommendations"></a>Gestire le raccomandazioni per la sicurezza
+Il Centro sicurezza analizza lo stato di sicurezza delle risorse di Azure. Quando identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni. Queste raccomandazioni illustrano in dettaglio il processo di configurazione dei controlli necessari.
+
+Una volta impostato un criterio di sicurezza, il Centro sicurezza analizza lo stato di sicurezza delle risorse per identificare le potenziali vulnerabilità. Le raccomandazioni vengono visualizzate sotto forma di tabella, in cui ogni riga rappresenta una particolare raccomandazione. La tabella seguente offre alcuni esempi di raccomandazioni e illustra gli effetti prodotti dalla messa in atto di queste ultime. Quando di seleziona una raccomandazione, vengono visualizzate informazioni per l'implementazione della stessa nel Centro sicurezza.
+
+| Raccomandazione | Descrizione |
 | --- | --- |
-| [Enable data collection for subscriptions](security-center-enable-data-collection.md) |Recommends that you turn on data collection in the security policy for each of your subscriptions and all virtual machines (VMs) in your subscriptions. |
-| [Remediate OS vulnerabilities](security-center-remediate-os-vulnerabilities.md) |Recommends that you align your OS configurations with the recommended configuration rules, e.g. do not allow passwords to be saved. |
-| [Apply system updates](security-center-apply-system-updates.md) |Recommends that you deploy missing system security and critical updates to VMs. |
-| [Reboot after system updates](security-center-apply-system-updates.md#reboot-after-system-updates) |Recommends that you reboot a VM to complete the process of applying system updates. |
-| [Install Endpoint Protection](security-center-install-endpoint-protection.md) |Recommends that you provision antimalware programs to VMs (Windows VMs only). |
-| [Resolve Endpoint Protection health alerts](security-center-resolve-endpoint-protection-health-alerts.md) |Recommends that you resolve endpoint protection failures. |
-| [Enable VM Agent](security-center-enable-vm-agent.md) |Enables you to see which VMs require the VM Agent. The VM Agent must be installed on VMs in order to provision patch scanning, baseline scanning, and antimalware programs. The VM Agent is installed by default for VMs that are deployed from the Azure Marketplace. The article [VM Agent and Extensions – Part 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) provides information on how to install the VM Agent. |
-| [Apply disk encryption](security-center-apply-disk-encryption.md) |Recommends that you encrypt your VM disks using Azure Disk Encryption (Windows and Linux VMs). Encryption is recommended for both the OS and data volumes on your VM. |
-| [Vulnerability assessment not installed](security-center-vulnerability-assessment-recommendations.md) |Recommends that you install a vulnerability assessment solution on your VM. |
-| [Remediate vulnerabilities](security-center-vulnerability-assessment-recommendations.md#review-recommendation) |Enables you to see system and application vulnerabilities detected by the vulnerability assessment solution installed on your VM. |
+| [Abilita la raccolta di dati per le sottoscrizioni](security-center-enable-data-collection.md) |Consiglia di attivare la raccolta dati nei criteri di sicurezza per ogni sottoscrizione e per tutte le macchine virtuali nelle sottoscrizioni. |
+| [Remediate OS vulnerabilities (Risolvi vulnerabilità del sistema operativo)](security-center-remediate-os-vulnerabilities.md) |Consiglia di allineare le configurazioni dei sistemi operativi alle regole di configurazione raccomandate, ad esempio non consentire il salvataggio delle password. |
+| [Applicare gli aggiornamenti di sistema](security-center-apply-system-updates.md) |Consiglia di distribuire gli aggiornamenti critici e della sicurezza di sistema mancanti nelle macchine virtuali. |
+| [Riavvia dopo gli aggiornamenti del sistema](security-center-apply-system-updates.md#reboot-after-system-updates) |Consiglia di riavviare una macchina virtuale per completare il processo di applicazione degli aggiornamenti del sistema. |
+| [Installa Endpoint Protection](security-center-install-endpoint-protection.md) |Suggerisce di effettuare il provisioning dei programmi antimalware nelle macchine virtuali (solo VM Windows). |
+| [Risolvi gli avvisi sull'integrità di Endpoint Protection](security-center-resolve-endpoint-protection-health-alerts.md) |Si consiglia di correggere gli errori relativi alla protezione degli endpoint. |
+| [Abilita l'agente di macchine virtuali](security-center-enable-vm-agent.md) |Consente di identificare le macchine virtuali per le quali è necessario l'agente di macchine virtuali, che deve essere installato nelle macchine virtuali per poter effettuare il provisioning dei programmi di analisi delle patch, analisi della baseline e antimalware. Per impostazione predefinita, l'agente di macchine virtuali è installato nelle macchine virtuali distribuite da Azure Marketplace. L'articolo relativo all'[agente di macchine virtuali e relative estensioni, parte 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) offre informazioni su come installare l'agente di macchine virtuali. |
+| [Applicare Crittografia dischi](security-center-apply-disk-encryption.md) |Suggerisce di crittografare i dischi delle macchine virtuali con Crittografia dischi di Azure (VM Windows e Linux). La crittografia è consigliabile sia per il sistema operativo sia per i volumi di dati della macchina virtuale. |
+| [La valutazione della vulnerabilità non è installata](security-center-vulnerability-assessment-recommendations.md) |Consiglia di installare una soluzione di valutazione della vulnerabilità nella VM. |
+| [Correggi le vulnerabilità](security-center-vulnerability-assessment-recommendations.md#review-recommendation) |Consente di visualizzare le vulnerabilità del sistema e delle applicazioni rilevate dalla soluzione di valutazione delle vulnerabilità installata nella VM. |
 
 > [!NOTE]
-> To learn more about recommendations, see [Managing security recommendations](security-center-recommendations.md) article.
+> Per altre informazioni sulle raccomandazioni, vedere l'articolo [Gestione delle raccomandazioni di sicurezza](security-center-recommendations.md).
 > 
 > 
 
-## <a name="monitor-security-health"></a>Monitor security health
-After you enable [security policies](security-center-policies.md) for a subscription’s resources, Security Center will analyze the security of your resources to identify potential vulnerabilities.  You can view the security state of your resources, along with any issues in the **Resource security health** blade. When you click **Virtual machines** in the **Resource security** health tile, the **Virtual machines** blade will open with recommendations for your VMs. 
+## <a name="monitor-security-health"></a>Monitorare l'integrità della sicurezza
+Una volta abilitati i [criteri di sicurezza](security-center-policies.md) per le risorse di una sottoscrizione, il Centro sicurezza analizza la sicurezza delle risorse per identificare le potenziali vulnerabilità.  Nel pannello **Integrità sicurezza delle risorse** è possibile visualizzare lo stato di sicurezza delle risorse ed eventuali problemi rilevati. Quando si fa clic su **Macchine virtuali** nel riquadro **Integrità sicurezza delle risorse**, viene visualizzato il pannello **Macchine virtuali** con raccomandazioni per le macchine virtuali. 
 
-![Security health](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
+![Integrità della sicurezza](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
-## <a name="manage-and-respond-to-security-alerts"></a>Manage and respond to security alerts
-Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions (like firewall and endpoint protection solutions), to detect real threats and reduce false positives. By leveraging a diverse aggregation of [detection capabilities](security-center-detection-capabilities.md), Security Center is able to generate prioritized security alerts to help you quickly investigate the problem and provide recommendations for how to remediate possible attacks.
+## <a name="manage-and-respond-to-security-alerts"></a>Gestire e rispondere agli avvisi di sicurezza
+Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log delle risorse di Azure, della rete e delle soluzioni dei partner connesse, ad esempio soluzioni di protezione endpoint e firewall, per rilevare le minacce reali e ridurre i falsi positivi. Sfruttando le potenzialità dell'aggregazione di diverse [funzionalità di rilevamento](security-center-detection-capabilities.md), Security Center è in grado di generare avvisi di protezione ordinati in base alla priorità che consentono di esaminare rapidamente un problema e forniscono indicazioni su come risolvere possibili attacchi.
 
-![Security alerts](./media/security-center-virtual-machine/security-center-virtual-machine-fig3.png)
+![Avvisi di sicurezza](./media/security-center-virtual-machine/security-center-virtual-machine-fig3.png)
 
-Select a security alert to learn more about the event(s) that triggered the alert and what, if any, steps you need to take to remediate an attack. Security alerts are grouped by [type](security-center-alerts-type.md) and date.
+Selezionare un avviso di sicurezza per altre informazioni sugli eventi che hanno attivato l'avviso e, se presenti, i passaggi da eseguire per correggere un attacco. Gli avvisi di sicurezza vengono raggruppati per [tipo](security-center-alerts-type.md) e data.
 
-## <a name="see-also"></a>See also
-To learn more about Security Center, see the following:
+## <a name="see-also"></a>Vedere anche
+Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
-* [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
-* [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
-* [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
+* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
+* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
+* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

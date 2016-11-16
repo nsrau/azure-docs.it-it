@@ -5,6 +5,8 @@ Poiché una condivisione di archiviazione file è una condivisione file SMB stan
 
 È possibile creare condivisioni file di Azure usando il [portale di Azure](https://portal.azure.com), i cmdlet di PowerShell per Archiviazione di Azure, le librerie client di Archiviazione di Azure o l'API REST di Archiviazione di Azure. Poiché inoltre queste condivisioni file sono condivisioni SMB, è possibile accedervi con le familiari API standard del file system.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

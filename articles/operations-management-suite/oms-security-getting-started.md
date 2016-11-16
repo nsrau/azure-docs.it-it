@@ -1,12 +1,12 @@
 ---
-title: Introduzione alla soluzione Sicurezza e controllo di Operations Management Suite | Microsoft Docs
-description: Questo documento consente di iniziare a usare rapidamente le funzionalità della soluzione Sicurezza e controllo di Operations Management Suite per monitorare il cloud ibrido.
+title: Introduzione alla soluzione Sicurezza e controllo di Operations Management Suite | Documentazione Microsoft
+description: "Questo documento consente di iniziare a usare rapidamente le funzionalità della soluzione Sicurezza e controllo di Operations Management Suite per monitorare il cloud ibrido."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
 ms.topic: get-started-article
 ms.devlang: na
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: fe043cd4438612ada9a31ae895aae75b913b0a37
+
 
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Introduzione alla soluzione Sicurezza e controllo di Operations Management Suite
 Questo documento consente di iniziare rapidamente a usare le funzionalità della soluzione Sicurezza e controllo di Operations Management Suite (OMS), illustrando ogni opzione.
 
-## <a name="what-is-oms?"></a>Cos'è OMS?
+## <a name="what-is-oms"></a>Cos'è OMS?
 Microsoft Operations Management Suite (OMS) è la soluzione Microsoft per la gestione IT basata sul cloud che consente di gestire e proteggere l'infrastruttura locale e cloud. Per altre informazioni su OMS, leggere l'articolo [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
 ## <a name="oms-security-and-audit-dashboard"></a>Dashboard di Sicurezza e controllo di OMS
@@ -139,7 +143,7 @@ Lo scopo principale di questo gruppo di opzioni consiste nel fornire una visuali
 
 È possibile vedere che questi problemi sono stati già illustrati in aree diverse del gruppo **Domini di sicurezza** che conferma lo scopo di questa visualizzazione: mostrare i problemi più importanti nell'ambiente locale da un'unica posizione.
 
-## <a name="detections-(preview)"></a>Rilevamenti (anteprima)
+## <a name="detections-preview"></a>Rilevamenti (anteprima)
 Questa opzione consente principalmente al reparto IT di identificare rapidamente le potenziali minacce all'ambiente e la gravità delle minacce.
 
 ![Intelligence per le minacce](./media/oms-security-getting-started/oms-getting-started-fig12.png)
@@ -179,6 +183,9 @@ In questo documento è stata introdotta la soluzione Sicurezza e controllo di OM
 * [Monitoraggio e gestione degli avvisi di sicurezza nella soluzione Operations Management Suite per la sicurezza e il controllo](oms-security-responding-alerts.md)
 * [Monitoraggio delle risorse nella soluzione Operations Management Suite per la sicurezza e il controllo](oms-security-monitoring-resources.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

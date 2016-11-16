@@ -1,5 +1,5 @@
 # Panoramica
-## [Introduzione al servizio contenitore di Azure](container-service-intro.md)
+## [Informazioni sul servizio contenitore di Azure](container-service-intro.md)
 # Attività iniziali
 
 ## [Distribuire un cluster del servizio contenitore di Azure](container-service-deployment.md)
@@ -21,12 +21,11 @@
 ### [Panoramica di Docker Swarm](container-service-docker-swarm.md)
 
 # Riferimento
-
-## [API REST](https://go.microsoft.com/fwlink/p/?linkid=833499)
+## [API REST](https://docs.microsoft.com/rest/api/compute/containerservices/)
 
 # Risorse
-
 ## [Disponibilità in base all'area geografica](https://azure.microsoft.com/regions/services/)
+## [Prezzi](https://azure.microsoft.com/pricing/details/container-service/)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 

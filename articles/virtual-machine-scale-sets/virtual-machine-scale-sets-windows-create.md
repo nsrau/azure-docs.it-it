@@ -1,20 +1,24 @@
 ---
-title: Creare un set di scalabilità di macchine virtuali tramite PowerShell | Microsoft Docs
-description: Creare un set di scalabilità di macchine virtuali tramite PowerShell
+title: "Creare un set di scalabilità di macchine virtuali tramite PowerShell | Microsoft Docs"
+description: "Creare un set di scalabilità di macchine virtuali tramite PowerShell"
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: davidmu1
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 7bb03323-8bcc-4ee4-9a3e-144ca6d644e2
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/10/2016
+ms.date: 10/18/2016
 ms.author: davidmu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
+
 
 ---
 # <a name="create-a-windows-virtual-machine-scale-set-using-azure-powershell"></a>Creare un set di scalabilità di macchine virtuali Windows tramite Azure PowerShell
@@ -22,41 +26,18 @@ Questa procedura per la creazione di un set di scalabilità di macchine virtuali
 
 L'esecuzione della procedura illustrata in questo articolo richiede circa 30 minuti.
 
-## <a name="step-1:-install-azure-powershell"></a>Passaggio 1: installare Azure PowerShell
+## <a name="step-1-install-azure-powershell"></a>Passaggio 1: installare Azure PowerShell
 Per informazioni su come installare la versione più recente di Azure PowerShell, selezionare la sottoscrizione e accedere all'account, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
-## <a name="step-2:-create-resources"></a>Passaggio 2: Creare le risorse
+## <a name="step-2-create-resources"></a>Passaggio 2: Creare le risorse
 Creare le risorse necessarie per il nuovo set di scalabilità.
 
 ### <a name="resource-group"></a>Resource group
 Un set di scalabilità di macchine virtuali deve trovarsi all'interno di un gruppo di risorse.
 
-1. Ottenere un elenco di località disponibili e i servizi supportati:
+1. Ottenere un elenco di località disponibili in cui è possibile posizionare le risorse:
    
-        Get-AzureLocation | Sort Name | Select Name, AvailableServices
-   
-    L'output sarà simile all'esempio seguente:
-   
-        Name                AvailableServices
-        ----                -----------------
-        Australia East      {Compute, Storage, PersistentVMRole, HighMemory}
-        Australia Southeast {Compute, Storage, PersistentVMRole, HighMemory}
-        Brazil South        {Compute, Storage, PersistentVMRole, HighMemory}
-        Central India       {Compute, Storage, PersistentVMRole, HighMemory}
-        Central US          {Compute, Storage, PersistentVMRole, HighMemory}
-        East Asia           {Compute, Storage, PersistentVMRole, HighMemory}
-        East US             {Compute, Storage, PersistentVMRole, HighMemory}
-        East US 2           {Compute, Storage, PersistentVMRole, HighMemory}
-        Japan East          {Compute, Storage, PersistentVMRole, HighMemory}
-        Japan West          {Compute, Storage, PersistentVMRole, HighMemory}
-        North Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-        North Europe        {Compute, Storage, PersistentVMRole, HighMemory}
-        South Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-        South India         {Compute, Storage, PersistentVMRole, HighMemory}
-        Southeast Asia      {Compute, Storage, PersistentVMRole, HighMemory}
-        West Europe         {Compute, Storage, PersistentVMRole, HighMemory}
-        West India          {Compute, Storage, PersistentVMRole, HighMemory}
-        West US             {Compute, Storage, PersistentVMRole, HighMemory}
+        Get-AzureLocation | Sort Name | Select Name
 2. Selezionare la località più adatta alle proprie esigenze, sostituire il valore di **$locName** con il nome di questa località e quindi creare la variabile:
    
         $locName = "location name from the list, such as Central US"
@@ -132,36 +113,6 @@ Per le macchine virtuali nel set di scalabilità è necessaria una rete virtuale
 4. Creare la rete virtuale:
    
         $vnet = New-AzureRmVirtualNetwork -Name $netName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-
-### <a name="public-ip-address"></a>Indirizzo IP pubblico
-Prima di creare un'interfaccia di rete, è necessario creare un indirizzo IP pubblico.
-
-1. Sostituire il valore di **$domName** con l'etichetta del nome di dominio da usare con l'indirizzo IP pubblico e quindi creare la variabile:  
-   
-        $domName = "domain name label"
-   
-    L'etichetta può contenere solo lettere, numeri e trattini. L'ultimo carattere deve essere una lettera o un numero.
-2. Verificare che il nome sia univoco:
-   
-        Test-AzureRmDnsAvailability -DomainQualifiedName $domName -Location $locName
-   
-    Se la risposta è **True**, il nome proposto è univoco.
-3. Sostituire il valore di **$pipName** con il nome da usare per l'indirizzo IP pubblico e quindi creare la variabile. 
-   
-        $pipName = "public ip address name"
-4. Creare l'indirizzo IP pubblico:
-   
-        $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic -DomainNameLabel $domName
-
-### <a name="network-interface"></a>Interfaccia di rete
-Ora che l'indirizzo IP pubblico è disponibile, è possibile creare l'interfaccia di rete.
-
-1. Sostituire il valore di **$nicName** con il nome da usare per l'interfaccia di rete e quindi creare la variabile: 
-   
-        $nicName = "network interface name"
-2. Creare l'interfaccia di rete:
-   
-        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
 ### <a name="configuration-of-the-scale-set"></a>Configurazione del set di scalabilità
 Sono disponibili tutte le risorse necessarie per la configurazione del set di scalabilità, si procederà quindi alla sua creazione.  
@@ -253,7 +204,7 @@ Infine, è possibile creare il set di scalabilità.
         Location              : centralus
         Tags                  :
 
-## <a name="step-3:-explore-resources"></a>Passaggio 3: Esplorare le risorse
+## <a name="step-3-explore-resources"></a>Passaggio 3: Esplorare le risorse
 Per esplorare il set di scalabilità di macchine virtuali appena creato, usare queste risorse:
 
 * Portale di Azure: tramite il portale è disponibile una quantità limitata di informazioni.
@@ -271,6 +222,9 @@ Per esplorare il set di scalabilità di macchine virtuali appena creato, usare q
 * È consigliabile impostare il ridimensionamento automatico del set di scalabilità. A tale scopo, usare le informazioni disponibili in [Ridimensionamento automatico e set di scalabilità di macchine virtuali](virtual-machine-scale-sets-autoscale-overview.md)
 * Altre informazioni sull'aumento delle prestazioni sono disponibili in [Scalabilità automatica verticale con set di scalabilità di macchine virtuali](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Esercitazione REST sulla messaggistica negoziata del Bus di servizio| Microsoft Docs
+title: Esercitazione REST sulla messaggistica negoziata del Bus di servizio| Microsoft Azure | Documentazione Microsoft
 description: Esercitazione di messaggistica negoziata REST.
 services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 9b7a8147-a1b1-42fc-b30e-f52e79a902b5
 ms.service: service-bus
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 45b72037e2de01b9201edf3e4ebee7e80d996383
+
 
 ---
 # <a name="service-bus-brokered-messaging-rest-tutorial"></a>Esercitazione sulla messaggistica negoziata del bus di servizio - REST
@@ -139,7 +143,7 @@ Dopo aver ottenuto lo spazio dei nomi e le credenziali nel primo passaggio, crea
 ## <a name="create-management-credentials"></a>Creazione delle credenziali di gestione
 Il passaggio successivo consiste nello scrivere un metodo che elabori lo spazio dei nomi e la chiave SAS immessi nel passaggio precedente e restituisca un token SAS. In questo esempio viene creato un token SAS  valido per un'ora.
 
-### <a name="create-a-getsastoken()-method"></a>Creare un metodo GetSASToken()
+### <a name="create-a-getsastoken-method"></a>Creare un metodo GetSASToken()
 Incollare il codice seguente dopo il metodo `Main()`, nella classe `Program`:
 
 ```
@@ -597,6 +601,9 @@ Vedere gli articoli seguenti per ulteriori informazioni:
 * [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 * [Esercitazione su REST di Inoltro del bus di servizio](../service-bus-relay/service-bus-relay-rest-tutorial.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

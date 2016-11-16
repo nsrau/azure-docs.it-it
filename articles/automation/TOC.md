@@ -73,6 +73,11 @@
 ## [Classic Deployment Rest](https://msdn.microsoft.com/library/azure/mt163781) (REST distribuzione classica)
 
 # Risorse
+## [Prezzi](https://azure.microsoft.com/pricing/details/automation/)  
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
+## [Video](https://azure.microsoft.com/documentation/videos/index/?services=automation) 
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=automation) 
 ## [Azure Automation training](https://www.microsoftvirtualacademy.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323) (Training su Automazione di Azure)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/automation/) (Percorso di apprendimento)
 ## [Automation introduction video](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/) (Video introduttivo su Automazione)

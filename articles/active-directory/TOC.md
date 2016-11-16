@@ -1,21 +1,20 @@
 # Panoramica
 ## [Informazioni su Azure Active Directory](active-directory-whatis.md)
-## [Quale edizione scegliere?](active-directory-editions.md)
-## [Concetti fondamentali](fundamentals-identity.md)
+## [Scegliere un'edizione](active-directory-editions.md)
+## [Informazioni sulla Gestione delle identità di Azure](fundamentals-identity.md)
 ## [Preview the Azure portal experience](active-directory-preview-explainer.md) (Visualizzare in anteprima l'esperienza del Portale di Azure)
 
 
 # Introduzione
-## [Come ottenere un tenant di Azure AD](active-directory-howto-tenant.md)
-## [Azure AD Premium](active-directory-get-started-premium.md)
+## [Come ottenere un tenant di Azure Active Directory](active-directory-howto-tenant.md)
+## [Iscriversi ad Azure AD Premium](active-directory-get-started-premium.md)
 ## [Associate Azure subscriptions](active-directory-how-subscriptions-associated-directory.md) (Associare le sottoscrizioni di Azure)
-## [Licenze di Azure AD](active-directory-licensing-what-is.md)
+## [Gestire le licenze di Azure AD](active-directory-licensing-what-is.md)
 ## [Ottenere Azure per l'organizzazione](sign-up-organization.md)
 ## [Domande frequenti](active-directory-faq.md)
 
 
 # Procedure
-
 ## Gestire gli utenti
 ### Aggiungi utenti
 #### [Portale di Azure](active-directory-users-create-azure-portal.md)
@@ -29,30 +28,30 @@
 ### [Gestire i profili utente](active-directory-users-profile-azure-portal.md)
 ### [Reset a password](active-directory-users-reset-password-azure-portal.md) (Reimpostare una password)
 ### [Manage user work information](active-directory-users-work-info-azure-portal.md) (Gestire le informazioni di lavoro di un utente)
-### [Shared accounts](active-directory-sharing-accounts.md) (Account condivisi)
+### [Condividere gli account](active-directory-sharing-accounts.md)
 
-### [Azure AD groups](active-directory-manage-groups.md) (Gruppi di Azure AD)
-#### Gestire i gruppi
-##### [portale di Azure](active-directory-groups-create-azure-portal.md)
-##### [Portale classico](active-directory-accessmanagement-manage-groups.md)
-##### [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-#### [Manage group members](active-directory-groups-members-azure-portal.md) (Gestire i membri dei gruppi)
-#### [Gestire i proprietari dei gruppi](active-directory-accessmanagement-managing-group-owners.md)
-#### [Manage group membership](active-directory-groups-membership-azure-portal.md) (Gestire l'appartenenza ai gruppi)
-#### [View all groups](active-directory-groups-view-azure-portal.md) (Visualizzare tutti i gruppi)
-#### [Gruppi dedicati](active-directory-accessmanagement-dedicated-groups.md)
-#### [SaaS apps access](active-directory-accessmanagement-group-saasapps.md) (Accedere alle applicazioni SaaS)
-#### Impostazioni dei gruppi
-##### [Portale di Azure](active-directory-groups-settings-azure-portal.md)
-##### [Cmdlet](active-directory-accessmanagement-groups-settings-cmdlets.md)
-#### Regole avanzate
-##### [portale di Azure](active-directory-groups-dynamic-membership-azure-portal.md)
-##### [Portale classico](active-directory-accessmanagement-groups-with-advanced-rules.md)
-#### [Self-service groups](active-directory-accessmanagement-self-service-group-management.md) (Gruppi self-service)
-#### [Risoluzione dei problemi](active-directory-accessmanagement-troubleshooting.md)
+## [Gestire i gruppi e i membri](active-directory-manage-groups.md)
+### Gestire i gruppi
+#### [portale di Azure](active-directory-groups-create-azure-portal.md)
+#### [Portale classico](active-directory-accessmanagement-manage-groups.md)
+#### [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+### [Manage group members](active-directory-groups-members-azure-portal.md) (Gestire i membri dei gruppi)
+### [Gestire i proprietari dei gruppi](active-directory-accessmanagement-managing-group-owners.md)
+### [Manage group membership](active-directory-groups-membership-azure-portal.md) (Gestire l'appartenenza ai gruppi)
+### [View all groups](active-directory-groups-view-azure-portal.md) (Visualizzare tutti i gruppi)
+### [Abilitare i gruppi dedicati](active-directory-accessmanagement-dedicated-groups.md)
+### [Aggiungere l'accesso dei gruppi alle app SaaS](active-directory-accessmanagement-group-saasapps.md)
+### Gestire le impostazioni dei gruppi
+#### [portale di Azure](active-directory-groups-settings-azure-portal.md)
+#### [Cmdlet](active-directory-accessmanagement-groups-settings-cmdlets.md)
+### Creare regole avanzate
+#### [portale di Azure](active-directory-groups-dynamic-membership-azure-portal.md)
+#### [Portale classico](active-directory-accessmanagement-groups-with-advanced-rules.md)
+### [Configurare i gruppi self-service](active-directory-accessmanagement-self-service-group-management.md)
+### [Risolvere i problemi](active-directory-accessmanagement-troubleshooting.md)
 
 ## [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md)
-### [Creare report di Azure AD](active-directory-reporting-getting-started.md)
+### [Creazione di report di Azure AD](active-directory-reporting-getting-started.md)
 ### [Reti note](active-directory-known-networks.md)
 
 ### [Guida alla creazione di report](active-directory-reporting-guide.md)
@@ -81,18 +80,18 @@
 
 ## [Gestire le password](active-directory-manage-passwords.md)
 ### [Update your own password](active-directory-passwords-update-your-own-password.md) (Come aggiornare la password)
-### [How it works](active-directory-passwords-how-it-works.md) (Funzionamento)
-### [Policies and restrictions](active-directory-passwords-policy.md) (Restrizioni e criteri)
+### [Informazioni sulla gestione delle password](active-directory-passwords-how-it-works.md)
+### [Informazioni sui criteri e sulle restrizioni](active-directory-passwords-policy.md)
 ### Reimpostare le password
 #### [portale di Azure](active-directory-users-reset-password-azure-portal.md)
 #### [Portale classico](active-directory-create-users-reset-password.md)
-### [Expiration policies](active-directory-passwords-set-expiration-policy.md) (Criteri di scadenza)
-### Gestione delle password
+### [Configurare i criteri di scadenza](active-directory-passwords-set-expiration-policy.md)
+### Abilitare la gestione delle password
 #### [Introduzione](active-directory-passwords-getting-started.md)
-#### [Distribuzione](active-directory-passwords-best-practices.md)
-#### [Reimpostare le password](active-directory-passwords.md)
+#### [Distribuire](active-directory-passwords-best-practices.md)
+#### [Configurare la reimpostazione self-service delle password](active-directory-passwords.md)
 #### [Personalizzare](active-directory-passwords-customize.md)
-#### [Report](active-directory-passwords-get-insights.md)
+#### [Visualizzare i report](active-directory-passwords-get-insights.md)
 #### [Altre informazioni](active-directory-passwords-learn-more.md)
 #### [Domande frequenti](active-directory-passwords-faq.md)
 #### [Risoluzione dei problemi](active-directory-passwords-troubleshoot.md)
@@ -103,29 +102,29 @@
 
 ### [Accesso condizionale](active-directory-conditional-access.md)
 #### [Introduzione](active-directory-conditional-access-azuread-connected-apps.md)
-#### [Supported Apps](active-directory-conditional-access-supported-apps.md) (App supportate)
+#### [App supportate](active-directory-conditional-access-supported-apps.md)
 #### [Registrare i dispositivi](active-directory-conditional-access-device-registration-overview.md)
-#### [Automatic registration](active-directory-conditional-access-automatic-device-registration.md) (Registrazione automatica)
+#### [Gestire la registrazione automatica](active-directory-conditional-access-automatic-device-registration.md)
 ##### [Configurazione](active-directory-conditional-access-automatic-device-registration-setup.md)
 ##### [Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
 ##### [Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
-#### [Authenticator app](active-directory-conditional-access-azure-authenticator-app.md) (App di autenticazione)
-#### [Criteri relativi ai dispositivi](active-directory-conditional-access-device-policies.md)
-#### [Access to connected apps](active-directory-conditional-access-policy-connected-applications.md) (Accesso alle applicazioni connesse)
+#### [Gestire l'app Authenticator](active-directory-conditional-access-azure-authenticator-app.md)
+#### [Informazioni sui criteri dei dispositivi](active-directory-conditional-access-device-policies.md)
+#### [Configurare l'accesso alle app connesse](active-directory-conditional-access-policy-connected-applications.md)
 #### [Deploy on-premises](active-directory-conditional-access-on-premises-setup.md) (Distribuire in locale)
 #### [Domande frequenti](active-directory-conditional-faqs.md)
 #### [Risoluzione dei problemi](active-directory-conditional-access-device-remediation.md)
 #### [Riferimenti](active-directory-conditional-access-technical-reference.md)
 
 ### [Aggiunta ad Azure AD](active-directory-azureadjoin-overview.md)
-#### [Distribuzione](active-directory-azureadjoin-deployment-aadjoindirect.md)
-#### [Registrazione del dispositivo](active-directory-azureadjoin-setup.md)
+#### [Pianificare](active-directory-azureadjoin-deployment-aadjoindirect.md)
+#### [Configurare la registrazione dei dispositivi](active-directory-azureadjoin-setup.md)
 #### [Register new devices](active-directory-azureadjoin-user-frx.md) (Registrare nuovi dispositivi)
-#### [Aggiunta a un dominio](active-directory-azureadjoin-devices-group-policy.md)
+#### [Distribuire](active-directory-azureadjoin-devices-group-policy.md)
 #### [Authenticate without passwords](active-directory-azureadjoin-passport.md) (Autenticazione senza password)
-#### [Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md) (Configurare Windows Hello for Business)
-#### [Windows 10 guide](active-directory-azureadjoin-windows10-devices-overview.md) (Guida di Windows 10)
-#### [Windows 10 devices](active-directory-azureadjoin-windows10-devices.md) (Dispositivi di Windows 10)
+#### [Abilitare Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md)
+#### [Informazioni sull'integrazione con Windows 10](active-directory-azureadjoin-windows10-devices-overview.md)
+#### [Usare dispositivi Windows 10](active-directory-azureadjoin-windows10-devices.md)
 
 ### Autenticazione basata su certificati
 #### [Android](active-directory-certificate-based-authentication-android.md)
@@ -133,13 +132,13 @@
 
 ## Gestire le app
 ### [Panoramica](active-directory-enable-sso-scenario.md)
-### [Guida introduttiva](active-directory-integrating-applications-getting-started.md)
+### [Attività iniziali](active-directory-integrating-applications-getting-started.md)
 
 ### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
-#### [Impostazioni del Registro di sistema](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-#### [Sicurezza e privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
+#### [Aggiornare le impostazioni del Registro di sistema](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
+#### [Informazioni sulla sicurezza e sulla privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
-### [Remote access to your apps](active-directory-application-proxy-get-started.md) (Accesso remoto alle app)
+### [Concedere l'accesso remoto alle app](active-directory-application-proxy-get-started.md)
 #### [Enable App Proxy](active-directory-application-proxy-enable.md) (Abilitare il proxy delle app)
 #### [Publish apps](active-directory-application-proxy-publish.md) (Pubblicare le app)
 #### Pubblicare su reti distinte
@@ -151,26 +150,26 @@
 #### [Native client apps](active-directory-application-proxy-native-client.md) (App client native)
 #### [Accesso condizionale](active-directory-application-proxy-conditional-access.md)
 #### [Silent install](active-directory-application-proxy-silent-installation.md) (Installazione invisibile all'utente)
-#### [Risoluzione dei problemi](active-directory-application-proxy-troubleshoot.md)
-### [SSO for apps](active-directory-appssoaccess-whatis.md) (SSO per le app)
+#### [Risolvere i problemi](active-directory-application-proxy-troubleshoot.md)
+### [Informazioni sull'accesso Single Sign-On per le app](active-directory-appssoaccess-whatis.md)
 
 ### Integrare le app SaaS
 #### [Portale di Azure](active-directory-enterprise-apps-manage-sso.md)
 #### [Portale classico](active-directory-sso-integrate-saas-apps.md)
 
-### App aziendali
+### Gestire le app aziendali
 #### [Assegnare utenti](active-directory-coreapps-assign-user-azure-portal.md)
 #### [Customize branding](active-directory-coreapps-change-app-logo-user-azure-portal.md) (Modificare la personalizzare)
 #### [Disable user sign-ins](active-directory-coreapps-disable-app-azure-portal.md) (Disabilitare l'accesso degli utenti)
 #### [Rimuovere utenti](active-directory-coreapps-remove-assignment-azure-portal.md)
 #### [View all my apps](active-directory-coreapps-view-azure-portal.md) (Visualizzare tutte le app personali)
-#### [User account provisioning](active-directory-enterprise-apps-manage-provisioning.md) (Provisioning degli account utente)
+#### [Gestire il provisioning degli account utente](active-directory-enterprise-apps-manage-provisioning.md)
 
-### Guida per sviluppatori
+### Sviluppare
 #### [Assegnare utenti](active-directory-applications-guiding-developers-assigning-users.md)
 #### [Assign groups](active-directory-applications-guiding-developers-assigning-groups.md) (Assegnare gruppi)
 #### [Require assignment](active-directory-applications-guiding-developers-requiring-user-assignment.md) (Richiedere l'assegnazione)
-#### [LoB apps](active-directory-applications-guiding-developers-for-lob-applications.md) (App LoB)
+#### [Sviluppare app line-of-business](active-directory-applications-guiding-developers-for-lob-applications.md)
 
 ### [Manage access to apps](active-directory-managing-access-to-apps.md) (Gestire l'accesso alle app)
 #### [Self-service access](active-directory-self-service-application-access.md) (Accesso self-service)
@@ -270,19 +269,18 @@
 ### [Passaggi successivi](active-directory-hybrid-identity-design-considerations-nextsteps.md)
 ### [Tools comparison](active-directory-hybrid-identity-design-considerations-tools-comparison.md) (Confronto fra strumenti)
 
-## [Sviluppo](./develop/active-directory-how-to-integrate.md)
-
 ## [Distribuire AD FS in Azure](active-directory-aadconnect-azure-adfs.md)
 ### [Disponibilità elevata](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Change signature hash algorithm](active-directory-federation-sha256-guidance.md) (Modificare l'algoritmo hash della firma)
 
-## [Troubleshoot Azure AD](active-directory-troubleshooting.md) (Risolvere i problemi di Azure AD)
+## [Risolvere i problemi](active-directory-troubleshooting.md)
 
 
 # riferimento
-## [Restrizioni e limiti del servizio Azure AD](active-directory-service-limits-restrictions.md)
-## [Informazioni di riferimento su .NET in Active Directory Authentication Library](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
-## [Modulo Azure Active Directory PowerShell](https://msdn.microsoft.com/library/azure/mt757189.aspx)
+## [Cmdlet di PowerShell](/powershell/ )
+## [Informazioni di riferimento sulle API Java](/java/api)
+## [API .NET](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
+## [Limiti e restrizioni del servizio](active-directory-service-limits-restrictions.md)
 
 # Risorse correlate
 ## [Autenticazione a più fattori](/azure/multi-factor-authentication/)
@@ -291,7 +289,12 @@
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
 # Risorse
-## [Forum su Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory)
+## [Prezzi](https://azure.microsoft.com/pricing/details/active-directory/)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory) 
+## [Video](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=active-directory)
+## [Forum di commenti e suggerimenti su Azure](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
 <!--HONumber=Nov16_HO2-->

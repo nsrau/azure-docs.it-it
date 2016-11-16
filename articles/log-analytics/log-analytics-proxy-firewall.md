@@ -1,19 +1,23 @@
 ---
-title: Configurare le impostazioni di proxy e firewall in Log Analytics | Microsoft Docs
+title: Configurare le impostazioni di proxy e firewall in Log Analytics | Documentazione Microsoft
 description: Configurare le impostazioni di proxy e firewall quando gli agenti o i servizi OMS devono usare porte specifiche.
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: b55ebd80-efd4-4220-971b-c18aea1b1ab2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/23/2016
+ms.date: 11/11/2016
 ms.author: banders;magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 36c8f482a55135623865814bd384ac98ae214fa3
+
 
 ---
 # <a name="configure-proxy-and-firewall-settings-in-log-analytics"></a>Configurare le impostazioni di proxy e firewall in Log Analytics
@@ -78,8 +82,8 @@ Le tabelle seguenti elencano le porte associate a queste attività.
 
 > [!NOTE]
 > Alcune delle risorse seguenti fanno riferimento ad Advisor e a Operational Insights, entrambe versioni precedenti di OMS. Tuttavia, le risorse elencate verranno modificate in futuro.
-> 
-> 
+>
+>
 
 Di seguito è riportato un elenco di porte e risorse dell'agente:<br>
 
@@ -171,6 +175,8 @@ Se sono state aggiunte soluzioni a OMS, è possibile visualizzarle nella console
 * [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md) per aggiungere funzionalità e raccogliere dati.
 * Acquisire familiarità con le [ricerche nei log](log-analytics-log-searches.md) per visualizzare le informazioni dettagliate raccolte dalle soluzioni.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

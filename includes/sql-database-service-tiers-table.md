@@ -1,4 +1,4 @@
-### Livello di servizio Basic
+### <a name="basic-service-tier"></a>Livello di servizio Basic
 |  |  |
 | --- | --- |
 | Max DTU |5 |
@@ -10,7 +10,7 @@
 | Ripristino temporizzato |Qualsiasi punto negli ultimi 7 giorni |
 | Ripristino di emergenza |Replica geografica attiva |
 
-### Livello di servizio Standard
+### <a name="standard-service-tier"></a>Livello di servizio Standard
 |  |  |
 | --- |:---:|
 | **S0** &nbsp;&nbsp;&nbsp;&nbsp; **S1** &nbsp;&nbsp;&nbsp;&nbsp; **S2** &nbsp;&nbsp;&nbsp; **S3** | |
@@ -23,7 +23,7 @@
 | Ripristino temporizzato |Qualsiasi punto negli ultimi 35 giorni |
 | Ripristino di emergenza |Replica geografica attiva |
 
-### Livello di servizio Premium
+### <a name="premium-service-tier"></a>Livello di servizio Premium
 |  |  |
 | --- |:---:|
 | **P1** &nbsp;&nbsp;&nbsp;&nbsp; **P2** &nbsp;&nbsp;&nbsp;&nbsp; **P4** &nbsp;&nbsp;&nbsp; **P6/P3** &nbsp;&nbsp; **P11** &nbsp;&nbsp; **P15** | |
@@ -36,4 +36,8 @@
 | Ripristino temporizzato |Qualsiasi punto negli ultimi 35 giorni |
 | Ripristino di emergenza |Replica geografica attiva |
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

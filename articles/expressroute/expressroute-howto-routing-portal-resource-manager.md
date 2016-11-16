@@ -1,13 +1,13 @@
 ---
-title: Come configurare il routing per un circuito ExpressRoute tramite il portale di Azure| Microsoft Docs
+title: Come configurare il routing per un circuito ExpressRoute tramite il portale di Azure| Documentazione Microsoft
 description: Questo articolo descrive come creare ed eseguire il provisioning di un circuito ExpressRoute per il peering privato, il peering pubblico e il peering Microsoft. Questo articolo mostra anche come controllare lo stato e aggiornare o eliminare i peering per un circuito.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 8c2a7ed2-ae5c-4e49-81f6-77cf9f2b2ac9
 ms.service: expressroute
 ms.devlang: na
 ms.topic: hero-article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1d78bdb6cbb9870298b050207fd1fa9c5e71d674
+
 
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Creare e modificare il routing per un circuito ExpressRoute
@@ -148,11 +152,11 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
    ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft2.png)
 5. Salvare la configurazione dopo aver specificato tutti i parametri. 
    
-    Se il circuito raggiunge uno stato di convalida richiesto, come illustrato di seguito, si dovrà aprire un ticket di supporto per fornire la prova della proprietà dei prefissi al team di supporto.  
+    Se il circuito raggiunge uno stato di convalida richiesto, come illustrato di seguito, si dovrà aprire un ticket di supporto per fornire la prova della proprietà dei prefissi al team di supporto.    
    
     ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft5.png)
 
-    È possibile aprire un ticket di supporto direttamente dal portale come mostrato di seguito   
+    È possibile aprire un ticket di supporto direttamente dal portale come mostrato di seguito     
 
     ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft6.png)
 
@@ -183,6 +187,9 @@ Successivamente, [collegare una rete virtuale a un circuito ExpressRoute](expres
 * Per altre informazioni sul peering del circuito, vedere l'articolo relativo ai [circuiti ExpressRoute e domini di routing](expressroute-circuit-peerings.md)
 * Per ulteriori informazioni sull’uso delle reti virtuali, vedere [Panoramica sulla rete virtuale](../virtual-network/virtual-networks-overview.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

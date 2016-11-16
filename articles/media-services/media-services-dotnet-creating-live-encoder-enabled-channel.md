@@ -1,38 +1,42 @@
 ---
-title: Come eseguire lo streaming live con Servizi multimediali di Azure per creare flussi a bitrate multipli con .NET | Microsoft Docs
-description: Questa esercitazione illustra i passaggi per creare un canale che riceve un flusso live a velocità in bit singola e lo codifica in un flusso a più velocità in bit mediante .NET SDK.
+title: Come eseguire lo streaming live con Servizi multimediali di Azure per creare flussi a bitrate multipli con .NET | Documentazione di Microsoft
+description: "Questa esercitazione illustra i passaggi per creare un canale che riceve un flusso live a velocità in bit singola e lo codifica in un flusso a più velocità in bit mediante .NET SDK."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: anilmur
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 4df5e690-ff63-47cc-879b-9c57cb8ec240
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/15/2016
+ms.date: 10/12/2016
 ms.author: juliako;anilmur
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 98498da5a8aaf10e37c355f05d6f6d83fd4df584
+
 
 ---
-# Come eseguire lo streaming live con Servizi multimediali di Azure per creare flussi a più bitrate con .NET
+# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multibitrate-streams-with-net"></a>Come eseguire lo streaming live con Servizi multimediali di Azure per creare flussi a più bitrate con .NET
 > [!div class="op_single_selector"]
 > * [Portale](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 > * [API REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 > 
 > [!NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
+> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
 > 
 > 
 
-## Overview
+## <a name="overview"></a>Overview
 Questa esercitazione illustra i passaggi per creare un **canale** che riceve un flusso live a velocità in bit singola e lo codifica in un flusso a più velocità in bit.
 
 Per altre informazioni concettuali sui canali correlati abilitati per la codifica live, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
 
-## Scenario comune di streaming live
+## <a name="common-live-streaming-scenario"></a>Scenario comune di streaming live
 I seguenti passaggi descrivono le attività relative alla creazione di applicazioni comuni di streaming live.
 
 > [!NOTE]
@@ -41,30 +45,34 @@ I seguenti passaggi descrivono le attività relative alla creazione di applicazi
 > 
 
 1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a velocità in bit singola in uno dei protocolli seguenti: RTMP, Smooth Streaming o RTP (MPEG-TS). Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](http://go.microsoft.com/fwlink/?LinkId=532824).
-   
-    Questa operazione può essere eseguita anche dopo la creazione del canale.
-2. Creare e avviare un canale.
-3. Recuperare l'URL di inserimento del canale.
-   
-    L'URL di inserimento viene usato dal codificatore live per inviare il flusso al canale.
-4. Recuperare l'URL di anteprima del canale.
-   
-    Usare questo URL per verificare che il canale riceva correttamente il flusso live.
-5. Creare un asset.
-6. Se si desidera che l'asset sia crittografato in modo dinamico durante la riproduzione, seguire questa procedura:
-7. Creare una chiave simmetrica.
-8. Configurare i criteri di autorizzazione della chiave simmetrica.
-9. Configurare i criteri di distribuzione degli asset (usati per la creazione dinamica dei pacchetti e la crittografia dinamica).
-10. Creare un programma e specificare di usare l'asset creato.
-11. Pubblicare l'asset associato al programma creando un localizzatore OnDemand.
-    
-     Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
-12. Avviare il programma quando si è pronti a iniziare lo streaming e l'archiviazione.
-13. Facoltativamente, il codificatore live può ricevere il segnale per l'avvio di un annuncio. L'annuncio viene inserito nel flusso di output.
-14. Arrestare il programma ogni volta che si vuole interrompere lo streaming e l'archiviazione dell'evento.
-15. Eliminare il programma e, facoltativamente, eliminare l'asset.
 
-## Contenuto dell'esercitazione
+Questa operazione può essere eseguita anche dopo la creazione del canale.
+
+1. Creare e avviare un canale.
+2. Recuperare l'URL di inserimento del canale.
+
+L'URL di inserimento viene usato dal codificatore live per inviare il flusso al canale.
+
+1. Recuperare l'URL di anteprima del canale.
+
+Usare questo URL per verificare che il canale riceva correttamente il flusso live.
+
+1. Creare un asset.
+2. Se si desidera che l'asset sia crittografato in modo dinamico durante la riproduzione, seguire questa procedura:
+3. Creare una chiave simmetrica.
+4. Configurare i criteri di autorizzazione della chiave simmetrica.
+5. Configurare i criteri di distribuzione degli asset (usati per la creazione dinamica dei pacchetti e la crittografia dinamica).
+6. Creare un programma e specificare di usare l'asset creato.
+7. Pubblicare l'asset associato al programma creando un localizzatore OnDemand.
+
+Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
+
+1. Avviare il programma quando si è pronti a iniziare lo streaming e l'archiviazione.
+2. Facoltativamente, il codificatore live può ricevere il segnale per l'avvio di un annuncio. L'annuncio viene inserito nel flusso di output.
+3. Arrestare il programma ogni volta che si vuole interrompere lo streaming e l'archiviazione dell'evento.
+4. Eliminare il programma e, facoltativamente, eliminare l'asset.
+
+## <a name="what-youll-learn"></a>Contenuto dell'esercitazione
 Questo argomento illustra come eseguire diverse operazioni su canali e programmi tramite Media Services .NET SDK. Poiché molte operazioni hanno un'esecuzione prolungata, vengono usate API .NET che gestiscono questo tipo di operazioni.
 
 Questo argomento illustra come eseguire le operazioni seguenti:
@@ -78,33 +86,34 @@ Questo argomento illustra come eseguire le operazioni seguenti:
 7. Mostrare e nascondere slate. Avviare e arrestare annunci. Vengono usate API con esecuzione prolungata.
 8. Pulire il canale e tutte le risorse associate.
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per completare l'esercitazione è necessario quanto segue.
 
 * Per completare l'esercitazione, è necessario un account Azure.
-  
-    Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](/pricing/free-trial/?WT.mc_id=A261C142F). sono inclusi crediti da usare per provare i servizi di Azure a pagamento. Una volta esauriti i crediti, è possibile mantenere l'account e usare le funzionalità e i servizi di Azure gratuiti, ad esempio la funzionalità App Web nel servizio app di Azure.
-* Account di Servizi multimediali. Per creare un account di Servizi multimediali, vedere l'argomento relativo alla [creazione di un account](media-services-create-account.md).
+
+Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](/pricing/free-trial/?WT.mc_id=A261C142F). sono inclusi crediti da usare per provare i servizi di Azure a pagamento. Una volta esauriti i crediti, è possibile mantenere l'account e usare le funzionalità e i servizi di Azure gratuiti, ad esempio la funzionalità App Web nel servizio app di Azure.
+
+* Account di Servizi multimediali. Per creare un account di Servizi multimediali, vedere l'argomento relativo alla [creazione di un account](media-services-portal-create-account.md).
 * Visual Studio 2010 SP1 (Professional, Premium, Ultimate, o Express) o versioni successive.
 * È necessario usare Media Services .NET SDK versione 3.2.0.0 o successiva.
 * Una webcam e un codificatore in grado di inviare un flusso live a velocità in bit singola.
 
-## Considerazioni
+## <a name="considerations"></a>Considerazioni
 * Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per lunghi periodi di tempo, contattare amslived in Microsoft.com.
 * Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
 
-## Scaricare un esempio
+## <a name="download-sample"></a>Scaricare un esempio
 È possibile ottenere ed eseguire un esempio [qui](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
 
-## Configurare lo sviluppo con Media Services SDK per .NET
+## <a name="set-up-for-development-with-media-services-sdk-for-net"></a>Configurare lo sviluppo con Media Services SDK per .NET
 1. Creare un'applicazione console con Visual Studio.
 2. Aggiungere Media Services SDK per .NET all'applicazione console usando il pacchetto NuGet Media Services.
 
-## Connettersi a Servizi multimediali
+## <a name="connect-to-media-services"></a>Connettersi a Servizi multimediali
 Come procedura consigliata, usare un file app.config per archiviare il nome e la chiave dell'account di Servizi multimediali.
 
 > [!NOTE]
-> Per trovare i valori relativi a nome e chiave, passare al portale di Azure classico, selezionare l'account di Servizi multimediali e fare clic sull'icona "GESTISCI CHIAVI" nella parte inferiore della finestra del portale. Facendo clic sull'icona accanto a ciascuna casella di testo, il valore viene copiato negli Appunti di sistema.
+> Per trovare i valori di nome e chiave, passare al portale di Azure e selezionare l'account. Su lato destro verrà visualizzata la finestra Impostazioni. Nella finestra Impostazioni selezionare Chiavi. Facendo clic sull'icona accanto a ciascuna casella di testo, il valore viene copiato negli Appunti di sistema.
 > 
 > 
 
@@ -119,7 +128,7 @@ Aggiungere una sezione appSettings al file app.config e impostare i valori per i
     </configuration>
 
 
-## Esempio di codice
+## <a name="code-example"></a>Esempio di codice
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -507,15 +516,20 @@ Aggiungere una sezione appSettings al file app.config e impostare i valori per i
     }    
 
 
-## Passaggio successivo
+## <a name="next-step"></a>Passaggio successivo
 Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### Se si è alla ricerca di qualcos’altro.
+### <a name="looking-for-something-else"></a>Se si è alla ricerca di qualcos’altro.
 Se questo argomento non è di aiuto, non contiene ciò che si cerca o in altro modo non soddisfa le esigenze, è possibile inviare commenti e suggerimenti tramite il thread di Disqus riportato di seguito.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

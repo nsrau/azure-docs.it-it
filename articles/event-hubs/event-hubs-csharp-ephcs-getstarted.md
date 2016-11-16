@@ -1,12 +1,12 @@
 ---
-title: Introduzione all'Hub eventi in C# | Microsoft Docs
+title: Introduzione a Hub eventi in C# | Documentazione Microsoft
 description: Eseguire questa esercitazione per iniziare a usare gli hub eventi di Azure con C# e iniziare a usare EventProcessorHost.
 services: event-hubs
-documentationcenter: ''
+documentationcenter: 
 author: jtaubensee
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 2ec2378a-34f7-44c3-b976-cc444c98c338
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/02/2016
 ms.author: jotaub;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 35a7e4693ef979dfb947714f2fe5ce5599991189
+
 
 ---
 # <a name="get-started-with-event-hubs"></a>Introduzione all'Hub eventi
@@ -22,7 +26,7 @@ ms.author: jotaub;sethm
 ## <a name="introduction"></a>Introduzione
 Hub eventi è un servizio che consente di elaborare grandi quantità di dati di telemetria sugli eventi da applicazioni e dispositivi connessi. Dopo aver raccolto i dati in Hub eventi, è possibile archiviarli usando un cluster di archiviazione o trasformarli usando un provider di analisi in tempo reale. Questa funzionalità di elaborazione e raccolta di eventi su vasta scala rappresenta un componente chiave delle moderne architetture di applicazioni, tra cui Internet delle cose (IoT).
 
-Questa esercitazione illustra come usare il portale di Azure classico per creare un hub eventi. Illustra inoltre come inserire messaggi in Hub eventi usando un'applicazione console scritta in C# e come recuperarli in parallelo usando la [libreria dell'Host processore di eventi][] in C#.
+Questa esercitazione illustra come usare il portale di Azure classico per creare un hub eventi. Illustra anche come raccogliere messaggi in un hub eventi usando un'applicazione console scritta in C# e come recuperarli in parallelo usando la libreria dell'[host processore di eventi][host processore di eventi] di C#.
 
 Per completare l'esercitazione sono necessari gli elementi seguenti:
 
@@ -61,8 +65,8 @@ Premere **CTRL+C** nella finestra di dialogo **Sender** per terminare l'applicaz
 ## <a name="next-steps"></a>Passaggi successivi
 Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve i dati, è possibile passare ai seguenti scenari:
 
-* Un' [applicazione di esempio completa che usa Hub eventi][applicazione di esempio completa che usa Hub eventi].
-* Esempio relativo alla [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi][scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi] .
+* [Applicazione di esempio completa che usa Hub eventi][Applicazione di esempio completa che usa Hub eventi]
+* [Esempio di aumento del numero di istanze dell'elaborazione di eventi con Hub eventi][Esempio di aumento del numero di istanze dell'elaborazione di eventi con Hub eventi]
 * [Panoramica di Hub eventi][Panoramica di Hub eventi]
 
 <!-- Images. -->
@@ -82,6 +86,6 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

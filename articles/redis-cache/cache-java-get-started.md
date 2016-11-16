@@ -1,12 +1,12 @@
 ---
-title: Come usare Cache Redis di Azure con Java | Microsoft Docs
-description: Introduzione all'uso di Cache Redis di Azure con Java
+title: Come usare Cache Redis di Azure con Java | Documentazione Microsoft
+description: Introduzione all&quot;uso di Cache Redis di Azure con Java
 services: redis-cache
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 29275a5e-2e39-4ef2-804f-7ecc5161eab9
 ms.service: cache
 ms.devlang: java
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/24/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 907f75dc02bff7e25712a564410c1974e22f0d99
+
 
 ---
-# Come usare Cache Redis di Azure con Java
+# <a name="how-to-use-azure-redis-cache-with-java"></a>Come usare Cache Redis di Azure con Java
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -30,23 +34,23 @@ Cache Redis di Azure consente di accedere a una cache Redis dedicata, gestita da
 
 Questo argomento descrive come usare Cache Redis di Azure con Java.
 
-## Prerequisiti
-[Jedis](https://github.com/xetorthio/jedis): client Java per Redis
+## <a name="prerequisites"></a>Prerequisiti
+[Jedis](https://github.com/xetorthio/jedis) : client Java per Redis
 
 In questa esercitazione viene utilizzato Jedis, ma è possibile utilizzare qualsiasi cliente Java elencato in [http://redis.io/clients](http://redis.io/clients).
 
-## Creare una cache Redis in Azure
+## <a name="create-a-redis-cache-on-azure"></a>Creare una cache Redis in Azure
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## Recuperare il nome host e le chiavi di accesso
+## <a name="retrieve-the-host-name-and-access-keys"></a>Recuperare il nome host e le chiavi di accesso
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-## Abilitare l'endpoint non SSL
-Alcuni client Redis non supportano SSL e per impostazione predefinita la [porta non SSL è disabilitata per le nuove istanze della cache Redis di Azure](cache-configure.md#access-ports). Al momento della stesura di questo articolo, il client [Jedis](https://github.com/xetorthio/jedis) non supporta SSL.
+## <a name="enable-the-nonssl-endpoint"></a>Abilitare l'endpoint non SSL
+Alcuni client Redis non supportano SSL e per impostazione predefinita la [porta non SSL è disabilitata per le nuove istanze della cache Redis di Azure](cache-configure.md#access-ports). Al momento della stesura di questo articolo, il client [Jedis](https://github.com/xetorthio/jedis) non supporta SSL. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
 
-## Aggiungere dati alla cache e recuperarli
+## <a name="add-something-to-the-cache-and-retrieve-it"></a>Aggiungere dati alla cache e recuperarli
     package com.mycompany.app;
     import redis.clients.jedis.Jedis;
     import redis.clients.jedis.JedisShardInfo;
@@ -66,8 +70,13 @@ Alcuni client Redis non supportano SSL e per impostazione predefinita la [porta 
     }
 
 
-## Passaggi successivi
-* [Abilitare la diagnostica della cache](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) per poter [monitorare](https://msdn.microsoft.com/library/azure/dn763945.aspx) l'integrità della cache.
+## <a name="next-steps"></a>Passaggi successivi
+* [Abilitare la diagnostica della cache](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) per [monitorare](https://msdn.microsoft.com/library/azure/dn763945.aspx) l'integrità della cache.
 * Leggere la [documentazione ufficiale di Redis](http://redis.io/documentation).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

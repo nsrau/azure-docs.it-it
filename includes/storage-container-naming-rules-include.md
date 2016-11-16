@@ -11,8 +11,12 @@ Il nome di un contenitore deve essere un nome DNS valido, in conformità con le 
 4. La lunghezza dei nomi dei contenitori deve essere compresa tra 3 e 63 caratteri.
 
 > [!IMPORTANT]
-> Il nome di un contenitore deve sempre essere minuscolo. Se si include una lettera maiuscola nel nome di un contenitore o si violano in altro modo le regole di denominazione del contenitore, è possibile che venga visualizzato un errore 400 (richiesta non valida).
+> Il nome di un contenitore deve sempre essere minuscolo. Se si include una lettera maiuscola nel nome di un contenitore o si violano in altro modo le regole di denominazione del contenitore, è possibile che venga visualizzato un errore 400 (richiesta non valida). 
 > 
 > 
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

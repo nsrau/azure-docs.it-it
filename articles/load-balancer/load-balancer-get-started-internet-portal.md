@@ -1,13 +1,13 @@
 ---
-title: Creare un servizio di bilanciamento del carico Internet in Gestione risorse mediante il portale di Azure | Microsoft Docs
+title: Creare un servizio di bilanciamento del carico Internet in Gestione risorse mediante il portale di Azure | Documentazione di Microsoft
 description: Informazioni su come creare un servizio di bilanciamento del carico Internet in Gestione risorse utilizzando il portale di Azure
 services: load-balancer
 documentationcenter: na
 author: anavinahar
 manager: narayan
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: annahar
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d9e27ce132a837ec26a92de0c38b3e1c23b706c1
+
 
 ---
-# <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Creazione del servizio di bilanciamento del carico Internet attraverso il portale di Azure
+# <a name="creating-an-internetfacing-load-balancer-using-the-azure-portal"></a>Creazione del servizio di bilanciamento del carico Internet attraverso il portale di Azure
 [!INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
@@ -30,7 +34,7 @@ Questo articolo illustra il modello di distribuzione Gestione risorse. Vedere [I
 
 Qui viene illustrata la sequenza delle singole attività da eseguire per creare un servizio di bilanciamento del carico e viene illustrato in dettaglio cosa viene fatto per raggiungere l'obiettivo.
 
-## <a name="what-is-required-to-create-an-internet-facing-load-balancer?"></a>Elementi necessari per creare un servizio di bilanciamento del carico Internet
+## <a name="what-is-required-to-create-an-internetfacing-load-balancer"></a>Elementi necessari per creare un servizio di bilanciamento del carico Internet
 È necessario creare e configurare gli oggetti seguenti per distribuire un servizio di bilanciamento del carico.
 
 * Configurazione di IP front-end: contiene gli indirizzi IP pubblici per il traffico di rete in ingresso.
@@ -56,14 +60,14 @@ Qui viene illustrata la sequenza delle singole attività da eseguire per creare 
 
 ![Aggiornamento del gruppo di risorse di bilanciamento del carico](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
-## <a name="create-a-back-end-address-pool"></a>Creare un pool di indirizzi back-end
+## <a name="create-a-backend-address-pool"></a>Creare un pool di indirizzi back-end
 1. Dopo aver distribuito correttamente il bilanciamento del carico, selezionarlo dalle risorse. In impostazioni, selezionare i pool di back-end. Immettere un nome per il pool di back-end. Successivamente fare clic sul pulsante **Aggiungi** nella parte superiore del pannello visualizzato.
 2. Nel pannello **Aggiungi pool back-end** fare clic su **Aggiungi una macchina virtuale**.  Selezionare **Scegliere un set di disponibilità** in **Set di disponibilità**, quindi selezionare **myAvailSet**. Selezionare successivamente **Scegliere le macchine virtuali** nella sezione Macchine virtuali del pannello e fare clic su **web1** e **web2**, le due macchine virtuali create per il bilanciamento del carico. Verificare che entrambe abbiano i segni di spunta blu a sinistra, come illustrato nell'immagine sotto. Fare clic su **Seleziona** nel pannello, quindi premere OK nel pannello **Scegliere le macchine virtuali** e fare clic su **OK** nel pannello **Aggiungi pool back-end**.
    
     ![Aggiunta al pool di indirizzi back-end ](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
 3. Verificare la presenza di un aggiornamento nel menu a discesa delle notifiche relativo al salvataggio del pool back-end del servizio di bilanciamento del carico e all'aggiornamento dell'interfaccia di rete per entrambe le macchine virtuali **web1** e **web2**.
 
-## <a name="create-a-probe,-lb-rule,-and-nat-rules"></a>Creare un probe, una regola LB e le regole NAT
+## <a name="create-a-probe-lb-rule-and-nat-rules"></a>Creare un probe, una regola LB e le regole NAT
 1. Creare un probe di integrità.
    
     In impostazioni di bilanciamento del carico, selezionare Probe, quindi fare clic su **Aggiungi** nella parte superiore del pannello.
@@ -97,6 +101,9 @@ Per eliminare un servizio di bilanciamento del carico, selezionarlo. Nel pannell
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

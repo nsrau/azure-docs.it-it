@@ -1,13 +1,13 @@
 ---
 title: Introduzione ad Apache Storm in HDInsight | Microsoft Docs
-description: Viene fornita un'introduzione ad Apache Storm e viene mostrato come usare Storm in HDInsight per creare soluzioni di analisi in tempo reale nel cloud.
+description: Viene fornita un&quot;introduzione ad Apache Storm e viene mostrato come usare Storm in HDInsight per creare soluzioni di analisi in tempo reale nel cloud.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 72d54080-1e48-4a5e-aa50-cce4ffc85077
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,15 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e2fa11046adf828497b142e1043ac1c2a15443ef
+
 
 ---
-# <a name="introduction-to-apache-storm-on-hdinsight:-real-time-analytics-for-hadoop"></a>Introduzione ad Apache Storm in HDInsight: Analisi in tempo reale per Hadoop
+# <a name="introduction-to-apache-storm-on-hdinsight-realtime-analytics-for-hadoop"></a>Introduzione ad Apache Storm in HDInsight: Analisi in tempo reale per Hadoop
 Apache Storm in HDInsight consente di creare soluzioni di analisi distribuite e in tempo reale nell'ambiente Azure usando [Apache Hadoop](http://hadoop.apache.org).
 
-## <a name="what-is-apache-storm?"></a>Che cos'è Apache Storm?
+## <a name="what-is-apache-storm"></a>Che cos'è Apache Storm?
 Apache Storm è un sistema di calcolo distribuito, a tolleranza di errore e open source che consente di elaborare i dati in tempo reale con Hadoop. Le soluzioni Storm possono fornire anche l'elaborazione garantita dei dati che consente di ripetere l'operazione per i dati non elaborati correttamente la prima volta.
 
-## <a name="why-use-storm-on-hdinsight?"></a>Perché usare Storm in HDInsight?
+## <a name="why-use-storm-on-hdinsight"></a>Perché usare Storm in HDInsight?
 Apache Storm in HDInsight è un cluster gestito integrato nell'ambiente Azure che offre i seguenti vantaggi chiave:
 
 * Viene eseguito come servizio gestito e dispone di un contratto di servizio con disponibilità del 99,9%.
@@ -103,7 +107,7 @@ Anche se è possibile specificare il numero di nodi del cluster durante la fase 
 ### <a name="support"></a>Supporto
 Storm in HDInsight viene fornito con supporto completo di livello enterprise 24 ore su 24, 7 giorni su 7. Storm in HDInsight dispone inoltre di un contratto di servizio con disponibilità del 99,9%. Questo garantisce che il cluster avrà connettività esterna per almeno il 99,9% del tempo.
 
-## <a name="common-use-cases-for-real-time-analytics"></a>Casi comuni di uso dell’analisi in tempo reale
+## <a name="common-use-cases-for-realtime-analytics"></a>Casi comuni di uso dell’analisi in tempo reale
 Di seguito sono descritti alcuni scenari comuni in cui è possibile usare Apache Storm in HDInsight. Per informazioni sugli scenari reali, leggere l'articolo che descrive [in che modo le società stanno usando Storm](https://storm.apache.org/documentation/Powered-By.html).
 
 * Internet delle cose
@@ -114,7 +118,7 @@ Di seguito sono descritti alcuni scenari comuni in cui è possibile usare Apache
 * Search
 * Mobile Engagement
 
-## <a name="how-is-data-in-hdinsight-storm-processed?"></a>Come vengono elaborati i dati in HDInsight Storm?
+## <a name="how-is-data-in-hdinsight-storm-processed"></a>Come vengono elaborati i dati in HDInsight Storm?
 Apache Storm elabora **topologie** al posto dei processi MapReduce con cui l'utente ha familiarità in HDInsight o Hadoop. Un cluster Storm in HDInsight contiene due tipi di nodi, i nodi head che eseguono **Nimbus** e i nodi di lavoro che eseguono **Supervisor**.
 
 * **Nimbus**: simile a JobTracker di Hadoop, è responsabile della distribuzione del codice nell'intero cluster, dell'assegnazione delle attività alle macchine virtuali e del monitoraggio degli errori. HDInsight fornisce due nodi Nimbus, quindi non esiste un singolo punto di errore per un cluster Storm in HDInsight.
@@ -136,10 +140,10 @@ Apache Storm elabora **topologie** al posto dei processi MapReduce con cui l'ute
 
 Per altre informazioni sui componenti Storm, vedere l'[esercitazione su Storm][apachetutorial] nel sito Web apache.org.
 
-## <a name="what-programming-languages-can-i-use?"></a>Quali linguaggi di programmazione si possono usare?
+## <a name="what-programming-languages-can-i-use"></a>Quali linguaggi di programmazione si possono usare?
 Il cluster Storm in HDInsight offre supporto per C#, Java e Python.
 
-### <a name="c&#35;"></a>C&#35;
+### <a name="c35"></a>C&#35;
 HDInsight Tools per Visual Studio consente agli sviluppatori .NET di progettare e implementare una topologia in C#. È inoltre possibile creare topologie ibride che usano componenti Java e C#.
 
 Per altre informazioni, vedere [Sviluppare topologie C# per Apache Storm in HDInsight tramite Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
@@ -153,7 +157,7 @@ Per esempi di topologie Java e Trident, vedere l’ [elenco di esempi di topolog
 
 Gli esempi di storm-starter si trovano nella directory ** /usr/hdp/current/storm-client/contrib/storm-starter** nei cluster basati su Linux e nella directory **%storm_home%\contrib\storm-starter** nei cluster basati su Windows.
 
-## <a name="what-are-some-common-development-patterns?"></a>Quali sono alcuni dei modelli di sviluppo più comuni?
+## <a name="what-are-some-common-development-patterns"></a>Quali sono alcuni dei modelli di sviluppo più comuni?
 ### <a name="guaranteed-message-processing"></a>Elaborazione garantita dei messaggi
 Storm può fornire diversi livelli di elaborazione garantita dei messaggi. Un'applicazione Storm di base, ad esempio, può garantire un'elaborazione at-least-once, mentre Trident può garantire un'elaborazione exactly-once.
 
@@ -184,7 +188,7 @@ Quando la topologia dipende dal calcolo di un valore "primi N", ad esempio le pr
 
 Per un esempio, vedere [RollingTopWords](https://github.com/nathanmarz/storm-starter/blob/master/src/jvm/storm/starter/RollingTopWords.java) .
 
-## <a name="what-type-of-logging-does-storm-use?"></a>Che tipo di registrazione usa Storm?
+## <a name="what-type-of-logging-does-storm-use"></a>Che tipo di registrazione usa Storm?
 Storm usa Apache Log4j per registrare le informazioni. Per impostazione predefinita viene registrata una grande quantità di dati e può essere difficile esaminare le informazioni. È possibile includere un file di configurazione della registrazione nella topologia di Storm per definire il comportamento di registrazione.
 
 Per un esempio di topologia che illustra come configurare la registrazione, vedere [Sviluppare topologie basate su Java per un'applicazione di base per il conteggio di parole con Apache Storm e Maven in HDInsight](hdinsight-storm-develop-java-topology.md) .
@@ -202,6 +206,6 @@ Per altre informazioni sulle soluzioni di analisi in tempo reale con Apache Stor
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

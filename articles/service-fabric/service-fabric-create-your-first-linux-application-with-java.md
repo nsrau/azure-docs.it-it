@@ -1,12 +1,12 @@
 ---
-title: Creare la prima applicazione di Service Fabric in Linux con Java | Microsoft Docs
-description: Creare e distribuire un'applicazione di Service Fabric con Java
+title: Creare la prima applicazione di Service Fabric in Linux con Java | Documentazione Microsoft
+description: Creare e distribuire un&quot;applicazione di Service Fabric con Java
 services: service-fabric
 documentationcenter: java
 author: seanmck
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: hero-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/04/2016
 ms.author: seanmck
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 288d504b44fd7588a03a31171da1bfb332e2429f
+
 
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Creare la prima applicazione di Azure Service Fabric
@@ -113,6 +117,6 @@ L'app verrà compilata e distribuita dopo alcuni istanti. È possibile monitorar
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

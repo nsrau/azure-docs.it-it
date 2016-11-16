@@ -1,6 +1,5 @@
 # Panoramica
 ## [Informazioni sull'insieme di credenziali delle chiavi](key-vault-whatis.md)
-## [Prezzi](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Panoramica del servizio](https://azure.microsoft.com/services/key-vault/)
 
 # Attività iniziali
@@ -30,11 +29,14 @@
 # Riferimento
 ## [Informazioni su chiavi e informazioni riservate](https://msdn.microsoft.com/en-us/library/azure/dn903623)
 ## [Esempi di codice](https://www.microsoft.com/download/details.aspx?id=45343)
-## [.NET per l'insieme di credenziali delle chiavi](https://msdn.microsoft.com/en-us/library/azure/mt430941)
-## [REST per l'insieme di credenziali delle chiavi](https://msdn.microsoft.com/en-us/library/azure/dn903609)
+
+## [Cmdlet di PowerShell per l'insieme di credenziali delle chiavi di Resource Manager](/powershell/resourcemanager/)
+## [Cmdlet di PowerShell per l'insieme di credenziali delle chiavi della distribuzione classica](/powershell/servicemanagement/)
+## [Insieme di credenziali delle chiavi con l'interfaccia della riga di comando di Azure](/cli/azure/)
+## [Informazioni di riferimento sull'insieme di credenziali delle chiavi in Java](/java/api/)
+## [API di riferimento gestite dell'insieme di credenziali delle chiavi](/dotnet/api/) 
+## [Informazioni di riferimento sull'API REST dell'insieme di credenziali delle chiavi](/rest/api/keyvault) 
 ## [Node.js per l'insieme di credenziali delle chiavi](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
-## [Cmdlet per gli insiemi di credenziali delle chiavi](https://msdn.microsoft.com/en-us/library/azure/dn868052)
-## [Microsoft Azure PowerShell](https://msdn.microsoft.com/en-us/library/azure/jj156055.aspx)
 
 # Risorse correlate
 ## [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
@@ -43,6 +45,7 @@
 ## [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # Risorse
+## [Prezzi](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Blog](http://blogs.technet.com/b/kv/)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
 
