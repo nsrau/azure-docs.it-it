@@ -191,4 +191,4 @@ Azure usa controlli di sicurezza per implementare la prevenzione delle minacce e
 
 [Blog di Active Directory](http://blogs.technet.com/b/ad/)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0525_2016--->

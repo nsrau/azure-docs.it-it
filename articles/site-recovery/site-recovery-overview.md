@@ -79,6 +79,6 @@ Site Recovery offre una replica compatibile con le applicazioni, per consentire 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!----HONumber=Nov16_HO2-->
 
 

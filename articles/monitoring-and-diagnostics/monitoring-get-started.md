@@ -96,6 +96,6 @@ Seguendo questi passaggi e aggiungendo tutti i riquadri pertinenti a un dashboar
 ## <a name="next-steps"></a>Passaggi successivi
 * Consultare [Panoramica del monitoraggio di Azure](monitoring-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+<!----HONumber=Oct16_HO2-->
 
 
