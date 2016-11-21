@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 80001fda921c4504237b1c5e3812a84924814dfd
-ms.openlocfilehash: c0c908d2597c6570511d6a15ea3f1f48b2dab6c8
+ms.sourcegitcommit: 6945c867f7514ac99482d94c086ec1a29f0b88a1
+ms.openlocfilehash: 96c971fce7e742a8ae27442954963c62935a2121
 
 ---
 #<a name="documentdb-documentation"></a>Documentazione di DocumentDB
@@ -71,7 +71,7 @@ Azure DocumentDB è un servizio database NoSQL completamente gestito ideato per 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -89,7 +89,7 @@ Azure DocumentDB è un servizio database NoSQL completamente gestito ideato per 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -107,7 +107,7 @@ Azure DocumentDB è un servizio database NoSQL completamente gestito ideato per 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -125,7 +125,7 @@ Azure DocumentDB è un servizio database NoSQL completamente gestito ideato per 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -143,7 +143,7 @@ Azure DocumentDB è un servizio database NoSQL completamente gestito ideato per 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -161,7 +161,7 @@ Azure DocumentDB è un servizio database NoSQL completamente gestito ideato per 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -176,18 +176,29 @@ Azure DocumentDB è un servizio database NoSQL completamente gestito ideato per 
 
 ---
 
-##<a name="reference"></a>riferimento
-
-###<a name="net"></a>.NET
-[Informazioni di riferimento gestite su .NET](/dotnet/api)
+## <a name="reference"></a>Riferimento
 
 ### <a name="java"></a>Java
-[Informazioni di riferimento su Java SDK](/java/api)
+[Informazioni di riferimento su Java SDK](http://azure.github.io/azure-documentdb-java)
 
-###<a name="rest"></a>REST
-[Informazioni di riferimento sulle API REST di DocumentDB](https://msdn.microsoft.com/library/azure/dn781481)
+### <a name="net"></a>.NET
+[Informazioni di riferimento gestite su .NET](https://msdn.microsoft.com/library/azure/dn948556)
 
+### <a name="node"></a>Nodo
+[Informazioni di riferimento su Node SDK](http://azure.github.io/azure-documentdb-node/DocumentClient)
 
+### <a name="python"></a>Python
+[Informazioni di riferimento su Python](http://azure.github.io/azure-documentdb-python/api/pydocumentdb)
+
+### <a name="sql"></a>SQL
+[Informazioni di riferimento su SQL](https://msdn.microsoft.com/library/azure/dn782250)
+
+### <a name="rest"></a>REST
+[Informazioni di riferimento sulle API REST](/rest/api/documentdb)
+
+[Informazioni di riferimento sull'API del provider di risorse](/rest/api/documentdbresourceprovider)
+
+---
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/documentdb.pdf">
@@ -199,6 +210,6 @@ Scaricare la documentazione di DocumentDB </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -13,7 +13,7 @@
 
 # Attività iniziali
 ## [Creare una rete virtuale](virtual-networks-create-vnet-arm-pportal.md)
-## [Distribuire una macchina virtuale in una rete virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+## [Distribuire una macchina virtuale in una rete virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 # Procedure
 ## Pianificare e progettare
@@ -143,6 +143,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

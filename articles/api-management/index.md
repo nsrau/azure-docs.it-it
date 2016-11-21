@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-# API Management Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: 43f480acb3e49a1b6a081a8338bb66daa571be55
 
-API Management helps organizations publish APIs to external, partner and internal developers to unlock the potential of their data and services. Businesses everywhere are looking to extend their operations as a digital platform, creating new channels, finding new customers and driving deeper engagement with existing ones. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security and protection.
+---
+# <a name="api-management-documentation"></a>Documentazione di Gestione API
+
+Gestione API consente alle organizzazioni di pubblicare API per consentire a sviluppatori esterni, partner e interni di sfruttare tutte le potenzialità dei rispettivi dati e servizi.  Gestione API fornisce le competenze fondamentali per assicurare un programma API di successo attraverso il coinvolgimento degli sviluppatori, informazioni aziendali approfondite, strumenti di analisi, sicurezza e protezione.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about API Management</h3>
+                        <h3>Informazioni su Gestione API</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>API Management Video Library</h3>
+                        <h3>Catalogo video di Gestione API</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with API Management</h3>
+                        <h3>Introduzione a Gestione API</h3>
                     </div>
                 </div>
             </div>
@@ -61,17 +65,17 @@ API Management helps organizations publish APIs to external, partner and interna
         </a>
     </li>
     <li>
-        <a href="/azure/api-management/api-management-howto-create-a">
+        <a href="/azure/api-management/api-management-howto-create-apis">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create APIs in Azure API Management</h3>
+                        <h3>Introduzione alla creazione di API in Gestione API di Azure</h3>
                     </div>
                 </div>
             </div>
@@ -82,14 +86,38 @@ API Management helps organizations publish APIs to external, partner and interna
 
 ---
 
-## Reference
+## <a name="reference"></a>Riferimento
 
-### PowerShell
-[API Management Resource Manager PowerShell cmdlet](/powershell/resourcemanager)
-[API Management Classic PowerShell cmdlet](https://msdn.microsoft.com/en-us/library/azure/mt613507)
-
-### REST
-[API Management REST API Reference](/rest/api/apimanagement/)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/resourcemanager">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Cmdlet PowerShell di Resource Manager per Gestione API</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/apimanagement/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Riferimenti all'API REST di Gestione API</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 ---
 
@@ -97,7 +125,12 @@ API Management helps organizations publish APIs to external, partner and interna
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/api-management.pdf">
         <div class="img"></div>
         <div class="text">
-            Download API Management Documentation
-        </div>
+Scaricare la documentazione di Gestione API </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

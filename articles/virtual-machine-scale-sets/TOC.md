@@ -1,12 +1,13 @@
-# Panoramica
-## [Informazioni sui set di scalabilità](virtual-machine-scale-sets-overview.md)
-## [Considerazioni sulla progettazione per i set di scalabilità](virtual-machine-scale-sets-design-overview.md)
+# Overview
+## [Informazioni sui set di scalabilità di macchine virtuali](virtual-machine-scale-sets-overview.md)
 
 # Attività iniziali
 ## [Creare un set di scalabilità Windows](virtual-machine-scale-sets-windows-create.md)
 ## [Creare un set di scalabilità Linux](virtual-machine-scale-sets-linux-create-cli.md)
 
 # Procedure
+## Pianificare e progettare
+### [Considerazioni sulla progettazione](virtual-machine-scale-sets-design-overview.md)
 ## Distribuire
 ### [Set di scalabilità tramite il portale](virtual-machine-scale-sets-portal-create.md)
 ### [Set di scalabilità con Visual Studio](virtual-machine-scale-sets-vs-create.md)
@@ -22,18 +23,21 @@
 ### [Scalabilità automatica avanzata](virtual-machine-scale-sets-advanced-autoscale.md)
 ### [Uso di DSC e di set di scalabilità](virtual-machine-scale-sets-dsc.md)
 
-## Risolvere i problemi
-### [Risolvere i problemi relativi alla scalabilità automatica](virtual-machine-scale-sets-troubleshoot.md)
+## Risoluzione dei problemi
+### [Autoscale](virtual-machine-scale-sets-troubleshoot.md)
 
 # Riferimento
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Interfaccia della riga di comando di Azure](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/compute/)
 
 # Risorse
-## [Prezzi](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
+## Prezzi 
+### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
+### [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 76bc79f1a256b3d4487eecf03a966ff5e094600e
-ms.openlocfilehash: e45fbe593e6e80c6ac758d122d12792b03df4310
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: 5cf17ad514127f97319130c4f3f78cdfa1eed052
 
 ---
 #<a name="stream-analytics-documentation"></a>Documentazione dell'analisi di flusso
@@ -122,20 +122,66 @@ Analisi di flusso di Azure è un motore di elaborazione di eventi in tempo reale
 
 ---
 
-##<a name="reference"></a>riferimento
+## <a name="reference"></a>riferimento
 
-###<a name="powershell"></a>PowerShell
-[Informazioni di riferimento su Azure PowerShell](/powershell/azureps-cmdlets-docs)
-
-###<a name="net"></a>.NET
-[Informazioni di riferimento gestite su .NET](/dotnet/api)
-
-###<a name="query-language"></a>Linguaggio di query
-[Informazioni di riferimento sul linguaggio di query per l'analisi di flusso](https://msdn.microsoft.com/library/azure/dn834998)
-
-###<a name="rest"></a>REST
-[Informazioni di riferimento sull'API REST dell'analisi di flusso](/rest/api/streamanalytics)
-
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Informazioni di riferimento su Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Informazioni di riferimento gestite su .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/dn834998">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Linguaggio di query</h3>
+                        <p>Informazioni di riferimento sul linguaggio di query per l'analisi di flusso</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/streamanalytics">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Informazioni di riferimento sull'API REST dell'analisi di flusso</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>   
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/stream-analytics.pdf">
@@ -147,6 +193,6 @@ Scaricare la documentazione dell'analisi di flusso </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

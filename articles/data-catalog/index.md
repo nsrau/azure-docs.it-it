@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#Data Catalog Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: f9c998b6d6431fe08a1b6e6332f992be1446f0c7
 
-Data Catalog is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications.  Data Catalog represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
+---
+#<a name="data-catalog-documentation"></a>Documentazione di Data Catalog
+
+Data Catalog è una piattaforma di sistemi distribuiti che semplifica la creazione di pacchetti, la distribuzione e la gestione di microservizi scalabili e affidabili e risolve importanti sfide legate allo sviluppo e alla gestione delle applicazioni cloud.  Data Catalog rappresenta la piattaforma middleware di prossima generazione per la creazione e la gestione di applicazioni cloud di classe enterprise di primo livello.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Data Catalog is a distributed systems platform that makes it easy to package, de
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Data Catalog Getting Started Samples</h3>
+                        <h3>Esempi introduttivi su Data Catalog</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Data Catalog is a distributed systems platform that makes it easy to package, de
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Data Catalog Party Cluster</h3>
+                        <h3>Cluster di entità di Azure Data Catalog</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Data Catalog is a distributed systems platform that makes it easy to package, de
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Getting started with Data Catalog with .NET Core</h3>
+                        <h3>Introduzione a Data Catalog con .NET Core</h3>
                     </div>
                 </div>
             </div>
@@ -64,19 +68,50 @@ Data Catalog is a distributed systems platform that makes it easy to package, de
 
 ---
 
-##Reference
+## <a name="reference"></a>riferimento
 
-###REST
-[Data Catalog REST API Reference](/rest/api/)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/rest/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Riferimenti all'API REST di Data Catalog</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###.NET
-[Data Catalog Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/mt416943">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Riferimenti gestiti di Data Catalog</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
+
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-catalog.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Data Catalog Documentation
-        </div>
+Scaricare la documentazione di Data Catalog </div>
     </a>
 </div>
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -66,24 +66,25 @@
 ### [Troubleshoot common errors](automation-troubleshooting-automation-errors.md) (Risolvere i problemi comuni)
 ### [Runbook job suspended](automation-troubleshooting-hrw-runbook-terminates-suspended.md) (Processo di runbook sospeso)
 
-# riferimento
+# Riferimento
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell classico](/powershell/servicemanagement)
+## [.NET](/dotnet/api)
+## [REST](https://msdn.microsoft.com/library/azure/mt662285.aspx)
+## [REST classica](https://msdn.microsoft.com/library/azure/mt163781)
 ## [Note sulla versione](https://azure.microsoft.com/updates/?product=automation)
-## [Cmdlet di PowerShell](https://msdn.microsoft.com/library/azure/dn690262)
-## [Resource Manager REST API](https://msdn.microsoft.com/library/azure/mt662285.aspx) (API REST di Resource Manager)
-## [Classic Deployment Rest](https://msdn.microsoft.com/library/azure/mt163781) (REST distribuzione classica)
 
 # Risorse
 ## [Prezzi](https://azure.microsoft.com/pricing/details/automation/)  
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
-## [Video](https://azure.microsoft.com/documentation/videos/index/?services=automation) 
-## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=automation) 
-## [Azure Automation training](https://www.microsoftvirtualacademy.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323) (Training su Automazione di Azure)
+## [Video](https://azure.microsoft.com/documentation/videos/index/?services=automation)
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=automation)
+## [Azure Automation training](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382) (Training su Automazione di Azure)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/automation/) (Percorso di apprendimento)
 ## [Automation introduction video](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/) (Video introduttivo su Automazione)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

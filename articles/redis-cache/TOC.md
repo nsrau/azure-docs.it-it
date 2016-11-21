@@ -46,7 +46,7 @@
 ###[Usare il cluster Redis per aumentare/ridurre](cache-how-to-premium-clustering.md)
 
 #Riferimento
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 ## [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/)
 ## [Java](https://docs.microsoft.com/java/api/)
 ## [.NET](https://docs.microsoft.com/dotnet/api/)
@@ -60,6 +60,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -51,19 +51,22 @@
 ### [Accedere ai log di diagnostica](data-lake-store-diagnostic-logs.md)
 
 # Riferimento
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
-## [Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-## [.NET](https://docs.microsoft.com/dotnet/api)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [Java](/java/api/)
+## [.NET](/dotnet/api/)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
-## [REST](https://docs.microsoft.com/en-us/rest/api/datalakestore/)
+## [REST](/rest/api/datalakestore/)
 
 # Risorse
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=data-lake-store)
+## [Prezzi](https://azure.microsoft.com/pricing/details/data-lake-store/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Forum di Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [Commenti e suggerimenti su UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [Blog di Data Lake Store](https://blogs.msdn.microsoft.com/azuredatalake/)
+## [Video](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

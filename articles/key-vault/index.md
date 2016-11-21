@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: d6059070f8cb8765986763a2ae52068ab692d41d
-ms.openlocfilehash: 9614778d6c7502f16639d2ccb2f259a98be5b0c9
+ms.sourcegitcommit: 98fdd8ee3dc1b90aae349652e471a218ef44a44e
+ms.openlocfilehash: ac0840ad98cc34d190d69b4e317a2c446a3d64d1
 
 ---
 # <a name="key-vault-documentation"></a>Documentazione sull'insieme di credenziali delle chiavi
@@ -106,21 +106,82 @@ L'insieme di credenziali chiave di Azure consente di proteggere le chiavi e i se
 
 ## <a name="reference"></a>Riferimento
 
-### <a name="powershell"></a>PowerShell
-[Informazioni di riferimento su Azure PowerShell](/PowerShell/azureps-cmdlets-docs)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/PowerShell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Informazioni di riferimento su Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure 
-[Insieme di credenziali delle chiavi con l'interfaccia della riga di comando di Azure](/cli/azure/keyvault)
+<li>
+        <a href="/cli/azure/keyvault">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Interfaccia della riga di comando di Azure</h3>
+                        <p>Insieme di credenziali delle chiavi con l'interfaccia della riga di comando di Azure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-### <a name="java"></a>Java 
-[Informazioni di riferimento sull'insieme di credenziali delle chiavi in Java](/java/api/)
+<li>
+        <a href="/java/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Informazioni di riferimento sull'insieme di credenziali delle chiavi in Java</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-### <a name="net"></a>.NET 
-[API di riferimento gestite dell'insieme di credenziali delle chiavi](/dotnet/api/) 
+<li>
+        <a href="/dotnet/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>API di riferimento gestite dell'insieme di credenziali delle chiavi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-### <a name="rest"></a>REST 
-[Informazioni di riferimento sull'API REST dell'insieme di credenziali delle chiavi](/rest/api/keyvault) 
-
+<li>
+        <a href="/rest/api/keyvault">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Informazioni di riferimento sull'API REST dell'insieme di credenziali delle chiavi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 ---
 
 <div class="downloadHolder">
@@ -133,6 +194,6 @@ Scaricare la documentazione sull'insieme di credenziali delle chiavi </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

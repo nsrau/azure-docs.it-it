@@ -1,13 +1,17 @@
 ---
 layout: LandingPage
----
-#Azure Stack Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: b2f3a3776344acf586386f10679b2171385bc465
+ms.openlocfilehash: 93e96d4298228f90d8f05264091ae55ac6679c02
 
-Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliver Azure services from your organization’s datacenter. Microsoft Azure Stack Technical Preview 2 is being made available through a Proof of Concept (POC). The POC is an environment for learning and demonstrating Azure Stack features. It lets you deploy all required components on a single physical machine to create an environment for evaluating key concepts and capabilities, and validating the extensibility model for APIs.
+---
+#<a name="azure-stack-documentation"></a>Documentazione di Azure Stack
+
+Microsoft Azure Stack è una nuova piattaforma ibrida su cloud che consente di distribuire i servizi di Azure dal data center dell'organizzazione. Microsoft Azure Stack Technical Preview 2 viene reso disponibile tramite un modello di verifica (PoC). Il modello di verifica è un ambiente per l'apprendimento e la dimostrazione delle funzionalità di Azure Stack. Consente di distribuire tutti i componenti necessari in un singolo computer fisico per creare un ambiente ideale per la valutazione delle funzionalità e dei concetti chiave, oltre alla convalida del modello di estendibilità per le API.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/azure-stack/azure-stack-poc/">
+        <a href="/azure/azure-stack/azure-stack-poc">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -17,7 +21,7 @@ Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliv
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Stack</h3>
+                        <h3>Informazioni su Azure Stack</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliv
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Stack Video Library</h3>
+                        <h3>Catalogo video di Azure Stack</h3>
                     </div>
                 </div>
             </div>
@@ -43,17 +47,17 @@ Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliv
         </a>
     </li>
     <li>
-        <a href="/azure/azure-stack/azure-stack-provision-vm/">
+        <a href="/azure/azure-stack/azure-stack-provision-vm">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Tutorial</h3>
+                        <h3>Introduzione al provisioning di una macchina virtuale </h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliv
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Deploy</h3>
+                        <h3>Introduzione alla connessione con PowerShell</h3>
                     </div>
                 </div>
             </div>
@@ -79,3 +83,19 @@ Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliv
         </a>
     </li>
 </ul>
+
+---
+
+<div class="downloadHolder">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-stack.pdf">
+        <div class="img"></div>
+        <div class="text">
+Scaricare la documentazione di Azure Stack </div>
+    </a>
+</div>
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

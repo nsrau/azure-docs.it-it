@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#VPN Gateway Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: 21d5070616888654aad4a8e3bc17a066233fb907
 
-Azure VPN Gateway is a virtual private network (VPN) gateway used to send network traffic between Azure virtual networks and on-premises locations and also between virtual networks within Azure (VNet-to-VNet).  
+---
+#<a name="vpn-gateway-documentation"></a>Documentazione del gateway VPN
+
+Il gateway VPN di Azure è un gateway di rete privata virtuale, usato per inviare traffico di rete tra reti virtuali di Azure e posizioni locali e anche tra reti virtuali in Azure (da rete virtuale a rete virtuale).  
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Azure VPN Gateway is a virtual private network (VPN) gateway used to send networ
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about VPN Gateway</h3>
+                        <h3>Informazioni sul gateway VPN</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure VPN Gateway is a virtual private network (VPN) gateway used to send networ
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>VPN Gateway Video Library</h3>
+                        <h3>Catalogo video del gateway VPN</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure VPN Gateway is a virtual private network (VPN) gateway used to send networ
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with VPN Gateway</h3>
+                        <h3>Introduzione alla pianificazione con il gateway VPN</h3>
                     </div>
                 </div>
             </div>
@@ -67,11 +71,11 @@ Azure VPN Gateway is a virtual private network (VPN) gateway used to send networ
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg"  alt="" />
+                            <img src="media/index/get-started.svg"  alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a site-to-site connection use the Azure portal</h3>
+                        <h3>Introduzione alla creazione di una connessione da sito a sito con il portale di Azure</h3>
                     </div>
                 </div>
             </div>
@@ -85,11 +89,11 @@ Azure VPN Gateway is a virtual private network (VPN) gateway used to send networ
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg"  alt="" />
+                            <img src="media/index/get-started.svg"  alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a point-to-site connection use the Azure portal</h3>
+                        <h3>Introduzione alla creazione di una connessione da punto a sito con il portale di Azure</h3>
                     </div>
                 </div>
             </div>
@@ -103,11 +107,11 @@ Azure VPN Gateway is a virtual private network (VPN) gateway used to send networ
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg"  alt="" />
+                            <img src="media/index/get-started.svg"  alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a VNet-to-VNet connection use the Azure portal</h3>
+                        <h3>Introduzione alla creazione di una connessione da rete virtuale a rete virtuale con il portale di Azure</h3>
                     </div>
                 </div>
             </div>
@@ -117,29 +121,91 @@ Azure VPN Gateway is a virtual private network (VPN) gateway used to send networ
  </ul>
 ---
 
-##Reference
+## <a name="reference"></a>Riferimento
 
-###PowerShell
-[PowerShell Reference](/powershell)
-
-###Azure CLI
-[VPN Gateway using Azure CLI](/cli/azure/network/vpn-gateway)
-
-###.NET
-[.NET Managed Reference](/dotnet/api)
-
-###Java
-[Java SDK Reference](/java/api)
-
-###REST
-[VPN Gateway REST API Reference](https://msdn.microsoft.com/library/mt163859)
-
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Informazioni di riferimento su PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/cli/azure/network/vpn-gateway">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Interfaccia della riga di comando di Azure</h3>
+                        <p>Gateway VPN con l'interfaccia della riga di comando</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Informazioni di riferimento gestite su .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/java/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Informazioni di riferimento su Java SDK</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://msdn.microsoft.com/library/mt163859">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Informazioni di riferimento sull'API REST per il gateway VPN</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/vpn-gateway.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Azure Batch Documentation
-        </div>
+Scaricare la documentazione su Azure Batch </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

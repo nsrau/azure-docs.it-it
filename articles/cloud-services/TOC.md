@@ -98,9 +98,9 @@
 ### [Domande frequenti sui servizi cloud](cloud-services-faq.md)
 
 # Riferimento
-## [.NET](https://msdn.microsoft.com/library)
 ## [XML Schema .csdef](https://msdn.microsoft.com/library/azure/ee758711)
 ## [XMLSchema .cscfg](https://msdn.microsoft.com/library/azure/ee758710)
+## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 ## [Patch per il sistema operativo guest](cloud-services-guestos-msrc-releases.md)
 ## Ritiro del sistema operativo guest
 ### [Criteri di ritiro](cloud-services-guestos-retirement-policy.md)
@@ -116,6 +116,6 @@
 ## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

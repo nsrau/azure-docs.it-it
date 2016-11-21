@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#Devtest Lab Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 381c936b7e615cc35ddd429f2a70c468d511a8cf
+ms.openlocfilehash: 838593f4b7d1d83b182faf88433a5bfbf5620288
 
-Devtest Lab is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications.  Devtest Lab represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
+---
+#<a name="devtest-labs-documentation"></a>Documentazione di DevTest Labs
+
+Azure DevTest Labs è un servizio che consente agli sviluppatori e ai tester di creare rapidamente ambienti in Azure riducendo al minimo gli sprechi e i costi di controllo.  È possibile provare la versione più recente dell'applicazione eseguendo rapidamente il provisioning di ambienti Windows e Linux tramite modelli ed elementi riutilizzabili.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Devtest Lab is a distributed systems platform that makes it easy to package, dep
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Devtest Labs</h3>
+                        <h3>Informazioni su Azure DevTest Labs</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Devtest Lab is a distributed systems platform that makes it easy to package, dep
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Devtest Lab Video Library</h3>
+                        <h3>Catalogo video di Azure DevTest Labs</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Devtest Lab is a distributed systems platform that makes it easy to package, dep
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a lab in Azure DevTest Labs</h3>
+                        <h3>Introduzione ad Azure DevTest Labs con il portale di Azure</h3>
                     </div>
                 </div>
             </div>
@@ -67,11 +71,11 @@ Devtest Lab is a distributed systems platform that makes it easy to package, dep
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a VM artifacts with Azure DevTest labs</h3>
+                        <h3>Introduzione alla creazione di elementi di macchine virtuali con Azure DevTest Labs</h3>
                     </div>
                 </div>
             </div>
@@ -85,11 +89,11 @@ Devtest Lab is a distributed systems platform that makes it easy to package, dep
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a lab for training using Azure DevTest Labs</h3>
+                        <h3>Introduzione alla creazione di un lab per il training con Azure DevTest Labs</h3>
                     </div>
                 </div>
             </div>
@@ -104,7 +108,11 @@ Devtest Lab is a distributed systems platform that makes it easy to package, dep
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/devtest-lab.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Devtest Lab Documentation
-        </div>
+Scaricare la documentazione di DevTest Labs </div>
     </a>
 </div>
+
+
+<!--HONumber=Nov16_HO3-->
+
+

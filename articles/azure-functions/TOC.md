@@ -38,9 +38,6 @@
 ## Distribuire
 ### [Distribuzione continua per Funzioni di Azure](functions-continuous-deployment.md)
 
-# Riferimento
-## [API .NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
-
 # Risorse
 ## [Prezzi](https://azure.microsoft.com/pricing/details/functions/)  
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
@@ -48,6 +45,6 @@
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

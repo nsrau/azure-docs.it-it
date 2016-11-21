@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: cdfe04908d68292d07eeb9c20a4772d11fa30eff
-ms.openlocfilehash: d3ef28f2cb1459410ec90982fff94fbbced55f72
+ms.sourcegitcommit: 98fdd8ee3dc1b90aae349652e471a218ef44a44e
+ms.openlocfilehash: 35919aa28a5c03aa04d0b6018dac5366f19d9794
 
 ---
 # <a name="azure-search-documentation"></a>Documentazione di Ricerca di Azure
@@ -89,11 +89,36 @@ Ricerca di Azure è una soluzione di ricerca distribuita come servizio cloud che
 
 ## <a name="reference"></a>Riferimento
 
-### <a name="net"></a>.NET 
-[API di riferimento gestita .NET](/dotnet/api/) 
-
-### <a name="rest"></a>REST 
-[Informazioni di riferimento sull'API REST di Ricerca](/rest/api/searchmanagement/) 
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/dotnet/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>API di riferimento gestita .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/searchmanagement/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Informazioni di riferimento sull'API di Ricerca</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/search.pdf">
@@ -105,6 +130,6 @@ Scaricare la documentazione di Ricerca di Azure </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

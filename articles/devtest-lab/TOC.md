@@ -28,11 +28,13 @@
 ### [Confronto tra immagini e formule](devtest-lab-comparing-vm-base-image-types.md)
 
 # Risorse
-## [Aggiornamenti del servizio](https://azure.microsoft.com/en-us/updates/?product=devtest-lab&updatetype=&platform=)
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=devtest-lab)
+## [Prezzi](https://azure.microsoft.com/pricing/details/devtest-lab/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
+## [Video](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

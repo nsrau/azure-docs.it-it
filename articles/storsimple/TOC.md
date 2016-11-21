@@ -1,7 +1,4 @@
-# Panoramica di StorSimple
-
 # Array virtuale StorSimple
-
 ## Panoramica
 ### [In cosa consiste la soluzione?](storsimple-ova-overview.md)
 
@@ -54,6 +51,7 @@
 ### Installare
 #### [Controllare la sicurezza](storsimple-safety.md)
 #### [Disimballare, installare in rack e collegare un dispositivo 8100](storsimple-8100-hardware-installation.md)
+
 #### [Disimballare, installare in rack e collegare un dispositivo 8600](storsimple-8600-hardware-installation.md)
 #### [Hardware supportato per interfacce di rete 10 GbE](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
@@ -63,6 +61,7 @@
 ##### [Dispositivo fisico in Azure - Aggiornamento 1](storsimple-deployment-walkthrough-u1.md)
 ##### [Dispositivo fisico in Azure - Disponibilità generale](storsimple-deployment-walkthrough.md)
 #### [Dispositivo fisico nel portale di Azure Government - Versione corrente](storsimple-deployment-walkthrough-gov-u2.md)
+##### [Dispositivo fisico nel portale di Azure Government - Versione corrente](storsimple-deployment-walkthrough-gov.md)
 #### [Dispositivo virtuale in Azure](storsimple-virtual-device-u2.md)
 #### [StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md)
 #### [Adattatore StorSimple per SharePoint](storsimple-adapter-for-sharepoint.md)
@@ -139,7 +138,7 @@
 ##### [Creare un pacchetto per il supporto](storsimple-create-manage-support-package.md)
 
 ### Eseguire la migrazione
-#### [Dalla serie 5000-7000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-19253270)
+#### [Dalla serie 5000-7000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
 #### [Da altri dispositivi di archiviazione](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Aggiornare
@@ -160,22 +159,26 @@
 ### [Versione - Disponibilità generale](storsimple-july-2014-release-notes.md)
 
 ## Riferimento
-### [PowerShell](/powershell/servicemanagement/)
+### [Azure PowerShell](/powershell/servicemanagement)
+### [Cmdlet di Windows PowerShell per StorSimple] (https://technet.microsoft.com/library/dn688168.aspx)
 
 # Risorse correlate
 ## [StorSimple serie 5000-7000](http://onlinehelp.storsimple.com)
 
 # Risorse
-## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Prezzi](https://azure.microsoft.com/pricing/details/storsimple/)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Video](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=storsimple)
 ## [Blog di marketing](http://blogs.technet.com/b/cis/)
 ## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [Blog di supporto tecnico](http://blogs.msdn.com/b/storsimple/)
-## [Avvisi da terze parti](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
-## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=storsimple)
-## [Prezzi](https://azure.microsoft.com/pricing/details/storsimple/)
-## [Video](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
+## [Comunicazioni di terze parti](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 1b5ea8b5b5fb99fa65a1efd0eeff48af2e39346c
-ms.openlocfilehash: 7e3e54511ef1205d04eef1820a3e20f480386ed1
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: b452e767bb6c2e181f56ab84e92e9225408baf9b
 
 ---
 #<a name="iot-hub-documentation"></a>Documentazione sull'hub IoT
@@ -104,20 +104,69 @@ L'hub IoT di Azure è un servizio completamente gestito che consente comunicazio
 
 ---
 
-##<a name="reference"></a>Riferimento
+## <a name="reference"></a>Riferimento
 
-###<a name="azure-cli"></a>Interfaccia della riga di comando di Azure 
-[Hub IoT con l'interfaccia della riga di comando di Azure](/cli/azure/iot)  
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/cli/azure/iot">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Interfaccia della riga di comando di Azure</h3>
+                        <p>Hub IoT con l'interfaccia della riga di comando di Azure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="net"></a>.NET 
-[API di riferimento gestita .NET](/dotnet/api/) 
+<li>
+        <a href="/dotnet/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>API di riferimento gestita .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="java"></a>Java 
-[Informazioni di riferimento su Java SDK](/java/api/) 
+<li>
+        <a href="/java/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Informazioni di riferimento su Java SDK</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="rest"></a>REST 
-[Informazioni di riferimento sulle API REST dell'hub IoT](/rest/api/iothub) 
-
+<li>
+        <a href="/rest/api/iothub">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Informazioni di riferimento sull'API REST dell'hub IoT</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-hub.pdf">
@@ -129,6 +178,6 @@ Scaricare la documentazione dell'hub IoT </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
