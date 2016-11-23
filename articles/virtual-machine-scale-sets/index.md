@@ -145,6 +145,6 @@ Scaricare la documentazione dei set di scalabilità di macchine virtuali </div>
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

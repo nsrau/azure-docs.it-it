@@ -85,6 +85,6 @@
 ## [Automation introduction video](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/) (Video introduttivo su Automazione)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

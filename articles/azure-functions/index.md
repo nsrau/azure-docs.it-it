@@ -115,6 +115,6 @@ Scaricare la documentazione di Funzioni di Azure </div>
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

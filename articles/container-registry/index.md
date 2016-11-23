@@ -102,6 +102,6 @@ Il Registro del servizio contenitore di Azure (anteprima) è un registro privato
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

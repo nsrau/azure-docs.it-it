@@ -6,7 +6,7 @@ ms.openlocfilehash: 078421d67ae2b2f0854b6f31bb97d146224ef685
 
 
 ---
-# <a name="app-service-api-apps-documentation"></a>Servizio app: documentazione sulle app per le API
+# <a name="app-service---api-apps-documentation"></a>Servizio app: documentazione sulle app per le API
 
 Le app per le API sono uno dei quattro tipi di app offerti dal servizio app di Azure. Le app per le API del servizio app di Azure offrono un avanzato set di funzionalità per sviluppare, ospitare e utilizzare API nel cloud e in locale. Il servizio app di Azure è una piattaforma completamente gestita per scenari Web, mobili e di integrazione.
 
@@ -133,6 +133,6 @@ Scaricare la documentazione sulle app per dispositivi mobili </div>
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

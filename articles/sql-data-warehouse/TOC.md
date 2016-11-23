@@ -146,6 +146,6 @@
 ### [Gestione dei dati](sql-data-warehouse-partner-data-management.md)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 
