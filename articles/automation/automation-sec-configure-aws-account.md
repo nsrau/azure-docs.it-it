@@ -13,11 +13,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2016
+ms.date: 11/11/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: eee65672b3a9615afe2850b0cbc6daa275fc04ec
+ms.sourcegitcommit: 843f0862f9e4d8dc1d40e110710e48ad66716168
+ms.openlocfilehash: fe590e7fc551c175d2f41f5b98e1558a756df806
 
 
 ---
@@ -32,7 +32,7 @@ Per eseguire l'autenticazione in AWS è necessario specificare un set di credenz
 ## <a name="configure-automation-account"></a>Configurare l'account di Automazione
 Per consentire ad Automazione di Azure di comunicare con AWS, è prima necessario recuperare le credenziali di AWS e archiviarle come asset in Automazione di Azure.  Seguire questa procedura illustrata nel documento AWS relativo alla [gestione delle chiavi di accesso per l'account AWS](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html) per creare una chiave di accesso e quindi copiare i valori di **Access Key ID** e **Secret Access Key** oppure scaricare il file di chiave e archiviarlo in una posizione sicura.
 
-Dopo aver creato e copiato le chiavi di sicurezza di AWS, sarà necessario creare un asset credenziali con un account di Automazione di Azure per archiviarle in modo sicuro in modo che i runbook possano farvi riferimento.  Seguire la procedura illustrata nella sezione **Creazione di un nuovo asset credenziali** nell'articolo [Asset credenziali in Automazione di Azure](automation-credentials.md#creating-a-new-credential-asset) e specificare le informazioni seguenti:
+Dopo aver creato e copiato le chiavi di sicurezza di AWS, sarà necessario creare un asset credenziali con un account di Automazione di Azure per archiviarle in modo sicuro in modo che i runbook possano farvi riferimento.  Seguire la procedura illustrata nella sezione **Creazione di un nuovo asset credenziali** nell'articolo [Asset credenziali in Automazione di Azure](automation-credentials.md) e specificare le informazioni seguenti:
 
 1. Nella casella **Nome** immettere **AWScred** o un valore appropriato in base agli standard di denominazione in uso.  
 2. Nella casella **Nome utente** digitare il valore di **Access Key ID** e immettere il valore di **Secret Access Key** nelle caselle **Password** e **Conferma password**.   
@@ -42,6 +42,7 @@ Dopo aver creato e copiato le chiavi di sicurezza di AWS, sarà necessario crear
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

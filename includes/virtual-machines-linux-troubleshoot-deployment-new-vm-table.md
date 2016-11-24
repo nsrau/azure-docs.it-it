@@ -5,3 +5,8 @@ La tabella seguente include l'elenco delle possibili combinazioni di caricamento
 | Linux gen. |N<sup>1</sup> |S |N<sup>3</sup> |S |
 | Linux spec. |S |N<sup>2</sup> |S |N<sup>4</sup> |
 
+
+
+<!--HONumber=Nov16_HO3-->
+
+

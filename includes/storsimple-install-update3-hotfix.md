@@ -1,13 +1,14 @@
 <!--author=alkohli last changed: 09/01/16-->
 
-#### Scaricare gli hotfix
+#### <a name="to-download-hotfixes"></a>Scaricare gli hotfix
 Eseguire i passaggi seguenti per scaricare l'aggiornamento del software da Microsoft Update Catalog.
 
 1. Avviare Internet Explorer e accedere al sito [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
-2. Se si usa Microsoft Update Catalog nel computer per la prima volta, fare clic su **Installa** quando viene richiesto di installare il componente aggiuntivo Microsoft Update Catalog. ![Installare il catalogo](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
-3. Nella casella di ricerca di Microsoft Update Catalog, immettere il numero della Knowledge Base (KB) dell'hotfix da scaricare, ad esempio **3186843**, quindi fare clic su **Ricerca**.
+2. Se si usa Microsoft Update Catalog nel computer per la prima volta, fare clic su **Installa** quando viene richiesto di installare il componente aggiuntivo Microsoft Update Catalog.
+    ![Installare il catalogo](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
+3. Nella casella di ricerca di Microsoft Update Catalog, immettere il numero della Knowledge Base (KB) dell'hotfix da scaricare, ad esempio **3186843**, quindi fare clic su **Cerca**.
    
-    Verrà visualizzato l'elenco degli hotfix, ad esempio, **Cumulative Software Bundle Update 3.0 for StorSimple 8000 Series** (Aggiornamento cumulativo del pacchetto software 3.0 per StorSimple serie 8000).
+    Verrà visualizzato l'elenco degli hotfix, ad esempio, **Cumulative Software Bundle Update 3.0 for StorSimple 8000 Series**(Aggiornamento cumulativo del pacchetto software 3.0 per StorSimple serie 8000).
    
     ![Cercare nel catalogo](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 4. Fare clic su **Aggiungi**. L'aggiornamento viene aggiunto al carrello.
@@ -20,11 +21,11 @@ Eseguire i passaggi seguenti per scaricare l'aggiornamento del software da Micro
 > 
 > 
 
-#### Per installare e verificare gli hotfix in modalità normale
+#### <a name="to-install-and-verify-regular-mode-hotfixes"></a>Per installare e verificare gli hotfix in modalità normale
 Per installare e verificare gli aggiornamenti rapidi in modalità normale, seguire questa procedura. Se sono già stati installati tramite il portale di Azure, passare direttamente a [installare e verificare gli aggiornamenti rapidi in modalità di manutenzione](#to-install-and-verify-maintenance-mode-hotfixes).
 
-1. Per installare gli hotfix, accedere all'interfaccia di Windows PowerShell dalla console seriale del dispositivo StorSimple. Attenersi alle istruzioni riportate in [Utilizzare PuTTY per connettersi alla console seriale del dispositivo](../articles/storsimple/storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). Al prompt dei comandi, premere **Invio**.
-2. Selezionare l'**opzione 1** per eseguire l'accesso completo al dispositivo. È consigliabile installare innanzitutto l'hotfix sul controller passivo.
+1. Per installare gli hotfix, accedere all'interfaccia di Windows PowerShell dalla console seriale del dispositivo StorSimple. Seguire le istruzioni riportate in [Usare PuTTY per connettersi alla console seriale](../articles/storsimple/storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). Al prompt dei comandi, premere **Invio**.
+2. Selezionare l' **opzione 1** per eseguire l'accesso completo al dispositivo. È consigliabile installare innanzitutto l'hotfix sul controller passivo.
 3. Per installare l'hotfix, al prompt dei comandi, digitare:
    
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
@@ -50,38 +51,32 @@ Per installare e verificare gli aggiornamenti rapidi in modalità normale, segui
    
         ````
 4. Digitare **Y** quando viene richiesto di confermare l'installazione dell'hotfix.
-   
-   > [!IMPORTANT]
-   > Se si installa l'aggiornamento 2.2, installare solo il file binario preceduto da "all-hcsmdssoftwareudpate". Non installare gli elementi di configurazione e l'aggiornamento dell'agente MDS preceduti da all-cismdsagentupdatebundle. In caso contrario, verrà generato un errore.
-   > 
-   > 
-5. Monitorare l'aggiornamento utilizzando il cmdlet `Get-HcsUpdateStatus`. L'aggiornamento verrà innanzitutto completato sul controller passivo. Dopo aver aggiornato il controller passivo, si verificherà un failover e l'aggiornamento verrà quindi applicato all'altro controller. L'aggiornamento è completato quando entrambi i controller vengono aggiornati.
+5. Monitorare l'aggiornamento utilizzando il cmdlet `Get-HcsUpdateStatus` . L'aggiornamento verrà innanzitutto completato sul controller passivo. Dopo aver aggiornato il controller passivo, si verificherà un failover e l'aggiornamento verrà quindi applicato all'altro controller. L'aggiornamento è completato quando entrambi i controller vengono aggiornati.
    
     Il seguente output di esempio indica che l'aggiornamento è in corso. Il `RunInprogress` sarà `True` quando l'aggiornamento è in corso.
-   
-        ````
-        Controller0>Get-HcsUpdateStatus
-        RunInprogress       : True
-        LastHotfixTimestamp :
-        LastUpdateTimestamp : 8/29/2016 2:04:02 AM
-        Controller0Events   :
-        Controller1Events   :
-   
-        ````
+
+    ```
+    Controller0>Get-HcsUpdateStatus
+    RunInprogress       : True
+    LastHotfixTimestamp :
+    LastUpdateTimestamp : 8/29/2016 2:04:02 AM
+    Controller0Events   :
+    Controller1Events   :
+    ```
    
      Il seguente output di esempio indica che l'aggiornamento è stato completato. Il `RunInProgress` sarà `False` quando l'aggiornamento è stato completato.
    
-        ````
-        Controller0>Get-HcsUpdateStatus
-        RunInprogress       : False
-        LastHotfixTimestamp : 8/30/2016 9:15:55 AM
-        LastUpdateTimestamp : 8/30/2016 9:06:07 AM
-        Controller0Events   :
-        Controller1Events   :
+    ```
+    Controller0>Get-HcsUpdateStatus
+    RunInprogress       : False
+    LastHotfixTimestamp : 8/30/2016 9:15:55 AM
+    LastUpdateTimestamp : 8/30/2016 9:06:07 AM
+    Controller0Events   :
+    Controller1Events   :
+    ```
 
-        ````
-
-    > [AZURE.NOTE] In alcuni casi, i cmdlet mostrano`False` quando l'aggiornamento è ancora in corso. Per assicurarsi che l'aggiornamento rapido è stato completato, attendere alcuni minuti, eseguire nuovamente il comando e verificare che `RunInProgress` sia `False`. In caso affermativo, l'aggiornamento rapido è stato completato.
+    > [!NOTE] 
+    > In alcuni casi, i cmdlet mostrano`False` quando l'aggiornamento è ancora in corso. Per assicurarsi che l'aggiornamento rapido è stato completato, attendere alcuni minuti, eseguire nuovamente il comando e verificare che `RunInProgress` sia `False`. In caso affermativo, l'aggiornamento rapido è stato completato.
 
 1. Dopo aver installato gli aggiornamenti del software, verificare le versioni del software del sistema. Digitare:
    
@@ -93,13 +88,13 @@ Per installare e verificare gli aggiornamenti rapidi in modalità normale, segui
    * `CisAgentVersion:  1.0.9343.0`
    * `MdsAgentVersion: 30.0.4698.16`
      
-     Se i numeri di versione non vengono modificati dopo aver applicato l'aggiornamento, significa che non è stato possibile applicare l'aggiornamento rapido. Se si verifica ciò, contattare [il supporto tecnico di Microsoft](../articles/storsimple/storsimple-contact-microsoft-support.md) per assistenza.
+     Se i numeri di versione non vengono modificati dopo aver applicato l'aggiornamento, significa che non è stato possibile applicare l'aggiornamento rapido. In questo caso contattare il [Supporto tecnico Microsoft](../articles/storsimple/storsimple-contact-microsoft-support.md) per assistenza.
      
      > [!IMPORTANT]
-     > È necessario riavviare il controller attivo tramite il cmdlet `Restart-HcsController` prima di applicare gli altri aggiornamenti.
+     > È necessario riavviare il controller attivo tramite il cmdlet `Restart-HcsController` prima di applicare gli altri aggiornamenti. 
      > 
      > 
-2. Ripetere i passaggi da 3 a 5 per installare il driver LSI e l'hotfix del firmware **KB3186859**. Dopo aver installato l'hotfix, usare il cmdlet `Get-HcsSystem`. La versione LSI deve essere:
+2. Ripetere i passaggi da 3 a 5 per installare il driver LSI e l'hotfix del firmware **KB3186859**. Dopo aver installato l'hotfix, usare il cmdlet `Get-HcsSystem` . La versione LSI deve essere:
    
    * `Lsisas2Version: 2.0.78.00`
 3. Ripetere i passaggi da 3 a 5 per installare l'aggiornamento Storport e Spaceport **KB3121261**.
@@ -108,7 +103,7 @@ Per installare e verificare gli aggiornamenti rapidi in modalità normale, segui
    * Fix iSCSI con KB3146621
    * Fix WMI con KB3103616
 
-#### Per installare e verificare gli aggiornamenti rapidi in modalità di manutenzione
+#### <a name="to-install-and-verify-maintenance-mode-hotfixes"></a>Per installare e verificare gli aggiornamenti rapidi in modalità di manutenzione
 Usare KB3121899 per installare gli aggiornamenti del firmware del disco. Si tratta di aggiornamenti problematici che richiedono circa 30 minuti per il completamento. È possibile scegliere di installare tali aggiornamenti in una finestra di manutenzione pianificata tramite la connessione alla console seriale del dispositivo.
 
 Se il firmware del disco è già aggiornato, non è necessario installare questi aggiornamenti. Eseguire il cmdlet `Get-HcsUpdateAvailability` dalla console seriale del dispositivo per verificare se sono disponibili aggiornamenti e se questi comportano o meno interruzioni del servizio e vanno quindi installati, rispettivamente, in modalità di manutenzione o in modalità normale.
@@ -155,7 +150,7 @@ Per installare gli aggiornamenti del firmware del disco, seguire le istruzioni r
         This operation starts a hotfix installation and could reboot one or both of the controllers. By installing new updates you agree to, and accept any additional terms associated with, the new functionality listed in the release notes (https://go.microsoft.com/fwLink/?LinkID=613790). Are you sure you want to continue?
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
-3. Monitorare l'avanzamento dell'installazione con il comando `Get-HcsUpdateStatus`. L'aggiornamento è completo quando `RunInProgress` diventa `False`.
+3. Monitorare l'avanzamento dell'installazione con il comando `Get-HcsUpdateStatus` . L'aggiornamento è completo quando `RunInProgress` diventa `False`.
 4. Al termine dell'installazione, il controller in cui è stato installato l'aggiornamento rapido in modalità di manutenzione viene riavviato. Accedere all'opzione 1 con accesso completo e verificare la versione del firmware del disco. Digitare:
    
    `Get-HcsFirmwareVersion`
@@ -223,4 +218,8 @@ Per installare gli aggiornamenti del firmware del disco, seguire le istruzioni r
    `Exit-HcsMaintenanceMode`
 5. I controller si riavviano quando si esce dalla modalità di manutenzione. Dopo la corretta istallazione degli aggiornamenti del firmware del disco e dopo che il dispositivo ha terminato la modalità manutenzione, tornare al portale di Azure classico. Sul portale potrebbe non essere visualizzata l’installazione degli aggiornamenti di modalità manutenzione per 24 ore.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

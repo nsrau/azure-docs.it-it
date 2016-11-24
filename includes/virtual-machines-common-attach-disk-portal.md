@@ -11,14 +11,14 @@
 
 Continuare seguendo le istruzioni riportate per collegare un nuovo disco o un disco esistente.
 
-## <a name="option-1:-attach-a-new-disk"></a>Opzione 1: Collega un nuovo disco
+## <a name="option-1-attach-a-new-disk"></a>Opzione 1: Collega un nuovo disco
 1. Nel pannello **Dischi** fare clic su **Collega nuovo**.
 2. Esaminare le impostazioni predefinite, aggiornare se necessario e quindi fare clic su **OK**.
    
    ![Esaminare le impostazioni del disco](./media/virtual-machines-common-attach-disk-portal/attach-new.png)
 3. Dopo che Azure crea il disco e lo collega alla macchina virtuale, il nuovo disco viene elencato nella sezione Impostazioni disco della macchina virtuale in **Dischi dati**.
 
-## <a name="option-2:-attach-an-existing-disk"></a>Opzione 2: Collegare un disco esistente
+## <a name="option-2-attach-an-existing-disk"></a>Opzione 2: Collegare un disco esistente
 1. Nel pannello **Dischi** fare clic su **Collega esistente**.
 2. In **Collega un disco esistente** fare clic su **File VHD**.
    
@@ -30,6 +30,8 @@ Continuare seguendo le istruzioni riportate per collegare un nuovo disco o un di
 5. In **Collega un disco esistente** il file appena selezionato è elencato in **File VHD**. Fare clic su **OK**.
 6. Dopo che Azure collega il disco alla macchina virtuale, esso viene elencato nella sezione Impostazioni disco della macchina virtuale in **Dischi dei dati**.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

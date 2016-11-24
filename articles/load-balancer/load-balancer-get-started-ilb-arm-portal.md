@@ -16,23 +16,28 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: sewhee
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 616fa3b45f8b6f7f799eeacfb1f609a1031d24f5
-
+ms.sourcegitcommit: 7d8eb43fea032eb5aa72f448a7c1022be62a7b81
+ms.openlocfilehash: 5a0a701638950e750a9aac104845ef1a7248760a
 
 ---
+
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Creare un servizio di bilanciamento del carico interno nel portale di Azure
-[!INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
+
+> [!div class="op_single_selector"]
+> * [Portale di Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
+> * [Interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [Modello](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
-
-[Modello di distribuzione classica](load-balancer-get-started-ilb-classic-ps.md).
+> [!NOTE]
+> Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md).  Questo articolo illustra l'uso del modello di distribuzione Resource Manager che Microsoft consiglia di usare invece del [modello di distribuzione classica](load-balancer-get-started-ilb-classic-ps.md) per le distribuzioni più recenti.
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
 ## <a name="get-started-creating-an-internal-load-balancer-using-azure-portal"></a>Introduzione alla creazione di un servizio di bilanciamento del carico interno tramite il portale di Azure
+
 Per creare un servizio di bilanciamento del carico interno dal portale di Azure, seguire questa procedura.
 
 1. Aprire un browser, passare al [portale di Azure](http://portal.azure.com) e accedere con l'account Azure.
@@ -40,32 +45,33 @@ Per creare un servizio di bilanciamento del carico interno dal portale di Azure,
 3. Nel pannello **Crea servizio di bilanciamento del carico** immettere un **nome** per il servizio di bilanciamento del carico.
 4. In **Schema** fare clic su **Interno**.
 5. Fare clic su **Rete virtuale**, quindi selezionare la rete virtuale in cui si desidera creare il servizio di bilanciamento del carico.
-   
+
    > [!NOTE]
    > Se la rete virtuale che si desidera usare non viene visualizzata, controllare il **Percorso** per il servizio di bilanciamento del carico e modificarlo di conseguenza.
-   > 
-   > 
+
 6. Fare clic su **Subnet**e scegliere la subnet in cui creare il servizio di bilanciamento del carico.
 7. In **Assegnazione indirizzo IP** fare clic su **Dinamico** o **Statico**, a seconda che si voglia un servizio di bilanciamento del carico con indirizzo IP fisso, cioè statico, o dinamico.
-   
+
    > [!NOTE]
    > Se si sceglie un indirizzo IP statico, sarà necessario fornire un indirizzo per il servizio di bilanciamento del carico.
-   > 
-   > 
+
 8. In **Gruppo di risorse** specificare il nome di un nuovo gruppo di risorse per il servizio di bilanciamento del carico oppure fare clic su **Seleziona esistente** e scegliere un gruppo di risorse esistente.
 9. Fare clic su **Crea**.
 
 ## <a name="configure-load-balancing-rules"></a>Configurare le regole del servizio di bilanciamento del carico
+
 Dopo la creazione del servizio di bilanciamento di carico, individuare la risorsa di bilanciamento del carico per configurarla.
 Prima di configurare una regola di bilanciamento del carico, è necessario innanzitutto configurare un pool di indirizzi back-end e un probe.
 
-### <a name="step-1-configure-a-backend-pool"></a>Passaggio 1: Configurare un pool back-end
+### <a name="step-1-configure-a-back-end-pool"></a>Passaggio 1: Configurare un pool back-end
+
 1. Nel portale di Azure fare clic su **Sfoglia** > **Servizi di bilanciamento del carico** e fare clic sul servizio di bilanciamento del carico creato in precedenza.
 2. Nel pannello **Impostazioni** fare clic su **Pool back-end**.
 3. Nel pannello **Pool di indirizzi back-end** fare clic su **Aggiungi**.
 4. Nel pannello **Aggiungi pool back-end** immettere un **nome** per il pool back-end e fare clic su **OK**.
 
 ### <a name="step-2-configure-a-probe"></a>Passaggio 2: Configurare un probe
+
 1. Nel portale di Azure fare clic su **Sfoglia** > **Servizi di bilanciamento del carico** e fare clic sul servizio di bilanciamento del carico creato in precedenza.
 2. Nel pannello **Impostazioni** fare clic su **Probe**.
 3. Nel pannello **Probe** fare clic su **Aggiungi**.
@@ -78,6 +84,7 @@ Prima di configurare una regola di bilanciamento del carico, è necessario innan
 10. Fare clic su **OK** per creare il probe.
 
 ### <a name="step-3-configure-load-balancing-rules"></a>Passaggio 3: Configurare le regole del servizio di bilanciamento del carico
+
 1. Nel portale di Azure fare clic su **Sfoglia** > **Servizi di bilanciamento del carico** e fare clic sul servizio di bilanciamento del carico creato in precedenza.
 2. Nel pannello **Impostazioni** fare clic su **Regole di bilanciamento del carico**.
 3. Nel pannello **Regole di bilanciamento del carico** fare clic su **Aggiungi**.
@@ -92,6 +99,7 @@ Prima di configurare una regola di bilanciamento del carico, è necessario innan
 12. Fare clic su **OK**.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 [Configurare una modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md)
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)

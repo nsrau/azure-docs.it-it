@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b55d61071dac6d173f37bdde7f9b60e53ae2485f
+ms.sourcegitcommit: bf07b8a10dd7e5ee9259c6fab9da886578504fe7
+ms.openlocfilehash: a652dcd2427d579db42e963ad54ac3078cba6857
 
 
 ---
@@ -47,6 +47,10 @@ Seguendo questa esercitazione, si creerà una semplice applicazione di voto che 
 Prima di seguire le istruzioni di questo articolo, verificare che siano disponibili i seguenti elementi:
 
 * Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+ 
+    OPPURE 
+
+    Un'installazione locale dell'[emulatore DocumentDB di Azure](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2013](http://www.visualstudio.com/) o una versione successiva oppure [Visual Studio Express](), che è la versione gratuita. Le istruzioni riportate in questa esercitazione sono scritte in modo specifico per Visual Studio 2015. 
 * Python Tools per Visual Studio, disponibile su [GitHub](http://microsoft.github.io/PTVS/). Questa esercitazione usa Python Tools per Visual Studio 2015. 
 * Azure Python SDK per Visual Studio 2.4 o versione successiva, disponibile su [azure.com](https://azure.microsoft.com/downloads/). Questa esercitazione usa Microsoft Azure SDK per Python 2.7.
@@ -62,7 +66,7 @@ Prima di seguire le istruzioni di questo articolo, verificare che siano disponib
 * Compilatore Microsoft Visual C++ per Python 2.7 disponibile nell'[Area download Microsoft][3].
 
 ## <a name="step-1-create-a-documentdb-database-account"></a>Passaggio 1: Creare un account di database di DocumentDB
-Il primo passaggio consiste nella creazione di un account DocumentDB. Se si ha già un account, è possibile andare al [Passaggio 2: Creare una nuova applicazione Web Python Flask](#step-2:-create-a-new-python-flask-web-application).
+Il primo passaggio consiste nella creazione di un account DocumentDB. Se si ha già un account o si usa l'emulatore DocumentDB per questa esercitazione, è possibile andare al [Passaggio 2: Creare una nuova applicazione Web Python Flask](#step-2:-create-a-new-python-flask-web-application).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -409,6 +413,6 @@ Per altre esercitazioni su Python Flask, vedere [The Flask Mega-Tutorial, Part I
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

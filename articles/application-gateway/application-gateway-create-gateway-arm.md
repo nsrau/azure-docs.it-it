@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/10/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d4da5dd65b39011ed0abb8bbbd47542d66e73ad6
+ms.sourcegitcommit: 3a8e5583f213c6d35f8e41dd31fe2ccad7389977
+ms.openlocfilehash: 3185e396380e9a550dbc94517e50e9223ff518f6
 
 
 ---
@@ -124,7 +124,7 @@ Assegnare una variabile di subnet per la creazione di un gateway applicazione ne
 $subnet=$vnet.Subnets[0]
 ```
 
-## <a name="create-a-public-ip-address-for-the-frontend-configuration"></a>Creare un indirizzo IP pubblico per la configurazione front-end
+## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Creare un indirizzo IP pubblico per la configurazione front-end
 Creare una risorsa IP pubblica "publicIP01" nel gruppo di risorse "appgw-rg" per l'area Stati Uniti occidentali.
 
 ```powershell
@@ -195,7 +195,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 > 
 > 
 
-## <a name="create-an-application-gateway-by-using-newazurermapplicationgateway"></a>Creare un gateway applicazione usando New-AzureRmApplicationGateway
+## <a name="create-an-application-gateway-by-using-new-azurermapplicationgateway"></a>Creare un gateway applicazione usando New-AzureRmApplicationGateway
 Creare un gateway applicazione con tutti gli elementi di configurazione illustrati nei passaggi precedenti. Nell'esempio, il gateway applicazione è denominato "appgwtest".
 
 ```powershell

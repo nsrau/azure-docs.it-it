@@ -1,10 +1,18 @@
 ## <a name="specifying-formats"></a>Specifica dei formati
+Azure Data Factory supporta i tipi di formato seguenti: 
+
+* [Formato testo](#specifying-textformat)
+* [Formato JSON](#specifying-jsonformat)
+* [Formato Avro](#specifying-avroformat)
+* [Formato ORC](#specifying-orcformat)
+* [Formato Parquet](#specifying-parquetformat)
+
 ### <a name="specifying-textformat"></a>Specifica di TextFormat
 Se il formato è impostato su **TextFormat**, è possibile specificare le proprietà **facoltative** seguenti nella sezione **Format**.
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| columnDelimiter |Il carattere usato per separare le colonne in un file. |È consentito un solo carattere. Il valore predefinito è la virgola (","). |No |
+| columnDelimiter |Il carattere usato per separare le colonne in un file. |È consentito un solo carattere. Il valore predefinito è la virgola (","). <br/><br/>Per usare un carattere Unicode, vedere i [caratteri Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) per ottenere il codice corrispondente. Ad esempio, è possibile prendere in considerazione la possibilità di usare un carattere raro non stampabile che probabilmente non esiste nei dati: specificare "\u0001" che rappresenta Start of Heading (SOH). |No |
 | rowDelimiter |Il carattere usato per separare le righe in un file. |È consentito un solo carattere. Sono consentiti i seguenti valori predefiniti in lettura: ["\r\n", "\r", "\n"] e "\r\n" in scrittura. |No |
 | escapeChar |Carattere speciale usato per eseguire l'escape di un delimitatore di colonna nel contenuto del file di input. <br/><br/>Per una tabella, è possibile specificare sia escapeChar che quoteChar. |È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Ad esempio, se è presente una virgola (",") come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: "Hello, world"), è possibile definire "$" come carattere di escape e usare la stringa "Hello$, world" nell'origine. |No |
 | quoteChar |Carattere usato per delimitare tra virgolette un valore stringa. I delimitatori di colonne e righe tra virgolette sono considerati parte del valore stringa. Questa proprietà è applicabile sia ai set di dati di input che a quelli di output.<br/><br/>Per una tabella, è possibile specificare sia escapeChar che quoteChar. |È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Ad esempio, se è presente una virgola (",") come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello, world>), è possibile definire " (virgolette doppie) come carattere di virgolette e usare la stringa "Hello, world" nell'origine. |No |
@@ -55,7 +63,13 @@ Se il formato è impostato su AvroFormat, non è necessario specificare propriet
 
 Per usare il formato Avro in una tabella Hive, fare riferimento all' [esercitazione su Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
+Tenere presente quanto segue:  
+
+* I [tipi di dati complessi](http://avro.apache.org/docs/current/spec.html#schema_complex) non sono supportati (record, enumerazioni, matrici, mappe, unioni e fissi)
+
 ### <a name="specifying-jsonformat"></a>Impostazione di JsonFormat
+Per importare/esportare i file JSON senza modifiche in/da DocumentDB, vedere la sezione [Importare/Esportare documenti JSON](../articles/data-factory/data-factory-azure-documentdb-connector.md#importexport-json-documents) nell'articolo sul connettore DocumentDB per ottenere informazioni dettagliate.
+
 Se il formato è impostato su **JsonFormat**, è possibile specificare le proprietà **facoltative** seguenti nella sezione **Format**.
 
 | Proprietà | Descrizione | Obbligatoria |
@@ -114,7 +128,7 @@ Ogni file contiene un solo oggetto o più oggetti con delimitatori di riga/conca
     }
 
 
-#### <a name="arrayofobjects-file-pattern."></a>Modello di file arrayOfObjects.
+#### <a name="arrayofobjects-file-pattern"></a>Modello di file arrayOfObjects.
 Ogni file contiene una matrice di oggetti. 
 
     [
@@ -264,6 +278,8 @@ Tenere presente quanto segue:
 * Tipi di dati complessi non sono supportati (MAP, LIST)
 * Un file Parquet ha le seguenti opzioni relative alla compressione: NONE, SNAPPY, GZIP e LZO. Data Factory supporta la lettura dei dati dal file ORC in uno di questi formati compressi. Per la lettura dei dati usa il codec di compressione nei metadati. Tuttavia, durante la scrittura in un file Parquet, Data Factory sceglie SNAPPY, cioè il valore predefinito per il formato Parquet. Al momento non esiste alcuna opzione per ignorare tale comportamento. 
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

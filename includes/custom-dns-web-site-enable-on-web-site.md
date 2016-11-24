@@ -7,7 +7,7 @@ Dopo aver propagato i record per il nome di dominio, è necessario associarli al
 > 
 > 
 
-1. Accedere al [portale di Azure](https://portal.azure.com) dal browser.
+1. Accedere al [portale di Azure](https://portal.azure.com)dal browser.
 2. Nella scheda **App Web** fare clic sul nome dell'app Web e selezionare **Domini personalizzati**
    
     ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
@@ -16,8 +16,12 @@ Dopo aver propagato i record per il nome di dominio, è necessario associarli al
    
     ![](./media/custom-dns-web-site/add-custom-domain.png)
 5. Fare clic su **Convalida**.
-6. Dopo aver fatto clic su **Convalida**, Azure avvierà il flusso di lavoro Verifica del dominio, che controllerà la proprietà del dominio oltre alla disponibilità del nome host e segnalerà la riuscita o un errore dettagliato con le linee guida consigliate per correggere l'errore.
+6. Dopo la selezione di **Convalida**, Azure avvierà il flusso di lavoro di verifica del dominio, che controllerà la proprietà del dominio oltre alla disponibilità del nome host e segnalerà la riuscita o un errore dettagliato con le linee guida consigliate per correggere l'errore.    
 
 A questo punto sarà possibile immettere il nome di dominio personalizzato nel browser e verificare che il reindirizzamento all'app Web avvenga correttamente.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

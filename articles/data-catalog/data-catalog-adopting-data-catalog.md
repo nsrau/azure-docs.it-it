@@ -16,8 +16,8 @@ ms.workload: data-catalog
 ms.date: 10/11/2016
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6299c6eaab1e62281e23d2dd43c14fbb9769a316
+ms.sourcegitcommit: c2350ae447ccebf1a6b85a563e7fa1d7c12b16d7
+ms.openlocfilehash: 4c6a07c4b3597e357c520bcafde501bc0850e685
 
 
 ---
@@ -102,8 +102,8 @@ Il primo progetto pilota includerà poche persone che producono dati e che li ut
 
 Uno dei problemi di business risolti da **Azure Data Catalog** è la necessità di mettere in contatto i **produttori di dati** con gli **utilizzatori di dati**. A questo scopo funge da archivio centrale per le informazioni sulle origini dati aziendali. Usando Catalogo dati, David registra le origini dati di SQL Server e Adventure Works. Usando il crowdsourcing gli utenti che individuano questa origine dati possono condividere le proprie opinioni sui dati, oltre a usare i dati trovati. Nancy, ad esempio, trova le origini dati cercando nel catalogo e condivide le sue conoscenze specialistiche sui dati.  Ora gli altri utenti dell'organizzazione possono sfruttare le conoscenze condivise semplicemente eseguendo una ricerca nel catalogo dati.
 
-* Per altre informazioni sulla registrazione delle origini dati, vedere [Registrare le origini dati](data-catalog-get-started.md#exercise-2-registering-data-sources).
-* Per altre informazioni sull'individuazione delle origini dati, vedere [Cercare le origini dati](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets).
+* Per altre informazioni sulla registrazione delle origini dati, vedere [Registrare le origini dati](data-catalog-get-started.md).
+* Per altre informazioni sull'individuazione delle origini dati, vedere [Cercare le origini dati](data-catalog-get-started.md).
 
 ### <a name="start-small-and-focused"></a>Iniziare con un progetto piccolo e mirato
 Per la maggior parte dei progetti pilota aziendali, è consigliabile inserire nel catalogo origini dati generiche in modo che gli utenti business possano comprendere rapidamente il valore di Catalogo dati. L'IT è l'ideale per iniziare a identificare le origini dati comuni che potrebbero interessare il team pilota. Per le origini dati supportate, ad esempio SQL Server, è consigliabile usare lo strumento di registrazione delle origini dati di **Catalogo dati di Azure** . Con lo strumento di registrazione delle origini dati, è possibile registrare un'ampia gamma di origini dati, inclusi i database SQL Server e Oracle e i report di SQL Server Reporting Services. Per un elenco completo delle origini dati correnti, vedere [Origini dati supportate da Catalogo dati di Azure](data-catalog-dsr.md).
@@ -123,8 +123,8 @@ Nell'ambito del progetto pilota, il team di Nancy usa anche le origini dati desc
 
 > [!NOTE]
 > Abbiamo scritto uno strumento di esempio che usa l'API di **Catalogo dati di Azure** per eseguire la migrazione di una cartella di lavoro di Excel a Catalogo dati. Per altre informazioni sull'API di Data Catalog e sullo strumento di esempio, è possibile [scaricare il codice di esempio della cartella di lavoro ad hoc](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/) e vedere la documentazione sull'[API REST di Azure Data Catalog](https://msdn.microsoft.com/library/azure/mt267593.aspx).
-> 
-> 
+>
+>
 
 Una volta completato il progetto pilota, è ora di eseguire il piano di adozione di Catalogo dati.
 
@@ -142,9 +142,9 @@ Ecco alcuni suggerimenti per iniziare:
 Prima che il team pilota inizi a usare Catalogo dati, pianificare una riunione introduttiva per illustrare le aspettative del progetto pilota e fornire il training iniziale.
 
 ### <a name="set-expectations"></a>Stabilire le aspettative
-Stabilire le aspettative e gli obiettivi consente agli utenti business di concentrarsi su risultati finali specifici. Per rispettare i tempi prestabiliti per il progetto, assegnare regolarmente (ad esempio, ogni giorno o una volta alla settimana a seconda dell'ambito e della durata del progetto pilota) compiti da svolgere. Una delle funzionalità più utili di Catalogo dati è il crowdsourcing degli asset di dati che consente agli utenti business di sfruttare le conoscenze dei dati aziendali. Un compito molto utile per ogni membro del team pilota è quello di registrare o annotare almeno una delle origini dati usate. Vedere [Registrare un'origine dati](data-catalog-get-started.md#exercise-2-registering-data-sources) e [Come annotare le origini dati](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources).
+Stabilire le aspettative e gli obiettivi consente agli utenti business di concentrarsi su risultati finali specifici. Per rispettare i tempi prestabiliti per il progetto, assegnare regolarmente (ad esempio, ogni giorno o una volta alla settimana a seconda dell'ambito e della durata del progetto pilota) compiti da svolgere. Una delle funzionalità più utili di Catalogo dati è il crowdsourcing degli asset di dati che consente agli utenti business di sfruttare le conoscenze dei dati aziendali. Un compito molto utile per ogni membro del team pilota è quello di registrare o annotare almeno una delle origini dati usate. Vedere [Registrare un'origine dati](data-catalog-get-started.md) e [Come annotare le origini dati](data-catalog-get-started.md).
 
-Pianificare riunioni periodiche con il team per riesaminare alcune delle annotazioni. Creare annotazioni corrette sulle origini dati è essenziale per il successo dell'adozione di Catalogo dati perché forniscono importanti informazioni sulle origini dati in una posizione centrale. Senza annotazioni corrette, le conoscenze sulle origini dati rimangono sparse in tutta l'organizzazione. Vedere [Come annotare le origini dati](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources).
+Pianificare riunioni periodiche con il team per riesaminare alcune delle annotazioni. Creare annotazioni corrette sulle origini dati è essenziale per il successo dell'adozione di Catalogo dati perché forniscono importanti informazioni sulle origini dati in una posizione centrale. Senza annotazioni corrette, le conoscenze sulle origini dati rimangono sparse in tutta l'organizzazione. Vedere [Come annotare le origini dati](data-catalog-get-started.md).
 
 Il test finale per il progetto consiste ovviamente nel verificare se gli utenti riescono a individuare e comprendere le origini dati che devono usare. Gli utenti pilota devono testare regolarmente il catalogo per assicurarsi che le origini dati usate per il lavoro giornaliero siano pertinenti. Quando un'origine dati necessaria è mancante o non è annotata correttamente, questo deve diventare un promemoria per registrare altre origini dati o per fornire altre annotazioni. Questa procedura non solo accresce il valore delle attività del progetto pilota, ma genera anche utili abitudini che vengono trasmesse agli altri team al termine del progetto pilota.
 
@@ -162,11 +162,10 @@ Questo articolo ha illustrato come iniziare a usare **Catalogo dati di Azure** n
 * [Pagina del prodotto Catalogo dati di Azure](https://azure.microsoft.com/services/data-catalog/)
 * [Documentazione di Catalogo dati di Azure](https://azure.microsoft.com/documentation/services/data-catalog/)
 * [Scenari comuni del Catalogo dati di Azure](data-catalog-common-scenarios.md)
-* [Registrare le origini dati](data-catalog-get-started.md#exercise-2-registering-data-sources)
-* [Cercare le origini dati](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets)
-* [Annotare le origini dati](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
-* [Crowdsourcing di metadati](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
-
+* [Registrare le origini dati](data-catalog-get-started.md)
+* [Cercare le origini dati](data-catalog-get-started.md)
+* [Annotare le origini dati](data-catalog-get-started.md)
+* [Crowdsourcing di metadati](data-catalog-get-started.md)
 
 
 

@@ -11,6 +11,9 @@ Innanzitutto, √® necessario registrare l'app nel sito di un provider di identit√
 2. Ripetere i passaggi precedenti per ogni provider di cui si desidera il supporto nell'app.
 
 <!-- URLs. -->
-[Azure portal]: https://portal.azure.com/
+[Portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO4-->
+
+<!--HONumber=Nov16_HO3-->
+
+

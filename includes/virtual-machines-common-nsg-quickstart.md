@@ -9,6 +9,10 @@ Si userà un esempio comune di traffico Web sulla porta 80. Dopo aver ottenuto u
    * valore di priorità minore di 65.500, per ottenere una priorità più alta rispetto al valore predefinito della regola in ingresso di accesso negato di tipo catch-all
 3. Associare il gruppo di sicurezza di rete con l'interfaccia di rete della VM o con la subnet
 
-È possibile creare configurazioni di rete complesse per proteggere l'ambiente usando i gruppi di sicurezza di rete e le regole. L'esempio usa solo una o due regole che consentono il traffico HTTP o la gestione remota. Per altre informazioni, vedere la sezione ["Altre informazioni"](#more-information-on-network-security-groups) seguente o [Che cos'è un gruppo di sicurezza di rete](../articles/virtual-network/virtual-networks-nsg.md).
+È possibile creare configurazioni di rete complesse per proteggere l'ambiente usando i gruppi di sicurezza di rete e le regole. L'esempio usa solo una o due regole che consentono il traffico HTTP o la gestione remota. Per altre informazioni, vedere la sezione ["Altre informazioni"](#more-information-on-network-security-groups) seguente o [Informazioni sui gruppi di sicurezza di rete](../articles/virtual-network/virtual-networks-nsg.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -4,12 +4,12 @@ Quando si crea un progetto di applicazione web per Azure, è possibile eseguire 
 
 Per creare una macchina virtuale quando si crea un’applicazione web, eseguire la procedura seguente:
 
-1. In Visual Studio scegliere **File** > **Nuovo** > **Progetto** > **Web** e quindi **Applicazione Web ASP.NET** (sotto i nodi **Visual C#** o **Visual Basic**).
-2. Nella finestra di dialogo **Nuovo progetto ASP.NET** selezionare il tipo di applicazione Web desiderata e quindi, nella sezione Azure nell'angolo inferiore destro della finestra di dialogo, verificare che sia selezionata la casella di controllo **Ospita nel cloud**. In alcune installazioni questa casella di controllo è denominata **Crea risorse remote**.
+1. In Visual Studio fare clic su **File** > **Nuovo** > **Progetto** > **Web** e quindi scegliere **Applicazione Web ASP.NET** (nei nodi **Visual C#** o **Visual Basic**).
+2. Nella finestra di dialogo **Nuovo progetto ASP.NET** selezionare il tipo di applicazione Web e nella sezione Azure nell'angolo inferiore destro della finestra di dialogo verificare quindi che sia selezionata la casella di controllo **Host nel cloud**. In alcune installazioni questa casella di controllo è denominata **Crea risorse remote**.
    
     ![][0]
 3. Per questo esempio, nell'elenco a discesa sotto Microsoft Azure scegliere **Macchina virtuale (v1)** e fare clic sul pulsante **OK**.
-4. Accedere a Azure se richiesto. Verrà visualizzata la finestra di dialogo **Crea macchina virtuale**.
+4. Accedere a Azure se richiesto. Verrà visualizzata la finestra di dialogo **Crea macchina virtuale** .
    
     ![][2]
 5. Nella casella **Nome DNS** immettere un nome per la macchina virtuale. Il nome DNS deve essere univoco in Azure. Se il nome immesso non è disponibile, compare un punto esclamativo rosso.
@@ -18,7 +18,7 @@ Per creare una macchina virtuale quando si crea un’applicazione web, eseguire 
 8. Nell'elenco **Dimensioni** selezionare le dimensioni della macchina virtuale.
 9. Specificare le credenziali di accesso per la macchina virtuale. Prendere nota di tali credenziali perché saranno necessarie per accedere al computer tramite Desktop remoto.
 10. Nell'elenco **Località** scegliere l'area che ospiterà la macchina virtuale.
-11. Fare clic sul pulsante **OK** per avviare la creazione della macchina virtuale. È possibile seguire l'avanzamento dell'operazione nella finestra **Output**.
+11. Fare clic sul pulsante **OK** per avviare la creazione della macchina virtuale. È possibile seguire l'avanzamento dell'operazione nella finestra **Output** .
     
     ![][3]
 12. Dopo il provisioning della macchina virtuale, gli script di pubblicazione vengono creati in un nodo **PublishScripts** nella soluzione. Lo script pubblicato viene eseguito ed esegue il provisioning di una macchina virtuale in Azure. Nella finestra **Output** viene visualizzato lo stato. Lo script esegue le azioni seguenti per configurare la macchina virtuale:
@@ -30,11 +30,11 @@ Per creare una macchina virtuale quando si crea un’applicazione web, eseguire 
     * Configura IIS e ASP.NET nella macchina virtuale.
     
     ![][4]
-13. (Facoltativo) È possibile connettersi alla nuova macchina virtuale. In **Esplora server** espandere il nodo **Macchine virtuali**, scegliere il nodo per la macchina virtuale creata e, nel relativo menu di scelta rapida, scegliere **Esegui connessione con Desktop remoto**. In alternativa, in **Cloud Explorer** è possibile scegliere **Apri nel portale** nel menu di scelta rapida e connettersi da lì alla macchina virtuale.
+13. (Facoltativo) È possibile connettersi alla nuova macchina virtuale. In **Esplora server** espandere il nodo **Macchine virtuali**, scegliere il nodo per la macchina virtuale creata e, nel relativo menu di scelta rapida, scegliere **Connessione tramite desktop remoto**. In alternativa, in **Cloud Explorer** è possibile scegliere **Apri nel portale** nel menu di scelta rapida e connettersi da lì alla macchina virtuale.
     
     ![][5]
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Se si vogliono personalizzare gli script pubblicati creati, leggere informazioni più dettagliate in [Uso degli script di Windows PowerShell per la pubblicazione in ambienti di sviluppo e test](http://msdn.microsoft.com/library/dn642480.aspx).
 
 [0]: ./media/virtual-machines-common-classic-web-app-visual-studio/CreateVM_NewProject.PNG
@@ -44,4 +44,7 @@ Se si vogliono personalizzare gli script pubblicati creati, leggere informazioni
 [4]: ./media/virtual-machines-common-classic-web-app-visual-studio/CreateVM_SolutionExplorer.png
 [5]: ./media/virtual-machines-common-classic-web-app-visual-studio/VS_Create_VM_Connect.png
 
-<!---HONumber=AcomDC_0323_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

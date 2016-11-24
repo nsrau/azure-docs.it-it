@@ -13,16 +13,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 08/10/2016
+ms.date: 11/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9ecbee74bc0559aa632304b0a0428abb36606597
+ms.sourcegitcommit: c7d253dfca8f399527d193f14af12c166157d39d
+ms.openlocfilehash: eaadd5c8d30a522fc05d214620600331d7485485
 
 
 ---
 # <a name="sql-database-options-and-performance-understand-whats-available-in-each-service-tier"></a>Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL
-[database SQL di Azure](sql-database-technical-overview.md) offre tre livelli di servizio con diversi livelli di prestazioni per la gestione di carichi di lavoro differenti. Ogni livello di prestazioni offre un set di risorse superiore progettato per garantire un aumento della velocità effettiva. È possibile gestire ogni database nel proprio [livello di servizio](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) con il proprio livello di prestazioni. È anche possibile gestire più database in un [pool elastico](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) con un set di risorse condiviso. Le risorse disponibili per i database autonomi sono espressi in unità di transazione di database (DTU) e per i pool elastici in unità di transazione di database elastico o eDTU. Per altre informazioni sulle DTU e le eDTU, vedere le [informazioni sulle unità di transazione di database (DTU)](sql-database-what-is-a-dtu.md). 
+[database SQL di Azure](sql-database-technical-overview.md) offre tre livelli di servizio con diversi livelli di prestazioni per la gestione di carichi di lavoro differenti. Livelli di prestazioni più elevati offrono un set di risorse superiore progettato per garantire un aumento della velocità effettiva. È possibile cambiare i livelli di servizio e di prestazioni in modo dinamico. Per informazioni dettagliate, vedere [Modifica dei livelli di servizio e dei livelli di prestazioni di un database](sql-database-scale-up.md) .
+
+È possibile gestire ogni database nel proprio [livello di servizio](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) con il proprio livello di prestazioni. È anche possibile gestire più database in un [pool elastico](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) con un set di risorse condiviso. Le risorse disponibili per i database autonomi sono espressi in unità di transazione di database (DTU) e per i pool elastici in unità di transazione di database elastico o eDTU. Per altre informazioni sulle DTU e le eDTU, vedere le [informazioni sulle unità di transazione di database (DTU)](sql-database-what-is-a-dtu.md). 
 
 In entrambi i casi, i livelli di servizio includono **Basic**, **Standard** e **Premium**. Le opzioni di database in questi livelli sono simili per i database autonomi e i pool elastici, ma per questi ultimi esistono altre considerazioni. Questo articolo fornisce i dettagli relativi ai livelli di servizio per i database autonomi e per i pool elastici.
 

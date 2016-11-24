@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/02/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 86b7d396307761acb8baee5761f08a3e1120cddc
+ms.sourcegitcommit: 53a301bd501f223aa8489ba6592c8428c1fcd530
+ms.openlocfilehash: 877a70c162f23ced4606ee8a5c51db5e4eeaa89a
 
 
 ---
@@ -28,7 +28,10 @@ ExpressRoute è supportato in tutte le aree e le località di Azure. La mappa se
 
 ![Mappa delle località][0]
 
-Si otterrà l'accesso al servizio di Azure in tutte le aree di un'area geopolitica se è stata effettuata la connessione ad almeno una località per ExpressRoute entro l'area geopolitica. La tabella seguente fornisce una mappa di aree di Azure e di località ExpressRoute in un'area geopolitica.
+Si otterrà l'accesso al servizio di Azure in tutte le aree di un'area geopolitica se è stata effettuata la connessione ad almeno una località per ExpressRoute entro l'area geopolitica. 
+
+### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Aree di Azure e località ExpressRoute in un'area geopolitica
+La tabella seguente fornisce una mappa di aree di Azure e di località ExpressRoute in un'area geopolitica.
 
 | **Area geopolitica** | **Aree di Azure** | **Località per ExpressRoute** |
 | --- | --- | --- |
@@ -40,6 +43,7 @@ Si otterrà l'accesso al servizio di Azure in tutte le aree di un'area geopoliti
 | **Australia** |Australia sudorientale, Australia orientale |Melbourne, Sydney |
 | **India** |India occidentale, India centrale, India Meridionale |Chennai, Mumbai |
 
+### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Aree e confini geopolitici per cloud nazionali
 Nella tabella seguente vengono fornite informazioni su aree e confini geopolitici per cloud nazionali.
 
 | **Area geopolitica** | **Aree di Azure** | **Località per ExpressRoute** |
@@ -50,15 +54,15 @@ Nella tabella seguente vengono fornite informazioni su aree e confini geopolitic
 
 La connettività tra diverse aree geopolitiche non è supportata nello standard SKU EspressRoute. È necessario attivare il componente aggiuntivo premium ExpressRoute per supportare la connettività globale. La connettività per ambienti cloud nazionale non è supportata. È possibile utilizzare il provider di connettività in caso di necessità.
 
-## <a name="connectivity-provider-locations"></a>Posizioni del provider di connettività
+## <a name="a-namelocationsaconnectivity-provider-locations"></a><a name="locations"></a>Località dei provider di connettività
 > [!div class="op_single_selector"]
-> [Posizioni per provider](expressroute-locations.md#connectivity-provider-locations)
-> [Provider per posizione](expressroute-locations-providers.md#connectivity-provider-locations)
+> * [Località per provider](expressroute-locations.md#locations)
+> * [Provider per località](expressroute-locations-providers.md#locations)
 > 
 > 
 
 ### <a name="production-azure"></a>Produzione Azure
-| **Posizione** | **Provider di servizi** |
+| **Località** | **Provider di servizi** |
 | --- | --- |
 | **Amsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
 | **Atlanta** |Equinix |
@@ -89,7 +93,8 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
  **+** indica disponibile a breve
 
 ### <a name="national-cloud-environments"></a>Ambienti cloud nazionali
-#### <a name="us-government-cloud"></a>Cloud del governo degli Stati Uniti
+
+### <a name="us-government-cloud"></a>Cloud del governo degli Stati Uniti
 | **Posizione** | **Provider di servizi** |
 | --- | --- |
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
@@ -97,7 +102,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 | **New York** |Equinix, Level 3 Communications+, Verizon |
 | **Washington DC** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
-#### <a name="china"></a>Cina
+### <a name="china"></a>Cina
 | **Posizione** | **Provider di servizi** |
 | --- | --- |
 | **Pechino** |China Telecom |
@@ -105,7 +110,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 
 Per altre informazioni, vedere [ExpressRoute in Cina](http://www.windowsazure.cn/home/features/expressroute/)
 
-#### <a name="germany"></a>Germania
+### <a name="germany"></a>Germania
 | **Posizione** | **Provider di servizi** |
 | --- | --- |
 | **Berlino** |Colt+, e-shelter |
@@ -153,6 +158,6 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

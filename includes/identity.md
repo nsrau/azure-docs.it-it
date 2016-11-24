@@ -1,18 +1,18 @@
 La gestione delle identità è importante tanto nel cloud pubblico quanto in locale. A questo scopo, Azure supporta numerose tecnologie di identità diverse per il cloud, tra cui:
 
 * È possibile eseguire Windows Server Active Directory (comunemente denominato AD) nel cloud utilizzando macchine virtuali create con Macchine virtuali di Azure. Questo approccio è indicato quando si utilizza Azure per estendere il data center locale nel cloud.
-* È possibile utilizzare Azure Active Directory per fornire agli utenti l'accesso Single Sign-On alle applicazioni [SaaS (Software as a Service)](https://azure.microsoft.com/overview/what-is-saas/). Microsoft Office 365 ad esempio utilizza questa tecnologia che può essere utilizzata anche dalle applicazioni eseguite in Azure o in altre piattaforme cloud.
+* È possibile utilizzare Azure Active Directory per fornire agli utenti l'accesso Single Sign-On alle applicazioni [SaaS (Software as a Service)](https://azure.microsoft.com/overview/what-is-saas/) . Microsoft Office 365 ad esempio utilizza questa tecnologia che può essere utilizzata anche dalle applicazioni eseguite in Azure o in altre piattaforme cloud.
 * Le applicazioni eseguite nel cloud o in locale possono utilizzare Controllo di accesso di Azure Active Directory per consentire agli utenti di eseguire l'accesso utilizzando le identità di Facebook, Google, Microsoft e altri provider di identità.
 
 In questo articolo vengono descritte queste tre opzioni.
 
-## Sommario
+## <a name="table-of-contents"></a>Sommario
 * [Esecuzione di Windows Server Active Directory nelle macchine virtuali](#adinvm)
 * [Uso di Azure Active Directory](#ad)
 * [Uso di Controllo di accesso di Azure Active Directory](#ac)
 
-## <a name="adinvm"></a>Esecuzione di Windows Server Active Directory nelle macchine virtuali
-L'esecuzione di Windows Server AD nelle macchine virtuali di Azure è molto simile all'esecuzione in locale. Nella [figura 1](#fig1) è mostrato un esempio tipico.
+## <a name="a-nameadinvmarunning-windows-server-active-directory-in-virtual-machines"></a><a name="adinvm"></a>Esecuzione di Windows Server Active Directory nelle macchine virtuali
+L'esecuzione di Windows Server AD nelle macchine virtuali di Azure è molto simile all'esecuzione in locale. [figura 1](#fig1) è mostrato un esempio tipico.
 
 ![Azure Active Directory in macchina virtuale](./media/identity/identity_01_ADinVM.png)
 
@@ -36,7 +36,7 @@ L'esecuzione di Windows Server AD nelle macchine virtuali di Azure può risultar
 
 Sono inoltre disponibili altre possibilità. Non è ad esempio necessario connettere Windows Server AD nel cloud a un data center locale. Per eseguire una farm SharePoint per servire un determinato set di utenti che possono eseguire l'accesso esclusivamente con identità basate sul cloud, sarebbe necessario creare una foresta autonoma in Azure. Il modo in cui si utilizza questa tecnologia dipende dagli obiettivi. Per informazioni dettagliate sull'utilizzo di Windows Server AD con Azure, [vedere qui](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
-## <a name="ad"></a>Uso di Azure Active Directory
+## <a name="a-nameadausing-azure-active-directory"></a><a name="ad"></a>Uso di Azure Active Directory
 L'aumento della diffusione delle applicazioni SaaS fa sorgere una domanda ovvia relativa al tipo di servizio directory che deve essere usato da queste applicazioni basate sul cloud. La risposta di Microsoft a questa domanda è Azure Active Directory.
 
 Sono disponibili due opzioni principali per l'utilizzo di questo servizio directory nel cloud:
@@ -44,7 +44,7 @@ Sono disponibili due opzioni principali per l'utilizzo di questo servizio direct
 * I privati e le organizzazioni che utilizzano solo applicazioni SaaS possono utilizzare Azure Active Directory come unico servizio directory.
 * Le organizzazioni che eseguono Windows Server Active Directory possono connettere la directory locale ad Azure Active Directory e quindi utilizzarla per concedere agli utenti l'accesso Single Sign-On alle applicazioni SaaS.
 
-[Nella ](#fig2)figura 2 è illustrata la prima di queste due opzioni, per la quale è necessario solo Azure Active Directory.
+[Nella](#fig2) figura 2 è illustrata la prima di queste due opzioni, per la quale è necessario solo Azure Active Directory.
 
 ![Azure Active Directory in macchina virtuale](./media/identity/identity_02_AD.png)
 
@@ -60,19 +60,20 @@ Questo token viene quindi inviato all'applicazione SaaS (passaggio 4), che ne co
 
 Se l'applicazione necessita di maggiori informazioni sull'utente rispetto a quelle contenute nel token, può richiederle direttamente da Azure AD mediante l'API Graph di Azure AD (passaggio 6). Nella versione iniziale di Azure AD lo schema della directory è relativamente semplice: contiene semplicemente utenti e gruppi e le relazioni tra di essi. Le applicazioni possono usare questi dati per acquisire altre informazioni sulle connessioni tra gli utenti. Si supponga, ad esempio, che un'applicazione necessiti di conoscere il nome del responsabile dell'utente per decidere se questi è autorizzato ad accedere ad alcuni blocchi di dati. Potrà acquisire questa informazione interrogando Azure AD tramite l'API Graph.
 
-L'API Graph utilizza un protocollo RESTful ordinario che ne semplifica l'uso da parte della maggior parte dei client, inclusi i dispositivi mobili. L'API supporta inoltre le estensioni definite da OData, mediante l'aggiunta di elementi quali un linguaggio di query, per consentire ai client di accedere ai dati con maggiore praticità. Per ulteriori informazioni su OData, vedere [Introduzione a OData](http://download.microsoft.com/download/E/5/A/E5A59052-EE48-4D64-897B-5F7C608165B8/IntroducingOData.pdf). Poiché l'API Graph può essere utilizzata per acquisire informazioni sulle relazioni tra gli utenti, consente alle applicazioni di comprendere il grafico sociale incorporato nello schema di Azure AD per una determinata organizzazione (da cui il nome, API Graph). Inoltre, per eseguire l'autenticazione ad Azure AD per le richieste dell'API Graph, un'applicazione utilizza OAuth 2.0.
+L'API Graph utilizza un protocollo RESTful ordinario che ne semplifica l'uso da parte della maggior parte dei client, inclusi i dispositivi mobili. L'API supporta inoltre le estensioni definite da OData, mediante l'aggiunta di elementi quali un linguaggio di query, per consentire ai client di accedere ai dati con maggiore praticità. Per altre informazioni su OData, vedere [Introducing OData](http://download.microsoft.com/download/E/5/A/E5A59052-EE48-4D64-897B-5F7C608165B8/IntroducingOData.pdf) (Introduzione a OData). Poiché l'API Graph può essere utilizzata per acquisire informazioni sulle relazioni tra gli utenti, consente alle applicazioni di comprendere il grafico sociale incorporato nello schema di Azure AD per una determinata organizzazione (da cui il nome, API Graph). Inoltre, per eseguire l'autenticazione ad Azure AD per le richieste dell'API Graph, un'applicazione utilizza OAuth 2.0.
 
-Se un'organizzazione non utilizza Windows Server Active Directory, in quanto non dispone di server locali o domini, e utilizza esclusivamente applicazioni cloud che utilizzano Azure AD, l'uso di questa directory cloud concederebbe agli utenti dell'organizzazione l'accesso Single Sign-On a tutte. Sebbene questo scenario stia diventando sempre più diffuso, la maggior parte delle organizzazioni si avvale ancora di domini locali creati con Windows Server Active Directory. Azure AD può giocare un ulteriore ruolo utile anche in questo caso, come illustrato nella [figura 3](#fig3).
+Se un'organizzazione non utilizza Windows Server Active Directory, in quanto non dispone di server locali o domini, e utilizza esclusivamente applicazioni cloud che utilizzano Azure AD, l'uso di questa directory cloud concederebbe agli utenti dell'organizzazione l'accesso Single Sign-On a tutte. Sebbene questo scenario stia diventando sempre più diffuso, la maggior parte delle organizzazioni si avvale ancora di domini locali creati con Windows Server Active Directory. Azure AD può giocare un ulteriore ruolo utile anche in questo caso, come illustrato nella [figura 3](#fig3) .
 
-![Azure Active Directory in macchina virtuale](./media/identity/identity_03_AD.png) <a id="fig3"></a>Figura 3: un'organizzazione può federare Windows Server Active Directory con Azure Active Directory per concedere agli utenti l'accesso Single Sign-On alle applicazioni SaaS.
+![Azure Active Directory in macchina virtuale](./media/identity/identity_03_AD.png)
+ <a id="fig3"></a>Figura 3: Un'organizzazione può eseguire la federazione di Active Directory di Windows Server con Azure Active Directory per concedere agli utenti l'accesso Single Sign-On alle applicazioni SaaS.
 
 In questo scenario un utente presso l'organizzazione B desidera accedere a un'applicazione SaaS. Prima di poter procedere, gli amministratori della directory dell'organizzazione devono stabilire una relazione di federazione con Azure AD mediante AD FS, come illustrato nella figura. Gli amministratori devono inoltre configurare la sincronizzazione dei dati tra Windows Server AD locale dell'organizzazione e Azure AD. Questa operazione determina la copia automatica delle informazioni relative a utenti e gruppi dalla directory locale ad Azure AD. Grazie a questa operazione, l'organizzazione estende la directory locale nel cloud. La combinazione di Windows Server AD e di Azure AD offre all'organizzazione un servizio directory che può essere gestito come un'entità singola, mantenendo al contempo una superficie sia in locale che nel cloud.
 
-Per utilizzare Azure AD, l'utente esegue innanzitutto l'accesso al proprio dominio Active Directory come di consueto (passaggio 1). Quando tenta di accedere all'applicazione SaaS (passaggio 2), il processo di federazione consente ad Azure AD di emettere un token per l'applicazione (passaggio 3). Per altre informazioni sul funzionamento della federazione, vedere il documento relativo alle [tecnologie e agli scenari per le attestazioni basate sulle identità per Windows](http://www.davidchappell.com/writing/white_papers/Claims-Based_Identity_for_Windows_v3.0--Chappell.docx). Come in precedenza, questo token contiene informazioni che identificano l'utente ed è firmato digitalmente da Azure AD. Questo token viene quindi inviato all'applicazione SaaS (passaggio 4), che ne convalida la firma e ne utilizza il contenuto (passaggio 5). E, come nello scenario precedente, l'applicazione SaaS può utilizzare l'API Graph per acquisire ulteriori informazioni sull'utente, se necessario (passaggio 6).
+Per utilizzare Azure AD, l'utente esegue innanzitutto l'accesso al proprio dominio Active Directory come di consueto (passaggio 1). Quando tenta di accedere all'applicazione SaaS (passaggio 2), il processo di federazione consente ad Azure AD di emettere un token per l'applicazione (passaggio 3). Per altre informazioni sul funzionamento della federazione, vedere il documento relativo a [tecnologie e scenari per l'identità basata sulle attestazioni per Windows](http://www.davidchappell.com/writing/white_papers/Claims-Based_Identity_for_Windows_v3.0--Chappell.docx). Come in precedenza, questo token contiene informazioni che identificano l'utente ed è firmato digitalmente da Azure AD. Questo token viene quindi inviato all'applicazione SaaS (passaggio 4), che ne convalida la firma e ne utilizza il contenuto (passaggio 5). E, come nello scenario precedente, l'applicazione SaaS può utilizzare l'API Graph per acquisire ulteriori informazioni sull'utente, se necessario (passaggio 6).
 
 Attualmente, Azure AD non rappresenta un'alternativa completa rispetto a Windows Server AD locale. Come indicato in precedenza, la directory cloud presenta uno schema molto più semplice da cui mancano diversi elementi, ad esempio Criteri di gruppo, la possibilità di archiviare informazioni relative ai computer e il supporto per LDAP. Di fatto, non è possibile configurare un computer Windows per consentire agli utenti di eseguirvi l'accesso utilizzando solo Azure AD, in quanto non è uno scenario supportato. Tra gli obiettivi iniziali di Azure AD è inclusa la possibilità di consentire agli utenti aziendali di accedere alle applicazioni nel cloud senza mantenere un accesso separato in modo da evitare agli amministratori della directory locale di eseguire la sincronizzazione manuale della directory locale con ogni applicazione SaaS utilizzata dall'organizzazione. Nel tempo, è tuttavia previsto che il servizio directory cloud copra una più vasta gamma di scenari.
 
-## <a name="ac"></a>Uso di Controllo di accesso di Azure Active Directory
+## <a name="a-nameacausing-azure-active-directory-access-control"></a><a name="ac"></a>Uso di Controllo di accesso di Azure Active Directory
 Le tecnologie per la gestione delle identità basate sul cloud possono essere usate per risolvere diversi problemi. Azure Active Directory consente ad esempio di fornire agli utenti di un'organizzazione l'accesso Single Sign-On a più applicazioni SaaS. Le tecnologie di gestione dell'identità nel cloud possono inoltre essere utilizzate in altri modi.
 
 Si supponga ad esempio che un'applicazione desideri consentire agli utenti di accedere mediante token emessi da più *provider di identità*. Sono disponibili numerosi provider di identità, inclusi Facebook, Google, Microsoft e altri, e spesso le applicazioni consentono agli utenti di eseguire l'accesso mediante una di queste identità. Per quale motivo un'applicazione dovrebbe preoccuparsi di mantenere un proprio elenco di utenti e password quando può avvalersi di identità già esistenti? L'accettazione di identità esistenti semplifica le operazioni sia agli utenti che avranno così un nome utente e una password in meno da ricordare, sia a coloro che creano l'applicazione, in quanto non è più necessario mantenere un proprio elenco di nomi utente e password.
@@ -81,7 +82,8 @@ Sebbene ogni provider di identità emetta un determinato tipo di token, questi t
 
 A che scopo? Non converrebbe creare un intermediario in grado di generare un unico formato di token con una rappresentazione comune delle informazioni relative all'identità? Questo approccio consentirebbe di semplificare le attività degli sviluppatori che creano applicazioni, in quanto dovrebbero gestire un solo tipo di token. Questo è possibile grazie a Controllo di accesso di Azure Active Directory, che fornisce un intermediario nel cloud per l'utilizzo di diversi tipi di token, come illustrato nella [figura 4](#fig4).
 
-![Azure Active Directory in macchina virtuale](./media/identity/identity_04_IdentityProviders.png) <a id="fig4"></a>Figura 4: Controllo di accesso di Azure Active Directory consente alle applicazioni di accettare token di identità emessi da provider di identità diversi.
+![Azure Active Directory in macchina virtuale](./media/identity/identity_04_IdentityProviders.png)
+ <a id="fig4"></a>Figura 4: Azure Active Directory Access Control consente alle applicazioni di accettare token di identità emessi da provider di identità diversi.
 
 Il processo ha inizio quando l'utente tenta di accedere all'applicazione da un browser. L'applicazione reindirizza l'utente a un provider di identità di sua scelta considerato attendibile anche dall'applicazione stessa. L'utente esegue l'autenticazione al provider di identità, ad esempio specificando un nome utente e una password (passaggio 1) e il provider di identità restituisce un token contenente le informazioni relative all'utente stesso (passaggio 2).
 
@@ -97,7 +99,11 @@ Sebbene questo processo possa sembrare complesso, consente di semplificare le at
 
 L'utilizzo delle identità è importante per la maggior parte delle applicazioni. Controllo di accesso è progettato per consentire agli sviluppatori di creare applicazioni che accettano identità da provider di identità eterogenei. Poiché Microsoft ha reso disponibile questo servizio nel cloud, ora può essere utilizzato da qualsiasi applicazione in esecuzione su qualunque piattaforma.
 
-## Informazioni sull'autore
-David Chappell è il titolare della società Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) di San Francisco, California.
+## <a name="about-the-author"></a>Informazioni sull'autore
+David Chappell è il titolare della società Chappell & Associates ([www.davidchappell.com](http://www.davidchappell.com)) di San Francisco, California.
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

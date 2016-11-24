@@ -3,7 +3,7 @@
 Prima di tutto è necessario che sia installata ed eseguita la versione più recente di [Azure PowerShell](http://msdn.microsoft.com/library/mt619274.aspx) . Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../articles/powershell-install-configure.md).
 
 > [!NOTE]
-> Negli esempi inclusi in questo argomento viene usato il [modello di distribuzione Azure Resource Manager](../articles/resource-group-overview.md), quindi vengono impiegati gli esempi di [cmdlet di Azure Resource Manager](http://msdn.microsoft.com/library/azure/mt125356.aspx). 
+> Negli esempi inclusi in questo argomento viene usato il [modello di distribuzione Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md), quindi vengono impiegati gli esempi di [cmdlet di Azure Resource Manager](http://msdn.microsoft.com/library/azure/mt125356.aspx). 
 > 
 > 
 
@@ -17,6 +17,6 @@ Se si hanno più sottoscrizioni, usare il cmdlet [**Set-AzureRmContext**](http:/
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

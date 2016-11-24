@@ -15,18 +15,18 @@ ms.topic: get-started-article
 ms.date: 10/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 20aefd2c94bca03653f11a91c5ade173cb6da9bf
+ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
+ms.openlocfilehash: 4a2d271be7fbd0d27163ead8f8eb2c05a43f7fbc
 
 
 ---
-# <a name="securing-cloud-resources-with-azure-multifactor-authentication-and-ad-fs"></a>Protezione delle risorse cloud con Azure Multi-Factor Authentication e AD FS
+# <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protezione delle risorse cloud con Azure Multi-Factor Authentication e AD FS
 Se l'organizzazione è federata con Azure Active Directory, usare Azure Multi-Factor Authentication o Active Directory Federation Services per proteggere le risorse accessibili da Azure AD. Usare le procedure seguenti per proteggere le risorse di Azure Active Directory con Azure Multi-Factor Authentication o Active Directory Federation Services.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Proteggere le risorse Azure AD con ADFS
 Per proteggere le risorse cloud, prima è necessario abilitare un account per gli utenti e quindi impostare una regola attestazioni. Seguire questa procedura per eseguire i passaggi:
 
-1. Usare la procedura descritta in [Attivare l'autenticazione a più fattori per gli utenti](multi-factor-authentication-get-started-cloud.md#turn-on-multi-factor-authentication-for-users) per abilitare un account.
+1. Usare la procedura descritta in [Attivare l'autenticazione a più fattori per gli utenti](multi-factor-authentication-get-started-cloud.md#turn-on-two-step-verification-for-users) per abilitare un account.
 2. Avviare la console di gestione di ADFS.
    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
 3. Passare ad **Attendibilità componente** e fare clic con il pulsante destro del mouse sull'attendibilità della relying party. Selezionare **Modifica regole attestazione...**
@@ -34,13 +34,13 @@ Per proteggere le risorse cloud, prima è necessario abilitare un account per gl
 5. Nell'elenco a discesa selezionare **Inviare attestazioni mediante una regola personalizzata** e fare clic su **Avanti**.
 6. Immettere un nome per la regola attestazione.
 7. In Regola personalizzata: aggiungere quanto segue:
-   
+
     ```
     => issue(Type = "http://schemas.microsoft.com/claims/authnmethodsreferences", Value = "http://schemas.microsoft.com/claims/multipleauthn");
     ```
-   
+
     Attestazione corrispondente:
-   
+
     ```
     <saml:Attribute AttributeName="authnmethodsreferences" AttributeNamespace="http://schemas.microsoft.com/claims">
     <saml:AttributeValue>http://schemas.microsoft.com/claims/multipleauthn</saml:AttributeValue>
@@ -74,7 +74,7 @@ Per prima cosa è necessario configurare le attestazioni ADFS. Si creeranno due 
 10. Nell'Aggiunta guidata regole attestazione di trasformazione selezionare **Inviare attestazioni mediante una regola personalizzata** dall'elenco a discesa e fare clic su **Avanti**.
 11. Nella casella sotto a Nome regola attestazione: specificare di *mantenere gli utenti connessi*.
 12. Nella casella Regola personalizzata immettere:
-    
+
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
     ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
@@ -83,7 +83,7 @@ Per prima cosa è necessario configurare le attestazioni ADFS. Si creeranno due 
 15. Fare clic su **OK**.
 16. Chiudere Gestione ADFS.
 
-### <a name="configure-azure-multifactor-authentication-trusted-ips-with-federated-users"></a>Configurare gli indirizzi IP attendibili di Azure Multi-Factor Authentication con utenti federati
+### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Configurare gli indirizzi IP attendibili di Azure Multi-Factor Authentication con utenti federati
 Ora che le attestazioni sono configurate, è possibile procedere alla configurazione degli indirizzi IP attendibili.
 
 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
@@ -97,7 +97,6 @@ Ora che le attestazioni sono configurate, è possibile procedere alla configuraz
 8. Dopo che gli aggiornamenti sono stati applicati, fare clic su **Chiudi**.
 
 La procedura è terminata. A questo punto, gli utenti federati di Office 365 dovrebbero usare solo MFA quando una richiesta proviene dall'esterno della Intranet aziendale.
-
 
 
 

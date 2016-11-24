@@ -5,12 +5,12 @@
    
         #import <MicrosoftAzureMobile/MicrosoftAzureMobile.h>
         #import "QSTodoService.h"
-2. In `didFinishLaunchingWithOptions`, in **QSAppDelegate.m**, inserire le righe seguenti prima di `return YES;`:
+2. In `didFinishLaunchingWithOptions` in **QSAppDelegate.m** inserire le righe seguenti prima di `return YES;`:
    
         UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
         [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
         [[UIApplication sharedApplication] registerForRemoteNotifications];
-3. In **QSAppDelegate.m** aggiungere i metodi del gestore seguenti. L'app è ora aggiornata per il supporto delle notifiche push.
+3. In **QSAppDelegate.m**aggiungere i metodi del gestore seguenti. L'app è ora aggiornata per il supporto delle notifiche push. 
    
         // Registration with APNs is successful
         - (void)application:(UIApplication *)application
@@ -79,15 +79,15 @@
 
 **Swift**:
 
-1. Aggiungere il file **ClientManager.swift** con i seguenti contenuti. Sostituire *AppUrl %* con l'URL del back-end di app per dispositivi mobili di Azure.
+1. Aggiungere il file **ClientManager.swift** con i seguenti contenuti. Sostituire *%AppUrl%* con l'URL del back-end di app per dispositivi mobili di Azure.
    
         class ClientManager {
             static let sharedClient = MSClient(applicationURLString: "%AppUrl%")
         }
-2. In **ToDoTableViewController.swift**, sostituire la riga `let client` che inizializza un `MSClient` con la riga seguente:
+2. In **ToDoTableViewController.swift** sostituire la riga `let client` che inizializza un `MSClient` con la riga seguente:
    
         let client = ClientManager.sharedClient
-3. In **AppDelegate.swift**, sostituire il corpo di `func application` come indicato di seguito:
+3. In **AppDelegate.swift** sostituire il corpo di `func application` come indicato di seguito:
    
         func application(application: UIApplication,
           didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -139,4 +139,8 @@
    
         }
 
-<!---HONumber=AcomDC_0204_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

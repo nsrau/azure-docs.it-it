@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d16326340f668285e185a6e8adb1a8316d8bd0eb
+ms.sourcegitcommit: 371c76ed36cd9d21026a5a49c6ef86a0cd3cc816
+ms.openlocfilehash: 8fd8b4b9611adb15df7e436a00f8ec35ea1e9614
 
 
 ---
@@ -45,7 +45,7 @@ Il percorso di peering Microsoft consente di connettersi a servizi cloud Microso
 
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
-#### <a name="traffic-originating-from-your-network-destined-to-microsoft"></a>Traffico proveniente dalla propria rete e destinato a Microsoft
+### <a name="traffic-originating-from-your-network-destined-to-microsoft"></a>Traffico proveniente dalla propria rete e destinato a Microsoft
 * È necessario assicurarsi che il traffico acceda al percorso di peering Microsoft con un indirizzo IPv4 pubblico valido. Microsoft deve essere in grado di convalidare il proprietario del pool di indirizzi IPv4 NAT a fronte del registro Internet di routing regionale (RIR) o di un registro di routing Internet (IRR). Verrà eseguito un controllo in base al numero AS usato per il peering e agli indirizzi IP usati per l'infrastruttura NAT. Per informazioni sui registri di routing, fare riferimento alla pagina relativa ai [requisiti di routing di ExpressRoute](expressroute-routing.md) .
 * Gli indirizzi IP usati per la configurazione del peering pubblico di Azure e altri circuiti ExpressRoute non devono essere annunciati a Microsoft tramite la sessione BGP. Non esiste alcuna restrizione per la lunghezza del prefisso IP NAT annunciato tramite questo peering.
   
@@ -54,7 +54,7 @@ Il percorso di peering Microsoft consente di connettersi a servizi cloud Microso
   > 
   > 
 
-#### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Traffico proveniente da Microsoft e destinato alla propria rete
+### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Traffico proveniente da Microsoft e destinato alla propria rete
 * Per alcuni scenari è necessario che Microsoft avvii la connettività agli endpoint di servizio ospitati nella propria rete. Un esempio tipico di scenario è rappresentato dalla connettività a server ADFS ospitati nella propria rete da Office 365. In questi casi, è necessario inviare prefissi appropriati dalla propria rete al peering Microsoft. 
 * È necessario inviare tramite SNAT il traffico destinato agli indirizzi IP nella propria rete da Microsoft. 
 
@@ -70,6 +70,6 @@ Il percorso di peering Microsoft consente di connettersi a servizi cloud Microso
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/07/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b0fec06e4a167e615381fca17def46923d9f0f1b
+ms.sourcegitcommit: 0ab72bd4ad531d1162726c6f5548fa253a4f5265
+ms.openlocfilehash: acc0c0c8db966d7a185d69501442ba431f3d5e1f
 
 
 ---
-# <a name="startstop-vms-during-offhours-preview-solution-in-automation"></a>Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività (anteprima) in Automazione di Azure
+# <a name="startstop-vms-during-off-hours-preview-solution-in-automation"></a>Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività (anteprima) in Automazione di Azure
 La soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività (anteprima) permette di avviare e arrestare le macchine virtuali di Azure Resource Manager in base a una pianificazione definita dall'utente e, tramite OMS Log Analytics, fornisce informazioni approfondite sui processi di Automazione completati che avviano e arrestano le macchine virtuali.  
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -125,7 +125,7 @@ Verrà visualizzato il pannello della soluzione **Start-Stop-VM[Workspace]** (Av
 
 Da qui è anche possibile aprire l'area di lavoro OMS ed eseguire un'analisi aggiuntiva dei record dei processi.  È sufficiente fare clic su **Tutte le impostazioni** e quindi selezionare **Avvio rapido** nel pannello **Impostazioni** e infine **Portale di OMS** nel pannello **Avvio rapido**.   Verrà aperta una nuova scheda o una nuova sessione del browser e verrà visualizzata l'area di lavoro OMS associata alla sottoscrizione e all'account di Automazione.  
 
-### <a name="configuring-email-notifications"></a>Configurazione delle notifiche tramite posta elettronica
+### <a name="configuring-e-mail-notifications"></a>Configurazione delle notifiche tramite posta elettronica
 Per abilitare le notifiche tramite posta elettronica al termine dell'esecuzione dei runbook di avvio e arresto di macchine virtuali, è necessario modificare le credenziali **O365Credential** e almeno le variabili seguenti:
 
 * SendMailO365-IsSendEmail-MS-Mgmt
@@ -143,7 +143,7 @@ Per configurare le variabili evidenziate in precedenza, seguire questa procedura
 
 1. Dall'account di automazione fare clic su **Tutte le impostazioni** nella parte superiore della finestra. 
 2. Nel pannello **Impostazioni** selezionare **Asset**nella sezione **Risorse di automazione**. 
-3. Nel pannello **Asset** selezionare il riquadro **Variabili**. Nel pannello **Variabili** selezionare la variabile elencata in precedenza e modificarne il valore in base alla relativa descrizione specificata nella sezione [Variabili](##variables) di questo articolo.  
+3. Nel pannello **Asset** selezionare il riquadro **Variabili**. Nel pannello **Variabili** selezionare la variabile elencata in precedenza e modificarne il valore in base alla relativa descrizione specificata nella sezione [Variabili](#variables) di questo articolo.  
 4. Fare clic su **Salva** per salvare le modifiche alla variabile.   
 
 ### <a name="modifying-the-startup-and-shutdown-schedule"></a>Modifica della pianificazione di avvio e arresto

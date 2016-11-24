@@ -1,12 +1,12 @@
 <!--author=alkohli last changed: 9/16/15-->
 
-#### Per cablare il dispositivo per l'alimentazione
+#### <a name="to-cable-for-power"></a>Per cablare il dispositivo per l'alimentazione
 1. Assicurarsi che gli interruttori di alimentazione di ciascuno dei moduli PCM siano in posizione OFF.
 2. Collegare i cavi di alimentazione a tutti i moduli PCM nell’enclosure principale.
 3. Collegare i cavi di alimentazione alle unità PDU (Power Distribution Unit) rack come illustrato nella seguente figura. Verificare che i due moduli PCM usino fonti di alimentazione separate.
    
    > [!IMPORTANT]
-   > Per garantire la disponibilità elevata del sistema, si consiglia vivamente di attenersi allo schema di cablaggio dell'alimentazione illustrato nella seguente figura.
+   > Per garantire la disponibilità elevata del sistema, si consiglia vivamente di attenersi allo schema di cablaggio dell'alimentazione illustrato nella seguente figura. 
    > 
    > 
    
@@ -23,4 +23,8 @@
    | 5 |PDU |
 4. Accendere il sistema girando l'interruttore di alimentazione di ciascun modulo PCM su ON.
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

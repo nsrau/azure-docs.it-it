@@ -1,5 +1,5 @@
-## Mapping di colonne con regole di conversione
-Mapping di colonne utilizzabile per specificare come le colonne specificate nella "struttura" di mapping della tabella di origine alle colonne specificate nella "struttura" della tabella di sink. La proprietà**columnMapping**è disponibile nella sezione **typeProperties**dell'attività copia.
+## <a name="column-mapping-with-translator-rules"></a>Mapping di colonne con regole di conversione
+Mapping di colonne utilizzabile per specificare come le colonne specificate nella "struttura" di mapping della tabella di origine alle colonne specificate nella "struttura" della tabella di sink. La proprietà **columnMapping** è disponibile nella sezione **typeProperties** dell'attività di copia.
 
 Il mapping di colonne supporta gli scenari seguenti:
 
@@ -12,13 +12,13 @@ Le seguenti sono condizioni di errore e genereranno un'eccezione:
 * Mapping duplicato.
 * Il risultato della query SQL non ha un nome colonna specificato nel mapping.
 
-## Esempi di mapping di colonne
+## <a name="column-mapping-samples"></a>Esempi di mapping di colonne
 > [!NOTE]
-> Gli esempi che seguono sono per SQL Azure e Azure Blob, ma sono applicabili per qualsiasi archivio dati che supporti set di dati rettangolari. È necessario modificare i set di dati e le definizioni dei servizi collegati negli esempi riportati di seguito per puntare a dati nell'origine dati pertinente.
+> Gli esempi che seguono sono per SQL Azure e Azure Blob, ma sono applicabili per qualsiasi archivio dati che supporti set di dati rettangolari. È necessario modificare i set di dati e le definizioni dei servizi collegati negli esempi riportati di seguito per puntare a dati nell'origine dati pertinente. 
 > 
 > 
 
-### Esempio 1: mapping di colonne da Azure SQL al BLOB di Azure
+### <a name="sample-1-column-mapping-from-azure-sql-to-azure-blob"></a>Esempio 1: mapping di colonne da Azure SQL al BLOB di Azure
 In questo esempio, la tabella di input ha una struttura che punta a una tabella SQL in un database SQL di Azure.
 
     {
@@ -112,10 +112,10 @@ Il JSON per l'attività è illustrato di seguito. Le colonne dell'origine vengon
 
 **Flusso del mapping di colonne:**
 
-![Flusso del mapping di colonne:](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow.png)
+![Flusso del mapping di colonne](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow.png)
 
-### Esempio 2: mapping di colonne con query SQL da Azure SQL al BLOB di Azure
-In questo esempio, una query SQL viene utilizzata per estrarre dati da Azure SQL invece di specificare semplicemente il nome della tabella e i nomi delle colonne nella sezione "struttura".
+### <a name="sample-2-column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a>Esempio 2: mapping di colonne con query SQL da Azure SQL al BLOB di Azure
+In questo esempio, una query SQL viene utilizzata per estrarre dati da Azure SQL invece di specificare semplicemente il nome della tabella e i nomi delle colonne nella sezione "struttura". 
 
     {
         "name": "CopyActivity",
@@ -146,10 +146,14 @@ In questo esempio, una query SQL viene utilizzata per estrarre dati da Azure SQL
             }
     }
 
-In questo caso, i risultati della query vengono prima mappati alle colonne specificate in "struttura" di origine. Successivamente, le colonne di origine "struttura" vengono mappate alle colonne nel sink "struttura" con le regole specificate nel columnMappings. Si supponga che la query restituisca 5 colonne, altre due colonne, poi quelle specificati nella "struttura" di origine.
+In questo caso, i risultati della query vengono prima mappati alle colonne specificate in "struttura" di origine. Successivamente, le colonne di origine "struttura" vengono mappate alle colonne nel sink "struttura" con le regole specificate nel columnMappings.  Si supponga che la query restituisca 5 colonne, altre due colonne, poi quelle specificati nella "struttura" di origine.
 
 **Flusso del mapping di colonne**
 
 ![Flusso del mapping di colonne-2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

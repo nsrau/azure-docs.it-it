@@ -1,7 +1,7 @@
-## Inviare messaggi all'hub eventi
+## <a name="send-messages-to-event-hubs"></a>Inviare messaggi all'hub eventi
 In questa sezione si scriverà un'app C per inviare eventi all'hub eventi. Si userà la libreria Proton AMQP dal [progetto Apache Qpid](http://qpid.apache.org/). Il procedimento è simile a quello adottato per l'uso da C di code e argomenti del bus di servizio con AMQP, come illustrato [qui](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Per altre informazioni, vedere la [documentazione di Qpid Proton](http://qpid.apache.org/proton/index.html).
 
-1. Dalla [pagina di Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) fare clic sul collegamento per l'**installazione di Qpid Proton** e seguire le istruzioni a seconda del proprio ambiente. Si presuppone un ambiente Linux, ad esempio una [macchina virtuale Linux di Azure](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md) con Ubuntu 14.04.
+1. Dalla [pagina di Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html)fare clic sul collegamento per l' **installazione di Qpid Proton** e seguire le istruzioni a seconda del proprio ambiente. Si presuppone un ambiente Linux, ad esempio una [macchina virtuale Linux di Azure](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) con Ubuntu 14.04.
 2. Per compilare la libreria Proton, installare i seguenti pacchetti:
    
     ```
@@ -10,7 +10,7 @@ In questa sezione si scriverà un'app C per inviare eventi all'hub eventi. Si us
 3. Scaricare la [libreria Qpid Proton](http://qpid.apache.org/proton/index.html) e quindi estrarla, ad esempio:
    
     ```
-    wget http://apache.fastbull.org/qpid/proton/0.7/qpid-proton-0.7.tar.gz
+    wget http://archive.apache.org/dist/qpid/proton/0.7/qpid-proton-0.7.tar.gz
     tar xvfz qpid-proton-0.7.tar.gz
     ```
 4. Creare una directory di compilazione, compilare e installare:
@@ -24,7 +24,7 @@ In questa sezione si scriverà un'app C per inviare eventi all'hub eventi. Si us
     ```
 5. Nella directory di lavoro creare un nuovo file denominato **sender.c** con il contenuto seguente. Ricordare di sostituire il valore per il nome del proprio hub eventi e quello per il nome dello spazio dei nomi (quest'ultimo è in genere `{event hub name}-ns`). È anche necessario sostituire una versione codificata con URL della chiave per l'elemento **SendRule** creato in precedenza. È possibile creare la versione codificata con URL [qui](http://www.w3schools.com/tags/ref_urlencode.asp).
    
-    ```
+    ```c
     #include "proton/message.h"
     #include "proton/messenger.h"
    
@@ -114,4 +114,8 @@ In questa sezione si scriverà un'app C per inviare eventi all'hub eventi. Si us
 > 
 > 
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

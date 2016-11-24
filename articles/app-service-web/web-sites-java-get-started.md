@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: acacfbead6cf0d68ccfeb5e818a2b04f2be9b902
+ms.sourcegitcommit: 0b7c4c95328eb3ca573694b8eca0b0abda646fc5
+ms.openlocfilehash: a8fcbf069d1d06249b27687c3dd9f993dc40d40d
 
 
 ---
@@ -64,7 +64,7 @@ Questa sezione illustra come creare un'app Web e configurarla per l'uso del pann
     Il nome deve essere univoco nel dominio azurewebsites.net perché l'URL dell'app Web sarà {nome}.azurewebsites.net. Se il nome immesso non è univoco, nella casella di testo verrà visualizzato un punto esclamativo rosso.
 4. Selezionare un **Gruppo di risorse** o crearne uno nuovo.
    
-    Per altre informazioni sui gruppi di risorse, vedere [Uso del portale di Azure per gestire le risorse di Azure].
+    Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Resource Manager].
 5. Selezionare un **Piano di servizio app/Posizione** o crearne uno nuovo.
    
     Per altre informazioni sui piani di servizio app, vedere [Panoramica dei piani di servizio app di Azure].
@@ -111,7 +111,7 @@ Questa sezione illustra come usare Azure Marketplace per creare un'app Web Java.
     Il nome deve essere univoco nel dominio azurewebsites.net perché l'URL dell'app Web sarà {nome}.azurewebsites.net. Se il nome immesso non è univoco, nella casella di testo verrà visualizzato un punto esclamativo rosso.
 8. Selezionare un **Gruppo di risorse** o crearne uno nuovo.
    
-    Per altre informazioni sui gruppi di risorse, vedere [Uso del portale di Azure per gestire le risorse di Azure].
+    Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Resource Manager].
 9. Selezionare un **Piano di servizio app/Posizione** o crearne uno nuovo.
    
     Per altre informazioni sui piani di servizio app, vedere [Panoramica dei piani di servizio app di Azure].
@@ -145,12 +145,12 @@ Per altre informazioni sullo sviluppo di applicazioni Java in Azure, visitare la
 [Aggiungere un'applicazione o una pagina Web a un'app Web Java]: ./web-sites-java-add-app.md
 [Panoramica dei piani di servizio app di Azure]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [portale di Azure]: https://portal.azure.com/
-[attivare i vantaggi della sottoscrizione di Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
+[attivare i benefici della sottoscrizione Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [iscriversi per ottenere una versione di valutazione gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Prova il servizio app]: http://go.microsoft.com/fwlink/?LinkId=523751
-[App Web nel Servizio app di Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
+[App Web Java nel Servizio app di Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Java Developer Center]: /develop/java/
-[Uso del portale di Azure per gestire le risorse di Azure]: ../azure-portal/resource-group-portal.md
+[Panoramica di Resource Manager]: ../azure-resource-manager/resource-group-overview.md
 [Caricare un'app Web Java personalizzata in Azure]: ./web-sites-java-custom-upload.md
 
 <!-- IMG List -->
@@ -169,6 +169,6 @@ Per altre informazioni sullo sviluppo di applicazioni Java in Azure, visitare la
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

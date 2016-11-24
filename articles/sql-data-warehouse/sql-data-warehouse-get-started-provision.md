@@ -16,18 +16,18 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2cf6e81d6a74c4a5beff91a3df90780a83bf1327
+ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
+ms.openlocfilehash: 6a652890260c21deb64826fb73920ba5d17f61da
 
 
 ---
 # <a name="create-an-azure-sql-data-warehouse"></a>Creare un Azure SQL Data Warehouse
 > [!div class="op_single_selector"]
-> * [Portale di Azure](sql-data-warehouse-get-started-provision.md)
+> * [portale di Azure](sql-data-warehouse-get-started-provision.md)
 > * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 > * [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-> 
-> 
+>
+>
 
 In questa esercitazione si usa il portale di Azure per creare un'istanza di SQL Data Warehouse contenente un database di esempio AdventureWorksDW.
 
@@ -39,33 +39,33 @@ Per iniziare, è necessario:
 
 > [!NOTE]
 > La creazione di un'istanza di SQL Data Warehouse può avere come risultato un nuovo servizio fatturabile.  Per informazioni dettagliate sui prezzi, vedere [Prezzi di SQL Data Warehouse][Prezzi di SQL Data Warehouse].
-> 
-> 
+>
+>
 
 ## <a name="create-a-sql-data-warehouse"></a>Creare un SQL Data Warehouse
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Fare clic su **+ Nuovo** > **Dati e archiviazione** > ** SQL Data Warehouse**.
-   
+
     ![Create](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 3. Nel pannello **SQL Data Warehouse** specificare le informazioni necessarie, quindi fare clic su 'Crea'.
-   
+
     ![Creazione del database](./media/sql-data-warehouse-get-started-provision/create-database.png)
-   
+
    * **Server**: è consigliabile selezionare prima di tutto il server.  
    * **Nome database**: nome che verrà usato per fare riferimento a SQL Data Warehouse.  Il nome deve essere univoco per il server.
-   * **Prestazioni**: è consigliabile iniziare con 400 [DWU][DWU]. È possibile spostare il dispositivo di scorrimento a sinistra o a destra per regolare le prestazioni del data warehouse oppure aumentare o ridurre le prestazioni dopo la creazione.  Per altre informazioni sulle DWU, vedere la documentazione sul [ridimensionamento](sql-data-warehouse-manage-compute-overview.md) o la [pagina dei prezzi][Prezzi di SQL Data Warehouse]. 
+   * **Prestazioni**: è consigliabile iniziare con 400 [DWU][DWU]. È possibile spostare il dispositivo di scorrimento a sinistra o a destra per regolare le prestazioni del data warehouse oppure aumentare o ridurre le prestazioni dopo la creazione.  Per altre informazioni sulle DWU, vedere la documentazione sul [ridimensionamento](sql-data-warehouse-manage-compute-overview.md) o la [pagina dei prezzi][Prezzi di SQL Data Warehouse].
    * **Sottoscrizione**: selezionare la [sottoscrizione] per la fatturazione di questa istanza di SQL Data Warehouse.
    * **Gruppo di risorse**: i [Gruppo di risorses][Gruppo di risorse] sono contenitori progettati per semplificare la gestione di una raccolta di risorse di Azure. Altre informazioni sui [gruppi di risorse](../azure-resource-manager/resource-group-overview.md).
    * **Selezionare l'origine**: fare clic su **Selezionare l'origine** > **Esempio**. Azure inserisce automaticamente AdventureWorksDW per l'opzione **Selezionare l'esempio selezionare** .
 
 > [!NOTE]
 > Le regole di confronto predefinite per un'istanza di SQL Data Warehouse sono SQL_Latin1_General_CP1_CI_AS. Se sono necessarie regole di confronto diverse, è possibile usare [T-SQL][T-SQL] per creare il database con regole di confronto diverse.
-> 
-> 
+>
+>
 
 1. Fare clic su **Crea** per creare l'istanza di SQL Data Warehouse.
-2. Attendere alcuni minuti. Quando il data warehouse è pronto, verrà visualizzato di nuovo il [portale di Azure](https://portal.azure.com). SQL Data Warehouse è disponibile nel dashboard, elencato tra i database SQL o nel gruppo di risorse usato per crearlo. 
-   
+2. Attendere alcuni minuti. Quando il data warehouse è pronto, verrà visualizzato di nuovo il [portale di Azure](https://portal.azure.com). SQL Data Warehouse è disponibile nel dashboard, elencato tra i database SQL o nel gruppo di risorse usato per crearlo.
+
     ![Visualizzazione del portale](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 
 [!INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)]
@@ -82,8 +82,8 @@ Le regole firewall possono anche essere configurate con Transact-SQL. Per altre 
 È anche opportuno vedere le [procedure consigliate][procedure consigliate].
 
 <!--Article references-->
-[Creare un server logico del database SQL di Azure]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
-[Configurazione del database: creare un gruppo di risorse, il server e la regola firewall]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[Creare un server logico del database SQL di Azure]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
+[Creare un server logico del database SQL di Azure con Powershell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
 [resource groups]: ../resource-group-template-deploy-portal.md
 [procedure consigliate]: sql-data-warehouse-best-practices.md
 [DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
@@ -98,8 +98,7 @@ Le regole firewall possono anche essere configurate con Transact-SQL. Per altre 
 <!--Other Web references-->
 [Prezzi di SQL Data Warehouse]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [versione di valutazione gratuita]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
-[Credito Azure mensile per sottoscrittori di Visual Studio]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-
+[Crediti Azure MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
 
 

@@ -15,8 +15,8 @@ ms.workload: big-compute
 ms.date: 07/27/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6a91c56d774ea81e175fa170e09b39548c6ae4d2
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 87f8b1651ea429663c621a64d7f668a175fa675f
 
 
 ---
@@ -87,10 +87,10 @@ In questa sezione sono illustrati i servizi di calcolo, gestione dati, rete e se
 > 
 
 ### <a name="compute-services"></a>Servizi di calcolo
-I servizi di calcolo di Azure sono alla base di una soluzione Big Compute e i diversi servizi offrono vantaggi per scenari diversi. A livello di base, questi servizi offrono modalità diverse alle applicazioni per l'esecuzione in istanze di calcolo basate su macchine virtuali fornite da Azure tramite la tecnologia Hyper-V di Windows Server. Queste istanze possono eseguire strumenti e sistemi operativi Linux e Windows standard e personalizzati. Azure offre un'ampia gamma di [dimensioni delle istanze](../virtual-machines/virtual-machines-windows-sizes.md) con diverse configurazioni di core CPU, memoria, capacità del disco e altre caratteristiche. In base alle proprie esigenze, è possibile ridimensionare le istanze a migliaia di core e quindi passare a un piano inferiore quando sono necessarie meno risorse.
+I servizi di calcolo di Azure sono alla base di una soluzione Big Compute e i diversi servizi offrono vantaggi per scenari diversi. A livello di base, questi servizi offrono modalità diverse alle applicazioni per l'esecuzione in istanze di calcolo basate su macchine virtuali fornite da Azure tramite la tecnologia Hyper-V di Windows Server. Queste istanze possono eseguire strumenti e sistemi operativi Linux e Windows standard e personalizzati. Azure offre un'ampia gamma di [dimensioni delle istanze](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) con diverse configurazioni di core CPU, memoria, capacità del disco e altre caratteristiche. In base alle proprie esigenze, è possibile ridimensionare le istanze a migliaia di core e quindi passare a un piano inferiore quando sono necessarie meno risorse.
 
 > [!NOTE]
-> È possibile sfruttare le istanze a elevato utilizzo di calcolo per migliorare le prestazioni e la scalabilità dei carichi di lavoro HPC, tra cui applicazioni MPI parallele che richiedono una rete di applicazioni a bassa latenza e velocità effettiva elevata. Vedere [Informazioni sulle VM serie H e serie A a elevato utilizzo di calcolo](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).  
+> È possibile sfruttare le istanze a elevato utilizzo di calcolo per migliorare le prestazioni e la scalabilità dei carichi di lavoro HPC, tra cui applicazioni MPI parallele che richiedono una rete di applicazioni a bassa latenza e velocità effettiva elevata. Vedere [Informazioni sulle VM serie H e serie A a elevato utilizzo di calcolo](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 > 
 > 
 

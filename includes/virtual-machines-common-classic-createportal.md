@@ -1,6 +1,6 @@
 
 
-Una macchina virtuale *personalizzata* indica semplicemente una macchina virtuale creata usando l’opzione **Da raccolta**, che offre più possibilità di configurazione rispetto a **Creazione rapida**. Tali opzioni includono:
+Una macchina virtuale *personalizzata* indica semplicemente una macchina virtuale creata usando l'opzione **Da raccolta**, che offre più possibilità di configurazione rispetto a **Creazione rapida**. Tali opzioni includono:
 
 * Collegare una macchina virtuale a Rete virtuale.
 * Installare l'agente di macchina virtuale di Azure e le estensioni di macchina virtuale di Azure, ad esempio per antimalware.
@@ -13,5 +13,9 @@ Una macchina virtuale *personalizzata* indica semplicemente una macchina virtual
 > 
 > 
 
-## Per creare la macchina virtuale
-<!---HONumber=AcomDC_0330_2016-->
+## <a name="to-create-the-virtual-machine"></a>Per creare la macchina virtuale
+
+
+<!--HONumber=Nov16_HO3-->
+
+

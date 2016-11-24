@@ -5,3 +5,8 @@ La tabella seguente elenca le possibili combinazioni di caricamento e acquisizio
 | Windows gen. |N<sup>1</sup> |S |N<sup>3</sup> |S |
 | Windows spec. |S |N<sup>2</sup> |S |N<sup>4</sup> |
 
+
+
+<!--HONumber=Nov16_HO3-->
+
+

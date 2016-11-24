@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/04/2016
 ms.author: piyushjo;matt-gibbs
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 58d8043e09cb04ef2cdf4f5c005d549a6cb6f73c
+ms.sourcegitcommit: a3e619d6e130212064093150d22d971a562a6601
+ms.openlocfilehash: 758680cf8ff8a9e2f0a6c241613a2ba254462f4a
 
 
 ---
@@ -30,10 +30,10 @@ Azure Mobile Engagement è una piattaforma di engagement degli utenti SaaS che f
 
 Con Azure Mobile Engagement, gli autori dell'applicazione e i professionisti del marketing possono comprendere e interagire meglio con gli utenti dell'app.
 
-## <a name="realtime-actionable-analytics-to-maximize-return-on-investment"></a>Analisi in tempo reale per massimizzare il ritorno sugli investimenti
+## <a name="real-time-actionable-analytics-to-maximize-return-on-investment"></a>Analisi in tempo reale per massimizzare il ritorno sugli investimenti
 È possibile creare scenari di engagement in base ai comportamenti degli utenti e ai dati demografici, combinando la raccolta `big data` con l'elaborazione dei messaggi in tempo reale. Mobile Engagement è in grado di soddisfare praticamente ogni esigenza aziendale. Ad esempio, consente di creare dashboard personalizzati per misurare gli indicatori di prestazioni chiave (KPI), individuare e correggere rapidamente i colli di bottiglia relativi all'utilizzo nel percorso a imbuto degli utenti, tenere traccia di fidelizzazione e adesione e determinare di conseguenza le campagne che favoriscono il ritorno sugli investimenti maggiore. La visione a 360 gradi dei percorsi degli utenti di Mobile Engagement consente di potenziare e ottimizzare facilmente e continuamente l'esperienza utente, realizzando tassi di fidelizzazione maggiori e un incremento dell'utilizzo dell'app.
 
-## <a name="valueadded-push-and-communications-platform"></a>Piattaforma di comunicazione e notifiche push a valore aggiunto
+## <a name="value-added-push-and-communications-platform"></a>Piattaforma di comunicazione e notifiche push a valore aggiunto
 Mobile Engagement offre funzionalità di messaggistica in-app e funziona perfettamente con gateway di notifiche push nativi, ad esempio Google GCM, Apple APNS e Microsoft MPNS. Offre inoltre la possibilità di creare campagne mirate analizzando i comportamenti degli utenti per identificare segmenti di clientela univoci.
 
 Gli sviluppatori di app possono così raggiungere i propri clienti in modo assolutamente efficace e non invadente.
@@ -47,7 +47,7 @@ Microsoft è da tempo impegnata nella tutela della privacy, che costituisce part
 ### <a name="next-steps"></a>Passaggi successivi:
 [Procedure consigliate e processo di creazione del Mobile Engagement](mobile-engagement-getting-started-best-practices.md)
 
-[Per iniziare](/documentation/services/mobile-engagement/)
+[Per iniziare](/index.md)
 
 [Scaricare le app demo con il codice sorgente](https://aka.ms/azmedemoapps)
 

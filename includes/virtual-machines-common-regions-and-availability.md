@@ -1,7 +1,7 @@
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Aree e disponibilità per le macchine virtuali in Azure
 È importante comprendere dove e come funzionano le macchine virtuali (VM) in Azure, così come le possibilità di ottimizzare le prestazioni, la disponibilità e la ridondanza. Azure è compatibile con svariati datacenter in tutto il mondo. Questi datacenter sono raggruppati in aree geografiche, per lasciare l'utente libero di scegliere dove creare le applicazioni. Questo articolo offre una panoramica delle funzionalità di disponibilità e ridondanza di Azure.
 
-## <a name="what-are-azure-regions?"></a>Che cosa sono le aree di Azure?
+## <a name="what-are-azure-regions"></a>Che cosa sono le aree di Azure?
 Azure consente di creare risorse, ad esempio VM, in determinate aree geografiche, come "Stati Uniti occidentali", "Europa settentrionale" o "Asia sud-orientale". Al momento esistono 30 aree di Azure nel mondo. Per conoscerle, è possibile consultare l' [elenco delle aree e le relative posizioni](https://azure.microsoft.com/regions/). Ogni area ospita più data center per assicurare la ridondanza e la disponibilità. Questo approccio garantisce flessibilità nella compilazione di applicazioni e permette di creare macchine virtuali più vicine agli utenti che rispondano a requisiti legali, di conformità o fiscali.
 
 ## <a name="special-azure-regions"></a>Aree speciali di Azure
@@ -70,16 +70,16 @@ Per informazioni sulle opzioni di disponibilità e sui prezzi dei vari tipi di a
 ## <a name="azure-images"></a>Immagini di Azure
 In Azure vengono create VM da un'immagine. In genere le immagini provengono da [Azure Marketplace](https://azure.microsoft.com/marketplace/)i partner possono inserire immagini di applicazioni o sistemi operativi completi preconfigurati.
 
-Quando si crea una VM da un'immagine ricavata da Azure Marketplace, di fatto si utilizzano modelli. I modelli di Azure Resource Manager sono file JavaScript Object Notation (JSON) dichiarativi utilizzabili per creare ambienti applicativi complessi che comprendono VM, archiviazione, rete virtuale e così via. Sono disponibili altre informazioni sull'uso dei [modelli di Azure Resource Manager](../articles/resource-group-overview.md) e su come [compilare modelli personalizzati](../articles/resource-group-authoring-templates.md).
+Quando si crea una VM da un'immagine ricavata da Azure Marketplace, di fatto si utilizzano modelli. I modelli di Azure Resource Manager sono file JavaScript Object Notation (JSON) dichiarativi utilizzabili per creare ambienti applicativi complessi che comprendono VM, archiviazione, rete virtuale e così via. Sono disponibili altre informazioni sull'uso dei [modelli di Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md) e su come [compilare modelli personalizzati](../articles/resource-group-authoring-templates.md).
 
-È anche possibile creare immagini personalizzate e caricarle usando l'[interfaccia della riga di comando di Azure](../articles/virtual-machines/virtual-machines-linux-upload-vhd.md) o [Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-upload-image.md) per creare rapidamente macchine virtuali personalizzate in base a requisiti di compilazione specifici.
+È anche possibile creare immagini personalizzate e caricarle usando l'[interfaccia della riga di comando di Azure](../articles/virtual-machines/virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per creare rapidamente macchine virtuali personalizzate in base a requisiti di compilazione specifici.
 
 ## <a name="availability-sets"></a>Set di disponibilità
 Un set di disponibilità è un raggruppamento logico di macchine virtuali che permette ad Azure di comprendere come è compilata l'applicazione per garantirne la ridondanza e la disponibilità. È consigliabile creare due o più macchine virtuali in un set di disponibilità, per garantire un'elevata disponibilità dell'applicazione e raggiungere il [99,95% di disponibilità previsto dal contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Il set di disponibilità comprende due ulteriori raggruppamenti che proteggono dagli errori hardware (domini di errore) e consentono di applicare gli aggiornamenti in modo sicuro (domini di aggiornamento).
 
 ![Rappresentazione concettuale della configurazione di domini di aggiornamento e di errore](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
 
-Sono disponibili altre informazioni su come gestire la disponibilità delle macchine virtuali [Linux](../articles/virtual-machines/virtual-machines-linux-manage-availability.md) o [Windows](../articles/virtual-machines/virtual-machines-linux-manage-availability.md).
+Sono disponibili altre informazioni su come gestire la disponibilità delle macchine virtuali [Linux](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [Windows](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### <a name="fault-domains"></a>Domini di errore
 Un dominio di errore è un raggruppamento logico di tutto l'hardware sottostante che condivide una fonte di alimentazione e uno switch di rete comuni, come a un rack in un datacenter locale. Man mano che si creano le macchine virtuali all'interno di un set di disponibilità, la piattaforma Azure le distribuisce automaticamente in questi domini di errore. Questo approccio consente di limitare l'impatto di eventuali guasti dell'hardware fisico, interruzioni di rete o interruzioni dell'alimentazione.
@@ -90,6 +90,8 @@ Un dominio di aggiornamento è un gruppo logico di hardware sottostante che può
 ## <a name="next-steps"></a>Passaggi successivi
 Ora è possibile iniziare a usare le funzionalità di ridondanza e disponibilità per compilare l'ambiente Azure. Per altre informazioni, vedere le [procedure consigliate per la disponibilità di Azure](../articles/best-practices-availability-checklist.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

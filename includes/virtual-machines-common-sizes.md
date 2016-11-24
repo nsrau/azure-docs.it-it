@@ -10,14 +10,14 @@ In Azure sono disponibili più dimensioni standard. Si tengano presenti le consi
     La serie F introduce inoltre un nuovo standard di denominazione delle dimensioni delle VM per Azure. Per questa serie e per le dimensioni delle VM rese disponibili in futuro, il valore numerico dopo la lettera indicante il nome di famiglia corrisponderà al numero di core della CPU. Funzionalità aggiuntive, ad esempio ottimizzate per l'archiviazione Premium, verranno designate da lettere dopo il numero di core della CPU. Questo formato di denominazione verrà usato per le dimensioni di VM future ma non cambierà in modo retroattivo i nomi delle dimensioni delle VM esistenti che sono state rilasciate.
 * Le macchine virtuali serie G offrono la maggiore quantità di memoria e vengono eseguite su host con processori della famiglia Intel Xeon E5 V3.
 * Le VM serie DS, DSv2, Fs e GS possono utilizzare l'archiviazione Premium, che offre alte prestazioni e bassa latenza per carichi di lavoro con uso intensivo di I/O. Usano le unità SSD (Solid State Drive) per ospitare i dischi della macchina virtuale e offrono una cache del disco SSD locale. L'archiviazione Premium è disponibile solo in determinate aree geografiche. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/storage/storage-premium-storage.md).
-* Le VM di serie A possono essere distribuite su una vasta gamma di tipi di hardware e processori. La dimensione è limitata in base all'hardware per offrire prestazioni del processore coerenti per l'istanza in esecuzione, indipendentemente dall'hardware in cui è distribuita. Per determinare l'hardware fisico in cui viene distribuita questa dimensione, eseguire una query nell'hardware virtuale dall'interno della macchina virtuale.
+*   Le VM di serie A e Av2 possono essere distribuite su una vasta gamma di tipi di hardware e processori. La dimensione è limitata in base all'hardware per offrire prestazioni del processore coerenti per l'istanza in esecuzione, indipendentemente dall'hardware in cui è distribuita. Per determinare l'hardware fisico in cui viene distribuita questa dimensione, eseguire una query nell'hardware virtuale dall'interno della macchina virtuale.
 * La sottoscrizione della dimensione A0 è eccessiva nell'hardware fisico. Solo per questa dimensione specifica, altre distribuzioni dei clienti possono compromettere le prestazioni del carico di lavoro in esecuzione. Le prestazioni relative sono indicate di seguito come linea di base prevista, con variabilità approssimativa del 15%.
 
 La dimensione della macchina virtuale influisce sul prezzo. Influisce, inoltre, sull’elaborazione, sulla memoria e sulla capacità di archiviazione della macchina virtuale. I costi di archiviazione vengono calcolati separatamente in base alle pagine usate nell'account di archiviazione. Per altre informazioni, vedere [Dettagli prezzi per le macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/) e [Dettagli prezzi di archiviazione](https://azure.microsoft.com/pricing/details/storage/). 
 
 Le considerazioni seguenti potrebbero essere utili all’utente per scegliere una dimensione:
 
-* Le dimensioni delle serie A8-A11 e H sono note anche come *istanze a elevato uso di calcolo*. L'hardware che esegue queste dimensioni è progettato e ottimizzato per applicazioni a elevato utilizzo di calcolo e di rete, come applicazioni cluster HPC, modellazione e simulazioni. La serie A8-A11 usa Intel Xeon E5-2670 @ 2,6 GHZ, mentre la serie H usa Intel Xeon E5-2667 v3 @ 3,2 GHz. Per informazioni e considerazioni dettagliate sull'uso di queste dimensioni, vedere [Informazioni sulle VM serie H e serie A a elevato uso di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md). 
+* Le dimensioni delle serie A8-A11 e H sono note anche come *istanze a elevato uso di calcolo*. L'hardware che esegue queste dimensioni è progettato e ottimizzato per applicazioni a elevato utilizzo di calcolo e di rete, come applicazioni cluster HPC, modellazione e simulazioni. La serie A8-A11 usa Intel Xeon E5-2670 @ 2,6 GHZ, mentre la serie H usa Intel Xeon E5-2667 v3 @ 3,2 GHz. Per informazioni e considerazioni dettagliate sull'uso di queste dimensioni, vedere [Informazioni sulle VM serie H e serie A a elevato uso di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 * Le serie Dv2, D, G e DS/GS sono ideali per le applicazioni che richiedono CPU più veloci, prestazioni migliori del disco locale o requisiti di memoria superiori.  Offrono una potente combinazione per molte applicazioni di livello aziendale.
 * Le VM serie F sono un'ottima scelta per i carichi di lavoro che richiedono CPU più veloci ma che non necessitano della stessa memoria o unità SSD locale per core di CPU.  Carichi di lavoro come server Web, analisi, giochi ed elaborazione batch trarranno vantaggio dal valore della serie F.
 * Alcuni degli host fisici nei data center di Azure potrebbero non supportare macchine virtuali di dimensioni superiori, ad esempio da A5 ad A11. Di conseguenza, potrebbe essere visualizzato il messaggio di errore **Impossibile configurare la macchina virtuale <machine name>** o **Impossibile creare la macchina virtuale <machine name>** quando si configura una macchina virtuale esistente in base a una nuova dimensione, si crea una nuova macchina virtuale in una rete virtuale creata prima del 16 aprile 2013 o si aggiunge una nuova macchina a un servizio cloud esistente. Vedere [Errore: "Impossibile configurare la macchina virtuale"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) nel forum di supporto per le soluzioni alternative per ogni scenario di distribuzione.  
@@ -38,6 +38,8 @@ Le considerazioni seguenti potrebbero essere utili all’utente per scegliere un
 | [Standard_A0](#a-series) |50 |
 | [Standard_A1-4](#a-series) |100 |
 | [Standard_A5-7](#a-series) |100 |
+| [Standard_A1-8v2](#av2-series) |100 |
+| [Standard_A2m-8mv2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
 | [D1-14](#d-series) |160 |
 | [D1-15v2](#dv2-series) |210 - 250* |
@@ -64,7 +66,7 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A0 |1 |0,768 |20 |1 |1x500 |1/bassa |
 | Standard_A1 |1 |1,75 |70 |2 |2x500 |1/moderata |
-| Standard_A2 |2 |3,5 GB |135 |4 |4x500 |1/moderata |
+| Standard_A2 |2 |3,5 |135 |4 |4x500 |1/moderata |
 | Standard_A3 |4 |7 |285 |8 |8x500 |2/alta |
 | Standard_A4 |8 |14 |605 |16 |16x500 |4/alta |
 | Standard_A5 |2 |14 |135 |4 |4x500 |1/moderata |
@@ -74,7 +76,7 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 <br>
 
 ## <a name="a-series---compute-intensive-instances"></a>Serie A - Istanze a elevato utilizzo di calcolo
-Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informazioni sulle VM serie H e serie A a elevato uso di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
+Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informazioni sulle VM serie H e serie A a elevato uso di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 | Dimensione | Core CPU | Memoria: GiB | Unità HDD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva del disco di dati max: IOPS | Larghezza di banda della rete/scheda NIC max |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -86,6 +88,19 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informa
 *Con supporto di RDMA
 
 <br>
+
+## <a name="av2-series"></a>Serie Av2
+
+| Dimensione        | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva del disco di dati max: IOPS | Larghezza di banda della rete/scheda NIC max |
+|-------------|-----------|--------------|-----------------------|----------------|--------------------|-----------------------|
+| Standard_A1_v2 | 1         | 2            | 10                   | 2              | 2x500              | 1/moderata              |
+| Standard_A2_v2 | 2         | 4            | 20                   | 4              | 4x500              | 2/moderata              |
+| Standard_A4_v2 | 4         | 8            | 40                   | 8              | 8x500              | 4/alta                  |
+| Standard_A8_v2 | 8         | 16           | 80                   | 16             | 16x500             | 8/alta                  |
+| Standard_A2m_v2 | 2        | 16           | 20                   | 4              | 4x500              | 2/moderata              |
+| Standard_A4m_v2 | 4        | 32           | 40                   | 8              | 8x500              | 4/alta                  |
+| Standard_A8m_v2 | 8        | 64           | 80                   | 16             | 16x500             | 8/alta                  |
+
 
 ## <a name="d-series"></a>Serie D
 | Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva del disco di dati max: IOPS | Larghezza di banda della rete/scheda NIC max |
@@ -113,11 +128,13 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informa
 | Standard_D12_v2 |4 |28 |200 |8 |8x500 |4/alta |
 | Standard_D13_v2 |8 |56 |400 |16 |16x500 |8/alta |
 | Standard_D14_v2 |16 |112 |800 |32 |32x500 |8/estremamente alta |
-| Standard_D15_v2 |20 |140 |1.000 |40 |40x500 |8/estremamente alta |
+| Standard_D15_v2 |20 |140 |1.000 |40 |40x500 |8/estremamente alta* |
+
+* In alcune aree, per le dimensioni Standard_D15_v2 è disponibile la rete accelerata. Per altre informazioni sull'uso e la disponibilità, vedere [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (Rete accelerata disponibile in anteprima) e [Rete accelerata per macchine virtuali](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
 
 <br>
 
-## <a name="ds-series*"></a>Serie DS*
+## <a name="ds-series"></a>Serie DS*
 | Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Max velocità effettiva del disco nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1 |1 |3,5 |7 |2 |4.000/32 (43) |3.200/32 |1/moderata |
@@ -135,7 +152,7 @@ MBps = 10^6 byte al secondo e GiB = 1024^3 byte.
 
 <br>
 
-## <a name="dsv2-series*"></a>Serie DSv2*
+## <a name="dsv2-series"></a>Serie DSv2*
 | Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Max velocità effettiva del disco nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1_v2 |1 |3,5 |7 |2 |4.000/32 (43) |3.200/48 |1/moderata |
@@ -147,11 +164,13 @@ MBps = 10^6 byte al secondo e GiB = 1024^3 byte.
 | Standard_DS12_v2 |4 |28 |56 |8 |16.000/128 (144) |12.800/192 |4/alta |
 | Standard_DS13_v2 |8 |56 |112 |16 |32.000/256 (288) |25.600/384 |8/alta |
 | Standard_DS14_v2 |16 |112 |224 |32 |64.000/512 (576) |51.200/768 |8/estremamente alta |
-| Standard_DS15_v2 |20 |140 GB |280 |40 |80.000/640 (720) |64.000/960 |8/estremamente alta |
+| Standard_DS15_v2 |20 |140 |280 |40 |80.000/640 (720) |64.000/960 |8 estremamente alta* |
 
 MBps = 10^6 byte al secondo e GiB = 1024^3 byte.
 
 *La massima velocità effettiva del disco (IOPS o MBps) possibile con una VM serie DS v2 può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati.  Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/storage/storage-premium-storage.md).
+
+* In alcune aree, per le dimensioni Standard_DS15_v2 è disponibile la rete accelerata. Per altre informazioni sull'uso e la disponibilità, vedere [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (Rete accelerata disponibile in anteprima) e [Rete accelerata per macchine virtuali](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
 
 <br>
 
@@ -166,7 +185,7 @@ MBps = 10^6 byte al secondo e GiB = 1024^3 byte.
 
 <br>
 
-## <a name="fs-series*"></a>Serie Fs*
+## <a name="fs-series"></a>Serie Fs*
 | Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Max velocità effettiva del disco nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1s |1 |2 |4 |2 |4.000/32 (12) |3.200/48 |1/moderata |
@@ -192,14 +211,14 @@ MBps = 10^6 byte al secondo e GiB = 1024^3 byte.
 
 <br>
 
-## <a name="gs-series*"></a>Serie GS*
+## <a name="gs-series"></a>Serie GS*
 | Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Max velocità effettiva del disco nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_GS1 |2 |28 |56 |4 |10.000/100 (264) |5.000/125 |1/alta |
-| Standard_GS2 |4 |56 |528 |8 |20.000/200 (528) |10.000/250 |2/alta |
-| Standard_GS3 |8 |112 |1.056 |16 |40.000/400 (1.056) |20.000/500 |4/molto alta |
-| Standard_GS4 |16 |224 |2.112 |32 |80.000/800 (2,112) |40.000/1.000 |8/estremamente alta |
-| Standard_GS5 |32 |448 |4.224 |64 |160.000/1.600 (4.224) |80.000/2.000 |8/estremamente alta |
+| Standard_GS2 |4 |56 |112 |8 |20.000/200 (528) |10.000/250 |2/alta |
+| Standard_GS3 |8 |112 |224 |16 |40.000/400 (1.056) |20.000/500 |4/molto alta |
+| Standard_GS4 |16 |224 |448 |32 |80.000/800 (2,112) |40.000/1.000 |8/estremamente alta |
+| Standard_GS5 |32 |448 |896 |64 |160.000/1.600 (4.224) |80.000/2.000 |8/estremamente alta |
 
 MBps = 10^6 byte al secondo e GiB = 1024^3 byte.
 
@@ -214,18 +233,18 @@ Oltre alla sostanziale potenza della CPU, la serie H offre diverse opzioni per r
 
 | Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva del disco max: IOPS | Larghezza di banda della rete/scheda NIC max |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_H8 |8 |56 |1000 |16 |16x500 |8/alta |
-| Standard_H16 |16 |112 |2000 |32 |32x500 |8/molto alta |
-| Standard_H8m |8 |112 |1000 |16 |16x500 |8/alta |
-| Standard_H16m |16 |224 |2000 |32 |32x500 |8/molto alta |
-| Standard_H16r* |16 |112 |2000 |32 |32x500 |8/molto alta |
-| Standard_H16mr* |16 |224 |2000 |32 |32x500 |8/molto alta |
+| Standard_H8 |8 |56 |1000 |16 |16x500 |2/alta |
+| Standard_H16 |16 |112 |2000 |32 |32x500 |4/molto alta |
+| Standard_H8m |8 |112 |1000 |16 |16x500 |2/alta |
+| Standard_H16m |16 |224 |2000 |32 |32x500 |4/molto alta |
+| Standard_H16r* |16 |112 |2000 |32 |32x500 |4/molto alta |
+| Standard_H16mr* |16 |224 |2000 |32 |32x500 |4/molto alta |
 
 *Con supporto di RDMA
 
 <br>
 
-## <a name="n-series-(preview)"></a>Serie N (anteprima)
+## <a name="n-series-preview"></a>Serie N (anteprima)
 Le dimensioni NC e NV sono dette anche istanze abilitate tramite GPU. Si tratta di macchine virtuali specializzate dotate di schede GPU NVIDIA e ottimizzate per diversi scenari e casi d'uso. Le dimensioni NV sono ottimizzate e progettate per le operazioni di visualizzazione remota, streaming, giochi, codifica e scenari VDI che utilizzano framework come OpenGL e DirectX. Le dimensioni NC sono più adatte per applicazioni a elevato utilizzo di calcolo e reti, nonché algoritmi, tra cui applicazioni e simulazioni basate su CUDA e OpenCL. 
 
 ### <a name="nv-instances"></a>Istanze NV
@@ -248,7 +267,7 @@ Le istanze NC sono basate su GPU NVIDIA Tesla K80. Gli utenti possono ora elabor
 
 <br>
 
-## <a name="notes:-standard-a0---a4-using-cli-and-powershell"></a>Note: Standard A0 - A4 che utilizza l’interfaccia della riga di comando e PowerShell
+## <a name="notes-standard-a0---a4-using-cli-and-powershell"></a>Note: Standard A0 - A4 che utilizza l’interfaccia della riga di comando e PowerShell
 Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggermente diversi in PowerShell e nell’interfaccia della riga di comando:
 
 * Standard_A0 è ExtraSmall 
@@ -259,8 +278,10 @@ Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggerm
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../articles/azure-subscription-service-limits.md).
-* Per altre informazioni, vedere [Informazioni sulle VM serie H e serie A a elevato uso di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) per carichi di lavoro come High-Performance Computing (HPC).
+* Per altre informazioni, vedere [Informazioni sulle VM serie H e serie A a elevato uso di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per carichi di lavoro come High-Performance Computing (HPC).
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

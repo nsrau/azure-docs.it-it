@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
+ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
+ms.openlocfilehash: d437ad6300970bd1f015413b8ad70620e2e7fd04
 
 
 ---
@@ -43,19 +43,19 @@ Il passaggio successivo consiste nel creare un progetto di Visual Studio e scriv
 1. Aprire Visual Studio come amministratore facendo clic con il pulsante destro del mouse sul programma nel menu Start, quindi scegliere **Esegui come amministratore**.
 2. Creare un nuovo progetto di applicazione console. Fare clic sul menu **File**, selezionare **Nuovo** e fare clic su **Progetto**. Nella finestra di dialogo **Nuovo progetto** fare clic su **Visual C#**. Se **Visual C#** non è visibile, cercare in **Altri linguaggi**, fare clic sul modello **Applicazione console** e denominarlo **QueueSample**. Usare il valore predefinito del campo **Posizione**. Fare clic su **OK** per creare il progetto.
 3. Utilizzare Gestione pacchetti NuGet per aggiungere le librerie del bus di servizio al progetto:
-   
+
    1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **QueueSample** e quindi scegliere **Gestisci pacchetti NuGet**.
    2. Nella finestra di dialogo **Gestisci pacchetti Nuget** fare clic sulla scheda **Sfoglia** e cercare **Bus di servizio di Azure**, quindi fare clic su **Installa**.
       <br />
 4. In Esplora soluzioni fare doppio clic sul file Program.cs per aprirlo nell'editor di Visual Studio. Modificare il nome dello spazio dei nomi da nome predefinito di `QueueSample` a `Microsoft.ServiceBus.Samples`.
-   
+
     ```
     Microsoft.ServiceBus.Samples
     {
         ...
     ```
 5. Modificare le istruzioni `using` come illustrato nel seguente codice.
-   
+
     ```
     using System;
     using System.Collections.Generic;
@@ -66,7 +66,7 @@ Il passaggio successivo consiste nel creare un progetto di Visual Studio e scriv
     using Microsoft.ServiceBus.Messaging;
     ```
 6. Creare un file di testo denominato Data.csv e copiarvi il seguente testo delimitato da virgole.
-   
+
     ```
     IssueID,IssueTitle,CustomerID,CategoryID,SupportPackage,Priority,Severity,Resolved
     1,Package lost,1,1,Basic,5,1,FALSE
@@ -85,25 +85,25 @@ Il passaggio successivo consiste nel creare un progetto di Visual Studio e scriv
     14,Package damaged,6,7,Premium,5,5,FALSE
     15,Product defective,6,2,Premium,5,5,FALSE
     ```
-   
+
     Salvare e chiudere il file Data.csv e prendere nota del percorso in cui è stato salvato.
 7. In Esplora soluzioni, fare clic con il pulsante destro del mouse sul nome del progetto (in questo esempio **QueueSample**), scegliere **Aggiungi**, quindi fare clic su **Elemento esistente**.
 8. Cercare il file Data.csv creato al passaggio 6. Fare clic sul file, quindi fare clic su **Aggiungi**. Assicurarsi che sia selezionata l'opzione **Tutti i file (*.*)** nell'elenco dei tipi di file.
 
 ### <a name="create-a-method-that-parses-a-list-of-messages"></a>Creare un metodo che analizza un elenco di messaggi
 1. Nella classe `Program` dichiarare due variabili prima del metodo `Main()`: una di tipo **DataTable** per contenere l'elenco dei messaggi nel file Data.csv. L'altra deve essere di tipo List object, fortemente tipizzato in [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Quest'ultimo è l'elenco dei messaggi negoziati utilizzati dai passaggi successivi dell'esercitazione.
-   
+
     ```
     namespace Microsoft.ServiceBus.Samples
     {
         class Program
         {
-   
+
             private static DataTable issues;
             private static List<BrokeredMessage> MessageList;
     ```
 2. Al di fuori di `Main()`, definire un metodo `ParseCSV()` che analizzi l'elenco dei messaggi in Data.csv e carichi i messaggi in una tabella [DataTable](https://msdn.microsoft.com/library/azure/system.data.datatable.aspx), come illustrato di seguito. Il metodo restituisce un oggetto **DataTable**.
-   
+
     ```
     static DataTable ParseCSVFile()
     {
@@ -115,14 +115,14 @@ Il passaggio successivo consiste nel creare un progetto di Visual Studio e scriv
             {
                 string line;
                 string[] row;
-   
+
                 // create the columns
                 line = readFile.ReadLine();
                 foreach (string columnTitle in line.Split(','))
                 {
                     tableIssues.Columns.Add(columnTitle);
                 }
-   
+
                 while ((line = readFile.ReadLine()) != null)
                 {
                     row = line.Split(',');
@@ -134,31 +134,31 @@ Il passaggio successivo consiste nel creare un progetto di Visual Studio e scriv
         {
             Console.WriteLine("Error:" + e.ToString());
         }
-   
+
         return tableIssues;
     }
     ```
 3. Nel metodo `Main()`, aggiungere un'istruzione che chiama il metodo `ParseCSVFile()`:
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
-   
+
     }
     ```
 
 ### <a name="create-a-method-that-loads-the-list-of-messages"></a>Creare un metodo che carica l'elenco di messaggi
-1. Al di fuori di `Main()`, definire un metodo `GenerateMessages()` che accetti l'oggetto **DataTable** restituito da `ParseCSVFile()` e carichi la tabella in un elenco fortemente tipizzato di messaggi negoziati. Il metodo restituirà quindi l'oggetto **Elenco** come nell'esempio seguente. 
-   
+1. Al di fuori di `Main()`, definire un metodo `GenerateMessages()` che accetti l'oggetto **DataTable** restituito da `ParseCSVFile()` e carichi la tabella in un elenco fortemente tipizzato di messaggi negoziati. Il metodo restituirà quindi l'oggetto **Elenco** come nell'esempio seguente.
+
     ```
     static List<BrokeredMessage> GenerateMessages(DataTable issues)
     {
         // Instantiate the brokered list object
         List<BrokeredMessage> result = new List<BrokeredMessage>();
-   
+
         // Iterate through the table and create a brokered message for each row
         foreach (DataRow item in issues.Rows)
         {
@@ -173,11 +173,11 @@ Il passaggio successivo consiste nel creare un progetto di Visual Studio e scriv
     }
     ```
 2. In `Main()`, direttamente dopo la chiamata a `ParseCSVFile()`, aggiungere un'istruzione che chiama il metodo `GenerateMessages()` con il valore restituito da `ParseCSVFile()` come argomento:
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
         MessageList = GenerateMessages(issues);
@@ -186,46 +186,46 @@ Il passaggio successivo consiste nel creare un progetto di Visual Studio e scriv
 
 ### <a name="obtain-user-credentials"></a>Acquisizione delle credenziali dell’utente
 1. Innanzitutto, creare tre variabili stringa globali per contenere tali valori. Dichiarare le variabili direttamente dopo le dichiarazioni di variabili precedenti; ad esempio:
-   
+
     ```
     namespace Microsoft.ServiceBus.Samples
     {
         public class Program
         {
-   
+
             private static DataTable issues;
-            private static List<BrokeredMessage> MessageList; 
-   
+            private static List<BrokeredMessage> MessageList;
+
             // Add these variables
             private static string ServiceNamespace;
             private static string sasKeyName = "RootManageSharedAccessKey";
             private static string sasKeyValue;
             …
     ```
-2. Successivamente, creare una funzione che accetta e memorizza lo spazio dei nomi del servizio e la chiave SAS. Aggiungere questo metodo all'esterno di `Main()`. Ad esempio: 
-   
+2. Successivamente, creare una funzione che accetta e memorizza lo spazio dei nomi del servizio e la chiave SAS. Aggiungere questo metodo all'esterno di `Main()`. Ad esempio:
+
     ```
     static void CollectUserInput()
     {
         // User service namespace
         Console.Write("Please enter the namespace to use: ");
         ServiceNamespace = Console.ReadLine();
-   
+
         // Issuer key
         Console.Write("Enter the SAS key to use: ");
         sasKeyValue = Console.ReadLine();
     }
     ```
 3. In `Main()`, direttamente dopo la chiamata a `GenerateMessages()`, aggiungere un'istruzione che chiama il metodo `CollectUserInput()`:
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
         MessageList = GenerateMessages(issues);
-   
+
         // Collect user input
         CollectUserInput();
     }
@@ -238,7 +238,7 @@ In Visual Studio è possibile scegliere **Compila soluzione** dal menu **Compila
 In questa fase, si definiscono le operazioni di gestione utilizzate per creare le credenziali di firma condivisa (SAS) con cui l'applicazione verrà autorizzata.
 
 1. Per maggiore chiarezza, l’esercitazione inserisce tutte le operazioni della coda in un metodo separato. Creare un metodo `Queue()` asincrono nella classe `Program` dopo il metodo `Main()`. Ad esempio:
-   
+
     ```
     public static void Main(string[] args)
     {
@@ -249,7 +249,7 @@ In questa fase, si definiscono le operazioni di gestione utilizzate per creare l
     }
     ```
 2. Il passaggio successivo consiste nel creare credenziali di firma di accesso condiviso usando un oggetto [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx). Il metodo di creazione accetta il nome della chiave della firma di accesso condiviso e il valore ottenuto nel metodo `CollectUserInput()`. Aggiungere il codice seguente al metodo `Queue()`:
-   
+
     ```
     static async Task Queue()
     {
@@ -258,7 +258,7 @@ In questa fase, si definiscono le operazioni di gestione utilizzate per creare l
     }
     ```
 3. Creare un nuovo oggetto di gestione dello spazio dei nomi, con un URI che contiene il nome dello spazio dei nomi e le credenziali di gestione ottenute nel passaggio precedente, come argomenti. Aggiungere questo codice direttamente dopo il codice aggiunto nel passaggio precedente. Assicurarsi di sostituire `<yourNamespace>` con il nome dello spazio dei nomi del servizio:
-   
+
     ```
     NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     ```
@@ -375,29 +375,29 @@ In questa fase, si crea una coda, per poi inviare i messaggi contenuti nell'elen
 
 ### <a name="create-queue-and-send-messages-to-the-queue"></a>Creazione di una coda e invio di messaggi alla coda
 1. Per prima cosa, creare la coda. Chiamarla ad esempio `myQueue` e dichiararla direttamente dopo le operazioni di gestione aggiunte al metodo `Queue()` nell'ultimo passaggio:
-   
+
     ```
     QueueDescription myQueue;
-   
+
     if (namespaceClient.QueueExists("IssueTrackingQueue"))
     {
         namespaceClient.DeleteQueue("IssueTrackingQueue");
     }
-   
+
     myQueue = namespaceClient.CreateQueue("IssueTrackingQueue");
     ```
 2. Nel metodo `Queue()`, creare un oggetto factory di messaggistica con un URI per il bus di servizio appena creato come argomento. Aggiungere il codice seguente direttamente dopo le operazioni di gestione aggiunte nell'ultimo passaggio. Assicurarsi di sostituire `<yourNamespace>` con il nome dello spazio dei nomi del servizio:
-   
+
     ```
     MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     ```
 3. Creare quindi l'oggetto coda usando la classe [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx). Aggiungere il codice seguente direttamente dopo il codice aggiunto nella fase precedente:
-   
+
     ```
     QueueClient myQueueClient = factory.CreateQueueClient("IssueTrackingQueue");
     ```
 4. Successivamente, aggiungere il codice che consente di scorrere l'elenco di messaggi negoziati creato in precedenza, inviando ciascun messaggio alla coda. Aggiungere il codice seguente direttamente dopo l’istruzione `CreateQueueClient()` nella fase precedente:
-   
+
     ```
     // Send messages
     Console.WriteLine("Now sending messages to the queue.");
@@ -615,14 +615,13 @@ Completati i passaggi precedenti, è possibile compilare ed eseguire l'applicazi
 In Visual Studio scegliere **Compila soluzione** dal menu **Compila** o premere **CTRL+MAIUSC+B**. Se si presentano errori, verificare che il codice sia corretto in base all'esempio completo presentato alla fine del passaggio precedente.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questa esercitazione ha illustrato come creare un'applicazione client del bus di servizio e un servizio utilizzando le funzionalità di messaggistica negoziata del bus di servizio. Per un'esercitazione simile che usa l'[inoltro WCF](service-bus-messaging-overview.md#Relayed-messaging) del bus di servizio, vedere l'[esercitazione sulla messaggistica inoltrata del bus di servizio](../service-bus-relay/service-bus-relay-tutorial.md).
+Questa esercitazione ha illustrato come creare un'applicazione client del bus di servizio e un servizio utilizzando le funzionalità di messaggistica negoziata del bus di servizio. Per un'esercitazione simile che usa l'[inoltro WCF](service-bus-messaging-overview.md#service-bus-relay) del bus di servizio, vedere l'[esercitazione sulla messaggistica inoltrata del bus di servizio](../service-bus-relay/service-bus-relay-tutorial.md).
 
 Per altre informazioni sul [bus di servizio](https://azure.microsoft.com/services/service-bus/), vedere gli argomenti seguenti.
 
 * [Panoramica della messaggistica del bus di servizio](service-bus-messaging-overview.md)
 * [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 * [Architettura del bus di servizio](service-bus-architecture.md)
-
 
 
 

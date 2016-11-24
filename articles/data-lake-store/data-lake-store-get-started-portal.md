@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 11/15/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 658671199cf3454428cc7102566093f7c2b42ae8
+ms.sourcegitcommit: 408a5fb25ef7b285a76e8f5b65890dc625574437
+ms.openlocfilehash: fba738575ee9a60cc930adfb68b7c34323bbe747
 
 
 ---
@@ -58,8 +58,8 @@ Guardare i video seguenti per iniziare a usare Archivio Data Lake.
    * **Posizione**: selezionare una posizione in cui si desidera creare l'account Archivio Data Lake
    * **Impostazioni crittografia**. È possibile scegliere se crittografare l'account Data Lake Store. Se si sceglie di crittografarlo, è anche possibile specificare come gestire la chiave di crittografia principale che si vuole usare per crittografare i dati nell'account.
      
-     * (Impostazione predefinita) Selezionare **Non abilitare la crittografia** nell'elenco a discesa per rifiutare esplicitamente la crittografia.
-     * (Facoltativo) Selezionare **Usare chiavi gestite da Azure Data Lake** per gestire le chiavi di crittografia con Azure Data Lake Store.
+     * (Facoltativo) Selezionare **Non abilitare la crittografia** dall'elenco a discesa per rifiutare esplicitamente la crittografia.
+     * (Impostazione predefinita) Selezionare **Usare chiavi gestite da Azure Data Lake** per gestire le chiavi di crittografia con Azure Data Lake Store.
        
          ![Crittografia di Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-1.png "Data Lake Store encryption")
      * (Facoltativo) Selezionare **Scegliere le chiavi dall'insieme di credenziali delle chiavi di Azure** per usare le proprie chiavi presenti nell'insieme di credenziali delle chiavi di Azure. Con questa opzione, è anche possibile creare le chiavi e un account dell'insieme di credenziali delle chiavi, se necessario.
@@ -136,6 +136,6 @@ Per eliminare un account di Archivio Data Lake di Azure, dal pannello dell’acc
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

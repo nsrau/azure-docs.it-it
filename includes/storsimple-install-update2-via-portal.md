@@ -1,11 +1,11 @@
 <!--author=alkohli last changed: 03/17/16-->
 
-#### Per installare un aggiornamento dal portale di Azure
-1. Nella pagina del servizio StorSimple, selezionare il proprio dispositivo. Andare a **Dispositivi** > **Manutenzione**.
+#### <a name="to-install-an-update-from-the-azure-portal"></a>Per installare un aggiornamento dal portale di Azure
+1. Nella pagina del servizio StorSimple, selezionare il proprio dispositivo. Passare a **Dispositivi** > **Manutenzione**.
 2. Nella parte inferiore della pagina, fare clic su **Cerca aggiornamenti**. Viene creato un processo che consente di cercare gli aggiornamenti disponibili. L'utente riceve una notifica al termine del processo.
 3. Nella sezione **Aggiornamenti software** presente nella stessa pagina, è possibile verificare la presenza dei nuovi aggiornamenti del software. Si consiglia di leggere le note sulla versione prima di installare un aggiornamento nel dispositivo.
 4. Nella parte inferiore della pagina, fare clic su **Installa aggiornamenti**, quindi su **OK**.
-5. Nella finestra di dialogo **Installa aggiornamenti**, assicurarsi di aver seguito le indicazioni, quindi selezionare **Dichiaro di avere compreso il requisito indicato sopra e di essere pronto per l'aggiornamento del dispositivo** e fare clic sul segno di spunta.
+5. Nella finestra di dialogo **Installa aggiornamenti** assicurarsi di aver seguito le indicazioni, quindi selezionare **Dichiaro di avere compreso il requisito indicato sopra e di essere pronto per l'aggiornamento del dispositivo** e fare clic sul segno di spunta.
    
     ![Messaggio di conferma](./media/storsimple-install-update2-via-portal/InstallUpdate12_2M.png)
 6. Verrà ora avviato un set di controlli dei prerequisiti. Sono state illustrate le seguenti operazioni:
@@ -28,8 +28,12 @@
     ![Creazione del processo di aggiornamento](./media/storsimple-install-update2-via-portal/InstallUpdate12_44M.png)
    
     A questo punto, è possibile installare l'aggiornamento nel dispositivo.
-8. Per controllare l'avanzamento del processo di aggiornamento, fare clic su **Visualizza processo**. Nella pagina **Processi**, è possibile visualizzare lo stato di avanzamento dell'aggiornamento.
+8. Per controllare l'avanzamento del processo di aggiornamento, fare clic su **Visualizza processo**. Nella pagina **Processi** , è possibile visualizzare lo stato di avanzamento dell'aggiornamento.
 9. Il completamento dell'aggiornamento potrebbe durare alcune ore. Selezionare il processo di aggiornamento e fare clic su **Dettagli** per visualizzare i dettagli del processo in qualsiasi momento.
-10. Una volta completato l'aggiornamento, andare alla pagina **Manutenzione** e scorrere verso il basso fino a **Aggiornamenti software**.
+10. Una volta completato l'aggiornamento, andare alla pagina **Manutenzione** e scorrere verso il basso fino ad **Aggiornamenti software**.
 
-<!---HONumber=AcomDC_0323_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

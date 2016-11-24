@@ -14,14 +14,14 @@
 | Web Socket per ogni istanza<sup>7</sup> |5 |35 |350 |Illimitato |Illimitato |
 | [Connessioni di debugger](../articles/app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md) simultanee per applicazione |1 |1 |1 |5 |5 |
 | [Sottodominio azurewebsites.net con FTP/S e SSL](../articles/app-service-web/web-sites-configure-ssl-certificate.md) |X |X |X |X |X |
-| [dominio personalizzato](../articles/app-service-web/web-sites-custom-domain-name.md) | |X |X |X |X |
+| [dominio personalizzato](../articles/app-service-web/web-sites-custom-domain-name.md)  | |X |X |X |X |
 | Supporto per il dominio personalizzato [SSL](../articles/app-service-web/web-sites-configure-ssl-certificate.md) | | |Illimitato |5 connessioni SNI SSL e 1 connessione IP SSL incluse |5 connessioni SNI SSL e 1 connessione IP SSL incluse |
 | Bilanciamento del carico integrato | |X |X |X |X |
 | [Always On](../articles/app-service-web/web-sites-configure.md) | | |X |X |X |
 | [Backup pianificati](../articles/app-service-web/web-sites-backup.md) | | | |Una volta al giorno |Una volta ogni 5 minuti<sup>8</sup> |
 | [Scalabilità automatica](../articles/app-service-web/web-sites-scale.md) | | |X |X |X |
 | [WebJobs](../articles/app-service-web/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
-| [Utilità di pianificazione di Azure](https://azure.microsoft.com/services/scheduler/) | |X |X |X |X |
+| [Utilità di pianificazione di Azure](https://azure.microsoft.com/services/scheduler/)  | |X |X |X |X |
 | [Monitoraggio endpoint](../articles/app-service-web/web-sites-monitor.md) | | |X |X |X |
 | [Slot di gestione temporanea (anteprima)](../articles/app-service-web/web-sites-staged-publishing.md) | | | |5 |20 |
 | Domini personalizzati per applicazione</a> | |500 |500 |500 |500 |
@@ -38,6 +38,8 @@
 <sup>9</sup>Eseguire gli eseguibili e/o gli script personalizzati su richiesta, in base a una pianificazione o continuamente come attività in background nell'istanza di servizi app. Always On è richiesto per l'esecuzione continua di Processi Web. L'utilità di pianificazione di Azure di livello Free o Standard è richiesta per la funzionalità Processi Web pianificata. Non esiste alcun limite predefinito al numero di processi Web che è possibile eseguire in un'istanza del servizio app, ma vi sono limiti pratici che dipendono dall'operazione che sta tentando di eseguire il codice dell'applicazione.   
 <sup>10</sup>SLA pari al 99,95% fornito per distribuzioni che utilizzano più istanze di gestione traffico di Azure configurato per il failover.  
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

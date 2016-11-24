@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8ec86ebefccaf74c67cb7917ccf7d538bc95ae07
+ms.sourcegitcommit: 1a6dd35278f0a4a4f972642c40a0976986dd79ae
+ms.openlocfilehash: 79c9f2d8c683be493160fffe40992006b039f60f
 
 
 ---
@@ -180,7 +180,7 @@ Quando si distribuisce una soluzione preconfigurata, il processo di distribuzion
 Al termine, è possibile eliminare la soluzione preconfigurata dalla sottoscrizione di Azure nel sito [azureiotsuite.com][lnk-azureiotsuite]. Questo sito consente di eliminare facilmente tutte le risorse di cui è stato effettuato il provisioning quando si è creata la soluzione preconfigurata.
 
 > [!NOTE]
-> Per assicurarsi di eliminare tutti gli elementi correlati alla soluzione preconfigurata, eliminarli nel sito [azureiotsuite.com][lnk-azureiotsuite] e non limitarsi a eliminare il gruppo di risorse nel portale.
+> Per assicurarsi di eliminare tutti gli elementi correlati alla soluzione preconfigurata, eliminarli nel sito [azureiotsuite.com][lnk-azureiotsuite] e non eliminare il gruppo di risorse nel portale.
 > 
 > 
 
@@ -229,6 +229,6 @@ Dopo aver distribuito una soluzione preconfigurata è possibile proseguire con l
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

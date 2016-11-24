@@ -1,11 +1,11 @@
-## DNS di Azure
+## <a name="azure-dns"></a>DNS di Azure
 DNS di Azure è un servizio di hosting per i domini DNS, che fornisce la risoluzione dei nomi usando l'infrastruttura di Microsoft Azure.
 
 | Proprietà | Descrizione | Valore di esempio |
 | --- | --- | --- |
 | **DNSzones** |Informazioni sulla zona del dominio per ospitare i record DNS di un particolare dominio. |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com" |
 
-### Set di record DNS
+### <a name="dns-record-sets"></a>Set di record DNS
 Le zone DNS dispongono di un oggetto figlio denominato set di record. I set di record sono una raccolta di record host in base al tipo per una zona DNS. I tipi record sono A, AAAA, CNAME, MX, NS, SOA, SRV e TXT.
 
 | Proprietà | Descrizione | Valore di esempio |
@@ -20,7 +20,7 @@ Le zone DNS dispongono di un oggetto figlio denominato set di record. I set di r
 
 <sup>1</sup> consente solo un valore per ogni set di record.
 
-<sup>2</sup> consente solo un tipo di record SOA per ogni zona DNS.
+<sup>2</sup> consente solo un tipo di record SOA per ogni zona DNS. 
 
 Esempio di zona DNS nel formato Json:
 
@@ -77,9 +77,13 @@ Esempio di zona DNS nel formato Json:
           ]
     }
 
-## Risorse aggiuntive
-Per ulteriori informazioni, leggere la [documentazione dell'API REST per le zone DNS ](https://msdn.microsoft.com/library/azure/mt130626.aspx).
+## <a name="additional-resources"></a>Risorse aggiuntive
+Per ulteriori informazioni, leggere la [documentazione dell'API REST per le zone DNS ](https://msdn.microsoft.com/library/azure/mt130626.aspx) .
 
-Leggere la [documentazione dell'API REST per i set di record DNS ](https://msdn.microsoft.com/library/azure/mt130627.aspx) per ulteriori informazioni.
+Leggere la [documentazione dell'API REST per i set di record DNS](https://msdn.microsoft.com/library/azure/mt130627.aspx) per ulteriori informazioni.
 
-<!---HONumber=AcomDC_0128_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,6 +1,6 @@
 ---
-title: Eseguire query in Azure SQL Data Warehouse (sqlcmd) | Microsoft Docs
-description: "Eseguire query in Azure SQL Data Warehouse con l&quot;utilità della riga di comando sqlcmd."
+title: Connettersi ad Azure SQL Data Warehouse con sqlcmd | Documentazione Microsoft
+description: "Usare l&quot;utilità della riga di comando [sqlcmd][sqlcmd] per connettersi ed eseguire query in un&quot;istanza di Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
@@ -15,12 +15,12 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1f2cf8003e46a1df30810a2594bc1d380bc13bcf
+ms.sourcegitcommit: 77474214c6fafe7f591030d30f6a46c66fbc5c09
+ms.openlocfilehash: 1cd3bd8cab4e74da820f844d2ba96243cc6ccdcd
 
 
 ---
-# <a name="query-azure-sql-data-warehouse-sqlcmd"></a>Eseguire query in Azure SQL Data Warehouse (sqlcmd)
+# <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Connettersi a SQL Data Warehouse con sqlcmd
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
@@ -30,7 +30,7 @@ ms.openlocfilehash: 1f2cf8003e46a1df30810a2594bc1d380bc13bcf
 > 
 > 
 
-Questa procedura dettagliata usa l'utilità della riga di comando [sqlcmd][sqlcmd] per eseguire query in un'istanza di Azure SQL Data Warehouse.  
+Usare l'utilità della riga di comando [sqlcmd][sqlcmd] per connettersi ed eseguire query in un'istanza di Azure SQL Data Warehouse.  
 
 ## <a name="1-connect"></a>1. Connetti
 Per iniziare a usare [sqlcmd][sqlcmd], aprire il prompt dei comandi e immettere **sqlcmd** seguito dalla stringa di connessione per il database di SQL Data Warehouse. La stringa di connessione richiede i parametri seguenti:
@@ -100,6 +100,6 @@ Per altre informazioni sulle opzioni disponibili in sqlcmd, vedere [Utilità sql
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

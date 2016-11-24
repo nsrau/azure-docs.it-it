@@ -16,13 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: sewhee
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 86220eabc2625bf8bf1e4d6fac9c0ae41adc962c
+ms.sourcegitcommit: 7d8eb43fea032eb5aa72f448a7c1022be62a7b81
+ms.openlocfilehash: 1591fba6475ba52b6e187ba7ccb14fd2fdfc63c8
 
 ---
 # <a name="creating-an-internal-load-balancer-using-the-azure-cli"></a>Creazione di un servizio di bilanciamento del carico interno tramite l'interfaccia della riga di comando di Azure
 
-[!INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
+> [!div class="op_single_selector"]
+> * [Portale](../load-balancer/load-balancer-get-started-internet-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
+> * [Interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
+> * [Modello](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
@@ -59,7 +63,7 @@ Per altre informazioni, vedere [Supporto di Gestione risorse di Azure per il ser
 
         info:    New mode is arm
 
-## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-frontend-ip-pool"></a>Creare una rete virtuale e un indirizzo IP pubblico per il pool di indirizzi IP front-end
+## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool"></a>Creare una rete virtuale e un indirizzo IP pubblico per il pool di indirizzi IP front-end
 
 1. Creare una rete virtuale (VNet) denominata *NRPVnet* nella località Stati Uniti orientali usando un gruppo di risorse denominato *NRPRG*.
 
@@ -91,7 +95,7 @@ Il comando seguente crea un servizio di bilanciamento del carico denominato *NRP
     azure network lb create NRPRG NRPlb eastus
     ```
 
-## <a name="create-a-frontend-ip-pool-and-a-backend-address-pool"></a>Creare un pool di indirizzi IP front-end e un pool di indirizzi back-end
+## <a name="create-a-front-end-ip-pool-and-a-backend-address-pool"></a>Creare un pool di indirizzi IP front-end e un pool di indirizzi back-end
 Questo esempio spiega come creare il pool di indirizzi IP front-end che riceve il traffico di rete in entrata per il servizio di bilanciamento del carico e il pool di indirizzi IP back-end a cui il pool front-end invia il traffico di rete sottoposto a bilanciamento del carico.
 
 1. Creare un pool di indirizzi IP front-end che associa l'indirizzo IP pubblico creato nel passaggio precedente e il servizio di bilanciamento del carico.

@@ -1,6 +1,6 @@
-I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratuiti ogni mese. Questi 25.000 messaggi gratuiti mensili offrono l'accesso a funzionalità avanzate di creazione di report e analisi e a [tutte le API][tutte le API] \(Web, SMTP, Event, Parse e altre). Per informazioni sui servizi aggiuntivi forniti da SendGrid, vedere la pagina di [funzionalità di SendGrid][funzionalità di SendGrid].
+I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratuiti ogni mese. Questi 25.000 messaggi gratuiti mensili offrono l'accesso a funzionalità avanzate di creazione di report e analisi e a [tutte le API][tutte le API] (Web, SMTP, Event, Parse e altre). Per informazioni sui servizi aggiuntivi offerti da SendGrid, vedere la pagina delle [funzionalità di SendGrid][funzionalità di SendGrid].
 
-### Per iscriversi a un account SendGrid
+### <a name="to-sign-up-for-a-sendgrid-account"></a>Per iscriversi a un account SendGrid
 1. Accedere al [portale di gestione di Azure][portale di gestione di Azure].
 2. Nel riquadro inferiore del portale di gestione fare clic su **New**.
    
@@ -10,7 +10,7 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
     ![sendgrid-store][sendgrid-store]
 4. Nella finestra di dialogo **Scegliere un'applicazione e servizio** selezionare **SendGrid** e fare clic sulla freccia destra.
 5. Nella finestra di dialogo **Personalizza applicazione e servizio** selezionare il piano di **SendGrid** a cui iscriversi.
-6. Immettere un nome per identificare il servizio **SendGrid** nelle impostazioni di Azure o usare il valore predefinito **SendGridEmailDelivery.Simplified.SMTPWebAPI**. I nomi devono essere composti da un numero di caratteri compreso tra 1 e 100 e possono includere solo caratteri alfanumerici, trattini, punti e caratteri di sottolineatura. Il nome deve essere univoco nell'elenco di elementi di Azure Store sottoscritti.
+6. Immettere un nome per identificare il servizio **SendGrid** nelle impostazioni di Azure oppure usare il valore predefinito **SendGridEmailDelivery.Simplified.SMTPWebAPI**. I nomi devono essere composti da un numero di caratteri compreso tra 1 e 100 e possono includere solo caratteri alfanumerici, trattini, punti e caratteri di sottolineatura. Il nome deve essere univoco nell'elenco di elementi di Azure Store sottoscritti.
    
     ![store-screen-2][store-screen-2]
 7. Scegliere un valore per l'area, ad esempio Stati Uniti occidentali.
@@ -22,15 +22,15 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
     
     ![sendgrid-purchasing-message][sendgrid-purchasing-message]
     
-    Il provisioning dell'account SendGrid verrà eseguito immediatamente e verrà visualizzato il messaggio **Successfully purchased Add-On SendGrid**. A questo punto la creazione di account e credenziali è stata completata ed è possibile inviare posta elettronica.
+    Il provisioning dell'account SendGrid verrà eseguito immediatamente e verrà visualizzato il messaggio **Successfully purchased Add-On SendGrid** (L'acquisto del componente aggiuntivo SendGrid è stato completato). A questo punto la creazione di account e credenziali è stata completata ed è possibile inviare posta elettronica. 
     
-    Per modificare il piano di sottoscrizione o visualizzare le impostazioni di contatto di SendGrid, fare clic sul nome del servizio SendGrid per aprire il dashboard del Marketplace di SendGrid.
+    Per modificare il piano di sottoscrizione o visualizzare le impostazioni di contatto di SendGrid, fare clic sul nome del servizio SendGrid per aprire il dashboard del Marketplace di SendGrid. 
     
     ![sendgrid-add-on-dashboard][sendgrid-add-on-dashboard]
     
-    Per inviare posta elettronica tramite SendGrid, è necessario specificare le credenziali dell'account, ovvero nome utente e password.
+    Per inviare posta elettronica con SendGrid, è necessario specificare le credenziali dell'account (nome utente e password).
 
-### Per individuare le credenziali di SendGrid
+### <a name="to-find-your-sendgrid-credentials"></a>Per individuare le credenziali di SendGrid
 1. Fare clic su **Connection Info**.
    
     ![sendgrid-connection-info-button][sendgrid-connection-info-button]
@@ -38,7 +38,7 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
    
     ![sendgrid-connection-info][sendgrid-connection-info]
    
-    Per impostare le impostazioni di recapito della posta, fare clic sul pulsante **Manage**. Si verrà reindirizzati al pannello di controllo SendGrid.
+    Per impostare le impostazioni di recapito della posta, fare clic sul pulsante **Manage** . Si verrà reindirizzati al pannello di controllo SendGrid. 
    
     ![sendgrid-control-panel][sendgrid-control-panel]
    
@@ -61,7 +61,11 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
 [funzionalità di SendGrid]: http://sendgrid.com/features
 [portale di gestione di Azure]: https://manage.windowsazure.com
 [guida introduttiva a SendGrid]: http://sendgrid.com/docs
-[processo di provisioning dell'account SendGrid]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
+[SendGrid Provisioning Process]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [tutte le API]: https://sendgrid.com/docs/API_Reference/index.html
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
