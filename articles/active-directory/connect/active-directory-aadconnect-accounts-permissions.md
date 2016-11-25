@@ -1,12 +1,12 @@
 ---
-title: Account e autorizzazioni di Azure AD Connect | Microsoft Docs
-description: Questo argomento descrive gli account usati e creati nonché le autorizzazioni necessarie.
+title: Account e autorizzazioni di Azure AD Connect | Documentazione Microsoft
+description: "Questo argomento descrive gli account usati e creati nonché le autorizzazioni necessarie."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b2baa9ea093a36cadb2251bbd1f4390552d8ec0e
+
 
 ---
-# <a name="azure-ad-connect:-accounts-and-permissions"></a>Azure AD Connect: account e autorizzazioni
+# <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: account e autorizzazioni
 L'installazione guidata di Azure AD Connect offre due percorsi diversi:
 
 * Mediante le impostazioni rapide la procedura guidata richiede più privilegi per semplificare la definizione della configurazione, senza richiedere agli utenti di creare o configurare separatamente le autorizzazioni.
@@ -27,7 +31,7 @@ Se non è stata letta la documentazione in [Integrazione delle identità locali 
 
 | Argomento |
 | --- | --- |
-| Eseguire l'installazione mediante le impostazioni rapide |
+| Eseguire l'installazione con le Impostazioni rapide |
 | Eseguire l'installazione mediante le impostazioni personalizzate |
 | Aggiornamento da DirSync |
 
@@ -127,6 +131,9 @@ L'account del servizio viene creato con una password lunga e complessa priva di 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](../active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
