@@ -16,6 +16,7 @@
 ### [Abilitare l'accesso pubblico a DC/OS](container-service-enable-public-access.md)
 ### [Bilanciare il carico dei contenitori in DC/OS](container-service-load-balancing.md)
 ### [Soluzione Orchestrator specifica per app/utente in DC/OS](container-service-application-specific-marathon.md)
+### [Monitorare con OMS (DC/OS)](container-service-monitoring-oms.md)
 ### [Monitor with Datadog (DC/OS)](container-service-monitoring.md)
 ### [Monitorare con Sysdig (DC/OS)](container-service-monitoring-sysdig.md)
 ## [Gestire con Kubernetes](container-service-kubernetes-walkthrough.md)
@@ -30,6 +31,6 @@
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

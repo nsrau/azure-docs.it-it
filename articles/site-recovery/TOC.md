@@ -2,8 +2,8 @@
 ## [Che cos'è Site Recovery?](site-recovery-overview.md)
 ## [Funzionamento di Azure Site Recovery](site-recovery-components.md)
 ## [Quali carichi di lavoro è possibile proteggere?](site-recovery-workload.md)
-## [Quali sistemi operativi sono supportati?](site-recovery-support-matrix.md)
-## [Domande frequenti](site-recovery-faq.md)
+## [Matrice di supporto di Site Recovery](site-recovery-support-matrix.md)
+## [DOMANDE FREQUENTI](site-recovery-faq.md)
 ## [Guarda il video introduttivo](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
 # Attività iniziali
@@ -63,6 +63,6 @@
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

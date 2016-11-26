@@ -8,7 +8,7 @@
 # Procedure
 ## Pianificare e progettare
 ### [Scegliere tra Flow, App per la logica, Funzioni e Processi Web](functions-compare-logic-apps-ms-flow-webjobs.md)
-### [Scegliere tra i prezzi al consumo e il piano del servizio app](functions-scale.md)
+### [Scegliere un piano di hosting](functions-scale.md)
 
 ## Sviluppare
 ### [Sviluppare app per le funzioni](functions-reference.md)
@@ -21,7 +21,7 @@
 #### [Associazioni di app per dispositivi mobili](functions-bindings-mobile-apps.md)
 #### [Associazione di output di Hub di notifica](functions-bindings-notification-hubs.md)
 #### [Trigger e associazioni del bus di servizio per code e argomenti](functions-bindings-service-bus.md)
-#### Archiviazione
+#### Associazioni di archiviazione
 ##### [Associazioni di BLOB](functions-bindings-storage-blob.md)
 ##### [Associazioni di code](functions-bindings-storage-queue.md)
 ##### [Associazioni di tabelle](functions-bindings-storage-table.md)
@@ -30,6 +30,7 @@
 ### [Creare una funzione dal portale di Azure](functions-create-first-azure-function-azure-portal.md)
 ### [Test di Funzioni di Azure](functions-test-a-function.md)
 ### [Sviluppare ed eseguire il debug in locale](functions-run-local.md)
+### [Procedure consigliate per Funzioni di Azure](functions-best-practices.md)
 ### [Usare Funzioni di Azure per eseguire un'attività di pulizia pianificata](functions-scenario-database-table-cleanup.md)
 
 ## Gestire
@@ -38,6 +39,9 @@
 ## Distribuire
 ### [Distribuzione continua per Funzioni di Azure](functions-continuous-deployment.md)
 
+## Monitoraggio
+### [Monitoraggio di Funzioni di Azure](functions-monitoring.md)
+
 # Risorse
 ## [Prezzi](https://azure.microsoft.com/pricing/details/functions/)  
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
@@ -45,6 +49,6 @@
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -11,11 +11,11 @@
 # Attività iniziali
 ## [Iniziare a usare Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
 ## [Iniziare a usare l'anteprima di Interactive Hive](hdinsight-hadoop-use-interactive-hive.md)
-## [Iniziare a usare l'anteprima di R Server](hdinsight-hadoop-r-server-get-started.md)
+## [Iniziare a usare R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Iniziare a usare Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [Iniziare a usare HBase e NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Iniziare a usare Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
-## [Iniziare a usare l'anteprima di Kafka](hdinsight-apache-kafka-get-started.md )
+## [Iniziare a usare l'anteprima di Kafka](hdinsight-apache-kafka-get-started.md)
 ## [Sandbox Hadoop](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake Tools con Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Strumenti per Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
@@ -49,11 +49,12 @@
 ### [Usare DataFu con Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [Cluster su richiesta](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Inviare processi di Hadoop](hdinsight-submit-hadoop-jobs-programmatically.md)
-## Usare l'anteprima di R Server
+## Usare R Server
 ### [Opzioni di archiviazione](hdinsight-hadoop-r-server-storage.md)
 ### [Installare RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [Contesti di calcolo](hdinsight-hadoop-r-server-compute-contexts.md)
 ## Usare Spark per l'elaborazione in memoria
+### [Con Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Con gli strumenti di business intelligence](hdinsight-apache-spark-use-bi-tools.md)
 ### [App autonoma](hdinsight-apache-spark-create-standalone-application.md)
 ### [Elaborare eventi di flusso](hdinsight-apache-spark-eventhub-streaming.md)
@@ -179,13 +180,13 @@
 #### [Ottimizzare le query Hive](hdinsight-hadoop-optimize-hive-query.md)
 #### [Prestazioni delle query Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
-# Riferimento
-## [Informazioni di riferimento sulle API REST](https://msdn.microsoft.com/library/mt622197.aspx)
-## [API REST Spark per processi remoti](https://msdn.microsoft.com/library/mt613023.aspx)
-## [Cmdlet di PowerShell](https://msdn.microsoft.com/library/mt438705.aspx)
+# riferimento
+## [Cmdlet di PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.2.0/azurerm.hdinsight)
 ## [.NET SDK per Hadoop](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [.NET SDK per HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [Libreria .NET per Avro](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
+## [Informazioni di riferimento sulle API REST](/rest/api/hdinsight/)
+## [API REST Spark per processi remoti](/rest/api/hdinsightspark/)
 
 # Risorse correlate
 ## Cluster Windows
@@ -223,6 +224,6 @@
 ## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

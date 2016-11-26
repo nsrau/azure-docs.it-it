@@ -16,7 +16,7 @@
 ### [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 ### [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 ## [Esercitazione: Creare una pipeline per trasformare i dati](data-factory-build-your-first-pipeline.md)
-### [Portale di Azure](data-factory-build-your-first-pipeline-using-editor.md)
+### [portale di Azure](data-factory-build-your-first-pipeline-using-editor.md)
 ### [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 ### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 ### [Modello di Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -98,9 +98,8 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-factory)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=data-factory)
 ## [Richiedere una funzionalità](https://feedback.azure.com/forums/270578-azure-data-factory)
-## [Indice di tutti gli articoli](data-factory-alltopcat.md)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

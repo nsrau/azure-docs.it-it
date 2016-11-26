@@ -9,7 +9,7 @@
 
 # Procedure
 
-## [Creare un'entità servizio](../resource-group-create-service-principal-portal.md)
+## [Creare un'entità servizio](../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.json)
 ## [Eseguire l'autenticazione con un Registro di sistema](container-registry-authentication.md)
 
 # Riferimento
@@ -27,6 +27,6 @@
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

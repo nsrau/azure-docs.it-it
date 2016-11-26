@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 6945c867f7514ac99482d94c086ec1a29f0b88a1
-ms.openlocfilehash: 96c971fce7e742a8ae27442954963c62935a2121
+ms.sourcegitcommit: a7f5894e445cad808f38195838376c620a6b5944
+ms.openlocfilehash: 87fab3c99228f127326609a3e614020a982192f0
 
 ---
 #<a name="documentdb-documentation"></a>Documentazione di DocumentDB
@@ -93,7 +93,7 @@ Azure DocumentDB è un servizio database NoSQL completamente gestito ideato per 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introduzione a DocumentDB con ASP.NET MVC</h3>
+                        <h3>Introduzione a DocumentDB tramite ASP.NET MVC</h3>
                     </div>
                 </div>
             </div>
@@ -129,7 +129,7 @@ Azure DocumentDB è un servizio database NoSQL completamente gestito ideato per 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introduzione a DocumentDB con Node.js Express</h3>
+                        <h3>Introduzione a DocumentDB tramite Node.js Express</h3>
                     </div>
                 </div>
             </div>
@@ -147,7 +147,7 @@ Azure DocumentDB è un servizio database NoSQL completamente gestito ideato per 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introduzione a DocumentDB con un'app Java JSP</h3>
+                        <h3>Introduzione a DocumentDB tramite un'app Java JSP</h3>
                     </div>
                 </div>
             </div>
@@ -210,6 +210,6 @@ Scaricare la documentazione di DocumentDB </div>
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

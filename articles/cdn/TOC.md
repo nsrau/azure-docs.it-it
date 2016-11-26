@@ -24,6 +24,8 @@
 #### [Livello Premium](cdn-query-string-premium.md)
 ### [Ripulire asset memorizzati nella cache](cdn-purge-endpoint.md)
 ### [Precaricare asset memorizzati nella cache](cdn-preload-endpoint.md)
+### [Autenticazione tramite token](cdn-token-auth.md)
+### [Monitorare le risorse](cdn-resource-health.md)
 ### [Eseguire l'override del comportamento con regole](cdn-rules-engine.md)
 ### [Ricevere avvisi in tempo reale](cdn-real-time-alerts.md)
 
@@ -55,6 +57,6 @@
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

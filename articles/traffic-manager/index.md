@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 2bb861bf0e2d3505b3e2eeeb3ce779ab718e7013
-ms.openlocfilehash: 53f98b140cd1daa82b71a2924312cb0c2b3ac553
+ms.sourcegitcommit: 9e86ae23b3fe3b8134f4725035c03837425cc0c4
+ms.openlocfilehash: 9a05d78edbf2c186d4a4d84f38eb6deff0cdafc5
 
 ---
 #<a name="traffic-manager-documentation"></a>Documentazione di Gestione traffico
 
-Gestione traffico di Azure consente di controllare la distribuzione del traffico utente per gli endpoint di servizio in diversi data center.  Gestione traffico usa il sistema DNS (Domain Name System) per indirizzare le richieste del client all'endpoint più appropriato in base al metodo di routing del traffico e all'integrità degli endpoint, offrendo all'applicazione la disponibilità e la velocità di risposta necessarie per un'applicazione su larga scala.
+Gestione traffico di Azure consente di controllare la distribuzione del traffico utente per gli endpoint di servizio in diverse aree. Gestione traffico usa il sistema DNS (Domain Name System) per indirizzare le richieste del client all'endpoint più appropriato in base al metodo di routing del traffico selezionato e all'integrità degli endpoint, offrendo all'applicazione disponibilità elevata e velocità di risposta.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -123,12 +123,12 @@ Gestione traffico di Azure consente di controllare la distribuzione del traffico
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/traffic-manager.pdf">
         <div class="img"></div>
         <div class="text">
-Scaricare la documentazione di Service Fabric </div>
+Scaricare la documentazione di Gestione traffico </div>
     </a>
 </div>
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

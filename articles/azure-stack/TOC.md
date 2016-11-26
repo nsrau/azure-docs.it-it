@@ -68,20 +68,17 @@
 ## [Gestire gli aggiornamenti](azure-stack-updates.md)
 ## [Sviluppare per Azure Stack](azure-stack-developer.md)
 ## Distribuire un provider di risorse SQL o MySQL
-### [Usare database MySQL come PaaS in Azure Stack](azure-stack-mysql-rp-deploy-short.md)
-### [Distribuire l'adapter del provider di risorse di SQL Server in Azure Stack](azure-stack-sql-rp-deploy-long.md)
-### [Usare database SQL in Azure Stack](azure-stack-sql-rp-deploy-short.md)
+### [Usare database MySQL come PaaS in Azure Stack](azure-stack-mysql-resource-provider-deploy.md)
+### [Distribuire l'adapter del provider di risorse di SQL Server in Azure Stack](azure-stack-sql-resource-provider-deploy.md)
 
-## Pianificare e distribuire app Web
-### [Panoramica delle app Web di Azure Stack](azure-stack-webapps-overview.md)
-### [Prima di iniziare a usare le app Web di Azure Stack](azure-stack-webapps-before-you-get-started.md)
-### [Distribuire il provider di risorse MySQL in Azure Stack per l'uso con App Web](azure-stack-mysql-rp-deploy-long.md)
+## Pianificare e distribuire il servizio App
+### [Panoramica delle app Web di Azure Stack](azure-stack-app-service-overview.md)
+### [Prima di iniziare a usare le app Web di Azure Stack](azure-stack-app-service-before-you-get-started.md)
 ### [App Web: Aggiunta di altri ruoli Web worker](azure-stack-webapps-add-worker-roles.md)
-### [Aggiungere un provider di risorse di App Web in Azure Stack](azure-stack-webapps-deploy.md)
+### [Aggiungere un provider di risorse di App Web in Azure Stack](azure-stack-app-service-deploy.md)
 
 # Risoluzione dei problemi
 ## [Risolvere i problemi relativi ad Azure Stack](azure-stack-troubleshooting.md)
-## [Ripetere una distribuzione a partire da un passaggio non riuscito](azure-stack-rerun-deploy.md)
 ## [Provider di risorse app Web](azure-stack-webapps-troubleshoot-known-issues.md)
 
 # Risorse
@@ -90,6 +87,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -108,7 +108,6 @@
 
 ## [Automatizzare](../virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Estensione di script personalizzati](../virtual-machines-linux-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Estensione dell'accesso alle macchine virtuali](../virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Monitoraggio della macchina virtuale](../virtual-machines-linux-vm-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Estensioni nei modelli](../virtual-machines-linux-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Esempi di configurazione](../virtual-machines-linux-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -161,15 +160,20 @@
 ### [Risolvere i problemi relativi agli errori di allocazione](../virtual-machines-linux-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Risolvere i problemi relativi alla distribuzione](../virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Ridistribuire la macchina virtuale in un nuovo nodo di Azure](../virtual-machines-linux-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### Collegare un disco rigido virtuale alla VM di risoluzione dei problemi
+#### [Interfaccia della riga di comando di Azure](../virtual-machines-linux-troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
+#### [portale di Azure](../virtual-machines-linux-troubleshoot-recovery-disks-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-# Riferimento
+# riferimento
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/vm)
-## [Java](/java/api/)
+## [Java](/java/api)
+## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Creare modelli di Resource Manager](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Modelli della community](https://azure.microsoft.com/documentation/templates/)
-## [REST di calcolo](/rest/api/compute/)
-## [REST di rete](/rest/api/)
-## [REST di archiviazione](/rest/api/storageservices/)
+## [Modelli della community](https://azure.microsoft.com/documentation/templates)
+## [REST di calcolo](/rest/api/compute)
+## [REST di rete](/rest/api)
+## [REST di archiviazione](/rest/api/storageservices)
 
 
 
@@ -180,6 +184,6 @@
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 
