@@ -2,11 +2,11 @@
 title: Preparare la distribuzione di Site Recovery | Microsoft Docs
 description: Questo articolo descrive come preparare la distribuzione della replica con Azure Site Recovery.
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: rayne-wiselman
 manager: jwhit
 editor: tysonn
-
+ms.assetid: e24eea6c-50a7-4cd5-aab4-2c5c4d72ee2d
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/05/2016
 ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
+ms.openlocfilehash: 8a4d265694e5eef438b0560a42ea5a95c04f9b02
+
 
 ---
 # <a name="prepare-for-azure-site-recovery-deployment"></a>Preparare la distribuzione di Azure Site Recovery
@@ -22,7 +26,7 @@ Leggere questo articolo per ottenere una panoramica generale dei requisiti di di
 Dopo la lettura di questo articolo, è possibile inviare commenti o domande nella parte inferiore di questo articolo oppure nel [forum sui servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="overview"></a>Overview
-Le organizzazioni necessitano di una strategia di continuità aziendale e ripristino di emergenza per determinare come app, carichi di lavoro e dati possano rimanere in esecuzione e disponibili durante i periodi di inattività, pianificati o meno, e come ripristinare le normali condizioni di lavoro il prima possibile. La strategia di continuità aziendale e ripristino di emergenza deve garantire la sicurezza dei dati aziendali e la possibilità di recuperarli, oltre alla disponibilità costante dei carichi di lavoro in caso di emergenza. 
+Le organizzazioni necessitano di una strategia di continuità aziendale e ripristino di emergenza per determinare come app, carichi di lavoro e dati possano rimanere in esecuzione e disponibili durante i periodi di inattività, pianificati o meno, e come ripristinare le normali condizioni di lavoro il prima possibile. La strategia di continuità aziendale e ripristino di emergenza deve garantire la sicurezza dei dati aziendali e la possibilità di recuperarli, oltre alla disponibilità costante dei carichi di lavoro in caso di emergenza.
 
 Il servizio Azure Site Recovery contribuisce alla strategia BCDR orchestrando la replica dei server fisici locali e delle macchine virtuali sul cloud (Azure) o in un data center secondario. In caso di interruzioni nella località primaria, verrà eseguito il failover alla località secondaria per mantenere disponibili app e carichi di lavoro. Quando la località primaria sarà di nuovo operativa, si tornerà a tale località. Per altre informazioni, vedere [Informazioni su Site Recovery](site-recovery-overview.md)
 
@@ -57,7 +61,7 @@ Quando si sceglie un modello di distribuzione, tenere presente che:
 | **Archiviazione di Azure** |I dati replicati vengono memorizzati in Archiviazione di Azure e le macchine virtuali di Azure vengono create quando si verifica il failover. Per eseguire la replica in Azure, è necessario un [account di archiviazione di Azure](../storage/storage-introduction.md).<br/><br/>Se si distribuisce Site Recovery nel portale classico, sono necessari uno o più [account di archiviazione con ridondanza geografica standard](../storage/storage-redundancy.md#geo-redundant-storage).<br/><br/> Se lo si distribuisce nel portale di Azure, è possibile usare l'archiviazione con ridondanza geografica o con ridondanza locale.<br/><br/>  Se si esegue la replica da VM VMware o server fisici al portale di Azure è supportata l'archiviazione Premium. Se si vuole usare un account di archiviazione Premium, sarà necessario anche un account di archiviazione standard per l'archiviazione dei log di replica in cui vengono acquisite le modifiche in corso ai dati locali. [Archiviazione premium](../storage/storage-premium-storage.md) viene in genere usata per le macchine virtuali che richiedono un livello di prestazioni di I/O costantemente elevato e bassa latenza per ospitare carichi di lavoro con numerose operazioni di I/O.<br/><br/>  Se si vuole usare un account Premium per archiviare i dati replicati, sarà necessario anche un account di archiviazione standard per l'archiviazione dei log di replica in cui vengono acquisite le modifiche in corso ai dati locali. |
 | **Rete di Azure** |Per la replica in Azure, sarà necessaria una rete di Azure a cui le VM possano connettersi quando vengono create dopo il failover.<br/><br/>  Se si distribuisce nel portale classico, si userà una rete classica. Se si distribuisce nel portale di Azure, è possibile usare una rete classica o Resource Manager.<br/><br/>  La rete deve trovarsi nella stessa area dell'insieme di credenziali. |
 | **Mapping di rete (da VMM ad Azure)** |Se si esegue la replica da VMM in Azure, il [mapping di rete](site-recovery-network-mapping.md) garantisce che le VM di Azure siano connesse alle reti corrette dopo il failover.<br/><br/>  Per configurare il mapping di rete è necessario configurare le reti di VM nel portale di VMM. |
-| **Locale** |**VM VMware**: è necessario un computer locale che esegue i componenti di Site Recovery, gli host VMware vSphere/il server vCenter e le VM da replicare. [Altre informazioni](site-recovery-vmware-to-azure.md#configuration-server-prerequisites).<br/><br/> **Server fisici**: se si esegue la replica di server fisici, è necessario un computer locale che esegue i componenti di Site Recovery e i server fisici di cui eseguire la replica. [Altre informazioni](site-recovery-vmware-to-azure.md#configuration-server-prerequisites). Se si desidera eseguire il [failback](site-recovery-failback-azure-to-vmware.md) dopo il failover su Azure, è necessaria un'infrastruttura VMware.<br/><br/> **VM Hyper-V**: If you want to replicate VM Hyper-V in VMM clouds you'll need a VMM server, and Hyper-V hosts on which VMs you want to protect are located. [Altre informazioni](site-recovery-vmm-to-azure.md#on-premises-prerequisites).<br/><br/>  Se si desidera eseguire la replica delle VM Hyper-V senza VMM sono necessari gli host Hyper-V su cui si trovano le VM. [Altre informazioni](site-recovery-hyper-v-site-to-azure.md#on-premises-prerequisites). |
+| **Locale** |**VM VMware**: è necessario un computer locale che esegue i componenti di Site Recovery, gli host VMware vSphere/il server vCenter e le VM da replicare. [Altre informazioni](site-recovery-vmware-to-azure.md#configuration-server-or-additional-process-server-prerequisites).<br/><br/> **Server fisici**: se si esegue la replica di server fisici, è necessario un computer locale che esegue i componenti di Site Recovery e i server fisici di cui eseguire la replica. [Altre informazioni](site-recovery-vmware-to-azure.md#configuration-server-or-additional-process-server-prerequisites). Se si desidera eseguire il [failback](site-recovery-failback-azure-to-vmware.md) dopo il failover su Azure, è necessaria un'infrastruttura VMware.<br/><br/> **VM Hyper-V**: If you want to replicate VM Hyper-V in VMM clouds you'll need a VMM server, and Hyper-V hosts on which VMs you want to protect are located. [Altre informazioni](site-recovery-vmm-to-azure.md#on-premises-prerequisites).<br/><br/>  Se si desidera eseguire la replica delle VM Hyper-V senza VMM sono necessari gli host Hyper-V su cui si trovano le VM. [Altre informazioni](site-recovery-hyper-v-site-to-azure.md#on-premises-prerequisites). |
 | **Computer protetti** |I computer protetti che eseguiranno la replica ad Azure devono essere conformi ai [prerequisiti di Azure](#azure-virtual-machine-requirements) descritti di seguito. |
 
 ### <a name="replicate-to-a-secondary-site"></a>Replica a un sito secondario
@@ -143,6 +147,8 @@ Dopo aver compreso e confrontato i requisiti generali di distribuzione, è possi
 * [Replicare le VM Hyper-V in un sito secondario con SAN](site-recovery-vmm-san.md)
 * [Replicare le VM Hyper-V con un singolo server VMM](site-recovery-single-vmm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 
