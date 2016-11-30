@@ -3,8 +3,8 @@ title: Delegare il dominio a DNS di Azure | Documentazione Microsoft
 description: Informazioni su come modificare la delega di dominio e usare server dei nomi DNS di Azure per fornire hosting di dominio.
 services: dns
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: georgewallace
+manager: timlt
 ms.assetid: 257da6ec-d6e2-4b6f-ad76-ee2dde4efbcc
 ms.service: dns
 ms.devlang: na
@@ -12,7 +12,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/30/2016
-ms.author: sewhee
+ms.author: gwallace
 translationtype: Human Translation
 ms.sourcegitcommit: 02d720a04fdc0fa302c2cb29b0af35ee92c14b3b
 ms.openlocfilehash: 665e0684328538b61bb3eb05180d8d7d0e65ec49

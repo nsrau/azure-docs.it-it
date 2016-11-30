@@ -3,8 +3,8 @@ title: Creare un servizio di bilanciamento del carico Internet in Gestione risor
 description: Informazioni su come creare un servizio di bilanciamento del carico Internet in Gestione risorse con un modello.
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 tags: azure-resource-manager
 ms.assetid: b24f4729-4559-4458-8527-71009d242647
 ms.service: load-balancer
@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
-ms.author: sewhee
+ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: cf1eafc7bca5bddeb32f1e1e05e660d6877ed805
 ms.openlocfilehash: 9200174563523f40e425d4f6570e97f732d84129
