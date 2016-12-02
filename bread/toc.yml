@@ -30,19 +30,23 @@
   - name: "Servizio app"
     tocHref: /azure/app-service/
     topicHref: /azure/app-service/app-service-how-works-readme
-  - name: "App per le API"
-    tocHref: /azure/app-service-api/
-    topicHref: /azure/app-service-api/app-service-api-apps-why-best-platform
+    items:
+    - name: "App Web"
+      tocHref: /azure/app-service-web/
+      topicHref: /azure/app-service-web/app-service-web-overview
+    - name: "App per dispositivi mobili"
+      tocHref: /azure/app-service-mobile/
+      topicHref: /azure/app-service-mobile/app-service-mobile-value-prop
+    - name: "App per le API"
+      tocHref: /azure/app-service-api/
+      topicHref: /azure/app-service-api/app-service-api-apps-why-best-platform
+  - name: "Advisor"
+    tocHref: /azure/advisor/
+    topicHref: /azure/advisor/advisor-overview
   - name: "App per la logica"
     tocHref: /azure/app-service-logic/
     topicHref: /azure/app-service-logic/app-service-logic-what-are-logic-apps
-  - name: "App per dispositivi mobili del servizio app"
-    tocHref: /azure/app-service-mobile/
-    topicHref: /azure/app-service-mobile/app-service-mobile-value-prop
-  - name: "App Web del servizio app"
-    tocHref: /azure/app-service-web/
-    topicHref: /azure/app-service-web/app-service-web-overview
-  - name: "Gateway applicazione"
+  - name: "gateway applicazione"
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/application-gateway-introduction
   - name: "Application Insights"
@@ -53,7 +57,7 @@
     topicHref: /azure/automation/automation-intro
   - name: "Registro di sistema del contenitore"
     tocHref: /azure/container-registry/
-    topicHref: /azure/container-registry/container-registry-info
+    topicHref: /azure/container-registry/container-registry-intro
   - name: "Funzioni"
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/functions-overview

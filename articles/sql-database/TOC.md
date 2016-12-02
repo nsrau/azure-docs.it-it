@@ -111,7 +111,7 @@
 ### Formazione
 #### [Panoramica](sql-database-business-continuity.md)
 #### [Backup del database](sql-database-automated-backups.md)
-#### [Conservazione a lungo termine](sql-database-long-term-retention.md) 
+#### [Conservazione a lungo termine](sql-database-long-term-retention.md)
 #### [Ripristino di database tramite backup](sql-database-recovery-using-backups.md)
 #### [Requisiti di autenticazione per il ripristino di emergenza](sql-database-geo-replication-security-config.md)
 #### [Scenari di progettazione della continuità aziendale](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
@@ -210,7 +210,7 @@
 #### [Configurazione della sicurezza per il servizio di divisione/unione](sql-database-elastic-scale-split-merge-security-configuration.md)
 #### [Uso di Dapper](sql-database-elastic-scale-working-with-dapper.md)
 #### [Usare Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
-#### [Routing dipendente dei dati](sql-database-elastic-scale-data-dependent-routing.md)
+#### [Routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md)
 #### [Sicurezza a livello di riga multi-tenant](sql-database-elastic-tools-multi-tenant-row-level-security.md)
 #### [Gestire le credenziali](sql-database-elastic-scale-manage-credentials.md)
 #### [Distribuire un servizio di divisione e unione](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
@@ -358,8 +358,6 @@
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
-
-
 
 
 <!--HONumber=Nov16_HO4-->

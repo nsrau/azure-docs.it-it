@@ -21,7 +21,7 @@
 ## [Esempi](service-bus-relay-samples.md)
 ## [API .NET per connessioni ibride](/dotnet/api/microsoft.servicebus)
 ## [API .NET per l'inoltro WCF](/dotnet/api/microsoft.servicebus)
-
+## [Impostazioni delle porte](service-bus-relay-port-settings.md)
 
 # Risorse
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
@@ -33,6 +33,6 @@
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 
