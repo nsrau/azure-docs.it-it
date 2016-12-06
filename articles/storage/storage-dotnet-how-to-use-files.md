@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/18/2016
 ms.author: minet
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: af7b1c3d302282920ce9b347a7686903d1c6fe03
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: bf8acbd37f717c0e055facde781966665ca67d2d
 
 
 ---
@@ -210,8 +210,8 @@ Quando un client accede al servizio Archiviazione file, la versione di SMB usata
 ### <a name="mount-the-file-share-from-an-azure-virtual-machine-running-windows"></a>Montare la condivisione file da una macchina virtuale di Azure che esegue Windows
 Per illustrare come si monta una condivisione file di Azure, viene creata una macchina virtuale di Azure che esegue Windows e viene eseguito l'accesso remoto per montare la condivisione.
 
-1. Creare prima di tutto una nuova macchina virtuale di Azure seguendo le istruzioni in [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
-2. Accedere quindi in remoto alla nuova macchina virtuale seguendo le istruzioni in [Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows](../virtual-machines/virtual-machines-windows-connect-logon.md).
+1. Creare prima di tutto una nuova macchina virtuale di Azure seguendo le istruzioni in [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+2. Accedere quindi in remoto alla nuova macchina virtuale seguendo le istruzioni in [Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows](../virtual-machines/virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 3. Aprire una finestra di PowerShell nella macchina virtuale.
 
 ### <a name="persist-your-storage-account-credentials-for-the-virtual-machine"></a>Mantenere le credenziali dell'account di archiviazione per la macchina virtuale
@@ -242,7 +242,7 @@ A questo punto è possibile usare la condivisione di archiviazione file dalla ma
 
 La condivisione file può essere montata anche da un ruolo in esecuzione in un servizio cloud di Azure eseguendo l'accesso remoto al ruolo.
 
-### <a name="mount-the-file-share-from-an-onpremises-client-running-windows"></a>Montare la condivisione file da un client locale che esegue Windows
+### <a name="mount-the-file-share-from-an-on-premises-client-running-windows"></a>Montare la condivisione file da un client locale che esegue Windows
 Per montare la condivisione file da un client locale, è prima necessario seguire questa procedura:
 
 * Installare una versione di Windows che supporta il protocollo SMB 3.0. Windows userà la crittografia SMB 3.0 per eseguire il trasferimento di dati sicuro dal client locale alla condivisione file di Azure nel cloud.

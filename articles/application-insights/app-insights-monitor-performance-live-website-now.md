@@ -14,15 +14,15 @@ ms.topic: get-started-article
 ms.date: 10/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: b70c8baab03703bc00b75c2c611f69e3b71d6cd7
-ms.openlocfilehash: 5159e7fc47d320d52eb7b94b5775158a3f09c769
+ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
+ms.openlocfilehash: 79819619ff7f25ba1097fe12f2da7453a1fcb4f1
 
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentare app Web in fase di esecuzione con Application Insights
-*Application Insights è disponibile in anteprima.*
 
-È possibile instrumentare un'app Web live con Visual Studio Application Insights senza dover modificare o ridistribuire il codice. In caso di app ospitate da un server IIS locale, si installa Status Monitor. In caso di app Web di Azure o in esecuzione in una VM di Azure, invece, è possibile installare l'estensione Application Insights. Sono disponibili anche articoli separati sulla strumentazione di [app Web J2EE live](app-insights-java-live.md) e [Servizi cloud di Azure](app-insights-cloudservices.md).
+
+È possibile instrumentare un'app Web attiva con Azure Application Insights senza dover modificare o ridistribuire il codice. In caso di app ospitate da un server IIS locale, si installa Status Monitor. In caso di app Web di Azure o in esecuzione in una VM di Azure, invece, è possibile installare l'estensione Application Insights. Sono disponibili anche articoli separati sulla strumentazione di [app Web J2EE live](app-insights-java-live.md) e [Servizi cloud di Azure](app-insights-cloudservices.md).
 
 ![grafici di esempio](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
@@ -38,8 +38,8 @@ Ecco un riepilogo di ciò che offrono i singoli modi:
 | --- | --- | --- |
 | Richieste ed eccezioni |Sì |Sì |
 | [Eccezioni più dettagliate](app-insights-asp-net-exceptions.md) | |Sì |
-| [Diagnostica delle dipendenze](app-insights-asp-net-dependencies.md) |In .NET 4.6 e versioni successive |Sì |
-| [Contatori delle prestazioni di sistema](app-insights-performance-counters.md) | |IIS o servizio cloud di Azure, non app Web di Azure |
+| [Diagnostica delle dipendenze](app-insights-asp-net-dependencies.md) |In .NET 4.6 e versioni successive, ma meno dettagli |Sì, dettagli completi: codici di risultato, testo del comando SQL, verbo HTTP|
+| [Contatori delle prestazioni di sistema](app-insights-performance-counters.md) | |IIS o servizio cloud di Azure, ma non app Web di Azure |
 | [API per telemetria personalizzata][api] |Sì | |
 | [Integrazione log di traccia](app-insights-asp-net-trace-logs.md) |Sì | |
 | [Visualizzazione pagina e dati utente](app-insights-javascript.md) |Sì | |
@@ -232,6 +232,6 @@ Individuare le applicazioni sottoposte a monitoraggio:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

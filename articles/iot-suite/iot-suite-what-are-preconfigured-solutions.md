@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 597043b17993ebddc9cf730ddce849e1d6ff3bc9
+ms.sourcegitcommit: 1a6dd35278f0a4a4f972642c40a0976986dd79ae
+ms.openlocfilehash: 25be292144e31c6f34ff1e015362aee31e242619
 
 
 ---
@@ -66,7 +66,7 @@ Quando un dispositivo si connette per la prima volta all'hub IoT nella soluzione
 * *Arresta telemetria*: indica al dispositivo di arrestare l'invio dei dati di telemetria.
 * *Modifica la temperatura del punto dati impostato*: controlla i valori dei dati di telemetria sulla temperatura simulati inviati dal dispositivo. Questo comando è utile per testare la logica back-end.
 * *Telemetria diagnostica*: controlla se il dispositivo deve inviare la temperatura esterna come dato di telemetria.
-* *Modifica stato del dispositivo*: imposta la proprietà dei metadati sullo stato del dispositivo segnalata dal dispositivo. Questo comando è utile per testare la logica back-end.
+* *Change Device State* (Modifica stato del dispositivo): imposta la proprietà dei metadati sullo stato segnalata dal dispositivo. Questo comando è utile per testare la logica back-end.
 
 È possibile aggiungere alla soluzione altri dispositivi simulati che generano gli stessi dati di telemetria e rispondono agli stessi comandi. 
 
@@ -80,7 +80,7 @@ L'hub IoT rende disponibili i dati di telemetria ricevuti attraverso l'endpoint 
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 La soluzione preconfigurata usa tre processi di [Analisi di flusso di Azure][lnk-asa] per filtrare il flusso di dati di telemetria proveniente dai dispositivi:
 
-* *Processo Informazioni sul dispositivo* : invia i dati a un hub eventi che indirizza messaggi specifici sulla registrazione del dispositivo, inviati quando un dispositivo si connette o in risposta a un comando **Modifica stato del dispositivo** , al registro del dispositivo della soluzione (un database DocumentDB). 
+* *DeviceInfo job* (Processo DeviceInfo): invia i dati a un hub eventi che instrada messaggi specifici sulla registrazione del dispositivo, inviati quando un dispositivo si connette per la prima volta o in risposta a un comando **Change device state** (Modifica stato del dispositivo), al registro del dispositivo della soluzione (un database DocumentDB). 
 * *Processo Telemetria* : invia tutti i dati di telemetria non elaborati all'archivio BLOB di Azure per l'archiviazione offline sicura e calcola le aggregazioni dei dati di telemetria visualizzate nel dashboard della soluzione.
 * *Processo Regole* : filtra il flusso dei dati di telemetria in base ai valori che superano qualsiasi soglia delle regole e invia i dati a un hub eventi. Quando viene attivata una regola, la visualizzazione dashboard del portale della soluzione visualizza questo evento come una nuova riga nella tabella della cronologia di avvisi e attiva un'azione in base alle impostazioni definite nelle visualizzazioni relative alle regole e alle azioni nel portale della soluzione.
 
@@ -89,7 +89,7 @@ In questa soluzione preconfigurata i processi di Analisi di flusso di Azure fann
 ## <a name="event-processor"></a>Processore di eventi
 In questa soluzione preconfigurata il processore di eventi fa parte del **back-end della soluzione IoT** nell'[architettura di una soluzione IoT ][lnk-what-is-azure-iot] tipica.
 
-I processi **Informazioni sul dispositivo** e **Regole** di Analisi di flusso di Azure inviano l'output agli hub eventi in modo che siano recapitati ad altri servizi back-end. La soluzione usa un'istanza di [EventPocessorHost][lnk-event-processor], in esecuzione in un [processo Web][lnk-web-job], per leggere i messaggi provenienti da questi hub eventi. **EventProcessorHost** usa i dati di **Informazioni sul dispositivo** per aggiornare i dati del dispositivo nel database DocumentDB e usa **Regole** per richiamare l'app per la logica e aggiornare gli avvisi visualizzati nel portale della soluzione.
+I processi **DeviceInfo** e **Rules** di Analisi di flusso di Azure inviano l'output agli hub eventi in modo che siano recapitati ad altri servizi back-end. La soluzione usa un'istanza di [EventPocessorHost][lnk-event-processor], in esecuzione in un [processo Web][lnk-web-job], per leggere i messaggi provenienti da questi hub eventi. **EventProcessorHost** usa i dati di **Informazioni sul dispositivo** per aggiornare i dati del dispositivo nel database DocumentDB e usa **Regole** per richiamare l'app per la logica e aggiornare gli avvisi visualizzati nel portale della soluzione.
 
 ## <a name="device-identity-registry-and-documentdb"></a>Registro delle identità dei dispositivi e DocumentDB
 Ogni hub IoT include un [registro delle identità dei dispositivi][lnk-identity-registry] che archivia le chiavi dei dispositivi. L'hub IoT usa queste informazioni per autenticare i dispositivi: un dispositivo deve essere registrato e deve avere una chiave valida per potersi connettere all'hub.
@@ -130,6 +130,6 @@ Dopo aver acquisito le informazioni di base sulle soluzioni preconfigurate, è p
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

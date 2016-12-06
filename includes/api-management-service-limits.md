@@ -8,4 +8,8 @@
 
 <sup>1</sup>I limiti di Gestione API sono diversi per ogni livello di prezzo. Per visualizzare i livelli di prezzo con le opzioni di scalabilità e i limiti associati, vedere [Prezzi di Gestione API](https://azure.microsoft.com/pricing/details/api-management/).
 
-<!---HONumber=AcomDC_0128_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -3,6 +3,8 @@
 | **Gestione risorse** |[Articolo](../articles/vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) |Non supportato |Supportato |
 | **Classico** |Non supportato |Non supportato |[Articolo](../articles/vpn-gateway/vpn-gateway-multi-site.md) |
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

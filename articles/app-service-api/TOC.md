@@ -78,12 +78,12 @@
 ## Gestire
 ### [Configurare](../app-service-web/web-sites-configure.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### Domini personalizzati
-#### [Buy and configure custom domains](../app-service-web/custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service-api%2ftoc.json) (Acquistare e configurare domini personalizzati)
-#### [Map your own custom domain](../app-service-web/web-sites-custom-domain-name.md?toc=%2fazure%2fapp-service-api%2ftoc.json) (Eseguire il mapping di un dominio personalizzato)
-#### [Configure GoDaddy domains](../app-service-web/web-sites-godaddy-custom-domain-name.md?toc=%2fazure%2fapp-service-api%2ftoc.json) (Configurare domini GoDaddy)
-#### [Custom domains with Traffic Manager](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service-api%2ftoc.json) (Domini personalizzati con Gestione traffico)
+#### [Acquistare e configurare domini personalizzati](../app-service-web/custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Eseguire il mapping di un dominio personalizzato](../app-service-web/web-sites-custom-domain-name.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Configurare domini GoDaddy](../app-service-web/web-sites-godaddy-custom-domain-name.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Domini personalizzati con Gestione traffico](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
-### [Clone an existing app](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service-api%2ftoc.json) (Clonare un'app esistente)
+### [Clonare un'app esistente](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Connessioni locali](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Rete virtuale di Azure](../app-service-web/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Configurazione avanzata](../app-service-web/web-sites-transform-extend.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
@@ -113,12 +113,12 @@
 
 ### HTTPS
 #### [Configurare l'autenticazione reciproca TLS](../app-service-web/app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Buy an SSL certificate in Azure](../app-service-web/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fapp-service-api%2ftoc.json) (Acquistare un certificato SSL in Azure)
+#### [Acquistare un certificato SSL in Azure](../app-service-web/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Use an SSL certificate obtained elsewhere](../app-service-web/web-sites-configure-ssl-certificate.md?toc=%2fazure%2fapp-service-api%2ftoc.json) (Usare un certificato SSL ottenuto altrove)
 
 ### Proteggere un ambiente del servizio app
 #### [Configurare un Web application firewall](../app-service-web/app-service-app-service-environment-web-application-firewall.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Implement a layered security architecture](../app-service-web/app-service-app-service-environment-layered-security.md?toc=%2fazure%2fapp-service-api%2ftoc.json) (Implementare un'architettura di sicurezza su più livelli)
+#### [Implementare un'architettura di sicurezza su più livelli](../app-service-web/app-service-app-service-environment-layered-security.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Connessione sicura alle risorse back-end](../app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ## Backup
@@ -131,17 +131,17 @@
 ### [Troubleshoot using Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-api%2ftoc.json) (Risolvere i problemi con Visual Studio)
 
 ## Automatizzare
-### [Agile development](../app-service-web/app-service-agile-software-development.md?toc=%2fazure%2fapp-service-api%2ftoc.json) (Sviluppo Agile)
+### [Sviluppo Agile](../app-service-web/app-service-agile-software-development.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Distribuzione Azure Resource Manager](../app-service-web/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Web + GitHub ](../app-service-web/app-service-web-arm-from-github-provision.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Web + SQL ](../app-service-web/app-service-web-arm-with-sql-database-provision.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [MSDeploy with custom hostname and SSL certificate](../app-service-web/app-service-web-arm-with-msdeploy-provision.md?toc=%2fazure%2fapp-service-api%2ftoc.json) (MSDeploy con certificato SSL e nome host personalizzato)
 ### PowerShell
-#### [Automate backup and restore](../app-service/app-service-powershell-backup.md?toc=%2fazure%2fapp-service-api%2ftoc.json) (Automatizzare il backup e il ripristino)
+#### [Automatizzare il backup e il ripristino](../app-service/app-service-powershell-backup.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Clonazione di app](../app-service-web/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Associazione di certificati SSL](../app-service-web/app-service-web-app-powershell-ssl-binding.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Usare Azure Resource Manager con PowerShell](../app-service-web/app-service-web-app-azure-resource-manager-powershell.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-### [Manage apps using Azure Automation](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service-api%2ftoc.json) (Gestire app con Automazione di Azure)
+### [Gestire app con Automazione di Azure](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ## Integrare
 ### [Accedere a risorse locali usando connessioni ibride](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
@@ -167,6 +167,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

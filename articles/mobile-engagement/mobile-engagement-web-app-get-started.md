@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 96f4fa714aa5a76f3e7e17c2741b17b626cfe010
+ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
+ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
 
 
 ---
@@ -40,7 +40,7 @@ Web SDK è in anteprima e per il momento supporta solo l'analisi e non supporta 
 ## <a name="setup-mobile-engagement-for-your-web-app"></a>Configurare Mobile Engagement per l'app Web
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Connettere l'app al back-end di Mobile Engagement
+## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Connettere l'app al back-end di Mobile Engagement
 Questa esercitazione presenta una "integrazione di base", che è la configurazione minima necessaria per raccogliere i dati.
 
 Verrà creata un'app Web di base con Visual Studio per dare una dimostrazione dell'integrazione, ma è possibile eseguire i passaggi anche con qualsiasi applicazione Web creata al di fuori di Visual Studio. 
@@ -65,7 +65,7 @@ A questo punto è stato creato un nuovo progetto di app Web vuota in cui si inte
    
     ![Visual Studio con file JS][1]
 
-## <a name="enable-realtime-monitoring"></a>Abilitare il monitoraggio in tempo reale
+## <a name="enable-real-time-monitoring"></a>Abilitare il monitoraggio in tempo reale
 Per iniziare a inviare dati e assicurarsi che gli utenti siano attivi, è necessario inviare almeno un'attività al back-end di Mobile Engagement. Un'attività nell'ambito di un'app Web è una pagina Web. 
 
 1. Creare una nuova pagina denominata **home.html** nella soluzione e impostarla come pagina iniziale per l'app Web. 
@@ -88,7 +88,7 @@ Per iniziare a inviare dati e assicurarsi che gli utenti siano attivi, è necess
         </body>
         </html>
 
-## <a name="connect-app-with-realtime-monitoring"></a>Connettere l'app con monitoraggio in tempo reale
+## <a name="connect-app-with-real-time-monitoring"></a>Connettere l'app con monitoraggio in tempo reale
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
   ![][2]

@@ -11,20 +11,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/07/2016
+ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: b70c8baab03703bc00b75c2c611f69e3b71d6cd7
-ms.openlocfilehash: d3478ef704c0029f69cca141bd3fa0b3ac54de15
+ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
+ms.openlocfilehash: 334d7391368509385dfc6c18ae1353d27faf7600
 
 
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorare la disponibilità e la velocità di risposta dei siti Web
-Dopo aver distribuito l'app Web o il sito Web in qualsiasi server, è possibile configurare test Web per monitorarne la disponibilità e la velocità di risposta. [Visual Studio Application Insights](app-insights-overview.md) invia richieste Web all'applicazione a intervalli regolari da diversi punti in tutto il mondo. Invia avvisi all'utente nel caso in cui l'applicazione risponda lentamente o non risponda affatto.
+Dopo aver distribuito l'app Web o il sito Web in qualsiasi server, è possibile configurare test Web per monitorarne la disponibilità e la velocità di risposta. [Azure Application Insights](app-insights-overview.md) invia richieste Web all'applicazione a intervalli regolari da diversi punti in tutto il mondo. Invia avvisi all'utente nel caso in cui l'applicazione risponda lentamente o non risponda affatto.
 
 ![Esempio di test Web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
-È possibile configurare test Web per qualsiasi endpoint HTTPS accessibile dalla rete Internet pubblica.
+È possibile configurare test Web per qualsiasi endpoint HTTPS accessibile dalla rete Internet pubblica. Non è necessario aggiungere altro al sito Web che si sta testando. Non deve necessariamente trattarsi del proprio sito: è possibile testare un servizio API REST da cui si dipende.
 
 Sono disponibili due tipi di test Web:
 
@@ -102,8 +102,20 @@ In alternativa, scaricare il file dei risultati ed esaminarlo in Visual Studio.
 
 *Ha un aspetto corretto ma è segnalato come errore?*  Controllare tutte le immagini, gli script, i fogli di stile e qualsiasi altro file caricato dalla pagina. In caso di errore in uno di essi, il test verrà segnalato come non superato, anche se la pagina HTML principale viene caricata correttamente.
 
-## <a name="multistep-web-tests"></a>Test Web in più passaggi
+### <a name="open-the-server-request-and-exceptions"></a>Aprire il report della richieste e delle eccezioni del server
+
+Dalle proprietà dettagliate di un determinato test, è possibile aprire il report sul lato server relativo alla richiesta e ad altri eventi, ad esempio le eccezioni.
+
+![Webtest run result](./media/app-insights-monitor-web-app-availability/web-test-linked-to-server-telemetry.png)
+
+Se non vengono visualizzati elementi correlati, il problema può essere dovuto al fatto che è in corso il [campionamento](app-insights-sampling.md).
+
+## <a name="multi-step-web-tests"></a>Test Web in più passaggi
 È possibile monitorare uno scenario che comporta una sequenza di URL. Ad esempio, se si monitora un sito Web di vendita, si potrebbe testare il corretto funzionamento dell'aggiunta di articoli al carrelli acquisti.
+
+> [!NOTE] 
+> È prevista una tariffa per i test Web in più passaggi. Vedere lo [schema dei prezzi](http://azure.microsoft.com/pricing/details/application-insights/).
+> 
 
 Per creare un test in più passaggi, registrare lo scenario con Visual Studio, quindi caricare la registrazione in Application Insights. Application Insights riprodurrà lo scenario a intervalli e verificherà le risposte.
 
@@ -153,7 +165,7 @@ Non dimenticare che, perché il test abbia esito positivo, tutte le risorse di u
 
 Si noti che il test Web deve essere interamente contenuto nel file con estensione webtest: non è possibile usare funzioni codificate nel test.
 
-### <a name="plugging-time-and-random-numbers-into-your-multistep-test"></a>Inserimento di plug-in relativi a tempo e numeri casuali nel test in più passaggi
+### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Inserimento di plug-in relativi a tempo e numeri casuali nel test in più passaggi
 Si supponga di voler testare uno strumento che riceva dati dipendenti dal tempo, come ad esempio valori di scorte da un feed esterno. Quando si registra il test Web, è necessario usare tempi specifici impostandoli come parametri del test, StartTime e EndTime.
 
 ![Un test Web con parametri.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-parameters.png)
@@ -176,7 +188,7 @@ I plug-in del test Web consentono di impostare questi parametri.
 
 Caricare quindi il test nel portale. Userà i valori dinamici ogni volta che verrà eseguito.
 
-## <a name="dealing-with-signin"></a>Gestione degli accessi
+## <a name="dealing-with-sign-in"></a>Gestione degli accessi
 Se gli utenti accedono all'app, è possibile simulare l'accesso in vari modi per testare le pagine usate per l'accesso. L'approccio da preferire dipende dal tipo di sicurezza fornito dall'app.
 
 In tutti i casi è consigliabile creare un account nell'applicazione solo a scopo di test. Se possibile, limitare le autorizzazioni dell'account di test in modo che i test Web non possano influire in alcun modo sugli utenti reali.
@@ -282,6 +294,6 @@ Al termine del test verranno visualizzati i tempi di risposta e le percentuali d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

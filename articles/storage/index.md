@@ -1,17 +1,17 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 4d6fd9344eaee31de4ee1e614ae558ce159c9245
-ms.openlocfilehash: 34ead7be5278478047f8c6e56c56dfb977ca1d7c
+ms.sourcegitcommit: 965b96507d66f3880bdf3b38362d1eb026afdb51
+ms.openlocfilehash: e72557a87088ba66a669d37ba0033da951e7fdb8
 
 ---
 #<a name="storage-documentation"></a>Documentazione di Archiviazione
 
-Archiviazione di Azure è la soluzione di archiviazione cloud per le applicazioni moderne basate su durata, disponibilità e scalabilità per soddisfare le esigenze dei clienti.  Ha scalabilità elevata, è elastico e accessibile ovunque e bilancia automaticamente il carico dei dati in base al traffico.  Archiviazione di Azure offre i quattro servizi seguenti per soddisfare le esigenze dell'applicazione: archiviazione BLOB, archiviazione tabelle, archiviazione code e archiviazione file.
+Archiviazione di Azure è la soluzione di archiviazione cloud per le applicazioni moderne basate su durata, disponibilità e scalabilità per soddisfare le esigenze dei clienti.  Ha scalabilità elevata, è elastico e accessibile ovunque e bilancia automaticamente il carico dei dati in base al traffico.  Archiviazione di Azure offre i cinque servizi seguenti per soddisfare le esigenze dell'applicazione: archiviazione BLOB, archiviazione tabelle, archiviazione code, archiviazione su disco e archiviazione file.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/storage/storage-introduction/ ">
+        <a href="/azure/storage/storage-introduction">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -47,7 +47,7 @@ Archiviazione di Azure è la soluzione di archiviazione cloud per le applicazion
         </a>
     </li>
     <li>
-        <a href="/azure/storage/storage-getting-started-guide/ ">
+        <a href="/azure/storage/storage-getting-started-guide">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -86,27 +86,91 @@ Archiviazione di Azure è la soluzione di archiviazione cloud per le applicazion
 
 ---
 
-##<a name="reference"></a>Riferimento
+## <a name="reference"></a>Riferimento
 
-###<a name="powershell"></a>PowerShell
-[Azure PowerShell](/powershell/azureps-cmdlets-docs)
-
-###<a name="azure-cli"></a>Interfaccia della riga di comando di Azure 
-[Informazioni di riferimento su Archiviazione con l'interfaccia della riga di comando di Azure](/cli/azure/storage)
-
-###<a name="java"></a>Java 
-[Informazioni di riferimento su Archiviazione in Java](/java/api/)
-
-###<a name="net"></a>.NET 
-[API di riferimento gestita di Archiviazione](https://msdn.microsoft.com/library/azure/mt347887) 
-
-###<a name="rest"></a>REST 
-[Informazioni di riferimento sulle API REST di Archiviazione](/rest/api/storageservices) 
-[Informazioni di riferimento sulle API REST del provider di risorse di archiviazione](/rest/api/storagerp)  
-
-
-
-
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/cli/azure/storage">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Interfaccia della riga di comando di Azure</h3>
+                        <p>Riferimento sull'Archiviazione tramite l'interfaccia della riga di comando di Azure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/java/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Informazioni di riferimento su Archiviazione in Java</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/mt347887">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>API di riferimento gestito di Archiviazione</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/storageservices">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Informazioni di riferimento sull'API REST di Archiviazione</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+        <a href="/rest/api/storagerp">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <p>Informazioni di riferimento sulle API REST del provider di risorse di archiviazione</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>   
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storage.pdf">
@@ -118,6 +182,6 @@ Scaricare la documentazione di Archiviazione </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

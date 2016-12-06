@@ -23,23 +23,23 @@
 ### [Creare e distribuire un hub eventi usando un modello di Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
 ### [Usare Python per abilitare l'archivio di Hub eventi](event-hubs-archive-python.md)
 
-# riferimento
-## [Guida al protocollo AMQP1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
-## [Informazioni di riferimento sulle API REST dell'hub eventi](https://msdn.microsoft.com/library/azure/dn790674)
-## [Informazioni di riferimento sull'API .NET di Hub eventi](https://msdn.microsoft.com/library/azure/jj933424)
-## [Informazioni di riferimento sull'API dell'host del processore di eventi](https://msdn.microsoft.com/library/microsoft.servicebus.messaging(v=azure.95).aspx)
+# Riferimento
 ## [Quote e limitazioni](event-hubs-quotas.md)
-## [Eccezioni della messaggistica di Hub eventi](event-hubs-messaging-exceptions.md)
+## [Eccezioni della messaggistica](event-hubs-messaging-exceptions.md)
+## [Java](/java/api)
+## [.NET](/dotnet/api)
+## [Guida al protocollo AMQP1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
+## [REST](/rest/api/eventhub)
 
 # Risorse
+## [Prezzi](https://azure.microsoft.com/en-us/pricing/details/event-hubs/)
+## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
+## [Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
-## [Forum MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
-## [Gestire le risorse del bus di servizio e di Hub eventi con lo strumento di esplorazione del bus di servizio](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
-## [Percorso di apprendimento per Hub eventi](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
+## [Video](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
 
 
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

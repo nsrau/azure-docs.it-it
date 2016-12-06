@@ -1,5 +1,6 @@
-## Gateway applicazione
-Il servizio Gateway applicazione fornisce una soluzione di bilanciamento del carico HTTP gestita da Azure basata sul bilanciamento del carico di livello 7. Il bilanciamento del carico applicazioni consente di usare le regole di routing per il traffico di rete basato su HTTP. <BR>
+## <a name="application-gateway"></a>Gateway applicazione
+Il servizio Gateway applicazione fornisce una soluzione di bilanciamento del carico HTTP gestita da Azure basata sul bilanciamento del carico di livello 7. Il bilanciamento del carico applicazioni consente di usare le regole di routing per il traffico di rete basato su HTTP. 
+<BR>
 
 | Proprietà | Descrizione |
 | --- | --- |
@@ -215,7 +216,11 @@ Esempio di un modello Json del gateway applicazione:
     }
 
 
-### Risorse aggiuntive
-Leggere [API REST del gateway applicazione](https://msdn.microsoft.com/library/azure/mt299388.aspx) per altre informazioni.
+### <a name="additional-resources"></a>Risorse aggiuntive
+Leggere [ API REST del gateway applicazione](https://msdn.microsoft.com/library/azure/mt299388.aspx) per altre informazioni.
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

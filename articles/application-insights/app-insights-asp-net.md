@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.date: 10/13/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b6e5898d94a43b6859ce354f154bdb25948f7686
+ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
+ms.openlocfilehash: a97e20b208d92e03bd4458605aaa48ef7c389e32
 
 
 ---
 # <a name="set-up-application-insights-for-aspnet"></a>Installare Application Insights per ASP.NET
-[Visual Studio Application Insights](app-insights-overview.md) consente di monitorare un'applicazione live per [rilevare e diagnosticare i problemi di prestazioni e le eccezioni](app-insights-detect-triage-diagnose.md) e [rilevare la modalità di uso dell'app](app-insights-overview-usage.md).  Può essere usato per app ospitate nei server IIS locali o in VM del cloud oppure per app Web di Azure.
+[Azure Application Insights](app-insights-overview.md) consente di monitorare un'applicazione attiva per [rilevare e diagnosticare i problemi di prestazioni e le eccezioni](app-insights-detect-triage-diagnose.md) e [individuare la modalità d'uso dell'app](app-insights-overview-usage.md).  Può essere usato per app ospitate nei server IIS locali o in VM del cloud oppure per app Web di Azure.
 
 ## <a name="before-you-start"></a>Prima di iniziare
 Sono necessari:
@@ -113,7 +113,7 @@ Per eseguire l'aggiornamento a una [nuova versione dell'SDK](https://github.com/
 Se sono state eseguite tutte le personalizzazioni apportate al file ApplicationInsights.config, salvarne una copia prima di eseguire l'aggiornamento e, successivamente, unire le modifiche nella nuova versione.
 
 ## <a name="add-more-telemetry"></a>Aggiungere altri dati di telemetria
-### <a name="web-pages-and-singlepage-apps"></a>Pagine Web e app a singola pagina
+### <a name="web-pages-and-single-page-apps"></a>Pagine Web e app a singola pagina
 1. [Aggiungere il frammento JavaScript](app-insights-javascript.md) alle pagine Web per evidenziare nei pannelli Browser e Utilizzo i dati sulle visualizzazioni delle pagine, i tempi di caricamento, le eccezioni del browser, le prestazioni delle chiamate AJAX e i conteggi degli utenti e delle sessioni.
 2. [Scrivere codice per gli eventi personalizzati](app-insights-api-custom-events-metrics.md) delle azioni utente relative a conteggi, ore o misure.
 
@@ -175,6 +175,6 @@ Se si usa Visual Studio Team Services, è possibile [aggiungere un marcatore di 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

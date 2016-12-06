@@ -102,7 +102,7 @@
 ### [Firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md)
 ### [Esercitazione: Crittografare e decrittografare BLOB con l'insieme di credenziali delle chiavi di Azure](storage-encrypt-decrypt-blobs-key-vault.md)
 ### Crittografia lato client
-#### [Insieme di credenziali delle chiavi di Azure](storage-client-side-encryption.md)
+#### [.NET](storage-client-side-encryption.md)
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 
@@ -181,6 +181,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

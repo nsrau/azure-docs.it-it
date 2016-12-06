@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/10/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9642ea16bff4b0cd4bf3e88d7530765d4c7bfbc5
+ms.sourcegitcommit: 288c616c5698288c9fd467836125c1259d0418d7
+ms.openlocfilehash: 51c7899d72fb06c44c52685927b1c5dc40ab4cd3
 
 
 ---

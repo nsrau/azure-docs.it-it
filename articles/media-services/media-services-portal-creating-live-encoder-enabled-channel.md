@@ -20,7 +20,7 @@ ms.openlocfilehash: d8c63c3b8ff853986129403f83b14575fd63264c
 
 
 ---
-# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multibitrate-streams-with-the-azure-portal"></a>Come eseguire lo streaming live con Servizi multimediali di Azure per creare flussi a bitrate multipli con il portale di Azure
+# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Come eseguire lo streaming live con Servizi multimediali di Azure per creare flussi a bitrate multipli con il portale di Azure
 > [!div class="op_single_selector"]
 > * [Portale](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -71,7 +71,7 @@ In questa esercitazione il portale di Azure viene usato per eseguire le attivit√
 4. Creare un evento o un programma e un asset.
 5. Pubblicare l'asset e ottenere gli URL di streaming.  
 6. Riprodurre i contenuti 
-7. + Cleaning up
+7. Cleaning up
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare l'esercitazione √® necessario quanto segue.

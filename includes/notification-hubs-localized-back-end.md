@@ -15,7 +15,7 @@ In questa sezione viene illustrato come inviare notifiche tramite un’app conso
 
 Il codice incluso trasmette le notifiche sia Windows Store che a dispositivi iOS, poiché il back-end è in grado di trasmettere a qualsiasi dispositivo supportato.
 
-### Per inviare notifiche tramite un'app console C
+### <a name="to-send-notifications-using-a-c-console-app"></a>Per inviare notifiche tramite un'app console C#
 Modificare il metodo `SendTemplateNotificationAsync` nell'app console creata in precedenza con il codice seguente. Si noti come in questo caso non sia necessario inviare più notifiche per impostazioni locali e piattaforme diverse.
 
         private static async void SendTemplateNotificationAsync()
@@ -54,7 +54,7 @@ Modificare il metodo `SendTemplateNotificationAsync` nell'app console creata in 
 
 Si noti che questa semplice chiamata distribuirà la notizia localizzata a **tutti** i dispositivi, indipendentemente dalla piattaforma, in quanto l'Hub di notifica crea il payload nativo corretto e lo distribuisce a tutti i dispositivi che hanno sottoscritto un tag specifico.
 
-### Invio della notifica con Servizi mobili
+### <a name="sending-the-notification-with-mobile-services"></a>Invio della notifica con Servizi mobili
 Nell'utilità di pianificazione di Servizi mobili, è possibile utilizzare lo script seguente:
 
     var azure = require('azure');
@@ -71,4 +71,8 @@ Nell'utilità di pianificazione di Servizi mobili, è possibile utilizzare lo sc
     });
 
 
-<!---HONumber=AcomDC_1217_2015-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

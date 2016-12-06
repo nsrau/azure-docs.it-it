@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 09/27/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f5fa586bd8902af2129a7157f0549c337ae00d00
+ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
+ms.openlocfilehash: 3152b9dd234b57b2f53192bd44d0b6d7ce7329a1
 
 
 ---
@@ -43,15 +43,14 @@ Ad esempio, se si prevede un aumento del carico di lavoro sul database, è possi
 Le metriche delle prestazioni consentono inoltre di determinare se è possibile effettuare il downgrade a un livello di prestazioni inferiore. Presupporre di utilizzare un database Standard S2 e tutte le metriche delle prestazioni mostrano che il database in media non utilizza più del 10% in un dato momento. È probabile che il database funzioni bene in Standard S1. Tuttavia, prestare attenzione ai picchi o alle fluttuazioni dei carichi di lavoro prima di decidere di passare a un livello di prestazioni inferiore.
 
 ## <a name="monitor-databases-using-dmvs"></a>Monitorare i database con le viste a gestione dinamica
-Le stesse metriche esposte nel portale sono disponibili anche tramite le viste di sistema: [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) nel database **master** logico del server e [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) nel database utente. Usare **sys.resource_stats** se è necessario monitorare meno dati granulari in un periodo di tempo più lungo. Usare **sys.dm_db_resource_stats** se è necessario monitorare più dati granulari in un periodo di tempo più breve. Per ulteriori informazioni, vedere la [Guida alle prestazioni del database SQL di Azure](sql-database-performance-guidance.md#monitoring-resource-use-with-sysresourcestats).
+Le stesse metriche esposte nel portale sono disponibili anche tramite le viste di sistema: [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) nel database **master** logico del server e [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) nel database utente. Usare **sys.resource_stats** se è necessario monitorare meno dati granulari in un periodo di tempo più lungo. Usare **sys.dm_db_resource_stats** se è necessario monitorare più dati granulari in un periodo di tempo più breve. Per ulteriori informazioni, vedere la [Guida alle prestazioni del database SQL di Azure](sql-database-performance-guidance.md#monitor-resource-use).
 
 > [!NOTE]
 > **sys.dm_db_resource_stats** restituisce un set di risultati vuoto quando viene usato nei database Web e Business Edition, che sono stati ritirati.
-> 
-> 
+>
+>
 
 Per i pool di database elastici, è possibile monitorare i singoli database nel pool con le tecniche descritte in questa sezione. Tuttavia, è anche possibile monitorare il pool nel complesso. Per informazioni, vedere [Monitorare e gestire un pool di database elastici](sql-database-elastic-pool-manage-portal.md).
-
 
 
 

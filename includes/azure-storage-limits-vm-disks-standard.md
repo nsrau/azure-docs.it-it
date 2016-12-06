@@ -6,4 +6,8 @@
 | Numero massimo di IOPS da 8 KB per disco persistente |300 |500 |
 | Numero massimo di dischi che eseguono il numero massimo di operazioni di I/O al secondo |66 |40 |
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

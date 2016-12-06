@@ -3,17 +3,21 @@
 
 ### <a name="add-the-relay-nuget-package"></a>Aggiungere il pacchetto NuGet di inoltro
 1. Fare clic con il pulsante destro del mouse sul progetto appena creato e scegliere **Gestisci pacchetti NuGet**.
-2. Fare clic sulla scheda **Esplora**, quindi cercare "Inoltro di Microsoft Azure" e selezionare l'elemento **Inoltro di Microsoft Azure**. Fare clic su **Installa** per completare l'installazione, quindi chiudere questa finestra di dialogo.
+2. Fare clic sulla scheda **Sfoglia**, quindi cercare "Microsoft.Azure.Relay" e selezionare l'elemento **Inoltro di Microsoft Azure**. Fare clic su **Installa** per completare l'installazione, quindi chiudere questa finestra di dialogo.
 
 ### <a name="write-some-code-to-send-messages"></a>Scrivere codice per inviare messaggi
-1. Aggiungere l'istruzione `using` seguente all'inizio del file Program.cs.
+1. Aggiungere le istruzioni `using` seguenti all'inizio del file Program.cs.
    
-    ```cs
+    ```csharp
+    using System;
+    using System.IO;
+    using System.Threading;
+    using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
 2. Aggiungere costanti alla classe `Program` per i dettagli della connessione ibrida. Sostituire i segnaposto tra parentesi con i valori specifici ottenuti durante la creazione della connessione ibrida.
    
-    ```cs
+    ```csharp
     private const string RelayNamespace = "{RelayNamespace}";
     private const string ConnectionName = "{HybridConnectionName}";
     private const string KeyName = "{SASKeyName}";
@@ -21,7 +25,7 @@
     ```
 3. Aggiungere alla classe `Program` un nuovo metodo come il seguente:
    
-    ```cs
+    ```csharp
     private static async Task RunAsync()
     {
         Console.WriteLine("Enter lines of text to send to the server with ENTER");
@@ -82,13 +86,13 @@
     ```
 4. Aggiungere la riga di codice seguente al metodo `Main` nella classe `Program`.
    
-    ```cs
+    ```csharp
     RunAsync().GetAwaiter().GetResult();
     ```
    
     Ecco l'aspetto che avrà il file Program.cs.
    
-    ```cs
+    ```csharp
     using System;
     using System.IO;
     using System.Threading;
@@ -172,6 +176,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

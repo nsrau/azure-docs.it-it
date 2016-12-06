@@ -1,10 +1,14 @@
 ---
 layout: LandingPage
+translationtype: Human Translation
+ms.sourcegitcommit: 14e447744ba2aa89a50783916a42af2e0314c5cd
+ms.openlocfilehash: 531a1066195512504e2417c1661b13c36649b3e9
+
 
 ---
-# Mobile Apps Documentation
+# <a name="mobile-apps-documentation"></a>Documentazione sulle app per dispositivi mobili
 
-API Management helps organizations publish APIs to external, partner and internal developers to unlock the potential of their data and services. Businesses everywhere are looking to extend their operations as a digital platform, creating new channels, finding new customers and driving deeper engagement with existing ones. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security and protection.
+Le app per dispositivi mobili nel servizio app di Azure offrono una piattaforma di sviluppo scalabile per dispositivi mobili, ottimale per gli sviluppatori aziendali e gli integratori di sistema, in grado di fornire un set completo di funzionalità agli sviluppatori di app per dispositivi mobili.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -14,11 +18,11 @@ API Management helps organizations publish APIs to external, partner and interna
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/app-service-mobile.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Mobile Apps</h3>
+                        <h3>Informazioni su App per dispositivi mobili</h3>
                     </div>
                 </div>
             </div>
@@ -32,11 +36,11 @@ API Management helps organizations publish APIs to external, partner and interna
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>App Service Video Library</h3>
+                        <h3>Catalogo video del Servizio app</h3>
                     </div>
                 </div>
             </div>
@@ -50,11 +54,11 @@ API Management helps organizations publish APIs to external, partner and interna
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Andriod app</h3>
+                        <h3>Introduzione alla creazione di un'app Android</h3>
                     </div>
                 </div>
             </div>
@@ -68,11 +72,11 @@ API Management helps organizations publish APIs to external, partner and interna
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Apache Cordova app</h3>
+                        <h3>Introduzione alla creazione di un'app Apache Cordova</h3>
                     </div>
                 </div>
             </div>
@@ -86,11 +90,11 @@ API Management helps organizations publish APIs to external, partner and interna
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an iOS app</h3>
+                        <h3>Introduzione alla creazione di un'app iOS</h3>
                     </div>
                 </div>
             </div>
@@ -104,11 +108,11 @@ API Management helps organizations publish APIs to external, partner and interna
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Windows app</h3>
+                        <h3>Introduzione alla creazione di un'app Windows</h3>
                     </div>
                 </div>
             </div>
@@ -122,11 +126,11 @@ API Management helps organizations publish APIs to external, partner and interna
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a xamarin.Andriod app</h3>
+                        <h3>Introduzione alla creazione di un'app xamarin.Android</h3>
                     </div>
                 </div>
             </div>
@@ -140,11 +144,11 @@ API Management helps organizations publish APIs to external, partner and interna
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a xamarin.Forms app</h3>
+                        <h3>Introduzione alla creazione di un'app xamarin.Forms</h3>
                     </div>
                 </div>
             </div>
@@ -158,11 +162,11 @@ API Management helps organizations publish APIs to external, partner and interna
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a xamarin.iOS app</h3>
+                        <h3>Introduzione alla creazione di un'app Xamarin.iOS</h3>
                     </div>
                 </div>
             </div>
@@ -173,16 +177,21 @@ API Management helps organizations publish APIs to external, partner and interna
 
 ---
 
-## Reference
+## <a name="reference"></a>Riferimento
 
-### .NET
-[Mobile Apps .NET Reference](https://msdn.microsoft.com/library/azure/dn961176)
+### <a name="net"></a>.NET
+[Informazioni di riferimento su .NET per app per dispositivi mobili](https://msdn.microsoft.com/library/azure/dn961176)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-mobile.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Mobile Apps Documentation
-        </div>
+Scaricare la documentazione sulle app per dispositivi mobili </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

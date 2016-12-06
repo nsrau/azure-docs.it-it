@@ -13,22 +13,22 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 10/27/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: 6d3bbea1a891e1d2f41eedccd9b9a591dfe13855
-
+ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
+ms.openlocfilehash: 107186c6d77550948169caa6f0f89589dd3bddd9
 
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>Creare un indice di Ricerca di Azure con l'API REST
 > [!div class="op_single_selector"]
+>
 > * [Panoramica](search-what-is-an-index.md)
 > * [Portale](search-create-index-portal.md)
 > * [.NET](search-create-index-dotnet.md)
 > * [REST](search-create-index-rest-api.md)
-> 
-> 
+>
+>
 
 Questo articolo illustra il processo di creazione di un [indice](https://msdn.microsoft.com/library/azure/dn798941.aspx) di Ricerca di Azure mediante l'API REST di Ricerca di Azure.
 
@@ -36,7 +36,7 @@ Prima di seguire le indicazioni di questa guida e creare un indice, è necessari
 
 Per creare un indice di Ricerca di Azure usando l'API REST, verrà inviata una singola richiesta HTTP POST all'endpoint dell'URL del servizio Ricerca di Azure. La definizione dell'indice verrà inclusa nel corpo della richiesta come contenuto JSON ben formato.
 
-## <a name="i-identify-your-azure-search-services-admin-apikey"></a>I. Identificare la chiave API amministratore del servizio Ricerca di Azure
+## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identificare la chiave API amministratore del servizio Ricerca di Azure
 Dopo avere effettuato il provisioning di un servizio Ricerca di Azure, è possibile inviare richieste HTTP rispetto all'endpoint dell'URL del servizio usando l'API REST. Tuttavia, *tutte* le richieste API devono includere la chiave API amministratore generata per il servizio di ricerca di cui è stato effettuato il provisioning. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
 1. Per trovare le chiavi API del servizio, è necessario accedere al [portale di Azure](https://portal.azure.com/)
@@ -50,7 +50,7 @@ Il servizio avrà *chiavi amministratore* e *chiavi di query*.
 
 Per la creazione di un indice è possibile usare la chiave primaria o secondaria.
 
-## <a name="ii-define-your-azure-search-index-using-wellformed-json"></a>II. Definire l'indice di Ricerca di Azure usando JSON ben formato
+## <a name="ii-define-your-azure-search-index-using-well-formed-json"></a>II. Definire l'indice di Ricerca di Azure usando JSON ben formato
 Una singola richiesta HTTP POST al servizio creerà l'indice. Il corpo della richiesta HTTP POST conterrà un singolo oggetto JSON che definisce l'indice di Ricerca di Azure.
 
 1. La prima proprietà di questo oggetto JSON è il nome dell'indice.
@@ -87,12 +87,12 @@ Si noti che esattamente un campo di tipo `Edm.String` nell'indice deve essere il
 La definizione di indice precedente usa un analizzatore personalizzato della lingua per il campo `description_fr` , perché viene usato per archiviare testo in francese. Per altre informazioni sugli analizzatori di lingue, vedere l'[articolo sul supporto per le lingue in MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx) e il [post di blog](https://azure.microsoft.com/blog/language-support-in-azure-search/) corrispondente.
 
 ## <a name="iii-issue-the-http-request"></a>III. Inviare la richiesta HTTP
-1. Usando la definizione di indice come corpo della richiesta, inviare una richiesta HTTP POST all'URL dell'endpoint di servizio Ricerca di Azure. Assicurarsi di usare nell'URL il nome del servizio come nome host e specificare il valore `api-version` appropriato come parametro della stringa di query. La versione API corrente è `2015-02-28` al momento della pubblicazione di questo documento.
+1. Usando la definizione di indice come corpo della richiesta, inviare una richiesta HTTP POST all'URL dell'endpoint di servizio Ricerca di Azure. Assicurarsi di usare nell'URL il nome del servizio come nome host e specificare il valore `api-version` appropriato come parametro della stringa di query. La versione API corrente è `2016-09-01` al momento della pubblicazione di questo documento.
 2. Nelle intestazioni della richiesta specificare `Content-Type` come `application/json`. Sarà anche necessario specificare la chiave amministratore del servizio identificata nel Passaggio I nell'intestazione `api-key` .
 
 È necessario fornire il nome servizio e la chiave API per inviare la richiesta seguente:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
+    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
     Content-Type: application/json
     api-key: [api-key]
 
@@ -101,7 +101,7 @@ Per una richiesta riuscita, verrà visualizzato il codice di stato 201 (Creato).
 
 Dopo avere usato un indice, se si vuole eliminarlo è sufficiente inviare una richiesta HTTP DELETE. Ad esempio, per eliminare l'indice "hotels":
 
-    DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2015-02-28
+    DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2016-09-01
     api-key: [api-key]
 
 
@@ -110,7 +110,6 @@ Dopo avere creato un indice di Ricerca di Azure, sarà possibile [caricare il co
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

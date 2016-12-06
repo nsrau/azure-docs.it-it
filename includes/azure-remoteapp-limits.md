@@ -18,7 +18,7 @@
 | Timeout di inattività |4 ore |
 | Timeout di disconnessione |4 ore |
 
-**Non è possibile aumentare i limiti utente nei livelli Basic e Standard oltre il limite massimo elencato in precedenza.
+*Non è possibile aumentare i limiti utente nei livelli Basic e Standard oltre il limite massimo elencato in precedenza. 
 
 Il numero di utenti che è possibile supportare è determinato dal numero di VM usate per la raccolta:
 
@@ -26,4 +26,9 @@ Il numero di utenti che è possibile supportare è determinato dal numero di VM 
 * Standard: 10 utenti per VM
 * Premium = 4 utenti per VM
 * Premium plus = 2 utenti per VM
+
+
+
+<!--HONumber=Nov16_HO3-->
+
 

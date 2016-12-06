@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 29794682e0258a6d30c9b2ac96b6e58272bc3f48
-ms.openlocfilehash: af563864a5f76452ea2d28c548731c025f5f8390
+ms.sourcegitcommit: 87316969b7849396c6542decde3257774c35c454
+ms.openlocfilehash: dc15cd4e497135ea9ce07d671020af6df49ad3f6
 
 ---
 #<a name="azure-functions-documentation"></a>Documentazione di Funzioni di Azure
@@ -28,7 +28,7 @@ Funzioni di Azure è una soluzione che consente di eseguire facilmente piccole p
         </div>
         </a>
     </li>
-   
+
    <li>
         <a href="/azure/azure-functions/functions-create-first-azure-function">
         <div class="cardSize">
@@ -54,11 +54,11 @@ Funzioni di Azure è una soluzione che consente di eseguire facilmente piccole p
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Creare una funzione webhook</h3>
+                        <h3>Introduzione alla funzione webhook</h3>
                     </div>
                 </div>
             </div>
@@ -72,11 +72,11 @@ Funzioni di Azure è una soluzione che consente di eseguire facilmente piccole p
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Creare una funzione connessa di Azure</h3>
+                        <h3>Introduzione alle funzioni connesse di Azure</h3>
                     </div>
                 </div>
             </div>
@@ -90,11 +90,11 @@ Funzioni di Azure è una soluzione che consente di eseguire facilmente piccole p
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Creare una funzione di elaborazione di eventi</h3>
+                        <h3>Introduzione alle funzioni di elaborazione degli eventi</h3>
                     </div>
                 </div>
             </div>
@@ -104,18 +104,6 @@ Funzioni di Azure è una soluzione che consente di eseguire facilmente piccole p
 </ul>
 
 ---
-
-##<a name="reference"></a>riferimento
-
-### <a name="c35"></a>C&#35;
-[Informazioni di riferimento per sviluppatori C#](/azure/azure-functions/functions-reference-csharp)
-
-### <a name="f35"></a>F&#35;
-[Informazioni di riferimento per sviluppatori F#](/azure/azure-functions/functions-reference-fsharp)
-
-### <a name="nodejs"></a>Node.js
-[Informazioni di riferimento per sviluppatori Node.js](/azure/azure-functions/functions-reference-node)
-
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-functions.pdf">
@@ -127,6 +115,6 @@ Scaricare la documentazione di Funzioni di Azure </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

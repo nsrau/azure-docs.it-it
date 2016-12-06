@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 09/13/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 53bc8d8f2093955afaf25007e10be230b3eb94db
+ms.sourcegitcommit: a977cb509fb64d7c986e2e0f7e2b5e4e3e45dec0
+ms.openlocfilehash: f001bc76161565bd07606d366c07b15edf819e81
 
 
 ---
@@ -43,7 +43,7 @@ Durante l'installazione dei servizi di sincronizzazione è possibile lasciare de
 | Usare un account di servizio esistente |Per impostazione predefinita, Azure AD Connect crea un account di servizio locale che verrà usato dai servizi di sincronizzazione. La password viene generata automaticamente e non è nota alla persona che installa Azure AD Connect. Se si usa un server SQL remoto o un proxy che richiede l'autenticazione, è necessario avere un account di servizio nel dominio e conoscere la password. In questi casi, immettere l'account di servizio da usare. Assicurarsi che l'utente che esegue l'installazione sia un'associazione di sicurezza in SQL, in modo che sia possibile creare un accesso per l'account del servizio. Vedere [Autorizzazioni e account di Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
 | Specificare i gruppi di sincronizzazione personalizzati |Per impostazione predefinita, Azure AD Connect crea quattro gruppi locali nel server quando vengono installati i servizi di sincronizzazione. I gruppi sono: gruppo Administrators, gruppo Operators, gruppo Browse e Gruppo Password Reset. È possibile specificare qui i gruppi personalizzati. I gruppi devono essere locali sul server e non possono trovarsi nel dominio. |
 
-### <a name="user-signin"></a>Accesso utente
+### <a name="user-sign-in"></a>Accesso utente
 Dopo l'installazione dei componenti necessari, viene richiesta la selezione del metodo di accesso Single Sign-On degli utenti. La tabella seguente fornisce una breve descrizione delle opzioni disponibili. Per una descrizione completa dei metodi di accesso, vedere [Accesso utente](../active-directory-aadconnect-user-signin.md).
 
 ![Accesso utente](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
@@ -73,7 +73,7 @@ Per connettersi a Servizi di dominio di Active Directory, Azure AD Connect richi
 
 ![Directory di connessione](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
 
-### <a name="azure-ad-signin-configuration"></a>Configurazione dell'accesso ad Azure AD
+### <a name="azure-ad-sign-in-configuration"></a>Configurazione dell'accesso ad Azure AD
 Questa pagina consente di verificare i domini UPN presenti nell'istanza locale di Servizi di dominio Active Directory, già verificati in Azure AD. Questa pagina consente anche di configurare l'attributo da usare per userPrincipalName.
 
 ![Domini non verificati](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig.png)  
@@ -83,8 +83,8 @@ Verificare ogni dominio contrassegnato come **Non aggiunto** e **Non verificato*
 
 > [!WARNING]
 > L'uso di un ID alternativo non è compatibile con tutti i carichi di lavoro di Office 365. Per altre informazioni, vedere [Configurazione dell'ID di accesso alternativo](https://technet.microsoft.com/library/dn659436.aspx).
-> 
-> 
+>
+>
 
 ### <a name="domain-and-ou-filtering"></a>Filtro unità organizzativa e dominio
 Per impostazione predefinita, vengono sincronizzati tutti i domini e le unità organizzative. Per escludere alcuni domini o unità organizzative dalla sincronizzazione con Azure AD, è possibile deselezionarli.  
@@ -101,13 +101,13 @@ La corrispondenza tra la funzionalità delle foreste consente di definire la mod
 
 | Impostazione | Descrizione |
 | --- | --- |
-| [Gli utenti vengono rappresentati solo una volta nel numero totale delle foreste](../active-directory-aadconnect-topologies.md#multiple-forests-separate-topologies) |Tutti gli utenti vengono creati come singoli oggetti in Azure AD. Gli oggetti non vengono uniti nel metaverse. |
-| [Attributo di posta](../active-directory-aadconnect-topologies.md#multiple-forests-full-mesh-with-optional-galsync) |Questa opzione unisce utenti e contatti se l'attributo di posta ha lo stesso valore in foreste diverse. Usare questa opzione quando i contatti sono stati creati mediante GALSync. |
-| [ObjectSID e msExchangeMasterAccountSID/msRTCSIP-OriginatorSid](../active-directory-aadconnect-topologies.md#multiple-forests-account-resource-forest) |Questa opzione unisce un utente abilitato in una foresta di account a un utente disabilitato in una foresta di risorse. In Exchange questa configurazione è definita cassetta postale collegata. Questa opzione può essere utilizzata anche se si utilizza solo Lync, ed Exchange non è presente nella foresta delle risorse. |
+| [Gli utenti vengono rappresentati solo una volta nel numero totale delle foreste](../active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Tutti gli utenti vengono creati come singoli oggetti in Azure AD. Gli oggetti non vengono uniti nel metaverse. |
+| [Attributo di posta](../active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Questa opzione unisce utenti e contatti se l'attributo di posta ha lo stesso valore in foreste diverse. Usare questa opzione quando i contatti sono stati creati mediante GALSync. |
+| [ObjectSID e msExchangeMasterAccountSID/msRTCSIP-OriginatorSid](../active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Questa opzione unisce un utente abilitato in una foresta di account a un utente disabilitato in una foresta di risorse. In Exchange questa configurazione è definita cassetta postale collegata. Questa opzione può essere utilizzata anche se si utilizza solo Lync, ed Exchange non è presente nella foresta delle risorse. |
 | sAMAccountName e MailNickName |Questa opzione crea un join degli attributi in cui si prevede la possibilità di trovare l'ID di accesso dell'utente. |
 | Attributo specifico |Questa opzione consente di selezionare un attributo personale. **Limitazione:** verificare di avere selezionato un attributo già disponibile nel metaverse. Se si seleziona un attributo personalizzato, non disponibile nel metaverse, non sarà possibile completare la procedura guidata. |
 
-**Ancoraggio di origine**: l'attributo sourceAnchor non può essere modificato per l'intera durata di un oggetto utente. È la chiave primaria che collega l'utente locale con l'utente in Azure AD. Poiché l'attributo non può essere modificato, è necessario pianificare un attributo valido da usare. objectGUID è un candidato valido. Questo attributo non subisce modifiche, a meno che l'account utente non venga spostato tra foreste/domini. In un ambiente a più foreste, nel quale è possibile spostare account tra foreste, è necessario usare un altro attributo, ad esempio un attributo con il valore employeeID. Evitare gli attributi che subirebbero modifiche in caso di matrimonio o nuova assegnazione dell'utente. Non è possibile usare gli attributi con @-sign,, pertanto non è possibile usare indirizzi di posta elettronica e userPrincipalName. L'attributo rispetta anche la distinzione tra maiuscole e minuscole. Quando si sposta un oggetto tra foreste, occorre quindi assicurarsi di mantenere tale distinzione. Gli attributo binari hanno una codifica di tipo base64, ma altri tipi di attributi mantengono lo stato non codificato. Negli scenari di federazione e in alcune interfacce di Azure AD questo attributo è noto anche come immutableID. In [Concetti relativi alla progettazione](../active-directory-aadconnect-design-concepts.md#sourceAnchor) sono disponibili altre informazioni sull'ancoraggio di origine.
+**Ancoraggio di origine**: l'attributo sourceAnchor non può essere modificato per l'intera durata di un oggetto utente. È la chiave primaria che collega l'utente locale con l'utente in Azure AD. Poiché l'attributo non può essere modificato, è necessario pianificare un attributo valido da usare. objectGUID è un candidato valido. Questo attributo non subisce modifiche, a meno che l'account utente non venga spostato tra foreste/domini. In un ambiente a più foreste, nel quale è possibile spostare account tra foreste, è necessario usare un altro attributo, ad esempio un attributo con il valore employeeID. Evitare gli attributi che subirebbero modifiche in caso di matrimonio o nuova assegnazione dell'utente. Non è possibile usare gli attributi con @-sign,, pertanto non è possibile usare indirizzi di posta elettronica e userPrincipalName. L'attributo rispetta anche la distinzione tra maiuscole e minuscole. Quando si sposta un oggetto tra foreste, occorre quindi assicurarsi di mantenere tale distinzione. Gli attributo binari hanno una codifica di tipo base64, ma altri tipi di attributi mantengono lo stato non codificato. Negli scenari di federazione e in alcune interfacce di Azure AD questo attributo è noto anche come immutableID. In [Concetti relativi alla progettazione](../active-directory-aadconnect-design-concepts.md#sourceanchor) sono disponibili altre informazioni sull'ancoraggio di origine.
 
 ### <a name="sync-filtering-based-on-groups"></a>Filtro di sincronizzazione basato sui gruppi
 La funzionalità di filtro sui gruppi consente di sincronizzare solo un sottoinsieme ridotto di oggetti per un progetto pilota. Per usare questa funzionalità, creare un gruppo per questo scopo specifico nell'istanza locale di Active Directory. Aggiungere quindi utenti e gruppi da sincronizzare in Azure AD come membri diretti, In un secondo momento, è possibile aggiungere utenti a questo gruppo e rimuoverli per gestire l'elenco di oggetti che devono essere presenti in Azure AD. Tutti gli oggetti che si desidera sincronizzare devono essere membri diretti del gruppo, ad esempio utenti, gruppi, contatti e computer/dispositivi. L'appartenenza ai gruppi annidati non viene risolta. Quando si aggiunge un gruppo come membro, viene aggiunto solo il gruppo stesso, non i rispettivi membri.
@@ -116,8 +116,8 @@ La funzionalità di filtro sui gruppi consente di sincronizzare solo un sottoins
 
 > [!WARNING]
 > Questa funzionalità è destinata solo al supporto di una distribuzione pilota. Non usarla in una distribuzione di produzione completa.
-> 
-> 
+>
+>
 
 In una distribuzione di produzione completa è difficile mantenere un singolo gruppo con tutti gli oggetti da sincronizzare. È invece necessario usare uno dei metodi descritti in [Configurare il filtro](../active-directory-aadconnectsync-configure-filtering.md).
 
@@ -128,8 +128,8 @@ Questa schermata consente di selezionare le funzionalità facoltative per gli sc
 
 > [!WARNING]
 > Se attualmente è attivo DirSync o Azure AD Sync, non attivare nessuna delle funzionalità di writeback in Azure AD Connect.
-> 
-> 
+>
+>
 
 | Funzionalità facoltative | Descrizione |
 | --- | --- |
@@ -152,8 +152,8 @@ In base ai servizi selezionati nel passaggio precedente, questa pagina visualizz
 
 > [!WARNING]
 > La rimozione degli attributi può influire sulle funzionalità. Per procedure consigliate e indicazioni, vedere gli [attributi sincronizzati](../active-directory-aadconnectsync-attributes-synchronized.md#attributes-to-synchronize).
-> 
-> 
+>
+>
 
 ### <a name="directory-extension-attribute-sync"></a>Sincronizzazione attributi estensione della directory
 È possibile estendere lo schema in Azure AD con attributi personalizzati aggiunti dall'organizzazione o altri attributi in Active Directory. Per usare questa funzionalità, selezionare **Sincronizzazione attributi estensione della directory** nella pagina **Funzionalità facoltative**. È possibile selezionare altri attributi da sincronizzare in questa pagina.
@@ -169,7 +169,7 @@ Configurare ADFS con Azure AD Connect è semplice e richiede l'esecuzione di poc
 * Un server Windows Server 2012 R2 per il server Proxy applicazione Web con la gestione remota abilitata
 * Un certificato SSL per il nome del servizio federativo che si intende usare, ad esempio sts.contoso.com
 
-### <a name="ad-fs-configuration-prerequisites"></a>Prerequisiti di configurazione di AD FS
+### <a name="ad-fs-configuration-pre-requisites"></a>Prerequisiti di configurazione di AD FS
 Per configurare la farm AD FS con Azure AD Connect, accertarsi che WinRM sia abilitata sui server remoti. Vedere anche i requisiti relativi alle porte elencati nella [Tabella 3 - Azure AD Connect e server federativi/WAP](../active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-federation-serverswap).
 
 ### <a name="create-a-new-ad-fs-farm-or-use-an-existing-ad-fs-farm"></a>Creare una nuova farm ADFS o usare una farm ADFS esistente
@@ -184,8 +184,8 @@ Immettere i server in cui si vuole installare AD FS. È possibile aggiungere uno
 
 > [!NOTE]
 > Assicurarsi che tutti i server siano aggiunti a un dominio di AD prima di eseguire la configurazione.
-> 
-> 
+>
+>
 
 ![Server ADFS](./media/active-directory-aadconnect-get-started-custom/adfs2.png)
 
@@ -195,7 +195,8 @@ Immettere i server da usare come server proxy applicazione Web. Il server Proxy 
 > [!NOTE]
 > <li> Se l'account usato non è un amministratore locale nei server AD FS, vengono richieste le credenziali di amministratore.</li>
 > <li> Verificare la connettività HTTP/HTTPS tra il server Azure AD Connect e il server proxy applicazione Web prima di eseguire questo passaggio.</li>
-> <li> Verificare la connettività HTTP/HTTPS tra il server applicazioni Web e il server AD FS per consentire il passaggio delle richieste di autenticazione.</li>> 
+> <li> Verificare la connettività HTTP/HTTPS tra il server applicazioni Web e il server AD FS per consentire il passaggio delle richieste di autenticazione.</li>
+>
 
 ![App Web](./media/active-directory-aadconnect-get-started-custom/adfs3.png)
 
@@ -225,16 +226,16 @@ Quando si seleziona il dominio da federare, Azure AD Connect fornisce le informa
 
 > [!NOTE]
 > Azure AD Connect prova a verificare il dominio in fase di configurazione. Se si continua la configurazione senza aggiungere i record DNS necessari, la procedura guidata non può completare la configurazione.
-> 
-> 
+>
+>
 
 ## <a name="configure-and-verify-pages"></a>Configurare e verificare le pagine
 La configurazione viene eseguita in questa pagina.
 
 > [!NOTE]
 > Se è stata configurata la federazione, prima di continuare l'installazione assicurarsi di avere configurato la [Risoluzione dei nomi per i server federativi](../active-directory-aadconnect-prerequisites.md#name-resolution-for-federation-servers).
-> 
-> 
+>
+>
 
 ![Pronto per la configurazione](./media/active-directory-aadconnect-get-started-custom/readytoconfigure2.png)
 
@@ -278,7 +279,6 @@ Ulteriori informazioni su [Integrazione delle identità locali con Azure Active 
 | Eseguire l'installazione con le Impostazioni rapide |
 | Aggiornamento da DirSync |
 | Account usati per l'installazione |
-
 
 
 

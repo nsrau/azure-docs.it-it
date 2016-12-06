@@ -1,7 +1,11 @@
 > [!div class="op_single_selector"]
-> * [Web UI](../articles/hdinsight/hdinsight-hadoop-manage-ambari.md)
-> * [REST API](../articles/hdinsight/hdinsight-hadoop-manage-ambari-rest-api.md)
+> * [Interfaccia utente Web](../articles/hdinsight/hdinsight-hadoop-manage-ambari.md)
+> * [API REST](../articles/hdinsight/hdinsight-hadoop-manage-ambari-rest-api.md)
 > 
 > 
 
-<!---HONumber=Nov15_HO1-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

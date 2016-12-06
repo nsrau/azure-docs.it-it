@@ -1,5 +1,5 @@
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Nell'indice scegliere **Nuovo**, fare clic su **Data + Storage** (Dati e archiviazione) e quindi su **DocumentDB (NoSQL)**.
+2. Nell'indice scegliere **Nuovo**, fare clic su **Database** e quindi su **NoSQL (DocumentDB)**.
    
    ![Screenshot del portale di Azure, in cui sono evidenziati More Services (Altri servizi) e DocumentDB (NoSQL)](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
 3. Nel pannello **Nuovo account** specificare la configurazione per l'account DocumentDB.
@@ -16,11 +16,11 @@
    ![Creare database in modo rapido: screenshot dell'hub Notifiche, che mostra l'account DocumentDB mentre viene creato](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)  
    
    ![Screenshot dell'hub Notifiche, che mostra che l'account DocumentDB è stato creato correttamente e distribuito a un gruppo di risorse: notifica del servizio di creazione database online](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
-5. Dopo la creazione, l'account DocumentDB è pronto all'uso con le impostazioni predefinite. La coerenza predefinita dell'account DocumentDB è impostata su **Sessione**.  Per modificarla è possibile fare clic su **Coerenza predefinita** nel menu della risorsa. Per altre informazioni sui livelli di coerenza offerti da DocumentDB, vedere [Livelli di coerenza in DocumentDB](../articles/documentdb/documentdb-consistency-levels.md).
-   
-   ![Screenshot del pannello Gruppo di risorse: inizio dello sviluppo dell'applicazione](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)  
-   
-   ![Screenshot del pannello del livello di coerenza: coerenza di sessione](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-7.png)  
+5. Dopo la creazione, l'account DocumentDB è pronto all'uso con le impostazioni predefinite. Per rivedere le impostazioni predefinite, fare clic sull'icona **NoSQL (DocumentDB)** nell'indice, selezionare il nuovo account e quindi fare clic su **Coerenza predefinita** nel menu della risorsa.
+
+   ![Schermata che illustra come aprire l'account del database DocumentDB di Azure nel portale di Azure](./media/documentdb-create-dbaccount/azure-documentdb-database-open-account-portal.png)  
+
+   La coerenza predefinita dell'account DocumentDB è impostata su **Sessione**.  Per modificarla è possibile fare clic su **Coerenza predefinita** nel menu della risorsa. Per altre informazioni sui livelli di coerenza offerti da DocumentDB, vedere [Livelli di coerenza in DocumentDB](../articles/documentdb/documentdb-consistency-levels.md).
 
 [Come creare un account DocumentDB]: #Howto
 [Passaggi successivi]: #NextSteps

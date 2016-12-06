@@ -36,17 +36,17 @@
         mysql -u root -p
    
     Immettere la password radice di MySQL (modificata nel passaggio precedente). Verrà visualizzato un prompt in cui è possibile digitare istruzioni SQL per l'interazione con il database.
-7. Per creare un nuovo utente MySQL, alla richiesta di **mysql>** eseguire il comando seguente:
+7. Per creare un nuovo utente MySQL, al prompt **mysql>** eseguire questo comando:
    
         CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
     Si osservi che il punto e virgola (;) alla fine delle righe è essenziale per la conclusione dei comandi.
-8. Per creare un database e concedere le apposite autorizzazioni utente `mysqluser`, digitare i comandi seguenti:
+8. Per creare un database e concedere le apposite autorizzazioni utente `mysqluser` , digitare i comandi seguenti:
    
         CREATE DATABASE testdatabase;
         GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
-    Si noti che i nomi utente e le password per il database sono usati solo da script per la connessione al database. I nomi di account utente per il database non rappresentano necessariamente account utente effettivi nel sistema.
+    Si noti che i nomi utente e le password per il database sono usati solo da script per la connessione al database.  I nomi di account utente per il database non rappresentano necessariamente account utente effettivi nel sistema.
 9. Per accedere da un altro computer, digitare:
    
         GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
@@ -56,8 +56,8 @@
     
         quit
 
-## Aggiungere un endpoint
-1. Al termine dell'installazione di MySQL è necessario configurare un endpoint per accedere a MySQL in modalità remota. Accedere al [portale di Azure classico][AzurePortal]. Fare clic su **Macchine virtuali**, poi fare clic sul nome della nuova macchina virtuale, e infine su **Endpoint**.
+## <a name="add-an-endpoint"></a>Aggiungere un endpoint
+1. Al termine dell'installazione di MySQL è necessario configurare un endpoint per accedere a MySQL in modalità remota. Accedere al [portale di Azure classico][AzurePortal]. Fare clic su **Macchine virtuali**, quindi sul nome della nuova macchina virtuale e infine su **Endpoint**.
 2. Fare clic su **Add** nella parte inferiore della pagina.
 3. Aggiungere un endpoint denominato "MySQL", con protocollo **TCP** e con entrambe le porte **pubblica** e **privata** impostate su "3306".
 4. Per connettersi in remoto alla macchina virtuale dal computer, digitare:
@@ -73,4 +73,7 @@
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
 
-<!---HONumber=AcomDC_0128_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+
