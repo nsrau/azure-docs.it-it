@@ -1,9 +1,9 @@
 <!--author=SharS last changed: 9/17/15-->
 
 
-#### Per creare un nuovo servizio
+#### <a name="to-create-a-new-service"></a>Per creare un nuovo servizio
 1. Utilizzare le credenziali dell'account Microsoft per accedere al [portale di Microsoft Azure per enti pubblici](https://manage.windowsazure.us/).
-2. Nel portale, fare clic su **Nuovo** > **Servizi dati** > **StorSimple Manager** > **Creazione rapida**.
+2. Nel portale di Azure Government fare clic su **Nuovo** > **Servizi dati** > **StorSimple Manager** > **Creazione rapida**.
 3. Nel modulo visualizzato, procedere come segue:
    
    1. Fornire un **Nome** univoco per il servizio. Si tratta di un nome descrittivo che può essere utilizzato per identificare il servizio. Il nome può contenere da 2 a 50 caratteri che possono essere lettere, numeri e trattini. Il nome deve iniziare e terminare con una lettera o un numero.
@@ -14,8 +14,12 @@
       
        ![creare un servizio](./media/storsimple-create-new-service-gov/HCS_CreateAService-gov-include.png)
       
-      Si verrà indirizzati alla pagina di destinazione del **Servizio**. La creazione del servizio richiederà alcuni minuti. Dopo che il servizio è stato creato, l'utente verrà informato in modo appropriato e lo stato del servizio verrà modificato in **Attivo**.
+      Si verrà indirizzati alla pagina di destinazione del **Servizio** . La creazione del servizio richiederà alcuni minuti. Dopo che il servizio è stato creato, l'utente verrà informato in modo appropriato e lo stato del servizio verrà modificato in **Attivo**.
       
        ![creazione di un servizio](./media/storsimple-create-new-service-gov/HCS_StorSimpleManagerServicePage-gov-include.png)
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

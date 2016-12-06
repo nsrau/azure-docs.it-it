@@ -71,6 +71,6 @@
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=notification-hubs)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

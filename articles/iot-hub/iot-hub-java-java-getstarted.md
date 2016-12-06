@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2016
+ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7913033d0812d6f6c2ff9a413862cb63c1e5a59e
+ms.sourcegitcommit: 358a6df35276aca357e0ee2182529402898f71fe
+ms.openlocfilehash: 19a132284d0061134139a687abbb9235fdf308f4
 
 
 ---
@@ -49,15 +49,15 @@ Infine prendere nota del valore presente in **Chiave primaria** e quindi fare cl
 Si è appena creato l'hub IoT e si conoscono il nome host dell'hub IoT, la stringa di connessione dell'hub IoT, la chiave primaria dell'hub IoT, il nome e l'endpoint compatibili con Hub eventi necessari per completare l'esercitazione.
 
 ## <a name="create-a-device-identity"></a>Creare un'identità del dispositivo
-In questa sezione si scrive un'app console di Java che consente di creare una nuova identità del dispositivo nel registro delle identità dell'hub IoT. Un dispositivo non può connettersi all'hub IoT a meno che non sia presente una voce nel registro delle identità del dispositivo. Vedere la sezione relativa al **registro identità del dispositivo** nella [Guida per sviluppatori di hub IoT][lnk-devguide-identity] per altre informazioni. Quando si esegue questa applicazione console vengono generati un ID dispositivo univoco e una chiave con cui il dispositivo può identificarsi quando invia messaggi da dispositivo a cloud all'hub IoT.
+In questa sezione si scriverà un'app console Java che crea un'identità del dispositivo nel registro delle identità dell'hub IoT. Un dispositivo non può connettersi all'hub IoT a meno che non sia presente una voce nel registro delle identità del dispositivo. Per altre informazioni, vedere la sezione **Device identity registry** (Registro delle identità del dispositivo) della [IoT Hub Developer Guide][lnk-devguide-identity] (Guida per sviluppatori dell'hub IoT). Quando si esegue questa applicazione console vengono generati un ID dispositivo univoco e una chiave con cui il dispositivo può identificarsi quando invia messaggi da dispositivo a cloud all'hub IoT.
 
-1. Creare una nuova cartella vuota denominata iot-java-get-started. Nella cartella iot-java-get-started creare un nuovo progetto Maven denominato **create-device-identity** usando il comando seguente al prompt dei comandi. Si noti che si tratta di un lungo comando singolo:
+1. Creare una cartella vuota denominata iot-java-get-started. Nella cartella iot-java-get-started creare un progetto Maven denominato **create-device-identity** usando il comando seguente al prompt dei comandi. Si noti che si tratta di un lungo comando singolo:
    
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=create-device-identity -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
-2. Al prompt dei comandi passare alla nuova cartella create-device-identity.
-3. In un editor di testo aprire il file pom.xml nella cartella create-device-identity e aggiungere la dipendenza seguente al nodo **dependencies** . Ciò consente di usare il pacchetto iothub-service-sdk nell'applicazione:
+2. Al prompt dei comandi passare alla cartella create-device-identity.
+3. In un editor di testo aprire il file pom.xml nella cartella create-device-identity e aggiungere la dipendenza seguente al nodo **dependencies** . Questa dipendenza consente di usare il pacchetto iothub-service-sdk nell'applicazione:
    
     ```
     <dependency>
@@ -122,11 +122,11 @@ In questa sezione si scrive un'app console di Java che consente di creare una nu
 13. Prendere nota dei valori di **Device id** e **Device key**, che saranno necessari più avanti quando si creerà un'applicazione che si connette all'hub IoT come dispositivo.
 
 > [!NOTE]
-> Il registro delle identità dell'hub IoT consente di archiviare solo le identità del dispositivo per abilitare l'accesso sicuro all'hub. Archivia le chiavi e gli ID dispositivo da usare come credenziali di sicurezza e un flag di abilitazione/disabilitazione che consente di disabilitare l'accesso per un singolo dispositivo. Se l'applicazione deve archiviare altri metadati specifici del dispositivo, dovrà usare un archivio specifico dell'applicazione. Per altre informazioni, vedere la [guida per sviluppatori di hub IoT][lnk-devguide-identity].
+> Il registro delle identità dell'hub IoT consente di archiviare solo le identità del dispositivo per abilitare l'accesso sicuro all'hub. Archivia le chiavi e gli ID dispositivo da usare come credenziali di sicurezza e un flag di abilitazione/disabilitazione che consente di disabilitare l'accesso per un singolo dispositivo. Se l'applicazione deve archiviare altri metadati specifici del dispositivo, dovrà usare un archivio specifico dell'applicazione. Per altre informazioni, vedere la [IoT Hub Developer Guide][lnk-devguide-identity] (Guida per sviluppatori dell'hub IoT).
 > 
 > 
 
-## <a name="receive-devicetocloud-messages"></a>Ricezione di messaggi da dispositivo a cloud
+## <a name="receive-device-to-cloud-messages"></a>Ricezione di messaggi da dispositivo a cloud
 In questa sezione si crea un'app console di Java che legge i messaggi da dispositivo a cloud dall'hub IoT. L'hub IoT espone un endpoint compatibile con [Hub eventi][lnk-event-hubs-overview] per abilitare la lettura dei messaggi da dispositivo a cloud. Per semplicità, questa esercitazione crea un lettore di base non adatto per una distribuzione con velocità effettiva elevata. L'esercitazione sull'[elaborazione di messaggi da dispositivo a cloud][lnk-process-d2c-tutorial] illustra come elaborare i messaggi da dispositivo a cloud su vasta scala. L'esercitazione [Introduzione all'Hub eventi][lnk-eventhubs-tutorial] fornisce altre informazioni su come elaborare i messaggi da Hub eventi ed è applicabile agli endpoint compatibili con Hub eventi dell'hub IoT.
 
 > [!NOTE]
@@ -134,13 +134,13 @@ In questa sezione si crea un'app console di Java che legge i messaggi da disposi
 > 
 > 
 
-1. Nella cartella iot-java-get-started creata nella sezione *Creare un'identità del dispositivo* creare un nuovo progetto Maven denominato **read-d2c-messages** usando il comando seguente al prompt dei comandi. Si noti che si tratta di un lungo comando singolo:
+1. Nella cartella iot-java-get-started creata nella sezione *Creare un'identità del dispositivo* creare un progetto Maven denominato **read-d2c-messages** usando il comando seguente al prompt dei comandi. Si noti che si tratta di un lungo comando singolo:
    
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=read-d2c-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
-2. Al prompt dei comandi passare alla nuova cartella read-d2c-messages.
-3. In un editor di testo aprire il file pom.xml nella cartella read-d2c-messages e aggiungere la dipendenza seguente al nodo **dependencies** . Ciò consente di usare il pacchetto eventhubs-client nell'applicazione per la lettura dall'endpoint compatibile con Hub eventi:
+2. Al prompt dei comandi passare alla cartella read-d2c-messages.
+3. In un editor di testo aprire il file pom.xml nella cartella read-d2c-messages e aggiungere la dipendenza seguente al nodo **dependencies** . Questa dipendenza consente di usare il pacchetto eventhubs-client nell'applicazione per la lettura dall'endpoint compatibile con Hub eventi:
    
     ```
     <dependency> 
@@ -230,7 +230,7 @@ In questa sezione si crea un'app console di Java che legge i messaggi da disposi
     ```
    
    > [!NOTE]
-   > Questo metodo usa un filtro quando crea il ricevitore e quindi il ricevitore legge solo i messaggi inviati all'hub IoT dopo che l'esecuzione del ricevitore è iniziata. Ciò è utile in un ambiente di test perché consente di visualizzare il set corrente di messaggi. In un ambiente di produzione il codice deve verificare di avere elaborato tutti i messaggi. Per altre informazioni, vedere l'esercitazione sull'[elaborazione di messaggi da dispositivo a cloud dell'hub IoT][lnk-process-d2c-tutorial].
+   > Questo metodo usa un filtro quando crea il ricevitore e quindi il ricevitore legge solo i messaggi inviati all'hub IoT dopo che l'esecuzione del ricevitore è iniziata. Questa tecnica è utile in un ambiente di test perché consente di visualizzare il set di messaggi corrente. In un ambiente di produzione il codice deve verificare di avere elaborato tutti i messaggi. Per altre informazioni, vedere l'esercitazione [Elaborare messaggi da dispositivo a cloud dell'hub IoT][lnk-process-d2c-tutorial].
    > 
    > 
 9. Modificare la firma del metodo **main** includendo l'eccezione come segue:
@@ -271,13 +271,13 @@ In questa sezione si crea un'app console di Java che legge i messaggi da disposi
 ## <a name="create-a-simulated-device-app"></a>Creare un'app di dispositivo simulato
 In questa sezione si crea un'app console di Java che simula un dispositivo che invia messaggi da dispositivo a cloud a un hub IoT.
 
-1. Nella cartella iot-java-get-started creata nella sezione *Creare un'identità del dispositivo* creare un nuovo progetto Maven denominato **simulated-device** usando il comando seguente al prompt dei comandi. Si noti che si tratta di un lungo comando singolo:
+1. Nella cartella iot-java-get-started creata nella sezione *Creare un'identità del dispositivo* creare un progetto Maven denominato **simulated-device** usando il comando seguente al prompt dei comandi. Si noti che si tratta di un lungo comando singolo:
    
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
-2. Al prompt dei comandi passare alla nuova cartella simulated-device.
-3. In un editor di testo aprire il file pom.xml nella cartella simulated-device e aggiungere le dipendenze seguenti al nodo **dependencies** . Ciò consente di usare il pacchetto iothub-java-client nell'applicazione per comunicare con l'hub IoT e di serializzare gli oggetti Java in JSON:
+2. Al prompt dei comandi passare alla cartella simulated-device.
+3. In un editor di testo aprire il file pom.xml nella cartella simulated-device e aggiungere le dipendenze seguenti al nodo **dependencies** . Queste dipendenze consentono di usare il pacchetto iothub-java-client nell'applicazione per comunicare con l'hub IoT e di serializzare gli oggetti Java in JSON:
    
     ```
     <dependency>
@@ -309,7 +309,7 @@ In questa sezione si crea un'app console di Java che simula un dispositivo che i
     import java.util.concurrent.Executors;
     import java.util.concurrent.ExecutorService;
     ```
-7. Aggiungere le variabili a livello di classe seguenti alla classe **App**, sostituendo **{youriothubname}** con il nome dell'hub IoT e **{yourdevicekey}** con il valore della chiave del dispositivo generato nella sezione *Creare un'identità del dispositivo*:
+7. Aggiungere le variabili a livello di classe seguenti alla classe **App** . Sostituzione di **{youriothubname}** con il nome dell'hub IoT e di **{yourdevicekey}** con il valore della chiave del dispositivo generato nella sezione *Creare un'identità del dispositivo*:
    
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myFirstJavaDevice;SharedAccessKey={yourdevicekey}";
@@ -474,6 +474,6 @@ Per informazioni sull'estensione della soluzione IoT e l'elaborazione di messagg
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

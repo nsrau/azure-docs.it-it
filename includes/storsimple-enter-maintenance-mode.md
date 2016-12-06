@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 12/01/15-->
 
-#### Per attivare la modalità di manutenzione
+#### <a name="to-enter-maintenance-mode"></a>Per attivare la modalità di manutenzione
 1. Nel menu della console seriale, scegliere l'opzione 1, **Accedi con accesso completo**.
 2. Digitare la password. La password predefinita è **Password1**.
 3. Al prompt dei comandi digitare
@@ -10,4 +10,8 @@
    
     Entrambi i controller verranno riavviati. Una volta completato il riavvio, verrà visualizzato un altro messaggio che indica che il dispositivo è in modalità di manutenzione.
 
-<!---HONumber=AcomDC_1203_2015-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

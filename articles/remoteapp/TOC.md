@@ -71,6 +71,6 @@
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: Introduzione ad Azure Data Lake Analytics con .NET SDK | Documentazione Microsoft
-description: 'Informazioni su come usare .NET SDK per creare account di Data Lake Store, creare i processi di Data Lake Analytics e inviare i processi scritti in U-SQL. '
+description: 'Informazioni su come usare .NET SDK per creare account di Data Lake Analytics, definire processi di Data Lake Analytics e inviare i processi scritti in U-SQL. '
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 10/26/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 60deb681b1090444f5c178fb0c9b0458ea83f73d
+ms.sourcegitcommit: 8e092e30c9c4186e4687efeacf9ea1f6b4bf431c
+ms.openlocfilehash: f617d997bc34d39f7635a87c4e5c88b1ebdc0ff8
 
 
 ---
@@ -196,7 +196,6 @@ Risulta più semplice usare i percorsi relativi dei file archiviati negli accoun
                     Console.WriteLine(nextAction);
             }
 
-
             // List all Data Lake Analytics accounts within the subscription
             public static List<DataLakeAnalyticsAccount> ListADLAAccounts()
             {
@@ -217,6 +216,7 @@ Risulta più semplice usare i percorsi relativi dei file archiviati negli accoun
 
                 return accounts;
             }
+
             public static Guid SubmitJobByPath(string scriptPath, string jobName)
             {
                 var script = File.ReadAllText(scriptPath);
@@ -241,10 +241,10 @@ Risulta più semplice usare i percorsi relativi dei file archiviati negli accoun
           }
         }
 
-1. Premere **F5** per eseguire l'applicazione. L'output è simile al seguente:
+5. Premere **F5** per eseguire l'applicazione. L'output è simile al seguente:
    
     ![Output di .NET SDK per il processo U-SQL di Azure Data Lake Analytics](./media/data-lake-analytics-get-started-net-sdk/data-lake-analytics-dotnet-job-output.png)
-2. Controllare il file di output.  Il nome file e percorso predefinito è c:\Temp\SearchLog-from-Data-Lake.csv.
+6. Controllare il file di output.  Il nome file e percorso predefinito è c:\Temp\SearchLog-from-Data-Lake.csv.
 
 ## <a name="see-also"></a>Vedere anche
 * Per visualizzare la stessa esercitazione usando altri strumenti, scegliere i selettori di scheda nella parte superiore della pagina.
@@ -257,6 +257,6 @@ Risulta più semplice usare i percorsi relativi dei file archiviati negli accoun
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

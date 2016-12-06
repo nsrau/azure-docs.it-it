@@ -4,6 +4,10 @@ Per distribuire le risorse in Azure, è necessario aver eseguito l'accesso all'a
 * [Uso di Azure PowerShell con Gestione risorse di Azure](../articles/powershell-azure-resource-manager.md)
 * [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](../articles/xplat-cli-azure-resource-manager.md).
 
-Gli esempi seguenti presuppongono che nell'account sia già stato creato un gruppo di risorse con il nome specificato.
+Gli esempi seguenti presuppongono che nell'account sia già stato creato un gruppo di risorse con il nome specificato. 
 
-<!---HONumber=AcomDC_0420_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -2,4 +2,8 @@
 
 Prima di implementare più schede di rete nelle macchine virtuali, è necessario comprendere quando è possibile usare più schede di rete e come usarle. Leggere la [panoramica di più schede di rete](../articles/virtual-network/virtual-networks-multiple-nics.md) per altre informazioni sulle macchine virtuali con più schede di rete.
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

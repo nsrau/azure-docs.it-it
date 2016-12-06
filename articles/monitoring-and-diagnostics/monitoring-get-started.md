@@ -1,23 +1,27 @@
 ---
-title: Introduzione al monitoraggio di Azure | Microsoft Docs
-description: Introduzione all'uso del monitoraggio di Azure per comprendere appieno il funzionamento delle risorse ed eseguire operazioni in base ai dati.
+title: Introduzione a Monitoraggio di Azure | Documentazione Microsoft
+description: Introduzione all&quot;uso del monitoraggio di Azure per comprendere appieno il funzionamento delle risorse ed eseguire operazioni in base ai dati.
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: ce2930aa-fc41-4b81-b0cb-e7ea922467e1
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 10/19/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 692a0086bd8e0dd6b57de1db0f4e2a9b4f2f0bda
+
 
 ---
 # <a name="get-started-with-azure-monitor"></a>Introduzione al monitoraggio di Azure
-Il monitoraggio di Azure è un nuovo servizio di piattaforma che fornisce un'unica origine per il monitoraggio delle risorse di Azure. Con il monitoraggio di Azure è possibile visualizzare, fare query, indirizzare, archiviare ed effettuare operazioni sulle metriche e sui log provenienti dalle risorse di Azure. È possibile usare questi dati tramite il pannello del portale del monitoraggio di Azure, i cmdlet di Insights PowerShell, l'interfaccia della riga di comando multi-piattaforma o le API REST di Azure Insights. In questo articolo viene fornita una descrizione dettagliata dei componenti principali del monitoraggio di Azure.
+Monitoraggio di Azure è il servizio di piattaforma che mette a disposizione un'unica origine per il monitoraggio delle risorse di Azure. Con Monitoraggio di Azure è possibile visualizzare, fare query, indirizzare, archiviare ed effettuare operazioni sulle metriche e sui log provenienti dalle risorse di Azure. È possibile usare questi dati tramite il pannello del portale di Monitoraggio di Azure, i [cmdlet di PowerShell di Monitoraggio di Azure](insights-powershell-samples.md), l'[interfaccia della riga di comando multi-piattaforma](insights-cli-samples.md) o le [API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/dn931943.aspx). Questo articolo illustra alcuni componenti principali di Monitoraggio di Azure, usando il portale a scopo dimostrativo.
 
 1. Nel portale accedere a **Altri servizi** e trovare l'opzione **Monitoraggio**. Fare clic sull'icona a forma di stella per aggiungere l'opzione all'elenco dei preferiti per renderla facilmente accessibile dalla barra di navigazione a sinistra.
    
@@ -27,16 +31,16 @@ Il monitoraggio di Azure è un nuovo servizio di piattaforma che fornisce un'uni
     ![Esplorazione del pannello Monitoraggio](./media/monitoring-get-started/monitor-blade-nav.png)
    
    > [!WARNING]
-   > Le opzioni **Notifiche del servizio** e **Gruppi di notifica** sono visualizzate in modalità Anteprima privata solo per gli utenti che hanno partecipato all'Anteprima privata.
+   > Le opzioni **Notifiche del servizio** e **Gruppi di notifica** indicate in precedenza vengono visualizzate solo per gli utenti con anteprima privata per queste funzionalità.
    > 
    > 
    
-    Il monitoraggio di Azure presenta tre categorie di base dei dati di monitoraggio: Log di attività, Metriche e Log di diagnostica.
+    Monitoraggio di Azure presenta tre categorie di base dei dati di monitoraggio: **log di attività**, **metriche** e **log di diagnostica**.
 3. Fare clic su **Log di attività** per assicurarsi di visualizzare la sezione Log di attività.
    
     ![Pannello Log di attività](./media/monitoring-get-started/monitor-act-log-blade.png)
    
-    **Log di attività** descrive tutte le operazioni eseguite sulle risorse nella sottoscrizione. Usando questa sezione è possibile determinare "cosa, chi e quando" per qualsiasi operazione di scrittura sulle risorse nella sottoscrizione. Ad esempio, Log di attività indica quando un'app Web è stata arrestata e da chi. Gli eventi di Log di attività vengono archiviati nella piattaforma per 90 giorni.
+    Il [**log di attività**](monitoring-overview-activity-logs.md) descrive tutte le operazioni eseguite sulle risorse nella sottoscrizione. L'uso del log attività consente di acquisire informazioni dettagliate su qualsiasi operazione di creazione, aggiornamento o eliminazione eseguita per le risorse della sottoscrizione. Ad esempio, Log di attività indica quando un'app Web è stata arrestata e da chi. Gli eventi del log di attività vengono archiviati nella piattaforma e sono disponibili per le query per 90 giorni.
    
     È possibile creare e salvare le query per i filtri comuni, quindi aggiungere le query più importanti a un dashboard del portale, così da sapere sempre se si sono verificati eventi che soddisfano i criteri configurati.
 4. Filtrare la visualizzazione su un determinato gruppo di risorse nell'ultima settimana, quindi fare clic sul pulsante **Salva** .
@@ -47,20 +51,20 @@ Il monitoraggio di Azure è un nuovo servizio di piattaforma che fornisce un'uni
     ![Fare clic su Aggiungi per Log di attività](./media/monitoring-get-started/monitor-act-log-pin.png)
    
     La maggior parte delle visualizzazioni in questa procedura dettagliata può essere aggiunta a un dashboard. Ciò consente di creare un'unica origine di informazioni sui dati operativi nei propri servizi. 
-6. Tornare al dashboard. Come è possibile notare, adesso la query (e i risultati) viene visualizzata nel dashboard.
+6. Tornare al dashboard. Come è possibile notare, adesso la query (e i risultati) viene visualizzata nel dashboard. Ciò è utile per visualizzare rapidamente le azioni di alto profilo che si sono verificate di recente nella sottoscrizione, ad esempio l'assegnazione di un nuovo ruolo o l'eliminazione di una macchina virtuale.
    
     ![Log di attività aggiunto al dashboard](./media/monitoring-get-started/monitor-act-log-db.png)
-7. Tornare al riquadro **Monitoraggio** e fare clic sulla sezione **Metriche**. Per prima cosa è necessario selezionare una risorsa applicando un filtro e selezionandola mediante le opzioni disponibili nella parte superiore della sezione.
+7. Tornare al riquadro **Monitoraggio** e fare clic sulla sezione **Metriche**. È prima necessario selezionare una risorsa filtrandola con le opzioni disponibili nella parte superiore del pannello.
    
     ![Filtrare le risorse per le metriche](./media/monitoring-get-started/monitor-met-filter.png)
    
-    Tutte le risorse di Azure generano delle metriche. Questa visualizzazione riunisce tutte le metriche in un unico riquadro accessibile.
+    Tutte le risorse di Azure generano [**metriche**](monitoring-overview-metrics.md). Questa visualizzazione riunisce tutte le metriche in un unico pannello in modo da comprendere facilmente le prestazioni delle risorse.
 8. Dopo aver selezionato una risorsa, tutte le metriche disponibili vengono visualizzate sul lato sinistro del pannello. È possibile creare un grafico di più metriche selezionando le metriche desiderate e modificando il tipo di grafico e l'intervallo di tempo. È inoltre possibile visualizzare tutti gli avvisi relativi alle metriche impostati su questa risorsa.
    
     ![Blade delle metriche](./media/monitoring-get-started/monitor-metric-blade.png)
    
    > [!NOTE]
-   > Alcune metriche sono disponibili soltanto dopo aver abilitato [Application Insights](../application-insights/app-insights-overview.md) sulla risorsa.
+   > Alcune metriche sono disponibili solo abilitando [Application Insights](../application-insights/app-insights-overview.md) e/o Diagnostica di Azure per Windows o Linux sulla risorsa.
    > 
    > 
 9. Una volta ottenuto il grafico desiderato, è possibile usare il pulsante **Aggiungi** per aggiungerlo al dashboard.
@@ -68,19 +72,23 @@ Il monitoraggio di Azure è un nuovo servizio di piattaforma che fornisce un'uni
     
     ![Pannello Log di diagnostica](./media/monitoring-get-started/monitor-diaglogs-blade.png)
     
-    I log di diagnostica sono log generati da una risorsa che forniscono i dati sul funzionamento di tale risorsa. Ad esempio, i numeri di regole del gruppo di sicurezza di rete e i log del flusso di lavoro delle app per la logica sono due tipologie di log di diagnostica. Questi log possono essere archiviati in un account di archiviazione, trasmessi a un hub eventi e/o inviati a [Log Analytics](../log-analytics/log-analytics-overview.md)(il prodotto di intelligence operativa di Microsoft) per eseguire oeprazioni avanzate di ricerca e avviso.
+    I [**log di diagnostica**](monitoring-overview-of-diagnostic-logs.md) sono log generati *da* una risorsa che forniscono i dati sul funzionamento di tale risorsa. Ad esempio, i numeri di regole del gruppo di sicurezza di rete e i log del flusso di lavoro delle app per la logica sono due tipologie di log di diagnostica. Questi log possono essere archiviati in un account di archiviazione, trasmessi a un hub eventi e/o inviati a [Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics è il prodotto di intelligence operativa di Microsoft per eseguire operazioni avanzate di ricerca e avviso.
     
     Nel portale è possibile visualizzare e filtrare un elenco di tutte le risorse nella sottoscrizione per scoprire se dispongono di log di diagnostica abilitati.
-11. Fare clic su una risorsa nel pannello Log di diagnostica. Se i log di diagnostica vengono archiviati in un account di archiviazione, l'utente visualizzerà un elenco di log orari scaricabile. È inoltre possibile fare clic su "Attiva/disattiva diagnostica" per configurare l'archiviazione in un account di archiviazione, la trasmissione del flusso all'hub eventi o l'invio a un'area di lavoro di Log Analytics.
+11. Fare clic su una risorsa nel pannello Log di diagnostica. Se i log di diagnostica vengono archiviati in un account di archiviazione, l'utente visualizzerà un elenco di log orari scaricabile.
     
     ![Log di diagnostica per una risorsa](./media/monitoring-get-started/monitor-diaglogs-detail.png)
+    
+    È anche possibile fare clic su **Impostazioni di diagnostica** per configurare o modificare le impostazioni dell'archiviazione in un account di archiviazione, lo streaming all'hub eventi o l'invio a un'area di lavoro di Log Analytics.
+    
+    ![Abilitare i log di diagnostica](./media/monitoring-get-started/monitor-diaglogs-enable.png)
     
     Se i log di diagnostica sono stati impostati su Log Analytics, allora è possibile cercarli nella sezione **Ricerca Log** del portale.
 12. Andare alla sezione **Avvisi** del pannello Monitoraggio.
     
     ![pannello avvisi pubblici](./media/monitoring-get-started/monitor-alerts-nopp.png)
     
-    Qui è possibile gestire tutti gli avvisi delle risorse di Azure, compresi gli avvisi sulle metriche, sugli eventi di log di attività (anteprima), sui test Web di Application Insights (posizioni) e sulla diagnostica proattiva di Application Insights. Gli avvisi possono attivare l'invio di un messaggio di posta elettronica o un POST su un webhook.
+    Qui è possibile gestire tutti gli [**avvisi**](monitoring-overview-alerts.md) delle risorse di Azure, compresi gli avvisi sulle metriche, sugli eventi di log di attività (nell'anteprima privata), sui test Web di Application Insights (posizioni) e sulla diagnostica proattiva di Application Insights. Gli avvisi possono attivare l'invio di un messaggio di posta elettronica o un HTTP POST a un URL webhook.
 13. Fare clic su **Aggiungi avviso sulla metrica** per creare un avviso.
     
     ![Aggiungi avviso sulla metrica](./media/monitoring-get-started/monitor-alerts-add.png)
@@ -96,6 +104,9 @@ Seguendo questi passaggi e aggiungendo tutti i riquadri pertinenti a un dashboar
 ## <a name="next-steps"></a>Passaggi successivi
 * Consultare [Panoramica del monitoraggio di Azure](monitoring-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

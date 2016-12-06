@@ -15,7 +15,7 @@ Di seguito sono riportati gli usi più comuni per il servizio di archiviazione f
 ## <a name="file-storage-concepts"></a>Concetti relativi all'archiviazione file
 L'archiviazione file contiene i seguenti componenti:
 
-![files-concepts][files-concepts]
+![files-concepts](./media/storage-file-concepts-include/files-concepts.png)
 
 * **Account di archiviazione:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Per informazioni sulla capacità dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../articles/storage/storage-scalability-targets.md) .
 * **Condivisione:** una condivisione di archiviazione file è una condivisione file SMB di Azure. 
@@ -31,8 +31,7 @@ L'archiviazione file contiene i seguenti componenti:
 
 Per dettagli su come denominare condivisioni, directory e file, vedere [Denominazione e riferimento a condivisioni, directory, file e metadati](http://msdn.microsoft.com/library/azure/dn167011.aspx).
 
-[files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,8 +1,8 @@
 # Panoramica
 ## [Informazioni su Azure Application Insights](app-insights-overview.md)
-## [Funzionamento](app-insights-detect-triage-diagnose.md)
+## [Monitoraggio delle prestazioni in un ciclo DevOps](app-insights-detect-triage-diagnose.md)
 
-# Attività iniziali
+# Introduzione
 ## Monitorare Azure
 ### [App Web di Azure](app-insights-azure-web-apps.md)
 ### [Servizi cloud di Azure](app-insights-cloudservices.md)
@@ -63,8 +63,8 @@
 #### [Avvisi delle metriche](app-insights-alerts.md)
 
 ### [Rilevamento intelligente](app-insights-proactive-diagnostics.md)
-#### [Rilevamento degli errori](app-insights-proactive-failure-diagnostics.md)
-#### [Rilevamento anomalie](app-insights-proactive-performance-diagnostics.md)
+#### [Anomalie degli errori](app-insights-proactive-failure-diagnostics.md)
+#### [Anomalie delle prestazioni](app-insights-proactive-performance-diagnostics.md)
 
 ## Analizzare
 
@@ -127,11 +127,11 @@
 ### [Analisi](app-insights-analytics-troubleshooting.md)
 ### [Java](app-insights-java-troubleshoot.md)
 
-# Riferimento
-## [Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+# riferimento
+## [API Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
 ## [API .NET](https://docs.microsoft.com/dotnet/api)
 ## [API JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [Analisi](app-insights-analytics-reference.md)
+## [Informazioni di riferimento in Analytics](app-insights-analytics-reference.md)
 ## [Campionamento](app-insights-sampling.md)
 ## [Indirizzi IP](app-insights-ip-addresses.md)
 ## [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
@@ -145,7 +145,7 @@
 ## [Note sulla versione per Application Insights SDK per Windows Phone e Store](app-insights-release-notes-windows.md)
 ## [Note sulla versione per Developer Analytics Tools](app-insights-release-notes-vsix.md)
 ## [Note sulla versione di SDK - Application Insights](app-insights-release-notes.md)
-## [API REST](https://dev.applicationinsights.io/)
+## [API REST di accesso ai dati](https://dev.applicationinsights.io/)
 
 # Risorse
 ## [Prezzi](https://azure.microsoft.com/pricing/details/application-insights/)  
@@ -157,6 +157,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

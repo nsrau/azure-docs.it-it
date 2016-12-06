@@ -1,10 +1,10 @@
 # Panoramica
 ## [Informazioni su Backup di Azure](backup-introduction-to-azure-backup.md)
 # Introduzione
-## [Domande frequenti](backup-azure-backup-faq.md)
 ## [Eseguire il backup di file e cartelle](backup-try-azure-backup-in-10-mins.md)
 ## [Eseguire il backup di macchine virtuali di Azure](backup-azure-vms-first-look.md)
 ## [Proteggere le macchine virtuali di Azure](backup-azure-vms-first-look-arm.md)
+## [Domande frequenti](backup-azure-backup-faq.md)
 # Procedure
 ## Automatizzare Backup con PowerShell
 ### [Macchine virtuali di Azure nel portale di Azure](backup-azure-vms-automation.md)
@@ -52,7 +52,13 @@
 ### [Errore di backup delle VM di Azure: non è stato possibile comunicare con l'agente della macchina virtuale per lo stato dello snapshot a causa del timeout della sottoattività di creazione snapshot della macchina virtuale](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Rallentamento delle prestazioni di backup di file e cartelle in Backup di Azure](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
+# Risorse
+## [Prezzi](https://azure.microsoft.com/pricing/details/backup/)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup) 
+## [Video](https://azure.microsoft.com/documentation/videos/index/?services=backup) 
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=backup)
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO4-->
 
 

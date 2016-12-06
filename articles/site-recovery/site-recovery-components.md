@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 94250becb238adad7983d4b45939eb988411fca3
+ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
+ms.openlocfilehash: ef9a7da86e7528d3052f89dbe1eaac6fbb90527c
 
 
 ---
@@ -94,7 +94,7 @@ Sono necessari gli elementi seguenti:
 * [Altre informazioni](site-recovery-failback-azure-to-vmware.md) sul failback nel portale di Auzre.
 * [Altre informazioni](site-recovery-failback-azure-to-vmware-classic.md) sul failback nel portale di classico.
 
-## <a name="replicate-to-azure-hyperv-vms-not-managed-by-vmm"></a>Eseguire la replica in Azure: macchine virtuali Hyper-V non gestite da VMM
+## <a name="replicate-to-azure-hyper-v-vms-not-managed-by-vmm"></a>Eseguire la replica in Azure: macchine virtuali Hyper-V non gestite da VMM
 È possibile replicare macchine virtuali Hyper-V non gestite da System Center VMM in Azure con Site Recovery come illustrato di seguito:
 
 * **Usando il portale di Azure**: quando si distribuisce Site Recovery nel portale di Azure, è possibile eseguire il failover di macchine virtuali nelle risorse di archiviazione classiche oppure in Azure Resource Manager. [Altre informazioni](site-recovery-hyper-v-site-to-azure.md)
@@ -120,7 +120,7 @@ Sono necessari gli elementi seguenti:
 * [Altre informazioni](site-recovery-hyper-v-site-to-azure.md#azure-prerequisites) sui requisiti per la distribuzione tramite il portale di Azure.
 * [Altre informazioni](site-recovery-hyper-v-site-to-azure-classic.md#azure-prerequisites) sui requisiti per la distribuzione tramite il portale classico.
 
-## <a name="replicate-to-azure-hyperv-vms-managed-by-vmm"></a>Eseguire la replica in Azure: macchine virtuali Hyper-V gestite da VMM
+## <a name="replicate-to-azure-hyper-v-vms-managed-by-vmm"></a>Eseguire la replica in Azure: macchine virtuali Hyper-V gestite da VMM
 È possibile replicare macchine virtuali Hyper-V in cloud VMM in Azure con Site Recovery come illustrato di seguito:
 
 * **Usando il portale di Azure**: quando si distribuisce Site Recovery nel portale di Azure, è possibile eseguire il failover di macchine virtuali nelle risorse di archiviazione classiche oppure in Azure Resource Manager. [Altre informazioni](site-recovery-vmm-to-azure.md)
@@ -144,8 +144,8 @@ Sono necessari gli elementi seguenti:
 
 ![Da VMM ad Azure](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
 
-* [Altre informazioni](site-recovery-vmm-to-azure.md#azure-requirements) sui requisiti per la distribuzione tramite il portale di Azure.
-* [Altre informazioni](site-recovery-vmm-to-azure-classic.md#before-you-start) sui requisiti per la distribuzione tramite il portale classico.
+* [Altre informazioni](site-recovery-vmm-to-azure.md#azure-prerequisites) sui requisiti per la distribuzione tramite il portale di Azure.
+* [Altre informazioni](site-recovery-vmm-to-azure-classic.md) sui requisiti per la distribuzione tramite il portale classico.
 
 ## <a name="replicate-to-a-secondary-site-vmware-virtual-machines-or-physical-servers"></a>Eseguire la replica in un sito secondario; macchine virtuali VMware o server fisici
 Per replicare macchine virtuali VMware o server fisici in un sito secondario, scaricare InMage Scout incluso nella sottoscrizione di Azure Site Recovery. È possibile scaricarlo dal portale di Azure o dal portale di Azure classico.
@@ -167,7 +167,7 @@ Ecco gli elementi necessari:
 
 ![Da VMware a VMware](./media/site-recovery-components/vmware-to-vmware.png)
 
-## <a name="replicate-to-a-secondary-site-hyperv-vms-managed-by-vmm"></a>Eseguire la replica in un sito secondario: macchine virtuali Hyper-V gestite da VMM
+## <a name="replicate-to-a-secondary-site-hyper-v-vms-managed-by-vmm"></a>Eseguire la replica in un sito secondario: macchine virtuali Hyper-V gestite da VMM
 È possibile replicare macchine virtuali Hyper-V gestite da System Center VMM in un data center secondario con Site Recovery come illustrato di seguito:
 
 * **Usando il portale di Azure**: quando si distribuisce Site Recovery nel portale di Azure. [Altre informazioni](site-recovery-hyper-v-site-to-azure.md)
@@ -193,7 +193,7 @@ Sono necessari gli elementi seguenti:
 * [Altre informazioni](site-recovery-vmm-to-vmm.md#azure-prerequisites) sui requisiti di distribuzione nel portale di Azure.
 * * [Altre informazioni](site-recovery-vmm-to-vmm-classic.md#before-you-start) sui requisiti di distribuzione nel portale di Azure classico.
 
-## <a name="replicate-to-a-secondary-site-with-san-replication-hyperv-vms-managed-by-vmm"></a>Eseguire la replica in un sito secondario con la replica SAN: macchine virtuali Hyper-V gestite da VMM
+## <a name="replicate-to-a-secondary-site-with-san-replication-hyper-v-vms-managed-by-vmm"></a>Eseguire la replica in un sito secondario con la replica SAN: macchine virtuali Hyper-V gestite da VMM
 È possibile replicare macchine virtuali Hyper-V gestite in cloud VMM in un sito secondario usando la replica SAN con il portale di Azure classico. Questo scenario non è attualmente supportato nel nuovo portale di Azure.
 
 In questo scenario durante la distribuzione di Site Recovery installare il provider di Azure Site Recovery nei server VMM. Il provider coordina e orchestra la replica con il servizio Site Recovery su Internet. I dati vengono replicati tra le matrici di archiviazione primaria e secondaria mediante la replica SAN sincrona.
@@ -213,8 +213,8 @@ Sono necessari gli elementi seguenti:
 
 [Altre informazioni](site-recovery-vmm-san.md#before-you-start) sui requisiti di distribuzione.
 
-### <a name="onpremises"></a>Locale
-## <a name="hyperv-protection-lifecycle"></a>Ciclo di vita di protezione di Hyper-V
+### <a name="on-premises"></a>Locale
+## <a name="hyper-v-protection-lifecycle"></a>Ciclo di vita di protezione di Hyper-V
 Questo flusso di lavoro mostra il processo di protezione, replica e failover delle macchine virtuali Hyper-V.
 
 1. **Abilitare la protezione**: configurare l'insieme di credenziali di Site Recovery, configurare le impostazioni di replica per un cloud VMM o un sito Hyper-V e abilitare la protezione per le VM. Viene avviato un processo denominato **Abilita protezione**, che è possibile monitorare nella scheda **Processi**. Il processo verifica che il computer sia conforme ai prerequisiti e quindi richiama il metodo [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) , che configura la replica in Azure con le impostazioni configurate. Il processo **Abilita protezione** richiama anche il metodo [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) per inizializzare una replica completa della VM.
@@ -229,7 +229,6 @@ Questo flusso di lavoro mostra il processo di protezione, replica e failover del
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Preparare la distribuzione](site-recovery-best-practices.md)
-
 
 
 

@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: d737a8b14000e157d4f70c9e23cc9d40697d2b50
-ms.openlocfilehash: 0d9510cc32e4d3e0ed4b61f47cb4749180c1b830
+ms.sourcegitcommit: c5ed66f3a060dcd1bac9c04c70c493dcebcf9df8
+ms.openlocfilehash: f8d6ab10622ac6daacaf66551f18eaecd1448dee
 
 ---
 #<a name="windows-virtual-machines-documentation"></a>Documentazione su Macchine virtuali Windows
@@ -11,7 +11,7 @@ Macchine virtuali di Azure è uno dei vari tipi di risorse di calcolo scalabili 
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-windows-overview">
+        <a href="/azure/virtual-machines/virtual-machines-windows-overview?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -47,17 +47,17 @@ Macchine virtuali di Azure è uno dei vari tipi di risorse di calcolo scalabili 
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-windows-hero-tutorial">
+        <a href="/azure/virtual-machines/virtual-machines-windows-hero-tutorial?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/portal.svg" alt="" />
+                            <img src="../media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Creare la prima macchina virtuale Windows nel portale di Azure</h3>
+                        <h3>Introduzione alle macchine virtuali Windows con il portale di Azure</h3>
                     </div>
                 </div>
             </div>
@@ -65,17 +65,17 @@ Macchine virtuali di Azure è uno dei vari tipi di risorse di calcolo scalabili 
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-windows-ps-create">
+        <a href="/azure/virtual-machines/virtual-machines-windows-ps-create?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/powershell.svg" alt="" />
+                            <img src="../media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Creare una VM con PowerShell</h3>
+                        <h3>Introduzione alle macchine virtuali Windows con PowerShell</h3>
                     </div>
                 </div>
             </div>
@@ -83,17 +83,17 @@ Macchine virtuali di Azure è uno dei vari tipi di risorse di calcolo scalabili 
         </a>
     </li>
     <li>
-        <a href="/azure/resource-manager-template-walkthrough">
+        <a href="/azure/resource-manager-template-walkthrough?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="../media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Creare una VM usando un modello di Resource Manager</h3>
+                        <h3>Introduzione alle macchine virtuali Windows con un modello di Resource Manager</h3>
                     </div>
                 </div>
             </div>
@@ -104,31 +104,108 @@ Macchine virtuali di Azure è uno dei vari tipi di risorse di calcolo scalabili 
 
 ---
 
-##<a name="reference"></a>riferimento
+##<a name="reference"></a>Riferimento
 
-###<a name="powershell"></a>PowerShell
-[Azure PowerShell](/powershell/)
-
-###<a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-[Interfaccia della riga di comando di Azure](/cli/azure/vm)
-
-###<a name="net"></a>.NET
-[API di riferimento gestita](/dotnet/api/)
-
-###<a name="java-sdk"></a>SDK per Java
-[Informazioni di riferimento su Java](/java/api/)
-
-###<a name="rest-compute"></a>Rest (calcolo)
-[Informazioni di riferimento sulle API REST di calcolo](/rest/api/compute)
-
-###<a name="rest-network"></a>REST (rete)
-[Informazioni di riferimento sulle API REST di rete per la rete](https://msdn.microsoft.com/library/mt163658.aspx)
-
-###<a name="rest-storage"></a>REST (archiviazione)
-[Informazioni di riferimento sulle API REST di archiviazione](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-
-###<a name="rest-vm-scale-sets"></a>REST (set di scalabilità di VM)
-[Informazioni di riferimento sulle API REST dei set di scalabilità di macchine virtuali](https://msdn.microsoft.com/library/azure/mt705635.aspx)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Cmdlet PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/cli/azure/install-az-cli2">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Interfaccia della riga di comando di Azure</h3>
+                        <p>Installare l'interfaccia della riga di comando di Azure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>API di riferimento gestita .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/java/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>SDK per Java</h3>
+                        <p>Informazioni di riferimento sulle API Java</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/compute">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST (calcolo)</h3>
+                        <p>Riferimenti all'API REST di calcolo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://msdn.microsoft.com/library/mt163658">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST (rete)</h3>
+                        <p>Riferimenti all'API REST di rete</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/storage">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST (archiviazione)</h3>
+                        <p>Informazioni di riferimento sull'API REST di Archiviazione</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/windows.pdf">
@@ -140,6 +217,6 @@ Scaricare la documentazione delle macchine virtuali Windows </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

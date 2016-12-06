@@ -1,6 +1,6 @@
 <!--author=jgerend last changed: 03/16/16-->
 
-## Preparazione per gli aggiornamenti
+## <a name="preparing-for-updates"></a>Preparazione per gli aggiornamenti
 È necessario effettuare le seguenti operazioni prima di analizzare e applicare l'aggiornamento:
 
 1. Creare uno snapshot cloud dei dati del dispositivo.
@@ -30,4 +30,8 @@
 
 Dopo aver completato correttamente i controlli preliminari manuali, è possibile procedere all'analisi e installazione degli aggiornamenti.
 
-<!---HONumber=AcomDC_0323_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

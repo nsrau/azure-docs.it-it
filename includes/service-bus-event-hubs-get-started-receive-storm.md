@@ -1,21 +1,21 @@
-## Ricevere messaggi con Apache Storm
+## <a name="receive-messages-with-apache-storm"></a>Ricevere messaggi con Apache Storm
 [**Apache Storm**](https://storm.incubator.apache.org) è un sistema distribuito di calcolo in tempo reale che semplifica l'elaborazione affidabile di flussi di dati non associati. Questa sezione illustra come usare uno Storm Spout di Hub eventi per ricevere eventi da Hub eventi stesso. Usando Apache Storm, è possibile dividere gli eventi tra più processi ospitati in nodi diversi. L'integrazione di Hub eventi con Storm semplifica l'uso degli eventi eseguendo il checkpoint trasparente dello stato di avanzamento grazie all'installazione di Zookeeper di Storm e alla gestione dei checkpoint persistenti e delle ricezioni parallele dagli hub eventi.
 
 Per altre informazioni sui modelli di ricezione di Hub eventi, vedere [Panoramica di Hub eventi][Panoramica di Hub eventi].
 
-Questa esercitazione usa un'installazione di [HDInsight Storm][HDInsight Storm], fornita con lo Spout di Hub eventi già disponibile.
+Questa esercitazione usa un'installazione di [HDInsight Storm][HDInsight Storm], con lo spout di Hub eventi già disponibile.
 
-1. Seguire la procedura indicata nell'[introduzione a HDInsight Storm](../articles/hdinsight/hdinsight-storm-overview.md) per creare un nuovo cluster HDInsight e quindi connettersi a quest'ultimo tramite Desktop remoto.
+1. Seguire la procedura indicata nell' [introduzione a HDInsight Storm](../articles/hdinsight/hdinsight-storm-overview.md) per creare un nuovo cluster HDInsight e quindi connettersi a quest'ultimo tramite Desktop remoto.
 2. Copiare il file `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` nell'ambiente di sviluppo locale. Il file contiene il componente events-storm-spout.
 3. Usare il comando seguente per installare il pacchetto nell'archivio Maven locale. Ciò consentirà di aggiungerlo come riferimento nel progetto Storm in un passaggio successivo.
    
         mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
-4. In Eclipse creare un nuovo progetto Maven (fare clic su **File**, quindi su **Nuovo** e infine su **Progetto**).
+4. In Eclipse creare un nuovo progetto Maven, fare clic su **File**, **New** (Nuovo) e infine su **Project** (Progetto).
    
     ![][12]
-5. Selezionare **Usa percorso predefinito dello spazio di lavoro** e quindi fare clic su **Avanti**.
-6. Selezionare l'archetipo **maven-archetype-quickstart** e quindi fare clic su **Avanti**.
-7. Inserire un **GroupId** e un **ArtifactId** e quindi fare clic su **Fine**.
+5. Selezionare **Use default Workspace location** (Usa percorso predefinito dello spazio di lavoro) e quindi fare clic su **Next** (Avanti)
+6. Selezionare l'archetipo **maven-archetype-quickstart** e quindi fare clic su **Next** (Avanti)
+7. Inserire un valore per **GroupId** e **ArtifactId** e quindi fare clic su **Finish** (Fine)
 8. In **pom.xml** aggiungere le dipendenze seguenti nel nodo `<dependency>`.
    
         <dependency>
@@ -45,7 +45,7 @@ Questa esercitazione usa un'installazione di [HDInsight Storm][HDInsight Storm],
             </exclusions>
             <scope>provided</scope>
         </dependency>
-9. Nella cartella **src** creare un file denominato **Config.properties** e copiarvi il contenuto seguente, sostituendo i valori seguenti:
+9. Nella cartella **src** creare un file denominato **Config.properties** e copiarvi il contenuto seguente, sostituendo questi valori:
    
         eventhubspout.username = ReceiveRule
    
@@ -102,7 +102,7 @@ Questa esercitazione usa un'installazione di [HDInsight Storm][HDInsight Storm],
     
         }
     
-    Questo Bolt Storm registra il contenuto degli eventi ricevuti. Può essere facilmente esteso per archiviare tuple in un servizio di archiviazione. L'[esercitazione di analisi dei sensori con HDInsight] usa lo stesso approccio per archiviare dati in HBase.
+    Questo Bolt Storm registra il contenuto degli eventi ricevuti. Può essere facilmente esteso per archiviare tuple in un servizio di archiviazione. L' [esercitazione di analisi dei sensori con HDInsight] usa lo stesso approccio per archiviare dati in HBase.
 11. Creare una classe denominata **LogTopology** con il codice seguente:
     
         import java.io.FileReader;
@@ -216,4 +216,6 @@ Questa esercitazione usa un'installazione di [HDInsight Storm][HDInsight Storm],
 
 [12]: ./media/service-bus-event-hubs-get-started-receive-storm/create-storm1.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!--HONumber=Nov16_HO3-->
+
+

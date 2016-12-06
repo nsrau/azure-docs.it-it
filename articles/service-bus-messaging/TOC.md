@@ -46,8 +46,8 @@
 ### [Usare AMQP con code e argomenti partizionati](service-bus-partitioned-queues-and-topics-amqp-overview.md)
 ### [Spazi dei nomi associati](service-bus-paired-namespaces.md)
 ### [Concatenare entità con l'inoltro automatico](service-bus-auto-forwarding.md)
-## Gestire
-### [Uso di modelli di Azure Resource Manager](service-bus-resource-manager-overview.md)
+## Manage
+### [Uso dei modelli di Azure Resource Manager](service-bus-resource-manager-overview.md)
 ### [Uso di PowerShell per il provisioning delle entità](service-bus-powershell-how-to-provision.md)
 
 # Riferimento
@@ -57,6 +57,10 @@
 ## [Quote](service-bus-quotas.md)
 ## [.NET](/dotnet/api/)
 ## [REST](/rest/api/servicebus/)
+## [Sintassi di SQLFilter](service-bus-messaging-sql-filter.md)
+## [Sintassi di SQLRuleAction](service-bus-messaging-sql-rule-action.md)
+## [Guida al protocollo AMQP1.0](service-bus-amqp-protocol-guide.md)
+### [Operazioni basate su richiesta-risposta AMQP 1.0](service-bus-amqp-request-response.md)
 
 # Risorse
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
@@ -69,6 +73,6 @@
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

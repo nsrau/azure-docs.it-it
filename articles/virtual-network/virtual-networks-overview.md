@@ -1,5 +1,5 @@
 ---
-title: Panoramica della rete virtuale (VNet) di Azure
+title: Reti virtuali di Azure | Documentazione Microsoft
 description: Informazioni sulle reti virtuali in Azure.
 services: virtual-network
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e08966567a8545c1b37ec856f836b976b5a9ab2a
+ms.sourcegitcommit: 6e96471c4f61e1ebe15c23f87ac646001d8e30ee
+ms.openlocfilehash: 47f149fe38dfd238dc2a38fd02ea50fc9c65e469
 
 
 ---
-# <a name="virtual-network-overview"></a>Panoramica della rete virtuale
+# <a name="virtual-networks"></a>Reti virtuali
 Una rete virtuale di Azure (VNet) è una rappresentazione della propria rete personalizzata nel cloud.  È un isolamento logico del cloud di Azure dedicato alla sottoscrizione. È possibile controllare completamente i blocchi di indirizzi IP, le impostazioni DNS, i criteri di sicurezza e le tabelle di route in questa rete. È anche possibile segmentare ulteriormente la rete virtuale in subnet e avviare macchine virtuali (VM) IaaS di Azure e/o [servizi cloud (istanze del ruolo PaaS)](../cloud-services/cloud-services-choose-me.md). È anche possibile connettere la rete virtuale alla rete locale usando una delle [opzioni di connettività](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) disponibili in Azure. In pratica è possibile espandere la rete ad Azure, con il controllo completo sui blocchi di indirizzi IP con tutti i vantaggi di livello aziendale offerti da Azure.
 
 Per meglio comprendere le reti virtuali, vedere la figura seguente che mostra una rete locale semplificata.
@@ -38,9 +38,8 @@ Si noti come l'infrastruttura di Azure assume il ruolo di router, consentendo l'
 > [!NOTE]
 > Esistono due diverse modalità di distribuzione in Azure: classica (nota anche come Gestione dei servizi) e Gestione risorse di Azure. Le reti virtuali classiche possono essere aggiunte a un gruppo di affinità o create come reti virtuali regionali. Se si ha disposizione una rete virtuale in un gruppo di affinità, si consiglia di [eseguirne la migrazione a una rete virtuale regionale](virtual-networks-migrate-to-regional-vnet.md).
 > 
-> 
 
-## <a name="virtual-network-benefits"></a>Vantaggi della rete virtuale
+## <a name="benefits"></a>Vantaggi
 * **Isolamento**. Le reti virtuali sono completamente isolate una dall'altra. In questo modo è possibile creare reti non contigue per la distribuzione, il test e la produzione che usano gli stessi blocchi di indirizzi CIDR.
 * **Accesso a Internet pubblico**. Tutte le istanze del ruolo PaaS e delle macchine virtuali IaaS in una rete virtuale possono accedere a Internet pubblico per impostazione predefinita. È possibile controllare l'accesso usando gruppi di sicurezza di rete (NSG).
 * **Accesso alle macchine virtuali all'interno della rete virtuale**. Le istanze del ruolo PaaS e le VM IaaS possono essere avviate nella stessa rete virtuale e possono connettersi tra loro usando indirizzi IP privati, anche se sono in subnet diverse, senza che sia necessario configurare un gateway o usare indirizzi IP pubblici.
@@ -50,8 +49,7 @@ Si noti come l'infrastruttura di Azure assume il ruolo di router, consentendo l'
   
   > [!NOTE]
   > Verificare di aver creato una nuova rete virtuale prima di distribuire eventuali istanze del ruolo PaaS o delle macchine virtuali IaaS nell'ambiente Azure. Le macchine virtuali basate su ARM richiedono una rete virtuale e, se non si specifica una rete virtuale esistente, Azure crea una rete virtuale predefinita che potrebbe presentare un conflitto dei blocchi di indirizzi CIDR con la propria rete locale, rendendo impossibile la connessione tra la propria rete virtuale e la propria rete locale.
-  > 
-  > 
+  >
 
 ## <a name="subnets"></a>Subnet
 Una subnet è un intervallo di indirizzi IP nella rete virtuale. È possibile suddividere la rete virtuale in più subnet per una maggiore organizzazione e sicurezza. Le VM e le istanze del ruolo PaaS distribuite nelle subnet (nella stessa o in diverse) in una rete virtuale possono comunicare tra loro senza nessuna configurazione aggiuntiva. È anche possibile configurare tabelle di route e gruppi di sicurezza di rete per una subnet.
@@ -69,7 +67,7 @@ Le macchine virtuali e i servizi cloud in una rete virtuale possono essere espos
 
 Per altre informazioni sul servizio di bilanciamento del carico in Azure, visitare [Panoramica del servizio di bilanciamento del carico](../load-balancer/load-balancer-overview.md).
 
-## <a name="network-security-group-nsg"></a>Gruppo di sicurezza di rete
+## <a name="network-security-groups-nsg"></a>Gruppi di sicurezza di rete (NGS)
 È possibile creare gruppi di sicurezza di rete per controllare l'accesso in ingresso e in uscita per le interfacce di rete (NIC), le macchine virtuali e le subnet. Ogni gruppo di sicurezza di rete contiene una o più regole che specificano se il traffico è approvato o respinto in base all'indirizzo IP di origine, alla porta di origine, all'indirizzo IP di destinazione e alla porta di destinazione. Per altre informazioni sui gruppi di sicurezza di rete, visitare [Che cos'è un gruppo di sicurezza di rete](virtual-networks-nsg.md).
 
 ## <a name="virtual-appliances"></a>Dispositivo virtuale
@@ -94,6 +92,6 @@ L'uso di reti virtuali in Azure non comporta costi aggiuntivi. Le istanze di cal
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

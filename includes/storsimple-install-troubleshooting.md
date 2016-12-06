@@ -1,9 +1,9 @@
 <!--author=alkohli last changed: 03/17/16-->
 
-## Risoluzione degli errori di aggiornamento
+## <a name="troubleshooting-update-failures"></a>Risoluzione degli errori di aggiornamento
 **Se viene visualizzata una notifica che i controlli di pre-aggiornamento non è stato?**
 
-Se un controllo preliminare ha esito negativo, verificare che siano presenti nella barra di notifica dettagliate nella parte inferiore della pagina. Fornisce informazioni aggiuntive quali controllo preliminare non riuscita. Nella figura seguente è illustrata un'istanza in cui viene visualizzata una notifica. In questo caso, il controllo di integrità del controller e il controllo di integrità del componente hardware non sono riusciti. Nella sezione **Stato hardware** è possibile vedere e i componenti **Controller 0** e **Controller 1** richiedono attenzione.
+Se un controllo preliminare ha esito negativo, verificare che siano presenti nella barra di notifica dettagliate nella parte inferiore della pagina. Fornisce informazioni aggiuntive quali controllo preliminare non riuscita. Nella figura seguente è illustrata un'istanza in cui viene visualizzata una notifica. In questo caso, il controllo di integrità del controller e il controllo di integrità del componente hardware non sono riusciti. Nella sezione **Stato hardware** è possibile vedere che i componenti **Controller 0** e **Controller 1** richiedono attenzione.
 
   ![Errore di pre-controllo](./media/storsimple-install-troubleshooting/HCS_PreUpdateCheckFailed-include.png)
 
@@ -19,4 +19,8 @@ Eseguire il cmdlet in entrambi i controller.
 
 Se si è verificato è presente la connettività e continuare a visualizzare questo problema, contattare il supporto Microsoft per la procedura successiva.
 
-<!---HONumber=AcomDC_0323_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

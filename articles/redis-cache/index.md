@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: cd96f7ea32696ea920cd1622ae6d08692b4f8f4c
-ms.openlocfilehash: a244eaf8dff788354caab1c327a22cb5c5b423cf
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: 1253538f479de3dc4200956f85229ee4892cf9a7
 
 ---
 #<a name="redis-cache-documentation"></a>Documentazione di Cache Redis
@@ -52,7 +52,7 @@ Cache Redis di Azure si basa sulla popolare cache Redis open source. Consente di
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/nodejs.svg" alt="" />
+                            <img src="media/index/dotnet.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -64,7 +64,7 @@ Cache Redis di Azure si basa sulla popolare cache Redis open source. Consente di
         </a>
     </li>
     <li>
-        <a href="/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache">
+        <a href="/azure/redis-cache/cache-web-app-howto">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -139,22 +139,80 @@ Cache Redis di Azure si basa sulla popolare cache Redis open source. Consente di
 
 ---
 
-##<a name="reference"></a>Riferimento
+## <a name="reference"></a>Riferimento
 
-###<a name="powershell"></a>PowerShell
-[Informazioni di riferimento su Azure PowerShell](/powershell/azureps-cmdlets-docs)
-
-###<a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-[Cache Redis con l'interfaccia della riga di comando di Azure](/cli/azure/redis) 
-
-###<a name="net"></a>.NET 
-[API di riferimento gestite di Cache Redis](/dotnet/api/) 
-
-###<a name="java"></a>Java 
-[Azure Java SDK](/java/api/)
-
-###<a name="rest"></a>REST 
-[Informazioni di riferimento sull'API REST di Cache Redis](/rest/api/)  
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Informazioni di riferimento su Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/cli/azure/redis">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Interfaccia della riga di comando di Azure</h3>
+                        <p>Redis Cache con l'interfaccia della riga di comando di Azure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/dotnet/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>API di riferimento gestito di Cache Redis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/java/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Azure Java SDK</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Informazioni di riferimento sull'API REST di Cache Redis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<ul>
 
 
 <div class="downloadHolder">
@@ -167,6 +225,6 @@ Scaricare la documentazione di Cache Redis </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

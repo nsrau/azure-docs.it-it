@@ -47,7 +47,7 @@ Ecco i cinque passaggi principali per eseguire il backup di una VM:
 >
 >
 
-## <a name="step-1-create-a-backup-vault-for-a-vm"></a>Passaggio 1: Creare un insieme di credenziali di backup per una macchina virtuale
+## <a name="step-1---create-a-backup-vault-for-a-vm"></a>Passaggio 1: Creare un insieme di credenziali di backup per una macchina virtuale
 Un insieme di credenziali di backup è un'entità che archivia tutti i backup e i punti di ripristino che sono stati creati nel corso del tempo. L'insieme di credenziali di backup contiene anche i criteri di backup applicati alle macchine virtuali di cui viene eseguito il backup.
 
 1. Accedere al [portale di Azure classico](http://manage.windowsazure.com/).
@@ -86,7 +86,7 @@ Un insieme di credenziali di backup è un'entità che archivia tutti i backup e 
 
 Dopo aver scelto l'opzione di archiviazione per l'insieme di credenziali, è possibile associare la macchina virtuale all'insieme di credenziali. Per iniziare l'associazione, trovare e registrare le macchine virtuali di Azure.
 
-## <a name="step-2-discover-and-register-azure-virtual-machines"></a>Passaggio 2: Trovare e registrare le macchine virtuali di Azure
+## <a name="step-2---discover-and-register-azure-virtual-machines"></a>Passaggio 2: Trovare e registrare le macchine virtuali di Azure
 Prima di registrare la VM con un insieme di credenziali, eseguire il processo di individuazione per identificare eventuali VM nuove. Verrà restituito un elenco delle macchine virtuali disponibili nella sottoscrizione, insieme ad altre informazioni come il nome del servizio cloud e l'area.
 
 1. Accedere al [portale di Azure classico](http://manage.windowsazure.com/)
@@ -133,12 +133,12 @@ Prima di registrare la VM con un insieme di credenziali, eseguire il processo di
 
     ![Registration status 2](./media/backup-azure-vms/register-status02.png)
 
-## <a name="step-3-install-the-vm-agent-on-the-virtual-machine"></a>Passaggio 3: Installare l'agente di macchine virtuali nella macchina virtuale
+## <a name="step-3---install-the-vm-agent-on-the-virtual-machine"></a>Passaggio 3: Installare l'agente di macchine virtuali nella macchina virtuale
 Per il funzionamento dell'estensione di backup, l'agente di macchine virtuali deve essere installato nella macchina virtuale di Azure. Se la VM è stata creata dalla raccolta di Azure, l'agente di macchine virtuali è già installato. È possibile passare alla [protezione delle VM](backup-azure-vms-first-look.md#step-4---create-the-backup-policy).
 
 Se la migrazione della VM è stata eseguita da un data center locale, l'agente di macchine virtuali non è probabilmente installato nella VM. Prima di procedere alla protezione della VM, è necessario installare l'agente di macchine virtuali. Per informazioni dettagliate sull'installazione dell'agente di macchine virtuali, vedere la [sezione Agente di macchine virtuali dell'articolo sul backup di macchine virtuali](backup-azure-vms-prepare.md#vm-agent).
 
-## <a name="step-4-create-the-backup-policy"></a>Passaggio 4: Creare i criteri di backup
+## <a name="step-4---create-the-backup-policy"></a>Passaggio 4: Creare i criteri di backup
 Prima attivare il processo di backup iniziale, impostare la pianificazione per l'acquisizione degli snapshot di backup. La pianificazione per l'acquisizione degli snapshot di backup e la durata di conservazione di questi snapshot costituiscono i criteri di backup. Le informazioni sul periodo di conservazione si basano sullo schema di rotazione dei backup GFS (Grandfather-Father-Son).
 
 1. Passare all'insieme di credenziali per il backup disponibile in **Servizi di ripristino** nel portale di Azure classico e fare clic su **Elementi registrati**.
@@ -175,7 +175,7 @@ Prima attivare il processo di backup iniziale, impostare la pianificazione per l
 
     Dopo aver stabilito i criteri, andare al passaggio successivo ed eseguire il backup iniziale.
 
-## <a name="step-5-initial-backup"></a>Passaggio 5: Backup iniziale
+## <a name="step-5---initial-backup"></a>Passaggio 5: Backup iniziale
 Dopo aver protetto la macchina virtuale con i criteri specificati, è possibile visualizzare la relazione nella scheda **Elementi protetti** . Finché non viene eseguito il backup iniziale, **Stato di protezione** indica **Protetto (backup iniziale in sospeso)**. Per impostazione predefinita, il primo backup pianificato è il *backup iniziale*.
 
 ![Backup in sospeso](./media/backup-azure-vms-first-look/protection-pending-border.png)

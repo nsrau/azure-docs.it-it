@@ -13,7 +13,7 @@
 ### [Importare la definizione di un'API](api-management-howto-import-api.md)
 ## Proteggere il back-end
 ### [Proteggere il back-end di un'API Web con AAD](api-management-howto-protect-backend-with-aad.md)
-### [Connettersi tramite VPN o ExpressRoute](api-management-howto-setup-vpn.md)
+### [Connettersi a una rete virtuale](api-management-using-with-vnet.md)
 ### [Autenticazione reciproca dei certificati](api-management-howto-mutual-certificates.md)
 ## Configurare criteri
 ### [Caching personalizzato](api-management-sample-cache-by-key.md)
@@ -39,14 +39,18 @@
 ### [Gestire gli account utente](api-management-howto-create-or-invite-developers.md)
 ### [Gestire con l'automazione](automation-manage-api-management.md)
 ### [Configurare con Git](api-management-configuration-repository-git.md)
-#riferimento
-## [Cmdlet di PowerShell per Gestione delle risorse]/powershell/resourcemanager()
-## [Informazioni di riferimento sui cmdlet di PowerShell per la distribuzione classica](https://msdn.microsoft.com/en-us/library/azure/mt613507)
-## [API REST](/rest/api/apimanagement/)
-## [Criteri](https://msdn.microsoft.com/en-us/library/azure/dn894081)
-## [Modelli](https://msdn.microsoft.com/en-us/library/azure/mt697540)
+#Riferimento
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell classico](https://msdn.microsoft.com/library/azure/mt613507)
+## [REST](/rest/api/apimanagement/)
+## [Criteri](https://msdn.microsoft.com/library/azure/dn894081)
+## [Modelli](https://msdn.microsoft.com/library/azure/mt697540)
 #Risorse
 ## [Prezzi](https://azure.microsoft.com/pricing/details/api-management/)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
+## [Video](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=api-management)
 ## [White paper sulla gestione API basata sul cloud](http://j.mp/ms-apim-whitepaper)
 ## [Linee guida per la progettazione di un'API](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
 ## [Guida all'implementazione di API](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
@@ -59,6 +63,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

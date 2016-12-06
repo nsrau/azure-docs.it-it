@@ -5,6 +5,10 @@
 | Dispositivi attivi |500 |Senza limiti |Senza limiti |
 | Quota di tag per ogni installazione/registrazione |60 |60 |60 |
 
-Per altre informazioni su questi limiti e per informazioni sui prezzi, vedere [Prezzi di Hub di notifica](https://azure.microsoft.com/pricing/details/notification-hubs/).
+Per altre informazioni su questi limiti e per informazioni sui prezzi, vedere [Prezzi di Hub di notifica](https://azure.microsoft.com/pricing/details/notification-hubs/). 
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

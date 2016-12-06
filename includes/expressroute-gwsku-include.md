@@ -11,6 +11,8 @@ I gateway di rete virtuale ExpressRoute possono usare i seguenti SKU:
 > 
 > 
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

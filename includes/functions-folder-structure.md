@@ -19,4 +19,8 @@ Il file *host.json* contiene alcune configurazioni specifiche del runtime e si t
 
 Ogni funzione ha una cartella che contiene uno o più file di codice, la configurazione function.json e altre dipendenze.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

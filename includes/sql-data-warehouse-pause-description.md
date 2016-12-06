@@ -19,4 +19,8 @@ Quando si sospende un database:
 * L'archivio dati non è interessato e i dati rimangano invariati. 
 * SQL Data Warehouse annulla tutte le operazioni in esecuzione o in coda.
 
-<!---HONumber=AcomDC_0427_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -83,12 +83,12 @@ L'hub di notifica è ora configurato per l'uso con il servizio APN e sono dispon
 2. Quando si configurano le opzioni per il nuovo progetto, assicurarsi di usare gli stessi valori per **Product Name** (Nome prodotto) e **Organization Identifier** (Identificatore organizzazione) specificati in precedenza durante l'impostazione dell'ID del bundle nel portale per sviluppatori Apple.
    
     ![Xcode - Opzioni di progetto][11]
-3. In **Targets** (Destinazioni) fare clic sul nome del progetto, quindi scegliere la scheda **Build Settings** (Impostazioni di compilazione) ed espandere **Code Signing Identity** (Identità di firma del codice) e quindi in **Debug** impostare l'identità di firma del codice. Modificare l'impostazione di **Levels** (Livelli) da **Basic** (Base) a **All** (Tutto) e quindi impostare **Provisioning Profile** (Profili di provisioning) sul profilo di provisioning creato in precedenza.
+3. In **Targets** (Destinazioni) fare clic sul nome del progetto, quindi scegliere la scheda **Build Settings** (Impostazioni compilazione) ed espandere **Code Signing Identity** (Identità di firma del codice) e quindi in **Debug** impostare l'identità di firma del codice. Modificare l'impostazione di **Levels** (Livelli) da **Basic** (Base) a **All** (Tutto) e quindi impostare **Provisioning Profile** (Profili di provisioning) sul profilo di provisioning creato in precedenza.
    
     Se il profilo di provisioning creato in Xcode non viene visualizzato, provare ad aggiornare i profili per l'identità di firma. Fare clic su **Xcode** nella barra dei menu, fare clic su **Preferences** (Preferenze), selezionare la scheda **Account**, fare clic sul pulsante **View Details** (Visualizza dettagli), selezionare la propria identità di firma e infine fare clic sul pulsante di aggiornamento nell'angolo in basso a destra.
    
        ![Xcode - provisioning profile][9]
-4. Scaricare la versione 1.2.4 di [Mobile Services iOS SDK] e decomprimere il file. In Xcode fare clic con il pulsante destro del mouse sul progetto e scegliere l'opzione **Add Files to** (Aggiungi file a) per aggiungere la cartella **WindowsAzureMessaging.framework** al progetto Xcode. Selezionare **Copy items if needed** (Copia elementi se necessario) e fare clic su **Add** (Aggiungi).
+4. Scaricare la[Mobile Services iOS SDK versione 1.2.4] e decomprimere il file. In Xcode fare clic con il pulsante destro del mouse sul progetto e scegliere l'opzione **Add Files to** (Aggiungi file a) per aggiungere la cartella **WindowsAzureMessaging.framework** al progetto Xcode. Selezionare **Copy items if needed** (Copia elementi se necessario) e fare clic su **Add** (Aggiungi).
    
    > [!NOTE]
    > Notification Hubs SDK non supporta attualmente bitcode Xcode 7.  È necessario impostare **Enable Bitcode** (Abilita Bitcode) su **No** in **Build Options** (Opzioni di compilazione) per il progetto.
@@ -417,7 +417,7 @@ Questa sezione fornisce un esempio di invio di notifiche push dall'interno di un
 5. Compilare il progetto e verificare che non siano presenti errori.
 
 > [!NOTE]
-> Se si verifica un errore di compilazione in Xcode7 relativo al supporto per Bitcode, è necessario modificare **Build Settings** (Impostazioni di compilazione) > **Enable Bitcode (ENABLE_BITCODE)** (Abilita Bitcode) impostandolo su **NO** in Xcode. Notification Hubs SDK non supporta attualmente bitcode. 
+> Se si verifica un errore di compilazione in Xcode7 relativo al supporto per Bitcode, è necessario modificare **Build Settings** (Impostazioni compilazione) > **Enable Bitcode (ENABLE_BITCODE)** (Abilita Bitcode) impostandolo su **NO** in Xcode. Notification Hubs SDK non supporta attualmente bitcode. 
 > 
 > 
 
@@ -470,13 +470,13 @@ Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di not
 
 [Introduzione a Servizi mobili]: /develop/mobile/tutorials/get-started-ios
 [Portale di Azure classico]: https://manage.windowsazure.com/
-[linee guida su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
+[Panoramica dell'Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Portale di provisioning di iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md (Introduzione alle notifiche push in Servizi mobili)
-[Azure Notification Hubs Notify Users for iOS with .NET backend]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md (Uso di Hub di notifica di Azure per inviare notifiche agli utenti per iOS con back-end .NET)
-[Uso di Hub di notifica per inviare le ultime notizie]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
+[Uso di Hub di notifica di Azure per inviare notifiche agli utenti per iOS con back-end .NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Usare Hub di notifica per inviare le ultime notizie]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
 [guida alla programmazione di notifiche push e locali]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [portale di Azure]: https://portal.azure.com

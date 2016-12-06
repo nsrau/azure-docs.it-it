@@ -1,6 +1,6 @@
 ---
-title: "Che cos&quot;è un gruppo di sicurezza di rete"
-description: Informazioni sul firewall distribuito in Azure tramite gruppi di sicurezza di rete e come usarli per isolare e controllare il flusso del traffico all&quot;interno delle reti virtuali.
+title: Gruppi di sicurezza di rete | Documentazione Microsoft
+description: Informazioni su come isolare e controllare il flusso del traffico nelle reti virtuali usando il firewall distribuito in Azure con i gruppi di sicurezza di rete.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,13 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 92ba745915c4b496ac6b0ff3b3e25f6611f5707c
+ms.sourcegitcommit: c3b96b583260bc8975082b952929d524e4040730
+ms.openlocfilehash: ba8bfc32b6662f629fc2203f605f8d9f51b3b559
 
 
 ---
-# <a name="what-is-a-network-security-group-nsg"></a>Che cos'è un gruppo di sicurezza di rete
-Un gruppo di sicurezza di rete contiene un elenco di regole dell'elenco di controllo di accesso (ACL) che consentono o rifiutano il traffico di rete alle istanze VM in una rete virtuale. I gruppi di sicurezza di rete possono essere associati a subnet o singole istanze VM in una subnet. Quando un gruppo di sicurezza di rete viene associato a una subnet, le regole dell'elenco di controllo di accesso si applicano a tutte le istanze VM in tale subnet. Inoltre il traffico verso una singola VM può essere ulteriormente limitato associando un gruppo di sicurezza di rete direttamente a tale VM.
+# <a name="network-security-groups"></a>Gruppi di sicurezza di rete
+
+Un gruppo di sicurezza di rete (NSG) contiene un elenco di regole dell'elenco di controllo di accesso (ACL) che consentono o rifiutano il traffico di rete alle istanze di VM in una rete virtuale. I gruppi di sicurezza di rete possono essere associati a subnet o singole istanze VM in una subnet. Quando un gruppo di sicurezza di rete viene associato a una subnet, le regole dell'elenco di controllo di accesso si applicano a tutte le istanze VM in tale subnet. Inoltre il traffico verso una singola VM può essere ulteriormente limitato associando un gruppo di sicurezza di rete direttamente a tale VM.
+
+> [!NOTE]
+> Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md). In questo articolo viene illustrato l'utilizzo di entrambi i modelli, ma Microsoft indica che le distribuzioni più nuove utilizzano il modello di gestione delle.
 
 ## <a name="nsg-resource"></a>Risorsa del gruppo di sicurezza di rete
 I gruppi di sicurezza di rete contengono le proprietà seguenti.
@@ -36,10 +40,9 @@ I gruppi di sicurezza di rete contengono le proprietà seguenti.
 > [!NOTE]
 > Gli elenchi di controllo di accesso basati su endpoint e i gruppi di sicurezza di rete non sono supportati nella stessa istanza di macchina virtuale. Se si vuole usare un gruppo di sicurezza di rete ed è già presente un elenco di controllo di accesso basato su endpoint, rimuovere prima l'elenco di controllo di accesso. Per informazioni su come procedere, vedere [Gestione degli elenchi di controllo di accesso (ACL) per gli endpoint tramite PowerShell](virtual-networks-acl-powershell.md).
 > 
-> 
 
 ### <a name="nsg-rules"></a>Regole NSG
-Le regole dei gruppi di sicurezza di rete contengono le proprietà seguenti.
+Le regole dei gruppi di sicurezza di rete contengono le proprietà seguenti:
 
 | Proprietà | Descrizione | Vincoli | Considerazioni |
 | --- | --- | --- | --- |
@@ -90,37 +93,27 @@ Come illustrato dalle regole predefinite seguenti, il traffico che ha origine e 
 ## <a name="associating-nsgs"></a>Associazione di gruppi di sicurezza di rete
 È possibile associare un gruppo di sicurezza di rete alle VM, alle schede di interfaccia di rete e alle subnet, a seconda del modello di distribuzione usato.
 
-[!INCLUDE [learn-about-deployment-models-both-include.md](../../includes/learn-about-deployment-models-both-include.md)]
-
 * **Associazione di un gruppo di sicurezza di rete a una VM (solo distribuzioni classiche).**  Quando si associa un NSG a una VM, le regole di accesso alla rete nell’NSG vengono applicate a tutto il traffico verso e dalla VM. 
 * **Associazione di un gruppo di sicurezza di rete a una scheda di interfaccia di rete (solo distribuzioni di Gestione risorse).**  Quando si associa un NSG a una scheda di rete, le regole di accesso di rete nell’NSG vengono applicate solo a tale scheda di rete. Ciò significa che in una VM con più schede di rete, se un gruppo di sicurezza di rete viene applicato a una singola scheda di rete, non influisce sul traffico associato alle altre schede di rete. 
 * **Associazione di un gruppo di sicurezza di rete a una subnet (tutte le distribuzioni)**. Quando si associa un gruppo di sicurezza di rete a una subnet, le regole di accesso alla rete del gruppo di sicurezza di rete vengono applicate a tutte le risorse IaaS e PaaS nella subnet. 
 
 È possibile associare gruppi di sicurezza di rete diversi a una VM (o a una scheda di interfaccia di rete, a seconda del modello di distribuzione) e alla subnet a cui è associata una scheda di interfaccia di rete o una VM. In questo caso, tutte le regole di accesso alla rete vengono applicate al traffico in base alla priorità in ogni NSG, nell'ordine seguente:
 
-* **Traffico in ingresso**
-  
-  1. NSG applicato alla subnet. 
-     
-     Se l'NSG della subnet ha una regola corrispondente per impedire il traffico, il pacchetto viene rilasciato qui.
-  2. NSG applicato alla scheda di interfaccia di rete (Gestione risorse) o alla VM (classica). 
-     
-     Se l'NSG della macchina virtuale/scheda di interfaccia di rete ha una regola corrispondente per impedire il traffico, il pacchetto viene rilasciato nella macchina virtuale/scheda di interfaccia di rete, anche se l'NSG della subnet ha una regola corrispondente per consentire il traffico.
-* **Traffico in uscita**
-  
-  1. NSG applicato alla scheda di interfaccia di rete (Gestione risorse) o alla VM (classica). 
-     
-     Se l'NSG della macchina virtuale/scheda di interfaccia di rete ha una regola corrispondente per impedire il traffico, il pacchetto viene rilasciato qui.
-  2. NSG applicato alla subnet.
-     
-     Se l'NSG della subnet ha una regola corrispondente per impedire il traffico, il pacchetto viene rilasciato qui, anche se l'NSG della macchina virtuale/scheda di interfaccia di rete ha una regola corrispondente per consentire il traffico.
-     
-      ![Elenchi di controllo di accesso e gruppi di sicurezza di rete](./media/virtual-network-nsg-overview/figure2.png)
+- **Traffico in ingresso**
+
+  1. **NSG applicato alla subnet:** se un NSG della subnet ha una regola corrispondente per impedire il traffico, il pacchetto verrà rilasciato.
+
+  2. **NSG applicato alla scheda di interfaccia di rete** (Resource Manager) o alla VM (versione classica): se l'NSG della macchina virtuale/scheda di interfaccia di rete ha una regola corrispondente per impedire il traffico, il pacchetto viene rilasciato nella macchina virtuale/scheda di interfaccia di rete, anche se l'NSG della subnet ha una regola corrispondente per consentire il traffico.
+
+- **Traffico in uscita**
+
+  1. **NSG applicato alla scheda di interfaccia di rete** (Resource Manager) o alla VM (versione classica): se l'NSG della macchina virtuale/scheda di interfaccia di rete ha una regola corrispondente per impedire il traffico, il pacchetto viene rilasciato.
+
+  2. **NSG applicato alla subnet**: se l'NSG della subnet ha una regola corrispondente per impedire il traffico, il pacchetto viene rilasciato qui, anche se l'NSG della macchina virtuale/scheda di interfaccia di rete ha una regola corrispondente per consentire il traffico.
 
 > [!NOTE]
 > Anche se è possibile associare solo un singolo NSG a una subnet, una VM o una scheda di rete; è possibile associare lo stesso NSG a quante risorse si desidera.
-> 
-> 
+>
 
 ## <a name="implementation"></a>Implementazione
 È possibile implementare i gruppi di sicurezza di rete nei modelli di distribuzione classica o di Gestione risorse con i diversi strumenti elencati di seguito.
@@ -133,12 +126,14 @@ Come illustrato dalle regole predefinite seguenti, il traffico che ha origine e 
 | Interfaccia della riga di comando di Azure |[![Sì][verde]](virtual-networks-create-nsg-classic-cli.md) |[![Sì][verde]](virtual-networks-create-nsg-arm-cli.md) |
 | Modello ARM |![No](./media/virtual-network-nsg-overview/red.png) |[![Sì][verde]](virtual-networks-create-nsg-arm-template.md) |
 
-| **Chiave** | ![Sì](./media/virtual-network-nsg-overview/green.png) Supportato. | ![No](./media/virtual-network-nsg-overview/red.png) Non supportato. |
-| --- | --- | --- |
-|  | | |
+**Chiave**
+
+![Sì](./media/virtual-network-nsg-overview/green.png) Supportato.
+
+![No](./media/virtual-network-nsg-overview/red.png) Non supportato.
 
 ## <a name="planning"></a>Pianificazione
-Prima di implementare i gruppi di sicurezza di rete, è necessario rispondere alle domande seguenti:    
+Prima di implementare i gruppi di sicurezza di rete, è necessario rispondere alle domande seguenti:
 
 1. Verso o da quali tipi di risorse si vuole filtrare il traffico (schede di interfaccia di rete nella stessa VM, VM o altre risorse, ad esempio servizi cloud o ambienti del servizio dell'applicazione connessi alla stessa subnet oppure tra le risorse connesse a subnet diverse)?
 2. Le risorse verso/da cui si vuole filtrare il traffico sono connesse alle subnet nelle reti virtuali esistenti o verranno connesse a nuove reti virtuali o subnet?
@@ -270,12 +265,12 @@ Poiché alcuni gruppi di sicurezza di rete devono essere associati a singole sch
 * [Distribuire gli NSG nella Gestione risorse](virtual-networks-create-nsg-arm-pportal.md).
 * [Gestire i log dei gruppi di sicurezza di rete](virtual-network-nsg-manage-log.md).
 
-[green]: ./media/virtual-network-nsg-overview/green.png
+[verde]: ./media/virtual-network-nsg-overview/green.png
 [yellow]: ./media/virtual-network-nsg-overview/yellow.png
 [red]: ./media/virtual-network-nsg-overview/red.png
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

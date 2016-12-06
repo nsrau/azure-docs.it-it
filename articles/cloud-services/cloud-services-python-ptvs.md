@@ -1,5 +1,5 @@
 ---
-title: Ruoli Web e ruoli di lavoro Python con Visual Studio | Documentazione Microsoft
+title: Introduzione a Python e Servizi cloud di Azure | Documentazione Microsoft
 description: Panoramica dell&quot;uso di Python Tools per Visual Studio per creare servizi cloud di Azure, inclusi ruoli Web e ruoli di lavoro.
 services: cloud-services
 documentationcenter: python
@@ -12,15 +12,21 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 08/03/2016
+ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d951e05a9a0ae59adb64d53726e9898d95424d80
+ms.sourcegitcommit: 712c62ed3d5ff21847e2431df3530e7d39c6aae2
+ms.openlocfilehash: 53f7c17d8404bb02ab8bb2be9018ba2b179f1b08
 
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Ruoli Web e ruoli di lavoro Python con Python Tools for Visual Studio
+
+> [!div class="op_single_selector"]
+> * [.NET](cloud-services-dotnet-get-started.md)
+> * [Node.js](cloud-services-nodejs-develop-deploy-app.md)
+> * [Python](cloud-services-python-ptvs.md)
+
 Questo articolo offre una panoramica dell'uso dei ruoli Web e di lavoro con [Python Tools for Visual Studio][Python Tools for Visual Studio]. Si apprenderà come usare Visual Studio per creare e distribuire un servizio cloud di base che usa Python.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -166,7 +172,7 @@ Gli script seguenti sono stati scritti per Python 3.5. Per usare la versione 2.x
 Creare ora i file **PrepPython.ps1** e **PipInstaller.ps1** nella cartella **./bin** del ruolo.
 
 #### <a name="preppythonps1"></a>PrepPython.ps1
-Questo script installa Python. Se la variabile di ambiente **PYTHON2** viene impostata su **on** verrà installato Python 2.7, in caso contrario verrà installato Python 3.5.
+Questo script installa Python. Se la variabile di ambiente **PYTHON2** è impostata su **on** verrà installato Python 2.7, in caso contrario verrà installato Python 3.5.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -212,7 +218,7 @@ if (-not $is_emulated){
 ```
 
 #### <a name="pipinstallerps1"></a>PipInstaller.ps1
-Questo script chiama pip e installa tutte le dipendenze presenti nel file **requirements.txt**. Se la variabile di ambiente **PYTHON2** viene impostata su **on** verrà usato Python 2.7, in caso contrario verrà usato Python 3.5.
+Questo script chiama pip e installa tutte le dipendenze presenti nel file **requirements.txt**. Se la variabile di ambiente **PYTHON2** è impostata su **on** verrà usato Python 2.7, in caso contrario verrà usato Python 3.5.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -247,7 +253,7 @@ if (-not $is_emulated){
 
 Il file **bin\LaunchWorker.ps1** è stato originariamente creato per eseguire molte attività preliminari, ma non funziona. Sostituire il contenuto del file con lo script seguente.
 
-Questo script chiama il file **worker.py** dal progetto Python. Se la variabile di ambiente **PYTHON2** viene impostata su **on** verrà usato Python 2.7, in caso contrario verrà usato Python 3.5.
+Questo script chiama il file **worker.py** dal progetto Python. Se la variabile di ambiente **PYTHON2** è impostata su **on** verrà usato Python 2.7, in caso contrario verrà usato Python 3.5.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -355,16 +361,16 @@ Per altre informazioni dettagliate sull'uso di servizi di Azure dai ruoli di lav
 
 <!--External Link references-->
 
-[Python Tools per Visual Studio]: http://aka.ms/ptvs
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Documentazione di Python Tools per Visual Studio]: http://aka.ms/ptvsdocs
-[Progetti servizio cloud]: http://go.microsoft.com/fwlink/?LinkId=624028
-[Strumenti di Azure SDK per Visual Studio 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Strumenti di Azure SDK per Visual Studio 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
+[Progetti di servizi cloud]: http://go.microsoft.com/fwlink/?LinkId=624028
+[Strumenti di Azure SDK per VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Strumenti di Azure SDK per VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 a 32 bit]: https://www.python.org/downloads/
 [Python 3.5 a 32 bit]: https://www.python.org/downloads/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

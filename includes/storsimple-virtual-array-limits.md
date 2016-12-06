@@ -2,7 +2,7 @@
 
 | **Identificatore limite** | **Limite** | **Commenti** |
 | --- | --- | --- |
-| Capacità totale (incluso il cloud) |Fino a 64 TB per dispositivo virtuale | |
+| Capacità totale (incluso il cloud) |Fino a 64 TB per dispositivo virtuale |È possibile eseguire il failover di un array virtuale StorSimple completo in un altro array vuoto. Se si prova a eseguire il ripristino nello stesso dispositivo, assicurarsi che lo spazio disponibile sul dispositivo sia sufficiente per completare questa operazione. Dopo il superamento di 32 TB, non è possibile eseguire il ripristino nello stesso dispositivo. |
 | Numero massimo di credenziali dell'account di archiviazione per dispositivo |1 | |
 | Numero massimo di volumi/condivisioni |16 | |
 | Dimensione minima di una condivisione a livelli |500 GB | |
@@ -22,6 +22,8 @@
 | Numero massimo di file per ogni array virtuale |4 milioni | |
 | Tempo di recupero del ripristino |Ripristino rapido |Il ripristino si basa sulla mappa termica e dipende dalle dimensioni del volume.<br>Le operazioni di backup possono verificarsi quando è in corso un'operazione di ripristino. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 
