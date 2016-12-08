@@ -1,3 +1,10 @@
+<!--
+Used in:
+sql-database-performance-guidance.md  
+sql-database-resource-limits.md
+sql-database-service-tiers.md  
+-->
+
 ### <a name="basic-service-tier"></a>Livello di servizio Basic
 | **Livello di servizio** | **Basic** |
 | --- | :---: |
