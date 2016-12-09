@@ -3,10 +3,10 @@ title: Panoramica del modello di licenza PlayReady di Servizi multimediali
 description: Questo argomento offre una panoramica di un modello di licenza PlayReady usato per configurare le licenze PlayReady.
 author: juliako
 manager: erikre
-editor: ''
+editor: 
 services: media-services
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: fddce5d0-1278-478f-ae05-9b985c748731
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b75c910312c342c33b7dfb0a3ffa0a86b7192319
+
 
 ---
 # <a name="media-services-playready-license-template-overview"></a>Panoramica del modello di licenza PlayReady di Servizi multimediali
@@ -55,7 +59,7 @@ Servizi multimediali definisce inoltre un set di classi .NET che potrebbero esse
 
 Per un esempio completo che usa le classi .NET per configurare il modello di licenza PlayReady, vedere [Uso della crittografia dinamica e del servizio di distribuzione di licenze PlayReady](https://msdn.microsoft.com/library/azure/dn783467.aspx).
 
-## <a name="<a-id="classes"></a>media-services-.net-classes-that-are-used-to-configure-license-templates"></a><a id="classes"></a>Classi .NET di Servizi multimediali che vengono usate per configurare i modelli di licenza
+## <a name="a-idclassesamedia-services-net-classes-that-are-used-to-configure-license-templates"></a><a id="classes"></a>Classi .NET di Servizi multimediali che vengono usate per configurare i modelli di licenza
 Le classi .NET seguenti sono le classi principali usate per configurare i modelli di licenza PlayReady di Servizi multimediali. Queste classi vengono mappate ai tipi definiti in [Schema XML del modello di licenza PlayReady](media-services-playready-license-template-overview.md#schema).
 
 La [MediaServicesLicenseTemplateSerializer](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer.aspx) viene usata per serializzare e deserializzare da e verso l'XML del modello di licenza di Servizi multimediali.
@@ -68,7 +72,7 @@ Si tratta della classe "di primo livello" nella gerarchia dei modelli. Ciò sign
 ### <a name="playreadylicensetemplate"></a>PlayReadyLicenseTemplate
 [PlayReadyLicenseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx) - Questa classe rappresenta un modello di licenza per creare licenze PlayReady da restituire agli utenti finali. Contiene i dati relativi alla chiave simmetrica nella licenza e agli eventuali diritti e restrizioni che il runtime DRM PlayReady deve imporre durante l'uso della chiave simmetrica.
 
-### <a name="<a-id="playreadyplayright"></a>playreadyplayright"></a><a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
+### <a name="a-idplayreadyplayrightaplayreadyplayright"></a><a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
 [PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx) - Questa classe rappresenta l'elemento PlayRight di una licenza PlayReady. Garantisce all'utente la possibilità di riprodurre il contenuto in base alle restrizioni (zero o maggiori) configurate nella licenza e nell'elemento PlayRight stesso (criterio specifico di riproduzione). Buona parte dei criteri di PlayRight riguardano restrizioni di output che controllano i tipi di output su cui il contenuto può essere riprodotto ed eventuali restrizioni che devono essere applicate quando si usa un determinato output. Se, ad esempio, DigitalVideoOnlyContentRestriction è abilitato, il runtime DRM consentirà la visualizzazione del video solo su output digitali (gli output video analogici non potranno passare il contenuto).
 
 > [!IMPORTANT]
@@ -78,7 +82,7 @@ Si tratta della classe "di primo livello" nella gerarchia dei modelli. Ciò sign
 
 Per un esempio dei livelli di protezione supportati da Silverlight, vedere [Supporto Silverlight per la protezione dell'output](http://go.microsoft.com/fwlink/?LinkId=617318).
 
-## <a name="<a-id="schema"></a>playready-license-template-xml-schema"></a><a id="schema"></a>Schema XML del modello di licenza PlayReady
+## <a name="a-idschemaaplayready-license-template-xml-schema"></a><a id="schema"></a>Schema XML del modello di licenza PlayReady
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
@@ -308,6 +312,9 @@ Per un esempio dei livelli di protezione supportati da Silverlight, vedere [Supp
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

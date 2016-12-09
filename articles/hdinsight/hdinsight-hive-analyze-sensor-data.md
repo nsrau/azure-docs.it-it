@@ -1,13 +1,13 @@
 ---
-title: Analizzare i dati dei sensori con Hive e Hadoop | Microsoft Docs
+title: Analizzare i dati dei sensori con Hive e Hadoop | Documentazione Microsoft
 description: Informazioni su come analizzare i dati dei sensori usando Hive Query Console con HDInsight (Hadoop) e quindi visualizzare i dati in Microsoft Excel mediante Power View.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: a8ac160c-1cef-45d9-bf36-7beb5a439105
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ef2e4b9272389f4e027821e84df4499bf8987c39
+
 
 ---
-# Analizzare i dati dei sensori mediante Hive Query Console su Hadoop in HDInsight
+# <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>Analizzare i dati dei sensori mediante Hive Query Console su Hadoop in HDInsight
 Informazioni su come analizzare i dati dei sensori usando Hive Query Console con HDInsight (Hadoop) e quindi visualizzare i dati in Microsoft Excel mediante Power View.
 
 > [!NOTE]
@@ -34,25 +38,30 @@ In questo esempio si userà Hive per elaborare i dati cronologici prodotti dai s
 
 ![Diagramma dell'architettura della soluzione](./media/hdinsight-hive-analyze-sensor-data/hvac-architecture.png)
 
-## Prerequisiti
-* Un cluster HDInsight (Hadoop): per informazioni sulla creazione di un cluster, vedere [Effettuare il provisioning di cluster Hadoop in HDInsight](hdinsight-provision-clusters.md).
+## <a name="prerequisites"></a>Prerequisiti
+* Un cluster HDInsight (Hadoop): per informazioni sulla creazione di un cluster, vedere [Effettuare il provisioning di cluster Hadoop in HDInsight](hdinsight-provision-clusters.md) .
 * Microsoft Excel 2013
   
   > [!NOTE]
-  > Microsoft Excel viene usato per la visualizzazione dei dati con [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=it-IT&rs=it-IT&ad=US).
+  > Microsoft Excel viene usato per la visualizzazione dei dati con [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US).
   > 
   > 
 * [Microsoft Hive ODBC Driver](http://www.microsoft.com/download/details.aspx?id=40886)
 
-## Per eseguire l'esempio
+## <a name="to-run-the-sample"></a>Per eseguire l'esempio
 1. Aprire un Web browser e passare all'URL seguente. Sostituire `<clustername>` con il nome del cluster HDInsight.
    
          https://<clustername>.azurehdinsight.net
    
     Quando richiesto, eseguire l'autenticazione con il nome utente e la password dell'amministratore usati durante il provisioning di questo cluster.
-2. Nella pagina Web visualizzata fare clic sulla scheda **Getting Started Gallery** e quindi, nella categoria **Solutions with Sample Data**, fare clic sull'esempio **Sensor Data Analysis**.
+2. Nella pagina Web visualizzata fare clic sulla scheda **Guida introduttiva** e quindi sull'esempio **Analisi dei dati dei sensori** nella categoria **Soluzioni con dati di esempio**.
    
-    ![Immagine della raccolta introduttiva](./media/hdinsight-hive-analyze-sensor-data/getting-started-gallery.png) 
+    ![Immagine della raccolta introduttiva](./media/hdinsight-hive-analyze-sensor-data/getting-started-gallery.png)
 3. Seguire le istruzioni fornite nella pagina Web per completare l'esempio.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

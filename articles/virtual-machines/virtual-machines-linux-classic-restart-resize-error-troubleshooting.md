@@ -1,13 +1,13 @@
 ---
-title: Problemi di riavvio o ridimensionamento della VM | Microsoft Docs
+title: Problemi di riavvio o ridimensionamento della VM | Documentazione Microsoft
 description: Risolvere i problemi della distribuzione classica con il riavvio e il ridimensionamento di una macchina virtuale Linux esistente in Azure
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: Deland-Han
 manager: felixwu
-editor: ''
+editor: 
 tags: top-support-issue
-
+ms.assetid: 73f2672c-602e-4766-8948-2b180115d299
 ms.service: virtual-machines-linux
 ms.topic: support-article
 ms.tgt_pltfrm: vm-linux
@@ -15,12 +15,16 @@ ms.workload: required
 ms.date: 09/20/2016
 ms.devlang: na
 ms.author: delhan
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 9268bc13c33893df624bd2311ba28f898e2fee90
+
 
 ---
-# Risolvere i problemi della distribuzione classica con il riavvio e il ridimensionamento di una macchina virtuale Linux esistente in Azure
+# <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-linux-virtual-machine-in-azure"></a>Risolvere i problemi della distribuzione classica con il riavvio e il ridimensionamento di una macchina virtuale Linux esistente in Azure
 > [!div class="op_single_selector"]
-> * [Classico](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)
-> * [Gestione risorse](virtual-machines-linux-restart-resize-error-troubleshooting.md)
+> * [Classico](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+> * [Gestione risorse](virtual-machines-linux-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
 
@@ -28,20 +32,22 @@ Quando si prova ad avviare una macchina virtuale (VM) di Azure arrestata o se ne
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
+Per la versione di Resource Manager, vedere [qui](virtual-machines-linux-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## Raccogliere log di controllo
+## <a name="collect-audit-logs"></a>Raccogliere log di controllo
 Per avviare la risoluzione dei problemi, raccogliere i log di controllo per identificare l'errore associato al problema.
 
-Nel portale di Azure fare clic su **Esplora** > **Macchine virtuali** > *macchina virtuale Linux personale* > **Impostazioni** > **Log di controllo**.
+Nel portale di Azure fare clic su **Esplora** > **Macchine virtuali** > *Macchina virtuale Linuz* > **Impostazioni** > **Log di controllo**.
 
-## Problema: Errore durante l'avvio di una VM arrestata
+## <a name="issue-error-when-starting-a-stopped-vm"></a>Problema: Errore durante l'avvio di una VM arrestata
 Si prova ad avviare una VM arrestata ma viene visualizzato un errore di allocazione.
 
-### Causa
+### <a name="cause"></a>Causa
 La richiesta di avvio della VM arrestata deve essere eseguita nel cluster originale che ospita il servizio cloud. Tuttavia, il cluster non ha spazio disponibile per soddisfare la richiesta.
 
-### Risoluzione
+### <a name="resolution"></a>Risoluzione
 * Creare un nuovo servizio cloud e associarlo a un'area o una rete virtuale basata sull'area, ma non a un gruppo di affinità.
 * Eliminare la VM arrestata.
 * Ricreare la VM nel nuovo servizio cloud usando i dischi.
@@ -54,16 +60,16 @@ Se si verifica un errore durante il tentativo di creare un nuovo servizio cloud,
 > 
 > 
 
-## Problema: Errore durante il ridimensionamento di una VM esistente
+## <a name="issue-error-when-resizing-an-existing-vm"></a>Problema: Errore durante il ridimensionamento di una VM esistente
 Si prova a ridimensionare una VM esistente ma viene visualizzato un errore di allocazione.
 
-### Causa
+### <a name="cause"></a>Causa
 La richiesta di ridimensionamento della VM deve essere eseguita nel cluster originale che ospita il servizio cloud. Tuttavia, il cluster non supporta le dimensioni della VM richieste.
 
-### Risoluzione
+### <a name="resolution"></a>Risoluzione
 Ridurre le dimensioni della VM richieste e quindi ripetere la richiesta di ridimensionamento.
 
-* Fare clic su **Esplora tutto** > **Macchine virtuali (classico)** > *macchina virtuale personale* > **Impostazioni** > **Dimensioni**. Per i passaggi dettagliati, vedere l'articolo relativo al [Ridimensionamento della macchina virtuale](https://msdn.microsoft.com/library/dn168976.aspx).
+* Fare clic su **Esplora tutto** > **Macchine virtuali (classico)** > *la macchina virtuale* > **Impostazioni** > **Dimensioni**. Per i passaggi dettagliati, vedere l'articolo relativo al [Ridimensionamento della macchina virtuale](https://msdn.microsoft.com/library/dn168976.aspx).
 
 Se non è possibile ridurre le dimensioni della VM, seguire questi passaggi:
 
@@ -74,7 +80,12 @@ Se non è possibile ridurre le dimensioni della VM, seguire questi passaggi:
 
 Se il servizio cloud esistente non è associato a una rete virtuale basata sull'area, è necessario eliminare le VM nel servizio cloud esistente e ricrearle nel nuovo servizio cloud dai relativi dischi. È tuttavia importante ricordare che il nuovo servizio cloud avrà un nuovo nome e un nuovo indirizzo VIP, quindi sarà necessario aggiornarli per tutte le dipendenze che attualmente usano queste informazioni per il servizio cloud esistente.
 
-## Passaggi successivi
-Se si verificano problemi durante la creazione di una nuova VM Linux in Azure, vedere [Risolvere i problemi della distribuzione classica con la creazione di una nuova macchina virtuale Linux in Azure](virtual-machines-linux-troubleshoot-deployment-new-vm.md).
+## <a name="next-steps"></a>Passaggi successivi
+Se si verificano problemi durante la creazione di una nuova VM Linux in Azure, vedere [Risolvere i problemi della distribuzione classica con la creazione di una nuova macchina virtuale Linux in Azure](virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

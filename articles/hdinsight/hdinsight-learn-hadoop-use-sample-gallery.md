@@ -1,23 +1,27 @@
 ---
-title: Informazioni su Hadoop in HDInsight tramite la raccolta di esempi | Microsoft Docs
+title: Informazioni su Hadoop in HDInsight con la raccolta di esempi | Documentazione Microsoft
 description: La raccolta di introduzione HDInsight fornisce un modo rapido per imparare a usare Hadoop eseguendo applicazioni di esempio. Usare dati di esempio o fornire dati personali.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 3d391bf3-fcb2-4956-8a2c-7c142e952bbb
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2016
+ms.date: 10/21/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0c5a9ee8d437a529c320f19a6f32c88bd38326e7
+
 
 ---
-# Informazioni su Hadoop tramite la raccolta di introduzione HDInsight di Azure.
+# <a name="learn-hadoop-by-using-the-azure-hdinsight-getting-started-gallery"></a>Informazioni su Hadoop tramite la raccolta di introduzione HDInsight di Azure.
 La raccolta introduttiva è disponibile solo per cluster HDInsight basati su Windows. Questa raccolta offre un modo semplice e rapido per imparare a usare Hadoop eseguendo applicazioni di esempio in HDInsight. Alcuni degli esempi sono forniti con dati di esempio. Per i rimanenti esempi è possibile fornire i propri dati. Attualmente sono disponibili i sei esempi seguenti (altri verranno pubblicati a breve):
 
 * Soluzioni con i propri dati di Azure
@@ -35,7 +39,7 @@ Il seguente video mostra come eseguire l'esempio relativo all'analisi delle tend
 
 <center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
-È possibile accedere al dashboard dall'indirizzo http://<NomeClusterHDInsight>.azurehdinsight.net/ o dal portale di Azure.
+È possibile accedere al dashboard dall'indirizzo http://<YourHDInsightClusterName>.azurehdinsight.net/ o dal portale di Azure.
 
 **Per eseguire un esempio dalla raccolta di introduzione**
 
@@ -48,11 +52,11 @@ Il seguente video mostra come eseguire l'esempio relativo all'analisi delle tend
    
     ![Esempio di analisi delle tendenze Twitter in HDInsight][hdinsight.twitter.sample]
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Di seguito sono indicati altri modi e strumenti per imparare a usare HDInsight:
 
 * [Mappa di apprendimento per HDInsight][hdinsight.learn.map]
-* [Infografica di HDInsight][hdinsight.infographic]
+* [Infografica HDInsight][hdinsight.infographic]
 
 <!--Image references-->
 [hdinsight.sample.gallery]: ./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Getting-Started-Gallery.png
@@ -61,6 +65,10 @@ Di seguito sono indicati altri modi e strumenti per imparare a usare HDInsight:
 <!--Link references-->
 [hdinsight.learn.map]: https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
-[azure.portal]: https://portal.azure.com
+[azure.portal]:https://portal.azure.com
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

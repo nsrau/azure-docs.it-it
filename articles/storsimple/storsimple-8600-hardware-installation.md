@@ -5,35 +5,39 @@ services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 3d82ba5f-3e34-40dc-9c33-50f952bc6be8
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 10/24/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 5b250358c44e699082c27803027a6a861e206a7d
+
 
 ---
-# Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8600
-## Overview
+# <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8600
+## <a name="overview"></a>Overview
 Microsoft Azure StorSimple 8600 è un dispositivo enclosure con doppio alloggiamento, costituito da un'enclosure principale e un'enclosure EBOD. In questa esercitazione viene illustrato come disimballare, montare su rack e cablare l'hardware del dispositivo StorSimple 8600 prima di configurarne il software.
 
-## Disimballare il dispositivo StorSimple 8600
+## <a name="unpack-your-storsimple-8600-device"></a>Disimballare il dispositivo StorSimple 8600
 Nella seguente procedura vengono fornite istruzioni chiare e dettagliate su come disimballare il dispositivo di archiviazione StorSimple 8600. Il dispositivo viene fornito in due scatole, una per l'enclosure principale e l'altra per l'enclosure EBOD. Queste due scatole vengono poi inserite in una scatola singola.
 
-### Preparazione del disimballaggio del dispositivo
+### <a name="prepare-to-unpack-your-device"></a>Preparazione del disimballaggio del dispositivo
 Prima di disimballare il dispositivo, consultare le informazioni seguenti.
 
-![Icona di avviso](./media/storsimple-safety/IC740879.png) ![icona peso elevato](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **AVVISO**
+![Icona di avviso](./media/storsimple-safety/IC740879.png)![icona peso elevato](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **AVVISO**
 
 1. Assicurarsi che siano disponibili due persone per sostenere il peso del dispositivo, in caso debba essere trasportato manualmente. Un'enclosure completamente configurata può pesare fino a 32 kg.
 2. Posizionare la scatola su una superficie piana e orizzontale.
 
 Successivamente, completare la procedura seguente per disimballare il dispositivo.
 
-#### Per disimballare il dispositivo
+#### <a name="to-unpack-your-device"></a>Per disimballare il dispositivo
 1. Controllare le scatole e le protezioni in schiuma per verificare l'eventuale presenza di ammaccature, tagli, danni provocati dall'acqua o altri danni evidenti. Se la scatola o le protezioni risultano danneggiate in modo grave, non aprire la confezione. [Contattare il Supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) per istruzioni su come verificare il corretto funzionamento del dispositivo.
 2. Aprire la scatola esterna ed estrarre le due scatole corrispondenti all’enclosure principale e all’enclosure EBOD. È ora possibile disimballare l'enclosure principale e l'enclosure EBOD. Nella figura seguente viene illustrato uno degli enclosure disimballato.
    
@@ -41,7 +45,7 @@ Successivamente, completare la procedura seguente per disimballare il dispositiv
    
     **Dispositivo di archiviazione disimballato**
    
-   | Etichetta | Description |
+   | Etichetta | Descrizione |
    | --- | --- |
    |   1 |Scatola |
    |   2 |Cavi SAS (nel vassoio cavi e accessori) |
@@ -62,11 +66,11 @@ Successivamente, completare la procedura seguente per disimballare il dispositiv
    * 2 kit per il montaggio in rack (4 guide laterali con componenti di montaggio, 2 per l'enclosure principale e 2 per l'enclosure EBOD), 1 in ciascuna scatola
    * Guida introduttiva
      
-     In caso di mancato ricevimento di uno qualsiasi degli elementi sopra elencati, [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
+     In caso di mancato ricevimento di uno qualsiasi degli elementi sopra elencati, [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).  
 
 Il passaggio successivo consiste nel montaggio su rack del dispositivo.
 
-## Montare su rack il dispositivo StorSimple 8600
+## <a name="rack-mount-your-storsimple-8600-device"></a>Montare su rack il dispositivo StorSimple 8600
 Attenersi alla procedura seguente per installare il dispositivo di archiviazione StorSimple 8600 in un rack standard da 48,26 cm (19 pollici) con montanti anteriori e posteriori. Il dispositivo è costituito da due enclosure, una principale e una EBOD, che devono essere montate su rack.
 
 L'installazione si articola in più passaggi, ciascuno dei quali è descritto nelle seguenti procedure.
@@ -76,29 +80,29 @@ L'installazione si articola in più passaggi, ciascuno dei quali è descritto ne
 > 
 > 
 
-### Operazioni preliminari
+### <a name="site-preparation"></a>Operazioni preliminari
 Le enclosure devono essere installate su un rack standard da 48,26 cm (19 pollici) con montanti anteriori e posteriori. Utilizzare la procedura seguente per predisporre l'installazione del rack.
 
-#### Per predisporre l'ambiente per l'installazione del rack
+#### <a name="to-prepare-the-site-for-rack-installation"></a>Per predisporre l'ambiente per l'installazione del rack
 1. Assicurarsi che l'enclosure principale e l'enclosure EBOD siano collocate in sicurezza su una superficie di lavoro (o simile) orizzontale, stabile e piana.
 2. Verificare che nell'ambiente in cui si intende effettuare l'installazione sia disponibile una fonte di alimentazione CA standard indipendente o un'unità PDU (Power Distribution Unit) rack con un gruppo di continuità.
 3. Assicurarsi che nel rack in cui si intende montare le enclosure sia disponibile uno slot 4U (2 X 2U).
 
-![Icona di avviso](./media/storsimple-safety/IC740879.png) ![icona peso elevato](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **AVVISO**
+![Icona di avviso](./media/storsimple-safety/IC740879.png)![icona peso elevato](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **AVVISO**
 
  Se si prevede di trasportare il dispositivo a mano, assicurarsi che siano disponibili due persone. Un'enclosure completamente configurata può pesare fino a 32 kg.
 
-### Prerequisiti del rack
+### <a name="rack-prerequisites"></a>Prerequisiti del rack
 Le enclosure sono progettate per essere installate in un armadio rack standard da 48,26 cm (19 pollici) con:
 
 * Profondità minima di 70,71 cm (27,84 pollici) tra un montante del rack e un altro
 * Peso massimo del dispositivo pari a 32 kg
 * Contropressione massima di 5 Pascal (corrispondente alla pressione esercitata da una colonna di acqua di 0,5 mm)
 
-### Kit per il montaggio su rack
+### <a name="rack-mounting-rail-kit"></a>Kit per il montaggio su rack
 Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 cm (19 pollici). Le guide sono state testate per sostenere il peso massimo dell'enclosure. Inoltre, grazie alla presenza delle guide, è possibile installare anche altre enclosure senza occupare spazio all'interno del rack. Iniziare con l'installazione dell'enclosure EBOD.
 
-#### Per installare l'enclosure EBOD sulle guide
+#### <a name="to-install-the-ebod-enclosure-on-the-rails"></a>Per installare l'enclosure EBOD sulle guide
 1. Eseguire questo passaggio solo se non ci sono guide interne installate sul dispositivo. In genere, le guide sono preinstallate. In caso contrario, installare le slitte delle guide destra e sinistra ai lati dello chassis dell'enclosure. Tali slitte vengono fissate a ciascun lato con sei viti metriche. Per un migliore orientamento, le slitte delle guide sono contrassegnate con le diciture **LH – Front** (sinistra - anteriore) e **RH – Front** (destra - anteriore), mentre l'estremità a contatto con la parte posteriore dell'enclosure è affusolata.
    
     ![Fissaggio delle slitte delle guide allo chassis dell'enclosure](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
@@ -126,10 +130,10 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
    |   4 |Vite di fissaggio |
    |   5 |Perni di posizionamento della guida sinistra (parte posteriore) |
 
-### Montaggio dell'enclosure EBOD nel rack
+### <a name="mounting-the-ebod-enclosure-in-the-rack"></a>Montaggio dell'enclosure EBOD nel rack
 Per montare l'enclosure EBOD nel rack usando le guide appena installate, seguire questa procedura.
 
-#### Per montare l'enclosure EBOD
+#### <a name="to-mount-the-ebod-enclosure"></a>Per montare l'enclosure EBOD
 1. Con l'aiuto di un'altra persona, sollevare l'enclosure e allinearla alle guide del rack.
 2. Inserire con cura l'enclosure nelle guide e spingerla nell'armadio rack completamente.
    
@@ -148,7 +152,7 @@ Per montare l'enclosure EBOD nel rack usando le guide appena installate, seguire
    | --- | --- |
    |   1 |Vite di fissaggio dell'enclosure |
 
-### Montaggio dell'enclosure principale nel rack
+### <a name="mounting-the-primary-enclosure-in-the-rack"></a>Montaggio dell'enclosure principale nel rack
 Una volta terminato il montaggio dell'enclosure EBOD, sarà necessario montare l'enclosure principale seguendo la stessa procedura.
 
 > [!NOTE]
@@ -160,10 +164,10 @@ Una volta terminato il montaggio dell'enclosure EBOD, sarà necessario montare l
 
 Il passaggio successivo consiste nel cablare il dispositivo per l'alimentazione, l'accesso di rete e quello seriale.
 
-## Cablare il dispositivo StorSimple 8600
+## <a name="cable-your-storsimple-8600-device"></a>Cablare il dispositivo StorSimple 8600
 In questo argomento vengono illustrate le procedure per cablare il dispositivo StorSimple 8600 per l'alimentazione, la connessione di rete e quella seriale.
 
-### Prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare il cablaggio del dispositivo, è necessario avere a disposizione:
 
 * L'enclosure principale e l'enclosure EBOD, completamente disimballate
@@ -176,28 +180,28 @@ Prima di iniziare il cablaggio del dispositivo, è necessario avere a disposizio
 * 4 schede da QSFP a SFP fornite da usare con interfacce di rete 10 GbE
 * [Hardware supportato per le interfacce di rete 10 GbE sul dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
-### SAS e i cavi di alimentazione
+### <a name="sas-and-power-cabling"></a>SAS e i cavi di alimentazione
 Il dispositivo è costituito da un'enclosure principale e un'enclosure EBOD. Questa operazione richiede che le unità siano cablate insieme per l'alimentazione e la connettività Serial Attached SCSI (SAS).
 
 Quando si configura il dispositivo per la prima volta, eseguire prima i passaggi per il cablaggio SAS e poi completare i passaggi per il cablaggio di alimentazione.
 
-[!INCLUDE [storsimple cavo-8600-per-SAS](../../includes/storsimple-sas-cable-8600.md)]
+[!INCLUDE [storsimple-cable-8600-for-SAS](../../includes/storsimple-sas-cable-8600.md)]
 
-[!INCLUDE [storsimple cavo-8600-per-alimentazione](../../includes/storsimple-cable-8600-for-power.md)]
+[!INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-cable-8600-for-power.md)]
 
-### Cablaggio di rete
+### <a name="network-cabling"></a>Cablaggio di rete
 Il dispositivo presenta una configurazione di tipo attivo-standby: in qualsiasi momento uno dei moduli controller è attivo ed elabora tutte le operazioni su disco e di rete, mentre l'altro è in standby. In caso di malfunzionamento di un controller, quello in standby si attiva immediatamente e continua tutte le operazioni su disco e di rete.
 
 Per supportare il failover del controller ridondante, è necessario cablare la rete del dispositivo come indicato nella procedura seguente.
 
-#### Per cablare il dispositivo per la connessione di rete
+#### <a name="to-cable-for-network-connection"></a>Per cablare il dispositivo per la connessione di rete
 1. Il dispositivo è dotato di sei interfacce di rete su ciascun controller: quattro porte Ethernet da 1 Gbps e due da 10 Gbps. Fare riferimento alla figura seguente per identificare le porte dati nel backplane del dispositivo.
    
      ![Backplane del dispositivo 8600](./media/storsimple-8600-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
    
     **Parte posteriore del dispositivo con le porte dati**
    
-   | Etichetta | Descrizione |
+   | Etichetta | Description |
    | --- | --- |
    |   0,1,4,5 |Interfacce di rete da 1 GbE |
    |   2,3 |Interfacce di rete da 10 GbE |
@@ -237,17 +241,17 @@ Da tenere presente per prestazioni e disponibilità elevate:
 > 
 > 
 
-### Cablaggio della porta seriale
+### <a name="serial-port-cabling"></a>Cablaggio della porta seriale
 Per cablare la porta seriale, attenersi alla seguente procedura.
 
-#### Per cablare il dispositivo per la connessione seriale
+#### <a name="to-cable-for-serial-connection"></a>Per cablare il dispositivo per la connessione seriale
 1. Il dispositivo è dotato di una porta seriale su ogni controller, identificata da un'icona a forma di chiave inglese. Per individuare le porte seriali, vedere la figura che mostra le porte dati sul retro del dispositivo.
 2. Identificare il controller attivo sul backplane del dispositivo, indicato da un LED blu lampeggiante.
 3. Usare il cavo seriale fornito (se necessario, usare il convertitore USB-seriale per il portatile) e collegare la console o il computer (con emulazione terminal al dispositivo) alla porta seriale del controller attivo.
 4. Installare i driver seriali-USB (forniti con il dispositivo) sul computer.
 5. Configurare la connessione seriale come segue:
    
-   * 115\.200 baud
+   * 115.200 baud
    * 8 bit di dati
    * 1 bit di stop
    * Nessuna parità
@@ -261,7 +265,12 @@ Per cablare la porta seriale, attenersi alla seguente procedura.
 
 Il cablaggio del dispositivo per l'alimentazione, l'accesso di rete e la connessione seriale sono stati completati. Il passaggio successivo consiste nella configurazione del software sul dispositivo.
 
-## Passaggi successivi
-A questo punto è possibile [distribuire e configurare il dispositivo StorSimple locale](storsimple-deployment-walkthrough.md).
+## <a name="next-steps"></a>Passaggi successivi
+A questo punto è possibile [distribuire e configurare il dispositivo StorSimple locale](storsimple-deployment-walkthrough-u2.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

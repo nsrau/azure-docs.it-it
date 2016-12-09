@@ -2,11 +2,11 @@
 title: Informazioni generali sulla protezione dei contenuti | Microsoft Docs
 description: Questi articoli forniscono informazioni generali sulla protezione dei contenuti con Servizi multimediali.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 81bc00e1-dcda-4d69-b9ab-8768b793422b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 576d3a1c242c74715e7a6dc33ec0a4adebcc9959
+
 
 ---
 # <a name="protecting-content-overview"></a>Informazioni generali sulla protezione dei contenuti
@@ -51,7 +55,7 @@ Usare la crittografia di archiviazione per crittografare il contenuto non critto
 
 Per poter trasmettere l'asset crittografato di archiviazione, è necessario configurare i criteri di distribuzione dell'asset in modo da informare Servizi multimediali della modalità di distribuzione del contenuto. Per potere permettere lo streaming dell'asset, il server di streaming rimuove la crittografia di archiviazione ed esegue lo streaming dei contenuti usando i criteri di recapito specificati (ad esempio, AES, crittografia comune o nessuna crittografia).
 
-## <a name="common-encryption-(cenc)"></a>Crittografia comune (CENC)
+## <a name="common-encryption-cenc"></a>Crittografia comune (CENC)
 La crittografia comune viene usata per crittografare il contenuto con PlayReady e/o Widewine.
 
 ## <a name="using-cbcs-aapl-encryption"></a>Uso della crittografia cbcs-aapl
@@ -115,6 +119,6 @@ Gli argomenti seguenti descrivono come proteggere i contenuti nella memoria, dis
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

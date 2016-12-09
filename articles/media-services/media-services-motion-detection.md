@@ -1,12 +1,12 @@
 ---
 title: Rilevare i movimenti con Analisi Servizi multimediali di Azure | Microsoft Docs
-description: Il processore di contenuti multimediali Rilevatore multimediale di movimento Azure consente di identificare in modo efficace le sezioni interessanti all'interno di un video altrimenti lungo e privo di eventi.
+description: Il processore di contenuti multimediali Rilevatore multimediale di movimento Azure consente di identificare in modo efficace le sezioni interessanti all&quot;interno di un video altrimenti lungo e privo di eventi.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: d144f813-1a55-442f-a895-5c4cb6d0aeae
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: milanga;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7b92e9290396009e59bfadb2eb3f75cf4952a45d
+
 
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Rilevare i movimenti con Analisi servizi multimediali di Azure
@@ -29,7 +33,7 @@ Questo argomento illustra dettagliatamente il **Azure Media Motion Detector** e 
 ## <a name="motion-detector-input-files"></a>File di input di Rilevatore di movimento
 File video. Attualmente sono supportati i formati seguenti: MP4, MOV e WMV.
 
-## <a name="task-configuration-(preset)"></a>Configurazione delle attività (set di impostazioni)
+## <a name="task-configuration-preset"></a>Configurazione delle attività (set di impostazioni)
 Quando si crea un'attività con **Azure Media Motion Detector**è necessario specificare un set di impostazioni di configurazione. 
 
 ### <a name="parameters"></a>Parametri
@@ -78,7 +82,7 @@ Un processo di rilevamento del movimento restituirà un file JSON nell'asset di 
 
 L'API Rilevatore di movimento fornisce indicatori se sono presenti oggetti in movimento in un video con sfondo fisso, ad esempio un video di sorveglianza. Rilevatore di movimento è in grado di ridurre i falsi allarmi, ad esempio variazioni di luminosità e di ombreggiatura. Le limitazioni correnti degli algoritmi includono video con visione notturna, oggetti semi-trasparenti e oggetti di piccole dimensioni.
 
-### <a name="<a-id="output_elements"></a>elements-of-the-output-json-file"></a><a id="output_elements"></a>Elementi del file di output JSON
+### <a name="a-idoutputelementsaelements-of-the-output-json-file"></a><a id="output_elements"></a>Elementi del file di output JSON
 > [!NOTE]
 > Nella versione più recente, il formato di output JSON è stato modificato e può rappresentare una modifica di rilievo per alcuni clienti.
 > 
@@ -365,6 +369,9 @@ Il programma seguente illustra come:
 
 [Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

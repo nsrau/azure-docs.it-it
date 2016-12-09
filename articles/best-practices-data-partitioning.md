@@ -1,13 +1,13 @@
 ---
-title: Linee guida di partizionamento di dati | Microsoft Docs
-description: Indicazioni su come suddividere le partizioni per la gestione e l'accesso separati.
-services: ''
+title: Indicazioni sul partizionamento di dati | Documentazione Microsoft
+description: Indicazioni su come suddividere le partizioni per la gestione e l&quot;accesso separati.
+services: 
 documentationcenter: na
 author: dragon119
 manager: christb
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 401559b5-f25f-4010-9811-5743fbb72aeb
 ms.service: best-practice
 ms.devlang: na
 ms.topic: article
@@ -15,20 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/14/2016
 ms.author: masashin
+translationtype: Human Translation
+ms.sourcegitcommit: f5bdbd801107650f87993b395338adfb1b26d17e
+ms.openlocfilehash: 3e3d9daf8a45f87f0d1d666dc1054cd1b530e35f
+
 
 ---
-# Linee guida di partizionamento di dati
+# <a name="data-partitioning-guidance"></a>Linee guida di partizionamento di dati
 [!INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
-## Overview
+## <a name="overview"></a>Overview
 In molte soluzioni su larga scala, i dati vengono suddivisi in partizioni separate per poter essere gestiti e per poter accedervi separatamente. La strategia di partizionamento deve essere scelta attentamente per ottimizzare le prestazioni riducendo al minimo gli effetti negativi. Il partizionamento può aiutare a migliorare la scalabilità, ridurre i conflitti e ottimizzare le prestazioni. Un altro vantaggio offerto dal partizionamento è costituito dalla possibilità di suddividere i dati in base al modello di utilizzo. È possibile ad esempio archiviare i dati meno recenti e usati raramente in un archivio dati più economico.
 
-## Perché la partizione di dati?
+## <a name="why-partition-data"></a>Perché la partizione di dati?
 La maggior parte dei servizi e delle applicazioni cloud archivia e recupera i dati come parte delle loro operazioni. La progettazione degli archivi dati utilizzati da un'applicazione può avere un impatto significativo sulle prestazioni, sulla velocità effettiva e sulla scalabilità di un sistema. Una tecnica comunemente applicata in sistemi di grandi dimensioni consiste nel suddividere i dati in partizioni separate.
 
 > Il termine *partizionamento* usato in questa guida si riferisce al processo di suddivisione fisica dei dati in archivi dati separati. Questo processo non è identico al partizionamento di una tabella in SQL Server, che è un concetto diverso.
-> 
-> 
+>
+>
 
 Il partizionamento dei dati può offrire una serie di vantaggi. Ad esempio, può essere applicato al fine di:
 
@@ -37,7 +41,7 @@ Il partizionamento dei dati può offrire una serie di vantaggi. Ad esempio, può
 * **Migliorare la disponibilità**. La separazione dei dati tra più server consente di evitare singoli punti di errore. Se un server fallisce, o è sottoposto a manutenzione pianificata, solo i dati collocati in quella partizione non sono disponibili. Le operazioni su altre partizioni possono continuare. L'aumento del numero di partizioni riduce l'impatto relativo di un singolo errore del server, riducendo la percentuale di dati che non saranno disponibili. Eseguire la replica di ogni partizione permette di ridurre ulteriormente le probabilità di un singolo errore della partizione singola che interessi le operazioni. Questa attività renderà anche possibile separare i dati critici per i quali deve essere garantita una disponibilità continua ed elevata dai dati di valore inferiore con minori requisiti di disponibilità (ad esempio i file di log).
 * **Migliorare la sicurezza**. A seconda della natura dei dati e della modalità di partizionamento, è possibile separare i dati sensibili e non sensibili in partizioni diverse e, pertanto, in diversi server o archivi dati. La sicurezza può essere ottimizzata in modo specifico per i dati sensibili.
 * **Fornire flessibilità operativa**. Il partizionamento offre molte opportunità per operazioni di ottimizzazione, ottimizzazione dell'efficienza amministrativa e riduzione dei costi. È possibile ad esempio definire diverse strategie per la gestione, il monitoraggio, il backup e il ripristino e altre attività amministrative in base all'importanza dei dati in ogni partizione.
-* **Combinare l'archivio dati al modello di utilizzo**. Il partizionamento consente a ogni partizione di essere distribuita in un diverso tipo di archivio dati, basato sul costo e le funzionalità incorporate offerte dall’archivio dati. Ad esempio, i dati binari di grandi dimensioni possono essere archiviati in un archivio di dati BLOB, mentre i dati più strutturati possono essere conservati in un database di documenti. Per altre informazioni, vedere [Creare una soluzione Polyglot] nella guida patterns & practices e [Accesso ai dati per le soluzioni altamente scalabili mediante SQL, NoSQL e persistenza Polyglot] nel sito Web Microsoft.
+* **Combinare l'archivio dati al modello di utilizzo**. Il partizionamento consente a ogni partizione di essere distribuita in un diverso tipo di archivio dati, basato sul costo e le funzionalità incorporate offerte dall’archivio dati. Ad esempio, i dati binari di grandi dimensioni possono essere archiviati in un archivio di dati BLOB, mentre i dati più strutturati possono essere conservati in un database di documenti. Per altre informazioni, vedere [Building a polyglot solution] (Creazione di una soluzione Polyglot) nella guida patterns & practices e [Data access for highly-scalable solutions: Using SQL, NoSQL, and polyglot persistence] (Accesso ai dati per le soluzioni altamente scalabili mediante SQL, NoSQL e persistenza Polyglot) nel sito Web Microsoft.
 
 Alcuni sistemi non implementano il partizionamento perché viene considerato un costo anziché un vantaggio. Motivi comuni per questa spiegazione sono:
 
@@ -45,18 +49,18 @@ Alcuni sistemi non implementano il partizionamento perché viene considerato un 
 * La gestione delle partizioni non è sempre un compito facile. In un sistema in cui i dati sono volatili, potrebbe essere necessario ribilanciare periodicamente le partizioni per ridurre i conflitti e le aree sensibili.
 * Alcuni strumenti comuni non funzionano ovviamente con dati partizionati.
 
-## Progettazione di partizioni
+## <a name="designing-partitions"></a>Progettazione di partizioni
 I dati possono essere partizionati in modi diversi: orizzontalmente, verticalmente o dal punto di vista funzionale. La strategia scelta dipende dal motivo del partizionamento dei dati e dai requisiti delle applicazioni e dei servizi che utilizzeranno i dati.
 
 > [!NOTE]
 > Gli schemi di partizionamento descritti in questa guida sono spiegati in modo indipendente dalla tecnologia di archiviazione dati sottostante. Possono essere applicati a molti tipi di archivi dati, inclusi i database relazionali e NoSQL.
-> 
-> 
+>
+>
 
-### Strategie di partizionamento
+### <a name="partitioning-strategies"></a>Strategie di partizionamento
 Le tre strategie più comuni per il partizionamento dei dati sono:
 
-* **Il partizionamento orizzontale** (spesso chiamato *sharding*). In questa strategia ogni partizione è un archivio dati indipendente, ma tutte le partizioni hanno lo stesso schema. Ogni partizione è denominata *shard* e contiene un sottoinsieme specifico dei dati, ad esempio tutti gli ordini per un set specifico di clienti in un'applicazione di e-commerce.
+* **Il partizionamento orizzontale** (spesso chiamato *sharding*). In questa strategia ogni partizione è un archivio dati indipendente, ma tutte le partizioni hanno lo stesso schema. Ogni *partizione* contiene un sottoinsieme specifico dei dati, ad esempio tutti gli ordini per un set specifico di clienti in un'applicazione di e-commerce.
 * **Il partizionamento verticale**. In questa strategia ogni partizione contiene un sottoinsieme dei campi per gli elementi nell'archivio dati. I campi sono suddivisi in base ai loro modello di utilizzo. I campi usati di frequente ad esempio possono essere collocati in una partizione verticale, mentre i campi usati raramente possono essere collocati in un'altra partizione.
 * **Partizionamento funzionale**. In questa strategia i dati vengono aggregati in base alla loro modalità di utilizzo da parte di ogni contesto limitato nel sistema. Ad esempio, un sistema di e-commerce che implementa funzioni di business separate per la fatturazione e la gestione dell'inventario dei prodotti può archiviare i dati delle fatture in una partizione e i dati di inventario dei prodotti in un'altra.
 
@@ -64,7 +68,7 @@ Le tre strategie più comuni per il partizionamento dei dati sono:
 
 Tuttavia, i diversi requisiti di ogni strategia possono generare diversi problemi di conflitto. È necessario valutare e bilanciare tutti questi elementi quando si progetta uno schema di partizionamento che soddisfi gli obiettivi di prestazioni di elaborazione dei dati complessivi del sistema. Nelle sezioni seguenti queste strategie vengono illustrate più in dettaglio.
 
-### Partizionamento orizzontale (sharding)
+### <a name="horizontal-partitioning-sharding"></a>Partizionamento orizzontale (sharding)
 La figura 1 mostra una panoramica del partizionamento orizzontale o sharding. In questo esempio, i dati di inventario del prodotto sono divisi in partizioni in base alla chiave di prodotto. Ogni partizione contiene i dati per un intervallo contiguo di chiavi di partizione (A-G e H-Z), organizzati in ordine alfabetico.
 
 ![Partizionamento orizzontale (sharding) dei dati in base a una chiave di partizione](media/best-practices-data-partitioning/DataPartitioning01.png)
@@ -84,11 +88,11 @@ Scegliere una chiave di partizionamento che riduca al minimo eventuali esigenze 
 Se viene eseguita la replica delle partizioni, potrebbe essere possibile mantenere alcune delle repliche online mentre altre vengono suddivise, unite o riconfigurate. È possibile tuttavia che il sistema limiti le operazioni che possono essere eseguite sui dati in tali partizioni durante la riconfigurazione. Ad esempio, i dati nelle repliche possono essere contrassegnati come di sola lettura per limitare l'ambito di eventuali incoerenze che possono verificarsi durante la ristrutturazione delle partizioni.
 
 > Per altre informazioni e istruzioni sulla maggior parte di queste considerazioni e tecniche consigliate per la progettazione di archivi dati che implementano il partizionamento orizzontale, vedere [Modello di partizionamento orizzontale]
-> 
-> 
+>
+>
 
-### Partizionamento verticale
-L'utilizzo più comune per il partizionamento verticale è la riduzione dei costi di I/O e delle prestazioni associati con il recupero degli elementi utilizzati più frequentemente. La Figura 2 mostra un esempio di partizionamento verticale. Nell'esempio, le diverse proprietà di ogni elemento di dati vengono mantenute in partizioni diverse. Una partizione contiene i dati cui viene eseguito l'accesso più frequentemente, inclusi nome, descrizione e informazioni sul prezzo dei prodotti. Un'altra partizione contiene il volume a magazzino e la data dell'ultimo ordine.
+### <a name="vertical-partitioning"></a>Il partizionamento verticale
+L'utilizzo più comune per il partizionamento verticale è  la riduzione dei costi di I/O e delle prestazioni associati con il recupero degli elementi utilizzati più frequentemente. La Figura 2 mostra un esempio di partizionamento verticale. Nell'esempio, le diverse proprietà di ogni elemento di dati vengono mantenute in partizioni diverse. Una partizione contiene i dati cui viene eseguito l'accesso più frequentemente, inclusi nome, descrizione e informazioni sul prezzo dei prodotti. Un'altra partizione contiene il volume a magazzino e la data dell'ultimo ordine.
 
 ![Partizionamento verticale dei dati in base al modello di utilizzo](media/best-practices-data-partitioning/DataPartitioning02.png)
 
@@ -102,11 +106,11 @@ Un altro scenario tipico per questa strategia di partizionamento è ottimizzare 
 
 Il partizionamento verticale può inoltre ridurre la quantità di accessi simultanei richiesta per i dati.
 
-> Il partizionamento verticale opera a livello di entità all'interno di un archivio dati, normalizzando parzialmente un'entità per suddividerla da un elemento *di grandi dimensioni* a una raccolta di elementi.*ristretti*. È particolarmente adatto per gli archivi di dati orientati alla colonna, ad esempio HBase e Cassandra. Se è improbabile modificare i dati in una raccolta di colonne, è possibile utilizzare archivi di colonne in SQL Server.
-> 
-> 
+> Il partizionamento verticale opera a livello di entità all'interno di un archivio dati, normalizzando parzialmente un'entità per suddividerla da un elemento *di grandi dimensioni* a una raccolta di elementi *di dimensioni ridotte*. È particolarmente adatto per gli archivi di dati orientati alla colonna, ad esempio HBase e Cassandra. Se è improbabile modificare i dati in una raccolta di colonne, è possibile utilizzare archivi di colonne in SQL Server.
+>
+>
 
-### Partizionamento funzionale
+### <a name="functional-partitioning"></a>Partizionamento funzionale
 Per i sistemi in cui è possibile identificare un contesto delimitato per ogni area di attività distinta o per ogni servizio nell'applicazione, il partizionamento funzionale fornisce una tecnica per migliorare le prestazioni di accesso ai dati e di isolamento. Un altro utilizzo comune del partizionamento funzionale è la separazione dei dati di sola scrittura dai dati di sola lettura usati per la creazione di report. La figura 3 mostra una panoramica del partizionamento funzionale in cui i dati di inventario sono separati dai dati del cliente.
 
 ![Partizionamento funzionale dei dati in base al contesto limitato o al sottodominio](media/best-practices-data-partitioning/DataPartitioning03.png)
@@ -115,7 +119,7 @@ Per i sistemi in cui è possibile identificare un contesto delimitato per ogni a
 
 Questa strategia di partizionamento può contribuire a ridurre i conflitti di accesso ai dati in diverse parti del sistema.
 
-## Progettazione di partizioni per la scalabilità
+## <a name="designing-partitions-for-scalability"></a>Progettazione di partizioni per la scalabilità
 È importante considerare le dimensioni e il carico di lavoro di ogni partizione e bilanciarle in modo che i dati siano distribuiti per ottenere la massima scalabilità. È tuttavia necessario partizionare i dati in modo che non superino i limiti di ridimensionamento della singola partizione di un archivio.
 
 Quando si progettano le partizioni per la scalabilità, attenersi alla seguente procedura:
@@ -131,7 +135,7 @@ Ad esempio, se si usa l'archiviazione tabelle di Azure, una partizione occupata 
 
  In questo caso, è possibile che la partizione debba essere ripartizionata in modo da ripartire il carico. Se la dimensione totale o la velocità effettiva delle tabelle supera la capacità di un account di archiviazione, può essere necessario creare ulteriori account di archiviazione e suddividere le tabelle tra questi. Se il numero di account di archiviazione supera il numero di account disponibili per una sottoscrizione, può essere necessario usare più sottoscrizioni.
 
-## Progettazione di partizioni per le prestazioni delle query
+## <a name="designing-partitions-for-query-performance"></a>Progettazione di partizioni per le prestazioni delle query
 Le prestazioni delle query possono spesso essere aumentate usando set di dati più piccoli ed eseguendo query parallele. Ogni partizione deve contenere una piccola parte dell'intero set di dati. La riduzione del volume può migliorare le prestazioni delle query. Tuttavia, il partizionamento non è un'alternativa per la progettazione e la configurazione di un database in modo appropriato. Ad esempio, assicurarsi di disporre degli indici necessari richiesti se si utilizza un database relazionale.
 
 Quando si progettano le partizioni per le prestazioni delle query, attenersi alla seguente procedura:
@@ -147,7 +151,7 @@ Quando si progettano le partizioni per le prestazioni delle query, attenersi all
 3. Se un'entità dispone di requisiti relativi alle prestazioni di velocità effettiva e della query, utilizzare il partizionamento funzionale in base a tale entità. Se tale entità non soddisfa i requisiti, è necessario applicare anche il partizionamento orizzontale. Nella maggior parte dei casi è sufficiente una singola strategia di partizionamento, ma in alcuni casi è preferibile combinare entrambe le strategie.
 4. È possibile usare query asincrone che vengono eseguite in parallelo tra le partizioni per migliorare le prestazioni.
 
-## Progettazione di partizioni per la disponibilità
+## <a name="designing-partitions-for-availability"></a>Progettazione di partizioni per la disponibilità
 Il partizionamento dei dati può migliorare la disponibilità delle applicazioni garantendo che l'intero set di dati non costituisca un singolo punto di errore e che i singoli sottoinsiemi del set di dati possano essere gestiti in modo indipendente. Replicare le partizioni che contengono dati critici può inoltre migliorare la disponibilità.
 
 Quando si progettano e implementano partizioni, considerare i seguenti fattori che influiscono sulla disponibilità:
@@ -160,7 +164,7 @@ Quando si progettano e implementano partizioni, considerare i seguenti fattori c
   * Il partizionamento dei dati per aree geografiche può consentire attività di manutenzione pianificate che vengono eseguite in determinate fasce orarie per ogni posizione. Assicurarsi che le partizioni non siano troppo grandi per evitare che le operazioni di manutenzione pianificata non siano completate durante questo periodo.
 * **Replica dei dati critici tra le partizioni**. Questa strategia può migliorare disponibilità e prestazioni, anche se può causare problemi di coerenza. La sincronizzazione delle modifiche apportate ai dati in una partizione in tutte le repliche richiede tempo. Durante questo periodo, le diverse partizioni conterranno valori di dati diversi.
 
-## Informazioni sull'effetto del partizionamento sulla progettazione e sullo sviluppo
+## <a name="understanding-how-partitioning-affects-design-and-development"></a>Informazioni sull'effetto del partizionamento sulla progettazione e sullo sviluppo
 L'uso del partizionamento aggiunge complessità alla progettazione e allo sviluppo del sistema. Considerare il partizionamento come parte fondamentale della progettazione del sistema anche se inizialmente il sistema contiene una singola partizione. Se il partizionamento viene considerato in un secondo momento quando il sistema inizia ad accusare problemi di prestazioni e scalabilità, l'operazione risulterà più complessa dal momento che esiste già un sistema in tempo reale da mantenere.
 
 Se si aggiorna il sistema per incorporare il partizionamento in questo ambiente, è necessario modificare la logica di accesso ai dati. Può inoltre essere necessario eseguire la migrazione di grandi quantità di dati esistenti per distribuirli nelle diverse partizioni, spesso mentre gli utenti si aspettano di poter continuare a usare il sistema.
@@ -174,7 +178,7 @@ Quando si progetta un schema di partizionamento dei dati, tenere presente quanto
 * **Dove possibile, mantenere i dati per le operazioni di database più comuni insieme in ogni partizione per ridurre al minimo le operazioni di accesso ai dati tra partizioni**. Le query tra partizioni possono richiedere più tempo rispetto alle query all'interno di una singola partizione, ma ottimizzare le partizioni per un set di query potrebbe avere effetti negativi su latri set di query. Quando non è possibile evitare l'esecuzione di query tra partizioni, ridurre il tempo necessario per l'esecuzione delle query eseguendo query parallele e aggregando i risultati all'interno dell'applicazione. Questo approccio potrebbe non essere possibile in alcuni casi, ad esempio quando è necessario ottenere da una query un risultato da usare nella query successiva.
 * **Se le query usano dati di riferimento relativamente statici, ad esempio tabelle di codici postali o elenchi di prodotti, considerare la possibilità di eseguire la replica dei dati in tutte le partizioni per ridurre la richiesta di operazioni di ricerca separate in altre partizioni**. Questo approccio può inoltre ridurre la probabilità che i dati di riferimento diventino un set di dati "critici" soggetti a traffico elevato nell'intero sistema. Esiste tuttavia un costo aggiuntivo relativo alla sincronizzazione di tutte le modifiche che potrebbero verificarsi per i dati di riferimento.
 * **Dove possibile, ridurre al minimo i requisiti per l'integrità referenziale tra le partizioni verticali e funzionali**. In questi schemi, l'applicazione stessa è responsabile della gestione dell'integrità referenziale tra le partizioni quando i dati vengono aggiornati e utilizzati. Le query che devono unire i dati tra più partizioni vengono eseguite più lentamente delle query che uniscono solo i dati all'interno della stessa partizione, poiché l'applicazione in genere richiede di eseguire query consecutive basate su una chiave e quindi su una chiave esterna. Si consiglia di replicare o de-normalizzare i dati rilevanti. Per ridurre al minimo il tempo di query in cui sono necessari i join tra partizioni, eseguire query parallele nelle partizioni e unire i dati all'interno dell'applicazione.
-* **È necessario considerare l'effetto che lo schema di partizionamento potrebbe avere sulla coerenza dei dati tra partizioni.** Valutare se la coerenza assoluta è effettivamente un requisito. Al contrario, un approccio comune nel cloud consiste nell'implementare la coerenza finale. I dati in ogni partizione vengono aggiornati separatamente e la logica dell'applicazione garantisce che tutti gli aggiornamenti vengano completati correttamente. La logica gestisce inoltre le incoerenze che possono essere generate da query sui dati durante l'esecuzione di un'operazione coerente. Per altre informazioni sull'implementazione di coerenza finale, vedere le informazioni relative alla [coerenza dei dati].
+* **È necessario considerare l'effetto che lo schema di partizionamento potrebbe avere sulla coerenza dei dati tra partizioni.**  Valutare se la coerenza assoluta è effettivamente un requisito. Al contrario, un approccio comune nel cloud consiste nell'implementare la coerenza finale. I dati in ogni partizione vengono aggiornati separatamente e la logica dell'applicazione garantisce che tutti gli aggiornamenti vengano completati correttamente. La logica gestisce inoltre le incoerenze che possono essere generate da query sui dati durante l'esecuzione di un'operazione coerente. Per altre informazioni sull'implementazione di coerenza finale, vedere le informazioni relative alla [Introduzione alla coerenza dei dati].
 * **È necessario considerare come le query individuano la partizione corretta**. Se una query deve analizzare tutte le partizioni per individuare i dati richiesti, ci sarà un impatto significativo sulle prestazioni, anche se sono in esecuzione più query parallele. Le query usate con strategie di partizionamento verticale e funzionale possono naturalmente specificare le partizioni. Tuttavia, quando si usa il partizionamento orizzontale, l'individuazione di un elemento può essere difficile poiché ogni partizione ha lo stesso schema. Una tipica soluzione di partizionamento orizzontale consiste nel mantenere una mappa che può essere utilizzata per cercare il percorso della partizione per elementi specifici di dati. Questa mappa può essere implementata nella logica di partizionamento orizzontale dell'applicazione o gestita dall'archivio dati se supporta il partizionamento orizzontale trasparente.
 * **Quando si usa una strategia di partizionamento orizzontale, prendere in considerazione la possibilità di ribilanciare periodicamente le partizioni**. Ciò consente di distribuire uniformemente i dati secondo le dimensioni e il carico di lavoro per ridurre al minimo le aree sensibili, ottimizzare le prestazioni delle query e aggirare le limitazioni di archiviazione fisiche. Tuttavia, si tratta di un'attività complessa che spesso richiede l'utilizzo di uno strumento personalizzato o di un processo.
 * **La replica di ogni partizione offre ulteriore protezione dagli errori**. Se una singola replica ha esito negativo, le query possono essere indirizzate verso una copia di lavoro.
@@ -192,16 +196,16 @@ Considerare i seguenti fattori che influiscono sulla gestione operativa:
 
 Le tecnologie di archiviazione di dati diversi in genere forniscono le proprie funzionalità per il supporto di partizionamento. Nelle sezioni seguenti sono descritte le opzioni che vengono implementate dagli archivi dati comunemente usati dalle applicazioni Azure. Le sezioni includono anche considerazioni sulla progettazione di applicazioni che possono usare al meglio queste funzionalità.
 
-## Strategie di partizionamento per Database SQL Azure
+## <a name="partitioning-strategies-for-azure-sql-database"></a>Strategie di partizionamento per Database SQL Azure
 Il Database di SQL Azure è un database relazionale as-a-service che viene eseguito nel cloud. È basato su Microsoft SQL Server. Un database relazionale divide le informazioni in tabelle e ogni tabella contiene informazioni sulle entità come una serie di righe. Ogni riga include colonne che contengono i dati per i singoli campi di un'entità. La pagina [Informazioni sul database SQL] del sito Web Microsoft contiene informazioni dettagliate sulla creazione e l'uso di database SQL.
 
-## Partizionamento orizzontale con database elastico
+## <a name="horizontal-partitioning-with-elastic-database"></a>Partizionamento orizzontale con database elastico
 Un singolo database SQL ha un limite per il volume di dati che può contenere. La velocità effettiva è vincolata da fattori di architettura e dal numero di connessioni simultanee supportate. La funzione Database elastico del database SQL supporta la scalabilità orizzontale per un database SQL. Usando Database elastico è possibile suddividere i dati in partizioni che vengono distribuite in più database SQL. È inoltre possibile aggiungere o rimuovere partizioni in base alla crescita o alla riduzione del volume di dati da gestire. Database elastico consente inoltre di ridurre i conflitti distribuendo il carico sui database.
 
 > [!NOTE]
 > Il Database elastico è una sostituzione della funzionalità per le federazioni del database SQL di Azure. È possibile eseguire la migrazione delle installazioni di federazioni di database SQL esistenti in Database elastico usando l'utilità di migrazione federazioni. In alternativa, è possibile implementare il proprio meccanismo di partizionamento orizzontale se lo scenario non si presta naturalmente alle funzionalità offerte da Database elastico.
-> 
-> 
+>
+>
 
 Ogni partizione viene implementata come un database SQL. Una partizione può contenere più di un set di dati (denominato *shardlet*). Ogni database include metadati che descrivono gli shardlet contenuti al suo interno. Un shardlet può essere un singolo elemento dati o può essere un gruppo di elementi che condividono la stessa chiave shardlet. Ad esempio, se si stanno partizionando dati in un'applicazione multi-tenant, la chiave shardlet potrebbe essere l'ID tenant e tutti i dati per un tenant specificato possono essere conservati come parte dello shardlet stesso. I dati per altri tenant saranno conservati in shardlet diversi.
 
@@ -211,10 +215,10 @@ Quindi, l'applicazione utilizza queste informazioni per indirizzare le richieste
 
 > [!NOTE]
 > È possibile replicare il database di gestione del mapping globale delle partizioni per ridurre la latenza e migliorare la disponibilità. Se si implementa il database usando uno dei piani tariffari Premium è possibile configurare la replica geografica attiva per copiare continuamente i dati in database situati in diverse aree geografiche. Creare una copia del database in ogni area geografica in cui si trovano gli utenti. Configurare quindi l'applicazione per connettersi a tale copia per ottenere la mappa delle partizioni.
-> 
+>
 > Un approccio alternativo consiste nell'usare la sincronizzazione dati SQL di Azure o una pipeline di Azure Data Factory per replicare il database di gestione del mapping delle partizioni nelle aree geografiche. Il modulo di replica viene eseguito periodicamente e risulta più appropriato se il mapping della partizione viene modificato raramente. Inoltre, il database di gestione del mapping delle partizioni non deve essere creato usando un piano tariffario Premium.
-> 
-> 
+>
+>
 
 Il database elastico offre due schemi per la mappature di dati per gli shardlet e per archiviarli in partizioni:
 
@@ -238,29 +242,29 @@ Si noti che una singola partizione può contenere i dati per shardlet diversi. A
 
 Lo schema di partizionamento implementato può avere un impatto significativo sulle prestazioni del sistema. Può influire inoltre sulla velocità con cui le partizioni devono essere aggiunte o rimosse o la velocità con cui i dati devono essere ripartizionati tra le partizioni. Quando si usa Database elastico per partizionare i dati, tenere presente quanto riportato di seguito:
 
-* Raggruppare i dati usati insieme nella stessa partizione ed evitare operazioni di accesso ai dati contenuti in più partizioni. Tenere presente che con Database elastico una partizione è un database SQL indipendente e che il database SQL di Azure non supporta i join tra database (che devono essere eseguiti sul lato client). È importante ricordare anche che nel database SQL di Azure i vincoli di integrità referenziale, i trigger e le stored procedure presenti in un database non possono fare riferimento a oggetti presenti in un altro database. Per questa ragione, non progettare un sistema con dipendenze tra le partizioni. Un database SQL può, tuttavia, contenere tabelle che includono copie dei dati di riferimento usati di frequente da query e altre operazioni. Queste tabelle non devono necessariamente appartenere a uno shardlet specifico. La replica dei dati tra partizioni elimina la necessità di unire dati che si estendono in più database. In teoria, tali dati devono essere statici o lenti per ridurre al minimo lo sforzo di replica e ridurre le probabilità di diventare obsoleti.
-  
+* Raggruppare i dati usati insieme nella stessa partizione  ed evitare operazioni di accesso ai dati contenuti in più partizioni. Tenere presente che con Database elastico una partizione è un database SQL indipendente e che il database SQL di Azure non supporta i join tra database (che devono essere eseguiti sul lato client). È importante ricordare anche che nel database SQL di Azure i vincoli di integrità referenziale, i trigger e le stored procedure presenti in un database non possono fare riferimento a oggetti presenti in un altro database. Per questa ragione, non progettare un sistema con dipendenze tra le partizioni. Un database SQL può, tuttavia, contenere tabelle che includono copie dei dati di riferimento usati di frequente da query e altre operazioni. Queste tabelle non devono necessariamente appartenere a uno shardlet specifico. La replica dei dati tra partizioni elimina la necessità di unire dati che si estendono in più database. In teoria, tali dati devono essere statici o lenti per ridurre al minimo lo sforzo di replica e ridurre le probabilità di diventare obsoleti.
+
   > [!NOTE]
   > Anche se il database SQL non supporta i join tra database, è possibile eseguire in query in più partizioni tramite l'API Database elastico. Queste query possono eseguire in modo trasparente l'iterazione attraverso i dati contenuti in tutti gli shardlet cui viene fatto riferimento in un mapping delle partizioni. L'API Database elastico suddivide le query tra partizioni in una serie di singole query, una per ogni database, e quindi unisce i risultati. Per altre informazioni, vedere la pagina [Esecuzione di query su più partizioni] nel sito Web Microsoft.
-  > 
-  > 
+  >
+  >
 * I dati archiviati in shardlet che appartengono alla stessa mappa di partizione devono avere lo stesso schema. Ad esempio, non creare un elenco di mappe di partizionamento che puntano ad alcuni shardlet contenenti i dati del tenant e ad altri shardlet contenenti informazioni sul prodotto. Questa regola non viene applicata dal database elastico, ma la gestione dei dati e l'esecuzione di query diventa molto complessa se ogni shardlet ha uno schema diverso. Nell'esempio precedente, un'ottima soluzione consiste nel creare due mapping delle partizioni di tipo elenco: uno che fa riferimento a dati dei tenant e un altro che punta alle informazioni sul prodotto. Si tenga presente che i dati appartenenti a diversi shardlet possono essere archiviati nella stessa partizione.
-  
+
   > [!NOTE]
   > La funzionalità di query tra partizioni dell'API del database elastico dipende da ogni shardlet nella mappa di partizione che contiene lo stesso schema.
-  > 
-  > 
+  >
+  >
 * Le operazioni transazionali sono supportate solo per i dati contenuti all'interno della stessa partizione e non in più partizioni. Le transazioni possono estendere gli shardlet in quanto parti della stessa partizione. Pertanto, la logica di business deve eseguire transazioni, archiviare i dati nella partizione stessa oppure implementare la coerenza finale. Per altre informazioni, vedere l'articolo [Introduzione alla coerenza dei dati].
 * Posizionare le partizioni vicino agli utenti che accedono ai dati in tali partizioni, ovvero posizionarle in base all'area geografica. Questa strategia consente di ridurre la latenza.
 * Evitare di utilizzare una combinazione di partizioni attive (hotspot) e partizioni relativamente inattive. Provare a distribuire uniformemente il carico tra le partizioni. Questo potrebbe richiedere l'hashing delle chiavi degli shardlet.
 * In caso di individuazione geografica delle partizioni, assicurarsi che le chiavi con hashing eseguano il mapping di shardlet contenuti in partizioni archiviate vicino agli utenti che accedono a tali dati.
-* Attualmente, solo un set limitato di dati SQL è supportato come chiavi shardlet; *int, bigint, varbinary,* e *uniqueidentifier*. L'istruzione SQL *int* e *bigint_corrisponde ai tipi di dati in c# _int* e *long*, e hanno gli stessi intervalli. Il codice SQL *varbinary* può essere gestito tramite un *Byte* matrice in c# e il tipo SQL *uniqueidentier* corrisponde alla classe *Guid* in .NET Framework.
+* Attualmente, solo un set limitato di dati SQL è supportato come chiavi shardlet, ovvero *int, bigint, varbinary,* e *uniqueidentifier*. I tipi SQL *int* e *bigint* corrispondono ai tipi di dati *int* e *long* in C# e sono caratterizzati dagli stessi intervalli. Il tipo SQL *varbinary* può essere gestito tramite una matrice *Byte* in C# e il tipo SQL *uniqueidentier* corrisponde alla classe *Guid* in .NET Framework.
 
 Come suggerisce il nome, il database elastico consente al sistema di aggiungere e rimuovere partizioni quando il volume dei dati cresce e si riduce. Le API nella libreria client di Database elastico del database SQL di Azure consentono a un'applicazione di creare ed eliminare le partizioni in modo dinamico e di aggiornare in modo trasparente la gestione del mapping delle partizioni. Tuttavia, la rimozione di una partizione è un'operazione distruttiva che richiede anche l'eliminazione di tutti i dati della partizione.
 
 Se un'applicazione deve suddividere una partizione in due partizioni separate o combinare partizioni, Database elastico offre un servizio di suddivisione/unione separato. Questo servizio viene eseguito in un servizio ospitato nel cloud creato dallo sviluppatore ed esegue la migrazione dei dati in modo sicuro tra le partizioni. Per altre informazioni, vedere l'argomento [Scalabilità tramite lo strumento di suddivisione-unione del database elastico] del sito Web Microsoft.
 
-## Strategie di partizionamento per l’archiviazione di Azure
+## <a name="partitioning-strategies-for-azure-storage"></a>Strategie di partizionamento per l’archiviazione di Azure
 L’archiviazione di Azure fornisce tre astrazioni per la gestione dei dati:
 
 * L'archiviazione tabelle che implementa l'archiviazione di struttura scalabile. Una tabella contiene una raccolta di entità, ognuna delle quali può contenere un set di proprietà e valori.
@@ -277,7 +281,7 @@ Microsoft ha pubblicato gli obiettivi di scalabilità per Archiviazione di Azure
 
 La velocità massima della richiesta, presupponendo un'entità, un BLOB o un messaggio di 1 KB, è di 20 KB al secondo. Se è probabile che il sistema superi questi limiti, è consigliabile partizionare il carico tra più account di archiviazione. Ogni sottoscrizione di Azure consente di creare fino a 100 account di archiviazione. Si noti tuttavia che questi limiti possono cambiare nel tempo.
 
-## Partizionamento di archiviazione tabelle di Azure
+## <a name="partitioning-azure-table-storage"></a>Partizionamento di archiviazione tabelle di Azure
 L'archiviazione tabelle di Azure è un archivio chiave-valore progettato in base al partizionamento. Tutte le entità vengono archiviate in una partizione e le partizioni vengono gestite internamente dall'archiviazione tabelle di Azure. Ogni entità archiviata in una tabella deve fornire una chiave in due parti che comprende:
 
 * **La chiave di partizione**. Si tratta di un valore di stringa che determina la partizione in cui l'archiviazione tabelle di Azure inserisce l'entità. Tutte le entità con la stessa chiave di partizione verranno archiviate nella stessa partizione.
@@ -297,8 +301,8 @@ Nella tabella Informazioni sul cliente, i dati vengono partizionati in base alle
 
 > [!NOTE]
 > Archiviazione tabelle di Azure aggiunge inoltre un campo timestamp per ogni entità. Il campo timestamp viene gestito dall'archiviazione tabelle e viene aggiornato ogni volta che l'entità viene modificata e scritta su una partizione. Il servizio di archiviazione tabelle usa questo campo per implementare la concorrenza ottimistica. Ogni volta che un'applicazione scrive un'entità nell'archiviazione tabelle, il servizio di archiviazione tabelle confronta il valore del timestamp dell'entità da scrivere con il valore contenuto nell'archiviazione tabelle. Se i valori sono diversi, significa che un'altra applicazione deve aver modificato l'entità dall'ultimo recupero e l'operazione di scrittura ha esito negativo. Non modificare questo campo nel proprio codice e non specificare un valore per questo campo quando si crea una nuova entità.
-> 
-> 
+>
+>
 
 Archiviazione tabelle di Azure utilizza la chiave di partizione per determinare come archiviare i dati. Se un'entità viene aggiunta a una tabella con una chiave di partizione precedentemente non usata, l'archiviazione tabelle di Azure crea una nuova partizione per questa entità. Tutte le altre entità con la stessa chiave di partizione verranno archiviate nella stessa partizione.
 
@@ -307,22 +311,22 @@ Questo meccanismo implementa in modo efficace una strategia di scalabilità auto
 Quando si progettano le entità per l'archiviazione tabelle di Azure, tenere presente quanto riportato di seguito:
 
 * La selezione dei valori della chiave di partizione e della chiave e di riga deve essere guidata dal modo in cui si accede ai dati. Scegliere una combinazione di chiave di partizionei/chiave di riga che supporti la maggior parte delle query. Le query più efficienti recuperano i dati specificando la chiave di partizione e la chiave di riga. Le query che specificano una chiave di partizione e un intervallo di chiavi di riga possono essere eseguite analizzando una singola partizione. L'operazione risulta relativamente veloce perché i dati seguono l'ordine delle chiavi di riga. Se le query non specificano la partizione da analizzare, è possibile che la chiave di partizione richieda all'archiviazione tabelle di Azure l'analisi di tutte le partizioni di dati.
-  
+
   > [!TIP]
   > Se un'entità dispone di una chiave naturale, è consigliabile utilizzarla come chiave di partizione e specificare una stringa vuota come chiave di riga. Se un'entità dispone di una chiave composta che comprende due proprietà, selezionare la proprietà che cambia più lentamente come chiave di partizione e l'altra proprietà come chiave di riga. Se un'entità dispone di più di due proprietà chiave, utilizzare una concatenazione delle proprietà per fornire le chiavi di partizione e di riga.
-  > 
-  > 
-* Se si eseguono regolarmente query che ricercano i dati usando campi diversi dalle chiavi di partizione e di riga, si consiglia di implementare l'[ITP (Index Table Pattern)].
+  >
+  >
+* Se si eseguono regolarmente query che ricercano i dati usando campi diversi dalle chiavi di partizione e di riga, si consiglia di implementare l' [ITP (Index Table Pattern)].
 * Se le chiavi di partizione vengono generate usando una sequenza monotona di aumento o diminuzione (ad esempio "0001", "0002", "0003" e così via) e ogni partizione contiene solo una quantità limitata di dati, l'archiviazione tabelle di Azure può raggruppare fisicamente queste partizioni nello stesso server. Questo meccanismo presuppone che l'applicazione più probabilmente eseguirà query su un intervallo contiguo di partizioni (query di intervallo) ed è ottimizzato per questo caso. Questo approccio può tuttavia causare aree sensibili focalizzate su un singolo server poiché tutti gli inserimenti di nuove entità saranno probabilmente concentrati su una delle due estremità degli intervalli contigui. Permette inoltre di ridurre la scalabilità. Per distribuire il carico in modo più uniforme tra i server, prendere in considerazione la chiave di partizione per rendere più casuale la sequenza.
 * Archiviazione tabelle di Azure supporta le operazioni transazionali per le entità che appartengono alla stessa partizione. Ciò significa che un'applicazione può eseguire più operazioni di inserimento, aggiornamento, eliminazione, sostituzione o unione come unità atomica, a condizione che la transazione non includa più di 100 entità e che il payload della richiesta non superi i 4 MB. Le operazioni che si estendono su più partizioni non sono transazionali e potrebbe essere necessario implementare la coerenza finale come descritto nella sezione relativa [Introduzione alla coerenza dei dati]. Per altre informazioni sull'archiviazione tabelle e sulle transazioni, visitare la pagina [Esecuzione di transazioni di gruppi di entità] nel sito Web Microsoft.
 * Prestare attenzione alla granularità della chiave di partizione per le ragioni seguenti:
   * Se si usa la stessa chiave di partizione per ogni entità, il servizio di archiviazione tabelle crea una singola partizione di grandi dimensioni che viene mantenuta in un unico server. Questo impedisce di scalabilità orizzontale e concentra il carico su un singolo server. Di conseguenza, questo approccio è adatto solo per sistemi che gestiscono un numero ridotto di entità. Tuttavia, questo approccio garantisce che tutte le entità possano partecipare alle transazioni del gruppo di entità.
-  * Se si usa una chiave di partizione univoca per ogni entità, il servizio di archiviazione tabelle crea una partizione separata per ogni entità causando la presenza di un numero elevato di partizioni piccole, a seconda delle dimensioni delle entità. Questo approccio è più scalabile rispetto all'uso di una singola chiave di partizione, ma le transazioni dei gruppi di entità non saranno possibili. Inoltre, le query che recuperano più di un'entità potrebbero implicare la lettura da più di un server. Tuttavia, se l'applicazione esegue query di intervallo, l'utilizzo di una sequenza monotona per generare le chiavi di partizione può ottimizzare le query.
+  * Se si usa una chiave di partizione univoca per ogni entità, il servizio di archiviazione tabelle crea una partizione separata per ogni entità causando la presenza di un numero elevato di partizioni piccole, a seconda delle dimensioni delle entità. Questo approccio è più scalabile rispetto all'uso di una singola chiave di partizione, ma le transazioni dei gruppi di entità non saranno possibili. Inoltre, le query che recuperano più di un'entità potrebbero implicare la lettura da più di un server. Tuttavia, se l'applicazione esegue query di intervallo,  l'utilizzo di una sequenza monotona per generare le chiavi di partizione può ottimizzare le query.
   * La condivisione della chiave di partizione in un sottoinsieme di entità consente di raggruppare le entità correlate nella stessa partizione. È possibile eseguire le operazioni che coinvolgono le entità correlate usando transazioni dei gruppi di entità, mentre le query che recuperano un set di entità correlate possono essere soddisfatte tramite l'accesso a un singolo server.
 
 Per altre informazioni sul partizionamento dei dati nell'archiviazione tabelle di Azure, vedere l'articolo [Guida alla progettazione della tabella di archiviazione di Azure] nel sito Web Microsoft.
 
-## Partizionamento di archiviazione blob di Azure
+## <a name="partitioning-azure-blob-storage"></a>Partizionamento di archiviazione blob di Azure
 L'archiviazione BLOB di Azure consente di contenere oggetti binari di grandi dimensioni, attualmente fino a 200 GB per i BLOB in blocchi o 1 TB per i BLOB di pagine. Per informazioni aggiornate, vedere la pagina [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure] nel sito Web Microsoft. Utilizzo dei BLOB in blocchi in scenari come i flussi dove è necessario caricare o scaricare rapidamente grandi volumi di dati. Utilizzo dei BLOB di pagine per le applicazioni che richiedono accesso casuale anziché seriale a parti dei dati.
 
 Ogni blob (blocco o pagina) viene conservato in un contenitore in un account di archiviazione Azure. È possibile usare i contenitori per raggruppare BLOB correlati con gli stessi requisiti di sicurezza, sebbene questo raggruppamento sia logico anziché fisico. All'interno di un contenitore ogni BLOB ha un nome univoco.
@@ -333,16 +337,16 @@ Le operazioni di scrittura di un singolo blocco (blob in blocchi) o una pagina (
 
 L'archiviazione BLOB di Azure supporta velocità di trasferimento fino a 60 MB al secondo o 500 richieste al secondo per ogni BLOB. Se si prevede di superare tali limiti e i dati BLOB sono relativamente statici, provare a replicare BLOB usando la Rete di distribuzione dei contenuti di Azure. Per altre informazioni, vedere la pagina [Uso della rete CDN per Azure] nel sito Web Microsoft. Per altre indicazioni e considerazioni, vedere [Uso di una rete per la distribuzione di contenuti per Azure].
 
-## Partizionamento di code di archiviazione di Azure
+## <a name="partitioning-azure-storage-queues"></a>Partizionamento di code di archiviazione di Azure
 Le code di archiviazione di Azure consentono di implementare la messaggistica asincrona tra processi. Un account di archiviazione di Azure può contenere qualsiasi numero di code e ogni coda può contenere qualsiasi numero di messaggi. L'unica limitazione è lo spazio disponibile nell'account di archiviazione. La dimensione massima di un singolo messaggio è di 64 KB. Se sono necessari messaggi di dimensioni superiori, utilizzare Code del bus di servizio di Azure.
 
 Ogni coda di archiviazione ha un nome univoco all'interno dell'account di archiviazione in cui è contenuta. Le code di partizione di Azure sono basate sul nome. Tutti i messaggi per la stessa coda vengono archiviati nella stessa partizione, controllata da un singolo server. Code diverse possono essere gestite da server differenti per bilanciare il carico. L'allocazione di code da server è trasparente alle applicazioni e agli utenti.
 
  In un'applicazione di grandi dimensioni, non usare la stessa coda di archiviazione per tutte le istanze dell'applicazione, poiché con questo approccio il server che ospita la coda potrebbe diventare un'area sensibile. È consigliabile usare code diverse per le diverse aree funzionali dell'applicazione. Le code di archiviazione di Azure non supportano le transazioni, quindi l’indirizzamento dei messaggi a code diverse dovrebbe avere un impatto minimo sulla coerenza della messaggistica.
 
-Una coda di archiviazione di Azure è in grado di gestire fino a 2.000 messaggi al secondo. Se è necessario elaborare i messaggi a una velocità più elevata, è consigliabile creare più code. In un'applicazione globale, ad esempio, è consigliabile creare code di archiviazione separate in account di archiviazione separati per gestire le istanze dell'applicazione in esecuzione in ogni area.
+Una coda di archiviazione di Azure è in grado di gestire fino a 2.000 messaggi al secondo.  Se è necessario elaborare i messaggi a una velocità più elevata, è consigliabile creare più code. In un'applicazione globale, ad esempio, è consigliabile creare code di archiviazione separate in account di archiviazione separati per gestire le istanze dell'applicazione in esecuzione in ogni area.
 
-## Strategie di partizionamento per Bus di servizio di Azure
+## <a name="partitioning-strategies-for-azure-service-bus"></a>Strategie di partizionamento per Bus di servizio di Azure
 Il bus di servizio di Azure usa un broker messaggi per gestire i messaggi inviati a una coda del bus di servizio o a un argomento. Per impostazione predefinita, tutti i messaggi inviati a una coda o a un argomento vengono gestiti dallo stesso processo di broker messaggi. Questa architettura può inserire un limite alla velocità effettiva complessiva della coda di messaggi. Tuttavia, è anche possibile partizionare una coda o argomento quando viene creato. A tale scopo, impostare la proprietà *EnablePartitioning* della descrizione della coda o dell'argomento su *true*.
 
 Una coda o un argomento partizionato viene diviso in più frammenti, ognuno dei quali è supportato da un archivio messaggi e da un broker messaggi separato. Il Bus di servizio si assume la responsabilità per la creazione e la gestione di questi frammenti. Quando un'applicazione invia un messaggio a una coda o argomento partizionati, il Bus di servizio assegna il messaggio a un frammento per quella coda o quell’argomento. Quando un'applicazione riceve un messaggio da una coda o da una sottoscrizione, il Bus di servizio controlla ogni frammento per il successivo messaggio disponibile e quindi lo passa all'applicazione per l'elaborazione.
@@ -353,13 +357,13 @@ Il Bus di servizio assegna un messaggio a un frammento nel modo seguente:
 
 * Se il messaggio appartiene a una sessione, tutti i messaggi con lo stesso valore per la proprietà * SessionId* vengono inviati allo stesso frammento.
 * Se il messaggio non appartiene a una sessione, ma il mittente ha specificato un valore per la proprietà *PartitionKey*, tutti i messaggi con lo stesso valore *PartitionKey* vengono inviati allo stesso frammento.
-  
+
   > [!NOTE]
   > Se entrambe le proprietà *SessionId* e *PartitionKey* sono specificate, è necessario che siano impostate sullo stesso valore altrimenti il messaggio verrà rifiutato.
-  > 
-  > 
-* Se le proprietà *SessionId* e *PartitionKey* per un messaggio non sono specificate, ma è abilitato il rilevamento dei duplicati, verrà utilizzata la proprietà *MessageId*. Tutti i messaggi con lo stesso *MessageId* verranno indirizzati allo stesso frammento.
-* Se i messaggi non includono una proprietà *SessionId, PartitionKey* o *MessageId*, il bus di servizio assegna i messaggi a frammenti in modo sequenziale. Se un frammento non è disponibile, il Bus di servizio passerà al successivo. In questo modo, un errore temporaneo nell'infrastruttura di messaggistica non determina l'esito negativo dell'operazione di invio del messaggio.
+  >
+  >
+* Se le proprietà *SessionId* e *PartitionKey* per un messaggio non sono specificate, ma è abilitato il rilevamento dei duplicati, verrà usata la proprietà *MessageId*. Tutti i messaggi con lo stesso *MessageId* verranno indirizzati allo stesso frammento.
+* Se i messaggi non includono una proprietà *SessionId, PartitionKey,* o *MessageId*, il bus di servizio assegna i messaggi a frammenti in modo sequenziale. Se un frammento non è disponibile, il Bus di servizio passerà al successivo. In questo modo, un errore temporaneo nell'infrastruttura di messaggistica non determina l'esito negativo dell'operazione di invio del messaggio.
 
 Quando si decide se e come partizionare una coda o un argomento dei messaggi del bus di servizio, tenere presente quanto riportato di seguito:
 
@@ -369,7 +373,7 @@ Quando si decide se e come partizionare una coda o un argomento dei messaggi del
 * Code e argomenti partizionati non possono essere configurati per essere eliminati automaticamente quando diventano inattivi.
 * Se si creano soluzioni multipiattaforma o ibride, non è attualmente possibile usare code e argomenti partizionati con il protocollo AMQP (Advanced Message Queuing Protocol).
 
-## Strategie di partizionamento per i database Azure DocumentDB
+## <a name="partitioning-strategies-for-azure-documentdb-databases"></a>Strategie di partizionamento per i database Azure DocumentDB
 Azure DocumentDB è un database NoSQL che può archiviare documenti. Un documento in un database DocumentDB è una rappresentazione serializzata JSON di un oggetto o di un altro dato. Nessuno schema fisso viene applicato ad eccezione del fatto che ogni documento deve contenere un ID univoco.
 
 I documenti sono organizzati in raccolte. È possibile raggruppare i documenti correlati in una raccolta. Ad esempio, in un sistema che gestisce post di blog, è possibile archiviare il contenuto di ogni post di blog come documento in una raccolta. È anche possibile creare raccolte per ogni tipo di argomento. In alternativa, in un'applicazione multi-tenant, ad esempio un sistema in cui autori diversi controllano e gestiscono i propri post di blog, è possibile partizionare i blog per autore e creare una raccolta separata per ogni autore. Lo spazio di archiviazione allocato alle raccolte è flessibile e può essere ridotto o incrementato in base alle esigenze.
@@ -378,8 +382,8 @@ Le raccolte di documenti offrono un meccanismo naturale per partizionare i dati 
 
 > [!NOTE]
 > Ogni database DocumentDB ha un *livello di prestazioni* che determina la quantità di risorse ottenute. A ogni livello di prestazioni è associato un limite di velocità dell'*unità richiesta*. Il limite di velocità dell'unità richiesta specifica il volume di risorse riservato e disponibile a uso esclusivo della raccolta. Il costo di una raccolta dipende dal livello di prestazioni selezionato per la raccolta. Più elevato è il livello di prestazioni e il limite di velocità dell'unità richiesta, maggiore sarà il costo. Il livello di prestazioni di una raccolta può essere regolato usando il portale di Azure. Per ulteriori informazioni, vedere la pagina [Livelli di prestazioni in DocumentDB] sul sito Web Microsoft.
-> 
-> 
+>
+>
 
 Tutti i database vengono creati nel contesto di un account di DocumentDB. Un singolo account DocumentDB può contenere più database e specifica in quale area vengono creati i database. Ogni account DocumentDB impone inoltre il proprio controllo di accesso. È possibile usare account DocumentDB per individuare partizioni a livello geografico (raccolte all'interno del database) più prossime agli utenti che vi devono accedere e imporre restrizioni in modo che solo tali utenti possano connettersi a esse.
 
@@ -391,7 +395,7 @@ La figura 8 mostra la struttura di alto livello dell'architettura di DocumentDB.
 
 ![Struttura di DocumentDB](media/best-practices-data-partitioning/DocumentDBStructure.png)
 
-*Figura 8. La struttura dell'architettura DocumentDB*
+*Figura 8.  La struttura dell'architettura DocumentDB*
 
 L'applicazione client indirizza le richieste alla partizione appropriata, in genere mediante l'implementazione del proprio meccanismo di mapping basato su alcuni attributi dei dati che definiscono la chiave di partizione. La figura 9 mostra due database di DocumentDB, ognuno dei quali contiene due raccolte che svolgono la funzione di partizione. I dati vengono partizionati in base all'ID tenant e includono i dati di un tenant specifico. I database vengono creati in account DocumentDB separati. Questi account si trovano nella stessa area dei tenant dei quali contengono i dati. La logica di routing nell'applicazione client utilizza l'ID tenant come chiave di partizione.
 
@@ -405,10 +409,10 @@ Quando si decide come partizionare i dati con un database DocumentDB, tenere pre
 * **Ogni documento deve avere un attributo da usare per identificare in modo univoco tale documento all'interno della raccolta in cui è contenuto**. Questo attributo è diverso dalla chiave di partizione che definisce la raccolta contenente il documento. Una raccolta può contenere un numero elevato di documenti. In teoria, l'unico limite è la lunghezza massima dell'ID di documento. L'ID di documento può contenere fino a 255 caratteri.
 * **Tutte le operazioni eseguite su un documento vengono eseguite nel contesto di una transazione. Le transazioni nei database DocumentDB sono limitate alla raccolta in cui è contenuto il documento.** Se un'operazione ha esito negativo, viene eseguito il rollback del lavoro che è stato eseguito. Quando viene eseguita un'operazione su un documento, tutte le modifiche apportate sono soggette all'isolamento a livello di snapshot. Questo meccanismo garantisce ad esempio che nel caso in cui una richiesta di creazione di un nuovo documento ha esito negativo, un altro utente che contemporaneamente esegue una query nel database non visualizzi un documento parziale che verrà in seguito rimosso.
 * **Le query del database DocumentDB sono anche limitate al livello di raccolta**. Una singola query può recuperare dati solo da una raccolta. Se è necessario recuperare dati da più raccolte, è necessario eseguire query in ogni raccolta singolarmente e incorporare i risultati nel codice dell'applicazione.
-* **I database DocumentDB supportano elementi programmabili che possono essere archiviati in una raccolta insieme ai documenti**. Questi includono stored procedure, funzioni definite dall'utente e trigger scritti in JavaScript. Questi elementi possono accedere a qualsiasi documento all'interno della stessa raccolta. Inoltre, questi elementi vengono eseguiti nell'ambito della transazione di ambiente (nel caso di un trigger che viene generato in seguito a una creazione, eliminazione o sostituzione eseguita su un documento) o avviando una nuova transazione (nel caso di una stored procedure eseguita in seguito a una richiesta client esplicita). Se il codice in un elemento programmabile genera un'eccezione, viene eseguito il rollback della transazione. È possibile utilizzare stored procedure e trigger per mantenere l'integrità e la coerenza tra i documenti, ma tutti questi documenti devono far parte della stessa raccolta.
-* **È improbabile che le raccolte che si prevede di mantenere nei database di un account DocumentDB superino i limiti di velocità effettiva definiti dai livelli di prestazioni delle raccolte**. Questi limiti sono descritti nella pagina [Informazioni sulla capacità e sull'archiviazione di documenti in DocumentDB] nel sito Web Microsoft. Se si prevede di raggiungere questi limiti, considerare la suddivisione di raccolte tra database in account DocumentDB diversi per ridurre il carico per ogni raccolta.
+* **I database DocumentDB supportano elementi programmabili che possono essere archiviati in una raccolta insieme ai documenti**. Questi includono stored procedure, funzioni definite dall'utente e trigger scritti in JavaScript. Questi elementi possono accedere a qualsiasi documento all'interno della stessa raccolta. Inoltre, questi elementi vengono eseguiti nell'ambito della transazione di ambiente (nel caso di un trigger che viene generato in seguito a una creazione, eliminazione o sostituzione eseguita su un documento) o avviando una nuova transazione (nel caso di una stored procedure eseguita in seguito a una richiesta client esplicita). Se il codice in un elemento programmabile genera un'eccezione, viene eseguito il rollback della transazione. È possibile utilizzare stored procedure e trigger per mantenere l'integrità e la coerenza tra i documenti, ma  tutti questi documenti devono far parte della stessa raccolta.
+* **È improbabile che le raccolte che si prevede di mantenere nei database di un account DocumentDB superino i limiti di velocità effettiva definiti dai livelli di prestazioni delle raccolte**. Questi limiti sono descritti nella pagina [gestire le esigenze di capacità di DocumentDB] nel sito Web Microsoft. Se si prevede di raggiungere questi limiti, considerare la suddivisione di raccolte tra database in account DocumentDB diversi per ridurre il carico per ogni raccolta.
 
-## Strategie di partizionamento per Ricerca di Azure
+## <a name="partitioning-strategies-for-azure-search"></a>Strategie di partizionamento per Ricerca di Azure
 La possibilità di ricercare dati è spesso il metodo principale di navigazione ed esplorazione offerto da molte applicazioni Web. Consente agli utenti di trovare le risorse rapidamente, ad esempio i prodotti in un'applicazione di e-commerce, in base a combinazioni di criteri di ricerca. Il servizio di ricerca di Azure offre funzionalità di ricerca full-text nel contenuto web e include funzionalità quali il suggerimento automatico di query basate su quasi corrispondenze ed esplorazione in base a facet. Una descrizione completa di queste funzionalità è disponibile nella pagina [Che cos'è la Ricerca di Azure?] nel sito Web Microsoft.
 
 Ricerca di Azure memorizza il contenuto disponibile per la ricerca come documenti JSON all'interno di un database . Definire gli indici che specificano i campi disponibili per la ricerca nei documenti e inserire tali definizioni in Ricerca di Azure. Quando un utente invia una richiesta di ricerca, Ricerca di Azure usa gli indici appropriati per trovare gli elementi corrispondenti.
@@ -421,20 +425,20 @@ Ogni partizione può contenere un massimo di 15 milioni di documenti o può occu
 
 > [!NOTE]
 > È possibile archiviare un set limitato di tipi di dati nei documenti disponibili per la ricerca, inclusi stringhe, valori booleani, dati numerici, dati di tipo datetime e alcuni dati geografici. Per altre informazioni, vedere la pagina [Tipi di dati supportati (Ricerca di Azure)] nel sito Web Microsoft.
-> 
-> 
+>
+>
 
 Il controllo sul partizionamento dei dati da parte di Ricerca di Azure per ogni istanza del servizio è limitato. In un ambiente globale, tuttavia, è possibile migliorare le prestazioni e ridurre la latenza e i conflitti con un ulteriore partizionamento del servizio applicando una delle seguenti strategie:
 
 * Creare un'istanza di Ricerca di Azure in ogni area geografica e assicurarsi che le applicazioni client vengano indirizzate verso l'istanza più vicina disponibile. Questa strategia richiede che tutti gli aggiornamenti al contenuto di ricerca siano replicati tempestivamente in tutte le istanze del servizio.
 * Creare due livelli di Ricerca di Azure:
-  
+
   * Un servizio locale in ogni area contenente i dati a cui gli utenti dell'area accedono più di frequente. Gli utenti possono indirizzare le richieste al servizio locale per ottenere risultati rapidi ma limitati.
   * Un servizio globale che comprende tutti i dati. Gli utenti possono indirizzare le richieste al servizio globale per ottenere risultati più lenti ma completi.
 
 Questo approccio è più adatto quando esiste una variazione regionale significativa nei dati da ricercare.
 
-## Strategie di partizionamento per Cache Redis di Azure
+## <a name="partitioning-strategies-for-azure-redis-cache"></a>Strategie di partizionamento per Cache Redis di Azure
 Cache Redis di Azure offre un servizio di memorizzazione nella cache condivisa nel cloud basato sull'archivio dati chiave-valore di Redis. Come suggerisce il nome, Cache Redis di Azure è una soluzione di memorizzazione nella cache. Usare questa soluzione solo per contenere dati temporanei e non come archivio dati permanente. Le applicazioni che usano Cache Redis di Azure dovrebbero continuare a funzionare anche se la cache non è disponibile. Cache Redis di Azure supporta la replica primaria o secondaria per garantire una disponibilità elevata, ma attualmente limita la dimensione massima della cache a 53 GB. Se è necessario più spazio, si devono creare cache aggiuntive. Per altre informazioni, visitare la pagina [Cache Redis di Azure] nel sito Web Microsoft.
 
 Il partizionamento di un archivio dati Redis prevede la suddivisione dei dati tra istanze del servizio Redis. Ogni istanza rappresenta una singola partizione. Cache Redis di Azure consente di astrarre i servizi di Redis dietro un’interfaccia e non li espone direttamente. Il modo più semplice per implementare il partizionamento consiste nel creare più istanze della Cache Redis di Azure e distribuire i dati nelle cache.
@@ -448,9 +452,9 @@ Le applicazioni client si limitano a inviare le richieste a un server Redis part
 Questo modello viene implementato dal clustering Redis e viene descritto più dettagliatamente alla pagina [Esercitazione del cluster Redis] sul sito Web Redis. Il clustering di Redis è trasparente per le applicazioni client. È possibile aggiungere altri server Redis al cluster e ripartizionare nuovamente i dati senza dover riconfigurare i client.
 
 > [!IMPORTANT]
-> La Cache Redis di Azure non supporta attualmente il clustering. Se si desidera implementare questo approccio con Azure, è necessario implementare i propri server Redis installando Redis in un set di macchine virtuali di Azure e configurandole manualmente. La pagina relativa all'[esecuzione di Redis in una macchina virtuale CentOS Linux in Azure] nel sito Web Microsoft descrive un esempio di creazione e configurazione di un nodo Redis in esecuzione come macchina virtuale di Azure.
-> 
-> 
+> La Cache Redis di Azure non supporta attualmente il clustering. Se si desidera implementare questo approccio con Azure, è necessario implementare i propri server Redis installando Redis in un set di macchine virtuali di Azure e configurandole manualmente. La pagina relativa all' [esecuzione di Redis in una macchina virtuale CentOS Linux in Azure] nel sito Web Microsoft descrive un esempio di creazione e configurazione di un nodo Redis in esecuzione come macchina virtuale di Azure.
+>
+>
 
 La pagina relativa al [partizionamento e alla suddivisione dei dati in più istanze di Redis] nel sito Web Redis fornisce ulteriori informazioni sull'implementazione del partizionamento con Redis. Il resto di questa sezione presuppone l'implementazione di partizionamento sul lato client o assistito dal proxy.
 
@@ -458,7 +462,7 @@ Quando si decide come partizionare i dati con Cache Redis di Azure, tenere prese
 
 * Poiché Cache Redis di Azure non è progettata per svolgere la funzione di archivio dati permanente, indipendentemente dallo schema di partizionamento implementato, è necessario che il codice dell'applicazione sia in grado di recuperare i dati da una posizione diversa dalla cache.
 * È consigliabile mantenere nella stessa partizione i dati cui viene di frequente eseguito l'accesso contemporaneamente. Redis è un archivio chiave-valore avanzato che offre diversi meccanismi altamente ottimizzati per la definizione della struttura dei dati. I meccanismi possono essere i seguenti:
-  
+
   * Stringhe semplici (dati binari di una lunghezza massima di 512 MB)
   * Tipi di aggregazione, ad esempio elenchi, che possono svolgere la funzione di code e stack
   * Set ordinati e non ordinati
@@ -470,26 +474,27 @@ Quando si decide come partizionare i dati con Cache Redis di Azure, tenere prese
 *Figura 10. Struttura consigliata nell'archivio Redis per la registrazione degli ordini dei clienti e dei relativi dettagli*
 
 > [!NOTE]
-> In Redis, tutte le chiavi sono valori di dati binari, come le stringhe Redis, e possono contenere fino a 512 MB di dati. In teoria, una chiave può contenere qualsiasi informazione. Tuttavia, è consigliabile adottare una convenzione di denominazione coerente per le chiavi che descriva il tipo di dati e identifichi l'entità senza essere eccessivamente lunga. Un approccio comune consiste nell'usare chiavi nel formato "tipo\_entità:ID". Ad esempio, è possibile usare "cliente:99" per indicare la chiave per il cliente con ID 99.
-> 
-> 
+> In Redis, tutte le chiavi sono valori di dati binari, come le stringhe Redis, e possono contenere fino a 512 MB di dati. In teoria, una chiave può contenere qualsiasi informazione. Tuttavia, è consigliabile adottare una convenzione di denominazione coerente per le chiavi che descriva il tipo di dati e identifichi l'entità senza essere eccessivamente lunga. Un approccio comune consiste nell'usare chiavi nel formato "tipo_entità:ID". Ad esempio, è possibile usare "cliente:99" per indicare la chiave per il cliente con ID 99.
+>
+>
 
-* È possibile implementare il partizionamento verticale archiviando le informazioni correlate in aggregazioni diverse nello stesso database. Ad esempio, in un'applicazione di e-commerce è possibile archiviare le informazioni sui prodotti cui viene eseguito l'accesso di frequente in un hash di Redis e le informazioni dettagliate usate meno frequentemente in un altro hash. Entrambi gli hash possono usare lo stesso ID prodotto come parte della chiave. Ad esempio, è possibile usare "prodotto: *nn*" dove *nn* è l'ID prodotto per le informazioni sul prodotto e "dettagli\_prodotto: *nn*" per i dati dettagliati. Questa strategia può contribuire a ridurre il volume dei dati recuperati dalla maggior parte delle query.
+* È possibile implementare il partizionamento verticale archiviando le informazioni correlate in aggregazioni diverse nello stesso database. Ad esempio, in un'applicazione di e-commerce è possibile archiviare le informazioni sui prodotti cui viene eseguito l'accesso di frequente in un hash di Redis e le informazioni dettagliate usate meno frequentemente in un altro hash.
+  Entrambi gli hash possono usare lo stesso ID prodotto come parte della chiave. Ad esempio, è possibile usare "prodotto: *nn*" (dove *nn* è l'ID prodotto) per le informazioni sul prodotto e "dettagli_prodotto: *nn*" per i dati dettagliati. Questa strategia può contribuire a ridurre il volume dei dati recuperati dalla maggior parte delle query.
 * Sebbene sia possibile ripartizionare un archivio dati Redis, tenere presente che si tratta di un'attività lunga e complessa. Il clustering Redis può ripartizionare i dati automaticamente, ma questa funzionalità non è disponibile con Cache Redis di Azure. Di conseguenza, quando si progetta lo schema di partizionamento, cercare di lasciare spazio libero sufficiente in ogni partizione per consentire la crescita dei dati prevista nel tempo. Tuttavia, tenere presente che Cache Redis di Azure consente di memorizzare dati temporaneamente e che i dati contenuti nella cache possono avere una durata limitata, specificata come valore time-to-live (TTL). Per i dati relativamente volatili, il TTL può essere più breve, ma per i dati statici il TTL può essere molto più lungo. Evitare di archiviare grandi quantità di dati di lunga durata nella cache, se il volume dei dati riempe la cache. È possibile specificare un criterio di rimozione che spinge la Cache Redis di Azure a rimuovere i dati se lo spazio è prezioso.
-  
+
   > [!NOTE]
   > Con Cache Redis di Azure è possibile specificare le dimensioni massime della cache (da 250 MB a 53 GB) selezionando il piano tariffario appropriato. Tuttavia, dopo aver creato una cache Redis di Azure, non è possibile aumentare o diminuire le dimensioni della cache.
-  > 
-  > 
+  >
+  >
 * Poiché i batch e le transazioni di Redis non possono estendersi su più connessioni, è consigliabile mantenere tutti i dati interessati da un batch o da una transazione nello stesso database (partizione).
-  
+
   > [!NOTE]
   > Una sequenza di operazioni in una transazione di Redis non è necessariamente atomica. I comandi che costituiscono una transazione vengono verificati e messi in coda prima dell'esecuzione. Se si verifica un errore durante questa fase, l'intera coda viene eliminata. Tuttavia, dopo che la transazione è stata inviata correttamente, i comandi in coda vengono eseguiti in sequenza. Se un comando non viene eseguito, viene interrotta soltanto l'esecuzione di quel comando. Tutti i comandi precedenti e successivi nella coda vengono eseguiti. Per altre informazioni, visitare la pagina relativa alle [transazioni] nel sito Web Redis.
-  > 
-  > 
+  >
+  >
 * Redis supporta un numero limitato di operazioni atomiche. Le uniche operazioni di questo tipo che supportano più valori e chiavi sono le operazioni MGET e MSET. Le operazioni MGET restituiscono una raccolta di valori per un elenco di chiavi specificato, mentre le operazioni MSET archiviano una raccolta di valori per un elenco di chiavi specificato. Se è necessario usare queste operazioni, le coppie chiave-valore cui fanno riferimento i comandi MSET e MGET devono essere archiviate nello stesso database.
 
-## Ribilanciamento delle partizioni
+## <a name="rebalancing-partitions"></a>Ribilanciamento delle partizioni
 Man mano che il sistema cresce e se ne conoscono i modelli di utilizzo, può essere necessario modificare lo schema di partizionamento. È possibile ad esempio che singole partizioni inizino ad attrarre un volume di traffico eccessivo e si trasformino in aree sensibili che causano un numero elevato di conflitti. È anche possibile che il volume dei dati di alcune partizioni sia stato sottostimato, causando un avvicinamento ai limiti di capacità di archiviazione di queste partizioni. Indipendentemente dall'origine, talvolta è necessario ribilanciare le partizioni per ripartire il carico in modo più uniforme.
 
 In alcuni casi, i sistemi di archiviazione di dati che non espongono pubblicamente il modo in cui i dati sono allocati nei server possono ribilanciare automaticamente le partizioni entro i limiti delle risorse disponibili. In altri casi, il ribilanciamento è un'attività amministrativa costituita da due fasi:
@@ -501,12 +506,12 @@ In alcuni casi, i sistemi di archiviazione di dati che non espongono pubblicamen
 
 > [!NOTE]
 > Il mapping delle raccolte del database DocumentDB sui server è trasparente, ma è ancora possibile che vengano raggiunti i limiti di capacità di archiviazione e di velocità effettiva di un account DocumentDB. Se ciò si verifica, potrebbe essere necessario riprogettare lo schema di partizionamento e migrare i dati.
-> 
-> 
+>
+>
 
 A seconda della tecnologia di archiviazione dati e della progettazione del sistema di archiviazione dati, può essere possibile eseguire la migrazione dei dati tra partizioni mentre sono in uso (migrazione online). Se non è possibile, potrebbe essere necessario rendere temporaneamente non disponibili le partizioni interessate mentre i dati vengono spostati (migrazione offline).
 
-## Migrazione offline
+## <a name="offline-migration"></a>Migrazione offline
 La migrazione offline è probabilmente l'approccio più semplice in quanto riduce le probabilità che si verifichino conflitti. Non apportare modifiche ai dati mentre vengono spostati e ristrutturati.
 
 Concettualmente, questo processo comprende i passaggi seguenti:
@@ -519,22 +524,22 @@ Concettualmente, questo processo comprende i passaggi seguenti:
 
 Per mantenere una disponibilità, è possibile contrassegnare la partizione originale come di sola lettura nel passaggio 1 anziché renderla non disponibile. Questo consentirebbe alle applicazioni di leggere i dati mentre vengono spostati ma non di modificarli.
 
-## Migrazione online
+## <a name="online-migration"></a>Migrazione online
 La migrazione online è più complessa da eseguire ma meno problematica per gli utenti poiché i dati rimangono disponibili durante l'intera procedura. Il processo è simile a quella utilizzato dalla migrazione offline, ad eccezione del fatto che la partizione originale non è contrassegnata come non in linea (passaggio 1). A seconda della granularità del processo di migrazione, ad esempio se viene eseguita per ogni singolo elemento o per ogni singola partizione, il codice di accesso ai dati nelle applicazioni client potrebbe dover gestire la lettura e scrittura dei dati contenuti in due posizioni, ovvero la partizione originale e la nuova partizione.
 
 Per un esempio di soluzione che supporta la migrazione online, vedere l'articolo [Scalabilità tramite lo strumento di suddivisione-unione del database elastico] nel sito Web Microsoft.
 
-## Modelli correlati e informazioni aggiuntive
+## <a name="related-patterns-and-guidance"></a>Modelli correlati e informazioni aggiuntive
 Quando si esaminano le strategie per l'implementazione della coerenza dei dati, anche i modelli seguenti possono essere rilevanti per il proprio scenario:
 
-* La pagina relativa alla [coerenza dei dati] nel sito Web Microsoft descrive le strategie per la gestione della coerenza in un ambiente distribuito, ad esempio il cloud.
+* La pagina relativa alla [Introduzione alla coerenza dei dati] nel sito Web Microsoft descrive le strategie per la gestione della coerenza in un ambiente distribuito, ad esempio il cloud.
 * La pagina [Linee guida di partizionamento di dati] nel sito Web Microsoft offre una panoramica generale sulla progettazione delle partizioni per soddisfare diversi criteri in una soluzione distribuita.
 * Il [modello di partizionamento orizzontale] descritto nel sito Web Microsoft riepiloga alcune strategie comuni per il partizionamento orizzontale dei dati.
-* L'[ITP (Index Table Pattern)] descritto nel sito Web Microsoft illustra come creare indici secondari nei dati. Un'applicazione consente di recuperare rapidamente i dati con questo approccio, usando le query che non fanno riferimento alla chiave primaria di una raccolta.
+* L' [ITP (Index Table Pattern)] descritto nel sito Web Microsoft illustra come creare indici secondari nei dati. Un'applicazione consente di recuperare rapidamente i dati con questo approccio, usando le query che non fanno riferimento alla chiave primaria di una raccolta.
 * Il [modello di vista materializzata] descritto nel sito Web Microsoft illustra come generare viste prepopolate che riepilogano i dati per favorire operazioni di query rapide. Questo approccio può essere utile in un archivio dati partizionati se le partizioni che contengono dati riepilogati vengono distribuite tra più siti.
 * L'articolo [Uso della rete CDN di Azure] nel sito Web Microsoft offre altre istruzioni per la configurazione e l'uso della rete per la distribuzione di contenuti di Azure.
 
-## Altre informazioni
+## <a name="more-information"></a>Altre informazioni
 * La pagina [Informazioni sul database SQL] nel sito Web Microsoft contiene informazioni dettagliate sulla creazione e l'uso di database SQL.
 * La pagina [Panoramica sulle funzionalità di database elastico] nel sito Web Microsoft offre un'introduzione completa al database elastico.
 * La pagina [Scalabilità tramite lo strumento di suddivisione-unione del database elastico] nel sito Web Microsoft contiene informazioni sull'uso del servizio di suddivisione-unione per gestire le partizioni del database elastico.
@@ -548,39 +553,41 @@ Quando si esaminano le strategie per l'implementazione della coerenza dei dati, 
 * La pagina [Tipi di dati supportati (Ricerca di Azure)] nel sito Web Microsoft riepiloga i tipi di dati che è possibile usare nei documenti e indici in cui è possibile eseguire ricerche.
 * La pagina [Cache Redis di Azure] nel sito Web Microsoft offre un'introduzione a Cache Redis di Azure.
 * La pagina relativa al [partizionamento e alla suddivisione dei dati in più istanze di Redis] nel sito Web Redis include informazioni sull'implementazione del partizionamento con Redis.
-* La pagina relativa all'[esecuzione di Redis in una macchina virtuale CentOS Linux in Azure] nel sito Web Microsoft descrive un esempio di creazione e configurazione di un nodo Redis in esecuzione come macchina virtuale di Azure.
+* La pagina relativa all' [esecuzione di Redis in una macchina virtuale CentOS Linux in Azure] nel sito Web Microsoft descrive un esempio di creazione e configurazione di un nodo Redis in esecuzione come macchina virtuale di Azure.
 * La pagina relativa ai [tipi di dati] nel sito Web Redis descrive i tipi di dati che sono disponibili con Redis e Cache Redis di Azure.
 
 [Cache Redis di Azure]: http://azure.microsoft.com/services/cache/
-[Obiettivi di scalabilità e prestazioni per Archiviazione di Azure]: storage/storage-scalability-targets.md
-[Guida alla progettazione della tabella di archiviazione di Azure]: storage/storage-table-design-guide.md
-[Creare una soluzione Polyglot]: https://msdn.microsoft.com/library/dn313279.aspx
-[Accesso ai dati per le soluzioni altamente scalabili mediante SQL, NoSQL e persistenza Polyglot]: https://msdn.microsoft.com/library/dn271399.aspx
+[Azure Storage Scalability and Performance Targets]: storage/storage-scalability-targets.md
+[Azure Storage Table Design Guide]: storage/storage-table-design-guide.md
+[Building a Polyglot Solution]: https://msdn.microsoft.com/library/dn313279.aspx (Creazione di una soluzione Polyglot)
+[Data Access for Highly-Scalable Solutions: Using SQL, NoSQL, and Polyglot Persistence]: https://msdn.microsoft.com/library/dn271399.aspx
 [Introduzione alla coerenza dei dati]: http://aka.ms/Data-Consistency-Primer
-[coerenza dei dati]: http://aka.ms/Data-Consistency-Primer
-[Linee guida di partizionamento di dati]: https://msdn.microsoft.com/library/dn589795.aspx
-[tipi di dati]: http://redis.io/topics/data-types
+[Data Partitioning Guidance]: https://msdn.microsoft.com/library/dn589795.aspx
+[Data Types]: http://redis.io/topics/data-types
 [DocumentDB limiti e quote]: documentdb/documentdb-limits.md
 [Panoramica sulle funzionalità di database elastico]: sql-database/sql-database-elastic-scale-introduction.md
-[Federations Migration Utility]: https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1
-[ITP (Index Table Pattern)]: http://aka.ms/Index-Table-Pattern
-[Informazioni sulla capacità e sull'archiviazione di documenti in DocumentDB]: documentdb/documentdb-manage.md
+[Utilità di migrazione delle federazioni]: https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1
+[Index Table Pattern]: http://aka.ms/Index-Table-Pattern
 [gestire le esigenze di capacità di DocumentDB]: documentdb/documentdb-manage.md
-[modello di vista materializzata]: http://aka.ms/Materialized-View-Pattern
+[Materialized View Pattern]: http://aka.ms/Materialized-View-Pattern
 [Esecuzione di query su più partizioni]: sql-database/sql-database-elastic-scale-multishard-querying.md
 [partizionamento e alla suddivisione dei dati in più istanze di Redis]: http://redis.io/topics/partitioning
 [Livelli di prestazioni in DocumentDB]: documentdb/documentdb-performance-levels.md
-[Esecuzione di transazioni di gruppi di entità]: https://msdn.microsoft.com/library/azure/dd894038.aspx
+[Performing Entity Group Transactions]: https://msdn.microsoft.com/library/azure/dd894038.aspx
 [Esercitazione del cluster Redis]: http://redis.io/topics/cluster-tutorial
 [esecuzione di Redis in una macchina virtuale CentOS Linux in Azure]: http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx
 [Scalabilità tramite lo strumento di suddivisione-unione del database elastico]: sql-database/sql-database-elastic-scale-overview-split-and-merge.md
 [Uso della rete CDN di Azure]: cdn/cdn-create-new-endpoint.md
-[Quote del bus di servizio]: service-bus/service-bus-quotas.md
-[Limiti dei servizi in Ricerca di Azure]: search/search-limits-quotas-capacity.md
+[Quote del bus di servizio]: ./service-bus-messaging/service-bus-quotas.md
+[Limiti dei servizi in Ricerca di Azure]:  search/search-limits-quotas-capacity.md
 [Modello di partizionamento orizzontale]: http://aka.ms/Sharding-Pattern
-[Tipi di dati supportati (Ricerca di Azure)]: https://msdn.microsoft.com/library/azure/dn798938.aspx
+[Tipi di dati supportati (Ricerca di Azure)]:  https://msdn.microsoft.com/library/azure/dn798938.aspx
 [transazioni]: http://redis.io/topics/transactions
 [Che cos'è la Ricerca di Azure?]: search/search-what-is-azure-search.md
 [Informazioni sul database SQL]: sql-database/sql-database-technical-overview.md
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

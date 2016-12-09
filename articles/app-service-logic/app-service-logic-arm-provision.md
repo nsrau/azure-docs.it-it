@@ -1,12 +1,12 @@
 ---
-title: Creare un'app per la logica usando modelli di Gestione risorse di Azure in Servizio app di Azure | Microsoft Docs
-description: Usare un modello di Gestione risorse di Azure per distribuire un'app per la logica vuota per la definizione dei flussi di lavoro.
+title: Creare un&quot;app per la logica usando modelli di Azure Resource Manager nel servizio app di Azure | Documentazione Microsoft
+description: Usare un modello di Gestione risorse di Azure per distribuire un&quot;app per la logica vuota per la definizione dei flussi di lavoro.
 services: logic-apps
-documentationcenter: ''
+documentationcenter: 
 author: MSFTMan
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,42 +14,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 61ab873e77e3f7a691c815ba48c7f29b45269db9
+
 
 ---
-# Creare un'app per la logica usando un modello
+# <a name="create-a-logic-app-using-a-template"></a>Creare un'app per la logica usando un modello
 Per creare un'app per la logica vuota da usare per definire i flussi di lavoro, è possibile ricorrere a un modello di Gestione risorse di Azure, che consente di definire le risorse da distribuire e le modalità di definizione dei parametri specificati durante l'esecuzione della distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
 
-Per informazioni dettagliate sulle proprietà delle app per la logica, vedere [API di gestione del flusso di lavoro delle app per la logica](https://msdn.microsoft.com/library/azure/mt643788.aspx).
+Per informazioni dettagliate sulle proprietà delle app per la logica, vedere [API di gestione del flusso di lavoro delle app per la logica](https://msdn.microsoft.com/library/azure/mt643788.aspx). 
 
-Per esempi della definizione stessa, vedere [Creare definizioni dell'app per la logica](app-service-logic-author-definitions.md).
+Per esempi della definizione stessa, vedere [Creare definizioni dell'app per la logica](app-service-logic-author-definitions.md). 
 
 Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
 Per il modello completo, vedere [Modello di app per la logica](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json).
 
-## Elementi distribuiti
+## <a name="what-you-will-deploy"></a>Elementi distribuiti
 Con questo modello si distribuisce un'app per la logica.
 
-Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
+Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:  
 
 [![Distribuzione in Azure](media/app-service-logic-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
-## Parametri
+## <a name="parameters"></a>Parametri
 [!INCLUDE [app-service-logic-deploy-parameters](../../includes/app-service-logic-deploy-parameters.md)]
 
-### testUri
+### <a name="testuri"></a>testUri
      "testUri": {
         "type": "string",
-        "defaultValue": "http://azure.microsoft.com/status/feed/"
+        "defaultValue": "http://azure.microsoft.com/en-us/status/feed/"
       }
 
-## Risorse da distribuire
-### App per la logica
+## <a name="resources-to-deploy"></a>Risorse da distribuire
+### <a name="logic-app"></a>App per la logica
 Crea l'app per la logica.
 
-Il modello usa un valore di parametro per il nome dell'app per la logica. Imposta la località dell'app per la logica sulla stessa località del gruppo di risorse.
+Il modello usa un valore di parametro per il nome dell'app per la logica. Imposta la località dell'app per la logica sulla stessa località del gruppo di risorse. 
 
-Questa particolare definizione viene eseguita una volta ogni ora e consente di eseguire il ping del percorso specificato nel parametro **testUri**.
+Questa particolare definizione viene eseguita una volta ogni ora e consente di eseguire il ping del percorso specificato nel parametro **testUri** . 
 
     {
       "type": "Microsoft.Logic/workflows",
@@ -95,16 +99,20 @@ Questa particolare definizione viene eseguita una volta ogni ora e consente di e
     }
 
 
-## Comandi per eseguire la distribuzione
+## <a name="commands-to-run-deployment"></a>Comandi per eseguire la distribuzione
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
-### PowerShell
+### <a name="powershell"></a>PowerShell
     New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
 
-### Interfaccia della riga di comando di Azure
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup
 
 
 
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

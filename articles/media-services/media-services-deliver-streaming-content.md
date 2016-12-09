@@ -3,10 +3,10 @@ title: Pubblicare contenuti di Servizi multimediali di Azure mediante .NET
 description: Informazioni su come creare un localizzatore da usare per un URL di streaming. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET.
 author: juliako
 manager: erikre
-editor: ''
+editor: 
 services: media-services
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: c53b1f83-4cb1-4b09-840f-9c145b7d6f8d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f566b8f75d26e3d786ce3396dd133478af38da76
+
 
 ---
-# Pubblicare contenuti di Servizi multimediali di Azure mediante .NET
+# <a name="publish-azure-media-services-content-using-net"></a>Pubblicare contenuti di Servizi multimediali di Azure mediante .NET
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-deliver-streaming-content.md)
 > * [.NET](media-services-deliver-streaming-content.md)
@@ -24,30 +28,30 @@ ms.author: juliako
 > 
 > 
 
-## Overview
-È possibile trasmettere in streaming un set MP4 a velocità in bit adattiva creando un localizzatore di streaming OnDemand e un URL di streaming. L'argomento relativo alla [codifica di un asset](media-services-encode-asset.md) illustra come codificare un asset in un set MP4 a bitrate adattivo.
+## <a name="overview"></a>Overview
+È possibile trasmettere in streaming un set MP4 a velocità in bit adattiva creando un localizzatore di streaming OnDemand e un URL di streaming. L'argomento relativo alla [codifica di un asset](media-services-encode-asset.md) illustra come codificare un asset in un set MP4 a bitrate adattivo. 
 
 > [!NOTE]
-> Se il contenuto è crittografato, configurare i criteri di distribuzione degli asset (come descritto in [questo](media-services-dotnet-configure-asset-delivery-policy.md) argomento) prima di creare un localizzatore.
+> Se il contenuto è crittografato, configurare i criteri di distribuzione degli asset (come descritto in [questo](media-services-dotnet-configure-asset-delivery-policy.md) argomento) prima di creare un localizzatore. 
 > 
 > 
 
-È inoltre possibile usare un localizzatore di streaming OnDemand per creare URL che puntano a file MP4 scaricabili in modo progressivo.
+È inoltre possibile usare un localizzatore di streaming OnDemand per creare URL che puntano a file MP4 scaricabili in modo progressivo.  
 
-Questo argomento illustra come creare un localizzatore di streaming OnDemand, per pubblicare l'asset e creare URL di streaming Smooth, MPEG DASH e HLS, e come creare URL di download progressivo.
+Questo argomento illustra come creare un localizzatore di streaming OnDemand, per pubblicare l'asset e creare URL di streaming Smooth, MPEG DASH e HLS, e come creare URL di download progressivo. 
 
-## Creare un localizzatore di streaming OnDemand
+## <a name="create-an-ondemand-streaming-locator"></a>Creare un localizzatore di streaming OnDemand
 Per creare un localizzatore di streaming OnDemand e ottenere gli URL, è necessario effettuare le seguenti operazioni:
 
 1. Se il contenuto viene crittografato, definire i criteri di accesso.
 2. Creare un localizzatore di streaming OnDemand.
-3. Se si pianifica lo streaming, ottenere il file manifesto di streaming (.ism) nell'asset.
+3. Se si pianifica lo streaming, ottenere il file manifesto di streaming (.ism) nell'asset. 
    
-   Se si pianifica il download progressivo, ottenere i nomi dei file MP4 nell'asset.
-4. Creare URL che puntano al file manifesto o ai file MP4.
+   Se si pianifica il download progressivo, ottenere i nomi dei file MP4 nell'asset.  
+4. Creare URL che puntano al file manifesto o ai file MP4. 
 
-### Usare l'SDK di Servizi multimediali per .NET
-Creare URL di streaming
+### <a name="use-media-services-net-sdk"></a>Usare l'SDK di Servizi multimediali per .NET
+Creare URL di streaming 
 
     private static void BuildStreamingURLs(IAsset asset)
     {
@@ -97,11 +101,11 @@ Output del codice:
 
 
 > [!NOTE]
-> Lo streaming dei contenuti può essere eseguito anche tramite una connessione SSL. A questo scopo, verificare che gli URL di streaming inizino con HTTPS.
+> Lo streaming dei contenuti può essere eseguito anche tramite una connessione SSL. A questo scopo, verificare che gli URL di streaming inizino con HTTPS. 
 > 
 > 
 
-Creare URL di download progressivo
+Creare URL di download progressivo 
 
     private static void BuildProgressiveDownloadURLs(IAsset asset)
     {
@@ -140,7 +144,7 @@ Output del codice:
 
     . . . 
 
-### Usare le estensioni dell'SDK di Servizi multimediali per .NET
+### <a name="use-media-services-net-sdk-extensions"></a>Usare le estensioni dell'SDK di Servizi multimediali per .NET
 Il seguente codice chiama i metodi delle estensioni dell'SDK per .NET che creano un localizzatore e generano URL Smooth Streaming, HLS e MPEG-DASH per lo streaming adattivo.
 
     // Create a loctor.
@@ -160,13 +164,19 @@ Il seguente codice chiama i metodi delle estensioni dell'SDK per .NET che creano
     Console.WriteLine(mpegDashUri);
 
 
-## Percorsi di apprendimento di Servizi multimediali
+## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## Vedere anche
-[Asset di download](media-services-deliver-asset-download.md) [Configurare i criteri di sviluppo dell’asset](media-services-dotnet-configure-asset-delivery-policy.md)
+## <a name="see-also"></a>Vedere anche
+[Asset mediante download](media-services-deliver-asset-download.md)
+[Configurare i criteri di distribuzione degli asset](media-services-dotnet-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

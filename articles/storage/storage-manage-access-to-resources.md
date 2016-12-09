@@ -1,28 +1,32 @@
 ---
-title: Gestire l'accesso in lettura anonimo a contenitori e BLOB | Microsoft Docs
-description: Informazioni su come rendere disponibili per l'accesso anonimo contenitori e BLOB e su come accedervi a livello di programmazione.
+title: Gestire l&quot;accesso in lettura anonimo a contenitori e BLOB | Microsoft Docs
+description: Informazioni su come rendere disponibili per l&quot;accesso anonimo contenitori e BLOB e su come accedervi a livello di programmazione.
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: tamram
 manager: carmonm
 editor: tysonn
-
+ms.assetid: a2cffee6-3224-4f2a-8183-66ca23b2d2d7
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: michaelhauss;jwillis;tamram
+ms.date: 11/18/2016
+ms.author: tamram
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c43677749a80506221a5992d215eddab48cd69c8
+
 
 ---
-# Gestire l'accesso in lettura anonimo a contenitori e BLOB
-## Overview
+# <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gestire l'accesso in lettura anonimo a contenitori e BLOB
+## <a name="overview"></a>Overview
 Per impostazione predefinita, solo il proprietario dell'account di archiviazione può accedere alle risorse relative all’account. Solo per l'archiviazione BLOB, è possibile impostare le autorizzazioni di un contenitore per consentire l'accesso in lettura anonimo al contenitore e ai relativi BLOB, in modo che sia possibile concedere l'accesso a tali risorse senza condividere la chiave dell'account.
 
 L'accesso anonimo è ideale per scenari in cui si desidera che alcuni BLOB siano sempre disponibili per l'accesso in lettura anonimo. Per un controllo più capillare, è possibile creare una firma di accesso condiviso, che consente l'accesso delegato limitato con autorizzazioni diverse e per un intervallo di tempo specificato. Per altre informazioni sulla creazione di firme di accesso condiviso, vedere [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
 
-## Concedere le autorizzazioni agli utenti anonimi per contenitori e BLOB
+## <a name="grant-anonymous-users-permissions-to-containers-and-blobs"></a>Concedere le autorizzazioni agli utenti anonimi per contenitori e BLOB
 Per impostazione predefinita, solo il proprietario dell'account di archiviazione può accedere a un contenitore e ai BLOB in esso contenuti. Se si desidera assegnare a utenti anonimi autorizzazioni di lettura per un contenitore e i relativi BLOB, è possibile impostare le autorizzazioni del contenitore per consentire l'accesso pubblico. Gli utenti anonimi possono leggere i BLOB presenti in un contenitore accessibile pubblicamente senza effettuare l'autenticazione della richiesta.
 
 I contenitori forniscono le seguenti opzioni per la gestione dell'accesso al contenitore:
@@ -37,7 +41,7 @@ I contenitori forniscono le seguenti opzioni per la gestione dell'accesso al con
 * A livello di programmazione, tramite la libreria client di archiviazione o l'API REST.
 * Con PowerShell. Per informazioni su come impostare le autorizzazioni per il contenitore da Azure PowerShell, vedere [Uso di Azure PowerShell con Archiviazione di Azure](storage-powershell-guide-full.md#how-to-manage-azure-blobs)
 
-### Impostazione delle autorizzazioni per il contenitore dal portale di Azure
+### <a name="setting-container-permissions-from-the-azure-portal"></a>Impostazione delle autorizzazioni per il contenitore dal portale di Azure
 Per impostare le autorizzazioni per il contenitore dal [portale di Azure](https://portal.azure.com), eseguire le operazioni seguenti:
 
 1. Passare al dashboard per l'account di archiviazione.
@@ -47,64 +51,72 @@ Per impostare le autorizzazioni per il contenitore dal [portale di Azure](https:
    
     ![Finestra di dialogo Modifica metadati contenitore](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
-### Impostazione delle autorizzazioni per il contenitore a livello di programmazione con .NET
-Per impostare le autorizzazioni per un contenitore con la libreria client .NET, recuperare innanzitutto le autorizzazioni esistenti per il contenitore chiamando il metodo **GetPermissions**. Impostare quindi la proprietà **PublicAccess** per l'oggetto **BlobContainerPermissions** restituito dal metodo **GetPermissions**. Infine, chiamare il metodo **SetPermissions** con le autorizzazioni aggiornate.
+### <a name="setting-container-permissions-programmatically-using-net"></a>Impostazione delle autorizzazioni per il contenitore a livello di programmazione con .NET
+Per impostare le autorizzazioni per un contenitore con la libreria client .NET, recuperare innanzitutto le autorizzazioni esistenti per il contenitore chiamando il metodo **GetPermissions** . Impostare quindi la proprietà **PublicAccess** per l'oggetto **BlobContainerPermissions** restituito dal metodo **GetPermissions**. Infine, chiamare il metodo **SetPermissions** con le autorizzazioni aggiornate.
 
 L'esempio seguente imposta le autorizzazioni per il contenitore per l'accesso in lettura pubblico completo. Per impostare le autorizzazioni per l'accesso in lettura pubblico solo per i BLOB, impostare la proprietà **PublicAccess** su **BlobContainerPublicAccessType.Blob**. Per rimuovere tutte le autorizzazioni per gli utenti anonimi, impostare la proprietà su **BlobContainerPublicAccessType.Off**.
 
-    public static void SetPublicContainerPermissions(CloudBlobContainer container)
-    {
-        BlobContainerPermissions permissions = container.GetPermissions();
-        permissions.PublicAccess = BlobContainerPublicAccessType.Container;
-        container.SetPermissions(permissions);
-    }
+```csharp
+public static void SetPublicContainerPermissions(CloudBlobContainer container)
+{
+    BlobContainerPermissions permissions = container.GetPermissions();
+    permissions.PublicAccess = BlobContainerPublicAccessType.Container;
+    container.SetPermissions(permissions);
+}
+```
 
-## Accesso anonimo a contenitori e BLOB
+## <a name="access-containers-and-blobs-anonymously"></a>Accesso anonimo a contenitori e BLOB
 Un client che accede a contenitori e BLOB in modo anonimo può usare costruttori che non richiedono credenziali. L'esempio seguente mostra alcuni modi diversi per fare riferimento a risorse del servizio BLOB in modo anonimo.
 
-### Creare un oggetto client anonimo
+### <a name="create-an-anonymous-client-object"></a>Creare un oggetto client anonimo
 È possibile creare un nuovo oggetto client del servizio per l'accesso anonimo, specificando l'endpoint del servizio BLOB per l'account. Tuttavia, è necessario conoscere anche il nome di un contenitore in tale account disponibile per l'accesso anonimo.
 
-    public static void CreateAnonymousBlobClient()
-    {
-        // Create the client object using the Blob service endpoint.
-        CloudBlobClient blobClient = new CloudBlobClient(new Uri(@"https://storagesample.blob.core.windows.net"));
+```csharp
+public static void CreateAnonymousBlobClient()
+{
+    // Create the client object using the Blob service endpoint.
+    CloudBlobClient blobClient = new CloudBlobClient(new Uri(@"https://storagesample.blob.core.windows.net"));
 
-        // Get a reference to a container that's available for anonymous access.
-        CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
+    // Get a reference to a container that's available for anonymous access.
+    CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
 
-        // Read the container's properties. Note this is only possible when the container supports full public read access.
-        container.FetchAttributes();
-        Console.WriteLine(container.Properties.LastModified);
-        Console.WriteLine(container.Properties.ETag);
-    }
+    // Read the container's properties. Note this is only possible when the container supports full public read access.
+    container.FetchAttributes();
+    Console.WriteLine(container.Properties.LastModified);
+    Console.WriteLine(container.Properties.ETag);
+}
+```
 
-### Fare riferimento a un contenitore in modo anonimo
+### <a name="reference-a-container-anonymously"></a>Fare riferimento a un contenitore in modo anonimo
 Se si conosce l'URL per un contenitore disponibile in modo anonimo, è possibile usarlo per fare riferimento direttamente al contenitore.
 
-    public static void ListBlobsAnonymously()
+```csharp
+public static void ListBlobsAnonymously()
+{
+    // Get a reference to a container that's available for anonymous access.
+    CloudBlobContainer container = new CloudBlobContainer(new Uri(@"https://storagesample.blob.core.windows.net/sample-container"));
+
+    // List blobs in the container.
+    foreach (IListBlobItem blobItem in container.ListBlobs())
     {
-        // Get a reference to a container that's available for anonymous access.
-        CloudBlobContainer container = new CloudBlobContainer(new Uri(@"https://storagesample.blob.core.windows.net/sample-container"));
-
-        // List blobs in the container.
-        foreach (IListBlobItem blobItem in container.ListBlobs())
-        {
-            Console.WriteLine(blobItem.Uri);
-        }
+        Console.WriteLine(blobItem.Uri);
     }
+}
+```
 
 
-### Fare riferimento a un BLOB in modo anonimo
+### <a name="reference-a-blob-anonymously"></a>Fare riferimento a un BLOB in modo anonimo
 Se si conosce l'URL per un BLOB disponibile per l'accesso anonimo, è possibile fare riferimento direttamente al BLOB con tale URL:
 
-    public static void DownloadBlobAnonymously()
-    {
-        CloudBlockBlob blob = new CloudBlockBlob(new Uri(@"https://storagesample.blob.core.windows.net/sample-container/logfile.txt"));
-        blob.DownloadToFile(@"C:\Temp\logfile.txt", System.IO.FileMode.Create);
-    }
+```csharp
+public static void DownloadBlobAnonymously()
+{
+    CloudBlockBlob blob = new CloudBlockBlob(new Uri(@"https://storagesample.blob.core.windows.net/sample-container/logfile.txt"));
+    blob.DownloadToFile(@"C:\Temp\logfile.txt", System.IO.FileMode.Create);
+}
+```
 
-## Funzionalità disponibili per utenti anonimi
+## <a name="features-available-to-anonymous-users"></a>Funzionalità disponibili per utenti anonimi
 Nella tabella seguente sono riportate le operazioni che possono essere richiamate da utenti anonimi quando l'ACL di un contenitore è impostato per consentire l'accesso pubblico.
 
 | Operazione REST | Autorizzazione con accesso in lettura pubblico completo | Autorizzazione con accesso in lettura pubblico solo per BLOB |
@@ -136,9 +148,14 @@ Nella tabella seguente sono riportate le operazioni che possono essere richiamat
 | Get Page Ranges |Tutti |Tutti |
 | Append Blob |Solo proprietario |Solo proprietario |
 
-## Vedere anche
+## <a name="see-also"></a>Vedere anche
 * [Autenticazione per i servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md)
 * [Delega dell'accesso con una firma di accesso condiviso](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

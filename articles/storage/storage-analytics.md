@@ -1,12 +1,12 @@
 ---
-title: Usare Analisi archiviazione per raccogliere dati di log e metriche | Microsoft Docs
-description: Analisi archiviazione consente di tenere traccia dei dati delle metriche per tutti i servizi di archiviazione e di raccogliere i log per l'archiviazione di BLOB, code e tabelle.
+title: Usare Analisi archiviazione per raccogliere dati di metriche e log | Microsoft Docs
+description: Analisi archiviazione consente di tenere traccia dei dati delle metriche per tutti i servizi di archiviazione e di raccogliere i log per l&quot;archiviazione di BLOB, code e tabelle.
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: robinsh
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 7894993b-ca42-4125-8f17-8f6dfe3dca76
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: af5fae5c5153c91fe78bdfb310c407a2c4462e04
+
 
 ---
 # <a name="storage-analytics"></a>Analisi archiviazione
@@ -188,6 +192,9 @@ Quando si osservano i dati di Analisi archiviazione, è possibile utilizzare le 
 * [Schema di tabella della metrica di Analisi di archiviazione](https://msdn.microsoft.com/library/hh343264.aspx)
 * [Operazioni registrate di Analisi archiviazione e messaggi di stato](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Uso del connettore Azure Resource nelle app per la logica | Microsoft Docs
-description: Come creare e configurare l'app per le API o il connettore Azure Resource e usarlo in un'app per la logica nel servizio app di Azure
+title: Uso del connettore Azure Resource nelle app per la logica | Documentazione Microsoft
+description: Come creare e configurare l&quot;app per le API o il connettore Azure Resource e usarlo in un&quot;app per la logica nel servizio app di Azure
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: stepsic-microsoft-com
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a32e5a5c-34d7-4422-b0f7-c5cf7b8abffa
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/01/2016
 ms.author: stepsic
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ff72e6b0465f25be94c6852f3cdd3417817b8056
+
 
 ---
-# Iniziare a usare il connettore Azure Resource e aggiungerlo all'app per la logica
+# <a name="get-started-with-the-azure-resource-connector-and-add-it-to-your-logic-app"></a>Iniziare a usare il connettore Azure Resource e aggiungerlo all'app per la logica
 > [!NOTE]
 > Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
 > 
@@ -24,15 +28,15 @@ ms.author: stepsic
 
 Usare il connettore Azure Resource per gestire in modo semplice le risorse di Azure nell'app per la logica.
 
-## Creare il connettore Azure Resource
+## <a name="create-the-azure-resource-connector"></a>Creare il connettore Azure Resource
 Per usare l'app per le API del connettore Azure Resource, è necessario creare prima di tutto un'istanza. È possibile eseguire questa operazione inline durante la creazione di un'app per la logica o tramite la selezione dell'app per le API del connettore Azure Resource da Azure Marketplace.
 
 Per configurarlo, si verifica è necessario impostare un'entità servizio con le autorizzazioni per eseguire le operazioni che si desidera eseguire in Azure. Tutte le chiamate verranno effettuate per conto di questa entità servizio configurata. In questo modo, è possibile definire l'ambito del connettore affinché esegua solo le operazioni desiderate.
 
-David Ebbo ha scritto un [interessante post di blog](http://blog.davidebbo.com/2014/12/azure-service-principal.html) su come impostare questa funzionalità. Seguire le istruzioni presenti e ottenere l'**ID tenant**, l'**ID client** e il **segreto**. Questi tre campi, in aggiunta all'**ID sottoscrizione**, sono necessari per configurare il connettore.
+David Ebbo ha scritto un [interessante post di blog](http://blog.davidebbo.com/2014/12/azure-service-principal.html) su come impostare questa funzionalità. Seguire le istruzioni presenti e ottenere l'**ID tenant**, l'**ID client** e il **Segreto**. Questi tre campi, in aggiunta all' **ID sottoscrizione**, sono necessari per configurare il connettore.
 
-## Uso del connettore Azure Resource Connector nella finestra di progettazione delle app per la logica
-### Trigger
+## <a name="using-the-azure-resource-connector-in-logic-apps-designer"></a>Uso del connettore Azure Resource Connector nella finestra di progettazione delle app per la logica
+### <a name="trigger"></a>Trigger
 Esistono due trigger che sono supportati nel connettore:
 
 | Nome | Descrizione |
@@ -40,7 +44,7 @@ Esistono due trigger che sono supportati nel connettore:
 | Si verifica l'evento |Si attiva quando si verifica un evento in una risorsa della sottoscrizione. |
 | Metrica supera la soglia |Si attiva quando una metrica soddisfa una determinata soglia. |
 
-### Azione
+### <a name="action"></a>Azione
 Analogamente, è possibile includere un numero elevato di azioni nella sottoscrizione Azure.
 
 In **Gruppi di risorse** è possibile:
@@ -88,7 +92,7 @@ In **Metriche** relative alle risorse è possibile:
 | --- | --- |
 | Ottenere metriche |Ottenere una metrica in base a un ID risorsa. |
 
-## Altri vantaggi del connettore
+## <a name="do-more-with-your-connector"></a>Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
 > [!NOTE]
@@ -101,6 +105,10 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 <!--References -->
 
 <!--Links -->
-[Creating a Logic app]: app-service-logic-create-a-logic-app.md
+[Creazione di un'app per la logica]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

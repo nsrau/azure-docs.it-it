@@ -1,12 +1,12 @@
 ---
-title: Gestione delle eccezioni in App per la logica | Microsoft Docs
+title: Gestione delle eccezioni in App per la logica | Documentazione Microsoft
 description: Informazioni sui modelli per la gestione degli errori e delle eccezioni con App per la logica di Azure
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: e50ab2f2-1fdc-4d2a-be40-995a6cc5a0d4
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ec09eb465628ac3c78b9883cbc84bbbf6c0e875e
+
 
 ---
 # <a name="logic-apps-error-and-exception-handling"></a>Gestione degli errori e delle eccezioni in App per la logica
@@ -204,6 +208,7 @@ I modelli precedenti sono un ottimo modo per gestire gli errori e le eccezioni i
 [retryPolicyMSDN]: https://msdn.microsoft.com/library/azure/mt643939.aspx#Anchor_9
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

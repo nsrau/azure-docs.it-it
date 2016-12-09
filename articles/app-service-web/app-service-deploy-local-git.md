@@ -1,12 +1,12 @@
 ---
-title: Distribuzione dell'archivio Git locale nel servizio app di Azure
-description: Informazioni su come abilitare la distribuzione dell'archivio Git locale nel servizio app di Azure.
+title: Distribuzione dell&quot;archivio Git locale nel servizio app di Azure
+description: Informazioni su come abilitare la distribuzione dell&quot;archivio Git locale nel servizio app di Azure.
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: dariagrigoriu
 manager: wpickett
 editor: mollybos
-
+ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,36 +14,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3ed0a436b88a0fb3746ba9db75a6af8231f44980
+
 
 ---
-# Distribuzione dell'archivio Git locale nel servizio app di Azure
-In questa esercitazione viene illustrato come distribuire l'applicazione nel [servizio app di Azure] da un repository Git nel computer locale. Il servizio app supporta questo approccio tramite l'opzione di distribuzione **Archivio Git locale** del [portale di Azure]. Molti comandi Git descritti in questo articolo vengono eseguiti automaticamente quando si crea un'app del servizio app usando l'[interfaccia della riga di comando di Azure] come descritto [qui](app-service-web-get-started.md).
+# <a name="local-git-deployment-to-azure-app-service"></a>Distribuzione dell'archivio Git locale nel servizio app di Azure
+In questa esercitazione viene illustrato come distribuire l'applicazione nel [servizio app di Azure] da un repository Git nel computer locale. Il servizio app supporta questo approccio tramite l'opzione di distribuzione **Archivio Git locale** del [portale di Azure].  
+Molti comandi Git descritti in questo articolo vengono eseguiti automaticamente quando si crea un'app del servizio app usando l'[interfaccia della riga di comando di Azure] come descritto [qui](app-service-web-get-started.md).
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per completare questa esercitazione, sono necessari:
 
-* Git. È possibile scaricare il file di installazione binario [qui](http://www.git-scm.com/downloads).
+* Git. È possibile scaricare il file di installazione binario [qui](http://www.git-scm.com/downloads).  
 * Conoscenze di base di Git.
-* Un account Microsoft Azure. Se non si ha un account, è possibile [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial) oppure [attivare i benefici della sottoscrizione Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details).
+* Un account Microsoft Azure. Se non si ha un account, è possibile [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial) oppure [attivare i vantaggi per i sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details).
 
 > [!NOTE]
-> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.  
 > 
 > 
 
-## <a id="Step1"></a>Passaggio 1: Creare un repository locale
+## <a name="a-namestep1astep-1-create-a-local-repository"></a><a name="Step1"></a>Passaggio 1: Creare un repository locale
 Per creare un nuovo repository Git, eseguire le operazioni seguenti.
 
-1. Avviare uno strumento da riga di comando, ad esempio **GitBash** (Windows) o **Bash** (shell Unix). Nei sistemi OS X è possibile accedere alla riga di comando tramite l'applicazione **Terminale**.
+1. Avviare uno strumento da riga di comando, ad esempio **GitBash** (Windows) o **Bash** (shell Unix). Nei sistemi OS X è possibile accedere alla riga di comando tramite l'applicazione **Terminale** .
 2. Passare alla directory in cui deve essere collocato il contenuto da distribuire.
 3. Eseguire il comando seguente per inizializzare un nuovo repository Git:
    
         git init
 
-## <a id="Step2"></a>Passaggio 2: Eseguire il commit del contenuto
-Il servizio app supporta applicazioni create in diversi linguaggi di programmazione.
+## <a name="a-namestep2astep-2-commit-your-content"></a><a name="Step2"></a>Passaggio 2: Eseguire il commit del contenuto
+Il servizio app supporta applicazioni create in diversi linguaggi di programmazione. 
 
-1. Se il repository include già il contenuto ignorare questo passaggio e passare al passaggio 2. Se non include ancora il contenuto, popolare il repository con un file HTML statico come indicato di seguito:
+1. Se il repository include già il contenuto ignorare questo passaggio e passare al passaggio 2. Se non include ancora il contenuto, popolare il repository con un file HTML statico come indicato di seguito: 
    
    * Usando un editor di testo creare un nuovo file denominato **index.html** nella radice del repository Git
    * Aggiungere il testo seguente come contenuto del file index.html e salvarlo: *Hello Git!*
@@ -54,18 +59,18 @@ Il servizio app supporta applicazioni create in diversi linguaggi di programmazi
    
         git commit -m "Hello Azure App Service"
 
-## <a id="Step3"></a>Passaggio 3: Abilitare il repository dell'app del servizio app
+## <a name="a-namestep3astep-3-enable-the-app-service-app-repository"></a><a name="Step3"></a>Passaggio 3: Abilitare il repository dell'app del servizio app
 Eseguire la procedura seguente per abilitare un repository Git per l'app del servizio app.
 
-1. Accedere al [Portale di Azure].
-2. Nel pannello dell'app del servizio app fare clic su **Impostazioni > Origine distribuzione**. Fare clic su **Scegli origine**, quindi su **Repository Git locale** e infine su **OK**.
+1. Accedere al [portale di Azure].
+2. Nel pannello dell'app del servizio app fare clic su **Impostazioni > Origine distribuzione**. Fare clic su **Scegliere l'origine**, quindi su **Repository Git locale** e infine su **OK**.  
    
     ![Repository Git locale](./media/app-service-deploy-local-git/local_git_selection.png)
-3. Se si tratta della prima impostazione di un repository in Azure, è necessario creare le credenziali di accesso, che verranno usate per accedere al repository di Azure e per effettuare il push delle modifiche dal repository Git locale. Dal pannello dell'app fare clic su **Impostazioni > Credenziali distribuzione**, quindi configurare il nome utente e la password per la distribuzione. Al termine, fare clic su **Salva**.
+3. Se si tratta della prima impostazione di un repository in Azure, è necessario creare le credenziali di accesso, che verranno usate per accedere al repository di Azure e per effettuare il push delle modifiche dal repository Git locale. Dal pannello dell'app fare clic su **Impostazioni > Credenziali per la distribuzione**, quindi configurare il nome utente e la password per la distribuzione. Al termine, fare clic su **Salva**.
    
     ![](./media/app-service-deploy-local-git/deployment_credentials.png)
 
-## <a id="Step4"></a>Passaggio 4: Distribuire il progetto
+## <a name="a-namestep4astep-4-deploy-your-project"></a><a name="Step4"></a>Passaggio 4: Distribuire il progetto
 Eseguire la procedura seguente per pubblicare l'app nel servizio app usando l'archivio Git locale.
 
 1. Nel pannello dell'app nel portale di Azure fare clic su **Impostazioni > Proprietà** per l'**URL GIT**.
@@ -85,13 +90,13 @@ Eseguire la procedura seguente per pubblicare l'app nel servizio app usando l'ar
    
         git push azure master
    
-    Verrà richiesto di inserire la password creata in precedenza durante la reimpostazione delle credenziali di distribuzione nel portale di Azure. Immettere la password. Si noti che Gitbash non ripete gli asterischi nella console mentre si digita la password.
-5. Tornare all'app nel portale di Azure. Nel pannello **Distribuzioni** verrà visualizzata una voce di log dell'ultimo push effettuato.
+    Verrà richiesto di inserire la password creata in precedenza durante la reimpostazione delle credenziali di distribuzione nel portale di Azure. Immettere la password. Si noti che Gitbash non ripete gli asterischi nella console mentre si digita la password. 
+5. Tornare all'app nel portale di Azure. Nel pannello **Distribuzioni** verrà visualizzata una voce di log dell'ultimo push effettuato. 
    
     ![](./media/app-service-deploy-local-git/deployment_history.png)
-6. Fare clic sul pulsante **Sfoglia** nella parte superiore del pannello dell'app per verificare che il contenuto sia stato distribuito.
+6. Fare clic sul pulsante **Sfoglia** nella parte superiore del pannello dell'app per verificare che il contenuto sia stato distribuito. 
 
-## <a id="Step5"></a>Risoluzione dei problemi
+## <a name="a-namestep5atroubleshooting"></a><a name="Step5"></a>Risoluzione dei problemi
 Di seguito sono riportati gli errori o i problemi che si verificano comunemente durante l'uso di Git per la pubblicazione in un'app del servizio app di Azure:
 
 - - -
@@ -99,7 +104,7 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 
 **Causa**: questo errore può verificarsi se l'app non è in esecuzione.
 
-**Soluzione**: avviare l'app nel portale di Azure. La distribuzione Git non funziona se l'app non è in esecuzione.
+**Soluzione**: avviare l'app nel portale di Azure. La distribuzione Git non funziona se l'app non è in esecuzione. 
 
 - - -
 **Sintomo**: non è possibile risolvere il nome dell'host 'nomehost'.
@@ -122,26 +127,26 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 
 **Causa**: questo errore può verificarsi se si tenta di effettuare il push in un ramo diverso dal master nel repository remoto 'azure'.
 
-**Soluzione**: ripetere l'operazione push, specificando il ramo master. Ad esempio:
+**Soluzione**: ripetere l'operazione push, specificando il ramo master. ad esempio:
 
     git push azure master
 
 - - -
-**Sintomo**: errore. Le modifiche vengono sottoposte a commit nel repository remoto ma l’app Web non viene aggiornata.
+**Sintomo**: errore. Le modifiche vengono sottoposte a commit nel repository remoto ma l'app Web non viene aggiornata.
 
 **Causa**: questo errore può verificarsi se si distribuisce un'app Node.js contenente un file package.json che specifica altri moduli necessari.
 
-**Soluzione**: prima di questo errore dovrebbero essere registrati altri messaggi 'npm ERR!' ed è possibile ottenere contesto aggiuntivo sul problema. Di seguito sono riportate le cause note di questo errore e del corrispondente messaggio 'npm ERR!':
+**Risoluzione**: i messaggi aggiuntivi contenenti 'npm ERR!' dovrebbero essere registrati prima di questo errore e possono fornire contesto aggiuntivo sul problema. Di seguito sono riportate le cause note di questo errore e del corrispondente messaggio 'npm ERR!' messaggio:
 
 * **File package.json in formato non corretto**: npm ERR! Non è stato possibile leggere le dipendenze.
 * **Modulo nativo senza una distribuzione binaria per Windows**:
   
-  * npm ERR! `cmd "/c" "node-gyp rebuild"` failed with 1
+  * npm ERR! Si è verificato un errore di \`cmd "/c" "node-gyp rebuild"\` con 1
     
       OPPURE
-  * npm ERR! [modulename@version] preinstall: `make || gmake`
+  * npm ERR! [modulename@version] preinstall: \`make || gmake\`
 
-## Risorse aggiuntive
+## <a name="additional-resources"></a>Risorse aggiuntive
 * [Documentazione su Git](http://git-scm.com/documentation)
 * [Documentazione del progetto Kudu](https://github.com/projectkudu/kudu/wiki)
 * [Distribuzione continua nel servizio app di Azure](app-service-continuous-deployment.md)
@@ -149,13 +154,17 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 * [Come usare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md)
 
 [servizio app di Azure]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
-[Azure Developer Center]: http://azure.microsoft.com/develop/overview/
+[Centro per sviluppatori di Azure]: http://www.windowsazure.com/en-us/develop/overview/
 [portale di Azure]: https://portal.azure.com
-[Git website]: http://git-scm.com
-[Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[interfaccia della riga di comando di Azure]: https://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/
+[Sito Web di Git]: http://git-scm.com
+[Installazione di Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
+[interfaccia della riga di comando di Azure]: https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-azure-resource-manager/
 
-[Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
-[Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
+[Uso di Git con CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
+[guida introduttiva di Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

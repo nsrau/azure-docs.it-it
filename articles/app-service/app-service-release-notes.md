@@ -5,8 +5,8 @@ services: app-service
 documentationcenter: .net,nodejs,java
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 8d3d815f-bb58-447e-8ff0-f9b9603c7b00
 ms.service: app-service
 ms.devlang: multiple
 ms.topic: article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/10/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dc7b51cd0d015770b1100e895da633e8bde4b8da
+
 
 ---
-# <a name="azure-sdk-for-.net-2.5.1-release-notes"></a>Note sulla versione di Azure SDK per .NET 2.5.1
+# <a name="azure-sdk-for-net-251-release-notes"></a>Note sulla versione di Azure SDK per .NET 2.5.1
 Questo documento contiene le note sulla versione per Azure SDK per.NET 2.5.1. 
 
-## <a name="azure-sdk-for-.net-2.5.1-release-notes"></a>Note sulla versione di Azure SDK per .NET 2.5.1
+## <a name="azure-sdk-for-net-251-release-notes"></a>Note sulla versione di Azure SDK per .NET 2.5.1
 Di seguito sono riportate le nuove funzionalità e i nuovi aggiornamenti inclusi in Azure SDK per .NET 2.5.1.
 
 * Nuove funzionalità e scenari correlati alle **estensioni Strumenti Web**. 
@@ -42,7 +46,7 @@ Di seguito sono riportate le nuove funzionalità e i nuovi aggiornamenti inclusi
     
     Per altre informazioni, vedere [Introduzione all'uso di HDInsight Hadoop Tools per Visual Studio](../hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-## <a name="<a-id="known_issues_2_5_1"></a>azure-sdk-for-.net-2.5.1-known-issues-and-limitations"></a><a id="known_issues_2_5_1"></a>Problemi noti e limitazioni di Azure SDK per .NET 2.5.1
+## <a name="a-idknownissues251aazure-sdk-for-net-251-known-issues-and-limitations"></a><a id="known_issues_2_5_1"></a>Problemi noti e limitazioni di Azure SDK per .NET 2.5.1
 * App per le API di Azure è visibile come destinazione di sviluppo per app per dispositivi mobili. Le app Web dovrebbero essere l'unica destinazione per app per dispositivi mobili fino a una versione successiva. 
 * Il provisioning di app per le API può avere esito positivo ma l'aggiornamento dello stato di avanzamento nella finestra delle attività del servizio app di Azure potrebbe funzionare in modo intermittente. La soluzione alternativa consiste nel verificare lo stato della nuova app per le API di Azure nel portale di Azure. 
 * L'uso di File > Nuovo progetto > App per le API > F5 può dare luogo a un errore HTTP poiché non è presente un file /index.html predefinito. La soluzione alternativa consiste nell'individuazione manuale dell'URL di /api/values. 
@@ -59,6 +63,9 @@ Di seguito sono riportate le nuove funzionalità e i nuovi aggiornamenti inclusi
 * I modelli di progetti di app per le API sono disponibili solo in C#.
 * L'utilizzo di app per le API tramite il menu di scelta rapida "Aggiungi client di app per le API di Azure" è supportato solo in C#.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

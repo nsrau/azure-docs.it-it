@@ -2,11 +2,11 @@
 title: Connessione a un account di Servizi multimediali mediante .NET
 description: Questo argomento illustra come connettersi a Servizi multimediali mediante .NET.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a8412a29-59dc-44a0-ace0-be79a97dab63
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 72e94aeae9e210b25b8f22dd02feb0b98a5ddfeb
+
 
 ---
-# <a name="connecting-to-media-services-account-using-media-services-sdk-for-.net"></a>Connessione a un account di Servizi multimediali mediante l'SDK di Servizi multimediali per .NET
+# <a name="connecting-to-media-services-account-using-media-services-sdk-for-net"></a>Connessione a un account di Servizi multimediali mediante l'SDK di Servizi multimediali per .NET
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-connect-programmatically.md)
 > * [.NET](media-services-dotnet-connect-programmatically.md)
@@ -182,6 +186,9 @@ Per recuperare i valori di connessione dalla configurazione, è possibile usare 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

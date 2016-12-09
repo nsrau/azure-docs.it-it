@@ -2,11 +2,11 @@
 title: Formati e codec Media Encoder Standard
 description: Questo argomento fornisce una panoramica dei formati e dei codec di Media Encoder Standard.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,17 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: juliako;anilmur
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 382913f0501c692cc1ee460d2264118414ad20c3
+
 
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Formati e codec Media Encoder Standard
 Questo documento contiene un elenco dei formati di file di importazione ed esportazione più comuni che è possibile usare con Media Encoder Standard.
 
-## <a name="input-container/file-formats"></a>Contenitore di input/formati di file
+## <a name="input-containerfile-formats"></a>Contenitore di input/formati di file
 | Formato di file (estensioni di file) | Supportato |
 | --- | --- | --- | --- |
-| FLV (con codec H. 264 e AAC) (.flv) |Sì |
-| MXF (.mxf) |Sì |
-| GXF (.gxf) |Sì |
+| FLV (con codec H. 264 e AAC) (.flv) |sì |
+| MXF    (.mxf) |Sì |
+| GXF    (.gxf) |sì |
 | MPEG2 PS, MPEG2-TS, 3GP (TS, PS, 3GP, .3gpp, mpg) |Sì |
 | Windows Media Video (WMV) (.wmv) |Sì |
 | AVI (non compresso 8 bit/10 bit) (.avi) |Sì |
@@ -108,6 +112,9 @@ La tabella seguente include l'elenco dei codec e dei formati di file supportati 
 
 [Come codificare con Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

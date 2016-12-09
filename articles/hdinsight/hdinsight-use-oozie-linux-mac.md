@@ -1,13 +1,13 @@
 ---
-title: Usare i flussi di lavoro Oozie di Hadoop in HDInsight basati su Linux | Microsoft Docs
+title: Usare i flussi di lavoro Oozie di Hadoop in HDInsight basati su Linux | Documentazione Microsoft
 description: Usare Oozie di Hadoop in HDInsight basati su Linux. Informazioni su come definire un flusso di lavoro di Oozie e inviare un processo Oozie.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 79c3ad47ca40c2b64b5304ae377d2e84224a823e
+
 
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-hdinsight"></a>Usare Oozie con Hadoop per definire ed eseguire un flusso di lavoro in HDInsight basato su Linux
@@ -553,7 +557,7 @@ Durante la risoluzione dei problemi relativi ai processi Oozie, l'interfaccia ut
 
 Di seguito sono riportati errori specifici che possono verificarsi e come risolverli.
 
-### <a name="ja009:-cannot-initialize-cluster"></a>JA009: Cannot initialize cluster
+### <a name="ja009-cannot-initialize-cluster"></a>JA009: Cannot initialize cluster
 **Sintomi**: lo stato del processo cambia in **SUSPENDED**. I dettagli del processo mostreranno lo stato di RunHiveScript come **START_MANUAL**. Selezionando l'azione verrà visualizzato il messaggio di errore seguente:
 
     JA009: Cannot initialize Cluster. Please check your configuration for map
@@ -562,7 +566,7 @@ Di seguito sono riportati errori specifici che possono verificarsi e come risolv
 
 **Risoluzione**: modificare gli indirizzi WASB usati dal processo.
 
-### <a name="ja002:-oozie-is-not-allowed-to-impersonate-&lt;user>"></a>JA002: Oozie is not allowed to impersonate &lt;USER>
+### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltuser"></a>JA002: Oozie is not allowed to impersonate &lt;USER>
 **Sintomi**: lo stato del processo cambia in **SUSPENDED**. I dettagli del processo mostreranno lo stato di RunHiveScript come **START_MANUAL**. Selezionando l'azione verrà visualizzato il messaggio di errore seguente:
 
     JA002: User: oozie is not allowed to impersonate <USER>
@@ -578,7 +582,7 @@ Di seguito sono riportati errori specifici che possono verificarsi e come risolv
 > 
 > 
 
-### <a name="launcher-error-(sqoop)"></a>ERRORE dell'utilità di avvio (Sqoop)
+### <a name="launcher-error-sqoop"></a>ERRORE dell'utilità di avvio (Sqoop)
 **Sintomi**: lo stato del processo cambia in **KILLED**. I dettagli del processo mostreranno lo stato di RunSqoopExport come **ERROR**. Selezionando l'azione verrà visualizzato il messaggio di errore seguente:
 
     Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
@@ -655,6 +659,6 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

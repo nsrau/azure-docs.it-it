@@ -1,12 +1,12 @@
 ---
-title: Uso di più file di input e proprietà del componente con il codificatore Premium | Microsoft Docs
-description: Questo argomento illustra come usare setRuntimeProperties per usare più file di input e passare dati personalizzati al processore di contenuti multimediali del flusso di lavoro Premium del codificatore multimediale.
+title: "Uso di più file di input e proprietà del componente con il codificatore Premium | Microsoft Docs"
+description: "Questo argomento illustra come usare setRuntimeProperties per usare più file di input e passare dati personalizzati al processore di contenuti multimediali del flusso di lavoro Premium del codificatore multimediale."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: xpouyat
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 7fb35bdd-9891-4401-a65b-ef3cc8190e8a
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: xpouyat;anilmur;juliako
+translationtype: Human Translation
+ms.sourcegitcommit: f8b0917b6eb0295641360c4e0a80e81100809f6e
+ms.openlocfilehash: 1d7f5aeb5fcdb6b80289bbd77c12957148d03732
+
 
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Uso di più file di input e proprietà del componente con il codificatore Premium
@@ -105,8 +109,8 @@ Esempio:
 
 > [!NOTE]
 > Non inserire un ritorno a capo subito dopo `<![CDATA[`.
-> 
-> 
+>
+>
 
 ### <a name="propertypath-value"></a>Valore di propertyPath
 Negli esempi precedenti, il valore di propertyPath era "/Media File Input/filename", o "/inactiveTimeout" oppure "clipListXml".
@@ -262,8 +266,8 @@ Nell'esempio precedente, il nome del file video viene invitato al componente Med
 
 > [!NOTE]
 > Il nome del file video viene inviato alla proprietà primarySourceFile per usare questa proprietà nel flusso di lavoro, ad esempio per compilare il nome file di output con espressioni.
-> 
-> 
+>
+>
 
 ### <a name="step-by-step-workflow-creation-that-overlays-a-logo-on-top-of-the-video"></a>Procedura dettagliata di creazione del flusso di lavoro per la sovrapposizione di un logo sul video
 Di seguito sono descritti i passaggi per creare un flusso di lavoro che ha due file come input: un video e un'immagine. L'immagine verrà sovrapposta sul video.
@@ -354,8 +358,8 @@ Questa esercitazione illustra come gestire gli asset con AMSE. Esistono due modi
 
 > [!NOTE]
 > Impostare un file primario nell'asset, ovvero il file video principale.
-> 
-> 
+>
+>
 
 ![File di asset nello strumento di esplorazione di Servizi multimediali di Azure](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture18_assetinamse.png)
 
@@ -399,7 +403,7 @@ Al termine del processo, il file MP4 nell'asset di output visualizzerà la sovri
 ## <a name="see-also"></a>Vedere anche
 * [Introduzione alla codifica Premium in Servizi multimediali di Azure](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 * [Come usare la codifica Premium in Servizi multimediali di Azure](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
-* [Codifica di contenuti su richiesta con Servizi multimediali di Azure](media-services-encode-asset.md#media_encoder_premium_workflow)
+* [Codifica di contenuti su richiesta con Servizi multimediali di Azure](media-services-encode-asset.md#media-encoder-premium-workflow)
 * [Codec e formati del flusso di lavoro Premium del codificatore multimediale](media-services-premium-workflow-encoder-formats.md)
 * [File del flusso di lavoro di esempio](https://github.com/AzureMediaServicesSamples/Encoding-Presets/tree/master/VoD/MediaEncoderPremiumWorkfows)
 * [Strumento di esplorazione di Servizi multimediali di Azure](http://aka.ms/amse)
@@ -410,6 +414,8 @@ Al termine del processo, il file MP4 nell'asset di output visualizzerà la sovri
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

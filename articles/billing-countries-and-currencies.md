@@ -1,26 +1,30 @@
 ---
-title: Elenca i paesi in cui Azure è attualmente disponibile in commercio, oltre alle valute supportate | Microsoft Docs
-description: Paesi e aree geografiche in cui Microsoft Azure è attualmente disponibile in commercio e valute corrispondenti che possono essere usate per acquistare Azure.
-services: ''
-documentationcenter: ''
+title: "Elenca i paesi o le aree geografiche in cui Azure è attualmente disponibile in commercio, oltre alle valute supportate | Documentazione Microsoft"
+description: "Paesi o aree geografiche in cui Microsoft Azure è attualmente disponibile in commercio e valute corrispondenti che possono essere usate per acquistare Azure."
+services: 
+documentationcenter: 
 author: genlin
-manager: msmbaldwin
-editor: ''
+manager: mbaldwin
+editor: 
 tags: billing
-
+ms.assetid: 31a5c698-2041-45b5-9299-884f305cebbc
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2016
+ms.date: 11/10/2016
 ms.author: genli
+translationtype: Human Translation
+ms.sourcegitcommit: 72d750dfd8c0044ee845a9feb9b8f4d2a4761cf0
+ms.openlocfilehash: a7d83d9d098de41a65581a5924453d311b6203f5
+
 
 ---
-# In quali paesi e aree geografiche Microsoft Azure è attualmente disponibile in commercio e quali valute possono essere usate per acquistare Azure?
-È possibile acquistare Microsoft Azure in più di 140 paesi in tutto il mondo e sono supportate diverse valute. Ecco un elenco di paesi in cui è possibile acquistare Azure e le valute che è possibile usare per pagare la fattura di Azure.
+# <a name="in-which-countriesregions-is-microsoft-azure-commercially-available-and-what-currencies-can-be-used-to-purchase-azure"></a>In quali paesi o aree geografiche Microsoft Azure è attualmente disponibile in commercio e quali valute possono essere usate per acquistare Azure?
+È possibile acquistare Microsoft Azure in più di 140 paesi o aree geografiche in tutto il mondo e sono supportate diverse valute. Ecco un elenco di paesi o aree geografiche in cui è possibile acquistare Azure e le valute che è possibile usare per pagare la fattura di Azure.
 
-| Paese | Codice valuta |
+| Paese/Area geografica | Codice valuta |
 | --- | --- |
 | Afghanistan |USD |
 | Albania |USD |
@@ -170,4 +174,8 @@ ms.author: genli
 | Zambia |USD |
 | Zimbabwe |USD |
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

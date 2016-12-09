@@ -1,34 +1,38 @@
 ---
 title: Specifica di una versione di Node.js
 description: Informazioni su come specificare la versione di Node. js usata da Siti Web e Servizi cloud di Azure
-services: ''
+services: 
 documentationcenter: nodejs
 author: rmcmurray
-manager: wpickett
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: d0e15278-2ab4-4ec8-8256-913839c6d5ef
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c41ef7c2bf4c7d66e8596627585cd3014a9ac839
+
 
 ---
-# Specifica di una versione di Node.js in un'applicazione Azure
+# <a name="specifying-a-nodejs-version-in-an-azure-application"></a>Specifica di una versione di Node.js in un'applicazione Azure
 Quando si ospita un'applicazione Node.js, può essere necessario assicurarsi che utilizzi una versione specifica di Node.js. Questa operazione può essere eseguita in vari modi per le applicazioni ospitate in Azure.
 
-## Versioni predefinite
-Le versioni di Node.js fornite da Azure vengono aggiornate costantemente. Se non diversamente specificato, verrà usata la versione predefinita specificata nella variabile di ambiente `WEBSITE_NODE_DEFAULT_VERSION`. Per eseguire l'override di questo valore predefinito, seguire i passaggi disponibili nelle sezioni seguenti di questo articolo.
+## <a name="default-versions"></a>Versioni predefinite
+Le versioni di Node.js fornite da Azure vengono aggiornate costantemente. Se non diversamente specificato, verrà usata la versione predefinita specificata nella variabile di ambiente `WEBSITE_NODE_DEFAULT_VERSION` . Per eseguire l'override di questo valore predefinito, seguire i passaggi disponibili nelle sezioni seguenti di questo articolo.
 
 > [!NOTE]
 > Se l'applicazione è ospitata in un servizio cloud di Azure (ruolo di lavoro o Web) ed è la prima volta che si distribuisce l'applicazione, Azure tenterà di usare la stessa versione di Node.js installata nell'ambiente di sviluppo, se questa corrisponde a une delle versioni predefinite disponibili.
 > 
 > 
 
-## Controllo delle versioni con package.json
-È possibile specificare la versione di Node.js da usare aggiungendo il codice seguente al file **package.json**:
+## <a name="versioning-with-packagejson"></a>Controllo delle versioni con package.json
+È possibile specificare la versione di Node.js da usare aggiungendo il codice seguente al file **package.json** :
 
     "engines":{"node":version}
 
@@ -38,22 +42,22 @@ Dove *version* è lo specifico numero di versione da usare. È possibile specifi
 
 Poiché la 0.6.22 non è una delle versioni disponibili nell'ambiente host, verrà utilizzata la versione più recente della serie 0.8 disponibile, ovvero la 0.8.4.
 
-## Controllo delle versioni di Siti Web con Impostazioni app
-Se si ospita l'applicazione in un sito Web, è possibile impostare la variabile di ambiente **WEBSITE\_NODE\_DEFAULT\_VERSION** sulla versione desiderata.
+## <a name="versioning-websites-with-app-settings"></a>Controllo delle versioni di Siti Web con Impostazioni app
+Se si ospita l'applicazione in un sito Web, è possibile impostare la variabile di ambiente **WEBSITE_NODE_DEFAULT_VERSION** sulla versione desiderata.
 
-## Controllo delle versioni dei servizi cloud con PowerShell
-Se l'applicazione è ospitata in un servizio cloud e si sta distribuendo l'applicazione utilizzando Azure PowerShell, è possibile sostituire la versione predefinita di Node.js utilizzando il cmdlet di PowerShell **Set-AzureServiceProjectRole**. Ad esempio:
+## <a name="versioning-cloud-services-with-powershell"></a>Controllo delle versioni dei servizi cloud con PowerShell
+Se l'applicazione è ospitata in un servizio cloud e si sta distribuendo l'applicazione utilizzando Azure PowerShell, è possibile sostituire la versione predefinita di Node.js utilizzando il cmdlet di PowerShell **Set-AzureServiceProjectRole** . Ad esempio:
 
     Set-AzureServiceProjectRole WebRole1 Node 0.8.4
 
-Si noti che i parametri nell'istruzione precedente fanno la distinzione tra maiuscole e minuscole. È possibile verificare di aver selezionato la versione corretta di Node.js controllando la proprietà **engines** nel **package.json** del ruolo.
+Si noti che i parametri nell'istruzione precedente fanno la distinzione tra maiuscole e minuscole.  È possibile verificare di aver selezionato la versione corretta di Node.js controllando la proprietà **engines** nel **package.json** del ruolo.
 
-È inoltre possibile usare **Get-AzureServiceProjectRoleRuntime** per recuperare un elenco delle versioni di Node.js disponibili per le applicazioni ospitate come servizi cloud. Verificare sempre che la versione di Node. js dipenda da se il progetto è incluso nell'elenco.
+È inoltre possibile usare **Get-AzureServiceProjectRoleRuntime** per recuperare un elenco delle versioni di Node.js disponibili per le applicazioni ospitate come servizi cloud.  Verificare sempre che la versione di Node. js dipenda da se il progetto è incluso nell'elenco.
 
-## Uso di una versione personalizzata con i siti Web di Azure
-Anche se in Azure sono disponibili svariate versioni predefinite di Node.js, potrebbe essere necessario utilizzare una versione non disponibile per impostazione predefinita. Se l'applicazione è ospitata come sito Web di Azure, è possibile eseguire l'operazione usando il file **iisnode.yml**. I passaggi successivi illustrano la procedura per l'uso di una versione personalizzata di Node.Js con un sito Web di Azure:
+## <a name="using-a-custom-version-with-azure-websites"></a>Uso di una versione personalizzata con i siti Web di Azure
+Anche se in Azure sono disponibili svariate versioni predefinite di Node.js, potrebbe essere necessario utilizzare una versione non disponibile per impostazione predefinita. Se l'applicazione è ospitata come sito Web di Azure, è possibile eseguire l'operazione usando il file **iisnode.yml** . I passaggi successivi illustrano la procedura per l'uso di una versione personalizzata di Node.Js con un sito Web di Azure:
 
-1. Creare una nuova directory e quindi creare un file **server.js** al suo interno. Il contenuto del file deve essere il seguente **server.js**:
+1. Creare una nuova directory e quindi creare un file **server.js** al suo interno. Il contenuto del file deve essere il seguente **server.js** :
    
         var http = require('http');
         http.createServer(function(req,res) {
@@ -62,7 +66,7 @@ Anche se in Azure sono disponibili svariate versioni predefinite di Node.js, pot
         }).listen(process.env.PORT || 3000);
    
     Questo consentirà di visualizzare la versione di Node.js utilizzata durante l'esplorazione del sito Web.
-2. Creare un nuovo sito Web e prendere nota del nome del sito. Nel comando seguente, ad esempio, gli [strumenti da riga di comando di Azure] vengono utilizzati per creare un nuovo sito Web di Azure denominato **mywebsite** e quindi per abilitare un repository Git per il sito Web.
+2. Creare un nuovo sito Web e prendere nota del nome del sito. Nel comando seguente, ad esempio, gli [strumenti da riga di comando di Azure] vengono utilizzati per creare un nuovo sito Web di Azure denominato **mywebsite**e quindi per abilitare un repository Git per il sito Web.
    
         azure site create mywebsite --git
 3. Creare una nuova directory denominata **bin** come figlio della directory che contiene il file **server.js**.
@@ -84,14 +88,18 @@ Anche se in Azure sono disponibili svariate versioni predefinite di Node.js, pot
    
     Dopo la pubblicazione dell'applicazione, aprire il sito Web in un browser. Dovrebbe essere visualizzato il messaggio "Hello from Azure running node version: v0.8.1".
 
-## Passaggi successivi
-Dopo avere appreso come specificare la versione di Node.js utilizzata dall'applicazione, per ulteriori informazioni vedere gli articoli che illustrano come [utilizzare i moduli], [creare e distribuire un sito Web Node.js] e [Come utilizzare gli strumenti da riga di comando di Azure per Mac e Linux].
+## <a name="next-steps"></a>Passaggi successivi
+Dopo avere appreso come specificare la versione di Node.js usata dall'applicazione, per altre informazioni vedere gli articoli che illustrano come [usare i moduli], [creare e distribuire un sito Web Node.js](app-service-web/web-sites-nodejs-develop-deploy-mac.md) e [usare gli strumenti da riga di comando di Azure per Mac e Linux].
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](/develop/nodejs/).
 
-[Come utilizzare gli strumenti da riga di comando di Azure per Mac e Linux]: xplat-cli-install.md
+[usare gli strumenti da riga di comando di Azure per Mac e Linux]: xplat-cli-install.md
 [strumenti da riga di comando di Azure]: xplat-cli-install.md
-[utilizzare i moduli]: nodejs-use-node-modules-azure-apps.md
+[usare i moduli]: nodejs-use-node-modules-azure-apps.md
 [creare e distribuire un sito Web Node.js]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

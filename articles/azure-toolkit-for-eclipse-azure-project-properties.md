@@ -1,12 +1,12 @@
 ---
-title: Azure Project Properties
-description: Describes the Azure Project Properties settings in the Azure Toolkit for Eclipse.
-services: ''
+title: "Proprietà del progetto di Azure"
+description: "Descrive le impostazioni delle proprietà del progetto di Azure in Toolkit di Azure per Eclipse."
+services: 
 documentationcenter: java
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 0fce53ec-0c5e-47b9-a453-59a0d4307556
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: multiple
@@ -14,43 +14,47 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f85c2079fb4d2ace43c2142e4c6c6926d4b56b26
+
 
 ---
-# <a name="azure-project-properties"></a>Azure Project Properties
-Various settings for your Azure project can be set within the Azure Toolkit for Eclipse.
+# <a name="azure-project-properties"></a>Proprietà del progetto di Azure
+Nel Toolkit di Azure per Eclipse, è possibile configurare varie impostazioni per il progetto di Azure.
 
-## <a name="configuring-azure-project-properties"></a>Configuring Azure Project Properties
-Configuring your Azure Project Properties is accomplished through the property dialogs for your Azure project. Right-click the project in Eclipse's Project Explorer pane, click **Properties**, and then select the **Azure** sub-menu.
+## <a name="configuring-azure-project-properties"></a>Configurazione delle proprietà del progetto di Azure
+La configurazione delle proprietà del progetto di Azure viene eseguita tramite le finestre di dialogo delle proprietà per il progetto di Azure. Fare clic con il pulsante destro del mouse sul progetto nel riquadro (Esplora progetti) di Eclipse, scegliere **Properties** (Proprietà) e infine selezionare il sottomenu **Azure**.
 
 ![][ic719480]
 
-Within this property page, you can change the following items: 
+Nella pagina delle proprietà, è possibile modificare gli elementi seguenti: 
 
-* **Service name:** The name for your Azure project.
-* **Build for:** Whether the project is set for building to the compute emulator or deployment to Azure.
-* **Target OS:** The operating system to use when your project is deployed to Azure.
+* **Nome del servizio:** il nome per il progetto di Azure.
+* **Compilare per:** indica se il progetto è impostato per la compilazione nell'emulatore di calcolo o per la distribuzione in Azure.
+* **Sistema operativo di destinazione:** il sistema operativo da utilizzare quando il progetto viene distribuito in Azure.
 
-## <a name="see-also"></a>See Also
-[Azure Toolkit for Eclipse][Azure Toolkit for Eclipse]
+## <a name="see-also"></a>Vedere anche
+[Toolkit di Azure per Eclipse][Toolkit di Azure per Eclipse]
 
-[Installing the Azure Toolkit for Eclipse][Installing the Azure Toolkit for Eclipse] 
+[Installare il Toolkit di Azure per Eclipse.][Installare il Toolkit di Azure per Eclipse.] 
 
-[Creating a Hello World Application for Azure in Eclipse][Creating a Hello World Application for Azure in Eclipse]
+[Creare un'applicazione Hello World per Azure in Eclipse][Creare un'applicazione Hello World per Azure in Eclipse]
 
-[Azure Role Properties][Azure Role Properties]
+[Proprietà del ruolo di Azure][Proprietà del ruolo di Azure] (Proprietà dei ruoli di Azure)
 
-[Azure Storage Account List][Azure Storage Account List]
+[Elenco di Account di archiviazione di Azure][Elenco di Account di archiviazione di Azure]
 
-For more information about using Azure with Java, see the [Azure Java Developer Center][Azure Java Developer Center].
+Per altre informazioni sull'uso di Azure con Java, vedere il [Centro per sviluppatori Java in Azure][Centro per sviluppatori Java in Azure] di Azure.
 
 <!-- URL List -->
 
-[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Azure Role Properties]: http://go.microsoft.com/fwlink/?LinkID=699525
-[Azure Storage Account List]: http://go.microsoft.com/fwlink/?LinkID=699528
-[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Centro per sviluppatori Java in Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Toolkit di Azure per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Proprietà del ruolo di Azure]: http://go.microsoft.com/fwlink/?LinkID=699525
+[Elenco di Account di archiviazione di Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
+[Creare un'applicazione Hello World per Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installare il Toolkit di Azure per Eclipse.]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 
@@ -60,6 +64,6 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

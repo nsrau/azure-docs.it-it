@@ -2,23 +2,27 @@
 title: Aggiornare la raccolta di Azure RemoteApp | Microsoft Docs
 description: Informazioni su come aggiornare la raccolta di Azure RemoteApp
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: e553d432-e581-48fe-b996-c432357eb64a
 ms.service: remoteapp
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: compute
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 593718b0d0d99f813321cb9ad6a7241e2315f6d0
+
 
 ---
-# Aggiornare una raccolta in Azure RemoteApp
+# <a name="update-a-collection-in-azure-remoteapp"></a>Aggiornare una raccolta in Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -29,13 +33,18 @@ Tuttavia, se si utilizza un'immagine personalizzata (che è stata compilata da z
 Quindi, come si esegue l'aggiornamento della raccolta? È piuttosto semplice:
 
 1. Aggiornare l'immagine utilizzata nella raccolta. Applicare le patch o gli aggiornamenti necessari e quindi salvarla con un nuovo nome.
-2. [Caricare](remoteapp-uploadimage.md) o [importare](remoteapp-image-on-azurevm.md) l’immagine in RemoteApp.
+2. [Caricare](remoteapp-uploadimage.md) o [importare](remoteapp-image-on-azurevm.md) l'immagine in RemoteApp.
 3. A questo punto, nella pagina della raccolta, fare clic su **Aggiorna**.
-4. Scegliere la nuova immagine dall’elenco **Immagine modello**.
+4. Scegliere la nuova immagine dall’elenco **Immagine modello** .
 5. Questa è la parte più complicata, è necessario decidere come gestire gli utenti che utilizzano attualmente un'app della raccolta. L'utente ha a disposizione le seguenti opzioni:
    
    * **Concedere agli utenti 60 minuti dopo l'aggiornamento**. Non appena completato l'aggiornamento, in Azure RemoteApp viene visualizzato un messaggio con cui viene richiesto a tutti gli utenti attivi di salvare il lavoro, disconnettersi e accedere di nuovo. Dopo 60 minuti, tutti gli utenti attivi che non si sono disconnessi vengono disconnessi automaticamente. Gli utenti possono accedere di nuovo immediatamente.
    * **Disconnettere gli utenti immediatamente**. Non appena completato l'aggiornamento, disconnettere tutti gli utenti automaticamente senza alcun avviso. Se si sceglie questa opzione, gli utenti potrebbero perdere i dati. Tuttavia, possano riconnettersi all'app immediatamente.
 6. Fare clic sul segno di spunta per avviare l'aggiornamento.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

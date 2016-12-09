@@ -1,13 +1,13 @@
 ---
-title: Abilitare i dump dell'heap per i servizi Hadoop in HDInsight | Microsoft Docs
-description: Abilitare i dump dell'heap per i servizi Hadoop dai cluster HDInsight basati su Linux per il debug e l'analisi.
+title: Abilitare i dump dell&quot;heap per i servizi Hadoop in HDInsight | Documentazione Microsoft
+description: Abilitare i dump dell&quot;heap per i servizi Hadoop dai cluster HDInsight basati su Linux per il debug e l&quot;analisi.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 8f151adb-f687-41e4-aca0-82b551953725
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4bbd6f0033fd148832e56d0e0abef50c84a8422f
+
 
 ---
-# <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight-(preview)"></a>Abilitare i dump dell'heap per i servizi Hadoop in HDInsight basato su Linux (anteprima)
+# <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight-preview"></a>Abilitare i dump dell'heap per i servizi Hadoop in HDInsight basato su Linux (anteprima)
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
 I dump dell'heap includono uno snapshot della memoria dell'applicazione, ad esempio i valori delle variabili al momento della creazione del dump. Si rivelano quindi molto utili per diagnosticare i problemi che si verificano in fase di esecuzione.
@@ -27,7 +31,7 @@ I dump dell'heap includono uno snapshot della memoria dell'applicazione, ad esem
 > 
 > 
 
-## <a name="<a-name="whichservices"></a>services"></a><a name="whichServices"></a>Services
+## <a name="a-namewhichservicesaservices"></a><a name="whichServices"></a>Services
 È possibile abilitare dump dell'heap per i servizi seguenti:
 
 * **hcatalog** - tempelton
@@ -38,7 +42,7 @@ I dump dell'heap includono uno snapshot della memoria dell'applicazione, ad esem
 
 È inoltre possibile abilitare dump dell'heap per la mappa e ridurre i processi eseguiti da HDInsight.
 
-## <a name="<a-name="configuration"></a>understanding-heap-dump-configuration"></a><a name="configuration"></a>Informazioni sulla configurazione dei dump dell'heap
+## <a name="a-nameconfigurationaunderstanding-heap-dump-configuration"></a><a name="configuration"></a>Informazioni sulla configurazione dei dump dell'heap
 I dump dell'heap vengono abilitati mediante il passaggio di opzioni (talvolta noto come parametri) a JVM quando viene avviato un servizio. Per la maggior parte dei servizi Hadoop è possibile modificare lo script della shell usato per avviare il servizio.
 
 In ogni script è presente un'esportazione per **\*\_OPTS**, che contiene le opzioni passate a JVM. Ad esempio, nello script **hadoop-env.sh**, la riga che inizia con `export HADOOP_NAMENODE_OPTS=` contiene le opzioni per il servizio NameNode.
@@ -127,6 +131,9 @@ Per modificare la configurazione di un servizio, attenersi alla procedura seguen
    > 
 8. Dopo il riavvio dei servizi, usare il pulsante **Service Actions** per **Disattivare la modalità di manutenzione**. Questa opzione indica ad Ambari di riprendere il monitoraggio per gli avvisi relativi al servizio.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Creazione di entità ContentKey mediante REST | Microsoft Docs
-description: Informazioni su come creare chiavi simmetriche che forniscono l'accesso sicuro agli asset.
+title: "Creazione di entità ContentKey mediante REST | Microsoft Docs"
+description: Informazioni su come creare chiavi simmetriche che forniscono l&quot;accesso sicuro agli asset.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 95e9322b-168e-4a9d-8d5d-d7c946103745
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8e4ca5083761f870d93447eb6561d9f0c088284e
+
 
 ---
 # <a name="create-contentkeys-with-rest"></a>Creazione di entità ContentKey mediante REST
@@ -44,22 +48,22 @@ Di seguito sono descritti i passaggi generali per la generazione di chiavi simme
    
    Il seguente esempio .NET calcola il checksum usando la parte GUID dell'identificatore chiave e la chiave simmetrica non crittografata.
    
-       public static string CalculateChecksum(byte[] contentKey, Guid keyId)
-       {
-           byte[] array = null;
-           using (AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider())
-           {
-               aesCryptoServiceProvider.Mode = CipherMode.ECB;
-               aesCryptoServiceProvider.Key = contentKey;
-               aesCryptoServiceProvider.Padding = PaddingMode.None;
-               ICryptoTransform cryptoTransform = aesCryptoServiceProvider.CreateEncryptor();
-               array = new byte[16];
-               cryptoTransform.TransformBlock(keyId.ToByteArray(), 0, 16, array, 0);
-           }
-           byte[] array2 = new byte[8];
-           Array.Copy(array, array2, 8);
-           return Convert.ToBase64String(array2);
-       }
+     public static string CalculateChecksum(byte[] contentKey, Guid keyId)   {
+   
+         byte[] array = null;
+         using (AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider())
+         {
+             aesCryptoServiceProvider.Mode = CipherMode.ECB;
+             aesCryptoServiceProvider.Key = contentKey;
+             aesCryptoServiceProvider.Padding = PaddingMode.None;
+             ICryptoTransform cryptoTransform = aesCryptoServiceProvider.CreateEncryptor();
+             array = new byte[16];
+             cryptoTransform.TransformBlock(keyId.ToByteArray(), 0, 16, array, 0);
+         }
+         byte[] array2 = new byte[8];
+         Array.Copy(array, array2, 8);
+         return Convert.ToBase64String(array2);
+     }
 5. Creare la chiave simmetrica con i valori **EncryptedContentKey** (convertito in stringa con codifica Base64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** e **Checksum** ricevuti nei passaggi precedenti.
 6. Associare l'entità **ContentKey** all'entità **Asset** tramite l'operazione $links.
 
@@ -251,6 +255,9 @@ Risposta:
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

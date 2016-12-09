@@ -6,14 +6,18 @@ documentationcenter: .net
 author: robinsh
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 6f931d94-ef5a-44c6-b1d9-8a3c9c327fb2
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/08/2016
-ms.author: cbrooks;robinsh
+ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8f674c34cfbfd5c107258d7acd33583947cd61d6
+
 
 ---
 # <a name="azure-storage-security-guide"></a>Guida alla sicurezza di Archiviazione di Azure
@@ -50,7 +54,7 @@ Quando si crea un nuovo account di archiviazione, si seleziona un modello di dis
 
 Questa guida è incentrata sul modello di Resource Manager, ovvero il mezzo consigliato per la creazione di account di archiviazione. Con gli account di archiviazione di Resource Manager, invece di concedere l'accesso all'intera sottoscrizione, è possibile controllare l'accesso al piano di gestione in base a un livello più limitato usando il controllo degli accessi in base al ruolo.
 
-### <a name="how-to-secure-your-storage-account-with-role-based-access-control-(rbac)"></a>Come proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo
+### <a name="how-to-secure-your-storage-account-with-role-based-access-control-rbac"></a>Come proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo
 Si vedrà ora cos'è il controllo degli accessi in base al ruolo e come è possibile usarlo. Ogni sottoscrizione di Azure è associata a un'istanza di Azure Active Directory. A utenti, gruppi e applicazioni in questa directory può essere consentito l'accesso per gestire le risorse nella sottoscrizione di Azure che usa il modello di distribuzione di Resource Manager. Questo approccio è detto controllo degli accessi in base al ruolo. Per gestire l'accesso è possibile usare il [portale di Azure](https://portal.azure.com/), gli [strumenti dell'interfaccia della riga di comando di Azure](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) o le [API REST del provider di risorse di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx).
 
 Con il modello di Resource Manager si inserisce l'account di archiviazione in un gruppo di risorse e si controlla l'accesso al piano di quell'account di archiviazione specifico tramite Azure Active Directory. Ad esempio, è possibile concedere a utenti specifici la possibilità di accedere alle chiavi dell'account di archiviazione, mentre altri utenti possono visualizzare le informazioni sull'account di archiviazione, ma non accedere alle relative chiavi.
@@ -87,10 +91,7 @@ Ecco i punti principali che occorre conoscere sull'uso del controllo degli acces
   Questo articolo illustra tutti i ruoli predefiniti disponibili nel controllo degli accessi in base al ruolo.
 * [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../resource-manager-deployment-model.md)
   
-  Questo articolo illustra i modelli di distribuzione classica e di Resource Manager e descrive i vantaggi dell'uso di Resource Manager e dei gruppi di risorse.
-* [Provider di calcolo, rete e archiviazione nella Gestione risorse di Azure](../virtual-machines/virtual-machines-windows-compare-deployment-models.md)
-  
-  Questo articolo spiega il funzionamento dei provider di calcolo, rete e archiviazione di Azure nel modello di Resource Manager.
+  In questo articolo sono illustrati i modelli di distribuzione classica e Resource Manager e sono descritti i vantaggi dell'uso di Resource Manager e dei gruppi di risorse. Viene spiegato il funzionamento dei provider di calcolo, rete e archiviazione di Azure nel modello di Resource Manager.
 * [Gestione del controllo degli accessi in base al ruolo con l'API REST](../active-directory/role-based-access-control-manage-access-rest.md)
   
   Questo articolo illustra come usare l'API REST per gestire il controllo degli accessi in base al ruolo.
@@ -187,15 +188,17 @@ Una firma di accesso condiviso è un set di parametri di query aggiunto all'URL 
 
 Fornisce informazioni sull'accesso consentito e sul periodo di tempo per cui è consentito l'accesso. Ecco un esempio di URI che fornisce l'accesso in lettura a un BLOB per cinque minuti. Si noti che i parametri di query della firma di accesso condiviso devono essere con codifica URL, ad esempio %3A per due punti (:) o %20 per lo spazio.
 
-    http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
-    ?sv=2015-04-05 (storage service version)
-    &st=2015-12-10T22%3A18%3A26Z (start time, in UTC time and URL encoded)
-    &se=2015-12-10T22%3A23%3A26Z (end time, in UTC time and URL encoded)
-    &sr=b (resource is a blob)
-    &sp=r (read access)
-    &sip=168.1.5.60-168.1.5.70 (requests can only come from this range of IP addresses)
-    &spr=https (only allow HTTPS requests)
-    &sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D (signature used for the authentication of the SAS)
+```
+http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
+?sv=2015-04-05 (storage service version)
+&st=2015-12-10T22%3A18%3A26Z (start time, in UTC time and URL encoded)
+&se=2015-12-10T22%3A23%3A26Z (end time, in UTC time and URL encoded)
+&sr=b (resource is a blob)
+&sp=r (read access)
+&sip=168.1.5.60-168.1.5.70 (requests can only come from this range of IP addresses)
+&spr=https (only allow HTTPS requests)
+&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D (signature used for the authentication of the SAS)
+```
 
 #### <a name="how-the-shared-access-signature-is-authenticated-by-the-azure-storage-service"></a>Modalità di autenticazione della firma di accesso condiviso tramite il servizio di archiviazione di Azure
 Quando il servizio di archiviazione riceve la richiesta, accetta i parametri di query di input e crea una firma usando lo stesso metodo del programma chiamante, quindi confronta le due firme. Se concordano, il servizio di archiviazione quindi può controllare la versione del servizio di archiviazione per assicurarsi che sia valida, verificare che la data e l'ora correnti rientrino nell'intervallo specificato, assicurarsi che l'accesso richiesto corrisponda alla richiesta eseguita e così via.
@@ -256,7 +259,7 @@ Per informazioni più dettagliate sull'uso di firme di accesso condiviso e crite
   * [Esercitazione introduttiva sulle firme di accesso condiviso](https://github.com/Azure-Samples/storage-dotnet-sas-getting-started)
 
 ## <a name="encryption-in-transit"></a>Crittografia in transito
-### <a name="transport-level-encryption-–-using-https"></a>Crittografia a livello di trasporto: uso di HTTPS
+### <a name="transport-level-encryption-using-https"></a>Crittografia a livello di trasporto: uso di HTTPS
 Un altro passaggio da adottare per garantire la sicurezza dei dati di archiviazione di Azure consiste nel crittografare i dati tra il client e l'archiviazione di Azure. Il primo suggerimento consiste nell'usare sempre il protocollo [HTTPS](https://en.wikipedia.org/wiki/HTTPS) che garantisce una comunicazione protetta sulla rete Internet pubblica.
 
 È consigliabile usare sempre HTTPS quando si chiamano le API REST o si accede a oggetti nella risorsa di archiviazione. Le **firme di accesso condiviso**, che possono essere usate per delegare l'accesso a oggetti di archiviazione di Azure, includono anche un'opzione per specificare che quando si usano firme di accesso condiviso si può usare solo il protocollo HTTPS, assicurando che chiunque invii collegamenti con token di firma di accesso condiviso userà il protocollo corretto.
@@ -292,7 +295,7 @@ Esistono tre funzionalità di Azure che consentono di crittografare dati inattiv
 
 Anche se è possibile usare la crittografia lato client per crittografare i dati in transito, che vengono anche archiviati in forma crittografata nella risorsa di archiviazione, è preferibile usare semplicemente HTTPS durante il trasferimento e configurare un modo per crittografare automaticamente i dati quando sono archiviati. Esistono due modi per eseguire questa operazione: SSE e Crittografia dischi di Azure. Una viene usata per crittografare direttamente i dati sui dischi dati e del sistema operativo usati dalle VM e l'altra viene usata per crittografare i dati scritti nell'archivio BLOB di Azure.
 
-### <a name="storage-service-encryption-(sse)"></a>Crittografia del servizio di archiviazione di Azure (SSE)
+### <a name="storage-service-encryption-sse"></a>Crittografia del servizio di archiviazione di Azure (SSE)
 SSE consente di richiedere che il servizio di archiviazione crittografi automaticamente i dati durante la scrittura nell'archiviazione di Azure. Quando si leggono i dati dall'archiviazione di Azure, verranno decrittografati dal servizio di archiviazione prima di essere restituiti. Ciò consente di proteggere i dati senza dover modificare il codice o aggiungere codice alle applicazioni.
 
 Questa impostazione si applica all'intero account di archiviazione. È possibile abilitare e disabilitare questa funzionalità modificando il valore dell'impostazione. A questo scopo si può usare il portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure, l'API REST del provider di risorse di archiviazione o la libreria del client di archiviazione per .NET. Per impostazione predefinita, la funzionalità SSE è disattivata.
@@ -341,8 +344,8 @@ La soluzione Crittografia dischi di Azure supporta i tre scenari di crittografia
 Se abilitata in Microsoft Azure, la soluzione supporta le funzionalità seguenti per VM IaaS nella versione di anteprima pubblica:
 
 * Integrazione dell'insieme di credenziali delle chiavi di Azure.
-* [VM IaaS serie A, D e G](https://azure.microsoft.com/pricing/details/virtual-machines/)
-* Abilitazione della crittografia nelle VM IaaS create con il modello di [Gestione risorse di Azure](../resource-group-overview.md) .
+*  [VM IaaS serie A, D e G](https://azure.microsoft.com/pricing/details/virtual-machines/)
+* Abilitazione della crittografia nelle VM IaaS create con il modello di [Gestione risorse di Azure](../azure-resource-manager/resource-group-overview.md) .
 * Tutte le [aree geografiche](https://azure.microsoft.com/regions/)
 
 Questa funzionalità garantisce che tutti i dati presenti sui dischi delle macchine virtuali siano crittografati mentre sono inattivi in Archiviazione di Azure.
@@ -352,7 +355,7 @@ Questa funzionalità garantisce che tutti i dati presenti sui dischi delle macch
   
   Questo articolo illustra la versione di anteprima di Crittografia dischi di Azure e fornisce un collegamento per scaricare il white paper.
 
-### <a name="comparison-of-azure-disk-encryption,-sse,-and-client-side-encryption"></a>Confronto tra Crittografia dischi di Azure, SSE e crittografia lato client
+### <a name="comparison-of-azure-disk-encryption-sse-and-client-side-encryption"></a>Confronto tra Crittografia dischi di Azure, SSE e crittografia lato client
 #### <a name="iaas-vms-and-their-vhd-files"></a>VM IaaS e i relativi file VHD
 Per i dischi usati dalle VM IaaS è consigliabile usare Crittografia dischi di Azure. La funzionalità SSE può essere attivata per crittografare i file VHD usati per eseguire il backup di questi dischi nell'Archiviazione di Azure, ma permette di crittografare solo dati appena scritti. Ciò significa che se si crea una VM e quindi si abilita SSE nell'account di archiviazione che contiene il file VHD, verranno crittografate solo le modifiche, non il file VHD originale.
 
@@ -364,7 +367,7 @@ Se sono disponibili file VHD non crittografati dall'ambiente locale, è possibil
 
 Quando si aggiunge un disco dati e lo si monta nella VM, è possibile attivare Crittografia dischi di Azure su quel disco dati. Verrà crittografato prima di tutto il disco dati in locale e quindi il livello di gestione del servizio eseguirà una scrittura lazy nell'archiviazione in modo che il relativo contenuto venga crittografato.
 
-#### <a name="client-side-encryption####"></a>crittografia lato client
+#### <a name="client-side-encryption"></a>crittografia lato client
 La crittografia lato client è il metodo più sicuro per crittografare i dati, perché li crittografa prima della trasmissione e crittografa i dati inattivi. Richiede tuttavia l'aggiunta di codice alle applicazioni tramite l'archiviazione, un'operazione che si potrebbe non voler eseguire. In questi casi, è possibile usare HTTPS per i dati in transito e la funzionalità SSE per crittografare i dati inattivi.
 
 Grazie alla crittografia lato client, è possibile crittografare entità tabella, messaggi nella coda e BLOB. SSE consente di crittografare solo i BLOB. Se è necessario crittografare i dati di tabelle e code, è necessario usare la crittografia lato client.
@@ -373,7 +376,7 @@ La crittografia lato client viene gestita completamente dall'applicazione. Quest
 
 La crittografia lato client comporta un carico maggiore sul client ed è necessario considerare questo aspetto nei piani di scalabilità, soprattutto se viene crittografata e trasferita una grande quantità di dati.
 
-#### <a name="storage-service-encryption-(sse)"></a>Crittografia del servizio di archiviazione di Azure (SSE)
+#### <a name="storage-service-encryption-sse"></a>Crittografia del servizio di archiviazione di Azure (SSE)
 La crittografia del servizio di archiviazione è gestita da Archiviazione di Azure. SSE non solo garantisce la sicurezza dei dati in transito, ma permette di crittografare i dati al momento della scrittura in Archiviazione di Azure. L'uso di questa funzionalità non incide in alcun modo sulle prestazioni.
 
 SSE permette di crittografare solo BLOB in blocchi, BLOB di aggiunta e BLOB di pagine. Se è necessario crittografare dati di tabelle o di code, è consigliabile usare la crittografia lato client.
@@ -390,7 +393,7 @@ Un'altra parte di dati che è possibile visualizzare nel log di Analisi archivia
 
 Queste informazioni possono essere molto utili se l'accesso alla risorsa di archiviazione e strettamente protetto. Ad esempio, nell'archivio BLOB è possibile impostare tutti i contenitori su privato e implementare l'uso di un servizio di firma di accesso condiviso per tutte le applicazioni. È quindi possibile controllare i log regolarmente per verificare se l'accesso ai BLOB viene eseguito con chiavi dell'account di archiviazione, cosa che può indicare una violazione della sicurezza, o se i BLOB sono pubblici ma non dovrebbero esserlo.
 
-#### <a name="what-do-the-logs-look-like?"></a>Aspetto dei log
+#### <a name="what-do-the-logs-look-like"></a>Aspetto dei log
 Dopo avere abilitato le metriche dell'account di archiviazione e la registrazione tramite il portale di Azure, i dati di analisi inizieranno ad accumularsi rapidamente. La registrazione e le metriche per ogni servizio sono separate. La registrazione viene scritta solo quando si verificano attività nell'account di archiviazione, mentre le metriche vengono registrate ogni minuto, ogni ora oppure ogni giorno, a seconda della configurazione.
 
 I log sono archiviati in BLOB in blocchi in un contenitore denominato $logs nell'account di archiviazione. Questo contenitore viene creato automaticamente quando si abilita Analisi archiviazione. Dopo la creazione di questo contenitore, non sarà possibile eliminarlo, anche se si può eliminare il relativo contenuto.
@@ -405,7 +408,7 @@ Viene registrata ogni richiesta all'archiviazione di Azure viene registrata. Ecc
 
 Si noterà che è possibile usare i registri per rilevare qualsiasi tipo di chiamate a un account di archiviazione.
 
-#### <a name="what-are-all-of-those-fields-for?"></a>Scopo di tutti questi campi
+#### <a name="what-are-all-of-those-fields-for"></a>Scopo di tutti questi campi
 Le risorse indicate di seguito includono un articolo che fornisce l'elenco dei molti campi disponibili nei log e lo scopo per cui vengono usati. Ecco l'elenco dei campi in ordine:
 
 ![Snapshot dei campi in un file di log](./media/storage-security-guide/image3.png)
@@ -414,7 +417,7 @@ In questo caso, sono interessati le voci per GetBlob e come vengono autenticati,
 
 Ad esempio, nelle prime righe nell'elenco precedente, request-status è "Success" e authorization-type "authenticated". Ciò significa che la richiesta è stata convalidata con la chiave dell'account di archiviazione.
 
-#### <a name="how-are-my-blobs-being-authenticated?"></a>Modalità di autenticazione dei BLOB
+#### <a name="how-are-my-blobs-being-authenticated"></a>Modalità di autenticazione dei BLOB
 Sono tre i casi interessanti in questo caso.
 
 1. Il BLOB è pubblico e vi si accede tramite un URL senza una firma di accesso condiviso. In questo caso, request-status è "AnonymousSuccess" e authorization-type è "anonymous".
@@ -446,7 +449,7 @@ Sono tre i casi interessanti in questo caso.
   
   Questo è l'articolo di riferimento per Microsoft Message Analyzer e include collegamenti a un'esercitazione, procedure di avvio rapido e un riepilogo delle funzionalità.
 
-## <a name="cross-origin-resource-sharing-(cors)"></a>Condivisione risorse tra le origini (CORS)
+## <a name="cross-origin-resource-sharing-cors"></a>Condivisione risorse tra le origini (CORS)
 ### <a name="cross-domain-access-of-resources"></a>Accesso tra domini alle risorse
 Quando un Web browser in esecuzione in un dominio invia una richiesta HTTP per una risorsa da un dominio diverso, viene definita richiesta HTTP tra le origini. Ad esempio, una pagina HTML servita da contoso.com esegue una richiesta per un'immagine JPEG ospitata in fabrikam.blob.core.windows.net. Per motivi di sicurezza, i browser limitano le richieste HTTP tra le origini avviate da script, ad esempio JavaScript. Ciò significa che quando il codice JavaScript in una pagina Web in contoso.com richiede tale immagine JPEG in fabrikam.blob.core.windows.net, il browser non consentirà la richiesta.
 
@@ -457,22 +460,24 @@ Un modo per risolvere questo problema consiste nell'assegnare un dominio persona
 
 Un altro modo per risolvere il problema consiste nell'impostare l'applicazione Web come proxy per le chiamate di archiviazione. Ciò significa che se si carica un file nell'archivio BLOB, l'applicazione Web lo scriverà in locale e quindi lo copierà nell'archivio BLOB oppure lo leggerà completamente in memoria e quindi lo scriverà nell'archivio BLOB. In alternativa, è possibile scrivere un'applicazione Web dedicato, ad esempio un'API Web, che carica i file in locale e li scrive nell'archivio BLOB. In entrambi i casi, è necessario considerare questa funzione nel determinare le esigenze di scalabilità.
 
-#### <a name="how-can-cors-help?"></a>Utilità di CORS
+#### <a name="how-can-cors-help"></a>Utilità di CORS
 Archiviazione di Azure consente di abilitare CORS (Condivisione risorse tra le origini). Per ogni account di archiviazione è possibile specificare i domini che possono accedere alle risorse in tale account di archiviazione. Ad esempio, nel caso descritto in precedenza, è possibile abilitare CORS nell'account di archiviazione fabrikam.blob.core.windows.net e configurarlo per consentire l'accesso a contoso.com. L'applicazione Web contoso.com può quindi accedere direttamente alle risorse in fabrikam.blob.core.windows.net.
 
 Una cosa da notare è che CORS consente l'accesso, ma non fornisce l'autenticazione necessaria per l'accesso non pubblico delle risorse di archiviazione. Ciò significa che è possibile accedere ai BLOB solo se sono pubblici oppure si include una firma di accesso condiviso che fornisce l'autorizzazione appropriata. Tabelle, code e i file non hanno accesso pubblico e richiedono una firma di accesso condiviso.
 
 Per impostazione predefinita, CORS è disabilitato in tutti i servizi. È possibile abilitare CORS con l'API REST o la libreria client di archiviazione per chiamare uno dei metodi che impostano i criteri del servizio. In questo caso, includere una regola CORS, in formato XML. Ecco un esempio di una regola CORS impostata con l'operazione di impostazione delle proprietà del servizio per il servizio BLOB per un account di archiviazione. È possibile eseguire questa operazione usando la libreria client di archiviazione o le API REST per Archiviazione di Azure.
 
-    <Cors>    
-        <CorsRule>
-            <AllowedOrigins>http://www.contoso.com, http://www.fabrikam.com</AllowedOrigins>
-            <AllowedMethods>PUT,GET</AllowedMethods>
-            <AllowedHeaders>x-ms-meta-data*,x-ms-meta-target*,x-ms-meta-abc</AllowedHeaders>
-            <ExposedHeaders>x-ms-meta-*</ExposedHeaders>
-            <MaxAgeInSeconds>200</MaxAgeInSeconds>
-        </CorsRule>
-    <Cors>
+```xml
+<Cors>    
+    <CorsRule>
+        <AllowedOrigins>http://www.contoso.com, http://www.fabrikam.com</AllowedOrigins>
+        <AllowedMethods>PUT,GET</AllowedMethods>
+        <AllowedHeaders>x-ms-meta-data*,x-ms-meta-target*,x-ms-meta-abc</AllowedHeaders>
+        <ExposedHeaders>x-ms-meta-*</ExposedHeaders>
+        <MaxAgeInSeconds>200</MaxAgeInSeconds>
+    </CorsRule>
+<Cors>
+```
 
 Ecco il significato di ogni riga:
 
@@ -521,6 +526,7 @@ Per altre informazioni su CORS e su come abilitarlo, vedere queste risorse.
   
   Questo articolo illustra l'uso della modalità FIPS in computer Windows meno recenti.
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

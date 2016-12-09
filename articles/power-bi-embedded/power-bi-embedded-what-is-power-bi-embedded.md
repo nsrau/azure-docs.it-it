@@ -1,13 +1,13 @@
 ---
-title: Cos'è Microsoft Power BI Embedded?
-description: Power BI Embedded consente di integrare report di Power BI in applicazioni Web o applicazioni mobili. In questo modo non è necessario compilare soluzioni personalizzate per visualizzare i dati degli utenti.
+title: "Cos&quot;è Microsoft Power BI Embedded?"
+description: "Power BI Embedded consente di integrare report di Power BI in applicazioni Web o applicazioni mobili. In questo modo non è necessario compilare soluzioni personalizzate per visualizzare i dati degli utenti."
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 03649b72-b7d7-40ca-b077-12356d72d4f3
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
+ms.openlocfilehash: 75994d06c147fe0554dc5549df5816e6faaf8fb6
+
 
 ---
-# <a name="what-is-microsoft-power-bi-embedded?"></a>Cos'è Microsoft Power BI Embedded?
+# <a name="what-is-microsoft-power-bi-embedded"></a>Cos'è Microsoft Power BI Embedded?
 **Power BI Embedded**consente di integrare i report di Power BI direttamente nelle applicazioni Web o per dispositivi mobili.
 
 ![](media\\powerbi-embedded-whats-is\\what-is.png)
@@ -25,7 +29,7 @@ ms.author: asaxton
 Power BI Embedded è un **servizio di Azure** che consente ai fornitori di software indipendente e agli sviluppatori di app di sfruttare i vantaggi dell'esperienza dati di Power BI nelle proprie applicazioni. Gli sviluppatori creano applicazioni, ognuna delle quali ha utenti e set di funzionalità specifici. Queste app possono inoltre contenere alcuni elementi dati predefiniti, ad esempio grafici e report che ora possono essere supportati da Microsoft Power BI Embedded. Per usare l'app non è necessario che gli utenti abbiano un account Power BI. Possono continuare ad accedere all'applicazione come in precedenza, nonché visualizzare i report di Power BI e interagire con questi senza dover richiedere licenze aggiuntive.
 
 ## <a name="licensing-for-microsoft-power-bi-embedded"></a>Licenza di Microsoft Power BI Embedded
-Nel modello di utilizzo di **Microsoft Power BI Embedded** l'utente finale non è il responsabile della gestione delle licenze di Power BI.  I **rendering** sono in realtà acquistati dallo sviluppatore dell'app che impiega gli oggetti visivi e sono addebitati alla sottoscrizione che comprende tali risorse.
+Nel modello di utilizzo di **Microsoft Power BI Embedded** l'utente finale non è il responsabile della gestione delle licenze di Power BI.  Le **sessioni** sono in realtà acquistate dallo sviluppatore dell'app che impiega gli oggetti visivi e sono addebitate alla sottoscrizione che comprende tali risorse. Altre informazioni sono disponibili nella pagina relativa ai prezzi (https://azure.microsoft.com/en-us/pricing/details/power-bi-embedded/).
 
 ## <a name="microsoft-power-bi-embedded-conceptual-model"></a>Modello concettuale di Microsoft Power BI Embedded
 ![](media\\powerbi-embedded-whats-is\\model.png)
@@ -49,7 +53,7 @@ Le **raccolte di aree di lavoro** e le **aree di lavoro** sono contenitori di co
 Nella versione di anteprima è possibile usare i set di dati memorizzati nella cache.  Non è tuttavia possibile aggiornare i dati memorizzati nella cache dopo averli caricati in **Microsoft Power BI Embedded**.
 
 ## <a name="authentication-and-authorization-with-app-tokens"></a>Autenticazione e autorizzazione con token delle app
-**Microsoft Power BI Embedded** incarica l'applicazione dell'utente affinché esegua tutte le operazioni necessarie per l'autenticazione e l'autorizzazione utente. Non è necessario che gli utenti finali siano clienti di Azure Active Directory.  Sarà invece l'applicazione ad autorizzare il rendering di un report di Power BI in **Microsoft Power BI Embedded** usando **token di autenticazione dell'applicazione**.  I **token dell'app** vengono creati nel momento in cui l'app intende eseguire il rendering di un report.  Vedere la sezione relativa ai [token delle app](power-bi-embedded-get-started-sample.md#key-flow).
+**Microsoft Power BI Embedded** incarica l'applicazione dell'utente affinché esegua tutte le operazioni necessarie per l'autenticazione e l'autorizzazione utente. Non è necessario che gli utenti finali siano clienti di Azure Active Directory.  Sarà invece l'applicazione ad autorizzare il rendering di un report di Power BI in **Microsoft Power BI Embedded** usando **token di autenticazione dell'applicazione**.  I **token dell'app** vengono creati nel momento in cui l'app intende eseguire il rendering di un report.
 
 ![](media\\powerbi-embedded-whats-is\\app-tokens.png)
 
@@ -65,6 +69,8 @@ Questi token si usano nelle varie fasi di interazione con **Microsoft Power BI E
 * [Scenari comuni di Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
 * [Introduzione a Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

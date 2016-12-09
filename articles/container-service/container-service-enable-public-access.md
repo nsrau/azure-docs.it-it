@@ -1,27 +1,31 @@
 ---
-title: Abilitare l'accesso pubblico a un'app del servizio contenitore di Azure | Microsoft Docs
-description: Come abilitare l'accesso pubblico a un servizio contenitore di Azure.
+title: Abilitare l&quot;accesso pubblico a un&quot;app del servizio contenitore di Azure | Documentazione Microsoft
+description: Come abilitare l&quot;accesso pubblico a un servizio contenitore di Azure.
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: Thraka
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
 keywords: Docker, Contenitori, Micro-servizi, Mesos, Azure
-
+ms.assetid: 5dea3c4d-a687-4024-93ea-f7a9a7243ab4
 ms.service: container-service
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
-ms.author: adegeo
+ms.author: timlt
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9491ffb2683063169ab25c38b3db5de06282d654
+
 
 ---
-# Abilitare l'accesso pubblico a un'applicazione del servizio contenitore di Azure
+# <a name="enable-public-access-to-an-azure-container-service-application"></a>Abilitare l'accesso pubblico a un'applicazione del servizio contenitore di Azure
 Qualsiasi contenitore DC/OS nel [pool di agenti pubblico](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) del servizio contenitore di Azure viene esposto automaticamente a Internet. Per impostazione predefinita, le porte **80**, **443**, **8080** sono aperte e qualsiasi contenitore (pubblico) in ascolto su queste porte è accessibile. Questo articolo descrive come aprire altre porte per le applicazioni nel servizio contenitore di Azure.
 
-## Aprire una porta (portale)
+## <a name="open-a-port-portal"></a>Aprire una porta (portale)
 Prima di tutto è necessario aprire la porta desiderata.
 
 1. Accedere al portale.
@@ -53,10 +57,10 @@ Prima di tutto è necessario aprire la porta desiderata.
    | Porta back-end |Porta pubblica interna del contenitore a cui instradare il traffico. |
    | Pool back-end |I contenitori in questo pool saranno la destinazione per questo servizio di bilanciamento del carico. |
    | Probe |Probe usato per determinare se una destinazione nel **Pool back-end** è integra. |
-   | Persistenza della sessione |Determina la modalità di gestione del traffico da un client per la durata della sessione.<br><br>**Nessuno**: le richieste successive provenienti dallo stesso client possono essere gestite da qualsiasi contenitore.<br>**IP client**: le richieste successive provenienti dallo stesso indirizzo IP client IP vengono gestite dallo stesso contenitore.<br>**IP e protocollo client**: le richieste successive provenienti dalla stessa combinazione di indirizzo IP e protocollo client vengono gestite dallo stesso contenitore. |
-   | Timeout di inattività |(Solo TCP) Tempo necessario, in minuti, per mantenere aperto un client TCP/HTTP aprire senza basarsi sui messaggi *keep-alive*. |
+   | Persistenza della sessione |Determina la modalità di gestione del traffico da un client per la durata della sessione.<br><br>**Nessuna**: le richieste successive provenienti dallo stesso client possono essere gestite da qualsiasi contenitore.<br>**IP client**: le richieste successive provenienti dallo stesso indirizzo IP client vengono gestite dallo stesso contenitore.<br>**IP e protocollo client**: le richieste successive provenienti dalla stessa combinazione di indirizzo IP e protocollo client vengono gestite dallo stesso contenitore. |
+   | Timeout di inattività |(Solo TCP) Tempo necessario, in minuti, per mantenere aperto un client TCP/HTTP aprire senza basarsi sui messaggi *keep-alive* . |
 
-## Aggiungere una regola di sicurezza (portale)
+## <a name="add-a-security-rule-portal"></a>Aggiungere una regola di sicurezza (portale)
 Successivamente, è necessario aggiungere una regola di sicurezza che instradi il traffico dalla porta aperta tramite il firewall.
 
 1. Accedere al portale.
@@ -76,12 +80,17 @@ Successivamente, è necessario aggiungere una regola di sicurezza che instradi i
    | Sorgente |Consente di limitare l'intervallo di indirizzi IP in ingresso che la regola dovrà consentire o negare. Usare **Qualsiasi** per non specificare una restrizione. |
    | Service |Selezionare un set di servizi predefiniti a cui è destinata questa regola di sicurezza. In caso contrario, usare **Personalizzato** per crearne di personalizzati. |
    | Protocol |Consente di limitare il traffico in base a **TCP** o **UDP**. Usare **Qualsiasi** per non specificare una restrizione. |
-   | Intervallo di porte |Quando **Servizio** è **Personalizzato**, specifica l'intervallo di porte interessato da questa regola. È possibile usare una singola porta, ad esempio **80**, o un intervallo come **1024 1500**. |
+   | Intervallo di porte |Quando **Servizio** è **Personalizzato**, specifica l'intervallo di porte interessato da questa regola. È possibile usare una singola porta, ad esempio **80**, o un intervallo come **1024-1500**. |
    | Azione |Consentire o negare il traffico che soddisfa i criteri. |
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Informazioni sulle differenze tra [agenti DC/OS pubblici e privati](container-service-dcos-agents.md).
 
 Sono disponibili altre informazioni sulla [gestione dei contenitori DC/OS](container-service-mesos-marathon-ui.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

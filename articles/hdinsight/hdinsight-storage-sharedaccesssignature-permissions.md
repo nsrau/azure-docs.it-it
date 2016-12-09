@@ -1,12 +1,12 @@
 ---
-title: Limitare l'accesso di HDInsight ai dati con le firme di accesso condiviso
-description: Informazioni su come usare le firme di accesso condiviso per limitare l'accesso di HDInsight ai dati archiviati nei BLOB di archiviazione di Azure.
+title: Limitare l&quot;accesso di HDInsight ai dati con le firme di accesso condiviso
+description: Informazioni su come usare le firme di accesso condiviso per limitare l&quot;accesso di HDInsight ai dati archiviati nei BLOB di archiviazione di Azure.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 7bcad2dd-edea-467c-9130-44cffc005ff3
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7f2e5bbd2516c0f697084a802d6963c3d1023914
+
 
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-with-hdinsight"></a>Usare le firme di accesso condiviso di Archiviazione di Azure per limitare l'accesso ai dati con HDInsight
@@ -59,7 +63,7 @@ Per altre informazioni sulle firme di accesso condiviso, vedere [Informazioni su
 ## <a name="create-a-stored-policy-and-generate-a-sas"></a>Creare un criterio archiviato e generare una firma di accesso condiviso
 Attualmente i criteri archiviati devono essere creati a livello di codice. Gli esempi di creazione di criteri archiviati e firme di accesso condiviso in C# e in Python sono disponibili all'indirizzo [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature).
 
-### <a name="create-a-stored-policy-and-sas-using-c\#"></a>Creare un criterio archiviato e una firma di accesso condiviso con C\
+### <a name="create-a-stored-policy-and-sas-using-c"></a>Creare un criterio archiviato e una firma di accesso condiviso con C\
 1. Aprire la soluzione in Visual Studio.
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **SASToken** e scegliere **Proprietà**.
 3. Selezionare **Impostazioni** e aggiungere i valori per le voci seguenti:
@@ -249,6 +253,6 @@ Ora che si è appreso come aggiungere risorse di archiviazione ad accesso limita
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

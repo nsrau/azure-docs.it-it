@@ -1,12 +1,12 @@
 ---
 title: Panoramica sulla community di Servizi multimediali di Azure | Microsoft Docs
-description: 'La pagina della community di Servizi multimediali di Azure illustra i diversi modi in cui è possibile ottenere aggiornamenti su Servizi multimediali di Azure, visualizzare nuovi video e podcast, porre domande e inviare commenti e suggerimenti. '
+description: "La pagina della community di Servizi multimediali di Azure illustra i diversi modi in cui è possibile ottenere aggiornamenti su Servizi multimediali di Azure, visualizzare nuovi video e podcast, porre domande e inviare commenti e suggerimenti. "
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 0df020f4-8297-4f31-92bf-de098283e997
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 735f8d81ce089727b14b8b67de7233ab71fc5abd
+
 
 ---
 # <a name="azure-media-services-community"></a>Community di Servizi multimediali di Azure
@@ -56,6 +60,9 @@ La tabella seguente elenca l'indirizzo di posta elettronica dei team secondari p
 | Azure Media Explorer |amse@microsoft.com |
 | Progettazione flussi di lavoro |mepd@microsoft.com |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

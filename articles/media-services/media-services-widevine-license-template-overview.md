@@ -3,10 +3,10 @@ title: Panoramica del modello di licenza Widevine | Microsoft Docs
 description: Questo argomento offre una panoramica di un modello di licenza Widevine usato per configurare le licenze Widevine.
 author: juliako
 manager: erikre
-editor: ''
+editor: 
 services: media-services
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 0e6f1f05-7ed6-4ed6-82a0-0cc2182b075a
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a90e56bb2b7db0bb964684f9cac04096a6577adc
+
 
 ---
 # <a name="widevine-license-template-overview"></a>Panoramica del modello di licenza Widevine
@@ -102,10 +106,10 @@ Ogni valore content_key_specs deve essere specificato per tutte le singole tracc
 | provider_client_token |Stringa con codifica Base64 |Token client da restituire nella risposta di licenza.  Se la richiesta di licenza contiene un token client, questo valore viene ignorato. Il token client persisterà anche in altre sessioni della licenza. |
 | override_provider_client_token |boolean. true o false |Se false e la richiesta di licenza contiene un token client, usare il token della richiesta anche se nella struttura è stato specificato un token client.  Se true, usare sempre il token specificato nella struttura. |
 
-## <a name="configure-your-widevine-licenses-using-.net-types"></a>Configurare licenze Widevine usando tipi .NET
+## <a name="configure-your-widevine-licenses-using-net-types"></a>Configurare licenze Widevine usando tipi .NET
 Servizi multimediali fornisce API .NET che consentono di configurare licenze Widevine. 
 
-### <a name="classes-as-defined-in-the-media-services-.net-sdk"></a>Classi definite nell'SDK di Servizi multimediali per .NET
+### <a name="classes-as-defined-in-the-media-services-net-sdk"></a>Classi definite nell'SDK di Servizi multimediali per .NET
 Di seguito sono riportate le definizioni di questi tipi.
 
     public class WidevineMessage
@@ -194,6 +198,9 @@ L'esempio seguente mostra come usare le API .NET per configurare una licenza Wid
 ## <a name="see-also"></a>Vedere anche
 [Uso della crittografia comune dinamica PlayReady e/o Widevine](media-services-protect-with-drm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

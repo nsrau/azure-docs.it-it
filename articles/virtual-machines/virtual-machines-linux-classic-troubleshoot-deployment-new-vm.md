@@ -2,12 +2,12 @@
 title: Risolvere i problemi di distribuzione di VM Linux - Classica | Microsoft Docs
 description: Risolvere i problemi della distribuzione classica quando si crea una nuova macchina virtuale Linux in Azure
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: JiangChen79
 manager: felixwu
-editor: ''
+editor: 
 tags: top-support-issue
-
+ms.assetid: c8a963fa-6b2a-4c7a-a1f4-7793adb02b19
 ms.service: virtual-machines-linux
 ms.workload: na
 ms.tgt_pltfrm: vm-linux
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: cjiang
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 8c13f9289a5873dbc3cffe4c8fb6a32d30fc2312
+
 
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Risolvere i problemi della distribuzione classica con la creazione di una nuova macchina virtuale Linux in Azure
@@ -23,6 +27,8 @@ ms.author: cjiang
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+
+Per la versione di Resource Manager di questo articolo, vedere [qui](virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -45,7 +51,7 @@ Nel portale di Azure fare clic su **Esplora** > **Macchine virtuali** > *Macchin
 
 **Risoluzione:**
 
-Per risolvere entrambi questi errori, caricare il disco rigido virtuale originale, disponibile in locale, con la stessa impostazione usata per il sistema operativo (generalizzato/specializzato). Per caricare il disco come generalizzato, ricordarsi di eseguire prima -deprovision. Per altre informazioni, vedere [Creare e caricare un disco rigido virtuale contenente il sistema operativo Linux](virtual-machines-linux-classic-create-upload-vhd.md) .
+Per risolvere entrambi questi errori, caricare il disco rigido virtuale originale, disponibile in locale, con la stessa impostazione usata per il sistema operativo (generalizzato/specializzato). Per caricare il disco come generalizzato, ricordarsi di eseguire prima -deprovision. Per altre informazioni, vedere [Creare e caricare un disco rigido virtuale contenente il sistema operativo Linux](virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) .
 
 **Errori di acquisizione:**
 
@@ -55,9 +61,9 @@ Per risolvere entrambi questi errori, caricare il disco rigido virtuale original
 
 **Risoluzione:**
 
-Per risolvere entrambi questi errori, eliminare l'immagine corrente dal portale e [acquisirla di nuovo dai dischi rigidi virtuali correnti](virtual-machines-linux-classic-capture-image.md) con la stessa impostazione usata per il sistema operativo (generalizzato/specializzato).
+Per risolvere entrambi questi errori, eliminare l'immagine corrente dal portale e [acquisirla di nuovo dai dischi rigidi virtuali correnti](virtual-machines-linux-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) con la stessa impostazione usata per il sistema operativo (generalizzato/specializzato).
 
-## <a name="issue:-custom/-gallery/-marketplace-image;-allocation-failure"></a>Problema: Immagine personalizzata/della raccolta/del marketplace - errore di allocazione
+## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Problema: Immagine personalizzata/della raccolta/del marketplace - errore di allocazione
 Questo errore si verifica nelle situazioni in cui la nuova richiesta di VM viene inviata a un cluster che non ha spazio disponibile sufficiente per soddisfare la richiesta o che non può supportare le dimensioni della VM richieste. Non è possibile combinare serie di VM diverse nello stesso servizio cloud. Se si vuole quindi creare una nuova VM con dimensioni diverse rispetto a quelle che il servizio cloud può supportare, la richiesta di calcolo non riuscirà.
 
 In base ai vincoli del servizio cloud usato per creare la nuova VM, si potrebbe verificare un errore causato da una delle due situazioni seguenti.
@@ -84,8 +90,11 @@ In base ai vincoli del servizio cloud usato per creare la nuova VM, si potrebbe 
 * [Connettere la rete virtuale esistente](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) alla nuova rete virtuale. Altre informazioni sulle [reti virtuali a livello di area](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/). In alternativa, è possibile [eseguire la migrazione della rete virtuale basata su gruppi di affinità alla rete virtuale a livello di area](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)e quindi creare la nuova VM.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se si incontrano problemi quando si avvia una VM Linux arrestata o si ridimensiona una VM Linux esistente in Azure, vedere [Risolvere i problemi della distribuzione classica con il riavvio e il ridimensionamento di una macchina virtuale Linux esistente in Azure](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md).
+Se si incontrano problemi quando si avvia una VM Linux arrestata o si ridimensiona una VM Linux esistente in Azure, vedere [Risolvere i problemi della distribuzione classica con il riavvio e il ridimensionamento di una macchina virtuale Linux esistente in Azure](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

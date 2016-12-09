@@ -2,11 +2,11 @@
 title: Uso di partner per distribuire licenze Widevine a Servizi multimediali di Azure | Microsoft Docs
 description: Questo articolo illustra come usare Servizi multimediali di Azure per distribuire un flusso crittografato in modo dinamico da Servizi multimediali di Azure mediante DRM di PlayReady e Widevine. La licenza per PlayReady viene distribuita dal server licenze PlayReady di Servizi multimediali, mentre la licenza per Widevine viene distribuita dal server licenze castLabs.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 5bcad5a4-c0bb-4871-9cce-808a913c53e6
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b4211cef3b4f3ffa2c0c97fd7650606f3eef7008
+
 
 ---
 # <a name="using-partners-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso di partner per distribuire licenze Widevine a Servizi multimediali di Azure
@@ -39,6 +43,9 @@ A partire da Servizi Multimediali .NET SDK versione 3.5.2, Servizi multimediali 
 
 [Blog di Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,107 +1,113 @@
 ---
 title: Domande frequenti per i database MySQL ClearDB con il Servizio app di Azure | Microsoft Docs
-description: Risposte a domande comuni sull'uso di database MySQL ClearDB con il Servizio app di Azure.
+description: Risposte a domande comuni sull&quot;uso di database MySQL ClearDB con il Servizio app di Azure.
 documentationcenter: php
-services: ''
+services: 
 author: sunbuild
 manager: yochayk
-editor: ''
+editor: 
 tags: mysql
-
+ms.assetid: c2ed5e78-6d7d-4d0c-b7ee-a52ae41ceab8
 ms.service: multiple
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2016
+ms.date: 10/27/2016
 ms.author: sumuth
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 159525b843fba8b8d86f7e938e3200e2472a5cf4
+
 
 ---
-# Domande frequenti per i database MySQL ClearDB con il Servizio app di Azure
+# <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Domande frequenti per i database MySQL ClearDB con il Servizio app di Azure
 Queste domande frequenti offrono risposte a domande comuni sull'uso e l'acquisto di database MySQL ClearDB per App Web di Azure.
 
-## Quali sono le opzioni disponibili per MySQL in Azure?
+## <a name="what-options-do-i-have-for-mysql-on-azure"></a>Quali sono le opzioni disponibili per MySQL in Azure?
 Sono disponibili diverse opzioni:
 
 * [Database MySQL condiviso ClearDB](/marketplace/partners/cleardb/databases/)
 * [Cluster Premium MySQL ClearDB](/marketplace/partners/cleardb-clusters/cluster/)
 * [Cluster MySQL in esecuzione su una VM di Azure](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
-* [Istanza singola di MySQL in esecuzione su una VM di Azure](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md)
+* [Istanza singola di MySQL in esecuzione su una VM di Azure](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-ClearDB è un servizio di hosting MySQL e gestisce l'infrastruttura di MySQL per l'utente. Quando si esegue il proprio cluster MySQL o un database in una macchina virtuale di Azure è necessario configurare il server MySQL e mantenerlo aggiornato con le patch.
+ClearDB è un servizio di hosting MySQL e gestisce l'infrastruttura di MySQL per l'utente. Quando si esegue il database o il cluster MySQL in una macchina virtuale di Azure, è necessario configurare il server MySQL e mantenerlo aggiornato con le patch.
 
-## È necessaria una carta di credito per l'app Web e il modello MySQL in Azure Marketplace?
+## <a name="do-i-need-a-credit-card-for-the-web-app-mysql-template-in-the-azure-marketplace"></a>È necessaria una carta di credito per l'app Web e il modello MySQL in Azure Marketplace?
 Questo dipende dal tipo di sottoscrizione in uso. Di seguito sono riportati alcuni tipi di sottoscrizione di uso comune:
 
-* [Pagamento a consumo](/offers/ms-azr-0003p/): richiede una carta di credito e quando si acquista un database MySQL a pagamento i costi verranno addebitati sulla carta di credito.
-* [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/): include crediti da usare con i servizi di Microsoft Azure ma non consente l'acquisto di risorse di terze parti. Per acquistare servizi di terze parti o un database MySQL a pagamento, è necessario usare una sottoscrizione abilitata con carta di credito. Per le app Web è possibile creare un database MySQL ClearDB gratuito.
+* [Pagamento in base al consumo](/offers/ms-azr-0003p/): richiede una carta di credito sulla quale addebitare i costi dell'acquisto di un database MySQL a pagamento.
+* [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/): include crediti da usare con i servizi di Microsoft Azure, ma non consente di acquistare risorse di terze parti. Per acquistare servizi di terze parti o un database MySQL a pagamento, è necessario usare una sottoscrizione abilitata con carta di credito. Per le app Web, è possibile creare un database MySQL ClearDB GRATUITO.
 * [Sottoscrizione MSDN](/pricing/member-offers/msdn-benefits/) e **Pagamento in base al consumo per sviluppo/test MSDN**: analogamente alla versione di valutazione gratuita, una sottoscrizione MSDN richiede una carta di credito per l'acquisto di una soluzione a pagamento MySQL da ClearDB.
-* [Contratto Enterprise](/pricing/enterprise-agreement/): ai clienti con contratto Enterprise vengono addebitati ogni trimestre i costi per tutti gli acquisti di Azure Marketplace (di terze parti) in una fattura separata e consolidata. Per eventuali acquisti effettuati in Marketplace, verranno addebitati costi al di fuori dell'impegno monetario. Si noti che al momento Azure Store non è disponibile per i clienti iscritti in Azerbaigian, Croazia, Norvegia e Porto Rico.
+* [Contratto Enterprise](/pricing/enterprise-agreement/): ai clienti con contratto Enterprise vengono addebitati ogni trimestre i costi per tutti gli acquisti (di terze parti) effettuati su Azure Marketplace in una fattura separata e consolidata. I costi degli eventuali acquisti effettuati nel marketplace vengono addebitati al di fuori dell'impegno monetario. Si noti che al momento Azure Store non è disponibile per i clienti iscritti in Azerbaigian, Croazia, Norvegia e Porto Rico. 
 * [DreamSpark](https://www.dreamspark.com/Product/Product.aspx?productid=99): è possibile creare solo database ClearDB gratuiti per le app Web. Non sono previsti limiti al numero di database MySQL ClearDB gratuiti che è possibile creare. Si noti che i database gratuiti non devono essere usati per le app Web di produzione, in quanto il servizio è previsto solo a scopo di valutazione.
 
-## Perché è stato ricevuto un addebito di $ 3,50 per un'app Web + MySQL da Azure Marketplace?
+## <a name="why-was-i-charged-350-for-a-web-app-mysql-from-the-azure-marketplace"></a>Perché è stato ricevuto un addebito di $ 3,50 per un'app Web + MySQL da Azure Marketplace?
 L'opzione predefinita del database è Titan, che ha un costo di $ 3,50. Durante la creazione del database non viene visualizzato il costo e si potrebbe acquistare erroneamente un database che non si voleva acquistare. L'esperienza è in corso di miglioramento, ma finché non è disponibile una soluzione è necessario controllare tutti i piani tariffari selezionati per app Web e database prima di scegliere **Crea** e avviare la distribuzione delle risorse.
 
-## Si esegue MySQL sulla propria macchina virtuale di Azure. È possibile connettere la propria app Web di Azure al database?
-Sì. È possibile connettere la propria app Web al database, purché la VM di Azure abbia accesso remoto all'app Web. Per altre informazioni, vedere l'articolo relativo all'[installazione di MySQL in una macchina virtuale](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md).
+## <a name="i-am-running-mysql-on-my-own-azure-virtual-machine-can-i-connect-my-azure-web-app-to-my-database"></a>Si esegue MySQL sulla propria macchina virtuale di Azure. È possibile connettere la propria app Web di Azure al database?
+Sì. È possibile connettere la propria app Web al database, purché la VM di Azure abbia accesso remoto all'app Web. Per altre informazioni, vedere l'articolo relativo all' [installazione di MySQL in una macchina virtuale](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## In quali paesi sono supportati i cluster MySQL Premium ClearDB?
-I [cluster MySQL Premium ClearDB](/marketplace/partners/cleardb-clusters/cluster/) sono disponibili in tutte le aree di Azure in tutto il mondo a eccezione dell'India, dell'Australia, del Brasile meridionale e della Cina.
+## <a name="in-which-countries-are-cleardb-premium-mysql-clusters-supported"></a>In quali paesi sono supportati i cluster MySQL Premium ClearDB?
+[cluster MySQL Premium ClearDB](/marketplace/partners/cleardb-clusters/cluster/) sono disponibili in tutte le aree di Azure in tutto il mondo a eccezione dell'India, dell'Australia, del Brasile meridionale e della Cina.
 
-## È possibile creare un nuovo cluster prima di creare un database con la soluzione cluster Premium ClearDB?
-No, la creazione di cluster ClearDB vuoti non è supportata. Il portale di Azure consente di creare database in un cluster, che può creare un nuovo cluster contemporaneamente.
+## <a name="can-i-create-a-new-cluster-prior-to-creating-a-database-with-cleardb-premium-cluster-solution"></a>È possibile creare un nuovo cluster prima di creare un database con la soluzione cluster Premium ClearDB?
+No, la creazione di cluster ClearDB vuoti non è supportata. Il Portale di Azure consente di creare database in un cluster, eventualmente creando un nuovo cluster nello stesso momento.
 
-## Si riceve un avviso se si cerca di eliminare un database MySQL ClearDB usato da una delle applicazioni?
+## <a name="will-i-be-warned-if-i-try-to-delete-a-cleardb-mysql-database-that-is-in-use-by-one-of-my-applications"></a>Si riceve un avviso se si cerca di eliminare un database MySQL ClearDB usato da una delle applicazioni?
 No, Azure non invierà alcuna notifica se si elimina un acquisto di Marketplace da cui dipende l'applicazione.
 
-## In quali aree è possibile creare database ClearDB?
+## <a name="which-regions-can-i-create-cleardb-databases-in"></a>In quali aree è possibile creare database ClearDB?
 Azure Marketplace non è disponibile per i clienti iscritti in Azerbaigian, Croazia, Norvegia e Porto Rico. ClearDB non è disponibile in queste aree.
 
-## Quale piano tariffario scegliere per un'app Web e un database di produzione?
-Usare il piano tariffario Basic o superiore per le app Web. Per ClearDB è consigliabile un piano Saturn o Jupiter. Esaminare le funzioni e le limitazioni di ogni piano tariffario sia per le [app Web](/pricing/details/app-service/) che per i [database MySQL ClearDB](/marketplace/partners/cleardb/databases/) per scegliere il più adatto alle proprie esigenze.
+## <a name="what-pricing-tier-should-i-choose-for-a-production-web-app-and-database"></a>Quale piano tariffario scegliere per un'app Web e un database di produzione?
+Usare il piano tariffario Basic o superiore per le app Web. Per ClearDB è consigliabile un piano Saturn o Jupiter. Esaminare le funzioni e le limitazioni di ogni piano tariffario sia per le [App Web](/pricing/details/app-service/) che per i [database MySQL ClearDB](/marketplace/partners/cleardb/databases/) per scegliere il più adatto alle proprie esigenze.
 
-## Come si aggiorna il database ClearDB da un piano a un altro?
-È possibile usare la [procedura guidata di aggiornamento di ClearDB](https://www.cleardb.com/store/azure/upgrade). Non esiste attualmente un percorso di aggiornamento nel portale di Azure.
+## <a name="how-do-i-upgrade-my-cleardb-database-from-one-plan-to-another"></a>Come si aggiorna il database ClearDB da un piano a un altro?
+Nel [Portale di Azure](https://portal.azure.com) è possibile aumentare le prestazioni di un database ClearDB in hosting condiviso. Per altre informazioni, vedere [questo articolo](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/). Attualmente il Portale di Azure non supporta l'aggiornamento dei cluster ClearDB Premium.
 
-## Non è possibile visualizzare il database ClearDB nel portale di Azure?
-Se si crea il database ClearDB tramite Azure Resource Manager o il [nuovo portale di Azure](https://portal.azure.com) , esso non sarà visibile nel [portale di Azure precedente](https://manage.windowsazure.com). Per risolvere questa situazione, collegare manualmente il database all'app Web. Allo stesso modo se si crea un database ClearDB nel [portale precedente](https://manage.windowsazure.com), non sarà possibile visualizzare il database nel [nuovo portale di Azure](https://portal.azure.com). Per quest’ultimo scenario non sono disponibili soluzioni.
+## <a name="i-cant-see-my-cleardb-database-in-azure-portal"></a>Non è possibile visualizzare il database ClearDB nel Portale di Azure?
+Se si crea il database ClearDB tramite Azure Resource Manager o il [nuovo Portale di Azure](https://portal.azure.com), nel [Portale di Azure precedente](https://manage.windowsazure.com) non sarà visibile. Per risolvere questa situazione, collegare manualmente il database all'app Web. Allo stesso modo, se si crea un database ClearDB nel [portale precedente](https://manage.windowsazure.com), non sarà possibile visualizzarlo nel [nuovo Portale di Azure](https://portal.azure.com). Per quest'ultimo scenario non sono disponibili soluzioni.
 
-## Chi è possibile contattare per ottenere aiuto quando il database presenta un problema?
-Per tutti i problemi relativi al database, contattare il [supporto ClearDB](https://www.cleardb.com/developers/help/support). Tenersi pronti a comunicare le informazioni relative alla sottoscrizione di Azure.
+## <a name="who-do-i-contact-for-support-when-my-database-is-down"></a>Chi è possibile contattare per ottenere aiuto quando il database presenta un problema?
+Per tutti i problemi relativi al database, contattare il [supporto ClearDB](https://www.cleardb.com/developers/help/support) . Tenersi pronti a comunicare le informazioni relative alla sottoscrizione di Azure.
 
-## È possibile creare altri utenti dalla soluzione cluster database MySQL ClearDB?
-No. Non è possibile creare altri utenti, ma è possibile creare altri database nel cluster database ClearDB.
+## <a name="can-i-create-additional-users-for-my-cleardb-mysql-database-cluster-solution"></a>È possibile creare altri utenti dalla soluzione cluster database MySQL ClearDB?
+No. Non è possibile creare altri utenti, ma è possibile creare altri database nel cluster database ClearDB.  
 
-## È possibile aggiornare database Basic/Pro in loco in modo allo stesso modo dei piani Planetary nel portale di ClearDB?
-Sì, i database della serie Basic possono essere aggiornati sul posto (da Basic 60 a Basic 500). Quelli della serie Pro possono essere aggiornati sul posto (da Pro 125 a Pro 1000) ad eccezione di Pro 60. L'aggiornamento del database Pro 60 attualmente non è supportato.
+## <a name="can-basicpro-series-databases-be-upgraded-in-place-similar-to-planetary-plans-today-on-cleardb-portal"></a>È possibile aggiornare database Basic/Pro in loco in modo allo stesso modo dei piani Planetary nel portale di ClearDB?
+Sì, i database della serie Basic possono essere aggiornati sul posto (da Basic 60 a Basic 500). Quelli della serie Pro possono essere aggiornati sul posto (da Pro 125 a Pro 1000) ad eccezione di Pro 60. L'aggiornamento del database Pro 60 attualmente non è supportato. 
 
-## Quando si esegue la migrazione delle risorse da una sottoscrizione a un'altra, viene eseguita anche la migrazione del database MySQL ClearDB?
-Quando si esegue la migrazione delle risorse tra le sottoscrizioni, esistono alcune [limitazioni](app-service-web/app-service-move-resources.md). Un database MySQL ClearDB è un servizio di terze parti e quindi non ne viene eseguita la migrazione durante la migrazione delle sottoscrizioni di Azure. Se non si gestisce la migrazione del database MySQL prima della migrazione delle risorse di Azure, i database MySQL ClearDB possono essere disabilitati. Eseguire prima la migrazione manuale dei database e quindi eseguire la migrazione delle sottoscrizioni di Azure per l'app Web.
+## <a name="when-i-migrate-my-resources-from-one-subscription-to-another-does-my-cleardb-mysql-database-get-migrated-as-well"></a>Quando si esegue la migrazione delle risorse da una sottoscrizione a un'altra, viene eseguita anche la migrazione del database MySQL ClearDB?
+Quando si esegue la migrazione delle risorse tra le sottoscrizioni, esistono alcune [limitazioni](app-service-web/app-service-move-resources.md) . Il database MySQL ClearDB è un servizio di terze parti, pertanto non è possibile eseguirne la migrazione durante la migrazione delle sottoscrizioni di Azure. Se non si gestisce la migrazione del database MySQL prima della migrazione delle risorse di Azure, i database MySQL ClearDB possono essere disabilitati. Eseguire prima la migrazione manuale dei database e quindi eseguire la migrazione delle sottoscrizioni di Azure per l'app Web. 
 
-## È possibile acquistare WordPress scalabile con una sottoscrizione con contratto Enterprise?
-Il processo è lo stesso per tutte le sottoscrizioni. Andare in Azure Marketplace nel [portale di Azure](https://portal.azure.com/) e selezionare [WordPress scalabile](https://portal.azure.com/?feature.customportal=false#create/WordPress.ScalableWordPress) per iniziare a creare l'app. WordPress scalabile supporta solo i piani tariffari Saturn e Jupiter di ClearDB e i crediti con contratto Enterprise si applicheranno sia all'applicazione Web in esecuzione con il piano tariffario Standard per app Web che al database MySQL ClearDB (condiviso) a pagamento.[/marketplace/faq/](/marketplace/faq/) Si riceverà un addebito per il proprio contratto Enterprise ogni trimestre per tutti gli acquisti di Store in una fattura separata e consolidata.
-
-## È possibile trasferire un database ClearDB da una sottoscrizione con carta di credito a una sottoscrizione con contratto Enterprise?
-I database ClearDB esistenti usano la carta di credito associata con le sottoscrizioni esistenti. Per usare una sottoscrizione con contratto Enterprise è necessario eseguire la migrazione dei dati in un nuovo database:
+## <a name="can-i-transfer-a-cleardb-database-from-a-credit-card-subscription-to-an-ea-subscription"></a>È possibile trasferire un database ClearDB da una sottoscrizione con carta di credito a una sottoscrizione con contratto Enterprise?
+I database ClearDB esistenti usano la carta di credito associata alle sottoscrizioni esistenti. Per usare una sottoscrizione con contratto Enterprise è necessario eseguire la migrazione dei dati in un nuovo database:
 
 * Acquistare un nuovo database ClearDB con la sottoscrizione con contratto Enterprise.
 * Eseguire la migrazione dei dati nel nuovo database.
 * Aggiornare l'applicazione per usare il nuovo database.
 * Eliminare il vecchio database ClearDB.
 
-Quando si crea una nuova app Web con MySQL (ClearDB) o un database MySQL (ClearDB), la sottoscrizione che si sceglie determina la modalità di pagamento per il servizio. Si noti che con una sottoscrizione con contratto Enterprise non verrà bloccato l'approvvigionamento dei servizi di terze parti, ad esempio ClearDB, nel portale di Azure. Le sottoscrizioni con contratto Enterprise vengono addebitate al di fuori dell'impegno monetario e vengono fatturate su base trimestrale e in modo posticipato. I clienti con contratto Enterprise devono impostare un metodo di pagamento, ad esempio una carta di credito, per pagare i servizi Marketplace di terze parti.
+Quando si crea una nuova app Web con MySQL (ClearDB) o un database MySQL (ClearDB), la sottoscrizione che si sceglie determina la modalità di pagamento per il servizio. Con la sottoscrizione del contratto Enterprise Agreement, l'approvvigionamento dei servizi di terze parti, come ClearDB, nel portale di Azure non verrà bloccato. Le sottoscrizioni con contratto Enterprise vengono addebitate al di fuori dell'impegno monetario e vengono fatturate su base trimestrale e in modo posticipato. Per pagare i servizi Marketplace di terze parti, i clienti con contratto Enterprise Agreement devono impostare un metodo di pagamento, ad esempio una carta di credito.
 
-## Dove è possibile visualizzare gli addebiti per le risorse di ClearDB in una sottoscrizione con contratto Enterprise?
-Per i clienti con contratto Enterprise diretti, gli addebiti di Azure Marketplace sono visibili in Enterprise Portal. Si noti che tutti gli acquisti e l'uso di Marketplace vengono addebitati al di fuori dell'impegno monetario e vengono fatturati su base trimestrale e in modo posticipato. I clienti con contratto Enterprise devono pagare direttamente i provider di servizi di terze parti e possono farlo attivando un metodo di pagamento, ad esempio una carta di credito, con il proprio account contratto Enterprise.
+## <a name="where-can-i-see-the-charges-for-cleardb-resources-in-an-ea-subscription"></a>Dove è possibile visualizzare gli addebiti per le risorse di ClearDB in una sottoscrizione con contratto Enterprise?
+Per i clienti con contratto Enterprise diretti, gli addebiti di Azure Marketplace sono visibili in Enterprise Portal. Si noti che tutti gli acquisti e l'uso di Marketplace vengono addebitati al di fuori dell'impegno monetario e vengono fatturati su base trimestrale e in modo posticipato. I clienti con contratto Enterprise Agreement devono pagare direttamente i provider di servizi di terze parti, attivando un metodo di pagamento, ad esempio una carta di credito, tramite l'account del contratto Enterprise Agreement.
 
 I clienti con contratto Enterprise indiretti possono trovare le proprie sottoscrizioni di Azure Marketplace nella pagina **Gestisci sottoscrizioni** di Enterprise Portal, tuttavia i prezzi sono nascosti. I clienti devono contattare il proprio LSP per informazioni sugli addebiti di Marketplace.
 
-L'accesso ad Azure Marketplace per i servizi di terze parti può essere gestito dagli amministratori della registrazione con contratto Enterprise di Azure. Questi ultimi possono disabilitare o riabilitare l'accesso ad acquisti di terze parti dallo Store nell'opzione per la gestione degli account e delle sottoscrizioni nella sezione Account di Enterprise Portal.
+L'accesso ad Azure Marketplace per i servizi di terze parti può essere gestito dagli amministratori dell'iscrizione ad Azure con contratto Enterprise Agreement. Questi ultimi possono disabilitare o riabilitare l'accesso ad acquisti di terze parti dallo Store nell'opzione per la gestione degli account e delle sottoscrizioni nella sezione Account di Enterprise Portal.
 
-## Chi contattare per domande sulla fatturazione per i servizi ClearDB nella sottoscrizione con contratto Enterprise?
+## <a name="who-do-i-contact-for-questions-about-my-bill-for-cleardb-services-in-my-ea-subscription"></a>Chi contattare per domande sulla fatturazione per i servizi ClearDB nella sottoscrizione con contratto Enterprise?
 Contattare il [supporto per contratti Enterprise](http://aka.ms/AzureEntSupport) per quanto riguarda la fatturazione relativa alla registrazione con contratto Enterprise. Il team di supporto del portale per contratti Enterprise risponderà alla domanda oppure offrirà aiuto per la risoluzione del problema.
 
-## Altre informazioni
+## <a name="more-information"></a>Altre informazioni
 [Domande frequenti su Azure Marketplace](/marketplace/faq/)
 
-<!---HONumber=AcomDC_0330_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

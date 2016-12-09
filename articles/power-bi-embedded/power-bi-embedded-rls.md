@@ -2,12 +2,12 @@
 title: Sicurezza a livello di riga con Power BI Embedded
 description: Informazioni dettagliate sulla sicurezza a livello di riga con Power BI Embedded
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 7936ade5-2c75-435b-8314-ea7ca815867a
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a98185bf44af2271f5ded04c05d3134321db536a
+
 
 ---
 # <a name="row-level-security-with-power-bi-embedded"></a>Sicurezza a livello di riga con Power BI Embedded
@@ -102,6 +106,9 @@ Al termine di queste procedure, se un utente accede all'applicazione per visuali
 ## <a name="see-also"></a>Vedere anche
 [Sicurezza a livello di riga con Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-admin-rls/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

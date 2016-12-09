@@ -1,12 +1,12 @@
 ---
-title: Creare entità ContentKey mediante .NET
-description: Informazioni su come creare chiavi simmetriche che forniscono l'accesso sicuro agli asset.
+title: "Creare entità ContentKey mediante .NET"
+description: Informazioni su come creare chiavi simmetriche che forniscono l&quot;accesso sicuro agli asset.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 225b05e5-7d30-409c-b5b7-3ef0634310c7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c547afd9535eb4764caf6b37d4e38a22f6e88186
+
 
 ---
-# <a name="create-contentkeys-with-.net"></a>Creare entità ContentKey mediante .NET
+# <a name="create-contentkeys-with-net"></a>Creare entità ContentKey mediante .NET
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
@@ -63,7 +67,7 @@ Uno dei valori che è necessario impostare quando si crea una chiave simmetrica 
         EnvelopeEncryption = 4
     }
 
-## <a name="<a-id="envelope_contentkey"></a>create-envelope-type-contentkey"></a><a id="envelope_contentkey"></a>Creare un'entità ContentKey di tipo envelope
+## <a name="a-idenvelopecontentkeyacreate-envelope-type-contentkey"></a><a id="envelope_contentkey"></a>Creare un'entità ContentKey di tipo envelope
 Il seguente frammento di codice crea una chiave simmetrica con tipo di crittografia envelope. Associa quindi la chiave all'asset specificato.
 
     static public IContentKey CreateEnvelopeTypeContentKey(IAsset asset)
@@ -100,7 +104,7 @@ chiamare
 
 
 
-## <a name="<a-id="common_contentkey"></a>create-common-type-contentkey"></a><a id="common_contentkey"></a>Creare un'entità ContentKey di tipo common
+## <a name="a-idcommoncontentkeyacreate-common-type-contentkey"></a><a id="common_contentkey"></a>Creare un'entità ContentKey di tipo common
 Il seguente frammento di codice crea una chiave simmetrica con tipo di crittografia common. Associa quindi la chiave all'asset specificato.
 
     static public IContentKey CreateCommonTypeContentKey(IAsset asset)
@@ -144,6 +148,9 @@ chiamare
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

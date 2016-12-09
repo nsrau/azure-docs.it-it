@@ -1,22 +1,26 @@
 ---
-title: Come configurare un servizio cloud (portale) | Microsoft Docs
-description: Informazioni su come configurare un servizio cloud in Azure. Informazioni su come aggiornare la configurazione del servizio cloud e configurare l'accesso remoto per le istanze del ruolo. Questi esempi utilizzano il portale di Azure.
+title: Come configurare un servizio cloud (portale) | Documentazione Microsoft
+description: Informazioni su come configurare un servizio cloud in Azure. Informazioni su come aggiornare la configurazione del servizio cloud e configurare l&quot;accesso remoto per le istanze del ruolo. Questi esempi utilizzano il portale di Azure.
 services: cloud-services
-documentationcenter: ''
+documentationcenter: 
 author: Thraka
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 7308f3c0-825e-499d-bfa5-c60f86371921
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2016
+ms.date: 10/11/2016
 ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a8d681490c174d73361633a9e0e63208eea993e6
+
 
 ---
-# Come configurare i servizi cloud
+# <a name="how-to-configure-cloud-services"></a>Come configurare i servizi cloud
 > [!div class="op_single_selector"]
 > * [Portale di Azure](cloud-services-how-to-configure-portal.md)
 > * [Portale di Azure classico](cloud-services-how-to-configure.md)
@@ -29,12 +33,12 @@ ms.author: adegeo
 
 Azure può garantire il 99,95 di disponibilità del servizio durante gli aggiornamenti della configurazione solo se si dispone di almeno due istanze del ruolo per ogni ruolo. In questo modo, una macchina virtuale può elaborare le richieste dei client mentre l'altra viene aggiornata. Per altre informazioni, vedere [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/).
 
-## Modificare un servizio cloud
-Dopo aver aperto il [portale di Azure](https://portal.azure.com/), passare al servizio cloud. Da qui è possibile gestire molti aspetti.
+## <a name="change-a-cloud-service"></a>Modificare un servizio cloud
+Dopo aver aperto il [portale di Azure](https://portal.azure.com/), passare al servizio cloud. Da qui è possibile gestire molti aspetti. 
 
 ![Pagina Impostazioni](./media/cloud-services-how-to-configure-portal/cloud-service.png)
 
-I collegamenti **Impostazioni** o **Tutte le impostazioni** consentiranno di accedere al pannello **Impostazioni** nel quale è possibile modificare le **proprietà** e la **configurazione**, gestire i **certificati**, configurare le **regole di avviso** e gestire gli **utenti** che hanno accesso a questo servizio cloud.
+I collegamenti **Impostazioni** o **Tutte le impostazioni** consentono di accedere al pannello **Impostazioni** nel quale è possibile modificare le **proprietà** e la **configurazione**, gestire i **certificati**, configurare le **regole di avviso** e gestire gli **utenti** che hanno accesso a questo servizio cloud.
 
 ![Pannello delle impostazioni del servizio cloud di Azure](./media/cloud-services-how-to-configure-portal/cs-settings-blade.png)
 
@@ -43,8 +47,8 @@ I collegamenti **Impostazioni** o **Tutte le impostazioni** consentiranno di acc
 > 
 > 
 
-## Monitoraggio
-È possibile aggiungere avvisi al servizio cloud. Fare clic su **Impostazioni** > **Regole di avviso** > **Aggiungi avviso**.
+## <a name="monitoring"></a>Monitoraggio
+È possibile aggiungere avvisi al servizio cloud. Fare clic su **Impostazioni** > **Regole di avviso** > **Aggiungi avviso**. 
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
@@ -54,19 +58,19 @@ Da qui è possibile configurare un avviso. La casella di riepilogo a discesa **M
 * Scrittura disco
 * Rete in ingresso
 * Rete in uscita
-* Percentuale CPU
+* Percentuale CPU 
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
-### Configurazione del monitoraggio da un riquadro della metrica
-Anziché usare **Impostazioni** > **Regole di avviso** è possibile fare clic su uno dei riquadri metrici nella sezione **Monitoraggio** del pannello del **servizio cloud**.
+### <a name="configure-monitoring-from-a-metric-tile"></a>Configurazione del monitoraggio da un riquadro della metrica
+Invece di usare **Impostazioni** > **Regole di avviso** è possibile fare clic su uno dei riquadri metrici nella sezione **Monitoraggio** del pannello del **servizio cloud**.
 
 ![Monitoraggio del servizio cloud](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 
 Da qui è possibile personalizzare il grafico usato con il riquadro oppure aggiungere una regola di avviso.
 
-## Riavviare il computer, ricreare l'immagine o creare una connessione Desktop remoto
-In questo momento non è possibile configurare Desktop remoto con il **portale di Azure**. È tuttavia possibile configurarlo con il [portale di Azure classico](cloud-services-role-enable-remote-desktop.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md) o [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
+## <a name="reboot-reimage-or-remote-desktop"></a>Riavviare il computer, ricreare l'immagine o creare una connessione Desktop remoto
+In questo momento non è possibile configurare Desktop remoto con il **portale di Azure**. È tuttavia possibile configurarlo con il [portale di Azure classico](cloud-services-role-enable-remote-desktop.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md) o [Visual Studio](../vs-azure-tools-remote-desktop-roles.md). 
 
 Per iniziare, fare clic sull'istanza del servizio cloud.
 
@@ -76,27 +80,32 @@ Dal pannello visualizzato è possibile avviare una connessione Desktop remoto, r
 
 ![Pulsanti di istanza del servizio cloud](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
 
-## Riconfigurare il file con estensione cscfg
-Potrebbe essere necessario riconfigurare il servizio cloud con il file di [configurazione del servizio (cscfg)](cloud-services-model-and-package.md#cscfg). È prima necessario scaricare il file con estensione cscfg, modificarlo, quindi caricarlo.
+## <a name="reconfigure-your-cscfg"></a>Riconfigurare il file con estensione cscfg
+Potrebbe essere necessario riconfigurare il servizio cloud con il file di [configurazione del servizio (cscfg)](cloud-services-model-and-package.md#cscfg) . È prima necessario scaricare il file con estensione cscfg, modificarlo, quindi caricarlo.
 
 1. Fare clic sull'icona **Impostazioni** o sul collegamento **Tutte le impostazioni** per aprire il pannello **Impostazioni**.
    
     ![Pagina Impostazioni](./media/cloud-services-how-to-configure-portal/cloud-service.png)
-2. Fare clic sull’elemento **Configurazione**.
+2. Fare clic sull’elemento **Configurazione** .
    
     ![Blade Configurazione](./media/cloud-services-how-to-configure-portal/cs-settings-config.png)
-3. Fare clic sul pulsante **Download**.
+3. Fare clic sul pulsante **Download** .
    
     ![Download](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
 4. Dopo aver aggiornato il file di configurazione del servizio, caricare e applicare gli aggiornamenti della configurazione:
    
-    ![Caricamento](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
+    ![Caricamento](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png) 
 5. Selezionare il file con estensione cscfg e fare clic su **OK**.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * Procedura [distribuire un servizio cloud](cloud-services-how-to-create-deploy-portal.md).
 * Configurare un [nome di dominio personalizzato](cloud-services-custom-domain-name-portal.md).
 * [Gestire il servizio cloud](cloud-services-how-to-manage-portal.md).
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

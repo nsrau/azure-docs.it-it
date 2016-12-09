@@ -1,22 +1,26 @@
 ---
 title: Riproduzione di contenuti | Microsoft Docs
-description: Questo argomento elenca i lettori esistenti che è possibile usare per la riproduzione dei propri contenuti.
+description: "Questo argomento elenca i lettori esistenti che è possibile usare per la riproduzione dei propri contenuti."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 7e9fcf89-0fb6-4fa4-96cb-666320684d69
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 10/12/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1f7e9b0c1a3bfc53153900ed353ba8805fff075e
+
 
 ---
-# Riproduzione di contenuti con i lettori esistenti
+# <a name="playing-your-content-with-existing-players"></a>Riproduzione di contenuti con i lettori esistenti
 Servizi multimediali di Azure supporta molti formati di streaming noti, ad esempio Smooth Streaming, HTTP Live Streaming (HLS) e MPEG-DASH. Questo argomento descrive i lettori esistenti che possono essere usati per testare i propri flussi.
 
 > [!NOTE]
@@ -24,18 +28,18 @@ Servizi multimediali di Azure supporta molti formati di streaming noti, ad esemp
 > 
 > 
 
-### Lettore di contenuti di Servizi multimediali del portale di Azure classico
+### <a name="the-azure-portal-media-services-content-player"></a>Lettore di contenuti di Servizi multimediali del portale di Azure
 Il portale di **Azure** fornisce un lettore di contenuti che può essere usato per testare il proprio video.
 
 Fare clic sul video desiderato (assicurarsi che sia stato [pubblicato](media-services-portal-publish.md)) e fare clic sul pulsante **Play** nella parte inferiore del portale.
 
 Considerazioni applicabili:
 
-* Il **LETTORE DI CONTENUTI DI SERVIZI MULTIMEDIALI** esegue la riproduzione dall'endpoint di streaming predefinito. Se si vuole eseguire la riproduzione da un endpoint di streaming diverso, usare un altro lettore, ad esempio [Lettore multimediale di Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* Il **LETTORE DI CONTENUTI DI SERVIZI MULTIMEDIALI** esegue la riproduzione dall'endpoint di streaming predefinito. Se si vuole eseguire la riproduzione da un endpoint di streaming diverso, usare un altro lettore, ad esempio [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 ![AMSPlayer][AMSPlayer]
 
-### Azure Media Player
+### <a name="azure-media-player"></a>Azure Media Player
 Usare il [lettore multimediale di Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html) per riprodurre i contenuti (in chiaro o protetti) in uno dei seguenti formati:
 
 * Smooth Streaming
@@ -43,37 +47,41 @@ Usare il [lettore multimediale di Azure](http://amsplayer.azurewebsites.net/azur
 * HLS
 * MP4 progressivo
 
-### Flash Player
-#### Con crittografia AES con token
+### <a name="flash-player"></a>Flash Player
+#### <a name="aes-encrypted-with-token"></a>Con crittografia AES con token
 [http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
 
-### Lettori Silverlight
-#### Monitoraggio
+### <a name="silverlight-players"></a>Lettori Silverlight
+#### <a name="monitoring"></a>Monitoraggio
 [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor)
 
-#### PlayReady con token
+#### <a name="playready-with-token"></a>PlayReady con token
 [http://sltoken.azurewebsites.net](http://sltoken.azurewebsites.net)
 
-### Lettori DASH
+### <a name="dash-players"></a>Lettori DASH
 [http://dashplayer.azurewebsites.net](http://dashplayer.azurewebsites.net)
 
 [http://dashif.org](http://dashif.org)
 
-### Altri
+### <a name="other"></a>Altri
 Per testare gli URL HLS è inoltre possibile usare:
 
 * **Safari** in un dispositivo iOS o
 * **Lettore HLS 3ivx** in un dispositivo Windows.
 
-## Sviluppo di lettori video
+## <a name="developing-video-players"></a>Sviluppo di lettori video
 Per informazioni su come sviluppare i propri lettori, vedere [Sviluppo di lettori di contenuti video](media-services-develop-video-players.md)
 
-## Percorsi di apprendimento di Servizi multimediali
+## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

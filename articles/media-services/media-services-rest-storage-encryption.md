@@ -2,11 +2,11 @@
 title: Crittografare i contenuti con la crittografia di archiviazione tramite API REST di AMS
 description: Crittografare i contenuti con la crittografia di archiviazione tramite API REST di AMS.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a0a79f3d-76a1-4994-9202-59b91a2230e0
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8b0758e1fa5f12dc49d8548b733aefdf1f43d6f0
+
 
 ---
 # <a name="encrypting-your-content-with-storage-encryption-using-ams-rest-api"></a>Crittografare i contenuti con la crittografia di archiviazione tramite API REST di AMS
@@ -92,7 +96,7 @@ Di seguito sono descritti i passaggi generali per la generazione di chiavi simme
 
     Per la crittografia di archiviazione, nel corpo della richiesta devono essere incluse le proprietà seguenti.
 
-    Proprietà del corpo della richiesta   | Descrizione
+    Proprietà del corpo della richiesta    | Descrizione
     ---|---
     ID | ID della chiave simmetrica generato dall'utente con il formato seguente: "nb:kid:UUID:<NEW GUID>".
     ContentKeyType | Tipo di chiave simmetrica, ovvero un numero intero per la chiave simmetrica. Per la crittografia di archiviazione viene passato il valore 1.
@@ -364,6 +368,6 @@ Dopo avere caricato il file multimediale digitale in un contenitore BLOB, è nec
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

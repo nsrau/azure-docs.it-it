@@ -1,12 +1,12 @@
 ---
-title: Cosa fare in caso di un'interruzione di servizio di Azure che influisce sulle macchine virtuali di Azure | Microsoft Docs
-description: Informazioni su cosa fare in caso di un'interruzione di servizio di Azure che influisce sulle macchine virtuali di Azure.
+title: Cosa fare in caso di un&quot;interruzione di servizio di Azure che influisce sulle macchine virtuali di Azure | Microsoft Docs
+description: Informazioni su cosa fare in caso di un&quot;interruzione di servizio di Azure che influisce sulle macchine virtuali di Azure.
 services: virtual-machines
-documentationcenter: ''
+documentationcenter: 
 author: kmouss
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 65272148-ff06-4bce-91f1-851d706d4d40
 ms.service: virtual-machines
 ms.workload: virtual-machines
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: kmouss;aglick
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e1c0a6c0b375d9f1fbc331736f6bed73c2232048
+
 
 ---
-# Cosa fare in caso di un'interruzione di servizio di Azure che influisce sulle macchine virtuali di Azure
+# <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-virtual-machines"></a>Cosa fare in caso di un'interruzione di servizio di Azure che influisce sulle macchine virtuali di Azure
 Microsoft si impegna costantemente per garantire agli utenti la disponibilità dei servizi in base alle esigenze. Eventi imprevisti possono, tuttavia, causare interruzioni non pianificate dei servizi.
 
 La connettività e la disponibilità dei servizi Microsoft sono garantite da un contratto di servizio. I contratti di servizio relativi ai singoli servizi di Azure sono disponibili alla pagina [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/).
@@ -32,7 +36,7 @@ Questo articolo illustra uno scenario reale di ripristino di emergenza, quando i
 
 Per semplificare la gestione di questi rari avvenimenti, di seguito vengono fornite indicazioni per le macchine virtuali di Azure in caso di interruzione del servizio nell'intera area in cui è distribuita la macchina virtuale di Azure.
 
-## Opzione 1: Attendere il ripristino
+## <a name="option-1-wait-for-recovery"></a>Opzione 1: Attendere il ripristino
 In tal caso, non è necessaria alcuna azione da parte dell'utente. Si sta lavorando per ripristinare la disponibilità dei servizi. È possibile vedere lo stato corrente del servizio nel [dashboard per l'integrità dei servizi di Azure](https://azure.microsoft.com/status/).
 
 > [!NOTE]
@@ -40,21 +44,21 @@ In tal caso, non è necessaria alcuna azione da parte dell'utente. Si sta lavora
 > 
 > 
 
-Per i clienti che vogliono avere accesso immediato alle macchine virtuali, sono disponibili le due opzioni seguenti.
+Per i clienti che vogliono avere accesso immediato alle macchine virtuali, sono disponibili le due opzioni seguenti.  
 
 > [!NOTE]
-> Tenere presente che con entrambe le opzioni potrebbe verificarsi una perdita parziale dei dati.
+> Tenere presente che con entrambe le opzioni potrebbe verificarsi una perdita parziale dei dati.     
 > 
 > 
 
-## Opzione 2: Ripristinare una macchina virtuale da un backup
+## <a name="option-2-restore-a-vm-from-a-backup"></a>Opzione 2: Ripristinare una macchina virtuale da un backup
 I clienti che hanno configurato un backup delle VM possono ripristinare la macchina virtuale dal punto di backup e ripristino.
 
 Per ripristinare una nuova macchina virtuale da Backup di Azure, vedere [Ripristinare le macchine virtuali in Azure](../backup/backup-azure-restore-vms.md).
 
 Per pianificare l'infrastruttura di backup delle macchine virtuali di Azure, vedere [Pianificare l'infrastruttura di backup delle macchine virtuali in Azure](../backup/backup-azure-vms-introduction.md).
 
-## Opzione 3: Avviare un failover con Azure Site Recovery
+## <a name="option-3-initiate-a-failover-by-using-azure-site-recovery"></a>Opzione 3: Avviare un failover con Azure Site Recovery
 Se è stato configurato Azure Site Recovery per l'uso con le macchine virtuali di Azure colpite dall'interruzione, è possibile ripristinare le VM dalle relative repliche. Le repliche possono risiedere in Azure o in locale. In tal caso, è possibile creare una nuova VM dalla replica esistente. Per ripristinare le VM da una replica di Azure Site Recovery, vedere [Eseguire la migrazione delle macchine virtuali IaaS di Azure tra aree di Azure con Azure Site Recovery](../site-recovery/site-recovery-migrate-azure-to-azure.md).
 
 > [!NOTE]
@@ -62,7 +66,7 @@ Se è stato configurato Azure Site Recovery per l'uso con le macchine virtuali d
 > 
 > 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su come implementare una strategia di disponibilità elevata e ripristino di emergenza, vedere [Ripristino di emergenza e disponibilità elevata per le applicazioni basate su Microsoft Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
 Per sviluppare una conoscenza tecnica approfondita delle funzionalità della piattaforma cloud, vedere [Indicazioni tecniche sulla resilienza di Azure](../resiliency/resiliency-technical-guidance.md).
@@ -73,4 +77,9 @@ Per informazioni su come usare Azure Site Recovery per orchestrare e automatizza
 
 Per chiarimenti sulle istruzioni o per chiedere a Microsoft di eseguire le operazioni per proprio conto, contattare il [supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

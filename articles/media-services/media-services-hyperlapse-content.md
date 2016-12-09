@@ -1,12 +1,12 @@
 ---
 title: File multimediali di Hyperlapse con Azure Media Hyperlapse | Microsoft Docs
-description: Azure Media Hyperlapse crea fluidi video in time-lapse da contenuti registrati in prima persona o da fotocamere d'azione. Questo argomento illustra come usare Media Indexer.
+description: Azure Media Hyperlapse crea fluidi video in time-lapse da contenuti registrati in prima persona o da fotocamere d&quot;azione. Questo argomento illustra come usare Media Indexer.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: asolanki
 manager: johndeu
-editor: ''
-
+editor: 
+ms.assetid: 37d54db6-9cf3-4ae9-b3c6-0d29c744e965
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,25 +14,29 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: adsolank
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: eb99c9139c71221a75d5d4c7db0407a39a8fc39f
+
 
 ---
-# File multimediali di Hyperlapse con Azure Media Hyperlapse
-Azure Media Hyperlapse è un processore di contenuti multimediali che crea fluidi video in time-lapse da contenuti registrati in prima persona o da fotocamere d'azione. Elemento di pari livello basato sul cloud rispetto a [Hyperlapse Pro desktop per Microsoft Research e Hyperlapse Mobile basato su telefono](http://aka.ms/hyperlapse), Microsoft Hyperlapse per Servizi multimediali di Azure usa l'elevata scalabilità della piattaforma di elaborazione multimediale di Servizi multimediali di Azure per scalare orizzontalmente e parallelizzare l'elaborazione in blocco di Hyperlapse.
+# <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>File multimediali di Hyperlapse con Azure Media Hyperlapse
+Azure Media Hyperlapse è un processore di contenuti multimediali che crea fluidi video in time-lapse da contenuti registrati in prima persona o da fotocamere d'azione.  Elemento di pari livello basato sul cloud rispetto a [Hyperlapse Pro desktop per Microsoft Research e Hyperlapse Mobile basato su telefono](http://aka.ms/hyperlapse), Microsoft Hyperlapse per Servizi multimediali di Azure usa l'elevata scalabilità della piattaforma di elaborazione multimediale di Servizi multimediali di Azure per scalare orizzontalmente e parallelizzare l'elaborazione in blocco di Hyperlapse.
 
 > [!IMPORTANT]
-> Microsoft Hyperlapse è progettato per un utilizzo ottimale con contenuti in prima persona registrati con una fotocamera in movimento. Sebbene siano supportate anche riprese con telecamere fisse, le prestazioni e la qualità del processore di contenuti multimediali Azure Media Hyperlapse non può essere garantita con tipi di contenuti diversi. Per altre informazioni su Microsoft Hyperlapse per Servizi multimediali di Azure e vedere alcuni video di esempio, consultare il [post di blog introduttivo](http://aka.ms/azurehyperlapseblog) dall'anteprima pubblica.
+> Microsoft Hyperlapse è progettato per un utilizzo ottimale con contenuti in prima persona registrati con una fotocamera in movimento.  Sebbene siano supportate anche riprese con telecamere fisse, le prestazioni e la qualità del processore di contenuti multimediali Azure Media Hyperlapse non può essere garantita con tipi di contenuti diversi.  Per altre informazioni su Microsoft Hyperlapse per Servizi multimediali di Azure e vedere alcuni video di esempio, consultare il [post di blog introduttivo](http://aka.ms/azurehyperlapseblog) dall'anteprima pubblica.
 > 
 > 
 
-Un processo di Azure Media Hyperlapse accetta come input un file di asset MP4, MOV o WMV, insieme a un file di configurazione che specifica i fotogrammi del video da rendere in time-lapse e a quale velocità (ad esempio, i primi 10.000 fotogrammi a velocità doppia). L'output è costituito da un rendering stabilizzato e in time-lapse del video di input.
+Un processo di Azure Media Hyperlapse accetta come input un file di asset MP4, MOV o WMV, insieme a un file di configurazione che specifica i fotogrammi del video da rendere in time-lapse e a quale velocità (ad esempio, i primi 10.000 fotogrammi a velocità doppia).  L'output è costituito da un rendering stabilizzato e in time-lapse del video di input.
 
 Per gli aggiornamenti più recenti relativi ad Azure Media Hyperlapse, vedere i [blog di Servizi multimediali](https://azure.microsoft.com/blog/topics/media-services/).
 
-## Eseguire Hyperlapse su un asset
-In primo luogo, è necessario caricare il file di input desiderato in Servizi multimediali di Azure. Per altre informazioni sui concetti inerenti al caricamento e alla gestione dei contenuti, leggere l'[articolo sulla gestione dei contenuti](media-services-portal-vod-get-started.md).
+## <a name="hyperlapse-an-asset"></a>Eseguire Hyperlapse su un asset
+In primo luogo, è necessario caricare il file di input desiderato in Servizi multimediali di Azure.  Per altre informazioni sui concetti inerenti al caricamento e alla gestione dei contenuti, leggere l' [articolo sulla gestione dei contenuti](media-services-portal-vod-get-started.md).
 
-### <a id="configuration"></a>Set di impostazioni di configurazione per Hyperlapse
-Dopo aver caricato il contenuto nel proprio account di Servizi multimediali, è necessario costruire il set di impostazioni di configurazione. La tabella seguente illustra i campi specificati dall'utente:
+### <a name="a-idconfigurationaconfiguration-preset-for-hyperlapse"></a><a id="configuration"></a>Set di impostazioni di configurazione per Hyperlapse
+Dopo aver caricato il contenuto nel proprio account di Servizi multimediali, è necessario costruire il set di impostazioni di configurazione.  La tabella seguente illustra i campi specificati dall'utente:
 
 | Campo | Descrizione |
 | --- | --- |
@@ -70,11 +74,11 @@ Di seguito è riportato l'esempio di un file di configurazione conforme in XML e
         }
     }
 
-### <a id="sample_code"></a> Hyperlapse Microsoft con il SDK di .NET AMS
+### <a name="a-idsamplecodea-microsoft-hyperlapse-with-the-ams-net-sdk"></a><a id="sample_code"></a> Hyperlapse Microsoft con il SDK di .NET AMS
 Il metodo seguente carica un file multimediale come asset e crea un processo mediante il processore di contenuti multimediali Azure Media Hyperlapse.
 
 > [!NOTE]
-> Nell'ambito dovrebbe essere già presente un CloudMediaContext con il nome "contesto" relativo al codice da usare. Per altre informazioni, leggere l'[articolo sulla gestione dei contenuti](media-services-dotnet-get-started.md).
+> Nell'ambito dovrebbe essere già presente un CloudMediaContext con il nome "contesto" relativo al codice da usare.  Per altre informazioni, leggere l' [articolo sulla gestione dei contenuti](media-services-dotnet-get-started.md).
 > 
 > [!NOTE]
 > L'argomento stringa "hyperConfig" deve essere un set di impostazioni di configurazione conforme scritto in JSON o XML, come descritto in precedenza.
@@ -97,7 +101,7 @@ job.Submit();
 
 // Create progress printing and querying tasks Task progressPrintTask = new Task(() => {
 
-IJob jobQuery = null; do { var progressContext = context; jobQuery = progressContext.Jobs .Where(j => j.Id == job.Id) .First(); Console.WriteLine(string.Format("{0}\\t{1}\\t{2}", DateTime.Now, jobQuery.State, jobQuery.Tasks[0].Progress)); Thread.Sleep(10000); } while (jobQuery.State != JobState.Finished && jobQuery.State != JobState.Error && jobQuery.State != JobState.Canceled); }); progressPrintTask.Start();
+IJob jobQuery = null; do { var progressContext = context; jobQuery = progressContext.Jobs .Where(j => j.Id == job.Id) .First(); Console.WriteLine(string.Format("{0}\t{1}\t{2}", DateTime.Now, jobQuery.State, jobQuery.Tasks[0].Progress)); Thread.Sleep(10000); } while (jobQuery.State != JobState.Finished && jobQuery.State != JobState.Error && jobQuery.State != JobState.Canceled); }); progressPrintTask.Start();
 
             Task progressJobTask = job.GetExecutionProgressTask(
                                                  CancellationToken.None);
@@ -153,20 +157,25 @@ IJob jobQuery = null; do { var progressContext = context; jobQuery = progressCon
         return processor;
     }
 
-### <a id="file_types"></a>Tipi di file supportati
+### <a name="a-idfiletypesasupported-file-types"></a><a id="file_types"></a>Tipi di file supportati
 * MP4
 * MOV
 * WMV
 
-## Percorsi di apprendimento di Servizi multimediali
+## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## Collegamenti correlati
+## <a name="related-links"></a>Collegamenti correlati
 [Panoramica di Analisi servizi multimediali di Azure](media-services-analytics-overview.md)
 
 [Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

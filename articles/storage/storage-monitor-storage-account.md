@@ -2,11 +2,11 @@
 title: Come monitorare un account di archiviazione | Microsoft Docs
 description: Informazioni su come monitorare un account di archiviazione in Azure usando il portale di Azure.
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: robinsh
 manager: carmonm
 editor: tysonn
-
+ms.assetid: b83cba7b-4627-4ba7-b5d0-f1039fe30e78
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c0506fd6745c9ab04f10b60936315901ed35edbc
+
 
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorare un account di archiviazione nel portale di Azure
@@ -21,7 +25,7 @@ ms.author: robinsh
 È possibile monitorare l'account di archiviazione nel [portale di Azure](https://portal.azure.com). Quando si configura l'account di archiviazione per il monitoraggio attraverso il portale, Archiviazione di Azure usa [Analisi archiviazione](http://msdn.microsoft.com/library/azure/hh343270.aspx) per tenere traccia delle metriche relative all'account e registrare i dati delle richieste.
 
 > [!NOTE]
-> All'esame dei dati di monitoraggio nel [portale di Azure](https://portal.azure.com)sono associati costi aggiuntivi. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Analisi archiviazione e fatturazione</a>. <br />
+> All'esame dei dati di monitoraggio nel [Portale di Azure](https://portal.azure.com) sono associati costi aggiuntivi. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Analisi archiviazione e fatturazione</a>. <br />
 > 
 > L’archiviazione file di Azure attualmente supporta la metrica di analisi di archiviazione, ma non supporta ancora l'accesso. È possibile abilitare la metrica per l'archiviazione file di Azure tramite il [portale di Azure](https://portal.azure.com).
 > 
@@ -31,7 +35,7 @@ ms.author: robinsh
 > 
 > 
 
-## <a name="how-to:-configure-monitoring-for-a-storage-account"></a>Procedura: Configurare il monitoraggio per un account di archiviazione
+## <a name="how-to-configure-monitoring-for-a-storage-account"></a>Procedura: Configurare il monitoraggio per un account di archiviazione
 1. Nel [portale di Azure](https://portal.azure.com)fare clic su **Storage**e quindi sul nome dell'account di archiviazione per aprire il dashboard.
 2. Fare clic su **Configure** e scorrere verso il basso fino alle impostazioni di **monitoraggio** per i servizi BLOB, di tabella e di accodamento.
    
@@ -58,7 +62,7 @@ Dopo aver impostato i livelli di monitoraggio e i criteri di conservazione, è p
 
 Le metriche vengono archiviate nell'account di archiviazione in quattro tabelle denominate $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue e $MetricsCapacityBlob. Per ulteriori informazioni, vedere [Informazioni sulle metriche di Analisi archiviazione](http://msdn.microsoft.com/library/azure/hh343258.aspx).
 
-## <a name="how-to:-customize-the-dashboard-for-monitoring"></a>Procedura: Personalizzare la dashboard per il monitoraggio
+## <a name="how-to-customize-the-dashboard-for-monitoring"></a>Procedura: Personalizzare la dashboard per il monitoraggio
 Nel dashboard è possibile scegliere fino a sei metriche da tracciare sul grafico tra le nove disponibili. Per ogni servizio (BLOB, tabelle e accodamento) sono disponibili le metriche Availability, Success Percentage e Total Requests. Le metriche disponibili nel dashboard sono identiche per il monitoraggio minimo o dettagliato.
 
 1. Nel [portale di Azure](https://portal.azure.com)fare clic su **Archiviazione**e quindi sul nome dell'account di archiviazione per aprire il dashboard.
@@ -71,7 +75,7 @@ Nel dashboard è possibile scegliere fino a sei metriche da tracciare sul grafic
 3. Per impostazione predefinita, nel grafico vengono mostrate le tendenze e per ogni metrica viene visualizzato solo il valore corrente, ossia l'opzione **Relative** nella parte superiore del grafico. Per visualizzare un asse Y in modo da vedere i valori assoluti, selezionare **Absolute**.
 4. Per modificare l'intervallo di tempo visualizzato sul grafico delle metriche, selezionare 6 ore, 24 ore, o 7 giorni nella parte superiore del grafico.
 
-## <a name="how-to:-customize-the-monitor-page"></a>Procedura: Personalizzare la pagina Monitor
+## <a name="how-to-customize-the-monitor-page"></a>Procedura: Personalizzare la pagina Monitor
 Nella pagina **Monitor** è possibile visualizzare il set completo di metriche dell'account di archiviazione.
 
 * Se per l'account di archiviazione è configurato il monitoraggio minimo, le metriche come ingresso/uscita, disponibilità, latenza e percentuali di successo sono aggregate per i servizi BLOB, tabelle e accodamento.
@@ -79,7 +83,7 @@ Nella pagina **Monitor** è possibile visualizzare il set completo di metriche d
 
 Eseguire le procedure seguenti per scegliere quali metriche di archiviazione visualizzare nel grafico e nella tabella presenti nella pagina **Monitor** . Queste impostazioni non influiscono sulle operazioni di raccolta, aggregazione e archiviazione dei dati di monitoraggio nell'account di archiviazione.
 
-## <a name="how-to:-add-metrics-to-the-metrics-table"></a>Procedura: Aggiungere metriche alla relativa tabella
+## <a name="how-to-add-metrics-to-the-metrics-table"></a>Procedura: Aggiungere metriche alla relativa tabella
 1. Nel [portale di Azure](https://portal.azure.com)fare clic su **Archiviazione**e quindi sul nome dell'account di archiviazione per aprire il dashboard.
 2. Fare clic su **Monitor**.
    
@@ -109,12 +113,12 @@ Eseguire le procedure seguenti per scegliere quali metriche di archiviazione vis
    
     ![DeleteMetric](./media/storage-monitor-storage-account/Storage_DeleteMetric.png)
 
-## <a name="how-to:-customize-the-metrics-chart-on-the-monitor-page"></a>Procedura: Personalizzare il grafico delle metriche nella pagina Monitor
+## <a name="how-to-customize-the-metrics-chart-on-the-monitor-page"></a>Procedura: Personalizzare il grafico delle metriche nella pagina Monitor
 1. Nella pagina **Monitor** relativa all'account di archiviazione selezionare fine a 6 metriche nella tabella da tracciare sul grafico. Per selezionare una metrica, fare clic sulla casella di controllo a sinistra. Per rimuovere una metrica dal grafico, deselezionarla.
 2. Per passare dalla visualizzazione di valori relativi (solo il valore finale) alla visualizzazione di valori assoluti (asse Y) e viceversa, selezionare **Relative** o **Absolute** nella parte superiore del grafico.
 3. Per modificare l'intervallo di tempo visualizzato nel grafico delle metriche, selezionare **6 ore**, **24 ore** o **7 giorni ** nella parte superiore del grafico.
 
-## <a name="how-to:-configure-logging"></a>Procedura: Configurare la registrazione
+## <a name="how-to-configure-logging"></a>Procedura: Configurare la registrazione
 Per ogni servizio di archiviazione disponibile con l'account di archiviazione (BLOB, tabelle e accodamento) è possibile salvare log di diagnostica per le richieste di lettura, di scrittura e/o di eliminazione, nonché impostare i singoli criteri di conservazione dei dati.
 
 1. Nel [portale di Azure](https://portal.azure.com)fare clic su **Archiviazione**e quindi sul nome dell'account di archiviazione per aprire il dashboard.
@@ -129,6 +133,9 @@ Per ogni servizio di archiviazione disponibile con l'account di archiviazione (B
 
 I log di diagnostica vengono salvati in un contenitore BLOB denominato $logs nell'account di archiviazione. Per informazioni sull'accesso al contenitore $logs, vedere [Informazioni sulla registrazione di Analisi archiviazione](http://msdn.microsoft.com/library/azure/hh343262.aspx).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

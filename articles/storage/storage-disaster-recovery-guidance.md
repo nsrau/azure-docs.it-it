@@ -6,7 +6,7 @@ documentationcenter: .net
 author: robinsh
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 8f040b0f-8926-4831-ac07-79f646f31926
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 14997080496adfd363fee249c858ed9a0b553066
+
 
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Cosa fare se si verifica un'interruzione di Archiviazione di Azure
@@ -34,10 +38,10 @@ Il modo consigliato per determinare lo stato dei servizi di Azure consiste nel s
 ## <a name="what-to-do-if-a-storage-outage-occurs"></a>Cosa fare se si verifica un'interruzione dell'archiviazione
 Se uno o più servizi di archiviazione sono temporaneamente non disponibili in una o più aree, è possibile prendere considerazione due opzioni. Per accedere immediatamente ai dati, prendere in considerazione l'opzione 2.
 
-### <a name="option-1:-wait-for-recovery"></a>Opzione 1: Attendere il ripristino
+### <a name="option-1-wait-for-recovery"></a>Opzione 1: Attendere il ripristino
 In tal caso, non è necessaria alcuna azione da parte dell'utente. Si sta lavorando per ripristinare la disponibilità dei servizi di Azure. È possibile monitorare lo stato dei servizi nel [Dashboard per l'integrità dei servizi di Azure](https://azure.microsoft.com/status/).
 
-### <a name="option-2:-copy-data-from-secondary"></a>Opzione 2: Copiare i dati dall'area secondaria
+### <a name="option-2-copy-data-from-secondary"></a>Opzione 2: Copiare i dati dall'area secondaria
 Se si è scelto [Archiviazione con ridondanza geografica e accesso in lettura](storage-redundancy.md#read-access-geo-redundant-storage) (consigliato) per gli account di archiviazione, si avrà l'accesso in lettura ai dati dall'area secondaria. È possibile usare strumenti come [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) e la [libreria di spostamento dei dati di Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) per copiare i dati dall'area secondaria in un altro account di archiviazione in un'area non interessata e quindi indirizzare le applicazioni a tale account di archiviazione per la disponibilità sia in lettura che in scrittura.
 
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>Cosa aspettarsi se si verifica un failover dell'archiviazione
@@ -62,6 +66,9 @@ Esistono alcuni approcci consigliati per il backup periodico dei dati di archivi
 * Tabelle: usare [AzCopy](storage-use-azcopy.md) per esportare i dati delle tabelle in un altro account di archiviazione in un'altra area.
 * File: usare [AzCopy](storage-use-azcopy.md) o [Azure PowerShell](storage-powershell-guide-full.md) per copiare i file in un altro account di archiviazione in un'altra area.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
