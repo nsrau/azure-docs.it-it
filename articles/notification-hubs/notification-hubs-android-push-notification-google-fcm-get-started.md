@@ -70,7 +70,7 @@ Il codice completo per questa esercitazione può essere scaricato da GitHub [qui
 
 A questo punto, l'hub di notifica è configurato per l'uso con Firebase Cloud Messaging e sono disponibili le stringhe di connessione per registrare l'app per l'invio e la ricezione di notifiche push.
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Connettere l'app all'hub di notifica
+## <a name="a-idconnecting-appaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Connettere l'app all'hub di notifica
 ### <a name="add-google-play-services-to-the-project"></a>Aggiungere Google Play Services al progetto
 [!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
 
@@ -673,7 +673,7 @@ Per altre informazioni generali sull'uso di Hub di notifica, vedere [Hub di noti
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Riferimento a un progetto di libreria]: http://go.microsoft.com/fwlink/?LinkId=389800
 [portale di Azure classico]: https://manage.windowsazure.com/
-[linee guida su Hub di notifica]: notification-hubs-push-notification-overview.md
+[Hub di notifica di Azure]: notification-hubs-push-notification-overview.md
 [Uso di Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Usare Hub di notifica per inviare le ultime notizie]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [portale di Azure]: https://portal.azure.com
