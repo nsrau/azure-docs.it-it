@@ -5,7 +5,8 @@ ms.sourcegitcommit: a6c333ae45868d5c29ce2f2587f1417fa9fafc0b
 ms.openlocfilehash: 27fd664b69ca4467daa2b0abc6e53c9cece221ae
 
 ---
-#<a name="storage-documentation"></a>Documentazione di Archiviazione
+
+# <a name="storage-documentation"></a>Documentazione di Archiviazione
 
 Archiviazione di Azure è la soluzione di archiviazione cloud per le applicazioni moderne basate su durata, disponibilità e scalabilità per soddisfare le esigenze dei clienti.  Ha scalabilità elevata, è elastico e accessibile ovunque e bilancia automaticamente il carico dei dati in base al traffico.  Archiviazione di Azure offre i cinque servizi seguenti per soddisfare le esigenze dell'applicazione: archiviazione BLOB, archiviazione tabelle, archiviazione code, archiviazione su disco e archiviazione file.
 
@@ -102,7 +103,7 @@ Archiviazione di Azure è la soluzione di archiviazione cloud per le applicazion
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -123,7 +124,7 @@ Archiviazione di Azure è la soluzione di archiviazione cloud per le applicazion
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

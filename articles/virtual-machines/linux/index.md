@@ -102,7 +102,7 @@ Usare le macchine virtuali di Azure per creare ed eseguire macchine virtuali Lin
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -117,7 +117,7 @@ Usare le macchine virtuali di Azure per creare ed eseguire macchine virtuali Lin
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

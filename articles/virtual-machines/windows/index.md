@@ -120,7 +120,7 @@ Macchine virtuali di Azure è uno dei vari tipi di risorse di calcolo scalabili 
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -135,7 +135,7 @@ Macchine virtuali di Azure è uno dei vari tipi di risorse di calcolo scalabili 
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
