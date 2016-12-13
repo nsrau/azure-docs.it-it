@@ -84,7 +84,7 @@ Il Registro del servizio contenitore di Azure (anteprima) è un registro privato
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
