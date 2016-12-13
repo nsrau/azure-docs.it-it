@@ -6,7 +6,7 @@
 ###[Configurare la disponibilità elevata](https://azure.microsoft.com/pricing/details/cache/)
 ###[Stabilire una connessione sicura con SSL](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)
 ###[Eseguire la migrazione dal Servizio cache gestita](cache-migrate-to-redis.md)
-###[Modelli e procedure - Informazioni sulla memorizzazione nella cache](../best-practices-caching.md?toc=%2fazure%2fredis-cache%2ftoc.json)
+###[Informazioni aggiuntive sulla memorizzazione nella cache di modelli e procedure](../best-practices-caching.md?toc=%2fazure%2fredis-cache%2ftoc.json)
 
 
 # Introduzione
@@ -45,21 +45,21 @@
 ###[Effettuare l'aggiornamento a dimensioni e livello diversi](cache-how-to-scale.md)
 ###[Usare il cluster Redis per aumentare/ridurre](cache-how-to-premium-clustering.md)
 
-#Riferimento
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-## [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/)
-## [Java](https://docs.microsoft.com/java/api/)
-## [.NET](https://docs.microsoft.com/dotnet/api/)
-## [Redis clients](http://redis.io/clients) (Client Redis)
-## [Redis commands](http://redis.io/commands#) (Comandi di Redis)
+# Riferimento
+## [PowerShell](/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache)
+## [Anteprima dell'interfaccia della riga di comando di Azure 2.0](/cli/azure/redis)
+## [.NET](/dotnet/api/microsoft.azure.management.redis)
+## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
+## [Client Redis](http://redis.io/clients)
+## [Comandi di Redis](http://redis.io/commands#)
 ## [REST](https://docs.microsoft.com/rest/api/redis/)
+
+# Risorse
 ## [Esempi di Cache Redis](cache-redis-samples.md)
-
-#Risorse
-##[Prezzi](https://azure.microsoft.com/pricing/details/cache/)
+## [Prezzi](https://azure.microsoft.com/pricing/details/cache/)
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

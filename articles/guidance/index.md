@@ -1,14 +1,12 @@
-
 ---
-title: Azure Guidance | Microsoft Docs
-description: Best practices and guidance for Azure
-services: ''
+title: Informazioni aggiuntive su Azure | Documentazione Microsoft
+description: Procedure consigliate e informazioni aggiuntive su Azure
+services: 
 documentationcenter: na
 author: bennage
 manager: marksou
-editor: ''
-tags: ''
-
+editor: 
+tags: 
 ms.assetid: de94c74a-fea7-4815-8484-553e421a7490
 ms.service: guidance
 ms.devlang: na
@@ -17,100 +15,104 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: christb
+translationtype: Human Translation
+ms.sourcegitcommit: 5f3ced657cf3d6587a63789b3dd3ca41cd2856f0
+ms.openlocfilehash: 0061e1ff2ae2d6b8ed7b7c3bb60405e76d4cc91b
+
 
 ---
-# Azure Guidance
+# <a name="azure-guidance"></a>Informazioni aggiuntive su Azure
 [!INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
-The Microsoft patterns & practices team is part of the Azure Customer Advisory Team. Our purpose is to help developers, architects, and IT professionals be successful on the Microsoft Azure platform. We develop guidance that shows best practices for building cloud solutions on Azure.
+Il team Microsoft Patterns & Practices fa parte del team Azure Customer Advisory e si propone di aiutare sviluppatori, architetti e professionisti IT a usare in modo ottimale la piattaforma Microsoft Azure. Il team produce informazioni aggiuntive che illustrano le procedure consigliate per la creazione di soluzioni cloud in Azure.
 
-## Checklists
-These lists are a quick reference for reviewing the fundamental aspects of availability and scalability. 
+## <a name="checklists"></a>Checklists
+Questi elenchi costituiscono un riferimento rapido per la verifica degli aspetti fondamentali della disponibilità e della scalabilità. 
 
-* [Availability Checklist][AvailabilityChecklist] 
+* [Elenco di controllo della disponibilità][AvailabilityChecklist] 
   
-    A summary of recommended practices for ensuring availability.
-* [Scalability Checklist][ScalabilityChecklist]
+    Riepilogo delle procedure consigliate per assicurare la disponibilità.
+* [Elenco di controllo per la scalabilità][ScalabilityChecklist]
   
-    A summary of recommended practices for designing and implementing scalable services and handling data management.
+    Riepilogo delle procedure consigliate per la progettazione e l'implementazione di servizi scalabili e per la gestione dati.
 
-## Best practices articles
-These articles provide an in-depth discussion of important concepts commonly associated with cloud computing. 
+## <a name="best-practices-articles"></a>Articoli sulle procedure consigliate
+Questi articoli forniscono un'analisi approfondita dei concetti principali associati comunemente al cloud computing. 
 
-* [API Design][APIDesign] 
+* [Progettazione API][APIDesign] 
   
-    A discussion of design issues to consider when designing a web API.
-* [API Implementation][APIImplementation] 
+    Analisi dei problemi di progettazione da tenere in considerazione durante la progettazione di un'API Web.
+* [Implementazione API][APIImplementation] 
   
-    A set of recommended practices for implementing and publishing a web API.
-* [API security guidance](https://github.com/mspnp/azure-guidance/blob/master/API-security.md) 
+    Insieme di procedure consigliate per l'implementazione e la pubblicazione di un'API Web.
+* [Informazioni aggiuntive sulla sicurezza delle API](https://github.com/mspnp/azure-guidance/blob/master/API-security.md) 
   
-    A discussion of authentication and authorization concerns (for example, token types, authorization protocols, authorization flows, and threat mitigation).
-* [Autoscaling guidance][AutoscalingGuidance] 
+    Analisi dei problemi relativi all'autenticazione e all'autorizzazione, ad esempio i tipi di token, i protocolli di autorizzazione, i flussi di autorizzazione e l'attenuazione delle minacce.
+* [Informazioni aggiuntive sulla scalabilità automatica][AutoscalingGuidance] 
   
-    A summary of considerations for scaling solutions without the need for manual intervention.
-* [Background Jobs guidance][BackgroundJobsGuidance] 
+    Riepilogo delle considerazioni sulle soluzioni di scalabilità che non richiedono intervento manuale.
+* [Informazioni aggiuntive sui processi in background][BackgroundJobsGuidance] 
   
-    A description of available options and recommended practices for implementing tasks that should be performed in the background, independently from any foreground or interactive operations.
-* [Content Delivery Network (CDN) guidance][CDNGuidance] 
+    Descrizione delle opzioni disponibili e delle procedure consigliate per l'implementazione delle attività che devono essere eseguite in background, indipendentemente da eventuali operazioni in primo piano o interattive.
+* [Informazioni aggiuntive sulla rete CDN][CDNGuidance] 
   
-    General guidance and recommended practice for using the CDN to minimize the load on your applications, and maximize availability and performance.
-* [Caching guidance][CachingGuidance] 
+    Informazioni aggiuntive generali e procedure consigliate sull'uso della rete CDN per ridurre al minimo il carico sulle applicazioni e massimizzare la disponibilità e le prestazioni.
+* [Informazioni aggiuntive sulla memorizzazione nella cache][CachingGuidance] 
   
-    A summary of how to use caching to improve the performance and scalability of a system.
-* [Data Partitioning guidance][DataPartitioningGuidance]
+    Riepilogo di indicazioni su come usare la memorizzazione nella cache per migliorare le prestazioni e la scalabilità di un sistema.
+* [Informazioni aggiuntive sul partizionamento di dati][DataPartitioningGuidance]
   
-    Strategies that you can use to partition data to improve scalability, reduce contention, and optimize performance.
-* [Monitoring and Diagnostics guidance][MonitoringandDiagnosticsGuidance] 
+    Strategie utili per partizionare i dati in modo da migliorare la scalabilità, ridurre i conflitti e ottimizzare le prestazioni.
+* [Informazioni aggiuntive su monitoraggio e diagnostica][MonitoringandDiagnosticsGuidance] 
   
-    Guidance on tracking how your users utilize your system, trace resource utilization, and generally monitor the health and performance of your system.
-* [Recommended naming conventions][naming-conventions] 
+    Informazioni aggiuntive per rilevare il modo in cui gli utenti usano il sistema, tracciare l'utilizzo delle risorse e, in generale, monitorare l'integrità e le prestazioni del sistema stesso.
+* [Convenzioni di denominazione consigliate][naming-conventions] 
   
-    Recommended naming conventions for Azure resources.
-* [Retry General guidance][RetryGeneralGuidance] 
+    Convenzioni di denominazione consigliate per le risorse di Azure.
+* [Informazioni aggiuntive generali sulla ripetizione di tentativi][RetryGeneralGuidance] 
   
-    Discussion of the general concepts for handling transient faults.
-* [Retry Service-specific guidance][RetryServiceSpecificGuidance]
+    Analisi dei concetti generali per la gestione degli errori temporanei.
+* [Informazioni aggiuntive specifiche sul servizio per la ripetizione di tentativi][RetryServiceSpecificGuidance]
   
-    A summary of retry features for many of Azure services, including information to help you use, adapt, or extend the retry mechanism for that service.
+    Riepilogo delle funzionalità di ripetizione dei tentativi per molti servizi di Azure, incluse informazioni utili per usare, adattare o estendere il meccanismo di ripetizione dei tentativi per ogni servizio.
 
-## Scenario guides
-* [Running Elasticsearch on Azure][elasticsearch] 
+## <a name="scenario-guides"></a>Guide relative agli scenari
+* [Esecuzione di Elasticsearch in Azure][elasticsearch] 
   
-    Elasticsearch is a highly scalable open-source search engine and database. It is suitable for situations that require fast analysis and discovery of information held in large datasets. This guidance looks at some key aspects to consider when designing an Elasticsearch cluster.
-* [Identity management for multitenant applications][identity-multitenant] 
+    Elasticsearch è un motore di ricerca e un database open source altamente scalabile. È adatto a situazioni che richiedono velocità nell'analisi e nell'individuazione di informazioni in set di dati di grandi dimensioni. Queste informazioni aggiuntive esaminano alcuni aspetti importanti da considerare durante la progettazione di un cluster Elasticsearch.
+* [Gestione delle identità per le applicazioni multi-tenant][identity-multitenant] 
   
-    Multitenancy is an architecture where multiple tenants share an application but are isolated from one another. This guidance shows you how to manage user identities in a multitenant application, using [Azure Active Directory][AzureAD] to handle sign-in and authentication.
-* [Developing big data solutions](https://msdn.microsoft.com/library/dn749874.aspx)
+    La multi-tenancy è un'architettura in cui più tenant condividono un'applicazione ma sono isolati gli uni dagli altri. Queste informazioni aggiuntive illustrano come gestire le entità utente in un'applicazione multi-tenant usando [Azure Active Directory][AzureAD] per gestire l'accesso e l'autenticazione.
+* [Sviluppo di soluzioni Big Data](https://msdn.microsoft.com/library/dn749874.aspx)
   
-    This guide explores the use of HDInsight for scenarios such as iterative exploration, as a data warehouse, for ETL processes, and integration into existing BI systems. It also includes guidance on understanding the concepts of big data, planning and designing big data solutions, and implementing these solutions.
+    Questa guida esamina l'uso di HDInsight per scenari quali l'esplorazione iterativa, un data warehouse, per processi ETL e l'integrazione in sistemi di Business Intelligence esistenti. Include anche informazioni aggiuntive utili per comprendere i concetti relativi ai Big Data, alla pianificazione e alla progettazione di soluzioni Big Data e all'implementazione di queste soluzioni.
 
-## Patterns
-* [Cloud Design Patterns: Prescriptive Architecture Guidance for Cloud Applications](https://msdn.microsoft.com/library/dn568099.aspx)
+## <a name="patterns"></a>Modelli
+* [Modelli di progettazione cloud: informazioni aggiuntive prescrittive sull'architettura per le applicazioni cloud](https://msdn.microsoft.com/library/dn568099.aspx)
   
-    Cloud Design Patterns is a library of design patterns and related guidance topics. It articulates the benefit of applying patterns by showing how each piece can fit into cloud application architectures.
-* [Optimizing Performance for Cloud Applications](https://github.com/mspnp/performance-optimization)
+    Cloud Design Patterns è una libreria di modelli di progettazione e di argomenti informativi correlati. Illustra i vantaggi dell'applicazione di modelli descrivendo il ruolo specifico di ogni elemento nelle architetture per le applicazioni cloud.
+* [Ottimizzazione delle prestazioni per le applicazioni cloud](https://github.com/mspnp/performance-optimization)
   
-    This guidance is an exploration of common anti-patterns that impede apps from scaling under load. It includes samples demonstrating eight anti-patterns and a [performance analysis primer](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md) and a guide for [assessing performance against key metrics](https://github.com/mspnp/performance-optimization/blob/master/Assessing-System-Performance-Against-KPI.md).
+    Queste informazioni aggiuntive illustrano gli anti-modelli comuni che impediscono la scalabilità delle app in condizioni di carico. Include esempi che illustrano otto anti-modelli, una [panoramica dell'analisi delle prestazioni](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md) e una guida per la [valutazione delle prestazioni rispetto a metriche chiave](https://github.com/mspnp/performance-optimization/blob/master/Assessing-System-Performance-Against-KPI.md).
 
-## Reference architectures
-Our reference architectures are arranged by scenario.
-Each individual architecture offers recommended practices and prescriptive steps, and an executable component that embodies the recommendations.
+## <a name="reference-architectures"></a>Architetture di riferimento
+Le architetture di riferimento sono organizzate in base allo scenario.
+Ogni singola architettura include procedure consigliate, procedure complete e un componente eseguibile che incorpora i suggerimenti.
 
-The current library of reference architectures is available at [http://aka.ms/architecture](http://aka.ms/architecture).
+La libreria corrente di architetture di riferimento è disponibile all'indirizzo [http://aka.ms/architecture](http://aka.ms/architecture).
 
-## Resiliency guidance
-These topics describe how to design applications that are resilient to failure in a distributed cloud environment.   
+## <a name="resiliency-guidance"></a>Informazioni aggiuntive sulla resilienza
+Questi argomenti illustrano come progettare applicazioni con resilienza in caso di errore in un ambiente cloud distribuito.   
 
-* [Resiliency overview][ResiliencyOvervew]
+* [Panoramica della resilienza][ResiliencyOvervew]
   
-     How to build applications on the Azure platform that can recover from failures and continue to function. Describes a structured approach to achieve resiliency,from design to implementation, deployment, and operations.
-* [Resiliency checklist][resiliency-checklist]
+     Illustra come sviluppare applicazioni nella piattaforma Azure in grado di recuperare in caso di errore e di continuare a funzionare. Descrive un approccio strutturato per ottenere la resilienza, dalla progettazione all'implementazione, alla distribuzione e alle operazioni.
+* [Elenco di controllo per la resilienza][resiliency-checklist]
   
-    A checklist of recommendations that will help you plan for a variety of failure modes that could occur.
-* [Failure mode analysis][resiliency-fma] 
+    Elenco di controllo di raccomandazioni utili per pianificare svariate modalità di errore che possono verificarsi.
+* [Analisi della modalità di errore][resiliency-fma] 
   
-    Failure mode analysis (FMA) is a process for building resiliency into a system, by identifying possible failure points. As a starting point for your FMA process,this article contains a catalog of potential failure modes and their mitigations. 
+    L'analisi della modalità di errore è un processo che consente di ottenere la resilienza in un sistema, identificando possibili punti di errore. Come punto di partenza per il processo di analisi della modalità di errore, questo articolo include un catalogo di potenziali modalità di errore e delle relative attenuazioni. 
 
 <!-- links -->
 
@@ -151,4 +153,10 @@ These topics describe how to design applications that are resilient to failure i
 [resiliency-fma]: guidance-resiliency-failure-mode-analysis.md
 [resiliency-checklist]: guidance-resiliency-checklist.md
 [ResiliencyOvervew]: guidance-resiliency-overview.md
+
+
+
+
+<!--HONumber=Dec16_HO1-->
+
 

@@ -2,8 +2,8 @@
 layout: LandingPage
 toc_rel: breadcrumb.json
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 334336cb8d5da4761d5c1fa53c8c63cfbdb850a6
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 3bd265e2376180e5285c81b011b469b6a46353b0
 
 ---
 #<a name="virtual-machines-documentation"></a>Documentazione delle macchine virtuali
@@ -75,7 +75,7 @@ Una macchina virtuale di Azure offre la flessibilità della virtualizzazione sen
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Riferimento all'API REST delle macchine virtuali</p>
+                        <p>API REST di Macchine virtuali</p>
                     </div>
                 </div>
             </div>
@@ -122,6 +122,6 @@ Scaricare la documentazione sulle macchina virtuale </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

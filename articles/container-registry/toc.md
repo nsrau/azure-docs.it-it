@@ -14,8 +14,8 @@
 
 # Riferimento
 
-## [Interfaccia della riga di comando di Azure](/cli/azure/acr)
-## [API REST](/rest/api/containerregistry)
+## [Anteprima dell'interfaccia della riga di comando di Azure 2.0](/cli/azure/acr)
+## [REST](/rest/api/containerregistry)
 
 # Risorse correlate
 
@@ -27,6 +27,6 @@
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: b452e767bb6c2e181f56ab84e92e9225408baf9b
+ms.sourcegitcommit: 62cc285a4dc0b85f364a6306e3fc4b0727c439db
+ms.openlocfilehash: 4a165d2f3e4447d2490296a76934cba98b9dcd79
 
 ---
 #<a name="iot-hub-documentation"></a>Documentazione sull'hub IoT
@@ -103,68 +103,51 @@ L'hub IoT di Azure è un servizio completamente gestito che consente comunicazio
 </ul>
 
 ---
-
-## <a name="reference"></a>Riferimento
-
+ 
+<h2>riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/cli/azure/iot">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Interfaccia della riga di comando di Azure</h3>
-                        <p>Hub IoT con l'interfaccia della riga di comando di Azure</p>
+                        <h3>Riga di comando</h3>
+                        <p><a href="/cli/azure/iot">Interfaccia della riga di comando di Azure</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/dotnet/api/">
-        <div class="cardSize">
+    <li>
+        <div class="cardSize"><p />
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>API di riferimento gestita .NET</p>
+                        <h3>Lingue</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.devices">.NET (servizio)</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (dispositivi)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.iot.service.auth">Java (servizio)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.iothub">Java (dispositivi)</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdks/">Azure IoT SDK</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-gateway-sdk">Gateway SDK</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/java/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Informazioni di riferimento su Java SDK</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/rest/api/iothub">
-        <div class="cardSize">
+    <li>
+        <div class="cardSize"><p />
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Informazioni di riferimento sull'API REST dell'hub IoT</p>
+                        <p><a href="/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest">API REST (provider di risorse)</a></p>
+                        <p><a href="/rest/api/iothub/device-identities-rest">API REST (identità dei dispositivi)</a></p>
+                        <p><a href="/rest/api/iothub/device-messaging-rest-apis">API REST (messaggistica dei dispositivi)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -178,6 +161,6 @@ Scaricare la documentazione dell'hub IoT </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

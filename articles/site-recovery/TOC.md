@@ -14,21 +14,21 @@
 ### [Pianificazione della capacità](site-recovery-capacity-planner.md)
 ### [Risultati dei test di prestazioni e scalabilità](site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md)
 ### [Considerazioni sull'infrastruttura di rete](site-recovery-network-design.md)
-### [Network mapping (VMM)](site-recovery-network-mapping.md) (Mapping di rete (VMM))
-### [Storage mapping between on-premises sites](site-recovery-storage-mapping.md) (Mapping dell'archiviazione tra siti locali)
+### [Mapping di rete (VMM)](site-recovery-network-mapping.md)
+### [Mapping dell'archiviazione tra siti locali](site-recovery-storage-mapping.md)
 ## Replica
-### [VMWare VMs and servers to Azure](site-recovery-vmware-to-azure.md) (Da VM e server VMWare ai server Azure)
-### [VMware VMs and servers to secondary site](site-recovery-vmware-to-vmware.md) (Da VM e server VMware a un sito secondario)
-### [Hyper-V VMs to Azure (with VMM)](site-recovery-vmm-to-azure.md) (Da VM Hyper-V ad Azure (con VMM))
-### [Hyper-V VMs to Azure (no VMM)](site-recovery-hyper-v-site-to-azure.md) (Da VM Hyper-V ad Azure (senza VMM))
-### [Hyper-V VMs to secondary site](site-recovery-vmm-to-vmm.md) (Da VM Hyper-V a un sito secondario)
-### [Hyper-V VMs to secondary site with SAN](site-recovery-vmm-san.md) (Da VM Hyper-V a un sito secondario con SAN)
-### [Hyper-V VMs with single VMM server](site-recovery-single-vmm.md) (VM Hyper-V con un unico server VMM)
+### [Da VM e server VMWare ai server Azure](site-recovery-vmware-to-azure.md)
+### [Da VM e server VMware a un sito secondario](site-recovery-vmware-to-vmware.md)
+### [Da VM Hyper-V ad Azure (con VMM)](site-recovery-vmm-to-azure.md)
+### [Da VM Hyper-V ad Azure (senza VMM)](site-recovery-hyper-v-site-to-azure.md)
+### [Da VM Hyper-V a un sito secondario](site-recovery-vmm-to-vmm.md)
+### [Da VM Hyper-V a un sito secondario con SAN](site-recovery-vmm-san.md)
+### [VM Hyper-V con un unico server VMM](site-recovery-single-vmm.md)
 ## Migrazione
 ### [Eseguire la migrazione tra aree di Azure](site-recovery-migrate-azure-to-azure.md)
 ### [Da istanze di Windows AWS ad Azure](site-recovery-migrate-aws-to-azure.md)
 ## Carichi di lavoro
-### [Active Directory and DNS](site-recovery-active-directory.md) (Active Directory e DNS)
+### [Active Directory e DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
 ### [SharePoint](site-recovery-workload.md#protect-sharepoint)
 ### [Dynamics AX](site-recovery-workload.md#protect-dynamics-ax)
@@ -38,7 +38,7 @@
 ### [Altri carichi di lavoro](site-recovery-workload.md#workload-summary)
 ## Automatizzare la replica
 ### [VM Hyper-V (con VMM)](site-recovery-deploy-with-powershell.md)
-### [Hyper-V VMs (no VMM)](site-recovery-deploy-with-powershell-resource-manager.md) (VM Hyper-V (senza VMM))
+### [VM Hyper-V (senza VMM)](site-recovery-deploy-with-powershell-resource-manager.md)
 ### [Automatizzare i piani di ripristino](site-recovery-runbook-automation.md)
 ### [Automatizzare la distribuzione del servizio Mobility](site-recovery-automate-mobility-service-install.md)
 ## Manage
@@ -49,8 +49,9 @@
 ## [Monitorare e risolvere i problemi](site-recovery-monitoring-and-troubleshooting.md)
 
 # Riferimento
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [PowerShell - Classica](/powershell/servicemanagement/)
+## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
+## [PowerShell - Classica](/powershell/servicemanagement/azure.siterecovery/v3.1.0/azure.siterecovery)
+## [REST](https://msdn.microsoft.com/en-us/library/mt750497)
 
 # Risorse correlate
 ## [Automazione di Azure](/azure/automation/)
@@ -63,6 +64,6 @@
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

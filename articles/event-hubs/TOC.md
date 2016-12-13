@@ -17,21 +17,21 @@
 ### [Applicazione di esempio Hub eventi](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)
 ### [Aumentare il numero di istanze di elaborazione di eventi con l'applicazione di esempio Hub eventi](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)
 ## Manage
-### [Event Hubs Archive](event-hubs-archive-overview.md) (Archivio di Hub eventi)
+### [Archivio di Hub eventi](event-hubs-archive-overview.md)
 ### [Abilitare l'archivio di Hub eventi usando un modello](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
 ### [Trasmettere dati di Diagnostica di Azure usando Hub eventi](event-hubs-streaming-azure-diags-data.md)
 ### [Creare e distribuire un hub eventi usando un modello di Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
 ### [Usare Python per abilitare l'archivio di Hub eventi](event-hubs-archive-python.md)
 
 # Riferimento
-## [Quote e limitazioni](event-hubs-quotas.md)
-## [Eccezioni della messaggistica](event-hubs-messaging-exceptions.md)
-## [Java](/java/api)
-## [.NET](/dotnet/api)
-## [Guida al protocollo AMQP1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
+## [.NET](/dotnet/api/microsoft.azure.eventhubs)
+## [Java](/java/api/com.microsoft.azure.eventhubs)
 ## [REST](/rest/api/eventhub)
 
 # Risorse
+## [Quote e limitazioni](event-hubs-quotas.md)
+## [Eccezioni della messaggistica](event-hubs-messaging-exceptions.md)
+## [Guida al protocollo AMQP1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## [Prezzi](https://azure.microsoft.com/en-us/pricing/details/event-hubs/)
 ## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
@@ -40,6 +40,6 @@
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -39,21 +39,25 @@
 ### [Gestire gli account utente](api-management-howto-create-or-invite-developers.md)
 ### [Gestire con l'automazione](automation-manage-api-management.md)
 ### [Configurare con Git](api-management-configuration-repository-git.md)
-#Riferimento
+
+# Riferimento
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [PowerShell classico](https://msdn.microsoft.com/library/azure/mt613507)
+## [PowerShell (classico)](https://msdn.microsoft.com/library/azure/mt613507)
 ## [REST](/rest/api/apimanagement/)
+## [REST (originale)](/rest/api/apimanagement/ApiManagementREST/API-Management-REST)
+
+
+# Risorse
 ## [Criteri](https://msdn.microsoft.com/library/azure/dn894081)
 ## [Modelli](https://msdn.microsoft.com/library/azure/mt697540)
-#Risorse
 ## [Prezzi](https://azure.microsoft.com/pricing/details/api-management/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=api-management)
 ## [White paper sulla gestione API basata sul cloud](http://j.mp/ms-apim-whitepaper)
-## [Linee guida per la progettazione di un'API](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
-## [Guida all'implementazione di API](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
+## [Informazioni aggiuntive sulla progettazione di un'API](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
+## [Informazioni aggiuntive sull'implementazione di API](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
 ## [Utilizzare servizi WCF SOAP su HTTP](http://mostlydotnetdev.blogspot.nl/2015/03/azure-api-management-apim-consuming.html)
 ## [Connessione di Hub eventi a Gestione API](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
 ## [Gestione API: integrazione con altri servizi di Azure](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
@@ -63,6 +67,6 @@
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

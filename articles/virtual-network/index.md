@@ -2,8 +2,8 @@
 layout: LandingPage
 +toc_rel: breadcrumb.json
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: f03b3e68dd62cdf429162d3fe7d2342bbf254b52
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: c3607bf6699b83fb3fedf7cb7ccf9f1d97ad4c56
 
 ---
 #<a name="virtual-network-documentation"></a>Documentazione sulla rete virtuale
@@ -58,7 +58,7 @@ Una rete virtuale di Azure è una rappresentazione della propria rete nel cloud.
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introduzione alle rete virtuali con il portale di Azure</h3>
+                        <h3>Introduzione alle reti virtuali con il portale di Azure</h3>
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@ Una rete virtuale di Azure è una rappresentazione della propria rete nel cloud.
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introduzione alle rete virtuali con PowerShell</h3>
+                        <h3>Introduzione alle reti virtuali con PowerShell</h3>
                     </div>
                 </div>
             </div>
@@ -94,7 +94,7 @@ Una rete virtuale di Azure è una rappresentazione della propria rete nel cloud.
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introduzione alle rete virtuali con l'interfaccia della riga di comando di Azure</h3>
+                        <h3>Introduzione alle reti virtuali con l'interfaccia della riga di comando di Azure</h3>
                     </div>
                 </div>
             </div>
@@ -171,7 +171,7 @@ Una rete virtuale di Azure è una rappresentazione della propria rete nel cloud.
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Informazioni di riferimento sull'API REST della rete virtuale</p>
+                        <p>API REST di Rete virtuale</p>
                     </div>
                 </div>
             </div>
@@ -191,6 +191,6 @@ Scaricare la documentazione sulla rete virtuale </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

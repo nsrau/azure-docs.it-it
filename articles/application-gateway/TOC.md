@@ -1,10 +1,10 @@
 # Overview
-## [What is Application Gateway?](application-gateway-introduction.md) (Che cos'è il servizio Gateway applicazione?)
+## [Che cos'è il servizio Gateway applicazione?](application-gateway-introduction.md)
 ## [Web application firewall](application-gateway-webapplicationfirewall-overview.md)
-## [Health monitoring](application-gateway-probe-overview.md) (Monitoraggio dello stato)
-## [URL routing](application-gateway-url-route-overview.md) (Routing degli URL)
-## [Multi-site](application-gateway-multi-site-overview.md) (Multisito)
-## [End to end SSL](application-gateway-backend-ssl.md) (Panoramica di SSL end-to-end)
+## [Monitoraggio dello stato](application-gateway-probe-overview.md)
+## [Routing degli URL](application-gateway-url-route-overview.md)
+## [Multisito](application-gateway-multi-site-overview.md)
+## [Panoramica di SSL end-to-end](application-gateway-backend-ssl.md)
 ## [WebSocket](application-gateway-websocket.md)
 ## [Limiti del servizio](../azure-subscription-service-limits.md#application-gateway-limits?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 # Introduzione
@@ -12,12 +12,12 @@
 ### Pubblico
 #### [Portale](application-gateway-create-gateway-portal.md)
 #### [PowerShell](application-gateway-create-gateway-arm.md)
-#### [Resource Manager template](application-gateway-create-gateway-arm-template.md) (Modello di Resource Manager)
-#### [CLI](application-gateway-create-gateway-cli.md)
-#### [PowerShell (classic)](application-gateway-create-gateway.md) (PowerShell (classico))
+#### [Modello di Resource Manager](application-gateway-create-gateway-arm-template.md)
+#### [Interfaccia della riga di comando](application-gateway-create-gateway-cli.md)
+#### [PowerShell (classico)](application-gateway-create-gateway.md)
 ### Interno
 #### [PowerShell](application-gateway-ilb-arm.md)
-#### [PowerShell (classic)](application-gateway-ilb.md) (PowerShell (classico))
+#### [PowerShell (classico)](application-gateway-ilb.md)
 # Procedure
 ## Configurare Web application firewall
 ### [Portale](application-gateway-web-application-firewall-portal.md)
@@ -25,8 +25,8 @@
 ## Eseguire la configurazione per l'offload SSL
 ### [Portale](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
-### [PowerShell (Classic)](application-gateway-ssl.md) (PowerShell (classico))
-### [Policy and end to end](application-gateway-end-to-end-ssl-powershell.md) (Criteri e applicazione end-to-end)
+### [PowerShell (classico)](application-gateway-ssl.md)
+### [Criteri e applicazione end-to-end](application-gateway-end-to-end-ssl-powershell.md)
 ## Configurare un routing basato su percorsi URL
 ### [Portale](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)
@@ -36,16 +36,22 @@
 ## Configurare probe di integrità
 ### [Portale](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
-### [PowerShell (Classic)](application-gateway-create-probe-classic-ps.md) (PowerShell (classico))
+### [PowerShell (classico)](application-gateway-create-probe-classic-ps.md)
 ## [Combinare i servizi di bilanciamento del carico](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 ## Gestire
 ### [Diagnostica](application-gateway-diagnostics.md)
 ### [Risoluzione dei problemi](application-gateway-troubleshooting-502.md)
-# Riferimento
-## [Cmdlet di PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
-## [REST](https://msdn.microsoft.com/library/mt684941)
-## [REST classica](https://msdn.microsoft.com/library/azure/mt299393)
 
+# riferimento
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [Anteprima dell'interfaccia della riga di comando di Azure 2.0](/cli/azure/network/application-gateway)
+## [.NET](/dotnet/api)
+## [Java](/java/api/com.microsoft.azure.management.network)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
+## [REST](https://msdn.microsoft.com/library/mt684941)
+## [REST (classico)](https://msdn.microsoft.com/library/azure/mt299393)
 # Risorse correlate
 ## [ExpressRoute](/azure/expressroute/)
 ## [Rete virtuale](/azure/virtual-network/)
@@ -61,6 +67,6 @@
 ## [Contratto di servizio](https://azure.microsoft.com/support/legal/sla/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

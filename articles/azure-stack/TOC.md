@@ -72,12 +72,12 @@
 ### [Distribuire l'adapter del provider di risorse di SQL Server in Azure Stack](azure-stack-sql-resource-provider-deploy.md)
 
 ## Pianificare e distribuire il servizio App
-### [Panoramica delle app Web di Azure Stack](azure-stack-app-service-overview.md)
-### [Prima di iniziare a usare le app Web di Azure Stack](azure-stack-app-service-before-you-get-started.md)
-### [App Web: Aggiunta di altri ruoli Web worker](azure-stack-webapps-add-worker-roles.md)
-### [Aggiungere un provider di risorse di App Web in Azure Stack](azure-stack-app-service-deploy.md)
+### [Servizio app nella panoramica di Azure Stack](azure-stack-app-service-overview.md)
+### [Prima di iniziare](azure-stack-app-service-before-you-get-started.md)
+### [Aggiungere altri ruoli di lavoro Web](azure-stack-app-service-add-worker-roles.md)
+### [Aggiungere un provider di risorse del servizio app ad Azure Stack](azure-stack-app-service-deploy.md)
 
-# Risoluzione dei problemi
+# Risolvere problemi
 ## [Risolvere i problemi relativi ad Azure Stack](azure-stack-troubleshooting.md)
 
 # Risorse
@@ -86,6 +86,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

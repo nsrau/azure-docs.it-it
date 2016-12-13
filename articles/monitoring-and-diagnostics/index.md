@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 086574639b31ee82ab72efbc93d58af735524a1b
-ms.openlocfilehash: b03565feb98f18d2a90d72e154901baf0dd89df0
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: f5cf41dc2362afa365c491e47fb7708d8a9667ba
 
 ---
 
@@ -157,7 +157,7 @@ Monitoraggio e diagnostica è una piattaforma di sistemi distribuiti che semplif
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Riferimenti all'API REST di Monitoraggio e diagnostica</p>
+                        <p>API REST di Monitoraggio e diagnostica</p>
                     </div>
                 </div>
             </div>
@@ -175,6 +175,6 @@ Scaricare la documentazione di Monitoraggio e diagnostica </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

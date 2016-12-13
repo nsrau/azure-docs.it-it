@@ -10,13 +10,13 @@
 ## Scrivere la prima app
 ### [App console .NET](documentdb-get-started.md)
 ### [App console .NET Core](documentdb-dotnetcore-get-started.md)
-### [Node.js console app](documentdb-nodejs-get-started.md) (App console Node.js)
+### [App console Node.js](documentdb-nodejs-get-started.md)
 ### [App console C++](documentdb-cpp-get-started.md)
 ## Creare un'app Web
 ### [App Web .NET](documentdb-dotnet-application.md)
 ### [App Web Node.js](documentdb-nodejs-application.md)
 ### [App Web Java](documentdb-java-application.md)
-### [Python Flask web app](documentdb-python-application.md) (App web Python Flask)
+### [App Web Python Flask](documentdb-python-application.md)
 ## [Sviluppare in locale](documentdb-nosql-local-emulator.md)
 ## [DOMANDE FREQUENTI](documentdb-faq.md)
 
@@ -76,25 +76,27 @@
 ### [Analizzare i dati con Hadoop](documentdb-run-hadoop-with-hdinsight.md)
 ### [Integrare Ricerca di Azure](documentdb-search-indexer.md)
 ### [Spostare dati con Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
-### [Analizzare dati in tempo reale con l'analisi di flusso di Azure](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
+### [Analizzare dati in tempo reale con Analisi di flusso di Azure](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
 ### [Ottenere notifiche con App per la logica](documentdb-change-notification.md)
 ### [Elaborare dati dei sensori in tempo reale](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Visualizzare dati con Power BI](documentdb-powerbi-visualize.md)
 
 
-# Riferimento
-## [SDK per Java](documentdb-sdk-java.md)
-## [.NET SDK](documentdb-sdk-dotnet.md)
-## [.NET Core SDK](documentdb-sdk-dotnet-core.md)
-## [Esempi .NET](documentdb-dotnet-samples.md)
-## [SDK per Node.js](documentdb-sdk-node.md)
-## [Esempi per Node.js](documentdb-nodejs-samples.md)
-## [Python SDK](documentdb-sdk-python.md)
-## [Python samples](documentdb-python-samples.md) (Esempi per Python)
-## [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-## [Foglio informativo sulla grammatica SQL](documentdb-sql-query-cheat-sheet.md)
+# riferimento
+## [Java](documentdb-sdk-java.md)
+## [.NET](documentdb-sdk-dotnet.md)
+## [.NET Core](documentdb-sdk-dotnet-core.md)
+## [Node.js](documentdb-sdk-node.md)
+## [Python](documentdb-sdk-python.md)
 ## [REST](/rest/api/documentdb/)
 ## [Provider di risorse REST](/rest/api/documentdbresourceprovider/)
+
+# Risorse correlate
+## [Esempi .NET](documentdb-dotnet-samples.md)
+## [Esempi per Node.js](documentdb-nodejs-samples.md)
+## [Esempi per Python](documentdb-python-samples.md)
+## [Sintassi SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+## [Foglio informativo sulla grammatica SQL](documentdb-sql-query-cheat-sheet.md)
 
 # Risorse
 ## [Prezzi](https://azure.microsoft.com/pricing/details/documentdb/)
@@ -110,6 +112,6 @@
 ## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

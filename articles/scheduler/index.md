@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 4d856b71ced1f1b9c6c1469bee4f23b84865c7d1
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 7ab6ecc4f1193245e9778d8a92bb2a5591edfff5
 
 ---
 # <a name="scheduler-documentation"></a>Documentazione di Utilità di pianificazione
@@ -106,7 +106,7 @@ L'Utilità di pianificazione di Azure consente di descrivere in modo dichiarativ
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Informazioni di riferimento sull'API REST dell'Utilità di pianificazione</p>
+                        <p>API REST dell'utilità di pianificazione</p>
                     </div>
                 </div>
             </div>
@@ -124,6 +124,6 @@ Scaricare la documentazione di Utilità di pianificazione </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

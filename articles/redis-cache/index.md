@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 1253538f479de3dc4200956f85229ee4892cf9a7
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 99a123b0efaea3e4e298aed44cea72547bfa7094
 
 ---
 #<a name="redis-cache-documentation"></a>Documentazione di Cache Redis
@@ -205,7 +205,7 @@ Cache Redis di Azure si basa sulla popolare cache Redis open source. Consente di
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Informazioni di riferimento sull'API REST di Cache Redis</p>
+                        <p>API REST di Cache Redis</p>
                     </div>
                 </div>
             </div>
@@ -225,6 +225,6 @@ Scaricare la documentazione di Cache Redis </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 
