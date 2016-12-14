@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
-ms.author: johnstallo
+ms.author: johnsta
 translationtype: Human Translation
 ms.sourcegitcommit: 71fdc7b13fd3b42b136b4907c3d747887fde1a19
 ms.openlocfilehash: cdcb2a8493c6790a395251c4cf05f2a6c0770c8d

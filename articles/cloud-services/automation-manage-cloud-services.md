@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2016
-ms.author: jolevy
+ms.author: timlt
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 47307ed521201b462730a2ea4cb8d0ca665b6d72
@@ -44,7 +44,6 @@ A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e c
 * [Panoramica di Automazione di Azure](../automation/automation-intro.md)
 * [Il primo runbook](../automation/automation-first-runbook-graphical.md)
 * [Mappa di apprendimento di Automazione di Azure](https://azure.microsoft.com/documentation/learning-paths/automation/)
-
 
 
 
