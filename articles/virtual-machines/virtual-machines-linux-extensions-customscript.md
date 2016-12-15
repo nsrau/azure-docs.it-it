@@ -201,7 +201,7 @@ Per un esempio completo, vedere la demo di .NET Core Music Store: [Demo di Music
 Quando viene eseguita l'estensione script personalizzata, lo script viene creato o scaricato in una directory simile all'esempio seguente. Anche l'output del comando viene salvato in questa directory, nei file `stdout` e `stderr`.
 
 ```bash
-/var/lib/azure/custom-script/download/0/
+/var/lib/waagent/custom-script/download/0/
 ```
 
 L'estensione script di Azure genera un log che è possibile trovare nella directory seguente.
