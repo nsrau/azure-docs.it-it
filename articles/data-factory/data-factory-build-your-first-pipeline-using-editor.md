@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/14/2016
+ms.date: 12/06/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2759ce1fd8fd02a94256e0ba8f455608157ffbd0
-ms.openlocfilehash: 4033630dbbe065072cc58e642fce51f4860b82b6
+ms.sourcegitcommit: cfbfccfe09e6f2b3826223a779a5ff478c1f804f
+ms.openlocfilehash: 64250a0b37488eb165bd13e727f365bd391794b7
 
 
 ---
@@ -321,20 +321,20 @@ In questo passaggio viene creata la prima pipeline con un'attività **HDInsightH
    ![Set di dati](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 8. Al termine dell'elaborazione lo stato della sezione è **Pronta** .
 
-> [!IMPORTANT]
-> La creazione di un cluster HDInsight su richiesta di solito richiede tempo (circa 20 minuti). Di conseguenza, prevedere **circa 30 minuti** per l'elaborazione della sezione nella pipeline.    
->
->
+   ![Set di dati](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)  
 
-    ![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)    
+   > [!IMPORTANT]
+   > La creazione di un cluster HDInsight su richiesta di solito richiede tempo (circa 20 minuti). Di conseguenza, prevedere **circa 30 minuti** per l'elaborazione della sezione nella pipeline.
+   >
+   >
 
-1. Quando lo stato della sezione è **Pronto**, cercare i dati di output nella cartella **partitioneddata** del contenitore **adfgetstarted** nell'archivio BLOB.  
+9. Quando lo stato della sezione è **Pronto**, cercare i dati di output nella cartella **partitioneddata** del contenitore **adfgetstarted** nell'archivio BLOB.  
 
    ![Dati di output](./media/data-factory-build-your-first-pipeline-using-editor/three-ouptut-files.png)
-2. Fare clic sulla sezione per visualizzare i relativi dettagli in un pannello **Sezione dati** .
+10. Fare clic sulla sezione per visualizzare i relativi dettagli in un pannello **Sezione dati** .
 
    ![Dettagli sezione dati](./media/data-factory-build-your-first-pipeline-using-editor/data-slice-details.png)  
-3. Fare clic su un'esecuzione di attività nell'elenco **Esecuzioni attività** (in questo scenario, un'attività Hive) per visualizzare i relativi dettagli nella finestra **Dettagli esecuzione attività**.   
+11. Fare clic su un'esecuzione di attività nell'elenco **Esecuzioni attività** (in questo scenario, un'attività Hive) per visualizzare i relativi dettagli nella finestra **Dettagli esecuzione attività**.   
 
    ![Dettagli esecuzione attività](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-blade.png)    
 
@@ -382,6 +382,6 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

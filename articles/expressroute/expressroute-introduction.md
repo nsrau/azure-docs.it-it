@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3b3e0fd5342c4729d6ffee4858089099b31404a8
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 57b95d5018fa197096992f7cd255a54501875dea
 
 
 ---
@@ -40,13 +40,13 @@ Per altre informazioni, vedere le [Domande frequenti su ExpressRoute](expressrou
 ## <a name="a-namehowtoconnectahow-can-i-connect-my-network-to-microsoft-using-expressroute"></a><a name="howtoconnect"></a>Come connettere una rete a Microsoft tramite ExpressRoute
 Per creare una connessione tra la rete locale e Microsoft Cloud è possibile procedere in tre modi diversi:
 
-### <a name="colocated-at-a-cloud-exchange"></a>Percorso condiviso in una struttura Cloud Exchange
+### <a name="co-located-at-a-cloud-exchange"></a>Percorso condiviso in una struttura Cloud Exchange
 Nel caso di percorso condiviso in una struttura con scambio cloud, è possibile ordinare Cross Connection virtuali con il cloud Microsoft tramite lo scambio Ethernet del provider di condivisione del percorso. I provider di condivisione del percorso possono fornire Cross Connection di livello 2 oppure gestite di livello 3 tra l'infrastruttura nella struttura di condivisione percorso e il cloud Microsoft.
 
-### <a name="pointtopoint-ethernet-connections"></a>Connessioni Ethernet da punto a punto
+### <a name="point-to-point-ethernet-connections"></a>Connessioni Ethernet da punto a punto
 È possibile connettere i data center o gli uffici locali al cloud Microsoft tramite collegamenti Ethernet punto a punto. I provider Ethernet punto a punto forniscono connessioni di livello 2 o connessioni gestite di livello 3 tra la sede dell'utente e il cloud Microsoft.
 
-### <a name="anytoany-ipvpn-networks"></a>Reti (IPVPN) any-to-any
+### <a name="any-to-any-ipvpn-networks"></a>Reti (IPVPN) any-to-any
 È possibile integrare una rete WAN con il cloud Microsoft. I provider IPVPN (in genere VPN MPLS) forniscono connettività any-to-any tra le succursali e i data center. Il cloud Microsoft può essere interconnesso a una rete WAN in modo che abbia l'aspetto di qualsiasi altra succursale. I provider WAN offrono in genere connettività gestita di livello 3. Le caratteristiche e le funzionalità di ExpressRoute sono identiche in tutti i modelli di connettività sopra descritti. 
 
 I provider di connettività possono fornire uno o più modelli di connettività. È possibile interagire con il provider di connettività per scegliere il modello più appropriato.
@@ -78,7 +78,7 @@ Per un elenco dettagliato dei servizi supportati per ExpressRoute, visitare la p
 
 Se ad esempio si esegue la connessione a Microsoft da Amsterdam tramite ExpressRoute, sarà possibile accedere a tutti i servizi cloud Microsoft ospitati nell'Europa settentrionale e occidentale. Per una panoramica delle aree geopolitiche, delle aree cloud Microsoft associate e delle località di peering ExpressRoute corrispondenti, vedere l'articolo [Partner e località di peering per Azure ExpressRoute](expressroute-locations.md) .
 
-### <a name="global-connectivity-with-expressroute-premium-addon"></a>Connettività globale con il componente aggiuntivo ExpressRoute Premium
+### <a name="global-connectivity-with-expressroute-premium-add-on"></a>Connettività globale con il componente aggiuntivo ExpressRoute Premium
 È possibile abilitare la funzionalità componente aggiuntivo ExpressRoute Premium per estendere la connettività tra confini geopolitici. Se ad esempio si esegue la connessione a Microsoft da Amsterdam tramite ExpressRoute, sarà possibile accedere a tutti i servizi cloud Microsoft ospitati in tutte le aree del mondo (cloud nazionali esclusi). È possibile accedere ai servizi distribuiti nell'America del Sud o in Australia nello stesso modo in cui si accede alle aree dell'Europa settentrionale e occidentale.
 
 ### <a name="rich-connectivity-partner-ecosystem"></a>Ecosistema di partner di connettività avanzata
@@ -125,6 +125,6 @@ Microsoft gestisce ambienti cloud isolati per aree geopolitiche speciali e segme
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 08/25/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f7dafd3808b688cf1a7aff43ab996fb8e3d48cb9
+ms.sourcegitcommit: 8131002ba48a85b5116f13aa72d713526b56ac0a
+ms.openlocfilehash: 20ca7cad38537be3f7f8dce9f9ac24ce82f85e79
 
 
 ---
 # <a name="overview-apache-spark-on-hdinsight-linux"></a>Panoramica: Apache Spark in HDInsight Linux
 <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> è un framework open source di elaborazione parallela che supporta l'elaborazione in memoria per migliorare le prestazioni di applicazioni analitiche di Big Data. Il motore di elaborazione Spark è costruito per la velocità, la semplicità d'uso e le analisi sofisticate. Le funzionalità di elaborazione in memoria rendono Spark un valido strumento per l'esecuzione di algoritmi iterativi in calcoli grafici e di Machine Learning. Spark è inoltre compatibile con archiviazione Blob di Azure (WASB) in modo che i dati esistenti archiviati in Azure possono essere elaborati facilmente tramite Spark.
 
-Quando si crea un cluster di Spark in HDInsight, si creano risorse di calcolo di Azure con Spark installato e configurato. Bastano circa dieci minuti per creare un cluster di Spark in HDInsight. I dati per la varianza sono archiviati nell'archivio BLOB di Azure. Vedere [Usare l'archivio BLOB di Azure con HDInsight][hdinsight-storage].
+Quando si crea un cluster di Spark in HDInsight, si creano risorse di calcolo di Azure con Spark installato e configurato. Bastano circa dieci minuti per creare un cluster di Spark in HDInsight. I dati per la varianza sono archiviati nell'archivio BLOB di Azure. Vedere [Use Azure Blob Storage with HDInsight][hdinsight-storage] (Usare Archiviazione BLOB di Azure con HDInsight).
 
 ![Apache Spark in Azure HDInsight](./media/hdinsight-apache-spark-overview/hdispark.architecture.png "Apache Spark on Azure HDInsight")
 
@@ -41,7 +41,7 @@ Azure HDInsight offre un servizio Spark completamente gestito. I vantaggi dell'u
 | Funzionalità | Descrizione |
 | --- | --- |
 | Facilità di creazione dei cluster |È possibile creare un nuovo cluster Spark in HDInsight in pochi minuti mediante il portale di gestione di Azure, Azure PowerShell o l’SDK HDInsight .NET. Vedere [Introduzione ai cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) |
-| Semplicità d'uso |I cluster Spark in HDInsight includono i notebook Jupyter preconfigurati. È possibile usarli per la visualizzazione e l'elaborazione interattiva di dati. L'URL è https://CLUSTERNAME.azurehdinsight.net/jupyter. Sostituire **CLUSTERNAME** con il nome del cluster Spark HDInsight. |
+| Semplicità d'uso |I cluster Spark in HDInsight includono i notebook Jupyter preconfigurati. È possibile usarli per la visualizzazione e l'elaborazione interattiva di dati. L'URL per il notebook Jupyter è https://CLUSTERNAME.azurehdinsight.net/jupyter. Sostituire **CLUSTERNAME** con il nome del cluster Spark HDInsight. |
 | API REST |Spark in HDInsight include [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), un server di processo Spark basato su REST-API per inviare e monitorare i processi in esecuzione in modalità remota. |
 | Supporto per Archivio Azure Data Lake |Spark in HDInsight può essere configurato per usare Archivio Azure Data Lake come risorsa di archiviazione aggiuntiva. Per altre informazioni su Archivio Data Lake, vedere [Panoramica di Archivio Azure Data Lake](../data-lake-store/data-lake-store-overview.md). |
 | Integrazione con servizi di Azure |Spark in HDInsight viene fornito con un connettore per Hub eventi di Azure. Gli utenti possono creare applicazioni di streaming mediante Hub eventi, oltre a [Kafka](http://kafka.apache.org/)che è già disponibile come parte di Spark. |
@@ -69,12 +69,12 @@ Apache Spark in HDInsight archivia i dati nei blob di Azure. Gli esperti azienda
 
 Apache Spark viene fornito con [MLlib](http://spark.apache.org/mllib/), una libreria di machine learning basata su Spark. Inoltre, Spark in HDInsight include inoltre Anaconda, una distribuzione di Python con un'ampia gamma di pacchetti per l'apprendimento automatico. Aggiungendo il supporto incorporato per notebook Jupyter si otterrà un ambiente di qualità elevata per la creazione di applicazioni di Machine Learning.  
 
-### <a name="streaming-and-realtime-data-analysis"></a>Analisi dei dati in tempo reale e streaming
+### <a name="streaming-and-real-time-data-analysis"></a>Analisi dei dati in tempo reale e streaming
 [Esaminare un'esercitazione](hdinsight-apache-spark-eventhub-streaming.md)
 
 L'analisi dei dati in tempo reale viene usata per gli scenari che vanno dalla riduzione dei tempi di analisi dei dati attraverso l'elaborazione di dati quando arrivano alla creazione di una vera soluzione di streaming. Spark in HDInsight offre un supporto completo per la creazione di soluzioni di analisi in tempo reale. Mentre Spark ha già connettori per acquisire i dati da molte origini, quali socket Kafka, Flume, Twitter, ZeroMQ o TCP, Spark in HDInsight aggiunge un eccellente supporto per l'inserimento di dati da Hub eventi di Azure. Hub eventi è il servizio di Accodamento messaggi maggiormente usato in Azure. Disporre di un supporto per Hub eventi rende Spark in HDInsight la piattaforma ideale per la compilazione della pipeline di analisi in tempo reale.
 
-## <a name="a-namenextstepsawhat-components-are-included-as-part-of-a-spark-cluster"></a><a name="next-steps"></a>Quali componenti sono inclusi come parte di un cluster di Spark?
+## <a name="a-namenext-stepsawhat-components-are-included-as-part-of-a-spark-cluster"></a><a name="next-steps"></a>Quali componenti sono inclusi come parte di un cluster di Spark?
 Spark in HDInsight include i componenti seguenti che sono disponibili nei cluster per impostazione predefinita.
 
 * [Spark Core](https://spark.apache.org/docs/1.5.1/). Viene fornito con Spark Core, Spark SQL, streaming API Spark, GraphX e MLlib Spark.
@@ -115,6 +115,6 @@ Iniziare con la creazione di un cluster Spark in HDInsight Linux. Vedere [Guida 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

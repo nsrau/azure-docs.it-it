@@ -8,15 +8,16 @@ manager: swadhwa
 editor: 
 ms.assetid: 17837c8b-3e79-47c0-9b83-a51c6ca44ca6
 ms.service: operations-management-suite
+ms.custom: oms-security
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/08/2016
+ms.date: 12/05/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1c3e2cf86a33f9bbe6b34f4f52b82a078b91661f
+ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
+ms.openlocfilehash: f29b20ba11b030d98a7a5574f816ea132edc3f6d
 
 
 ---
@@ -75,7 +76,7 @@ Nei risultati di questo log viene visualizzato il tipo di regola baseline non ri
 > 
 
 ### <a name="accessing-computers-missing-baseline-assessment"></a>Accesso ai computer senza valutazione baseline
-OMS supporta il profilo baseline dei membri di dominio in Windows Server 2008 R2 fino a Windows Server 2012 R2. La baseline di Windows Server 2016 non è ancora definitiva e verrà aggiunta non appena pubblicata. Tutti i sistemi operativi analizzati tramite la valutazione baseline della Sicurezza e controllo di OMS vengono visualizzati nella sezione **Computer senza valutazione baseline**.
+OMS supporta il profilo baseline dei membri di dominio e del controller di dominio in Windows Server 2008 R2 fino a Windows Server 2012 R2. La baseline di Windows Server 2016 non è ancora definitiva e verrà aggiunta non appena pubblicata. Tutti i sistemi operativi analizzati tramite la valutazione baseline della Sicurezza e controllo di OMS vengono visualizzati nella sezione **Computer senza valutazione baseline**.
 
 ## <a name="see-also"></a>Vedere anche
 In questo documento sono disponibili informazioni sulla valutazione baseline della Sicurezza e controllo di OMS. Per altre informazioni sulle funzionalità di sicurezza di OMS, vedere gli articoli seguenti:
@@ -87,6 +88,6 @@ In questo documento sono disponibili informazioni sulla valutazione baseline del
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

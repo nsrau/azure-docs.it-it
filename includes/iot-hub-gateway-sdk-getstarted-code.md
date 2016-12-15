@@ -53,14 +53,46 @@ int main(int argc, char** argv)
         Gateway_LL_Destroy(gateway);
     }
     return 0;
-}
+} 
 ```
 
-Il file di impostazioni JSON contiene un elenco di moduli da caricare. Ogni modulo deve specificare:
+Il file di impostazioni JSON contiene un elenco di moduli da caricare e collegamenti tra i moduli.
+Ogni modulo deve specificare:
 
-* **module_name**: un nome univoco per il modulo.
-* **module_path**: il percorso della libreria che contiene il modulo. Per Linux si tratta di un file con estensione so, per Windows si tratta di un file con estensione dll.
+* **name**: nome univoco per il modulo.
+* **loader**: un caricatore che sia in grado di caricare il modulo appropriato.  I caricatori sono punti di estensione per il caricamento di tipi diversi di moduli. Microsoft offre caricatori da usare con moduli scritti in C, Node.js, Java e .NET nativi. L'esempio Hello World usa solo il caricatore "nativo" poiché tutti i moduli in questo esempio sono librerie dinamiche scritte in C. Vedere gli esempi [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample) o [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample) per altre informazioni sull'uso di moduli scritti in linguaggi diversi.
+    * **name**: nome del caricatore usato per caricare il modulo.  
+    * **entrypoint**: percorso della libreria che contiene il modulo. Per Linux si tratta di un file con estensione so, per Windows si tratta di un file con estensione dll. Si noti che il punto di ingresso è specifico per il tipo di caricatore in uso. Ad esempio, il punto di ingresso del caricatore di Node.js è un file js, il punto di ingresso del caricatore Java è un percorso classe + nome classe e il punto di ingresso del caricatore .NET è un nome assembly + nome classe.
+
 * **args**: le informazioni di configurazione necessarie per il modulo.
+
+Il codice seguente illustra l'uso di JSON per dichiarare tutti i moduli per l'esempio Hello World in Linux. L'uso di argomenti nei moduli dipende dalla loro struttura. In questo esempio, il modulo logger include un argomento che specifica il percorso del file di output e il modulo Hello World non include nessun argomento.
+
+```
+"modules" :
+[
+    {
+        "name" : "logger",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "./modules/logger/liblogger.so"
+        }
+        },
+        "args" : {"filename":"log.txt"}
+    },
+    {
+        "name" : "hello_world",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "./modules/hello_world/libhello_world.so"
+        }
+        },
+        "args" : null
+    }
+]
+```
 
 Il file JSON contiene anche i collegamenti tra i moduli che verranno passati al broker. Un collegamento ha due proprietà:
 
@@ -69,39 +101,20 @@ Il file JSON contiene anche i collegamenti tra i moduli che verranno passati al 
 
 Ogni collegamento definisce una route messaggi e una direzione. I messaggi dal modulo `source` devono essere recapitati al modulo `sink`. Il modulo `source` può essere impostato su "\*", a indicare che i messaggi da qualsiasi modulo verranno ricevuti dal `sink`.
 
-Nell'esempio seguente viene illustrato il file di impostazioni JSON usato per configurare l'esempio Hello World in Linux. Tutti i messaggi generati dal modulo `hello_world` verranno utilizzati dal modulo `logger`. La necessità che un modulo specifichi un argomento dipende dalla progettazione del modulo stesso. In questo esempio, il modulo di logger usa un argomento corrispondente al percorso del file di output e il modulo di Hello World non usa alcun argomento:
+Il codice seguente illustra l'uso di JSON per configurare i collegamenti tra i moduli usati nell'esempio Hello World in Linux. Tutti i messaggi generati dal modulo `hello_world` verranno utilizzati dal modulo `logger`.
 
 ```
-{
-    "modules" :
-    [ 
-        {
-            "module name" : "logger",
-            "loading args": {
-              "module path" : "./modules/logger/liblogger_hl.so"
-            },
-            "args" : {"filename":"log.txt"}
-        },
-        {
-            "module name" : "hello_world",
-            "loading args": {
-              "module path" : "./modules/hello_world/libhello_world_hl.so"
-            },
-            "args" : null
-        }
-    ],
-    "links" :
-    [
-        {
-            "source" : "hello_world",
-            "sink" : "logger"
-        }
-    ]
-}
+"links": 
+[
+    {
+        "source": "hello_world",
+        "sink": "logger"
+    }
+]
 ```
 
 ### <a name="hello-world-module-message-publishing"></a>Pubblicazione dei messaggi del modulo di Hello World
-Il codice usato dal modulo "hello world" per pubblicare i messaggi è disponibile nel file ["hello_world.c"][lnk-helloworld-c]. Il frammento di codice riportato di seguito riporta una versione modificata, ai fini di una maggior leggibilità, in cui sono stati aggiunti commenti ed è stato rimosso del codice per la gestione degli errori:
+Il codice usato dal modulo "hello world" per pubblicare i messaggi è disponibile nel file ['hello_world.c'][lnk-helloworld-c]. Il frammento di codice riportato di seguito riporta una versione modificata, ai fini di una maggior leggibilità, in cui sono stati aggiunti commenti ed è stato rimosso del codice per la gestione degli errori:
 
 ```
 int helloWorldThread(void *param)
@@ -207,7 +220,7 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 Per informazioni su come usare IoT Gateway SDK per gateway, vedere quanto segue:
 
 * [IoT Gateway SDK: inviare messaggi da dispositivo a cloud con un dispositivo simulato usando Linux][lnk-gateway-simulated].
-* [Azure IoT Gateway SDK][lnk-gateway-sdk] su GitHub.
+* [Azure IoT Gateway SDK][lnk-gateway-sdk] in GitHub.
 
 <!-- Links -->
 [lnk-main-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/hello_world/src/main.c
@@ -216,6 +229,6 @@ Per informazioni su come usare IoT Gateway SDK per gateway, vedere quanto segue:
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

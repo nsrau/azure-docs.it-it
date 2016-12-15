@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 82da4d7324db83d71b21741f51ebe4e364c5a8f7
-ms.openlocfilehash: bde5635ddb43271920e6258c5df46d6ae6b41985
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d31fdad17c74ffd7ef5e411555c5a5fdb8c7927c
 
 
 ---
@@ -62,7 +62,7 @@ Prima di seguire le istruzioni di questo articolo, verificare che siano disponib
    OPPURE
 
    Un'installazione locale dell'[emulatore DocumentDB di Azure](documentdb-nosql-local-emulator.md).
-* [Node.JS][Node.JS] 0.10.29 o versione successiva.
+* [Node.js][Node.js] 0.10.29 o versione successiva.
 * [Generatore di Express](http://www.expressjs.com/starter/generator.html), installabile tramite `npm install express-generator -g`
 * [Git][Git].
 
@@ -535,17 +535,17 @@ Una volta completate le operazioni iniziali di installazione e configurazione, s
 ## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>Passaggi successivi
 Congratulazioni. Si è creata la prima applicazione Web Express Node.js usando Azure DocumentDB e la si è pubblicata in Siti Web di Azure.
 
-Il codice sorgente per l'applicazione di riferimento completa è disponibile per il download da [GitHub][GitHub].
+Il codice sorgente per l'applicazione di riferimento completa è disponibile per il download in [GitHub][GitHub].
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](https://azure.microsoft.com/develop/nodejs/).
 
-[Node.JS]: http://nodejs.org/
+[Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

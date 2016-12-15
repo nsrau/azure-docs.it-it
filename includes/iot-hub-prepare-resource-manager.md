@@ -1,7 +1,7 @@
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Prepararsi all'autenticazione delle richieste di Azure Resource Manager
-Si devono autenticare tutte le attività da eseguire sulle risorse usando [Azure Resource Manager][lnk-authenticate-arm] con Azure Active Directory (AD). Il modo più semplice per configurare questa impostazione è usare PowerShell o l’interfaccia della riga di comando di Azure.
+Si devono autenticare tutte le attività da eseguire sulle risorse mediante [Gestione risorse di Azure][lnk-authenticate-arm] con Azure Active Directory (AD). Il modo più semplice per configurare questa impostazione è usare PowerShell o l’interfaccia della riga di comando di Azure.
 
-È necessario installare [Azure PowerShell 1.0][lnk-powershell-install] o versione successiva per continuare.
+È necessario installare [Azure PowerShell 1.0][lnk-powershell-install] o una versione successiva per continuare.
 
 La procedura seguente illustra come configurare l'autenticazione della password per un'applicazione di AD mediante PowerShell. È possibile eseguire questi comandi in una sessione standard di PowerShell.
 
@@ -41,9 +41,9 @@ A questo punto è terminata la creazione dell'applicazione Azure AD che consenti
 * Password
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
-[lnk-powershell-install]: ../articles/powershell-install-configure.md
+[lnk-powershell-install]: /powershell/azureps-cmdlets-docs
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 
