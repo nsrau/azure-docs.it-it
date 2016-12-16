@@ -2,11 +2,11 @@
 title: Connettere computer Linux a Log Analytics | Microsoft Docs
 description: Log Analytics consente di raccogliere dati dai computer Linux e di agire in base a essi.
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: ab5b76d8-9ab5-406e-8768-76fb0632d830
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 218ffec4601c5b0b4ee9872b5bbd03489cb3ddcf
+
 
 ---
 # <a name="connect-linux-computers-to-log-analytics"></a>Connettere computer Linux a Log Analytics
@@ -674,7 +678,7 @@ Si tratta di un problema noto che si verifica durante il primo caricamento dei d
 ```
 
 
-### <a name="linux-data-doesn't-appear-in-the-oms-portal"></a>I dati di Linux non vengono visualizzati nel portale di OMS
+### <a name="linux-data-doesnt-appear-in-the-oms-portal"></a>I dati di Linux non vengono visualizzati nel portale di OMS
 #### <a name="probable-causes"></a>Possibili cause
 * Il caricamento nel servizio OMS ha avuto esito negativo
 * La connessione al servizio OMS è bloccata
@@ -779,6 +783,9 @@ Per raccogliere i messaggi SysLog, è necessario rsyslog o syslog-ng. Il daemon 
 * Acquisire familiarità con le [ricerche nei log](log-analytics-log-searches.md) per visualizzare le informazioni dettagliate raccolte dalle soluzioni.
 * Usare i [dashboard](log-analytics-dashboards.md) per salvare e visualizzare le ricerche personalizzate.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

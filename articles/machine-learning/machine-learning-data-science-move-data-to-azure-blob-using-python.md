@@ -1,12 +1,12 @@
 ---
-title: Spostamento dei dati da e verso l'archiviazione BLOB di Azure utilizzando Python | Microsoft Docs
-description: Spostamento dei dati da e verso l'archiviazione BLOB di Azure utilizzando Python.
+title: Spostamento dei dati da e verso l&quot;archiviazione BLOB di Azure utilizzando Python | Documentazione Microsoft
+description: Spostamento dei dati da e verso l&quot;archiviazione BLOB di Azure utilizzando Python.
 services: machine-learning,storage
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 24276252-b3dd-4edf-9e5d-f6803f8ccccc
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2016
 ms.author: bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: a67f2e77d3bc7da35a03b68d7f32fd3a2a42bfcd
+ms.openlocfilehash: 8ae64aa0cfe3774cfa288cc3eea18b1b2f56ad90
+
 
 ---
-# Spostamento dei dati da e verso l'archiviazione BLOB di Azure utilizzando Python.
+# <a name="move-data-to-and-from-azure-blob-storage-using-python"></a>Spostamento dei dati da e verso l'archiviazione BLOB di Azure utilizzando Python.
 Questo argomento descrive come elencare, caricare e scaricare BLOB usando l'API Python. Con l'API Python fornita in Azure SDK, è possibile:
 
 * Creare un contenitore
@@ -27,25 +31,23 @@ Questo argomento descrive come elencare, caricare e scaricare BLOB usando l'API 
 
 Per ulteriori informazioni sull'utilizzo dell’API di Python, vedere [Come utilizzare il servizio di archiviazione BLOB da Python](../storage/storage-python-how-to-use-blob-storage.md).
 
-Collegamenti a indicazioni sulle tecnologie usate per spostare i dati in e/o da un archivio BLOB di Azure sono disponibili qui:
-
-[!INCLUDE [selettore dello strumento di archiviazione BLOB](../../includes/machine-learning-blob-storage-tool-selector.md)]
+[!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 > [!NOTE]
 > Se si utilizza una macchina virtuale che è stata impostata con gli script forniti da [Macchine virtuali della scienza dei dati in Azure](machine-learning-data-science-virtual-machines.md), allora AzCopy è già installata nella macchina virtuale.
 > 
 > [!NOTE]
-> Per un'introduzione completa dell'archiviazione BLOB di Azure, vedere [Informazioni di base sui BLOB di Azure](../storage/storage-dotnet-how-to-use-blobs.md) e [Servizio BLOB di Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> Per un'introduzione completa all'archiviazione BLOB di Azure, vedere [Introduzione all'archivio BLOB di Azure](../storage/storage-dotnet-how-to-use-blobs.md) e [Servizio BLOB di Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 > 
 > 
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 In questo documento si presuppone di avere una sottoscrizione di Azure, un account di archiviazione e chiavi di archiviazione corrispondenti per quell'account. Prima di caricare/scaricare i dati, è necessario conoscere il nome e la chiave del proprio account di archiviazione di Azure.
 
 * Per configurare una sottoscrizione di Azure, vedere [Versione di prova gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).
 * Per istruzioni sulla creazione di un account di archiviazione e per ottenere informazioni sull’account e la chiave, vedere [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).
 
-## Caricamento di dati BLOB
+## <a name="upload-data-to-blob"></a>Caricamento di dati BLOB
 Aggiungere lo snippet seguente vicino all'inizio di ogni codice Python in cui si desidera accedere all'archiviazione di Azure a livello di programmazione:
 
     from azure.storage.blob import BlobService
@@ -56,8 +58,8 @@ L'oggetto **BlobService** consente di lavorare con contenitori e BLOB. Il codice
 
 Per caricare dati in un BLOB, utilizzare i metodi seguenti:
 
-1. put\_block\_blob\_from\_path (consente di caricare il contenuto di un file da un percorso specifico)
-2. put\_block\_blob\_from\_file (consente di caricare il contenuto da un flusso/file già aperto)
+1. put\_block\_blob\_from\_path (consente di caricare il contenuto di un file dal percorso specificato)
+2. put\_block_blob\_from\_file (consente di caricare il contenuto da un flusso/file già aperto)
 3. put\_block\_blob\_from\_bytes (consente di caricare una matrice di byte)
 4. put\_block\_blob\_from\_text (consente di caricare il valore di testo specificato mediante la codifica specificata)
 
@@ -91,7 +93,7 @@ Il seguente codice di esempio consente di caricare tutti i file (a esclusione de
             print "something wrong happened when uploading the data %s"%blob_name
 
 
-## Download dei dati dal BLOB
+## <a name="download-data-from-blob"></a>Download dei dati dal BLOB
 Per scaricare dati da un BLOB, utilizzare i metodi seguenti:
 
 1. get\_blob\_to\_path
@@ -105,7 +107,7 @@ Il seguente codice di esempio consente di scaricare i contenuti di un BLOB in un
 
     blob_service.get_blob_to_path("<your_container_name>", "<your_blob_name>", "<your_local_file_name>")
 
-Il seguente codice di esempio consente di scaricare tutti i BLOB da un contenitore. Utilizza list\_blobs per ottenere un elenco di BLOB disponibili nel contenitore e li scarica in una directory locale.
+Il seguente codice di esempio consente di scaricare tutti i BLOB da un contenitore. Usa list\_blobs per ottenere un elenco di BLOB disponibili nel contenitore e li scarica in una directory locale.
 
     from azure.storage.blob import BlobService
     from os.path import join
@@ -127,4 +129,8 @@ Il seguente codice di esempio consente di scaricare tutti i BLOB da un contenito
         except:
             print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

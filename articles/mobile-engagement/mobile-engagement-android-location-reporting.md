@@ -5,8 +5,8 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6cab5ed1-b767-46ac-9f0b-48a4e249d88c
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,9 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 777d5719cce505b55dfb61c91dcac7e713b077a9
+
 
 ---
-# Segnalazione della posizione per Android SDK per Azure Mobile Engagement
+# <a name="location-reporting-for-azure-mobile-engagement-android-sdk"></a>Segnalazione della posizione per Android SDK per Azure Mobile Engagement
 > [!div class="op_single_selector"]
 > * [Android](mobile-engagement-android-integrate-engagement.md)
 > 
@@ -24,13 +28,13 @@ ms.author: piyushjo;ricksal
 
 Questo argomento descrive come segnalare la posizione per l'applicazione Android.
 
-## Prerequisiti
-[!INCLUDE [Prerequisiti](../../includes/mobile-engagement-android-prereqs.md)]
+## <a name="prerequisites"></a>Prerequisiti
+[!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
-## Segnalazione della posizione
+## <a name="location-reporting"></a>Segnalazione della posizione
 Per fare in modo che le posizioni vengano segnalate, è necessario aggiungere alcune righe di configurazione tra i tag `<application>` e `</application>`.
 
-### Segnalazione differita della posizione
+### <a name="lazy-area-location-reporting"></a>Segnalazione differita della posizione
 La segnalazione differita della posizione consente di segnalare il paese, l'area geografica e la località associati ai dispositivi. Questo tipo di segnalazione della posizione usa solo le posizioni di rete, sulla base dell'ID di cella o della connessione Wi-Fi. L'area del dispositivo viene segnalata al massimo una volta per sessione. Il GPS non viene mai usato, per cui l'impatto di questo tipo di segnalazione della posizione sulla batteria è ridotto.
 
 Le aree segnalate vengono usate per calcolare statistiche geografiche relative a utenti, sessioni, eventi ed errori. Possono essere usate anche come criteri nelle campagne Reach.
@@ -42,16 +46,16 @@ Si abilita la segnalazione differita della posizione usando la configurazione de
     engagementConfiguration.setLazyAreaLocationReport(true);
     EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-È inoltre necessario specificare un'autorizzazione di posizione. Questo codice usa l'autorizzazione ``COARSE``:
+È inoltre necessario specificare un'autorizzazione di posizione. Questo codice usa l'autorizzazione ``COARSE`` :
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
-Se l'app lo richiede, è possibile usare invece di ``ACCESS_FINE_LOCATION``.
+Se l'app lo richiede, è possibile usare invece di ``ACCESS_FINE_LOCATION`` .
 
-### Segnalazione della posizione in tempo reale
+### <a name="real-time-location-reporting"></a>Segnalazione della posizione in tempo reale
 La segnalazione della posizione in tempo reale consente di segnalare la latitudine e la longitudine associate ai dispositivi. Questo tipo di segnalazione della posizione usa solo le posizioni di rete, sulla base dell'ID di cella o della connessione Wi-Fi. La segnalazione è attiva solo quando l'applicazione viene eseguita in primo piano, ad esempio durante una sessione.
 
-Le posizioni in tempo reale *NON* sono usate per calcolare dati statistici. Il loro unico scopo è consentire l'uso del criterio di definizione del recinto virtuale in tempo reale <Reach-Audience-geofencing> nelle campagne Reach.
+Le posizioni in tempo reale *NON* sono usate per calcolare dati statistici. Il loro unico scopo è consentire l'uso del criterio di definizione del recinto virtuale in tempo reale \<Reach-Audience-geofencing\> nelle campagne Reach.
 
 Per abilitare la segnalazione della posizione in tempo reale, aggiungere una riga di codice dove si è impostata la stringa di connessione di Engagement nell'attività dell'utilità di avvio. Il risultato è simile al seguente:
 
@@ -66,7 +70,7 @@ Per abilitare la segnalazione della posizione in tempo reale, aggiungere una rig
 
         If your app requires it, you can use ``ACCESS_FINE_LOCATION`` instead.
 
-#### Segnalazione basata su GPS
+#### <a name="gps-based-reporting"></a>Segnalazione basata su GPS
 Per impostazione predefinita, la segnalazione della posizione in tempo reale usa solo posizioni di rete. Per abilitare l'uso di posizioni basate su GPS, che sono molto più precise, usare l'oggetto di configurazione:
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -79,7 +83,7 @@ Per impostazione predefinita, la segnalazione della posizione in tempo reale usa
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
-#### Segnalazione in background
+#### <a name="background-reporting"></a>Segnalazione in background
 Per impostazione predefinita, la segnalazione della posizione in tempo reale è attiva solo quando l'applicazione viene eseguita in primo piano, ad esempio durante una sessione. Per abilitare la segnalazione anche in background, usare questo oggetto di configurazione:
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -106,7 +110,7 @@ Se l'utente riavvia il dispositivo, viene interrotta la segnalazione della posiz
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-## Autorizzazioni Android M
+## <a name="android-m-permissions"></a>Autorizzazioni Android M
 A partire da Android M, alcune autorizzazioni vengono gestite in fase di esecuzione e richiedono l'approvazione dell'utente.
 
 Se la destinazione è il livello 23 dell'API Android, le autorizzazioni di runtime verranno disattivate per impostazione predefinita per le installazioni di nuove app. In caso contrario vengono attivate per impostazione predefinita.
@@ -156,4 +160,8 @@ Ecco un esempio di codice da utilizzare in un'attività dell'applicazione per ri
         getEngagementAgent().refreshPermissions();
     }
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

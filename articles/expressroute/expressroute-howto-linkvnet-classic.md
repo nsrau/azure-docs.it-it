@@ -1,13 +1,13 @@
 ---
-title: Collegamento di una rete virtuale a un circuito ExpressRoute usando il modello di distribuzione classico e PowerShell | Microsoft Docs
+title: Collegare una rete virtuale a un circuito ExpressRoute usando il modello di distribuzione classico e PowerShell | Documentazione Microsoft
 description: Questo documento offre una panoramica sulle procedure di collegamento delle reti virtuali ai circuiti ExpressRoute usando il modello di distribuzione classico e PowerShell.
 services: expressroute
 documentationcenter: na
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 9b53fd72-9b6b-4844-80b9-4e1d54fd0c17
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 99d5facce236b82ea84c708edf5e934a0d69919c
+ms.openlocfilehash: 1c0891c79081f068fd6e4a60a05a6b58ebdc9598
+
 
 ---
 # <a name="link-a-virtual-network-to-an-expressroute-circuit"></a>Collegare una rete virtuale a un circuito ExpressRoute
@@ -36,7 +40,7 @@ Questo articolo spiega come collegare le reti virtuali ai circuiti di Azure Expr
 2. Prima di procedere con la configurazione, è necessario verificare i [prerequisiti](expressroute-prerequisites.md), i [requisiti di routing](expressroute-routing.md) e i [flussi di lavoro](expressroute-workflows.md).
 3. È necessario avere un circuito ExpressRoute attivo.
    * Seguire le istruzioni per [creare un circuito ExpressRoute](expressroute-howto-circuit-classic.md) e fare in modo che il circuito venga abilitato dal provider di connettività.
-   * Assicurarsi di disporre del peering privato di Azure configurato per il circuito. Per istruzioni relative al routing, vedere l'articolo relativo alla [configurazione del routing](expressroute-howto-routing-classic.md) .
+   * Assicurarsi di disporre del peering privato di Azure configurato per il circuito. Vedere l'articolo relativo alla [configurazione del routing](expressroute-howto-routing-classic.md) per istruzioni relative al routing.
    * Per abilitare la connettività end-to-end, assicurarsi che sia configurato il peering privato di Azure e sia attivo il peering BGP tra la rete e Microsoft.
    * È necessario disporre di una rete virtuale e di un gateway di rete virtuale creati e con provisioning completo. Seguire le istruzioni per [configurare una rete virtuale per ExpressRoute](expressroute-howto-vnet-portal-classic.md).
 
@@ -66,7 +70,9 @@ Il *proprietario del circuito* è l'amministratore o il coamministratore della s
 Il proprietario del circuito ha la facoltà di modificare e revocare le autorizzazioni in qualsiasi momento. La revoca dell'autorizzazione comporterà l'eliminazione di tutti i collegamenti dalla sottoscrizione di cui è stato revocato l'accesso.
 
 ### <a name="circuit-owner-operations"></a>Operazioni del proprietario del circuito
-#### <a name="creating-an-authorization"></a>Creazione di un'autorizzazione
+
+**Creazione di un'autorizzazione**
+
 Il proprietario del circuito autorizza gli amministratori di altre sottoscrizioni a usare il circuito specificato. Nell'esempio seguente l'amministratore del circuito (Contoso IT) abilita l'amministratore di un'altra sottoscrizione (sviluppo/test) per collegare fino a due reti virtuali al circuito. L'amministratore di Contoso IT esegue l'abilitazione specificando l'ID Microsoft di sviluppo/test. Il cmdlet non invia messaggi di posta elettronica all'ID di Microsoft specificato. Il proprietario del circuito deve indicare in modo esplicito al proprietario dell'altra sottoscrizione che l'autorizzazione è stata completata.
 
     New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
@@ -77,7 +83,8 @@ Il proprietario del circuito autorizza gli amministratori di altre sottoscrizion
     MicrosoftIds        : devtest@contoso.com
     Used                : 0
 
-#### <a name="reviewing-authorizations"></a>Verifica delle autorizzazioni
+**Verifica delle autorizzazioni**
+
 Il proprietario del circuito può esaminare tutte le autorizzazioni rilasciate in un particolare circuito eseguendo il cmdlet seguente:
 
     Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "**************************"
@@ -101,7 +108,8 @@ Il proprietario del circuito può esaminare tutte le autorizzazioni rilasciate i
     Used                : 2
 
 
-#### <a name="updating-authorizations"></a>Aggiornamento delle autorizzazioni
+**Aggiornamento delle autorizzazioni**
+
 Il proprietario del circuito può modificare le autorizzazioni usando il cmdlet seguente:
 
     Set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -AuthorizationId "&&&&&&&&&&&&&&&&&&&&&&&&&&&&"-Limit 5
@@ -113,14 +121,17 @@ Il proprietario del circuito può modificare le autorizzazioni usando il cmdlet 
     Used                : 0
 
 
-#### <a name="deleting-authorizations"></a>Eliminazione delle autorizzazioni
+**Eliminazione delle autorizzazioni**
+
 Il proprietario del circuito può revocare o eliminare le autorizzazioni dell'utente eseguendo il cmdlet seguente:
 
     Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey "*****************************" -AuthorizationId "###############################"
 
 
 ### <a name="circuit-user-operations"></a>Operazioni dell'utente del circuito
-#### <a name="reviewing-authorizations"></a>Verifica delle autorizzazioni
+
+**Verifica delle autorizzazioni**
+
 L'utente del circuito può esaminare le autorizzazioni usando il cmdlet seguente:
 
     Get-AzureAuthorizedDedicatedCircuit
@@ -135,7 +146,8 @@ L'utente del circuito può esaminare le autorizzazioni usando il cmdlet seguente
     Status                           : Enabled
     UsedLinks                        : 0
 
-#### <a name="redeeming-link-authorizations"></a>Riscatto delle autorizzazioni dei collegamenti
+**Riscatto delle autorizzazioni dei collegamenti**
+
 L'utente del circuito può eseguire il cmdlet seguente per riscattare un'autorizzazione di collegamento:
 
     New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –VnetName 'SalesVNET1'
@@ -147,6 +159,9 @@ L'utente del circuito può eseguire il cmdlet seguente per riscattare un'autoriz
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
