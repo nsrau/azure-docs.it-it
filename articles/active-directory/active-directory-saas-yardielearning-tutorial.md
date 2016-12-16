@@ -1,12 +1,12 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Yardi eLearning | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Yardi eLearning.
+description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Yardi eLearning.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 7ea58b54-ec5b-4576-8586-814b11d0f4fb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 31be0e05b72b8c1ba444ad69798f3675b58a6b71
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-yardi-elearning"></a>Esercitazione: Integrazione di Azure Active Directory con Yardi eLearning
+# <a name="tutorial-azure-active-directory-integration-with-yardi-elearning"></a>Esercitazione: Integrazione di Azure Active Directory con Yardi eLearning
 Questa esercitazione descrive l'integrazione di Yardi eLearning con Azure Active Directory (Azure AD).
 
 L'integrazione di Yardi eLearning con Azure AD offre i vantaggi seguenti:
@@ -236,6 +240,6 @@ Quando si fa clic sul riquadro Yardi eLearning nel pannello di accesso, si dovre
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

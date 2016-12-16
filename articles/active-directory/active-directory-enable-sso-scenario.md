@@ -1,12 +1,12 @@
 ---
-title: Gestione di applicazioni con Azure Active Directory | Microsoft Docs
-description: Questo articolo illustra i vantaggi dell'integrazione di Azure Active Directory con le applicazioni locali, cloud e SaaS.
+title: Gestione di applicazioni con Azure Active Directory | Documentazione Microsoft
+description: Questo articolo illustra i vantaggi dell&quot;integrazione di Azure Active Directory con le applicazioni locali, cloud e SaaS.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 95b96f10-2d5c-4b78-8af8-d3657a24140f
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0e5d50d111a63e7af8df6ded3492fe16e575ff51
+
 
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Gestione di applicazioni con Azure Active Directory
@@ -94,7 +98,7 @@ Alcune applicazioni offrono interfacce di automazione per la creazione e la rimo
 ## <a name="access-management"></a>gestione degli accessi
 Azure AD permette di gestire gli accessi alle applicazioni tramite assegnazioni singole o basate su ruolo. È anche possibile delegare la gestione degli accessi alle persone appropriate all'interno dell'organizzazione prevedendo una supervisione ottimale e riducendo il carico di lavoro del supporto tecnico.
 
-## <a name="onpremises-applications"></a>Applicazioni locali
+## <a name="on-premises-applications"></a>Applicazioni locali
 Il proxy di applicazione incorporato consente di pubblicare le applicazioni locali per gli utenti, al fine di garantire un'esperienza di accesso coerente per le applicazioni cloud e offrire i vantaggi delle funzionalità di monitoraggio, creazione di report e sicurezza disponibili in Azure AD.
 
 ## <a name="reporting-and-monitoring"></a>Monitoraggio e creazione di report
@@ -109,6 +113,9 @@ Per iniziare a integrare applicazioni con Azure AD, vedere [Guida introduttiva a
 ## <a name="see-also"></a>Vedere anche
 [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

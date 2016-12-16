@@ -1,105 +1,103 @@
 ---
-title: Impostare gli avvisi in Application Insights
-description: Ricevere messaggi di posta elettronica per arresti anomali, eccezioni, modifiche delle metriche.
+title: Impostare gli avvisi in Application Insights | Microsoft Docs
+description: "Ricevere notifiche su tempi di risposta più lenti, eccezioni e altre prestazioni o modifiche nell&quot;uso delle app Web."
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
 manager: douge
-
+ms.assetid: f8ebde72-f819-4ba5-afa2-31dbd49509a5
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2016
+ms.date: 10/14/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
+ms.openlocfilehash: 2146030449c691af166d6a9b134d22d4504d7641
+
 
 ---
-# Impostare gli avvisi in Application Insights
-[Visual Studio Application Insights][start] segnala le variazioni nelle metriche di utilizzo o delle prestazioni nell'app.
+# <a name="set-alerts-in-application-insights"></a>Impostare gli avvisi in Application Insights
+[Application Insights di Azure][start] consente di ricevere gli avvisi sulle variazioni nelle metriche di utilizzo o delle prestazioni nell'app Web. 
 
 Application Insights esegue il monitoraggio dell'app attiva in un'[ampia varietà di piattaforme][platforms] per consentire di diagnosticare i problemi di prestazioni e acquisire informazioni sui modelli di utilizzo.
 
-Esistono due tipi di avvisi:
+Esistono tre tipologie di avvisi:
 
-* I **test Web** indicano quando il sito non è disponibile in Internet o risponde lentamente. [Altre informazioni][availability]
-* Gli **avvisi delle metriche** indicano quando una qualsiasi metrica supera un valore di soglia per un determinato periodo, ad esempio, numero di errori, memoria o visualizzazioni di pagina. 
+* Gli **avvisi delle metriche** indicano quando una qualsiasi metrica supera un valore di soglia per un determinato periodo, come ad esempio i tempi di risposta, il numero di eccezioni, l'uso della CPU o il numero di visualizzazioni della pagina. 
+* I [**test Web**][availability] indicano quando il sito non è disponibile in Internet o risponde lentamente. [Altre informazioni][availability].
+* Gli avvisi della [**diagnostica proattiva**](app-insights-proactive-diagnostics.md) vengono configurati automaticamente per informare su schemi di prestazioni insoliti.
 
-Poiché è disponibile una [pagina separata sui test Web][availability], qui verranno descritti gli avvisi delle metriche.
+L'articolo è incentrato sugli avvisi delle metriche.
 
-> [!NOTE]
-> Si potrebbero ricevere messaggi di posta elettronica anche dal [rilevamento proattivo](app-insights-proactive-detection.md), che avvisano di anomalie nelle prestazioni dell'applicazione. A differenza degli avvisi, queste notifiche vengono eseguite senza che sia necessario impostarle. Hanno lo scopo di ottimizzare le prestazioni dell'applicazione e non di segnalare problemi immediati.
-> 
-> 
-
-## Avvisi delle metriche
-Se non è stato ancora configurato Application Insights per l'app [eseguire prima questa operazione][start].
-
-Per ricevere un messaggio di posta elettronica quando una metrica supera una soglia, iniziare da Esplora metriche o dal riquadro Regole avvisi nel pannello Panoramica.
+## <a name="set-a-metric-alert"></a>Impostare un avviso metrica
+Aprire il pannello Regole di avviso e usare il pulsante Aggiungi. 
 
 ![Nel pannello Regole di avviso scegliere Aggiungi avviso. Impostare l'app come la risorsa da misurare, specificare un nome per l'avviso e scegliere una metrica.](./media/app-insights-alerts/01-set-metric.png)
 
 * Impostare la risorsa prima delle altre proprietà. **Scegliere la risorsa "(components)"** per impostare avvisi sulle metriche relative a prestazioni e utilizzo.
-* Prendere nota delle unità in cui viene richiesto di immettere il valore di soglia.
 * Il nome assegnato all'avviso deve essere univoco all'interno del gruppo di risorse (non solo dell'applicazione).
+* Prendere nota delle unità in cui viene chiesto di immettere il valore soglia.
 * Se si seleziona la casella "Proprietari di posta elettronica...", verranno inviati avvisi tramite posta elettronica a chiunque abbia accesso a questo gruppo di risorse. Per espandere il set di utenti, aggiungerli al [gruppo di risorse o a una sottoscrizione](app-insights-resources-roles-access-control.md) (non la risorsa).
 * Se si specifica "Indirizzi di posta elettronica aggiuntivi", gli avvisi verranno inviati agli utenti o gruppi corrispondenti (indipendentemente dalla selezione della casella relativa ai "proprietari di posta elettronica..."). 
-* Impostare un [indirizzo di webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) se è stata impostata un'app Web che risponderà agli avvisi. L'app verrà richiamata sia quando l'avviso viene attivato sia quando viene risolto. Si noti però che attualmente i parametri di query non vengono passati come proprietà webhook.
+* Impostare un [indirizzo di webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) se è stata impostata un'app Web che risponde agli avvisi. L'app verrà richiamata sia quando l'avviso viene attivato sia quando viene risolto. Si noti però che attualmente i parametri di query non vengono passati come proprietà webhook.
 * È possibile disabilitare o abilitare l'avviso usando i pulsanti nella parte superiore del pannello.
 
-*Il pulsante Aggiungi avviso non viene visualizzato*: si sta usando un account aziendale? È possibile impostare gli avvisi se si ha l'accesso come proprietario o come collaboratore a questa risorsa dell'applicazione. Controllare in Impostazioni -> Utenti. [Informazioni sul controllo di accesso][roles].
+*Il pulsante Aggiungi avviso non è visibile.* 
+
+* Si sta usando un account aziendale? È possibile impostare gli avvisi se si ha l'accesso come proprietario o come collaboratore a questa risorsa dell'applicazione. Dare un'occhiata al pannello Controllo di accesso. [Informazioni sul controllo di accesso][roles].
 
 > [!NOTE]
-> Nel pannello degli avvisi si noterà che è già presente un avviso: [Diagnostica proattiva quasi in tempo reale](app-insights-nrt-proactive-diagnostics.md). Si tratta di un avviso automatico che controlla una particolare metrica, la frequenza di errori delle richieste. Pertanto, a meno che non si decida di disabilitare questa opzione, non è necessario impostare un proprio avviso relativo alla frequenza di errori delle richieste.
+> Nel pannello degli avvisi si noterà che è già presente un avviso configurato: [Diagnostica proattiva](app-insights-proactive-failure-diagnostics.md). Si tratta di un avviso automatico che controlla una particolare metrica, la frequenza di errori delle richieste. A meno che non si decida di disabilitare l'avviso proattivo, non è necessario impostare un proprio avviso relativo alla frequenza di errori delle richieste. 
 > 
 > 
 
-## Visualizzare gli avvisi
-Si riceve un messaggio di posta elettronica quando lo stato dell'avviso passa da inattivo ad attivo e viceversa.
+## <a name="see-your-alerts"></a>Visualizzare gli avvisi
+Si riceve un messaggio di posta elettronica quando lo stato dell'avviso passa da inattivo ad attivo e viceversa. 
 
 Lo stato corrente di ogni avviso viene visualizzato nel pannello delle regole di avviso.
 
 Nell'elenco a discesa Avvisi è disponibile un riepilogo delle attività recenti:
 
-![](./media/app-insights-alerts/010-alert-drop.png)
+![Menu a discesa degli avvisi](./media/app-insights-alerts/010-alert-drop.png)
 
-La cronologia delle modifiche di stato si trova nel log di controllo:
+La cronologia delle modifiche di stato si trova nel Log attività:
 
 ![Nel pannello Panoramica fare clic su Impostazioni, Log di controllo](./media/app-insights-alerts/09-alerts.png)
 
-## Funzionamento degli avvisi
+## <a name="how-alerts-work"></a>Funzionamento degli avvisi
 * Un avviso può avere tre stati: "Mai attivato", "Attivato" e "Risolto". Lo stato Attivato indica che la condizione specificata aveva valore true al momento dell'ultima valutazione.
 * Quando lo stato di un avviso viene modificato, viene generata una notifica. Se la condizione dell'avviso era già impostata su true durante la creazione dell'avviso, è possibile che non si riceva alcuna notifica finché la condizione non viene impostata su false.
 * Ogni notifica genera un messaggio di posta elettronica se è stata selezionata la casella dei messaggi di posta elettronica o sono stati specificati indirizzi di posta elettronica. È anche possibile esaminare l'elenco di riepilogo a discesa Notifiche.
 * Un avviso viene valutato ogni volta che arriva una metrica, ma non altrimenti.
 * La valutazione aggrega la metrica per il periodo precedente e quindi la confronta con la soglia per determinare il nuovo stato.
 * Il periodo scelto specifica l'intervallo per il quale vengono aggregate le metriche. Non influisce sulla frequenza con cui viene valutato l'avviso: ciò dipende dalla frequenza di arrivo delle metriche.
-* Se per un periodo di tempo non arrivano dati per una determinata metrica, il divario comporta diversi effetti sulla valutazione dell'avviso e sui grafici in Esplora metriche. Se in Esplora metriche non viene visualizzato alcun dato per un periodo più lungo dell'intervallo di campionamento del grafico, il grafico mostrerà un valore pari a 0. Un avviso basato sulla metrica stessa non verrà valutato nuovamente e lo stato dell'avviso rimarrà invariato.
+* Se per un periodo di tempo non arrivano dati per una determinata metrica, il divario comporta diversi effetti sulla valutazione dell'avviso e sui grafici in Esplora metriche. Se in Esplora metriche non viene visualizzato alcun dato per un periodo più lungo dell'intervallo di campionamento del grafico, il grafico mostra un valore pari a 0. Un avviso basato sulla metrica stessa non viene valutato nuovamente e lo stato dell'avviso rimane invariato. 
   
-    Quando infine arrivano i dati, il grafico verrà riportato su un valore diverso da zero. L'avviso verrà valutato in base ai dati disponibili per il periodo specificato. Se il nuovo punto dati è l'unico disponibile nel periodo, la funzione di aggregazione si baserà solo su di esso.
+    Quando infine arrivano i dati, il grafico viene riportato su un valore diverso da zero. L'avviso viene valutato in base ai dati disponibili per il periodo specificato. Se il nuovo punto dati è l'unico disponibile nel periodo, la funzione di aggregazione si basa solo su quel punto dati.
 * Un avviso può spesso passare velocemente dallo stato di avviso a quello integro e viceversa, anche se si imposta un periodo prolungato. Questa situazione può verificarsi se il valore della metrica si aggira intorno alla soglia. Non esiste alcuna isteresi nella soglia: la transizione allo stato di avviso si verifica in corrispondenza dello stesso valore della transizione allo stato integro.
 
-## Avvisi di disponibilità
-È possibile configurare test Web che consentono di testare qualsiasi sito Web in qualunque parte del mondo. [Altre informazioni][availability]
-
-## Quali sono gli avvisi corretti da impostare?
-Dipende dall'applicazione. Per iniziare, è consigliabile non impostare un numero eccessivo di metriche. Esaminare i grafici delle metriche mentre l'app è in esecuzione per acquisire informazioni sul comportamento normale. Sarà così possibile trovare un modo per migliorare le prestazioni. Impostare quindi gli avvisi per ricevere le notifiche quando le metriche superano la zona normale.
+## <a name="what-are-good-alerts-to-set"></a>Quali sono gli avvisi corretti da impostare?
+Dipende dall'applicazione. Per iniziare, è consigliabile non impostare un numero eccessivo di metriche. Esaminare i grafici delle metriche mentre l'app è in esecuzione per acquisire informazioni sul comportamento normale. È così possibile trovare un modo per migliorare le prestazioni. Impostare quindi gli avvisi per ricevere le notifiche quando le metriche superano la zona normale. 
 
 Gli avvisi più diffusi includono:
 
-* I [test Web][availability], importanti se l'applicazione è un sito Web o un servizio Web visibile sulla rete Internet pubblica. Indicano se il sito è inattivo o se risponde lentamente, anche se si tratta di un problema dell'operatore anziché dell'app. Sono tuttavia test sintetici e quindi non misurano l'esperienza effettiva degli utenti.
-* Le [metriche del browser][client], soprattutto i **tempi di caricamento delle pagine** del browser, ottimali per le applicazioni Web. Se la pagina presenta molti script, è opportuno prestare attenzione alle **eccezioni del browser**. Per ottenere queste metriche e questi avvisi, è necessario configurare il [monitoraggio delle pagine Web][client].
-* Il **tempo di risposta del server** e le **richieste non riuscite** per il lato server delle applicazioni Web. Oltre a impostare gli avvisi, prestare attenzione a queste metriche per vedere se variano in modo sproporzionato in caso di frequenza elevata delle richieste: questa situazione può indicare che l'app sta esaurendo le risorse.
-* **Eccezioni del server**: per visualizzarle, è necessario effettuare alcuni passaggi di [configurazione aggiuntivi](app-insights-asp-net-exceptions.md).
+* Le [metriche del browser][client], soprattutto i **tempi di caricamento delle pagine** del browser, sono ottimali per le applicazioni Web. Se la pagina presenta molti script, è opportuno prestare attenzione alle **eccezioni del browser**. Per ottenere queste metriche e questi avvisi, è necessario configurare il [monitoraggio delle pagine Web][client].
+* Il **tempo di risposta del server** per il lato server delle applicazioni Web. Oltre a impostare gli avvisi, prestare attenzione a questa metrica per vedere se varia in modo sproporzionato in caso di frequenza elevata delle richieste: questa situazione può indicare l'esaurimento delle risorse da parte dell'app. 
+* **Eccezioni del server** : per visualizzarle, è necessario effettuare alcuni passaggi di [configurazione aggiuntivi](app-insights-asp-net-exceptions.md).
 
-## Automazione
+Non dimenticare che la [diagnostica proattiva sulla frequenza errori](app-insights-proactive-failure-diagnostics.md) monitora automaticamente la frequenza con cui l'applicazione risponde alle richieste con codici di errore. 
+
+## <a name="automation"></a>Automazione
 * [Usare PowerShell per automatizzare la configurazione degli avvisi](app-insights-powershell-alerts.md)
 * [Usare webhook per automatizzare la risposta agli avvisi](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 
-## Vedere anche
+## <a name="see-also"></a>Vedere anche
 * [Test Web di disponibilità](app-insights-monitor-web-app-availability.md)
 * [Automatizzare la configurazione degli avvisi](app-insights-powershell-alerts.md)
-* [Rilevamento proattivo](app-insights-proactive-detection.md) 
+* [Diagnostica proattiva](app-insights-proactive-diagnostics.md) 
 
 <!--Link references-->
 
@@ -111,4 +109,7 @@ Gli avvisi più diffusi includono:
 
 
 
-<!---HONumber=AcomDC_0622_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

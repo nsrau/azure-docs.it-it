@@ -1,25 +1,29 @@
 ---
-title: Guida alla risoluzione dei problemi di ExpressRoute - Ottenere tabelle ARP | Microsoft Docs
+title: Guida alla risoluzione dei problemi di ExpressRoute - Ottenere tabelle ARP | Documentazione Microsoft
 description: Questa pagina fornisce istruzioni su come ottenere tabelle ARP tabelle per un circuito ExpressRoute
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carolz
 editor: tysonn
-
+ms.assetid: 0a6bf1d5-6baf-44dd-87d3-1ebd2fd08bdc
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 10/11/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
+ms.openlocfilehash: e63a0e17d7c3794608130ad0b654c5c903d404a0
+
 
 ---
 # <a name="expressroute-troubleshooting-guide---getting-arp-tables-in-the-resource-manager-deployment-model"></a>Guida alla risoluzione dei problemi di ExpressRoute - Ottenere tabelle ARP nel modello di distribuzione di Resource Manager
 > [!div class="op_single_selector"]
-> [PowerShell - Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
-> [PowerShell - Classico](expressroute-troubleshooting-arp-classic.md)
+> * [PowerShell - Gestione risorse](expressroute-troubleshooting-arp-resource-manager.md)
+> * [PowerShell - Classico](expressroute-troubleshooting-arp-classic.md)
 > 
 > 
 
@@ -30,7 +34,7 @@ Questo articolo illustra i passaggi per apprendere le tabelle ARP per il circuit
 > 
 > 
 
-## <a name="address-resolution-protocol-(arp)-and-arp-tables"></a>ARP (Address Resolution Protocol) e tabelle ARP
+## <a name="address-resolution-protocol-arp-and-arp-tables"></a>ARP (Address Resolution Protocol) e tabelle ARP
 ARP (Address Resolution Protocol) è un protocollo di livello 2 definito in [RFC 826](https://tools.ietf.org/html/rfc826). Il protocollo ARP viene usato per mappare l'indirizzo Ethernet (indirizzo MAC) con un indirizzo IP.
 
 La tabella ARP fornisce un mapping dell'indirizzo ipv4 e dell'indirizzo MAC per un particolare peering. La tabella ARP del peering di un circuito ExpressRoute fornisce le informazioni seguenti per ogni interfaccia (primaria e secondaria):
@@ -130,7 +134,7 @@ Di seguito è illustrato un esempio di output per uno dei percorsi
 ## <a name="how-to-use-this-information"></a>Procedura: Come usare queste informazioni
 La tabella ARP di un peer può essere usata per determinare la connettività e la configurazione di livello 2 valide. Questa sezione offre una panoramica dell'aspetto delle tabelle ARP in scenari diversi.
 
-### <a name="arp-table-when-a-circuit-is-in-operational-state-(expected-state)"></a>Tabella ARP quando un circuito è in stato operativo (stato previsto)
+### <a name="arp-table-when-a-circuit-is-in-operational-state-expected-state"></a>Tabella ARP quando un circuito è in stato operativo (stato previsto)
 * La tabella ARP conterrà una voce per il lato locale con un indirizzo IP e un indirizzo MAC valido e una voce simile per il lato Microsoft. 
 * L'ultimo ottetto dell'indirizzo IP locale sarà sempre un numero dispari.
 * L'ultimo ottetto dell'indirizzo IP Microsoft sarà sempre un numero pari.
@@ -141,7 +145,7 @@ La tabella ARP di un peer può essere usata per determinare la connettività e l
          10 On-Prem           65.0.0.1 ffff.eeee.dddd
           0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
 
-### <a name="arp-table-when-on-premises-/-connectivity-provider-side-has-problems"></a>Tabella ARP quando il lato locale/provider di connettività presenta problemi
+### <a name="arp-table-when-on-premises-connectivity-provider-side-has-problems"></a>Tabella ARP quando il lato locale/provider di connettività presenta problemi
 * Verrà visualizzata solo una voce nella tabella ARP. Viene mostrato il mapping tra gli indirizzi MAC e IP usati sul lato Microsoft. 
   
        Age InterfaceProperty IpAddress  MacAddress    
@@ -164,6 +168,9 @@ La tabella ARP di un peer può essere usata per determinare la connettività e l
 * Convalidare il trasferimento dei dati controllando i byte in ingresso/uscita
 * Aprire un ticket di assistenza al [supporto tecnico Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) se continuano a verificarsi problemi.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

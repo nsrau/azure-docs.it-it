@@ -1,20 +1,24 @@
 ---
-title: Criteri di indicizzazione DocumentDB | Microsoft Docs
-description: Comprendere il funzionamento dell'indicizzazione in DocumentDB e imparare a configurare e modificare i criteri di indicizzazione. Configurare il criterio di indicizzazione in DocumentDB per l'indicizzazione automatica e prestazioni superiori.
+title: Criteri di indicizzazione DocumentDB | Documentazione Microsoft
+description: Comprendere il funzionamento dell&quot;indicizzazione in DocumentDB e imparare a configurare e modificare i criteri di indicizzazione. Configurare il criterio di indicizzazione in DocumentDB per l&quot;indicizzazione automatica e prestazioni superiori.
 keywords: 'Come funzionano: indicizzazione, indicizzazione automatica, indicizzazione del database, documentdb, azure, Microsoft azure'
 services: documentdb
-documentationcenter: ''
+documentationcenter: 
 author: arramac
 manager: jhubbard
 editor: monicar
-
+ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
 ms.service: documentdb
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/08/2016
+ms.date: 11/11/2016
 ms.author: arramac
+translationtype: Human Translation
+ms.sourcegitcommit: 994fb8080f053ae3eb72eb1dda92bd5aa46c6988
+ms.openlocfilehash: a48cdb58dd48cc033f69de15fc19f313bc12cdfa
+
 
 ---
 # <a name="documentdb-indexing-policies"></a>Criteri di indicizzazione di DocumentDB
@@ -30,7 +34,7 @@ Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 * Come è possibile apportare modifiche ai criteri di indicizzazione di una raccolta?
 * Come confrontare archiviazione e prestazioni dei diversi criteri di indicizzazione?
 
-## <a name="<a-id="customizingindexingpolicy"></a>-customizing-the-indexing-policy-of-a-collection"></a><a id="CustomizingIndexingPolicy"></a> Personalizzazione dei criteri di indicizzazione di una raccolta
+## <a name="a-idcustomizingindexingpolicya-customizing-the-indexing-policy-of-a-collection"></a><a id="CustomizingIndexingPolicy"></a> Personalizzazione dei criteri di indicizzazione di una raccolta
 Gli sviluppatori possono personalizzare i compromessi tra archiviazione, prestazioni delle query/scrittura e coerenza delle query, ignorando i criteri di indicizzazione predefiniti in una raccolta di DocumentDB e configurando i seguenti aspetti.
 
 * **Includi/escludi documenti e percorsi da/a indice**. Gli sviluppatori possono scegliere determinati documenti da escludere o includere nell'indice al momento del loro inserimento o sostituzione nella raccolta. Gli sviluppatori possono anche scegliere di includere o escludere determinate proprietà JSON, anche note come percorsi, inclusi i modelli con caratteri jolly, da indicizzare in documenti che sono inclusi in un indice.
@@ -72,192 +76,23 @@ L'esempio seguente mostra come creare una raccolta di DocumentDB usando .NET SDK
 
 Nella tabella seguente viene illustrata la coerenza per le query basata sulla modalità di indicizzazione (Coerente e Differita) configurata per la raccolta e il livello di coerenza specificato per la richiesta di query. Questo si applica alle query eseguite utilizzando qualsiasi interfaccia SDK, API REST, o stored procedure e trigger. 
 
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Coerente</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Differita</strong>
-                </p>
-            </td>            
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Assoluta</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Assoluta </p>
-            </td>
-            <td valign="top">
-                <p>
-Finale </p>
-            </td>            
-        </tr>       
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Obsolescenza associata</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Obsolescenza associata </p>
-            </td>
-            <td valign="top">
-                <p>
-Finale </p>
-            </td>            
-        </tr>          
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Sessione</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Sessione </p>
-            </td>
-            <td valign="top">
-                <p>
-Finale </p>
-            </td>            
-        </tr>      
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Finale</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Finale </p>
-            </td>
-            <td valign="top">
-                <p>
-Finale </p>
-            </td>            
-        </tr>         
-    </tbody>
-</table>
+|Coerenza|Modalità di indicizzazione: coerente|Modalità di indicizzazione: differita|
+|---|---|---|
+|Assoluta|Assoluta|Finale|
+|Obsolescenza associata|Obsolescenza associata|Finale|
+|Sessione|Sessione|Finale|
+|Finale|Finale|Finale|
 
 DocumentDB restituisce un errore per le query eseguite su raccolte con la modalità di indicizzazione Nessuna. È ancora possibile eseguire query come analisi tramite l'intestazione `x-ms-documentdb-enable-scan` esplicita nell'API REST o l'opzione relativa alla richiesta `EnableScanInQuery` con .NET SDK. Alcune funzionalità di query, ad esempio ORDER BY, non sono supportati come analisi con `EnableScanInQuery`.
 
 Nella tabella seguente viene illustrata la coerenza per le query in base alla modalità di indicizzazione (Coerente, Differita e Nessuna) quando viene specificato EnableScanInQuery.
 
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Coerente</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Differita</strong>
-                </p>
-            </td>       
-            <td valign="top">
-                <p>
-                    <strong>Nessuna</strong>
-                </p>
-            </td>             
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Assoluta</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Assoluta </p>
-            </td>
-            <td valign="top">
-                <p>
-Finale </p>
-            </td>    
-            <td valign="top">
-                <p>
-Assoluta </p>
-            </td>                
-        </tr>       
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Obsolescenza associata</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Obsolescenza associata </p>
-            </td>
-            <td valign="top">
-                <p>
-Finale </p>
-            </td>      
-            <td valign="top">
-                <p>
-Obsolescenza associata </p>
-            </td> 
-        </tr>          
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Sessione</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Sessione </p>
-            </td>
-            <td valign="top">
-                <p>
-Finale </p>
-            </td>   
-            <td valign="top">
-                <p>
-Sessione </p>
-            </td>             
-        </tr>      
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Finale</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Finale </p>
-            </td>
-            <td valign="top">
-                <p>
-Finale </p>
-            </td>      
-            <td valign="top">
-                <p>
-Finale </p>
-            </td>              
-        </tr>         
-    </tbody>
-</table>
+|Coerenza|Modalità di indicizzazione: coerente|Modalità di indicizzazione: differita|Modalità di indicizzazione: nessuna|
+|---|---|---|---|
+|Assoluta|Assoluta|Finale|Assoluta|
+|Obsolescenza associata|Obsolescenza associata|Finale|Obsolescenza associata|
+|Sessione|Sessione|Finale|Sessione|
+|Finale|Finale|Finale|Finale|
 
 L'esempio seguente di codice mostra come creare una raccolta di DocumentDB usando .NET SDK con indicizzazione automatica coerente in tutti gli inserimenti di documenti.
 
@@ -281,116 +116,14 @@ I percorsi di indice possono anche usare il carattere jolly * per specificare un
 
 Di seguito sono indicati i modelli comuni per la definizione di percorsi di indice:
 
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Percorso</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Descrizione/Caso d'uso</strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    /*
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Percorso predefinito per la raccolta. Ricorsivo e applicabile all'intera struttura ad albero del documento.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-/prop/?
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Percorso di indice che consente di servire query come le seguenti (rispettivamente con i tipi Hash e Range): </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop = "value" </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop &gt; 5 </p>
-                <p>
-SELECT * FROM collection c ORDER BY c.prop </p>                
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-/prop/* </p>
-            </td>
-            <td valign="top">
-                <p>
-Percorso di indice per tutti i percorsi al di sotto dell'etichetta specificata. Funziona con le query seguenti </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop = "value" </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop.subprop &gt; 5 </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop.subprop.nextprop = "value" </p>
-                <p>
-SELECT * FROM collection c ORDER BY c.prop </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-/props/[]/?
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Percorso di indice che consente di servire iterazioni e query JOIN su matrici di valori scalari, come ["a", "b", "c"]: </p>
-                <p>
-SELECT tag FROM tag IN collection.props WHERE tag = "value" </p>
-                <p>
-SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5 </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-/props/[]/subprop/?
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Percorso di indice che consente di servire iterazioni e query JOIN su matrici di oggetti, come [{subprop: "a"}, {subprop: "b"}]: </p>
-                <p>
-SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value" </p>
-                <p>
-SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value" </p>
-            </td>
-        </tr>        
-        <tr>
-            <td valign="top">
-                <p>
-/prop/subprop/?
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Percorso di indice che consente di servire query come le seguenti (rispettivamente con i tipi Hash e Range): </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop.subprop = "value" </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop.subprop &gt; 5 </p>
-                <p>
-SELECT * FROM collection c ORDER BY c.prop.subprop </p>                
-            </td>
-        </tr>
-    </tbody>
-</table>
+| Path                | Descrizione/Caso d'uso                                                                                                                                                                                                                                                                                         |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| /                   | Percorso predefinito per la raccolta. Ricorsivo e applicabile all'intera struttura ad albero del documento.                                                                                                                                                                                                                                   |
+| /prop/?             | Percorso di indice che consente di servire query come le seguenti (rispettivamente con i tipi Hash e Range):<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                       |
+| /prop/              | Percorso di indice per tutti i percorsi al di sotto dell'etichetta specificata. Funziona con le query seguenti<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop         |
+| /props/[]/?         | Percorso di indice che consente di servire iterazioni e query JOIN su matrici di valori scalari, come ["a", "b", "c"]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5                                                                         |
+| /props/[]/subprop/? | Percorso di indice che consente di servire iterazioni e query JOIN su matrici di oggetti, come [{subprop: "a"}, {subprop: "b"}]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value"                                  |
+| /prop/subprop/?     | Percorso di indice che consente di servire query come le seguenti (rispettivamente con i tipi Hash e Range):<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5                                                                                                                    |
 
 > [!NOTE]
 > Quando si impostano percorsi di indice personalizzati, è necessario specificare la regola di indicizzazione predefinita per l'intera struttura ad albero del documento indicata dal percorso speciale "/*". 
@@ -421,76 +154,35 @@ L'esempio seguente configura un percorso specifico con indicizzazione Range e un
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), pathRange);
 
 
-### <a name="index-data-types,-kinds-and-precisions"></a>Tipi di dati, tipologie e precisioni degli indici
+### <a name="index-data-types-kinds-and-precisions"></a>Tipi di dati, tipologie e precisioni degli indici
 Dopo avere visto come specificare i percorsi, verranno esaminate le opzioni che è possibile usare per configurare i criteri di indicizzazione per un percorso. È possibile specificare una o più definizioni di indicizzazione per ogni percorso:
 
-* Tipo di dati: **String**, **Number** o **Point**; può contenere una sola voce per tipo di dati per percorso. **Polygon** e **LineString** supportati nell'anteprima privata
+* Tipo di dati: **String**, **Number**, **Point**, **Polygon** o **LineString**; può contenere una sola voce per tipo di dati per percorso.
 * Tipologia indice: **Hash** (query di uguaglianza), **Range** (query di uguaglianza, intervallo o orderby) o **Spatial** (query spaziali) 
 * Precisione: da 1 a 8 o -1 (precisione massima) per i numeri, da 1 a 100 (precisione massima) per le stringhe
 
 #### <a name="index-kind"></a>Tipologia di indice
 DocumentDB supporta i tipi di indice Hash e Range per ogni percorso (che può essere configurato per stringhe, numeri o entrambi).
 
-* **Hash** supporta query di uguaglianza efficienti e query JOIN. Nella maggior parte dei casi, gli indici di questo tipo non richiedono una precisione superiore a quella predefinita di 3 byte.
-* **Range** supporta query di uguaglianza efficienti, query di intervallo (con >, <, >=, <=, !=) e query orderby. Per impostazione predefinita, anche le query orderby richiedono la precisione di indice massima (-1).
+* **Hash** supporta query di uguaglianza efficienti e query JOIN. Nella maggior parte dei casi, gli indici di questo tipo non richiedono una precisione superiore a quella predefinita di 3 byte. DataType può essere una stringa o un numero.
+* **Range** supporta query di uguaglianza efficienti, query di intervallo (con >, <, >=, <=, !=) e query orderby. Per impostazione predefinita, anche le query orderby richiedono la precisione di indice massima (-1). DataType può essere una stringa o un numero.
 
-DocumentDB supporta anche il tipo di indice Spatial per ogni percorso che è possibile specificare per il tipo di dati Point. Il valore nel percorso specificato deve essere un punto GeoJSON valido come `{"type": "Point", "coordinates": [0.0, 10.0]}`.
+DocumentDB supporta anche il tipo di indice Spatial per ogni percorso che è possibile specificare per i tipi di dati Point, Polygon o LineString. Il valore nel percorso specificato deve essere un frammento GeoJSON valido come `{"type": "Point", "coordinates": [0.0, 10.0]}`.
 
-* **Spatial** supporta query spaziali (within e distance) efficienti.
+* **Spatial** supporta query spaziali (within e distance) efficienti. DataType può essere Point, Polygon o LineString.
 
 > [!NOTE]
-> DocumentDB supporta l'indicizzazione automatica di tipi di dati Point, Polygon (anteprima privata) e LineString (anteprima privata). Per l'accesso all'anteprima, inviare un messaggio all'indirizzo askdocdb@microsoft.com, oppure contattare Microsoft tramite il supporto di Azure.
+> DocumentDB supporta l'indicizzazione automatica di tipi di dati Points, Polygons e LineStrings.
 > 
 > 
 
 Di seguito sono elencati i tipi di indice supportati e gli esempi di query che possono essere utilizzati per rispondere:
 
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Tipologia di indice</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Descrizione/Caso d'uso</strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-Hash </p>
-            </td>
-            <td valign="top">
-                <p>
-Hash over /prop/? (o /*) può essere usato per servire in modo efficiente le seguenti query: SELECT * FROM collection c WHERE c.prop = "value" Hash over /props/[]/? (o /* o /props/*) può essere usato per servire in modo efficiente le seguenti query: SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5 </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-Range </p>
-            </td>
-            <td valign="top">
-                <p>
-Range over /prop/? (or /*) può essere usato per servire in modo efficiente le seguenti query: SELECT * FROM collection c WHERE c.prop = "value" SELECT * FROM collection c WHERE c.prop > 5 SELECT * FROM collection c ORDER BY c.prop </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-Spatial </p>
-            </td>
-            <td valign="top">
-                <p>
-Range over /prop/? (o /*) può essere usato per servire in modo efficiente le seguenti query:SELECT * FROM collection c WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40 SELECT * FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) </p>
-            </td>
-        </tr>        
-    </tbody>
-</table>
+| Tipologia di indice | Descrizione/Caso d'uso                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Hash       | Hash over /prop/? (or /) può essere usato per servire in modo efficiente le query seguenti:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Hash over /props/[]/? (or / or /props/) può essere usato per servire in modo efficiente le query seguenti:<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5                                                                                                                       |
+| Range      | Range over /prop/? (or /) può essere usato per servire in modo efficiente le query seguenti:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                                                                                                                                                              |
+| Spatial     | Range over /prop/? (or /) può essere usato per servire in modo efficiente le query seguenti:<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --con indicizzazione su punti abilitata<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --con indicizzazione su poligoni abilitata              |
 
 Per impostazione predefinita, viene restituito un errore per le query con operatori intervallo, ad esempio >= se non esiste alcun indice di intervallo (di qualsiasi precisione) per segnalare che un'analisi potrebbe essere necessaria per soddisfare la query. Le query di intervallo possono essere eseguite senza un indice di intervallo usando l'intestazione x-ms-documentdb-enable-scans nell'API REST o nell'opzione della richiesta EnableScanInQuery usando .NET SDK. Se sono disponibili altri i filtri nella query che DocumentDB può utilizzare l'indice per filtrare i dati, quindi non verrà restituito alcun errore.
 
@@ -501,7 +193,7 @@ La precisione indice consente di raggiungere un compromesso tra archiviazione in
 
 La configurazione di precisione dell'indice ha un'applicazione più pratica con gli intervalli di stringhe. Poiché le stringhe possono avere qualsiasi lunghezza arbitraria, la scelta della precisione indice può compromettere le prestazioni delle query di intervallo di stringhe e influire sulla quantità di spazio di archiviazione indice necessario. Gli indici di intervallo di stringhe possono essere configurati con valori compresi tra 1 e 100 o con il valore di precisione "massima" (-1). Se si desidera eseguire query Order By su proprietà della stringa, è necessario specificare una precisione pari a -1 per i percorsi corrispondenti.
 
-Gli indici spaziali utilizzano sempre la precisione dell’indice predefinito per i punti e non possono essere sottoposti a override. 
+Gli indici spaziali usano sempre la precisione dell'indice predefinito per tutti i tipi (Points, LineStrings e Polygons) e non possono essere sottoposti a override. 
 
 L'esempio seguente mostra come aumentare la precisione per gli indici Range di una raccolta mediante .NET SDK. 
 
@@ -719,6 +411,9 @@ Seguire i collegamenti seguenti per esempi di gestione dei criteri di indicizzaz
 2. [Operazione di raccolta API REST di DocumentDB](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3. [Eseguire query con DocumentDB SQL](documentdb-sql-query.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

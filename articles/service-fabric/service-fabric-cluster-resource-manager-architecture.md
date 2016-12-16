@@ -1,12 +1,12 @@
 ---
-title: Resource Manager Architecture | Microsoft Docs
+title: Architettura di Resource Manager | Microsoft Docs
 description: An architectural overview of Service Fabric Cluster Resource Manager.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 6c4421f9-834b-450c-939f-1cb4ff456b9b
 ms.service: Service-Fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,15 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/19/2016
 ms.author: masnider
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d6bfc5b7141eae5cb755679445176064f2e5b0d4
+
 
 ---
-# Panoramica dell'architettura di Cluster Resource Manager
+# <a name="cluster-resource-manager-architecture-overview"></a>Panoramica dell'architettura di Cluster Resource Manager
 Per gestire le risorse del cluster, Cluster Resource Manager di Service Fabric deve disporre di varie informazioni. Deve conoscere i servizi esistenti e la relativa quantità attuale (o predefinita) di risorse che tali servizi stanno usando. Deve conoscere la capacità effettiva dei nodi nel cluster e, di conseguenza, la quantità di risorse disponibili sia nel cluster intero sia in un nodo specifico. L'uso di risorse di un determinato servizio può cambiare nel tempo e che i servizi, in realtà, sono in genere interessati da più di una risorsa. In molti servizi diversi potrebbero essere presenti entrambe le risorse fisiche reali, misurate e segnalate come metriche quali consumo della memoria e del disco, nonché come (e in realtà più comunemente) metriche logiche, ad esempio "WorkQueueDepth" o "TotalRequests". Le metriche logiche e fisiche possono essere usate in molti tipi diversi di servizi oppure essere specifiche di un paio di servizi.
 
-## Altre considerazioni
+## <a name="other-considerations"></a>Altre considerazioni
 I proprietari e gli operatori del cluster talvolta non sono anche autori del servizio, o almeno sono le stesse persone ma con ruoli diversi. Quando si sviluppa il servizio, ad esempio, si conoscono solo alcune informazioni su cosa è necessario in termini di risorse e sulla modalità di distribuzione ideale dei diversi componenti, ma nel ruolo della persona che gestisce un evento imprevisto del sito live per tale servizio in produzione è richiesto un lavoro diverso, con strumenti diversi. Né il cluster né i servizi stessi sono configurati staticamente: il numero di nodi nel cluster può aumentare e ridursi, i nodi di dimensioni diverse lasciano e rientrano nel cluster e i servizi possono essere creati, rimossi e modificare la loro allocazione delle risorse in modo istantaneo. Gli aggiornamenti o altre operazioni di gestione possono passare tramite il cluster, con il rischio costante di errore.
 
-## Componenti di Cluster Resource Manager e flusso dei dati
+## <a name="cluster-resource-manager-components-and-data-flow"></a>Componenti di Cluster Resource Manager e flusso dei dati
 Cluster Resource Manager dovrà conoscere molti aspetti del cluster complessivo, nonché i requisiti dei singoli servizi, le istanze senza stato o le repliche con stato di cui è composto. A tale scopo, gli agenti di Cluster Resource Manager sono eseguiti su nodi individuali per aggregare informazioni sull'uso delle risorse locali. Un servizio Cluster Resource Manager centralizzato a tolleranza di errore aggrega tutte le informazioni sui servizi e il cluster e risponde a seconda della configurazione corrente. La tolleranza di errore per il servizio Cluster Resource Manager e per tutti gli altri servizi del sistema, viene realizzata attraverso gli stessi meccanismi usati per i servizi, vale a dire la replica dello stato del servizio nei quorum di un numero di repliche del cluster (in genere 7).
 
 ![Architettura di Resource Balancer][Image1]
@@ -33,10 +37,14 @@ Diamo un'occhiata al diagramma seguente e osserviamo cosa succede. Si supponga c
 
 ![Architettura di Resource Balancer][Image2]
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * Cluster Resource Manager dispone di molte opzioni per la descrizione del cluster. Per altre informazioni a riguardo vedere l'articolo [Descrivere un cluster di Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
 
-[Image1]: ./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-1.png
-[Image2]: ./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-2.png
+[Image1]:./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-1.png
+[Image2]:./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-2.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
