@@ -117,7 +117,7 @@ az acs scale -g acsrg1 -n acs-cluster --new-agent-count 4
 ![Immagine del ridimensionamento del servizio contenitore di Azure](media/container-service-create-acs-cluster-cli/acs-scale.png)
 
 ## <a name="delete-a-container-service-cluster"></a>Eliminare un cluster del servizio contenitore
-```
+```azurecli
 az acs delete -g acsrg1 -n acs-cluster 
 ```
 *Si noti che il comando di eliminazione non elimina tutte le risorse (di rete e di archiviazione) create durante la creazione del servizio contenitore. Per eliminare tutte le risorse, è consigliabile creare un singolo cluster del servizio contenitore di Azure per ogni gruppo di risorse e quindi eliminare il gruppo di risorse stesso quando il cluster del servizio contenitore di Azure non è più necessario, in modo da assicurare che tutte le risorse correlate vengano eliminate e non venga applicato alcun addebito.*

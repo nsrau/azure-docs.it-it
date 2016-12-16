@@ -51,13 +51,18 @@ Usare il metodo Get con l'ID pianificazione per recuperare una determinata piani
 
 Di seguito è riportata una risposta di esempio per una pianificazione.
 
-    {
+```json
+{
+    "value": [{
         "id": "subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/MyWorkspace/savedSearches/0f0f4853-17f8-4ed1-9a03-8e888b0d16ec/schedules/a17b53ef-bd70-4ca4-9ead-83b00f2024a8",
         "etag": "W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\"",
         "properties": {
-        "Interval": 15,
-        "QueryTimeSpan": 15
-    }
+            "Interval": 15,
+            "QueryTimeSpan": 15
+        }
+    }]
+}
+```
 
 ### <a name="creating-a-schedule"></a>Creazione di una pianificazione
 Usare il metodo Put con un ID pianificazione univoco per creare una nuova pianificazione.  Si noti che due pianificazioni non possono avere lo stesso ID anche se sono associate a ricerche diverse.  Quando si crea una pianificazione nella console di OMS, viene creato un GUID per l'ID pianificazione.
