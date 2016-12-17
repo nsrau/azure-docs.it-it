@@ -1,12 +1,12 @@
 ---
 title: Connettere macchine virtuali di Azure a Log Analytics | Microsoft Docs
-description: Nelle macchine virtuali Windows e Linux in esecuzione in Azure, per la raccolta di log e metriche è consigliabile installare l'estensione macchina virtuale di Azure di Log Analytics. Per installare l'estensione macchina virtuale di Log Analytics nelle VM di Azure è possibile usare il portale di Azure o PowerShell.
+description: "Nelle macchine virtuali Windows e Linux in esecuzione in Azure, per la raccolta di log e metriche è consigliabile installare l&quot;estensione macchina virtuale di Azure di Log Analytics. Per installare l&quot;estensione macchina virtuale di Log Analytics nelle VM di Azure è possibile usare il portale di Azure o PowerShell."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: richrundmsft
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: ca39e586-a6af-42fe-862e-80978a58d9b1
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: richrund
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 05e9e10d9a37f90b679175a3ed9d78ed05d9e447
+
 
 ---
 # <a name="connect-azure-virtual-machines-to-log-analytics"></a>Connettere macchine virtuali di Azure a Log Analytics
@@ -24,7 +28,7 @@ Il modo più semplice per installare l'agente di Log Analytics nelle VM di Azure
 Per le macchine virtuali Windows si abilita l'estensione macchina virtuale *Microsoft Monitoring Agent*.
 Per le macchine virtuali Linux si abilita l'estensione macchina virtuale *dell'agente OMS per Linux*.
 
-Vedere altre informazioni sulle [estensioni macchina virtuale di Azure](../virtual-machines/virtual-machines-windows-extensions-features.md) e sull'[agente Linux](../virtual-machines/virtual-machines-linux-agent-user-guide.md).
+Altre informazioni sulle [estensioni delle macchine virtuali](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e sull'[agente Linux](../virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Quando si usa la raccolta basata su agenti per i dati di log, è necessario configurare le [origini dati in Log Analytics](log-analytics-data-sources.md) per specificare i log e le metriche da raccogliere.
 
@@ -362,7 +366,7 @@ Se l'estensione dell'agente di macchine virtuali *Microsoft Monitoring Agent* no
 1. Controllare che l'agente di macchine virtuali di Azure sia installato e funzioni correttamente seguendo la procedura descritta nell'articolo [KB 2965986](https://support.microsoft.com/kb/2965986#mt1).
    * È anche possibile esaminare il file di log dell'agente di macchine virtuali `C:\WindowsAzure\logs\WaAppAgent.log`
    * Se il log non esiste, l'agente di macchine virtuali non è installato
-     * [Installare l'agente di macchine virtuali di Azure in VM classiche](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md)
+     * [Installare l'agente di macchine virtuali di Azure in VM classiche](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 2. Verificare che l'attività dell'heartbeat dell'estensione Microsoft Monitoring Agent sia in esecuzione seguendo questa procedura:
    * Accedere alla macchina virtuale
    * Aprire Utilità di pianificazione e trovare l'attività `update_azureoperationalinsight_agent_heartbeat`
@@ -374,18 +378,18 @@ Se l'estensione dell'agente di macchine virtuali *Microsoft Monitoring Agent* no
 6. Visualizzare lo stato di Microsoft Monitoring Agent digitando quanto riportato di seguito in una finestra di PowerShell con privilegi elevati nella macchina virtuale: `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
 7. Esaminare i file di log dell'installazione di Microsoft Monitoring Agent in `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
 
-Per altre informazioni, vedere l'articolo relativo alla [risoluzione dei problemi delle estensioni Windows](../virtual-machines/virtual-machines-windows-extensions-troubleshoot.md).
+Per altre informazioni, vedere l'articolo relativo alla [risoluzione dei problemi delle estensioni Windows](../virtual-machines/virtual-machines-windows-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="troubleshooting-linux-virtual-machines"></a>Risoluzione dei problemi delle macchine virtuali Linux
 Se l'estensione dell'agente di macchine virtuali per l'*agente OMS per Linux* non viene installata o non segnala dati, è possibile seguire queste procedure per risolvere il problema.
 
 1. Se lo stato dell'estensione è *Sconosciuto*, controllare che l'agente di macchine virtuali di Azure sia installato e funzioni correttamente esaminando il relativo file di log `/var/log/waagent.log`
    * Se il log non esiste, l'agente di macchine virtuali non è installato
-   * [Installare l'agente di macchine virtuali di Azure nelle VM Linux](../virtual-machines/virtual-machines-linux-agent-user-guide.md)
+   * [Installare l'agente di macchine virtuali di Azure nelle VM Linux](../virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 2. Per altri stati non integri, esaminare i file di log dell'estensione macchina virtuale dell'agente OMS per Linux in `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` e `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
 3. Se lo stato dell'estensione è integro ma i dati non vengono caricati, esaminare i file di log dell'agente OMS per Linux in `/var/opt/microsoft/omsagent/log/omsagent.log`
 
-Per altre informazioni, vedere l'articolo relativo alla [risoluzione dei problemi delle estensioni Linux](../virtual-machines/virtual-machines-linux-extensions-troubleshoot.md).
+Per altre informazioni, vedere l'articolo relativo alla [risoluzione dei problemi delle estensioni Linux](../virtual-machines/virtual-machines-linux-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Configurare [origini dati in Log Analytics](log-analytics-data-sources.md) per specificare i log e le metriche da raccogliere.
@@ -397,6 +401,9 @@ Per i computer non inclusi in Azure è possibile installare l'agente di Log Anal
 * [Connettere computer Windows a Log Analytics](log-analytics-windows-agents.md)
 * [Connettere computer Linux a Log Analytics](log-analytics-linux-agents.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

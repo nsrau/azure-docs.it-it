@@ -1,11 +1,11 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Benefitsolver | Microsoft Docs'
-description: Informazioni su come usare Benefitsolver con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora.
+description: Informazioni su come usare Benefitsolver con Azure Active Directory per abilitare l&quot;accesso Single Sign-On, il provisioning automatizzato e altro ancora.
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: cf4529b1-3fb6-4475-82b7-2ceedcb70b3c
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: eb7dce1c0664e34c4946bb08f5b412e1e01c715d
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-benefitsolver"></a>Esercitazione: Integrazione di Azure Active Directory con Benefitsolver
+# <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Esercitazione: Integrazione di Azure Active Directory con Benefitsolver
 Questa esercitazione descrive l'integrazione di Azure e Benefitsolver.  
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -36,7 +40,7 @@ Lo scenario descritto in questa esercitazione include i blocchi predefiniti segu
 ## <a name="enabling-the-application-integration-for-benefitsolver"></a>Abilitazione dell'integrazione dell'applicazione per Benefitsolver
 Questa sezione descrive come abilitare l'integrazione dell'applicazione per Benefitsolver.
 
-### <a name="to-enable-the-application-integration-for-benefitsolver,-perform-the-following-steps:"></a>Per abilitare l'integrazione dell'applicazione per Benefitsolver, seguire questa procedura:
+### <a name="to-enable-the-application-integration-for-benefitsolver-perform-the-following-steps"></a>Per abilitare l'integrazione dell'applicazione per Benefitsolver, seguire questa procedura:
 1. Nel portale di Azure classico fare clic su **Active Directory**nel riquadro di spostamento sinistro.
    
    ![Active Directory](./media/active-directory-saas-benefitsolver-tutorial/IC700993.png "Active Directory")
@@ -65,7 +69,7 @@ La schermata seguente illustra un esempio relativo a questa operazione.
 
 ![Attributi](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "Attributes")
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
 1. Nella pagina di integrazione dell'applicazione **Benefitsolver** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
    ![Configura accesso Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804824.png "Configure Single Sign-On")
@@ -124,7 +128,7 @@ Nel caso di Benefitsolver, i dati dei dipendenti si trovano nell'applicazione po
 ## <a name="assigning-users"></a>Assegnazione degli utenti
 Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
-### <a name="to-assign-users-to-benefitsolver,-perform-the-following-steps:"></a>Per assegnare gli utenti a Benefitsolver, seguire questa procedura:
+### <a name="to-assign-users-to-benefitsolver-perform-the-following-steps"></a>Per assegnare gli utenti a Benefitsolver, seguire questa procedura:
 1. Nel portale di Azure classico creare un account di test.
 2. Nella pagina di integrazione dell'applicazione **Benefitsolver** fare clic su **Assegna utenti**.
    
@@ -135,6 +139,9 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

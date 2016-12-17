@@ -1,32 +1,36 @@
 ---
-title: Esercitazione sull'interfaccia REST del bus di servizio usando la messaggistica inoltrata | Microsoft Docs
-description: Compilare una semplice applicazione host di Inoltro del bus di servizio che espone un'interfaccia basata su REST.
-services: service-bus
+title: Esercitazione su REST del bus di servizio usando la messaggistica inoltrata | Microsoft Docs
+description: Compilare una semplice applicazione host di Inoltro del bus di servizio che espone un&quot;interfaccia basata su REST.
+services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 1312b2db-94c4-4a48-b815-c5deb5b77a6a
+ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7ba69a1a5f363fe5034e3fc7946b1584c9d77b50
+
 
 ---
-# <a name="service-bus-relay-rest-tutorial"></a>Esercitazione su REST di Inoltro del bus di servizio
+# <a name="service-bus-wcf-relay-rest-tutorial"></a>Esercitazione su REST di inoltro WCF del bus di servizio
 In questa esercitazione viene descritto come creare una semplice applicazione host del bus di servizio che espone un'interfaccia basata su REST. REST consente ai client Web, ad esempio un Web browser, di accedere all'API del bus di servizio tramite richieste HTTP.
 
 In questa esercitazione viene utilizzato il modello di programmazione REST di Windows Communication Foundation (WCF) per creare un servizio REST nel bus di servizio. Per altre informazioni, vedere [Modello di programmazione HTTP Web WCF](https://msdn.microsoft.com/library/bb412169.aspx) e [Progettazione e implementazione di servizi](https://msdn.microsoft.com/library/ms729746.aspx) nella documentazione di WCF.
 
-## <a name="step-1:-create-a-service-namespace"></a>Passaggio 1: Creare uno spazio dei nomi del servizio
+## <a name="step-1-create-a-service-namespace"></a>Passaggio 1: Creare uno spazio dei nomi del servizio
 Il primo passaggio consiste nel creare uno spazio dei nomi e nell'ottenere una chiave di firma di accesso condiviso. Uno spazio dei nomi fornisce un limite per ogni applicazione esposta tramite il bus di servizio. Una chiave di firma di accesso condiviso viene generata dal sistema quando viene creato uno spazio dei nomi del servizio. La combinazione di spazio dei nomi servizio e chiave di firma di accesso condiviso fornisce le credenziali che consentono al bus di servizio di autenticare l'accesso a un'applicazione.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="step-2:-define-a-rest-based-wcf-service-contract-to-use-with-service-bus"></a>Passaggio 2: definire un contratto di servizio WCF basato su REST da utilizzare con il bus di servizio
+## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-service-bus"></a>Passaggio 2: definire un contratto di servizio WCF basato su REST da utilizzare con il bus di servizio
 Come con altri servizi del bus di servizio, quando si crea un servizio basato su REST, è necessario definire il contratto. Il contratto specifica quali operazioni sono supportate dall'host. Un'operazione di servizio può essere considerata come un metodo del servizio Web. I contratti vengono creati definendo un'interfaccia C++, C# o Visual Basic. Ogni metodo dell'interfaccia corrisponde a un'operazione di servizio specifico. L'attributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) deve essere applicato a ogni interfaccia e l'attributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) deve essere applicato a ogni operazione. Se un metodo di un'interfaccia che ha [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) non ha [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), non viene esposto. Il codice usato per eseguire queste attività viene illustrato nell'esempio che segue la procedura.
 
 La differenza principale tra un contratto del bus di servizio di base e un contratto di tipo REST è costituita dall'aggiunta di una proprietà all’attributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx): [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx). Questa proprietà consente di eseguire il mapping di un metodo dell'interfaccia a un metodo su altro lato dell'interfaccia. In tal caso, si userà [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx) per collegare un metodo a HTTP GET. In questo modo il bus di servizio può recuperare e interpretare in modo accurato i comandi inviati all'interfaccia.
@@ -53,7 +57,7 @@ La differenza principale tra un contratto del bus di servizio di base e un contr
     [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) è lo spazio dei nomi che consente l'accesso a livello di codice alle funzionalità di base di WCF. Il bus di servizio utilizza molti degli oggetti e degli attributi di WCF per definire i contratti di servizio. Questo spazio dei nomi viene utilizzato nella maggior parte delle applicazioni di inoltro del bus di servizio. Analogamente, [System.ServiceModel.Channels](https://msdn.microsoft.com/library/system.servicemodel.channels.aspx) consente di definire il canale, ossia l'oggetto usato per comunicare con il bus di servizio e il Web browser client. Infine, [System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) contiene i tipi che consentono di creare applicazioni basate sul Web.
 7. Rinominare lo spazio dei nomi `ImageListener` in **Microsoft.ServiceBus.Samples**.
    
-    ```
+     ```
     namespace Microsoft.ServiceBus.Samples
     {
         ...
@@ -129,7 +133,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## <a name="step-3:-implement-a-rest-based-wcf-service-contract-to-use-service-bus"></a>Passaggio 3: implementare un contratto di servizio WCF basato su REST per utilizzare il bus di servizio
+## <a name="step-3-implement-a-rest-based-wcf-service-contract-to-use-service-bus"></a>Passaggio 3: implementare un contratto di servizio WCF basato su REST per utilizzare il bus di servizio
 La creazione di un servizio basato su REST del bus di servizio, è necessario creare innanzitutto il contratto, il quale viene definito utilizzando un'interfaccia. Il passaggio successivo consiste nell'implementazione dell'interfaccia. Ciò comporta la creazione di una classe denominata **ImageService** che implementa l’interfaccia **IImageContract** definita dall'utente. Dopo aver implementato il contratto, è quindi necessario configurare l'interfaccia utilizzando un file App.config. Il file di configurazione contiene le informazioni necessarie per l'applicazione, ad esempio il nome del servizio, il nome del contratto e il tipo di protocollo utilizzato per comunicare con il bus di servizio. Il codice usato per eseguire queste attività viene fornito nell'esempio che segue la procedura.
 
 Come per i passaggi precedenti, è impercettibile la differenza tra l'implementazione di un contratto di tipo REST e di un contratto di base del bus di servizio.
@@ -236,7 +240,7 @@ Come per i passaggi precedenti, è impercettibile la differenza tra l'implementa
     ```
    
     Questo passaggio consente di configurare un servizio che usa il valore predefinito **webHttpRelayBinding** definito in precedenza. Usa anche il valore predefinito **sbTokenProvider**, definito nel passaggio successivo.
-4. Dopo l'elemento `<services>`, creare un elemento `<behaviors>` con il contenuto seguente, sostituendo "SAS_KEY" con la chiave di *firma di accesso condiviso* ottenuta in precedenza dal [portale di Azure][portale di Azure].
+4. Dopo l'elemento `<services>`, creare un elemento `<behaviors>` con il contenuto seguente, sostituendo "SAS_KEY" con la chiave di *firma di accesso condiviso* ottenuta in precedenza dal [Portale di Azure][Portale di Azure].
    
     ```
     <behaviors>
@@ -260,8 +264,8 @@ Come per i passaggi precedenti, è impercettibile la differenza tra l'implementa
    
     ```
     <appSettings>
-    <!-- Service Bus specific app settings for messaging connections -->
-    <add key="Microsoft.ServiceBus.ConnectionString"
+       <!-- Service Bus specific app settings for messaging connections -->
+       <add key="Microsoft.ServiceBus.ConnectionString"
            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
     </appSettings>
     ```
@@ -423,7 +427,7 @@ Nell'esempio seguente viene illustrato il file App.config associato al servizio.
 </configuration>
 ```
 
-## <a name="step-4:-host-the-rest-based-wcf-service-to-use-service-bus"></a>Passaggio 4: ospitare il servizio WCF basato su REST per usare il bus di servizio
+## <a name="step-4-host-the-rest-based-wcf-service-to-use-service-bus"></a>Passaggio 4: ospitare il servizio WCF basato su REST per usare il bus di servizio
 In questo passaggio viene descritto come eseguire un servizio Web utilizzando un'applicazione console nel bus di servizio. Un elenco completo del codice scritto in questo passaggio viene fornito nell’esempio che segue la procedura.
 
 ### <a name="to-create-a-base-address-for-the-service"></a>Per creare un indirizzo di base per il servizio
@@ -555,11 +559,12 @@ Dopo aver compilato la soluzione, effettuare le operazioni seguenti per eseguire
 A questo punto, dopo aver creato un'applicazione che utilizza il servizio di inoltro del bus di servizio, vedere gli articoli seguenti per ulteriori informazioni sulla messaggistica inoltrata:
 
 * [Panoramica dell'architettura del bus di servizio di Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
-* [Come usare il servizio Inoltro del bus di servizio di Azure](service-bus-dotnet-how-to-use-relay.md)
+* [Come usare il servizio di inoltro WCF del bus di servizio](service-bus-dotnet-how-to-use-relay.md)
 
-[portale di Azure]: https://portal.azure.com
+[Portale di Azure]: https://portal.azure.com
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

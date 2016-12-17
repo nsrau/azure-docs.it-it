@@ -1,13 +1,13 @@
 ---
-title: Catalogo dati di Azure | Microsoft Docs
+title: Azure Data Catalog | Documentazione Microsoft
 description: Questo articolo illustra le scelte rapide da tastiera per Catalogo dati di Azure.
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 00b77c88-fbca-4e6f-a175-d40b5cbbf144
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
@@ -15,11 +15,15 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 09/13/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 190f46f9994be1a0699488eb813955070070ee51
+
 
 ---
-# Scelte rapide da tastiera per Catalogo dati di Azure
-## Tasti di scelta rapida per il tool di registrazione delle origini dati di Azure Data Catalog
-### Scelte rapide da tastiera generali
+# <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Scelte rapide da tastiera per Catalogo dati di Azure
+## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Tasti di scelta rapida per il tool di registrazione delle origini dati di Azure Data Catalog
+### <a name="general-keyboard-shortcuts"></a>Scelte rapide da tastiera generali
 | Operazione | Premere |
 | --- | --- |
 | Passare da un controllo a un altro in una pagina |TAB |
@@ -28,24 +32,24 @@ ms.author: spelluru
 | Ripristinare o ridurre a icona la pagina. |Tasto WINDOWS+Freccia GIÙ |
 | Aprire il menu della pagina. |ALT+BARRA SPAZIATRICE |
 
-### Pagina di autenticazione
+### <a name="authentication-page"></a>Pagina di autenticazione
 | Operazione | Premere |
 | --- | --- |
 | Accedere al servizio |ALT+S |
 
-### Pagina di selezione dell'origine dati
+### <a name="data-source-selection-page"></a>Pagina di selezione dell'origine dati
 | Operazione | Premere |
 | --- | --- |
 | Passare alla pagina successiva (se abilitata) |ALT+N |
 | Cambiare il tipo selezionato quando lo stato attivo è su un riquadro |Freccia SINISTRA, freccia SU, freccia DESTRA o freccia GIÙ |
 
-### Pagina di connessione all'origine dati
+### <a name="data-source-connection-page"></a>Pagina di connessione all'origine dati
 | Operazione | Premere |
 | --- | --- |
 | Passare alla pagina precedente (se abilitata) |ALT+P |
 | Scegliere il pulsante Connetti. |ALT+C |
 
-### Pagina di contesto della connessione
+### <a name="connection-context-page"></a>Pagina di contesto della connessione
 | Operazione | Premere |
 | --- | --- |
 | Scegliere il pulsante Registra (se abilitato) |ALT+R |
@@ -55,20 +59,20 @@ ms.author: spelluru
 | Espandere un nodo della visualizzazione albero nella gerarchia server. |Freccia DESTRA |
 | Spostare gli elementi selezionati per **Oggetti disponibili** oppure **Oggetti da registrare** |BARRA SPAZIATRICE |
 
-### Pagina di stato della pubblicazione
+### <a name="publish-progress-page"></a>Pagina di stato della pubblicazione
 | Operazione | Premere |
 | --- | --- |
 | Scegliere il pulsante Annulla. |ALT+C |
 | Scegliere il pulsante Registra altri oggetti. |ALT+R |
 | Scegliere il pulsante Visualizza portale. |ALT+V |
 
-### Pagina di stato della pubblicazione
+### <a name="publish-progress-page"></a>Pagina di stato della pubblicazione
 | Operazione | Premere |
 | --- | --- |
 | Scegliere il pulsante Salva (se abilitato). |ALT+S |
 | Scegliere il pulsante Annulla. |ALT+C |
 
-## Scelte rapide da tastiera per il portale di Azure Data Catalog
+## <a name="keyboard-shortcuts-for-the-data-catalog-portal"></a>Scelte rapide da tastiera per il portale di Azure Data Catalog
 | Operazione | Premere |
 | --- | --- |
 | Esplorare |TAB e MAIUSC+TAB |
@@ -82,4 +86,9 @@ ms.author: spelluru
 | Attiva/Disattiva il menu **Apri In** |ALT + O |
 | Esplorare il contenitore, se l'asset è un contenitore |ALT+L |
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

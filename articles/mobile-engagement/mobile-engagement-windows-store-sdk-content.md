@@ -1,12 +1,12 @@
 ---
-title: Contenuto dell'SDK per app di Windows universali
+title: Contenuto dell&quot;SDK per app di Windows universali
 description: Informazioni sul contenuto di Azure Mobile Engagement SDK per app di Windows universali
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 8fa1b701-1c2b-4aec-940c-06c974ef5405
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-store
@@ -14,27 +14,36 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ea47cba55c9689e23eb3592ae2559649d3377055
+
 
 ---
-# Contenuto dell'SDK per app di Windows universali
+# <a name="windows-universal-apps-sdk-content"></a>Contenuto dell'SDK per app di Windows universali
 Questo documento elenca e descrive il contenuto distribuito dall'SDK nell'applicazione.
 
-## Cartella `/Resources`
+## <a name="the-resources-folder"></a>Cartella `/Resources`
 Questa cartella contiene tutte le risorse richieste da Mobile Engagement. È inoltre possibile personalizzarle in modo da adattarle all'app.
 
-* `EngagementConfiguration.xml`: il file di configurazione di Mobile Engagement, in cui è possibile personalizzare le impostazioni di Mobile Engagement (stringa di connessione di Mobile Engagement, segnalazione di arresto anomalo e così via).
+* `EngagementConfiguration.xml` : il file di configurazione di Mobile Engagement, in cui è possibile personalizzare le impostazioni di Mobile Engagement (stringa di connessione di Mobile Engagement, segnalazione di arresto anomalo e così via).
 
-### Cartella /html
+### <a name="html-folder"></a>Cartella /html
 * `EngagementNotification.html` : la progettazione HTML per la visualizzazione Web di `Notification` in banner in-app.
 * `EngagementAnnouncement.html` : la progettazione HTML per la visualizzazione Web di `Announcement` in visualizzazioni intermedie.
 
-### Cartella /images
+### <a name="images-folder"></a>Cartella /images
 * `EngagementIconNotification.png`: l'icona del marchio visualizzata a sinistra di una notifica. Sostituirla con un'icona personalizzata.
 * `EngagementIconOk.png`: l'icona `Ok` delle pagine di contenuto Reach per il pulsante di azione o convalida.
 * `EngagementIconNOK.png`: l'icona `NOK` usata quando il pulsante di convalida delle pagine di contenuto Reach è disabilitato.
 * `EngagementIconClose.png`: l'icona `Close` per il pulsante che consente di ignorare il contenuto e le notifiche Reach.
 
-### Cartella /overlay
+### <a name="overlay-folder"></a>Cartella /overlay
 * `EngagementPageOverlay.cs` : la pagina di sovrimpressione che determina l'aggiunta dell'interfaccia utente in-app Reach di Engagement al figlio.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

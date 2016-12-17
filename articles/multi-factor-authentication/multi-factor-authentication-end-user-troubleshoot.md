@@ -1,13 +1,13 @@
 ---
-title: Troubleshoot two-step verification | Microsoft Docs
-description: This document will provide users information on what to do if they run into an issue with Azure Multi-Factor Authentication.
+title: Risoluzione dei problemi di verifica in due passaggi | Microsoft Docs
+description: Questo documento fornisce informazioni sulle operazioni da eseguire se si verifica un problema con Azure multi-Factor Authentication.
 services: multi-factor-authentication
-keywords: multifactor authentication client, authentication problem, correlation ID
-documentationcenter: ''
+keywords: client di multi-factor authentication, problema di autenticazione, ID di correlazione
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: yossib
-
+ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,82 +15,89 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1a25f7303bd0335149e846c0f248ff61ed0938b5
+
 
 ---
-# <a name="having-trouble-with-two-step-verification"></a>Having trouble with two-step verification
-This article discusses some issues that you may experience with two-step verification. If the issue you're having is not included here, please provide detailed feedback in the comments section so that we can improve.
+# <a name="having-trouble-with-two-step-verification"></a>Problemi con la verifica in due passaggi
+In questo articolo vengono descritti alcuni problemi che possono verificarsi con la verifica in due passaggi. Se il problema che si verifica non è incluso qui, specificare un feedback dettagliato nella sezione dei commenti per migliorare l'articolo.
 
-## <a name="i-lost-my-phone-or-it-was-stolen"></a>I lost my phone or it was stolen
-There are two ways to get back in to your account. The first is to sign in using your alternate authentication phone number, if you have set one up. The second is to ask your administrator to clear your settings.
+## <a name="i-lost-my-phone-or-it-was-stolen"></a>Il telefono è stato perso o rubato
+Esistono due modi per rientrare nel proprio account. Il primo consiste nell'accedere con il numero di telefono di autenticazione alternativo, se è stato configurato. Il secondo consiste nel chiedere all'amministratore di cancellare le impostazioni.
 
-If your phone was lost or stolen, we also recommend that you have your administrator reset your app passwords and clear any remembered devices. If your admin isn't sure how to accomplish this, point them to this article: [Manage users and devices](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords).
+Se il telefono è stato perso o rubato, è consigliabile richiedere all'amministratore di reimpostare le password dell'app e cancellare eventuali dispositivi memorizzati. Se l'amministratore non sa come eseguire questa operazione, può fare riferimento a questo articolo: [Gestione delle impostazioni utente](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords).
 
-### <a name="use-an-alternate-phone-number"></a>Use an alternate phone number
-If you have set up multiple verification options, including a secondary phone number or an authenticator app on a different device, you can use one of these to sign in.
+### <a name="use-an-alternate-phone-number"></a>Usare un numero di telefono alternativo
+Se sono state impostate più opzioni di verifica, tra cui un numero di telefono secondario o un'app di autenticazione su un altro dispositivo, è possibile usarle per accedere.
 
-To sign in using the alternate phone number, follow these steps:
+Per accedere tramite il numero di telefono alternativo, seguire questa procedura:
 
-1. Sign in as you normally would.
-2. When prompted to further verify your account, choose **Use a different verification option**.
+1. Accedere come si farebbe normalmente.
+2. Quando viene richiesto di verificare l'account, scegliere **Usa un'opzione di verifica diversa**.
    
-    ![Different Verification](./media/multi-factor-authentication-end-user-manage/differentverification.png)
-3. Select the phone number that you have access to.
+    ![Verifica diversa](./media/multi-factor-authentication-end-user-manage/differentverification.png)
+3. Selezionare il numero di telefono cui è possibile accedere.
    
-    ![Alternate phone](./media/multi-factor-authentication-end-user-manage/altphone2.png)
-4. After you're back in your account, [manage your settings](multi-factor-authentication-end-user-manage-settings.md) to change your authentication phone number.
+    ![Telefono alternativo](./media/multi-factor-authentication-end-user-manage/altphone2.png)
+4. Dopo essere rientrati nel proprio account, [gestire le impostazioni](multi-factor-authentication-end-user-manage-settings.md) per modificare il numero di telefono di autenticazione.
 
 > [!IMPORTANT]
-> It is important to configure a secondary authentication phone number. If your primary phone number and your mobile app are on the same phone, you need a third option if your phone is lost or stolen.
+> È importante configurare un numero di telefono di autenticazione secondario. Se il numero di telefono principale e l'app per dispositivi mobili si trovano nello stesso dispositivo, è necessaria una terza opzione in caso di furto o smarrimento.
 > 
 > 
 
-### <a name="clear-your-settings"></a>Clear your settings
-If you have not configured a secondary authentication phone number, then you will have to contact your administrator for help. Have them clear your settings so the next time you sign in, you will be prompted to [set up your account](multi-factor-authentication-end-user-first-time.md) again.
+### <a name="clear-your-settings"></a>Cancellare le impostazioni
+Se non è stato configurato un numero di telefono di autenticazione secondario, è necessario richiedere assistenza contattando l'amministratore. Chiedere all'amministratore di cancellare le impostazioni in modo che all'accesso successivo verrà richiesto di [reimpostare l'account](multi-factor-authentication-end-user-first-time.md).
 
-## <a name="i-am-not-receiving-a-text-or-call-on-my-phone"></a>I am not receiving a text or call on my phone
-There are several reasons why you may try to sign in, but not receive the text or phone call. If you've successfully received texts or phone calls to your phone in the past, then this is probably an issue with the phone provider, not your account. Make sure that you have good cell signal, and if you are trying to receive a text message make sure that your phone and service plan support text messages.
+## <a name="i-am-not-receiving-a-text-or-call-on-my-phone"></a>Non ricevo messaggi o chiamate sul telefono
+Esistono diversi motivi per cui si tenta di effettuare l'accesso, ma non si ricevono messaggi o telefonate. Se nel passato messaggi e chiamate venivano ricevuti senza problemi, si tratta molto probabilmente di un problema del provider del servizio telefonico, non dell'account. Assicurarsi di avere un buon segnale e, se si sta tentando di ricevere un SMS, assicurarsi che il telefono e il piano di servizio supportino gli SMS.
 
-If you've waited several minutes for a text or call, the fastest way to get into your account is to try a different option.
+Se sono trascorsi diversi minuti e non sono arrivati né SMS né chiamate, il modo più rapido per accedere al proprio account è quello di tentare con un'opzione diversa.
 
-1. Select **Use a different verification option** on the page that's waiting for your verification.
+1. Selezionare **Usa un'opzione di verifica diversa** nella pagina in cui si è in attesa della verifica.
    
-    ![Different Verification](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
-2. Select the phone number or delivery method you want to use.
+    ![Verifica diversa](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
+2. Selezionare il metodo di recapito o il numero di telefono che si vuole usare.
    
-    If you received multiple verification codes, only the newest one works.
+    Se sono stati ricevuti più codici di verifica, tenere presente che funzionerà solo il più recente.
 
-If you don’t have another method configured, contact your admin and ask them to clear your settings. The next time you sign in, you will be prompted to [set up multi-factor authentication](multi-factor-authentication-end-user-first-time.md) again.
+Se non è stato configurato un altro metodo, contattare l'amministratore e chiedere di cancellare le impostazioni. Al tentativo di accesso successivo, verrà richiesto di [riconfigurare l'autenticazione a più fattori](multi-factor-authentication-end-user-first-time.md).
 
-If you often have delays due to bad cell signal, we recommend you use the [Microsoft Authenticator app](multi-factor-authentication-microsoft-authenticator.md) on your smartphone. The app can generate random security codes that you use to sign in, and these codes don't require any cell signal or internet connection.
+Se si hanno spesso ritardi a causa della scarsa qualità del segnale, è consigliabile usare l'[app Microsoft Authenticator](multi-factor-authentication-microsoft-authenticator.md) sullo smartphone. L'app può generare codici di sicurezza casuali che consentono di accedere e che non richiedono segnale telefonico o connessione Internet.
 
-## <a name="app-passwords-are-not-working"></a>App passwords are not working
-First, make sure that you have entered the app password correctly.  If it is still not working try signing-in and [create a new app password](multi-factor-authentication-end-user-app-passwords.md).  If this does not work, contact your administrator and have them [delete your existing app passwords](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords) and then you can create a new one.
+## <a name="app-passwords-are-not-working"></a>Le password dell'app non funzionano
+Assicurarsi prima di tutto di avere immesso correttamente la password dell'app.  Se non funziona ancora, provare ad accedere e [creare una nuova password per l'app](multi-factor-authentication-end-user-app-passwords.md).  Se il problema persiste, contattare l'amministratore, richiedere l' [eliminazione delle password esistenti per l'app](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords) e creare una nuova password.
 
-## <a name="i-didn't-find-an-answer-to-my-problem."></a>I didn't find an answer to my problem.
-If you've tried these troubleshooting steps but are still running into problems, contact your administrator or the person who set up multi-factor authentication for you. They should be able to assist you.
+## <a name="i-didnt-find-an-answer-to-my-problem"></a>Nessuna risposta al problema riscontrato.
+Se queste procedure di risoluzione dei problemi non sono state utili, contattare l'amministratore o la persona che ha configurato l'autenticazione a più fattori sul dispositivo per assistenza.
 
-Also, you can post a question on the [Azure AD Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD) or [contact support](https://support.microsoft.com/contactus) and we'll respond to your problem as soon as we can.
+È anche possibile pubblicare una domanda nel [forum di Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD) o [contattare il supporto](https://support.microsoft.com/contactus) che risponderà non appena possibile.
 
-If you contact support, include the following information:
+Se si contatta il supporto, includere le informazioni seguenti:
 
-* **User ID** – What's the email address you tried to sign in with?
-* **General description of the error** – what exact error message did you see?  If there was no error message, describe the unexpected behavior you noticed, in detail.
-* **Page** – what page were you on when you saw the error (include the URL)?
-* **ErrorCode** - the specific error code you are receiving.
-* **SessionId** - the specific session id you are receiving.
-* **Correlation ID** – what was the correlation id code generated when the user saw the error.
-* **Timestamp** – what was the precise date and time you saw the error (include the timezone)?
+* **ID utente**: qual è l'indirizzo di posta elettronica con cui si è tentato di accedere?
+* **Descrizione generale dell'errore**: qual è il messaggio di errore esatto che viene visualizzato?  Se non è stato visualizzato alcun messaggio di errore, descrivere dettagliatamente il comportamento imprevisto riscontrato.
+* **Pagina** : la pagina che si stava consultando quando è stato visualizzato l'errore (includere l'URL).
+* **Codice di errore** : l'esatto codice di errore visualizzato.
+* **ID sessione** : l'esatto ID di sessione visualizzato.
+* **ID correlazione** : il codice ID di correlazione generato quando è stato visualizzato l'errore.
+* **Data e ora** : la data e l'ora in cui è stato visualizzato l'errore (includere il fuso orario).
 
-Much of this information can be found on your sign-in page. When you don't verify your sign-in in time, select **View details**.
+Molte di queste informazioni sono reperibili nella pagina di accesso. Quando non si verifica l'accesso in tempo, selezionare **Visualizza dettagli**.
 
-![Sign in error details](./media/multi-factor-authentication-end-user-troubleshoot/view_details.png)
+![Dettagli errore di accesso](./media/multi-factor-authentication-end-user-troubleshoot/view_details.png)
 
-Including this information helps us to solve your problem as quickly as possible.
+Queste informazioni consentiranno di risolvere il problema nel più breve tempo possibile.
 
-## <a name="related-topics"></a>Related topics
-* [Manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md)  
-* [Microsoft Authenticator application FAQ](multi-factor-authentication-app-faq.md)
+## <a name="related-topics"></a>Argomenti correlati
+* [Gestire le impostazioni per la verifica in due passaggi](multi-factor-authentication-end-user-manage-settings.md)  
+* [Domande frequenti sull'applicazione Microsoft Authenticator](multi-factor-authentication-app-faq.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Come configurare il routing per un circuito ExpressRoute per il modello di distribuzione classica mediante PowerShell | Microsoft Docs
+title: Come configurare il routing per un circuito ExpressRoute per il modello di distribuzione classica mediante PowerShell | Documentazione Microsoft
 description: Questo articolo descrive come creare ed eseguire il provisioning di un circuito ExpressRoute per il peering privato, il peering pubblico e il peering Microsoft. Questo articolo mostra anche come controllare lo stato e aggiornare o eliminare i peering per un circuito.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: a4bd39d2-373a-467a-8b06-36cfcc1027d2
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,13 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
+ms.openlocfilehash: 1442295477760e7f528621be42b72f1c02625c50
+
 
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Creare e modificare il routing per un circuito ExpressRoute
 > [!div class="op_single_selector"]
-> [Portale di Azure - Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
-> [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
-> [PowerShell - Classico](expressroute-howto-routing-classic.md)
+> * [Portale di Azure - Gestione risorse](expressroute-howto-routing-portal-resource-manager.md)
+> * [PowerShell - Gestione risorse](expressroute-howto-routing-arm.md)
+> * [PowerShell - Classico](expressroute-howto-routing-classic.md)
 > 
 > 
 
@@ -303,6 +307,9 @@ Successivamente, [Collegare una rete virtuale a un circuito ExpressRoute](expres
 * Per ulteriori informazioni sui flussi di lavoro, vedere [Flussi di lavoro ExpressRoute](expressroute-workflows.md).
 * Per altre informazioni sul peering del circuito, vedere l'articolo relativo ai [circuiti ExpressRoute e domini di routing](expressroute-circuit-peerings.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

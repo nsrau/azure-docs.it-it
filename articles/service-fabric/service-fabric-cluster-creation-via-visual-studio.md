@@ -1,12 +1,12 @@
 ---
-title: Configurazione di un cluster dell'infrastruttura di servizi tramite Visual Studio | Microsoft Docs
+title: Configurazione di un cluster di Service Fabric tramite Visual Studio | Microsoft Docs
 description: Descrive come configurare un cluster di Service Fabric usando il modello di Azure Resource Manager creato da un progetto di Gruppo di risorse di Azure in Visual Studio
 services: service-fabric
 documentationcenter: .net
 author: karolz-ms
 manager: adegeo
-editor: ''
-
+editor: 
+ms.assetid: bd2c0511-36c9-4828-8dc3-69e4b6a70567
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2016
 ms.author: karolz@microsoft.com
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 01498faf6d150cb0a96af150d6c9ce1ed62c26dd
+
 
 ---
 # <a name="set-up-a-service-fabric-cluster-by-using-visual-studio"></a>Configurare un cluster di Service Fabric tramite Visual Studio
@@ -49,12 +53,12 @@ Prima di distribuire il modello per la creazione del cluster, è necessario spec
 
 Il modello di Gestione risorse di Service Fabric in Visual Studio crea un cluster sicuro, protetto da un certificato, identificato dagli ultimi tre parametri del modello (`certificateThumbprint`, `sourceVaultValue` e `certificateUrlValue`) e incluso in un **insieme di credenziali delle chiavi di Azure**. Per altre informazioni su come creare il certificato di sicurezza del cluster, vedere l'articolo [Scenari di sicurezza di un cluster di Service Fabric](service-fabric-cluster-security.md#x509-certificates-and-service-fabric).
 
-## <a name="optional:-change-the-cluster-name"></a>Facoltativo: modificare il nome del cluster
+## <a name="optional-change-the-cluster-name"></a>Facoltativo: modificare il nome del cluster
 Ogni cluster di Service Fabric ha un nome. Quando viene creato un cluster di Fabric in Azure, il nome del cluster insieme all'area di Azure determina il nome DNS (Domain Name System) del cluster. Ad esempio, se il cluster viene denominato `myBigCluster` e il percorso (area di Azure) del gruppo di risorse che ospiterà il nuovo cluster è Stati Uniti orientali, il nome DNS del cluster sarà `myBigCluster.eastus.cloudapp.azure.com`.
 
 Per impostazione predefinita il nome del cluster viene generato automaticamente in modo univoco aggiungendo un suffisso casuale al prefisso "cluster". Questo metodo semplifica l'uso del modello nell'ambito di un sistema a **integrazione continua** . Se si vuole usare un nome specifico per il cluster con un particolare significato, impostare il valore della variabile `clusterName` nel file di modello di Resource Manager (`ServiceFabricCluster.json`) sul nome scelto. Si tratta della prima variabile definita nel file.
 
-## <a name="optional:-add-public-application-ports"></a>Facoltativo: aggiungere le porte pubbliche dell'applicazione
+## <a name="optional-add-public-application-ports"></a>Facoltativo: aggiungere le porte pubbliche dell'applicazione
 Prima di distribuire il cluster, è possibile anche modificare le porte pubbliche delle applicazioni. Per impostazione predefinita, il modello apre solo due porte TCP pubbliche: 80 e 8081. Se per le applicazioni sono necessarie più porte, modificare la definizione del servizio di bilanciamento del carico di Azure nel modello. La definizione viene archiviata nel file del modello principale (`ServiceFabricCluster.json`). Aprire il file e cercare `loadBalancedAppPort`. Ogni porta è associata a tre elementi:
 
 1. Una variabile del modello che definisce il valore della porta TCP per la porta:
@@ -142,6 +146,6 @@ Se sono presenti errori, passare al [portale di Azure](https://portal.azure.com/
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

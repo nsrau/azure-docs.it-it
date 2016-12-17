@@ -1,12 +1,12 @@
 ---
-title: Distribuire DocumentDB e app Web del servizio app di Azure mediante un modello di Gestione risorse di Azure | Microsoft Docs
-description: Informazioni su come distribuire un account DocumentDB, app Web del servizio app di Azure e un'applicazione Web di esempio usando un modello di Gestione risorse di Azure.
+title: Distribuire DocumentDB e app Web del servizio app di Azure usando un modello di Azure Resource Manager | Microsoft Azure
+description: Informazioni su come distribuire un account DocumentDB, app Web del servizio app di Azure e un&quot;applicazione Web di esempio usando un modello di Gestione risorse di Azure.
 services: documentdb, app-service\web
 author: h0n
 manager: jhubbard
 editor: monicar
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 087d8786-1155-42c7-924b-0eaba5a8b3e0
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2016
 ms.author: hawong
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ea624ffc9a33fe89aea065de8c96efd79d6c2b9a
+
 
 ---
 # <a name="deploy-documentdb-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Distribuire DocumentDB e app Web del servizio app di Azure mediante un modello di Gestione risorse di Azure
@@ -38,7 +42,7 @@ Prima di seguire le istruzioni di questa esercitazione, verificare che siano dis
 
 * Una sottoscrizione di Azure. Azure è una piattaforma basata su sottoscrizione.  Per altre informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto](https://azure.microsoft.com/pricing/purchase-options/), [Offerte per i membri](https://azure.microsoft.com/pricing/member-offers/) oppure [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="<a-id="createdb"></a>step-1:-download-the-template-files"></a><a id="CreateDB"></a>Passaggio 1: Scaricare i file del modello
+## <a name="a-idcreatedbastep-1-download-the-template-files"></a><a id="CreateDB"></a>Passaggio 1: Scaricare i file del modello
 Per iniziare, scaricare i file del modello da usare in questa esercitazione.
 
 1. Scaricare il modello di [esempio per creare un account DocumentDB, App Web e per distribuire un'applicazione demo](https://portalcontent.blob.core.windows.net/samples/DocDBWebsiteTodo.json) in una cartella locale, ad esempio C:\DocumentDBTemplates. Questo modello distribuirà un account DocumentDB, un'app Web del servizio app e un'applicazione Web.  L'applicazione Web verrà anche configurata automaticamente per connettersi all'account DocumentDB.
@@ -46,7 +50,7 @@ Per iniziare, scaricare i file del modello da usare in questa esercitazione.
 
 <a id="Build"></a>
 
-## <a name="step-2:-deploy-the-documentdb-account,-app-service-web-app-and-demo-application-sample"></a>Passaggio 2: Distribuire l'esempio relativo ad account DocumentDB, app Web del servizio app e applicazione demo
+## <a name="step-2-deploy-the-documentdb-account-app-service-web-app-and-demo-application-sample"></a>Passaggio 2: Distribuire l'esempio relativo ad account DocumentDB, app Web del servizio app e applicazione demo
 Si procederà a questo punto alla distribuzione del primo modello.
 
 > [!TIP]
@@ -86,7 +90,7 @@ Si procederà a questo punto alla distribuzione del primo modello.
 
 <a id="Build"></a> 
 
-## <a name="step-3:-deploy-the-document-account-and-web-app-sample"></a>Passaggio 3: Distribuire l'esempio relativo ad account DocumentDB e app Web
+## <a name="step-3-deploy-the-document-account-and-web-app-sample"></a>Passaggio 3: Distribuire l'esempio relativo ad account DocumentDB e app Web
 Si procederà ora alla distribuzione del secondo modello.  Questo modello è utile per mostrare come inserire le informazioni relative alla connessione di DocumentDB, ad esempio l'endpoint dell'account e la chiave master in un'app Web come impostazioni dell'applicazione o come una stringa di connessione personalizzata. Ad esempio, quando si dispone di un'applicazione Web personale che si desidera distribuire con un account DocumentDB e le informazioni relative alla connessione vengono popolate automaticamente durante la distribuzione.
 
 > [!TIP]
@@ -129,7 +133,7 @@ Congratulazioni. Si è completata la distribuzione di DocumentDB, di un'app Web 
 * Per altre informazioni sulle app Web del servizio app di Azure, vedere [qui](http://go.microsoft.com/fwlink/?LinkId=325362).
 * Per altre informazioni sui modelli di Gestione risorse di Azure, vedere [qui](https://msdn.microsoft.com/library/azure/dn790549.aspx).
 
-## <a name="what's-changed"></a>Modifiche apportate
+## <a name="whats-changed"></a>Modifiche apportate
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale vedere: [Informazioni di riferimento per l'esplorazione del portale di Azure classico](http://go.microsoft.com/fwlink/?LinkId=529715)
 
@@ -138,6 +142,9 @@ Congratulazioni. Si è completata la distribuzione di DocumentDB, di un'app Web 
 > 
 > 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

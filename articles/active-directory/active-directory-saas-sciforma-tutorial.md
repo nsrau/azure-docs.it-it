@@ -1,11 +1,11 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Sciforma | Microsoft Docs'
-description: Informazioni su come usare Sciforma con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora.
+description: Informazioni su come usare Sciforma con Azure Active Directory per abilitare l&quot;accesso Single Sign-On, il provisioning automatizzato e altro ancora.
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: abbfb5ac-7687-4153-b263-8090102dae37
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2a61552f3275aa58aca9c014d24ae69d91ce59d5
+
 
 ---
-# <a name="tutorial:-azure-ad-integration-with-sciforma"></a>Esercitazione: Integrazione di Azure Active Directory con Sciforma
+# <a name="tutorial-azure-ad-integration-with-sciforma"></a>Esercitazione: Integrazione di Azure Active Directory con Sciforma
 In questa esercitazione viene illustrata l'integrazione di Azure e Sciforma.  
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -36,7 +40,7 @@ Lo scenario descritto in questa esercitazione include i blocchi predefiniti segu
 ## <a name="enabling-the-application-integration-for-sciforma"></a>Abilitazione dell'integrazione dell'applicazione per Sciforma
 In questa sezione viene descritto come abilitare l'integrazione dell'applicazione per Sciforma.
 
-### <a name="to-enable-the-application-integration-for-sciforma,-perform-the-following-steps:"></a>Per abilitare l'integrazione dell'applicazione per Sciforma, eseguire la procedura seguente:
+### <a name="to-enable-the-application-integration-for-sciforma-perform-the-following-steps"></a>Per abilitare l'integrazione dell'applicazione per Sciforma, eseguire la procedura seguente:
 1. Nel portale di Azure classico fare clic su **Active Directory**nel riquadro di spostamento sinistro.
    
    ![Active Directory](./media/active-directory-saas-sciforma-tutorial/IC700993.png "Active Directory")
@@ -61,7 +65,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Sciforma tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML.
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
 1. Nella pagina di integrazione dell'applicazione **Sciforma** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
    ![Configura accesso Single Sign-On](./media/active-directory-saas-sciforma-tutorial/IC777372.png "Configure single sign-on")
@@ -88,7 +92,7 @@ Se l’account utente non è disponibile, viene creato automaticamente da Scifor
 ## <a name="assigning-users"></a>Assegnazione degli utenti
 Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
-### <a name="to-assign-users-to-sciforma,-perform-the-following-steps:"></a>Per assegnare gli utenti a Sciforma, eseguire la procedura seguente:
+### <a name="to-assign-users-to-sciforma-perform-the-following-steps"></a>Per assegnare gli utenti a Sciforma, eseguire la procedura seguente:
 1. Nel portale di Azure classico creare un account di test.
 2. Nella pagina di integrazione dell'applicazione **Sciforma** fare clic su **Assegna utenti**.
    
@@ -99,6 +103,9 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

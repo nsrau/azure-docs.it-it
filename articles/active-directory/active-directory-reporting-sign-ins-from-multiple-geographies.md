@@ -1,12 +1,12 @@
 ---
-title: Accessi da più aree geografiche
-description: Report che segnala agli utenti situazioni in cui due accessi sembrano provenire da diverse aree, ma dato il tempo intercorso tra gli accessi non è possibile che l'utente si sia spostato da un'area all'altra.
+title: "Accessi da più aree geografiche"
+description: "Report che segnala agli utenti situazioni in cui due accessi sembrano provenire da diverse aree, ma dato il tempo intercorso tra gli accessi non è possibile che l&quot;utente si sia spostato da un&quot;area all&quot;altra."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: SSalahAhmed
 manager: gchander
-editor: ''
-
+editor: 
+ms.assetid: 79259c8a-2388-4747-b41e-c07434ea9a02
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah;kenhoff
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1de57f64692ade442f9ef8d1e3b587ffee35d7cf
+
 
 ---
-# Accessi da più aree geografiche
+# <a name="sign-ins-from-multiple-geographies"></a>Accessi da più aree geografiche
 Questo report mostra gli accessi effettuati da un utente e due di questi sembrano provenire da aree diverse. Dato il tempo intercorso tra gli accessi non è possibile che l'utente si sia spostato da un'area all'altra. Le possibili cause includono:
 
 * L'utente sta condividendo la password
@@ -29,4 +33,9 @@ Nei risultati del report verranno mostrati gli eventi di accesso riuscito, nonch
 
 ![Accessi da più aree geografiche](./media/active-directory-reporting-sign-ins-from-multiple-geographies/signInsFromMultipleGeographies.PNG)
 
-<!---HONumber=AcomDC_0309_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

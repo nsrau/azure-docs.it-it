@@ -1,13 +1,13 @@
 ---
-title: Notifiche delle modifiche DocumentDB usando le app per la logica | Microsoft Docs
+title: Notifiche delle modifiche DocumentDB usando le app per la logica | Documentazione Microsoft
 description: .
 keywords: notifica delle modifiche
 services: documentdb
 author: hedidin
 manager: jhubbard
 editor: mimig
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 58925d95-dde8-441b-8142-482b487e4bdd
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,42 +15,46 @@ ms.devlang: rest-api
 ms.topic: article
 ms.date: 09/23/2016
 ms.author: b-hoedid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 115d35bd56918ad8e93a9032cbff6e84a7b70e0c
+
 
 ---
-# Notifiche per le risorse di DocumentDB nuove o modificate usando le app per la logica
+# <a name="notifications-for-new-or-changed-documentdb-resources-using-logic-apps"></a>Notifiche per le risorse di DocumentDB nuove o modificate usando le app per la logica
 Questo articolo ha origine da una domanda inviata in uno dei forum della community di Azure DocumentDB. La domanda è **DocumentDB supporta le notifiche per le risorse modificate**?
 
 Ho collaborato con BizTalk Server per molti anni e questo è uno scenario molto comune quando si usa il [WCF LOB Adapter](https://msdn.microsoft.com/library/bb798128.aspx). Per questa ragione ho deciso di provare a duplicare questa funzionalità in DocumentDB per i documenti nuovi e/o modificati.
 
 Questo articolo offre una panoramica dei componenti della soluzione di notifica delle modifiche che include un [trigger](documentdb-programming.md#trigger) e un'[app per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md). Frammenti di codice importanti sono disponibili inline, mentre l'intera soluzione è disponibile su [GitHub](https://github.com/HEDIDIN/DocDbNotifications).
 
-## Caso d'uso
+## <a name="use-case"></a>Caso d'uso
 Di seguito è descritto il caso d'uso di questo articolo.
 
-DocumentDB è il repository per i documenti di Health Level Seven International (HL7) Fast Healthcare Interoperability Resources (FHIR). Si supponga che il database di DocumentDB associato all'API e all'app per la logica costituisca un server di HL7 FHIR. Una struttura sanitaria memorizza i dati dei pazienti nel database "Patients" di DocumentDB. Il database dei pazienti include diverse raccolte: Clinical, Identification e così via. Le informazioni sui pazienti rientrano nella categoria Identification. Esiste una raccolta denominata "Patient".
+DocumentDB è il repository per i documenti di Health Level Seven International (HL7) Fast Healthcare Interoperability Resources (FHIR). Si supponga che il database di DocumentDB associato all'API e all'app per la logica costituisca un server di HL7 FHIR.  Una struttura sanitaria memorizza i dati dei pazienti nel database "Patients" di DocumentDB. Il database dei pazienti include diverse raccolte: Clinical, Identification e così via. Le informazioni sui pazienti rientrano nella categoria Identification.  Esiste una raccolta denominata "Patient".
 
-Il reparto di cardiologia tiene traccia dei dati personali relativi a salute ed esercizio. La ricerca dei record paziente nuovi o modificati può richiedere molto tempo. Viene richiesto al reparto IT se è possibile ricevere una notifica per i record paziente nuovi o modificati.
+Il reparto di cardiologia tiene traccia dei dati personali relativi a salute ed esercizio. La ricerca dei record paziente nuovi o modificati può richiedere molto tempo. Viene richiesto al reparto IT se è possibile ricevere una notifica per i record paziente nuovi o modificati.  
 
-Il reparto IT risponde che l'operazione è molto semplice. Comunica inoltre che è possibile inviare i documenti all'[archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/) in modo che il reparto di cardiologia possa accedervi facilmente.
+Il reparto IT risponde che l'operazione è molto semplice. Comunica inoltre che è possibile inviare i documenti all' [archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/) in modo che il reparto di cardiologia possa accedervi facilmente.
 
-## Come è stato risolto il problema dal reparto IT
-Per creare l'applicazione, il reparto IT ha deciso di definire prima un modello. Il vantaggio della notazione BPMN (Business Process Model and Notation) è rappresentato dalla sua facilità d'uso sia da parte di specialisti che di non specialisti. L'intero processo di notifica è considerato un processo aziendale.
+## <a name="how-the-it-department-solved-the-problem"></a>Come è stato risolto il problema dal reparto IT
+Per creare l'applicazione, il reparto IT ha deciso di definire prima un modello.  Il vantaggio della notazione BPMN (Business Process Model and Notation) è rappresentato dalla sua facilità d'uso sia da parte di specialisti che di non specialisti. L'intero processo di notifica è considerato un processo aziendale. 
 
-## Panoramica del processo di notifica
+## <a name="high-level-view-of-notification-process"></a>Panoramica del processo di notifica
 1. Si inizia con un'app per la logica che include un trigger timer. Per impostazione predefinita, il trigger viene eseguito ogni ora.
 2. Successivamente viene eseguito un POST HTTP nell'app per la logica.
 3. L'app per la logica esegue tutte le operazioni.
 
 ![panoramica](./media/documentdb-change-notification/high-level-view.png)
 
-### Operazioni eseguite dall'app per la logica
+### <a name="lets-take-a-look-at-what-this-logic-app-does"></a>Operazioni eseguite dall'app per la logica
 Nella figura seguente è possibile osservare i diversi passaggi del flusso di lavoro dell'app per la logica.
 
 ![Processo di logica principale](./media/documentdb-change-notification/main-logic-app-process.png)
 
 Attenersi alla procedura seguente:
 
-1. È necessario ottenere il valore DateTime UTC da un'app per le API. Il valore predefinito è un'ora prima.
+1. È necessario ottenere il valore DateTime UTC da un'app per le API.  Il valore predefinito è un'ora prima.
 2. Il valore DateTime UTC viene convertito in un formato Timestamp Unix. Questo è il formato predefinito per i timestamp in DocumentDB.
 3. Viene eseguito il POST del valore in un'app per le API che esegue una query DocumentDB. Il valore viene usato in una query.
    
@@ -59,7 +63,7 @@ Attenersi alla procedura seguente:
     ```
    
    > [!NOTE]
-   > \_ts rappresenta i metadati TimeStamp per tutte le risorse di DocumentDB.
+   > _ts rappresenta i metadati TimeStamp per tutte le risorse di DocumentDB.
    > 
    > 
 4. Se vengono trovati documenti, il corpo della risposta viene inviato all'archiviazione BLOB di Azure.
@@ -68,20 +72,20 @@ Attenersi alla procedura seguente:
    > L'archiviazione BLOB richiede un account di archiviazione di Azure. Eseguire il provisioning di un account di archiviazione BLOB di Azure e aggiungere un nuovo BLOB denominato patients. Per altre informazioni, vedere [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md) e [Introduzione all'archiviazione BLOB di Azure ](../storage/storage-dotnet-how-to-use-blobs.md).
    > 
    > 
-5. Viene infine inviato un messaggio che comunica al destinatario il numero di documenti trovati. Se non vengono trovati documenti, il corpo del messaggio sarà "0 Documents Found".
+5. Viene infine inviato un messaggio che comunica al destinatario il numero di documenti trovati. Se non vengono trovati documenti, il corpo del messaggio sarà "0 Documents Found". 
 
 Dopo aver illustrato le operazioni eseguite dal flusso di lavoro, viene ora descritta la modalità di implementazione.
 
-### Iniziare con l'app per la logica principale
+### <a name="lets-start-with-the-main-logic-app"></a>Iniziare con l'app per la logica principale
 Se non si ha familiarità con le app per la logica, le app sono disponibili in [Azure Marketplace](https://portal.azure.com/). Vedere anche [Cosa sono le app per la logica?](../app-service-logic/app-service-logic-what-are-logic-apps.md)
 
-Quando si crea una nuova app per la logica, viene richiesto come si desidera iniziare (**How would you like to start?**)
+Quando si crea una nuova app per la logica, viene richiesto come si desidera iniziare ( **How would you like to start?**
 
 Quando si fa clic all'interno della casella di testo, sono disponibili diversi eventi. Per questa app per la logica, selezionare **Manual - When an HTTP request is received** come illustrato di seguito.
 
 ![Avvio](./media/documentdb-change-notification/starting-off.png)
 
-### Visualizzazione di progettazione dell'app per la logica completata
+### <a name="design-view-of-your-completed-logic-app"></a>Visualizzazione di progettazione dell'app per la logica completata
 Si osservi ora la visualizzazione di progettazione completata per l'app per la logica denominata DocDB.
 
 ![Flusso di lavoro dell'app per la logica](./media/documentdb-change-notification/workflow-expanded.png)
@@ -94,16 +98,16 @@ Prima di ogni azione del flusso di lavoro, è possibile scegliere **Add an actio
 
 ![Prendere una decisione](./media/documentdb-change-notification/add-action-or-condition.png)
 
-Se si seleziona **Add a condition**, viene visualizzato un modulo per l'immissione della logica, come illustrato nella figura seguente. Si tratta in sostanza di una regola di business. Se si fa clic all'interno di un campo, è possibile selezionare i parametri dell'azione precedente. È anche possibile immettere direttamente i valori.
+Se si seleziona **Add a condition**, viene visualizzato un modulo per l'immissione della logica, come illustrato nella figura seguente.  Si tratta in sostanza di una regola di business.  Se si fa clic all'interno di un campo, è possibile selezionare i parametri dell'azione precedente. È anche possibile immettere direttamente i valori.
 
-![Aggiungere una condizione](./media/documentdb-change-notification/condition1.png)
+![Add a condition](./media/documentdb-change-notification/condition1.png)
 
 > [!NOTE]
 > È inoltre possibile immettere tutti gli elementi nella visualizzazione Codice.
 > 
 > 
 
-Si osservi l'app per la logica completata nella visualizzazione Codice.
+Si osservi l'app per la logica completata nella visualizzazione Codice.  
 
 ```JSON
 
@@ -242,7 +246,7 @@ Si osservi l'app per la logica completata nella visualizzazione Codice.
 
 ```
 
-Se non si ha familiarità con ciò che rappresentano le diverse sezioni del codice, vedere la documentazione relativa al [linguaggio di definizione del flusso di lavoro delle app per la logica](http://aka.ms/logicappsdocs).
+Se non si ha familiarità con ciò che rappresentano le diverse sezioni del codice, vedere la documentazione relativa al [linguaggio di definizione del flusso di lavoro delle app per la logica](http://aka.ms/logicappsdocs) .
 
 Per questo flusso di lavoro si usa un [trigger webhook HTTP](https://sendgrid.com/blog/whats-webhook/). Se si esamina il codice riportato sopra, si noteranno parametri simili all'esempio seguente.
 
@@ -252,14 +256,15 @@ Per questo flusso di lavoro si usa un [trigger webhook HTTP](https://sendgrid.co
 
 ```
 
-`triggerBody()` rappresenta i parametri inclusi nel corpo di un POST REST nell'API REST dell'app per la logica. `()['Subject']` rappresenta il campo. Tutti questi parametri costituiscono il corpo in formato JSON.
+`triggerBody()` rappresenta i parametri inclusi nel corpo di un POST REST nell'API REST dell'app per la logica. `()['Subject']` rappresenta il campo. Tutti questi parametri costituiscono il corpo in formato JSON. 
 
 > [!NOTE]
 > Usando un webhook, è possibile accedere all'intestazione e al corpo della richiesta del trigger. In questa applicazione si desidera accedere al corpo.
 > 
 > 
 
-Come accennato in precedenza, è possibile usare la finestra di progettazione per assegnare i parametri. In alternativa, l'operazione può essere eseguita nella visualizzazione Codice. Se si esegue l'operazione nella visualizzazione Codice, si definiscono le proprietà che richiedono un valore, come illustrato nell'esempio di codice seguente.
+Come accennato in precedenza, è possibile usare la finestra di progettazione per assegnare i parametri. In alternativa, l'operazione può essere eseguita nella visualizzazione Codice.
+Se si esegue l'operazione nella visualizzazione Codice, si definiscono le proprietà che richiedono un valore, come illustrato nell'esempio di codice seguente. 
 
 ```JSON
 
@@ -284,12 +289,13 @@ Come accennato in precedenza, è possibile usare la finestra di progettazione pe
         }
 ```
 
-Si sta creando uno schema JSON che verrà passato dal corpo del POST HTTP. Per attivare il trigger, è necessario un URL callback. La generazione dell'URL è descritta più avanti nell'esercitazione.
+Si sta creando uno schema JSON che verrà passato dal corpo del POST HTTP.
+Per attivare il trigger, è necessario un URL callback.  La generazione dell'URL è descritta più avanti nell'esercitazione.  
 
-## Azioni
+## <a name="actions"></a>Azioni
 Di seguito sono descritte le operazioni eseguite da ogni azione dell'app per la logica.
 
-### GetUTCDate
+### <a name="getutcdate"></a>GetUTCDate
 **Visualizzazione di progettazione**
 
 ![](./media/documentdb-change-notification/getutcdate.png)
@@ -315,11 +321,11 @@ Di seguito sono descritte le operazioni eseguite da ogni azione dell'app per la 
 
 ```
 
-Questa azione HTTP esegue un'operazione GET. Chiama il metodo GetUtcDate dell'app per le API. L'URI usa la proprietà 'GetUtcDate\_HoursBack' passata nel corpo del trigger. Il valore 'GetUtcDate\_HoursBack' è impostato nella prima app per la logica. Più avanti nell'esercitazione verranno fornite altre informazioni sull'app per la logica Trigger.
+Questa azione HTTP esegue un'operazione GET.  Chiama il metodo GetUtcDate dell'app per le API. L'URI usa la proprietà 'GetUtcDate_HoursBack' passata nel corpo del trigger.  Il valore 'GetUtcDate_HoursBack' è impostato nella prima app per la logica. Più avanti nell'esercitazione verranno fornite altre informazioni sull'app per la logica Trigger.
 
 Questa azione chiama l'app per le API per restituire il valore di stringa della data UTC.
 
-#### Operazioni
+#### <a name="operations"></a>Operazioni
 **Richiesta**
 
 ```JSON
@@ -355,11 +361,11 @@ Questa azione chiama l'app per le API per restituire il valore di stringa della 
 
 Il passaggio successivo consiste nel convertire il valore DateTime UTC in TimeStamp Unix, che è un tipo double .NET.
 
-### Conversione
-##### Visualizzazione di progettazione
+### <a name="conversion"></a>Conversione
+##### <a name="designer-view"></a>Visualizzazione di progettazione
 ![Conversione](./media/documentdb-change-notification/conversion.png)
 
-##### Visualizzazione Codice
+##### <a name="code-view"></a>Visualizzazione Codice
 ```JSON
 
     "Conversion": {
@@ -383,12 +389,12 @@ Il passaggio successivo consiste nel convertire il valore DateTime UTC in TimeSt
 
 ```
 
-Viene passato il valore restituito da GetUTCDate. Poiché è presente una condizione dependsOn, l'azione GetUTCDate deve essere completata correttamente. In caso contrario, l'azione viene ignorata.
+Viene passato il valore restituito da GetUTCDate.  Poiché è presente una condizione dependsOn, l'azione GetUTCDate deve essere completata correttamente. In caso contrario, l'azione viene ignorata. 
 
 Questa azione chiama l'app per le API per gestire la conversione.
 
-#### Operazioni
-##### Richiesta
+#### <a name="operations"></a>Operazioni
+##### <a name="request"></a>Richiesta
 ```JSON
 
     {
@@ -400,7 +406,7 @@ Questa azione chiama l'app per le API per gestire la conversione.
     }   
 ```
 
-##### Response
+##### <a name="response"></a>Risposta
 ```JSON
 
     {
@@ -419,11 +425,11 @@ Questa azione chiama l'app per le API per gestire la conversione.
 
 Nell'azione successiva, verrà eseguita un'operazione POST nell'app per le API.
 
-### GetDocuments
-##### Visualizzazione di progettazione
+### <a name="getdocuments"></a>GetDocuments
+##### <a name="designer-view"></a>Visualizzazione di progettazione
 ![Acquisizione documenti](./media/documentdb-change-notification/getdocuments.png)
 
-##### Visualizzazione Codice
+##### <a name="code-view"></a>Visualizzazione Codice
 ```JSON
 
     "GetDocuments": {
@@ -455,12 +461,12 @@ Per l'azione GetDocuments si passa il corpo della risposta dell'azione di conver
 
 ```
 
-L'azione QueryDocuments esegue un'operazione HTTP POST nell'app per le API.
+L'azione QueryDocuments esegue un'operazione HTTP POST nell'app per le API. 
 
 Il metodo chiamato è **QueryForNewPatientDocuments**.
 
-#### Operazioni
-##### Richiesta
+#### <a name="operations"></a>Operazioni
+##### <a name="request"></a>Richiesta
 ```JSON
 
     {
@@ -472,7 +478,7 @@ Il metodo chiamato è **QueryForNewPatientDocuments**.
     }
 ```
 
-##### Response
+##### <a name="response"></a>Risposta
 ```JSON
 
     {
@@ -491,7 +497,7 @@ Il metodo chiamato è **QueryForNewPatientDocuments**.
             "_rid": "vCYLAP2k6gAXAAAAAAAAAA==",
             "_self": "dbs/vCYLAA==/colls/vCYLAP2k6gA=/docs/vCYLAP2k6gAXAAAAAAAAAA==/",
             "_ts": 1454874620,
-            "_etag": ""00007d01-0000-0000-0000-56b79ffc0000"",
+            "_etag": "\"00007d01-0000-0000-0000-56b79ffc0000\"",
             "resourceType": "Patient",
             "text": {
             "status": "generated",
@@ -533,18 +539,18 @@ Il metodo chiamato è **QueryForNewPatientDocuments**.
 
 ```
 
-L'azione successiva consiste nel salvare i documenti nell'[archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/).
+L'azione successiva consiste nel salvare i documenti nell' [archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/). 
 
 > [!NOTE]
 > L'archiviazione BLOB richiede un account di archiviazione di Azure. Eseguire il provisioning di un account di archiviazione BLOB di Azure e aggiungere un nuovo BLOB denominato patients. Per altre informazioni, vedere [Introduzione all'archiviazione BLOB di Azure](../storage/storage-dotnet-how-to-use-blobs.md).
 > 
 > 
 
-### Create File
-##### Visualizzazione di progettazione
+### <a name="create-file"></a>Create File
+##### <a name="designer-view"></a>Visualizzazione di progettazione
 ![Create File](./media/documentdb-change-notification/createfile.png)
 
-##### Visualizzazione Codice
+##### <a name="code-view"></a>Visualizzazione Codice
 ```JSON
 
     {
@@ -568,7 +574,7 @@ L'azione successiva consiste nel salvare i documenti nell'[archiviazione BLOB di
             "_rid": "vCYLAP2k6gAXAAAAAAAAAA==",
             "_self": "dbs/vCYLAA==/colls/vCYLAP2k6gA=/docs/vCYLAP2k6gAXAAAAAAAAAA==/",
             "_ts": 1454874620,
-            "_etag": ""00007d01-0000-0000-0000-56b79ffc0000"",
+            "_etag": "\"00007d01-0000-0000-0000-56b79ffc0000\"",
             "resourceType": "Patient",
             "text": {
                 "status": "generated",
@@ -612,10 +618,10 @@ L'azione successiva consiste nel salvare i documenti nell'[archiviazione BLOB di
 
 Il codice viene generato dall'azione nella finestra di progettazione. Non è necessario modificare il codice.
 
-Se non si ha familiarità con l'API BLOB di Azure, vedere l'articolo relativo all'[introduzione all'API di archiviazione BLOB di Azure](../connectors/connectors-create-api-azureblobstorage.md).
+Se non si ha familiarità con l'API BLOB di Azure, vedere l'articolo relativo all' [introduzione all'API di archiviazione BLOB di Azure](../connectors/connectors-create-api-azureblobstorage.md).
 
-#### Operazioni
-##### Richiesta
+#### <a name="operations"></a>Operazioni
+##### <a name="request"></a>Richiesta
 ```JSON
 
     "host": {
@@ -638,7 +644,7 @@ Se non si ha familiarità con l'API BLOB di Azure, vedere l'articolo relativo al
             "_rid": "vCYLAP2k6gAXAAAAAAAAAA==",
             "_self": "dbs/vCYLAA==/colls/vCYLAP2k6gA=/docs/vCYLAP2k6gAXAAAAAAAAAA==/",
             "_ts": 1454874620,
-            "_etag": ""00007d01-0000-0000-0000-56b79ffc0000"",
+            "_etag": "\"00007d01-0000-0000-0000-56b79ffc0000\"",
             "resourceType": "Patient",
             "text": {
                 "status": "generated",
@@ -681,7 +687,7 @@ Se non si ha familiarità con l'API BLOB di Azure, vedere l'articolo relativo al
 
 ```
 
-##### Response
+##### <a name="response"></a>Risposta
 ```JSON
 
     {
@@ -705,7 +711,7 @@ Se non si ha familiarità con l'API BLOB di Azure, vedere l'articolo relativo al
         "Size": 65647,
         "MediaType": "application/octet-stream",
         "IsFolder": false,
-        "ETag": ""c-g_a-1OtaH-kNQ4WBoXLp3Zv9s/MTQ1NjUwMTY1NjIxNQ"",
+        "ETag": "\"c-g_a-1OtaH-kNQ4WBoXLp3Zv9s/MTQ1NjUwMTY1NjIxNQ\"",
         "FileLocator": "0B0nBzHyMV-_NRGRDcDNMSFAxWFE"
         }
     }
@@ -713,11 +719,11 @@ Se non si ha familiarità con l'API BLOB di Azure, vedere l'articolo relativo al
 
 L'ultimo passaggio consiste nell'inviare una notifica di posta elettronica
 
-### sendEmail
-##### Visualizzazione di progettazione
+### <a name="sendemail"></a>sendEmail
+##### <a name="designer-view"></a>Visualizzazione di progettazione
 ![Invia messaggio di posta elettronica](./media/documentdb-change-notification/sendemail.png)
 
-##### Visualizzazione Codice
+##### <a name="code-view"></a>Visualizzazione Codice
 ```JSON
 
 
@@ -739,11 +745,11 @@ L'ultimo passaggio consiste nell'inviare una notifica di posta elettronica
     }
 ```
 
-In questa azione si invia una notifica di posta elettronica. Si usa [SendGrid](https://sendgrid.com/marketing/sendgrid-services?cvosrc=PPC.Bing.sendgrib&cvo_cid=SendGrid%20-%20US%20-%20Brand%20-%20&mc=Paid%20Search&mcd=BingAds&keyword=sendgrib&network=o&matchtype=e&mobile=&content=&search=1&utm_source=bing&utm_medium=cpc&utm_term=%5Bsendgrib%5D&utm_content=%21acq%21v2%2134335083397-8303227637-1649139544&utm_campaign=SendGrid+-+US+-+Brand+-+%28English%29).
+In questa azione si invia una notifica di posta elettronica.  Si usa [SendGrid](https://sendgrid.com/marketing/sendgrid-services?cvosrc=PPC.Bing.sendgrib&cvo_cid=SendGrid%20-%20US%20-%20Brand%20-%20&mc=Paid%20Search&mcd=BingAds&keyword=sendgrib&network=o&matchtype=e&mobile=&content=&search=1&utm_source=bing&utm_medium=cpc&utm_term=%5Bsendgrib%5D&utm_content=%21acq%21v2%2134335083397-8303227637-1649139544&utm_campaign=SendGrid+-+US+-+Brand+-+%28English%29).   
 
 Il codice è stato generato usando un modello per l'app per la logica e SendGrid che si trova nel [repository Github 101-logic-app-sendgrid](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sendgrid).
 
-L'operazione HTTP è un POST.
+L'operazione HTTP è un POST. 
 
 I parametri di autorizzazione sono nelle proprietà del trigger
 
@@ -776,10 +782,10 @@ I parametri di autorizzazione sono nelle proprietà del trigger
 
 emailBody esegue la concatenazione del numero di documenti restituiti dalla query, che può essere "0" o più, con i record trovati. I parametri rimanenti vengono impostati in base ai parametri di Trigger.
 
-Questa azione dipende dall'azione **GetDocuments**.
+Questa azione dipende dall'azione **GetDocuments** .
 
-#### Operazioni
-##### Richiesta
+#### <a name="operations"></a>Operazioni
+##### <a name="request"></a>Richiesta
 ```JSON
 
     {
@@ -793,7 +799,7 @@ Questa azione dipende dall'azione **GetDocuments**.
 
 ```
 
-##### Response
+##### <a name="response"></a>Risposta
 ```JSON
 
     {
@@ -827,12 +833,12 @@ Viene restituito lo stesso valore che viene inviato nel corpo del messaggio di p
 
 ![Risultati](./media/documentdb-change-notification/logic-app-run.png)
 
-## Metrica
+## <a name="metrics"></a>Metrica
 È possibile configurare il monitoraggio dell'app per la logica principale nel portale. In questo modo è possibile visualizzare la latenza di esecuzione e altri eventi, come illustrato nella figura riportata di seguito.
 
 ![](./media/documentdb-change-notification/metrics.png)
 
-## DocDb Trigger
+## <a name="docdb-trigger"></a>DocDb Trigger
 Questa app per la logica è il trigger che avvia il flusso di lavoro nell'app per la logica principale.
 
 La figura seguente mostra la visualizzazione di progettazione.
@@ -881,10 +887,10 @@ La figura seguente mostra la visualizzazione di progettazione.
 
 ```
 
-Il trigger è impostato per una ricorrenza di 24 ore. L'azione è un POST HTTP che usa l'URL callback per l'app per la logica principale. Il corpo contiene i parametri specificati nello schema JSON.
+Il trigger è impostato per una ricorrenza di 24 ore. L'azione è un POST HTTP che usa l'URL callback per l'app per la logica principale. Il corpo contiene i parametri specificati nello schema JSON. 
 
-#### Operazioni
-##### Richiesta
+#### <a name="operations"></a>Operazioni
+##### <a name="request"></a>Richiesta
 ```JSON
 
     {
@@ -901,7 +907,7 @@ Il trigger è impostato per una ricorrenza di 24 ore. L'azione è un POST HTTP c
 
 ```
 
-##### Response
+##### <a name="response"></a>Risposta
 ```JSON
 
     {
@@ -919,35 +925,35 @@ Il trigger è impostato per una ricorrenza di 24 ore. L'azione è un POST HTTP c
 
 Si osservi ora l'app per le API.
 
-## DocDBNotificationApi
+## <a name="docdbnotificationapi"></a>DocDBNotificationApi
 Sebbene esistano diverse operazioni nell'app, ne verranno usate solo tre.
 
-* GetUtcDate
+* GetUTCDate
 * ConvertToTimeStamp
 * QueryForNewPatientDocuments
 
-### Operazioni DocDBNotificationApi
+### <a name="docdbnotificationapi-operations"></a>Operazioni DocDBNotificationApi
 Si esamini la documentazione di Swagger
 
 > [!NOTE]
-> Per consentire di chiamare le operazioni esternamente, è necessario aggiungere un valore di origine CORS consentito "*" (senza virgolette) nelle impostazioni dell'app per le API come illustrato nella figura seguente.
+> Per consentire di chiamare le operazioni esternamente, è necessario aggiungere un valore di origine CORS consentito  "*" (senza virgolette) nelle impostazioni dell'app per le API come illustrato nella figura seguente.
 > 
 > 
 
 ![Configurazione Cors](./media/documentdb-change-notification/cors.png)
 
-#### GetUtcDate
+#### <a name="getutcdate"></a>GetUTCDate
 ![G](./media/documentdb-change-notification/getutcdateswagger.png)
 
-#### ConvertToTimeStamp
+#### <a name="converttotimestamp"></a>ConvertToTimeStamp
 ![Ottenere la data UTC](./media/documentdb-change-notification/converion-swagger.png)
 
-#### QueryForNewPatientDocuments
+#### <a name="queryfornewpatientdocuments"></a>QueryForNewPatientDocuments
 ![Query](./media/documentdb-change-notification/patientswagger.png)
 
 Si esamini ora il codice di questa operazione.
 
-#### GetUtcDate
+#### <a name="getutcdate"></a>GetUTCDate
 ```C#
 
     /// <summary>
@@ -970,7 +976,7 @@ Si esamini ora il codice di questa operazione.
 
 Questa operazione restituisce semplicemente il valore DateTime UTC corrente meno il valore HoursBack.
 
-#### ConvertToTimeStamp
+#### <a name="converttotimestamp"></a>ConvertToTimeStamp
 ``` C#
 
         /// <summary>
@@ -1011,7 +1017,7 @@ Questa operazione restituisce semplicemente il valore DateTime UTC corrente meno
 
 Questa operazione converte la risposta dell'operazione GetUtcDate in un valore double.
 
-#### QueryForNewPatientDocuments
+#### <a name="queryfornewpatientdocuments"></a>QueryForNewPatientDocuments
 ```C#
 
         /// <summary>
@@ -1048,7 +1054,7 @@ Questa operazione converte la risposta dell'operazione GetUtcDate in un valore d
 
 ```
 
-Questa operazione usa [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) per creare una query del documento.
+Questa operazione usa [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) per creare una query del documento. 
 
 ```C#
      CreateDocumentQuery<Document>(collectionLink, filterQuery, options).AsEnumerable();
@@ -1058,16 +1064,16 @@ La risposta dell'operazione ConvertToTimeStamp (unixTimeStamp) viene passata. L'
 
 In precedenza è stato citato CallbackURL. Per avviare il flusso di lavoro nell'app per la logica principale, è necessario effettuare una chiamata usando CallbackURL.
 
-## CallbackURL
-Per iniziare, sarà necessario il token di Azure AD. Ottenere questo token può risultare difficile. Stavo cercando un metodo semplice e Jeff Hollan, che è un Program Manager di app per la logica di Azure, mi ha consigliato di usare [armclient](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) in PowerShell. È possibile installarlo seguendo le indicazioni fornite.
+## <a name="callbackurl"></a>CallbackURL
+Per iniziare, sarà necessario il token di Azure AD.  Ottenere questo token può risultare difficile. Stavo cercando un metodo semplice e Jeff Hollan, che è un Program Manager di app per la logica di Azure, mi ha consigliato di usare [armclient](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) in PowerShell.  È possibile installarlo seguendo le indicazioni fornite.
 
 Le operazioni che si desidera usare sono Login e Call ARM API.
 
-Login: usare le stesse credenziali per l'accesso al portale di Azure.
+Login: usare le stesse credenziali per l'accesso al portale di Azure. 
 
 L'operazione Call ARM API genererà il CallBackURL.
 
-In PowerShell, è possibile eseguire la chiamata come indicato di seguito:
+In PowerShell, è possibile eseguire la chiamata come indicato di seguito:    
 
 ```powershell
 
@@ -1085,28 +1091,28 @@ Il risultato dovrebbe avere l'aspetto seguente:
 
 È possibile usare uno strumento come [postman](http://www.getpostman.com/) per testare l'app per la logica principale come illustrato nella figura seguente.
 
-![Postman](./media/documentdb-change-notification/newpostman.png)
+![postman](./media/documentdb-change-notification/newpostman.png)
 
 Nella tabella seguente sono elencati i parametri di Trigger che costituiscono il corpo dell'app per la logica DocDB Trigger.
 
 | Parametro | Descrizione |
 | --- | --- |
-| GetUtcDate\_HoursBack |Consente di impostare il numero di ore per la data di inizio della ricerca |
+| GetUtcDate_HoursBack |Consente di impostare il numero di ore per la data di inizio della ricerca |
 | sendgridUsername |Consente di impostare il numero di ore per la data di inizio della ricerca |
 | sendgridPassword |Il nome utente per la posta elettronica di Send Grid |
 | EmailTo |L'indirizzo di posta elettronica che riceverà la notifica di posta elettronica |
 | Oggetto |L'oggetto per il messaggio di posta elettronica |
 
-## Visualizzazione dei dati dei pazienti nel servizio BLOB di Azure
+## <a name="viewing-the-patient-data-in-the-azure-blob-service"></a>Visualizzazione dei dati dei pazienti nel servizio BLOB di Azure
 Accedere al proprio account di archiviazione di Azure e selezionare BLOB in Servizi, come illustrato nella figura seguente.
 
-![Account di archiviazione](./media/documentdb-change-notification/docdbstorageaccount.png)
+![Account di archiviazione](./media/documentdb-change-notification/docdbstorageaccount.png) 
 
 Sarà possibile visualizzare le informazioni del file BLOB del paziente, come illustrato di seguito.
 
 ![Servizio BLOB](./media/documentdb-change-notification/blobservice.png)
 
-## Riepilogo
+## <a name="summary"></a>Riepilogo
 In questa procedura dettagliata, è stato appreso quanto segue:
 
 * È possibile implementare le notifiche in DocumentDB.
@@ -1118,9 +1124,14 @@ In questa procedura dettagliata, è stato appreso quanto segue:
 
 È fondamentale pianificare con anticipo e creare un modello del flusso di lavoro.
 
-## Passaggi successivi
-Scaricare e usare il codice delle app per la logica disponibile in [Github](https://github.com/HEDIDIN/DocDbNotifications). È consigliabile compilare l'applicazione e inviare le modifiche nel repository.
+## <a name="next-steps"></a>Passaggi successivi
+Scaricare e usare il codice delle app per la logica disponibile in [Github](https://github.com/HEDIDIN/DocDbNotifications). È consigliabile compilare l'applicazione e inviare le modifiche nel repository. 
 
 Per altre informazioni su DocumentDB, visitare il [percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

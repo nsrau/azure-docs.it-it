@@ -2,25 +2,29 @@
 title: Soluzione di monitoraggio delle prestazioni di rete in OMS | Microsoft Docs
 description: Il monitoraggio delle prestazioni di rete consente di monitorare le prestazioni delle reti quasi in tempo reale per rilevare e trovare i colli di bottiglia delle prestazioni di rete.
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
+ms.date: 11/09/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
+ms.openlocfilehash: 4f5c7208cabc565c4f5dddc917c4756ae4776c33
+
 
 ---
-# <a name="network-performance-monitor-(preview)-solution-in-oms"></a>Soluzione (anteprima) di monitoraggio delle prestazioni di rete in OMS
+# <a name="network-performance-monitor-preview-solution-in-oms"></a>Soluzione (anteprima) di monitoraggio delle prestazioni di rete in OMS
 > [!NOTE]
 > Si tratta di una [soluzione di anteprima](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features).
-> 
-> 
+>
+>
 
 In questo documento viene descritto come configurare e usare la soluzione di monitoraggio delle prestazioni di rete in OMS, che consente di monitorare le prestazioni delle reti quasi in tempo reale per rilevare e trovare i colli di bottiglia delle prestazioni di rete. Con la soluzione di monitoraggio delle prestazioni di rete, è possibile monitorare la perdita e la latenza tra due reti, subnet o server. Il monitoraggio delle prestazioni di rete rileva problemi di rete come il blackholing del traffico, gli errori di routing e i problemi che i metodi di monitoraggio della rete tradizionali non sono in grado di rilevare. Il monitoraggio delle prestazioni di rete genera avvisi e invia notifiche quando viene superata una soglia per un collegamento di rete. Queste soglie possono essere acquisite automaticamente dal sistema oppure possono essere configurate in modo che usino regole di avviso personalizzate. Il monitoraggio delle prestazioni di rete garantisce una tempestiva individuazione dei problemi legati alle prestazioni di rete e localizza l'origine del problema in un particolare segmento di rete o un dispositivo.
 
@@ -48,8 +52,8 @@ Usare i processi di base per installare gli agenti descritti in [Connettere comp
 
 > [!NOTE]
 > Per poter avere dati sufficienti per individuare e monitorare le risorse di rete, è necessario installare almeno 2 agenti. In caso contrario, la soluzione rimarrà in uno stato di configurazione fino a quando non verranno installati e configurati altri agenti.
-> 
-> 
+>
+>
 
 ### <a name="where-to-install-the-agents"></a>Dove installare gli agenti
 Prima di installare gli agenti, prendere in considerazione la topologia della rete e le parti della rete che si desidera monitorare. Si consiglia di installare più di un agente per ogni subnet che si desidera monitorare. In altre parole, per ogni subnet che si desidera monitorare, selezionare due o più server o VM e installarvi l'agente.
@@ -67,8 +71,8 @@ La porta aperta per impostazione predefinita è 8084. È possibile usare una por
 
 > [!NOTE]
 > Lo script EnableRules.ps1 configura le regole del firewall Windows solo nel computer in cui viene eseguito lo script. Se si dispone di un firewall di rete, è necessario assicurarsi che consenta il traffico destinato alla porta TCP usata dal monitoraggio delle prestazioni di rete.
-> 
-> 
+>
+>
 
 ## <a name="configuring-the-solution"></a>Configurazione della soluzione
 Usare le informazioni seguenti per installare e configurare la soluzione.
@@ -158,8 +162,8 @@ La soluzione usa le transazioni sintetiche per valutare l'integrità della rete.
 
 > [!NOTE]
 > Anche se gli agenti comunicano spesso tra loro, non generano un traffico di rete intenso durante l'esecuzione dei test. Gli agenti si basano solo sui pacchetti di handshake TCP SYN-SYNACK-ACK per determinare la perdita e la latenza, senza scambio di pacchetti di dati. Durante questo processo, gli agenti comunicano tra loro solo quando è necessario e la topologia di comunicazione degli agenti è ottimizzata per ridurre il traffico di rete.
-> 
-> 
+>
+>
 
 ## <a name="using-the-solution"></a>Uso della soluzione
 In questa sezione vengono illustrate tutte le funzioni del dashboard e si spiega come usarle.
@@ -233,13 +237,15 @@ Ora che è stata eseguita una panoramica sul monitoraggio delle prestazioni di r
 5. Tutti i percorsi tra i 2 nodi selezionati vengono tracciati nella mappa topologica. È possibile visualizzare la topologia hop-by-hop delle route tra due nodi nella mappa topologica. Offre un quadro preciso del numero di route esistenti tra i due nodi e dei percorsi intrapresi dai pacchetti di dati. I colli di bottiglia delle prestazioni di rete sono contrassegnati in rosso. È possibile individuare connessioni o dispositivi di rete difettosi esaminando gli elementi in rosso sulla mappa topologica.  
    ![esempio di visualizzazione della topologia non integra](./media/log-analytics-network-performance-monitor/npm-investigation05.png)
 6. È possibile visualizzare i dati relativi a perdita, latenza e numero di hop di ogni percorso nel riquadro **Dettagli percorso**. In questo esempio sono presenti 3 percorsi non integri, come indicato nel riquadro. Usare la barra di scorrimento per visualizzare i dettagli di tali percorsi.  Usare le caselle di controllo per selezionare uno dei percorsi in modo che venga tracciata la topologia per un solo percorso. È possibile usare la rotellina del mouse per ingrandire o ridurre la mappa topologica.
-   
+
    Nell'immagine seguente si può vedere chiaramente la causa radice delle aree relative al problema nella sezione specifica della rete analizzando i percorsi e gli hop in rosso. Facendo clic su un nodo nella mappa topologica vengono visualizzate le proprietà del nodo, inclusi FQDN e indirizzo IP. Facendo clic su un hop viene mostrato il relativo indirizzo IP.  
    ![topologia non integra - esempio di dettagli del percorso](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Effettuare una ricerca nei log](log-analytics-log-searches.md) per visualizzare i record dettagliati dei dati delle prestazioni di rete.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

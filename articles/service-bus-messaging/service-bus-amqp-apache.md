@@ -1,19 +1,23 @@
 ---
 title: Come installare Apache Qpid Proton-C in una macchina virtuale Linux | Microsoft Docs
 description: Come creare una macchina virtuale Linux CentOS mediante Macchine virtuali di Azure e come creare e installare la libreria Apache Qpid Proton-C.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 3158d69f-c409-494d-9a6c-32613c1a3c74
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 226703f9b4a4b295231ecd48d719638321ae55ef
+
 
 ---
 # <a name="install-apache-qpid-proton-c-on-an-azure-linux-vm"></a>Installare Apache Qpid Proton-C in una macchina virtuale Linux di Azure
@@ -29,7 +33,7 @@ Dopo il provisioning, il portale visualizza quanto segue:
 
 ![Proton in una macchina virtuale Linux di Azure][1]
 
-Per accedere al computer, è necessario conoscere la porta dell'endpoint per SSH. È possibile ottenere questo valore dal [portale di Azure classico][portale di Azure classico] selezionando la macchina virtuale appena creata e facendo clic sulla scheda **Endpoints**. La schermata seguente illustra che la porta pubblica SSH per il computer è 57146.
+Per accedere al computer, è necessario conoscere la porta dell'endpoint per SSH. È possibile ottenere questo valore dal [portale di Azure classico][portale di Azure classico] selezionando la macchina virtuale appena creata e facendo clic sulla scheda **Endpoint**. La schermata seguente illustra che la porta pubblica SSH per il computer è 57146.
 
 ![Proton in una macchina virtuale Linux di Azure][2]
 
@@ -84,15 +88,15 @@ Per le app PHP e Python, questo esempio usa le librerie client Proton di Apache.
    
    mkdir build cd build
    
-   # Set the install prefix. You may need to adjust depending on your      
-   # system.       
+   # Set the install prefix. You may need to adjust depending on your        
+   # system.        
    cmake -DCMAKE\_INSTALL\_PREFIX=/usr ..
    
-   # Omit the docs target if you do not wish to build or install       
+   # Omit the docs target if you do not wish to build or install        
    # documentation.        
    make all docs
    
-   # Note that this step will require root privileges.     
+   # Note that this step will require root privileges.        
    make install
    ```
 
@@ -115,6 +119,6 @@ Per altre informazioni, vedere il collegamento seguente:
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

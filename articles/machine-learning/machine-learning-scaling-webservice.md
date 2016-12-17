@@ -1,13 +1,13 @@
 ---
-title: Ridimensionamento di un servizio Web | Microsoft Docs
-description: Informazioni su come ridimensionare un servizio Web mediante l'aumento della concorrenza e l'aggiunta di nuovi endpoint.
+title: Ridimensionamento di un servizio Web | Documentazione Microsoft
+description: Informazioni su come ridimensionare un servizio Web mediante l&quot;aumento della concorrenza e l&quot;aggiunta di nuovi endpoint.
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: neerajkh
 manager: srikants
 editor: cgronlun
-keywords: azure machine learning, servizi Web, messa in funzione, scalabilità, endpoint, concorrenza
-
+keywords: "azure machine learning, servizi Web, messa in funzione, scalabilità, endpoint, concorrenza"
+ms.assetid: c2c51d7f-fd2d-4f03-bc51-bf47e6969296
 ms.service: machine-learning
 ms.devlang: NA
 ms.workload: data-services
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: neerajkh
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 559db01d2c9f44af17b86f99031a8827dfeb5ab3
+
 
 ---
 # <a name="scaling-a-web-service"></a>Ridimensionamento di un servizio Web
@@ -42,6 +46,6 @@ Le API sincrone in genere vengono usate nelle situazioni in cui si desidera una 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,26 +1,35 @@
 ---
-title: Usare PowerShell per impostare gli avvisi in Application Insights
+title: Usare PowerShell per impostare gli avvisi in Application Insights | Microsoft Docs
 description: Automatizzare la configurazione di Application Insights per ricevere messaggi di posta elettronica sulle modifiche delle metriche.
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
 manager: douge
-
+ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2016
+ms.date: 10/31/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: b70c8baab03703bc00b75c2c611f69e3b71d6cd7
+ms.openlocfilehash: ff5e7721e2cdf2f8b034f714b6b58642efcb6368
+
 
 ---
-# Usare PowerShell per impostare gli avvisi in Application Insights
-È possibile automatizzare la configurazione degli [avvisi](app-insights-alerts.md) in [Visual Studio Application Insights](app-insights-overview.md).
+# <a name="use-powershell-to-set-alerts-in-application-insights"></a>Usare PowerShell per impostare gli avvisi in Application Insights
+È possibile automatizzare la configurazione degli [avvisi](app-insights-alerts.md) in [Application Insights](app-insights-overview.md).
 
 È inoltre possibile [impostare webhook per automatizzare la risposta a un avviso](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 
-## Installazione singola
+> [!NOTE]
+> Se si vuole creare risorse e avvisi allo stesso tempo, considerare l'[uso di un modello di Azure Resource Manager](app-insights-powershell.md).
+>
+>
+
+## <a name="one-time-setup"></a>Installazione singola
 Se non si è mai usato PowerShell con la sottoscrizione di Azure:
 
 Installare il modulo Azure Powershell nel computer in cui verranno eseguiti gli script.
@@ -28,20 +37,19 @@ Installare il modulo Azure Powershell nel computer in cui verranno eseguiti gli 
 * Installare [Installazione guidata piattaforma Web Microsoft (v5 o versione successiva)](http://www.microsoft.com/web/downloads/platform.aspx).
 * Usarla per installare Microsoft Azure PowerShell.
 
-## Connettersi ad Azure
+## <a name="connect-to-azure"></a>Connettersi ad Azure
 Avviare Azure PowerShell e [connettersi alla sottoscrizione](../powershell-install-configure.md):
 
 ```PowerShell
 
     Add-AzureAccount
-    Switch-AzureMode AzureResourceManager
 ```
 
 
-## Ottenere gli avvisi
-    Get-AlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
+## <a name="get-alerts"></a>Ottenere gli avvisi
+    Get-AzureAlertRmRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
 
-## Aggiungere un avviso
+## <a name="add-alert"></a>Aggiungere un avviso
     Add-AlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
      -ResourceGroup "{GROUP NAME}" `
      -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
@@ -51,12 +59,12 @@ Avviare Azure PowerShell e [connettersi alla sottoscrizione](../powershell-insta
      -WindowSize {HH:MM:SS}  `
      [-SendEmailToServiceOwners] `
      [-CustomEmails "EMAIL1@X.COM","EMAIL2@Y.COM" ] `
-     -Location "East US"
+     -Location "East US" // must be East US at present
      -RuleType Metric
 
 
 
-## Esempio 1
+## <a name="example-1"></a>Esempio 1
 Invia un messaggio di posta elettronica se la risposta del server alle richieste HTTP, calcolate su una media di 5 minuti, richiede più di 1 secondo. La risorsa di Application Insights è denominata IceCreamWebApp e si trova nel gruppo di risorse Fabrikam. Sono il proprietario della sottoscrizione di Azure.
 
 Il GUID è l'ID sottoscrizione (non la chiave di strumentazione dell'applicazione).
@@ -72,7 +80,7 @@ Il GUID è l'ID sottoscrizione (non la chiave di strumentazione dell'applicazion
      -SendEmailToServiceOwners `
      -Location "East US" -RuleType Metric
 
-## Esempio 2
+## <a name="example-2"></a>Esempio 2
 Ho un'applicazione in cui uso [TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric) per segnalare una metrica denominata "salesPerHour". Invia un messaggio di posta elettronica ai miei colleghi, se "salesPerHour" scende sotto il valore 100, calcolato su una media di 24 ore.
 
     Add-AlertRule -Name "poor sales" `
@@ -88,7 +96,7 @@ Ho un'applicazione in cui uso [TrackMetric()](app-insights-api-custom-events-met
 
 La stessa regola può essere utilizzata per la metrica riportata utilizzando il [parametro misura](app-insights-api-custom-events-metrics.md#properties) di un altra chiamata di rilevamento come ad esempio TrackEvent o trackPageView.
 
-## Nomi delle metriche
+## <a name="metric-names"></a>Nomi delle metriche
 | Nome metrica | Nome schermata | Descrizione |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |Eccezioni del browser |Conteggio delle eccezioni non rilevate generate nel browser. |
@@ -119,17 +127,21 @@ Le metriche vengono inviate da moduli di telemetria diversi:
 | Gruppo metrica | Modulo dell'agente di raccolta |
 | --- | --- |
 | basicExceptionBrowser,<br/>clientPerformance,<br/>view |[JavaScript browser](app-insights-javascript.md) |
-| performanceCounter |[Prestazioni](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3) |
-| remoteDependencyFailed |[Dipendenza](app-insights-configuration-with-applicationinsights-config.md#nuget-package-1) |
-| request,<br/>requestFailed |[Richiesta server](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2) |
+| performanceCounter |[Prestazioni](app-insights-configuration-with-applicationinsights-config.md) |
+| remoteDependencyFailed |[Dipendenza](app-insights-configuration-with-applicationinsights-config.md) |
+| request,<br/>requestFailed |[Richiesta server](app-insights-configuration-with-applicationinsights-config.md) |
 
-## Webhook
+## <a name="webhooks"></a>Webhook
 È possibile [automatizzare la risposta a un avviso](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Azure richiamerà l'indirizzo Web specificato quando viene generato un avviso.
 
-## Vedere anche
+## <a name="see-also"></a>Vedere anche
 * [Script per configurare Application Insights](app-insights-powershell-script-create-resource.md)
 * [Creare risorse Application Insights e test web da modelli](app-insights-powershell.md)
 * [Automatizzare l'accoppiamento tra Diagnostica di Microsoft Azure e Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Automatizzare la risposta a un avviso](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
