@@ -1,13 +1,13 @@
 ---
-title: Che cosa sono le licenze di Microsoft Azure Active Directory? | Microsoft Docs
+title: Che cosa sono le licenze di Microsoft Azure Active Directory? | Documentazione Microsoft
 description: Descrizione delle licenze di Microsoft Azure Active Directory, del funzionamento, di come iniziare a utilizzarlo e delle procedure consigliate, tra cui Office 365, Microsoft Intune e le edizioni di base e Premium di Azure Active Directory
 services: active-directory
 keywords: Licenze di Azure AD
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: d769e8c6-7581-43f5-a3b4-de4b1dca2344
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/23/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 23763662967c9f41c20cfb86dae19bb87fbd11a9
+
 
 ---
-# Che cosa sono le licenze di Microsoft Azure Active Directory?
-## Descrizione
+# <a name="what-is-microsoft-azure-active-directory-licensing"></a>Che cosa sono le licenze di Microsoft Azure Active Directory?
+## <a name="description"></a>Descrizione
 Azure Active Directory (Azure AD) è una soluzione e piattaforma IDaaS (Identity as a Service) di Microsoft. Azure AD è offerta in varie versioni funzionali e tecniche che spaziano da Azure AD Free, disponibile con qualsiasi servizio Microsoft come Office 365, Dynamics, Microsoft Intune e Azure (Azure AD non genera alcun addebito di utilizzo in questa modalità), alle versioni Azure AD a pagamento quali Enterprise Mobility Suite (EMS), Azure AD Premium e Basic nonché Azure Multi-Factor Authentication (MFA). Come molti servizi online Microsoft, la maggior parte delle versioni a pagamento di Azure AD sono fornite tramite diritti per utente in quanto sono in Office 365, Microsoft Intune e Azure AD. In questi casi, l'acquisto del servizio è rappresentato da una o più sottoscrizioni e ogni sottoscrizione include un numero di licenze pre-acquisto nel tenant. I diritti per utente vengono ottenuti tramite assegnazione delle licenze, creazione di un collegamento tra l'utente e il prodotto, abilitazione dei componenti del servizio per l'utente e utilizzo di una delle licenze prepagate.
 
 [Provare Azure AD Premium](https://portal.office.com/Signup/Signup.aspx?OfferId=01824d11-5ad8-447f-8523-666b0848b381&ali=1#0)
@@ -28,14 +32,15 @@ Azure Active Directory (Azure AD) è una soluzione e piattaforma IDaaS (Identity
 > 
 > 
 
-Per una panoramica estesa delle funzionalità del servizio Azure AD, vedere [Cos'è Azure AD](active-directory-whatis.md). [Ulteriori informazioni sui livelli di servizio Azure AD](https://azure.microsoft.com/support/legal/sla/)
+Per una panoramica estesa delle funzionalità del servizio Azure AD, vedere [Cos'è Azure AD](active-directory-whatis.md).
+[Ulteriori informazioni sui livelli di servizio Azure AD](https://azure.microsoft.com/support/legal/sla/)
 
 > [!NOTE]
 > Le sottoscrizioni di Azure con pagamento a consumo sono diverse: nonostante siano rappresentate anche nella directory, queste sottoscrizioni consentono di creare risorse Azure e di associarle al metodo di pagamento. In questo caso NON esiste un numero di licenze associato alla sottoscrizione. L'associazione degli utenti alla sottoscrizione, per l'accesso alla gestione delle risorse della sottoscrizione, si ottiene concedendo agli utenti le autorizzazioni per eseguire operazioni sulle risorse di Azure associate alla sottoscrizione.
 > 
 > 
 
-## Come funzionano le licenze di Azure AD?
+## <a name="how-does-azure-ad-licensing-work"></a>Come funzionano le licenze di Azure AD?
 I servizi di Azure AD basati su licenza o diritti funzionano attivando una sottoscrizione nel tenant di directory/servizio di Azure AD. Una volta attivata la sottoscrizione, le funzionalità del servizio possono essere gestite dagli amministratori della directory o del servizio e utilizzate dagli utenti con licenza.
 
 Quando si acquista o si attiva Enterprise Mobility Suite, Azure AD Premium o Azure AD Basic, la directory viene aggiornata con la sottoscrizione, inclusi il relativo periodo di validità e le licenze prepagate. Le informazioni relative alla sottoscrizione, tra cui lo stato, l'evento del ciclo di vita successivo e il numero di licenze disponibili o assegnate, sono disponibili tramite il portale di Azure classico nella scheda Licenze della directory specifica. È anche la posizione migliore per gestire le assegnazioni delle licenze.
@@ -58,14 +63,14 @@ Le funzionalità Azure Ad a pagamento estendono la directory. Tra gli esempi son
 * I report sulla sicurezza Premium sono nella scheda Reporting
 * L'individuazione delle applicazioni cloud viene visualizzata nel portale di Azure sotto Identità.
 
-### Assegnazione delle licenze
+### <a name="assigning-licenses"></a>Assegnazione delle licenze
 Anche se per configurare le funzionalità a pagamento è sufficiente ottenere una sottoscrizione, l'uso delle funzionalità a pagamento di Azure AD richiede la distribuzione delle licenze agli utenti giusti. In generale, a tutti gli utenti che devono accedere a una funzionalità a pagamento di Azure AD o gestiti tramite tale funzionalità, deve essere assegnata una licenza. Un'assegnazione di licenze è un mapping tra un utente e un servizio acquistato, ad esempio Azure AD Premium, Basic o Enterprise Mobility Suite.
 
 Gestire quali utenti nella directory devono disporre di una licenza è semplice. È possibile procedere all’assegnazione a un gruppo per creare regole di assegnazione tramite il portale di amministrazione di Azure AD oppure all’assegnazione diretta delle licenze agli utenti giusti tramite un portale, PowerShell o API. Quando si assegnano le licenze a un gruppo, a tutti i membri del gruppo verrà assegnata una licenza. Quando gli utenti vengono aggiunti al gruppo oppure rimossi dal gruppo, anche la licenza appropriata verrà assegnata o rimossa. L’opzione di assegnazione al gruppo può utilizzare qualsiasi tipo di gestione del gruppo disponibile ed è coerente con l’assegnazione alle applicazioni in base al gruppo. Utilizzando questo approccio, è possibile impostare regole che prevedano l’assegnazione automatica a tutti gli utenti nella directory, assicurarsi che tutti gli utenti con la posizione appropriata dispongano di una licenza o anche delegare la decisione ad altri responsabili dell'organizzazione.
 
 Con l'assegnazione delle licenze in base al gruppo, ogni utente privo di un percorso di utilizzo erediterà il percorso della directory durante l'assegnazione. Questo percorso può essere modificato dall'amministratore in qualsiasi momento. Quando l'assegnazione automatica non riesce a causa di un errore, le informazioni utente in tale tipo di licenza rifletteranno lo stato.
 
-## Introduzione alle licenze di Azure AD
+## <a name="getting-started-with-azure-ad-licensing"></a>Introduzione alle licenze di Azure AD
 Iniziare a utilizzare Azure AD è semplice; è sempre possibile creare la propria directory come parte di una registrazione a una versione di valutazione gratuita di Azure. [Altre informazioni sulla registrazione come organizzazione](sign-up-organization.md). Quanto riportato di seguito può essere utile per verificare che la directory sia perfettamente allineata con i servizi Microsoft potenzialmente in uso o che si prevede di utilizzare e con gli obiettivi di ottenimento del servizio.
 
 Queste sono le procedure consigliate:
@@ -86,7 +91,7 @@ Come indicato, Azure AD dispone di diverse versioni di pagamento. Queste version
 | Azure AD Premium |X |X |X | |X |X |
 | Azure AD Basic |X |X |X |X |<br /> |<br /> |
 
-### Selezionare una o più versioni di valutazione delle licenza
+### <a name="select-one-or-more-license-trials"></a>Selezionare una o più versioni di valutazione delle licenza
  In ogni caso, è possibile attivare una sottoscrizione di valutazione di Azure AD Premium o Enterprise Mobility Suite selezionando la versione di valutazione specifica desiderata nella scheda Licenze della directory. Entrambe le versioni di valutazione includono una sottoscrizione di 30 giorni con 100 licenze.
 
 ![Piani di licenza per le versioni di valutazione di Azure Active Directory](./media/active-directory-licensing-what-is/trial_plans.png)
@@ -95,7 +100,7 @@ Come indicato, Azure AD dispone di diverse versioni di pagamento. Queste version
 
 ![Piani di licenza per le versioni di valutazione attive](./media/active-directory-licensing-what-is/active_license_trials.png)
 
-### Assegnare licenze
+### <a name="assign-licenses"></a>Assegnare licenze
 Quando la sottoscrizione è attiva, è necessario assegnare una licenza a se stessi e aggiornare il browser per verificare che siano visualizzate tutte le funzionalità. Il passaggio successivo è assegnare licenze agli utenti che dovranno accedere o essere inclusi nelle funzionalità a pagamento di Azure AD. Come accennato in precedenza in "Assegnazione delle licenze", il modo migliore per eseguire questa operazione è identificare il gruppo che rappresenta il gruppo di destinatari desiderato e assegnarlo alla licenza; così facendo, gli utenti aggiunti al gruppo o rimossi dal gruppo nel corso del ciclo di vita verranno assegnati alla licenza o rimossi dalla licenza.
 
 Per assegnare una licenza a un gruppo o a singoli utenti, selezionare il piano di licenza che si desidera assegnare e fare clic su **Assegna** nella barra dei comandi.
@@ -117,7 +122,7 @@ Durante l'assegnazione delle licenze di Azure AD, possono verificarsi errori di 
 * Conflitto di assegnazione: si verifica se a un utente in precedenza è stata assegnata una licenza non compatibile con la licenza corrente. In questo caso per assegnare la nuova licenza è necessario rimuovere quella precedente.
 * Superamento della soglia di licenze disponibili: quando il numero di utenti nei gruppi assegnati supera le licenze disponibili lo stato di assegnazione degli utenti rifletterà un errore di assegnazione per mancanza di licenze.
 
-### Visualizzare licenze assegnate
+### <a name="view-assigned-licenses"></a>Visualizzare licenze assegnate
 Nella scheda **Licenze** è disponibile una visualizzazione di riepilogo delle licenze assegnate che include l'evento del ciclo di vita della sottoscrizione disponibile, assegnato e successivo.
 
 ![Visualizzazione del numero di licenze assegnate](./media/active-directory-licensing-what-is/view_assigned_licenses.png)
@@ -128,7 +133,7 @@ Un elenco dettagliato degli utenti e dei gruppi assegnati, con lo stato di asseg
 
 Rimuovere le licenze è facile quanto assegnarle. Se l'utente è assegnato direttamente o mediante un gruppo assegnato, per rimuovere la licenza è possibile selezionare il tipo di licenza, fare clic su **Rimuovi**, aggiungere l'utente o il gruppo all'elenco da rimuovere e confermare l'operazione. In alternativa, è possibile aprire un tipo di licenza, selezionare l'utente o il gruppo specifico e toccare **Rimuovi** sulla barra dei comandi. Per terminare l'ereditarietà di una licenza per un utente appartenente a un gruppo, è sufficiente rimuovere l'utente dal gruppo.
 
-### Estendere le versioni di valutazione
+### <a name="extending-trials"></a>Estendere le versioni di valutazione
 Le estensioni delle versioni di valutazione per i clienti sono disponibili come servizio self-service tramite il portale di Office 365. L'amministratore del cliente può accedere al [portale di Office](https://portal.office.com/#Billing) (l'accesso dipende dalle autorizzazioni per il portale di Office) e selezionare la propria versione di valutazione di Azure AD Premium. Fare clic sul collegamento **Estendi la versione di valutazione** e seguire le istruzioni. Sarà necessario immettere il numero di una carta di credito, ma non verrà eseguito alcun addebito.
 
 ![Estensione di una versione di valutazione di licenza nel portale di Office](./media/active-directory-licensing-what-is/extend_license_trial.png)
@@ -137,7 +142,7 @@ I clienti possono inoltre richiedere un'estensione della versione di valutazione
 
 ![Estensione di una versione di valutazione di licenza tramite una richiesta di supporto](./media/active-directory-licensing-what-is/alternate_office_aad_trial_extension.png)
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 A questo punto si è pronti per configurare e utilizzare alcune delle funzionalità di Azure AD Premium.
 
 * [Reimpostazione della password self-service](active-directory-manage-passwords.md)
@@ -147,4 +152,9 @@ A questo punto si è pronti per configurare e utilizzare alcune delle funzionali
 * [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 * [Acquisto diretto di licenze di Azure AD Premium](http://aka.ms/buyaadp)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
