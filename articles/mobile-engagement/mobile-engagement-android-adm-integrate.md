@@ -5,8 +5,8 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: a7d719ec-67b3-4be3-9d7f-0b61a57fe978
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,9 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 928c3d85f98f0bd073a5aaadf0ae4495840c5da6
+
 
 ---
-# Come integrare ADM con Mobile Engagement
+# <a name="how-to-integrate-adm-with-engagement"></a>Come integrare ADM con Mobile Engagement
 > [!IMPORTANT]
 > Prima di usare questa guida, è necessario eseguire la procedura di integrazione descritta nel documento relativo all'integrazione di Engagement in Android.
 > 
@@ -24,7 +28,7 @@ ms.author: piyushjo
 > 
 > 
 
-## Introduzione
+## <a name="introduction"></a>Introduzione
 L'integrazione di ADM consente il push dell'applicazione quando è destinata a dispositivi Android Amazon.
 
 I payload ADM di cui viene eseguito il push sull’SDK contengono sempre la chiave `azme` nell'oggetto dati. Pertanto se si usa ADM per uno scopo diverso nell'applicazione, è possibile filtrare le notifiche push in base a tale chiave.
@@ -34,7 +38,7 @@ I payload ADM di cui viene eseguito il push sull’SDK contengono sempre la chia
 > 
 > 
 
-## Iscriversi ad ADM
+## <a name="sign-up-to-adm"></a>Iscriversi ad ADM
 Se questa operazione non è già stata eseguita, è necessario abilitare ADM nel proprio account Amazon.
 
 La procedura è descritta in dettaglio all'indirizzo: [<https://developer.amazon.com/sdk/adm/credentials.html>].
@@ -44,8 +48,8 @@ Dopo aver completato la procedura, si ottiene quanto segue:
 * Le credenziali OAuth (ID e segreto client) che consentono a Engagement di eseguire il push dei dispositivi.
 * Una chiave API che deve essere integrata nell'applicazione.
 
-## Integrazione dell'SDK
-### Gestione delle registrazioni dei dispositivi
+## <a name="sdk-integration"></a>Integrazione dell'SDK
+### <a name="managing-device-registrations"></a>Gestione delle registrazioni dei dispositivi
 Ogni dispositivo deve inviare un comando di registrazione ai server ADM; in caso contrario non saranno raggiungibili.
 
 Se si usa già la [libreria client ADM] e si è già [integrato ADM], è possibile passare direttamente ad android-sdk-adm-receive.
@@ -71,7 +75,7 @@ Modificare il file `AndroidManifest.xml`:
 
 Seguire quindi le istruzioni riportate nelle sezioni successive.
 
-### Comunicare l'ID di registrazione al servizio push di Engagement e ricevere le notifiche
+### <a name="communicate-registration-id-to-the-engagement-push-service-and-receive-notifications"></a>Comunicare l'ID di registrazione al servizio push di Engagement e ricevere le notifiche
 Per comunicare l'ID di registrazione del dispositivo al servizio push di Engagement e ricevere le notifiche, aggiungere quanto segue al file `AndroidManifest.xml`, all'interno del tag `<application/>` (anche se si usa ADM senza Engagement):
 
         <receiver android:name="com.microsoft.azure.engagement.adm.EngagementADMEnabler"
@@ -97,12 +101,16 @@ Assicurarsi di avere le seguenti autorizzazioni nel file `AndroidManifest.xml` (
         <uses-permission android:name="<your_package_name>.permission.RECEIVE_ADM_MESSAGE"/>
         <permission android:name="<your_package_name>.permission.RECEIVE_ADM_MESSAGE" android:protectionLevel="signature"/>
 
-## Concedere le credenziali OAuth di Engagement
+## <a name="grant-engagement-oauth-credentials"></a>Concedere le credenziali OAuth di Engagement
 Inviare le credenziali OAuth (ID client e Segreto client) al portale di Engagement.
 
-[<https://developer.amazon.com/sdk/adm/credentials.html>]: https://developer.amazon.com/sdk/adm/credentials.html
-[libreria client ADM]: https://developer.amazon.com/sdk/adm/setup.html
-[integrato ADM]: https://developer.amazon.com/sdk/adm/integrating-app.html
-[questa procedura]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
+[<https://developer.amazon.com/sdk/adm/credentials.html>]:https://developer.amazon.com/sdk/adm/credentials.html
+[libreria client ADM]:https://developer.amazon.com/sdk/adm/setup.html
+[integrato ADM]:https://developer.amazon.com/sdk/adm/integrating-app.html
+[questa procedura]:https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

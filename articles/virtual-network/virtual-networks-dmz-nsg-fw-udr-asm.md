@@ -1,12 +1,12 @@
 ---
-title: 'Esempio di rete perimetrale: Creare una rete perimetrale per proteggere le reti con un firewall, routing definito dall''utente e un gruppo di sicurezza di rete | Microsoft Docs'
-description: Creare una rete perimetrale con un firewall, routing definito dall'utente e un gruppo di sicurezza di rete
+title: 'Esempio di rete perimetrale: Creare una rete perimetrale per proteggere le reti con un firewall, routing definito dall&quot;utente e un gruppo di sicurezza di rete | Documentazione Microsoft'
+description: Creare una rete perimetrale con un firewall, routing definito dall&quot;utente e un gruppo di sicurezza di rete
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-
+editor: 
+ms.assetid: dc01ccfb-27b0-4887-8f0b-2792f770ffff
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 649984be9aee5253dcd1f3ed3be31795212aa3ae
+
 
 ---
-# Esempio 3: Creare una rete perimetrale per proteggere le reti con un firewall, routing definito dall'utente e un gruppo di sicurezza di rete
+# <a name="example-3-build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Esempio 3: Creare una rete perimetrale per proteggere le reti con un firewall, routing definito dall'utente e un gruppo di sicurezza di rete
 [Tornare alla pagina relativa alle procedure consigliate sui limiti di sicurezza][HOME]
 
-Questo esempio illustra come creare una rete perimetrale con un firewall, quattro server Windows, routing definito dall'utente, inoltro IP e gruppi di sicurezza di rete. Illustra in dettaglio anche ogni comando rilevante per favorire una comprensione più approfondita di ogni passaggio. È disponibile anche una sezione sugli scenari di traffico con istruzioni dettagliate sul percorso seguito dal traffico attraverso i livelli di difesa della rete perimetrale. La sezione Riferimenti, infine, include tutto il codice e istruzioni complete per creare l'ambiente per testare e sperimentare vari scenari.
+Questo esempio illustra come creare una rete perimetrale con un firewall, quattro server Windows, routing definito dall'utente, inoltro IP e gruppi di sicurezza di rete. Illustra in dettaglio anche ogni comando rilevante per favorire una comprensione più approfondita di ogni passaggio. È disponibile anche una sezione sugli scenari di traffico con istruzioni dettagliate sul percorso seguito dal traffico attraverso i livelli di difesa della rete perimetrale. La sezione Riferimenti, infine, include tutto il codice e istruzioni complete per creare l'ambiente per testare e sperimentare vari scenari. 
 
 ![Rete perimetrale bidirezionale con dispositivo virtuale di rete, gruppo di sicurezza di rete e routing definito dall'utente][1]
 
-## Configurazione dell'ambiente
+## <a name="environment-setup"></a>Configurazione dell'ambiente
 In questo esempio è presente una sottoscrizione che include gli elementi seguenti:
 
 * Tre servizi cloud, "SecSvc001", "FrontEnd001" e "BackEnd001".
@@ -50,7 +54,7 @@ Dopo l'esecuzione corretta dello script, si potranno eseguire i passaggi success
 
 Dopo l'esecuzione corretta dello script, sarà necessario completare le regole del firewall come descritto nella sezione intitolata Regole del firewall.
 
-## Routing definito dall'utente
+## <a name="user-defined-routing-udr"></a>Routing definito dall'utente
 Per impostazione predefinita, le route di sistema seguenti sono definite in questo modo:
 
         Effective routes : 
@@ -69,7 +73,7 @@ Per quanto riguarda la priorità, le route vengono elaborate tramite il metodo L
 
 Di conseguenza, il traffico, ad esempio verso il server DNS01, 10.0.2.4, destinato alla rete locale (10.0.0.0/16) verrà instradato tramite la rete virtuale alla relativa destinazione, cioè la route 10.0.0.0/16. In altre parole, per 10.0.2.4 la route 10.0.0.0/16 è quella più specifica, anche se sarebbero applicabili sia la 10.0.0.0/8 che la 0.0.0.0/0, ma essendo meno specifiche non interessano questo traffico. In questo modo, il traffico per 10.0.2.4 avrà un hop successivo verso al rete virtuale locale e sarà semplicemente inoltrato alla destinazione.
 
-Se il traffico fosse ad esempio destinato a 10.1.1.1, la route 10.0.0.0/16 non sarebbe applicabile, mentre la 10.0.0.0/8 sarebbe la più specifica e in questo caso il traffico verrebbe eliminato, una condizione cosiddetta "black hole", perché l'hop successivo è Null.
+Se il traffico fosse ad esempio destinato a 10.1.1.1, la route 10.0.0.0/16 non sarebbe applicabile, mentre la 10.0.0.0/8 sarebbe la più specifica e in questo caso il traffico verrebbe eliminato, una condizione cosiddetta "black hole", perché l'hop successivo è Null. 
 
 Se la destinazione non fosse applicabile ad alcun prefisso Null o ai prefissi VNETLocal, il traffico seguirebbe la route meno specifica, 0.0.0.0/0, e verrebbe instradato su Internet come hop successivo, quindi al di fuori del perimetro Internet di Azure.
 
@@ -84,7 +88,7 @@ Se nella tabella di route sono presenti due prefissi identici, di seguito è rip
 > 
 > 
 
-#### Creazione di route locali
+#### <a name="creating-the-local-routes"></a>Creazione di route locali
 In questo esempio sono necessarie due tabelle di routing, una per la subnet front-end e una per la subnet back-end. In ogni tabella vengono caricate le route statiche appropriate per la subnet specifica. Ai fini di questo esempio, ogni tabella include tre route:
 
 1. Traffico della subnet locale senza la definizione di un hop successivo per consentire al traffico della subnet locale di ignorare il firewall.
@@ -134,10 +138,10 @@ Per questo esempio si usano i comandi seguenti per compilare la tabella di route
         -SubnetName $BESubnet `
         -RouteTableName $BERouteTableName
 
-## Inoltro IP
+## <a name="ip-forwarding"></a>Inoltro IP
 L'inoltro IP è una funzionalità complementare del routing definito dall'utente. Si tratta di un'impostazione in un dispositivo virtuale che consente al dispositivo di ricevere traffico non indirizzato in modo specifico ad esso e quindi di inoltrare il traffico alla destinazione finale.
 
-Ad esempio, se il traffico da AppVM01 effettua una richiesta al server DNS01, il routing definito dall'utente indirizzerà tale richiesta al firewall. Se l'inoltro IP è abilitato, il traffico per la destinazione DNS01 (10.0.2.4) verrà accettato dal dispositivo (10.0.0.4) e quindi inoltrato alla destinazione finale (10.0.2.4). Se l'inoltro IP non è abilitato sul firewall, il traffico non verrà accettato dal dispositivo, anche se la tabella di route specifica il firewall come hop successivo.
+Ad esempio, se il traffico da AppVM01 effettua una richiesta al server DNS01, il routing definito dall'utente indirizzerà tale richiesta al firewall. Se l'inoltro IP è abilitato, il traffico per la destinazione DNS01 (10.0.2.4) verrà accettato dal dispositivo (10.0.0.4) e quindi inoltrato alla destinazione finale (10.0.2.4). Se l'inoltro IP non è abilitato sul firewall, il traffico non verrà accettato dal dispositivo, anche se la tabella di route specifica il firewall come hop successivo. 
 
 > [!IMPORTANT]
 > È essenziale ricordare di abilitare l'inoltro IP insieme al routing definito dall'utente.
@@ -152,14 +156,14 @@ La configurazione dell'inoltro IP è costituita da un singolo comando e può ess
    
         Set-AzureIPForwarding -Enable
 
-## Gruppi di sicurezza di rete
+## <a name="network-security-groups-nsg"></a>Gruppi di sicurezza di rete (NGS)
 In questo esempio viene creato un gruppo di sicurezza di rete, in cui viene poi caricata una singola regola. Questo gruppo viene quindi associato solo alle subnet front-end e back-end, non a SecNet. La regola seguente viene creata in modo dichiarativo:
 
 1. Tutto il traffico (tutte le porte) da Internet all'intera rete virtuale (tutte le subnet) viene negato.
 
 Anche se in questo esempio vengono usati i gruppi di sicurezza di rete, lo scopo principale consiste nel creare un secondo livello di difesa contro errori di configurazione manuale. Si vuole bloccare tutto il traffico in ingresso da Internet verso le subnet front-end o back-end. Il traffico deve solo attraversare la subnet SecNet verso il firewall e quindi, se appropriato, deve raggiungere le subnet front-end o back-end. Con l'abilitazione delle regole del routing definito dall'utente, inoltre, tutto il traffico che raggiunge le subnet front-end o back-end verrà indirizzato verso il firewall, grazie al routing definito dall'utente. Il firewall considera questo traffico come un flusso asimmetrico e rimuove il traffico in uscita. Sono quindi disponibili tre livelli di sicurezza per la protezione delle subnet front-end e back-end: 1) nessun endpoint aperto nei servizi cloud FrontEnd001 e BackEnd001, 2) gruppi di sicurezza di rete che non consentono il traffico da Internet, 3) il firewall che rimuove il traffico asimmetrico.
 
-Un aspetto interessante del gruppo di sicurezza di rete di questo esempio consiste nel fatto che include solo una regola, illustrata di seguito, ovvero non consentire il traffico Internet nell'intera rete virtuale, inclusa la subnet di sicurezza.
+Un aspetto interessante del gruppo di sicurezza di rete di questo esempio consiste nel fatto che include solo una regola, illustrata di seguito, ovvero non consentire il traffico Internet nell'intera rete virtuale, inclusa la subnet di sicurezza. 
 
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
         Set-AzureNetworkSecurityRule -Name "Isolate the $VNetName VNet `
@@ -178,7 +182,7 @@ Poiché, tuttavia, il gruppo di sicurezza di rete è associato solo alle subnet 
     Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
         -SubnetName $BESubnet -VirtualNetworkName $VNetName
 
-## Regole del firewall
+## <a name="firewall-rules"></a>Regole del firewall
 Sul firewall sarà necessario creare regole di inoltro. Poiché il firewall blocca o inoltra tutto il traffico in ingresso, in uscita e tra le reti virtuali, sono necessarie molte regole del firewall. Tutto il traffico in ingresso, inoltre, raggiungerà l'indirizzo IP pubblico del servizio di sicurezza su porte diverse, per l'elaborazione da parte del firewall. Una procedura consigliata consiste nel creare un diagramma dei flussi logici prima di configurare le regole delle subnet e del firewall, per evitare modifiche successive. La figura seguente è una visualizzazione logica delle regole del firewall per questo esempio:
 
 ![Visualizzazione logica delle regole del firewall][2]
@@ -188,7 +192,7 @@ Sul firewall sarà necessario creare regole di inoltro. Poiché il firewall bloc
 > 
 > 
 
-### Descrizione della regola logica
+### <a name="logical-rule-description"></a>Descrizione della regola logica
 Nel diagramma logico precedente la subnet di sicurezza non viene mostrata, perché il firewall è l'unica risorsa su tale subnet e questo diagramma illustra le regole del firewall e il modo in cui le regole consentono o negano logicamente i flussi di traffico, non il percorso indirizzato effettivo. Le porte esterne selezionate per il traffico RDP, inoltre, sono le porte incluse negli intervalli più elevati (8014 - 8026) e sono state selezionate per allinearsi almeno in parte con gli ultimi due ottetti dell'indirizzo IP locale per facilitarne la lettura. Ad esempio, l'indirizzo del server locale 10.0.1.4 è associato alla porta esterna 8014. È tuttavia possibile usare qualsiasi porta superiore non in conflitto.
 
 Per questo esempio sono necessari 7 tipi di regole, ovvero:
@@ -218,7 +222,7 @@ Per questo esempio sono necessari 7 tipi di regole, ovvero:
 > 
 > 
 
-### Prerequisiti delle regole
+### <a name="rule-prerequisites"></a>Prerequisiti delle regole
 Un prerequisito per la macchina virtuale che esegue il firewall è costituito dagli endpoint pubblici. Perché il firewall possa elaborare il traffico, è necessario che gli endpoint pubblici siano aperti. Ci sono tre tipi di traffico in questo esempio, ovvero 1) traffico di gestione per controllare il firewall e le regole del firewall, 2) traffico RDP per controllare i server Windows e 3) traffico delle applicazioni. Queste sono le tre colonne dei tipi di traffico nella metà superiore della visualizzazione logica delle regole del firewall precedente.
 
 > [!IMPORTANT]
@@ -267,14 +271,14 @@ Questo processo deve essere ripetuto per creare i servizi RDP per i server riman
 > 
 > 
 
-### Creazione di regole del firewall
+### <a name="firewall-rules-creation"></a>Creazione di regole del firewall
 In questo esempio si usano tre tipi di regole del firewall ognuna con icone distinte:
 
-Regola Application Redirect: ![Icona di Application Redirect][7]
+Regola Application Redirect:  ![Icona di Application Redirect][7]
 
-Regola Destination NAT: ![Icona di Destination NAT][8]
+Regola Destination NAT:  ![Icona di Destination NAT][8]
 
-Regola Pass: ![Icona di Pass][9]
+Regola Pass:  ![Icona di Pass][9]
 
 Altre informazioni su queste regole sono disponibili sul sito Web Barracuda.
 
@@ -286,14 +290,15 @@ Le specifiche di ogni regola necessaria per completare questo esempio sono descr
 
 * **Regola di gestione del firewall**: questa regola di reindirizzamento dell'app consente al traffico di raggiungere le porte di gestione del dispositivo virtuale di rete, in questo esempio Barracuda NextGen Firewall. Le porte di gestione sono 801, 807 e facoltativamente 22. Le porte esterne e interne sono le stesse, ovvero nessuna conversione di porta. Questa regola, SETUP-MGMT-ACCESS, è una regola predefinita e abilitata per impostazione predefinita in Barracuda NextGen Firewall versione 6.1.
   
-    ![Regola Firewall Management][10]
+    ![Regola di gestione del firewall][10]
 
 > [!TIP]
 > Lo spazio degli indirizzi di origine in questa regola è Any. Se gli intervalli di indirizzi IP di gestione sono noti, riducendo l'ambito si ridurrà anche la superficie di attacco alle porte di gestione.
 > 
 > 
 
-* **Regole RDP**: queste regole Destination NAT consentiranno la gestione di singoli server tramite RDP. Per creare questa regola sono necessari quattro campi critici:
+* **Regole RDP**: queste regole Destination NAT consentiranno la gestione di singoli server tramite RDP.
+  Per creare questa regola sono necessari quattro campi critici:
   
   1. Source: per consentire il traffico RDP da qualsiasi origine, nel campo Source viene usato il riferimento "Any".
   2. Service: usare l'oggetto servizio appropriato creato in precedenza, in questo caso "AppVM01 RDP". Le porte esterne reindirizzano il traffico agli indirizzi IP locali dei server e alla porta 3386, ovvero la porta RDP predefinita. Questa regola specifica riguarda l'accesso RDP ad AppVM01.
@@ -302,14 +307,14 @@ Le specifiche di ogni regola necessaria per completare questo esempio sono descr
      
      ![Regola firewall RDP][11]
      
-     Sarà necessario creare un totale di quattro regole RDP:
+     Sarà necessario creare un totale di quattro regole RDP: 
      
      | Nome regola | Server | Service | Target List |
      | --- | --- | --- | --- |
-     | RDP-to-IIS01 |IIS01 |IIS01 RDP |10\.0.1.4:3389 |
-     | RDP-to-DNS01 |DNS01 |DNS01 RDP |10\.0.2.4:3389 |
-     | RDP-to-AppVM01 |AppVM01 |AppVM01 RDP |10\.0.2.5:3389 |
-     | RDP-to-AppVM02 |AppVM02 |AppVm02 RDP |10\.0.2.6:3389 |
+     | RDP-to-IIS01 |IIS01 |IIS01 RDP |10.0.1.4:3389 |
+     | RDP-to-DNS01 |DNS01 |DNS01 RDP |10.0.2.4:3389 |
+     | RDP-to-AppVM01 |AppVM01 |AppVM01 RDP |10.0.2.5:3389 |
+     | RDP-to-AppVM02 |AppVM02 |AppVm02 RDP |10.0.2.6:3389 |
 
 > [!TIP]
 > Limitando l'ambito dei campi Source e Service, si riduce la superficie di attacco. Sarà necessario usare l'ambito più limitato che consenta la funzionalità.
@@ -332,7 +337,7 @@ Le specifiche di ogni regola necessaria per completare questo esempio sono descr
   
     La regola Pass consente a qualsiasi server IIS sulla subnet front-end di raggiungere il server AppVM01, con l'indirizzo IP 10.0.2.5, su qualsiasi porta, usando qualsiasi protocollo per accedere ai dati richiesti dall'applicazione Web.
   
-    In questa schermata viene usato "<explicit-dest>" nel campo Destination per indicare 10.0.2.5 come destinazione. Può essere una destinazione esplicita, come illustrato, o un oggetto di rete denominato, come è stato fatto nei prerequisiti del server DNS. La scelta del metodo da usare spetta all'amministratore del firewall. Per aggiungere 10.0.2.5 come destinazione esplicita, fare doppio clic sulla prima riga vuota sotto <explicit-dest> e immettere l'indirizzo nella finestra visualizzata.
+    In questa schermata viene usato "\<explicit-dest\>" nel campo Destination per indicare 10.0.2.5 come destinazione. Può essere una destinazione esplicita, come illustrato, o un oggetto di rete denominato, come è stato fatto nei prerequisiti del server DNS. La scelta del metodo da usare spetta all'amministratore del firewall. Per aggiungere 10.0.2.5 come destinazione esplicita, fare doppio clic sulla prima riga vuota sotto \<explicit-dest\> e immettere l'indirizzo nella finestra visualizzata.
   
     Con questa regola Pass non è necessario usare NAT, perché si tratta di traffico interno, quindi si può impostare Connection Method su "No SNAT".
   
@@ -363,7 +368,7 @@ Le specifiche di ogni regola necessaria per completare questo esempio sono descr
     ![Regola firewall Intra-VNet][16]
   
     **Nota**: la casella di controllo Bi-Directional non è selezionata, né lo è per la maggior parte delle regole. Questa impostazione è significativa per questa regola, perché la rende unidirezionale. È possibile avviare una connessione dalla subnet back-end alla rete front-end, ma non il contrario. Se la casella di controllo viene selezionata, la regola consente il traffico bidirezionale, che in base al diagramma logico in questo articolo non è auspicabile.
-* **Regola per negare tutto il traffico**: deve essere sempre la regola finale, a livello di priorità. Se i flussi di traffico non corrispondono ad alcuna regola precedente, verranno eliminati da questa regola. Questa è una regola predefinita ed è solitamente attivata, quindi non sono in genere necessarie modifiche.
+* **Regola per negare tutto il traffico**: deve essere sempre la regola finale, a livello di priorità. Se i flussi di traffico non corrispondono ad alcuna regola precedente, verranno eliminati da questa regola. Questa è una regola predefinita ed è solitamente attivata, quindi non sono in genere necessarie modifiche. 
   
     ![Regola firewall Deny][17]
 
@@ -372,7 +377,7 @@ Le specifiche di ogni regola necessaria per completare questo esempio sono descr
 > 
 > 
 
-## Attivazione delle regole
+## <a name="rule-activation"></a>Attivazione delle regole
 Dopo aver modificato il set di regole in base alla specifica del diagramma logico, è necessario caricarlo nel firewall e quindi attivarlo.
 
 ![Attivazione delle regole firewall][18]
@@ -381,7 +386,7 @@ Nell'angolo in alto a destra del client di gestione è disponibile un gruppo di 
 
 Con l'attivazione del set di regole del firewall, la compilazione dell'ambiente di esempio è completata.
 
-## Scenari di traffico
+## <a name="traffic-scenarios"></a>Scenari di traffico
 > [!IMPORTANT]
 > Un concetto importante da ricordare è che **tutto** il traffico in ingresso passerà attraverso il firewall. Quindi, perché il desktop remoto possa accedere al server IIS01, anche se si trova nel servizio cloud front-end e nella subnet front-end, sarà necessario attivare il protocollo RDP sulla porta 8014 del firewall e quindi consentire al firewall di instradare la richiesta RDP internamente alla porta RDP del server IIS01. Il pulsante "Connetti" del portale di Azure non funzionerà, perché non esiste un percorso RDP diretto a IIS01 visibile per il portale. Ciò significa che tutte le connessioni da Internet saranno inoltrate alla porta e al servizio di sicurezza, ad esempio secscv001.cloudapp.net:xxxx.
 > 
@@ -405,7 +410,7 @@ Il set di regole del firewall effettive avrà probabilmente molte altre regole o
 
 Tenere anche presente che per il traffico Internet in ingresso sulle subnet front-end e back-end sono configurati gruppi di sicurezza di rete.
 
-#### (Consentito) Da Internet a server Web
+#### <a name="allowed-internet-to-web-server"></a>(Consentito) Da Internet a server Web
 1. L'utente Internet richiede una pagina HTTP a SecSvc001.CloudApp.Net (servizio cloud per Internet).
 2. Il servizio cloud passa il traffico attraverso l'endpoint aperto sulla porta 80 all'interfaccia del firewall su 10.0.0.4:80.
 3. Nessun gruppo di sicurezza di rete è assegnato alla subnet di sicurezza, quindi le regole del gruppo di sicurezza di sistema consentono l'inoltro del traffico al firewall.
@@ -442,7 +447,7 @@ Tenere anche presente che per il traffico Internet in ingresso sulle subnet fron
 21. Il firewall reindirizza quindi la risposta all'utente Internet.
 22. Non essendoci regole del gruppo di sicurezza di rete in uscita o hop di routing definito dall'utente sulla subnet front-end, la risposta è consentita e l'utente Internet riceve la pagina Web richiesta.
 
-#### (Consentito) Da RDP Internet a back-end
+#### <a name="allowed-internet-rdp-to-backend"></a>(Consentito) Da RDP Internet a back-end
 1. L'amministratore del server su Internet richiede una sessione RDP per AppVM01 tramite SecSvc001.CloudApp.Net:8025, dove 8025 è il numero di porta assegnato dall'utente per la regola del firewall "RDP to AppVM01".
 2. Il servizio cloud passa il traffico attraverso l'endpoint aperto sulla porta 8025 all'interfaccia del firewall su 10.0.0.4:8025.
 3. Nessun gruppo di sicurezza di rete è assegnato alla subnet di sicurezza, quindi le regole del gruppo di sicurezza di sistema consentono l'inoltro del traffico al firewall.
@@ -461,7 +466,7 @@ Tenere anche presente che per il traffico Internet in ingresso sulle subnet fron
 10. La sessione RDP è abilitata.
 11. AppVM01 richiede il nome utente e la password.
 
-#### (Consentito) Ricerca DNS del server Web sul server DNS
+#### <a name="allowed-web-server-dns-lookup-on-dns-server"></a>(Consentito) Ricerca DNS del server Web sul server DNS
 1. Il server Web, IIS01, richiede un feed di dati all'indirizzo www.data.gov, ma deve risolvere l'indirizzo.
 2. La configurazione di rete per la rete virtuale elenca DNS01 (10.0.2.4 sulla subnet back-end) come server DNS primario, IIS01 invia la richiesta DNS a DNS01.
 3. Il routing definito dall'utente instrada il traffico in uscita al firewall come hop successivo.
@@ -498,7 +503,7 @@ Tenere anche presente che per il traffico Internet in ingresso sulle subnet fron
     2. La regola di sistema predefinita che consente il traffico tra le subnet consentirebbe questo tipo di traffico, perciò è consentito.
 20. IIS01 riceve la risposta da DNS01.
 
-#### (Consentito) Da server back-end a server front-end
+#### <a name="allowed-backend-server-to-frontend-server"></a>(Consentito) Da server back-end a server front-end
 1. Un amministratore connesso ad AppVM02 tramite RDP richiede un file direttamente al server IIS01 con Esplora file di Windows.
 2. Il routing definito dall'utente nella subnet back-end usa il firewall per l'hop successivo.
 3. Non essendoci regole del gruppo di sicurezza di rete in uscita sulla subnet back-end, la risposta è consentita.
@@ -521,31 +526,31 @@ Tenere anche presente che per il traffico Internet in ingresso sulle subnet fron
     2. Regole gruppo di sicurezza di rete predefinite, consentono il traffico da subnet a subnet, il traffico è consentito, l'elaborazione della regola del gruppo di sicurezza di rete viene arrestata.
 11. AppVM02 riceve la risposta.
 
-#### (Negato) Traffico Internet diretto al server Web
+#### <a name="denied-internet-direct-to-web-server"></a>(Negato) Traffico Internet diretto al server Web
 1. L'utente Internet prova ad accedere al server Web, IIS01, tramite il servizio FrontEnd001.CloudApp.Net.
 2. Non essendoci endpoint aperti per il traffico HTTP, questo non passa attraverso il servizio cloud e non raggiunge il server.
 3. In caso di apertura degli endpoint per qualunque motivo, il gruppo di sicurezza di rete (blocco Internet) sulla subnet front-end bloccherà questo traffico.
 4. Infine, il routing definito dall'utente nella subnet front-end invia tutto il traffico in uscita da IIS01 al firewall come hop successivo. Il firewall lo considera come traffico asimmetrico ed elimina la risposta in uscita. Ci sono quindi tre livelli di difesa indipendenti tra Internet e IIS01 tramite il servizio cloud che impedisce l'accesso non autorizzato/non appropriato.
 
-#### (Negato) Da Internet al server back-end
+#### <a name="denied-internet-to-backend-server"></a>(Negato) Da Internet al server back-end
 1. L'utente Internet prova ad accedere a un file su AppVM01 tramite il servizio BackEnd001.CloudApp.Net.
 2. Non essendoci endpoint aperti per la condivisione file, il traffico non passa attraverso il servizio cloud e non raggiunge il server.
 3. In caso di apertura degli endpoint per qualunque motivo, il gruppo di sicurezza di rete (blocco Internet) bloccherà questo traffico.
 4. Infine, il routing definito dall'utente invia tutto il traffico in uscita da AppVM01 al firewall come hop successivo. Il firewall lo considera come traffico asimmetrico ed elimina la risposta in uscita. Ci sono quindi tre livelli di difesa indipendenti tra Internet e AppVM01 tramite il servizio cloud che impedisce l'accesso non autorizzato/non appropriato.
 
-#### (Negato) Da server front-end a server back-end
+#### <a name="denied-frontend-server-to-backend-server"></a>(Negato) Da server front-end a server back-end
 1. Si supponga che IIS01 sia stato compromesso ed esegua codice dannoso tentando di analizzare i server sulla subnet back-end.
 2. Il routing definito dall'utente nella subnet front-end invia tutto il traffico in uscita da IIS01 al firewall come hop successivo. Questo comportamento potrebbe essere modificato dalla macchina virtuale compromessa.
 3. Il firewall elabora il traffico. Se la richiesta era destinata ad AppVM01 o al server DNS per ricerche DNS, il traffico potrebbe essere consentito dal firewall, a causa delle regole firewall 7 e 9. Tutto il resto del traffico verrebbe bloccato dalla regola firewall 11 (Deny All).
 4. Se sul firewall è stato abilitato il rilevamento delle minacce avanzato, che non viene descritto in questo documento e quindi occorre vedere la documentazione del fornitore per informazioni sulle funzionalità di rilevamento avanzato delle minacce per il dispositivo di rete specifico, anche il traffico consentito dalle regole di inoltro di base illustrate in questo documento potrebbe non essere consentito qualora contenga firme note o modelli che contrassegnano una regola riguardante minacce avanzate.
 
-#### (Negato) Ricerca DNS Internet sul server DNS
-1. L'utente Internet prova a cercare un record DNS interno su DNS01 tramite il servizio BackEnd001.CloudApp.Net.
+#### <a name="denied-internet-dns-lookup-on-dns-server"></a>(Negato) Ricerca DNS Internet sul server DNS
+1. L'utente Internet prova a cercare un record DNS interno su DNS01 tramite il servizio BackEnd001.CloudApp.Net. 
 2. Non essendoci endpoint aperti per il traffico DNS, questo non passa attraverso il servizio cloud e non raggiunge il server.
 3. In caso di apertura degli endpoint per qualunque motivo, la regola del gruppo di sicurezza di rete (blocco Internet) sulla subnet front-end bloccherà questo traffico.
 4. Infine, il routing definito dall'utente nella subnet back-end invia tutto il traffico in uscita da DNS01 al firewall come hop successivo. Il firewall lo considera come traffico asimmetrico ed elimina la risposta in uscita. Ci sono quindi tre livelli di difesa indipendenti tra Internet e DNS01 tramite il servizio cloud che impedisce l'accesso non autorizzato/non appropriato.
 
-#### (Negato) Accesso da Internet a SQL tramite il firewall
+#### <a name="denied-internet-to-sql-access-through-firewall"></a>(Negato) Accesso da Internet a SQL tramite il firewall
 1. L'utente Internet richiede dati SQL a SecSvc001.CloudApp.Net (servizio cloud per Internet).
 2. Non essendoci endpoint aperti per SQL, il traffico non passa attraverso il servizio cloud e non raggiunge il server.
 3. In caso di apertura degli endpoint SQL per qualunque motivo, il firewall avvierà l'elaborazione della regola:
@@ -557,11 +562,12 @@ Tenere anche presente che per il traffico Internet in ingresso sulle subnet fron
    6. Regola firewall 10 (tra subnet) non applicabile, passa alla regola successiva.
    7. Regole firewall 11 (Deny All) applicabile, il traffico viene bloccato, l'elaborazione della regola si arresta.
 
-## Riferimenti
-### Script principale e configurazione di rete
-Salvare lo script completo in un file di script PowerShell. Salvare la configurazione di rete in un file denominato "NetworkConf2.xml". Modificare le variabili definite dall'utente secondo le esigenze. Eseguire lo script, quindi seguire le istruzioni per la configurazione delle regole del firewall.
+## <a name="references"></a>Riferimenti
+### <a name="main-script-and-network-config"></a>Script principale e configurazione di rete
+Salvare lo script completo in un file di script PowerShell. Salvare la configurazione di rete in un file denominato "NetworkConf2.xml".
+Modificare le variabili definite dall'utente secondo le esigenze. Eseguire lo script, quindi seguire le istruzioni per la configurazione delle regole del firewall.
 
-#### Script completo
+#### <a name="full-script"></a>Script completo
 In base alle variabili definite dall'utente, lo script consente di:
 
 1. Connettersi a una sottoscrizione di Azure
@@ -915,7 +921,7 @@ Questo script di PowerShell deve essere eseguito localmente in un server o un PC
       Write-Host
 
 
-#### File di configurazione di rete
+#### <a name="network-config-file"></a>File di configurazione di rete
 Salvare questo file XML con il percorso aggiornato e aggiungere il collegamento a questo file nella variabile $NetworkConfigFile dello script precedente.
 
     <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
@@ -951,8 +957,8 @@ Salvare questo file XML con il percorso aggiornato e aggiungere il collegamento 
       </VirtualNetworkConfiguration>
     </NetworkConfiguration>
 
-#### Script di applicazione di esempio
-Se si vuole installare un'applicazione di esempio per questo e altri esempi di rete perimetrale, tramite il collegamento seguente ne viene fornita una: [Script di applicazione di esempio][SampleApp]
+#### <a name="sample-application-scripts"></a>Script di applicazione di esempio
+Se si vuole installare un'applicazione di esempio per questo e altri esempi di rete perimetrale, tramite il collegamento seguente ne viene fornita una: [Script di applicazione di esempio][sampleapp]
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3design.png "Rete perimetrale bidirezionale con dispositivo virtuale di rete, gruppo di sicurezza di rete e routing definito dall'utente"
@@ -960,11 +966,11 @@ Se si vuole installare un'applicazione di esempio per questo e altri esempi di r
 [3]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectfrontend.png "Creare un oggetto di rete di front-end"
 [4]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectdns.png "Creare un oggetto server DNS"
 [5]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectrdpa.png "Copiare la regola RDP predefinita"
-[6]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectrdpb.png "Regole AppVM01"
+[6]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectrdpb.png "Regola AppVM01"
 [7]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/iconapplicationredirect.png "Icona di Application Redirect"
 [8]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/icondestinationnat.png "Icona di Destination NAT"
-[9]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/iconpass.png "Icona di Pass"
-[10]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/rulefirewall.png "Regola Firewall Management"
+[9]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/iconpass.png "Icona Pass"
+[10]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/rulefirewall.png "Regola di gestione del firewall"
 [11]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/rulerdp.png "Regola firewall RDP"
 [12]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleweb.png "Regola firewall Web"
 [13]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleappvm01.png "Regola firewall AppVM01"
@@ -976,6 +982,10 @@ Se si vuole installare un'applicazione di esempio per questo e altri esempi di r
 
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
-[SampleApp]: ./virtual-networks-sample-app.md
+[sampleapp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

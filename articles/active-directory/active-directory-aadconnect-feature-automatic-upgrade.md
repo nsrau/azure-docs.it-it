@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Connect: aggiornamento automatico | Microsoft Docs'
-description: Questo argomento illustra la funzionalità di aggiornamento automatico predefinita nel servizio di sincronizzazione Azure AD Connect.
+title: 'Azure AD Connect: aggiornamento automatico | Documentazione Microsoft'
+description: "Questo argomento illustra la funzionalità di aggiornamento automatico predefinita nel servizio di sincronizzazione Azure AD Connect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: AndKjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/24/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bcf0d318f747d359229d1dc8161a952ad3e8ff47
+
 
 ---
-# <a name="azure-ad-connect:-automatic-upgrade"></a>Azure AD Connect: aggiornamento automatico
+# <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: aggiornamento automatico
 Questa funzionalità è stata introdotta nella build 1.1.105.0 rilasciata nel mese di febbraio 2016.
 
 ## <a name="overview"></a>Overview
@@ -89,13 +93,16 @@ Ecco un elenco dei messaggi più comuni. L'elenco non include tutti i messaggi, 
 | UpgradeNotSupportedMetaverseSizeExceeeded |Il metaverse include più di 100.000 oggetti. |
 | UpgradeNotSupportedMultiForestSetup |Viene stabilita la connessione a più foreste. L'installazione rapida si connette a una sola foresta. |
 | UpgradeNotSupportedNonLocalDbInstall |Non si sta usando un database LocalDB di SQL Server Express. |
-| UpgradeNotSupportedNonMsolAccount |L'[account AD Connect](active-directory-aadconnect-accounts-permissions.md#active-directory-account) non è più l'account MSOL_ predefinito. |
+| UpgradeNotSupportedNonMsolAccount |L'[account AD Connect](connect/active-directory-aadconnect-accounts-permissions.md#active-directory-account) non è più l'account MSOL_ predefinito. |
 | UpgradeNotSupportedStagingModeEnabled |Il server è in [modalità di staging](active-directory-aadconnectsync-operations.md#staging-mode). |
 | UpgradeNotSupportedUserWritebackEnabled |È stata abilitata la funzionalità di [writeback degli utenti](active-directory-aadconnect-feature-preview.md#user-writeback) . |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

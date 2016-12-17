@@ -1,13 +1,13 @@
 ---
-title: Collegamento di una rete virtuale a un circuito ExpressRoute mediante il modello di distribuzione di Gestione risorse e il portale di Azure| Microsoft Docs
+title: Collegamento di una rete virtuale a un circuito ExpressRoute mediante il modello di distribuzione di Resource Manager e il portale di Azure| Documentazione Microsoft
 description: Questo documento fornisce una panoramica delle operazioni per il collegamento di reti virtuali (VNet) a circuiti ExpressRoute.
 services: expressroute
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: f5cb5441-2fba-46d9-99a5-d1d586e7bda4
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6a3604b95179d1a88f832ed45d9a6b85931187b1
+
 
 ---
 # <a name="link-a-virtual-network-to-an-expressroute-circuit"></a>Collegare una rete virtuale a un circuito ExpressRoute
@@ -70,6 +74,9 @@ A questo punto, non è possibile collegare le reti virtuali di diverse sottoscri
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

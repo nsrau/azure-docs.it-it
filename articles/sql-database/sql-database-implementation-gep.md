@@ -1,19 +1,24 @@
 ---
-title: Case study Azure del database SQL di Microsoft Azure - GEP | Microsoft Docs
+title: Case study Azure del database SQL di Microsoft Azure - GEP | Documentazione Microsoft
 description: Informazioni su come GEP usa il database SQL per raggiungere un maggior numero di clienti in tutto il mondo e per ottenere maggiore efficienza
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: ae8bcb10-c251-4bac-b666-10a253918583
 ms.service: sql-database
+ms.custom: app development case study; app development
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/08/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: da2e3e4f9a33860141d94352fd2e657b14b0d03d
+
 
 ---
 # <a name="azure-gives-gep-global-reach-and-greater-efficiency"></a>Azure offre a GEP copertura globale e maggiore efficienza
@@ -83,7 +88,7 @@ Infine, SMART by GEP impiega macchine virtuali di Azure, il servizio IaaS di Azu
 
 > "La compilazione di SMART by GEP nel cloud di Microsoft Azure ha completamente eliminato la necessità di un reparto IT locale, non solo per GEP ma anche per le operazioni di approvvigionamento dei nostri clienti". 
 > 
-> * Dhananjay Nagalkar, Vice presidente di Soluzioni tecnologiche
+> - Dhananjay Nagalkar, Vice presidente di Soluzioni tecnologiche
 > 
 > 
 
@@ -99,6 +104,9 @@ Dopo la migrazione dai datacenter locali ad Azure e la compilazione di SMART by 
 * Sathyan Narasingh, Engineering Manager, GEP
 * Deepa Velukutty, Progettista database, GEP
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Eseguire il debug con i log dell'operazione e del servizio in analisi di flusso | Microsoft Docs
+title: Eseguire il debug con i log dell&quot;operazione e del servizio in analisi di flusso | Documentazione Microsoft
 description: Come usare i log delle operazioni di Analisi di flusso
 keywords: log dei servizi
 services: stream-analytics
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: a2ed9676-f0bd-4398-87c8-a592779ac728
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,77 +15,86 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 09/26/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e694eb8f4d658ff9410ae7be2bd4b69500ecbf20
+
 
 ---
-# Eseguire il debug dei processi di analisi di flusso con i log dei servizi e delle operazioni
-Tutti i servizi di Azure forniscono messaggi di registrazione operativi agli utenti per registrare i dettagli relativi alle operazioni di gestione. Nell’analisi di flusso di Azure, queste informazioni possono essere utilizzate per operazioni relative al debug, quali la visualizzazione dello stato del processo, dell’avanzamento del processo, e dei messaggi di errore per rilevare l’avanzamento di un processo nel tempo, dall’avvio, all’eleborazione, fino all’output.
+# <a name="debug-stream-analytics-jobs-using-service-and-operation-logs"></a>Eseguire il debug dei processi di analisi di flusso con i log dei servizi e delle operazioni
+Tutti i servizi di Azure forniscono messaggi di registrazione operativi agli utenti per registrare i dettagli relativi alle operazioni di gestione. Nell’analisi di flusso di Azure, queste informazioni possono essere utilizzate per operazioni relative al debug, quali la visualizzazione dello stato del processo, dell’avanzamento del processo, e dei messaggi di errore per rilevare l’avanzamento di un processo nel tempo, dall’avvio, all’elaborazione, fino all’output.
 
-## Trovare i log delle operazioni nel portale di gestione di Azure
-E’ possibile accedere ai log delle operazioni in due modi:
+## <a name="find-operation-logs-in-the-azure-management-portal"></a>Trovare i log delle operazioni nel portale di gestione di Azure
+E’ possibile accedere ai log delle operazioni in due modi:  
 
-* Dashboard del processo di analisi di flusso
-* Servizi di gestione nel portale di Azure classico
+* Dashboard del processo di analisi di flusso  
+* Servizi di gestione nel portale di Azure classico  
 
-## Dashboard del processo di analisi di flusso
+## <a name="dashboard-of-the-stream-analytics-job"></a>Dashboard del processo di analisi di flusso
 Un collegamento per i log di un processo di analisi di flusso corrispondenti viene visualizzato nella scheda Dashboard del processo. Se si fa clic su tale collegamento, si impostano i filtri in modo da visualizzare i log più recenti di tale processo specifico.
 
-  ![Selezionare i log dei servizi di gestione](./media/stream-analytics-operation-logs/01-stream-analytics-operation-logs.png)
+  ![Selezionare i log dei servizi di gestione](./media/stream-analytics-operation-logs/01-stream-analytics-operation-logs.png)  
 
-## Servizi di gestione
+## <a name="management-services"></a>Servizi di gestione
 Per passare manualmente ai log delle operazioni per l'analisi di flusso e altri servizi nel portale di Azure classico:
 
 1. Fare clic su **Servizi di gestione** nel [portale di Azure classico](https://manage.windowsazure.com).
-2. Selezionare **Analisi di flusso** per **Tipo** e il nome del processo per **Nome servizio**.
+2. Selezionare **Analisi di flusso** per **Tipo** e il nome del processo per **Nome servizio**.  
    
-   ![Selezionare analisi di flusso](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)
+   ![Selezionare analisi di flusso](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)  
 
-## Trovare i log di controllo nel portale di Azure
-Per trovare i log operativi del processo di analisi di flusso nel portale di Azure, fare clic su **Sfoglia** e quindi selezionare **Log di controllo**.
+## <a name="find-audit-logs-in-the-azure-portal"></a>Trovare i log di controllo nel portale di Azure
+Per trovare i log operativi del processo di analisi di flusso nel portale di Azure, fare clic su **Sfoglia** e selezionare **Log di controllo**.
 
-  ![Selezione analisi di flusso del portale di Azure](./media/stream-analytics-operation-logs/06-stream-analytics-operation-logs.png)
+  ![Selezione analisi di flusso del portale di Azure](./media/stream-analytics-operation-logs/06-stream-analytics-operation-logs.png)  
 
-Verrà aperto un pannello che mostra gli eventi degli ultimi 7 giorni per tutte le risorse nella sottoscrizione. È possibile filtrare per visualizzare gli eventi di un tipo o di un intervallo di tempo specificato selezionando il comando **Filtra**.
+Verrà aperto un pannello che mostra gli eventi degli ultimi 7 giorni per tutte le risorse nella sottoscrizione.  È possibile filtrare per visualizzare gli eventi di un tipo o di un intervallo di tempo specificato selezionando il comando **Filtra** .
 
-  ![Selezione analisi di flusso del portale di Azure](./media/stream-analytics-operation-logs/07-stream-analytics-operation-logs.png)
+  ![Selezione analisi di flusso del portale di Azure](./media/stream-analytics-operation-logs/07-stream-analytics-operation-logs.png)  
 
-## Ottenere i dettagli dei log
+## <a name="get-log-details"></a>Ottenere i dettagli dei log
 È possibile filtrare per stato e intervallo di tempo per visualizzare i log per il processo.
 
-Nel portale di gestione di Azure fare clic sul pulsante **Dettagli** nella parte inferiore della finestra per visualizzare altri dettagli sull'evento selezionato.
+Nel portale di gestione di Azure fare clic sul pulsante **Dettagli** nella parte inferiore della finestra per visualizzare altri dettagli sull'evento selezionato. 
 
-  ![Selezionare i dettagli](./media/stream-analytics-operation-logs/03-stream-analytics-operation-logs.png)
+  ![Selezionare i dettagli](./media/stream-analytics-operation-logs/03-stream-analytics-operation-logs.png)  
 
 Nel portale di Azure fare clic su una voce di log per visualizzare gli eventi dettagliati al suo interno.
 
-  ![Selezione dettagli del portale di Azure](./media/stream-analytics-operation-logs/08-stream-analytics-operation-logs.png)
+  ![Selezione dettagli del portale di Azure](./media/stream-analytics-operation-logs/08-stream-analytics-operation-logs.png)  
 
 A questo punto è possibile aprire il pannello **Dettagli** facendo clic sull'evento.
 
-  ![Selezione dettagli del portale di Azure](./media/stream-analytics-operation-logs/09-stream-analytics-operation-logs.png)
+  ![Selezione dettagli del portale di Azure](./media/stream-analytics-operation-logs/09-stream-analytics-operation-logs.png)  
 
-## Debug di un processo non riuscito
-Nel portale di gestione di Azure, fare clic sull’icona Cerca e digitare "non riuscito". In questo modo si visualizzeranno tutti i log dei processi non riusciti.
+## <a name="debug-a-failed-job"></a>Debug di un processo non riuscito
+Nel portale di gestione di Azure, fare clic sull’icona Cerca e digitare "non riuscito". In questo modo si visualizzeranno tutti i log dei processi non riusciti. 
 
-  ![Eseguire il debug di un processo non riuscito](./media/stream-analytics-operation-logs/04-stream-analytics-operation-logs.png)
+  ![Eseguire il debug di un processo non riuscito](./media/stream-analytics-operation-logs/04-stream-analytics-operation-logs.png)  
 
-Nel portale di Azure è possibile filtrare per livello di messaggio per visualizzare gli eventi **Critici**.
+Nel portale di Azure è possibile filtrare per livello di messaggio per visualizzare gli eventi **Critici** .
 
-  ![Debug del portale di Azure](./media/stream-analytics-operation-logs/10-stream-analytics-operation-logs.png)
+  ![Debug del portale di Azure](./media/stream-analytics-operation-logs/10-stream-analytics-operation-logs.png)  
 
-È possibile selezionare uno qualsiasi dei processi non riusciti e fare clic su **Dettagli** per ulteriori informazioni sull'errore. Alcuni messaggi di errore forniscono inoltre informazioni su come attenuare il problema.
+È possibile selezionare uno qualsiasi dei processi non riusciti e fare clic su **Dettagli** per ulteriori informazioni sull'errore.  Alcuni messaggi di errore forniscono inoltre informazioni su come attenuare il problema. 
 
-  ![Dettagli operazione](./media/stream-analytics-operation-logs/05-stream-analytics-operation-logs.png)
+  ![Dettagli operazione](./media/stream-analytics-operation-logs/05-stream-analytics-operation-logs.png)  
 
-Nel caso in cui sia necessario contattare il [Supporto](https://azure.microsoft.com/support/options/) o fornire informazioni al team tramite il [forum MSDN](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics), tenere presente i dettagli dell'operazione, in particolare l’**ID di correlazione**.
+Nel caso in cui sia necessario contattare il [Supporto](https://azure.microsoft.com/support/options/) o fornire informazioni al team tramite il [forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics), tenere presenti i dettagli dell'operazione, in particolare l’**ID di correlazione**. 
 
-## Ottenere aiuto
-Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
+## <a name="get-help"></a>Ottenere aiuto
+Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

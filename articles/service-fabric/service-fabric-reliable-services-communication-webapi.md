@@ -1,26 +1,30 @@
 ---
-title: Comunicazione dei servizi con l'API Web ASP.NET | Microsoft Docs
-description: Informazioni dettagliate su come implementare la comunicazione dei servizi mediante l'API Web ASP.NET con self-hosting OWIN nell'API di Reliable Services.
+title: Comunicazione dei servizi con l&quot;API Web ASP.NET | Microsoft Docs
+description: Informazioni dettagliate su come implementare la comunicazione dei servizi mediante l&quot;API Web ASP.NET con self-hosting OWIN nell&quot;API di Reliable Services.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 8aa4668d-cbb6-4225-bd2d-ab5925a868f2
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 07/29/2016
+ms.date: 10/19/2016
 ms.author: vturecek
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dc0a7dfa74e9100a61fbc45fda908e9227cf54da
+
 
 ---
-# Introduzione ai servizi API Web di Service Fabric con self-hosting OWIN
+# <a name="get-started-service-fabric-web-api-services-with-owin-self-hosting"></a>Introduzione ai servizi API Web di Service Fabric con self-hosting OWIN
 Azure Service Fabric consente di definire la modalità di comunicazione dei servizi con gli utenti e tra loro. Questa esercitazione è incentrata sull'implementazione della comunicazione dei servizi mediante l'API Web ASP.NET con self-hosting OWIN (Open Web Interface for .NET) nell'API di Reliable Services di Service Fabric. Verrà illustrata approfonditamente l'API di comunicazione collegabile di Reliable Services. Verrà anche fornito un esempio dettagliato con l'API Web per illustrare come configurare un listener di comunicazione personalizzato.
 
-## Introduzione alle API Web in Service Fabric
-L'API Web ASP.NET è un diffuso e potente framework per la creazione di API HTTP in .NET Framework. Se non si ha già familiarità con il framework, per informazioni vedere l'[introduzione all'API Web 2 ASP.NET](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api).
+## <a name="introduction-to-web-api-in-service-fabric"></a>Introduzione alle API Web in Service Fabric
+L'API Web ASP.NET è un diffuso e potente framework per la creazione di API HTTP in .NET Framework. Se non si ha già familiarità con il framework, per informazioni vedere l' [introduzione all'API Web 2 ASP.NET](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) .
 
 L'API Web in Service Fabric è la stessa API Web ASP.NET già nota e apprezzata dagli utenti. La differenza consiste nella modalità di *hosting* di un'applicazione API Web. Non si userà Microsoft Internet Information Services (IIS). Per comprendere meglio la differenza, l'argomento verrà suddiviso in due parti:
 
@@ -29,14 +33,14 @@ L'API Web in Service Fabric è la stessa API Web ASP.NET già nota e apprezzata 
 
 L'applicazione API Web non cambia. Non è diversa dalle applicazioni API Web scritte in precedenza, pertanto dovrebbe essere possibile spostare semplicemente la maggior parte del codice dell'applicazione. Se si è abituati all'hosting in IIS, l'hosting dell'applicazione potrebbe tuttavia risultare leggermente diverso. Prima di passare all'hosting, verrà illustrata la parte più familiare: l'applicazione API Web.
 
-## Creazione dell'applicazione
+## <a name="create-the-application"></a>Creazione dell'applicazione
 Iniziare creando una nuova applicazione di Service Fabric, con un singolo servizio senza stato in Visual Studio 2015:
 
 ![Creare una nuova applicazione di Service Fabric](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
 
 È disponibile un modello di Visual Studio per un servizio senza stato tramite l'API Web. In questa esercitazione verrà compilato da zero un progetto API Web che genera un risultato simile a ciò che si otterrebbe selezionando tale modello.
 
-È possibile selezionare un progetto Servizio senza stato vuoto per imparare a compilare da zero un progetto API Web oppure partire da un modello API Web di servizio senza stato e seguire semplicemente la procedura.
+È possibile selezionare un progetto Servizio senza stato vuoto per imparare a compilare da zero un progetto API Web oppure partire da un modello API Web di servizio senza stato e seguire semplicemente la procedura.  
 
 ![Creare un singolo servizio senza stato](media/service-fabric-reliable-services-communication-webapi/webapi-newproject2.png)
 
@@ -87,7 +91,7 @@ namespace WebService.Controllers
 
 ```
 
-Aggiungere quindi una classe Startup alla radice del progetto per registrare il routing, i formattatori e le altre impostazioni di configurazione. Si tratta inoltre della classe in cui l'API Web si collega all'*host*, come verrà illustrato più avanti.
+Aggiungere quindi una classe Startup alla radice del progetto per registrare il routing, i formattatori e le altre impostazioni di configurazione. Si tratta inoltre della classe in cui l'API Web si collega all' *host*, come verrà illustrato più avanti. 
 
 **Startup.cs**
 
@@ -120,7 +124,7 @@ La parte relativa all'applicazione è terminata. È stato quindi impostato il la
 
 Verrà ora illustrato come configurare l'hosting per eseguire il servizio.
 
-## Hosting del servizio
+## <a name="service-hosting"></a>Hosting del servizio
 In Service Fabric il servizio viene eseguito in un *processo host del servizio*, un file eseguibile che esegue il codice del servizio. Quando si scrive un servizio usando l'API di Reliable Services, il progetto di servizio viene compilato solo in un file eseguibile che registra il tipo di servizio ed esegue il codice. Questo vale nella maggior parte dei casi in cui si scrive un servizio in Service Fabric in .NET. Se si apre Program.cs nel progetto di servizio senza stato, verrà visualizzato quanto segue:
 
 ```csharp
@@ -157,17 +161,17 @@ L'aspetto potrebbe apparire simile al punto di ingresso a un'applicazione consol
 
 I dettagli relativi al processo host del servizio e alla registrazione del servizio non rientrano nell'ambito di questo articolo. È comunque importante sapere che *il codice del servizio è in esecuzione nel relativo processo*.
 
-## Ospitare in modo autonomo l'API Web con self-hosting OWIN
+## <a name="self-host-web-api-with-an-owin-host"></a>Ospitare in modo autonomo l'API Web con self-hosting OWIN
 Il codice dell'applicazione API Web è ospitato nel relativo processo. Verrà ora illustrato come associarlo a un server Web. Immettere [OWIN](http://owin.org/). OWIN è semplicemente un contratto tra le applicazioni Web .NET e i server Web. Quando viene usato ASP.NET, fino a MVC 5, l'applicazione Web in genere è strettamente associata a IIS tramite System.Web. L'API Web implementa tuttavia OWIN, che consente di scrivere un'applicazione Web separata dal server Web che la ospita. Per questo motivo è possibile usare un server Web OWIN *con self-hosting* e avviarlo nel processo. Questo server si adatta perfettamente al modello di hosting di Service Fabric descritto in precedenza.
 
 In questo articolo verrà usato Katana come host OWIN per l'applicazione API Web. Katana è un'implementazione host OWIN open source basata su [System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener.aspx) e sull'[API server HTTP](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx) di Windows.
 
 > [!NOTE]
-> Per altre informazioni su Katana, visitare il [sito Katana](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana). Per una rapida panoramica di come usare Katana per il self-hosting dell'API Web, vedere [Use OWIN to Self-Host ASP.NET Web API 2](http://www.asp.net/web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api) (Uso di OWIN per il self-hosting dell'API Web ASP.NET 2).
+> Per altre informazioni su Katana, visitare il [sito Katana](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana). Per una rapida panoramica di come usare Katana per il self-hosting dell'API Web, vedere [Use OWIN to Self-Host ASP.NET Web API 2](http://www.asp.net/web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api)(Uso di OWIN per il self-hosting dell'API Web ASP.NET 2).
 > 
 > 
 
-## Configurare il server Web
+## <a name="set-up-the-web-server"></a>Configurare il server Web
 L'API di Reliable Services offre un punto di ingresso di comunicazione in cui è possibile collegare gli stack di comunicazione che consentono agli utenti e ai client di connettersi al servizio:
 
 ```csharp
@@ -223,7 +227,7 @@ L'interfaccia ICommunicationListener fornisce tre metodi per gestire un listener
 Per iniziare, aggiungere membri di classe privata per gli elementi per cui il listener dovrà funzionare. Questi elementi verranno inizializzati tramite il costruttore e verranno usati in seguito durante la configurazione dell'URL di ascolto.
 
 ```csharp
-public class OwinCommunicationListener : ICommunicationListener
+internal class OwinCommunicationListener : ICommunicationListener
 {
     private readonly ServiceEventSource eventSource;
     private readonly Action<IAppBuilder> startup;
@@ -274,7 +278,7 @@ public class OwinCommunicationListener : ICommunicationListener
 
 ```
 
-## Implementare OpenAsync
+## <a name="implement-openasync"></a>Implementare OpenAsync
 Per configurare il server Web, sono necessarie due informazioni:
 
 * *Un prefisso del percorso URL*. Sebbene sia facoltativo, è consigliabile configurarlo ora per poter ospitare in modo sicuro più servizi Web nell'applicazione.
@@ -282,10 +286,9 @@ Per configurare il server Web, sono necessarie due informazioni:
 
 Prima di ottenere una porta per il server Web, è importante comprendere che Service Fabric offre un livello di applicazione che funge da buffer tra l'applicazione e il sistema operativo sottostante in cui è in esecuzione. Service Fabric consente pertanto di configurare *endpoint* per i servizi. Service Fabric assicura che gli endpoint siano disponibili per l'uso da parte del servizio. In questo modo non è necessario configurarli manualmente nell'ambiente del sistema operativo sottostante. È possibile ospitare facilmente l'applicazione di Service Fabric in ambienti diversi senza dover apportare modifiche all'applicazione. È possibile ad esempio ospitare la stessa applicazione in Azure o nel proprio data center.
 
-Configurare un endpoint HTTP in PackageRoot\\ServiceManifest.xml:
+Configurare un endpoint HTTP in PackageRoot\ServiceManifest.xml:
 
 ```xml
-
 <Resources>
     <Endpoints>
         <Endpoint Name="ServiceEndpoint" Type="Input" Protocol="http" Port="8281" />
@@ -296,7 +299,7 @@ Configurare un endpoint HTTP in PackageRoot\\ServiceManifest.xml:
 
 Questo passaggio è importante perché il processo host del servizio viene eseguito con credenziali con restrizioni (servizio di rete in Windows). Il servizio non avrà quindi l'autorizzazione necessaria per configurare un endpoint HTTP in modo autonomo. Usando la configurazione dell'endpoint, Service Fabric imposta l'elenco di controllo di accesso (ACL) appropriato per l'URL su cui il servizio rimarrà in ascolto. Service Fabric offre anche una posizione standard per la configurazione degli endpoint.
 
-Una volta tornati in OwinCommunicationListener.cs, iniziare a implementare OpenAsync. Da qui si avvia il server Web. Innanzitutto, ottenere le informazioni sull'endpoint e creare l'URL su cui il servizio rimarrà in ascolto. L'URL sarà diverso a seconda che il listener venga usato in un servizio senza stato o in un servizio con stato. Per un servizio con stato, il listener deve creare un indirizzo univoco per ogni replica del servizio con stato di cui è in ascolto. Per un servizio senza stato, l'indirizzo può essere molto più semplice.
+Una volta tornati in OwinCommunicationListener.cs, iniziare a implementare OpenAsync. Da qui si avvia il server Web. Innanzitutto, ottenere le informazioni sull'endpoint e creare l'URL su cui il servizio rimarrà in ascolto. L'URL sarà diverso a seconda che il listener venga usato in un servizio senza stato o in un servizio con stato. Per un servizio con stato, il listener deve creare un indirizzo univoco per ogni replica del servizio con stato di cui è in ascolto. Per un servizio senza stato, l'indirizzo può essere molto più semplice. 
 
 ```csharp
 public Task<string> OpenAsync(CancellationToken cancellationToken)
@@ -378,7 +381,7 @@ Si noti che fa riferimento alla classe Startup passata all'oggetto OwinCommunica
 
 Durante l'esecuzione dell'applicazione verrà visualizzata la riga `ServiceEventSource.Current.Message()` nella finestra degli eventi di diagnostica per confermare che il server Web è stato avviato correttamente.
 
-## Implementare CloseAsync e Abort
+## <a name="implement-closeasync-and-abort"></a>Implementare CloseAsync e Abort
 Implementare infine CloseAsync e Abort per arrestare il server Web. Il server Web può essere arrestato eliminando l'handle del server creato durante OpenAsync.
 
 ```csharp
@@ -416,8 +419,8 @@ private void StopWebServer()
 
 In questa implementazione di esempio CloseAsync e Abort consentono di arrestare semplicemente il server Web. È possibile scegliere di eseguire normalmente un arresto coordinato del server Web in CloseAsync. L'arresto potrebbe ad esempio attendere il completamento delle richieste in elaborazione prima di restituire il valore.
 
-## Avviare il server Web
-È ora possibile creare e restituire un'istanza di OwinCommunicationListener per avviare il server Web. Nella classe del servizio Service.cs eseguire l'override del metodo `CreateServiceInstanceListeners()`:
+## <a name="start-the-web-server"></a>Avviare il server Web
+È ora possibile creare e restituire un'istanza di OwinCommunicationListener per avviare il server Web. Nella classe del servizio WebService.cs eseguire l'override del metodo `CreateServiceInstanceListeners()`:
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -431,10 +434,10 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-In questo punto si riuniscono l'*applicazione* API Web e l'*host* OWIN. All'host OwinCommunicationListener viene assegnata un'istanza dell'*applicazione*, ovvero l'API Web tramite la classe Startup. Service Fabric ne gestisce quindi il ciclo di vita. Questo modello può essere seguito con qualsiasi stack di comunicazione.
+Qui si riuniscono, infine, l'*applicazione* API Web e l'*host* OWIN. All'host OwinCommunicationListener viene assegnata un'istanza dell' *applicazione* , ovvero l'API Web tramite la classe Startup. Service Fabric ne gestisce quindi il ciclo di vita. Questo modello può essere seguito con qualsiasi stack di comunicazione.
 
-## Combinare tutti gli elementi
-In questo esempio non è necessario eseguire alcuna operazione nel metodo `RunAsync()`, quindi l'override può essere semplicemente rimosso.
+## <a name="put-it-all-together"></a>Combinare tutti gli elementi
+In questo esempio non è necessario eseguire alcuna operazione nel metodo `RunAsync()` , quindi l'override può essere semplicemente rimosso.
 
 L'implementazione del servizio finale sarà molto semplice. È necessario solo creare il listener di comunicazione:
 
@@ -627,10 +630,10 @@ Dopo che tutti gli elementi necessari sono pronti, il progetto sarà simile a un
 
 ![API Web con punti di ingresso dell'API di Reliable Services e host OWIN](media/service-fabric-reliable-services-communication-webapi/webapi-projectstructure.png)
 
-## Esecuzione e connessione tramite un Web browser
+## <a name="run-and-connect-through-a-web-browser"></a>Esecuzione e connessione tramite un Web browser
 Se non lo si è già fatto, [configurare l'ambiente di sviluppo](service-fabric-get-started.md).
 
-È ora possibile compilare e distribuire il servizio. Premere **F5** in Visual Studio per compilare l'applicazione. Nella finestra degli eventi di diagnostica verrà visualizzato un messaggio che indica che il server Web è aperto in http://localhost:8281/.
+È ora possibile compilare e distribuire il servizio. Premere **F5** in Visual Studio per compilare l'applicazione. Nella finestra degli eventi di diagnostica si dovrebbe visualizzare un messaggio nel quale viene indicato che il server Web è aperto in http://localhost:8281/.
 
 ![Finestra degli eventi di diagnostica di Visual Studio](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
 
@@ -641,7 +644,7 @@ Se non lo si è già fatto, [configurare l'ambiente di sviluppo](service-fabric-
 
 Quando il servizio è in esecuzione, aprire un browser e passare a [http://localhost:8281/api/values](http://localhost:8281/api/values) per testarlo.
 
-## Scalabilità orizzontale
+## <a name="scale-it-out"></a>Scalabilità orizzontale
 Scalare orizzontalmente app Web senza stato in genere significa aggiungere più macchine e attivare in esse le applicazioni Web. Il motore di orchestrazione di Service Fabric è in grado di farlo automaticamente ogni volta che vengono aggiunti nuovi nodi a un cluster. Durante la creazione di istanze di un servizio senza stato, specificare il numero di istanze che si vuole creare. Service Fabric inserisce il numero di istanze specificato nei nodi del cluster e si assicura che non venga creata più di un'istanza in ciascun nodo. È anche possibile impostare Service Fabric in modo che crei un'istanza in ogni nodo specificando **-1** per il numero di istanze. In questo modo si garantisce che ogni volta che si aggiungono nodi per scalare orizzontalmente il cluster, nei nuovi nodi verrà creata un'istanza del servizio senza stato. Questo valore è una proprietà dell'istanza del servizio, pertanto viene impostato quando si crea un'istanza del servizio. Per farlo, è possibile usare PowerShell:
 
 ```powershell
@@ -666,7 +669,12 @@ Questa operazione può essere effettuata anche quando si definisce un servizio p
 
 Per altre informazioni sulla creazione di istanze di applicazioni e di servizi, vedere [Distribuire un'applicazione](service-fabric-deploy-remove-applications.md).
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 [Debug dell'applicazione di Service Fabric mediante Visual Studio](service-fabric-debugging-your-application.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
