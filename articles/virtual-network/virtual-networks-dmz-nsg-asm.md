@@ -1,12 +1,12 @@
 ---
-title: 'Esempio di rete perimetrale: Creare una semplice rete perimetrale con gruppi di sicurezza di rete | Microsoft Docs'
+title: 'Esempio di rete perimetrale: Creare una semplice rete perimetrale con gruppi di sicurezza di rete | Documentazione Microsoft'
 description: Creare una rete perimetrale con gruppi di sicurezza di rete
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-
+editor: 
+ms.assetid: f8622b1d-c07d-4ea6-b41c-4ae98d998fff
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 683adb57d22934f3a4785ded24a0d956c4f1d0dc
+
 
 ---
-# Esempio 1: Creare una semplice rete perimetrale con gruppi di sicurezza di rete
+# <a name="example-1-build-a-simple-dmz-with-nsgs"></a>Esempio 1: Creare una semplice rete perimetrale con gruppi di sicurezza di rete
 [Tornare alla pagina relativa alle procedure consigliate sui limiti di sicurezza][HOME]
 
-Questo esempio spiega come creare una semplice rete perimetrale con quattro server Windows e gruppi di sicurezza di rete. Illustra in dettaglio anche ogni comando rilevante per favorire una comprensione più approfondita di ogni passaggio. È disponibile anche una sezione sugli scenari di traffico con istruzioni dettagliate sul percorso seguito dal traffico attraverso i livelli di difesa della rete perimetrale. La sezione Riferimenti, infine, include tutto il codice e istruzioni complete per creare l'ambiente per testare e sperimentare vari scenari.
+Questo esempio spiega come creare una semplice rete perimetrale con quattro server Windows e gruppi di sicurezza di rete. Illustra in dettaglio anche ogni comando rilevante per favorire una comprensione più approfondita di ogni passaggio. È disponibile anche una sezione sugli scenari di traffico con istruzioni dettagliate sul percorso seguito dal traffico attraverso i livelli di difesa della rete perimetrale. La sezione Riferimenti, infine, include tutto il codice e istruzioni complete per creare l'ambiente per testare e sperimentare vari scenari. 
 
 ![Rete perimetrale in ingresso con gruppo di sicurezza di rete][1]
 
-## Descrizione dell'ambiente
+## <a name="environment-description"></a>Descrizione dell'ambiente
 In questo esempio è presente una sottoscrizione che include gli elementi seguenti:
 
 * Due servizi cloud, "FrontEnd001" e "BackEnd001"
@@ -33,7 +37,7 @@ In questo esempio è presente una sottoscrizione che include gli elementi seguen
 * Due server Windows che rappresentano server back-end applicazioni ("AppVM01", "AppVM02")
 * Un server Windows che rappresenta un server DNS ("DNS01")
 
-Nella sezione Riferimenti alla fine dell'articolo è disponibile uno script di PowerShell per creare la maggior parte dell'ambiente descritto sopra. La creazione di macchine virtuali e reti virtuali, anche se eseguita dallo script di esempio, non è descritta in dettaglio in questo documento.
+Nella sezione Riferimenti alla fine dell'articolo è disponibile uno script di PowerShell per creare la maggior parte dell'ambiente descritto sopra. La creazione di macchine virtuali e reti virtuali, anche se eseguita dallo script di esempio, non è descritta in dettaglio in questo documento. 
 
 Per creare l'ambiente, eseguire queste operazioni:
 
@@ -47,8 +51,8 @@ Se l'esecuzione dello script viene completata correttamente, è possibile effett
 
 Le sezioni seguenti forniranno una descrizione dettagliata dei gruppi di sicurezza di rete e del relativo funzionamento per questo esempio spiegando le righe principali dello script di PowerShell.
 
-## Gruppi di sicurezza di rete (NGS)
-Per questo esempio viene creato un gruppo di sicurezza di rete, in cui vengono poi caricate sei regole.
+## <a name="network-security-groups-nsg"></a>Gruppi di sicurezza di rete (NGS)
+Per questo esempio viene creato un gruppo di sicurezza di rete, in cui vengono poi caricate sei regole. 
 
 > [!TIP]
 > In genere, è consigliabile creare prima di tutto le regole specifiche di tipo "Consenti" e infine le regole di tipo "Nega" più generiche. La priorità assegnata determina quali regole vengono valutate per prime. Quando si rileva che al traffico è applicabile una determinata regola, non vengono valutate altre regole. Le regole del gruppo di sicurezza di rete possono essere applicate nella direzione in ingresso o in uscita, dal punto di vista della subnet.
@@ -68,7 +72,7 @@ Con queste regole associate a ogni subnet, se una richiesta HTTP proviene da Int
 
 Esiste una regola in uscita predefinita che consente il traffico in uscita verso Internet. Per questo esempio si consente il traffico in uscita e non si modificano le regole in uscita. Per bloccare il traffico in entrambe le direzioni, è necessario il routing definito dall'utente, illustrato nella sezione "Esempio 3" più avanti.
 
-Di seguito le singole regole vengono descritte più dettagliatamente. **Nota**: nell'elenco seguente tutte le voci che iniziano con il simbolo del dollaro (ad esempio, $NSGName) sono variabili definite dall'utente incluse nello script riportato nella sezione Riferimenti di questo documento:
+Nel seguito le singole regole vengono descritte in modo più dettagliato. **Nota**: nell'elenco seguente tutte le voci che iniziano con il simbolo del dollaro (ad esempio, $NSGName) sono variabili definite dall'utente incluse nello script riportato nella sezione Riferimenti di questo documento:
 
 1. È necessario prima di tutto creare un gruppo di sicurezza di rete in cui inserire le regole:
    
@@ -88,7 +92,7 @@ Di seguito le singole regole vengono descritte più dettagliatamente. **Nota**: 
              -DestinationAddressPrefix $VMIP[4] `
              -DestinationPortRange '53' `
              -Protocol *
-3. Questa regola consentirà il passaggio del traffico RDP da Internet alla porta RDP su qualsiasi server di una delle subnet della rete virtuale. La regola usa due tipi speciali di prefissi per l'indirizzo, "VIRTUAL\_NETWORK" e "INTERNET", pertanto consente di gestire più facilmente una categoria più ampia di prefissi dell'indirizzo.
+3. Questa regola consentirà il passaggio del traffico RDP da Internet alla porta RDP su qualsiasi server di una delle subnet della rete virtuale. La regola usa due tipi speciali di prefissi per l'indirizzo, "VIRTUAL_NETWORK" e "INTERNET", pertanto consente di gestire più facilmente una categoria più ampia di prefissi dell'indirizzo.
    
      Get-AzureNetworkSecurityGroup -Name $NSGName | `
    
@@ -116,9 +120,8 @@ Di seguito le singole regole vengono descritte più dettagliatamente. **Nota**: 
          -Type Inbound -Priority 130 -Action Allow `
      -SourceAddressPrefix $VMIP[1] -SourcePortRange '*' `
      -DestinationAddressPrefix $VMIP[2] `
-     -DestinationPortRange '*' `
-     -Protocol *
-6. Questa regola blocca il traffico da Internet a qualsiasi server della rete. Insieme alla regola con priorità 110 e 120, consente esclusivamente il traffico Internet in ingresso diretto al firewall e alle porte RDP verso altri server e blocca tutto il traffico restante.
+     -DestinationPortRange '*' `   -Protocol *
+6. Questa regola blocca il traffico da Internet a qualsiasi server della rete. Insieme alla regola con priorità 110 e 120, consente esclusivamente il traffico Internet in ingresso diretto al firewall e alle porte RDP verso altri server e blocca tutto il traffico restante. 
    
      Get-AzureNetworkSecurityGroup -Name $NSGName | `
    
@@ -141,8 +144,8 @@ Di seguito le singole regole vengono descritte più dettagliatamente. **Nota**: 
          -DestinationPortRange '*' `
          -Protocol * 
 
-## Scenari di traffico
-#### (*Consentito*) Traffico Web al server Web
+## <a name="traffic-scenarios"></a>Scenari di traffico
+#### <a name="allowed-web-to-web-server"></a>(*Consentito*) Traffico Web al server Web
 1. L'utente Internet richiede una pagina HTTP a FrontEnd001.CloudApp.Net (servizio cloud per Internet).
 2. Il servizio cloud passa il traffico attraverso l'endpoint aperto sulla porta 80 a IIS01 (server Web).
 3. La subnet front-end inizia l'elaborazione delle regole in ingresso:
@@ -166,8 +169,8 @@ Di seguito le singole regole vengono descritte più dettagliatamente. **Nota**: 
 12. Il server IIS riceve la risposta SQL , completa la risposta HTTP e la invia al richiedente.
 13. Non essendoci regole in uscita sulla subnet front-end, la risposta è consentita e l'utente Internet riceve la pagina Web richiesta.
 
-#### (*Consentito*) Traffico RDP al back-end
-1. L'amministratore del server su Internet richiede una sessione RDP ad AppVM01 su BackEnd001.CloudApp.Net:xxxxx, dove xxxxx è il numero di porta assegnato casualmente per RDP ad AppVM01. Si può trovare la porta assegnata nel portale di Azure o tramite PowerShell.
+#### <a name="allowed-rdp-to-backend"></a>(*Consentito*) Traffico RDP al back-end
+1. L'amministratore del server su Internet richiede una sessione RDP ad AppVM01 su BackEnd001.CloudApp.Net:xxxxx, dove xxxxx è il numero di porta assegnato casualmente per RDP a AppVM01. Si può trovare la porta assegnata sul portale di Azure o tramite PowerShell.
 2. La subnet back-end inizia l'elaborazione delle regole in ingresso:
    1. Regola gruppo di sicurezza di rete 1 (DNS) non applicabile, passa alla regola successiva.
    2. Regola gruppo di sicurezza di rete 2 (RDP) applicabile, il traffico è consentito, l'elaborazione delle regole si arresta.
@@ -175,7 +178,7 @@ Di seguito le singole regole vengono descritte più dettagliatamente. **Nota**: 
 4. La sessione RDP è abilitata.
 5. AppVM01 richiede il nome utente e la password.
 
-#### (*Consentito*) Ricerca DNS del server Web sul server DNS
+#### <a name="allowed-web-server-dns-lookup-on-dns-server"></a>(*Consentito*) Ricerca DNS del server Web sul server DNS
 1. Il server Web, IIS01, richiede un feed di dati all'indirizzo www.data.gov, ma deve risolvere l'indirizzo.
 2. La configurazione di rete per la rete virtuale elenca DNS01 (10.0.2.4 nella subnet back-end) come server DNS primario, IIS01 invia la richiesta DNS a DNS01.
 3. Non sono impostate regole in uscita sulla subnet front-end, il traffico è consentito.
@@ -192,7 +195,7 @@ Di seguito le singole regole vengono descritte più dettagliatamente. **Nota**: 
     2. La regola di sistema predefinita che consente il traffico tra le subnet consentirebbe questo tipo di traffico, perciò è consentito.
 12. IIS01 riceve la risposta da DNS01.
 
-#### (*Consentito*) Il server Web richiede l'accesso a un file in AppVM01
+#### <a name="allowed-web-server-access-file-on-appvm01"></a>(*Consentito*) Il server Web richiede l'accesso a un file in AppVM01
 1. IIS01 richiede un file in AppVM01.
 2. Non sono impostate regole in uscita sulla subnet front-end, il traffico è consentito.
 3. La subnet back-end inizia l'elaborazione delle regole in ingresso:
@@ -207,17 +210,17 @@ Di seguito le singole regole vengono descritte più dettagliatamente. **Nota**: 
    2. La regola di sistema predefinita che consente il traffico tra le subnet consentirebbe questo tipo di traffico, perciò è consentito.
 7. Il server IIS riceve il file.
 
-#### (*Negato*) Traffico Web al server back-end
+#### <a name="denied-web-to-backend-server"></a>(*Negato*) Traffico Web al server back-end
 1. L'utente Internet prova ad accedere a un file in AppVM01 tramite il servizio BackEnd001.CloudApp.Net.
 2. Non essendoci endpoint aperti per la condivisione file, il traffico non passa attraverso il servizio cloud e non raggiunge il server.
 3. In caso di apertura degli endpoint per qualunque motivo, la regola del gruppo di sicurezza di rete 5 (da Internet a rete virtuale) bloccherà questo traffico.
 
-#### (*Negato*) Ricerca DNS Web sul server DNS
+#### <a name="denied-web-dns-lookup-on-dns-server"></a>(*Negato*) Ricerca DNS Web sul server DNS
 1. L'utente Internet prova a cercare un record DNS interno su DNS01 tramite il servizio BackEnd001.CloudApp.Net.
 2. Non essendoci endpoint aperti per DNS, il traffico non passa attraverso il servizio cloud e non raggiunge il server.
-3. In caso di apertura degli endpoint per qualunque motivo, la regola del gruppo di sicurezza di rete 5 (da Internet a rete virtuale) bloccherà questo traffico. Si noti che la regola 1 (DNS) non è applicabile per due motivi: prima di tutto l'indirizzo di origine è Internet e questa regola si applica solo quando l'origine è la rete virtuale locale, poi questa è una regola di tipo Consenti e quindi non bloccherà mai il traffico.
+3. In caso di apertura degli endpoint per qualunque motivo, la regola del gruppo di sicurezza di rete 5 (da Internet a rete virtuale) bloccherà questo traffico. Si noti che la regola 1 (DNS) non è applicabile per due motivi, prima di tutto l'indirizzo di origine è Internet e questa regola si applica solo quando l'origine è la rete virtuale locale, poi questa è una regola di tipo Consenti e quindi non bloccherà mai il traffico.
 
-#### (*Negato*) Accesso dal Web a SQL tramite il firewall
+#### <a name="denied-web-to-sql-access-through-firewall"></a>(*Negato*) Accesso dal Web a SQL tramite il firewall
 1. L'utente Internet richiede dati SQL a FrontEnd001.CloudApp.Net (servizio cloud per Internet).
 2. Non essendoci endpoint aperti per SQL, il traffico non passa attraverso il servizio cloud e non raggiunge il firewall.
 3. Se gli endpoint sono aperti per qualunque motivo, la subnet front-end inizia l'elaborazione delle regole in ingresso:
@@ -227,16 +230,17 @@ Di seguito le singole regole vengono descritte più dettagliatamente. **Nota**: 
 4. Il traffico raggiunge l'indirizzo IP interno di IIS01 (10.0.1.5).
 5. IIS01 non è in ascolto sulla porta 1433, pertanto la richiesta non ottiene risposta.
 
-## Conclusioni
+## <a name="conclusion"></a>Conclusioni
 Questo è un modo relativamente semplice e diretto per isolare la subnet back-end dal traffico in ingresso.
 
 Altri esempi e una panoramica dei limiti di sicurezza della rete sono disponibili [qui][HOME].
 
-## Riferimenti
-### Script principale e configurazione di rete
-Salvare lo script completo in un file script di PowerShell. Salvare la configurazione di rete in un file denominato "NetworkConf1.xml". Modificare le variabili definite dall'utente secondo le esigenze. Eseguire lo script e quindi seguire le istruzioni per la configurazione delle regole del firewall riportate in precedenza nella sezione relativa all'esempio 1.
+## <a name="references"></a>Riferimenti
+### <a name="main-script-and-network-config"></a>Script principale e configurazione di rete
+Salvare lo script completo in un file script di PowerShell. Salvare la configurazione di rete in un file denominato "NetworkConf1.xml".
+Modificare le variabili definite dall'utente secondo le esigenze. Eseguire lo script e quindi seguire le istruzioni per la configurazione delle regole del firewall riportate in precedenza nella sezione relativa all'esempio 1.
 
-#### Script completo
+#### <a name="full-script"></a>Script completo
 In base alle variabili definite dall'utente, lo script consente di:
 
 1. Connettersi a una sottoscrizione di Azure.
@@ -511,7 +515,7 @@ Questo script di PowerShell deve essere eseguito localmente in un server o un PC
       Write-Host
 
 
-#### File di configurazione di rete
+#### <a name="network-config-file"></a>File di configurazione di rete
 Salvare questo file XML con il percorso aggiornato e aggiungere il collegamento a questo file nella variabile $NetworkConfigFile dello script precedente.
 
     <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
@@ -544,7 +548,7 @@ Salvare questo file XML con il percorso aggiornato e aggiungere il collegamento 
       </VirtualNetworkConfiguration>
     </NetworkConfiguration>
 
-#### Script di applicazione di esempio
+#### <a name="sample-application-scripts"></a>Script di applicazione di esempio
 Se si vuole installare un'applicazione di esempio per questo e altri esempi di rete perimetrale, tramite il collegamento seguente ne viene fornita una: [Script di applicazione di esempio][SampleApp]
 
 <!--Image References-->
@@ -554,4 +558,9 @@ Se si vuole installare un'applicazione di esempio per questo e altri esempi di r
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

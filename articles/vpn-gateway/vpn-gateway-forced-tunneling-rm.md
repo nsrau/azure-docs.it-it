@@ -1,13 +1,13 @@
 ---
-title: Configurare il tunneling forzato per connessioni da sito a sito con il modello di distribuzione Resource Manager | Microsoft Docs
+title: Configurare il tunneling forzato per connessioni da sito a sito con il modello di distribuzione Resource Manager | Documentazione Microsoft
 description: Come reindirizzare o forzare tutto il traffico associato a Internet verso il percorso locale.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: cbe58db8-b598-4c9f-ac88-62c865eb8721
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4159001eff9010e126a1f0a0f9d9eb06b8397eb3
+
 
 ---
-# Configurare il tunneling forzato tramite il modello di distribuzione Azure Resource Manager
+# <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Configurare il tunneling forzato tramite il modello di distribuzione Azure Resource Manager
 > [!div class="op_single_selector"]
 > * [PowerShell - Classico](vpn-gateway-about-forced-tunneling.md)
 > * [PowerShell - Gestione risorse](vpn-gateway-forced-tunneling-rm.md)
@@ -40,8 +44,8 @@ Una connessione di tunneling forzata può essere configurata sia per il modello 
 
 [!INCLUDE [vpn-gateway-table-forced-tunneling](../../includes/vpn-gateway-table-forcedtunnel-include.md)]
 
-## Informazioni sul tunneling forzato
-Nel diagramma seguente viene illustrato il funzionamento del tunneling forzato.
+## <a name="about-forced-tunneling"></a>Informazioni sul tunneling forzato
+Nel diagramma seguente viene illustrato il funzionamento del tunneling forzato. 
 
 ![Tunneling forzato](./media/vpn-gateway-forced-tunneling-rm/forced-tunnel.png)
 
@@ -49,7 +53,7 @@ Nell'esempio riportato in precedenza, il tunneling della subnet front-end non vi
 
 Ciò consente di limitare e ispezionare l'accesso a Internet dalle macchine virtuali o dai servizi cloud in Azure, pur continuando ad abilitare l'architettura dei servizi multilivello richiesta. È anche possibile applicare il tunneling forzato a tutte le reti virtuali se non sono presenti carichi di lavoro con connessione Internet nelle reti virtuali.
 
-## Problemi e considerazioni
+## <a name="requirements-and-considerations"></a>Problemi e considerazioni
 Il tunneling forzato in Azure viene configurato tramite route di rete virtuale definite dall'utente. Il reindirizzamento del traffico a un sito locale viene espresso come route predefinita al gateway VPN di Azure. Per altre informazioni sulle route definite dall'utente e sulle reti virtuali, vedere [Cosa sono le route definite dall'utente e l'inoltro IP](../virtual-network/virtual-networks-udr-overview.md).
 
 * Ciascuna subnet della rete virtuale dispone di una tabella di routing di sistema integrata. La tabella di routing di sistema include i tre gruppi di route seguenti:
@@ -59,33 +63,33 @@ Il tunneling forzato in Azure viene configurato tramite route di rete virtuale d
   * **Route predefinita:** direttamente a Internet. I pacchetti destinati agli indirizzi IP privati non rientranti nelle due route precedenti verranno eliminati.
 * Questa procedura usa le route definite dall'utente per creare una tabella di routing per aggiungere una route predefinita, quindi associare la tabella di routing alle subnet della rete virtuale per abilitare il tunneling forzato in tali subnet.
 * Il tunneling forzato deve essere associato a una rete virtuale con un gateway VPN basato su route. È necessario impostare un "sito predefinito" tra i siti locali cross-premise connessi alla rete virtuale.
-* Il tunneling forzato ExpressRoute non viene configurato mediante questo meccanismo, ma è abilitato annunciando una route predefinita tramite le sessioni di peering BGP ExpressRoute. Per altre informazioni, vedere la [documentazione di ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
+* Il tunneling forzato ExpressRoute non viene configurato mediante questo meccanismo, ma è abilitato annunciando una route predefinita tramite le sessioni di peering BGP ExpressRoute. Per altre informazioni, vedere la [documentazione di ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) .
 
-## Panoramica della configurazione
+## <a name="configuration-overview"></a>Panoramica della configurazione
 La procedura seguente consente di creare un gruppo di risorse e una rete virtuale. Si passerà quindi alla creazione di un gateway VPN e alla configurazione del tunneling forzato. In questa procedura la rete virtuale "MultiTier-VNet" include 3 subnet (*Frontend*, *Midtier* e *Backend*) con 4 connessioni di più sedi locali (*DefaultSiteHQ*) e 3 *Branch*.
 
 La procedura illustrata consente di impostare *DefaultSiteHQ* come connessione predefinita del sito per il tunneling forzato e di configurare le subnet Midtier e Backend per l'uso del tunneling forzato.
 
-## Prima di iniziare
+## <a name="before-you-begin"></a>Prima di iniziare
 Prima di iniziare la configurazione, verificare di essere in possesso degli elementi seguenti.
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi dell'abbonamento a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
-* È necessario installare la versione più recente dei cmdlet di PowerShell per Azure Resource Manager (versione 1.0 o successiva). Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
+* È necessario installare la versione più recente dei cmdlet di PowerShell per Azure Resource Manager (versione 1.0 o successiva). Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) .
 
-## È possibile configurare il tunneling forzato?
+## <a name="configure-forced-tunneling"></a>È possibile configurare il tunneling forzato?
 1. Nella console di PowerShell accedere all'account Azure. Il cmdlet richiederà le credenziali di accesso per l'account Azure. Dopo l'accesso, vengono scaricate le impostazioni dell'account in modo che siano disponibili per Azure PowerShell.
    
         Login-AzureRmAccount 
 2. Ottenere un elenco delle sottoscrizioni di Azure.
    
         Get-AzureRmSubscription
-3. Specificare la sottoscrizione da usare.
+3. Specificare la sottoscrizione da usare. 
    
         Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 4. Creare un gruppo di risorse.
    
         New-AzureRmResourceGroup -Name "ForcedTunneling" -Location "North Europe"
-5. Creare una rete virtuale e specificare le subnet.
+5. Creare una rete virtuale e specificare le subnet. 
    
         $s1 = New-AzureRmVirtualNetworkSubnetConfig -Name "Frontend" -AddressPrefix "10.1.0.0/24"
         $s2 = New-AzureRmVirtualNetworkSubnetConfig -Name "Midtier" -AddressPrefix "10.1.1.0/24"
@@ -110,7 +114,7 @@ Prima di iniziare la configurazione, verificare di essere in possesso degli elem
         Set-AzureRmVirtualNetworkSubnetConfig -Name "MidTier" -VirtualNetwork $vnet -AddressPrefix "10.1.1.0/24" -RouteTable $rt
         Set-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
         Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-9. Creare il gateway con un sito predefinito. Questa procedura può richiedere 45 minuti o più, perché include le operazioni di creazione e configurazione del gateway.<br> `-GatewayDefaultSite` è il parametro di cmdlet che consente alla configurazione del routing forzata di funzionare. Prestare quindi attenzione a configurare questa impostazione in modo corretto. Questo parametro è disponibile solo in PowerShell 1.0 o versioni successive.
+9. Creare il gateway con un sito predefinito. Questa procedura può richiedere 45 minuti o più perché include le operazioni di creazione e configurazione del gateway.<br> `-GatewayDefaultSite` è il parametro di cmdlet che consente alla configurazione del routing forzata di funzionare. Prestare quindi attenzione a configurare questa impostazione in modo corretto. Questo parametro è disponibile solo in PowerShell 1.0 o versioni successive.
    
         $pip = New-AzureRmPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -AllocationMethod Dynamic
         $gwsubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
@@ -131,4 +135,9 @@ Prima di iniziare la configurazione, verificare di essere in possesso degli elem
     
          Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

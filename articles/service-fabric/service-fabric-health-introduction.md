@@ -1,12 +1,12 @@
 ---
-title: Monitoraggio dell'integrità in Service Fabric | Microsoft Docs
-description: Introduzione al modello di monitoraggio dell'integrità di Azure Service Fabric, che offre il monitoraggio del cluster e dei relativi servizi e applicazioni.
+title: Monitoraggio dello stato in Service Fabric | Microsoft Docs
+description: "Introduzione al modello di monitoraggio dell&quot;integrità di Azure Service Fabric, che offre il monitoraggio del cluster e dei relativi servizi e applicazioni."
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 1d979210-b1eb-4022-be24-799fd9d8e003
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2016
 ms.author: oanapl
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6ec1e341bc87475251161521e808dcbb821c2939
+
 
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introduzione al monitoraggio dell'integrità di Service Fabric
@@ -224,7 +228,7 @@ I campi di transizione dello stato possono essere usati per ottenere avvisi più
 * Avviso solo per le condizioni cambiate negli ultimi X minuti. Se un report segnalava lo stato Error anche prima dell'ora specificata, può essere ignorato perché il problema era già stato segnalato in precedenza.
 * Se una proprietà si alterna tra lo stato Warning e lo stato Error, determinare per quanto tempo è risultata non integra, ovvero non OK. Ad esempio, se si vuole un avviso quando la proprietà non risulta integra da più di 5 minuti, è possibile usare: (HealthState != Ok and Now - LastOkTransitionTime > 5 minutes).
 
-## <a name="example:-report-and-evaluate-application-health"></a>Esempio: Report e valutazione dell'integrità dell'applicazione
+## <a name="example-report-and-evaluate-application-health"></a>Esempio: Report e valutazione dell'integrità dell'applicazione
 L'esempio seguente invia tramite PowerShell un report sull'integrità dell'applicazione **fabric:/WordCount** dall'origine **MyWatchdog**. Il report sull'integrità contiene informazioni sulla "disponibilità" della proprietà di integrità con stato di integrità Error e TimeToLive infinito. Viene quindi eseguita una query sull'integrità dell'applicazione che restituisce Error come stato di integrità aggregato e gli eventi di integrità segnalati nell'elenco degli eventi di integrità.
 
 ```powershell
@@ -311,6 +315,9 @@ Il modello di integrità viene usato in larga misura per il monitoraggio e la di
 
 [Aggiornamento di un'applicazione di infrastruttura di servizi](service-fabric-application-upgrade.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

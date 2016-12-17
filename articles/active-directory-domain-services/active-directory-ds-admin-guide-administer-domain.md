@@ -1,36 +1,40 @@
 ---
-title: 'Anteprima di Servizi di dominio Azure Active Directory: amministrare un dominio gestito | Microsoft Docs'
+title: 'Servizi di dominio Azure Active Directory: amministrare un dominio gestito | Documentazione Microsoft'
 description: Amministrare i domini gestiti di Servizi di dominio Azure Active Directory
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: d4fdbc75-3e6b-4e20-8494-5dcc3bf2220a
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 10/02/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d215fd31ca4652437783ad630aee532a17cda611
+
 
 ---
-# Amministrare un dominio gestito di Servizi di dominio Azure Active Directory
+# <a name="administer-an-azure-active-directory-domain-services-managed-domain"></a>Amministrare un dominio gestito di Servizi di dominio Azure Active Directory
 Questo articolo illustra come amministrare un dominio gestito di Servizi di dominio Azure Active Directory (AD).
 
-## Prima di iniziare
+## <a name="before-you-begin"></a>Prima di iniziare
 Per eseguire le attività elencate in questo articolo sono necessari gli elementi seguenti:
 
-1. Una **sottoscrizione di Azure** valida.
+1. Una **sottoscrizione di Azure**valida.
 2. Una **directory di Azure AD** sincronizzata con una directory locale o con una directory solo cloud.
-3. I **Servizi di dominio Azure AD** devono essere abilitati per la directory di Azure AD. Se non è stato fatto, eseguire tutte le attività descritte nella [guida introduttiva](active-directory-ds-getting-started.md).
+3. **Servizi di dominio Azure AD** devono essere abilitati per la directory di Azure AD. Se non è stato fatto, eseguire tutte le attività descritte nella [guida introduttiva](active-directory-ds-getting-started.md).
 4. Una **macchina virtuale aggiunta al dominio** da cui si amministrerà il dominio gestito di Servizi di dominio Azure AD. Se non si dispone di questo tipo di macchina virtuale, seguire tutte le attività descritte nell'articolo [Aggiungere una macchina virtuale Windows Server a un dominio gestito](active-directory-ds-admin-guide-join-windows-vm.md).
 5. È necessario disporre delle credenziali di un **account utente appartenente al gruppo 'AAD DC Administrators'** nella directory per poter amministrare il dominio gestito.
 
 <br>
 
-## Attività amministrative che è possibile eseguire in un dominio gestito
+## <a name="administrative-tasks-you-can-perform-on-a-managed-domain"></a>Attività amministrative che è possibile eseguire in un dominio gestito
 Ai membri del gruppo "AAD DC Administrators" vengono concessi privilegi nel dominio gestito che consentono di eseguire attività quali:
 
 * Aggiungere computer al dominio gestito.
@@ -39,7 +43,7 @@ Ai membri del gruppo "AAD DC Administrators" vengono concessi privilegi nel domi
 * Creare e amministrare unità organizzative (OU) personalizzate nel dominio gestito.
 * Ottenere l'accesso amministrativo ai computer aggiunti al dominio gestito.
 
-## Privilegi amministrativi non disponibili in un dominio gestito
+## <a name="administrative-privileges-you-do-not-have-on-a-managed-domain"></a>Privilegi amministrativi non disponibili in un dominio gestito
 Il dominio viene gestito da Microsoft, incluse le attività quali applicazione di patch, monitoraggio ed esecuzione di backup. Il dominio è quindi bloccato e non si hanno privilegi per eseguire alcune attività amministrative nel dominio. Ecco alcuni esempi di attività che non è possibile eseguire.
 
 * Non vengono concessi privilegi di amministratore di dominio o amministratore dell'organizzazione per il dominio gestito.
@@ -47,24 +51,24 @@ Il dominio viene gestito da Microsoft, incluse le attività quali applicazione d
 * Non è possibile connettersi ai controller di dominio per il dominio gestito usando Desktop remoto.
 * Non è possibile aggiungere controller di dominio al dominio gestito.
 
-## Attività 1: Eseguire il provisioning di una macchina virtuale Windows Server aggiunta a un dominio per amministrare in remoto il dominio gestito
+## <a name="task-1---provision-a-domain-joined-windows-server-virtual-machine-to-remotely-administer-the-managed-domain"></a>Attività 1: Eseguire il provisioning di una macchina virtuale Windows Server aggiunta a un dominio per amministrare in remoto il dominio gestito
 I domini gestiti di Servizi di dominio Azure AD possono essere gestiti con i familiari strumenti di amministrazione di Active Directory, ad esempio il Centro di amministrazione di Active Directory o AD PowerShell. Gli amministratori tenant non hanno i privilegi necessari per connettersi ai controller di dominio nel dominio gestito con Desktop remoto. Di conseguenza, i membri del gruppo "AAD DC Administrators" possono amministrare i domini gestiti in remoto usando gli strumenti di amministrazione di AD da un computer client o Windows Server aggiunto al dominio gestito. Gli strumenti di amministrazione di AD possono essere installati come parte della funzionalità facoltativa Strumenti di amministrazione remota del server in Windows Server e nei computer client aggiunti al dominio gestito.
 
-Il primo passaggio consiste nella configurazione di una macchina virtuale Windows Server aggiunta al dominio gestito. Per istruzioni su come eseguire questa operazione, vedere l'articolo relativo all'[aggiunta di una macchina virtuale Windows Server a un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-join-windows-vm.md).
+Il primo passaggio consiste nella configurazione di una macchina virtuale Windows Server aggiunta al dominio gestito. Per istruzioni, vedere l'articolo [Aggiungere una macchina virtuale Windows Server a un dominio gestito](active-directory-ds-admin-guide-join-windows-vm.md).
 
-### Amministrare in remoto il dominio gestito da un computer client, ad esempio Windows 10
+### <a name="remotely-administer-the-managed-domain-from-a-client-computer-for-example-windows-10"></a>Amministrare in remoto il dominio gestito da un computer client, ad esempio Windows 10
 Le istruzioni in questo articolo usano una macchina virtuale Windows Server per amministrare il dominio gestito da Servizi di dominio Azure AD. A questo scopo è tuttavia anche possibile scegliere di usare una macchina virtuale client di Windows, ad esempio Windows 10.
 
 È possibile [installare gli Strumenti di amministrazione remota del server](http://social.technet.microsoft.com/wiki/contents/articles/2202.remote-server-administration-tools-rsat-for-windows-client-and-windows-server-dsforum2wiki.aspx) in una macchina virtuale client Windows seguendo le istruzioni in TechNet.
 
-## Attività 2: Installare gli strumenti di amministrazione di Active Directory nella macchina virtuale
-Eseguire questa procedura per installare gli strumenti di amministrazione di Active Directory nella macchina virtuale aggiunta al dominio. Per altre [informazioni sull'installazione e sull'uso degli strumenti di amministrazione remota del server](https://technet.microsoft.com/library/hh831501.aspx), vedere la libreria TechNet.
+## <a name="task-2---install-active-directory-administration-tools-on-the-virtual-machine"></a>Attività 2: Installare gli strumenti di amministrazione di Active Directory nella macchina virtuale
+Eseguire questa procedura per installare gli strumenti di amministrazione di Active Directory nella macchina virtuale aggiunta al dominio. Per altre [informazioni sull'installazione e l'utilizzo degli strumenti di amministrazione remota del server](https://technet.microsoft.com/library/hh831501.aspx), vedere Technet.
 
 1. Passare al nodo **Macchine virtuali** nel portale di Azure classico. Selezionare la macchina virtuale creata nell'attività 1 e fare clic su **Connetti** sulla barra dei comandi nella parte inferiore della finestra.
    
     ![Connettersi alla macchina virtuale Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 2. Il portale classico richiederà di aprire o salvare un file con estensione rdp, usato per connettersi alla macchina virtuale. Dopo aver terminato il download, fare clic sul file per aprirlo.
-3. Al prompt di accesso usare le credenziali di un utente appartenente al gruppo "AAD DC Administrators". In questo caso, ad esempio, usare 'bob@domainservicespreview.onmicrosoft.com'.
+3. Al prompt di accesso usare le credenziali di un utente appartenente al gruppo "AAD DC Administrators". In questo caso, ad esempio, usiamo 'bob@domainservicespreview.onmicrosoft.com'.
 4. Dalla schermata Start aprire **Server Manager**. Fare clic su **Aggiungi ruoli e funzionalità** nel riquadro centrale della finestra di Server Manager.
    
     ![Avviare Server Manager nella macchina virtuale](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
@@ -85,7 +89,7 @@ Eseguire questa procedura per installare gli strumenti di amministrazione di Act
     
     ![Pagina di conferma](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-confirmation.png)
 
-## Attività 3: Eseguire la connessione ed esplorare il dominio gestito
+## <a name="task-3---connect-to-and-explore-the-managed-domain"></a>Attività 3: Eseguire la connessione ed esplorare il dominio gestito
 Dopo aver installato gli strumenti di amministrazione di AD nella macchina virtuale aggiunta al dominio sarà possibile usare questi strumenti per amministrare il dominio gestito.
 
 > [!NOTE]
@@ -111,9 +115,14 @@ Dopo aver installato gli strumenti di amministrazione di AD nella macchina virtu
 
 <br>
 
-## Contenuti correlati
+## <a name="related-content"></a>Contenuti correlati
 * [Servizi di dominio Azure AD: introduzione](active-directory-ds-getting-started.md)
 * [Aggiungere una macchina virtuale Windows Server a un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Distribuire strumenti di amministrazione remota del server](https://technet.microsoft.com/library/hh831501.aspx)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
