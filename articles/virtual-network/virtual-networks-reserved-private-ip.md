@@ -6,7 +6,7 @@ documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 93444c6f-af1b-41f8-a035-77f5c0302bf0
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,17 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 117c65ebcc566aa1898dc8655ee608cb42673d79
+
 
 ---
-# Come impostare un indirizzo IP privato interno statico tramite PowerShell (classico)
-Nella maggior parte dei casi non è necessario specificare un indirizzo IP interno statico per la macchina virtuale. Le macchine virtuali in una rete virtuale infatti ricevono automaticamente un indirizzo IP interno da un intervallo specificato. In alcuni casi è tuttavia opportuno specificare un indirizzo IP statico per una determinata macchina virtuale, ad esempio se questa eseguirà DNS o sarà un controller di dominio. Un indirizzo IP interno statico resta associato alla macchina virtuale anche in caso di passaggio allo stato di arresto/deprovisioning.
+# <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>Come impostare un indirizzo IP privato interno statico tramite PowerShell (classico)
+Nella maggior parte dei casi non è necessario specificare un indirizzo IP interno statico per la macchina virtuale. Le macchine virtuali in una rete virtuale infatti ricevono automaticamente un indirizzo IP interno da un intervallo specificato. In alcuni casi è tuttavia opportuno specificare un indirizzo IP statico per una determinata macchina virtuale, ad esempio se questa eseguirà DNS o sarà un controller di dominio. Un indirizzo IP interno statico resta associato alla macchina virtuale anche in caso di passaggio allo stato di arresto/deprovisioning. 
 
 > [!IMPORTANT]
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di utilizzare il [modello di distribuzione di Resource Manager per le distribuzioni più recenti](virtual-networks-static-private-ip-arm-ps.md).
+> Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di utilizzare il [modello di distribuzione di Resource Manager per le distribuzioni più recenti](virtual-networks-static-private-ip-arm-ps.md).
 > 
 > 
 
-## Come verificare la disponibilità di uno specifico indirizzo IP
+## <a name="how-to-verify-if-a-specific-ip-address-is-available"></a>Come verificare la disponibilità di uno specifico indirizzo IP
 Per verificare se l'indirizzo IP *10.0.0.7* è disponibile in una rete virtuale denominata *TestVnet*, eseguire il comando PowerShell seguente e controllare il valore per *IsAvailable*:
 
     Test-AzureStaticVNetIP –VNetName TestVNet –IPAddress 10.0.0.7 
@@ -36,12 +40,12 @@ Per verificare se l'indirizzo IP *10.0.0.7* è disponibile in una rete virtuale 
     OperationStatus      : Succeeded
 
 > [!NOTE]
-> Se si vuole testare il comando precedente in un ambiente sicuro, seguire le linee guida contenute in [Creazione di una rete virtuale](virtual-networks-create-vnet-classic-portal.md) per creare una rete virtuale denominata *TestVnet* e assicurarsi che usi lo spazio degli indirizzi *10.0.0.0/8*.
+> Se si desidera eseguire il test del comando precedente in un ambiente sicuro, seguire le istruzioni in [Crea rete virtuale](virtual-networks-create-vnet-classic-portal.md) per creare una rete virtuale denominata *TestVnet* e assicurarsi che usi lo spazio degli indirizzi *10.0.0.0/8*.
 > 
 > 
 
-## Come specificare un indirizzo IP interno statico durante la creazione di una macchina virtuale
-Lo script PowerShell seguente crea un nuovo servizio cloud denominato *TestService*, recupera un'immagine da Azure, quindi crea una macchina virtuale *TestVM* nel nuovo servizio cloud usando l'immagine recuperata, imposta la macchina virtuale in modo che sia posizionata nella subnet *Subnet-1* e infine imposta *10.0.0.7* come indirizzo IP interno statico per la macchina virtuale:
+## <a name="how-to-specify-a-static-internal-ip-when-creating-a-vm"></a>Come specificare un indirizzo IP interno statico durante la creazione di una macchina virtuale
+Lo script di PowerShell seguente crea un nuovo servizio cloud denominato *TestService*, quindi recupera un'immagine da Azure, crea una macchina virtuale denominata *TestVM* nel nuovo servizio cloud tramite l'immagine recuperata, imposta la macchina virtuale in modo da trovarsi in una subnet denominata *Subnet-1* e imposta *10.0.0.7* come indirizzo IP interno statico per la macchina virtuale:
 
     New-AzureService -ServiceName TestService -Location "Central US"
     $image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
@@ -51,7 +55,7 @@ Lo script PowerShell seguente crea un nuovo servizio cloud denominato *TestServi
     | Set-AzureStaticVNetIP -IPAddress 10.0.0.7 `
     | New-AzureVM -ServiceName "TestService" –VNetName TestVnet
 
-## Come recuperare le informazioni relative all'indirizzo IP interno statico per una macchina virtuale
+## <a name="how-to-retrieve-static-internal-ip-information-for-a-vm"></a>Come recuperare le informazioni relative all'indirizzo IP interno statico per una macchina virtuale
 Per visualizzare le informazioni relative all'indirizzo IP interno statico per la macchina virtuale creata con lo script precedente, eseguire il comando PowerShell seguente e osservare i valori per *IpAddress*:
 
     Get-AzureVM -Name TestVM -ServiceName TestService
@@ -83,25 +87,30 @@ Per visualizzare le informazioni relative all'indirizzo IP interno statico per l
     OperationId                 : 34c1560a62f0901ab75cde4fed8e8bd1
     OperationStatus             : OK
 
-## Come rimuovere un indirizzo IP interno statico da una macchina virtuale
+## <a name="how-to-remove-a-static-internal-ip-from-a-vm"></a>Come rimuovere un indirizzo IP interno statico da una macchina virtuale
 Per rimuovere l'indirizzo IP interno statico aggiunto alla macchina virtuale nello script precedente, eseguire il comando PowerShell seguente:
 
     Get-AzureVM -ServiceName TestService -Name TestVM `
     | Remove-AzureStaticVNetIP `
     | Update-AzureVM
 
-## Come aggiungere un indirizzo IP interno statico a una macchina virtuale esistente
+## <a name="how-to-add-a-static-internal-ip-to-an-existing-vm"></a>Come aggiungere un indirizzo IP interno statico a una macchina virtuale esistente
 Per aggiungere un indirizzo IP interno statico alla macchina virtuale creata usando lo script precedente, eseguire il comando seguente:
 
     Get-AzureVM -ServiceName TestService000 -Name TestVM `
     | Set-AzureStaticVNetIP -IPAddress 10.10.0.7 `
     | Update-AzureVM
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 [IP riservato](virtual-networks-reserved-public-ip.md)
 
 [IP pubblico a livello di istanza (ILPIP)](virtual-networks-instance-level-public-ip.md)
 
 [API REST di IP riservati](https://msdn.microsoft.com/library/azure/dn722420.aspx)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

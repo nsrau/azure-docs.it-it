@@ -1,12 +1,12 @@
 ---
-title: Elaborare i dati BLOB di Azure con analisi avanzate | Microsoft Docs
-description: Elaborare dati nell'archivio BLOB di Azure.
+title: Elaborare i dati BLOB di Azure con analisi avanzate | Documentazione Microsoft
+description: Elaborare dati nell&quot;archivio BLOB di Azure.
 services: machine-learning,storage
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: d8a59078-91d3-4440-b85c-430363c3f4d1
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,15 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: fashah;garye;bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3a8bf79ca39effaa19518ade7ff392530ef29475
+
 
 ---
-# <a name="heading"></a>Elaborare i dati BLOB di Azure con analisi avanzate
-In questo documento vengono descritte l'esplorazione dei dati e la creazione di funzionalità da dati archiviati nell’archivio BLOB di Azure.
+# <a name="a-nameheadingaprocess-azure-blob-data-with-advanced-analytics"></a><a name="heading"></a>Elaborare i dati BLOB di Azure con analisi avanzate
+In questo documento vengono descritte l'esplorazione dei dati e la creazione di funzionalità da dati archiviati nell’archivio BLOB di Azure. 
 
-## Caricare i dati in un intervallo di dati Pandas
+## <a name="load-the-data-into-a-pandas-data-frame"></a>Caricare i dati in un intervallo di dati Pandas
 Per esplorare e modificare un set di dati, i dati devono essere scaricati dall'origine BLOB in un file locale che può essere quindi caricato in un frame di dati Pandas. Ecco i passaggi da seguire per questa procedura:
 
-1. Scaricare i dati da BLOB Azure con il codice Python di esempio riportato di seguito utilizzando il servizio BLOB. Sostituire la variabile nel codice riportato di seguito con i valori specifici:
+1. Scaricare i dati da BLOB Azure con il codice Python di esempio riportato di seguito utilizzando il servizio BLOB. Sostituire la variabile nel codice riportato di seguito con i valori specifici: 
    
         from azure.storage.blob import BlobService
         import tables
@@ -46,10 +50,10 @@ Per esplorare e modificare un set di dati, i dati devono essere scaricati dall'o
 
 A questo punto si è pronti per esplorare i dati e generare le funzionalità di questo set di dati.
 
-## <a name="blob-dataexploration"></a>Esplorazione dei dati
+## <a name="a-nameblob-dataexplorationadata-exploration"></a><a name="blob-dataexploration"></a>Esplorazione dei dati
 Di seguito sono riportati alcuni esempi dei modi per esplorare i dati utilizzando Pandas:
 
-1. Controllare il numero di righe e colonne
+1. Controllare il numero di righe e colonne 
    
         print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 2. Controllare le prime o le ultime righe nel set di dati come indicato di seguito:
@@ -73,13 +77,12 @@ Di seguito sono riportati alcuni esempi dei modi per esplorare i dati utilizzand
         print miss_num
 7. Se si dispongono di valori mancanti per una colonna specifica nei dati, è possibile eliminarli come indicato di seguito:
    
-     dataframe_blobdata_noNA = dataframe_blobdata.dropna()
-     dataframe_blobdata_noNA.shape
+     dataframe_blobdata_noNA = dataframe_blobdata.dropna()   dataframe_blobdata_noNA.shape
    
    È possibile sostituire i valori mancanti anche con la funzione modalità:
    
      dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})        
-8. Creare un grafico istogramma utilizzando un numero variabile di contenitori per tracciare la distribuzione di una variabile
+8. Creare un grafico istogramma utilizzando un numero variabile di contenitori per tracciare la distribuzione di una variabile    
    
         dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
    
@@ -92,10 +95,10 @@ Di seguito sono riportati alcuni esempi dei modi per esplorare i dati utilizzand
         #correlation between column_a and column_b
         dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-## <a name="blob-featuregen"></a>Creazione di funzionalità
+## <a name="a-nameblob-featuregenafeature-generation"></a><a name="blob-featuregen"></a>Creazione di funzionalità
 È quindi possibile generare funzionalità tramite Python come indicato di seguito:
 
-### <a name="blob-countfeature"></a>Valore dell'indicatore basato sulla creazione di funzionalità
+### <a name="a-nameblob-countfeatureaindicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>Valore dell'indicatore basato sulla creazione di funzionalità
 Le funzionalità relative alle categorie possono essere create come indicato di seguito:
 
 1. Controllare la distribuzione della colonna relativa alla categoria:
@@ -105,7 +108,7 @@ Le funzionalità relative alle categorie possono essere create come indicato di 
    
         #generate the indicator column
         dataframe_blobdata_identity = pd.get_dummies(dataframe_blobdata['<categorical_column>'], prefix='<categorical_column>_identity')
-3. Unire la colonna indicatore con il frame di dati originale
+3. Unire la colonna indicatore con il frame di dati originale 
    
             #Join the dummy variables back to the original data frame
             dataframe_blobdata_with_identity = dataframe_blobdata.join(dataframe_blobdata_identity)
@@ -114,7 +117,7 @@ Le funzionalità relative alle categorie possono essere create come indicato di 
         #Remove the original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
-### <a name="blob-binningfeature"></a>Creazione di contenitori per la creazione di funzionalità
+### <a name="a-nameblob-binningfeatureabinning-feature-generation"></a><a name="blob-binningfeature"></a>Creazione di contenitori per la creazione di funzionalità
 Per creare funzionalità in contenitori, procedere come indicato di seguito:
 
 1. Aggiungere una sequenza di colonne per suddividere una colonna numerica
@@ -128,8 +131,8 @@ Per creare funzionalità in contenitori, procedere come indicato di seguito:
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
-## <a name="sql-featuregen"></a>Scrittura dei dati nel BLOB di Azure e utilizzo in Azure Machine Learning
-Dopo avere esaminato i dati e creato le funzionalità necessarie, è possibile caricare i dati (campionati o completi) in un BLOB di Azure e utilizzarli in Azure Machine Learning attenendosi alla procedura seguente. Tenere presente che le funzionalità aggiuntive possono essere create anche in Azure Machine Learning Studio.
+## <a name="a-namesql-featuregenawriting-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Scrittura dei dati nel BLOB di Azure e utilizzo in Azure Machine Learning
+Dopo avere esaminato i dati e creato le funzionalità necessarie, è possibile caricare i dati (campionati o completi) in un BLOB di Azure e utilizzarli in Azure Machine Learning attenendosi alla procedura seguente. Tenere presente che le funzionalità aggiuntive possono essere create anche in Azure Machine Learning Studio. 
 
 1. Scrivere il frame di dati in file locali
    
@@ -155,15 +158,19 @@ Dopo avere esaminato i dati e creato le funzionalità necessarie, è possibile c
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Ora i dati possono essere letti dal BLOB utilizzando il modulo [Import Data][import-data] di Azure Machine Learning, come illustrato nella schermata riportata di seguito:
+3. Ora i dati possono essere letti dal BLOB usando il modulo [Import Data][import-data] di Azure Machine Learning, come illustrato nella schermata riportata di seguito:
 
-![lettore BLOB][1] 
+![lettore BLOB][1]
 
 [1]: ./media/machine-learning-data-science-process-data-blob/reader_blob.png
 
 
-<!-- Module References --> 
+<!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

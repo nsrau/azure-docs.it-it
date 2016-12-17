@@ -5,33 +5,37 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6d85dd5d-ac07-43ba-bbe4-e91c3a17690b
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/12/2016
+ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6fbb542a7887151bbfa2b13ec8fe7874d1f455de
+
 
 ---
-# Configurazione avanzata per Engagement SDK per app universali di Windows
+# <a name="advanced-configuration-for-windows-universal-apps-engagement-sdk"></a>Configurazione avanzata per Engagement SDK per app universali di Windows
 > [!div class="op_single_selector"]
 > * [Windows universale](mobile-engagement-windows-store-advanced-configuration.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
 > * [iOS](mobile-engagement-ios-integrate-engagement.md)
-> * [Android](mobile-engagement-android-advan.mdced-configuration.md)
+> * [Android](mobile-engagement-android-advanced-configuration.md)
 > 
 > 
 
 Questa procedura descrive come configurare le diverse opzioni di configurazione per le app Android di Azure Mobile Engagement.
 
-## Prerequisiti
-[!INCLUDE [Prerequisiti](../../includes/mobile-engagement-windows-store-prereqs.md)]
+## <a name="prerequisites"></a>Prerequisiti
+[!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
-## Configurazione avanzata
-### Disabilitare la segnalazione automatica degli arresti anomali
+## <a name="advanced-configuration"></a>Configurazione avanzata
+### <a name="disable-automatic-crash-reporting"></a>Disabilitare la segnalazione automatica degli arresti anomali
 È possibile disabilitare la funzionalità di segnalazione automatica degli arresti anomali di Engagement. Quando si verifica un'eccezione non gestita, Engagement non eseguirà alcuna azione.
 
 > [!WARNING]
@@ -41,10 +45,10 @@ Questa procedura descrive come configurare le diverse opzioni di configurazione 
 
 Per disabilitare la segnalazione automatica degli arresti anomali, personalizzare la configurazione in base al modo in cui che è stata dichiarata:
 
-#### Dal file `EngagementConfiguration.xml`
+#### <a name="from-engagementconfigurationxml-file"></a>Dal file `EngagementConfiguration.xml`
 Impostare la segnalazione degli arresti anomali su `false` tra i tag `<reportCrash>` e `</reportCrash>`.
 
-#### Dall'oggetto `EngagementConfiguration` in fase di esecuzione
+#### <a name="from-engagementconfiguration-object-at-run-time"></a>Dall'oggetto `EngagementConfiguration` in fase di esecuzione
 Impostare la segnalazione degli arresti anomali su false usando l'oggetto EngagementConfiguration.
 
         /* Engagement configuration. */
@@ -54,7 +58,7 @@ Impostare la segnalazione degli arresti anomali su false usando l'oggetto Engage
         /* Disable Engagement crash reporting. */
         engagementConfiguration.Agent.ReportCrash = false;
 
-### Disabilitare la segnalazione in tempo reale
+### <a name="disable-real-time-reporting"></a>Disabilitare la segnalazione in tempo reale
 Per impostazione predefinita, il servizio Engagement segnala i log in tempo reale. Se l'applicazione segnala spesso i log, è preferibile memorizzare i log nel buffer e segnalarli tutti insieme con cadenza regolare, la cosiddetta "modalità burst".
 
 A tale scopo, chiamare il metodo:
@@ -70,7 +74,11 @@ La modalità burst aumenta lievemente la durata della batteria ma ha un impatto 
 > 
 > 
 
-[here]: http://www.nuget.org/packages/Capptain.WindowsCS
-[NuGet website]: http://docs.nuget.org/docs/start-here/overview
+[in questo articolo]:http://www.nuget.org/packages/Capptain.WindowsCS
+[Sito Web NuGet]:http://docs.nuget.org/docs/start-here/overview
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
