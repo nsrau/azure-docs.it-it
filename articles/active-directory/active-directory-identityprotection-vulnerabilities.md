@@ -1,31 +1,37 @@
 ---
-title: Vulnerabilità rilevate da Azure Active Directory Identity Protection | Microsoft Docs
-description: Panoramica delle vulnerabilità rilevate da Azure Active Directory Identity Protection
+title: "Vulnerabilità rilevate da Azure Active Directory Identity Protection | Documentazione Microsoft"
+description: "Panoramica delle vulnerabilità rilevate da Azure Active Directory Identity Protection"
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza
-documentationcenter: ''
+keywords: "azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza"
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 11/11/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2e229cab7b8a498d3015183d438e2bc2465822aa
+ms.openlocfilehash: f526af67a94ce0cab61591d9250f4742b1ede579
+
 
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Vulnerabilità rilevate da Azure Active Directory Identity Protection
 Le vulnerabilità sono punti deboli in un ambiente che possono essere sfruttati da un utente malintenzionato. È consigliabile risolvere le vulnerabilità per migliorare le condizioni di sicurezza dell'organizzazione e impedire che vengano sfruttate da utenti malintenzionati.
-<br><br>
+
+
 ![vulnerabilità](./media/active-directory-identityprotection-vulnerabilities/101.png "vulnerabilities")
-<br>
+
+
 
 Le sezioni seguenti presentano una panoramica delle vulnerabilità segnalate da Identity Protection.
 
-## <a name="multifactor-authentication-registration-not-configured"></a>Registrazione per l'autenticazione a più fattori non configurata
+## <a name="multi-factor-authentication-registration-not-configured"></a>Registrazione per l'autenticazione a più fattori non configurata
 Questa vulnerabilità consente di controllare la distribuzione di Azure Multi-Factor Authentication all'interno dell'organizzazione. 
 
 L'autenticazione a più fattori di Azure fornisce un secondo livello di sicurezza per l'autenticazione utente. Consente di proteggere l'accesso ai dati e alle applicazioni dell'utente, garantendo al tempo stesso una procedura di accesso semplice. Offre autenticazione avanzata tramite una gamma di semplici opzioni di verifica, ad esempio una telefonata, un SMS, una notifica dell'app mobile o un codice di verifica e token OATH di terze parti.
@@ -55,6 +61,9 @@ Per altre informazioni, vedere [Azure AD Privileged Identity Management](active-
 ## <a name="see-also"></a>Vedere anche
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Panoramica del protocollo .NET per Azure AD | Microsoft Docs
-description: Questo articolo descrive come usare messaggi HTTP per autorizzare l'accesso ad applicazioni Web e API Web nel proprio tenant con Azure Active Directory e OAuth 2.0.
+title: Panoramica del protocollo .NET per Azure AD | Documentazione Microsoft
+description: Questo articolo descrive come usare messaggi HTTP per autorizzare l&quot;accesso ad applicazioni Web e API Web nel proprio tenant con Azure Active Directory e OAuth 2.0.
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: de3412cb-5fde-4eca-903a-4e9c74db68f2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: priyamo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 578db36affff53beb441eca68f9bf7217e46a511
+
 
 ---
-# <a name="authorize-access-to-web-applications-using-oauth-2.0-and-azure-active-directory"></a>Autorizzare l'accesso ad applicazioni Web con OAuth 2.0 e Azure Active Directory
+# <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Autorizzare l'accesso ad applicazioni Web con OAuth 2.0 e Azure Active Directory
 Azure Active Directory (Azure AD) usa OAuth 2.0 per consentire di autorizzare l'accesso ad applicazioni Web e API Web nel proprio tenant di Azure AD. Questa guida, indipendente dal linguaggio, descrive come inviare e ricevere messaggi HTTP senza usare una delle librerie open source di Microsoft.
 
 Il flusso del codice di autorizzazione di OAuth 2.0 è descritto nella [sezione 4.1 della specifica di OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.1) . Viene usato per eseguire l'autenticazione e l'autorizzazione nella maggior parte dei tipi di app, tra cui app Web e app native.
 
 [!INCLUDE [active-directory-protocols-getting-started](../../includes/active-directory-protocols-getting-started.md)]
 
-## <a name="oauth-2.0-authorization-flow"></a>Flusso di autorizzazione di OAuth 2.0
+## <a name="oauth-20-authorization-flow"></a>Flusso di autorizzazione di OAuth 2.0
 A livello generale, l'intero flusso di autenticazione per un'applicazione ha un aspetto analogo al seguente:
 
 ![Flusso del codice di autenticazione di OAuth](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
@@ -372,6 +376,9 @@ Una risposta di errore di esempio può avere un aspetto simile al seguente:
 
 Per una descrizione dei codici di errore e l'azione consigliata per il client, vedere [Codici per gli errori degli endpoint di token](#error-codes-for-token-endpoint-errors).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
