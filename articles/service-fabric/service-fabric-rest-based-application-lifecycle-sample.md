@@ -1,22 +1,26 @@
 ---
-title: Esempio di ciclo di vita di un'applicazione basata su REST | Microsoft Docs
-description: Un esempio di Infrastruttura di servizi di Microsoft Azure che mostra il ciclo di vita dell'applicazione utilizzando l'interfaccia REST di Infrastruttura di servizi.
+title: Esempio di ciclo di vita di un&quot;applicazione basata su REST | Microsoft Docs
+description: Un esempio di Infrastruttura di servizi di Microsoft Azure che mostra il ciclo di vita dell&quot;applicazione utilizzando l&quot;interfaccia REST di Infrastruttura di servizi.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 0a374e53-ff23-4ee8-8cc6-259d41e118e7
 ms.service: service-fabric
 ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2016
+ms.date: 12/2/2016
 ms.author: ryanwi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5e328a26ade36e154a0abac9cf3fa7fe9c7f8245
+
 
 ---
-# Esempio di ciclo di vita di un'applicazione basata su REST
+# <a name="rest-based-application-lifecycle-sample"></a>Esempio di ciclo di vita di un'applicazione basata su REST
 In questo esempio viene illustrato il ciclo di vita dell'applicazione di Infrastruttura di servizi tramite le chiamate API REST. Per ulteriori informazioni sul ciclo di vita dell'applicazione Service Fabric, vedere [Ciclo di vita dell'applicazione Service Fabric](service-fabric-application-lifecycle.md).
 
 Questo esempio esegue le operazioni seguenti:
@@ -36,8 +40,8 @@ Questo esempio esegue le operazioni seguenti:
 * Annulla il provisioning della versione 1.0.0 dell'esempio WordCount.
 * Consente di visualizzare l'elenco dei tipi di applicazioni, che non include più WordCount.
 
-## Prerequisiti
-Questo esempio usa l'[esempio WordCount](http://aka.ms/servicefabricsamples) (presente negli esempi della **guida introduttiva**). L'esempio WordCount deve essere dapprima creato, quindi due pacchetti di applicazioni devono essere copiati nell’archivio immagini.
+## <a name="prerequisites"></a>Prerequisiti
+Questo esempio usa l' [esempio WordCount](http://aka.ms/servicefabricsamples) (presente negli esempi della **guida introduttiva** ). L'esempio WordCount deve essere dapprima creato, quindi due pacchetti di applicazioni devono essere copiati nell’archivio immagini.
 
 | Cartella | Descrizione |
 | --- | --- |
@@ -46,10 +50,10 @@ Questo esempio usa l'[esempio WordCount](http://aka.ms/servicefabricsamples) (pr
 
 Per creare i pacchetti di applicazioni e copiarli nell’archivio immagini, procedere come segue:
 
-1. Copiare **C:\\ServiceFabricSamples\\Services\\WordCount\\WordCount\\pkg\\Debug** in **C:\\Temp\\WordCount**. In questo modo viene creato il pacchetto dell'applicazione WordCount.
-2. Copiare C:\\Temp\\WordCount in **C:\\Temp\\WordCountUpgrade**. In questo modo viene creato il pacchetto dell'**applicazione WordCountUpgrade**.
-3. Aprire **C:\\Temp\\WordCountUpgrade\\ApplicationManifest.xml** in un editor di testo.
-4. Nell'elemento **ApplicationManifest**, modificare l'attributo **ApplicationTypeVersion** in **"1.1.0"**. In questo modo viene aggiornato il numero di versione dell'applicazione.
+1. Copiare **C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug** in **C:\Temp\WordCount**. In questo modo viene creato il pacchetto dell'applicazione WordCount.
+2. Copiare C:\Temp\WordCount in **C:\Temp\WordCountUpgrade**. In questo modo viene creato il pacchetto dell' **applicazione WordCountUpgrade** .
+3. Aprire **C:\Temp\WordCountUpgrade\ApplicationManifest.xml** in un editor di testo.
+4. Nell'elemento **ApplicationManifest** modificare l'attributo **ApplicationTypeVersion** in **"1.1.0"**.  In questo modo viene aggiornato il numero di versione dell'applicazione.
 5. Salvare il file ApplicationManifest.xml modificato.
 6. Eseguire il seguente script PowerShell come amministratore per copiare le applicazioni nell’archivio immagini:
 
@@ -70,7 +74,7 @@ Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPathUpg
 
 Al termine dello script di PowerShell, quest'applicazione è pronta per l'esecuzione.
 
-## Esempio
+## <a name="example"></a>Esempio
 In questo esempio viene illustrato il ciclo di vita dell'applicazione di Infrastruttura di servizi.
 
 ```csharp
@@ -310,7 +314,7 @@ namespace ServiceFabricRestCaller
             request.ContentType = "application/json; charset=utf-8";
 
             // Create the byte array that will become the request body.
-            string requestBody = "{"ApplicationTypeBuildPath":"" + applicationTypeBuildPath + ""}";
+            string requestBody = "{\"ApplicationTypeBuildPath\":\"" + applicationTypeBuildPath + "\"}";
             byte[] requestBodyBytes = Encoding.UTF8.GetBytes(requestBody);
             request.ContentLength = requestBodyBytes.Length;
 
@@ -375,7 +379,7 @@ namespace ServiceFabricRestCaller
             HttpStatusCode statusCode;
 
             // Create the byte array that will become the request body.
-            string requestBody = "{"ApplicationTypeVersion":"" + versionToUnprovision + ""}";
+            string requestBody = "{\"ApplicationTypeVersion\":\"" + versionToUnprovision + "\"}";
             byte[] requestBodyBytes = Encoding.UTF8.GetBytes(requestBody);
             request.ContentLength = requestBodyBytes.Length;
 
@@ -517,10 +521,10 @@ namespace ServiceFabricRestCaller
             request.Method = "POST";
 
             // Create the byte array that will become the request body.
-            string requestBody = "{"Name":"fabric:/WordCount"," +
-                                    ""TypeName":"WordCount"," +
-                                    ""TypeVersion":"1.0.0"," +
-                                    ""ParameterList":[]}";
+            string requestBody = "{\"Name\":\"fabric:/WordCount\"," +
+                                    "\"TypeName\":\"WordCount\"," +
+                                    "\"TypeVersion\":\"1.0.0\"," +
+                                    "\"ParameterList\":[]}";
             byte[] requestBodyBytes = Encoding.UTF8.GetBytes(requestBody);
             request.ContentLength = requestBodyBytes.Length;
 
@@ -640,20 +644,20 @@ namespace ServiceFabricRestCaller
 
 
             // Create the Health Policy.
-            string requestBody = "{"Name":"fabric:/WordCount"," +
-                                    ""TargetApplicationTypeVersion":"1.1.0"," +
-                                    ""Parameters":[]," +
-                                    ""UpgradeKind":1," +
-                                    ""RollingUpgradeMode":1," +
-                                    ""UpgradeReplicaSetCheckTimeoutInSeconds":5," +
-                                    ""ForceRestart":true," +
-                                    ""MonitoringPolicy":" +
-                                    "{"FailureAction":1," +
-                                    ""HealthCheckWaitDurationInMilliseconds":"5000"," +
-                                    ""HealthCheckStableDurationInMilliseconds":"10000"," +
-                                    ""HealthCheckRetryTimeoutInMilliseconds":"20000"," +
-                                    ""UpgradeTimeoutInMilliseconds":"60000"," +
-                                    ""UpgradeDomainTimeoutInMilliseconds":"30000"}}";
+            string requestBody = "{\"Name\":\"fabric:/WordCount\"," +
+                                    "\"TargetApplicationTypeVersion\":\"1.1.0\"," +
+                                    "\"Parameters\":[]," +
+                                    "\"UpgradeKind\":1," +
+                                    "\"RollingUpgradeMode\":1," +
+                                    "\"UpgradeReplicaSetCheckTimeoutInSeconds\":5," +
+                                    "\"ForceRestart\":true," +
+                                    "\"MonitoringPolicy\":" +
+                                    "{\"FailureAction\":1," +
+                                    "\"HealthCheckWaitDurationInMilliseconds\":\"5000\"," +
+                                    "\"HealthCheckStableDurationInMilliseconds\":\"10000\"," +
+                                    "\"HealthCheckRetryTimeoutInMilliseconds\":\"20000\"," +
+                                    "\"UpgradeTimeoutInMilliseconds\":\"60000\"," +
+                                    "\"UpgradeDomainTimeoutInMilliseconds\":\"30000\"}}";
 
             // Create the byte array that will become the request body.
             byte[] requestBodyBytes = Encoding.UTF8.GetBytes(requestBody);
@@ -701,7 +705,12 @@ namespace ServiceFabricRestCaller
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 [Ciclo di vita dell'applicazione Service Fabric](service-fabric-application-lifecycle.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

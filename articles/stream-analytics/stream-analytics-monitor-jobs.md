@@ -1,13 +1,13 @@
 ---
-title: Monitorare i processi sull'analisi di flusso in modo programmato | Microsoft Docs
+title: Monitorare i processi a livello programmatico nell&quot;analisi di flusso | Microsoft Docs
 description: Informazioni su come monitorare in modo programmato i processi di analisi di flusso creati tramite le API REST, Azure SDK o Powershell.
 keywords: monitoraggio .net, monitoraggio processi, monitoraggio app
 services: stream-analytics
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 2ec02cc9-4ca5-4a25-ae60-c44be9ad4835
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,23 +15,27 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 09/26/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 183cc2025bd909ea4450564bc3598c2694b1c0db
+
 
 ---
-# Creare un monitoraggio dei processi di Analisi di flusso a livello di codice
- In questo articolo viene illustrato come abilitare il monitoraggio per un processo di analisi di flusso. Nei processi di Analisi dei flussi creati tramite le API REST, Azure SDK o Powershell il monitoraggio non è abilitato per impostazione predefinita. È possibile attivare manualmente questa funzione nel portale di Azure passando alla pagina di monitoraggio del processo e facendo clic sul pulsante Attiva oppure è possibile automatizzare questo processo attenendosi alla procedura descritta in questo articolo. I dati di monitoraggio verranno visualizzati nella scheda "Monitoraggio" nel portale di Azure relativa al processo di Analisi dei flussi.
+# <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Creare un monitoraggio dei processi di Analisi di flusso a livello di codice
+ In questo articolo viene illustrato come abilitare il monitoraggio per un processo di analisi di flusso. Nei processi di Analisi dei flussi creati tramite le API REST, Azure SDK o Powershell il monitoraggio non è abilitato per impostazione predefinita.  È possibile attivare manualmente questa funzione nel portale di Azure passando alla pagina di monitoraggio del processo e facendo clic sul pulsante Attiva oppure è possibile automatizzare questo processo attenendosi alla procedura descritta in questo articolo. I dati di monitoraggio verranno visualizzati nella scheda "Monitoraggio" nel portale di Azure relativa al processo di Analisi dei flussi.
 
 ![monitoraggio processi, scheda Processi](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per eseguire le procedure descritte nell'articolo è necessario:
 
 * Visual Studio 2012 o 2013
 * Scaricare e installare [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 * Un processo di Analisi dei flussi esistente che richiede l'attivazione del monitoraggio.
 
-## Configurare un progetto
+## <a name="setup-a-project"></a>Configurare un progetto
 1. Creare un'applicazione console .Net di Visual Studio C#.
-2. Nella Console di Gestione pacchetti, eseguire i comandi seguenti per installare i pacchetti NuGet. Il primo è l'SDK per .NET di Analisi di flusso di Azure. Il secondo è l'SDK di Azure Insights, che verrà utilizzato per abilitare il monitoraggio. L’ultimo è il client Azure Active Directory che verrà usato per l'autenticazione.
+2. Nella Console di Gestione pacchetti, eseguire i comandi seguenti per installare i pacchetti NuGet. Il primo è l'SDK per .NET di Analisi di flusso di Azure. Il secondo è l'SDK del Monitoraggio di Azure, che verrà usato per abilitare il monitoraggio. L’ultimo è il client Azure Active Directory che verrà usato per l'autenticazione.
    
    ```
    Install-Package Microsoft.Azure.Management.StreamAnalytics
@@ -112,7 +116,7 @@ Per eseguire le procedure descritte nell'articolo è necessario:
              throw new InvalidOperationException("Failed to acquire token");
      }
 
-## Creare i client di gestione
+## <a name="create-management-clients"></a>Creare i client di gestione
 Il codice seguente configurerà le variabili e i client di gestione necessari.
 
     string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
@@ -133,8 +137,8 @@ Il codice seguente configurerà le variabili e i client di gestione necessari.
     InsightsManagementClient insightsClient = new
     InsightsManagementClient(aadTokenCredentials, resourceManagerUri);
 
-## Abilitare il monitoraggio per un processo di Analisi dei flussi esistente.
-Il codice seguente consentirà di abilitare il monitoraggio per un processo di Analisi dei flussi **esistente**. La prima parte del codice esegue una richiesta GET al servizio di Analisi dei flussi per recuperare informazioni sul processo di Analisi dei flussi specifico. Viene utilizzata la proprietà "Id" (recuperata dalla richiesta GET) come parametro per il metodo Put nella seconda metà del codice che invia una richiesta PUT al servizio Insights per abilitare il monitoraggio per il processo di Analisi dei flussi.
+## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>Abilitare il monitoraggio per un processo di Analisi dei flussi esistente.
+Il codice seguente consentirà di abilitare il monitoraggio per un processo di Analisi dei flussi **esistente** . La prima parte del codice esegue una richiesta GET al servizio di Analisi dei flussi per recuperare informazioni sul processo di Analisi dei flussi specifico. Viene utilizzata la proprietà "Id" (recuperata dalla richiesta GET) come parametro per il metodo Put nella seconda metà del codice che invia una richiesta PUT al servizio Insights per abilitare il monitoraggio per il processo di Analisi dei flussi.
 
 > [!WARNING]
 > Se è stata precedentemente abilitata per un differente processo di analisi di flusso, tramite il portale di Azure o in modo programmato mediante il seguente codice, **è consigliabile fornire lo stesso nome di account di archiviazione fornito quando è stato precedentemente abilitato il monitoraggio.**
@@ -166,14 +170,19 @@ Il codice seguente consentirà di abilitare il monitoraggio per un processo di A
 
 
 
-## Supporto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics).
+## <a name="get-support"></a>Supporto
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

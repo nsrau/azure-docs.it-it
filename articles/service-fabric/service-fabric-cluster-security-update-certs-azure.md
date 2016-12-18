@@ -1,12 +1,12 @@
 ---
-title: Aggiungere, eseguire il rollover e rimuovere i certificati usati in un cluster Service Fabric in Azure | Microsoft Docs
+title: Aggiungere, eseguire il rollover e rimuovere i certificati usati in un cluster di Service Fabric in Azure | Documentazione Microsoft
 description: Descrive come caricare un certificato di cluster secondario ed eseguire il rollover del vecchio certificato primario.
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,25 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2016
 ms.author: chackdan
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 829af0b685f07c2e529edf1a0ef72b741d37a14c
+
 
 ---
-# Aggiungere o rimuovere certificati per un cluster Service Fabric in Azure
-È consigliabile acquisire familiarità con l'uso dei certificati x. 509 da parte di Service Fabric; vedere [Scenari di sicurezza del cluster](service-fabric-cluster-security.md). È necessario comprendere cos'è un certificato del cluster e a cosa serve prima di procedere.
+# <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Aggiungere o rimuovere certificati per un cluster Service Fabric in Azure
+Per acquisire familiarità con l'uso dei certificati X.509 da parte di Service Fabric, vedere [Scenari di sicurezza di un cluster di Service Fabric](service-fabric-cluster-security.md). È necessario comprendere cos'è un certificato del cluster e a cosa serve prima di procedere.
 
-Service Fabric consente di specificare due certificati di cluster, uno primario e uno secondario, durante la configurazione della sicurezza basata su certificati al momento della creazione del cluster. Per i dettagli vedere l'argomento relativo alla [creazione di un cluster Azure tramite il portale](service-fabric-cluster-creation-via-portal.md) o alla [creazione di un cluster Azure tramite Azure Resource Manager](service-fabric-cluster-creation-via-Resource Manager.md). Se si esegue la distribuzione tramite Resource Manager e si specifica un solo certificato del cluster, questo viene usato come certificato primario. Dopo la creazione del cluster è possibile aggiungere un nuovo certificato come secondario.
+Service Fabric consente di specificare due certificati di cluster, uno primario e uno secondario, durante la configurazione della sicurezza basata su certificati al momento della creazione del cluster. Per i dettagli vedere l'argomento relativo alla [creazione di un cluster Azure tramite il portale](service-fabric-cluster-creation-via-portal.md) o alla [creazione di un cluster Azure tramite Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Se si esegue la distribuzione tramite Resource Manager e si specifica un solo certificato del cluster, questo viene usato come certificato primario. Dopo la creazione del cluster è possibile aggiungere un nuovo certificato come secondario.
 
 > [!NOTE]
-> Per un cluster sicuro, è sempre necessario almeno un certificato (primario o secondario) valido (non revocato né scaduto) distribuito. In caso contrario, il cluster smette di funzionare. 90 giorni prima della scadenza della copertura di tutti i certificati validi il sistema genera una traccia di avviso e anche un evento di integrità dell'avviso nel nodo. Attualmente non sono disponibili messaggi di posta elettronica o altre notifiche inviati da Service Fabric su questo argomento.
+> Per un cluster sicuro, è sempre necessario almeno un certificato (primario o secondario) valido (non revocato né scaduto) distribuito. In caso contrario, il cluster smette di funzionare. 90 giorni prima della scadenza della copertura di tutti i certificati validi il sistema genera una traccia di avviso e anche un evento di integrità dell'avviso nel nodo. Attualmente non sono disponibili messaggi di posta elettronica o altre notifiche inviati da Service Fabric su questo argomento. 
 > 
 > 
 
-## Aggiungere un certificato secondario tramite il portale
+## <a name="add-a-secondary-certificate-using-the-portal"></a>Aggiungere un certificato secondario tramite il portale
 Per aggiungere un altro certificato come secondario, è necessario caricarlo in un insieme di credenziali delle chiavi di Azure e quindi distribuirlo per le macchine virtuali nel cluster. Per altre informazioni, vedere il blog relativo alla [distribuzione di certificati nelle macchine virtuali dall'insieme di credenziali delle chiavi gestito dal cliente](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
 
-1. Per informazioni sulla procedura, vedere [Caricare un certificato X.509 nell'insieme di credenziali delle chiavi](service-fabric-secure-azure-cluster-with-certs.md#step-2-upload-the-x509-certificate-to-the-key-vault).
+1. Per informazioni, vedere [Aggiungere i certificati all'insieme di credenziali delle chiavi](service-fabric-cluster-creation-via-arm.md#add-certificate-to-key-vault).
 2. Accedere al [portale di Azure](https://portal.azure.com/) e passare alla risorsa del cluster in cui si vuole aggiungere questo certificato.
-3. In **IMPOSTAZIONI** fare clic su **Sicurezza** per visualizzare il pannello Cluster Security (Sicurezza cluster).
-4. Fare clic sul pulsante **"+Certificato"** nella parte superiore del pannello per visualizzare il pannello **"Aggiungi certificato"**.
+3. In **IMPOSTAZIONI** fare clic su **Sicurezza** per visualizzare il pannello Sicurezza cluster.
+4. Fare clic sul pulsante **"+Certificate"** (+Certificato) nella parte superiore del pannello per visualizzare il pannello **"Aggiungi certificato"**.
 5. Selezionare "Identificazione personale certificato secondario" dall'elenco a discesa e compilare l'identificazione personale del certificato secondario caricato per l'insieme di credenziali.
 
 > [!NOTE]
@@ -59,19 +63,19 @@ Di seguito è riportata una schermata che illustra l'aspetto del pannello relati
 > 
 > 
 
-## Aggiungere un certificato secondario e fare in modo che diventi primario tramite PowerShell di Resource Manage
+## <a name="add-a-secondary-certificate-and-swap-it-to-be-the-primary-using-resource-manager-powershell"></a>Aggiungere un certificato secondario e fare in modo che diventi primario tramite PowerShell di Resource Manage
 Questi passaggi presuppongono che si abbia familiarità con il funzionamento di Resource Manager e che sia stato distribuito almeno un cluster Service Fabric usando un modello di Resource Manager e che il modello usato per configurare il cluster sia a portata di mano. Inoltre, si presuppone che si abbia dimestichezza con l'uso di JSON.
 
 > [!NOTE]
-> Se si sta cercando un modello di esempio e i parametri che è possibile usare per procedere o come punto di partenza, scaricarlo da qui [repository di git]. (https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample).
+> Se si sta cercando un modello di esempio e i parametri che è possibile usare per procedere o come punto di partenza, scaricarlo da qui [repository di git]. (https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 
 > 
 > 
 
-#### Modificare il modello di Azure Resource Manager
-Se è stato usato l'esempio di [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) per proseguire, queste modifiche saranno presenti nell'esempio 5-VM-1-NodeTypes-Secure\_Step2.JSON Usare l'esempio 5-VM-1-NodeTypes-Secure\_Step1.JSON per distribuire un cluster sicuro
+#### <a name="edit-your-resource-manager-template"></a>Modificare il modello di Azure Resource Manager
+Se è stato usato l'esempio del [Repository Git](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) per proseguire, queste modifiche saranno presenti nell'esempio 5-VM-1-NodeTypes-Secure_Step2.JSON . Usare l'esempio 5-VM-1-NodeTypes-Secure_Step1.JSON per distribuire un cluster sicuro
 
 1. Aprire il modello di Resource Manager usato per la distribuzione del cluster.
-2. Aggiungere un nuovo parametro "secCertificateThumbprint" di tipo "string". Se si usa il modello di Resource Manager scaricato dal portale durante la fase di creazione o dai modelli di avvio rapido, ricercare il parametro che dovrebbe essere già definito.
+2. Aggiungere un nuovo parametro "secCertificateThumbprint" di tipo "string". Se si usa il modello di Resource Manager scaricato dal portale durante la fase di creazione o dai modelli di avvio rapido, ricercare il parametro che dovrebbe essere già definito.  
 3. Individuare la definizione di risorsa "Microsoft.ServiceFabric/clusters". Sotto le proprietà si noterà il tag JSON "Certificate" che dovrebbe essere simile al frammento JSON seguente.
    
    ```JSON
@@ -81,9 +85,9 @@ Se è stato usato l'esempio di [git-repo](https://github.com/ChackDan/Service-Fa
           "x509StoreName": "[parameters('certificateStoreValue')]"
         }
    ``` 
-4. Aggiungere un nuovo tag "thumbprintSecondary" e assegnare un valore "[parameters('secCertificateThumbprint')]".
+4. Aggiungere un nuovo tag "thumbprintSecondary" e assegnare un valore "[parameters('secCertificateThumbprint')]".  
 
-La definizione della risorsa dovrebbe essere simile alla seguente; a seconda dell'origine del modello, potrebbe non essere esattamente come il frammento seguente. Come si può vedere di seguito, si sta specificando un nuovo certificato come primario e si sta spostando il certificato primario corrente come secondario. Ciò determina il rollover del certificato corrente nel nuovo certificato in un passaggio di distribuzione.
+La definizione della risorsa dovrebbe essere simile alla seguente; a seconda dell'origine del modello, potrebbe non essere esattamente come il frammento seguente. Come si può vedere di seguito, si sta specificando un nuovo certificato come primario e si sta spostando il certificato primario corrente come secondario.  Ciò determina il rollover del certificato corrente nel nuovo certificato in un passaggio di distribuzione.
 
 ```JSON
 
@@ -96,10 +100,10 @@ La definizione della risorsa dovrebbe essere simile alla seguente; a seconda del
 
 ```
 
-#### Modificare il file di modello per riflettere i nuovi parametri aggiunti in precedenza
-Se si usa l'esempio di [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) per proseguire, è possibile iniziare a modificare l'esempio 5-VM-1-NodeTypes-Secure.paramters\_Step2.JSON
+#### <a name="edit-your-template-file-to-reflect-the-new-parameters-you-added-above"></a>Modificare il file di modello per riflettere i nuovi parametri aggiunti in precedenza
+Se si usa l'esempio del [Repository Git](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) per proseguire, è possibile iniziare a modificare l'esempio 5-VM-1-NodeTypes-Secure.paramters_Step2.JSON 
 
-Modificare il parametro File del modello di Resource Manager, aggiungere i nuovi parametri per secCertificate e scambiare i dettagli del certificato primario esistente con il secondario e sostituire i dettagli del certificato primario con i dettagli del nuovo certificato.
+Modificare il parametro File del modello di Resource Manager, aggiungere i nuovi parametri per secCertificate e scambiare i dettagli del certificato primario esistente con il secondario e sostituire i dettagli del certificato primario con i dettagli del nuovo certificato. 
 
 ```JSON
     "secCertificateThumbprint": {
@@ -123,7 +127,7 @@ Modificare il parametro File del modello di Resource Manager, aggiungere i nuovi
 
 ```
 
-### Distribuire il modello in Azure
+### <a name="deploy-the-template-to-azure"></a>Distribuire il modello in Azure
 1. È ora possibile distribuire il progetto in Azure. Aprire il prompt dei comandi di Azure PowerShell versione 1+.
 2. Accedere al proprio account Azure e selezionare la sottoscrizione di Azure specifica. Questo passaggio è importante per gli utenti che hanno accesso a più sottoscrizioni di Azure.
 
@@ -162,7 +166,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $ResouceGroup2 -TemplatePa
 
 ```
 
-Una volta completata la distribuzione, connettersi al cluster tramite il nuovo certificato ed eseguire alcune query, se si è in grado di eseguire questa operazione. È quindi possibile eliminare il vecchio certificato primario.
+Una volta completata la distribuzione, connettersi al cluster tramite il nuovo certificato ed eseguire alcune query, se si è in grado di eseguire questa operazione. È quindi possibile eliminare il vecchio certificato primario. 
 
 Se si usa un certificato autofirmato, non dimenticare di importarlo nell'archivio certificati locale TrustedPeople.
 
@@ -172,7 +176,7 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FilePath c:\Mycertificates\chackdanTestCertificate9.pfx -Password (ConvertTo-SecureString -String abcd123 -AsPlainText -Force)
 
 ```
-Per riferimento rapido ecco il comando per connettersi a un cluster sicuro
+Per riferimento rapido ecco il comando per connettersi a un cluster sicuro 
 
 ```powershell
 $ClusterName= "chackosecure5.westus.cloudapp.azure.com:19000"
@@ -192,17 +196,17 @@ Per riferimento rapido ecco il comando per ottenere l'integrità del cluster
 Get-ServiceFabricClusterHealth 
 ```
 
-## Rimuovere il vecchio certificato tramite il portale
+## <a name="remove-the-old-certificate-using-the-portal"></a>Rimuovere il vecchio certificato tramite il portale
 Ecco la procedura per rimuovere un certificato precedente in modo che il cluster non lo usi:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) e passare alle impostazioni di sicurezza del cluster.
 2. Fare clic con il pulsante destro sul certificato da rimuovere
-3. Selezionare Elimina e seguire le istruzioni.
+3. Selezionare Elimina e seguire le istruzioni. 
 
 [SecurityConfigurations_05]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_05.png
 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni sulla gestione del cluster, leggere questi articoli:
 
 * [Processo di aggiornamento del cluster di infrastruttura di servizi e operazioni eseguibile dall'utente](service-fabric-cluster-upgrade.md)
@@ -214,4 +218,8 @@ Per ulteriori informazioni sulla gestione del cluster, leggere questi articoli:
 [SecurityConfigurations_05]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_05.png
 [SecurityConfigurations_08]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_08.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

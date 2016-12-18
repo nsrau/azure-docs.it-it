@@ -1,13 +1,13 @@
 ---
-title: Aggiungere l'azione di query alle app per la logica | Microsoft Docs
-description: Panoramica dell'azione di query per l'esecuzione di azioni come Filtra matrice.
-services: ''
-documentationcenter: ''
+title: Aggiungere l&quot;azione di query alle app per la logica | Documentazione Microsoft
+description: Panoramica dell&quot;azione di query per l&quot;esecuzione di azioni come Filtra matrice.
+services: 
+documentationcenter: 
 author: jeffhollan
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 34e702c7-f9e5-4885-9266-fc7404adecfe
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d45ada934ad9211dbe8534b210ff06653c40afd1
+
 
 ---
-# Introduzione all'azione di query
+# <a name="get-started-with-the-query-action"></a>Introduzione all'azione di query
 Con l'azione di query è possibile usare batch e matrici per poter eseguire flussi di lavoro per:
 
 * Creare un'attività per tutti i record ad alta priorità di un database.
@@ -25,16 +29,16 @@ Con l'azione di query è possibile usare batch e matrici per poter eseguire flus
 
 Per iniziare a usare l'azione di query in un'app per la logica, vedere [Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Usare l'azione di query
-Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](connectors-overview.md).
+## <a name="use-the-query-action"></a>Usare l'azione di query
+Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](connectors-overview.md).  
 
 L'azione di query ha attualmente un'operazione, denominata Filtra matrice, esposta nella finestra di progettazione. Questa consente di interrogare una matrice e restituire un set di risultati filtrati.
 
 Ecco come è possibile aggiungerla in un'app per la logica:
 
-1. Fare clic sul pulsante **Nuovo passaggio**.
-2. Scegliere **Aggiungi un'azione**.
-3. Nella casella di ricerca azione digitare **Filtro** per elencare l'azione **Filtra matrice**.
+1. Fare clic sul pulsante **Nuovo passaggio** .
+2. Selezionare **Aggiungi un'azione**.
+3. Nella casella di ricerca azione digitare **filtro** per elencare l'azione **Filtra matrice**.
    
     ![Selezionare l'azione di query](./media/connectors-native-query/using-action-1.png)
 4. Selezionare una matrice da filtrare. Lo screenshot seguente illustra la matrice di risultati ottenuta da una ricerca in Twitter.
@@ -45,18 +49,19 @@ Ecco come è possibile aggiungerla in un'app per la logica:
     L'azione genera una nuova matrice che contiene solo i risultati che soddisfano i requisiti del filtro.
 6. Fare clic sull'angolo in alto a sinistra della barra degli strumenti per salvare e pubblicare (attivare) l'app per la logica.
 
-## Azione di query
+## <a name="query-action"></a>Azione di query
 Ecco i dettagli per l'azione supportata da questo connettore. Il connettore supporta una sola azione possibile.
 
 | Azione | Descrizione |
 | --- | --- |
 | Filtra matrice |Valuta una condizione per ogni elemento in una matrice e restituisce i risultati |
 
-## Informazioni dettagliate sulle azioni
+## <a name="action-details"></a>Informazioni dettagliate sulle azioni
 L'azione di query supporta un'azione possibile. La tabella seguente descrive i campi di input obbligatori e facoltativi per l'azione e i dettagli di output corrispondenti associati all'uso dell'azione.
 
-### Filtra matrice
-Di seguito sono riportati campi di input per l'azione, che esegue una richiesta HTTP in uscita. Un asterisco (*) indica che è un campo obbligatorio.
+### <a name="filter-array"></a>Filtra matrice
+Di seguito sono riportati campi di input per l'azione, che esegue una richiesta HTTP in uscita.
+Un asterisco (*) indica che è un campo obbligatorio.
 
 | Nome visualizzato | Nome proprietà | Descrizione |
 | --- | --- | --- |
@@ -65,14 +70,19 @@ Di seguito sono riportati campi di input per l'azione, che esegue una richiesta 
 
 <br>
 
-### Dettagli dell'output
+### <a name="output-details"></a>Dettagli dell'output
 Di seguito sono riportati i dettagli di output per la risposta HTTP.
 
-| Nome proprietà | Tipo di dati | Description |
+| Nome proprietà | Tipo di dati | Descrizione |
 | --- | --- | --- |
 | Matrice filtrata |array |Matrice che contiene un oggetto per ogni risultato filtrato |
 
-## Passaggi successivi
-Provare ora a usare la piattaforma e [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l'[elenco di API](apis-list.md).
+## <a name="next-steps"></a>Passaggi successivi
+Provare ora a usare la piattaforma e [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

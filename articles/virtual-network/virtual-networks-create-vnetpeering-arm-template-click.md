@@ -10,14 +10,14 @@ tags: azure-resource-manager
 ms.assetid: 75f8d10e-23e8-44bd-9972-aab74048cf38
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayanannamalai;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5af02963f139648d9f1b662f2da913ffa0d6f128
+ms.sourcegitcommit: bd5f3b3cd46ce347896ed9ef229e438b2a3c830f
+ms.openlocfilehash: 3556e4a10f17490fd08357d644c664a2b74705dd
 
 
 ---
@@ -308,26 +308,34 @@ Per creare un peering tra reti virtuali da modelli di distribuzione diversi, seg
 1. Il testo seguente illustra la definizione del collegamento per il peering reti virtuali da VNET1 a VNET2 in questo scenario. È necessario un solo collegamento per eseguire il peering di una rete virtuale classica a una rete virtuale di Azure Resource Manager.
    
     Be sure to put in your subscription ID for where the classic virtual network or VNET2 is located and change MyResouceGroup to the appropriate resource group name.
-   
-    {  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",  "contentVersion": "1.0.0.0",  "parameters": {  },  "variables": {  },  "resources": [
-   
+
         {
-        "apiVersion": "2016-06-01",
-        "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
-        "name": "VNET1/LinkToVNET2",
-        "location": "[resourceGroup().location]",
-        "properties": {
-        "allowVirtualNetworkAccess": true,
-        "allowForwardedTraffic": false,
-        "allowGatewayTransit": false,
-        "useRemoteGateways": false,
-            "remoteVirtualNetwork": {
-            "id": "[resourceId('Microsoft.ClassicNetwork/virtualNetworks', 'VNET2')]"
-    }
-   
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+        },
+        "variables": {
+        },
+        "resources": [
+
+            {
+            "apiVersion": "2016-06-01",
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "name": "VNET1/LinkToVNET2",
+            "location": "[resourceGroup().location]",
+            "properties": {
+            "allowVirtualNetworkAccess": true,
+            "allowForwardedTraffic": false,
+            "allowGatewayTransit": false,
+            "useRemoteGateways": false,
+                "remoteVirtualNetwork": {
+                "id": "[resourceId('Microsoft.ClassicNetwork/virtualNetworks', 'VNET2')]"
         }
+
+            }
+            }
+        ]
         }
-    ]  }
 2. Per distribuire il file modello, eseguire il cmdlet seguente per creare o aggiornare la distribuzione.
    
         New-AzureRmResourceGroupDeployment -ResourceGroupName MyResourceGroup -TemplateFile .\VnetPeering.json -DeploymentDebugLogLevel all
@@ -374,6 +382,6 @@ Dopo avere stabilito il peering tra una rete virtuale classica e una rete virtua
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

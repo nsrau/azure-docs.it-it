@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: .net
 author: ms-toddabel
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 9f7e1fa5-6543-4efd-b53f-39510f18df56
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/28/2016
 ms.author: toddabel
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 454e1379e4ec598ffd31017b413f6b15c98039a6
+
 
 ---
 # <a name="collect-logs-by-using-azure-diagnostics"></a>Raccogliere log con Diagnostica di Azure
@@ -31,10 +35,10 @@ Uno dei modi per caricare e raccogliere i log consiste nell'usare l'estensione D
 Questi strumenti verranno usati per eseguire alcune operazioni nel documento:
 
 * [Diagnostica di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) (correlata ai Servizi cloud di Azure, include alcune informazioni ed esempi utili)
-* [Gestione risorse di Azure](../resource-group-overview.md)
+* [Gestione risorse di Azure](../azure-resource-manager/resource-group-overview.md)
 * [Azure PowerShell](../powershell-install-configure.md)
 * [Client di Azure Resource Manager](https://github.com/projectkudu/ARMClient)
-* [Modello di Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
+* [Modello di Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="log-sources-that-you-might-want-to-collect"></a>Origini di log da raccogliere
 * **Log di Service Fabric:** generati dalla piattaforma in canali Event Tracing for Windows (ETW) ed EventSource standard. I log possono essere di diversi tipi:
@@ -206,15 +210,18 @@ Ad esempio, se l'origine evento è denominato My Eventsource, aggiungere il codi
         }
 ```
 
-Per raccogliere i contatori delle prestazioni o i log eventi, modificare il modello di Resource Manager tramite gli esempi forniti in [Creare una macchina virtuale Windows con monitoraggio e diagnostica mediante i modelli di Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md). Pubblicare di nuovo il modello di Resource Manager.
+Per raccogliere i contatori delle prestazioni o i log eventi, modificare il modello di Resource Manager tramite gli esempi forniti in [Creare una macchina virtuale Windows con monitoraggio e diagnostica mediante i modelli di Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Pubblicare di nuovo il modello di Resource Manager.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni più dettagliate sugli eventi da esaminare durante la risoluzione dei problemi, vedere gli eventi di diagnostica emessi per [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) e [Reliable Services](service-fabric-reliable-services-diagnostics.md).
 
 ## <a name="related-articles"></a>Articoli correlati
-* [Informazioni su come raccogliere i contatori delle prestazioni o i log mediante l'estensione Diagnostica](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
+* [Informazioni su come raccogliere i contatori delle prestazioni o i log mediante l'estensione Diagnostica](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Soluzione Service Fabric in Log Analytics](../log-analytics/log-analytics-service-fabric.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

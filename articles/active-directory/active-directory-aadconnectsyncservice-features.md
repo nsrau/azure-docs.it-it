@@ -1,12 +1,12 @@
 ---
-title: Funzionalità e configurazione del Servizio di sincronizzazione Azure AD Connect | Microsoft Docs
-description: Descrive le funzionalità sul lato del servizio per il Servizio di sincronizzazione Azure AD Connect.
+title: "Funzionalità e configurazione del Servizio di sincronizzazione Azure AD Connect | Documentazione Microsoft"
+description: "Descrive le funzionalità sul lato del servizio per il Servizio di sincronizzazione Azure AD Connect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2016
 ms.author: andkjell;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 70f6596ec85f8662efecd99679fde6b7e9a29aae
+
 
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Funzionalità del servizio di sincronizzazione Azure AD Connect
@@ -104,6 +108,9 @@ Dopo aver abilitato questa funzionalità, i valori di userPrincipalName esistent
 * [Servizio di sincronizzazione Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
