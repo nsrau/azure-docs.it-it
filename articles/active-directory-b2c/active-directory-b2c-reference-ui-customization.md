@@ -1,22 +1,26 @@
 ---
-title: 'Azure Active Directory B2C: personalizzazione dell''interfaccia utente | Microsoft Docs'
-description: Argomento che descrive le funzionalità di personalizzazione dell'interfaccia utente in Azure Active Directory B2C
+title: 'Azure Active Directory B2C: personalizzazione dell&quot;interfaccia utente | Documentazione Microsoft'
+description: "Argomento che descrive le funzionalità di personalizzazione dell&quot;interfaccia utente in Azure Active Directory B2C"
 services: active-directory-b2c
-documentationcenter: ''
+documentationcenter: 
 author: swkrish
 manager: mbaldwin
 editor: bryanla
-
+ms.assetid: 99f5a391-5328-471d-a15c-a2fafafe233d
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2016
+ms.date: 12/06/2016
 ms.author: swkrish
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c3b7c3524ad14b585906c6cebb5a7546c4776c43
+
 
 ---
-# Azure Active Directory B2C: personalizzare l'interfaccia utente di Azure AD B2C
+# <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: personalizzare l'interfaccia utente di Azure AD B2C
 L'esperienza utente rappresenta l'aspetto più importante in un'applicazione rivolta agli utenti finali. Fa la differenza tra una buona applicazione e un'applicazione straordinaria e tra utenti semplicemente attivi e utenti coinvolti. Azure Active Directory (Azure AD) B2C permette di personalizzare le pagine di iscrizione, accesso (*vedere la nota seguente*), modifica del profilo e reimpostazione della password degli utenti con controllo Pixel Perfect.
 
 > [!NOTE]
@@ -31,18 +35,18 @@ Contenuto dell'articolo:
 * Elementi principali dell'interfaccia utente in ogni tipo di pagina.
 * Procedure consigliate per l'utilizzo di questa funzionalità.
 
-## Funzionalità di personalizzazione dell'interfaccia utente della pagina
+## <a name="the-page-ui-customization-feature"></a>Funzionalità di personalizzazione dell'interfaccia utente della pagina
 La funzionalità di personalizzazione dell'interfaccia utente della pagina consente di personalizzare l'aspetto delle pagine di iscrizione, accesso, reimpostazione password e modifica del profilo visualizzate dagli utenti, tramite la configurazione di [criteri](active-directory-b2c-reference-policies.md). Gli utenti potranno usufruire di un'esperienza semplice durante lo spostamento tra le pagine dell'applicazione e le pagine gestite da Azure AD B2C.
 
 Diversamente da altri servizi in cui le opzioni dell'interfaccia utente sono limitate o sono disponibili solo tramite le API, Azure AD B2C usa un approccio moderno e più semplice rispetto alla personalizzazione dell'interfaccia utente della pagina.
 
 Ecco come funziona: Azure AD B2C esegue il codice nel browser dell'utente e usa un approccio moderno denominato [Condivisione di risorse tra le origini (CORS)](http://www.w3.org/TR/cors/) per caricare il contenuto da un URL specificato nei criteri. È possibile specificare URL diversi per pagine diverse. Il codice unisce elementi dell'interfaccia utente di Azure AD B2C e il contenuto caricato dall'URL e mostra la pagina agli utenti. Operazioni da eseguire:
 
-1. Creare contenuto HTML5 ben formato con un elemento `<div id="api"></div>`, che deve essere un elemento vuoto, inserito all'interno dell'elemento `<body>`. Questo elemento corrisponde al punto in cui viene inserito il contenuto di Azure AD B2C.
+1. Creare contenuto HTML5 ben formato con un elemento `<div id="api"></div>`, che deve essere un elemento vuoto, inserito all'interno di `<body>`. Questo elemento corrisponde al punto in cui viene inserito il contenuto di Azure AD B2C.
 2. Ospitare il contenuto in un endpoint HTTPS in cui è consentita la condivisione CORS.
 3. Applicare lo stile agli elementi dell'interfaccia utente inseriti da Azure AD B2C.
 
-## Provare la funzionalità di personalizzazione dell'interfaccia utente
+## <a name="test-out-the-ui-customization-feature"></a>Provare la funzionalità di personalizzazione dell'interfaccia utente
 Se si vuole provare la funzionalità di personalizzazione dell'interfaccia utente usando il contenuto HTML e CSS di esempio, è disponibile [un semplice strumento di supporto](active-directory-b2c-reference-ui-customization-helper-tool.md) per caricare e configurare il contenuto di esempio nell'archivio BLOB di Azure.
 
 > [!NOTE]
@@ -50,7 +54,7 @@ Se si vuole provare la funzionalità di personalizzazione dell'interfaccia utent
 > 
 > 
 
-### Contenuto HTML di base per il test
+### <a name="the-most-basic-html-content-for-testing"></a>Contenuto HTML di base per il test
 Di seguito è illustrato il contenuto HTML di base che è possibile usare per testare questa funzionalità. Utilizzare lo stesso strumento di supporto specificato in precedenza per caricare e configurare il contenuto nell'archivio di BLOB di Azure. È quindi possibile verificare che i pulsanti di base, senza stili e i campi del modulo in ogni pagina siano visualizzati e funzionali.
 
 ```HTML
@@ -67,10 +71,10 @@ Di seguito è illustrato il contenuto HTML di base che è possibile usare per te
 
 ```
 
-## Elementi principali dell'interfaccia utente in ogni tipo di pagina
-Le sezioni seguenti includono alcuni esempi di frammenti HTML5 che Azure AD B2C unisce nell'elemento `<div id="api"></div>` che si trova nel contenuto. **Non inserire questi frammenti nel contenuto HTML5.** Il servizio Azure AD B2C li inserisce in fase di esecuzione. Usare questi esempi per progettare i propri fogli di stile.
+## <a name="the-core-ui-elements-in-each-type-of-page"></a>Elementi principali dell'interfaccia utente in ogni tipo di pagina
+Le sezioni seguenti includono alcuni esempi di frammenti HTML5 che Azure AD B2C unisce nell'elemento `<div id="api"></div>` che si trova nel contenuto. **Non inserire questi frammenti nel contenuto HTML5.**  Il servizio Azure AD B2C li inserisce in fase di esecuzione. Usare questi esempi per progettare i propri fogli di stile.
 
-### Contenuto di Azure AD B2C inserito nella "Pagina di selezione del provider di identità"
+### <a name="azure-ad-b2c-content-inserted-into-the-identity-provider-selection-page"></a>Contenuto di Azure AD B2C inserito nella "Pagina di selezione del provider di identità"
 Questa pagina contiene un elenco dei provider di identità che l'utente può scegliere durante la procedura di iscrizione o di accesso. Sono presenti sia i provider di identità basati su social network, ad esempio Facebook e Google+, sia gli account locali (basati su indirizzo di posta elettronica o nome utente).
 
 ```HTML
@@ -97,7 +101,7 @@ Questa pagina contiene un elenco dei provider di identità che l'utente può sce
 
 ```
 
-### Contenuto di Azure AD B2C inserito nella "Pagina di iscrizione dell'account locale"
+### <a name="azure-ad-b2c-content-inserted-into-the-local-account-sign-up-page"></a>Contenuto di Azure AD B2C inserito nella "Pagina di iscrizione dell'account locale"
 Questa pagina contiene un modulo di iscrizione che l'utente deve compilare per eseguire l'iscrizione a un account locale basato su indirizzo di posta elettronica o nome utente. Il modulo può contenere diversi controlli di input, ad esempio caselle per l'immissione di testo, caselle per l'immissione della password, pulsanti di opzione, caselle a discesa a selezione singola e caselle di controllo con selezione multipla.
 
 ```HTML
@@ -146,14 +150,14 @@ Questa pagina contiene un modulo di iscrizione che l'utente deve compilare per e
                     <div class="attrEntry">
                         <div class="helpText">8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ " ( ) ; .This information is required</div>
                         <label>Enter password</label>
-                        <input id="password" class="textInput" type="password" placeholder="Enter password" pattern="^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)|(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])|(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])|(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]))([A-Za-z\d@#$%^&amp;*-_+=[]{}|\\:',?/`~";();!]|\.(?!@)){8,16}$" title="8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ "; ( ) ; ." required=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Enter password');" class="tiny">What is this?</a>
+                        <input id="password" class="textInput" type="password" placeholder="Enter password" pattern="^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)|(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])|(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])|(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]))([A-Za-z\d@#$%^&amp;*\-_+=[\]{}|\\:',?/`~&quot;();!]|\.(?!@)){8,16}$" title="8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ &quot; ( ) ; ." required=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Enter password');" class="tiny">What is this?</a>
                     </div>
                 </li>
                 <li>
                     <div class="attrEntry">
                         <div class="helpText"> This information is required</div>
                         <label>Reenter password</label>
-                        <input id="reenterPassword" class="textInput" type="password" placeholder="Reenter password" pattern="^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)|(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])|(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])|(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]))([A-Za-z\d@#$%^&amp;*-_+=[]{}|\\:',?/`~";();!]|\.(?!@)){8,16}$" title=" " required=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Reenter password');" class="tiny">What is this?</a>
+                        <input id="reenterPassword" class="textInput" type="password" placeholder="Reenter password" pattern="^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)|(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])|(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])|(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]))([A-Za-z\d@#$%^&amp;*\-_+=[\]{}|\\:',?/`~&quot;();!]|\.(?!@)){8,16}$" title=" " required=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Reenter password');" class="tiny">What is this?</a>
                     </div>
                 </li>
                 <li>
@@ -213,10 +217,10 @@ Questa pagina contiene un modulo di iscrizione che l'utente deve compilare per e
 
 ```
 
-### Contenuto di Azure AD B2C inserito nella "Pagina di iscrizione all'account di social networking"
+### <a name="azure-ad-b2c-content-inserted-into-the-social-account-sign-up-page"></a>Contenuto di Azure AD B2C inserito nella "Pagina di iscrizione all'account di social networking"
 Questa pagina contiene un modulo di iscrizione che l'utente deve compilare per effettuare l'iscrizione usando un account esistente di un provider di identità basato su social network, ad esempio Facebook o Google+. Questa pagina è simile alla pagina di iscrizione dell'account locale (mostrata nella sezione precedente), ad eccezione dei campi di immissione della password.
 
-### Contenuto di Azure AD B2C inserito nella "Pagina unificata per l'iscrizione o l'accesso"
+### <a name="azure-ad-b2c-content-inserted-into-the-unified-sign-up-or-sign-in-page"></a>Contenuto di Azure AD B2C inserito nella "Pagina unificata per l'iscrizione o l'accesso"
 Questa pagina consente di gestire sia l'iscrizione che l'accesso degli utenti finali, che possono usare provider di identità social come Facebook o Google+ o account locali.
 
 ```HTML
@@ -270,7 +274,7 @@ Questa pagina consente di gestire sia l'iscrizione che l'accesso degli utenti fi
 
 ```
 
-### Contenuto di Azure AD B2C inserito nella pagina "Multi-Factor Authentication"
+### <a name="azure-ad-b2c-content-inserted-into-the-multi-factor-authentication-page"></a>Contenuto di Azure AD B2C inserito nella pagina "Multi-Factor Authentication"
 In questa pagina gli utenti possono verificare il proprio numero di telefono (tramite SMS o chiamata vocale) durante la procedura di iscrizione o di accesso.
 
 ```HTML
@@ -315,7 +319,7 @@ In questa pagina gli utenti possono verificare il proprio numero di telefono (tr
 
 ```
 
-### Contenuto di Azure AD B2C inserito nella "Pagina di errore"
+### <a name="azure-ad-b2c-content-inserted-into-the-error-page"></a>Contenuto di Azure AD B2C inserito nella "Pagina di errore"
 ```HTML
 
 <div id="api" class="error-page-content" data-name="GlobalException">
@@ -331,11 +335,11 @@ In questa pagina gli utenti possono verificare il proprio numero di telefono (tr
 
 ```
 
-## Aspetti da ricordare durante la fase di creazione del contenuto
+## <a name="things-to-remember-when-building-your-own-content"></a>Aspetti da ricordare durante la fase di creazione del contenuto
 Se si prevede di usare la funzionalità di personalizzazione dell'interfaccia utente della pagina, fare riferimento alle procedure consigliate seguenti:
 
 * Non copiare il contenuto predefinito di Azure AD B2C né provare a modificarlo. È preferibile creare il contenuto HTML5 da zero e usare il contenuto predefinito come riferimento.
-* In tutte le pagine (tranne le pagine di errore) gestite tramite criteri di accesso, iscrizione e modifica del profilo, i fogli di stile forniti dall'utente dovranno sostituire i fogli di stile predefiniti aggiunti a queste pagine nei frammenti <head>. In tutte le pagine gestite tramite criteri di iscrizione o accesso e reimpostazione password, oltre alle pagine di errore in tutti i criteri, sarà necessario fornire tutti gli stili manualmente.
+* In tutte le pagine (tranne le pagine di errore) gestite tramite criteri di accesso, iscrizione e modifica del profilo, i fogli di stile forniti dall'utente dovranno sostituire i fogli di stile predefiniti aggiunti a queste pagine nei frammenti <head> . In tutte le pagine gestite tramite criteri di iscrizione o accesso e reimpostazione password, oltre alle pagine di errore in tutti i criteri, sarà necessario fornire tutti gli stili manualmente.
 * Per motivi di sicurezza, non è consentito includere codice JavaScript nel contenuto. La maggior parte degli elementi necessari dovrebbe già essere disponibile. In caso contrario, usare [UserVoice](http://feedback.azure.com/forums/169401-azure-active-directory) per richiedere nuove funzionalità.
 * Versioni di browser supportate:
   * Internet Explorer 11
@@ -347,4 +351,9 @@ Se si prevede di usare la funzionalità di personalizzazione dell'interfaccia ut
   * Mozilla Firefox 38.0
   * Mozilla Firefox 37.0
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

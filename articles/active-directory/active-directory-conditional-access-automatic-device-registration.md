@@ -1,12 +1,12 @@
 ---
-title: Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows aggiunti a un dominio| Microsoft Docs
-description: L'amministratore IT può scegliere di registrare con Azure Active Directory (Azure AD) i dispositivi Windows aggiunti a un dominio in modo automatico e invisibile all'utente.
+title: Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows aggiunti a un dominio| Documentazione Microsoft
+description: "L&quot;amministratore IT può scegliere di registrare con Azure Active Directory (Azure AD) i dispositivi Windows aggiunti a un dominio in modo automatico e invisibile all&quot;utente."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2d717f906bd4aad35cb46852baf84c4e088b953e
+
 
 ---
-# <a name="automatic-device-registration-with-azure-active-directory-for-windows-domainjoined-devices"></a>Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows aggiunti a un dominio
+# <a name="automatic-device-registration-with-azure-active-directory-for-windows-domain-joined-devices"></a>Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows aggiunti a un dominio
 L'amministratore IT può scegliere di registrare in modo automatico e invisibile all'utente i dispositivi Windows aggiunti a un dominio con Azure Active Directory (Azure AD). Questa operazione può risultare utile se sono stati configurati criteri di accesso condizionale basati sul dispositivo per applicazioni di Office 365 o applicazioni gestite in locale da AD FS. Per altre informazioni sugli scenari di registrazione dei dispositivi, vedere [Panoramica di Registrazione dispositivo di Azure Active Directory](active-directory-conditional-access-device-registration-overview.md).
 
 > AZURE.NOTA Per le istruzioni più recenti su come configurare la registrazione automatica dei dispositivi, vedere [Come configurare la registrazione automatica dei dispositivi Windows con Azure Active Directory aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-setup.md).
@@ -93,6 +97,9 @@ Per altre informazioni sulla distribuzione della registrazione dei dispositivi c
 * [Configurazione della registrazione automatica per i dispositivi appartenenti a un dominio di Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 * [Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows 10 aggiunti a un dominio](active-directory-azureadjoin-devices-group-policy.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

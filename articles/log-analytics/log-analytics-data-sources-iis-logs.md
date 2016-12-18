@@ -1,12 +1,12 @@
 ---
-title: Log di IIS in Log Analytics | Microsoft Docs
-description: Internet Information Services (IIS) archivia le attività dell'utente in file log che possono essere raccolti da Log Analytics.  Questo articolo descrive come configurare una raccolta di log di IIS e i dettagli dei record creati nel repository OMS.
+title: Log IIS in Log Analytics | Documentazione Microsoft
+description: "Internet Information Services (IIS) archivia le attività dell&quot;utente in file log che possono essere raccolti da Log Analytics.  Questo articolo descrive come configurare una raccolta di log di IIS e i dettagli dei record creati nel repository OMS."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: cec5ff0a-01f5-4262-b2e8-e3db7b7467d2
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 920b5feee8e94af5b98e8dffc127da4085bac597
+
 
 ---
 # <a name="iis-logs-in-log-analytics"></a>Log di IIS in Log Analytics
@@ -77,6 +81,9 @@ La tabella seguente mostra alcuni esempi di query nei log che recuperano i recor
 * Informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.
 * Configurare gli avvisi di Log Analytics per notificare in modo proattivo le condizioni importanti riscontrate nei log di IIS.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

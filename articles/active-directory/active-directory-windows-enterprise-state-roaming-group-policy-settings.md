@@ -1,13 +1,13 @@
 ---
-title: Impostazioni di Criteri di gruppo e di gestione di dispositivi mobili | Microsoft Docs
-description: Fornisce informazioni sulle impostazioni di Criteri di gruppo e di gestione di dispositivi mobili che dovrebbero essere usate in dispositivi di proprietà aziendale. Questi criteri vengono applicati all'intero dispositivo dell'utente.
+title: Impostazioni di Criteri di gruppo e MDM | Documentazione Microsoft
+description: "Fornisce informazioni sulle impostazioni di Criteri di gruppo e di gestione di dispositivi mobili che dovrebbero essere usate in dispositivi di proprietà aziendale. Questi criteri vengono applicati all&quot;intero dispositivo dell&quot;utente."
 services: active-directory
 keywords: informazioni sulle impostazioni di Criteri di gruppo e gestione di dispositivi mobili per Enterprise State Roaming, Enterprise State Roaming, cloud windows
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
 editor: curtand
-
+ms.assetid: 6471a9b3-8dd4-4237-89d1-bfbeca9f8252
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1b9e0ab4be96bec6deeaf50ec411c37b9379598a
+
 
 ---
 # <a name="group-policy-and-mdm-settings"></a>Impostazioni di Criteri di gruppo e di gestione di dispositivi mobili
@@ -54,6 +58,9 @@ Le impostazioni di Criteri di gruppo sono applicabili ai dispositivi Windows 10 
 * [Domande frequenti su impostazioni e dati in roaming](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Riferimento alle impostazioni di roaming di Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

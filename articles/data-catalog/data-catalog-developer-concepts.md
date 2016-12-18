@@ -1,13 +1,13 @@
 ---
 title: Concetti per sviluppatori di Data Catalog | Microsoft Docs
-description: Introduzione ai concetti chiave nel modello concettuale del Catalogo dati di Azure, come esposto tramite l'API REST del Catalogo.
+description: Introduzione ai concetti chiave nel modello concettuale del Catalogo dati di Azure, come esposto tramite l&quot;API REST del Catalogo.
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 10/11/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e05dc5695b08cdd82107bb3ed473c5d7b299f1e2
+
 
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Concetti per sviluppatori del Catalogo dati di Azure
@@ -55,7 +59,7 @@ Le annotazioni sono elementi che rappresentano i metadati relativi agli asset.
 
 Descrizioni, tag, schemi, documentazione e così via sono esempi di annotazioni. Un elenco completo dei tipi di annotazione e di asset è disponibile nella sezione Modello a oggetti asset.
 
-## <a name="crowdsourcing-annotations-and-user-perspective-(multiplicity-of-opinion)"></a>Annotazioni crowdsourcing e prospettiva dell'utente (molteplicità di opinione)
+## <a name="crowdsourcing-annotations-and-user-perspective-multiplicity-of-opinion"></a>Annotazioni crowdsourcing e prospettiva dell'utente (molteplicità di opinione)
 Un aspetto fondamentale del Catalogo dati di Azure è il supporto crowdsourcing dei metadati nel sistema. A differenza dell’approccio wiki, dove è presente una sola opinione e l'ultima scrittura prevale, il modello Catalogo dati di Azure consente a più opinioni di convivere affiancate nel sistema.
 
 Questo approccio riflette il mondo reale dei dati aziendali in cui diversi utenti possono avere diverse prospettive su un determinato asset:
@@ -358,6 +362,6 @@ L'entità di sicurezza speciale &lt;Tutti&gt; ha come objectId "00000000-0000-00
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

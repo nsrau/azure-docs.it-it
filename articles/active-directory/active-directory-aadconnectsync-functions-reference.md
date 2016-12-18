@@ -1,12 +1,12 @@
 ---
-title: 'Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni | Microsoft Docs'
+title: 'Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni | Documentazione Microsoft'
 description: Riferimento delle espressioni di provisioning dichiarativo nel servizio di sincronizzazione Azure AD Connect.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2016
 ms.author: andkjell;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8fbffc0de5964a89fe2e0f9059c2f48b29fba2b9
+
 
 ---
-# <a name="azure-ad-connect-sync:-functions-reference"></a>Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni
+# <a name="azure-ad-connect-sync-functions-reference"></a>Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni
 In Azure AD Connect le funzioni vengono usate per modificare il valore di un attributo durante la sincronizzazione.  
 La sintassi delle funzioni viene espressa nel formato seguente:   
 `<output type> FunctionName(<input type> <position name>, ..)`
@@ -1070,6 +1074,9 @@ Se la stringa contiene meno delle parole specificate in number o se non contiene
 * [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

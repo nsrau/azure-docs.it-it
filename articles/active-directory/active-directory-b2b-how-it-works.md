@@ -1,13 +1,13 @@
 ---
-title: 'Anteprima di Azure AD B2B Collaboration: funzionamento | Microsoft Docs'
-description: Descrive come Azure Active Directory B2B Collaboration supporta le relazioni tra società abilitando i partner commerciali ad accedere in modo selettivo alle applicazioni aziendali.
+title: 'Anteprima di Azure AD B2B Collaboration: funzionamento | Documentazione Microsoft'
+description: "Descrive come Azure Active Directory B2B Collaboration supporta le relazioni tra società abilitando i partner commerciali ad accedere in modo selettivo alle applicazioni aziendali."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: viv-liu
 manager: cliffdi
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 0c1cdde6-1988-4eff-a876-75c8f845f0ed
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/09/2016
 ms.author: viviali
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4f458a0835951692fa447d19b2ce1dda7cc2c8e2
+
 
 ---
-# Anteprima di Collaborazione B2B di Azure AD: funzionamento
+# <a name="azure-ad-b2b-collaboration-preview-how-it-works"></a>Anteprima di Collaborazione B2B di Azure AD: funzionamento
 Azure AD B2B Collaboration si basa su un modello di invito e riscatto. Si specificano gli indirizzi di posta elettronica delle parti con cui si vuole collaborare, con le applicazioni che dovranno usare. Azure AD invia loro un invito tramite posta elettronica con un collegamento. L'utente partner segue il collegamento e riceve la richiesta di accedere con l'account Azure AD o di ottenere un nuovo account Azure AD.
 
 1. L'amministratore invita gli utenti partner caricando un [file con estensione csv strutturato](active-directory-b2b-references-csv-file-format.md) usando il portale di Azure.
@@ -25,7 +29,7 @@ Azure AD B2B Collaboration si basa su un modello di invito e riscatto. Si specif
 3. Gli utenti partner fanno clic sul collegamento nel messaggio di posta elettronica e ricevono la richiesta di accedere con le credenziali aziendali (se sono già in Azure AD) o di iscriversi come utente di Azure AD B2B Collaboration.
 4. Gli utenti partner vengono reindirizzati all'applicazione a cui sono stati invitati e a cui ora hanno accesso.
 
-## Operazioni di directory
+## <a name="directory-operations"></a>Operazioni di directory
 Gli utenti partner esistono in Azure AD come utenti esterni. Per questo l'amministratore può effettuare il provisioning delle licenze, assegnare l'appartenenza ai gruppi e concedere l'accesso alle app aziendali con il portale di Azure o con Azure PowerShell proprio come per gli utenti aziendali.
 
 Anche se non è necessaria una sottoscrizione a pagamento ad Azure AD (Basic o Premium) per usare Azure AD B2B, i tenant che hanno una sottoscrizione a pagamento ad Azure AD (Basic o Premium) hanno diritto ai vantaggi aggiuntivi seguenti:
@@ -33,7 +37,7 @@ Anche se non è necessaria una sottoscrizione a pagamento ad Azure AD (Basic o P
 * Gli amministratori possono assegnare i gruppi alle app, semplificando la gestione dell'accesso degli utenti invitati.
 * La personalizzazione dei tenant amministratore viene usata per personalizzare gli inviti tramite posta elettronica e l'esperienza di riscatto, offrendo maggiore contesto agli utenti partner invitati.
 
-## Articoli correlati
+## <a name="related-articles"></a>Articoli correlati
  Vedere gli altri articoli su Collaborazione B2B di Azure AD
 
 * [Che cos'è Azure AD B2B Collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
@@ -44,4 +48,9 @@ Anche se non è necessaria una sottoscrizione a pagamento ad Azure AD (Basic o P
 * [Limitazioni correnti della versione di anteprima](active-directory-b2b-current-preview-limitations.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

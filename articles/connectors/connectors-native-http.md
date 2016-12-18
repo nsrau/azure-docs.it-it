@@ -1,13 +1,13 @@
 ---
-title: Aggiungere l'azione HTTP alle app per la logica | Microsoft Docs
-description: Panoramica dell'azione HTTP con proprietà
-services: ''
-documentationcenter: ''
+title: Aggiungere l&quot;azione HTTP nelle app per la logica | Documentazione Microsoft
+description: "Panoramica dell&quot;azione HTTP con proprietà"
+services: 
+documentationcenter: 
 author: jeffhollan
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 522624ccb14d295359ff5585e1b46b618b45c305
+
 
 ---
-# Introduzione all'azione HTTP
+# <a name="get-started-with-the-http-action"></a>Introduzione all'azione HTTP
 Con l'azione HTTP è possibile estendere i flussi di lavoro per l'organizzazione e comunicare con qualsiasi endpoint su HTTP.
 
 È possibile:
@@ -27,7 +31,7 @@ Con l'azione HTTP è possibile estendere i flussi di lavoro per l'organizzazione
 
 Per informazioni su come iniziare a usare un'azione HTTP in un'app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Usare un trigger HTTP
+## <a name="use-the-http-trigger"></a>Usare un trigger HTTP
 Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](connectors-overview.md).
 
 Ecco una sequenza di esempio di come configurare un trigger HTTP nella finestra di progettazione dell'app per la logica.
@@ -37,9 +41,9 @@ Ecco una sequenza di esempio di come configurare un trigger HTTP nella finestra 
 3. Modificare l'intervallo di ricorrenza che stabilisce la frequenza del polling.
 4. L'app per la logica ora si attiva con il contenuto restituito durante ogni controllo.
 
-![Trigger HTTP](./media/connectors-native-http/using-trigger.png)  
+![Trigger HTTP](./media/connectors-native-http/using-trigger.png)
 
-### Come funziona il trigger HTTP
+### <a name="how-the-http-trigger-works"></a>Come funziona il trigger HTTP
 Il trigger HTTP esegue una chiamata a un endpoint HTTP a intervalli ricorrenti. Per impostazione predefinita, il codice di risposta HTTP minore di 300 genera un'esecuzione dell'app per la logica. È possibile aggiungere una condizione nella visualizzazione Codice che verrà valutata dopo la chiamata HTTP per determinare se l'app per la logica deve essere eseguita. Di seguito è riportato un esempio di trigger HTTP che viene attivato ogni volta che il codice di stato restituito è maggiore di o uguale a `400`.
 
 ```javascript
@@ -67,67 +71,69 @@ Il trigger HTTP esegue una chiamata a un endpoint HTTP a intervalli ricorrenti. 
 
 Tutti i dettagli sui parametri dei trigger HTTP sono disponibili in [MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx#HTTP-trigger).
 
-## Usare l'azione HTTP
+## <a name="use-the-http-action"></a>Usare l'azione HTTP
 Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](connectors-overview.md).
 
-1. Fare clic sul pulsante **Nuovo passaggio**.
+1. Fare clic sul pulsante **Nuovo passaggio** .
 2. Scegliere **Aggiungi un'azione**.
 3. Nella casella di ricerca dell'azione digitare **http** per elencare l'azione HTTP.
    
-    ![Selezionare l'azione HTTP](./media/connectors-native-http/using-action-1.png)  
+    ![Selezionare l'azione HTTP](./media/connectors-native-http/using-action-1.png)
 4. Aggiungere i parametri richiesti per la chiamata HTTP.
    
-    ![Completare l'azione HTTP](./media/connectors-native-http/using-action-2.png)  
+    ![Completare l'azione HTTP](./media/connectors-native-http/using-action-2.png)
 5. Fare clic nell'angolo in alto a sinistra della barra degli strumenti per salvare. L'app per la logica verrà salvata e pubblicata (attivata).
 
-## Trigger HTTP
+## <a name="http-trigger"></a>Trigger HTTP
 Ecco i dettagli per il trigger supportato da questo connettore. Il connettore HTTP supporta un solo trigger.
 
 | Trigger | Descrizione |
 | --- | --- |
-| HTTP |Esegue una chiamata HTTP e restituisce il contenuto della risposta. |
+| http |Esegue una chiamata HTTP e restituisce il contenuto della risposta. |
 
-## Azione HTTP
+## <a name="http-action"></a>Azione HTTP
 Ecco i dettagli per l'azione supportata da questo connettore. Il connettore HTTP supporta una sola azione possibile.
 
 | Azione | Descrizione |
 | --- | --- |
-| HTTP |Esegue una chiamata HTTP e restituisce il contenuto della risposta. |
+| http |Esegue una chiamata HTTP e restituisce il contenuto della risposta. |
 
-## Dettagli di HTTP
+## <a name="http-details"></a>Dettagli di HTTP
 La tabella seguente descrive i campi di input obbligatori e facoltativi per l'azione e i dettagli di output corrispondenti associati all'uso dell'azione.
 
-#### Richiesta HTTP
-Di seguito sono riportati campi di input per l'azione, che esegue una richiesta HTTP in uscita. Un asterisco (*) indica che è un campo obbligatorio.
+#### <a name="http-request"></a>Richiesta HTTP
+Di seguito sono riportati campi di input per l'azione, che esegue una richiesta HTTP in uscita.
+Un asterisco (*) indica che è un campo obbligatorio.
 
 | Nome visualizzato | Nome proprietà | Descrizione |
 | --- | --- | --- |
 | Metodo* |statico |Verbo HTTP da usare |
 | URI* |Uri |URI per la richiesta HTTP |
-| Headers |headers |Un oggetto JSON delle intestazioni HTTP da includere |
-| Corpo |body |Il corpo della richiesta HTTP |
-| Autenticazione |autenticazione |Dettagli nella sezione [Autenticazione](#authentication). |
+| Headers |Headers |Un oggetto JSON delle intestazioni HTTP da includere |
+| Corpo |Corpo |Il corpo della richiesta HTTP |
+| Autenticazione |Autenticazione |Dettagli nella sezione [Autenticazione](#authentication) . |
 
-<br>  
+<br>
 
-#### Dettagli dell'output
+#### <a name="output-details"></a>Dettagli dell'output
 Di seguito sono riportati i dettagli di output per la risposta HTTP.
 
 | Nome proprietà | Tipo di dati | Descrizione |
 | --- | --- | --- |
-| Headers |object |Intestazioni della risposta |
+| headers |object |Intestazioni della risposta |
 | Corpo |object |Oggetto della risposta |
 | Codice di stato |int |Stato codice HTTP |
 
-## Autenticazione
-La funzionalità App per la logica del servizio app di Azure consente di usare diversi tipi di autenticazione per gli endpoint HTTP. Questo tipo di autenticazione può essere usato con i connettori **HTTP**, **[HTTP + Swagger](connectors-native-http-swagger.md)** e **[HTTP Webhook](connectors-native-webhook.md)**. È possibile configurare i seguenti tipi di autenticazione:
+## <a name="authentication"></a>Autenticazione
+La funzionalità App per la logica del servizio app di Azure consente di usare diversi tipi di autenticazione per gli endpoint HTTP. Questo tipo di autenticazione può essere usato con i connettori **HTTP**, **[HTTP e Swagger](connectors-native-http-swagger.md)** e **[Webhook HTTP](connectors-native-webhook.md)**. È possibile configurare i seguenti tipi di autenticazione:
 
 * [Autenticazione di base](#basic-authentication)
 * [Autenticazione con certificato client](#client-certificate-authentication)
 * [Autenticazione OAuth di Azure Active Directory (Azure AD)](#azure-active-directory-oauth-authentication)
 
-#### Autenticazione di base
-Per l'autenticazione di base è necessario l'oggetto di autenticazione seguente. Un asterisco (*) indica che è un campo obbligatorio.
+#### <a name="basic-authentication"></a>Autenticazione di base
+Per l'autenticazione di base è necessario l'oggetto di autenticazione seguente.
+Un asterisco (*) indica che è un campo obbligatorio.
 
 | Nome proprietà | Tipo di dati | Descrizione |
 | --- | --- | --- |
@@ -136,7 +142,7 @@ Per l'autenticazione di base è necessario l'oggetto di autenticazione seguente.
 | Password* |password |Password da autenticare |
 
 > [!TIP]
-> Se si vuole usare una password che non può essere recuperata dalla definizione, usare un parametro `securestring` e `@parameters()` nella [funzione di definizione del flusso di lavoro](http://aka.ms/logicappdocs).
+> Se si vuole usare una password che non può essere recuperata dalla definizione, usare un parametro `securestring` e la [funzione di definizione del flusso di lavoro](http://aka.ms/logicappdocs) `@parameters()`.
 > 
 > 
 
@@ -150,7 +156,7 @@ Pertanto è possibile creare un oggetto simile al seguente nel campo autenticazi
 }
 ```
 
-#### Autenticazione con certificato client
+#### <a name="client-certificate-authentication"></a>Autenticazione con certificato client
 Per l'autenticazione con certificato client è necessario l'oggetto di autenticazione seguente. Un asterisco (*) indica che è un campo obbligatorio.
 
 | Nome proprietà | Tipo di dati | Descrizione |
@@ -160,7 +166,7 @@ Per l'autenticazione con certificato client è necessario l'oggetto di autentica
 | Password* |password |La password per accedere al file PFX |
 
 > [!TIP]
-> È possibile usare un parametro `securestring` e `@parameters()` nella [funzione di definizione del flusso di lavoro](http://aka.ms/logicappdocs) per usare un parametro che non sarà leggibile nella definizione dopo il salvataggio dell'app per la logica.
+> È possibile usare un parametro `securestring` e la [funzione di definizione del flusso di lavoro](http://aka.ms/logicappdocs) `@parameters()` per usare un parametro che non sarà leggibile nella definizione dopo il salvataggio dell'app per la logica.
 > 
 > 
 
@@ -174,7 +180,7 @@ Ad esempio:
 }
 ```
 
-#### Autenticazione OAuth di Azure AD
+#### <a name="azure-ad-oauth-authentication"></a>Autenticazione OAuth di Azure AD
 Per l'autenticazione OAuth di Azure Ad è necessario l'oggetto di autenticazione seguente. Un asterisco (*) indica che è un campo obbligatorio.
 
 | Nome proprietà | Tipo di dati | Descrizione |
@@ -186,7 +192,7 @@ Per l'autenticazione OAuth di Azure Ad è necessario l'oggetto di autenticazione
 | Segreto* |secret |Segreto del client che richiede il token |
 
 > [!TIP]
-> È possibile usare un parametro `securestring` e `@parameters()` nella [funzione di definizione del flusso di lavoro](http://aka.ms/logicappdocs) per usare un parametro che non sarà leggibile nella definizione dopo il salvataggio.
+> È possibile usare un parametro `securestring` e la [funzione di definizione del flusso di lavoro](http://aka.ms/logicappdocs) `@parameters()` per usare un parametro che non sarà leggibile nella definizione dopo il salvataggio.
 > 
 > 
 
@@ -202,7 +208,12 @@ Ad esempio:
 }
 ```
 
-## Passaggi successivi
-Provare ora a usare la piattaforma e [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l'[elenco di API](apis-list.md).
+## <a name="next-steps"></a>Passaggi successivi
+Provare ora a usare la piattaforma e [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Latenze dei report di Azure Active Directory | Microsoft Docs
+title: Latenze dei report di Azure Active Directory | Documentazione Microsoft
 description: Tempo necessario per la visualizzazione in Azure Active Directory degli eventi dei report
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 346b14f8-d16d-4b07-8211-e6c5eec07062
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/07/2016
 ms.author: dhanyahk
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e15c82330ac27f58f3faec3a224123cb45c9b28b
+
 
 ---
-# Latenze dei report di Azure Active Directory
+# <a name="azure-active-directory-report-latencies"></a>Latenze dei report di Azure Active Directory
 *Questo documento fa parte della [guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).*
 
 | Report | Minima | Media | Massima |
@@ -51,4 +55,9 @@ ms.author: dhanyahk
 | **Report di anteprima personalizzati** | | | |
 | Attività di accesso di tutti gli utenti |2 ore |4 ore |8 ore |
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

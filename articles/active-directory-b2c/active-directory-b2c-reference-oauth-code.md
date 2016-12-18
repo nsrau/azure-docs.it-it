@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory B2C | Microsoft Docs
-description: Creazione di applicazioni Web tramite l'implementazione di Azure Active Directory del protocollo di autenticazione OpenID Connect.
+title: Azure Active Directory B2C | Documentazione Microsoft
+description: Creazione di applicazioni Web tramite l&quot;implementazione di Azure Active Directory del protocollo di autenticazione OpenID Connect.
 services: active-directory-b2c
-documentationcenter: ''
+documentationcenter: 
 author: dstrockis
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: c371aaab-813a-4317-97df-b62e2f53d865
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/22/2016
 ms.author: dastrock
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 51061199e4929406c3ac77a26e2f972686236bd4
+
 
 ---
-# <a name="azure-active-directory-b2c:-oauth-2.0-authorization-code-flow"></a>Azure Active Directory B2C: flusso del codice di autorizzazione di OAuth 2.0
+# <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: flusso del codice di autorizzazione di OAuth 2.0
 La concessione del codice di autorizzazione OAuth 2.0 può essere utilizzata nelle app che vengono installate su un dispositivo per ottenere l'accesso alle risorse protette, come l'API web. Usando l'implementazione di Azure Active Directory (Azure AD) B2C di OAuth 2.0, è possibile aggiungere attività di gestione dell'iscrizione, dell'accesso e altre attività di gestione delle identità alle app desktop e per dispositivi mobili. Questa guida è indipendente dal linguaggio usato. La guida descrive come inviare e ricevere messaggi HTTP senza usare una delle librerie Microsoft open source.
 
 <!-- TODO: Need link to libraries -->
@@ -30,7 +34,7 @@ Azure AD B2C estende i flussi standard OAuth 2.0 per non limitarsi esclusivament
 Le richieste HTTP di esempio seguenti utilizzano la directory B2C di esempio, **fabrikamb2c.onmicrosoft.com**, nonché l'applicazione di esempio e i criteri. Si possono provare le richieste in totale autonomia usando questi valori oppure è possibile sostituirli con valori personalizzati.
 Ulteriori informazioni su come [ottenere directory, applicazione e i criteri B2C](#use-your-own-b2c-directory).
 
-## <a name="1.-get-an-authorization-code"></a>1. Ottenere un codice di autorizzazione
+## <a name="1-get-an-authorization-code"></a>1. Ottenere un codice di autorizzazione
 Il flusso del codice di autorizzazione ha inizio con il client che indirizza l'utente all'endpoint `/authorize`. Questa è la parte interattiva del flusso, dove l'utente opera effettivamente. In questa richiesta il client indica le autorizzazioni che deve acquisire dall'utente nel parametro `scope` e i criteri da eseguire nel parametro `p`. Di seguito vengono forniti tre esempi (con interruzioni di riga per migliorare la leggibilità), ciascuno dei quali utilizza un criterio diverso.
 
 #### <a name="use-a-sign-in-policy"></a>Uso di un criterio di accesso
@@ -112,7 +116,7 @@ error=access_denied
 | error_description |Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore di autenticazione. |
 | state |Vedere la descrizione completa nella prima tabella di questa sezione. Se un parametro di stato è incluso nella richiesta, lo stesso valore viene visualizzato nella risposta. L'app deve verificare che i valori dello stato nella richiesta e nella risposta siano identici. |
 
-## <a name="2.-get-a-token"></a>2. Acquisizione di un token
+## <a name="2-get-a-token"></a>2. Acquisizione di un token
 Ora che è stato acquisito il codice di autorizzazione, è possibile riscattare `code` per un token nella risorsa desiderata, inviando una richiesta `POST` all'endpoint `/token`. In Azure AD B2C l'unica risorsa per la quale è possibile richiedere un token è l'API Web back-end dell'app stessa. La convenzione usata per richiedere un token di questo tipo consiste nell'usare l'ID client dell'app come ambito:
 
 ```
@@ -168,7 +172,7 @@ Le risposte di errore hanno un aspetto simile al seguente:
 | error |Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e correggerli. |
 | error_description |Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore di autenticazione. |
 
-## <a name="3.-use-the-token"></a>3. Uso del token
+## <a name="3-use-the-token"></a>3. Uso del token
 Dopo aver ottenuto un `access_token`, è possibile usare il token nelle richieste alle API Web back-end includendolo nell'intestazione `Authorization`:
 
 ```
@@ -177,7 +181,7 @@ Host: https://mytaskwebapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 
-## <a name="4.-refresh-the-token"></a>4. Aggiornamento del token
+## <a name="4-refresh-the-token"></a>4. Aggiornamento del token
 I token di accesso e ID hanno breve durata. È necessario aggiornarli dopo la scadenza per continuare ad accedere alle risorse. A tale scopo, inviare un'altra richiesta `POST` all'endpoint `/token`, questa volta specificando `refresh_token` invece di `code`:
 
 ```
@@ -239,6 +243,9 @@ Per provare queste richieste autonomamente, è innanzitutto necessario eseguire 
 * [Creare un'applicazione](active-directory-b2c-app-registration.md) per ottenere un ID applicazione e un URI di reindirizzamento. Si potrebbe voler includere un **native client** nell'app.
 * [Creare i criteri](active-directory-b2c-reference-policies.md) per ottenere i nomi dei criteri.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
