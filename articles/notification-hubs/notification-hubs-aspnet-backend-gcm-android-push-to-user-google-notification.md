@@ -1,12 +1,12 @@
 ---
-title: Azure Notification Hubs Notify Users for Android with .NET backend
-description: Learn how to send push notifications to users in Azure. Code samples written in Java for Android
+title: Uso di Hub di notifica di Azure per inviare notifiche agli utenti per Android con back-end .NET
+description: Informazioni su come inviare notifiche push agli utenti in Azure. Esempi di codice scritti in Java per Android
 documentationcenter: android
 services: notification-hubs
 author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: ae0e17a8-9d2b-496e-afd2-baa151370c25
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,28 +14,32 @@ ms.devlang: java
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 418a4b638dfaa3fee33a7a7242433699205c79f7
+
 
 ---
-# <a name="azure-notification-hubs-notify-users-for-android-with-.net-backend"></a>Azure Notification Hubs Notify Users for Android with .NET backend
+# <a name="azure-notification-hubs-notify-users-for-android-with-net-backend"></a>Uso di Hub di notifica di Azure per inviare notifiche agli utenti per Android con back-end .NET
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
 ## <a name="overview"></a>Overview
-Push notification support in Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms. This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET WebAPI backend is used to authenticate clients and to generate notifications, as shown in the guidance topic [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). This tutorial builds on the notification hub that you created in the [Getting Started with Notification Hubs (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md) tutorial.
+Il supporto per le notifiche push in Azure consente di accedere a un'infrastruttura push facile da usare, multipiattaforma e con scalabilità orizzontale, che semplifica considerevolmente l'implementazione delle notifiche push sia per le applicazioni consumer sia per quelle aziendali per piattaforme mobili. In questa esercitazione viene illustrato come usare Hub di notifica di Azure per inviare notifiche push a un utente specifico dell'app su un dispositivo specifico. Per autenticare i client e generare le notifiche viene usato un back-end di API Web ASP.NET, come illustrato nell'argomento [Registrazione dal back-end dell'app](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Questa esercitazione si basa sull'hub di notifica creato nell'esercitazione [Introduzione ad Hub di notifica (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md) .
 
 > [!NOTE]
-> This tutorial assumes that you have created and configured your notification hub as described in [Getting Started with Notification Hubs (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md).
+> In questa esercitazione si presuppone che l'utente abbia creato e configurato l'hub di notifica come descritto in [Introduzione ad Hub di notifica (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md).
 > 
 > 
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
-## <a name="create-the-android-project"></a>Create the Android Project
-The next step is to create the Android application.
+## <a name="create-the-android-project"></a>Creare il progetto Android
+Il passaggio successivo consiste nella creazione dell'applicazione per Android.
 
-1. Follow the [Getting Started with Notification Hubs (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md) tutorial to create and configure your app to receive push notifications from GCM.
-2. Open your **res/layout/activity_main.xml** file, replace the with the following content definitions.
+1. Seguire l'esercitazione [Introduzione ad Hub di notifica (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md) per creare e configurare l'app per la ricezione di notifiche push da GCM.
+2. Aprire il file **res/layout/activity_main.xml** e sostituire il contenuto con le definizioni seguenti.
    
-    This adds new EditText controls for logging in as a user. Also a field is added for a username tag that will be part of notifications you send:
+    Verranno aggiunti nuovi controlli EditText per l'accesso come utente. Viene aggiunto anche un campo per un tag username che farà parte delle notifiche inviate:
    
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
@@ -118,7 +122,7 @@ The next step is to create the Android application.
             android:layout_below="@+id/editTextNotificationMessage"
             android:layout_centerHorizontal="true" />
         </RelativeLayout>
-3. Open your **res/values/strings.xml** file and replace the `send_button` definition with the following lines that redefine the string for the `send_button` and add strings for the other controls:
+3. Aprire il file **res/values/strings.xml** e sostituire la definizione `send_button` con le righe seguenti per ridefinire la stringa per `send_button` e aggiungere stringhe per gli altri controlli:
    
         <string name="usernameHint">Username</string>
         <string name="passwordHint">Password</string>
@@ -128,10 +132,10 @@ The next step is to create the Android application.
             Recipient username tag
         </string>
    
-    Your main_activity.xml graphical layout should now look like this:
+    A questo punto il layout grafico del file main_activity.xml dovrebbe essere simile al seguente:
    
     ![][A1]
-4. Create a new class named **RegisterClient** in the same package as your `MainActivity` class. Use the code below for the new class file.
+4. Creare una nuova classe denominata **RegisterClient** nello stesso pacchetto della classe `MainActivity`. Usare il codice seguente per il nuovo file di classe.
    
         import java.io.IOException;
         import java.io.UnsupportedEncodingException;
@@ -236,15 +240,15 @@ The next step is to create the Android application.
             }
         }
    
-    This component implements the REST calls required to contact the app backend, in order to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Note that it uses an authorization token stored in local storage when you click the **Log in** button.
-5. In your `MainActivity` class remove or comment out your private field for `NotificationHub`, and add a field for the `RegisterClient` class and a string for your ASP.NET backend's endpoint. Be sure to replace `<Enter Your Backend Endpoint>` with the your actual backend endpoint obtained previously. For example, `http://mybackend.azurewebsites.net`.
+    Questo componente implementa le chiamate REST necessarie per contattare il back-end dell'app allo scopo di effettuare la registrazione per le notifiche push. Archivia inoltre in locale i *registrationId* creati dall'hub di notifica, come illustrato in [Registrazione dal back-end dell'app](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Si noti che usa un token di autorizzazione memorizzato nell'archivio locale quando si fa clic sul pulsante **Log in** .
+5. Nella classe `MainActivity` rimuovere o impostare come commento il campo privato per `NotificationHub` e aggiungere un campo per la classe `RegisterClient` e una stringa per l'endpoint del back-end ASP.NET. Assicurarsi di sostituire `<Enter Your Backend Endpoint>` con l'endpoint back-end effettivo ottenuto in precedenza: Ad esempio: `http://mybackend.azurewebsites.net`.
 
         //private NotificationHub hub;
         private RegisterClient registerClient;
         private static final String BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
 
 
-1. In your `MainActivity` class, in the `onCreate` method, remove or comment out the initialization of the `hub` field and the call to the `registerWithNotificationHubs` method. Then add code to initialize an instance of the `RegisterClient` class. The method should contain the following lines:
+1. Nella classe `MainActivity`, all'interno del metodo `onCreate`, rimuovere o impostare come commento l'inizializzazione del campo `hub` e la chiamata al metodo `registerWithNotificationHubs`. Aggiungere quindi il codice per inizializzare un'istanza della classe `RegisterClient` . Il metodo deve contenere le seguenti righe:
    
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -261,8 +265,8 @@ The next step is to create the Android application.
    
             setContentView(R.layout.activity_main);
         }
-2. In your `MainActivity` class, delete or comment out the entire `registerWithNotificationHubs` method. It will not be used in this tutorial.
-3. Add the following `import` statements to your **MainActivity.java** file.
+2. Nella classe `MainActivity` eliminare o impostare come commento tutto il metodo `registerWithNotificationHubs`. Non verrà usato in questa esercitazione.
+3. Aggiungere le istruzioni `import` seguenti al file **MainActivity.java** .
    
         import android.widget.Button;
         import java.io.UnsupportedEncodingException;
@@ -272,7 +276,7 @@ The next step is to create the Android application.
         import org.apache.http.client.ClientProtocolException;
         import java.io.IOException;
         import org.apache.http.HttpStatus;
-4. Then, add the following methods to handle the **Log in** button click event and sending push notifications.
+4. Aggiungere quindi i metodi seguenti per gestire l'evento clic del pulsante **Log in** e inviare le notifiche push.
    
         @Override
         protected void onStart() {
@@ -359,11 +363,11 @@ The next step is to create the Android application.
             }.execute(null, null, null);
         }
 
-    The `login` handler for the **Log in** button generates a basic authentication token using on the input username and password (note that this represents any token your authentication scheme uses), then it uses `RegisterClient` to call the backend for registration.
+    Il gestore `login` per il pulsante **Log in`RegisterClient` genera un token di autenticazione di base usando il nome utente e la password di input. Si noti che rappresenta qualsiasi token usato dallo schema di autenticazione, quindi usa ** per chiamare il back-end per la registrazione.
 
-    The `sendPush` method calls the backend to trigger a secure notification to the user based on the user tag. The platform notification service that `sendPush` targets depends on the `pns` string passed in.
+    Il metodo `sendPush` chiama il back-end per attivare una notifica sicura per l'utente in base al tag user. Il servizio di notifica della piattaforma a cui è destinato `sendPush` dipende dalla stringa `pns` passata.
 
-1. In your `MainActivity` class, update the `sendNotificationButtonOnClick` method to call the `sendPush` method with the user's selected platform notification services as follows.
+1. Nella classe `MainActivity` aggiornare il metodo`sendNotificationButtonOnClick` per chiamare il metodo `sendPush` con i servizi di notifica della piattaforma selezionati dell'utente, come indicato di seguito.
    
        /**
         * Send Notification button click handler. This method sends the push notification
@@ -396,22 +400,22 @@ The next step is to create the Android application.
            }
        }
 
-## <a name="run-the-application"></a>Run the Application
-1. Run the application on a device or an emulator using Android Studio.
-2. In the Android app, enter a username and password. They must both be the same string value and they must not contain spaces or special characters.
-3. In the Android app, click **Log in**. Wait for a toast message that states **Logged in and registered**. This will enable the **Send Notification** button.
+## <a name="run-the-application"></a>Eseguire l'applicazione
+1. Eseguire l'applicazione su un dispositivo o un emulatore tramite Android Studio.
+2. Nell'app per Android immettere un nome utente e una password. Devono avere lo stesso valore di stringa e non devono contenere spazi o caratteri speciali.
+3. Nell'app per Android fare clic su **Log in**. Attendere un avviso popup che indica **Logged in and registered**. Verrà abilitato il pulsante **Send Notification** .
    
     ![][A2]
-4. Click the toggle buttons to enable all platforms where you have ran the app and registered a user.
-5. Enter the user's name that will receive the notification message. That user must be registered for notifications on the target devices.
-6. Enter a message for the user to receive as a push notification message.
-7. Click **Send Notification**.  Each device that has a registration with the matching username tag will receive the push notification.
+4. Fare clic sugli interruttori per abilitare tutte le piattaforme in cui è stata eseguita l'app ed è stato registrato un utente.
+5. Immettere il nome dell'utente che riceverà il messaggio di notifica. L'utente dovrà essere registrato per le notifiche nei dispositivi di destinazione.
+6. Immettere un messaggio che l'utente riceverà come messaggio di notifica push.
+7. Fare clic su **Send Notification**.  Ogni dispositivo che ha una registrazione con il tag username corrispondente riceverà la notifica push.
 
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users.png
 [A2]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users-enter-password.png
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -6,7 +6,7 @@ documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 54bee086-a8a5-4312-9866-19a1fba913d0
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,12 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6ccb20b7470b229dcc5f3ab4cbdbec7ea4629bd2
+
 
 ---
-# Domande frequenti su Rete virtuale
+# <a name="virtual-network-faq"></a>Domande frequenti su Rete virtuale
 [!INCLUDE [virtual-networks-vnet-faq-include](../../includes/virtual-networks-vnet-faq-include.md)]
 
-## Connettività cross-premise delle reti virtuali (VPN)
+## <a name="virtual-network-cross-premises-connectivity-vpns"></a>Connettività cross-premise delle reti virtuali (VPN)
 Per le domande frequenti più recenti sulle reti virtuali VPN, vedere le [domande frequenti sul gateway VPN](../vpn-gateway/vpn-gateway-vpn-faq.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,23 +1,28 @@
 ---
-title: Monitoraggio del database SQL di Azure tramite le visualizzazioni di gestione dinamica | Microsoft Docs
+title: Monitoraggio del database SQL di Azure tramite le visualizzazioni di gestione dinamica | Documentazione Microsoft
 description: Informazioni su come rilevare e diagnosticare i problemi di prestazioni comuni utilizzando visualizzazioni a gestione dinamica per monitorare il Database SQL di Microsoft Azure.
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: d08f505f-3c62-47d4-bab7-35c9a834b79b
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/20/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ae0054ac9d87562f6babbfaeaf440d653d60963a
+
 
 ---
-# Monitoraggio del database SQL di Azure tramite le visualizzazioni di gestione dinamica
+# <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Monitoraggio del database SQL di Azure tramite le visualizzazioni di gestione dinamica
 Il database SQL di Microsoft Azure consente a un sottoinsieme di visualizzazioni a gestione dinamica di diagnosticare i problemi delle prestazioni che potrebbero essere causati da query bloccate o con esecuzione prolungata, colli di bottiglia delle risorse, piani di query insufficienti e così via. Questo argomento fornisce informazioni su come rilevare problemi comuni relativi alle prestazioni tramite le DMV.
 
 Il database SQL supporta parzialmente tre categorie di visualizzazioni a gestione dinamica:
@@ -28,14 +33,15 @@ Il database SQL supporta parzialmente tre categorie di visualizzazioni a gestion
 
 Per informazioni dettagliate sulle visualizzazioni a gestione dinamica, vedere [Visualizzazioni a gestione dinamica e funzioni (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) nella documentazione Online di SQL Server.
 
-## Autorizzazioni
-Nel Database SQL, l'esecuzione di query in una visualizzazione a gestione dinamica richiede autorizzazioni **VIEW DATABASE STATE**. Le autorizzazioni **VIEW DATABASE STATE** restituiscono informazioni su tutti gli oggetti all'interno del database corrente. Per concedere le autorizzazioni **VIEW DATABASE STATE** a un utente di database specifico, eseguire la query seguente:
+## <a name="permissions"></a>Autorizzazioni
+Nel Database SQL, l'esecuzione di query in una visualizzazione a gestione dinamica richiede autorizzazioni **VIEW DATABASE STATE** . Le autorizzazioni **VIEW DATABASE STATE** restituiscono informazioni su tutti gli oggetti all'interno del database corrente.
+Per concedere le autorizzazioni **VIEW DATABASE STATE** a un utente di database specifico, eseguire la query seguente:
 
-```GRANT VIEW DATABASE STATE TO database_user;```
+```GRANT VIEW DATABASE STATE TO database_user; ```
 
 In un'istanza di SQL Server locale, le viste a gestione dinamica restituiscono informazioni sullo stato del server. Nel database SQL, restituiscono informazioni relative esclusivamente al database logico corrente.
 
-## Calcolo della dimensione del database
+## <a name="calculating-database-size"></a>Calcolo della dimensione del database
 La seguente query restituisce la dimensione del database in megabyte:
 
 ```
@@ -56,8 +62,9 @@ GROUP BY sys.objects.name;
 GO
 ```
 
-## Monitoraggio delle connessioni
-È possibile utilizzare la visualizzazione [sys.dm\_exec\_connections](https://msdn.microsoft.com/library/ms181509.aspx) per recuperare informazioni sulle connessioni stabilite con il server del database SQL specifico di Azure e i dettagli di ogni connessione. Inoltre, la visualizzazione [sys.dm\_exec\_sessions](https://msdn.microsoft.com/library/ms176013.aspx) è utile durante il recupero di informazioni su tutte le connessioni utente attive e le attività interne. La query seguente recupera le informazioni sulla connessione corrente.
+## <a name="monitoring-connections"></a>Monitoraggio delle connessioni
+È possibile usare la visualizzazione [sys.dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) per recuperare informazioni sulle connessioni stabilite con il server del database SQL specifico di Azure e i dettagli di ogni connessione. Inoltre, la visualizzazione [sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) è utile durante il recupero di informazioni su tutte le connessioni utente attive e le attività interne.
+La query seguente recupera le informazioni sulla connessione corrente.
 
 ```
 SELECT
@@ -73,14 +80,14 @@ WHERE c.session_id = @@SPID;
 ```
 
 > [!NOTE]
-> Quando si eseguono **sys.dm\_exec\_requests** e **sys.dm\_exec\_sessions**, se si dispone di un'autorizzazione**VIEW DATABASE STATE** sul database, saranno visibili tutte le sessioni in esecuzione sul database; in caso contrario, sarà visibile solo la sessione corrente.
+> Quando si eseguono **sys.dm_exec_requests** e **sys.dm_exec_sessions**, se si dispone di un'autorizzazione **VIEW DATABASE STATE** sul database, saranno visibili tutte le sessioni in esecuzione sul database; in caso contrario, sarà visibile solo la sessione corrente.
 > 
 > 
 
-## Monitoraggio delle prestazioni delle query
+## <a name="monitoring-query-performance"></a>Monitoraggio delle prestazioni delle query
 L’esecuzione della query rallentata o prolungata può consumare delle risorse di sistema importanti. In questa sezione viene illustrato come utilizzare le visualizzazioni a gestione dinamica per rilevare alcuni problemi di prestazione delle query comuni. Un riferimento precedente ma comunque utile per la risoluzione dei problemi, è l’articolo [Risoluzione dei problemi di prestazioni in SQL Server 2008](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) su Microsoft TechNet.
 
-### Ricerca delle prime n query
+### <a name="finding-top-n-queries"></a>Ricerca delle prime n query
 Nell'esempio seguente vengono restituite informazioni sulle prime cinque query classificate in base al tempo medio della CPU. Nell'esempio le query vengono aggregate in base al relativo valore hash, in modo da raggruppare le query logicamente equivalenti in base all'utilizzo di risorse cumulativo.
 
 ```
@@ -100,11 +107,11 @@ GROUP BY query_stats.query_hash
 ORDER BY 2 DESC;
 ```
 
-### Monitoraggio delle query bloccate
-Le query lente o con esecuzione prolungata possono contribuire al consumo eccessivo delle risorse ed essere la conseguenza di query bloccate. Le cause del blocco possono essere una progettazione povera dell'applicazione, dei piani di query non validi, la mancanza di indici utili e così via. È possibile utilizzare la visualizzazione in sys.dm\_tran\_locks per ottenere informazioni sulle attività di blocco corrente nel Database di SQL Azure. Per un codice di esempio, vedere [sys.dm\_tran\_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) nella documentazione Online di SQL Server.
+### <a name="monitoring-blocked-queries"></a>Monitoraggio delle query bloccate
+Le query lente o con esecuzione prolungata possono contribuire al consumo eccessivo delle risorse ed essere la conseguenza di query bloccate. Le cause del blocco possono essere una progettazione povera dell'applicazione, dei piani di query non validi, la mancanza di indici utili e così via. È possibile utilizzare la visualizzazione in sys.dm_tran_locks per ottenere informazioni sulle attività di blocco corrente nel Database di SQL Azure. Per un codice di esempio, vedere [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) nella 	documentazione online di Microsoft SQL Server.
 
-### Monitoraggio dei piani di query
-Un piano di query inefficiente può anche aumentare il consumo della CPU. Nell'esempio seguente viene utilizzata la visualizzazione [sys.dm\_exec\_query\_stats](https://msdn.microsoft.com/library/ms189741.aspx) per determinare quali query utilizza la CPU cumulativa maggiore.
+### <a name="monitoring-query-plans"></a>Monitoraggio dei piani di query
+Un piano di query inefficiente può anche aumentare il consumo della CPU. Nell'esempio seguente viene usata la visualizzazione [sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) per determinare la query che usa la CPU cumulativa maggiore.
 
 ```
 SELECT
@@ -126,7 +133,12 @@ FROM
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## Vedere anche
+## <a name="see-also"></a>Vedere anche
 [Introduzione al Database SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

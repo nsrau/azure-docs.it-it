@@ -2,21 +2,26 @@
 title: Case study Azure del database SQL di Microsoft Azure - Snelstart | Microsoft Docs
 description: Informazioni su come SnelStart usa il database SQL per espandere rapidamente i servizi aziendali con una frequenza di 1.000 nuovi database SQL di Azure al mese
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: fab506b2-439d-4f1a-bdc5-d1d25c80d267
 ms.service: sql-database
+ms.custom: app development case study; app development
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/08/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 66360bc0a8618d250cc07e3e806af6c9a157afaf
+
 
 ---
-# <a name="with-azure,-snelstart-has-rapidly-expanded-its-business-services-at-a-rate-of-1,000-new-azure-sql-databases-per-month"></a>Grazie ad Azure, SnelStart ha rapidamente ampliato i servizi aziendali con una frequenza di 1.000 nuovi database SQL di Azure al mese
+# <a name="with-azure-snelstart-has-rapidly-expanded-its-business-services-at-a-rate-of-1000-new-azure-sql-databases-per-month"></a>Grazie ad Azure, SnelStart ha rapidamente ampliato i servizi aziendali con una frequenza di 1.000 nuovi database SQL di Azure al mese
 ![SnelStartLogo](./media/sql-database-implementation-snelstart/snelstartlogo.png)
 
 SnelStart produce rinomati software di gestione aziendale e finanziaria per le piccole e medie imprese nei Paesi Bassi. I 55.000 clienti sono serviti da un organico composto da 110 dipendenti, tra cui 35 esperti del reparto IT. Grazie al passaggio dal software desktop a un'offerta Software come servizio (SaaS) compilata in Azure, SnelStart ha sfruttato al massimo i servizi incorporati, l'automazione della gestione tramite l'ambiente familiare in C# e l'ottimizzazione delle prestazioni e della scalabilità con provisioning eccessivo o insufficiente delle aziende, usando pool di database elastici. L'uso di Azure garantisce a SnelStart fluidità nello spostamento dei clienti tra ambiente locale e cloud.
@@ -28,7 +33,7 @@ SnelStart produce rinomati software di gestione aziendale e finanziaria per le p
 ## <a name="why-snelstart-extended-services-from-the-desktop-to-the-cloud"></a>Perché SnelStart ha esteso i servizi dal desktop al cloud
 > "Usare Azure comporta la possibilità di offrire software più rapidamente, reagire velocemente alle richieste dei clienti e scalare le soluzioni quando le richieste aumentano".
 > 
-> * Henry Been, progettista software
+> - Henry Been, progettista software
 > 
 > 
 
@@ -62,7 +67,7 @@ Il modello della piattaforma Azure ha eliminato il sovraccarico dell'infrastrutt
 
 > "Solo nei primi mesi del 2016, abbiamo aumentato le distribuzioni del database SQL di Azure da circa 5.500 a oltre 12.000 e attualmente stiamo aggiungendo circa 1.000 database al mese".
 > 
-> * Henry Been, progettista software
+> - Henry Been, progettista software
 > 
 > 
 
@@ -75,7 +80,7 @@ Grazie ad Azure, SnelStart può essere usato da clienti e contabili sul cloud, i
 
 > Il nostro obiettivo è consentire l'automazione completa dei servizi di amministrazione aziendale ai nostri clienti". 
 > 
-> * Carlo Kuip, progettista IT
+> - Carlo Kuip, progettista IT
 > 
 > 
 
@@ -90,7 +95,7 @@ Dal passaggio a una soluzione Azure basata su cloud, SnelStart è stato in grado
 
 > "Quando abbiamo dismesso definitivamente Redmond, ho ricevuto una chiamata da uno sviluppatore dei Paesi Bassi, il quale mi contattava in merito a un problema specifico. Siamo riusciti a ottenere da Microsoft una modifica nell'ambiente di produzione entro 48 ore per risolvere il problema".
 > 
-> * Henry Been, progettista software
+> - Henry Been, progettista software
 > 
 > 
 
@@ -99,10 +104,13 @@ L'obiettivo immediato per SnelStart è supportare l'aumento della soddisfazione 
 
 ## <a name="more-information"></a>Altre informazioni
 * Per altre informazioni sui pool di database elastici, vedere [Che cos'è un pool elastico di Azure?](sql-database-elastic-pool.md).
-* Per altre informazioni sui ruoli Web e i ruoli di lavoro, vedere l'argomento relativo ai [ruoli di lavoro](../fundamentals-introduction-to-azure.md#compute). 
+* Per altre informazioni sui ruoli Web e i ruoli di lavoro, vedere l'argomento relativo ai [ruoli di lavoro](../fundamentals-introduction-to-azure.md#compute).    
 * Per altre informazioni su Azure SQL Data Warehouse, vedere [SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)
 * Per altre informazioni su SnelStart, vedere [SnelStart](http://www.snelstart.nl).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

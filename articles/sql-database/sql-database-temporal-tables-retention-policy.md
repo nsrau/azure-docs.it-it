@@ -1,43 +1,48 @@
 ---
-title: Manage historical data in Temporal Tables with retention policy | Microsoft Docs
-description: Learn how to use temporal retention policy to keep historical data under your control.
+title: Gestire i dati cronologici nelle tabelle temporali con criteri di conservazione | Microsoft Docs
+description: Informazioni su come usare criteri di conservazione temporale per tenere sotto controllo i dati cronologici.
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: bonova
 manager: drasumic
-editor: ''
-
+editor: 
+ms.assetid: 76cfa06a-e758-453e-942c-9f1ed6a38c2a
 ms.service: sql-database
+ms.custom: db development
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sql-database
 ms.date: 10/12/2016
 ms.author: bonova
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: bb68239d36203e74faa54859b20a4198ce3cba91
+
 
 ---
-# <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Manage historical data in Temporal Tables with retention policy
-Temporal Tables may increase database size more than regular tables, especially if you retain historical data for a longer period of time. Hence, retention policy for historical data is an important aspect of planning and managing the lifecycle of every temporal table. Temporal Tables in Azure SQL Database come with easy-to-use retention mechanism that helps you accomplish this task.
+# <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Gestire i dati cronologici nelle tabelle temporali con criteri di conservazione
+Le tabelle temporali possono aumentare le dimensioni del database più delle tabelle normali, in particolare se si conservano i dati cronologici per un periodo di tempo più lungo. Di conseguenza, i criteri di conservazione per i dati cronologici sono un aspetto importante della pianificazione e della gestione del ciclo di vita di ogni tabella temporale. Le tabelle temporali nel database SQL Azure sono dotate di un meccanismo di conservazione di facile uso che aiuta a eseguire questa operazione.
 
-Temporal history retention can be configured at the individual table level, which allows users to create flexible aging polices. Applying temporal retention is simple: it requires only one parameter to be set during table creation or schema change.
+Il periodo di conservazione della cronologia temporale può essere configurato a livello di singola tabella, per consentire agli utenti di creare criteri di giacenza flessibili. L'applicazione della conservazione temporale è semplice: è necessario configurare un solo parametro durante la creazione della tabella o la modifica dello schema.
 
-After you define retention policy, Azure SQL Database will start checking regularly if there are historical rows that are eligible for automatic data cleanup. Identification of matching rows and their removal from the history table occur transparently, in the background task that is scheduled and run by the system. Age condition for the history table rows is checked based on the column representing end of SYSTEM_TIME period. If retention period, for example, is set to six months, table rows eligible for cleanup satisfy the following condition:
+Dopo aver definito i criteri di conservazione, il database SQL di Azure avvierà una verifica periodica per controllare se sono presenti righe di cronologia idonee alla pulizia automatica dei dati. L'identificazione delle righe corrispondenti e la loro rimozione della tabella di cronologia si verificano in modo trasparente, nell'attività in background pianificata ed eseguita dal sistema. Le condizioni di età per le righe della tabella della cronologia vengono controllate in base alla colonna che rappresenta la fine del periodo SYSTEM_TIME. Se, ad esempio, il periodo di conservazione definito è di sei mesi, le righe della tabella idonee per la pulizia soddisfano la condizione seguente:
 
 ````
 ValidTo < DATEADD (MONTH, -6, SYSUTCDATETIME())
 ````
 
-In the example above we assumed that **ValidTo** column corresponds to the end of SYSTEM_TIME period.
+Nell'esempio precedente si presuppone che la colonna **ValidTo** corrisponda alla fine del periodo SYSTEM_TIME.
 
-## <a name="how-to-configure-retention-policy?"></a>How to configure retention policy?
-Before you configure retention policy for a temporal table, check first whether temporal historical retention is enabled *at the database level*.
+## <a name="how-to-configure-retention-policy"></a>Come si configurano i criteri di conservazione?
+Prima di configurare criteri di conservazione per una tabella temporale, innanzitutto è necessario controllare se la conservazione della cronologia temporale è abilitata *a livello di database*.
 
 ````
 SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
 ````
 
-Database flag **is_temporal_history_retention_enabled** is set to ON by default, but users can change it with ALTER DATABASE statement. It is also automatically set to OFF after [point in time restore](sql-database-point-in-time-restore-portal.md) operation. To enable temporal history retention cleanup for your database, execute the following statement:
+Il flag del database **is_temporal_history_retention_enabled** è impostato su ON per impostazione predefinita, tuttavia gli utenti possono sostituirlo con l'istruzione ALTER DATABASE. Inoltre, viene impostato automaticamente su OFF dopo l'operazione di [ripristino temporizzato](sql-database-point-in-time-restore-portal.md). Per abilitare la pulizia della conservazione della cronologia temporale per il database, eseguire l'istruzione seguente:
 
 ````
 ALTER DATABASE <myDB>
@@ -45,11 +50,11 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 ````
 
 > [!IMPORTANT]
-> You can configure retention for temporal tables even if **is_temporal_history_retention_enabled** is OFF, but automatic cleanup for aged rows will not be triggered in that case.
+> È possibile configurare la conservazione per le tabelle temporali anche se **is_temporal_history_retention_enabled** è impostato su OFF, tuttavia in questo caso la pulizia automatica per le righe obsolete non verrà attivata.
 > 
 > 
 
-Retention policy is configured during table creation by specifying value for the HISTORY_RETENTION_PERIOD parameter:
+I criteri di conservazione vengono configurati durante la creazione di una tabella specificando il valore per il parametro HISTORY_RETENTION_PERIOD:
 
 ````
 CREATE TABLE dbo.WebsiteUserInfo
@@ -71,9 +76,9 @@ CREATE TABLE dbo.WebsiteUserInfo
  );
 ````
 
-Azure SQL Database allows you to specify retention period by using different time units: DAYS, WEEKS, MONTHS, and YEARS. If HISTORY_RETENTION_PERIOD is omitted, INFINITE retention is assumed. You can also use INFINITE keyword explicitly.
+Il database SQL di Azure consente di specificare il periodo di conservazione tramite unità di tempo diverse: DAYS, WEEKS, MONTHS e YEARS. Se HISTORY_RETENTION_PERIOD viene omesso, viene usata la conservazione INFINITE. È inoltre possibile usare esplicitamente la parola chiave INFINITE.
 
-In some scenarios, you may want to configure retention after table creation, or to change previously configured value. In that case use ALTER TABLE statement:
+In alcuni scenari, è possibile configurare la conservazione dopo la creazione della tabella o per modificare un valore configurato in precedenza. In questo caso usare l'istruzione ALTER TABLE:
 
 ````
 ALTER TABLE dbo.WebsiteUserInfo
@@ -81,11 +86,11 @@ SET (SYSTEM_VERSIONING = ON (HISTORY_RETENTION_PERIOD = 9 MONTHS));
 ````
 
 > [!IMPORTANT]
-> Setting SYSTEM_VERSIONING to OFF *does not preserve* retention period value. Setting SYSTEM_VERSIONING to ON without HISTORY_RETENTION_PERIOD specified explicitly results in the INFINITE retention period.
+> Con l'impostazione di SYSTEM_VERSIONING su OFF il valore relativo al periodo di conservazione *non viene mantenuto*. Con l'impostazione di SYSTEM_VERSIONING su ON senza specificare esplicitamente HISTORY_RETENTION_PERIOD si ottiene come risultato un periodo di conservazione INFINITE.
 > 
 > 
 
-To review current state of the retention policy, use the following query that joins temporal retention enablement flag at the database level with retention periods for individual tables:
+Per esaminare lo stato corrente del criterio di conservazione, usare la seguente query che unisce il flag di abilitazione della conservazione temporale a livello di database con i periodi di conservazione per le singole tabelle:
 
 ````
 SELECT DB.is_temporal_history_retention_enabled,
@@ -101,28 +106,28 @@ ON T1.history_table_id = T2.object_id WHERE T1.temporal_type = 2
 ````
 
 
-## <a name="how-sql-database-deletes-aged-rows?"></a>How SQL Database deletes aged rows?
-The cleanup process depends on the index layout of the history table. It is important to notice that *only history tables with a clustered index (B-tree or columnstore) can have finite retention policy configured*. A background task is created to perform aged data cleanup for all temporal tables with finite retention period.
-Cleanup logic for the rowstore (B-tree) clustered index deletes aged row in smaller chunks (up to 10K) minimizing pressure on database log and I/O subsystem. Although cleanup logic utilizes required B-tree index, order of deletions for the rows older than retention period cannot be firmly guaranteed. Hence, *do not take any dependency on the cleanup order in your applications*.
+## <a name="how-sql-database-deletes-aged-rows"></a>In che modo vengono eliminate le righe obsolete dal database SQL?
+Il processo di pulizia dipende dal layout indice della tabella di cronologia. È importante notare che *solo nelle tabelle di cronologia con un indice cluster (struttura B-tree o columnstore) è possibile avere la configurazione dei criteri di conservazione definiti*. Viene creata un'attività in background per eseguire la pulizia dei dati obsoleti per tutte le tabelle temporali con periodo di conservazione definito.
+La logica di pulizia per l'indice in cluster rowstore (B-tree) elimina la riga obsoleta in blocchi più piccoli (fino a 10.000) riducendo al minimo pressione sul log del database e sul sottosistema I/O. Anche se la logica di pulizia usa un indice B-tree obbligatorio, l'ordine di eliminazione per le righe antecedenti il periodo di conservazione non può essere garantito saldamente. Di conseguenza, *non è consentito accettare le dipendenze nell'ordine di pulizia nelle applicazioni*.
 
-The cleanup task for the clustered columnstore removes entire [row groups](https://msdn.microsoft.com/library/gg492088.aspx) at once (typically contain 1 million of rows each), which is very efficient, especially when historical data is generated at a high pace.
+L'attività di pulizia per columnstore in cluster rimuove interi [gruppi di righe](https://msdn.microsoft.com/library/gg492088.aspx) in una sola volta (in genere ogni gruppo contiene un milione di righe); questa procedura è molto efficace, soprattutto quando vengono generati dati cronologici a ritmo elevato.
 
-![Clustered columnstore retention](./media/sql-database-temporal-tables-retention-policy/cciretention.png)
+![Conservazione di columnstore in cluster](./media/sql-database-temporal-tables-retention-policy/cciretention.png)
 
-Excellent data compression and efficient retention cleanup makes clustered columnstore index a perfect choice for scenarios when your workload rapidly generates high amount of historical data. That pattern is typical for intensive [transactional processing workloads that use temporal tables](https://msdn.microsoft.com/library/mt631669.aspx) for change tracking and auditing, trend analysis, or IoT data ingestion.
+Un'ottima compressione dei dati e un'efficace pulizia per la conservazione fanno dell'indice columnstore in cluster la scelta ideale per gli scenari in cui il carico di lavoro genera rapidamente elevate quantità di dati cronologici. Tale modello è tipico per un l'[elaborazione transazionale intensiva dei carichi di lavoro che usano tabelle temporali](https://msdn.microsoft.com/library/mt631669.aspx) per il rilevamento delle modifiche e il controllo, l'analisi delle tendenze o l'inserimento dei dati IoT.
 
-## <a name="index-considerations"></a>Index considerations
-The cleanup task for tables with rowstore clustered index requires index to start with the column corresponding the end of SYSTEM_TIME period. If such index doesn’t exist, you won’t be able to configure finite retention period:
+## <a name="index-considerations"></a>Considerazioni sull'indice
+L'attività di pulizia per le tabelle con indice rowstore in cluster richiede che l'indice inizi con la colonna che corrisponde alla fine del periodo SYSTEM_TIME. Se tale indice non esiste, non sarà possibile configurare un periodo di conservazione definito:
 
-*Msg 13765, Level 16, State 1 <br></br> Setting finite retention period failed on system-versioned temporal table 'temporalstagetestdb.dbo.WebsiteUserInfo' because the history table 'temporalstagetestdb.dbo.WebsiteUserInfoHistory' does not contain required clustered index. Consider creating a clustered columnstore or B-tree index starting with the column that matches end of SYSTEM_TIME period, on the history table.*
+*Msg 13765, Level 16, State 1 <br></br> L'impostazione del periodo di conservazione definito ha avuto esito negativo nella tabella temporale con controllo delle versioni del sistema 'temporalstagetestdb.dbo.WebsiteUserInfo' perché la tabella di cronologia 'temporalstagetestdb.dbo.WebsiteUserInfoHistory' non contiene l'indice in cluster richiesto. È consigliabile creare un columnstore cluster o indice B-tree a partire dalla colonna che corrisponde alla fine del periodo SYSTEM_TIME nella tabella di cronologia.*
 
-It is important to notice that the default history table created by Azure SQL Database already has clustered index, which is compliant for retention policy. If you try to remove that index on a table with finite retention period, operation fails with the following error:
+È importante notare che la tabella di cronologia predefinito già creata dal database SQL di Azure dispone già dell'indice in cluster, che è conforme a criteri di conservazione. Se si tenta di rimuovere l'indice in una tabella con periodo di conservazione definito, l'operazione ha esito negativo con l'errore seguente:
 
-*Msg 13766, Level 16, State 1 <br></br> Cannot drop the clustered index 'WebsiteUserInfoHistory.IX_WebsiteUserInfoHistory' because it is being used for automatic cleanup of aged data. Consider setting HISTORY_RETENTION_PERIOD to INFINITE on the corresponding system-versioned temporal table if you need to drop this index.*
+*Msg 13766, Level 16, State 1 <br></br> Impossibile eliminare l'indice cluster 'WebsiteUserInfoHistory.IX_WebsiteUserInfoHistory' perché è usato per la pulizia automatica dei dati obsoleti. Si consiglia di impostare HISTORY_RETENTION_PERIOD su INFINITE nella corrispondente tabella temporale con controllo delle versioni del sistema se è necessario eliminare l'indice.*
 
-Cleanup on the clustered columnstore index works optimally if historical rows are inserted in the ascending order (ordered by the end of period column), which is always the case when the history table is populated exclusively by the SYSTEM_VERSIONIOING mechanism. If rows in the history table are not ordered by end of period column (which may be the case if you migrated existing historical data), you should re-create clustered columnstore index on top of B-tree rowstore index that is properly ordered, to achieve optimal performance.
+La pulizia dell'indice columnstore in cluster funziona in modo ottimale se vengono inserite righe cronologiche in ordine crescente (ordinate in base alla fine della colonna del periodo); questo viene sempre applicato quando la tabella di cronologia viene popolata esclusivamente dal meccanismo SYSTEM_VERSIONIOING. Se le righe della tabella di cronologia non sono ordinate in base alla fine della colonna del periodo (ad esempio in caso di migrazione dei dati cronologici esistenti), è necessario ricreare un indice columnstore in cluster sull'indice rowstore B-tree ordinato in modo corretto, per ottenere prestazioni ottimali.
 
-Avoid rebuilding clustered columnstore index on the history table with the finite retention period, because it may change ordering in the row groups naturally imposed by the system-versioning operation. If you need to rebuild clustered columnstore index on the history table, do that by re-creating it on top of compliant B-tree index, preserving ordering in the rowgroups necessary for regular data cleanup. The same approach should be taken if you create temporal table with existing history table that has clustered column index without guaranteed data order:
+Evitare la ricompilazione dell'indice columnstore in cluster nella tabella di cronologia con il periodo di conservazione definito, perché può cambiare l'ordine nei gruppi di righe imposti naturalmente dall'operazione di controllo delle versioni di sistema. Se è necessario ricompilare l'indice columnstore in cluster della tabella di cronologia, crearne uno nuovo al posto dell'indice B-tree conforme, mantenendo l'ordinamento in gruppi di righe necessario per la pulizia dei dati regolare. Lo stesso approccio deve essere adottato se si crea una tabella temporale con la tabella di cronologia esistente che dispone di un indice di colonna in cluster senza ordine dei dati garantito:
 
 ````
 /*Create B-tree ordered by the end of period column*/
@@ -134,54 +139,57 @@ CREATE CLUSTERED COLUMNSTORE INDEX IX_WebsiteUserInfoHistory ON WebsiteUserInfoH
 WITH (DROP_EXISTING = ON);
 ````
 
-When finite retention period is configured for the history table with the clustered columnstore index, you cannot create additional non-clustered B-tree indexes on that table:
+Quando viene configurato il periodo di conservazione definito per la tabella di cronologia con l'indice columnstore in cluster, non è possibile creare indici B-tree non in cluster aggiuntivi nella tabella:
 
 ````
 CREATE NONCLUSTERED INDEX IX_WebHistNCI ON WebsiteUserInfoHistory ([UserName])
 ````
 
-An attempt to execute above statement will fail with the following error:
+Un tentativo di eseguire l'istruzione sopa avrà esito negativo con l'errore seguente:
 
-*Msg 13772, Level 16, State 1 <br></br> Cannot create non-clustered index on a temporal history table 'WebsiteUserInfoHistory' since it has finite retention period and clustered columnstore index defined.*
+*Msg 13772, Level 16, State 1 <br></br> Impossibile creare un indice non in cluster in una tabella di cronologia temporale 'WebsiteUserInfoHistory' perché ha un periodo di conservazione definito e l'indice columnstore in cluster è definito.*
 
-## <a name="querying-tables-with-retention-policy"></a>Querying tables with retention policy
-All queries on the temporal table automatically filter out historical rows matching finite retention policy, to avoid unpredictable and inconsistent results, since aged rows can be deleted by the cleanup task, *at any point in time and in arbitrary order*.
+## <a name="querying-tables-with-retention-policy"></a>Esecuzione di query su tabelle con criteri di conservazione
+Tutte le query sulla tabella temporale consentono di escludere automaticamente tramite filtro le righe cronolgiche definite corrispondenti, per evitare risultati imprevisti e incoerenti, poiché è possibile eliminare righe obsolete tramite l'attività di pulizia, *in qualsiasi momento e in ordine arbitrario*.
 
-The following picture shows the query plan for a simple query:
+Nell'immagine seguente viene illustrato il piano di query per una query semplice:
 
 ````
 SELECT * FROM dbo.WebsiteUserInfo FROM SYSTEM_TIME ALL;
 ````
 
-The query plan includes additional filter applied to end of period column (ValidTo) in the “Clustered Index Scan” operator on the history table (highlighted). This example assumes that 1 MONTH retention period was set on WebsiteUserInfo table.
+Il piano di query include un altro filtro applicato alla fine della colonna del periodo (ValidTo) nell'operatore "Clustered Index Scan" nella tabella di cronologia (evidenziata). In questo esempio si presuppone che il periodo di conservazione 1 MONTH sia stato impostato nella tabella WebsiteUserInfo.
 
-![Retention query filter](./media/sql-database-temporal-tables-retention-policy/queryexecplanwithretention.png)
+![Filtro di query di conservazione](./media/sql-database-temporal-tables-retention-policy/queryexecplanwithretention.png)
 
-However, if you query history table directly, you may see rows that are older than specified retention period, but without any guarantee for repeatable query results. The following picture shows query execution plan for the query on the history table without additional filters applied:
+Tuttavia, se si esegue una query direttamente in una tabella di cronologia, è possibile vedere le righe precedenti al periodo di conservazione specificato, ma senza alcuna garanzia relativa ai risultati ripetibili. Nell'immagine seguente è mostrato il piano di esecuzione di query per la query nella tabella di cronologia senza altri filtri applicati:
 
-![Querying history without retention filter](./media/sql-database-temporal-tables-retention-policy/queryexecplanhistorytable.png)
+![Esecuzione di query senza filtro di conservazione](./media/sql-database-temporal-tables-retention-policy/queryexecplanhistorytable.png)
 
-Do not rely your business logic on reading history table beyond retention period as you may get inconsistent or unexpected results. It is recommended to use temporal queries with FOR SYSTEM_TIME clause for analyzing data in temporal tables.
+Non affidare la logica di business alla lettura della tabella di cronologia oltre il periodo di conservazione, perché si potrebbero ottenere risultati incoerenti o imprevisti. È consigliabile usare query temporali con la clausola FOR SYSTEM_TIME per l'analisi dei dati nelle tabelle temporali.
 
-## <a name="point-in-time-restore-considerations"></a>Point in time restore considerations
-When you create new database by [restoring existing database to a specific point in time](sql-database-point-in-time-restore-portal.md), it has temporal retention disabled at the database level. (**is_temporal_history_retention_enabled** flag set to OFF). This functionality allows you to examine all historical rows upon restore, without worrying that aged rows are removed before you get to query them. You can use it to *inspect historical data beyond configured retention period*.
+## <a name="point-in-time-restore-considerations"></a>Considerazioni sul ripristino temporizzato
+Quando si crea un nuovo database attraverso il [ripristino di un database esistente in un punto specifico nel tempo](sql-database-point-in-time-restore-portal.md), la conservazione temporale è disabilitata a livello di database. (Il flag **is_temporal_history_retention_enabled** è impostato su OFF). Questa funzionalità consente di esaminare tutte le righe di cronologia al momento del ripristino, senza doversi preoccupare che le righe obsolete vengano rimosse prima di procedere con l'esecuzione di query. È possibile usarla per *esaminare i dati cronologici oltre il periodo di conservazione configurato*.
 
-Say that a temporal table has one MONTH retention period specified. If your database was created in Premium Service tier, you would be able to create database copy with the database state up to 35 days back in the past. That effectively would allow you to analyze historical rows that are up to 65 days old by querying the history table directly.
+Si supponga che per una tabella temporale sia specificato il periodo di conservazione MONTH. Se il database è stato creato al livello di servizio Premium, è possibile creare una copia del database con lo stato del database risalendo fino a 35 giorni prima. Una tale efficacia consentirebbe di analizzare le righe cronologiche risalenti anche a 65 giorni prima eseguendo una query direttamente nella tabella di cronologia.
 
-If you want to activate temporal retention cleanup, run the following Transact-SQL statement after point in time restore:
+Se si desidera attivare la pulizia della conservazione temporale, eseguire l'istruzione Transact-SQL seguente dopo il ripristino temporizzato:
 
 ````
 ALTER DATABASE <myDB>
 SET TEMPORAL_HISTORY_RETENTION  ON
 ````
 
-## <a name="next-steps"></a>Next steps
-To learn how to use Temporal Tables in your applications check out [Getting Started with Temporal Tables in Azure SQL Database](sql-database-temporal-tables.md).
+## <a name="next-steps"></a>Passaggi successivi
+Per informazioni su come usare le tabelle temporali nelle applicazioni, consultare [Introduzione alle tabelle temporali nel database SQL di Azure](sql-database-temporal-tables.md).
 
-Visit Channel 9 to hear a [real customer temporal implementation success story](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) and watch a [live temporal demonstration](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
+Andare su Channel 9 per ascoltare una [storia di successo reale relativa all'implementazione temporale di un cliente](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) e guardare una [dimostrazione temporale in tempo reale](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 
-For detailed information about Temporal Tables, review [MSDN documentation](https://msdn.microsoft.com/library/dn935015.aspx).
+Per informazioni dettagliate sulle tabelle temporali, esaminare la [documentazione su MSDN](https://msdn.microsoft.com/library/dn935015.aspx).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
 title: Polimorfismo nel framework Reliable Actors | Microsoft Docs
-description: Compilare gerarchie di interfacce e tipi .NET nel framework Reliable Actors per riutilizzare le funzionalità e le definizioni delle API.
+description: "Compilare gerarchie di interfacce e tipi .NET nel framework Reliable Actors per riutilizzare le funzionalità e le definizioni delle API."
 services: service-fabric
 documentationcenter: .net
 author: seanmck
 manager: timlt
 editor: vturecek
-
+ms.assetid: ef0eeff6-32b7-410d-ac69-87cba8b8fd46
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,17 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/07/2016
 ms.author: seanmck
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1f1f486fdd08c6b817b4486fa815ae536bdcebd3
+
 
 ---
-# Polimorfismo nel framework Reliable Actors
+# <a name="polymorphism-in-the-reliable-actors-framework"></a>Polimorfismo nel framework Reliable Actors
 Il framework Reliable Actors consente di creare attori usando molte delle tecniche usate per la progettazione orientata agli oggetti. Una di queste tecniche è il polimorfismo, che consente a tipi e interfacce di ereditare da più elementi padre generalizzati. L'ereditarietà nel framework Reliable Actors in genere segue il modello .NET con alcuni vincoli aggiuntivi.
 
-## Interfacce
+## <a name="interfaces"></a>Interfacce
 Per il framework Reliable Actors è necessario definire almeno un'interfaccia da implementare attraverso il tipo di attore. Questa interfaccia viene utilizzata per generare una classe proxy che può essere utilizzata dai client per comunicare con gli attori. Le interfacce possono ereditare da altre interfacce, purché ogni interfaccia implementata da un tipo di attore e tutti i relativi elementi genitori derivino da IActor. IActor è l'interfaccia di base definita dalla piattaforma per gli attori. Pertanto, l'esempio di polimorfismo classico che utilizza le forme può apparire nel seguente modo:
 
 ![Gerarchia delle interfacce per gli attori della forma][shapes-interface-hierarchy]
 
-## Types
+## <a name="types"></a>Types
 È inoltre possibile creare una gerarchia di tipi di attore, derivati dalla classe Attore di base fornita dalla piattaforma. Nel caso delle forme può essere presente un tipo `Shape` di base.
 
 ```csharp
@@ -61,7 +65,7 @@ public class Circle : Shape, ICircle
 
 Si noti l’attributo `ActorService` nel tipo di attore. Questo attributo indica al framework Reliable Actors che deve creare automaticamente un servizio per l'hosting di attori di questo tipo. In alcuni casi, si potrebbe creare un tipo di base progettato esclusivamente per la condivisione delle funzionalità con dei sottotipi e che non verrà mai usato per creare un'istanza di attori concreti. In questi casi, è necessario usare la parola chiave `abstract` per indicare che non si creerà mai un attore basato su quel tipo.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * Vedere [come il framework di Reliable Actors usufruisce della piattaforma Service Fabric](service-fabric-reliable-actors-platform.md) per fornire uno stato coerente, scalabilità e affidabilità.
 * Informazioni sul [ciclo di vita degli attori](service-fabric-reliable-actors-lifecycle.md).
 
@@ -69,4 +73,8 @@ Si noti l’attributo `ActorService` nel tipo di attore. Questo attributo indica
 
 [shapes-interface-hierarchy]: ./media/service-fabric-reliable-actors-polymorphism/Shapes-Interface-Hierarchy.png
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
