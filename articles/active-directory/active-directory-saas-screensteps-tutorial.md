@@ -1,11 +1,11 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con ScreenSteps | Microsoft Docs'
-description: Informazioni su come usare ScreenSteps con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora.
+description: Informazioni su come usare ScreenSteps con Azure Active Directory per abilitare l&quot;accesso Single Sign-On, il provisioning automatizzato e altro ancora.
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 4563fe94-a88f-4895-a07f-79df44889cf9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9e097ed265381225deeda19642c281223907a4cc
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-screensteps"></a>Esercitazione: Integrazione di Azure Active Directory con ScreenSteps
+# <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Esercitazione: Integrazione di Azure Active Directory con ScreenSteps
 In questa esercitazione viene illustrata l'integrazione di Azure e ScreenSteps.  
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -36,7 +40,7 @@ Lo scenario descritto in questa esercitazione include i blocchi predefiniti segu
 ## <a name="enabling-the-application-integration-for-screensteps"></a>Abilitazione dell'integrazione dell'applicazione per ScreenSteps
 In questa sezione viene descritto come abilitare l'integrazione dell'applicazione per ScreenSteps.
 
-### <a name="to-enable-the-application-integration-for-screensteps,-perform-the-following-steps:"></a>Per abilitare l'integrazione dell'applicazione per ScreenSteps, eseguire la procedura seguente:
+### <a name="to-enable-the-application-integration-for-screensteps-perform-the-following-steps"></a>Per abilitare l'integrazione dell'applicazione per ScreenSteps, eseguire la procedura seguente:
 1. Nel portale di Azure classico fare clic su **Active Directory**nel riquadro di spostamento sinistro.
    
    ![Active Directory](./media/active-directory-saas-screensteps-tutorial/IC700993.png "Active Directory")
@@ -61,7 +65,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a ScreenSteps tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML.
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
 1. Nella pagina di integrazione dell'applicazione **ScreenSteps** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
    ![Configura accesso Single Sign-On](./media/active-directory-saas-screensteps-tutorial/IC778519.png "Configure single sign-on")
@@ -108,7 +112,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 Per consentire agli utenti di Azure AD di accedere a **ScreenSteps**, è necessario eseguirne il provisioning in **ScreenSteps**.  
 Nel caso di **ScreenSteps**, il provisioning è un'attività manuale.
 
-### <a name="to-provision-a-user-account-to-screensteps,-perform-the-following-steps:"></a>Per eseguire il provisioning di un account utente in ScreenSteps, eseguire la procedura seguente:
+### <a name="to-provision-a-user-account-to-screensteps-perform-the-following-steps"></a>Per eseguire il provisioning di un account utente in ScreenSteps, eseguire la procedura seguente:
 1. Accedere al tenant **ScreenSteps** .
 2. Fare clic su **Account Management**.
    
@@ -135,7 +139,7 @@ Nel caso di **ScreenSteps**, il provisioning è un'attività manuale.
 ## <a name="assigning-users"></a>Assegnazione degli utenti
 Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
-### <a name="to-assign-users-to-screensteps,-perform-the-following-steps:"></a>Per assegnare gli utenti ad ScreenSteps eseguire la procedura seguente:
+### <a name="to-assign-users-to-screensteps-perform-the-following-steps"></a>Per assegnare gli utenti ad ScreenSteps eseguire la procedura seguente:
 1. Nel portale di Azure classico creare un account di test.
 2. Nella pagina di integrazione dell'applicazione **ScreenSteps** fare clic su **Assegna utenti**.
    
@@ -146,6 +150,9 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

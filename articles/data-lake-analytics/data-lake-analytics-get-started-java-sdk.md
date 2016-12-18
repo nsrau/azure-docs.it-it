@@ -1,12 +1,12 @@
 ---
-title: Usare l'SDK Java di Analisi Data Lake per lo sviluppo di applicazioni | Microsoft Docs
-description: Usare l'SDK Java di Analisi Azure Data Lake per lo sviluppo di applicazioni
+title: Usare l&quot;SDK Java di Data Lake Analytics per sviluppare le applicazioni | Documentazione Microsoft
+description: Usare l&quot;SDK Java di Analisi Azure Data Lake per lo sviluppo di applicazioni
 services: data-lake-analytics
-documentationcenter: ''
+documentationcenter: 
 author: edmacauley
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,34 +14,38 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: edmaca
+translationtype: Human Translation
+ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
+ms.openlocfilehash: 7ab51f4834f3112d4f3379acbaa16a386276cdb8
+
 
 ---
-# Esercitazione: Introduzione ad Analisi Azure Data Lake con l'SDK Java
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-java-sdk"></a>Esercitazione: Introduzione ad Analisi Azure Data Lake con l'SDK Java
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Informazioni su come usare l'SDK Java di Analisi Azure Data Lake per creare un account Azure Data Lake ed eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare file di dati, eliminare l'account e lavorare con i processi. Per altre informazioni su Data Lake, vedere [Panoramica di Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-In questa esercitazione verrà sviluppata un'applicazione console Java che include esempi di attività amministrative comuni, inoltre saranno creati dati di test e sarà inviato un processo. Per eseguire la stessa esercitazione usando altri strumenti supportati, fare clic sulle schede disponibili nella parte superiore di questa sezione.
+In questa esercitazione verrà sviluppata un'applicazione console Java che include esempi di attività amministrative comuni, inoltre saranno creati dati di test e sarà inviato un processo.  Per eseguire la stessa esercitazione usando altri strumenti supportati, fare clic sulle schede disponibili nella parte superiore di questa sezione.
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Java Development Kit (JDK) 8 con Java versione 1.8.
 * IntelliJ o un altro ambiente di sviluppo Java adatto. Questo prerequisito è facoltativo ma consigliato. Le istruzioni riportate di seguito usano IntelliJ.
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Data Lake Analytics. Vedere le [istruzioni](data-lake-analytics-get-started-portal.md#signup).
-* Creare un'applicazione Azure Active Directory (AAD) e recuperarne l'**ID client**, l'**ID tenant** e la **chiave**. Per altre informazioni sulle applicazioni AAD e le istruzioni su come ottenere un ID client, vedere [Usare il portale per creare un'applicazione di Active Directory che acceda alle risorse](../resource-group-create-service-principal-portal.md). Dopo aver creato l'applicazione e generato la chiave, anche l'URI di risposta e la chiave saranno disponibili dal portale.
+* **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Data Lake Analytics. Vedere le [istruzioni](data-lake-analytics-get-started-portal.md).
+* Creare un'applicazione Azure Active Directory (AAD) e recuperarne **ID client**, **ID tenant** e **chiave**. Per altre informazioni sulle applicazioni AAD e le istruzioni su come ottenere un ID client, vedere [Usare il portale per creare un'applicazione di Active Directory che acceda alle risorse](../resource-group-create-service-principal-portal.md). Dopo aver creato l'applicazione e generato la chiave, anche l'URI di risposta e la chiave saranno disponibili dal portale.
 
-## Come si esegue l'autenticazione tramite Azure Active Directory?
-Il frammento di codice riportato di seguito fornisce il codice per l'autenticazione **non interattiva**, in cui l'applicazione fornisce le proprie credenziali.
+## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Come si esegue l'autenticazione tramite Azure Active Directory?
+Il frammento di codice riportato di seguito fornisce il codice per l'autenticazione **non interattiva** , in cui l'applicazione fornisce le proprie credenziali.
 
 Perché questa esercitazione possa funzionare, è necessario concedere all'applicazione le autorizzazioni necessarie per creare risorse in Azure. Ai fini di questa esercitazione, è **consigliabile** concedere all'applicazione autorizzazioni di Collaboratore soltanto per un gruppo di risorse nuovo, vuoto e inutilizzato nella sottoscrizione di Azure.
 
-## Creare un'applicazione Java
-1. Aprire IntelliJ e creare un nuovo progetto Java usando il modello **Command Line App**.
-2. Fare clic con il pulsante destro del mouse sul progetto sulla sinistra dello schermo e fare clic su **Add Framework Support** (Aggiungi supporto framework). Scegliere **Maven** e fare clic su **OK**.
-3. Aprire il file **"pom.xml"** appena creato e aggiungere il frammento di testo seguente tra il tag **</version>** e il tag **</project>**:
-   
+## <a name="create-a-java-application"></a>Creare un'applicazione Java
+1. Aprire IntelliJ e creare un nuovo progetto Java usando il modello **Command Line App** .
+2. Fare clic con il pulsante destro del mouse sul progetto sulla sinistra dello schermo e fare clic su **Add Framework Support**(Aggiungi supporto framework). Scegliere **Maven** e fare clic su **OK**.
+3. Aprire il file **"pom.xml"** appena creato e aggiungere il frammento di testo seguente tra il tag **\</version>** e il tag **\</project>**:
+
     NOTA: questo passaggio è temporaneo e non sarà più necessario quando l'SDK di Analisi Azure Data Lake sarà disponibile in Maven. Quando l'SDK sarà disponibile in Maven l'articolo verrà aggiornato. Tutti gli aggiornamenti futuri di questo SDK saranno disponibili tramite Maven.
-   
+
         <repositories>
             <repository>
                 <id>adx-snapshots</id>
@@ -90,15 +94,15 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
                 <version>1.0.0-SNAPSHOT</version>
             </dependency>
         </dependencies>
-4. Passare a **File**, **Settings** (Impostazioni), **Build** (Compilazione), **Execution** (Esecuzione), **Deployment** (Distribuzione). Selezionare **Build Tools** (Strumenti di compilazione), **Maven** e quindi **Importing** (Importazione). Selezionare **Import Maven projects automatically** (Importa automaticamente progetti Maven).
-5. Aprire **Main.java** e sostituire il blocco di codice esistente con il codice seguente. Immettere anche i valori per i parametri indicati nel frammento di codice, ad esempio **localFolderPath**, **\_adlaAccountName**, **\_adlsAccountName** e **\_resourceGroupName** e sostituire i segnaposto per **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID** e **SUBSCRIPTION-ID**.
-   
+4. Passare a **File**, **Settings** (Impostazioni), **Build** (Compilazione), **Execution** (Esecuzione), **Deployment** (Distribuzione). Selezionare **Build Tools** (Strumenti di compilazione), **Maven** e quindi **Importing** (Importazione). Selezionare **Import Maven projects automatically**(Importa automaticamente progetti Maven).
+5. Aprire **Main.java** e sostituire il blocco di codice esistente con il codice seguente. Immettere anche i valori per i parametri indicati nel frammento di codice, ad esempio **localFolderPath**, **_adlaAccountName**, **_adlsAccountName**, **_resourceGroupName** e sostituire i segnaposto per **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID** e **SUBSCRIPTION-ID**.
+
     Questo codice crea gli account Archivio Data Lake e Analisi Data Lake, crea i file nell'archivio, esegue un processo, recupera lo stato del processo, scarica l'output del processo e infine elimina l'account.
-   
+
    > [!NOTE]
-   > Attualmente esiste un problema noto con il servizio di Azure Data Lake. Se l'applicazione di esempio viene interrotta o si verifica un errore, potrebbe essere necessario eliminare manualmente gli account Archivio Data Lake e Analisi Data Lake che lo script crea. Se non si ha familiarità con il portale, la guida [Gestire Analisi Azure Data Lake tramite il portale di Azure](data-lake-analytics-manage-use-portal.md) descrive come iniziare.
-   > 
-   > 
+   > Attualmente esiste un problema noto con il servizio di Azure Data Lake.  Se l'applicazione di esempio viene interrotta o si verifica un errore, potrebbe essere necessario eliminare manualmente gli account Archivio Data Lake e Analisi Data Lake che lo script crea.  Se non si ha familiarità con il portale, la guida [Gestire Analisi Azure Data Lake tramite il portale di Azure](data-lake-analytics-manage-use-portal.md) descrive come iniziare.
+   >
+   >
 
         package com.company;
 
@@ -146,7 +150,7 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
 
                 _clientSecret = "<CLIENT-SECRET>"; // TODO: For production scenarios, we recommend that you replace this line with a more secure way of acquiring the application client secret, rather than hard-coding it in the source code.
 
-                String localFolderPath = "C:\\local_path\"; // TODO: Change this to any unused, new, empty folder on your local machine.
+                String localFolderPath = "C:\\local_path\\"; // TODO: Change this to any unused, new, empty folder on your local machine.
 
                 // Authenticate
                 ApplicationTokenCredentials creds = new ApplicationTokenCredentials(_clientId, _tenantId, _clientSecret, null);
@@ -178,7 +182,7 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
                 WaitForNewline("File created.", "Submitting a job.");
 
                 // Submit a job to Data Lake Analytics
-                UUID jobId = SubmitJobByScript("@input =  EXTRACT Data string FROM "/input1.csv" USING Extractors.Csv(); OUTPUT @input TO @"/output1.csv" USING Outputters.Csv();", "testJob");
+                UUID jobId = SubmitJobByScript("@input =  EXTRACT Data string FROM \"/input1.csv\" USING Extractors.Csv(); OUTPUT @input TO @\"/output1.csv\" USING Outputters.Csv();", "testJob");
                 WaitForNewline("Job submitted.", "Getting job status.");
 
                 // Wait for job completion and output job status
@@ -337,12 +341,16 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
 
 1. Seguire le istruzioni per eseguire e completare l'applicazione.
 
-## Vedere anche
+## <a name="see-also"></a>Vedere anche
 * Per visualizzare la stessa esercitazione usando altri strumenti, scegliere i selettori di scheda nella parte superiore della pagina.
 * Per visualizzare una query più complessa, vedere [Analizzare i log del sito Web mediante Analisi Data Lake di Azure](data-lake-analytics-analyze-weblogs.md).
 * Per iniziare a sviluppare applicazioni U-SQL, vedere [Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-* Per altre informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL di Analisi Azure Data Lake](data-lake-analytics-u-sql-get-started.md) e [Informazioni di riferimento sul linguaggio U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
-* Per informazioni sulle attività di gestione, vedere [Gestire Analisi di Azure Data Lake tramite il portale di Azure](data-lake-analytics-manage-use-portal.md).
-* Per una panoramica su Analisi Data Lake, vedere [Panoramica di Analisi Data Lake di Azure](data-lake-analytics-overview.md).
+* Per informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL di Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md) e [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348) (Riferimenti al linguaggio U-SQL).
+* Per informazioni sulle attività di gestione, vedere [Gestire Azure Data Lake Analytics con il portale di Azure](data-lake-analytics-manage-use-portal.md).
+* Per una panoramica su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
