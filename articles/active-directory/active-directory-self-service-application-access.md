@@ -1,12 +1,12 @@
 ---
 title: Accesso alle applicazioni self-service e gestione delegata con Azure Active Directory | Microsoft Docs
-description: Questo articolo descrive come abilitare l'accesso alle applicazioni self-service e la gestione delegata con Azure Active Directory.
+description: Questo articolo descrive come abilitare l&quot;accesso alle applicazioni self-service e la gestione delegata con Azure Active Directory.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser-msft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 448a7fe8-a162-475e-9ba2-2e3ab59302bc
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2016
 ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c14be0292b08419ebaf4270d7e451e930d43810b
+
 
 ---
 # <a name="self-service-application-access-and-delegated-management-with-azure-active-directory"></a>Accesso alle applicazioni self-service e gestione delegata con Azure Active Directory
@@ -83,7 +87,7 @@ Il riquadro **Aggiungi utenti** consente ai responsabili dell'approvazione di co
 ### <a name="manage-users"></a>Gestire gli utenti
 Il riquadro **Gestire gli utenti** consente ai responsabili dell'approvazione di aggiornare o rimuovere direttamente gli utenti che hanno accesso all'applicazione. 
 
-### <a name="configure-password-sso-credentials-(if-applicable)"></a>Configurare le credenziali SSO con password (se applicabile)
+### <a name="configure-password-sso-credentials-if-applicable"></a>Configurare le credenziali SSO con password (se applicabile)
 Il riquadro **Configura** viene visualizzato solo se l'applicazione è stata configurata dall'amministratore IT per l'uso del Single Sign-On basato su password e l'amministratore ha concesso al responsabile dell'approvazione la possibilità di impostare le credenziali SSO con password come descritto in precedenza. Se selezionato, il responsabile dell'approvazione ha a disposizione diverse opzioni per propagare le credenziali agli utenti assegnati:
 
 ![][3]
@@ -102,6 +106,6 @@ Il riquadro **Configura** viene visualizzato solo se l'applicazione è stata con
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

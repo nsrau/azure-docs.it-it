@@ -1,101 +1,108 @@
 ---
-title: Service Bus messaging samples overview | Microsoft Docs
-description: Categorizes and describes Service Bus messaging samples with links to each.
-services: service-bus
+title: Panoramica degli esempi di messaggistica del bus di servizio | Documentazione Microsoft
+description: Suddivide gli esempi relativi alla messaggistica del bus di servizio in categorie e fornisce una descrizione e un collegamento a ognuno di essi.
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 0b420343-2d2a-4c65-98f1-ee0e39ef55c8
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 719403ca2ef90cdcf5f76fe15f7a33095e71a74c
+
 
 ---
-# <a name="service-bus-messaging-samples"></a>Service Bus messaging samples
-The Service Bus messaging samples demonstrate key features in [Service Bus messaging](https://azure.microsoft.com/services/service-bus/) (cloud service) and [Service Bus for Windows Server](https://msdn.microsoft.com/library/dn282144.aspx). This article categorizes and describes the samples available, with links to each.
+# <a name="service-bus-messaging-samples"></a>Esempi di messaggistica del bus di servizio
+Gli esempi relativi alla messaggistica del bus di servizio illustrano come usare le funzionalità principali di [messaggistica del bus di servizio](https://azure.microsoft.com/services/service-bus/) (servizio cloud) e del [bus di servizio per Windows Server](https://msdn.microsoft.com/library/dn282144.aspx). Questo articolo suddivide gli esempi disponibili in categorie e fornisce una descrizione e un collegamento a ognuno di essi.
 
 > [!NOTE]
-> Service Bus samples are not installed with the SDK. To obtain the samples, visit the [Azure SDK samples page](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
+> Gli esempi relativi al bus di servizio non vengono installati con l'SDK. Per ottenere gli esempi, visitare la pagina relativa agli [esempi di Azure SDK](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
 > 
-> Additionally, there is an updated set of Service Bus messaging samples [here](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) (as of this writing, they are not described in this article).  
+> In aggiunta, [qui](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) è disponibile un set aggiornato di esempi di messaggi del bus di servizio (in questo articolo non viene descritta la scrittura degli stessi).  
 > 
 > 
 
-For relay samples, see [Service Bus relay samples](../service-bus-relay/service-bus-relay-samples.md).
+Per esempi di inoltro, vedere [Esempi di inoltro del bus di servizio](../service-bus-relay/service-bus-relay-samples.md).
 
-## <a name="service-bus-messaging"></a>Service Bus messaging
-The following samples illustrate how to write applications that use Service Bus messaging.
+## <a name="service-bus-messaging"></a>Messaggistica del bus di servizio
+Gli esempi seguenti illustrano come scrivere applicazioni che usano la messaggistica del bus di servizio.
 
-Note that the messaging samples require a connection string to access your Service Bus namespace.
+Tenere presente che per gli esempi relativi alla messaggistica è necessaria una stringa di connessione per l'accesso allo spazio dei nomi del bus di servizio.
 
-### <a name="to-obtain-a-connection-string-for-azure-service-bus"></a>To obtain a connection string for Azure Service Bus
-1. Log on to the [Azure portal](http://portal.azure.com).
-2. In the left-hand column, click **Service Bus**.
-3. Click the name of your namespace in the list.
-4. In the namespace blade, click **Shared access policies**.
-5. In the **Shared access policies** blade, click **RootManageSharedAccessKey**.
-6. Copy the connection string to the clipboard.
+### <a name="to-obtain-a-connection-string-for-azure-service-bus"></a>Per ottenere una stringa di connessione per il bus di servizio di Azure
+1. Accedere al [portale di Azure](http://portal.azure.com).
+2. Nella colonna sinistra fare clic su **Bus di servizio**.
+3. Fare clic sul nome dello spazio dei nomi nell'elenco.
+4. Nel pannello dello spazio dei nomi fare clic su **Criteri di accesso condivisi**.
+5. Nel pannello **Criteri di accesso condivisi** fare clic su **RootManageSharedAccessKey**.
+6. Copiare la stringa di connessione negli Appunti.
 
-### <a name="to-obtain-a-connection-string-for-service-bus-for-windows-server"></a>To obtain a connection string for Service Bus for Windows Server
-1. Run the following PowerShell cmdlet:
+### <a name="to-obtain-a-connection-string-for-service-bus-for-windows-server"></a>Per ottenere una stringa di connessione per il bus di servizio di Windows Server
+1. Eseguire il cmdlet di PowerShell seguente:
    
     ```
     get-sbClientConfiguration
     ```
-2. Paste the connection string into the App.config file for the sample.
+2. Incollare la stringa di connessione nel file App.config relativo all'esempio.
 
-### <a name="getting-started-samples"></a>Getting started samples
-These samples describe basic messaging functionality.
+### <a name="getting-started-samples"></a>Per iniziare
+Questi esempi illustrano la funzionalità di messaggistica di base.
 
-| Sample Name | Description | Minimum SDK Version | Availability |
+| Nome esempio | Descrizione | Versione minima SDK | Disponibilità |
 | --- | --- | --- | --- |
-| [Getting Started: Messaging with Queues](http://code.msdn.microsoft.com/Getting-Started-Brokered-aa7a0ac3) |Demonstrates how to use Microsoft Azure Service Bus to send and receive messages from a queue. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Getting Started: Messaging With Topics](http://code.msdn.microsoft.com/Getting-Started-Brokered-614d42e5) |Demonstrates how to use Microsoft Azure Service Bus to send and receive messages from a topic with multiple subscriptions. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
+| [Introduzione: Messaggistica con code](http://code.msdn.microsoft.com/Getting-Started-Brokered-aa7a0ac3) |Illustra come usare il bus di servizio di Microsoft Azure per inviare e ricevere messaggi da una coda. |1.8 |Bus di servizio di Microsoft Azure. Bus di servizio per Windows Server |
+| [Getting Started: Messaging With Topics](http://code.msdn.microsoft.com/Getting-Started-Brokered-614d42e5) |Illustra come usare il bus di servizio di Microsoft Azure per inviare e ricevere messaggi da un argomento con più sottoscrizioni. |1.8 |Bus di servizio di Microsoft Azure. Bus di servizio per Windows Server |
 
-### <a name="exploring-features"></a>Exploring features
-The following samples demonstrate various features of Service Bus.
+### <a name="exploring-features"></a>Esplorazione delle funzionalità
+Gli esempi seguenti illustrano varie funzionalità del bus di servizio.
 
-| Sample Name | Description | Minimum SDK Version | Availability |
+| Nome esempio | Descrizione | Versione minima SDK | Disponibilità |
 | --- | --- | --- | --- |
-| [HTTP Token Providers](http://code.msdn.microsoft.com/Service-Bus-HTTP-Token-38f2cfc5) |Demonstrates the different ways of authenticating an HTTP/REST client with Service Bus. |2.1 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Service Bus HTTP Client](http://code.msdn.microsoft.com/Service-Bus-HTTP-client-fe7da74a) |Demonstrates how to send messages to and receive messages from Service Bus via HTTP/REST. |2.3 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Service Bus Autoforwarding](http://code.msdn.microsoft.com/Service-Bus-Autoforwarding-b9df470b) |Demonstrates how to automatically forward messages from a queue, subscription, or deadletter queue into another queue or topic. It also demonstrates how to send a message into a queue or topic via a transfer queue. |2.3 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: WCF Channel Session Sample](http://code.msdn.microsoft.com/Brokered-Messaging-WCF-0a526451) |Demonstrates how to use Microsoft Azure Service Bus using Windows Communication Foundation (WCF) channels. The sample shows the use of WCF channels to send and receive messages via a Service Bus queue. The sample shows both session and non-session communication over the Service Bus. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Transactions](http://code.msdn.microsoft.com/Brokered-Messaging-8cd41d1e) |Demonstrates how to use the Microsoft Azure Service Bus messaging features within a transaction scope in order to ensure batches of messaging operations are committed atomically. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Management Operations Using REST](http://code.msdn.microsoft.com/Brokered-Messaging-569cff88) |Demonstrates how to perform management operations on Service Bus using REST. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Resource Provider REST APIs](http://code.msdn.microsoft.com/Service-Bus-Resource-5d887203) |Demonstrates how to use the new Service Bus RDFE REST APIs to manage namespaces and messaging entities. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: WCF Service Session Sample](http://code.msdn.microsoft.com/Brokered-Messaging-WCF-db4262c2) |Demonstrates how to use Microsoft Azure Service Bus using the WCF service model. The sample shows the use of the WCF service model to accomplish session-based communication via a Service Bus queue. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Request Response](http://code.msdn.microsoft.com/Brokered-Messaging-Request-2b4ff5d8) |Demonstrates how to use the Microsoft Azure Service Bus and the request/response functionality. The sample shows simple clients and servers communicating via a Service Bus queue. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Dead Letter Queue](http://code.msdn.microsoft.com/Brokered-Messaging-Dead-22536dd8) |Demonstrates how to use Microsoft Azure Service Bus and the messaging "dead letter queue" functionality. The sample shows a simple sender and receiver communicating via a Service Bus queue. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Deferred Messages](http://code.msdn.microsoft.com/Brokered-Messaging-ccc4f879) |Demonstrates how to use the message deferral feature of Microsoft Azure Service Bus. The sample shows a simple sender and receiver communicating via a Service Bus queue. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Session Messages](http://code.msdn.microsoft.com/Brokered-Messaging-Session-41c43fb4) |Demonstrates how to use Microsoft Azure Service Bus and the Messaging Session functionality. The sample shows simple senders and receivers communicating via a Service Bus queue. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Request Response Topic](http://code.msdn.microsoft.com/Brokered-Messaging-Request-6759a36e) |Demonstrates how to implement the request/response pattern using Microsoft Azure Service Bus topics and subscriptions. The sample shows simple clients and servers communicating via a Service Bus topic. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Request Response Queue](http://code.msdn.microsoft.com/Brokered-Messaging-Request-0ce8fcaf) |Demonstrates how to use Microsoft Azure Service Bus and the request/response functionality. The sample shows simple clients and servers communicating via two Service Bus queues. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Duplicate Detection](http://code.msdn.microsoft.com/Brokered-Messaging-c0acea25) |Demonstrates how to use Microsoft Azure Service Bus duplicate message detection with queues. It creates two queues, one with duplicate detection enabled and other one without duplicate detection. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Async Messaging](http://code.msdn.microsoft.com/Brokered-Messaging-Async-211c1e74) |Demonstrates how to use Microsoft Azure Service Bus to send and receive messages asynchronously from a queue. The queue provides decoupled, asynchronous communication between a sender and any number of receivers (here, a single receiver). |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Advanced Filters](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) |Demonstrates how to use Microsoft Azure Service Bus publish/subscribe advanced filters. It creates a topic and 3 subscriptions with different filter definitions, sends messages to the topic, and receives all messages from subscriptions. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Messages Prefetch](http://code.msdn.microsoft.com/Brokered-Messaging-be2dac1d) |Demonstrates how to use the Microsoft Azure Service Bus messages prefetch feature. It demonstrates how to use the messages prefetch feature upon receive. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
+| [Provider di token HTTP](http://code.msdn.microsoft.com/Service-Bus-HTTP-Token-38f2cfc5) |Illustra le varie modalità di autenticazione di un client HTTP/REST con il bus di servizio. |2.1 |Bus di servizio di Microsoft Azure. Bus di servizio per Windows Server |
+| [Client HTTP del bus di servizio](http://code.msdn.microsoft.com/Service-Bus-HTTP-client-fe7da74a) |Illustra come inviare e ricevere messaggi dal bus di servizio tramite HTTP/REST. |2.3 |Bus di servizio di Microsoft Azure. Bus di servizio per Windows Server |
+| [Inoltro automatico del bus di servizio](http://code.msdn.microsoft.com/Service-Bus-Autoforwarding-b9df470b) |Illustra come inoltrare automaticamente messaggi da una coda, una sottoscrizione o una coda di messaggi non recapitabili a un'altra coda o argomento. Illustra anche come inviare un messaggio a una coda o a un argomento tramite una coda di trasferimento. |2.3 |Bus di servizio di Microsoft Azure. Bus di servizio per Windows Server |
+| [Messaggistica negoziata: Esempio di sessione con canali WCF](http://code.msdn.microsoft.com/Brokered-Messaging-WCF-0a526451) |Illustra come usare il bus di servizio di Microsoft Azure tramite canali Windows Communication Foundation (WCF). L'esempio mostra l'uso di canali WCF per inviare e ricevere messaggi tramite una coda del bus di servizio. Illustra sia la comunicazione basata su sessione sia la comunicazione non basata su sessione attraverso il bus di servizio. |1.8 |Bus di servizio di Microsoft Azure. Bus di servizio per Windows Server |
+| [Messaggistica negoziata: Transazioni](http://code.msdn.microsoft.com/Brokered-Messaging-8cd41d1e) |Illustra come usare le funzionalità di messaggistica del bus di servizio di Microsoft Azure nell'ambito di una transazione per garantire che venga eseguito in modo atomico il commit di batch di operazioni di messaggistica. |1.8 |Bus di servizio di Microsoft Azure. Bus di servizio per Windows Server |
+| [Messaggistica negoziata: Operazioni di gestione tramite REST](http://code.msdn.microsoft.com/Brokered-Messaging-569cff88) |Illustra come eseguire operazioni di gestione nel bus di servizio tramite REST. |1.8 |Bus di servizio di Microsoft Azure. Bus di servizio per Windows Server |
+| [API REST del provider di risorse](http://code.msdn.microsoft.com/Service-Bus-Resource-5d887203) |Illustra come usare le nuove API REST RDFE del bus di servizio per gestire spazi dei nomi ed entità di messaggistica. |1.8 |Bus di servizio di Microsoft Azure. Bus di servizio per Windows Server |
+| [Messaggistica negoziata: Esempio di sessione con il servizio WCF](http://code.msdn.microsoft.com/Brokered-Messaging-WCF-db4262c2) |Illustra come usare il bus di servizio di Microsoft Azure con il modello di servizio WCF. L'esempio mostra l'uso del modello di servizio WCF per la comunicazione basata su sessione tramite una coda del bus di servizio. |1.8 |Bus di servizio di Microsoft Azure. Bus di servizio per Windows Server |
+| [Messaggistica negoziata: Richiesta-risposta](http://code.msdn.microsoft.com/Brokered-Messaging-Request-2b4ff5d8) |Illustra come usare il bus di servizio di Microsoft Azure e la funzionalità di richiesta-risposta. L'esempio mostra client e server semplici che comunicano tramite una coda del bus di servizio. |1.8 |Bus di servizio di Microsoft Azure. Bus di servizio per Windows Server |
+| [Messaggistica negoziata: Coda di messaggi non recapitabili](http://code.msdn.microsoft.com/Brokered-Messaging-Dead-22536dd8) |Illustra come usare il bus di servizio di Microsoft Azure e la funzionalità di messaggistica "coda di messaggi non recapitabili". L'esempio mostra un mittente e un ricevitore semplici che comunicano tramite una coda del bus di servizio. |1.8 |Bus di servizio di Microsoft Azure. Bus di servizio per Windows Server |
+| [Messaggistica negoziata: Messaggi rinviati](http://code.msdn.microsoft.com/Brokered-Messaging-ccc4f879) |Illustra come usare la funzionalità di rinvio dei messaggi del bus di servizio di Microsoft Azure. L'esempio mostra un mittente e un ricevitore semplici che comunicano tramite una coda del bus di servizio. |1.8 |Bus di servizio di Microsoft Azure. Bus di servizio per Windows Server |
+| [Messaggistica negoziata: Sessione di messaggistica](http://code.msdn.microsoft.com/Brokered-Messaging-Session-41c43fb4) |Illustra come usare il bus di servizio di Microsoft Azure e la funzionalità Sessione di messaggistica. L'esempio mostra mittenti e un ricevitori semplici che comunicano tramite una coda del bus di servizio. |1.8 |Bus di servizio di Microsoft Azure. Bus di servizio per Windows Server |
+| [Brokered Messaging: Request Response Topic](http://code.msdn.microsoft.com/Brokered-Messaging-Request-6759a36e) |Illustra come implementare il modello richiesta-risposta usando gli argomenti e le sottoscrizioni del bus di servizio di Microsoft Azure. L'esempio mostra client e server semplici che comunicano tramite un argomento del bus di servizio. |1.8 |Bus di servizio di Microsoft Azure. Bus di servizio per Windows Server |
+| [Messaggistica negoziata: Coda con modello richiesta-risposta](http://code.msdn.microsoft.com/Brokered-Messaging-Request-0ce8fcaf) |Illustra come usare il bus di servizio di Microsoft Azure e la funzionalità di richiesta-risposta. L'esempio mostra client e server semplici che comunicano tramite due code del bus di servizio. |1.8 |Bus di servizio di Microsoft Azure. Bus di servizio per Windows Server |
+| [Messaggistica negoziata: Rilevamento di duplicati](http://code.msdn.microsoft.com/Brokered-Messaging-c0acea25) |Illustra come usare la funzionalità di rilevamento dei messaggi duplicati del bus di servizio di Microsoft Azure tramite le code. Vengono create due code, una con il rilevamento di duplicati abilitato e l'altra senza rilevamento di duplicati. |1.8 |Bus di servizio di Microsoft Azure. Bus di servizio per Windows Server |
+| [Messaggistica negoziata: Messaggistica asincrona](http://code.msdn.microsoft.com/Brokered-Messaging-Async-211c1e74) |Illustra come usare il bus di servizio di Microsoft Azure per inviare e ricevere messaggi in modo asincrono da una coda. La coda fornisce una comunicazione asincrona disaccoppiata tra un mittente e un numero qualsiasi di ricevitori (in questo esempio il ricevitore è uno solo). |1.8 |Bus di servizio di Microsoft Azure. Bus di servizio per Windows Server |
+| [Messaggistica negoziata: Filtri avanzati](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) |Illustra come usare i filtri avanzati di pubblicazione/sottoscrizione del bus di servizio di Microsoft Azure. Vengono creati un argomento e 3 sottoscrizioni con definizioni di filtro diverse, vengono inviati messaggi all'argomento e vengono ricevuti tutti i messaggi dalle sottoscrizioni. |1.8 |Bus di servizio di Microsoft Azure. Bus di servizio per Windows Server |
+| [Messaggistica negoziata: Prelettura di messaggi](http://code.msdn.microsoft.com/Brokered-Messaging-be2dac1d) |Illustra come usare la funzionalità di prelettura dei messaggi del bus di servizio di Microsoft Azure. Mostra come usare la funzionalità di prelettura dei messaggi alla ricezione. |1.8 |Bus di servizio di Microsoft Azure. Bus di servizio per Windows Server |
 
-## <a name="service-bus-reference-tools"></a>Service Bus reference tools
-The following samples demonstrate various other features of the service.
+## <a name="service-bus-reference-tools"></a>Strumenti di riferimento del bus di servizio
+Gli esempi seguenti illustrano altre funzionalità del servizio.
 
-| Sample Name | Description | Minimum SDK Version | Availability |
+| Nome esempio | Descrizione | Versione minima SDK | Disponibilità |
 | --- | --- | --- | --- |
-| [Service Bus Explorer](http://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a) |The Service Bus Explorer allows users to connect to a Service Bus service namespace and manage messaging entities in an easy manner. The tool provides advanced features such as import/export functionality, and the ability to test messaging entities and relay services. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Authorization: SBAzTool](http://code.msdn.microsoft.com/Authorization-SBAzTool-6fd76d93) |This sample demonstrates how to create and manage service identities in Microsoft Azure Active Directory Access Control (also known as Access Control Service or ACS) for use with Service Bus. |N/A |Microsoft Azure Service Bus |
+| [Service Bus Explorer](http://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a) |Service Bus Explorer consente agli utenti di connettersi a uno spazio dei nomi servizio del bus di servizio e di gestire le entità di messaggistica in modo semplificato. Lo strumento offre caratteristiche avanzate, tra cui funzionalità di importazione/esportazione, nonché la possibilità di testare le entità di messaggistica e i servizi di inoltro. |1.8 |Bus di servizio di Microsoft Azure. Bus di servizio per Windows Server |
+| [Autorizzazione: SBAzTool](http://code.msdn.microsoft.com/Authorization-SBAzTool-6fd76d93) |Questo esempio illustra come creare e gestire identità del servizio in Controllo di accesso di Microsoft Azure Active Directory (anche noto come Servizio di controllo di accesso o ACS) per l'uso con il bus di servizio. |N/D |Bus di servizio di Microsoft Azure |
 
-## <a name="next-steps"></a>Next steps
-See the following topics for conceptual overviews of Service Bus.
+## <a name="next-steps"></a>Passaggi successivi
+Per altre panoramiche sul bus di servizio, vedere gli argomenti seguenti.
 
-* [Service Bus messaging overview](service-bus-messaging-overview.md)
-* [Service Bus architecture](service-bus-architecture.md)
-* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
+* [Panoramica della messaggistica del bus di servizio](service-bus-messaging-overview.md)
+* [Architettura del bus di servizio](service-bus-architecture.md)
+* [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

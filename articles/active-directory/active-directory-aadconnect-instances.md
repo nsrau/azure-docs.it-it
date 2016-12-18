@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Connect: Considerazioni speciali per le istanze | Microsoft Docs'
+title: 'Azure AD Connect: Istanze del servizio di sincronizzazione | Documentazione Microsoft'
 description: Questa pagina contiene considerazioni speciali per le istanze di Azure AD.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f340ea11-8ff5-4ae6-b09d-e939c76355a3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9eae913bfe26a2e395658462352a92bd16eebb65
+
 
 ---
-# <a name="azure-ad-connect:-special-considerations-for-instances"></a>Azure AD Connect: Considerazioni speciali per le istanze
+# <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: Considerazioni speciali per le istanze
 Azure AD Connect si usa soprattutto con l'istanza di Azure AD e Office 365 disponibili in tutto il mondo. Ma esistono anche altre istanze e hanno requisiti diversi per gli URL e altre considerazioni speciali.
 
 ## <a name="microsoft-cloud-germany"></a>Microsoft Cloud Germany
@@ -65,6 +69,9 @@ Funzionalità attualmente non presenti nel cloud di Microsoft Azure per enti pub
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

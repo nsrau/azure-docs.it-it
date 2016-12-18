@@ -1,19 +1,23 @@
 ---
-title: Gestione delle unità amministrative in Azure Active Directory
-description: Utilizzo delle unità amministrative per la delega più granulare delle autorizzazioni in Azure Active Directory
+title: "Gestione delle unità amministrative in Azure Active Directory"
+description: "Utilizzo delle unità amministrative per la delega più granulare delle autorizzazioni in Azure Active Directory"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 8464cd6b-1d1a-470d-a4fb-ee29b8eab4c4
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2016
+ms.date: 11/09/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: ba3690084439aac83c91a1b4cfb7171b74c814f8
+ms.openlocfilehash: f54b28df432788cb42027133de09c3579fa41a18
+
 
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Gestione delle unità amministrative in Azure AD - Anteprima pubblica
@@ -23,8 +27,8 @@ Ciò risulta utile nelle organizzazioni con divisioni indipendenti, ad esempio, 
 
 > [!IMPORTANT]
 > È possibile creare e utilizzare unità amministrative solo se si abilita Azure Active Directory Premium. Per altre informazioni, vedere [Introduzione a Azure AD Premium](active-directory-get-started-premium.md).
-> 
-> 
+>
+>
 
 Dal punto di vista dell'amministratore centrale, un'unità amministrativa è un oggetto directory che può essere creato e popolato con le risorse. **In questa versione, queste risorse possono essere solo gli utenti.**  Dopo averla creata e popolata, l'unità amministrativa può essere utilizzata come ambito per limitare le autorizzazioni concesse solo alle risorse contenute nell’unità amministrativa.
 
@@ -36,6 +40,8 @@ Per ulteriori informazioni sui requisiti software e l'installazione del modulo d
 ## <a name="next-steps"></a>Passaggi successivi
 [Edizioni di Azure Active Directory](active-directory-editions.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Optimizing transactions for SQL Data Warehouse | Microsoft Docs
-description: Best Practice guidance on writing efficient transaction updates in Azure SQL Data Warehouse
+title: Ottimizzazione delle transazioni per SQL Data Warehouse | Documentazione Microsoft
+description: Indicazioni sulle procedure consigliate per la scrittura di aggiornamenti di transazioni efficienti in Azure SQL Data Warehouse
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 6f326f26-8a54-49df-a482-9c96a58db371
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,32 +14,36 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ed017b542de11a5e8abe46e1651b04cb61c77265
+
 
 ---
-# <a name="optimizing-transactions-for-sql-data-warehouse"></a>Optimizing transactions for SQL Data Warehouse
-This article explains how to optimize the performance of your transactional code while minimizing risk for long rollbacks.
+# <a name="optimizing-transactions-for-sql-data-warehouse"></a>Ottimizzazione delle transazioni per SQL Data Warehouse
+Questo articolo illustra come ottimizzare le prestazioni del codice transazionale riducendo al contempo il rischio di rollback di lunga durata.
 
-## <a name="transactions-and-logging"></a>Transactions and logging
-Transactions are an important component of a relational database engine. SQL Data Warehouse uses transactions during data modification. These transactions can be explicit or implicit. Single `INSERT`, `UPDATE` and `DELETE` statements are all examples of implicit transactions. Explicit transactions are written explicitly by a developer using `BEGIN TRAN`, `COMMIT TRAN` or `ROLLBACK TRAN` and are typically used when multiple modification statements need to be tied together in a single atomic unit. 
+## <a name="transactions-and-logging"></a>Transazioni e registrazione
+Le transazioni sono un componente importante in un motore di database relazionale. SQL Data Warehouse usa le transazioni durante la modifica dei dati. Queste operazioni possono essere esplicite o implicite. Le istruzioni singole `INSERT`, `UPDATE` e `DELETE` sono esempi di transazioni implicite. Le transazioni esplicite sono scritte in modo esplicito dallo sviluppatore con `BEGIN TRAN`, `COMMIT TRAN` o `ROLLBACK TRAN` e vengono usate in genere quando è necessario collegare più istruzioni di modifica in un'unica unità atomica. 
 
-Azure SQL Data Warehouse commits changes to the database using transaction logs. Each distribution has its own transaction log. Transaction log writes are automatic. There is no configuration required. However, whilst this process guarantees the write it does introduce an overhead in the system. You can minimize this impact by writing transactionally efficient code. Transactionally efficient code broadly falls into two categories.
+Azure SQL Data Warehouse esegue il commit delle modifiche al database usando i log delle transazioni. Ogni distribuzione ha un proprio log delle transazioni. Le scritture del log delle transazioni avvengono in modo automatico e non è richiesta alcuna configurazione. Tuttavia, se da un lato questo processo garantisce la scrittura dall'altro provoca un sovraccarico nel sistema. È possibile ridurre al minimo tale impatto scrivendo codice efficiente a livello transazionale. Il codice efficiente a livello transazionale rientra in due categorie generali.
 
-* Leverage minimal logging constructs where possible
-* Process data using scoped batches to avoid singular long running transactions
-* Adopt a partition switching pattern for large modifications to a given partition
+* Sfruttare costrutti di registrazione minima, dove possibile.
+* Elaborare i dati tramite batch con ambito per evitare singole transazioni a esecuzione prolungata.
+* Adottare un modello di cambio di partizione per apportare modifiche estese a una determinata partizione.
 
-## <a name="minimal-vs-full-logging"></a>Minimal vs. full logging
-Unlike fully logged operations, which use the transaction log to keep track of every row change, minimally logged operations keep track of extent allocations and meta-data changes only. Therefore, minimal logging involves logging only the information that is required to rollback the transaction in the event of a failure or an explicit request (`ROLLBACK TRAN`). As much less information is tracked in the transaction log, a minimally logged operation performs better than a similarly sized fully logged operation. Furthermore, because fewer writes go the transaction log, a much smaller amount of log data is generated and so is more I/O efficient.
+## <a name="minimal-vs-full-logging"></a>Confronto tra registrazione minima e registrazione completa
+A differenza delle operazioni con registrazione completa, che usano il log delle transazioni per tenere traccia di ogni modifica di riga, le operazioni con registrazione minima tengono traccia unicamente delle allocazioni di extent e delle modifiche ai metadati. La registrazione minima prevede quindi la registrazione delle sole informazioni necessarie per eseguire il rollback della transazione in caso di errore o di richiesta esplicita (`ROLLBACK TRAN`). Dato che nel log delle transazioni viene registrata una quantità di informazioni notevolmente inferiore, le operazioni con registrazione minima offrono prestazioni migliori rispetto alle operazioni con registrazione completa di dimensioni simili. Il minor numero di scritture nel log delle transazioni comporta anche la generazione di una quantità molto inferiore di dati di log e quindi operazioni di I/O più efficienti.
 
-The transaction safety limits only apply to fully logged operations.
+I limiti di sicurezza delle transazioni si applicano solo alle operazioni con registrazione completa.
 
 > [!NOTE]
-> Minimally logged operations can participate in explicit transactions. As all changes in allocation structures are tracked, it is possible to roll back minimally logged operations. It is important to understand that the change is "minimally" logged it is not un-logged.
+> le operazioni con registrazione minima possono partecipare alle transazioni esplicite. È possibile eseguire il rollback delle operazioni con registrazione minima, dal momento che viene tenuta traccia di tutte le modifiche alle strutture di allocazione. È importante comprendere che la registrazione delle modifiche è minima e non assente.
 > 
 > 
 
-## <a name="minimally-logged-operations"></a>Minimally logged operations
-The following operations are capable of being minimally logged:
+## <a name="minimally-logged-operations"></a>Operazioni con registrazione minima
+Le operazioni indicate di seguito sono compatibili con la registrazione minima:
 
 * CREATE TABLE AS SELECT ([CTAS][CTAS])
 * INSERT..SELECT
@@ -57,33 +61,33 @@ The following operations are capable of being minimally logged:
 -->
 
 > [!NOTE]
-> Internal data movement operations (such as `BROADCAST` and `SHUFFLE`) are not affected by the transaction safety limit.
+> Le operazioni di spostamento dei dati interni (ad esempio `BROADCAST` e `SHUFFLE`) non sono interessate dal limite di sicurezza delle transazioni.
 > 
 > 
 
-## <a name="minimal-logging-with-bulk-load"></a>Minimal logging with bulk load
-`CTAS` and `INSERT...SELECT` are both bulk load operations. However, both are influenced by the target table definition and depend on the load scenario. Below is a table that explains if your bulk operation will be fully or minimally logged:  
+## <a name="minimal-logging-with-bulk-load"></a>Registrazione minima con caricamento bulk
+`CTAS` e `INSERT...SELECT` sono entrambe operazioni di caricamento bulk. Tuttavia, entrambe sono influenzate dalla definizione della tabella di destinazione e variano a seconda dello scenario di caricamento. La tabella riportata di seguito indica la registrazione completa o minima delle operazioni bulk elencate:  
 
-| Primary Index | Load Scenario | Logging Mode |
+| Indice primario | Scenario di caricamento | Modalità di registrazione |
 | --- | --- | --- |
-| Heap |Any |**Minimal** |
-| Clustered Index |Empty target table |**Minimal** |
-| Clustered Index |Loaded rows do not overlap with existing pages in target |**Minimal** |
-| Clustered Index |Loaded rows overlap with existing pages in target |Full |
-| Clustered Columnstore Index |Batch size >= 102,400 per partition aligned distribution |**Minimal** |
-| Clustered Columnstore Index |Batch size < 102,400 per partition aligned distribution |Full |
+| Heap |Qualsiasi |**Minima** |
+| Indice cluster |Tabella di destinazione vuota |**Minima** |
+| Indice cluster |Le righe caricate non si sovrappongono alle pagine esistenti nella destinazione |**Minima** |
+| Indice cluster |Le righe caricate si sovrappongono alle pagine esistenti nella destinazione |Completa |
+| Indice columnstore cluster |Dimensioni batch >= 102.400 per ogni distribuzione allineata alle partizioni |**Minima** |
+| Indice columnstore cluster |Dimensioni batch < 102.400 per ogni distribuzione allineata alle partizioni |Completa |
 
-It is worth noting that any writes to update secondary or non-clustered indexes will always be fully logged operations.
+Si noti che eventuali scritture di aggiornamento di indici secondari o non cluster saranno sempre operazioni con registrazione completa.
 
 > [!IMPORTANT]
-> SQL Data Warehouse has 60 distributions. Therefore, assuming all rows are evenly distributed and landing in a single partition, your batch will need to contain 6,144,000 rows or larger to be minimally logged when writing to a Clustered Columnstore Index. If the table is partitioned and the rows being inserted span partition boundaries, then you will need 6,144,000 rows per partition boundary assuming even data distribution. Each partition in each distribution must independently exceed the 102,400 row threshold for the insert to be minimally logged into the distribution.
+> SQL Data Warehouse ha 60 distribuzioni. Di conseguenza, supponendo che tutte le righe siano distribuite in modo uniforme e che vengano inserite in una singola partizione, il batch dovrà contenere almeno 6.144.000 di righe per la registrazione minima durante la scrittura un indice columnstore cluster. Se la tabella è partizionata e le righe da inserire si estendono oltre i limiti della partizione, saranno necessari 6.144.000 di righe per limite di partizione, supponendo una distribuzione uniforme dei dati. Per la registrazione minima dell'inserimento nella distribuzione, ogni partizione in ogni distribuzione deve superare singolarmente la soglia di 102.400 righe.
 > 
 > 
 
-Loading data into a non-empty table with a clustered index can often contain a mixture of fully logged and minimally logged rows. A clustered index is a balanced tree (b-tree) of pages. If the page being written to already contains rows from another transaction, then these writes will be fully logged. However, if the page is empty then the write to that page will be minimally logged.
+Il caricamento di dati in una tabella non vuota con un indice cluster può spesso contenere una combinazione di righe con registrazione completa e con registrazione minima. Un indice cluster è un albero B (bilanciato) di pagine. Se la pagina in cui si scrive contiene già righe provenienti da un'altra transazione, la scrittura verrà eseguita con registrazione completa. Se invece la pagina è vuota, la scrittura verrà eseguita con registrazione minima.
 
-## <a name="optimizing-deletes"></a>Optimizing deletes
-`DELETE` is a fully logged operation.  If you need to delete a large amount of data in a table or a partition, it often makes more sense to `SELECT` the data you wish to keep, which can be run as a minimally logged operation.  To accomplish this, create a new table with [CTAS][CTAS].  Once created, use [RENAME][RENAME] to swap out your old table with the newly created table.
+## <a name="optimizing-deletes"></a>Ottimizzazione delle eliminazioni
+`DELETE` è un'operazione con registrazione completa.  Per eliminare una grande quantità di dati da una tabella o una partizione spesso è più pratico usare `SELECT` per indicare i dati da conservare, operazione che può essere eseguita registrazione minima.  A tale scopo, creare una nuova tabella con [CTAS][CTAS].  Dopo averla creata, usare [RENAME][RENAME] per sostituire la tabella precedente con quella nuova.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -91,20 +95,20 @@ Loading data into a non-empty table with a clustered index can often contain a m
 --Step 01. Create a new table select only the records we want to kep (PromotionKey 2)
 CREATE TABLE [dbo].[FactInternetSales_d]
 WITH
-(   CLUSTERED COLUMNSTORE INDEX
-,   DISTRIBUTION = HASH([ProductKey])
-,   PARTITION   (   [OrderDateKey] RANGE RIGHT 
-                                    FOR VALUES  (   20000101, 20010101, 20020101, 20030101, 20040101, 20050101
-                                                ,   20060101, 20070101, 20080101, 20090101, 20100101, 20110101
-                                                ,   20120101, 20130101, 20140101, 20150101, 20160101, 20170101
-                                                ,   20180101, 20190101, 20200101, 20210101, 20220101, 20230101
-                                                ,   20240101, 20250101, 20260101, 20270101, 20280101, 20290101
+(    CLUSTERED COLUMNSTORE INDEX
+,    DISTRIBUTION = HASH([ProductKey])
+,     PARTITION     (    [OrderDateKey] RANGE RIGHT 
+                                    FOR VALUES    (    20000101, 20010101, 20020101, 20030101, 20040101, 20050101
+                                                ,    20060101, 20070101, 20080101, 20090101, 20100101, 20110101
+                                                ,    20120101, 20130101, 20140101, 20150101, 20160101, 20170101
+                                                ,    20180101, 20190101, 20200101, 20210101, 20220101, 20230101
+                                                ,    20240101, 20250101, 20260101, 20270101, 20280101, 20290101
                                                 )
 )
 AS
-SELECT  *
-FROM    [dbo].[FactInternetSales]
-WHERE   [PromotionKey] = 2
+SELECT     *
+FROM     [dbo].[FactInternetSales]
+WHERE    [PromotionKey] = 2
 OPTION (LABEL = 'CTAS : Delete')
 ;
 
@@ -113,55 +117,55 @@ RENAME OBJECT [dbo].[FactInternetSales]   TO [FactInternetSales_old];
 RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
-## <a name="optimizing-updates"></a>Optimizing updates
-`UPDATE` is a fully logged operation.  If you need to update a large number of rows in a table or a partition it can often be far more efficient to use a minimally logged operation such as [CTAS][CTAS] to do so.
+## <a name="optimizing-updates"></a>Ottimizzazione degli aggiornamenti
+`UPDATE` è un'operazione con registrazione completa.  Se è necessario aggiornare un numero elevato di righe in una tabella o in una partizione, spesso può risultare molto più efficiente usare un'operazione con registrazione minima, ad esempio [CTAS][CTAS].
 
-In the example below a full table update has been converted to a `CTAS` so that minimal logging is possible.
+Nell'esempio seguente l'aggiornamento completo di una tabella è stato convertito in `CTAS` per consentire la registrazione minima.
 
-In this case we are retrospectively adding a discount amount to the sales in the table:
+In questo caso viene aggiunto a posteriori un importo di sconto alle vendite nella tabella:
 
 ```sql
 --Step 01. Create a new table containing the "Update". 
 CREATE TABLE [dbo].[FactInternetSales_u]
 WITH
-(   CLUSTERED INDEX
-,   DISTRIBUTION = HASH([ProductKey])
-,   PARTITION   (   [OrderDateKey] RANGE RIGHT 
-                                    FOR VALUES  (   20000101, 20010101, 20020101, 20030101, 20040101, 20050101
-                                                ,   20060101, 20070101, 20080101, 20090101, 20100101, 20110101
-                                                ,   20120101, 20130101, 20140101, 20150101, 20160101, 20170101
-                                                ,   20180101, 20190101, 20200101, 20210101, 20220101, 20230101
-                                                ,   20240101, 20250101, 20260101, 20270101, 20280101, 20290101
+(    CLUSTERED INDEX
+,    DISTRIBUTION = HASH([ProductKey])
+,     PARTITION     (    [OrderDateKey] RANGE RIGHT 
+                                    FOR VALUES    (    20000101, 20010101, 20020101, 20030101, 20040101, 20050101
+                                                ,    20060101, 20070101, 20080101, 20090101, 20100101, 20110101
+                                                ,    20120101, 20130101, 20140101, 20150101, 20160101, 20170101
+                                                ,    20180101, 20190101, 20200101, 20210101, 20220101, 20230101
+                                                ,    20240101, 20250101, 20260101, 20270101, 20280101, 20290101
                                                 )
                 )
 )
 AS 
 SELECT
     [ProductKey]  
-,   [OrderDateKey] 
-,   [DueDateKey]  
-,   [ShipDateKey] 
-,   [CustomerKey] 
-,   [PromotionKey] 
-,   [CurrencyKey] 
-,   [SalesTerritoryKey]
-,   [SalesOrderNumber]
-,   [SalesOrderLineNumber]
-,   [RevisionNumber]
-,   [OrderQuantity]
-,   [UnitPrice]
-,   [ExtendedAmount]
-,   [UnitPriceDiscountPct]
-,   ISNULL(CAST(5 as float),0) AS [DiscountAmount]
-,   [ProductStandardCost]
-,   [TotalProductCost]
-,   ISNULL(CAST(CASE WHEN [SalesAmount] <=5 THEN 0
+,    [OrderDateKey] 
+,    [DueDateKey]  
+,    [ShipDateKey] 
+,    [CustomerKey] 
+,    [PromotionKey] 
+,    [CurrencyKey] 
+,    [SalesTerritoryKey]
+,    [SalesOrderNumber]
+,    [SalesOrderLineNumber]
+,    [RevisionNumber]
+,    [OrderQuantity]
+,    [UnitPrice]
+,    [ExtendedAmount]
+,    [UnitPriceDiscountPct]
+,    ISNULL(CAST(5 as float),0) AS [DiscountAmount]
+,    [ProductStandardCost]
+,    [TotalProductCost]
+,    ISNULL(CAST(CASE WHEN [SalesAmount] <=5 THEN 0
          ELSE [SalesAmount] - 5
          END AS MONEY),0) AS [SalesAmount]
-,   [TaxAmt]
-,   [Freight]
-,   [CarrierTrackingNumber] 
-,   [CustomerPONumber]
+,    [TaxAmt]
+,    [Freight]
+,    [CarrierTrackingNumber] 
+,    [CustomerPONumber]
 FROM    [dbo].[FactInternetSales]
 OPTION (LABEL = 'CTAS : Update')
 ;
@@ -175,70 +179,70 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Re-creating large tables can benefit from using SQL Data Warehouse workload management features. For more details please refer to the workload management section in the [concurrency][concurrency] article.
+> Per creare nuovamente tabelle di grandi dimensioni è possibile sfruttare le funzionalità di gestione del carico di lavoro di SQL Data Warehouse. Per altre informazioni, vedere la sezione relativa alla gestione del carico di lavoro nell'articolo sulla [concorrenza][concurrency].
 > 
 > 
 
-## <a name="optimizing-with-partition-switching"></a>Optimizing with partition switching
-When faced with large scale modifications inside a [table partition][table partition], then a partition switching pattern makes a lot of sense. If the data modification is significant and spans multiple partitions, then simply iterating over the partitions achieves the same result.
+## <a name="optimizing-with-partition-switching"></a>Ottimizzazione con cambio della partizione
+In caso di modifiche su larga scala all'interno di una [partizione di tabella][partizione di tabella] può risultare molto utile adottare un modello di cambio di partizione. Se si tratta di una modifica dei dati di notevole entità che si estende su più partizioni, una semplice operazione di iterazione nelle partizioni permette di ottenere lo stesso risultato.
 
-The steps to perform a partition switch are as follows:
+I passaggi per eseguire un cambio di partizione sono indicati di seguito:
 
-1. Create an empty out partition
-2. Perform the 'update' as a CTAS
-3. Switch out the existing data to the out table
-4. Switch in the new data
-5. Clean up the data
+1. Creare una partizione di disattivazione vuota.
+2. Eseguire l'operazione di aggiornamento come CTAS.
+3. Disattivare i dati esistenti nella tabella di disattivazione.
+4. Attivare i nuovi dati.
+5. Eseguire la pulizia dei dati.
 
-However, to help identify the partitions to switch we will first need to build a helper procedure such as the one below. 
+Tuttavia, per identificare le partizioni per il cambio è necessario compilare prima di tutto una routine di supporto, come quella riportata di seguito. 
 
 ```sql
 CREATE PROCEDURE dbo.partition_data_get
     @schema_name           NVARCHAR(128)
-,   @table_name            NVARCHAR(128)
-,   @boundary_value        INT
+,    @table_name               NVARCHAR(128)
+,    @boundary_value           INT
 AS
 IF OBJECT_ID('tempdb..#ptn_data') IS NOT NULL
 BEGIN
     DROP TABLE #ptn_data
 END
 CREATE TABLE #ptn_data
-WITH    (   DISTRIBUTION = ROUND_ROBIN
-        ,   HEAP
+WITH    (    DISTRIBUTION = ROUND_ROBIN
+        ,    HEAP
         )
 AS
 WITH CTE
 AS
 (
-SELECT  s.name                          AS [schema_name]
-,       t.name                          AS [table_name]
-,       p.partition_number              AS [ptn_nmbr]
-,       p.[rows]                        AS [ptn_rows]
-,       CAST(r.[value] AS INT)          AS [boundary_value]
-FROM        sys.schemas                 AS s
-JOIN        sys.tables                  AS t    ON  s.[schema_id]       = t.[schema_id]
-JOIN        sys.indexes                 AS i    ON  t.[object_id]       = i.[object_id]
-JOIN        sys.partitions              AS p    ON  i.[object_id]       = p.[object_id] 
+SELECT     s.name                            AS [schema_name]
+,        t.name                            AS [table_name]
+,         p.partition_number                AS [ptn_nmbr]
+,        p.[rows]                        AS [ptn_rows]
+,        CAST(r.[value] AS INT)            AS [boundary_value]
+FROM        sys.schemas                    AS s
+JOIN        sys.tables                    AS t    ON  s.[schema_id]        = t.[schema_id]
+JOIN        sys.indexes                    AS i    ON     t.[object_id]        = i.[object_id]
+JOIN        sys.partitions                AS p    ON     i.[object_id]        = p.[object_id] 
                                                 AND i.[index_id]        = p.[index_id] 
-JOIN        sys.partition_schemes       AS h    ON  i.[data_space_id]   = h.[data_space_id]
-JOIN        sys.partition_functions     AS f    ON  h.[function_id]     = f.[function_id]
-LEFT JOIN   sys.partition_range_values  AS r    ON  f.[function_id]     = r.[function_id] 
-                                                AND r.[boundary_id]     = p.[partition_number]
+JOIN        sys.partition_schemes        AS h    ON     i.[data_space_id]    = h.[data_space_id]
+JOIN        sys.partition_functions        AS f    ON     h.[function_id]        = f.[function_id]
+LEFT JOIN    sys.partition_range_values    AS r     ON     f.[function_id]        = r.[function_id] 
+                                                AND r.[boundary_id]        = p.[partition_number]
 WHERE i.[index_id] <= 1
 )
-SELECT  *
+SELECT    *
 FROM    CTE
-WHERE   [schema_name]       = @schema_name
-AND     [table_name]        = @table_name
-AND     [boundary_value]    = @boundary_value
+WHERE    [schema_name]        = @schema_name
+AND        [table_name]        = @table_name
+AND        [boundary_value]    = @boundary_value
 OPTION (LABEL = 'dbo.partition_data_get : CTAS : #ptn_data')
 ;
 GO
 ```
 
-This procedure maximizes code re-use and keeps the partition switching example more compact.
+Questa routine ottimizza il riutilizzo del codice e permette di mantenere più compatto l'esempio di cambio di partizione.
 
-The code below demonstrates the five steps mentioned above to achieve a full partition switching routine.
+Il codice seguente illustra i cinque passaggi citati sopra per ottenere una routine di cambio di partizione completa.
 
 ```sql
 --Create a partitioned aligned empty table to switch out the data 
@@ -249,10 +253,10 @@ END
 
 CREATE TABLE [dbo].[FactInternetSales_out]
 WITH
-(   DISTRIBUTION = HASH([ProductKey])
-,   CLUSTERED COLUMNSTORE INDEX
-,   PARTITION   (   [OrderDateKey] RANGE RIGHT 
-                                    FOR VALUES  (   20020101, 20030101
+(    DISTRIBUTION = HASH([ProductKey])
+,    CLUSTERED COLUMNSTORE INDEX
+,     PARTITION     (    [OrderDateKey] RANGE RIGHT 
+                                    FOR VALUES    (    20020101, 20030101
                                                 )
                 )
 )
@@ -271,42 +275,42 @@ END
 
 CREATE TABLE [dbo].[FactInternetSales_in]
 WITH
-(   DISTRIBUTION = HASH([ProductKey])
-,   CLUSTERED COLUMNSTORE INDEX
-,   PARTITION   (   [OrderDateKey] RANGE RIGHT 
-                                    FOR VALUES  (   20020101, 20030101
+(    DISTRIBUTION = HASH([ProductKey])
+,    CLUSTERED COLUMNSTORE INDEX
+,     PARTITION     (    [OrderDateKey] RANGE RIGHT 
+                                    FOR VALUES    (    20020101, 20030101
                                                 )
                 )
 )
 AS 
 SELECT
     [ProductKey]  
-,   [OrderDateKey] 
-,   [DueDateKey]  
-,   [ShipDateKey] 
-,   [CustomerKey] 
-,   [PromotionKey] 
-,   [CurrencyKey] 
-,   [SalesTerritoryKey]
-,   [SalesOrderNumber]
-,   [SalesOrderLineNumber]
-,   [RevisionNumber]
-,   [OrderQuantity]
-,   [UnitPrice]
-,   [ExtendedAmount]
-,   [UnitPriceDiscountPct]
-,   ISNULL(CAST(5 as float),0) AS [DiscountAmount]
-,   [ProductStandardCost]
-,   [TotalProductCost]
-,   ISNULL(CAST(CASE WHEN [SalesAmount] <=5 THEN 0
+,    [OrderDateKey] 
+,    [DueDateKey]  
+,    [ShipDateKey] 
+,    [CustomerKey] 
+,    [PromotionKey] 
+,    [CurrencyKey] 
+,    [SalesTerritoryKey]
+,    [SalesOrderNumber]
+,    [SalesOrderLineNumber]
+,    [RevisionNumber]
+,    [OrderQuantity]
+,    [UnitPrice]
+,    [ExtendedAmount]
+,    [UnitPriceDiscountPct]
+,    ISNULL(CAST(5 as float),0) AS [DiscountAmount]
+,    [ProductStandardCost]
+,    [TotalProductCost]
+,    ISNULL(CAST(CASE WHEN [SalesAmount] <=5 THEN 0
          ELSE [SalesAmount] - 5
          END AS MONEY),0) AS [SalesAmount]
-,   [TaxAmt]
-,   [Freight]
-,   [CarrierTrackingNumber] 
-,   [CustomerPONumber]
+,    [TaxAmt]
+,    [Freight]
+,    [CarrierTrackingNumber] 
+,    [CustomerPONumber]
 FROM    [dbo].[FactInternetSales]
-WHERE   OrderDateKey BETWEEN 20020101 AND 20021231
+WHERE    OrderDateKey BETWEEN 20020101 AND 20021231
 OPTION (LABEL = 'CTAS : Partition Switch IN : UPDATE')
 ;
 
@@ -328,8 +332,8 @@ SELECT @ptn_nmbr_out
 
 --Switch the partitions over
 DECLARE @SQL NVARCHAR(4000) = '
-ALTER TABLE [dbo].[FactInternetSales]   SWITCH PARTITION '+CAST(@ptn_nmbr_src AS VARCHAR(20))   +' TO [dbo].[FactInternetSales_out] PARTITION ' +CAST(@ptn_nmbr_out AS VARCHAR(20))+';
-ALTER TABLE [dbo].[FactInternetSales_in] SWITCH PARTITION '+CAST(@ptn_nmbr_in AS VARCHAR(20))   +' TO [dbo].[FactInternetSales] PARTITION '     +CAST(@ptn_nmbr_src AS VARCHAR(20))+';'
+ALTER TABLE [dbo].[FactInternetSales]    SWITCH PARTITION '+CAST(@ptn_nmbr_src AS VARCHAR(20))    +' TO [dbo].[FactInternetSales_out] PARTITION '    +CAST(@ptn_nmbr_out AS VARCHAR(20))+';
+ALTER TABLE [dbo].[FactInternetSales_in] SWITCH PARTITION '+CAST(@ptn_nmbr_in AS VARCHAR(20))    +' TO [dbo].[FactInternetSales] PARTITION '        +CAST(@ptn_nmbr_src AS VARCHAR(20))+';'
 EXEC sp_executesql @SQL
 
 --Perform the clean-up
@@ -341,10 +345,10 @@ DROP TABLE dbo.FactInternetSales_in
 DROP TABLE #ptn_data
 ```
 
-## <a name="minimize-logging-with-small-batches"></a>Minimize logging with small batches
-For large data modification operations, it may make sense to divide the operation into chunks or batches to scope the unit of work.
+## <a name="minimize-logging-with-small-batches"></a>Riduzione della registrazione con batch di piccole dimensioni
+Per operazioni di modifica dei dati di grandi dimensioni, può risultare utile suddividere l'operazione in blocchi o in batch per definire l'ambito dell'unità di lavoro.
 
-A working example is provided below. The batch size has been set to a trivial number to highlight the technique. In reality the batch size would be significantly larger. 
+Di seguito viene fornito un esempio funzionante. Le dimensioni del batch sono state impostate su un numero simbolico per evidenziare la tecnica. Nella realtà le dimensioni del batch sarebbero notevolmente più grandi. 
 
 ```sql
 SET NO_COUNT ON;
@@ -355,25 +359,25 @@ BEGIN
 END
 
 CREATE TABLE #t
-WITH    (   DISTRIBUTION = ROUND_ROBIN
-        ,   HEAP
+WITH    (    DISTRIBUTION = ROUND_ROBIN
+        ,    HEAP
         )
 AS
-SELECT  ROW_NUMBER() OVER(ORDER BY (SELECT NULL)) AS seq_nmbr
-,       SalesOrderNumber
-,       SalesOrderLineNumber
+SELECT    ROW_NUMBER() OVER(ORDER BY (SELECT NULL)) AS seq_nmbr
+,        SalesOrderNumber
+,        SalesOrderLineNumber
 FROM    dbo.FactInternetSales
-WHERE   [OrderDateKey] BETWEEN 20010101 and 20011231
+WHERE    [OrderDateKey] BETWEEN 20010101 and 20011231
 ;
 
-DECLARE @seq_start      INT = 1
-,       @batch_iterator INT = 1
-,       @batch_size     INT = 50
-,       @max_seq_nmbr   INT = (SELECT MAX(seq_nmbr) FROM dbo.#t)
+DECLARE    @seq_start        INT = 1
+,        @batch_iterator    INT = 1
+,        @batch_size        INT = 50
+,        @max_seq_nmbr    INT = (SELECT MAX(seq_nmbr) FROM dbo.#t)
 ;
 
-DECLARE @batch_count    INT = (SELECT CEILING((@max_seq_nmbr*1.0)/@batch_size))
-,       @seq_end        INT = @batch_size
+DECLARE    @batch_count    INT = (SELECT CEILING((@max_seq_nmbr*1.0)/@batch_size))
+,        @seq_end        INT = @batch_size
 ;
 
 SELECT COUNT(*)
@@ -382,17 +386,17 @@ FROM    dbo.FactInternetSales f
 PRINT 'MAX_seq_nmbr '+CAST(@max_seq_nmbr AS VARCHAR(20))
 PRINT 'MAX_Batch_count '+CAST(@batch_count AS VARCHAR(20))
 
-WHILE   @batch_iterator <= @batch_count
+WHILE    @batch_iterator <= @batch_count
 BEGIN
     DELETE
     FROM    dbo.FactInternetSales
     WHERE EXISTS
     (
-            SELECT  1
+            SELECT    1
             FROM    #t t
-            WHERE   seq_nmbr BETWEEN  @seq_start AND @seq_end
-            AND     FactInternetSales.SalesOrderNumber      = t.SalesOrderNumber
-            AND     FactInternetSales.SalesOrderLineNumber  = t.SalesOrderLineNumber
+            WHERE    seq_nmbr BETWEEN  @seq_start AND @seq_end
+            AND        FactInternetSales.SalesOrderNumber        = t.SalesOrderNumber
+            AND        FactInternetSales.SalesOrderLineNumber    = t.SalesOrderLineNumber
     )
     ;
 
@@ -402,33 +406,33 @@ BEGIN
 END
 ```
 
-## <a name="pause-and-scaling-guidance"></a>Pause and scaling guidance
-Azure SQL Data Warehouse lets you pause, resume and scale your data warehouse on demand. When you pause or scale your SQL Data Warehouse it is important to understand that any in-flight transactions are terminated immediately; causing any open transactions to be rolled back. If your workload had issued a long running and incomplete data modification prior to the pause or scale operation, then this work will need to be undone. This may impact the time it takes to pause or scale your Azure SQL Data Warehouse database. 
+## <a name="pause-and-scaling-guidance"></a>Linee guida per la sospensione e il ridimensionamento
+Azure SQL Data Warehouse permette di sospendere, riprendere e ridimensionare il data warehouse su richiesta. Quando si sospende o si ridimensiona SQL Data Warehouse è importante sapere che le eventuali transazioni in corso vengono interrotte immediatamente, con il conseguente rollback delle transazioni aperte. Se il carico di lavoro ha avviato una modifica dei dati a esecuzione prolungata e incompleta prima dell'operazione di sospensione o ridimensionamento, occorre annullare l'operazione. Questo può influire sul tempo necessario a sospendere o ridimensionare il database Azure SQL Data Warehouse. 
 
 > [!IMPORTANT]
-> Both `UPDATE` and `DELETE` are fully logged operations and so these undo/redo operations can take significantly longer than equivalent minimally logged operations. 
+> `UPDATE` e `DELETE` sono operazioni con registrazione completa e qualsiasi operazione di annullamento o ripristino può richiedere molto più tempo rispetto alle operazioni con registrazione minima equivalenti. 
 > 
 > 
 
-The best scenario is to let in flight data modification transactions complete prior to pausing or scaling SQL Data Warehouse. However, this may not always be practical. To mitigate the risk of a long rollback, consider one of the following options:
+Lo scenario migliore sarebbe consentire il completamento delle transazioni di modifica dei dati in corso prima di sospendere o ridimensionare SQL Data Warehouse. Tuttavia, questo potrebbe non essere sempre possibile. Per ridurre il rischio di un rollback troppo lungo, prendere in considerazione una delle opzioni seguenti:
 
-* Re-write long running operations using [CTAS][CTAS]
-* Break the operation down into chunks; operating on a subset of the rows
+* Riscrivere le operazioni a esecuzione prolungata con [CTAS][CTAS]
+* Suddividere l'operazione in blocchi e lavorare su un subset delle righe.
 
-## <a name="next-steps"></a>Next steps
-See [Transactions in SQL Data Warehouse][Transactions in SQL Data Warehouse] to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [SQL Data Warehouse Best Practices][SQL Data Warehouse Best Practices].
+## <a name="next-steps"></a>Passaggi successivi
+Per altre informazioni su limiti transazionali e livelli di isolamento, vedere [Transazioni in SQL Data Warehouse][Transazioni in SQL Data Warehouse].  Per una panoramica sulle procedure consigliate, vedere [Procedure consigliate per SQL Data Warehouse][Procedure consigliate per SQL Data Warehouse].
 
 <!--Image references-->
 
 <!--Article references-->
-[Transactions in SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
-[table partition]: ./sql-data-warehouse-tables-partition.md
+[Transazioni in SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
+[partizione di tabella]: ./sql-data-warehouse-tables-partition.md
 [Concurrency]: ./sql-data-warehouse-develop-concurrency.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
+[Procedure consigliate per SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
-[alter index]:https://msdn.microsoft.com/library/ms188388.aspx
+[modificare l'indice]:https://msdn.microsoft.com/library/ms188388.aspx
 [RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!-- Other web references -->
@@ -436,6 +440,6 @@ See [Transactions in SQL Data Warehouse][Transactions in SQL Data Warehouse] to 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

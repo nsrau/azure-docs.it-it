@@ -1,22 +1,26 @@
 ---
-title: Ripristinare i dati in Windows Server o in un client Windows da Azure con il modello di distribuzione di Resource Manager | Microsoft Docs
+title: Ripristinare i dati in Windows Server o in un client Windows da Azure con il modello di distribuzione di Resource Manager | Documentazione Microsoft
 description: Informazioni su come eseguire operazioni di ripristino da un computer che esegue Windows Server o un client Windows.
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-
+editor: 
+ms.assetid: 742f4b9e-c0ab-4eeb-8e22-ee29b83c22c4
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2016
+ms.date: 11/01/2016
 ms.author: trinadhk; jimpark; markgal;
+translationtype: Human Translation
+ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
+ms.openlocfilehash: 1ace5aa33201d9730b0708c3918597358f4dbd91
+
 
 ---
-# Ripristinare file in un computer di Windows Server o in un client Windows con il modello di distribuzione di Resource Manager
+# <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Ripristinare file in un computer di Windows Server o in un client Windows con il modello di distribuzione di Resource Manager
 > [!div class="op_single_selector"]
 > * [Portale di Azure](backup-azure-restore-windows-server.md)
 > * [Portale classico](backup-azure-restore-windows-server-classic.md)
@@ -32,26 +36,24 @@ In entrambi i casi, i dati vengono recuperati dall'insieme di credenziali dei se
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-Modello di distribuzione classica.
-
-## Recuperare i dati nello stesso computer
+## <a name="recover-data-to-the-same-machine"></a>Recuperare i dati nello stesso computer
 Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello stesso computer in cui è stato eseguito il backup, la seguente procedura permette di recuperarlo.
 
-1. Aprire lo snap-in di **Backup di Microsoft Azure**.
+1. Aprire lo snap-in di **Backup di Microsoft Azure** .
 2. Fare clic su **Ripristina dati** per avviare il flusso di lavoro.
    
-    ![Ripristino dei dati](./media/backup-azure-restore-windows-server/recover.png)
-3. Selezionare l'opzione **Questo server (*nomecomputer*)**, se si è deciso di ripristinare il file di backup nello stesso computer.
+    ![Ripristina dati](./media/backup-azure-restore-windows-server/recover.png)
+3. Selezionare l'opzione **Questo server (*nomecomputer*)**, per ripristinare il file di backup nello stesso computer.
    
     ![Nello stesso computer](./media/backup-azure-restore-windows-server/samemachine.png)
-4. È possibile scegliere di selezionare **Sfoglia elenco file** o **Cerca file**.
+4. È possibile scegliere **Sfoglia elenco file** o **Cerca file**.
    
-    Se si intende ripristinare uno o più file con un percorso noto, lasciare l'opzione predefinita. Se non si è certi della struttura di cartelle, ma si vuole cercare un file, selezionare l'opzione **Cerca file**. Ai fini di questa sezione, si procede con l'opzione predefinita.
+    Se si intende ripristinare uno o più file con un percorso noto, lasciare l'opzione predefinita. Se non si è certi della struttura di cartelle, ma si vuole cercare un file, selezionare l'opzione **Cerca file** . Ai fini di questa sezione, si procede con l'opzione predefinita.
    
     ![Ricerca dei file](./media/backup-azure-restore-windows-server/browseandsearch.png)
 5. Nella schermata successiva selezionare il volume da cui si vuole ripristinare il file.
    
-    È possibile ripristinare da qualsiasi data. Le date visualizzate in **grassetto** nel controllo calendario indicano la disponibilità di un punto di ripristino. Dopo aver selezionato una data, in base alla pianificazione del backup (e alla riuscita di un'operazione di backup), è possibile selezionare un orario dall'elenco a discesa **Ora**.
+    È possibile ripristinare da qualsiasi data. Le date visualizzate in **grassetto** nel controllo calendario indicano la disponibilità di un punto di ripristino. Dopo aver selezionato una data, in base alla pianificazione del backup (e alla riuscita di un'operazione di backup), è possibile selezionare un orario dall'elenco a discesa **Ora** .
    
     ![Volume e dati](./media/backup-azure-restore-windows-server/volanddate.png)
 6. Selezionare gli elementi da ripristinare. È possibile selezionare più cartelle e file per il ripristino.
@@ -66,13 +68,13 @@ Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello s
    * È consigliabile lasciare l'opzione predefinita che prevede il ripristino degli elenchi di controllo di accesso sui file che vengono recuperati.
 8. Una volta forniti i dati di input, fare clic su **Avanti**. Il flusso di lavoro di ripristino, che consente di ripristinare i file in questo computer, verrà avviato.
 
-## Recuperare i dati in un altro computer
-Se l'intero server viene perso, è comunque possibile recuperare dati da Backup di Azure in un computer diverso. I passaggi seguenti illustrano il flusso di lavoro.
+## <a name="recover-to-an-alternate-machine"></a>Recuperare i dati in un altro computer
+Se l'intero server viene perso, è comunque possibile recuperare dati da Backup di Azure in un computer diverso. I passaggi seguenti illustrano il flusso di lavoro.  
 
 Include la terminologia utilizzata in questi passaggi:
 
-* *Computer di origine*: il computer di origine da cui è stato eseguito il backup e che non è attualmente disponibile.
-* *Computer di destinazione*: il computer in cui i dati vengono ripristinati.
+* *Computer di origine* : il computer di origine da cui è stato eseguito il backup e che non è attualmente disponibile.
+* *Computer di destinazione* : il computer in cui i dati vengono ripristinati.
 * *Insieme di credenziali di esempio*: l'insieme di credenziali dei servizi di ripristino in cui il *computer di origine* e il *computer di destinazione* sono registrati. <br/>
 
 > [!NOTE]
@@ -84,15 +86,15 @@ Include la terminologia utilizzata in questi passaggi:
 2. Assicurarsi che il *computer di destinazione* e il *computer di origine* siano registrati nello stesso insieme di credenziali dei servizi di ripristino.
 3. Fare clic su **Ripristina dati** per avviare il flusso di lavoro.
    
-    ![Ripristino dei dati](./media/backup-azure-restore-windows-server/recover.png)
+    ![Ripristina dati](./media/backup-azure-restore-windows-server/recover.png)
 4. Selezionare **Un altro server**
    
-    ![In un altro server](./media/backup-azure-restore-windows-server/anotherserver.png)
-5. Specificare il file dell'insieme di credenziali che corrisponde all'*Insieme di credenziali di esempio*. Se il file dell'insieme di credenziali non è valido (o è scaduto), scaricarne uno nuovo dall'*Insieme di credenziali di esempio* nel portale di Azure. Dopo aver specificato il file dell'insieme di credenziali, l'insieme di credenziali dei servizi di ripristino viene visualizzato nel file.
+    ![Un altro server](./media/backup-azure-restore-windows-server/anotherserver.png)
+5. Specificare il file dell'insieme di credenziali che corrisponde all' *Insieme di credenziali di esempio*. Se il file dell'insieme di credenziali non è valido (o è scaduto), scaricarne uno nuovo dall' *Insieme di credenziali di esempio* nel portale di Azure. Dopo aver specificato il file dell'insieme di credenziali, l'insieme di credenziali dei servizi di ripristino viene visualizzato nel file.
 6. Selezionare il *computer di origine* dall'elenco dei computer visualizzati.
    
     ![Elenco di computer](./media/backup-azure-restore-windows-server/machinelist.png)
-7. Selezionare come in precedenza l'opzione **Cerca file** o **Sfoglia elenco file**. Ai fini di questa sezione, si userà l'opzione **Cerca file**.
+7. Selezionare l'opzione **Cerca file** o **Sfoglia elenco file**. Ai fini di questa sezione, si userà l'opzione **Cerca file** .
    
     ![Search](./media/backup-azure-restore-windows-server/search.png)
 8. Nella schermata successiva selezionare la data e il volume. Cercare il nome delle cartelle e dei file da ripristinare.
@@ -101,12 +103,17 @@ Include la terminologia utilizzata in questi passaggi:
 9. Selezionare il percorso in cui devono essere ripristinati i file.
    
     ![Percorso di ripristino](./media/backup-azure-restore-windows-server/restorelocation.png)
-10. Specificare la passphrase di crittografia fornita durante la registrazione del *computer di origine* all'*insieme di credenziali di esempio*.
+10. Specificare la passphrase di crittografia indicata durante la registrazione del *computer di origine* all'*insieme di credenziali di esempio*.
     
     ![Crittografia](./media/backup-azure-restore-windows-server/encryption.png)
-11. Dopo aver specificato i dati di input, fare clic sul pulsante **Ripristina** che attiva le operazioni di ripristino dei file di backup nella destinazione specificata.
+11. Dopo aver specificato i dati di input, fare clic sul pulsante **Ripristina**che attiva le operazioni di ripristino dei file di backup nella destinazione specificata.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * Dopo aver ripristinato i file e le cartelle, è possibile [gestire i backup](backup-azure-manage-windows-server.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

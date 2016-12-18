@@ -1,22 +1,26 @@
 ---
 title: Video sulla sicurezza di Azure su Channel 9 | Microsoft Docs
-description: L'articolo offre un elenco dettagliato delle presentazioni sulla sicurezza di Azure su Channel 9. Channel 9 è una community che mette in contatto chi crea i prodotti con chi li usa.
+description: "L&quot;articolo offre un elenco dettagliato delle presentazioni sulla sicurezza di Azure su Channel 9. Channel 9 è una community che mette in contatto chi crea i prodotti con chi li usa."
 services: security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
 editor: TomSh
-
+ms.assetid: 9e5e14aa-11d7-4242-8b7e-49fd0e79817a
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 11/18/2016
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9713d8b952f79f3ea4010a2d504b5174e70ce9ca
+
 
 ---
-# Video sulla sicurezza di Azure su Channel 9
+# <a name="azure-security-videos-on-channel-9"></a>Video sulla sicurezza di Azure su Channel 9
 [Channel 9](https://channel9.msdn.com/) è una community che presenta le persone che sviluppano i prodotti Microsoft e le mette in contatto con i clienti.
 
 Queste persone hanno una forte passione per i prodotti software e un grande entusiasmo. Channel 9 è una community che consente di partecipare a questa continua conversazione.
@@ -61,7 +65,7 @@ Tutte le app importanti che vengono distribuite in Azure includono segreti criti
 
 In questo video Narayan Annamalai, Senior Program Manager, insegna a Scott come usare i gruppi di sicurezza di rete all'interno di una rete virtuale di Azure. È possibile creare e controllare l'accesso agli oggetti all'interno di Azure tramite rete e subnet. Viene illustrato come controllare l'accesso e creare gruppi all'interno di Azure tramite PowerShell.
 
-[Azure AD Privileged Identity Management: Security Wizard, Alerts, Reviews](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD-Privileged-Identity-Management-Security-Wizard-Alerts-Reviews) (Azure AD Privileged Identity Management: procedura guidata per la sicurezza, avvisi, verifiche)
+[Azure AD Privileged Identity Management: Security Wizard, Alerts, Reviews](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD-Privileged-Identity-Management-Security-Wizard-Alerts-Reviews)
 
 Azure Active Directory (AD) Privileged Identity Management è una funzionalità Premium che consente di individuare, limitare e monitorare le identità con privilegi e il rispettivo accesso alle risorse. Applica anche l'accesso amministrativo "Just-In-Time" su richiesta quando necessario. Vengono fornite informazioni su:
 
@@ -75,4 +79,8 @@ Azure Active Directory (AD) Privileged Identity Management è una funzionalità 
 
 In questo video Amit Bapat presenta a Scott l'insieme di credenziali delle chiavi di Azure. Con l'insieme di credenziali delle chiavi di Azure è possibile crittografare chiavi e dati segreti, ad esempio le password, tramite chiavi archiviate in moduli di protezione hardware. La gestione dei segreti per Microsoft Azure è basata su cloud e hardware.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

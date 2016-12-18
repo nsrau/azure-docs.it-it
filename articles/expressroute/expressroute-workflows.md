@@ -1,12 +1,12 @@
 ---
-title: Flussi di lavoro per la configurazione di un circuito ExpressRoute | Microsoft Docs
+title: Flussi di lavoro per la configurazione di un circuito ExpressRoute | Documentazione Microsoft
 description: Questa pagina illustra i flussi di lavoro per la configurazione di un circuito ExpressRoute e dei peering
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 55e0418c-e0bf-44a7-9aa1-720076df9297
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 570a98aafca6babc5a7089880d4120c2a8f4a0d8
+ms.openlocfilehash: 5a275620639a801d7e60ef9ada1af29062dfe440
+
 
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Flussi di lavoro ExpressRoute per provisioning di un circuito e stati di circuito
@@ -53,21 +57,24 @@ Lo stato di provisioning del provider di connettività rappresenta lo stato sul 
 ### <a name="possible-states-of-an-expressroute-circuit"></a>Stati possibili di un circuito ExpressRoute
 Questa sezione elenca gli stati possibili di un circuito ExpressRoute.
 
-#### <a name="at-creation-time"></a>Al momento della creazione
+**Al momento della creazione**
+
 Lo stato del circuito ExpressRoute sarà il seguente nel momento in cui si esegue il cmdlet di PowerShell per creare il circuito ExpressRoute.
 
     ServiceProviderProvisioningState : NotProvisioned
     Status                           : Enabled
 
 
-#### <a name="when-connectivity-provider-is-in-the-process-of-provisioning-the-circuit"></a>Quando il provider di connettività è in fase di provisioning del circuito
+**Quando il provider di connettività è in fase di provisioning del circuito**
+
 Lo stato del circuito ExpressRoute sarà il seguente quando si passa la chiave di servizio al provider di connettività ed è stato avviato il processo di provisioning.
 
     ServiceProviderProvisioningState : Provisioning
     Status                           : Enabled
 
 
-#### <a name="when-connectivity-provider-has-completed-the-provisioning-process"></a>Quando il provider di connettività ha completato il processo di provisioning
+**Quando il provider di connettività ha completato il processo di provisioning**
+
 Lo stato del circuito ExpressRoute sarà il seguente quando il provider di connettività ha completato il processo di provisioning.
 
     ServiceProviderProvisioningState : Provisioned
@@ -75,7 +82,8 @@ Lo stato del circuito ExpressRoute sarà il seguente quando il provider di conne
 
 Provisioned ed Enabled sono gli unici stati che consentono di usare il circuito. Se si usa un provider di livello 2, è possibile configurare il routing per il circuito solo quando è attivo questo stato.
 
-#### <a name="when-connectivity-provider-is-deprovisioning-the-circuit"></a>Quando il provider di connettività sta eseguendo il deprovisioning del circuito
+**Quando il provider di connettività sta eseguendo il deprovisioning del circuito**
+
 Se si è richiesto al provider di servizi di eseguire il deprovisioning del circuito ExpressRoute, al termine del processo di deprovisioning eseguito dal provider di servizi lo stato del circuito sarà il seguente.
 
     ServiceProviderProvisioningState : NotProvisioned
@@ -108,6 +116,9 @@ Se invece è impostato lo stato *validation needed* , la sessione BGP non è abi
   * [Configurare il routing](expressroute-howto-routing-arm.md)
   * [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,85 +1,91 @@
 ---
-title: What is a Data Science Virtual Machine? | Microsoft Docs
-description: Learn the key scenarios, features, and how to get started with Data Science Virtual Machines, an environment and toolkit ready for analytics.
-keywords: data science tools, data science virtual machine, tools for data science, linux data science
+title: Informazioni sulle macchine virtuali per l&quot;analisi scientifica dei dati | Documentazione Microsoft
+description: "Informazioni su scenari chiave, funzionalità e installazione di macchine virtuali per l&quot;analisi scientifica dei dati, un ambiente e un toolkit pronti per l&quot;analisi."
+keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l&quot;analisi scientifica dei dati, strumenti per l&quot;analisi scientifica dei dati, analisi scientifica dei dati per Linux
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 10/17/2016
 ms.author: bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9d4df15fb4514817d9233ab4e5bd0eb65e5a95dc
+
 
 ---
-# <a name="introduction-to-the-data-science-virtual-machine-for-linux-and-windows,-a-cloud-environment-and-toolkit"></a>Introduction to the Data Science Virtual Machine for Linux and Windows, a cloud environment and toolkit
-Learn about the key scenarios and features of Azure Data Science Virtual Machines and how to get started. The Data Science VM is a data science environment and toolkit ready for analytics and provisioned in the Microsoft Azure cloud in Windows Server 2012 or OpenLogic 7.2 CentOS-based Linux versions.
+# <a name="introduction-to-the-cloud-based-data-science-virtual-machine-for-linux-and-windows"></a>Introduzione alla macchina virtuale per l'analisi scientifica dei dati basata su cloud per Linux e Windows
+La macchina virtuale per l'analisi scientifica dei dati è un'immagine VM personalizzata nel cloud di Microsoft Azure creata in modo specifico per l'analisi scientifica dei dati. Include diversi strumenti comuni per l'analisi scientifica dei dati e altri strumenti preinstallati e preconfigurati per implementare rapidamente la creazione di applicazioni intelligenti per l'analisi avanzata. È disponibile in Windows Server 2012 o in versioni Linux basate su CentOS OpenLogic 7.2. 
 
-## <a name="what-can-i-do-in-the-data-science-virtual-machine?"></a>What can I do in the Data Science Virtual Machine?
-The goal of the Data Science Virtual Machine is to provide data professionals at all skill levels and roles with a friction-free data science environment that allows you to start your data science project immediately in a newly created VM instance. This VM saves you considerable time that you would spend if you rolled out a comparable environment on your own.
+Questo argomento illustra le operazioni possibili con la VM per l'analisi scientifica dei dati, descrive alcuni degli scenari chiave per l'uso della VM, indica in modo dettagliato le funzionalità principali disponibili nelle versioni per Windows e Linux e include le istruzioni su come iniziare a usarle.
 
-The Data Science VM is preconfigured for the broad usage scenarios:
+## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>Usi della macchina virtuale per l'analisi scientifica dei dati
+L'obiettivo della macchina virtuale per l'analisi scientifica dei dati è offrire ai professionisti dei dati, in tutti i livelli e i ruoli, un ambiente di analisi scientifica dei dati privo di problemi. La VM consente di risparmiare una notevole quantità di tempo che sarebbe necessario se si volesse implementare un ambiente analogo in autonomia. Questa soluzione consente invece di avviare immediatamente il progetto di analisi scientifica dei dati in una nuova istanza di VM. 
 
-* Scale your environment up or down as your project needs change.
-* Use any language to program your data science tasks.
-* Install other tools and customize the system for your exact needs.
+La VM per l'analisi scientifica dei dati è progettata e configurata per l'uso in un'ampia gamma di scenari di utilizzo. È possibile aumentare e ridurre le prestazioni dell'ambiente a seconda delle esigenze del progetto. Può essere usato il linguaggio preferito per programmare le attività di analisi scientifica dei dati. È inoltre possibile installare altri strumenti e personalizzare il sistema in base alle esigenze specifiche.
 
-## <a name="preconfigured-analytics-desktop-in-the-cloud"></a>Preconfigured analytics desktop in the cloud
-The Data Science VM provides a baseline configuration for data science teams looking to replace their local desktops with a managed cloud desktop. This baseline ensures that all the data scientists on a team have a consistent setup with which to verify experiments and promote collaboration. It also lowers costs by reducing the sysadmin burden and saving on the time needed to evaluate, install, and maintain the various software packages needed to do advanced analytics.  
+## <a name="key-scenarios"></a>Scenari chiave
+Questa sezione suggerisce alcuni scenari chiave per i quali può essere distribuita la VM per l'analisi scientifica dei dati.
 
-## <a name="data-science-training-and-education"></a>Data science training and education
-Enterprise trainers and educators that teach data science classes usually provide a virtual machine image to ensure that their students have a consistent setup and that the samples work predictably. The Data Science VM creates an on-demand environment with a consistent setup that eases the support and incompatibility challenges. Cases where these environments need to be built frequently, especially for shorter training classes, benefit substantially.
+### <a name="preconfigured-analytics-desktop-in-the-cloud"></a>Desktop di analisi preconfigurato nel cloud
+La VM per l'analisi scientifica dei dati offre una configurazione di base per i team di analisi scientifica dei dati che vogliono sostituire i desktop locali con un desktop cloud gestito. Questa configurazione di base garantisce che tutti gli scienziati dei dati presenti in un team abbiano una configurazione coerente mediante la quale verificare gli esperimenti e promuovere la collaborazione. Anche i costi diminuiscono, grazie alla riduzione del carico lavorativo per gli amministratori di sistema e del tempo richiesto per valutare, installare e gestire i vari pacchetti di software necessari per eseguire analisi avanzate.  
 
-## <a name="on-demand-elastic-capacity-for-large-scale-projects"></a>On-demand elastic capacity for large-scale projects
-Data science hackathons/competitions or large-scale data modeling and exploration require scaled out hardware capacity, typically for short duration. The Data Science VM can help replicate the data science environment quickly on demand, on scaled out servers that allow experiments requiring high-powered computing resources to be run.
+### <a name="data-science-training-and-education"></a>Preparazione e formazione sull'analisi scientifica dei dati
+Gli istruttori e i formatori aziendali che insegnano l'analisi scientifica dei dati in genere forniscono un'immagine di macchina virtuale per garantire che gli studenti abbiano una configurazione coerente e che gli esempi abbiano un comportamento prevedibile. La VM per l'analisi scientifica dei dati consente di creare un ambiente su richiesta con una configurazione coerente che semplifica i problemi relativi a incompatibilità e supporto. Esistono vantaggi sostanziali per i casi in cui tali ambienti devono essere compilati di frequente, in particolare per i corsi di formazione più brevi.
 
-## <a name="short-term-experimentation-and-evaluation"></a>Short-term experimentation and evaluation
-The Data Science VM can be used to evaluate or learn tools such as Microsoft R Server, SQL Server, Visual Studio tools, Jupyter, deep learning / ML toolkits, and new tools popular in the community with minimal setup effort. Since the Data Science VM can be set up quickly, it can be applied in other short-term usage scenarios such as replicating published experiments, executing demos, following walkthroughs in online sessions or conference tutorials.
+### <a name="on-demand-elastic-capacity-for-large-scale-projects"></a>Capacità elastica su richiesta per progetti su larga scala
+Gli hackathon e i concorsi di analisi scientifica dei dati o la modellazione e l'esplorazione di dati su larga scala richiedono una maggiore capacità hardware, in genere per brevi periodi di tempo. La VM per l'analisi scientifica dei dati consente di replicare rapidamente e su richiesta l'ambiente di analisi scientifica dei dati su server con maggiore capacità, che consentono di eseguire esperimenti che richiedono l'esecuzione di risorse di calcolo con potenza elevata.
 
-## <a name="what's-included-in-the-windows-and-linux-versions-of-the-data-science-vm?"></a>What's included in the Windows and Linux versions of the Data Science VM?
-The Data Science Virtual Machine has many popular data science and other tools already installed and configured to jump-start building intelligent applications using advanced analytics. These tools can be deployed on the cloud, on-premises, or in a hybrid environment.
+### <a name="short-term-experimentation-and-evaluation"></a>Valutazione e sperimentazione a breve termine
+La VM per l'analisi scientifica dei dati può essere usata per valutare o imparare a usare strumenti quali Microsoft R Server, SQL Server, strumenti di Visual Studio, Jupyter, toolkit di deep learning/ML e i nuovi strumenti popolari nella comunità con il minimo sforzo di installazione. La VM per l'analisi scientifica dei dati può essere configurata rapidamente, pertanto può essere usata anche in altri scenari di utilizzo a breve termine, ad esempio nella replica di esperimenti pubblicati, nell'esecuzione di demo e di procedure dettagliate in sessioni online, nonché in esercitazioni in conferenza.
 
-It also includes tools that make it easy to work with various Azure data and analytics products. You can explore and build predictive models on large-scale data sets using the Microsoft R Server (Developer Edition) on the VM. A host of other tools from the open source community and from Microsoft are also included, as well as sample code and notebooks.
+## <a name="whats-included-in-the-data-science-vm"></a>Funzionalità incluse nella VM per l'analisi scientifica dei dati
+La macchina virtuale per l'analisi scientifica dei dati ha già installati e configurati diversi strumenti comuni per l'analisi scientifica dei dati. Include inoltre strumenti che semplificano l'uso di vari prodotti di Azure per l'analisi e per i dati. È possibile esplorare e creare modelli predittivi in set di dati su larga scala usando Microsoft R Server o SQL Server 2016. Sono inclusi anche una serie di altri strumenti della community open source e di Microsoft, nonché esempi di codice e blocchi appunti. La tabella seguente indica in modo dettagliato e confronta i componenti principali inclusi nelle edizioni per Windows e Linux della macchina virtuale per l'analisi scientifica dei dati.
 
-| Windows Edition | Linux Edition |
+| **Edizione per Windows** | **Edizione per Linux** |
 | --- | --- |
 | Microsoft R Server Developer Edition |Microsoft R Server Developer Edition |
 | Anaconda Python 2.7, 3.5 |Anaconda Python 2.7, 3.5 |
-| Jupyter Notebook Server (R, Python) |JupyterHub: Multi-user Jupyter notebooks (R, Python, Julia) |
-| SQL Server 2016 Developer Edition: Scalable in-database analytics with R services |Postgres, SQuirreL SQL (database tool), SQL Server drivers, and command line (bcp, sqlcmd) |
-| Visual Studio Community Edition 2015 (IDE) </br> - Azure HDInsight (Hadoop), Data Lake, SQL Server Data tools </br> - Node.js, Python, and R tools for Visual Studio |IDEs and editors </br> - Eclipse with Azure toolkit plugin </br> - Emacs (with ESS, auctex) gedit |
-| Power BI desktop |-- |
-| Machine Learning Tools </br> - Integration with Azure Machine Learning </br> - CNTK (deep learning/AI) </br> - Xgboost (popular ML tool in data science competitions) </br> - Vowpal Wabbit (fast online learner) </br> - Rattle (visual quick-start data and analytics tool) </br> - Mxnet (deep learning/AI) |Machine Learning Tools </br> - Integrations with Azure Machine Learning </br> - CNTK (deep learning/AI) </br> - Xgboost (popular ML tool in data science competitions) </br> - Vowpal Wabbit (fast online learner) </br> - Rattle (visual quick-start data and analytics tool) |
-| SDKs to access Azure and Cortana Intelligence Suite of services |SDKs to access Azure and Cortana Intelligence Suite of services |
-| Tools for data movement and management of Azure and Big Data resources: Azure Storage Explorer, CLI, PowerShell, AdlCopy (Azure Data Lake), AzCopy, dtui (for DocumentDB), Microsoft Data Management Gateway |Tools for data movement and management of Azure and Big Data resources: Azure Storage Explorer, CLI |
-| Git, Visual Studio Team Services plugin |Git |
-| Windows port of most popular Linux/Unix command-line utilities accessible through GitBash/command prompt |-- |
+| Server Jupyter Notebook (R, Python) |JupyterHub: notebook Jupyter multiutente (R, Python, Julia) |
+| SQL Server 2016 Developer Edition: analisi database scalabile con R Services |Postgres, SQuirreL SQL (strumento di database), driver di SQL Server e riga di comando (bcp, sqlcmd) |
+| Visual Studio Community Edition 2015 (IDE) </br> - Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools </br> - Strumenti di Node.js, Python e R per Visual Studio |IDE ed editor </br> - Eclipse con plug-in di Azure Toolkit </br> - Emacs (con ESS, auctex) gedit |
+| Power BI Desktop |-- |
+| Strumenti di Machine Learning </br> - Integrazione con Azure Machine Learning </br> - CNTK (deep learning/AI) </br> - Xgboost (strumento ML comune nei concorsi di analisi scientifica dei dati) </br> - Vowpal Wabbit (apprendimento rapido online) </br> - Rattle (strumento visivo di analisi e dati di avvio rapido) </br> - Mxnet (deep learning/AI) |Strumenti di Machine Learning </br> - Integrazioni con Azure Machine Learning </br> - CNTK (deep learning/AI) </br> - Xgboost (strumento ML comune nei concorsi di analisi scientifica dei dati) </br> - Vowpal Wabbit (apprendimento rapido online) </br> - Rattle (strumento visivo di analisi e dati di avvio rapido) |
+| SDK per accedere alla suite di servizi di Cortana Intelligence e di Azure |SDK per accedere alla suite di servizi di Cortana Intelligence e di Azure |
+| Strumenti per lo spostamento dei dati e la gestione delle risorse di Azure e Big Data: Azure Storage Explorer, interfaccia della riga di comando, PowerShell, AdlCopy (Azure Data Lake), AzCopy, dtui (per DocumentDB), Gateway di gestione dati di Microsoft |Strumenti per lo spostamento dei dati e la gestione delle risorse di Azure e Big Data: Azure Storage Explorer, interfaccia della riga di comando |
+| Git, plug-in di Visual Studio Team Services |Git |
+| Porta Windows delle più comuni utilità della riga di comando Linux/Unix accessibile mediante il prompt dei comandi o GitBash |-- |
 
-## <a name="how-to-get-started-with-the-windows-server-data-science-vm"></a>How to get started with the Windows Server Data Science VM
-* Create an instance of the VM on Windows by navigating to [this page](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) and selecting the green **Create Virtual Machine** button.
-* Sign in to the VM from your remote desktop using the credentials you specified when you created the VM.
-* To discover and launch the tools available, click the **Start** menu.
+## <a name="how-to-get-started-with-the-windows-data-science-vm"></a>Introduzione alla VM Windows per l'analisi scientifica dei dati
+* Creare un'istanza della VM in Windows, passando a [questa pagina](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) e selezionando il pulsante verde **Crea macchina virtuale**.
+* Accedere alla VM dal desktop remoto usando le credenziali specificate durante la creazione della VM.
+* Per individuare e avviare gli strumenti disponibili, fare clic sul menu **Start**.
 
-## <a name="get-started-with-the-linux-data-science-vm"></a>Get started with the Linux Data Science VM
-* Create an instance of the VM on Linux (OpenLogic CentOS-based) by navigating to [this page](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/) and selecting the **Create Virtual Machine** button.
-* Sign in to the VM from an SSH client, such as Putty or SSH Command, using the credentials you specified when you created the VM.
-* In the shell prompt, enter dsvm-more-info.
-* For a graphical desktop, download the X2Go client for your client platform [here](http://wiki.x2go.org/doku.php/doc:installation:x2goclient) and follow the instructions in the Linux Data Science VM document [Provision the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-intro.md#installing-and-configuring-x2go-client).
+## <a name="get-started-with-the-linux-data-science-vm"></a>Introduzione alla VM Linux per l'analisi scientifica dei dati
+* Creare un'istanza della VM in Linux (basata su CentOS OpenLogic) passando a [questa pagina](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/) e selezionando il pulsante **Crea macchina virtuale**.
+* Accedere alla VM da un client SSH, ad esempio Putty o SSH Command, usando le credenziali specificate durante la creazione della VM.
+* Nel prompt della shell immettere dsvm-more-info.
+* Per un desktop grafico scaricare [qui](http://wiki.x2go.org/doku.php/doc:installation:x2goclient) il client X2Go per la piattaforma client e seguire le istruzioni riportate nel documento relativo alla VM Linux per l'analisi scientifica dei dati [Effettuare il provisioning di una macchina virtuale Linux per l'analisi scientifica dei dati](machine-learning-data-science-linux-dsvm-intro.md#installing-and-configuring-x2go-client).
 
-## <a name="next-steps"></a>Next steps
-### <a name="for-the-windows-data-science-vm"></a>For the Windows Data Science VM
-* For more information on how to run specific tools available on the Windows version, see [Provision the Microsoft Data Science Virtual Machine](machine-learning-data-science-provision-vm.md) and
-* For more information on how to perform various tasks needed for your data science project on the Windows VM, see [Ten things you can do on the Data science Virtual Machine](machine-learning-data-science-vm-do-ten-things.md).
+## <a name="next-steps"></a>Passaggi successivi
+### <a name="for-the-windows-data-science-vm"></a>Per la VM Windows per l'analisi scientifica dei dati
+* Per altre informazioni sull'esecuzione degli strumenti specifici disponibili nella versione per Windows, vedere [Eseguire il provisioning di una macchina virtuale per l'analisi scientifica dei dati di Microsoft](machine-learning-data-science-provision-vm.md).
+* Per altre informazioni sull'esecuzione di varie attività necessarie per il progetto di analisi scientifica dei dati sulla VM Windows, vedere [Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati](machine-learning-data-science-vm-do-ten-things.md).
 
-### <a name="for-the-linux-data-science-vm"></a>For the Linux Data Science VM
-* For more information on how to run specific tools available on the Linux version, see [Provision the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-intro.md).
-* For a walkthrough that shows you how to perform several common data science tasks with the Linux VM, see [Data science on the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-walkthrough.md).
+### <a name="for-the-linux-data-science-vm"></a>Per la VM Linux per l'analisi scientifica dei dati
+* Per altre informazioni sull'esecuzione degli strumenti specifici disponibili nella versione per Linux, vedere [Effettuare il provisioning di una macchina virtuale Linux per l'analisi scientifica dei dati](machine-learning-data-science-linux-dsvm-intro.md).
+* Per una procedura dettagliata che illustra come eseguire diverse attività comuni di analisi scientifica dei dati con la VM Linux, vedere [Analisi scientifica dei dati in una macchina virtuale Linux per l'analisi scientifica dei dati](machine-learning-data-science-linux-dsvm-walkthrough.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

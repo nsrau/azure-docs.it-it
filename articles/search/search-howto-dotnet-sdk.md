@@ -1,12 +1,12 @@
 ---
-title: Come usare Ricerca di Azure da un'applicazione .NET | Microsoft Docs
-description: Come utilizzare Ricerca di Azure da un'applicazione .NET
+title: Come usare Ricerca di Azure da un&quot;applicazione .NET | Documentazione Microsoft
+description: Come utilizzare Ricerca di Azure da un&quot;applicazione .NET
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: brjohnstmsft
 manager: pablocas
-editor: ''
-
+editor: 
+ms.assetid: 93653341-c05f-4cfd-be45-bb877f964fcb
 ms.service: search
 ms.devlang: dotnet
 ms.workload: search
@@ -14,12 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/06/2016
 ms.author: brjohnst
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 21bd4f05eabfd685cb87b819621fe8d826f209b5
+
 
 ---
-# <a name="how-to-use-azure-search-from-a-.net-application"></a>Come utilizzare Ricerca di Azure da un'applicazione .NET
+# <a name="how-to-use-azure-search-from-a-net-application"></a>Come utilizzare Ricerca di Azure da un'applicazione .NET
 In questo articolo è descritta una procedura dettagliata per eseguire [.NET SDK di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx). È possibile utilizzare .NET SDK per implementare un'esperienza di ricerca completa nell'applicazione tramite Ricerca di Azure.
 
-## <a name="what's-in-the-azure-search-sdk"></a>Novità dell'SDK di Ricerca di Azure
+## <a name="whats-in-the-azure-search-sdk"></a>Novità dell'SDK di Ricerca di Azure
 Questo SDK è costituito da una libreria client, `Microsoft.Azure.Search`. Consente di gestire indici, origini dati e indicizzatori, nonché di caricare e gestire documenti ed eseguire query, senza la necessità di affrontare i dettagli di HTTP e JSON.
 
 La libreria client definisce classi come `Index`, `Field`, e `Document`, nonché operazioni quali `Indexes.Create` e `Documents.Search` sulle classi `SearchServiceClient` e `SearchIndexClient`. Le classi sono organizzate negli spazi dei nomi seguenti:
@@ -304,7 +308,7 @@ La terza parte di questo metodo è un blocco catch che gestisce un caso di error
 
 Infine, il metodo ritarda per due secondi. L'indicizzazione avviene in modo asincrono nel servizio Ricerca di Azure, pertanto l'applicazione di esempio deve attendere un breve periodo per garantire che i documenti siano disponibili per la ricerca. Ritardi come questi in genere sono necessari solo in applicazioni di esempio, test e demo.
 
-#### <a name="how-the-.net-sdk-handles-documents"></a>Modalità di gestione dei documenti in .NET SDK
+#### <a name="how-the-net-sdk-handles-documents"></a>Modalità di gestione dei documenti in .NET SDK
 Per capire in che modo .NET SDK di Ricerca di Azure è in grado di caricare le istanze di una classe definita dall'utente come `Hotel` nell'indice, è possibile esaminare la classe `Hotel`:
 
     [SerializePropertyNamesAsCamelCase]
@@ -367,7 +371,7 @@ Per questo motivo, è consigliabile usare tipi nullable nelle classi di modelli.
 
 <a name="JsonDotNet"></a>
 
-#### <a name="custom-serialization-with-json.net"></a>Serializzazione personalizzata con JSON.NET
+#### <a name="custom-serialization-with-jsonnet"></a>Serializzazione personalizzata con JSON.NET
 L'SDK usa JSON.NET per serializzare e deserializzare i documenti. Se necessario, è possibile personalizzare la serializzazione e deserializzazione definendo il proprio `JsonConverter` o `IContractResolver` (vedere la [ documentazione di JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) per altri dettagli). Ciò può risultare utile quando si vuole adattare una classe modello esistente dell'applicazione per usarla con Ricerca di Azure e in altri scenari più avanzati. Con la serializzazione personalizzata, ad esempio, è possibile:
 
 * Includere o escludere determinate proprietà della classe modello da archiviare come campi di un documento.
@@ -663,6 +667,6 @@ namespace AzureSearch.SDKHowTo
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

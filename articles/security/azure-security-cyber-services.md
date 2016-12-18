@@ -1,22 +1,26 @@
 ---
 title: Servizi Microsoft per la sicurezza informatica | Microsoft Docs
-description: Questo articolo fornisce un'introduzione ai servizi Microsoft correlati alla sicurezza informatica e a come ottenere altre informazioni su questi servizi.
+description: Questo articolo fornisce un&quot;introduzione ai servizi Microsoft correlati alla sicurezza informatica e a come ottenere altre informazioni su questi servizi.
 services: security
 documentationcenter: na
 author: TomShinder
 manager: StevenPo
 editor: TomSh
-
+ms.assetid: 925ba3c6-fe35-413a-98ea-e1a1461f3022
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 10/25/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e3502015d20b172214369b05c3ea12bd5b5c98e9
+
 
 ---
-# Servizi Microsoft per la sicurezza informatica
+# <a name="microsoft-services-in-cybersecurity"></a>Servizi Microsoft per la sicurezza informatica
 I servizi Microsoft offrono un approccio completo a sicurezza, identità e sicurezza informatica. I servizi Microsoft comprendono una serie di servizi di sicurezza e di gestione delle identità che vanno dalla strategia, alla pianificazione, implementazione e supporto continuativo che consentono ai clienti aziendali di implementare soluzioni di sicurezza olistiche compatibili con i loro obiettivi strategici.
 
 Con l'accesso diretto ai team di sviluppo dei prodotti, è possibile creare soluzioni che integrano e migliorano le più recenti funzionalità di sicurezza e gestione delle identità dei prodotti per proteggere l'attività dei clienti e favorire l'innovazione.
@@ -36,4 +40,9 @@ Altre informazioni sui servizi offerti da Microsoft:
 
 [Altre informazioni](https://aka.ms/cyberserv) sui servizi di consulenza sulla sicurezza dei servizi Microsoft.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Set up PowerShell to create a VM for the Marketplace | Microsoft Docs
-description: Instructions for setting up Azure PowerShell and using it as an optional process flow to create VM images to deploy to, and sell on, the Azure Marketplace
+title: Configurare PowerShell per la creazione di una macchina virtuale per Marketplace | Documentazione Microsoft
+description: Istruzioni per la configurazione di Azure PowerShell e l&quot;uso come un flusso di processo facoltativo per la creazione di immagini di VM da distribuire e vendere in Azure Marketplace
 services: marketplace-publishing
-documentationcenter: ''
+documentationcenter: 
 author: HannibalSII
 manager: hascipio
-editor: ''
-
+editor: 
+ms.assetid: e19d6cda-76df-4e42-be84-c9fe47a636db
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
@@ -14,22 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/04/2016
 ms.author: hascipio
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e763b4e44ecae82bc2dd6e6cf5a8859b8c7edd72
+
 
 ---
-# <a name="set-up-azure-powershell-to-create-an-offer-for-the-azure-marketplace"></a>Set up Azure PowerShell to create an offer for the Azure Marketplace
-For detailed information on how to set up PowerShell in Azure, see [How to install and configure Azure PowerShell](../powershell-install-configure.md). A simple approach is to use the certificate method, which downloads and imports a certificate needed for authentication. To obtain the needed certificate, use the **Get-AzurePublishSettingsFile** cmdlet. Save the file when you're prompted. To import the certificate into a PowerShell session, use the **Import-AzurePublishSettingsFile** cmdlet.
+# <a name="set-up-azure-powershell-to-create-an-offer-for-the-azure-marketplace"></a>Configurare Azure PowerShell per la creazione di un'offerta per Azure Marketplace
+Per informazioni dettagliate su come configurare PowerShell in Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). Un approccio semplice consiste nell'usare il metodo basato sul certificato, che scarica e importa un certificato necessario per l'autenticazione. Per ottenere il certificato richiesto, usare il cmdlet **Get-AzurePublishSettingsFile** . Quando richiesto, salvare il file. Per importare il certificato in una sessione di PowerShell, usare il cmdlet **Import-AzurePublishSettingsFile** .
 
-To configure and store the common Microsoft Azure subscription settings for the PowerShell session, use the **Set-AzureSubscription** and **Select-AzureSubscription** cmdlets:
+Per configurare e archiviare le impostazioni di sottoscrizione comuni di Microsoft Azure per la sessione di PowerShell, usare i cmdlet **Set-AzureSubscription** e **Select-AzureSubscription**:
 
         Set-AzureSubscription -SubscriptionName “mySubName” -CurrentStorageAccountName “mystorageaccount”
         Select-AzureSubscription -SubscriptionName "mySubName" –Current
 
-The first command associates a default storage account with the subscription (needed for some VM provisioning operations).  The second makes the subscription the current one (recognized by other cmdlets).
+Il primo comando associa un account di archiviazione predefinito alla sottoscrizione (necessario per alcune operazioni di provisioning delle macchine virtuali).  Il secondo rende corrente la sottoscrizione (riconosciuta da altri cmdlet).
 
-## <a name="see-also"></a>See also
-* [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
-* [Creating a virtual machine image for the Marketplace](marketplace-publishing-vm-image-creation.md)
+## <a name="see-also"></a>Vedere anche
+* [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Creazione di un'immagine di macchina virtuale per Marketplace](marketplace-publishing-vm-image-creation.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
