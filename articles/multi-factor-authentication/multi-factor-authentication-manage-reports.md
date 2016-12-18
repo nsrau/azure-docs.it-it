@@ -1,12 +1,12 @@
 ---
 title: Report di Azure Multi-Factor Authentication
-description: Viene descritto come usare la funzionalità dei report di Azure Multi-Factor Authentication.
+description: "Viene descritto come usare la funzionalità dei report di Azure Multi-Factor Authentication."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtand
-
+ms.assetid: 3f6b33c4-04c8-47d4-aecb-aa39a61c4189
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 738f9862ce8a8e4a0d63ec94583c4c868d914686
+
 
 ---
-# Report in Azure Multi-Factor Authentication
+# <a name="reports-in-azure-multi-factor-authentication"></a>Report in Azure Multi-Factor Authentication
 Azure Multi-Factor Authentication offre diversi report che possono essere utilizzati dall'utente e dall'organizzazione. Questi report sono accessibili tramite il portale di gestione Multi-Factor Authentication, che richiede un provider Azure MFA o una licenza di Azure MFA, Azure AD Premium o Enterprise Mobility Suite. Di seguito è riportato un elenco dei report disponibili.
 
 È possibile accedere ai report tramite il portale di gestione di Azure.
@@ -30,7 +34,7 @@ Azure Multi-Factor Authentication offre diversi report che possono essere utiliz
 | Avviso di illecito |Consente di visualizzare una cronologia di avvisi di illecito inviati durante l'intervallo di date specificato dall'utente. |
 | Queued |Consente di elencare i report accodati da elaborare e i relativi stati. Quando il report è completo, viene fornito un collegamento per scaricare o visualizzare il report. |
 
-## Per visualizzare i report
+## <a name="to-view-reports"></a>Per visualizzare i report
 1. Accedere a http://azure.microsoft.com
 2. A sinistra selezionare Active Directory.
 3. Selezionare una delle opzioni seguenti:
@@ -43,7 +47,12 @@ Azure Multi-Factor Authentication offre diversi report che possono essere utiliz
 
 **Risorse aggiuntive**
 
-* [Per gli utenti](multi-factor-authentication-end-user.md)
+* [Per gli utenti](end-user/multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication su MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

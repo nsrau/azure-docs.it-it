@@ -1,39 +1,43 @@
 ---
-title: Debug dell’applicazione in Visual Studio | Microsoft Docs
-description: Migliorare l'affidabilità e le prestazioni dei servizi sviluppandoli ed eseguendone il debug in Visual Studio all'interno di un cluster di sviluppo locale.
+title: Debug dell&quot;applicazione in Visual Studio | Documentazione Microsoft
+description: "Migliorare l&quot;affidabilità e le prestazioni dei servizi sviluppandoli ed eseguendone il debug in Visual Studio all&quot;interno di un cluster di sviluppo locale."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: cb888532-bcdb-4e47-95e4-bfbb1f644da4
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2016
+ms.date: 11/01/2016
 ms.author: vturecek;mikhegn
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 97bfd27368c2f317e4edadb38a0685d92ad92b9a
+
 
 ---
-# Debug dell'applicazione di Service Fabric mediante Visual Studio
-## Eseguire il debug di un'applicazione di Service Fabric
+# <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Debug dell'applicazione di Service Fabric mediante Visual Studio
+## <a name="debug-a-local-service-fabric-application"></a>Eseguire il debug di un'applicazione di Service Fabric
 Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Service Fabric ed eseguirne il debug in un cluster di sviluppo locale. Visual Studio può distribuire l'applicazione nel cluster locale e connettere automaticamente il debugger a tutte le istanze dell'applicazione.
 
 1. Avviare un cluster di sviluppo locale seguendo la procedura descritta nell'articolo [Configurazione dell'ambiente di sviluppo di Service Fabric](service-fabric-get-started.md).
 2. Premere **F5** oppure fare clic su **Debug** > **Avvia debug**.
    
     ![Avviare il debug di un'applicazione][startdebugging]
-3. Impostare i punti di interruzione nel codice ed eseguire l'applicazione un'istruzione alla volta scegliendo i comandi dal menu **Debug**.
+3. Impostare i punti di interruzione nel codice ed eseguire l'applicazione un'istruzione alla volta scegliendo i comandi dal menu **Debug** .
    
    > [!NOTE]
    > Visual Studio si connette a tutte le istanze dell'applicazione. Mentre il codice viene eseguito un'istruzione alla volta, i punti di interruzione possono essere raggiunti da più processi, dando luogo a sessioni simultanee. Provare a disabilitare i punti di interruzione dopo che sono stati raggiunti rendendoli condizionali in base all'ID del thread, oppure usando gli eventi di diagnostica.
    > 
    > 
-4. La finestra degli eventi di diagnostica si aprirà automaticamente per visualizzare gli eventi diagnostici in tempo reale.
+4. La finestra degli **** eventi di diagnostica si aprirà automaticamente per visualizzare gli eventi diagnostici in tempo reale.
    
     ![Visualizzare gli eventi diagnostici in tempo reale][diagnosticevents]
-5. È possibile aprire la finestra degli eventi di diagnostica anche in Cloud Explorer. In **Service Fabric** fare clic con il pulsante destro del mouse e scegliere **Visualizza tracce streaming**.
+5. È possibile aprire la finestra degli **** eventi di diagnostica anche in Cloud Explorer.  In **Service Fabric** fare clic con il pulsante destro del mouse e scegliere **Visualizza tracce streaming**.
    
     ![Aprire la finestra degli eventi di diagnostica][viewdiagnosticevents]
    
@@ -43,7 +47,7 @@ Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Servi
     ```csharp
     ServiceEventSource.Current.ServiceMessage(this, "My ServiceMessage with a parameter {0}", result.Value.ToString());
     ```
-7. Nella finestra degli eventi di diagnostica è possibile filtrare, sospendere ed esaminare gli eventi in tempo reale. Il filtro è una semplice ricerca di stringhe del messaggio dell'evento, incluso il relativo contenuto.
+7. Nella finestra degli **** eventi di diagnostica è possibile filtrare, sospendere ed esaminare gli eventi in tempo reale.  Il filtro è una semplice ricerca di stringhe del messaggio dell'evento, incluso il relativo contenuto.
    
     ![Filtrare, sospendere e riprendere o esaminare gli eventi in tempo reale][diagnosticeventsactions]
 8. Il debug dei servizi è come il debug di qualsiasi altra applicazione. In genere i punti di interruzione vengono impostati tramite Visual Studio per semplificare il debug. Anche se le raccolte Reliable Collections vengono replicate in più nodi, implementano comunque IEnumerable. Ciò significa che è possibile utilizzare la visualizzazione dei risultati in Visual Studio durante il debug per vedere cosa è stato memorizzato all'interno. È sufficiente impostare un punto di interruzione in qualsiasi posizione all'interno del codice.
@@ -52,11 +56,11 @@ Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Servi
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-## Eseguire il debug di un'applicazione remota di Service Fabric
+## <a name="debug-a-remote-service-fabric-application"></a>Eseguire il debug di un'applicazione remota di Service Fabric
 Se le applicazioni di Service Fabric sono in esecuzione in un cluster di Service Fabric in Azure, è possibile eseguirne il debug remoto direttamente da Visual Studio.
 
 > [!NOTE]
-> La funzionalità richiede [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) e [Azure SDK per .NET 2.9](https://azure.microsoft.com/downloads/).
+> La funzionalità richiede [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) e [Azure SDK per .NET 2.9](https://azure.microsoft.com/downloads/).    
 > 
 > 
 
@@ -71,10 +75,10 @@ Se le applicazioni di Service Fabric sono in esecuzione in un cluster di Service
     ![Abilitare il debug remoto][enableremotedebugging]
    
     Verrà avviato il processo di abilitazione dell'estensione di debug remoto nei nodi del cluster e delle configurazioni di rete necessarie.
-2. Fare clic con il pulsante destro del mouse sul nodo del cluster in **Cloud Explorer** e scegliere **Collega debugger**
+2. Fare clic con il pulsante destro del mouse sul nodo del cluster in **Cloud Explorer** e scegliere **Associa debugger**
    
-    ![Collegamento del debugger][attachdebugger]
-3. Nella finestra di dialogo **Connetti a processo** scegliere il processo di cui si vuole eseguire il debug e fare clic su **Connetti**
+    ![Collega debugger][attachdebugger]
+3. Nella finestra di dialogo **Associa a processo** scegliere il processo di cui si vuole eseguire il debug e fare clic su **Collega**
    
     ![Scegliere il processo][chooseprocess]
    
@@ -96,17 +100,19 @@ Se le applicazioni di Service Fabric sono in esecuzione in un cluster di Service
    
     ![Disabilitare il debug remoto][disableremotedebugging]
 
-## Streaming delle tracce da un nodo del cluster remoto
-Si può anche eseguire lo streaming delle tracce direttamente da un nodo del cluster remoto a Visual Studio. Questa funzionalità consente di eseguire lo streaming degli eventi di traccia ETW, generati su un nodo del cluster di Service Fabric, direttamente in Visual Studio.
+## <a name="streaming-traces-from-a-remote-cluster-node"></a>Streaming delle tracce da un nodo del cluster remoto
+Si può anche eseguire lo streaming delle tracce direttamente da un nodo del cluster remoto a Visual Studio. Questa funzionalità consente di eseguire lo streaming degli eventi di traccia ETW, generati su un nodo del cluster di Service Fabric.
 
 > [!NOTE]
 > La funzionalità richiede [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) e [Azure SDK per .NET 2.9](https://azure.microsoft.com/downloads/).
+> Questa funzionalità supporta solo i cluster in esecuzione in Azure.
 > 
 > 
 
 <!-- -->
 > [!WARNING]
-> Lo streaming delle tracce è progettato per scenari di sviluppo e test e non deve essere usato in ambienti di produzione a causa dell'impatto sulle applicazioni in esecuzione. In uno scenario di produzione è consigliabile basarsi sugli eventi di inoltro usando Diagnostica di Azure.
+> Lo streaming delle tracce è progettato per scenari di sviluppo e test e non deve essere usato in ambienti di produzione a causa dell'impatto sulle applicazioni in esecuzione.
+> In uno scenario di produzione è consigliabile basarsi sugli eventi di inoltro usando Diagnostica di Azure.
 > 
 > 
 
@@ -128,7 +134,7 @@ Si può anche eseguire lo streaming delle tracce direttamente da un nodo del clu
    
     ![Disabilitare le tracce di streaming remote][disablestreamingtraces]
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * [Testare un servizio di Service Fabric](service-fabric-testability-overview.md)
 * [Gestione delle applicazioni di Service Fabric in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 
@@ -148,4 +154,8 @@ Si può anche eseguire lo streaming delle tracce direttamente da un nodo del clu
 [viewremotestreamingtraces]: ./media/service-fabric-debugging-your-application/viewremotestreamingtraces.png
 [disablestreamingtraces]: ./media/service-fabric-debugging-your-application/disablestreamingtraces.png
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,80 +1,97 @@
 ---
-title: Gestire set di record e record DNS in DNS di Azure usando l'interfaccia della riga di comando | Microsoft Docs
+title: Gestire set di record e record DNS in DNS di Azure usando l&quot;interfaccia della riga di comando | Documentazione Microsoft
 description: Gestione dei set di record e dei record DNS in DNS di Azure quando si ospita il dominio in DNS di Azure. Tutti i comandi di CLI per le operazioni sui set di record e i record.
 services: dns
 documentationcenter: na
 author: jtuliani
 manager: carmonm
-editor: ''
-
+ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2016
-ms.author: jtuliani
+ms.author: jonatul
+translationtype: Human Translation
+ms.sourcegitcommit: 02d720a04fdc0fa302c2cb29b0af35ee92c14b3b
+ms.openlocfilehash: 2bc18d618cf8838209bea9f8a2d323e3b1042709
 
 ---
-# Gestire record e set di record DNS con l'interfaccia della riga di comando
+
+# <a name="manage-dns-records-and-record-sets-by-using-cli"></a>Gestire record e set di record DNS con l'interfaccia della riga di comando
+
 > [!div class="op_single_selector"]
 > * [Portale di Azure](dns-operations-recordsets-portal.md)
 > * [Interfaccia della riga di comando di Azure](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
-> 
-> 
 
 Questo articolo descrive come gestire i set di record e i record per la zona DNS usando l'interfaccia della riga di comando multipiattaforma di Azure.
 
 È importante comprendere la differenza tra i set di record DNS e i singoli record DNS. Un set di record è una raccolta di record con lo stesso nome e lo stesso tipo in una zona. Per altre informazioni, vedere [Informazioni sui set di record e sui record](dns-getstarted-create-recordset-cli.md).
 
-## Configurare l'interfaccia della riga di comando multipiattaforma di Azure
-DNS di Azure è un servizio solo di Gestione risorse di Azure. Non dispone di un'API Gestione dei servizi di Azure. Assicurarsi che l'interfaccia della riga di comando di Azure sia configurata per l'uso della modalità Resource Manager usando il comando `azure config mode arm`.
+## <a name="configure-the-cross-platform-azure-cli"></a>Configurare l'interfaccia della riga di comando multipiattaforma di Azure
+
+DNS di Azure è un servizio solo di Gestione risorse di Azure. Non dispone di un'API Gestione dei servizi di Azure. Assicurarsi che l'interfaccia della riga di comando di Azure sia configurata per l'uso della modalità Resource Manager usando il comando `azure config mode arm` .
 
 Se viene visualizzato il messaggio **errore: "dns" non è un comando di Azure**, probabilmente è perché si sta usando l’interfaccia della riga di comando di Azure in modalità Azure Service Management e non in modalità Gestione risorse.
 
-## Creare un nuovo set di record e record
+## <a name="create-a-new-record-set-and-record"></a>Creare un nuovo set di record e record
+
 Per creare un set di record nel portale di Azure, vedere [Creare record e set di record](dns-getstarted-create-recordset-cli.md).
 
-## Recuperare un set di record
+## <a name="retrieve-a-record-set"></a>Recuperare un set di record
+
 Per recuperare un set di record esistente, usare `azure network dns record-set show`. Specificare il gruppo di risorse, il nome della zona, il nome relativo del set di record e il tipo di record. Usare l'esempio seguente, sostituendo i valori con quelli personalizzati.
 
-    azure network dns record-set show myresourcegroup contoso.com www A
+```azurecli
+azure network dns record-set show myresourcegroup contoso.com www A
+```
 
+## <a name="list-record-sets"></a>Elencare i set di record
 
-## Elencare i set di record
-È possibile elencare tutti i record in una zona DNS usando il comando `azure network dns record-set list`. È necessario specificare il nome del gruppo di risorse e il nome della zona.
+È possibile elencare tutti i record in una zona DNS usando il comando `azure network dns record-set list` . È necessario specificare il nome del gruppo di risorse e il nome della zona.
 
-### Per elencare tutti i set di record
+### <a name="to-list-all-record-sets"></a>Per elencare tutti i set di record
+
 Questo esempio restituisce tutti i set di record, indipendentemente dal nome o dal tipo di record:
 
-    azure network dns record-set list myresourcegroup contoso.com
+```azurecli
+azure network dns record-set list myresourcegroup contoso.com
+```
 
-### Per elencare i set di record di un determinato tipo
+### <a name="to-list-record-sets-of-a-given-type"></a>Per elencare i set di record di un determinato tipo
+
 Questo esempio restituisce tutti i set di record corrispondenti al tipo di record specificato, in questo caso, i record "A":
 
-    azure network dns record-set list myresourcegroup contoso.com A
+```azurecli
+azure network dns record-set list myresourcegroup contoso.com A
+```
 
+## <a name="add-a-record-to-a-record-set"></a>Aggiungere un record a un set di record
 
-## Aggiungere un record a un set di record
 Aggiungere record al set di record usando il comando `azure network dns record-set add-record`. I parametri per l'aggiunta di record a un set di record variano a seconda del tipo del set di record che si sta impostando. Ad esempio, quando si usa un set di record di tipo "A" sarà possibile specificare solo i record con il parametro `-a <IPv4 address>`.
 
 Per creare un set di record, usare il comando `azure network dns record-set create`. Specificare il gruppo di risorse, il nome della zona, il nome relativo del set di record, il tipo di record e la durata (TTL). Se il parametro `--ttl` non è definito, verrà impostato "quattro" come valore in secondi predefinito.
 
-    azure network dns record-set create myresourcegroup  contoso.com "test-a"  A --ttl 300
-
+```azurecli
+azure network dns record-set create myresourcegroup  contoso.com "test-a"  A --ttl 300
+```
 
 Dopo aver creato il set di record "A", aggiungere l'indirizzo IPv4 usando il comando `azure network dns record-set add-record`.
 
-    azure network dns record-set add-record myresourcegroup contoso.com "test-a" A -a 192.168.1.1
-
+```azurecli
+azure network dns record-set add-record myresourcegroup contoso.com "test-a" A -a 192.168.1.1
+```
 
 Gli esempi seguenti illustrano come creare un set di record di ogni tipo di record. Ogni set di record contiene un singolo record.
 
 [!INCLUDE [dns-add-record-cli-include](../../includes/dns-add-record-cli-include.md)]
 
-## Aggiornare un record in un set di record
-### Per aggiungere un altro indirizzo IP (1.2.3.4) a un set di record "A" ("www") esistente:
+## <a name="update-a-record-in-a-record-set"></a>Aggiornare un record in un set di record
+
+### <a name="to-add-another-ip-address-1234-to-an-existing-a-record-set-www"></a>Per aggiungere un altro indirizzo IP (1.2.3.4) a un set di record "A" ("www") esistente:
+
     azure network dns record-set add-record  myresourcegroup contoso.com  A
     -a 1.2.3.4
     info:    Executing command network dns record-set add-record
@@ -93,7 +110,8 @@ Gli esempi seguenti illustrano come creare un set di record di ogni tipo di reco
     data:
     info:    network dns record-set add-record command OK
 
-### Per rimuovere un valore esistente da un set di record
+### <a name="to-remove-an-existing-value-from-a-record-set"></a>Per rimuovere un valore esistente da un set di record
+
 usare `azure network dns record-set delete-record`.
 
     azure network dns record-set delete-record myresourcegroup contoso.com www A -a 1.2.3.4
@@ -111,53 +129,82 @@ usare `azure network dns record-set delete-record`.
     data:
     info:    network dns record-set delete-record command OK
 
+## <a name="remove-a-record-from-a-record-set"></a>Rimuovere un record da un set di record
 
-
-## Rimuovere un record da un set di record
 È possibile rimuovere i record da un set di record usando `azure network dns record-set delete-record`. Il record che viene rimosso deve corrispondere esattamente a un record esistente in tutti i parametri.
 
-La rimozione dell'ultimo record da un set di record non elimina il set di record. Per altre informazioni, vedere la sezione [Eliminare un set di record](#delete) di questo articolo.
+La rimozione dell'ultimo record da un set di record non elimina il set di record. Per altre informazioni, vedere la sezione [Eliminare un set di record](#delete)di questo articolo.
 
-    azure network dns record-set delete-record myresourcegroup contoso.com www A -a 192.168.1.1
+```azurecli
+azure network dns record-set delete-record myresourcegroup contoso.com www A -a 192.168.1.1
 
-    azure network dns record-set delete myresourcegroup contoso.com www A
+azure network dns record-set delete myresourcegroup contoso.com www A
+```
 
-### Rimuovere un record AAAA da un set di record esistente
-    azure network dns record-set delete-record myresourcegroup contoso.com test-aaaa  AAAA -b "2607:f8b0:4009:1803::1005"
+### <a name="remove-an-aaaa-record-from-a-record-set"></a>Rimuovere un record AAAA da un set di record esistente
 
-### Rimuovere un record CNAME da un set di record esistente
-    azure network dns record-set delete-record myresourcegroup contoso.com test-cname CNAME -c www.contoso.com
+```azurecli
+azure network dns record-set delete-record myresourcegroup contoso.com test-aaaa  AAAA -b "2607:f8b0:4009:1803::1005"
+```
 
+### <a name="remove-a-cname-record-from-a-record-set"></a>Rimuovere un record CNAME da un set di record esistente
 
-### Rimuovere un record MX da un set di record esistente
-    azure network dns record-set delete-record myresourcegroup contoso.com "@" MX -e "mail.contoso.com" -f 5
+```azurecli
+azure network dns record-set delete-record myresourcegroup contoso.com test-cname CNAME -c www.contoso.com
+```
 
-### Rimuovere un record NS da un set di record esistente
-    azure network dns record-set delete-record myresourcegroup contoso.com  "test-ns" NS -d "ns1.contoso.com"
+### <a name="remove-an-mx-record-from-a-record-set"></a>Rimuovere un record MX da un set di record esistente
 
-### Rimuovere un record PTR da un set di record esistente
-In questo caso 'my-arpa-zone.com' è la zona ARPA che rappresenta l'intervallo IP dell'utente. Ogni record PTR impostato in questa zona corrisponde a un indirizzo IP che rientra nell'intervallo IP.
+```azurecli
+azure network dns record-set delete-record myresourcegroup contoso.com "@" MX -e "mail.contoso.com" -f 5
+```
 
-    azure network dns record-set delete-record myresourcegroup my-arpa-zone.com "10" PTR -P "myservice.contoso.com"
+### <a name="remove-an-ns-record-from-record-set"></a>Rimuovere un record NS da un set di record esistente
 
-### Rimuovere un record SRV da un set di record esistente
-    azure network dns record-set delete-record myresourcegroup contoso.com  "_sip._tls" SRV -p 0 -w 5 -o 8080 -u "sip.contoso.com"
+```azurecli
+azure network dns record-set delete-record myresourcegroup contoso.com  "test-ns" NS -d "ns1.contoso.com"
+```
 
-### Rimuovere un record TXT da un set di record esistente
-    azure network dns record-set delete-record myresourcegroup contoso.com  "test-TXT" TXT -x "this is a TXT record"
+### <a name="remove-a-ptr-record-from-a-record-set"></a>Rimuovere un record PTR da un set di record esistente
 
-## <a name="delete"></a>Eliminare un set di record
-È possibile eliminare i set di record usando il cmdlet `Remove-AzureRmDnsRecordSet`. Non è possibile eliminare i set di record SOA ed NS al vertice della zona (name = "@") che sono stati creati automaticamente quando è stata creata la zona. Verranno eliminati automaticamente quando si elimina la zona.
+In questo caso 'my-arpa-zone.com' è la zona ARPA che rappresenta l'intervallo IP dell'utente.  Ogni record PTR impostato in questa zona corrisponde a un indirizzo IP che rientra nell'intervallo IP.
+
+```azurecli
+azure network dns record-set delete-record myresourcegroup my-arpa-zone.com "10" PTR -P "myservice.contoso.com"
+```
+
+### <a name="remove-an-srv-record-from-a-record-set"></a>Rimuovere un record SRV da un set di record esistente
+
+```azurecli
+azure network dns record-set delete-record myresourcegroup contoso.com  "_sip._tls" SRV -p 0 -w 5 -o 8080 -u "sip.contoso.com"
+```
+
+### <a name="remove-a-txt-record-from-a-record-set"></a>Rimuovere un record TXT da un set di record esistente
+
+```azurecli
+azure network dns record-set delete-record myresourcegroup contoso.com  "test-TXT" TXT -x "this is a TXT record"
+```
+
+## <a name="a-namedeleteadelete-a-record-set"></a><a name="delete"></a>Eliminare un set di record
+
+È possibile eliminare i set di record usando il cmdlet `Remove-AzureRmDnsRecordSet` . Non è possibile eliminare i set di record SOA ed NS al vertice della zona (name = "@")) che sono stati creati automaticamente quando è stata creata la zona. Verranno eliminati automaticamente quando si elimina la zona.
 
 Nell'esempio seguente, il set di record "A" "test-a" verrà rimosso dalla zona DNS "contoso.com":
 
-    azure network dns record-set delete myresourcegroup contoso.com  "test-a" A
+```azurecli
+azure network dns record-set delete myresourcegroup contoso.com  "test-a" A
+```
 
-L'opzione *-q* facoltativa può essere usata per eliminare la richiesta di conferma.
+L'opzione `-q` facoltativa può essere usata per eliminare la richiesta di conferma.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
+
 Per altre informazioni sul servizio DNS di Azure, vedere [Panoramica di DNS di Azure](dns-overview.md). Per informazioni sull'automazione di DNS, vedere [Creare zone e set di record DNS con .NET SDK](dns-sdk.md).
 
 Per usare i record DNS inversi, vedere [Come gestire i record DNS inversi per i servizi tramite l'interfaccia della riga di comando di Azure](dns-reverse-dns-record-operations-cli.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

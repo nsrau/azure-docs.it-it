@@ -1,45 +1,55 @@
 ---
 title: Ripristinare un database SQL di Azure eliminato (Portale di Azure) | Microsoft Docs
-description: Ripristinare un database SQL di Azure (Portale di Azure)
+description: Ripristinare un database SQL di Azure (Portale di Azure).
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 33b0c9e6-1cd2-4fd9-9b0d-70ecf6e54821
 ms.service: sql-database
+ms.custom: business continuity
 ms.devlang: NA
-ms.date: 07/09/2016
+ms.date: 10/12/2016
 ms.author: sstein
 ms.workload: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b5a3f40ff8811c08d130c2a3e0a7d61aed9457d1
+
 
 ---
-# Ripristinare un database SQL di Azure con il portale di Azure
+# <a name="restore-a-deleted-azure-sql-database-using-the-azure-portal"></a>Ripristinare un database SQL di Azure con il portale di Azure
 > [!div class="op_single_selector"]
 > * [Panoramica](sql-database-recovery-using-backups.md)
-> * [Ripristino di un database eliminato: PowerShell](sql-database-restore-deleted-database-powershell.md)
+> * [**Ripristinare un database eliminato: portale**](sql-database-restore-deleted-database-portal.md)
+> * [Ripristinare un database eliminato: PowerShell](sql-database-restore-deleted-database-powershell.md)
 > 
 > 
 
-## Selezionare il database da ripristinare
-Per ripristinare un database nel portale di Azure, seguire questa procedura:
+## <a name="select-the-database-to-restore"></a>Selezionare il database da ripristinare
+Per ripristinare un database eliminato con il Portale di Azure:
 
-1. Aprire il [portale di Azure](https://portal.azure.com).
-2. Sul lato sinistro della schermata fare clic su **SFOGLIA** > **Server SQL**.
-3. Passare al server con il database eliminato che si vuole ripristinare e selezionare il server
-4. Scorrere verso il basso fino alla sezione **Operazioni** nel pannello del server selezionare **Database eliminati**: ![Ripristinare un database SQL di Azure](./media/sql-database-restore-deleted-database-portal/restore-deleted-trashbin.png)
-5. Fare clic sul database eliminato che si desidera ripristinare.
-6. Specificare un nome di database e fare clic su OK:
+1. Nel [Portale di Azure](https://portal.azure.com) fare clic su **More services** (Altri servizi) > **SQL Server**.
+2. Selezionare il server contenente il database da ripristinare.
+3. Scorrere verso il basso fino alla sezione **Operazioni** nel pannello del server selezionare **Database eliminati**: ![Ripristinare un database SQL di Azure](./media/sql-database-restore-deleted-database-portal/restore-deleted-trashbin.png)
+4. Selezionare il database che si desidera ripristinare.
+5. Specificare un nome di database e fare clic su **OK**:
    
    ![Ripristinare un database SQL di Azure](./media/sql-database-restore-deleted-database-portal/restore-deleted.png)
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * Per la panoramica e gli scenari della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md)
 * Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md)
 * Per altre informazioni sull'uso dei backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md)
-* Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md)
+* Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md)  
 * Per altre informazioni sull'uso dei backup automatici per l'archiviazione, vedere [Copiare un database SQL di Azure](sql-database-copy.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,19 +1,23 @@
 ---
-title: Creare funzionalità per i dati in SQL Server tramite SQL e Python | Microsoft Docs
+title: "Creare funzionalità per i dati in SQL Server tramite SQL e Python | Documentazione Microsoft"
 description: Elaborazione dei dati di SQL Azure
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: bf1f4a6c-7711-4456-beb7-35fdccd46a44
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/09/2016
 ms.author: bradsev;fashah;garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2bcc1410410ed70d9d8a18fd5693bf32cab6fb23
+
 
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Creare funzionalità per i dati in SQL Server tramite SQL e Python
@@ -34,7 +38,7 @@ Questo articolo presuppone che l'utente abbia:
 * Creato un account di archiviazione di Azure. Per istruzioni, vedere [Creare un account di archiviazione di Azure](../storage/storage-create-storage-account.md#create-a-storage-account)
 * I dati vengono archiviati in SQL Server. In caso contrario, consultare [Spostamento dei dati in un database di SQL Azure per Azure Machine Learning](machine-learning-data-science-move-sql-azure.md) per istruzioni su come spostare i dati disponibili.
 
-## <a name="a-namesqlfeaturegenafeature-generation-with-sql"></a><a name="sql-featuregen"></a>Creazione di funzionalità con SQL
+## <a name="a-namesql-featuregenafeature-generation-with-sql"></a><a name="sql-featuregen"></a>Creazione di funzionalità con SQL
 In questa sezione viene descritto come creare funzionalità tramite SQL:  
 
 1. [Creazione di funzionalità basate sul conteggio](#sql-countfeature)
@@ -46,7 +50,7 @@ In questa sezione viene descritto come creare funzionalità tramite SQL:
 > 
 > 
 
-### <a name="a-namesqlcountfeatureacount-based-feature-generation"></a><a name="sql-countfeature"></a>Creazione di funzionalità basate sul conteggio
+### <a name="a-namesql-countfeatureacount-based-feature-generation"></a><a name="sql-countfeature"></a>Creazione di funzionalità basate sul conteggio
 In questo documento vengono descritte due modalità per creare funzionalità di conteggio. Nel primo metodo viene utilizzata la somma condizionale, mentre nel secondo la clausola "where". Tali metodi possono essere uniti alla tabella originale (tramite le colonne della chiave primaria) al fine di visualizzare le funzionalità di conteggio insieme ai dati originali.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
@@ -54,13 +58,13 @@ In questo documento vengono descritte due modalità per creare funzionalità di 
     select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename>
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
 
-### <a name="a-namesqlbinningfeatureabinning-feature-generation"></a><a name="sql-binningfeature"></a>Creazione di contenitori per la creazione di funzionalità
+### <a name="a-namesql-binningfeatureabinning-feature-generation"></a><a name="sql-binningfeature"></a>Creazione di contenitori per la creazione di funzionalità
 Nell'esempio seguente viene descritto come creare funzionalità categorizzate, inserendo una colonna numerico (usando 5 contenitori) che può essere utilizzata come funzionalità:
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-### <a name="a-namesqlfeaturerolloutarolling-out-the-features-from-a-single-column"></a><a name="sql-featurerollout"></a>Implementazione delle funzionalità da una singola colonna
+### <a name="a-namesql-featurerolloutarolling-out-the-features-from-a-single-column"></a><a name="sql-featurerollout"></a>Implementazione delle funzionalità da una singola colonna
 In questa sezione, viene descritto come implementare una singola colonna di una tabella al fine di creare ulteriori funzionalità. In questo esempio si presuppone che nella tabella dalla quale si tenta di creare la funzionalità sia presente una colonna relativa alla latitudine o alla longitudine.
 
 Di seguito, viene riportata una breve introduzione sui dati di posizione relativi a latitudine e longitudine (risorse assegnate da stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Ciò è utile per acquisire conoscenze prima di creare una funzionalità dal campo sulla posizione:
@@ -80,7 +84,7 @@ le informazioni sulla posizione possono essere inserite in funzionalità nel mod
 
     select
         <location_columnname>
-        ,round(<location_columnname>,0) as l1       
+        ,round(<location_columnname>,0) as l1        
         ,l2=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 1 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),1,1) else '0' end     
         ,l3=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 2 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),2,1) else '0' end     
         ,l4=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 3 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),3,1) else '0' end     
@@ -97,7 +101,7 @@ Le funzionalità basate su posizione descritte in precedenza possono essere util
 > 
 > 
 
-### <a name="a-namesqlamlaconnecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Connessione ad Azure Machine Learning
+### <a name="a-namesql-amlaconnecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Connessione ad Azure Machine Learning
 La funzionalità appena creata può essere aggiunta come una colonna a una tabella esistente oppure archiviata in una nuova tabella e unita a quella originale ai fini dell'apprendimento automatico. È possibile creare o accedere alle funzionalità già create utilizzando il modulo [Import Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) in Azure ML, come descritto di seguito:
 
 ![lettori azureml](./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png)
@@ -118,6 +122,9 @@ La [libreria Pandas](http://pandas.pydata.org/) in Python fornisce una vasta gam
 
 A questo punto è possibile usare il frame di dati di Pandas, come descritto nell'argomento relativo alla [creazione di funzionalità per i dati di archiviazione BLOB di Azure tramite Panda](machine-learning-data-science-create-features-blob.md).
 
-<!---HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

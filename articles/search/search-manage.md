@@ -2,12 +2,12 @@
 title: Amministrazione del servizio per Ricerca di Azure nel portale di Azure
 description: Gestire Ricerca di Azure, un servizio di ricerca cloud ospitato in Microsoft Azure, usando il portale di Azure.
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-portal
-
+ms.assetid: c87d1fdd-b3b8-4702-a753-6d7e29dbe0a2
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
@@ -15,6 +15,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/17/2016
 ms.author: heidist
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 71cfd2ea327cad22cdb1085558658934804c15f1
+
 
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Amministrazione del servizio per Ricerca di Azure nel portale di Azure
@@ -35,9 +39,11 @@ Ricerca di Azure è un servizio di ricerca basato sul cloud completamente gestit
 
 *gestione dei contenuti* (o gestione degli indici) si riferisce a operazioni come l'analisi del traffico di ricerca per conoscere il volume delle query, trovare i termini cercati dalle persone e sapere se dai risultati della ricerca i clienti riescono ad arrivare a specifici documenti dell'indice. La gestione dei contenuti non rientra nell'ambito di questo argomento. Per istruzioni su come ottenere informazioni sulle operazioni interne a livello di indice, vedere [Analisi del traffico di ricerca per Ricerca di Azure](search-traffic-analytics.md).
 
-*prestazioni delle query* non rientrano nell'ambito di questi argomento. Per altre informazioni, vedere [Prestazioni e ottimizzazione in Ricerca di Azure](search-performance-optimization.md).
+*prestazioni delle query* non rientrano nell'ambito di questi argomento. Per altre informazioni, vedere [Monitorare l'utilizzo e le statistiche in un servizio Ricerca di Azure](search-monitor-usage.md) e [Prestazioni e ottimizzazione](search-performance-optimization.md).
 
-Ricerca di Azure non offre soluzioni predefinite per il ripristino di emergenza o il backup e ripristino. Per i clienti che effettuano il push di oggetti e dati nel servizio, il codice sorgente per la creazione e il popolamento di un indice è di fatto l'opzione di ripristino se si elimina un indice per errore. Per il ripristino di emergenza, i clienti danno il consenso esplicito per la ridondanza tramite un servizio aggiuntivo in un data center a livello di area diverso. Per altre informazioni, vedere [Prestazioni e ottimizzazione in Ricerca di Azure](search-performance-optimization.md).
+Ricerca di Azure eseguirà il failover in altri cluster e data center in caso di interruzione ma non offre soluzioni predefinite per le operazioni manuali di backup e ripristino, se l'indice o il servizio viene eliminato inavvertitamente o intenzionalmente. Per i clienti che effettuano il push di oggetti e dati nel servizio, il codice sorgente per la creazione e il popolamento di un indice è di fatto l'opzione di ripristino se si elimina un indice per errore. 
+
+Ricerca di Azure non fornisce la replica geografica degli indici nei servizi. Se la copertura della soluzione è globale, è consigliabile aggiungere ridondanza tramite un servizio aggiuntivo in un data center in un'area geografica differente in modo che tutti i componenti dell'applicazione vengano ospitati in un'unica posizione. Per altre informazioni, vedere [Prestazioni e ottimizzazione in Ricerca di Azure](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
@@ -156,7 +162,7 @@ Per pianificare in anticipo le esigenze future, è possibile verificare l'archiv
 
 <a id="advanced-deployment"></a>
 
-## <a name="best-practices-on-scale-and-deployment-(video)"></a>Procedure consigliate su scalabilità e distribuzione (video)
+## <a name="best-practices-on-scale-and-deployment-video"></a>Procedure consigliate su scalabilità e distribuzione (video)
 Questo video di 30 minuti esamina le procedure consigliate per gli scenari di distribuzione avanzata, inclusi i carichi di lavoro con distribuzione geografica. Per le pagine della guida che illustrano gli stessi argomenti, è anche possibile vedere [Prestazioni e ottimizzazione in Ricerca di Azure](search-performance-optimization.md) .
 
 > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
@@ -184,6 +190,6 @@ Se non è già stato fatto, vedere anche l' [articolo su prestazioni e ottimizza
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

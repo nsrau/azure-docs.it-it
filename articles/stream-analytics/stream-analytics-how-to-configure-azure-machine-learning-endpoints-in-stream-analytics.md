@@ -1,13 +1,13 @@
 ---
-title: Come configurare gli endpoint di Azure Machine Learning in Analisi di flusso | Microsoft Docs
-description: Funzioni definite dall'utente di Machine Learning in Analisi di flusso
-keywords: ''
-documentationcenter: ''
+title: Come configurare gli endpoint di Azure Machine Learning in Analisi di flusso | Documentazione Microsoft
+description: Funzioni definite dall&quot;utente di Machine Learning in Analisi di flusso
+keywords: 
+documentationcenter: 
 services: stream-analytics
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 406b258f-b8c2-4e55-953c-b7f84e8e5354
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 09/26/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ce7dd546ce534ede6901444d5fe441493ac2fc45
+
 
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Integrazione di Machine Learning in Analisi di flusso
 Analisi di flusso supporta funzioni definite dall'utente che chiamano gli endpoint di Azure Machine Learning. Il supporto dell'API REST per questa funzionalità è illustrato in dettaglio nella [libreria delle API REST di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn835031.aspx). Questo articolo fornisce le informazioni supplementari necessarie per la corretta implementazione di questa funzionalità in Analisi di flusso. È stata pubblicata anche un'esercitazione che è disponibile [qui](stream-analytics-machine-learning-integration-tutorial.md).
 
-## <a name="overview:-azure-machine-learning-terminology"></a>Panoramica: Terminologia di Azure Machine Learning
+## <a name="overview-azure-machine-learning-terminology"></a>Panoramica: Terminologia di Azure Machine Learning
 Microsoft Azure Machine Learning fornisce uno strumento di trascinamento collaborativo che consente di compilare, testare e distribuire soluzioni di analisi predittiva ai dati. Questo strumento si chiama *Azure Machine Learning Studio*. e viene usato per interagire con le risorse di Machine Learning ed eseguire facilmente la compilazione, il test e l'iterazione del progetto. Di seguito sono riportate le risorse e le rispettive definizioni.
 
 * **Area di lavoro**: l' *area di lavoro* è un contenitore che include tutte le altre risorse di Machine Learning per poterle gestire e controllare.
@@ -30,7 +34,7 @@ Microsoft Azure Machine Learning fornisce uno strumento di trascinamento collabo
 
 Ogni endpoint ha API per l'esecuzione batch e per l'esecuzione sincrona. Analisi di flusso usa l'esecuzione sincrona. Il servizio specifico è detto [servizio di richiesta/risposta](../machine-learning/machine-learning-consume-web-services.md#request-response-service-rrs) in Azure ML Studio.
 
-## <a name="machine-learning-resources-that-needed-for-stream-analytics-jobs"></a>Risorse di Machine Learning necessarie per i processo di Analisi di flusso
+## <a name="machine-learning-resources-needed-for-stream-analytics-jobs"></a>Risorse di Machine Learning necessarie per i processi di analisi di flusso
 Ai fini dell'elaborazione dei processi di Analisi di flusso, per la corretta esecuzione sono necessari un endpoint di richiesta/risposta, una [chiave API](../machine-learning/machine-learning-connect-to-azure-machine-learning-web-service.md#get-an-azure-machine-learning-authorization-key)e una definizione swagger. Analisi di flusso ha un endpoint aggiuntivo che crea l'URL per l'endpoint swagger, cerca l'interfaccia e restituisce all'utente una definizione UDF predefinita.
 
 ## <a name="configure-a-stream-analytics-and-machine-learning-udf-via-rest-api"></a>Configurare una funzione definita dall'utente di Analisi di flusso e di Machine Learning con l'API REST
@@ -200,6 +204,9 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 * [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

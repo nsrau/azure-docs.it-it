@@ -1,25 +1,31 @@
 ---
-title: Monitoraggio e failover degli endpoint di Gestione traffico | Microsoft Docs
-description: Questo articolo illustra in che modo Gestione traffico usa il monitoraggio e il failover automatico degli endpoint per consentire ai clienti di Azure di distribuire applicazioni a disponibilità elevata
+title: Monitoraggio e failover degli endpoint di Gestione traffico | Documentazione Microsoft
+description: "Questo articolo illustra in che modo Gestione traffico usa il monitoraggio e il failover automatico degli endpoint per consentire ai clienti di Azure di distribuire applicazioni a disponibilità elevata"
 services: traffic-manager
-documentationcenter: ''
-author: sdwheeler
-manager: carmonm
-editor: ''
-
+documentationcenter: 
+author: kumudd
+manager: timlt
+editor: 
+ms.assetid: fff25ac3-d13a-4af9-8916-7c72e3d64bc7
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
-ms.author: sewhee
+ms.author: kumud
+translationtype: Human Translation
+ms.sourcegitcommit: 69b94c93ad3e9c9745af8485766b4237cac0062c
+ms.openlocfilehash: 4df9f744c7dde9224157eca1f869c0c420036d76
 
 ---
+
 # <a name="traffic-manager-endpoint-monitoring-and-failover"></a>Monitoraggio e failover degli endpoint di Gestione traffico
+
 Gestione traffico di Azure include il monitoraggio degli endpoint e il failover automatico degli endpoint. Questa funzionalità consente di distribuire applicazioni a disponibilità elevata resilienti agli errori di endpoint, inclusi gli errori di area di Azure.
 
 ## <a name="configure-endpoint-monitoring"></a>Configurare il monitoraggio degli endpoint
+
 Per configurare il monitoraggio degli endpoint è necessario specificare le seguenti impostazioni nel profilo di Gestione traffico:
 
 * **Protocollo**. scegliere HTTP o HTTPS. È importante notare che il monitoraggio HTTPS verifica solo la presenza del certificato SSL e non la validità.
@@ -33,15 +39,19 @@ Una procedura comune consiste nell'implementare una pagina personalizzata all'in
 Tutti gli endpoint in un profilo di Gestione traffico condividono le impostazioni di monitoraggio. Se è necessario usare impostazioni di monitoraggio diverse per i vari endpoint, è possibile creare i [profili nidificati di Gestione traffico](traffic-manager-nested-profiles.md#example-5-per-endpoint-monitoring-settings).
 
 ## <a name="endpoint-and-profile-status"></a>Stato di endpoint e profili
+
 Gli endpoint e i profili di Gestione traffico possono essere abilitati e disabilitati. Tuttavia, lo stato degli endpoint può cambiare anche a causa di impostazioni e processi automatici di Gestione traffico.
 
 ### <a name="endpoint-status"></a>Stato endpoint
+
 È possibile abilitare o disabilitare un endpoint specifico. Il servizio sottostante, che potrebbe essere ancora integro, non è interessato. La modifica dello stato dell'endpoint controlla la disponibilità dell'endpoint nel profilo di Gestione traffico. Quando un endpoint è associato allo stato Disabled, Gestione traffico non ne verifica l'integrità e l'endpoint non viene incluso in una risposta DNS.
 
 ### <a name="profile-status"></a>Stato profilo
+
 Usando l'impostazione dello stato del profilo è possibile abilitare o disabilitare un profilo specifico. Mentre lo stato dell'endpoint interessa un solo endpoint, lo stato del profilo interessa l'intero profilo, che include tutti gli endpoint. Quando si disabilita un profilo, l'integrità degli endpoint non viene verificata e nessun endpoint viene incluso in una risposta DNS. Per la query DNS viene restituito un codice di risposta [NXDOMAIN](https://tools.ietf.org/html/rfc2308).
 
 ### <a name="endpoint-monitor-status"></a>Endpoint monitor status (Stato monitoraggio endpoint)
+
 Il valore relativo allo stato di monitoraggio dell'endpoint viene generato da Gestione traffico per indicare lo stato corrente dell'endpoint. Questa impostazione non può essere modificata manualmente. Lo stato del monitoraggio dell'endpoint è una combinazione dei risultati del monitoraggio dell'endpoint e dello stato dell'endpoint configurato. La tabella seguente indica i valori possibili dello stato di monitoraggio degli endpoint:
 
 | Stato profilo | Stato endpoint | Endpoint monitor status (Stato monitoraggio endpoint) | Note |
@@ -56,6 +66,7 @@ Il valore relativo allo stato di monitoraggio dell'endpoint viene generato da Ge
 Per informazioni dettagliate su come viene calcolato lo stato del monitoraggio degli endpoint nidificati, vedere [Profili nidificati di Gestione traffico](traffic-manager-nested-profiles.md).
 
 ### <a name="profile-monitor-status"></a>Stato monitoraggio profilo
+
 Lo stato di monitoraggio del profilo è una combinazione dei valori relativi allo stato del profilo configurato e allo stato di monitoraggio di tutti gli endpoint. I possibili valori sono descritti nella tabella seguente:
 
 | Stato profilo (come configurato) | Endpoint monitor status (Stato monitoraggio endpoint) | Stato monitoraggio profilo | Note |
@@ -67,19 +78,18 @@ Lo stato di monitoraggio del profilo è una combinazione dei valori relativi all
 | Enabled |Tutti gli endpoint del profilo presentano lo stato Disabled o Stopped oppure nel profilo non sono definiti endpoint. |Inactive |Non ci sono endpoint attivi, ma il profilo presenta lo stato Enabled. |
 
 ## <a name="endpoint-failover-and-recovery"></a>Failover e ripristino degli endpoint
+
 Gestione traffico verifica periodicamente l'integrità di ogni endpoint, inclusi gli endpoint non integri. Rileva quando un endpoint diventa integro e lo reinserisce nella rotazione.
 
 > [!NOTE]
 > Gestione traffico considera l'endpoint come online solo se viene restituito il messaggio 200 OK. Un endpoint non è integro quando si verifica uno degli eventi seguenti:
-> 
+>
 > * Viene ricevuta una risposta non 200, incluso un codice 2xx diverso o un reindirizzamento 301/302
 > * Richiesta di autenticazione client
 > * Timeout; la soglia di timeout è 10 secondi
 > * Non è possibile connettersi
-> 
+>
 > Per ulteriori informazioni su come risolvere i problemi relativi ai controlli non riusciti, vedere [Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md).
-> 
-> 
 
 La sequenza temporale seguente è una descrizione dettagliata del processo di monitoraggio.
 
@@ -98,10 +108,9 @@ La sequenza temporale seguente è una descrizione dettagliata del processo di mo
 
 > [!NOTE]
 > Poiché lavora a livello di DNS, Gestione traffico non può influenzare le connessioni esistenti verso qualsiasi endpoint. Quando indirizza il traffico tra gli endpoint, modificando le impostazioni del profilo oppure durante il failover o il failback, Gestione traffico indirizza le nuove connessioni agli endpoint disponibili. Tuttavia, altri endpoint possono continuare a ricevere il traffico tramite le connessioni esistenti finché tali sessioni non vengono terminate. Per consentire lo smaltimento del traffico dalle connessioni esistenti, le applicazioni devono limitare la durata della sessione usata con ogni endpoint.
-> 
-> 
 
 ## <a name="traffic-routing-methods"></a>Metodi di routing del traffico
+
 Un endpoint il cui stato è Degraded non viene restituito nella risposta alle query DNS. Viene invece scelto e restituito un endpoint alternativo. Il metodo di routing del traffico configurato nel profilo determina il modo in cui viene scelto l'endpoint alternativo.
 
 * **Priorità**. gli endpoint formano un elenco con priorità. Viene sempre restituito il primo endpoint disponibile nell'elenco. Se lo stato di un endpoint è Degraded, viene restituito il successivo endpoint disponibile.
@@ -112,20 +121,20 @@ Per altre informazioni, vedere [Metodi di routing del traffico di Gestione traff
 
 > [!NOTE]
 > Un'eccezione al normale comportamento del routing del traffico si verifica quando lo stato di tutti gli endpoint idonei risulta Degraded. Gestione traffico effettua un tentativo e *risponde come se tutti gli endpoint con stato Degraded fossero in realtà Online*, una condizione preferibile all'alternativa di non restituire endpoint nella risposta DNS. Gli endpoint disabilitati o arrestati non vengono monitorati, di conseguenza non sono considerati idonei per il traffico.
-> 
+>
 > Questa condizione è in genere causata da una configurazione non corretta del servizio, ad esempio:
-> 
+>
 > * Un elenco di controllo di accesso [ACL] che blocca i controlli di integrità di Gestione traffico
 > * Una configurazione non corretta del percorso di monitoraggio nel profilo di Gestione traffico
-> 
+>
 > La conseguenza di questo comportamento è che se i controlli di integrità di Gestione traffico non sono configurati in modo appropriato, dal routing del traffico potrebbe sembrare che Gestione traffico *funzioni* correttamente. In questo caso il failover degli endpoint non viene tuttavia eseguito, con ripercussioni sulla disponibilità complessiva dell'applicazione. È importante verificare che il profilo indichi lo stato Online e non Degraded. Lo stato Online indica che i controlli di integrità di Gestione traffico funzionano come previsto.
-> 
-> 
 
 Per altre informazioni su come risolvere i problemi relativi ai controlli di integrità non riusciti, vedere [Risoluzione dei problemi relativi allo stato danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md).
 
 ## <a name="faq"></a>Domande frequenti
-### <a name="is-traffic-manager-resilient-to-azure-region-failures?"></a>Gestione traffico è resiliente rispetto agli errori di area di Azure?
+
+### <a name="is-traffic-manager-resilient-to-azure-region-failures"></a>Gestione traffico è resiliente rispetto agli errori di area di Azure?
+
 Gestione traffico è un componente fondamentale del recapito di applicazioni a disponibilità elevata in Azure.
 Per assicurare una disponibilità elevata, Gestione traffico deve garantire un livello estremamente elevato di disponibilità, nonché la resilienza rispetto agli errori di area.
 
@@ -133,17 +142,20 @@ Per impostazione predefinita, i componenti di Gestione traffico resistono sono r
 
 Nel caso improbabile in cui si verifichi l'interruzione di un'intera area di Azure, Gestione traffico deve continuare a funzionare normalmente. Per le applicazioni distribuite in più aree di Azure Gestione traffico consente di indirizzare il traffico alle istanze disponibili delle applicazioni.
 
-### <a name="how-does-the-choice-of-resource-group-location-affect-traffic-manager?"></a>In che modo la scelta della posizione del gruppo di risorse si ripercuote su Gestione traffico?
+### <a name="how-does-the-choice-of-resource-group-location-affect-traffic-manager"></a>In che modo la scelta della posizione del gruppo di risorse si ripercuote su Gestione traffico?
+
 Gestione traffico è un singolo servizio globale. Non è a livello di area. La scelta della posizione del gruppo di risorse non è rilevante per i profili di Gestione traffico distribuiti in quel gruppo di risorse.
 
 Azure Resource Manager richiede che tutti i gruppi di risorse specifichino una posizione che determina il percorso predefinito delle risorse distribuite nel gruppo di risorse in questione. Quando si crea un profilo di Gestione traffico, viene creato in un gruppo di risorse. Tutti i profili di Gestione traffico usano **globale** come posizione, ignorando l'impostazione predefinita del gruppo di risorse.
 
-### <a name="how-do-i-determine-the-current-health-of-each-endpoint?"></a>Come si determina lo stato di integrità corrente di ogni endpoint?
+### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>Come si determina lo stato di integrità corrente di ogni endpoint?
+
 Lo stato di monitoraggio corrente di ogni endpoint viene visualizzato nel portale di Azure, insieme al profilo complessivo. Queste informazioni sono anche disponibili con l'[API REST](https://msdn.microsoft.com/library/azure/mt163667.aspx) di Gestione traffico, i [cmdlet PowerShell](https://msdn.microsoft.com/library/mt125941.aspx) e l'[interfaccia della riga di comando multipiattaforma di Azure](../xplat-cli-install.md).
 
 In Azure non vengono visualizzate informazioni cronologiche sull'integrità precedente degli endpoint e non è possibile generare avvisi sulle modifiche dell'integrità degli endpoint.
 
-### <a name="can-i-monitor-https-endpoints?"></a>È possibile monitorare gli endpoint HTTPS?
+### <a name="can-i-monitor-https-endpoints"></a>È possibile monitorare gli endpoint HTTPS?
+
 Sì. Gestione traffico supporta il probing su HTTPS. Definire **HTTPS** come protocollo nella configurazione del monitoraggio.
 
 Gestione traffico non prevede alcuna convalida di certificati, tra cui:
@@ -152,36 +164,41 @@ Gestione traffico non prevede alcuna convalida di certificati, tra cui:
 * I certificati SNI sul lato server non sono supportati
 * I certificati client non sono supportati
 
-### <a name="what-host-header-do-endpoint-health-checks-use?"></a>Quali intestazione host viene usata per i controlli di integrità degli endpoint?
+### <a name="what-host-header-do-endpoint-health-checks-use"></a>Quali intestazione host viene usata per i controlli di integrità degli endpoint?
+
 Gestione traffico usa le intestazioni host nei controlli di integrità HTTP e HTTPS. L'intestazione host usata da Gestione traffico è il nome dell'endpoint di destinazione configurato nel profilo. Il valore usato nell'intestazione host non può essere specificato separatamente dalla proprietà target.
 
-### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate?"></a>Quali sono gli indirizzi IP da cui si originano i controlli di integrità?
+### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>Quali sono gli indirizzi IP da cui si originano i controlli di integrità?
+
 L'elenco seguente contiene gli indirizzi IP da cui possono provenire i controlli di integrità di Gestione traffico. È possibile usare questo elenco per assicurarsi che le connessioni in ingresso da questi indirizzi IP siano consentite agli endpoint per controllarne lo stato di integrità.
 
-* 13.75.153.124
-* 13.75.152.253
-* 191.232.214.62
-* 191.232.208.52
-* 52.172.155.168
-* 52.172.158.37
-* 13.75.124.254
-* 13.75.127.63
-* 137.135.82.249
-* 137.135.80.149
-* 104.41.190.203
-* 104.41.187.209
-* 65.52.217.19
-* 23.96.236.252
-* 40.87.147.10
-* 40.87.151.34
-* 104.215.91.84
-* 13.84.222.37
 * 40.68.30.66
 * 40.68.31.178
-* 137.135.47.215
+* 137.135.80.149
+* 137.135.82.249
+* 23.96.236.252
+* 65.52.217.19
+* 40.87.147.10
+* 40.87.151.34
+* 13.75.124.254
+* 13.75.127.63
+* 52.172.155.168
+* 52.172.158.37
+* 104.215.91.84
+* 13.75.153.124
+* 13.84.222.37
+* 23.101.191.199
+* 23.96.213.12
 * 137.135.46.163
+* 137.135.47.215
+* 191.232.208.52
+* 191.232.214.62
+* 13.75.152.253
+* 104.41.187.209
+* 104.41.190.203
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Informazioni sul [funzionamento di Gestione traffico](traffic-manager-how-traffic-manager-works.md)
 
 Ulteriori informazioni sui [metodi di routing del traffico](traffic-manager-routing-methods.md) supportati da Gestione traffico
@@ -190,6 +207,8 @@ Informazioni su come [creare un profilo di Gestione traffico](traffic-manager-ma
 
 [Risoluzione dei problemi relativi allo stato Degraded](traffic-manager-troubleshooting-degraded.md) di un endpoint di Gestione traffico
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 
