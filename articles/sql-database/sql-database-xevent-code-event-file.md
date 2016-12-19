@@ -1,13 +1,13 @@
 ---
-title: Codice del file evento XEvent per il database SQL | Microsoft Docs
-description: Fornisce PowerShell e Transact-SQL per un esempio di codice in due fasi che illustra la destinazione del file evento in un evento esteso in Azure SQL Database. Archiviazione di Azure è una parte necessaria di questo scenario.
+title: Codice del file evento XEvent per il database SQL | Documentazione Microsoft
+description: "Fornisce PowerShell e Transact-SQL per un esempio di codice in due fasi che illustra la destinazione del file evento in un evento esteso in Azure SQL Database. Archiviazione di Azure è una parte necessaria di questo scenario."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: MightyPen
 manager: jhubbard
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: bbb10ecc-739f-4159-b844-12b4be161231
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2016
 ms.author: genemi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1569bdf8ad8a073808b83b08fa3fdae8f843805f
+
 
 ---
-# Codice di destinazione del file evento per eventi estesi nel database SQL
+# <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Codice di destinazione del file evento per eventi estesi nel database SQL
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 Si desidera un esempio di codice completo per un modo affidabile per acquisire e segnalare informazioni per un evento esteso.
@@ -32,12 +36,13 @@ Questo argomento presenta un esempio di codice in due fasi:
   * per assegnare il contenitore di Archiviazione di Azure a una destinazione del file evento.
   * Per creare e avviare la sessione dell'evento e così via.
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Un account e una sottoscrizione di Azure. È possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Qualsiasi database in cui è possibile creare una tabella.
   
   * Facoltativamente, è possibile [creare un database dimostrativo **AdventureWorksLT**](sql-database-get-started.md) in pochi minuti.
-* SQL Server Management Studio (ssms.exe), idealmente l'ultima versione di aggiornamento mensile. È possibile scaricare la versione più recente di ssms.exe da:
+* SQL Server Management Studio (ssms.exe), idealmente l'ultima versione di aggiornamento mensile. 
+  È possibile scaricare la versione più recente di ssms.exe da:
   
   * Argomento intitolato [SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
   * [Un collegamento diretto al download.](http://go.microsoft.com/fwlink/?linkid=616025)
@@ -45,7 +50,7 @@ Questo argomento presenta un esempio di codice in due fasi:
   
   * I moduli forniscono comandi come **New-AzureStorageAccount**.
 
-## Fase 1: Codice di PowerShell per il contenitore di archiviazione di Azure
+## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fase 1: Codice di PowerShell per il contenitore di archiviazione di Azure
 Questo PowerShell è la fase 1 dell'esempio di codice in due fasi.
 
 Lo script inizia con comandi di pulitura dopo un'eventuale esecuzione precedente ed è eseguibile di nuovo.
@@ -53,10 +58,10 @@ Lo script inizia con comandi di pulitura dopo un'eventuale esecuzione precedente
 1. Incollare lo script di PowerShell in un editor di testo semplice, ad esempio Notepad.exe e salvare lo script come file con estensione **.ps1**.
 2. Avviare PowerShell ISE come amministratore.
 3. Al prompt dei comandi, digitare<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>e quindi premere INVIO.
-4. In PowerShell ISE, aprire il file **.ps1**. Eseguire lo script.
+4. In PowerShell ISE, aprire il file **.ps1** . Eseguire lo script.
 5. Innanzitutto, lo script avvia una nuova finestra in cui si accede ad Azure.
    
-   * Se si esegue nuovamente lo script senza interrompere la sessione, è possibile pratico decommentare il comando **Add-AzureAccount**.
+   * Se si esegue nuovamente lo script senza interrompere la sessione, è possibile pratico decommentare il comando **Add-AzureAccount** .
 
 ![PowerShell ISE, con il modulo Azure installato, pronto per l'esecuzione di script.][30_powershell_ise]
 
@@ -237,7 +242,7 @@ Now shift to the Transact-SQL portion of the two-part code sample!'
 
 Prendere nota dei valori nominati che lo script di PowerShell stampa alla fine. È necessario modificare tali valori nello script Transact-SQL che segue come fase 2.
 
-## Fase 2: Codice Transact-SQL che utilizza il contenitore di Archiviazione di Azure
+## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Fase 2: Codice Transact-SQL che utilizza il contenitore di Archiviazione di Azure
 * Nella fase 1 di questo esempio di codice è stato eseguito uno script di PowerShell per creare un contenitore di Archiviazione di Azure.
 * Successivamente nella fase 2, lo script Transact-SQL deve utilizzare il contenitore.
 
@@ -469,12 +474,12 @@ GO
 
 &nbsp;
 
-## Output
-Al termine dell'esecuzione dello script di Transact-SQL, fare clic su una cella sotto l’intestazione della colonna **event\_data\_XML**. Viene visualizzato un elemento **<event>** che mostra un'istruzione UPDATE.
+## <a name="output"></a>Output
+Al termine dell'esecuzione dello script Transact-SQL, fare clic su una cella sotto l'intestazione della colonna **event_data_XML**. Viene visualizzato un elemento **<event>** che mostra un'istruzione UPDATE.
 
 Di seguito è riportato un elemento **<event>** generato durante il test:
 
-& nbsp;
+&nbsp;
 
 ```
 <event name="sql_statement_starting" package="sqlserver" timestamp="2015-09-22T19:18:45.420Z">
@@ -517,9 +522,9 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 &nbsp;
 
-Lo script Transact-SQL precedente ha usato la funzione di sistema seguente per leggere l'event\_file:
+Lo script Transact-SQL precedente ha usato la funzione di sistema seguente per leggere l'event_file:
 
-* [sys.fn\_xe\_file\_target\_read\_file (Transact-SQL)](http://msdn.microsoft.com/library/cc280743.aspx)
+* [sys.fn_xe_file_target_read_file (Transact-SQL)](http://msdn.microsoft.com/library/cc280743.aspx)
 
 Le opzioni avanzate per la visualizzazione di dati da eventi estesi sono illustrate all'indirizzo:
 
@@ -527,16 +532,16 @@ Le opzioni avanzate per la visualizzazione di dati da eventi estesi sono illustr
 
 &nbsp;
 
-## Conversione dell’esempio di codice da eseguire in SQL Server
+## <a name="converting-the-code-sample-to-run-on-sql-server"></a>Conversione dell’esempio di codice da eseguire in SQL Server
 Si supponga di voler eseguire l'esempio di Transact-SQL precedente in Microsoft SQL Server.
 
-* Per semplicità si desidera sostituire completamente l'utilizzo del contenitore di Archiviazione di Azure con un semplice file, come **C:\\myeventdata.xel**. Il file verrebbe scritto sul disco rigido locale del computer che ospita SQL Server.
+* Per semplicità, si desidera sostituire completamente l'uso del contenitore di Archiviazione di Azure con un semplice file, come **C:\myeventdata.xel**. Il file verrebbe scritto sul disco rigido locale del computer che ospita SQL Server.
 * Non è necessaria alcuna tipologia di istruzioni di Transact-SQL per **CREATE MASTER KEY** e **CREATE CREDENTIAL**.
-* Nell’istruzione **CREATE EVENT SESSION**, nella relativa clausola **ADD TARGET**, sostituire il valore di Http assegnato a **filename =** con una stringa di percorso completo **C:\\myfile.xel**.
+* Nell'istruzione **CREATE EVENT SESSION**, nella relativa clausola **ADD TARGET**, sostituire il valore di Http assegnato a **filename =** con una stringa di percorso completo **C:\myfile.xel**.
   
   * Nessun account di Archiviazione di Azure deve essere coinvolto.
 
-## Altre informazioni
+## <a name="more-information"></a>Altre informazioni
 Per ulteriori informazioni sugli account e i contenitori nel servizio Archiviazione di Azure, vedere:
 
 * [Come usare l'archiviazione BLOB da .NET](../storage/storage-dotnet-how-to-use-blobs.md)
@@ -551,4 +556,9 @@ Image references.
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
