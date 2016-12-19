@@ -1,13 +1,13 @@
 ---
-title: Introduzione alle funzioni finestra di Analisi di flusso | Microsoft Docs
+title: Introduzione alle funzioni finestra di Analisi di flusso | Documentazione Microsoft
 description: Informazioni sulle tre funzioni finestra in Analisi di flusso (finestra a cascata, finestra di salto, finestra temporale scorrevole).
 keywords: finestra a cascata, finestra temporale scorrevole, finestra di salto
-documentationcenter: ''
+documentationcenter: 
 services: stream-analytics
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 0d8d8717-5d23-43f0-b475-af078ab4627d
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 09/26/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 561a3b3f9c90274cfff95ab27c6cd745582f15e0
+
 
 ---
 # <a name="introduction-to-stream-analytics-window-functions"></a>Introduzione alle funzioni finestra di Analisi di flusso
@@ -47,6 +51,9 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 * [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

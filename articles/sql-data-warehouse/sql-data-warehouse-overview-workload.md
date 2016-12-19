@@ -1,25 +1,29 @@
 ---
 title: Carico di lavoro del data warehouse
-description: 'L''elasticità di SQL Data Warehouse consente di aumentare, ridurre o sospendere la potenza di calcolo usando una scala scorrevole di unità data warehouse (DWU). Questo articolo illustra le metriche del data warehouse e come sono correlate alle DWU. '
+description: 'SQL Data Warehouse''s elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs). This article explains the data warehouse metrics and how they relate to DWUs. '
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
-manager: barbkess
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: cadffa9c-589d-4db7-888a-1f202a753bc5
 ms.service: sql-data-warehouse
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 07/25/2016
-ms.author: barbkess;mausher;jrj;sonyama
+ms.date: 10/31/2016
+ms.author: barbkess;mausher
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 43ee395fab826549ddd9ede3c3aa45aa8e97c7dd
+
 
 ---
-# Carico di lavoro del data warehouse
+# <a name="data-warehouse-workload"></a>Carico di lavoro del data warehouse
 Per carico di lavoro del data warehouse si intendono tutte le operazioni che passano attraverso un data warehouse. Tale carico di lavoro include pertanto l'intero processo di caricamento dei dati nel data warehouse, l'esecuzione dell'analisi e la creazione dei report a esso relativi, la gestione dei dati in esso contenuti e l'esportazione dei dati da esso. La profondità e l'estensione di questi componenti sono spesso proporzionali al livello di maturità del data warehouse.
 
-## Per gli utenti non esperti di data warehouse
+## <a name="new-to-data-warehousing"></a>Per gli utenti non esperti di data warehouse
 Un data warehouse è una raccolta di dati caricata da una o più origini dati e usata per eseguire attività di business intelligence, quali la creazione di report e l'analisi dei dati.
 
 I data warehouse sono caratterizzati da query che analizzano quantità più elevate di righe o grandi intervalli di dati e possono restituire risultati di dimensioni relativamente importanti ai fini dell'analisi e della creazione di report. I data warehouse sono anche caratterizzati da caricamenti di dati relativamente estesi anziché da inserimenti, aggiornamenti o eliminazioni a livello di transazione di piccole dimensioni.
@@ -33,7 +37,7 @@ I data warehouse sono caratterizzati da query che analizzano quantità più elev
 
 * Un data warehouse ha requisiti diversi rispetto a un sistema ottimizzato per l'elaborazione di transazioni online (OLTP). Il sistema OLTP prevede numerose operazioni di inserimento, aggiornamento ed eliminazione. Queste operazioni eseguono la ricerca fino a righe specifiche nella tabella. Le ricerche nelle tabelle vengono eseguite in modo ottimale quando i dati sono archiviati riga per riga. I dati possono essere ordinati e ricercati rapidamente secondo un approccio di tipo "divide et impera", noto anche come ricerca nell'albero binario o albero B.
 
-## Caricamento dei dati
+## <a name="data-loading"></a>Caricamento dei dati
 Il caricamento dei dati rappresenta una parte considerevole del carico di lavoro del data warehouse. Le aziende in genere dispongono di un sistema OLTP occupato che tiene traccia delle modifiche nel corso della giornata quando i clienti generano transazioni aziendali. Periodicamente, spesso di notte durante una finestra di manutenzione, le transazioni vengono spostate o copiate nel data warehouse. Quando i dati si trovano nel data warehouse, gli analisti possono eseguire l'analisi e prendere decisioni aziendali basandosi su di essi.
 
 * Il processo di caricamento tradizionalmente viene indicato con l'acronimo ETL (Extract, Transform, Load), ovvero estrazione, trasformazione e caricamento. I dati solitamente devono essere trasformati per diventare coerenti con gli altri dati contenuti nel data warehouse. In passato le aziende usavano server ETL dedicati per eseguire le trasformazioni. Ora, grazie all'elevata velocità dell'elaborazione parallela massiva, è possibile prima caricare i dati in SQL Data Warehouse e quindi effettuare le trasformazioni. Tale processo è detto ELT (Extract, Load, Transform), ovvero estrazione, caricamento e trasformazione, e sta diventando un nuovo standard per il carico di lavoro del data warehouse.
@@ -43,34 +47,38 @@ Il caricamento dei dati rappresenta una parte considerevole del carico di lavoro
 > 
 > 
 
-### Query di reporting e analisi
+### <a name="reporting-and-analysis-queries"></a>Query di reporting e analisi
 Le query di reporting e analisi vengono spesso classificate come di piccole, medie e grandi dimensioni in base al numero di criteri, ma in genere si basano sul tempo. Nella maggior parte dei data warehouse è presente un carico di lavoro misto costituito da una combinazione di query a esecuzione rapida e query a esecuzione prolungata. In ogni caso è importante determinare tale combinazione e la relativa frequenza (oraria, giornaliera, a fine mese, a fine trimestre e così via). È fondamentale comprendere che il carico di lavoro con query miste, insieme alla concorrenza, porta a una pianificazione appropriata della capacità per un data warehouse.
 
 * La pianificazione della capacità può essere un'attività complessa per un carico di lavoro con query miste, soprattutto se è necessario un lungo lead time per aggiungere capacità al data warehouse. Con SQL Data Warehouse la pianificazione della capacità non è più indispensabile, in quanto è possibile aumentare e ridurre la capacità di calcolo in qualsiasi momento e tale capacità e quella di archiviazione vengono dimensionate in modo indipendente.
 
-### Gestione dati
+### <a name="data-management"></a>Gestione dati
 La gestione dati è importante, soprattutto quando si sa che a breve lo spazio su disco potrebbe esaurirsi. I data warehouse in genere suddividono i dati in intervalli significativi, che vengono archiviati come partizioni in una tabella. Tutti i prodotti basati su SQL Server consentono di spostare le partizioni all'interno e all'esterno della tabella. Tale spostamento delle partizioni consente di spostare i dati meno recenti in aree di archiviazione meno costose e di mantenere disponibili i dati più recenti nello spazio di archiviazione online.
 
-* Gli indici columnstore supportano le tabelle partizionate. Per questi indici, le tabelle partizionate vengono usate per la gestione e l'archiviazione dei dati. Per le tabelle archiviate riga per riga, le partizioni hanno un peso maggiore sulle prestazioni delle query.
-* PolyBase svolge un ruolo importante nella gestione dati. Usando PolyBase, si ha la possibilità di archiviare i dati meno recenti in Hadoop o nell'archivio BLOB di Azure. Sono così disponibili numerose opzioni, dal momento che i dati sono ancora online. Il recupero dei dati da Hadoop potrebbe richiedere più tempo, ma il costo di archiviazione potrebbe rivelarsi più vantaggioso.
+* Gli indici columnstore supportano le tabelle partizionate. Per questi indici, le tabelle partizionate vengono usate per la gestione e l'archiviazione dei dati. Per le tabelle archiviate riga per riga, le partizioni hanno un peso maggiore sulle prestazioni delle query.  
+* PolyBase svolge un ruolo importante nella gestione dati. Usando PolyBase, si ha la possibilità di archiviare i dati meno recenti in Hadoop o nell'archivio BLOB di Azure.  Sono così disponibili numerose opzioni, dal momento che i dati sono ancora online.  Il recupero dei dati da Hadoop potrebbe richiedere più tempo, ma il costo di archiviazione potrebbe rivelarsi più vantaggioso.
 
-### Esportazione dei dati
+### <a name="exporting-data"></a>Esportazione dei dati
 Un modo per rendere disponibili i dati per i report e l'analisi consiste nell'inviarli dal data warehouse ai server dedicati all'esecuzione di report e analisi. Tali server sono denominati data mart. Ad esempio, è possibile pre-elaborare i dati dei report e quindi esportarli dal data warehouse in numerosi server di tutto il mondo per renderli ampiamente disponibili per clienti e analisti.
 
 * Per generare i report, ogni notte si potrebbe inserire uno snapshot dei dati giornalieri in server di report di sola lettura. Questo garantisce ai clienti una larghezza di banda superiore e diminuisce la richiesta di risorse di calcolo nel data warehouse. Dal punto di vista della sicurezza, i data mart consentono di ridurre il numero degli utenti che hanno accesso al data warehouse.
 * Per l'analisi, è possibile creare un apposito cubo nel data warehouse ed eseguire l'analisi su quest'ultimo oppure pre-elaborare i dati ed esportarli nel server di analisi in modo che possano essere analizzati ulteriormente.
 
-## Passaggi successivi
-Dopo aver appreso alcune informazioni su SQL Data warehouse, vedere come [Creare un Azure SQL Data Warehouse][Creare un Azure SQL Data Warehouse] rapidamente e [Caricare i dati di esempio in SQL Data Warehouse][Caricare i dati di esempio in SQL Data Warehouse].
+## <a name="next-steps"></a>Passaggi successivi
+Dopo aver appreso alcune informazioni su SQL Data Warehouse, vedere come [creare un Azure SQL Data Warehouse][creare un Azure SQL Data Warehouse] rapidamente e [caricare dati di esempio][caricare dati di esempio].
 
 <!--Image references-->
 
 <!--Article references-->
-[Caricare i dati di esempio in SQL Data Warehouse]: ./sql-data-warehouse-load-sample-databases.md
-[Creare un Azure SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[caricare dati di esempio]: ./sql-data-warehouse-load-sample-databases.md
+[creare un Azure SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

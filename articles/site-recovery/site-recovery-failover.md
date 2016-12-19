@@ -1,12 +1,12 @@
 ---
-title: Failover in Site Recovery | Microsoft Docs
+title: Failover in Site Recovery | Documentazione Microsoft
 description: Azure Site Recovery coordina la replica, il failover e il ripristino di macchine virtuali e server fisici. Informazioni sul failover in Azure o in un centro dati secondario.
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: rayne-wiselman
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/05/2016
 ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
+ms.openlocfilehash: 31d80e58071383aee22772e224c90289a610c0b3
+
 
 ---
 # <a name="failover-in-site-recovery"></a>Failover in Site Recovery
 Il servizio Azure Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza (BCDR) orchestrando le operazioni di replica, failover e ripristino delle macchine virtuali e dei server fisici. È possibile replicare i computer in Azure o in un data center locale secondario. Per una rapida panoramica, leggere [Che cos'è Azure Site Recovery?](site-recovery-overview.md)
 
 ## <a name="overview"></a>Panoramica
-In questo articolo vengono fornite informazioni e istruzioni per il ripristino (failover e failback) di macchine virtuali e server fisici protetti con Site Recovery. 
+In questo articolo vengono fornite informazioni e istruzioni per il ripristino (failover e failback) di macchine virtuali e server fisici protetti con Site Recovery.
 
 Per inviare commenti o domande, è possibile usare la parte inferiore di questo articolo oppure il [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -48,7 +52,7 @@ I tipi di failover supportati dipendono dallo scenario di distribuzione.
 | Da server fisico ad Azure |Supportato (scenario avanzato)<br/><br/>  Non supportato (scenario legacy) |Non supportato |Supportato |
 
 ## <a name="failover-and-failback"></a>Failover e failback
-Si esegue il failover delle macchine virtuali in un sito secondario in locale o in Azure, a seconda della distribuzione. Un computer che esegue il failover in Azure viene creato come macchina virtuale di Azure. È possibile eseguire il failover di una singola macchina virtuale o server fisico o un piano di ripristino. Il piano di ripristino è costituito da uno o più gruppi ordinati che contengono macchine virtuali o server fisici protetti. Vengono utilizzati per orchestrare il failover di più macchine che eseguono il failover in base al gruppo a cui appartengono. [Ulteriori informazioni](site-recovery-create-recovery-plans.md) sui piani di ripristino. 
+Si esegue il failover delle macchine virtuali in un sito secondario in locale o in Azure, a seconda della distribuzione. Un computer che esegue il failover in Azure viene creato come macchina virtuale di Azure. È possibile eseguire il failover di una singola macchina virtuale o server fisico o un piano di ripristino. Il piano di ripristino è costituito da uno o più gruppi ordinati che contengono macchine virtuali o server fisici protetti. Vengono utilizzati per orchestrare il failover di più macchine che eseguono il failover in base al gruppo a cui appartengono. [Ulteriori informazioni](site-recovery-create-recovery-plans.md) sui piani di ripristino.
 
 Dopo aver completato il failover, quando le  macchine sono attive e in esecuzione in una posizione secondaria, si noti che:
 
@@ -63,11 +67,11 @@ Il failback da un sito secondario a un sito primario utilizza lo stesso processo
 Se è stato eseguito il failover in Azure le macchine virtuali sono protette dalle funzionalità di resilienza di Azure per le macchine virtuali. Per rendere il sito primario originale la posizione attiva, occorre eseguire un failover pianificato. Se il sito originale non è disponibile, è possibile eseguire il failback nella posizione originale o in una posizione alternativa. Per avviare di nuovo la replica dopo il failback nella posizione primaria è possibile avviare la replica inversa.
 
 ### <a name="failover-considerations"></a>Considerazioni sul failover
-* **Indirizzo IP dopo il failover**: per impostazione predefinita, una macchina di failover avrà un indirizzo IP diverso dal computer di origine. Se si desidera mantenere lo stesso indirizzo IP, vedere: 
+* **Indirizzo IP dopo il failover**: per impostazione predefinita, una macchina di failover avrà un indirizzo IP diverso dal computer di origine. Se si desidera mantenere lo stesso indirizzo IP, vedere:
   * **Sito secondario**: se si esegue il failover a un sito secondario e si desidera mantenere un indirizzo IP, [leggere](http://blogs.technet.com/b/scvmm/archive/2014/04/04/retaining-ip-address-after-failover-using-hyper-v-recovery-manager.aspx) questo articolo. Si noti che, se il provider di servizi Internet lo consente, è possibile mantenere un indirizzo IP pubblico.
   * **Azure**: se si esegue il failover in Azure è possibile specificare l'indirizzo IP che si desidera assegnare nella scheda **Configura** delle proprietà della macchina virtuale. Non è possibile conservare un indirizzo IP pubblico dopo il failover ad Azure. È possibile mantenere gli spazi degli indirizzi RFC 1918 utilizzati come indirizzi interni.
-* **Failover parziale**: se si desidera eseguire il failover di parte di un sito anziché di un intero sito, si noti che: 
-  
+* **Failover parziale**: se si desidera eseguire il failover di parte di un sito anziché di un intero sito, si noti che:
+
   * **Sito secondario**: se si esegue il failover di parte di un sito primario a un sito secondario e si desidera riconnettersi al sito primario, utilizzare una connessione VPN da sito a sito per collegare le applicazioni del failover nel sito secondario con i componenti infrastrutturali in esecuzione nel sito primario. In caso di failover di un'intera subnet, è possibile mantenere l'indirizzo IP della macchina virtuale. Se si esegue il failover su una subnet parziale, non è possibile mantenere l'indirizzo IP della macchina virtuale perché le subnet non possono essere suddivise tra siti.
   * **Azure**: se si esegue il failover parziale di un sito in Azure e si desidera riconnettersi al sito primario, è possibile utilizzare una VPN da sito a sito per la connessione di un’applicazione di failover in Azure ai componenti dell'infrastruttura in esecuzione nel sito primario. Si noti che in caso di failover dell'intera subnet, è possibile conservare l'indirizzo IP della macchina virtuale. Se si esegue il failover su una subnet parziale, non è possibile mantenere l'indirizzo IP della macchina virtuale perché le subnet non possono essere suddivise tra siti.
 * **Lettera di unità**: se si vuole mantenere la lettera di unità nelle macchine virtuali dopo il failover è possibile impostare il criterio SAN per la macchina virtuale su **Attivo**. I dischi delle macchine virtuali passano automaticamente online. [Altre informazioni](https://technet.microsoft.com/library/gg252636.aspx).
@@ -86,15 +90,15 @@ Quando si esegue un failover di test viene chiesto di selezionare le impostazion
 
 > [!NOTE]
 > L'indirizzo IP assegnato a una macchina virtuale durante un failover di test corrisponde all'indirizzo IP che riceverebbe durante un failover pianificato o non pianificato, presupponendo che l'indirizzo IP sia disponibile nella rete di failover di test. Se lo stesso indirizzo IP non è disponibile nella rete di failover di test, la macchina virtuale riceverà un altro indirizzo IP disponibile in tale rete.
-> 
-> 
+>
+>
 
 ### <a name="run-a-test-failover-from-on-premises-to-azure"></a>Eseguire un failover di test da locale ad Azure
 Questa procedura descrive come eseguire un failover di test per un piano di ripristino. In alternativa è possibile eseguire il failover per una singola macchina nella scheda **Macchine virtuale** .
 
 1. Selezionare **Piani di ripristino** > *nome_pianodiripristino*. Fare clic su **Failover** > **Test Failover**.
 2. Nella pagina **Conferma failover di test** selezionare il modo in cui le macchine di replica saranno connesse a una rete di Azure dopo il failover.
-3. Se si esegue il failover in Azure e la crittografia dei dati è abilitata per il cloud in **Chiave di crittografia** , selezionare il certificato emesso quando è stata abilitata la crittografia dei dati durante l'installazione di Provider. 
+3. Se si esegue il failover in Azure e la crittografia dei dati è abilitata per il cloud in **Chiave di crittografia** , selezionare il certificato emesso quando è stata abilitata la crittografia dei dati durante l'installazione di Provider.
 4. Tenere traccia dello stato di avanzamento del failover nella scheda **Processi** . Nel portale di Azure dovrebbe anche essere possibile vedere la macchina di replica di test.
 5. È possibile accedere alle macchine di replica in Azure dal sito locale avviando una connessione RDP alla macchina virtuale. La porta 3389 dovrà essere aperta nell'endpoint per la macchina virtuale.
 6. Al termine, quando il processo di failover raggiunge la fase **conclusiva del test**, fare clic su **Completa test** per completare il test.
@@ -103,8 +107,8 @@ Questa procedura descrive come eseguire un failover di test per un piano di ripr
 
 > [!NOTE]
 > Se un test di failover continua per più di due settimane, verrà completato forzatamente. Eventuali elementi o macchine virtuali create automaticamente durante il failover di test verranno eliminate.
-> 
-> 
+>
+>
 
 ### <a name="run-a-test-failover-from-a-primary-on-premises-site-to-a-secondary-on-premises-site"></a>Eseguire un failover di test da un sito primario locale a un sito secondario locale
 È necessario effettuare una serie di operazioni per eseguire un failover di test, tra cui la copia del controller di dominio e il posizionamento di server DHCP e DNS di test nell'ambiente di test. È possibile procedere in due modi:
@@ -130,21 +134,21 @@ Questa procedura descrive come eseguire un failover di test per un piano di ripr
 
 > [!NOTE]
 > Se un test di failover continua per più di due settimane, verrà completato forzatamente. Eventuali elementi o macchine virtuali create automaticamente durante il failover di test verranno eliminate.
-> 
-> 
+>
+>
 
 #### <a name="prepare-dhcp"></a>Preparare DHCP
 Se le macchine virtuali coinvolte nel failover di test utilizzano DHCP, un server DHCP di test deve essere creato all'interno della rete isolata creata ai fini del failover di test.
 
 ### <a name="prepare-active-directory"></a>Preparare Active Directory
-Per eseguire un failover di test per testare l'applicazione, è necessaria una copia dell'ambiente Active Directory di produzione nell'ambiente di test. Per altri dettagli, vedere la sezione [Considerazioni sul failover di test per Active Directory](site-recovery-active-directory.md#considerations-for-test-failover) . 
+Per eseguire un failover di test per testare l'applicazione, è necessaria una copia dell'ambiente Active Directory di produzione nell'ambiente di test. Per altri dettagli, vedere la sezione [Considerazioni sul failover di test per Active Directory](site-recovery-active-directory.md#test-failover-considerations) . 
 
 ### <a name="prepare-dns"></a>Preparare DNS
 Preparare un server DNS per il failover di test come segue:
 
 * **DHCP**: se le macchine virtuali utilizzano DHCP, l'indirizzo IP del DNS di test deve essere aggiornato nel server DHCP di test. Se si utilizza un tipo di rete di virtualizzazione rete Windows, il server VMM funge da server DHCP. Pertanto, l'indirizzo IP del DNS deve essere aggiornato nella rete di failover di test. In questo caso, le macchine virtuali effettueranno la registrazione al relativo server DNS.
-* **Indirizzo statico**: se le macchine virtuali usano un indirizzo IP statico, l'indirizzo IP del server DNS di test deve essere aggiornato nella rete di failover di test. Può essere necessario aggiornare il DNS con l'indirizzo IP delle macchine virtuali di test. A tale scopo, è possibile utilizzare lo script di esempio riportato di seguito: 
-  
+* **Indirizzo statico**: se le macchine virtuali usano un indirizzo IP statico, l'indirizzo IP del server DNS di test deve essere aggiornato nella rete di failover di test. Può essere necessario aggiornare il DNS con l'indirizzo IP delle macchine virtuali di test. A tale scopo, è possibile utilizzare lo script di esempio riportato di seguito:
+
         Param(
         [string]$Zone,
         [string]$name,
@@ -155,29 +159,29 @@ Preparare un server DNS per il failover di test come segue:
         $newrecord.RecordData[0].IPv4Address  =  $IP
         Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
-## <a name="run-a-planned-failover-(primary-to-secondary)"></a>Eseguire un failover pianificato (da primario a secondario)
+## <a name="run-a-planned-failover-primary-to-secondary"></a>Eseguire un failover pianificato (da primario a secondario)
  Questa procedura descrive come eseguire un failover pianificato per un piano di ripristino. In alternativa è possibile eseguire il failover per una singola macchina nella scheda **Macchine virtuali** .
 
 1. Prima di iniziare verificare che tutte le macchine virtuali di cui eseguire il failover abbiano completato la replica iniziale.
-2. Selezionare **Piani di ripristino** > *nome_pianodiripristino*. Fare clic su **Failover** > **Planned Failover**. 
+2. Selezionare **Piani di ripristino** > *nome_pianodiripristino*. Fare clic su **Failover** > **Planned Failover**.
 3. Nella pagina **Conferma failover pianificato **selezionare il percorso di origine e destinazione. Prendere nota della direzione del failover.
-   
-   * Se il funzionamento dei failover è quello previsto e tutti i server di macchine virtuali si trovano nella posizione di origine o di destinazione, i dettagli della direzione del failover sono solo a scopo informativo. 
+
+   * Se il funzionamento dei failover è quello previsto e tutti i server di macchine virtuali si trovano nella posizione di origine o di destinazione, i dettagli della direzione del failover sono solo a scopo informativo.
    * Se le macchine virtuali sono attive sia nella posizione di origine che in quella di destinazione, viene visualizzato il pulsante **Cambia direzione** . Utilizzare questo pulsante per modificare e specificare la direzione in cui deve essere eseguito il failover.
-4. Se si esegue il failover in Azure e la crittografia dei dati è abilitata per il cloud, in **Chiave di crittografia** selezionare il certificato emesso quando è stata abilitata la crittografia dei dati durante l'installazione del provider nel server VMM. 
+4. Se si esegue il failover in Azure e la crittografia dei dati è abilitata per il cloud, in **Chiave di crittografia** selezionare il certificato emesso quando è stata abilitata la crittografia dei dati durante l'installazione del provider nel server VMM.
 5. Quando si avvia un failover pianificato, il primo passaggio è l’arresto delle macchine virtuali per garantire che non si verifichino perdite di dati. Nella scheda **Processi** è possibile monitorare l’avanzamento del failover. Se si verifica un errore nel failover (in una macchina virtuale o in uno script incluso nel piano di ripristino), il failover pianificato di un piano di ripristino si interrompe. È possibile avviare nuovamente il failover.
-6. Dopo la replica le macchine virtuali create sono in uno stato di attesa di commit. Fare clic su **Commit** per eseguire il commit del failover. 
-7. Una volta completata la replica, le macchine virtuali vengono avviate nella posizione secondaria. 
+6. Dopo la replica le macchine virtuali create sono in uno stato di attesa di commit. Fare clic su **Commit** per eseguire il commit del failover.
+7. Una volta completata la replica, le macchine virtuali vengono avviate nella posizione secondaria.
 
 ## <a name="run-an-unplanned-failover"></a>Eseguire un failover non pianificato
 Questa procedura descrive come eseguire un failover non pianificato per un piano di ripristino. In alternativa è possibile eseguire il failover per una singola macchina virtuale o server fisico nella scheda **Macchine virtuali** .
 
-1. Selezionare **Piani di ripristino** > *nome_pianodiripristino*. Fare clic su **Failover** > **Unplanned Failover**. 
+1. Selezionare **Piani di ripristino** > *nome_pianodiripristino*. Fare clic su **Failover** > **Unplanned Failover**.
 2. Nella pagina **Conferma failover non pianificato **selezionare il percorso di origine e destinazione. Prendere nota della direzione del failover.
-   
-   * Se il funzionamento dei failover è quello previsto e tutti i server di macchine virtuali si trovano nella posizione di origine o di destinazione, i dettagli della direzione del failover sono solo a scopo informativo. 
+
+   * Se il funzionamento dei failover è quello previsto e tutti i server di macchine virtuali si trovano nella posizione di origine o di destinazione, i dettagli della direzione del failover sono solo a scopo informativo.
    * Se le macchine virtuali sono attive sia nella posizione di origine che in quella di destinazione, viene visualizzato il pulsante **Cambia direzione** . Utilizzare questo pulsante per modificare e specificare la direzione in cui deve essere eseguito il failover.
-3. Se si esegue il failover in Azure e la crittografia dei dati è abilitata per il cloud, in **Chiave di crittografia** selezionare il certificato emesso quando è stata abilitata la crittografia dei dati durante l'installazione del provider nel server VMM. 
+3. Se si esegue il failover in Azure e la crittografia dei dati è abilitata per il cloud, in **Chiave di crittografia** selezionare il certificato emesso quando è stata abilitata la crittografia dei dati durante l'installazione del provider nel server VMM.
 4. Selezionare **Arresta le macchine virtuali e sincronizza i dati più recenti** per specificare che Site Recovery deve tentare di arrestare le macchine virtuali protette e sincronizzare i dati in modo che venga eseguito il faiolver dei dati più recenti. Se non si seleziona questa opzione o il tentativo ha esito negativo, il failover avverrà dall'ultimo punto di ripristino disponibile per la macchina virtuale.
 5. Nella scheda **Processi** è possibile monitorare l’avanzamento del failover. Si noti che anche se si verificano errori durante un failover non pianificato, il piano di ripristino viene eseguito fino al completamento.
 6. Dopo il failover le macchine virtuali sono uno stato di **attesa d commit** . Fare clic su **Commit** per eseguire il commit del failover.
@@ -190,7 +194,7 @@ Questa procedura descrive come eseguire un failover non pianificato per un piano
 1. Selezionare **Piani di ripristino** > *nome_pianodiripristino*. Fare clic su **Failover** > **Planned Failover**.
 2. Nella pagina **Conferma failover pianificato **selezionare il percorso di origine e destinazione. Prendere nota della direzione del failover. Se il failover dal sito primario funziona nel modo previsto e tutte le macchine virtuali si trovano nella posizione secondaria, la direzione ha solo scopo informativo.
 3. Se si esegue il failback da Azure, selezionare le impostazioni in **Sincronizzazione dati**:
-   
+
    * **Sincronizza i dati prima del failover (sincronizza solo modifiche differenziali)**: questa opzione riduce al minimo i tempi di inattività delle macchine virtuali poiché le sincronizza senza arrestarle. Effettua le seguenti operazioni:
      * Fase 1: Crea uno snapshot della macchina virtuale in Azure e lo copia negli host Hyper-V in locale. La macchina continua l'esecuzione in Azure.
      * Fase 2: Arresta la macchina virtuale in Azure in modo che non vengano apportate nuove modifiche. Il set finale di modifiche viene trasferito al server locale e viene avviata la macchina virtuale locale.
@@ -199,11 +203,11 @@ Questa procedura descrive come eseguire un failover non pianificato per un piano
 
     > [AZURE.NOTE] È consigliabile usare questa opzione se si usa Azure da molto tempo (un mese o oltre) o se la macchina virtuale locale è stata eliminata. Questa opzione non esegue alcun calcolo del checksum.
 
-1. Se si esegue il failover in Azure e la crittografia dei dati è abilitata per il cloud, in **Chiave di crittografia** selezionare il certificato emesso quando è stata abilitata la crittografia dei dati durante l'installazione del provider nel server VMM. 
-2. Per impostazione predefinita viene utilizzato l'ultimo punto di ripristino, ma in **Modifica punto di ripristino** è possibile specificare un punto di ripristino diverso. 
-3. Fare clic sul segno di spunta per avviare il ripristino.  Nella scheda **Processi** è possibile monitorare l’avanzamento del failover. 
+1. Se si esegue il failover in Azure e la crittografia dei dati è abilitata per il cloud, in **Chiave di crittografia** selezionare il certificato emesso quando è stata abilitata la crittografia dei dati durante l'installazione del provider nel server VMM.
+2. Per impostazione predefinita viene utilizzato l'ultimo punto di ripristino, ma in **Modifica punto di ripristino** è possibile specificare un punto di ripristino diverso.
+3. Fare clic sul segno di spunta per avviare il ripristino.  Nella scheda **Processi** è possibile monitorare l’avanzamento del failover.
 4. Se è stata selezionata l'opzione per sincronizzare i dati prima del failover, dopo la sincronizzazione dati iniziale, quando si è pronti ad arrestare le macchine virtuali in Azure, fare clic su **Processi** > <planned failover job name> **Failover completo**. La macchina Azure viene arrestata e le modifiche più recenti vengono trasferite alla macchina virtuale locale, che viene avviata.
-5. A questo punto è possibile accedere alla macchina virtuale per verificare che sia disponibile come previsto. 
+5. A questo punto è possibile accedere alla macchina virtuale per verificare che sia disponibile come previsto.
 6. La macchina virtuale è in uno stato di attesa di commit. Fare clic su **Commit** per eseguire il commit del failover.
 7. Per completare il failback fare clic su **Replica inversa** per iniziare a proteggere la macchina virtuale nel sito primario.
 
@@ -213,22 +217,24 @@ Se è stata distribuita la protezione tra un [sito Hyper-V e Azure](site-recover
 1. Se si configura nuovo hardware, installare Windows Server 2012 R2 e il ruolo Hyper-V nel server.
 2. Creare un commutatore di rete virtuale con lo stesso nome presente nel server originale.
 3. Selezionare **Elementi protetti** -> **Gruppo protezione dati** -> <ProtectionGroupName> -> <VirtualMachineName>di cui si vuole eseguire il failback e selezionare **Failover pianificato**.
-4. Fare clic su **Conferma failover pianificato** select **Crea macchina virtuale locale, se non esiste**. 
+4. Fare clic su **Conferma failover pianificato** select **Crea macchina virtuale locale, se non esiste**.
 5. In **Nome host** selezionare il nuovo server host Hyper-V in cui si desidera collocare la macchina virtuale.
 6. In Sincronizzazione dati è consigliabile selezionare l'opzione **Sincronizzare i dati prima del failover**. Questa opzione riduce al minimo i tempi di inattività per le macchine virtuali senza arrestarle. Effettua le seguenti operazioni:
-   
+
    * Fase 1: Crea uno snapshot della macchina virtuale in Azure e lo copia negli host Hyper-V in locale. La macchina continua l'esecuzione in Azure.
    * Fase 2: Arresta la macchina virtuale in Azure in modo che non vengano apportate nuove modifiche. Il set finale di modifiche viene trasferito al server locale e viene avviata la macchina virtuale locale.
 7. Fare clic sul segno di spunta per iniziare il failover (failback).
 8. Quando è stata completata la sincronizzazione iniziale e si è pronti per arrestare la macchina virtuale in Azure, fare clic su **Processi** > <planned failover job> > **Failover completo**. La macchina Azure viene arrestata e le modifiche più recenti vengono trasferite alla macchina virtuale locale, che viene avviata.
 9. È possibile accedere alla macchina virtuale locale per verificare che tutto funzioni come previsto. Fare clic su **Commit** per completare il failover.
 10. Fare clic su **Replica inversa** per iniziare a proteggere la macchina virtuale in locale.
-    
+
     > [!NOTE]
     > Se si annulla il processo di failback mentre durante la fase di sincronizzazione dei dati, la macchina virtuale locale verrà corrotta. Questo avviene perché la sincronizzazione dei dati copia i dati più recenti dai dischi della macchina virtuale di Azure sui dischi dei dati locali e, fino al completamento della sincronizzazione, il disco dati potrebbe non trovarsi in uno stato coerente. La macchina virtuale locale potrebbe non avviarsi dopo aver annullato la sincronizzazione dei dati. Riattivare il failover per completare la sincronizzazione dei dati.
-    > 
-    > 
+    >
+    >
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: 'Piattaforme di analisi: confronto tra Apache Storm e Analisi di flusso | Microsoft Docs'
-description: Informazioni utili per scegliere una piattaforma di analisi cloud tramite confronto tra Apache Storm e Analisi di flusso. Comprendere le funzionalità e le differenze.
+title: 'Piattaforme di analisi: confronto tra Apache Storm e Analisi di flusso | Documentazione Microsoft'
+description: "Informazioni utili per scegliere una piattaforma di analisi cloud tramite confronto tra Apache Storm e Analisi di flusso. Comprendere le funzionalità e le differenze."
 keywords: piattaforma di analisi, piattaforme di analisi, piattaforma di analisi cloud, confronto con Storm
 services: stream-analytics
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: b9aac017-9866-4d0a-b98f-6f03881e9339
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,14 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/26/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 528266346733fff72113104d585540d75512b3a6
+
 
 ---
-# <a name="help-choosing-a-streaming-analytics-platform:-apache-storm-comparison-to-azure-stream-analytics"></a>Informazioni utili per scegliere una piattaforma di analisi di flusso: confronto tra Apache Storm e Analisi di flusso di Azure
+# <a name="help-choosing-a-streaming-analytics-platform-apache-storm-comparison-to-azure-stream-analytics"></a>Informazioni utili per scegliere una piattaforma di analisi di flusso: confronto tra Apache Storm e Analisi di flusso di Azure
 Informazioni utili per scegliere una piattaforma di analisi cloud tramite confronto tra Apache Storm e Analisi di flusso di Azure. Comprendere le proposte di valore di Analisi di flusso e Apache Storm come servizio gestito in Azure HDInsight, per poter scegliere la soluzione ideale per i casi d'uso aziendali.
 
 Entrambe le piattaforme di analisi offrono i vantaggi di una soluzione PaaS, tuttavia si differenziano per alcune importanti funzionalità specifiche. Di seguito sono riportate sia le funzionalità che le limitazioni di questi servizi, per facilitare la scelta della soluzione più adatta per il raggiungimento dei propri obiettivi.
 
-## <a name="storm-comparison-to-stream-analytics:-general-features"></a>Confronto tra Storm e Analisi di flusso: caratteristiche generali
+## <a name="storm-comparison-to-stream-analytics-general-features"></a>Confronto tra Storm e Analisi di flusso: caratteristiche generali
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -584,6 +588,6 @@ Disponibile tramite i bolt di Storm.
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

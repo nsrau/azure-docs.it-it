@@ -1,13 +1,13 @@
 ---
-title: Usare MongoChef con un account DocumentDB con supporto del protocollo per MongoDB | Microsoft Docs
+title: Usare MongoChef con un account DocumentDB con supporto del protocollo per MongoDB | Documentazione Microsoft
 description: Informazioni su come usare MongoChef con un account DocumentDB con supporto del protocollo per MongoDB, ora disponibile in anteprima.
 keywords: MongoChef
 services: documentdb
 author: AndrewHoh
 manager: jhubbard
-editor: ''
-documentationcenter: ''
-
+editor: 
+documentationcenter: 
+ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2016
 ms.author: anhoh
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 90039d2626724ed789415967a345d2aadc3407af
+
 
 ---
 # <a name="use-mongochef-with-a-documentdb-account-with-protocol-support-for-mongodb"></a>Usare MongoChef con un account DocumentDB con supporto del protocollo per MongoDB
@@ -45,7 +49,7 @@ Per aggiungere l'account DocumentDB con supporto del protocollo per MongoDB a ge
    
     ![Screenshot della scheda relativa al test della connessione di MongoChef](./media/documentdb-mongodb-mongochef/TestConnectionResults.png)
 
-## <a name="use-mongochef-to-create-a-database,-collection,-and-documents"></a>Usare MongoChef per creare un database, una raccolta e documenti
+## <a name="use-mongochef-to-create-a-database-collection-and-documents"></a>Usare MongoChef per creare un database, una raccolta e documenti
 Per creare un database, una raccolta e documenti usando MongoChef, seguire questa procedura.
 
 1. In **Connection Manager** (Gestione connessioni) evidenziare la connessione e fare clic su **Connect** (Connetti).
@@ -66,14 +70,14 @@ Per creare un database, una raccolta e documenti usando MongoChef, seguire quest
         "_id": "AndersenFamily",
         "lastName": "Andersen",
         "parents": [
-            { "firstName": "Thomas" },
-            { "firstName": "Mary Kay"}
+               { "firstName": "Thomas" },
+               { "firstName": "Mary Kay"}
         ],
         "children": [
-        {
-            "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-            "pets": [{ "givenName": "Fluffy" }]
-        }
+           {
+               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
+               "pets": [{ "givenName": "Fluffy" }]
+           }
         ],
         "address": { "state": "WA", "county": "King", "city": "seattle" },
         "isRegistered": true
@@ -89,7 +93,7 @@ Per creare un database, una raccolta e documenti usando MongoChef, seguire quest
         "children": [
             {
                 "familyName": "Merriam", 
-                "givenName": "Jesse", 
+                 "givenName": "Jesse", 
                 "gender": "female", "grade": 1,
                 "pets": [
                     { "givenName": "Goofy" },
@@ -98,9 +102,9 @@ Per creare un database, una raccolta e documenti usando MongoChef, seguire quest
             },
             { 
                 "familyName": "Miller", 
-                "givenName": "Lisa", 
-                "gender": "female", 
-                "grade": 8 }
+                 "givenName": "Lisa", 
+                 "gender": "female", 
+                 "grade": 8 }
         ],
         "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
         "isRegistered": false
@@ -112,6 +116,9 @@ Per creare un database, una raccolta e documenti usando MongoChef, seguire quest
 ## <a name="next-steps"></a>Passaggi successivi
 * Esplorare DocumentDB con supporto del protocollo per trovare [esempi](documentdb-mongodb-samples.md)di MongoDB.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
