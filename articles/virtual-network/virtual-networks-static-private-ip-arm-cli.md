@@ -1,13 +1,13 @@
 ---
-title: Come impostare un indirizzo IP privato statico in modalità ARM mode mediante l'infrastruttura CLI| Microsoft Docs
-description: Informazioni su indirizzi IP statici (DIP) e come gestirli in modalità ARM tramite l'infrastruttura CLI
+title: "Come impostare un indirizzo IP privato statico in modalità ARM usando l&quot;interfaccia della riga di comando | Documentazione Microsoft"
+description: "Informazioni su indirizzi IP statici (DIP) e come gestirli in modalità ARM tramite l&quot;infrastruttura CLI"
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 40b03a1a-ea00-454c-b716-7574cea49ac0
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 782f4260b00fed11921da97fed8a98452f91ba08
+
 
 ---
-# Come impostare un indirizzo IP statico privato nell'infrastruttura CLI di Azure
+# <a name="how-to-set-a-static-private-ip-address-in-azure-cli"></a>Come impostare un indirizzo IP statico privato nell'infrastruttura CLI di Azure
 [!INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
@@ -30,7 +34,7 @@ Questo articolo illustra il modello di distribuzione Gestione risorse. È anche 
 
 I comandi di esempio infrastruttura CLI di Azure riportati di seguito prevedono un ambiente semplice già creato. Se si desidera eseguire i comandi illustrati in questo documento, creare innanzitutto l'ambiente di prova descritto in [creare una rete virtuale](virtual-networks-create-vnet-arm-cli.md).
 
-## Come specificare un indirizzo IP statico privato durante la creazione di una macchina virtuale.
+## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>Come specificare un indirizzo IP statico privato durante la creazione di una macchina virtuale.
 Per creare una macchina virtuale denominata *DNS01* nella subnet *FrontEnd* di una rete virtuale denominata *TestVNet* con un indirizzo IP statico privato di *192.168.1.101*, seguire questa procedura:
 
 1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
@@ -121,8 +125,8 @@ Per creare una macchina virtuale denominata *DNS01* nella subnet *FrontEnd* di u
    * **-F (o --vnet-name)**. Nome della rete virtuale in cui verrà creata la VM.
    * **-j (o --vnet-subnet-name)**. Nome della subnet in cui verrà creata la VM.
 
-## Come recuperare le informazioni relative all'indirizzo IP privato statico per una macchina virtuale
-Per visualizzare le informazioni relative all'indirizzo IP privato statico per la macchina virtuale creata con lo script precedente, eseguire il comando dell'infrastruttura CLI di Azure e osservare i valori per *Private IP alloc-method* e *Private IP address*:
+## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Come recuperare le informazioni relative all'indirizzo IP privato statico per una VM
+Per visualizzare le informazioni relative all'indirizzo IP privato statico per la macchina virtuale creata con lo script precedente, eseguire il comando dell'interfaccia della riga di comando di Azure e osservare i valori di *Private IP alloc-method* e *Private IP address*:
 
     azure vm show -g TestRG -n DNS01
 
@@ -174,7 +178,7 @@ Output previsto:
     data:            Public IP address       :40.122.213.159
     info:    vm show command OK
 
-## Come rimuovere un indirizzo IP statico privato da una macchina virtuale
+## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Come rimuovere un indirizzo IP statico privato da una macchina virtuale
 Non è possibile rimuovere un indirizzo IP privato statico da un gruppo NIC nell'infrastruttura CLI di Azure per Gestione risorse. È necessario creare un nuovo gruppo NIC che usa un indirizzo IP dinamico, rimuovere il gruppo NIC precedente dalla VM, quindi aggiungere il nuovo gruppo NIC alla VM. Per cambiare il gruppo NIC per la VM usata nei comandi precedenti, seguire questa procedura.
 
 1. Eseguire il comando **azure network nic create** per creare un nuovo gruppo NIC usando l'allocazione dell'indirizzo IP dinamico. Si noti che non è necessario specificare l'indirizzo IP in questo momento.
@@ -224,7 +228,7 @@ Non è possibile rimuovere un indirizzo IP privato statico da un gruppo NIC nell
         + Deleting network interface "TestNIC"
         info:    network nic delete command OK
 
-## Come aggiungere un indirizzo IP statico privato a una macchina virtuale esistente
+## <a name="how-to-add-a-static-private-ip-address-to-an-existing-vm"></a>Come aggiungere un indirizzo IP statico privato a una macchina virtuale esistente
 Per aggiungere un indirizzo IP privato statico al gruppo NIC usato dalla macchina virtuale creata mediante lo script precedente, eseguire il comando seguente:
 
     azure network nic set -g TestRG -n TestNIC2 -a 192.168.1.101
@@ -252,9 +256,14 @@ Output previsto:
     data:
     info:    network nic set command OK
 
-## Passaggi successivi
-* Informazioni su [indirizzi IP pubblici riservati](virtual-networks-reserved-public-ip.md).
-* Informazioni su [indirizzi IP pubblici a livello di istanza (ILPIP)](virtual-networks-instance-level-public-ip.md).
+## <a name="next-steps"></a>Passaggi successivi
+* Informazioni su [indirizzi IP pubblici riservati](virtual-networks-reserved-public-ip.md) .
+* Informazioni su [indirizzi IP pubblici a livello di istanza (ILPIP)](virtual-networks-instance-level-public-ip.md) .
 * Consultare le [API REST dell'indirizzo IP riservato](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,13 +1,13 @@
 ---
-title: Azure Government documentation | Microsoft Docs
-description: Provides and overview of the available services in Azure Government
+title: "Conformità di Azure per enti pubblici | Documentazione Microsoft"
+description: Presenta una panoramica dei servizi disponibili in Azure per enti pubblici
 services: Azure-Government
 cloud: gov
-documentationcenter: ''
+documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: ''
-
+editor: 
+ms.assetid: 1d2e0938-482f-4f43-bdf6-0a5da2e9a185
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,32 +15,39 @@ ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 10/06/2016
 ms.author: ryansoc
+translationtype: Human Translation
+ms.sourcegitcommit: 601945c05affc350eba111dcec969e6504b91611
+ms.openlocfilehash: e26f1c182869dee58b0ab26da1aa65f99ba8faaa
+
 
 ---
-# <a name="azure-government-compliance"></a>Azure Government Compliance
-## <a name="blueprint-customer-responsibilities-matrix:-streamlining-ato-processes"></a>Blueprint Customer Responsibilities Matrix:  Streamlining ATO processes
-The Azure Blueprint program, allows customers to access documentation to assist their agency or system-specific authorization to operate (ATO) processes. This article provides a deeper look at the Azure Blueprint Customer Responsibilities Matrix (CRM) and how security personnel can leverage this document.
+# <a name="azure-government-compliance"></a>Conformità di Azure per enti pubblici
+## <a name="blueprint-customer-responsibilities-matrix-streamlining-ato-processes"></a>Modello di matrice delle responsabilità del cliente: semplificare le procedure di autorizzazione a procedere
+Il programma modello di Azure consente ai clienti di accedere alla documentazione utile per eseguire le procedure di autorizzazione a procedere della propria agenzia o del proprio sistema. In questo articolo viene approfondito il modello di matrice delle responsabilità del cliente di Azure e viene spiegato in che modo il personale di sicurezza può usare il presente documento.
 
-The Azure Blueprint CRM is designed for utility. It is a spreadsheet format that defines ONLY the control requirements where the customer building in Azure must implement the security control.
+Il modello di matrice delle responsabilità del cliente di Azure è pensato per la massima utilità. Si presenta in formato di foglio di calcolo e definisce SOLO i requisiti di controllo secondo cui il cliente che esegue la compilazione in Azure deve implementare il controllo di sicurezza.
 
 > [!NOTE]
-> Within the context of Azure Blueprint, "customer" references the organization building directly within the Azure IaaS/PaaS environment. Azure customers could include third-party ISVs building on behalf of government or government agencies building directly on Azure.
+> Nel contesto del modello di Azure, per "cliente" si intende l'organizzazione che esegue la compilazione direttamente nell'ambiente IaaS o PaaS di Azure. I clienti di Azure possono includere gli ISV di terze parti che eseguono la compilazione per conto di enti pubblici o enti governativi direttamente in Azure.
 > 
 > 
 
-The CRM provides the explicit <a href="http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r4.pdf"> NIST SP 800-53 Revision 4 </a> controls that include a customer responsibility. This includes controls that are fully the responsibility of the customer, as well as controls that have a shared responsibility between the customer and Azure. Controls are broken down to the granularity of control sub requirements to be as explicit as possible.
+Il modello di matrice delle responsabilità del cliente fornisce i controlli <a href="http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r4.pdf">NIST SP 800-53 Revision 4</a> espliciti che includono una responsabilità del cliente. Tra questi figurano i controlli la cui responsabilità è interamente del cliente oppure condivisa fra il cliente e Azure. I controlli sono suddivisi per granularità dei requisiti secondari, in modo da essere il più possibile espliciti.
 
-For example, AC-1 requires access control  policies and procedures be documented for the system seeking ATO. For this control, Azure has internal policies and procedures regarding access control mechanisms used to manage the Azure Infrastructure and Platform. Customers must also create their own Access Control policies and procedures used within their specific system built on Azure. The CRM documents control parts AC-1a, which requires the policies and procedures to include specific content, as well as AC-1b, which requires customers to review and update these documents on at least an annual basis. 
+Ad esempio, il requisito AC-1 richiede la documentazione dei criteri e delle procedure di controllo di accesso relative al sistema che richiede l'autorizzazione a procedere. Per questo controllo, Azure dispone di procedure e criteri interni riguardanti i meccanismi del controllo di accesso usati per gestire l'infrastruttura e la piattaforma di Azure. I clienti devono inoltre creare criteri e procedure di controllo di accesso personalizzati in ogni specifico sistema creato in Azure. I documenti di matrice delle responsabilità del cliente controllano la parte AC-1a, che richiede di includere determinati contenuti nei criteri e nelle procedure, e la parte AC-1b, che richiede ai clienti di rivedere e aggiornare questi documenti almeno una volta all'anno. 
 
-For access to the CRM as well as the Azure Blueprint System Security Plan Template, please e-mail AzureBlueprint@microsoft.com.
+Per poter accedere alla matrice delle responsabilità del cliente, nonché al modello di piano per la sicurezza dei sistemi di Azure, inviare un'e-mail all'indirizzo AzureBlueprint@microsoft.com.
 
-We value any feedback on the CRM as it is pivotal to our iteration of the document to make it as effective as possible in streamlining customer ATO processes.
+I commenti e suggerimenti degli utenti della matrice delle responsabilità del cliente sono molto apprezzati, nonché fondamentali per rendere il documento il più utile possibile allo scopo di semplificare i processi di autorizzazione a procedere del cliente.
 
-## <a name="next-steps"></a>Next Steps
-<a href="https://www.microsoft.com/en-us/TrustCenter/Compliance/itar"> Microsoft Trust Center - ITAR web page </a>
+## <a name="next-steps"></a>Passaggi successivi
+<a href="https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx">Centro protezione Microsoft</a>
 
-<a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
+<a href="https://blogs.msdn.microsoft.com/azuregov/">log di Microsoft Azure per enti pubblici. </a>
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

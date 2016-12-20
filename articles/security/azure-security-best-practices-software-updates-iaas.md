@@ -1,34 +1,38 @@
 ---
-title: Procedure consigliate per gli aggiornamenti software nell'ambiente IaaS di Microsoft Azure | Microsoft Docs
-description: L'articolo fornisce una raccolta di procedure consigliate per gli aggiornamenti software in un ambiente IaaS di Microsoft Azure. È destinato ai professionisti IT e agli analisti della sicurezza che si occupano quotidianamente di controllo modifiche, aggiornamenti software e gestione di asset, inclusi i responsabili delle attività di sicurezza e conformità dell'organizzazione.
+title: Procedure consigliate per gli aggiornamenti software nell&quot;ambiente IaaS di Microsoft Azure | Microsoft Docs
+description: "L&quot;articolo fornisce una raccolta di procedure consigliate per gli aggiornamenti software in un ambiente IaaS di Microsoft Azure.  È destinato ai professionisti IT e agli analisti della sicurezza che si occupano quotidianamente di controllo modifiche, aggiornamenti software e gestione di asset, inclusi i responsabili delle attività di sicurezza e conformità dell&quot;organizzazione."
 services: security
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: df6598ee-de5b-48cd-b321-0b2f19d7eeaa
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2016
+ms.date: 10/18/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c52a2d6be31b1a8f581313932c0af87120ccd9fe
+
 
 ---
-# Procedure consigliate per gli aggiornamenti software nell'ambiente IaaS di Microsoft Azure
+# <a name="best-practices-for-software-updates-on-microsoft-azure-iaas"></a>Procedure consigliate per gli aggiornamenti software nell'ambiente IaaS di Microsoft Azure
 Prima di addentrarsi in una qualsiasi discussione sulle procedure consigliate per un ambiente [IaaS](https://azure.microsoft.com/overview/what-is-iaas/) di Azure, è importante comprendere quali sono gli scenari che richiedono la gestione degli aggiornamenti software e le responsabilità. Il diagramma riportato di seguito consente di comprendere questi limiti:
 
 ![Modelli di cloud e responsabilità](./media/azure-security-best-practices-software-updates-iaas/sec-cloudstack-new.png)
 
 La colonna più a sinistra mostra sette responsabilità (definite nelle sezioni che seguono) che le organizzazioni devono considerare che contribuiscono alla sicurezza e alla privacy di un ambiente di elaborazione.
 
-Classificazione e responsabilità dei dati e Protezione di client ed endpoint sono responsabilità in capo esclusivamente ai clienti mentre le responsabilità Fisica, Host e Rete sono in capo ai provider di servizi cloud nei modelli PaaS e SaaS.
+Classificazione e responsabilità dei dati e Protezione di client ed endpoint sono responsabilità in capo esclusivamente ai clienti mentre le responsabilità Fisica, Host e Rete sono in capo ai provider di servizi cloud nei modelli PaaS e SaaS. 
 
 Le responsabilità rimanenti sono condivise tra clienti e i provider di servizi cloud. Alcune responsabilità richiedono che il provider di servizi cloud e il cliente gestiscano e amministrino la responsabilità insieme, tra queste compare il controllo dei loro domini. Ad esempio, si consideri la Gestione di identità e accesso quando si usano i servizi Azure Active Directory; la configurazione dei servizi, come l'autenticazione a più fattori, è responsabilità del cliente, ma garantire l'efficacia della funzionalità è responsabilità di Microsoft Azure.
 
 > [!NOTE]
-> Per altre informazioni sulle responsabilità condivise nel cloud, leggere l'articolo sulle [responsabilità condivise per il cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf)
+> Per altre informazioni sulle responsabilità condivise nel cloud, vedere [Shared Responsibilities for Cloud Computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf) (Responsabilità condivise per il cloud computing) 
 > 
 > 
 
@@ -36,7 +40,7 @@ Questi stessi principi si applicano a uno scenario ibrido, dove l'azienda usa ma
 
 ![Tipico scenario ibrido con Microsoft Azure](./media/azure-security-best-practices-software-updates-iaas/sec-azconnectonpre.png)
 
-## Valutazione iniziale
+## <a name="initial-assessment"></a>Valutazione iniziale
 Anche se l'azienda usa già un sistema di gestione degli aggiornamenti e ha già implementato criteri di aggiornamento software, è importante riesaminare spesso le valutazioni dei criteri precedenti e aggiornarli in base ai requisiti attuali. Ciò significa che è necessario avere familiarità con lo stato attuale delle risorse dell'azienda. Per raggiungere questo stato, è necessario conoscere quanto segue:
 
 * Computer fisici e virtuali dell'azienda.
@@ -51,7 +55,7 @@ Anche se l'azienda usa già un sistema di gestione degli aggiornamenti e ha già
 
 È consigliabile aggiornare regolarmente queste informazioni, che devono essere immediatamente disponibili per chi è coinvolto nel processo di gestione degli aggiornamenti software.
 
-## Stabilire una baseline
+## <a name="establish-a-baseline"></a>Stabilire una baseline
 Una parte importante del processo di gestione degli aggiornamenti software è la creazione di installazioni standard iniziali, dette baseline, di versioni del sistema operativo, applicazioni e hardware per i computer dell'azienda. Una baseline è la configurazione di un prodotto o un sistema definita in un momento specifico. La baseline di un'applicazione o un sistema operativo, ad esempio, consente di ricompilare un computer o un servizio a uno stato specifico.
 
 Le baseline sono fondamentali per trovare e correggere potenziali problemi e semplificare il processo di gestione degli aggiornamenti software, sia riducendo il numero di aggiornamenti software che è necessario distribuire nell'azienda, sia migliorando la capacità di monitorare la conformità.
@@ -62,35 +66,35 @@ Ad esempio, alcuni server che eseguono Windows Server 2012 richiedono un aggiorn
 
 Nelle organizzazioni di grandi dimensioni è spesso utile suddividere i computer dell'azienda in categorie di asset e mantenere ogni categoria in una baseline standard usando le stesse versioni del software e dei relativi aggiornamenti. È quindi possibile usare queste categorie di asset nel definire le priorità per una distribuzione di aggiornamenti software.
 
-## Sottoscrivere i servizi di notifica degli aggiornamenti software appropriati
+## <a name="subscribe-to-the-appropriate-software-update-notification-services"></a>Sottoscrivere i servizi di notifica degli aggiornamenti software appropriati
 Dopo aver eseguito un controllo iniziale del software in uso nell'azienda, è necessario determinare il metodo migliore per ricevere le notifiche di nuovi aggiornamenti software per ogni prodotto software e versione. A seconda del prodotto software, i metodi di notifica migliori potrebbero essere notifiche tramite posta elettronica, siti Web o pubblicazioni su computer.
 
-Ad esempio, Microsoft Security Response Center (MSRC) risponde a tutte le problematiche relative alla sicurezza dei prodotti Microsoft e fornisce il Bollettino Microsoft sulla sicurezza, un servizio gratuito di notifica tramite posta elettronica sulle ultime vulnerabilità identificate e sugli aggiornamenti software rilasciati per risolvere tali vulnerabilità. È possibile sottoscrivere questo servizio all'indirizzo http://www.microsoft.com/technet/security/bulletin/notify.mspx
+Ad esempio, Microsoft Security Response Center (MSRC) risponde a tutte le problematiche relative alla sicurezza dei prodotti Microsoft e fornisce il Bollettino Microsoft sulla sicurezza, un servizio gratuito di notifica tramite posta elettronica sulle ultime vulnerabilità identificate e sugli aggiornamenti software rilasciati per risolvere tali vulnerabilità. È possibile sottoscrivere questo servizio nella pagina http://www.microsoft.com/technet/security/bulletin/notify.mspx.
 
-## Considerazioni sugli aggiornamenti software
+## <a name="software-update-considerations"></a>Considerazioni sugli aggiornamenti software
 Dopo aver eseguito un controllo iniziale del software usato nell'azienda, è necessario determinare i requisiti per l'installazione del sistema di gestione degli aggiornamenti software, che dipende dal sistema di gestione degli aggiornamenti software già in uso. Per WSUS vedere [Procedure consigliate per Windows Server Update Services](https://technet.microsoft.com/library/Cc708536), per System Center vedere [Pianificazione degli aggiornamenti software in Configuration Manager](https://technet.microsoft.com/library/gg712696).
 
 Ci sono tuttavia alcune considerazioni generali e procedure consigliate che è possibile applicare indipendentemente dalla soluzione usata, come illustrato nelle sezioni seguenti.
 
-### Configurazione dell'ambiente
+### <a name="setting-up-the-environment"></a>Configurazione dell'ambiente
 Quando si pianifica la configurazione dell'ambiente di gestione degli aggiornamenti software, prendere in considerazione le procedure seguenti:
 
 * **Creare raccolte di aggiornamenti software di produzione in base a criteri stabili**: in genere, l'uso di criteri stabili per creare raccolte per l'inventario e la distribuzione degli aggiornamenti software contribuisce a semplificare tutte le fasi del processo di gestione degli aggiornamenti software. I criteri stabili possono includere la versione del sistema operativo client installato e il livello di Service Pack, il ruolo del sistema o l'organizzazione di destinazione.
 * **Creare raccolte di pre-produzione che includono i computer di riferimento**: la raccolta di pre-produzione deve includere configurazioni rappresentative delle versioni del sistema operativo, del software line-of-business e di altro software in esecuzione nell'azienda.
 
-È anche opportuno considerare dove si troverà il server di aggiornamento software, se nell'infrastruttura IaaS di Azure nel cloud o in locale. Si tratta di una decisione importante, perché è necessario valutare la quantità di traffico tra le risorse locali e l'infrastruttura di Azure. Per altre informazioni su come connettere l'infrastruttura locale ad Azure, vedere [Connettere una rete locale a una rete virtuale di Microsoft Azure](https://technet.microsoft.com/library/Dn786406.aspx).
+È anche opportuno considerare dove si troverà il server di aggiornamento software, se nell'infrastruttura IaaS di Azure nel cloud o in locale. Si tratta di una decisione importante, perché è necessario valutare la quantità di traffico tra le risorse locali e l'infrastruttura di Azure. Per altre informazioni su come connettere l'infrastruttura locale ad Azure, vedere [Connect an on-premises network to a Microsoft Azure virtual network](https://technet.microsoft.com/library/Dn786406.aspx) (Connettere una rete locale a una rete virtuale di Microsoft Azure).
 
 Le opzioni di progettazione che determinano dove si troverà il server di aggiornamento variano anche in base all'infrastruttura corrente e al sistema di aggiornamento software attualmente in uso. Per WSUS vedere [Distribuire Windows Server Update Services nell'organizzazione](https://technet.microsoft.com/library/hh852340.aspx) e per System Center Configuration Manager vedere [Pianificazione di siti e gerarchie in Configuration Manager](https://technet.microsoft.com/library/Gg712681.aspx).
 
-### Backup
-I backup regolari sono importanti non solo per la piattaforma di gestione degli aggiornamenti software stessa, ma anche per i server che verranno aggiornati. Le organizzazioni con un [processo di gestione delle modifiche](https://technet.microsoft.com/library/cc543216.aspx) in atto, richiederanno all'IT di giustificare i motivi per cui il server deve essere aggiornato, il tempo di inattività stimato e il possibile impatto. Per garantire che sia disponibile una configurazione di ripristino dello stato precedente nel caso di un aggiornamento non riuscito, assicurarsi di eseguire regolarmente il backup del sistema.
+### <a name="backup"></a>Backup
+I backup regolari sono importanti non solo per la piattaforma di gestione degli aggiornamenti software stessa, ma anche per i server che verranno aggiornati. Le organizzazioni con un [processo di gestione delle modifiche](https://technet.microsoft.com/library/cc543216.aspx) in atto richiederanno all'IT di giustificare i motivi per cui il server deve essere aggiornato, il tempo di inattività stimato e il possibile impatto. Per garantire che sia disponibile una configurazione di ripristino dello stato precedente nel caso di un aggiornamento non riuscito, assicurarsi di eseguire regolarmente il backup del sistema.
 
 Ecco alcune opzioni di backup per l'ambiente IaaS di Azure:
 
-* [Protezione del carico di lavoro IaaS di Azure tramite Data Protection Manager](https://azure.microsoft.com/blog/2014/09/08/azure-iaas-workload-protection-using-data-protection-manager/)
+* [Azure IaaS workload protection using Data Protection Manager](https://azure.microsoft.com/blog/2014/09/08/azure-iaas-workload-protection-using-data-protection-manager/) (Protezione del carico di lavoro IaaS di Azure tramite Data Protection Manager)
 * [Eseguire il backup di macchine virtuali di Azure](../backup/backup-azure-vms.md)
 
-### Monitoraggio
+### <a name="monitoring"></a>Monitoraggio
 Per ogni aggiornamento software autorizzato, è opportuno eseguire report regolari per monitorare il numero di aggiornamenti mancanti o installati oppure di aggiornamenti con stato incompleto. Analogamente, la creazione di report per gli aggiornamenti software non ancora autorizzati può rendere più facile prendere decisioni di distribuzione.
 
 È anche consigliabile prendere in considerazione le attività seguenti:
@@ -101,7 +105,12 @@ Per ogni aggiornamento software autorizzato, è opportuno eseguire report regola
 
 Oltre alle considerazioni generali descritte in questo articolo, è consigliabile tenere presenti anche le procedure consigliate per ogni prodotto, ad esempio, se si ha una macchina virtuale in Azure con SQL Server, assicurarsi di seguire le indicazioni relative agli aggiornamenti software per quel prodotto.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Usare le linee guida descritte in questo articolo per determinare le opzioni migliori per gli aggiornamenti software delle macchine virtuali nell'ambiente IaaS di Azure. Esistono molte analogie tra le procedure consigliate per gli aggiornamenti software in un data center tradizionale e un ambiente IaaS di Azure, quindi è consigliabile valutare i criteri di aggiornamento software attuali e includere nel processo di aggiornamento software globale le macchine virtuali di Azure e le procedure consigliate pertinenti descritte in questo articolo.
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

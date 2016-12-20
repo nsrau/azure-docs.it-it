@@ -1,11 +1,11 @@
 ---
 title: 'Procedura dettagliata: esportare i dati di telemetria nel database SQL da Application Insights'
-description: Eseguire l'esportazione continua dei dati Application Insights in SQL tramite l'analisi di flusso.
+description: Eseguire l&quot;esportazione continua dei dati Application Insights in SQL tramite l&quot;analisi di flusso.
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: noamben
 manager: douge
-
+ms.assetid: 48903032-2c99-4987-9948-d6e4559b4a63
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,10 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2015
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
+ms.openlocfilehash: abaeb614e304c4ae78e6a1d43d19c99698e50494
+
 
 ---
-# Procedura dettagliata: Eseguire l'esportazione in SQL da Application Insights tramite l'analisi di flusso
-Questo articolo illustra come spostare i dati di telemetria da [Application Insights di Visual Studio][start] in un database SQL di Azure usando l'[esportazione continua][export] e l'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/).
+# <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Procedura dettagliata: Eseguire l'esportazione in SQL da Application Insights tramite l'analisi di flusso
+Questo articolo illustra come spostare i dati di telemetria da [Azure Application Insights][start] in un database SQL di Azure usando l'[esportazione continua][export] e l'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/). 
 
 L'esportazione continua sposta i dati di telemetria in Archiviazione di Azure in formato JSON. Gli oggetti JSON verranno analizzati con l'analisi di flusso di Azure e verranno create righe in una tabella di database.
 
@@ -24,17 +28,17 @@ Più in generale, l'esportazione continua consente di eseguire la propria analis
 
 Si inizierà dal presupposto che si abbia già l'app che si vuole monitorare.
 
-In questo esempio verranno usati i dati relativi alle visualizzazioni pagina, ma gli stessi criteri possono essere estesi facilmente ad altri tipi di dati, ad esempio eccezioni ed eventi personalizzati.
+In questo esempio verranno usati i dati relativi alle visualizzazioni pagina, ma gli stessi criteri possono essere estesi facilmente ad altri tipi di dati, ad esempio eccezioni ed eventi personalizzati. 
 
-## Aggiunta di Application Insights all'applicazione
+## <a name="add-application-insights-to-your-application"></a>Aggiunta di Application Insights all'applicazione
 Attività iniziali
 
 1. [Installare Application Insights per le pagine Web](app-insights-javascript.md). 
    
-    In questo esempio viene considerata l'elaborazione dei dati di visualizzazione della pagina dai browser client, ma è possibile anche impostare Application Insights per il lato del server dell'app [Java](app-insights-java-get-started.md) o [ASP.NET](app-insights-asp-net.md) ed elaborare la richiesta, la dipendenza e la telemetria del server.
+    In questo esempio viene considerata l'elaborazione dei dati di visualizzazione della pagina dai browser client, ma è possibile anche impostare Application Insights per il lato server dell'app [Java](app-insights-java-get-started.md) o [ASP.NET](app-insights-asp-net.md) ed elaborare la richiesta, la dipendenza e altri dati di telemetria del server.
 2. Pubblicare l'app e controllare i dati di telemetria visualizzati nella risorsa di Application Insights.
 
-## Creare l'archivio in Azure
+## <a name="create-storage-in-azure"></a>Creare l'archivio in Azure
 L'esportazione continua invia sempre i dati a un account di Archiviazione di Azure, pertanto è prima necessario creare l'archivio.
 
 1. Creare un account di archiviazione per la sottoscrizione nel [portale di Azure][portal].
@@ -49,7 +53,7 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
    
     ![Nella risorsa di archiviazione aprire Impostazioni, Chiavi ed eseguire una copia della chiave di accesso primaria](./media/app-insights-code-sample-export-sql-stream-analytics/21-storage-key.png)
 
-## Avviare l'esportazione continua nell'archiviazione di Azure
+## <a name="start-continuous-export-to-azure-storage"></a>Avviare l'esportazione continua nell'archiviazione di Azure
 1. Nel portale di Azure passare alla risorsa di Application Insights creata per la propria applicazione.
    
     ![Scegliere Sfoglia, Application Insights e quindi l'applicazione](./media/app-insights-code-sample-export-sql-stream-analytics/060-browse.png)
@@ -66,19 +70,19 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
     ![Scegliere i tipi di eventi](./media/app-insights-code-sample-export-sql-stream-analytics/085-types.png)
 
 
-1. Lasciare che alcuni dati si accumulino. Attendere che gli utenti usino l'applicazione per qualche tempo. Quando verranno restituiti i dati di telemetria, sarà possibile esaminare i grafici statistici in [Esplora metriche](app-insights-metrics-explorer.md) e i singoli eventi in [Ricerca diagnostica](app-insights-diagnostic-search.md).
+1. Lasciare che alcuni dati si accumulino. Attendere che gli utenti usino l'applicazione per qualche tempo. Verranno restituiti i dati di telemetria e sarà possibile esaminare i grafici statistici in [Esplora metriche](app-insights-metrics-explorer.md) e i singoli eventi in [Ricerca diagnostica](app-insights-diagnostic-search.md). 
    
-    I dati verranno inoltre esportati nell'archivio.
-2. Esaminare i dati esportati, o nel portale - scegliere **Sfoglia**, selezionare l'account di archiviazione, quindi **Contenitori** - o in Visual Studio. In Visual Studio, scegliere **Visualizza/Cloud Explorer** e aprire Azure/Archiviazione. (Se non si dispone di tale opzione del menu, è necessario installare l’SDK di Azure: aprire la finestra di dialogo Nuovo progetto, aprire Visual C#/Cloud/Ottieni Microsoft Azure SDK per .NET).
+    I dati verranno inoltre esportati nell'archivio. 
+2. Esaminare i dati esportati, nel portale (scegliere **Esplora**, selezionare l'account di archiviazione, quindi **Contenitori**) o in Visual Studio. In Visual Studio, scegliere **Visualizza/Cloud Explorer**e aprire Azure/Archiviazione. (Se non si dispone di tale opzione del menu, è necessario installare l’SDK di Azure: aprire la finestra di dialogo Nuovo progetto, aprire Visual C#/Cloud/Ottieni Microsoft Azure SDK per .NET).
    
     ![In Visual Studio aprire Esplora server, Azure, Archiviazione](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
    
-    Prendere nota della parte comune del nome del percorso, derivata dal nome dell’applicazione e dalla chiave di strumentazione.
+    Prendere nota della parte comune del nome del percorso, derivata dal nome dell’applicazione e dalla chiave di strumentazione. 
 
 Gli eventi vengono scritti nei file BLOB in formato JSON. Ogni file può contenere uno o più eventi. A questo punto sarà possibile leggere i dati degli eventi e filtrare i campi preferiti. È possibile eseguire una serie di operazioni sui dati, ma lo scopo di questo articolo è usare l'analisi di flusso per spostare i dati in un database SQL. Sarà quindi più semplice eseguire molte query interessanti.
 
-## Creare un database SQL di Azure
-Dalla sottoscrizione nel [portale di Azure][portal] creare il database (e un nuovo server, a meno che non sia già disponibile) in cui verranno scritti i dati.
+## <a name="create-an-azure-sql-database"></a>Creare un database SQL di Azure
+Iniziando di nuovo dalla sottoscrizione nel [portale di Azure][portal], creare il database (e un nuovo server, se necessario) in cui si scriveranno i dati.
 
 ![Nuovo, Dati, SQL](./media/app-insights-code-sample-export-sql-stream-analytics/090-sql.png)
 
@@ -86,8 +90,8 @@ Assicurarsi che il server di database consenta di accedere ai servizi di Azure:
 
 ![Sfoglia, Server, il proprio server, Impostazioni, Firewall, Consenti l'accesso a Servizi di Azure](./media/app-insights-code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
-## Creare una tabella nel database SQL di Azure
-Connettersi al database creato nella sezione precedente con lo strumento di gestione preferito. In questa procedura dettagliata verranno usati gli [strumenti di gestione di SQL Server ](https://msdn.microsoft.com/ms174173.aspx) (SSMS).
+## <a name="create-a-table-in-azure-sql-db"></a>Creare una tabella nel database SQL di Azure
+Connettersi al database creato nella sezione precedente con lo strumento di gestione preferito. In questa procedura dettagliata verranno usati gli [strumenti di gestione di SQL Server](https://msdn.microsoft.com/ms174173.aspx) (SSMS).
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/31-sql-table.png)
 
@@ -135,8 +139,8 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 In questo esempio vengono usati i dati delle visualizzazioni pagina. Per visualizzare gli altri dati disponibili, esaminare l'output JSON e vedere il [modello di dati di esportazione](app-insights-export-data-model.md).
 
-## Creare un'istanza di analisi di flusso di Azure
-Nel [portale di Azure classico](https://manage.windowsazure.com/) selezionare il servizio di analisi di flusso di Azure e creare un nuovo processo di analisi di flusso:
+## <a name="create-an-azure-stream-analytics-instance"></a>Creare un'istanza di analisi di flusso di Azure
+Nel [portale di Azure classico](https://manage.windowsazure.com/)selezionare il servizio di analisi di flusso di Azure e creare un nuovo processo di analisi di flusso:
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/37-create-stream-analytics.png)
 
@@ -146,7 +150,7 @@ Quando viene creato il nuovo processo, espanderne i dettagli:
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/41-sa-job.png)
 
-#### Impostare il percorso BLOB
+#### <a name="set-blob-location"></a>Impostare il percorso BLOB
 Impostarlo in modo da accettare l'input dal BLOB di esportazione continua:
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/42-sa-wizard1.png)
@@ -155,7 +159,7 @@ A questo punto è necessaria la chiave di accesso primaria dell'account di archi
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/46-sa-wizard2.png)
 
-#### Impostare lo schema prefisso percorso
+#### <a name="set-path-prefix-pattern"></a>Impostare lo schema prefisso percorso
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/47-sa-wizard3.png)
 
 Assicurarsi di impostare il formato della data su **AAAA-MM-GG** (con i **trattini**).
@@ -173,7 +177,7 @@ Esempio:
 
 Per ottenere il nome e la chiave di strumentazione (iKey) della risorsa di Application Insights, aprire Essentials nella relativa pagina di panoramica o aprire le impostazioni.
 
-#### Completare l'installazione iniziale
+#### <a name="finish-initial-setup"></a>Completare l'installazione iniziale
 Verificare il formato di serializzazione:
 
 ![Confermare e chiudere la procedura guidata](./media/app-insights-code-sample-export-sql-stream-analytics/48-sa-wizard4.png)
@@ -185,7 +189,7 @@ Chiudere la procedura guidata e attendere il completamento dell'installazione.
 > 
 > 
 
-## Impostare la query
+## <a name="set-query"></a>Impostare la query
 Aprire la sezione delle query:
 
 ![In Analisi di flusso selezionare Query](./media/app-insights-code-sample-export-sql-stream-analytics/51-query.png)
@@ -228,9 +232,9 @@ Sostituire la query predefinita con:
 
 ```
 
-Tenere presente che le prime proprietà sono specifiche dei dati relativi alle visualizzazioni pagina. Le esportazioni di altri tipi di dati di telemetria avranno proprietà diverse. Vedere il [Riferimento dettagliato al modello di dati per i valori e i tipi di proprietà](app-insights-export-data-model.md).
+Tenere presente che le prime proprietà sono specifiche dei dati relativi alle visualizzazioni pagina. Le esportazioni di altri tipi di dati di telemetria avranno proprietà diverse. Vedere il [Riferimento dettagliato al modello di dati per i valori e i tipi di proprietà](app-insights-export-data-model.md)
 
-## Configurare l'output nel database
+## <a name="set-up-output-to-database"></a>Configurare l'output nel database
 Selezionare SQL come output.
 
 ![In Analisi di flusso selezionare Output](./media/app-insights-code-sample-export-sql-stream-analytics/53-store.png)
@@ -241,14 +245,14 @@ Specificare il database SQL.
 
 Chiudere la procedura guidata e attendere la notifica di configurazione dell'output.
 
-## Avviare l'elaborazione
+## <a name="start-processing"></a>Avviare l'elaborazione
 Avviare il processo dalla barra delle azioni:
 
-![In Analisi di flusso fare clic su Avvia](./media/app-insights-code-sample-export-sql-stream-analytics/61-start.png)
+![In Analisi di flusso fare clic su Avvia.](./media/app-insights-code-sample-export-sql-stream-analytics/61-start.png)
 
 È possibile scegliere se avviare l'elaborazione dei dati a partire dai dati correnti o se includere i dati precedenti. La seconda opzione è utile se l'esportazione continua è già stata eseguita per un determinato periodo di tempo.
 
-![In Analisi di flusso fare clic su Avvia](./media/app-insights-code-sample-export-sql-stream-analytics/63-start.png)
+![In Analisi di flusso fare clic su Avvia.](./media/app-insights-code-sample-export-sql-stream-analytics/63-start.png)
 
 Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controllare il flusso dei dati. Usare ad esempio una query simile alla seguente:
 
@@ -256,7 +260,7 @@ Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controlla
     FROM [dbo].[PageViewsTable]
 
 
-## Articoli correlati
+## <a name="related-articles"></a>Articoli correlati
 * [Esportare in SQL usando un ruolo di lavoro](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Esportare in PowerBI usando l'analisi di flusso](app-insights-export-power-bi.md)
 * [Riferimento dettagliato al modello di dati per i valori e i tipi di proprietà.](app-insights-export-data-model.md)
@@ -273,4 +277,7 @@ Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controlla
 
 
 
-<!---HONumber=AcomDC_0309_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

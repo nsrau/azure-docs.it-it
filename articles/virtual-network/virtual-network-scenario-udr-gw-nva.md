@@ -1,12 +1,12 @@
 ---
-title: Connessione ibrida con applicazione a 2 livelli | Microsoft Docs
-description: Informazioni su come distribuire appliance virtuali e route definite dall'utente per creare un ambiente di applicazioni multilivello in Azure
+title: Connessione ibrida con applicazione a 2 livelli | Documentazione Microsoft
+description: Informazioni su come distribuire appliance virtuali e route definite dall&quot;utente per creare un ambiente di applicazioni multilivello in Azure
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 1f509bec-bdd1-470d-8aa4-3cf2bb7f6134
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: fb8d59469eadad51dcf269ec8ff2829b2f8ef922
+
 
 ---
 # <a name="virtual-appliance-scenario"></a>Scenario dell'appliance virtuale
@@ -65,7 +69,7 @@ In questo esempio è presente una sottoscrizione che include gli elementi seguen
   * **AZF2**. Firewall interno usato per gestire il traffico tra **azsn2** e **azsn3**. Anche questa è un'appliance virtuale con 3 schede di interfaccia di rete.
   * **AZF3**. Firewall di gestione accessibile agli amministratori dal centro dati locale e connesso a una subnet usata per la gestione di tutte le appliance firewall. I modelli per appliance virtuali con 2 schede di interfaccia di rete sono disponibili nel Marketplace oppure possono essere richiesti direttamente al fornitore dell'appliance.
 
-## <a name="user-defined-routing-(udr)"></a>Routing definito dall'utente
+## <a name="user-defined-routing-udr"></a>Routing definito dall'utente
 Ogni subnet in Azure può essere collegata a una tabella di route definite dall'utente usata per definire come viene indirizzato il traffico che ha origine nella subnet. Se non sono presenti route definite dall'utente, Azure usa le route predefinite per consentire il flusso del traffico da una subnet all'altra. Per informazioni approfondite sulle route definite dall'utente, vedere [Cosa sono le route definite dall'utente e l'inoltro IP](virtual-networks-udr-overview.md#ip-forwarding).
 
 Per garantire la comunicazione tramite l'appliance firewall corretta, in base all'ultimo requisito indicato in precedenza, è necessario creare la tabella seguente contenente le route definite dall'utente in **azurevnet**.
@@ -143,7 +147,7 @@ AZF2 rappresenta un'appliance virtuale di Azure contenente le regole seguenti:
 * **Route**: tutto il traffico verso 10.0.0.0/16 (**onpremvnet**) deve essere inviato all'indirizzo IP del gateway di Azure (ovvero 10.0.0.1) attraverso **port1**.
 * **Criteri**: consentire tutto il traffico bidirezionale tra **port1** e **port2**.
 
-## <a name="network-security-groups-(nsgs)"></a>Gruppi di sicurezza di rete (NGS)
+## <a name="network-security-groups-nsgs"></a>Gruppi di sicurezza di rete (NGS)
 In questo scenario i gruppi di sicurezza di rete non vengono usati. È tuttavia possibile applicare i gruppi di sicurezza di rete a ogni subnet per limitare il traffico in ingresso e in uscita. È ad esempio possibile applicare le seguenti regole per gruppi di sicurezza di rete alla subnet del firewall esterno.
 
 **In ingresso**
@@ -164,6 +168,9 @@ Per distribuire lo scenario seguire questi passaggi generali.
 4. Effettuare il provisioning del tunnel da **onpremvnet** ad **azurevnet**.
 5. Dopo aver effettuato il provisioning di tutte le risorse, accedere a **onpremvm2** ed eseguire il ping di 10.0.3.101 per verificare la connessione tra **onpremsn2** e **azsn3**.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

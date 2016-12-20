@@ -1,12 +1,12 @@
 ---
-title: Circuiti e domini di routing ExpressRoute | Microsoft Docs
+title: Circuiti e domini di routing ExpressRoute | Documentazione Microsoft
 description: Questa pagina fornisce una panoramica dei circuiti e domini di routing ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 6f0c5d8e-cc60-4a04-8641-2c211bda93d9
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bd3b8761c0390d9b1f55423ec3fde0301cf8a20b
+
 
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuiti e domini di routing ExpressRoute
@@ -30,7 +34,7 @@ Per un circuito ExpressRoute sono previsti fino a tre peering indipendenti: pubb
 
 Ogni circuito prevede una larghezza di banda fissa (50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 10 Gbps) ed è mappato a un provider di connettività e a una località di peering. La larghezza di banda selezionata viene condivisa tra tutti i peering del circuito. 
 
-### <a name="quotas,-limits,-and-limitations"></a>Quote, limiti e limitazioni
+### <a name="quotas-limits-and-limitations"></a>Quote, limiti e limitazioni
 Per ogni circuito ExpressRoute si applicano quote e limiti predefiniti. Per informazioni aggiornate sulle quote, vedere la pagina [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](../azure-subscription-service-limits.md) .
 
 ## <a name="expressroute-routing-domains"></a>Domini di routing ExpressRoute
@@ -68,7 +72,7 @@ La tabella seguente confronta i tre domini di routing.
 | **Intervalli di indirizzi IP supportati** |Qualsiasi indirizzo IPv4 valido entro la rete WAN. |Indirizzi IPv4 pubblici di proprietà dell'utente o del provider di connettività. |Indirizzi IPv4 pubblici di proprietà dell'utente o del provider di connettività. |
 | **Requisiti del numero AS** |Numeri AS pubblici e privati. È necessario possedere un numero AS pubblico se si sceglie di usarne uno. |Numeri AS pubblici e privati. È tuttavia necessario dimostrare la proprietà degli indirizzi IP pubblici. |Numeri AS pubblici e privati. È tuttavia necessario dimostrare la proprietà degli indirizzi IP pubblici. |
 | **Indirizzi IP per l'interfaccia di routing** |Indirizzi IP pubblici e RFC1918 |Indirizzi IP pubblici registrati a nome dell'utente nei registri di routing. |Indirizzi IP pubblici registrati a nome dell'utente nei registri di routing. |
-| **Supporto per Hash MD5** |Sì |Sì |Sì |
+| **Supporto per Hash MD5** |Sì |sì |Sì |
 
 È possibile scegliere di abilitare uno o più domini di routing come parte del rispettivo circuito ExpressRoute. È possibile scegliere di posizionare tutti i domini di routing nella stessa rete VPN se si vuole combinarli in un singolo dominio di routing. È anche possibile posizionarli in domini di routing diversi, in modo analogo a quanto illustrato nel diagramma. La configurazione consigliata consiste nel connettere il peering privato direttamente alla rete di base e i collegamenti del peering pubblico e Microsoft al DMZ.
 
@@ -82,6 +86,9 @@ Se si sceglie di usare tutte e tre le sessioni di peering, saranno necessarie tr
   * [Configurare il routing (peering del circuito)](expressroute-howto-routing-classic.md)
   * [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

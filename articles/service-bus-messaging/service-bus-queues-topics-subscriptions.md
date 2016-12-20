@@ -1,22 +1,26 @@
 ---
 title: Code, argomenti e sottoscrizioni del bus di servizio | Microsoft Docs
-description: Panoramica delle entità di messaggistica del bus di servizio.
-services: service-bus
+description: "Panoramica delle entità di messaggistica del bus di servizio."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: a306ced4-74e9-47c6-990a-d9c47efa31d5
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/14/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: edee84938bddf28ac4dbf4152ccf9d7ab6afe6c3
+
 
 ---
-# <a name="service-bus-queues,-topics,-and-subscriptions"></a>Code, argomenti e sottoscrizioni del bus di servizio
+# <a name="service-bus-queues-topics-and-subscriptions"></a>Code, argomenti e sottoscrizioni del bus di servizio
 Il bus di servizio di Microsoft Azure supporta un set di tecnologie middleware orientate ai messaggi e basate sul cloud, incluso l'accodamento dei messaggi affidabile e la messaggistica di pubblicazione e sottoscrizione permanente. Queste funzionalità di messaggistica negoziata possono essere considerate come funzionalità di messaggistica asincrone o disaccoppiate che supportano scenari di pubblicazione e sottoscrizione, disaccoppiamento temporale e bilanciamento del carico tramite l'infrastruttura di messaggistica del bus di servizio.  La comunicazione disaccoppiata presenta molti vantaggi, ad esempio client e server possono connettersi quando necessario ed eseguire le relative operazioni in modo asincrono.
 
 Le entità di messaggistica che costituiscono le funzionalità di messaggistica negoziata di base nel bus di servizio sono code, argomenti/sottoscrizioni e regole/azioni.
@@ -162,6 +166,9 @@ Per altri esempi e informazioni sull'uso delle entità di messaggistica negoziat
 * [Topic filters sample](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters) (Esempio Filtri di argomento)
 * [Brokered Messaging: Advanced Filters sample](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) (Esempio Messaggistica negoziata: filtri avanzati)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

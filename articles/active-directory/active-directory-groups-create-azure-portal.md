@@ -2,31 +2,35 @@
 title: Creare un gruppo in anteprima di Azure Active Directory | Microsoft Docs
 description: Come creare un gruppo in Azure Active Directory e aggiungere utenti (membri) al gruppo
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: cc5f232a-1e77-45c2-b28b-1fcb4621725c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 10/17/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 21e36b4bb812eb614332a060ffbfd5b7cc76749a
+
 
 ---
 # <a name="create-a-new-group-in-azure-active-directory-preview"></a>Creare un nuovo gruppo in anteprima di Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Portale di Azure](active-directory-groups-create-azure-portal.md)
 > * [Portale di Azure classico](active-directory-accessmanagement-manage-groups.md)
-> * [PowerShell](active-directory-accessmanagement-groups-v2-cmdlets.md)
+> * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 > 
 > 
 
 Questo articolo illustra come creare e popolare un nuovo gruppo in anteprima di Azure Active Directory (Azure AD). [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md)  Usare un gruppo per eseguire attività di gestione come l'assegnazione di licenze o autorizzazioni per diversi utenti o dispositivi contemporaneamente.
 
-## <a name="how-do-i-create-a-group?"></a>Come si crea un gruppo?
+## <a name="how-do-i-create-a-group"></a>Come si crea un gruppo?
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
 2. Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi selezionare **Invio**.
    
@@ -55,6 +59,9 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 * [Gestire le appartenenze di un gruppo](active-directory-groups-membership-azure-portal.md)
 * [Gestire le regole dinamiche per gli utenti in un gruppo](active-directory-groups-dynamic-membership-azure-portal.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Creare e gestire un cluster autonomo di Azure Service Fabric | Microsoft Docs
+title: Creare e gestire un cluster autonomo di Azure Service Fabric | Documentazione Microsoft
 description: Creare e gestire un cluster di Azure Service Fabric su qualsiasi macchina (fisica o virtuale) che esegue Windows Server, sia locale che nel cloud.
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 31349169-de19-4be6-8742-ca20ac41eb9e
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2016
 ms.author: dkshir;chackdan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 913726bb57f727bd62cdee0aee16bc886b38884f
+
 
 ---
 # <a name="create-and-manage-a-cluster-running-on-windows-server"></a>Creare e gestire un cluster eseguito in Windows Server
@@ -61,12 +65,12 @@ Nel pacchetto di download sono disponibili i seguenti file:
 ## <a name="plan-and-prepare-your-cluster-deployment"></a>Pianificare e preparare la distribuzione del cluster
 I passaggi seguenti devono essere eseguiti prima di creare il cluster.
 
-### <a name="step-1:-plan-your-cluster-infrastructure"></a>Passaggio 1: pianificazione dell’infrastruttura del cluster
+### <a name="step-1-plan-your-cluster-infrastructure"></a>Passaggio 1: pianificazione dell’infrastruttura del cluster
 Prima di creare un cluster di Service Fabric sui propri computer, è possibile stabilire da quali tipi di errore il cluster non deve essere compromesso. Ad esempio, sono necessarie linee di alimentazione o connessioni Internet separate per queste macchine? È necessario inoltre considerare la sicurezza fisica di tali macchine. Dove si trovano le macchine e chi ha bisogno di accedervi? Dopo aver preso queste decisioni, è possibile eseguire il mapping logico delle macchine ai vari domini di errore (vedere il passaggio 4). La pianificazione dell'infrastruttura per i cluster di produzione è più complicata rispetto ai cluster di test.
 
 <a id="preparemachines"></a>
 
-### <a name="step-2:-prepare-the-machines-to-meet-the-prerequisites"></a>Passaggio 2: preparare le macchine con i prerequisiti
+### <a name="step-2-prepare-the-machines-to-meet-the-prerequisites"></a>Passaggio 2: preparare le macchine con i prerequisiti
 Prerequisiti per ogni macchina da aggiungere al cluster:
 
 * Consigliati minimo 16 GB di RAM.
@@ -80,11 +84,11 @@ Prerequisiti per ogni macchina da aggiungere al cluster:
 
 L'amministratore del cluster che distribuisce e configura il cluster deve disporre dei [privilegi di amministratore](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) in ogni computer. Non è possibile installare Service Fabric in un controller di dominio.
 
-### <a name="step-3:-determine-the-initial-cluster-size"></a>Passaggio 3: determinare le dimensioni iniziali del cluster
+### <a name="step-3-determine-the-initial-cluster-size"></a>Passaggio 3: determinare le dimensioni iniziali del cluster
 In ogni nodo di un cluster di Service Fabric autonomo è distribuito il runtime di Service Fabric. Tutti i nodi sono membri del cluster. In una distribuzione di produzione tipica è presente un nodo per istanza (fisica o virtuale) del sistema operativo. La dimensione del cluster viene determinata in base alle esigenze aziendali. È tuttavia necessario avere una dimensione minima del cluster di tre nodi (computer o macchine virtuali).
 A scopi di sviluppo è possibile configurare più di un nodo in una macchina specifica. In un ambiente di produzione, il Service Fabric supporta solo un nodo per ogni macchina virtuale o fisica.
 
-### <a name="step-4:-determine-the-number-of-fault-domains-and-upgrade-domains"></a>Passaggio 4: identificazione del numero di domini di errore e di aggiornamento
+### <a name="step-4-determine-the-number-of-fault-domains-and-upgrade-domains"></a>Passaggio 4: identificazione del numero di domini di errore e di aggiornamento
 Un *dominio di errore* è un'unità fisica di errore ed è direttamente correlato all'infrastruttura fisica nei data center. È costituito da componenti hardware (computer, commutatori, rete e altro) che condividono un singolo punto di guasto. Sebbene non sia presente una mappatura 1:1 tra domini di errore e rack, ogni rack può essere considerato in senso lato un dominio di errore. Quando si esaminano i nodi nel cluster è consigliabile distribuire i nodi tra gli ultimi tre domini di errore.
 
 Quando si specificano domini di errore nel file ClusterConfig.json, è possibile scegliere il nome di ogni dominio di errore. Il Service Fabric supporta i domini di errore gerarchici, in modo che possano rispecchiare la topologia infrastrutturale.  Di seguito sono riportati esempi di domini di errore validi:
@@ -106,7 +110,7 @@ Quando si specificano domini di aggiornamento nel file ClusterConfig.json è pos
 
 Per informazioni più dettagliate sui domini di aggiornamento e di errore, vedere [Descrizione di un cluster di Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
 
-### <a name="step-5:-download-the-service-fabric-standalone-package-for-windows-server"></a>Passaggio 5: scaricare il pacchetto autonomo Service Fabric per Windows Server
+### <a name="step-5-download-the-service-fabric-standalone-package-for-windows-server"></a>Passaggio 5: scaricare il pacchetto autonomo Service Fabric per Windows Server
 [Scaricare il pacchetto autonomo Service Fabric per Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) e decomprimerlo in un computer di distribuzione non appartenente al cluster o in uno dei computer che faranno parte del cluster. È possibile rinominare la cartella non compressa `Microsoft.Azure.ServiceFabric.WindowsServer`.
 
 <a id="createcluster"></a>
@@ -114,16 +118,18 @@ Per informazioni più dettagliate sui domini di aggiornamento e di errore, veder
 ## <a name="create-your-cluster"></a>Creazione del cluster
 Dopo aver eseguito le operazioni di pianificazione e preparazione, è possibile creare il cluster.
 
-### <a name="step-1:-modify-cluster-configuration"></a>Passaggio 1: modificare la configurazione del cluster
+### <a name="step-1-modify-cluster-configuration"></a>Passaggio 1: modificare la configurazione del cluster
 Il cluster è descritto in ClusterConfig.json. Per informazioni dettagliate sulle sezioni di tale file, vedere [Impostazioni di configurazione per un cluster autonomo in Windows](service-fabric-cluster-manifest.md).
 Aprire uno dei file ClusterConfig.json del pacchetto scaricato e modificare le impostazioni seguenti:
 
+<!--Loc Comment: Please, check that line 129 the clause has been modified to "that you use as placement constraints" instead of using "you are used as placement constraints"-->
+
 | **Impostazioni di configurazione** | **Descrizione** |
 | --- | --- |
-| **NodeTypes** |I tipi di nodo permettono di separare i nodi del cluster in diversi gruppi. Un cluster deve avere almeno un NodeType. Tutti i nodi in un gruppo possiedono le seguenti caratteristiche comuni:  <br> **Nome**: il nome del tipo di nodo. <br>**Porte di endpoint**: endpoint con nomi diversi (porte) associati a questo tipo di nodo. È possibile usare qualsiasi numero di porta che non sia in conflitto con qualsiasi altro elemento nel manifesto e non venga già usato da un'altra applicazione eseguita nel computer o nella macchina virtuale. <br> **Proprietà di posizionamento**: descrivono proprietà per questo tipo di nodo usate come vincoli di posizionamento per i servizi di sistema o i servizi dell'utente. Queste proprietà sono coppie chiave/valore definite dall'utente che forniscono metadati aggiuntivi per un determinato nodo. Le proprietà del nodo possono includere ad esempio la presenza di un disco rigido o di una scheda grafica nel nodo, il numero di spindle nel disco rigido, le memorie centrali e altre proprietà fisiche. <br> **Capacità**: le capacità del nodo definiscono il nome e la quantità di una risorsa disponibile per l'uso da parte di un determinato nodo. Ad esempio, un nodo può definire la propria capacità per una metrica denominata "MemoryInMb" con un valore predefinito di 2048 MB di memoria disponibile. Queste capacità vengono usate in fase di esecuzione per garantire che i servizi che richiedono una determinata quantità di risorse vengano inseriti nei nodi in cui tali risorse sono disponibili nelle quantità richieste.<br>**IsPrimary**: se sono definiti più tipi di nodo, verificare che solo uno sia impostato come primario, con il valore *true*, ovvero quello in cui vengono eseguiti i servizi di sistema. Tutti gli altri tipi di nodo devono essere impostati sul valore *false*. |
-| **Nodi** |Questi sono i dettagli per ciascun nodo che fa parte del cluster (tipo di nodo, nome del nodo, indirizzo IP, dominio di errore e dominio di aggiornamento del nodo). I computer in cui si vuole creare il cluster devono essere elencati in questa sezione con il relativo indirizzo IP. <br>  Se si usa lo stesso indirizzo IP per tutti i nodi, viene creato un cluster di una casella che può essere usato per scopi di test. Non usare cluster di una casella per la distribuzione dei carichi di lavoro di produzione. |
+| **NodeTypes** |I tipi di nodo permettono di separare i nodi del cluster in diversi gruppi. Un cluster deve avere almeno un NodeType. Tutti i nodi in un gruppo possiedono le seguenti caratteristiche comuni:  <br> **Nome** : il nome del tipo di nodo. <br>**Porte di endpoint** : endpoint con nomi diversi (porte) associati a questo tipo di nodo. È possibile usare qualsiasi numero di porta desiderato, purché non entri in conflitto con qualsiasi altro nel manifesto e non sia già utilizzato da un'altra applicazione eseguita nel computer/VM. <br> **Proprietà di posizionamento**: descrivono proprietà per questo tipo di nodo usate come vincoli di posizionamento per i servizi di sistema o i servizi dell'utente. Queste proprietà sono coppie chiave-valore definite dall'utente che forniscono metadati aggiuntivi per un determinato nodo. Le proprietà del nodo possono includere ad esempio la presenza di un disco rigido o di una scheda grafica, il numero di spindle nel disco rigido, le memorie centrali e altre proprietà fisiche. <br> **Capacità** : le capacità del nodo definiscono il nome e la quantità di una particolare risorsa utilizzabile da parte di un determinato nodo. Ad esempio, un nodo può definire la propria capacità per una metrica denominata "MemoryInMb" con un valore predefinito di 2048 MB di memoria disponibile. Queste capacità vengono usate in fase di esecuzione per garantire che i servizi che richiedono una determinata quantità di risorse vengano inseriti nei nodi in cui tali risorse sono disponibili nelle quantità richieste.<br>**IsPrimary** : se sono definiti più NodeType, verificare che solo uno sia impostato come primario, con il valore *true*, ovvero quello in cui vengono eseguiti i servizi di sistema. Tutti gli altri tipi di nodo devono essere impostati sul valore *false* |
+| **Nodi** |Questi sono i dettagli per ciascun nodo che farà parte del cluster (tipo di nodo, nome del nodo, indirizzo IP, dominio di errore e dominio di aggiornamento del nodo). I computer in cui si vuole creare il cluster devono essere elencati in questa sezione con il relativo indirizzo IP. <br>  Se si usa lo stesso indirizzo IP per tutti i nodi, viene creato un cluster di una casella che può essere usato per scopi di test. Non usare cluster di una casella per la distribuzione dei carichi di lavoro di produzione. |
 
-### <a name="step-2:-run-the-testconfiguration-script"></a>Passaggio 2: Eseguire lo script TestConfiguration
+### <a name="step-2-run-the-testconfiguration-script"></a>Passaggio 2: Eseguire lo script TestConfiguration
 Lo script TestConfiguration esegue un test dell'infrastruttura definita in cluster.json per verificare che le autorizzazioni necessarie siano assegnate, che le macchine siano connesse tra loro e che siano definiti altri attributi, in modo che la distribuzione venga eseguita correttamente. Si tratta fondamentalmente di una versione minima di Best Practices Analyzer. In futuro verranno aggiunte periodicamente a questo strumento altre convalide per renderlo più solido.
 
 Questo script può essere eseguito su qualsiasi macchina con accesso amministrativo a tutte le macchine elencate come nodi nel file di configurazione del cluster. La macchina in cui viene eseguito lo script non deve necessariamente far parte del cluster.
@@ -150,7 +156,7 @@ Passed                     : True
 
 ```
 
-### <a name="step-3:-run-the-create-cluster-script"></a>Passaggio 3: Esecuzione dello script di creazione del cluster
+### <a name="step-3-run-the-create-cluster-script"></a>Passaggio 3: Esecuzione dello script di creazione del cluster
 Dopo aver modificato la configurazione del cluster nel documento JSON e aver aggiunto tutte le informazioni relative ai nodi, eseguire lo script di PowerShell per la creazione del cluster *CreateServiceFabricCluster.ps1* dalla cartella del pacchetto e passare il percorso del file di configurazione JSON. Al termine dell'operazione accettare il contratto di licenza.
 
 Questo script può essere eseguito su qualsiasi macchina con accesso amministrativo a tutte le macchine elencate come nodi nel file di configurazione del cluster. La macchina in cui viene eseguito lo script non deve necessariamente far parte del cluster.
@@ -171,7 +177,7 @@ Questo script può essere eseguito su qualsiasi macchina con accesso amministrat
 > 
 > 
 
-### <a name="step-4:-connect-to-the-cluster"></a>Passaggio 4: Connettersi al cluster
+### <a name="step-4-connect-to-the-cluster"></a>Passaggio 4: Connettersi al cluster
 Per connettersi a un cluster protetto, vedere la sezione relativa alla [connessione di Service Fabric a un cluster protetto](service-fabric-connect-to-secure-cluster.md).
 
 Per connettersi a un cluster non protetto, eseguire il seguente comando di PowerShell:
@@ -183,7 +189,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 
 ```
-### <a name="step-5:-bring-up-service-fabric-explorer"></a>Passaggio 5: Visualizzare Service Fabric Explorer
+### <a name="step-5-bring-up-service-fabric-explorer"></a>Passaggio 5: Visualizzare Service Fabric Explorer
 È ora possibile connettersi al cluster con Service Fabric Explorer direttamente da uno dei computer con http://localhost:19080/Explorer/index.html o in modalità remota con http://<*IPAddressofaMachine*>:19080/Explorer/index.html.
 
 ## <a name="add-and-remove-nodes"></a>Aggiungere e rimuovere ruoli
@@ -252,6 +258,6 @@ Nessuna.
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

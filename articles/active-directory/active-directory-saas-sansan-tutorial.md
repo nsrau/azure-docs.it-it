@@ -1,12 +1,12 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con SanSan | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e SanSan.
+description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e SanSan.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f653a0f2-c44a-4670-b936-68c136b578ea
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2533338698478a4d9aa07aace93c9bbecb0b3350
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-sansan"></a>Esercitazione: integrazione di Azure Active Directory con SanSan
+# <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Esercitazione: integrazione di Azure Active Directory con SanSan
 Questa esercitazione descrive come integrare SanSan con Azure Active Directory (Azure AD).
 
 L'integrazione di SanSan con Azure AD offre i vantaggi seguenti:
@@ -113,11 +117,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Microsoft Azure AD
 
     b. Nella casella di testo **Identificatore** digitare l'URL usando il modello seguente: 
 
-      | Environment             | URL |
-      | :--                     | :-- |
-      | Web PC                  | `https://ap.sansan.com/v/saml2/<company name>`|
-      | App per dispositivi mobili nativa       | `https://internal.api.sansan.com/saml2/<company name>` |
-      | Impostazioni del browser per dispositivi mobili | `https://ap.sansan.com/s/saml2/<company name>` |
+    | Environment             | URL |
+    | :--                     | :-- |
+    | Web PC                  | `https://ap.sansan.com/v/saml2/<company name>`|
+    | App per dispositivi mobili nativa       | `https://internal.api.sansan.com/saml2/<company name>` |
+    | Impostazioni del browser per dispositivi mobili | `https://ap.sansan.com/s/saml2/<company name>` |
 
 
     c. Fare clic su **Next**.
@@ -259,6 +263,6 @@ Quando si fa clic sul riquadro SanSan nel pannello di accesso, si dovrebbe acced
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

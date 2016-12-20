@@ -1,22 +1,26 @@
 ---
-title: Bus di servizio e PHP con AMQP 1.0 | Microsoft Docs
+title: Bus di servizio e PHP con AMQP 1.0 | Documentazione Microsoft
 description: Uso del bus di servizio da PHP con AMQP.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: dfb26c2b-41d3-4ed6-936b-b8d2f1dbd470
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 122865f056d6bd7fc8c75665d29753542a83405c
+
 
 ---
-# <a name="using-service-bus-from-php-with-amqp-1.0"></a>Uso del bus di servizio da PHP con AMQP 1.0
+# <a name="using-service-bus-from-php-with-amqp-10"></a>Uso del bus di servizio da PHP con AMQP 1.0
 [!INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
 Proton-PHP è un binding di linguaggio PHP per Proton-C. In altri termini, Proton-PHP viene implementato come wrapper attorno a un motore implementato in C.
@@ -29,7 +33,7 @@ Proton-PHP è un binding di linguaggio PHP per Proton-C. In altri termini, Proto
 > 
 > 
 
-## <a name="working-with-service-bus-queues,-topics,-and-subscriptions-from-php"></a>Uso di code, argomenti e sottoscrizioni del bus di servizio da PHP
+## <a name="working-with-service-bus-queues-topics-and-subscriptions-from-php"></a>Uso di code, argomenti e sottoscrizioni del bus di servizio da PHP
 Il codice seguente illustra come inviare e ricevere messaggi da un'entità di messaggistica del bus di servizio.
 
 ### <a name="sending-messages-using-proton-php"></a>Invio di messaggi tramite Proton-PHP
@@ -65,9 +69,9 @@ if($messenger->incoming())
 $messenger->stop();
 ```
 
-## <a name="messaging-between-.net-and-proton-php"></a>Messaggistica tra .NET e Proton-PHP
+## <a name="messaging-between-net-and-proton-php"></a>Messaggistica tra .NET e Proton-PHP
 ### <a name="application-properties"></a>Proprietà dell'applicazione
-#### <a name="protonphp-to-service-bus-.net-apis"></a>Da Proton-PHP alle API .NET del bus di servizio
+#### <a name="protonphp-to-service-bus-net-apis"></a>Da Proton-PHP alle API .NET del bus di servizio
 I messaggi Proton-PHP supportano i tipi seguenti di proprietà dell'applicazione: **integer**, **double**, **Boolean**, **string** e **object**. Il seguente codice PHP mostra come impostare le proprietà in un messaggio usando ognuno di questi tipi di proprietà.
 
 ```
@@ -110,7 +114,7 @@ La tabella seguente indica i mapping tra i tipi di proprietà PHP e i tipi di pr
 | string |string |
 | object |Object |
 
-#### <a name="service-bus-.net-apis-to-php"></a>Dalle API .NET del bus di servizio a PHP
+#### <a name="service-bus-net-apis-to-php"></a>Dalle API .NET del bus di servizio a PHP
 Il tipo [BrokeredMessage][BrokeredMessage] supporta i tipi seguenti di proprietà dell'applicazione: **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset** e **TimeSpan**. Il codice .NET seguente illustra come impostare le proprietà di un oggetto [BrokeredMessage][BrokeredMessage] usando tutti questi tipi di proprietà.
 
 ```
@@ -196,7 +200,7 @@ La tabella seguente illustra il mapping tra le proprietà standard del messaggio
 | reply\_to\_group\_id |Message.ReplyToSessionId |- |
 | Format |n/d |- |
 
-#### <a name="service-bus-.net-apis-to-proton-php"></a>Dalle API .NET del bus di servizio a Proton-PHP
+#### <a name="service-bus-net-apis-to-proton-php"></a>Dalle API .NET del bus di servizio a Proton-PHP
 | .NET del bus di servizio | Proton-PHP | Note |
 | --- | --- | --- |
 | ContentType |Message-\>content\_type |- |
@@ -223,6 +227,6 @@ Per altre informazioni, vedere i collegamenti seguenti:
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

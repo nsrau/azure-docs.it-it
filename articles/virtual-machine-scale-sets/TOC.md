@@ -2,15 +2,17 @@
 ## [Informazioni sui set di scalabilità di macchine virtuali](virtual-machine-scale-sets-overview.md)
 
 # Attività iniziali
-## [Creare un set di scalabilità Windows](virtual-machine-scale-sets-windows-create.md)
-## [Creare un set di scalabilità Linux](virtual-machine-scale-sets-linux-create-cli.md)
+## [Creare un set di scalabilità nel portale](virtual-machine-scale-sets-portal-create.md)
 
 # Procedure
 ## Pianificare e progettare
 ### [Considerazioni sulla progettazione](virtual-machine-scale-sets-design-overview.md)
+
 ## Distribuire
 ### [Set di scalabilità tramite il portale](virtual-machine-scale-sets-portal-create.md)
 ### [Set di scalabilità con Visual Studio](virtual-machine-scale-sets-vs-create.md)
+### [Set di scalabilità con PowerShell](virtual-machine-scale-sets-windows-create.md)
+### [Set di scalabilità con l'interfaccia della riga di comando di Azure](virtual-machine-scale-sets-linux-create-cli.md)
 ### [Set di scalabilità Linux con scalabilità automatica](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Set di scalabilità Windows con scalabilità automatica](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Applicazioni nei set di scalabilità](virtual-machine-scale-sets-deploy-app.md)
@@ -23,7 +25,7 @@
 ### [Scalabilità automatica avanzata](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Uso di DSC e di set di scalabilità](virtual-machine-scale-sets-dsc.md)
 
-## Risoluzione dei problemi
+## Risolvere problemi
 ### [Autoscale](virtual-machine-scale-sets-troubleshoot.md)
 
 # Riferimento
@@ -38,6 +40,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

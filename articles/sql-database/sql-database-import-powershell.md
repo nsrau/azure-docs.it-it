@@ -1,22 +1,27 @@
 ---
-title: Importare un file BACPAC per creare un database SQL di Azure tramite PowerShell | Microsoft Docs
+title: Importare un file BACPAC per creare un database SQL di Azure tramite PowerShell | Documentazione Microsoft
 description: Importare un file BACPAC per creare un database SQL di Azure tramite PowerShell
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 8d78da13-43fe-4447-92e0-0a41d0321fd4
 ms.service: sql-database
+ms.custom: migrate and move; how to
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
 ms.date: 08/31/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4e1cf312cf8213cbeea84b4fb0ab605248800fcd
+
 
 ---
-# Importare un file BACPAC per creare un database SQL di Azure tramite PowerShell
+# <a name="import-a-bacpac-file-to-create-an-azure-sql-database-by-using-powershell"></a>Importare un file BACPAC per creare un database SQL di Azure tramite PowerShell
 **Database singolo**
 
 > [!div class="op_single_selector"]
@@ -39,11 +44,11 @@ Il database viene creato da un file BACPAC (con estensione bacpac) importato da 
 Per importare un database SQL è necessario quanto segue:
 
 * Una sottoscrizione di Azure. Se è necessaria una sottoscrizione di Azure, fare semplicemente clic su **Versione di prova gratuita** nella parte superiore della pagina, quindi riprendere l'articolo e terminarlo.
-* Il file BACPAC del database che si vuole importare. Il file BACPAC deve essere inserito in un contenitore BLOB di un [account di archiviazione di Azure](../storage/storage-create-storage-account.md).
+* Il file BACPAC del database che si vuole importare. Il file BACPAC deve essere inserito in un contenitore BLOB di un [account di archiviazione di Azure](../storage/storage-create-storage-account.md) .
 
-[!INCLUDE [Avviare la sessione di PowerShell](../../includes/sql-database-powershell.md)]
+[!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
-## Impostare le variabili per l'ambiente specifico
+## <a name="set-up-the-variables-for-your-environment"></a>Impostare le variabili per l'ambiente specifico
 Esistono alcune variabili in cui è necessario sostituire i valori di esempio con i valori specifici per il database e l'account di archiviazione.
 
 Il nome del server deve corrispondere a un server esistente nella sottoscrizione selezionata nel passaggio precedente. Tale server deve essere quello in cui si desidera creare il database. L'importazione di un database direttamente in un pool elastico non è supportata. È tuttavia possibile importarlo in un database singolo e quindi spostarlo in un pool.
@@ -55,7 +60,7 @@ Il nome del database è il nome desiderato per il nuovo database.
     $DatabaseName = "database name"
 
 
-Le seguenti variabili sono dell'account di archiviazione in cui si trova il file BACPAC. Nel [portale di Azure](https://portal.azure.com) passare all'account di archiviazione per ottenere questi valori. È possibile trovare la chiave di accesso primaria facendo clic su **Tutte le impostazioni** e su **Chiavi** dal pannello dell'account di archiviazione.
+Le seguenti variabili sono dell'account di archiviazione in cui si trova il file BACPAC. Nel [portale di Azure](https://portal.azure.com)passare all'account di archiviazione per ottenere questi valori. È possibile trovare la chiave di accesso primaria facendo clic su **Tutte le impostazioni** e su **Chiavi** dal pannello dell'account di archiviazione.
 
 Il nome del BLOB è il nome di un file BACPAC esistente da cui si desidera creare il database. È necessario includere l'estensione bacpac.
 
@@ -65,25 +70,25 @@ Il nome del BLOB è il nome di un file BACPAC esistente da cui si desidera crear
     $StorageKey = "primaryaccesskey"
 
 
-Eseguendo il cmdlet [Get-Credential](https://msdn.microsoft.com/library/hh849815.aspx) si apre una finestra in cui vengono chiesti nome utente e password. Immettere l'account di accesso di amministrazione e la password per il server di database SQL ($ServerName sopra) e non il nome utente e la password dell'account Azure.
+Eseguendo il cmdlet [Get-Credential](https://msdn.microsoft.com/library/azure/hh849815\(v=azure.300\).aspx) si apre una finestra in cui vengono richiesti nome utente e password. Immettere l'account di accesso di amministrazione e la password per il server di database SQL ($ServerName sopra) e non il nome utente e la password dell'account Azure.
 
     $credential = Get-Credential
 
 
-## Importare il database
+## <a name="import-the-database"></a>Importare il database
 Tale comando invia una richiesta di importazione del database al servizio. A seconda delle dimensioni del database, l'operazione di esportazione potrebbe richiedere diverso tempo.
 
     $importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $ResourceGroupName –ServerName $ServerName –DatabaseName $DatabaseName –StorageKeytype $StorageKeyType –StorageKey $StorageKey -StorageUri $StorageUri –AdministratorLogin $credential.UserName –AdministratorLoginPassword $credential.Password –Edition Standard –ServiceObjectiveName S0 -DatabaseMaxSizeBytes 50000
 
 
-## Monitorare lo stato dell’operazione
-Dopo aver eseguito il cmdlet [New-AzureRmSqlDatabaseImport](https://msdn.microsoft.com/library/mt707793.aspx), è possibile controllare lo stato della richiesta eseguendo il cmdlet [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/mt707794.aspx).
+## <a name="monitor-the-progress-of-the-operation"></a>Monitorare lo stato dell’operazione
+Dopo aver eseguito il cmdlet [New-AzureRmSqlDatabaseImport](https://msdn.microsoft.com/library/azure/mt707793\(v=azure.300\).aspx), è possibile controllare lo stato della richiesta eseguendo il cmdlet [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/azure/mt707794\(v=azure.300\).aspx).
 
     Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
 
 
 
-## Script di importazione di PowerShell per il database SQL
+## <a name="sql-database-powershell-import-script"></a>Script di importazione di PowerShell per il database SQL
     $ResourceGroupName = "resourceGroupName"
     $ServerName = "servername"
     $DatabaseName = "databasename"
@@ -101,7 +106,12 @@ Dopo aver eseguito il cmdlet [New-AzureRmSqlDatabaseImport](https://msdn.microso
 
 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni su come connettersi ed eseguire query su un database SQL importato, vedere [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

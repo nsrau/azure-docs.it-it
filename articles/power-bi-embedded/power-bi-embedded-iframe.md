@@ -2,12 +2,12 @@
 title: Come usare Power BI Embedded con REST | Microsoft Docs
 description: 'Informazioni su come usare Power BI Embedded con REST  '
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 8bcef780-cca0-4f30-9a9b-9daa1a7ae865
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,14 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7aadb6ceba1a8c672ed9eeea8651c965e5b665fd
+
 
 ---
 # <a name="how-to-use-power-bi-embedded-with-rest"></a>Come usare Power BI Embedded con REST
-## <a name="power-bi-embedded:-what-it-is-and-what-it's-for"></a>Power BI Embedded: che cos'è e a cosa serve
+## <a name="power-bi-embedded-what-it-is-and-what-its-for"></a>Power BI Embedded: che cos'è e a cosa serve
 Sebbene una panoramica di Power BI Embedded sia disponibile nel [sito di Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/)ufficiale, di seguito viene illustrata una breve introduzione prima di analizzare più dettagliatamente il relativo uso con REST.
 
 È davvero semplice. Spesso i fornitori di software indipendenti desiderano usare le visualizzazioni dei dati dinamici di [Power BI](https://powerbi.microsoft.com) nelle proprie applicazioni come blocchi predefiniti dell'interfaccia utente.
@@ -34,7 +38,7 @@ Le applicazioni dei fornitori di software indipendenti potrebbero anche offrire 
 
 Per creare applicazioni con Power BI Embedded in modo semplice, è possibile usare l'SDK per Node.js o .NET \(C#). Tuttavia, in questo articolo verrà illustrato il flusso HTTP \(tra cui AuthN) di Power BI senza SDK. Dopo aver compreso tale flusso, è possibile creare applicazioni **con qualsiasi linguaggio di programmazione** e capire la profonda essenza di Power BI Embedded.
 
-## <a name="create-power-bi-workspace-collection,-and-get-access-key-\(provisioning)"></a>Creare una raccolta di aree di lavoro di Power BI e ottenere la chiave di accesso \(provisioning)
+## <a name="create-power-bi-workspace-collection-and-get-access-key-provisioning"></a>Creare una raccolta di aree di lavoro di Power BI e ottenere la chiave di accesso \(provisioning)
 Power BI Embedded è uno dei servizi di Azure. Le spese di utilizzo vengono addebitate solo ai fornitori di software indipendenti che usano il portale di Azure \(per sessione utente oraria), mentre l'utente che visualizza il report non riceve addebiti e non necessita di una sottoscrizione di Azure.
 Prima di iniziare a sviluppare applicazioni, è necessario creare la **raccolta di aree di lavoro di Power BI** tramite il portale di Azure.
 
@@ -51,7 +55,7 @@ Al termine della creazione della raccolta di aree di lavoro, copiare la chiave d
 > 
 > 
 
-## <a name="create-.pbix-file-with-power-bi-desktop"></a>Creare file con estensione pbix con Power BI Desktop
+## <a name="create-pbix-file-with-power-bi-desktop"></a>Creare file con estensione pbix con Power BI Desktop
 Successivamente, è necessario creare la connessione dati e i report da incorporare.
 Per questa attività, non è disponibile alcun codice o programmazione. È sufficiente usare Power BI Desktop.
 In questo articolo non verrà analizzato l'uso di Power BI Desktop nel dettaglio. Per assistenza, vedere [Introduzione a Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/). Per questo esempio, sarà sufficiente usare l' [esempio di analisi delle vendite al dettaglio](https://powerbi.microsoft.com/documentation/powerbi-sample-datasets/).
@@ -86,7 +90,7 @@ RequestId: 4220d385-2fb3-406b-8901-4ebe11a5f6da
 
 Il **workspaceId** restituito viene usato per le chiamate API seguenti. L'applicazione deve mantenere questo valore.
 
-## <a name="import-.pbix-file-into-the-workspace"></a>Importare file con estensione pbix nell'area di lavoro
+## <a name="import-pbix-file-into-the-workspace"></a>Importare file con estensione pbix nell'area di lavoro
 Ogni area di lavoro può ospitare un unico file di Power BI Desktop con un set di dati \(tra cui le impostazioni dell'origine dati) e i report. È possibile importare il file con estensione pbix nell'area di lavoro come mostrato nel codice riportato di seguito. Come si può notare, è possibile caricare il binario del file con estensione pbix usando MIME multipart in http.
 
 Il frammento URI **32960a09-6366-4208-a8bb-9e0678cdbb9d** è il workspaceId e il parametro di query **datasetDisplayName** è il nome del set di dati da creare. Il set di dati creato contiene tutti gli elementi del file con estensione pbix relativi ai dati, ad esempio i dati importati, il puntatore all'origine dati e così via.
@@ -170,7 +174,7 @@ RequestId: eb2c5a85-4d7d-4cc2-b0aa-0bafee4b1606
 }
 ```
 
-## <a name="data-source-connectivity-\(and-multi-tenancy-of-data)"></a>Connettività dell'origine dati \(e multi-tenancy dei dati)
+## <a name="data-source-connectivity-and-multi-tenancy-of-data"></a>Connettività dell'origine dati \(e multi-tenancy dei dati)
 Sebbene quasi tutti gli elementi del file con estensione pbix vengano importati nell'area di lavoro, le credenziali per le origini dati restano escluse. Di conseguenza, quando si usa la **modalità DirectQuery**, il report incorporato non può essere mostrato correttamente. Tuttavia, quando si usa la **modalità di importazione**, è possibile visualizzare il report usando i dati importati esistenti. In tal caso, è necessario impostare le credenziali attenendosi alla procedura seguente tramite chiamate REST.
 
 Innanzitutto, è necessario ottenere l'origine dati del gateway. L' **id** del set di dati corrisponde all'id restituito in precedenza.
@@ -249,7 +253,7 @@ In alternativa, è possibile usare la sicurezza a livello di riga di Power BI Em
 > 
 > 
 
-## <a name="authentication-and-hosting-(embedding)-reports-in-our-web-page"></a>Autenticazione e hosting (incorporamento) dei report nella pagina Web
+## <a name="authentication-and-hosting-embedding-reports-in-our-web-page"></a>Autenticazione e hosting (incorporamento) dei report nella pagina Web
 Nell'API REST precedente è possibile usare la chiave di accesso **AppKey** come intestazione di autorizzazione. Poiché queste chiamate possono essere gestite sul lato server back-end, questa operazione è sicura.
 
 Tuttavia, quando si incorpora il report nella nostra pagina Web, questa tipologia di informazioni di sicurezza verrà gestita usando JavaScript \(front-end). Quindi il valore dell'intestazione di autorizzazione deve essere protetto. Se un utente malintenzionato o un codice dannoso individua la chiave di accesso, la può usare per chiamare qualsiasi operazione.
@@ -338,7 +342,7 @@ function rfc4648_base64_encode($arg) {
 ?>
 ```
 
-## <a name="finally,-embed-the-report-into-the-web-page"></a>Incorporare il report nella pagina Web
+## <a name="finally-embed-the-report-into-the-web-page"></a>Incorporare il report nella pagina Web
 Per incorporare il report, è necessario ottenere l'URL di incorporamento e l' **id** del report usando l'API REST seguente.
 
 **Richiesta HTTP**
@@ -464,6 +468,9 @@ Al momento, Power BI Embedded mostra solo il report nell'iframe. Tuttavia, è co
 ## <a name="see-also"></a>Vedere anche
 * [Autenticazione e autorizzazione con Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

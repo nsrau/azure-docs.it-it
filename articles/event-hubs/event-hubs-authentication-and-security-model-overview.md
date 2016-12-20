@@ -1,12 +1,12 @@
 ---
-title: Panoramica sul modello di autenticazione e di sicurezza di Hub di eventi | Microsoft Docs
+title: Panoramica del modello di sicurezza e autenticazione degli hub eventi | Microsoft Docs
 description: Panoramica sul modello di autenticazione e sicurezza di Hub eventi.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 93841e30-0c5c-4719-9dc1-57a4814342e7
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
 ms.author: sethm;clemensv
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9447b863b62fc71d2619591f78be0494711dc6a3
+
 
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>Panoramica sull’autenticazione di Hub eventi e sul modello di protezione
@@ -39,7 +43,7 @@ Quando si crea uno spazio dei nomi di Hub eventi, Hub eventi di Azure genera una
 
 Nell'esempio seguente viene creata una chiave di solo invio durante la creazione dell'Hub eventi:
 
-```
+```csharp
 // Create namespace manager.
 string serviceNamespace = "YOUR_NAMESPACE";
 string namespaceManageKeyName = "RootManageSharedAccessKey";
@@ -60,7 +64,7 @@ nm.CreateEventHub(ed);
 ### <a name="generate-tokens"></a>Generare token
 È possibile generare token utilizzando la chiave SAS. È necessario ottenere solo un token per dispositivo. È possibile produrre token utilizzando il metodo riportato di seguito. Tutti i token vengono generati utilizzando la chiave **EventHubSendKey** . A ogni token viene assegnato un URI univoco.
 
-```
+```csharp
 public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
 ```
 
@@ -68,13 +72,13 @@ Quando si chiama questo metodo, l'URI deve essere specificato come `//<NAMESPACE
 
 Questo metodo genera un token con la struttura seguente:
 
-```
+```csharp
 SharedAccessSignature sr={URI}&sig={HMAC_SHA256_SIGNATURE}&se={EXPIRATION_TIME}&skn={KEY_NAME}
 ```
 
 L'ora di scadenza del token è espressa in secondi dal 1 gennaio 1970. Di seguito è riportato un esempio di token:
 
-```
+```csharp
 SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFmBHG77A%3d&se=1403130337&skn=RootManageSharedAccessKey
 ```
 
@@ -104,11 +108,11 @@ Per altre informazioni su Hub eventi, vedere gli argomenti seguenti:
 
 [Panoramica di Hub eventi]: event-hubs-overview.md
 [applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[soluzione di messaggistica con code]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[soluzione di messaggistica accodata]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,11 +1,11 @@
 ---
-title: Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer | Microsoft Docs
+title: Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Analizzatore messaggi | Microsoft Docs
 description: Esercitazione che illustra la risoluzione dei problemi end-to-end mediante Analisi archiviazione di Azure, AzCopy e Microsoft Message Analyzer
 services: storage
 documentationcenter: dotnet
 author: robinsh
 manager: carmonm
-
+ms.assetid: 6b23cba5-0d53-439e-870b-de8e406107d8
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -13,9 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: f2032f3a4fa559b9772ee63d39d66408b3f92175
+ms.openlocfilehash: 5a07c355259c61cfde9f2c1e5f056a0b7f794861
+
 
 ---
-# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging,-azcopy,-and-message-analyzer"></a>Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer
+# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
 ## <a name="overview"></a>Overview
@@ -103,29 +107,32 @@ Per informazioni introduttive su PowerShell per Azure, vedere [Come installare e
 
 1. Usare il cmdlet [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) per aggiungere l'account utente di Azure alla finestra di PowerShell:
    
+    ```powershell
+     Add-AzureAccount
     ```
-    Add-AzureAccount
-    ```
+
 2. Nella finestra di **accesso a Microsoft Azure** digitare l'indirizzo di posta elettronica e la password associati all'account. Le informazioni delle credenziali vengono autenticate e salvate in Azure, quindi la finestra viene chiusa.
 3. Impostare l'account di archiviazione predefinito sull'account di archiviazione usato per l'esercitazione eseguendo i comandi seguenti nella finestra di PowerShell:
    
-    ```
+    ```powershell
     $SubscriptionName = 'Your subscription name'
     $StorageAccountName = 'yourstorageaccount' 
     Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName 
     ```
+
 4. Abilitare la registrazione di archiviazione per il servizio BLOB: 
    
-    ```
+    ```powershell
     Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0 
     ```
+
 5. Abilitare la metrica di archiviazione per il servizio BLOB, assicurandosi di impostare **-MetricsType** su `Minute`:
    
-    ```
+    ```powershell
     Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0 
     ```
 
-### <a name="configure-.net-client-side-logging"></a>Configurare la registrazione sul lato client .NET
+### <a name="configure-net-client-side-logging"></a>Configurare la registrazione sul lato client .NET
 Per configurare la registrazione sul lato client per un'applicazione .NET, abilitare la diagnostica .NET nel file di configurazione dell'applicazione (web.config o app.config). Per informazioni dettagliate, vedere [Client-side Logging with the .NET Storage Client Library](http://msdn.microsoft.com/library/azure/dn782839.aspx) (Registrazione lato client con la libreria client di archiviazione .NET) e [Client-side Logging with the Microsoft Azure Storage SDK for Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) (Registrazione lato client con Archiviazione di Microsoft Azure SDK per Java).
 
 Il log lato client include informazioni dettagliate sul modo in cui il client prepara la richiesta e riceve ed elabora la risposta.
@@ -150,10 +157,11 @@ Per l'esercitazione, raccogliere e salvare una traccia di rete in Message Analyz
 4. Selezionare il collegamento **Configura** a destra del provider ETW **Microsoft-Pef-WebProxy**.
 5. Nella finestra di dialogo **Impostazioni avanzate** fare clic sulla scheda **Provider**.
 6. Nel campo **Filtro Hostname Filter** , specificare gli endpoint di archiviazione, separati da spazi. Ad esempio, è possibile specificare gli endpoint nel modo seguente, specificando il nome del proprio account di archiviazione al posto di `storagesample` :
-   
-    ``` 
+
+    ```   
     storagesample.blob.core.windows.net storagesample.queue.core.windows.net storagesample.table.core.windows.net 
     ```
+   
 7. Chiudere la finestra di dialogo e fare clic su **Riavvia** per avviare la raccolta della traccia con il filtro relativo al nome host impostato, in modo da includere nella traccia solo il traffico di rete di Archiviazione di Azure.
 
 > [!NOTE]
@@ -188,7 +196,9 @@ Archiviazione di Azure scrive i dati di log del server nei BLOB, mentre le metri
 
 È possibile usare lo strumento da riga di comando AzCopy per scaricare questi file di log lato server nel percorso desiderato sul computer locale. Ad esempio, tramite il comando seguente è possibile scaricare i file di log per le operazioni BLOB verificatesi il 2 gennaio 2015 nella cartella`C:\Temp\Logs\Server`, sostituendo `<storageaccountname>` con il nome del proprio account di archiviazione e `<storageaccountkey>` con la chiave di accesso dell'account:
 
-    AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
+```azcopy
+AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
+```
 
 AzCopy è disponibile per il download nella pagina [Download di Azure](https://azure.microsoft.com/downloads/) . Per informazioni dettagliate sull'uso di AzCopy, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md).
 
@@ -280,8 +290,10 @@ A questo punto i dati di log vengono raggruppati e filtrare per trovare tutti gl
 2. Quindi raggruppare in base alla colonna **ClientRequestId** . I dati nella grigli di analisi verranno organizzati in base al codice di stato e all'ID richiesta client.
 3. Visualizzare la finestra degli strumenti View Filter se non è visualizzata. Sulla barra multifunzione selezionare **Finestre degli strumenti** e **Filtro visualizzazione**.
 4. Per filtrare i dati di log in modo da visualizzare solo gli errori della fascia 400, aggiungere i criteri di filtro seguenti nella finestra **Filtro visualizzazione** e fare clic su **Applica**:
-   
-        (AzureStorageLog.StatusCode >= 400 && AzureStorageLog.StatusCode <=499) || (HTTP.StatusCode >= 400 && HTTP.StatusCode <= 499)
+
+    ```   
+    (AzureStorageLog.StatusCode >= 400 && AzureStorageLog.StatusCode <=499) || (HTTP.StatusCode >= 400 && HTTP.StatusCode <= 499)
+    ```
 
 L'immagine seguente mostra i risultati di questo raggruppamento e filtro. Se si espande il campo **ClientRequestID** sotto il raggruppamento per codice di stato 409, ad esempio, viene visualizzata un'operazione che ha generato questo codice di stato.
 
@@ -306,9 +318,11 @@ Le risorse di archiviazione includono filtri predefiniti che possono essere usat
 3. Visualizzare nuovamente il menu **Libreria** e quindi individuare e selezionare **Global Time Filter** (Filtro tempo di esecuzione globale).
 4. Modificare i timestamp presenti nel filtro impostando l'intervallo che si vuole visualizzare. In questo modo si limiterà l'intervallo di date da analizzare.
 5. Il filtro dovrebbe risultare analogo a quello riportato nell'esempio seguente. Fare clic su **Applica** per applicare il filtro alla griglia di analisi.
-   
-        ((AzureStorageLog.StatusCode == 404 || HTTP.StatusCode == 404)) And 
-        (#Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39)
+
+    ```   
+    ((AzureStorageLog.StatusCode == 404 || HTTP.StatusCode == 404)) And 
+    (#Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39)
+    ```
 
 ![Layout di visualizzazione di Archiviazione di Azure](./media/storage-e2e-troubleshooting-classic-portal/404-filtered-errors1.png)
 
@@ -325,8 +339,10 @@ Successivamente, questo ID richiesta client verrà correlato con i dati del log 
 2. Sulla barra multifunzione selezionare **Nuovo visualizzatore** e selezionare **Griglia analisi** per aprire una nuova scheda. Nella nuova scheda sono visualizzati tutti i dati presenti dei file di log, senza raggruppamenti, filtri o regole colore. 
 3. Sulla barra multifunzione selezionare **Visualizza layout** e scegliere **Tutte le colonne del client .NET** nella sezione **Archiviazione di Azure**. In questo layout di visualizzazione sono presenti dati tratti dal log del client, nonché dal log del server e dal log della traccia di rete. Per impostazione predefinita, è ordinato in base alla colonna **MessageNumber** .
 4. Cercare quindi l'ID richiesta client nel log del client. Sulla barra multifunzione selezionare **Trova messaggi** e specificare un filtro personalizzato in base all'ID richiesta client nel campo **Trova**. Usare questa sintassi per il filtro, specificando il proprio ID richiesta client:
-   
-        *ClientRequestId == "398bac41-7725-484b-8a69-2a9e48fc669a"
+
+    ```  
+    *ClientRequestId == "398bac41-7725-484b-8a69-2a9e48fc669a"
+    ```
 
 Message Analyzer individua e seleziona la prima voce del log in cui i criterio di ricerca corrispondono all'ID richiesta client. Nel log del client sono presenti varie voci per ogni ID richiesta client, pertanto è consigliabile raggrupparle nel campo **ClientRequestId** per visualizzarle facilmente tutte insieme. L'immagine seguente mostra tutti i messaggi nel log del client per l'ID richiesta client specificato. 
 
@@ -366,6 +382,7 @@ Per altre informazioni sugli scenari end-to-end di risoluzione dei problemi di a
 * [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 * [Guida operativa di Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

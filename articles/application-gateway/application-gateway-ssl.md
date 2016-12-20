@@ -1,186 +1,223 @@
 ---
-title: Configure an application gateway for SSL offload by using classic deployment| Microsoft Docs
-description: This article provides instructions to create an application gateway with SSL offload by using the Azure classic deployment model.
+title: Configurare un gateway applicazione per l&quot;offload SSL con la distribuzione classica | Documentazione Microsoft
+description: Questo articolo fornisce istruzioni per la creazione di un gateway applicazione con offload SSL tramite il modello di distribuzione classica di Azure.
 documentationcenter: na
 services: application-gateway
 author: georgewallace
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 63f28d96-9c47-410e-97dd-f5ca1ad1b8a4
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/09/2016
+ms.date: 11/16/2016
 ms.author: gwallace
+translationtype: Human Translation
+ms.sourcegitcommit: 1cb291817462a2af59a17693a29b8667750c877f
+ms.openlocfilehash: b4fc6b09069022967b572327647dd5d848712932
+
 
 ---
-# <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Configure an application gateway for SSL offload by using the classic deployment model
+# <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Configurare un gateway applicazione per l'offload SSL tramite il modello di distribuzione classica
+
 > [!div class="op_single_selector"]
-> -[Azure portal](application-gateway-ssl-portal.md)
-> -[Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
-> -[Azure Classic PowerShell](application-gateway-ssl.md)
+> * [Portale di Azure](application-gateway-ssl-portal.md)
+> * [PowerShell per Azure Resource Manager](application-gateway-ssl-arm.md)
+> * [PowerShell per Azure classico](application-gateway-ssl.md)
 > 
 > 
 
-Azure Application Gateway can be configured to terminate the Secure Sockets Layer (SSL) session at the gateway to avoid costly SSL decryption tasks to happen at the web farm. SSL offload also simplifies the front-end server setup and management of the web application.
+Il gateway applicazione di Azure può essere configurato per terminare la sessione Secure Sockets Layer (SSL) nel gateway ed evitare costose attività di decrittografia SSL nella Web farm. L'offload SSL semplifica anche la configurazione e la gestione del server front-end dell'applicazione Web.
 
-## <a name="before-you-begin"></a>Before you begin
-1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](https://azure.microsoft.com/downloads/).
-2. Verify that you have a working virtual network with a valid subnet. Make sure that no virtual machines or cloud deployments are using the subnet. The application gateway must be by itself in a virtual network subnet.
-3. The servers that you configure to use the application gateway must exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.
+## <a name="before-you-begin"></a>Prima di iniziare
 
-To configure SSL offload on an application gateway, do the following steps in the order listed:
+1. Installare la versione più recente dei cmdlet di Azure PowerShell usando l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [Pagina di download](https://azure.microsoft.com/downloads/).
+2. Assicurarsi di avere una rete virtuale funzionante con una subnet valida. Assicurarsi che nessuna macchina virtuale o distribuzione cloud stia usando la subnet. Il gateway applicazione deve essere da solo in una subnet di rete virtuale.
+3. È necessario che i server configurati per l'uso del gateway applicazione esistano oppure che i relativi endpoint siano stati creati nella rete virtuale o con un indirizzo IP/VIP pubblico assegnato.
 
-1. [Create an application gateway](#create-an-application-gateway)
-2. [Upload SSL certificates](#upload-ssl-certificates)
-3. [Configure the gateway](#configure-the-gateway)
-4. [Set the gateway configuration](#set-the-gateway-configuration)
-5. [Start the gateway](#start-the-gateway)
-6. [Verify the gateway status](#verify-the-gateway-status)
+Per configurare l'offload SSL in un gateway applicazione, eseguire i passaggi seguenti nell'ordine elencato.
 
-## <a name="create-an-application-gateway"></a>Create an application gateway
-To create the gateway, use the **New-AzureApplicationGateway** cmdlet, replacing the values with your own. Billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
+1. [Creare un gateway applicazione](#create-an-application-gateway)
+2. [Caricare i certificati SSL](#upload-ssl-certificates)
+3. [Configurare il gateway](#configure-the-gateway)
+4. [Definire la configurazione del gateway](#set-the-gateway-configuration)
+5. [Avviare il gateway](#start-the-gateway)
+6. [Verificare lo stato del gateway](#verify-the-gateway-status)
 
-    New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+## <a name="create-an-application-gateway"></a>Creare un gateway applicazione
 
-To validate that the gateway was created, you can use the **Get-AzureApplicationGateway** cmdlet.
+Per creare il gateway, usare il cmdlet `New-AzureApplicationGateway`, sostituendo i valori esistenti con quelli personalizzati. La fatturazione per il gateway non viene applicata a partire da questo punto. La fatturazione viene applicata a partire da un passaggio successivo, dopo l'avvio corretto del gateway.
 
-In the sample, *Description*, *InstanceCount*, and *GatewaySize* are optional parameters. The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. Small and Large are other available values. *VirtualIPs* and *DnsName* are shown as blank because the gateway has not started yet. These values are created once the gateway is in the running state.
+```powershell
+New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+```
 
-    Get-AzureApplicationGateway AppGwTest
+Per convalidare la creazione del gateway, è possibile usare il cmdlet `Get-AzureApplicationGateway`.
 
-## <a name="upload-ssl-certificates"></a>Upload SSL certificates
-Use **Add-AzureApplicationGatewaySslCertificate** to upload the server certificate in *pfx* format to the application gateway. The certificate name is a user-chosen name and must be unique within the application gateway. This certificate is referred to by this name in all certificate management operations on the application gateway.
+In questo esempio *Description*, *InstanceCount* e *GatewaySize* sono parametri facoltativi. Il valore predefinito per *InstanceCount* è 2, con un valore massimo di 10. Il valore predefinito per *GatewaySize* è Medium. Small e Large sono altri valori disponibili. *VirtualIPs* e *DnsName* vengono visualizzati vuoti perché il gateway non è stato ancora avviato. Questi valori vengono creati quando il gateway è in esecuzione.
 
-This following sample shows the cmdlet, replace the values in the sample with your own.
+```powershell
+Get-AzureApplicationGateway AppGwTest
+```
 
-    Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file>
+## <a name="upload-ssl-certificates"></a>Caricare i certificati SSL
 
-Next, validate the certificate upload. Use the **Get-AzureApplicationGatewayCertificate** cmdlet.
+Usare `Add-AzureApplicationGatewaySslCertificate` per caricare il certificato del server in formato *pfx* nel gateway applicazione. Il nome del certificato è un nome scelto dall'utente e deve essere univoco all'interno del gateway applicazione. Il certificato viene identificato da questo nome in tutte le operazioni di gestione del certificato nel gateway applicazione.
 
-This sample shows the cmdlet on the first line, followed by the output.
+L'esempio seguente illustra il cmdlet. Sostituire i valori dell'esempio con i propri.
 
-    Get-AzureApplicationGatewaySslCertificate AppGwTest
+```powershell
+Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file>
+```
 
-    VERBOSE: 5:07:54 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate
-    VERBOSE: 5:07:55 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
-    Name           : SslCert
-    SubjectName    : CN=gwcert.app.test.contoso.com
-    Thumbprint     : AF5ADD77E160A01A6......EE48D1A
-    ThumbprintAlgo : sha1RSA
-    State..........: Provisioned
+Successivamente, convalidare il caricamento del certificato. Utilizzare il cmdlet `Get-AzureApplicationGatewayCertificate` .
+
+Questo esempio illustra il cmdlet nella prima riga seguito dall'output.
+
+```powershell
+Get-AzureApplicationGatewaySslCertificate AppGwTest
+```
+
+```
+VERBOSE: 5:07:54 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate
+VERBOSE: 5:07:55 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
+Name           : SslCert
+SubjectName    : CN=gwcert.app.test.contoso.com
+Thumbprint     : AF5ADD77E160A01A6......EE48D1A
+ThumbprintAlgo : sha1RSA
+State..........: Provisioned
+```
 
 > [!NOTE]
-> The certificate password has to be between 4 to 12 characters, letters, or numbers. Special characters are not accepted.
+> La password del certificato deve contenere da 4 a 12 caratteri, lettere o numeri. Non sono ammessi caratteri speciali.
 > 
 > 
 
-## <a name="configure-the-gateway"></a>Configure the gateway
-An application gateway configuration consists of multiple values. The values can be tied together to construct the configuration.
+## <a name="configure-the-gateway"></a>Configurare il gateway
 
-The values are:
+La configurazione di un gateway applicazione è costituita da più valori. È possibile collegare tra loro tali valori per creare la configurazione.
 
-* **Back-end server pool:** The list of IP addresses of the back-end servers. The IP addresses listed should either belong to the virtual network subnet or should be a public IP/VIP.
-* **Back-end server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
-* **Front-end port:** This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back-end servers.
-* **Listener:** The listener has a front-end port, a protocol (Http or Https, these values are case-sensitive), and the SSL certificate name (if configuring SSL offload).
-* **Rule:** The rule binds the listener and the back-end server pool and defines which back-end server pool the traffic should be directed to when it hits a particular listener. Currently, only the *basic* rule is supported. The *basic* rule is round-robin load distribution.
+I valori possibili sono:
 
-**Additional configuration notes**
+* **Pool di server back-end:** elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP/VIP pubblici.
+* **Impostazioni del pool di server back-end:** ogni pool ha impostazioni come porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
+* **Porta front-end:** porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
+* **Listener** : ha una porta front-end, un protocollo (Http o Https, con distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL).
+* **Regola** : associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola *basic* . La regola *basic* è una distribuzione del carico di tipo round robin.
 
-For SSL certificates configuration, the protocol in **HttpListener** should change to *Https* (case sensitive). The **SslCert** element is added to **HttpListener** with the value set to the same name as used in the upload of preceding SSL certificates section. The front-end port should be updated to 443.
+**Note aggiuntive sulla configurazione**
 
-**To enable cookie-based affinity**: An application gateway can be configured to ensure that a request from a client session is always directed to the same VM in the web farm. This scenario is done by injection of a session cookie that allows the gateway to direct traffic appropriately. To enable cookie-based affinity, set **CookieBasedAffinity** to *Enabled* in the **BackendHttpSettings** element.
+Per la configurazione dei certificati SSL, il protocollo in **HttpListener** deve essere sostituito con *Https* (distinzione tra maiuscole e minuscole). L'elemento **SslCert** viene aggiunto a **HttpListener** con il valore impostato sullo stesso nome usato nella sezione precedente sul caricamento dei certificati SSL. La porta front-end deve essere impostata su 443.
 
-You can construct your configuration either by creating a configuration object or by using a configuration XML file.
-To construct your configuration by using a configuration XML file, use the following sample:
+**Per abilitare l'affinità basata sui cookie**: è possibile configurare un gateway applicazione per fare in modo che una richiesta proveniente da una sessione client sia sempre diretta alla stessa macchina virtuale nella Web farm. Questo scenario viene realizzato aggiungendo un cookie di sessione che consente al gateway di indirizzare il traffico in modo appropriato. Per abilitare l'affinità basata sui cookie, impostare **CookieBasedAffinity** su *Enabled* nell'elemento **BackendHttpSettings**.
 
-**Configuration XML sample**
+È possibile definire la configurazione creando un oggetto di configurazione oppure usando un file XML di configurazione.
+Per creare la configurazione con un file XML di configurazione, usare l'esempio seguente:
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
-        <FrontendIPConfigurations />
-        <FrontendPorts>
-            <FrontendPort>
-                <Name>FrontendPort1</Name>
-                <Port>443</Port>
-            </FrontendPort>
-        </FrontendPorts>
-        <BackendAddressPools>
-            <BackendAddressPool>
-                <Name>BackendPool1</Name>
-                <IPAddresses>
-                    <IPAddress>10.0.0.1</IPAddress>
-                    <IPAddress>10.0.0.2</IPAddress>
-                </IPAddresses>
-            </BackendAddressPool>
-        </BackendAddressPools>
-        <BackendHttpSettingsList>
-            <BackendHttpSettings>
-                <Name>BackendSetting1</Name>
-                <Port>80</Port>
-                <Protocol>Http</Protocol>
-                <CookieBasedAffinity>Enabled</CookieBasedAffinity>
-            </BackendHttpSettings>
-        </BackendHttpSettingsList>
-        <HttpListeners>
-            <HttpListener>
-                <Name>HTTPListener1</Name>
-                <FrontendPort>FrontendPort1</FrontendPort>
-                <Protocol>Https</Protocol>
-                <SslCert>GWCert</SslCert>
-            </HttpListener>
-        </HttpListeners>
-        <HttpLoadBalancingRules>
-            <HttpLoadBalancingRule>
-                <Name>HttpLBRule1</Name>
-                <Type>basic</Type>
-                <BackendHttpSettings>BackendSetting1</BackendHttpSettings>
-                <Listener>HTTPListener1</Listener>
-                <BackendAddressPool>BackendPool1</BackendAddressPool>
-            </HttpLoadBalancingRule>
-        </HttpLoadBalancingRules>
-    </ApplicationGatewayConfiguration>
+**Esempio di file XML di configurazione**
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+    <FrontendIPConfigurations />
+    <FrontendPorts>
+        <FrontendPort>
+            <Name>FrontendPort1</Name>
+            <Port>443</Port>
+        </FrontendPort>
+    </FrontendPorts>
+    <BackendAddressPools>
+        <BackendAddressPool>
+            <Name>BackendPool1</Name>
+            <IPAddresses>
+                <IPAddress>10.0.0.1</IPAddress>
+                <IPAddress>10.0.0.2</IPAddress>
+            </IPAddresses>
+        </BackendAddressPool>
+    </BackendAddressPools>
+    <BackendHttpSettingsList>
+        <BackendHttpSettings>
+            <Name>BackendSetting1</Name>
+            <Port>80</Port>
+            <Protocol>Http</Protocol>
+            <CookieBasedAffinity>Enabled</CookieBasedAffinity>
+        </BackendHttpSettings>
+    </BackendHttpSettingsList>
+    <HttpListeners>
+        <HttpListener>
+            <Name>HTTPListener1</Name>
+            <FrontendPort>FrontendPort1</FrontendPort>
+            <Protocol>Https</Protocol>
+            <SslCert>GWCert</SslCert>
+        </HttpListener>
+    </HttpListeners>
+    <HttpLoadBalancingRules>
+        <HttpLoadBalancingRule>
+            <Name>HttpLBRule1</Name>
+            <Type>basic</Type>
+            <BackendHttpSettings>BackendSetting1</BackendHttpSettings>
+            <Listener>HTTPListener1</Listener>
+            <BackendAddressPool>BackendPool1</BackendAddressPool>
+        </HttpLoadBalancingRule>
+    </HttpLoadBalancingRules>
+</ApplicationGatewayConfiguration>
+```
+
+## <a name="set-the-gateway-configuration"></a>Definire la configurazione del gateway
+
+Viene quindi impostato il gateway applicazione. È possibile usare il cmdlet `Set-AzureApplicationGatewayConfig` con un oggetto di configurazione o con un file XML di configurazione.
+
+```powershell
+Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
+```
+
+## <a name="start-the-gateway"></a>Avviare il gateway
+
+Dopo la configurazione del gateway, usare il cmdlet `Start-AzureApplicationGateway` per avviarlo. La fatturazione per un gateway applicazione verrà applicata a partire dall'avvio corretto del gateway.
+
+> [!NOTE]
+> Il completamento del cmdlet `Start-AzureApplicationGateway` potrebbe richiedere fino a 15-20 minuti.
+>
+>
+
+```powershell
+Start-AzureApplicationGateway AppGwTest
+```
+
+## <a name="verify-the-gateway-status"></a>Verificare lo stato del gateway
+
+Usare il cmdlet `Get-AzureApplicationGateway` per verificare lo stato del gateway. Se nel passaggio precedente l'operazione `Start-AzureApplicationGateway` è riuscita, lo stato (*State*) risulterà in esecuzione (Running) e le voci *VirtualIPs* e *DnsName* saranno valide.
+
+Questo esempio illustra un gateway applicazione attivo, in esecuzione e pronto per accettare il traffico
+
+```powershell
+Get-AzureApplicationGateway AppGwTest
+```
+
+```
+Name          : AppGwTest2
+Description   :
+VnetName      : testvnet1
+Subnets       : {Subnet-1}
+InstanceCount : 2
+GatewaySize   : Medium
+State         : Running
+VirtualIPs    : {23.96.22.241}
+DnsName       : appgw-4c960426-d1e6-4aae-8670-81fd7a519a43.cloudapp.net
+```
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per altre informazioni generali sulle opzioni di bilanciamento del carico, vedere:
+
+* [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
+* [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
 
-## <a name="set-the-gateway-configuration"></a>Set the gateway configuration
-Next, you set the application gateway. You can use the **Set-AzureApplicationGatewayConfig** cmdlet with either a configuration object or with a configuration XML file.
-
-    Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
-
-## <a name="start-the-gateway"></a>Start the gateway
-Once the gateway has been configured, use the **Start-AzureApplicationGateway** cmdlet to start the gateway. Billing for an application gateway begins after the gateway has been successfully started.
-
-**Note:** The **Start-AzureApplicationGateway** cmdlet might take up to 15-20 minutes to finish.
-
-    Start-AzureApplicationGateway AppGwTest
-
-## <a name="verify-the-gateway-status"></a>Verify the gateway status
-Use the **Get-AzureApplicationGateway** cmdlet to check the status of the gateway. If **Start-AzureApplicationGateway** succeeded in the previous step, *State* should be Running, and *VirtualIPs* and *DnsName* should have valid entries.
-
-This sample shows an application gateway that is up, running, and is ready to take traffic.
-
-    Get-AzureApplicationGateway AppGwTest
-
-    Name          : AppGwTest2
-    Description   :
-    VnetName      : testvnet1
-    Subnets       : {Subnet-1}
-    InstanceCount : 2
-    GatewaySize   : Medium
-    State         : Running
-    VirtualIPs    : {23.96.22.241}
-    DnsName       : appgw-4c960426-d1e6-4aae-8670-81fd7a519a43.cloudapp.net
 
 
-## <a name="next-steps"></a>Next steps
-If you want more information about load balancing options in general, see:
-
-* [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
-* [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

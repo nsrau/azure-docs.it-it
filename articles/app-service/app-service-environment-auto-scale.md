@@ -1,34 +1,38 @@
 ---
-title: Ridimensionamento automatico e ambiente del servizio app | Microsoft Docs
+title: Ridimensionamento automatico e ambiente del servizio app | Documentazione Microsoft
 description: Ridimensionamento automatico e ambiente del servizio app
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: btardif
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: c23af2d8-d370-4b1f-9b3e-8782321ddccb
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2016
+ms.date: 10/24/2016
 ms.author: byvinyal
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c02e030b442cc150f87945a48660a5ba2987a309
+
 
 ---
-# Ridimensionamento automatico e ambiente del servizio app
+# <a name="autoscaling-and-app-service-environment"></a>Ridimensionamento automatico e ambiente del servizio app
 Gli ambienti del servizio app di Azure supportano il *ridimensionamento automatico*. È possibile ridimensionare automaticamente singoli pool di lavoro in base alle metriche o alla pianificazione.
 
 ![Opzioni di ridimensionamento automatico per un pool di lavoro.][intro]
 
 Il ridimensionamento automatico consente di ottimizzare l'utilizzo delle risorse aumentando o riducendo automaticamente le risorse di un ambiente del servizio app, in base al budget o al profilo di carico.
 
-## Configurare il ridimensionamento automatico del pool di lavoro
+## <a name="configure-worker-pool-autoscale"></a>Configurare il ridimensionamento automatico del pool di lavoro
 È possibile accedere alla funzionalità di ridimensionamento automatico dalla scheda **Impostazioni** del pool di lavoro.
 
 ![Scheda Impostazioni del pool di lavoro.][settings-scale]
 
-L'interfaccia utente risulterà familiare, perché si tratta della stessa esperienza visualizzata quando si ridimensiona un piano di servizio app. Sarà possibile immettere manualmente un valore per il piano.
+L'interfaccia utente risulterà familiare, perché si tratta della stessa esperienza visualizzata quando si ridimensiona un piano di servizio app. 
 
 ![Impostazioni di ridimensionamento manuale.][scale-manual]
 
@@ -46,12 +50,12 @@ Dopo aver definito il profilo, è possibile aggiungere regole di ridimensionamen
 
  Per definire le regole di ridimensionamento automatico, è possibile usare qualsiasi metrica del pool di lavoro o del front-end. Si tratta delle stesse metriche che è possibile monitorare nei grafici del pannello delle risorse o per cui si possono impostare avvisi.
 
-## Esempio di ridimensionamento automatico
+## <a name="autoscale-example"></a>Esempio di ridimensionamento automatico
 Per illustrare il ridimensionamento automatico di un ambiente del servizio app, si userà uno scenario con procedure dettagliate.
 
 Questo articolo descrive tutte le considerazioni necessarie per configurare il ridimensionamento automatico, nonché tutte le interazioni che entrano in gioco quando si configura il ridimensionamento automatico di ambienti del servizio app ospitati in un ambiente del servizio app.
 
-### Introduzione dello scenario
+### <a name="scenario-introduction"></a>Introduzione dello scenario
 Diego è amministratore di sistema presso una società e ha eseguito la migrazione di una parte dei carichi di lavoro che gestisce a un ambiente del servizio app.
 
 L'ambiente del servizio app è configurato per la scalabilità manuale come segue:
@@ -63,7 +67,7 @@ L'ambiente del servizio app è configurato per la scalabilità manuale come segu
 
 Il pool di lavoro 1 viene usato per i carichi di lavoro di produzione, mentre il pool di lavoro 2 e il pool di lavoro 3 sono usati per il controllo di qualità e i carichi di lavoro di sviluppo.
 
-I piani di servizio app usati per il controllo di qualità e lo sviluppo sono configurati per il ridimensionamento manuale, ma il piano di servizio app di produzione è impostato per il ridimensionamento automatico, in modo da gestire le variazioni in termini di carico e traffico.
+I piani del servizio app per il controllo di qualità e lo sviluppo vengono configurati per il ridimensionamento manuale. Il piano del servizio app di produzione è impostato per il ridimensionamento automatico, in modo da adeguarsi alle variazioni del carico e del traffico.
 
 Diego ha una notevole familiarità con l'applicazione. Sa che le ore di picco di carico sono comprese tra le 9:00 e le 18:00, perché si tratta di un'applicazione di line-of-business (LOB) che i dipendenti usano mentre sono in ufficio. L'utilizzo si riduce al termine della giornata lavorativa degli utenti. Al di fuori dagli orari di picco il carico è ancora presente in parte, perché gli utenti possono accedere all'app in modalità remota usando i propri dispositivi mobili o i PC di casa. Il piano di servizio app è già configurato per il ridimensionamento automatico in base all'utilizzo della CPU con le regole seguenti:
 
@@ -98,8 +102,8 @@ Diego ha una notevole familiarità con l'applicazione. Sa che le ore di picco di
 | **Azione:** riduci numero di 1 |**Azione:** riduci numero di 1 |
 | **Disattiva regole dopo (minuti):** 20 |**Disattiva regole dopo (minuti):** 10 |
 
-### Tasso di inflazione del piano di servizio app
-I piani di servizio app configurati per il ridimensionamento automatico verranno ridimensionati automaticamente in base al tasso massimo su base oraria. Questa frequenza può essere calcolata in base ai valori specificati nella regola di ridimensionamento automatico.
+### <a name="app-service-plan-inflation-rate"></a>Tasso di inflazione del piano di servizio app
+I piani di servizio app configurati per il ridimensionamento automatico vengono ridimensionati automaticamente in base al tasso massimo su base oraria. Questa frequenza può essere calcolata in base ai valori specificati nella regola di ridimensionamento automatico.
 
 È importante comprendere e calcolare il *tasso di inflazione del piano di servizio app* per il ridimensionamento automatico dell'ambiente del servizio app, perché l'operazione di ridimensionamento del pool di lavoro non è istantanea.
 
@@ -121,18 +125,18 @@ In base alla regola Ridimensionamento automatico - Riduzione per il profilo Gior
 
 ![Tasso di inflazione del piano di servizio app per i giorni feriali basato su Ridimensionamento automatico - Regola di riduzione.][Equation3]
 
-Nel caso della regola Ridimensionamento automatico - Riduzione per il profilo Fine settimana del piano di servizio app di produzione la formula sarà la seguente:
+Nel caso della regola Ridimensionamento automatico - Riduzione per il profilo Fine settimana del piano di servizio app di produzione la formula sarà la seguente:  
 
 ![Tasso di inflazione del piano di servizio app per i fine settimana basato su Ridimensionamento automatico - Regola di riduzione.][Equation4]
 
-Questo significa che il piano di servizio app può aumentare al tasso massimo di 8 istanze all'ora durante la settimana e di 4 istanze all'ora durante il fine settimana e che può rilasciare le istanze al tasso massimo di 4 istanze all'ora durante la settimana e di 6 istanze all'ora durante il fine settimana.
+Il piano di servizio app di produzione può aumentare al tasso massimo di 8 istanze all'ora durante la settimana e di 4 istanze all'ora durante il fine settimana e può rilasciare le istanze al tasso massimo di 4 istanze all'ora durante la settimana e di 6 istanze all'ora durante il fine settimana.
 
 Se in un pool di lavoro sono ospitati più piani di servizio app, è necessario calcolare il *tasso di inflazione totale* come somma dei tassi di inflazione per tutti i piani di servizio app ospitati in quel pool di lavoro.
 
 ![Calcolo del tasso di inflazione totale per più piani di servizio app ospitati in un pool di lavoro.][ASP-Total-Inflation]
 
-### Usare il tasso di inflazione del piano di servizio app per definire le regole di ridimensionamento automatico del pool di lavoro
-Ai pool di lavoro che ospitano piani di servizio app configurati per il ridimensionamento automatico sarà necessario allocare un buffer di capacità. Il buffer consente alle operazioni di ridimensionamento automatico di aumentare e ridurre il piano di servizio app in base alle esigenze. Il buffer minimo sarà costituito dal tasso di inflazione totale calcolato per il piano di servizio app.
+### <a name="use-the-app-service-plan-inflation-rate-to-define-worker-pool-autoscale-rules"></a>Usare il tasso di inflazione del piano di servizio app per definire le regole di ridimensionamento automatico del pool di lavoro
+Ai pool di lavoro che ospitano piani di servizio app configurati per il ridimensionamento automatico è necessario allocare un buffer di capacità. Il buffer consente alle operazioni di ridimensionamento automatico di aumentare e ridurre il piano di servizio app in base alle esigenze. Il buffer minimo sarà costituito dal tasso di inflazione totale calcolato per il piano di servizio app.
 
 Poiché l'applicazione delle operazioni di ridimensionamento dell'ambiente del servizio app richiede tempo, qualsiasi modifica deve tenere conto delle ulteriori variazioni della domanda che possono verificarsi mentre è in corso un'operazione di ridimensionamento. Per questo motivo è consigliabile usare il tasso di inflazione totale calcolato per il piano di servizio app come numero minimo di istanze aggiunte per ogni operazione di ridimensionamento automatico.
 
@@ -177,10 +181,11 @@ L'aumento del numero per le regole di aumento deve essere impostato su un valore
 
 La riduzione del numero può essere regolata su un valore compreso tra la metà o una volta il tasso di inflazione del piano di servizio app per l'operazione di riduzione.
 
-### Ridimensionamento automatico per il pool front-end
-Le regole per il ridimensionamento automatico front-end sono più semplici rispetto ai pool di lavoro. Prima di tutto è necessario assicurarsi che la durata della misurazione e i timer di raffreddamento tengano presente che le operazioni di ridimensionamento in un piano di servizio app non sono istantanee.
+### <a name="autoscale-for-front-end-pool"></a>Ridimensionamento automatico per il pool front-end
+Le regole per il ridimensionamento automatico front-end sono più semplici rispetto ai pool di lavoro. È prima di tutto necessario  
+assicurarsi che la durata della misurazione e i timer di raffreddamento tengano presente che le operazioni di ridimensionamento in un piano di servizio app non sono istantanee.
 
-Per questo scenario Diego sa che il tasso di errore aumenta dopo che i front-end hanno raggiunto l'80% di utilizzo della CPU. Per evitare questo problema, imposta la regola di ridimensionamento automatico per aumentare le istanze nel modo seguente:
+Per questo scenario, Diego sa che la percentuale di errore aumenta quando i pool front-end raggiungono un utilizzo di CPU dell'80% e imposta la regola di scalabilità automatica in modo da aumentare le istanze come descritto di seguito:
 
 ![Impostazioni di ridimensionamento automatico per il pool front-end.][Front-End-Scale]
 
@@ -230,4 +235,8 @@ Per questo scenario Diego sa che il tasso di errore aumenta dopo che i front-end
 [Worker-Pool-Scale]: ./media/app-service-environment-auto-scale/wp-scale.png
 [Front-End-Scale]: ./media/app-service-environment-auto-scale/fe-scale.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

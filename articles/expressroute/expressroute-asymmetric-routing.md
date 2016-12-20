@@ -13,10 +13,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: osamazia
+ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cebf1a1712b6ba7f1f6125369703694ba19d0244
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 10166e6b8b9144f0a5dde4f2fc10b492120e85d7
 
 
 ---
@@ -64,7 +64,7 @@ Assicurarsi che gli indirizzi IP pubblici vengano annunciati ai collegamenti WAN
 
 Per usare ExpressRoute per l'autenticazione, è necessario assicurarsi che gli indirizzi IP pubblici AD FS vengano annunciati tramite ExpressRoute senza NAT. In questo modo il traffico proveniente da Microsoft e diretto a un server AD FS locale passa attraverso ExpressRoute. Il traffico di ritorno dal cliente a Microsoft usa ExpressRoute perché questa è la route predefinita su Internet.
 
-### <a name="sourcebased-nat"></a>Source NAT
+### <a name="source-based-nat"></a>Source NAT
 È possibile risolvere i problemi del routing asimmetrico anche tramite SNAT. Si supponga ad esempio che l'indirizzo IP pubblico di un server SMTP (Simple Mail Transfer Protocol) locale non sia stato annunciato tramite ExpressRoute perché si intende usare Internet per questo tipo di comunicazioni. Una richiesta originata da Microsoft e diretta al server SMTP locale attraversa Internet. Tramite SNAT la richiesta in ingresso viene inviata a un indirizzo IP interno. Il traffico inverso dal server SMTP viene indirizzato al firewall di confine, usato per NAT, invece che a ExpressRoute. Il traffico di ritorno viene restituito tramite Internet.
 
 ![Configurazione della rete con Source NAT](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
@@ -75,6 +75,6 @@ Il modo migliore per assicurarsi che il traffico attraversi il percorso previsto
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

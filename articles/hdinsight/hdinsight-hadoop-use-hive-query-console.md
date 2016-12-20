@@ -1,13 +1,13 @@
 ---
-title: Usare Hive di Hadoop in Query Console in HDInsight | Microsoft Docs
+title: Usare Hive di Hadoop in Query Console in HDInsight | Documentazione Microsoft
 description: Informazioni su come usare Query Console basata sul Web per eseguire query Hive in un cluster Hadoop di HDInsight dal browser.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 5ae074b0-f55e-472d-94a7-005b0e79f779
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/20/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dcddd23ed51c9e115b5b961547652d57513b75aa
+
 
 ---
-# Eseguire query Hive usando Query Console
+# <a name="run-hive-queries-using-the-query-console"></a>Eseguire query Hive usando Query Console
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
 In questo articolo si apprenderà come usare Query Console per eseguire query Hive in un cluster HDInsight Hadoop dal browser.
@@ -27,14 +31,14 @@ In questo articolo si apprenderà come usare Query Console per eseguire query Hi
 > 
 > 
 
-## <a id="prereq"></a>Prerequisiti
+## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Prerequisiti
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
 
 * Un cluster HDInsight Hadoop basato su Windows
 * Un Web browser moderno
 
-## <a id="run"></a> Eseguire query Hive usando Query Console
-1. Aprire un Web browser e passare a **https://CLUSTERNAME.azurehdinsight.net**, dove *_CLUSTERNAME\*\_ è il nome del cluster HDInsight. Quando richiesto, immettere il nome utente e la password usati durante la creazione del cluster.
+## <a name="a-idruna-run-hive-queries-using-the-query-console"></a><a id="run"></a> Eseguire query Hive usando Query Console
+1. Aprire un Web browser e passare a **https://CLUSTERNAME.azurehdinsight.net**, dove **CLUSTERNAME** è il nome del cluster HDInsight. Quando richiesto, immettere il nome utente e la password usati durante la creazione del cluster.
 2. Nei collegamenti nella parte superiore della pagina fare clic su **Hive Editor**. Verrà visualizzato un modulo che può essere usato per immettere le istruzioni HiveQL che si desidera eseguire nel cluster HDInsight.
    
     ![L'editor Hive](./media/hdinsight-hadoop-use-hive-query-console/queryconsole.png)
@@ -61,17 +65,17 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
      > 
    * **ROW FORMAT**: indica a Hive il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.
    * **STORED AS TEXTFILE LOCATION**: indica a Hive dove sono archiviati i dati (la directory example/data) e che sono archiviati come testo.
-   * **SELECT**: seleziona un numero di tutte le righe in cui la colonna **t4** include il valore **[ERROR]**. Dovrebbe restituire un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.
-   * **INPUT\_\_FILE\_\_NAME come '%.log'** -indica ad Hive che si dovrebbero restituire solo i dati da file che terminano con. log. Questo limita la ricerca al file sample. log che contiene i dati, ed evita la restituzione di dati da altri file di dati di esempio che non corrispondono allo schema che è stato definito.
+   * **SELECT**: seleziona il numero di tutte le righe in cui la colonna **t4** include il valore **[ERROR]**. Dovrebbe restituire un valore pari a **3** , poiché sono presenti tre righe contenenti questo valore.
+   * **INPUT__FILE__NAME come '%.log'** - indica a Hive che si dovrebbero restituire solo i dati da file che terminano con .log. Questo limita la ricerca al file sample. log che contiene i dati, ed evita la restituzione di dati da altri file di dati di esempio che non corrispondono allo schema che è stato definito.
 3. Fare clic su **Submit**. L'opzione **Job Session** nella parte inferiore della pagina dovrebbe visualizzare i dettagli del processo.
-4. Quando il campo **Status** viene impostato su **Completed**, fare clic su **View Details** per il processo. Nella pagina dei dettagli il campo **Job Output** contiene `[ERROR]    3`. È possibile usare il pulsante **Download** al di sotto di questo campo per scaricare un file contenente l'output del processo.
+4. Quando il campo **Status** (Stato) viene impostato su **Completed** (Operazione completata), fare clic su **View Details** (Visualizza dettagli) per il processo. Nella pagina dei dettagli il campo **Job Output** (Output processo) contiene `[ERROR]    3`. È possibile usare il pulsante **Download** al di sotto di questo campo per scaricare un file contenente l'output del processo.
 
-## <a id="summary"></a>Riepilogo
+## <a name="a-idsummaryasummary"></a><a id="summary"></a>Riepilogo
 Come è possibile notare, Query Console fornisce un modo semplice per eseguire query Hive in un cluster HDInsight, monitorare lo stato del processo e recuperare l'output.
 
 Per altre informazioni sull'uso Query Console di Hive per eseguire processi Hive, fare clic su **Getting Started** nella parte superiore di Query Console, quindi usare gli esempi. Ogni esempio illustra il processo di utilizzo di Hive per l'analisi dei dati, fornendo anche spiegazioni sulle istruzioni HiveQL usate nell'esempio.
 
-## <a id="nextsteps"></a>Passaggi successivi
+## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Passaggi successivi
 Per informazioni generali su Hive in HDInsight:
 
 * [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
@@ -119,4 +123,8 @@ Se si usa Tez con Hive, vedere i documenti seguenti per le informazioni di debug
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

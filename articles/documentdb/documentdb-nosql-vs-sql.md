@@ -1,33 +1,38 @@
 ---
-title: Quando usare NoSQL o SQL | Microsoft Docs
-description: Confrontare i vantaggi dell'uso di soluzioni non relazionali NoSQL e di soluzioni SQL. Informazioni per stabilire se sia più adatto al proprio scenario uno dei servizi NoSQL di Microsoft Azure o SQL Server.
+title: Quando usare NoSQL o SQL | Documentazione Microsoft
+description: "Confrontare i vantaggi dell&quot;uso di soluzioni non relazionali NoSQL e di soluzioni SQL. Informazioni per stabilire se sia più adatto al proprio scenario uno dei servizi NoSQL di Microsoft Azure o SQL Server."
 keywords: NoSQL e SQL, quando usare NoSQL, SQL e NoSQL
 services: documentdb
-documentationcenter: ''
+documentationcenter: 
 author: mimig1
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 71ef1798-d709-4ccb-9f5c-57948fb96229
 ms.service: documentdb
+ms.custom: overview
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/24/2016
+ms.date: 11/22/2016
 ms.author: mimig
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 84b0b4121e8fc10bdfd3b5daf7fff280dc301d28
+
 
 ---
-# NoSQL e SQL
-SQL Server e i database relazionali (RDBMS) hanno costituito l'ideale di database per più di 20 anni, ma la sempre maggiore necessità di elaborare velocemente volumi più elevati e diversi tipi di dati ha cambiato la natura delle esigenze di archiviazione per gli sviluppatori di applicazioni. Nell'ambito di questo scenario, i database NoSQL che consentono l'archiviazione di dati non strutturati ed eterogenei su larga scala sono diventati sempre più popolari.
+# <a name="nosql-vs-sql"></a>NoSQL e SQL
+SQL Server e i database relazionali (RDBMS) hanno costituito l'ideale di database per più di 20 anni, ma la sempre maggiore necessità di elaborare rapidamente velocità e volumi più elevati e diversi tipi di dati ha cambiato la natura delle esigenze di archiviazione per gli sviluppatori di applicazioni. Nell'ambito di questo scenario, i database NoSQL che consentono l'archiviazione di dati non strutturati ed eterogenei su larga scala sono diventati sempre più popolari. Per la maggior parte degli sviluppatori, i database relazionali costituiscono l'opzione predefinita o ideale poiché la struttura tabulare è familiare e facile da comprendere. Esistono tuttavia molti motivi per non limitarsi ai database relazionali.
 
 NoSQL è una categoria di database del tutto diversa dai database SQL. Il termine NoSQL viene spesso usato in riferimento ai sistemi di gestione dati "non SQL" o per indicare un approccio alla gestione dati che includa "non solo SQL". La categoria NoSQL include diverse tecnologie, tra cui database di documenti, archivi di valori chiave, archivi di famiglie di colonne e database di grafici, molto comuni nelle app di gioco, per i social network e IoT.
 
 ![Diagramma della panoramica di NoSQL e SQL che illustra gli scenari e i modelli di dati comuni](./media/documentdb-nosql-vs-sql/nosql-vs-sql-overview.png)
 
-L'obiettivo di questo articolo è illustrare le differenze tra NoSQL e SQL e presentare le offerte relative a NoSQL e SQL di Microsoft.
+L'obiettivo di questo articolo è illustrare le differenze tra NoSQL e SQL e presentare le offerte relative a NoSQL e SQL di Microsoft.  
 
-## Quando usare NoSQL?
-Si immagini di compilare un nuovo sito di social engagement. Gli utenti possono creare post a cui aggiungere immagini, video e brani musicali. Gli altri utenti possono commentare i post e assegnare punti (mi piace) per classificare i post. La pagina di destinazione includerà un feed di post che gli utenti possono condividere e con cui possono interagire.
+## <a name="when-to-use-nosql"></a>Quando usare NoSQL?
+Si immagini di compilare un nuovo sito di social engagement. Gli utenti possono creare post a cui aggiungere immagini, video e brani musicali. Gli altri utenti possono commentare i post e assegnare punti (mi piace) per classificare i post. La pagina di destinazione includerà un feed di post che gli utenti possono condividere e con cui possono interagire. 
 
 Come si archiviano quindi questi dati? Se si ha familiarità con SQL, è possibile iniziare a progettare qualcosa di simile a questo:
 
@@ -35,7 +40,7 @@ Come si archiviano quindi questi dati? Se si ha familiarità con SQL, è possibi
 
 Ora però si consideri la struttura di un singolo post e come visualizzarla. Per visualizzare il post e le immagini, il video, i commenti, i punti e le informazioni utente associati in un sito Web o in un'applicazione, sarà necessario eseguire una query con otto join di tabella solo per recuperare il contenuto. Si pensi ora a un flusso di post che vengono caricati e visualizzati in modo dinamico. Come si può immaginare, saranno necessarie migliaia di query e numerosi join per completare l'attività.
 
-Ora è possibile usare una soluzione relazionale come SQL Server per archiviare i dati, ma esiste un'altra opzione, un'opzione NoSQL che semplifica l'approccio. Trasformando il post in un documento JSON come il seguente e archiviandolo in DocumentDB, un servizio database di documenti NoSQL di Azure, è possibile aumentare le prestazioni e recuperare l'intero post con una query e nessun join. È un risultato più semplice, più facile e più efficace.
+A questo punto è possibile usare una soluzione relazionale come SQL Server per archiviare i dati ed eseguire query tramite join, poiché SQL supporta dati dinamici [in formato JSON](https://msdn.microsoft.com/library/dn921897.aspx). Esiste tuttavia un'alternativa: un'opzione NoSQL che semplifica l'approccio per questo scenario specifico. Usando un singolo documento come il seguente e archiviandolo in DocumentDB, un servizio database di documenti NoSQL di Azure, è possibile aumentare le prestazioni e recuperare l'intero post con una query e nessun join. È un risultato più semplice, più facile e più efficace.
 
     {
         "id":"ew12-res2-234e-544f",
@@ -54,7 +59,7 @@ Ora è possibile usare una soluzione relazionale come SQL Server per archiviare 
         ]
     }
 
-Questi dati possono anche essere partizionati in base all'ID post consentendo l'aumento naturale del numero di istanze dei dati e sfruttando le caratteristiche di scalabilità di NoSQL. I sistemi NoSQL consentono agli sviluppatori anche di ridurre la coerenza e di offrire app a disponibilità elevata. Infine questa soluzione non richiede agli sviluppatori di definire, gestire e mantenere lo schema nel livello dati consentendo una rapida iterazione.
+Questi dati possono anche essere partizionati in base all'ID post consentendo l'aumento naturale del numero di istanze dei dati e sfruttando le caratteristiche di scalabilità di NoSQL. I sistemi NoSQL consentono anche agli sviluppatori di ridurre la coerenza e offrire app a disponibilità elevata e bassa latenza.  Infine questa soluzione non richiede agli sviluppatori di definire, gestire e mantenere lo schema nel livello dati consentendo una rapida iterazione.
 
 È quindi possibile compilare questa soluzione usando altri servizi di Azure:
 
@@ -64,65 +69,70 @@ Questi dati possono anche essere partizionati in base all'ID post consentendo l'
 * [Database SQL di Azure](https://azure.microsoft.com/services/sql-database/) può essere usato per archiviare grandi quantità di dati, ad esempio le informazioni di accesso, e i dati per l'analisi di utilizzo.
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) può essere usato per creare conoscenze e informazioni che possono fornire feedback al processo e consentono di distribuire il contenuto a seconda degli utenti.
 
-Questo sito di social engagement è solo uno scenario in cui un database NoSQL è il modello di dati appropriato per il processo. Per altre informazioni su questo scenario e su come modellare i dati per DocumentDB in applicazioni per social media, vedere [Integrazione con i social con DocumentDB](documentdb-social-media-apps.md).
+Questo sito di social engagement è solo uno scenario in cui un database NoSQL è il modello di dati appropriato per il processo. Per altre informazioni su questo scenario e su come modellare i dati per DocumentDB in applicazioni per social media, vedere [Integrazione con i social con DocumentDB](documentdb-social-media-apps.md). 
 
-## Confronto tra NoSQL e SQL
-La tabella seguente confronta le principali differenze tra NoSQL e SQL.
+## <a name="nosql-vs-sql-comparison"></a>Confronto tra NoSQL e SQL
+La tabella seguente confronta le principali differenze tra NoSQL e SQL. 
 
 ![Diagramma di NoSQL e SQL che illustra quando usare NoSQL e quando usare SQL. Confronto tra SQL e NoSQL](./media/documentdb-nosql-vs-sql/nosql-vs-sql-comparison.png)
 
 Se un database NoSQL è più adatto ai propri requisiti, continuare con la sezione successiva per saperne di più sui servizi NoSQL disponibili in Azure. In caso contrario, se un database SQL è più adatto alle proprie esigenze, passare a [Quali sono le offerte per Microsoft SQL?](#what-are-the-microsoft-sql-offerings)
 
-## Quali sono le offerte per NoSQL di Microsoft Azure?
-Azure ha quattro servizi NoSQL completamente gestiti:
+## <a name="what-are-the-microsoft-azure-nosql-offerings"></a>Quali sono le offerte per NoSQL di Microsoft Azure?
+Azure ha quattro servizi NoSQL completamente gestiti: 
 
 * [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)
 * [Archivio tabelle di Azure](https://azure.microsoft.com/services/storage/)
 * [HBase di Azure come parte di HDInsight](https://azure.microsoft.com/services/hdinsight/)
 * [Cache Redis di Azure](https://azure.microsoft.com/services/cache/)
 
-Il grafico di confronto seguente evidenzia i principali fattori di differenziazione per ogni servizio. Quale descrive in modo più preciso le esigenze dell'applicazione?
+Il grafico di confronto seguente evidenzia i principali fattori di differenziazione per ogni servizio. Quale descrive in modo più preciso le esigenze dell'applicazione? 
 
 ![Diagramma di NoSQL e SQL che illustra quando usare le offerte per NoSQL di Microsoft Azure, inclusi DocumentDB, l'archivio tabelle, HBase come parte di HDInsight e Redis Cache](./media/documentdb-nosql-vs-sql/nosql-vs-sql-documentdb-storage-hbase-hdinsight-redis-cache.png)
 
-Se uno o più di questi servizi possono soddisfare le esigenze dell'applicazione, è possibile ottenere altre informazioni dalle risorse seguenti:
+Se uno o più di questi servizi possono soddisfare le esigenze dell'applicazione, è possibile ottenere altre informazioni dalle risorse seguenti: 
 
 * [Percorso di apprendimento per DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/) e [Casi di utilizzo di DocumentDB](documentdb-use-cases.md)
 * [Introduzione all'archivio tabelle di Azure](../storage/storage-dotnet-how-to-use-tables.md)
 * [Che cos'è HBase in HDInsight](../hdinsight/hdinsight-hbase-overview.md)
 * [Percorso di apprendimento di Cache Redis](https://azure.microsoft.com/documentation/learning-paths/redis-cache/)
 
-Per informazioni sulla versione di prova gratuita, andare a [Passaggi successivi](#next-steps).
+Per informazioni sulla versione di prova gratuita, andare a [Passaggi successivi](#next-steps) .
 
-## Quali sono le offerte per Microsoft SQL?
-Microsoft ha cinque offerte per SQL:
+## <a name="what-are-the-microsoft-sql-offerings"></a>Quali sono le offerte per Microsoft SQL?
+Microsoft ha cinque offerte per SQL: 
 
 * [Database SQL di Azure](https://azure.microsoft.com/services/sql-database/)
 * [SQL Server in Macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/)
 * [SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)
-* [Azure SQL Data Warehouse (anteprima)](https://azure.microsoft.com/services/sql-data-warehouse/)
-* [Piattaforma di strumenti analitici (appliance locale)](https://www.microsoft.com/it-IT/server-cloud/products/analytics-platform-system/)
+* [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/)
+* [Piattaforma di strumenti analitici (appliance locale)](https://www.microsoft.com/en-us/server-cloud/products/analytics-platform-system/)
 
 Se si è interessati a SQL Server in una macchina virtuale o al database SQL, vedere [Scegliere un'opzione di SQL Server cloud: database SQL di Azure (PaaS) o SQL Server in VM di Azure (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md) per altre informazioni sulle differenze tra le due opzioni.
 
 Se si ritiene che SQL sia l'opzione migliore, vedere [SQL Server](https://www.microsoft.com/server-cloud/products/) per altre informazioni sulle caratteristiche dei prodotti e servizi Microsoft SQL.
 
-Per informazioni sulla versione di prova gratuita e i collegamenti per la valutazione, andare a [Passaggi successivi](#next-steps).
+Per informazioni sulla versione di prova gratuita e i collegamenti per la valutazione, andare a [Passaggi successivi](#next-steps) .
 
-## Passaggi successivi
-Per conoscere meglio i prodotti SQL e NoSQL, è possibile provarli gratuitamente.
+## <a name="next-steps"></a>Passaggi successivi
+Per conoscere meglio i prodotti SQL e NoSQL, è possibile provarli gratuitamente. 
 
 * Per tutti i servizi di Azure, è possibile iscriversi a una [versione di prova gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/) e ricevere 200 dollari da spendere per qualsiasi servizio di Azure.
   
   * [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)
   * [HBase di Azure come parte di HDInsight](https://azure.microsoft.com/services/hdinsight/)
   * [Cache Redis di Azure](https://azure.microsoft.com/services/cache/)
-  * [Azure SQL Data Warehouse (anteprima)](https://azure.microsoft.com/services/sql-data-warehouse/)
+  * [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/)
   * [Database SQL di Azure](https://azure.microsoft.com/services/sql-database/)
-  * [Archivio tabelle di Azure](https://azure.microsoft.com/services/storage/)
-* È possibile attivare una [versione di valutazione di SQL Server 2016 in una macchina virtuale](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016ctp33evaluationwindowsserver2012r2/) o scaricare una [versione di valutazione di SQL Server](https://www.microsoft.com/it-IT/evalcenter/evaluate-sql-server-2016).
+  * [Archiviazione tabelle di Azure](https://azure.microsoft.com/services/storage/)
+* È possibile attivare una [versione di valutazione di SQL Server 2016 in una macchina virtuale](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016ctp33evaluationwindowsserver2012r2/) o scaricare una [versione di valutazione di SQL Server](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2016).
   
   * [SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)
   * [SQL Server in Macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/)
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

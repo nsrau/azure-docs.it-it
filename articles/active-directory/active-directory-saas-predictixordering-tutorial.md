@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Predictix Ordering | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Predictix Ordering.
+title: 'Esercitazione: Integrazione di Azure Active Directory con Predictix Ordering | Documentazione Microsoft'
+description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Predictix Ordering.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 2fe2f976-e97f-4368-9695-3e1624409e8b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,202 +14,206 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b8eab5dd14cf6e3e29cfa9fc62d4a1101a17bec2
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-predictix-ordering"></a>Tutorial: Azure Active Directory integration with Predictix Ordering
-In this tutorial, you learn how to integrate Predictix Ordering with Azure Active Directory (Azure AD).
+# <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>Esercitazione: Integrazione di Azure Active Directory con Predictix Ordering
+Questa esercitazione descrive come integrare Predictix Ordering con Azure Active Directory (Azure AD).
 
-Integrating Predictix Ordering with Azure AD provides you with the following benefits:
+L'integrazione di Predictix Ordering con Azure AD offre i vantaggi seguenti:
 
-* You can control in Azure AD who has access to Predictix Ordering
-* You can enable your users to automatically get signed-on to Predictix Ordering (Single Sign-On) with their Azure AD accounts
-* You can manage your accounts in one central location - the Azure classic portal
+* È possibile controllare in Azure AD chi può accedere a Predictix Ordering
+* È possibile abilitare gli utenti per l'accesso automatico a Predictix Ordering (Single Sign-On) con i propri account Azure AD
+* È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisites
-To configure Azure AD integration with Predictix Ordering, you need the following items:
+## <a name="prerequisites"></a>Prerequisiti
+Per configurare l'integrazione di Azure AD con Predictix Ordering, sono necessari gli elementi seguenti:
 
-* An Azure AD subscription
-* A Predictix Ordering single-sign on enabled subscription
+* Sottoscrizione di Azure AD.
+* Sottoscrizione di Predictix Ordering abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
+> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
 > 
 > 
 
-To test the steps in this tutorial, you should follow these recommendations:
+A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
-* You should not use your production environment, unless this is necessary.
-* If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* Non usare l'ambiente di produzione, a meno che non sia necessario.
+* Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="scenario-description"></a>Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment.
+## <a name="scenario-description"></a>Descrizione dello scenario
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-The scenario outlined in this tutorial consists of two main building blocks:
+Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
-1. Adding Predictix Ordering from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Aggiunta di Predictix Ordering dalla raccolta
+2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
-## <a name="adding-predictix-ordering-from-the-gallery"></a>Adding Predictix Ordering from the gallery
-To configure the integration of Predictix Ordering into Azure AD, you need to add Predictix Ordering from the gallery to your list of managed SaaS apps.
+## <a name="adding-predictix-ordering-from-the-gallery"></a>Aggiunta di Predictix Ordering dalla raccolta
+Per configurare l'integrazione di Predictix Ordering in Azure AD, è necessario aggiungerla dalla raccolta al proprio elenco di app SaaS gestite.
 
-**To add Predictix Ordering from the gallery, perform the following steps:**
+**Per aggiungere Predictix Ordering dalla raccolta, seguire questa procedura:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+1. Nel **portale di Azure classico**fare clic su **Active Directory**nel riquadro di spostamento sinistro.
    
     ![Active Directory][1]
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
+2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
    
     ![Applications][2]
-4. Click **Add** at the bottom of the page.
+4. Fare clic su **Add** nella parte inferiore della pagina.
    
-    ![Applications][3]
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+    ![Applicazioni][3]
+5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
    
-    ![Applications][4]
-6. In the search box, type **Predictix Ordering**.
+    ![Applicazioni][4]
+6. Nella casella di ricerca digitare **Predictix Ordering**.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_01.png)
-7. In the results pane, select **Predictix Ordering**, and then click **Complete** to add the application.
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_01.png)
+7. Nel riquadro dei risultati selezionare **Predictix Ordering** e quindi fare clic su **Completa** per aggiungere l'applicazione.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_02.png)
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Predictix Ordering based on a test user called "Britta Simon".
+## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Predictix Ordering usando un utente test di nome "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Predictix Ordering is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Predictix Ordering needs to be established.
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Predictix Ordering che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Predictix Ordering.
 
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Predictix Ordering.
+La relazione di collegamento viene stabilita assegnando al valore di **nome utente** in Azure AD lo stesso valore di **Username** (Nome utente) in Predictix Ordering.
 
-To configure and test Azure AD single sign-on with Predictix Ordering, you need to complete the following building blocks:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Predictix Ordering, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Predictix Ordering test user](#creating-a-predictix-price-reporting-test-user)** - to have a counterpart of Britta Simon in Predictix Ordering that is linked to the Azure AD representation of her.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+3. **[Creazione di un utente test di Predictix Ordering](#creating-a-predictix-price-reporting-test-user)**: per avere una controparte di Britta Simon in Predictix Ordering che sia collegata alla relativa rappresentazione in Azure AD.
+4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD single sign-on
-In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your Predictix Ordering application.
+### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale classico e viene configurato l'accesso Single Sign-On nell'applicazione Predictix Ordering.
 
-**To configure Azure AD single sign-on with Predictix Ordering, perform the following steps:**
+**Per configurare l'accesso Single Sign-On di Azure AD con Predictix Ordering, seguire questa procedura:**
 
-1. In the classic portal, on the **Predictix Ordering** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+1. Nella pagina di integrazione dell'applicazione **Predictix Ordering** del portale classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
-    ![Configure Single Sign-On][6] 
-2. On the **How would you like users to sign on to Predictix Ordering** page, select **Azure AD Single Sign-On**, and then click **Next**.
+    ![Configura accesso Single Sign-On][6] 
+2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Predictix Ordering** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_03.png) 
-3. On the **Configure App Settings** dialog page, perform the following steps:
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_03.png) 
+3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
    
-    ![Configure Single Sign-On](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_04.png) 
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_04.png) 
    
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Predictix Ordering application using the following pattern: **https://\<company name-pricing\>.ordering.predictix.com/sso/request**.
+    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione Predictix Ordering usando il modello seguente: **https://\<nome azienda-prezzi\>.ordering.predictix.com/sso/request**.
    
-    b. click **Next**
-4. On the **Configure single sign-on at Predictix Ordering** page, perform the following steps:
+    b. click **Avanti**
+4. Nella pagina **Configura accesso Single Sign-On in Predictix Ordering** seguire questa procedura:
    
-    ![Configure Single Sign-On](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_05.png)
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_05.png)
    
-    a. Click **Download certificate**, and then save the file on your computer.
+    a. Fare clic su **Scarica certificato**e quindi salvare il file nel computer.
    
-    b. Click **Next**.
-5. To get SSO configured for your application, contact Predictix Ordering support team and provide them with the following:
+    b. Fare clic su **Next**.
+5. Per ottenere l'accesso Single Sign-On configurato per l'applicazione, contattare il team di supporto tecnico di Predictix Ordering e comunicare gli elementi seguenti:
    
-    • The downloaded certificate
+    • Certificato scaricato
    
-    • The **Entity ID**
+    • **ID entità**
    
-    • The **SAML SSO URL**
+    • **URL SSO SAML**
    
-    • The **Single Sign Out Service URL**
-6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+    • **URL del servizio Single Sign-Out**
+6. Nel portale classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
    
-    ![Azure AD Single Sign-On][10]
-7. On the **Single sign-on confirmation** page, click **Complete**.  
+    ![Single Sign-On di Microsoft Azure AD][10]
+7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.  
    
-    ![Azure AD Single Sign-On][11]
+    ![Single Sign-On di Microsoft Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-In this section, you create a test user in the classic portal called Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+In questa sezione viene creato un utente test chiamato Britta Simon nel portale classico.
 
-![Create Azure AD User][20]
+![Creare un utente di Azure AD][20]
 
-**To create a test user in Azure AD, perform the following steps:**
+**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_09.png) 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-3. To display the list of users, in the menu on the top, click **Users**.
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_09.png) 
+2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+3. Per visualizzare l'elenco di utenti, fare clic su **Utenti**nel menu in alto.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_03.png) 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_03.png) 
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_04.png) 
-5. On the **Tell us about this user** dialog page, perform the following steps:  ![Creating an Azure AD test user](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_05.png) 
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_04.png) 
+5. Nella pagina **Informazioni sull'utente** seguire questa procedura:  ![Creazione di un utente test di Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_05.png) 
    
-    a. As Type Of User, select New user in your organization.
+    a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
    
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
    
-    c. Click **Next**.
-6. On the **User Profile** dialog page, perform the following steps: ![Creating an Azure AD test user](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_06.png) 
+    c. Fare clic su **Avanti**.
+6. Nella pagina **Profilo utente** seguire questa procedura: ![Creazione di un utente test di Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_06.png) 
    
-   a. In the **First Name** textbox, type **Britta**.  
+   a. Nella casella di testo **Nome** digitare **Britta**.  
    
-   b. In the **Last Name** textbox, type, **Simon**.
+   b. Nella casella di testo **Cognome** digitare **Simon**.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+   c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
    
-   d. In the **Role** list, select **User**.
+   d. Nell'elenco **Ruolo** selezionare **Utente**.
    
-   e. Click **Next**.
-7. On the **Get temporary password** dialog page, click **create**.
+   e. Fare clic su **Avanti**.
+7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_07.png) 
-8. On the **Get temporary password** dialog page, perform the following steps:
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_07.png) 
+8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_08.png) 
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_08.png) 
    
-    a. Write down the value of the **New Password**.
+    a. Prendere nota del valore visualizzato in **Nuova password**.
    
-    b. Click **Complete**.   
+    b. Fare clic su **Complete**.   
 
-### <a name="creating-an-predictix-ordering-test-user"></a>Creating an Predictix Ordering test user
-In this section, you create a user called Britta Simon in Predictix Ordering. Please work with Predictix Ordering support team to add the users in the Predictix Ordering platform.
+### <a name="creating-an-predictix-ordering-test-user"></a>Creazione di un utente test di Predictix Ordering
+In questa sezione viene creato un utente di nome Britta Simon in Predictix Ordering. Per aggiungere gli utenti nella piattaforma di Predictix Ordering, contattare il team di supporto tecnico di Predictix Ordering.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Predictix Ordering.
+### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure, concedendole così accesso a Predictix Ordering.
 
-![Assign User][200] 
+![Assegna utente][200] 
 
-**To assign Britta Simon to Predictix Ordering, perform the following steps:**
+**Per assegnare Britta Simon a Predictix Ordering, seguire questa procedura:**
 
-1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+1. Per aprire la visualizzazione delle applicazioni nel portale classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
    
-    ![Assign User][201] 
-2. In the applications list, select **Predictix Ordering**.
+    ![Assegna utente][201] 
+2. Nell'elenco delle applicazioni selezionare **Predictix Ordering**.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_50.png) 
-3. In the menu on the top, click **Users**.
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_50.png) 
+3. Scegliere **Utenti**dal menu in alto.
    
-    ![Assign User][203]
-4. In the Users list, select **Britta Simon**.
-5. In the toolbar on the bottom, click **Assign**.
+    ![Assegna utente][203]
+4. Nell'elenco di utenti selezionare **Britta Simon**.
+5. Fare clic su **Assegna**sulla barra degli strumenti in basso.
    
-    ![Assign User][205]
+    ![Assegna utente][205]
 
-### <a name="testing-single-sign-on"></a>Testing single sign-on
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-When you click the Predictix Ordering tile in the Access Panel, you should get automatically signed-on to your Predictix Ordering application.
+Quando si fa clic sul riquadro Predictix Ordering nel pannello di accesso, verrà eseguito automaticamente l'accesso all'applicazione Predictix Ordering.
 
-## <a name="additional-resources"></a>Additional resources
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+## <a name="additional-resources"></a>Risorse aggiuntive
+* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 
@@ -230,6 +234,7 @@ When you click the Predictix Ordering tile in the Access Panel, you should get a
 [205]: ./media/active-directory-saas-predictix-ordering-tutorial/tutorial_general_205.png
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

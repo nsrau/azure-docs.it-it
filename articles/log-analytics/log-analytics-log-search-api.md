@@ -1,12 +1,12 @@
 ---
-title: API REST di ricerca nei log di Log Analytics | Microsoft Docs
-description: Questa guida contiene un'esercitazione di base che descrive come usare l'API REST di ricerca di Log Analytics in Operations Management Suite (OMS) e offre esempi che indicano come usare i comandi.
+title: API REST di ricerca nei log di Log Analytics | Documentazione Microsoft
+description: Questa guida contiene un&quot;esercitazione di base che descrive come usare l&quot;API REST di ricerca di Log Analytics in Operations Management Suite (OMS) e offre esempi che indicano come usare i comandi.
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: b4e9ebe8-80f0-418e-a855-de7954668df7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 81dd7d9dc799f6f4c0dd54a12409724c182a0349
+
 
 ---
 # <a name="log-analytics-log-search-rest-api"></a>API REST di Log Analytics per la ricerca nei log
@@ -93,7 +97,7 @@ L'API REST di ricerca di Log Analytics è RESTful e accessibile tramite l'API Az
 ## <a name="log-analytics-search-rest-api-reference-examples"></a>Esempi di riferimento per l'API REST di ricerca di Log Analytics
 I codici di esempio seguenti mostrano come usare l’API di ricerca.
 
-### <a name="search---action/read"></a>Ricerca - Azione/Lettura
+### <a name="search---actionread"></a>Ricerca - Azione/Lettura
 **Url di esempio:**
 
 ```
@@ -179,7 +183,7 @@ La tabella seguente descrive le proprietà disponibili.
     }
 ```
 
-### <a name="search/{id}---action/read"></a>Ricerca/{ID} - Azione/Lettura
+### <a name="searchid---actionread"></a>Ricerca/{ID} - Azione/Lettura
 **Richiedere il contenuto di una ricerca salvata:**
 
 ```
@@ -356,7 +360,7 @@ Di seguito viene riportata una risposta di esempio per un gruppo di computer.
         "Tags": [{
             "Name": "Group",
             "Value": "Computer"
-        }],
+          }],
     "Version": 1
     }
 
@@ -395,6 +399,9 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 ## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni su come creare query usando i campi personalizzati come criteri, vedere l'articolo relativo alle [ricerche nei log](log-analytics-log-searches.md) .
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

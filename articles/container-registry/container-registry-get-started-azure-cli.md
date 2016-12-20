@@ -96,12 +96,12 @@ az acr credential show -n myRegistry
 
 ### <a name="enable-admin-user-for-an-existing-registry"></a>Abilitare l'utente amministratore per un registro esistente
 ```azurecli
-az acr update -n myRegistry --enable-admin
+az acr update -n myRegistry --admin-enabled true
 ```
 
 ### <a name="disable-admin-user-for-an-existing-registry"></a>Disabilitare l'utente amministratore per un registro esistente
 ```azurecli
-az acr update -n myRegistry --disable-admin
+az acr update -n myRegistry --admin-enabled false
 ```
 
 ## <a name="list-images-and-tags"></a>Elencare immagini e tag

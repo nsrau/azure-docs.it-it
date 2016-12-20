@@ -1,13 +1,13 @@
 ---
-title: Dashboard di Power BI su Analisi di flusso| Microsoft Docs
+title: Dashboard di Power BI su Analisi di flusso | Documentazione Microsoft
 description: Utilizzare un dashboard di Power BI streaming in tempo reale per raccogliere intelligence aziendali e analizzare i dati di volumi elevati di un processo di Analisi di flusso.
 keywords: dashboard di analisi, dashboard in tempo reale
 services: stream-analytics
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: fe8db732-4397-4e58-9313-fec9537aa2ad
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,28 +15,32 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 09/26/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c954e85aa61803b4afe82c2e9d30729035ac094f
+
 
 ---
-# Analisi di flusso e Power BI: un dashboard di analisi in tempo reale per il flusso di dati
+# <a name="stream-analytics-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Analisi di flusso e Power BI: un dashboard di analisi in tempo reale per il flusso di dati
 Analisi di flusso di Azure consente l’uso di uno dei principali strumenti di business intelligence, Microsoft Power BI. Imparare a usare Analisi di flusso di Azure per l'analisi di volumi elevati di flussi di dati e per ottenere informazioni in un dashboard di analisi di Power BI in tempo reale.
 
 Utilizzare [Microsoft Power BI](https://powerbi.com/) per creare rapidamente un dashboard in tempo reale. [Guardare un video che illustra lo scenario](https://www.youtube.com/watch?v=SGUpT-a99MA).
 
 Questo articolo descrive come creare strumenti di business intelligence personalizzati usando Power BI come output per i processi di Analisi di flusso di Azure e usando un dashboard in tempo reale.
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Account di Microsoft Azure
-* Un input per il processo di Analisi di flusso da cui utilizzare il flusso di dati. Analisi di flusso accetta l'input dall'hub eventi di Azure o dell’archiviazione BLOB di Azure.
+* Un input per il processo di Analisi di flusso da cui utilizzare il flusso di dati. Analisi di flusso accetta l'input dall'hub eventi di Azure o dell’archiviazione BLOB di Azure.  
 * Account aziendale o dell'istituto di istruzione per Power BI
 
-## Creare processi di analisi di flusso di Azure
+## <a name="create-azure-stream-analytics-job"></a>Creare processi di analisi di flusso di Azure
 Dal [portale di Azure classico](https://manage.windowsazure.com), fare clic su **Nuovo, Servizi dati, Analisi di flusso, Creazione rapida**.
 
 Specificare i valori seguenti, quindi fare clic su **Crea processo di analisi dei flussi**:
 
-* **Nome processo**: immettere un nome per il processo. Ad esempio, **DeviceTemperatures**.
-* **Area**: selezionare l’area in cui collocare il processo. Considerare la possibilità di collocare il processo e l’hub eventi nella stessa area per garantire prestazioni ottimali ed evitare di incorrere in costi di trasferimento dei dati tra le aree.
-* **Account di archiviazione**: scegliere l'account di archiviazione da usare per archiviare i dati di monitoraggio per tutti i processi di Analisi dei flussi in esecuzione all'interno dell'area scelta. È possibile scegliere un account di archiviazione esistente o crearne uno nuovo.
+* **Nome processo** : immettere un nome per il processo. Ad esempio, **DeviceTemperatures**.
+* **Area** : selezionare l’area in cui collocare il processo. Considerare la possibilità di collocare il processo e l’hub eventi nella stessa area per garantire prestazioni ottimali ed evitare di incorrere in costi di trasferimento dei dati tra le aree.
+* **Account di archiviazione** : scegliere l'account di archiviazione da usare per archiviare i dati di monitoraggio per tutti i processi di Analisi dei flussi in esecuzione all'interno dell'area scelta. È possibile scegliere un account di archiviazione esistente o crearne uno nuovo.
 
 Fare clic su **Analisi dei flussi** nel riquadro sinistro per visualizzare un elenco dei processi di Analisi dei flussi.
 
@@ -47,7 +51,7 @@ Fare clic su **Analisi dei flussi** nel riquadro sinistro per visualizzare un el
 > 
 > 
 
-## Specificare l'input del processo
+## <a name="specify-job-input"></a>Specificare l'input del processo
 Per questa esercitazione, si presuppone che l’utente utilizzi l’hub di eventi come input con serializzazione JSON e codifica UTF-8.
 
 * Fare clic sul nome del processo.
@@ -56,7 +60,7 @@ Per questa esercitazione, si presuppone che l’utente utilizzi l’hub di event
 * Selezionare **Hub eventi**, quindi fare clic sul pulsante a destra.
 * Digitare o selezionare i valori seguenti nella terza pagina:
   * **Alias dell’input** - Immettere un nome descrittivo per l'input del processo. Si noti che il nome verrà usato nella query in un secondo momento.
-  * **Hub eventi**: se l'hub eventi creato si trova nella stessa sottoscrizione del processo di Analisi di flusso, selezionare lo spazio dei nomi in cui si trova l'hub eventi.
+  * **Hub eventi** : se l'hub eventi creato si trova nella stessa sottoscrizione del processo di Analisi di flusso, selezionare lo spazio dei nomi in cui si trova l'hub eventi.
 * Se l'hub eventi si trova in un'altra sottoscrizione, selezionare **Usa hub eventi da un'altra sottoscrizione**, quindi immettere manualmente i valori per **Spazio dei nomi del bus di servizio**, **Nome hub eventi**, **Nome criterio hub eventi**, **Chiave criterio hub eventi** e **Conteggio partizioni hub eventi**.
 
 > [!NOTE]
@@ -73,20 +77,20 @@ Per questa esercitazione, si presuppone che l’utente utilizzi l’hub di event
   * **Codifica** - UTF8
 * Fare clic sul pulsante con il segno di spunta per aggiungere l'origine e per verificare che Analisi dei flussi possa connettersi all'hub eventi.
 
-## Aggiungere l’output Power BI
+## <a name="add-power-bi-output"></a>Aggiungere l’output Power BI
 1. Fare clic su **Output** nella parte superiore della pagina, quindi scegliere **Aggiungi output**. Verrà visualizzato Power BI come opzione di output nell’elenco.
    
-   ![graphic2][graphic2]
-2. Selezionare **Power BI**, quindi fare clic sul pulsante destro.
+   ![graphic2][graphic2]  
+2. Selezionare **Power BI** , quindi fare clic sul pulsante destro.
 3. Verrà visualizzata una schermata analoga a quella seguente:
    
-   ![graphic3][graphic3]
+   ![graphic3][graphic3]  
 4. In questo passaggio, fornire un account aziendale o dell’istituto di istruzione per l'output del processo di analisi di flusso. Se si dispone già di un account Power BI, selezionare **Autorizza ora**. In caso contrario, scegliere **Effettua l’iscrizione ora**. [In questo blog sono riportati passo passo i dettagli di registrazione a Power BI](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
    
-   ![graphic11][graphic11]
+   ![graphic11][graphic11]  
 5. Successivamente verrà visualizzata una schermata analoga a quella seguente:
    
-   ![graphic4][graphic4]
+   ![graphic4][graphic4]  
 
 Fornire i valori come mostrato di seguito:
 
@@ -96,7 +100,7 @@ Fornire i valori come mostrato di seguito:
 * **Area di lavoro** – Selezionare nel tenant Power BI un'area di lavoro in cui verrà creato il set di dati.
 
 > [!NOTE]
-> Non è necessario creare il set di dati e la tabella nell'account Power BI. Verranno creati automaticamente quando si avvia il processo di analisi di flusso e gli output vengono trasmessi a Power BI. Se la query del processo non restituisce risultati, il set di dati e la tabella non verranno creati.
+> Non creare in modo esplicito il set di dati e la tabella nell'account di Power BI. Il set di dati e la tabella vengono creati automaticamente quando il processo di analisi di flusso viene avviato e inizia a generare output in Power BI. Se la query di processo non genera alcun risultato, il set di dati e la tabella non vengono creati.
 > 
 > 
 
@@ -107,7 +111,7 @@ Fornire i valori come mostrato di seguito:
 > 
 > 
 
-## Scrivere query
+## <a name="write-query"></a>Scrivere query
 Andare nella scheda **Query** del processo. Scrivere la query, l’output che si desidera avere in Power BI. Ad esempio, potrebbe essere simile alla query SQL seguente:
 
     SELECT
@@ -127,7 +131,7 @@ Andare nella scheda **Query** del processo. Scrivere la query, l’output che si
 
 Avviare il processo. Confermare che l’hub eventi riceve eventi e che la query genera i risultati previsti. Se la query produce 0 righe, il set di dati e le tabelle Power BI non verranno creati automaticamente.
 
-## Creare il dashboard in Power BI
+## <a name="create-the-dashboard-in-power-bi"></a>Creare il dashboard in Power BI
 Andare al sito [Powerbi.com](https://powerbi.com) e accedere con l’account aziendale o dell’istituto di istruzione. Se la query del processo di Analisi di flusso produce risultati, verrà visualizzato il set di dati già creato:
 
 ![graphic5][graphic5]
@@ -148,31 +152,31 @@ In questo modo, si otterrà automaticamente un grafico come riportato:
 
 ![graphic8][graphic8]
 
-Nella sezione relativa, fare clic sull’elenco a discesa per il valore temp e scegliere **media** per la temperatura e sul grafico, fare clic su **visualizzazione** e scegliere **grafico a linee**:
+Nella sezione relativa ai valori fare clic sull’elenco a discesa per il valore temp e scegliere **media** per la temperatura: Sul grafico fare clic su **visualizzazione** e scegliere **grafico a linee**:
 
 ![graphic9][graphic9]
 
-A questo punto si otterrà un grafico a linee della media nel tempo. Usando l’opzione di aggiunta come riportato, è possibile aggiungere l’elemento al dashboard creato in precedenza:
+A questo punto si otterrà un grafico a linee della media nel tempo.  Usando l’opzione di aggiunta come riportato, è possibile aggiungere l’elemento al dashboard creato in precedenza:
 
 ![graphic10][graphic10]
 
 A questo punto, quando si visualizza il dashboard con il report aggiunto, si vedrà l’aggiornamento dei report in tempo reale. Provare a modificare i dati negli eventi – aumentare il valore temp o analogo e si visualizzerà in tempo reale l’effetto riportato sul dashboard.
 
-Tenere presente che in questa esercitazione è stato mostrato come creare solo uno dei tipi di grafici possibili per un set di dati. Power BI consente di creare altri strumenti di business intelligence per clienti per l'organizzazione. Per visualizzare un altro esempio di dashboard Power BI, guardare il video [Introduzione a Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s).
+Tenere presente che in questa esercitazione è stato mostrato come creare solo uno dei tipi di grafici possibili per un set di dati. Power BI consente di creare altri strumenti di business intelligence per clienti per l'organizzazione. Per visualizzare un altro esempio di dashboard Power BI, guardare il video [Introduzione a Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s) .
 
-Per altre informazioni sulla configurazione di un output di Power BI e per usare i gruppi di Power BI, vedere la [sezione Power BI](stream-analytics-define-outputs.md#power-bi) di [Informazioni sugli output di analisi di flusso](stream-analytics-define-outputs.md "Informazioni sugli output di analisi di flusso"). Un'altra risorsa utile per maggiori informazioni sulla creazione di dashboard con Power BI è [Dashboard in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
+Per altre informazioni sulla configurazione di un output di Power BI e sull'uso dei gruppi di Power BI, vedere la [sezione Power BI](stream-analytics-define-outputs.md#power-bi) di [Informazioni sugli output di analisi di flusso](stream-analytics-define-outputs.md "Understanding Stream Analytics outputs"). Un'altra risorsa utile per maggiori informazioni sulla creazione di dashboard con Power BI è [Dashboard in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
-## Limitazioni e procedure consigliate
+## <a name="limitations-and-best-practices"></a>Limitazioni e procedure consigliate
 Power BI impiega vincoli di concorrenza e velocità effettiva come descritto qui: [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Prezzi di Power BI")
 
-A causa di tali vincoli Power BI soddisfa maggiormente quei casi in cui Analisi di flusso di Azure realizza una riduzione significativa del carico dei dati. 
+A causa di tali vincoli Power BI soddisfa maggiormente quei casi in cui Analisi di flusso di Azure realizza una riduzione significativa del carico dei dati.
 Si consiglia l'uso di TumblingWindow o di HoppingWindow per garantire che il push di dati sia di massimo 1 push/secondo e che la query soddisfi i requisiti di velocità effettiva. È possibile usare l'equazione seguente per calcolare il valore da indicare nella finestra in pochi secondi:
 
-![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png)
+![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png)  
 
-Ad esempio, se si dispone di 1.000 dispositivi che inviano dati ogni secondo, si utilizza la SKU di Power BI Pro che supporta 1.000.000 righe/ora e si desidera ottenere i dati medi per dispositivo su Power BI, è possibile effettuare massimo un push ogni 4 secondi per dispositivo (come mostrato di seguito):
+Ad esempio, se si dispone di 1.000 dispositivi che inviano dati ogni secondo, si utilizza la SKU di Power BI Pro che supporta 1.000.000 righe/ora e si desidera ottenere i dati medi per dispositivo su Power BI, è possibile effettuare massimo un push ogni 4 secondi per dispositivo (come mostrato di seguito):  
 
-![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
+![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)  
 
 Pertanto sarà necessario modificare la query originale in:
 
@@ -189,32 +193,32 @@ Pertanto sarà necessario modificare la query originale in:
         TUMBLINGWINDOW(ss,4),
         dspl
 
-### Aggiornamento di visualizzazione di Power BI
+### <a name="powerbi-view-refresh"></a>Aggiornamento di visualizzazione di Power BI
 Una domanda comune è: "Perché il dashboard non si aggiorna automaticamente in Power BI?".
 
 Per farlo, utilizzare in Power BI domande e risposte, porre una domanda come "Valore massimo per temp dove timestamp è oggi" e aggiungere il riquadro sul dashboard.
 
-### Rinnovare l'autorizzazione
+### <a name="renew-authorization"></a>Rinnovare l'autorizzazione
 Se la password dell'account Power BI è stata modificata dopo la creazione o l'ultima autenticazione del processo, sarà necessario autenticare nuovamente l'account. Se Multi-Factor Authentication (MFA) è configurata nel tenant Azure Active Directory (AAD), sarà necessario rinnovare anche l'autorizzazione Power BI ogni due settimane. Un sintomo di questo problema è che non ci sono output del processo e un "Errore nell’autenticazione dell’utente" nei log delle operazioni:
 
 ![graphic12][graphic12]
 
 Analogamente, se un processo tenta di avviarsi mentre il token è scaduto, si verificherà un errore e l'avvio del processo avrà esito negativo. L'errore avrà un aspetto simile al seguente:
 
-![Errore di convalida di PowerBI](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-expire.png)
+![Errore di convalida di PowerBI](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-expire.png) 
 
-Per risolvere questo problema, arrestare il processo in esecuzione e passare all'output di Power BI. Fare clic sul collegamento "Rinnovare autorizzazione" e riavviare il processo dall'ultima volta che è stato arrestato per evitare la perdita di dati.
+Per risolvere questo problema, arrestare il processo in esecuzione e passare all'output di Power BI.  Fare clic sul collegamento "Rinnovare autorizzazione" e riavviare il processo dall'ultima volta che è stato arrestato per evitare la perdita di dati.
 
-![Rinnovo convalida di PowerBI](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-renew.png)
+![Rinnovo convalida di PowerBI](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-renew.png) 
 
 Dopo l'aggiornamento dell'autorizzazione con Power BI, verrà visualizzato un avviso verde nell'area di autorizzazione:
 
-![Rinnovo convalida di PowerBI](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-renewed.png)
+![Rinnovo convalida di PowerBI](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-renewed.png) 
 
-## Ottenere aiuto
-Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
+## <a name="get-help"></a>Ottenere aiuto
+Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
@@ -235,4 +239,8 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

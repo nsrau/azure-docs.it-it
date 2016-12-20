@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory B2C | Microsoft Docs
-description: Creazione di applicazioni Web tramite l'implementazione di Azure Active Directory del protocollo di autenticazione OpenID Connect.
+title: Azure Active Directory B2C | Documentazione Microsoft
+description: Creazione di applicazioni Web tramite l&quot;implementazione di Azure Active Directory del protocollo di autenticazione OpenID Connect.
 services: active-directory-b2c
-documentationcenter: ''
+documentationcenter: 
 author: dstrockis
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 21d420c8-3c10-4319-b681-adf2e89e7ede
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/22/2016
 ms.author: dastrock
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9a4ccad94520bd0d811ba9dcfd6f7cc680c89a1f
+
 
 ---
-# <a name="azure-active-directory-b2c:-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: accesso Web con OpenID Connect
+# <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: accesso Web con OpenID Connect
 OpenID Connect è un protocollo di autenticazione basato su OAuth 2.0 che può essere usato per consentire agli utenti di accedere in modo sicuro alle applicazioni Web.  Tramite l'implementazione Azure Active Directory (Azure AD) B2C di OpenID Connect è possibile assegnare esperienze di gestione dell'iscrizione, dell'accesso e altre esperienze di gestione delle identità nelle applicazioni Web ad Azure AD. Questa guida illustra come eseguire questa operazione in modo indipendente dal linguaggio. La guida descrive come inviare e ricevere messaggi HTTP senza usare una delle librerie Microsoft open source.
 
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) estende il protocollo di *autorizzazione* OAuth 2.0 per consentirne l'uso come protocollo di *autenticazione*. Ciò consente di eseguire l'accesso Single Sign-On tramite OAuth. Introduce il concetto di un `id_token`, ovvero un token di sicurezza che consente al client di verificare l'identità dell'utente e ottenere informazioni di base sul profilo dell'utente.
@@ -118,7 +122,7 @@ error=access_denied
 | error_description |Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore di autenticazione. |
 | state |Vedere la descrizione completa nella tabella precedente. Se un parametro di stato è incluso nella richiesta, lo stesso valore viene visualizzato nella risposta. L'app deve verificare che i valori dello stato nella richiesta e nella risposta siano identici. |
 
-## <a name="validate-the-id_token"></a>Convalidare il token ID
+## <a name="validate-the-idtoken"></a>Convalidare il token ID
 La semplice ricezione di un token ID non è sufficiente per autenticare l'utente. È necessario convalidare la firma del token ID e verificare le attestazioni nel token per i requisiti dell'app. Azure AD B2C usa i [token Web JSON](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e la crittografia a chiave pubblica per firmare i token e verificarne la validità.
 
 Sono disponibili molte librerie open source per la convalida dei token JWT, a seconda del linguaggio preferito. È consigliabile prendere in esame tali opzioni anziché implementare una logica di convalida personalizzata. Le presenti informazioni sono utili per comprendere come usare correttamente queste librerie.
@@ -133,7 +137,7 @@ Una delle proprietà del documento di configurazione è `jwks_uri`, il cui valor
 
 Per determinare quale criterio è stato utilizzato per la firma di un id_token (e la posizione dove recuperare i metadati), sono disponibili due opzioni. In primo luogo, il nome del criterio è incluso nell’attestazione `acr` dell’id_token. Per informazioni su come analizzare le attestazioni da un id_token, consultare le [informazioni di riferimento sul token Azure AD B2C](active-directory-b2c-reference-tokens.md). L'altra opzione consiste nel codificare i criteri nel valore del parametro `state` quando si rilascia la richiesta, per poi decodificarlo e determinare quali criteri sono stati utilizzati. Entrambi i metodi sono perfettamente validi.
 
-Dopo aver acquisito il documento dei metadati dall'endpoint di metadati OpenID Connect, è possibile usare le chiavi pubbliche RSA 256 che si trovano in questo endpoint per convalidare la firma del token ID. Possono essere presenti più chiavi elencate in questo endpoint , ognuna identificata da `kid`. L'intestazione del token ID contiene inoltre un'attestazione `kid`, che indica quali di queste chiavi sono state usate per firmare il token ID. Per altri dettagli, vedere le [informazioni di riferimento sui token di Azure AD B2C](active-directory-b2c-reference-tokens.md), incluse le sezioni relative alla [convalida dei token](active-directory-b2c-reference-tokens.md#validating-tokens) e alle [informazioni importanti sul rollover della chiave di firma](active-directory-b2c-reference-tokens.md#validating-tokens).
+Dopo aver acquisito il documento dei metadati dall'endpoint di metadati OpenID Connect, è possibile usare le chiavi pubbliche RSA 256 che si trovano in questo endpoint per convalidare la firma del token ID. Possono essere presenti più chiavi elencate in questo endpoint , ognuna identificata da `kid`. L'intestazione del token ID contiene inoltre un'attestazione `kid`, che indica quali di queste chiavi sono state usate per firmare il token ID. Per altre informazioni, inclusa la [convalida del token](active-directory-b2c-reference-tokens.md#token-validation), vedere il [riferimento al token di Azure AD B2C](active-directory-b2c-reference-tokens.md).
 <!--TODO: Improve the information on this-->
 
 Dopo aver convalidato la firma del token ID, è necessario verificare diverse attestazioni, ad esempio:
@@ -304,6 +308,9 @@ Per provare queste richieste autonomamente, è innanzitutto necessario eseguire 
 * [Creare un'applicazione](active-directory-b2c-app-registration.md) per ottenere un ID applicazione e un URI di reindirizzamento. È possibile includere poi un'**app Web/API Web** nell'applicazione e, facoltativamente, creare una **chiave privata dell'applicazione**.
 * [Creare i criteri](active-directory-b2c-reference-policies.md) per ottenere i nomi dei criteri.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

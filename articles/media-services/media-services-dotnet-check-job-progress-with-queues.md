@@ -1,12 +1,12 @@
 ---
-title: Usare l'archiviazione code di Azure per monitorare le notifiche dei processi di Servizi multimediali con .NET | Microsoft Docs
-description: Informazioni su come usare l'archiviazione code di Azure per monitorare le notifiche dei processi di Servizi multimediali. L'esempio di codice è scritto in C# e usa l'SDK di Servizi multimediali per .NET.
+title: Usare l&quot;archiviazione code di Azure per monitorare le notifiche dei processi di Servizi multimediali con .NET | Microsoft Docs
+description: "Informazioni su come usare l&quot;archiviazione code di Azure per monitorare le notifiche dei processi di Servizi multimediali. L&quot;esempio di codice è scritto in C# e usa l&quot;SDK di Servizi multimediali per .NET."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: f535d0b5-f86c-465f-81c6-177f4f490987
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,19 +14,23 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
+ms.openlocfilehash: 8eea2b930c9182f43cb1f1e416652ce8378d70b0
+
 
 ---
-# Usare l'archiviazione code di Azure per monitorare le notifiche dei processi di Servizi multimediali con .NET
-Quando si esegue un processo, spesso è necessario monitorarne l'avanzamento. È possibile controllare l'avanzamento usando l'archiviazione code di Azure per monitorare le notifiche dei processi di Servizi multimediali (come descritto in questo argomento) o definendo un gestore eventi StateChanged (come descritto in [questo](media-services-check-job-progress.md) argomento).
+# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Usare l'archiviazione code di Azure per monitorare le notifiche dei processi di Servizi multimediali con .NET
+Quando si esegue un processo, spesso è necessario monitorarne l'avanzamento. È possibile controllare l'avanzamento usando l'archiviazione code di Azure per monitorare le notifiche dei processi di Servizi multimediali (come descritto in questo argomento) o definendo un gestore eventi StateChanged (come descritto in [questo](media-services-check-job-progress.md) argomento).  
 
-## Usare il servizio di archiviazione di accodamento di Azure per monitorare le notifiche dei processi di Servizi multimediali
-Servizi multimediali di Microsoft Azure può inviare messaggi di notifica all'[archiviazione di accodamento di Azure](../storage/storage-dotnet-how-to-use-queues.md#what-is) durante l'elaborazione di processi multimediali. Questo argomento illustra come ricevere questi messaggi di notifica dal servizio di archiviazione code.
+## <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications"></a>Usare il servizio di archiviazione di accodamento di Azure per monitorare le notifiche dei processi di Servizi multimediali
+Servizi multimediali di Microsoft Azure può inviare messaggi di notifica all'[archiviazione code di Azure](../storage/storage-dotnet-how-to-use-queues.md) durante l'elaborazione di processi multimediali. Questo argomento illustra come ricevere questi messaggi di notifica dal servizio di archiviazione code.
 
 È possibile accedere ai messaggi distribuiti al servizio di archiviazione di accodamento da ogni parte del mondo. L'architettura di messaggistica del servizio di accodamento di Azure, infatti, è affidabile e altamente scalabile. Tra i vari metodi disponibili, quindi, è preferibile usare il polling dell'archiviazione di accodamento.
 
 Può essere necessario ascoltare le notifiche di Servizi multimediali quando, ad esempio, si sta sviluppando un sistema di gestione dei contenuti ed è necessario che il sistema effettui alcune attività aggiuntive dopo il completamento di un processo di codifica (ad esempio, deve attivare il passaggio successivo di un flusso di lavoro o pubblicare contenuti).
 
-### Considerazioni
+### <a name="considerations"></a>Considerazioni
 Quando si sviluppano applicazioni di Servizi multimediali che usano l'archiviazione di accodamento di Azure, tenere presente quanto segue.
 
 * Il servizio di accodamento non garantisce un recapito ordinato dei messaggi di tipo FIFO (First-In-First-Out). Per altre informazioni, vedere [Analogie e differenze tra le code di Azure e le code del bus di servizio](https://msdn.microsoft.com/library/azure/hh767287.aspx).
@@ -34,16 +38,16 @@ Quando si sviluppano applicazioni di Servizi multimediali che usano l'archiviazi
 * È possibile disporre di un qualsiasi numero di code. Per altre informazioni, vedere [API REST del servizio di accodamento](https://msdn.microsoft.com/library/azure/dd179363.aspx).
 * Le code di archiviazione di Azure hanno delle limitazioni e le informazioni dettagliate sono descritte nel seguente articolo: [Analogie e differenze tra le code di Azure e le code del bus di servizio](https://msdn.microsoft.com/library/azure/hh767287.aspx).
 
-### Esempio di codice
+### <a name="code-example"></a>Esempio di codice
 L'esempio di codice contenuto in questa sezione effettua quanto segue:
 
-1. Definisce la classe **EncodingJobMessage** che esegue il mapping al formato del messaggio di notifica. Il codice deserializza i messaggi ricevuti dalla coda in oggetti del tipo **EncodingJobMessage**.
+1. Definisce la classe **EncodingJobMessage** che esegue il mapping al formato del messaggio di notifica. Il codice deserializza i messaggi ricevuti dalla coda in oggetti del tipo **EncodingJobMessage** .
 2. Carica informazioni sugli account di Servizi multimediali e di archiviazione dal file app.config Usa queste informazioni per creare gli oggetti **CloudMediaContext** e **CloudQueue**.
 3. Crea la coda che riceve i messaggi di notifica relativi al processo di codifica.
 4. Crea l'endpoint di notifica di cui viene eseguito il mapping alla coda.
 5. Collega l'endpoint di notifica al processo e invia il processo di codifica. A un processo possono essere collegati anche più endpoint di notifica.
-6. Di questo esempio interessano solo gli stati finali dell'elaborazione dei processi, quindi verrà passato **NotificationJobState.FinalStatesOnly** al metodo **AddNew**.
-   
+6. Di questo esempio interessano solo gli stati finali dell'elaborazione dei processi, quindi **NotificationJobState.FinalStatesOnly** verrà passato al metodo **AddNew**.
+
         job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
 7. Se si passa NotificationJobState.All, si ricevono tutte le notifiche di modifica dello stato: In coda -> Pianificato -> Elaborazione in corso -> Completato. Tuttavia, come indicato in precedenza, il servizio delle code di archiviazione di Azure non garantisce un recapito ordinato dei messaggi. Per ordinare i messaggi, è possibile usare la proprietà Timestamp (definita nel tipo EncodingJobMessage dell'esempio seguente). È possibile ottenere messaggi di notifica duplicati. è possibile invece usare la proprietà ETag (definita nel tipo EncodingJobMessage). È possibile inoltre che alcune notifiche di cambio di stato vengano ignorate.
 8. Attende che il processo abbia raggiunto lo stato Completato controllando la coda ogni 10 secondi. Elimina i messaggi man mano che vengono elaborati.
@@ -51,10 +55,10 @@ L'esempio di codice contenuto in questa sezione effettua quanto segue:
 
 > [!NOTE]
 > Il modo migliore per monitorare lo stato di un processo è quello di ascoltare i messaggi di notifica, come illustrato nel seguente esempio.
-> 
-> In alternativa, è possibile controllare lo stato di un processo usando la proprietà **IJob.State**. Un messaggio di notifica relativo al completamento di un processo potrebbe essere ricevuto prima che lo stato in **IJob** sia impostato su **Completato**. La proprietà **IJob.State** riflette lo stato esatto con un leggero ritardo.
-> 
-> 
+>
+> In alternativa, è possibile controllare lo stato di un processo usando la proprietà **IJob.State** .  Un messaggio di notifica relativo al completamento di un processo potrebbe essere ricevuto prima che lo stato in **IJob** sia impostato su **Operazione completata**. La proprietà **IJob.State** riflette lo stato esatto con un leggero ritardo.
+>
+>
 
     using System;
     using System.Linq;
@@ -75,14 +79,14 @@ L'esempio di codice contenuto in questa sezione effettua quanto segue:
     {
         public class EncodingJobMessage
         {
-            // MessageVersion is used for version control. 
+            // MessageVersion is used for version control.
             public String MessageVersion { get; set; }
 
-            // Type of the event. Valid values are 
+            // Type of the event. Valid values are
             // JobStateChange and NotificationEndpointRegistration.
             public String EventType { get; set; }
 
-            // ETag is used to help the customer detect if 
+            // ETag is used to help the customer detect if
             // the message is a duplicate of another message previously sent.
             public String ETag { get; set; }
 
@@ -99,9 +103,9 @@ L'esempio di codice contenuto in questa sezione effettua quanto segue:
             //          Scheduled, Processing, Canceling, Cancelled, Error, Finished
 
             // For the NotificationEndpointRegistration event the values are:
-            //     NotificationEndpointId- Id of the NotificationEndpoint 
+            //     NotificationEndpointId- Id of the NotificationEndpoint
             //          that triggered the notification.
-            //     State- The state of the Endpoint. 
+            //     State- The state of the Endpoint.
             //          Valid values are: Registered and Unregistered.
 
             public IDictionary<string, object> Properties { get; set; }
@@ -126,14 +130,14 @@ L'esempio di codice contenuto in questa sezione effettua quanto segue:
 
                 string endPointAddress = Guid.NewGuid().ToString();
 
-                // Create the context. 
+                // Create the context.
                 _context = new CloudMediaContext(mediaServicesAccountName, mediaServicesAccountKey);
 
                 // Create the queue that will be receiving the notification messages.
                 _queue = CreateQueue(storageConnectionString, endPointAddress);
 
                 // Create the notification point that is mapped to the queue.
-                _notificationEndPoint = 
+                _notificationEndPoint =
                         _context.NotificationEndPoints.Create(
                         Guid.NewGuid().ToString(), NotificationEndPointType.AzureQueue, endPointAddress);
 
@@ -172,15 +176,15 @@ L'esempio di codice contenuto in questa sezione effettua quanto segue:
                 // Declare a new job.
                 IJob job = _context.Jobs.Create("My MP4 to Smooth Streaming encoding job");
 
-                //Create an encrypted asset and upload the mp4. 
-                IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.StorageEncrypted, 
+                //Create an encrypted asset and upload the mp4.
+                IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.StorageEncrypted,
                     inputMediaFilePath);
 
-                // Get a media processor reference, and pass to it the name of the 
+                // Get a media processor reference, and pass to it the name of the
                 // processor to use for the specific task.
                 IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
-                // Create a task with the conversion details, using a configuration file. 
+                // Create a task with the conversion details, using a configuration file.
                 ITask task = job.Tasks.AddNew("My encoding Task",
                     processor,
                     "H264 Multiple Bitrate 720p",
@@ -194,7 +198,7 @@ L'esempio di codice contenuto in questa sezione effettua quanto segue:
                     AssetCreationOptions.None);
 
                 // Add a notification point to the job. You can add multiple notification points.  
-                job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, 
+                job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly,
                     _notificationEndPoint);
 
                 job.Submit();
@@ -237,7 +241,7 @@ L'esempio di codice contenuto in questa sezione effettua quanto segue:
                                 Console.WriteLine("    {0}: {1}", property.Key, property.Value);
                             }
 
-                            // We are only interested in messages 
+                            // We are only interested in messages
                             // where EventType is "JobStateChange".
                             if (encodingJobMsg.EventType == "JobStateChange")
                             {
@@ -254,7 +258,7 @@ L'esempio di codice contenuto in questa sezione effettua quanto segue:
 
                                     if (newJobState == (JobState)expectedState)
                                     {
-                                        Console.WriteLine("job with Id: {0} reached expected state: {1}", 
+                                        Console.WriteLine("job with Id: {0} reached expected state: {1}",
                                             jobId, newJobState);
                                         jobReachedExpectedState = true;
                                         break;
@@ -271,7 +275,7 @@ L'esempio di codice contenuto in questa sezione effettua quanto segue:
                     bool timedOut = (timeDiff.TotalSeconds > timeOutInSeconds);
                     if (timedOut)
                     {
-                        Console.WriteLine(@"Timeout for checking job notification messages, 
+                        Console.WriteLine(@"Timeout for checking job notification messages,
                                             latest found state ='{0}', wait time = {1} secs",
                             jobState,
                             timeDiff.TotalSeconds);
@@ -283,7 +287,7 @@ L'esempio di codice contenuto in questa sezione effettua quanto segue:
 
             static private IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
             {
-                var asset = _context.Assets.Create("UploadSingleFile_" + DateTime.UtcNow.ToString(), 
+                var asset = _context.Assets.Create("UploadSingleFile_" + DateTime.UtcNow.ToString(),
                     assetCreationOptions);
 
                 var fileName = Path.GetFileName(singleFilePath);
@@ -336,16 +340,20 @@ Il precedente esempio ha prodotto il seguente output. I valori possono variare.
         NewState: Finished
         OldState: Processing
         AccountName: westeuropewamsaccount
-    job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected 
+    job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected
     State: Finished
 
 
-## Passaggio successivo
+## <a name="next-step"></a>Passaggio successivo
 Analizzare i percorsi di apprendimento dei Servizi multimediali
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

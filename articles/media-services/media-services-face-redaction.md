@@ -2,11 +2,11 @@
 title: Offuscamento dei volti con Analisi Servizi multimediali di Azure | Microsoft Docs
 description: Questo argomento illustra come offuscare i volti con Analisi Servizi multimediali di Azure.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 5b6d8b8c-5f4d-4fef-b3d6-dc22c6b5a0f5
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,47 +14,51 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/12/2016
 ms.author: juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a272384d76baf2d8c22b612d6a736fa1fae377e5
+
 
 ---
-# Offuscamento dei volti con Analisi Servizi multimediali di Azure
-## Overview
+# <a name="face-redaction-with-azure-media-analytics"></a>Offuscamento dei volti con Analisi Servizi multimediali di Azure
+## <a name="overview"></a>Overview
 **Azure Media Redactor** è un processore di contenuti multimediali di [Analisi Servizi multimediali di Azure](media-services-analytics-overview.md) che offre funzionalità scalabili di offuscamento dei volti nel cloud. L'offuscamento dei volti consente di modificare un video per sfocare i volti di persone selezionate. Può essere opportuno usare tale servizio in scenari di pubblica sicurezza e notizie giornalistiche. Offuscare manualmente alcuni minuti di filmato contenenti più volti può richiedere ore, ma con questo servizio il processo di offuscamento dei volti richiederà pochi semplici passaggi. Per altre informazioni, vedere [questo](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
 Questo argomento contiene informazioni dettagliate su **Azure Media Redactor** e illustra come usare questa funzionalità con Media Services SDK per .NET.
 
 Il processore di contenuti multimediali **Azure Media Redactor** è attualmente in anteprima.
 
-## Modalità per l'offuscamento dei volti
+## <a name="face-redaction-modes"></a>Modalità per l'offuscamento dei volti
 La funzionalità di offuscamento dei volti rileva i volti in ogni fotogramma del video e monitora l'oggetto volto avanti e indietro nel tempo in modo da consentire la sfocatura della stessa persona anche da altre angolazioni. Il processo di offuscamento automatizzato è molto complesso e non sempre produce al 100% l'output desiderato. Per tale motivo, Analisi Servizi multimediali offre alcuni modi per modificare l'output finale.
 
 In aggiunta a una modalità interamente automatica, esiste un flusso di lavoro in due passaggi che consente di selezionare/deselezionare i volti trovati tramite un elenco di ID. Per apportare modifiche arbitrarie per singolo fotogramma, inoltre, il processore di contenuti multimediali usa un file di metadati in formato JSON. Il flusso di lavoro è suddiviso nelle modalità **analisi** e **offuscamento**. È possibile combinare le due modalità in un singolo passaggio che esegue entrambe le attività in un unico processo. Questa modalità è detta **combinata**.
 
-### Modalità combinata
+### <a name="combined-mode"></a>Modalità combinata
 Questa modalità produce automaticamente un file mp4 offuscato senza alcun input manuale.
 
 | Fase | File Name | Note |
 | --- | --- | --- |
 | Asset di input |foo.bar |Video in formato WMV, MOV o MP4 |
 | Configurazione di input |Set di impostazioni di configurazione del processo |{'version':'1.0', 'options': {'mode':'combined'}} |
-| Asset di output |foo\_redacted.mp4 |Video con sfocatura applicata |
+| Asset di output |foo_redacted.mp4 |Video con sfocatura applicata |
 
-#### Esempio di input:
+#### <a name="input-example"></a>Esempio di input:
 [Guardare il video](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
 
-#### Esempio di output:
+#### <a name="output-example"></a>Esempio di output:
 [Guardare il video](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
 
-### Modalità analisi
-Nel flusso di lavoro in due passaggi, il passaggio dell'**analisi** usa un input video e produce un file JSON di posizioni di volti e immagini jpg di ogni volto rilevato.
+### <a name="analyze-mode"></a>Modalità analisi
+Nel flusso di lavoro in due passaggi, il passaggio dell' **analisi** usa un input video e produce un file JSON di posizioni di volti e immagini jpg di ogni volto rilevato.
 
 | Fase | File Name | Note |
 | --- | --- | --- |
 | Asset di input |foo.bar |Video in formato WMV, MPV o MP4 |
 | Configurazione di input |Set di impostazioni di configurazione del processo |{'version':'1.0', 'options': {'mode':'analyze'}} |
-| Asset di output |foo\_annotations.json |Dati di annotazione delle posizioni dei volti in formato JSON, modificabili dall'utente per modificare i rettangoli di selezione della sfocatura. Vedere l'esempio di seguito. |
-| Asset di output |foo\_thumb%06d.jpg [foo\_thumb000001.jpg, foo\_thumb000002.jpg] |File jpg ritagliato di ogni volto rilevato, in cui il numero indica l'ID etichetta del volto |
+| Asset di output |foo_annotations.json |Dati di annotazione delle posizioni dei volti in formato JSON, modificabili dall'utente per modificare i rettangoli di selezione della sfocatura. Vedere l'esempio di seguito. |
+| Asset di output |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |File jpg ritagliato di ogni volto rilevato, in cui il numero indica l'ID etichetta del volto |
 
-#### Esempio di output:
+#### <a name="output-example"></a>Esempio di output:
     {
       "version": 1,
       "timescale": 50,
@@ -87,9 +91,9 @@ Nel flusso di lavoro in due passaggi, il passaggio dell'**analisi** usa un input
           ]
         },
 
-…troncato
+… troncato
 
-### Modalità offuscamento
+### <a name="redact-mode"></a>Modalità offuscamento
 Il secondo passaggio del flusso di lavoro usa un numero superiore di input che devono essere combinati in un singolo asset.
 
 Gli input includono un elenco di ID da sfocare, il video originale e il file JSON delle annotazioni. Questa modalità usa le annotazioni per applicare la sfocatura nel video di input.
@@ -99,31 +103,31 @@ L'output del passaggio dell'analisi non include il video originale. Il video dev
 | Fase | File Name | Note |
 | --- | --- | --- |
 | Asset di input |foo.bar |Video in formato WMV, MPV o MP4. Stesso video del passaggio 1. |
-| Asset di input |foo\_annotations.json |File di metadati delle annotazioni della prima fase, con modifiche facoltative. |
-| Asset di input |foo\_IDList.txt (facoltativo) |Elenco facoltativo separato da caratteri di nuova riga di ID volto da offuscare. Se viene lasciato vuoto, vengono sfocati tutti i volti. |
+| Asset di input |foo_annotations.json |File di metadati delle annotazioni della prima fase, con modifiche facoltative. |
+| Asset di input |foo_IDList.txt (facoltativo) |Elenco facoltativo separato da caratteri di nuova riga di ID volto da offuscare. Se viene lasciato vuoto, vengono sfocati tutti i volti. |
 | Configurazione di input |Set di impostazioni di configurazione del processo |{'version':'1.0', 'options': {'mode':'redact'}} |
-| Asset di output |foo\_redacted.mp4 |Video con sfocatura applicata in base alle annotazioni. |
+| Asset di output |foo_redacted.mp4 |Video con sfocatura applicata in base alle annotazioni. |
 
-#### Output di esempio
+#### <a name="example-output"></a>Output di esempio
 Questo output viene ottenuto da un elenco di ID con un ID selezionato.
 
 [Guardare il video](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
-## Descrizioni degli attributi
+## <a name="attribute-descriptions"></a>Descrizioni degli attributi
 Il processore di contenuti multimediali per l'offuscamento offre funzionalità di rilevamento della posizione e monitoraggio dei volti ad alta precisione che possono rilevare fino a 64 volti umani in un fotogramma video. Le riprese anteriori producono risultati ottimali, mentre profili e volti di piccole dimensioni (inferiori o uguali a 24x24 pixel) presentano alcune problematiche.
 
 I volti rilevati e monitorati vengono restituiti con coordinate che indicano la posizione dei volti e un numero di ID volto che indica il monitoraggio della persona specifica. I codici ID del volto sono soggetti a ripristino quando le riprese non sono frontali o sono sovrapposte nel fotogramma, causando l'assegnazione di diversi ID alla stessa persona.
 
 Per spiegazioni dettagliate degli attributi, vedere l'argomento [Detect Face and Emotion with Azure Media Analytics](media-services-face-and-emotion-detection.md) (Rilevare volti ed emozioni con Analisi Servizi multimediali di Azure).
 
-## Codice di esempio
+## <a name="sample-code"></a>Codice di esempio
 Il programma seguente illustra come:
 
 1. Creare un asset e caricare un file multimediale nell'asset.
-2. Creare un processo con un'attività di offuscamento dei volti in base a un file di configurazione contenente il set di impostazioni JSON seguente.
+2. Creare un processo con un'attività di offuscamento dei volti in base a un file di configurazione contenente il set di impostazioni JSON seguente. 
    
         {'version':'1.0', 'options': {'mode':'combined'}}
-3. Scaricare i file JSON di output.
+3. Scaricare i file JSON di output. 
    
         using System;
         using System.Configuration;
@@ -288,17 +292,22 @@ Il programma seguente illustra come:
             }
         }
 
-## Passaggio successivo
+## <a name="next-step"></a>Passaggio successivo
 Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## Collegamenti correlati
+## <a name="related-links"></a>Collegamenti correlati
 [Panoramica di Analisi servizi multimediali di Azure](media-services-analytics-overview.md)
 
 [Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

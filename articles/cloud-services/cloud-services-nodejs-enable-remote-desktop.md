@@ -1,22 +1,26 @@
 ---
 title: Abilitare Desktop remoto per i servizi cloud (Node.js)
-description: Informazioni su come abilitare l'accesso da Desktop remoto per le macchine virtuali che ospitano l'applicazione Node.js di Azure.
+description: Informazioni su come abilitare l&quot;accesso da Desktop remoto per le macchine virtuali che ospitano l&quot;applicazione Node.js di Azure.
 services: cloud-services
 documentationcenter: nodejs
 author: rmcmurray
-manager: wpickett
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: a0141904-c9bc-478d-82af-5bceaca5cf6a
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6dedf3a7a7b4092784291334b0586b8f37e86354
+
 
 ---
-# Abilitazione di Desktop remoto in Azure
+# <a name="enabling-remote-desktop-in-azure"></a>Abilitazione di Desktop remoto in Azure
 Desktop remoto consente di accedere al desktop di un'istanza del ruolo in esecuzione in Azure. È possibile usare una connessione di desktop remoto per configurare la macchina virtuale oppure per risolvere e diagnosticare i problemi dell'applicazione.
 
 > [!NOTE]
@@ -24,12 +28,12 @@ Desktop remoto consente di accedere al desktop di un'istanza del ruolo in esecuz
 > 
 > 
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Installare e configurare [Azure PowerShell](../powershell-install-configure.md).
-* Distribuire un’app Node.js in un servizio cloud di Azure Per altre informazioni, vedere [Creazione e distribuzione di un'applicazione Node.js in un servizio cloud di Azure](cloud-services-nodejs-develop-deploy-app.md).
+* Distribuire un’app Node.js in un servizio cloud di Azure Per altre informazioni, vedere [Creare e distribuire un'applicazione Node.js in un servizio cloud di Azure](cloud-services-nodejs-develop-deploy-app.md).
 
-## Passaggio 1: Usare Azure PowerShell per configurare il servizio per Accesso desktop remoto
-Per usare Desktop remoto, è necessario aggiornare la definizione del servizio di Azure e la configurazione con nome utente, password e certificato.
+## <a name="step-1-use-azure-powershell-to-configure-the-service-for-remote-desktop-access"></a>Passaggio 1: Usare Azure PowerShell per configurare il servizio per Accesso desktop remoto
+Per usare Desktop remoto, è necessario aggiornare la definizione del servizio di Azure e la configurazione con nome utente, password e certificato. 
 
 Eseguire i passaggi seguenti da un computer che contiene i file di origine per l'app.
 
@@ -47,30 +51,30 @@ Eseguire i passaggi seguenti da un computer che contiene i file di origine per l
    
    ![publish-azureserviceproject][publish-project]
 
-## Passaggio 2: Connettersi all'istanza del ruolo
+## <a name="step-2-connect-to-the-role-instance"></a>Passaggio 2: Connettersi all'istanza del ruolo
 Dopo aver pubblicato la definizione del servizio di aggiornamento, è possibile connettersi all'istanza del ruolo.
 
-1. Nel [portale di Azure classico] selezionare **Servizi cloud** e quindi selezionare il servizio.
+1. Nel [portale di Azure classico]selezionare **Servizi cloud** e quindi selezionare il servizio.
    
-   ![Portale di Azure classico][cloud-services]
-2. Fare clic su **Instances** e quindi fare clic su **Production** o su **Staging** per visualizzare le istanze del proprio servizio. Selezionare un'istanza e quindi fare clic su **Connect** nella parte inferiore della pagina.
+   ![portale di Azure classico][cloud-services]
+2. Fare clic su **Istanze** e quindi su **Produzione** o **Staging** per visualizzare le istanze del proprio servizio. Selezionare un'istanza e quindi fare clic su **Connect** nella parte inferiore della pagina.
    
    ![Pagina delle istanze][3]
-3. Quando si fa clic su **Connect** il browser Web richiede di salvare un file con estensione rdp. Aprire il file. Ad esempio, se si usa Internet Explorer fare clic su **Apri**.
+3. Quando si fa clic su **Connect**il browser Web richiede di salvare un file con estensione rdp. Aprire il file. Ad esempio, se si usa Internet Explorer fare clic su **Apri**.
    
    ![richiesta di apertura o salvataggio del file RDP][4]
 4. All'apertura del file, viene visualizzato l'avviso di sicurezza seguente:
    
    ![Avviso di sicurezza di Windows][5]
-5. Fare clic su **Connect**. Verrà visualizzato un avviso di sicurezza in cui si richiede di immettere le credenziali di accesso all'istanza. Immettere la password creata in [Passaggio 1]\[Passaggio 1: Usare Azure PowerShell per configurare il servizio per Accesso desktop remoto] e quindi fare clic su **OK**.
+5. Fare clic su **Connetti**. Verrà visualizzato un avviso di sicurezza in cui si richiede di immettere le credenziali di accesso all'istanza. Immettere la password creata in [Passaggio 1][Passaggio 1: Usare Azure PowerShell per configurare il servizio per Accesso desktop remoto] e quindi fare clic su **OK**.
    
    ![richiesta di nome utente/password][6]
 
-Quando sarà stata stabilita la connessione, in Connessione desktop remoto è visualizzato il desktop dell'istanza in Azure.
+Quando sarà stata stabilita la connessione, in Connessione desktop remoto è visualizzato il desktop dell'istanza in Azure. 
 
 ![Sessione desktop remoto][7]
 
-## Passaggio 3: Configurare il servizio per disabilitare Accesso desktop remoto
+## <a name="step-3-configure-the-service-to-disable-remote-desktop-access"></a>Passaggio 3: Configurare il servizio per disabilitare Accesso desktop remoto
 Quando le connessioni di desktop remoto alle istanze del ruolo nel cloud non sono più necessarie disabilitare l'accesso desktop remoto tramite [Azure PowerShell].
 
 1. Immettere questo cmdlet di PowerShell:
@@ -80,7 +84,7 @@ Quando le connessioni di desktop remoto alle istanze del ruolo nel cloud non son
    
        Publish-AzureServiceProject
 
-## Risorse aggiuntive
+## <a name="additional-resources"></a>Risorse aggiuntive
 * [Accesso remoto alle istanze del ruolo in Azure] 
 * [Uso di Desktop remoto con i ruoli Azure]
 * [Centro per sviluppatori di Node. js](/develop/nodejs/)
@@ -101,4 +105,7 @@ Quando le connessioni di desktop remoto alle istanze del ruolo nel cloud non son
 [Uso di Desktop remoto con i ruoli Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
 
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

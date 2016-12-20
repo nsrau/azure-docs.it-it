@@ -1,12 +1,12 @@
 ---
-title: Note sulla versione di Analisi di flusso | Microsoft Docs
+title: Note sulla versione di analisi di flusso | Microsoft Docs
 description: Note sulla versione di analisi di flusso
 services: stream-analytics
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 5e59f893-cd2c-43fb-9eca-c146ce637203
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,24 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 09/26/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: f06747c35f12802f54b44774dff7f92280ba0dc9
+ms.openlocfilehash: fb6dbb6da0ad2cfdfee519c8ce254d983d34fe5e
+
 
 ---
 # <a name="stream-analytics-release-notes"></a>Note sulla versione di analisi di flusso
-## <a name="notes-for-04/15/2016-release-of-stream-analytics"></a>Note per la versione 15/04/2016 di Analisi di flusso
+## <a name="notes-for-04152016-release-of-stream-analytics"></a>Note per la versione 15/04/2016 di Analisi di flusso
 Questa versione contiene l'aggiornamento seguente.
 
 | Titolo | Descrizione |
 | --- | --- |
-| Disponibilità generale per gli output di Power BI |[Gli output di Power BI](stream-analytics-power-bi-dashboard.md) sono ora disponibili a livello generale. La scadenza dell'autorizzazione per Power BI dopo 90 giorni è stata rimossa. Per altre informazioni sugli scenari in cui è necessario rinnovare l'autorizzazione, vedere la sezione relativa al [rinnovo dell'autorizzazione](stream-analytics-power-bi-dashboard.md#Renew-authorization) di Creare un dashboard di Power BI. |
+| Disponibilità generale per gli output di Power BI |[Gli output di Power BI](stream-analytics-power-bi-dashboard.md) sono ora disponibili a livello generale. La scadenza dell'autorizzazione per Power BI dopo 90 giorni è stata rimossa. Per altre informazioni sugli scenari in cui è necessario rinnovare l'autorizzazione, vedere la sezione relativa al [rinnovo dell'autorizzazione](stream-analytics-power-bi-dashboard.md#renew-authorization) di Creare un dashboard di Power BI. |
 
-## <a name="notes-for-03/03/2016-release-of-stream-analytics"></a>Note per la versione 03/03/2016 di Analisi di flusso
+## <a name="notes-for-03032016-release-of-stream-analytics"></a>Note per la versione 03/03/2016 di Analisi di flusso
 Questa versione contiene l'aggiornamento seguente.
 
 | Titolo | Descrizione |
 | --- | --- |
 | Nuovi elementi del linguaggio di query di Analisi di flusso |Ora SAQL ha [GetType](https://msdn.microsoft.com/library/azure/mt643890.aspx "Pagina MSDN su GetType"), [TRY_CAST](https://msdn.microsoft.com/library/azure/mt643735.aspx "Pagina MSDN su TRY_CAST") e [REGEXMATCH](https://msdn.microsoft.com/library/azure/mt643891.aspx "Pagina MSDN su REGEXMATCH"). |
 
-## <a name="notes-for-12/10/2015-release-of-stream-analytics"></a>Note per la versione 10/12/2015 di Analisi di flusso
+## <a name="notes-for-12102015-release-of-stream-analytics"></a>Note per la versione 10/12/2015 di Analisi di flusso
 Questa versione contiene l'aggiornamento seguente.
 
 | Titolo | Descrizione |
@@ -39,14 +43,14 @@ Questa versione contiene l'aggiornamento seguente.
 | Aggiornamento della versione dell'API REST |La versione dell'API REST è stata aggiornata a 2015-10-01. I dettagli sono disponibili su MSDN nella sezione di [riferimento dell'API REST di gestione di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn835031.aspx) e [Integrazione di Machine Learning in Analisi di flusso](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md). |
 | Integrazione con Azure Machine Learning |Questa versione offre il supporto per le funzioni definite dall'utente di Azure Machine Learning. Per altre informazioni, vedere l'[esercitazione](stream-analytics-machine-learning-integration-tutorial.md) e l'[annuncio generale sul blog](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx). |
 
-## <a name="notes-for-11/12/2015-release-of-stream-analytics"></a>Note per la versione 12/11/2015 di Analisi di flusso
+## <a name="notes-for-11122015-release-of-stream-analytics"></a>Note per la versione 12/11/2015 di Analisi di flusso
 Questa versione contiene l'aggiornamento seguente.
 
 | Titolo | Descrizione |
 | --- | --- |
 | Nuovo comportamento di SELECT |SELECT in Analisi di flusso è stato esteso per consentire * come funzione di accesso alla proprietà di un record annidato. Per altre informazioni, vedere [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "Tipi di dati complessi"). |
 
-## <a name="notes-for-10/22/2015-release-of-stream-analytics"></a>Note per la versione 22/10/2015 di Analisi di flusso
+## <a name="notes-for-10222015-release-of-stream-analytics"></a>Note per la versione 22/10/2015 di Analisi di flusso
 Questa versione contiene gli aggiornamenti seguenti.
 
 | Titolo | Descrizione |
@@ -56,7 +60,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 | Nuova funzionalità GROUP BY di System.Timestamp |La funzione [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) consente ora sia window_type sia [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx). |
 | OFFSET aggiunto per le finestre a cascata e di salto. |Per impostazione predefinita, le finestre [a cascata](https://msdn.microsoft.com/library/azure/dn835055.aspx) e [di salto](https://msdn.microsoft.com/library/azure/dn835041.aspx) sono allineate rispetto al tempo zero (1/1/0001 12:00:00 AM UTC). Il nuovo parametro (facoltativo) 'offsetsize' consente di specificare un offset personalizzato (o allineamento). |
 
-## <a name="notes-for-09/29/2015-release-of-stream-analytics"></a>Note per la versione 29/09/2015 di Analisi di flusso
+## <a name="notes-for-09292015-release-of-stream-analytics"></a>Note per la versione 29/09/2015 di Analisi di flusso
 Questa versione contiene gli aggiornamenti seguenti.
 
 | Titolo | Descrizione |
@@ -67,14 +71,14 @@ Questa versione contiene gli aggiornamenti seguenti.
 | Supporto per l'input dell’hub IoT |I processi di analisi di flusso sono ora in grado di acquisire dati dagli hub IoT. |
 | TIMESTAMP BY per eventi eterogenei |Quando un unico flusso di dati contiene più tipi di evento con timestamp in campi diversi, è ora possibile usare [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) con espressioni per specificare i campi di timestamp diversi per ogni caso. |
 
-## <a name="notes-for-09/10/2015-release-of-stream-analytics"></a>Note per la versione 10/09/2015 di Analisi di flusso
+## <a name="notes-for-09102015-release-of-stream-analytics"></a>Note per la versione 10/09/2015 di Analisi di flusso
 Questa versione contiene gli aggiornamenti seguenti.
 
 | Titolo | Descrizione |
 | --- | --- |
 | Supporto per i gruppi PowerBI |Per abilitare la condivisione dei dati con altri utenti di Power BI, i processi di Analisi di flusso ora possono eseguire la scrittura in [gruppi PowerBI](stream-analytics-define-outputs.md#power-bi) all'interno dell'account Power BI. |
 
-## <a name="notes-for-08/20/2015-release-of-stream-analytics"></a>Note per la versione 20/08/2015 di Analisi di flusso
+## <a name="notes-for-08202015-release-of-stream-analytics"></a>Note per la versione 20/08/2015 di Analisi di flusso
 Questa versione contiene gli aggiornamenti seguenti.
 
 | Titolo | Descrizione |
@@ -83,7 +87,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 | Nuove funzioni di matrice |Ora sono disponibili le funzioni di matrice [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx), [GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) e [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx). |
 | Nuove funzioni di record |Le funzioni di record [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) e [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx) sono ora disponibili. |
 
-## <a name="notes-for-07/30/2015-release-of-stream-analytics"></a>Note per la versione del 30/07/2015 di Analisi di flusso
+## <a name="notes-for-07302015-release-of-stream-analytics"></a>Note per la versione del 30/07/2015 di Analisi di flusso
 Questa versione contiene gli aggiornamenti seguenti.
 
 | Titolo | Descrizione |
@@ -92,14 +96,14 @@ Questa versione contiene gli aggiornamenti seguenti.
 | Supporto per l'output di code del bus di servizio |Gli output di [code del bus di servizio](stream-analytics-define-outputs.md#service-bus-queues) sono ora disponibili nei processi di Analisi di flusso. |
 | Supporto per l'output di argomenti del bus di servizio |Gli output di [argomenti del bus di servizio](stream-analytics-define-outputs.md#service-bus-topics) sono ora disponibili nei processi di Analisi di flusso. |
 
-## <a name="notes-for-07/09/2015-release-of-stream-analytics"></a>Note per la versione 09/07/2015 di Analisi di flusso
+## <a name="notes-for-07092015-release-of-stream-analytics"></a>Note per la versione 09/07/2015 di Analisi di flusso
 Questa versione contiene gli aggiornamenti seguenti.
 
 | Titolo | Descrizione |
 | --- | --- |
 | Partizionamento output BLOB personalizzato |Gli output di archiviazione BLOB includono ora un'opzione per specificare la frequenza con cui i BLOB di output vengono scritti e la struttura e il formato della struttura di cartelle del percorso dati di output. |
 
-## <a name="notes-for-05/03/2015-release-of-stream-analytics"></a>Note per la versione 03/05/2015 di Analisi di flusso
+## <a name="notes-for-05032015-release-of-stream-analytics"></a>Note per la versione 03/05/2015 di Analisi di flusso
 Questa versione contiene gli aggiornamenti seguenti.
 
 | Titolo | Descrizione |
@@ -107,7 +111,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 | Aumento del valore massimo per Finestra di tolleranza elementi non in ordine |La dimensione massima per Finestra di tolleranza elementi non in ordine è ora 59:59 (mm:ss) |
 | Formato di output JSON: Separato da righe o matrice |Ora è disponibile un'opzione per l'output in Archiviazione Blob o in Hub di eventi come matrice di oggetti JSON o con gli oggetti JSON separati da una nuova riga. |
 
-## <a name="notes-for-04/16/2015-release-of-stream-analytics"></a>Note per la versione 16/04/2015 di Analisi di flusso
+## <a name="notes-for-04162015-release-of-stream-analytics"></a>Note per la versione 16/04/2015 di Analisi di flusso
 | Titolo | Descrizione |
 | --- | --- |
 | Ritardo nella configurazione dell'account di archiviazione di Azure |Quando si crea per la prima volta un processo di Analisi dei flussi in un’area, verrà richiesto di creare un nuovo account di archiviazione, o di specificarne uno esistente, per il monitoraggio dei processi di Analisi dei flussi in tale area. A causa della latenza nella configurazione del monitoraggio, la creazione di un altro processo di Analisi dei flussi nella stessa area entro 30 minuti determinerà la visualizzazione della richiesta di specificare un secondo account di archiviazione anziché la visualizzazione di quello appena configurato nel menu a discesa relativo all'account di archiviazione per il monitoraggio. Per evitare la creazione di account di archiviazione non necessari, dopo aver creato per la prima volta un processo in una determinata area, attendere 30 minuti prima di eseguire il provisioning di altri processi nella stessa area. |
@@ -130,6 +134,8 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 * [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

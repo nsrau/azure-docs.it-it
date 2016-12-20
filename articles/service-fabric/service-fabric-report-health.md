@@ -1,12 +1,12 @@
 ---
-title: Aggiungere report sull'integrità dell’Infrastruttura di servizi personalizzati | Microsoft Docs
-description: Questo articolo descrive come inviare report sull'integrità personalizzati alle entità di integrità di Azure Service Fabric. Offre consigli per la progettazione e l'implementazione di report efficaci relativi all'integrità.
+title: "Aggiungere report personalizzati sull&quot;integrità di Service Fabric | Documentazione Microsoft"
+description: "Questo articolo descrive come inviare report sull&quot;integrità personalizzati alle entità di integrità di Azure Service Fabric. Offre consigli per la progettazione e l&quot;implementazione di report efficaci relativi all&quot;integrità."
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 0a00a7d2-510e-47d0-8aa8-24c851ea847f
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2016
 ms.author: oanapl
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d986275612b3e5c97636936a5e448dd6d0fcfc4e
+
 
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Aggiungere report sull'integrità di Service Fabric personalizzati
@@ -156,7 +160,7 @@ La condizione monitorata può essere riportata come avviso se l'attività non vi
 
 Se però la creazione di report viene eseguita nei casi descritti sopra, i report vengono acquisiti nell'integrità dell'applicazione quando questa viene valutata.
 
-## <a name="report-periodically-vs.-on-transition"></a>Report periodici e report in caso di transizione a confronto
+## <a name="report-periodically-vs-on-transition"></a>Report periodici e report in caso di transizione a confronto
 Usando il modello di report sull'integrità, i watchdog possono inviare report periodicamente o in caso di transizioni. Nel caso dei report watchdog, è consigliabile inviarli periodicamente, perché il codice è molto più semplice e meno soggetto a errori. I watchdog devono essere più semplici possibile per evitare bug che generano report non corretti. Eventuali report che segnalano erroneamente la *mancata integrità* influiscono sulla valutazione dell'integrità e sugli scenari basati sull'integrità, inclusi gli aggiornamenti. I report che segnalano erroneamente la *mancata integrità* hanno l'effetto di nascondere problemi del cluster ed è quindi opportuno evitare che vengano generati.
 
 Per i report periodici, il watchdog può essere implementato con un timer. In caso di callback del timer, il watchdog può controllare lo stato e inviare un report in base allo stato corrente. Non è necessario visualizzare il report inviato in precedenza o eseguire ottimizzazioni in termini di messaggistica. Ai fini delle prestazioni, il client di integrità è dotato di logica per l'invio in batch. Finché il client di integrità viene mantenuto attivo, esegue nuovi tentativi internamente finché il report non riceve un acknowledgement dall'archivio integrità o il watchdog genera un report più recente con entità, proprietà e origine identiche.
@@ -303,6 +307,9 @@ In base ai dati sull'integrità, gli sviluppatori del servizio e gli amministrat
 
 [Aggiornamento di un'applicazione di infrastruttura di servizi](service-fabric-application-upgrade.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

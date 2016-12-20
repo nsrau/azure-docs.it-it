@@ -1,31 +1,36 @@
 ---
-title: Esercitazione Integrazione di Azure Active Directory con Litmos | Microsoft Docs
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Litmos.
+title: Esercitazione Integrazione di Azure Active Directory con Litmos | Documentazione Microsoft
+description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Litmos.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: cfaae4bb-e8e5-41d1-ac88-8cc369653036
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2016
+ms.date: 09/29/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 479425fe3e19b843fed2aeae94dcf1fd7e9a0a77
+
 
 ---
-# Esercitazione Integrazione di Azure Active Directory con Litmos
-Questa esercitazione descrive l'integrazione di Litmos con Azure Active Directory (Azure AD). L'integrazione di Litmos con Azure AD offre i vantaggi seguenti:
+# <a name="tutorial-azure-active-directory-integration-with-litmos"></a>Esercitazione Integrazione di Azure Active Directory con Litmos
+Questa esercitazione descrive l'integrazione di Litmos con Azure Active Directory (Azure AD).  
+L'integrazione di Litmos con Azure AD offre i vantaggi seguenti: 
 
-* È possibile controllare in Azure AD chi può accedere a Litmos
+* È possibile controllare in Azure AD chi può accedere a Litmos 
 * È possibile abilitare gli utenti per l'accesso automatico a Litmos (Single Sign-On) con i propri account Azure AD
-* È possibile gestire gli account da una posizione centrale: Azure Active Directory
+* È possibile gestire gli account da una posizione centrale: Azure Active Directory 
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per configurare l'integrazione di Azure AD con Litmos, sono necessari gli elementi seguenti:
 
 * Sottoscrizione di Azure AD.
@@ -39,26 +44,27 @@ Per configurare l'integrazione di Azure AD con Litmos, sono necessari gli elemen
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 * Non usare l'ambiente di produzione, a meno che non sia necessario.
-* Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+* Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
 
-## Descrizione dello scenario
-L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione è costituito da tre blocchi principali:
+## <a name="scenario-description"></a>Descrizione dello scenario
+L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test.  
+Lo scenario descritto in questa esercitazione è costituito da tre blocchi principali:
 
-1. Aggiunta di Litmos dalla raccolta
+1. Aggiunta di Litmos dalla raccolta 
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
-## Aggiunta di Litmos dalla raccolta
+## <a name="adding-litmos-from-the-gallery"></a>Aggiunta di Litmos dalla raccolta
 Per configurare l'integrazione di Litmos in Azure AD, è necessario aggiungere Litmos dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Litmos dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1. Nel **portale di Azure classico**fare clic su **Active Directory**nel riquadro di spostamento sinistro. 
    
     ![Active Directory][1]
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
    
-    ![Applicazioni][2]
+    ![Applications][2]
 4. Fare clic su **Add** nella parte inferiore della pagina.
    
     ![Applicazioni][3]
@@ -72,89 +78,92 @@ Per configurare l'integrazione di Litmos in Azure AD, è necessario aggiungere L
    
     ![Applicazioni][500]
 
-## Configurazione e test dell'accesso Single Sign-On di Azure AD
+## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Litmos in base a un utente test di nome "Britta Simon".
 
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Litmos che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Litmos. La relazione di collegamento viene stabilita assegnando al valore di **nome utente** in Azure AD lo stesso valore di **Username** in Litmos.
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Litmos che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Litmos.  
+La relazione di collegamento viene stabilita assegnando al valore di **nome utente** in Azure AD lo stesso valore di **Username** in Litmos.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Litmos, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
-2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente test di Litmos](#creating-a-halogen-software-test-user)**: per avere una controparte di Britta Simon in Litmos collegata alla relativa rappresentazione in Azure AD.
-4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+3. **[Creazione di un utente test per Litmos](#creating-a-halogen-software-test-user)** : per avere una controparte di Britta Simon in Litmos collegata alla relativa rappresentazione in Azure AD.
+4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
-### Configurazione dell'accesso Single Sign-On di Azure AD
-Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure AD classico e configurare l'accesso Single Sign-On nell'applicazione Litmos. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
+Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure AD classico e configurare l'accesso Single Sign-On nell'applicazione Litmos.  
+Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64.  
+Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
-La procedura di configurazione prevede la personalizzazione degli **Attributi token SAML** per l'applicazione Litmos.
+La procedura di configurazione prevede la personalizzazione degli **Attributi token SAML** per l'applicazione Litmos.  
 
-![Accesso Single Sign-On di Azure AD][17]
+![Accesso Single Sign-On di Azure AD][17] 
 
 **Per configurare l'accesso Single Sign-On di Azure AD con Litmos, seguire questa procedura:**
 
 1. Nella pagina di integrazione dell'applicazione **Litmos** del portale di Azure AD classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
-    ![Configura accesso Single Sign-On][6]
+    ![Configura accesso Single Sign-On][6] 
 2. Nella pagina **How would you like users to sign on to Litmos** (Stabilire come si desidera che gli utenti accedano a Litmos) selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
    
-    ![Accesso Single Sign-On di Azure AD][7]
-3. Accedere al sito aziendale di Litmos, ad esempio *https://azureapptest.litmos.com/account/Login*, come amministratore.
+    ![Single Sign-On di Microsoft Azure AD][7] 
+3. Accedere al sito dell'azienda Litmos (ad esempio *https://azureapptest.litmos.com/account/Login*) come amministratore.
    
-    ![Accesso Single Sign-On di Azure AD][21]
-4. Nella barra di spostamento sul lato sinistro fare clic su **Accounts** (Account).
+    ![Single Sign-On di Microsoft Azure AD][21] 
+4. Nella barra di spostamento sul lato sinistro fare clic su **Accounts**(Account).
    
-    ![Accesso Single Sign-On di Azure AD][22]
+    ![Accesso Single Sign-On di Azure AD][22] 
 5. Fare clic sulla scheda **Integrations** (Integrazioni).
    
-    ![Accesso Single Sign-On di Azure AD][23]
+    ![Single Sign-On di Microsoft Azure AD][23] 
 6. Nella scheda **Integrations** (Integrazioni) scorrere verso il basso fino a **3rd Party Integrations** (Integrazioni di terze parti) e quindi fare clic sulla scheda **SAML 2.0** (SAML 2.0).
    
-    ![Accesso Single Sign-On di Azure AD][24]
-7. Copiare il valore in **The SAML endpoint for litmos is:** (L'endpoint SAML per litmos è:).
+    ![Single Sign-On di Microsoft Azure AD][24] 
+7. Copiare il valore in **The SAML endpoint for litmos is:**(L'endpoint SAML per litmos è:).
    
-    ![Accesso Single Sign-On di Azure AD][26]
+    ![Accesso Single Sign-On di Azure AD][26] 
 8. Nella pagina della finestra di dialogo **Configurare le impostazioni dell'app** del portale di Azure classico seguire questa procedura:
    
-    ![Accesso Single Sign-On di Azure AD][8]
+    ![Accesso Single Sign-On di Azure AD][8] 
    
-    a. Nella casella di testo **Identificatore** digitare l'URL usato dagli utenti per accedere all'applicazione Litmos, ad esempio *https://azureapptest.litmos.com/account/Login*.
+    a. Nella casella di testo **Identificatore** digitare l'URL utilizzato dagli utenti per accedere all'applicazione Litmos, ad esempio *https://azureapptest.litmos.com/account/Login*.
    
     b. Nella casella di testo **URL di risposta** incollare il valore copiato dall'applicazione Litmos nel passaggio precedente.
    
     c. Fare clic su **Avanti**.
 9. Nella pagina **Configure single sign-on at Litmos** (Configura accesso Single Sign-On in Litmos) seguire questa procedura:
    
-    ![Accesso Single Sign-On di Azure AD][2]
+    ![Accesso Single Sign-On di Azure AD][2] 
    
     a. Fare clic su Download certificato e quindi salvare il file nel computer.
 10. Nell'applicazione **Litmos** seguire questa procedura:
     
-     ![Accesso Single Sign-On di Azure AD][25]
+     ![Accesso Single Sign-On di Azure AD][25] 
     
      a. Fare clic su **Enable SAML**.
     
-     b. Creare un file con **codifica Base 64** dal certificato scaricato.
+     b. Creare un file con **codifica Base 64** dal certificato scaricato.  
     
     > [!TIP]
-    > Per altre informazioni, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+    > Per altre informazioni, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
     > 
     > 
     
-     c. Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **SAML X.509 Certificate**.
+     c. Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **SAML X.509 Certificate** .
     
      d. Fare clic su **Salva modifiche**.
-11. Nel portale di Azure AD classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
+11. Nel portale di Azure AD classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. 
     
-     ![Accesso Single Sign-On di Azure AD][10]
-12. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
+     ![Single Sign-On di Microsoft Azure AD][10]
+12. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.  
     
-     ![Accesso Single Sign-On di Azure AD][11]
-13. Nel menu in alto fare clic su **Attributi** per aprire la finestra di dialogo **Attributi token SAML**.
+     ![Single Sign-On di Microsoft Azure AD][11]
+13. Nel menu in alto fare clic su **Attributi** to open the **SAML Token Attributi** . 
     
     ![Configura accesso Single Sign-On][12]
-14. Nella finestra di dialogo **Aggiungi attributo utente** seguire questa procedura:
+14. Nella finestra di dialogo **Aggiungi attributo utente** seguire questa procedura: 
     
     ![Configura accesso Single Sign-On][14]
     
@@ -166,23 +175,23 @@ La procedura di configurazione prevede la personalizzazione degli **Attributi to
     
     Per ogni riga di dati nella tabella precedente, seguire questa procedura:
     
-    a. Fare clic su **Aggiungi attributo utente**.
+    a. Fare clic su **Aggiungi attributo utente**. 
     
     ![Configura accesso Single Sign-On][15]
 
-    a. Nella casella di testo **Nome attributo** digitare il **Nome attributo** indicato per la riga.
+    a. Nella casella di testo **Nome attributo** digitare il **nome dell'attributo** indicato per quella riga.
 
     b. Selezionare il **Valore attributo** indicato per la riga.
 
     c. Fare clic su **Completa** per chiudere la finestra di dialogo **Aggiungi attributo utente**.
 
 
-1. Fare clic su **Applica modifiche**.
+1. Fare clic su **Applica modifiche**. 
    
    ![Configura accesso Single Sign-On][16]
 
-### Creazione di un utente test di Azure AD
-Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.
+### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.  
 
 ![Creare un utente di Azure AD][20]
 
@@ -190,91 +199,94 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
    
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-litmos-tutorial/create_aaduser_09.png)
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-litmos-tutorial/create_aaduser_09.png)  
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
-3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
+3. Per visualizzare l'elenco di utenti, fare clic su **Utenti**nel menu in alto.
    
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-litmos-tutorial/create_aaduser_03.png)
-4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**.
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-litmos-tutorial/create_aaduser_03.png) 
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso. 
    
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-litmos-tutorial/create_aaduser_04.png)
-5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-litmos-tutorial/create_aaduser_04.png) 
+5. Nella pagina **Informazioni sull'utente** seguire questa procedura: 
    
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-litmos-tutorial/create_aaduser_05.png)
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-litmos-tutorial/create_aaduser_05.png)  
    
     a. In **Tipo di utente** selezionare **Nuovo utente nell'organizzazione**.
    
     b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
    
     c. Fare clic su **Avanti**.
-6. Nella pagina **Profilo utente** seguire questa procedura:
+6. Nella pagina **Profilo utente** seguire questa procedura: 
    
-   ![Creazione di un utente test di Azure AD](./media/active-directory-saas-litmos-tutorial/create_aaduser_06.png)
+   ![Creazione di un utente test di Azure AD](./media/active-directory-saas-litmos-tutorial/create_aaduser_06.png) 
    
-   a. Nella casella di testo **Nome** digitare **Britta**.
+   a. Nella casella di testo **Nome** digitare **Britta**.  
    
    b. Nella casella di testo **Cognome** digitare **Simon**.
    
    c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
    
-   d. Nell'elenco **Ruolo** selezionare **Utente**. e. Fare clic su **Avanti**.
+   d. Nell'elenco **Ruolo** selezionare **Utente**.
+   e. Fare clic su **Avanti**.
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
    
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-litmos-tutorial/create_aaduser_07.png)
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-litmos-tutorial/create_aaduser_07.png) 
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
    
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-litmos-tutorial/create_aaduser_08.png)
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-litmos-tutorial/create_aaduser_08.png) 
    
     a. Prendere nota del valore visualizzato in **Nuova password**.
    
-    b. Fare clic su **Complete**.
+    b. Fare clic su **Complete**.   
 
-### Creazione di un utente test per Litmos
-Questa sezione descrive come creare un utente chiamato Britta Simon in Litmos. L'applicazione Litmos supporta il provisioning JIT (just-in-time). Questo significa che, se necessario, un account utente viene creato automaticamente durante il tentativo di accedere all'applicazione tramite il pannello di accesso.
+### <a name="creating-a-litmos-test-user"></a>Creazione di un utente test per Litmos
+Questa sezione descrive come creare un utente chiamato Britta Simon in Litmos.  
+L'applicazione Litmos supporta il provisioning JIT (just-in-time). Questo significa che, se necessario, un account utente viene creato automaticamente durante il tentativo di accedere all'applicazione tramite il pannello di accesso.
 
 **Per creare un utente denominato Britta Simon in Litmos, seguire questa procedura:**
 
-1. Accedere al sito aziendale di Litmos, ad esempio *https://azureapptest.litmos.com/account/Login*, come amministratore.
+1. Accedere al sito dell'azienda Litmos (ad esempio *https://azureapptest.litmos.com/account/Login*) come amministratore.
    
-    ![Accesso Single Sign-On di Azure AD][21]
-2. Nella barra di spostamento sul lato sinistro fare clic su **Accounts** (Account).
+    ![Single Sign-On di Microsoft Azure AD][21] 
+2. Nella barra di spostamento sul lato sinistro fare clic su **Accounts**(Account).
    
-    ![Accesso Single Sign-On di Azure AD][22]
+    ![Accesso Single Sign-On di Azure AD][22] 
 3. Fare clic sulla scheda **Integrations** (Integrazioni).
    
-    ![Accesso Single Sign-On di Azure AD][23]
+    ![Single Sign-On di Microsoft Azure AD][23] 
 4. Nella scheda **Integrations** (Integrazioni) scorrere verso il basso fino a **3rd Party Integrations** (Integrazioni di terze parti) e quindi fare clic sulla scheda **SAML 2.0** (SAML 2.0).
    
-    ![Accesso Single Sign-On di Azure AD][24]
-5. Selezionare **Autogenerate Users** (Genera utenti in automatico).
+    ![Single Sign-On di Microsoft Azure AD][24] 
+5. Selezionare **Autogenerate Users**(Genera utenti in automatico).
    
-    ![Accesso Single Sign-On di Azure AD][27]
+    ![Accesso Single Sign-On di Azure AD][27] 
 
-### Assegnazione dell'utente test di Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Litmos.
 
-![Assegna utente][200]
+![Assegna utente][200] 
 
 **Per assegnare Britta Simon a Litmos, seguire questa procedura:**
 
 1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
    
-    ![Assegna utente][201]
+    ![Assegna utente][201] 
 2. Nell'elenco di applicazioni selezionare **Litmos**.
    
-    ![Assegna utente][202]
-3. Scegliere **Utenti** dal menu in alto.
+    ![Assegna utente][202] 
+3. Scegliere **Utenti**dal menu in alto.
    
-    ![Assegna utente][203]
+    ![Assegna utente][203] 
 4. Nell'elenco di utenti selezionare **Britta Simon**.
-5. Fare clic su **Assegna** nella barra degli strumenti in basso.
+5. Fare clic su **Assegna**sulla barra degli strumenti in basso.
    
     ![Assegna utente][205]
 
-### Test dell'accesso Single Sign-On
-Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso. Quando si fa clic sul riquadro Litmos nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Litmos.
+### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.  
+Quando si fa clic sul riquadro Litmos nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Litmos.
 
-## Risorse aggiuntive
+## <a name="additional-resources"></a>Risorse aggiuntive
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
@@ -322,4 +334,13 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [401]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_401.png
 [402]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_402.png
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

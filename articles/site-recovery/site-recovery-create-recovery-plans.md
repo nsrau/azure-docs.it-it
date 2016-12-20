@@ -1,12 +1,12 @@
 ---
-title: Creare piani di ripristino | Microsoft Docs
+title: Creare piani di ripristino | Documentazione Microsoft
 description: Creare piani di ripristino con Azure Site Recovery per eseguire il failover e ripristinare gruppi di server fisici e macchine virtuali.
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: rayne-wiselman
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 72408c62-fcb6-4ee2-8ff5-cab1218773f2
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/05/2016
 ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3cc2aa0ade25417a1e2a8fb96fc3a059349afa99
+
 
 ---
 # <a name="create-recovery-plans"></a>Creare piani di ripristino
@@ -109,6 +113,9 @@ Creare lo script come segue:
 ## <a name="next-steps"></a>Passaggi successivi
 È possibile eseguire diversi tipi di failover nel piano di ripristino, inclusi un failover di test per verificare l'ambiente e failover pianificati o non pianificati. [Altre informazioni](site-recovery-failover.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

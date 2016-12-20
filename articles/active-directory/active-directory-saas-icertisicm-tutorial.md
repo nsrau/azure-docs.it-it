@@ -1,12 +1,12 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Icertis Contract Management Platform | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Icertis Contract Management Platform.
+description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Icertis Contract Management Platform.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 6627e6dd-f559-4cd4-a509-f6d9a4961b49
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a2d2fba76850d6dfcff7545d6646f45c12e05c3f
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-icertis-contract-management-platform"></a>Esercitazione: Integrazione di Azure Active Directory con Icertis Contract Management Platform
+# <a name="tutorial-azure-active-directory-integration-with-icertis-contract-management-platform"></a>Esercitazione: Integrazione di Azure Active Directory con Icertis Contract Management Platform
 L'obiettivo di questa esercitazione è di descrivere l'integrazione di Icertis Contract Management Platform con Azure Active Directory (Azure AD).
 
 L'integrazione di Icertis Contract Management Platform con Azure AD offre i vantaggi seguenti:
@@ -121,13 +125,13 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     b. Fare clic su **Avanti**.
 2. Per ottenere SSO configurato per l'applicazione, contattare il team di supporto di Icertis Contract Management Platform e fornire gli elementi seguenti: 
    
-   * File dei **metadati scaricato** 
-     
-     - **ID entità** 
-     
-     - **URL SSO SAML** 
-     
-     - **URL servizio Single Sign-Out**
+    - File dei **metadati scaricato** 
+   
+    - **ID entità** 
+   
+    - **URL SSO SAML** 
+   
+    - **URL servizio Single Sign-Out**
 3. Nel portale di Azure classico selezionare la conferma della configurazione e fare clic su **Avanti**.
    
     ![Single Sign-On di Microsoft Azure AD][10]
@@ -238,6 +242,6 @@ Quando si fa clic sul riquadro di Icertis Contract Management Platform nel panne
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

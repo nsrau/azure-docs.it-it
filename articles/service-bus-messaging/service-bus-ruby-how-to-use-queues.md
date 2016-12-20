@@ -1,19 +1,23 @@
 ---
-title: Come usare le code del bus di servizio con Ruby | Microsoft Docs
+title: Come usare le code del bus di servizio con Ruby | Documentazione Microsoft
 description: Informazioni su come usare le code del bus di servizio in Azure. Gli esempi di codice sono scritti in Ruby.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: ruby
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 0a11eab2-823f-4cc7-842b-fbbe0f953751
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bde6cfe0daa95fc64e18be308798263544119b9f
+
 
 ---
 # <a name="how-to-use-service-bus-queues"></a>Come usare le code del bus di servizio
@@ -21,7 +25,7 @@ ms.author: sethm
 
 Questa guida illustra come usare le code del bus di servizio. Gli esempi sono scritti in Ruby e utilizzano la gemma di Azure. Gli scenari illustrati includono la **creazione di code, l'invio e la ricezione di messaggi** e **l'eliminazione di code**. Per altre informazioni sulle code del bus di servizio, vedere la sezione [Passaggi successivi](#next-steps) .
 
-## <a name="what-are-service-bus-queues?"></a>Informazioni sulle code del bus di servizio
+## <a name="what-are-service-bus-queues"></a>Informazioni sulle code del bus di servizio
 Le code del bus di servizio supportano un modello di comunicazione con *messaggistica negoziata*. Quando si usano le code, i componenti di un'applicazione distribuita non comunicano direttamente tra di loro, ma scambiano messaggi tramite una coda, che agisce da intermediario. Un producer di messaggi (mittente) invia un messaggio alla coda e quindi prosegue con la relativa elaborazione.
 In modo asincrono, il consumer di messaggi (ricevitore) recupera il messaggio dalla coda e lo elabora. Il producer non deve attendere la risposta del consumer per continuare a elaborare e inviare ulteriori messaggi. Le code consentono un recapito dei messaggi di tipo **FIFO (First In, First Out)** a uno o più consumer concorrenti. In base a questo metodo, in genere i messaggi vengono ricevuti ed elaborati nell'ordine temporale in cui sono stati aggiunti alla coda e ogni messaggio viene ricevuto ed elaborato da un solo consumer.
 
@@ -154,6 +158,9 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
 
 Per un confronto tra le code del bus di servizio di Azure discusse in questo articolo e le code di Azure discusse nell'articolo [Come usare l'archiviazione di accodamento da Ruby](../storage/storage-ruby-how-to-use-queue-storage.md), vedere [Analogie e differenze tra le code di Azure e le code del bus di servizio](service-bus-azure-and-service-bus-queues-compared-contrasted.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

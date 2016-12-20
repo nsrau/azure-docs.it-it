@@ -1,12 +1,12 @@
 ---
-title: Transparent Data Encryption in SQL Data Warehouse (T-SQL) | Microsoft Docs
+title: Transparent Data Encryption in SQL Data Warehouse (T-SQL) | Documentazione Microsoft
 description: Transparent Data Encryption (TDE) in SQL Data Warehouse (T-SQL).
 services: sql-data-warehouse
-documentationcenter: ''
+documentationcenter: 
 author: ronortloff
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: 8ccefef3-1308-41ee-b336-5e491d1098ae
 ms.service: sql-data-warehouse
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fb915cd9abb83b10af17046591ce313dcc84fd47
+
 
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>Introduzione a Transparent Data Encryption (TDE)
@@ -74,7 +78,7 @@ Il risultato ```1``` indica un database crittografato, ```0``` indica un databas
 * [sys.dm_pdw_nodes_database_encryption_keys][sys.dm_pdw_nodes_database_encryption_keys]
 
 <!--Anchors-->
-[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[Transparent data encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 [sys.databases]: http://msdn.microsoft.com/library/ms178534.aspx  
 [sys.dm_pdw_nodes_database_encryption_keys]: https://msdn.microsoft.com/library/mt203922.aspx  
 
@@ -84,6 +88,6 @@ Il risultato ```1``` indica un database crittografato, ```0``` indica un databas
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

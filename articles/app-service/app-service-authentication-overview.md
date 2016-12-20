@@ -1,12 +1,12 @@
 ---
-title: Autenticazione e autorizzazione nel servizio app di Azure | Microsoft Docs
-description: Riferimento concettuale e panoramica della funzionalità di Autenticazione/Autorizzazione per il servizio app di Azure
+title: Autenticazione e autorizzazione nel servizio app di Azure | Documentazione Microsoft
+description: "Riferimento concettuale e panoramica della funzionalità di Autenticazione/Autorizzazione per il servizio app di Azure"
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: mattchenderson
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.service: app-service
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,30 +14,34 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b3a588465a7abfb1f121a93de9e4613559ea5ca2
+
 
 ---
-# Autenticazione e autorizzazione nel servizio app di Azure
-## Informazioni sull’autenticazione / autorizzazione di servizio app
+# <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticazione e autorizzazione nel servizio app di Azure
+## <a name="what-is-app-service-authentication-authorization"></a>Informazioni sull’autenticazione / autorizzazione di servizio app
 L'autenticazione/autorizzazione del servizio app è una funzionalità che consente all'applicazione di eseguire la procedura di accesso degli utenti in modo che non sia necessario modificare il codice nel back-end dell'app. Fornisce un modo semplice per proteggere l'applicazione e utilizzare dati per-utente.
 
 Il servizio app usa identità federate, in cui un provider di identità di terze parti archivia gli account e autentica gli utenti. L'applicazione si basa sulle informazioni di identità del provider in modo da non doverle archiviare. Il servizio app supporta cinque provider di identità predefiniti: Azure Active Directory, Facebook, Google, Account Microsoft e Twitter. L'app può usare un numero qualsiasi di questi provider di identità per offrire agli utenti diverse opzioni di accesso. Per espandere il supporto predefinito è possibile integrare un altro provider di identità o una [soluzione di gestione delle identità personalizzata][custom-auth].
 
 Se si vuole iniziare subito, vedere una delle esercitazioni seguenti:
 
-* [Aggiungere l'autenticazione all'app iOS][iOS] \(o [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] o [Cordova])
+* [Aggiungere l'autenticazione all'app iOS][iOS] (o [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] oppure [Cordova])
 * [Autenticazione utente per le app per le API nel servizio app di Azure][apia-user]
 * [Introduzione a Servizio app di Azure - Parte 2][web-getstarted]
 
-## Funzionamento dell'autenticazione nel servizio app
+## <a name="how-authentication-works-in-app-service"></a>Funzionamento dell'autenticazione nel servizio app
 Per eseguire l'autenticazione con uno dei provider di identità, è prima necessario configurare il provider di identità per l'applicazione. Il provider di identità fornirà quindi gli ID e i segreti da includere nel servizio app. Questo completa la relazione di trust e consente al servizio app di convalidare le asserzioni utente dal provider di identità, ad esempio i token di autenticazione.
 
 Per consentire a un utente di accedere tramite uno di questi provider, è necessario che l'utente sia reindirizzato a un apposito endpoint per tale provider. Se i clienti usano un Web browser, è possibile configurare il servizio app in modo che indirizzi automaticamente tutti gli utenti non autenticati all'endpoint che esegue la procedura di accesso degli utenti. In caso contrario, sarà necessario indirizzare i clienti a `{your App Service base URL}/.auth/login/<provider>`, dove `<provider>` è uno dei valori seguenti: aad, facebook, google, microsoft o twitter. Gli scenari relativi alle API e ai dispositivi mobili sono illustrati nelle sezioni successive di questo articolo.
 
-Gli utenti che interagiscono con l'applicazione tramite un Web browser avranno un cookie impostato in modo da rimanere autenticati mentre esplorano l'applicazione. Per altri tipi di client, ad esempio quelli per dispositivi mobili, verrà rilasciato un token Web JSON (JWT), che dovrà essere presentato nell'intestazione `X-ZUMO-AUTH`. Gli SDK client delle app per dispositivi mobili gestiranno questa operazione automaticamente. In alternativa, un token di identità di Azure Active Directory o un token di accesso può essere incluso direttamente nell'intestazione `Authorization` come [token di connessione](https://tools.ietf.org/html/rfc6750).
+Gli utenti che interagiscono con l'applicazione tramite un Web browser avranno un cookie impostato in modo da rimanere autenticati mentre esplorano l'applicazione. Per altri tipi di client, ad esempio quelli per dispositivi mobili, verrà rilasciato un token Web JSON (JWT), che dovrà essere presentato nell'intestazione `X-ZUMO-AUTH` . Gli SDK client delle app per dispositivi mobili gestiranno questa operazione automaticamente. In alternativa, un token di identità di Azure Active Directory o un token di accesso può essere incluso direttamente nell'intestazione `Authorization` come [token di connessione](https://tools.ietf.org/html/rfc6750).
 
 Il servizio app convaliderà qualsiasi cookie o token rilasciato dall'applicazione per l'autenticazione degli utenti. Per limitare l'accesso all'applicazione, vedere la sezione sul [funzionamento dell'autorizzazione](#authorization) più avanti in questo articolo.
 
-### Autenticazione per dispositivi mobili con un SDK del provider
+### <a name="mobile-authentication-with-a-provider-sdk"></a>Autenticazione per dispositivi mobili con un SDK del provider
 Dopo aver completato tutte le configurazioni nel back-end, è possibile modificare i client per dispositivi mobili per l'accesso con il servizio app. Di seguito, sono disponibili due approcci:
 
 * Uso di un SDK pubblicato da un determinato provider di identità per stabilire l'identità e quindi accedere al servizio app.
@@ -52,12 +56,12 @@ Quando si usa un SDK del provider, gli utenti possono accedere a un'esperienza p
 
 Dopo che è stato ottenuto un token del provider, questo deve essere inviato al servizio app per la convalida. Dopo che il servizio app ha convalidato il token, crea un nuovo token del servizio app che viene restituito al client. L'SDK client delle app per dispositivi mobili include metodi helper per la gestione di questo scambio e l'associazione automatica del token a tutte le richieste per il back-end dell'applicazione. Facoltativamente, gli sviluppatori possono anche mantenere un riferimento al token del provider.
 
-### Autenticazione per dispositivi mobili senza un SDK del provider
+### <a name="mobile-authentication-without-a-provider-sdk"></a>Autenticazione per dispositivi mobili senza un SDK del provider
 Se non si vuole configurare un SDK del provider, è possibile consentire alla funzionalità App per dispositivi mobili del servizio app di Azure di eseguire la procedura di accesso per conto dell'utente. L'SDK client delle app per dispositivi mobili aprirà una visualizzazione Web per il provider scelto e completerà l'accesso dell'utente. In blog e forum si trova talvolta la definizione "flusso server" o "flusso verso il server", perché il server gestisce il processo di accesso degli utenti e l'SDK client non riceve mai il token del provider.
 
 Il codice necessario per avviare questo flusso è incluso nell'esercitazione sull'autenticazione per ogni piattaforma. Alla fine del flusso, l'SDK del client ha un token del servizio app che viene associato automaticamente a tutte le richieste per il back-end dell'applicazione.
 
-### Autenticazione da servizio a servizio
+### <a name="service-to-service-authentication"></a>Autenticazione da servizio a servizio
 Pur potendo concedere agli utenti l'accesso all'applicazione, è anche possibile considerare attendibile un'altra applicazione per la chiamata all'API. È ad esempio possibile che un'app Web chiami un'API in un'altra app Web. In questo scenario, per ottenere un token si usano le credenziali di un account del servizio invece di credenziali utente. Un account del servizio è noto anche come *entità servizio* in Azure Active Directory, mentre l'autenticazione che usa un account di questo tipo è nota anche come scenario da servizio a servizio.
 
 > [!IMPORTANT]
@@ -71,7 +75,7 @@ Per gestire uno scenario da servizio a servizio con l'autenticazione del servizi
 
 L'autenticazione dell'account del servizio da un'app per la logica del servizio app a un'app per le API è un caso speciale ed è illustrata nell'articolo [Uso dell'API personalizzata ospitata nel servizio app con App per la logica](../app-service-logic/app-service-logic-custom-hosted-api.md).
 
-## <a name="authorization"></a>Funzionamento dell'autorizzazione nel servizio app
+## <a name="a-nameauthorizationahow-authorization-works-in-app-service"></a><a name="authorization"></a>Funzionamento dell'autorizzazione nel servizio app
 Si ha il controllo completo sulle richieste che possono accedere all'applicazione. Autenticazione servizio app/L'autorizzazione può essere configurata con uno qualsiasi dei comportamenti seguenti:
 
 * Consentire solo alle richieste autenticate di raggiungere l'applicazione.
@@ -88,7 +92,7 @@ Si ha il controllo completo sulle richieste che possono accedere all'applicazion
 
 I comportamenti precedenti sono controllati dall'opzione **Azione da eseguire quando la richiesta non è autenticata** nel portale di Azure. Se si sceglie **Accedi con *nome provider* **, tutte le richieste devono essere autenticate. **Consenti richiesta (nessuna azione)** rinvia la decisione di autorizzazione al codice, ma fornisce comunque informazioni di autenticazione. Se si vuole che il codice gestisca tutti gli elementi, è possibile disabilitare la funzionalità Autenticazione/Autorizzazione.
 
-## Utilizzo delle identità utente nell'applicazione
+## <a name="working-with-user-identities-in-your-application"></a>Utilizzo delle identità utente nell'applicazione
 Il servizio app passa alcune informazioni utente all'applicazione usando intestazioni speciali. Le richieste esterne non consentono queste intestazioni e saranno presenti solo se impostate dall'autenticazione/autorizzazione del servizio app. Ecco alcune intestazioni di esempio:
 
 * X-MS-CLIENT-PRINCIPAL-NAME
@@ -100,8 +104,8 @@ Il codice scritto in qualsiasi linguaggio o framework può ottenere le informazi
 
 L'applicazione può anche ottenere altri dettagli sull'utente tramite una richiesta HTTP GET sull'endpoint `/.auth/me` dell'applicazione. Un token valido incluso nella richiesta restituirà un payload JSON con informazioni dettagliate sul provider in uso, il token del provider sottostante e altre informazioni utente. Gli SDK server delle app per dispositivi mobili forniscono metodi di supporto per l'uso di questi dati. Per altre informazioni, vedere [Come usare Node.js SDK per le app per dispositivi mobili di Azure](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity) e [Usare l'SDK del server back-end .NET per le app per dispositivi mobili di Azure](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
 
-## Documentazione e risorse aggiuntive
-### Provider di identità
+## <a name="documentation-and-additional-resources"></a>Documentazione e risorse aggiuntive
+### <a name="identity-providers"></a>Provider di identità
 Le esercitazioni seguenti illustrano come configurare il servizio app per usare diversi provider di autenticazione:
 
 * [Come configurare un'applicazione per usare l'account di accesso di Azure Active Directory][AAD]
@@ -112,12 +116,12 @@ Le esercitazioni seguenti illustrano come configurare il servizio app per usare 
 
 Se si vuole usare un sistema di gestione delle identità diverso da quelli qui forniti, è anche possibile sfruttare l'[anteprima del supporto per l'autenticazione personalizzata dell'SDK del server .NET per app per dispositivi mobili di Azure][custom-auth], che può essere usato in app Web, app per dispositivi mobili o app per le API.
 
-### Applicazioni Web
+### <a name="web-applications"></a>Applicazioni Web
 Le esercitazioni seguenti illustrano come aggiungere l'autenticazione a un'applicazione Web:
 
 * [Introduzione a Servizio app di Azure - Parte 2][web-getstarted]
 
-### Applicazioni per dispositivi mobili
+### <a name="mobile-applications"></a>Applicazioni per dispositivi mobili
 Le esercitazioni seguenti illustrano come aggiungere l'autenticazione ai client per dispositivi mobili usando il flusso verso il server:
 
 * [Aggiungere l'autenticazione all'app iOS][iOS]
@@ -146,7 +150,7 @@ Se si vuole usare il flusso verso il client per Google, vedere le risorse seguen
 
 * [Usare Google Sign-In SDK for iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#google-sdk)
 
-### Applicazioni per le API
+### <a name="api-applications"></a>Applicazioni per le API
 Le esercitazioni seguenti illustrano come proteggere le app per le API:
 
 * [Autenticazione utente per le app per le API nel servizio app di Azure][apia-user]
@@ -177,4 +181,8 @@ Le esercitazioni seguenti illustrano come proteggere le app per le API:
 [ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#adal
 [ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#adal
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,49 +1,54 @@
 ---
-title: Come usare l'invio in batch per migliorare le prestazioni delle applicazioni di database SQL di Azure
-description: Questo argomento dimostra che le operazioni di database in batch migliorano significativamente la velocità e la scalabilità delle applicazioni di database SQL di Azure. Anche se le tecniche di invio in batch funzionano con qualsiasi database SQL, questo articolo è incentrato su Azure.
+title: Come usare l&quot;invio in batch per migliorare le prestazioni delle applicazioni di database SQL di Azure
+description: "Questo argomento dimostra che le operazioni di database in batch migliorano significativamente la velocità e la scalabilità delle applicazioni di database SQL di Azure. Anche se le tecniche di invio in batch funzionano con qualsiasi database SQL, questo articolo è incentrato su Azure."
 services: sql-database
 documentationcenter: na
-author: annemill
+author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 563862ca-c65a-46f6-975d-10df7ff6aa9c
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 07/12/2016
-ms.author: annemill
+ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a4310e365148e94a7d9b61df354e7328863f8662
+
 
 ---
-# Come usare l'invio in batch per migliorare le prestazioni delle applicazioni di database SQL
+# <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Come usare l'invio in batch per migliorare le prestazioni delle applicazioni di database SQL
 Le operazioni di invio in batch al database SQL di Azure migliorano in modo significativo le prestazioni e la scalabilità delle applicazioni. Per comprendere i vantaggi, la prima parte di questo articolo descrive alcuni risultati dei test di esempio che confrontano le richieste sequenziali e in batch inviate a un database SQL. Il resto dell'articolo illustra le tecniche, gli scenari e le considerazioni che facilitano l'uso corretto dell'invio in batch nelle applicazioni Azure.
 
 **Autori**: Jason Roth, Silvano Coriani, Trent Swanson (Full Scale 180 Inc)
 
 **Revisori**: Conor Cunningham, Michael Thomassy
 
-## Perché l'invio in batch è importante per il database SQL?
+## <a name="why-is-batching-important-for-sql-database"></a>Perché l'invio in batch è importante per il database SQL?
 L'invio in batch di chiamate a un servizio remoto è una strategia nota per migliorare le prestazioni e la scalabilità. Ogni interazione con un servizio remoto, ad esempio la serializzazione, il trasferimento in rete e la deserializzazione, comporta costi fissi di elaborazione. Il raggruppamento di più transazioni distinte in un singolo batch consente di ridurre al minimo questi costi.
 
 In questo articolo si esamineranno diversi scenari e strategie di invio in batch al database SQL. Queste strategie sono importanti anche per le applicazioni locali che usano SQL Server, tuttavia ci sono diversi motivi per evidenziare l'uso dell'invio in batch per il database SQL:
 
 * La latenza di rete per l'accesso al database SQL è potenzialmente maggiore, in particolare se si accede dall'esterno dello stesso data center di Microsoft Azure.
-* Le caratteristiche multi-tenant del database SQL indicano che l'efficienza del livello di accesso ai dati è correlata alla scalabilità generale del database. Il database SQL deve impedire che qualsiasi tenant/utente singolo monopolizzi le risorse del database a scapito di altri tenant. In risposta all'utilizzo eccessivo di quote predefinite, il database SQL può ridurre la velocità effettiva o rispondere con eccezioni di limitazione delle richieste. Strategie efficienti, come l'invio in batch, consentono di effettuare un maggior numero di operazioni sul database SQL prima di raggiungere questi limiti.
-* L'invio in batch è efficace anche per le architetture che usano più database (partizionamento orizzontale). L'efficienza dell'interazione con ogni unità database rimane comunque un fattore chiave ai fini della scalabilità generale.
+* Le caratteristiche multi-tenant del database SQL indicano che l'efficienza del livello di accesso ai dati è correlata alla scalabilità generale del database. Il database SQL deve impedire che qualsiasi tenant/utente singolo monopolizzi le risorse del database a scapito di altri tenant. In risposta all'utilizzo eccessivo di quote predefinite, il database SQL può ridurre la velocità effettiva o rispondere con eccezioni di limitazione delle richieste. Strategie efficienti, come l'invio in batch, consentono di effettuare un maggior numero di operazioni sul database SQL prima di raggiungere questi limiti. 
+* L'invio in batch è efficace anche per le architetture che usano più database (partizionamento orizzontale). L'efficienza dell'interazione con ogni unità database rimane comunque un fattore chiave ai fini della scalabilità generale. 
 
-Uno dei vantaggi che derivano dall'uso del database SQL consiste nel non dover gestire i server che ospitano il database. Tuttavia, questa infrastruttura gestita implica anche una diversa concezione delle ottimizzazioni del database. Non è più possibile migliorare l'hardware o l'infrastruttura di rete del database. Gli ambienti sono controllati da Microsoft Azure. L'area principale su cui è possibile esercitare un controllo è la modalità di interazione dell'applicazione con il database SQL. L'invio in batch è una di queste ottimizzazioni.
+Uno dei vantaggi che derivano dall'uso del database SQL consiste nel non dover gestire i server che ospitano il database. Tuttavia, questa infrastruttura gestita implica anche una diversa concezione delle ottimizzazioni del database. Non è più possibile migliorare l'hardware o l'infrastruttura di rete del database. Gli ambienti sono controllati da Microsoft Azure. L'area principale su cui è possibile esercitare un controllo è la modalità di interazione dell'applicazione con il database SQL. L'invio in batch è una di queste ottimizzazioni. 
 
 La prima parte del documento esamina le diverse tecniche di invio in batch per le applicazioni .NET che usano il database SQL. Le ultime due sezioni illustrano invece le linee guida e gli scenari di invio in batch.
 
-## Strategie di invio in batch
-### Nota sui risultati della tempistica in questo argomento
+## <a name="batching-strategies"></a>Strategie di invio in batch
+### <a name="note-about-timing-results-in-this-topic"></a>Nota sui risultati della tempistica in questo argomento
 > [!NOTE]
 > I risultati non sono benchmark ma servono per indicare le **prestazioni relative**. Le tempistiche si basano su una media di almeno 10 esecuzioni del test. Le operazioni sono inserimenti in una tabella vuota. Questi test sono stati misurati con un database antecedente a V12 e non corrispondono necessariamente alla velocità effettiva che si potrebbe ottenere in un database V12 usando i nuovi [livelli di servizio](sql-database-service-tiers.md). Il vantaggio relativo della tecnica di invio in batch dovrebbe essere simile.
 > 
 > 
 
-### Transazioni
+### <a name="transactions"></a>Transazioni
 Può apparire inconsueto che si inizi un'analisi dell'invio in batch parlando di transazioni. Tuttavia, l'uso delle transazioni sul lato client ha un sottile effetto sull'invio in batch sul lato server che migliora le prestazioni. Inoltre, le transazioni possono essere aggiunte con poche righe di codice, quindi sono un modo rapido per migliorare le prestazioni delle operazioni sequenziali.
 
 Si consideri il codice C# seguente che contiene una sequenza di operazioni di inserimento e aggiornamento in una semplice tabella.
@@ -120,7 +125,7 @@ L'esempio precedente illustra che è possibile aggiungere una transazione locale
 
 Per altre informazioni sulle transazioni in ADO.NET, vedere [Transazioni locali in ADO.NET](https://msdn.microsoft.com/library/vstudio/2k2hy99x.aspx).
 
-### Parametri con valori di tabella
+### <a name="table-valued-parameters"></a>Parametri con valori di tabella
 I parametri con valori di tabella supportano tipi di tabella definiti dall'utente come parametri nelle funzioni, nelle stored procedure e nelle istruzioni Transact-SQL. Questa tecnica di invio in batch sul lato client consente di inviare più righe di dati nel parametro con valori di tabella. Per usare parametri con valori di tabella, definire prima di tutto un tipo di tabella. L'istruzione Transact-SQL seguente crea un tipo di tabella denominato **MyTableType**.
 
     CREATE TYPE MyTableType AS TABLE 
@@ -161,7 +166,7 @@ Nel codice si crea un oggetto **DataTable** con gli stessi nomi e tipi del tipo 
 
 Nell'esempio precedente l'oggetto **SqlCommand** inserisce righe da un parametro con valori di tabella, **@TestTvp**. L'oggetto **DataTable** creato in precedenza viene assegnato a questo parametro con il metodo **SqlCommand.Parameters.Add**. L'invio in batch delle operazioni di inserimento in una singola chiamata migliora sensibilmente le prestazioni rispetto alle operazioni di inserimento sequenziali.
 
-Per migliorare ulteriormente l'esempio precedente, usare una stored procedure anziché un comando basato su testo. Il comando Transact-SQL seguente crea una stored procedure che accetta il parametro con valori di tabella **SimpleTestTableType**.
+Per migliorare ulteriormente l'esempio precedente, usare una stored procedure anziché un comando basato su testo. Il comando Transact-SQL seguente crea una stored procedure che accetta il parametro con valori di tabella **SimpleTestTableType** .
 
     CREATE PROCEDURE [dbo].[sp_InsertRows] 
     @TestTvp as MyTableType READONLY
@@ -198,8 +203,8 @@ Il miglioramento delle prestazioni che deriva dall'invio in batch è evidente. N
 
 Per altre informazioni sui parametri con valori di tabella, vedere [Usare parametri con valori di tabella (motore di database)](https://msdn.microsoft.com/library/bb510489.aspx).
 
-### Copia bulk di SQL
-La copia bulk di SQL è un altro modo per inserire una grande quantità di dati in un database di destinazione. Le applicazioni .NET possono usare la classe **SqlBulkCopy** per eseguire le operazioni di inserimento bulk. In termini di funzionamento, la classe **SqlBulkCopy** è analoga allo strumento da riga di comando **Bcp.exe** o all'istruzione Transact-SQL **BULK INSERT**. L'esempio di codice seguente illustra come eseguire la copia bulk delle righe nella tabella di origine **DataTable** alla tabella di destinazione MyTable in SQL Server.
+### <a name="sql-bulk-copy"></a>Copia bulk di SQL
+La copia bulk di SQL è un altro modo per inserire una grande quantità di dati in un database di destinazione. Le applicazioni .NET possono usare la classe **SqlBulkCopy** per eseguire le operazioni di inserimento bulk. In termini di funzionamento, la classe **SqlBulkCopy** è analoga allo strumento da riga di comando **Bcp.exe** o all'istruzione Transact-SQL **BULK INSERT**. L'esempio di codice seguente illustra come eseguire la copia bulk delle righe nella tabella di origine **DataTable**alla tabella di destinazione MyTable in SQL Server.
 
     using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
     {
@@ -216,7 +221,7 @@ La copia bulk di SQL è un altro modo per inserire una grande quantità di dati 
 
 In alcuni casi la copia bulk è preferibile rispetto ai parametri con valori di tabella. Vedere la tabella di confronto dei parametri con valori di tabella rispetto alle operazioni BULK INSERT nell'argomento [Parametri con valori di tabella (motore di database)](https://msdn.microsoft.com/library/bb510489.aspx).
 
-I risultati dei test ad hoc seguenti mostrano le prestazioni, in millisecondi, dell'invio in batch con **SqlBulkCopy**.
+I risultati dei test ad hoc seguenti mostrano le prestazioni, in millisecondi, dell'invio in batch con **SqlBulkCopy** .
 
 | Operazioni | Da ambiente locale ad Azure (ms) | Azure stesso data center (ms) |
 | --- | --- | --- |
@@ -231,11 +236,11 @@ I risultati dei test ad hoc seguenti mostrano le prestazioni, in millisecondi, d
 > 
 > 
 
-Nei batch di dimensioni inferiori l'uso dei parametri con valori di tabella ha prodotto prestazioni migliori rispetto alla classe **SqlBulkCopy**. Tuttavia, l'esecuzione della classe **SqlBulkCopy** risulta del 12-31% più rapida rispetto ai parametri con valori di tabella per i test di 1.000 e 10.000 righe. Come i parametri con valori di tabella, la classe **SqlBulkCopy** è un'opzione valida per le operazioni di inserimento in batch, in particolare rispetto alle prestazioni di operazioni non in batch.
+Nei batch di dimensioni inferiori l'uso dei parametri con valori di tabella ha prodotto prestazioni migliori rispetto alla classe **SqlBulkCopy** . Tuttavia, l'esecuzione della classe **SqlBulkCopy** risulta del 12-31% più rapida rispetto ai parametri con valori di tabella per i test di 1.000 e 10.000 righe. Come i parametri con valori di tabella, la classe **SqlBulkCopy** è un'opzione valida per le operazioni di inserimento in batch, in particolare rispetto alle prestazioni di operazioni non in batch.
 
 Per altre informazioni sulla copia bulk in ADO.NET, vedere [Operazioni di copia bulk in SQL Server](https://msdn.microsoft.com/library/7ek5da1a.aspx).
 
-### Istruzioni INSERT con parametri a più righe
+### <a name="multiple-row-parameterized-insert-statements"></a>Istruzioni INSERT con parametri a più righe
 Un'alternativa per i batch piccoli consiste nella creazione di un'istruzione INSERT con parametri di grandi dimensioni per l'inserimento di più righe. L'esempio di codice seguente illustra questa tecnica.
 
     using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -274,13 +279,13 @@ I risultati dei test ad hoc seguenti mostrano le prestazioni di questo tipo di i
 
 Questo approccio può essere leggermente più veloce per i batch minori di 100 righe. Sebbene l'entità del miglioramento sia lieve, questa tecnica rappresenta un'altra opzione che potrebbe rivelarsi utile in scenari di applicazione specifici.
 
-### DataAdapter
+### <a name="dataadapter"></a>DataAdapter
 La classe **DataAdapter** consente di modificare un oggetto **DataSet** e di inviare quindi le modifiche come operazioni di tipo INSERT, UPDATE e DELETE. Se si usa **DataAdapter** in questo modo, è importante notare che vengono eseguite chiamate separate per ogni singola operazione. Per migliorare le prestazioni, usare la proprietà **UpdateBatchSize** impostata sul numero di operazioni da eseguire in batch contemporaneamente. Per altre informazioni, vedere [Esecuzione di operazioni batch usando DataAdapters](https://msdn.microsoft.com/library/aadf8fk2.aspx).
 
-### Entity Framework
-Entity Framework non supporta attualmente l'invio in batch. Diversi sviluppatori della community hanno provato a elaborare soluzioni alternative, ad esempio l'override del metodo **SaveChanges**. Tuttavia, le soluzioni sono in genere complesse e personalizzate a seconda dell'applicazione e del modello di dati. Il progetto codeplex di Entity Framework include attualmente una pagina di discussione sulla richiesta di questa funzionalità. Per accedere alla discussione, vedere la pagina [Design Meeting Notes - 2 agosto 2012](http://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
+### <a name="entity-framework"></a>Entity Framework
+Entity Framework non supporta attualmente l'invio in batch. Diversi sviluppatori della community hanno provato a elaborare soluzioni alternative, ad esempio l'override del metodo **SaveChanges** . Tuttavia, le soluzioni sono in genere complesse e personalizzate a seconda dell'applicazione e del modello di dati. Il progetto codeplex di Entity Framework include attualmente una pagina di discussione sulla richiesta di questa funzionalità. Per accedere alla discussione, vedere la pagina [Design Meeting Notes - 2 agosto 2012](http://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
 
-### XML
+### <a name="xml"></a>XML
 Per completezza, è importante considerare l'XML come strategia di invio in batch. Tuttavia, l'uso di XML non offre vantaggi rispetto ad altri metodi e presenta numerosi svantaggi. L'approccio è simile a quello dei parametri con valori di tabella, con la differenza che alla stored procedure viene passato un file o una stringa XML invece di una tabella definita dall'utente. La stored procedure analizza i comandi al suo interno.
 
 Questo approccio presenta diversi svantaggi:
@@ -291,15 +296,15 @@ Questo approccio presenta diversi svantaggi:
 
 Per questi motivi, l'uso dell'XML per le query in batch non è consigliabile.
 
-## Considerazioni sull'invio in batch
+## <a name="batching-considerations"></a>Considerazioni sull'invio in batch
 Le sezioni seguenti includono altre indicazioni per l'uso dell'invio in batch nelle applicazioni di database SQL.
 
-### Compromessi
+### <a name="tradeoffs"></a>Compromessi
 A seconda dell'architettura, l'invio in batch può comportare un compromesso tra prestazioni e resilienza. Si consideri ad esempio uno scenario in cui il proprio ruolo viene inaspettatamente disattivato. La perdita di una riga di dati produce un impatto inferiore alla perdita di un grosso batch di righe non inviate. Esiste un rischio maggiore nei casi in cui le righe vengono memorizzate in un buffer prima dell'invio al database in una finestra temporale specificata.
 
 Considerando questo compromesso, valutare con attenzione i tipi di operazioni da eseguire in batch. Usare più ampiamente i batch, con dimensioni maggiori e finestre temporali più ampie, per i dati meno critici.
 
-### Dimensioni dei batch
+### <a name="batch-size"></a>Dimensioni dei batch
 I test non hanno in genere evidenziato vantaggi correlati alla suddivisione di batch di grandi dimensioni in blocchi più piccoli. In effetti, questa suddivisione ha causato spesso prestazioni inferiori rispetto all'invio di un singolo batch di grandi dimensioni. Si consideri ad esempio uno scenario che prevede l'inserimento di 1000 righe. La tabella seguente mostra il tempo necessario per usare parametri con valori di tabella per l'inserimento di 1000 righe divise in batch più piccoli.
 
 | Dimensioni dei batch | Iterazioni | Parametri con valori di tabella (ms) |
@@ -320,7 +325,7 @@ Un altro fattore da tenere presente è il fatto che se il batch complessivo dive
 
 Infine, individuare un equilibro tra le dimensioni del batch e i rischi associati all'invio in batch. Se si verificano errori temporanei o il ruolo ha esito negativo, valutare le conseguenze di dover ripetere l'operazione o di perdere i dati nel batch.
 
-### Elaborazione parallela
+### <a name="parallel-processing"></a>Elaborazione parallela
 Che cosa accadrebbe se si adottasse l'approccio di ridurre le dimensioni del batch, ma si utilizzassero più thread per eseguire le operazioni? Anche in questo caso, i test indicano che diversi batch multithreading di dimensioni ridotte producono prestazioni generalmente inferiori a un singolo batch di dimensioni maggiori. Il test seguente tenta di inserire 1000 righe in uno o più batch paralleli. Questo test indica come più batch simultanei causino in effetti una riduzione delle prestazioni.
 
 | Dimensioni dei batch [iterazioni] | Due thread (ms) | Quattro thread (ms) | Sei thread (ms) |
@@ -348,15 +353,15 @@ In alcune progettazioni, l'esecuzione parallela di batch di piccole dimensioni p
 
 Se si usa l'esecuzione parallela, provare a controllare il numero massimo di thread di lavoro. Un numero più piccolo potrebbe ridurre il rischio di contese e i tempi di esecuzione. Tenere anche presente il carico aggiuntivo di questa soluzione sul database di destinazione, sia in termini di connessioni sia di transazioni.
 
-### Fattori correlati alle prestazioni
+### <a name="related-performance-factors"></a>Fattori correlati alle prestazioni
 Le indicazioni tipiche relative alle prestazioni dei database influiscono anche sull'invio in batch. Le prestazioni delle operazioni di inserimento, ad esempio, risultano ridotte per le tabelle con chiave primaria di grandi dimensioni o con numerosi indici non cluster.
 
-Se i parametri con valori di tabella usano una stored procedure, è possibile eseguire il comando **SET NOCOUNT ON** all'inizio della routine. Questa istruzione rimuove la restituzione del conteggio delle righe interessate nella routine. Tuttavia, nei test l'uso di **SET NOCOUNT ON** non ha avuto alcun effetto sulle prestazioni o le ha ridotte. La stored procedure usata per i test era semplice, con un singolo comando **INSERT** del parametro con valori di tabella. È possibile che stored procedure più complesse possano trarre vantaggio da questa istruzione. Non si deve tuttavia supporre che l'aggiunta di **SET NOCOUNT ON** alla stored procedure migliori automaticamente le prestazioni. Per comprendere l'effetto, testare la stored procedure con e senza l'istruzione **SET NOCOUNT ON**.
+Se i parametri con valori di tabella usano una stored procedure, è possibile eseguire il comando **SET NOCOUNT ON** all'inizio della routine. Questa istruzione rimuove la restituzione del conteggio delle righe interessate nella routine. Tuttavia, nei test l'uso di **SET NOCOUNT ON** non ha avuto alcun effetto sulle prestazioni o le ha ridotte. La stored procedure usata per i test era semplice, con un singolo comando **INSERT** del parametro con valori di tabella. È possibile che stored procedure più complesse possano trarre vantaggio da questa istruzione. Non si deve tuttavia supporre che l'aggiunta di **SET NOCOUNT ON** alla stored procedure migliori automaticamente le prestazioni. Per comprendere l'effetto, testare la stored procedure con e senza l'istruzione **SET NOCOUNT ON** .
 
-## Scenari di invio in batch
+## <a name="batching-scenarios"></a>Scenari di invio in batch
 Nelle sezioni seguenti viene descritto come usare parametri con valori di tabella in tre scenari di applicazione. Il primo scenario illustra in che modo interagiscono il buffering e l'invio in batch. Nel secondo scenario le prestazioni vengono migliorate eseguendo operazioni master/dettaglio in una singola chiamata di stored procedure. Lo scenario finale illustra come usare parametri con valori di tabella in un'operazione "UPSERT".
 
-### Buffering
+### <a name="buffering"></a>Buffering
 Sebbene alcuni scenari siano particolarmente adatti all'invio in batch, ne esistono numerosi che potrebbero trarre vantaggio da questo tipo di operazione grazie all'elaborazione ritardata. L'elaborazione ritardata implica tuttavia anche un maggiore rischio che i dati vengano persi in caso di errore imprevisto. È importante comprendere tale rischio e valutarne le conseguenze.
 
 Si consideri ad esempio un'applicazione Web che tiene traccia della cronologia di navigazione di ogni utente. Per ogni richiesta di pagina, l'applicazione potrebbe eseguire una chiamata al database per registrare la visualizzazione della pagina da parte dell'utente. Tuttavia è possibile conseguire livelli maggiori di prestazioni e scalabilità mediante il buffering delle attività di navigazione dell'utente e quindi inviando i dati al database in batch. È possibile attivare l'aggiornamento del database in base al tempo trascorso e/o alle dimensioni del buffer. Ad esempio, una regola potrebbe indicare che il batch deve essere elaborato dopo 20 secondi o quando il buffer raggiunge i 1000 elementi.
@@ -374,7 +379,7 @@ La classe NavHistoryData seguente modella i dettagli di navigazione dell'utente.
         public DateTime AccessTime { get; set; }
     }
 
-La classe NavHistoryDataMonitor è responsabile del buffering dei dati di navigazione dell'utente nel database. Contiene un metodo RecordUserNavigationEntry che risponde generando un evento **OnAdded**. Il codice seguente illustra la logica del costruttore che utilizza Rx per creare una raccolta osservabile in base all'evento. Sottoscrive quindi questa raccolta osservabile con il metodo Buffer. L'overload specifica che il buffer deve essere inviato ogni 20 secondi o 1000 voci.
+La classe NavHistoryDataMonitor è responsabile del buffering dei dati di navigazione dell'utente nel database. Contiene un metodo RecordUserNavigationEntry che risponde generando un evento **OnAdded** . Il codice seguente illustra la logica del costruttore che utilizza Rx per creare una raccolta osservabile in base all'evento. Sottoscrive quindi questa raccolta osservabile con il metodo Buffer. L'overload specifica che il buffer deve essere inviato ogni 20 secondi o 1000 voci.
 
     public NavHistoryDataMonitor()
     {
@@ -445,7 +450,7 @@ Il gestore converte tutti gli elementi memorizzati nel buffer nel tipo con valor
 
 Per usare questa classe di buffering, l'applicazione crea un oggetto statico NavHistoryDataMonitor. Ogni volta che l'utente accede a una pagina, l'applicazione chiama il metodo NavHistoryDataMonitor.RecordUserNavigationEntry. La logica di buffering continua a provvedere all'invio delle voci al database in batch.
 
-### Master/dettaglio
+### <a name="master-detail"></a>Master/dettaglio
 I parametri con valori di tabella sono utili per gli scenari INSERT semplici. Tuttavia, può risultare più difficile inviare in batch le operazioni di inserimento che includono più tabelle. Lo scenario "master/dettaglio" è un buon esempio. La tabella master identifica l'entità primaria. In una o più tabelle dei dettagli sono archiviati altri dati sull'entità. In questo scenario, le relazioni di chiave esterna applicano la relazione dei dettagli a un'entità master univoca. Si consideri una versione semplificata di una tabella PurchaseOrder e la tabella associata OrderDetail. L'istruzione Transact-SQL seguente crea la tabella PurchaseOrder con quattro colonne: OrderID, OrderDate, CustomerID e Status.
 
     CREATE TABLE [dbo].[PurchaseOrder](
@@ -534,7 +539,7 @@ Definire quindi una stored procedure che accetti tabelle di questi tipi. Questa 
 
 In questo esempio la tabella @IdentityLink definita a livello locale archivia i valori OrderID effettivi dalle righe appena inserite. Gli identificatori di ordine sono diversi dai valori OrderID temporanei nei parametri con valori di tabella @orders e @details. Per questo motivo, la tabella @IdentityLink connette quindi i valori OrderID del parametro @orders ai valori OrderID reali per le nuove righe della tabella PurchaseOrder. Dopo questo passaggio, la tabella @IdentityLink può facilitare l'inserimento dei dettagli degli ordini con il valore OrderID effettivo che soddisfa il vincolo di chiave esterna.
 
-Questa stored procedure può essere utilizzata dal codice o da altre chiamate Transact-SQL. Vedere la sezione sui parametri con valori di tabella di questo articolo per un esempio di codice. Il codice Transact-SQL seguente mostra come chiamare sp\_InsertOrdersBatch.
+Questa stored procedure può essere utilizzata dal codice o da altre chiamate Transact-SQL. Vedere la sezione sui parametri con valori di tabella di questo articolo per un esempio di codice. Il codice Transact-SQL seguente mostra come chiamare sp_InsertOrdersBatch.
 
     declare @orders as PurchaseOrderTableType
     declare @details as PurchaseOrderDetailTableType
@@ -558,7 +563,7 @@ Questa soluzione consente a ogni batch di usare un set di valori OrderID che ini
 
 In questo esempio viene spiegato che è possibile eseguire in batch anche operazioni di database più complesse, ad esempio operazioni master/dettaglio, usando i parametri con valori di tabella.
 
-### UPSERT
+### <a name="upsert"></a>UPSERT
 Un altro scenario di invio in batch prevede l'aggiornamento simultaneo di righe esistenti e l'inserimento di nuove righe. Questa operazione viene talvolta denominata "UPSERT" (aggiornamento + inserimento). Invece di eseguire chiamate separate a INSERT e UPDATE, l'istruzione MERGE è più adatta a questa attività. L'istruzione MERGE può eseguire operazioni di inserimento e aggiornamento in una singola chiamata.
 
 I parametri con valori di tabella possono essere usati con l'istruzione MERGE per eseguire aggiornamenti e inserimenti. Si consideri ad esempio una tabella Employee semplificata che contiene le colonne seguenti: EmployeeID, FirstName, LastName, SocialSecurityNumber:
@@ -580,7 +585,7 @@ In questo esempio, è possibile usare il fatto che la colonna SocialSecurityNumb
       SocialSecurityNumber NVARCHAR(50) );
     GO
 
-Successivamente, creare una stored procedure oppure scrivere codice che usi l'istruzione MERGE per eseguire l'aggiornamento e l'inserimento. L'esempio seguente usa l'istruzione MERGE in un parametro con valori di tabella, @employees, di tipo EmployeeTableType. Il contenuto della tabella @employees non è illustrato.
+Successivamente, creare una stored procedure oppure scrivere codice che usi l'istruzione MERGE per eseguire l'aggiornamento e l'inserimento. L'esempio seguente usa l'istruzione MERGE in un parametro con valori di tabella @employees, di tipo EmployeeTableType. Il contenuto della tabella @employees non è illustrato.
 
     MERGE Employee AS target
     USING (SELECT [FirstName], [LastName], [SocialSecurityNumber] FROM @employees) 
@@ -596,7 +601,7 @@ Successivamente, creare una stored procedure oppure scrivere codice che usi l'is
 
 Per altre informazioni, vedere la documentazione e gli esempi relativi all'istruzione MERGE. Anche se la stessa operazione può essere eseguita in una chiamata di stored procedure in più passaggi con le operazioni INSERT e UPDATE, l'istruzione MERGE è più efficiente. Il codice del database può anche creare chiamate Transact-SQL che usano l'istruzione MERGE direttamente senza richiedere due chiamate di database per INSERT e UPDATE.
 
-## Riepilogo delle indicazioni
+## <a name="recommendation-summary"></a>Riepilogo delle indicazioni
 L'elenco seguente fornisce un riepilogo delle indicazioni relative all'invio in batch descritte in questo argomento:
 
 * Usare il buffering e l'invio in batch per migliorare le prestazioni e la scalabilità delle applicazioni di database SQL.
@@ -610,13 +615,18 @@ L'elenco seguente fornisce un riepilogo delle indicazioni relative all'invio in 
 * Per operazioni di aggiornamento ed eliminazione, usare parametri con valori di tabella con la logica della stored procedure che determini il corretto funzionamento in ogni riga del parametro della tabella.
 * Linee guida sulle dimensioni dei batch:
   * Usare batch di grandi dimensioni considerando i requisiti delle applicazioni e aziendali.
-  * Bilanciare il miglioramento delle prestazioni dei batch di grandi dimensioni e i rischi di errori temporanei o irreversibili. Qual è la conseguenza di più tentativi o di perdita dei dati nel batch?
+  * Bilanciare il miglioramento delle prestazioni dei batch di grandi dimensioni e i rischi di errori temporanei o irreversibili. Qual è la conseguenza di più tentativi o di perdita dei dati nel batch? 
   * Testare i batch con le massime dimensioni per verificare che il database SQL non li rifiuti.
   * Creare le impostazioni di configurazione che controllano l'invio in batch, ad esempio le dimensioni dei batch o la finestra temporale di buffering. Queste impostazioni offrono flessibilità. È possibile modificare il comportamento di invio in batch in produzione senza ridistribuire il servizio cloud.
 * Evitare l'esecuzione parallela di batch che operano su una singola tabella in un database. Se si sceglie di dividere un singolo batch tra più thread di lavoro, eseguire i test per determinare il numero ideale di thread. Dopo una soglia non specificata, più thread determinano una riduzione delle prestazioni invece di un aumento.
 * Considerare il buffering in base a dimensioni e tempo come modalità di implementazione dell'invio in batch per più scenari.
 
-## Passaggi successivi
-Questo articolo descrive in che modo le tecniche di progettazione e codifica di database correlate all'invio in batch possano migliorare le prestazioni e la scalabilità delle applicazioni. Questo è però solo uno dei fattori della strategia complessiva. Per altri modi di migliorare le prestazioni e la scalabilità, vedere [Indicazioni sulle prestazioni del database SQL di Azure per i singoli database](sql-database-performance-guidance.md) e [Considerazioni su prezzo e prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md).
+## <a name="next-steps"></a>Passaggi successivi
+Questo articolo descrive in che modo le tecniche di progettazione e codifica di database correlate all'invio in batch possano migliorare le prestazioni e la scalabilità delle applicazioni. Questo è però solo uno dei fattori della strategia complessiva. Per altri modi per migliorare le prestazioni e la scalabilità, vedere le [indicazioni sulle prestazioni del database SQL di Azure per i singoli database](sql-database-performance-guidance.md) e le [considerazioni su prezzo e prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

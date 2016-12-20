@@ -1,18 +1,12 @@
 ---
-title: 'Come visualizzare e modificare il Cloud Solution Provider '
-;incentivi: ''
-rivenditore";: ''
-'|': ''
-microsoft: ''
-azure": ''
-description: 'Informazioni su come visualizzare e modificare la selezione per il CSP '
-rivenditore";.": ''
+title: Come visualizzare e modificare il Cloud Solution Provider &quot;Incentivi rivenditore&quot; | Documentazione Microsoft
+description: Informazioni su come visualizzare e modificare la selezione per il CSP &quot;Incentivi rivenditore&quot;.
 services: marketplace-publishing
 documentationcenter: na
 author: DavidBosland
 manager: lakoch
-editor: ''
-
+editor: 
+ms.assetid: e5ce0301-ddc4-4fb0-8349-acc65d387b8e
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
@@ -20,10 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2016
 ms.author: DavidBosland
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 80b6c1a1b5f5ae3f66ee2f39daf5b65ebc63fbed
+
 
 ---
-# Visualizzare e modificare il Cloud Solution Provider "Incentivi rivenditore" in Azure Marketplace
-Il 15 marzo 2016 i Cloud Solution Provider (CSP) "Incentivi rivenditore" saranno disponibili per gli editori di Marketplace. L'impostazione predefinita per questo valore di incentivo è **Sì**. L'editore può decidere di rifiutare esplicitamente il programma di incentivi. Questo articolo illustra come modificare l'impostazione nel profilo di pubblicazione e quindi come rifiutarla esplicitamente.
+# <a name="view-and-change-your-cloud-solution-provider-reseller-incentive-in-the-azure-marketplace"></a>Visualizzare e modificare il Cloud Solution Provider "Incentivi rivenditore" in Azure Marketplace
+Il 15 marzo 2016 i Cloud Solution Provider (CSP) "Incentivi rivenditore" saranno disponibili per gli editori di Marketplace.  L'impostazione predefinita per questo valore di incentivo è **Sì**.  L'editore può decidere di rifiutare esplicitamente il programma di incentivi.  Questo articolo illustra come modificare l'impostazione nel profilo di pubblicazione e quindi come rifiutarla esplicitamente.
 
 Per visualizzare o modificare lo stato di "Incentivi rivenditore", seguire questa procedura:
 
@@ -33,12 +31,12 @@ Per visualizzare o modificare lo stato di "Incentivi rivenditore", seguire quest
 2. Fare clic su **Editori**
    
    ![Schermata di destinazione del profilo - Collegamento Editori][2]
-3. Si notino le informazioni relative ai CSP nel profilo. È disponibile un'**opzione per abilitare** "Incentivi rivenditore". Il valore predefinito è "Sì".
+3. Si notino le informazioni relative ai CSP nel profilo.  È disponibile un'**opzione per abilitare o disabilitare** "Incentivi rivenditore". Il valore predefinito è "Sì".
    
    ![Profilo - Editori][3]
 4. Per modificare lo stato di "Incentivi rivenditore", accedere al profilo di pubblicazione quindi selezionare e salvare l'opzione desiderata:
    
-   * Selezionare **Sì** per scegliere di fornire lo sconto del 20% ai CSP rivenditori di applicazioni e servizi elencati in Azure Marketplace. In alternativa, selezionare **No** per rifiutare esplicitamente il programma di incentivi. In entrambi i casi, i proventi dell'editore sono identici.
+   * Selezionare **Sì** per scegliere di fornire lo sconto del 20% ai CSP rivenditori di applicazioni e servizi elencati in Azure Marketplace.  In alternativa, selezionare **No** per rifiutare esplicitamente il programma di incentivi.  In entrambi i casi, i proventi dell'editore sono identici.
    * Dopo aver effettuato una selezione fare clic su **Salva** nell'angolo in alto a destra.
    
    ![Profilo - Editori - caselle di modifica][4]
@@ -48,4 +46,8 @@ Per visualizzare o modificare lo stato di "Incentivi rivenditore", seguire quest
 [3]: ./media/marketplace-publishing-csp-incentive/profile-publishers-boxes.png
 [4]: ./media/marketplace-publishing-csp-incentive/profile-publishers-change-boxes.png
 
-<!---HONumber=AcomDC_0218_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

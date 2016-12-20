@@ -1,25 +1,29 @@
 ---
-title: Decisioni di progettazione e tecniche di codifica per lo sviluppo di SQL Data Warehouse | Microsoft Docs
+title: Decisioni di progettazione e tecniche di codifica per lo sviluppo di SQL Data Warehouse | Documentazione Microsoft
 description: Concetti di sviluppo, decisioni di progettazione, suggerimenti e tecniche di codifica per SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: 996e3afc-c21c-4e21-b9df-997f953f6dfd
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 08/16/2016
-ms.author: jrj;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d1c2255264a4240eecc51199050f8406d141ace2
+
 
 ---
-# Decisioni di progettazione e tecniche di codifica per SQL Data Warehouse
+# <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Decisioni di progettazione e tecniche di codifica per SQL Data Warehouse
 Esaminare questi articoli sullo sviluppo per capire meglio le decisioni chiave nella progettazione, i suggerimenti e le tecniche di codifica per SQL Data Warehouse.
 
-## Decisioni chiave nella progettazione
+## <a name="key-design-decisions"></a>Decisioni chiave nella progettazione
 Gli articoli seguenti illustrano alcuni dei concetti chiave e alcune delle decisioni di progettazione che sarà necessario conoscere per lo sviluppo del data warehouse distribuito tramite SQL Data Warehouse:
 
 * [Connessioni][Connessioni]
@@ -32,7 +36,7 @@ Gli articoli seguenti illustrano alcuni dei concetti chiave e alcune delle decis
 * [CTAS][CTAS]
 * [Statistiche][Statistiche]
 
-## Sviluppo dei suggerimenti e delle tecniche di codifica
+## <a name="development-recommendations-and-coding-techniques"></a>Sviluppo dei suggerimenti e delle tecniche di codifica
 Questi articoli illustrano le tecniche di codifica, i consigli e i suggerimenti consigliate specifici per lo sviluppo dell’SQL Data Warehouse:
 
 * [Stored procedure][Stored procedure]
@@ -44,8 +48,8 @@ Questi articoli illustrano le tecniche di codifica, i consigli e i suggerimenti 
 * [Opzioni di raggruppamento][Opzioni di raggruppamento]
 * [Assegnazione di variabili][Assegnazione di variabili]
 
-## Passaggi successivi
-Dopo aver letto gli articoli sullo sviluppo, esaminare la pagina relativa agli [argomenti di riferimento per Transact-SQL][argomenti di riferimento per Transact-SQL] per altre informazioni sulla sintassi supportata per SQL Data Warehouse.
+## <a name="next-steps"></a>Passaggi successivi
+Dopo aver letto gli articoli sullo sviluppo, vedere la pagina relativa agli [argomenti di riferimento per Transact-SQL][argomenti di riferimento per Transact-SQL] per altre informazioni sulla sintassi supportata per SQL Data Warehouse.
 
 <!--Image references-->
 
@@ -70,8 +74,12 @@ Dopo aver letto gli articoli sullo sviluppo, esaminare la pagina relativa agli [
 [argomenti di riferimento per Transact-SQL]: ./sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
-[renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx
+[Ridenominazione di oggetti]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

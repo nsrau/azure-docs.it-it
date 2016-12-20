@@ -1,12 +1,12 @@
 ---
-title: Campi personalizzati in Log Analytics | Microsoft Docs
-description: La funzionalità Campi personalizzati di Log Analytics consente di creare campi ricercabili personalizzati dai dati di OMS che vengono aggiunti alle proprietà di un record raccolto.  Questo articolo descrive il processo di creazione di un campo personalizzato e illustra una procedura dettagliata con un evento di esempio.
+title: Campi personalizzati in Log Analytics | Documentazione Microsoft
+description: "La funzionalità Campi personalizzati di Log Analytics consente di creare campi ricercabili personalizzati dai dati di OMS che vengono aggiunti alle proprietà di un record raccolto.  Questo articolo descrive il processo di creazione di un campo personalizzato e illustra una procedura dettagliata con un evento di esempio."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: 31572b51-6b57-4945-8208-ecfc3b5304fc
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b98dcbcf219276bb9a7fd24e7f8c8c8eba806cf0
+
 
 ---
 # <a name="custom-fields-in-log-analytics"></a>Campi personalizzati in Log Analytics
@@ -49,7 +53,7 @@ Il primo passaggio consiste nell'identificare i record che conterranno il campo 
 4. Viene aperta l'**estrazione guidata campi** e il record selezionato viene visualizzato nella colonna **Esempio principale**.  Viene definito il campo personalizzato per i record con gli stessi valori delle proprietà selezionate.  
 5. Se la selezione non corrisponde esattamente al previsto, selezionare campi aggiuntivi per limitare i criteri.  Per modificare i valori dei campi per i criteri, è necessario annullare e selezionare un altro record corrispondente ai criteri scelti.
 
-### <a name="step-2-perform-initial-extract"></a>Passaggio 2: Eseguire l'estrazione iniziale
+### <a name="step-2---perform-initial-extract"></a>Passaggio 2: Eseguire l'estrazione iniziale
 Dopo aver identificato i record che conterranno il campo personalizzato, occorre identificare i dati da estrarre.  Log Analytics usa queste informazioni per identificare schemi analoghi in record simili.  Nel passaggio successivo sarà possibile convalidare i risultati e fornire altri dettagli che Log Analytics potrà usare nell'analisi.
 
 1. Nel record di esempio evidenziare il testo con cui popolare il campo personalizzato.  Verrà visualizzata una finestra di dialogo in cui specificare un nome per il campo ed eseguire l'estrazione iniziale.  I caratteri **\_CF** vengono aggiunti automaticamente.
@@ -138,6 +142,9 @@ Ora il campo personalizzato può essere usato come le altre proprietà del recor
 * Per informazioni su come creare query usando i campi personalizzati come criteri, vedere l'articolo relativo alle [ricerche nei log](log-analytics-log-searches.md) .
 * Monitorare i [file di log personalizzati](log-analytics-data-sources-custom-logs.md) analizzati usando campi personalizzati.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

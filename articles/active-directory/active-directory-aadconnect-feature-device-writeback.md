@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Connect: Abilitazione del writeback dei dispositivi | Microsoft Docs'
+title: 'Azure AD Connect: Abilitazione del writeback dei dispositivi | Documentazione Microsoft'
 description: Questo documento descrive come abilitare il writeback dei dispositivi usando Azure AD Connect
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
 editor: curtand
-
+ms.assetid: c0ff679c-7ed5-4d6e-ac6c-b2b6392e7892
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: df2a2abed95126fbcbdcdef8100f728375ce9673
+
 
 ---
-# <a name="azure-ad-connect:-enabling-device-writeback"></a>Azure AD Connect: abilitazione del writeback dei dispositivi
+# <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: abilitazione del writeback dei dispositivi
 > [!NOTE]
 > Una sottoscrizione di Azure AD Premium è necessaria per il writeback dei dispositivi.
 > 
@@ -30,14 +34,12 @@ Questo offre maggiore sicurezza e garantisce che l'accesso alle applicazioni ven
 
 > [!IMPORTANT]
 > <li>I dispositivi devono trovarsi nella stessa foresta degli utenti. Data la necessità di eseguire il writeback dei dispositivi in una singola foresta, attualmente questa funzionalità non supporta una distribuzione con più foreste utente.</li>
-> <li>Solo un oggetto di configurazione della registrazione dispositivi può essere aggiunto alla foresta locale di Active Directory. Questa funzionalità non è compatibile con una topologia in cui l'istanza locale di Active Directory è sincronizzata con più directory di Azure AD.</li>
-> 
-> 
+> <li>Solo un oggetto di configurazione della registrazione dispositivi può essere aggiunto alla foresta locale di Active Directory. Questa funzionalità non è compatibile con una topologia in cui l'istanza locale di Active Directory è sincronizzata con più directory di Azure AD.</li>> 
 
-## <a name="part-1:-install-azure-ad-connect"></a>Parte 1: Installare Azure AD Connect
+## <a name="part-1-install-azure-ad-connect"></a>Parte 1: Installare Azure AD Connect
 1. Installare Azure AD Connect usando le impostazioni personalizzate o rapide È consigliabile iniziare sincronizzando correttamente tutti gli utenti e i gruppi prima di abilitare il writeback dei dispositivi.
 
-## <a name="part-2:-prepare-active-directory"></a>Parte 2: Preparare Active Directory
+## <a name="part-2-prepare-active-directory"></a>Parte 2: Preparare Active Directory
 Per preparare il writeback dei dispositivi, seguire questa procedura.
 
 1. Dal computer in cui è installato Azure AD, avviare PowerShell con privilegi elevati.
@@ -67,7 +69,7 @@ Parametri
 * DomainName: dominio di Active Directory in cui verranno creati gli oggetti dispositivo. Nota: tutti i dispositivi per una foresta Active Directory specifica verranno creati in un singolo dominio.
 * AdConnectorAccount: account Active Directory che verrà usato da Azure AD Connect per gestire gli oggetti nella directory. Si tratta dell'account usato dalla sincronizzazione di Azure AD Connect per connettersi ad Active Directory. Se è stata eseguita l'installazione usando le impostazioni rapide, è l'account con prefisso MSOL_.
 
-## <a name="part-3:-enable-device-writeback-in-azure-ad-connect"></a>Parte 3: Abilitare il writeback dei dispositivi in Azure AD Connect
+## <a name="part-3-enable-device-writeback-in-azure-ad-connect"></a>Parte 3: Abilitare il writeback dei dispositivi in Azure AD Connect
 Per abilitare il writeback dei dispositivi in Azure AD Connect, seguire questa procedura.
 
 1. Eseguire nuovamente l'installazione guidata. Selezionare **Personalizzazione delle opzioni di sincronizzazione** dalla pagina Attività aggiuntive e fare clic su **Avanti**.
@@ -76,7 +78,7 @@ Per abilitare il writeback dei dispositivi in Azure AD Connect, seguire questa p
    ![Installazione personalizzata - Funzionalità facoltative di writeback dei dispositivi](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback3.png)
 3. Nella pagina Writeback, il dominio specificato verrà visualizzato come la Foresta di writeback dei dispositivi predefinita.
    ![Installazione personalizzata - Foresta di destinazione del writeback dei dispositivi](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback4.png)
-4. Completare l'installazione guidata senza ulteriori modifiche di configurazione. Se necessario fare riferimento a [Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
+4. Completare l'installazione guidata senza ulteriori modifiche di configurazione. Se necessario fare riferimento a [Installazione personalizzata di Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md)
 
 ## <a name="enable-conditional-access"></a>Abilitare l'accesso condizionale
 Per informazioni dettagliate su come abilitare questo scenario, vedere [Configurazione dell'accesso condizionale locale usando il servizio Registrazione dispositivo di Azure Active Directory](https://msdn.microsoft.com/library/azure/dn788908.aspx).
@@ -137,6 +139,9 @@ Verificare la configurazione in Active Directory:
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

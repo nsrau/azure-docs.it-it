@@ -1,13 +1,13 @@
 ---
-title: Rete accelerata per macchine virtuali | Microsoft Docs
-description: Informazioni su come configurare la funzionalità Rete accelerata per una macchina virtuale di Azure tramite PowerShell.
+title: Rete accelerata per macchine virtuali | Documentazione Microsoft
+description: "Informazioni su come configurare la funzionalità Rete accelerata per una macchina virtuale di Azure tramite PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: a0b63599-c23b-40b5-a8ab-23af8b07dded
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 8ae59a99a8397676160c032b744460c0b2bcc1d7
+
 
 ---
 # <a name="accelerated-networking-for-a-virtual-machine"></a>Rete accelerata per macchine virtuali
@@ -50,7 +54,7 @@ L'uso della funzionalità Rete accelerata presenta le limitazioni seguenti:
 * **Creazione di una macchina virtuale:** un'interfaccia di rete con Rete accelerata abilitata può essere associata a una macchina virtuale solo durante la creazione della macchina virtuale. Non è possibile collegare l'interfaccia di rete a una macchina virtuale esistente.
 * **Aree:** sono disponibili solo le aree di Azure Stati Uniti centro-occidentali ed Europa occidentale. In futuro il set di aree disponibili verrà ampliato.
 * **Sistemi operativi supportati:** Microsoft Windows Server 2012 R2 e Windows Server 2016 Technical Preview 5. Presto verrà aggiunto il supporto per Linux e Windows Server 2012.
-* **Dimensioni della macchina virtuale:** le uniche dimensioni delle istanze di macchina virtuale supportate sono Standard_D15_v2 e Standard_DS15_v2. Per altre informazioni, vedere l'articolo [Dimensioni delle macchine virtuali in Azure](../virtual-machines/virtual-machines-windows-sizes.md) . In futuro il set di dimensioni delle istanze di macchina virtuale supportate verrà ampliato.
+* **Dimensioni della macchina virtuale:** le uniche dimensioni delle istanze di macchina virtuale supportate sono Standard_D15_v2 e Standard_DS15_v2. Per altre informazioni, vedere l'articolo [Dimensioni delle macchine virtuali in Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . In futuro il set di dimensioni delle istanze di macchina virtuale supportate verrà ampliato.
 
 Le modifiche apportate a queste limitazioni verranno annunciate nella pagina relativa agli [aggiornamenti sulla rete virtuale di Azure](https://azure.microsoft.com/updates/accelerated-networking-in-preview).
 
@@ -111,7 +115,7 @@ Le modifiche apportate a queste limitazioni verranno annunciate nella pagina rel
 10. Se si sceglie di non aggiungere una risorsa indirizzo IP pubblico all'interfaccia, rimuovere *-PublicIPAddress $PIP1* alla fine del comando seguente. Creare l'interfaccia di rete con la funzionalità Rete accelerata immettendo il comando seguente:
     
         $nic = New-AzureRmNetworkInterface -Location $locName -Name $NICName -ResourceGroupName $rgName -Subnet $Subnet -EnableAcceleratedNetworking -PublicIpAddress $PIP1 
-11. Per assegnare l'interfaccia di rete a una macchina virtuale durante la creazione della macchina virtuale, seguire le istruzioni riportate nei passaggi da 3 e 6 dell'articolo [Creare una VM Windows con Resource Manager e PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md) . Nel passaggio 6.2 sostituire *Standard_A1* con una delle dimensioni di macchina virtuale indicate nella sezione [Limitazioni](#limitations) di questo articolo.
+11. Per assegnare l'interfaccia di rete a una macchina virtuale durante la creazione della macchina virtuale, seguire le istruzioni riportate nei passaggi da 3 e 6 dell'articolo [Creare una VM Windows con Resource Manager e PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . Nel passaggio 6.2 sostituire *Standard_A1* con una delle dimensioni di macchina virtuale indicate nella sezione [Limitazioni](#limitations) di questo articolo.
     
     > [!NOTE]
     > Se sono stati modificati i *nomi* delle variabili $locName, $rgName o $nic in questo articolo, il passaggio 6 dell'articolo sulla creazione di una macchina virtuale avrà esito negativo. È tuttavia possibile modificare i *valori* delle variabili.
@@ -122,6 +126,9 @@ Le modifiche apportate a queste limitazioni verranno annunciate nella pagina rel
     
     ![Gestione dispositivi](./media/virtual-network-accelerated-networking-powershell/image2.png)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

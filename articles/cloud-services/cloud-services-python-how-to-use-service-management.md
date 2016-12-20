@@ -1,12 +1,12 @@
 ---
-title: Come usare l'API di gestione dei servizi (Python) - Guida alle funzionalità
-description: Informazioni su come eseguire attività comuni di gestione dei servizi a livello di codice da Python.
+title: "Come usare l&quot;API di gestione dei servizi (Python) - Guida alle funzionalità"
+description: "Informazioni su come eseguire attività comuni di gestione dei servizi a livello di codice da Python."
 services: cloud-services
 documentationcenter: python
 author: lmazuel
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 61538ec0-1536-4a7e-ae89-95967fe35d73
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,49 +14,53 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 553d474c8a9cbd7b8452daf85e1bb74b294b5699
+
 
 ---
-# Come usare la gestione dei servizi da Python
+# <a name="how-to-use-service-management-from-python"></a>Come usare la gestione dei servizi da Python
 > [!NOTE]
-> L'API di gestione del servizio è stata sostituita con la nuova API di Gestione risorse, attualmente disponibile in una versione di anteprima. Vedere la [documentazione di Gestione risorse di Azure](http://azure-sdk-for-python.readthedocs.org/) per informazioni dettagliate su come usare la nuova API di Gestione risorse da Python.
+> L'API di gestione del servizio è stata sostituita con la nuova API di Gestione risorse, attualmente disponibile in una versione di anteprima.  Vedere la [documentazione di Gestione risorse di Azure](http://azure-sdk-for-python.readthedocs.org/) per informazioni dettagliate su come usare la nuova API di Gestione risorse da Python.
 > 
 > 
 
-La guida descrive come eseguire attività comuni di gestione dei servizi a livello di codice da Python. La classe **ServiceManagementService** disponibile in [Azure SDK per Python](https://github.com/Azure/azure-sdk-for-python) supporta l'accesso a livello di codice alla maggior parte delle funzionalità di gestione dei servizi disponibili tramite il [portale di Azure classico][management-portal] \(ad esempio **creazione, aggiornamento ed eliminazione dei servizi cloud, distribuzioni, servizi di gestione dati e macchine virtuali**). Questa funzionalità può rivelarsi utile nella creazione di applicazioni che richiedono accesso a livello di codice alla gestione dei servizi.
+La guida descrive come eseguire attività comuni di gestione dei servizi a livello di codice da Python. La classe **ServiceManagementService** disponibile in [Azure SDK per Python](https://github.com/Azure/azure-sdk-for-python) supporta l'accesso a livello di codice alla maggior parte delle funzionalità di gestione dei servizi disponibili tramite il [portale di Azure classico][management-portal], come **creazione, aggiornamento ed eliminazione dei servizi cloud, distribuzioni, servizi di gestione dati e macchine virtuali**. Questa funzionalità può rivelarsi utile nella creazione di applicazioni che richiedono accesso a livello di codice alla gestione dei servizi.
 
-## <a name="WhatIs"></a>Informazioni sulla gestione dei servizi
-L'API di gestione dei servizi fornisce l'accesso a livello di codice alla maggior parte delle funzionalità di gestione dei servizi disponibili tramite il [portale di Azure classico][management-portal]. Azure SDK per Python consente di gestire i servizi cloud e gli account di archiviazione.
+## <a name="WhatIs"> </a>Informazioni sulla gestione dei servizi
+L'API Gestione dei servizi fornisce l'accesso a livello di codice alla maggior parte delle funzionalità di gestione dei servizi disponibili tramite il [portale di Azure classico][management-portal]. Azure SDK per Python consente di gestire i servizi cloud e gli account di archiviazione.
 
 Per usare l'API Gestione dei servizi, è necessario [creare un account Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="Concepts"> </a>Concetti
-Azure SDK per Python include l'[API di Gestione servizi di Azure][svc-mgmt-rest-api], ovvero un'API REST. Tutte le operazioni dell'API vengono eseguite tramite SSL e autenticate reciprocamente con certificati X.509 v3. Il servizio di gestione è accessibile da un servizio in esecuzione in Azure o direttamente tramite Internet da qualsiasi applicazione in grado di inviare una richiesta HTTPS e ricevere una risposta HTTPS.
+Azure SDK per Python include l'[API Gestione dei servizi di Azure][svc-mgmt-rest-api], ossia un'API REST. Tutte le operazioni dell'API vengono eseguite tramite SSL e autenticate reciprocamente con certificati X.509 v3. Il servizio di gestione è accessibile da un servizio in esecuzione in Azure o direttamente tramite Internet da qualsiasi applicazione in grado di inviare una richiesta HTTPS e ricevere una risposta HTTPS.
 
-## <a name="Installation"></a> Installazione
+## <a name="Installation"> </a>Installazione
 Tutte le funzionalità descritte in questo articolo sono disponibili nel pacchetto `azure-servicemanagement-legacy` che è possibile installare tramite pip. Per altre informazioni sull'installazione, ad esempio se non si ha familiarità con Python, vedere l'articolo [Installazione di Python e dell'SDK](../python-how-to-install.md)
 
-## <a name="Connect"></a>Procedura: Connettersi alla gestione dei servizi
+## <a name="Connect"> </a>Procedura: Connettersi alla gestione dei servizi
 Per connettersi all'endpoint di gestione dei servizi, sono necessari un ID sottoscrizione di Azure e un certificato di gestione valido. È possibile ottenere l'ID sottoscrizione tramite il [portale di Azure classico][management-portal].
 
 > [!NOTE]
-> A partire da Azure SDK per Python v0.8.0 è possibile usare i certificati creati con OpenSSL anche per l'esecuzione in Windows. È necessario Python 2.7.4 o versioni successive. Per gli utenti è consigliabile usare i certificati OpenSSL anziché pfx, perché il supporto per i certificati pfx verrà probabilmente rimosso in futuro.
+> A partire da Azure SDK per Python v0.8.0 è possibile usare i certificati creati con OpenSSL anche per l'esecuzione in Windows.  È necessario Python 2.7.4 o versioni successive. Per gli utenti è consigliabile usare i certificati OpenSSL anziché pfx, perché il supporto per i certificati pfx verrà probabilmente rimosso in futuro.
 > 
 > 
 
-### Certificati di gestione in Windows/Mac/Linux (OpenSSL)
-Per creare il certificato di gestione, è possibile utilizzare [OpenSSL](http://www.openssl.org/). È in realtà necessario creare due certificati, uno per il server (un file `.cer`) e uno per il client (un file `.pem`). Per creare il file `.pem`, eseguire:
+### <a name="management-certificates-on-windowsmaclinux-openssl"></a>Certificati di gestione in Windows/Mac/Linux (OpenSSL)
+Per creare il certificato di gestione, è possibile utilizzare [OpenSSL](http://www.openssl.org/) .  È in realtà necessario creare due certificati, uno per il server (un file `.cer`) e uno per il client (un file `.pem`). Per creare il file `.pem` , eseguire:
 
     openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 
-Per creare il certificato `.cer`, eseguire:
+Per creare il certificato `.cer` , eseguire:
 
     openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
 Per altre informazioni sui certificati di Azure, vedere [Panoramica sui certificati per i servizi cloud di Azure](cloud-services-certs-create.md). Per una descrizione completa dei parametri OpenSSL, vedere la documentazione disponibile all'indirizzo [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
-Dopo avere creato questi file è necessario caricare il file `.cer` in Azure selezionando l'opzione "Carica" della scheda "Impostazioni" del [portale di Azure classico][management-portal] ed è anche necessario prendere nota del percorso di salvataggio del file `.pem`.
+Dopo aver creato questi file è necessario caricare il file `.cer` in Azure selezionando l'opzione "Carica" della scheda "Impostazioni" del [portale di Azure classico][management-portal] e prendere nota del percorso di salvataggio del file `.pem`.
 
-Dopo avere ottenuto l'ID sottoscrizione, avere creato un certificato e avere caricato il file `.cer` in Azure è possibile connettersi all'endpoint di gestione di Azure passando l'ID sottoscrizione e il percorso del file `.pem` a **ServiceManagementService**:
+Dopo aver ottenuto l'ID sottoscrizione, aver creato un certificato e aver caricato il file `.cer` in Azure è possibile connettersi all'endpoint di gestione di Azure passando l'ID sottoscrizione e il percorso del file `.pem` a **ServiceManagementService**:
 
     from azure import *
     from azure.servicemanagement import *
@@ -66,18 +70,18 @@ Dopo avere ottenuto l'ID sottoscrizione, avere creato un certificato e avere car
 
     sms = ServiceManagementService(subscription_id, certificate_path)
 
-Nell'esempio precedente `sms` è un oggetto **ServiceManagementService**. La classe **ServiceManagementService** è la classe principale usata per gestire i servizi di Azure.
+Nell'esempio precedente `sms` è un oggetto **ServiceManagementService** . La classe **ServiceManagementService** è la classe principale usata per gestire i servizi di Azure.
 
-### Certificati di gestione in Windows (MakeCert)
-È possibile creare nel computer un certificato di gestione autofirmato usando `makecert.exe`. Aprire un **prompt dei comandi di Visual Studio** come **amministratore** e usare il comando seguente, sostituendo *AzureCertificate* con il nome del certificato che si desidera usare.
+### <a name="management-certificates-on-windows-makecert"></a>Certificati di gestione in Windows (MakeCert)
+È possibile creare nel computer un certificato di gestione autofirmato usando `makecert.exe`.  Aprire un **prompt dei comandi di Visual Studio** come **amministratore** e usare il comando seguente, sostituendo *AzureCertificate* con il nome del certificato da usare.
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-Il comando consente di creare il file `.cer` e di installarlo nell'archivio certificati **Personale**. Per altre informazioni, vedere [Panoramica sui certificati per i servizi cloud di Azure](cloud-services-certs-create.md).
+Il comando consente di creare il file `.cer` e di installarlo nell'archivio certificati **Personale** . Per altre informazioni, vedere [Panoramica sui certificati per i servizi cloud di Azure](cloud-services-certs-create.md).
 
-Dopo avere creato il certificato è necessario caricare il file `.cer` in Azure selezionando l'opzione "Carica" della scheda "Impostazioni" del [portale di Azure classico][management-portal].
+Dopo aver creato il certificato è necessario caricare il file `.cer` in Azure selezionando l'opzione "Carica" della scheda "Impostazioni" del [portale di Azure classico][management-portal].
 
-Dopo avere ottenuto l'ID sottoscrizione, avere creato un certificato e avere caricato il file `.cer` in Azure, è possibile connettersi all'endpoint di gestione di Azure passando l'ID sottoscrizione e il percorso del certificato nell'archivio certificati **Personale** a **ServiceManagementService**. Anche in questo caso, sostituire *AzureCertificate* con il nome del proprio certificato:
+Dopo aver ottenuto l'ID sottoscrizione, aver creato un certificato e aver caricato il file `.cer` in Azure, è possibile connettersi all'endpoint di gestione di Azure passando l'ID sottoscrizione e il percorso del certificato nell'archivio certificati **personale** a **ServiceManagementService**. Anche in questo caso, sostituire *AzureCertificate* con il nome del proprio certificato:
 
     from azure import *
     from azure.servicemanagement import *
@@ -87,7 +91,7 @@ Dopo avere ottenuto l'ID sottoscrizione, avere creato un certificato e avere car
 
     sms = ServiceManagementService(subscription_id, certificate_path)
 
-Nell'esempio precedente `sms` è un oggetto **ServiceManagementService**. La classe **ServiceManagementService** è la classe principale usata per gestire i servizi di Azure.
+Nell'esempio precedente `sms` è un oggetto **ServiceManagementService** . La classe **ServiceManagementService** è la classe principale usata per gestire i servizi di Azure.
 
 ## <a name="ListAvailableLocations"> </a>Procedura: Creare un elenco delle località disponibili
 Per elencare le località disponibili per i servizi di hosting, usare il metodo **list\_locations**:
@@ -119,7 +123,7 @@ Quando si crea un servizio cloud o un servizio di archiviazione, è necessario f
 * Australia sudorientale
 
 ## <a name="CreateCloudService"> </a>Procedura: Creare un servizio cloud
-Quando si crea un'applicazione e la si esegue in Azure, la combinazione del codice e della configurazione costituisce il cosiddetto [servizio cloud] di Azure (noto come *servizio ospitato* in versioni precedenti di Azure). Il metodo **create\_hosted\_service** consente di creare un nuovo servizio ospitato specificando un nome di servizio ospitato (che deve essere univoco in Azure), un'etichetta (con codifica Base 64 automatica), una descrizione e una località.
+Quando si crea un'applicazione e la si esegue in Azure, la combinazione del codice e della configurazione costituisce il cosiddetto [servizio cloud][servizio cloud] di Azure, noto come *servizio ospitato* in versioni precedenti di Azure. Il metodo **create\_hosted\_service** consente di creare un nuovo servizio ospitato specificando un nome di servizio ospitato che deve essere univoco in Azure, un'etichetta con codifica Base64 automatica, una descrizione e una località.
 
     from azure import *
     from azure.servicemanagement import *
@@ -151,16 +155,16 @@ Per ottenere eventuali informazioni su un particolare servizio ospitato, passare
     print('Management URL: ' + hosted_service.url)
     print('Location: ' + hosted_service.hosted_service_properties.location)
 
-Dopo avere creato un servizio cloud è possibile distribuire il codice al servizio con il metodo **create\_deployment**.
+Dopo aver creato un servizio cloud è possibile distribuire il codice al servizio con il metodo **create\_deployment**.
 
 ## <a name="DeleteCloudService"> </a>Procedura: Eliminare un servizio cloud
 È possibile eliminare un servizio cloud passando il nome del servizio al metodo **delete\_hosted\_service**:
 
     sms.delete_hosted_service('myhostedservice')
 
-Prima di eliminare un servizio è necessario eliminare tutte le distribuzioni del servizio. Per informazioni dettagliate, vedere [Procedura: Eliminare una distribuzione](#DeleteDeployment).
+Prima di eliminare un servizio è necessario eliminare tutte le distribuzioni del servizio. Per informazioni dettagliate, vedere [Procedura: Eliminare una distribuzione](#DeleteDeployment) .
 
-## <a name="DeleteDeployment"></a>Procedura: Eliminare una distribuzione
+## <a name="DeleteDeployment"> </a>Procedura: Eliminare una distribuzione
 Per eliminare una distribuzione, usare il metodo **delete\_deployment**. L'esempio seguente mostra come eliminare una distribuzione denominata `v1`.
 
     from azure import *
@@ -188,7 +192,7 @@ Un [servizio di archiviazione](../storage/storage-create-storage-account.md) off
     operation_result = sms.get_operation_status(result.request_id)
     print('Operation status: ' + operation_result.status)
 
-Si noti nell'esempio precedente che è possibile recuperare lo stato dell'operazione **create\_storage\_account** passando il risultato restituito da **create\_storage\_account** al metodo **get\_operation\_status**.
+Si noti nell'esempio precedente che è possibile recuperare lo stato dell'operazione **create\_storage\_account** passando il risultato restituito da **create\_storage\_account** al metodo **get\_operation\_status**.  
 
 È possibile elencare gli account di archiviazione e le relative proprietà con il metodo **list\_storage\_accounts**:
 
@@ -203,7 +207,7 @@ Si noti nell'esempio precedente che è possibile recuperare lo stato dell'operaz
         print('Location: ' + account.storage_service_properties.location)
         print('')
 
-## <a name="DeleteStorageService"></a>Procedura: Eliminare un servizio di archiviazione
+## <a name="DeleteStorageService"> </a>Procedura: Eliminare un servizio di archiviazione
 È possibile eliminare un servizio di archiviazione passando il relativo nome al metodo **delete\_storage\_account**. L'eliminazione di un servizio di archiviazione comporta l'eliminazione di tutti i dati archiviati nel servizio: BLOB, tabelle e code.
 
     from azure import *
@@ -228,7 +232,7 @@ Per elencare i sistemi operativi disponibili per i servizi di hosting, usare il 
         print('Family: ' + os.family_label)
         print('Active: ' + str(os.is_active))
 
-In alternativa, è possibile utilizzare il metodo **list\_operating\_system\_families** che consente di raggruppare i sistemi operativi in base alla famiglia:
+In alternativa, è possibile usare il metodo **list\_operating\_system\_families** che consente di raggruppare i sistemi operativi in base alla famiglia:
 
     result = sms.list_operating_system_families()
 
@@ -286,7 +290,7 @@ Per eliminare un'immagine dell'utente, usare il metodo **delete\_os\_image**:
     print('Operation status: ' + operation_result.status)
 
 ## <a name="CreateVM"> </a>Procedura: Creare una macchina virtuale
-Per creare una macchina virtuale, è necessario creare un [servizio cloud](#CreateCloudService) prima di creare la distribuzione della macchina virtuale tramite il metodo **create\_virtual\_machine\_deployment**:
+Per creare una macchina virtuale, è necessario creare un [servizio cloud](#CreateCloudService)  prima di creare la distribuzione della macchina virtuale tramite il metodo **create\_virtual\_machine\_deployment**:
 
     from azure import *
     from azure.servicemanagement import *
@@ -302,7 +306,7 @@ Per creare una macchina virtuale, è necessario creare un [servizio cloud](#Crea
         location=location)
 
     # Name of an os image as returned by list_os_images
-    image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-it-IT-30GB.vhd'
+    image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-en-us-30GB.vhd'
 
     # Destination storage account container/blob where the VM disk
     # will be created
@@ -334,12 +338,12 @@ Per eliminare una macchina virtuale, è prima necessario eliminare la distribuzi
     sms.delete_deployment(service_name='myvm',
         deployment_name='myvm')
 
-Sarà quindi possibile eliminare il servizio cloud utilizzando il metodo **delete\_hosted\_service**:
+Sarà quindi possibile eliminare il servizio cloud usando il metodo **delete\_hosted\_service**:
 
     sms.delete_hosted_service(service_name='myvm')
 
-## Procedura: Creare una macchina virtuale da un'immagine di macchina virtuale acquisita
-Per acquisire un'immagine di VM, è necessario chiamare prima il metodo **capture\_vm\_image**:
+## <a name="how-to-create-a-virtual-machine-from-a-captured-virtual-machine-image"></a>Procedura: Creare una macchina virtuale da un'immagine di macchina virtuale acquisita
+Per acquisire un'immagine di macchina virtuale, è prima necessario chiamare il metodo **capture\_vm\_image**:
 
     from azure import *
     from azure.servicemanagement import *
@@ -366,11 +370,11 @@ Per acquisire un'immagine di VM, è necessario chiamare prima il metodo **captur
             image
         )
 
-Per verificare quindi di avere acquisito l'immagine correttamente, usare l'API **list\_vm\_images** e accertarsi che l'immagine venga visualizzata nei risultati:
+Per verificare quindi di aver acquisito l'immagine correttamente, usare l'API **list\_vm\_images** e accertarsi che l'immagine venga visualizzata nei risultati:
 
     images = sms.list_vm_images()
 
-Per creare infine la macchina virtuale con l'immagine acquisita, usare il metodo **create\_virtual\_machine\_deployment** come fatto in precedenza, ma questa volta passare vm\_image\_name.
+Per creare infine la macchina virtuale con l'immagine acquisita, usare il metodo **create\_virtual\_machine\_deployment** come fatto in precedenza, ma questa volta passare vm_image_name.
 
     from azure import *
     from azure.servicemanagement import *
@@ -395,37 +399,42 @@ Per creare infine la macchina virtuale con l'immagine acquisita, usare il metodo
         role_size='Small',
         vm_image_name = image_name)
 
-Per altre informazioni su come acquisire una macchina virtuale Linux, vedere [Come acquisire una macchina virtuale Linux.](../virtual-machines/virtual-machines-linux-classic-capture-image.md)
+Per altre informazioni su come acquisire una macchina virtuale Linux, vedere [Come acquisire una macchina virtuale Linux](../virtual-machines/virtual-machines-linux-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
-Per altre informazioni su come acquisire una macchina virtuale Windows, vedere [Come acquisire una macchina virtuale Windows.](../virtual-machines/virtual-machines-windows-classic-capture-image.md)
+Per altre informazioni su come acquisire una macchina virtuale Windows, vedere [Come acquisire una macchina virtuale Windows](../virtual-machines/virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="What's Next"> </a>Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base della gestione dei servizi, è possibile accedere alla [documentazione completa di riferimento all'API per Azure Python SDK](http://azure-sdk-for-python.readthedocs.org/) ed eseguire facilmente le complesse attività di gestione dell'applicazione Python.
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/develop/python/).
 
-[What is Service Management]: #WhatIs
-[Concepts]: #Concepts
-[How to: Connect to service management]: #Connect
-[How to: List available locations]: #ListAvailableLocations
-[How to: Create a cloud service]: #CreateCloudService
-[How to: Delete a cloud service]: #DeleteCloudService
-[How to: Create a deployment]: #CreateDeployment
-[How to: Update a deployment]: #UpdateDeployment
-[How to: Move deployments between staging and production]: #MoveDeployments
-[How to: Delete a deployment]: #DeleteDeployment
-[How to: Create a storage service]: #CreateStorageService
-[How to: Delete a storage service]: #DeleteStorageService
-[How to: List available operating systems]: #ListOperatingSystems
-[How to: Create an operating system image]: #CreateVMImage
-[How to: Delete an operating system image]: #DeleteVMImage
-[How to: Create a virtual machine]: #CreateVM
-[How to: Delete a virtual machine]: #DeleteVM
+[Informazioni sulla gestione dei servizi]: #WhatIs
+[Concetti]: #Concepts
+[Procedura: Connettersi alla gestione dei servizi]: #Connect
+[Procedura: Creare un elenco delle località disponibili]: #ListAvailableLocations
+[Procedura: Creare un servizio cloud]: #CreateCloudService
+[Procedura: Eliminare un servizio cloud]: #DeleteCloudService
+[Procedura: Creare una distribuzione]: #CreateDeployment
+[Procedura: Aggiornare una distribuzione]: #UpdateDeployment
+[Procedura: Spostare distribuzioni tra staging e produzione]: #MoveDeployments
+[Procedura: Eliminare una distribuzione]: #DeleteDeployment
+[Procedura: Creare un servizio di archiviazione]: #CreateStorageService
+[Procedura: Eliminare un servizio di archiviazione]: #DeleteStorageService
+[Procedura: Elencare i sistemi operativi disponibili]: #ListOperatingSystems
+[Procedura: Creare un'immagine del sistema operativo]: #CreateVMImage
+[Procedura: Eliminare un'immagine del sistema operativo]: #DeleteVMImage
+[Procedura: Creare una macchina virtuale]: #CreateVM
+[Procedura: Eliminare una macchina virtuale]: #DeleteVM
 [Next Steps]: #NextSteps
 [management-portal]: https://manage.windowsazure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[servizio cloud]: https://azure.microsoft.com/documentation/services/cloud-services/
+[servizio cloud]:/services/cloud-services/
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

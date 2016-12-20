@@ -5,8 +5,8 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 72a9e493-3f14-4e52-b6e2-0490fd04b184
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
@@ -14,6 +14,10 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 09/14/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ea5025cf031afb2a6d13356059d090c2d63f1665
+
 
 ---
 # <a name="upgrade-procedures"></a>Procedure di aggiornamento
@@ -21,7 +25,7 @@ Se nell'applicazione è già stata integrata una versione precedente dell'SDK, �
 
 Per ogni nuova versione dell'SDK è necessario innanzitutto sostituire (rimuovere e importare nuovamente in Xcode) le cartelle EngagementSDK ed EngagementReach.
 
-## <a name="from-3.0.0-to-4.0.0"></a>Dalla versione 3.0.0 alla 4.0.0
+## <a name="from-300-to-400"></a>Dalla versione 3.0.0 alla 4.0.0
 ### <a name="xcode-8"></a>XCode 8
 XCode 8 è un componente obbligatorio a partire dalla versione 4.0.0 dell'SDK.
 
@@ -148,7 +152,7 @@ oppure ereditandola dalla classe `AEUserNotificationHandler`
 > 
 > 
 
-## <a name="from-2.0.0-to-3.0.0"></a>Dalla versione 2.0.0 alla 3.0.0
+## <a name="from-200-to-300"></a>Dalla versione 2.0.0 alla 3.0.0
 Eliminazione del supporto per iOS 4.X. A partire da questa versione, la destinazione della distribuzione dell'applicazione deve essere almeno iOS 6.
 
 Se si usa Reach nell'applicazione, è necessario aggiungere il valore `remote-notification` alla matrice `UIBackgroundModes` nel file Info.plist per ricevere notifiche remote.
@@ -161,7 +165,7 @@ Il metodo `application:didReceiveRemoteNotification:` deve essere sostituito da 
     -(void)didFailToRetrieveLaunchMessage;
     -(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
-## <a name="from-1.16.0-to-2.0.0"></a>Dalla versione 1.16.0 alla 2.0.0
+## <a name="from-1160-to-200"></a>Dalla versione 1.16.0 alla 2.0.0
 La sezione seguente illustra come eseguire la migrazione di un'integrazione dell'SDK dal servizio Capptain offerto da Capptain SAS a un'app basata su Azure Mobile Engagement.
 Se si esegue la migrazione da una versione precedente, visitare il sito Web di Capptain per eseguire prima la migrazione alla versione 1.16 e quindi applicare la procedura seguente.
 
@@ -200,6 +204,9 @@ Esempi:
 * La classe `CapptainUtils` viene rinominata come `EngagementUtils`.
 * La classe `CapptainViewController` viene rinominata come `EngagementViewController`.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

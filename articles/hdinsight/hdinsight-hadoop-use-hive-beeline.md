@@ -1,13 +1,13 @@
 ---
-title: Utilizzare Beeline per lavorare con Hive in HDInsight (Hadoop) | Microsoft Docs
-description: Informazioni su come usare SSH per connettersi a un cluster Hadoop in HDInsight e quindi inviare query Hive in modo interattivo usando Beeline. Beeline è un'utilità per l'utilizzo di HiveServer2 rispetto a JDBC.
+title: Usare Hive con Hadoop in HDInsight con Beeline | Documentazione Microsoft
+description: "Informazioni su come usare SSH per connettersi a un cluster Hadoop in HDInsight e quindi inviare query Hive in modo interattivo usando Beeline. Beeline è un&quot;utilità per l&quot;utilizzo di HiveServer2 rispetto a JDBC."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 3adfb1ba-8924-4a13-98db-10a67ab24fca
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/10/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
+ms.openlocfilehash: 685d77363c451fbc28c39a34241dc34f796f7a77
+
 
 ---
 # <a name="use-hive-with-hadoop-in-hdinsight-with-beeline"></a>Usare Hive con Hadoop in HDInsight con Beeline
@@ -27,13 +31,13 @@ In questo articolo si apprenderà come usare SSH (Secure Shell) per connettersi 
 > 
 > 
 
-## <a name="<a-id="prereq"></a>prerequisites"></a><a id="prereq"></a>Prerequisiti
+## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Prerequisiti
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
 
 * Un cluster Hadoop basato su Linux in HDInsight.
 * Un client SSH. Linux, Unix e Mac OS dovrebbero essere dotati di un client SSH. Per gli utenti di Windows è necessario scaricare un client, ad esempio [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-## <a name="<a-id="ssh"></a>connect-with-ssh"></a><a id="ssh"></a>Connettersi con SSH
+## <a name="a-idsshaconnect-with-ssh"></a><a id="ssh"></a>Connettersi con SSH
 Connettersi al nome di dominio completo (FQDN) del cluster HDInsight usando il comando SSH. L'FQDN è costituito dal nome assegnato al cluster, seguito da **.azurehdinsight.net**. Ad esempio, il seguente comando stabilirà la connessione a un cluster denominato **myhdinsight**:
 
     ssh admin@myhdinsight-ssh.azurehdinsight.net
@@ -46,12 +50,12 @@ Connettersi al nome di dominio completo (FQDN) del cluster HDInsight usando il c
 
 Per altre informazioni sull'uso di SSH con HDInsight, vedere [Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix oppure OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-### <a name="putty-(windows-based-clients)"></a>PuTTY (client basati su Windows)
+### <a name="putty-windows-based-clients"></a>PuTTY (client basati su Windows)
 Windows non fornisce un client SSH incorporato. È consigliabile usare **PuTTY**, disponibile per il download all'indirizzo [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 Per altre informazioni sull'uso di PuTTY, vedere [Uso di SSH con Hadoop basato su Linux in HDInsight da Windows ](hdinsight-hadoop-linux-use-ssh-windows.md).
 
-## <a name="<a-id="beeline"></a>use-the-beeline-command"></a><a id="beeline"></a>Usare il comando Beeline
+## <a name="a-idbeelineause-the-beeline-command"></a><a id="beeline"></a>Usare il comando Beeline
 1. Dopo la connessione, usare il comando seguente per avviare Beeline:
    
         beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
@@ -115,31 +119,33 @@ Per altre informazioni sull'uso di PuTTY, vedere [Uso di SSH con Hadoop basato s
      > 
      
      L'output di questo comando dovrebbe essere simile al seguente:
+
+     ```
+     INFO  : Tez session hasn't been created yet. Opening session
+     INFO  :
      
-       INFO  : Tez session hasn't been created yet. Opening session
-       INFO  :
+     INFO  : Status: Running (Executing on YARN cluster with App id application_1443698635933_0001)
      
-       INFO  : Status: Running (Executing on YARN cluster with App id application_1443698635933_0001)
-     
-       INFO  : Map 1: -/-      Reducer 2: 0/1
-       INFO  : Map 1: 0/1      Reducer 2: 0/1
-       INFO  : Map 1: 0/1      Reducer 2: 0/1
-       INFO  : Map 1: 0/1      Reducer 2: 0/1
-       INFO  : Map 1: 0/1      Reducer 2: 0/1
-       INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
-       INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
-       INFO  : Map 1: 1/1      Reducer 2: 0/1
-       INFO  : Map 1: 1/1      Reducer 2: 0(+1)/1
-       INFO  : Map 1: 1/1      Reducer 2: 1/1
-       +----------+--------+--+
-       |   sev    | count  |
-       +----------+--------+--+
-       | [ERROR]  | 3      |
-       +----------+--------+--+
-       1 row selected (47.351 seconds)
+     INFO  : Map 1: -/-      Reducer 2: 0/1
+     INFO  : Map 1: 0/1      Reducer 2: 0/1
+     INFO  : Map 1: 0/1      Reducer 2: 0/1
+     INFO  : Map 1: 0/1      Reducer 2: 0/1
+     INFO  : Map 1: 0/1      Reducer 2: 0/1
+     INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
+     INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
+     INFO  : Map 1: 1/1      Reducer 2: 0/1
+     INFO  : Map 1: 1/1      Reducer 2: 0(+1)/1
+     INFO  : Map 1: 1/1      Reducer 2: 1/1
+     +----------+--------+--+
+     |   sev    | count  |
+     +----------+--------+--+
+     | [ERROR]  | 3      |
+     +----------+--------+--+
+     1 row selected (47.351 seconds)
+     ```
 5. Per uscire da Beeline, usare `!quit`.
 
-## <a name="<a-id="file"></a>run-a-hiveql-file"></a><a id="file"></a>Eseguire un file HiveQL
+## <a name="a-idfilearun-a-hiveql-file"></a><a id="file"></a>Eseguire un file HiveQL
 Beeline può anche essere usato per eseguire un file che contiene istruzioni HiveQL. Usare la procedura seguente per creare un file, quindi eseguirlo tramite Beeline.
 
 1. Usare il comando seguente per creare un nuovo file denominato **query.hql**:
@@ -160,7 +166,7 @@ Beeline può anche essere usato per eseguire un file che contiene istruzioni Hiv
      > A differenza di quanto accade con le tabelle esterne, se si elimina una tabella interna verranno eliminati anche i dati sottostanti.
      > 
      > 
-3. Per salvare il file usare **CTRL**+**_X**, quindi immettere **Y** e infine premere **INVIO**.
+3. Per salvare il file usare **Ctrl**+**_X**, quindi immettere **Y** e infine premere **INVIO**.
 4. Usare il codice seguente per eseguire il file tramite Beeline: Sostituire **HOSTNAME** con il nome ottenuto in precedenza per il nodo head e **PASSWORD** con la password per l'account amministratore:
    
         beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i query.hql
@@ -195,7 +201,7 @@ Se Beeline è installato in un client esterno al cluster, è possibile connetter
 
 Si noti che parametri/URI sono differenti rispetto all'esecuzione diretta in un nodo head o da un nodo perimetrale interno al cluster. Questo avviene perché la connessione al cluster da Internet usa un gateway pubblico che instrada il traffico sulla porta 443. Inoltre, il gateway pubblico sulla porta 443 espone anche molti altri servizi, pertanto l'URI è diverso rispetto alla connessione diretta. Se ci si connette da Internet è necessario anche autenticare la sessione inserendo la password.
 
-## <a name="<a-id="summary"></a><a-id="nextsteps"></a>next-steps"></a><a id="summary"></a><a id="nextsteps"></a>Passaggi successivi
+## <a name="a-idsummaryaa-idnextstepsanext-steps"></a><a id="summary"></a><a id="nextsteps"></a>Passaggi successivi
 Come è possibile osservare, il comando Beeline fornisce un modo semplice per eseguire query Hive in un cluster HDInsight in modo interattivo.
 
 Per informazioni generali su Hive in HDInsight:
@@ -241,6 +247,6 @@ Se si usa Tez con Hive, vedere i documenti seguenti per le informazioni di debug
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

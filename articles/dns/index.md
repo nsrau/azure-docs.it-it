@@ -1,11 +1,11 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: e0ec3ec5c8a24a84f54350441be73871e81b9761
-ms.openlocfilehash: 7af04a1619ea9d84eb3d477660d55eeea89e57bf
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: e32393348fc26fa4cb0a5221695a9bf8bb4d36e1
 
 ---
-#<a name="dns-documentation"></a>Documentazione di DNS
+# <a name="dns-documentation"></a>Documentazione di DNS
 
 DNS Azure (Domain Name System) è un servizio per i domini DNS che fornisce la risoluzione dei nomi usando l'infrastruttura di Microsoft Azure.  Ospitando i domini in Azure, è possibile gestire i record DNS usando le stesse credenziali, API, strumenti e fatturazione come per gli altri servizi Azure.
 
@@ -86,68 +86,49 @@ DNS Azure (Domain Name System) è un servizio per i domini DNS che fornisce la r
 
 ---
 
-## <a name="reference"></a>Riferimento
-
+<h2>Riferimento</h2>
 <ul class="panelContent cardsW">
-    <li>
-        <a href="/powershell/azureps-cmdlets-docs">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Informazioni di riferimento su Azure PowerShell</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
 <li>
-        <a href="/cli/azure/network/dns">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Interfaccia della riga di comando di Azure</h3>
-                        <p>DNS Azure con l'interfaccia della riga di comando di Azure</p>
-                    </div>
+    <div class="cardSize">
+        <div class="cardPadding">
+            <div class="card">
+                <div class="cardText">
+                    <h3>Riga di comando</h3>
+                    <p><a href="/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns">PowerShell</a></p>
+                    <p><a href="/cli/azure/network/dns">Interfaccia della riga di comando di Azure</a></p>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-
+    </div>
+</li>
 <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Informazioni di riferimento gestite su .NET</p>
-                    </div>
+    <div class="cardSize">
+        <div class="cardPadding">
+            <div class="card">
+                <div class="cardText">
+                    <h3>Lingue</h3>
+                    <p><a href="/dotnet/api/microsoft.azure.management.dns.models">.NET</a></p>
+                    <p><a href="/java/api/com.microsoft.azure.management.dns">Java</a></p>
+                    <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/">Node.js</a></p>
+                    <p><a href="http://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0">Ruby</a></p>
+                    <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html">Python</a></p>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-
+    </div>
+</li>
 <li>
-        <a href="/rest/api/dns">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Riferimenti all'API REST DNS</p>
-                    </div>
+    <div class="cardSize">
+        <div class="cardPadding">
+            <div class="card">
+                <div class="cardText">
+                    <h3>REST</h3>
+                    <p><a href="/rest/api/dns/">API REST</a></p>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
+    </div>
+</li>
 </ul>
 
 <div class="downloadHolder">
@@ -160,6 +141,6 @@ Scaricare la documentazione di DNS </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Installing the Azure Toolkit for IntelliJ | Microsoft Docs
-description: Learn how to install the Azure Toolkit for the IntelliJ IDEA.
-services: ''
+title: Installazione di Azure Toolkit for IntelliJ | Documentazione Microsoft
+description: Informazioni su come installare il Toolkit di Azure per IntelliJ.
+services: 
 documentationcenter: java
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: c6817c7b-f28c-4c06-8216-41c7a8117de3
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: multiple
@@ -14,90 +14,94 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2eae9a0339965165c825c8990867164b10a96f4e
+
 
 ---
-# <a name="installing-the-azure-toolkit-for-intellij"></a>Installing the Azure Toolkit for IntelliJ
-The Azure Toolkit for IntelliJ provides templates and functionality that allow you to easily create, develop, test, and deploy Azure applications using the IntelliJ IDEA development environment. The Azure Toolkit for IntelliJ is an Open Source project, whose source code is available under the MIT License from the project's site on GitHub at the following URL:
+# <a name="installing-the-azure-toolkit-for-intellij"></a>Installazione del Toolkit di Azure per IntelliJ
+Il Toolkit di Azure per IntelliJ offre modelli e funzionalità che consentono di creare, sviluppare, testare e distribuire con facilità applicazioni Azure tramite l'ambiente di sviluppo IntelliJ IDEA. Il Toolkit di Azure per IntelliJ è un progetto Open Source, il cui codice sorgente è disponibile con la licenza MIT dal sito del progetto in GitHub all'indirizzo seguente:
 
 <https://github.com/microsoft/azure-tools-for-java>
 
-There are two methods of installing the Azure Toolkit for IntelliJ, from the Settings dialog box and from the Configure menu on the start screen; both installation methods will be demonstrated in the following steps.
+Esistono due metodi di installazione del Toolkit di Azure per IntelliJ: dalla finestra di dialogo Impostazioni e dal menu Configurazione nella schermata iniziale. Entrambi i metodi di installazione verranno illustrati nella procedura seguente.
 
 [!INCLUDE [azure-toolkit-for-IntelliJ-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
 
-## <a name="to-install-the-azure-toolkit-for-intellij-from-the-settings-dialog-box"></a>To install the Azure Toolkit for IntelliJ from the settings dialog box
-1. Start IntelliJ IDEA.
-2. When the IntelliJ IDEA opens, click **File**, then click **Settings**.
+## <a name="to-install-the-azure-toolkit-for-intellij-from-the-settings-dialog-box"></a>Per installare il Toolkit di Azure per IntelliJ dalla finestra di dialogo Impostazioni
+1. Avviare IntelliJ IDEA.
+2. Quando si apre IntelliJ IDEA, fare clic su **File**, quindi fare clic su **Settings** (Impostazioni).
    
-    ![Open the IntelliJ IDEA Settings Dialog Box][01a]
-3. In the Settings dialog box, click **Plugins**, and then click **Browse repositories**.
+    ![Aprire la finestra di dialogo Impostazioni di IntelliJ IDEA][01a]
+3. Nella finestra di dialogo Settings (Impostazioni) fare clic su **Plugins** (Plug-in) e selezionare **Browse repositories** (Sfoglia repository).
    
-    ![IntelliJ IDEA Settings Dialog Box][02a]
-4. In the **Browse Repositories** dialog box, type "Azure" in the search box. Highlight **Azure Toolkit for IntelliJ**, and then click **Install**.
+    ![Finestra di dialogo Impostazioni di IntelliJ IDEA][02a]
+4. Nella finestra di dialogo **Browse Repositories** (Sfoglia repository) digitare "Azure" nella casella di ricerca. Selezionare **Azure Toolkit for IntelliJ** e quindi fare clic su **Install** (Installa).
    
-    ![Search for the Azure Toolkit for IntelliJ][03]
+    ![Cercare il Toolkit di Azure per IntelliJ][03]
    
-    IntelliJ IDEA will display the installation progress in a dialog box.
+    IntelliJ IDEA mostrerà lo stato dell'installazione in una finestra di dialogo.
    
-    ![Installation progress][04]
-5. When the installation has completed, click **Restart IntelliJ IDEA**.
+    ![Stato dell'installazione][04]
+5. Al termine dell'installazione fare clic su **Restart IntelliJ IDEA**(Riavvia IntelliJ IDEA).
    
     ![Restart IntelliJ IDEA][05]
-6. Click **OK** to close the Settings dialog box.
+6. Fare clic su **OK** per chiudere la finestra di dialogo.
    
-    ![Close IntelliJ IDEA Settings Dialog Box][06]
-7. When prompted to restart IntelliJ IDEA or postpone, click **Restart**.
+    ![Chiudere la finestra di dialogo Impostazioni di IntelliJ IDEA][06]
+7. Quando viene richiesto di riavviare IntelliJ IDEA o posticipare, fare clic su **Restart**(Riavvia).
    
     ![Restart IntelliJ IDEA][07]
 
-## <a name="to-install-the-azure-toolkit-for-intellij-from-the-start-screen"></a>To install the Azure Toolkit for IntelliJ from the start screen
-1. Start IntelliJ IDEA.
-2. When the IntelliJ IDEA start screen appears, click **Configure**, then click **Plugins**.
+## <a name="to-install-the-azure-toolkit-for-intellij-from-the-start-screen"></a>Per installare il Toolkit di Azure per IntelliJ dalla schermata iniziale
+1. Avviare IntelliJ IDEA.
+2. Nella schermata iniziale di IntelliJ IDEA fare clic su **Configure** (Configura) e selezionare **Plugins** (plug-in).
    
-    ![Install IntelliJ IDEA Plugins][01b]
-3. In the **Plugins** dialog box, click **Browse repositories**.
+    ![Installare i plug-in di IntelliJ IDEA][01b]
+3. Nella finestra di dialogo **Plugins** (Plug-in) fare clic su **Browse repositories** (Sfoglia repository).
    
-    ![Browse IntelliJ IDEA Plugin Repositories][02b]
-4. In the **Browse Repositories** dialog box, type "Azure" in the search box. Highlight **Azure Toolkit for IntelliJ**, and then click **Install**.
+    ![Sfogliare i repository dei plug-in di IntelliJ IDEA][02b]
+4. Nella finestra di dialogo **Browse Repositories** (Sfoglia repository) digitare "Azure" nella casella di ricerca. Selezionare **Azure Toolkit for IntelliJ** e quindi fare clic su **Install** (Installa).
    
-    ![Search for the Azure Toolkit for IntelliJ][03]
+    ![Cercare il Toolkit di Azure per IntelliJ][03]
    
-    IntelliJ IDEA will display the installation progress in a dialog box.
+    IntelliJ IDEA mostrerà lo stato dell'installazione in una finestra di dialogo.
    
-    ![Installation progress][04]
-5. When the installation has completed, click **Restart IntelliJ IDEA**.
+    ![Stato dell'installazione][04]
+5. Al termine dell'installazione fare clic su **Restart IntelliJ IDEA**(Riavvia IntelliJ IDEA).
    
     ![Restart IntelliJ IDEA][05]
-6. When prompted to restart IntelliJ IDEA or postpone, click **Restart**.
+6. Quando viene richiesto di riavviare IntelliJ IDEA o posticipare, fare clic su **Restart**(Riavvia).
    
     ![Restart IntelliJ IDEA][07]
 
-## <a name="see-also"></a>See Also
-For more information about the Azure Toolkits for Java IDEs, see the following links:
+## <a name="see-also"></a>Vedere anche
+Per ulteriori informazioni sui Toolkit di Azure per gli IDE di Java, consultare i seguenti collegamenti:
 
-* [Azure Toolkit for Eclipse]
-  * [Installing the Azure Toolkit for Eclipse]
-  * [Create a Hello World Web App for Azure in Eclipse]
-  * [What's New in the Azure Toolkit for Eclipse]
-* [Azure Toolkit for IntelliJ]
-  * *Installing the Azure Toolkit for IntelliJ (This Article)*
-  * [Create a Hello World Web App for Azure in IntelliJ]
-  * [What's New in the Azure Toolkit for IntelliJ]
+* [Toolkit di Azure per Eclipse]
+  * [Installare il Toolkit di Azure per Eclipse.]
+  * [Creare un'app Web Hello World per Azure in Eclipse]
+  * [Novità di Azure Toolkit per Eclipse]
+* [Toolkit di Azure per IntelliJ]
+  * *Installazione del Toolkit di Azure per IntelliJ (questo articolo)*
+  * [Creare un'App Web Hello World per Azure in IntelliJ]
+  * [Novità del Toolkit di Azure per IntelliJ]
 
-For more information about using Azure with Java, see the [Azure Java Developer Center].
+Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure].
 
 <!-- URL List -->
 
-[Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse.md
-[Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md
-[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
-[Create a Hello World Web App for Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
-[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
-[Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
-[What's New in the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
-[What's New in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
+[Toolkit di Azure per Eclipse]: ./azure-toolkit-for-eclipse.md
+[Toolkit di Azure per IntelliJ]: ./azure-toolkit-for-intellij.md
+[Creare un'app Web Hello World per Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Creare un'App Web Hello World per Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Installare il Toolkit di Azure per Eclipse.]: ./azure-toolkit-for-eclipse-installation.md
+[Installazione del Toolkit di Azure per IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[Novità di Azure Toolkit per Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[Novità del Toolkit di Azure per IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
-[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
+[Centro per sviluppatori Java di Azure]: https://azure.microsoft.com/develop/java/
 
 <!-- IMG List -->
 
@@ -113,6 +117,6 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

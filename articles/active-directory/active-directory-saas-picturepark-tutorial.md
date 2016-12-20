@@ -1,11 +1,11 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Picturepark | Microsoft Docs'
-description: Informazioni su come usare Picturepark con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora.
+title: 'Esercitazione: Integrazione di Azure Active Directory con Picturepark | Documentazione Microsoft'
+description: Informazioni su come usare Picturepark con Azure Active Directory per abilitare l&quot;accesso Single Sign-On, il provisioning automatizzato e altro ancora.
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 31c21cd4-9c00-4cad-9538-a13996dc872f
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 98f2e5596a0af2fc9e633e005642cc3cd21621ce
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-picturepark"></a>Esercitazione: Integrazione di Azure Active Directory con Picturepark
+# <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Esercitazione: Integrazione di Azure Active Directory con Picturepark
 In questa esercitazione viene illustrata l'integrazione di Azure e Picturepark.  
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -36,7 +40,7 @@ Lo scenario descritto in questa esercitazione include i blocchi predefiniti segu
 ## <a name="enabling-the-application-integration-for-picturepark"></a>Abilitazione dell'integrazione dell'applicazione per Picturepark
 In questa sezione viene descritto come abilitare l'integrazione dell'applicazione per Picturepark.
 
-### <a name="to-enable-the-application-integration-for-picturepark,-perform-the-following-steps:"></a>Per abilitare l'integrazione dell'applicazione per Picturepark, eseguire la procedura seguente:
+### <a name="to-enable-the-application-integration-for-picturepark-perform-the-following-steps"></a>Per abilitare l'integrazione dell'applicazione per Picturepark, eseguire la procedura seguente:
 1. Nel portale di Azure classico fare clic su **Active Directory**nel riquadro di spostamento sinistro.
    
    ![Active Directory](./media/active-directory-saas-picturepark-tutorial/IC700993.png "Active Directory")
@@ -62,7 +66,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 La configurazione dell'accesso Single Sign-On per Picturepark richiede di recuperare un valore di identificazione personale da un certificato.  
 Se non si ha familiarità con questa procedura, vedere il video che descrive [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
 1. Nella pagina di integrazione dell'applicazione **Picturepark** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
    ![Configura accesso Single Sign-On](./media/active-directory-saas-picturepark-tutorial/IC795058.png "Configure Single Sign-On")
@@ -108,7 +112,7 @@ Se non si ha familiarità con questa procedura, vedere il video che descrive [co
 Per consentire agli utenti di Azure AD di accedere a Picturepark, è necessario eseguirne il provisioning in Picturepark.  
 Nel caso di Picturepark, il provisioning è un'attività manuale.
 
-### <a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>Per eseguire il provisioning di un account utente, eseguire la procedura seguente:
+### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Per eseguire il provisioning di un account utente, eseguire la procedura seguente:
 1. Accedere al tenant **Picturepark** .
 2. Nella barra degli strumenti in alto fare clic su **Strumenti di amministrazione**, quindi su **Utenti**.
    
@@ -132,7 +136,7 @@ Nel caso di Picturepark, il provisioning è un'attività manuale.
 ## <a name="assigning-users"></a>Assegnazione degli utenti
 Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
-### <a name="to-assign-users-to-picturepark,-perform-the-following-steps:"></a>Per assegnare gli utenti a Picturepark, eseguire la procedura seguente:
+### <a name="to-assign-users-to-picturepark-perform-the-following-steps"></a>Per assegnare gli utenti a Picturepark, eseguire la procedura seguente:
 1. Nel portale di Azure classico creare un account di test.
 2. Nella pagina di integrazione dell'applicazione **Picturepark** fare clic su **Assegna utenti**.
    
@@ -143,6 +147,9 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

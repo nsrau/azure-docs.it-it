@@ -5,8 +5,8 @@ services: app-service/web
 documentationcenter: .net
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: b45853d5-a2b8-4962-a22d-579cb36ae14c
 ms.service: app-service
 ms.devlang: multiple
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/17/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 01db792077bbb464400de1c00117d97443b4c2dc
+
 
 ---
-# <a name="azure-sdk-for-.net-2.6-release-notes"></a>Note sulla versione di Azure SDK per .NET 2.6
+# <a name="azure-sdk-for-net-26-release-notes"></a>Note sulla versione di Azure SDK per .NET 2.6
 Questo documento contiene le note sulla versione per Azure SDK per .NET 2.6. 
 
 Azure SDK 2.6 permette di sviluppare applicazioni dei servizi cloud (PaaS) che fanno riferimento a .NET 4.5.2 o .NET 4.6, purché si installi manualmente la versione di .NET Framework di destinazione nel Ruolo servizio cloud. Vedere [Installare .NET in un ruolo del servizio cloud](http://go.microsoft.com/fwlink/?LinkID=309796).
@@ -47,7 +51,7 @@ Azure SDK 2.6 permette di sviluppare applicazioni dei servizi cloud (PaaS) che f
     
     Per altre informazioni, fare riferimento a [questo manuale](http://go.microsoft.com/fwlink/?LinkID=529540&clcid=0x409).
 
-## <a name="in-role-cache-updates"></a>Aggiornamenti alla Cache nel ruolo
+## <a name="in-role-cache-updates"></a>Aggiornamenti alla Cache nel ruolo 
 * La **Cache nel ruolo** è stata aggiornata per usare l'**SDK di Archiviazione di Microsoft Azure** versione 4.3. Fino ad ora, la **Cache nel ruolo** ha usato Azure Storage SDK versione 1.7.
   
     I clienti che usano Azure SDK 2.5 o versioni precedenti devono effettuare l'aggiornamento ad Azure SDK 2.6 e passare alla nuova versione di Azure Storage SDK. 
@@ -95,6 +99,9 @@ Azure SDK 2.6 rende di nuovo disponibile il supporto per la raccolta di log di d
 ## <a name="see-also"></a>Vedere anche
 [Informazioni sul Supporto e il Ritiro di Azure SDK per .NET e API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

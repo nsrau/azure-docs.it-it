@@ -1,12 +1,12 @@
 ---
-title: Come concedere l'accesso a PIM | Microsoft Docs
-description: Informazioni su come aggiungere ruoli agli utenti con l'estensione Azure Active Directory Privileged Identity Management per consentire la gestione di PIM.
+title: Come concedere l&quot;accesso a PIM | Documentazione Microsoft
+description: Informazioni su come aggiungere ruoli agli utenti con l&quot;estensione Azure Active Directory Privileged Identity Management per consentire la gestione di PIM.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: d4c53b53-2b37-41e6-813c-96ec08a1c897
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/22/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 42273f2e20be65cc794d078fb4c3ba4585d2aa79
+
 
 ---
 # <a name="how-to-give-access-to-manage-azure-ad-privileged-identity-management"></a>Come concedere l'accesso per la gestione di Azure AD Privileged Identity Management
@@ -40,7 +44,7 @@ Assicurarsi che almeno due utenti abbiano sempre il ruolo di amministratore dei 
    * Ogni volta che si assegna un nuovo ruolo a un utente, questo viene configurato automaticamente come idoneo per attivare il ruolo. Se si vuole rendere l'utente permanente nel ruolo, fare clic sull'utente nell'elenco. Scegliere **Rendi permanente** dal menu delle informazioni dell'utente.
 6. Inviare all'utente un collegamento a [Introduzione ad Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md).
 
-## <a name="remove-another-user's-access-rights-for-managing-pim"></a>Rimuovere i diritti di accesso di un altro utente per la gestione di PIM
+## <a name="remove-another-users-access-rights-for-managing-pim"></a>Rimuovere i diritti di accesso di un altro utente per la gestione di PIM
 Prima di rimuovere un utente dal ruolo di amministratore dei ruoli con privilegi, assicurarsi che siano sempre presenti due utenti assegnati al ruolo.
 
 1. Nel dashboard di PIM fare clic sul ruolo di **amministratore dei ruoli con privilegi**.  Verrà visualizzato l'elenco degli utenti attualmente assegnati al ruolo.
@@ -59,6 +63,6 @@ Prima di rimuovere un utente dal ruolo di amministratore dei ruoli con privilegi
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

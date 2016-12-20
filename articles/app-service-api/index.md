@@ -121,8 +121,6 @@ Le app per le API sono uno dei quattro tipi di app offerti dal servizio app di A
     </li>     
 </ul>
 
----
-
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-api.pdf">
         <div class="img"></div>

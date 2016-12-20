@@ -1,12 +1,12 @@
 ---
-title: Creare un dashboard personalizzato in Log Analytics | Microsoft Docs
-description: Questa guida spiega in che modo i dashboard di Log Analytics visualizzano tutte le ricerche nei log salvate, offrendo un punto di vista unico su tutto l'ambiente.
+title: Creare un dashboard personalizzato in Log Analytics | Documentazione Microsoft
+description: Questa guida spiega in che modo i dashboard di Log Analytics visualizzano tutte le ricerche nei log salvate, offrendo un punto di vista unico su tutto l&quot;ambiente.
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: afd1e5359edbdfdbd4a8afaac139f5877b306c2b
+
 
 ---
 # <a name="create-a-custom-dashboard-in-log-analytics"></a>Creare un dashboard personalizzato in Log Analytics
@@ -28,7 +32,7 @@ Tutti i dashboard personalizzati creati nel portale di OMS sono anche disponibil
 
 ![dashboard mobile](./media/log-analytics-dashboards/oms-search-mobile.png)
 
-## <a name="how-do-i-create-my-dashboard?"></a>Come si crea un dashboard?
+## <a name="how-do-i-create-my-dashboard"></a>Come si crea un dashboard?
 Per iniziare, passare alla pagina di panoramica di OMS. Sulla sinistra verrà visualizzato il riquadro **Dashboard**. Fare clic per eseguire il drill-down nel dashboard.
 
 ![Panoramica](./media/log-analytics-dashboards/oms-dashboards-overview.png)
@@ -55,7 +59,7 @@ Nella visualizzazione Dashboard fare semplicemente clic su **Personalizza** per 
 
 ![Modifica di un riquadro](./media/log-analytics-dashboards/oms-dashboards-pictorial05.png)
 
-### <a name="tile-visualizations#"></a>Tipi di visualizzazione dei riquadri
+### <a name="tile-visualizations"></a>Tipi di visualizzazione dei riquadri
 È possibile scegliere tra tre tipi di visualizzazione dei riquadri:
 
 | tipo di grafico | funzione |
@@ -80,6 +84,9 @@ Per rimuovere un riquadro, passare alla visualizzazione Dashboard e fare clic su
 ## <a name="next-steps"></a>Passaggi successivi
 * Creare [avvisi](log-analytics-alerts.md) in Log Analytics per generare notifiche e risolvere i problemi.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

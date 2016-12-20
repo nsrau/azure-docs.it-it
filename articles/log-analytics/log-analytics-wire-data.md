@@ -1,19 +1,23 @@
 ---
-title: Soluzione Wire Data in Log Analytics | Microsoft Docs
+title: Soluzione Wire Data in Log Analytics | Documentazione Microsoft
 description: I dati in transito sono dati consolidati di rete e sulle prestazioni provenienti da computer con agenti OMS, inclusi Operations Manager e gli agenti connessi a Windows. I dati di rete vengono combinati con i dati dei log per poter correlare i dati.
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/09/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
+ms.openlocfilehash: be00cb9b1e8ba5d9d8368695ca8d448d466e8f47
+
 
 ---
 # <a name="wire-data-solution-in-log-analytics"></a>Soluzione Wire Data in Log Analytics
@@ -21,8 +25,8 @@ I dati in transito sono dati consolidati di rete e sulle prestazioni provenienti
 
 > [!NOTE]
 > Attualmente, la soluzione Wire Data non può essere aggiunta ad aree di lavoro, I clienti che hanno già abilitato la soluzione Wire Data possono continuare a utilizzarla.
-> 
-> 
+>
+>
 
 Per impostazione predefinita, OMS raccoglie dati registrati sulle prestazioni di CPU, memoria, dischi e rete dai contatori predefiniti di Windows. La raccolta dei dati di rete e di altro tipo viene eseguita in tempo reale per ogni agente, inclusi subnet e protocolli a livello di applicazione usati dal computer. È possibile aggiungere altri contatori delle prestazioni nella pagina Settings della scheda Logs.
 
@@ -76,7 +80,7 @@ Requisiti: per usare l’esempio seguente, la soluzione Security and Audit deve 
 2. Nell'elenco **Query comuni sui dati in transito** fare clic su **Quantità di traffico di rete (in byte) per processo** per visualizzare l'elenco di processi restituiti. 
     ![query di WireData](./media/log-analytics-wire-data/oms-wiredata-01.png)
 3. Se l’elenco di processi è troppo lungo per poterlo visualizzare facilmente, è possibile sostituire la query di ricerca con la seguente:
-   
+
     ```
     Type WireData | measure count() by ProcessName | where AggregatedValue <40
     ```
@@ -85,24 +89,26 @@ Requisiti: per usare l’esempio seguente, la soluzione Security and Audit deve 
 4. Usando i dati restituiti nell’elenco, fare clic su un processo denominato. In questo esempio si è fatto clic su DancingPigs.exe. I risultati illustrati sotto descrivono il tipo di traffico di rete, ad esempio comunicazioni in uscita su diversi protocolli.
     ![risultati di WireData che illustrano un processo denominato](./media/log-analytics-wire-data/oms-wiredata-03.png)
 5. Poiché la soluzione Security and Audit è installata, è possibile analizzare gli eventi di sicurezza che hanno lo stesso valore del campo ProcessName modificando la query di ricerca con gli operatori di query di ricerca IN e DISTINCT. È possibile eseguire questa operazione quando i dati in transito e i log delle altre soluzioni hanno i valori nello stesso formato. Sostituire la query di ricerca con la seguente:
-   
+
     ```
     Type=SecurityEvent ProcessName IN {Type:WireData "DancingPigs.exe" | distinct ProcessName}
     ```    
-   
+
     ![Risultati di WireData con i dati combinati](./media/log-analytics-wire-data/oms-wiredata-04.png)
 6. Nei risultati sopra si noterà che sono visualizzate le informazioni sull’account. Ora è possibile affinare la query di ricerca per sapere quanto spesso l’account, che visualizza i dati di Security and Audit, è stato usato dal processo con una query come la seguente:        
-   
+
     ```
     Type=SecurityEvent ProcessName IN {Type:WireData "DancingPigs.exe" | distinct ProcessName} | measure count() by Account
     ```
-   
+
     ![Risultati di WireData con i dati dell’account](./media/log-analytics-wire-data/oms-wiredata-05.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Ricerche nei log](log-analytics-log-searches.md) per visualizzare i record di ricerca dettagliati su Wire Data.
 * Leggere il post del blog di Dan dal titolo [Using Wire Data in Operations Management Suite Log Search](http://blogs.msdn.com/b/dmuscett/archive/2015/09/09/using-wire-data-in-operations-management-suite.aspx) (Uso di Wire Data nella ricerca nei log di Operations Management Suite) per altre informazioni sulla frequenza con cui i dati vengono raccolti e su come modificare le proprietà di raccolta per gli agenti di Operations Manager.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

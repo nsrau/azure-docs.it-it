@@ -1,22 +1,26 @@
 ---
-title: Configurare il bilanciamento del carico per SQL AlwaysOn | Microsoft Docs
-description: Configurare il bilanciamento del carico per usare sempre SQL AlwaysOn e sfruttare PowerShell per creare il bilanciamento del carico per l'implementazione SQL
+title: Configurare il bilanciamento del carico per SQL AlwaysOn | Documentazione Microsoft
+description: Configurare il bilanciamento del carico per usare sempre SQL AlwaysOn e sfruttare PowerShell per creare il bilanciamento del carico per l&quot;implementazione SQL
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
-editor: tysonn
-
+author: kumudd
+manager: timlt
+ms.assetid: d7bc3790-47d3-4e95-887c-c533011e4afd
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/17/2016
-ms.author: sewhee
+ms.date: 10/24/2016
+ms.author: kumud
+translationtype: Human Translation
+ms.sourcegitcommit: 1a1c3c15c51b1e441f21158510e92cc8de057352
+ms.openlocfilehash: 75f05f003b691ee6464168453fa7935f1fae166e
 
 ---
-# Configurare il bilanciamento del carico per SQL AlwaysOn
+
+# <a name="configure-load-balancer-for-sql-always-on"></a>Configurare il bilanciamento del carico per SQL AlwaysOn
+
 I gruppi di disponibilità AlwaysOn di SQL Server ora possono essere eseguiti con ILB. Un gruppo di disponibilità è la soluzione principale di SQL Server per il ripristino di emergenza e la disponibilità elevata. Il listener del gruppo di disponibilità consente alle applicazioni client di connettersi facilmente alla replica primaria, indipendentemente dal numero di repliche nella configurazione.
 
 Il nome del listener (DNS) viene associato a un indirizzo IP con carico bilanciato e il bilanciamento del carico di Azure indirizza il traffico in ingresso solo al server primario nel set di repliche.
@@ -25,31 +29,35 @@ Il nome del listener (DNS) viene associato a un indirizzo IP con carico bilancia
 
 Usando ILB sul listener, l'endpoint SQL Server (ad esempio, Server=tcp:ListenerName,1433;Database=DatabaseName) è accessibile solo per:
 
-Servizi e macchine virtuali negli stessi servizi di rete virtuale e macchine virtuali da servizi di rete locali connessi e macchine virtuali da reti virtuali interconnesse
+* Servizi e VM nella stessa rete virtuale
+* Servizi e VM dalla rete locale connessa
+* Servizi e VM da reti virtuali interconnesse
 
-![ILB\_SQLAO\_NewPic](./media/load-balancer-configure-sqlao/sqlao1.jpg)
+![ILB_SQLAO_NewPic](./media/load-balancer-configure-sqlao/sqlao1.png)
 
-Il bilanciamento del carico interno può essere configurato solo tramite PowerShell.
+Figura 1 - SQL AlwaysOn configurato con bilanciamento del carico con connessione Internet
 
-## Aggiungere al servizio il bilanciamento del carico interno
-### Passaggio 1
-Nell'esempio seguente, verrà configurata una rete virtuale che contiene una subnet denominata "Subnet-1":
+## <a name="add-internal-load-balancer-to-the-service"></a>Aggiungere al servizio il bilanciamento del carico interno
 
+1. Nell'esempio seguente verrà configurata una rete virtuale che contiene una subnet denominata "Subnet-1":
+
+    ```powershell
     Add-AzureInternalLoadBalancer -InternalLoadBalancerName ILB_SQL_AO -SubnetName Subnet-1 -ServiceName SqlSvc
+    ```
+2. Aggiungere gli endpoint con carico bilanciato per ILB in ogni macchina virtuale
 
-### Passaggio 2
-Aggiungere gli endpoint con carico bilanciato per ILB in ogni macchina virtuale
-
-    Get-AzureVM -ServiceName SqlSvc -Name sqlsvc1 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –
+    ```powershell
+    Get-AzureVM -ServiceName SqlSvc -Name sqlsvc1 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -
     DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
 
-     Get-AzureVM -ServiceName SqlSvc -Name sqlsvc2 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
+    Get-AzureVM -ServiceName SqlSvc -Name sqlsvc2 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
+    ```
 
-Nell'esempio precedente, si dispone di 2 macchine virtuali denominate "sqlsvc1" e "sqlsvc2" in esecuzione nel servizio cloud "Sqlsvc". Dopo la creazione di ILB con l'opzione "DirectServerReturn", verranno aggiunti gli endpoint con carico bilanciato all’ILB per consentire a SQL di configurare i listener per i gruppi di disponibilità.
+    Nell'esempio precedente, si dispone di 2 macchine virtuali denominate "sqlsvc1" e "sqlsvc2" in esecuzione nel servizio cloud "Sqlsvc". Dopo la creazione di ILB con l'opzione `DirectServerReturn` vengono aggiunti gli endpoint con carico bilanciato all’ILB per consentire a SQL di configurare i listener per i gruppi di disponibilità.
 
-Per altre informazioni su come creare un gruppo di disponibilità AlwaysOn di SQL, vedere la [raccolta del portale](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
+Per altre informazioni su SQL AlwaysOn, vedere [Configurare un servizio di bilanciamento del carico interno per un gruppo di disponibilità AlwaysOn in Azure](../virtual-machines/virtual-machines-windows-portal-sql-alwayson-int-listener.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
-## Vedere anche
+## <a name="see-also"></a>Vedere anche
 [Introduzione alla configurazione del bilanciamento del carico Internet](load-balancer-get-started-internet-arm-ps.md)
 
 [Introduzione alla configurazione del bilanciamento del carico interno](load-balancer-get-started-ilb-arm-ps.md)
@@ -58,4 +66,8 @@ Per altre informazioni su come creare un gruppo di disponibilità AlwaysOn di SQ
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

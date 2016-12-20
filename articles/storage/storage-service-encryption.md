@@ -1,12 +1,12 @@
 ---
 title: Crittografia del servizio di archiviazione di Azure per dati inattivi | Microsoft Docs
-description: La funzionalità Crittografia del servizio di archiviazione di Azure consente di crittografare l'archivio BLOB di Azure sul lato del servizio durante l'archiviazione dei dati e di decrittografarlo durante il recupero dei dati.
+description: "La funzionalità Crittografia del servizio di archiviazione di Azure consente di crittografare l&quot;archivio BLOB di Azure sul lato del servizio durante l&quot;archiviazione dei dati e di decrittografarlo durante il recupero dei dati."
 services: storage
 documentationcenter: .net
 author: robinsh
 manager: carmonm
 editor: tysonn
-
+ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: bdb016af2c21b06c6abf5af607e703e5f898f8f4
+
 
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Crittografia del servizio di archiviazione di Azure per dati inattivi
@@ -56,8 +60,8 @@ La crittografia del servizio di archiviazione presenta le limitazioni seguenti:
 * Le tabelle, le code e i dati dei file non verranno crittografati.
 
 ## <a name="getting-started"></a>Introduzione
-### <a name="step-1:-[create-a-new-storage-account](storage-create-storage-account.md)."></a>Passaggio 1: [Creare un nuovo account di archiviazione](storage-create-storage-account.md).
-### <a name="step-2:-enable-encryption."></a>Passaggio 2: Abilitare la crittografia.
+### <a name="step-1-create-a-new-storage-accountstorage-create-storage-accountmd"></a>Passaggio 1: [Creare un nuovo account di archiviazione](storage-create-storage-account.md).
+### <a name="step-2-enable-encryption"></a>Passaggio 2: Abilitare la crittografia.
 È possibile abilitare la crittografia usando il [portale di Azure](https://portal.azure.com).
 
 > [!NOTE]
@@ -65,7 +69,7 @@ La crittografia del servizio di archiviazione presenta le limitazioni seguenti:
 > 
 > 
 
-### <a name="step-3:-copy-data-to-storage-account"></a>Passaggio 3: Copiare i dati in un account di archiviazione
+### <a name="step-3-copy-data-to-storage-account"></a>Passaggio 3: Copiare i dati in un account di archiviazione
 Se si abilita la crittografia del servizio di archiviazione su un account in cui successivamente si scrivono BLOB, questi ultimi verranno crittografati. Eventuali BLOB già presenti nell'account di archiviazione non verranno crittografati finché non saranno riscritti. È possibile copiare i dati da un account di archiviazione a uno con la crittografia del servizio di archiviazione eseguita oppure abilitare la crittografia del servizio di archiviazione e copiare i BLOB da un contenitore a un altro per assicurarsi che i dati precedenti siano crittografati. Per farlo, è possibile usare uno qualsiasi dei seguenti strumenti.
 
 #### <a name="using-azcopy"></a>Con AzCopy
@@ -83,7 +87,7 @@ Per altre informazioni, vedere [Introduzione all'archivio BLOB di Azure con .NET
 
 Per altre informazioni, vedere la pagina relativa agli [strumenti di esplorazione di archiviazione di Azure](storage-explorers.md).
 
-### <a name="step-4:-query-the-status-of-the-encrypted-data"></a>Passaggio 4: Eseguire query relative allo stato dei dati crittografati
+### <a name="step-4-query-the-status-of-the-encrypted-data"></a>Passaggio 4: Eseguire query relative allo stato dei dati crittografati
 È stata distribuita una versione aggiornata delle librerie dei client di archiviazione che consente di eseguire query relative allo stato di un oggetto per determinare se sua crittografato o meno. A breve verranno aggiunti alcuni esempi in questo documento.
 
 Nel frattempo è possibile chiamare l'operazione per il [recupero delle proprietà dell'account](https://msdn.microsoft.com/library/azure/mt163553.aspx) per verificare che la crittografia sia abilitata per l'account di archiviazione oppure visualizzare le proprietà dell'account di archiviazione nel portale di Azure.
@@ -175,6 +179,9 @@ D: Contattare [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com
 ## <a name="next-steps"></a>Passaggi successivi
 Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, che consentono agli sviluppatori di creare applicazioni sicure. Per altre informazioni, vedere la [Guida alla sicurezza delle risorse di archiviazione](storage-security-guide.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

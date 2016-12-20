@@ -1,13 +1,13 @@
 ---
-title: Usare le azioni di richiesta e risposta | Microsoft Docs
-description: Panoramica del trigger e dell'azione di richiesta e risposta in un'app per la logica di Azure
-services: ''
-documentationcenter: ''
+title: Usare le azioni di richiesta e risposta | Documentazione Microsoft
+description: Panoramica del trigger e dell&quot;azione di richiesta e risposta in un&quot;app per la logica di Azure
+services: 
+documentationcenter: 
 author: jeffhollan
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 48c9453ac0435a6180f8b322897439bf1964fae9
+
 
 ---
-# Introduzione ai componenti di richiesta e risposta
+# <a name="get-started-with-the-request-and-response-components"></a>Introduzione ai componenti di richiesta e risposta
 Con i componenti di richiesta e risposta in un'app per la logica è possibile rispondere in tempo reale agli eventi.
 
 Ad esempio, è possibile:
@@ -28,7 +32,7 @@ Ad esempio, è possibile:
 
 Per informazioni su come iniziare a usare le azioni di richiesta e risposta in un'app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Usare il trigger di richiesta HTTP
+## <a name="use-the-http-request-trigger"></a>Usare il trigger di richiesta HTTP
 Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](connectors-overview.md).
 
 Ecco una sequenza di esempio di come configurare una richiesta HTTP nella finestra di progettazione dell'app per la logica.
@@ -43,48 +47,48 @@ Ecco una sequenza di esempio di come configurare una richiesta HTTP nella finest
 > 
 > 
 
-![Trigger di risposta](./media/connectors-native-reqres/using-trigger.png)  
+![Trigger di risposta](./media/connectors-native-reqres/using-trigger.png)
 
-## Usare l'azione di risposta HTTP
-L'azione di risposta HTTP è valida solo quando viene usata in un flusso di lavoro attivato da una richiesta HTTP. Se non viene definita un'azione di risposta, una risposta `202 ACCEPTED` viene restituita immediatamente al chiamante. È possibile aggiungere un'azione di risposta in qualsiasi passaggio nel flusso di lavoro. L'app per la logica mantiene aperta la richiesta in ingresso per una risposta solo per un minuto. Dopo un minuto, se non è stata inviata alcuna risposta dal flusso di lavoro (e nella definizione è presente un'azione di risposta), viene restituito un `504 GATEWAY TIMEOUT` al chiamante.
+## <a name="use-the-http-response-action"></a>Usare l'azione di risposta HTTP
+L'azione di risposta HTTP è valida solo quando viene usata in un flusso di lavoro attivato da una richiesta HTTP. Se non viene definita un'azione di risposta, una risposta `202 ACCEPTED` viene restituita immediatamente al chiamante.  È possibile aggiungere un'azione di risposta in qualsiasi passaggio nel flusso di lavoro. L'app per la logica mantiene aperta la richiesta in ingresso per una risposta solo per un minuto.  Dopo un minuto, se non è stata inviata alcuna risposta dal flusso di lavoro (e nella definizione è presente un'azione di risposta), viene restituito un `504 GATEWAY TIMEOUT` al chiamante.
 
 Ecco come aggiungere un'azione di risposta HTTP:
 
-1. Fare clic sul pulsante **Nuovo passaggio**.
-2. Scegliere **Aggiungi un'azione**.
+1. Fare clic sul pulsante **Nuovo passaggio** .
+2. Selezionare **Aggiungi un'azione**.
 3. Nella casella di ricerca azione digitare **response** per elencare l'azione di risposta.
    
-    ![Selezionare l'azione di risposta](./media/connectors-native-reqres/using-action-1.png)  
+    ![Selezionare l'azione di risposta](./media/connectors-native-reqres/using-action-1.png)
 4. Aggiungere i parametri richiesti per il messaggio di risposta HTTP.
    
-    ![Completare l'azione di risposta](./media/connectors-native-reqres/using-action-2.png)  
+    ![Completare l'azione di risposta](./media/connectors-native-reqres/using-action-2.png)
 5. Fare clic sull'angolo in alto a sinistra della barra degli strumenti per salvare e pubblicare (attivare) l'app per la logica.
 
-## Trigger di richiesta
+## <a name="request-trigger"></a>Trigger di richiesta
 Ecco i dettagli per il trigger supportato da questo connettore. È disponibile un solo trigger di richiesta.
 
 | Trigger | Descrizione |
 | --- | --- |
 | Richiesta |Si verifica quando viene ricevuta una richiesta HTTP |
 
-## Azione di risposta
+## <a name="response-action"></a>Azione di risposta
 Ecco i dettagli per l'azione supportata da questo connettore. Esiste una sola azione di risposta che può essere usata solo quando è accompagnata da un trigger di richiesta.
 
 | Azione | Descrizione |
 | --- | --- |
-| Response |Restituisce una risposta alla richiesta HTTP correlata |
+| response |Restituisce una risposta alla richiesta HTTP correlata |
 
-### Dettagli sui trigger e le azioni
+### <a name="trigger-and-action-details"></a>Dettagli sui trigger e le azioni
 Le tabelle seguenti descrivono i campi di input per il trigger e l'azione e i corrispondenti dettagli di output.
 
-#### Trigger di richiesta
+#### <a name="request-trigger"></a>Trigger di richiesta
 Di seguito è riportato un campo di input per il trigger da una richiesta HTTP in ingresso.
 
 | Nome visualizzato | Nome proprietà | Descrizione |
 | --- | --- | --- |
 | Schema JSON |schema |Lo schema JSON del corpo della richiesta HTTP |
 
-<br>  
+<br>
 
 **Dettagli dell'output**
 
@@ -92,19 +96,24 @@ Di seguito sono indicati i dettagli di output per la richiesta.
 
 | Nome proprietà | Tipo di dati | Descrizione |
 | --- | --- | --- |
-| Headers |object |Intestazioni della richiesta |
-| Corpo |oggetto |Oggetto della richiesta |
+| headers |object |Intestazioni della richiesta |
+| Corpo |object |Oggetto della richiesta |
 
-#### Azione di risposta
+#### <a name="response-action"></a>Azione di risposta
 Di seguito sono riportati i campi di input per l'azione di risposta HTTP. Un asterisco (*) indica che è un campo obbligatorio.
 
 | Nome visualizzato | Nome proprietà | Descrizione |
 | --- | --- | --- |
 | Codice di stato* |statusCode |Il codice di stato HTTP |
-| Headers |headers |Un oggetto JSON delle intestazioni HTTP da includere |
-| Corpo |body |Il corpo della risposta |
+| Headers |Headers |Un oggetto JSON delle intestazioni HTTP da includere |
+| Corpo |Corpo |Il corpo della risposta |
 
-## Passaggi successivi
-Provare ora a usare la piattaforma e [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l'[elenco di API](apis-list.md).
+## <a name="next-steps"></a>Passaggi successivi
+Provare ora a usare la piattaforma e [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

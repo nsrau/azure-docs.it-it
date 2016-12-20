@@ -1,12 +1,12 @@
 ---
-title: 'Esempio di rete perimetrale: Creare una rete perimetrale per proteggere le applicazioni con un firewall e gruppi di sicurezza di rete | Microsoft Docs'
+title: 'Esempio di rete perimetrale: Creare una rete perimetrale per proteggere le applicazioni con un firewall e gruppi di sicurezza di rete | Documentazione Microsoft'
 description: Creare una rete perimetrale con un firewall e gruppi di sicurezza di rete
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-
+editor: 
+ms.assetid: c78491c7-54ac-4469-851c-b35bfed0f528
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 178771fb235e8b2786e4b6d0ac117d5c90540c67
+
 
 ---
-# Esempio 2: Creare una rete perimetrale per proteggere le applicazioni con un firewall e gruppi di sicurezza di rete
+# <a name="example-2-build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Esempio 2: Creare una rete perimetrale per proteggere le applicazioni con un firewall e gruppi di sicurezza di rete
 [Tornare alla pagina relativa alle procedure consigliate sui limiti di sicurezza][HOME]
 
-Questo esempio illustra come creare una rete perimetrale con un firewall, quattro server Windows e gruppi di sicurezza di rete. Illustra in dettaglio anche ogni comando rilevante per favorire una comprensione più approfondita di ogni passaggio. È disponibile anche una sezione sugli scenari di traffico con istruzioni dettagliate sul percorso seguito dal traffico attraverso i livelli di difesa della rete perimetrale. La sezione Riferimenti, infine, include tutto il codice e istruzioni complete per creare l'ambiente per testare e sperimentare vari scenari.
+Questo esempio illustra come creare una rete perimetrale con un firewall, quattro server Windows e gruppi di sicurezza di rete. Illustra in dettaglio anche ogni comando rilevante per favorire una comprensione più approfondita di ogni passaggio. È disponibile anche una sezione sugli scenari di traffico con istruzioni dettagliate sul percorso seguito dal traffico attraverso i livelli di difesa della rete perimetrale. La sezione Riferimenti, infine, include tutto il codice e istruzioni complete per creare l'ambiente per testare e sperimentare vari scenari. 
 
 ![Rete perimetrale in ingresso con dispositivo virtuale di rete e gruppo di sicurezza di rete][1]
 
-## Descrizione dell'ambiente
+## <a name="environment-description"></a>Descrizione dell'ambiente
 In questo esempio è presente una sottoscrizione che include gli elementi seguenti:
 
 * Due servizi cloud, "FrontEnd001" e "BackEnd001"
@@ -56,8 +60,8 @@ Dopo l'esecuzione corretta dello script, si potranno eseguire i passaggi success
 
 La sezione successiva descrive la maggior parte delle istruzioni dello script relativamente ai gruppi di sicurezza di rete.
 
-## Gruppi di sicurezza di rete
-Per questo esempio viene creato un gruppo di sicurezza di rete, in cui vengono poi caricate sei regole.
+## <a name="network-security-groups-nsg"></a>Gruppi di sicurezza di rete
+Per questo esempio viene creato un gruppo di sicurezza di rete, in cui vengono poi caricate sei regole. 
 
 > [!TIP]
 > In genere, è consigliabile creare prima di tutto le regole specifiche di tipo "Consenti" e infine le regole di tipo "Nega" più generiche. La priorità assegnata determina quali regole vengono valutate per prime. Quando si rileva che al traffico è applicabile una determinata regola, non vengono valutate altre regole. Le regole del gruppo di sicurezza di rete possono essere applicate nella direzione in ingresso o in uscita, dal punto di vista della subnet.
@@ -79,7 +83,7 @@ Esiste una regola in uscita predefinita che consente il traffico in uscita verso
 
 Le regole per i gruppi di sicurezza di rete illustrate sopra sono molto simili a quelle descritte nell'[Esempio 1: Creare una semplice rete perimetrale con gruppi di sicurezza di rete][Example1]. Vedere anche la descrizione relativa ai gruppi di sicurezza di rete in quel documento per un'analisi dettagliata della regola sui gruppi di sicurezza di rete e i relativi attributi.
 
-## Regole del firewall
+## <a name="firewall-rules"></a>Regole del firewall
 È necessario installare un client di gestione in un PC per controllare il firewall e creare le configurazioni necessarie. Per informazioni sulla gestione del dispositivo, vedere la documentazione del fornitore del firewall o di un altro dispositivo virtuale di rete. Il resto di questa sezione descrive la configurazione del firewall stesso tramite il client di gestione dei fornitori, non del portale di Azure o di PowerShell.
 
 Le istruzioni per scaricare il client e connettersi all'applicazione Barracuda usata in questo esempio sono disponibili qui: [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
@@ -88,9 +92,9 @@ Sul firewall sarà necessario creare regole di inoltro. Poiché questo esempio i
 
 Per creare la regola seguente, o verificare le regole predefinite esistenti, dal dashboard del client Barracuda NG Admin passare alla scheda di configurazione, quindi nella sezione Operational Configuration fare clic su Ruleset. Una griglia denominata "Main Rules" mostrerà le regole esistenti attive e disattivate nel firewall. Nell'angolo in alto a destra della griglia è presente un piccolo pulsante verde "+" sul quale occorre fare clic per creare una nuova regola. Notare che il firewall potrebbe essere "bloccato" per modifiche. Se è visualizzato un pulsante contrassegnato con "Lock" e non si riescono a creare o modificare regole, fare clic sul pulsante per "sbloccare" il set di regole e consentire la modifica. Se si vuole modificare una regola esistente, selezionarla, fare clic con il pulsante destro del mouse e scegliere Edit Rule.
 
-Creare una nuova regola e specificare un nome, ad esempio "WebTraffic".
+Creare una nuova regola e specificare un nome, ad esempio "WebTraffic". 
 
-L'icona della regola Destination NAT è simile alla seguente: ![Icona di Destination NAT][2]
+L'icona della regola Destination NAT è simile alla seguente:  ![Icona di Destination NAT][2]
 
 La regola stessa dovrebbe essere simile alla schermata seguente:
 
@@ -98,13 +102,13 @@ La regola stessa dovrebbe essere simile alla schermata seguente:
 
 In questo caso, qualsiasi indirizzo di origine in ingresso che accede al firewall nel tentativo di raggiungere HTTP (porta 80 o 443 per HTTPS) verrà trasmesso all'interfaccia "DHCP1 Local IP" del firewall e reindirizzato al server Web con l'indirizzo IP 10.0.1.5. Poiché il traffico arriva sulla porta 80 e viene inoltrato al server Web sulla porta 80, non sono necessarie modifiche della porta. Il campo Target List poteva tuttavia essere 10.0.1.5:8080 se il server Web fosse stato in ascolto sulla porta 8080, convertendo così la porta in ingresso 80 sul firewall nella porta in ingresso 8080 sul server Web.
 
-È necessario definire un valore in Connection Method. Come regola di destinazione da Internet la più appropriata è "Dynamic SNAT".
+È necessario definire un valore in Connection Method. Come regola di destinazione da Internet la più appropriata è "Dynamic SNAT". 
 
 Anche se è stata creata una sola regola, è importante impostarne la priorità correttamente. Se nella griglia di tutte le regole sul firewall questa nuova regola si trova in basso, sotto la regola "BLOCKALL", non verrà mai applicata. Assicurarsi che la regola appena creata per il traffico Web si trovi sopra la regola BLOCKALL.
 
 Una volta che la regola è stata creata, è necessario effettuarne il push al firewall e quindi attivarla. In caso contrario, la modifica della regola non sarà applicata. Il processo di push e attivazione è descritto nella sezione successiva.
 
-## Attivazione delle regole
+## <a name="rule-activation"></a>Attivazione delle regole
 Dopo aver modificato il set di regole per aggiungervi questa regola, è necessario caricarlo nel firewall e attivarlo.
 
 ![Attivazione delle regole firewall][4]
@@ -118,8 +122,8 @@ Con l'attivazione del set di regole del firewall, la compilazione dell'ambiente 
 > 
 > 
 
-## Scenari di traffico
-#### (Consentito) Da Web a server Web tramite il firewall
+## <a name="traffic-scenarios"></a>Scenari di traffico
+#### <a name="allowed-web-to-web-server-through-firewall"></a>(Consentito) Da Web a server Web tramite il firewall
 1. L'utente Internet richiede una pagina HTTP a FrontEnd001.CloudApp.Net (servizio cloud per Internet).
 2. Il servizio cloud passa il traffico attraverso l'endpoint aperto sulla porta 80 all'interfaccia locale del firewall su 10.0.1.4:80.
 3. La subnet front-end inizia l'elaborazione delle regole in ingresso:
@@ -146,7 +150,7 @@ Con l'attivazione del set di regole del firewall, la compilazione dell'ambiente 
 15. Il firewall riceve la risposta dal server Web e la restituisce all'utente Internet.
 16. Non essendoci regole in uscita sulla subnet front-end, la risposta è consentita e l'utente Internet riceve la pagina Web richiesta.
 
-#### (Consentito) Da RDP a back-end
+#### <a name="allowed-rdp-to-backend"></a>(Consentito) Da RDP a back-end
 1. L'amministratore del server su Internet richiede una sessione RDP ad AppVM01 su BackEnd001.CloudApp.Net:xxxxx, dove xxxxx è il numero di porta assegnato casualmente per RDP a AppVM01. Si può trovare la porta assegnata sul portale di Azure o tramite PowerShell.
 2. Poiché il firewall è in ascolto solo dell'indirizzo FrontEnd001.CloudApp.Net, non è interessato da questo flusso di traffico.
 3. La subnet back-end inizia l'elaborazione delle regole in ingresso:
@@ -156,7 +160,7 @@ Con l'attivazione del set di regole del firewall, la compilazione dell'ambiente 
 5. La sessione RDP è abilitata.
 6. AppVM01 richiede il nome utente e la password.
 
-#### (Consentito) Ricerca DNS del server Web sul server DNS
+#### <a name="allowed-web-server-dns-lookup-on-dns-server"></a>(Consentito) Ricerca DNS del server Web sul server DNS
 1. Il server Web, IIS01, richiede un feed di dati all'indirizzo www.data.gov, ma deve risolvere l'indirizzo.
 2. La configurazione di rete per la rete virtuale elenca DNS01 (10.0.2.4 nella subnet back-end) come server DNS primario, IIS01 invia la richiesta DNS a DNS01.
 3. Non sono impostate regole in uscita sulla subnet front-end, il traffico è consentito.
@@ -173,14 +177,14 @@ Con l'attivazione del set di regole del firewall, la compilazione dell'ambiente 
     2. La regola di sistema predefinita che consente il traffico tra le subnet consentirebbe questo tipo di traffico, perciò è consentito.
 12. IIS01 riceve la risposta da DNS01.
 
-#### (Consentito) Il server Web richiede l'accesso a un file su AppVM01
+#### <a name="allowed-web-server-access-file-on-appvm01"></a>(Consentito) Il server Web richiede l'accesso a un file su AppVM01
 1. IIS01 richiede un file su AppVM01.
 2. Non sono impostate regole in uscita sulla subnet front-end, il traffico è consentito.
 3. La subnet back-end inizia l'elaborazione delle regole in ingresso:
    1. Regola gruppo di sicurezza di rete 1 (DNS) non applicabile, passa alla regola successiva.
    2. Regola gruppo di sicurezza di rete 2 (RDP) non applicabile, passa alla regola successiva.
    3. Regola gruppo di sicurezza di rete 3 (da Internet a firewall), non applicabile, passa alla regola successiva.
-   4. Regola gruppo di sicurezza di rete 4 (da IIS01 ad AppVM01) applicabile, il traffico è consentito, l'elaborazione della regola si arresta.
+   4. Regola gruppo di sicurezza di rete 4 (da IIS01 ad AppVM01) applicabile, il traffico è consentito, l'elaborazione delle regole si arresta.
 4. AppVM01 riceve la richiesta e risponde con il file (presupponendo che l'accesso sia autorizzato).
 5. Non essendoci regole in uscita sulla subnet back-end, la risposta è consentita.
 6. La subnet front-end inizia l'elaborazione delle regole in ingresso:
@@ -188,20 +192,20 @@ Con l'attivazione del set di regole del firewall, la compilazione dell'ambiente 
    2. La regola di sistema predefinita che consente il traffico tra le subnet consentirebbe questo tipo di traffico, perciò è consentito.
 7. Il server IIS riceve il file.
 
-#### (Negato) Traffico Web diretto al server Web
+#### <a name="denied-web-direct-to-web-server"></a>(Negato) Traffico Web diretto al server Web
 Poiché il server Web, IIS01, e il firewall si trovano nello stesso servizio cloud, condividono lo stesso indirizzo IP pubblico. Tutto il traffico HTTP verrà quindi indirizzato al firewall. Anche se la richiesta viene servita correttamente, non può passare direttamente al server Web. Come progettato, passa prima attraverso il firewall. Per il flusso di traffico, vedere il primo scenario in questa sezione.
 
-#### (Negato) Traffico Web al server back-end
+#### <a name="denied-web-to-backend-server"></a>(Negato) Traffico Web al server back-end
 1. L'utente Internet prova ad accedere a un file su AppVM01 tramite il servizio BackEnd001.CloudApp.Net.
 2. Non essendoci endpoint aperti per la condivisione file, il traffico non passa attraverso il servizio cloud e non raggiunge il server.
 3. In caso di apertura degli endpoint per qualunque motivo, la regola del gruppo di sicurezza di rete 5 (da Internet a rete virtuale) bloccherà questo traffico.
 
-#### (Negato) Ricerca DNS Web sul server DNS
+#### <a name="denied-web-dns-lookup-on-dns-server"></a>(Negato) Ricerca DNS Web sul server DNS
 1. L'utente Internet prova a cercare un record DNS interno su DNS01 tramite il servizio BackEnd001.CloudApp.Net.
 2. Non essendoci endpoint aperti per DNS, il traffico non passa attraverso il servizio cloud e non raggiunge il server.
 3. In caso di apertura degli endpoint per qualunque motivo, la regola del gruppo di sicurezza di rete 5 (da Internet a rete virtuale) bloccherà questo traffico. Si noti che la regola 1 (DNS) non è applicabile per due motivi, prima di tutto l'indirizzo di origine è Internet e questa regola si applica solo quando l'origine è la rete virtuale locale, poi questa è una regola di tipo Consenti e quindi non bloccherà mai il traffico.
 
-#### (Negato) Accesso dal Web a SQL tramite il firewall
+#### <a name="denied-web-to-sql-access-through-firewall"></a>(Negato) Accesso dal Web a SQL tramite il firewall
 1. L'utente Internet richiede dati SQL a FrontEnd001.CloudApp.Net (servizio cloud per Internet).
 2. Non essendoci endpoint aperti per SQL, il traffico non passa attraverso il servizio cloud e non raggiunge il firewall.
 3. Se gli endpoint sono aperti per qualunque motivo, la subnet front-end inizia l'elaborazione delle regole in ingresso:
@@ -211,19 +215,20 @@ Poiché il server Web, IIS01, e il firewall si trovano nello stesso servizio clo
 4. Il traffico raggiunge l'indirizzo IP interno del firewall (10.0.1.4).
 5. Il firewall non ha regole di inoltro per SQL ed elimina il traffico.
 
-## Conclusioni
+## <a name="conclusion"></a>Conclusioni
 Questo è un modo relativamente semplice per proteggere l'applicazione con un firewall e isolare la subnet back-end dal traffico in ingresso.
 
 Altri esempi e una panoramica dei limiti di sicurezza della rete sono disponibili [qui][HOME].
 
-## Riferimenti
-### Script principale e configurazione di rete
-Salvare lo script completo in un file di script PowerShell. Salvare la configurazione di rete in un file denominato "NetworkConf2.xml". Modificare le variabili definite dall'utente secondo le esigenze. Eseguire lo script, quindi seguire le istruzioni per la configurazione delle regole del firewall.
+## <a name="references"></a>Riferimenti
+### <a name="main-script-and-network-config"></a>Script principale e configurazione di rete
+Salvare lo script completo in un file di script PowerShell. Salvare la configurazione di rete in un file denominato "NetworkConf2.xml".
+Modificare le variabili definite dall'utente secondo le esigenze. Eseguire lo script, quindi seguire le istruzioni per la configurazione delle regole del firewall.
 
-#### Script completo
+#### <a name="full-script"></a>Script completo
 In base alle variabili definite dall'utente, lo script consente di:
 
-1. Connettersi a una sottoscrizione di Azure.
+1. Connettersi a una sottoscrizione di Azure
 2. Creare un nuovo account di archiviazione
 3. Creare una nuova rete virtuale e due subnet, come definito nel file di configurazione di rete.
 4. Creare 4 macchine virtuali di Windows Server.
@@ -528,7 +533,7 @@ Questo script di PowerShell deve essere eseguito localmente in un server o un PC
       Write-Host
 
 
-#### File di configurazione di rete
+#### <a name="network-config-file"></a>File di configurazione di rete
 Salvare questo file XML con il percorso aggiornato e aggiungere il collegamento a questo file nella variabile $NetworkConfigFile dello script precedente.
 
     <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
@@ -561,13 +566,13 @@ Salvare questo file XML con il percorso aggiornato e aggiungere il collegamento 
       </VirtualNetworkConfiguration>
     </NetworkConfiguration>
 
-#### Script di applicazione di esempio
+#### <a name="sample-application-scripts"></a>Script di applicazione di esempio
 Se si vuole installare un'applicazione di esempio per questo e altri esempi di rete perimetrale, tramite il collegamento seguente ne viene fornita una: [Script di applicazione di esempio][SampleApp]
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-asm/example2design.png "Rete perimetrale in ingresso con gruppo di sicurezza di rete"
 [2]: ./media/virtual-networks-dmz-nsg-fw-asm/dstnaticon.png "Icona di Destination NAT"
-[3]: ./media/virtual-networks-dmz-nsg-fw-asm/firewallrule.png "Regola del firewall"
+[3]: ./media/virtual-networks-dmz-nsg-fw-asm/firewallrule.png "Regola firewall"
 [4]: ./media/virtual-networks-dmz-nsg-fw-asm/firewallruleactivate.png "Attivazione delle regole firewall"
 
 <!--Link References-->
@@ -575,4 +580,8 @@ Se si vuole installare un'applicazione di esempio per questo e altri esempi di r
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

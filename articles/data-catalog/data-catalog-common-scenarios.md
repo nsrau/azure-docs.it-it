@@ -1,13 +1,13 @@
 ---
-title: Scenari comuni di Azure Data Catalog | Microsoft Docs
-description: Panoramica degli scenari comuni per il Catalogo dati di Azure, incluse la registrazione e l'individuazione delle origini dati ad alto valore, l'abilitazione della business intelligence in modalità self-service e l'acquisizione di conoscenze specifiche esistenti sulle origini dati e i processi.
+title: Scenari comuni di Azure Data Catalog | Documentazione Microsoft
+description: "Panoramica degli scenari comuni per il Catalogo dati di Azure, incluse la registrazione e l&quot;individuazione delle origini dati ad alto valore, l&quot;abilitazione della business intelligence in modalità self-service e l&quot;acquisizione di conoscenze specifiche esistenti sulle origini dati e i processi."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 60930d78-d2d4-4d5d-9651-bdda50b0da0e
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 10/03/2016
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 975084c19909b0829b6f93cab05373fb71b10cf3
+
 
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Scenari comuni del Catalogo dati di Azure
 In questo articolo vengono presentati scenari comuni in cui il Catalogo dati di Azure può aiutare le organizzazioni a incrementare il valore delle origini dati esistenti.
 
-## <a name="scenario-#1---registration-of-central-data-sources"></a>Scenario 1: registrazione delle origini dati centrali
+## <a name="scenario-1---registration-of-central-data-sources"></a>Scenario 1: registrazione delle origini dati centrali
 Le organizzazioni hanno spesso un numero di origini dati di valore elevato. Queste origini dati includono sistemi OLTP LOB, data warehouse e database di business intelligence/analisi. Spesso il numero dei sistemi e la sovrapposizione tra i sistemi cresce nel tempo in base alle necessità dell’evoluzione aziendale con acquisizioni e fusioni.
 
 Spesso è difficile per gli utenti sapere dove si trovano i dati all'interno delle origini dati. Domande come queste sono molto diffuse:
@@ -34,7 +38,7 @@ In questo scenario, il Catalogo dati di Azure può essere di aiuto. Le origini d
 
 Questo scenario presenta anche un'opportunità per annotare le origini dati di valore elevato per facilitarne la comprensione e l'accesso. Un aspetto fondamentale di questa operazione consiste nell'includere informazioni su come gli utenti possono richiedere l'accesso all'origine dati. Il Catalogo dati di Azure consente agli utenti di fornire l'indirizzo di posta elettronica dell'utente o del team responsabile del controllo di accesso all'origine dati, collegamenti a strumenti esistenti, documenti o testo libero che descrive il processo di richiesta di accesso. Con queste informazioni incluse nel catalogo, gli utenti che individuano origini dati registrate, ma che non dispongono ancora delle autorizzazioni per accedere ai dati possono richiedere facilmente l'accesso usando i processi definiti e controllati dai proprietari dell'origine dati.
 
-## <a name="scenario-#2---self-service-business-intelligence"></a>Scenario 2: business intelligence in modalità self-service
+## <a name="scenario-2---self-service-business-intelligence"></a>Scenario 2: business intelligence in modalità self-service
 Anche se le soluzioni di business intelligence aziendali tradizionali continuano a essere scenari di dati di molte organizzazioni, i vari cambiamenti di mercato hanno reso la soluzione BI in modalità self-service sempre più importante. La BI in modalità self-service consente agli information worker e agli analisti di creare report, cartelle di lavoro e dashboard senza basarsi su un team IT centrale oppure senza limitazioni di pianificazione e disponibilità del team IT.
 
 In scenari di business intelligence in modalità self-service, è comune per gli utenti combinare dati da più origini, molte delle quali potrebbero non essere ancora state usate per analisi e business intelligence. Sebbene alcune di queste origini dati potrebbero essere già note, è spesso disponibile un processo per scoprire cosa fare per individuare e valutare le potenziali origini dati per una determinata attività.
@@ -47,7 +51,7 @@ Questa crescita strutturale del contenuto del catalogo è un complemento natural
 
 È inoltre importante notare che sebbene questo scenario sia incentrato specificamente sulla business intelligence in modalità self-service, i modelli e le richieste si applicano anche a progetti di BI aziendali su larga scala. Qualsiasi attività che prevede un processo manuale di individuazione dell'origine dati è un impegno che può risultare utile per l'organizzazione mediante l'uso del Catalogo dati di Azure.
 
-## <a name="scenario-#3---capturing-tribal-knowledge"></a>Scenario 3: acquisizione di conoscenze specifiche
+## <a name="scenario-3---capturing-tribal-knowledge"></a>Scenario 3: acquisizione di conoscenze specifiche
 Di seguito sono riportate informazioni per sapere quali dati devono essere eseguiti dal processo e dove si trovano.
 
 Se si ha una certa familiarità con il processo, probabilmente già si hanno le conoscenze necessarie. L'utente ha intrapreso gradualmente il processo di apprendimento e nel corso tempo ha imparato a usare le origini dati che sono fondamentali quotidianamente.
@@ -62,6 +66,9 @@ Talvolta questi esperti di dati si applicano per documentare le proprie conoscen
 
 Il Catalogo dati di Azure fornisce un percorso per la condivisione di queste conoscenze specifiche e per renderle facilmente individuabili. Gli esperti di dati possono annotare direttamente gli asset di dati e possono includere anche i collegamenti alla documentazione esistente. In tal modo non solo si acquisisce conoscenza, ma inserisce la competenza nella stessa esperienza impiegata per l'individuazione dell’origine dati. Quando un utente usa il catalogo per individuare un'origine dati, non solo trova l'origine, ma ha inoltre a disposizione le informazioni di un esperto che esistevano in precedenza solo nella mente dell'esperto stesso.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

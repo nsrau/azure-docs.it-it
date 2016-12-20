@@ -1,82 +1,205 @@
 ---
-title: Informazioni sul Processo di analisi scientifica dei dati per i team | Microsoft Docs
-description: Il Processo di analisi scientifica dei dati per i team è un metodo sistematico della scienza dei dati per lo sviluppo di applicazioni intelligenti che sfruttano le analisi avanzate.
-keywords: processo di analisi scientifica dei dati,team di analisi scientifica dei dati
+title: Ciclo di vita del processo di analisi scientifica dei dati per i team | Documentazione Microsoft
+description: Definizione dei componenti principali del ciclo di vita di analisi scientifica dei dati per i team.
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: b1f677bb-eef5-4acb-9b3b-8a5819fb0e78
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
-ms.author: bradsev
+ms.date: 11/01/2016
+ms.author: bradsev;hangzh;gokuma
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 725f6d4a209ada154eb9aa90a8226dcaa0859990
+
 
 ---
-# Informazioni sul Processo di analisi scientifica dei dati per i team (TDSP)
-Il Processo di analisi scientifica dei dati per i team (TDSP) offre un approccio sistematico alla creazione di applicazioni intelligenti che permettono ai team di data scientist di collaborare in modo efficace per l'intero ciclo di vita delle attività necessarie per trasformare queste applicazioni in prodotti.
+# <a name="team-data-science-process-lifecycle"></a>Ciclo di vita del processo di analisi scientifica dei dati per i team
+Il processo di analisi scientifica dei dati per i team (TDSP) fornisce un ciclo di vita consigliato da usare per strutturare lo sviluppo dei progetti di analisi scientifica dei dati. Il ciclo di vita descrive tutti i passaggi generalmente seguiti dai progetti in fase di esecuzione. Se si usa un altro ciclo di vita per l'analisi scientifica dei dati, ad esempio [CRISP-DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process) o un processo personalizzato dell'organizzazione, è comunque possibile usare il TDSP basato sulle attività nel contesto di tali cicli di vita di sviluppo. 
 
-In particolare, attualmente il TDSP fornisce ai team di analisi scientifica dei dati:
+Questo ciclo di vita è stato messo a punto per i progetti di analisi scientifica dei dati destinati a far parte di applicazioni intelligenti. Queste applicazioni distribuiscono modelli di Machine Learning o intelligenza artificiale per l'analisi predittiva. I progetti esplorativi di analisi scientifica dei dati e i progetti di analisi on/off o ad hoc possono trarre vantaggio da questo processo, ma in questi casi potrebbero non essere necessarie le procedure descritte.    
 
-* **Metodologia**: illustra una sequenza di passaggi che definiscono il ciclo di vita dello sviluppo offrendo indicazioni su come definire il problema, analizzare i dati pertinenti, compilare e valutare i modelli predittivi e quindi distribuire tali modelli nelle applicazioni aziendali.
-* **Risorse**: strumenti e tecnologie, ad esempio la macchina virtuale dedicata all'analisi scientifica dei dati, per semplificare la configurazione di ambienti per le attività di analisi scientifica dei dati e istruzioni pratiche per l'adozione di nuove tecnologie.
+Di seguito si riporta una rappresentazione visiva del **Ciclo di vita del processo di analisi scientifica dei dati di Team**. 
 
-Di seguito è illustrato il ciclo di vita di sviluppo del processo di analisi scientifica dei dati per i team:
+![Ciclo di vita TDSP](./media/data-science-process-overview/tdsp-lifecycle.png) 
 
-![Diagramma: Processo di analisi scientifica dei dati per i team](./media/data-science-process-overview/data-science-process-for-teams-diagram.png) 
+Il ciclo di vita TDSP è composto da cinque fasi principali che vengono eseguite in modo iterativo. Di seguito ne sono elencati alcuni:
 
-Il processo è **iterativo**: la comprensione di elementi nuovi ed esistenti o perfezionati nel modello si evolve e richiede la rielaborazione di passaggi completati in precedenza nella sequenza. I processi esistenti per lo sviluppo organizzativo e la pianificazione del progetto possono essere **facilmente adattati** per l'uso con la sequenza di passaggi definita da TDSP.
+* **Informazioni commerciali**
+* **Acquisizione e comprensione dei dati**
+* **Modellazione**
+* **Distribuzione**
+* **Accettazione del cliente**
 
-I passaggi del processo sono rappresentati graficamente e collegati nel [percorso di apprendimento TDSP](https://azure.microsoft.com/documentation/learning-paths/data-science-process/), nonché descritti di seguito.
+Per ogni fase, specificare le informazioni seguenti:
 
-## Passaggi di pianificazione e preparazione
-## P1. Pianificazione aziendale e tecnologica
-Avviare un progetto di analisi definendo gli obiettivi aziendali e i problemi, specificandoli in termini di **requisiti aziendali**. Un obiettivo essenziale di questo passaggio consiste nell'identificare le variabili aziendali principali, ad esempio le previsioni di vendita o la probabilità che un ordine sia illecito, che l'analisi deve prevedere per soddisfare i requisiti. Sono quindi in genere necessarie operazioni aggiuntive di pianificazione per sviluppare una comprensione delle **origini dati** necessarie per soddisfare gli obiettivi del progetto da un punto di vista analitico. Non è ad esempio insolito scoprire che i sistemi esistenti devono raccogliere e registrare tipi di dati aggiuntivi per risolvere il problema e raggiungere gli obiettivi del progetto. Per istruzioni, vedere [Come identificare scenari e pianificare l'elaborazione dei dati di analisi avanzata](machine-learning-data-science-plan-your-environment.md) e [Scenari per l'analisi avanzata in Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md).
+* **Obiettivi**: gli obiettivi specifici elencati.
+* **Procedura**: le attività specifiche descritte e le istruzioni fornite per il completamento delle attività.
+* **Elementi**: i risultati finali e il supporto durante la produzione degli stessi.
 
-## P2. Pianificare e preparare l'infrastruttura
-Un ambiente di analisi per il TDSP include numerosi componenti:
+## <a name="1-business-understanding"></a>1. Informazioni commerciali
+### <a name="goals"></a>Obiettivi
+* Vengono specificate le **variabili principali** da usare come **target dei modelli** e le relative metriche vengono usate per determinare la riuscita del progetto.
+* Vengono identificate le **origini dati** pertinenti a cui/da cui l'azienda accede e/o da altre origini, quando necessario.
 
-* **Aree di lavoro dati**, in cui i dati sono gestiti in modalità temporanea per l'analisi e la modellazione.
-* **Infrastruttura di elaborazione** per la pre-elaborazione, l'esplorazione e la modellazione dei dati.
-* **Infrastruttura di runtime** per rendere operativi i modelli analitici e quindi eseguire le applicazioni client intelligenti che usano i modelli.
+### <a name="how-to-do-it"></a>Procedura
+Questa fase comprende due attività principali: 
 
-L'infrastruttura di analisi da configurare è spesso parte di un ambiente distinto dai sistemi operativi principali, ma in genere sfrutta i dati provenienti da più sistemi entro l'azienda, oltre da origini esterne all'azienda. L'infrastruttura di analisi può essere basata esclusivamente sul cloud oppure può avere una configurazione locale o una combinazione di entrambe. Per le opzioni, vedere [Configurare gli ambienti per l'analisi scientifica dei dati per l'uso nel processo di analisi scientifica dei dati per i team](machine-learning-data-science-environment-setup.md).
+* **Definizione degli obiettivi**: interagire con il cliente e altre parti interessate per comprendere e identificare i problemi aziendali. Formulare domande che definiscano gli obiettivi aziendali e a cui possono essere destinate le tecniche di analisi scientifica dei dati.
+* **Identificare le origini dati**: trovare i dati rilevanti che consentono di rispondere alle domande di definizione degli obiettivi del progetto.
 
-## Passaggi di analisi:
-## 1\. Inserire i dati all'interno dell'apposita piattaforma
-Il primo passaggio consiste nell'inserire i dati pertinenti provenienti da diverse origini, interne o esterne all'organizzazione, in un ambiente di analisi in cui possano essere elaborati. Il **formato** dei dati all'origine può essere diverso dal formato richiesto dalla destinazione. È quindi possibile che lo strumento di inserimento debba eseguire alcune trasformazioni di dati. Per le opzioni, vedere [Caricare i dati in ambienti di archiviazione per l'analisi](machine-learning-data-science-ingest-data.md)
+#### <a name="11-define-objectives"></a>1.1 Definire gli obiettivi
+1. Un obiettivo centrale di questo passaggio consiste nell'identificare le **variabili aziendali** principali che l'analisi deve prevedere. Queste variabili vengono definite come **target dei modelli** e le metriche associate vengono usate per stabilire la riuscita del progetto. Tra questi target, le previsioni di vendita o la probabilità di frode di un ordine.
+2. Definire gli **obiettivi del progetto** ponendo e creando domande "precise" e rilevanti, specifiche e non ambigue. L'analisi scientifica dei dati è il processo di uso di nomi e numeri per rispondere a queste domande. "*Quando si sceglie la domanda, si supponga che si sta per raggiungere un oracolo in grado di identificare qualsiasi cosa nell'universo, purché la risposta sia un numero o un nome*". Per altre istruzioni, vedere la sezione **Ask a Sharp Question** (Porre una domanda acuto) del blog [How to do Data Science](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/) (Come eseguire l'analisi scientifica dei dati).   L'analisi scientifica dei dati o il Machine Learning vengono in genere usati per rispondere a cinque tipi di domande:
+   * In che quantità o in che numero? (regressione)
+   * Quale categoria? (classificazione)
+   * Quale gruppo? (clustering)
+   * È strano? (rilevamento anomalie)
+   * Quale opzione scegliere? (suggerimento)
+3. Definire il **team del progetto** specificando i ruoli e le responsabilità dei membri. Sviluppare un piano di alto livello da ripetere man mano che la quantità di informazioni acquisite aumenta.  
+4. **Definire le metrica di riuscita**. Ad esempio: ottenere l'accuratezza della stima della varianza del cliente di X% entro la fine di questo progetto della durata di 3 mesi, in modo da poter offrire promozioni per ridurre la varianza. Le metriche devono essere **SMART**: 
+   * **S**pecific: specifiche 
+   * **M**easurable: misurabili
+   * **A**chievable: conseguibili 
+   * **R**elevant: rilevanti 
+   * **T**ime-bound: con associazione temporale 
 
-Oltre all'inserimento iniziale dei dati, molte applicazioni intelligenti devono aggiornare regolarmente i dati come parte di un processo di apprendimento continuativo. Per ottenere questo risultato, è possibile configurare una **pipeline di dati** o un flusso di lavoro. Ciò fa parte della fase iterativa del processo che include la ricompilazione e la rivalutazione dei modelli analitici usati dall'applicazione intelligente che distribuisce la soluzione. Vedere, ad esempio, [Spostare i dati da un server SQL locale a SQL Azure con il Data factory di Azure](machine-learning-data-science-move-sql-azure-adf.md).
+#### <a name="12-identify-data-sources"></a>1.2 Identificare le origini dei dati
+Identificare le origini dati che contengono esempi noti di risposte a domande precise. Cercare i dati seguenti:
 
-## 2\. Esplorare e visualizzare i dati
-Il passaggio successivo consiste nell'ottenere una migliore comprensione dei dati esaminando le relative **statistiche riepilogative** e relazioni e usando tecniche quali la **visualizzazione**. In questa fase vengono anche gestiti i problemi relativi alla **qualità dei dati** e all'integrità, ad esempio valori mancanti, mancate corrispondenze tra tipi di dati e relazioni non coerenti tra i dati. Le trasformazioni di pre-elaborazione vengono usate per pulire i dati non elaborati prima di eseguire operazioni aggiuntive di analisi e modellazione. Per una descrizione, vedere [Attività per preparare i dati per operazioni avanzate con Machine Learning](machine-learning-data-science-prepare-data.md).
+* Dati **pertinenti** alla domanda. Sono presenti misure del target e caratteristiche correlate al target?
+* Dati che non rappresentano una **misurazione accurata** del target del modello e delle funzionalità di interesse.
 
-## 3\. Generare e selezionare le funzionalità
-Gli esperti di scienza dei dati, insieme agli esperti di dominio, devono identificare le funzionalità che acquisiscono le proprietà rilevanti del set di dati e che possono essere usate per prevedere in modo ottimale le variabili aziendali essenziali identificate durante la pianificazione. Queste nuove funzionalità possono essere derivate dai dati esistenti o possono richiedere la raccolta di dati aggiuntivi. Questo processo è noto come **progettazione di funzionalità** ed è uno dei passaggi principali per la creazione di un sistema di analisi predittiva efficace. Questo passaggio richiede una combinazione creativa di competenze a livello di dominio e di informazioni approfondite ottenute dal passaggio di esplorazione dei dati. Per istruzioni, vedere [Progettazione di funzionalità in Cortana Analytics Process](machine-learning-data-science-create-features.md).
+Non è ad esempio insolito scoprire che i sistemi esistenti devono raccogliere e registrare tipi di dati aggiuntivi per risolvere il problema e raggiungere gli obiettivi del progetto. In questo caso, si desidera cercare origini dati esterne o aggiornare i sistemi per raccogliere dati più recenti.
 
-## 4\. Creare ed eseguire la formazione dei modelli di Machine Learning
-Gli esperti di scienza dei dati sviluppano modelli analitici per prevedere le variabili principali identificate dai requisiti aziendali definiti nella fase di pianificazione mediante i dati puliti e trasformati in funzionalità. I sistemi di Machine Learning supportano più **algoritmi di modellazione** applicabili a una vasta gamma di casi. Per istruzioni, vedere [Come scegliere gli algoritmi di Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
+### <a name="artifacts"></a>Elementi
+Ecco i risultati finali di questa fase:
 
-Gli esperti di scienza dei dati devono scegliere il modello più appropriato per l'attività di previsione e non è raro che sia necessario combinare i risultati da più modelli per ottenere i risultati ottimali. I dati di input per la modellazione vengono in genere suddivisi casualmente in tre parti:
+* [**Documento di dichiarazione di intenti**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): nella definizione della struttura del progetto TDSP viene fornito un modello standard. Si tratta di un documento aggiornato nel corso del progetto quando vengono effettuate nuove scoperte e quando i requisiti dell'azienda cambiano. È importante eseguire l'iterazione di questo documento, aggiungendo dettagli durante l'avanzamento del processo di scoperta. Coinvolgere il cliente e le altre parti interessate nelle modifiche e comunicare chiaramente l'importanza di tali modifiche.  
+* [**Origini dati**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#raw-data-sources): parte del report sui dati reperibile nella struttura del progetto TDSP. Descrive le origini dei dati non elaborati. Nelle fasi successive vengono inseriti dettagli aggiuntivi, ad esempio gli script per spostare i dati nell'ambiente di analisi.  
+* [**Dati**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/DataDictionaries): questo documento fornisce le descrizioni e lo schema (tipi di dati, informazioni sulle regole di convalida, se disponibili) per i dati usati in risposta alla domanda. Se disponibili, sono compresi anche il diagramma o le descrizioni delle relazioni dell'entità.
 
-* Set di dati di training
-* Set di dati di convalida
-* Set di dati di test
+## <a name="2-data-acquisition-and-understanding"></a>2. Acquisizione e comprensione dei dati
+### <a name="goals"></a>Obiettivi
+* Un set di dati pulito e di alta qualità, le cui relazioni con le variabili target vengono comprese e che si trova nell'ambiente di analisi, pronto per la modellazione.
+* È stata sviluppata un'architettura della soluzione della pipeline di dati per aggiornare e valutare regolarmente i dati.
 
-I modelli vengono sviluppati tramite il **set di dati di training**. La combinazione ottimale di modelli, con parametri perfezionati, viene selezionata eseguendo i modelli e misurando gli errori di previsione per il **set di dati di convalida**. Viene infine usato il **set di dati di test** per valutare le prestazioni del modello scelto su dati indipendenti non usati per il training o la convalida del modello. Per le procedura, vedere [Come valutare le prestazioni del modello in Azure Machine Learning](machine-learning-evaluate-model-performance.md).
+### <a name="how-to-do-it"></a>Procedura
+Questa fase comprende tre attività principali:
 
-## 5\. Distribuire e usare i modelli del prodotto
-Quando si ottiene un set di modelli con prestazioni ottimali, è possibile **renderli operativi** per l'utilizzo da parte di altre applicazioni. In base ai requisiti aziendali, le previsioni vengono eseguite in **tempo reale** o in **batch**. Per essere resi operativi, i modelli devono essere esposti con un'**interfaccia API aperta** che può essere facilmente usata da diverse applicazioni, ad esempio un sito Web online, fogli di calcolo, dashboard applicazioni line-of-business e back-end. Vedere, [Distribuire un servizio Web di Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
+* **Inserire i dati** nell'ambiente di analisi target.
+* **Esplorare i dati** per determinare se la qualità dei dati è sufficiente per rispondere alla domanda. 
+* **Configurare una pipeline di dati** per calcolare dati nuovi o regolarmente aggiornati.
 
-## Riepilogo e passaggi successivi
-Il [processo di analisi scientifica dei dati per i team](https://azure.microsoft.com/documentation/learning-paths/data-science-process/) viene modellato come sequenza di passaggi iterati che **offrono indicazioni** sulle attività necessarie per usare l'analisi avanzata al fine di sviluppare un'applicazione intelligente. Ogni passaggio fornisce anche i dettagli su come usare diverse tecnologie Microsoft per completare l'attività descritta.
+#### <a name="21-ingest-the-data"></a>2.1 Inserire i dati
+Impostare il processo per spostare i dati da posizioni di origine a posizioni destinazione in cui devono essere eseguite operazioni di analisi come il training e le stime. Per informazioni tecniche e per le opzioni su come eseguire questa operazione con diversi servizi di dati di Azure, vedere [Caricare i dati in ambienti di archiviazione per l'analisi](machine-learning-data-science-ingest-data.md). 
 
-Anche se TDSP non indica tipi specifici di elementi di **documentazione**, è consigliabile documentare i risultati dell'esplorazione dei dati, della modellazione e della convalida e quindi salvare il codice pertinente in modo che l'analisi possa essere iterata quando necessario. Ciò consente anche il riutilizzo delle operazioni di analisi quando si lavora su altre applicazioni che includono dati e attività di previsioni simili.
+#### <a name="22-explore-the-data"></a>2.2 Esplorare i dati
+Prima di eseguire il training dei modelli, è necessario sviluppare una buona comprensione dei dati. I set di dati reali sono spesso fastidiosi, mancano di valori, sono numerosi o presentano altre discrepanze. La visualizzazione e il riepilogo dei dati consente di controllare la qualità dei dati e fornire le informazioni necessarie per elaborare i dati prima che siano pronti per la modellazione. Per istruzioni sulla pilizia dei dati, vedere [Attività per preparare i dati per operazioni avanzate con Machine Learning](machine-learning-data-science-prepare-data.md). Spesso, questo processo è iterativo. 
 
-Sono anche disponibili esercitazioni dettagliate complete che illustrano tutti i passaggi del processo per **scenari specifici**. Sono elencate insieme a brevi descrizioni nell'argomento [Procedure dettagliate del Processo di analisi scientifica dei dati per i team](data-science-process-walkthroughs.md).
+TDSP fornisce un'utilità automatica denominata [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) per visualizzare i dati e preparare report di riepilogo sui dati. È consigliabile iniziare con IDEAR per esplorare i dati e sviluppare una comprensione iniziale sui dati in modo interattivo, senza codice, e quindi scrivere il codice personalizzato per la visualizzazione e l'esplorazione dei dati. 
 
-<!---HONumber=AcomDC_0921_2016-->
+Quando si è soddisfatti della qualità dei dati puliti, il passaggio successivo consiste nel comprendere meglio i modelli presenti nei dati, che consentono di scegliere e sviluppare un modello predittivo appropriato per il target. Verificare la qualità della connessione dei dati al target e scoprire se sono presenti dati sufficienti per procedere con i passaggi successivi di modellazione. Anche questo processo è iterativo. Potrebbe essere necessario trovare nuove origini dati con dati più accurati o più pertinenti per aumentare il set di dati identificato nella fase precedente.  
+
+#### <a name="23-set-up-a-data-pipeline"></a>2.3 Impostare una pipeline di dati
+Oltre all'inserimento iniziale e alla pulizia dei dati, è necessario in genere impostare un processo per valutare nuovi dati o aggiornare regolarmente i dati, come parte di un processo costante di apprendimento. Per ottenere questo risultato, è possibile configurare una pipeline di dati o un flusso di lavoro. Ecco un [esempio](machine-learning-data-science-move-sql-azure-adf.md) su come configurare una pipeline con [Azure Data Factory](https://azure.microsoft.com/services/data-factory/). In questa fase viene sviluppata un'architettura della soluzione della pipeline di dati. La pipeline viene sviluppata parallelamente alle seguenti fasi del progetto di analisi scientifica dei dati. La pipeline potrebbe essere basata su batch, su un flusso, in tempo reale o ibrida, a seconda delle esigenze aziendali e delle restrizioni dei sistemi esistenti in cui la soluzione è integrata. 
+
+### <a name="artifacts"></a>Elementi
+Ecco i risultati finali di questa fase:
+
+* [**Report sulla qualità dei dati**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/DataSummaryReport.md): il report contiene riepiloghi dei dati, relazioni tra ogni attributo e il target, valutazione della variabile e così via. Lo strumento [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) viene fornito come parte di TDSP e può generare rapidamente questo report su qualsiasi set di dati tabulare, ad esempio un file CSV o una tabella relazionale. 
+* **Architettura della soluzione**: può trattarsi di un diagramma o della descrizione della pipeline di dati usata per eseguire valutazioni o stime sui nuovi dati dopo aver creato un modello. Include anche la pipeline per ripetere il training del modello basato su nuovi dati. Il documento viene archiviato in questa [directory](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) quando si usa il modello della struttura di directory di TDSP.
+* **Decisione di checkpoint**: prima di iniziare la progettazione completa delle funzionalità e la compilazione del modello, è possibile riesaminare il progetto per determinare se è conveniente continuare la progettazione. È possibile, ad esempio, che tutto sia predisposto per procedere, che si debbano raccogliere altri dati o abbandonare il progetto, se non esistono dati per rispondere alla domanda.
+
+## <a name="3-modeling"></a>3. Modellazione
+### <a name="goals"></a>Obiettivi
+* Funzionalità ottimali dei dati per il modello di Machine Learning.
+* Un modello ML informativo che consente di stimare la destinazione in modo più accurato.
+* Un modello ML adatto per la produzione.
+
+### <a name="how-to-do-it"></a>Procedura
+Questa fase comprende tre attività principali:
+
+* **Progettazione delle funzioni**: creare le funzionalità dei dati dai dati non elaborati per facilitare il training del modello.
+* **Training del modello**: trovare il modello che risponde alla domanda in modo più accurato rispetto alle metriche di riuscita.
+* Stabilire se il modello è **adatto alla produzione**.
+
+#### <a name="31-feature-engineering"></a>3.1 Progettazione delle funzioni
+La progettazione di funzionalità prevede l'inclusione, l'aggregazione e la trasformazione delle variabili non elaborate per creare funzionalità usate nell'analisi. Se si desidera comprendere i risultati di un modello, è necessario comprendere in che modo le funzioni sono correlate tra loro e come gli algoritmi di Machine Learning vengono usati da tali funzionalità. Questo passaggio richiede una combinazione creativa di competenze a livello di dominio e di informazioni approfondite ottenute dal passaggio di esplorazione dei dati. Si tratta di un compromesso di ricerca e inclusione di variabili informative evitando troppe variabili non correlate. Le variabili informative migliorano il risultato, mentre le variabili senza relazione introducono rumore inutile nel modello. È anche necessario generare le seguenti funzionalità per i nuovi dati ottenuti durante la valutazione. La generazione di queste funzionalità, quindi, può dipendere esclusivamente dai dati disponibili al momento della valutazione. Per indicazioni tecniche nella progettazione delle funzionalità quando si usano diverse tecnologie di dati di Azure, vedere [Progettazione di funzionalità in Cortana Analytics Process](machine-learning-data-science-create-features.md). 
+
+#### <a name="32-model-training"></a>3.2 Training del modello
+A seconda del tipo di domanda a cui si sta tentando di rispondere, sono disponibili numerosi algoritmi di modellazione. Per istruzioni sulla scelta dell'algoritmo, vedere [Come scegliere gli algoritmi di Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md). Sebbene questo articolo è inteso per Azure Machine Learning, le linee guida fornite sono utili per altri framework di ML. 
+
+Il processo di training del modello include i passaggi seguenti: 
+
+* Suddividere i dati di input in modo casuale per la modellazione in un set di dati di training e un set di dati di test.
+* Compilare i modelli tramite il set di dati di training.
+* Valutare (set di dati di training e set di dati di test) di una serie di algoritmi di Machine Learning concorrenti insieme a diversi parametri di regolazione associati (noto come sweep parametrico), pensati per rispondere alle domande di interesse con i dati correnti.
+* Determinare la soluzione "migliore" per rispondere alla domanda confrontando la metrica di riuscita tra metodi alternativi.
+
+> [!NOTE]
+> **Evitare perdite**: la perdita di dati può essere causata dall'inclusione di dati dall'esterno del set di dati di training che consente a un modello o a un algoritmo di Machine Learning di eseguire stime estremamente valide. La perdita è il motivo comune che infastidisce gli esperti di dati quando ottengono risultati predittivi che appaiono troppo validi per essere reali. Queste dipendenze possono essere difficili da rilevare. Per evitare questo problema, spesso è necessaria l'iterazione della compilazione di un set di dati di analisi, della creazione di un modello e della valutazione dell'accuratezza. 
+> 
+> 
+
+Con TDSP è disponibile uno [strumento di creazione di report e modellazione automatizzati](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling), da eseguire in diversi algoritmi e sweep parametrici per produrre un modello di base. Lo strumento produce anche un report di base sulla modellazione che riepiloga le prestazioni di ogni combinazione di modello e parametro, inclusa l'importanza della variabile. Anche questo processo è iterativo poiché potrebbe risultare in una nuova progettazione di funzionalità. 
+
+### <a name="artifacts"></a>Elementi
+Gli elementi generati in questa fase includono:
+
+* [**Set di funzionalità**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets): le funzionalità sviluppate per la modellazione sono descritte nella sezione Set di funzionalità del report di definizione dei dati. Il report contiene i puntatori al codice per generare le funzionalità e una descrizione sul metodo di generazione della funzionalità.
+* [**Report di modellazione**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): per ogni modello provato, viene generato un report standard che segue un modello TDSP specificato.
+* **Decisione di Checkpoint**: valutare se le prestazioni del modello sono sufficientemente adatte per la distribuzione in un sistema di produzione. Alcune domande chiave da porsi:
+  * Il modello risponde alla domanda con sufficiente certezza rispetto ai dati del test? 
+  * È necessario provare soluzioni alternative, come raccogliere dati aggiuntivi, eseguire nuova progettazione di funzionalità o provare con altri algoritmi?
+
+## <a name="4-deployment"></a>4. Distribuzione
+### <a name="goal"></a>Obiettivo
+* I modelli e le pipeline vengono distribuiti in un ambiente di produzione o di simil-produzione per l'accettazione da parte di un utente finale. 
+
+### <a name="how-to-do-it"></a>Procedura
+Attività principali descritte in questa fase:
+
+* **Rendere operativo il modello**: distribuire il modello e la pipeline in un ambiente di produzione o di simil-produzione per l'uso da parte dell'applicazione.
+
+#### <a name="41-operationalize-a-model"></a>4.1 Rendere operativo il modello
+Quando si ottiene un set di modelli con prestazioni ottimali, è possibile renderli operativi per l'uso da parte di altre applicazioni. In base ai requisiti aziendali, le previsioni vengono eseguite in tempo reale o in batch. Per essere resi operativi, i modelli devono essere esposti con un'interfaccia API aperta che può essere facilmente usata da diverse applicazioni, ad esempio un sito Web online, fogli di calcolo, dashboard applicazioni line-of-business e back-end. Per esempi su come rendere operativi i modelli con un servizio Web di Azure Machine Learning, vedere [Pubblicare un servizio Web di Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md). È anche consigliabile creare dati di telemetria e monitorare il modello di produzione e la pipeline di dati distribuiti per consentire allo stato del sistema di segnalare eventuali problemi e risolverli.  
+
+### <a name="artifacts"></a>Elementi
+* Dashboard di stato sull'integrità del sistema e metriche principali.
+* Report di modellazione finale con informazioni dettagliate sulla distribuzione.
+* Documento finale sull'architettura della soluzione.
+
+## <a name="5-customer-acceptance"></a>5. Accettazione del cliente
+### <a name="goal"></a>Obiettivo
+* **Finalizzare i risultati del progetto**: verificare che la pipeline, il modello e la relativa distribuzione nell'ambiente di produzione soddisfino gli obiettivi del cliente.
+
+### <a name="how-to-do-it"></a>Procedura
+Questa fase comprende tre attività principali:
+
+* **Convalida del sistema**: verificare che il modello e la pipeline distribuiti soddisfino le esigenze del cliente.
+* **Consegna del progetto**: all'entità che eseguirà il sistema nell'ambiente di produzione.
+
+Il cliente verifica che il sistema soddisfi le proprie esigenze aziendali e che risponda alle domande con un'accuratezza accettabile per la distribuzione nell'ambiente di produzione e l'uso da parte delle applicazioni client. Tutta la documentazione viene finalizzata ed esaminata. La consegna del progetto all'entità responsabile delle operazioni è completa. Potrebbe trattarsi, ad esempio, del team IT, del team di analisi scientifica dei dati o di un agente del cliente responsabile dell'esecuzione del sistema nell'ambiente di produzione. 
+
+### <a name="artifacts"></a>Elementi
+L'elemento principale prodotto in questa fase finale è il [**Report finale del progetto**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Exit%20Report.md). Si tratta del report tecnico del progetto, contenente tutti i dettagli del progetto utili per apprendere e usare il sistema. TDSP fornisce un [modello](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Exit%20Report.md) da usare così com'è o da personalizzare secondo le esigenze specifiche del cliente. 
+
+## <a name="summary"></a>Riepilogo
+Il [ciclo di vita di analisi scientifica dei dati per i team](http://aka.ms/datascienceprocess) viene modellato come sequenza di passaggi iterati che offrono indicazioni sulle attività necessarie per usare modelli predittivi. Questi modelli possono essere distribuiti in un ambiente di produzione e usati per compilare applicazioni intelligenti. L'obiettivo di questo ciclo di vita del processo consiste nel procedere con il progetto di analisi scientifica di dati verso un punto finale di evidente coinvolgimento. Sebbene sia vero che l'analisi scientifica dei dati è un esercizio di ricerca e scoperta, essere in grado di comunicarlo chiaramente al team e ai clienti che usano un set ben definito di elementi che si servono di modelli standard consente di evitare malintesi e aumenta le probabilità di esito positivo di un progetto complesso di analisi scientifica dei dati.
+
+## <a name="next-steps"></a>Passaggi successivi
+Sono anche disponibili esercitazioni dettagliate complete che illustrano tutti i passaggi del processo per **scenari specifici** . Sono elencate, con collegamenti e brevi descrizioni, nell'argomento [Procedure dettagliate del Processo di analisi scientifica dei dati per i team](data-science-process-walkthroughs.md).
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

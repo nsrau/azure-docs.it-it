@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 12/09/2016
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: bb64c7e5f25517477cb1f24333d10149b2e8c844
-ms.openlocfilehash: d9bb2249e41095c247d08fd75e44e0696e1d31a6
+ms.sourcegitcommit: cbc91181f2531ea5e60bb426d6b8b42e2c7684d3
+ms.openlocfilehash: 0bb6db67df25fb3c3484c819398890efef343943
 
 
 ---
@@ -34,6 +34,9 @@ Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di
 Il livello gratuito del Centro sicurezza viene abilitato automaticamente con la sottoscrizione e consente di esaminare lo stato di sicurezza delle risorse di Azure. Offre la gestione di criteri di sicurezza di base, raccomandazioni sulla sicurezza e l'integrazione con prodotti e servizi dei partner di Azure.
 
 È possibile accedere al Centro sicurezza tramite il [portale di Azure](https://azure.microsoft.com/features/azure-portal/). Per altre informazioni sul portale di Azure, vedere la [documentazione sul portale](https://azure.microsoft.com/documentation/services/azure-portal/).
+
+## <a name="permissions"></a>autorizzazioni
+In Centro sicurezza gli utenti visualizzeranno solo informazioni relative alle risorse di Azure quando sono assegnati al ruolo di proprietario, collaboratore o lettore per la sottoscrizione o il gruppo di risorse a cui tali risorse appartengono. Per altre informazioni sui ruoli e sulle azioni consentite in Centro sicurezza, vedere [Permissions in Azure Security Center](security-center-permissions.md) (Autorizzazioni in Centro sicurezza di Azure).
 
 ## <a name="data-collection"></a>Raccolta dei dati
 Il Centro sicurezza raccoglie i dati dalle macchine virtuali per valutarne lo stato della sicurezza, indicare raccomandazioni sulla sicurezza e segnalare le minacce. La prima volta che si accede al Centro sicurezza, la raccolta dati viene abilitata in tutte le macchine virtuali della sottoscrizione. La raccolta dati è consigliata, ma è possibile rifiutare esplicitamente disattivandola nei criteri del Centro sicurezza.
@@ -123,6 +126,6 @@ In questo articolo sono stati presentati i componenti di monitoraggio della sicu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -3,7 +3,7 @@ title: Domande frequenti su RemoteApp di Azure | Documentazione di Microsoft
 description: "Vedere le risposte alle domande più frequenti su RemoteApp di Azure."
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: swadhwa
 editor: 
 ms.assetid: bad66603-91f9-437f-8a70-236405d2a27f
@@ -12,11 +12,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f3a2927164a01dd4b76e264cd1b7152f170f79cb
+ms.sourcegitcommit: fcc53e4073a6957fae263cfb5d38023ed9710d21
+ms.openlocfilehash: 31df73e3fc4142ba8c3634ac9d2b6fea4cc1b2d9
 
 
 ---
@@ -45,7 +45,7 @@ Se non è possibile trovare le informazioni necessarie o in caso di domande su a
 * **Quanto costa RemoteApp?** Consultare i [dettagli dei prezzi di Azure RemoteApp ](https://azure.microsoft.com/pricing/details/remoteapp/).
 * **Un tipo di raccolta costa più di un altro?**  Sì, è possibile, a seconda delle esigenze di raccolta. Una raccolta ibrida richiede una connessione da RemoteApp di Azure alla rete locale. Se si utilizza una Route di rete virtuale/Express esistente, non esiste alcun costo aggiuntivo. Se invece si usa una nuova rete virtuale di Azure e un gateway o Express Route, verrà addebitato un costo per il [gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway) o per [Express Route](https://azure.microsoft.com/pricing/details/expressroute/). Questo costo (vedere informazioni dettagliato sui collegamenti) è sopra il costo mensile della RemoteApp di Azure.
 
-## <a name="collections-whats-supported-which-should-you-use-and-others"></a>Raccolte - cos'è supportato, cosa è opportuno utilizzare e altro
+## <a name="collections---whats-supported-which-should-you-use-and-others"></a>Raccolte - cos'è supportato, cosa è opportuno utilizzare e altro
 * **Le applicazioni personalizzate LOB (line-of-business) sono supportate?**  Sì. Per usare un'applicazione personalizzata in Azure RemoteApp, creare un' [immagine modello personalizzata](remoteapp-create-custom-image.md)e caricarla nella raccolta RemoteApp.
 * **L'applicazione LOB personalizzata funzionerà in Azure RemoteApp?**  Il modo migliore per verificarlo è provarla. Vedere il [centro di compatibilità di Desktop remoto](http://www.rdcompatibility.com/compatibility/default.aspx).
 * **Quale metodo di distribuzione (cloud o ibrido) è più adatto per la propria organizzazione?**  Le raccolte ibride offrono un'esperienza più completa se si desidera integrazione completa con Single Sign-On (SSO) e connettività di rete protetta in locale. Le raccolte nel cloud offrono un modo semplice e rapido di isolare la distribuzione usando più metodi di autenticazione. Altre informazioni sulle [opzioni di distribuzione](remoteapp-whatis.md).
@@ -69,7 +69,7 @@ Se non è possibile trovare le informazioni necessarie o in caso di domande su a
 
 * **Perché non è possibile consentire l'accesso all'account Azure Active Directory?**  Gli utenti di Azure Active Directory devono provenire dalla directory associata alla sottoscrizione. È possibile visualizzare o modificare tale directory nella scheda Impostazioni nel portale. Per altre informazioni, vedere [Configurare il tenant di Azure Active Directory usato da RemoteApp](remoteapp-changetenant.md) .
 
-## <a name="clients-what-device-can-i-use-to-access-azure-remoteapp"></a>Client - quali dispositivi si possono utilizzare per accedere a RemoteApp di Azure?
+## <a name="clients---what-device-can-i-use-to-access-azure-remoteapp"></a>Client - quali dispositivi si possono utilizzare per accedere a RemoteApp di Azure?
 È possibile trovare informazioni interessanti sui client, inclusi i passaggi per l'installazione di diversi client, in [Accesso alle app in Azure RemoteApp](remoteapp-clients.md).
 
 * **Quali dispositivi e sistemi operativi sono supportati dalle applicazioni client?**
@@ -126,6 +126,6 @@ Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

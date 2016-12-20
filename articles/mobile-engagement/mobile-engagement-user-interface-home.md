@@ -1,12 +1,12 @@
 ---
 title: Interfaccia utente di Azure Mobile Engagement - Home
-description: Informazioni su come gestire l'applicazione e i progetti esistenti usando Azure Mobile Engagement
+description: Informazioni su come gestire l&quot;applicazione e i progetti esistenti usando Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: aff578d2-40f6-43e4-b0ea-7d2674cb28a1
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
@@ -14,20 +14,24 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a3af9aa0a7b9707203932051883f61792047558a
+
 
 ---
-# Come gestire l'applicazione e i progetti esistenti
-In questo articolo viene descritta la **Home page** del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili. Si noti che per iniziare a utilizzare il portale, è innanzitutto necessario creare un account **Azure Mobile Engagement**.
+# <a name="how-to-manage-your-existing-application-and-projects"></a>Come gestire l'applicazione e i progetti esistenti
+In questo articolo viene descritta la pagina **Home** del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili. Si noti che per iniziare a utilizzare il portale, è innanzitutto necessario creare un account **Azure Mobile Engagement** . 
 
 Per accedere alla home page, fare clic su **Home** nella parte superiore sinistra della pagina. Contiene l'elenco di tutte le applicazioni che fanno parte della raccolta selezionata. In questa pagina è possibile vedere una rapida panoramica delle applicazioni.
 
-La home page contiene inoltre tutti i progetti che possono includere tutte le applicazioni presenti nell'account. Si noti che chiunque può accedere alla home page dell'interfaccia utente creando un account. Tuttavia, è necessario concedere l'autorizzazione agli altri utenti affinché possano accedere alle applicazioni personalizzate presenti in **Progetti personali**.
+La home page contiene inoltre tutti i progetti che possono includere tutte le applicazioni presenti nell'account. Tenere presente che chiunque può accedere alla home page dell'interfaccia utente mediante la creazione di un account, ma è necessario concedere autorizzazioni ad altri utenti affinché possano accedere alle applicazioni personalizzate in **Progetti personali**.
 
 È inoltre possibile visualizzare il grafico di confronto per le applicazioni selezionate. In alternativa, è possibile scegliere di visualizzare il grafico di confronto per le applicazioni selezionate in un progetto.
 
 ![Home1][0]
 
-## Applicazioni personali
+## <a name="my-applications"></a>Applicazioni personali
 La panoramica rapida delle applicazioni consente di selezionare l'applicazione da aprire per visualizzare in dettaglio le opzioni della barra multifunzione. È possibile selezionare il nome dell'applicazione per tornare al percorso della barra multifunzione visitato più di recente nell'applicazione oppure è possibile selezionare l'icona a ingranaggio per accedere direttamente alla pagina delle impostazioni dell'applicazione. È possibile cercare, filtrare oppure ordinare le informazioni visualizzate nelle tabelle delle applicazioni. È possibile trascinare e rilasciare le intestazioni della colonne per modificarne l'ordine.
 
 Tra le altre cose, la panoramica delle applicazioni include:
@@ -36,16 +40,16 @@ Tra le altre cose, la panoramica delle applicazioni include:
 * **Utenti attivi**: numero di utenti attivi negli ultimi 30 giorni.
 * **Tendenza utenti attivi**: evoluzione degli utenti attivi nelle ultime due settimane.
 * **Sessioni**: una sessione indica un uso dell'applicazione da parte di un utente, dal momento in cui inizia a usarla fino a quando finisce.
-* **Tendenze della sessione**: evoluzione delle sessioni nelle ultime due settimane.
+* **Tendenze delle sessioni**: l'evoluzione delle sessioni nelle ultime due settimane.
 
-Dopo avere fatto clic su un'applicazione, è possibile avviare il monitoraggio e la gestione delle app tramite l'interfaccia utente. ad esempio:
+Dopo avere fatto clic su un'applicazione, è possibile avviare il monitoraggio e la gestione delle app tramite l'interfaccia utente. ad esempio:    
 
 * [Monitorare in tempo reale i dati relativi all'applicazione](mobile-engagement-user-interface-monitor.md)
 * [Analizzare i dati cronologici sull'applicazione](mobile-engagement-user-interface-analytics.md)
 * [Creare e gestire segmenti di utenti per identificare modelli di utilizzo](mobile-engagement-user-interface-segments.md)
 * [Raggiungere gli utenti dell'applicazione con le notifiche push](mobile-engagement-user-interface-reach.md)
 
-## Progetti personali
+## <a name="my-projects"></a>Progetti personali
 È possibile utilizzare i progetti per raggruppare le applicazioni e concedere le autorizzazioni alle applicazioni stesse ad altri utenti. Si assegnano autorizzazioni ad altri utenti fornendo l'indirizzo di posta elettronica. Il pulsante **Nuovo progetto** consente di creare un nuovo progetto inserendo soltanto un "nome" e una "descrizione". Una volta creato un progetto, è possibile selezionarne il nome per modificare la descrizione e il nome del prodotto e per selezionare tutte le applicazioni che si desidera visualizzare nel progetto.
 
 ![Home6][60]
@@ -60,9 +64,9 @@ Fare clic su un progetto per visualizzare tutte le applicazioni che ne fanno par
 
 ![Home2][3]
 
-## Vedere anche
-* [Concetti][Link 6]
-* [Guida per la risoluzione dei problemi - Assistenza][Link 24]
+## <a name="see-also"></a>Vedere anche
+* [Concetti][Collegamento 6]
+* [Guida alla risoluzione dei problemi relativi al servizio][Collegamento 24]
 
 <!--Image references-->
 [0]: ./media/mobile-engagement-user-interface-home/home0.png
@@ -127,38 +131,42 @@ Fare clic su un progetto per visualizzare tutte le applicazioni che ne fanno par
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
-[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: mobile-engagement-user-interface-home.md
-[Link 14]: mobile-engagement-user-interface-my-account.md
-[Link 15]: mobile-engagement-user-interface-analytics.md
-[Link 16]: mobile-engagement-user-interface-monitor.md
-[Link 17]: mobile-engagement-user-interface-reach.md
-[Link 18]: mobile-engagement-user-interface-segments.md
-[Link 19]: mobile-engagement-user-interface-dashboard.md
-[Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Link 24]: mobile-engagement-troubleshooting-guide-service.md
-[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Link 27]: ../mobile-engagement-how-tos-first-push.md
-[Link 28]: ../mobile-engagement-how-tos-test-campaign.md
-[Link 29]: ../mobile-engagement-how-tos-personalize-push.md
-[Link 30]: ../mobile-engagement-how-tos-differentiate-push.md
-[Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
-[Link 32]: ../mobile-engagement-how-tos-text-view.md
-[Link 33]: ../mobile-engagement-how-tos-web-view.md
+[Collegamento 1]: mobile-engagement-user-interface.md
+[Collegamento 2]: mobile-engagement-troubleshooting-guide.md
+[Collegamento 3]: mobile-engagement-how-tos.md
+[Collegamento 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Collegamento 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Collegamento 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Collegamento 7]: https://account.windowsazure.com/PreviewFeatures
+[Collegamento 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Collegamento 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Collegamento 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Collegamento 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Collegamento 12]: mobile-engagement-user-interface-navigation.md
+[Collegamento 13]: mobile-engagement-user-interface-home.md
+[Collegamento 14]: mobile-engagement-user-interface-my-account.md
+[Collegamento 15]: mobile-engagement-user-interface-analytics.md
+[Collegamento 16]: mobile-engagement-user-interface-monitor.md
+[Collegamento 17]: mobile-engagement-user-interface-reach.md
+[Collegamento 18]: mobile-engagement-user-interface-segments.md
+[Collegamento 19]: mobile-engagement-user-interface-dashboard.md
+[Collegamento 20]: mobile-engagement-user-interface-settings.md
+[Collegamento 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Collegamento 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Collegamento 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Collegamento 24]: mobile-engagement-troubleshooting-guide-service.md
+[Collegamento 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Collegamento 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Collegamento 27]: ../mobile-engagement-how-tos-first-push.md
+[Collegamento 28]: ../mobile-engagement-how-tos-test-campaign.md
+[Collegamento 29]: ../mobile-engagement-how-tos-personalize-push.md
+[Collegamento 30]: ../mobile-engagement-how-tos-differentiate-push.md
+[Collegamento 31]: ../mobile-engagement-how-tos-schedule-campaign.md
+[Collegamento 32]: ../mobile-engagement-how-tos-text-view.md
+[Collegamento 33]: ../mobile-engagement-how-tos-web-view.md
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

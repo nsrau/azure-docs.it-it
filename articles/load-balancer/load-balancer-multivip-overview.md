@@ -1,12 +1,12 @@
 ---
-title: Più indirizzi VIP per Azure Load Balancer | Microsoft Docs
-description: Panoramica di più indirizzi VIP in Azure Load Balancer
+title: "Più indirizzi VIP per Azure Load Balancer | Documentazione Microsoft"
+description: "Panoramica di più indirizzi VIP in Azure Load Balancer"
 services: load-balancer
 documentationcenter: na
 author: chkuhtz
 manager: narayan
-editor: ''
-
+editor: 
+ms.assetid: 748e50cd-3087-4c2e-a9e1-ac0ecce4f869
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/11/2016
 ms.author: chkuhtz
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 0cedf46bd0b8c352c8a8d87407ed7fbbc58e3b46
 
 ---
+
 # <a name="multiple-vips-for-azure-load-balancer"></a>Più indirizzi VIP per Azure Load Balancer
+
 Azure Load Balancer consente di eseguire il bilanciamento del carico dei servizi su più porte, più indirizzi IP o entrambi. È possibile usare le definizioni di servizio di bilanciamento del carico interno e pubblico per eseguire il bilanciamento del carico dei flussi in un set di macchine virtuali.
 
 Questo articolo descrive i principi fondamentali di questa funzionalità, i concetti importanti e i vincoli. Se si intende esporre i servizi in un solo indirizzo IP, sono disponibili istruzioni semplificate per le configurazioni di servizi di bilanciamento del carico [pubblici](load-balancer-get-started-internet-portal.md) o [interni](load-balancer-get-started-ilb-arm-portal.md). L'aggiunta di più indirizzi VIP è un'operazione incrementale rispetto a una configurazione con un solo indirizzo VIP. Usando i concetti illustrati in questo articolo è possibile espandere una configurazione semplificata in qualsiasi momento.
@@ -43,7 +48,8 @@ Azure Load Balancer consente di combinare i due tipi di regole nella stessa conf
 
 Questi scenari verranno approfonditi iniziando con il comportamento predefinito.
 
-## <a name="rule-type-#1:-no-backend-port-reuse"></a>Regola di tipo 1: nessun riutilizzo delle porte back-end
+## <a name="rule-type-1-no-backend-port-reuse"></a>Regola di tipo 1: nessun riutilizzo delle porte back-end
+
 ![Illustrazione di più indirizzi VIP](./media/load-balancer-multivip-overview/load-balancer-multivip.png)
 
 In questo scenario, gli indirizzi VIP front-end sono configurati nel modo seguente:
@@ -71,9 +77,10 @@ Il mapping completo in Azure Load Balancer sarà ora il seguente:
 
 Ogni regola deve produrre un flusso con una combinazione univoca di indirizzo IP di destinazione e porta di destinazione. Modificando la porta di destinazione del flusso, più regole possono inviare flussi allo stesso DIP in porte diverse.
 
-I probe di integrità vengono sempre indirizzati al DIP di una macchina virtuale. È necessario assicurarsi che il probe rifletta lo stato della macchina virtuale.
+I probe di integrità vengono sempre indirizzati al DIP di una macchina virtuale. È necessario assicurarsi che il probe rifletta lo stato della VM.
 
-## <a name="rule-type-#2:-backend-port-reuse-by-using-floating-ip"></a>Regola di tipo 2: riutilizzo delle porte back-end tramite indirizzo IP mobile
+## <a name="rule-type-2-backend-port-reuse-by-using-floating-ip"></a>Regola di tipo 2: riutilizzo delle porte back-end tramite indirizzo IP mobile
+
 Azure Load Balancer consente di riutilizzare la porta front-end in più indirizzi VIP indipendentemente dal tipo di regola usato. Alcuni scenari di applicazione preferiscono o richiedono l'uso della stessa porta da parte di più istanze dell'applicazione in una singola macchina virtuale nel pool back-end. Esempi comuni di riutilizzo delle porte includono il clustering per la disponibilità elevata, le appliance virtuali di rete e l'esposizione di più endpoint TLS senza rieseguire la crittografia di rete.
 
 Per riutilizzare la porta di back-end tra più regole, è necessario abilitare l'indirizzo IP mobile nella definizione della regola.
@@ -94,8 +101,6 @@ Per questo scenario, ogni macchina virtuale nel pool back-end ha tre interfacce 
 
 > [!IMPORTANT]
 > La configurazione delle interfacce logiche viene eseguita all'interno del sistema operativo guest. Questa configurazione non viene eseguita o gestita da Azure. Senza questa configurazione, le regole non funzionano. Le definizioni dei probe di integrità usano il DIP della macchina virtuale anziché l'indirizzo VIP logico. Il servizio deve quindi mettere a disposizione le risposte probe su una porta DIP che rifletta lo stato del servizio offerto nell'indirizzo VIP logico.
-> 
-> 
 
 Si supponga la stessa configurazione front-end dello scenario precedente:
 
@@ -122,14 +127,17 @@ La destinazione del flusso in ingresso è l'indirizzo VIP nell'interfaccia di lo
 
 Si noti che in questo esempio non viene modificata la porta di destinazione. Anche se questo è uno scenario con indirizzo IP mobile, Azure Load Balancer supporta anche la definizione di una regola per la riscrittura della porta di destinazione back-end e per differenziarla dalla porta di destinazione front-end.
 
-Il tipo di regola con indirizzo IP mobile è alla base di diversi modelli di configurazione del servizio di bilanciamento di carico. Un esempio attualmente disponibile è la configurazione [SQL AlwaysOn con più listener](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) . Altri scenari di questo tipo verranno documentati nel tempo.
+Il tipo di regola con indirizzo IP mobile è alla base di diversi modelli di configurazione del servizio di bilanciamento di carico. Un esempio attualmente disponibile è la configurazione [SQL AlwaysOn con più listener](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . Altri scenari di questo tipo verranno documentati nel tempo.
 
 ## <a name="limitations"></a>Limitazioni
+
 * Più configurazioni di indirizzi VIP sono supportate solo con le macchine virtuali IaaS.
 * Con la regola dell'indirizzo IP mobile, l'applicazione deve usare il DIP per i flussi in uscita. Se l'applicazione si associa all'indirizzo VIP configurato nell'interfaccia di loopback del sistema operativo guest, SNAT non potrà riscrivere il flusso in uscita e il flusso avrà esito negativo.
 * Gli indirizzi IP pubblici hanno un effetto sulla fatturazione. Per altre informazioni, vedere [Prezzi per gli indirizzi IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Si applicano i limiti delle sottoscrizioni. Per altre informazioni, vedere i [limiti del servizio](../azure-subscription-service-limits.md#networking-limits) .
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

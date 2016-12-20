@@ -1,12 +1,12 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Ariba | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Ariba.
+title: 'Esercitazione: Integrazione di Azure Active Directory con Ariba | Documentazione Microsoft'
+description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Ariba.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 45a8364c-55d1-4dc7-b079-9eb2a701842d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4c264854aaac29489bb70e1c0fa52be456a598e9
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-ariba"></a>Esercitazione: Integrazione di Azure Active Directory con Ariba
+# <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Esercitazione: Integrazione di Azure Active Directory con Ariba
 Questa esercitazione descrive l'integrazione di Ariba con Azure Active Directory (Azure AD).
 
 L'integrazione di Ariba con Azure AD offre i vantaggi seguenti:
@@ -239,6 +243,6 @@ Quando si fa clic sul riquadro Ariba nel pannello di accesso, si dovrebbe accede
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

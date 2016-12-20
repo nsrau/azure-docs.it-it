@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 1420ed40368d21bbf391142782834e781155a72a
-ms.openlocfilehash: 6a413c765bf034dda1917c6a3853bcd2d060b49c
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 7c2c989ca2119f7a2c14ca55a56a2bce69d94efa
 
 ---
 #<a name="data-catalog-documentation"></a>Documentazione di Data Catalog
@@ -49,26 +49,22 @@ Azure Data Catalog è un servizio cloud completamente gestito che consente agli 
 </ul>
 
 ---
-
-## <a name="reference"></a>Riferimento
-
+ 
+<h2>Riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/rest/api/datacatalog">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Riferimenti all'API REST di Data Catalog</p>
+                        <p><a href="/rest/api/datacatalog/">API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
-
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-catalog.pdf">
@@ -79,6 +75,6 @@ Scaricare la documentazione di Data Catalog </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

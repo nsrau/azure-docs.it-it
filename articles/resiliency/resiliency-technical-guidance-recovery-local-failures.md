@@ -1,12 +1,12 @@
 ---
 title: 'Informazioni tecniche: ripristino da errori locali in Azure | Microsoft Docs'
-description: Articolo incentrato sugli errori locali in Azure per comprendere e progettare applicazioni resilienti a disponibilità elevata e tolleranza di errore e pianificare il ripristino di emergenza.
-services: ''
+description: "Articolo incentrato sugli errori locali in Azure per comprendere e progettare applicazioni resilienti a disponibilità elevata e tolleranza di errore e pianificare il ripristino di emergenza."
+services: 
 documentationcenter: na
 author: adamglick
 manager: saladki
-editor: ''
-
+editor: 
+ms.assetid: 2e50f6c1-fa61-4c7d-ac26-566a142fbfc2
 ms.service: resiliency
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: e3e07066d5fc8fd9ceb45cb4b397e7a1e2869c38
+
 
 ---
-# <a name="azure-resiliency-technical-guidance:-recovery-from-local-failures-in-azure"></a>Informazioni tecniche sulla resilienza di Azure - Ripristino da errori locali in Azure
+# <a name="azure-resiliency-technical-guidance-recovery-from-local-failures-in-azure"></a>Informazioni tecniche sulla resilienza di Azure - Ripristino da errori locali in Azure
 Esistono due principali minacce alla disponibilità delle applicazioni:
 
 * l'errore a livello di dispositivi, come unità e server
@@ -72,7 +76,7 @@ Azure riconosce in modo nativo i livelli in un'applicazione PaaS (ruolo Web e ru
 Nella figura precedente, il livello IIS (Internet Information Services), che funge da livello app Web, e il livello SQL, che funge da livello dati, sono assegnati a set di disponibilità diversi. Ciò garantisce la ridondanza hardware di tutte le istanze di ogni livello, grazie alla distribuzione delle macchine virtuali nei domini di errore, e assicura che tutti i livelli non vengano disattivati durante un aggiornamento.
 
 ### <a name="load-balancing"></a>Bilanciamento del carico.
-Se il traffico deve essere distribuito tra le VM, è necessario raggruppare le VM di un'applicazione e bilanciare il carico in uno specifico endpoint TCP o UDP. Per altre informazioni, vedere [Bilanciamento del carico delle macchine virtuali](../virtual-machines/virtual-machines-linux-load-balance.md). Se le VM ricevono input da un'altra origine (ad esempio, un meccanismo di accodamento), non è necessario un servizio di bilanciamento del carico. Il servizio di bilanciamento del carico usa un controllo dell'integrità di base per determinare se il traffico deve essere inviato al nodo. È anche possibile creare probe personalizzati per implementare metriche sull'integrità specifiche dell'applicazione che determinano se la VM deve ricevere traffico.
+Se il traffico deve essere distribuito tra le VM, è necessario raggruppare le VM di un'applicazione e bilanciare il carico in uno specifico endpoint TCP o UDP. Per altre informazioni, vedere [Bilanciamento del carico delle macchine virtuali](../virtual-machines/virtual-machines-linux-load-balance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Se le VM ricevono input da un'altra origine (ad esempio, un meccanismo di accodamento), non è necessario un servizio di bilanciamento del carico. Il servizio di bilanciamento del carico usa un controllo dell'integrità di base per determinare se il traffico deve essere inviato al nodo. È anche possibile creare probe personalizzati per implementare metriche sull'integrità specifiche dell'applicazione che determinano se la VM deve ricevere traffico.
 
 ## <a name="storage"></a>Archiviazione
 Archiviazione di Azure è il servizio dati durevoli di base per Azure, che offre archiviazione BLOB, tabelle, code e per dischi di VM. Per garantire disponibilità elevata in un singolo data center, usa una combinazione di replica e gestione delle risorse. Il contratto di servizio relativo alla disponibilità di Archiviazione di Azure garantisce una disponibilità di almeno il 99,9%:
@@ -121,16 +125,16 @@ Questa raccomandazione non si applica con il log shipping. Con questa funzionali
 
 Per fare in modo che le macchine virtuali dei servizi cloud di Azure distribuite tramite il portale classico si trovino nello stesso set di disponibilità, è necessario distribuirle nello stesso servizio cloud. Le macchine virtuale distribuite tramite Azure Resource Manager (portale corrente) non presentano questa limitazione. Per le macchine virtuali distribuite tramite il portale classico nel servizio cloud di Azure solo i nodi che si trovano nello stesso servizio cloud possono partecipare allo stesso set di disponibilità. Le VM dei servizi cloud, inoltre, devono far parte della stessa rete virtuale in modo da mantenere i propri IP anche dopo la correzione del servizio. Ciò consente di evitare interruzioni all'aggiornamento DNS.
 
-### <a name="azure-only:-high-availability-solutions"></a>Solo Azure: soluzioni a disponibilità elevata
+### <a name="azure-only-high-availability-solutions"></a>Solo Azure: soluzioni a disponibilità elevata
 È possibile disporre di una soluzione a disponibilità elevata per i database di SQL Server in Azure tramite i gruppi di disponibilità AlwaysOn o il mirroring del database.
 
-La figura seguente illustra l'architettura di Gruppi di disponibilità AlwaysOn in esecuzione in macchine virtuali di Azure. Questa figura è tratta dall'articolo di approfondimento sull'argomento [Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
+La figura seguente illustra l'architettura di Gruppi di disponibilità AlwaysOn in esecuzione in macchine virtuali di Azure. Questa figura è tratta dall'articolo di approfondimento sull'argomento [Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ![Gruppi di disponibilità AlwaysOn in Microsoft Azure](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-1.png)
 
 È anche possibile effettuare automaticamente il provisioning della distribuzione di un gruppo di disponibilità AlwaysOn end-to-end in VM di Azure usando il modello AlwaysOn nel portale di Azure. Per altre informazioni, vedere l' [offerta di SQL Server AlwaysOn nella raccolta del portale di Microsoft Azure](https://blogs.technet.microsoft.com/dataplatforminsider/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery/).
 
-La figura seguente illustra l'uso del mirroring del database nelle macchine virtuali di Azure. Anche questa figura è tratta dall'argomento di approfondimento [Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
+La figura seguente illustra l'uso del mirroring del database nelle macchine virtuali di Azure. Anche questa figura è tratta dall'argomento di approfondimento [Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ![Mirroring del database in Microsoft Azure](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-2.png)
 
@@ -144,11 +148,6 @@ Le applicazioni basate su Azure usufruiscono delle funzionalità della piattafor
 
 ### <a name="service-bus"></a>Bus di servizio
 Per attenuare gli effetti di un'interruzione temporanea del bus di servizio di Azure, può essere opportuno creare una coda durevole sul lato client. In questo modo viene usato temporaneamente un meccanismo di archiviazione locale alternativo per archiviare i messaggi che non possono essere aggiunti alla coda del bus di servizio. L'applicazione può decidere come gestire i messaggi archiviati temporaneamente dopo che è stato ripristinato il servizio. Per altre informazioni, vedere [Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica negoziata del bus di servizio](../service-bus-messaging/service-bus-performance-improvements.md) e [Bus di servizio (ripristino di emergenza)](resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
-
-### <a name="mobile-services"></a>Servizi mobili
-Esistono due considerazioni sulla disponibilità in relazione a Servizi mobili di Azure. Per prima cosa, eseguire regolarmente il backup del database SQL associato al servizio mobile. Eseguire quindi il backup anche degli script del servizio mobile. Per altre informazioni, vedere [Ripristinare il servizio mobile in caso di emergenza](../mobile-services/mobile-services-disaster-recovery.md).
-
-In caso di interruzione temporanea di Servizi mobili, potrebbe essere necessario usare temporaneamente un data center di Azure alternativo. Per altre informazioni, vedere la sezione relativa ai [servizi mobili (in relazione al ripristino di emergenza)](resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
 ### <a name="hdinsight"></a>HDInsight
 I dati associati ad AzureHDInsight vengono archiviati per impostazione predefinita nell'archivio BLOB di Azure. Archiviazione di Azure specifica le proprietà di durabilità e disponibilità elevata per l'archiviazione Blob. L'elaborazione multinodo associata ai processi Hadoop MapReduce viene eseguita in Hadoop Distributed File System (HDFS), di cui HDInsight effettua il provisioning quando necessario. Anche i risultati di un processo MapReduce vengono archiviati per impostazione predefinita nell'archivio BLOB di Azure, quindi i dati elaborati sono durevoli e mantengono la disponibilità elevata dopo il deprovisioning del cluster Hadoop. Per altre informazioni, vedere la sezione relativa a [HDInsight (in relazione al ripristino di emergenza)](resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
@@ -195,6 +194,9 @@ I dati associati ad AzureHDInsight vengono archiviati per impostazione predefini
 ## <a name="next-steps"></a>Passaggi successivi
 Questo articolo fa parte della serie [Materiale sussidiario sulla resilienza di Azure](resiliency-technical-guidance.md). L'articolo successivo della serie è [Ripristino dopo un'interruzione di servizio di un'area](resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

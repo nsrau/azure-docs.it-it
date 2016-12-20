@@ -1,33 +1,37 @@
 ---
-title: Sono pronti i dati per l'analisi scientifica? Valutazione dei dati | Microsoft Docs
-description: I 4 criteri per rendere pronti i dati per l'analisi scientifica. Nel video 2 Analisi scientifica dei dati per principianti vengono illustrati esempi concreti per la valutazione dei dati di base.
-keywords: valutazione dei dati, dati rilevanti, valutare i dati, preparare i dati, criteri dei dati, dati pronti
+title: Sono pronti i dati per l&quot;analisi scientifica? Valutazione dei dati | Microsoft Docs
+description: I 4 criteri per rendere pronti i dati per l&quot;analisi scientifica. Nel video 2 Analisi scientifica dei dati per principianti vengono illustrati esempi concreti per la valutazione dei dati di base.
+keywords: "dati rilevanti, valutare i dati, preparare i dati, criteri dei dati, compatibilità con i dati"
 services: machine-learning
 documentationcenter: na
-author: brohrer-ms
+author: cjgronlund
 manager: jhubbard
 editor: cjgronlund
-
+ms.assetid: d502062c-da70-4b21-9054-0bfd9902612e
 ms.service: machine-learning
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/15/2016
-ms.author: cgronlun;brohrer;garye
+ms.date: 11/11/2016
+ms.author: cgronlun;garye
+translationtype: Human Translation
+ms.sourcegitcommit: 35579eda8b92a481525ad987e99e7d9c9ed6b942
+ms.openlocfilehash: 902d83db4630bad443208e0aad039d3ad199d2a1
+
 
 ---
-# Sono pronti i dati per l'analisi scientifica?
-## Video 2: Analisi scientifica dei dati per principianti
-Informazioni sulla valutazione dei dati per assicurarsi che questo processo soddisfi i criteri di base per la preparazione per l'analisi scientifica dei dati.
+# <a name="is-your-data-ready-for-data-science"></a>Sono pronti i dati per l'analisi scientifica?
+## <a name="video-2-data-science-for-beginners-series"></a>Video 2: Analisi scientifica dei dati per principianti
+Informazioni su come valutare i dati per assicurarsi che questo processo soddisfi i criteri di base per la preparazione per l'analisi scientifica dei dati.
 
-Per trarre il meglio dalla serie è consigliabile guardare i video in ordine. [L'elenco dei video è disponibile qui](#other-videos-in-this-series)
+Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'elenco dei video è disponibile qui](#other-videos-in-this-series)
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/9/player]
-> 
-> 
+>
+>
 
-## Altri video della serie
+## <a name="other-videos-in-this-series"></a>Altri video della serie
 *Analisi scientifica dei dati per principianti* è una rapida introduzione all'analisi scientifica dei dati in cinque brevi video.
 
 * Video 1: [5 domande a cui può rispondere l'analisi scientifica dei dati](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 sec)*
@@ -36,12 +40,12 @@ Per trarre il meglio dalla serie è consigliabile guardare i video in ordine. [L
 * Video 4: [Prevedere una risposta con un modello semplice](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min e 42 sec)*
 * Video 5: [Copiare il lavoro di altre persone per l'analisi scientifica dei dati](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min e 18 sec)*
 
-## Trascrizione: Sono pronti i dati per l'analisi scientifica?
-Benvenuti a "Verifica della preparazione dei dati per l'analisi scientifica dei dati", il secondo video della serie *Analisi scientifica dei dati per principianti*.
+## <a name="transcript-is-your-data-ready-for-data-science"></a>Trascrizione: Sono pronti i dati per l'analisi scientifica?
+Questo è il video "I tuoi dati sono pronti per l'analisi scientifica?", il secondo della serie *Data Science for Beginners* (Analisi scientifica dei dati per principianti).  
 
-Prima che l'analisi scientifica dei dati possa produrre le risposte desiderate, è necessario fornirgli alcuni dati non elaborati di alta qualità. Proprio come preparare una pizza: più buoni sono gli ingredienti usati, migliore sarà il risultato finale.
+Per ottenere le risposte desiderate dall'analisi scientifica dei dati, è necessario fornire materiale non elaborato di alta qualità. Proprio come preparare una pizza: più buoni sono gli ingredienti usati, migliore sarà il risultato finale.
 
-## Criteri per i dati
+## <a name="criteria-for-data"></a>Criteri per i dati
 Quindi, nel caso dell'analisi scientifica dei dati, esistono alcuni ingredienti che devono essere amalgamati insieme.
 
 Sono fondamentali dati:
@@ -51,7 +55,7 @@ Sono fondamentali dati:
 * Accurati
 * In quantità sufficiente
 
-## Sono rilevanti i dati?
+## <a name="is-your-data-relevant"></a>Sono rilevanti i dati?
 Per prima cosa, i dati devono essere rilevanti.
 
 ![Dati rilevanti vs. dati irrilevanti, valutare i dati](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-relevant-and-irrelevant-data.png)
@@ -60,9 +64,9 @@ Osservando la tabella a sinistra, si apprende che abbiamo incontrato sette perso
 
 Si tratta di dati del tutto legittimi. L'unico inconveniente è che non sono rilevanti. Non esiste alcuna relazione ovvia tra questi numeri. Infatti, dati il prezzo attuale del latte e la media battuta dalla Red Sox, non vi è alcun modo per risalire al contenuto di alcol nel sangue.
 
-Osservando la tabella a destra si apprende invece che è stata misurata la massa corporea di ciascun individuo ed è stato contato il numero di bevande ingerite. I numeri presenti su ogni riga sono adesso rilevanti l'uno per l'altro. Data la massa corporea di un individuo e il numero di margarita bevuto, è possibile stimare la quantità di alcol presente nel sangue.
+Osservando la tabella a destra si apprende invece che è stata misurata la massa corporea di ciascun individuo ed è stato contato il numero di bevande ingerite.  I numeri presenti su ogni riga sono adesso rilevanti l'uno per l'altro. Data la massa corporea di un individuo e il numero di margarita bevuti, è possibile stimare la quantità di alcol presente nel sangue.
 
-## I dati a disposizione sono connessi?
+## <a name="do-you-have-connected-data"></a>I dati a disposizione sono connessi?
 L'ingrediente successivo è rappresentato dai dati connessi.
 
 ![Dati connessi vs. dati disconnessi: criteri dei dati, preparazione dei dati](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-connected-vs-disconnected-data.png)
@@ -75,8 +79,8 @@ Dalla tabella a sinistra si evince che la quantità di dati mancanti è talmente
 
 La tabella a destra, invece, è interamente completa e rappresenta un esempio di dati connessi.
 
-## Sono accurati i dati?
-L'ingrediente successivo necessario è l'accuratezza. Qui sono illustrati 4 bersagli da colpire con le frecce.
+## <a name="is-your-data-accurate"></a>Sono accurati i dati?
+L'ingrediente successivo necessario è l'accuratezza. Qui sono illustrati quattro bersagli da colpire con le frecce.
 
 ![Dati accurati vs. dati non accurati - criteri di dati](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-inaccurate-vs-accurate-data.png)
 
@@ -86,7 +90,7 @@ Se si tratteggiasse il centro di queste frecce, si vedrebbe che è molto vicino 
 
 Osservando adesso il bersaglio in alto a sinistra, le frecce sono molto vicine l'una all'altra, si tratta di un raggruppamento stretto. Sono precise, ma non accurate perché il centro è fuori dal centro del bersaglio. E, naturalmente, le frecce nel bersaglio in fondo a sinistra sono sia inaccurate sia imprecise. Questo arciere deve fare più pratica.
 
-## La quantità dei dati a disposizione con cui lavorare è sufficiente?
+## <a name="do-you-have-enough-data-to-work-with"></a>La quantità dei dati a disposizione con cui lavorare è sufficiente?
 Infine, l'ingrediente numero 4 è rappresentato da una quantità di dati sufficiente.
 
 ![La quantità dei dati a disposizione è sufficiente per l'analisi? Valutazione dei dati](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-barely-enough-data.png)
@@ -101,10 +105,14 @@ Aggiungendo sempre più dati, l'immagine diventa più chiara ed è possibile pre
 
 Dati rilevanti, connessi, accurati e in quantità sufficiente rappresentano tutti gli ingredienti necessari per effettuare alcune analisi scientifiche dei dati di alta qualità.
 
-Gli altri 4 video della serie *Analisi scientifica dei dati per principianti* sono disponibili da Microsoft Azure Machine Learning.
+Anche gli altri quattro video della serie *Data Science for Beginners* (Analisi scientifica dei dati per principianti) di Microsoft Azure Machine Learning meritano di essere visti.
 
-## Passaggi successivi
-* [È possibile effettuare il primo esperimento di analisi scientifica dei dati con Azure Machine Learning](machine-learning-create-experiment.md)
-* [È possibile ottenere un'introduzione a Machine Learning in Microsoft Azure](machine-learning-what-is-machine-learning.md)
+## <a name="next-steps"></a>Passaggi successivi
+* [Effettuare il primo esperimento di analisi scientifica dei dati con Machine Learning Studio](machine-learning-create-experiment.md)
+* [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

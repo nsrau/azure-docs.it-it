@@ -1,12 +1,12 @@
 ---
-title: Introduzione al controllo del database SQL | Microsoft Docs
+title: Introduzione al controllo del database SQL | Documentazione Microsoft
 description: Introduzione al controllo del database SQL
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: ronitr
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: CarlRabeler; ronitr; giladm
+translationtype: Human Translation
+ms.sourcegitcommit: 80680647559fe8b42cfa09985b9da3713b9c9305
+ms.openlocfilehash: cf0152b0cbcc85befa1b753b92f1593af958dd89
+
 
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
@@ -27,7 +31,7 @@ Il controllo abilita e facilita il rispetto degli standard di conformità, ma no
 * [Configurare il controllo per il database]
 * [Analizzare i log di controllo e i report]
 
-## <a name="<a-id="subheading-1"></a>azure-sql-database-auditing-overview"></a><a id="subheading-1"></a>Panoramica del controllo del database SQL di Azure
+## <a name="a-idsubheading-1aazure-sql-database-auditing-overview"></a><a id="subheading-1"></a>Panoramica del controllo del database SQL di Azure
 Il controllo del database SQL consente di:
 
 * **Conservare** un audit trail di eventi selezionati. È possibile definire categorie di azioni di database da controllare.
@@ -45,10 +49,10 @@ Esistono due **metodi di controllo**:
 
 Un criterio di controllo può essere definito per un database specifico o come criterio server predefinito. Un criterio di controllo del server predefinito si applica a tutti i database esistenti e ai nuovi database creati in un server.
 
-## <a name="<a-id="subheading-2"></a>set-up-auditing-for-your-database"></a><a id="subheading-2"></a>Configurare il controllo per il database
+## <a name="a-idsubheading-2aset-up-auditing-for-your-database"></a><a id="subheading-2"></a>Configurare il controllo per il database
 Nella sezione seguente è descritta la configurazione del controllo utilizzando il portale di Azure.
 
-### <a name="<a-id="subheading-2-1">i.-blob-auditing</a>"></a><a id="subheading-2-1">i. Controllo BLOB</a>
+### <a name="a-idsubheading-2-1blob-auditinga"></a><a id="subheading-2-1">Controllo BLOB</a>
 1. Avviare il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 2. Passare al pannello di configurazione del database SQL / SQL Server che si vuole controllare. Nel pannello Impostazioni selezionare **Controllo e rilevamento delle minacce**.
    
@@ -71,7 +75,7 @@ Nella sezione seguente è descritta la configurazione del controllo utilizzando 
 6. Se si vuole personalizzare gli eventi controllati, è possibile farlo tramite l'API di PowerShell o REST: per altre informazioni, vedere la sezione [Automazione (API di PowerShell/REST)](#subheading-7).
 7. Fare clic su **Save**.
 
-### <a name="<a-id="subheading-2-2">ii.-table-auditing</a>"></a><a id="subheading-2-2">ii. Controllo Tabella</a>
+### <a name="a-idsubheading-2-2table-auditinga"></a><a id="subheading-2-2">Controllo Tabella</a>
 > [!NOTE]
 > Prima di impostare il **controllo Tabella** verificare se è in uso un ["Client di livello inferiore"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). Inoltre, se le impostazioni del firewall sono restrittive, tenere presente che l'[endpoint IP del database verrà modificato](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) quando si abilita il controllo Tabella.
 > 
@@ -96,14 +100,14 @@ Nella sezione seguente è descritta la configurazione del controllo utilizzando 
 7. Dopo aver configurato le impostazioni di controllo, è possibile attivare la nuova funzionalità **Rilevamento delle minacce** (anteprima) e configurare gli indirizzi di posta elettronica per ricevere gli avvisi di sicurezza. La funzione di Rilevamento delle minacce consente di ricevere avvisi proattivi sulle attività del database anomale che possono indicare potenziali minacce alla protezione. Vedere l' [introduzione a Threat Detection](sql-database-threat-detection-get-started.md) per altri dettagli.
 8. Fare clic su **Save**.
 
-## <a name="<a-id="subheading-3"></a>analyze-audit-logs-and-reports"></a><a id="subheading-3"></a>Analizzare i log di controllo e i report
+## <a name="a-idsubheading-3aanalyze-audit-logs-and-reports"></a><a id="subheading-3"></a>Analizzare i log di controllo e i report
 I log di controllo vengono aggregati nell'account di archiviazione di Azure selezionato durante la configurazione.
 
 È possibile esplorare i log di controllo con uno strumento come [Esplora archivi di Azure](http://storageexplorer.com/).
 
 Vedere di seguito le specifiche per l'analisi dei log di controllo **Tabella** e **BLOB**.
 
-### <a name="<a-id="subheading-3-1">i.-blob-auditing</a>"></a><a id="subheading-3-1">i. Controllo BLOB</a>
+### <a name="a-idsubheading-3-1blob-auditinga"></a><a id="subheading-3-1">Controllo BLOB</a>
 I log di controllo BLOB vengono salvati come un insieme di file BLOB in un contenitore denominato "**sqldbauditlogs**".
 
 Per altre informazioni sulla gerarchia delle cartelle di archiviazione dei log di controllo BLOB, le convenzioni di denominazione BLOB e il formato dei log, vedere le [informazioni di riferimento sul formato BLOB dei log di controllo (download del file doc)](https://go.microsoft.com/fwlink/?linkid=829599).
@@ -127,7 +131,7 @@ Esistono diversi metodi per visualizzare i log di controllo BLOB:
      * Lettore di eventi estesi **libreria C#** ([altre informazioni qui](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/))
      * Esecuzione di query sui file di eventi estesi mediante **PowerShell** ([altre informazioni qui](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/))
 
-### <a name="<a-id="subheading-3-2">ii.-table-auditing</a>"></a><a id="subheading-3-2">ii. Controllo Tabella</a>
+### <a name="a-idsubheading-3-2table-auditinga"></a><a id="subheading-3-2">Controllo Tabella</a>
 I log di controllo Tabella vengono salvati come una raccolta di tabelle di Azure con prefisso **SQLDBAuditLogs**.
 
 Per altre informazioni sui log di controllo in formato Tabella, vedere le [informazioni di riferimento sul formato Tabella dei log di controllo (download del file doc)](http://go.microsoft.com/fwlink/?LinkId=506733).
@@ -148,10 +152,10 @@ Esistono diversi metodi per visualizzare i log di controllo Tabella:
    
     ![Riquadro di spostamento][9]
 
-## <a name="<a-id="subheading-5"></a>practices-for-usage-in-production"></a><a id="subheading-5"></a>Procedure per l'uso in produzione
+## <a name="a-idsubheading-5apractices-for-usage-in-production"></a><a id="subheading-5"></a>Procedure per l'uso in produzione
 <!--The description in this section refers to screen captures above.-->
 
-### <a name="<a-id="subheading-6">auditing-geo-replicated-databases</a>"></a><a id="subheading-6">Controllo dei database con replica geografica</a>
+### <a name="a-idsubheading-6auditing-geo-replicated-databasesa"></a><a id="subheading-6">Controllo dei database con replica geografica</a>
 Se si usano database con replica geografica è possibile configurare il controllo nel database primario, nel database secondario o in entrambi, a seconda del tipo di controllo.
 
 **Controllo Tabella**: è possibile configurare un criterio separato, a livello di database o a livello di server, per ciascuno dei due database (primario e secondario) come descritto nella sezione [Configurare il controllo per il database](#subheading-2-2).
@@ -167,7 +171,7 @@ Se si usano database con replica geografica è possibile configurare il controll
 
 <br>
 
-### <a name="<a-id="subheading-6">storage-key-regeneration</a>"></a><a id="subheading-6">Rigenerazione delle chiavi di archiviazione</a>
+### <a name="a-idsubheading-6storage-key-regenerationa"></a><a id="subheading-6">Rigenerazione delle chiavi di archiviazione</a>
 Durante la produzione è probabile che periodicamente vengano aggiornate le chiavi di archiviazione. Quando si aggiornano le chiavi, è necessario salvare nuovamente il criterio di controllo. Il processo è il seguente:
 
 1. Nel pannello delle impostazioni di archiviazione cambiare **Chiave di accesso alle risorse di archiviazione** da *Secondaria* a *Primaria* e fare clic su **OK** in fondo. Fare clic su **SALVA** nella parte superiore del pannello di configurazione del controllo.
@@ -179,7 +183,7 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 3. Tornare al pannello di configurazione del controllo, cambiare **Chiave di accesso alle risorse di archiviazione** da *Secondaria* a *Primaria* e fare clic su **OK** in fondo. Fare clic su **SALVA** nella parte superiore del pannello di configurazione del controllo.
 4. Tornare al pannello di configurazione e **rigenerare** il *Tasto di scelta secondario* (in preparazione al successivo ciclo di aggiornamento delle chiavi).
 
-## <a name="<a-id="subheading-7"></a>automation-(powershell-/-rest-api)"></a><a id="subheading-7"></a>Automazione (API di PowerShell/REST)
+## <a name="a-idsubheading-7aautomation-powershell-rest-api"></a><a id="subheading-7"></a>Automazione (API di PowerShell/REST)
 È possibile configurare il controllo nel database SQL di Azure anche mediante gli strumenti di automazione seguenti:
 
 1. **Cmdlet di PowerShell**
@@ -237,6 +241,6 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

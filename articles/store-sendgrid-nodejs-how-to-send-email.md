@@ -1,12 +1,12 @@
 ---
-title: Come usare il servizio di posta elettronica SendGrid (Node.js) | Microsoft Docs
-description: Informazioni su come inviare messaggi di posta elettronica con il servizio di posta elettronica SendGrid disponibile in Azure. Gli esempi di codice sono scritti mediante l'API Node.js.
-services: ''
+title: Come usare il servizio di e-mail SendGrid (Node.js) | Microsoft Docs
+description: Informazioni su come inviare messaggi di posta elettronica con il servizio di posta elettronica SendGrid disponibile in Azure. Gli esempi di codice sono scritti mediante l&quot;API Node.js.
+services: 
 documentationcenter: nodejs
 author: erikre
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: cac444b4-26b0-45ea-9c3d-eca28d57dacb
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,13 +14,17 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 327cea3a24cc47a9cc463b37cc2346ebc475ef7f
+
 
 ---
-# Come inviare messaggi di posta elettronica usando SendGrid da Node.js
-Questa guida illustra come eseguire attività di programmazione comuni con il servizio di posta elettronica SendGrid in Azure. Gli esempi sono scritti usando l'API Node.js. Gli scenari presentati includono **creazione di messaggi di posta elettronica**, **invio di messaggi di posta elettronica**, **aggiunta di allegati**, **uso di filtri** e **aggiornamento delle proprietà**. Per altre informazioni su SendGrid e sull'invio di messaggi di posta elettronica, vedere la sezione [Passaggi successivi](#next-steps).
+# <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Come inviare messaggi di posta elettronica usando SendGrid da Node.js
+Questa guida illustra come eseguire attività di programmazione comuni con il servizio di posta elettronica SendGrid in Azure. Gli esempi sono scritti usando l'API Node.js. Gli scenari presentati includono **creazione di messaggi di posta elettronica**, **invio di messaggi di posta elettronica**, **aggiunta di allegati**, **uso di filtri** e **aggiornamento delle proprietà**. Per altre informazioni su SendGrid e sull'invio della posta elettronica, vedere la sezione [Passaggi successivi](#next-steps) .
 
-## Informazioni sul servizio di posta elettronica SendGrid
-SendGrid è un [servizio di posta elettronica basato sul cloud](https://sendgrid.com/email-solutions) che offre [recapito affidabile di messaggi di posta elettronica transazionali](https://sendgrid.com/transactional-email), scalabilità e analisi in tempo reale, oltre ad API flessibili che agevolano l'integrazione personalizzata. Gli scenari di utilizzo comuni di SendGrid includono:
+## <a name="what-is-the-sendgrid-email-service"></a>Informazioni sul servizio di posta elettronica SendGrid
+SendGrid è un [servizio di posta elettronica basato sul cloud] che offre [recapito affidabile di messaggi di posta elettronica transazionali], scalabilità e analisi in tempo reale, oltre ad API flessibili che agevolano l'integrazione personalizzata. Gli scenari di utilizzo comuni di SendGrid includono:
 
 * Invio automatico di ricevute ai clienti
 * Amministrazione di liste di distribuzione per l'invio mensile ai clienti di volantini elettronici e offerte speciali
@@ -31,10 +35,10 @@ SendGrid è un [servizio di posta elettronica basato sul cloud](https://sendgrid
 
 Per altre informazioni, vedere [https://sendgrid.com](https://sendgrid.com).
 
-## Creazione di un account SendGrid
+## <a name="create-a-sendgrid-account"></a>Creazione di un account SendGrid
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-## Riferimento al modulo SendGrid per Node.js
+## <a name="reference-the-sendgrid-nodejs-module"></a>Riferimento al modulo SendGrid per Node.js
 Il modulo SendGrid per Node.js può essere installato con il programma di gestione dei pacchetti per Node.js (npm) usando il comando seguente:
 
     npm install sendgrid
@@ -43,9 +47,10 @@ Dopo l'installazione, è possibile includere il modulo nell'applicazione usando 
 
     var sendgrid = require('sendgrid')(sendgrid_username, sendgrid_password);
 
-Il modulo SendGrid esporta le funzioni **SendGrid** ed **Email**. **SendGrid** è responsabile dell'invio di posta elettronica tramite API Web, mentre **Email** incapsula un messaggio di posta elettronica.
+Il modulo SendGrid esporta le funzioni **SendGrid** ed **Email**.
+**SendGrid** è responsabile dell'invio di e-mail tramite API Web, mentre **Email** incapsula un'e-mail.
 
-## Procedura: Creare un messaggio di posta elettronica
+## <a name="how-to-create-an-email"></a>Procedura: Creare un messaggio di posta elettronica
 Creare un messaggio di posta elettronica usando il modulo SendGrid è una procedura in due fasi. La prima consiste nel creare il messaggio usando la funzione Email, la seconda nell'inviarlo usando la funzione SendGrid. Di seguito è riportato un esempio di codice per la creazione di un nuovo messaggio mediante la funzione Email:
 
     var email = new sendgrid.Email({
@@ -61,19 +66,19 @@ Creare un messaggio di posta elettronica usando il modulo SendGrid è una proced
 
 Impostando sia la proprietà text che la proprietà html è possibile implementare il fallback graduale a contenuto testuale per i client che non supportano i messaggi HTML.
 
-Per altre informazioni su tutte le proprietà supportate dalla funzione Email, vedere [sendgrid-nodejs](https://github.com/sendgrid/sendgrid-nodejs).
+Per altre informazioni su tutte le proprietà supportate dalla funzione Email, vedere [sendgrid-nodejs][sendgrid-nodejs].
 
-## Procedura: Inviare un messaggio di posta elettronica
-Dopo aver creato un messaggio di posta elettronica usando la funzione Email, è possibile inviarlo tramite SMTP o con l'API Web fornita da SendGrid.
+## <a name="how-to-send-an-email"></a>Procedura: Inviare un messaggio di posta elettronica
+Dopo aver creato un messaggio di posta elettronica usando la funzione Email, è possibile inviarlo tramite SMTP o con l'API Web fornita da SendGrid. 
 
-### API Web
+### <a name="web-api"></a>API Web
     sendgrid.send(email, function(err, json){
         if(err) { return console.error(err); }
         console.log(json);
     });
 
 > [!NOTE]
-> Sebbene gli esempi precedenti illustrino il passaggio di un oggetto di posta elettronica e una funzione di richiamata, è inoltre possibile richiamare direttamente la funzione send specificando direttamente le proprietà dei messaggi di posta elettronica. Ad esempio:
+> Sebbene gli esempi precedenti illustrino il passaggio di un oggetto di posta elettronica e una funzione di richiamata, è inoltre possibile richiamare direttamente la funzione send specificando direttamente le proprietà dei messaggi di posta elettronica. Ad esempio:  
 > 
 > `````
 > sendgrid.send({
@@ -86,7 +91,7 @@ Dopo aver creato un messaggio di posta elettronica usando la funzione Email, è 
 > 
 > 
 
-## Procedura: Aggiungere un allegato
+## <a name="how-to-add-an-attachment"></a>Procedura: Aggiungere un allegato
 Per aggiungere allegati a un messaggio, specificare i nomi e i percorsi dei file nella proprietà **files**. Nell'esempio seguente viene illustrato l'invio di un allegato:
 
     sendgrid.send({
@@ -107,16 +112,18 @@ Per aggiungere allegati a un messaggio, specificare i nomi e i percorsi dei file
     });
 
 > [!NOTE]
-> Quando si usa la proprietà **files**, il file deve essere accessibile tramite [fs.readFile](http://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile). Se il file da allegare è ospitato in un'archiviazione di Azure, ad esempio in un contenitore BLOB, prima di poterlo inviare come allegato usando la proprietà **files** è necessario copiarlo nell'archiviazione locale o in un'unità Azure.
+> Quando si usa la proprietà **files**, il file deve essere accessibile tramite [fs.readFile](http://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile). Se il file da allegare è ospitato in Archiviazione di Azure, ad esempio in un contenitore BLOB, prima di poterlo inviare come allegato usando la proprietà **files** è necessario copiarlo nell'archiviazione locale o in un'unità Azure.
 > 
 > 
 
-## Procedura: Usare filtri per abilitare piè di pagina e monitoraggio
-SendGrid fornisce funzionalità di posta elettronica aggiuntive attraverso l'uso di filtri. Si tratta di impostazioni che è possibile aggiungere a un messaggio di posta elettronica per abilitare funzionalità specifiche, ad esempio il monitoraggio del clic, Google Analytics, il monitoraggio delle sottoscrizioni e così via. Per un elenco completo dei filtri, vedere [Impostazioni dei filtri](https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html).
+## <a name="how-to-use-filters-to-enable-footers-and-tracking"></a>Procedura: Usare filtri per abilitare piè di pagina e monitoraggio
+SendGrid fornisce funzionalità di posta elettronica aggiuntive attraverso l'uso di filtri. Si tratta di impostazioni che è possibile aggiungere a un messaggio di posta elettronica per abilitare funzionalità specifiche, ad esempio il monitoraggio del clic, Google Analytics, il monitoraggio delle sottoscrizioni e così via. Per un elenco completo dei filtri, vedere [Impostazioni dei filtri][Impostazioni dei filtri] (Impostazioni dei filtri).
 
-È possibile applicare filtri a un messaggio usando la proprietà **filters**. Ogni filtro è specificato da un hash che contiene impostazioni specifiche del filtro. Negli esempi seguenti vengono illustrati i filtri per abilitare il piè di pagina e per il monitoraggio dei clic:
+È possibile applicare filtri a un messaggio usando la proprietà **filters**.
+Ogni filtro è specificato da un hash che contiene impostazioni specifiche del filtro.
+Negli esempi seguenti vengono illustrati i filtri per abilitare il piè di pagina e per il monitoraggio dei clic:
 
-### Piè di pagina
+### <a name="footer"></a>Piè di pagina
     var email = new sendgrid.Email({
         to: 'john@contoso.com',
         from: 'anna@contoso.com',
@@ -135,7 +142,7 @@ SendGrid fornisce funzionalità di posta elettronica aggiuntive attraverso l'uso
 
     sendgrid.send(email);
 
-### Monitoraggio dei clic
+### <a name="click-tracking"></a>Monitoraggio dei clic
     var email = new sendgrid.Email({
         to: 'john@contoso.com',
         from: 'anna@contoso.com',
@@ -153,33 +160,37 @@ SendGrid fornisce funzionalità di posta elettronica aggiuntive attraverso l'uso
 
     sendgrid.send(email);
 
-## Procedura: Aggiornare le proprietà dei messaggi di posta elettronica
-Alcune proprietà relative alla posta elettronica possono essere sovrascritte usando **set*Property*** oppure aggiunte usando **add*Property***. Ad esempio, è possibile aggiungere altri destinatari usando
+## <a name="how-to-update-email-properties"></a>Procedura: Aggiornare le proprietà dei messaggi di posta elettronica
+È possibile sovrascrivere alcune proprietà delle e-mail usando **set*Property*** oppure aggiungerle usando **add*Property***. Ad esempio, è possibile aggiungere altri destinatari usando
 
     email.addTo('jeff@contoso.com');
 
-o impostando un filtro usando
+oppure impostare un filtro utilizzando
 
     email.addFilter('footer', 'enable', 1);
     email.addFilter('footer', 'text/html', '<strong>boo</strong>');
 
-Per altre informazioni, vedere [sendgrid-nodejs](https://github.com/sendgrid/sendgrid-nodejs).
+Per altre informazioni, vedere [sendgrid-nodejs][sendgrid-nodejs].
 
-## Procedura: Usare servizi aggiuntivi forniti da SendGrid
-SendGrid offre API basate sul Web che è possibile usare per sfruttare altre funzionalità di SendGrid dall'applicazione Azure. Per informazioni dettagliate, vedere la [documentazione sull'API SendGrid](https://sendgrid.com/docs).
+## <a name="how-to-use-additional-sendgrid-services"></a>Procedura: Usare servizi aggiuntivi forniti da SendGrid
+SendGrid offre API basate sul Web che è possibile usare per sfruttare altre funzionalità di SendGrid dall'applicazione Azure. Per informazioni dettagliate, vedere la [documentazione sull'API SendGrid][documentazione sull'API SendGrid].
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base del servizio di posta elettronica SendGrid, usare i collegamenti seguenti per altre informazioni.
 
-* Archivio del modulo SendGrid per Node.js: [sendgrid-nodejs](https://github.com/sendgrid/sendgrid-nodejs)
-* Documentazione sull'API SendGrid: <https://sendgrid.com/docs>
+* Repository del modulo SendGrid per Node.js: [sendgrid-nodejs][sendgrid-nodejs]
+* Documentazione relativa all'API SendGrid: <https://sendgrid.com/docs>
 * Offerta speciale SendGrid per i clienti di Azure: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
 
 [offerta speciale]: https://sendgrid.com/windowsazure.html
 [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs
 [Impostazioni dei filtri]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
-[Documentazione sull'API SendGrid]: https://sendgrid.com/docs
+[documentazione sull'API SendGrid]: https://sendgrid.com/docs
 [servizio di posta elettronica basato sul cloud]: https://sendgrid.com/email-solutions
-[recapito transazionale di posta elettronica]: https://sendgrid.com/transactional-email
+[recapito affidabile di messaggi di posta elettronica transazionali]: https://sendgrid.com/transactional-email
 
-<!---HONumber=AcomDC_0107_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

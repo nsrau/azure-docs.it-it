@@ -2,18 +2,22 @@
 title: Strumenti client di Archiviazione di Azure | Microsoft Docs
 description: Elenco di strumenti che consentono di visualizzare o interagire con i dati di Archiviazione di Azure.
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: micurd
 manager: jahogg
 editor: tysonn
-
+ms.assetid: e4748642-98c4-437e-b0ed-4f9641c2e894
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 11/17/2016
 ms.author: micurd
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6d2c365a271428a55e484939a2cce5ce5f7348d8
+
 
 ---
 # <a name="azure-storage-client-tools"></a>Strumento client di Archiviazione di Azure
@@ -251,6 +255,6 @@ La funzionalità o la qualità dichiarate per i seguenti strumenti di terze part
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

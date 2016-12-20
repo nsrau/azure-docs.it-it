@@ -1,19 +1,23 @@
 ---
-title: Spazi dei nomi associati del bus di servizio | Microsoft Docs
+title: Spazi dei nomi associati del bus di servizio | Documentazione Microsoft
 description: Dettagli di implementazione e costi relativi allo spazio dei nomi associato
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 2440c8d3-ed2e-47e0-93cf-ab7fbb855d2e
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3e384611b598f4e5256f2957227927ffd7c4e5ff
+
 
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Dettagli di implementazione e implicazioni in termini di costi relativi allo spazio dei nomi associato
@@ -77,7 +81,7 @@ Quando vengono inviati, tutti i messaggi passano attraverso un oggetto [MessageS
 
 Il percorso di destinazione originale viene archiviato anche nel messaggio come proprietà x-ms-path. Questa progettazione consente la coesistenza in un'unica coda di backlog di messaggi appartenenti a più entità. Le proprietà vengono ritrasferite dal sifone.
 
-Per l'oggetto [MessageSender][MessageSender] possono verificarsi problemi quando i messaggi raggiungono il limite di 256 KB e viene avviato il failover. L'oggetto [MessageSender][MessageSender] personalizzato archivia nelle code di backlog i messaggi per tutte le code e tutti gli argomenti. Questo oggetto unisce i messaggi provenienti da numerose code primarie nelle code di backlog. Per gestire il bilanciamento del carico tra più client che non hanno relazioni tra loro, l'SDK sceglie casualmente una coda di backlog per ogni oggetto [QueueClient][QueueClient] o [TopicClient][TopicClient] creato nel codice.
+Per l'oggetto [MessageSender][MessageSender] personalizzato possono verificarsi problemi quando i messaggi raggiungono il limite di 256 KB e viene avviato il failover. L'oggetto [MessageSender][MessageSender] personalizzato archivia nelle code di backlog i messaggi per tutte le code e tutti gli argomenti. Questo oggetto unisce i messaggi provenienti da numerose code primarie nelle code di backlog. Per gestire il bilanciamento del carico tra più client che non hanno relazioni tra loro, l'SDK sceglie casualmente una coda di backlog per ogni oggetto [QueueClient][QueueClient] o [TopicClient][TopicClient] creato nel codice.
 
 ## <a name="pings"></a>Ping
 Un messaggio ping è un oggetto [BrokeredMessage][BrokeredMessage] vuoto con la proprietà [ContentType][ContentType] impostata su application/vnd.ms-servicebus-ping e un valore [TimeToLive][TimeToLive] di 1 secondo. Questo ping presenta una caratteristica particolare nel bus di servizio. Il server non recapita mai un ping quando un chiamante qualsiasi richiede un oggetto [BrokeredMessage][BrokeredMessage]. Di conseguenza, non sarà mai necessario comprendere come ricevere e ignorare questi messaggi. A ogni entità, argomento o coda univoca, per istanza di [MessagingFactory][MessagingFactory] e per client che risulta non disponibile viene inviato un ping. Per impostazione predefinita, ciò accade una volta al minuto. I messaggi ping sono considerati come normali messaggi del bus di servizio e possono comportare l'addebito di costi in base alla larghezza di banda e al numero di messaggi. Non appena i client rilevano che il sistema è disponibile, l'invio di messaggi viene arrestato.
@@ -90,7 +94,7 @@ Almeno un programma eseguibile nell'applicazione deve eseguire attivamente il si
 3. Invio alla coda primaria.
 4. Ricezione dalla coda primaria.
 
-## <a name="close/fault-behavior"></a>Comportamento di chiusura o errore
+## <a name="closefault-behavior"></a>Comportamento di chiusura o errore
 In un'applicazione che ospita il sifone, non appena l'oggetto [MessagingFactory][MessagingFactory] primario o secondario restituisce un errore o viene chiuso, senza che l'oggetto correlato restituisca un errore o venga chiuso, e non appena questo stato viene rilevato, il sifone si attiva automaticamente. Se l'oggetto [MessagingFactory][MessagingFactory] correlato al primo non viene chiuso entro 5 secondi, il sifone restituisce un errore per l'oggetto [MessagingFactory][MessagingFactory] ancora aperto.
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -118,6 +122,6 @@ Per informazioni dettagliate sulla messaggistica asincrona del bus di servizio, 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

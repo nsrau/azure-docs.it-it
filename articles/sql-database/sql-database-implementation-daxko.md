@@ -2,21 +2,26 @@
 title: Case study Azure del database SQL di Microsoft Azure - Daxko/CSI | Microsoft Docs
 description: Informazioni su come Daxko/CSI usa il database SQL per accelerare il ciclo di sviluppo e migliorare i servizi al cliente e le prestazioni
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 00c8a713-f20c-4d6b-b8b7-0c1b9ba5f05b
 ms.service: sql-database
+ms.custom: app development case study; app development
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/08/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 357b402955187a08a35faacdcb178af75698433d
+
 
 ---
-# <a name="daxko/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI ha usato Azure per accelerare il ciclo di sviluppo e migliorare i servizi al cliente e le prestazioni
+# <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI ha usato Azure per accelerare il ciclo di sviluppo e migliorare i servizi al cliente e le prestazioni
 ![Logo Daxko/CSI](./media/sql-database-implementation-daxko/csidaxkologo25.png)
 
 Daxko/CSI Software ha affrontato una sfida: la base di clienti dei centri fitness e di ricreazione ha registrato un aumento rapido grazie alla soluzione software aziendale onnicomprensiva. Tuttavia, il supporto delle esigenze dell'infrastruttura IT per la crescita della base di clienti metteva a dura prova lo staff IT aziendale. La società era sempre più vincolata alle crescenti spese operative, in particolare per la gestione dei database in continua crescita. Ancor peggio, le spese operative venivano tagliate dalle risorse di sviluppo impegnate su nuove iniziative, tra cui le funzionalità di mobilità per il software aziendale.
@@ -86,10 +91,13 @@ Il database SQL di Azure non rappresenta solo un enorme vantaggio per i clienti 
 * Per altre informazioni sugli strumenti del database e sulla scalabilità elastica, vedere [Iniziare a utilizzare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md).
 * Per altre informazioni sulla migrazione di un database SQL Server, vedere [Eseguire la migrazione del database del server SQL al database SQL tramite la procedura guidata Distribuire il database nel database di Microsoft Azure](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md).
 * Per altre informazioni sulla replica geografica attiva, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md)
-* Per altre informazioni sui ruoli Web e i ruoli di lavoro, vedere l'argomento relativo ai [ruoli di lavoro](../fundamentals-introduction-to-azure.md#compute). 
+* Per altre informazioni sui ruoli Web e i ruoli di lavoro, vedere l'argomento relativo ai [ruoli di lavoro](../fundamentals-introduction-to-azure.md#compute).    
 * Per altre informazioni sul bus di servizio di Azure, vedere [Bus di servizio](https://azure.microsoft.com/services/service-bus/).
 * Per altre informazioni sulla scalabilità automatica, vedere [Come configurare la scalabilità automatica di un servizio cloud](../cloud-services/cloud-services-how-to-scale.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

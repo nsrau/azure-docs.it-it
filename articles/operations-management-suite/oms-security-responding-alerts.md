@@ -1,25 +1,30 @@
 ---
-title: Monitoraggio e gestione degli avvisi di sicurezza nella soluzione Sicurezza e controllo di Operations Management Suite | Microsoft Docs
-description: Questo documento illustra come usare la funzionalità di intelligence per le minacce disponibile nel dashboard Security and Audit (Sicurezza e controllo) di OMS per monitorare e gestire gli avvisi di sicurezza.
+title: Monitoraggio e gestione degli avvisi di sicurezza nella soluzione Sicurezza e controllo di Operations Management Suite | Documentazione Microsoft
+description: "Questo documento illustra come usare la funzionalità di intelligence per le minacce disponibile nel dashboard Security and Audit (Sicurezza e controllo) di OMS per monitorare e gestire gli avvisi di sicurezza."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 7d45a32b-1341-4bb5-a436-1f42a8a2590a
 ms.service: operations-management-suite
+ms.custom: oms-security
 ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2016
+ms.date: 12/01/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7161cacfd371aa73974e635a343793bbec76d858
+
 
 ---
 # <a name="monitoring-and-responding-to-security-alerts-in-operations-management-suite-security-and-audit-solution"></a>Monitoraggio e gestione degli avvisi di sicurezza nella soluzione Sicurezza e controllo di Operations Management Suite
 Questo documento illustra come usare la funzionalità di intelligence per le minacce disponibile nel dashboard Security and Audit (Sicurezza e controllo) di OMS per monitorare e gestire gli avvisi di sicurezza.
 
-## <a name="what-is-oms?"></a>Cos'è OMS?
+## <a name="what-is-oms"></a>Cos'è OMS?
 Microsoft Operations Management Suite (OMS) è la soluzione Microsoft per la gestione IT basata sul cloud che consente di gestire e proteggere l'infrastruttura locale e cloud. Per altre informazioni su OMS, leggere l'articolo [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
 ## <a name="threat-intelligence"></a>Intelligence per le minacce
@@ -74,6 +79,11 @@ La **mappa di intelligence per le minacce** consente di individuare facilmente l
 
 ![mappa di intelligence per le minacce](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig5.png)
 
+> [!NOTE]
+> È possibile visualizzare una dimostrazione su come usare questa funzionalità durante un processo di risposta a un evento imprevisto; a questo scopo guardare la presentazione [Mitigate datacenter security threats with guided investigation using Operations Management Suite](https://myignite.microsoft.com/videos/5000) (Mitigazione delle minacce per la sicurezza dei data center con l'analisi guidata tramite Operations Management Suite), tenuta presso Microsoft Ignite.
+> 
+> 
+
 ## <a name="see-also"></a>Vedere anche
 In questo documento è stato descritto come rispondere agli avvisi di sicurezza mediante la funzionalità **Threat Intelligence** (Intelligence per le minacce) disponibile nella soluzione OMS per la sicurezza e il controllo. Per altre informazioni sulle funzionalità di OMS per la sicurezza, vedere gli articoli seguenti:
 
@@ -81,6 +91,9 @@ In questo documento è stato descritto come rispondere agli avvisi di sicurezza 
 * [Introduzione alla soluzione Sicurezza e controllo di Operations Management Suite](oms-security-getting-started.md)
 * [Monitoraggio delle risorse nella soluzione Sicurezza e controllo di Operations Management Suite](oms-security-monitoring-resources.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

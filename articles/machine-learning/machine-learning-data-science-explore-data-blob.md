@@ -1,38 +1,42 @@
 ---
-title: Esplorare i dati nell'archiviazione BLOB di Azure con Pandas | Microsoft Docs
+title: Esplorare i dati nell&quot;archiviazione BLOB di Azure con Pandas | Microsoft Docs
 description: Come esplorare i dati archiviati nel contenitore BLOB di Azure utilizzando Pandas.
 services: machine-learning,storage
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: feaa9e54-01e0-48c8-a917-1eba0f9d9ec7
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 12/09/2016
 ms.author: bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b663a9df7e8cb692f4156f2609fb515265526868
+
 
 ---
-# Esplorare i dati nell'archiviazione BLOB di Azure con Pandas
-In questo documento viene descritto come esplorare i dati archiviati nel contenitore BLOB di Azure mediante il pacchetto Python [Pandas](http://pandas.pydata.org/).
+# <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Esplorare i dati nell'archiviazione BLOB di Azure con Pandas
+In questo documento viene descritto come esplorare i dati archiviati nel contenitore BLOB di Azure mediante il pacchetto Python [Pandas](http://pandas.pydata.org/) .
 
 Il **menu** seguente collega ad argomenti che descrivono come usare gli strumenti per esplorare i dati da vari ambienti di archiviazione. Questa attività è un passaggio del [Processo di analisi scientifica dei dati]().
 
 [!INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Questo articolo presuppone che l'utente abbia:
 
-* Creato un account di archiviazione di Azure. Per istruzioni, vedere [Creare un account di archiviazione di Azure](../storage/storage-create-storage-account.md).
+* Creato un account di archiviazione di Azure. Per istruzioni, vedere [Creare un account di archiviazione di Azure](../storage/storage-create-storage-account.md#create-a-storage-account)
 * I dati sono stati archiviati in un account di archiviazione BLOB di Azure. Per le istruzioni, vedere [Spostamento dei dati da e verso Archiviazione di Azure](../storage/storage-moving-data.md)
 
-## Caricare i dati in un intervallo di dati Pandas
+## <a name="load-the-data-into-a-pandas-dataframe"></a>Caricare i dati in un intervallo di dati Pandas
 Per esplorare e modificare un set di dati, i dati devono essere innanzitutto scaricati dall'origine BLOB in un file locale che può essere quindi caricato in un frame di dati Pandas. Ecco i passaggi da seguire per questa procedura:
 
-1. Scaricare i dati da BLOB Azure con l’esempio di codice Python riportato di seguito utilizzando il servizio BLOB. Sostituire la variabile nel codice seguente con i valori specifici:
+1. Scaricare i dati da BLOB Azure con l’esempio di codice Python riportato di seguito utilizzando il servizio BLOB. Sostituire la variabile nel codice seguente con i valori specifici: 
    
         from azure.storage.blob import BlobService
         import tables
@@ -56,10 +60,10 @@ Per esplorare e modificare un set di dati, i dati devono essere innanzitutto sca
 
 A questo punto si è pronti per esplorare i dati e generare le funzionalità di questo set di dati.
 
-## <a name="blob-dataexploration"></a>Esempi di esplorazione dei dati utilizzando Pandas
+## <a name="a-nameblob-dataexplorationaexamples-of-data-exploration-using-pandas"></a><a name="blob-dataexploration"></a>Esempi di esplorazione dei dati utilizzando Pandas
 Di seguito sono riportati alcuni esempi dei modi per esplorare i dati utilizzando Pandas:
 
-1. Controllare il **numero di righe e colonne**
+1. Controllare il **numero di righe e colonne** 
    
         print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 2. **Controllare** le prime o le ultime **righe** nel set di dati seguente:
@@ -83,13 +87,12 @@ Di seguito sono riportati alcuni esempi dei modi per esplorare i dati utilizzand
         print miss_num
 7. Se si dispongono di **valori mancanti** per una colonna specifica nei dati, è possibile eliminarli come indicato di seguito:
    
-     dataframe_blobdata_noNA = dataframe_blobdata.dropna()
-     dataframe_blobdata_noNA.shape
+     dataframe_blobdata_noNA = dataframe_blobdata.dropna()   dataframe_blobdata_noNA.shape
    
    È possibile sostituire i valori mancanti anche con la funzione modalità:
    
-     dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})        
-8. Creare un grafico **istogramma** utilizzando un numero variabile di contenitori per tracciare la distribuzione di una variabile
+     dataframe_blobdata_mode = dataframe_blobdata.fillna({'<nome_colonna>':dataframe_blobdata['<nome_colonna>'].mode()[0]})        
+8. Creare un grafico **istogramma** utilizzando un numero variabile di contenitori per tracciare la distribuzione di una variabile    
    
         dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
    
@@ -102,4 +105,9 @@ Di seguito sono riportati alcuni esempi dei modi per esplorare i dati utilizzand
         #correlation between column_a and column_b
         dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

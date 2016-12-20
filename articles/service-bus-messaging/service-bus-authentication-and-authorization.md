@@ -1,74 +1,80 @@
 ---
-title: Service Bus Authentication and Authorization | Microsoft Docs
-description: Overview of Shared Access Signature (SAS) authentication.
-services: service-bus
+title: Autenticazione e autorizzazione del bus di servizio | Documentazione Microsoft
+description: Panoramica dell&quot;autenticazione della firma di accesso condiviso.
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 18bad0ed-1cee-4a5c-a377-facc4785c8c9
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 96fa98dda9353a5c8047f872d2507ac1d94f666c
+ms.openlocfilehash: 676c66999b43fd2ada5b470dd48b1ba3a8c73202
+
 
 ---
-# <a name="service-bus-authentication-and-authorization"></a>Service Bus authentication and authorization
-Applications can authenticate to Azure Service Bus using either Shared Access Signature (SAS) authentication, or through Azure Active Directory Access Control (also known as Access Control Service or ACS). Shared Access Signature authentication enables applications to authenticate to Service Bus using an access key configured on the namespace, or on the entity with which specific rights are associated. You can then use this key to generate a Shared Access Signature token that clients can use to authenticate to Service Bus.
+# <a name="service-bus-authentication-and-authorization"></a>Autenticazione e autorizzazione del bus di servizio
+Le applicazioni possono eseguire l'autenticazione al bus di servizio di Microsoft Azure tramite l'autenticazione della firma di accesso condiviso o tramite il servizio di controllo di accesso di Microsoft Azure Active Directory (anche noto come Servizio di controllo di accesso o ACS). L'autenticazione della firma di accesso condiviso consente alle applicazioni di eseguire l'autenticazione al bus di servizio tramite una chiave di accesso configurata nello spazio dei nomi o nell'entità a cui sono associati diritti specifici. È quindi possibile usare questa chiave per generare un token di firma di accesso condiviso che i client possono usare per eseguire l'autenticazione al bus di servizio.
 
-> AZURE.IMPORTANT SAS is recommended over ACS, as it provides a simple, flexible, and easy-to-use authentication scheme for Service Bus. Applications can use SAS in scenarios in which they do not need to manage the notion of an authorized "user."
-> 
-> 
+> [!IMPORTANT]
+> La firma di accesso condiviso offre uno schema di autenticazione per il bus di servizio semplice, flessibile e di facile utilizzo. Le applicazioni possono usare la firma di accesso condiviso in scenari in cui non è necessario gestire la nozione di "utente" autorizzato. 
 
-## <a name="shared-access-signature-authentication"></a>Shared Access Signature authentication
-[SAS authentication](service-bus-sas-overview.md) enables you to grant a user access to Service Bus resources with specific rights. SAS authentication in Service Bus involves the configuration of a cryptographic key with associated rights on a Service Bus resource. Clients can then gain access to that resource by presenting a SAS token which consists of the resource URI being accessed and an expiry signed with the configured key.
+## <a name="shared-access-signature-authentication"></a>Autenticazione della firma di accesso condiviso
+[autenticazione della firma di accesso condiviso](service-bus-sas-overview.md) garantisce l'accesso dell'utente alle risorse del bus di servizio con diritti specifici. Nel bus di servizio, l'autenticazione della firma di accesso condiviso implica la configurazione di una chiave di crittografia con i relativi diritti in una risorsa del bus di servizio. I client possono quindi ottenere accesso a questa risorsa presentando un token di firma di accesso condiviso composto dall'URI della risorsa a cui si vuole accedere e da una scadenza firmata con la chiave configurata.
 
-You can configure keys for SAS on a Service Bus namespace. The key applies to all messaging entities in that namespace. You can also configure keys on Service Bus queues and topics. SAS is also supported on Service Bus relays.
+È possibile configurare le chiavi per la firma di accesso condiviso in uno spazio dei nomi del bus di servizio. La chiave si applica a tutte le entità di messaggistica nello spazio dei nomi. È anche possibile configurare le chiavi nelle code e negli argomenti del bus di servizio. La firma di accesso condiviso è supportata anche negli inoltri del bus di servizio.
 
-To use SAS, you can configure a [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) object on a namespace, queue, or topic that consists of the following:
+Per usare la firma di accesso condiviso, è possibile configurare un oggetto [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) in uno spazio dei nomi, una coda o un argomento costituito dai parametri seguenti:
 
-* *KeyName* that identifies the rule.
-* *PrimaryKey* is a cryptographic key used to sign/validate SAS tokens.
-* *SecondaryKey* is a cryptographic key used to sign/validate SAS tokens.
-* *Rights* representing the collection of Listen, Send, or Manage rights granted.
+* *KeyName* che identifica la regola.
+* *PrimaryKey* che è una chiave di crittografia usata per firmare/convalidare i token di firma di accesso condiviso.
+* *SecondaryKey* che è una chiave di crittografia usata per firmare/convalidare i token di firma di accesso condiviso.
+* *Rights* che rappresenta la raccolta di diritti Listen, Send o Manage concessi.
 
-Authorization rules configured at the namespace level can grant access to all entities in a namespace for clients with tokens signed using the corresponding key. Up to 12 such authorization rules can be configured on a Service Bus namespace, queue, or topic. By default, a [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) with all rights is configured for every namespace when it is first provisioned.
+Le regole di autorizzazione configurate a livello di spazio dei nomi possono garantire l'accesso a tutte le entità in uno spazio dei nomi per i client con token firmati che usano la chiave corrispondente. In uno spazio dei nomi, una coda o un argomento del bus di servizio è possibile configurare fino a 12 regole di autorizzazione. Per impostazione predefinita, un oggetto [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) con tutti i diritti viene configurato per ogni spazio dei nomi quando ne viene eseguito il provisioning per la prima volta.
 
-To access an entity, the client requires a SAS token generated using a specific [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx). The SAS token is generated using the HMAC-SHA256 of a resource string that consists of the resource URI to which access is claimed, and an expiry with a cryptographic key associated with the authorization rule.
+Per accedere a un'entità, è necessario un token di firma di accesso condiviso generato usando un oggetto [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx). Il token di firma di accesso condiviso viene generato usando l'algoritmo HMAC-SHA256 di una stringa di risorsa composta dall'URI della risorsa a cui si vuole accedere e da una scadenza, seguiti da una chiave di crittografia associata alla regola di autorizzazione.
 
-SAS authentication support for Service Bus is included in the Azure .NET SDK versions 2.0 and later. SAS includes support for a [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx). All APIs that accept a connection string as a parameter include support for SAS connection strings.
+Il supporto per l'autenticazione della firma di accesso condiviso per il bus di servizio è incluso in Azure .NET SDK 2.0 e versioni successive. Nella firma di accesso condiviso è incluso il supporto per un oggetto [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx). Tutte le API che accettano una stringa di connessione come parametro includono il supporto per le stringhe di connessione della firma di accesso condiviso.
 
-## <a name="acs-authentication"></a>ACS authentication
-Service Bus authentication through ACS is managed through a companion "-sb" ACS namespace. If you want a companion ACS namespace to be created for a Service Bus namespace, you cannot create your Service Bus namespace using the Azure classic portal; you must create the namespace using the [New-AzureSBNamespace](https://msdn.microsoft.com/library/azure/dn495165.aspx) PowerShell cmdlet. For example:
+## <a name="acs-authentication"></a>Autenticazione tramite il servizio di controllo di accesso (ACS)
+L'autenticazione del bus di servizio tramite ACS viene gestita con uno spazio dei nomi ACS "-sb" specifico. Se si vuole che venga creato uno spazio dei nomi ACS specifico per uno spazio dei nomi del bus di servizio, non è possibile creare lo spazio dei nomi del bus di servizio usando il portale di Azure classico, ma è necessario usare il cmdlet di PowerShell [New-AzureSBNamespace](https://msdn.microsoft.com/library/azure/dn495165.aspx) . Ad esempio:
 
 ```
 New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $true
 ```
 
-To avoid creating an ACS namespace, issue the following command:
+Per evitare di creare uno spazio dei nomi ACS, eseguire il comando seguente:
 
 ```
 New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $false
 ```
 
-For example, if you create a Service Bus namespace called **contoso.servicebus.windows.net**, a companion ACS namespace called **contoso-sb.accesscontrol.windows.net** is provisioned automatically. For all namespaces that were created before August 2014, an accompanying ACS namespace was also created.
+Se ad esempio si crea uno spazio dei nomi del bus di servizio denominato **contoso.servicebus.windows.net**, viene generato automaticamente uno spazio dei nomi ACS denominato **contoso-sb.accesscontrol.windows.net** corrispondente. Per tutti gli spazi dei nomi creati prima di agosto 2014, è stato creato il relativo spazio dei nomi ACS.
 
-A default service identity "owner," with all rights, is provisioned by default in this companion ACS namespace. You can obtain fine-grained control to any Service Bus entity through ACS by configuring the appropriate trust relationships. You can configure additional service identities for managing access to Service Bus entities.
+Per impostazione predefinita, in questo spazio dei nomi ACS viene eseguito il provisioning di un "proprietario" dell'identità del servizio predefinito con tutti i relativi diritti. Per ottenere un controllo con granularità fine su qualsiasi entità del bus di servizio tramite ACS, configurare le relazioni di trust appropriate. È anche possibile configurare identità del servizio aggiuntive per la gestione dell'accesso alle entità del bus di servizio.
 
-To access an entity, the client requests an SWT token from ACS with the appropriate claims by presenting its credentials. The SWT token must then be sent as a part of the request to Service Bus to enable the authorization of the client for access to the entity.
+Per accedere a un'entità, il client richiede un token in formato Token Web semplice (SWT) da ACS con le attestazioni appropriate, presentando le relative credenziali. Il token SWT deve quindi essere inviato come parte della richiesta al bus di servizio per abilitare l'autorizzazione del client per l'accesso all'entità.
 
-ACS authentication support for Service Bus is included in the Azure .NET SDK versions 2.0 and later. This authentication includes support for a [SharedSecretTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.sharedsecrettokenprovider.aspx). All APIs that accept a connection string as a parameter include support for ACS connection strings.
+Il supporto per l'autenticazione tramite ACS per il bus di servizio è incluso in Azure .NET SDK 2.0 e versioni successive. Questa autenticazione include il supporto per un oggetto [SharedSecretTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.sharedsecrettokenprovider.aspx). Tutte le API che accettano una stringa di connessione come parametro includono il supporto per le stringhe di connessione ACS.
 
-## <a name="next-steps"></a>Next steps
-Continue reading [Shared Access Signature authentication with Service Bus](service-bus-shared-access-signature-authentication.md) for more details about SAS.
+## <a name="next-steps"></a>Passaggi successivi
+Per altre informazioni sulla firma di accesso condiviso, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](service-bus-shared-access-signature-authentication.md) .
 
-For a high-level overview of SAS in Service Bus, see [Shared Access Signatures](service-bus-sas-overview.md).
+Per una panoramica generale della firma di accesso condiviso nel bus di servizio, vedere [Firme di accesso condiviso](service-bus-sas-overview.md).
 
-You can find more information about ACS tokens in [How to: Request a Token from ACS via the OAuth WRAP Protocol](https://msdn.microsoft.com/library/hh674475.aspx).
+Per altre informazioni sui token ACS, vedere [Procedura: Richiedere un token da ACS tramite il protocollo OAuth WRAP](https://msdn.microsoft.com/library/hh674475.aspx).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

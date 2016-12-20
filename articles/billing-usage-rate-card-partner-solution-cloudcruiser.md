@@ -1,13 +1,13 @@
 ---
-title: Cloud Cruiser e integrazione delle API di fatturazione di Microsoft Azure | Microsoft Docs
-description: Fornisce un punto di vista unico del partner di fatturazione di Microsoft Azure, Cloud Cruiser, sulle esperienze di integrazione delle API di fatturazione di Azure nel prodotto.  Ciò è particolarmente utile per i clienti di Azure e Cloud Cruiser che sono interessati a utilizzare/provare Cloud Cruiser per Microsoft Azure Pack.
-services: ''
-documentationcenter: ''
+title: Cloud Cruiser e integrazione delle API di fatturazione di Microsoft Azure | Documentazione Microsoft
+description: "Fornisce un punto di vista unico del partner di fatturazione di Microsoft Azure, Cloud Cruiser, sulle esperienze di integrazione delle API di fatturazione di Azure nel prodotto.  Ciò è particolarmente utile per i clienti di Azure e Cloud Cruiser che sono interessati a utilizzare/provare Cloud Cruiser per Microsoft Azure Pack."
+services: 
+documentationcenter: 
 author: BryanLa
 manager: mbaldwin
-editor: ''
+editor: 
 tags: billing
-
+ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
 ms.service: billing
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 09/08/2016
 ms.author: mobandyo;sirishap;bryanla
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b1783823218a883fc9fdec05e835fb7249eed97d
+
 
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Cloud Cruiser e integrazione delle API di fatturazione di Microsoft Azure
@@ -40,7 +44,7 @@ Di seguito viene fornita una risposta di esempio dell'API in cui sono mostrati i
         "MeterStatus": "Active"
     },
 
-### <a name="cloud-cruiser’s-interface-to-azure-ratecard-api"></a>Interfaccia di Cloud Cruiser per l’API RateCard di Azure
+### <a name="cloud-cruisers-interface-to-azure-ratecard-api"></a>Interfaccia di Cloud Cruiser per l’API RateCard di Azure
 Cloud Cruiser può utilizzare le informazioni dell’API RateCard in modi diversi. In questo articolo verrà illustrato come può essere utilizzata per eseguire la simulazione dei costi e l’analisi del carico di lavoro IaaS.
 
 Per illustrare questo caso di utilizzo, si immagini un carico di lavoro di diverse istanze in esecuzione in Microsoft Azure Pack (WAP). L'obiettivo è quello di simulare questo stesso carico di lavoro in Azure e di stimare i costi dell’esecuzione di tale migrazione. Per creare questa simulazione, è necessario eseguire due attività principali:
@@ -201,7 +205,7 @@ Il vantaggio è che questo processo si deve eseguire solo una volta. Quando la c
 * Se si desidera approfondire il codice di esempio, vedere gli esempi di codice dell'API di fatturazione di Microsoft Azure in [Esempi di codice di Azure](https://azure.microsoft.com/documentation/samples/?term=billing).
 
 ### <a name="learn-more"></a>Ulteriori informazioni
-* Per ulteriori informazioni su Gestione risorse di Azure, vedere l'articolo [Panoramica su Gestione risorse di Azure](resource-group-overview.md) .
+* Per ulteriori informazioni su Gestione risorse di Azure, vedere l'articolo [Panoramica su Gestione risorse di Azure](azure-resource-manager/resource-group-overview.md) .
 
 <!--Image references-->
 
@@ -222,6 +226,6 @@ Il vantaggio è che questo processo si deve eseguire solo una volta. Quando la c
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

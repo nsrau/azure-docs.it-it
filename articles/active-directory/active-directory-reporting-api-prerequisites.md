@@ -1,12 +1,12 @@
 ---
-title: Prerequisiti di accesso all'API di creazione report di Azure AD. | Microsoft Docs
-description: Informazioni sui prerequisiti di accesso all'API di creazione report di Azure AD
+title: Prerequisiti di accesso all&quot;API di creazione report di Azure AD. | Documentazione Microsoft
+description: Informazioni sui prerequisiti di accesso all&quot;API di creazione report di Azure AD
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2016
 ms.author: dhanyahk;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b0f23cc578fb946247d492b9dee92cf7a9daafa1
+
 
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Prerequisiti di accesso all'API di creazione report di Azure AD
@@ -111,7 +115,7 @@ Questi valori sono necessari quando si configurano le chiamate all'API di creazi
    
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/12.png) 
 
-### <a name="get-the-application's-client-id"></a>Ottenere l'ID client dell'applicazione
+### <a name="get-the-applications-client-id"></a>Ottenere l'ID client dell'applicazione
 1. Nel [portale di Azure classico](https://manage.windowsazure.com)fare clic su **Active Directory**nel riquadro di spostamento sinistro.
    
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/01.png) 
@@ -129,7 +133,7 @@ Questi valori sono necessari quando si configurano le chiamate all'API di creazi
    
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/13.png)
 
-### <a name="get-the-application's-client-secret"></a>Ottenere il segreto client dell'applicazione
+### <a name="get-the-applications-client-secret"></a>Ottenere il segreto client dell'applicazione
 Per ottenere il segreto client dell'applicazione, è necessario creare una nuova chiave e salvare il relativo valore durante il salvataggio della nuova chiave perché non è più possibile recuperare il valore in un secondo momento.
 
 1. Nel [portale di Azure classico](https://manage.windowsazure.com)fare clic su **Active Directory**nel riquadro di spostamento sinistro.
@@ -161,6 +165,9 @@ Per ottenere il segreto client dell'applicazione, è necessario creare una nuova
 * Si desidera accedere ai dati dall'API di creazione report di Azure AD mediante il codice? Vedere [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Per altre informazioni sulla creazione di report di Azure Active Directory, vedere [Guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

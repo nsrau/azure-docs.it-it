@@ -3,7 +3,7 @@ title: Introduzione a PowerShell per Azure Batch | Documentazione Microsoft
 description: "Breve introduzione ai cmdlet di Azure PowerShell che è possibile usare per gestire il servizio Azure Batch"
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: f9ad62c5-27bf-4e6b-a5bf-c5f5914e6199
@@ -13,10 +13,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
 ms.date: 10/20/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9aa49ecfa151b8ab56c0560db47c3b0eb80647a2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1ea51f4053ba0d4e08628d29eca7cb7c82a26d61
 
 
 ---
@@ -30,7 +30,7 @@ Questo articolo si basa sui cmdlet di Azure PowerShell versione 3.0.0. È consig
 ## <a name="prerequisites"></a>Prerequisiti
 Eseguire queste operazioni per usare Azure PowerShell per gestire le risorse di Batch.
 
-* [Come installare e configurare Azure PowerShell](../powershell-install-configure.md)
+* [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * Eseguire il cmdlet **Login-AzureRmAccount** per connettersi alla sottoscrizione. I cmdlet di Azure Batch sono disponibili nel modulo Azure Resource Manager:
   
     `Login-AzureRmAccount`
@@ -240,6 +240,6 @@ Le proprietà del pool saranno ora aggiornate nel servizio Batch. Per distribuir
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

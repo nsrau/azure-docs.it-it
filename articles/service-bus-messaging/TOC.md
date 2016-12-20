@@ -51,18 +51,20 @@
 ### [Uso di PowerShell per il provisioning delle entità](service-bus-powershell-how-to-provision.md)
 
 # Riferimento
-## [Dettagli sui prezzi](service-bus-pricing-billing.md)
-## [Esempi](service-bus-samples.md)
-## [Eccezioni](service-bus-messaging-exceptions.md)
-## [Quote](service-bus-quotas.md)
-## [.NET](/dotnet/api/)
-## [REST](/rest/api/servicebus/)
+## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
+## [.NET](/dotnet/api/microsoft.azure.management.servicebus)
+## [Java](/java/api/com.microsoft.azure.servicebus.amqp)
+## [REST](/rest/api/servicebus)
+
+# Risorse
 ## [Sintassi di SQLFilter](service-bus-messaging-sql-filter.md)
 ## [Sintassi di SQLRuleAction](service-bus-messaging-sql-rule-action.md)
 ## [Guida al protocollo AMQP1.0](service-bus-amqp-protocol-guide.md)
 ### [Operazioni basate su richiesta-risposta AMQP 1.0](service-bus-amqp-request-response.md)
-
-# Risorse
+## [Dettagli sui prezzi](service-bus-pricing-billing.md)
+## [Esempi](service-bus-samples.md)
+## [Eccezioni](service-bus-messaging-exceptions.md)
+## [Quote](service-bus-quotas.md)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [Forum MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
@@ -73,6 +75,6 @@
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

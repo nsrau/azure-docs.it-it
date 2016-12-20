@@ -1,11 +1,11 @@
 ---
-title: Opzioni di calcolo di Azure - Servizi cloud | Microsoft Docs
+title: Opzioni di calcolo di Azure - Servizi cloud | Documentazione Microsoft
 description: 'Informazioni sulle opzioni di hosting di calcolo di Azure e sul relativo funzionamento: Servizio app, Servizi cloud e Macchine virtuali'
 services: cloud-services
-documentationcenter: ''
+documentationcenter: 
 author: Thraka
 manager: timlt
-
+ms.assetid: ed7ad348-6018-41bb-a27d-523accd90305
 ms.service: multiple
 ms.workload: multiple
 ms.tgt_pltfrm: na
@@ -13,9 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: db55f505d499fdb60f8a9d99509a68a1fd487eae
+
 
 ---
-# <a name="should-i-choose-cloud-services-or-something-else?"></a>Perché scegliere Servizi cloud
+# <a name="should-i-choose-cloud-services-or-something-else"></a>Perché scegliere Servizi cloud
 Servizi cloud di Azure è la scelta giusta? In Azure sono disponibili diversi modelli di hosting per l'esecuzione di applicazioni. Ognuno fornisce un diverso set di servizi, pertanto quello da scegliere dipende dalle attività che si tenta di eseguire.
 
 [!INCLUDE [compute-table](../../includes/compute-options-table.md)]
@@ -60,6 +64,9 @@ L'utilizzo della tecnologia PaaS da parte di Servizi cloud comporta anche altre 
 [Creare un'app di servizio cloud in PHP](../cloud-services-php-create-web-role.md)  
 [Creare un'app del servizio cloud in Python](cloud-services-python-ptvs.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

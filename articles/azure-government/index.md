@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: f6a1d50752043e74cd5b8adadfcb5ff41d0716d0
-ms.openlocfilehash: e93f2197c677a7e64a18646ddece38c48a200056
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: d166ca607b89d0da24d42d4f6f70f97e2c9e7f81
 
 ---
 #<a name="azure-government-documentation"></a>Documentazione di Azure per enti pubblici
@@ -12,7 +12,7 @@ Microsoft Azure per enti pubblici offre una piattaforma cloud basata su principi
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="../azure-government-overview?toc=%2fazure%2fazure-government%2ftoc.json">
+        <a href="../azure-government-overview.md?toc=%2fazure%2fazure-government%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -30,7 +30,7 @@ Microsoft Azure per enti pubblici offre una piattaforma cloud basata su principi
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=azure-government">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=azure-government">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +61,7 @@ Microsoft Azure per enti pubblici offre una piattaforma cloud basata su principi
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Riferimenti all'API REST di Azure per enti pubblici</p>
+                        <p>API REST di Azure per enti pubblici</p>
                     </div>
                 </div>
             </div>
@@ -95,6 +95,6 @@ Scaricare la documentazione di Azure per enti pubblici </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

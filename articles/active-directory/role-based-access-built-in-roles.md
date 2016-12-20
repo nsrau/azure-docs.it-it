@@ -2,11 +2,11 @@
 title: 'Controllo degli accessi in base al ruolo: ruoli predefiniti | Microsoft Docs'
 description: Questo argomento descrive i ruoli predefiniti per il controllo degli accessi in base al ruolo.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/25/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 386e8479a64af20469e3e03180348f674b08ef8f
+
 
 ---
-# Controllo degli accessi in base al ruolo: ruoli predefiniti
+# <a name="rbac-built-in-roles"></a>Controllo degli accessi in base al ruolo: ruoli predefiniti
 Il controllo degli accessi in base al ruolo di Azure presenta i seguenti ruoli predefiniti che possono essere assegnati a utenti, gruppi e servizi. Non è possibile modificare le definizioni dei ruoli predefiniti. Si possono tuttavia creare [ruoli personalizzati nel controllo degli accessi in base al ruolo di Azure](role-based-access-control-custom-roles.md) per soddisfare le esigenze specifiche dell'organizzazione.
 
-## Ruoli in Azure
+## <a name="roles-in-azure"></a>Ruoli in Azure
 La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic sul nome del ruolo per visualizzare un elenco dettagliato delle proprietà **actions** e **notactions** per il ruolo. La proprietà **actions** specifica le azioni consentite sulle risorse di Azure. Nelle stringhe delle azioni è possibile utilizzare caratteri jolly. La proprietà **notactions** specifica le azioni non consentite.
 
 > [!NOTE]
@@ -37,6 +41,7 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 | [Collaboratore](#contributor) |È in grado di gestire tutto ad eccezione degli accessi. |
 | [Collaboratore Data Factory](#data-factory-contributor) |Può creare e gestire data factory e le relative risorse figlio. |
 | [Utente DevTest Labs](#devtest-labs-user) |Può visualizzare tutti gli elementi e connettere, avviare, riavviare e arrestare macchine virtuali |
+| [Collaboratore zona DNS](#dns-zone-contributor) |È in grado di gestire zone e record DNS |
 | [Collaboratore account DocumentDB](#documentdb-account-contributor) |Può gestire gli account DocumentDB |
 | [Collaboratore account Intelligent Systems](#intelligent-systems-account-contributor) |È in grado di gestire account Intelligent Systems |
 | [Collaboratore di rete](#network-contributor) |È in grado di gestire tutte le risorse di rete |
@@ -59,10 +64,10 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 | [Collaboratore piani Web](#web-plan-contributor) |È in grado di gestire piani Web |
 | [Collaboratore siti Web](#website-contributor) |È in grado di gestire siti Web, ma non i piani Web a cui sono connessi |
 
-## Autorizzazioni ruoli
+## <a name="role-permissions"></a>Autorizzazioni ruoli
 Nelle tabelle seguenti vengono descritte le autorizzazioni specifiche assegnate a ogni ruolo. Può trattarsi di proprietà **Actions**, che concedono le autorizzazioni, e **NotActions**, che le limitano.
 
-### Collaboratore servizio Gestione API
+### <a name="api-management-service-contributor"></a>Collaboratore servizio Gestione API
 È in grado di gestire i servizi Gestione API
 
 | **Actions** |  |
@@ -75,7 +80,7 @@ Nelle tabelle seguenti vengono descritte le autorizzazioni specifiche assegnate 
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leggere i ruoli e le assegnazioni di ruoli |
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
-### Collaboratore componente Application Insights
+### <a name="application-insights-component-contributor"></a>Collaboratore componente di Application Insights
 È in grado di gestire i componenti di Application Insights
 
 | **Actions** |  |
@@ -89,7 +94,7 @@ Nelle tabelle seguenti vengono descritte le autorizzazioni specifiche assegnate 
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leggere gruppi di risorse |
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
-### Operatore di automazione
+### <a name="automation-operator"></a>Operatore di automazione
 È in grado di avviare, arrestare, sospendere e riprendere i processi
 
 | **Actions** |  |
@@ -113,7 +118,7 @@ Nelle tabelle seguenti vengono descritte le autorizzazioni specifiche assegnate 
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leggere gruppi di risorse |
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
-### Collaboratore BizTalk
+### <a name="biztalk-contributor"></a>Collaboratore BizTalk
 È in grado di gestire i servizi BizTalk
 
 | **Actions** |  |
@@ -126,7 +131,7 @@ Nelle tabelle seguenti vengono descritte le autorizzazioni specifiche assegnate 
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leggere gruppi di risorse |
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
-### Collaboratore database ClearDB MySQL
+### <a name="cleardb-mysql-db-contributor"></a>Collaboratore database ClearDB MySQL
 È in grado di gestire i database ClearDB MySQL
 
 | **Actions** |  |
@@ -139,7 +144,7 @@ Nelle tabelle seguenti vengono descritte le autorizzazioni specifiche assegnate 
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 | successbricks.cleardb/databases/* |È in grado di creare e gestire i database ClearDB MySQL |
 
-### Collaboratore
+### <a name="contributor"></a>Collaboratore
 Può gestire tutto ad eccezione degli accessi.
 
 | **Actions** |  |
@@ -151,7 +156,7 @@ Può gestire tutto ad eccezione degli accessi.
 | Microsoft.Authorization/*/Delete |Non può eliminare ruoli e assegnazioni di ruoli |
 | Microsoft.Authorization/*/Write |Non può creare ruoli e assegnazioni di ruoli |
 
-### Collaboratore Data Factory
+### <a name="data-factory-contributor"></a>Collaboratore Data Factory
 Creare e gestire data factory e le relative risorse figlio.
 
 | **Actions** |  |
@@ -164,7 +169,7 @@ Creare e gestire data factory e le relative risorse figlio.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leggere gruppi di risorse |
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
-### Utente DevTest Labs
+### <a name="devtest-labs-user"></a>Utente DevTest Labs
 Può visualizzare tutti gli elementi e connettere, avviare, riavviare e arrestare macchine virtuali
 
 | **Actions** |  |
@@ -197,7 +202,20 @@ Può visualizzare tutti gli elementi e connettere, avviare, riavviare e arrestar
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leggere gruppi di risorse |
 | Microsoft.Storage/storageAccounts/listKeys/action |Ottenere chiavi degli account di archiviazione |
 
-### Collaboratore account DocumentDB
+### <a name="dns-zone-contributor"></a>Collaboratore zona DNS
+È in grado di gestire zone e record DNS.
+
+| **Actions** |  |
+| --- | --- |
+| Microsoft.Authorization/\*/lettura |Leggere i ruoli e le assegnazioni di ruoli |
+| Microsoft.Insights/alertRules/\* |Creare e gestire regole di avviso |
+| Microsoft.Network/dnsZones/\* |Creazione e gestione di zone e record DNS |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Leggere l'integrità delle risorse |
+| Microsoft.Resources/deployments/\* |Creare e gestire distribuzioni di gruppi di risorse |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Leggere gruppi di risorse |
+| Microsoft.Support/\* |Creare e gestire ticket di supporto |
+
+### <a name="documentdb-account-contributor"></a>Collaboratore account DocumentDB
 Può gestire gli account DocumentDB
 
 | **Actions** |  |
@@ -210,7 +228,7 @@ Può gestire gli account DocumentDB
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leggere gruppi di risorse |
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
-### Collaboratore account Intelligent Systems
+### <a name="intelligent-systems-account-contributor"></a>Collaboratore account Intelligent Systems
 È in grado di gestire account Intelligent Systems
 
 | **Actions** |  |
@@ -223,7 +241,7 @@ Può gestire gli account DocumentDB
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leggere gruppi di risorse |
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
-### Collaboratore di rete
+### <a name="network-contributor"></a>Collaboratore di rete
 È in grado di gestire tutte le risorse di rete
 
 | **Actions** |  |
@@ -236,7 +254,7 @@ Può gestire gli account DocumentDB
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leggere gruppi di risorse |
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
-### Collaboratore account New Relic APM
+### <a name="new-relic-apm-account-contributor"></a>Collaboratore account New Relic APM
 Può gestire account e applicazioni di New Relic Application Performance Management
 
 | **Actions** |  |
@@ -249,21 +267,21 @@ Può gestire account e applicazioni di New Relic Application Performance Managem
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 | NewRelic.APM/accounts/* |Creare e gestire account di gestione delle prestazioni delle applicazioni New Relic |
 
-### Proprietario
+### <a name="owner"></a>Proprietario
 È in grado di gestire tutti gli elementi, compresi gli accessi
 
 | **Actions** |  |
 | --- | --- |
 | * |È in grado di creare e gestire ogni tipo di risorsa |
 
-### Reader
+### <a name="reader"></a>Lettore
 È in grado di visualizzare tutti gli elementi, ma non può apportare modifiche
 
 | **Actions** |  |
 | --- | --- |
 | */lettura |Legge risorse di tutti i tipi, eccetto i segreti. |
 
-### Collaboratore cache Redis
+### <a name="redis-cache-contributor"></a>Collaboratore cache Redis
 È in grado di gestire le cache Redis
 
 | **Actions** |  |
@@ -276,7 +294,7 @@ Può gestire account e applicazioni di New Relic Application Performance Managem
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leggere gruppi di risorse |
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
-### Collaboratore raccolte di processi dell'unità di pianificazione
+### <a name="scheduler-job-collections-contributor"></a>Collaboratore raccolte di processi dell'unità di pianificazione
 È in grado di gestire raccolte di processi dell'utilità di pianificazione
 
 | **Actions** |  |
@@ -289,7 +307,7 @@ Può gestire account e applicazioni di New Relic Application Performance Managem
 | Microsoft.Scheduler/jobcollections/* |Creare e gestire raccolte di processi |
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
-### Collaboratore servizi di ricerca
+### <a name="search-service-contributor"></a>Collaboratore servizi di ricerca
 È in grado di gestire servizi di ricerca
 
 | **Actions** |  |
@@ -302,7 +320,7 @@ Può gestire account e applicazioni di New Relic Application Performance Managem
 | Microsoft.Search/searchServices/* |È in grado di creare e gestire servizi di ricerca |
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
-### Gestore della sicurezza
+### <a name="security-manager"></a>Gestore della sicurezza SQL
 Può gestire i componenti di protezione, i criteri di sicurezza e le macchine virtuali
 
 | **Actions** |  |
@@ -318,7 +336,7 @@ Può gestire i componenti di protezione, i criteri di sicurezza e le macchine vi
 | Microsoft.Security/* |Creare e gestire criteri e componenti di protezione |
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
-### Collaboratore database SQL
+### <a name="sql-db-contributor"></a>Collaboratore database SQL
 Può gestire i database SQL, ma non i criteri correlati alla sicurezza
 
 | **Actions** |  |
@@ -342,7 +360,7 @@ Può gestire i database SQL, ma non i criteri correlati alla sicurezza
 | Microsoft.Sql/servers/databases/securityAlertPolicies/* |Impossibile modificare i criteri di avviso di sicurezza |
 | Microsoft.Sql/servers/databases/securityMetrics/* |Impossibile modificare i criteri di protezione |
 
-### Gestione della sicurezza SQL
+### <a name="sql-security-manager"></a>Gestione della sicurezza SQL
 Può gestire i criteri correlati alla sicurezza di SQL Server e database SQL
 
 | **Actions** |  |
@@ -369,7 +387,7 @@ Può gestire i criteri correlati alla sicurezza di SQL Server e database SQL
 | Microsoft.Sql/servers/securityAlertPolicies/* |Creare e gestire i criteri degli avvisi di sicurezza di SQL Server |
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
-### Collaboratore SQL Server
+### <a name="sql-server-contributor"></a>Collaboratore SQL Server
 Può gestire server e database SQL, ma non i criteri di protezione correlati
 
 | **Actions** |  |
@@ -395,7 +413,7 @@ Può gestire server e database SQL, ma non i criteri di protezione correlati
 | Microsoft.Sql/servers/databases/securityMetrics/* |Non è in grado di modificare le metriche di protezione dei database di server SQL |
 | Microsoft.Sql/servers/securityAlertPolicies/* |Non è in grado di modificare i criteri degli avvisi di sicurezza di SQL Server |
 
-### Collaboratore account di archiviazione classico
+### <a name="classic-storage-account-contributor"></a>Collaboratore account di archiviazione classico
 È in grado di gestire gli account di archiviazione classici
 
 | **Actions** |  |
@@ -408,7 +426,7 @@ Può gestire server e database SQL, ma non i criteri di protezione correlati
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leggere gruppi di risorse |
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
-### Collaboratore account di archiviazione
+### <a name="storage-account-contributor"></a>Collaboratore account di archiviazione
 Può gestire gli account di archiviazione, ma non accedervi.
 
 | **Actions** |  |
@@ -422,7 +440,7 @@ Può gestire gli account di archiviazione, ma non accedervi.
 | Microsoft.Storage/storageAccounts/* |Creare e gestire account di archiviazione |
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
-### Amministratore accessi utente
+### <a name="user-access-administrator"></a>Amministratore accessi utente
 Consente di gestire l’accesso degli utenti alle risorse di Azure
 
 | **Actions** |  |
@@ -431,7 +449,7 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 | Microsoft.Authorization/* |Gestire l'autorizzazione |
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
-### Collaboratore macchine virtuali classiche
+### <a name="classic-virtual-machine-contributor"></a>Collaboratore macchine virtuali classiche
 È in grado di gestire macchine virtuali classiche, ma non la rete virtuale o gli account di archiviazione a cui sono connesse
 
 | **Actions** |  |
@@ -454,7 +472,7 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leggere gruppi di risorse |
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
-### Collaboratore macchine virtuali
+### <a name="virtual-machine-contributor"></a>Collaboratore macchine virtuali
 È in grado di gestire macchine virtuali, ma non la rete virtuale o account di archiviazione a cui sono connesse
 
 | **Actions** |  |
@@ -485,7 +503,7 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 | Microsoft.Storage/storageAccounts/read |Leggere account di archiviazione |
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
-### Collaboratore reti classiche
+### <a name="classic-network-contributor"></a>Collaboratore reti virtuali classiche
 È in grado di gestire reti virtuali classiche e IP riservati
 
 | **Actions** |  |
@@ -498,7 +516,7 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leggere gruppi di risorse |
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
-### Collaboratore piani Web
+### <a name="web-plan-contributor"></a>Collaboratore piani Web
 È in grado di gestire piani Web
 
 | **Actions** |  |
@@ -511,7 +529,7 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 | Microsoft.Web/serverFarms/* |Creare e gestire server farm |
 
-### Collaboratore siti Web
+### <a name="website-contributor"></a>Collaboratore siti Web
 È in grado di gestire siti Web, ma non i piani cui sono connessi
 
 | **Actions** |  |
@@ -527,12 +545,17 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 | Microsoft.Web/listSitesAssignedToHostName/read |Leggere siti di lettura assegnati a un nome host |
 | Microsoft.Web/serverFarms/join/action |Partecipare a server farm |
 | Microsoft.Web/serverFarms/read |Leggere server farm |
-| Microsoft.Web/sites/* |Creare e gestire siti Web |
+| Microsoft.Web/sites/* |Creare e gestire siti Web. Per creare un sito sono anche necessarie le autorizzazione di scrittura associate al piano di servizio app |
 
-## Vedere anche
+## <a name="see-also"></a>Vedere anche
 * [Controllo degli accessi in base al ruolo](role-based-access-control-configure.md): introduzione al controllo degli accessi in base al ruolo nel portale di Azure.
 * [Ruoli personalizzati nel controllo degli accessi in base al ruolo di Azure](role-based-access-control-custom-roles.md): informazioni su come creare ruoli personalizzati per esigenze di accesso specifiche.
 * [Creare un report della cronologia delle modifiche relative all'accesso](role-based-access-control-access-change-history-report.md): tenere traccia delle modifiche nelle assegnazioni dei ruoli nel controllo degli accessi in base al ruolo.
 * [Risoluzione dei problemi del controllo degli accessi in base al ruolo](role-based-access-control-troubleshooting.md): suggerimenti per la risoluzione di problemi comuni.
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

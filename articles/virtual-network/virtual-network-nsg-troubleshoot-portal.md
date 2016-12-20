@@ -5,9 +5,9 @@ services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: a54feccf-0123-4e49-a743-eb8d0bdd1ebc
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3216868d867f4c840a610c45855d22575ded609c
+
 
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Risolvere i problemi relativi ai gruppi di sicurezza di rete tramite il portale di Azure
@@ -105,7 +109,7 @@ In caso di problemi con il flusso del traffico della VM in un'interfaccia di ret
    > 
 4. È possibile modificare direttamente le regole per i gruppi di sicurezza di rete associati a un'interfaccia di rete e a una subnet. Per informazioni su questa procedura, vedere il passaggio 8 della sezione **Visualizzare le regole di sicurezza effettive per una macchina virtuale** di questo articolo.
 
-## <a name="view-effective-security-rules-for-a-network-security-group-(nsg)"></a>Visualizzare le regole di sicurezza effettive per un gruppo di sicurezza di rete
+## <a name="view-effective-security-rules-for-a-network-security-group-nsg"></a>Visualizzare le regole di sicurezza effettive per un gruppo di sicurezza di rete
 Quando si modificano le regole del gruppo di sicurezza di rete, può essere opportuno esaminare l'impatto delle regole aggiunte in una determinata VM. È possibile visualizzare l'elenco completo delle regole di sicurezza effettive per tutte le interfacce di rete a cui è applicato un determinato gruppo di sicurezza di rete, restando nel contesto del pannello dello specifico gruppo di sicurezza di rete. Per risolvere i problemi delle regole effettive in un gruppo di sicurezza di rete, seguire questa procedura:
 
 1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
@@ -123,7 +127,7 @@ Quando si modificano le regole del gruppo di sicurezza di rete, può essere oppo
      > Se un gruppo di sicurezza di rete viene applicato solo a una subnet vuota, le VM non verranno elencate. Se un gruppo di sicurezza di rete viene applicato a un'interfaccia di rete che non è associata a una VM, non verrà elencata neanche quella interfaccia di rete. 
      > 
      > 
-   * **Interfaccia di rete:** una VM può avere più interfacce di rete. È possibile selezionare un'interfaccia di rete collegata alla VM selezionata.
+   * **Interfaccia di rete:** una macchina virtuale può avere più interfacce di rete. È possibile selezionare un'interfaccia di rete collegata alla VM selezionata.
    * **Gruppi di sicurezza di rete associati:** un'interfaccia di rete può avere sempre fino a due gruppi di sicurezza di rete effettivi, uno applicato all'interfaccia di rete e l'altro alla subnet. Anche se per l'ambito viene selezionato VM1-nsg, l'output visualizzerà entrambi i gruppi di sicurezza di rete se l'interfaccia di rete ha un gruppo di sicurezza di rete effettivo per la subnet.
 4. È possibile modificare direttamente le regole per i gruppi di sicurezza di rete associati a un'interfaccia di rete o a una subnet. Per informazioni su questa procedura, vedere il passaggio 8 della sezione **Visualizzare le regole di sicurezza effettive per una macchina virtuale** di questo articolo.
 
@@ -145,6 +149,9 @@ Durante la risoluzione dei problemi di connettività, tenere presente quanto seg
 * Le regole di sicurezza effettive vengono visualizzate solo se c'è un gruppo di sicurezza di rete associato all'interfaccia di rete o alla subnet della VM. 
 * Se non esistono gruppi di sicurezza di rete associati all'interfaccia di rete o alla subnet e si dispone di un indirizzo IP pubblico assegnato alla VM, tutte le porte saranno aperte per l'accesso in ingresso e in uscita. Se la VM ha un indirizzo IP pubblico, è consigliabile applicare gruppi di sicurezza di rete all'interfaccia di rete o alla subnet.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,19 +1,23 @@
 ---
-title: Usare l'emulatore di archiviazione di Azure per sviluppo e test | Microsoft Docs
-description: L'emulatore di archiviazione di Azure fornisce un ambiente di sviluppo locale gratuito per attività di sviluppo e test per Archiviazione di Azure. Informazioni sull'emulatore di archiviazione, tra cui modalità di autenticazione delle richieste, come connettersi all'emulatore dall'applicazione e come usare lo strumento da riga di comando.
+title: Usare l&quot;emulatore di archiviazione di Azure per sviluppo e test | Microsoft Docs
+description: "L&quot;emulatore di archiviazione di Azure fornisce un ambiente di sviluppo locale gratuito per attività di sviluppo e test per Archiviazione di Azure. Informazioni sull&quot;emulatore di archiviazione, tra cui modalità di autenticazione delle richieste, come connettersi all&quot;emulatore dall&quot;applicazione e come usare lo strumento da riga di comando."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: tamram
 manager: carmonm
 editor: tysonn
-
+ms.assetid: f480b059-df8a-4a63-b05a-7f2f5d1f5c2a
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 11/28/2016
 ms.author: tamram
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 94de2ce77328cc9902b054200d52d78fb5ccf5ec
+
 
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usare l'emulatore di archiviazione di Azure per sviluppo e test
@@ -49,14 +53,16 @@ Alcune librerie client dell'archiviazione di Azure, ad esempio la libreria Xamar
 
 1. Installare Azure PowerShell, se non è stato già installato. È consigliabile usare l'ultima versione dei cmdlet di Azure PowerShell. Per istruzioni per l'installazione, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md#Install) .
 2. Aprire Azure PowerShell ed eseguire i comandi riportati di seguito. Ricordarsi di sostituire *ACCOUNT_NAME* e *ACCOUNT_KEY==* con le credenziali personali. Sostituire *CONTAINER_NAME* con un nome a scelta.
-   
-        $context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
-   
-        New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
-   
-        $now = Get-Date 
-   
-        New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
+
+```powershell
+$context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
+
+New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
+
+$now = Get-Date 
+
+New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
+```
 
 L'URI della firma di accesso condiviso risultante per il nuovo contenitore dovrebbe essere simile al seguente:
 
@@ -122,7 +128,7 @@ Gli endpoint di servizio per l'emulatore di archiviazione sono:
     Queue Service: http://127.0.0.1:10001/<account-name>/<resource-path>
     Table Service: http://127.0.0.1:10002/<account-name>/<resource-path>
 
-### <a name="addressing-the-account-secondary-with-ragrs"></a>Indirizzamento dell'account secondario con RA-GRS
+### <a name="addressing-the-account-secondary-with-ra-grs"></a>Indirizzamento dell'account secondario con RA-GRS
 A partire dalla versione 3.1, l'account dell'emulatore di archiviazione supporta RA-GRS (replica con ridondanza geografica in sola lettura). Per le risorse di archiviazione nel cloud e nell'emulatore locale, è possibile accedere al percorso secondario aggiungendo "-secondary" al nome dell'account. Ad esempio, l'indirizzo seguente può essere usato per accedere a un BLOB mediante il percorso secondario di sola lettura nell'emulatore di archiviazione:
 
     http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt 
@@ -132,7 +138,7 @@ A partire dalla versione 3.1, l'account dell'emulatore di archiviazione supporta
 > 
 > 
 
-## <a name="storage-emulator-commandline-tool-reference"></a>Riferimenti allo strumento da riga di comando emulatore di archiviazione
+## <a name="storage-emulator-command-line-tool-reference"></a>Riferimenti allo strumento da riga di comando emulatore di archiviazione
 A partire dalla versione 3.0, quando si avvia l'emulatore di archiviazione viene visualizzata una finestra della riga di comando popup. Usare la finestra della riga di comando per avviare e arrestare l'emulatore, nonché per eseguire query sullo stato e altre operazioni.
 
 > [!NOTE]
@@ -219,6 +225,9 @@ Non esistono differenze specifiche per l'archiviazione di accodamento nell'emula
 * L'interfaccia utente grafica dell'emulatore di archiviazione è deprecata a favore di un'interfaccia della riga di comando configurabile tramite script. Per informazioni dettagliate sull'interfaccia della riga di comando, vedere Riferimenti allo strumento da riga di comando emulatore di archiviazione. L'interfaccia grafica continuerà a essere presente nella versione 3.0, ma è possibile accedervi solo quando è installato l'emulatore di calcolo facendo clic con il pulsante destro del mouse sull'icona della barra delle applicazioni e selezionando Mostra interfaccia utente emulatore di archiviazione.
 * La versione 2013-08-15 dei servizi di archiviazione di Azure è ora completamente supportata. (In precedenza questa versione era supportata solo dalla versione 2.2.1 dell'emulatore di archiviazione di anteprima.)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

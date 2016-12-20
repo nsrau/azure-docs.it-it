@@ -1,13 +1,13 @@
 ---
-title: Modificare i prefissi degli indirizzi IP del gateway di rete locale e l'indirizzo IP del gateway | Microsoft Docs
+title: Modificare i prefissi degli indirizzi IP del gateway di rete locale e l&quot;indirizzo IP del gateway | Documentazione Microsoft
 description: Questo articolo illustra in modo dettagliato la modifica dei prefissi degli indirizzi IP per il gateway di rete locale
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 8c7db48f-d09a-44e7-836f-1fb6930389df
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,21 +15,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e88511058b1de79ca222d87ada6c9abdf4daf11c
+
 
 ---
-# Modificare le impostazioni del gateway di rete locale usando PowerShell
+# <a name="modify-local-network-gateway-settings-using-powershell"></a>Modificare le impostazioni del gateway di rete locale usando PowerShell
 In alcuni casi le impostazioni per il valore AddressPrefix o GatewayIPAddress del gateway di rete locale subiscono modifiche. Le istruzioni seguenti sono utili per la modifica delle impostazioni del gateway di rete locale. È anche possibile modificare queste impostazioni nel portale di Azure.
 
-## Prima di iniziare
-È necessario installare la versione più recente dei cmdlet di PowerShell per Gestione risorse di Azure. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+## <a name="before-you-begin"></a>Prima di iniziare
+È necessario installare la versione più recente dei cmdlet di PowerShell per Gestione risorse di Azure. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) .
 
-## Per modificare i prefissi degli indirizzi IP
+## <a name="to-modify-ip-address-prefixes"></a>Per modificare i prefissi degli indirizzi IP
 [!INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
-## Per modificare l'indirizzo IP del gateway
+## <a name="to-modify-the-gateway-ip-address"></a>Per modificare l'indirizzo IP del gateway
 [!INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 È possibile verificare la connessione al gateway. Vedere [Verificare una connessione al gateway](vpn-gateway-verify-connection-resource-manager.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

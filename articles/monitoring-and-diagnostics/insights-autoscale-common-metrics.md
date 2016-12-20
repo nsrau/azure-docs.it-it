@@ -1,12 +1,12 @@
 ---
-title: 'Azure Insights: Azure Insights autoscaling common metrics. | Microsoft Docs'
-description: Learn which metrics are commonly used for autoscaling your Cloud Services, Virtual Machines and Web Apps.
+title: "Metriche comuni per la scalabilità automatica di Monitoraggio di Azure. | Microsoft Docs"
+description: "Informazioni su quali metriche vengono comunemente usate per la scalabilità automatica di servizi cloud, macchine virtuali e app Web."
 author: kamathashwin
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 189b2a13-01c8-4aca-afd5-90711903ca59
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,147 +14,151 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2016
 ms.author: ashwink
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 8d5f8dd454741f5946d6a2c265ce67808abdac9e
+
 
 ---
-# <a name="azure-insights-autoscaling-common-metrics"></a>Azure Insights autoscaling common metrics
-Azure Insights autoscaling allows you to scale the number of running instances up or down, based on telemetry data (metrics). This document describes common metrics that you might want to use. In the Azure Portal for Cloud Services and Server Farms, you can choose the metric of the resource to scale by. However, you can also choose any metric from a different resource to scale by.
+# <a name="azure-monitor-autoscaling-common-metrics"></a>Metriche comuni per la scalabilità automatica di Monitoraggio di Azure
+La scalabilità automatica di Monitoraggio di Azure consente di aumentare o ridurre il numero delle istanze in esecuzione in base ai dati di telemetria (metriche). Questo documento descrive le metriche comuni che è possibile usare. Nel portale di Azure per servizi cloud e le server farm è possibile scegliere la metrica della risorsa in base alla quale eseguire il ridimensionamento. È tuttavia possibile scegliere metriche da risorse diverse.
 
-Here are the details on how to find and list the metrics you want to scale by. The following applies for scaling Virtual Machine Scale Sets as well.
+Di seguito sono riportate informazioni dettagliate su come trovare ed elencare le metriche in base alle quali eseguire il ridimensionamento. Le informazioni sono applicabili anche al ridimensionamento di set di scalabilità di macchine virtuali.
 
-## <a name="compute-metrics"></a>Compute metrics
-By default, Azure VM v2 comes with diagnostics extension configured and they have the following metrics turned on.
+## <a name="compute-metrics"></a>Metriche di calcolo
+Per impostazione predefinita, la versione 2 delle macchine virtuali di Azure viene fornita con l'estensione della diagnostica configurata e le metriche seguenti abilitate.
 
-* [Guest metrics for Windows VM v2](#compute-metrics-for-windows-vm-v2-as-a-guest-os)
-* [Guest metrics for Linux VM v2](#compute-metrics-for-linux-vm-v2-as-a-guest-os)
+* [Metriche guest per macchine virtuali Windows versione 2](#compute-metrics-for-windows-vm-v2-as-a-guest-os)
+* [Metriche guest per macchine virtuali Linux versione 2](#compute-metrics-for-linux-vm-v2-as-a-guest-os)
 
-You can use the `Get MetricDefinitions` API/PoSH/CLI to view the metrics available for your VMSS resource. 
+Per visualizzare le metriche disponibili per la risorsa del set di scalabilità di macchine virtuali è possibile usare l'interfaccia della riga di comando, PowerShell o l'API `Get MetricDefinitions`. 
 
-If you're using VM scale sets and you don't see a particular metric listed, then it is likely *disabled* in your diagnostics extension.
+Se si usano set di scalabilità di macchine virtuali e una metrica specifica non è riportata nell'elenco, è probabile che sia *disabilitata* nell'estensione della diagnostica.
 
-If a particular metric is not being sampled or transferred at the frequency you want, you can update the diagnostics configuration.
+Se una metrica specifica non viene campionata o trasferita con la frequenza prevista, è possibile aggiornare la configurazione della diagnostica.
 
-If either case above is true, then review [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md) about PowerShell to configure and update your Azure VM Diagnostics extension to enable the metric. That article also includes a sample diagnostics configuration file.
+Se si verificano entrambe le condizioni precedenti, vedere [Usare PowerShell per abilitare la Diagnostica di Azure in una macchina virtuale che esegue Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per informazioni su come usare PowerShell per configurare e aggiornare l'estensione della diagnostica delle macchine virtuali di Azure per abilitare la metrica. Questo articolo include anche un file di configurazione della diagnostica di esempio.
 
-### <a name="compute-metrics-for-windows-vm-v2-as-a-guest-os"></a>Compute metrics for Windows VM v2 as a guest OS
-When you create a new VM (v2) in Azure, diagnostics is enabled by using the Diagnostics extension.
+### <a name="compute-metrics-for-windows-vm-v2-as-a-guest-os"></a>Metriche di calcolo per la versione 2 delle macchine virtuali Windows come sistema operativo guest
+Quando si crea una nuova macchina virtuale (versione 2) in Azure, la diagnostica viene abilitata con l'uso dell'estensione della diagnostica.
 
-You can generate a list of the metrics by using the following command in PowerShell.
-
-```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
-```
-
-You can create an alert for the following metrics.
-
-| Metric Name | Unit |
-| --- | --- |
-| \Processor(_Total)\% Processor Time |Percent |
-| \Processor(_Total)\% Privileged Time |Percent |
-| \Processor(_Total)\% User Time |Percent |
-| \Processor Information(_Total)\Processor Frequency |Count |
-| \System\Processes |Count |
-| \Process(_Total)\Thread Count |Count |
-| \Process(_Total)\Handle Count |Count |
-| \Memory\% Committed Bytes In Use |Percent |
-| \Memory\Available Bytes |Bytes |
-| \Memory\Committed Bytes |Bytes |
-| \Memory\Commit Limit |Bytes |
-| \Memory\Pool Paged Bytes |Bytes |
-| \Memory\Pool Nonpaged Bytes |Bytes |
-| \PhysicalDisk(_Total)\% Disk Time |Percent |
-| \PhysicalDisk(_Total)\% Disk Read Time |Percent |
-| \PhysicalDisk(_Total)\% Disk Write Time |Percent |
-| \PhysicalDisk(_Total)\Disk Transfers/sec |CountPerSecond |
-| \PhysicalDisk(_Total)\Disk Reads/sec |CountPerSecond |
-| \PhysicalDisk(_Total)\Disk Writes/sec |CountPerSecond |
-| \PhysicalDisk(_Total)\Disk Bytes/sec |BytesPerSecond |
-| \PhysicalDisk(_Total)\Disk Read Bytes/sec |BytesPerSecond |
-| \PhysicalDisk(_Total)\Disk Write Bytes/sec |BytesPerSecond |
-| \PhysicalDisk(_Total)\Avg. Disk Queue Length |Count |
-| \PhysicalDisk(_Total)\Avg. Disk Read Queue Length |Count |
-| \PhysicalDisk(_Total)\Avg. Disk Write Queue Length |Count |
-| \LogicalDisk(_Total)\% Free Space |Percent |
-| \LogicalDisk(_Total)\Free Megabytes |Count |
-
-### <a name="compute-metrics-for-linux-vm-v2-as-a-guest-os"></a>Compute metrics for Linux VM v2 as a guest OS
-When you create a new VM (v2) in Azure, diagnostics is enabled by default by using Diagnostics extension.
-
-You can generate a list of the metrics by using the following command in PowerShell.
+Per generare un elenco delle metriche è possibile usare il comando seguente in PowerShell.
 
 ```
 Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
- You can create an alert for the following metrics.
+È possibile creare un avviso per le metriche seguenti.
 
-| Metric Name | Unit |
+| Nome della metrica | Unità |
 | --- | --- |
-| \Memory\AvailableMemory |Bytes |
-| \Memory\PercentAvailableMemory |Percent |
-| \Memory\UsedMemory |Bytes |
-| \Memory\PercentUsedMemory |Percent |
-| \Memory\PercentUsedByCache |Percent |
-| \Memory\PagesPerSec |CountPerSecond |
-| \Memory\PagesReadPerSec |CountPerSecond |
-| \Memory\PagesWrittenPerSec |CountPerSecond |
-| \Memory\AvailableSwap |Bytes |
-| \Memory\PercentAvailableSwap |Percent |
-| \Memory\UsedSwap |Bytes |
-| \Memory\PercentUsedSwap |Percent |
-| \Processor\PercentIdleTime |Percent |
-| \Processor\PercentUserTime |Percent |
-| \Processor\PercentNiceTime |Percent |
-| \Processor\PercentPrivilegedTime |Percent |
-| \Processor\PercentInterruptTime |Percent |
-| \Processor\PercentDPCTime |Percent |
-| \Processor\PercentProcessorTime |Percent |
-| \Processor\PercentIOWaitTime |Percent |
-| \PhysicalDisk\BytesPerSecond |BytesPerSecond |
-| \PhysicalDisk\ReadBytesPerSecond |BytesPerSecond |
-| \PhysicalDisk\WriteBytesPerSecond |BytesPerSecond |
-| \PhysicalDisk\TransfersPerSecond |CountPerSecond |
-| \PhysicalDisk\ReadsPerSecond |CountPerSecond |
-| \PhysicalDisk\WritesPerSecond |CountPerSecond |
-| \PhysicalDisk\AverageReadTime |Seconds |
-| \PhysicalDisk\AverageWriteTime |Seconds |
-| \PhysicalDisk\AverageTransferTime |Seconds |
-| \PhysicalDisk\AverageDiskQueueLength |Count |
-| \NetworkInterface\BytesTransmitted |Bytes |
-| \NetworkInterface\BytesReceived |Bytes |
-| \NetworkInterface\PacketsTransmitted |Count |
-| \NetworkInterface\PacketsReceived |Count |
-| \NetworkInterface\BytesTotal |Bytes |
-| \NetworkInterface\TotalRxErrors |Count |
-| \NetworkInterface\TotalTxErrors |Count |
-| \NetworkInterface\TotalCollisions |Count |
+| \Processor(_Total)\% Processor Time |Percentuale |
+| \Processor(_Total)\% Privileged Time |Percentuale |
+| \Processor(_Total)\% User Time |Percentuale |
+| \Processor Information(_Total)\Processor Frequency |Numero |
+| \System\Processes |Numero |
+| \Process(_Total)\Thread Count |Numero |
+| \Process(_Total)\Handle Count |Numero |
+| \Memory\% Committed Bytes In Use |Percentuale |
+| \Memory\Available Bytes |Byte |
+| \Memory\Committed Bytes |Byte |
+| \Memory\Commit Limit |Byte |
+| \Memory\Pool Paged Bytes |Byte |
+| \Memory\Pool Nonpaged Bytes |Byte |
+| \PhysicalDisk(_Total)\% Disk Time |Percentuale |
+| \PhysicalDisk(_Total)\% Disk Read Time |Percentuale |
+| \PhysicalDisk(_Total)\% Disk Write Time |Percentuale |
+| \DiscoFisico(_Totale)\Trasferimenti disco/secondo |Conteggio al secondo |
+| \PhysicalDisk(_Total)\Disk Reads/sec |Conteggio al secondo |
+| \PhysicalDisk(_Total)\Disk Writes/sec |Conteggio al secondo |
+| \PhysicalDisk(_Total)\Disk Bytes/sec |Byte al secondo |
+| \PhysicalDisk(_Total)\Disk Read Bytes/sec |Byte al secondo |
+| \PhysicalDisk(_Total)\Disk Write Bytes/sec |Byte al secondo |
+| \PhysicalDisk(_Total)\Avg. Lunghezza coda disco |Numero |
+| \PhysicalDisk(_Total)\Avg. Disk Read Queue Length |Numero |
+| \PhysicalDisk(_Total)\Avg. Disk Write Queue Length |Numero |
+| \LogicalDisk(_Total)\% Free Space |Percentuale |
+| \LogicalDisk(_Total)\Free Megabytes |Numero |
 
-## <a name="commonly-used-web-(server-farm)-metrics"></a>Commonly used Web (Server Farm) metrics
-You can also perform autoscale based on common web server metrics such as the Http queue length. It's metric name is **HttpQueueLength**.  The following section lists available server farm (Web Apps) metrics.
+### <a name="compute-metrics-for-linux-vm-v2-as-a-guest-os"></a>Metriche di calcolo per la versione 2 delle macchine virtuali Linux come sistema operativo guest
+Quando si crea una nuova macchina virtuale (versione 2) in Azure, la diagnostica viene abilitata per impostazione predefinita con l'uso dell'estensione della diagnostica.
 
-### <a name="web-apps-metrics"></a>Web Apps metrics
-You can generate a list of the Web Apps metrics by using the following command in PowerShell.
+Per generare un elenco delle metriche è possibile usare il comando seguente in PowerShell.
 
 ```
 Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
-You can alert on or scale by these metrics.
+ È possibile creare un avviso per le metriche seguenti.
 
-| Metric Name | Unit |
+| Nome della metrica | Unità |
 | --- | --- |
-| CpuPercentage |Percent |
-| MemoryPercentage |Percent |
-| DiskQueueLength |Count |
-| HttpQueueLength |Count |
-| BytesReceived |Bytes |
-| BytesSent |Bytes |
+| \Memory\AvailableMemory |Byte |
+| \Memory\PercentAvailableMemory |Percentuale |
+| \Memory\UsedMemory |Byte |
+| \Memory\PercentUsedMemory |Percentuale |
+| \Memory\PercentUsedByCache |Percentuale |
+| \Memory\PagesPerSec |Conteggio al secondo |
+| \Memory\PagesReadPerSec |Conteggio al secondo |
+| \Memory\PagesWrittenPerSec |Conteggio al secondo |
+| \Memory\AvailableSwap |Byte |
+| \Memory\PercentAvailableSwap |Percentuale |
+| \Memory\UsedSwap |Byte |
+| \Memory\PercentUsedSwap |Percentuale |
+| \Processor\PercentIdleTime |Percentuale |
+| \Processor\PercentUserTime |Percentuale |
+| \Processor\PercentNiceTime |Percentuale |
+| \Processor\PercentPrivilegedTime |Percentuale |
+| \Processor\PercentInterruptTime |Percentuale |
+| \Processor\PercentDPCTime |Percentuale |
+| \Processor\PercentProcessorTime |Percentuale |
+| \Processor\PercentIOWaitTime |Percentuale |
+| \PhysicalDisk\BytesPerSecond |Byte al secondo |
+| \PhysicalDisk\ReadBytesPerSecond |Byte al secondo |
+| \PhysicalDisk\WriteBytesPerSecond |Byte al secondo |
+| \PhysicalDisk\TransfersPerSecond |Conteggio al secondo |
+| \PhysicalDisk\ReadsPerSecond |Conteggio al secondo |
+| \PhysicalDisk\WritesPerSecond |Conteggio al secondo |
+| \PhysicalDisk\AverageReadTime |Secondi |
+| \PhysicalDisk\AverageWriteTime |Secondi |
+| \PhysicalDisk\AverageTransferTime |Secondi |
+| \PhysicalDisk\AverageDiskQueueLength |Numero |
+| \NetworkInterface\BytesTransmitted |Byte |
+| \NetworkInterface\BytesReceived |Byte |
+| \NetworkInterface\PacketsTransmitted |Numero |
+| \NetworkInterface\PacketsReceived |Numero |
+| \NetworkInterface\BytesTotal |Byte |
+| \NetworkInterface\TotalRxErrors |Numero |
+| \NetworkInterface\TotalTxErrors |Numero |
+| \NetworkInterface\TotalCollisions |Numero |
 
-## <a name="commonly-used-storage-metrics"></a>Commonly used Storage metrics
-You can scale by Storage queue length, which is the number of messages in the storage queue. Storage queue length is a special metric and the threshold applied will be the number of messages per instance. This means if there are two instances and if the threshold is set to 100, it will scale when the total number of messages in the queue are 200. For example, 100 messages per instance.
+## <a name="commonly-used-web-server-farm-metrics"></a>Metriche Web (server farm) usate comunemente
+È possibile eseguire la scalabilità automatica anche in base a metriche di server Web comuni, come la lunghezza della coda HTTP. Il nome della metrica è **HttpQueueLength**.  La sezione seguente riporta un elenco delle metriche di server farm (app Web) disponibili.
 
-You can configure this is in the Azure Portal in the **Settings** blade. For VM scale sets, you can update the Autoscale setting in the ARM template to use *metricName* as *ApproximateMessageCount* and pass the ID of the storage queue as *metricResourceUri*.
+### <a name="web-apps-metrics"></a>Metriche di app Web
+Per generare un elenco delle metriche di app Web è possibile usare il comando seguente in PowerShell.
 
-For example, with a Classic Storage Account the autoscale setting metricTrigger would include:
+```
+Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+```
+
+È possibile generare avvisi o ridimensionare in base a queste metriche.
+
+| Nome della metrica | Unità |
+| --- | --- |
+| CpuPercentage |Percentuale |
+| MemoryPercentage |Percentuale |
+| DiskQueueLength |Numero |
+| HttpQueueLength |Numero |
+| BytesReceived |Byte |
+| BytesSent |Byte |
+
+## <a name="commonly-used-storage-metrics"></a>Metriche di archiviazione usate comunemente
+È possibile eseguire il ridimensionamento in base alla lunghezza della coda di archiviazione, ovvero il numero di messaggi nella coda di archiviazione. La lunghezza della coda di archiviazione è una metrica speciale e la soglia applicata corrisponde al numero di messaggi per ogni istanza. Ciò significa che se sono presenti due istanze e la soglia è impostata su 100, il ridimensionamento viene eseguito quando il numero totale di messaggi nella coda è pari a 200. Ad esempio, 100 messaggi per ogni istanza.
+
+È possibile configurare questa opzione nel pannello **Impostazioni** del portale di Azure. Per i set di scalabilità di macchine virtuali, è possibile aggiornare l'impostazione di scalabilità automatica nel modello di Azure Resource Manager in modo da usare *metricName* come *ApproximateMessageCount* e passare l'ID della coda di archiviazione come *metricResourceUri*.
+
+Per un account di archiviazione classico, ad esempio, la classe metricTrigger per la scalabilità automatica includerà:
 
 ```
 "metricName": "ApproximateMessageCount",
@@ -162,7 +166,7 @@ For example, with a Classic Storage Account the autoscale setting metricTrigger 
  "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ClassicStorage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
  ```
 
-For a (non-classic) storage account, the metricTrigger would include:
+Per un account di archiviazione non classico, metricTrigger includerà:
 
 ```
 "metricName": "ApproximateMessageCount",
@@ -170,10 +174,10 @@ For a (non-classic) storage account, the metricTrigger would include:
 "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
 ```
 
-## <a name="commonly-used-service-bus-metrics"></a>Commonly used Service Bus metrics
-You can scale by Service Bus queue length, which is the number of messages in the Service Bus queue. Service Bus queue length is a special metric and the threshold specified applied will be the number of messages per instance. This means if there are two instances and if the threshold is set to 100, it will scale when the total number of messages in the queue are 200. For example, 100 messages per instance.
+## <a name="commonly-used-service-bus-metrics"></a>Metriche del bus di servizio usate comunemente 
+È possibile eseguire il ridimensionamento in base alla lunghezza della coda del bus di servizio, ovvero il numero di messaggi nella coda del bus di servizio. La lunghezza della coda del bus di servizio è una metrica speciale e la soglia specificata che viene applicata corrisponde al numero di messaggi per ogni istanza. Ciò significa che se sono presenti due istanze e la soglia è impostata su 100, il ridimensionamento viene eseguito quando il numero totale di messaggi nella coda è pari a 200. Ad esempio, 100 messaggi per ogni istanza.
 
-For VM scale sets, you can update the Autoscale setting in the ARM template to use *metricName* as *ApproximateMessageCount* and pass the ID of the storage queue as *metricResourceUri*.
+Per i set di scalabilità di macchine virtuali, è possibile aggiornare l'impostazione di scalabilità automatica nel modello di Azure Resource Manager in modo da usare *metricName* come *ApproximateMessageCount* e passare l'ID della coda di archiviazione come *metricResourceUri*.
 
 ```
 "metricName": "MessageCount",
@@ -182,10 +186,13 @@ For VM scale sets, you can update the Autoscale setting in the ARM template to u
 ```
 
 > [!NOTE]
-> For Service Bus, the resource group concept does not exist but Azure Resource Manager creates a default resource group per region. The resource group is usually in the 'Default-ServiceBus-[region]' format. For example, 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast' etc.
+> Per il bus di servizio il concetto di gruppo di risorse non esiste, ma Azure Resource Manager consente di creare un gruppo di risorse predefinito per ogni area. Il gruppo di risorse è in genere nel formato "Default-ServiceBus-[area]". Ad esempio, "Default-ServiceBus-EastUS", "Default-ServiceBus-WestUS", "Default-ServiceBus-AustraliaEast" e così via.
 > 
 > 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

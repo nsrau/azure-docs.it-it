@@ -1,11 +1,11 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con SAP HANA Cloud Platform | Microsoft Docs'
-description: Informazioni su come usare SAP HANA Cloud Platform con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora.
+description: Informazioni su come usare SAP HANA Cloud Platform con Azure Active Directory per abilitare l&quot;accesso Single Sign-On, il provisioning automatizzato e altro ancora.
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: bd398225-8bd8-4697-9a44-af6e6679113a
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: dae115c597e3a86c954eafcdd322954774fd55a5
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-sap-hana-cloud-platform"></a>Esercitazione: Integrazione di Azure Active Directory con SAP HANA Cloud Platform
+# <a name="tutorial-azure-active-directory-integration-with-sap-hana-cloud-platform"></a>Esercitazione: Integrazione di Azure Active Directory con SAP HANA Cloud Platform
 In questa esercitazione viene illustrata l'integrazione di Azure e SAP HANA Cloud Platform.  
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -41,7 +45,7 @@ Lo scenario descritto in questa esercitazione include i blocchi predefiniti segu
 ## <a name="enabling-the-application-integration-for-sap-hana-cloud-platform"></a>Abilitazione dell'integrazione dell'applicazione per SAP HANA Cloud Platform
 In questa sezione viene descritto come abilitare l'integrazione dell'applicazione per SAP HANA Cloud Platform.
 
-### <a name="to-enable-the-application-integration-for-sap-hana-cloud-platform,-perform-the-following-steps:"></a>Per abilitare l'integrazione dell'applicazione per SAP HANA Cloud Platform, eseguire la procedura seguente:
+### <a name="to-enable-the-application-integration-for-sap-hana-cloud-platform-perform-the-following-steps"></a>Per abilitare l'integrazione dell'applicazione per SAP HANA Cloud Platform, eseguire la procedura seguente:
 1. Nel portale di gestione di Azure fare clic su **Active Directory**nel pannello di navigazione sinistro.
    
    ![Active Directory](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC700993.png "Active Directory")
@@ -68,7 +72,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 Per eseguire questa procedura, è necessario caricare un file di certificato con codifica Base 64 nel proprio tenant SAP HANA Cloud Platform.  
 Se non si ha familiarità con questa procedura, vedere il video che descrive [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
 1. Nella pagina di integrazione dell'applicazione **SAP HANA Cloud Platform** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
    ![Configura accesso Single Sign-On](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC778552.png "Configure single sign-on")
@@ -164,7 +168,7 @@ Come passaggio facoltativo, è possibile configurare gruppi basati su asserzione
 ## <a name="assigning-a-role-to-a-user"></a>Assegnazione di un ruolo a un utente
 Per consentire agli utenti di Azure AD di accedere a SAP HANA Cloud Platform è necessario assegnare loro i ruoli in SAP HANA Cloud Platform.
 
-### <a name="to-assign-a-role-to-a-user,-perform-the-following-steps:"></a>Per assegnare un ruolo a un utente, eseguire la procedura seguente:
+### <a name="to-assign-a-role-to-a-user-perform-the-following-steps"></a>Per assegnare un ruolo a un utente, eseguire la procedura seguente:
 1. Accedere al pannello di controllo di **SAP HANA Cloud Platform** .
 2. Eseguire la procedura seguente:
    
@@ -179,7 +183,7 @@ Per consentire agli utenti di Azure AD di accedere a SAP HANA Cloud Platform è 
 ## <a name="assigning-users"></a>Assegnazione degli utenti
 Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
-### <a name="to-assign-users-to-sap-hana-cloud-platform,-perform-the-following-steps:"></a>Per assegnare gli utenti a SAP HANA Cloud Platform, eseguire la procedura seguente:
+### <a name="to-assign-users-to-sap-hana-cloud-platform-perform-the-following-steps"></a>Per assegnare gli utenti a SAP HANA Cloud Platform, eseguire la procedura seguente:
 1. Nel portale di Azure classico creare un account di test.
 2. Nella pagina di integrazione di **SAP HANA Cloud Platform** fare clic su **Assegna utenti**.
    
@@ -190,6 +194,9 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

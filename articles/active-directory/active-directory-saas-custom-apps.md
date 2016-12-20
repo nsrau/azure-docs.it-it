@@ -1,11 +1,11 @@
 ---
-title: Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory | Microsoft Docs
+title: Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory | Documentazione Microsoft
 description: 'Informazioni sulla connessione self-service di applicazioni in Azure Active Directory con SAML e SSO basato su password '
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
 manager: femila
-
+ms.assetid: 0d42eb0c-6d3f-4557-9030-e88e86709a19
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,6 +13,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/09/2016
 ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 10df1eae4ac4dd6ce2c028a2001bf141682f4370
+
 
 ---
 # <a name="configuring-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory
@@ -138,6 +142,6 @@ Nota: è possibile caricare un logo icona dell'applicazione usando il pulsante *
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

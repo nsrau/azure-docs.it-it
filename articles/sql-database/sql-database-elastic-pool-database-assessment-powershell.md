@@ -1,12 +1,12 @@
 ---
-title: Script di PowerShell per identificare database singoli adatti a un pool | Microsoft Docs
-description: Un pool di database elastico è una raccolta di risorse disponibili condivise da un gruppo di database elastici. Questo documento fornisce uno script di PowerShell per valutare l'idoneità dell'utilizzo di un pool di database elastici per un gruppo di database.
+title: Script di PowerShell per identificare database singoli adatti a un pool | Documentazione Microsoft
+description: "Un pool di database elastico è una raccolta di risorse disponibili condivise da un gruppo di database elastici. Questo documento fornisce uno script di PowerShell per valutare l&quot;idoneità dell&quot;utilizzo di un pool di database elastici per un gruppo di database."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: db541e94-abc8-4578-bae0-9b8c8ad0170e
 ms.service: sql-database
 ms.devlang: NA
 ms.date: 09/28/2016
@@ -14,6 +14,10 @@ ms.author: sstein
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 47b4890482752d8954a84c59b333b6607d997da3
+
 
 ---
 # <a name="powershell-script-for-identifying-databases-suitable-for-an-elastic-database-pool"></a>Script di PowerShell per identificare database adatti a un pool di database elastici
@@ -272,6 +276,6 @@ $data | %{'{0}' -f $_[0]}
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

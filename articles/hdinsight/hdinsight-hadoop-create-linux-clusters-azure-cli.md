@@ -1,13 +1,13 @@
 ---
-title: Creare cluster Hadoop, HBase o Storm in Linux in HDInsight tramite la CLI multipiattaforma di Azure | Microsoft Docs
-description: Informazioni su come creare cluster HDInsight basati su Linux tramite l’interfaccia multipiattaforma CLI di Azure, i modelli di gestione risorse di Azure e l'API REST di Azure. È possibile specificare il tipo di cluster (Hadoop, HBase o Storm) o utilizzare gli script per installare i componenti personalizzati.
+title: Creare cluster Hadoop, HBase o Storm su Linux in HDInsight tramite l&quot;interfaccia della riga di comando multipiattaforma di Azure | Documentazione Microsoft
+description: "Informazioni su come creare cluster HDInsight basati su Linux tramite l’interfaccia multipiattaforma CLI di Azure, i modelli di gestione risorse di Azure e l&quot;API REST di Azure. È possibile specificare il tipo di cluster (Hadoop, HBase o Storm) o utilizzare gli script per installare i componenti personalizzati."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 50b01483-455c-4d87-b754-2229005a8ab9
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/20/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f322b95e3ade4318ccd64f5e2222194bd2fb9361
+
 
 ---
-# Creare cluster basati su Linux in HDInsight tramite l'interfaccia della riga di comando di Azure
-[!INCLUDE [selettore](../../includes/hdinsight-selector-create-clusters.md)]
+# <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-cli"></a>Creare cluster basati su Linux in HDInsight tramite l'interfaccia della riga di comando di Azure
+[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 L'interfaccia della riga di comando di Azure è un'utilità della riga di comando multipiattaforma che consente di gestire i servizi di Azure. Può essere usata con i modelli di Gestione risorse di Azure per creare un cluster HDInsight insieme agli account di archiviazione associati e ad altri servizi.
 
@@ -33,18 +37,21 @@ I passaggi illustrati in questo documento descrivono il processo di creazione di
 > 
 > 
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Interfaccia della riga di comando di Azure**. La procedura descritta in questo documento è stata testata con la versione dell'interfaccia della riga di comando di Azure 0.10.1.
   
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
-## Accedere alla sottoscrizione di Azure
-Seguire i passaggi descritti in [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md) e connettersi alla sottoscrizione usando il metodo **login**.
+### <a name="access-control-requirements"></a>Requisiti di controllo di accesso
+[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## Creare un cluster
+## <a name="log-in-to-your-azure-subscription"></a>Accedere alla sottoscrizione di Azure
+Seguire i passaggi descritti in [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md) e connettersi alla sottoscrizione usando il metodo **login** .
+
+## <a name="create-a-cluster"></a>Creare un cluster
 I seguenti passaggi devono essere eseguiti da un prompt dei comandi, una shell o una sessione terminal dopo l'installazione e la configurazione dell'interfaccia della riga di comando di Azure.
 
 1. Per eseguire l'autenticazione della sottoscrizione di Azure, usare il comando seguente:
@@ -59,16 +66,16 @@ I seguenti passaggi devono essere eseguiti da un prompt dei comandi, una shell o
    
         azure group create groupname location
    
-   * Sostituire **groupname** con un nome univoco per il gruppo.
-   * Sostituire **location** con l'area geografica in cui si vuole creare il gruppo.
+   * Sostituire **groupname** con un nome univoco per il gruppo. 
+   * Sostituire **location** con l'area geografica in cui si vuole creare il gruppo. 
      
-       Per un elenco di località valide, usare il comando `azure location list` e quindi una delle località della colonna **Nome**.
+       Per un elenco di località valide, usare il comando `azure location list` e quindi una delle località della colonna **Nome** .
 4. Creare un account di archiviazione. Questo account di archiviazione verrà usato come archivio predefinito per il cluster HDInsight.
    
         azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
    
    * Sostituire **groupname** con il nome del gruppo creato nel passaggio precedente.
-   * Sostituire **location** con la stessa località usata nel passaggio precedente.
+   * Sostituire **location** con la stessa località usata nel passaggio precedente. 
    * Sostituire **storagename** con un nome univoco per l'account di archiviazione.
      
      > [!NOTE]
@@ -88,30 +95,41 @@ I seguenti passaggi devono essere eseguiti da un prompt dei comandi, una shell o
         azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.windows.net --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 2 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
    
    * Sostituire **groupname** con il nome del gruppo di risorse.
+   * Sostituire **Hadoop** con il tipo di cluster da creare, ad esempio, `Hadoop`, `HBase`, `Storm` o `Spark`.
+     
+     > [!IMPORTANT]
+     > Sono disponibili molti tipi di cluster HDInsight, che corrispondono al carico di lavoro o alla tecnologia per cui è ottimizzato il cluster. Non è disponibile alcun metodo supportato per creare un cluster che combini più tipi, ad esempio Storm e HBase in un cluster. 
+     > 
+     > 
    * Sostituire **location** con la stessa località usata nei passaggi precedenti.
    * Sostituire **storagename** con il nome dell'account di archiviazione.
-   * Sostituire **storagekey** con la chiave ottenuta nel passaggio precedente.
+   * Sostituire **storagekey** con la chiave ottenuta nel passaggio precedente. 
    * Per il parametro `--defaultStorageContainer` usare lo stesso nome usato per il cluster.
    * Sostituire **admin** e **httppassword** con il nome e la password da usare per l'accesso al cluster tramite HTTPS.
    * Sostituire **sshuser** e **sshuserpassword** con il nome utente e la password da usare per l'accesso al cluster tramite SSH.
      
      Il processo di creazione del cluster può richiedere alcuni minuti, in genere circa 15.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Dopo aver creato un cluster HDInsight tramite l'interfaccia della riga di comando di Azure, usare le informazioni seguenti per acquisire familiarità con il cluster:
 
-### Cluster Hadoop
+### <a name="hadoop-clusters"></a>Cluster Hadoop
 * [Usare Hive con HDInsight](hdinsight-use-hive.md)
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-### Cluster HBase
+### <a name="hbase-clusters"></a>Cluster HBase
 * [Introduzione a HBase in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
 * [Sviluppare applicazioni Java per HBase in HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
-### Cluster Storm
+### <a name="storm-clusters"></a>Cluster Storm
 * [Sviluppare topologie Java per Storm in HDInsight](hdinsight-storm-develop-java-topology.md)
 * [Usare i componenti di Python in Storm in HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Distribuire e monitorare le topologie con Storm in HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

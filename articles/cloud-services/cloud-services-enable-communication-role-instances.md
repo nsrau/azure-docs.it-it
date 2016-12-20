@@ -1,12 +1,12 @@
 ---
-title: Comunicazione per i ruoli in servizi Cloud | Microsoft Docs
-description: Le istanze del ruolo in servizi Cloud possono avere endpoint (http, https, tcp, udp) definiti appositamente che comunicano con l'esterno oppure tra le altre istanze del ruolo.
+title: Comunicazione per i ruoli in servizi Cloud | Documentazione Microsoft
+description: Le istanze del ruolo in servizi Cloud possono avere endpoint (http, https, tcp, udp) definiti appositamente che comunicano con l&quot;esterno oppure tra le altre istanze del ruolo.
 services: cloud-services
-documentationcenter: ''
+documentationcenter: 
 author: Thraka
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 7008a083-acbe-4fb8-ae60-b837ef971ca1
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,17 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fe034613c537ce0940f7220e4695727bdc2277c2
+
 
 ---
-# Abilitare la comunicazione delle istanze del ruolo in azure
+# <a name="enable-communication-for-role-instances-in-azure"></a>Abilitare la comunicazione delle istanze del ruolo in azure
 I ruoli del servizio cloud comunicano tramite connessioni interne ed esterne. Le connessioni esterne vengono chiamate **endpoint di input** mentre le connessioni interne vengono chiamate **endpoint interni**. In questo argomento viene descritto come modificare la [definizione del servizio](cloud-services-model-and-package.md#csdef) per creare gli endpoint.
 
-## Endpoint di input
-L'endpoint di input viene utilizzato quando si desidera esporre una porta all'esterno. Specificare il tipo di protocollo e porta dell'endpoint che vengono poi applicati per le porte interne ed esterne per l'endpoint. Se si desidera, è possibile specificare una porta interna diversa per l'endpoint con l’attributo [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint).
+## <a name="input-endpoint"></a>Endpoint di input
+L'endpoint di input viene utilizzato quando si desidera esporre una porta all'esterno. Specificare il tipo di protocollo e porta dell'endpoint che vengono poi applicati per le porte interne ed esterne per l'endpoint. Se si desidera, è possibile specificare una porta interna diversa per l'endpoint con l’attributo [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) .
 
 L'endpoint di input può utilizzare i seguenti protocolli: **http, https, tcp, udp**.
 
-Per creare un endpoint di input, aggiungere elemento figlio **InputEndpoint** all’elemento **Endpoints** del ruolo di lavoro o del ruolo web.
+Per creare un endpoint di input, aggiungere elemento figlio **InputEndpoint** all'elemento **Endpoints** del ruolo di lavoro o del ruolo Web.
 
 ```xml
 <Endpoints>
@@ -32,12 +36,12 @@ Per creare un endpoint di input, aggiungere elemento figlio **InputEndpoint** al
 </Endpoints> 
 ```
 
-## Endpoint di input dell'istanza
+## <a name="instance-input-endpoint"></a>Endpoint di input dell'istanza
 Gli endpoint di input dell'istanza sono simili agli endpoint di input ma consentono di eseguire il mapping di specifiche porte pubbliche per ogni singola istanza del ruolo mediante il port forwarding nel servizio di bilanciamento del carico. È possibile specificare una singola porta pubblica o un intervallo di porte.
 
-L'endpoint di input dell’istanza può utilizzare solo i protocolli **tcp** o **udp**.
+L'endpoint di input dell’istanza può usare solo i protocolli **tcp** o **udp**.
 
-Per creare un endpoint di input dell’istanza, aggiungere l’elemento figlio **InstanceInputEndpoint** all’elemento **Endpoints** del ruolo di lavoro o del ruolo web.
+Per creare un endpoint di input dell'istanza, aggiungere l'elemento figlio **InstanceInputEndpoint** all'elemento **Endpoints** del ruolo di lavoro o del ruolo Web.
 
 ```xml
 <Endpoints>
@@ -49,12 +53,12 @@ Per creare un endpoint di input dell’istanza, aggiungere l’elemento figlio *
 </Endpoints>
 ```
 
-## Endpoint interno
+## <a name="internal-endpoint"></a>Endpoint interno
 Gli endpoint interni sono disponibili per la comunicazione da istanza a istanza. La porta è facoltativa e se omessa, viene assegnata una porta dinamica all'endpoint. Può essere utilizzato un intervallo di porte. Esiste un limite di cinque endpoint interni per ogni ruolo.
 
 L'endpoint interno può utilizzare i seguenti protocolli: **http, https, tcp, udp**.
 
-Per creare un endpoint di input interno, aggiungere l’elemento figlio **InternalEndpoint** all’elemento **Endpoints** del ruolo di lavoro o del ruolo web.
+Per creare un endpoint di input interno, aggiungere l'elemento figlio **InternalEndpoint** all'elemento **Endpoints** del ruolo di lavoro o del ruolo Web.
 
 ```xml
 <Endpoints>
@@ -73,8 +77,8 @@ Per creare un endpoint di input interno, aggiungere l’elemento figlio **Intern
 ```
 
 
-## Ruoli di lavoro a confronto con Ruoli Web
-Esiste una piccola differenza tra gli endpoint quando si lavora con i ruoli di lavoro e i ruoli web. Il ruolo web deve disporre almeno di un singolo endpoint di input che utilizzi il protocollo **HTTP**.
+## <a name="worker-roles-vs-web-roles"></a>Ruoli di lavoro a confronto con Ruoli Web
+Esiste una piccola differenza tra gli endpoint quando si lavora con i ruoli di lavoro e i ruoli  web. Il ruolo web deve disporre almeno di un singolo endpoint di input che utilizzi il protocollo **HTTP** .
 
 ```xml
 <Endpoints>
@@ -83,7 +87,7 @@ Esiste una piccola differenza tra gli endpoint quando si lavora con i ruoli di l
 </Endpoints>
 ```
 
-## Uso di .NET SDK per accedere ad un endpoint
+## <a name="using-the-net-sdk-to-access-an-endpoint"></a>Uso di .NET SDK per accedere ad un endpoint
 La libreria gestita di Azure fornisce metodi per la comunicazione di istanze del ruolo in fase di esecuzione. Dal codice eseguito all'interno di un'istanza del ruolo, è possibile recuperare informazioni sull'esistenza di altre istanze del ruolo e sui relativi endpoint, nonché le informazioni sull'istanza del ruolo corrente.
 
 > [!NOTE]
@@ -91,7 +95,7 @@ La libreria gestita di Azure fornisce metodi per la comunicazione di istanze del
 > 
 > 
 
-È possibile utilizzare la proprietà [Istanze](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) per recuperare le istanze di un ruolo. Per prima cosa utilizzare la [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) per restituire un riferimento all'istanza del ruolo corrente, e poi utilizzare la proprietà [Ruolo](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) per restituire un riferimento al ruolo stesso.
+È possibile utilizzare la proprietà [Istanze](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) per recuperare le istanze di un ruolo. Usare prima di tutto [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) per restituire un riferimento all'istanza del ruolo corrente, quindi usare la proprietà [Role](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) per restituire un riferimento al ruolo stesso.
 
 Quando ci si connette a un'istanza del ruolo a livello di programmazione tramite il SDK di .NET, è relativamente semplice accedere alle informazioni relative all’endpoint. Ad esempio, dopo essersi connessi a un ambiente di ruolo specifico, è possibile ottenere la porta di un endpoint specifico con il seguente codice:
 
@@ -99,7 +103,7 @@ Quando ci si connette a un'istanza del ruolo a livello di programmazione tramite
 int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].IPEndpoint.Port;
 ```
 
-La proprietà **Istanze** restituisce una raccolta di oggetti **RoleInstance**. Tale raccolta contiene sempre l'istanza corrente. Se il ruolo non definisce un endpoint interno, la raccolta include l'istanza corrente ma non altre istanze. Il numero di istanze del ruolo nella raccolta sarà sempre 1 nel caso in cui non sia stato definito alcun endpoint interno per il ruolo. Se il ruolo definisce un endpoint interno, le relative istanze sono individuabili in fase di esecuzione e il numero di istanze nella raccolta corrisponderà al numero di istanze specificato per il ruolo nel file di configurazione del servizio.
+La proprietà **Instances** restituisce una raccolta di oggetti **RoleInstance**. Tale raccolta contiene sempre l'istanza corrente. Se il ruolo non definisce un endpoint interno, la raccolta include l'istanza corrente ma non altre istanze. Il numero di istanze del ruolo nella raccolta sarà sempre 1 nel caso in cui non sia stato definito alcun endpoint interno per il ruolo. Se il ruolo definisce un endpoint interno, le relative istanze sono individuabili in fase di esecuzione e il numero di istanze nella raccolta corrisponderà al numero di istanze specificato per il ruolo nel file di configurazione del servizio.
 
 > [!NOTE]
 > La libreria gestita di Azure non rappresenta un mezzo per determinare lo stato di altre istanze del ruolo, ma è possibile implementare tali valutazioni manualmente se il servizio necessita di tale funzionalità. È possibile utilizzare la [Diagnostica di Azure](cloud-services-dotnet-diagnostics.md) per ottenere informazioni sull'esecuzione di istanze del ruolo.
@@ -124,7 +128,7 @@ foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Insta
 Di seguito è riportato un esempio di un ruolo di lavoro che ottiene l'endpoint esposto tramite la definizione del servizio e avvia l'ascolto per le connessioni.
 
 > [!WARNING]
-> Questo codice funziona solo per un servizio distribuito. Durante l'esecuzione nell'emulatore di calcolo di Azure, gli elementi di configurazione del servizio che creano endpoint porte dirette (elementi **InstanceInputEndpoint**) vengono ignorati.
+> Questo codice funziona solo per un servizio distribuito. Durante l'esecuzione nell'emulatore di calcolo di Azure, gli elementi di configurazione del servizio che creano endpoint porte dirette (elementi**InstanceInputEndpoint** ) vengono ignorati.
 > 
 > 
 
@@ -212,10 +216,10 @@ namespace WorkerRole1
 }
 ```
 
-## Regole di traffico di rete per controllare la comunicazione di ruolo
+## <a name="network-traffic-rules-to-control-role-communication"></a>Regole di traffico di rete per controllare la comunicazione di ruolo
 Dopo aver definito gli endpoint interni, è possibile aggiungere regole del traffico di rete (in base agli endpoint che sono stati creati) per controllare il modo in cui le istanze del ruolo possono comunicare tra loro. Nel diagramma seguente vengono illustrati alcuni scenari comuni relativi al controllo della comunicazione del ruolo:
 
-![Scenari di regole del traffico di rete](./media/cloud-services-enable-communication-role-instances/scenarios.png "Scenari di regole del traffico di rete")
+![Scenari di regole del traffico di rete](./media/cloud-services-enable-communication-role-instances/scenarios.png "Network Traffic Rules Scenarios")
 
 Il seguente esempio di codice mostra le definizioni di ruolo per i ruoli illustrati nel diagramma precedente. Ogni definizione di ruolo include almeno un endpoint interno definito:
 
@@ -253,9 +257,9 @@ Il seguente esempio di codice mostra le definizioni di ruolo per i ruoli illustr
 > 
 > 
 
-Per impostazione predefinita, dopo aver definito un endpoint interno, la comunicazione può avvenire tra qualsiasi ruolo e l’endpoint interno di un ruolo senza restrizioni. Per limitare la comunicazione, è necessario aggiungere un elemento **NetworkTrafficRules** per l’elemento **ServiceDefinition** nel file di definizione del servizio.
+Per impostazione predefinita, dopo aver definito un endpoint interno, la comunicazione può avvenire tra qualsiasi ruolo e l’endpoint interno di un ruolo senza restrizioni. Per limitare la comunicazione, è necessario aggiungere un elemento **NetworkTrafficRules** all'elemento **ServiceDefinition** nel file di definizione del servizio.
 
-### Scenario 1
+### <a name="scenario-1"></a>Scenario 1
 Consentire solo il traffico di rete da **WebRole1** a **WorkerRole1**.
 
 ```xml
@@ -274,7 +278,7 @@ Consentire solo il traffico di rete da **WebRole1** a **WorkerRole1**.
 </ServiceDefinition>
 ```
 
-### Scenario 2
+### <a name="scenario-2"></a>Scenario 2
 Consente solo il traffico di rete da **WebRole1** a **WorkerRole1** e **WorkerRole2**.
 
 ```xml
@@ -293,8 +297,8 @@ Consente solo il traffico di rete da **WebRole1** a **WorkerRole1** e **WorkerRo
 </ServiceDefinition>
 ```
 
-### Scenario 3
-Consente solo il traffico di rete da **WebRole1** a **WorkerRole1**, e da **WorkerRole1** a **WorkerRole2**.
+### <a name="scenario-3"></a>Scenario 3
+Consente solo il traffico di rete da **WebRole1** a **WorkerRole1** e da **WorkerRole1** a **WorkerRole2**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -322,8 +326,8 @@ Consente solo il traffico di rete da **WebRole1** a **WorkerRole1**, e da **Work
 </ServiceDefinition>
 ```
 
-### Scenario 4
-Consente solo il traffico di rete da **WebRole1** a **WorkerRole1**, da **WebRole1** a **WorkerRole2**, e da **WorkerRole1** a **WorkerRole2**.
+### <a name="scenario-4"></a>Scenario 4
+Consente solo il traffico di rete da **WebRole1** a **WorkerRole1**, **WebRole1** a **WorkerRole2** e da **WorkerRole1** a **WorkerRole2**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -363,9 +367,14 @@ Consente solo il traffico di rete da **WebRole1** a **WorkerRole1**, da **WebRol
 </ServiceDefinition>
 ```
 
-Un riferimento allo schema XML per gli elementi utilizzati in precedenza è reperibile[qui](https://msdn.microsoft.com/library/azure/gg557551.aspx).
+Un riferimento allo schema XML per gli elementi utilizzati in precedenza è reperibile [qui](https://msdn.microsoft.com/library/azure/gg557551.aspx).
 
-## Passaggi successivi
-Ulteriori informazioni sul [modello](cloud-services-model-and-package.md) del servizio Cloud.
+## <a name="next-steps"></a>Passaggi successivi
+Ulteriori informazioni sul [modello](cloud-services-model-and-package.md)del servizio Cloud.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

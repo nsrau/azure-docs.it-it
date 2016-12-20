@@ -1,13 +1,13 @@
 ---
-title: Importare dati in Azure Machine Learning Studio | Microsoft Docs
+title: Importare dati in Machine Learning Studio | Microsoft Docs
 description: Come importare dati in Azure Machine Learning Studio da varie origini dati. Informazioni sui tipi di dati e i formati di dati supportati.
 keywords: dati di importazione,formato dati,tipi di dati,origini dati,dati di training
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: c194ee3b-838c-4efe-bb2a-c1d052326216
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,40 +15,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: garye;bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3d9cceb28de1cfd43a2d2de79de3a59517908ec9
+
 
 ---
-# Importare dati di training in Azure Machine Learning Studio da varie origini dati
-Per usare i propri dati in Machine Learning Studio per sviluppare ed eseguire il training di una soluzione di analisi predittiva, è possibile:
+# <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importare dati di training in Azure Machine Learning Studio da varie origini dati
+Per usare i propri dati in Machine Learning Studio per sviluppare ed eseguire il training di una soluzione di analisi predittiva, è possibile: 
 
-* caricare anticipatamente i dati da un **file locale** nel disco rigido per creare un modulo di set di dati nell'area di lavoro.
-* Accedere ai dati da una delle diverse **origini dati online** mentre l’esperimento viene eseguito tramite il modulo [Import Data][import-data].
-* usare i dati da un altro esperimento di Azure Machine Learning salvato come un **set di dati**.
+* Caricare anticipatamente i dati da un **file locale** nel disco rigido per creare un modulo di set di dati nell'area di lavoro.  
+* Accedere ai dati da una delle varie **origini dati online** mentre l’esperimento viene eseguito tramite il modulo [Import Data][import-data]. 
+* Usare i dati da un altro esperimento di Azure Machine Learning salvato come un **set di dati**. 
 
 [!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
-Ciascuna di queste opzioni viene descritta in uno degli argomenti del precedente menu. Questi argomenti illustrano come importare dati da diverse origini dati per l'uso in Machine Learning Studio.
+Ciascuna di queste opzioni viene descritta in uno degli argomenti del precedente menu. Questi argomenti illustrano come importare dati da diverse origini dati per l'uso in Machine Learning Studio. 
 
 > [!NOTE]
-> In Machine Learning Studio sono disponibili numerosi esempi che è possibile usare per questo scopo. Per informazioni, vedere [Usare i set di dati di esempio in Azure Machine Learning Studio](machine-learning-use-sample-datasets.md)).
+> In Machine Learning Studio sono disponibili numerosi esempi che è possibile usare per questo scopo. Per informazioni, vedere [Usare i set di dati di esempio in Azure Machine Learning Studio](machine-learning-use-sample-datasets.md).
 > 
 > 
 
-Questo argomento introduttivo illustra anche come ottenere dati pronti per l'uso in Machine Learning Studio e descrive i tipi e i formati di dati supportati.
+Questo argomento introduttivo illustra anche come ottenere dati pronti per l'uso in Machine Learning Studio e descrive i tipi e i formati di dati supportati. 
 
 > [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 > 
 > 
 
-## Preparare i dati da usare in Azure Machine Learning Studio
+## <a name="get-data-ready-for-use-in-azure-machine-learning-studio"></a>Preparare i dati da usare in Azure Machine Learning Studio
 Machine Learning Studio è progettato per lavorare con dati tabulari o rettangolari, ad esempio dati di testo che rappresentano dati delimitati o strutturati di un database, anche se in alcuni casi potrebbero essere usati dati non rettangolari.
 
 È consigliabile che i dati siano relativamente puliti. Ciò significa che, prima di caricare i dati nell’esperimento, è opportuno risolvere eventuali problemi, ad esempio stringhe non racchiuse tra virgolette.
 
-In Machine Learning Studio sono tuttavia disponibili moduli che consentono di eseguire alcune modifiche dei dati all'interno dell'esperimento. A seconda degli algoritmi di Machine Learning usati, potrebbe essere necessario stabilire come gestire problemi strutturali di dati, ad esempio valori mancanti e dati di tipo sparse. A tale scopo, esistono moduli che possono rivelarsi utili. Esaminare la sezione **Trasformazione dei dati** della tavolozza dei moduli per i moduli che eseguono queste funzioni.
+In Machine Learning Studio sono tuttavia disponibili moduli che consentono di eseguire alcune modifiche dei dati all'interno dell'esperimento. A seconda degli algoritmi di Machine Learning usati, potrebbe essere necessario stabilire come gestire problemi strutturali di dati, ad esempio valori mancanti e dati di tipo sparse. A tale scopo, esistono moduli che possono rivelarsi utili. Vedere la sezione **Trasformazione dei dati** della tavolozza dei moduli per i moduli che eseguono queste funzioni.
 
 In qualsiasi momento dell'esperimento, è possibile visualizzare o scaricare i dati prodotti da un modulo facendo clic con il pulsante destro del mouse sulla porta di output. A seconda del modulo, potrebbero essere disponibili opzioni di download diverse, oppure l’utente potrebbe essere in grado di visualizzare i dati dal browser Web in Machine Learning Studio.
 
-## Tipi di dati e formati di dati supportati
+## <a name="data-formats-and-data-types-supported"></a>Tipi di dati e formati di dati supportati
 È possibile importare diversi tipi di dati nell'esperimento, a seconda del meccanismo usato per importare dati e della relativa provenienza:
 
 * Testo normale (con estensione txt)
@@ -68,7 +72,7 @@ Se si importano dati in un formato quale ARFF che include metadati, Machine Lear
 
 Se si importano dati in un formato quale TSV o CSV che non include metadati, Machine Learning Studio deduce il tipo di dati per ogni colonna tramite il campionamento dei dati. Se nemmeno i dati presentano intestazioni di colonna, Machine Learning Studio fornisce nomi predefiniti.
 
-È possibile specificare in modo esplicito o modificare le intestazioni e i tipi di dati delle colonne tramite l’[Editor metadati][edit-metadata].
+È possibile specificare in modo esplicito o modificare le intestazioni e i tipi di dati delle colonne tramite il modulo [Edit Metadata][edit-metadata] (Modifica metadati).
 
 I seguenti **tipi di dati** vengono riconosciuti da Machine Learning Studio:
 
@@ -79,15 +83,20 @@ I seguenti **tipi di dati** vengono riconosciuti da Machine Learning Studio:
 * DateTime
 * TimeSpan
 
-Machine Learning Studio usa un tipo di dati interno denominato ***Tabella dati*** per passare i dati tra i moduli. È possibile convertire in modo esplicito i dati in formato Tabella dati tramite il modulo [Convertire in set di dati][convert-to-dataset].
+Machine Learning Studio usa un tipo di dati interno denominato ***Tabella dati*** per passare i dati tra i moduli. È possibile convertire in modo esplicito i dati nel formato Tabella dati tramite il modulo [Convert to Dataset][convert-to-dataset] (Converti in set di dati).
 
 I moduli che accettano formati diversi da Tabella dati convertiranno i dati in Tabella dati in modo automatico, prima di passare al modulo successivo.
 
-Se necessario, è possibile convertire il formato Tabella dati in CSV, TSV, ARFF o SVMLight usando altri moduli di conversione. Esaminare la sezione **Conversioni di formati di dati** della tavolozza dei moduli per i moduli che eseguono queste funzioni.
+Se necessario, è possibile convertire il formato Tabella dati in CSV, TSV, ARFF o SVMLight usando altri moduli di conversione.
+Esaminare la sezione **Conversioni di formati di dati** della tavolozza dei moduli per i moduli che eseguono queste funzioni.
 
-<!-- Module References --> 
+<!-- Module References -->
 [convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

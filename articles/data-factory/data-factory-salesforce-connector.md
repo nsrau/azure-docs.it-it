@@ -1,43 +1,52 @@
 ---
-title: Spostare i dati da Salesforce usando Data Factory | Microsoft Docs
+title: Spostare i dati da Salesforce usando Data Factory | Documentazione Microsoft
 description: Informazioni su come spostare dati da Salesforce usando Azure Data Factory.
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
-
+ms.assetid: dbe3bfd6-fa6a-491a-9638-3a9a10d396d1
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/02/2016
 ms.author: jingwang
+translationtype: Human Translation
+ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
+ms.openlocfilehash: 51325cf5f473123c5efeb571f52e04b540b182ad
+
 
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Spostare dati da Salesforce usando Azure Data Factory
-Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da Salesforce in qualsiasi archivio dati elencato nella colonna Sink della tabella relativa a [origini e sink supportati](data-factory-data-movement-activities.md#supported-data-stores) . Questo articolo si basa sull'articolo [Spostamento di dati e attività di copia](data-factory-data-movement-activities.md) , che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivi dati supportati.
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da Salesforce in qualsiasi archivio dati elencato nella colonna Sink della tabella relativa a [origini e sink supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . Questo articolo si basa sull'articolo [Spostamento di dati e attività di copia](data-factory-data-movement-activities.md) , che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivi dati supportati.
 
-Attualmente Azure Data Factory supporta solo lo spostamento di dati da Salesforce verso [archivi dati sink supportati]((data-factory-data-movement-activities.md#supported-data-stores), ma non supporta lo spostamento di dati da altri archivi dati a Salesforce.
+Attualmente Azure Data Factory supporta solo lo spostamento di dati da Salesforce verso gli [archivi dati sink supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats), ma non supporta lo spostamento di dati da altri archivi dati a Salesforce.
+
+## <a name="supported-versions"></a>Versioni supportate
+Questo connettore supporta le seguenti edizioni di Salesforce: Developer Edition, Professional Edition, Enterprise Edition o Unlimited Edition.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* È necessario usare una delle seguenti edizioni di Salesforce: Developer Edition, Professional Edition, Enterprise Edition o Unlimited Edition.
 * È necessario abilitare l'autorizzazione API. Vedere [How do I enable API access in Salesforce by permission set?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 * Per copiare dati da Salesforce in archivi dati locali, è necessario che nell'ambiente locale sia installato almeno Gateway di gestione dati 2.0.
+
+## <a name="salesforce-request-limits"></a>Limiti delle richieste Salesforce
+Salesforce presenta limiti per le richieste API totali e per le richieste API simultanee. Per i dettagli, vedere la sezione API Request Limits (Limiti delle richieste API) nell'articolo [Salesforce API Request Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Limiti delle richieste API di Salesforce). Si tenga in considerazione che, se il numero di richieste simultanee supera il limite, subentra la limitazione e verranno visualizzati errori casuali. Se il numero totale di richieste supera il limite, l'account di Salesforce verrà bloccato per 24 ore. In entrambi gli scenari è anche possibile che venga visualizzato l'errore "REQUEST_LIMIT_EXCEEDED".
 
 ## <a name="copy-data-wizard"></a>Copia dati guidata
 Il modo più semplice per creare una pipeline che copia i dati da Salesforce in uno degli archivi dati sink supportati è la procedura guidata Copia dati. Per una rapida procedura dettagliata di creazione di una pipeline mediante la copia guidata dei dati, vedere [Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory](data-factory-copy-data-wizard-tutorial.md) .
 
-L'esempio seguente fornisce le definizioni JSON si esempio da usare per creare una pipeline con il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustrano come copiare dati da Salesforce in un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Azure Data Factory.   
+L'esempio seguente fornisce le definizioni JSON si esempio da usare per creare una pipeline con il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustrano come copiare dati da Salesforce in un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.   
 
-## <a name="sample:-copy-data-from-salesforce-to-an-azure-blob"></a>Esempio: Copiare i dati da Salesforce in un BLOB di Azure
-Nell'esempio i dati vengono copiati da Salesforce a un BLOB di Azure ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi. I dati possono essere copiati direttamente in uno qualsiasi dei sink indicati nell'articolo [Spostamento di dati e attività di copia](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Azure Data Factory.
+## <a name="sample-copy-data-from-salesforce-to-an-azure-blob"></a>Esempio: Copiare i dati da Salesforce in un BLOB di Azure
+Nell'esempio i dati vengono copiati da Salesforce a un BLOB di Azure ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi. I dati possono essere copiati direttamente in uno qualsiasi dei sink indicati nell'articolo [Spostamento di dati e attività di copia](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.
 
 Ecco gli elementi di Data Factory che è necessario creare per implementare lo scenario. Le sezioni che seguono l'elenco forniscono informazioni dettagliate su questi passaggi.
 
 * Un servizio collegato di tipo [Salesforce](#salesforce-linked-service-properties)
-* Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties)
+* Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service)
 * Un [set di dati](data-factory-create-datasets.md) di input di tipo [RelationalTable](#salesforce-dataset-properties)
 * Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties)
 * Una [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [RelationalSource](#relationalsource-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)
@@ -101,8 +110,8 @@ Impostando **external** su **true** si comunica al servizio Data Factory che il 
 
 > [!IMPORTANT]
 > La parte "__c" del nome dell'API è necessaria per qualsiasi oggetto personalizzato.
-> 
-> 
+>
+>
 
 ![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
@@ -159,7 +168,7 @@ Per l'elenco delle proprietà supportate da RelationalSource, vedere [Proprietà
                 "typeProperties": {
                     "source": {
                         "type": "RelationalSource",
-                        "query": "SELECT Id, Col_AutoNumber__c, Col_Checkbox__c, Col_Currency__c, Col_Date__c, Col_DateTime__c, Col_Email__c, Col_Number__c, Col_Percent__c, Col_Phone__c, Col_Picklist__c, Col_Picklist_MultiSelect__c, Col_Text__c, Col_Text_Area__c, Col_Text_AreaLong__c, Col_Text_AreaRich__c, Col_URL__c, Col_Text_Encrypt__c, Col_Lookup__c FROM AllDataType__c"             
+                        "query": "SELECT Id, Col_AutoNumber__c, Col_Checkbox__c, Col_Currency__c, Col_Date__c, Col_DateTime__c, Col_Email__c, Col_Number__c, Col_Percent__c, Col_Phone__c, Col_Picklist__c, Col_Picklist_MultiSelect__c, Col_Text__c, Col_Text_Area__c, Col_Text_AreaLong__c, Col_Text_AreaRich__c, Col_URL__c, Col_Text_Encrypt__c, Col_Lookup__c FROM AllDataType__c"                
                     },
                     "sink": {
                         "type": "BlobSink"
@@ -182,8 +191,8 @@ Per l'elenco delle proprietà supportate da RelationalSource, vedere [Proprietà
 
 > [!IMPORTANT]
 > La parte "__c" del nome dell'API è necessaria per qualsiasi oggetto personalizzato.
-> 
-> 
+>
+>
 
 ![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
@@ -208,8 +217,8 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene
 
 > [!IMPORTANT]
 > La parte "__c" del nome dell'API è necessaria per qualsiasi oggetto personalizzato.
-> 
-> 
+>
+>
 
 ![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
@@ -225,20 +234,27 @@ Nell'attività di copia, quando l'origine è di tipo **RelationalSource** (che i
 | query |Usare la query personalizzata per leggere i dati. |Query SQL-92 o query [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Ad esempio: `select * from MyTable__c`. |No, se è specificato **tableName** per il **set di dati** |
 
 > [!IMPORTANT]
-> La parte "__c" del nome dell'API è necessaria per qualsiasi oggetto personalizzato.<br>
-> Quando si specifica una query che include la clausola **where** nella colonna DateTime, usare SOQL. Ad esempio: `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd), or SQL query e.g. $$Text.Format('SELECT * FROM Account  WHERE LastModifiedDate   >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate  < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`.
-> 
-> 
+> La parte "__c" del nome dell'API è necessaria per qualsiasi oggetto personalizzato.
+>
+>
 
 ![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
-## <a name="retrieving-data-from-salesforce-report"></a>Recupero di dati dal report di Salesforce
+## <a name="query-tips"></a>Suggerimenti di query
+### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Recupero di dati tramite la clausola where nella colonna DateTime
+Quando si specifica la query SQL o SOQL, prestare attenzione alla differenza di formato di DateTime. Ad esempio:
+
+* **Esempio SOQL**: $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)
+* **Esempio SQL**: $$Text.Format('SELECT * FROM Account  WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate  < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`.
+
+### <a name="retrieving-data-from-salesforce-report"></a>Recupero di dati dal report di Salesforce
 È possibile recuperare i dati dai report di Salesforce specificando una query come `{call "<report name>"}`, ad es. `"query": "{call \"TestReport\"}"`.
 
-## <a name="salesforce-request-limits"></a>Limiti delle richieste Salesforce
-Salesforce presenta limiti per le richieste API totali e per le richieste API simultanee. Per i dettagli, vedere la sezione API Request Limits (Limiti delle richieste API) nell'articolo [Salesforce API Request Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Limiti delle richieste API di Salesforce).
+### <a name="retrieving-deleted-records-from-salesforce-recycle-bin"></a>Recupero dei record eliminati dal Cestino di Salesforce
+Per eseguire una query sui record eliminati temporaneamente dal Cestino di Salesforce, è possibile specificare **"IsDeleted = 1"** nella query. Ad esempio,
 
-Se il numero di richieste simultanee supera il limite, si verifica una limitazione e vengono visualizzati errori casuali. Se il numero totale di richieste supera il limite, l'account di Salesforce verrà bloccato per 24 ore. In entrambi gli scenari è anche possibile che venga visualizzato l'errore "REQUEST_LIMIT_EXCEEDED" ("LIMITE_RICHIESTE_SUPERATO").  
+* Per eseguire una query solo sui record eliminati, specificare "select * from MyTable__c **where IsDeleted= 1**"
+* Per eseguire query su tutti i record inclusi quelli esistenti ed eliminati, specificare "select * from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**"
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -272,6 +288,8 @@ Se il numero di richieste simultanee supera il limite, si verifica una limitazio
 ## <a name="performance-and-tuning"></a>Prestazioni e ottimizzazione
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md) .
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

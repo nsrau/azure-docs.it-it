@@ -1,23 +1,27 @@
 ---
-title: Indicizzazione automatica in DocumentDB | Microsoft Docs
-description: Informazioni sul funzionamento dell’indicizzazione automatica in Azure DocumentDB.
+title: Indicizzazione automatica in DocumentDB | Documentazione Microsoft
+description: "Informazioni sul funzionamento dell’indicizzazione automatica in Azure DocumentDB."
 services: documentdb
 author: arramac
 manager: jhubbard
 editor: mimig
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 126bfd36-9332-4127-8747-1a1c806760f7
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 10/27/2016
 ms.author: arramac
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9b88c62a7ea76d61ff593217392c3225624bb886
+
 
 ---
-# Indicizzazione automatica in Azure DocumentDB
-Questo articolo è un estratto del documento ["Indicizzazione senza schema con Azure DocumentDB"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), che verrà presentato alla [41 Conferenza Internazionale VLDB](http://www.vldb.org/2015/) tra il 31 agosto e il 4 settembre 2015 e costituisce un’introduzione al funzionamento dell’indicizzazione in Azure DocumentDB.
+# <a name="automatic-indexing-in-azure-documentdb"></a>Indicizzazione automatica in Azure DocumentDB
+Questo articolo è un estratto del documento ["Indicizzazione senza schema con Azure DocumentDB"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), che verrà presentato alla [41 Conferenza Internazionale VLDB](http://www.vldb.org/2015/) tra il 31 agosto e il 4 settembre 2015 e costituisce un'introduzione al funzionamento dell’indicizzazione in Azure DocumentDB. 
 
 Dopo la lettura di questo articolo, si sarà in grado di rispondere alle domande seguenti:
 
@@ -25,15 +29,15 @@ Dopo la lettura di questo articolo, si sarà in grado di rispondere alle domande
 * In che modo DocumentDB crea un indice su documenti diversi?
 * In che modo DocumentDB esegue l'indicizzazione automatica su larga scala?
 
-## <a id="HowDocumentDBIndexingWorks"></a> Come funziona l'indicizzazione di DocumentDB
+## <a name="a-idhowdocumentdbindexingworksa-how-documentdb-indexing-works"></a><a id="HowDocumentDBIndexingWorks"></a> Come funziona l'indicizzazione di DocumentDB
 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) è un database privo di schema creato per JSON. Non prevede o richiede nessuno schema ne definizioni di indice secondario per indicizzare i dati su larga scala. Questa caratteristica consente di definire rapidamente modelli di dati di applicazioni ed eseguirne l'iterazione utilizzando DocumentDB. DocumentDB indicizza automaticamente tutte le proprietà dei documenti aggiunti a una raccolta in modo da renderle disponibili per l'esecuzione di query. L’indicizzazione automatica consente di archiviare documenti che appartengono a schemi completamente arbitrari senza doversi preoccupare degli schemi o degli indici secondari.
 
-Con l'obiettivo di eliminare la mancata corrispondenza tra il database e i modelli di programmazione di applicazioni, DocumentDB sfrutta la semplicità di JSON e la sua mancanza di una definizione dello schema. Non fa ipotesi sui documenti e consente ai documenti all'interno di una raccolta di DocumentDB di variare nello schema, oltre ai valori specifici di istanza. A differenza di altri database di documenti, il motore di database di DocumentDB opera direttamente a livello di grammatica JSON, rimanendo agnostico al concetto di uno schema di documento e unendo valori di struttura e d’istanza dei documenti. Questo, a sua volta, gli consente di indicizzare automaticamente documenti senza schema o indici secondari.
+Con l'obiettivo di eliminare la mancata corrispondenza tra il database e i modelli di programmazione di applicazioni, DocumentDB sfrutta la semplicità di JSON e la sua mancanza di una definizione dello schema. Non fa ipotesi sui documenti e consente ai documenti all'interno di una raccolta di DocumentDB di variare nello schema, oltre ai valori specifici di istanza. A differenza di altri database di documenti, il motore di database di DocumentDB opera direttamente a livello di grammatica JSON, rimanendo agnostico al concetto di uno schema di documento e unendo  valori di struttura e d’istanza dei documenti. Questo, a sua volta, gli consente di indicizzare automaticamente documenti senza schema o indici secondari.
 
 L'indicizzazione di DocumentDB sfrutta il fatto che la grammatica JSON consente la **rappresentazione dei documenti come strutture ad albero**. Per rappresentare un documento JSON come struttura ad albero, è necessario creare un nodo principale fittizio come elemento padre per il resto dei nodi sottostanti nel documento. Ogni etichetta che include gli indici di matrice in un documento JSON diventa un nodo dell'albero. La figura seguente illustra un documento JSON di esempio e la rappresentazione ad albero corrispondente.
 
 > [!NOTE]
-> Poiché JSON è autodescrittivo ovvero ogni documento include schema (metadati) e dati, ad esempio`{"locationId": 5, "city": "Moscow"}`rivela che sono disponibili due proprietà`locationId`e`city`e che esse hanno valori numerici e di proprietà di stringa. DocumentDB è in grado di dedurre lo schema dei documenti e indicizzarli quando vengono inseriti o sostituiti, senza dover definire indici secondari o schemi di indice.
+> Poiché JSON è autodescrittivo ovvero ogni documento include schema (metadati) e dati, ad esempio`{"locationId": 5, "city": "Moscow"}`rivela che sono disponibili due proprietà`locationId`e`city`e che esse hanno valori numerici e di proprietà di stringa. DocumentDB è in grado di dedurre lo schema dei documenti e indicizzarli  quando vengono inseriti o sostituiti, senza dover definire indici secondari o schemi di indice.
 > 
 > 
 
@@ -56,13 +60,18 @@ Un'importante implicazione del trattamento di entrambi i valori di schema e d'is
 
 Nonostante sia privo di schema, l’SQL di DocumentDB e i linguaggi di query di JavaScript forniscono proiezioni relazionali e filtri, navigazione gerarchica tra documenti, operazioni spaziali e la chiamata di funzioni definite dall'utente interamente scritte in JavaScript. La fase di esecuzione delle query di DocumentDB è in grado di supportare tali query, poiché può operare direttamente sulla rappresentazione della struttura di indice dei dati.
 
-I criteri di indicizzazione predefiniti automaticamente indicizzano tutte le proprietà di tutti i documenti e forniscono query coerenti (ovvero l'indice viene aggiornato in modo sincrono con la scrittura del documento). In che modo DocumentDB supporta aggiornamenti consistenti per la struttura dell'indice su larga scala? DocumentDB utilizza tecniche di manutenzione dell’indice con scrittura ottimizzata, blocco libero e log strutturato. Questo significa che DocumentDB supporta un volume consistente di scritture veloci e al tempo stesso l'esecuzione di query coerenti.
+I criteri di indicizzazione predefiniti automaticamente indicizzano tutte le proprietà di tutti i documenti e forniscono query coerenti (ovvero l'indice viene aggiornato in modo sincrono con la scrittura del documento). In che modo DocumentDB supporta aggiornamenti consistenti per la struttura dell'indice su larga scala? DocumentDB utilizza tecniche di manutenzione dell’indice con scrittura ottimizzata, blocco libero e log strutturato. Questo significa che DocumentDB supporta un volume consistente di scritture veloci e al tempo stesso l'esecuzione di query coerenti. 
 
 L'indicizzazione di DocumentDB è progettata per l'efficienza di archiviazione e per gestire multi-tenancy. Per conseguire l'efficienza dei costi, le risorse di archiviazione su disco dell'indice sono vincolate e prevedibili. Gli aggiornamenti dell'indice vengono eseguiti entro i limiti delle risorse di sistema allocate per la raccolta di DocumentDB.
 
-## <a name="NextSteps"></a> Passaggi successivi
-* Scaricare ["Indicizzazione senza schema con Azure DocumentDB"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) che verrà presentato alla 41a Conferenza Internazionale VLDB, 31 agosto - 4 settembre 2015.
+## <a name="a-namenextstepsa-next-steps"></a><a name="NextSteps"></a> Passaggi successivi
+* Scaricare ["Indicizzazione senza schema con Azure DocumentDB"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)che verrà presentato alla 41a Conferenza Internazionale VLDB, 31 agosto - 4 settembre 2015.
 * [Eseguire query con DocumentDB SQL](documentdb-sql-query.md)
 * Informazioni su come personalizzare l'indice di DocumentDB [qui](documentdb-indexing-policies.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

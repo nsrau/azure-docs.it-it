@@ -1,13 +1,13 @@
 ---
-title: Sviluppare programmi MapReduce Java per HDInsight basato su Linux | Microsoft Docs
+title: Sviluppare programmi MapReduce Java per HDInsight basato su Linux | Documentazione Microsoft
 description: Informazioni su come sviluppare programmi MapReduce Java e distribuirli in HDInsight basati su Linux.
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 author: Blackmist
-documentationcenter: ''
+documentationcenter: 
 tags: azure-portal
-
+ms.assetid: 9ee6384c-cb61-4087-8273-fb53fa27c1c3
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,12 +15,16 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e22d28c76902fbfe549f2a7aeb22b62eb0a540fb
+
 
 ---
 # <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight-linux"></a>Sviluppare programmi MapReduce Java per Hadoop in HDInsight Linux
 Questo documento illustra l'uso di Apache Maven per creare un'applicazione di MapReduce, quindi per distribuirla ed eseguirla in un Hadoop basato su Linux nel cluster HDInsight.
 
-## <a name="<a-name="prerequisites"></a>prerequisites"></a><a name="prerequisites"></a>Prerequisiti
+## <a name="a-nameprerequisitesaprerequisites"></a><a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 7 o versione successiva (o equivalente, ad esempio OpenJDK)
@@ -62,15 +66,15 @@ Quando si installa Java e JDK, è possibile impostare le variabili di ambiente i
           <scope>provided</scope>
         </dependency>
         <dependency>
-          <groupId>org.apache.hadoop</groupId>
-          <artifactId>hadoop-mapreduce-client-common</artifactId>
-          <version>2.5.1</version>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-mapreduce-client-common</artifactId>
+            <version>2.5.1</version>
           <scope>provided</scope>
         </dependency>
         <dependency>
-          <groupId>org.apache.hadoop</groupId>
-          <artifactId>hadoop-common</artifactId>
-          <version>2.5.1</version>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-common</artifactId>
+            <version>2.5.1</version>
           <scope>provided</scope>
         </dependency>
    
@@ -80,26 +84,26 @@ Quando si installa Java e JDK, è possibile impostare le variabili di ambiente i
 2. Aggiungere il codice seguente al file **pom.xml** . Il codice deve essere racchiuso tra tag `<project>...</project>` nel file, ad esempio tra `</dependencies>` e `</project>`.
    
         <build>
-          <plugins>
+            <plugins>
             <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-shade-plugin</artifactId>
-              <version>2.3</version>
-              <configuration>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
                 <transformers>
-                  <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
+                    <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
                   </transformer>
                 </transformers>
-              </configuration>
-              <executions>
+                </configuration>
+                <executions>
                 <execution>
-                  <phase>package</phase>
-                    <goals>
+                    <phase>package</phase>
+                      <goals>
                       <goal>shade</goal>
-                    </goals>
+                      </goals>
                 </execution>
-              </executions>
-            </plugin>
+                </executions>
+              </plugin>
             <plugin>
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-compiler-plugin</artifactId>
@@ -108,7 +112,7 @@ Quando si installa Java e JDK, è possibile impostare le variabili di ambiente i
                <target>1.7</target>
               </configuration>
             </plugin>
-          </plugins>
+            </plugins>
         </build>
    
     Il primo plug-in configura il [plug-in Maven Shade](http://maven.apache.org/plugins/maven-shade-plugin/)che viene usato per compilare un file uberjar (detto a volte fatjar), che contiene le dipendenze richieste dall'applicazione. Impedisce anche la duplicazione di licenze all'interno del pacchetto jar, cosa che potrebbe causare problemi in alcuni sistemi.
@@ -206,7 +210,7 @@ Quando si installa Java e JDK, è possibile impostare le variabili di ambiente i
    > 
    > 
 
-## <a name="<a-id="upload"></a>upload-the-jar"></a><a id="upload"></a>Caricare il file JAR
+## <a name="a-iduploadaupload-the-jar"></a><a id="upload"></a>Caricare il file JAR
 Usare il comando seguente per caricare il file jar nel nodo head di HDInsight.
 
     scp wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
@@ -220,7 +224,7 @@ In questo modo i file verranno copiati dal sistema locale nel nodo head.
 > 
 > 
 
-## <a name="<a-name="run"></a>run-the-mapreduce-job"></a><a name="run"></a>Eseguire il processo MapReduce
+## <a name="a-namerunarun-the-mapreduce-job"></a><a name="run"></a>Eseguire il processo MapReduce
 1. Connettersi a HDInsight con il protocollo SSH come descritto negli articoli seguenti:
    
    * [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
@@ -240,7 +244,7 @@ In questo modo i file verranno copiati dal sistema locale nel nodo head.
         zelus   1
         zenith  2
 
-## <a name="<a-id="nextsteps"></a>next-steps"></a><a id="nextsteps"></a>Passaggi successivi
+## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Passaggi successivi
 In questo documento si è appreso come sviluppare un processo Java MapReduce. Vedere i documenti seguenti per altre modalità di utilizzo di HDInsight.
 
 * [Usare Hive con HDInsight][hdinsight-use-hive]
@@ -268,6 +272,6 @@ Per altre informazioni, vedere anche il [Centro per sviluppatori Java](https://a
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

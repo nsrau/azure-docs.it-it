@@ -1,5 +1,5 @@
 ---
-title: Requisiti per il routing di ExpressRoute | Microsoft Docs
+title: Requisiti di routing per ExpressRoute | Documentazione Microsoft
 description: Questa pagina illustra i requisiti dettagliati per la configurazione e la gestione del routing per i circuiti ExpressRoute.
 documentationcenter: na
 services: expressroute
@@ -13,10 +13,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2016
-ms.author: osamazia
+ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bd7537a81661bc175a770fdbd6388ba07ea912ae
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5e3c65d9ada5c75e0ddef3b3778a79ca77aa07d8
 
 
 ---
@@ -101,7 +101,7 @@ Sono supportati fino a 4000 prefissi annunciati a Microsoft tramite il peering p
 
 La sessione BGP verrà rimossa se il numero di prefissi supera il limite previsto. Verranno accettate route predefinite solo sul collegamento del peering privato. Il provider deve filtrare le route predefinite e gli indirizzi IP privati (RFC 1918) dai percorsi per il peering pubblico di Azure e il peering Microsoft. 
 
-## <a name="transit-routing-and-crossregion-routing"></a>Routing di transito e routing tra aree
+## <a name="transit-routing-and-cross-region-routing"></a>Routing di transito e routing tra aree
 Non è possibile configurare ExpressRoute come router di transito. Per i servizi di routing di transito è necessario rivolgersi al provider di connettività.
 
 ## <a name="advertising-default-routes"></a>Annuncio delle route predefinite
@@ -194,6 +194,6 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

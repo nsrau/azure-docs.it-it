@@ -1,20 +1,24 @@
 ---
 title: Creare e connettersi a un database MySQL in Azure
-description: Informazioni su come usare il portale di Azure per creare un database MySQL e connettersi al database da un'app Web PHP in Azure.
+description: Informazioni su come usare il portale di Azure per creare un database MySQL e connettersi al database da un&quot;app Web PHP in Azure.
 documentationcenter: php
 services: app-service\web
 author: cephalin
-manager: wpickett
-editor: ''
+manager: erikre
+editor: 
 tags: mysql
-
+ms.assetid: 55465a9a-7e65-4fd9-8a65-dd83ee41f3e5
 ms.service: multiple
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm;cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b5f828f90c73f5fd0356fde4e71c11d4d27ec794
+
 
 ---
 # <a name="create-and-connect-to-a-mysql-database-in-azure"></a>Creare e connettersi a un database MySQL in Azure
@@ -37,7 +41,7 @@ Per creare un database MySQL nel portale di Azure, seguire questa procedura:
    * **Nome database**: digitare un nome identificabile in modo univoco.
    * **Sottoscrizione**: scegliere la sottoscrizione da usare.
    * **Tipo database**: selezionare **Condiviso** per i livelli gratuiti o a basso costo oppure **Dedicato** per ottenere risorse dedicate. 
-   * **Gruppo di risorse**: aggiungere il database MySQL a un [gruppo di risorse](resource-group-overview.md) esistente o inserirlo in un nuovo gruppo. Le risorse all'interno dello stesso gruppo possono essere facilmente gestite insieme.
+   * **Gruppo di risorse**: aggiungere il database MySQL a un [gruppo di risorse](azure-resource-manager/resource-group-overview.md) esistente o inserirlo in un nuovo gruppo. Le risorse all'interno dello stesso gruppo possono essere facilmente gestite insieme.
    * **Località**: scegliere una località vicina. Quando si aggiunge il database a un gruppo di risorse esistente, l'utente è vincolato alla località del gruppo di risorse.
    * **Piano tariffario**: fare clic su **Piano tariffario**, quindi selezionare un'opzione di prezzo (il livello **Mercurio** è gratuito) e fare clic su **Seleziona**. 
    * **Note legali**: fare clic su **Note legali**, esaminare i dettagli dell'acquisto e fare clic su **Acquista**.
@@ -64,7 +68,7 @@ Per visualizzare le informazioni di connessione del nuovo database MySQL, fare c
 
 È ora possibile usare le informazioni di connessione in qualsiasi app Web. [Qui](https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-mysql)è disponibile un esempio che illustra come usare le informazioni di connessione da una semplice app PHP.
 
-## <a name="connect-a-laravel-web-app-(from-the-php-get-started-tutorial)"></a>Connettere un'app web Laravel (dall'esercitazione introduttiva di PHP)
+## <a name="connect-a-laravel-web-app-from-the-php-get-started-tutorial"></a>Connettere un'app web Laravel (dall'esercitazione introduttiva di PHP)
 Si supponga che sia stata completata l'esercitazione [Creare, configurare e distribuire un'app Web PHP in Azure](app-service-web/app-service-web-php-get-started.md) e che un'app Web [Laravel](https://www.laravel.com/) sia in esecuzione su Azure. È possibile aggiungere funzionalità di database all'app Laravel in modo semplice. Seguire questa procedura:
 
 > [!NOTE]
@@ -82,12 +86,13 @@ Si supponga che sia stata completata l'esercitazione [Creare, configurare e dist
         DB_PASSWORD=<PASSWORD_from_properties_blade>
    
    > [!NOTE]
-   > Nel pannello **Proprietà** il nome del database MySQL potrebbe non essere l'unico visualizzato nel campo **Nome database**. È consigliabile controllare il parametro Database nel campo **Stringa di connessione** . 
+   > Nel pannello **Proprietà** il nome del database MySQL potrebbe non essere l'unico visualizzato nel campo **Nome database**. È consigliabile controllare il parametro Database nel campo **Stringa di connessione** .    
    > 
    > ![Creare un database MySQL in Azure: in corso](./media/store-php-create-mysql-database/connect-db-1-database-name.png)
    > 
    > 
-2. A questo punto, il modo più rapido per verificare di avere accesso a MySQL è usare lo [scaffolding di autenticazione predefinito di Laravel](https://laravel.com/docs/5.2/authentication#authentication-quickstart). Nel terminale della riga di comando eseguire i comandi seguenti dalla directory radice dell'app Laravel:
+2. A questo punto, il modo più rapido per verificare di avere accesso a MySQL è usare lo [scaffolding di autenticazione predefinito di Laravel](https://laravel.com/docs/5.2/authentication#authentication-quickstart). 
+   Nel terminale della riga di comando eseguire i comandi seguenti dalla directory radice dell'app Laravel:
    
          php artisan migrate
          php artisan make:auth
@@ -136,6 +141,9 @@ Si supponga che sia stata completata l'esercitazione [Creare, configurare e dist
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/php/).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

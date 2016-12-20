@@ -1,12 +1,12 @@
 ---
 title: Codifica avanzata con Media Encoder Standard | Microsoft Docs
-description: Questo argomento illustra come eseguire la codifica avanzata personalizzando i set di impostazioni delle attività di Media Encoder Standard. Questo argomento illustra come usare Media Services .NET SDK per creare un processo e un'attività di codifica. Illustra anche come specificare set di impostazioni personalizzati per il processo di codifica.
+description: "Questo argomento illustra come eseguire la codifica avanzata personalizzando i set di impostazioni delle attività di Media Encoder Standard. Questo argomento illustra come usare Media Services .NET SDK per creare un processo e un&quot;attività di codifica. Illustra anche come specificare set di impostazioni personalizzati per il processo di codifica."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: ec95392f-d34a-4c22-a6df-5274eaac445b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e85bc8a1e9193474fa3c9ef3f19ead25f314ecac
+
 
 ---
 # <a name="advanced-encoding-with-media-encoder-standard"></a>Codifica avanzata con Media Encoder Standard
@@ -29,7 +33,7 @@ Vengono dimostrati i set di impostazioni personalizzati che eseguono le attivit�
 * [Disabilitare il deinterlacciamento automatico](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
 * [Impostazioni predefinite solo audio](media-services-custom-mes-presets-with-dotnet.md#audio_only)
 
-## <a name="<a-id="encoding_with_dotnet"></a>encoding-with-media-services-.net-sdk"></a><a id="encoding_with_dotnet"></a>Codifica con l’SDK .NET dei servizi multimediali
+## <a name="a-idencodingwithdotnetaencoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Codifica con l’SDK .NET dei servizi multimediali
 Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguenti attività: 
 
 * Creare un processo di codifica.
@@ -230,7 +234,7 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
         }
 
 
-## <a name="<a-id="thumbnails"></a>generate-thumbnails"></a><a id="thumbnails"></a>Generare anteprime
+## <a name="a-idthumbnailsagenerate-thumbnails"></a><a id="thumbnails"></a>Generare anteprime
 Questa sezione illustra come personalizzare un set di impostazioni che genera anteprime. Il set di impostazioni definito di seguito contiene informazioni su come codificare il file, nonché le informazioni necessarie per generare le anteprime. È possibile usare uno dei set di impostazioni per MES documentati [qui](https://msdn.microsoft.com/library/mt269960.aspx) e aggiungere il codice che genera le anteprime.  
 
 > [!NOTE]
@@ -242,7 +246,7 @@ Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/librar
 
 Assicurarsi di esaminare la sezione [Considerazioni](media-services-custom-mes-presets-with-dotnet.md#considerations) .
 
-### <a name="<a-id="json"></a>json-preset"></a><a id="json"></a>Set di impostazioni JSON
+### <a name="a-idjsonajson-preset"></a><a id="json"></a>Set di impostazioni JSON
     {
       "Version": 1.0,
       "Codecs": [
@@ -342,7 +346,7 @@ Assicurarsi di esaminare la sezione [Considerazioni](media-services-custom-mes-p
     }
 
 
-### <a name="<a-id="xml"></a>xml-preset"></a><a id="xml"></a>Set di impostazioni XML
+### <a name="a-idxmlaxml-preset"></a><a id="xml"></a>Set di impostazioni XML
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -427,16 +431,16 @@ Si applicano le considerazioni seguenti:
     
     È possibile combinare e associare le notazioni a piacimento.
     
-    Inoltre, Start supporta anche una Macro speciale: {Best}, che tenta di determinare il primo fotogramma "interessante" del contenuto NOTA: (Step e Range vengono ignorati quando Start è impostato su {Best})
+    Inoltre, Inizio supporta anche una Macro speciale: {Best}, che tenta di determinare il primo fotogramma "interessante" della NOTA contenuto: (Passaggio e Intervallo vengono ignorati quando Inizio è impostato su {Best})
   * Impostazioni predefinite: Start: {Best}
 * Il formato di output deve essere specificato in modo esplicito per ogni formato immagine: Jpg/Png/BmpFormat. Quando è presente, MES collegherà JpgVideo a JpgFormat e così via. OutputFormat presenta una nuova Macro specifica di codec di immagine : {Index}, che deve essere presente (una volta e una sola volta) per i formati immagine.
 
-## <a name="<a-id="trim_video"></a>trim-a-video-(clipping)"></a><a id="trim_video"></a>Tagliare un video (ritaglio)
+## <a name="a-idtrimvideoatrim-a-video-clipping"></a><a id="trim_video"></a>Tagliare un video (ritaglio)
 Questa sezione descrive la modifica di set di impostazioni del codificatore per tagliare o ritagliare il video di input quando l'input è un file in formato intermedio o su richiesta. Il codificatore può anche essere usato per tagliare o ritagliare un asset acquisito o archiviato da un flusso in tempo reale. Per i relativi dettagli, vedere [questo blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
 Per tagliare i video, è possibile eseguire un’impostazione predefinita MES documentata [qui](https://msdn.microsoft.com/library/mt269960.aspx) e modificare l'elemento **Sources** (come illustrato di seguito). Il valore di StartTime deve corrispondere ai timestamp assoluti del video di input. Ad esempio, se il primo fotogramma del video di input ha un timestamp di 12:00:10.000, il valore di StartTime deve essere di almeno 12:00:10.000 o superiore. Nell'esempio seguente, si presuppone che il video di input abbia un timestamp iniziale pari a zero. **Sources** deve essere posizionato nella parte superiore dello schema. 
 
-### <a name="<a-id="json"></a>json-preset"></a><a id="json"></a>Set di impostazioni JSON
+### <a name="a-idjsonajson-preset"></a><a id="json"></a>Set di impostazioni JSON
     {
       "Version": 1.0,
       "Sources": [
@@ -673,7 +677,7 @@ Per tagliare i video, è possibile eseguire un’impostazione predefinita MES do
       </Outputs>
     </Preset>
 
-## <a name="<a-id="overlay"></a>create-an-overlay"></a><a id="overlay"></a>Creare una sovrimpressione
+## <a name="a-idoverlayacreate-an-overlay"></a><a id="overlay"></a>Creare una sovrimpressione
 Il Media Encoder Standard consente di sovrapporre un'immagine a un video esistente. Attualmente, sono supportati i seguenti formati: png, jpg, gif e bmp. Il set di impostazioni definito di seguito è un esempio di base di una sovrimpressione video.
 
 Oltre a definire un file del set di impostazioni, è anche necessario indicare a Servizi multimediali quale file dell'asset corrisponde all'immagine da sovrapporre e quale file contiene il video di origine sul quale sovrapporre l'immagine. Il file video deve essere il file **primario** . 
@@ -827,7 +831,7 @@ L'esempio .NET precedente definisce due funzioni: **UploadMediaFilesFromFolder**
       </Outputs>
     </Preset>
 
-## <a name="<a-id="silent_audio"></a>insert-a-silent-audio-track-when-input-has-no-audio"></a><a id="silent_audio"></a>Inserire una traccia audio silenziosa quando l'input è privo di audio
+## <a name="a-idsilentaudioainsert-a-silent-audio-track-when-input-has-no-audio"></a><a id="silent_audio"></a>Inserire una traccia audio silenziosa quando l'input è privo di audio
 Per impostazione predefinita, se si invia al codificatore un input che contiene solo video e nessun audio, l'asset di output contiene file di soli dati video. Alcuni lettori non possono gestire flussi di output di questo tipo. In tal caso, è possibile usare questa impostazione per forzare l'aggiunta di una traccia audio silenziosa all'output da parte del codificatore.
 
 Per forzare la generazione di un asset contenente una traccia audio silenziosa da parte del codificatore quando l'input è privo di audio, specificare il valore "InsertSilenceIfNoAudio".
@@ -850,7 +854,7 @@ Per forzare la generazione di un asset contenente una traccia audio silenziosa d
       <Bitrate>96</Bitrate>
     </AACAudio>
 
-## <a name="<a-id="deinterlacing"></a>disable-auto-de-interlacing"></a><a id="deinterlacing"></a>Disabilitare il deinterlacciamento automatico
+## <a name="a-iddeinterlacingadisable-auto-de-interlacing"></a><a id="deinterlacing"></a>Disabilitare il deinterlacciamento automatico
 I clienti non devono eseguire alcuna operazione se desiderano che il contenuto interlacciato sia automaticamente deinterlacciato. Quando il deinterlacciamento automatico è attivato (impostazione predefinita) il MES rileva automaticamente i fotogrammi interlacciati e deinterlaccia solo i fotogrammi contrassegnati come interlacciati.
 
 È possibile disattivare il deinterlacciamento automatico. Questa opzione non è consigliata.
@@ -878,7 +882,7 @@ I clienti non devono eseguire alcuna operazione se desiderano che il contenuto i
     </Sources>
 
 
-## <a name="<a-id="audio_only"></a>audio-only-presets"></a><a id="audio_only"></a>Impostazioni predefinite solo audio
+## <a name="a-idaudioonlyaaudio-only-presets"></a><a id="audio_only"></a>Impostazioni predefinite solo audio
 In questa sezione vengono illustrate due impostazioni predefinite MES solo audio: Audio AAC e Audio AAC di buona qualità.
 
 ### <a name="aac-audio"></a>Audio ACC
@@ -934,6 +938,9 @@ In questa sezione vengono illustrate due impostazioni predefinite MES solo audio
 ## <a name="see-also"></a>Vedere anche
 [Panoramica sulla codifica dei servizi multimediali](media-services-encode-asset.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

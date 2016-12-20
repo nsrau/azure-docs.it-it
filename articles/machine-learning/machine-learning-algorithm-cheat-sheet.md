@@ -1,13 +1,13 @@
 ---
-title: Foglio informativo sugli algoritmi di Machine Learning | Microsoft Docs
+title: Foglio informativo sugli algoritmi di Machine Learning | Documentazione Microsoft
 description: Un foglio informativo sugli algoritmi di Machine Learning stampabile aiuta a scegliere il giusto algoritmo per il proprio modello predittivo in Azure Machine Learning Studio.
 keywords: foglio informativo sugli algoritmi, foglio informatico, algoritmo di machine learning
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: brohrer
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: e1dc31ec-1acb-463f-ba77-de565d4ddf4d
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,14 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2016
 ms.author: brohrer;garye
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 412c9ceb2e063a253f3e9d03dcf2735a7f373e15
+
 
 ---
-# Foglio informativo sugli algoritmi di Machine Learning per Microsoft Azure Machine Learning Studio
+# <a name="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio"></a>Foglio informativo sugli algoritmi di Machine Learning per Microsoft Azure Machine Learning Studio
 Il **foglio informativo sugli algoritmi di Microsoft Azure Machine Learning** aiuta a scegliere il giusto algoritmo per un modello di analisi predittiva.
 
 [Azure Machine Learning Studio](https://studio.azureml.net/) include una grande libreria di algoritmi delle famiglie di ***regressione***, ***classificazione***, ***clustering*** e ***rilevamento anomalie***. Ognuno è progettato per risolvere un tipo diverso di problema di Machine Learning.
 
-## Download: foglio informativo sugli algoritmi di Machine Learning
+## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Download: foglio informativo sugli algoritmi di Machine Learning
 **Download del foglio informativo: [Foglio informativo sugli algoritmi di Machine Learning (27,9 x 43,2 cm)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**.
 
 ![Foglio informativo sugli algoritmi di Machine Learning: informazioni su come scegliere un algoritmo di Machine Learning.][cheat-sheet]
@@ -36,10 +40,10 @@ Scaricare e stampare il foglio informativo sugli algoritmi di Machine Learning i
 > 
 > 
 
-## Altre informazioni sugli algoritmi
+## <a name="more-help-with-algorithms"></a>Altre informazioni sugli algoritmi
 * Per una discussione più approfondita sui diversi tipi di algoritmi di Machine Learning, sul loro utilizzo e su come utilizzare questo foglio informativo per la scelta dell'algoritmo corretto, vedere [Come scegliere gli algoritmi di Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
-* Per un elenco per categoria degli algoritmi di Machine Learning disponibili in Machine Learning Studio, vedere [Initialize Model][initialize-model] nella Guida degli algoritmi e dei moduli di Machine Learning Studio.
-* Per un elenco completo degli algoritmi e dei moduli disponibili in Machine Learning Studio, vedere [Elenco moduli A-Z di Machine Learning Studio][a-z-list] nella Guida degli algoritmi e dei moduli di Machine Learning Studio.
+* Per un elenco per categoria degli algoritmi di Machine Learning disponibili in Machine Learning Studio, vedere [Initialize Model][initialize-model] (Modello di inizializzazione) nella Guida degli algoritmi e dei moduli di Machine Learning Studio.
+* Per un elenco completo degli algoritmi e dei moduli disponibili in Machine Learning Studio, vedere [A-Z list of Machine Learning Studio modules][a-z-list] (Elenco in ordine alfabetico dei moduli di Machine Learning Studio) nella Guida degli algoritmi e dei moduli di Machine Learning Studio.
 * Per scaricare e stampate un diagramma che offra una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -84,4 +88,8 @@ Scaricare e stampare il foglio informativo sugli algoritmi di Machine Learning i
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

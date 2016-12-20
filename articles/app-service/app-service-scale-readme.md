@@ -1,13 +1,13 @@
 ---
-title: 'Servizio app di Azure: scalabilità delle applicazioni nel servizio app'
-description: Informazioni su vantaggi e svantaggi della scalabilità dell'applicazione nel servizio app.
+title: "Servizio app di Azure: scalabilità delle applicazioni nel servizio app"
+description: "Informazioni su vantaggi e svantaggi della scalabilità dell&quot;applicazione nel servizio app."
 keywords: servizio app, servizio app di azure, scala, scalabile, piano di servizio app, costo del servizio app
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: btardif
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: f403c971-4450-432b-8cea-3eeb426c0147
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: byvinyal
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ec043a9e01aca2e843e50cef8b90328ba1939ea5
+
 
 ---
-# <a name="azure-app-service:-scaling-app-service-applications"></a>Servizio app di Azure: scalabilità delle applicazioni nel servizio app
+# <a name="azure-app-service-scaling-app-service-applications"></a>Servizio app di Azure: scalabilità delle applicazioni nel servizio app
 Le applicazioni ospitate nel servizio app di Azure possono [raggiungere un livello di scalabilità elevato](https://azure.microsoft.com/blog/canadian-broadcasting-corporation-radio-canada-leverage-azure-for-smooth-election-coverage/).
 Tuttavia, la scalabilità di un'applicazione è un problema complesso senza una soluzione valida per tutti i casi. Per ridimensionare correttamente l'applicazione occorre considerare 3 aree chiave che contribuiranno al corretto funzionamento delle applicazioni:
 
@@ -38,6 +42,9 @@ Questa sezione consente di comprendere tutti i fattori e definire una strategia 
 
 [!INCLUDE [app-service-blueprint-scaling-app-service-applications](../../includes/app-service-blueprint-scaling-app-service-applications.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

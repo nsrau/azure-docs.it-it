@@ -2,11 +2,11 @@
 title: Codec e formati del flusso di lavoro Premium del codificatore multimediale | Microsoft Docs
 description: Questo argomento offre una panoramica dei codec e dei formati del flusso di lavoro Premium del codificatore multimediale
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erik43
-editor: ''
-
+editor: 
+ms.assetid: b197fce8-3b9b-4189-8d08-486810c0426f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako;anilmur
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d7e3bc0ac0c1f0c6bbce0cc25fe7a8df2cc53836
+
 
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Codec e formati del flusso di lavoro Premium del codificatore multimediale
@@ -32,10 +36,10 @@ Questo documento include un elenco dei codec e dei formati di file di input e ou
 
 **flusso di lavoro Premium del codificatore multimediale** supporta i sottotitoli codificati descritti in [questa](#closed_captioning) sezione. 
 
-## <a name="<a-id="input_formats"></a>media-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>Codec e formati di input del flusso di lavoro Premium del codificatore multimediale
+## <a name="a-idinputformatsamedia-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>Codec e formati di input del flusso di lavoro Premium del codificatore multimediale
 La seguente sezione include l'elenco dei codec e dei formati di file supportati come input da questo processore di contenuti multimediali.
 
-### <a name="input-container/file-formats"></a>Contenitore di input/formati di file
+### <a name="input-containerfile-formats"></a>Contenitore di input/formati di file
 * Adobe® Flash® F4V
 * MXF/SMPTE 377M
 * GXF
@@ -64,10 +68,10 @@ La seguente sezione include l'elenco dei codec e dei formati di file supportati 
 * Windows Media Audio
 * WAV/PCM
 
-## <a name="<a-id="output_format"></a>media-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>Codec e formati di output del flusso di lavoro Premium del codificatore multimediale
+## <a name="a-idoutputformatamedia-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>Codec e formati di output del flusso di lavoro Premium del codificatore multimediale
 La seguente sezione include l'elenco dei codec e dei formati di file supportati come output da questo processore di contenuti multimediali.
 
-### <a name="output-container/file-formats"></a>Contenitore di output/formati di file
+### <a name="output-containerfile-formats"></a>Contenitore di output/formati di file
 * Adobe® Flash® F4V
 * MXF (OP1a, XDCAM e AS02)
 * DPP (incluso AS11)
@@ -96,7 +100,7 @@ La seguente sezione include l'elenco dei codec e dei formati di file supportati 
 * MP3 (MPEG-1 Audio Layer 3)
 * Windows Media Audio
 
-## <a name="<a-id="closed_captioning"></a>support-for-closed-captioning"></a><a id="closed_captioning"></a>Supporto per sottotitoli codificati
+## <a name="a-idclosedcaptioningasupport-for-closed-captioning"></a><a id="closed_captioning"></a>Supporto per sottotitoli codificati
 In ingresso, il **flusso di lavoro Premium del codificatore multimediale** supporta:
 
 1. File SCC
@@ -124,6 +128,9 @@ Se il video di input non contiene i sottotitoli codificati, l'asset di output co
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Come creare gruppi di sicurezza di rete in modalità classica mediante l'interfaccia della riga di comando di Azure | Microsoft Docs
-description: Informazioni su come creare e distribuire gruppi di sicurezza di rete in modalità classica mediante l'interfaccia della riga di comando di Azure
+title: "Come creare gruppi di sicurezza di rete in modalità classica mediante l&quot;interfaccia della riga di comando di Azure | Documentazione Microsoft"
+description: "Informazioni su come creare e distribuire gruppi di sicurezza di rete in modalità classica mediante l&quot;interfaccia della riga di comando di Azure"
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: 17d98950-5fbb-4653-bef6-d822ab37541e
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d3ea05a1f98dbec4adc9ceea17ece00b19200107
+
 
 ---
-# Come creare gruppi di sicurezza di rete (in modalità classica) nell'interfaccia della riga di comando di Azure
+# <a name="how-to-create-nsgs-classic-in-the-azure-cli"></a>Come creare gruppi di sicurezza di rete (in modalità classica) nell'interfaccia della riga di comando di Azure
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
@@ -30,7 +34,7 @@ In questo articolo viene illustrato il modello di distribuzione classica. È ino
 
 I comandi di esempio dell'interfaccia della riga di comando di Azure riportati di seguito prevedono un ambiente semplice già creato in base allo scenario precedente. Se si desidera eseguire i comandi illustrati in questo documento, creare prima di tutto l'ambiente di testing [creando una rete virtuale](virtual-networks-create-vnet-classic-cli.md).
 
-## Come creare il gruppo di sicurezza di rete per la subnet front-end
+## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Come creare il gruppo di sicurezza di rete per la subnet front-end
 Per creare un gruppo di sicurezza di rete denominato **NSG-FrontEnd** in base allo scenario precedente, seguire questa procedura.
 
 1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
@@ -141,7 +145,7 @@ Per creare un gruppo di sicurezza di rete denominato **NSG-FrontEnd** in base al
         info:    Creating a network security group "NSG-FrontEnd"
         info:    network nsg subnet add command OK
 
-## Come creare il gruppo di sicurezza di rete per la subnet back-end
+## <a name="how-to-create-the-nsg-for-the-back-end-subnet"></a>Come creare il gruppo di sicurezza di rete per la subnet back-end
 Per creare un gruppo di sicurezza di rete denominato *NSG-BackEnd* in base allo scenario precedente, seguire questa procedura.
 
 1. Eseguire il comando **`azure network nsg create`** per creare un gruppo di sicurezza di rete.
@@ -231,4 +235,9 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-BackEnd* in base allo 
         info:    Creating a network security group "NSG-BackEndX"
         info:    network nsg subnet add command OK
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

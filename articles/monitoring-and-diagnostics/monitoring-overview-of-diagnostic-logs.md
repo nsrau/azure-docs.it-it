@@ -1,12 +1,12 @@
 ---
 title: Panoramica dei log di diagnostica di Azure | Microsoft Docs
-description: Informazioni sui log di diagnostica di Azure e su come usarli per comprendere gli eventi che si verificano all'interno di una risorsa di Azure.
+description: Informazioni sui log di diagnostica di Azure e su come usarli per comprendere gli eventi che si verificano all&quot;interno di una risorsa di Azure.
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: fe8887df-b0e6-46f8-b2c0-11994d28e44f
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: johnkem; magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 61a54b3cb170b7961a4900d2c353bea48ae83d64
+
 
 ---
 # <a name="overview-of-azure-diagnostic-logs"></a>Panoramica dei log di diagnostica di Azure
@@ -35,7 +39,7 @@ I log di diagnostica per le risorse non di calcolo vengono configurati tramite l
 * Categorie di log da inviare.
 * Tempo di conservazione di ogni categoria di log in un account di archiviazione. Se impostato su zero giorni, i log vengono conservati all'infinito. In caso contrario, questo valore può variare da 1 a 2147483647. Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un account di archiviazione è disabilitata, ad esempio se sono selezionate solo le opzioni Hub eventi o OMS, i criteri di conservazione non hanno alcun effetto.
 
-È possibile configurare facilmente queste impostazioni usando il pannello Diagnostica della risorsa nel portale di Azure, i comandi di Azure PowerShell o l'interfaccia della riga di comando oppure l' [API REST di Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx).
+È possibile configurare facilmente queste impostazioni usando il pannello Diagnostica della risorsa nel portale di Azure, i comandi di Azure PowerShell o l'interfaccia della riga di comando oppure l'[API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
 > [!WARNING]
 > Le metriche e i log di diagnostica per le risorse di calcolo, ad esempio le macchine virtuali o Service Fabric, usano un [meccanismo distinto per la configurazione e la selezione degli output](../azure-diagnostics.md).
@@ -43,7 +47,7 @@ I log di diagnostica per le risorse non di calcolo vengono configurati tramite l
 > 
 
 ## <a name="how-to-enable-collection-of-diagnostic-logs"></a>Come abilitare la raccolta dei log di diagnostica
-La raccolta dei log di diagnostica può essere abilitata durante la creazione di una risorsa o successivamente usando il pannello della risorsa nel portale. È anche possibile abilitare i log di diagnostica in qualsiasi momento usando i comandi di Azure PowerShell o l'interfaccia della riga di comando oppure l'API REST di Insights.
+La raccolta dei log di diagnostica può essere abilitata durante la creazione di una risorsa o successivamente usando il pannello della risorsa nel portale. È anche possibile abilitare i log di diagnostica in qualsiasi momento usando i comandi di Azure PowerShell o l'interfaccia della riga di comando oppure l'API REST di Monitoraggio di Azure.
 
 > [!TIP]
 > Le istruzioni riportate di seguito potrebbero non essere direttamente applicabili a tutte le risorse. Vedere i collegamenti dello schema nella parte inferiore della pagina per comprendere i possibili passaggi speciali per determinati tipi di risorse.
@@ -53,7 +57,7 @@ La raccolta dei log di diagnostica può essere abilitata durante la creazione di
 [Questo articolo illustra come usare il modello di una risorsa per abilitare le impostazioni di diagnostica durante la creazione di una risorsa](monitoring-enable-diagnostic-logs-using-template.md)
 
 ### <a name="enable-diagnostic-logs-in-the-portal"></a>Abilitare i log di diagnostica nel portale
-È possibile abilitare i log di diagnostica nel portale di Azure quando si creano alcuni tipi di risorsa. A tale scopo, seguire questa procedura:
+È possibile abilitare i log di diagnostica nel portale di Azure quando si creano tipi di risorse di calcolo abilitando l'estensione di Diagnostica di Azure per Windows o Linux:
 
 1. Andare a **Nuovo** e scegliere la risorsa a cui si è interessati.
 2. Dopo aver configurato le impostazioni di base e aver selezionato una dimensione, nel pannello **Impostazioni**, in **Monitoraggio** selezionare **Abilitato** e scegliere un account di archiviazione in cui archiviare i log di diagnostica. Per l'invio della diagnostica a un account di archiviazione vengono addebitate le normali tariffe dati per l'archiviazione e le transazioni.
@@ -61,7 +65,7 @@ La raccolta dei log di diagnostica può essere abilitata durante la creazione di
    ![Abilitare i log di diagnostica durante la creazione della risorsa](./media/monitoring-overview-of-diagnostic-logs/enable-portal-new.png)
 3. Fare clic su **OK** e creare la risorsa.
 
-Per abilitare i log di diagnostica nel portale di Azure dopo la creazione di una risorsa, seguire questa procedura:
+Per le risorse non di calcolo, è possibile abilitare i log di diagnostica nel portale di Azure dopo aver creato una risorsa eseguendo queste operazioni:
 
 1. Passare al pannello della risorsa e aprire il pannello **Diagnostica** .
 2. Fare clic su **Sì** e selezionare un account di archiviazione e/o un hub eventi.
@@ -70,7 +74,7 @@ Per abilitare i log di diagnostica nel portale di Azure dopo la creazione di una
 3. In **Log** selezionare le **categorie di log** da raccogliere o trasmettere.
 4. Fare clic su **Save**.
 
-### <a name="enable-diagnostic-logs-programmatically"></a>Abilitare i log di diagnostica a livello di codice
+### <a name="enable-diagnostic-logs-via-powershell"></a>Abilitare i log di diagnostica tramite PowerShell
 Per abilitare i log di diagnostica tramite i cmdlet di Azure PowerShell, usare i comandi seguenti:
 
 Per abilitare la memorizzazione dei log di diagnostica in un account di archiviazione, usare questo comando:
@@ -98,6 +102,7 @@ Per consentire l'invio dei log di diagnostica all'area di lavoro di Log Analytic
 
 È possibile combinare questi parametri per abilitare più opzioni di output.
 
+### <a name="enable-diagnostic-logs-via-cli"></a>Abilitare i log di diagnostica tramite l'interfaccia della riga di comando
 Per abilitare i log di diagnostica tramite l'interfaccia della riga di comando di Azure, usare i comandi seguenti:
 
 Per abilitare la memorizzazione dei log di diagnostica in un account di archiviazione, usare questo comando:
@@ -125,7 +130,8 @@ Per consentire l'invio dei log di diagnostica all'area di lavoro di Log Analytic
 
 È possibile combinare questi parametri per abilitare più opzioni di output.
 
-Per modificare le impostazioni di diagnostica usando l'API REST di Insights, vedere [questo documento](https://msdn.microsoft.com/library/azure/dn931931.aspx).
+### <a name="enable-diagnostic-logs-via-rest-api"></a>Abilitare i log di diagnostica tramite l'API REST
+Per modificare le impostazioni di diagnostica usando l'API REST di Monitoraggio di Azure, vedere [questo documento](https://msdn.microsoft.com/library/azure/dn931931.aspx).
 
 ## <a name="manage-diagnostic-settings-in-the-portal"></a>Gestire le impostazioni di diagnostica nel portale
 Per garantire che tutte le risorse siano configurate correttamente con le impostazioni di diagnostica, è possibile accedere al pannello **Monitoraggio** nel portale e aprire il pannello **Log di diagnostica**.
@@ -146,6 +152,8 @@ Facendo clic su una risorsa vengono visualizzati tutti i log memorizzati nell'ac
 > I log di diagnostica verranno visualizzati soltanto in questa vista e saranno disponibili per il download se le impostazioni di diagnostica sono state configurate per salvare i log in un account di archiviazione.
 > 
 > 
+
+Quando si fa clic su collegamento per le **impostazioni di diagnostica**, verrà visualizzato il pannello Impostazioni di diagnostica, in cui è possibile abilitare, disabilitare o modificare tali impostazioni per la risorsa selezionata.
 
 ## <a name="supported-services-and-schema-for-diagnostic-logs"></a>Servizi supportati e schema per i log di diagnostica
 Lo schema per i log di diagnostica varia a seconda della risorsa e della categoria di log. Di seguito sono riportati i servizi supportati e il relativo schema.
@@ -196,9 +204,12 @@ Lo schema per i log di diagnostica varia a seconda della risorsa e della categor
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Trasmettere log di diagnostica di Azure a **Hub eventi**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-* [Modificare le impostazioni di diagnostica usando l'API REST di Insights](https://msdn.microsoft.com/library/azure/dn931931.aspx)
+* [Modificare le impostazioni di diagnostica usando l'API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 * [Analyze the logs with OMS Log Analytics (Analizzare i log con OMS Log Analytics)](../log-analytics/log-analytics-azure-storage-json.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
 title: Monitorare lo stato dei processi mediante .NET
-description: Informazioni su come usare il codice del gestore eventi per tenere traccia dello stato dei processi e inviare aggiornamenti di stato. L'esempio di codice è scritto in C# e usa l'SDK di Servizi multimediali per .NET.
+description: "Informazioni su come usare il codice del gestore eventi per tenere traccia dello stato dei processi e inviare aggiornamenti di stato. L&quot;esempio di codice è scritto in C# e usa l&quot;SDK di Servizi multimediali per .NET."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: ee720ed6-8ce5-4434-b6d6-4df71fca224e
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1420c9dbaba1767526fa86a27aacb4fa3b2e2fe0
+
 
 ---
-# Monitorare lo stato dei processi mediante .NET
+# <a name="monitor-job-progress-using-net"></a>Monitorare lo stato dei processi mediante .NET
 > [!div class="op_single_selector"]
 > * [Portale](media-services-portal-check-job-progress.md)
 > * [.NET](media-services-check-job-progress.md)
@@ -26,7 +30,7 @@ ms.author: juliako
 
 Quando si esegue un processo, spesso è necessario monitorarne l'avanzamento. È possibile controllare l'avanzamento definendo un gestore eventi StateChanged (come descritto in questo argomento) o usando l'archiviazione code di Azure per monitorare le notifiche dei processi di Servizi multimediali (come descritto in [questo](media-services-dotnet-check-job-progress-with-queues.md) argomento).
 
-## Definire un gestore eventi StateChanged per monitorare lo stato di un processo
+## <a name="define-statechanged-event-handler-to-monitor-job-progress"></a>Definire un gestore eventi StateChanged per monitorare lo stato di un processo
 Nell'esempio di codice seguente viene definito il gestore dell'evento StateChanged, che monitora l'avanzamento del processo e ne indica lo stato aggiornato. Il codice consente inoltre di definire il metodo helper LogJobStop, che registra i dettagli degli errori.
 
     private static void StateChanged(object sender, JobStateChangedEventArgs e)
@@ -106,12 +110,17 @@ Nell'esempio di codice seguente viene definito il gestore dell'evento StateChang
 
 
 
-## Passaggio successivo
+## <a name="next-step"></a>Passaggio successivo
 Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Ripetere il training di un servizio Web classico | Microsoft Docs
-description: Informazioni su come ripetere il training di un modello a livello di codice e aggiornare il servizio Web per l'uso del modello appena sottoposto a training in Azure Machine Learning.
+title: Ripetere il training di un servizio Web classico | Documentazione Microsoft
+description: Informazioni su come ripetere il training di un modello a livello di codice e aggiornare il servizio Web per l&quot;uso del modello appena sottoposto a training in Azure Machine Learning.
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: vDonGlover
 manager: raymondlaghaeian
-editor: ''
-
+editor: 
+ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,15 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 139980b62aee440ac5f4160e83c7a5eafb32eec2
+
 
 ---
 # <a name="retrain-a-classic-web-service"></a>Ripetere il training di un servizio Web classico
 Il servizio Web predittivo distribuito è l'endpoint dei punteggi predefinito. Gli endpoint predefiniti vengono mantenuti sincronizzati con gli esperimenti di training e di assegnazione dei punteggi di origine, quindi il modello con training per l'endpoint predefinito non può essere sostituito. Per ripetere il training del servizio Web è necessario aggiungere un nuovo endpoint al servizio Web. 
 
-> [!NOTE]
-> I passaggi di questa procedura dettagliata presuppongono che il servizio Web sia stato creato tramite quanto indicato in [Ripetere il training dei modelli di Machine Learning a livello di codice](machine-learning-retrain-models-programmatically.md).
+## <a name="prerequisites"></a>Prerequisiti
+È necessario impostare un esperimento di training e un esperimento predittivo come illustrato in [Ripetere il training dei modelli di Machine Learning in modo programmatico](machine-learning-retrain-models-programmatically.md). 
+
+> [!IMPORTANT]
+> L'esperimento predittivo deve essere distribuito come servizio Web di Machine Learning classico. 
 > 
 > 
+
+Per altre informazioni sulla distribuzione di servizi Web, vedere [Distribuire un servizio Web di Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
 ## <a name="add-a-new-endpoint"></a>Aggiungere un nuovo endpoint
 Il servizio Web predittivo distribuito contiene un endpoint di assegnazione dei punteggi predefinito che viene mantenuto sincronizzato con il modello con training originale con esperimenti di training e di assegnazione dei punteggi. Per aggiornare il servizio Web con un nuovo modello con training, è necessario creare un nuovo endpoint di assegnazione dei punteggi. 
@@ -30,7 +39,7 @@ Il servizio Web predittivo distribuito contiene un endpoint di assegnazione dei 
 Per creare un nuovo endpoint dei punteggi, nel servizio Web predittivo che può essere aggiornato con il modello con training:
 
 > [!NOTE]
-> Assicurarsi di aggiungere l'endpoint al servizio Web predittivo, non al servizio Web di training. Se sono stati distribuiti correttamente sia un servizio Web di training che uno predittivo, verranno elencati due servizi Web separati. Il servizio Web predittivo deve terminare con "[predictive exp.]".
+> Assicurarsi di aggiungere l'endpoint al servizio Web predittivo, non al servizio Web di training. Se sono stati distribuiti correttamente sia un servizio Web di training che uno predittivo, verranno visualizzati due servizi Web elencati separatamente. Il servizio Web predittivo deve terminare con "[predictive exp.]".
 > 
 > 
 
@@ -45,7 +54,7 @@ Esistono tre modi per aggiungere un nuovo endpoint a un servizio Web:
 
 ### <a name="use-the-microsoft-azure-web-services-portal-to-add-an-endpoint"></a>Usare il portale dei servizi Web di Microsoft Azure per aggiungere un endpoint
 1. In Machine Learning Studio fare clic su Web Services (Servizi Web) nella colonna di spostamento a sinistra.
-2. Nella parte inferiore del dashboard dei servizi Web, fare clic su **Manage endpoints preview**(Gestisci anteprima endpoint).
+2. Nella parte inferiore del dashboard dei servizi Web, fare clic su **Manage endpoints preview** (Gestisci anteprima endpoint).
 3. Fare clic su **Aggiungi**.
 4. Immettere un nome e una descrizione per il nuovo endpoint. Selezionare il livello di registrazione e indicare se i dati di esempio sono abilitati. Per altre informazioni sulla registrazione, vedere [Abilitare la registrazione per i servizi Web di Machine Learning](machine-learning-web-services-logging.md).
 
@@ -56,7 +65,7 @@ Esistono tre modi per aggiungere un nuovo endpoint a un servizio Web:
 4. In Nome fare clic su **Census Model [predictive exp.]**.
 5. Nella parte inferiore della pagina fare clic su **Aggiungi endpoint**. Per altre informazioni sull'aggiunta di endpoint, vedere [Creazione di endpoint](machine-learning-create-endpoint.md). 
 
-## <a name="update-the-added-endpoint’s-trained-model"></a>Aggiornare il modello con training dell'endpoint aggiunto
+## <a name="update-the-added-endpoints-trained-model"></a>Aggiornare il modello con training dell'endpoint aggiunto
 Per completare il processo di ripetizione del training, è necessario aggiornare il modello con training del nuovo endpoint aggiunto.
 
 * Se il nuovo endpoint è stato aggiunto usando il portale di Azure classico, è possibile fare clic sul nome del nuovo endpoint nel portale, quindi sul collegamento **UpdateResource** per ottenere l'URL necessario per aggiornare il modello dell'endpoint.
@@ -66,9 +75,9 @@ Per recuperare l'URL del percorso:
 
 1. Copiare e incollare l'URL nel browser.
 2. Fare clic sul collegamento Aggiorna risorsa.
-3. Copiare l'URL POST della richiesta PATCH. ad esempio:
+3. Copiare l'URL POST della richiesta PATCH. Ad esempio:
    
-       PATCH URL: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
+     PATCH URL: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
 
 Ora è possibile usare il modello con training per aggiornare l'endpoint dei punteggi creato prima.
 
@@ -134,10 +143,12 @@ Usando le API per la ripetizione del training, è possibile aggiornare il modell
 * Ripetizione periodica del training del modello con nuovi dati.
 * Distribuzione di un modello ai clienti per fare in modo che possano ripetere il training del modello con i propri dati.
 
-Passaggi successivi
-
+## <a name="next-steps"></a>Passaggi successivi
 [Risoluzione dei problemi relativi alla ripetizione del training di un servizio Web classico di Azure Machine Learning](machine-learning-troubleshooting-retraining-models.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

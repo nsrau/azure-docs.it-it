@@ -1,12 +1,12 @@
 ---
-title: Criteri di conservazione dei report di Azure Active Directory | Microsoft Docs
+title: Criteri di conservazione dei report di Azure Active Directory | Documentazione Microsoft
 description: Criteri di conservazione dei dati di report in Azure Active Directory
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/07/2016
 ms.author: dhanyahk
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7e0e1ede67509de9f47293eb7257ecc56c0df93d
+
 
 ---
-# Criteri di conservazione dei report di Azure Active Directory
+# <a name="azure-active-directory-report-retention-policies"></a>Criteri di conservazione dei report di Azure Active Directory
 *Questo documento fa parte della [guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).*
 
 I report di Azure Active Directory (Azure AD) conservano i dati per un determinato numero di giorni, come indicato di seguito.
@@ -47,4 +51,9 @@ I report di Azure Active Directory (Azure AD) conservano i dati per un determina
 | Utilizzo dispositivi RMS |30 giorni |
 | Utilizzo applicazioni abilitate per RMS |30 giorni |
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

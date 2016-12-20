@@ -1,19 +1,23 @@
 ---
-title: Utilizzare snapshot incrementali per il backup e il ripristino di macchine virtuali di Azure | Microsoft Docs
+title: Usare snapshot incrementali per il backup e il ripristino di macchine virtuali di Azure | Microsoft Docs
 description: Creare una soluzione personalizzata per il backup e il ripristino dei dischi di macchine virtuali di Azure tramite snapshot incrementali.
 services: storage
 documentationcenter: na
 author: aungoo-msft
 manager: tadb
 editor: tysonn
-
+ms.assetid: 3524b987-bd65-4e35-83e7-fbc2136643e5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 11/17/2016
 ms.author: aungoo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9ade78c954ca6443354b198c7141b6fb5c88afdb
+
 
 ---
 # <a name="back-up-azure-virtual-machine-disks-with-incremental-snapshots"></a>Backup dei dischi delle macchine virtuali di Azure con snapshot incrementali
@@ -22,7 +26,7 @@ Archiviazione di Azure offre la possibilità di creare snapshot di BLOB. Gli sna
 
 I dischi delle macchine virtuali di Azure vengono archiviati come BLOB di pagine in Archiviazione di Azure. Poiché in questo articolo viene trattata la strategia di backup per i dischi delle macchine virtuali, si farà riferimento agli snapshot nel contesto dei BLOB di pagine. Per ulteriori informazioni sugli snapshot, fare riferimento a [Creazione di uno snapshot di un BLOB](https://msdn.microsoft.com/library/azure/hh488361.aspx).
 
-## <a name="what-is-a-snapshot?"></a>Che cos'è uno snapshot?
+## <a name="what-is-a-snapshot"></a>Che cos'è uno snapshot?
 Uno snapshot di BLOB è una versione di sola lettura di un BLOB acquisito in un determinato momento. Una volta creato uno snapshot, è possibile leggerlo, copiarlo o eliminarlo, ma non modificarlo. Gli snapshot consentono di eseguire il backup di un BLOB così com'è in un determinato momento. Fino alla versione 2015-04-05 di REST era possibile copiare snapshot completi. Con la versione 2015-07-08 di REST e le versioni successive è anche possibile copiare snapshot incrementali.
 
 ## <a name="full-snapshot-copy"></a>Copia di snapshot completi
@@ -116,6 +120,9 @@ Altre informazioni sulla creazione di snapshot di un BLOB e la pianificazione de
 * [Creazione di uno snapshot di un BLOB](https://msdn.microsoft.com/library/azure/hh488361.aspx)
 * [Pianificare l'infrastruttura di backup delle VM](../backup/backup-azure-vms-introduction.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

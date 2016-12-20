@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 11/11/2016
 ms.author: banders;magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: adbf803f2c3b34948bcc37c7fcceb1c3af2e6dc7
-ms.openlocfilehash: 741e83f3ce790378d5f699bb27775457f8a63256
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 16af0b801cd6955a8edc88aae5dd5199f4f2a713
 
 
 ---
@@ -177,6 +177,6 @@ Se sono state aggiunte soluzioni a OMS, è possibile visualizzarle nella console
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

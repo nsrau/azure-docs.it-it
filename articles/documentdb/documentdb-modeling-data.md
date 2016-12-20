@@ -1,13 +1,13 @@
 ---
-title: Modellazione dei dati in Azure DocumentDB | Microsoft Docs
+title: Modellazione dei dati in Azure DocumentDB | Documentazione Microsoft
 description: Informazioni sulla modellazione dei dati per DocumentDB un database di documenti NoSQL.
 keywords: modellazione di dati
 services: documentdb
 author: kiratp
 manager: jhubbard
 editor: mimig1
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 69521eb9-590b-403c-9b36-98253a4c88b5
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/05/2016
 ms.author: kipandya
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ba0dbc287964aa700cbded834e4b5da09144efe8
+
 
 ---
-# <a name="modeling-data-in-documentdb#"></a>Modellazione dei dati in DocumentDB
+# <a name="modeling-data-in-documentdb"></a>Modellazione dei dati in DocumentDB
 Anche se con i database privi di schema, come Azure DocumentDB, è facilissimo accettare le modifiche apportate al modello di dati, è consigliabile valutare bene tutto ciò che riguarda i dati. 
 
 Come verranno archiviati i dati? In che modo l'applicazione recupererà i dati e ne eseguirà la query? L'applicazione esegue un'intensa attività di lettura o un'intensa attività di scrittura? 
@@ -30,7 +34,7 @@ Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 * Come si esprimono le relazioni tra i dati in un database non relazionale?
 * Quando si incorporano i dati e quando si creano i collegamenti ai dati?
 
-## <a name="embedding-data##"></a>Incorporamento dei dati
+## <a name="embedding-data"></a>Incorporamento dei dati
 Quando si inizia a modellare i dati in un archivio documenti, ad esempio DocumentDB, cercare di considerare le entità come **documenti autosufficienti** rappresentati in JSON.
 
 Prima di proseguire, è meglio fare un passo indietro e pensare a come sia possibile modellare qualcosa in un database relazionale, un argomento con cui molti hanno già familiarità. L'esempio seguente mostra come una persona possa essere archiviata in un database relazionale. 
@@ -82,11 +86,11 @@ Denormalizzando i dati, è possibile che l'applicazione debba eseguire meno quer
 ### <a name="when-to-embed"></a>Quando eseguire l'incorporamento
 In generale, usare i modelli di dati incorporati quando:
 
-* * Esistono relazioni **contains** tra le entità.
-* * Esistono relazioni **one-to-few** tra le entità.
-* * Esistono dati incorporati che **cambiano raramente**.
-* * Esistono dati incorporati che non aumenteranno **senza limiti**.
-* * Esistono dati incorporati che sono parte **integrante** dei dati in un documento.
+* - Esistono relazioni **contains** tra le entità.
+* - Esistono relazioni **one-to-few** tra le entità.
+* - Esistono dati incorporati che **cambiano raramente**.
+* - Esistono dati incorporati che non aumenteranno **senza limiti**.
+* - Esistono dati incorporati che sono parte **integrante** dei dati in un documento.
 
 > [!NOTE]
 > I modelli di dati denormalizzati garantiscono di solito prestazioni di **lettura** più elevate.
@@ -182,7 +186,7 @@ Questo potrebbe essere il portafoglio azionario di una persona. Abbiamo scelto d
 
 Il titolo *zaza* potrebbe essere scambiato diverse centinaia di volte in un solo giorno e migliaia di utenti potrebbero avere *zaza* nel portafoglio. Con un modello di dati come quello sopra sarebbe necessario aggiornare diverse migliaia di documenti del portfolio più volte al giorno e la scalabilità del sistema non sarebbe efficiente. 
 
-## <a name="<a-id="refer"></a>referencing-data##"></a><a id="Refer"></a>Dati di riferimento
+## <a name="a-idreferareferencing-data"></a><a id="Refer"></a>Dati di riferimento
 L'incorporamento dei dati quindi funziona senza problemi in molti casi, ma è evidente che in altri scenari la denormalizzazione dei dati è più che altro causa di problemi. Cosa si può fare dunque? 
 
 Le relazioni tra entità non devono essere necessariamente create in un database relazionale. In un database di documenti è possibile tenere in un documento informazioni che sono effettivamente correlate ai dati in altri documenti. Questo non è assolutamente un consiglio a creare sistemi che sarebbero più appropriati per un database relazionale in DocumentDB o in qualsiasi altro database di documenti, tuttavia le relazioni semplici vanno bene e possono essere molto utili. 
@@ -230,7 +234,7 @@ L'aspetto negativo di questo approccio diventa però immediatamente evidente se 
 > 
 > 
 
-### <a name="what-about-foreign-keys?"></a>Chiavi esterne
+### <a name="what-about-foreign-keys"></a>Chiavi esterne
 Poiché attualmente non esiste alcun vincolo, chiave esterna o altro, le relazioni esistenti tra i documenti sono di fatto "collegamenti deboli" e non verranno verificate dal database. Per essere certi che i dati a cui un documento fa riferimento esistano davvero, è necessario operare nell'applicazione oppure tramite trigger lato server o stored procedure in DocumentDB.
 
 ### <a name="when-to-reference"></a>Quando fare riferimento
@@ -246,7 +250,7 @@ In generale, usare i modelli di dati denormalizzati quando:
 > 
 > 
 
-### <a name="where-do-i-put-the-relationship?"></a>Dove inserire le relazioni
+### <a name="where-do-i-put-the-relationship"></a>Dove inserire le relazioni
 La crescita della relazione aiuterà a determinare in quale documento archiviare il riferimento.
 
 Il codice JSON seguente modella editori e libri.
@@ -288,7 +292,7 @@ Cambiando un po' le cose, si ottiene un modello che rappresenta sempre gli stess
 
 Nell'esempio precedente, abbiamo eliminato la raccolta illimitata nel documento dell'editore. Ora abbiamo un solo riferimento all'editore nel documento di ogni libro.
 
-### <a name="how-do-i-model-many:many-relationships?"></a>Come modellare le relazioni many:many?
+### <a name="how-do-i-model-manymany-relationships"></a>Come modellare le relazioni many:many?
 In un database relazionale le relazioni *molti a molti* vengono spesso modellate con le tabelle join, che creano un join dei record delle altre tabelle. 
 
 ![Unione di tabelle](./media/documentdb-modeling-data/join-table.png)
@@ -329,7 +333,7 @@ Tenere in considerazione quanto segue.
 
 Se avessimo un autore, sapremmo immediatamente quali libri ha scritto e, al contrario, se avessimo caricato un documento relativo ai libri, conosceremmo gli ID degli autori. Questo evita la query intermedia sulla tabella join riducendo il numero di round trip al server che l'applicazione deve eseguire. 
 
-## <a name="<a-id="wrapup"></a>hybrid-data-models##"></a><a id="WrapUp"></a>Modelli di dati ibridi
+## <a name="a-idwrapupahybrid-data-models"></a><a id="WrapUp"></a>Modelli di dati ibridi
 Come si è visto, sia l'incorporamento (o denormalizzazione) che il riferimento (o normalizzazione) ai dati presentano vantaggi e compromessi. 
 
 Ma non è sempre necessario scegliere uno dei due. È anche possibile mischiare un po' le cose. 
@@ -342,9 +346,9 @@ Si consideri il codice JSON seguente.
     {
         "id": "a1",
         "firstName": "Thomas",
-        "lastName": "Andersen",     
+        "lastName": "Andersen",        
         "countOfBooks": 3,
-        "books": ["b1", "b2", "b3"],
+         "books": ["b1", "b2", "b3"],
         "images": [
             {"thumbnail": "http://....png"}
             {"profile": "http://....png"}
@@ -389,7 +393,7 @@ Nell'esempio ci sono valori di **aggregati precalcolati** per evitare la costosa
 
 DocumentDB supporta le transazioni in più documenti e pertanto consente di usare **transazioni con documenti multipli**. Molti archivi NoSQL non possono eseguire le transazioni nei documenti e, a causa di questa limitazione, inducono a prendere decisioni di progettazione, ad esempio "incorporare sempre tutto". Con DocumentDB, è possibile usare trigger lato server, o stored procedure, che inseriscono i libri e aggiornano gli autori in una sola transazionale ACID. Ora non è **necessario** incorporare tutto in un documento solo per essere sicuri che i dati rimangano coerenti.
 
-## <a name="<a-name="nextsteps"></a>next-steps"></a><a name="NextSteps"></a>Passaggi successivi
+## <a name="a-namenextstepsanext-steps"></a><a name="NextSteps"></a>Passaggi successivi
 Il concetto principale espresso in questo articolo è che la modellazione dei dati in un ambiente senza schema è più importante che mai. 
 
 Come non esiste un solo modo per rappresentare i dati in una schermata, così non esiste un solo modo per modellare i dati. È necessario conoscere l'applicazione e come genererà, userà ed elaborerà i dati. Quindi, applicando alcune delle linee guida presentate qui, è possibile iniziare a creare un modello che risponda alle esigenze immediate dell'applicazione. Quando le applicazioni devono essere modificate, è possibile sfruttare la flessibilità di un database senza schema per accettare la modifica e far evolvere facilmente il modello di dati. 
@@ -402,6 +406,9 @@ Per sapere come condividere i dati in più partizioni, fare riferimento a [Parti
 
 E infine, per informazioni aggiuntive sulla modellazione di dati e il partizionamento orizzontale per le applicazioni multi-tenant, consultare [Scalabilità di un'applicazione multi-tenant con Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

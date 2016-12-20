@@ -1,12 +1,12 @@
 ---
 title: Servizio app di Azure e impatto sui servizi di Azure esistenti
-description: Viene illustrato come il nuovo servizio app di Azure e le relative funzionalità influiscono sui servizi esistenti in Azure.
+description: "Viene illustrato come il nuovo servizio app di Azure e le relative funzionalità influiscono sui servizi esistenti in Azure."
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: yochay
 manager: nirma
-editor: ''
-
+editor: 
+ms.assetid: 86c6a292-3c33-49f4-890c-89cc0321b397
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,17 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2016
 ms.author: yochayk
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 295ee5a3c067010059a0435a8867eb8f4137ccbb
+
 
 ---
-# Servizio app di Azure e i servizi di Azure esistenti
+# <a name="azure-app-service-and-existing-azure-services"></a>Servizio app di Azure e i servizi di Azure esistenti
 Questo articolo illustra le modifiche ai servizi di Azure esistenti come parte delle modifiche introdotte al fine di raggruppare vari servizi di Azure nel [servizio app di Azure](https://azure.microsoft.com/services/app-service/), una nuova offerta integrata.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## Panoramica
-Il [servizio app di Azure](https://azure.microsoft.com/services/app-service/) è un servizio cloud nuovo ed esclusivo che consente agli sviluppatori di creare app per dispositivi mobili e Web per qualsiasi piattaforma e dispositivo. Il servizio app viene offerto come soluzione integrata progettata per snellire le ripetitive procedure di scrittura del codice, integrarsi con i sistemi aziendali e SaaS e automatizzare i processi aziendali, adattandosi al contempo alle esigenze di sicurezza, affidabilità e scalabilità.
+## <a name="overview"></a>Panoramica
+[servizio app di Azure](https://azure.microsoft.com/services/app-service/) è un servizio cloud nuovo ed esclusivo che consente agli sviluppatori di creare app per dispositivi mobili e Web per qualsiasi piattaforma e dispositivo. Il servizio app viene offerto come soluzione integrata progettata per snellire le ripetitive procedure di scrittura del codice, integrarsi con i sistemi aziendali e SaaS e automatizzare i processi aziendali, adattandosi al contempo alle esigenze di sicurezza, affidabilità e scalabilità.
 
-Il servizio app riunisce i servizi di Azure esistenti [Siti Web](https://azure.microsoft.com/services/websites/), [Servizi mobili](https://azure.microsoft.com/services/mobile-services/) e [Servizi Biztalk](https://azure.microsoft.com/services/biztalk-services/) in un unico servizio combinato, a cui sono state aggiunte nuove funzionalità avanzate. Il servizio app consente di ospitare i seguenti tipi di app:
+Il servizio app riunisce i servizi di Azure esistenti [Siti Web](https://azure.microsoft.com/services/websites/), [Servizi mobili](https://azure.microsoft.com/services/mobile-services/) e [Servizi Biztalk](https://azure.microsoft.com/services/biztalk-services/) in un unico servizio combinato a cui sono state aggiunte nuove funzionalità avanzate.  Il servizio app consente di ospitare i seguenti tipi di app:
 
 * App Web
 * App per dispositivi mobili
@@ -45,12 +49,12 @@ La tabella seguente illustra la corrispondenza tra i servizi di Azure esistenti 
 <tr class="odd">
 <td align="left">Siti Web di Azure</td>
 <td align="left">App Web</td>
-<td align="left"><li>Per quanto riguarda Siti Web di Azure, le modifiche si riducono esclusivamente al cambio di nome da Siti Web ad app Web.
+<td align="left"><li>Per quanto riguarda Siti Web di Azure, le modifiche si riducono esclusivamente al cambio di nome da Siti Web ad App Web.
 <p><li>Tutte le istanze esistenti di Siti Web sono ora app Web nel servizio app.</p>
 <p><li>È possibile accedere ai siti web esistenti tramite il <a href="http://go.microsoft.com/fwlink/?LinkId=529715">portale di Azure</a>, in cui tutti i siti Web esistenti saranno visualizzati sotto <em>App Web</em>.</p>
-<p><li>Il <em>Piano di hosting Web</em> è ora <em>Piano di servizio app</em>. Un <em>Piano di servizio app</em> può ospitare qualsiasi tipo di servizio app, ad esempio app Web, mobili, logiche o API.</p>
+<p><li><em>Piano di hosting Web</em> è ora <em>Piano di servizio app</em>. Un <em>piano di servizio app</em> può ospitare qualsiasi tipo di servizio app, ad esempio app Web, per dispositivi mobili, per la logica o per le API.</p>
 <p><li>App Web del servizio app di Azure si trova ora in stato di disponibilità generale.</p>
-<p><li><a href="http://azure.microsoft.com/services/app-service/web/">Altre informazioni sul servizio app Web</a>.</p></td>
+<p><li><a href="http://azure.microsoft.com/services/app-service/web/">Altre informazioni su App Web</a>.</p></td>
 </tr>
 <tr class="even">
 <td align="left">Servizi mobili di Azure</td>
@@ -66,7 +70,7 @@ La tabella seguente illustra la corrispondenza tra i servizi di Azure esistenti 
 <td align="left">App per le API</td>
 <td align="left">
 <p><li>App per le API è un nuovo tipo di app nel servizio app, che consente di creare e usare API nel cloud con estrema facilità.</p>
-<p><li><a href="http://azure.microsoft.com/services/app-service/api/">Altre informazioni sulle app per le API</a>.</p></td>
+<p><li><a href="http://azure.microsoft.com/services/app-service/api/">Altre informazioni su App per le API</a>.</p></td>
 </tr>
 <tr class="even">
 <td align="left"></td>
@@ -88,4 +92,9 @@ La tabella seguente illustra la corrispondenza tra i servizi di Azure esistenti 
 
 Per altre informazioni, vedere la [documentazione relativa al servizio app](https://azure.microsoft.com/documentation/services/app-service/).
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

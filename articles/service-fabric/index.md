@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: c6d2e90a58359c809a2b01a97cb25c12f7600008
-ms.openlocfilehash: 798d728c163df6647fb2607e14decf880f43b053
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 2ec806d0d00f8db624820fac72083f3e53b89dfa
 
 ---
 #<a name="service-fabric-documentation"></a>Documentazione di Service Fabric
@@ -158,7 +158,7 @@ Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica la
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Informazioni di riferimento sull'API REST di Service Fabric</p>
+                        <p>API REST di Service Fabric</p>
                     </div>
                 </div>
             </div>
@@ -178,6 +178,6 @@ Scaricare la documentazione di Service Fabric </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

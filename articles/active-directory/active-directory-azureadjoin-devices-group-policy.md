@@ -1,13 +1,13 @@
 ---
-title: Connettere dispositivi aggiunti a un dominio ad Azure AD in ambiente Windows 10 | Microsoft Docs
-description: Illustra agli amministratori come configurare Criteri di gruppo per abilitare i dispositivi per l'aggiunta a un dominio nella rete dell'organizzazione.
+title: Connettere dispositivi aggiunti a un dominio ad Azure AD in ambiente Windows 10 | Documentazione Microsoft
+description: Illustra agli amministratori come configurare Criteri di gruppo per abilitare i dispositivi per l&quot;aggiunta a un dominio nella rete dell&quot;organizzazione.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: 2ff29f3e-5325-4f43-9baa-6ae8d6bad3e3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0e211d13e41526157f6ade960b86f31dfdfd54e1
+
 
 ---
 # <a name="connect-domain-joined-devices-to-azure-ad-for-windows-10-experiences"></a>Connettere dispositivi aggiunti a un dominio ad Azure AD in ambiente Windows 10
@@ -50,10 +54,10 @@ Per abilitare l'accesso condizionale, è possibile creare impostazioni di Criter
 * System Center Configuration Manager versione 1509 per la Technical Preview relativa agli scenari di Passport.
 
 ## <a name="deployment-instructions"></a>Istruzioni per la distribuzione
-### <a name="step-1:-deploy-azure-active-directory-connect"></a>Passaggio 1: Distribuzione di Azure Active Directory Connect
+### <a name="step-1-deploy-azure-active-directory-connect"></a>Passaggio 1: Distribuzione di Azure Active Directory Connect
 Azure AD Connect consente di effettuare il provisioning dei computer locali come oggetti dispositivo nel cloud. Per distribuire Azure AD Connect, vedere la sezione "Installare Azure AD Connect" nell'articolo [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md#install-azure-ad-connect).
 
-* Se è stata eseguita un'[installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md), anziché l'installazione rapida, seguire la procedura **Creare un punto di connessione del servizio nell'istanza di Active Directory locale**, descritta di seguito.
+* Se è stata eseguita un'[installazione personalizzata di Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md), anziché l'installazione rapida, seguire la procedura **Creare un punto di connessione del servizio nell'istanza di Active Directory locale**, descritta di seguito.
 * Se è presente una configurazione federata con Azure AD prima dell'installazione di Azure AD Connect, ad esempio se in precedenza è stato distribuito Active Directory Federation Services (AD FS), seguire la procedura **Configurare regole attestazioni per AD FS** descritta di seguito.
 
 #### <a name="create-a-service-connection-point-in-on-premises-active-directory"></a>Creare un punto di connessione del servizio nell'istanza di Active Directory locale
@@ -117,7 +121,7 @@ Nel server AD FS o in una sessione connessa al server AD FS eseguire questi coma
 > 
 > 
 
-### <a name="step-2:-configure-automatic-device-registration-via-group-policy-in-active-directory"></a>Passaggio 2: Configurare la registrazione automatica dei dispositivi tramite Criteri di gruppo in Active Directory
+### <a name="step-2-configure-automatic-device-registration-via-group-policy-in-active-directory"></a>Passaggio 2: Configurare la registrazione automatica dei dispositivi tramite Criteri di gruppo in Active Directory
 È possibile usare Criteri di gruppo di Active Directory per configurare i dispositivi Windows 10 aggiunti a un dominio per la registrazione automatica in Azure AD.
 
 > [!NOTE]
@@ -137,6 +141,9 @@ Nel server AD FS o in una sessione connessa al server AD FS eseguire questi coma
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -3,8 +3,8 @@ title: Creare un servizio di bilanciamento del carico Internet in Resource Manag
 description: Informazioni su come creare un servizio di bilanciamento del carico Internet in Gestione risorse mediante l&quot;interfaccia della riga di comando di Azure.
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: a8bcdd88-f94c-4537-8143-c710eaa86818
@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
-ms.author: sewhee
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 7d8eb43fea032eb5aa72f448a7c1022be62a7b81
-ms.openlocfilehash: 1591fba6475ba52b6e187ba7ccb14fd2fdfc63c8
+ms.sourcegitcommit: f3e06e802e8a5b98afc96747dee0db4173da40f0
+ms.openlocfilehash: 9129a1941b138e6f3e9b2d0359015a20fd819565
 
 ---
-# <a name="creating-an-internal-load-balancer-using-the-azure-cli"></a>Creazione di un servizio di bilanciamento del carico interno tramite l'interfaccia della riga di comando di Azure
+# <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Creazione di un servizio di bilanciamento del carico Internet tramite l'interfaccia della riga di comando di Azure
 
 > [!div class="op_single_selector"]
 > * [Portale](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -311,6 +311,6 @@ azure network lb delete --resource-group nrprg --name nrplb
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

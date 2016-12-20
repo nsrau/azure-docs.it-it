@@ -2,11 +2,11 @@
 title: Codifica avanzata con il flusso di lavoro Premium del codificatore multimediale | Microsoft Docs
 description: Informazioni su come codificare con il flusso di lavoro Premium del codificatore multimediale. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 0f4c87ac-810a-4d42-8df8-923dff2016c6
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4e86a871222def32f7779f07eab5668d366ecec4
+
 
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Codifica avanzata con il flusso di lavoro Premium del codificatore multimediale
@@ -59,12 +63,13 @@ Vengono eseguiti questi passaggi:
    
     b. In secondo luogo, l'asset video.
    
-    **Nota**: l'asset del flusso di lavoro deve essere aggiunto all'attività prima dell'asset di file multimediale. La stringa di configurazione per questa attività deve essere vuota. 
+    **Nota**: l'asset del flusso di lavoro deve essere aggiunto all'attività prima dell'asset di file multimediale. 
+   La stringa di configurazione per questa attività deve essere vuota. 
 6. Inviare il processo di codifica.
 
 Di seguito è riportato un esempio completo. Per informazioni sulla configurazione per lo sviluppo con Servizi multimediali per .NET, vedere [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md).
 
-    using System; 
+     using System; 
     using System.Linq;
     using System.Configuration;
     using System.IO;
@@ -272,6 +277,9 @@ Per domande relative al codificatore Premium, inviare mepd tramite un messaggio 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
