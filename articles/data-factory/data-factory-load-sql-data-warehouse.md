@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 12/16/2016
 ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -78,32 +78,33 @@ Questo articolo include istruzioni dettagliate per spostare dati in Azure SQL Da
   
     Per ottenere la velocità effettiva migliore possibile, è necessario eseguire la copia tramite un utente di SQL Data Warehouse appartenente alla classe di risorse `xlargerc`.  Per eseguire questa operazione, seguire la procedura descritta in [Esempio di modifica della classe di risorse di un utente](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example).  
 * Creare lo schema della tabella di destinazione nel database di Azure SQL Data Warehouse eseguendo l'istruzione DDL seguente:
-  
-        CREATE TABLE [dbo].[lineitem]
-        (
-            [L_ORDERKEY] [bigint] NOT NULL,
-            [L_PARTKEY] [bigint] NOT NULL,
-            [L_SUPPKEY] [bigint] NOT NULL,
-            [L_LINENUMBER] [int] NOT NULL,
-            [L_QUANTITY] [decimal](15, 2) NULL,
-            [L_EXTENDEDPRICE] [decimal](15, 2) NULL,
-            [L_DISCOUNT] [decimal](15, 2) NULL,
-            [L_TAX] [decimal](15, 2) NULL,
-            [L_RETURNFLAG] [char](1) NULL,
-            [L_LINESTATUS] [char](1) NULL,
-            [L_SHIPDATE] [date] NULL,
-            [L_COMMITDATE] [date] NULL,
-            [L_RECEIPTDATE] [date] NULL,
-            [L_SHIPINSTRUCT] [char](25) NULL,
-            [L_SHIPMODE] [char](10) NULL,
-            [L_COMMENT] [varchar](44) NULL
-        )
-        WITH
-        (
-            DISTRIBUTION = ROUND_ROBIN,
-            CLUSTERED COLUMNSTORE INDEX
-        )
 
+    ```SQL  
+    CREATE TABLE [dbo].[lineitem]
+    (
+        [L_ORDERKEY] [bigint] NOT NULL,
+        [L_PARTKEY] [bigint] NOT NULL,
+        [L_SUPPKEY] [bigint] NOT NULL,
+        [L_LINENUMBER] [int] NOT NULL,
+        [L_QUANTITY] [decimal](15, 2) NULL,
+        [L_EXTENDEDPRICE] [decimal](15, 2) NULL,
+        [L_DISCOUNT] [decimal](15, 2) NULL,
+        [L_TAX] [decimal](15, 2) NULL,
+        [L_RETURNFLAG] [char](1) NULL,
+        [L_LINESTATUS] [char](1) NULL,
+        [L_SHIPDATE] [date] NULL,
+        [L_COMMITDATE] [date] NULL,
+        [L_RECEIPTDATE] [date] NULL,
+        [L_SHIPINSTRUCT] [char](25) NULL,
+        [L_SHIPMODE] [char](10) NULL,
+        [L_COMMENT] [varchar](44) NULL
+    )
+    WITH
+    (
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
+    )
+    ```
 Dopo aver completato i passaggi preliminari necessari, è ora possibile configurare l'attività di copia mediante la Copia guidata.
 
 ## <a name="launch-copy-wizard"></a>Avviare la Copia guidata
@@ -139,67 +140,66 @@ Nella pagina **Proprietà** :
 2. Selezionare l'opzione **Esegui una volta**.   
 3. Fare clic su **Next**.  
 
-![Copia guidata: pagina delle proprietà](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
+    ![Copia guidata: pagina delle proprietà](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
 ## <a name="step-2-configure-source"></a>Passaggio 2: Configurare l'origine
 Questa sezione illustra i passaggi per configurare l'origine: BLOB di Azure contenente i file della voce TPC-H da 1 TB.
 
-Selezionare **Archivio BLOB di Azure** come archivio dati e fare clic su **Avanti**.
+1. Selezionare **Archivio BLOB di Azure** come archivio dati e fare clic su **Avanti**.
 
-![Copia guidata: selezionare la pagina di origine](media/data-factory-load-sql-data-warehouse/select-source-connection.png)
+    ![Copia guidata: selezionare la pagina di origine](media/data-factory-load-sql-data-warehouse/select-source-connection.png)
 
-Immettere le informazioni di connessione per l'account di archiviazione BLOB di Azure e fare clic su **Avanti**.
+2. Immettere le informazioni di connessione per l'account di archiviazione BLOB di Azure e fare clic su **Avanti**.
 
-![Copia guidata: informazioni sulla connessione di origine](media/data-factory-load-sql-data-warehouse/source-connection-info.png)
+    ![Copia guidata: informazioni sulla connessione di origine](media/data-factory-load-sql-data-warehouse/source-connection-info.png)
 
-Scegliere la **cartella** contenente i file della voce TPC-H e fare clic su **Avanti**.
+3. Scegliere la **cartella** contenente i file della voce TPC-H e fare clic su **Avanti**.
 
-![Copia guidata: selezionare la cartella di input](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
+    ![Copia guidata: selezionare la cartella di input](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
 
-Facendo clic su **Avanti** le impostazioni del formato di file vengono rilevate automaticamente.  Verificare che il delimitatore di colonna sia "|" anziché la virgola predefinita ",".  Dopo aver visualizzato l'anteprima dei dati fare clic su **Avanti**.
+4. Facendo clic su **Avanti** le impostazioni del formato di file vengono rilevate automaticamente.  Verificare che il delimitatore di colonna sia "|" anziché la virgola predefinita ",".  Dopo aver visualizzato l'anteprima dei dati fare clic su **Avanti**.
 
-![Copia guidata: impostazioni di formattazione file](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
+    ![Copia guidata: impostazioni di formattazione file](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
 
 ## <a name="step-3-configure-destination"></a>Passaggio 3: Configurare la destinazione
 Questa sezione illustra come configurare la destinazione: tabella `lineitem` nel database di Azure SQL Data Warehouse.
 
-Selezionare **Azure SQL Data Warehouse** come archivio di destinazione e fare clic su **Avanti**.
+1. Selezionare **Azure SQL Data Warehouse** come archivio di destinazione e fare clic su **Avanti**.
 
-![Copia guidata: selezionare l'archivio dati di destinazione](media/data-factory-load-sql-data-warehouse/select-destination-data-store.png)
+    ![Copia guidata: selezionare l'archivio dati di destinazione](media/data-factory-load-sql-data-warehouse/select-destination-data-store.png)
 
-Immettere le informazioni di connessione per Azure SQL Data Warehouse.  Assicurarsi di specificare l'utente membro del ruolo `xlargerc` (per informazioni dettagliate, vedere la sezione **Prerequisiti**), quindi fare clic su **Avanti**. 
+2. Immettere le informazioni di connessione per Azure SQL Data Warehouse.  Assicurarsi di specificare l'utente membro del ruolo `xlargerc` (per informazioni dettagliate, vedere la sezione **Prerequisiti**), quindi fare clic su **Avanti**. 
 
-![Copia guidata: informazioni sulla connessione di destinazione](media/data-factory-load-sql-data-warehouse/destination-connection-info.png)
+    ![Copia guidata: informazioni sulla connessione di destinazione](media/data-factory-load-sql-data-warehouse/destination-connection-info.png)
 
-Scegliere la tabella di destinazione e fare clic su **Avanti**.
+3. Scegliere la tabella di destinazione e fare clic su **Avanti**.
 
-![Copia guidata: pagina del mapping della tabella](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
+    ![Copia guidata: pagina del mapping della tabella](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
 
-Accettare le impostazioni predefinite per il mapping della colonna e fare clic su **Avanti**.
+4. Accettare le impostazioni predefinite per il mapping della colonna e fare clic su **Avanti**.
 
-![Copia guidata: pagina del mapping dello schema](media/data-factory-load-sql-data-warehouse/schema-mapping.png)
+    ![Copia guidata: pagina del mapping dello schema](media/data-factory-load-sql-data-warehouse/schema-mapping.png)
 
 ## <a name="step-4-performance-settings"></a>Passaggio 4: Impostazioni relative alle prestazioni
+
 L'opzione **Allow polybase** (Consenti Polybase) è selezionata per impostazione predefinita.  Fare clic su **Avanti**.
 
 ![Copia guidata: pagina del mapping dello schema](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 
 ## <a name="step-5-deploy-and-monitor-load-results"></a>Passaggio 5: Distribuire e monitorare i risultati del caricamento
-Fare clic sul pulsante **Fine** per eseguire la distribuzione. 
+1. Fare clic sul pulsante **Fine** per eseguire la distribuzione. 
 
-![Copia guidata: pagina di riepilogo](media/data-factory-load-sql-data-warehouse/summary-page.png)
+    ![Copia guidata: pagina di riepilogo](media/data-factory-load-sql-data-warehouse/summary-page.png)
 
-Al termine della distribuzione, fare clic su `Click here to monitor copy pipeline` per monitorare l'avanzamento dell'esecuzione della copia.
+2. Al termine della distribuzione, fare clic su `Click here to monitor copy pipeline` per monitorare l'avanzamento dell'esecuzione della copia. Scegliere la pipeline di copia creata nell'elenco **Activity Windows** (Finestre attività).
 
-Scegliere la pipeline di copia creata nell'elenco **Activity Windows** (Finestre attività).
+    ![Copia guidata: pagina di riepilogo](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
 
-![Copia guidata: pagina di riepilogo](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
+    È possibile visualizzare i dettagli relativi all'esecuzione della copia in **Activity Window Explorer** (Esplora attività) nel riquadro di destra, inclusi il volume dei dati letti dall'origine e scritti nella destinazione, la durata e la velocità effettiva media dell'esecuzione.
 
-È possibile visualizzare i dettagli relativi all'esecuzione della copia in **Activity Window Explorer** (Esplora attività) nel riquadro di destra, inclusi il volume dei dati letti dall'origine e scritti nella destinazione, la durata e la velocità effettiva media dell'esecuzione.
+    Come si può notare dalla schermata seguente, la copia di 1 TB dall'archivio BLOB di Azure a SQL Data Warehouse ha richiesto 14 minuti, raggiungendo di fatto la velocità effettiva di 1,22 Gbps.
 
-Come si può notare dalla schermata seguente, la copia di 1 TB dall'archivio BLOB di Azure a SQL Data Warehouse ha richiesto 14 minuti, raggiungendo di fatto la velocità effettiva di 1,22 Gbps.
-
-![Copia guidata: finestra di dialogo operazione completata](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
+    ![Copia guidata: finestra di dialogo operazione completata](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 
 ## <a name="best-practices"></a>Procedure consigliate
 Di seguito sono elencate alcune procedure consigliate per l'esecuzione del database di Azure SQL Data Warehouse:

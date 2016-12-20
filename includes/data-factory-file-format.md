@@ -25,27 +25,30 @@ Se il formato è impostato su **TextFormat**, è possibile specificare le propri
 #### <a name="textformat-example"></a>Esempio di TextFormat
 L'esempio seguente illustra alcune delle proprietà del formato per TextFormat.
 
-    "typeProperties":
+```json
+"typeProperties":
+{
+    "folderPath": "mycontainer/myfolder",
+    "fileName": "myblobname",
+    "format":
     {
-        "folderPath": "mycontainer/myfolder",
-        "fileName": "myblobname"
-        "format":
-        {
-            "type": "TextFormat",
-            "columnDelimiter": ",",
-            "rowDelimiter": ";",
-            "quoteChar": "\"",
-            "NullValue": "NaN"
-            "firstRowAsHeader": true,
-            "skipLineCount": 0,
-            "treatEmptyAsNull": true
-        }
-    },
+        "type": "TextFormat",
+        "columnDelimiter": ",",
+        "rowDelimiter": ";",
+        "quoteChar": "\"",
+        "NullValue": "NaN",
+        "firstRowAsHeader": true,
+        "skipLineCount": 0,
+        "treatEmptyAsNull": true
+    }
+},
+```
 
 Per usare un escapeChar anziché un quoteChar, sostituire la riga con quoteChar con il seguente escapeChar:
 
-    "escapeChar": "$",
-
+```json
+"escapeChar": "$",
+```
 
 
 ### <a name="scenarios-for-using-firstrowasheader-and-skiplinecount"></a>Scenari di utilizzo di firstRowAsHeader e skipLineCount
@@ -56,10 +59,12 @@ Per usare un escapeChar anziché un quoteChar, sostituire la riga con quoteChar 
 ### <a name="specifying-avroformat"></a>Specifica di AvroFormat
 Se il formato è impostato su AvroFormat, non è necessario specificare proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
 
-    "format":
-    {
-        "type": "AvroFormat",
-    }
+```json
+"format":
+{
+    "type": "AvroFormat",
+}
+```
 
 Per usare il formato Avro in una tabella Hive, fare riferimento all' [esercitazione su Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
@@ -83,25 +88,61 @@ Ogni file contiene un solo oggetto o più oggetti con delimitatori di riga/conca
 
 **singolo oggetto** 
 
-    {
-        "time": "2015-04-29T07:12:20.9100000Z",
-        "callingimsi": "466920403025604",
-        "callingnum1": "678948008",
-        "callingnum2": "567834760",
-        "switch1": "China",
-        "switch2": "Germany"
-    }
+```json
+{
+    "time": "2015-04-29T07:12:20.9100000Z",
+    "callingimsi": "466920403025604",
+    "callingnum1": "678948008",
+    "callingnum2": "567834760",
+    "switch1": "China",
+    "switch2": "Germany"
+}
+```
 
 **JSON con delimitatori di riga** 
 
+```json
     {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
     {"time":"2015-04-29T07:13:21.0220000Z","callingimsi":"466922202613463","callingnum1":"123436380","callingnum2":"789037573","switch1":"US","switch2":"UK"}
     {"time":"2015-04-29T07:13:21.4370000Z","callingimsi":"466923101048691","callingnum1":"678901578","callingnum2":"345626404","switch1":"Germany","switch2":"UK"}
     {"time":"2015-04-29T07:13:22.0960000Z","callingimsi":"466922202613463","callingnum1":"789037573","callingnum2":"789044691","switch1":"UK","switch2":"Australia"}
     {"time":"2015-04-29T07:13:22.0960000Z","callingimsi":"466922202613463","callingnum1":"123436380","callingnum2":"789044691","switch1":"US","switch2":"Australia"}
+```
 
 **JSON concatenati**
 
+```json
+{
+    "time": "2015-04-29T07:12:20.9100000Z",
+    "callingimsi": "466920403025604",
+    "callingnum1": "678948008",
+    "callingnum2": "567834760",
+    "switch1": "China",
+    "switch2": "Germany"
+}
+{
+    "time": "2015-04-29T07:13:21.0220000Z",
+    "callingimsi": "466922202613463",
+    "callingnum1": "123436380",
+    "callingnum2": "789037573",
+    "switch1": "US",
+    "switch2": "UK"
+}
+{
+    "time": "2015-04-29T07:13:21.4370000Z",
+    "callingimsi": "466923101048691",
+    "callingnum1": "678901578",
+    "callingnum2": "345626404",
+    "switch1": "Germany",
+    "switch2": "UK"
+}
+```
+
+#### <a name="arrayofobjects-file-pattern"></a>Modello di file arrayOfObjects.
+Ogni file contiene una matrice di oggetti. 
+
+```json
+[
     {
         "time": "2015-04-29T07:12:20.9100000Z",
         "callingimsi": "466920403025604",
@@ -109,7 +150,7 @@ Ogni file contiene un solo oggetto o più oggetti con delimitatori di riga/conca
         "callingnum2": "567834760",
         "switch1": "China",
         "switch2": "Germany"
-    }
+    },
     {
         "time": "2015-04-29T07:13:21.0220000Z",
         "callingimsi": "466922202613463",
@@ -117,7 +158,7 @@ Ogni file contiene un solo oggetto o più oggetti con delimitatori di riga/conca
         "callingnum2": "789037573",
         "switch1": "US",
         "switch2": "UK"
-    }
+    },
     {
         "time": "2015-04-29T07:13:21.4370000Z",
         "callingimsi": "466923101048691",
@@ -125,83 +166,54 @@ Ogni file contiene un solo oggetto o più oggetti con delimitatori di riga/conca
         "callingnum2": "345626404",
         "switch1": "Germany",
         "switch2": "UK"
+    },
+    {
+        "time": "2015-04-29T07:13:22.0960000Z",
+        "callingimsi": "466922202613463",
+        "callingnum1": "789037573",
+        "callingnum2": "789044691",
+        "switch1": "UK",
+        "switch2": "Australia"
+    },
+    {
+        "time": "2015-04-29T07:13:22.0960000Z",
+        "callingimsi": "466922202613463",
+        "callingnum1": "123436380",
+        "callingnum2": "789044691",
+        "switch1": "US",
+        "switch2": "Australia"
+    },
+    {
+        "time": "2015-04-29T07:13:24.2120000Z",
+        "callingimsi": "466922201102759",
+        "callingnum1": "345698602",
+        "callingnum2": "789097900",
+        "switch1": "UK",
+        "switch2": "Australia"
+    },
+    {
+        "time": "2015-04-29T07:13:25.6320000Z",
+        "callingimsi": "466923300236137",
+        "callingnum1": "567850552",
+        "callingnum2": "789086133",
+        "switch1": "China",
+        "switch2": "Germany"
     }
-
-
-#### <a name="arrayofobjects-file-pattern"></a>Modello di file arrayOfObjects.
-Ogni file contiene una matrice di oggetti. 
-
-    [
-        {
-            "time": "2015-04-29T07:12:20.9100000Z",
-            "callingimsi": "466920403025604",
-            "callingnum1": "678948008",
-            "callingnum2": "567834760",
-            "switch1": "China",
-            "switch2": "Germany"
-        },
-        {
-            "time": "2015-04-29T07:13:21.0220000Z",
-            "callingimsi": "466922202613463",
-            "callingnum1": "123436380",
-            "callingnum2": "789037573",
-            "switch1": "US",
-            "switch2": "UK"
-        },
-        {
-            "time": "2015-04-29T07:13:21.4370000Z",
-            "callingimsi": "466923101048691",
-            "callingnum1": "678901578",
-            "callingnum2": "345626404",
-            "switch1": "Germany",
-            "switch2": "UK"
-        },
-        {
-            "time": "2015-04-29T07:13:22.0960000Z",
-            "callingimsi": "466922202613463",
-            "callingnum1": "789037573",
-            "callingnum2": "789044691",
-            "switch1": "UK",
-            "switch2": "Australia"
-        },
-        {
-            "time": "2015-04-29T07:13:22.0960000Z",
-            "callingimsi": "466922202613463",
-            "callingnum1": "123436380",
-            "callingnum2": "789044691",
-            "switch1": "US",
-            "switch2": "Australia"
-        },
-        {
-            "time": "2015-04-29T07:13:24.2120000Z",
-            "callingimsi": "466922201102759",
-            "callingnum1": "345698602",
-            "callingnum2": "789097900",
-            "switch1": "UK",
-            "switch2": "Australia"
-        },
-        {
-            "time": "2015-04-29T07:13:25.6320000Z",
-            "callingimsi": "466923300236137",
-            "callingnum1": "567850552",
-            "callingnum2": "789086133",
-            "switch1": "China",
-            "switch2": "Germany"
-        }
-    ]
-
+]
+```
 ### <a name="jsonformat-example"></a>Esempio JsonFormat
 Se si dispone di un file JSON con il contenuto seguente:  
 
-    {
-        "Id": 1,
-        "Name": {
-            "First": "John",
-            "Last": "Doe"
-        },
-        "Tags": ["Data Factory”, "Azure"]
-    }
-
+```json
+{
+    "Id": 1,
+    "Name": {
+        "First": "John",
+        "Last": "Doe"
+    },
+    "Tags": ["Data Factory”, "Azure"]
+}
+```
 e si desidera copiarlo in una tabella SQL di Azure nel formato seguente: 
 
 | ID | Name.First | Name.Middle | Name.Last | Tag |
@@ -210,27 +222,28 @@ e si desidera copiarlo in una tabella SQL di Azure nel formato seguente:
 
 Il set di dati di input con il tipo JsonFormat è definito come segue: (definizione parziale che include solo le parti pertinenti)
 
-    "properties": {
-        "structure": [
-            {"name": "Id", "type": "Int"},
-            {"name": "Name.First", "type": "String"},
-            {"name": "Name.Middle", "type": "String"},
-            {"name": "Name.Last", "type": "String"},
-            {"name": "Tags", "type": "string"}
-        ],
-        "typeProperties":
+```json
+"properties": {
+    "structure": [
+        {"name": "Id", "type": "Int"},
+        {"name": "Name.First", "type": "String"},
+        {"name": "Name.Middle", "type": "String"},
+        {"name": "Name.Last", "type": "String"},
+        {"name": "Tags", "type": "string"}
+    ],
+    "typeProperties":
+    {
+        "folderPath": "mycontainer/myfolder",
+        "format":
         {
-            "folderPath": "mycontainer/myfolder",
-            "format":
-            {
-                "type": "JsonFormat",
-                "filePattern": "setOfObjects",
-                "encodingName": "UTF-8",
-                "nestingSeparator": "."
-            }
+            "type": "JsonFormat",
+            "filePattern": "setOfObjects",
+            "encodingName": "UTF-8",
+            "nestingSeparator": "."
         }
     }
-
+}
+```
 Se la struttura non è definita, l’attività di copia rende flat la struttura per impostazione predefinita e copia ogni elemento. 
 
 #### <a name="supported-json-structure"></a>Struttura JSON supportata
@@ -245,10 +258,12 @@ Tenere presente quanto segue:
 ### <a name="specifying-orcformat"></a>Impostazione di OrcFormat
 Se il formato è impostato su OrcFormat, non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
 
-    "format":
-    {
-        "type": "OrcFormat"
-    }
+```json
+"format":
+{
+    "type": "OrcFormat"
+}
+```
 
 > [!IMPORTANT]
 > Se non si esegue una copia **identica** dei file ORC tra l'archivio dati locale e quello nel cloud, nel computer gateway è necessario installare JRE 8 (Java Runtime Environment). Per un gateway a 64 bit è necessario JRE a 64 bit, mentre per un gateway a 32 bit è necessario JRE a 32 bit. Entrambe le versioni sono disponibili [qui](http://go.microsoft.com/fwlink/?LinkId=808605). Scegliere la versione appropriata.
@@ -263,11 +278,12 @@ Tenere presente quanto segue:
 ### <a name="specifying-parquetformat"></a>Specificare ParquetFormat
 Se il formato è impostato su ParquetFormat, non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
 
-    "format":
-    {
-        "type": "ParquetFormat"
-    }
-
+```json
+"format":
+{
+    "type": "ParquetFormat"
+}
+```
 > [!IMPORTANT]
 > Se non si esegue una copia **identica** dei file Parquet tra l'archivio dati locale e quello nel cloud, nel computer gateway è necessario installare JRE 8 (Java Runtime Environment). Per un gateway a 64 bit è necessario JRE a 64 bit, mentre per un gateway a 32 bit è necessario JRE a 32 bit. Entrambe le versioni sono disponibili [qui](http://go.microsoft.com/fwlink/?LinkId=808605). Scegliere la versione appropriata.
 > 
